@@ -358,6 +358,12 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                      RecalboxConf::getInstance()->get("global.retroachievements") == "1");
                              retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
 
+                             // retroachievements_hardcore_mode
+                             auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
+                             retroachievements_hardcore_enabled->setState(
+                                     RecalboxConf::getInstance()->get("global.retroachievements.hardcore") == "1");
+                             retroachievements->addWithLabel(_("HARDCORE MODE"), retroachievements_hardcore_enabled);
+
                              // retroachievements, username, password
                              createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username",
                                                 false);
@@ -365,9 +371,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                 false);
 
 
-                             retroachievements->addSaveFunc([retroachievements_enabled] {
+                             retroachievements->addSaveFunc([retroachievements_enabled, retroachievements_hardcore_enabled] {
                                  RecalboxConf::getInstance()->set("global.retroachievements",
                                                                   retroachievements_enabled->getState() ? "1" : "0");
+                                 RecalboxConf::getInstance()->set("global.retroachievements.hardcore",
+                                                                  retroachievements_hardcore_enabled->getState() ? "1" : "0");
                                  RecalboxConf::getInstance()->saveRecalboxConf();
                              });
                              mWindow->pushGui(retroachievements);
