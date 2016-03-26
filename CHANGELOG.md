@@ -17,3 +17,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added autosave/load in game options
 - Added retroachievements in game options
 - Added retroachievements hardcore mode in game options
+- Added Creation of READY flag in /tmp directory

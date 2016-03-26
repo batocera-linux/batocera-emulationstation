@@ -363,6 +363,12 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	// Create a flag in  temporary directory to signal READY state
+	fs::path ready_path = fs::temp_directory_path();
+	ready_path /= "emulationstation.ready";
+	FILE* ready_file = fopen(ready_path.c_str(), "w");
+	if(ready_file) fclose(ready_file);
+
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
@@ -414,6 +420,9 @@ int main(int argc, char* argv[])
 
 		Log::flush();
 	}
+
+	// Clean ready flag
+	if(fs::exists(ready_path)) fs::remove(ready_path);
 
 	while(window.peekGui() != ViewController::get())
 		delete window.peekGui();
