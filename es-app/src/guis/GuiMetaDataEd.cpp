@@ -9,6 +9,7 @@
 #include <boost/filesystem.hpp>
 #include <RecalboxConf.h>
 #include <components/SwitchComponent.h>
+#include <LibretroRatio.h>
 
 #include "components/TextEditComponent.h"
 #include "components/DateTimeComponent.h"
@@ -141,6 +142,19 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                     ed = core_choice;
                 }
 
+                if (iter->key == "ratio") {
+                    auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, "ratio", false,
+                                                                                            FONT_SIZE_SMALL);
+                    row.addElement(ratio_choice, true);
+                    std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
+                    if (mMetaData->get("ratio") == "") {
+                        mMetaData->set("ratio", "auto");
+                    }
+                    for (auto ratio = ratioMap->begin(); ratio != ratioMap->end(); ratio++) {
+                        ratio_choice->add(ratio->first, ratio->second, mMetaData->get("ratio") == ratio->second);
+                    }
+                    ed = ratio_choice;
+                }
                 break;
             case MD_MULTILINE_STRING:
             default: {

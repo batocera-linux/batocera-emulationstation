@@ -14,6 +14,7 @@ void initMetadata() {
   // WARN : statistic metadata must be last in list !
   gameMDD.push_back(MetaDataDecl("emulator",	MD_LIST,		"default",		false,		_("Emulator"),			_("enter emulator")));
   gameMDD.push_back(MetaDataDecl("core",	MD_LIST,		"default",		false,		_("Core"),			_("enter core")));
+  gameMDD.push_back(MetaDataDecl("ratio",	MD_LIST,		"auto",			false,		_("Ratio"),			_("enter ratio")));
   gameMDD.push_back(MetaDataDecl("name",	MD_STRING,		"", 			false,		_("Name"),			_("enter game name")));
   gameMDD.push_back(MetaDataDecl("desc",	MD_MULTILINE_STRING,	"", 			false,		_("Description"),		_("enter description")));
   gameMDD.push_back(MetaDataDecl("image",	MD_IMAGE_PATH,		"", 			false,		_("Image"),			_("enter path to image")));
@@ -28,6 +29,7 @@ void initMetadata() {
   gameMDD.push_back(MetaDataDecl("region",	MD_STRING,		"",			false,		_("Region"),			_("enter region")));
   gameMDD.push_back(MetaDataDecl("romtype",	MD_STRING,		"Original",		false,		_("Romtype"),			_("enter romtype")));
   gameMDD.push_back(MetaDataDecl("hidden",	MD_BOOL,		"false",		false,		_("Hidden"),			_("set hidden")));
+
   gameMDD.push_back(MetaDataDecl("playcount",	MD_INT,			"0",			true,		_("Play count"),		_("enter number of times played")));
   gameMDD.push_back(MetaDataDecl("lastplayed",	MD_TIME,		"0", 			true,		_("Last played"),		_("enter last played date")));
 
