@@ -169,6 +169,7 @@ void SystemData::launchGame(Window* window, FileData* game)
 	command = strreplace(command, "%ROM_RAW%", rom_raw);
 	command = strreplace(command, "%EMULATOR%", game->metadata.get("emulator"));
 	command = strreplace(command, "%CORE%", game->metadata.get("core"));
+	command = strreplace(command, "%RATIO%", game->metadata.get("ratio"));
 
 	LOG(LogInfo) << "	" << command;
 	std::cout << "==============================================\n";

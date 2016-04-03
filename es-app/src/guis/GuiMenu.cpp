@@ -7,6 +7,7 @@
 #include <boost/algorithm/string/classification.hpp>
 
 #include <functional>
+#include <LibretroRatio.h>
 
 #include "EmulationStation.h"
 #include "guis/GuiMenu.h"
@@ -1159,16 +1160,16 @@ std::vector<HelpPrompt> GuiMenu::getHelpPrompts() {
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList(Window *window,
                                                                                  std::string configname) const {
-  auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(window, _("GAME RATIO"), false);
+    auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(window, _("GAME RATIO"), false);
     std::string currentRatio = RecalboxConf::getInstance()->get(configname + ".ratio");
     if (currentRatio.empty()) {
         currentRatio = std::string("auto");
     }
 
-    ratio_choice->add(_("CUSTOM"), "custom", currentRatio == "custom");
-    ratio_choice->add(_("AUTO"), "auto", currentRatio == "auto");
-    ratio_choice->add(_("4/3"), "4/3", currentRatio == "4/3");
-    ratio_choice->add(_("16/9"), "16/9", currentRatio == "16/9");
+    std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
+    for (auto ratio = ratioMap->begin(); ratio != ratioMap->end(); ratio++) {
+        ratio_choice->add(_(ratio->first.c_str()), ratio->second, currentRatio == ratio->second);
+    }
 
     return ratio_choice;
 }

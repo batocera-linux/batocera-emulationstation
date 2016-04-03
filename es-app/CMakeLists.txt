@@ -49,7 +49,9 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/animations/LaunchAnimation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/animations/MoveCameraAnimation.h
 
+    # Recalbox
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RecalboxSystem.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h
 )
 
 set(ES_SOURCES
@@ -99,6 +101,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RecalboxSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.cpp
 )
 
 #-------------------------------------------------------------------------------
