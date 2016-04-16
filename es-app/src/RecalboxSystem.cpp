@@ -473,3 +473,22 @@ bool RecalboxSystem::forgetBluetoothControllers() {
     int exitcode = system(oss.str().c_str());
     return exitcode == 0;
 }
+
+std::string RecalboxSystem::getRootPassword() {
+
+    std::ostringstream oss;
+    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "getRootPassword";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return "";
+    }
+
+    if(fgets(line, 1024, pipe)){
+        strtok(line, "\n");
+        pclose(pipe);
+        return std::string(line);
+    }
+    return oss.str().c_str();
+}
