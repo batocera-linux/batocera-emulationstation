@@ -21,6 +21,7 @@ public:
     std::string getFreeSpaceInfo();
     bool isFreeSpaceLimit();
     std::string getVersion();
+    std::string getRootPassword();
     bool setAudioOutputDevice(std::string device);
     bool setOverscan(bool enable);
     bool setOverclock(std::string mode);

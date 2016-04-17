@@ -267,6 +267,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          s->addRow(row);
                      }
 
+		     auto rootpassword = std::make_shared<TextComponent>(mWindow,
+									 RecalboxSystem::getInstance()->getRootPassword(),
+									 Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+                     s->addWithLabel(_("ROOT PASSWORD"), rootpassword);
+
 
                      s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage] {
                          bool reboot = false;
