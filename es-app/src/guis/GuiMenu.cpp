@@ -374,7 +374,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username",
                                                 false);
                              createInputTextRow(retroachievements, _("PASSWORD"), "global.retroachievements.password",
-                                                false);
+                                                true);
 
 
                              retroachievements->addSaveFunc([retroachievements_enabled, retroachievements_hardcore_enabled] {
