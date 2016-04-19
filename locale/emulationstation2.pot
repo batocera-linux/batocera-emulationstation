@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-26 22:26+0100\n"
+"POT-Creation-Date: 2016-04-19 11:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,6 +209,15 @@ msgstr ""
 msgid "START KODI WITH X"
 msgstr ""
 
+msgid "SECURITY"
+msgstr ""
+
+msgid "ENFORCE SECURITY"
+msgstr ""
+
+msgid "ROOT PASSWORD"
+msgstr ""
+
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr ""
 
@@ -240,6 +249,9 @@ msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "HARDCORE MODE"
 msgstr ""
 
 msgid "USERNAME"
@@ -416,15 +428,6 @@ msgstr ""
 msgid "SELECT"
 msgstr ""
 
-msgid "CUSTOM"
-msgstr ""
-
-msgid "4/3"
-msgstr ""
-
-msgid "16/9"
-msgstr ""
-
 msgid "OPTIONS"
 msgstr ""
 
@@ -492,6 +495,12 @@ msgid "enter emulator"
 msgstr ""
 
 msgid "enter core"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid "enter ratio"
 msgstr ""
 
 msgid "Name"
