@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-26 22:02+0100\n"
+"POT-Creation-Date: 2016-04-19 10:54+0200\n"
 "PO-Revision-Date: 2014-09-20 15:00-0500\n"
 "Last-Translator: nadenislamarre <nicolas.adenis.lamarre@gmail.com>\n"
 "Language: French\n"
@@ -209,6 +209,15 @@ msgstr "AUTO DÉMARRAGE DE KODI"
 msgid "START KODI WITH X"
 msgstr "X POUR LANCER KODI"
 
+msgid "SECURITY"
+msgstr "SÉCURITÉ"
+
+msgid "ENFORCE SECURITY"
+msgstr "RENFORCER LA SÉCURITÉ"
+
+msgid "ROOT PASSWORD"
+msgstr "MOT DE PASSE ROOT"
+
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "LE SYSTÈME VA REDÉMARRER"
 
@@ -241,6 +250,9 @@ msgstr "OPTIONS DE RETROACHIEVEMENTS"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
+
+msgid "HARDCORE MODE"
+msgstr "MODE HARDCORE"
 
 msgid "USERNAME"
 msgstr "NOM UTILISATEUR"
@@ -424,15 +436,6 @@ msgstr "CHOISIR"
 msgid "SELECT"
 msgstr "SÉLECTIONNER"
 
-msgid "CUSTOM"
-msgstr "PERSONALISÉ"
-
-msgid "4/3"
-msgstr "4/3"
-
-msgid "16/9"
-msgstr "16/9"
-
 msgid "OPTIONS"
 msgstr "OPTIONS"
 
@@ -506,6 +509,12 @@ msgstr "entrer l'émulateur"
 
 msgid "enter core"
 msgstr "entrer le core"
+
+msgid "Ratio"
+msgstr "Ratio"
+
+msgid "enter ratio"
+msgstr "entrer le ratio"
 
 msgid "Name"
 msgstr "Nom"
@@ -784,6 +793,15 @@ msgstr "CHARGEMENT..."
 
 msgid "PLEASE WAIT..."
 msgstr "VEUILLEZ PATIENTER..."
+
+#~ msgid "CUSTOM"
+#~ msgstr "PERSONALISÉ"
+
+#~ msgid "4/3"
+#~ msgstr "4/3"
+
+#~ msgid "16/9"
+#~ msgstr "16/9"
 
 #~ msgid "Original"
 #~ msgstr "Original"
