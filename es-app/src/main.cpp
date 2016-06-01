@@ -374,6 +374,9 @@ int main(int argc, char* argv[])
 
 	int lastTime = SDL_GetTicks();
 	bool running = true;
+	bool doReboot = false;
+	bool doShutdown = false;
+	
 	while(running)
 	{
 		SDL_Event event;
@@ -396,9 +399,23 @@ int main(int argc, char* argv[])
 				case SDL_QUIT:
 					running = false;
 					break;
-				case RecalboxSystem::SDL_FAST_QUIT:
+				case RecalboxSystem::SDL_FAST_QUIT | RecalboxSystem::SDL_RB_REBOOT:
 					running = false;
+					doReboot = true;
 					Settings::getInstance()->setBool("IgnoreGamelist", true);
+					break;
+				case RecalboxSystem::SDL_FAST_QUIT | RecalboxSystem::SDL_RB_SHUTDOWN:
+					running = false;
+					doShutdown = true;
+					Settings::getInstance()->setBool("IgnoreGamelist", true);
+					break;
+				case SDL_QUIT | RecalboxSystem::SDL_RB_REBOOT:
+					running = false;
+					doReboot = true;
+					break;
+				case SDL_QUIT | RecalboxSystem::SDL_RB_SHUTDOWN:
+					running = false;
+					doShutdown = true;
 					break;
 			}
 		}
@@ -435,6 +452,13 @@ int main(int argc, char* argv[])
 	SystemData::deleteSystems();
 	window.deinit();
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
+	if (doReboot) {
+		LOG(LogInfo) << "Rebooting system";
+		system("shutdown -r now");
+	} else if (doShutdown) {
+		LOG(LogInfo) << "Shutting system down";
+		system("shutdown -h now");
+	}
 
 	return 0;
 }

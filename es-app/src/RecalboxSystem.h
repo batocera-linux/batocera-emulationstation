@@ -11,6 +11,8 @@ public:
     static RecalboxSystem *getInstance();
 
     const static Uint32 SDL_FAST_QUIT = 0x800F;
+    const static Uint32 SDL_RB_SHUTDOWN = 0X4000;
+    const static Uint32 SDL_RB_REBOOT = 0x2000;
 
     unsigned long getFreeSpaceGB(std::string mountpoint);
 
