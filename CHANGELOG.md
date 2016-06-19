@@ -18,3 +18,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added retroachievements in game options
 - Added retroachievements hardcore mode in game options
 - Added Creation of READY flag in /tmp directory
+- Added integer scale option in game options
