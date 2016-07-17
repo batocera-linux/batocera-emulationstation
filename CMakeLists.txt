@@ -38,6 +38,15 @@ else()
     MESSAGE("libMali.so not found")
 endif()
 
+# on some drivers (the one for xu4 for example), the libmali is lowercase
+MESSAGE("Looking for libmali.so")
+if(EXISTS "/usr/lib/libmali.so")
+    MESSAGE("libmali.so found")
+    set(GLSystem "OpenGL ES")
+else()
+    MESSAGE("libmali.so not found")
+endif()
+
 #finding necessary packages
 #-------------------------------------------------------------------------------
 if(${GLSystem} MATCHES "Desktop OpenGL")
