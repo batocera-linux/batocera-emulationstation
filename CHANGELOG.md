@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 - Add new Traditional Chinese Language
-- 
+
 ### Added
 - Favorites as boolean in metadata
 - Game options for each available systems
