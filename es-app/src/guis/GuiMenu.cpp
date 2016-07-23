@@ -154,7 +154,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      std::string language = RecalboxConf::getInstance()->get("system.language");
                      if (language.empty()) language = "en_US";
 		     language_choice->add("BASQUE",    "eu_ES", language == "eu_ES");
-		     language_choice->add("CHINESE",   "zh_CN", language == "zh_CN");
+		     language_choice->add("正體中文",   "zh_TW", language == "zh_TW");
+		     language_choice->add("简体中文",   "zh_CN", language == "zh_CN");
 		     language_choice->add("DEUTSCH",   "de_DE", language == "de_DE");
 		     language_choice->add("ENGLISH",   "en_US", language == "en_US");
                      language_choice->add("ESPAÑOL",   "es_ES", language == "es_ES");
