@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 - Add new Traditional Chinese Language
+- Added Catalan translation
 
 ### Added
 - Favorites as boolean in metadata
