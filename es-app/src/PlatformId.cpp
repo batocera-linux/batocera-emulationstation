@@ -64,6 +64,17 @@ namespace PlatformIds
 		"wonderswan",
 		"wonderswancolor",
 		"zxspectrum",
+		"virtualboy",
+		"gw",
+		"pcenginecd",
+		"supergrafx",
+		"prboom",
+		"vectrex",
+		"lutro",
+		"cavestory",
+		"odyssey2",
+		"zx81",
+		"moonlight",
 
 		"ignore", // do not allow scraping for this system
 		"invalid"
