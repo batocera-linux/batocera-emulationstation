@@ -26,7 +26,7 @@ namespace PlatformIds
 		COMMODORE_64,
 		FAMILY_COMPUTER_DISK_SYSTEM,
 		INTELLIVISION,
-        MACOS,
+        	MACOS,
 		XBOX,
 		XBOX_360,
 		MSX,
@@ -64,6 +64,17 @@ namespace PlatformIds
 		WONDERSWAN,
 		WONDERSWAN_COLOR,
 		ZX_SPECTRUM,
+		VIRTUAL_BOY,
+		GAME_AND_WATCH,
+		PC_ENGINE_CD,
+		SUPERGRAFX,
+		PRBOOM,
+		VECTREX,
+		LUTRO,
+		CAVE_STORY
+		ODYSSEY_2,
+		ZX_81,
+		MOONLIGHT,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
