@@ -11,24 +11,25 @@ const std::map<PlatformId, const char*> gamesdb_platformid_map = boost::assign::
 	(THREEDO, "3DO")
 	(AMIGA, "Amiga")
 	(AMSTRAD_CPC, "Amstrad CPC")
-	// missing apple2
+	(APPLE_II, "Apple II")
 	(ARCADE, "Arcade")
-	// missing atari 800
+	(ATARI_800, "Atari 800")
 	(ATARI_2600, "Atari 2600")
 	(ATARI_5200, "Atari 5200")
 	(ATARI_7800, "Atari 7800")
+	(ATARI_LYNX, "Atari Lynx")
+	(ATARI_ST, "Atari ST")
 	(ATARI_JAGUAR, "Atari Jaguar")
 	(ATARI_JAGUAR_CD, "Atari Jaguar CD")
-	(ATARI_LYNX, "Atari Lynx")
-	// missing atari ST/STE/Falcon
 	(ATARI_XE, "Atari XE")
 	(COLECOVISION, "Colecovision")
 	(COMMODORE_64, "Commodore 64")
+	(FAMILY_COMPUTER_DISK_SYSTEM, "Famicom Disk System")
 	(INTELLIVISION, "Intellivision")
 	(MACOS, "Mac OS")
 	(XBOX, "Microsoft Xbox")
 	(XBOX_360, "Microsoft Xbox 360")
-	// missing MSX
+	(MSX, "MSX")
 	(NEOGEO, "NeoGeo")
 	(NEOGEO_POCKET, "Neo Geo Pocket")
 	(NEOGEO_POCKET_COLOR, "Neo Geo Pocket Color")
@@ -61,7 +62,18 @@ const std::map<PlatformId, const char*> gamesdb_platformid_map = boost::assign::
 	(TURBOGRAFX_16, "TurboGrafx 16")
 	(WONDERSWAN, "WonderSwan")
 	(WONDERSWAN_COLOR, "WonderSwan Color")
-	(ZX_SPECTRUM, "Sinclair ZX Spectrum");
+	(ZX_SPECTRUM, "Sinclair ZX Spectrum")
+	(VIRTUAL_BOY, "Nintendo Virtual Boy")
+	(GAME_AND_WATCH, "game-and-watch")
+	(PC_ENGINE_CD, "TurboGrafx CD")
+	(SUPERGRAFX, "TurboGrafx 16")
+	(PRBOOM, "PC")
+	(VECTREX, "Vectrex")
+	(LUTRO, "PC")
+	(CAVE_STORY, "PC")
+	(ODYSSEY_2, "Magnavox Odyssey 2")
+	(ZX_81, "Sinclair ZX Spectrum")
+	(MOONLIGHT,"PC");
 
 
 void thegamesdb_generate_scraper_requests(const ScraperSearchParams& params, std::queue< std::unique_ptr<ScraperRequest> >& requests, 
