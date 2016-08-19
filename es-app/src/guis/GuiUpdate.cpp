@@ -89,12 +89,11 @@ void GuiUpdate::update(int deltaTime) {
         }
         if(mState == 5){
             window->pushGui(
-			    new GuiMsgBox(window, _("UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"), _("OK"), 
-                [this] {
-                    if(runRestartCommand() != 0) {
-                        LOG(LogWarning) << "Reboot terminated with non-zero result!";
-                    }
-                })
+                    new GuiMsgBox(window, mResult.first, _("OK"),
+                                  [this] {
+                                      mState = -1;
+                                  }
+                    )
             );
             mState = 0;
         }
@@ -113,11 +112,11 @@ void GuiUpdate::update(int deltaTime) {
 
 void GuiUpdate::threadUpdate() 
 {
-    bool updateOk = RecalboxSystem::getInstance()->updateSystem();
-    if(updateOk){
+    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->updateSystem();
+    if(updateStatus.second == 0){
         this->onUpdateOk();
     }else {
-        this->onUpdateError();
+        this->onUpdateError(updateStatus);
     }  
 }
 
@@ -152,10 +151,11 @@ void GuiUpdate::onPingError()
     mLoading = false;
     mState = 3;
 }
-void GuiUpdate::onUpdateError()
+void GuiUpdate::onUpdateError(std::pair<std::string, int> result)
 {
     mLoading = false;
     mState = 5;
+    mResult = result;
 }
 
 void GuiUpdate::onUpdateOk()

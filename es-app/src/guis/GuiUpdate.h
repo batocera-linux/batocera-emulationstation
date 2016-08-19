@@ -25,10 +25,12 @@ private:
     BusyComponent mBusyAnim;
     bool mLoading;
     int mState;
+    std::pair<std::string, int> mResult;
+
     boost::thread *mHandle;
     boost::thread *mPingHandle;
 
-    void onUpdateError();
+    void onUpdateError(std::pair<std::string, int>);
 
     void onUpdateOk();
 
@@ -41,4 +43,5 @@ private:
     void onNoUpdateAvailable();
 
     void onPingError();
+
 };

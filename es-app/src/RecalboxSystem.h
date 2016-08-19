@@ -37,7 +37,7 @@ public:
 
     std::string getVersionMessage();
 
-    bool updateSystem();
+    std::pair<std::string, int> updateSystem();
 
     bool ping();
 
