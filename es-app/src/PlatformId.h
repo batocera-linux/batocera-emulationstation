@@ -71,7 +71,7 @@ namespace PlatformIds
 		PRBOOM,
 		VECTREX,
 		LUTRO,
-		CAVE_STORY
+		CAVE_STORY,
 		ODYSSEY_2,
 		ZX_81,
 		MOONLIGHT,
