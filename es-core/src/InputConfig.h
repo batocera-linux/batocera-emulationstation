@@ -84,7 +84,7 @@ public:
 class InputConfig
 {
 public:
-	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID);
+	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes);
 
 	void clear();
 	void mapInput(const std::string& name, Input input);
@@ -95,6 +95,7 @@ public:
 	inline int getDeviceIndex() const { return mDeviceIndex; };
 	inline const std::string& getDeviceName() { return mDeviceName; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
+	inline int getDeviceNbAxes() const { return mDeviceNbAxes; };
 
 	//Returns true if Input is mapped to this name, false otherwise.
 	bool isMappedTo(const std::string& name, Input input);
@@ -117,6 +118,7 @@ private:
 	const int mDeviceIndex;
 	const std::string mDeviceName;
 	const std::string mDeviceGUID;
+	const int mDeviceNbAxes; // number of axes of the device
 };
 
 #endif
