@@ -35,6 +35,7 @@
 #include "scrapers/GamesDBScraper.h"
 
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 #include "GuiLoading.h"
 
 #include "RecalboxConf.h"
@@ -74,7 +75,7 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
     }; // ok callback (apply new value to ed)
     row.makeAcceptInputHandler([this, title, updateVal, settingsID] {
         mWindow->pushGui(
-                new GuiTextEditPopup(mWindow, title, RecalboxConf::getInstance()->get(settingsID),
+                new GuiTextEditPopupKeyboard(mWindow, title, RecalboxConf::getInstance()->get(settingsID),
                                      updateVal, false));
     });
     gui->addRow(row);

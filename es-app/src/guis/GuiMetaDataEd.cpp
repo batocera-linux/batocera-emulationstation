@@ -16,6 +16,7 @@
 #include "components/RatingComponent.h"
 #include "components/OptionListComponent.h"
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 using namespace Eigen;
 
@@ -178,7 +179,10 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                     ed->setValue(newVal);
                 }; // ok callback (apply new value to ed)
                 row.makeAcceptInputHandler([this, title, ed, updateVal, multiLine] {
-                    mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));
+                    if (multiLine)
+                        mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));
+                    else
+                        mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, ed->getValue(), updateVal, multiLine));
                 });
                 break;
             }

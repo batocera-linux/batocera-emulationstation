@@ -30,6 +30,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRomsManager.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboard.h
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -85,6 +86,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRomsManager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboard.cpp
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp
