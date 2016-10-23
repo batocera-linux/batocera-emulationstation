@@ -454,9 +454,11 @@ int main(int argc, char* argv[])
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 	if (doReboot) {
 		LOG(LogInfo) << "Rebooting system";
+		system("touch /tmp/reboot.please");
 		system("shutdown -r now");
 	} else if (doShutdown) {
 		LOG(LogInfo) << "Shutting system down";
+		system("touch /tmp/shutdown.please");
 		system("shutdown -h now");
 	}
 
