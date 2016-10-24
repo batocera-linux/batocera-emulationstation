@@ -29,6 +29,7 @@ private:
 	std::vector< std::shared_ptr<ButtonComponent> > hButtons;
 	std::vector< std::shared_ptr<ButtonComponent> > bButtons;
 	std::vector< std::shared_ptr<ButtonComponent> > digitButtons;
+	std::vector< std::shared_ptr<ButtonComponent> > sButtons;
 
 	std::shared_ptr<TextComponent> mTitle;
 	std::shared_ptr<TextEditComponent> mText;
@@ -37,14 +38,16 @@ private:
 	std::shared_ptr<ComponentGrid> mNewGrid;
 
 	// Define keyboard key rows.
-	const char* numRow[10] = { "1","2","3","4","5","6","7","8","9","0" };
-	const char* numRowUp[10] = { "!", "@", "#", "$", "%", "^", "&", "*", "(", ")" };
-	const char* topRow[10] = { "q","w","e","r","t","y","u","i","o","p" };
-	const char* topRowUp[10] = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P" };		// Just so I don't have to deal with toupper
-	const char* homeRow[10] = { "a","s","d","f","g","h","j","k","l",";" };
-	const char* homeRowUp[10] = { "A", "S", "D", "F", "G", "H", "J", "K", "L", ":" };
-	const char* bottomRow[9] = { "z","x","c","v","b","n","m",",","." };						// Shift is handled in the constructor
-	const char* bottomRowUp[9] = { "Z", "X", "C", "V", "B", "N", "M", "<", ">" };
+	const char* numRow[12] = { "1","2","3","4","5","6","7","8","9","0","_","+" };
+	const char* numRowUp[12] = { "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=" };
+	const char* specialRow[12] = { "à","ä","è","ë","ì","ï","ò","ö","ù","ü","¨","¿" };
+	const char* specialRowUp[12] = { "á", "â", "é", "ê", "í", "î", "ó", "ô", "ú", "û", "ñ", "¡" };
+	const char* topRow[12] = { "q","w","e","r","t","y","u","i","o","p","{","}" };
+	const char* topRowUp[12] = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]" };		// Just so I don't have to deal with toupper
+	const char* homeRow[12] = { "a","s","d","f","g","h","j","k","l",";","\"","|" };
+	const char* homeRowUp[12] = { "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "'", "\\" };
+	const char* bottomRow[11] = { "~","z","x","c","v","b","n","m",",",".","?" };						// Shift is handled in the constructor
+	const char* bottomRowUp[11] = { "`", "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/" };
 
 	int mxIndex = 0;		// Stores the X index and makes every grid the same.
 
