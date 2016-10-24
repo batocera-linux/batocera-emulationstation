@@ -179,10 +179,10 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                     ed->setValue(newVal);
                 }; // ok callback (apply new value to ed)
                 row.makeAcceptInputHandler([this, title, ed, updateVal, multiLine] {
-                    if (multiLine)
-                        mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));
-                    else
+                    if (Settings::getInstance()->getBool("UseOSK")) || (!multiLine)
                         mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, ed->getValue(), updateVal, multiLine));
+                    else
+                        mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));
                 });
                 break;
             }

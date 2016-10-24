@@ -278,10 +278,10 @@ void GuiTextEditPopupKeyboard::shiftKeys() {
 		// Change Special chara
 		kButtons[10]->setText("[", "[");
 		kButtons[11]->setText("]", "]");
-        hButtons[9]->setText(":", ":");
+		hButtons[9]->setText(":", ":");
 		hButtons[10]->setText("'", "'");
 		hButtons[11]->setText("\\", "\\");
-        bButtons[1]->setText("`", "`");
+		bButtons[1]->setText("`", "`");
 		bButtons[9]->setText("<", "<");
 		bButtons[10]->setText(">", ">");
 		bButtons[11]->setText("/", "/");
@@ -292,10 +292,10 @@ void GuiTextEditPopupKeyboard::shiftKeys() {
 		// Change Special chara
 		kButtons[10]->setText("{", "{");
 		kButtons[11]->setText("}", "}");
-        hButtons[9]->setText(";", ";");
+		hButtons[9]->setText(";", ";");
 		hButtons[10]->setText("\"", "\"");
 		hButtons[11]->setText("|", "|");
-        bButtons[1]->setText("~", "~");
+		bButtons[1]->setText("~", "~");
 		bButtons[9]->setText(",", ",");
 		bButtons[10]->setText(".", ".");
 		bButtons[11]->setText("?", "?");
