@@ -53,6 +53,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 			}));
 
 			// Send just created button into mGrid
+			digitButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 			mKeyboardGrid->setEntry(digitButtons[k], Vector2i(k, 0), true, false);
 		}
 
@@ -74,6 +75,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 			}));
 
 			// Send just created button into mGrid
+			sButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 			mKeyboardGrid->setEntry(sButtons[k], Vector2i(k, 1), true, false);
 		}
 
@@ -99,6 +101,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		}
 
 		for (int k = 0; k < 12; k++) {
+			kButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 			mKeyboardGrid->setEntry(kButtons[k], Vector2i(k, 2), true, false);
 		}
 
@@ -124,6 +127,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		}
 
 		for (int k = 0; k < 12; k++) {
+			hButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 			mKeyboardGrid->setEntry(hButtons[k], Vector2i(k, 3), true, false);
 		}
 
@@ -167,6 +171,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 
 		// Do a sererate for loop because shift key makes it weird
 		for (int k = 0; k < 12; k++) {
+			bButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 			mKeyboardGrid->setEntry(bButtons[k], Vector2i(k, 4), true, false);
 		}
 
@@ -189,10 +194,10 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "CANCEL", _("DISCARD CHANGES"), [this] { delete this; }));
 
 	// Add a/c buttons
-	mKeyboardGrid->setEntry(buttons[0], Vector2i(4, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[1], Vector2i(5, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[2], Vector2i(6, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[3], Vector2i(7, 5), true, false, Vector2i(1, 1));
+	mKeyboardGrid->setEntry(buttons[0], Vector2i(2, 5), true, false, Vector2i(1, 1));
+	mKeyboardGrid->setEntry(buttons[1], Vector2i(4, 5), true, false, Vector2i(1, 1));
+	mKeyboardGrid->setEntry(buttons[2], Vector2i(7, 5), true, false, Vector2i(1, 1));
+	mKeyboardGrid->setEntry(buttons[3], Vector2i(9, 5), true, false, Vector2i(1, 1));
 
 	mGrid.setEntry(mKeyboardGrid, Vector2i(0, 2), true, true, Vector2i(2, 5));
 
@@ -285,6 +290,16 @@ void GuiTextEditPopupKeyboard::shiftKeys() {
 		bButtons[9]->setText("<", "<");
 		bButtons[10]->setText(">", ">");
 		bButtons[11]->setText("/", "/");
+		// Resize Special chara key
+		kButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		kButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[1]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 	} else {
 		// UNSHIFTING
 		// Remove button color
@@ -299,6 +314,16 @@ void GuiTextEditPopupKeyboard::shiftKeys() {
 		bButtons[9]->setText(",", ",");
 		bButtons[10]->setText(".", ".");
 		bButtons[11]->setText("?", "?");
+		// Resize Special chara key
+		kButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		kButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		hButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[1]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
+		bButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
 	}
 
 }
