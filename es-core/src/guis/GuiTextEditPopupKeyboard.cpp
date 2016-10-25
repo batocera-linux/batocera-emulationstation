@@ -239,7 +239,7 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 		return true;
 
 	// pressing back when not text editing closes us
-	if (config->isMappedTo("b", input) && input.value)
+	if (config->isMappedTo("a", input) && input.value)
 	{
 		delete this;
 		return true;
@@ -258,8 +258,8 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 		mText->textInput(" ");
 	}
 
-	// For Shifting (X)
-	if (config->isMappedTo("x", input) && input.value) {
+	// For Shifting (Y)
+	if (config->isMappedTo("y", input) && input.value) {
 		if (mShift) mShift = false;
 		else mShift = true;
 		shiftKeys();
@@ -331,8 +331,8 @@ void GuiTextEditPopupKeyboard::shiftKeys() {
 std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
-	prompts.push_back(HelpPrompt("x", _("SHIFT")));
-	prompts.push_back(HelpPrompt("b", _("BACK")));
+	prompts.push_back(HelpPrompt("y", _("SHIFT")));
+	prompts.push_back(HelpPrompt("a", _("BACK")));
 	prompts.push_back(HelpPrompt("r", _("SPACE")));
 	prompts.push_back(HelpPrompt("l", _("DELETE")));
 	return prompts;
