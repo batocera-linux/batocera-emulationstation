@@ -13,7 +13,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	addChild(&mGrid);
 
 	mTitle = std::make_shared<TextComponent>(mWindow, strToUpper(title), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
-	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(12, 6));
+	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(12, 5));
 
 	mText = std::make_shared<TextEditComponent>(mWindow);
 	mText->setValue(initValue);
@@ -178,28 +178,28 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		// END KEYBOARD IF
 	}
 
+	// Add keyboard keys
+	mGrid.setEntry(mKeyboardGrid, Vector2i(0, 2), true, true, Vector2i(2, 4));
 
-	// Accept/Cancel buttons
+	// Accept/Cancel/Delete/Space buttons
+	std::vector<std::shared_ptr<ButtonComponent> > buttons;
+
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, acceptBtnText, acceptBtnText, [this, okCallback] { okCallback(mText->getValue()); delete this; }));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SPACE"), _("SPACE"), [this] {
 		mText->startEditing();
 		mText->textInput(" ");
 		mText->stopEditing();
 	}));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DEL"), _("DELETE A CHAR"), [this] {
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE A CHAR"), [this] {
 		mText->startEditing();
 		mText->textInput("\b");
 		mText->stopEditing();
 	}));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("DISCARD CHANGES"), [this] { delete this; }));
 
-	// Add a/c buttons
-	mKeyboardGrid->setEntry(buttons[0], Vector2i(2, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[1], Vector2i(4, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[2], Vector2i(7, 5), true, false, Vector2i(1, 1));
-	mKeyboardGrid->setEntry(buttons[3], Vector2i(9, 5), true, false, Vector2i(1, 1));
-
-	mGrid.setEntry(mKeyboardGrid, Vector2i(0, 2), true, true, Vector2i(2, 5));
+	// Add buttons
+	mButtons = makeButtonGrid(mWindow, buttons);
+	mGrid.setEntry(mButtons, Vector2i(0, 6), true, false);
 
 	// Determine size from text size
 	float textHeight = mText->getFont()->getHeight();
@@ -229,6 +229,7 @@ void GuiTextEditPopupKeyboard::onSizeChanged()
 	// update grid
 	mGrid.setRowHeightPerc(0, mTitle->getFont()->getHeight() / mSize.y());
 	mGrid.setRowHeightPerc(2, mKeyboardGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeightPerc(6, mButtons->getSize().y() / mSize.y());
 
 	mGrid.setSize(mSize);
 }
