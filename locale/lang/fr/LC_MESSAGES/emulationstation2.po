@@ -1008,7 +1008,8 @@ msgid "WE CAN'T FIND ANY SYSTEMS!\n"
 "\n"
 "VISIT RECALBOX.FR FOR MORE INFORMATION."
 msgstr "Aucun système trouvé !\n"
-""
+"\n"
+"Visitez le site recalbox.com pour plus d'infos !"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
