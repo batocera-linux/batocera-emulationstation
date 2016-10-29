@@ -4,6 +4,7 @@
 #include <functional>
 #include "resources/Font.h"
 #include "components/NinePatchComponent.h"
+#include <string>
 
 class ButtonComponent : public GuiComponent
 {
@@ -26,6 +27,9 @@ public:
 	void onFocusGained() override;
 	void onFocusLost() override;
 
+	void setColorShift(unsigned int color) { mModdedColor = color; mNewColor = true; updateImage(); }
+	void removeColorShift() { mNewColor = false; updateImage(); }
+
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
@@ -34,8 +38,10 @@ private:
 
 	bool mFocused;
 	bool mEnabled;
+	bool mNewColor = false;
 	unsigned int mTextColorFocused;
 	unsigned int mTextColorUnfocused;
+	unsigned int mModdedColor;
 	
 	unsigned int getCurTextColor() const;
 	void updateImage();

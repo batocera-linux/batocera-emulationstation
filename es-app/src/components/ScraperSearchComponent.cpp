@@ -13,6 +13,7 @@
 #include "Log.h"
 #include "Util.h"
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 #include "Locale.h"
 
 ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) : GuiComponent(window),
@@ -450,18 +451,28 @@ void ScraperSearchComponent::openInputScreen(ScraperSearchParams& params)
 		search(params);
 	};
 
+	bool openOSK = Settings::getInstance()->getBool("UseOSK");
+
 	stop();
-	mWindow->pushGui(new GuiTextEditPopup(mWindow, _("SEARCH FOR"),
-		// initial value is last search if there was one, otherwise the clean path name
-		params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride, 
-					      searchForFunc, false, _("SEARCH")));
+	if (openOSK) {
+		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("SEARCH FOR"),
+			// initial value is last search if there was one, otherwise the clean path name
+			params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride,
+			searchForFunc, false, _("SEARCH")));
+	}
+	else {
+		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("SEARCH FOR"),
+			// initial value is last search if there was one, otherwise the clean path name
+			params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride,
+			searchForFunc, false, _("SEARCH")));
+	}
 }
 
 std::vector<HelpPrompt> ScraperSearchComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
 	if(getSelectedIndex() != -1)
-		prompts.push_back(HelpPrompt("b", "accept result"));
+		prompts.push_back(HelpPrompt("b", _("ACCEPT RESULT")));
 	
 	return prompts;
 }

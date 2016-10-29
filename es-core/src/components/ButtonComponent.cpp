@@ -80,6 +80,14 @@ void ButtonComponent::updateImage()
 		return;
 	}
 
+	// If a new color has been set.  
+	if (mNewColor) {
+		mBox.setImagePath(":/button_filled.png");
+		mBox.setCenterColor(mModdedColor);
+		mBox.setEdgeColor(mModdedColor);
+		return;
+	}
+
 	mBox.setCenterColor(0xFFFFFFFF);
 	mBox.setEdgeColor(0xFFFFFFFF);
 	mBox.setImagePath(mFocused ? ":/button_filled.png" : ":/button.png");

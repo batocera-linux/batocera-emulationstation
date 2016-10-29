@@ -782,3 +782,30 @@ msgstr ""
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr ""
+
+msgid "ON SCREEN KEYBOARD"
+msgstr ""
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+msgid "SPACE"
+msgstr ""
+
+msgid "DELETE A CHAR"
+msgstr ""
+ 
+msgid "SHIFT"
+msgstr ""
+
+msgid "STOP EDITING"
+msgstr ""
+
+msgid "MOVE CURSOR"
+msgstr ""
+
+msgid "EDIT"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr ""

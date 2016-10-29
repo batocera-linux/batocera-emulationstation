@@ -68,6 +68,6 @@ bool GuiTextEditPopup::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiTextEditPopup::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", "back"));
+	prompts.push_back(HelpPrompt("a", _("BACK")));
 	return prompts;
 }

@@ -35,6 +35,7 @@
 #include "scrapers/GamesDBScraper.h"
 
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 #include "GuiLoading.h"
 
 #include "RecalboxConf.h"
@@ -72,10 +73,17 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
         }
         RecalboxConf::getInstance()->set(settingsID, newVal);
     }; // ok callback (apply new value to ed)
+    
     row.makeAcceptInputHandler([this, title, updateVal, settingsID] {
-        mWindow->pushGui(
+        if (Settings::getInstance()->getBool("UseOSK")) {
+            mWindow->pushGui(
+                new GuiTextEditPopupKeyboard(mWindow, title, RecalboxConf::getInstance()->get(settingsID),
+                                        updateVal, false));
+        } else {
+            mWindow->pushGui(
                 new GuiTextEditPopup(mWindow, title, RecalboxConf::getInstance()->get(settingsID),
-                                     updateVal, false));
+                                       updateVal, false));
+        }
     });
     gui->addRow(row);
 }
@@ -598,6 +606,13 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      s->addSaveFunc([quick_sys_select] {
                          Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
                      });
+
+                    // Enable OSK (On-Screen-Keyboard)
+                    auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
+                    osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
+                    s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
+                    s->addSaveFunc([osk_enable] {
+                         Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); } );
 
                      // transition style
                      auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
