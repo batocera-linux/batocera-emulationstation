@@ -18,8 +18,7 @@ msgstr "إلغاء"
 
 #: 
 msgid "Rating"
-msgstr "تصنيف\n"
-""
+msgstr "تصنيف"
 
 #: 
 msgid "Released"
