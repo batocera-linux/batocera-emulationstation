@@ -173,11 +173,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      language_choice->add("SVENSKA",             "sv_SE", language == "sv_SE");
                      language_choice->add("TÜRKÇE",              "tr_TR", language == "tr_TR");
                      language_choice->add("CATALÀ",              "ca_ES", language == "ca_ES");
-                     language_choice->add("ARABIC",              "ar", language == "ar");
-                     language_choice->add("DUTCH",               "nl", language == "nl");
-                     language_choice->add("GREEK",               "el", language == "el");
-                     language_choice->add("KOREAN",              "ko", language == "ko");
-                     language_choice->add("NORWEGIAN",           "no", language == "no");
+                     language_choice->add("ARABIC",              "ar_YE", language == "ar_YE");
+                     language_choice->add("DUTCH",               "nl_NL", language == "nl_NL");
+                     language_choice->add("GREEK",               "el_GR", language == "el_GR");
+                     language_choice->add("KOREAN",              "ko_KR", language == "ko_KR");
+                     language_choice->add("NORWEGIAN",           "nn_NO", language == "nn_NO");
                      language_choice->add("NORWEGIAN BOKMAL",    "nb_NO", language == "nb_NO");
                      language_choice->add("POLISH",    "pl", language == "pl");
 
