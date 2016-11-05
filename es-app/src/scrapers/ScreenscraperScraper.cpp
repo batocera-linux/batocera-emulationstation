@@ -80,7 +80,8 @@ static const std::map<std::string, const char*> system_language_map = boost::ass
 	("fr_FR", "")
 	("de_DE", "forcelangue=de&")
 	("es_ES", "forcelangue=es&")
-	("en_US", "forcelangue=en&");
+	("en_US", "forcelangue=en&")
+	("pt_BR", "forcelangue=pt&");
 
 void screenscraper_generate_scraper_requests(const ScraperSearchParams& params, std::queue< std::unique_ptr<ScraperRequest> >& requests, 
 	std::vector<ScraperSearchResult>& results)
