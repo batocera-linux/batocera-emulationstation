@@ -10,6 +10,7 @@
 #include <boost/filesystem.hpp>
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiMsgBoxScroll.h"
 #include "AudioManager.h"
 #include "platform.h"
 #include "Log.h"
@@ -325,7 +326,7 @@ int main(int argc, char* argv[])
 	RecalboxSystem::getInstance()->getIpAdress();
 	// UPDATED VERSION MESSAGE
 	if(RecalboxSystem::getInstance()->needToShowVersionMessage()){
-		 window.pushGui(new GuiMsgBox(&window,
+		 window.pushGui(new GuiMsgBoxScroll(&window,
 		RecalboxSystem::getInstance()->getVersionMessage(),
 					      _("OK"), [] {
 					 RecalboxSystem::getInstance()->updateLastVersionFile();

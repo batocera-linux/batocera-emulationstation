@@ -23,3 +23,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added Creation of READY flag in /tmp directory
 - Added integer scale option in game options
 - Added a virtual keyboard
+- Added GuiMsgBoxScroll, a scrollable message box

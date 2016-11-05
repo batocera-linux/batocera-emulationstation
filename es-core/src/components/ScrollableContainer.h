@@ -14,15 +14,17 @@ public:
 
 	void update(int deltaTime) override;
 	void render(const Eigen::Affine3f& parentTrans) override;
+	int mAutoScrollDelay; // ms to wait before starting to autoscroll
+	int mAutoScrollSpeed; // ms to wait before scrolling down by mScrollDir
+	int mAutoScrollResetAccumulator;
+	int mAutoScrollAccumulator;
+
 
 private:
 	Eigen::Vector2f getContentSize();
 
 	Eigen::Vector2f mScrollPos;
 	Eigen::Vector2f mScrollDir;
-	int mAutoScrollDelay; // ms to wait before starting to autoscroll
-	int mAutoScrollSpeed; // ms to wait before scrolling down by mScrollDir
-	int mAutoScrollAccumulator;
 	bool mAtEnd;
-	int mAutoScrollResetAccumulator;
+
 };
