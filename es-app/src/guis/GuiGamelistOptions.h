@@ -33,8 +33,10 @@ private:
 	std::shared_ptr<SortList> mListSort;
 
 	std::shared_ptr<SwitchComponent> mFavoriteOption;
+	std::shared_ptr<SwitchComponent> mShowHidden;
 
 	bool mFavoriteState;
+	bool mHiddenState;
 	
 	SystemData* mSystem;
 	IGameListView* getGamelist();

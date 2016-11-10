@@ -46,6 +46,7 @@ public:
 
 	std::vector<FileData*> getFilesRecursive(unsigned int typeMask) const;
 	std::vector<FileData*> getFavoritesRecursive(unsigned int typeMask) const;
+	std::vector<FileData*> getHiddenRecursive(unsigned int typeMask) const;
 	void changePath(const boost::filesystem::path& path);
 	void addChild(FileData* file); // Error if mType != FOLDER
 	void removeChild(FileData* file); //Error if mType != FOLDER

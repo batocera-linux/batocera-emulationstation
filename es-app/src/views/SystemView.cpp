@@ -241,16 +241,27 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	unsigned int gameCount = getSelected()->getGameCount();
 	unsigned int favoritesCount = getSelected()->getFavoritesCount();
+	unsigned int hiddenCount = getSelected()->getHiddenCount();
+	unsigned int gameNoHiddenCount = gameCount - hiddenCount;
 
 	// also change the text after we've fully faded out
-	setAnimation(infoFadeOut, 0, [this, gameCount, favoritesCount] {
+	setAnimation(infoFadeOut, 0, [this, gameCount, favoritesCount, gameNoHiddenCount, hiddenCount] {
 		char strbuf[256];
-		if(favoritesCount == 0) {
-		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount).c_str(), gameCount);
-		} else {
-		  snprintf(strbuf, 256,
-			   (ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount) + ", " +
-			    ngettext("%i FAVORITE", "%i FAVORITES", favoritesCount)).c_str(), gameCount, favoritesCount);
+		if(favoritesCount == 0 && hiddenCount == 0) {
+			snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameNoHiddenCount).c_str(), gameNoHiddenCount);
+		}else if (favoritesCount != 0 && hiddenCount == 0) {
+			snprintf(strbuf, 256,
+				(ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameNoHiddenCount) + ", " +
+				 ngettext("%i FAVORITE", "%i FAVORITES", favoritesCount)).c_str(), gameNoHiddenCount, favoritesCount);
+		}else if (favoritesCount == 0 && hiddenCount != 0) {
+			snprintf(strbuf, 256,
+				(ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameNoHiddenCount) + ", " +
+				 ngettext("%i GAME HIDDEN", "%i GAMES HIDDEN", hiddenCount)).c_str(), gameNoHiddenCount, hiddenCount);
+		}else {
+			snprintf(strbuf, 256,
+				(ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameNoHiddenCount) + ", " +
+				 ngettext("%i GAME HIDDEN", "%i GAMES HIDDEN", hiddenCount) + ", " +
+				 ngettext("%i FAVORITE", "%i FAVORITES", favoritesCount)).c_str(), gameNoHiddenCount, hiddenCount, favoritesCount);
 		}
 		mSystemInfo.setText(strbuf);
 	}, false, 1);
