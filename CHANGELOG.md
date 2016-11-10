@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - Add new Traditional Chinese Language
 - Added Catalan translation
+- Added a virtual keyboard
+- Added GuiMsgBoxScroll, a scrollable message box
+- Added a Screenscraper DB scraper
 
 ### Added
 - Favorites as boolean in metadata
@@ -22,5 +25,3 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added retroachievements hardcore mode in game options
 - Added Creation of READY flag in /tmp directory
 - Added integer scale option in game options
-- Added a virtual keyboard
-- Added GuiMsgBoxScroll, a scrollable message box

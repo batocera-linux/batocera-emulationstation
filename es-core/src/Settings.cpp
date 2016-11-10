@@ -82,7 +82,7 @@ void Settings::setDefaults() {
     mStringMap["TransitionStyle"] = "fade";
     mStringMap["ThemeSet"] = "";
     mStringMap["ScreenSaverBehavior"] = "dim";
-    mStringMap["Scraper"] = "TheGamesDB";
+    mStringMap["Scraper"] = "Screenscraper";
     mStringMap["Lang"] = "en_US";
     mStringMap["INPUT P1"] = "DEFAULT";
     mStringMap["INPUT P2"] = "DEFAULT";
