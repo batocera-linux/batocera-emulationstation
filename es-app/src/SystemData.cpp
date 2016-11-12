@@ -540,6 +540,11 @@ unsigned int SystemData::getFavoritesCount() const
 	return mRootFolder->getFavoritesRecursive(GAME).size();
 }
 
+unsigned int SystemData::getHiddenCount() const
+{
+	return mRootFolder->getHiddenRecursive(GAME).size();
+}
+
 void SystemData::loadTheme()
 {
 	mTheme = std::make_shared<ThemeData>();
