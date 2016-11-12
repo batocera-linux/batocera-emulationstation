@@ -9,6 +9,9 @@ namespace FileSorts
 	bool compareRating(const FileData* file1, const FileData* file2);
 	bool compareTimesPlayed(const FileData* file1, const FileData* fil2);
 	bool compareLastPlayed(const FileData* file1, const FileData* file2);
+	bool compareNumberPlayers(const FileData* file1, const FileData* file2);
+	bool compareDevelopper(const FileData* file1, const FileData* file2);
+	bool compareGenre(const FileData* file1, const FileData* file2);
 
 	extern std::vector<FileData::SortType> SortTypes;
 	void init();
