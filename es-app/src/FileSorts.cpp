@@ -16,8 +16,8 @@ namespace FileSorts
 	SortTypes.push_back(FileData::SortType(&compareLastPlayed, false, "\uF161 " + _("LAST PLAYED")));
 	SortTypes.push_back(FileData::SortType(&compareNumberPlayers, true, "\uF162 " + _("NUMBER OF PLAYERS")));
 	SortTypes.push_back(FileData::SortType(&compareNumberPlayers, false, "\uF163 " + _("NUMBER OF PLAYERS")));
-	SortTypes.push_back(FileData::SortType(&compareDevelopper, true, "\uF15d " + _("DEVELOPPER")));
-	SortTypes.push_back(FileData::SortType(&compareDevelopper, false, "\uF15e " + _("DEVELOPPER")));
+	SortTypes.push_back(FileData::SortType(&compareDevelopper, true, "\uF15d " + _("DEVELOPER")));
+	SortTypes.push_back(FileData::SortType(&compareDevelopper, false, "\uF15e " + _("DEVELOPER")));
 	SortTypes.push_back(FileData::SortType(&compareGenre, true, "\uF15d " + _("GENRE")));
 	SortTypes.push_back(FileData::SortType(&compareGenre, false, "\uF15e " + _("GENRE")));
   }
