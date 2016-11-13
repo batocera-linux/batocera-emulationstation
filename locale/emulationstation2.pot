@@ -775,35 +775,31 @@ msgid "MENU"
 msgstr ""
 
 #: 
-msgid "FILENAME, ASCENDING"
+msgid "FILENAME"
 msgstr ""
 
 #: 
-msgid "FILENAME, DESCENDING"
+msgid "RATING"
 msgstr ""
 
 #: 
-msgid "RATING, ASCENDING"
+msgid "TIMES PLAYED"
 msgstr ""
 
 #: 
-msgid "RATING, DESCENDING"
+msgid "LAST PLAYED"
 msgstr ""
 
 #: 
-msgid "TIMES PLAYED, ASCENDING"
+msgid "NUMBER OF PLAYERS"
 msgstr ""
 
 #: 
-msgid "TIMES PLAYED, DESCENDING"
+msgid "DEVELOPER"
 msgstr ""
 
 #: 
-msgid "LAST PLAYED, ASCENDING"
-msgstr ""
-
-#: 
-msgid "LAST PLAYED, DESCENDING"
+msgid "GENRE"
 msgstr ""
 
 #: 
@@ -1038,5 +1034,9 @@ msgstr ""
 
 #: 
 msgid "ACCEPT RESULT"
+msgstr ""
+
+#: 
+msgid "SHOW HIDDEN"
 msgstr ""
 
