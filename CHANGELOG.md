@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added a virtual keyboard
 - Added GuiMsgBoxScroll, a scrollable message box
 - Added a Screenscraper DB scraper
+- Added 3 new sort lists : by genre/developer/number of players
+- Added an option to show hidden games
 
 ### Added
 - Favorites as boolean in metadata
