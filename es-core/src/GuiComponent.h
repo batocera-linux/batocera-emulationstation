@@ -92,6 +92,9 @@ public:
 
 	virtual inline void setScrollDir(int dir) {}
 
+	// Returns true if the component is busy doing background processing (e.g. HTTP downloads)
+	bool isProcessing() const;
+
 protected:
 	void renderChildren(const Eigen::Affine3f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
@@ -105,6 +108,8 @@ protected:
 
 	Eigen::Vector3f mPosition;
 	Eigen::Vector2f mSize;
+
+	bool mIsProcessing;
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;

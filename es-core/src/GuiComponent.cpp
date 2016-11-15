@@ -6,7 +6,7 @@
 #include "ThemeData.h"
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255), 
-	mPosition(Eigen::Vector3f::Zero()), mSize(Eigen::Vector2f::Zero()), mTransform(Eigen::Affine3f::Identity())
+	mPosition(Eigen::Vector3f::Zero()), mSize(Eigen::Vector2f::Zero()), mTransform(Eigen::Affine3f::Identity()), mIsProcessing(false)
 {
 	for(unsigned char i = 0; i < MAX_ANIMATIONS; i++)
 		mAnimationMap[i] = NULL;
@@ -338,4 +338,9 @@ void GuiComponent::updateHelpPrompts()
 HelpStyle GuiComponent::getHelpStyle()
 {
 	return HelpStyle();
+}
+
+bool GuiComponent::isProcessing() const
+{
+	return mIsProcessing;
 }

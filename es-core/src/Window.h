@@ -45,6 +45,10 @@ private:
 	void onWake();
 	void renderWaitingScreen(const std::string& text);
 
+	// Returns true if at least one component on the stack is processing
+	bool isProcessing();
+	void renderScreenSaver();
+
 	HelpComponent* mHelp;
 	ImageComponent* mBackgroundOverlay;
 
