@@ -8,6 +8,8 @@
 #include "RecalboxConf.h"
 #include "Settings.h"
 #include "ThemeData.h"
+#include <unistd.h>
+#include <time.h>
 
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 std::vector<std::shared_ptr<Music>> AudioManager::sMusicVector;
@@ -211,6 +213,7 @@ std::shared_ptr<Music> AudioManager::getRandomMusic(std::string themeSoundDirect
             if(musics.empty()) return NULL;
         } else return NULL;
     }
+    srand (time(NULL) % getpid() + getppid());
     int randomIndex = rand() % musics.size();
     std::shared_ptr<Music> bgsound = Music::get(musics.at(randomIndex));
     return bgsound;
