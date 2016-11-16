@@ -73,6 +73,6 @@ int runSystemCommand(const std::string& cmd_utf8)
 	std::wstring wchar_str = converter.from_bytes(cmd_utf8);
 	return _wsystem(wchar_str.c_str());
 #else
-	return system((cmd_utf8 + " 2> /recalbox/share/system/logs/es_launch_stderr.log | tail -300 > /recalbox/share/system/logs/es_launch_stdout.log").c_str());
+	return system((cmd_utf8 + " 2> /recalbox/share/system/logs/es_launch_stderr.log | head -300 > /recalbox/share/system/logs/es_launch_stdout.log").c_str());
 #endif
 }
