@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added 3 new sort lists : by genre/developer/number of players
 - Added an option to show hidden games
 - Fix : Es scraper won't no more gets stuck when screensaver is activated
+- Fix : Background musics are now played randomly
 
 ### Added
 - Favorites as boolean in metadata
