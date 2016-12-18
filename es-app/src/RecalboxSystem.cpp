@@ -62,10 +62,14 @@ std::string RecalboxSystem::getFreeSpaceInfo() {
             unsigned long total = (fiData.f_blocks * (fiData.f_bsize / 1024)) / (1024L * 1024L);
             unsigned long free = (fiData.f_bfree * (fiData.f_bsize / 1024)) / (1024L * 1024L);
             unsigned long used = total - free;
-            unsigned long percent = used * 100 / total;
-
+            unsigned long percent = 0;
             std::ostringstream oss;
-            oss << used << "GB/" << total << "GB (" << percent << "%)";
+            if (total != 0){  //for small SD card ;) with share < 1GB
+				percent = used * 100 / total;
+                oss << used << "GB/" << total << "GB (" << percent << "%)";
+			}
+			else
+			    oss << "N/A";
             return oss.str();
         }
     } else {

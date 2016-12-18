@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Fix Bug with small SHARE partition
 - Add new Traditional Chinese Language
 - Added Catalan translation
 - Added a virtual keyboard
