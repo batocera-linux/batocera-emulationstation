@@ -91,7 +91,7 @@ void Settings::setDefaults() {
     mStringMap["INPUT P4"] = "DEFAULT";
     mStringMap["Overclock"] = "none";
     mStringMap["UpdateCommand"] = "/recalbox/scripts/recalbox-upgrade.sh";
-    mStringMap["UpdateServer"] = "recalbox.com";
+    mStringMap["UpdateServer"] = "archive.recalbox.com";
     mStringMap["VersionFile"] = "/recalbox/recalbox.version";
     mStringMap["SharePartition"] = "/recalbox/share/";
     mStringMap["RecalboxSettingScript"] = "/recalbox/scripts/recalbox-config.sh";
