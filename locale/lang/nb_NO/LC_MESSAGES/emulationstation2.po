@@ -1012,37 +1012,69 @@ msgstr "VI KAN IKKE FINNE NOEN KONSOLLER!\n"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "Tastatur (På Skjermen)"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "SKIFT TEGN"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "Mellomrom"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "SLETT ET TEGN"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "STOPP ENDRING"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "FLYTT MUSEPEKER"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "ENDRE"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "AKSEPTER RESULTAT"
+
+#: 
+msgid "FILENAME"
+msgstr "FILNAVN"
+
+#: 
+msgid "RATING"
+msgstr "RANGERING"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "GANGER SPILLT"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "SIST SPILLT"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "ANTALL SPILLERE"
+
+#: 
+msgid "DEVELOPER"
+msgstr "UTVIKLER"
+
+#: 
+msgid "GENRE"
+msgstr "SJANGER"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "VIS SKJULTE"
 
