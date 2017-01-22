@@ -1,0 +1,1104 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: recalbox-emulationstation\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: 
+msgid "AN UPDATE IS AVAILABLE FOR YOUR RECALBOX"
+msgstr "Доступно обновление для RECALBOX!"
+
+#: 
+msgid "CANCEL"
+msgstr "Отмена"
+
+#: 
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: 
+msgid "Released"
+msgstr "Выпущено"
+
+#: 
+msgid "Developer"
+msgstr "Разрабочтик"
+
+#: 
+msgid "Publisher"
+msgstr "Издатель"
+
+#: 
+msgid "Genre"
+msgstr "Жанр"
+
+#: 
+msgid "Players"
+msgstr "Игроки"
+
+#: 
+msgid "NO GAMES FOUND - SKIP"
+msgstr "Игры не найдены! - Пропустить"
+
+#: 
+msgid "RETRY"
+msgstr "Повторить"
+
+#: 
+msgid "SKIP"
+msgstr "Пропустить"
+
+#: 
+msgid "SEARCH FOR"
+msgstr "Поиск для..."
+
+#: 
+msgid "SEARCH"
+msgstr "Поиск"
+
+#: 
+msgid "SCRAPING IN PROGRESS"
+msgstr "Идет поиск и загрузка данных"
+
+#: 
+msgid "SYSTEM"
+msgstr "Система"
+
+#: 
+msgid "subtitle text"
+msgstr "Субтитры"
+
+#: 
+msgid "INPUT"
+msgstr ""
+
+#: 
+msgid "search"
+msgstr "Поиск"
+
+#: 
+msgid "STOP"
+msgstr "Остановить"
+
+#: 
+msgid "stop (progress saved)"
+msgstr "Остановить (с сохранением прогресса)"
+
+#: 
+msgid "GAME %i OF %i"
+msgstr "Игра %i из %i"
+
+#: 
+msgid "WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
+"\n"
+"VISIT RECALBOX.COM FOR MORE INFORMATION."
+msgstr "Мы не можем найти ни одной системы!\n"
+"Убедитесь, что в конфигурационном файле прописаны правильные пути, и в каталоге с играми есть хотя бы одна игра с правильным расширением.\n"
+"\n"
+"Посетите RECALBOX.COM для дополнительной информации."
+
+#: 
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i игра обработана успешно!"
+msgstr[1] "%i игры обработано успешно!"
+msgstr[2] "%i игр обработано успешно!"
+msgstr[3] "%i игра обработана успешно!"
+
+#: 
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i игра пропущена"
+msgstr[1] "%i игры пропущено"
+msgstr[2] "%i игр пропущено"
+msgstr[3] "%i игра пропущена"
+
+#: 
+msgid "OK"
+msgstr "ОК"
+
+#: 
+msgid "EDIT METADATA"
+msgstr "Редактировать метаданные"
+
+#: 
+msgid "SCRAPE"
+msgstr "Загрузка данных"
+
+#: 
+msgid "SAVE"
+msgstr "Сохранить"
+
+#: 
+msgid "THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
+msgstr "Файл будет удалён!\n"
+"Вы уверены?"
+
+#: 
+msgid "YES"
+msgstr "Да"
+
+#: 
+msgid "NO"
+msgstr "Нет"
+
+#: 
+msgid "DELETE"
+msgstr "Удалить"
+
+#: 
+msgid "SAVE CHANGES?"
+msgstr "Сохранить изменения?"
+
+#: 
+msgid "BACK"
+msgstr "Назад"
+
+#: 
+msgid "CLOSE"
+msgstr "Закрыть"
+
+#: 
+msgid "MAIN MENU"
+msgstr "Главное меню"
+
+#: 
+msgid "KODI MEDIA CENTER"
+msgstr "Медиа-центр KODI"
+
+#: 
+msgid "SYSTEM SETTINGS"
+msgstr "Системные настройки"
+
+#: 
+msgid "VERSION"
+msgstr "Версия"
+
+#: 
+msgid "DISK USAGE"
+msgstr "Использование диска"
+
+#: 
+msgid "STORAGE DEVICE"
+msgstr "Устройство хранения"
+
+#: 
+msgid "LANGUAGE"
+msgstr "Язык"
+
+#: 
+msgid "OVERCLOCK"
+msgstr "Разгон"
+
+#: 
+msgid "EXTREM (1100Mhz)"
+msgstr "Экстремальный (1100Mhz)"
+
+#: 
+msgid "TURBO (1000Mhz)"
+msgstr "Турбо (1000Mhz)"
+
+#: 
+msgid "HIGH (950Mhz)"
+msgstr "Высокий (950Mhz)"
+
+#: 
+msgid "NONE (700Mhz)"
+msgstr "Нет (700Mhz)"
+
+#: 
+msgid "TURBO (1050Mhz)+"
+msgstr "Турбо (1050Mhz)+"
+
+#: 
+msgid "HIGH (1050Mhz)"
+msgstr "Высокий (1050Mhz)"
+
+#: 
+msgid "NONE (900Mhz)"
+msgstr "Нет (900Mhz)"
+
+#: 
+msgid "NONE (1200Mhz)"
+msgstr "Нет (1200Mhz)"
+
+#: 
+msgid "NONE"
+msgstr "Нет"
+
+#. NEW SETTINGS ORGANIZATION
+#: 
+msgid "UPDATES"
+msgstr "Обновления"
+
+#: 
+msgid "AUTO UPDATES"
+msgstr "Автоматическое обновление"
+
+#: 
+msgid "START UPDATE"
+msgstr "Начать обновление"
+
+#: 
+msgid "KODI SETTINGS"
+msgstr "Настройки KODI"
+
+#: 
+msgid "ENABLE KODI"
+msgstr "Включить KODI"
+
+#: 
+msgid "KODI AT START"
+msgstr "Запуск KODI при загрузке"
+
+#: 
+msgid "START KODI WITH X"
+msgstr "Запуск KODI кнопкой X"
+
+#: 
+msgid "SECURITY"
+msgstr "Безопасность"
+
+#: 
+msgid "ENFORCE SECURITY"
+msgstr "Усиленная безопасность"
+
+#: 
+msgid "ROOT PASSWORD"
+msgstr "Пароль администратора"
+
+#: 
+msgid "THE SYSTEM WILL NOW REBOOT"
+msgstr "Система не будет перезагружена"
+
+#: 
+msgid "GAMES SETTINGS"
+msgstr "Настройки игр"
+
+#: 
+msgid "GAME RATIO"
+msgstr "Соотношение сторон"
+
+#: 
+msgid "SMOOTH GAMES"
+msgstr "Сглаживание картинки"
+
+#: 
+msgid "REWIND"
+msgstr "Перемотка"
+
+#: 
+msgid "AUTO SAVE/LOAD"
+msgstr "Автоматические сохранение и загрузка"
+
+#: 
+msgid "SHADERS SET"
+msgstr "Шейдеры"
+
+#: 
+msgid "SCANLINES"
+msgstr "Чересстрочный пропуск"
+
+#: 
+msgid "RETRO"
+msgstr "Ретро"
+
+#: 
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "Настройки Retroachievements"
+
+#: 
+msgid "RETROACHIEVEMENTS"
+msgstr "Retroachievements"
+
+#: 
+msgid "HARDCORE MODE"
+msgstr "Хардкорный режим"
+
+#: 
+msgid "USERNAME"
+msgstr "Имя пользователя"
+
+#: 
+msgid "PASSWORD"
+msgstr "Пароль"
+
+#: 
+msgid "ADVANCED"
+msgstr "Дополнительно"
+
+#: 
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "Действительно обновить список игр?"
+
+#: 
+msgid "UPDATE GAMES LISTS"
+msgstr "Обновить список игр"
+
+#: 
+msgid "CONTROLLERS SETTINGS"
+msgstr "Настройки управления"
+
+#: 
+msgid "UI SETTINGS"
+msgstr "Настройки интерфейса"
+
+#: 
+msgid "OVERSCAN"
+msgstr ""
+
+#: 
+msgid "SCREENSAVER AFTER"
+msgstr "Заставка через:"
+
+#: 
+msgid "TRANSITION STYLE"
+msgstr "Стиль переходов"
+
+#: 
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "Режим заставки"
+
+#: 
+msgid "SHOW FRAMERATE"
+msgstr "Отображать частоту кадров"
+
+#: 
+msgid "ON-SCREEN HELP"
+msgstr "Подсказки на экране"
+
+#: 
+msgid "QUICK SYSTEM SELECT"
+msgstr "Быстрый выбор системы"
+
+#: 
+msgid "THEME SET"
+msgstr "Тема"
+
+#: 
+msgid "SOUND SETTINGS"
+msgstr "Настройки звука"
+
+#: 
+msgid "SYSTEM VOLUME"
+msgstr "Громкость"
+
+#: 
+msgid "FRONTEND MUSIC"
+msgstr "Музыка в главном меню"
+
+#: 
+msgid "OUTPUT DEVICE"
+msgstr "Устройство воспроизведения"
+
+#: 
+msgid "HDMI"
+msgstr "HDMI"
+
+#: 
+msgid "JACK"
+msgstr "Jack"
+
+#: 
+msgid "AUTO"
+msgstr "Автоматически"
+
+#: 
+msgid "NETWORK SETTINGS"
+msgstr "Настройки сети"
+
+#: 
+msgid "CONNECTED"
+msgstr "Подключено"
+
+#: 
+msgid "NOT CONNECTED"
+msgstr "Не подключено"
+
+#: 
+msgid "STATUS"
+msgstr "Статус"
+
+#: 
+msgid "IP ADDRESS"
+msgstr "IP-адрес"
+
+#: 
+msgid "HOSTNAME"
+msgstr "Имя в сети"
+
+#: 
+msgid "ENABLE WIFI"
+msgstr "Включить Wi-Fi"
+
+#: 
+msgid "WIFI SSID"
+msgstr "Имя сети Wi-Fi"
+
+#: 
+msgid "WIFI KEY"
+msgstr "Пароль сети Wi-Fi"
+
+#: 
+msgid "WIFI ENABLED"
+msgstr "Wi-Fi подключен"
+
+#: 
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "Ошибка настройки Wi-Fi"
+
+#: 
+msgid "SCRAPER"
+msgstr "Поиск и загрузка данных"
+
+#: 
+msgid "SCRAPE FROM"
+msgstr "Загружать из"
+
+#: 
+msgid "SCRAPE RATINGS"
+msgstr "Загружать рейтинги"
+
+#: 
+msgid "SCRAPE NOW"
+msgstr "Загрузить"
+
+#: 
+msgid "QUIT"
+msgstr "Выход"
+
+#: 
+msgid "REALLY RESTART?"
+msgstr "Действительно перезагрузить?"
+
+#: 
+msgid "RESTART SYSTEM"
+msgstr "Перезагрузить систему"
+
+#: 
+msgid "REALLY SHUTDOWN?"
+msgstr "Действительно выключить?"
+
+#: 
+msgid "SHUTDOWN SYSTEM"
+msgstr "Выключить систему"
+
+#: 
+msgid "Emulator"
+msgstr "Эмулятор"
+
+#: 
+msgid "Core"
+msgstr "Ядро"
+
+#: 
+msgid "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE SNES CONTROLLER."
+msgstr "Вы собираетесь настроить контроллер. Если на Вашем контроллере имеется только один аналоговый стик, настройте его направления и пропустите настройку второго стика, нажав и удерживая любую кнопку. Если на Вашем контроллере отсутствует отдельная \"горячая\" кнопка, используйте вместо неё кнопку SELECT. Названия кнопок основаны на SNES контроллере."
+
+#. GUIMENU
+#: 
+msgid "CONFIGURE A CONTROLLER"
+msgstr "Настройка контроллера"
+
+#. Bluetooth
+#: 
+msgid "CONTROLLER PAIRED"
+msgstr ""
+
+#: 
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr ""
+
+#: 
+msgid "AN ERROR OCCURED"
+msgstr "Произошла ошибка"
+
+#: 
+msgid "NO CONTROLLERS FOUND"
+msgstr "Контроллеры не найдены"
+
+#: 
+msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr ""
+
+#: 
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr ""
+
+#: 
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr ""
+
+#: 
+msgid "INPUT P%i"
+msgstr ""
+
+#: 
+msgid "CHOOSE"
+msgstr ""
+
+#: 
+msgid "SELECT"
+msgstr ""
+
+#: 
+msgid "OPTIONS"
+msgstr ""
+
+#: 
+msgid "JUMP TO LETTER"
+msgstr "Перейти к букве"
+
+#: 
+msgid "SORT GAMES BY"
+msgstr "Сортировать игры по"
+
+#. FAVORITES
+#: 
+msgid "FAVORITES ONLY"
+msgstr "Только избранные"
+
+#: 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "Редактировать данные этой игры"
+
+#: 
+msgid "SCRAPE THESE GAMES"
+msgstr "Загрузить данные этой игры"
+
+#: 
+msgid "All Games"
+msgstr "Все игры"
+
+#. MISSING SCRAPPER TRANSLATIONS
+#: 
+msgid "Only missing image"
+msgstr "Только отсутствующие изображения"
+
+#: 
+msgid "FILTER"
+msgstr "Фильтр"
+
+#: 
+msgid "SCRAPE THESE SYSTEMS"
+msgstr "Загрузить данные выбранных систем"
+
+#: 
+msgid "SYSTEMS"
+msgstr "Системы"
+
+#: 
+msgid "USER DECIDES ON CONFLICTS"
+msgstr ""
+
+#: 
+msgid "START"
+msgstr "Начать"
+
+#: 
+msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"CONTINUE ANYWAY?"
+msgstr "ВНИМАНИЕ: Некоторые из выбранных систем не имеют выбранную платформу. Результат может быть не точным!\n"
+"Продолжить в любом случае?"
+
+#: 
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "Подходящие игры отсутствуют"
+
+#: 
+msgid "REALLY UPDATE?"
+msgstr "Действительно обновить?"
+
+#: 
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "Необходимо соединение с сетью"
+
+#: 
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "Обновление загружено, система будет перезагружена"
+
+#: 
+msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
+msgstr "Ошибка обновления, система будет перезагружена"
+
+#: 
+msgid "NO UPDATE AVAILABLE"
+msgstr "Нет доступных обновлений"
+
+#: 
+msgid "enter emulator"
+msgstr "Эмулятор"
+
+#: 
+msgid "enter core"
+msgstr "Ядро"
+
+#: 
+msgid "Ratio"
+msgstr "Пропорции"
+
+#: 
+msgid "enter ratio"
+msgstr "Пропорции"
+
+#: 
+msgid "Name"
+msgstr "Название"
+
+#: 
+msgid "enter game name"
+msgstr "Введите название игры"
+
+#: 
+msgid "Description"
+msgstr "Описание"
+
+#: 
+msgid "enter description"
+msgstr "Введите описание"
+
+#: 
+msgid "Image"
+msgstr "Изображение"
+
+#: 
+msgid "enter path to image"
+msgstr "Введите путь к изображению"
+
+#: 
+msgid "Thumbnail"
+msgstr "Эскиз"
+
+#: 
+msgid "enter path to thumbnail"
+msgstr "Введите путь к эскизу"
+
+#: 
+msgid "enter rating"
+msgstr "Рейтинг"
+
+#: 
+msgid "Release date"
+msgstr "Дата выхода"
+
+#: 
+msgid "enter release date"
+msgstr "Введите дату выхода"
+
+#: 
+msgid "enter game developer"
+msgstr "Введите разработчика"
+
+#: 
+msgid "enter game publisher"
+msgstr "Введите издателя"
+
+#: 
+msgid "enter game genre"
+msgstr "Введите жанр игры"
+
+#: 
+msgid "enter number of players"
+msgstr "Введите количество игроков"
+
+#: 
+msgid "Favorite"
+msgstr "Избранное"
+
+#: 
+msgid "enter favorite"
+msgstr "Избранное"
+
+#: 
+msgid "Region"
+msgstr "Регион"
+
+#: 
+msgid "enter region"
+msgstr "Введите регион"
+
+#: 
+msgid "Romtype"
+msgstr "Тип рома"
+
+#: 
+msgid "enter romtype"
+msgstr "Тип рома"
+
+#: 
+msgid "Hidden"
+msgstr "Скрыть"
+
+#: 
+msgid "set hidden"
+msgstr ""
+
+#: 
+msgid "Play count"
+msgstr "Время в игре"
+
+#: 
+msgid "enter number of times played"
+msgstr "Время в игре"
+
+#: 
+msgid "Last played"
+msgstr "Последний запуск"
+
+#: 
+msgid "enter last played date"
+msgstr "Последний запуск"
+
+#: 
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i игра доступна"
+msgstr[1] "%i игры доступно"
+msgstr[2] "%i игр доступно"
+msgstr[3] "%i игр доступно"
+
+#: 
+msgid "%i FAVORITE"
+msgid_plural "%i FAVORITES"
+msgstr[0] "%i в избранных"
+msgstr[1] "%i в избранных"
+msgstr[2] "%i в избранных"
+msgstr[3] "%i в избранных"
+
+#: 
+msgid "SCROLL"
+msgstr "Листать"
+
+#: 
+msgid "LAUNCH"
+msgstr "Запуск"
+
+#: 
+msgid "Times played"
+msgstr "Сыгранное время"
+
+#: 
+msgid "MENU"
+msgstr "Меню"
+
+#: 
+msgid "FILENAME, ASCENDING"
+msgstr ""
+
+#: 
+msgid "FILENAME, DESCENDING"
+msgstr ""
+
+#: 
+msgid "RATING, ASCENDING"
+msgstr ""
+
+#: 
+msgid "RATING, DESCENDING"
+msgstr ""
+
+#: 
+msgid "TIMES PLAYED, ASCENDING"
+msgstr ""
+
+#: 
+msgid "TIMES PLAYED, DESCENDING"
+msgstr ""
+
+#: 
+msgid "LAST PLAYED, ASCENDING"
+msgstr ""
+
+#: 
+msgid "LAST PLAYED, DESCENDING"
+msgstr ""
+
+#: 
+msgid "WORKING..."
+msgstr "Обработка..."
+
+#: 
+msgid "CHANGE"
+msgstr "Изменить"
+
+#: 
+msgid "never"
+msgstr "Никогда"
+
+#: 
+msgid "just now"
+msgstr "Только что"
+
+#: 
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i секунда назад"
+msgstr[1] "%i секунды назад"
+msgstr[2] "%i секунд назад"
+msgstr[3] "%i секунд назад"
+
+#: 
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i минута назад"
+msgstr[1] "%i минуты назад"
+msgstr[2] "%i минут назад"
+msgstr[3] "%i минут назад"
+
+#: 
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i час назад"
+msgstr[1] "%i часа назад"
+msgstr[2] "%i часов назад"
+msgstr[3] "%i часов назад"
+
+#: 
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i день назад"
+msgstr[1] "%i дня назад"
+msgstr[2] "%i дней назад"
+msgstr[3] "%i дней назад"
+
+#: 
+msgid "unknown"
+msgstr "Неизвестно"
+
+#: 
+msgid "SELECT ALL"
+msgstr "Выбрать все"
+
+#: 
+msgid "SELECT NONE"
+msgstr "Отменить все"
+
+#: 
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i выбрана"
+msgstr[1] "%i выбрано"
+msgstr[2] "%i выбрано"
+msgstr[3] "%i выбрано"
+
+#: 
+msgid "UP"
+msgstr "Вверх"
+
+#: 
+msgid "DOWN"
+msgstr "Вниз"
+
+#: 
+msgid "LEFT"
+msgstr "Влево"
+
+#: 
+msgid "RIGHT"
+msgstr "Вправо"
+
+#: 
+msgid "JOYSTICK 1 UP"
+msgstr "Джойстик 1 Вверх"
+
+#: 
+msgid "JOYSTICK 1 LEFT"
+msgstr "Джойстик 1 Влево"
+
+#: 
+msgid "JOYSTICK 2 UP"
+msgstr "Джойстик 2 Вверх"
+
+#: 
+msgid "JOYSTICK 2 LEFT"
+msgstr "Джойстик 2 Влево"
+
+#: 
+msgid "PAGE UP"
+msgstr ""
+
+#: 
+msgid "PAGE DOWN"
+msgstr ""
+
+#: 
+msgid "HOTKEY"
+msgstr "Горячая кнопка"
+
+#: 
+msgid "CONFIGURING"
+msgstr ""
+
+#: 
+msgid "KEYBOARD"
+msgstr "Клавиатура"
+
+#: 
+msgid "GAMEPAD %i"
+msgstr "Геймпад %i"
+
+#: 
+msgid "HOLD ANY BUTTON TO SKIP"
+msgstr "Чтобы пропустить, удерживайте любую кнопку"
+
+#: 
+msgid "-NOT DEFINED-"
+msgstr "-Не назначено-"
+
+#: 
+msgid "HOLD FOR %iS TO SKIP"
+msgid_plural "HOLD FOR %iS TO SKIP"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#. Config controllers missing translation
+#: 
+msgid "PRESS ANYTHING"
+msgstr "Нажмите любую кнопку"
+
+#: 
+msgid "ALREADY TAKEN"
+msgstr "Занято"
+
+#: 
+msgid "DISCARD CHANGES"
+msgstr "Отменить изменения"
+
+#: 
+msgid "WELCOME"
+msgstr "Добро пожаловать!"
+
+#: 
+msgid "CONFIGURE INPUT"
+msgstr ""
+
+#: 
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "Обнаружен %i геймпад"
+msgstr[1] "Обнаружено %i геймпада"
+msgstr[2] "Обнаружено %i геймпадов"
+msgstr[3] "Обнаружено %i геймпадов"
+
+#: 
+msgid "NO GAMEPADS DETECTED"
+msgstr "Не обнаружено геймпадов"
+
+#: 
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "Удерживайте кнопку на Вашем устройстве, для его настройки"
+
+#: 
+msgid "PRESS F4 TO QUIT AT ANY TIME."
+msgstr "Для выхода в любое время нажмите F4"
+
+#: 
+msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+msgstr "Для отмены нажмите ESC или горячую кнопку"
+
+#: 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "Вы хотите запустить медиа-центр KODI?"
+
+#: 
+msgid "LOADING..."
+msgstr "Загрузка..."
+
+#: 
+msgid "PLEASE WAIT..."
+msgstr "Подождите, пожалуйста..."
+
+#: 
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "Действительно выключить без сохранения данных?"
+
+#: 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "Быстрое выключение системы"
+
+#: 
+msgid "WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
+"\n"
+"VISIT RECALBOX.FR FOR MORE INFORMATION."
+msgstr "Мы не можем найти ни одной системы!\n"
+"Убедитесь, что в конфигурационном файле прописаны правильные пути, и в каталоге с играми есть хотя бы одна игра с правильным расширением.\n"
+"\n"
+"Посетите RECALBOX.COM для дополнительной информации."
+
+#: 
+msgid "ON SCREEN KEYBOARD"
+msgstr "Экранная клавиатура"
+
+#: 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+#: 
+msgid "SPACE"
+msgstr "Пробел"
+
+#: 
+msgid "DELETE A CHAR"
+msgstr "Удалить символ"
+
+#: 
+msgid "SHIFT"
+msgstr ""
+
+#: 
+msgid "STOP EDITING"
+msgstr "Завершить редактирование"
+
+#: 
+msgid "MOVE CURSOR"
+msgstr "Передвинуть курсор"
+
+#: 
+msgid "EDIT"
+msgstr "Редактировать"
+
+#: 
+msgid "ACCEPT RESULT"
+msgstr "Принять изменения"
+
+#: 
+msgid "FILENAME"
+msgstr "Имя файла"
+
+#: 
+msgid "RATING"
+msgstr "Рейтинг"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "Время в игре"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "Последний запуск"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "Количество игроков"
+
+#: 
+msgid "DEVELOPER"
+msgstr "Разработчик"
+
+#: 
+msgid "GENRE"
+msgstr "Жанр"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "Показывать скрытые"
+
