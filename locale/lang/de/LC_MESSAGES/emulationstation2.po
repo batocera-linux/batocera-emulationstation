@@ -1013,37 +1013,70 @@ msgstr "WIR KÖNNEN KEINE SYSTEME FINDEN!\n"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "BILDSCHIRMTASTATUR"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "SHIFT FÜR GROß-, KLEINSCHREIBUNG UND SONDERZEICHEN"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "LEERTASTE"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "BUCHSTABE ENTFERNEN"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "BEARBEITUNG BEENDEN"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "CURSOR BEWEGEN"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "ÄNDERN"
 
+#. In which context is this used?
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "ERGEBNIS AKZEPTIEREN"
+
+#: 
+msgid "FILENAME"
+msgstr "DATEINAME"
+
+#: 
+msgid "RATING"
+msgstr "BEWERTUNG"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "GESPIELT"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "ZULETZT GESPIELT"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "SPIELER ANZAHL"
+
+#: 
+msgid "DEVELOPER"
+msgstr "ENTWICKLER"
+
+#: 
+msgid "GENRE"
+msgstr "GENRE"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "ZEIGE VERSTECKTE"
 
