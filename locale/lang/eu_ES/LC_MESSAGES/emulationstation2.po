@@ -18,15 +18,15 @@ msgstr "EZEZTATU"
 
 #: 
 msgid "Rating"
-msgstr "Sailkapena"
+msgstr "Puntuazioa"
 
 #: 
 msgid "Released"
-msgstr "Argitaratua"
+msgstr "Argitaratuta"
 
 #: 
 msgid "Developer"
-msgstr "Gartzailea"
+msgstr "Garatzailea"
 
 #: 
 msgid "Publisher"
@@ -259,15 +259,15 @@ msgstr "X SAKATU KODI ABIARAZTEKO"
 
 #: 
 msgid "SECURITY"
-msgstr ""
+msgstr "SEGURTASUNA"
 
 #: 
 msgid "ENFORCE SECURITY"
-msgstr ""
+msgstr "ZIURTATU SEGURTASUNA"
 
 #: 
 msgid "ROOT PASSWORD"
-msgstr ""
+msgstr "ROOT PASAHITZA"
 
 #: 
 msgid "THE SYSTEM WILL NOW REBOOT"
@@ -315,7 +315,7 @@ msgstr "RETROACHIVEMENTS"
 
 #: 
 msgid "HARDCORE MODE"
-msgstr ""
+msgstr "HARDCORE MODUA"
 
 #: 
 msgid "USERNAME"
@@ -459,7 +459,7 @@ msgstr "LORTU DATUAK HEMENDIK:"
 
 #: 
 msgid "SCRAPE RATINGS"
-msgstr "LORTU KALIFIKAZIOAK"
+msgstr "LORTU PUNTUAZIOAK"
 
 #: 
 msgid "SCRAPE NOW"
@@ -605,7 +605,7 @@ msgstr "ABISUA: AUKERATU DITUZUN SISTEMA BATZUEK EZ DUTE PLATAFORMARIK EZARRITA.
 
 #: 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "EZ DAUDE JOKORIK IRIZPIDE HORI BETETZEN DUTENIK"
+msgstr "EZ DAGO JOKORIK IRIZPIDE HORI BETETZEN DUENIK"
 
 #: 
 msgid "REALLY UPDATE?"
@@ -637,11 +637,11 @@ msgstr "sartu nukleoa"
 
 #: 
 msgid "Ratio"
-msgstr ""
+msgstr "Ratioa"
 
 #: 
 msgid "enter ratio"
-msgstr ""
+msgstr "sartu ratioa"
 
 #: 
 msgid "Name"
@@ -677,7 +677,7 @@ msgstr "Sartu Thumbnail-erako bidea"
 
 #: 
 msgid "enter rating"
-msgstr "Sartu sailkapena"
+msgstr "Sartu puntuazioa"
 
 #: 
 msgid "Release date"
@@ -754,8 +754,8 @@ msgstr "sartu azken jokatutako data"
 #: 
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i JOKOA ERABILGARRI"
-msgstr[1] "%i JOKOAK ERABILGARRI"
+msgstr[0] "JOKO %i ERABILGARRI"
+msgstr[1] "%i JOKO ERABILGARRI"
 
 #: 
 msgid "%i FAVORITE"
@@ -789,11 +789,11 @@ msgstr "FITXATEGI IZENA, JAISTEN"
 
 #: 
 msgid "RATING, ASCENDING"
-msgstr "SAILKAPENA, IGOTZEN"
+msgstr "PUNTUAZIOA, IGOTZEN"
 
 #: 
 msgid "RATING, DESCENDING"
-msgstr "SAILKAPENA, JAISTEN"
+msgstr "PUNTUAZIOA, JAISTEN"
 
 #: 
 msgid "TIMES PLAYED, ASCENDING"
@@ -996,52 +996,87 @@ msgstr "ITXARON MESEDEZ..."
 
 #: 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr ""
+msgstr "BENETAN METADATUAK GORDE GABE ITZALI?"
 
 #: 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr ""
+msgstr "SISTEMAREN ITZALTZE AZKARRA"
 
 #: 
 msgid "WE CAN'T FIND ANY SYSTEMS!\n"
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
 "\n"
 "VISIT RECALBOX.FR FOR MORE INFORMATION."
-msgstr ""
+msgstr "EZIN DA SISTEMARIK AURKITU!\n"
+"BAIEZTATU SISTEMAKO KONFIGURAZIO FITXATEGIEN HELBIDEAK ZUZENAK DIRELA ETA ZURE JOKOEN DIREKTORIOAN GUTXIENEZ FORMATU ZUZENEKO JOKO BAT DAGOELA.\n"
+"\n"
+"BISITATU RECALBOX.FR INFORMAZIO GEHIAGORAKO."
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "PANTAILAKO TEKLATUA"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "HUTSUNEA"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "EZABATU HIZKIA"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "MAIUS"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "GELDITU EDIZIOA"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "MUGITU KRUTSOREA"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "EDITATU"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "ONARTU EMAITZA"
+
+#: 
+msgid "FILENAME"
+msgstr "FITXATEGI IZENA"
+
+#: 
+msgid "RATING"
+msgstr "PUNTUAZIOA"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "ZENBAT ALDIZ JOLASTUTA"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "AZKEN ALDIZ JOLASTUTA"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "JOKALARI KOPURUA"
+
+#: 
+msgid "DEVELOPER"
+msgstr "GARATZAILEA"
+
+#: 
+msgid "GENRE"
+msgstr "GENEROA"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "ERAKUTSI EZKUTUKOA"
 
