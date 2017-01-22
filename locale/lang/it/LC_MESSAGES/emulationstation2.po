@@ -14,7 +14,7 @@ msgstr "E' DISPONIBILE UN AGGIORNAMENTO PER RECALBOX"
 
 #: 
 msgid "CANCEL"
-msgstr "CANCELLA"
+msgstr "ANNULLA"
 
 #: 
 msgid "Rating"
@@ -60,6 +60,7 @@ msgstr "CERCA PER"
 msgid "SEARCH"
 msgstr "CERCA"
 
+#. "Scraping" potrebbe essere tradotto con "Ricerca Metadati" o "RIcerca Info" ?
 #: 
 msgid "SCRAPING IN PROGRESS"
 msgstr "RACCOLTA INFORMAZIONI IN CORSO"
@@ -176,9 +177,10 @@ msgstr "OPZIONI DI SISTEMA"
 msgid "VERSION"
 msgstr "VERSIONE"
 
+#. "Disk Usage" mostra lo spazio in uso/spazio totale, non quello libero.
 #: 
 msgid "DISK USAGE"
-msgstr "SPAZIO RIMASTO"
+msgstr "UTILIZZO DISCO"
 
 #: 
 msgid "STORAGE DEVICE"
@@ -231,11 +233,11 @@ msgstr "NESSUNO"
 #. NEW SETTINGS ORGANIZATION
 #: 
 msgid "UPDATES"
-msgstr "AGGIORNAMENTO"
+msgstr "AGGIORNAMENTI"
 
 #: 
 msgid "AUTO UPDATES"
-msgstr "AGGIORNAMENTO AUTOMATICO"
+msgstr "AGGIORNAMENTI AUTOMATICI"
 
 #: 
 msgid "START UPDATE"
@@ -331,11 +333,11 @@ msgstr "AVANZATO"
 
 #: 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "VUOI AGGIORNARE LA LISTA DEI GIOCHI?"
+msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
 
 #: 
 msgid "UPDATE GAMES LISTS"
-msgstr "AGGIORNA LISTA GIOCHI"
+msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
 #: 
 msgid "CONTROLLERS SETTINGS"
@@ -471,19 +473,22 @@ msgstr "ESCI"
 
 #: 
 msgid "REALLY RESTART?"
-msgstr "RIAVVIARE ?"
+msgstr "RIAVVIARE?"
 
+#. o "RIAVVIA" o "RIAVVIA IL SISTEMA"
 #: 
 msgid "RESTART SYSTEM"
-msgstr "RIAVVIO"
+msgstr "RIAVVIA IL SISTEMA"
 
 #: 
 msgid "REALLY SHUTDOWN?"
-msgstr "SPEGNERE ?"
+msgstr "ARRESTARE?"
 
+#. o "SPEGNI" o "SPEGNI IL SISTEMA"
+#. Forse meglio "ARRESTA" / "ARRESTA IL SISTEMA" ?
 #: 
 msgid "SHUTDOWN SYSTEM"
-msgstr "SPEGNI"
+msgstr "ARRESTA IL SISTEMA"
 
 #: 
 msgid "Emulator"
@@ -553,7 +558,7 @@ msgstr "VAI ALLA LETTERA"
 
 #: 
 msgid "SORT GAMES BY"
-msgstr "ORDINARE I GIOCHI PER"
+msgstr "ORDINA I GIOCHI PER"
 
 #. FAVORITES
 #: 
@@ -600,7 +605,7 @@ msgstr "INIZIA"
 #: 
 msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
-msgstr "ATTENZIONE: ALCUNI DEI SISTEMI SELEZIONATO NON HANNO UNA PIATTAFORMA ASSOCIATA. I RISULTATI POTREBBERO ESSERE PIU’ INACCURATI DEL SOLITO!\n"
+msgstr "ATTENZIONE: ALCUNI DEI SISTEMI SELEZIONATI NON HANNO UNA PIATTAFORMA ASSOCIATA. I RISULTATI POTREBBERO ESSERE PIU’ INACCURATI DEL SOLITO!\n"
 "CONTINUA UGUALMENTE?"
 
 #: 
@@ -745,11 +750,11 @@ msgstr "inserisci numero delle partite giocate"
 
 #: 
 msgid "Last played"
-msgstr "L’ultima volta giocato"
+msgstr "Ultima partita"
 
 #: 
 msgid "enter last played date"
-msgstr "inserisci l’ultima volta giocato"
+msgstr "inserisci la data dell'utlima partita"
 
 #: 
 msgid "%i GAME AVAILABLE"
@@ -765,7 +770,7 @@ msgstr[1] "%i PREFERITI"
 
 #: 
 msgid "SCROLL"
-msgstr "SCROLLA"
+msgstr "SCORRI"
 
 #: 
 msgid "LAUNCH"
@@ -773,7 +778,7 @@ msgstr "AVVIA"
 
 #: 
 msgid "Times played"
-msgstr "Volte giocato"
+msgstr "Numero partite"
 
 #: 
 msgid "MENU"
@@ -857,7 +862,7 @@ msgstr "sconosciuto"
 
 #: 
 msgid "SELECT ALL"
-msgstr "SELEZIONA TUTTO"
+msgstr "TUTTI"
 
 #: 
 msgid "SELECT NONE"
@@ -950,7 +955,7 @@ msgstr "GIA' UTILIZZATO"
 
 #: 
 msgid "DISCARD CHANGES"
-msgstr "ANNULARE LE MODIFICHE"
+msgstr "ANNULLA LE MODIFICHE"
 
 #: 
 msgid "WELCOME"
@@ -1014,37 +1019,69 @@ msgstr "NON RIUSCIAMO A TROVARE NESSUN SISTEMA!\n"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "TASTIERA A SCHERMO"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "SPAZIO"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "CANCELLA UN CARATTERE"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "TERMINA INSERIMENTO"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "SPOSTA CURSORE"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "MODIFICA"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "ACCETTA RISULTATO"
+
+#: 
+msgid "FILENAME"
+msgstr "NOME FILE"
+
+#: 
+msgid "RATING"
+msgstr "VOTO"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "NUMERO PARTITE"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "ULTIMA PARTITA"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "NUMERO DI GIOCATORI"
+
+#: 
+msgid "DEVELOPER"
+msgstr "SVILUPPATORE"
+
+#: 
+msgid "GENRE"
+msgstr "GENERE"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "MOSTRA NASCOSTI"
 
