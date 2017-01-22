@@ -1059,3 +1059,35 @@ msgstr ""
 msgid "ACCEPT RESULT"
 msgstr ""
 
+#: 
+msgid "FILENAME"
+msgstr ""
+
+#: 
+msgid "RATING"
+msgstr ""
+
+#: 
+msgid "TIMES PLAYED"
+msgstr ""
+
+#: 
+msgid "LAST PLAYED"
+msgstr ""
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr ""
+
+#: 
+msgid "DEVELOPER"
+msgstr ""
+
+#: 
+msgid "GENRE"
+msgstr ""
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr ""
+
