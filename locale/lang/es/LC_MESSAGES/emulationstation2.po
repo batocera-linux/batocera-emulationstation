@@ -18,27 +18,27 @@ msgstr "CANCELAR"
 
 #: 
 msgid "Rating"
-msgstr "Calificación"
+msgstr "CALIFICACIÓN"
 
 #: 
 msgid "Released"
-msgstr "Lanzamiento"
+msgstr "LANZAMIENTO"
 
 #: 
 msgid "Developer"
-msgstr "Desarrollador"
+msgstr "DESARROLLADOR"
 
 #: 
 msgid "Publisher"
-msgstr "Editor"
+msgstr "EDITOR"
 
 #: 
 msgid "Genre"
-msgstr "Género"
+msgstr "GÉNERO"
 
 #: 
 msgid "Players"
-msgstr "Jugadores"
+msgstr "JUGADORES"
 
 #: 
 msgid "NO GAMES FOUND - SKIP"
@@ -70,7 +70,7 @@ msgstr "SISTEMA"
 
 #: 
 msgid "subtitle text"
-msgstr "subtítulo"
+msgstr "SUBTÍTULO"
 
 #: 
 msgid "INPUT"
@@ -78,7 +78,7 @@ msgstr "EDITAR"
 
 #: 
 msgid "search"
-msgstr "buscar"
+msgstr "BUSCAR"
 
 #: 
 msgid "STOP"
@@ -86,7 +86,7 @@ msgstr "PARAR"
 
 #: 
 msgid "stop (progress saved)"
-msgstr "parar (progreso guardado)"
+msgstr "PARAR (PROGRESO GUARDADO)"
 
 #: 
 msgid "GAME %i OF %i"
@@ -111,8 +111,8 @@ msgstr[1] "¡%i JUEGOS OBTENIDOS CORRECTAMENTE!"
 #: 
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JUEGO IGNORADO."
-msgstr[1] "%i JUEGOS IGNORADOS."
+msgstr[0] "%i JUEGO IGNORADO"
+msgstr[1] "%i JUEGOS IGNORADOS"
 
 #: 
 msgid "OK"
@@ -347,7 +347,7 @@ msgstr "CONFIGURACIÓN DE LA INTERFAZ"
 
 #: 
 msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgstr "SOBREESCANEO"
 
 #: 
 msgid "SCREENSAVER AFTER"
@@ -487,11 +487,11 @@ msgstr "APAGAR EL SISTEMA"
 
 #: 
 msgid "Emulator"
-msgstr "Emulador"
+msgstr "EMULADOR"
 
 #: 
 msgid "Core"
-msgstr "Núcleo"
+msgstr "NÚCLEO"
 
 #: 
 msgid "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE SNES CONTROLLER."
@@ -575,7 +575,7 @@ msgstr "Todos los juegos"
 #. MISSING SCRAPPER TRANSLATIONS
 #: 
 msgid "Only missing image"
-msgstr "Solo imágenes faltantes"
+msgstr "SOLO IMÁGENES FALTANTES"
 
 #: 
 msgid "FILTER"
@@ -629,127 +629,127 @@ msgstr "NO HAY ACTUALIZACIONES DISPONIBLES"
 
 #: 
 msgid "enter emulator"
-msgstr "introducir emulador"
+msgstr "INTRODUCIR EMULADOR"
 
 #: 
 msgid "enter core"
-msgstr "introducir núcleo"
+msgstr "INTRODUCIR NÚCLEO"
 
 #: 
 msgid "Ratio"
-msgstr "Proporción"
+msgstr "PROPORCIÓN"
 
 #: 
 msgid "enter ratio"
-msgstr "introducir proporción"
+msgstr "INTRODUCIR PROPORCIÓN"
 
 #: 
 msgid "Name"
-msgstr "Nombre"
+msgstr "NOMBRE"
 
 #: 
 msgid "enter game name"
-msgstr "nombre del juego"
+msgstr "NOMBRE DEL JUEGO"
 
 #: 
 msgid "Description"
-msgstr "Descripción"
+msgstr "DESCRIPCIÓN"
 
 #: 
 msgid "enter description"
-msgstr "introducir descripción"
+msgstr "INTRODUCIR DESCRIPCIÓN"
 
 #: 
 msgid "Image"
-msgstr "Imagen"
+msgstr "IMAGEN"
 
 #: 
 msgid "enter path to image"
-msgstr "introducir ruta de la imagen"
+msgstr "INTRODUCIR RUTA DE LA IMAGEN"
 
 #: 
 msgid "Thumbnail"
-msgstr "Miniatura"
+msgstr "MINIATURA"
 
 #: 
 msgid "enter path to thumbnail"
-msgstr "introducir ruta de la miniatura"
+msgstr "INTRODUCIR RUTA DE LA MINIATURA"
 
 #: 
 msgid "enter rating"
-msgstr "introducir calificación"
+msgstr "INTRODUCIR CALIFICACIÓN"
 
 #: 
 msgid "Release date"
-msgstr "Fecha de lanzamiento"
+msgstr "FECHA DE LANZAMIENTO"
 
 #: 
 msgid "enter release date"
-msgstr "introducir fecha de lanzamiento"
+msgstr "INTRODUCIR FECHA DE LANZAMIENTO"
 
 #: 
 msgid "enter game developer"
-msgstr "introducir desarrollador"
+msgstr "INTRODUCIR DESARROLLADOR"
 
 #: 
 msgid "enter game publisher"
-msgstr "introducir editor"
+msgstr "INTRODUCIR EDITOR"
 
 #: 
 msgid "enter game genre"
-msgstr "introducir género"
+msgstr "INTRODUCIR GÉNERO"
 
 #: 
 msgid "enter number of players"
-msgstr "introducir nº de jugadores"
+msgstr "INTRODUCIR Nº DE JUEGADORES"
 
 #: 
 msgid "Favorite"
-msgstr "Favorito"
+msgstr "FAVORITO"
 
 #: 
 msgid "enter favorite"
-msgstr "añadir favorito"
+msgstr "AÑADIR FAVORITO"
 
 #: 
 msgid "Region"
-msgstr "Región"
+msgstr "REGIÓN"
 
 #: 
 msgid "enter region"
-msgstr "introducir región"
+msgstr "INTRODUCIR REGIÓN"
 
 #: 
 msgid "Romtype"
-msgstr "Tipo de rom"
+msgstr "TIPO DE ROM"
 
 #: 
 msgid "enter romtype"
-msgstr "introducir tipo de rom"
+msgstr "INTRODUCIR TIPO DE ROM"
 
 #: 
 msgid "Hidden"
-msgstr "Oculto"
+msgstr "OCULTO"
 
 #: 
 msgid "set hidden"
-msgstr "ocultar"
+msgstr "OCULTAR"
 
 #: 
 msgid "Play count"
-msgstr "Partidas"
+msgstr "PARTIDAS"
 
 #: 
 msgid "enter number of times played"
-msgstr "introducir el nº de partidas jugadas"
+msgstr "INTRODUCIR Nº DE PARTIDAS JUGADAS"
 
 #: 
 msgid "Last played"
-msgstr "Última partida"
+msgstr "ÚLTIMA PARTIDA"
 
 #: 
 msgid "enter last played date"
-msgstr "introducir la fecha de la última partida"
+msgstr "INTRODUCIR FECHA DE LA ÚLTIMA PARTIDA"
 
 #: 
 msgid "%i GAME AVAILABLE"
@@ -760,7 +760,7 @@ msgstr[1] "%i JUEGOS DISPONIBLES"
 #: 
 msgid "%i FAVORITE"
 msgid_plural "%i FAVORITES"
-msgstr[0] "%i FAVORITOS"
+msgstr[0] "%i FAVORITO"
 msgstr[1] "%i FAVORITOS"
 
 #: 
@@ -773,7 +773,7 @@ msgstr "LANZAR"
 
 #: 
 msgid "Times played"
-msgstr "Veces jugado"
+msgstr "VECES JUGADO"
 
 #: 
 msgid "MENU"
@@ -821,39 +821,39 @@ msgstr "CAMBIAR"
 
 #: 
 msgid "never"
-msgstr "nunca"
+msgstr "NUNCA"
 
 #: 
 msgid "just now"
-msgstr "ahora mismo"
+msgstr "AHORA MISMO"
 
 #: 
 msgid "%i sec ago"
 msgid_plural "%i secs ago"
-msgstr[0] "hace %i segundo"
-msgstr[1] "hace %i segundos"
+msgstr[0] "HACE %i SEGUNDO"
+msgstr[1] "HACE %i SEGUNDOS"
 
 #: 
 msgid "%i min ago"
 msgid_plural "%i mins ago"
-msgstr[0] "hace %i minuto"
-msgstr[1] "hace %i minutos"
+msgstr[0] "HACE %i MINUTO"
+msgstr[1] "HACE %i MINUTOS"
 
 #: 
 msgid "%i hour ago"
 msgid_plural "%i hours ago"
-msgstr[0] "hace %i hora"
-msgstr[1] "hace %i horas"
+msgstr[0] "HACE %i HORA"
+msgstr[1] "HACE %i HORAS"
 
 #: 
 msgid "%i day ago"
 msgid_plural "%i days ago"
-msgstr[0] "hace %i día"
-msgstr[1] "hace %i días"
+msgstr[0] "HACE %i DÍA"
+msgstr[1] "HACE %i DÍAS"
 
 #: 
 msgid "unknown"
-msgstr "desconocido"
+msgstr "DESCONOCIDO"
 
 #: 
 msgid "SELECT ALL"
@@ -1014,37 +1014,69 @@ msgstr "¡NO SE HA ENCONTRADO NINGÚN SISTEMA!\n"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "TECLADO EN PANTALLA"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "SHIFTS PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "ESPACIO"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "ELIMINAR CARÁCTER"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "TERMINAR EDICIÓN"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "MOVER CURSOR"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "EDITAR"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "ACEPTAR RESULTADO"
+
+#: 
+msgid "FILENAME"
+msgstr "NOMBRE DEL ARCHIVO"
+
+#: 
+msgid "RATING"
+msgstr "CLASIFICACIÓN"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "VECES JUGADO"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "ULTIMA VEZ JUGADO"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "NUMERO DE JUGADORES"
+
+#: 
+msgid "DEVELOPER"
+msgstr "DESARROLLADOR"
+
+#: 
+msgid "GENRE"
+msgstr "GENERO"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "MOSTRAR OCULTOS"
 
