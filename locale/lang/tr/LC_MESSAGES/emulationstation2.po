@@ -257,7 +257,7 @@ msgstr "X İLE BAŞLASIN"
 
 #: 
 msgid "SECURITY"
-msgstr ""
+msgstr "GÜVENLİK"
 
 #: 
 msgid "ENFORCE SECURITY"
@@ -265,7 +265,7 @@ msgstr ""
 
 #: 
 msgid "ROOT PASSWORD"
-msgstr ""
+msgstr "ROOT PAROLASI"
 
 #: 
 msgid "THE SYSTEM WILL NOW REBOOT"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "EKRAN KLAVYESİ"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "BOŞLUK"
 
 #: 
 msgid "DELETE A CHAR"
@@ -1037,9 +1037,41 @@ msgstr ""
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "DÜZENLE"
 
 #: 
 msgid "ACCEPT RESULT"
+msgstr "ONAYLA"
+
+#: 
+msgid "FILENAME"
+msgstr "DOSYA ADI"
+
+#: 
+msgid "RATING"
+msgstr ""
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "KAÇ KEZ OYNANDI"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "SON OYNANMA"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "OYUNCU SAYISI"
+
+#: 
+msgid "DEVELOPER"
+msgstr "GELİŞTİRİCİ"
+
+#: 
+msgid "GENRE"
+msgstr "TÜR"
+
+#: 
+msgid "SHOW HIDDEN"
 msgstr ""
 
