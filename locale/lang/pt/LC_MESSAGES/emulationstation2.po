@@ -1014,37 +1014,69 @@ msgstr "NÃO ENCONTRAMOS NENHUM EMULADOR!\n"
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "Teclado na tela"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARÁCTERES ESPECIAIS"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "Espaço"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "Deletar um Carácter"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "Mudança"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "Parar Edição"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "Mover Cursor"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "Editar"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "Aceitar Resultados"
+
+#: 
+msgid "FILENAME"
+msgstr "Nome do Arquivo"
+
+#: 
+msgid "RATING"
+msgstr "Classificação"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "Horas Jogadas"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "Jogou pela última vez"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "Número de Jogadores"
+
+#: 
+msgid "DEVELOPER"
+msgstr "Desenvolvedor"
+
+#: 
+msgid "GENRE"
+msgstr "Gênero"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "MOSTRAR OCULTOS"
 
