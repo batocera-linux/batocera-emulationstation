@@ -77,8 +77,10 @@ msgid "INPUT"
 msgstr "ÉDITER"
 
 #: 
+#, fuzzy
 msgid "search"
-msgstr "rechercher"
+msgstr "nintendo 64\n"
+""
 
 #: 
 msgid "STOP"
@@ -1046,4 +1048,36 @@ msgstr "EDITER"
 #: 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
+
+#: 
+msgid "FILENAME"
+msgstr "FICHIER"
+
+#: 
+msgid "RATING"
+msgstr "VOTES"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "PARTIES JOUÉES"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "DERNIÈRE PARTIE"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "NOMBRE DE JOUEURS"
+
+#: 
+msgid "DEVELOPER"
+msgstr "DÉVELOPPEUR"
+
+#: 
+msgid "GENRE"
+msgstr "GENRE"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "AFFICHER LES FICHIERS CACHÉS"
 
