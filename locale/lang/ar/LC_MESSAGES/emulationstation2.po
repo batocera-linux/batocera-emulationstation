@@ -62,7 +62,7 @@ msgstr "بحث"
 
 #: 
 msgid "SCRAPING IN PROGRESS"
-msgstr ""
+msgstr "يتم الأن التجميع"
 
 #: 
 msgid "SYSTEM"
@@ -319,7 +319,7 @@ msgstr "اعدادت RETROACHIEVEMENTS"
 
 #: 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "انجازات RETROACHIEVEMENTS "
 
 #: 
 msgid "HARDCORE MODE"
@@ -355,7 +355,7 @@ msgstr "أعدادات الواجهة"
 
 #: 
 msgid "OVERSCAN"
-msgstr ""
+msgstr "OVERSCAN"
 
 #: 
 msgid "SCREENSAVER AFTER"
@@ -503,7 +503,7 @@ msgstr "النواه"
 
 #: 
 msgid "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE SNES CONTROLLER."
-msgstr ""
+msgstr "سوف تقوم بإعداد يد التحكم. اذا لديك يد واحدة فقط، قم بإعداد الازرار في يد التحكم وذلك بالضغط على اي زر. اذا لايوجد لديك اي زر مميز لأعداده كـ(Hot Key)، قم بإختيار زر (select).  قم بتخطي الازار التي لاتملكها وذلك بالاستمرار الضغط على اي زر. اسماء الازرار تم تعيينها وفق يد تحكم سوبر ننتندو (SNES)."
 
 #. GUIMENU
 #: 
@@ -513,578 +513,612 @@ msgstr "إعداد يد التحكم"
 #. Bluetooth
 #: 
 msgid "CONTROLLER PAIRED"
-msgstr ""
+msgstr "تم اقتران يد التحكم"
 
 #: 
 msgid "UNABLE TO PAIR CONTROLLER"
-msgstr ""
+msgstr "فشل اقتران يد التحكم"
 
 #: 
 msgid "AN ERROR OCCURED"
-msgstr ""
+msgstr "حدث خطأ"
 
 #: 
 msgid "NO CONTROLLERS FOUND"
-msgstr ""
+msgstr "لم يتم العثور على اي يد تحكم"
 
 #: 
 msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr ""
+msgstr "اقتران يد تحكم بالبلوتوث"
 
 #: 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr ""
+msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #: 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr ""
+msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #: 
 msgid "INPUT P%i"
-msgstr ""
+msgstr "ادخال P%i"
 
 #: 
 msgid "CHOOSE"
-msgstr ""
+msgstr "اختار"
 
 #: 
 msgid "SELECT"
-msgstr ""
+msgstr "اختار"
 
 #: 
 msgid "OPTIONS"
-msgstr ""
+msgstr "اعدادات"
 
 #: 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "القفز إلى حرف"
 
 #: 
 msgid "SORT GAMES BY"
-msgstr ""
+msgstr "ترتيب الالعاب حسب"
 
 #. FAVORITES
 #: 
 msgid "FAVORITES ONLY"
-msgstr ""
+msgstr "المفضلة فقط"
 
 #: 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr ""
+msgstr "تعديل بيانات اللعبة (METADATA)"
 
 #: 
 msgid "SCRAPE THESE GAMES"
-msgstr ""
+msgstr "يتم التجميع حالياً"
 
 #: 
 msgid "All Games"
-msgstr ""
+msgstr "جميع الالعاب"
 
 #. MISSING SCRAPPER TRANSLATIONS
 #: 
 msgid "Only missing image"
-msgstr ""
+msgstr "فقط الصور المفقودة"
 
 #: 
 msgid "FILTER"
-msgstr ""
+msgstr "فلتر"
 
 #: 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr ""
+msgstr "تجميع لهذه الانظمة"
 
 #: 
 msgid "SYSTEMS"
-msgstr ""
+msgstr "انظمة"
 
 #: 
 msgid "USER DECIDES ON CONFLICTS"
-msgstr ""
+msgstr "يقرر المستخدم في حالة التعارض"
 
 #: 
 msgid "START"
-msgstr ""
+msgstr "البدء"
 
 #: 
 msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
-msgstr ""
+msgstr "تحذير: بعض الانظمة التي تم اختيارها لاتملك منصة العاب محددة. قد يؤدي ذلك إلى نتائج غير دقيقة في البحث! هل تريد المتابعة؟"
 
 #: 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr ""
+msgstr "لم يتم  العثور على العاب بصيغة البحث المحددة"
 
 #: 
 msgid "REALLY UPDATE?"
-msgstr ""
+msgstr "تحديث، متأكد؟"
 
 #: 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr ""
+msgstr "بحاجة لاتصال شبكي"
 
 #: 
 msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr ""
+msgstr "تم تحميل التحديث، سيتم أعادة التشغيل"
 
 #: 
 msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-msgstr ""
+msgstr "تحميل التحديث فشل، سيتم إعادة التشغيل"
 
 #: 
 msgid "NO UPDATE AVAILABLE"
-msgstr ""
+msgstr "لايوجد تحديثات"
 
 #: 
 msgid "enter emulator"
-msgstr ""
+msgstr "ادخل المحاكي"
 
 #: 
 msgid "enter core"
-msgstr ""
+msgstr "ادخل النواه"
 
 #: 
 msgid "Ratio"
-msgstr ""
+msgstr "النسبة"
 
 #: 
 msgid "enter ratio"
-msgstr ""
+msgstr "ادخل النسبة"
 
 #: 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: 
 msgid "enter game name"
-msgstr ""
+msgstr "ادخل اسم اللعبة"
 
 #: 
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: 
 msgid "enter description"
-msgstr ""
+msgstr "ادخل الوصف"
 
 #: 
 msgid "Image"
-msgstr ""
+msgstr "الصورة"
 
 #: 
 msgid "enter path to image"
-msgstr ""
+msgstr "ادخل مسار الصورة"
 
 #: 
 msgid "Thumbnail"
-msgstr ""
+msgstr "صورة مصغرة"
 
 #: 
 msgid "enter path to thumbnail"
-msgstr ""
+msgstr "ادخل مسار الصورة المصغرة"
 
 #: 
 msgid "enter rating"
-msgstr ""
+msgstr "ادخل التصنيف"
 
 #: 
 msgid "Release date"
-msgstr ""
+msgstr "تاريخ الاطلاق"
 
 #: 
 msgid "enter release date"
-msgstr ""
+msgstr "ادخل تاريخ الاطلاق"
 
 #: 
 msgid "enter game developer"
-msgstr ""
+msgstr "ادخل مطور اللعبة"
 
 #: 
 msgid "enter game publisher"
-msgstr ""
+msgstr "ادخل ناشر اللعبة"
 
 #: 
 msgid "enter game genre"
-msgstr ""
+msgstr "ادخل نوع اللعبة"
 
 #: 
 msgid "enter number of players"
-msgstr ""
+msgstr "ادخل عدد اللاعبين"
 
 #: 
 msgid "Favorite"
-msgstr ""
+msgstr "المفضلة"
 
 #: 
 msgid "enter favorite"
-msgstr ""
+msgstr "ادخل المفضلة"
 
 #: 
 msgid "Region"
-msgstr ""
+msgstr "المنطقة"
 
 #: 
 msgid "enter region"
-msgstr ""
+msgstr "ادخل المنطقة"
 
 #: 
 msgid "Romtype"
-msgstr ""
+msgstr "نوع الروم"
 
 #: 
 msgid "enter romtype"
-msgstr ""
+msgstr "ادخل نوع الروم"
 
 #: 
 msgid "Hidden"
-msgstr ""
+msgstr "مخفي"
 
 #: 
 msgid "set hidden"
-msgstr ""
+msgstr "حدد مخفي"
 
 #: 
 msgid "Play count"
-msgstr ""
+msgstr "عدد مرات اللعب"
 
 #: 
 msgid "enter number of times played"
-msgstr ""
+msgstr "ادخل عدد مرات اللعب"
 
 #: 
 msgid "Last played"
-msgstr ""
+msgstr "اخر مره تم لعبها"
 
 #: 
 msgid "enter last played date"
-msgstr ""
+msgstr "ادخل تاريخ اخر مره تم لعبها"
 
 #: 
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i لعبة متوفرة"
+msgstr[1] "%i لعبة متوفرة"
+msgstr[2] "%i لعبة متوفرة"
+msgstr[3] "%i لعبة متوفرة"
+msgstr[4] "%i لعبة متوفرة"
+msgstr[5] "%i لعب متوفرة"
 
 #: 
 msgid "%i FAVORITE"
 msgid_plural "%i FAVORITES"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i مفضلة"
+msgstr[1] "%i مفضلة"
+msgstr[2] "%i مفضلة"
+msgstr[3] "%i مفضلة"
+msgstr[4] "%i مفضلة"
+msgstr[5] "%i مفضلات"
 
 #: 
 msgid "SCROLL"
-msgstr ""
+msgstr "قفز"
 
 #: 
 msgid "LAUNCH"
-msgstr ""
+msgstr "تشغيل"
 
 #: 
 msgid "Times played"
-msgstr ""
+msgstr "مرات اللعب"
 
 #: 
 msgid "MENU"
-msgstr ""
+msgstr "قائمة"
 
 #: 
 msgid "FILENAME, ASCENDING"
-msgstr ""
+msgstr "اسم الملف، تصاعدي"
 
 #: 
 msgid "FILENAME, DESCENDING"
-msgstr ""
+msgstr "اسم الملف، تنازلي"
 
 #: 
 msgid "RATING, ASCENDING"
-msgstr ""
+msgstr "تقييم، تصاعدي"
 
 #: 
 msgid "RATING, DESCENDING"
-msgstr ""
+msgstr "تقييم، تنازلي"
 
 #: 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr ""
+msgstr "مرات اللعب، تصاعدي"
 
 #: 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr ""
+msgstr "مرات اللعب، تنازلي"
 
 #: 
 msgid "LAST PLAYED, ASCENDING"
-msgstr ""
+msgstr "اخر مره لعب، تصاعدي"
 
 #: 
 msgid "LAST PLAYED, DESCENDING"
-msgstr ""
+msgstr "اخر مره لعب، تنازلي"
 
 #: 
 msgid "WORKING..."
-msgstr ""
+msgstr "تشغيل..."
 
 #: 
 msgid "CHANGE"
-msgstr ""
+msgstr "تغيير"
 
 #: 
 msgid "never"
-msgstr ""
+msgstr "ابداً"
 
 #: 
 msgid "just now"
-msgstr ""
+msgstr "اللأن"
 
 #: 
 msgid "%i sec ago"
 msgid_plural "%i secs ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i ثواني مضت"
+msgstr[1] "%i ثانية مضت"
+msgstr[2] "%i ثواني مضت"
+msgstr[3] "%i ثواني مضت"
+msgstr[4] "%i ثواني مضت"
+msgstr[5] "%i ثواني مضت"
 
 #: 
 msgid "%i min ago"
 msgid_plural "%i mins ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i دقيقة مضت"
+msgstr[1] "%i دقيقة مضت"
+msgstr[2] "%i دقيقة مضت"
+msgstr[3] "%i دقيقة مضت"
+msgstr[4] "%i دقيقة مضت"
+msgstr[5] "%i دقائق مضت"
 
 #: 
 msgid "%i hour ago"
 msgid_plural "%i hours ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i ساعة مضت"
+msgstr[1] "%i ساعة مضت"
+msgstr[2] "%i ساعة مضت"
+msgstr[3] "%i ساعة مضت"
+msgstr[4] "%i ساعة مضت"
+msgstr[5] "%i ساعات مضت"
 
 #: 
 msgid "%i day ago"
 msgid_plural "%i days ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i يوم مضت"
+msgstr[1] "%i يوم مضت"
+msgstr[2] "%i يوم مضت"
+msgstr[3] "%i يوم مضت"
+msgstr[4] "%i يوم مضت"
+msgstr[5] "%i ايام مضت"
 
 #: 
 msgid "unknown"
-msgstr ""
+msgstr "غير معروف"
 
 #: 
 msgid "SELECT ALL"
-msgstr ""
+msgstr "اختيار الكل"
 
 #: 
 msgid "SELECT NONE"
-msgstr ""
+msgstr "الغاء الاختيار"
 
 #: 
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%i تم اختياره"
+msgstr[1] "%i تم اختياره"
+msgstr[2] "%i تم اختياره"
+msgstr[3] "%i تم اختياره"
+msgstr[4] "%i تم اختياره"
+msgstr[5] "%i تم اختياره"
 
 #: 
 msgid "UP"
-msgstr ""
+msgstr "فوق"
 
 #: 
 msgid "DOWN"
-msgstr ""
+msgstr "تحت"
 
 #: 
 msgid "LEFT"
-msgstr ""
+msgstr "يسار"
 
 #: 
 msgid "RIGHT"
-msgstr ""
+msgstr "يمين"
 
 #: 
 msgid "JOYSTICK 1 UP"
-msgstr ""
+msgstr "يد تحكم 1 فوق"
 
 #: 
 msgid "JOYSTICK 1 LEFT"
-msgstr ""
+msgstr "يد تحكم 1 يسار"
 
 #: 
 msgid "JOYSTICK 2 UP"
-msgstr ""
+msgstr "يد تحكم 2 فوق"
 
 #: 
 msgid "JOYSTICK 2 LEFT"
-msgstr ""
+msgstr "يد تحكم 2 يسار"
 
 #: 
 msgid "PAGE UP"
-msgstr ""
+msgstr "صفحة فوق"
 
 #: 
 msgid "PAGE DOWN"
-msgstr ""
+msgstr "صفحة تحت"
 
 #: 
 msgid "HOTKEY"
-msgstr ""
+msgstr "زر مميز (HOTKEY)"
 
 #: 
 msgid "CONFIGURING"
-msgstr ""
+msgstr "إعداد"
 
 #: 
 msgid "KEYBOARD"
-msgstr ""
+msgstr "لوحة المفاتيح"
 
 #: 
 msgid "GAMEPAD %i"
-msgstr ""
+msgstr "يد تحكم %i"
 
 #: 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr ""
+msgstr "اضغط اي زر للألغاء"
 
 #: 
 msgid "-NOT DEFINED-"
-msgstr ""
+msgstr "-غير معرف-"
 
 #: 
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "اضغط لـ %iS للتخطي"
+msgstr[1] "اضغط لـ %iS للتخطي"
+msgstr[2] "اضغط لـ %iS للتخطي"
+msgstr[3] "اضغط لـ %iS للتخطي"
+msgstr[4] "اضغط لـ %iS للتخطي"
+msgstr[5] "اضغط لـ %iS للتخطي"
 
 #. Config controllers missing translation
 #: 
 msgid "PRESS ANYTHING"
-msgstr ""
+msgstr "اضغط اي زر"
 
 #: 
 msgid "ALREADY TAKEN"
-msgstr ""
+msgstr "معرّف مسبقاً"
 
 #: 
 msgid "DISCARD CHANGES"
-msgstr ""
+msgstr "الغاء التعديلات"
 
 #: 
 msgid "WELCOME"
-msgstr ""
+msgstr "اهلاً وسهلاً"
 
 #: 
 msgid "CONFIGURE INPUT"
-msgstr ""
+msgstr "إعداد الادخال"
 
 #: 
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "تم التعرف على %i يد تحكم "
+msgstr[1] "تم التعرف على %i يد تحكم "
+msgstr[2] "تم التعرف على %i يد تحكم "
+msgstr[3] "تم التعرف على %i يد تحكم "
+msgstr[4] "تم التعرف على %i يد تحكم "
+msgstr[5] "تم التعرف على %i ايدي تحكم "
 
 #: 
 msgid "NO GAMEPADS DETECTED"
-msgstr ""
+msgstr "لم يتم التعرف على ايدي تحكم"
 
 #: 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
+msgstr "اضغط زر (A) في يد التحكم ليتم اعدادها"
 
 #: 
 msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr ""
+msgstr "اضغط (F4) للخروج في اي وقت"
 
 #: 
 msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr ""
+msgstr "اضغط (ESC) او الزر المميز (HOTKEY) للإلغاء"
 
 #: 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr ""
+msgstr "هل تريد بدأ برنامج الملتيميديا (KODI)؟"
 
 #: 
 msgid "LOADING..."
-msgstr ""
+msgstr "جاري التحميل..."
 
 #: 
 msgid "PLEASE WAIT..."
-msgstr ""
+msgstr "الرجاء الانتظار..."
 
 #: 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr ""
+msgstr "متاكد من ايقاف التشغيل من دون حفظ الـMETADATAS؟"
 
 #: 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr ""
+msgstr "اعادة تشغيل سريع"
 
 #: 
 msgid "WE CAN'T FIND ANY SYSTEMS!\n"
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
 "\n"
 "VISIT RECALBOX.FR FOR MORE INFORMATION."
-msgstr ""
+msgstr "لايمكن العثور على اي نظام!\n"
+"تأكد من ان جميع المسارات صحيحة في ملف الاعدادت للنظام، وان مجلد الالعاب يحتوي على الاقل لعبة واحدة مع الامتداد الصحيح.\n"
+"قم بزيارة RECALBOX.FR لمزيد من المعلومات."
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "لوحة المفاتيح المرئية"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "مسافة"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "حذف حرف"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "زر الانتقال"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "ايقاف التعديل"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "تحريك المؤشر"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "تعديل"
 
 #: 
 msgid "ACCEPT RESULT"
+msgstr "قبول التعديلات"
+
+#: 
+msgid "FILENAME"
+msgstr ""
+
+#: 
+msgid "RATING"
+msgstr ""
+
+#: 
+msgid "TIMES PLAYED"
+msgstr ""
+
+#: 
+msgid "LAST PLAYED"
+msgstr ""
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr ""
+
+#: 
+msgid "DEVELOPER"
+msgstr ""
+
+#: 
+msgid "GENRE"
+msgstr ""
+
+#: 
+msgid "SHOW HIDDEN"
 msgstr ""
 
