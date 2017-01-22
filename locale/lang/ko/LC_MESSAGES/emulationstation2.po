@@ -10,7 +10,7 @@ msgstr ""
 
 #: 
 msgid "AN UPDATE IS AVAILABLE FOR YOUR RECALBOX"
-msgstr "새로운 버전으로 업데이트 할 수 있습니다"
+msgstr "새로운 업데이트를 사용할 수 있습니다."
 
 #: 
 msgid "CANCEL"
@@ -42,7 +42,7 @@ msgstr "플레이어 수"
 
 #: 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "데이터 없음 - 넘김"
+msgstr "발견된 게임 없음 - 건너뛰기"
 
 #: 
 msgid "RETRY"
@@ -50,7 +50,7 @@ msgstr "재시도"
 
 #: 
 msgid "SKIP"
-msgstr "넘김"
+msgstr "건너뛰기"
 
 #: 
 msgid "SEARCH FOR"
@@ -62,11 +62,11 @@ msgstr "검색"
 
 #: 
 msgid "SCRAPING IN PROGRESS"
-msgstr "스크래핑 중"
+msgstr "스크랩 진행 중"
 
 #: 
 msgid "SYSTEM"
-msgstr "시트셈"
+msgstr "시스템"
 
 #: 
 msgid "subtitle text"
@@ -86,11 +86,11 @@ msgstr "중단"
 
 #: 
 msgid "stop (progress saved)"
-msgstr "중단(진행내용 저장)"
+msgstr "중단 (진행 저장됨)"
 
 #: 
 msgid "GAME %i OF %i"
-msgstr "게임 %i / %i "
+msgstr "게임 %i / %i"
 
 #: 
 msgid "WE CAN'T FIND ANY SYSTEMS!\n"
@@ -98,27 +98,28 @@ msgid "WE CAN'T FIND ANY SYSTEMS!\n"
 "\n"
 "VISIT RECALBOX.COM FOR MORE INFORMATION."
 msgstr "시스템을 찾을 수 없습니다.\n"
-"설정 파일에서 시스템 경로가 맞는지 확인하세요. 게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
+"설정 파일에서 시스템 경로가 맞는지 확인하세요.\n"
+"게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
 "\n"
 "더 자세한 정보는 recalbox.com 에서 확인하세요."
 
 #: 
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 개의 게임을 스크랩했습니다!"
+msgstr[0] "%i 개의 게임을 스크랩했습니다."
 
 #: 
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i 개의 게임을 스킵했습니다"
+msgstr[0] "%i 개의 게임을 건너뛰었습니다."
 
 #: 
 msgid "OK"
-msgstr "OK"
+msgstr "확인"
 
 #: 
 msgid "EDIT METADATA"
-msgstr "정보 수정"
+msgstr "게임 정보 편집"
 
 #: 
 msgid "SCRAPE"
@@ -131,7 +132,8 @@ msgstr "저장"
 #: 
 msgid "THIS WILL DELETE A FILE!\n"
 "ARE YOU SURE?"
-msgstr "파일을 삭제하시겠습니까?"
+msgstr "파일을 삭제합니다.\n"
+"정말로 진행하시겠습니까?"
 
 #: 
 msgid "YES"
@@ -147,7 +149,7 @@ msgstr "삭제"
 
 #: 
 msgid "SAVE CHANGES?"
-msgstr "변경사항을 저장할까요?"
+msgstr "변경 사항을 저장 하시겠습니까?"
 
 #: 
 msgid "BACK"
@@ -159,11 +161,11 @@ msgstr "닫기"
 
 #: 
 msgid "MAIN MENU"
-msgstr "메인메뉴"
+msgstr "메인 메뉴"
 
 #: 
 msgid "KODI MEDIA CENTER"
-msgstr "KODI 미디어센터"
+msgstr "KODI 미디어 센터"
 
 #: 
 msgid "SYSTEM SETTINGS"
@@ -179,7 +181,7 @@ msgstr "디스크 사용량"
 
 #: 
 msgid "STORAGE DEVICE"
-msgstr "저장장치"
+msgstr "저장 장치"
 
 #: 
 msgid "LANGUAGE"
@@ -191,39 +193,39 @@ msgstr "오버클럭"
 
 #: 
 msgid "EXTREM (1100Mhz)"
-msgstr "EXTREM (1100Mhz) "
+msgstr "익스트림 (1100Mhz) "
 
 #: 
 msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz) "
+msgstr "터보 (1000Mhz) "
 
 #: 
 msgid "HIGH (950Mhz)"
-msgstr "HIGH (950Mhz) "
+msgstr "높음 (950Mhz) "
 
 #: 
 msgid "NONE (700Mhz)"
-msgstr "NONE (700Mhz) "
+msgstr "없음 (700Mhz) "
 
 #: 
 msgid "TURBO (1050Mhz)+"
-msgstr "TURBO (1050Mhz)+ "
+msgstr "터보 (1050Mhz)+ "
 
 #: 
 msgid "HIGH (1050Mhz)"
-msgstr "HIGH (1050Mhz) "
+msgstr "높음 (1050Mhz) "
 
 #: 
 msgid "NONE (900Mhz)"
-msgstr "NONE (900Mhz) "
+msgstr "없음 (900Mhz) "
 
 #: 
 msgid "NONE (1200Mhz)"
-msgstr "NONE (1200Mhz) "
+msgstr "없음 (1200Mhz) "
 
 #: 
 msgid "NONE"
-msgstr "NONE "
+msgstr "없음 "
 
 #. NEW SETTINGS ORGANIZATION
 #: 
@@ -232,7 +234,7 @@ msgstr "업데이트"
 
 #: 
 msgid "AUTO UPDATES"
-msgstr "자동업데이트"
+msgstr "자동 업데이트"
 
 #: 
 msgid "START UPDATE"
@@ -252,7 +254,7 @@ msgstr "시작 시 KODI 실행"
 
 #: 
 msgid "START KODI WITH X"
-msgstr "X버튼으로 KODI 실행"
+msgstr "X 버튼으로 KODI 실행"
 
 #: 
 msgid "SECURITY"
@@ -260,15 +262,15 @@ msgstr "보안"
 
 #: 
 msgid "ENFORCE SECURITY"
-msgstr "보안강화"
+msgstr "보안 강화"
 
 #: 
 msgid "ROOT PASSWORD"
-msgstr "루트 패스워드"
+msgstr "관리자 비밀번호"
 
 #: 
 msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "시스템을 재부팅합니다"
+msgstr "시스템이 지금 다시 시작됩니다."
 
 #: 
 msgid "GAMES SETTINGS"
@@ -280,23 +282,23 @@ msgstr "화면 비율"
 
 #: 
 msgid "SMOOTH GAMES"
-msgstr "부드러운 화면"
+msgstr "부드러운 게임"
 
 #: 
 msgid "REWIND"
-msgstr "되돌리기"
+msgstr "되감기"
 
 #: 
 msgid "AUTO SAVE/LOAD"
-msgstr "자동저장/불러오기"
+msgstr "자동 저장/불러오기"
 
 #: 
 msgid "SHADERS SET"
-msgstr "쉐이더 선택"
+msgstr "셰이더 선택"
 
 #: 
 msgid "SCANLINES"
-msgstr "스캔라인"
+msgstr "스캔 라인"
 
 #: 
 msgid "RETRO"
@@ -304,35 +306,35 @@ msgstr "레트로"
 
 #: 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RETROACHIEVEMENTS 설정"
+msgstr "레트로 도전 과제 설정"
 
 #: 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "레트로 도전 과제"
 
 #: 
 msgid "HARDCORE MODE"
-msgstr "하드코어 모드"
+msgstr "어려움 모드"
 
 #: 
 msgid "USERNAME"
-msgstr "아이디"
+msgstr "사용자 이름"
 
 #: 
 msgid "PASSWORD"
-msgstr "패스워드"
+msgstr "비밀번호"
 
 #: 
 msgid "ADVANCED"
-msgstr "고급설정"
+msgstr "고급"
 
 #: 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "게임목록을 업데이트할까요?"
+msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
 
 #: 
 msgid "UPDATE GAMES LISTS"
-msgstr "게임목록 업데이트"
+msgstr "게임 목록 업데이트"
 
 #: 
 msgid "CONTROLLERS SETTINGS"
@@ -340,27 +342,27 @@ msgstr "컨트롤러 설정"
 
 #: 
 msgid "UI SETTINGS"
-msgstr "UI 설정"
+msgstr "사용자 인터페이스 설정"
 
 #: 
 msgid "OVERSCAN"
-msgstr "오버스캔"
+msgstr "오버 스캔"
 
 #: 
 msgid "SCREENSAVER AFTER"
-msgstr "화면보호 시간설정"
+msgstr "화면 보호기 작동"
 
 #: 
 msgid "TRANSITION STYLE"
-msgstr "화면전환 스타일"
+msgstr "화면 전환 형식"
 
 #: 
 msgid "SCREENSAVER BEHAVIOR"
-msgstr "화면보호 형식"
+msgstr "화면 보호기 행동"
 
 #: 
 msgid "SHOW FRAMERATE"
-msgstr "프레임레이트 표시"
+msgstr "프레임 속도 표시"
 
 #: 
 msgid "ON-SCREEN HELP"
@@ -368,11 +370,11 @@ msgstr "도움말 표시"
 
 #: 
 msgid "QUICK SYSTEM SELECT"
-msgstr "시스템 간 빠른 이동"
+msgstr "빠른 시스템 선택"
 
 #: 
 msgid "THEME SET"
-msgstr "테마"
+msgstr "테마 선택"
 
 #: 
 msgid "SOUND SETTINGS"
@@ -380,15 +382,15 @@ msgstr "사운드 설정"
 
 #: 
 msgid "SYSTEM VOLUME"
-msgstr "시스템 볼륨"
+msgstr "시스템 음량"
 
 #: 
 msgid "FRONTEND MUSIC"
-msgstr "배경음악"
+msgstr "배경 음악"
 
 #: 
 msgid "OUTPUT DEVICE"
-msgstr "출력기기"
+msgstr "출력 기기"
 
 #: 
 msgid "HDMI"
@@ -420,11 +422,11 @@ msgstr "상태"
 
 #: 
 msgid "IP ADDRESS"
-msgstr "IP주소"
+msgstr "IP 주소"
 
 #: 
 msgid "HOSTNAME"
-msgstr "호스트명"
+msgstr "호스트 이름"
 
 #: 
 msgid "ENABLE WIFI"
@@ -444,7 +446,7 @@ msgstr "WIFI 활성화됨"
 
 #: 
 msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 설정 오류"
+msgstr "WIFI 구성 오류"
 
 #: 
 msgid "SCRAPER"
@@ -468,19 +470,19 @@ msgstr "종료"
 
 #: 
 msgid "REALLY RESTART?"
-msgstr "재부팅할까요?"
+msgstr "정말로 다시 시작 하시겠습니까?"
 
 #: 
 msgid "RESTART SYSTEM"
-msgstr "시스템을 재부팅합니다"
+msgstr "시스템 다시 시작"
 
 #: 
 msgid "REALLY SHUTDOWN?"
-msgstr "종료할까요?"
+msgstr "정말로 시스템을 종료하시겠습니까?"
 
 #: 
 msgid "SHUTDOWN SYSTEM"
-msgstr "시스템을 종료합니다"
+msgstr "시스템 종료"
 
 #: 
 msgid "Emulator"
@@ -492,7 +494,7 @@ msgstr "코어"
 
 #: 
 msgid "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE SNES CONTROLLER."
-msgstr "컨트롤러 설정을 시작합니다. 방향키 또는 스틱이 한 개 뿐이라면, 방향키만 설정하고 조이스틱 설정은 A 버튼을 길게 눌러 스킵하세요. 핫키에 배정할 버튼이 모자란 경우에는 셀렉트 키에 배정한 버튼을 설정하세요. A버튼을 길게 누르면 버튼을 배정하지 않고 스킵할 수 있습니다. 버튼명은 슈퍼패미컴 컨트롤러를 기반으로 합니다. "
+msgstr "컨트롤러 설정을 시작합니다. 조이스틱이 한 개 뿐이라면, 방향키만 설정한다음 아무 버튼이나 길게 눌러 나머지 설정을 건너뛰십시오. 단축키에 설정할 버튼이 모자랄 경우, 셀렉트 버튼을 선택합니다. 해당사항이 없는 버튼은 아무 버튼이나 길게 누르면 해당 버튼을 설정하지 않고 건너뛸 수 있습니다. 버튼 이름은 슈퍼패미컴 컨트롤러 기준입니다."
 
 #. GUIMENU
 #: 
@@ -510,11 +512,11 @@ msgstr "컨트롤러 페어링 불가"
 
 #: 
 msgid "AN ERROR OCCURED"
-msgstr "오류가 발생했습니다"
+msgstr "오류 발생됨"
 
 #: 
 msgid "NO CONTROLLERS FOUND"
-msgstr "컨트롤러를 찾을 수 없습니다"
+msgstr "발견된 컨트롤러 없음"
 
 #: 
 msgid "PAIR A BLUETOOTH CONTROLLER"
@@ -522,7 +524,7 @@ msgstr "블루투스 컨트롤러 페어링"
 
 #: 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "컨트롤러와의 연결이 삭제되었습니다"
+msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
 #: 
 msgid "FORGET BLUETOOTH CONTROLLERS"
@@ -546,11 +548,11 @@ msgstr "옵션"
 
 #: 
 msgid "JUMP TO LETTER"
-msgstr "점프"
+msgstr "문자로 이동"
 
 #: 
 msgid "SORT GAMES BY"
-msgstr "정렬순서"
+msgstr "다음으로 게임 정렬"
 
 #. FAVORITES
 #: 
@@ -559,7 +561,7 @@ msgstr "즐겨찾기만 표시"
 
 #: 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임정보 편집"
+msgstr "게임 정보 편집"
 
 #: 
 msgid "SCRAPE THESE GAMES"
@@ -597,31 +599,31 @@ msgstr "시작"
 #: 
 msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
-msgstr "경고: 선택한 시스템 중 일부는 플랫폼 셋이 없습니다. 스크랩 정확도가 낮을 수 있습니다. 계속할까요? "
+msgstr "경고: 선택한 시스템 중 일부는 플랫폼 셋이 없습니다. 스크랩 정확도가 낮을 수 있습니다. 계속 하시겠습니까?"
 
 #: 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "조건에 맞는 게임이 없습니다"
+msgstr "조건에 맞는 게임이 없습니다."
 
 #: 
 msgid "REALLY UPDATE?"
-msgstr "업데이트할까요?"
+msgstr "정말로 업데이트 하시겠습니까?"
 
 #: 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "인터넷 연결을 확인하세요"
+msgstr "인터넷 연결 필요함"
 
 #: 
 msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "업데이트 다운로드 완료. 재부팅합니다."
+msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."
 
 #: 
 msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-msgstr "업데이트 실패. 재부팅합니다."
+msgstr "업데이트 실패, 시스템이 지금 다시 시작됩니다."
 
 #: 
 msgid "NO UPDATE AVAILABLE"
-msgstr "가능한 업데이트가 없습니다"
+msgstr "사용 가능한 업데이트 없음"
 
 #: 
 msgid "enter emulator"
@@ -645,15 +647,15 @@ msgstr "이름"
 
 #: 
 msgid "enter game name"
-msgstr "게임명 입력"
+msgstr "게임 이름 입력"
 
 #: 
 msgid "Description"
-msgstr "게임설명"
+msgstr "설명"
 
 #: 
 msgid "enter description"
-msgstr "게임설명 입력"
+msgstr "설명 입력"
 
 #: 
 msgid "Image"
@@ -665,15 +667,15 @@ msgstr "이미지 경로 입력"
 
 #: 
 msgid "Thumbnail"
-msgstr "썸네일"
+msgstr "축소판 그림"
 
 #: 
 msgid "enter path to thumbnail"
-msgstr "썸네일 경로 입력"
+msgstr "축소판 그림 경로 입력"
 
 #: 
 msgid "enter rating"
-msgstr "점수 입력"
+msgstr "평점 입력"
 
 #: 
 msgid "Release date"
@@ -709,19 +711,19 @@ msgstr "즐겨찾기 입력"
 
 #: 
 msgid "Region"
-msgstr "지역/언어"
+msgstr "지역"
 
 #: 
 msgid "enter region"
-msgstr "지역/언어 입력"
+msgstr "지역"
 
 #: 
 msgid "Romtype"
-msgstr "롬형식"
+msgstr "롬 형식"
 
 #: 
 msgid "enter romtype"
-msgstr "롬형식 입력"
+msgstr "롬 형식 입력"
 
 #: 
 msgid "Hidden"
@@ -750,14 +752,12 @@ msgstr "마지막 플레이한 날짜 입력"
 #: 
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i 개의 게임 실행가능\n"
-"%i 개의 게임 실행가능"
+msgstr[0] "%i 개의 게임 사용 가능"
 
 #: 
 msgid "%i FAVORITE"
 msgid_plural "%i FAVORITES"
-msgstr[0] "즐겨찾기 %i 개\n"
-"즐겨찾기 %i 개"
+msgstr[0] "%i 개의 즐겨찾기"
 
 #: 
 msgid "SCROLL"
@@ -777,11 +777,11 @@ msgstr "메뉴"
 
 #: 
 msgid "FILENAME, ASCENDING"
-msgstr "파일명, 오름차순"
+msgstr "파일 이름, 오름차순"
 
 #: 
 msgid "FILENAME, DESCENDING"
-msgstr "파일명, 내림차순"
+msgstr "파일 이름, 내림차순"
 
 #: 
 msgid "RATING, ASCENDING"
@@ -809,7 +809,7 @@ msgstr "최근 플레이, 내림차순"
 
 #: 
 msgid "WORKING..."
-msgstr "실행중..."
+msgstr "작업 중..."
 
 #: 
 msgid "CHANGE"
@@ -817,7 +817,7 @@ msgstr "변경"
 
 #: 
 msgid "never"
-msgstr "미실행"
+msgstr "없음"
 
 #: 
 msgid "just now"
@@ -826,30 +826,26 @@ msgstr "방금 전"
 #: 
 msgid "%i sec ago"
 msgid_plural "%i secs ago"
-msgstr[0] "%i 초 전\n"
-"%i 초 전"
+msgstr[0] "%i 초 전"
 
 #: 
 msgid "%i min ago"
 msgid_plural "%i mins ago"
-msgstr[0] "%i 분 전\n"
-"%i 분 전"
+msgstr[0] "%i 분 전"
 
 #: 
 msgid "%i hour ago"
 msgid_plural "%i hours ago"
-msgstr[0] "%i 시간 전\n"
-"%i 시간 전"
+msgstr[0] "%i 시간 전"
 
 #: 
 msgid "%i day ago"
 msgid_plural "%i days ago"
-msgstr[0] "%i 일 전\n"
-"%i 일 전"
+msgstr[0] "%i 일 전"
 
 #: 
 msgid "unknown"
-msgstr "알수없음"
+msgstr "알 수 없음"
 
 #: 
 msgid "SELECT ALL"
@@ -857,13 +853,12 @@ msgstr "모두 선택"
 
 #: 
 msgid "SELECT NONE"
-msgstr "모두 선택안함"
+msgstr "모두 선택 안함"
 
 #: 
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "%i 개 선택됨\n"
-"%i 개 선택됨"
+msgstr[0] "%i 개 선택됨"
 
 #: 
 msgid "UP"
@@ -883,19 +878,19 @@ msgstr "오른쪽"
 
 #: 
 msgid "JOYSTICK 1 UP"
-msgstr "조이스틱1 위"
+msgstr "조이스틱 1 위"
 
 #: 
 msgid "JOYSTICK 1 LEFT"
-msgstr "조이스틱1 왼쪽"
+msgstr "조이스틱 1 왼쪽"
 
 #: 
 msgid "JOYSTICK 2 UP"
-msgstr "조이스틱2 위"
+msgstr "조이스틱 2 위"
 
 #: 
 msgid "JOYSTICK 2 LEFT"
-msgstr "조이스틱2 왼쪽"
+msgstr "조이스틱 2 왼쪽"
 
 #: 
 msgid "PAGE UP"
@@ -907,11 +902,11 @@ msgstr "한 페이지 아래"
 
 #: 
 msgid "HOTKEY"
-msgstr "핫키"
+msgstr "단축키"
 
 #: 
 msgid "CONFIGURING"
-msgstr "설정중"
+msgstr "구성 중"
 
 #: 
 msgid "KEYBOARD"
@@ -919,30 +914,29 @@ msgstr "키보드"
 
 #: 
 msgid "GAMEPAD %i"
-msgstr "게임패드 %i"
+msgstr "게임 패드 %i"
 
 #: 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "아무 버튼이나 누르고 있으면 스킵"
+msgstr "건너뛰려면 아무 버튼이나 누르세요."
 
 #: 
 msgid "-NOT DEFINED-"
-msgstr "-설정없음-"
+msgstr "-정의되지 않음-"
 
 #: 
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "%i 초 동안 누르면 스킵\n"
-"%i 초 동안 누르면 스킵"
+msgstr[0] "%i 초 동안 누르면 건너뛰기"
 
 #. Config controllers missing translation
 #: 
 msgid "PRESS ANYTHING"
-msgstr "아무 키나 누르세요"
+msgstr "아무 버튼이나 누르세요."
 
 #: 
 msgid "ALREADY TAKEN"
-msgstr "이미 설정되었습니다"
+msgstr "이미 설정되었습니다."
 
 #: 
 msgid "DISCARD CHANGES"
@@ -950,53 +944,52 @@ msgstr "변경 취소"
 
 #: 
 msgid "WELCOME"
-msgstr "안녕하세요"
+msgstr "환영합니다."
 
 #: 
 msgid "CONFIGURE INPUT"
-msgstr "입력 설정"
+msgstr "입력 구성"
 
 #: 
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i 개의 게임패드를 찾았습니다\n"
-"%i 개의 게임패드를 찾았습니다"
+msgstr[0] "%i 개의 게임 패드 발견됨"
 
 #: 
 msgid "NO GAMEPADS DETECTED"
-msgstr "게임패드를 찾지 못했습니다"
+msgstr "발견된 게임 패드 없음"
 
 #: 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "설정할 게임패드의 A버튼을 누르고 있으세요."
+msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
 
 #: 
 msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "F4를 누르면 종료합니다"
+msgstr "언제든지 F4 를 누르면 종료합니다."
 
 #: 
 msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ESC 또는 핫키를 누르면 취소합니다"
+msgstr "ESC 또는 단축키를 누르면 취소합니다."
 
 #: 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODI 미디어센터를 실행할까요?"
+msgstr "KODI 미디어 센터를 실행하시겠습니까?"
 
 #: 
 msgid "LOADING..."
-msgstr "로딩 중"
+msgstr "불러오는 중..."
 
 #: 
 msgid "PLEASE WAIT..."
-msgstr "잠시만 기다리세요."
+msgstr "잠시 기다려 주십시오..."
 
 #: 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "정보를 저장하지 않고 종료할까요?"
+msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
 
 #: 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "빠른 종료"
+msgstr "빠른 시스템 종료"
 
 #: 
 msgid "WE CAN'T FIND ANY SYSTEMS!\n"
@@ -1004,43 +997,78 @@ msgid "WE CAN'T FIND ANY SYSTEMS!\n"
 "\n"
 "VISIT RECALBOX.FR FOR MORE INFORMATION."
 msgstr "시스템을 찾을 수 없습니다.\n"
-"설정 파일에서 시스템 경로가 맞는지 확인하세요. 게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
+"설정 파일에서 시스템 경로가 맞는지 확인하세요.\n"
+"게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
 "\n"
 "더 자세한 정보는 recalbox.com 에서 확인하세요."
 
 #: 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "화상 키보드"
 
 #: 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
 
 #: 
 msgid "SPACE"
-msgstr ""
+msgstr "스페이스"
 
 #: 
 msgid "DELETE A CHAR"
-msgstr ""
+msgstr "문자 삭제"
 
 #: 
 msgid "SHIFT"
-msgstr ""
+msgstr "쉬프트"
 
 #: 
 msgid "STOP EDITING"
-msgstr ""
+msgstr "편집 중단"
 
 #: 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "커서 이동"
 
 #: 
 msgid "EDIT"
-msgstr ""
+msgstr "편집"
 
 #: 
 msgid "ACCEPT RESULT"
-msgstr ""
+msgstr "결과 동의"
+
+#: 
+msgid "FILENAME"
+msgstr "파일 이름"
+
+#: 
+msgid "RATING"
+msgstr "평점"
+
+#: 
+msgid "TIMES PLAYED"
+msgstr "실행 횟수"
+
+#: 
+msgid "LAST PLAYED"
+msgstr "마지막 실행"
+
+#: 
+msgid "NUMBER OF PLAYERS"
+msgstr "플레이어 수"
+
+#. mean person : 개발자
+#. mean s/w : 개발툴
+#: 
+msgid "DEVELOPER"
+msgstr "개발자"
+
+#: 
+msgid "GENRE"
+msgstr "장르"
+
+#: 
+msgid "SHOW HIDDEN"
+msgstr "숨김 표시"
 
