@@ -225,3 +225,16 @@ void AudioManager::musicEnd() {
         playRandomMusic();
     }
 }
+
+void AudioManager::playCheckSound() {
+	std::string selectedTheme = Settings::getInstance()->getString("ThemeSet");
+	std::string loadingMusic = getHomePath()+"/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
+
+	if(boost::filesystem::exists(loadingMusic) == false){
+	  loadingMusic = "/recalbox/share_init/system/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
+	}
+
+	if(boost::filesystem::exists(loadingMusic)){
+	  Music::get(loadingMusic)->play(false, NULL);
+	}
+}

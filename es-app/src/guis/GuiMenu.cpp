@@ -680,20 +680,29 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                  sounds_enabled->setState(!(RecalboxConf::getInstance()->get("audio.bgmusic") == "0"));
                  s->addWithLabel(_("FRONTEND MUSIC"), sounds_enabled);
 
-                 auto output_list = std::make_shared<OptionListComponent<std::string> >(mWindow, _("OUTPUT DEVICE"),
-                                                                                        false);
-
-
+		 // audio device
+		 auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("OUTPUT DEVICE"),
+											 false);
                  std::string currentDevice = RecalboxConf::getInstance()->get("audio.device");
                  if (currentDevice.empty()) currentDevice = "auto";
-                 output_list->add(_("HDMI"), "hdmi", "hdmi" == currentDevice);
-                 output_list->add(_("JACK"), "jack", "jack" == currentDevice);
-                 output_list->add(_("AUTO"), "auto", "auto" == currentDevice);
 
-                 if (RecalboxConf::getInstance()->get("system.es.menu") != "bartop") {
-		   s->addWithLabel(_("OUTPUT DEVICE"), output_list);
-                 }
-                 s->addSaveFunc([output_list, currentDevice, sounds_enabled, volume] {
+		 std::vector<std::string> availableAudio = RecalboxSystem::getInstance()->getAvailableAudioOutputDevices();
+		 std::string selectedAudio = RecalboxSystem::getInstance()->getCurrentAudioOutputDevice();
+
+		 if (RecalboxConf::getInstance()->get("system.es.menu") != "bartop") {
+		   for(auto it = availableAudio.begin(); it != availableAudio.end(); it++){
+		     std::vector<std::string> tokens;
+		     boost::split( tokens, (*it), boost::is_any_of(" ") );
+		     if(tokens.size()>= 2){
+		       optionsAudio->add(tokens.at(1), (*it), selectedAudio == (*it));
+		     } else {
+		       optionsAudio->add((*it), (*it), selectedAudio == (*it));
+		     }
+		   }
+		   s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
+		 }
+
+                 s->addSaveFunc([optionsAudio, currentDevice, sounds_enabled, volume] {
 
                      VolumeControl::getInstance()->setVolume((int) round(volume->getValue()));
                      RecalboxConf::getInstance()->set("audio.volume",
@@ -703,9 +712,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                       sounds_enabled->getState() ? "1" : "0");
                      if (!sounds_enabled->getState())
                          AudioManager::getInstance()->stopMusic();
-                     if (currentDevice != output_list->getSelected()) {
-                         RecalboxConf::getInstance()->set("audio.device", output_list->getSelected());
-                         RecalboxSystem::getInstance()->setAudioOutputDevice(output_list->getSelected());
+                     if (currentDevice != optionsAudio->getSelected()) {
+                         RecalboxConf::getInstance()->set("audio.device", optionsAudio->getSelected());
+                         RecalboxSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
                      }
                      RecalboxConf::getInstance()->saveRecalboxConf();
                  });

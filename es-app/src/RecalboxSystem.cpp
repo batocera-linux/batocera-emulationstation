@@ -27,7 +27,6 @@
 #include <arpa/inet.h>
 #include <boost/algorithm/string/replace.hpp>
 
-
 RecalboxSystem::RecalboxSystem() {
 }
 
@@ -157,37 +156,6 @@ std::string RecalboxSystem::getVersionMessage() {
     return "";
 
 }
-
-bool RecalboxSystem::setAudioOutputDevice(std::string device) {
-    int commandValue = -1;
-    int returnValue = false;
-
-    if (device == "auto") {
-        commandValue = 0;
-    } else if (device == "jack") {
-        commandValue = 1;
-    } else if (device == "hdmi") {
-        commandValue = 2;
-    } else {
-        LOG(LogWarning) << "Unable to find audio output device to use !";
-    }
-
-    if (commandValue != -1) {
-        std::ostringstream oss;
-        oss << "amixer cset numid=3 " << commandValue;
-        std::string command = oss.str();
-        LOG(LogInfo) << "Launching " << command;
-        if (system(command.c_str())) {
-            LOG(LogWarning) << "Error executing " << command;
-            returnValue = false;
-        } else {
-            LOG(LogInfo) << "Audio output device set to : " << device;
-            returnValue = true;
-        }
-    }
-    return returnValue;
-}
-
 
 bool RecalboxSystem::setOverscan(bool enable) {
 
@@ -522,4 +490,60 @@ std::string RecalboxSystem::getRootPassword() {
         return std::string(line);
     }
     return oss.str().c_str();
+}
+
+std::vector<std::string> RecalboxSystem::getAvailableAudioOutputDevices() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "lsaudio";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return res;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
+std::string RecalboxSystem::getCurrentAudioOutputDevice() {
+
+    std::ostringstream oss;
+    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "getaudio";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return "";
+    }
+
+    if (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        pclose(pipe);
+        return std::string(line);
+    }
+    return "INTERNAL";
+}
+
+bool RecalboxSystem::setAudioOutputDevice(std::string selected) {
+    std::ostringstream oss;
+
+    AudioManager::getInstance()->deinit();
+    VolumeControl::getInstance()->deinit();
+
+    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "audio" << " '" << selected << "'";
+    int exitcode = system(oss.str().c_str());
+
+    VolumeControl::getInstance()->init();
+    AudioManager::getInstance()->resumeMusic();
+    AudioManager::getInstance()->playCheckSound();
+
+    return exitcode == 0;
 }

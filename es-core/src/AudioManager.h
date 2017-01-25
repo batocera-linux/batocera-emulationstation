@@ -29,6 +29,8 @@ public:
 
     void resumeMusic();
 
+    void playCheckSound();
+
     void init();
 
     void deinit();

@@ -22,8 +22,6 @@ public:
 
     std::string getVersion();
     std::string getRootPassword();
-    
-    bool setAudioOutputDevice(std::string device);
 
     bool setOverscan(bool enable);
 
@@ -71,6 +69,11 @@ public:
     bool setStorage(std::string basic_string);
 
     bool forgetBluetoothControllers();
+
+    /* audio card */
+    bool setAudioOutputDevice(std::string device);
+    std::vector<std::string> getAvailableAudioOutputDevices();
+    std::string getCurrentAudioOutputDevice();
 
 private:
     static RecalboxSystem *instance;
