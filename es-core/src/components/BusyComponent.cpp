@@ -31,6 +31,11 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	addChild(&mGrid);
 }
 
+void BusyComponent::setText(std::string txt) {
+  mText->setText(txt);
+  onSizeChanged();
+}
+
 void BusyComponent::onSizeChanged()
 {
 	mGrid.setSize(mSize);

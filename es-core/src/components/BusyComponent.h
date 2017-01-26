@@ -12,6 +12,7 @@ public:
 	BusyComponent(Window* window);
 
 	void onSizeChanged() override;
+	void setText(std::string txt);
 
 	void reset(); // reset to frame 0
 

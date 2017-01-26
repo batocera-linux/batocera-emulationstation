@@ -112,7 +112,7 @@ void GuiUpdate::update(int deltaTime) {
 
 void GuiUpdate::threadUpdate() 
 {
-    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->updateSystem();
+    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->updateSystem(&mBusyAnim);
     if(updateStatus.second == 0){
         this->onUpdateOk();
     }else {
@@ -156,6 +156,7 @@ void GuiUpdate::onUpdateError(std::pair<std::string, int> result)
     mLoading = false;
     mState = 5;
     mResult = result;
+    mResult.first = _("AN ERROR OCCURED") + std::string(": ") + mResult.first;
 }
 
 void GuiUpdate::onUpdateOk()

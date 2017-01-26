@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Window.h"
-
+#include "components/BusyComponent.h"
 
 class RecalboxSystem {
 public:
@@ -35,7 +35,7 @@ public:
 
     std::string getVersionMessage();
 
-    std::pair<std::string, int> updateSystem();
+    std::pair<std::string, int> updateSystem(BusyComponent* ui);
 
     bool ping();
 
