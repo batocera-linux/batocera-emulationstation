@@ -19,6 +19,9 @@ using namespace Eigen;
 BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(5, 3))
 {
+        mutex = SDL_CreateMutex();
+
+  
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);
 	mText = std::make_shared<TextComponent>(mWindow, _("WORKING..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
@@ -31,9 +34,28 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	addChild(&mGrid);
 }
 
+BusyComponent::~BusyComponent() {
+  SDL_DestroyMutex(mutex);
+}
+
 void BusyComponent::setText(std::string txt) {
-  mText->setText(txt);
-  onSizeChanged();
+  if (SDL_LockMutex(mutex) == 0) {
+    threadMessage = txt;
+    threadMessagechanged = true;
+    SDL_UnlockMutex(mutex);
+  }
+}
+
+void BusyComponent::render(const Eigen::Affine3f& parentTrans) {
+  if (SDL_LockMutex(mutex) == 0) {
+    if(threadMessagechanged) {
+      threadMessagechanged = false;
+      mText->setText(threadMessage);
+      onSizeChanged();
+    }
+    SDL_UnlockMutex(mutex);
+  }
+  GuiComponent::render(parentTrans);
 }
 
 void BusyComponent::onSizeChanged()

@@ -207,7 +207,7 @@ std::pair<std::string,int> RecalboxSystem::updateSystem(BusyComponent* ui) {
     }
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
-        ui->setText(std::string("=>") + std::string(line));
+        ui->setText(std::string(line));
     }
 
     int exitCode = pclose(pipe);
