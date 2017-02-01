@@ -76,10 +76,16 @@ public:
 	float getFloat(const std::string& key) const;
 	boost::posix_time::ptime getTime(const std::string& key) const;
 
+	bool isDefault();
+
+	bool wasChanged() const;
+	void resetChangedFlag();
+
 	inline MetaDataListType getType() const { return mType; }
 	inline const std::vector<MetaDataDecl>& getMDD() const { return getMDDByType(getType()); }
 
 private:
 	MetaDataListType mType;
 	std::map<std::string, std::string> mMap;
+	bool mWasChanged;
 };
