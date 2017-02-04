@@ -171,6 +171,8 @@ bool MetaDataList::isDefault()
 	for (int i = 1; i < mMap.size(); i++) {
 		if (mMap.at(mdd[i].key) != mdd[i].defaultValue) return false;
 	}
+
+	return true;
 }
 
 bool MetaDataList::wasChanged() const
