@@ -168,9 +168,15 @@ bool MetaDataList::isDefault()
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
 
-	for (int i = 1; i < mMap.size(); i++) {
-		if (mMap.at(mdd[i].key) != mdd[i].defaultValue) return false;
-	}
+        for(auto mddIter = mdd.begin(); mddIter != mdd.end(); mddIter++)
+        {
+                auto mapIter = mMap.find(mddIter->key);
+                if(mapIter != mMap.end())
+                {
+                        if(mapIter->second != mddIter->defaultValue)
+                                return false;
+                }
+        }
 
 	return true;
 }
