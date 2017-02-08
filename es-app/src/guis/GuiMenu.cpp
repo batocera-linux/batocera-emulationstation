@@ -863,6 +863,12 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          });
                      }
 
+		     // maximum vram
+		     auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
+		     max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
+		     s->addWithLabel("VRAM LIMIT", max_vram);
+		     s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
+
                      mWindow->pushGui(s);
                  });
     }
