@@ -325,13 +325,13 @@ int main(int argc, char* argv[])
 	}
 	RecalboxSystem::getInstance()->getIpAdress();
 	// UPDATED VERSION MESSAGE
-	if(RecalboxSystem::getInstance()->needToShowVersionMessage()){
-		 window.pushGui(new GuiMsgBoxScroll(&window,
-		RecalboxSystem::getInstance()->getVersionMessage(),
-					      _("OK"), [] {
-					 RecalboxSystem::getInstance()->updateLastVersionFile();
-					},"",nullptr,"",nullptr, ALIGN_LEFT));
-	}
+	//if(RecalboxSystem::getInstance()->needToShowVersionMessage()){
+	//	 window.pushGui(new GuiMsgBoxScroll(&window,
+	//	RecalboxSystem::getInstance()->getVersionMessage(),
+	//				      _("OK"), [] {
+	//				 RecalboxSystem::getInstance()->updateLastVersionFile();
+	//				},"",nullptr,"",nullptr, ALIGN_LEFT));
+	//}
 
 	// UPDATE CHECK THREAD
 	if(recalboxConf->get("updates.enabled") == "1"){
