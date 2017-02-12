@@ -19,6 +19,7 @@
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiSettings.h"
 #include "guis/GuiScraperStart.h"
+#include "guis/GuiBackupStart.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiRomsManager.h"
@@ -251,6 +252,18 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          s->addRow(row);
                      }
 
+		     // backup
+		     {
+		       ComponentListRow row;
+		       auto openBackupNow = [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); };
+		       row.makeAcceptInputHandler(openBackupNow);
+		       auto backupSettings = std::make_shared<TextComponent>(mWindow, _("BACKUP"),
+									   Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+		       auto bracket = makeArrow(mWindow);
+		       row.addElement(backupSettings, true);
+		       row.addElement(bracket, false);
+		       s->addRow(row);
+		     }
 
                      //Kodi
                      {
@@ -906,7 +919,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     addChild(&mVersion);
 
     setSize(mMenu.getSize());
-    setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
+    setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.1f);
 }
 
 GuiMenu::~GuiMenu() {

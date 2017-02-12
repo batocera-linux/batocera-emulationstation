@@ -215,6 +215,22 @@ std::pair<std::string,int> RecalboxSystem::updateSystem(BusyComponent* ui) {
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
+std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::string device) {
+    std::string updatecommand = std::string("/recalbox/scripts/recalbox-sync.sh sync ") + device;
+    FILE *pipe = popen(updatecommand.c_str(), "r");
+    char line[1024] = "";
+    if (pipe == NULL) {
+        return std::pair<std::string,int>(std::string("Cannot call sync command"),-1);
+    }
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        ui->setText(std::string(line));
+    }
+
+    int exitCode = pclose(pipe);
+    return std::pair<std::string,int>(std::string(line), exitCode);
+}
+
 bool RecalboxSystem::ping() {
     std::string updateserver = Settings::getInstance()->getString("UpdateServer");
     std::string s("ping -c 1 " + updateserver);
@@ -423,6 +439,27 @@ std::vector<std::string> RecalboxSystem::getAvailableStorageDevices() {
     std::vector<std::string> res;
     std::ostringstream oss;
     oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "storage list";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return res;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
+std::vector<std::string> RecalboxSystem::getAvailableBackupDevices() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/recalbox-sync.sh list";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 

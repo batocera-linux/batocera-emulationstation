@@ -28,7 +28,11 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperMulti.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRomsManager.h
 
     # Scrapers
@@ -84,7 +88,9 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperMulti.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRomsManager.cpp
 
     # Scrapers

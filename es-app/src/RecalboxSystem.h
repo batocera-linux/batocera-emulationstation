@@ -36,6 +36,7 @@ public:
     std::string getVersionMessage();
 
     std::pair<std::string, int> updateSystem(BusyComponent* ui);
+    std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
 
     bool ping();
 
@@ -63,6 +64,7 @@ public:
     bool pairBluetooth(std::string &basic_string);
 
     std::vector<std::string> getAvailableStorageDevices();
+    std::vector<std::string> getAvailableBackupDevices();
 
     std::string getCurrentStorage();
 
