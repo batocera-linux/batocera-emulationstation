@@ -98,7 +98,7 @@ void GuiBackup::onBackupError(std::pair<std::string, int> result)
     mLoading = false;
     mState = 3;
     mResult = result;
-    mResult.first = _("AN ERROR OCCURED") + std::string(": ") + mResult.first;
+    mResult.first = _("AN ERROR OCCURED") + std::string(": check the system/logs directory");
 }
 
 void GuiBackup::onBackupOk()

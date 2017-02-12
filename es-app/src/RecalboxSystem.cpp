@@ -206,10 +206,14 @@ std::pair<std::string,int> RecalboxSystem::updateSystem(BusyComponent* ui) {
     if (pipe == NULL) {
         return std::pair<std::string,int>(std::string("Cannot call update command"),-1);
     }
+
+    FILE *flog = fopen("/recalbox/share/system/logs/recalbox-upgrade.log", "w");
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
+	if(flog != NULL) fprintf(flog, "%s\n", line);
         ui->setText(std::string(line));
     }
+    if(flog != NULL) fclose(flog);
 
     int exitCode = pclose(pipe);
     return std::pair<std::string,int>(std::string(line), exitCode);
@@ -222,10 +226,14 @@ std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::
     if (pipe == NULL) {
         return std::pair<std::string,int>(std::string("Cannot call sync command"),-1);
     }
+
+    FILE *flog = fopen("/recalbox/share/system/logs/recalbox-sync.log", "w");
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
+	if(flog != NULL) fprintf(flog, "%s\n", line);
         ui->setText(std::string(line));
     }
+    if(flog != NULL) fclose(flog);
 
     int exitCode = pclose(pipe);
     return std::pair<std::string,int>(std::string(line), exitCode);
