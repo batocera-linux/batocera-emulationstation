@@ -11,7 +11,7 @@
 #include "Locale.h"
 
 GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window),
-  mMenu(window, _("BACKUP").c_str())
+  mMenu(window, _("BACKUP USER DATA").c_str())
 {
 	addChild(&mMenu);
 

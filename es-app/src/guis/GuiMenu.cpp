@@ -257,7 +257,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		       ComponentListRow row;
 		       auto openBackupNow = [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); };
 		       row.makeAcceptInputHandler(openBackupNow);
-		       auto backupSettings = std::make_shared<TextComponent>(mWindow, _("BACKUP"),
+		       auto backupSettings = std::make_shared<TextComponent>(mWindow, _("BACKUP USER DATA"),
 									   Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
 		       auto bracket = makeArrow(mWindow);
 		       row.addElement(backupSettings, true);
