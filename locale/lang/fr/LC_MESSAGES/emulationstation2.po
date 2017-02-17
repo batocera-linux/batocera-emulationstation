@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 20:04+0100\n"
+"POT-Creation-Date: 2017-02-15 21:34+0100\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +82,7 @@ msgid ""
 "WE CAN'T FIND ANY SYSTEMS!\n"
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
+msgstr "AUCUN SYSTÈME TROUVÉ !"
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -187,8 +187,8 @@ msgstr "MISES À JOUR AUTO"
 msgid "START UPDATE"
 msgstr "LANCER LA MISE À JOUR"
 
-msgid "BACKUP"
-msgstr ""
+msgid "BACKUP USER DATA"
+msgstr "SAUVEGARDE DES DONNÉES"
 
 msgid "KODI SETTINGS"
 msgstr "OPTIONS KODI"
@@ -497,10 +497,10 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "AUCUNE MISE À JOUR DISPONIBLE"
 
 msgid "TARGET DEVICE"
-msgstr ""
+msgstr "PÉRIPHÉRIQUE CIBLE"
 
 msgid "FINNISHED"
-msgstr ""
+msgstr "TERMINÉ"
 
 msgid "enter emulator"
 msgstr "entrer l'émulateur"
@@ -610,8 +610,8 @@ msgstr[1] "%i FAVORIS"
 #, c-format
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i JEU CACHÉ"
+msgstr[1] "%i JEUX CACHÉS"
 
 msgid "SCROLL"
 msgstr "SCROLLER"
@@ -814,68 +814,3 @@ msgstr "CHARGEMENT..."
 
 msgid "PLEASE WAIT..."
 msgstr "VEUILLEZ PATIENTER..."
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.FR FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "Aucun système trouvé !\n"
-#~ "\n"
-#~ "Visitez le site recalbox.com pour plus d'infos !"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.COM FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "AUCUN JEU N'A ÉTÉ TROUVÉ SUR LE SYSTÈME !\n"
-#~ "VEUILLEZ AJOUTER DES JEUX EN SUIVANT LES INSTRUCTIONS DE LA NOTICE.\n"
-#~ "\n"
-#~ "RENDEZ-VOUS SUR RECALBOX.COM POUR PLUS D'INFORMATIONS"
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "AUCUN (700Mhz)"
-
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "TURBO (1050Mhz)+"
-
-#~ msgid "HDMI"
-#~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
-
-#~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "ÉCHEC DE LA MISE À JOUR"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "FICHIER, ASCENDANT"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "FICHIER, DESCENDANT"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "VOTES, ASCENDANT"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "VOTES, DESCENDANT"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "PARTIES JOUÉES, ASCENDANT"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "PARTIES JOUÉES, DESCENDANT"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "DERNIÈRE PARTIE, ASCENDANT"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "DERNIÈRE PARTIE, DESCENDANT"
