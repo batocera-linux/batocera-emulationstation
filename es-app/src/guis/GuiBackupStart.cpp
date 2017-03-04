@@ -24,7 +24,13 @@ GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window),
 	    std::vector<std::string> tokens;
 	    boost::split( tokens, (*it), boost::is_any_of(" ") );
 	    if(tokens.size()>= 3){
-	      moptionsStorage->add(tokens.at(2), tokens.at(1), false);
+	      // concatenat the ending words
+	      std::string vname = "";
+	      for(unsigned int i=2; i<tokens.size(); i++) {
+		if(i > 2) vname += " ";
+		vname += tokens.at(i);
+	      }
+	      moptionsStorage->add(vname, tokens.at(1), false);
 	    }
 	  } else {
 	    moptionsStorage->add((*it), (*it), false);

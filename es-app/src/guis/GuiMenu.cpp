@@ -147,7 +147,13 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                  std::vector<std::string> tokens;
                                  boost::split( tokens, (*it), boost::is_any_of(" ") );
                                  if(tokens.size()>= 3){
-                                     optionsStorage->add(tokens.at(2), (*it), selectedStorage == std::string("DEV "+tokens.at(1)));
+				   // concatenat the ending words
+				   std::string vname = "";
+				   for(unsigned int i=2; i<tokens.size(); i++) {
+				     if(i > 2) vname += " ";
+				     vname += tokens.at(i);
+				   }
+				   optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV "+tokens.at(1)));
                                  }
                              } else {
                                  optionsStorage->add((*it), (*it), selectedStorage == (*it));
