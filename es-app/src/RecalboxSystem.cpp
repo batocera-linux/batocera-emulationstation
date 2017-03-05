@@ -299,6 +299,29 @@ bool RecalboxSystem::launchKodi(Window *window) {
 
 }
 
+bool RecalboxSystem::launchFileManager(Window *window) {
+    LOG(LogInfo) << "Attempting to launch filemanager...";
+
+    AudioManager::getInstance()->deinit();
+    VolumeControl::getInstance()->deinit();
+
+    std::string command = "/recalbox/scripts/filemanagerlauncher.sh";
+
+    window->deinit();
+
+    int exitCode = system(command.c_str());
+    if (WIFEXITED(exitCode)) {
+        exitCode = WEXITSTATUS(exitCode);
+    }
+
+    window->init();
+    VolumeControl::getInstance()->init();
+    AudioManager::getInstance()->resumeMusic();
+    window->normalizeNextUpdate();
+
+    return exitCode == 0;
+}
+
 bool RecalboxSystem::enableWifi(std::string ssid, std::string key) {
     std::ostringstream oss;
     boost::replace_all(ssid, "\"", "\\\"");

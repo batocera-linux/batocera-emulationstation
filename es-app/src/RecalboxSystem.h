@@ -43,6 +43,7 @@ public:
     bool canUpdate();
 
     bool launchKodi(Window *window);
+    bool launchFileManager(Window *window);
 
     bool enableWifi(std::string ssid, std::string key);
 

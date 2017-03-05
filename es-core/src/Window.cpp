@@ -134,6 +134,10 @@ void Window::input(InputConfig* config, Input input)
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
+	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
+	{
+	  RecalboxSystem::getInstance()->launchFileManager(this);
+	}
 	else
 	{
             if(config->isMappedTo("x", input) && input.value && !launchKodi && RecalboxConf::getInstance()->get("kodi.enabled") == "1" && RecalboxConf::getInstance()->get("kodi.xbutton") == "1"){
