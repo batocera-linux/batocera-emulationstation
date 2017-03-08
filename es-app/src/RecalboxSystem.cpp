@@ -507,6 +507,24 @@ std::vector<std::string> RecalboxSystem::getAvailableBackupDevices() {
     return res;
 }
 
+std::vector<std::string> RecalboxSystem::getSystemInformations() {
+    std::vector<std::string> res;
+    FILE *pipe = popen("/recalbox/scripts/recalbox-info.sh", "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+      return res;
+    }
+
+    while(fgets(line, 1024, pipe)) {
+      strtok(line, "\n");
+      res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
 std::string RecalboxSystem::getCurrentStorage() {
 
     std::ostringstream oss;

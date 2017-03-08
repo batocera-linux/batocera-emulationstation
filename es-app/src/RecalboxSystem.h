@@ -66,6 +66,7 @@ public:
 
     std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
+    std::vector<std::string> getSystemInformations();
 
     std::string getCurrentStorage();
 

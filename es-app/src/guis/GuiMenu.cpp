@@ -124,16 +124,54 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
                      auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
 
-                     auto version = std::make_shared<TextComponent>(mWindow,
-                                                                    RecalboxSystem::getInstance()->getVersion(),
-                                                                    Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-                     s->addWithLabel(_("VERSION"), version);
-                     bool warning = RecalboxSystem::getInstance()->isFreeSpaceLimit();
-                     auto space = std::make_shared<TextComponent>(mWindow,
-                                                                  RecalboxSystem::getInstance()->getFreeSpaceInfo(),
-                                                                  Font::get(FONT_SIZE_MEDIUM),
-                                                                  warning ? 0xFF0000FF : 0x777777FF);
-                     s->addWithLabel(_("DISK USAGE"), space);
+                     // system informations
+                     {
+                         ComponentListRow row;
+                         std::function<void()> openGui = [this] {
+			   GuiSettings *informationsGui = new GuiSettings(mWindow, _("INFORMATIONS").c_str());
+
+			   auto version = std::make_shared<TextComponent>(mWindow,
+			   						  RecalboxSystem::getInstance()->getVersion(),
+			   						  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+			   informationsGui->addWithLabel(_("VERSION"), version);
+			   bool warning = RecalboxSystem::getInstance()->isFreeSpaceLimit();
+			   auto space = std::make_shared<TextComponent>(mWindow,
+			   						RecalboxSystem::getInstance()->getFreeSpaceInfo(),
+			   						Font::get(FONT_SIZE_MEDIUM),
+			   						warning ? 0xFF0000FF : 0x777777FF);
+			   informationsGui->addWithLabel(_("DISK USAGE"), space);
+
+			   // various informations
+			   std::vector<std::string> infos = RecalboxSystem::getInstance()->getSystemInformations();
+			   for(auto it = infos.begin(); it != infos.end(); it++) {
+			     std::vector<std::string> tokens;
+			     boost::split( tokens, (*it), boost::is_any_of(":") );
+			     if(tokens.size()>= 2){
+			       // concatenat the ending words
+			       std::string vname = "";
+			       for(unsigned int i=1; i<tokens.size(); i++) {
+				 if(i > 1) vname += " ";
+				 vname += tokens.at(i);
+			       }
+
+			       auto space = std::make_shared<TextComponent>(mWindow,
+									    vname,
+									    Font::get(FONT_SIZE_MEDIUM),
+									    0x777777FF);
+			       informationsGui->addWithLabel(tokens.at(0), space);
+			     }
+			   }
+			   
+			   mWindow->pushGui(informationsGui);
+                         };
+                         row.makeAcceptInputHandler(openGui);
+                         auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATIONS"),
+                                                                             Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+                         auto bracket = makeArrow(mWindow);
+                         row.addElement(informationsSettings, true);
+                         row.addElement(bracket, false);
+                         s->addRow(row);
+                     }
 
                      std::vector<std::string> availableStorage = RecalboxSystem::getInstance()->getAvailableStorageDevices();
                      std::string selectedStorage = RecalboxSystem::getInstance()->getCurrentStorage();
