@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR YOUR RECALBOX"
+msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 msgstr "새로운 업데이트를 사용할 수 있습니다."
 
 msgid "CANCEL"

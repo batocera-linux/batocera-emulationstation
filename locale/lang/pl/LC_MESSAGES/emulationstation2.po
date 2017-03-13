@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR YOUR RECALBOX"
+msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 msgstr "NOWA WERSJA RECALBOX'A JEST DOSTĘPNA"
 
 msgid "CANCEL"
