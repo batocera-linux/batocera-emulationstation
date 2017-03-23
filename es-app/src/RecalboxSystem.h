@@ -5,6 +5,17 @@
 #include "Window.h"
 #include "components/BusyComponent.h"
 
+struct BiosFile {
+  std::string status;
+  std::string md5;
+  std::string path;
+};
+
+struct BiosSystem {
+  std::string name;
+  std::vector<BiosFile> bios;
+};
+
 class RecalboxSystem {
 public:
 
@@ -67,6 +78,7 @@ public:
     std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getSystemInformations();
+    std::vector<BiosSystem> getBiosInformations();
 
     std::string getCurrentStorage();
 

@@ -26,6 +26,10 @@
 #include <string.h>
 #include <arpa/inet.h>
 #include <boost/algorithm/string/replace.hpp>
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/classification.hpp>
+
 #include <fstream>
 
 RecalboxSystem::RecalboxSystem() {
@@ -523,6 +527,55 @@ std::vector<std::string> RecalboxSystem::getSystemInformations() {
     pclose(pipe);
 
     return res;
+}
+
+std::vector<BiosSystem> RecalboxSystem::getBiosInformations() {
+  std::vector<BiosSystem> res;
+  BiosSystem current;
+  bool isCurrent = false;
+
+  FILE *pipe = popen("/recalbox/scripts/recalbox-systems.py", "r");
+  char line[1024];
+
+  if (pipe == NULL) {
+    return res;
+  }
+
+  while(fgets(line, 1024, pipe)) {
+    strtok(line, "\n");
+    if(boost::starts_with(line, "> ")) {
+      if(isCurrent) {
+	res.push_back(current);
+      }
+      isCurrent = true;
+      current.name = std::string(std::string(line).substr(2));
+      current.bios.clear();
+    } else {
+      BiosFile biosFile;
+      std::vector<std::string> tokens;
+      boost::split( tokens, line, boost::is_any_of(" "));
+
+      if(tokens.size() >= 3) {
+	biosFile.status = tokens.at(0);
+	biosFile.md5    = tokens.at(1);
+
+	// concatenat the ending words
+	std::string vname = "";
+	for(unsigned int i=2; i<tokens.size(); i++) {
+	  if(i > 2) vname += " ";
+	  vname += tokens.at(i);
+	}
+	biosFile.path = vname;
+
+	current.bios.push_back(biosFile);
+      }
+    }
+  }
+  if(isCurrent) {
+    res.push_back(current);
+  }
+  pclose(pipe);
+  return res;
 }
 
 std::string RecalboxSystem::getCurrentStorage() {

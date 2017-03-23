@@ -527,6 +527,70 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          row.addElement(bracket, false);
                          s->addRow(row);
                      }
+
+                     // Bios
+                     {
+		       std::function<void()> openGuiD = [this, s] {
+			 GuiSettings *configuration = new GuiSettings(mWindow, _("MISSING BIOS").c_str());
+			 std::vector<BiosSystem> biosInformations = RecalboxSystem::getInstance()->getBiosInformations();
+
+			 if(biosInformations.size() == 0) {
+			   ComponentListRow noRow;
+			   auto biosText = std::make_shared<TextComponent>(mWindow, _("NO MISSING BIOS").c_str(),
+									   Font::get(FONT_SIZE_MEDIUM),
+									   0x777777FF);
+			   noRow.addElement(biosText, true);
+			   configuration->addRow(noRow);
+			 } else {
+
+			   for (auto systemBios = biosInformations.begin(); systemBios != biosInformations.end(); systemBios++) {
+			     ComponentListRow biosRow;
+			     auto biosText = std::make_shared<TextComponent>(mWindow, (*systemBios).name.c_str(),
+									     Font::get(FONT_SIZE_MEDIUM),
+									     0x777777FF);
+			     BiosSystem systemBiosData = (*systemBios);
+			     std::function<void()> openGuiDBios = [this, systemBiosData] {
+			       GuiSettings *configurationInfo = new GuiSettings(mWindow, systemBiosData.name.c_str());
+			       for (auto biosFile = systemBiosData.bios.begin(); biosFile != systemBiosData.bios.end(); biosFile++) {
+			         auto biosPath = std::make_shared<TextComponent>(mWindow, biosFile->path.c_str(),
+										 Font::get(FONT_SIZE_MEDIUM),
+										 0x000000FF);
+				 auto biosMd5 = std::make_shared<TextComponent>(mWindow, biosFile->md5.c_str(),
+										Font::get(FONT_SIZE_SMALL),
+										0x777777FF);
+				 auto biosStatus = std::make_shared<TextComponent>(mWindow, biosFile->status.c_str(),
+										   Font::get(FONT_SIZE_SMALL),
+										   0x777777FF);
+				 ComponentListRow biosFileRow;
+				 biosFileRow.addElement(biosPath, true);
+				 configurationInfo->addRow(biosFileRow);
+
+				 configurationInfo->addWithLabel(_("MD5"), biosMd5);
+				 configurationInfo->addWithLabel(_("STATUS"), biosStatus);
+			       }
+			       mWindow->pushGui(configurationInfo);
+			     };
+			     biosRow.makeAcceptInputHandler(openGuiDBios);
+			     auto bracket = makeArrow(mWindow);
+			     biosRow.addElement(biosText, true);
+			     biosRow.addElement(bracket, false);
+			     configuration->addRow(biosRow);
+			   }
+			 }
+			 mWindow->pushGui(configuration);
+		       };
+		       // bios button
+		       ComponentListRow row;
+		       row.makeAcceptInputHandler(openGuiD);
+		       auto bios = std::make_shared<TextComponent>(mWindow, _("MISSING BIOS"),
+								   Font::get(FONT_SIZE_MEDIUM),
+								   0x777777FF);
+		       auto bracket = makeArrow(mWindow);
+		       row.addElement(bios, true);
+		       row.addElement(bracket, false);
+		       s->addRow(row);
+		     }
+
                      // Custom config for systems
                      {
                          ComponentListRow row;

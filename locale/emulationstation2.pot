@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 21:28+0100\n"
+"POT-Creation-Date: 2017-03-23 21:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR YOUR RECALBOX"
+msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 msgstr ""
 
 msgid "CANCEL"
@@ -264,6 +264,18 @@ msgstr ""
 msgid "PASSWORD"
 msgstr ""
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr ""
+
 msgid "ADVANCED"
 msgstr ""
 
@@ -325,9 +337,6 @@ msgid "CONNECTED"
 msgstr ""
 
 msgid "NOT CONNECTED"
-msgstr ""
-
-msgid "STATUS"
 msgstr ""
 
 msgid "IP ADDRESS"
