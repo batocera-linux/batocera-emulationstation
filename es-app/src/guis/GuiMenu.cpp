@@ -391,6 +391,25 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          s->addRow(row);
                      }
 
+		     // support
+		     {
+		       ComponentListRow row;
+		       row.makeAcceptInputHandler([this, window] {
+			   window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+							 [this, window] {
+							   if(RecalboxSystem::getInstance()->generateSupportFile()) {
+							     window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+							   } else {
+							     window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
+							   }
+							 }, _("NO"), nullptr));
+                         });
+		       auto supportFile = std::make_shared<TextComponent>(mWindow, _("CREATE A SUPPORT FILE"),
+									  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+		       row.addElement(supportFile, false);
+		       s->addRow(row);
+		     }
+
                      s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage] {
                          bool reboot = false;
                          if (optionsStorage->changed()) {

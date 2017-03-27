@@ -578,6 +578,15 @@ std::vector<BiosSystem> RecalboxSystem::getBiosInformations() {
   return res;
 }
 
+bool RecalboxSystem::generateSupportFile() {
+  std::string cmd = "/recalbox/scripts/recalbox-support.sh";
+  int exitcode = system(cmd.c_str());
+  if (WIFEXITED(exitcode)) {
+    exitcode = WEXITSTATUS(exitcode);
+  }
+  return exitcode == 0;
+}
+
 std::string RecalboxSystem::getCurrentStorage() {
 
     std::ostringstream oss;

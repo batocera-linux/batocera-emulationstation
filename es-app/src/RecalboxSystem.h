@@ -79,6 +79,7 @@ public:
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getSystemInformations();
     std::vector<BiosSystem> getBiosInformations();
+    bool generateSupportFile();
 
     std::string getCurrentStorage();
 

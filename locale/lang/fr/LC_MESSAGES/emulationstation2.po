@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 21:08+0100\n"
+"POT-Creation-Date: 2017-03-27 22:36+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,9 +64,8 @@ msgstr "sous-titre"
 msgid "INPUT"
 msgstr "ÉDITER"
 
-#, fuzzy
 msgid "search"
-msgstr "nintendo 64\n"
+msgstr "rechercher"
 
 msgid "STOP"
 msgstr "ARRÊTER"
@@ -216,6 +215,18 @@ msgstr "MOT DE PASSE ROOT"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "LE SYSTÈME VA REDÉMARRER"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "CRÉER UN FICHIER DE SUPPORT ?"
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "FICHIER GÉNÉRÉ AVEC SUCCES"
+
+msgid "FILE GENERATION FAILED"
+msgstr "ECHEC DE LA GÉNÉRATION DU FICHIER"
+
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "GAMES SETTINGS"
 msgstr "OPTIONS DES JEUX"
