@@ -161,6 +161,25 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 			       informationsGui->addWithLabel(tokens.at(0), space);
 			     }
 			   }
+
+			   // support
+			   {
+			     ComponentListRow row;
+			     row.makeAcceptInputHandler([this] {
+				 mWindow->pushGui(new GuiMsgBox(mWindow, _("CREATE A SUPPORT FILE ?"), _("YES"),
+								[this] {
+								  if(RecalboxSystem::getInstance()->generateSupportFile()) {
+								    mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+								  } else {
+								    mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATION FAILED"), _("OK")));
+								  }
+								}, _("NO"), nullptr));
+			       });
+			     auto supportFile = std::make_shared<TextComponent>(mWindow, _("CREATE A SUPPORT FILE"),
+										Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+			     row.addElement(supportFile, false);
+			     informationsGui->addRow(row);
+			   }
 			   
 			   mWindow->pushGui(informationsGui);
                          };
@@ -390,25 +409,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          row.addElement(bracket, false);
                          s->addRow(row);
                      }
-
-		     // support
-		     {
-		       ComponentListRow row;
-		       row.makeAcceptInputHandler([this, window] {
-			   window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
-							 [this, window] {
-							   if(RecalboxSystem::getInstance()->generateSupportFile()) {
-							     window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
-							   } else {
-							     window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
-							   }
-							 }, _("NO"), nullptr));
-                         });
-		       auto supportFile = std::make_shared<TextComponent>(mWindow, _("CREATE A SUPPORT FILE"),
-									  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-		       row.addElement(supportFile, false);
-		       s->addRow(row);
-		     }
 
                      s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage] {
                          bool reboot = false;
