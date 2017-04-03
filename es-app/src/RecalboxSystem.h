@@ -48,6 +48,7 @@ public:
 
     std::pair<std::string, int> updateSystem(BusyComponent* ui);
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
+    std::pair<std::string, int> scrape(BusyComponent* ui);
 
     bool ping();
 

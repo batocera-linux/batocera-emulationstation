@@ -243,6 +243,26 @@ std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
+std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
+  std::string scrapecommand = std::string("/recalbox/scripts/recalbox-scraper.sh");
+  FILE *pipe = popen(scrapecommand.c_str(), "r");
+  char line[1024] = "";
+  if (pipe == NULL) {
+    return std::pair<std::string,int>(std::string("Cannot call scrape command"),-1);
+  }
+  
+  FILE *flog = fopen("/recalbox/share/system/logs/recalbox-scrape.log", "w");
+  while (fgets(line, 1024, pipe)) {
+    strtok(line, "\n");
+    if(flog != NULL) fprintf(flog, "%s\n", line);
+    ui->setText(std::string(line));
+  }
+  if(flog != NULL) fclose(flog);
+  
+  int exitCode = pclose(pipe);
+  return std::pair<std::string,int>(std::string(line), exitCode);
+}
+
 bool RecalboxSystem::ping() {
     std::string updateserver = Settings::getInstance()->getString("UpdateServer");
     std::string s("ping -c 1 " + updateserver);
