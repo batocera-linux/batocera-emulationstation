@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 22:36+0200\n"
+"POT-Creation-Date: 2017-04-03 20:35+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,6 +150,18 @@ msgstr "VERSION"
 msgid "DISK USAGE"
 msgstr "ESPACE DISQUE"
 
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "CRÉER UN FICHIER DE SUPPORT ?"
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "FICHIER GÉNÉRÉ AVEC SUCCES"
+
+msgid "FILE GENERATION FAILED"
+msgstr "ECHEC DE LA GÉNÉRATION DU FICHIER"
+
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRÉER UN FICHIER DE SUPPORT"
+
 msgid "STORAGE DEVICE"
 msgstr "MÉDIA DE STOCKAGE"
 
@@ -215,18 +227,6 @@ msgstr "MOT DE PASSE ROOT"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "LE SYSTÈME VA REDÉMARRER"
-
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "CRÉER UN FICHIER DE SUPPORT ?"
-
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "FICHIER GÉNÉRÉ AVEC SUCCES"
-
-msgid "FILE GENERATION FAILED"
-msgstr "ECHEC DE LA GÉNÉRATION DU FICHIER"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "GAMES SETTINGS"
 msgstr "OPTIONS DES JEUX"
@@ -366,17 +366,8 @@ msgstr "WIFI ACTIVÉ"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERREUR DE CONFIGURATION WIFI"
 
-msgid "SCRAPER"
-msgstr "SCRAPPEUR"
-
-msgid "SCRAPE FROM"
-msgstr "SCRAPPER DEPUIS"
-
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPPER LES NOTES"
-
-msgid "SCRAPE NOW"
-msgstr "SCRAPPER MAINTENANT"
+msgid "REALLY SCRAPE?"
+msgstr "VOULEZ-VOUS VRAIMENT SCRAPPER ?"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -471,6 +462,9 @@ msgstr "AFFICHER LES FICHIERS CACHÉS"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES DONNÉES DU JEU"
 
+msgid "SCRAPE NOW"
+msgstr "SCRAPPER MAINTENANT"
+
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPPER CES JEUX"
 
@@ -519,11 +513,11 @@ msgstr "MISE À JOUR TÉLÉCHARGÉE, REDÉMARRAGE EN COURS"
 msgid "NO UPDATE AVAILABLE"
 msgstr "AUCUNE MISE À JOUR DISPONIBLE"
 
-msgid "TARGET DEVICE"
-msgstr "PÉRIPHÉRIQUE CIBLE"
-
 msgid "FINNISHED"
 msgstr "TERMINÉ"
+
+msgid "TARGET DEVICE"
+msgstr "PÉRIPHÉRIQUE CIBLE"
 
 msgid "enter emulator"
 msgstr "entrer l'émulateur"
@@ -837,3 +831,12 @@ msgstr "CHARGEMENT..."
 
 msgid "PLEASE WAIT..."
 msgstr "VEUILLEZ PATIENTER..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "SCRAPPEUR"
+
+#~ msgid "SCRAPE FROM"
+#~ msgstr "SCRAPPER DEPUIS"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "SCRAPPER LES NOTES"

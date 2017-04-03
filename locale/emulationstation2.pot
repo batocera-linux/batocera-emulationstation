@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 22:38+0200\n"
+"POT-Creation-Date: 2017-04-03 20:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,6 +156,18 @@ msgstr ""
 msgid "DISK USAGE"
 msgstr ""
 
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "STORAGE DEVICE"
 msgstr ""
 
@@ -220,18 +232,6 @@ msgid "ROOT PASSWORD"
 msgstr ""
 
 msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
-
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
-
-msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "GAMES SETTINGS"
@@ -372,16 +372,7 @@ msgstr ""
 msgid "WIFI CONFIGURATION ERROR"
 msgstr ""
 
-msgid "SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr ""
-
-msgid "SCRAPE RATINGS"
-msgstr ""
-
-msgid "SCRAPE NOW"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "QUIT"
@@ -471,6 +462,9 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
+msgid "SCRAPE NOW"
+msgstr ""
+
 msgid "SCRAPE THESE GAMES"
 msgstr ""
 
@@ -516,10 +510,10 @@ msgstr ""
 msgid "NO UPDATE AVAILABLE"
 msgstr ""
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

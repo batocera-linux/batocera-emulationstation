@@ -255,7 +255,10 @@ std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
   while (fgets(line, 1024, pipe)) {
     strtok(line, "\n");
     if(flog != NULL) fprintf(flog, "%s\n", line);
-    ui->setText(std::string(line));
+
+    if(boost::starts_with(line, "GAME: ")) {
+      ui->setText(std::string(line));
+    }
   }
   if(flog != NULL) fclose(flog);
   

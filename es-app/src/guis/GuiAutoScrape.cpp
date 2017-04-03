@@ -1,6 +1,10 @@
 #include "guis/GuiAutoScrape.h"
 #include "guis/GuiMsgBox.h"
 
+#include "views/ViewController.h"
+#include "Gamelist.h"
+#include "SystemData.h"
+
 #include "Window.h"
 #include <boost/thread.hpp>
 #include <string>
@@ -19,6 +23,11 @@ GuiAutoScrape::GuiAutoScrape(Window* window) : GuiComponent(window), mBusyAnim(w
 
 GuiAutoScrape::~GuiAutoScrape()
 {
+  // view type probably changed (basic -> detailed)
+  for(auto it = SystemData::sSystemVector.begin(); it != SystemData::sSystemVector.end(); it++) {
+    parseGamelist(*it);
+    ViewController::get()->reloadGameListView(*it, false);
+  }
 }
 
 bool GuiAutoScrape::input(InputConfig* config, Input input)
