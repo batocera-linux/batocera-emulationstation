@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 20:50+0200\n"
+"POT-Creation-Date: 2017-04-05 21:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -372,7 +372,22 @@ msgstr ""
 msgid "WIFI CONFIGURATION ERROR"
 msgstr ""
 
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
 msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "SCRAPE RATINGS"
+msgstr ""
+
+msgid "SCRAPE NOW"
 msgstr ""
 
 msgid "QUIT"
@@ -460,9 +475,6 @@ msgid "SHOW HIDDEN"
 msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr ""
-
-msgid "SCRAPE NOW"
 msgstr ""
 
 msgid "SCRAPE THESE GAMES"

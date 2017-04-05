@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 20:35+0200\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -366,8 +366,23 @@ msgstr "WIFI ACTIVÉ"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERREUR DE CONFIGURATION WIFI"
 
+msgid "AUTOMATIC SCRAPER"
+msgstr "SCRAPPER AUTOMATIQUEMENT"
+
 msgid "REALLY SCRAPE?"
 msgstr "VOULEZ-VOUS VRAIMENT SCRAPPER ?"
+
+msgid "MANUAL SCRAPER"
+msgstr "SCRAPPER MANUELLEMENT"
+
+msgid "SCRAPE FROM"
+msgstr "SCRAPPER DEPUIS"
+
+msgid "SCRAPE RATINGS"
+msgstr "SCRAPPER LES NOTES"
+
+msgid "SCRAPE NOW"
+msgstr "SCRAPPER MAINTENANT"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -461,9 +476,6 @@ msgstr "AFFICHER LES FICHIERS CACHÉS"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES DONNÉES DU JEU"
-
-msgid "SCRAPE NOW"
-msgstr "SCRAPPER MAINTENANT"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPPER CES JEUX"
@@ -834,9 +846,3 @@ msgstr "VEUILLEZ PATIENTER..."
 
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPPEUR"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "SCRAPPER DEPUIS"
-
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "SCRAPPER LES NOTES"
