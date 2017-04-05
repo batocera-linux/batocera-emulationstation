@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,11 +143,26 @@ msgstr "Kodi Media Center"
 msgid "SYSTEM SETTINGS"
 msgstr "Systeem instellingen"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "Versie"
 
 msgid "DISK USAGE"
 msgstr "Geheugen verbruik"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "Opslag apparaat"
@@ -257,6 +272,18 @@ msgstr "Gebruikersnaam"
 msgid "PASSWORD"
 msgstr "Wachtwoord"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "Status"
+
 msgid "ADVANCED"
 msgstr "Geavanceerd"
 
@@ -320,9 +347,6 @@ msgstr "Verbonden"
 msgid "NOT CONNECTED"
 msgstr "Niet verbonden"
 
-msgid "STATUS"
-msgstr "Status"
-
 msgid "IP ADDRESS"
 msgstr "IP Adres"
 
@@ -344,8 +368,14 @@ msgstr "Wifi ingeschakeld"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "Wifi configuratie fout"
 
-msgid "SCRAPER"
-msgstr "Scraper"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "Scrape vanaf"
@@ -497,10 +527,10 @@ msgstr "Update gedownload, Het systeem zal nu herstarten"
 msgid "NO UPDATE AVAILABLE"
 msgstr "Er is geen update beschikbaar"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -835,6 +865,9 @@ msgstr "Laden"
 
 msgid "PLEASE WAIT..."
 msgstr "Wachten a.u.b."
+
+#~ msgid "SCRAPER"
+#~ msgstr "Scraper"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,11 +139,26 @@ msgstr "KODI 媒體播放中心"
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "版本"
 
 msgid "DISK USAGE"
 msgstr "磁碟使用情況"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "儲存設備"
@@ -253,6 +268,18 @@ msgstr "使用者名稱"
 msgid "PASSWORD"
 msgstr "使用者密碼"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "目前狀態"
+
 msgid "ADVANCED"
 msgstr "進階設定"
 
@@ -316,9 +343,6 @@ msgstr "已連接"
 msgid "NOT CONNECTED"
 msgstr "沒有連接"
 
-msgid "STATUS"
-msgstr "目前狀態"
-
 msgid "IP ADDRESS"
 msgstr "IP 位址"
 
@@ -340,8 +364,14 @@ msgstr "已啟用WIFI無線網路"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI無線網路設定錯誤"
 
-msgid "SCRAPER"
-msgstr "資料搜刮"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "資料搜刮來源"
@@ -491,10 +521,10 @@ msgstr "更新檔下載完畢，系統將重新啟動"
 msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -799,6 +829,9 @@ msgstr "載入中 ..."
 
 msgid "PLEASE WAIT..."
 msgstr "請稍候 ..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "資料搜刮"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

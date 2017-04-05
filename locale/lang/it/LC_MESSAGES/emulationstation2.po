@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,11 +141,26 @@ msgstr "KODI MEDIA CENTER"
 msgid "SYSTEM SETTINGS"
 msgstr "OPZIONI DI SISTEMA"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "VERSIONE"
 
 msgid "DISK USAGE"
 msgstr "UTILIZZO DISCO"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "UNITA’"
@@ -255,6 +270,18 @@ msgstr "NOME UTENTE"
 msgid "PASSWORD"
 msgstr "PASSWORD"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "STATO"
+
 msgid "ADVANCED"
 msgstr "AVANZATO"
 
@@ -318,9 +345,6 @@ msgstr "CONNESSO"
 msgid "NOT CONNECTED"
 msgstr "NON CONNESSO"
 
-msgid "STATUS"
-msgstr "STATO"
-
 msgid "IP ADDRESS"
 msgstr "INDIRIZZO IP"
 
@@ -342,8 +366,14 @@ msgstr "WIFI ATTIVO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRORE DI CONFIGURAZIONE WIFI"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "INFORMAZIONI DA"
@@ -494,10 +524,10 @@ msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -812,6 +842,9 @@ msgstr "CARICAMENTO…"
 
 msgid "PLEASE WAIT..."
 msgstr "ATTENDERE PREGO…"
+
+#~ msgid "SCRAPER"
+#~ msgstr "SCRAPER"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

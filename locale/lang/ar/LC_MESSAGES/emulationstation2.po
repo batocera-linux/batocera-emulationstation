@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,11 +150,26 @@ msgstr "كودي ميديا سينتر"
 msgid "SYSTEM SETTINGS"
 msgstr "أعدادت النظام"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "الاصدار"
 
 msgid "DISK USAGE"
 msgstr "الاستخدام للقرص"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "جهاز الخزن"
@@ -264,6 +279,18 @@ msgstr "الاسم"
 msgid "PASSWORD"
 msgstr "كلمة السر"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "الحالة"
+
 msgid "ADVANCED"
 msgstr "متطور"
 
@@ -327,9 +354,6 @@ msgstr "متصل"
 msgid "NOT CONNECTED"
 msgstr "ليس متصل"
 
-msgid "STATUS"
-msgstr "الحالة"
-
 msgid "IP ADDRESS"
 msgstr "عنوان الأي بي"
 
@@ -351,8 +375,14 @@ msgstr "WIFI مفعّل"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "إعدادت WIFI خاطئة"
 
-msgid "SCRAPER"
-msgstr "بحث البيانات"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "بحث من"
@@ -501,10 +531,10 @@ msgstr "تم تحميل التحديث، سيتم أعادة التشغيل"
 msgid "NO UPDATE AVAILABLE"
 msgstr "لايوجد تحديثات"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -859,6 +889,9 @@ msgstr "جاري التحميل..."
 
 msgid "PLEASE WAIT..."
 msgstr "الرجاء الانتظار..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "بحث البيانات"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

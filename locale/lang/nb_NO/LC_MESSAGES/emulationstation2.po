@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,11 +139,26 @@ msgstr "KODI MEDIA CENTER"
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEM INSTILLINGER"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "VERSJON"
 
 msgid "DISK USAGE"
 msgstr "DISKBRUK"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "LAGRINGSENHET"
@@ -253,6 +268,18 @@ msgstr "BRUKERNAVN"
 msgid "PASSWORD"
 msgstr "PASSORD"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "STATUS"
+
 msgid "ADVANCED"
 msgstr "AVANSERT"
 
@@ -316,9 +343,6 @@ msgstr "TILKOBLET"
 msgid "NOT CONNECTED"
 msgstr "FRAKOBLET"
 
-msgid "STATUS"
-msgstr "STATUS"
-
 msgid "IP ADDRESS"
 msgstr "IP ADRESSE"
 
@@ -340,8 +364,14 @@ msgstr "WIFI AKTIVERT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI KONFIGURASJONSFEIL"
 
-msgid "SCRAPER"
-msgstr "INFODATABASE"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "SØK I"
@@ -492,10 +522,10 @@ msgstr "OPPDATERING NEDLASTET, SYSTEMET VIL STARTES PÅ NYTT"
 msgid "NO UPDATE AVAILABLE"
 msgstr "SYSTEMET ER OPPDATERT"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -810,6 +840,9 @@ msgstr "LASTER..."
 
 msgid "PLEASE WAIT..."
 msgstr "VENNLIGST VENT..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "INFODATABASE"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

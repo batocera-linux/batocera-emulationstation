@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,11 +141,26 @@ msgstr "KODI MEDIA CENTER"
 msgid "SYSTEM SETTINGS"
 msgstr "RENDSZERBEÁLLÍTÁSOK"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "VERZIÓ"
 
 msgid "DISK USAGE"
 msgstr "LEMEZHASZNÁLAT"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "TÁROLÓ"
@@ -255,6 +270,18 @@ msgstr "FELHASZNÁLÓNÉV"
 msgid "PASSWORD"
 msgstr "JELSZÓ"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "STÁTUSZ"
+
 msgid "ADVANCED"
 msgstr "HALADÓ"
 
@@ -318,9 +345,6 @@ msgstr "CSATLAKOZVA"
 msgid "NOT CONNECTED"
 msgstr "NINCS CSATLAKOZVA"
 
-msgid "STATUS"
-msgstr "STÁTUSZ"
-
 msgid "IP ADDRESS"
 msgstr "IP CÍM"
 
@@ -342,8 +366,14 @@ msgstr "WIFI ENGEDÉLYEZVE"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI BEÁLLÍTÁSI HIBA"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "LEKÉRÉS INNEN"
@@ -494,10 +524,10 @@ msgstr "FRISSÍTÉS LETÖLTVE, A RENDSZER ÚJRAINDUL"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NINCS FRISSÍTÉS"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -812,6 +842,9 @@ msgstr "BETÖLTÉS..."
 
 msgid "PLEASE WAIT..."
 msgstr "KÉREM VÁRJ..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "SCRAPER"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,11 +139,26 @@ msgstr "KODI 미디어 센터"
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "버전"
 
 msgid "DISK USAGE"
 msgstr "디스크 사용량"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
@@ -253,6 +268,18 @@ msgstr "사용자 이름"
 msgid "PASSWORD"
 msgstr "비밀번호"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "상태"
+
 msgid "ADVANCED"
 msgstr "고급"
 
@@ -316,9 +343,6 @@ msgstr "연결됨"
 msgid "NOT CONNECTED"
 msgstr "연결되지 않음"
 
-msgid "STATUS"
-msgstr "상태"
-
 msgid "IP ADDRESS"
 msgstr "IP 주소"
 
@@ -340,8 +364,14 @@ msgstr "WIFI 활성화됨"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 구성 오류"
 
-msgid "SCRAPER"
-msgstr "스크랩"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "스크랩 출처"
@@ -491,10 +521,10 @@ msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩�
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -799,6 +829,9 @@ msgstr "불러오는 중..."
 
 msgid "PLEASE WAIT..."
 msgstr "잠시 기다려 주십시오..."
+
+#~ msgid "SCRAPER"
+#~ msgstr "스크랩"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,10 +139,25 @@ msgstr ""
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "VERSION"
 
 msgid "DISK USAGE"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -253,6 +268,18 @@ msgstr ""
 msgid "PASSWORD"
 msgstr ""
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr ""
+
 msgid "ADVANCED"
 msgstr ""
 
@@ -316,9 +343,6 @@ msgstr "ANSLUTEN"
 msgid "NOT CONNECTED"
 msgstr "INTE ANSLUTEN"
 
-msgid "STATUS"
-msgstr ""
-
 msgid "IP ADDRESS"
 msgstr ""
 
@@ -340,7 +364,13 @@ msgstr "WIFI AKTIV"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI FELINSTÄLLD"
 
-msgid "SCRAPER"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
 msgstr ""
 
 msgid "SCRAPE FROM"
@@ -484,10 +514,10 @@ msgstr ""
 msgid "NO UPDATE AVAILABLE"
 msgstr "INGA UPPDATERINGAR FUNNA"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

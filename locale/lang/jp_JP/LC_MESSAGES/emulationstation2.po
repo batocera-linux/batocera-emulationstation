@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,11 +142,26 @@ msgstr "KODI メディアセンター"
 msgid "SYSTEM SETTINGS"
 msgstr "システム設定"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "バージョン"
 
 msgid "DISK USAGE"
 msgstr "ディスク使用"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "記憶装置"
@@ -264,6 +279,18 @@ msgstr "ユーザー名"
 msgid "PASSWORD"
 msgstr "パスワード"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "ステータス"
+
 #, fuzzy
 msgid "ADVANCED"
 msgstr "アドバンス"
@@ -329,9 +356,6 @@ msgstr "接続済み"
 msgid "NOT CONNECTED"
 msgstr "未接続"
 
-msgid "STATUS"
-msgstr "ステータス"
-
 msgid "IP ADDRESS"
 msgstr "IP アドレス"
 
@@ -353,9 +377,14 @@ msgstr "WIFI が有効になりました"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 設定エラー"
 
-#, fuzzy
-msgid "SCRAPER"
-msgstr "スクレイパー"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
@@ -512,10 +541,10 @@ msgstr "アップデートをダウンロードしました。 システムは�
 msgid "NO UPDATE AVAILABLE"
 msgstr "アップデートはありません"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 #, fuzzy
@@ -837,6 +866,10 @@ msgstr "読み込み中..."
 
 msgid "PLEASE WAIT..."
 msgstr "お待ちください..."
+
+#, fuzzy
+#~ msgid "SCRAPER"
+#~ msgstr "スクレイパー"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"

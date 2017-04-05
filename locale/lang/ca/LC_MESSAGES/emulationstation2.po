@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 21:34+0100\n"
+"POT-Creation-Date: 2017-04-05 21:07+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,11 +141,26 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 msgid "SYSTEM SETTINGS"
 msgstr "PARÀMETRES DEL SISTEMA"
 
+msgid "INFORMATIONS"
+msgstr ""
+
 msgid "VERSION"
 msgstr "VERSIÓ"
 
 msgid "DISK USAGE"
 msgstr "ÚS DEL DISC"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr ""
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr ""
+
+msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "DISPOSITIU D'EMMAGATZEMATGE"
@@ -255,6 +270,18 @@ msgstr "USUARI"
 msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
+msgid "MISSING BIOS"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr ""
+
+msgid "MD5"
+msgstr ""
+
+msgid "STATUS"
+msgstr "ESTAT"
+
 msgid "ADVANCED"
 msgstr "AVANÇAT"
 
@@ -318,9 +345,6 @@ msgstr "CONNECTAT"
 msgid "NOT CONNECTED"
 msgstr "NO CONNECTAT"
 
-msgid "STATUS"
-msgstr "ESTAT"
-
 msgid "IP ADDRESS"
 msgstr "ADREÇA IP"
 
@@ -342,8 +366,14 @@ msgstr "EL WIFI ESTÀ ACTIU"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "OBTÉ DADES DE"
@@ -495,10 +525,10 @@ msgstr "S'HA BAIXAT L'ACTUALITZACIÓ. ES REINICIARÀ EL SISTEMA ARA"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
 
-msgid "TARGET DEVICE"
+msgid "FINNISHED"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
@@ -813,6 +843,9 @@ msgstr "S'ESTÀ CARREGANT…"
 
 msgid "PLEASE WAIT..."
 msgstr "ESPEREU…"
+
+#~ msgid "SCRAPER"
+#~ msgstr "SCRAPER"
 
 #~ msgid ""
 #~ "WE CAN'T FIND ANY SYSTEMS!\n"
