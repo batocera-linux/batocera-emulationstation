@@ -129,7 +129,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      {
                          ComponentListRow row;
                          std::function<void()> openGui = [this] {
-			   GuiSettings *informationsGui = new GuiSettings(mWindow, _("INFORMATIONS").c_str());
+			   GuiSettings *informationsGui = new GuiSettings(mWindow, _("INFORMATION").c_str());
 
 			   auto version = std::make_shared<TextComponent>(mWindow,
 			   						  RecalboxSystem::getInstance()->getVersion(),
@@ -185,7 +185,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 			   mWindow->pushGui(informationsGui);
                          };
                          row.makeAcceptInputHandler(openGui);
-                         auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATIONS"),
+                         auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATION"),
                                                                              Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
                          auto bracket = makeArrow(mWindow);
                          row.addElement(informationsSettings, true);
