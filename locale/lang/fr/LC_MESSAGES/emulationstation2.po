@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "UNE MISE À JOUR EST DISPONIBLE POUR VOTRE RECALBOX"
+msgstr "UNE MISE À JOUR EST DISPONIBLE POUR VOTRE BATOCERA.LINUX"
 
 msgid "CANCEL"
 msgstr "ANNULER"

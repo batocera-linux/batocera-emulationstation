@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "ZURE RECALBOX-arentzat EGUNERAKETA BAT DAGO"
+msgstr "ZURE BATOCERA.LINUX-arentzat EGUNERAKETA BAT DAGO"
 
 msgid "CANCEL"
 msgstr "EZEZTATU"

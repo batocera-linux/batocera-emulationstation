@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "您的 recalbox 版本已有可用的更新"
+msgstr "您的 BATOCERA.LINUX 版本已有可用的更新"
 
 msgid "CANCEL"
 msgstr "取消"

@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "RECALBOXのアップデートがあります"
+msgstr "BATOCERA.LINUXのアップデートがあります"
 
 msgid "CANCEL"
 msgstr "キャンセル"

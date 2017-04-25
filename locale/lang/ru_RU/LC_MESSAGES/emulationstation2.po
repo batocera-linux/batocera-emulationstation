@@ -12,7 +12,7 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "Доступно обновление для RECALBOX!"
+msgstr "Доступно обновление для BATOCERA.LINUX!"
 
 msgid "CANCEL"
 msgstr "Отмена"
