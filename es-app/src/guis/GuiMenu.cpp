@@ -245,7 +245,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      language_choice->add("NORWEGIAN",           "nn_NO", language == "nn_NO");
                      language_choice->add("NORWEGIAN BOKMAL",    "nb_NO", language == "nb_NO");
                      language_choice->add("POLISH",              "pl_PL", language == "pl_PL");
-                     language_choice->add("JAPANESE",            "jp_JP", language == "jp_JP");
+                     language_choice->add("JAPANESE",            "ja_JP", language == "ja_JP");
                      language_choice->add("RUSSIAN",             "ru_RU", language == "ru_RU");
                      language_choice->add("HUNGARIAN",           "hu_HU", language == "hu_HU");
 
