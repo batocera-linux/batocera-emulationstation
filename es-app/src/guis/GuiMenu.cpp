@@ -234,7 +234,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      language_choice->add("ESPAÑOL",             "es_ES", language == "es_ES");
                      language_choice->add("FRANÇAIS",            "fr_FR", language == "fr_FR");
                      language_choice->add("ITALIANO",            "it_IT", language == "it_IT");
-                     language_choice->add("PORTUGUES",           "pt_BR", language == "pt_BR");
+                     language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
+		     language_choice->add("PORTUGUES PORTUGAL",  "pt_PT", language == "pt_PT");
                      language_choice->add("SVENSKA",             "sv_SE", language == "sv_SE");
                      language_choice->add("TÜRKÇE",              "tr_TR", language == "tr_TR");
                      language_choice->add("CATALÀ",              "ca_ES", language == "ca_ES");
