@@ -700,6 +700,33 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                  [this] {
 		 auto s = new GuiSettings(mWindow, _("UI SETTINGS").c_str());
 
+ 		     // video device
+		     auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+		     std::string currentDevice = RecalboxConf::getInstance()->get("global.videooutput");
+		     if (currentDevice.empty()) currentDevice = "auto";
+
+		     std::vector<std::string> availableVideo = RecalboxSystem::getInstance()->getAvailableVideoOutputDevices();
+
+		     for(auto it = availableVideo.begin(); it != availableVideo.end(); it++){
+		       optionsVideo->add((*it), (*it), currentDevice == (*it));
+		     }
+		     s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
+
+		     s->addSaveFunc([this, optionsVideo, currentDevice] {
+			 if (currentDevice != optionsVideo->getSelected()) {
+			   RecalboxConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
+			   RecalboxConf::getInstance()->saveRecalboxConf();
+			   this->mWindow->pushGui(
+					   new GuiMsgBox(this->mWindow, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
+							 [] {
+							   if (runRestartCommand() != 0) {
+							     LOG(LogWarning) << "Reboot terminated with non-zero result!";
+							   }
+							 })
+					   );
+			 }
+		       });
+
                      // overscan
                      auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
                      overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));

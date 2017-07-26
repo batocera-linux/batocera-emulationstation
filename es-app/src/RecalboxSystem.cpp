@@ -683,6 +683,27 @@ std::vector<std::string> RecalboxSystem::getAvailableAudioOutputDevices() {
     return res;
 }
 
+std::vector<std::string> RecalboxSystem::getAvailableVideoOutputDevices() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "lsoutputs";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return res;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
 std::string RecalboxSystem::getCurrentAudioOutputDevice() {
 
     std::ostringstream oss;

@@ -93,6 +93,9 @@ public:
     std::vector<std::string> getAvailableAudioOutputDevices();
     std::string getCurrentAudioOutputDevice();
 
+    /* video output */
+    std::vector<std::string> getAvailableVideoOutputDevices();
+
 private:
     static RecalboxSystem *instance;
 
