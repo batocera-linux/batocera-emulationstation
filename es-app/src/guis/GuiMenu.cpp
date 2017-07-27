@@ -707,8 +707,15 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
 		     std::vector<std::string> availableVideo = RecalboxSystem::getInstance()->getAvailableVideoOutputDevices();
 
+		     bool vfound=false;
 		     for(auto it = availableVideo.begin(); it != availableVideo.end(); it++){
 		       optionsVideo->add((*it), (*it), currentDevice == (*it));
+		       if(currentDevice == (*it)) {
+			 vfound = true;
+		       }
+		     }
+		     if(vfound == false) {
+		       optionsVideo->add(currentDevice, currentDevice, true);
 		     }
 		     s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 
