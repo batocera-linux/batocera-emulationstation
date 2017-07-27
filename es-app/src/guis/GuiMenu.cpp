@@ -873,7 +873,13 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		     std::vector<std::string> tokens;
 		     boost::split( tokens, (*it), boost::is_any_of(" ") );
 		     if(tokens.size()>= 2){
-		       optionsAudio->add(tokens.at(1), (*it), selectedAudio == (*it));
+		       // concatenat the ending words
+		       std::string vname = "";
+		       for(unsigned int i=1; i<tokens.size(); i++) {
+			 if(i > 2) vname += " ";
+			 vname += tokens.at(i);
+		       }
+		       optionsAudio->add(vname, (*it), selectedAudio == (*it));
 		     } else {
 		       optionsAudio->add((*it), (*it), selectedAudio == (*it));
 		     }
