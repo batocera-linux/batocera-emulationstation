@@ -887,7 +887,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		   s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
 		 }
 
-                 s->addSaveFunc([optionsAudio, currentDevice, sounds_enabled, volume] {
+                 s->addSaveFunc([this, optionsAudio, currentDevice, sounds_enabled, volume] {
+		     bool v_need_reboot = false;
 
                      VolumeControl::getInstance()->setVolume((int) round(volume->getValue()));
                      RecalboxConf::getInstance()->set("audio.volume",
@@ -900,8 +901,16 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      if (currentDevice != optionsAudio->getSelected()) {
                          RecalboxConf::getInstance()->set("audio.device", optionsAudio->getSelected());
                          RecalboxSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
+			 v_need_reboot = true;
                      }
                      RecalboxConf::getInstance()->saveRecalboxConf();
+		     if(v_need_reboot) {
+		       this->mWindow->pushGui(
+					      new GuiMsgBox(this->mWindow, _("YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."), _("OK"),
+							    [] {
+							    })
+					      );
+		     }
                  });
 
                  mWindow->pushGui(s);
