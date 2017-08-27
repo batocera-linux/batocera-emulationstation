@@ -53,7 +53,7 @@ msgid "ACCEPT RESULT"
 msgstr "ACEPTAR RESULTADO"
 
 msgid "SCRAPING IN PROGRESS"
-msgstr "OBTENCIÓN DE DATOS EN CURSO"
+msgstr "OBTENCIÓN DE CARÁTULAS EN CURSO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -86,8 +86,8 @@ msgstr ""
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "¡%i JUEGO OBTENIDO CORRECTAMENTE!"
-msgstr[1] "¡%i JUEGOS OBTENIDOS CORRECTAMENTE!"
+msgstr[0] "¡%i CARÁTULA OBTENIDO CORRECTAMENTE!"
+msgstr[1] "¡%i CARÁTULAS OBTENIDOS CORRECTAMENTE!"
 
 #, c-format
 msgid "%i GAME SKIPPED."
@@ -102,7 +102,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR LOS DATOS"
 
 msgid "SCRAPE"
-msgstr "OBTENER"
+msgstr "OBTENER CARÁTULAS"
 
 msgid "SAVE"
 msgstr "GUARDAR"
@@ -111,7 +111,7 @@ msgid ""
 "THIS WILL DELETE A FILE!\n"
 "ARE YOU SURE?"
 msgstr ""
-"SE VA A BORRAR EL ARCHIVO\n"
+"SE BORRARÁ EL ARCHIVO\n"
 "¿ESTÁS SEGURO?"
 
 msgid "YES"
@@ -142,7 +142,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "CONFIGURACIÓN DEL SISTEMA"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "INFORMACIÓN"
 
 msgid "VERSION"
 msgstr "VERSIÓN"
@@ -151,16 +151,16 @@ msgid "DISK USAGE"
 msgstr "ESPACIO DISPONIBLE"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "CREAR UN ARCHIVO DE SOPORTE ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "ARCHIVO CREADO CON ÉXITO"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "FALLO EN LA CREACION DEL ARCHIVO"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "GENERAR UN ARCHIVO DE SOPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ALMACENAMIENTO"
@@ -202,10 +202,10 @@ msgid "START UPDATE"
 msgstr "EMPEZAR LA ACTUALIZACIÓN"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "BACKUP DE LA INFO DEL USUARIO"
 
 msgid "KODI SETTINGS"
-msgstr "COFIGURACIÓN DE KODI"
+msgstr "CONFIGURACIÓN DE KODI"
 
 msgid "ENABLE KODI"
 msgstr "ACTIVAR KODI"
@@ -226,7 +226,7 @@ msgid "ROOT PASSWORD"
 msgstr "CONTRASEÑA ROOT"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "EL SISTEMA VA A REINICIARSE"
+msgstr "EL SISTEMA SE REINICIARÁ"
 
 msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGO"
@@ -247,13 +247,13 @@ msgid "SHADERS SET"
 msgstr "JUEGO DE SHADERS"
 
 msgid "SCANLINES"
-msgstr "LINEAS"
+msgstr "LÍNEAS"
 
 msgid "RETRO"
 msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "CONFIGURACIÓN DE RETROACHIEVEMENTS"
@@ -271,13 +271,13 @@ msgid "PASSWORD"
 msgstr "CONTRASEÑA"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "BIOS FALTANTES"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "NO FALTAN BIOS"
 
 msgid "MD5"
-msgstr ""
+msgstr "MD5"
 
 msgid "STATUS"
 msgstr "ESTADO"
@@ -367,22 +367,22 @@ msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACIÓN WIFI"
 
 msgid "REALLY SCRAPE?"
-msgstr ""
+msgstr "OBTENER CARÁTULAS?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr ""
+msgstr "OBTENER CARÁTULAS AUTOMATICAMENTE"
 
 msgid "MANUAL SCRAPER"
-msgstr ""
+msgstr "OBTENER CARÁTULAS MANUALMENTE
 
 msgid "SCRAPE FROM"
-msgstr "OBTENER DATOS DE"
+msgstr "OBTENER CARÁTULAS DE"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
 
 msgid "SCRAPE NOW"
-msgstr "OBTENER DATOS"
+msgstr "OBTENER CARÁTULAS"
 
 msgid "QUIT"
 msgstr "SALIR"
@@ -420,7 +420,7 @@ msgid ""
 msgstr ""
 "VAS A CONFIGURAR UN MANDO. SI SOLO TIENES UN JOYSTICK CONFIGURA LAS "
 "DIRECCIONES E IGNORA LAS CONFIGURACIÓN DE JOYSTICK MANTENIENDO PRESIONADO UN "
-"BOTÓN.  SI NO TIENES UN BOTÓN ESPECIAL PARA LA HOTKEY UTILIZA EL SELECT. "
+"BOTÓN.  SI NO TIENES UN BOTÓN ESPECIAL PARA LA HOTKEY, UTILIZA EL SELECT. "
 "IGNORA LOS BOTONES QUE NO EXISTAN EN TU MANDO MANTENIENDO UNA TECLA PULSADA. "
 "LOS NOMBRES DE LOS BOTONES SE BASAN EN EL MANDO DE LA SNES."
 
@@ -483,7 +483,7 @@ msgid "All Games"
 msgstr "Todos los juegos"
 
 msgid "Only missing image"
-msgstr "SOLO IMÁGENES FALTANTES"
+msgstr "Solo imágenes faltantes"
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -525,10 +525,10 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NO HAY ACTUALIZACIONES DISPONIBLES"
 
 msgid "FINNISHED"
-msgstr ""
+msgstr "FINALIZADO"
 
 msgid "TARGET DEVICE"
-msgstr ""
+msgstr "DISPOSITIVO DESTINO"
 
 msgid "enter emulator"
 msgstr "INTRODUCIR EMULADOR"
@@ -638,8 +638,8 @@ msgstr[1] "%i FAVORITOS"
 #, c-format
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "JUEGO OCULTO"
+msgstr[1] "JUEGOS OCULTOS"
 
 msgid "SCROLL"
 msgstr "DESPLAZAMIENTO"
@@ -890,7 +890,7 @@ msgstr "ESPERA POR FAVOR..."
 #~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "ACTUALIZACIÓN FALLIDA. EL SISTEMA SE REINICIARÁ"
+#~ msgstr "FALLO EN LA ACTUALIZACIÓN. EL SISTEMA SE REINICIARÁ"
 
 #~ msgid "FILENAME, ASCENDING"
 #~ msgstr "NOMBRE DE ARCHIVO, ASCENDENTE"
