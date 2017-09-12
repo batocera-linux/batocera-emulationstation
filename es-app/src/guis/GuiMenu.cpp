@@ -274,6 +274,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      overclock_choice->add(_("TURBO (1325Mhz)+"), "rpi3-turbo", currentOverclock == "rpi3-turbo");
                      overclock_choice->add(_("HIGH (1300Mhz)"), "rpi3-high", currentOverclock == "rpi3-high"); 
                      overclock_choice->add(_("NONE (1200Mhz)"), "none", true);
+#else
 #endif
                      s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 
