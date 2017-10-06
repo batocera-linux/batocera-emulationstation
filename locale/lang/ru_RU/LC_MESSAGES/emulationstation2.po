@@ -63,7 +63,7 @@ msgid "subtitle text"
 msgstr "Субтитры"
 
 msgid "INPUT"
-msgstr ""
+msgstr "Ввод"
 
 msgid "search"
 msgstr "Поиск"
@@ -83,6 +83,9 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
+"Не удается найти никакой системы!\n"
+"Проверьте правильность путей в файле конфигурации систем и "
+"есть ли в каталоге хотя бы одна игра с правильным расширением."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -147,7 +150,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "Системные настройки"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "Информация"
 
 msgid "VERSION"
 msgstr "Версия"
@@ -156,16 +159,16 @@ msgid "DISK USAGE"
 msgstr "Использование диска"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "Создать файл поддержки?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "Файл успешно сгенерирован"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "Генерация файла не удалась"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "Создать файл поддержки"
 
 msgid "STORAGE DEVICE"
 msgstr "Устройство хранения"
@@ -207,7 +210,7 @@ msgid "START UPDATE"
 msgstr "Начать обновление"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "Резервная копия"
 
 msgid "KODI SETTINGS"
 msgstr "Настройки KODI"
@@ -261,10 +264,10 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "Настройки Retroachievements"
+msgstr "Настройки Ретродостижений"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "Retroachievements"
+msgstr "Ретродостижения"
 
 msgid "HARDCORE MODE"
 msgstr "Хардкорный режим"
@@ -303,7 +306,7 @@ msgid "UI SETTINGS"
 msgstr "Настройки интерфейса"
 
 msgid "OVERSCAN"
-msgstr ""
+msgstr "Обрезка изображения"
 
 msgid "SCREENSAVER AFTER"
 msgstr "Заставка через:"
@@ -372,13 +375,13 @@ msgid "WIFI CONFIGURATION ERROR"
 msgstr "Ошибка настройки Wi-Fi"
 
 msgid "REALLY SCRAPE?"
-msgstr ""
+msgstr "Действительно?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr ""
+msgstr "Автоматическая загрузка"
 
 msgid "MANUAL SCRAPER"
-msgstr ""
+msgstr "Ручная загрузка"
 
 msgid "SCRAPE FROM"
 msgstr "Загружать из"
@@ -433,10 +436,10 @@ msgid "CONFIGURE A CONTROLLER"
 msgstr "Настройка контроллера"
 
 msgid "CONTROLLER PAIRED"
-msgstr ""
+msgstr "Контроллер сопряжен"
 
 msgid "UNABLE TO PAIR CONTROLLER"
-msgstr ""
+msgstr "Нельзя сопрячь контроллер"
 
 msgid "AN ERROR OCCURED"
 msgstr "Произошла ошибка"
@@ -445,26 +448,26 @@ msgid "NO CONTROLLERS FOUND"
 msgstr "Контроллеры не найдены"
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr ""
+msgstr "Сопрячь Bluetooth контроллер"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr ""
+msgstr "Ссылки контроллеров были удалены"
 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr ""
+msgstr "Забыть Bluetooth контроллеры"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr ""
+msgstr "Ввод P%i"
 
 msgid "CHOOSE"
-msgstr ""
+msgstr "Выберите"
 
 msgid "SELECT"
-msgstr ""
+msgstr "Выбрать"
 
 msgid "OPTIONS"
-msgstr ""
+msgstr "Опции"
 
 msgid "JUMP TO LETTER"
 msgstr "Перейти к букве"
@@ -529,11 +532,11 @@ msgstr "Обновление загружено, система будет пе�
 msgid "NO UPDATE AVAILABLE"
 msgstr "Нет доступных обновлений"
 
-msgid "FINNISHED"
-msgstr ""
+msgid "FINISHED"
+msgstr "Закончено"
 
 msgid "TARGET DEVICE"
-msgstr ""
+msgstr "Целевое устройство"
 
 msgid "enter emulator"
 msgstr "Эмулятор"
@@ -614,7 +617,7 @@ msgid "Hidden"
 msgstr "Скрыть"
 
 msgid "set hidden"
-msgstr ""
+msgstr "установить"
 
 msgid "Play count"
 msgstr "Время в игре"
@@ -647,9 +650,9 @@ msgstr[3] "%i в избранных"
 #, c-format
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i игра скрыта"
+msgstr[1] "%i игры скрыто"
+msgstr[2] "%i игр скрыто"
 
 msgid "SCROLL"
 msgstr "Листать"
@@ -755,7 +758,7 @@ msgstr[2] "%i выбрано"
 msgstr[3] "%i выбрано"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
+msgstr "Shift'ы для верхнего, нижнего и специального"
 
 msgid "SPACE"
 msgstr "Пробел"
@@ -803,7 +806,7 @@ msgid "HOTKEY"
 msgstr "Горячая кнопка"
 
 msgid "CONFIGURING"
-msgstr ""
+msgstr "Формирование"
 
 msgid "KEYBOARD"
 msgstr "Клавиатура"
@@ -821,10 +824,10 @@ msgstr "-Не назначено-"
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Удерживайте %iS, чтобы пропустить"
+msgstr[1] "Удерживайте %iS, чтобы пропустить"
+msgstr[2] "Удерживайте %iS, чтобы пропустить"
+msgstr[3] "Удерживайте %iS, чтобы пропустить"
 
 msgid "PRESS ANYTHING"
 msgstr "Нажмите любую кнопку"
@@ -836,7 +839,7 @@ msgid "WELCOME"
 msgstr "Добро пожаловать!"
 
 msgid "CONFIGURE INPUT"
-msgstr ""
+msgstr "Настроить ввод"
 
 #, c-format
 msgid "%i GAMEPAD DETECTED"
