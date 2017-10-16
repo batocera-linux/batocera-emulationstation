@@ -1296,7 +1296,7 @@ void GuiMenu::createConfigInput() {
                         window->pushGui(new GuiLoading(window, [controllerString] {
                             bool paired = RecalboxSystem::getInstance()->pairBluetooth(*controllerString);
 
-                            return (void *) new bool(true);
+                            return (void *) new bool(paired);
                         }, deletePairGui));
 
                     };
