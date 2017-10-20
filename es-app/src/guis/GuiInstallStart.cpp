@@ -40,7 +40,6 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 										  false);
 	for(auto it = availableArchitecture.begin(); it != availableArchitecture.end(); it++){
 	    moptionsArchitecture->add((*it), (*it), false);
-	  }
 	}
 	mMenu.addWithLabel(_("TARGET ARCHITECTURE"), moptionsArchitecture);
 
