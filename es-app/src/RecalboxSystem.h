@@ -48,6 +48,7 @@ public:
 
     std::pair<std::string, int> updateSystem(BusyComponent* ui);
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
+    std::pair<std::string, int> installSystem(BusyComponent* ui, std::string device, std::string architecture);
     std::pair<std::string, int> scrape(BusyComponent* ui);
 
     bool ping();
@@ -78,6 +79,8 @@ public:
 
     std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
+    std::vector<std::string> getAvailableInstallDevices();
+    std::vector<std::string> getAvailableInstallArchitectures();
     std::vector<std::string> getSystemInformations();
     std::vector<BiosSystem> getBiosInformations();
     bool generateSupportFile();

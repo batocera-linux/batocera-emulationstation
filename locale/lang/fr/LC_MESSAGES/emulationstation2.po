@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2017-10-20 22:25+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,6 +98,30 @@ msgstr[1] "%i JEUX PASSÉS."
 msgid "OK"
 msgstr "OK"
 
+msgid "INSTALL BATOCERA"
+msgstr "INSTALLER BATOCERA"
+
+msgid "TARGET DEVICE"
+msgstr "PÉRIPHÉRIQUE CIBLE"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "ARCHITECTURE CIBLE"
+
+msgid "VALIDATION"
+msgstr "VALIDATION"
+
+msgid "YES, I'M SURE"
+msgstr "OUI, JE SUIS SÛR"
+
+msgid "INSTALL"
+msgstr "INSTALLER"
+
+msgid "BACK"
+msgstr "RETOUR"
+
+msgid "CLOSE"
+msgstr "FERMER"
+
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES DONNÉES"
 
@@ -125,12 +149,6 @@ msgstr "SUPPRIMER"
 
 msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER ?"
-
-msgid "BACK"
-msgstr "RETOUR"
-
-msgid "CLOSE"
-msgstr "FERMER"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -189,6 +207,15 @@ msgstr "HIGH (1050Mhz)"
 msgid "NONE (900Mhz)"
 msgstr "AUCUN (900Mhz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr "EXTREM (1350Mhz)"
+
+msgid "TURBO (1325Mhz)+"
+msgstr "TURBO (1325Mhz)+"
+
+msgid "HIGH (1300Mhz)"
+msgstr "HIGH (1300Mhz)"
+
 msgid "NONE (1200Mhz)"
 msgstr "AUCUN (1200Mhz)"
 
@@ -215,6 +242,9 @@ msgstr "AUTO DÉMARRAGE DE KODI"
 
 msgid "START KODI WITH X"
 msgstr "X POUR LANCER KODI"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr "INSTALLER BATOCERA SUR UN NOUVEAU DISQUE"
 
 msgid "SECURITY"
 msgstr "SÉCURITÉ"
@@ -297,6 +327,9 @@ msgstr "OPTIONS MANETTES"
 msgid "UI SETTINGS"
 msgstr "OPTIONS DE L'INTERFACE"
 
+msgid "VIDEO OUTPUT"
+msgstr "SORTIE VIDEO"
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -335,6 +368,9 @@ msgstr "MUSIQUE DE FOND"
 
 msgid "OUTPUT DEVICE"
 msgstr "SORTIE AUDIO"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr "VOUS DEVEZ REDEMARRER POUR APPLIQUER CETTE OPTION"
 
 msgid "NETWORK SETTINGS"
 msgstr "OPTIONS RÉSEAU"
@@ -527,9 +563,6 @@ msgstr "AUCUNE MISE À JOUR DISPONIBLE"
 
 msgid "FINNISHED"
 msgstr "TERMINÉ"
-
-msgid "TARGET DEVICE"
-msgstr "PÉRIPHÉRIQUE CIBLE"
 
 msgid "enter emulator"
 msgstr "entrer l'émulateur"

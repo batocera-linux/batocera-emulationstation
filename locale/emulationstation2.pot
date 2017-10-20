@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2017-10-20 22:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,6 +106,30 @@ msgstr[1] ""
 msgid "OK"
 msgstr ""
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr ""
+
+msgid "CLOSE"
+msgstr ""
+
 msgid "EDIT METADATA"
 msgstr ""
 
@@ -130,12 +154,6 @@ msgid "DELETE"
 msgstr ""
 
 msgid "SAVE CHANGES?"
-msgstr ""
-
-msgid "BACK"
-msgstr ""
-
-msgid "CLOSE"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -195,6 +213,15 @@ msgstr ""
 msgid "NONE (900Mhz)"
 msgstr ""
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr ""
 
@@ -220,6 +247,9 @@ msgid "KODI AT START"
 msgstr ""
 
 msgid "START KODI WITH X"
+msgstr ""
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr ""
 
 msgid "SECURITY"
@@ -303,6 +333,9 @@ msgstr ""
 msgid "UI SETTINGS"
 msgstr ""
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr ""
 
@@ -340,6 +373,9 @@ msgid "FRONTEND MUSIC"
 msgstr ""
 
 msgid "OUTPUT DEVICE"
+msgstr ""
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
 msgstr ""
 
 msgid "NETWORK SETTINGS"
@@ -523,9 +559,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr ""
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

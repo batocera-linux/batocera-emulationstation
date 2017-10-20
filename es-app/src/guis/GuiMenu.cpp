@@ -20,6 +20,7 @@
 #include "guis/GuiSettings.h"
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiBackupStart.h"
+#include "guis/GuiInstallStart.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiAutoScrape.h"
@@ -371,6 +372,19 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          row.addElement(bracket, false);
                          s->addRow(row);
                      }
+
+		     // install
+		     {
+		       ComponentListRow row;
+		       auto openInstallNow = [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); };
+		       row.makeAcceptInputHandler(openInstallNow);
+		       auto installSettings = std::make_shared<TextComponent>(mWindow, _("INSTALL BATOCERA ON A NEW DISK"),
+									   Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+		       auto bracket = makeArrow(mWindow);
+		       row.addElement(installSettings, true);
+		       row.addElement(bracket, false);
+		       s->addRow(row);
+		     }
 
                      //Security
                      {

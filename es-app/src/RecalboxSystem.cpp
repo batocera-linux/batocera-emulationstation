@@ -243,6 +243,26 @@ std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
+std::pair<std::string,int> RecalboxSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) {
+    std::string updatecommand = std::string("/recalbox/scripts/recalbox-install.sh install ") + device + " " + architecture;
+    FILE *pipe = popen(updatecommand.c_str(), "r");
+    char line[1024] = "";
+    if (pipe == NULL) {
+        return std::pair<std::string,int>(std::string("Cannot call install command"),-1);
+    }
+
+    FILE *flog = fopen("/recalbox/share/system/logs/recalbox-install.log", "w");
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+	if(flog != NULL) fprintf(flog, "%s\n", line);
+        ui->setText(std::string(line));
+    }
+    if(flog != NULL) fclose(flog);
+
+    int exitCode = pclose(pipe);
+    return std::pair<std::string,int>(std::string(line), exitCode);
+}
+
 std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
   std::string scrapecommand = std::string("/recalbox/scripts/recalbox-scraper.sh");
   FILE *pipe = popen(scrapecommand.c_str(), "r");
@@ -518,6 +538,48 @@ std::vector<std::string> RecalboxSystem::getAvailableBackupDevices() {
     std::vector<std::string> res;
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-sync.sh list";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return res;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
+std::vector<std::string> RecalboxSystem::getAvailableInstallDevices() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/recalbox-install.sh listDisks";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return res;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        res.push_back(std::string(line));
+    }
+    pclose(pipe);
+
+    return res;
+}
+
+std::vector<std::string> RecalboxSystem::getAvailableInstallArchitectures() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/recalbox-install.sh listArchs";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
