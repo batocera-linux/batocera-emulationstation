@@ -20,20 +20,16 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 	moptionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET DEVICE"),
 										  false);
 	for(auto it = availableStorage.begin(); it != availableStorage.end(); it++){
-	  if (boost::starts_with((*it), "DEV")){
-	    std::vector<std::string> tokens;
-	    boost::split( tokens, (*it), boost::is_any_of(" ") );
-	    if(tokens.size()>= 3){
-	      // concatenat the ending words
-	      std::string vname = "";
-	      for(unsigned int i=2; i<tokens.size(); i++) {
-		if(i > 2) vname += " ";
-		vname += tokens.at(i);
-	      }
-	      moptionsStorage->add(vname, tokens.at(1), false);
+	  std::vector<std::string> tokens;
+	  boost::split( tokens, (*it), boost::is_any_of(" ") );
+	  if(tokens.size()>= 3){
+	    // concatenat the ending words
+	    std::string vname = "";
+	    for(unsigned int i=2; i<tokens.size(); i++) {
+	      if(i > 2) vname += " ";
+	      vname += tokens.at(i);
 	    }
-	  } else {
-	    moptionsStorage->add((*it), (*it), false);
+	    moptionsStorage->add(vname, tokens.at(1), false);
 	  }
 	}
 	mMenu.addWithLabel(_("TARGET DEVICE"), moptionsStorage);
@@ -43,19 +39,6 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 	moptionsArchitecture = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET ARCHITECTURE"),
 										  false);
 	for(auto it = availableArchitecture.begin(); it != availableArchitecture.end(); it++){
-	  if (boost::starts_with((*it), "DEV")){
-	    std::vector<std::string> tokens;
-	    boost::split( tokens, (*it), boost::is_any_of(" ") );
-	    if(tokens.size()>= 3){
-	      // concatenat the ending words
-	      std::string vname = "";
-	      for(unsigned int i=2; i<tokens.size(); i++) {
-		if(i > 2) vname += " ";
-		vname += tokens.at(i);
-	      }
-	      moptionsArchitecture->add(vname, tokens.at(1), false);
-	    }
-	  } else {
 	    moptionsArchitecture->add((*it), (*it), false);
 	  }
 	}
@@ -81,7 +64,7 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 
 void GuiInstallStart::start()
 {
-  if(moptionsStorage->getSelected() != "" && moptionsArchitecture->getSelected() != "" && moptionsValidation->getSelected() != "-") {
+  if(moptionsStorage->getSelected() != "" && moptionsArchitecture->getSelected() != "" && moptionsValidation->getSelected() != "") {
     mWindow->pushGui(new GuiInstall(mWindow, moptionsStorage->getSelected(), moptionsArchitecture->getSelected()));
     delete this;
   }
