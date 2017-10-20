@@ -22,14 +22,14 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 	for(auto it = availableStorage.begin(); it != availableStorage.end(); it++){
 	  std::vector<std::string> tokens;
 	  boost::split( tokens, (*it), boost::is_any_of(" ") );
-	  if(tokens.size()>= 3){
+	  if(tokens.size()>= 2){
 	    // concatenat the ending words
 	    std::string vname = "";
-	    for(unsigned int i=2; i<tokens.size(); i++) {
-	      if(i > 2) vname += " ";
+	    for(unsigned int i=1; i<tokens.size(); i++) {
+	      if(i > 1) vname += " ";
 	      vname += tokens.at(i);
 	    }
-	    moptionsStorage->add(vname, tokens.at(1), false);
+	    moptionsStorage->add(vname, tokens.at(0), false);
 	  }
 	}
 	mMenu.addWithLabel(_("TARGET DEVICE"), moptionsStorage);
