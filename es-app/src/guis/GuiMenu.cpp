@@ -828,6 +828,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      std::vector<std::string> transitions;
                      transitions.push_back("fade");
                      transitions.push_back("slide");
+                     transitions.push_back("instant");
                      for (auto it = transitions.begin(); it != transitions.end(); it++)
                          transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
                      s->addWithLabel(_("TRANSITION STYLE"), transition_style);

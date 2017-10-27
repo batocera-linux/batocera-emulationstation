@@ -99,7 +99,7 @@ void SystemView::populate()
 void SystemView::goToSystem(SystemData* system, bool animate)
 {
 
-        
+
 	setCursor(system);
 
 	if(!animate)
@@ -201,7 +201,7 @@ void SystemView::update(int deltaTime)
 
 void SystemView::onCursorChanged(const CursorState& state)
 {
-    
+
 	if(lastSystem != getSelected()){
 		lastSystem = getSelected();
 		AudioManager::getInstance()->themeChanged(getSelected()->getTheme());
@@ -219,13 +219,13 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	float endPos = target; // directly
     float dist = std::abs(endPos - startPos);
-	
+
     if(std::abs(target + posMax - startPos) < dist)
 		endPos = target + posMax; // loop around the end (0 -> max)
     if(std::abs(target - posMax - startPos) < dist)
 		endPos = target - posMax; // loop around the start (max - 1 -> -1)
 
-	
+
 	// animate mSystemInfo's opacity (fade out, wait, fade back in)
 
 	cancelAnimation(1);
@@ -307,8 +307,8 @@ void SystemView::onCursorChanged(const CursorState& state)
 				this->mExtrasCamOffset = endPos;
 
 		}, 500);
-	}
-	else{ // slide
+	} else if (Settings::getInstance()->getString("TransitionStyle") == "slide")
+	{
 		anim = new LambdaAnimation(
 			[startPos, endPos, posMax, this](float t)
 		{
@@ -322,11 +322,23 @@ void SystemView::onCursorChanged(const CursorState& state)
 			this->mCamOffset = f;
 			this->mExtrasCamOffset = f;
 		}, 500);
-	}
+	} else {
+      anim = new LambdaAnimation(
+        [startPos, endPos, posMax, this](float t)
+      {
+        t -= 1;
+        float f = lerp<float>(startPos, endPos, t*t*t + 1);
+        if(f < 0)
+          f += posMax;
+        if(f >= posMax)
+          f -= posMax;
+
+          this->mCamOffset = endPos;
+          this->mExtrasCamOffset = endPos;
+      }, this ? 500 : 1);
+    }
 
 	setAnimation(anim, 0, nullptr, false, 0);
-
-
 }
 
 void SystemView::render(const Eigen::Affine3f& parentTrans)
@@ -335,7 +347,7 @@ void SystemView::render(const Eigen::Affine3f& parentTrans)
 		return;
 
 	Eigen::Affine3f trans = getTransform() * parentTrans;
-	
+
 	// draw the list elements (titles, backgrounds, logos)
 	const float logoSizeX = logoSize().x() + LOGO_PADDING;
 
