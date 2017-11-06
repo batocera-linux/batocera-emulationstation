@@ -30,7 +30,7 @@ AudioManager::~AudioManager() {
 
 std::shared_ptr<AudioManager> &AudioManager::getInstance() {
     //check if an AudioManager instance is already created, if not create one
-    if (sInstance == nullptr) {
+    if (sInstance == nullptr && Settings::getInstance()->getBool("EnableSounds")) {
         sInstance = std::shared_ptr<AudioManager>(new AudioManager);
     }
     return sInstance;
