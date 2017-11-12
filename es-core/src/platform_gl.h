@@ -11,7 +11,7 @@
 #ifdef USE_OPENGL_DESKTOP
     //why the hell this naming inconsistency exists is well beyond me
     #ifdef WIN32
-        #define sleep Sleep
+        //#define sleep Sleep
     #endif
 
     #include <SDL_opengl.h>

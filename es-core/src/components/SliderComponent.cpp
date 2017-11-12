@@ -4,7 +4,7 @@
 #include "resources/Font.h"
 #include "Log.h"
 #include "Util.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 #define MOVE_REPEAT_DELAY 500
 #define MOVE_REPEAT_RATE 40

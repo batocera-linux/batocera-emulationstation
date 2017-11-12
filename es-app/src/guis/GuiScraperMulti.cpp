@@ -9,7 +9,7 @@
 #include "components/ScraperSearchComponent.h"
 #include "components/MenuComponent.h" // for makeButtonGrid
 #include "guis/GuiMsgBox.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 using namespace boost::locale;
 using namespace Eigen;

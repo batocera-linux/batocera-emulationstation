@@ -10,7 +10,11 @@ std::ostream& out = std::cout;
 
 void handle_interrupt_signal(int p)
 {
+#ifdef WIN32
+    Sleep(50);
+#else
 	sleep(50);
+#endif
 
 	LOG(LogInfo) << "Interrupt received during scrape...";
 

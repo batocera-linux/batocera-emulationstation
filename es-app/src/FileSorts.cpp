@@ -1,5 +1,5 @@
 #include "FileSorts.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 namespace FileSorts
 {

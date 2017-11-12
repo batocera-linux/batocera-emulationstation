@@ -1,6 +1,6 @@
 #include "components/MenuComponent.h"
 #include "components/ButtonComponent.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 #define BUTTON_GRID_VERT_PADDING 32
 #define BUTTON_GRID_HORIZ_PADDING 10

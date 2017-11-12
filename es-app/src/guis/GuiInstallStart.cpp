@@ -8,7 +8,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include "views/ViewController.h"
 
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
   mMenu(window, _("INSTALL BATOCERA").c_str())

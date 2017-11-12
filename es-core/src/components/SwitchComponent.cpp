@@ -3,7 +3,7 @@
 #include "Renderer.h"
 #include "resources/Font.h"
 #include "Window.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 SwitchComponent::SwitchComponent(Window* window, bool state) : GuiComponent(window), mImage(window), mState(state)
 {

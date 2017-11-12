@@ -6,7 +6,7 @@
 #include "views/ViewController.h"
 #include "components/SwitchComponent.h"
 #include "guis/GuiSettings.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window), 
 	mSystem(system), 

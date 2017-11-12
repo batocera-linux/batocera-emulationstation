@@ -1,4 +1,4 @@
-#include "Locale.h"
+#include "LocaleES.h"
 #include "guis/GuiInputConfig.h"
 #include "Window.h"
 #include "Log.h"
@@ -7,7 +7,7 @@
 #include "components/MenuComponent.h"
 #include "components/ButtonComponent.h"
 #include "Util.h"
-#include "Locale.h"
+#include "LocaleES.h"
 #include "InputManager.h"
 
 using namespace boost::locale;

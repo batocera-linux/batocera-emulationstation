@@ -8,11 +8,10 @@ void mamedb_generate_scraper_requests(const ScraperSearchParams& params, std::qu
 {
 	std::string path = "www.mamedb.com/game/";
         
-	std::string cleanName = params.game->getPath().filename().replace_extension("").c_str();
+	std::string cleanName = params.game->getPath().filename().replace_extension("").generic_string().c_str();
 	path += HttpReq::urlEncode(cleanName);
 	
 	requests.push(std::unique_ptr<ScraperRequest>(new MamedbRequest(results, path)));
-
 }
 
 boost::regex infolineregex("^.*?<h1>Game Details</h1>(.*?)</table>.*$");

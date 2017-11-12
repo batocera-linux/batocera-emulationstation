@@ -7,7 +7,9 @@
 
 #include "RecalboxSystem.h"
 #include <stdlib.h>
+#if !defined(WIN32)
 #include <sys/statvfs.h>
+#endif
 #include <sstream>
 #include "Settings.h"
 #include <iostream>
@@ -21,16 +23,25 @@
 
 #include <stdio.h>
 #include <sys/types.h>
+#if !defined(WIN32)
 #include <ifaddrs.h>
 #include <netinet/in.h>
+#endif
 #include <string.h>
+#if !defined(WIN32)
 #include <arpa/inet.h>
+#endif
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
 
 #include <fstream>
+
+#if defined(WIN32)
+#define popen _popen
+#define pclose _pclose
+#endif
 
 RecalboxSystem::RecalboxSystem() {
 }
@@ -46,6 +57,7 @@ RecalboxSystem *RecalboxSystem::getInstance() {
 }
 
 unsigned long RecalboxSystem::getFreeSpaceGB(std::string mountpoint) {
+#if !defined(WIN32)
     struct statvfs fiData;
     const char *fnPath = mountpoint.c_str();
     int free = 0;
@@ -53,13 +65,17 @@ unsigned long RecalboxSystem::getFreeSpaceGB(std::string mountpoint) {
         free = (fiData.f_bfree * fiData.f_bsize) / (1024 * 1024 * 1024);
     }
     return free;
+#else
+    return 0;
+#endif
 }
 
 std::string RecalboxSystem::getFreeSpaceInfo() {
-    struct statvfs fiData;
     std::string sharePart = Settings::getInstance()->getString("SharePartition");
     if (sharePart.size() > 0) {
         const char *fnPath = sharePart.c_str();
+#if !defined(WIN32)
+        struct statvfs fiData;
         if ((statvfs(fnPath, &fiData)) < 0) {
             return "";
         } else {
@@ -76,6 +92,10 @@ std::string RecalboxSystem::getFreeSpaceInfo() {
 			    oss << "N/A";
             return oss.str();
         }
+#else
+        (void)(fnPath);
+        return "TODO";
+#endif
     } else {
         return "ERROR";
     }
@@ -319,11 +339,14 @@ bool RecalboxSystem::launchKodi(Window *window) {
     std::string command = "configgen -system kodi -rom '' " + commandline;
 
     window->deinit();
-
     int exitCode = system(command.c_str());
+#if !defined(WIN32)
+    // WIFEXITED returns a nonzero value if the child process terminated normally with exit or _exit.
+    // https://www.gnu.org/software/libc/manual/html_node/Process-Completion-Status.html
     if (WIFEXITED(exitCode)) {
         exitCode = WEXITSTATUS(exitCode);
     }
+#endif
 
     window->init();
     VolumeControl::getInstance()->init();
@@ -357,9 +380,11 @@ bool RecalboxSystem::launchFileManager(Window *window) {
     window->deinit();
 
     int exitCode = system(command.c_str());
+#if !defined(WIN32)
     if (WIFEXITED(exitCode)) {
         exitCode = WEXITSTATUS(exitCode);
     }
+#endif
 
     window->init();
     VolumeControl::getInstance()->init();
@@ -439,6 +464,7 @@ bool RecalboxSystem::fastShutdown() {
 
 
 std::string RecalboxSystem::getIpAdress() {
+#if !defined(WIN32)
     struct ifaddrs *ifAddrStruct = NULL;
     struct ifaddrs *ifa = NULL;
     void *tmpAddrPtr = NULL;
@@ -483,6 +509,9 @@ std::string RecalboxSystem::getIpAdress() {
     }
     if (ifAddrStruct != NULL) freeifaddrs(ifAddrStruct);
     return result;
+#else
+    return std::string();
+#endif
 }
 
 std::vector<std::string> *RecalboxSystem::scanBluetooth() {
@@ -664,12 +693,16 @@ std::vector<BiosSystem> RecalboxSystem::getBiosInformations() {
 }
 
 bool RecalboxSystem::generateSupportFile() {
+#if !defined(WIN32)
   std::string cmd = "/recalbox/scripts/recalbox-support.sh";
   int exitcode = system(cmd.c_str());
   if (WIFEXITED(exitcode)) {
     exitcode = WEXITSTATUS(exitcode);
   }
   return exitcode == 0;
+#else
+    return false;
+#endif
 }
 
 std::string RecalboxSystem::getCurrentStorage() {

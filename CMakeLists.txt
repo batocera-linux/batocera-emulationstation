@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 2.8)
 
 project(emulationstation-all)
 
+# Turn on the ability to create folders to organize projects (.vcproj)
+# It creates "CMakePredefinedTargets" folder by default and adds CMake
+# defined projects like INSTALL.vcproj and ZERO_CHECK.vcproj
+SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
+
 #-------------------------------------------------------------------------------
 #add local find scripts to CMAKE path
 LIST(APPEND CMAKE_MODULE_PATH
@@ -121,6 +126,7 @@ set(COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/es-core/src
     ${FREETYPE_INCLUDE_DIRS}
     ${FreeImage_INCLUDE_DIRS}
+	${SDLMIXER_INCLUDE_DIR}
     ${SDL2_INCLUDE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${EIGEN3_INCLUDE_DIR}

@@ -11,7 +11,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "RecalboxSystem.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiAutoScrape::GuiAutoScrape(Window* window) : GuiComponent(window), mBusyAnim(window)
 {

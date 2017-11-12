@@ -7,7 +7,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "RecalboxSystem.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 {

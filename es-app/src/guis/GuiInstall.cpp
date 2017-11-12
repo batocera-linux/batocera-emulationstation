@@ -7,7 +7,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "RecalboxSystem.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiInstall::GuiInstall(Window* window, std::string storageDevice, std::string architecture) : GuiComponent(window), mBusyAnim(window)
 {
