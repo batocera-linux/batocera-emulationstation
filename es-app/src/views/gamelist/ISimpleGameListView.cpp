@@ -7,7 +7,7 @@
 #include "Sound.h"
 #include "Settings.h"
 #include "Gamelist.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FileData* root) : IGameListView(window, root),
 mHeaderText(window), mHeaderImage(window), mBackground(window), mThemeExtras(window), mFavoriteChange(false)

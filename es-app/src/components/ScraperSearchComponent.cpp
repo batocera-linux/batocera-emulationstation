@@ -14,7 +14,7 @@
 #include "Util.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) : GuiComponent(window),
 	mGrid(window, Eigen::Vector2i(4, 3)), mBusyAnim(window), 

@@ -1,7 +1,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "components/MenuComponent.h"
 #include "Log.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 using namespace Eigen;
 

@@ -22,7 +22,7 @@
 #include "FileSystemSelectorComponent.h"
 #include "Renderer.h"
 #include "Log.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 #define DEFAULT_FONT Font::get(FONT_SIZE_MEDIUM)
 #define DEFAULT_COLOR 0x777777FF

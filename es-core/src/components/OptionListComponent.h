@@ -9,7 +9,7 @@
 #include "components/MenuComponent.h"
 #include <sstream>
 #include "Log.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 using namespace boost::locale;
 

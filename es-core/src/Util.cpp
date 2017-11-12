@@ -1,7 +1,7 @@
 #include "Util.h"
 #include "resources/ResourceManager.h"
 #include "platform.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 namespace fs = boost::filesystem;
 

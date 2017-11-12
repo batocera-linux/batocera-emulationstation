@@ -8,7 +8,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include "views/ViewController.h"
 
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window),
   mMenu(window, _("BACKUP USER DATA").c_str())

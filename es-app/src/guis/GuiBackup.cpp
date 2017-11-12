@@ -7,7 +7,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "RecalboxSystem.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiBackup::GuiBackup(Window* window, std::string storageDevice) : GuiComponent(window), mBusyAnim(window)
 {

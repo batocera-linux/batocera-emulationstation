@@ -21,7 +21,7 @@
 #include "ScraperCmdLine.h"
 #include "VolumeControl.h"
 #include <sstream>
-#include "Locale.h"
+#include "LocaleES.h"
 #include <boost/algorithm/string.hpp>
 #include <RecalboxConf.h>
 #include "resources/Font.h"
@@ -32,6 +32,8 @@
 
 #ifdef WIN32
 #include <Windows.h>
+#include <direct.h> // getcwd, chdir
+#define PATH_MAX 256
 #endif
 
 namespace fs = boost::filesystem;
@@ -364,7 +366,7 @@ int main(int argc, char* argv[])
 	// Create a flag in  temporary directory to signal READY state
 	fs::path ready_path = fs::temp_directory_path();
 	ready_path /= "emulationstation.ready";
-	FILE* ready_file = fopen(ready_path.c_str(), "w");
+	FILE* ready_file = fopen(ready_path.generic_string().c_str(), "w");
 	if(ready_file) fclose(ready_file);
 
 	//generate joystick events since we're done loading

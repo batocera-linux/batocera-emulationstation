@@ -15,7 +15,7 @@
 #include <RecalboxConf.h>
 #include "ThemeData.h"
 #include "AudioManager.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 #define SELECTED_SCALE 1.5f
 #define LOGO_PADDING ((logoSize().x() * (SELECTED_SCALE - 1)/2) + (mSize.x() * 0.06f))

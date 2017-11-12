@@ -3,7 +3,7 @@
 #include "Window.h"
 #include "views/ViewController.h"
 #include "Settings.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GridGameListView::GridGameListView(Window* window, FileData* root) : ISimpleGameListView(window, root),
 	mGrid(window)

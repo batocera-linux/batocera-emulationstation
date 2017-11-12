@@ -6,7 +6,7 @@
 #include "components/TextComponent.h"
 #include "components/OptionListComponent.h"
 #include "components/SwitchComponent.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
   mMenu(window, _("SCRAPE NOW").c_str())

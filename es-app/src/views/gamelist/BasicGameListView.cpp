@@ -5,7 +5,7 @@
 #include "ThemeData.h"
 #include "SystemData.h"
 #include "Settings.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 BasicGameListView::BasicGameListView(Window* window, FileData* root)
 	: ISimpleGameListView(window, root), mList(window)

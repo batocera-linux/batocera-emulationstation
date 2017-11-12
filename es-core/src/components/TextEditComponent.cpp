@@ -5,7 +5,7 @@
 #include "Renderer.h"
 
 #include "Util.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 #define TEXT_PADDING_HORIZ 10
 #define TEXT_PADDING_VERT 2

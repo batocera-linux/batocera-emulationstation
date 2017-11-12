@@ -3,7 +3,7 @@
 #include "Window.h"
 #include "Settings.h"
 #include "animations/LambdaAnimation.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 DetailedGameListView::DetailedGameListView(Window* window, FileData* root, SystemData* system) : 
 	BasicGameListView(window, root), 

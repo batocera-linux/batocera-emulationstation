@@ -7,7 +7,7 @@
 #include "ThemeData.h"
 #include "Util.h"
 #include "resources/SVGResource.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 Eigen::Vector2i ImageComponent::getTextureSize() const
 {

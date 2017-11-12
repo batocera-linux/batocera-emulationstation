@@ -9,7 +9,7 @@
 #include "RecalboxSystem.h"
 #include "RecalboxConf.h"
 #include "guis/GuiMsgBox.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window){
     

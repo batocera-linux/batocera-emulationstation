@@ -1,6 +1,6 @@
 #include "guis/GuiTextEditPopup.h"
 #include "components/MenuComponent.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 using namespace Eigen;
 

@@ -10,7 +10,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/InputConfig.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/InputManager.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Locale.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Music.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.h
@@ -172,8 +172,12 @@ set(EMBEDDED_ASSET_SOURCES
     ${emulationstation-all_SOURCE_DIR}/data/converted/busy_3_svg.cpp
 )
 
+SOURCE_GROUP(Assets FILES ${EMBEDDED_ASSET_SOURCES})
+
 list(APPEND CORE_SOURCES ${EMBEDDED_ASSET_SOURCES})
 
 include_directories(${COMMON_INCLUDE_DIRS})
 add_library(es-core STATIC ${CORE_SOURCES} ${CORE_HEADERS} src/RecalboxConf.cpp src/RecalboxConf.h)
 target_link_libraries(es-core ${COMMON_LIBRARIES})
+
+TARGET_COMPILE_OPTIONS(es-core PUBLIC -D_SCL_SECURE_NO_WARNINGS)

@@ -445,6 +445,7 @@ void SystemData::writeExampleConfig(const std::string& path)
 
 bool deleteSystem(SystemData * system){
 	delete system;
+    return true; // TODO: REVIEW
 }
 
 void SystemData::deleteSystems()

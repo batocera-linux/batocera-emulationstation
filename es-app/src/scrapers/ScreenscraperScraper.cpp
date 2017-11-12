@@ -96,7 +96,7 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params, 
 		path += "forcelangue=en&";
 	}
 
-	std::string cleanName = params.game->getPath().filename().c_str();
+	std::string cleanName = params.game->getPath().filename().generic_string().c_str();
 
 	path += "name=" + HttpReq::urlEncode(cleanName);
 

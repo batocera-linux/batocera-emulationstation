@@ -2,7 +2,7 @@
 #include "Log.h"
 #include "Renderer.h"
 #include "Settings.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 using namespace GridFlags;
 

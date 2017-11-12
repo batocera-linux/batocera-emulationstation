@@ -8,7 +8,7 @@
 #include "Renderer.h"
 #include "Log.h"
 #include "Settings.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::function<void(const ScraperSearchResult&)> doneFunc) : GuiComponent(window), 
 	mGrid(window, Eigen::Vector2i(1, 7)), 

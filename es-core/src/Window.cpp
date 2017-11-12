@@ -11,7 +11,7 @@
 #include "guis/GuiMsgBox.h"
 #include "RecalboxSystem.h"
 #include "RecalboxConf.h"
-#include "Locale.h"
+#include "LocaleES.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10), 
 	mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), launchKodi(false)

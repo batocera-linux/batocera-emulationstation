@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <boost/filesystem.hpp>
 #include <iostream>
+#if !defined(WIN32)
 #include <sys/statvfs.h>
+#endif
 #include <sstream>
 #include "Settings.h"
 
@@ -15,6 +17,7 @@
 
 std::string getHomePath()
 {
+#if !defined(WIN32)
 	std::string homePath;
 
 	// this should give you something like "/home/YOUR_USERNAME" on Linux and "C:\Users\YOUR_USERNAME\" on Windows
@@ -43,6 +46,9 @@ std::string getHomePath()
 	// convert path to generic directory seperators
 	boost::filesystem::path genericPath(homePath);
 	return genericPath.generic_string();
+#else
+    return "D:\\Workspace\\EmulationStation.data";
+#endif
 }
 
 int runShutdownCommand()

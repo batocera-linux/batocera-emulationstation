@@ -2,8 +2,12 @@
 #include "components/TextComponent.h"
 #include "Log.h"
 #include "Util.h"
+#if defined(WIN32)
+#include <string>
+#else
 #include <strings.h>
-#include "Locale.h"
+#endif
+#include "LocaleES.h"
 
 namespace fs = boost::filesystem;
 
