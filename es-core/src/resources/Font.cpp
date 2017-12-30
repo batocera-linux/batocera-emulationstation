@@ -387,6 +387,7 @@ std::vector<std::string> getFallbackFontPaths()
 		"/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
 		":/fontawesome_webfont.ttf",
 		 "/usr/share/fonts/truetype/fontawesome-webfont.ttf",
+		"/usr/share/fonts/truetype/nanum/NanumMyeongjo.ttf", // korean font
 	};
 
 	std::vector<std::string> fontPaths;
