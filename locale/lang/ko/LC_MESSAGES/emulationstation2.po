@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2017-12-30 22:25+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,6 +96,30 @@ msgstr[0] "%i 개의 게임을 건너뛰었습니다."
 msgid "OK"
 msgstr "확인"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "뒤로"
+
+msgid "CLOSE"
+msgstr "닫기"
+
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
 
@@ -123,12 +147,6 @@ msgstr "삭제"
 
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
-
-msgid "BACK"
-msgstr "뒤로"
-
-msgid "CLOSE"
-msgstr "닫기"
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -187,6 +205,15 @@ msgstr "높음 (1050Mhz) "
 msgid "NONE (900Mhz)"
 msgstr "없음 (900Mhz) "
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "없음 (1200Mhz) "
 
@@ -213,6 +240,9 @@ msgstr "시작 시 KODI 실행"
 
 msgid "START KODI WITH X"
 msgstr "X 버튼으로 KODI 실행"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "보안"
@@ -295,6 +325,9 @@ msgstr "컨트롤러 설정"
 msgid "UI SETTINGS"
 msgstr "사용자 인터페이스 설정"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "오버 스캔"
 
@@ -333,6 +366,9 @@ msgstr "배경 음악"
 
 msgid "OUTPUT DEVICE"
 msgstr "출력 기기"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "네트워크 설정"
@@ -522,9 +558,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
