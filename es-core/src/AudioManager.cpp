@@ -204,7 +204,7 @@ std::vector<std::string> getMusicIn(const std::string &path) {
         all_matching_files.push_back(i->path().string());
     }
 
-    return std::vector<std::string>(); //TODO
+    return all_matching_files;
 }
 
 std::shared_ptr<Music> AudioManager::getRandomMusic(std::string themeSoundDirectory) {
