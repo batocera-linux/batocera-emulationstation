@@ -49,6 +49,8 @@ public:
 
     void musicEnd();
 
+    void playRandomMusic();
+
     virtual ~AudioManager();
 
 private:
@@ -63,7 +65,6 @@ private:
 
     std::string currentThemeMusicDirectory;
 
-    void playRandomMusic();
 };
 
 #endif

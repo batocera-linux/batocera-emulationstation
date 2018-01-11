@@ -920,6 +920,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                       sounds_enabled->getState() ? "1" : "0");
                      if (!sounds_enabled->getState())
                          AudioManager::getInstance()->stopMusic();
+                     else
+                         AudioManager::getInstance()->playRandomMusic();
+
                      if (currentDevice != optionsAudio->getSelected()) {
                          RecalboxConf::getInstance()->set("audio.device", optionsAudio->getSelected());
                          RecalboxSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
