@@ -863,6 +863,24 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          });
                      }
 
+		     // decorations
+                     auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATIONS"), false);
+                     std::vector<std::string> decorations_item;
+                     decorations_item.push_back(_("NONE"));
+                     decorations_item.push_back("default");
+                     for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+		       decorations->add(*it, *it,
+					(RecalboxConf::getInstance()->get("global.bezel") == *it)
+					||
+					(RecalboxConf::getInstance()->get("global.bezel") == "" && *it == _("NONE"))
+					);
+		     }
+		     s->addWithLabel(_("DECORATION"), decorations);
+		     s->addSaveFunc([decorations] {
+			 RecalboxConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "" : decorations->getSelected());
+			 RecalboxConf::getInstance()->saveRecalboxConf();
+		       });
+
 		     // maximum vram
 		     auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
 		     max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
