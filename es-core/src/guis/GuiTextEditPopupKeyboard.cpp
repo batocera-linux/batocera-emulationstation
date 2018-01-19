@@ -232,6 +232,12 @@ void GuiTextEditPopupKeyboard::onSizeChanged()
 	mGrid.setRowHeightPerc(6, mButtons->getSize().y() / mSize.y());
 
 	mGrid.setSize(mSize);
+
+	// force the keyboard size and position here
+	// for an unknown reason, without setting that, the position is "sometimes" (1/2 on s905x for example) not displayed correctly
+	// as if a variable were not correctly initialized
+	mKeyboardGrid->setSize(Renderer::getScreenWidth() * 0.95f, (mText->getFont()->getHeight() + 6) * 5);
+	mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 40 + 6);
 }
 
 bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
