@@ -43,6 +43,8 @@
 
 #include "RecalboxConf.h"
 
+namespace fs = boost::filesystem;
+
 void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password) {
     // LABEL
     Window *window = mWindow;
@@ -522,6 +524,30 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      integerscale_enabled->setState(selectedShader != "none") ;
                  });
 
+		 // decorations
+		 {
+		   auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATIONS"), false);
+		   std::vector<std::string> decorations_item;
+		   decorations_item.push_back(_("NONE"));
+
+		   std::vector<std::string> sets = GuiMenu::getDecorationsSets();
+		   for(auto it = sets.begin(); it != sets.end(); it++) {
+		     decorations_item.push_back(*it);
+		   }
+
+		   for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+		     decorations->add(*it, *it,
+				      (RecalboxConf::getInstance()->get("global.bezel") == *it)
+				      ||
+				      (RecalboxConf::getInstance()->get("global.bezel") == "" && *it == _("NONE"))
+				      );
+		   }
+		   s->addWithLabel(_("DECORATION"), decorations);
+		   s->addSaveFunc([decorations] {
+		       RecalboxConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "" : decorations->getSelected());
+		       RecalboxConf::getInstance()->saveRecalboxConf();
+		     });
+		 }
 
                  if (RecalboxConf::getInstance()->get("system.es.menu") != "bartop") {
 
@@ -862,24 +888,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                  ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
                          });
                      }
-
-		     // decorations
-                     auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATIONS"), false);
-                     std::vector<std::string> decorations_item;
-                     decorations_item.push_back(_("NONE"));
-                     decorations_item.push_back("default");
-                     for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
-		       decorations->add(*it, *it,
-					(RecalboxConf::getInstance()->get("global.bezel") == *it)
-					||
-					(RecalboxConf::getInstance()->get("global.bezel") == "" && *it == _("NONE"))
-					);
-		     }
-		     s->addWithLabel(_("DECORATION"), decorations);
-		     s->addSaveFunc([decorations] {
-			 RecalboxConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "" : decorations->getSelected());
-			 RecalboxConf::getInstance()->saveRecalboxConf();
-		       });
 
 		     // maximum vram
 		     auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
@@ -1565,4 +1573,36 @@ void GuiMenu::clearLoadedInput() {
     delete mLoadedInput[i];
   }
   mLoadedInput.clear();
+}
+
+std::vector<std::string> GuiMenu::getDecorationsSets()
+{
+	std::vector<std::string> sets;
+
+	static const size_t pathCount = 2;
+	fs::path paths[pathCount] = {
+		"/recalbox/share_init/decorations",
+		"/recalbox/share/decorations"
+	};
+
+	fs::directory_iterator end;
+
+	for(size_t i = 0; i < pathCount; i++)
+	{
+		if(!fs::is_directory(paths[i]))
+			continue;
+
+		for(fs::directory_iterator it(paths[i]); it != end; ++it)
+		{
+			if(fs::is_directory(*it))
+			{
+			  sets.push_back(it->path().filename().string());
+			}
+		}
+	}
+
+	// sort and remove duplicates
+	sort(sets.begin(), sets.end());
+	sets.erase(unique(sets.begin(), sets.end()), sets.end());
+	return sets;
 }
