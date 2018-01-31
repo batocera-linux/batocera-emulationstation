@@ -32,8 +32,8 @@ private:
     BusyComponent mBusyAnim;
     boost::thread *mHandle;
     bool mRunning;
-    const std::function<void*()>& mFunc;
-    const std::function<void(void *)>& mFunc2;
+    const std::function<void*()> mFunc;
+    const std::function<void(void *)> mFunc2;
     void threadLoading();
     void * result;
 };
