@@ -395,7 +395,7 @@ msgid "WIFI SSID"
 msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgstr "WIFI 비밀번호"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI 활성화됨"
@@ -747,7 +747,7 @@ msgid_plural "%i days ago"
 msgstr[0] "%i 일 전"
 
 msgid "unknown"
-msgstr "알 수 없음"
+msgstr "알수없음"
 
 msgid "SELECT ALL"
 msgstr "모두 선택"
@@ -906,7 +906,7 @@ msgstr "잠시 기다려 주십시오..."
 #~ msgstr "HDMI"
 
 #~ msgid "JACK"
-#~ msgstr "JACK"
+#~ msgstr "젝"
 
 #~ msgid "AUTO"
 #~ msgstr "자동"
