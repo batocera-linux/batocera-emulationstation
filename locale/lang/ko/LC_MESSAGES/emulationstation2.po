@@ -455,11 +455,11 @@ msgid ""
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"컨트롤러 설정을 시작합니다. 조이스틱이 한 개 뿐이라면,"
-"십자키만 설정한 다음 조이스틱 설정을 A 버튼이나 길게 눌러 건너 뛸 수 있습니다."
-"핫버튼으로 쓸 특별한 버튼이 없다면, 셀렉트 버턴으로 선택 할수있습니다. 
-"만약 모든 버턴 설정을 넘기고 싶으면 A버튼을 누르고 있으면 안 됩니다. 버튼 이름은 슈퍼패미컴"
-"컨트롤러 기준입니다."
+"컨트롤러 설정을 시작합니다. 조이스틱이 한 개 뿐이라면, "
+"방향설정 키만 설정하고,조이스틱 설정을 거르고 싶다면 A버턴을 누르고 있어야 합니다.."
+"만약 다른 핫키 버턴이 없다면, 셀렉트 버턴을 선택하세요."
+"모든버턴을 거르려면 너는 A키를 누르고 있을 필요는 없습니다. 버턴의 이름은 
+""슈퍼패미콤 컨트롤러" 기준이다."
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "컨트롤러 설정"
@@ -866,74 +866,3 @@ msgstr "불러오는 중..."
 
 msgid "PLEASE WAIT..."
 msgstr "잠시 기다려 주십시오..."
-
-#~ msgid "SCRAPER"
-#~ msgstr "수집"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.FR FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "우리는 시스템을 찾을 수 없습니다.\n"
-#~ "설정 파일에서 시스템 경로가 맞는지 확인하시고,\n"
-#~ "게임 디렉토리에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
-#~ "\n"
-#~ "더 자세한 정보는 RECALBOX.FR 에서 확인하세요."
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.COM FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "우리는 시스템을 찾을 수 없습니다.\n"
-#~ "설정 파일에서 시스템 경로가 맞는지 확인하시고,\n"
-#~ "게임 디렉토리에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
-#~ "\n"
-#~ "더 자세한 정보는 RECALBOX.COM 에서 확인하세요."
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "없음 (700Mhz) "
-
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "터보 (1050Mhz)+ "
-
-#~ msgid "HDMI"
-#~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "젝"
-
-#~ msgid "AUTO"
-#~ msgstr "자동"
-
-#~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "업데이트 실패, 시스템이 지금 다시 시작됩니다."
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "파일 이름, 오름차순"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "파일 이름, 내림차순"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "평점, 오름차순"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "평점, 내림차순"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "플레이 횟수, 오름차순"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "플레이 횟수, 내림차순"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "최근 플레이, 오름차순"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "최근 플레이, 내림차순"
