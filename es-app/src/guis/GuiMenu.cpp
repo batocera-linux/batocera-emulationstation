@@ -526,7 +526,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
 		 // decorations
 		 {
-		   auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATIONS"), false);
+		   auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
 		   std::vector<std::string> decorations_item;
 		   decorations_item.push_back(_("NONE"));
 

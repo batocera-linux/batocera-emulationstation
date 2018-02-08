@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,6 +99,30 @@ msgstr[0] "%i 個の ゲームを スキップしました。"
 msgid "OK"
 msgstr "OK"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "戻る"
+
+msgid "CLOSE"
+msgstr "閉じる"
+
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
 
@@ -126,12 +150,6 @@ msgstr "削除"
 
 msgid "SAVE CHANGES?"
 msgstr "変更を保存しますか？"
-
-msgid "BACK"
-msgstr "戻る"
-
-msgid "CLOSE"
-msgstr "閉じる"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -192,6 +210,15 @@ msgstr "高 (1050Mhz)"
 msgid "NONE (900Mhz)"
 msgstr "無し (900Mhz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "無し (1200Mhz)"
 
@@ -221,6 +248,9 @@ msgstr "開始時に KODI 実行"
 #, fuzzy
 msgid "START KODI WITH X"
 msgstr "X で KODI を起動する"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "セキュリティ"
@@ -262,6 +292,9 @@ msgid "RETRO"
 msgstr "レトロ"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -307,6 +340,9 @@ msgstr "コントローラー設定"
 msgid "UI SETTINGS"
 msgstr "UI設定"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
@@ -346,6 +382,9 @@ msgstr "フロントエンド音楽"
 
 msgid "OUTPUT DEVICE"
 msgstr "出力デバイス"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "ネットワーク設定"
@@ -542,9 +581,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "アップデートはありません"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 #, fuzzy

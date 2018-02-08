@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,6 +96,30 @@ msgstr[0] "略過了 %i 個遊戲。"
 msgid "OK"
 msgstr "確定"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "返回"
+
+msgid "CLOSE"
+msgstr "關閉"
+
 msgid "EDIT METADATA"
 msgstr "編輯簡介"
 
@@ -123,12 +147,6 @@ msgstr "刪除"
 
 msgid "SAVE CHANGES?"
 msgstr "儲存本次修改嗎?"
-
-msgid "BACK"
-msgstr "返回"
-
-msgid "CLOSE"
-msgstr "關閉"
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -187,6 +205,15 @@ msgstr ""
 msgid "NONE (900Mhz)"
 msgstr ""
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr ""
 
@@ -213,6 +240,9 @@ msgstr "開機自動啟動 KODI "
 
 msgid "START KODI WITH X"
 msgstr "按 X 鍵啟動 KODI"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "安全防護"
@@ -251,6 +281,9 @@ msgid "RETRO"
 msgstr "復古"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -295,6 +328,9 @@ msgstr "控制器設定"
 msgid "UI SETTINGS"
 msgstr "用戶界面設定"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "過掃描填滿效果"
 
@@ -333,6 +369,9 @@ msgstr "系統背景音樂"
 
 msgid "OUTPUT DEVICE"
 msgstr "輸出裝置"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "網路設定"
@@ -522,9 +561,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

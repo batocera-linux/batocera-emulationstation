@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-20 22:25+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -284,6 +284,9 @@ msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
+
+msgid "DECORATION"
+msgstr "DÉCORATION"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPTIONS DE RETROACHIEVEMENTS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,6 +98,30 @@ msgstr[1] "%i JÁTÉK KIHAGYVA."
 msgid "OK"
 msgstr "OK"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "VISSZA"
+
+msgid "CLOSE"
+msgstr "BEZÁR"
+
 msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
 
@@ -125,12 +149,6 @@ msgstr "TÖRLÉS"
 
 msgid "SAVE CHANGES?"
 msgstr "MENTI A VÁLTOZÁSOKAT?"
-
-msgid "BACK"
-msgstr "VISSZA"
-
-msgid "CLOSE"
-msgstr "BEZÁR"
 
 msgid "MAIN MENU"
 msgstr "FŐMENÜ"
@@ -189,6 +207,15 @@ msgstr "MAGAS (1050Mhz)"
 msgid "NONE (900Mhz)"
 msgstr "ALAP (900Mhz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "ALAP (1200Mhz)"
 
@@ -215,6 +242,9 @@ msgstr "KODI INDULÁSKOR"
 
 msgid "START KODI WITH X"
 msgstr "KODI INDÍTÁSA X-EL"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "BIZTONSÁG"
@@ -253,6 +283,9 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -297,6 +330,9 @@ msgstr "KONTROLLER BEÁLLÍTÁSOK"
 msgid "UI SETTINGS"
 msgstr "KINÉZET BEÁLLÍTÁSOK"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -335,6 +371,9 @@ msgstr "HÁTTÉRZENE"
 
 msgid "OUTPUT DEVICE"
 msgstr "KIMENETI ESZKÖZ"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "HÁLÓZATI BEÁLLÍTÁSOK"
@@ -525,9 +564,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NINCS FRISSÍTÉS"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

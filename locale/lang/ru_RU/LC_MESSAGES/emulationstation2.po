@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,8 +84,8 @@ msgid ""
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
 "Не удается найти никакой системы!\n"
-"Проверьте правильность путей в файле конфигурации систем и "
-"есть ли в каталоге хотя бы одна игра с правильным расширением."
+"Проверьте правильность путей в файле конфигурации систем и есть ли в "
+"каталоге хотя бы одна игра с правильным расширением."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -105,6 +105,30 @@ msgstr[3] "%i игра пропущена"
 
 msgid "OK"
 msgstr "ОК"
+
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr "Целевое устройство"
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "Назад"
+
+msgid "CLOSE"
+msgstr "Закрыть"
 
 msgid "EDIT METADATA"
 msgstr "Редактировать метаданные"
@@ -133,12 +157,6 @@ msgstr "Удалить"
 
 msgid "SAVE CHANGES?"
 msgstr "Сохранить изменения?"
-
-msgid "BACK"
-msgstr "Назад"
-
-msgid "CLOSE"
-msgstr "Закрыть"
 
 msgid "MAIN MENU"
 msgstr "Главное меню"
@@ -197,6 +215,15 @@ msgstr "Высокий (1050Mhz)"
 msgid "NONE (900Mhz)"
 msgstr "Нет (900Mhz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "Нет (1200Mhz)"
 
@@ -223,6 +250,9 @@ msgstr "Запуск KODI при загрузке"
 
 msgid "START KODI WITH X"
 msgstr "Запуск KODI кнопкой X"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "Безопасность"
@@ -261,6 +291,9 @@ msgid "RETRO"
 msgstr "Ретро"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -305,6 +338,9 @@ msgstr "Настройки управления"
 msgid "UI SETTINGS"
 msgstr "Настройки интерфейса"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "Обрезка изображения"
 
@@ -343,6 +379,9 @@ msgstr "Музыка в главном меню"
 
 msgid "OUTPUT DEVICE"
 msgstr "Устройство воспроизведения"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "Настройки сети"
@@ -532,11 +571,8 @@ msgstr "Обновление загружено, система будет пе�
 msgid "NO UPDATE AVAILABLE"
 msgstr "Нет доступных обновлений"
 
-msgid "FINISHED"
-msgstr "Закончено"
-
-msgid "TARGET DEVICE"
-msgstr "Целевое устройство"
+msgid "FINNISHED"
+msgstr ""
 
 msgid "enter emulator"
 msgstr "Эмулятор"
@@ -869,6 +905,9 @@ msgstr "Загрузка..."
 
 msgid "PLEASE WAIT..."
 msgstr "Подождите, пожалуйста..."
+
+#~ msgid "FINISHED"
+#~ msgstr "Закончено"
 
 #~ msgid "SCRAPER"
 #~ msgstr "Поиск и загрузка данных"

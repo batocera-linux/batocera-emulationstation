@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,6 +107,30 @@ msgstr[5] "%i لعب تم تجاهلها"
 msgid "OK"
 msgstr "موافق"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "العودة"
+
+msgid "CLOSE"
+msgstr "اغلاق"
+
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات"
 
@@ -134,12 +158,6 @@ msgstr "حذف"
 
 msgid "SAVE CHANGES?"
 msgstr "حفظ التعديلات؟"
-
-msgid "BACK"
-msgstr "العودة"
-
-msgid "CLOSE"
-msgstr "اغلاق"
 
 msgid "MAIN MENU"
 msgstr "القائمة الرئيسية"
@@ -198,6 +216,15 @@ msgstr "مرتفع(1050Mhz)"
 msgid "NONE (900Mhz)"
 msgstr "لاشيء(900Mhz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "لاشيء(1200Mhz)"
 
@@ -224,6 +251,9 @@ msgstr "تشغيل KODI كاافتراضي"
 
 msgid "START KODI WITH X"
 msgstr "تشغيل KODI بـX"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "الأمان"
@@ -262,6 +292,9 @@ msgid "RETRO"
 msgstr "كلاسيكي"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -306,6 +339,9 @@ msgstr "اعدادت أيدي التحكم"
 msgid "UI SETTINGS"
 msgstr "أعدادات الواجهة"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -344,6 +380,9 @@ msgstr "أغنية الواجهة"
 
 msgid "OUTPUT DEVICE"
 msgstr "جهاز خرج الصوت"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "أعدادت الشبكة"
@@ -532,9 +571,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "لايوجد تحديثات"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"

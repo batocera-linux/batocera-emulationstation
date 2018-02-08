@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-16 09:31+0200\n"
+"POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,6 +100,30 @@ msgstr[1] "%i Spellen overgeslagen"
 msgid "OK"
 msgstr "Ok"
 
+msgid "INSTALL BATOCERA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "Terug"
+
+msgid "CLOSE"
+msgstr "Sluiten"
+
 msgid "EDIT METADATA"
 msgstr "Wijzigen metadata"
 
@@ -127,12 +151,6 @@ msgstr "Wissen"
 
 msgid "SAVE CHANGES?"
 msgstr "Wijzigingen opslaan?"
-
-msgid "BACK"
-msgstr "Terug"
-
-msgid "CLOSE"
-msgstr "Sluiten"
 
 msgid "MAIN MENU"
 msgstr "Hoofdmenu"
@@ -191,6 +209,15 @@ msgstr "Hoog (1050MHz)"
 msgid "NONE (900Mhz)"
 msgstr "Geen (900MHz)"
 
+msgid "EXTREM (1350Mhz)"
+msgstr ""
+
+msgid "TURBO (1325Mhz)+"
+msgstr ""
+
+msgid "HIGH (1300Mhz)"
+msgstr ""
+
 msgid "NONE (1200Mhz)"
 msgstr "Geen (1200MHz)"
 
@@ -217,6 +244,9 @@ msgstr "Kodi bij Starten"
 
 msgid "START KODI WITH X"
 msgstr "Start Kodi met X"
+
+msgid "INSTALL BATOCERA ON A NEW DISK"
+msgstr ""
 
 msgid "SECURITY"
 msgstr "Beveiliging"
@@ -255,6 +285,9 @@ msgid "RETRO"
 msgstr "Retro"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
+msgid "DECORATION"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -299,6 +332,9 @@ msgstr "Controller instellingen"
 msgid "UI SETTINGS"
 msgstr "UI instellingen"
 
+msgid "VIDEO OUTPUT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "Overscan"
 
@@ -337,6 +373,9 @@ msgstr "Frontend Muziek"
 
 msgid "OUTPUT DEVICE"
 msgstr "Output apparaat"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
 
 msgid "NETWORK SETTINGS"
 msgstr "Netwerk instellingen"
@@ -528,9 +567,6 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "Er is geen update beschikbaar"
 
 msgid "FINNISHED"
-msgstr ""
-
-msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "enter emulator"
