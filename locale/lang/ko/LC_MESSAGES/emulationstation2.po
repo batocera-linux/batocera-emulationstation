@@ -82,6 +82,9 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
+"우리는 시스템을 찾을수 없습니다!\n"
+"설정 파일에서 시스템 경로가 맞는지 확인하시고,"
+"게임 디렉토리에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -97,22 +100,22 @@ msgid "OK"
 msgstr "확인"
 
 msgid "INSTALL BATOCERA"
-msgstr ""
+msgstr "바투세라 설치"
 
 msgid "TARGET DEVICE"
-msgstr ""
+msgstr "설치 장비"
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
+msgstr "설치 아카텍처"
 
 msgid "VALIDATION"
-msgstr ""
+msgstr "검증"
 
 msgid "YES, I'M SURE"
-msgstr ""
+msgstr "예, 확실합니다."
 
 msgid "INSTALL"
-msgstr ""
+msgstr "설치"
 
 msgid "BACK"
 msgstr "뒤로"
@@ -158,7 +161,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "정보"
 
 msgid "VERSION"
 msgstr "버전"
@@ -167,16 +170,16 @@ msgid "DISK USAGE"
 msgstr "디스크 사용량"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "보조 파일을 만드시겠습니까?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "파일 생성 완료"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "파일 생성 실패"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "보조 파일 생성"
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
@@ -206,13 +209,13 @@ msgid "NONE (900Mhz)"
 msgstr "없음 (900Mhz) "
 
 msgid "EXTREM (1350Mhz)"
-msgstr ""
+msgstr "익스트림 (1350Mhz)"
 
 msgid "TURBO (1325Mhz)+"
-msgstr ""
+msgstr "터보 (1325Mhz)+"
 
 msgid "HIGH (1300Mhz)"
-msgstr ""
+msgstr "높음 (1300Mhz)"
 
 msgid "NONE (1200Mhz)"
 msgstr "없음 (1200Mhz) "
@@ -227,7 +230,7 @@ msgid "START UPDATE"
 msgstr "업데이트 시작"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "사용자 데이터 백업"
 
 msgid "KODI SETTINGS"
 msgstr "KODI 설정"
@@ -242,7 +245,7 @@ msgid "START KODI WITH X"
 msgstr "X 버튼으로 KODI 실행"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "새로운 디스크에 바투세라 설치"
 
 msgid "SECURITY"
 msgstr "보안"
@@ -281,7 +284,7 @@ msgid "RETRO"
 msgstr "레트로"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "원본 게임 해상도(픽셀 일치)"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전 과제 설정"
@@ -299,13 +302,13 @@ msgid "PASSWORD"
 msgstr "비밀번호"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "없는 바이오스"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "있는 바이오스 "
 
 msgid "MD5"
-msgstr ""
+msgstr "MD5"
 
 msgid "STATUS"
 msgstr "상태"
@@ -326,7 +329,7 @@ msgid "UI SETTINGS"
 msgstr "사용자 인터페이스 설정"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "비디오 출력"
 
 msgid "OVERSCAN"
 msgstr "오버 스캔"
@@ -368,7 +371,7 @@ msgid "OUTPUT DEVICE"
 msgstr "출력 기기"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
+msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
 
 msgid "NETWORK SETTINGS"
 msgstr "네트워크 설정"
@@ -392,7 +395,7 @@ msgid "WIFI SSID"
 msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgstr "WIFI 비밀번호"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI 활성화됨"
@@ -401,22 +404,22 @@ msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 구성 오류"
 
 msgid "REALLY SCRAPE?"
-msgstr ""
+msgstr "수집 할까요?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr ""
+msgstr "자동 수집"
 
 msgid "MANUAL SCRAPER"
-msgstr ""
+msgstr "수동 수집"
 
 msgid "SCRAPE FROM"
-msgstr "스크랩 출처"
+msgstr "수집 출처"
 
 msgid "SCRAPE RATINGS"
-msgstr "평점 스크랩"
+msgstr "평점 수집"
 
 msgid "SCRAPE NOW"
-msgstr "스크랩 시작"
+msgstr "수집 시작"
 
 msgid "QUIT"
 msgstr "종료"
@@ -511,7 +514,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
 msgid "SCRAPE THESE GAMES"
-msgstr "이 게임들을 스크랩"
+msgstr "이 게임들을 수집"
 
 msgid "All Games"
 msgstr "모든 게임"
@@ -523,7 +526,7 @@ msgid "FILTER"
 msgstr "조건"
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr "이 시스템들을 스크랩"
+msgstr "이 시스템들을 수집"
 
 msgid "SYSTEMS"
 msgstr "시스템"
@@ -539,8 +542,9 @@ msgid ""
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"경고: 선택한 시스템 중 일부는 플랫폼 셋이 없습니다. 스크랩 정확도가 낮을 수 "
-"있습니다. 계속 하시겠습니까?"
+"경고: 선택한 시스템 중 일부는 플랫폼 셋이 없습니다. 그 결과 "
+"평소보다 훨씬 더 부정확할 수 있다!\n"
+"계속 하시겠습니까?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
@@ -558,7 +562,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
 
 msgid "FINNISHED"
-msgstr ""
+msgstr "완료"
 
 msgid "enter emulator"
 msgstr "에뮬레이터 선택"
@@ -666,7 +670,7 @@ msgstr[0] "%i 개의 즐겨찾기"
 #, c-format
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
+msgstr[0] "%i 개의 게임 숨김"
 
 msgid "SCROLL"
 msgstr "스크롤"
@@ -743,7 +747,7 @@ msgid_plural "%i days ago"
 msgstr[0] "%i 일 전"
 
 msgid "unknown"
-msgstr "알 수 없음"
+msgstr "알수없음"
 
 msgid "SELECT ALL"
 msgstr "모두 선택"
@@ -862,74 +866,3 @@ msgstr "불러오는 중..."
 
 msgid "PLEASE WAIT..."
 msgstr "잠시 기다려 주십시오..."
-
-#~ msgid "SCRAPER"
-#~ msgstr "스크랩"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.FR FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "시스템을 찾을 수 없습니다.\n"
-#~ "설정 파일에서 시스템 경로가 맞는지 확인하세요.\n"
-#~ "게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
-#~ "\n"
-#~ "더 자세한 정보는 recalbox.com 에서 확인하세요."
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.COM FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "시스템을 찾을 수 없습니다.\n"
-#~ "설정 파일에서 시스템 경로가 맞는지 확인하세요.\n"
-#~ "게임 폴더에는 확장자가 정확한 게임이 한 개 이상 있어야 합니다. \n"
-#~ "\n"
-#~ "더 자세한 정보는 recalbox.com 에서 확인하세요."
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "없음 (700Mhz) "
-
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "터보 (1050Mhz)+ "
-
-#~ msgid "HDMI"
-#~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "자동"
-
-#~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "업데이트 실패, 시스템이 지금 다시 시작됩니다."
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "파일 이름, 오름차순"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "파일 이름, 내림차순"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "평점, 오름차순"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "평점, 내림차순"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "플레이 횟수, 오름차순"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "플레이 횟수, 내림차순"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "최근 플레이, 오름차순"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "최근 플레이, 내림차순"
