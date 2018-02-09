@@ -287,7 +287,7 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "장식"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전 과제 설정"
