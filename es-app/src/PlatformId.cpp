@@ -30,6 +30,8 @@ namespace PlatformIds
 		"xbox",
 		"xbox360",
 		"msx",
+		"msx1",
+		"msx2",
 		"neogeo",
 		"ngp", // neo geo pocket
 		"ngpc", // neo geo pocket color
@@ -75,6 +77,8 @@ namespace PlatformIds
 		"odyssey2",
 		"zx81",
 		"moonlight",
+		"scummvm",
+
 
 		"ignore", // do not allow scraping for this system
 		"invalid"

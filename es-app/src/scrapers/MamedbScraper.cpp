@@ -6,11 +6,12 @@
 void mamedb_generate_scraper_requests(const ScraperSearchParams& params, std::queue< std::unique_ptr<ScraperRequest> >& requests,
 	std::vector<ScraperSearchResult>& results)
 {
-	std::string path = "www.mamedb.com/game/";
+	std::string path = "mamedb.blu-ferret.co.uk/game/";
         
-	std::string cleanName = params.game->getPath().filename().replace_extension("").generic_string().c_str();
+	std::string cleanName = params.game->getPath().filename().replace_extension("").string();
 	path += HttpReq::urlEncode(cleanName);
-	
+	path += "/";
+
 	requests.push(std::unique_ptr<ScraperRequest>(new MamedbRequest(results, path)));
 }
 
@@ -78,7 +79,7 @@ void MamedbRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<Scr
                 boost::smatch snapmatches;
                 std::stringstream ss;
                 if(boost::regex_match(req->getContent(), snapmatches, snapregex)){
-                    ss << "http://www.mamedb.com/snap/"<<std::string(snapmatches["img"]) <<".png";
+                    ss << "mamedb.blu-ferret.co.uk/snap/"<<std::string(snapmatches["img"]) <<".png";
                     result.imageUrl = ss.str();
                     result.thumbnailUrl = ss.str();
                 }
