@@ -30,6 +30,8 @@ namespace PlatformIds
 		XBOX,
 		XBOX_360,
 		MSX,
+		MSX1,
+		MSX2,
 		NEOGEO,
 		NEOGEO_POCKET,
 		NEOGEO_POCKET_COLOR,
@@ -75,9 +77,11 @@ namespace PlatformIds
 		ODYSSEY_2,
 		ZX_81,
 		MOONLIGHT,
+		SCUMMVM,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
+
 	};
 
 	PlatformId getPlatformId(const char* str);

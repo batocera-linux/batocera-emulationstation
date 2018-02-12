@@ -6,6 +6,7 @@
 #include "Util.h"
 #include <boost/assign.hpp>
 #include "RecalboxConf.h"
+#include "guis/GuiScraperStart.h"
 
 using namespace PlatformIds;
 const std::map<PlatformId, const char*> gamesdb_platformid_map = boost::assign::map_list_of
@@ -31,6 +32,8 @@ const std::map<PlatformId, const char*> gamesdb_platformid_map = boost::assign::
 	(XBOX, "Microsoft Xbox")
 	(XBOX_360, "Microsoft Xbox 360")
 	(MSX, "MSX")
+	(MSX1, "MSX")
+	(MSX2, "MSX2")
 	(NEOGEO, "NeoGeo")
 	(NEOGEO_POCKET, "Neo Geo Pocket")
 	(NEOGEO_POCKET_COLOR, "Neo Geo Pocket Color")
@@ -67,13 +70,14 @@ const std::map<PlatformId, const char*> gamesdb_platformid_map = boost::assign::
 	(VIRTUAL_BOY, "Nintendo Virtual Boy")
 	(GAME_AND_WATCH, "game-and-watch")
 	(PC_ENGINE_CD, "TurboGrafx CD")
-	(SUPERGRAFX, "TurboGrafx 16")
+	(SUPERGRAFX, "SuperGrafx")
 	(PRBOOM, "PC")
 	(VECTREX, "Vectrex")
 	(LUTRO, "PC")
 	(CAVE_STORY, "PC")
 	(ODYSSEY_2, "Magnavox Odyssey 2")
-	(ZX_81, "Sinclair ZX Spectrum")
+	(ZX_81, "ZX81")
+	(SCUMMVM, "ScummVM")
 	(MOONLIGHT,"PC");
 
 static const std::map<std::string, const char*> system_language_map = boost::assign::map_list_of
@@ -86,8 +90,14 @@ static const std::map<std::string, const char*> system_language_map = boost::ass
 void screenscraper_generate_scraper_requests(const ScraperSearchParams& params, std::queue< std::unique_ptr<ScraperRequest> >& requests, 
 	std::vector<ScraperSearchResult>& results)
 {
-	std::string path = "screenscraper.recalbox.com/api/thegamedb/GetGame.php?";
+	std::string path = "https://screenscraper.recalbox.com/api/thegamedb/GetGame.php?";
 	std::string languageSystem = RecalboxConf::getInstance()->get("system.language");
+	bool MixImages = Settings::getInstance()->getBool("MixImages");
+
+	if(!MixImages)
+	{
+		path = "http://thegamesdb.net/api/GetGame.php?";
+	}
 
 	if((system_language_map.find(languageSystem)) != system_language_map.end())
 	{
@@ -96,7 +106,15 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params, 
 		path += "forcelangue=en&";
 	}
 
-	std::string cleanName = params.game->getPath().filename().generic_string().c_str();
+	if(MixImages)
+	{
+		path += "media=mixrbv1&";
+	}
+
+	std::string cleanName = params.nameOverride;
+
+	if(cleanName.empty())
+		cleanName = params.game->getPath().filename().c_str();
 
 	path += "name=" + HttpReq::urlEncode(cleanName);
 
