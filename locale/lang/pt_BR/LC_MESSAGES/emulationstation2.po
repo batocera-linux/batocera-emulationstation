@@ -2,16 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2018-02-14 20:55-0300\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "UMA ATUALIZAÇÃO ESTÁ DISPONÍVEL PARA SEU BATOCERA.LINUX"
 
 msgid "CANCEL"
 msgstr "CANCELAR"
@@ -52,11 +49,89 @@ msgstr "PROCURAR"
 msgid "ACCEPT RESULT"
 msgstr "Aceitar Resultados"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "SCRAPING EM PROGRESSO"
+msgid "Last played"
+msgstr "Última vez jogado"
+
+msgid "Times played"
+msgstr "Vezes jogados"
+
+msgid "Favorite"
+msgstr "Favorito"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
+
+msgid "CHOOSE"
+msgstr "ESCOLHER"
+
+msgid "LAUNCH"
+msgstr "EXECUTAR"
+
+msgid "BACK"
+msgstr "VOLTAR"
+
+msgid "OPTIONS"
+msgstr "OPÇÕES"
+
+msgid "SCROLL"
+msgstr "ROLAR"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "QUIT"
+msgstr "SAIR"
+
+msgid "REALLY RESTART?"
+msgstr "DESEJA REINICIAR?"
+
+msgid "YES"
+msgstr "SIM"
+
+msgid "NO"
+msgstr "NÃO"
+
+msgid "RESTART SYSTEM"
+msgstr "REINICIAR SISTEMA"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "DESEJA DESLIGAR?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "DESLIGAR SISTEMA"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "DESEJA DESLIGAR SEM SALVAR OS METADADOS?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i JOGO DISPONÍVEL"
+msgstr[1] "%i JOGOS DISPONÍVEIS"
+
+#, c-format
+msgid "%i FAVORITE"
+msgid_plural "%i FAVORITES"
+msgstr[0] "%i FAVORITO"
+msgstr[1] "%i FAVORITOS"
+
+#, c-format
+msgid "%i GAME HIDDEN"
+msgid_plural "%i GAMES HIDDEN"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "SELECT"
+msgstr "SELECIONAR"
+
+msgid "CLOSE"
+msgstr "FECHAR"
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "SCRAPING EM PROGRESSO"
 
 msgid "subtitle text"
 msgstr "legenda"
@@ -82,6 +157,9 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
+"NÃO FOI POSSÍVEL ENCONTRAR NENHUM SISTEMA! \n"
+"VERIFIQUE SE OS CAMINHOS ESTÃO CORRETOS NO ARQUIVO DE CONFIGURAÇÃO DO SISTEMA E"
+"O SEU DIRETÓRIO DE JOGOS TENHA PELO MENOS UM JOGO COM A EXTENSÃO CORRETA."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -97,30 +175,6 @@ msgstr[1] "%i SCRAPES IGNORADOS."
 
 msgid "OK"
 msgstr "OK"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "VOLTAR"
-
-msgid "CLOSE"
-msgstr "FECHAR"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -138,17 +192,56 @@ msgstr ""
 "ISSO EXCLUIRÁ UM ARQUIVO!\n"
 "VOCE TEM CERTEZA?"
 
-msgid "YES"
-msgstr "SIM"
-
-msgid "NO"
-msgstr "NÃO"
-
 msgid "DELETE"
 msgstr "EXCLUIR"
 
 msgid "SAVE CHANGES?"
 msgstr "SALVAR MODIFICAÇÕES?"
+
+msgid "INSTALL BATOCERA"
+msgstr "INSTALAR BATOCERA"
+
+msgid "TARGET DEVICE"
+msgstr "DISPOSITIVO ALVO"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "ARQUITETURA ALVO"
+
+msgid "VALIDATION"
+msgstr "VALIDAÇÃO"
+
+msgid "YES, I'M SURE"
+msgstr "SIM, ESTOU SEGURO"
+
+msgid "INSTALL"
+msgstr "INSTALAR"
+
+msgid "BACKUP USER DATA"
+msgstr "BACKUP DOS DADOS DO USUÁRIO"
+
+msgid "START"
+msgstr "INICIAR"
+
+msgid "FINNISHED"
+msgstr "FINALIZADO"
+
+msgid "AN ERROR OCCURED"
+msgstr "UM ERRO OCORREU"
+
+msgid "JUMP TO LETTER"
+msgstr "IR PARA A LETRA"
+
+msgid "SORT GAMES BY"
+msgstr "ORDENAR JOGOS POR"
+
+msgid "FAVORITES ONLY"
+msgstr "SOMENTE FAVORITOS"
+
+msgid "SHOW HIDDEN"
+msgstr "MOSTRAR OCULTOS"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -160,7 +253,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DE SISTEMA"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "INFORMAÇÃO"
 
 msgid "VERSION"
 msgstr "VERSÃO"
@@ -169,16 +262,16 @@ msgid "DISK USAGE"
 msgstr "ESPAÇO DISPONÍVEL"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "ARQUIVO GERADO COM SUCESSO"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "FALHA AO GERAR O ARQUIVO"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "CRIAR UM ARQUIVO DE SUPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ARMAZENAMENTO"
@@ -208,13 +301,13 @@ msgid "NONE (900Mhz)"
 msgstr "DESLIGADO (900Mhz)"
 
 msgid "EXTREM (1350Mhz)"
-msgstr ""
+msgstr "EXTREMO"
 
 msgid "TURBO (1325Mhz)+"
-msgstr ""
+msgstr "TURBO"
 
 msgid "HIGH (1300Mhz)"
-msgstr ""
+msgstr "ALTO"
 
 msgid "NONE (1200Mhz)"
 msgstr "DESLIGADO (1200Mhz)"
@@ -227,9 +320,6 @@ msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
 
 msgid "START UPDATE"
 msgstr "INICIAR ATUALIZAÇÃO"
-
-msgid "BACKUP USER DATA"
-msgstr ""
 
 msgid "KODI SETTINGS"
 msgstr "OPÇÕES DO KODI"
@@ -244,7 +334,7 @@ msgid "START KODI WITH X"
 msgstr "INICIAR KODI PRESSIONANDO X"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "INSTALAR BATOCERA EM UM NOVO DISCO"
 
 msgid "SECURITY"
 msgstr "SEGURANÇA"
@@ -304,10 +394,10 @@ msgid "PASSWORD"
 msgstr "SENHA"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "BIOS FALTANDO"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "SEM BIOS FALTANDO"
 
 msgid "MD5"
 msgstr ""
@@ -331,7 +421,7 @@ msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "SAÍDA DE VÍDEO"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
@@ -373,7 +463,7 @@ msgid "OUTPUT DEVICE"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
+msgstr "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
 
 msgid "NETWORK SETTINGS"
 msgstr "OPÇÕES DE REDE"
@@ -406,13 +496,13 @@ msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRO NA CONFIGURAÇÃO DO WIFI"
 
 msgid "REALLY SCRAPE?"
-msgstr ""
+msgstr "REALIZAR SCRAPE?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr ""
+msgstr "SCRAPER AUTOMÁTICO"
 
 msgid "MANUAL SCRAPER"
-msgstr ""
+msgstr "SCRAPER MANUAL"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPER DO"
@@ -422,27 +512,6 @@ msgstr "SCRAPE DAS AVALIAÇÕES"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
-
-msgid "QUIT"
-msgstr "SAIR"
-
-msgid "REALLY RESTART?"
-msgstr "DESEJA REINICIAR?"
-
-msgid "RESTART SYSTEM"
-msgstr "REINICIAR SISTEMA"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "DESEJA DESLIGAR?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "DESLIGAR SISTEMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM SALVAR OS METADADOS?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -471,9 +540,6 @@ msgstr "CONTROLE PAREADO"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "IMPOSSÍVEL DE PAREAR CONTROLE"
 
-msgid "AN ERROR OCCURED"
-msgstr "UM ERRO OCORREU"
-
 msgid "NO CONTROLLERS FOUND"
 msgstr "NENHUM CONTROLE DETECTADO"
 
@@ -490,29 +556,17 @@ msgstr "DESCONECTAR CONTROLES BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
-msgid "CHOOSE"
-msgstr "ESCOLHER"
+msgid "REALLY UPDATE?"
+msgstr "DESEJA ATUALIZAR O SISTEMA?"
 
-msgid "SELECT"
-msgstr "SELECIONAR"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "CONEXÃO COM A INTERNET NECESSÁRIA"
 
-msgid "OPTIONS"
-msgstr "OPÇÕES"
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "ATUALIZAÇÃO INSTALADA, O SISTEMA SERÁ REINICIADO"
 
-msgid "JUMP TO LETTER"
-msgstr "IR PARA A LETRA"
-
-msgid "SORT GAMES BY"
-msgstr "ORDENAR JOGOS POR"
-
-msgid "FAVORITES ONLY"
-msgstr "SOMENTE FAVORITOS"
-
-msgid "SHOW HIDDEN"
-msgstr "MOSTRAR OCULTOS"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
+msgid "NO UPDATE AVAILABLE"
+msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE DESSES JOGOS"
@@ -532,11 +586,11 @@ msgstr "SCRAPE DESSES SISTEMAS"
 msgid "SYSTEMS"
 msgstr "SISTEMAS"
 
+msgid "USE COMPOSED VISUALS"
+msgstr "UTILIZAR VISUAL COMPOSTO"
+
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "USUÁRIO DECIDE CONFLITOS"
-
-msgid "START"
-msgstr "INICIAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -550,21 +604,6 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO"
-
-msgid "REALLY UPDATE?"
-msgstr "DESEJA ATUALIZAR O SISTEMA?"
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "CONEXÃO COM A INTERNET NECESSÁRIA"
-
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "ATUALIZAÇÃO INSTALADA, O SISTEMA SERÁ REINICIADO"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
-
-msgid "FINNISHED"
-msgstr ""
 
 msgid "enter emulator"
 msgstr "digite o emulador"
@@ -623,9 +662,6 @@ msgstr "digite o gênero"
 msgid "enter number of players"
 msgstr "digite o número de jogadores"
 
-msgid "Favorite"
-msgstr "Favorito"
-
 msgid "enter favorite"
 msgstr "entrar favoritos"
 
@@ -653,41 +689,8 @@ msgstr "Número de jogadas"
 msgid "enter number of times played"
 msgstr "digite o número de vezes jogadas"
 
-msgid "Last played"
-msgstr "Última vez jogado"
-
 msgid "enter last played date"
 msgstr "digite a última data jogada"
-
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i JOGO DISPONÍVEL"
-msgstr[1] "%i JOGOS DISPONÍVEIS"
-
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i FAVORITO"
-msgstr[1] "%i FAVORITOS"
-
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "SCROLL"
-msgstr "ROLAR"
-
-msgid "LAUNCH"
-msgstr "EXECUTAR"
-
-msgid "Times played"
-msgstr "Vezes jogados"
-
-msgid "MENU"
-msgstr "MENU"
 
 msgid "FILENAME"
 msgstr "Nome do Arquivo"
@@ -710,8 +713,26 @@ msgstr "Desenvolvedor"
 msgid "GENRE"
 msgstr "Gênero"
 
+msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+msgstr "UMA ATUALIZAÇÃO ESTÁ DISPONÍVEL PARA SEU BATOCERA.LINUX"
+
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
+
+msgid "CHANGE"
+msgstr "MODIFICAR"
+
+msgid "SELECT ALL"
+msgstr "SELECIONAR TUDO"
+
+msgid "SELECT NONE"
+msgstr "SELECIONAR NADA"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SELECIONADO"
+msgstr[1] "%i SELECIONADOS"
 
 msgid "MOVE CURSOR"
 msgstr "Mover Cursor"
@@ -721,9 +742,6 @@ msgstr "Parar Edição"
 
 msgid "EDIT"
 msgstr "Editar"
-
-msgid "CHANGE"
-msgstr "MODIFICAR"
 
 msgid "never"
 msgstr "nunca"
@@ -758,17 +776,14 @@ msgstr[1] "%i dias atrás"
 msgid "unknown"
 msgstr "desconhecido"
 
-msgid "SELECT ALL"
-msgstr "SELECIONAR TUDO"
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
-msgid "SELECT NONE"
-msgstr "SELECIONAR NADA"
+msgid "LOADING..."
+msgstr "CARREGANDO..."
 
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i SELECIONADO"
-msgstr[1] "%i SELECIONADOS"
+msgid "PLEASE WAIT..."
+msgstr "POR FAVOR, AGUARDE..."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARÁCTERES ESPECIAIS"
@@ -784,6 +799,30 @@ msgstr "ANULAR MODIFICAÇÕES"
 
 msgid "SHIFT"
 msgstr "Mudança"
+
+msgid "WELCOME"
+msgstr "BEM-VINDO"
+
+msgid "CONFIGURE INPUT"
+msgstr "CONFIGURAÇÃO DOS CONTROLES"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i CONTROLE DETECTADO"
+msgstr[1] "%i CONTROLES DETECTADOS"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "NENHUM CONTROLE DETECTADO"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
+
+msgid "PRESS F4 TO QUIT AT ANY TIME."
+msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
+
+msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+msgstr "APERTE ESC OU HOTKEY PARA CANCELAR."
 
 msgid "UP"
 msgstr "CIMA"
@@ -845,39 +884,6 @@ msgstr "PRESSIONE QUALQUER BOTÃO"
 
 msgid "ALREADY TAKEN"
 msgstr "BOTÃO JÁ MAPEADO"
-
-msgid "WELCOME"
-msgstr "BEM-VINDO"
-
-msgid "CONFIGURE INPUT"
-msgstr "CONFIGURAÇÃO DOS CONTROLES"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i CONTROLE DETECTADO"
-msgstr[1] "%i CONTROLES DETECTADOS"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "NENHUM CONTROLE DETECTADO"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
-
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "APERTE ESC OU HOTKEY PARA CANCELAR."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
-
-msgid "LOADING..."
-msgstr "CARREGANDO..."
-
-msgid "PLEASE WAIT..."
-msgstr "POR FAVOR, AGUARDE..."
 
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPER"
