@@ -38,7 +38,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	if(scraperName == "Screenscraper") {
 		mMixImages = std::make_shared<SwitchComponent>(mWindow);
 		mMixImages->setState(true);
-		mMenu.addWithLabel(_("USE COMPOSED VISUALS"), mMixImages);
+		//mMenu.addWithLabel(_("USE COMPOSED VISUALS"), mMixImages);
 	}
 
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
