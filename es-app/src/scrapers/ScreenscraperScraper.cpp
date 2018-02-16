@@ -94,10 +94,10 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params, 
 	std::string languageSystem = RecalboxConf::getInstance()->get("system.language");
 	bool MixImages = Settings::getInstance()->getBool("MixImages");
 
-	if(!MixImages)
+	/*if(!MixImages)
 	{
 		path = "http://thegamesdb.net/api/GetGame.php?";
-	}
+	}*/
 
 	if((system_language_map.find(languageSystem)) != system_language_map.end())
 	{
