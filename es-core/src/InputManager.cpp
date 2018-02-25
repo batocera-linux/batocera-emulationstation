@@ -416,7 +416,7 @@ std::string InputManager::getConfigPath()
 std::string InputManager::getLastConfigPath()
 {
 	std::string path = getHomePath();
-	path += "/.emulationstation/es_last_input.cfg";
+	path += "/.emulationstation/es_last_input.log";
 	return path;
 }
 
