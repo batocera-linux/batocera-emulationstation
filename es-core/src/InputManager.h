@@ -43,6 +43,7 @@ public:
 
 	void writeDeviceConfig(InputConfig* config);
 	static std::string getConfigPath();
+	static std::string getLastConfigPath();
 
 	void init();
 	void deinit();

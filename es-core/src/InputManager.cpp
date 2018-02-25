@@ -397,12 +397,26 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 
 	config->writeToXML(root);
 	doc.save_file(path.c_str());
+
+	/* create a es_last_input.cfg so that people can easily share their config */
+	pugi::xml_document lastdoc;
+	pugi::xml_node lastroot = lastdoc.append_child("inputList");
+	config->writeToXML(lastroot);
+	std::string lastpath = getLastConfigPath();
+	lastdoc.save_file(lastpath.c_str());
 }
 
 std::string InputManager::getConfigPath()
 {
 	std::string path = getHomePath();
 	path += "/.emulationstation/es_input.cfg";
+	return path;
+}
+
+std::string InputManager::getLastConfigPath()
+{
+	std::string path = getHomePath();
+	path += "/.emulationstation/es_last_input.cfg";
 	return path;
 }
 
