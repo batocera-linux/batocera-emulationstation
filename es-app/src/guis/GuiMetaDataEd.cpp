@@ -17,12 +17,11 @@
 #include "components/OptionListComponent.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
-#include "MenuThemeData.h"
 
 using namespace Eigen;
 
 GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector<MetaDataDecl> &mdd,
-                             ScraperSearchParams scraperParams, const std::string &header, 
+    ScraperSearchParams scraperParams, const std::string &header, 
                              std::function<void()> saveCallback, std::function<void()> deleteFunc, 
                              SystemData *system, bool main) :   GuiComponent(window),
                                                                 mScraperParams(scraperParams),
@@ -36,18 +35,12 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
     addChild(&mGrid);
 
     mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
-	
-	auto menuTheme = MenuThemeData::getInstance()->getCurrentTheme();
-	
-	mBackground.setImagePath(menuTheme->menuBackground.path);
-	mBackground.setCenterColor(menuTheme->menuBackground.color);
-	mBackground.setEdgeColor(menuTheme->menuBackground.color);
 
-    mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), menuTheme->menuTitle.font, menuTheme->menuTitle.color,
+    mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), Font::get(FONT_SIZE_LARGE), 0x555555FF,
                                              ALIGN_CENTER);
     mSubtitle = std::make_shared<TextComponent>(mWindow,
                                                 strToUpper(scraperParams.game->getPath().filename().generic_string()),
-                                                menuTheme->menuFooter.font, menuTheme->menuFooter.color, ALIGN_CENTER);
+                                                Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
     mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
     mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
@@ -64,22 +57,20 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
         if (iter->isStatistic)
             continue;
 
-        // filter on main or secondary entries depending on the requested type
+	// filter on main or secondary entries depending on the requested type
         if (iter->isMain != main)
             continue;
 
         // create ed and add it (and any related components) to mMenu
         // ed's value will be set below
         ComponentListRow row;
-        auto lbl = std::make_shared<TextComponent>(mWindow, strToUpper(iter->displayName), menuTheme->menuTextSmall.font,
-                                                   menuTheme->menuTextSmall.color);
-
+        auto lbl = std::make_shared<TextComponent>(mWindow, strToUpper(iter->displayName), Font::get(FONT_SIZE_SMALL),
+                                                   0x777777FF);
         row.addElement(lbl, true); // label
 
         switch (iter->type) {
             case MD_RATING: {
-                ed = std::make_shared<RatingComponent>(window, menuTheme->menuTextSmall.color);
-
+                ed = std::make_shared<RatingComponent>(window);
                 const float height = lbl->getSize().y() * 0.71f;
                 ed->setSize(0, height);
                 row.addElement(ed, false, true);
@@ -107,7 +98,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                 break;
             }
             case MD_TIME: {
-                ed = std::make_shared<DateTimeComponent>(mWindow, DateTimeComponent::DISP_RELATIVE_TO_NOW);
+                ed = std::make_shared<DateTimeComponent>(window, DateTimeComponent::DISP_RELATIVE_TO_NOW);
                 row.addElement(ed, false);
                 break;
             }
@@ -130,7 +121,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                     }
                     emu_choice->add("default", "default", !selected);
                     ed = emu_choice;
-                    emu_choice->setSelectedChangedCallback([this, header, system, main](std::string s) {
+                   emu_choice->setSelectedChangedCallback([this, header, system, main](std::string s) {
                         mMetaData->set("emulator", s);
                         mWindow->pushGui(new GuiMetaDataEd(mWindow, mMetaData, mMetaDataDecl, mScraperParams, header, mSavedCallback, mDeleteFunc, system, main));
                         delete this;
@@ -156,6 +147,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
 
                 if (iter->key == "ratio") {
                     auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, "ratio", false, FONT_SIZE_SMALL);
+
                     row.addElement(ratio_choice, true);
                     std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
                     if (mMetaData->get("ratio") == "") {
@@ -170,8 +162,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
             case MD_MULTILINE_STRING:
             default: {
                 // MD_STRING
-                ed = std::make_shared<TextComponent>(window, "", menuTheme->menuTextSmall.font,
-                                                     menuTheme->menuTextSmall.color, ALIGN_RIGHT);
+                ed = std::make_shared<TextComponent>(window, "", Font::get(FONT_SIZE_SMALL, FONT_PATH_LIGHT),
+                                                     0x777777FF, ALIGN_RIGHT);
                 row.addElement(ed, true);
 
                 auto spacer = std::make_shared<GuiComponent>(mWindow);
@@ -179,9 +171,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                 row.addElement(spacer, false);
 
                 auto bracket = std::make_shared<ImageComponent>(mWindow);
-	
-				bracket->setImage(menuTheme->iconSet.arrow);
-				bracket->setColorShift(menuTheme->menuText.color);
+                bracket->setImage(":/arrow.svg");
                 bracket->setResize(Eigen::Vector2f(0, lbl->getFont()->getLetterHeight()));
                 row.addElement(bracket, false);
 
@@ -204,9 +194,9 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
         mList->addRow(row);
         ed->setValue(mMetaData->get(iter->key));
         mEditors.push_back(ed);
-        mMetaDataEditable.push_back(*iter);
+	mMetaDataEditable.push_back(*iter);
     }
-    
+
     std::vector<std::shared_ptr<ButtonComponent> > buttons;
 
     if (main)
@@ -218,6 +208,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
         row.addElement(lbl, true);
 
         auto bracket = std::make_shared<ImageComponent>(mWindow);
+bracket->setImage(menuTheme->iconSet.arrow);
+bracket->setColorShift(menuTheme->menuText.color);
         bracket->setImage(menuTheme->iconSet.arrow);
         bracket->setColorShift(menuTheme->menuText.color);
 
@@ -246,18 +238,16 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
             delete this;
         };
         auto deleteBtnFunc = [this, deleteFileAndSelf] {
-            mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE A FILE!\nARE YOU SURE?"), _("YES"), deleteFileAndSelf, _("NO"), nullptr));
+           mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE A FILE!\nARE YOU SURE?"), _("YES"), deleteFileAndSelf, _("NO"), nullptr));
         };
         buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), deleteBtnFunc));
     }
-
 
     mButtons = makeButtonGrid(mWindow, buttons);
     mGrid.setEntry(mButtons, Vector2i(0, 2), true, false);
 
     // resize + center
-    float width = std::min(Renderer::getScreenHeight(), (unsigned int) (Renderer::getScreenWidth() * 0.90f));
-	setSize(width, Renderer::getScreenHeight() * 0.82f);
+    setSize(Renderer::getScreenWidth() * 0.5f, Renderer::getScreenHeight() * 0.82f);
     setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 }
 
