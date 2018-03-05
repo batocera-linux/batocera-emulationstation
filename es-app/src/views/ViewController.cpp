@@ -276,8 +276,7 @@ void ViewController::launch(FileData* game, Eigen::Vector3f center)
 		{
 			game->getSystem()->launchGame(mWindow, game);
 			mCamera = origCamera;
-			mLockInput = false;
-			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, nullptr, true);
+			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
 	}
