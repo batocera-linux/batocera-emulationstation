@@ -561,7 +561,7 @@ msgstr ""
 msgid "NO UPDATE AVAILABLE"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "enter emulator"
