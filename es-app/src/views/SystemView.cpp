@@ -104,6 +104,7 @@ void SystemView::goToSystem(SystemData* system, bool animate)
 
 	if(!animate)
 		finishAnimation(0);
+	onCursorChanged(CURSOR_STOPPED);
 }
 
 bool SystemView::input(InputConfig* config, Input input)
