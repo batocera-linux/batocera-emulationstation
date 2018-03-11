@@ -160,7 +160,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		}
 
 		// Bottom row - Add in the last three manualy because they're special chara [< , > , /]
-		for (int k = 8; k < 12; k++) {
+		for (int k = 8; k < 11; k++) {
 			bButtons.push_back(std::make_shared<ButtonComponent>(mWindow, bottomRow[k], bottomRow[k], [this, k] {
 				mText->startEditing();
 				if (mShift) mText->textInput(bottomRowUp[k]);
