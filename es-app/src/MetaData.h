@@ -30,14 +30,16 @@ struct MetaDataDecl
 	MetaDataType type;
 	std::string defaultValue;
 	bool isStatistic; //if true, ignore scraper values for this metadata
+	bool isMain; //if true, display on main metadata editor GUI, else in secondary
 	std::string displayName; // displayed as this in editors
 	std::string displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
 
-  MetaDataDecl(std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt) {
+  MetaDataDecl(std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, bool isMain, std::string displayName, std::string displayPrompt) {
     this->key = key;
     this->type = type;
     this->defaultValue = defaultValue;
     this->isStatistic = isStatistic;
+    this->isMain = isMain;
     this->displayName = displayName;
     this->displayPrompt = displayPrompt;
   }
@@ -47,6 +49,7 @@ struct MetaDataDecl
     this->type = type;
     this->defaultValue = defaultValue;
     this->isStatistic = isStatistic;
+    this->isMain = true;
   }
 };
 

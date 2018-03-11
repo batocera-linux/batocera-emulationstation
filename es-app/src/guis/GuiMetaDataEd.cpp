@@ -21,16 +21,16 @@
 using namespace Eigen;
 
 GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector<MetaDataDecl> &mdd,
-                             ScraperSearchParams scraperParams,
-                             const std::string &header, std::function<void()> saveCallback,
-                             std::function<void()> deleteFunc, SystemData *system) : GuiComponent(window),
-                                                                                     mScraperParams(scraperParams),
-                                                                                     mBackground(window, ":/frame.png"),
-                                                                                     mGrid(window, Vector2i(1, 3)),
-                                                                                     mMetaDataDecl(mdd),
-                                                                                     mMetaData(md),
-                                                                                     mSavedCallback(saveCallback),
-                                                                                     mDeleteFunc(deleteFunc) {
+    ScraperSearchParams scraperParams, const std::string &header, 
+                             std::function<void()> saveCallback, std::function<void()> deleteFunc, 
+                             SystemData *system, bool main) :   GuiComponent(window),
+                                                                mScraperParams(scraperParams),
+                                                                mBackground(window, ":/frame.png"),
+                                                                mGrid(window, Vector2i(1, 3)),
+                                                                mMetaDataDecl(mdd),
+                                                                mMetaData(md),
+                                                                mSavedCallback(saveCallback),
+                                                                mDeleteFunc(deleteFunc) {
     addChild(&mBackground);
     addChild(&mGrid);
 
@@ -50,11 +50,15 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
     mGrid.setEntry(mList, Vector2i(0, 1), true, true);
 
     // populate list
-    for (auto iter = mdd.begin(); iter != mdd.end(); iter++) {
+    for (auto iter = mMetaDataDecl.begin(); iter != mMetaDataDecl.end(); iter++) {
         std::shared_ptr<GuiComponent> ed;
 
         // don't add statistics
         if (iter->isStatistic)
+            continue;
+
+	// filter on main or secondary entries depending on the requested type
+        if (iter->isMain != main)
             continue;
 
         // create ed and add it (and any related components) to mMenu
@@ -76,13 +80,12 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                 row.addElement(spacer, false);
 
                 // pass input to the actual RatingComponent instead of the spacer
-                row.input_handler = std::bind(&GuiComponent::input, ed.get(), std::placeholders::_1,
-                                              std::placeholders::_2);
+                row.input_handler = std::bind(&GuiComponent::input, ed.get(), std::placeholders::_1, std::placeholders::_2);
 
                 break;
             }
             case MD_DATE: {
-                ed = std::make_shared<DateTimeComponent>(window);
+                ed = std::make_shared<DateTimeComponent>(mWindow);
                 row.addElement(ed, false);
 
                 auto spacer = std::make_shared<GuiComponent>(mWindow);
@@ -90,8 +93,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                 row.addElement(spacer, false);
 
                 // pass input to the actual DateTimeComponent instead of the spacer
-                row.input_handler = std::bind(&GuiComponent::input, ed.get(), std::placeholders::_1,
-                                              std::placeholders::_2);
+                row.input_handler = std::bind(&GuiComponent::input, ed.get(), std::placeholders::_1, std::placeholders::_2);
 
                 break;
             }
@@ -119,9 +121,9 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                     }
                     emu_choice->add("default", "default", !selected);
                     ed = emu_choice;
-                    emu_choice->setSelectedChangedCallback([this, md, mdd, scraperParams, header, saveCallback, deleteFunc, system](std::string s) {
-                        md->set("emulator", s);
-                        mWindow->pushGui(new GuiMetaDataEd(mWindow, md, mdd, scraperParams, header,saveCallback, deleteFunc, system));
+                   emu_choice->setSelectedChangedCallback([this, header, system, main](std::string s) {
+                        mMetaData->set("emulator", s);
+                        mWindow->pushGui(new GuiMetaDataEd(mWindow, mMetaData, mMetaDataDecl, mScraperParams, header, mSavedCallback, mDeleteFunc, system, main));
                         delete this;
                     });
                 }
@@ -144,8 +146,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
                 }
 
                 if (iter->key == "ratio") {
-                    auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, "ratio", false,
-                                                                                            FONT_SIZE_SMALL);
+                    auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, "ratio", false, FONT_SIZE_SMALL);
+
                     row.addElement(ratio_choice, true);
                     std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
                     if (mMetaData->get("ratio") == "") {
@@ -192,29 +194,51 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
         mList->addRow(row);
         ed->setValue(mMetaData->get(iter->key));
         mEditors.push_back(ed);
+	mMetaDataEditable.push_back(*iter);
     }
 
     std::vector<std::shared_ptr<ButtonComponent> > buttons;
 
-    if (!scraperParams.system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-        buttons.push_back(
-			  std::make_shared<ButtonComponent>(mWindow, _("SCRAPE"), _("SCRAPE"), std::bind(&GuiMetaDataEd::fetch, this)));
+    if (main)
+    {
+        // append a shortcut to the secondary menu
+        ComponentListRow row;
+        auto lbl = std::make_shared<TextComponent>(mWindow, _("MORE DETAILS"), menuTheme->menuTextSmall.font,
+                                                   menuTheme->menuTextSmall.color);
+        row.addElement(lbl, true);
 
-    buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [&] {
-        save();
-        delete this;
-    }));
+        auto bracket = std::make_shared<ImageComponent>(mWindow);
+bracket->setImage(menuTheme->iconSet.arrow);
+bracket->setColorShift(menuTheme->menuText.color);
+        bracket->setImage(menuTheme->iconSet.arrow);
+        bracket->setColorShift(menuTheme->menuText.color);
+
+        bracket->setResize(Eigen::Vector2f(0, lbl->getFont()->getLetterHeight()));
+        row.addElement(bracket, false);
+        
+        row.makeAcceptInputHandler([this, header, system] {
+            // call the same Gui with "main" set to "false"
+            mWindow->pushGui(new GuiMetaDataEd(mWindow, mMetaData, mMetaDataDecl, mScraperParams, header, nullptr, nullptr, system, false));
+         });
+
+        mList->addRow(row);
+    }
+
+
+    if (main && !scraperParams.system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+        buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SCRAPE"), _("SCRAPE"), std::bind(&GuiMetaDataEd::fetch, this)));
+
+    buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [&] { save(); delete this; }));
+
     buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [&] { delete this; }));
 
-    if (mDeleteFunc) {
+    if (main && mDeleteFunc) {
         auto deleteFileAndSelf = [&] {
             mDeleteFunc();
             delete this;
         };
         auto deleteBtnFunc = [this, deleteFileAndSelf] {
-            mWindow->pushGui(
-			     new GuiMsgBox(mWindow, _("THIS WILL DELETE A FILE!\nARE YOU SURE?"), _("YES"), deleteFileAndSelf, _("NO"),
-                                  nullptr));
+           mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE A FILE!\nARE YOU SURE?"), _("YES"), deleteFileAndSelf, _("NO"), nullptr));
         };
         buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), deleteBtnFunc));
     }
@@ -246,15 +270,13 @@ void GuiMetaDataEd::onSizeChanged() {
 
 void GuiMetaDataEd::save() {
     for (unsigned int i = 0; i < mEditors.size(); i++) {
-        if (mMetaDataDecl.at(i).isStatistic)
-            continue;
 
-        if (mMetaDataDecl.at(i).type != MD_LIST)
-            mMetaData->set(mMetaDataDecl.at(i).key, mEditors.at(i)->getValue());
+        if (mMetaDataEditable.at(i).type != MD_LIST)
+        mMetaData->set(mMetaDataEditable.at(i).key, mEditors.at(i)->getValue());
         else {
             std::shared_ptr<GuiComponent> ed = mEditors.at(i);
             std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
-            mMetaData->set(mMetaDataDecl.at(i).key, list->getSelected());
+            mMetaData->set(mMetaDataEditable.at(i).key, list->getSelected());
         }
     }
 
@@ -271,10 +293,7 @@ void GuiMetaDataEd::fetch() {
 void GuiMetaDataEd::fetchDone(const ScraperSearchResult &result) {
     mMetaData->merge(result.mdl);
     for (unsigned int i = 0; i < mEditors.size(); i++) {
-        if (mMetaDataDecl.at(i).isStatistic)
-            continue;
-
-        const std::string &key = mMetaDataDecl.at(i).key;
+        const std::string &key = mMetaDataEditable.at(i).key;
         mEditors.at(i)->setValue(mMetaData->get(key));
     }
 }
@@ -283,7 +302,7 @@ void GuiMetaDataEd::close(bool closeAllWindows) {
     // find out if the user made any changes
     bool dirty = false;
     for (unsigned int i = 0; i < mEditors.size(); i++) {
-        const std::string &key = mMetaDataDecl.at(i).key;
+        const std::string &key = mMetaDataEditable.at(i).key;
         if (mMetaData->get(key) != mEditors.at(i)->getValue()) {
             dirty = true;
             break;
