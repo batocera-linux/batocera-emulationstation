@@ -1,30 +1,33 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: recalbox-emulationstation\n"
+"Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 21:19+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Dm1\n"
+"Language-Team: \n"
 
 msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "Доступно обновление для BATOCERA.LINUX!"
+msgstr "ДОСТУПНО ОБНОВЛЕНИЕ ДЛЯ BATOCERA.LINUX"
 
 msgid "CANCEL"
-msgstr "Отмена"
+msgstr "ОТМЕНА"
 
 msgid "Rating"
 msgstr "Рейтинг"
 
 msgid "Released"
-msgstr "Выпущено"
+msgstr "Выход"
 
 msgid "Developer"
-msgstr "Разрабочтик"
+msgstr "Разработчик"
 
 msgid "Publisher"
 msgstr "Издатель"
@@ -36,421 +39,419 @@ msgid "Players"
 msgstr "Игроки"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "Игры не найдены! - Пропустить"
+msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
 
 msgid "RETRY"
-msgstr "Повторить"
+msgstr "ПОВТОРИТЬ"
 
 msgid "SKIP"
-msgstr "Пропустить"
+msgstr "ПРОПУСТИТЬ"
 
 msgid "SEARCH FOR"
-msgstr "Поиск для..."
+msgstr "ПОИСК ПО"
 
 msgid "SEARCH"
-msgstr "Поиск"
+msgstr "ПОИСК"
 
 msgid "ACCEPT RESULT"
-msgstr "Принять изменения"
+msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 
 msgid "SCRAPING IN PROGRESS"
-msgstr "Идет поиск и загрузка данных"
+msgstr "ИДЕТ ЗАГРУЗКА ДАННЫХ"
 
 msgid "SYSTEM"
-msgstr "Система"
+msgstr "СИСТЕМА"
 
 msgid "subtitle text"
-msgstr "Субтитры"
+msgstr "текст cубтитров"
 
 msgid "INPUT"
-msgstr "Ввод"
+msgstr "ВВОД"
 
 msgid "search"
-msgstr "Поиск"
+msgstr "поиск"
 
 msgid "STOP"
-msgstr "Остановить"
+msgstr "СТОП"
 
 msgid "stop (progress saved)"
-msgstr "Остановить (с сохранением прогресса)"
+msgstr "остановить (с сохранением прогресса)"
 
 #, c-format
 msgid "GAME %i OF %i"
-msgstr "Игра %i из %i"
+msgstr "ИГРА %i ИЗ %i"
 
 msgid ""
 "WE CAN'T FIND ANY SYSTEMS!\n"
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
-"Не удается найти никакой системы!\n"
-"Проверьте правильность путей в файле конфигурации систем и есть ли в "
-"каталоге хотя бы одна игра с правильным расширением."
+"НЕ НАЙДЕНО НИ ОДНОЙ СИСТЕМЫ!\n"
+"УБЕДИТЕСЬ, ЧТО В КОНФИГУРАЦИОННОМ ФАЙЛЕ ПРОПИСАНЫ ПРАВИЛЬНЫЕ ПУТИ, И В "
+"КАТАЛОГЕ С ИГРАМИ ЕСТЬ ХОТЯ БЫ ОДНА ИГРА С ПРАВИЛЬНЫМ РАСШИРЕНИЕМ."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i игра обработана успешно!"
-msgstr[1] "%i игры обработано успешно!"
-msgstr[2] "%i игр обработано успешно!"
-msgstr[3] "%i игра обработана успешно!"
+msgstr[0] "%i ИГРА ОБРАБОТАНА УСПЕШНО!"
+msgstr[1] "%i ИГРЫ ОБРАБОТАНЫ УСПЕШНО!"
+msgstr[2] "%i ИГР ОБРАБОТАНО УСПЕШНО!"
 
 #, c-format
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i игра пропущена"
-msgstr[1] "%i игры пропущено"
-msgstr[2] "%i игр пропущено"
-msgstr[3] "%i игра пропущена"
+msgstr[0] "%i ИГРА ПРОПУЩЕНА."
+msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
+msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
 msgid "OK"
 msgstr "ОК"
 
 msgid "INSTALL BATOCERA"
-msgstr ""
+msgstr "УСТАНОВИТЬ BATOCERA"
 
 msgid "TARGET DEVICE"
-msgstr "Целевое устройство"
+msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
+msgstr "ЦЕЛЕВАЯ АРХИТЕКТУРА"
 
 msgid "VALIDATION"
-msgstr ""
+msgstr "ПРОВЕРКА"
 
 msgid "YES, I'M SURE"
-msgstr ""
+msgstr "ДА, Я УВЕРЕН"
 
 msgid "INSTALL"
-msgstr ""
+msgstr "УСТАНОВИТЬ"
 
 msgid "BACK"
-msgstr "Назад"
+msgstr "НАЗАД"
 
 msgid "CLOSE"
-msgstr "Закрыть"
+msgstr "ЗАКРЫТЬ"
 
 msgid "EDIT METADATA"
-msgstr "Редактировать метаданные"
+msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "SCRAPE"
-msgstr "Загрузка данных"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "SAVE"
-msgstr "Сохранить"
+msgstr "СОХРАНИТЬ"
 
 msgid ""
 "THIS WILL DELETE A FILE!\n"
 "ARE YOU SURE?"
 msgstr ""
-"Файл будет удалён!\n"
-"Вы уверены?"
+"ФАЙЛ БУДЕТ УДАЛЕН!\n"
+"ВЫ УВЕРЕНЫ?"
 
 msgid "YES"
-msgstr "Да"
+msgstr "ДА"
 
 msgid "NO"
-msgstr "Нет"
+msgstr "НЕТ"
 
 msgid "DELETE"
-msgstr "Удалить"
+msgstr "УДАЛИТЬ"
 
 msgid "SAVE CHANGES?"
-msgstr "Сохранить изменения?"
+msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 
 msgid "MAIN MENU"
-msgstr "Главное меню"
+msgstr "ГЛАВНОЕ МЕНЮ"
 
 msgid "KODI MEDIA CENTER"
-msgstr "Медиа-центр KODI"
+msgstr "МЕДИАЦЕНТР KODI"
 
 msgid "SYSTEM SETTINGS"
-msgstr "Системные настройки"
+msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "INFORMATION"
-msgstr "Информация"
+msgstr "ИНФОРМАЦИЯ"
 
 msgid "VERSION"
-msgstr "Версия"
+msgstr "ВЕРСИЯ"
 
 msgid "DISK USAGE"
-msgstr "Использование диска"
+msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr "Создать файл поддержки?"
+msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "Файл успешно сгенерирован"
+msgstr "ФАЙЛ УСПЕШНО СГЕНЕРИРОВАН"
 
 msgid "FILE GENERATION FAILED"
-msgstr "Генерация файла не удалась"
+msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr "Создать файл поддержки"
+msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
 msgid "STORAGE DEVICE"
-msgstr "Устройство хранения"
+msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
 
 msgid "LANGUAGE"
-msgstr "Язык"
+msgstr "ЯЗЫК"
 
 msgid "OVERCLOCK"
-msgstr "Разгон"
+msgstr "РАЗГОН"
 
 msgid "EXTREM (1100Mhz)"
-msgstr "Экстремальный (1100Mhz)"
+msgstr "ЭКСТРИМ (1100Mhz)"
 
 msgid "TURBO (1000Mhz)"
-msgstr "Турбо (1000Mhz)"
+msgstr "ТУРБО (1000Mhz)"
 
 msgid "HIGH (950Mhz)"
-msgstr "Высокий (950Mhz)"
+msgstr "ВЫСОКИЙ (950Mhz)"
 
 msgid "NONE"
-msgstr "Нет"
+msgstr "НЕТ"
 
 msgid "HIGH (1050Mhz)"
-msgstr "Высокий (1050Mhz)"
+msgstr "ВЫСОКИЙ (1050Mhz)"
 
 msgid "NONE (900Mhz)"
-msgstr "Нет (900Mhz)"
+msgstr "НЕТ (900Mhz)"
 
 msgid "EXTREM (1350Mhz)"
-msgstr ""
+msgstr "ЭКСТРИМ (1350Mhz)"
 
 msgid "TURBO (1325Mhz)+"
-msgstr ""
+msgstr "ТУРБО (1325Mhz)+"
 
 msgid "HIGH (1300Mhz)"
-msgstr ""
+msgstr "ВЫСОКИЙ (1300Mhz)"
 
 msgid "NONE (1200Mhz)"
-msgstr "Нет (1200Mhz)"
+msgstr "НЕТ (1200Mhz)"
 
 msgid "UPDATES"
-msgstr "Обновления"
+msgstr "ОБНОВЛЕНИЯ"
 
 msgid "AUTO UPDATES"
-msgstr "Автоматическое обновление"
+msgstr "АВТООБНОВЛЕНИЯ"
 
 msgid "START UPDATE"
-msgstr "Начать обновление"
+msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 
 msgid "BACKUP USER DATA"
-msgstr "Резервная копия"
+msgstr "РЕЗЕРВНАЯ КОПИЯ"
 
 msgid "KODI SETTINGS"
-msgstr "Настройки KODI"
+msgstr "НАСТРОЙКИ KODI"
 
 msgid "ENABLE KODI"
-msgstr "Включить KODI"
+msgstr "ВКЛЮЧИТЬ KODI"
 
 msgid "KODI AT START"
-msgstr "Запуск KODI при загрузке"
+msgstr "АВТОЗАПУСК KODI"
 
 msgid "START KODI WITH X"
-msgstr "Запуск KODI кнопкой X"
+msgstr "ЗАПУСК KODI КНОПКОЙ X"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "УСТАНОВКА BATOCERA НА НОВЫЙ ДИСК"
 
 msgid "SECURITY"
-msgstr "Безопасность"
+msgstr "БЕЗОПАСНОСТЬ"
 
 msgid "ENFORCE SECURITY"
-msgstr "Усиленная безопасность"
+msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 
 msgid "ROOT PASSWORD"
-msgstr "Пароль администратора"
+msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "Система не будет перезагружена"
+msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
 
 msgid "GAMES SETTINGS"
-msgstr "Настройки игр"
+msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "GAME RATIO"
-msgstr "Соотношение сторон"
+msgstr "СООТНОШЕНИЕ СТОРОН"
 
 msgid "SMOOTH GAMES"
-msgstr "Сглаживание картинки"
+msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
 
 msgid "REWIND"
-msgstr "Перемотка"
+msgstr "ПЕРЕМОТКА"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "Автоматические сохранение и загрузка"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "SHADERS SET"
-msgstr "Шейдеры"
+msgstr "ШЕЙДЕРЫ"
 
 msgid "SCANLINES"
-msgstr "Чересстрочный пропуск"
+msgstr "ЧЕРЕССТРОЧНОСТЬ"
 
 msgid "RETRO"
-msgstr "Ретро"
+msgstr "РЕТРО"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "ДЕКОРИРОВАНИЕ"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "Настройки Ретродостижений"
+msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "Ретродостижения"
+msgstr "РЕТРОДОСТИЖЕНИЯ"
 
 msgid "HARDCORE MODE"
-msgstr "Хардкорный режим"
+msgstr "ХАРДКОР РЕЖИМ"
 
 msgid "USERNAME"
-msgstr "Имя пользователя"
+msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
 
 msgid "PASSWORD"
-msgstr "Пароль"
+msgstr "ПАРОЛЬ"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "НЕДОСТАЮЩИЙ BIOS"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "НЕТ НЕДОСТАЮЩЕГО BIOS"
 
 msgid "MD5"
-msgstr ""
+msgstr "MD5"
 
 msgid "STATUS"
-msgstr "Статус"
+msgstr "СОСТОЯНИЕ"
 
 msgid "ADVANCED"
-msgstr "Дополнительно"
+msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "Действительно обновить список игр?"
+msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
 
 msgid "UPDATE GAMES LISTS"
-msgstr "Обновить список игр"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
 msgid "CONTROLLERS SETTINGS"
-msgstr "Настройки управления"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
 
 msgid "UI SETTINGS"
-msgstr "Настройки интерфейса"
+msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "ВИДЕО ВЫВОД"
 
 msgid "OVERSCAN"
-msgstr "Обрезка изображения"
+msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
 msgid "SCREENSAVER AFTER"
-msgstr "Заставка через:"
+msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
 msgid "TRANSITION STYLE"
-msgstr "Стиль переходов"
+msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "SCREENSAVER BEHAVIOR"
-msgstr "Режим заставки"
+msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
 
 msgid "SHOW FRAMERATE"
-msgstr "Отображать частоту кадров"
+msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
 
 msgid "ON-SCREEN HELP"
-msgstr "Подсказки на экране"
+msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "Быстрый выбор системы"
+msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМЫ"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr "Экранная клавиатура"
+msgstr "ЭКРАННАЯ КЛАВИАТУРА"
 
 msgid "THEME SET"
-msgstr "Тема"
+msgstr "ТЕМА"
 
 msgid "SOUND SETTINGS"
-msgstr "Настройки звука"
+msgstr "НАСТРОЙКИ ЗВУКА"
 
 msgid "SYSTEM VOLUME"
-msgstr "Громкость"
+msgstr "ГРОМКОСТЬ"
 
 msgid "FRONTEND MUSIC"
-msgstr "Музыка в главном меню"
+msgstr "МУЗЫКА В МЕНЮ"
 
 msgid "OUTPUT DEVICE"
-msgstr "Устройство воспроизведения"
+msgstr "УСТРОЙСТВО ВЫВОДА"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
+msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
 
 msgid "NETWORK SETTINGS"
-msgstr "Настройки сети"
+msgstr "НАСТРОЙКИ СЕТИ"
 
 msgid "CONNECTED"
-msgstr "Подключено"
+msgstr "ПОДКЛЮЧЕНО"
 
 msgid "NOT CONNECTED"
-msgstr "Не подключено"
+msgstr "НЕ ПОДКЛЮЧЕНО"
 
 msgid "IP ADDRESS"
-msgstr "IP-адрес"
+msgstr "IP-АДРЕС"
 
 msgid "HOSTNAME"
-msgstr "Имя в сети"
+msgstr "ИМЯ ХОСТА"
 
 msgid "ENABLE WIFI"
-msgstr "Включить Wi-Fi"
+msgstr "ВКЛЮЧИТЬ WI-FI"
 
 msgid "WIFI SSID"
-msgstr "Имя сети Wi-Fi"
+msgstr "ИМЯ СЕТИ WI-FI"
 
 msgid "WIFI KEY"
-msgstr "Пароль сети Wi-Fi"
+msgstr "ПАРОЛЬ СЕТИ WI-FI"
 
 msgid "WIFI ENABLED"
-msgstr "Wi-Fi подключен"
+msgstr "WI-FI ВКЛЮЧЕН"
 
 msgid "WIFI CONFIGURATION ERROR"
-msgstr "Ошибка настройки Wi-Fi"
+msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
 
 msgid "REALLY SCRAPE?"
-msgstr "Действительно?"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr "Автоматическая загрузка"
+msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
 
 msgid "MANUAL SCRAPER"
-msgstr "Ручная загрузка"
+msgstr "РУЧНАЯ ЗАГРУЗКА"
 
 msgid "SCRAPE FROM"
-msgstr "Загружать из"
+msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "SCRAPE RATINGS"
-msgstr "Загружать рейтинги"
+msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 
 msgid "SCRAPE NOW"
-msgstr "Загрузить"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "QUIT"
-msgstr "Выход"
+msgstr "ВЫХОД"
 
 msgid "REALLY RESTART?"
-msgstr "Действительно перезагрузить?"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
 
 msgid "RESTART SYSTEM"
-msgstr "Перезагрузить систему"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
-msgstr "Действительно выключить?"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
 
 msgid "SHUTDOWN SYSTEM"
-msgstr "Выключить систему"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "Действительно выключить без сохранения данных?"
+msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "Быстрое выключение системы"
+msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "Emulator"
 msgstr "Эмулятор"
@@ -465,66 +466,66 @@ msgid ""
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"Вы собираетесь настроить контроллер. Если на Вашем контроллере имеется "
-"только один аналоговый стик, настройте его направления и пропустите "
-"настройку второго стика, нажав и удерживая любую кнопку. Если на Вашем "
-"контроллере отсутствует отдельная \"горячая\" кнопка, используйте вместо неё "
-"кнопку SELECT. Названия кнопок основаны на SNES контроллере."
+"ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. ЕСЛИ НА ВАШЕМ КОНТРОЛЛЕРЕ ИМЕЕТСЯ "
+"ТОЛЬКО ОДИН АНАЛОГОВЫЙ СТИК, НАСТРОЙТЕ ЕГО НАПРАВЛЕНИЯ И ПРОПУСТИТЕ "
+"НАСТРОЙКУ ВТОРОГО СТИКА, НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. ЕСЛИ НА ВАШЕМ "
+"КОНТРОЛЛЕРЕ ОТСУТСТВУЕТ ОТДЕЛЬНАЯ \"ГОРЯЧАЯ\" КНОПКА, ИСПОЛЬЗУЙТЕ ВМЕСТО НЕЁ "
+"КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
 msgid "CONFIGURE A CONTROLLER"
-msgstr "Настройка контроллера"
+msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
 
 msgid "CONTROLLER PAIRED"
-msgstr "Контроллер сопряжен"
+msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
 
 msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "Нельзя сопрячь контроллер"
+msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
 
 msgid "AN ERROR OCCURED"
-msgstr "Произошла ошибка"
+msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "NO CONTROLLERS FOUND"
-msgstr "Контроллеры не найдены"
+msgstr "КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "Сопрячь Bluetooth контроллер"
+msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "Ссылки контроллеров были удалены"
+msgstr "ССЫЛКИ КОНТРОЛЛЕРОВ БЫЛИ УДАЛЕНЫ."
 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "Забыть Bluetooth контроллеры"
+msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "Ввод P%i"
+msgstr "ВВОД P%i"
 
 msgid "CHOOSE"
-msgstr "Выберите"
+msgstr "ВЫБЕРИТЕ"
 
 msgid "SELECT"
-msgstr "Выбрать"
+msgstr "ВЫБОР"
 
 msgid "OPTIONS"
-msgstr "Опции"
+msgstr "ПАРАМЕТРЫ"
 
 msgid "JUMP TO LETTER"
-msgstr "Перейти к букве"
+msgstr "ПЕРЕЙТИ К БУКВЕ"
 
 msgid "SORT GAMES BY"
-msgstr "Сортировать игры по"
+msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
 msgid "FAVORITES ONLY"
-msgstr "Только избранные"
+msgstr "ТОЛЬКО ИЗБРАННЫЕ"
 
 msgid "SHOW HIDDEN"
-msgstr "Показывать скрытые"
+msgstr "ПОКАЗЫВАТЬ СКРЫТЫЕ"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "Редактировать данные этой игры"
+msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 msgid "SCRAPE THESE GAMES"
-msgstr "Загрузить данные этой игры"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
 
 msgid "All Games"
 msgstr "Все игры"
@@ -533,216 +534,214 @@ msgid "Only missing image"
 msgstr "Только отсутствующие изображения"
 
 msgid "FILTER"
-msgstr "Фильтр"
+msgstr "ФИЛЬТР"
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr "Загрузить данные выбранных систем"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ ВЫБРАННЫХ СИСТЕМ"
 
 msgid "SYSTEMS"
-msgstr "Системы"
+msgstr "СИСТЕМЫ"
 
 msgid "USER DECIDES ON CONFLICTS"
-msgstr ""
+msgstr "КОНФЛИКТЫ РАЗРЕШАЕТ ПОЛЬЗОВАТЕЛЬ"
 
 msgid "START"
-msgstr "Начать"
+msgstr "НАЧАТЬ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ВНИМАНИЕ: Некоторые из выбранных систем не имеют выбранную платформу. "
-"Результат может быть не точным!\n"
-"Продолжить в любом случае?"
+"ВНИМАНИЕ: НЕКОТОРЫЕ ИЗ ВЫБРАННЫХ СИСТЕМ НЕ СОДЕРЖАТ ДАННЫХ О ПЛАТФОРМЕ. "
+"РЕЗУЛЬТАТ МОЖЕТ БЫТЬ НЕТОЧНЫМ!\n"
+"ПРОДОЛЖИТЬ В ЛЮБОМ СЛУЧАЕ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "Подходящие игры отсутствуют"
+msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 
 msgid "REALLY UPDATE?"
-msgstr "Действительно обновить?"
+msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ?"
 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "Необходимо соединение с сетью"
+msgstr "НЕОБХОДИМО СЕТЕВОЕ СОЕДИНЕНИЕ"
 
 msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "Обновление загружено, система будет перезагружена"
+msgstr "ОБНОВЛЕНИЕ ЗАГРУЖЕНО, СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
 
 msgid "NO UPDATE AVAILABLE"
-msgstr "Нет доступных обновлений"
+msgstr "НЕТ ДОСТУПНЫХ ОБНОВЛЕНИЙ"
 
 msgid "FINNISHED"
-msgstr ""
+msgstr "ЗАВЕРШЕНО"
 
 msgid "enter emulator"
-msgstr "Эмулятор"
+msgstr "введите эмулятор"
 
 msgid "enter core"
-msgstr "Ядро"
+msgstr "введите ядро"
 
 msgid "Ratio"
 msgstr "Пропорции"
 
 msgid "enter ratio"
-msgstr "Пропорции"
+msgstr "введите пропорции"
 
 msgid "Name"
 msgstr "Название"
 
 msgid "enter game name"
-msgstr "Введите название игры"
+msgstr "введите название игры"
 
 msgid "Description"
 msgstr "Описание"
 
 msgid "enter description"
-msgstr "Введите описание"
+msgstr "введите описание"
 
 msgid "Image"
 msgstr "Изображение"
 
 msgid "enter path to image"
-msgstr "Введите путь к изображению"
+msgstr "введите путь к изображению"
 
 msgid "Thumbnail"
 msgstr "Эскиз"
 
 msgid "enter path to thumbnail"
-msgstr "Введите путь к эскизу"
+msgstr "введите путь к эскизу"
 
 msgid "enter rating"
-msgstr "Рейтинг"
+msgstr "введите рейтинг"
 
 msgid "Release date"
 msgstr "Дата выхода"
 
 msgid "enter release date"
-msgstr "Введите дату выхода"
+msgstr "введите дату выхода"
 
 msgid "enter game developer"
-msgstr "Введите разработчика"
+msgstr "введите разработчика игры"
 
 msgid "enter game publisher"
-msgstr "Введите издателя"
+msgstr "введите издателя"
 
 msgid "enter game genre"
-msgstr "Введите жанр игры"
+msgstr "введите жанр игры"
 
 msgid "enter number of players"
-msgstr "Введите количество игроков"
+msgstr "введите количество игроков"
 
 msgid "Favorite"
 msgstr "Избранное"
 
 msgid "enter favorite"
-msgstr "Избранное"
+msgstr "введите избранное"
 
 msgid "Region"
 msgstr "Регион"
 
 msgid "enter region"
-msgstr "Введите регион"
+msgstr "введите регион"
 
 msgid "Romtype"
 msgstr "Тип рома"
 
 msgid "enter romtype"
-msgstr "Тип рома"
+msgstr "введите тип рома"
 
 msgid "Hidden"
 msgstr "Скрыть"
 
 msgid "set hidden"
-msgstr "установить"
+msgstr "сделать скрытым"
 
 msgid "Play count"
-msgstr "Время в игре"
+msgstr "Сыграно раз"
 
 msgid "enter number of times played"
-msgstr "Время в игре"
+msgstr "введите количество сыгранных раз"
 
 msgid "Last played"
 msgstr "Последний запуск"
 
 msgid "enter last played date"
-msgstr "Последний запуск"
+msgstr "введите дату последнего запуска"
 
 #, c-format
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i игра доступна"
-msgstr[1] "%i игры доступно"
-msgstr[2] "%i игр доступно"
-msgstr[3] "%i игр доступно"
+msgstr[0] "%i ИГРА ДОСТУПНА"
+msgstr[1] "%i ИГРЫ ДОСТУПНО"
+msgstr[2] "%i ИГР ДОСТУПНО"
 
 #, c-format
 msgid "%i FAVORITE"
 msgid_plural "%i FAVORITES"
-msgstr[0] "%i в избранных"
-msgstr[1] "%i в избранных"
-msgstr[2] "%i в избранных"
-msgstr[3] "%i в избранных"
+msgstr[0] "%i В ИЗБРАННЫХ"
+msgstr[1] "%i В ИЗБРАННЫХ"
+msgstr[2] "%i В ИЗБРАННЫХ"
 
 #, c-format
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
-msgstr[0] "%i игра скрыта"
-msgstr[1] "%i игры скрыто"
-msgstr[2] "%i игр скрыто"
+msgstr[0] "%i ИГРА СКРЫТА"
+msgstr[1] "%i ИГРЫ СКРЫТО"
+msgstr[2] "%i ИГР СКРЫТО"
 
 msgid "SCROLL"
-msgstr "Листать"
+msgstr "ЛИСТАТЬ"
 
 msgid "LAUNCH"
-msgstr "Запуск"
+msgstr "ЗАПУСК"
 
 msgid "Times played"
-msgstr "Сыгранное время"
+msgstr "Сыграно раз"
 
 msgid "MENU"
-msgstr "Меню"
+msgstr "МЕНЮ"
 
 msgid "FILENAME"
-msgstr "Имя файла"
+msgstr "ИМЯ ФАЙЛА"
 
 msgid "RATING"
-msgstr "Рейтинг"
+msgstr "РЕЙТИНГ"
 
 msgid "TIMES PLAYED"
-msgstr "Время в игре"
+msgstr "СЫГРАНО РАЗ"
 
 msgid "LAST PLAYED"
-msgstr "Последний запуск"
+msgstr "ПОСЛЕДНИЙ ЗАПУСК"
 
 msgid "NUMBER OF PLAYERS"
-msgstr "Количество игроков"
+msgstr "КОЛИЧЕСТВО ИГРОКОВ"
 
 msgid "DEVELOPER"
-msgstr "Разработчик"
+msgstr "РАЗРАБОТЧИК"
 
 msgid "GENRE"
-msgstr "Жанр"
+msgstr "ЖАНР"
 
 msgid "WORKING..."
-msgstr "Обработка..."
+msgstr "ОБРАБОТКА..."
 
 msgid "MOVE CURSOR"
-msgstr "Передвинуть курсор"
+msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 
 msgid "STOP EDITING"
-msgstr "Завершить редактирование"
+msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ"
 
 msgid "EDIT"
-msgstr "Редактировать"
+msgstr "РЕДАКТИРОВАТЬ"
 
 msgid "CHANGE"
-msgstr "Изменить"
+msgstr "ИЗМЕНИТЬ"
 
 msgid "never"
-msgstr "Никогда"
+msgstr "никогда"
 
 msgid "just now"
-msgstr "Только что"
+msgstr "только что"
 
 #, c-format
 msgid "%i sec ago"
@@ -750,7 +749,6 @@ msgid_plural "%i secs ago"
 msgstr[0] "%i секунда назад"
 msgstr[1] "%i секунды назад"
 msgstr[2] "%i секунд назад"
-msgstr[3] "%i секунд назад"
 
 #, c-format
 msgid "%i min ago"
@@ -758,7 +756,6 @@ msgid_plural "%i mins ago"
 msgstr[0] "%i минута назад"
 msgstr[1] "%i минуты назад"
 msgstr[2] "%i минут назад"
-msgstr[3] "%i минут назад"
 
 #, c-format
 msgid "%i hour ago"
@@ -766,7 +763,6 @@ msgid_plural "%i hours ago"
 msgstr[0] "%i час назад"
 msgstr[1] "%i часа назад"
 msgstr[2] "%i часов назад"
-msgstr[3] "%i часов назад"
 
 #, c-format
 msgid "%i day ago"
@@ -774,184 +770,130 @@ msgid_plural "%i days ago"
 msgstr[0] "%i день назад"
 msgstr[1] "%i дня назад"
 msgstr[2] "%i дней назад"
-msgstr[3] "%i дней назад"
 
 msgid "unknown"
-msgstr "Неизвестно"
+msgstr "неизвестно"
 
 msgid "SELECT ALL"
-msgstr "Выбрать все"
+msgstr "ВЫБРАТЬ ВСЕ"
 
 msgid "SELECT NONE"
-msgstr "Отменить все"
+msgstr "СНЯТЬ ВЫБОР"
 
 #, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "%i выбрана"
-msgstr[1] "%i выбрано"
-msgstr[2] "%i выбрано"
-msgstr[3] "%i выбрано"
+msgstr[0] "%i ВЫБРАНА"
+msgstr[1] "%i ВЫБРАНО"
+msgstr[2] "%i ВЫБРАНО"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "Shift'ы для верхнего, нижнего и специального"
+msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "SPACE"
-msgstr "Пробел"
+msgstr "ПРОБЕЛ"
 
 msgid "DELETE A CHAR"
-msgstr "Удалить символ"
+msgstr "УДАЛИТЬ СИМВОЛ"
 
 msgid "DISCARD CHANGES"
-msgstr "Отменить изменения"
+msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 msgid "UP"
-msgstr "Вверх"
+msgstr "ВВЕРХ"
 
 msgid "DOWN"
-msgstr "Вниз"
+msgstr "ВНИЗ"
 
 msgid "LEFT"
-msgstr "Влево"
+msgstr "ВЛЕВО"
 
 msgid "RIGHT"
-msgstr "Вправо"
+msgstr "ВПРАВО"
 
 msgid "JOYSTICK 1 UP"
-msgstr "Джойстик 1 Вверх"
+msgstr "ДЖОЙСТИК 1 ВВЕРХ"
 
 msgid "JOYSTICK 1 LEFT"
-msgstr "Джойстик 1 Влево"
+msgstr "ДЖОЙСТИК 1 ВЛЕВО"
 
 msgid "JOYSTICK 2 UP"
-msgstr "Джойстик 2 Вверх"
+msgstr "ДЖОЙСТИК 2 ВВЕРХ"
 
 msgid "JOYSTICK 2 LEFT"
-msgstr "Джойстик 2 Влево"
+msgstr "ДЖОЙСТИК 2 ВЛЕВО"
 
 msgid "PAGE UP"
-msgstr ""
+msgstr "СТРАНИЦА ВВЕРХ"
 
 msgid "PAGE DOWN"
-msgstr ""
+msgstr "СТРАНИЦА ВНИЗ"
 
 msgid "HOTKEY"
-msgstr "Горячая кнопка"
+msgstr "\"ГОРЯЧАЯ\" КНОПКА"
 
 msgid "CONFIGURING"
-msgstr "Формирование"
+msgstr "НАСТРОЙКА"
 
 msgid "KEYBOARD"
-msgstr "Клавиатура"
+msgstr "КЛАВИАТУРА"
 
 #, c-format
 msgid "GAMEPAD %i"
-msgstr "Геймпад %i"
+msgstr "КОНТРОЛЛЕР %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "Чтобы пропустить, удерживайте любую кнопку"
+msgstr "УДЕРЖИВАЙТЕ КНОПКУ ДЛЯ ПРОПУСКА"
 
 msgid "-NOT DEFINED-"
-msgstr "-Не назначено-"
+msgstr "-НЕ НАЗНАЧЕНО-"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "Удерживайте %iS, чтобы пропустить"
-msgstr[1] "Удерживайте %iS, чтобы пропустить"
-msgstr[2] "Удерживайте %iS, чтобы пропустить"
-msgstr[3] "Удерживайте %iS, чтобы пропустить"
+msgstr[0] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[1] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[2] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
 
 msgid "PRESS ANYTHING"
-msgstr "Нажмите любую кнопку"
+msgstr "НАЖМИТЕ ЛЮБУЮ КНОПКУ"
 
 msgid "ALREADY TAKEN"
-msgstr "Занято"
+msgstr "УЖЕ ЗАНЯТО"
 
 msgid "WELCOME"
-msgstr "Добро пожаловать!"
+msgstr "ДОБРО ПОЖАЛОВАТЬ"
 
 msgid "CONFIGURE INPUT"
-msgstr "Настроить ввод"
+msgstr "НАСТРОЙКА ВВОДА"
 
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "Обнаружен %i геймпад"
-msgstr[1] "Обнаружено %i геймпада"
-msgstr[2] "Обнаружено %i геймпадов"
-msgstr[3] "Обнаружено %i геймпадов"
+msgstr[0] "ОБНАРУЖЕН %i КОНТРОЛЛЕР"
+msgstr[1] "ОБНАРУЖЕН %i КОНТРОЛЛЕРА"
+msgstr[2] "ОБНАРУЖЕН %i КОНТРОЛЛЕРОВ"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr "Не обнаружено геймпадов"
+msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "Удерживайте кнопку на Вашем устройстве, для его настройки"
+msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ ЕГО НАСТРОЙКИ."
 
 msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "Для выхода в любое время нажмите F4"
+msgstr "ДЛЯ ВЫХОДА В ЛЮБОЕ ВРЕМЯ НАЖМИТЕ F4."
 
 msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "Для отмены нажмите ESC или горячую кнопку"
+msgstr "ДЛЯ ОТМЕНЫ НАЖМИТЕ ESC ИЛИ ГОРЯЧУЮ КНОПКУ."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "Вы хотите запустить медиа-центр KODI?"
+msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
 msgid "LOADING..."
-msgstr "Загрузка..."
+msgstr "ЗАГРУЗКА..."
 
 msgid "PLEASE WAIT..."
-msgstr "Подождите, пожалуйста..."
-
-#~ msgid "FINISHED"
-#~ msgstr "Закончено"
-
-#~ msgid "SCRAPER"
-#~ msgstr "Поиск и загрузка данных"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.FR FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "Мы не можем найти ни одной системы!\n"
-#~ "Убедитесь, что в конфигурационном файле прописаны правильные пути, и в "
-#~ "каталоге с играми есть хотя бы одна игра с правильным расширением.\n"
-#~ "\n"
-#~ "Посетите RECALBOX.COM для дополнительной информации."
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.COM FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "Мы не можем найти ни одной системы!\n"
-#~ "Убедитесь, что в конфигурационном файле прописаны правильные пути, и в "
-#~ "каталоге с играми есть хотя бы одна игра с правильным расширением.\n"
-#~ "\n"
-#~ "Посетите RECALBOX.COM для дополнительной информации."
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "Нет (700Mhz)"
-
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "Турбо (1050Mhz)+"
-
-#~ msgid "HDMI"
-#~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "Jack"
-
-#~ msgid "AUTO"
-#~ msgstr "Автоматически"
-
-#~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "Ошибка обновления, система будет перезагружена"
+msgstr "ПОДОЖДИТЕ, ПОЖАЛУЙСТА..."
