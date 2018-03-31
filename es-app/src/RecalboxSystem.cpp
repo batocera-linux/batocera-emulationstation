@@ -313,12 +313,29 @@ bool RecalboxSystem::ping() {
     return exitcode == 0;
 }
 
-bool RecalboxSystem::canUpdate() {
+bool RecalboxSystem::canUpdate(std::vector<std::string>& output) {
+    int res;
+    int exitCode;
     std::ostringstream oss;
     oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "canupdate";
     std::string command = oss.str();
     LOG(LogInfo) << "Launching " << command;
-    if (system(command.c_str()) == 0) {
+
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+      return false;
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        output.push_back(std::string(line));
+    }
+    exitCode = pclose(pipe);
+    res = WEXITSTATUS(exitCode);
+
+    if (res == 0) {
         LOG(LogInfo) << "Can update ";
         return true;
     } else {

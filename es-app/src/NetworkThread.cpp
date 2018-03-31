@@ -32,10 +32,15 @@ void NetworkThread::run(){
         }else {
             boost::this_thread::sleep(boost::posix_time::hours(1));
         }
-
 	if(RecalboxConf::getInstance()->get("updates.enabled") == "1") {
-	  if(RecalboxSystem::getInstance()->canUpdate()){
-	    mWindow->displayMessage(_("AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"));
+	  std::vector<std::string> msgtbl;
+	  if(RecalboxSystem::getInstance()->canUpdate(msgtbl)){
+	    std::string msg = "";
+	    for(int i=0; i<msgtbl.size(); i++) {
+	      if(i != 0) msg += "\n";
+	      msg += msgtbl[i];
+	    }
+	    mWindow->displayMessage(_("UPDATE AVAILABLE") + std::string(":\n") + msg);
 	    mRunning = false;
 	  }
 	}

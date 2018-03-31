@@ -122,8 +122,9 @@ void GuiUpdate::threadUpdate()
 
 void GuiUpdate::threadPing() 
 {
+  std::vector<std::string> msgtbl;
         if(RecalboxSystem::getInstance()->ping()){
-            if(RecalboxSystem::getInstance()->canUpdate()){
+            if(RecalboxSystem::getInstance()->canUpdate(msgtbl)){
                 this->onUpdateAvailable();
             }else {
                 this->onNoUpdateAvailable();

@@ -53,7 +53,7 @@ public:
 
     bool ping();
 
-    bool canUpdate();
+    bool canUpdate(std::vector<std::string>& output);
 
     bool launchKodi(Window *window);
     bool launchFileManager(Window *window);
