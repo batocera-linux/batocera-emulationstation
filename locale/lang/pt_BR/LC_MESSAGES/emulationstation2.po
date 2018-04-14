@@ -301,13 +301,13 @@ msgid "NONE (900Mhz)"
 msgstr "DESLIGADO (900Mhz)"
 
 msgid "EXTREM (1350Mhz)"
-msgstr "EXTREMO"
+msgstr "EXTREMO (1350Mhz)"
 
 msgid "TURBO (1325Mhz)+"
-msgstr "TURBO"
+msgstr "TURBO (1325Mhz)+"
 
 msgid "HIGH (1300Mhz)"
-msgstr "ALTO"
+msgstr "ALTO (1300Mhz)"
 
 msgid "NONE (1200Mhz)"
 msgstr "DESLIGADO (1200Mhz)"
@@ -373,10 +373,10 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "INTEGER SCALE (PIXEL PERFECT)"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "DECORATION"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
@@ -400,7 +400,7 @@ msgid "NO MISSING BIOS"
 msgstr "SEM BIOS FALTANDO"
 
 msgid "MD5"
-msgstr ""
+msgstr "MD5"
 
 msgid "STATUS"
 msgstr "STATUS"
