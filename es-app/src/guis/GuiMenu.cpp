@@ -78,7 +78,7 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
         }
         RecalboxConf::getInstance()->set(settingsID, newVal);
     }; // ok callback (apply new value to ed)
-    
+
     row.makeAcceptInputHandler([this, title, updateVal, settingsID] {
         if (Settings::getInstance()->getBool("UseOSK")) {
             mWindow->pushGui(
@@ -184,7 +184,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 			     row.addElement(supportFile, false);
 			     informationsGui->addRow(row);
 			   }
-			   
+
 			   mWindow->pushGui(informationsGui);
                          };
                          row.makeAcceptInputHandler(openGui);
@@ -275,13 +275,13 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	 	     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
                      overclock_choice->add(_("EXTREM (1350Mhz)"), "rpi3-extrem", currentOverclock == "rpi3-extrem");
                      overclock_choice->add(_("TURBO (1325Mhz)+"), "rpi3-turbo", currentOverclock == "rpi3-turbo");
-                     overclock_choice->add(_("HIGH (1300Mhz)"), "rpi3-high", currentOverclock == "rpi3-high"); 
+                     overclock_choice->add(_("HIGH (1300Mhz)"), "rpi3-high", currentOverclock == "rpi3-high");
                      overclock_choice->add(_("NONE (1200Mhz)"), "none", currentOverclock == "none");
 #endif
-			 
-			 
-#else		
-                      overclock_choice->add(_("NONE"), "none", true);		
+
+
+#else
+                      overclock_choice->add(_("NONE"), "none", true);
  #endif
 
                      s->addWithLabel(_("OVERCLOCK"), overclock_choice);
@@ -569,6 +569,24 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                      RecalboxConf::getInstance()->get("global.retroachievements.hardcore") == "1");
                              retroachievements->addWithLabel(_("HARDCORE MODE"), retroachievements_hardcore_enabled);
 
+                             // retroachievements_leaderboards
+                             auto retroachievements_leaderboards_enabled = std::make_shared<SwitchComponent>(mWindow);
+                             retroachievements_leaderboards_enabled->setState(
+                                     RecalboxConf::getInstance()->get("global.retroachievements.leaderboards") == "1");
+                             retroachievements->addWithLabel(_("LEADERBOARDS"), retroachievements_leaderboards_enabled);
+
+                             // retroachievements_verbose_mode
+                             auto retroachievements_verbose_enabled = std::make_shared<SwitchComponent>(mWindow);
+                             retroachievements_verbose_enabled->setState(
+                                     RecalboxConf::getInstance()->get("global.retroachievements.verbose") == "1");
+                             retroachievements->addWithLabel(_("VERBOSE MODE"), retroachievements_verbose_enabled);
+
+                             // retroachievements_automatic_screenshot
+                             auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
+                             retroachievements_screenshot_enabled->setState(
+                                     RecalboxConf::getInstance()->get("global.retroachievements.screenshot") == "1");
+                             retroachievements->addWithLabel(_("AUTOMATIC SCREESHOT"), retroachievements_screenshot_enabled);
+
                              // retroachievements, username, password
                              createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username",
                                                 false);
@@ -576,11 +594,18 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                 true);
 
 
-                             retroachievements->addSaveFunc([retroachievements_enabled, retroachievements_hardcore_enabled] {
+                             retroachievements->addSaveFunc([retroachievements_enabled, retroachievements_hardcore_enabled, retroachievements_leaderboards_enabled,
+                                                             retroachievements_verbose_enabled, retroachievements_screenshot_enabled] {
                                  RecalboxConf::getInstance()->set("global.retroachievements",
                                                                   retroachievements_enabled->getState() ? "1" : "0");
                                  RecalboxConf::getInstance()->set("global.retroachievements.hardcore",
                                                                   retroachievements_hardcore_enabled->getState() ? "1" : "0");
+                                 RecalboxConf::getInstance()->set("global.retroachievements.leaderboards",
+                                                                  retroachievements_leaderboards_enabled->getState() ? "1" : "0");
+                                 RecalboxConf::getInstance()->set("global.retroachievements.verbose",
+                                                                  retroachievements_verbose_enabled->getState() ? "1" : "0");
+                                 RecalboxConf::getInstance()->set("global.retroachievements.screenshot",
+                                                                  retroachievements_screenshot_enabled->getState() ? "1" : "0");
                                  RecalboxConf::getInstance()->saveRecalboxConf();
                              });
                              mWindow->pushGui(retroachievements);
@@ -1070,12 +1095,12 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		   std::vector<std::string> scrapers = getScraperList();
 		   for (auto it = scrapers.begin(); it != scrapers.end(); it++)
 		     scraper_list->add(*it, *it, *it == Settings::getInstance()->getString("Scraper"));
-		   
+
 		   s->addWithLabel(_("SCRAPE FROM"), scraper_list);
 		   s->addSaveFunc([scraper_list] {
 		       Settings::getInstance()->setString("Scraper", scraper_list->getSelected());
                      });
-		   
+
 		   // scrape ratings
 		   auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
 		   scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
@@ -1083,7 +1108,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		   s->addSaveFunc([scrape_ratings] {
 		       Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState());
                      });
-		   
+
 		   // scrape now
 		   ComponentListRow row;
 		   std::function<void()> openAndSave = openScrapeNow;
@@ -1092,7 +1117,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		     openAndSave();
 		   };
 		   row.makeAcceptInputHandler(openAndSave);
-		   
+
 		   auto scrape_now = std::make_shared<TextComponent>(mWindow, _("SCRAPE NOW"),
 								     Font::get(FONT_SIZE_MEDIUM),
                                                                        0x777777FF);
@@ -1100,7 +1125,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		   row.addElement(scrape_now, true);
 		   row.addElement(bracket, false);
 		   s->addRow(row);
-		   
+
 		   mWindow->pushGui(s);
 		 };
 		 ComponentListRow row;
