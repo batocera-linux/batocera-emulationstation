@@ -14,7 +14,7 @@
 #include "LocaleES.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10), 
-	mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), launchKodi(false)
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), launchKodi(false), mClockElapsed(0)
 {
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
@@ -202,6 +202,26 @@ void Window::update(int deltaTime)
 		mFrameCountElapsed = 0;
 	}
 
+	/* draw the clock */
+	if(Settings::getInstance()->getBool("DrawClock")) {
+	  mClockElapsed -= deltaTime;
+	  if(mClockElapsed <= 0)
+	    {
+	      time_t     clockNow;
+	      struct tm  clockTstruct;
+	      char       clockBuf[32];
+
+	      clockNow = time(0);
+	      clockTstruct = *localtime(&clockNow);
+	      // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+	      // for more information about date/time format
+	      strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
+	      
+	      mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-50.0f, 0x33333366));
+	      mClockElapsed = 1000; // next update in 1000ms
+	    }
+	}
+
 	mTimeSinceLastInput += deltaTime;
 
 	if(peekGui())
@@ -236,6 +256,12 @@ void Window::render()
 		Renderer::setMatrix(Eigen::Affine3f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
+
+	if(Settings::getInstance()->getBool("DrawClock") && mClockText)
+	  {
+	    Renderer::setMatrix(Eigen::Affine3f::Identity());
+	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
+	  }
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)

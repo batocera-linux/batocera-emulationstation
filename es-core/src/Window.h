@@ -63,6 +63,9 @@ private:
 
 	std::unique_ptr<TextCache> mFrameDataText;
 
+	int mClockElapsed;
+	std::unique_ptr<TextCache> mClockText;
+
 	bool mNormalizeNextUpdate;
 
 	bool mAllowSleep;

@@ -848,6 +848,13 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      s->addSaveFunc(
                              [framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
 
+                     // clock
+                     auto clock = std::make_shared<SwitchComponent>(mWindow);
+                     clock->setState(Settings::getInstance()->getBool("DrawClock"));
+                     s->addWithLabel(_("SHOW CLOCK"), clock);
+                     s->addSaveFunc(
+                             [clock] { Settings::getInstance()->setBool("DrawClock", clock->getState()); });
+
                      // show help
                      auto show_help = std::make_shared<SwitchComponent>(mWindow);
                      show_help->setState(Settings::getInstance()->getBool("ShowHelpPrompts"));
