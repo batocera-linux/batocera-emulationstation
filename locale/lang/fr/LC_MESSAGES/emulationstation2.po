@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 23:40+0200\n"
+"POT-Creation-Date: 2018-05-11 20:55+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,6 +347,9 @@ msgstr "COMPORTEMENT DE L'ÉCRAN DE VEILLE"
 
 msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE FRAMERATE"
+
+msgid "SHOW CLOCK"
+msgstr "AFFICHER L'HEURE"
 
 msgid "ON-SCREEN HELP"
 msgstr "AFFICHAGE DE L'AIDE"
