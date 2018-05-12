@@ -63,8 +63,12 @@ private:
 
 	std::unique_ptr<TextCache> mFrameDataText;
 
+	// clock
 	int mClockElapsed;
 	std::unique_ptr<TextCache> mClockText;
+
+	// pads
+	int mplayerPads[MAX_PLAYERS];
 
 	bool mNormalizeNextUpdate;
 

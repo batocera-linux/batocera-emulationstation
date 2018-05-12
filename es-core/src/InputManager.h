@@ -27,6 +27,9 @@ private:
 
 	std::map<SDL_JoystickID, int*> mPrevAxisValues;
 
+	std::map<int, int> m_lastKnownPlayersDeviceIndexes;
+	std::map<int, InputConfig*> computePlayersConfigs();
+
 	bool initialized() const;
 
 	void addJoystickByDeviceIndex(int id);
@@ -61,6 +64,9 @@ public:
 	bool parseEvent(const SDL_Event& ev, Window* window);
 	std::string configureEmulators();
 
+	// information about last association players/pads
+	std::map<int, int> lastKnownPlayersDeviceIndexes();
+	void computeLastKnownPlayersDeviceIndexes();
 };
 
 #endif

@@ -19,6 +19,11 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
 	mBackgroundOverlay->setImage(":/scroll_gradient.png");
+
+	// pads
+	for(int i=0; i<MAX_PLAYERS; i++) {
+	  mplayerPads[i] = 0;
+	}
 }
 
 Window::~Window()
@@ -140,6 +145,11 @@ void Window::input(InputConfig* config, Input input)
 	}
 	else
 	{
+	  // show the pad button
+	  if(config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT)) {
+	    mplayerPads[config->getDeviceIndex()] = 150;
+	  }
+
             if(config->isMappedTo("x", input) && input.value && !launchKodi && RecalboxConf::getInstance()->get("kodi.enabled") == "1" && RecalboxConf::getInstance()->get("kodi.xbutton") == "1"){
                 launchKodi = true;
                 Window * window = this;
@@ -222,6 +232,16 @@ void Window::update(int deltaTime)
 	    }
 	}
 
+	// hide pads
+	for(int i=0; i<MAX_PLAYERS; i++) {
+	  if(mplayerPads[i] > 0) {
+	    mplayerPads[i] -= deltaTime;
+	    if(mplayerPads[i] < 0) {
+	      mplayerPads[i] = 0;
+	    }
+	  }
+	}
+
 	mTimeSinceLastInput += deltaTime;
 
 	if(peekGui())
@@ -262,6 +282,21 @@ void Window::render()
 	    Renderer::setMatrix(Eigen::Affine3f::Identity());
 	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
 	  }
+
+	// pads
+	Renderer::setMatrix(Eigen::Affine3f::Identity());
+	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+	for (int player = 0; player < MAX_PLAYERS; player++) {
+	  if(playerJoysticks.count(player) == 1) {
+	    unsigned int padcolor = 0xFFFFFF99;
+
+	    if(mplayerPads[playerJoysticks[player]] > 0) {
+	      padcolor = 0xFF000066;
+	    }
+
+	    Renderer::drawRect((player*(15+4))+2, Renderer::getScreenHeight()-15-2, 15, 15, padcolor);
+	  }
+	}
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)

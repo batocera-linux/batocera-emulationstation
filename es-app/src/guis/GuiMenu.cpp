@@ -1534,7 +1534,8 @@ void GuiMenu::createConfigInput() {
         }
 
         Settings::getInstance()->saveFile();
-
+	// this is dependant of this configuration, thus update it
+	InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
     });
 
     row.elements.clear();
