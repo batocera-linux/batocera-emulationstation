@@ -223,11 +223,13 @@ void Window::update(int deltaTime)
 
 	      clockNow = time(0);
 	      clockTstruct = *localtime(&clockNow);
-	      // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-	      // for more information about date/time format
-	      strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
-	      
-	      mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-50.0f, 0x33333366));
+
+	      if(clockTstruct.tm_year > 100) { /* display the clock only if year is more than 1900+100 ; rpi have no internal clock and out of the networks, the date time information has no value */
+		// Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+		// for more information about date/time format
+		strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
+		mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-50.0f, 0x33333366));
+	      }
 	      mClockElapsed = 1000; // next update in 1000ms
 	    }
 	}
