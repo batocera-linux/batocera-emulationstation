@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2018-05-13 22:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -106,22 +106,22 @@ msgid "OK"
 msgstr "OK"
 
 msgid "INSTALL BATOCERA"
-msgstr ""
+msgstr "INSTALAR BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO ALVO"
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
+msgstr "ARQUITETURA ALVO"
 
 msgid "VALIDATION"
-msgstr ""
+msgstr "VALIDAÇÃO"
 
 msgid "YES, I'M SURE"
-msgstr ""
+msgstr "SIM, TENHO A CERTEZA"
 
 msgid "INSTALL"
-msgstr ""
+msgstr "INSTALAR"
 
 msgid "BACK"
 msgstr "VOLTAR"
@@ -215,13 +215,13 @@ msgid "NONE (900Mhz)"
 msgstr "DESLIGADO (900Mhz)"
 
 msgid "EXTREM (1350Mhz)"
-msgstr ""
+msgstr "EXTREMO"
 
 msgid "TURBO (1325Mhz)+"
-msgstr ""
+msgstr "TURBO"
 
 msgid "HIGH (1300Mhz)"
-msgstr ""
+msgstr "ALTO"
 
 msgid "NONE (1200Mhz)"
 msgstr "DESLIGADO (1200Mhz)"
@@ -251,7 +251,7 @@ msgid "START KODI WITH X"
 msgstr "INICIAR KODI PRESSIONANDO X"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "INSTALAR BATOCERA EM UM NOVO DISCO"
 
 msgid "SECURITY"
 msgstr "SEGURANÇA"
@@ -293,7 +293,7 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "DECORAÇÃO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DO RETROACHIEVEMENTS"
@@ -338,7 +338,7 @@ msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "SAIDA DE VIDEO"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
@@ -354,6 +354,9 @@ msgstr "TIPO DE PROTEÇÃO DA TELA"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR FRAMERATE"
+
+msgid "SHOW CLOCK"
+msgstr "SHOW RELÓGIO"
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA NA TELA"
@@ -380,7 +383,7 @@ msgid "OUTPUT DEVICE"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
+msgstr "PRECISA REINICIAR O SISTEMA PARA APLICAR CORRETAMENTE ESTA OPÇÃO"
 
 msgid "NETWORK SETTINGS"
 msgstr "OPÇÕES DE REDE"
@@ -661,7 +664,7 @@ msgid "enter number of times played"
 msgstr "digite o número de tempo jogado"
 
 msgid "Last played"
-msgstr "Número de jogadas"
+msgstr "Número vezes jogadas"
 
 msgid "enter last played date"
 msgstr "digite a última data jogada"
@@ -682,7 +685,7 @@ msgstr[1] "%i FAVORITOS"
 msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
 msgstr[0] "JOGO OCULTO"
-msgstr[1] ""
+msgstr[1] "JOGOS OCULTOS"
 
 msgid "SCROLL"
 msgstr "SCROLL"
