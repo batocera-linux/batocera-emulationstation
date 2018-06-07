@@ -69,6 +69,7 @@ private:
 
 	// pads
 	int mplayerPads[MAX_PLAYERS];
+	bool mplayerPadsIsHotkey;
 
 	bool mNormalizeNextUpdate;
 
