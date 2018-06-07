@@ -13,6 +13,8 @@
 #include "RecalboxConf.h"
 #include "LocaleES.h"
 
+#define PLAYER_PAD_TIME_MS 200
+
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10), 
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), launchKodi(false), mClockElapsed(0)
 {
@@ -24,6 +26,7 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	for(int i=0; i<MAX_PLAYERS; i++) {
 	  mplayerPads[i] = 0;
 	}
+	mplayerPadsIsHotkey = false;
 }
 
 Window::~Window()
@@ -147,7 +150,8 @@ void Window::input(InputConfig* config, Input input)
 	{
 	  // show the pad button
 	  if(config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT)) {
-	    mplayerPads[config->getDeviceIndex()] = 150;
+	    mplayerPads[config->getDeviceIndex()] = PLAYER_PAD_TIME_MS;
+	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
 	  }
 
             if(config->isMappedTo("x", input) && input.value && !launchKodi && RecalboxConf::getInstance()->get("kodi.enabled") == "1" && RecalboxConf::getInstance()->get("kodi.xbutton") == "1"){
@@ -293,7 +297,11 @@ void Window::render()
 	    unsigned int padcolor = 0xFFFFFF99;
 
 	    if(mplayerPads[playerJoysticks[player]] > 0) {
-	      padcolor = 0xFF000066;
+	      if(mplayerPadsIsHotkey) {
+		padcolor = 0x0000FF66;
+	      } else {
+		padcolor = 0xFF000066;
+	      }
 	    }
 
 	    Renderer::drawRect((player*(10+4))+2, Renderer::getScreenHeight()-10-2, 10, 10, padcolor);
