@@ -106,6 +106,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     // NETWORK >
     // SCRAPER >
     // QUIT >
+
+#if ENABLE_KODI == 1
     if (RecalboxConf::getInstance()->get("kodi.enabled") == "1") {
       addEntry(_("KODI MEDIA CENTER").c_str(), 0x777777FF, true,
                  [this] {
@@ -116,6 +118,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      }
                  });
     }
+#endif
+
     if (Settings::getInstance()->getBool("RomsManager")) {
       addEntry("ROMS MANAGER", 0x777777FF, true, [this] {
             mWindow->pushGui(new GuiRomsManager(mWindow));
@@ -340,6 +344,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		       s->addRow(row);
 		     }
 
+#if ENABLE_KODI == 1
                      //Kodi
                      {
                          ComponentListRow row;
@@ -374,7 +379,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          row.addElement(bracket, false);
                          s->addRow(row);
                      }
-
+#endif
 		     // install
 		     {
 		       ComponentListRow row;

@@ -34,6 +34,15 @@ if(${RPI_VERSION})
 endif()
 
 #-------------------------------------------------------------------------------
+#check if we're running on Raspberry Pi
+if("${DISABLE_KODI}" STREQUAL "1")
+  MESSAGE("kodi disabled")
+  add_definitions(-DENABLE_KODI=0)
+else()
+  add_definitions(-DENABLE_KODI=1)
+endif()
+
+#-------------------------------------------------------------------------------
 #check if we're running on olinuxino
 MESSAGE("Looking for libMali.so")
 if(EXISTS "/usr/lib/libMali.so")

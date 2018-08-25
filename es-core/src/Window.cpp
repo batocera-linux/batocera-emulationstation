@@ -154,6 +154,7 @@ void Window::input(InputConfig* config, Input input)
 	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
 	  }
 
+#if ENABLE_KODI == 1
             if(config->isMappedTo("x", input) && input.value && !launchKodi && RecalboxConf::getInstance()->get("kodi.enabled") == "1" && RecalboxConf::getInstance()->get("kodi.xbutton") == "1"){
                 launchKodi = true;
                 Window * window = this;
@@ -166,10 +167,14 @@ void Window::input(InputConfig* config, Input input)
 					    }, _("NO"), [this] {
                                     launchKodi = false;
                                 }));
-            }else {
+            } else {
 		if(peekGui())
 			this->peekGui()->input(config, input);
             }
+#else
+	    if(peekGui())
+	      this->peekGui()->input(config, input);
+#endif
 	}
 }
 

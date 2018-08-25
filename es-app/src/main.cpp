@@ -324,9 +324,13 @@ int main(int argc, char* argv[])
 	}
 
 	RecalboxConf* recalboxConf = RecalboxConf::getInstance();
+
+#if ENABLE_KODI == 1
 	if(recalboxConf->get("kodi.enabled") == "1" && recalboxConf->get("kodi.atstartup") == "1"){
 		RecalboxSystem::getInstance()->launchKodi(&window);
 	}
+#endif
+
 	RecalboxSystem::getInstance()->getIpAdress();
 	// UPDATED VERSION MESSAGE
 	//if(RecalboxSystem::getInstance()->needToShowVersionMessage()){
