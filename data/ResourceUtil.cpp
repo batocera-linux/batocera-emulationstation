@@ -2,7 +2,7 @@
 
 #include "Resources.h"
 
-const size_t res2hNrOfFiles = 47;
+const size_t res2hNrOfFiles = 48;
 const Res2hEntry res2hFiles[res2hNrOfFiles] = {
     {":/textinput_ninepatch.png", textinput_ninepatch_png_size, textinput_ninepatch_png_data},
     {":/ubuntu_condensed.ttf", ubuntu_condensed_ttf_size, ubuntu_condensed_ttf_data},
@@ -50,7 +50,8 @@ const Res2hEntry res2hFiles[res2hNrOfFiles] = {
     {":/help/joystick_left.svg", help_joystick_left_svg_size, help_joystick_left_svg_data},
     {":/help/button_l.svg", help_button_l_svg_size, help_button_l_svg_data},
     {":/help/button_l3.svg", help_button_l3_svg_size, help_button_l3_svg_data},
-    {":/help/button_r2.svg", help_button_r2_svg_size, help_button_r2_svg_data}
+    {":/help/button_r2.svg", help_button_r2_svg_size, help_button_r2_svg_data},
+    {":/help/F1.svg", help_F1_svg_size, help_F1_svg_data},
 };
 
 res2hMapType::value_type mapTemp[] = {
@@ -100,7 +101,8 @@ res2hMapType::value_type mapTemp[] = {
     std::make_pair(":/help/joystick_left.svg", res2hFiles[43]),
     std::make_pair(":/help/button_l.svg", res2hFiles[44]),
     std::make_pair(":/help/button_l3.svg", res2hFiles[45]),
-    std::make_pair(":/help/button_r2.svg", res2hFiles[46])
+    std::make_pair(":/help/button_r2.svg", res2hFiles[46]),
+    std::make_pair(":/help/F1.svg", res2hFiles[47]),
 };
 
 res2hMapType res2hMap(mapTemp, mapTemp + sizeof mapTemp / sizeof mapTemp[0]);

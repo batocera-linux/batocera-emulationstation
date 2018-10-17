@@ -152,7 +152,7 @@ set(EMBEDDED_ASSET_SOURCES
     ${emulationstation-all_SOURCE_DIR}/data/converted/help_dpad_all_svg.cpp
     ${emulationstation-all_SOURCE_DIR}/data/converted/help_joystick_left_svg.cpp
     ${emulationstation-all_SOURCE_DIR}/data/converted/help_joystick_up_svg.cpp
-
+    ${emulationstation-all_SOURCE_DIR}/data/converted/help_F1_svg.cpp
 
     ${emulationstation-all_SOURCE_DIR}/data/converted/ubuntu_condensed_ttf.cpp
     ${emulationstation-all_SOURCE_DIR}/data/converted/fontawesome_webfont_ttf.cpp

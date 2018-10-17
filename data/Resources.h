@@ -146,6 +146,9 @@ extern const unsigned char help_button_l3_svg_data[];
 extern const size_t help_button_r2_svg_size;
 extern const unsigned char help_button_r2_svg_data[];
 
+extern const size_t help_F1_svg_size;
+extern const unsigned char help_F1_svg_data[];
+
 struct Res2hEntry {
     const std::string relativeFileName;
     const size_t size;

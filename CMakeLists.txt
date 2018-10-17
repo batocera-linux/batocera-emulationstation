@@ -43,6 +43,16 @@ else()
 endif()
 
 #-------------------------------------------------------------------------------
+#check if we're running on Raspberry Pi
+if("${ENABLE_FILEMANAGER}" STREQUAL "1")
+  MESSAGE("file manager enabled")
+  add_definitions(-DENABLE_FILEMANAGER=1)
+else()
+  add_definitions(-DENABLE_FILEMANAGER=0)
+endif()
+
+
+#-------------------------------------------------------------------------------
 #check if we're running on olinuxino
 MESSAGE("Looking for libMali.so")
 if(EXISTS "/usr/lib/libMali.so")

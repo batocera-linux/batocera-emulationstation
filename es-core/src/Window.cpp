@@ -142,10 +142,12 @@ void Window::input(InputConfig* config, Input input)
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
+#if ENABLE_FILEMANAGER == 1
 	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
 	{
 	  RecalboxSystem::getInstance()->launchFileManager(this);
 	}
+#endif
 	else
 	{
 	  // show the pad button

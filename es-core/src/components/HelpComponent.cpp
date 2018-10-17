@@ -27,7 +27,8 @@ static const std::map<std::string, const char*> ICON_PATH_MAP = boost::assign::m
 	("l", ":/help/button_l.svg")
 	("r", ":/help/button_r.svg")
 	("start", ":/help/button_start.svg")
-	("select", ":/help/button_select.svg");
+	("select", ":/help/button_select.svg")
+ 	("F1", ":/help/F1.svg");
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
 {
