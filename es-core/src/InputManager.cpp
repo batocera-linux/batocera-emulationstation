@@ -195,14 +195,25 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	switch(ev.type)
 	{
 	case SDL_JOYAXISMOTION:
+	  {
+	    // some axes are "full" : from -32000 to +32000
+	    // in this case, their unpressed state is not 0
+	    // SDL provides a function to get this value
+	    // in es, the trick is to minus this value to the value to do as if it started at 0
+	    int initialValue = 0;
+	    Sint16 x;
+	    if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
+	      initialValue = x;
+	    }
+
 		//if it switched boundaries
-		if((abs(ev.jaxis.value) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE))
+		if((abs(ev.jaxis.value-initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE))
 		{
 			int normValue;
-			if(abs(ev.jaxis.value) <= DEADZONE)
+			if(abs(ev.jaxis.value-initialValue) <= DEADZONE)
 				normValue = 0;
 			else
-				if(ev.jaxis.value > 0)
+				if(ev.jaxis.value-initialValue > 0)
 					normValue = 1;
 				else
 					normValue = -1;
@@ -211,9 +222,9 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 			causedEvent = true;
 		}
 
-		mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value;
+		mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value-initialValue;
 		return causedEvent;
-
+	  }
 	case SDL_JOYBUTTONDOWN:
 	case SDL_JOYBUTTONUP:
 		window->input(getInputConfigByDevice(ev.jbutton.which), Input(ev.jbutton.which, TYPE_BUTTON, ev.jbutton.button, ev.jbutton.state == SDL_PRESSED, false));
