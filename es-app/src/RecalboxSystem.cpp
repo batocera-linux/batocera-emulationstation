@@ -531,31 +531,24 @@ std::string RecalboxSystem::getIpAdress() {
 #endif
 }
 
-std::vector<std::string> *RecalboxSystem::scanBluetooth() {
+bool RecalboxSystem::scanNewBluetooth() {
     std::vector<std::string> *res = new std::vector<std::string>();
     std::ostringstream oss;
-    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "hcitoolscan";
+    oss << "/recalbox/scripts/bluetooth/pair-devices";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
     if (pipe == NULL) {
-        return NULL;
+        return false;
     }
 
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
         res->push_back(std::string(line));
     }
-    pclose(pipe);
 
-    return res;
-}
-
-bool RecalboxSystem::pairBluetooth(std::string &controller) {
-    std::ostringstream oss;
-    oss << Settings::getInstance()->getString("RecalboxSettingScript") << " " << "hiddpair" << " " << controller;
-    int exitcode = system(oss.str().c_str());
-    return exitcode == 0;
+    int exitCode = pclose(pipe);
+    return exitCode == 0;
 }
 
 std::vector<std::string> RecalboxSystem::getAvailableStorageDevices() {
