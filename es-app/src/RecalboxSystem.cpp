@@ -534,7 +534,7 @@ std::string RecalboxSystem::getIpAdress() {
 bool RecalboxSystem::scanNewBluetooth() {
     std::vector<std::string> *res = new std::vector<std::string>();
     std::ostringstream oss;
-    oss << "/recalbox/scripts/bluetooth/pair-devices";
+    oss << "/recalbox/scripts/bluetooth/pair-device";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 

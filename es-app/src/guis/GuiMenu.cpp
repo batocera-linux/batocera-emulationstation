@@ -1375,7 +1375,6 @@ void GuiMenu::createConfigInput() {
     row.makeAcceptInputHandler([window, this, s, showControllerResult] {
         window->pushGui(new GuiLoading(window, [] {
 	      bool success = RecalboxSystem::getInstance()->scanNewBluetooth();
-	      if(success) { printf("A\n"); }  else { printf("B\n"); }
 	      return (void *) success;
 	    }, showControllerResult));
     });
