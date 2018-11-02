@@ -334,7 +334,9 @@ std::vector<HelpPrompt> DetailedGameListView::getHelpPrompts()
 	if(getRoot()->getSystem() != SystemData::getFavoriteSystem()) {
 	  prompts.push_back(HelpPrompt("y", _("Favorite")));
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS")));
+#if ENABLE_FILEMANAGER == 1
 	  prompts.push_back(HelpPrompt("F1", _("FILES")));
+#endif
 	}
 	return prompts;
 }

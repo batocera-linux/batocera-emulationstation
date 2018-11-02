@@ -427,7 +427,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	prompts.push_back(HelpPrompt("left/right", _("CHOOSE")));
 	prompts.push_back(HelpPrompt("b", _("SELECT")));
+#if ENABLE_FILEMANAGER == 1
 	prompts.push_back(HelpPrompt("F1", _("FILES")));
+#endif
 	return prompts;
 }
 
