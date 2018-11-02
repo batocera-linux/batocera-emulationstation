@@ -262,32 +262,26 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      // Overclock choice
                      auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"),
                                                                                                  false);
-#ifdef RPI_VERSION
-#if RPI_VERSION == 1
-                     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
-                     overclock_choice->add(_("EXTREM (1100Mhz)"), "extrem", currentOverclock == "extrem");
-                     overclock_choice->add(_("TURBO (1000Mhz)"), "turbo", currentOverclock == "turbo");
-                     overclock_choice->add(_("HIGH (950Mhz)"), "high", currentOverclock == "high");
-                     overclock_choice->add(_("NONE"), "none", currentOverclock == "none");
-#elif RPI_VERSION == 2
-                     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
-                     //overclock_choice->add(_("EXTREM (1100Mhz)"), "rpi2-extrem", currentOverclock == "rpi2-extrem");
-                     //overclock_choice->add(_("TURBO (1050Mhz)+"), "rpi2-turbo", currentOverclock == "rpi2-turbo");
-                     overclock_choice->add(_("HIGH (1050Mhz)"), "rpi2-high", currentOverclock == "rpi2-high");
-                     overclock_choice->add(_("NONE (900Mhz)"), "none", currentOverclock == "none");
-#elif RPI_VERSION == 3
-	 	     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
-                     overclock_choice->add(_("EXTREM (1350Mhz)"), "rpi3-extrem", currentOverclock == "rpi3-extrem");
-                     overclock_choice->add(_("TURBO (1325Mhz)+"), "rpi3-turbo", currentOverclock == "rpi3-turbo");
-                     overclock_choice->add(_("HIGH (1300Mhz)"), "rpi3-high", currentOverclock == "rpi3-high");
-                     overclock_choice->add(_("NONE (1200Mhz)"), "none", currentOverclock == "none");
-#endif
+		     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
+                     std::vector<std::string> availableOverclocking = RecalboxSystem::getInstance()->getAvailableOverclocking();
+		     if(currentOverclock == "") {
+		       currentOverclock = "none";
+		     }
 
-
-#else
-                      overclock_choice->add(_("NONE"), "none", true);
- #endif
-
+                     // Overclocking device
+                     for(auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++){
+		       std::vector<std::string> tokens;
+		       boost::split( tokens, (*it), boost::is_any_of(" ") );
+		       if(tokens.size()>= 2){
+			 // concatenat the ending words
+			 std::string vname = "";
+			 for(unsigned int i=1; i<tokens.size(); i++) {
+			   if(i > 1) vname += " ";
+			   vname += tokens.at(i);
+			 }
+			 overclock_choice->add(vname, tokens.at(0), currentOverclock == std::string(tokens.at(0)));
+		       }
+                     }
                      s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 
                      // Updates

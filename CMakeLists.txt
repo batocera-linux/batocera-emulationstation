@@ -29,9 +29,6 @@ if(EXISTS "/opt/vc/include/bcm_host.h")
 else()
     MESSAGE("bcm_host.h not found")
 endif()
-if(${RPI_VERSION})
-	add_definitions(-DRPI_VERSION=${RPI_VERSION})
-endif()
 
 #-------------------------------------------------------------------------------
 #check if we're running on Raspberry Pi

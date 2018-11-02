@@ -79,6 +79,7 @@ public:
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getAvailableInstallDevices();
     std::vector<std::string> getAvailableInstallArchitectures();
+    std::vector<std::string> getAvailableOverclocking();
     std::vector<std::string> getSystemInformations();
     std::vector<BiosSystem> getBiosInformations();
     bool generateSupportFile();
