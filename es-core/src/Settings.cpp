@@ -94,7 +94,7 @@ void Settings::setDefaults() {
     mStringMap["Overclock"] = "none";
     mStringMap["UpdateCommand"] = "/recalbox/scripts/recalbox-upgrade.sh";
     mStringMap["UpdateServer"] = "archive.recalbox.com";
-    mStringMap["VersionFile"] = "/recalbox/recalbox.version";
+    mStringMap["VersionFile"] = "/recalbox/batocera.version";
     mStringMap["SharePartition"] = "/recalbox/share/";
     mStringMap["RecalboxSettingScript"] = "/recalbox/scripts/recalbox-config.sh";
     mStringMap["LastVersionFile"] = "/recalbox/share/system/update.done";
