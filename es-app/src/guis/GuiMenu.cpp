@@ -264,11 +264,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                                                                  false);
 		     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
                      std::vector<std::string> availableOverclocking = RecalboxSystem::getInstance()->getAvailableOverclocking();
-		     if(currentOverclock == "") {
-		       currentOverclock = "none";
-		     }
 
                      // Overclocking device
+		     bool isOneSet = false;
                      for(auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++){
 		       std::vector<std::string> tokens;
 		       boost::split( tokens, (*it), boost::is_any_of(" ") );
@@ -279,9 +277,16 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 			   if(i > 1) vname += " ";
 			   vname += tokens.at(i);
 			 }
-			 overclock_choice->add(vname, tokens.at(0), currentOverclock == std::string(tokens.at(0)));
+			 bool isSet = currentOverclock == std::string(tokens.at(0));
+			 if(isSet) {
+			   isOneSet = true;
+			 }
+			 overclock_choice->add(vname, tokens.at(0), isSet);
 		       }
                      }
+		     if(isOneSet == false) {
+		       overclock_choice->add(currentOverclock, currentOverclock, true);
+		     }
                      s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 
                      // Updates
