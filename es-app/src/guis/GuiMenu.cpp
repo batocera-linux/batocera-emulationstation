@@ -263,6 +263,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"),
                                                                                                  false);
 		     std::string currentOverclock = Settings::getInstance()->getString("Overclock");
+		     if(currentOverclock == "") currentOverclock = "none";
                      std::vector<std::string> availableOverclocking = RecalboxSystem::getInstance()->getAvailableOverclocking();
 
                      // Overclocking device

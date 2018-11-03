@@ -206,7 +206,7 @@ bool RecalboxSystem::setOverscan(bool enable) {
 bool RecalboxSystem::setOverclock(std::string mode) {
     if (mode != "") {
         std::ostringstream oss;
-        oss << "/recalbox/scripts/recalbox-overclock set " << mode;
+        oss << "/recalbox/scripts/recalbox-overclock.sh set " << mode;
         std::string command = oss.str();
         LOG(LogInfo) << "Launching " << command;
         if (system(command.c_str())) {
@@ -637,7 +637,7 @@ std::vector<std::string> RecalboxSystem::getAvailableInstallArchitectures() {
 std::vector<std::string> RecalboxSystem::getAvailableOverclocking() {
   std::vector<std::string> res;
   std::ostringstream oss;
-  oss << "/recalbox/scripts/recalbox-overclocking.sh list";
+  oss << "/recalbox/scripts/recalbox-overclock.sh list";
   FILE *pipe = popen(oss.str().c_str(), "r");
   char line[1024];
   
