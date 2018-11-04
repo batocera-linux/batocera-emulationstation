@@ -447,7 +447,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              reboot = true;
                          }
 
-                         if (Settings::getInstance()->getString("Overclock") != overclock_choice->getSelected()) {
+                         if (Settings::getInstance()->getString("Overclock") != overclock_choice->getSelected() ||
+			     (Settings::getInstance()->getString("Overclock") == "" && overclock_choice->getSelected() != "none")) {
                              Settings::getInstance()->setString("Overclock", overclock_choice->getSelected());
                              RecalboxSystem::getInstance()->setOverclock(overclock_choice->getSelected());
                              reboot = true;
