@@ -1287,6 +1287,9 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
     // Screen ratio choice
     auto ratio_choice = createRatioOptionList(mWindow, systemData->getName());
     systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
+    // video resolution mode
+    auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, systemData->getName());
+    systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
     // smoothing
     auto smoothing_enabled = std::make_shared<SwitchComponent>(mWindow);
     smoothing_enabled->setState(RecalboxConf::getInstance()->get(systemData->getName() + ".smooth", RecalboxConf::getInstance()->get("global.smooth")) == "1");
@@ -1304,10 +1307,14 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
 
 
     systemConfiguration->addSaveFunc(
-            [systemData, smoothing_enabled, rewind_enabled, ratio_choice, emu_choice, core_choice, autosave_enabled] {
+				     [systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled] {
                 if(ratio_choice->changed()){
                     RecalboxConf::getInstance()->set(systemData->getName() + ".ratio",
                                                      ratio_choice->getSelected());
+                }
+		if(videoResolutionMode_choice->changed()){
+                    RecalboxConf::getInstance()->set(systemData->getName() + ".videomode",
+                                                     videoResolutionMode_choice->getSelected());
                 }
                 if(rewind_enabled->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".rewind",
@@ -1574,6 +1581,31 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList
     }
 
     return ratio_choice;
+}
+
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window,
+                                                                                 std::string configname) const {
+    auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
+    std::string currentVideoMode = RecalboxConf::getInstance()->get(configname + ".videomode");
+    if (currentVideoMode.empty()) {
+        currentVideoMode = std::string("default");
+    }
+
+    std::vector<std::string> videoResolutionModeMap = RecalboxSystem::getInstance()->getVideoModes();
+    videoResolutionMode_choice->add(_("DEFAULT"), "default", currentVideoMode == "default");
+    for (auto videoMode = videoResolutionModeMap.begin(); videoMode != videoResolutionModeMap.end(); videoMode++) {
+      std::vector<std::string> tokens;
+      boost::split( tokens, (*videoMode), boost::is_any_of(":") );
+      // concatenat the ending words
+      std::string vname = "";
+      for(unsigned int i=1; i<tokens.size(); i++) {
+	if(i > 1) vname += ":";
+	vname += tokens.at(i);
+      }
+      videoResolutionMode_choice->add(vname, tokens.at(0), currentVideoMode == tokens.at(0));
+    }
+
+    return videoResolutionMode_choice;
 }
 
 void GuiMenu::clearLoadedInput() {

@@ -82,6 +82,7 @@ public:
     std::vector<std::string> getAvailableOverclocking();
     std::vector<std::string> getSystemInformations();
     std::vector<BiosSystem> getBiosInformations();
+    std::vector<std::string> getVideoModes();
     bool generateSupportFile();
 
     std::string getCurrentStorage();
