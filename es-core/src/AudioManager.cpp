@@ -211,7 +211,7 @@ std::vector<std::string> getMusicIn(const std::string &path) {
 
 std::shared_ptr<Music> AudioManager::getRandomMusic(std::string themeSoundDirectory) {
     // 1 check in User music directory
-    std::vector<std::string> musics = getMusicIn(Settings::getInstance()->getString("MusicDirectory"));
+    std::vector<std::string> musics = getMusicIn("/recalbox/share/music/");
     if (musics.empty()) {
         //  Check in theme sound directory
         if (themeSoundDirectory != "") {
