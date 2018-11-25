@@ -21,11 +21,9 @@ std::vector<const char *> settings_dont_save = boost::assign::list_of
         ("IgnoreGamelist")
         ("UpdateCommand")
         ("UpdateServer")
-        ("VersionFile")
         ("SharePartition")
         ("RecalboxSettingScript")
         ("RecalboxConfigScript")
-        ("LastVersionFile")
         ("VersionMessage")
         ("MusicDirectory");
 
@@ -94,10 +92,8 @@ void Settings::setDefaults() {
     mStringMap["Overclock"] = "none";
     mStringMap["UpdateCommand"] = "/recalbox/scripts/recalbox-upgrade.sh";
     mStringMap["UpdateServer"] = "archive.recalbox.com";
-    mStringMap["VersionFile"] = "/recalbox/batocera.version";
     mStringMap["SharePartition"] = "/recalbox/share/";
     mStringMap["RecalboxSettingScript"] = "/recalbox/scripts/recalbox-config.sh";
-    mStringMap["LastVersionFile"] = "/recalbox/share/system/update.done";
     mStringMap["VersionMessage"] = "/recalbox/recalbox.msg";
     mStringMap["MusicDirectory"] = "/recalbox/share/music/";
 

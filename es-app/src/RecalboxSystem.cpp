@@ -112,7 +112,7 @@ bool RecalboxSystem::isFreeSpaceLimit() {
 }
 
 std::string RecalboxSystem::getVersion() {
-    std::string version = Settings::getInstance()->getString("VersionFile");
+    std::string version = "/recalbox/batocera.version";
     if (version.size() > 0) {
         std::ifstream ifs(version);
 
@@ -127,7 +127,7 @@ std::string RecalboxSystem::getVersion() {
 
 bool RecalboxSystem::needToShowVersionMessage() {
     createLastVersionFileIfNotExisting();
-    std::string versionFile = Settings::getInstance()->getString("LastVersionFile");
+    std::string versionFile = "/recalbox/share/system/update.done";
     if (versionFile.size() > 0) {
         std::ifstream lvifs(versionFile);
         if (lvifs.good()) {
@@ -143,7 +143,7 @@ bool RecalboxSystem::needToShowVersionMessage() {
 }
 
 bool RecalboxSystem::createLastVersionFileIfNotExisting() {
-    std::string versionFile = Settings::getInstance()->getString("LastVersionFile");
+    std::string versionFile = "/recalbox/share/system/update.done";
 
     FILE *file;
     if (file = fopen(versionFile.c_str(), "r")) {
@@ -154,7 +154,7 @@ bool RecalboxSystem::createLastVersionFileIfNotExisting() {
 }
 
 bool RecalboxSystem::updateLastVersionFile() {
-    std::string versionFile = Settings::getInstance()->getString("LastVersionFile");
+    std::string versionFile = "/recalbox/share/system/update.done";
     std::string currentVersion = getVersion();
     std::ostringstream oss;
     oss << "echo " << currentVersion << " > " << versionFile;
