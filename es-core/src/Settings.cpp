@@ -19,7 +19,7 @@ std::vector<const char *> settings_dont_save = boost::assign::list_of
         ("VSync")
         ("HideConsole")
         ("IgnoreGamelist")
-
+  ;
 Settings::Settings() {
     setDefaults();
     loadFile();
