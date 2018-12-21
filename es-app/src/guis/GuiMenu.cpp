@@ -490,18 +490,24 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      });
                  }
                  // smoothing
-                 auto smoothing_enabled = std::make_shared<SwitchComponent>(mWindow);
-                 smoothing_enabled->setState(RecalboxConf::getInstance()->get("global.smooth") == "1");
+                 auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
+		 smoothing_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get("global.smooth") != "0" && RecalboxConf::getInstance()->get("global.smooth") != "1");
+		 smoothing_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get("global.smooth") == "1");
+		 smoothing_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get("global.smooth") == "0");
                  s->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
 
                  // rewind
-                 auto rewind_enabled = std::make_shared<SwitchComponent>(mWindow);
-                 rewind_enabled->setState(RecalboxConf::getInstance()->get("global.rewind") == "1");
+                 auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+		 rewind_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get("global.rewind") != "0" && RecalboxConf::getInstance()->get("global.rewind") != "1");
+		 rewind_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get("global.rewind") == "1");
+		 rewind_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get("global.rewind") == "0");
                  s->addWithLabel(_("REWIND"), rewind_enabled);
 
                  // autosave/load
-                 auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
-                 autosave_enabled->setState(RecalboxConf::getInstance()->get("global.autosave") == "1");
+                 auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+		 autosave_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get("global.autosave") != "0" && RecalboxConf::getInstance()->get("global.autosave") != "1");
+		 autosave_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get("global.autosave") == "1");
+		 autosave_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get("global.autosave") == "0");
                  s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
                  // Shaders preset
@@ -518,16 +524,14 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                  shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
                  s->addWithLabel(_("SHADERS SET"), shaders_choices);
                  // Integer scale
-                 auto integerscale_enabled = std::make_shared<SwitchComponent>(mWindow);
-                 integerscale_enabled->setState(RecalboxConf::getInstance()->get("global.integerscale") == "1");
+                 auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+		 integerscale_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get("global.integerscale") != "0" && RecalboxConf::getInstance()->get("global.integerscale") != "1");
+		 integerscale_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get("global.integerscale") == "1");
+		 integerscale_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get("global.integerscale") == "0");
                  s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
                  s->addSaveFunc([integerscale_enabled] {
-                     RecalboxConf::getInstance()->set("global.integerscale", integerscale_enabled->getState() ? "1" : "0");
+                     RecalboxConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected());
                      RecalboxConf::getInstance()->saveRecalboxConf();
-                 });
-
-                 shaders_choices->setSelectedChangedCallback([integerscale_enabled] (std::string selectedShader){
-                     integerscale_enabled->setState(selectedShader != "none") ;
                  });
 
 		 // decorations
@@ -758,10 +762,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      }
                  }
                  s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled] {
-                     RecalboxConf::getInstance()->set("global.smooth", smoothing_enabled->getState() ? "1" : "0");
-                     RecalboxConf::getInstance()->set("global.rewind", rewind_enabled->getState() ? "1" : "0");
+                     RecalboxConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
+                     RecalboxConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
                      RecalboxConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
-                     RecalboxConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : "0");
+                     RecalboxConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
                      RecalboxConf::getInstance()->saveRecalboxConf();
                  });
                  mWindow->pushGui(s);
@@ -1291,20 +1295,23 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
     auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, systemData->getName());
     systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
     // smoothing
-    auto smoothing_enabled = std::make_shared<SwitchComponent>(mWindow);
-    smoothing_enabled->setState(RecalboxConf::getInstance()->get(systemData->getName() + ".smooth", RecalboxConf::getInstance()->get("global.smooth")) == "1");
+    auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
+    smoothing_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get(systemData->getName() + ".smooth") != "0" && RecalboxConf::getInstance()->get(systemData->getName() + ".smooth") != "1");
+    smoothing_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get(systemData->getName() + ".smooth") == "1");
+    smoothing_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get(systemData->getName() + ".smooth") == "0");
     systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
     // rewind
-    auto rewind_enabled = std::make_shared<SwitchComponent>(mWindow);
-    rewind_enabled->setState(
-            RecalboxConf::getInstance()->get(systemData->getName() + ".rewind", RecalboxConf::getInstance()->get("global.rewind")) == "1");
+    auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+    rewind_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get(systemData->getName() + ".rewind") != "0" && RecalboxConf::getInstance()->get(systemData->getName() + ".rewind") != "1");
+    rewind_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get(systemData->getName() + ".rewind") == "1");
+    rewind_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get(systemData->getName() + ".rewind") == "0");
     systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
     // autosave
-    auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
-    autosave_enabled->setState(
-            RecalboxConf::getInstance()->get(systemData->getName() + ".autosave", RecalboxConf::getInstance()->get("global.autosave")) == "1");
+    auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+    autosave_enabled->add(_("AUTO"), "auto", RecalboxConf::getInstance()->get(systemData->getName() + ".autosave") != "0" && RecalboxConf::getInstance()->get(systemData->getName() + ".autosave") != "1");
+    autosave_enabled->add(_("ON"),   "1",    RecalboxConf::getInstance()->get(systemData->getName() + ".autosave") == "1");
+    autosave_enabled->add(_("OFF"),  "0",    RecalboxConf::getInstance()->get(systemData->getName() + ".autosave") == "0");
     systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
-
 
     systemConfiguration->addSaveFunc(
 				     [systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled] {
@@ -1318,11 +1325,11 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
                 }
                 if(rewind_enabled->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".rewind",
-                                                     rewind_enabled->getState() ? "1" : "0");
+                                                     rewind_enabled->getSelected());
                 }
                 if(smoothing_enabled->changed()){
                     RecalboxConf::getInstance()->set(systemData->getName() + ".smooth",
-                                                     smoothing_enabled->getState() ? "1" : "0");
+                                                     smoothing_enabled->getSelected());
                 }
                 if(emu_choice->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
@@ -1332,7 +1339,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
                 }
                 if(autosave_enabled->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".autosave",
-                                                     autosave_enabled->getState() ? "1" : "0");
+                                                     autosave_enabled->getSelected());
                 }
                 RecalboxConf::getInstance()->saveRecalboxConf();
             });
