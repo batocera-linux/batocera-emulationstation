@@ -66,12 +66,18 @@ bool RecalboxConf::saveRecalboxConf() {
             std::string currentLine = fileLines[i];
 
             if (boost::starts_with(currentLine, key+"=") || boost::starts_with(currentLine, ";"+key+"=")){
+	      if(val != "" && val != "auto") {
                 fileLines[i] = key + "=" + val;
-                lineFound = true;
+	      } else {
+                fileLines[i] = ";" + key + "=" + val;
+	      }
+	      lineFound = true;
             }
         }
-        if(!lineFound){
+        if(!lineFound) {
+	  if(val != "" && val != "auto") {
             fileLines.push_back(key + "=" + val);
+	  }
         }
     }
     std::ofstream fileout(recalboxConfFileTmp); //Temporary file

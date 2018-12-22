@@ -16,8 +16,8 @@ std::vector<MetaDataDecl> folderMDD;
 
 void initMetadata() {
   // WARN : statistic metadata must be last in list !
-  gameMDD.push_back(MetaDataDecl("emulator",	MD_LIST,		"default",		false,		_("Emulator"),			_("enter emulator")));
-  gameMDD.push_back(MetaDataDecl("core",	MD_LIST,		"default",		false,		_("Core"),			_("enter core")));
+  gameMDD.push_back(MetaDataDecl("emulator",	MD_LIST,		"auto",  		false,		_("Emulator"),			_("enter emulator")));
+  gameMDD.push_back(MetaDataDecl("core",	MD_LIST,		"auto",	        	false,		_("Core"),			_("enter core")));
   gameMDD.push_back(MetaDataDecl("ratio",	MD_LIST,		"auto",			false,		_("Ratio"),			_("enter ratio")));
   gameMDD.push_back(MetaDataDecl("name",	MD_STRING,		"", 			false,		_("Name"),			_("enter game name")));
   gameMDD.push_back(MetaDataDecl("desc",	MD_MULTILINE_STRING,	"", 			false,		_("Description"),		_("enter description")));
