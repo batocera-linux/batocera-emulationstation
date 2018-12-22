@@ -1264,7 +1264,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
         selected = selected || found;
         emu_choice->add(curEmulatorName, curEmulatorName, found);
     }
-    emu_choice->add("default", "default", !selected);
+    emu_choice->add(_("AUTO"), "auto", !selected);
     emu_choice->setSelectedChangedCallback([this, systemConfiguration, systemData](std::string s) {
         popSystemConfigurationGui(systemData, s);
         delete systemConfiguration;
@@ -1284,7 +1284,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
             }
         }
     }
-    core_choice->add("default", "default", !selected);
+    core_choice->add(_("AUTO"), "auto", !selected);
     systemConfiguration->addWithLabel(_("Core"), core_choice);
 
 
@@ -1595,11 +1595,11 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolution
     auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
     std::string currentVideoMode = RecalboxConf::getInstance()->get(configname + ".videomode");
     if (currentVideoMode.empty()) {
-        currentVideoMode = std::string("default");
+        currentVideoMode = std::string("auto");
     }
 
     std::vector<std::string> videoResolutionModeMap = RecalboxSystem::getInstance()->getVideoModes();
-    videoResolutionMode_choice->add(_("DEFAULT"), "default", currentVideoMode == "default");
+    videoResolutionMode_choice->add(_("AUTO"), "auto", currentVideoMode == "auto");
     for (auto videoMode = videoResolutionModeMap.begin(); videoMode != videoResolutionModeMap.end(); videoMode++) {
       std::vector<std::string> tokens;
       boost::split( tokens, (*videoMode), boost::is_any_of(":") );
