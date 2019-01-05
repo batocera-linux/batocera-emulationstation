@@ -18,7 +18,6 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 
-using namespace Eigen;
 
 GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector<MetaDataDecl> &mdd,
                              ScraperSearchParams scraperParams,
@@ -170,7 +169,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window *window, MetaDataList *md, const std::vector
 
                 auto bracket = std::make_shared<ImageComponent>(mWindow);
                 bracket->setImage(":/arrow.svg");
-                bracket->setResize(Eigen::Vector2f(0, lbl->getFont()->getLetterHeight()));
+                bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
                 row.addElement(bracket, false);
 
                 bool multiLine = iter->type == MD_MULTILINE_STRING;

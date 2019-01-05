@@ -9,7 +9,8 @@
 #include "Settings.h"
 
 #include <fstream>
-
+#include <fcntl.h>
+#include <SDL.h>
 
 #ifdef WIN32
 #include <codecvt>

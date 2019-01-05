@@ -29,9 +29,9 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 	return false;
 }
 
-void SwitchComponent::render(const Eigen::Affine3f& parentTrans)
+void SwitchComponent::render(const Transform4x4f& parentTrans)
 {
-	Eigen::Affine3f trans = parentTrans * getTransform();
+	Transform4x4f trans = parentTrans * getTransform();
 	
 	mImage.render(trans);
 
@@ -64,6 +64,18 @@ std::vector<HelpPrompt> SwitchComponent::getHelpPrompts()
 
 std::string SwitchComponent::getValue() const {
   return mState ? "true" : "false";
+}
+
+void SwitchComponent::setValue(const std::string& statestring)
+{
+	if (statestring == "true")
+	{
+		mState = true;
+	}else
+	{
+		mState = false;
+	}
+	onStateChanged();
 }
 
 bool SwitchComponent::changed() {

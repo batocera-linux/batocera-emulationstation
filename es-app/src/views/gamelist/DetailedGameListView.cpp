@@ -29,6 +29,7 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root, Syste
 	mImage.setOrigin(0.5f, 0.5f);
 	mImage.setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
 	mImage.setMaxSize(mSize.x() * (0.50f - 2*padding), mSize.y() * 0.4f);
+	mImage.setDefaultZIndex(30);
 	addChild(&mImage);
 
 	// metadata labels + values
@@ -57,16 +58,20 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root, Syste
 	mLblPlayCount.setText(_("Times played") + ": ");
 	addChild(&mLblPlayCount);
 	addChild(&mPlayCount);
+        /* disable it for temporary 
+         *
 	if (system->getHasFavorites())
 	{
 	  mLblFavorite.setText(_("Favorite") + ": ");
 		addChild(&mLblFavorite);
 		addChild(&mFavorite);
 	}
-
+        */
+        
 	mDescContainer.setPosition(mSize.x() * padding, mSize.y() * 0.65f);
 	mDescContainer.setSize(mSize.x() * (0.50f - 2*padding), mSize.y() - mDescContainer.getPosition().y());
 	mDescContainer.setAutoScroll(true);
+	mDescContainer.setDefaultZIndex(40);
 	addChild(&mDescContainer);
 
 	mDescription.setFont(Font::get(FONT_SIZE_SMALL));
@@ -153,7 +158,6 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 
 void DetailedGameListView::initMDLabels()
 {
-	using namespace Eigen;
 
 	std::vector<TextComponent*> components = getMDLabels();
 
@@ -180,12 +184,12 @@ void DetailedGameListView::initMDLabels()
 
 		components[i]->setFont(Font::get(FONT_SIZE_SMALL));
 		components[i]->setPosition(pos);
+		components[i]->setDefaultZIndex(40);
 	}
 }
 
 void DetailedGameListView::initMDValues()
 {
-	using namespace Eigen;
 
 	std::vector<TextComponent*> labels = getMDLabels();
 	std::vector<GuiComponent*> values = getMDValues();
@@ -209,6 +213,7 @@ void DetailedGameListView::initMDValues()
 		const float heightDiff = (labels[i]->getSize().y() - values[i]->getSize().y()) / 2;
 		values[i]->setPosition(labels[i]->getPosition() + Vector3f(labels[i]->getSize().x(), heightDiff, 0));
 		values[i]->setSize(colSize - labels[i]->getSize().x(), values[i]->getSize().y());
+		values[i]->setDefaultZIndex(40);
 
 		float testBot = values[i]->getPosition().y() + values[i]->getSize().y();
 		if(testBot > bottom)
@@ -277,9 +282,9 @@ void DetailedGameListView::updateInfoPanel()
 
 void DetailedGameListView::launch(FileData* game)
 {
-	Eigen::Vector3f target(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0);
+	Vector3f target(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0);
 	if(mImage.hasImage())
-		target << mImage.getCenter().x(), mImage.getCenter().y(), 0;
+		target = Vector3f(mImage.getCenter().x(), mImage.getCenter().y(), 0);
 
 	ViewController::get()->launch(game, target);
 }

@@ -7,10 +7,13 @@
 #include "Settings.h"
 #include "pugixml/pugixml.hpp"
 #include <boost/assign.hpp>
-
+#include <boost/filesystem/operations.hpp>
+#include <boost/xpressive/xpressive_static.hpp>
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
 
+std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "video" } };
+std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" } };
 
 // This is a work around for some ambiguity that is introduced in C++11 that boost::assign::map_list_of leave open.
 // We use makeMap(actualmap) to implicitly convert the boost::assign::map_list_of's return type to ElementMapType.
@@ -29,24 +32,39 @@ std::map< std::string, ElementMapType > ThemeData::sElementMap = boost::assign::
 		("size", NORMALIZED_PAIR)
 		("maxSize", NORMALIZED_PAIR)
 		("origin", NORMALIZED_PAIR)
+	 	( "rotation", FLOAT )
+		( "rotationOrigin", NORMALIZED_PAIR )
 		("path", PATH)
 		("tile", BOOLEAN)
-		("color", COLOR)))
+		("default", PATH)
+		("color", COLOR)
+                ("zIndex", FLOAT)))
 	("text", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
 		("size", NORMALIZED_PAIR)
+		( "origin", NORMALIZED_PAIR )
+		( "rotation", FLOAT )
+		( "rotationOrigin", NORMALIZED_PAIR )
 		("text", STRING)
 		("color", COLOR)
+		("backgroundColor", COLOR)
 		("fontPath", PATH)
 		("fontSize", FLOAT)
 		("alignment", STRING)
 		("forceUppercase", BOOLEAN)
-		("lineSpacing", FLOAT)))
+		("lineSpacing", FLOAT)
+		("value", STRING)
+                ("zIndex", FLOAT)))
 	("textlist", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
+		( "origin", NORMALIZED_PAIR )
+		( "selectorHeight", FLOAT )
+		( "selectorOffsetY", FLOAT )
 		("size", NORMALIZED_PAIR)
 		("selectorColor", COLOR)
 		("selectedColor", COLOR)
+		("selectorImagePath", PATH )
+		("selectorImageTile", BOOLEAN )
 		("primaryColor", COLOR)
 		("secondaryColor", COLOR)
 		("fontPath", PATH)
@@ -55,26 +73,36 @@ std::map< std::string, ElementMapType > ThemeData::sElementMap = boost::assign::
 		("alignment", STRING)
 		("horizontalMargin", FLOAT)
 		("forceUppercase", BOOLEAN)
-		("lineSpacing", FLOAT)))
+		("lineSpacing", FLOAT)
+                ("zIndex", FLOAT)))
 	("container", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
-		("size", NORMALIZED_PAIR)))
+		("size", NORMALIZED_PAIR)
+                ("origin", NORMALIZED_PAIR)
+                ("zIndex", FLOAT)))
 	("ninepatch", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
 		("size", NORMALIZED_PAIR)
-		("path", PATH)))
+		("path", PATH)
+                ("zIndex", FLOAT)))
 	("datetime", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
 		("size", NORMALIZED_PAIR)
 		("color", COLOR)
 		("fontPath", PATH)
 		("fontSize", FLOAT)
-		("forceUppercase", BOOLEAN)))
+		("forceUppercase", BOOLEAN)
+                ("zIndex", FLOAT)))
 	("rating", makeMap(boost::assign::map_list_of
 		("pos", NORMALIZED_PAIR)
 		("size", NORMALIZED_PAIR)
 		("filledPath", PATH)
-		("unfilledPath", PATH)))
+		("origin", NORMALIZED_PAIR )
+		("rotation", FLOAT)
+		("rotationOrigin", NORMALIZED_PAIR )
+		( "color", COLOR )
+		("unfilledPath", PATH)
+                ("zIndex", FLOAT)))
 	("sound", makeMap(boost::assign::map_list_of
 		("path", PATH)))
 	("helpsystem", makeMap(boost::assign::map_list_of
@@ -82,7 +110,20 @@ std::map< std::string, ElementMapType > ThemeData::sElementMap = boost::assign::
 		("textColor", COLOR)
 		("iconColor", COLOR)
 		("fontPath", PATH)
-		("fontSize", FLOAT)));
+		("fontSize", FLOAT)))
+	("carousel", makeMap(boost::assign::map_list_of
+		( "type", STRING)
+		( "size", NORMALIZED_PAIR)
+		( "pos", NORMALIZED_PAIR)
+		( "origin", NORMALIZED_PAIR )
+		( "color", COLOR )
+		( "logoScale", FLOAT )
+		( "logoRotation", FLOAT )
+		( "logoRotationOrigin", NORMALIZED_PAIR )
+		( "logoSize", NORMALIZED_PAIR )
+		( "logoAlignment", STRING )
+		( "maxLogoCount", FLOAT )
+                ("zIndex", FLOAT)));
 
 namespace fs = boost::filesystem;
 
@@ -134,7 +175,27 @@ std::string resolvePath(const char* in, const fs::path& relative)
 	return path.generic_string();
 }
 
+std::map<std::string, std::string> mVariables;
 
+std::string &format_variables(const boost::xpressive::smatch &what)
+{
+	return mVariables[what[1].str()];
+}
+
+std::string resolvePlaceholders(const char* in)
+{
+	if(!in || in[0] == '\0')
+		return std::string(in);
+		
+	std::string inStr(in);
+	
+	using namespace boost::xpressive;
+	sregex rex = "${" >> (s1 = +('.' | _w)) >> '}';
+    
+	std::string output = regex_replace(inStr, rex, format_variables);
+
+	return output;
+}
 
 ThemeData::ThemeData()
 {
@@ -153,6 +214,7 @@ void ThemeData::loadFile(const std::string& path)
 
 	mVersion = 0;
 	mViews.clear();
+	mVariables.clear();
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = doc.load_file(path.c_str());
@@ -171,8 +233,10 @@ void ThemeData::loadFile(const std::string& path)
 	if(mVersion < MINIMUM_THEME_FORMAT_VERSION)
 		throw error << "Theme uses format version " << mVersion << ". Minimum supported version is " << MINIMUM_THEME_FORMAT_VERSION << ".";
 
+	parseVariables(root);
 	parseIncludes(root);
 	parseViews(root);
+	parseFeatures(root);
 }
 
 
@@ -201,10 +265,51 @@ void ThemeData::parseIncludes(const pugi::xml_node& root)
 		if(!root)
 			throw error << "Missing <theme> tag!";
 
+		parseVariables(root);
 		parseIncludes(root);
 		parseViews(root);
+		parseFeatures(root);
 
 		mPaths.pop_back();
+	}
+}
+
+void ThemeData::parseFeatures(const pugi::xml_node& root)
+{
+	ThemeException error;
+	error.setFiles(mPaths);
+
+	for(pugi::xml_node node = root.child("feature"); node; node = node.next_sibling("feature"))
+	{
+		if(!node.attribute("supported"))
+			throw error << "Feature missing \"supported\" attribute!";
+
+		const std::string supportedAttr = node.attribute("supported").as_string();
+
+		if (std::find(sSupportedFeatures.cbegin(), sSupportedFeatures.cend(), supportedAttr) != sSupportedFeatures.cend())
+		{
+			parseViews(node);
+		}
+	}
+}
+
+void ThemeData::parseVariables(const pugi::xml_node& root)
+{
+	ThemeException error;
+	error.setFiles(mPaths);
+    
+	pugi::xml_node variables = root.child("variables");
+
+	if(!variables)
+		return;
+    
+	for(pugi::xml_node_iterator it = variables.begin(); it != variables.end(); ++it)
+	{
+		std::string key = it->name();
+		std::string val = it->text().as_string();
+
+		if (!val.empty())
+			mVariables.insert(std::pair<std::string, std::string>(key, val));
 	}
 }
 
@@ -230,8 +335,11 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 			prevOff = nameAttr.find_first_not_of(delim, off);
 			off = nameAttr.find_first_of(delim, prevOff);
 			
-			ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
-			parseView(node, view);
+			if (std::find(sSupportedViews.cbegin(), sSupportedViews.cend(), viewKey) != sSupportedViews.cend())
+			{
+				ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
+				parseView(node, view);
+			}
 		}
 	}
 }
@@ -247,9 +355,10 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view)
 			throw error << "Element of type \"" << node.name() << "\" missing \"name\" attribute!";
 
 		auto elemTypeIt = sElementMap.find(node.name());
-		if(elemTypeIt == sElementMap.end())
-			throw error << "Unknown element of type \"" << node.name() << "\"!";
-
+		if(elemTypeIt == sElementMap.cend()) {
+			LOG(LogWarning) << "Unknown element of type \"" << node.name() << "\"!";
+                        continue;
+                }
 		const char* delim = " \t\r\n,";
 		const std::string nameAttr = node.attribute("name").as_string();
 		size_t prevOff = nameAttr.find_first_not_of(delim, 0);
@@ -263,7 +372,7 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view)
 			parseElement(node, elemTypeIt->second, 
 				view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second);
 
-			if(std::find(view.orderedKeys.begin(), view.orderedKeys.end(), elemKey) == view.orderedKeys.end())
+			if(std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
 				view.orderedKeys.push_back(elemKey);
 		}
 	}
@@ -281,8 +390,10 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		auto typeIt = typeMap.find(node.name());
-		if(typeIt == typeMap.end())
+		if(typeIt == typeMap.cend()) 
 			throw error << "Unknown property type \"" << node.name() << "\" (for element of type " << root.name() << ").";
+
+		std::string str = resolvePlaceholders(node.text().as_string());
 
 		switch(typeIt->second)
 		{
@@ -297,7 +408,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			std::string first = str.substr(0, divider);
 			std::string second = str.substr(divider, std::string::npos);
 
-			Eigen::Vector2f val(atof(first.c_str()), atof(second.c_str()));
+			Vector2f val((float)atof(first.c_str()), (float)atof(second.c_str()));
 
 			element.properties[node.name()] = val;
 			break;
@@ -327,23 +438,36 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			element.properties[node.name()] = node.text().as_float();
 			break;
 		case BOOLEAN:
-			element.properties[node.name()] = node.text().as_bool();
+                {
+			// only look at first char
+			char first = str[0];
+			// 1*, t* (true), T* (True), y* (yes), Y* (YES)
+			bool boolVal = (first == '1' || first == 't' || first == 'T' || first == 'y' || first == 'Y');
+
+			element.properties[node.name()] = boolVal;
+			//old one element.properties[node.name()] = node.text().as_bool();
 			break;
+                }
 		default:
 			throw error << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << node.name();
 		}
 	}
 }
 
+bool ThemeData::hasView(const std::string& view)
+{
+	auto viewIt = mViews.find(view);
+	return (viewIt != mViews.cend());
+}
 
 const ThemeData::ThemeElement* ThemeData::getElement(const std::string& view, const std::string& element, const std::string& expectedType) const
 {
 	auto viewIt = mViews.find(view);
-	if(viewIt == mViews.end())
+	if(viewIt == mViews.cend())
 		return NULL; // not found
 
 	auto elemIt = viewIt->second.elements.find(element);
-	if(elemIt == viewIt->second.elements.end()) return NULL;
+	if(elemIt == viewIt->second.elements.cend()) return NULL;
 
 	if(elemIt->second.type != expectedType && !expectedType.empty())
 	{
@@ -384,10 +508,10 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 	std::vector<GuiComponent*> comps;
 
 	auto viewIt = theme->mViews.find(view);
-	if(viewIt == theme->mViews.end())
+	if(viewIt == theme->mViews.cend())
 		return comps;
 	
-	for(auto it = viewIt->second.orderedKeys.begin(); it != viewIt->second.orderedKeys.end(); it++)
+	for(auto it = viewIt->second.orderedKeys.cbegin(); it != viewIt->second.orderedKeys.cend(); it++)
 	{
 		ThemeElement& elem = viewIt->second.elements.at(*it);
 		if(elem.extra)
@@ -399,6 +523,7 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 			else if(t == "text")
 				comp = new TextComponent(window);
 
+//			comp->setDefaultZIndex(10);
 			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
 			comps.push_back(comp);
 		}
@@ -410,12 +535,18 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 void ThemeExtras::setExtras(const std::vector<GuiComponent*>& extras)
 {
 	// delete old extras (if any)
-	for(auto it = mExtras.begin(); it != mExtras.end(); it++)
-		delete *it;
-
+	//for(auto it = mExtras.begin(); it != mExtras.end(); it++)
+        for (auto extra : mExtras) {
+                removeChild(extra);
+		delete extra;
+        }
+        mExtras.clear();
+        
 	mExtras = extras;
 	for(auto it = mExtras.begin(); it != mExtras.end(); it++)
 		addChild(*it);
+        
+        sortChildren();
 }
 
 ThemeExtras::~ThemeExtras()
@@ -464,11 +595,11 @@ fs::path ThemeData::getThemeFromCurrentSet(const std::string& system)
 		return "";
 	}
 
-	auto set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
-	if(set == themeSets.end())
+	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+	if(set == themeSets.cend())
 	{
 		// currently selected theme set is missing, so just pick the first available set
-		set = themeSets.begin();
+		set = themeSets.cbegin();
 		Settings::getInstance()->setString("ThemeSet", set->first);
 	}
 

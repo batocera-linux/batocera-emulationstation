@@ -1,6 +1,10 @@
 #include "FileData.h"
 #include "SystemData.h"
 #include "Log.h"
+#include <string>
+#include <algorithm>
+
+
 
 namespace fs = boost::filesystem;
 
@@ -321,6 +325,7 @@ void FileData::populateRecursiveFolder(FileData* folder, const std::vector<std::
                         && filePath.filename().string().compare(0, 1, ".") != 0)){
 			FileData* newGame = new FileData(GAME, filePath.generic_string(), systemData);
 			folder->addChild(newGame);
+            folder->putItemToMap(filePath.generic_string(), newGame);
 			isGame = true;
 		}
 
@@ -337,4 +342,25 @@ void FileData::populateRecursiveFolder(FileData* folder, const std::vector<std::
 				folder->addChild(newFolder);
 		}
 	}
+}
+
+bool FileData::isForbiddenChar( char c )
+{
+    static std::string forbiddenChars( "[]()!\"<>', " );
+    return std::string::npos != forbiddenChars.find( c );
+}
+
+std::string FileData::cleanupString(std::string val) {
+    replace_if(val.begin(),val.end(),FileData::isForbiddenChar,'0');
+    return val;
+}
+
+void FileData::putItemToMap(std::string idx, FileData* filedata) {
+    idx = cleanupString(idx);
+    mapchildren.insert(std::make_pair(idx, filedata));
+}
+
+FileData* FileData::getItemFromMap(std::string idx) {
+    idx = cleanupString(idx);
+    return mapchildren[idx];
 }

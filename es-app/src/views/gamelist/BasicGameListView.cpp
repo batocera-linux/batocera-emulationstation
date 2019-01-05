@@ -12,6 +12,7 @@ BasicGameListView::BasicGameListView(Window* window, FileData* root)
 {
 	mList.setSize(mSize.x(), mSize.y() * 0.8f);
 	mList.setPosition(0, mSize.y() * 0.2f);
+	mList.setDefaultZIndex(20);
 	addChild(&mList);
 
 	populateList(root->getChildren());
@@ -26,8 +27,6 @@ void BasicGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 void BasicGameListView::onFileChanged(FileData* file, FileChangeType change)
 {
-	ISimpleGameListView::onFileChanged(file, change);
-
 	if(change == FILE_METADATA_CHANGED)
 	{
 		// might switch to a detailed view
@@ -35,6 +34,7 @@ void BasicGameListView::onFileChanged(FileData* file, FileChangeType change)
 		return;
 	}
 
+	ISimpleGameListView::onFileChanged(file, change);
 }
 
 void BasicGameListView::populateList(const std::vector<FileData*>& files)

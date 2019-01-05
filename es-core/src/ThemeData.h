@@ -8,7 +8,6 @@
 #include <string>
 #include <boost/filesystem.hpp>
 #include <boost/variant.hpp>
-#include <Eigen/Dense>
 #include "pugixml/pugixml.hpp"
 #include "GuiComponent.h"
 
@@ -37,7 +36,9 @@ namespace ThemeFlags
 		TEXT = 512,
 		FORCE_UPPERCASE = 1024,
 		LINE_SPACING = 2048,
-
+		DELAY = 4096,
+		Z_INDEX = 8192,
+		ROTATION = 16384,
 		ALL = 0xFFFFFFFF
 	};
 }
@@ -55,7 +56,7 @@ public:
 	inline void setFiles(const std::deque<boost::filesystem::path>& deque)
 	{
 		*this << "from theme \"" << deque.front().string() << "\"\n";
-		for(auto it = deque.begin() + 1; it != deque.end(); it++)
+		for(auto it = deque.cbegin() + 1; it != deque.cend(); it++)
 			*this << "  (from included file \"" << (*it).string() << "\")\n";
 		*this << "    ";
 	}
@@ -101,12 +102,12 @@ public:
 		bool extra;
 		std::string type;
 
-		std::map< std::string, boost::variant<Eigen::Vector2f, std::string, unsigned int, float, bool> > properties;
+		std::map< std::string, boost::variant<Vector2f, std::string, unsigned int, float, bool> > properties;
 
 		template<typename T>
 		T get(const std::string& prop) const { return boost::get<T>(properties.at(prop)); }
 
-		inline bool has(const std::string& prop) const { return (properties.find(prop) != properties.end()); }
+		inline bool has(const std::string& prop) const { return (properties.find(prop) != properties.cend()); }
 	};
 
 private:
@@ -134,6 +135,8 @@ public:
 		BOOLEAN
 	};
 
+	bool hasView(const std::string& view);
+
 	// If expectedType is an empty string, will do no type checking.
 	const ThemeElement* getElement(const std::string& view, const std::string& element, const std::string& expectedType) const;
 
@@ -148,11 +151,15 @@ public:
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
+	static std::vector<std::string> sSupportedFeatures;
+	static std::vector<std::string> sSupportedViews;
 
 	std::deque<boost::filesystem::path> mPaths;
 	float mVersion;
 
+	void parseFeatures(const pugi::xml_node& themeRoot);
 	void parseIncludes(const pugi::xml_node& themeRoot);
+	void parseVariables(const pugi::xml_node& root);
 	void parseViews(const pugi::xml_node& themeRoot);
 	void parseView(const pugi::xml_node& viewNode, ThemeView& view);
 	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element);

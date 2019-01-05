@@ -23,6 +23,8 @@ void initMetadata() {
   gameMDD.push_back(MetaDataDecl("desc",	MD_MULTILINE_STRING,	"", 			false,		_("Description"),		_("enter description")));
   gameMDD.push_back(MetaDataDecl("image",	MD_IMAGE_PATH,		"", 			false,		_("Image"),			_("enter path to image")));
   gameMDD.push_back(MetaDataDecl("thumbnail",	MD_IMAGE_PATH,		"", 			false,		_("Thumbnail"),			_("enter path to thumbnail")));
+  gameMDD.push_back(MetaDataDecl("video",	MD_IMAGE_PATH,		"", 			false,		_("Video"),			_("enter path to video")));
+  gameMDD.push_back(MetaDataDecl("marquee",	MD_IMAGE_PATH,		"", 			false,		_("Marquee"),			_("enter path to marquee")));
   gameMDD.push_back(MetaDataDecl("rating",	MD_RATING,		"0.000000", 		false,		_("Rating"),			_("enter rating")));
   gameMDD.push_back(MetaDataDecl("releasedate", MD_DATE,		"not-a-date-time", 	false,		_("Release date"),		_("enter release date")));
   gameMDD.push_back(MetaDataDecl("developer",	MD_STRING,		"unknown",		false,		_("Developer"),			_("enter game developer")));
@@ -84,7 +86,15 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node n
 			std::string value = md.text().get();
 			if(iter->type == MD_IMAGE_PATH)
 				value = resolvePath(value, relativeTo, true).generic_string();
-
+                        
+                        std::string keystr = iter->key.c_str();
+                        //LOG(LogWarning) << "Meta data key " << keystr; 
+                        if (keystr.compare("video") == 0) {
+                            continue;
+                        }
+                        if (keystr.compare("carousel") == 0) {
+                            continue;
+                        }
 			mdl.set(iter->key, value);
 		}else{
 			mdl.set(iter->key, iter->defaultValue);

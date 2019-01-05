@@ -1,13 +1,13 @@
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
 
-#include <vector>
+#include "math/Vector2i.h"
 #include <string>
 #include "platform.h"
-#include <Eigen/Dense>
 #include "platform_gl.h"
 
 class GuiComponent;
+class Transform4x4f;
 class Font;
 
 //The Renderer provides several higher-level functions for drawing (rectangles, text, etc.).
@@ -26,11 +26,11 @@ namespace Renderer
 	//graphics commands
 	void swapBuffers();
 
-	void pushClipRect(Eigen::Vector2i pos, Eigen::Vector2i dim);
+	void pushClipRect(Vector2i pos, Vector2i dim);
 	void popClipRect();
 
 	void setMatrix(float* mat);
-	void setMatrix(const Eigen::Affine3f& transform);
+	void setMatrix(const Transform4x4f& transform);
 
 	void drawRect(int x, int y, int w, int h, unsigned int color, GLenum blend_sfactor = GL_SRC_ALPHA, GLenum blend_dfactor = GL_ONE_MINUS_SRC_ALPHA);
 	void drawRect(float x, float y, float w, float h, unsigned int color, GLenum blend_sfactor = GL_SRC_ALPHA, GLenum blend_dfactor = GL_ONE_MINUS_SRC_ALPHA);

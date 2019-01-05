@@ -3,6 +3,7 @@
 #include <fstream>
 #include <boost/regex.hpp>
 #include "Log.h"
+#include "platform.h"
 #include <boost/algorithm/string/predicate.hpp>
 
 RecalboxConf *RecalboxConf::sInstance = NULL;

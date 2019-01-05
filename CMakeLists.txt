@@ -80,7 +80,6 @@ find_package(FreeImage REQUIRED)
 find_package(SDL2MIXER REQUIRED)
 find_package(SDL2 REQUIRED) 
 find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
-find_package(Eigen3 REQUIRED)
 find_package(CURL REQUIRED)
 
 #add ALSA for Linux
@@ -130,7 +129,7 @@ else()
     add_definitions(-DUSE_OPENGL_ES)
 endif()
 
-add_definitions(-DEIGEN_DONT_ALIGN)
+#- add_definitions(-DEIGEN_DONT_ALIGN)
 
 #-------------------------------------------------------------------------------
 #add include directories
@@ -145,7 +144,6 @@ set(COMMON_INCLUDE_DIRS
 	${SDLMIXER_INCLUDE_DIR}
     ${SDL2_INCLUDE_DIR}
     ${Boost_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
     ${CURL_INCLUDE_DIR}
 
 )

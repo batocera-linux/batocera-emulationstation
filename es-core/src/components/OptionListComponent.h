@@ -148,7 +148,7 @@ public:
 		auto font = Font::get(font_size, FONT_PATH_LIGHT);
 		mText.setFont(font);
 		mText.setColor(0x777777FF);
-		mText.setAlignment(ALIGN_CENTER);
+		mText.setHorizontalAlignment(ALIGN_CENTER);
 		addChild(&mText);
 
 		if(mMultiSelect)
@@ -228,7 +228,7 @@ public:
 	std::vector<T> getSelectedObjects()
 	{
 		std::vector<T> ret;
-		for(auto it = mEntries.begin(); it != mEntries.end(); it++)
+		for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 		{
 			if(it->selected)
 				ret.push_back(it->object);
@@ -317,7 +317,7 @@ private:
 				mParent->onSizeChanged();
 		}else{
 			// display currently selected + l/r cursors
-			for(auto it = mEntries.begin(); it != mEntries.end(); it++)
+			for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 			{
 				if(it->selected)
 				{

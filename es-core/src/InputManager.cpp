@@ -46,19 +46,36 @@ InputManager* InputManager::getInstance()
 void InputManager::init()
 {
 	if(initialized())
-		deinit();
+		//deinit();
 
-	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, 
-		Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
-	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
-	SDL_JoystickEventState(SDL_ENABLE);
+	try {
+		if(!initialized()) {
+			if (SDL_WasInit(SDL_INIT_JOYSTICK) != 0) {
+			    SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
+			}
 
-	// first, open all currently present joysticks
+			SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, 
+			Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
+		    SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+			SDL_JoystickEventState(SDL_ENABLE);
+		}
+		LOG(LogError) << "reinit input  joystick/keyboard ! SDL enabled joystick event ";
+
+		// first, open all currently present joysticks
         this->addAllJoysticks();
-	computeLastKnownPlayersDeviceIndexes();
+		this->computeLastKnownPlayersDeviceIndexes();
 
-	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0);
-	loadInputConfig(mKeyboardInputConfig);
+		mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0);
+		loadInputConfig(mKeyboardInputConfig);
+
+    } catch (const std::exception& e) {
+        LOG(LogError) << " inputmanager clearjoystick Exception " << e.what();
+    } catch (const std::runtime_error& e) {
+        LOG(LogError) << " inputmanager clearjoystick runtime_error  " << e.what();
+    } catch (...) {
+        std::exception_ptr p = std::current_exception();
+        LOG(LogError) << " inputmanager clearjoystick Exception " << (p ? p.__cxa_exception_type()->name() : "null") << std::endl;
+    }
 }
 
 void InputManager::addJoystickByDeviceIndex(int id)
@@ -94,27 +111,33 @@ void InputManager::addJoystickByDeviceIndex(int id)
 void InputManager::removeJoystickByJoystickID(SDL_JoystickID joyId)
 {
 	assert(joyId != -1);
-
-	// delete old prevAxisValues
-	auto axisIt = mPrevAxisValues.find(joyId);
-	delete[] axisIt->second;
-	mPrevAxisValues.erase(axisIt);
+	LOG(LogError) << "removeJoystickByJoystickID " << joyId;
+        // close the joystick
+        auto joyIt = mJoysticks.find(joyId);
+        if(joyIt != mJoysticks.end())
+        {
+                SDL_JoystickClose(joyIt->second);
+                mJoysticks.erase(joyIt);
+        }else{
+                LOG(LogError) << "Could not find joystick to close (instance ID: " << joyId << ")";
+        }
 
 	// delete old InputConfig
 	auto it = mInputConfigs.find(joyId);
-	delete it->second;
-	mInputConfigs.erase(it);
-
-	// close the joystick
-	auto joyIt = mJoysticks.find(joyId);
-	if(joyIt != mJoysticks.end())
-	{
-		SDL_JoystickClose(joyIt->second);
-		mJoysticks.erase(joyIt);
-	}else{
-		LOG(LogError) << "Could not find joystick to close (instance ID: " << joyId << ")";
+	if (&it != nullptr) {
+			delete it->second;
+			mInputConfigs.erase(it);
 	}
-        LOG(LogError) << "I removed a joystick";
+
+	// delete old prevAxisValues
+	auto axisIt = mPrevAxisValues.find(joyId);
+	if (&axisIt != nullptr) {
+	    delete[] axisIt->second;
+	    mPrevAxisValues.erase(axisIt);
+	}
+
+	LOG(LogError) << "removeJoystickByJoystickID END";
+    LOG(LogError) << "I removed a joystick";
 
 }
 
@@ -200,6 +223,12 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	    // in this case, their unpressed state is not 0
 	    // SDL provides a function to get this value
 	    // in es, the trick is to minus this value to the value to do as if it started at 0
+		LOG(LogError) << "parseEvent BEGIN ev.type 1 " << ev.jaxis.which;
+		if (mPrevAxisValues[ev.jaxis.which] == nullptr) {
+			LOG(LogError) << "parseEvent BEGIN ev.type 1 false event";
+			return false;
+		}
+
 	    int initialValue = 0;
 	    Sint16 x;
 	    if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
@@ -265,23 +294,23 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	case SDL_JOYDEVICEADDED:
 #if defined(__APPLE__)
         addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
+        computeLastKnownPlayersDeviceIndexes();
 #else
         if(! getInputConfigByDevice(ev.jdevice.which)){
             LOG(LogInfo) << "Reinitialize because of SDL_JOYDEVADDED unknown";
             this->init();
         }
 #endif
-	computeLastKnownPlayersDeviceIndexes();
         return true;
 
 	case SDL_JOYDEVICEREMOVED:
 #if defined(__APPLE__)
-        removeJoystickByJoystickID(ev.jdevice.which); // ev.jdevice.which is an SDL_JoystickID (instance ID)
-#else
-        LOG(LogInfo) << "Reinitialize because of SDL_JOYDEVICEREMOVED";
-        this->init();
-#endif
+    removeJoystickByJoystickID(ev.jdevice.which); // ev.jdevice.which is an SDL_JoystickID (instance ID)
 	computeLastKnownPlayersDeviceIndexes();
+#else
+    LOG(LogError) << "Reinitialize because of SDL_JOYDEVICEREMOVED";
+	removeJoystickByJoystickID(ev.jdevice.which);
+#endif
         return false;
 	}
 
@@ -492,9 +521,11 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
 
     for (auto it = 0; it < getNumJoysticks(); it++) {
         InputConfig * config = getInputConfigByDevice(it);
+		if(config != NULL) {
         if(config->isConfigured()) {
             availableConfigured.push_back(config);
         }
+		}
     }
 
     //2 pour chaque joueur verifier si il y a un configurated

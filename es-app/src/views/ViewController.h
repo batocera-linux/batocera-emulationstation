@@ -2,6 +2,7 @@
 
 #include "views/gamelist/IGameListView.h"
 #include "views/SystemView.h"
+#include <vector>
 
 class SystemData;
 
@@ -33,6 +34,7 @@ public:
 	void goToGameList(SystemData* system);
 	void goToSystemView(SystemData* system);
 	void goToStart();
+	void ReloadAndGoToStart();
 
 	void onFileChanged(FileData* file, FileChangeType change);
 
@@ -40,11 +42,11 @@ public:
 
 	// Plays a nice launch effect and launches the game at the end of it.
 	// Once the game terminates, plays a return effect.
-	void launch(FileData* game, Eigen::Vector3f centerCameraOn = Eigen::Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0));
+	void launch(FileData* game, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0));
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
-	void render(const Eigen::Affine3f& parentTrans) override;
+	void render(const Transform4x4f& parentTrans) override;
 
 	enum ViewMode
 	{
@@ -86,7 +88,7 @@ private:
 
 	std::map<SystemData*, bool> mInvalidGameList;
 	
-	Eigen::Affine3f mCamera;
+	Transform4x4f mCamera;
 	float mFadeOpacity;
 	bool mLockInput;
 	bool mFavoritesOnly;

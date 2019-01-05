@@ -2,7 +2,6 @@
 #include "components/MenuComponent.h"
 #include "LocaleES.h"
 
-using namespace Eigen;
 
 GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, const std::string& initValue, 
 				   const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
@@ -40,7 +39,7 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
 
 void GuiTextEditPopup::onSizeChanged()
 {
-	mBackground.fitTo(mSize, Eigen::Vector3f::Zero(), Eigen::Vector2f(-32, -32));
+	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mText->setSize(mSize.x() - 40, mText->getSize().y());
 

@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [20190103-bullghost]
+- Fix joystick detect add remove
+- change logic for reading xml rom file for able to read thousands of roms
+- Adapting new themes format base on current emulationstation
+- remove Eigen 
+- compatible with c++ < 11
+
 ## [Unreleased]
 - Fix Bug with small SHARE partition
 - Add new Traditional Chinese Language

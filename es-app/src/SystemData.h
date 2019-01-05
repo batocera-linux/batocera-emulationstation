@@ -73,10 +73,12 @@ public:
 
 	// Load or re-load theme.
 	void loadTheme();
+	std::shared_ptr<ThemeData> getloadedTheme();
 
 	// refresh the roms files
 	void refreshRootFolder();
 
+	static void reloadSystemsTheme();
 
 	std::map<std::string, std::vector<std::string> *> * getEmulators();
 private:

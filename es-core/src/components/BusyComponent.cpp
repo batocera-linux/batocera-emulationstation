@@ -14,7 +14,6 @@ AnimationFrame BUSY_ANIMATION_FRAMES[] = {
 };
 const AnimationDef BUSY_ANIMATION_DEF = { BUSY_ANIMATION_FRAMES, 4, true };
 
-using namespace Eigen;
 
 BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(5, 3))
@@ -46,7 +45,7 @@ void BusyComponent::setText(std::string txt) {
   }
 }
 
-void BusyComponent::render(const Eigen::Affine3f& parentTrans) {
+void BusyComponent::render(const Transform4x4f& parentTrans) {
   if (SDL_LockMutex(mutex) == 0) {
     if(threadMessagechanged) {
       threadMessagechanged = false;

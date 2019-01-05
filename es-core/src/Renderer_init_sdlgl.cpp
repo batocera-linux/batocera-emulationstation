@@ -111,6 +111,8 @@ namespace Renderer
 				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
             }
 		}
+		else
+			SDL_GL_SetSwapInterval(0);
 
 		return true;
 	}

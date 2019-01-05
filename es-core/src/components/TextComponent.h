@@ -16,7 +16,7 @@ class TextComponent : public GuiComponent
 public:
 	TextComponent(Window* window);
 	TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color = 0x000000FF, Alignment align = ALIGN_LEFT,
-		Eigen::Vector3f pos = Eigen::Vector3f::Zero(), Eigen::Vector2f size = Eigen::Vector2f::Zero());
+		Vector3f pos = Vector3f::Zero(), Vector2f size = Vector2f::Zero(), unsigned int bgcolor = 0x00000000);
 
 	void setFont(const std::shared_ptr<Font>& font);
 	void setUppercase(bool uppercase);
@@ -24,9 +24,13 @@ public:
 	void setText(const std::string& text);
 	void setColor(unsigned int color);
 	void setAlignment(Alignment align);
+	void setHorizontalAlignment(Alignment align);
+	void setVerticalAlignment(Alignment align);
 	void setLineSpacing(float spacing);
+	void setBackgroundColor(unsigned int color);
+	void setRenderBackground(bool render);
 
-	void render(const Eigen::Affine3f& parentTrans) override;
+	void render(const Transform4x4f& parentTrans) override;
 
 	std::string getValue() const override;
 	void setValue(const std::string& value) override;
@@ -45,12 +49,19 @@ private:
 	void onColorChanged();
 
 	unsigned int mColor;
+	unsigned int mBgColor;
+	unsigned char mColorOpacity;
+	unsigned char mBgColorOpacity;
+	bool mRenderBackground;
+
 	std::shared_ptr<Font> mFont;
 	bool mUppercase;
-	Eigen::Matrix<bool, 1, 2> mAutoCalcExtent;
+	Vector2i mAutoCalcExtent;
 	std::string mText;
 	std::shared_ptr<TextCache> mTextCache;
 	Alignment mAlignment;
+	Alignment mHorizontalAlignment;
+	Alignment mVerticalAlignment;
 	float mLineSpacing;
 };
 

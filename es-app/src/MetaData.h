@@ -6,7 +6,6 @@
 #include "GuiComponent.h"
 #include <boost/date_time.hpp>
 #include <boost/filesystem.hpp>
-
 enum MetaDataType
 {
 	//generic types

@@ -17,14 +17,12 @@
 #include "LocaleES.h"
 
 ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) : GuiComponent(window),
-	mGrid(window, Eigen::Vector2i(4, 3)), mBusyAnim(window), 
+	mGrid(window, Vector2i(4, 3)), mBusyAnim(window), 
 	mSearchType(type)
 {
 	addChild(&mGrid);
 
 	mBlockAccept = false;
-
-	using namespace Eigen;
 
 	// left spacer (empty component, needed for borders)
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(0, 0), false, false, Vector2i(1, 3), GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
@@ -63,7 +61,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 
 	mMD_Grid = std::make_shared<ComponentGrid>(mWindow, Vector2i(2, mMD_Pairs.size()*2 - 1));
 	unsigned int i = 0;
-	for(auto it = mMD_Pairs.begin(); it != mMD_Pairs.end(); it++)
+	for(auto it = mMD_Pairs.cbegin(); it != mMD_Pairs.cend(); it++)
 	{
 		mMD_Grid->setEntry(it->first, Vector2i(0, i), false, true);
 		mMD_Grid->setEntry(it->second, Vector2i(1, i), false, it->resize);
@@ -140,7 +138,7 @@ void ScraperSearchComponent::resizeMetadata()
 
 		// update label fonts
 		float maxLblWidth = 0;
-		for(auto it = mMD_Pairs.begin(); it != mMD_Pairs.end(); it++)
+		for(auto it = mMD_Pairs.cbegin(); it != mMD_Pairs.cend(); it++)
 		{
 			it->first->setFont(fontLbl);
 			it->first->setSize(0, 0);
@@ -173,7 +171,6 @@ void ScraperSearchComponent::resizeMetadata()
 
 void ScraperSearchComponent::updateViewStyle()
 {
-	using namespace Eigen;
 
 	// unlink description and result list and result name
 	mGrid.removeEntry(mResultName);
@@ -347,9 +344,9 @@ bool ScraperSearchComponent::input(InputConfig* config, Input input)
 	return GuiComponent::input(config, input);
 }
 
-void ScraperSearchComponent::render(const Eigen::Affine3f& parentTrans)
+void ScraperSearchComponent::render(const Transform4x4f& parentTrans)
 {
-	Eigen::Affine3f trans = parentTrans * getTransform();
+	Transform4x4f trans = parentTrans * getTransform();
 
 	renderChildren(trans);
 
