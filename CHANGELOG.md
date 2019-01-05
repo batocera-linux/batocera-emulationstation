@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - change logic for reading xml rom file for read thousands of roms more faster
 - Adapting new themes format base on current emulationstation
 - remove Eigen 
-- compatible with c++ < 11
+- exclude min max function to able compile with older c++
 
 ## [Unreleased]
 - Fix Bug with small SHARE partition
