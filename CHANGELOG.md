@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [20190103-bullghost]
 - Fix joystick detect add remove
-- change logic for reading xml rom file for able to read thousands of roms
+- fix load reload on changing thames
+- change logic for reading xml rom file for read thousands of roms more faster
 - Adapting new themes format base on current emulationstation
 - remove Eigen 
 - compatible with c++ < 11

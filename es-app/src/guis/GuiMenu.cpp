@@ -927,7 +927,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
 
 							if (needReload) {
-								window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"),
+								window->pushGui(new GuiMsgBox(window, _("APPLY SELECTED THEME ?"), _("YES"),
 									[this, window] {
 									ViewController::get()->goToStart();
 									window->renderShutdownScreen();
