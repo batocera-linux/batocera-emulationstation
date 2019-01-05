@@ -310,6 +310,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 #else
     LOG(LogError) << "Reinitialize because of SDL_JOYDEVICEREMOVED";
 	removeJoystickByJoystickID(ev.jdevice.which);
+    this->init();
 #endif
         return false;
 	}
