@@ -307,7 +307,7 @@ std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
 
 bool RecalboxSystem::ping() {
     std::string updateserver = "batocera-linux.xorhub.com";
-    std::string s("ping -c 1 " + updateserver);
+    std::string s("fping -c 1 -t 1000 " + updateserver);
     int exitcode = system(s.c_str());
     return exitcode == 0;
 }
