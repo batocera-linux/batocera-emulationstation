@@ -1462,7 +1462,7 @@ void GuiMenu::createConfigInput() {
         // For each available and configured input
         for (auto it = 0; it < InputManager::getInstance()->getNumJoysticks(); it++) {
             InputConfig *config = InputManager::getInstance()->getInputConfigByDevice(it);
-            if (config->isConfigured()) {
+            if (config != nullptr && config->isConfigured()) {
                 // create name
                 std::stringstream dispNameSS;
                 dispNameSS << "#" << config->getDeviceId() << " ";

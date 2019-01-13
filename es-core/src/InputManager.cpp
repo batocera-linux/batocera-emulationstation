@@ -37,16 +37,19 @@ InputManager::~InputManager()
 
 InputManager* InputManager::getInstance()
 {
-	if(!mInstance)
-		mInstance = new InputManager();
-
+	if(!mInstance) {
+	   LOG(LogError) << "init instance ";
+	   mInstance = new InputManager();
+	}
 	return mInstance;
 }
 
 void InputManager::init()
 {
-	if(initialized())
-		//deinit();
+	if(initialized()) {
+	   LOG(LogError) << "ITS Inited do Deinit"; 
+	   //deinit();
+	}
 
 	try {
 		if(!initialized()) {
@@ -65,7 +68,10 @@ void InputManager::init()
         this->addAllJoysticks();
 		this->computeLastKnownPlayersDeviceIndexes();
 
+	if (mKeyboardInputConfig == NULL || mKeyboardInputConfig == nullptr) {
+	    LOG(LogError) << "input keyboard NULL joystick/keyboard !  reinit input keyboard  ";
 		mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0);
+	}
 		loadInputConfig(mKeyboardInputConfig);
 
     } catch (const std::exception& e) {
@@ -84,6 +90,10 @@ void InputManager::addJoystickByDeviceIndex(int id)
 	
 	// open joystick & add to our list
 	SDL_Joystick* joy = SDL_JoystickOpen(id);
+	if (joy == nullptr) {
+ 	   LOG(LogError) << "Added unconfigured unstabil device sudden gone";
+	   return;
+	}
 	assert(joy);
 
 	// add it to our list so we can close it again later
@@ -225,9 +235,14 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	    // in es, the trick is to minus this value to the value to do as if it started at 0
 		LOG(LogError) << "parseEvent BEGIN ev.type 1 " << ev.jaxis.which;
 		if (mPrevAxisValues[ev.jaxis.which] == nullptr) {
-			LOG(LogError) << "parseEvent BEGIN ev.type 1 false event";
+			LOG(LogError) << "parseEvent BEGIN ev.type 1 false event " << ev.jaxis.which;
 			return false;
 		}
+		if (mJoysticks[ev.jaxis.which] == nullptr) {
+			LOG(LogError) << "mJoysticks BEGIN ev.type 1 false event " << ev.jaxis.which;
+			return false;
+		}
+		
 
 	    int initialValue = 0;
 	    Sint16 x;
@@ -296,9 +311,20 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
         addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
         computeLastKnownPlayersDeviceIndexes();
 #else
-        if(! getInputConfigByDevice(ev.jdevice.which)){
+	if (1==1) {
+	auto it = mInputConfigs.find(ev.jdevice.which);
+	LOG(LogError) << "Error par addjoystic " << (it->second);
+	if(it->second != nullptr) {
+	   LOG(LogError) << "Error par addjoystic " << (it->second->getDeviceId());
+	}
+	if(it->second != nullptr && it->second->getDeviceId() < 0 ){
             LOG(LogInfo) << "Reinitialize because of SDL_JOYDEVADDED unknown";
             this->init();
+	   this->computeLastKnownPlayersDeviceIndexes();
+	} else {
+	   LOG(LogError) << "Error par addjoystic cancel ";
+	   return false;
+	}
         }
 #endif
         return true;
@@ -309,8 +335,8 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	computeLastKnownPlayersDeviceIndexes();
 #else
     LOG(LogError) << "Reinitialize because of SDL_JOYDEVICEREMOVED";
-	removeJoystickByJoystickID(ev.jdevice.which);
     this->init();
+	this->computeLastKnownPlayersDeviceIndexes();
 #endif
         return false;
 	}
