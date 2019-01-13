@@ -307,28 +307,27 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		break;
 
 	case SDL_JOYDEVICEADDED:
+    {
 #if defined(__APPLE__)
         addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
         computeLastKnownPlayersDeviceIndexes();
 #else
-	if (1==1) {
-	auto it = mInputConfigs.find(ev.jdevice.which);
-	LOG(LogError) << "Error par addjoystic " << (it->second);
-	if(it->second != nullptr) {
-	   LOG(LogError) << "Error par addjoystic " << (it->second->getDeviceId());
-	}
-	if(it->second != nullptr && it->second->getDeviceId() < 0 ){
+        auto it = mInputConfigs.find(ev.jdevice.which);
+        LOG(LogError) << "Error par addjoystic " << (it->second);
+        if(it->second != nullptr) {
+            LOG(LogError) << "Error par addjoystic " << (it->second->getDeviceId());
+        }
+        if(it->second != nullptr && it->second->getDeviceId() < 0 ){
             LOG(LogInfo) << "Reinitialize because of SDL_JOYDEVADDED unknown";
             this->init();
-	   this->computeLastKnownPlayersDeviceIndexes();
-	} else {
-	   LOG(LogError) << "Error par addjoystic cancel ";
-	   return false;
-	}
+            this->computeLastKnownPlayersDeviceIndexes();
+        } else {
+            LOG(LogError) << "Error par addjoystic cancel ";
+            return false;
         }
 #endif
         return true;
-
+    }
 	case SDL_JOYDEVICEREMOVED:
 #if defined(__APPLE__)
     removeJoystickByJoystickID(ev.jdevice.which); // ev.jdevice.which is an SDL_JoystickID (instance ID)
