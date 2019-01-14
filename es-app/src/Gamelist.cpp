@@ -24,55 +24,35 @@ FileData* findOrCreateFile(SystemData* system, const boost::filesystem::path& pa
 	auto path_it = relative.begin();
 	FileData* treeNode = root;
 	bool found = false;
-	while(path_it != relative.end())
-	{
-		const std::vector<FileData*>& children = treeNode->getChildren();
-		found = false;
+        
+        std::string systemname = system->getName();
+        FileData* trNode = treeNode->getItemFromMap(path.generic_string());
+        if (!trNode) {
+            if(type == FOLDER)
+            {
+                    LOG(LogWarning) << "gameList: folder doesn't already exist, won't create";
+                    return NULL;
+            }
+        
+            if (!treeNode->getChildren().empty()) {
+                std::string needle = path.generic_string();
+		const std::vector<FileData*>& children = treeNode->getChildren();                
 		for(auto child_it = children.begin(); child_it != children.end(); child_it++)
 		{
-			if((*child_it)->getPath().filename() == *path_it)
-			{
-				treeNode = *child_it;
-				found = true;
-				break;
-			}
-		}
-
-		// this is the end
-		if(path_it == --relative.end())
-		{
-			if(found)
-				return treeNode;
-
-			if(type == FOLDER)
-			{
-				LOG(LogWarning) << "gameList: folder doesn't already exist, won't create";
-				return NULL;
-			}
-
-			FileData* file = new FileData(type, path, system);
-			treeNode->addChild(file);
-			return file;
-		}
-
-		if(!found)
-		{
-			// don't create folders unless it's leading up to a game
-			// if type is a folder it's gonna be empty, so don't bother
-			if(type == FOLDER)
-			{
-				LOG(LogWarning) << "gameList: folder doesn't already exist, won't create";
-				return NULL;
-			}
-			
-			// create missing folder
-			FileData* folder = new FileData(FOLDER, treeNode->getPath().stem() / *path_it, system);
-			treeNode->addChild(folder);
-			treeNode = folder;
-		}
-
-		path_it++;
-	}
+                    FileData* trChildNode = (*child_it)->getItemFromMap(path.generic_string());
+                    if (trChildNode) {
+                        return trChildNode;
+                    }
+                }
+            }
+            
+            FileData* file = new FileData(type, path, system);
+            treeNode->addChild(file);
+            treeNode->putItemToMap(path.generic_string(), file);
+            return file;
+        } else {
+            return trNode;
+        } 
 
 	return NULL;
 }
@@ -88,7 +68,7 @@ void parseGamelist(SystemData* system)
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(xmlpath.c_str());
-
+    FileData* file;
 	if(!result)
 	{
 		LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
@@ -114,19 +94,19 @@ void parseGamelist(SystemData* system)
 		{
 			fs::path path = resolvePath(fileNode.child("path").text().get(), relativeTo, false);
 			
-			if(!boost::filesystem::exists(path))
+                        bool fileExists = boost::filesystem::exists(path);
+			if(!fileExists)
 			{
 				LOG(LogWarning) << "File \"" << path << "\" does not exist! Ignoring.";
 				continue;
 			}
 
-			FileData* file = findOrCreateFile(system, path, type);
-			if(!file)
-			{
-				LOG(LogError) << "Error finding/creating FileData for \"" << path << "\", skipping.";
-				continue;
-			}
-
+                        file = findOrCreateFile(system, path, type);
+                        if(!file)
+                        {
+                                LOG(LogError) << "Error finding/creating FileData for \"" << path << "\", skipping.";
+                                continue;
+                        }
 			//load the metadata
 			std::string defaultName = file->metadata.get("name");
 			file->metadata = MetaDataList::createFromXML(GAME_METADATA, fileNode, relativeTo);

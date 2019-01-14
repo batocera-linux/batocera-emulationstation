@@ -12,6 +12,7 @@
 #endif
 #include <sstream>
 #include "Settings.h"
+#include "platform.h"
 #include <iostream>
 #include <fstream>
 #include "Log.h"

@@ -14,6 +14,7 @@
 #include "Settings.h"
 #include "FileSorts.h"
 #include "Util.h"
+#include "RecalboxConf.h"
 #include <boost/thread.hpp>
 #include <boost/asio/io_service.hpp>
 #include <boost/make_shared.hpp>
@@ -546,9 +547,18 @@ unsigned int SystemData::getHiddenCount() const
 	return mRootFolder->getHiddenRecursive(GAME).size();
 }
 
+std::shared_ptr<ThemeData> SystemData::getloadedTheme()
+{
+   return mTheme; 
+}
+
 void SystemData::loadTheme()
 {
-	mTheme = std::make_shared<ThemeData>();
+	if (mTheme == nullptr)
+	{
+		LOG(LogError) << "SystemData loadTheme : mTheme null create new ONE ";
+		mTheme = std::make_shared<ThemeData>();
+	}
 
 	std::string path = getThemePath();
 
@@ -585,3 +595,12 @@ SystemData* SystemData::getFavoriteSystem() {
 	return NULL;
 }
 
+void SystemData::reloadSystemsTheme() {
+	if(sSystemVector.size()) {
+		// THE RELOAD THEME OF EACH SYSTEM
+		for (unsigned int i = 0; i < sSystemVector.size(); i++) {
+			sSystemVector[i]->loadTheme();
+		}
+	}
+}
+ 

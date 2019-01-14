@@ -33,9 +33,9 @@ std::vector<HelpPrompt> GuiInstall::getHelpPrompts()
 	return std::vector<HelpPrompt>();
 }
 
-void GuiInstall::render(const Eigen::Affine3f& parentTrans)
+void GuiInstall::render(const Transform4x4f& parentTrans)
 {
-        Eigen::Affine3f trans = parentTrans * getTransform();
+        Transform4x4f trans = parentTrans * getTransform();
 
         renderChildren(trans);
 

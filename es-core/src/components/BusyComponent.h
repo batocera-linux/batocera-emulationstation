@@ -16,7 +16,7 @@ public:
 	void setText(std::string txt);
 
 	void reset(); // reset to frame 0
-	virtual void render(const Eigen::Affine3f& parentTrans);
+	virtual void render(const Transform4x4f& parentTrans);
 private:
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;

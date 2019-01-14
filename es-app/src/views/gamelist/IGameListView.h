@@ -23,7 +23,7 @@ public:
 	virtual void onFileChanged(FileData* file, FileChangeType change) = 0;
 	
 	// Called whenever the theme changes.
-	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) = 0;
+	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& /*theme*/) = 0;
 
 	void setTheme(const std::shared_ptr<ThemeData>& theme);
 	inline const std::shared_ptr<ThemeData>& getTheme() const { return mTheme; }

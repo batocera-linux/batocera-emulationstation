@@ -18,6 +18,7 @@ public:
 	void displayMessage(std::string message);
 	void removeGui(GuiComponent* gui);
 	GuiComponent* peekGui();
+	inline int getGuiStackSize() { return (int)mGuiStack.size(); }
 
 	void textInput(const char* text);
 	void input(InputConfig* config, Input input);

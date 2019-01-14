@@ -42,6 +42,11 @@ Window::~Window()
 
 void Window::pushGui(GuiComponent* gui)
 {
+	if (mGuiStack.size() > 0)
+	{
+		auto& top = mGuiStack.back();
+		top->topWindow(false);
+	}
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
 }
@@ -53,14 +58,17 @@ void Window::displayMessage(std::string message)
 
 void Window::removeGui(GuiComponent* gui)
 {
-	for(auto i = mGuiStack.begin(); i != mGuiStack.end(); i++)
+	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 	{
 		if(*i == gui)
 		{
 			i = mGuiStack.erase(i);
 
-			if(i == mGuiStack.end() && mGuiStack.size()) // we just popped the stack and the stack is not empty
+			if(i == mGuiStack.cend() && mGuiStack.size()) // we just popped the stack and the stack is not empty
+			{
 				mGuiStack.back()->updateHelpPrompts();
+				mGuiStack.back()->topWindow(true);
+			}
 
 			return;
 		}
@@ -108,6 +116,11 @@ bool Window::init(unsigned int width, unsigned int height, bool initRenderer)
 
 void Window::deinit()
 {
+	// Hide all GUI elements on uninitialisation - this disable
+	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
+	{
+		(*i)->onHide();
+	}
 	InputManager::getInstance()->deinit();
 	ResourceManager::getInstance()->unloadAll();
 	Renderer::deinit();
@@ -263,7 +276,7 @@ void Window::update(int deltaTime)
 
 void Window::render()
 {
-	Eigen::Affine3f transform = Eigen::Affine3f::Identity();
+	Transform4x4f transform = Transform4x4f::Identity();
 
 	mRenderedHelpPrompts = false;
 
@@ -286,18 +299,18 @@ void Window::render()
 
 	if(Settings::getInstance()->getBool("DrawFramerate") && mFrameDataText)
 	{
-		Renderer::setMatrix(Eigen::Affine3f::Identity());
+		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
 	if(Settings::getInstance()->getBool("DrawClock") && mClockText)
 	  {
-	    Renderer::setMatrix(Eigen::Affine3f::Identity());
+	    Renderer::setMatrix(Transform4x4f::Identity());
 	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
 	  }
 
 	// pads
-	Renderer::setMatrix(Eigen::Affine3f::Identity());
+	Renderer::setMatrix(Transform4x4f::Identity());
 	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 	for (int player = 0; player < MAX_PLAYERS; player++) {
 	  if(playerJoysticks.count(player) == 1) {
@@ -346,7 +359,7 @@ void Window::setAllowSleep(bool sleep)
 
 void Window::renderWaitingScreen(const std::string& text)
 {
-	Eigen::Affine3f trans = Eigen::Affine3f::Identity();
+	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
 	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFFFF);
 
@@ -358,8 +371,8 @@ void Window::renderWaitingScreen(const std::string& text)
 
 	auto& font = mDefaultFonts.at(1);
 	TextCache* cache = font->buildTextCache(text, 0, 0, 0x656565FF);
-	trans = trans.translate(Eigen::Vector3f(round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f),
-											round(Renderer::getScreenHeight() * 0.835f), 0.0f));
+	trans = trans.translate(Vector3f(Math::round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f),
+		Math::round(Renderer::getScreenHeight() * 0.835f), 0.0f));
 	Renderer::setMatrix(trans);
 	font->renderTextCache(cache);
 	delete cache;
@@ -373,7 +386,7 @@ void Window::renderLoadingScreen()
 
 void Window::renderHelpPromptsEarly()
 {
-	mHelp->render(Eigen::Affine3f::Identity());
+	mHelp->render(Transform4x4f::Identity());
 	mRenderedHelpPrompts = true;
 }
 
@@ -386,14 +399,14 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 
 	std::map<std::string, bool> inputSeenMap;
 	std::map<std::string, int> mappedToSeenMap;
-	for(auto it = prompts.begin(); it != prompts.end(); it++)
+	for(auto it = prompts.cbegin(); it != prompts.cend(); it++)
 	{
 		// only add it if the same icon hasn't already been added
 	  if(inputSeenMap.insert(std::make_pair<std::string, bool>(it->first.c_str(), true)).second)
 		{
 			// this symbol hasn't been seen yet, what about the action name?
 			auto mappedTo = mappedToSeenMap.find(it->second);
-			if(mappedTo != mappedToSeenMap.end())
+			if(mappedTo != mappedToSeenMap.cend())
 			{
 				// yes, it has!
 
@@ -469,7 +482,7 @@ bool Window::isProcessing()
 
 void Window::renderScreenSaver()
 {
-	Renderer::setMatrix(Eigen::Affine3f::Identity());
+	Renderer::setMatrix(Transform4x4f::Identity());
 	unsigned char opacity = Settings::getInstance()->getString("ScreenSaverBehavior") == "dim" ? 0xA0 : 0xFF;
 	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x00000000 | opacity);
 }

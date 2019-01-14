@@ -28,7 +28,7 @@
 #define DEFAULT_COLOR 0x777777FF
 #define DEFAULT_DISABLED_COLOR 0xBBBBBBFF
 
-using namespace Eigen;
+
 namespace fs = boost::filesystem;
 typedef FileSystemSelectorComponent fssc;
 typedef fssc::FileEntry fe;

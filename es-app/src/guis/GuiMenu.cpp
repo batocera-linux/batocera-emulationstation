@@ -67,7 +67,7 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 
     auto bracket = std::make_shared<ImageComponent>(mWindow);
     bracket->setImage(":/arrow.svg");
-    bracket->setResize(Eigen::Vector2f(0, lbl->getFont()->getLetterHeight()));
+    bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
     row.addElement(bracket, false);
 
     auto updateVal = [ed, settingsID, password](const std::string &newVal) {
@@ -919,15 +919,32 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          s->addWithLabel(_("THEME SET"), theme_set);
 
                          Window *window = mWindow;
-                         s->addSaveFunc([window, theme_set] {
-                             bool needReload = false;
+                         s->addSaveFunc([this, window, theme_set] {
+                             bool needReload = true;
                              if (Settings::getInstance()->getString("ThemeSet") != theme_set->getSelected())
                                  needReload = true;
 
                              Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
 
-                             if (needReload)
-                                 ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
+							if (needReload) {
+								window->pushGui(new GuiMsgBox(window, _("APPLY SELECTED THEME ?"), _("YES"),
+									[this, window] {
+									ViewController::get()->goToStart();
+									window->renderShutdownScreen();
+									delete ViewController::get();
+									SystemData::reloadSystemsTheme();
+									GuiComponent *gui;
+									while ((gui = window->peekGui()) != NULL) {
+										window->removeGui(gui);
+										delete gui;
+									}
+									ViewController::init(window);
+									ViewController::get()->reloadAll();
+									window->pushGui(ViewController::get());
+									}, _("NO"), nullptr)
+								);
+								//ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
+							}
                          });
                      }
 
@@ -1445,7 +1462,7 @@ void GuiMenu::createConfigInput() {
         // For each available and configured input
         for (auto it = 0; it < InputManager::getInstance()->getNumJoysticks(); it++) {
             InputConfig *config = InputManager::getInstance()->getInputConfigByDevice(it);
-            if (config->isConfigured()) {
+            if (config != nullptr && config->isConfigured()) {
                 // create name
                 std::stringstream dispNameSS;
                 dispNameSS << "#" << config->getDeviceId() << " ";

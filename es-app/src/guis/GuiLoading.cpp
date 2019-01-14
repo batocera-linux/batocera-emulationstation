@@ -39,8 +39,8 @@ std::vector<HelpPrompt> GuiLoading::getHelpPrompts() {
     return std::vector<HelpPrompt>();
 }
 
-void GuiLoading::render(const Eigen::Affine3f &parentTrans) {
-    Eigen::Affine3f trans = parentTrans * getTransform();
+void GuiLoading::render(const Transform4x4f& parentTrans) {
+    Transform4x4f trans = parentTrans * getTransform();
 
     renderChildren(trans);
 

@@ -7,7 +7,6 @@
 
 #define TITLE_HEIGHT (mTitle->getFont()->getLetterHeight() + TITLE_VERT_PADDING)
 
-using namespace Eigen;
 
 MenuComponent::MenuComponent(Window* window, const char* title, const std::shared_ptr<Font>& titleFont) : GuiComponent(window), 
 	mBackground(window), mGrid(window, Vector2i(1, 3))
@@ -19,7 +18,7 @@ MenuComponent::MenuComponent(Window* window, const char* title, const std::share
 
 	// set up title
 	mTitle = std::make_shared<TextComponent>(mWindow);
-	mTitle->setAlignment(ALIGN_CENTER);
+	mTitle->setHorizontalAlignment(ALIGN_CENTER);
 	mTitle->setColor(0x555555FF);
 	setTitle(title, titleFont);
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false);
@@ -64,12 +63,13 @@ void MenuComponent::updateSize()
 		}
 	}
 
-	setSize(Renderer::getScreenWidth() * 0.5f, height);
+	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
+	setSize(width, height);
 }
 
 void MenuComponent::onSizeChanged()
 {
-	mBackground.fitTo(mSize, Eigen::Vector3f::Zero(), Eigen::Vector2f(-32, -32));
+	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	// update grid row/col sizes
 	mGrid.setRowHeightPerc(0, TITLE_HEIGHT / mSize.y());
@@ -106,7 +106,7 @@ std::vector<HelpPrompt> MenuComponent::getHelpPrompts()
 
 std::shared_ptr<ComponentGrid> makeButtonGrid(Window* window, const std::vector< std::shared_ptr<ButtonComponent> >& buttons)
 {
-	std::shared_ptr<ComponentGrid> buttonGrid = std::make_shared<ComponentGrid>(window, Vector2i(buttons.size(), 2));
+	std::shared_ptr<ComponentGrid> buttonGrid = std::make_shared<ComponentGrid>(window, Vector2i((int)buttons.size(), 2));
 
 	float buttonGridWidth = (float)BUTTON_GRID_HORIZ_PADDING * buttons.size(); // initialize to padding
 	for(int i = 0; i < (int)buttons.size(); i++)
@@ -129,6 +129,6 @@ std::shared_ptr<ImageComponent> makeArrow(Window* window)
 {
 	auto bracket = std::make_shared<ImageComponent>(window);
 	bracket->setImage(":/arrow.svg");
-	bracket->setResize(0, round(Font::get(FONT_SIZE_MEDIUM)->getLetterHeight()));
+	bracket->setResize(0, Math::round(Font::get(FONT_SIZE_MEDIUM)->getLetterHeight()));
 	return bracket;
 }

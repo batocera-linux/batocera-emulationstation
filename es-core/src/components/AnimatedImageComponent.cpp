@@ -41,7 +41,7 @@ void AnimatedImageComponent::reset()
 
 void AnimatedImageComponent::onSizeChanged()
 {
-	for(auto it = mFrames.begin(); it != mFrames.end(); it++)
+	for(auto it = mFrames.cbegin(); it != mFrames.cend(); it++)
 	{
 		it->first->setResize(mSize.x(), mSize.y());
 	}
@@ -76,7 +76,7 @@ void AnimatedImageComponent::update(int deltaTime)
 	}
 }
 
-void AnimatedImageComponent::render(const Eigen::Affine3f& trans)
+void AnimatedImageComponent::render(const Transform4x4f& trans)
 {
 	if(mFrames.size())
 		mFrames.at(mCurrentFrame).first->render(getTransform() * trans);

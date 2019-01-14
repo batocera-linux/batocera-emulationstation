@@ -33,7 +33,7 @@ void ViewController::init(Window* window)
 }
 
 ViewController::ViewController(Window* window)
-	: GuiComponent(window), mCurrentView(nullptr), mCamera(Eigen::Affine3f::Identity()), mFadeOpacity(0), mLockInput(false)
+	: GuiComponent(window), mCurrentView(nullptr), mCamera(Transform4x4f::Identity()), mFadeOpacity(0), mLockInput(false)
 {
 	mState.viewing = NOTHING;
 	mFavoritesOnly = Settings::getInstance()->getBool("FavoritesOnly");
@@ -54,14 +54,28 @@ void ViewController::goToStart()
 	goToSystemView(SystemData::sSystemVector.at(0));
 }
 
+void ViewController::ReloadAndGoToStart()
+{
+	mWindow->renderLoadingScreen();
+	ViewController::get()->reloadAll();
+	ViewController::get()->goToStart();
+}
+
 int ViewController::getSystemId(SystemData* system)
 {
 	std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
-	return std::find(sysVec.begin(), sysVec.end(), system) - sysVec.begin();
+	return (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
 }
 
 void ViewController::goToSystemView(SystemData* system)
 {
+	// Tell any current view it's about to be hidden
+	if (mCurrentView)
+	{
+		mCurrentView->onHide();
+	}
+
+        LOG(LogInfo) << " VewControll goToSystemView";
 	mState.viewing = SYSTEM_SELECT;
 	mState.system = system;
 
@@ -69,6 +83,7 @@ void ViewController::goToSystemView(SystemData* system)
 	systemList->setPosition(getSystemId(system) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
 	systemList->goToSystem(system, false);
 	mCurrentView = systemList;
+	mCurrentView->onShow();
 
 	playViewTransition();
 }
@@ -130,7 +145,15 @@ void ViewController::goToGameList(SystemData* system)
 	mState.viewing = GAME_LIST;
 	mState.system = system;
 
+	if (mCurrentView)
+	{
+		mCurrentView->onHide();
+	}
 	mCurrentView = getGameListView(system);
+	if (mCurrentView)
+	{
+		mCurrentView->onShow();
+	}
 	playViewTransition();
 }
 
@@ -182,7 +205,7 @@ void ViewController::updateFavorite(SystemData* system, FileData* file)
 
 void ViewController::playViewTransition()
 {
-	Eigen::Vector3f target(Eigen::Vector3f::Identity());
+	Vector3f target(Vector3f::Zero());
 	if(mCurrentView)
 		target = mCurrentView->getPosition();
 
@@ -240,7 +263,7 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 }
 
-void ViewController::launch(FileData* game, Eigen::Vector3f center)
+void ViewController::launch(FileData* game, Vector3f center)
 {
 	if(game->getType() != GAME)
 	{
@@ -248,7 +271,11 @@ void ViewController::launch(FileData* game, Eigen::Vector3f center)
 		return;
 	}
 
-	Eigen::Affine3f origCamera = mCamera;
+	// Hide the current view
+	if (mCurrentView)
+		mCurrentView->onHide();
+
+	Transform4x4f origCamera = mCamera;
 	origCamera.translation() = -mCurrentView->getPosition();
 
 	center += mCurrentView->getPosition();
@@ -375,13 +402,15 @@ void ViewController::update(int deltaTime)
 	updateSelf(deltaTime);
 }
 
-void ViewController::render(const Eigen::Affine3f& parentTrans)
+void ViewController::render(const Transform4x4f& parentTrans)
 {
-	Eigen::Affine3f trans = mCamera * parentTrans;
+	Transform4x4f trans = mCamera * parentTrans;
+	Transform4x4f transInverse;
+	transInverse.invert(trans);
 
 	// camera position, position + size
-	Eigen::Vector3f viewStart = trans.inverse().translation();
-	Eigen::Vector3f viewEnd = trans.inverse() * Eigen::Vector3f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight(), 0);
+	Vector3f viewStart = transInverse.translation();
+	Vector3f viewEnd = transInverse * Vector3f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight(), 0);
 
 	// draw systemview
 	getSystemListView()->render(trans);
@@ -390,12 +419,12 @@ void ViewController::render(const Eigen::Affine3f& parentTrans)
 	for(auto it = mGameListViews.begin(); it != mGameListViews.end(); it++)
 	{
 		// clipping
-		Eigen::Vector3f guiStart = it->second->getPosition();
-		Eigen::Vector3f guiEnd = it->second->getPosition() + Eigen::Vector3f(it->second->getSize().x(), it->second->getSize().y(), 0);
+		Vector3f guiStart = it->second->getPosition();
+		Vector3f guiEnd = it->second->getPosition() + Vector3f(it->second->getSize().x(), it->second->getSize().y(), 0);
 
 		if(guiEnd.x() >= viewStart.x() && guiEnd.y() >= viewStart.y() &&
 			guiStart.x() <= viewEnd.x() && guiStart.y() <= viewEnd.y())
-				it->second->render(trans);
+			it->second->render(trans);
 	}
 
 	if(mWindow->peekGui() == this)
@@ -446,6 +475,10 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 			break;
 		}
 	}
+	// Redisplay the current view
+	if (mCurrentView)
+		mCurrentView->onShow();
+
 }
 
 void ViewController::reloadAll()
@@ -462,10 +495,10 @@ void ViewController::reloadAll()
 		it->first->loadTheme();
 		getGameListView(it->first)->setCursor(it->second);
 	}
-
+        
 	mSystemListView.reset();
 	getSystemListView();
-
+        
 	// update mCurrentView since the pointers changed
 	if(mState.viewing == GAME_LIST)
 	{

@@ -35,6 +35,7 @@ public:
 	FileData(FileType type, const boost::filesystem::path& path, SystemData* system);
 	virtual ~FileData();
 
+    static bool isForbiddenChar( char c );
 	inline const std::string& getName() const { return metadata.get("name"); }
 	inline FileType getType() const { return mType; }
 	inline const boost::filesystem::path& getPath() const { return mPath; }
@@ -56,7 +57,7 @@ public:
 
 	void clear();
 	void lazyPopulate(const std::vector<std::string>& searchExtensions = std::vector<std::string>(), SystemData* systemData = nullptr);
-
+    std::string cleanupString(std::string val);
 	// Returns our best guess at the "real" name for this file (will strip parenthesis and attempt to perform MAME name translation)
 	std::string getCleanName() const;
 
@@ -78,12 +79,14 @@ public:
 	static void populateRecursiveFolder(FileData* folder, const std::vector<std::string>& searchExtensions = std::vector<std::string>(), SystemData* systemData = nullptr);
 
 	MetaDataList metadata;
-
+    void putItemToMap(std::string idx, FileData* filedata);
+    FileData* getItemFromMap(std::string idx);
 private:
 	FileType mType;
 	boost::filesystem::path mPath;
 	SystemData* mSystem;
 	FileData* mParent;
 	std::vector<FileData*> mChildren;
+    std::map<std::string, FileData*> mapchildren;
 
 };
