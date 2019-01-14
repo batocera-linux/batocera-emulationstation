@@ -538,23 +538,19 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		 {
 		   auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
 		   std::vector<std::string> decorations_item;
-		   decorations_item.push_back(_("NONE"));
-
+		   
 		   std::vector<std::string> sets = GuiMenu::getDecorationsSets();
 		   for(auto it = sets.begin(); it != sets.end(); it++) {
 		     decorations_item.push_back(*it);
 		   }
 
 		   for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
-		     decorations->add(*it, *it,
-				      (RecalboxConf::getInstance()->get("global.bezel") == *it)
-				      ||
-				      (RecalboxConf::getInstance()->get("global.bezel") == "" && *it == _("NONE"))
-				      );
+		     decorations->add(_("NONE"), "none", RecalboxConf::getInstance()->get("global.bezel") == "none");
+             decorations->add(*it, *it, RecalboxConf::getInstance()->get("global.bezel") == *it);
 		   }
 		   s->addWithLabel(_("DECORATION"), decorations);
 		   s->addSaveFunc([decorations] {
-		       RecalboxConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "" : decorations->getSelected());
+		       RecalboxConf::getInstance()->set("global.bezel", decorations->getSelected());
 		       RecalboxConf::getInstance()->saveRecalboxConf();
 		     });
 		 }
