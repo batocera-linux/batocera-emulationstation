@@ -73,7 +73,9 @@ public:
     std::string getIpAdress();
 
 
-    bool scanNewBluetooth();
+    std::vector<std::string> *scanBluetooth();
+
+    bool pairBluetooth(std::string &basic_string);
 
     std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
