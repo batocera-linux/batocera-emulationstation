@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,133 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "BATOCERA.LINUX FRISSÍTÉS ELÉRHETŐ"
-
-msgid "CANCEL"
-msgstr "MÉGSE"
-
-msgid "Rating"
-msgstr "Értékelés"
-
-msgid "Released"
-msgstr "Kiadva"
-
-msgid "Developer"
-msgstr "Fejlesztő"
-
-msgid "Publisher"
-msgstr "Kiadó"
-
-msgid "Genre"
-msgstr "Műfaj"
-
-msgid "Players"
-msgstr "Játékosok"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NINCS JÁTÉK - KIHAGYÁS"
-
-msgid "RETRY"
-msgstr "ÚJRA"
-
-msgid "SKIP"
-msgstr "KIHAGY"
-
-msgid "SEARCH FOR"
-msgstr "KERESÉS"
-
-msgid "SEARCH"
-msgstr "KERESÉS"
-
-msgid "ACCEPT RESULT"
-msgstr "EREDMÉNYEK MENTÉSE"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "LEKÉRÉS FOLYAMATBAN"
-
-msgid "SYSTEM"
-msgstr "RENDSZER"
-
-msgid "subtitle text"
-msgstr "alcím szövege"
-
-msgid "INPUT"
-msgstr "BEMENET"
-
-msgid "search"
-msgstr "keresés"
-
-msgid "STOP"
-msgstr "MEGÁLLÍT"
-
-msgid "stop (progress saved)"
-msgstr "megállít (folyamat mentve)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "%i. JÁTÉK A(Z) %i-BŐL"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i JÁTÉK SIKERESEN LEKÉRVE!"
-msgstr[1] "%i JÁTÉK SIKERESEN LEKÉRVE!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JÁTÉK KIHAGYVA."
-msgstr[1] "%i JÁTÉK KIHAGYVA."
-
-msgid "OK"
-msgstr "OK"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "VISSZA"
-
-msgid "CLOSE"
-msgstr "BEZÁR"
-
-msgid "EDIT METADATA"
-msgstr "META SZERKESZTÉSE"
-
-msgid "SCRAPE"
-msgstr "LEKÉRÉS"
-
-msgid "SAVE"
-msgstr "MENTÉS"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"A FÁJL TÖRLÉSÉRE KÉSZÜLSZ!\n"
-"BIZTOS VAGY BENNE?"
+msgid "REALLY UPDATE?"
+msgstr "BIZTOS FRISSÍTESZ?"
 
 msgid "YES"
 msgstr "IGEN"
@@ -144,11 +19,56 @@ msgstr "IGEN"
 msgid "NO"
 msgstr "NEM"
 
-msgid "DELETE"
-msgstr "TÖRLÉS"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "HÁLÓZATI CSATLAKOZÁS SZÜKSÉGES"
 
-msgid "SAVE CHANGES?"
-msgstr "MENTI A VÁLTOZÁSOKAT?"
+msgid "OK"
+msgstr "OK"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "FRISSÍTÉS LETÖLTVE, A RENDSZER ÚJRAINDUL"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "NINCS FRISSÍTÉS"
+
+msgid "AN ERROR OCCURED"
+msgstr "HIBA TÖRTÉNT"
+
+msgid "INPUT"
+msgstr "BEMENET"
+
+msgid "search"
+msgstr "keresés"
+
+msgid "CANCEL"
+msgstr "MÉGSE"
+
+msgid "BACK"
+msgstr "VISSZA"
+
+msgid "CLOSE"
+msgstr "BEZÁR"
+
+msgid "OPTIONS"
+msgstr "BEÁLLÍTÁSOK"
+
+msgid "JUMP TO LETTER"
+msgstr "BETŰHÖZ UGRÁS"
+
+msgid "SORT GAMES BY"
+msgstr "JÁTÉKOK RENDEZÉSE"
+
+msgid "FAVORITES ONLY"
+msgstr "CSAK KENDVENCEK"
+
+msgid "SHOW HIDDEN"
+msgstr "REJTETT MUTATÁSA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "FŐMENÜ"
@@ -188,36 +108,6 @@ msgstr "NYELV"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "EXTRÉM (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "MAGAS (950Mhz)"
-
-msgid "NONE"
-msgstr "NINCS"
-
-msgid "HIGH (1050Mhz)"
-msgstr "MAGAS (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "ALAP (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "ALAP (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "FRISSÍTÉSEK"
@@ -267,6 +157,15 @@ msgstr "JÁTÉK ÉRTÉKELÉS"
 msgid "SMOOTH GAMES"
 msgstr "ÉLSIMÍTÁS"
 
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "VISSZATEKER"
 
@@ -275,6 +174,9 @@ msgstr "AUTO MENTÉS/TÖLTÉS"
 
 msgid "SHADERS SET"
 msgstr "SHADER VÁLASZTÁS"
+
+msgid "NONE"
+msgstr "NINCS"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -296,6 +198,15 @@ msgstr "RETROACHIEVEMENTS"
 
 msgid "HARDCORE MODE"
 msgstr "HALADÓ MÓD"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "FELHASZNÁLÓNÉV"
@@ -347,6 +258,9 @@ msgstr "KÉPERNYŐKÍMÉLŐ MÓDJA"
 
 msgid "SHOW FRAMERATE"
 msgstr "FPS MUTATÁSA"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "KÉPERNYŐ SÚGÓ"
@@ -405,6 +319,9 @@ msgstr "WIFI ENGEDÉLYEZVE"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI BEÁLLÍTÁSI HIBA"
 
+msgid "SCRAPE"
+msgstr "LEKÉRÉS"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -450,6 +367,9 @@ msgstr "Emulátor"
 msgid "Core"
 msgstr "Core"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -472,12 +392,6 @@ msgstr "KONTROLLER PÁROSÍTVA"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "NEM PÁROSÍTHATÓ A KONTROLLER"
 
-msgid "AN ERROR OCCURED"
-msgstr "HIBA TÖRTÉNT"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "NEM TALÁLHATÓ KONTROLLER"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH KONTROLLER PÁROSÍTÁSA"
 
@@ -497,23 +411,63 @@ msgstr "VÁLASZT"
 msgid "SELECT"
 msgstr "SELECT"
 
-msgid "OPTIONS"
-msgstr "BEÁLLÍTÁSOK"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "BETŰHÖZ UGRÁS"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "JÁTÉKOK RENDEZÉSE"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "CSAK KENDVENCEK"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "REJTETT MUTATÁSA"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "LEKÉRÉS FOLYAMATBAN"
+
+msgid "SYSTEM"
+msgstr "RENDSZER"
+
+msgid "subtitle text"
+msgstr "alcím szövege"
+
+msgid "SKIP"
+msgstr "KIHAGY"
+
+msgid "STOP"
+msgstr "MEGÁLLÍT"
+
+msgid "stop (progress saved)"
+msgstr "megállít (folyamat mentve)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "%i. JÁTÉK A(Z) %i-BŐL"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i JÁTÉK SIKERESEN LEKÉRVE!"
+msgstr[1] "%i JÁTÉK SIKERESEN LEKÉRVE!"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i JÁTÉK KIHAGYVA."
+msgstr[1] "%i JÁTÉK KIHAGYVA."
 
 msgid "SCRAPE THESE GAMES"
 msgstr "EZEN JÁTÉKOK LEKÉRÉSE"
@@ -551,20 +505,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINCS A FELTÉTELEKNEK MEGFELELŐ JÁTÉK."
 
-msgid "REALLY UPDATE?"
-msgstr "BIZTOS FRISSÍTESZ?"
+msgid "EDIT METADATA"
+msgstr "META SZERKESZTÉSE"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "HÁLÓZATI CSATLAKOZÁS SZÜKSÉGES"
+msgid "SAVE"
+msgstr "MENTÉS"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "FRISSÍTÉS LETÖLTVE, A RENDSZER ÚJRAINDUL"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "NINCS FRISSÍTÉS"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"A FÁJL TÖRLÉSÉRE KÉSZÜLSZ!\n"
+"BIZTOS VAGY BENNE?"
+
+msgid "DELETE"
+msgstr "TÖRLÉS"
+
+msgid "SAVE CHANGES?"
+msgstr "MENTI A VÁLTOZÁSOKAT?"
 
 msgid "enter emulator"
 msgstr "emulátor megadása"
@@ -602,6 +560,9 @@ msgstr "Bélyegkép"
 msgid "enter path to thumbnail"
 msgstr "bélyegkép elérésének megadása"
 
+msgid "Rating"
+msgstr "Értékelés"
+
 msgid "enter rating"
 msgstr "értékelés megadása"
 
@@ -611,14 +572,26 @@ msgstr "Kiadás dátuma"
 msgid "enter release date"
 msgstr "kiadás dátumának megadása"
 
+msgid "Developer"
+msgstr "Fejlesztő"
+
 msgid "enter game developer"
 msgstr "játék fejlesztőjének megadása"
+
+msgid "Publisher"
+msgstr "Kiadó"
 
 msgid "enter game publisher"
 msgstr "játék kiadójának megadása"
 
+msgid "Genre"
+msgstr "Műfaj"
+
 msgid "enter game genre"
 msgstr "játék műfajának megadása"
+
+msgid "Players"
+msgstr "Játékosok"
 
 msgid "enter number of players"
 msgstr "játékosok számának megadása"
@@ -677,14 +650,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "GÖRGET"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Kiadva"
+
+msgid "Times played"
+msgstr "Játszott idő"
 
 msgid "LAUNCH"
 msgstr "ELINDÍT"
 
-msgid "Times played"
-msgstr "Játszott idő"
+msgid "SCROLL"
+msgstr "GÖRGET"
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -710,80 +689,23 @@ msgstr "FEJLESZTŐ"
 msgid "GENRE"
 msgstr "MŰFAJ"
 
-msgid "WORKING..."
-msgstr "DOLGOZOM..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NINCS JÁTÉK - KIHAGYÁS"
 
-msgid "MOVE CURSOR"
-msgstr "KURZOR MOZGATÁSA"
+msgid "RETRY"
+msgstr "ÚJRA"
 
-msgid "STOP EDITING"
-msgstr "SZERKESZTÉS VÉGE"
+msgid "SEARCH FOR"
+msgstr "KERESÉS"
 
-msgid "EDIT"
-msgstr "SZERKESZT"
+msgid "SEARCH"
+msgstr "KERESÉS"
 
-msgid "CHANGE"
-msgstr "VÁLTOZTAT"
+msgid "ACCEPT RESULT"
+msgstr "EREDMÉNYEK MENTÉSE"
 
-msgid "never"
-msgstr "soha"
-
-msgid "just now"
-msgstr "most"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i másodperce"
-msgstr[1] "%i másodperce"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i perce"
-msgstr[1] "%i perce"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i órája"
-msgstr[1] "%i órája"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i napja"
-msgstr[1] "%i napja"
-
-msgid "unknown"
-msgstr "ismeretlen"
-
-msgid "SELECT ALL"
-msgstr "ÖSSZES"
-
-msgid "SELECT NONE"
-msgstr "SEMELYIK"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i KIJELÖLVE"
-msgstr[1] "%i KIJELÖLVE"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
-
-msgid "SPACE"
-msgstr "SZÓKÖZ"
-
-msgid "DELETE A CHAR"
-msgstr "KARAKTER TÖRLÉSE"
-
-msgid "DISCARD CHANGES"
-msgstr "MÓDOSÍTÁSOK ELVETÉSE"
-
-msgid "SHIFT"
-msgstr "SHIFT"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "FEL"
@@ -846,6 +768,21 @@ msgstr "NYOMJ LE EGY GOMBOT"
 msgid "ALREADY TAKEN"
 msgstr "MÁR BE VAN ÁLLÍTVA"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
+
+msgid "SPACE"
+msgstr "SZÓKÖZ"
+
+msgid "DELETE A CHAR"
+msgstr "KARAKTER TÖRLÉSE"
+
+msgid "DISCARD CHANGES"
+msgstr "MÓDOSÍTÁSOK ELVETÉSE"
+
+msgid "SHIFT"
+msgstr "SHIFT"
+
 msgid "WELCOME"
 msgstr "ÜDVÖZÖLLEK"
 
@@ -878,6 +815,90 @@ msgstr "BETÖLTÉS..."
 
 msgid "PLEASE WAIT..."
 msgstr "KÉREM VÁRJ..."
+
+msgid "never"
+msgstr "soha"
+
+msgid "just now"
+msgstr "most"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i másodperce"
+msgstr[1] "%i másodperce"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i perce"
+msgstr[1] "%i perce"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i órája"
+msgstr[1] "%i órája"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i napja"
+msgstr[1] "%i napja"
+
+msgid "unknown"
+msgstr "ismeretlen"
+
+msgid "MOVE CURSOR"
+msgstr "KURZOR MOZGATÁSA"
+
+msgid "STOP EDITING"
+msgstr "SZERKESZTÉS VÉGE"
+
+msgid "EDIT"
+msgstr "SZERKESZT"
+
+msgid "SELECT ALL"
+msgstr "ÖSSZES"
+
+msgid "SELECT NONE"
+msgstr "SEMELYIK"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i KIJELÖLVE"
+msgstr[1] "%i KIJELÖLVE"
+
+msgid "CHANGE"
+msgstr "VÁLTOZTAT"
+
+msgid "WORKING..."
+msgstr "DOLGOZOM..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "BATOCERA.LINUX FRISSÍTÉS ELÉRHETŐ"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "EXTRÉM (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "MAGAS (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "MAGAS (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "ALAP (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "ALAP (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "NEM TALÁLHATÓ KONTROLLER"
 
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPER"
@@ -921,9 +942,6 @@ msgstr "KÉREM VÁRJ..."
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "FRISSÍTÉSI HIBA, A RENDSZER ÚJRAINDUL"

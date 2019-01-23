@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,133 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "SİSTEMİNİZE AİT GÜNCELLEME MEVCUT"
-
-msgid "CANCEL"
-msgstr "İPTAL"
-
-msgid "Rating"
-msgstr "Puan"
-
-msgid "Released"
-msgstr "Yayın"
-
-msgid "Developer"
-msgstr "Geliştirici"
-
-msgid "Publisher"
-msgstr "Yayıncı"
-
-msgid "Genre"
-msgstr "Tür"
-
-msgid "Players"
-msgstr "Oyuncu"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "OYUN BULUNAMADI"
-
-msgid "RETRY"
-msgstr "TEKRAR DENE"
-
-msgid "SKIP"
-msgstr "GEÇ"
-
-msgid "SEARCH FOR"
-msgstr "ARAMA YAP"
-
-msgid "SEARCH"
-msgstr "ARA"
-
-msgid "ACCEPT RESULT"
-msgstr "ONAYLA"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "ÇEKME İŞLEMİ SÜRÜYOR"
-
-msgid "SYSTEM"
-msgstr "SİSTEM"
-
-msgid "subtitle text"
-msgstr "altyazı metni"
-
-msgid "INPUT"
-msgstr "GİRDİ"
-
-msgid "search"
-msgstr "ara"
-
-msgid "STOP"
-msgstr "DUR"
-
-msgid "stop (progress saved)"
-msgstr "dur"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "OYUN %i/%i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i OYUN BAŞARIYLA ÇEKİLDİ!"
-msgstr[1] "%i OYUN BAŞARIYLA ÇEKİLDİ!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i OYUN ATLANDI."
-msgstr[1] "%i OYUN ATLANDI."
-
-msgid "OK"
-msgstr "TAMAM"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "GERİ"
-
-msgid "CLOSE"
-msgstr "KAPAT"
-
-msgid "EDIT METADATA"
-msgstr "DÜZENLE"
-
-msgid "SCRAPE"
-msgstr "ÇEK"
-
-msgid "SAVE"
-msgstr "KAYDET"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"BU İŞLEM BİR DOSYA SİLECEK!\n"
-"EMİN MİSİNİZ?"
+msgid "REALLY UPDATE?"
+msgstr "GÜNCELLE?"
 
 msgid "YES"
 msgstr "EVET"
@@ -144,11 +19,56 @@ msgstr "EVET"
 msgid "NO"
 msgstr "HAYIR"
 
-msgid "DELETE"
-msgstr "SİL"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "AĞ BAĞLANTISI GEREKİYOR"
 
-msgid "SAVE CHANGES?"
-msgstr "DEĞİŞİKLİKLERİ KAYDET?"
+msgid "OK"
+msgstr "TAMAM"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "GÜNCELLEME İNDİRİLDİ, SİSTEM YENİDEN BAŞLATILACAK"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "YENİ GÜNCELLEME YOK"
+
+msgid "AN ERROR OCCURED"
+msgstr "BİR HATA OLUŞTU"
+
+msgid "INPUT"
+msgstr "GİRDİ"
+
+msgid "search"
+msgstr "ara"
+
+msgid "CANCEL"
+msgstr "İPTAL"
+
+msgid "BACK"
+msgstr "GERİ"
+
+msgid "CLOSE"
+msgstr "KAPAT"
+
+msgid "OPTIONS"
+msgstr "SEÇENEKLER"
+
+msgid "JUMP TO LETTER"
+msgstr "ŞU HARFE GİT"
+
+msgid "SORT GAMES BY"
+msgstr "SIRALAMA KRİTERİ"
+
+msgid "FAVORITES ONLY"
+msgstr "SADECE FAVORİLER"
+
+msgid "SHOW HIDDEN"
+msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "OYUN BİLGİLERİNİ DÜZENLE"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -188,36 +108,6 @@ msgstr "DİL"
 
 msgid "OVERCLOCK"
 msgstr "HIZAŞIMI"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "EKSTREM (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "YÜKSEK (950Mhz)"
-
-msgid "NONE"
-msgstr "YOK"
-
-msgid "HIGH (1050Mhz)"
-msgstr "YÜKSEK (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "YOK (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "YOK (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "GÜNCELLEMELER"
@@ -267,6 +157,15 @@ msgstr "GÖRÜNTÜ ORANI"
 msgid "SMOOTH GAMES"
 msgstr "OYUNLARI SMOOTH GÖSTER"
 
+msgid "AUTO"
+msgstr "OTOMATİK"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "GERİ SAR"
 
@@ -275,6 +174,9 @@ msgstr "OTOMATİK KAYDET/YÜKLE"
 
 msgid "SHADERS SET"
 msgstr "SHADER"
+
+msgid "NONE"
+msgstr "YOK"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -295,6 +197,15 @@ msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENT"
 
 msgid "HARDCORE MODE"
+msgstr ""
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -347,6 +258,9 @@ msgstr "EKRAN KORUYUCU DAVRANIŞI"
 
 msgid "SHOW FRAMERATE"
 msgstr "FRAMERATE GÖSTER"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "YARDIMI GÖSTER"
@@ -405,6 +319,9 @@ msgstr "WIFI ETKİN"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI YAPILANDIRMA HATASI"
 
+msgid "SCRAPE"
+msgstr "ÇEK"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -450,6 +367,9 @@ msgstr "Emulator"
 msgid "Core"
 msgstr "Core"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -471,12 +391,6 @@ msgstr "KUMANDA EŞLEŞTİRİLDİ"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "KUMANDA EŞLEŞTİRİLEMEDİ"
 
-msgid "AN ERROR OCCURED"
-msgstr "BİR HATA OLUŞTU"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "KUMANDA BULUNAMADI"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH KUMANDA EŞLEŞTİR"
 
@@ -496,23 +410,63 @@ msgstr "DEĞİŞTİR"
 msgid "SELECT"
 msgstr "SEÇ"
 
-msgid "OPTIONS"
-msgstr "SEÇENEKLER"
-
-msgid "JUMP TO LETTER"
-msgstr "ŞU HARFE GİT"
-
-msgid "SORT GAMES BY"
-msgstr "SIRALAMA KRİTERİ"
-
-msgid "FAVORITES ONLY"
-msgstr "SADECE FAVORİLER"
-
-msgid "SHOW HIDDEN"
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "OYUN BİLGİLERİNİ DÜZENLE"
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "ÇEKME İŞLEMİ SÜRÜYOR"
+
+msgid "SYSTEM"
+msgstr "SİSTEM"
+
+msgid "subtitle text"
+msgstr "altyazı metni"
+
+msgid "SKIP"
+msgstr "GEÇ"
+
+msgid "STOP"
+msgstr "DUR"
+
+msgid "stop (progress saved)"
+msgstr "dur"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "OYUN %i/%i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i OYUN BAŞARIYLA ÇEKİLDİ!"
+msgstr[1] "%i OYUN BAŞARIYLA ÇEKİLDİ!"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i OYUN ATLANDI."
+msgstr[1] "%i OYUN ATLANDI."
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ŞU OYUNLARI ÇEK"
@@ -550,20 +504,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "BU KRİTERE UYAN OYUN BULUNAMADI."
 
-msgid "REALLY UPDATE?"
-msgstr "GÜNCELLE?"
+msgid "EDIT METADATA"
+msgstr "DÜZENLE"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "AĞ BAĞLANTISI GEREKİYOR"
+msgid "SAVE"
+msgstr "KAYDET"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "GÜNCELLEME İNDİRİLDİ, SİSTEM YENİDEN BAŞLATILACAK"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "YENİ GÜNCELLEME YOK"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"BU İŞLEM BİR DOSYA SİLECEK!\n"
+"EMİN MİSİNİZ?"
+
+msgid "DELETE"
+msgstr "SİL"
+
+msgid "SAVE CHANGES?"
+msgstr "DEĞİŞİKLİKLERİ KAYDET?"
 
 msgid "enter emulator"
 msgstr "emulator girin"
@@ -601,6 +559,9 @@ msgstr "Mini-resim"
 msgid "enter path to thumbnail"
 msgstr "mini-resmin adresini girin"
 
+msgid "Rating"
+msgstr "Puan"
+
 msgid "enter rating"
 msgstr "puan girin"
 
@@ -610,14 +571,26 @@ msgstr "Yayın tarihi"
 msgid "enter release date"
 msgstr "yayınlanma tarihi girin"
 
+msgid "Developer"
+msgstr "Geliştirici"
+
 msgid "enter game developer"
 msgstr "geliştirici ismini girin"
+
+msgid "Publisher"
+msgstr "Yayıncı"
 
 msgid "enter game publisher"
 msgstr "yayıncı ismini girin"
 
+msgid "Genre"
+msgstr "Tür"
+
 msgid "enter game genre"
 msgstr "oyun türünü girin"
+
+msgid "Players"
+msgstr "Oyuncu"
 
 msgid "enter number of players"
 msgstr "oyuncu sayısını girin"
@@ -676,14 +649,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "KAYDIR"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Yayın"
+
+msgid "Times played"
+msgstr "Kaç kez oynandı"
 
 msgid "LAUNCH"
 msgstr "BAŞLAT"
 
-msgid "Times played"
-msgstr "Kaç kez oynandı"
+msgid "SCROLL"
+msgstr "KAYDIR"
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -709,79 +688,22 @@ msgstr "GELİŞTİRİCİ"
 msgid "GENRE"
 msgstr "TÜR"
 
-msgid "WORKING..."
-msgstr "DEVAM EDİYOR..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "OYUN BULUNAMADI"
 
-msgid "MOVE CURSOR"
-msgstr ""
+msgid "RETRY"
+msgstr "TEKRAR DENE"
 
-msgid "STOP EDITING"
-msgstr ""
+msgid "SEARCH FOR"
+msgstr "ARAMA YAP"
 
-msgid "EDIT"
-msgstr "DÜZENLE"
+msgid "SEARCH"
+msgstr "ARA"
 
-msgid "CHANGE"
-msgstr "DEĞİŞTİR"
+msgid "ACCEPT RESULT"
+msgstr "ONAYLA"
 
-msgid "never"
-msgstr "hiç"
-
-msgid "just now"
-msgstr "az önce"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i saniye önce"
-msgstr[1] "%i saniye önce"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i dakika önce"
-msgstr[1] "%i dakika önce"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i saat önce"
-msgstr[1] "%i saat önce"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i gün önce"
-msgstr[1] "%i gün önce"
-
-msgid "unknown"
-msgstr "bilinmiyor"
-
-msgid "SELECT ALL"
-msgstr "TÜMÜ"
-
-msgid "SELECT NONE"
-msgstr "HİÇBİRİ"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i SEÇİLİ"
-msgstr[1] "%i SEÇİLİ"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
-msgid "SPACE"
-msgstr "BOŞLUK"
-
-msgid "DELETE A CHAR"
-msgstr ""
-
-msgid "DISCARD CHANGES"
-msgstr "DEĞİŞİKLİKLERİ KAYDETME"
-
-msgid "SHIFT"
+msgid "UPDATE AVAILABLE"
 msgstr ""
 
 msgid "UP"
@@ -845,6 +767,21 @@ msgstr "HERHANGİ BİR TUŞA BASIN"
 msgid "ALREADY TAKEN"
 msgstr "ÖNCEDEN TANIMLANMIŞ"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+msgid "SPACE"
+msgstr "BOŞLUK"
+
+msgid "DELETE A CHAR"
+msgstr ""
+
+msgid "DISCARD CHANGES"
+msgstr "DEĞİŞİKLİKLERİ KAYDETME"
+
+msgid "SHIFT"
+msgstr ""
+
 msgid "WELCOME"
 msgstr "HOŞGELDİN"
 
@@ -878,6 +815,90 @@ msgstr "YÜKLENİYOR..."
 msgid "PLEASE WAIT..."
 msgstr "LÜTFEN BEKLEYİN..."
 
+msgid "never"
+msgstr "hiç"
+
+msgid "just now"
+msgstr "az önce"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i saniye önce"
+msgstr[1] "%i saniye önce"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i dakika önce"
+msgstr[1] "%i dakika önce"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i saat önce"
+msgstr[1] "%i saat önce"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i gün önce"
+msgstr[1] "%i gün önce"
+
+msgid "unknown"
+msgstr "bilinmiyor"
+
+msgid "MOVE CURSOR"
+msgstr ""
+
+msgid "STOP EDITING"
+msgstr ""
+
+msgid "EDIT"
+msgstr "DÜZENLE"
+
+msgid "SELECT ALL"
+msgstr "TÜMÜ"
+
+msgid "SELECT NONE"
+msgstr "HİÇBİRİ"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SEÇİLİ"
+msgstr[1] "%i SEÇİLİ"
+
+msgid "CHANGE"
+msgstr "DEĞİŞTİR"
+
+msgid "WORKING..."
+msgstr "DEVAM EDİYOR..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "SİSTEMİNİZE AİT GÜNCELLEME MEVCUT"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "EKSTREM (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "YÜKSEK (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "YÜKSEK (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "YOK (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "YOK (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "KUMANDA BULUNAMADI"
+
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPER"
 
@@ -903,9 +924,6 @@ msgstr "LÜTFEN BEKLEYİN..."
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "OTOMATİK"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "GÜNCELLEME BAŞARISIZ, SİSTEM YENİDEN BAŞLATILIYOR"

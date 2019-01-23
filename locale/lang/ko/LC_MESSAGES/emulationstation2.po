@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,134 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "새로운 업데이트를 사용할 수 있습니다."
-
-msgid "CANCEL"
-msgstr "취소"
-
-msgid "Rating"
-msgstr "평점"
-
-msgid "Released"
-msgstr "발매일"
-
-msgid "Developer"
-msgstr "개발사"
-
-msgid "Publisher"
-msgstr "퍼블리셔"
-
-msgid "Genre"
-msgstr "장르"
-
-msgid "Players"
-msgstr "플레이어 수"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "발견된 게임 없음 - 건너뛰기"
-
-msgid "RETRY"
-msgstr "재시도"
-
-msgid "SKIP"
-msgstr "건너뛰기"
-
-msgid "SEARCH FOR"
-msgstr "검색 중"
-
-msgid "SEARCH"
-msgstr "검색"
-
-msgid "ACCEPT RESULT"
-msgstr "결과 동의"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "스크랩 진행 중"
-
-msgid "SYSTEM"
-msgstr "시스템"
-
-msgid "subtitle text"
-msgstr "자막"
-
-msgid "INPUT"
-msgstr "입력"
-
-msgid "search"
-msgstr "검색"
-
-msgid "STOP"
-msgstr "중단"
-
-msgid "stop (progress saved)"
-msgstr "중단 (진행 저장됨)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "게임 %i / %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"우리는 시스템을 찾을수 없습니다!\n"
-"설정 파일에서 시스템 경로가 맞는지 확인하시고,게임 디렉토리에는 확장자가 정확"
-"한 게임이 한 개 이상 있어야 합니다."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 개의 게임을 스크랩했습니다."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i 개의 게임을 건너뛰었습니다."
-
-msgid "OK"
-msgstr "확인"
-
-msgid "INSTALL BATOCERA"
-msgstr "바투세라 설치"
-
-msgid "TARGET DEVICE"
-msgstr "설치 장비"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "설치 아카텍처"
-
-msgid "VALIDATION"
-msgstr "검증"
-
-msgid "YES, I'M SURE"
-msgstr "예, 확실합니다."
-
-msgid "INSTALL"
-msgstr "설치"
-
-msgid "BACK"
-msgstr "뒤로"
-
-msgid "CLOSE"
-msgstr "닫기"
-
-msgid "EDIT METADATA"
-msgstr "게임 정보 편집"
-
-msgid "SCRAPE"
-msgstr "스크랩"
-
-msgid "SAVE"
-msgstr "저장"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"파일을 삭제합니다.\n"
-"정말로 진행하시겠습니까?"
+msgid "REALLY UPDATE?"
+msgstr "정말로 업데이트 하시겠습니까?"
 
 msgid "YES"
 msgstr "예"
@@ -145,11 +19,56 @@ msgstr "예"
 msgid "NO"
 msgstr "아니오"
 
-msgid "DELETE"
-msgstr "삭제"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "인터넷 연결 필요함"
 
-msgid "SAVE CHANGES?"
-msgstr "변경 사항을 저장 하시겠습니까?"
+msgid "OK"
+msgstr "확인"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "사용 가능한 업데이트 없음"
+
+msgid "AN ERROR OCCURED"
+msgstr "오류 발생됨"
+
+msgid "INPUT"
+msgstr "입력"
+
+msgid "search"
+msgstr "검색"
+
+msgid "CANCEL"
+msgstr "취소"
+
+msgid "BACK"
+msgstr "뒤로"
+
+msgid "CLOSE"
+msgstr "닫기"
+
+msgid "OPTIONS"
+msgstr "옵션"
+
+msgid "JUMP TO LETTER"
+msgstr "문자로 이동"
+
+msgid "SORT GAMES BY"
+msgstr "다음으로 게임 정렬"
+
+msgid "FAVORITES ONLY"
+msgstr "즐겨찾기만 표시"
+
+msgid "SHOW HIDDEN"
+msgstr "숨김 표시"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "게임 정보 편집"
+
+msgid "FINNISHED"
+msgstr "완료"
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -189,36 +108,6 @@ msgstr "언어"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "익스트림 (1100Mhz) "
-
-msgid "TURBO (1000Mhz)"
-msgstr "터보 (1000Mhz) "
-
-msgid "HIGH (950Mhz)"
-msgstr "높음 (950Mhz) "
-
-msgid "NONE"
-msgstr "없음 "
-
-msgid "HIGH (1050Mhz)"
-msgstr "높음 (1050Mhz) "
-
-msgid "NONE (900Mhz)"
-msgstr "없음 (900Mhz) "
-
-msgid "EXTREM (1350Mhz)"
-msgstr "익스트림 (1350Mhz)"
-
-msgid "TURBO (1325Mhz)+"
-msgstr "터보 (1325Mhz)+"
-
-msgid "HIGH (1300Mhz)"
-msgstr "높음 (1300Mhz)"
-
-msgid "NONE (1200Mhz)"
-msgstr "없음 (1200Mhz) "
 
 msgid "UPDATES"
 msgstr "업데이트"
@@ -268,6 +157,15 @@ msgstr "화면 비율"
 msgid "SMOOTH GAMES"
 msgstr "부드러운 게임"
 
+msgid "AUTO"
+msgstr ""
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "되감기"
 
@@ -276,6 +174,9 @@ msgstr "자동 저장/불러오기"
 
 msgid "SHADERS SET"
 msgstr "셰이더 선택"
+
+msgid "NONE"
+msgstr "없음 "
 
 msgid "SCANLINES"
 msgstr "스캔 라인"
@@ -297,6 +198,15 @@ msgstr "레트로 도전 과제"
 
 msgid "HARDCORE MODE"
 msgstr "어려움 모드"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "사용자 이름"
@@ -348,6 +258,9 @@ msgstr "화면 보호기 행동"
 
 msgid "SHOW FRAMERATE"
 msgstr "프레임 속도 표시"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "도움말 표시"
@@ -406,6 +319,9 @@ msgstr "WIFI 활성화됨"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 구성 오류"
 
+msgid "SCRAPE"
+msgstr "스크랩"
+
 msgid "REALLY SCRAPE?"
 msgstr "수집 할까요?"
 
@@ -451,6 +367,9 @@ msgstr "에뮬레이터"
 msgid "Core"
 msgstr "코어"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -472,12 +391,6 @@ msgstr "컨트롤러 페어링 완료"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "컨트롤러 페어링 불가"
 
-msgid "AN ERROR OCCURED"
-msgstr "오류 발생됨"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "발견된 컨트롤러 없음"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "블루투스 컨트롤러 페어링"
 
@@ -497,23 +410,64 @@ msgstr "선택"
 msgid "SELECT"
 msgstr "선택"
 
-msgid "OPTIONS"
-msgstr "옵션"
+msgid "INSTALL BATOCERA"
+msgstr "바투세라 설치"
 
-msgid "JUMP TO LETTER"
-msgstr "문자로 이동"
+msgid "TARGET DEVICE"
+msgstr "설치 장비"
 
-msgid "SORT GAMES BY"
-msgstr "다음으로 게임 정렬"
+msgid "TARGET ARCHITECTURE"
+msgstr "설치 아카텍처"
 
-msgid "FAVORITES ONLY"
-msgstr "즐겨찾기만 표시"
+msgid "VALIDATION"
+msgstr "검증"
 
-msgid "SHOW HIDDEN"
-msgstr "숨김 표시"
+msgid "YES, I'M SURE"
+msgstr "예, 확실합니다."
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임 정보 편집"
+msgid "INSTALL"
+msgstr "설치"
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "스크랩 진행 중"
+
+msgid "SYSTEM"
+msgstr "시스템"
+
+msgid "subtitle text"
+msgstr "자막"
+
+msgid "SKIP"
+msgstr "건너뛰기"
+
+msgid "STOP"
+msgstr "중단"
+
+msgid "stop (progress saved)"
+msgstr "중단 (진행 저장됨)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "게임 %i / %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+"우리는 시스템을 찾을수 없습니다!\n"
+"설정 파일에서 시스템 경로가 맞는지 확인하시고,게임 디렉토리에는 확장자가 정확"
+"한 게임이 한 개 이상 있어야 합니다."
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i 개의 게임을 스크랩했습니다."
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i 개의 게임을 건너뛰었습니다."
 
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들을 수집"
@@ -551,20 +505,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
 
-msgid "REALLY UPDATE?"
-msgstr "정말로 업데이트 하시겠습니까?"
+msgid "EDIT METADATA"
+msgstr "게임 정보 편집"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "인터넷 연결 필요함"
+msgid "SAVE"
+msgstr "저장"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
+msgstr ""
+"파일을 삭제합니다.\n"
+"정말로 진행하시겠습니까?"
 
-msgid "NO UPDATE AVAILABLE"
-msgstr "사용 가능한 업데이트 없음"
+msgid "DELETE"
+msgstr "삭제"
 
-msgid "FINNISHED"
-msgstr "완료"
+msgid "SAVE CHANGES?"
+msgstr "변경 사항을 저장 하시겠습니까?"
 
 msgid "enter emulator"
 msgstr "에뮬레이터 선택"
@@ -602,6 +560,9 @@ msgstr "축소판 그림"
 msgid "enter path to thumbnail"
 msgstr "축소판 그림 경로 입력"
 
+msgid "Rating"
+msgstr "평점"
+
 msgid "enter rating"
 msgstr "평점 입력"
 
@@ -611,14 +572,26 @@ msgstr "발매일"
 msgid "enter release date"
 msgstr "발매일 입력"
 
+msgid "Developer"
+msgstr "개발사"
+
 msgid "enter game developer"
 msgstr "개발사 입력"
+
+msgid "Publisher"
+msgstr "퍼블리셔"
 
 msgid "enter game publisher"
 msgstr "퍼블리셔 입력"
 
+msgid "Genre"
+msgstr "장르"
+
 msgid "enter game genre"
 msgstr "장르 입력"
+
+msgid "Players"
+msgstr "플레이어 수"
 
 msgid "enter number of players"
 msgstr "플레이어 수 입력"
@@ -674,14 +647,20 @@ msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
 msgstr[0] "%i 개의 게임 숨김"
 
-msgid "SCROLL"
-msgstr "스크롤"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "발매일"
+
+msgid "Times played"
+msgstr "플레이 횟수"
 
 msgid "LAUNCH"
 msgstr "실행"
 
-msgid "Times played"
-msgstr "플레이 횟수"
+msgid "SCROLL"
+msgstr "스크롤"
 
 msgid "MENU"
 msgstr "메뉴"
@@ -707,75 +686,23 @@ msgstr "개발자"
 msgid "GENRE"
 msgstr "장르"
 
-msgid "WORKING..."
-msgstr "작업 중..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "발견된 게임 없음 - 건너뛰기"
 
-msgid "MOVE CURSOR"
-msgstr "커서 이동"
+msgid "RETRY"
+msgstr "재시도"
 
-msgid "STOP EDITING"
-msgstr "편집 중단"
+msgid "SEARCH FOR"
+msgstr "검색 중"
 
-msgid "EDIT"
-msgstr "편집"
+msgid "SEARCH"
+msgstr "검색"
 
-msgid "CHANGE"
-msgstr "변경"
+msgid "ACCEPT RESULT"
+msgstr "결과 동의"
 
-msgid "never"
-msgstr "없음"
-
-msgid "just now"
-msgstr "방금 전"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i 초 전"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i 분 전"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i 시간 전"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i 일 전"
-
-msgid "unknown"
-msgstr "알수없음"
-
-msgid "SELECT ALL"
-msgstr "모두 선택"
-
-msgid "SELECT NONE"
-msgstr "모두 선택 안함"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i 개 선택됨"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
-
-msgid "SPACE"
-msgstr "스페이스"
-
-msgid "DELETE A CHAR"
-msgstr "문자 삭제"
-
-msgid "DISCARD CHANGES"
-msgstr "변경 취소"
-
-msgid "SHIFT"
-msgstr "쉬프트"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "위"
@@ -837,6 +764,21 @@ msgstr "아무 버튼이나 누르세요."
 msgid "ALREADY TAKEN"
 msgstr "이미 설정되었습니다."
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
+
+msgid "SPACE"
+msgstr "스페이스"
+
+msgid "DELETE A CHAR"
+msgstr "문자 삭제"
+
+msgid "DISCARD CHANGES"
+msgstr "변경 취소"
+
+msgid "SHIFT"
+msgstr "쉬프트"
+
 msgid "WELCOME"
 msgstr "환영합니다."
 
@@ -868,3 +810,91 @@ msgstr "불러오는 중..."
 
 msgid "PLEASE WAIT..."
 msgstr "잠시 기다려 주십시오..."
+
+msgid "never"
+msgstr "없음"
+
+msgid "just now"
+msgstr "방금 전"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i 초 전"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i 분 전"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i 시간 전"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i 일 전"
+
+msgid "unknown"
+msgstr "알수없음"
+
+msgid "MOVE CURSOR"
+msgstr "커서 이동"
+
+msgid "STOP EDITING"
+msgstr "편집 중단"
+
+msgid "EDIT"
+msgstr "편집"
+
+msgid "SELECT ALL"
+msgstr "모두 선택"
+
+msgid "SELECT NONE"
+msgstr "모두 선택 안함"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i 개 선택됨"
+
+msgid "CHANGE"
+msgstr "변경"
+
+msgid "WORKING..."
+msgstr "작업 중..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "새로운 업데이트를 사용할 수 있습니다."
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "익스트림 (1100Mhz) "
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "터보 (1000Mhz) "
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "높음 (950Mhz) "
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "높음 (1050Mhz) "
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "없음 (900Mhz) "
+
+#~ msgid "EXTREM (1350Mhz)"
+#~ msgstr "익스트림 (1350Mhz)"
+
+#~ msgid "TURBO (1325Mhz)+"
+#~ msgstr "터보 (1325Mhz)+"
+
+#~ msgid "HIGH (1300Mhz)"
+#~ msgstr "높음 (1300Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "없음 (1200Mhz) "
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "발견된 컨트롤러 없음"

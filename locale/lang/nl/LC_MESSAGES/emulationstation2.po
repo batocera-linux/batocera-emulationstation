@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,135 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "Er is een update beschikbaar voor je BATOCERA.LINUX"
-
-msgid "CANCEL"
-msgstr "Stoppen"
-
-msgid "Rating"
-msgstr "Beoordeling"
-
-msgid "Released"
-msgstr "Uitgebracht"
-
-msgid "Developer"
-msgstr "Ontwikkelaar"
-
-msgid "Publisher"
-msgstr "Uitgever"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "Players"
-msgstr "Spelers"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "Geen spellen gevonden - Overslaan"
-
-msgid "RETRY"
-msgstr "Opnieuw"
-
-msgid "SKIP"
-msgstr "Overslaan"
-
-msgid "SEARCH FOR"
-msgstr "Zoeken naar"
-
-msgid "SEARCH"
-msgstr "Zoeken"
-
-msgid "ACCEPT RESULT"
-msgstr ""
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "Bezig met scrapen"
-
-msgid "SYSTEM"
-msgstr "Systeem"
-
-msgid "subtitle text"
-msgstr "Ondertitelings tekst"
-
-msgid "INPUT"
-msgstr "Invoer"
-
-msgid "search"
-msgstr "Zoeken"
-
-msgid "STOP"
-msgstr "Stop"
-
-msgid "stop (progress saved)"
-msgstr "Stop (voortgang opgeslagen)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "Spel %i van %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, fuzzy, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] ""
-"%i Spel juist gescraped!\n"
-"%i Spellen juist gescraped!"
-msgstr[1] ""
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i Spel overgeslagen"
-msgstr[1] "%i Spellen overgeslagen"
-
-msgid "OK"
-msgstr "Ok"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "Terug"
-
-msgid "CLOSE"
-msgstr "Sluiten"
-
-msgid "EDIT METADATA"
-msgstr "Wijzigen metadata"
-
-msgid "SCRAPE"
-msgstr "Scrape"
-
-msgid "SAVE"
-msgstr "Opslaan"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"Dit zal een bestand wissen!\n"
-"Weet je het zeker?"
+msgid "REALLY UPDATE?"
+msgstr "Wil je updaten?"
 
 msgid "YES"
 msgstr "Ja"
@@ -146,11 +19,56 @@ msgstr "Ja"
 msgid "NO"
 msgstr "Nee"
 
-msgid "DELETE"
-msgstr "Wissen"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "Netwerk verbinding nodig"
 
-msgid "SAVE CHANGES?"
-msgstr "Wijzigingen opslaan?"
+msgid "OK"
+msgstr "Ok"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "Update gedownload, Het systeem zal nu herstarten"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "Er is geen update beschikbaar"
+
+msgid "AN ERROR OCCURED"
+msgstr "Er is een probleem opgetreden"
+
+msgid "INPUT"
+msgstr "Invoer"
+
+msgid "search"
+msgstr "Zoeken"
+
+msgid "CANCEL"
+msgstr "Stoppen"
+
+msgid "BACK"
+msgstr "Terug"
+
+msgid "CLOSE"
+msgstr "Sluiten"
+
+msgid "OPTIONS"
+msgstr "Opties"
+
+msgid "JUMP TO LETTER"
+msgstr "Ga naar letter"
+
+msgid "SORT GAMES BY"
+msgstr "Sorteer spellen op"
+
+msgid "FAVORITES ONLY"
+msgstr "Alleen favorieten"
+
+msgid "SHOW HIDDEN"
+msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "Bewerk deze spelgegevens"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "Hoofdmenu"
@@ -190,36 +108,6 @@ msgstr "Taal"
 
 msgid "OVERCLOCK"
 msgstr "Overklok"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "Extreem (1100MHz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "Turbo (1000MHz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "Hoog (950MHz)"
-
-msgid "NONE"
-msgstr "Geen"
-
-msgid "HIGH (1050Mhz)"
-msgstr "Hoog (1050MHz)"
-
-msgid "NONE (900Mhz)"
-msgstr "Geen (900MHz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "Geen (1200MHz)"
 
 msgid "UPDATES"
 msgstr "Updates"
@@ -269,6 +157,15 @@ msgstr "Spel Ratio"
 msgid "SMOOTH GAMES"
 msgstr "Vloeiende spellen"
 
+msgid "AUTO"
+msgstr "Automatisch"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "Terugspoelen"
 
@@ -277,6 +174,9 @@ msgstr "Auto opslaan/laden"
 
 msgid "SHADERS SET"
 msgstr "Shaders Set"
+
+msgid "NONE"
+msgstr "Geen"
 
 msgid "SCANLINES"
 msgstr "Scanlines"
@@ -298,6 +198,15 @@ msgstr "Retroarchievements"
 
 msgid "HARDCORE MODE"
 msgstr "Hardcore mode"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "Gebruikersnaam"
@@ -349,6 +258,9 @@ msgstr "Schermbeveiliging gedrag"
 
 msgid "SHOW FRAMERATE"
 msgstr "Toon framerate"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "Scherm hulp"
@@ -407,6 +319,9 @@ msgstr "Wifi ingeschakeld"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "Wifi configuratie fout"
 
+msgid "SCRAPE"
+msgstr "Scrape"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -452,6 +367,9 @@ msgstr "Emulator"
 msgid "Core"
 msgstr "Core"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -475,12 +393,6 @@ msgstr "Controller gepaard"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "Niet mogelijk de controller te linken"
 
-msgid "AN ERROR OCCURED"
-msgstr "Er is een probleem opgetreden"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "Geen controllers gevonden"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "Link een Bluetooth controller"
 
@@ -500,23 +412,65 @@ msgstr "Kies"
 msgid "SELECT"
 msgstr "Selecteer"
 
-msgid "OPTIONS"
-msgstr "Opties"
-
-msgid "JUMP TO LETTER"
-msgstr "Ga naar letter"
-
-msgid "SORT GAMES BY"
-msgstr "Sorteer spellen op"
-
-msgid "FAVORITES ONLY"
-msgstr "Alleen favorieten"
-
-msgid "SHOW HIDDEN"
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "Bewerk deze spelgegevens"
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "Bezig met scrapen"
+
+msgid "SYSTEM"
+msgstr "Systeem"
+
+msgid "subtitle text"
+msgstr "Ondertitelings tekst"
+
+msgid "SKIP"
+msgstr "Overslaan"
+
+msgid "STOP"
+msgstr "Stop"
+
+msgid "stop (progress saved)"
+msgstr "Stop (voortgang opgeslagen)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "Spel %i van %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, fuzzy, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] ""
+"%i Spel juist gescraped!\n"
+"%i Spellen juist gescraped!"
+msgstr[1] ""
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i Spel overgeslagen"
+msgstr[1] "%i Spellen overgeslagen"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "Scrape deze spellen"
@@ -554,20 +508,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "Geen spellen gevonden met die criteria"
 
-msgid "REALLY UPDATE?"
-msgstr "Wil je updaten?"
+msgid "EDIT METADATA"
+msgstr "Wijzigen metadata"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "Netwerk verbinding nodig"
+msgid "SAVE"
+msgstr "Opslaan"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "Update gedownload, Het systeem zal nu herstarten"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "Er is geen update beschikbaar"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"Dit zal een bestand wissen!\n"
+"Weet je het zeker?"
+
+msgid "DELETE"
+msgstr "Wissen"
+
+msgid "SAVE CHANGES?"
+msgstr "Wijzigingen opslaan?"
 
 msgid "enter emulator"
 msgstr "Wijzig emulator"
@@ -605,6 +563,9 @@ msgstr "Thumbnail"
 msgid "enter path to thumbnail"
 msgstr "Toets pad naar beeld"
 
+msgid "Rating"
+msgstr "Beoordeling"
+
 msgid "enter rating"
 msgstr "Toets beoordeling"
 
@@ -614,14 +575,26 @@ msgstr "Datum publicatie"
 msgid "enter release date"
 msgstr "Wijzig publicatie datum"
 
+msgid "Developer"
+msgstr "Ontwikkelaar"
+
 msgid "enter game developer"
 msgstr "Wijzig spel ontwikkelaar"
+
+msgid "Publisher"
+msgstr "Uitgever"
 
 msgid "enter game publisher"
 msgstr "Wijzig spel uitgever"
 
+msgid "Genre"
+msgstr "Genre"
+
 msgid "enter game genre"
 msgstr "Wijzig spel genre"
+
+msgid "Players"
+msgstr "Spelers"
 
 msgid "enter number of players"
 msgstr "Wijzig nummer van spelers"
@@ -684,14 +657,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "Scroll"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Uitgebracht"
+
+msgid "Times played"
+msgstr "Keren gespeeld"
 
 msgid "LAUNCH"
 msgstr "Spelen"
 
-msgid "Times played"
-msgstr "Keren gespeeld"
+msgid "SCROLL"
+msgstr "Scroll"
 
 msgid "MENU"
 msgstr "Menu"
@@ -717,89 +696,22 @@ msgstr ""
 msgid "GENRE"
 msgstr ""
 
-msgid "WORKING..."
-msgstr "Bezig"
+msgid "NO GAMES FOUND - SKIP"
+msgstr "Geen spellen gevonden - Overslaan"
 
-msgid "MOVE CURSOR"
+msgid "RETRY"
+msgstr "Opnieuw"
+
+msgid "SEARCH FOR"
+msgstr "Zoeken naar"
+
+msgid "SEARCH"
+msgstr "Zoeken"
+
+msgid "ACCEPT RESULT"
 msgstr ""
 
-msgid "STOP EDITING"
-msgstr ""
-
-msgid "EDIT"
-msgstr ""
-
-msgid "CHANGE"
-msgstr "Wijzig"
-
-msgid "never"
-msgstr "Nooit"
-
-msgid "just now"
-msgstr "Net"
-
-#, fuzzy, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] ""
-"%i sec geleden\n"
-"%i sec geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] ""
-"%i min geleden\n"
-"%i min geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] ""
-"%i uur geleden\n"
-"%i uur geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] ""
-"%i dag geleden\n"
-"% dagen geleden"
-msgstr[1] ""
-
-msgid "unknown"
-msgstr "Onbekend"
-
-msgid "SELECT ALL"
-msgstr "Selecteer alles"
-
-msgid "SELECT NONE"
-msgstr "Selecteer niks"
-
-#, fuzzy, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] ""
-"%i geselecteerd\n"
-"%i geselecteerd"
-msgstr[1] ""
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
-msgid "SPACE"
-msgstr ""
-
-msgid "DELETE A CHAR"
-msgstr ""
-
-msgid "DISCARD CHANGES"
-msgstr "Verwijder wijzigingen"
-
-msgid "SHIFT"
+msgid "UPDATE AVAILABLE"
 msgstr ""
 
 msgid "UP"
@@ -867,6 +779,21 @@ msgstr "Druk willekeurig"
 msgid "ALREADY TAKEN"
 msgstr "In gebruik"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+msgid "SPACE"
+msgstr ""
+
+msgid "DELETE A CHAR"
+msgstr ""
+
+msgid "DISCARD CHANGES"
+msgstr "Verwijder wijzigingen"
+
+msgid "SHIFT"
+msgstr ""
+
 msgid "WELCOME"
 msgstr "Welkom"
 
@@ -901,6 +828,100 @@ msgstr "Laden"
 
 msgid "PLEASE WAIT..."
 msgstr "Wachten a.u.b."
+
+msgid "never"
+msgstr "Nooit"
+
+msgid "just now"
+msgstr "Net"
+
+#, fuzzy, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] ""
+"%i sec geleden\n"
+"%i sec geleden"
+msgstr[1] ""
+
+#, fuzzy, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] ""
+"%i min geleden\n"
+"%i min geleden"
+msgstr[1] ""
+
+#, fuzzy, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] ""
+"%i uur geleden\n"
+"%i uur geleden"
+msgstr[1] ""
+
+#, fuzzy, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] ""
+"%i dag geleden\n"
+"% dagen geleden"
+msgstr[1] ""
+
+msgid "unknown"
+msgstr "Onbekend"
+
+msgid "MOVE CURSOR"
+msgstr ""
+
+msgid "STOP EDITING"
+msgstr ""
+
+msgid "EDIT"
+msgstr ""
+
+msgid "SELECT ALL"
+msgstr "Selecteer alles"
+
+msgid "SELECT NONE"
+msgstr "Selecteer niks"
+
+#, fuzzy, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] ""
+"%i geselecteerd\n"
+"%i geselecteerd"
+msgstr[1] ""
+
+msgid "CHANGE"
+msgstr "Wijzig"
+
+msgid "WORKING..."
+msgstr "Bezig"
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "Er is een update beschikbaar voor je BATOCERA.LINUX"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "Extreem (1100MHz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "Turbo (1000MHz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "Hoog (950MHz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "Hoog (1050MHz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "Geen (900MHz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "Geen (1200MHz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "Geen controllers gevonden"
 
 #~ msgid "SCRAPER"
 #~ msgstr "Scraper"
@@ -942,9 +963,6 @@ msgstr "Wachten a.u.b."
 
 #~ msgid "JACK"
 #~ msgstr "Plug"
-
-#~ msgid "AUTO"
-#~ msgstr "Automatisch"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "Update fout, het systeem zal nu herstarten"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,133 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "E' DISPONIBILE UN AGGIORNAMENTO PER BATOCERA.LINUX"
-
-msgid "CANCEL"
-msgstr "ANNULLA"
-
-msgid "Rating"
-msgstr "Voto"
-
-msgid "Released"
-msgstr "Rilasciato"
-
-msgid "Developer"
-msgstr "Sviluppatore"
-
-msgid "Publisher"
-msgstr "Publisher"
-
-msgid "Genre"
-msgstr "Genere"
-
-msgid "Players"
-msgstr "Giocatori"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NESSUN GIOCO TROVATO - SALTA"
-
-msgid "RETRY"
-msgstr "RIPROVA"
-
-msgid "SKIP"
-msgstr "SALTA"
-
-msgid "SEARCH FOR"
-msgstr "CERCA PER"
-
-msgid "SEARCH"
-msgstr "CERCA"
-
-msgid "ACCEPT RESULT"
-msgstr "ACCETTA RISULTATO"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "RACCOLTA INFORMAZIONI IN CORSO"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "testo sottotitolo"
-
-msgid "INPUT"
-msgstr "MODIFICA"
-
-msgid "search"
-msgstr "cerca"
-
-msgid "STOP"
-msgstr "STOP"
-
-msgid "stop (progress saved)"
-msgstr "stop (progressi salvati)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "GIOCO %i DI %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i GIOCO TROVATO CON SUCCESSO!"
-msgstr[1] "%i GIOCHI TROVATI CON SUCCESSO!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i GIOCO SALTATO."
-msgstr[1] "%i GIOCHI SALTATI."
-
-msgid "OK"
-msgstr "OK"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "INDIETRO"
-
-msgid "CLOSE"
-msgstr "CHIUDI"
-
-msgid "EDIT METADATA"
-msgstr "MODIFICA LE INFORMAZIONI"
-
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
-msgid "SAVE"
-msgstr "SALVA"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"STAI CANCELLANDO UN FILE!\n"
-"SEI SICURO?"
+msgid "REALLY UPDATE?"
+msgstr "VUOI AGGIORNARE?"
 
 msgid "YES"
 msgstr "SI"
@@ -144,11 +19,56 @@ msgstr "SI"
 msgid "NO"
 msgstr "NO"
 
-msgid "DELETE"
-msgstr "ELIMINA"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "E' NECESSARIA UNA CONNESSIONE DI RETE"
 
-msgid "SAVE CHANGES?"
-msgstr "SALVARE LE MODIFICHE ?"
+msgid "OK"
+msgstr "OK"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
+
+msgid "AN ERROR OCCURED"
+msgstr "SI E’ VERIFICATO UN ERRORE"
+
+msgid "INPUT"
+msgstr "MODIFICA"
+
+msgid "search"
+msgstr "cerca"
+
+msgid "CANCEL"
+msgstr "ANNULLA"
+
+msgid "BACK"
+msgstr "INDIETRO"
+
+msgid "CLOSE"
+msgstr "CHIUDI"
+
+msgid "OPTIONS"
+msgstr "OPZIONI"
+
+msgid "JUMP TO LETTER"
+msgstr "VAI ALLA LETTERA"
+
+msgid "SORT GAMES BY"
+msgstr "ORDINA I GIOCHI PER"
+
+msgid "FAVORITES ONLY"
+msgstr "SOLO PREFERITI"
+
+msgid "SHOW HIDDEN"
+msgstr "MOSTRA NASCOSTI"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -188,36 +108,6 @@ msgstr "LINGUA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "ESTREMO (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "ALTO (950Mhz)"
-
-msgid "NONE"
-msgstr "NESSUNO"
-
-msgid "HIGH (1050Mhz)"
-msgstr "ALTO (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "NESSUNO (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "NESSUNO (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "AGGIORNAMENTI"
@@ -267,6 +157,15 @@ msgstr "FORMATO GIOCO"
 msgid "SMOOTH GAMES"
 msgstr "GRAFICA MIGLIORATA"
 
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "RIAVVOLGI"
 
@@ -275,6 +174,9 @@ msgstr "SALVATAGGIO/CARICAMENTO AUTOMATICO"
 
 msgid "SHADERS SET"
 msgstr "SET DI SHADERS"
+
+msgid "NONE"
+msgstr "NESSUNO"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -296,6 +198,15 @@ msgstr "RETROACHIEVEMENTS"
 
 msgid "HARDCORE MODE"
 msgstr "MODALITÀ HARDCORE"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "NOME UTENTE"
@@ -347,6 +258,9 @@ msgstr "COMPORTAMENTO DEL SALVASCHERMO"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRA IL FRAMERATE"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "AIUTO SU SCHERMO"
@@ -405,6 +319,9 @@ msgstr "WIFI ATTIVO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRORE DI CONFIGURAZIONE WIFI"
 
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -450,6 +367,9 @@ msgstr "Emulatore"
 msgid "Core"
 msgstr "Core"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -472,12 +392,6 @@ msgstr "I GAMEPAD SONO ATTIVI"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "NON RIESCO A TROVARE IL CONTROLLER"
 
-msgid "AN ERROR OCCURED"
-msgstr "SI E’ VERIFICATO UN ERRORE"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "NESSUN CONTROLLER TROVATO"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "CERCA UN CONTROLLER BLUETOOTH"
 
@@ -497,23 +411,63 @@ msgstr "SCEGLIERE"
 msgid "SELECT"
 msgstr "SELEZIONA"
 
-msgid "OPTIONS"
-msgstr "OPZIONI"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "VAI ALLA LETTERA"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "ORDINA I GIOCHI PER"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "SOLO PREFERITI"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "MOSTRA NASCOSTI"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "RACCOLTA INFORMAZIONI IN CORSO"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "subtitle text"
+msgstr "testo sottotitolo"
+
+msgid "SKIP"
+msgstr "SALTA"
+
+msgid "STOP"
+msgstr "STOP"
+
+msgid "stop (progress saved)"
+msgstr "stop (progressi salvati)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "GIOCO %i DI %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i GIOCO TROVATO CON SUCCESSO!"
+msgstr[1] "%i GIOCHI TROVATI CON SUCCESSO!"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i GIOCO SALTATO."
+msgstr[1] "%i GIOCHI SALTATI."
 
 msgid "SCRAPE THESE GAMES"
 msgstr "INFORMAZIONI SU QUESTI GIOCHI"
@@ -551,20 +505,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NESSUN GIOCO SODDISFA QUESTO CRITERIO DI RICERCA"
 
-msgid "REALLY UPDATE?"
-msgstr "VUOI AGGIORNARE?"
+msgid "EDIT METADATA"
+msgstr "MODIFICA LE INFORMAZIONI"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "E' NECESSARIA UNA CONNESSIONE DI RETE"
+msgid "SAVE"
+msgstr "SALVA"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"STAI CANCELLANDO UN FILE!\n"
+"SEI SICURO?"
+
+msgid "DELETE"
+msgstr "ELIMINA"
+
+msgid "SAVE CHANGES?"
+msgstr "SALVARE LE MODIFICHE ?"
 
 msgid "enter emulator"
 msgstr "inserisci emulatore"
@@ -602,6 +560,9 @@ msgstr "Miniatura"
 msgid "enter path to thumbnail"
 msgstr "inserisci percorso miniatura"
 
+msgid "Rating"
+msgstr "Voto"
+
 msgid "enter rating"
 msgstr "inserisci voto"
 
@@ -611,14 +572,26 @@ msgstr "Data di uscita"
 msgid "enter release date"
 msgstr "inserisci data di uscita"
 
+msgid "Developer"
+msgstr "Sviluppatore"
+
 msgid "enter game developer"
 msgstr "inserisci sviluppatore"
+
+msgid "Publisher"
+msgstr "Publisher"
 
 msgid "enter game publisher"
 msgstr "inserisci publisher gioco"
 
+msgid "Genre"
+msgstr "Genere"
+
 msgid "enter game genre"
 msgstr "Inserisci genere"
+
+msgid "Players"
+msgstr "Giocatori"
 
 msgid "enter number of players"
 msgstr "inserisci numero dei giocatori"
@@ -677,14 +650,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "SCORRI"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Rilasciato"
+
+msgid "Times played"
+msgstr "Numero partite"
 
 msgid "LAUNCH"
 msgstr "AVVIA"
 
-msgid "Times played"
-msgstr "Numero partite"
+msgid "SCROLL"
+msgstr "SCORRI"
 
 msgid "MENU"
 msgstr "MENU"
@@ -710,80 +689,23 @@ msgstr "SVILUPPATORE"
 msgid "GENRE"
 msgstr "GENERE"
 
-msgid "WORKING..."
-msgstr "ATTENDERE..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NESSUN GIOCO TROVATO - SALTA"
 
-msgid "MOVE CURSOR"
-msgstr "SPOSTA CURSORE"
+msgid "RETRY"
+msgstr "RIPROVA"
 
-msgid "STOP EDITING"
-msgstr "TERMINA INSERIMENTO"
+msgid "SEARCH FOR"
+msgstr "CERCA PER"
 
-msgid "EDIT"
-msgstr "MODIFICA"
+msgid "SEARCH"
+msgstr "CERCA"
 
-msgid "CHANGE"
-msgstr "MODIFICA"
+msgid "ACCEPT RESULT"
+msgstr "ACCETTA RISULTATO"
 
-msgid "never"
-msgstr "mai"
-
-msgid "just now"
-msgstr "adesso"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i secondo fa"
-msgstr[1] "%i secondi fa"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i minuto fa"
-msgstr[1] "%i minuti fa"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i ora fa"
-msgstr[1] "%i ore fa"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i giorno fa"
-msgstr[1] "%i giorni fa"
-
-msgid "unknown"
-msgstr "sconosciuto"
-
-msgid "SELECT ALL"
-msgstr "TUTTI"
-
-msgid "SELECT NONE"
-msgstr "NESSUNO"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i SELEZIONATO"
-msgstr[1] "%i SELEZIONATI"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
-
-msgid "SPACE"
-msgstr "SPAZIO"
-
-msgid "DELETE A CHAR"
-msgstr "CANCELLA UN CARATTERE"
-
-msgid "DISCARD CHANGES"
-msgstr "ANNULLA LE MODIFICHE"
-
-msgid "SHIFT"
-msgstr "SHIFT"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "SU"
@@ -846,6 +768,21 @@ msgstr "PREMI UN PULSANTE"
 msgid "ALREADY TAKEN"
 msgstr "GIA' UTILIZZATO"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
+
+msgid "SPACE"
+msgstr "SPAZIO"
+
+msgid "DELETE A CHAR"
+msgstr "CANCELLA UN CARATTERE"
+
+msgid "DISCARD CHANGES"
+msgstr "ANNULLA LE MODIFICHE"
+
+msgid "SHIFT"
+msgstr "SHIFT"
+
 msgid "WELCOME"
 msgstr "BENVENUTO"
 
@@ -878,6 +815,90 @@ msgstr "CARICAMENTO…"
 
 msgid "PLEASE WAIT..."
 msgstr "ATTENDERE PREGO…"
+
+msgid "never"
+msgstr "mai"
+
+msgid "just now"
+msgstr "adesso"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i secondo fa"
+msgstr[1] "%i secondi fa"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i minuto fa"
+msgstr[1] "%i minuti fa"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i ora fa"
+msgstr[1] "%i ore fa"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i giorno fa"
+msgstr[1] "%i giorni fa"
+
+msgid "unknown"
+msgstr "sconosciuto"
+
+msgid "MOVE CURSOR"
+msgstr "SPOSTA CURSORE"
+
+msgid "STOP EDITING"
+msgstr "TERMINA INSERIMENTO"
+
+msgid "EDIT"
+msgstr "MODIFICA"
+
+msgid "SELECT ALL"
+msgstr "TUTTI"
+
+msgid "SELECT NONE"
+msgstr "NESSUNO"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SELEZIONATO"
+msgstr[1] "%i SELEZIONATI"
+
+msgid "CHANGE"
+msgstr "MODIFICA"
+
+msgid "WORKING..."
+msgstr "ATTENDERE..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "E' DISPONIBILE UN AGGIORNAMENTO PER BATOCERA.LINUX"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "ESTREMO (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "ALTO (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "ALTO (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "NESSUNO (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "NESSUNO (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "NESSUN CONTROLLER TROVATO"
 
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPER"
@@ -921,9 +942,6 @@ msgstr "ATTENDERE PREGO…"
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "AGGIORNAMENTO FALLITO, IL SISTEMA VERRA' RIAVVIATO"
