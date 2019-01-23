@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,133 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "HI HA UNA ACTUALITZACIÓ DISPONIBLE PER EL BATOCERA.LINUX"
-
-msgid "CANCEL"
-msgstr "CANCEL·LA"
-
-msgid "Rating"
-msgstr "Valoració"
-
-msgid "Released"
-msgstr "Publicat"
-
-msgid "Developer"
-msgstr "Desenvolupador"
-
-msgid "Publisher"
-msgstr "Distribuïdor"
-
-msgid "Genre"
-msgstr "Gènere"
-
-msgid "Players"
-msgstr "Jugadors"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NO S'HA TROBAT CAP JOC - OMET"
-
-msgid "RETRY"
-msgstr "TORNA-HO A INTENTAR"
-
-msgid "SKIP"
-msgstr "OMET"
-
-msgid "SEARCH FOR"
-msgstr "CERCA PER"
-
-msgid "SEARCH"
-msgstr "CERCA"
-
-msgid "ACCEPT RESULT"
-msgstr "ACCEPTA EL RESULTAT"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "S'ESTÀ OBTENINT DADES"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "text del subtítol"
-
-msgid "INPUT"
-msgstr "ENTRADA"
-
-msgid "search"
-msgstr "cerca"
-
-msgid "STOP"
-msgstr "ATURA"
-
-msgid "stop (progress saved)"
-msgstr "atura (progrés desat)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "JOC %i DE %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
-msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "S'HA OMÈS %i JOC."
-msgstr[1] "S'HA OMÈS %i JOCS."
-
-msgid "OK"
-msgstr "ACCEPTA"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "ENRERE"
-
-msgid "CLOSE"
-msgstr "TANCA"
-
-msgid "EDIT METADATA"
-msgstr "EDITA LES METADADES"
-
-msgid "SCRAPE"
-msgstr "OBTÉ DADES"
-
-msgid "SAVE"
-msgstr "DESA"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"S'ESBORRARÀ UN FITXER.\n"
-"ESTEU SEGUR?"
+msgid "REALLY UPDATE?"
+msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
 
 msgid "YES"
 msgstr "SÍ"
@@ -144,11 +19,56 @@ msgstr "SÍ"
 msgid "NO"
 msgstr "NO"
 
-msgid "DELETE"
-msgstr "ESBORRA"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
 
-msgid "SAVE CHANGES?"
-msgstr "VOLEU DESAR ELS CANVIS?"
+msgid "OK"
+msgstr "ACCEPTA"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "S'HA BAIXAT L'ACTUALITZACIÓ. ES REINICIARÀ EL SISTEMA ARA"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
+
+msgid "AN ERROR OCCURED"
+msgstr "S'HA PRODUÏT UN ERROR"
+
+msgid "INPUT"
+msgstr "ENTRADA"
+
+msgid "search"
+msgstr "cerca"
+
+msgid "CANCEL"
+msgstr "CANCEL·LA"
+
+msgid "BACK"
+msgstr "ENRERE"
+
+msgid "CLOSE"
+msgstr "TANCA"
+
+msgid "OPTIONS"
+msgstr "OPCIONS"
+
+msgid "JUMP TO LETTER"
+msgstr "SALTA A UNA LLETRA"
+
+msgid "SORT GAMES BY"
+msgstr "ORDENA ELS JOCS PER"
+
+msgid "FAVORITES ONLY"
+msgstr "NOMÉS PREFERITS"
+
+msgid "SHOW HIDDEN"
+msgstr "MOSTRA ELS OCULTS"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITA LES METADADES D'AQUEST JOC"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -188,36 +108,6 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "VELOCITAT DE RELLOTGE"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "EXTREMA (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "ALTA (950Mhz)"
-
-msgid "NONE"
-msgstr "NORMAL"
-
-msgid "HIGH (1050Mhz)"
-msgstr "ALTA (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "NORMAL (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "NORMAL (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "ACTUALITZACIONS"
@@ -267,6 +157,15 @@ msgstr "PROPORCIÓ DEL JOC"
 msgid "SMOOTH GAMES"
 msgstr "JOCS SUAVITZATS"
 
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "REBOBINA"
 
@@ -275,6 +174,9 @@ msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 
 msgid "SHADERS SET"
 msgstr "SHADERS ESTABLERTS"
+
+msgid "NONE"
+msgstr "NORMAL"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -296,6 +198,15 @@ msgstr "ASSOLIMENTS RETRO"
 
 msgid "HARDCORE MODE"
 msgstr "MODE HARDCORE"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "USUARI"
@@ -347,6 +258,9 @@ msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA EN PANTALLA"
@@ -405,6 +319,9 @@ msgstr "EL WIFI ESTÀ ACTIU"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
 
+msgid "SCRAPE"
+msgstr "OBTÉ DADES"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -450,6 +367,9 @@ msgstr "Emulador"
 msgid "Core"
 msgstr "Nucli"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -473,12 +393,6 @@ msgstr "S'HA APARELLAT TOTS ELS COMANDAMENTS"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "NO S'HA POGUT APARELLAR EL COMANDAMENT"
 
-msgid "AN ERROR OCCURED"
-msgstr "S'HA PRODUÏT UN ERROR"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "NO S'HA TROBAT CAP COMANDAMENT"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "APARELLA UN COMANDAMENT BLUETOOTH"
 
@@ -498,23 +412,63 @@ msgstr "TRIA"
 msgid "SELECT"
 msgstr "SELECCIONA"
 
-msgid "OPTIONS"
-msgstr "OPCIONS"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "SALTA A UNA LLETRA"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "ORDENA ELS JOCS PER"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "NOMÉS PREFERITS"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "MOSTRA ELS OCULTS"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITA LES METADADES D'AQUEST JOC"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "S'ESTÀ OBTENINT DADES"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "subtitle text"
+msgstr "text del subtítol"
+
+msgid "SKIP"
+msgstr "OMET"
+
+msgid "STOP"
+msgstr "ATURA"
+
+msgid "stop (progress saved)"
+msgstr "atura (progrés desat)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "JOC %i DE %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
+msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "S'HA OMÈS %i JOC."
+msgstr[1] "S'HA OMÈS %i JOCS."
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTÉ DADES D'AQUESTS JOCS"
@@ -552,20 +506,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 
-msgid "REALLY UPDATE?"
-msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
+msgid "EDIT METADATA"
+msgstr "EDITA LES METADADES"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
+msgid "SAVE"
+msgstr "DESA"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "S'HA BAIXAT L'ACTUALITZACIÓ. ES REINICIARÀ EL SISTEMA ARA"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"S'ESBORRARÀ UN FITXER.\n"
+"ESTEU SEGUR?"
+
+msgid "DELETE"
+msgstr "ESBORRA"
+
+msgid "SAVE CHANGES?"
+msgstr "VOLEU DESAR ELS CANVIS?"
 
 msgid "enter emulator"
 msgstr "introduïu l'emulador"
@@ -603,6 +561,9 @@ msgstr "Miniatura"
 msgid "enter path to thumbnail"
 msgstr "introduïu el camí a la miniatura"
 
+msgid "Rating"
+msgstr "Valoració"
+
 msgid "enter rating"
 msgstr "introduïu la valoració"
 
@@ -612,14 +573,26 @@ msgstr "Data de publicació"
 msgid "enter release date"
 msgstr "introduïu la data de publicació"
 
+msgid "Developer"
+msgstr "Desenvolupador"
+
 msgid "enter game developer"
 msgstr "introduïu el desenvolupador"
+
+msgid "Publisher"
+msgstr "Distribuïdor"
 
 msgid "enter game publisher"
 msgstr "introduïu el distribuïdor"
 
+msgid "Genre"
+msgstr "Gènere"
+
 msgid "enter game genre"
 msgstr "introduïu el gènere"
+
+msgid "Players"
+msgstr "Jugadors"
 
 msgid "enter number of players"
 msgstr "introduïu el nombre de jugadors"
@@ -678,14 +651,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "DESPLAÇA"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Publicat"
+
+msgid "Times played"
+msgstr "Nombre de vegades que s'ha jugat"
 
 msgid "LAUNCH"
 msgstr "EXECUTA"
 
-msgid "Times played"
-msgstr "Nombre de vegades que s'ha jugat"
+msgid "SCROLL"
+msgstr "DESPLAÇA"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -711,80 +690,23 @@ msgstr "DESENVOLUPADOR"
 msgid "GENRE"
 msgstr "GÈNERE"
 
-msgid "WORKING..."
-msgstr "S'ESTÀ TREBALLANT…"
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
-msgid "MOVE CURSOR"
-msgstr "MOVEU EL CURSOR"
+msgid "RETRY"
+msgstr "TORNA-HO A INTENTAR"
 
-msgid "STOP EDITING"
-msgstr "ATURA L'EDICIÓ"
+msgid "SEARCH FOR"
+msgstr "CERCA PER"
 
-msgid "EDIT"
-msgstr "EDITA"
+msgid "SEARCH"
+msgstr "CERCA"
 
-msgid "CHANGE"
-msgstr "CANVIA"
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTA EL RESULTAT"
 
-msgid "never"
-msgstr "mai"
-
-msgid "just now"
-msgstr "fa un moment"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "fa %i segon"
-msgstr[1] "fa %i segons"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "fa %i minut"
-msgstr[1] "fa %i minuts"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "fa %i hora"
-msgstr[1] "fa %i hores"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "fa %i dia"
-msgstr[1] "fa %i dies"
-
-msgid "unknown"
-msgstr "desconegut"
-
-msgid "SELECT ALL"
-msgstr "SELECCIONA-HO TOT"
-
-msgid "SELECT NONE"
-msgstr "NO SELECCIONIS RES"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i SELECCIONAT"
-msgstr[1] "%i SELECCIONATS"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "UPDATE AVAILABLE"
 msgstr ""
-
-msgid "SPACE"
-msgstr "ESPAI"
-
-msgid "DELETE A CHAR"
-msgstr "ESBORRA UN CARÀCTER"
-
-msgid "DISCARD CHANGES"
-msgstr "DESCARTA ELS CANVIS"
-
-msgid "SHIFT"
-msgstr "MAJÚSCULES"
 
 msgid "UP"
 msgstr "AMUNT"
@@ -847,6 +769,21 @@ msgstr "PREMEU QUALSEVOL COSA"
 msgid "ALREADY TAKEN"
 msgstr "JA ESTÀ AGAFAT"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+msgid "SPACE"
+msgstr "ESPAI"
+
+msgid "DELETE A CHAR"
+msgstr "ESBORRA UN CARÀCTER"
+
+msgid "DISCARD CHANGES"
+msgstr "DESCARTA ELS CANVIS"
+
+msgid "SHIFT"
+msgstr "MAJÚSCULES"
+
 msgid "WELCOME"
 msgstr "BENVINGUT"
 
@@ -879,6 +816,90 @@ msgstr "S'ESTÀ CARREGANT…"
 
 msgid "PLEASE WAIT..."
 msgstr "ESPEREU…"
+
+msgid "never"
+msgstr "mai"
+
+msgid "just now"
+msgstr "fa un moment"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "fa %i segon"
+msgstr[1] "fa %i segons"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "fa %i minut"
+msgstr[1] "fa %i minuts"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "fa %i hora"
+msgstr[1] "fa %i hores"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "fa %i dia"
+msgstr[1] "fa %i dies"
+
+msgid "unknown"
+msgstr "desconegut"
+
+msgid "MOVE CURSOR"
+msgstr "MOVEU EL CURSOR"
+
+msgid "STOP EDITING"
+msgstr "ATURA L'EDICIÓ"
+
+msgid "EDIT"
+msgstr "EDITA"
+
+msgid "SELECT ALL"
+msgstr "SELECCIONA-HO TOT"
+
+msgid "SELECT NONE"
+msgstr "NO SELECCIONIS RES"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SELECCIONAT"
+msgstr[1] "%i SELECCIONATS"
+
+msgid "CHANGE"
+msgstr "CANVIA"
+
+msgid "WORKING..."
+msgstr "S'ESTÀ TREBALLANT…"
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "HI HA UNA ACTUALITZACIÓ DISPONIBLE PER EL BATOCERA.LINUX"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "EXTREMA (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "ALTA (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "ALTA (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "NORMAL (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "NORMAL (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "NO S'HA TROBAT CAP COMANDAMENT"
 
 #~ msgid "SCRAPER"
 #~ msgstr "SCRAPER"
@@ -922,9 +943,6 @@ msgstr "ESPEREU…"
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "L'ACTUALITZACIÓ HA FALLAT, ES REINICIARÀ EL SISTEMA ARA"

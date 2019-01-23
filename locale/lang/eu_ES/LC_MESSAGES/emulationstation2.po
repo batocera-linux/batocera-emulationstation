@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,133 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "ZURE BATOCERA.LINUX-arentzat EGUNERAKETA BAT DAGO"
-
-msgid "CANCEL"
-msgstr "EZEZTATU"
-
-msgid "Rating"
-msgstr "Puntuazioa"
-
-msgid "Released"
-msgstr "Argitaratuta"
-
-msgid "Developer"
-msgstr "Garatzailea"
-
-msgid "Publisher"
-msgstr "Argitaratzailea"
-
-msgid "Genre"
-msgstr "Generoa"
-
-msgid "Players"
-msgstr "Jokalariak"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "EZ DIRA JOKUAK AURKITU - TXANDAPASA"
-
-msgid "RETRY"
-msgstr "BERRIRO SAIATU"
-
-msgid "SKIP"
-msgstr "TXANDAPASA"
-
-msgid "SEARCH FOR"
-msgstr "BILATU:"
-
-msgid "SEARCH"
-msgstr "BILATU"
-
-msgid "ACCEPT RESULT"
-msgstr "ONARTU EMAITZA"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "DATUAK LORTZEN"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "azpititulu testua"
-
-msgid "INPUT"
-msgstr "EDITATU"
-
-msgid "search"
-msgstr "bilatu"
-
-msgid "STOP"
-msgstr "GELDITU"
-
-msgid "stop (progress saved)"
-msgstr "gelditu (orain artekoa gordeta)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "%i/%i JOKOA"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "JOKO %iEN DATUAK ONGI LORTUAK!"
-msgstr[1] "%i JOKOREN DATUAK ONGI LORTUAK!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "JOKO %i TXANDAPASA EGINDA"
-msgstr[1] "%i JOKO TXANDAPASA EGINDA"
-
-msgid "OK"
-msgstr "ADOS"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "ATZERA"
-
-msgid "CLOSE"
-msgstr "ITXI"
-
-msgid "EDIT METADATA"
-msgstr "DATUAK EDITATU"
-
-msgid "SCRAPE"
-msgstr "DATUAK LORTU"
-
-msgid "SAVE"
-msgstr "GORDE"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"FITXATEGI BAT EZABATZERA ZOAZ!\n"
-" ZIUR AL ZAUDE?"
+msgid "REALLY UPDATE?"
+msgstr "ZIUR EGUNERATU NAHI DUZULA?"
 
 msgid "YES"
 msgstr "BAI"
@@ -144,11 +19,56 @@ msgstr "BAI"
 msgid "NO"
 msgstr "EZ"
 
-msgid "DELETE"
-msgstr "EZABATU"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "SARE KONEXIO BAT BEHARREZKOA DA"
 
-msgid "SAVE CHANGES?"
-msgstr "ALDAKETAK GORDE?"
+msgid "OK"
+msgstr "ADOS"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "EGUNERAKETA DESKARGATUA, SISTEMA BERRABIARAZIKO DA ORAIN"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "EZ DAGO EGUNERAKETARIK ERABILGARRI"
+
+msgid "AN ERROR OCCURED"
+msgstr "ERRORE BAT GERTATU DA"
+
+msgid "INPUT"
+msgstr "EDITATU"
+
+msgid "search"
+msgstr "bilatu"
+
+msgid "CANCEL"
+msgstr "EZEZTATU"
+
+msgid "BACK"
+msgstr "ATZERA"
+
+msgid "CLOSE"
+msgstr "ITXI"
+
+msgid "OPTIONS"
+msgstr "AUKERAK"
+
+msgid "JUMP TO LETTER"
+msgstr "LETRARA JOAN"
+
+msgid "SORT GAMES BY"
+msgstr "JOKUAN ORDENATU:"
+
+msgid "FAVORITES ONLY"
+msgstr "GOGOKOAK SOILIK"
+
+msgid "SHOW HIDDEN"
+msgstr "ERAKUTSI EZKUTUKOA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "JOKU HONEN DATUAK EDITATU"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU NAGUSIA"
@@ -188,36 +108,6 @@ msgstr "HIZKUNTZA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "MUTURREKO (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000MHz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "ALTUA (950Mhz)"
-
-msgid "NONE"
-msgstr "BAT ERE EZ"
-
-msgid "HIGH (1050Mhz)"
-msgstr "ALTUA (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "BAT ERE EZE (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "BAT ERE EZ (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "EGUNERAKETAK"
@@ -267,6 +157,15 @@ msgstr "JOKOAREN RATIOA"
 msgid "SMOOTH GAMES"
 msgstr "JOKUAK LEUNDU"
 
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "ATZERA ERAMAN"
 
@@ -275,6 +174,9 @@ msgstr "AUTO GORDE/KARGATU"
 
 msgid "SHADERS SET"
 msgstr "EZARRI SHADER-ak"
+
+msgid "NONE"
+msgstr "BAT ERE EZ"
 
 msgid "SCANLINES"
 msgstr "SCANLINE-ak"
@@ -296,6 +198,15 @@ msgstr "RETROACHIVEMENTS"
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUA"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "ERABILTZAILE IZENA"
@@ -347,6 +258,9 @@ msgstr "PANTAILA BABESLEAREN PORTAERA"
 
 msgid "SHOW FRAMERATE"
 msgstr "ERAKUTSI FRAMERATEA"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "LAGUNTZA PANTAILAN"
@@ -405,6 +319,9 @@ msgstr "WIFI-a AKTIBATUTA"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI KONFIGURAZIO ERROREA"
 
+msgid "SCRAPE"
+msgstr "DATUAK LORTU"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -450,6 +367,9 @@ msgstr "Emulatzaile"
 msgid "Core"
 msgstr "Nukleoa"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -472,12 +392,6 @@ msgstr "AGINTEA PAREKATUA"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "AGINTEA PAREKATZEA EZINEZKOA"
 
-msgid "AN ERROR OCCURED"
-msgstr "ERRORE BAT GERTATU DA"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "EZ DA AGINTERIK DETEKTATU"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH AGINTE BAT PAREKATU"
 
@@ -497,23 +411,63 @@ msgstr "HAUTATU"
 msgid "SELECT"
 msgstr "AUKERATU"
 
-msgid "OPTIONS"
-msgstr "AUKERAK"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "LETRARA JOAN"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "JOKUAN ORDENATU:"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "GOGOKOAK SOILIK"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "ERAKUTSI EZKUTUKOA"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "JOKU HONEN DATUAK EDITATU"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "DATUAK LORTZEN"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "subtitle text"
+msgstr "azpititulu testua"
+
+msgid "SKIP"
+msgstr "TXANDAPASA"
+
+msgid "STOP"
+msgstr "GELDITU"
+
+msgid "stop (progress saved)"
+msgstr "gelditu (orain artekoa gordeta)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "%i/%i JOKOA"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "JOKO %iEN DATUAK ONGI LORTUAK!"
+msgstr[1] "%i JOKOREN DATUAK ONGI LORTUAK!"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "JOKO %i TXANDAPASA EGINDA"
+msgstr[1] "%i JOKO TXANDAPASA EGINDA"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "JOKU HAUEN DATUAK LORTU"
@@ -551,20 +505,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "EZ DAGO JOKORIK IRIZPIDE HORI BETETZEN DUENIK"
 
-msgid "REALLY UPDATE?"
-msgstr "ZIUR EGUNERATU NAHI DUZULA?"
+msgid "EDIT METADATA"
+msgstr "DATUAK EDITATU"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "SARE KONEXIO BAT BEHARREZKOA DA"
+msgid "SAVE"
+msgstr "GORDE"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "EGUNERAKETA DESKARGATUA, SISTEMA BERRABIARAZIKO DA ORAIN"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "EZ DAGO EGUNERAKETARIK ERABILGARRI"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"FITXATEGI BAT EZABATZERA ZOAZ!\n"
+" ZIUR AL ZAUDE?"
+
+msgid "DELETE"
+msgstr "EZABATU"
+
+msgid "SAVE CHANGES?"
+msgstr "ALDAKETAK GORDE?"
 
 msgid "enter emulator"
 msgstr "sartu emulatzailea"
@@ -602,6 +560,9 @@ msgstr "Thumbnail"
 msgid "enter path to thumbnail"
 msgstr "Sartu Thumbnail-erako bidea"
 
+msgid "Rating"
+msgstr "Puntuazioa"
+
 msgid "enter rating"
 msgstr "Sartu puntuazioa"
 
@@ -611,14 +572,26 @@ msgstr "Argitaratze data"
 msgid "enter release date"
 msgstr "sartu argitaratze data"
 
+msgid "Developer"
+msgstr "Garatzailea"
+
 msgid "enter game developer"
 msgstr "sartu joko garatzailea"
+
+msgid "Publisher"
+msgstr "Argitaratzailea"
 
 msgid "enter game publisher"
 msgstr "sartu joko argitaratzailea"
 
+msgid "Genre"
+msgstr "Generoa"
+
 msgid "enter game genre"
 msgstr "sartu jokoaren generoa"
+
+msgid "Players"
+msgstr "Jokalariak"
 
 msgid "enter number of players"
 msgstr "sartu jokalari zenbatekoa"
@@ -677,14 +650,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "SCROLL"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Argitaratuta"
+
+msgid "Times played"
+msgstr "Zenbat aldiz jokatua"
 
 msgid "LAUNCH"
 msgstr "ABIARAZI"
 
-msgid "Times played"
-msgstr "Zenbat aldiz jokatua"
+msgid "SCROLL"
+msgstr "SCROLL"
 
 msgid "MENU"
 msgstr "MENUA"
@@ -710,80 +689,23 @@ msgstr "GARATZAILEA"
 msgid "GENRE"
 msgstr "GENEROA"
 
-msgid "WORKING..."
-msgstr "LANEAN..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "EZ DIRA JOKUAK AURKITU - TXANDAPASA"
 
-msgid "MOVE CURSOR"
-msgstr "MUGITU KRUTSOREA"
+msgid "RETRY"
+msgstr "BERRIRO SAIATU"
 
-msgid "STOP EDITING"
-msgstr "GELDITU EDIZIOA"
+msgid "SEARCH FOR"
+msgstr "BILATU:"
 
-msgid "EDIT"
-msgstr "EDITATU"
+msgid "SEARCH"
+msgstr "BILATU"
 
-msgid "CHANGE"
-msgstr "ALDATU"
+msgid "ACCEPT RESULT"
+msgstr "ONARTU EMAITZA"
 
-msgid "never"
-msgstr "inoiz"
-
-msgid "just now"
-msgstr "oraintxe"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "orain dela segundu %i"
-msgstr[1] "orain dela %i segundu"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "orain dela minutu %i"
-msgstr[1] "orain dela %i minutu"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "orain dela ordu %i"
-msgstr[1] "orain dela %i ordu"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "orain dela egun %i"
-msgstr[1] "orain dela %i egun"
-
-msgid "unknown"
-msgstr "ezezaguna"
-
-msgid "SELECT ALL"
-msgstr "DENAK"
-
-msgid "SELECT NONE"
-msgstr "BAT ERE EZ"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i AUKERATUA"
-msgstr[1] "%i AUKERATUAK"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
-
-msgid "SPACE"
-msgstr "HUTSUNEA"
-
-msgid "DELETE A CHAR"
-msgstr "EZABATU HIZKIA"
-
-msgid "DISCARD CHANGES"
-msgstr "ALDAKETAK BAZTERTU"
-
-msgid "SHIFT"
-msgstr "MAIUS"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "GORA"
@@ -846,6 +768,21 @@ msgstr "EDOZEIN BOTOI SAKATU"
 msgid "ALREADY TAKEN"
 msgstr "ERABILITA"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
+
+msgid "SPACE"
+msgstr "HUTSUNEA"
+
+msgid "DELETE A CHAR"
+msgstr "EZABATU HIZKIA"
+
+msgid "DISCARD CHANGES"
+msgstr "ALDAKETAK BAZTERTU"
+
+msgid "SHIFT"
+msgstr "MAIUS"
+
 msgid "WELCOME"
 msgstr "ONGI ETORRI"
 
@@ -878,6 +815,90 @@ msgstr "KARGATZEN..."
 
 msgid "PLEASE WAIT..."
 msgstr "ITXARON MESEDEZ..."
+
+msgid "never"
+msgstr "inoiz"
+
+msgid "just now"
+msgstr "oraintxe"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "orain dela segundu %i"
+msgstr[1] "orain dela %i segundu"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "orain dela minutu %i"
+msgstr[1] "orain dela %i minutu"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "orain dela ordu %i"
+msgstr[1] "orain dela %i ordu"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "orain dela egun %i"
+msgstr[1] "orain dela %i egun"
+
+msgid "unknown"
+msgstr "ezezaguna"
+
+msgid "MOVE CURSOR"
+msgstr "MUGITU KRUTSOREA"
+
+msgid "STOP EDITING"
+msgstr "GELDITU EDIZIOA"
+
+msgid "EDIT"
+msgstr "EDITATU"
+
+msgid "SELECT ALL"
+msgstr "DENAK"
+
+msgid "SELECT NONE"
+msgstr "BAT ERE EZ"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i AUKERATUA"
+msgstr[1] "%i AUKERATUAK"
+
+msgid "CHANGE"
+msgstr "ALDATU"
+
+msgid "WORKING..."
+msgstr "LANEAN..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "ZURE BATOCERA.LINUX-arentzat EGUNERAKETA BAT DAGO"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "MUTURREKO (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000MHz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "ALTUA (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "ALTUA (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "BAT ERE EZE (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "BAT ERE EZ (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "EZ DA AGINTERIK DETEKTATU"
 
 #~ msgid "SCRAPER"
 #~ msgstr "DATU LORTZAILEA"
@@ -918,9 +939,6 @@ msgstr "ITXARON MESEDEZ..."
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "EGUNERAKETAK HUTS EGIN DU. SISTEMA BERRABIARAZIKO DA ORAIN"

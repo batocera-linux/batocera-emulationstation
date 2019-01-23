@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,131 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "您的 BATOCERA.LINUX 现在有新版本了"
-
-msgid "CANCEL"
-msgstr "取消"
-
-msgid "Rating"
-msgstr "评分"
-
-msgid "Released"
-msgstr "发行日期"
-
-msgid "Developer"
-msgstr "开发者"
-
-msgid "Publisher"
-msgstr "出版商"
-
-msgid "Genre"
-msgstr "类型"
-
-msgid "Players"
-msgstr "游戏人数"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "没有发现对应数据 - 跳过"
-
-msgid "RETRY"
-msgstr "重试"
-
-msgid "SKIP"
-msgstr "跳过"
-
-msgid "SEARCH FOR"
-msgstr "以何标题搜索"
-
-msgid "SEARCH"
-msgstr "搜索"
-
-msgid "ACCEPT RESULT"
-msgstr "接受结果"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "正在进行搜刮"
-
-msgid "SYSTEM"
-msgstr "游戏系统"
-
-msgid "subtitle text"
-msgstr "副标题文本"
-
-msgid "INPUT"
-msgstr "输入名称"
-
-msgid "search"
-msgstr "搜索"
-
-msgid "STOP"
-msgstr "停止"
-
-msgid "stop (progress saved)"
-msgstr "停止 (进度会保存)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "游戏 %i - %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 个游戏搜刮成功！"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "跳过了 %i 个游戏。"
-
-msgid "OK"
-msgstr "确定"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "返回"
-
-msgid "CLOSE"
-msgstr "关闭"
-
-msgid "EDIT METADATA"
-msgstr "编辑数据"
-
-msgid "SCRAPE"
-msgstr "搜刮"
-
-msgid "SAVE"
-msgstr "保存"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"此操作将删除一个文件!\n"
-"是否确定？"
+msgid "REALLY UPDATE?"
+msgstr "确定进行更新吗?"
 
 msgid "YES"
 msgstr "是"
@@ -142,11 +19,56 @@ msgstr "是"
 msgid "NO"
 msgstr "否"
 
-msgid "DELETE"
-msgstr "删除"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "必须连接到互联网"
 
-msgid "SAVE CHANGES?"
-msgstr "保存更改吗?"
+msgid "OK"
+msgstr "确定"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "更新下载完毕，系统将重新启动"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "没有可用的更新"
+
+msgid "AN ERROR OCCURED"
+msgstr "发生错误"
+
+msgid "INPUT"
+msgstr "输入名称"
+
+msgid "search"
+msgstr "搜索"
+
+msgid "CANCEL"
+msgstr "取消"
+
+msgid "BACK"
+msgstr "返回"
+
+msgid "CLOSE"
+msgstr "关闭"
+
+msgid "OPTIONS"
+msgstr "选项"
+
+msgid "JUMP TO LETTER"
+msgstr "按字母跳转"
+
+msgid "SORT GAMES BY"
+msgstr "游戏排序方式"
+
+msgid "FAVORITES ONLY"
+msgstr "仅显示收藏项"
+
+msgid "SHOW HIDDEN"
+msgstr "显示隐藏"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "编辑此游戏的数据"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "主菜单"
@@ -186,36 +108,6 @@ msgstr "语言"
 
 msgid "OVERCLOCK"
 msgstr "超频"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "极高"
-
-msgid "TURBO (1000Mhz)"
-msgstr "很高"
-
-msgid "HIGH (950Mhz)"
-msgstr "较高"
-
-msgid "NONE"
-msgstr "无"
-
-msgid "HIGH (1050Mhz)"
-msgstr "较高"
-
-msgid "NONE (900Mhz)"
-msgstr "无"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "极高"
 
 msgid "UPDATES"
 msgstr "更新"
@@ -265,6 +157,15 @@ msgstr "游戏显示比例"
 msgid "SMOOTH GAMES"
 msgstr "平顺游戏画面"
 
+msgid "AUTO"
+msgstr "自动"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "回退功能"
 
@@ -273,6 +174,9 @@ msgstr "自动保存/加载"
 
 msgid "SHADERS SET"
 msgstr "主题设置"
+
+msgid "NONE"
+msgstr "无"
 
 msgid "SCANLINES"
 msgstr "扫描线"
@@ -294,6 +198,15 @@ msgstr "RETROACHIEVEMENTS"
 
 msgid "HARDCORE MODE"
 msgstr "专家模式"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "用户名"
@@ -345,6 +258,9 @@ msgstr "屏幕保护效果"
 
 msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "显示帮助"
@@ -403,6 +319,9 @@ msgstr "无线网络启用"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "无线网络配置错误"
 
+msgid "SCRAPE"
+msgstr "搜刮"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -448,6 +367,9 @@ msgstr "模拟器"
 msgid "Core"
 msgstr "核心"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -469,12 +391,6 @@ msgstr "没有找到控制器"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "连接一个蓝牙控制器"
 
-msgid "AN ERROR OCCURED"
-msgstr "发生错误"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "没有找到控制器"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "连接一个蓝牙控制器"
 
@@ -494,23 +410,61 @@ msgstr "浏览"
 msgid "SELECT"
 msgstr "选择"
 
-msgid "OPTIONS"
-msgstr "选项"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "按字母跳转"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "游戏排序方式"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "仅显示收藏项"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "显示隐藏"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "编辑此游戏的数据"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "正在进行搜刮"
+
+msgid "SYSTEM"
+msgstr "游戏系统"
+
+msgid "subtitle text"
+msgstr "副标题文本"
+
+msgid "SKIP"
+msgstr "跳过"
+
+msgid "STOP"
+msgstr "停止"
+
+msgid "stop (progress saved)"
+msgstr "停止 (进度会保存)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "游戏 %i - %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i 个游戏搜刮成功！"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "跳过了 %i 个游戏。"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "搜刮这些游戏"
@@ -548,20 +502,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有符合标准的游戏。"
 
-msgid "REALLY UPDATE?"
-msgstr "确定进行更新吗?"
+msgid "EDIT METADATA"
+msgstr "编辑数据"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "必须连接到互联网"
+msgid "SAVE"
+msgstr "保存"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "更新下载完毕，系统将重新启动"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "没有可用的更新"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"此操作将删除一个文件!\n"
+"是否确定？"
+
+msgid "DELETE"
+msgstr "删除"
+
+msgid "SAVE CHANGES?"
+msgstr "保存更改吗?"
 
 msgid "enter emulator"
 msgstr "输入模拟器"
@@ -599,6 +557,9 @@ msgstr "缩略图"
 msgid "enter path to thumbnail"
 msgstr "输入缩略图路径"
 
+msgid "Rating"
+msgstr "评分"
+
 msgid "enter rating"
 msgstr "输入评分"
 
@@ -608,14 +569,26 @@ msgstr "发行日期"
 msgid "enter release date"
 msgstr "输入发行日期"
 
+msgid "Developer"
+msgstr "开发者"
+
 msgid "enter game developer"
 msgstr "输入游戏开发者"
+
+msgid "Publisher"
+msgstr "出版商"
 
 msgid "enter game publisher"
 msgstr "输入游戏发行商"
 
+msgid "Genre"
+msgstr "类型"
+
 msgid "enter game genre"
 msgstr "输入游戏类型"
+
+msgid "Players"
+msgstr "游戏人数"
 
 msgid "enter number of players"
 msgstr "输入游戏玩家人数"
@@ -671,14 +644,20 @@ msgid "%i GAME HIDDEN"
 msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 
-msgid "SCROLL"
-msgstr "滚动"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "发行日期"
+
+msgid "Times played"
+msgstr "游戏运行次数"
 
 msgid "LAUNCH"
 msgstr "运行"
 
-msgid "Times played"
-msgstr "游戏运行次数"
+msgid "SCROLL"
+msgstr "滚动"
 
 msgid "MENU"
 msgstr "菜单"
@@ -704,75 +683,23 @@ msgstr "开发者"
 msgid "GENRE"
 msgstr "类型"
 
-msgid "WORKING..."
-msgstr "进行中..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "没有发现对应数据 - 跳过"
 
-msgid "MOVE CURSOR"
-msgstr "移动鼠标"
+msgid "RETRY"
+msgstr "重试"
 
-msgid "STOP EDITING"
-msgstr "停止编辑"
+msgid "SEARCH FOR"
+msgstr "以何标题搜索"
 
-msgid "EDIT"
-msgstr "编辑"
+msgid "SEARCH"
+msgstr "搜索"
 
-msgid "CHANGE"
-msgstr "改变"
+msgid "ACCEPT RESULT"
+msgstr "接受结果"
 
-msgid "never"
-msgstr "从未"
-
-msgid "just now"
-msgstr "刚刚"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i 秒之前"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i 分钟之前"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i 小时之前"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i 天之前"
-
-msgid "unknown"
-msgstr "未知"
-
-msgid "SELECT ALL"
-msgstr "选择所有"
-
-msgid "SELECT NONE"
-msgstr "都不选择"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i 个已选择"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "按住SHIFT键切换大小写或功能键"
-
-msgid "SPACE"
-msgstr "空格"
-
-msgid "DELETE A CHAR"
-msgstr "删除一个字符"
-
-msgid "DISCARD CHANGES"
-msgstr "放弃更改"
-
-msgid "SHIFT"
-msgstr "SHIFT键"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "上"
@@ -834,6 +761,21 @@ msgstr "按对应按键"
 msgid "ALREADY TAKEN"
 msgstr "已经采取了"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "按住SHIFT键切换大小写或功能键"
+
+msgid "SPACE"
+msgstr "空格"
+
+msgid "DELETE A CHAR"
+msgstr "删除一个字符"
+
+msgid "DISCARD CHANGES"
+msgstr "放弃更改"
+
+msgid "SHIFT"
+msgstr "SHIFT键"
+
 msgid "WELCOME"
 msgstr "欢迎"
 
@@ -865,6 +807,85 @@ msgstr "载入中......"
 
 msgid "PLEASE WAIT..."
 msgstr "请稍候 ..."
+
+msgid "never"
+msgstr "从未"
+
+msgid "just now"
+msgstr "刚刚"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i 秒之前"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i 分钟之前"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i 小时之前"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i 天之前"
+
+msgid "unknown"
+msgstr "未知"
+
+msgid "MOVE CURSOR"
+msgstr "移动鼠标"
+
+msgid "STOP EDITING"
+msgstr "停止编辑"
+
+msgid "EDIT"
+msgstr "编辑"
+
+msgid "SELECT ALL"
+msgstr "选择所有"
+
+msgid "SELECT NONE"
+msgstr "都不选择"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i 个已选择"
+
+msgid "CHANGE"
+msgstr "改变"
+
+msgid "WORKING..."
+msgstr "进行中..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "您的 BATOCERA.LINUX 现在有新版本了"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "极高"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "很高"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "较高"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "较高"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "无"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "极高"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "没有找到控制器"
 
 #~ msgid "SCRAPER"
 #~ msgstr "数据搜刮"
@@ -904,9 +925,6 @@ msgstr "请稍候 ..."
 
 #~ msgid "JACK"
 #~ msgstr "音频插座"
-
-#~ msgid "AUTO"
-#~ msgstr "自动"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "更新失败，系统将重新启动"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,141 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "هناك تحديث جديد متوفر لجهازك"
-
-msgid "CANCEL"
-msgstr "إلغاء"
-
-msgid "Rating"
-msgstr "تصنيف"
-
-msgid "Released"
-msgstr "صُدر"
-
-msgid "Developer"
-msgstr "مطوّر"
-
-msgid "Publisher"
-msgstr "ناشر"
-
-msgid "Genre"
-msgstr "نوع"
-
-msgid "Players"
-msgstr "لاعبين"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "لم يتم العثور على العاب - تخطي"
-
-msgid "RETRY"
-msgstr "إعادة محاولة"
-
-msgid "SKIP"
-msgstr "تخطي"
-
-msgid "SEARCH FOR"
-msgstr "بحث عن"
-
-msgid "SEARCH"
-msgstr "بحث"
-
-msgid "ACCEPT RESULT"
-msgstr "قبول التعديلات"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "يتم الأن التجميع"
-
-msgid "SYSTEM"
-msgstr "نظام"
-
-msgid "subtitle text"
-msgstr "ملف ترجمة"
-
-msgid "INPUT"
-msgstr "إدخال"
-
-msgid "search"
-msgstr "بحث"
-
-msgid "STOP"
-msgstr "إيقاف"
-
-msgid "stop (progress saved)"
-msgstr "إيقاف (تم حفظ التغييرات)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "لعبة %i من %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] ""
-msgstr[1] "%i لعبة تم اضافة بياناتها"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] "%i العاب تم اضافة بياناتها"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] ""
-msgstr[1] "%i لعبة تم تجاهلها"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] "%i لعب تم تجاهلها"
-
-msgid "OK"
-msgstr "موافق"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "العودة"
-
-msgid "CLOSE"
-msgstr "اغلاق"
-
-msgid "EDIT METADATA"
-msgstr "تعديل البيانات"
-
-msgid "SCRAPE"
-msgstr "بحث بيانات"
-
-msgid "SAVE"
-msgstr "حفظ"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"سيتم مسح الملف!\n"
-"هل انت متأكد؟"
+msgid "REALLY UPDATE?"
+msgstr "تحديث، متأكد؟"
 
 msgid "YES"
 msgstr "تعم"
@@ -153,11 +20,56 @@ msgstr "تعم"
 msgid "NO"
 msgstr "لا"
 
-msgid "DELETE"
-msgstr "حذف"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "بحاجة لاتصال شبكي"
 
-msgid "SAVE CHANGES?"
-msgstr "حفظ التعديلات؟"
+msgid "OK"
+msgstr "موافق"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "تم تحميل التحديث، سيتم أعادة التشغيل"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "لايوجد تحديثات"
+
+msgid "AN ERROR OCCURED"
+msgstr "حدث خطأ"
+
+msgid "INPUT"
+msgstr "إدخال"
+
+msgid "search"
+msgstr "بحث"
+
+msgid "CANCEL"
+msgstr "إلغاء"
+
+msgid "BACK"
+msgstr "العودة"
+
+msgid "CLOSE"
+msgstr "اغلاق"
+
+msgid "OPTIONS"
+msgstr "اعدادات"
+
+msgid "JUMP TO LETTER"
+msgstr "القفز إلى حرف"
+
+msgid "SORT GAMES BY"
+msgstr "ترتيب الالعاب حسب"
+
+msgid "FAVORITES ONLY"
+msgstr "المفضلة فقط"
+
+msgid "SHOW HIDDEN"
+msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل بيانات اللعبة (METADATA)"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "القائمة الرئيسية"
@@ -197,36 +109,6 @@ msgstr "اللغة"
 
 msgid "OVERCLOCK"
 msgstr "رفع سرعة المعالج"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "الاقصى (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "توربو(1100Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "مرتفع(950Mhz)"
-
-msgid "NONE"
-msgstr "لاشيء"
-
-msgid "HIGH (1050Mhz)"
-msgstr "مرتفع(1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "لاشيء(900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "لاشيء(1200Mhz)"
 
 msgid "UPDATES"
 msgstr "تحديث"
@@ -276,6 +158,15 @@ msgstr "تقييم اللعبة"
 msgid "SMOOTH GAMES"
 msgstr "أللعاب سلسة"
 
+msgid "AUTO"
+msgstr "أوتو"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "ترجيع"
 
@@ -284,6 +175,9 @@ msgstr "الحفظ/التحميل اوتو"
 
 msgid "SHADERS SET"
 msgstr "مجموعة الفلاتر"
+
+msgid "NONE"
+msgstr "لاشيء"
 
 msgid "SCANLINES"
 msgstr "خطوط المسح"
@@ -305,6 +199,15 @@ msgstr "انجازات RETROACHIEVEMENTS "
 
 msgid "HARDCORE MODE"
 msgstr "الطور الصعب"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "الاسم"
@@ -356,6 +259,9 @@ msgstr "اسلوب شاشة التوقف"
 
 msgid "SHOW FRAMERATE"
 msgstr "اظهار معدل الاطار"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "مساعدات الشاشة"
@@ -414,6 +320,9 @@ msgstr "WIFI مفعّل"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "إعدادت WIFI خاطئة"
 
+msgid "SCRAPE"
+msgstr "بحث بيانات"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -459,6 +368,9 @@ msgstr "مُحاكي"
 msgid "Core"
 msgstr "النواه"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -480,12 +392,6 @@ msgstr "تم اقتران يد التحكم"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "فشل اقتران يد التحكم"
 
-msgid "AN ERROR OCCURED"
-msgstr "حدث خطأ"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "لم يتم العثور على اي يد تحكم"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "اقتران يد تحكم بالبلوتوث"
 
@@ -505,23 +411,71 @@ msgstr "اختار"
 msgid "SELECT"
 msgstr "اختار"
 
-msgid "OPTIONS"
-msgstr "اعدادات"
-
-msgid "JUMP TO LETTER"
-msgstr "القفز إلى حرف"
-
-msgid "SORT GAMES BY"
-msgstr "ترتيب الالعاب حسب"
-
-msgid "FAVORITES ONLY"
-msgstr "المفضلة فقط"
-
-msgid "SHOW HIDDEN"
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "تعديل بيانات اللعبة (METADATA)"
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "TARGET ARCHITECTURE"
+msgstr ""
+
+msgid "VALIDATION"
+msgstr ""
+
+msgid "YES, I'M SURE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "يتم الأن التجميع"
+
+msgid "SYSTEM"
+msgstr "نظام"
+
+msgid "subtitle text"
+msgstr "ملف ترجمة"
+
+msgid "SKIP"
+msgstr "تخطي"
+
+msgid "STOP"
+msgstr "إيقاف"
+
+msgid "stop (progress saved)"
+msgstr "إيقاف (تم حفظ التغييرات)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "لعبة %i من %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] ""
+msgstr[1] "%i لعبة تم اضافة بياناتها"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] "%i العاب تم اضافة بياناتها"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] ""
+msgstr[1] "%i لعبة تم تجاهلها"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] "%i لعب تم تجاهلها"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "يتم التجميع حالياً"
@@ -558,20 +512,24 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "لم يتم  العثور على العاب بصيغة البحث المحددة"
 
-msgid "REALLY UPDATE?"
-msgstr "تحديث، متأكد؟"
+msgid "EDIT METADATA"
+msgstr "تعديل البيانات"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "بحاجة لاتصال شبكي"
+msgid "SAVE"
+msgstr "حفظ"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "تم تحميل التحديث، سيتم أعادة التشغيل"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "لايوجد تحديثات"
-
-msgid "FINNISHED"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
 msgstr ""
+"سيتم مسح الملف!\n"
+"هل انت متأكد؟"
+
+msgid "DELETE"
+msgstr "حذف"
+
+msgid "SAVE CHANGES?"
+msgstr "حفظ التعديلات؟"
 
 msgid "enter emulator"
 msgstr "ادخل المحاكي"
@@ -609,6 +567,9 @@ msgstr "صورة مصغرة"
 msgid "enter path to thumbnail"
 msgstr "ادخل مسار الصورة المصغرة"
 
+msgid "Rating"
+msgstr "تصنيف"
+
 msgid "enter rating"
 msgstr "ادخل التصنيف"
 
@@ -618,14 +579,26 @@ msgstr "تاريخ الاطلاق"
 msgid "enter release date"
 msgstr "ادخل تاريخ الاطلاق"
 
+msgid "Developer"
+msgstr "مطوّر"
+
 msgid "enter game developer"
 msgstr "ادخل مطور اللعبة"
+
+msgid "Publisher"
+msgstr "ناشر"
 
 msgid "enter game publisher"
 msgstr "ادخل ناشر اللعبة"
 
+msgid "Genre"
+msgstr "نوع"
+
 msgid "enter game genre"
 msgstr "ادخل نوع اللعبة"
+
+msgid "Players"
+msgstr "لاعبين"
 
 msgid "enter number of players"
 msgstr "ادخل عدد اللاعبين"
@@ -696,14 +669,20 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-msgid "SCROLL"
-msgstr "قفز"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "صُدر"
+
+msgid "Times played"
+msgstr "مرات اللعب"
 
 msgid "LAUNCH"
 msgstr "تشغيل"
 
-msgid "Times played"
-msgstr "مرات اللعب"
+msgid "SCROLL"
+msgstr "قفز"
 
 msgid "MENU"
 msgstr "قائمة"
@@ -729,100 +708,23 @@ msgstr ""
 msgid "GENRE"
 msgstr ""
 
-msgid "WORKING..."
-msgstr "تشغيل..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "لم يتم العثور على العاب - تخطي"
 
-msgid "MOVE CURSOR"
-msgstr "تحريك المؤشر"
+msgid "RETRY"
+msgstr "إعادة محاولة"
 
-msgid "STOP EDITING"
-msgstr "ايقاف التعديل"
+msgid "SEARCH FOR"
+msgstr "بحث عن"
 
-msgid "EDIT"
-msgstr "تعديل"
+msgid "SEARCH"
+msgstr "بحث"
 
-msgid "CHANGE"
-msgstr "تغيير"
+msgid "ACCEPT RESULT"
+msgstr "قبول التعديلات"
 
-msgid "never"
-msgstr "ابداً"
-
-msgid "just now"
-msgstr "اللأن"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i ثواني مضت"
-msgstr[1] "%i ثانية مضت"
-msgstr[2] "%i ثواني مضت"
-msgstr[3] "%i ثواني مضت"
-msgstr[4] "%i ثواني مضت"
-msgstr[5] "%i ثواني مضت"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i دقيقة مضت"
-msgstr[1] "%i دقيقة مضت"
-msgstr[2] "%i دقيقة مضت"
-msgstr[3] "%i دقيقة مضت"
-msgstr[4] "%i دقيقة مضت"
-msgstr[5] "%i دقائق مضت"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i ساعة مضت"
-msgstr[1] "%i ساعة مضت"
-msgstr[2] "%i ساعة مضت"
-msgstr[3] "%i ساعة مضت"
-msgstr[4] "%i ساعة مضت"
-msgstr[5] "%i ساعات مضت"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i يوم مضت"
-msgstr[1] "%i يوم مضت"
-msgstr[2] "%i يوم مضت"
-msgstr[3] "%i يوم مضت"
-msgstr[4] "%i يوم مضت"
-msgstr[5] "%i ايام مضت"
-
-msgid "unknown"
-msgstr "غير معروف"
-
-msgid "SELECT ALL"
-msgstr "اختيار الكل"
-
-msgid "SELECT NONE"
-msgstr "الغاء الاختيار"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i تم اختياره"
-msgstr[1] "%i تم اختياره"
-msgstr[2] "%i تم اختياره"
-msgstr[3] "%i تم اختياره"
-msgstr[4] "%i تم اختياره"
-msgstr[5] "%i تم اختياره"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
-
-msgid "SPACE"
-msgstr "مسافة"
-
-msgid "DELETE A CHAR"
-msgstr "حذف حرف"
-
-msgid "DISCARD CHANGES"
-msgstr "الغاء التعديلات"
-
-msgid "SHIFT"
-msgstr "زر الانتقال"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "فوق"
@@ -889,6 +791,21 @@ msgstr "اضغط اي زر"
 msgid "ALREADY TAKEN"
 msgstr "معرّف مسبقاً"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
+
+msgid "SPACE"
+msgstr "مسافة"
+
+msgid "DELETE A CHAR"
+msgstr "حذف حرف"
+
+msgid "DISCARD CHANGES"
+msgstr "الغاء التعديلات"
+
+msgid "SHIFT"
+msgstr "زر الانتقال"
+
 msgid "WELCOME"
 msgstr "اهلاً وسهلاً"
 
@@ -925,6 +842,110 @@ msgstr "جاري التحميل..."
 
 msgid "PLEASE WAIT..."
 msgstr "الرجاء الانتظار..."
+
+msgid "never"
+msgstr "ابداً"
+
+msgid "just now"
+msgstr "اللأن"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] "%i ثواني مضت"
+msgstr[1] "%i ثانية مضت"
+msgstr[2] "%i ثواني مضت"
+msgstr[3] "%i ثواني مضت"
+msgstr[4] "%i ثواني مضت"
+msgstr[5] "%i ثواني مضت"
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] "%i دقيقة مضت"
+msgstr[1] "%i دقيقة مضت"
+msgstr[2] "%i دقيقة مضت"
+msgstr[3] "%i دقيقة مضت"
+msgstr[4] "%i دقيقة مضت"
+msgstr[5] "%i دقائق مضت"
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] "%i ساعة مضت"
+msgstr[1] "%i ساعة مضت"
+msgstr[2] "%i ساعة مضت"
+msgstr[3] "%i ساعة مضت"
+msgstr[4] "%i ساعة مضت"
+msgstr[5] "%i ساعات مضت"
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] "%i يوم مضت"
+msgstr[1] "%i يوم مضت"
+msgstr[2] "%i يوم مضت"
+msgstr[3] "%i يوم مضت"
+msgstr[4] "%i يوم مضت"
+msgstr[5] "%i ايام مضت"
+
+msgid "unknown"
+msgstr "غير معروف"
+
+msgid "MOVE CURSOR"
+msgstr "تحريك المؤشر"
+
+msgid "STOP EDITING"
+msgstr "ايقاف التعديل"
+
+msgid "EDIT"
+msgstr "تعديل"
+
+msgid "SELECT ALL"
+msgstr "اختيار الكل"
+
+msgid "SELECT NONE"
+msgstr "الغاء الاختيار"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i تم اختياره"
+msgstr[1] "%i تم اختياره"
+msgstr[2] "%i تم اختياره"
+msgstr[3] "%i تم اختياره"
+msgstr[4] "%i تم اختياره"
+msgstr[5] "%i تم اختياره"
+
+msgid "CHANGE"
+msgstr "تغيير"
+
+msgid "WORKING..."
+msgstr "تشغيل..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "هناك تحديث جديد متوفر لجهازك"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "الاقصى (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "توربو(1100Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "مرتفع(950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "مرتفع(1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "لاشيء(900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "لاشيء(1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "لم يتم العثور على اي يد تحكم"
 
 #~ msgid "SCRAPER"
 #~ msgstr "بحث البيانات"
@@ -965,9 +986,6 @@ msgstr "الرجاء الانتظار..."
 
 #~ msgid "JACK"
 #~ msgstr "JACK"
-
-#~ msgid "AUTO"
-#~ msgstr "أوتو"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "تحميل التحديث فشل، سيتم إعادة التشغيل"

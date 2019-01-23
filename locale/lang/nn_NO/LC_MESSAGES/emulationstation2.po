@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 21:19+0100\n"
+"POT-Creation-Date: 2019-01-15 21:09+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,131 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-msgstr "En oppdatering er tilgjengelig for din BATOCERA.LINUX"
-
-msgid "CANCEL"
-msgstr "Avbryt"
-
-msgid "Rating"
-msgstr "Vurdering"
-
-msgid "Released"
-msgstr "Utgitt"
-
-msgid "Developer"
-msgstr "Utvikler"
-
-msgid "Publisher"
-msgstr "Utgiver"
-
-msgid "Genre"
-msgstr "Sjanger"
-
-msgid "Players"
-msgstr "Spillere"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "INGEN SPILL FUNNET - HOPP OVER"
-
-msgid "RETRY"
-msgstr "PRØV IGJEN"
-
-msgid "SKIP"
-msgstr "HOPP OVER"
-
-msgid "SEARCH FOR"
-msgstr "SØK ETTER"
-
-msgid "SEARCH"
-msgstr "SØK"
-
-msgid "ACCEPT RESULT"
-msgstr "AKSEPTER RESULTAT"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "SØKER ETTER SPILL"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "subtitle text"
-msgstr "undertekst"
-
-msgid "INPUT"
-msgstr "INNDATA"
-
-msgid "search"
-msgstr "søk"
-
-msgid "STOP"
-msgstr "STOPP"
-
-msgid "stop (progress saved)"
-msgstr "stop (fremgang lagret)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "SPILL %i AV %i "
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "OK"
-msgstr "OK"
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "BACK"
-msgstr "TILBAKE"
-
-msgid "CLOSE"
-msgstr "LUKK"
-
-msgid "EDIT METADATA"
-msgstr "ENDRE METADATA"
-
-msgid "SCRAPE"
-msgstr "SØK"
-
-msgid "SAVE"
-msgstr "LAGRE"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr "DETTE VIL SLETTE EN FIL! ER DU SIKKER?"
+msgid "REALLY UPDATE?"
+msgstr "VIL DU VIRKELIG OPPDATERE?"
 
 msgid "YES"
 msgstr "JA"
@@ -142,11 +19,56 @@ msgstr "JA"
 msgid "NO"
 msgstr "NEI"
 
-msgid "DELETE"
-msgstr "SLETT"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "NETTVERKSTILKOBLING PÅKREVET"
 
-msgid "SAVE CHANGES?"
-msgstr "LAGRE ENDRINGER?"
+msgid "OK"
+msgstr "OK"
+
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "OPPDATERING NEDLASTET, SYSTEMET VIL STARTES PÅ NYTT"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "SYSTEMET ER OPPDATERT"
+
+msgid "AN ERROR OCCURED"
+msgstr "DET OPPSTO EN FEIL"
+
+msgid "INPUT"
+msgstr "INNDATA"
+
+msgid "search"
+msgstr "søk"
+
+msgid "CANCEL"
+msgstr "Avbryt"
+
+msgid "BACK"
+msgstr "TILBAKE"
+
+msgid "CLOSE"
+msgstr "LUKK"
+
+msgid "OPTIONS"
+msgstr "VALG"
+
+msgid "JUMP TO LETTER"
+msgstr "HOPP TIL"
+
+msgid "SORT GAMES BY"
+msgstr "SORTER SPILL ETTER"
+
+msgid "FAVORITES ONLY"
+msgstr "BARE FAVORITTER"
+
+msgid "SHOW HIDDEN"
+msgstr "VIS SKJULTE"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "ENDRE DETTE SPILLETS METADATA"
+
+msgid "FINNISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HOVED MENY"
@@ -186,36 +108,6 @@ msgstr "SPRÅK"
 
 msgid "OVERCLOCK"
 msgstr "OVERKLOKKING"
-
-msgid "EXTREM (1100Mhz)"
-msgstr "EKSTREM (1100Mhz)"
-
-msgid "TURBO (1000Mhz)"
-msgstr "TURBO (1000Mhz)"
-
-msgid "HIGH (950Mhz)"
-msgstr "HØY (950Mhz)"
-
-msgid "NONE"
-msgstr "INGEN"
-
-msgid "HIGH (1050Mhz)"
-msgstr "HØY (1050Mhz)"
-
-msgid "NONE (900Mhz)"
-msgstr "INGEN (900Mhz)"
-
-msgid "EXTREM (1350Mhz)"
-msgstr ""
-
-msgid "TURBO (1325Mhz)+"
-msgstr ""
-
-msgid "HIGH (1300Mhz)"
-msgstr ""
-
-msgid "NONE (1200Mhz)"
-msgstr "INGEN (1200Mhz)"
 
 msgid "UPDATES"
 msgstr "OPPDATERINGER"
@@ -265,6 +157,15 @@ msgstr "SPILL FORHOLD"
 msgid "SMOOTH GAMES"
 msgstr "SPILL SOM KJØRER FINT"
 
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "REWIND"
 msgstr "SPOL TILBAKE"
 
@@ -273,6 +174,9 @@ msgstr "AUTO LAGRE/LASTE"
 
 msgid "SHADERS SET"
 msgstr "SKYGGELEGGER SETT"
+
+msgid "NONE"
+msgstr "INGEN"
 
 msgid "SCANLINES"
 msgstr "LINJESKAN"
@@ -294,6 +198,15 @@ msgstr "RETROUTMERKELSER"
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREESHOT"
+msgstr ""
 
 msgid "USERNAME"
 msgstr "BRUKERNAVN"
@@ -345,6 +258,9 @@ msgstr "SKJERMSPARER OPPFØRSEL"
 
 msgid "SHOW FRAMERATE"
 msgstr "VIS BILDEFREKVENS"
+
+msgid "SHOW CLOCK"
+msgstr ""
 
 msgid "ON-SCREEN HELP"
 msgstr "OVERLEGGSHJELP"
@@ -403,6 +319,9 @@ msgstr "WIFI AKTIVERT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI KONFIGURASJONSFEIL"
 
+msgid "SCRAPE"
+msgstr "SØK"
+
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -448,6 +367,9 @@ msgstr "Emulator"
 msgid "Core"
 msgstr "Kjerne"
 
+msgid "VIDEO MODE"
+msgstr ""
+
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -470,12 +392,6 @@ msgstr "KONTROLLER PARET"
 msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "KAN IKKE PARE KONTROLLER"
 
-msgid "AN ERROR OCCURED"
-msgstr "DET OPPSTO EN FEIL"
-
-msgid "NO CONTROLLERS FOUND"
-msgstr "INGEN KONTROLLERE FUNNET"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAR EN BLUETOOTH KONRTOLLER"
 
@@ -495,23 +411,63 @@ msgstr "VELG"
 msgid "SELECT"
 msgstr "VELG"
 
-msgid "OPTIONS"
-msgstr "VALG"
+msgid "INSTALL BATOCERA"
+msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "HOPP TIL"
+msgid "TARGET DEVICE"
+msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "SORTER SPILL ETTER"
+msgid "TARGET ARCHITECTURE"
+msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr "BARE FAVORITTER"
+msgid "VALIDATION"
+msgstr ""
 
-msgid "SHOW HIDDEN"
-msgstr "VIS SKJULTE"
+msgid "YES, I'M SURE"
+msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "ENDRE DETTE SPILLETS METADATA"
+msgid "INSTALL"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "SØKER ETTER SPILL"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "subtitle text"
+msgstr "undertekst"
+
+msgid "SKIP"
+msgstr "HOPP OVER"
+
+msgid "STOP"
+msgstr "STOPP"
+
+msgid "stop (progress saved)"
+msgstr "stop (fremgang lagret)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "SPILL %i AV %i "
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "LEGG TIL DISSE SPILLENE"
@@ -549,20 +505,22 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGEN SPILL MATCHER DISSE KRITERIENE"
 
-msgid "REALLY UPDATE?"
-msgstr "VIL DU VIRKELIG OPPDATERE?"
+msgid "EDIT METADATA"
+msgstr "ENDRE METADATA"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "NETTVERKSTILKOBLING PÅKREVET"
+msgid "SAVE"
+msgstr "LAGRE"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "OPPDATERING NEDLASTET, SYSTEMET VIL STARTES PÅ NYTT"
+msgid ""
+"THIS WILL DELETE A FILE!\n"
+"ARE YOU SURE?"
+msgstr "DETTE VIL SLETTE EN FIL! ER DU SIKKER?"
 
-msgid "NO UPDATE AVAILABLE"
-msgstr "SYSTEMET ER OPPDATERT"
+msgid "DELETE"
+msgstr "SLETT"
 
-msgid "FINNISHED"
-msgstr ""
+msgid "SAVE CHANGES?"
+msgstr "LAGRE ENDRINGER?"
 
 msgid "enter emulator"
 msgstr "velg emulator"
@@ -600,6 +558,9 @@ msgstr "Miniatyrbilde"
 msgid "enter path to thumbnail"
 msgstr "skriv inn miniatyrbildets sti"
 
+msgid "Rating"
+msgstr "Vurdering"
+
 msgid "enter rating"
 msgstr "skriv inn rangering"
 
@@ -609,14 +570,26 @@ msgstr "Utgivelsesdato"
 msgid "enter release date"
 msgstr "skriv inn utgivelsesdato"
 
+msgid "Developer"
+msgstr "Utvikler"
+
 msgid "enter game developer"
 msgstr "skriv inn spillutvikler"
+
+msgid "Publisher"
+msgstr "Utgiver"
 
 msgid "enter game publisher"
 msgstr "skriv inn spillutgiver"
 
+msgid "Genre"
+msgstr "Sjanger"
+
 msgid "enter game genre"
 msgstr "skriv inn spill sjanger"
+
+msgid "Players"
+msgstr "Spillere"
 
 msgid "enter number of players"
 msgstr "skriv inn antall spillere"
@@ -675,14 +648,20 @@ msgid_plural "%i GAMES HIDDEN"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "SCROLL"
-msgstr "RULL"
+msgid "FILES"
+msgstr ""
+
+msgid "Released"
+msgstr "Utgitt"
+
+msgid "Times played"
+msgstr "Ganger spilt"
 
 msgid "LAUNCH"
 msgstr "START"
 
-msgid "Times played"
-msgstr "Ganger spilt"
+msgid "SCROLL"
+msgstr "RULL"
 
 msgid "MENU"
 msgstr "MENY"
@@ -708,80 +687,23 @@ msgstr "UTVIKLER"
 msgid "GENRE"
 msgstr "SJANGER"
 
-msgid "WORKING..."
-msgstr "ARBEIDER..."
+msgid "NO GAMES FOUND - SKIP"
+msgstr "INGEN SPILL FUNNET - HOPP OVER"
 
-msgid "MOVE CURSOR"
-msgstr "FLYTT MUSEPEKER"
+msgid "RETRY"
+msgstr "PRØV IGJEN"
 
-msgid "STOP EDITING"
-msgstr "STOPP ENDRING"
+msgid "SEARCH FOR"
+msgstr "SØK ETTER"
 
-msgid "EDIT"
-msgstr "ENDRE"
+msgid "SEARCH"
+msgstr "SØK"
 
-msgid "CHANGE"
-msgstr "ENDRE"
+msgid "ACCEPT RESULT"
+msgstr "AKSEPTER RESULTAT"
 
-msgid "never"
-msgstr "aldri"
-
-msgid "just now"
-msgstr "akkurat nå"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "unknown"
-msgstr "ukjent"
-
-msgid "SELECT ALL"
-msgstr "VELG ALLE"
-
-msgid "SELECT NONE"
-msgstr "VELG INGEN"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SKIFT TEGN"
-
-msgid "SPACE"
-msgstr "Mellomrom"
-
-msgid "DELETE A CHAR"
-msgstr "SLETT ET TEGN"
-
-msgid "DISCARD CHANGES"
-msgstr "FORKAST ENDRINGER"
-
-msgid "SHIFT"
-msgstr "SHIFT"
+msgid "UPDATE AVAILABLE"
+msgstr ""
 
 msgid "UP"
 msgstr "OPP"
@@ -844,6 +766,21 @@ msgstr "TRYKK HVA SOM HELST"
 msgid "ALREADY TAKEN"
 msgstr "ALLEREDE OPPTATT"
 
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SKIFT TEGN"
+
+msgid "SPACE"
+msgstr "Mellomrom"
+
+msgid "DELETE A CHAR"
+msgstr "SLETT ET TEGN"
+
+msgid "DISCARD CHANGES"
+msgstr "FORKAST ENDRINGER"
+
+msgid "SHIFT"
+msgstr "SHIFT"
+
 msgid "WELCOME"
 msgstr "VELKOMMEN"
 
@@ -876,6 +813,90 @@ msgstr "LASTER..."
 
 msgid "PLEASE WAIT..."
 msgstr "VENNLIGST VENT..."
+
+msgid "never"
+msgstr "aldri"
+
+msgid "just now"
+msgstr "akkurat nå"
+
+#, c-format
+msgid "%i sec ago"
+msgid_plural "%i secs ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i min ago"
+msgid_plural "%i mins ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i hour ago"
+msgid_plural "%i hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i day ago"
+msgid_plural "%i days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "unknown"
+msgstr "ukjent"
+
+msgid "MOVE CURSOR"
+msgstr "FLYTT MUSEPEKER"
+
+msgid "STOP EDITING"
+msgstr "STOPP ENDRING"
+
+msgid "EDIT"
+msgstr "ENDRE"
+
+msgid "SELECT ALL"
+msgstr "VELG ALLE"
+
+msgid "SELECT NONE"
+msgstr "VELG INGEN"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "CHANGE"
+msgstr "ENDRE"
+
+msgid "WORKING..."
+msgstr "ARBEIDER..."
+
+#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
+#~ msgstr "En oppdatering er tilgjengelig for din BATOCERA.LINUX"
+
+#~ msgid "EXTREM (1100Mhz)"
+#~ msgstr "EKSTREM (1100Mhz)"
+
+#~ msgid "TURBO (1000Mhz)"
+#~ msgstr "TURBO (1000Mhz)"
+
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "HØY (950Mhz)"
+
+#~ msgid "HIGH (1050Mhz)"
+#~ msgstr "HØY (1050Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "INGEN (900Mhz)"
+
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "INGEN (1200Mhz)"
+
+#~ msgid "NO CONTROLLERS FOUND"
+#~ msgstr "INGEN KONTROLLERE FUNNET"
 
 #~ msgid "SCRAPER"
 #~ msgstr "INFODATABASE"
@@ -915,9 +936,6 @@ msgstr "VENNLIGST VENT..."
 
 #~ msgid "JACK"
 #~ msgstr "MINIJACK"
-
-#~ msgid "AUTO"
-#~ msgstr "AUTO"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "OPPDATERING FEILET, SYSTEMET VIL STARTES PÅ NYTT"
