@@ -87,12 +87,14 @@ bool InputConfig::getInputByName(const std::string& name, Input* result)
 	return false;
 }
 
-bool InputConfig::isMappedTo(const std::string& name, Input input)
+bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis)
 {
 	Input comp;
 	if(!getInputByName(name, &comp))
 		return false;
-	
+	if(reversedAxis) {
+	  comp.value *= -1;
+	}
 	if(comp.configured && comp.type == input.type && comp.id == input.id)
 	{
 		if(comp.type == TYPE_HAT)

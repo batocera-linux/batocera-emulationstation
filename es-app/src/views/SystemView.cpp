@@ -122,12 +122,12 @@ bool SystemView::input(InputConfig* config, Input input)
 			updateHelpPrompts();
 			return true;
 		}
-		if(config->isMappedTo("left", input))
+		if(config->isMappedTo("left", input) || config->isMappedTo("joystick1left", input))
 		{
 			listInput(-1);
 			return true;
 		}
-		if(config->isMappedTo("right", input))
+		if(config->isMappedTo("right", input) || config->isMappedTo("joystick1left", input, true))
 		{
 			listInput(1);
 			return true;
@@ -186,7 +186,7 @@ bool SystemView::input(InputConfig* config, Input input)
 		}
 
 	}else{
-		if(config->isMappedTo("left", input) || config->isMappedTo("right", input))
+		if(config->isMappedTo("left", input) || config->isMappedTo("right", input) || config->isMappedTo("joystick1left", input) || config->isMappedTo("joystick1left", input, true))
 			listInput(0);
 	}
 
