@@ -242,7 +242,7 @@ void AudioManager::playCheckSound() {
 	std::string loadingMusic = getHomePath()+"/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
 
 	if(boost::filesystem::exists(loadingMusic) == false){
-	  loadingMusic = "/recalbox/share_init/system/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
+	  loadingMusic = "/usr/share/batocera/datainit/system/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
 	}
 
 	if(boost::filesystem::exists(loadingMusic)){
