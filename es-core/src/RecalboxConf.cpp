@@ -9,8 +9,8 @@ RecalboxConf *RecalboxConf::sInstance = NULL;
 boost::regex validLine("^(?<key>[^;|#].*?)=(?<val>.*?)$");
 boost::regex commentLine("^;(?<key>.*?)=(?<val>.*?)$");
 
-std::string recalboxConfFile = "/recalbox/share/system/recalbox.conf";
-std::string recalboxConfFileTmp = "/recalbox/share/system/recalbox.conf.tmp";
+std::string recalboxConfFile = "/userdata/system/recalbox.conf";
+std::string recalboxConfFileTmp = "/userdata/system/recalbox.conf.tmp";
 
 RecalboxConf::RecalboxConf() {
     loadRecalboxConf();
