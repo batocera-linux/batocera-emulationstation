@@ -167,21 +167,6 @@ bool RecalboxSystem::updateLastVersionFile() {
     }
 }
 
-std::string RecalboxSystem::getVersionMessage() {
-    std::string versionMessageFile = "/recalbox/recalbox.msg";
-    if (versionMessageFile.size() > 0) {
-        std::ifstream ifs(versionMessageFile);
-
-        if (ifs.good()) {
-            std::string contents((std::istreambuf_iterator<char>(ifs)),
-                                 std::istreambuf_iterator<char>());
-            return contents;
-        }
-    }
-    return "";
-
-}
-
 bool RecalboxSystem::setOverscan(bool enable) {
 
     std::ostringstream oss;
