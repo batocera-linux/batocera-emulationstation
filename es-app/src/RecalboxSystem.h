@@ -44,8 +44,6 @@ public:
 
     bool needToShowVersionMessage();
 
-    std::string getVersionMessage();
-
     std::pair<std::string, int> updateSystem(BusyComponent* ui);
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
     std::pair<std::string, int> installSystem(BusyComponent* ui, std::string device, std::string architecture);
