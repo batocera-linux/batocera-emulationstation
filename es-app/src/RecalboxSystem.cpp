@@ -112,7 +112,7 @@ bool RecalboxSystem::isFreeSpaceLimit() {
 }
 
 std::string RecalboxSystem::getVersion() {
-    std::string version = "/recalbox/batocera.version";
+    std::string version = "/usr/share/batocera/batocera.version";
     if (version.size() > 0) {
         std::ifstream ifs(version);
 
