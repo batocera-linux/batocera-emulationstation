@@ -65,11 +65,11 @@ bool RecalboxConf::saveRecalboxConf() {
         for (int i = 0; i < fileLines.size(); i++) {
             std::string currentLine = fileLines[i];
 
-            if (boost::starts_with(currentLine, key+"=") || boost::starts_with(currentLine, ";"+key+"=")){
+            if (boost::starts_with(currentLine, key+"=") || boost::starts_with(currentLine, ";"+key+"=") || boost::starts_with(currentLine, "#"+key+"=") ){
 	      if(val != "" && val != "auto") {
                 fileLines[i] = key + "=" + val;
 	      } else {
-                fileLines[i] = ";" + key + "=" + val;
+                fileLines[i] = "#" + key + "=" + val;
 	      }
 	      lineFound = true;
             }
