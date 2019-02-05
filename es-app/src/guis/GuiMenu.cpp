@@ -1428,14 +1428,6 @@ void GuiMenu::createConfigInput() {
         }, showControllerList));
     });
 
-    row.makeAcceptInputHandler([window, this, s, showControllerResult] {
-        window->pushGui(new GuiLoading(window, [] {
-	      bool success = RecalboxSystem::getInstance()->scanNewBluetooth();
-	      return (void *) success;
-	    }, showControllerResult));
-    });
-
-
     row.addElement(
 		   std::make_shared<TextComponent>(window, _("PAIR A BLUETOOTH CONTROLLER"), Font::get(FONT_SIZE_MEDIUM),
                                             0x777777FF),
