@@ -411,7 +411,6 @@ void SystemView::render(const Transform4x4f& parentTrans)
     renderExtras(trans, 60, 100);
     
     Renderer::setMatrix(trans);
-    Renderer::drawRect(mSystemInfo.getPosition().x(), mSystemInfo.getPosition().y() - 1, mSize.x(), mSystemInfo.getSize().y(), 0xDDDDDD00 | (unsigned char)(mSystemInfo.getOpacity() / 255.f * 0xD8));
     mSystemInfo.render(trans);
     
 }
