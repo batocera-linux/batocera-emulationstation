@@ -196,6 +196,7 @@ public:
 			}
 			if(!mMultiSelect)
 			{
+			  if(mEntries.size() > 0) {
 				if(config->isMappedTo("left", input))
 				{
 					// move selection to previous
@@ -220,6 +221,7 @@ public:
 					return true;
 
 				}
+			  }
 			}
 		}
 		return GuiComponent::input(config, input);
