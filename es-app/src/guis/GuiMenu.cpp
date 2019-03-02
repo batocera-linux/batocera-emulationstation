@@ -1334,12 +1334,18 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
                     RecalboxConf::getInstance()->set(systemData->getName() + ".smooth",
                                                      smoothing_enabled->getSelected());
                 }
-                if(emu_choice->changed()) {
+
+		// the menu GuiMenu::popSystemConfigurationGui is a hack
+		// if you change any option except emulator and change the emulator, the value is lost
+		// this is especially bad for core while the changed() value is lost too.
+		// to avoid this issue, instead of reprogramming this part, i will force a save of the emulator and core
+		// at each GuiMenu::popSystemConfigurationGui call, including the ending saving one (when changed() values are bad)
+                //if(emu_choice->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
-                }
-                if(core_choice->changed()){
+		//}
+                //if(core_choice->changed()){
                     RecalboxConf::getInstance()->set(systemData->getName() + ".core", core_choice->getSelected());
-                }
+		//}
                 if(autosave_enabled->changed()) {
                     RecalboxConf::getInstance()->set(systemData->getName() + ".autosave",
                                                      autosave_enabled->getSelected());
