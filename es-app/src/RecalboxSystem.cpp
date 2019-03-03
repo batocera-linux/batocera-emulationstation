@@ -337,7 +337,7 @@ bool RecalboxSystem::launchKodi(Window *window) {
     VolumeControl::getInstance()->deinit();
 
     std::string commandline = InputManager::getInstance()->configureEmulators();
-    std::string command = "configgen -system kodi -rom '' " + commandline;
+    std::string command = "python /usr/lib/python2.7/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
 
     window->deinit();
     int exitCode = system(command.c_str());
