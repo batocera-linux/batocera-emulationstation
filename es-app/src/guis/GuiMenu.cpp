@@ -961,16 +961,18 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		 // audio device
 		 auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("OUTPUT DEVICE"),
 											 false);
-                 std::string currentDevice = RecalboxConf::getInstance()->get("audio.device");
-                 if (currentDevice.empty()) currentDevice = "auto";
-
 		 std::vector<std::string> availableAudio = RecalboxSystem::getInstance()->getAvailableAudioOutputDevices();
 		 std::string selectedAudio = RecalboxSystem::getInstance()->getCurrentAudioOutputDevice();
+                 if (selectedAudio.empty()) selectedAudio = "auto";
 
 		 if (RecalboxConf::getInstance()->get("system.es.menu") != "bartop") {
+		   bool vfound=false;
 		   for(auto it = availableAudio.begin(); it != availableAudio.end(); it++){
 		     std::vector<std::string> tokens;
 		     boost::split( tokens, (*it), boost::is_any_of(" ") );
+		     if(selectedAudio == (*it)) {
+		       vfound = true;
+		     }
 		     if(tokens.size()>= 2){
 		       // concatenat the ending words
 		       std::string vname = "";
@@ -983,10 +985,14 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		       optionsAudio->add((*it), (*it), selectedAudio == (*it));
 		     }
 		   }
+
+		   if(vfound == false) {
+		     optionsAudio->add(selectedAudio, selectedAudio, true);
+		   }
 		   s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
 		 }
 
-                 s->addSaveFunc([this, optionsAudio, currentDevice, sounds_enabled, volume] {
+                 s->addSaveFunc([this, optionsAudio, selectedAudio, sounds_enabled, volume] {
 		     bool v_need_reboot = false;
 
                      VolumeControl::getInstance()->setVolume((int) round(volume->getValue()));
@@ -1000,7 +1006,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      else
                          AudioManager::getInstance()->playRandomMusic();
 
-                     if (currentDevice != optionsAudio->getSelected()) {
+                     if (selectedAudio != optionsAudio->getSelected()) {
                          RecalboxConf::getInstance()->set("audio.device", optionsAudio->getSelected());
                          RecalboxSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
 			 v_need_reboot = true;
