@@ -849,7 +849,7 @@ std::string RecalboxSystem::getCurrentAudioOutputDevice() {
         pclose(pipe);
         return std::string(line);
     }
-    return "INTERNAL";
+    return "";
 }
 
 bool RecalboxSystem::setAudioOutputDevice(std::string selected) {
