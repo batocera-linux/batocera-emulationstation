@@ -185,8 +185,13 @@ InputConfig* InputManager::getInputConfigByDevice(int device)
 {
 	if(device == DEVICE_KEYBOARD)
 		return mKeyboardInputConfig;
-	else
-		return mInputConfigs[device];
+	else {
+	  std::map<SDL_JoystickID, InputConfig*>::iterator i = mInputConfigs.find(device);
+	  if (i == mInputConfigs.end() ) {
+	    return NULL;
+	  }
+	  return mInputConfigs[device];
+	}
 }
 
 bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
@@ -490,9 +495,9 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
     // 1 recuperer les configurated
     std::list<InputConfig *> availableConfigured;
 
-    for (auto it = 0; it < getNumJoysticks(); it++) {
-        InputConfig * config = getInputConfigByDevice(it);
-        if(config->isConfigured()) {
+    for(auto iter = mJoysticks.begin(); iter != mJoysticks.end(); iter++) {
+        InputConfig * config = getInputConfigByDevice(iter->first);
+        if(config != NULL && config->isConfigured()) {
             availableConfigured.push_back(config);
         }
     }
