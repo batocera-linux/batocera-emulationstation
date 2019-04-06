@@ -1458,9 +1458,9 @@ void GuiMenu::createConfigInput() {
         std::string configuratedGuid = Settings::getInstance()->getString(confGuid);
         bool found = false;
         // For each available and configured input
-        for (auto it = 0; it < InputManager::getInstance()->getNumJoysticks(); it++) {
-            InputConfig *config = InputManager::getInstance()->getInputConfigByDevice(it);
-            if (config->isConfigured()) {
+        for(auto iter = InputManager::getInstance()->getJoysticks().begin(); iter != InputManager::getInstance()->getJoysticks().end(); iter++) {
+            InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(iter->first);
+            if (config != NULL && config->isConfigured()) {
                 // create name
                 std::stringstream dispNameSS;
                 dispNameSS << "#" << config->getDeviceId() << " ";
