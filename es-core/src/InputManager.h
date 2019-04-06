@@ -52,6 +52,7 @@ public:
 	void deinit();
 
 	int getNumJoysticks();
+	const std::map<SDL_JoystickID, SDL_Joystick*>& getJoysticks() { return  mJoysticks; }
 	int getButtonCountByDevice(int deviceId);
 	int getAxisCountByDevice(int deviceId);
 
