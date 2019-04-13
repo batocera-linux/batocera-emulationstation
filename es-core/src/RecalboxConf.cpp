@@ -9,8 +9,8 @@ RecalboxConf *RecalboxConf::sInstance = NULL;
 boost::regex validLine("^(?<key>[^;|#].*?)=(?<val>.*?)$");
 boost::regex commentLine("^;(?<key>.*?)=(?<val>.*?)$");
 
-std::string recalboxConfFile = "/userdata/system/recalbox.conf";
-std::string recalboxConfFileTmp = "/userdata/system/recalbox.conf.tmp";
+std::string systemConfFile = "/userdata/system/batocera.conf";
+std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
 
 RecalboxConf::RecalboxConf() {
     loadRecalboxConf();
@@ -25,7 +25,7 @@ RecalboxConf *RecalboxConf::getInstance() {
 
 bool RecalboxConf::loadRecalboxConf() {
     std::string line;
-    std::ifstream recalboxConf(recalboxConfFile);
+    std::ifstream recalboxConf(systemConfFile);
     if (recalboxConf && recalboxConf.is_open()) {
         while (std::getline(recalboxConf, line)) {
             boost::smatch lineInfo;
@@ -35,7 +35,7 @@ bool RecalboxConf::loadRecalboxConf() {
         }
         recalboxConf.close();
     } else {
-        LOG(LogError) << "Unable to open " << recalboxConfFile;
+        LOG(LogError) << "Unable to open " << systemConfFile;
         return false;
     }
     return true;
@@ -43,9 +43,9 @@ bool RecalboxConf::loadRecalboxConf() {
 
 
 bool RecalboxConf::saveRecalboxConf() {
-    std::ifstream filein(recalboxConfFile); //File to read from
+    std::ifstream filein(systemConfFile); //File to read from
     if (!filein) {
-        LOG(LogError) << "Unable to open for saving :  " << recalboxConfFile << "\n";
+        LOG(LogError) << "Unable to open for saving :  " << systemConfFile << "\n";
         return false;
     }
     /* Read all lines in a vector */
@@ -80,9 +80,9 @@ bool RecalboxConf::saveRecalboxConf() {
 	  }
         }
     }
-    std::ofstream fileout(recalboxConfFileTmp); //Temporary file
+    std::ofstream fileout(systemConfFileTmp); //Temporary file
     if (!fileout) {
-        LOG(LogError) << "Unable to open for saving :  " << recalboxConfFileTmp << "\n";
+        LOG(LogError) << "Unable to open for saving :  " << systemConfFileTmp << "\n";
         return false;
     }
     for (int i = 0; i < fileLines.size(); i++) {
@@ -93,11 +93,11 @@ bool RecalboxConf::saveRecalboxConf() {
 
 
     /* Copy back the tmp to recalbox.conf */
-    std::ifstream  src(recalboxConfFileTmp, std::ios::binary);
-    std::ofstream  dst(recalboxConfFile,   std::ios::binary);
+    std::ifstream  src(systemConfFileTmp, std::ios::binary);
+    std::ofstream  dst(systemConfFile,   std::ios::binary);
     dst << src.rdbuf();
 
-    remove(recalboxConfFileTmp.c_str());
+    remove(systemConfFileTmp.c_str());
 
     return true;
 }
