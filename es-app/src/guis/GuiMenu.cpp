@@ -516,9 +516,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                                                             false);
                  std::string currentShader = RecalboxConf::getInstance()->get("global.shaderset");
                  if (currentShader.empty()) {
-                     currentShader = std::string("none");
+                     currentShader = std::string("auto");
                  }
 
+		 shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
                  shaders_choices->add(_("NONE"), "none", currentShader == "none");
                  shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
                  shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
