@@ -2,6 +2,7 @@
 *.slo
 *.lo
 *.o
+# batocera
 *.mo
 
 # Compiled Dynamic libraries
@@ -41,5 +42,6 @@ Makefile
 CPackConfig.cmake
 CPackSourceConfig.cmake
 
+# batocera
 # po backup
 *.po~
