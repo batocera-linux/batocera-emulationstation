@@ -1,7 +1,6 @@
 #include "PlatformId.h"
-#include <string.h>
 
-extern const char* mameNameToRealName[];
+#include <string.h>
 
 namespace PlatformIds
 {
@@ -23,21 +22,19 @@ namespace PlatformIds
 		"atarijaguarcd",
 		"atarixe",
 		"colecovision",
-		"c64", // commodore 64,
-		"fds", // Nintendo Family Computer Disk System
+		"c64", // commodore 64
 		"intellivision",
 		"macintosh",
 		"xbox",
 		"xbox360",
 		"msx",
-		"msx1",
-		"msx2",
 		"neogeo",
 		"ngp", // neo geo pocket
 		"ngpc", // neo geo pocket color
 		"n3ds", // nintendo 3DS
 		"n64", // nintendo 64
 		"nds", // nintendo DS
+		"fds", // Famicom Disk System
 		"nes", // nintendo entertainment system
 		"gb", // game boy
 		"gba", // game boy advance
@@ -45,6 +42,8 @@ namespace PlatformIds
 		"gc", // gamecube
 		"wii",
 		"wiiu",
+		"virtualboy",
+		"gameandwatch",
 		"pc",
 		"sega32x",
 		"segacd",
@@ -54,31 +53,25 @@ namespace PlatformIds
 		"mastersystem", // sega master system
 		"megadrive", // sega megadrive
 		"saturn", // sega saturn
+		"sg-1000",
 		"psx",
 		"ps2",
 		"ps3",
 		"ps4",
 		"psvita",
 		"psp", // playstation portable
-		"sg1000", // Sega SG1000
 		"snes", // super nintendo entertainment system
-		"pcengine", // turbografx-16/pcengine
+		"scummvm",
+		"x6800",
+		"pcengine", // (aka turbografx-16) HuCards only
+		"pcenginecd", // (aka turbografx-16) CD-ROMs only
 		"wonderswan",
 		"wonderswancolor",
 		"zxspectrum",
-		"virtualboy",
-		"gw",
-		"pcenginecd",
-		"supergrafx",
-		"prboom",
+		"videopac",
 		"vectrex",
-		"lutro",
-		"cavestory",
-		"odyssey2",
-		"zx81",
-		"moonlight",
-		"scummvm",
-
+		"trs-80",
+		"coco",
 
 		"ignore", // do not allow scraping for this system
 		"invalid"
@@ -101,18 +94,5 @@ namespace PlatformIds
 	const char* getPlatformName(PlatformId id)
 	{
 		return PlatformNames[id];
-	}
-
-	const char* getCleanMameName(const char* from)
-	{
-		const char** mameNames = mameNameToRealName;
-
-		while(*mameNames != NULL && strcmp(from, *mameNames) != 0)
-			mameNames += 2;
-
-		if(*mameNames)
-			return *(mameNames + 1);
-		
-		return from;
 	}
 }

@@ -1,7 +1,8 @@
 #pragma once
+#ifndef ES_CORE_COMPONENTS_COMPONENT_LIST_H
+#define ES_CORE_COMPONENTS_COMPONENT_LIST_H
 
 #include "IList.h"
-#include <functional>
 
 struct ComponentListElement
 {
@@ -16,16 +17,12 @@ struct ComponentListElement
 struct ComponentListRow
 {
 	std::vector<ComponentListElement> elements;
-	std::string name;
 
 	// The input handler is called when the user enters any input while this row is highlighted (including up/down).
 	// Return false to let the list try to use it or true if the input has been consumed.
 	// If no input handler is supplied (input_handler == nullptr), the default behavior is to forward the input to 
 	// the rightmost element in the currently selected row.
 	std::function<bool(InputConfig*, Input)> input_handler;
-
-	ComponentListRow(const std::string& n = std::string()) : name(n)
-	{}
 	
 	inline void addElement(const std::shared_ptr<GuiComponent>& component, bool resize_width, bool invert_when_selected = true)
 	{
@@ -51,12 +48,12 @@ class ComponentList : public IList<ComponentListRow, void*>
 public:
 	ComponentList(Window* window);
 
-	void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateGeometry = true);
+	void addRow(const ComponentListRow& row, bool setCursorHere = false);
 
 	void textInput(const char* text) override;
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
-	void render(const Eigen::Affine3f& parentTrans) override;
+	void render(const Transform4x4f& parentTrans) override;
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 	void onSizeChanged() override;
@@ -89,3 +86,5 @@ private:
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
 };
+
+#endif // ES_CORE_COMPONENTS_COMPONENT_LIST_H

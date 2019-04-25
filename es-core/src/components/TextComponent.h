@@ -1,8 +1,9 @@
-#ifndef _TEXTCOMPONENT_H_
-#define _TEXTCOMPONENT_H_
+#pragma once
+#ifndef ES_CORE_COMPONENTS_TEXT_COMPONENT_H
+#define ES_CORE_COMPONENTS_TEXT_COMPONENT_H
 
-#include "GuiComponent.h"
 #include "resources/Font.h"
+#include "GuiComponent.h"
 
 class ThemeData;
 
@@ -16,42 +17,54 @@ class TextComponent : public GuiComponent
 public:
 	TextComponent(Window* window);
 	TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color = 0x000000FF, Alignment align = ALIGN_LEFT,
-		Eigen::Vector3f pos = Eigen::Vector3f::Zero(), Eigen::Vector2f size = Eigen::Vector2f::Zero());
+		Vector3f pos = Vector3f::Zero(), Vector2f size = Vector2f::Zero(), unsigned int bgcolor = 0x00000000);
 
 	void setFont(const std::shared_ptr<Font>& font);
 	void setUppercase(bool uppercase);
 	void onSizeChanged() override;
 	void setText(const std::string& text);
 	void setColor(unsigned int color);
-	void setAlignment(Alignment align);
+	void setHorizontalAlignment(Alignment align);
+	void setVerticalAlignment(Alignment align);
 	void setLineSpacing(float spacing);
+	void setBackgroundColor(unsigned int color);
+	void setRenderBackground(bool render);
 
-	void render(const Eigen::Affine3f& parentTrans) override;
+	void render(const Transform4x4f& parentTrans) override;
 
 	std::string getValue() const override;
 	void setValue(const std::string& value) override;
 
 	unsigned char getOpacity() const override;
 	void setOpacity(unsigned char opacity) override;
-	
+
 	inline std::shared_ptr<Font> getFont() const { return mFont; }
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
 
+protected:
+	virtual void onTextChanged();
+
+	std::string mText;
+	std::shared_ptr<Font> mFont;
+
 private:
 	void calculateExtent();
 
-	void onTextChanged();
 	void onColorChanged();
 
 	unsigned int mColor;
-	std::shared_ptr<Font> mFont;
+	unsigned int mBgColor;
+	unsigned char mColorOpacity;
+	unsigned char mBgColorOpacity;
+	bool mRenderBackground;
+
 	bool mUppercase;
-	Eigen::Matrix<bool, 1, 2> mAutoCalcExtent;
-	std::string mText;
+	Vector2i mAutoCalcExtent;
 	std::shared_ptr<TextCache> mTextCache;
-	Alignment mAlignment;
+	Alignment mHorizontalAlignment;
+	Alignment mVerticalAlignment;
 	float mLineSpacing;
 };
 
-#endif
+#endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H

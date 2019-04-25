@@ -1,34 +1,32 @@
 #pragma once
+#ifndef ES_APP_VIEWS_GAME_LIST_DETAILED_GAME_LIST_VIEW_H
+#define ES_APP_VIEWS_GAME_LIST_DETAILED_GAME_LIST_VIEW_H
 
-#include "views/gamelist/BasicGameListView.h"
-#include "components/ScrollableContainer.h"
-#include "components/RatingComponent.h"
 #include "components/DateTimeComponent.h"
-#include "SystemData.h"
+#include "components/RatingComponent.h"
+#include "components/ScrollableContainer.h"
+#include "views/gamelist/BasicGameListView.h"
 
 class DetailedGameListView : public BasicGameListView
 {
 public:
-	DetailedGameListView(Window* window, FileData* root, SystemData* system);
+	DetailedGameListView(Window* window, FileData* root);
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
 
 	virtual const char* getName() const override { return "detailed"; }
 
-	virtual void updateInfoPanel() override;
-
-protected:
 	virtual void launch(FileData* game) override;
 
-	virtual std::vector<HelpPrompt> getHelpPrompts() override;
-
 private:
+	void updateInfoPanel();
+
 	void initMDLabels();
 	void initMDValues();
 
 	ImageComponent mImage;
 
-	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblFavorite;
+	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount;
 
 	RatingComponent mRating;
 	DateTimeComponent mReleaseDate;
@@ -38,13 +36,13 @@ private:
 	TextComponent mPlayers;
 	DateTimeComponent mLastPlayed;
 	TextComponent mPlayCount;
-	TextComponent mFavorite;
+	TextComponent mName;
 
 	std::vector<TextComponent*> getMDLabels();
 	std::vector<GuiComponent*> getMDValues();
 
 	ScrollableContainer mDescContainer;
 	TextComponent mDescription;
-
-	SystemData* mSystem;
 };
+
+#endif // ES_APP_VIEWS_GAME_LIST_DETAILED_GAME_LIST_VIEW_H

@@ -1,70 +1,45 @@
-#ifndef _AUDIOMANAGER_H_
-#define _AUDIOMANAGER_H_
+#pragma once
+#ifndef ES_CORE_AUDIO_MANAGER_H
+#define ES_CORE_AUDIO_MANAGER_H
 
-#include <vector>
+#include <SDL_audio.h>
 #include <memory>
-
-#include "SDL_audio.h"
-
-#include "Sound.h"
+#include <vector>
 #include "Music.h"
 
+class Sound;
 
-class AudioManager {
-    static std::vector<std::shared_ptr<Sound>> sSoundVector;
-    static std::vector<std::shared_ptr<Music>> sMusicVector;
+class AudioManager
+{
+	static SDL_AudioSpec sAudioFormat;
+	static std::vector<std::shared_ptr<Sound>> sSoundVector;
+	static std::shared_ptr<AudioManager> sInstance;
 
-    static std::shared_ptr<AudioManager> sInstance;
-    std::shared_ptr<Music> currentMusic;
+	static void mixAudio(void *unused, Uint8 *stream, int len);
 
-
-    AudioManager();
+	AudioManager();
 
 public:
-    static std::shared_ptr<AudioManager> &getInstance();
+	static std::shared_ptr<AudioManager> & getInstance();
+
+	void init();
+	void deinit();
+
+	void registerSound(std::shared_ptr<Sound> & sound);
+	void unregisterSound(std::shared_ptr<Sound> & sound);
+
+	void play();
+	void stop();
 
     void stopMusic();
-
-    void themeChanged(const std::shared_ptr<ThemeData> &theme);
-
     void resumeMusic();
-
-    void playCheckSound();
-
-    void init();
-
-    void deinit();
-
-    void registerMusic(std::shared_ptr<Music> &music);
-
-    void registerSound(std::shared_ptr<Sound> &sound);
-
-    void unregisterMusic(std::shared_ptr<Music> &music);
-
-    void unregisterSound(std::shared_ptr<Sound> &sound);
-
-    void play();
-
-    void stop();
-
-    void musicEnd();
-
     void playRandomMusic();
+    void playCheckSound();
 
     virtual ~AudioManager();
 
 private:
-    bool running;
-    int lastTime = 0;
-
     std::shared_ptr<Music> getRandomMusic(std::string themeSoundDirectory);
-
-    bool runningFromPlaylist;
-
-    bool update(int curTime);
-
-    std::string currentThemeMusicDirectory;
-
 };
 
-#endif
+#endif // ES_CORE_AUDIO_MANAGER_H

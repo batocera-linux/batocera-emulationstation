@@ -1,19 +1,13 @@
 #include "platform.h"
-#include <stdlib.h>
-#include <boost/filesystem.hpp>
-#include <iostream>
-#if !defined(WIN32)
-#include <sys/statvfs.h>
-#endif
-#include <sstream>
-#include "Settings.h"
 
-#include <fstream>
-
-
+#include <SDL_events.h>
 #ifdef WIN32
 #include <codecvt>
+#else
+#include <unistd.h>
 #endif
+#include <fcntl.h>
+#include <boost/filesystem.hpp>
 
 std::string getHomePath()
 {
@@ -80,5 +74,28 @@ int runSystemCommand(const std::string& cmd_utf8)
 	return _wsystem(wchar_str.c_str());
 #else
 	return system((cmd_utf8 + " 2> /userdata/system/logs/es_launch_stderr.log | head -300 > /userdata/system/logs/es_launch_stdout.log").c_str());
+#endif
+}
+
+int quitES(const std::string& filename)
+{
+	if (!filename.empty())
+		touch(filename);
+	SDL_Event* quit = new SDL_Event();
+	quit->type = SDL_QUIT;
+	SDL_PushEvent(quit);
+	return 0;
+}
+
+void touch(const std::string& filename)
+{
+#ifdef WIN32
+	FILE* fp = fopen(filename.c_str(), "ab+");
+	if (fp != NULL)
+		fclose(fp);
+#else
+	int fd = open(filename.c_str(), O_CREAT|O_WRONLY, 0644);
+	if (fd >= 0)
+		close(fd);
 #endif
 }

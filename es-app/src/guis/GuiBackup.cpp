@@ -32,9 +32,9 @@ std::vector<HelpPrompt> GuiBackup::getHelpPrompts()
 	return std::vector<HelpPrompt>();
 }
 
-void GuiBackup::render(const Eigen::Affine3f& parentTrans)
+void GuiBackup::render(const Transform4x4f& parentTrans)
 {
-        Eigen::Affine3f trans = parentTrans * getTransform();
+        Transform4x4f trans = parentTrans * getTransform();
 
         renderChildren(trans);
 

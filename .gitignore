@@ -1,4 +1,3 @@
-
 # Compiled Object files
 *.slo
 *.lo
@@ -31,12 +30,16 @@ CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
+
+# Eclipse
+.cproject
+.project
+.settings/
+
+# Clion
+.idea/
 CPackConfig.cmake
 CPackSourceConfig.cmake
-
-.idea/
-*.iml
-*.txt.user*
 
 # po backup
 *.po~

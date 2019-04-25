@@ -24,9 +24,9 @@
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiAutoScrape.h"
-#include "guis/GuiRomsManager.h"
 #include "views/ViewController.h"
 #include "AudioManager.h"
+#include "InputManager.h"
 
 #include "components/ButtonComponent.h"
 #include "components/SwitchComponent.h"
@@ -35,15 +35,12 @@
 #include "components/OptionListComponent.h"
 #include "components/MenuComponent.h"
 #include "VolumeControl.h"
-#include "scrapers/GamesDBScraper.h"
 
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "GuiLoading.h"
 
 #include "RecalboxConf.h"
-
-namespace fs = boost::filesystem;
 
 void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password) {
     // LABEL
@@ -67,7 +64,7 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 
     auto bracket = std::make_shared<ImageComponent>(mWindow);
     bracket->setImage(":/arrow.svg");
-    bracket->setResize(Eigen::Vector2f(0, lbl->getFont()->getLetterHeight()));
+    bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
     row.addElement(bracket, false);
 
     auto updateVal = [ed, settingsID, password](const std::string &newVal) {
@@ -120,11 +117,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     }
 #endif
 
-    if (Settings::getInstance()->getBool("RomsManager")) {
-      addEntry("ROMS MANAGER", 0x777777FF, true, [this] {
-            mWindow->pushGui(new GuiRomsManager(mWindow));
-        });
-    }
     if (RecalboxConf::getInstance()->get("system.es.menu") != "bartop") {
       addEntry(_("SYSTEM SETTINGS").c_str(), 0x777777FF, true,
                  [this] {
@@ -707,7 +699,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              // For each activated system
                              std::vector<SystemData *> systems = SystemData::sSystemVector;
                              for (auto system = systems.begin(); system != systems.end(); system++) {
-                                 if ((*system) != SystemData::getFavoriteSystem()) {
+			       //if ((*system) != SystemData::getFavoriteSystem()) {
                                      ComponentListRow systemRow;
                                      auto systemText = std::make_shared<TextComponent>(mWindow, (*system)->getFullName(),
                                                                                        Font::get(FONT_SIZE_MEDIUM),
@@ -721,7 +713,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                      });
                                      configuration->addRow(systemRow);
                                  }
-                             }
+                             //}
                              mWindow->pushGui(configuration);
 
                          };
@@ -744,7 +736,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"),
                                                            [this, window] {
                                                                ViewController::get()->goToStart();
-                                                               window->renderShutdownScreen();
+                                                               //window->renderShutdownScreen();
                                                                delete ViewController::get();
                                                                SystemData::deleteSystems();
                                                                SystemData::loadConfig();
@@ -1237,8 +1229,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
     mVersion.setFont(Font::get(FONT_SIZE_SMALL));
     mVersion.setColor(0xC6C6C6FF);
-    mVersion.setText("EMULATIONSTATION V" + strToUpper(PROGRAM_VERSION_STRING));
-    mVersion.setAlignment(ALIGN_CENTER);
+    mVersion.setText("EMULATIONSTATION V" + Utils::String::toUpper(PROGRAM_VERSION_STRING));
 
     addChild(&mMenu);
     addChild(&mVersion);
@@ -1259,6 +1250,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
     auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
     bool selected = false;
     std::string selectedEmulator = "";
+    /*
     for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) {
         bool found;
         std::string curEmulatorName = it->first;
@@ -1274,6 +1266,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
         selected = selected || found;
         emu_choice->add(curEmulatorName, curEmulatorName, found);
     }
+    */
     emu_choice->add(_("AUTO"), "auto", !selected);
     emu_choice->setSelectedChangedCallback([this, systemConfiguration, systemData](std::string s) {
         popSystemConfigurationGui(systemData, s);
@@ -1284,6 +1277,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
     // Core choice
     auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
     selected = false;
+    /*
     for (auto emulator = systemData->getEmulators()->begin();
          emulator != systemData->getEmulators()->end(); emulator++) {
         if (selectedEmulator == emulator->first) {
@@ -1294,6 +1288,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
             }
         }
     }
+    */
     core_choice->add(_("AUTO"), "auto", !selected);
     systemConfiguration->addWithLabel(_("Core"), core_choice);
 
@@ -1523,7 +1518,7 @@ void GuiMenu::createConfigInput() {
             std::string name;
             std::string selectedName = input_p1->getSelectedName();
 
-            if (selectedName.compare(strToUpper("default")) == 0) {
+            if (selectedName.compare(Utils::String::toUpper("default")) == 0) {
 	      name = "DEFAULT";
 	      Settings::getInstance()->setString(confName, name);
 	      Settings::getInstance()->setString(confGuid, "");
@@ -1641,7 +1636,8 @@ void GuiMenu::clearLoadedInput() {
 std::vector<std::string> GuiMenu::getDecorationsSets()
 {
 	std::vector<std::string> sets;
-
+	return sets;
+	/*
 	static const size_t pathCount = 2;
 	fs::path paths[pathCount] = {
 		"/usr/share/batocera/datainit/decorations",
@@ -1652,7 +1648,7 @@ std::vector<std::string> GuiMenu::getDecorationsSets()
 
 	for(size_t i = 0; i < pathCount; i++)
 	{
-		if(!fs::is_directory(paths[i]))
+		if(!Utils::FileSystem::isDirectory(paths[i]))
 			continue;
 
 		for(fs::directory_iterator it(paths[i]); it != end; ++it)
@@ -1668,4 +1664,5 @@ std::vector<std::string> GuiMenu::getDecorationsSets()
 	sort(sets.begin(), sets.end());
 	sets.erase(unique(sets.begin(), sets.end()), sets.end());
 	return sets;
+	*/
 }

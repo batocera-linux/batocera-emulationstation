@@ -1,7 +1,11 @@
 #pragma once
-#include "GuiComponent.h"
+#ifndef ES_CORE_COMPONENTS_BUSY_COMPONENT_H
+#define ES_CORE_COMPONENTS_BUSY_COMPONENT_H
+
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
+#include "GuiComponent.h"
+#include <SDL_mutex.h>
 
 class AnimatedImageComponent;
 class TextComponent;
@@ -16,7 +20,7 @@ public:
 	void setText(std::string txt);
 
 	void reset(); // reset to frame 0
-	virtual void render(const Eigen::Affine3f& parentTrans);
+	virtual void render(const Transform4x4f& parentTrans);
 private:
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;
@@ -28,3 +32,5 @@ private:
 	bool threadMessagechanged;
 	std::string threadMessage;
 };
+
+#endif // ES_CORE_COMPONENTS_BUSY_COMPONENT_H

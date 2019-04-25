@@ -1,22 +1,24 @@
 #include "Window.h"
-#include <iostream>
-#include "Renderer.h"
-#include "AudioManager.h"
-#include "Log.h"
-#include "Settings.h"
-#include <algorithm>
-#include <iomanip>
+
 #include "components/HelpComponent.h"
 #include "components/ImageComponent.h"
+#include "resources/Font.h"
+#include "resources/TextureResource.h"
+#include "InputManager.h"
+#include "Log.h"
+#include "Renderer.h"
+#include "Scripting.h"
+#include <algorithm>
+#include <iomanip>
 #include "guis/GuiMsgBox.h"
-#include "RecalboxSystem.h"
+//#include "RecalboxSystem.h"
 #include "RecalboxConf.h"
 #include "LocaleES.h"
 
 #define PLAYER_PAD_TIME_MS 200
 
-Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10), 
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), launchKodi(false), mClockElapsed(0)
+Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), launchKodi(false), mClockElapsed(0)
 {
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
@@ -36,12 +38,17 @@ Window::~Window()
 	// delete all our GUIs
 	while(peekGui())
 		delete peekGui();
-	
+
 	delete mHelp;
 }
 
 void Window::pushGui(GuiComponent* gui)
 {
+	if (mGuiStack.size() > 0)
+	{
+		auto& top = mGuiStack.back();
+		top->topWindow(false);
+	}
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
 }
@@ -53,14 +60,17 @@ void Window::displayMessage(std::string message)
 
 void Window::removeGui(GuiComponent* gui)
 {
-	for(auto i = mGuiStack.begin(); i != mGuiStack.end(); i++)
+	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 	{
 		if(*i == gui)
 		{
 			i = mGuiStack.erase(i);
 
-			if(i == mGuiStack.end() && mGuiStack.size()) // we just popped the stack and the stack is not empty
+			if(i == mGuiStack.cend() && mGuiStack.size()) // we just popped the stack and the stack is not empty
+			{
 				mGuiStack.back()->updateHelpPrompts();
+				mGuiStack.back()->topWindow(true);
+			}
 
 			return;
 		}
@@ -75,15 +85,13 @@ GuiComponent* Window::peekGui()
 	return mGuiStack.back();
 }
 
-bool Window::init(unsigned int width, unsigned int height, bool initRenderer)
+bool Window::init()
 {
-    if (initRenderer) {
-        if(!Renderer::init(width, height))
-        {
-            LOG(LogError) << "Renderer failed to initialize!";
-            return false;
-        }
-    }
+	if(!Renderer::init())
+	{
+		LOG(LogError) << "Renderer failed to initialize!";
+		return false;
+	}
 
 	InputManager::getInstance()->init();
 
@@ -97,6 +105,7 @@ bool Window::init(unsigned int width, unsigned int height, bool initRenderer)
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_LARGE));
 	}
 
+	mBackgroundOverlay->setImage(":/scroll_gradient.png");
 	mBackgroundOverlay->setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
 	// update our help because font sizes probably changed
@@ -108,6 +117,11 @@ bool Window::init(unsigned int width, unsigned int height, bool initRenderer)
 
 void Window::deinit()
 {
+	// Hide all GUI elements on uninitialisation - this disable
+	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
+	{
+		(*i)->onHide();
+	}
 	InputManager::getInstance()->deinit();
 	ResourceManager::getInstance()->unloadAll();
 	Renderer::deinit();
@@ -121,16 +135,45 @@ void Window::textInput(const char* text)
 
 void Window::input(InputConfig* config, Input input)
 {
+	if (mScreenSaver) {
+		if(mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
+		   (Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
+		{
+			if(mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			{
+				if(config->isMappedLike("right", input) || config->isMappedTo("select", input))
+				{
+					if (input.value != 0) {
+						// handle screensaver control
+						mScreenSaver->nextVideo();
+					}
+					return;
+				}
+				else if(config->isMappedTo("start", input) && input.value != 0)
+				{
+					// launch game!
+					cancelScreenSaver();
+					mScreenSaver->launchGame();
+					// to force handling the wake up process
+					mSleeping = true;
+				}
+			}
+		}
+	}
+
 	if(mSleeping)
 	{
 		// wake up
 		mTimeSinceLastInput = 0;
+		cancelScreenSaver();
 		mSleeping = false;
 		onWake();
 		return;
 	}
 
 	mTimeSinceLastInput = 0;
+	if (cancelScreenSaver())
+		return;
 
 	if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
@@ -200,11 +243,11 @@ void Window::update(int deltaTime)
 	if(mFrameTimeElapsed > 500)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
-		
+
 		if(Settings::getInstance()->getBool("DrawFramerate"))
 		{
 			std::stringstream ss;
-			
+
 			// fps
 			ss << std::fixed << std::setprecision(1) << (1000.0f * (float)mFrameCountElapsed / (float)mFrameTimeElapsed) << "fps, ";
 			ss << std::fixed << std::setprecision(2) << ((float)mFrameTimeElapsed / (float)mFrameCountElapsed) << "ms";
@@ -259,11 +302,15 @@ void Window::update(int deltaTime)
 
 	if(peekGui())
 		peekGui()->update(deltaTime);
+	
+	// Update the screensaver
+	if (mScreenSaver)
+		mScreenSaver->update(deltaTime);
 }
 
 void Window::render()
 {
-	Eigen::Affine3f transform = Eigen::Affine3f::Identity();
+	Transform4x4f transform = Transform4x4f::Identity();
 
 	mRenderedHelpPrompts = false;
 
@@ -286,18 +333,19 @@ void Window::render()
 
 	if(Settings::getInstance()->getBool("DrawFramerate") && mFrameDataText)
 	{
-		Renderer::setMatrix(Eigen::Affine3f::Identity());
+		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
+        // clock
 	if(Settings::getInstance()->getBool("DrawClock") && mClockText)
 	  {
-	    Renderer::setMatrix(Eigen::Affine3f::Identity());
+	    Renderer::setMatrix(Transform4x4f::Identity());
 	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
 	  }
 
 	// pads
-	Renderer::setMatrix(Eigen::Affine3f::Identity());
+	Renderer::setMatrix(Transform4x4f::Identity());
 	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 	for (int player = 0; player < MAX_PLAYERS; player++) {
 	  if(playerJoysticks.count(player) == 1) {
@@ -317,14 +365,26 @@ void Window::render()
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
-	{
-		renderScreenSaver();
+		startScreenSaver();
+	
+	// Always call the screensaver render function regardless of whether the screensaver is active
+	// or not because it may perform a fade on transition
+	renderScreenSaver();
 
-		if (!isProcessing() && mAllowSleep)
+	if(!mRenderScreenSaver && mInfoPopup)
+	{
+		mInfoPopup->render(transform);
+	}
+	
+	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
+	{
+		if (!isProcessing() && mAllowSleep && (!mScreenSaver || mScreenSaver->allowSleep()))
 		{
 			// go to sleep
-			mSleeping = true;
-			onSleep();
+			if (mSleeping == false) {
+				mSleeping = true;
+				onSleep();
+			}
 		}
 	}
 }
@@ -344,11 +404,11 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
-void Window::renderWaitingScreen(const std::string& text)
+void Window::renderLoadingScreen(std::string text)
 {
-	Eigen::Affine3f trans = Eigen::Affine3f::Identity();
+	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFFFF);
+	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000FF);
 
 	ImageComponent splash(this, true);
 	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
@@ -358,22 +418,20 @@ void Window::renderWaitingScreen(const std::string& text)
 
 	auto& font = mDefaultFonts.at(1);
 	TextCache* cache = font->buildTextCache(text, 0, 0, 0x656565FF);
-	trans = trans.translate(Eigen::Vector3f(round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f),
-											round(Renderer::getScreenHeight() * 0.835f), 0.0f));
+
+	float x = Math::round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f);
+	float y = Math::round(Renderer::getScreenHeight() * 0.835f);
+	trans = trans.translate(Vector3f(x, y, 0.0f));
 	Renderer::setMatrix(trans);
 	font->renderTextCache(cache);
 	delete cache;
 
 	Renderer::swapBuffers();
 }
-void Window::renderLoadingScreen()
-{
-  renderWaitingScreen(_("LOADING..."));
-}
 
 void Window::renderHelpPromptsEarly()
 {
-	mHelp->render(Eigen::Affine3f::Identity());
+	mHelp->render(Transform4x4f::Identity());
 	mRenderedHelpPrompts = true;
 }
 
@@ -386,23 +444,23 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 
 	std::map<std::string, bool> inputSeenMap;
 	std::map<std::string, int> mappedToSeenMap;
-	for(auto it = prompts.begin(); it != prompts.end(); it++)
+	for(auto it = prompts.cbegin(); it != prompts.cend(); it++)
 	{
 		// only add it if the same icon hasn't already been added
-	  if(inputSeenMap.insert(std::make_pair<std::string, bool>(it->first.c_str(), true)).second)
+		if(inputSeenMap.emplace(it->first, true).second)
 		{
 			// this symbol hasn't been seen yet, what about the action name?
 			auto mappedTo = mappedToSeenMap.find(it->second);
-			if(mappedTo != mappedToSeenMap.end())
+			if(mappedTo != mappedToSeenMap.cend())
 			{
 				// yes, it has!
 
 				// can we combine? (dpad only)
-			  if((strcmp(it->first.c_str(), "up/down") == 0 && strcmp(addPrompts.at(mappedTo->second).first.c_str(), "left/right") == 0) ||
-			     (strcmp(it->first.c_str(), "left/right") == 0 && strcmp(addPrompts.at(mappedTo->second).first.c_str(), "up/down") == 0))
+				if((it->first == "up/down" && addPrompts.at(mappedTo->second).first != "left/right") ||
+					(it->first == "left/right" && addPrompts.at(mappedTo->second).first != "up/down"))
 				{
 					// yes!
-				  addPrompts.at(mappedTo->second).first = "up/down/left/right";
+					addPrompts.at(mappedTo->second).first = "up/down/left/right";
 					// don't need to add this to addPrompts since we just merged
 				}else{
 					// no, we can't combine!
@@ -410,7 +468,7 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 				}
 			}else{
 				// no, it hasn't!
-				mappedToSeenMap.insert(std::pair<std::string, int>(it->second, addPrompts.size()));
+				mappedToSeenMap.emplace(it->second, (int)addPrompts.size());
 				addPrompts.push_back(*it);
 			}
 		}
@@ -418,16 +476,16 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 
 	// sort prompts so it goes [dpad_all] [dpad_u/d] [dpad_l/r] [a/b/x/y/l/r] [start/select]
 	std::sort(addPrompts.begin(), addPrompts.end(), [](const HelpPrompt& a, const HelpPrompt& b) -> bool {
-		
+
 		static const char* map[] = {
 			"up/down/left/right",
 			"up/down",
 			"left/right",
-			"a", "b", "x", "y", "l", "r", 
-			"start", "select", 
+			"a", "b", "x", "y", "l", "r",
+			"start", "select",
 			NULL
 		};
-		
+
 		int i = 0;
 		int aVal = 0;
 		int bVal = 0;
@@ -449,27 +507,52 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 
 void Window::onSleep()
 {
-
+	Scripting::fireEvent("sleep");
 }
 
 void Window::onWake()
 {
-
-}
-
-void Window::renderShutdownScreen() {
-  renderWaitingScreen(_("PLEASE WAIT..."));
-
+	Scripting::fireEvent("wake");
 }
 
 bool Window::isProcessing()
 {
-	return count_if(mGuiStack.begin(), mGuiStack.end(), [](GuiComponent* c) { return c->isProcessing(); }) > 0;
+	return count_if(mGuiStack.cbegin(), mGuiStack.cend(), [](GuiComponent* c) { return c->isProcessing(); }) > 0;
+}
+
+void Window::startScreenSaver()
+{
+	if (mScreenSaver && !mRenderScreenSaver)
+	{
+		// Tell the GUI components the screensaver is starting
+		for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
+			(*i)->onScreenSaverActivate();
+
+		mScreenSaver->startScreenSaver();
+		mRenderScreenSaver = true;
+	}
+}
+
+bool Window::cancelScreenSaver()
+{
+	if (mScreenSaver && mRenderScreenSaver)
+	{
+		mScreenSaver->stopScreenSaver();
+		mRenderScreenSaver = false;
+		mScreenSaver->resetCounts();
+
+		// Tell the GUI components the screensaver has stopped
+		for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
+			(*i)->onScreenSaverDeactivate();
+
+		return true;
+	}
+
+	return false;
 }
 
 void Window::renderScreenSaver()
 {
-	Renderer::setMatrix(Eigen::Affine3f::Identity());
-	unsigned char opacity = Settings::getInstance()->getString("ScreenSaverBehavior") == "dim" ? 0xA0 : 0xFF;
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x00000000 | opacity);
+	if (mScreenSaver)
+		mScreenSaver->renderScreenSaver();
 }

@@ -1,10 +1,14 @@
 #include "VolumeControl.h"
 
+#include "math/Misc.h"
 #include "Log.h"
-#include <math.h>
+#include "Settings.h"
+#ifdef WIN32
+#include <mmdeviceapi.h>
+#endif
 
 #if defined(__linux__)
-    #ifdef _RPI_
+    #if defined(_RPI_) || defined(_VERO4K_)
         const char * VolumeControl::mixerName = "PCM";
     #else
     	const char * VolumeControl::mixerName = "Master";
@@ -18,9 +22,9 @@ std::weak_ptr<VolumeControl> VolumeControl::sInstance;
 VolumeControl::VolumeControl()
 	: originalVolume(0), internalVolume(0)
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
-    , mixerIndex(0), mixerHandle(nullptr), mixerElem(nullptr), mixerSelemId(nullptr)
+	, mixerIndex(0), mixerHandle(nullptr), mixerElem(nullptr), mixerSelemId(nullptr)
 #elif defined(WIN32) || defined(_WIN32)
 	, mixerHandle(nullptr), endpointVolume(nullptr)
 #endif
@@ -31,8 +35,17 @@ VolumeControl::VolumeControl()
 	originalVolume = getVolume();
 }
 
-VolumeControl::VolumeControl(const VolumeControl & right)
+VolumeControl::VolumeControl(const VolumeControl & right):
+	originalVolume(0), internalVolume(0)
+#if defined (__APPLE__)
+	#error TODO: Not implemented for MacOS yet!!!
+#elif defined(__linux__)
+	, mixerIndex(0), mixerHandle(nullptr), mixerElem(nullptr), mixerSelemId(nullptr)
+#elif defined(WIN32) || defined(_WIN32)
+	, mixerHandle(nullptr), endpointVolume(nullptr)
+#endif
 {
+	(void)right;
 	sInstance = right.sInstance;
 }
 
@@ -68,11 +81,15 @@ void VolumeControl::init()
 {
 	//initialize audio mixer interface
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	//try to open mixer device
 	if (mixerHandle == nullptr)
 	{
+		// Allow users to override the AudioCard and MixerName in es_settings.cfg
+		mixerCard = Settings::getInstance()->getString("AudioCard").c_str();
+		mixerName = Settings::getInstance()->getString("AudioDevice").c_str();
+
 		snd_mixer_selem_id_alloca(&mixerSelemId);
 		//sets simple-mixer index and name
 		snd_mixer_selem_id_set_index(mixerSelemId, mixerIndex);
@@ -212,7 +229,7 @@ void VolumeControl::deinit()
 {
 	//deinitialize audio mixer interface
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	if (mixerHandle != nullptr) {
 		snd_mixer_detach(mixerHandle, mixerCard);
@@ -239,7 +256,7 @@ int VolumeControl::getVolume() const
 	int volume = 0;
 
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	if (mixerElem != nullptr)
 	{
@@ -256,7 +273,7 @@ int VolumeControl::getVolume() const
 				rawVolume -= minVolume;
 				if (rawVolume > 0)
 				{
-				  volume = ceil((rawVolume * 100) / (((double)maxVolume - minVolume)));
+					volume = (rawVolume * 100.0) / (maxVolume - minVolume) + 0.5;
 				}
 				//else volume = 0;
 			}
@@ -284,7 +301,7 @@ int VolumeControl::getVolume() const
 		mixerControlDetails.cbDetails = sizeof(MIXERCONTROLDETAILS_UNSIGNED);
 		if (mixerGetControlDetails((HMIXEROBJ)mixerHandle, &mixerControlDetails, MIXER_GETCONTROLDETAILSF_VALUE) == MMSYSERR_NOERROR) 
 		{
-			volume = (uint8_t)round((value.dwValue * 100) / 65535);
+			volume = (int)Math::round((value.dwValue * 100) / 65535.0f);
 		}
 		else
 		{
@@ -297,7 +314,7 @@ int VolumeControl::getVolume() const
 		float floatVolume = 0.0f; //0-1
 		if (endpointVolume->GetMasterVolumeLevelScalar(&floatVolume) == S_OK)
 		{
-			volume = (uint8_t)round(floatVolume * 100.0f);
+			volume = (int)Math::round(floatVolume * 100.0f);
 			LOG(LogInfo) << " getting volume as " << volume << " ( from float " << floatVolume << ")";
 		}
 		else
@@ -333,7 +350,7 @@ void VolumeControl::setVolume(int volume)
 	//store values in internal variables
 	internalVolume = volume;
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	if (mixerElem != nullptr)
 	{

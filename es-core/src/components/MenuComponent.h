@@ -1,10 +1,13 @@
 #pragma once
+#ifndef ES_CORE_COMPONENTS_MENU_COMPONENT_H
+#define ES_CORE_COMPONENTS_MENU_COMPONENT_H
 
-#include "components/NinePatchComponent.h"
-#include "components/ComponentList.h"
-#include "components/TextComponent.h"
 #include "components/ComponentGrid.h"
-#include "Util.h"
+#include "components/ComponentList.h"
+#include "components/NinePatchComponent.h"
+#include "components/TextComponent.h"
+#include "utils/StringUtil.h"
+#include "Renderer.h"
 
 class ButtonComponent;
 class ImageComponent;
@@ -21,31 +24,24 @@ public:
 
 	void onSizeChanged() override;
 
-	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateGeometry = true) { mList->addRow(row, setCursorHere, updateGeometry); if (updateGeometry) updateSize(); }
+	inline void addRow(const ComponentListRow& row, bool setCursorHere = false) { mList->addRow(row, setCursorHere); updateSize(); }
 
-	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false, bool invert_when_selected = true, const std::function<void()>& acceptCallback = nullptr)
+	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false, bool invert_when_selected = true)
 	{
 		ComponentListRow row;
-		row.addElement(std::make_shared<TextComponent>(mWindow, strToUpper(label), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 		row.addElement(comp, false, invert_when_selected);
-		if (acceptCallback) {
-			row.makeAcceptInputHandler(acceptCallback);
-		}
 		addRow(row, setCursorHere);
 	}
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
 
-	void setTitle(const char* title, const std::shared_ptr<Font>& font = Font::get(FONT_SIZE_LARGE));
+	void setTitle(const char* title, const std::shared_ptr<Font>& font);
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
 	inline void setCursorToButtons() { assert(mButtonGrid); mGrid.setCursorTo(mButtonGrid); }
-	inline void clear() { mList->clear(); }
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
-
-protected:
-	inline ComponentList* getList() const { return mList.get(); }
 
 private:
 	void updateSize();
@@ -60,3 +56,5 @@ private:
 	std::shared_ptr<ComponentGrid> mButtonGrid;
 	std::vector< std::shared_ptr<ButtonComponent> > mButtons;
 };
+
+#endif // ES_CORE_COMPONENTS_MENU_COMPONENT_H

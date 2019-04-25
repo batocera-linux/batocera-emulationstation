@@ -1,49 +1,87 @@
 #include "Settings.h"
-#include "Log.h"
-#include "pugixml/pugixml.hpp"
-#include "platform.h"
-#include <boost/filesystem.hpp>
-#include <boost/assign.hpp>
 
-Settings *Settings::sInstance = NULL;
+#include "utils/FileSystemUtil.h"
+#include "Log.h"
+#include "Scripting.h"
+#include "platform.h"
+#include <pugixml/src/pugixml.hpp>
+#include <algorithm>
+#include <vector>
+
+Settings* Settings::sInstance = NULL;
 
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
-std::vector<const char *> settings_dont_save = boost::assign::list_of
-        ("Debug")
-        ("DebugGrid")
-        ("DebugText")
-        ("ParseGamelistOnly")
-        ("ShowExit")
-        ("Windowed")
-        ("VSync")
-        ("HideConsole")
-        ("IgnoreGamelist")
-  ;
-Settings::Settings() {
-    setDefaults();
-    loadFile();
+std::vector<const char*> settings_dont_save {
+	{ "Debug" },
+	{ "DebugGrid" },
+	{ "DebugText" },
+	{ "DebugImage" },
+	{ "ForceKid" },
+	{ "ForceKiosk" },
+	{ "IgnoreGamelist" },
+	{ "HideConsole" },
+	{ "ShowExit" },
+	{ "SplashScreen" },
+	{ "SplashScreenProgress" },
+	{ "VSync" },
+	{ "FullscreenBorderless" },
+	{ "Windowed" },
+	{ "WindowWidth" },
+	{ "WindowHeight" },
+	{ "ScreenWidth" },
+	{ "ScreenHeight" },
+	{ "ScreenOffsetX" },
+	{ "ScreenOffsetY" },
+	{ "ScreenRotate" },
+	{ "ExePath" }
+};
+
+Settings::Settings()
+{
+	setDefaults();
+	loadFile();
 }
 
-Settings *Settings::getInstance() {
-    if (sInstance == NULL)
-        sInstance = new Settings();
+Settings* Settings::getInstance()
+{
+	if(sInstance == NULL)
+		sInstance = new Settings();
 
-    return sInstance;
+	return sInstance;
 }
 
-void Settings::setDefaults() {
-    mBoolMap.clear();
-    mIntMap.clear();
+void Settings::setDefaults()
+{
+	mBoolMap.clear();
+	mIntMap.clear();
 
-    mBoolMap["BackgroundJoystickInput"] = false;
-    mBoolMap["ParseGamelistOnly"] = false;
-    mBoolMap["DrawFramerate"] = false;
-    mBoolMap["ShowExit"] = true;
-    mBoolMap["Windowed"] = false;
-    mBoolMap["UseOSK"] = true;
-    mBoolMap["DrawClock"] = true;
+	mBoolMap["BackgroundJoystickInput"] = false;
+	mBoolMap["ParseGamelistOnly"] = false;
+	mBoolMap["ShowHiddenFiles"] = false;
+	mBoolMap["DrawFramerate"] = false;
+	mBoolMap["ShowExit"] = true;
+	mBoolMap["FullscreenBorderless"] = false;
+	mBoolMap["Windowed"] = false;
+	mBoolMap["SplashScreen"] = true;
+	mBoolMap["SplashScreenProgress"] = true;
+	mStringMap["StartupSystem"] = "";
 
+        // batocera
+        mBoolMap["UseOSK"] = true;
+        mBoolMap["DrawClock"] = true;
+        mIntMap["SystemVolume"] = 95;
+        mBoolMap["FavoritesOnly"] = false;
+        mBoolMap["ShowHidden"] = false;
+        mBoolMap["Overscan"] = false;
+        mStringMap["Lang"] = "en_US";
+        mStringMap["INPUT P1"] = "DEFAULT";
+        mStringMap["INPUT P2"] = "DEFAULT";
+        mStringMap["INPUT P3"] = "DEFAULT";
+        mStringMap["INPUT P4"] = "DEFAULT";
+        mStringMap["Overclock"] = "none";
+
+        // batocera
 #ifdef _RPI_
 	// don't enable VSync by default on the Pi, since it already
 	// has trouble trying to render things at 60fps in certain menus
@@ -52,127 +90,176 @@ void Settings::setDefaults() {
     mBoolMap["VSync"] = true;
 #endif
 
-    mBoolMap["ShowHelpPrompts"] = true;
-    mBoolMap["ScrapeRatings"] = true;
-    mBoolMap["IgnoreGamelist"] = false;
-    mBoolMap["HideConsole"] = true;
-    mBoolMap["QuickSystemSelect"] = true;
-    mBoolMap["FavoritesOnly"] = false;
-    mBoolMap["ShowHidden"] = false;
+	mBoolMap["EnableSounds"] = true;
+	mBoolMap["ShowHelpPrompts"] = true;
+	mBoolMap["ScrapeRatings"] = true;
+	mBoolMap["IgnoreGamelist"] = false;
+	mBoolMap["HideConsole"] = true;
+	mBoolMap["QuickSystemSelect"] = true;
+	mBoolMap["MoveCarousel"] = true;
+	mBoolMap["SaveGamelistsOnExit"] = true;
 
-    mBoolMap["Debug"] = false;
-    mBoolMap["DebugGrid"] = false;
-    mBoolMap["DebugText"] = false;
+	mBoolMap["Debug"] = false;
+	mBoolMap["DebugGrid"] = false;
+	mBoolMap["DebugText"] = false;
+	mBoolMap["DebugImage"] = false;
 
+	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
+	mIntMap["ScraperResizeWidth"] = 400;
+	mIntMap["ScraperResizeHeight"] = 0;
+	#ifdef _RPI_
+		mIntMap["MaxVRAM"] = 80;
+	#else
+		mIntMap["MaxVRAM"] = 100;
+	#endif
 
-    mBoolMap["Overscan"] = false;
+	mStringMap["TransitionStyle"] = "fade";
+	mStringMap["ThemeSet"] = "";
+	mStringMap["ScreenSaverBehavior"] = "dim";
+	mStringMap["Scraper"] = "TheGamesDB";
+	mStringMap["GamelistViewStyle"] = "automatic";
 
-    mIntMap["ScreenSaverTime"] = 5 * 60 * 1000; // 5 minutes
-    mIntMap["ScraperResizeWidth"] = 400;
-    mIntMap["ScraperResizeHeight"] = 0;
-    mIntMap["SystemVolume"] = 96;
-    mIntMap["MaxVRAM"] = 100;
+	mBoolMap["ScreenSaverControls"] = true;
+	mStringMap["ScreenSaverGameInfo"] = "never";
+	mBoolMap["StretchVideoOnScreenSaver"] = false;
+	mStringMap["PowerSaverMode"] = "disabled";
 
-    mStringMap["TransitionStyle"] = "fade";
-    mStringMap["ThemeSet"] = "";
-    mStringMap["ScreenSaverBehavior"] = "dim";
-    mStringMap["Scraper"] = "Screenscraper";
-    mStringMap["Lang"] = "en_US";
-    mStringMap["INPUT P1"] = "DEFAULT";
-    mStringMap["INPUT P2"] = "DEFAULT";
-    mStringMap["INPUT P3"] = "DEFAULT";
-    mStringMap["INPUT P4"] = "DEFAULT";
-    mStringMap["Overclock"] = "none";
+	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
+	mBoolMap["SlideshowScreenSaverStretch"] = false;
+	mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/audio/slideshow_bg.wav";
+	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
+	mStringMap["SlideshowScreenSaverImageDir"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/image";
+	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
+	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 
+	// This setting only applies to raspberry pi but set it for all platforms so
+	// we don't get a warning if we encounter it on a different platform
+	mBoolMap["VideoOmxPlayer"] = false;
+	#ifdef _RPI_
+		// we're defaulting to OMX Player for full screen video on the Pi
+		mBoolMap["ScreenSaverOmxPlayer"] = true;
+	#else
+		mBoolMap["ScreenSaverOmxPlayer"] = false;
+	#endif
+
+	mIntMap["ScreenSaverSwapVideoTimeout"] = 30000;
+
+	mBoolMap["VideoAudio"] = true;
+	mBoolMap["CaptionsCompatibility"] = true;
+	// Audio out device for Video playback using OMX player.
+	mStringMap["OMXAudioDev"] = "both";
+	mStringMap["CollectionSystemsAuto"] = "";
+	mStringMap["CollectionSystemsCustom"] = "";
+	mBoolMap["SortAllSystems"] = false;
+	mBoolMap["UseCustomCollectionsSystem"] = true;
+
+	mBoolMap["LocalArt"] = false;
+
+	// Audio out device for volume control
+	#ifdef _RPI_
+		mStringMap["AudioDevice"] = "PCM";
+	#else
+		mStringMap["AudioDevice"] = "Master";
+	#endif
+
+	mStringMap["AudioCard"] = "default";
+	mStringMap["UIMode"] = "Full";
+	mStringMap["UIMode_passkey"] = "uuddlrlrba";
+	mBoolMap["ForceKiosk"] = false;
+	mBoolMap["ForceKid"] = false;
+	mBoolMap["ForceDisableFilters"] = false;
+
+	mIntMap["WindowWidth"]   = 0;
+	mIntMap["WindowHeight"]  = 0;
+	mIntMap["ScreenWidth"]   = 0;
+	mIntMap["ScreenHeight"]  = 0;
+	mIntMap["ScreenOffsetX"] = 0;
+	mIntMap["ScreenOffsetY"] = 0;
+	mIntMap["ScreenRotate"]  = 0;
+
+	mStringMap["ExePath"] = "";
 }
 
-template<typename K, typename V>
-void saveMap(pugi::xml_node &node, std::map<K, V> &map, const char *type) {
-    for (auto iter = map.begin(); iter != map.end(); iter++) {
-        // key is on the "don't save" list, so don't save it
-        if (std::find(settings_dont_save.begin(), settings_dont_save.end(), iter->first) != settings_dont_save.end())
-            continue;
+template <typename K, typename V>
+void saveMap(pugi::xml_document& doc, std::map<K, V>& map, const char* type)
+{
+	for(auto iter = map.cbegin(); iter != map.cend(); iter++)
+	{
+		// key is on the "don't save" list, so don't save it
+		if(std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), iter->first) != settings_dont_save.cend())
+			continue;
 
-        pugi::xml_node parent_node = node.append_child(type);
-        parent_node.append_attribute("name").set_value(iter->first.c_str());
-        parent_node.append_attribute("value").set_value(iter->second);
-    }
+		pugi::xml_node node = doc.append_child(type);
+		node.append_attribute("name").set_value(iter->first.c_str());
+		node.append_attribute("value").set_value(iter->second);
+	}
 }
 
-void Settings::saveFile() {
-    const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+void Settings::saveFile()
+{
+	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
+	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
 
-    pugi::xml_document doc;
+	pugi::xml_document doc;
 
-    pugi::xml_node config = doc.append_child("config");
-    
-    saveMap<std::string, bool>(config, mBoolMap, "bool");
-    saveMap<std::string, int>(config, mIntMap, "int");
-    saveMap<std::string, float>(config, mFloatMap, "float");
+	saveMap<std::string, bool>(doc, mBoolMap, "bool");
+	saveMap<std::string, int>(doc, mIntMap, "int");
+	saveMap<std::string, float>(doc, mFloatMap, "float");
 
-    //saveMap<std::string, std::string>(config, mStringMap, "string");
-    for (auto iter = mStringMap.begin(); iter != mStringMap.end(); iter++) {
-        pugi::xml_node node = config.append_child("string");
-        node.append_attribute("name").set_value(iter->first.c_str());
-        node.append_attribute("value").set_value(iter->second.c_str());
-    }
+	//saveMap<std::string, std::string>(doc, mStringMap, "string");
+	for(auto iter = mStringMap.cbegin(); iter != mStringMap.cend(); iter++)
+	{
+		pugi::xml_node node = doc.append_child("string");
+		node.append_attribute("name").set_value(iter->first.c_str());
+		node.append_attribute("value").set_value(iter->second.c_str());
+	}
 
-    doc.save_file(path.c_str());
+	doc.save_file(path.c_str());
+
+	Scripting::fireEvent("config-changed");
+	Scripting::fireEvent("settings-changed");
 }
 
-void Settings::loadFile() {
-    const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+void Settings::loadFile()
+{
+	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
 
-    if (!boost::filesystem::exists(path))
-        return;
+	if(!Utils::FileSystem::exists(path))
+		return;
 
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_file(path.c_str());
-    if (!result) {
-        LOG(LogError) << "Could not parse Settings file!\n   " << result.description();
-        return;
-    }
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(path.c_str());
+	if(!result)
+	{
+		LOG(LogError) << "Could not parse Settings file!\n   " << result.description();
+		return;
+	}
 
-    pugi::xml_node config = doc.child("config");
-    if(config) { /* correct file format, having a config root node */
-      for (pugi::xml_node node = config.child("bool"); node; node = node.next_sibling("bool"))
-        setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
-      for (pugi::xml_node node = config.child("int"); node; node = node.next_sibling("int"))
-        setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
-      for (pugi::xml_node node = config.child("float"); node; node = node.next_sibling("float"))
-        setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
-      for (pugi::xml_node node = config.child("string"); node; node = node.next_sibling("string"))
-        setString(node.attribute("name").as_string(), node.attribute("value").as_string());
-    } else { /* the old format, without the root config node -- keep for a transparent upgrade */
-      for (pugi::xml_node node = doc.child("bool"); node; node = node.next_sibling("bool"))
-        setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
-      for (pugi::xml_node node = doc.child("int"); node; node = node.next_sibling("int"))
-        setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
-      for (pugi::xml_node node = doc.child("float"); node; node = node.next_sibling("float"))
-        setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
-      for (pugi::xml_node node = doc.child("string"); node; node = node.next_sibling("string"))
-        setString(node.attribute("name").as_string(), node.attribute("value").as_string());
-    }
+	for(pugi::xml_node node = doc.child("bool"); node; node = node.next_sibling("bool"))
+		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
+	for(pugi::xml_node node = doc.child("int"); node; node = node.next_sibling("int"))
+		setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
+	for(pugi::xml_node node = doc.child("float"); node; node = node.next_sibling("float"))
+		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
+	for(pugi::xml_node node = doc.child("string"); node; node = node.next_sibling("string"))
+		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
 }
 
 //Print a warning message if the setting we're trying to get doesn't already exist in the map, then return the value in the map.
 #define SETTINGS_GETSET(type, mapName, getMethodName, setMethodName) type Settings::getMethodName(const std::string& name) \
 { \
-    if(mapName.find(name) == mapName.end()) \
-    { \
-        LOG(LogError) << "Tried to use unset setting " << name << "!"; \
-    } \
-    return mapName[name]; \
+	if(mapName.find(name) == mapName.cend()) \
+	{ \
+		LOG(LogError) << "Tried to use unset setting " << name << "!"; \
+	} \
+	return mapName[name]; \
 } \
 void Settings::setMethodName(const std::string& name, type value) \
 { \
-    mapName[name] = value; \
+	mapName[name] = value; \
 }
 
 SETTINGS_GETSET(bool, mBoolMap, getBool, setBool);
-
 SETTINGS_GETSET(int, mIntMap, getInt, setInt);
-
 SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat);
-
 SETTINGS_GETSET(const std::string&, mStringMap, getString, setString);

@@ -1,27 +1,27 @@
 #pragma once
+#ifndef ES_APP_META_DATA_H
+#define ES_APP_META_DATA_H
 
-#include "pugixml/pugixml.hpp"
-#include <string>
 #include <map>
-#include "GuiComponent.h"
-#include <boost/date_time.hpp>
-#include <boost/filesystem.hpp>
+#include <vector>
+
+namespace pugi { class xml_node; }
 
 enum MetaDataType
 {
 	//generic types
 	MD_STRING,
 	MD_INT,
-	MD_BOOL,
 	MD_FLOAT,
+	MD_BOOL,
 
 	//specialized types
 	MD_MULTILINE_STRING,
-	MD_IMAGE_PATH,
+	MD_PATH,
 	MD_RATING,
 	MD_DATE,
-	MD_TIME,//used for lastplayed
-	MD_LIST
+	MD_TIME, //used for lastplayed
+        MD_LIST
 };
 
 struct MetaDataDecl
@@ -57,24 +57,21 @@ enum MetaDataListType
 };
 
 const std::vector<MetaDataDecl>& getMDDByType(MetaDataListType type);
-void initMetadata();
+void initMetadata(); // batocera / locales
 
 class MetaDataList
 {
 public:
-	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node node, const boost::filesystem::path& relativeTo);
-	void appendToXML(pugi::xml_node parent, bool ignoreDefaults, const boost::filesystem::path& relativeTo) const;
+	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node& node, const std::string& relativeTo);
+	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const;
 
 	MetaDataList(MetaDataListType type);
-
+	
 	void set(const std::string& key, const std::string& value);
-	void merge(const MetaDataList& other);
-	void setTime(const std::string& key, const boost::posix_time::ptime& time); //times are internally stored as ISO strings (e.g. boost::posix_time::to_iso_string(ptime))
 
 	const std::string& get(const std::string& key) const;
 	int getInt(const std::string& key) const;
 	float getFloat(const std::string& key) const;
-	boost::posix_time::ptime getTime(const std::string& key) const;
 
 	bool isDefault();
 
@@ -89,3 +86,5 @@ private:
 	std::map<std::string, std::string> mMap;
 	bool mWasChanged;
 };
+
+#endif // ES_APP_META_DATA_H

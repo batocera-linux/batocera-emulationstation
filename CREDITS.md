@@ -1,8 +1,8 @@
 Programming
 	Alec "Aloshi" Lofquist - http://www.aloshi.com
 
-EmulationStation UI Design & original ’simple’ stock theme: 
-	Nils Bonenberger - http://blog.nilsbyte.de/
+UI Art & Design
+	Nils Bonenberger
 
 
 Libraries
@@ -22,9 +22,6 @@ FreeType
 
 cURL
 	http://curl.haxx.se/
-
-Boost
-	http://www.boost.org/
 
 nanosvg
 	https://github.com/memononen/nanosvg

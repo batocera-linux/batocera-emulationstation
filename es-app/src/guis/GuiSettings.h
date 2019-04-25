@@ -1,6 +1,7 @@
 #pragma once
+#ifndef ES_APP_GUIS_GUI_SETTINGS_H
+#define ES_APP_GUIS_GUI_SETTINGS_H
 
-#include "GuiComponent.h"
 #include "components/MenuComponent.h"
 
 // This is just a really simple template for a GUI that calls some save functions when closed.
@@ -18,11 +19,12 @@ public:
 
 	bool input(InputConfig* config, Input input) override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
-
-	inline MenuComponent *getMenu() const { return &mMenu; }
+	HelpStyle getHelpStyle() override;
 
 private:
         bool doSave = true;
-	mutable MenuComponent mMenu;
+	MenuComponent mMenu;
 	std::vector< std::function<void()> > mSaveFuncs;
 };
+
+#endif // ES_APP_GUIS_GUI_SETTINGS_H

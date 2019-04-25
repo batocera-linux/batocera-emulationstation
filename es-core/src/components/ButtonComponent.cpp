@@ -1,8 +1,7 @@
 #include "components/ButtonComponent.h"
-#include "Renderer.h"
-#include "Window.h"
-#include "Util.h"
-#include "Log.h"
+
+#include "resources/Font.h"
+#include "utils/StringUtil.h"
 #include "LocaleES.h"
 
 ButtonComponent::ButtonComponent(Window* window, const std::string& text, const std::string& helpText, const std::function<void()>& func) : GuiComponent(window),
@@ -19,7 +18,7 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 
 void ButtonComponent::onSizeChanged()
 {
-	mBox.fitTo(mSize, Eigen::Vector3f::Zero(), Eigen::Vector2f(-32, -32));
+	mBox.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 }
 
 void ButtonComponent::setPressedFunc(std::function<void()> f)
@@ -41,13 +40,13 @@ bool ButtonComponent::input(InputConfig* config, Input input)
 
 void ButtonComponent::setText(const std::string& text, const std::string& helpText)
 {
-        mText = strToUpper(text);
+	mText = Utils::String::toUpper(text);
 	mHelpText = helpText;
 	
 	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(mText, 0, 0, getCurTextColor()));
 
 	float minWidth = mFont->sizeText("DELETE").x() + 12;
-	setSize(std::max(mTextCache->metrics.size.x() + 12, minWidth), mTextCache->metrics.size.y());
+	setSize(Math::max(mTextCache->metrics.size.x() + 12, minWidth), mTextCache->metrics.size.y());
 
 	updateHelpPrompts();
 }
@@ -93,16 +92,17 @@ void ButtonComponent::updateImage()
 	mBox.setImagePath(mFocused ? ":/button_filled.png" : ":/button.png");
 }
 
-void ButtonComponent::render(const Eigen::Affine3f& parentTrans)
+void ButtonComponent::render(const Transform4x4f& parentTrans)
 {
-	Eigen::Affine3f trans = roundMatrix(parentTrans * getTransform());
+	Transform4x4f trans = parentTrans * getTransform();
+	trans.round();
 	
 	mBox.render(trans);
 
 	if(mTextCache)
 	{
-		Eigen::Vector3f centerOffset((mSize.x() - mTextCache->metrics.size.x()) / 2, (mSize.y() - mTextCache->metrics.size.y()) / 2, 0);
-		centerOffset = roundVector(centerOffset);
+		Vector3f centerOffset((mSize.x() - mTextCache->metrics.size.x()) / 2, (mSize.y() - mTextCache->metrics.size.y()) / 2, 0);
+		centerOffset.round();
 		trans = trans.translate(centerOffset);
 
 		Renderer::setMatrix(trans);

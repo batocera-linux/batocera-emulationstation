@@ -1,354 +1,131 @@
 #include "components/DateTimeComponent.h"
-#include "Renderer.h"
-#include "Window.h"
+
+#include "utils/StringUtil.h"
 #include "Log.h"
-#include "Util.h"
+#include "Renderer.h"
+#include "Settings.h"
 #include "LocaleES.h"
 
-DateTimeComponent::DateTimeComponent(Window* window, DisplayMode dispMode) : GuiComponent(window), 
-	mEditing(false), mEditIndex(0), mDisplayMode(dispMode), mRelativeUpdateAccumulator(0), 
-	mColor(0x777777FF), mFont(Font::get(FONT_SIZE_SMALL, FONT_PATH_LIGHT)), mUppercase(false), mAutoSize(true)
+DateTimeComponent::DateTimeComponent(Window* window) : TextComponent(window), mDisplayRelative(false)
 {
-	updateTextCache();
+	setFormat("%m/%d/%Y");
 }
 
-void DateTimeComponent::setDisplayMode(DisplayMode mode)
+DateTimeComponent::DateTimeComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
+	Vector3f pos, Vector2f size, unsigned int bgcolor) : TextComponent(window, text, font, color, align, pos, size, bgcolor), mDisplayRelative(false)
 {
-	mDisplayMode = mode;
-	updateTextCache();
-}
-
-bool DateTimeComponent::input(InputConfig* config, Input input)
-{
-	if(input.value == 0)
-		return false;
-
-	if(config->isMappedTo("b", input))
-	{
-		if(mDisplayMode != DISP_RELATIVE_TO_NOW) //don't allow editing for relative times
-			mEditing = !mEditing;
-
-		if(mEditing)
-		{
-			//started editing
-			mTimeBeforeEdit = mTime;
-
-			//initialize to now if unset
-			if(mTime == boost::posix_time::not_a_date_time)
-			{
-				mTime = boost::posix_time::ptime(boost::gregorian::day_clock::local_day());
-				updateTextCache();
-			}
-		}
-
-		return true;
-	}
-
-	if(mEditing)
-	{
-		if(config->isMappedTo("a", input))
-		{
-			mEditing = false;
-			mTime = mTimeBeforeEdit;
-			updateTextCache();
-			return true;
-		}
-
-		int incDir = 0;
-		if(config->isMappedTo("up", input) || config->isMappedTo("pageup", input))
-			incDir = 1;
-		else if(config->isMappedTo("down", input) || config->isMappedTo("pagedown", input))
-			incDir = -1;
-
-		if(incDir != 0)
-		{
-			tm new_tm = boost::posix_time::to_tm(mTime);
-
-			if(mEditIndex == 0)
-			{
-				new_tm.tm_mon += incDir;
-
-				if(new_tm.tm_mon > 11)
-					new_tm.tm_mon = 11;
-				else if(new_tm.tm_mon < 0)
-					new_tm.tm_mon = 0;
-				
-			}else if(mEditIndex == 1)
-			{
-				new_tm.tm_mday += incDir;
-				int days_in_month = mTime.date().end_of_month().day().as_number();
-				if(new_tm.tm_mday > days_in_month)
-					new_tm.tm_mday = days_in_month;
-				else if(new_tm.tm_mday < 1)
-					new_tm.tm_mday = 1;
-
-			}else if(mEditIndex == 2)
-			{
-				new_tm.tm_year += incDir;
-				if(new_tm.tm_year < 0)
-					new_tm.tm_year = 0;
-			}
-
-			//validate day
-			int days_in_month = boost::gregorian::date(new_tm.tm_year + 1900, new_tm.tm_mon + 1, 1).end_of_month().day().as_number();
-			if(new_tm.tm_mday > days_in_month)
-				new_tm.tm_mday = days_in_month;
-
-			mTime = boost::posix_time::ptime_from_tm(new_tm);
-			
-			updateTextCache();
-			return true;
-		}
-
-		if(config->isMappedTo("right", input))
-		{
-			mEditIndex++;
-			if(mEditIndex >= (int)mCursorBoxes.size())
-				mEditIndex--;
-			return true;
-		}
-		
-		if(config->isMappedTo("left", input))
-		{
-			mEditIndex--;
-			if(mEditIndex < 0)
-				mEditIndex++;
-			return true;
-		}
-	}
-
-	return GuiComponent::input(config, input);
-}
-
-void DateTimeComponent::update(int deltaTime)
-{
-	if(mDisplayMode == DISP_RELATIVE_TO_NOW)
-	{
-		mRelativeUpdateAccumulator += deltaTime;
-		if(mRelativeUpdateAccumulator > 1000)
-		{
-			mRelativeUpdateAccumulator = 0;
-			updateTextCache();
-		}
-	}
-
-	GuiComponent::update(deltaTime);
-}
-
-void DateTimeComponent::render(const Eigen::Affine3f& parentTrans)
-{
-	Eigen::Affine3f trans = parentTrans * getTransform();
-
-	if(mTextCache)
-	{
-		// vertically center
-		Eigen::Vector3f off(0, (mSize.y() - mTextCache->metrics.size.y()) / 2, 0);
-		trans.translate(off);
-		trans = roundMatrix(trans);
-
-		Renderer::setMatrix(trans);
-
-		std::shared_ptr<Font> font = getFont();
-
-		mTextCache->setColor((mColor & 0xFFFFFF00) | getOpacity());
-		font->renderTextCache(mTextCache.get());
-
-		if(mEditing)
-		{
-			if(mEditIndex >= 0 && (unsigned int)mEditIndex < mCursorBoxes.size())
-			{
-				Renderer::drawRect((int)mCursorBoxes[mEditIndex][0], (int)mCursorBoxes[mEditIndex][1], 
-					(int)mCursorBoxes[mEditIndex][2], (int)mCursorBoxes[mEditIndex][3], 0x00000022);
-			}
-		}
-	}
+	setFormat("%m/%d/%Y");
 }
 
 void DateTimeComponent::setValue(const std::string& val)
 {
-	mTime = string_to_ptime(val);
-	updateTextCache();
+	mTime = val;
+	onTextChanged();
 }
 
 std::string DateTimeComponent::getValue() const
 {
-	return boost::posix_time::to_iso_string(mTime);
+	return mTime;
 }
 
-DateTimeComponent::DisplayMode DateTimeComponent::getCurrentDisplayMode() const
+void DateTimeComponent::setFormat(const std::string& format)
 {
-	/*if(mEditing)
-	{
-		if(mDisplayMode == DISP_RELATIVE_TO_NOW)
-		{
-			//TODO: if time component == 00:00:00, return DISP_DATE, else return DISP_DATE_TIME
-			return DISP_DATE;
-		}
-	}*/
-
-	return mDisplayMode;
+	mFormat = format;
+	onTextChanged();
 }
 
-std::string DateTimeComponent::getDisplayString(DisplayMode mode) const
+void DateTimeComponent::setDisplayRelative(bool displayRelative)
 {
-	std::string fmt;
-	char strbuf[256];
-	int n;
-
-	switch(mode)
-	{
-	case DISP_DATE:
-		fmt = "%m/%d/%Y";
-		break;
-	case DISP_DATE_TIME:
-		fmt = "%m/%d/%Y %H:%M:%S";
-		break;
-	case DISP_RELATIVE_TO_NOW:
-		{
-			//relative time
-			using namespace boost::posix_time;
-
-			if(mTime == not_a_date_time)
-			  return _("never");
-
-			ptime now = second_clock::universal_time();
-			time_duration dur = now - mTime;
-
-			if(dur < seconds(2))
-			  return _("just now");
-			if(dur < seconds(60)) {
-			  n = dur.seconds();
-			  snprintf(strbuf, 256, ngettext("%i sec ago", "%i secs ago", n).c_str(), n);
-			  return strbuf;
-			}
-			if(dur < minutes(60)) {
-			  n = dur.minutes();
-			  snprintf(strbuf, 256, ngettext("%i min ago", "%i mins ago", n).c_str(), n);
-			  return strbuf;
-			}
-			if(dur < hours(24)) {
-			  n = dur.hours();
-			  snprintf(strbuf, 256, ngettext("%i hour ago", "%i hours ago", n).c_str(), n);
-			  return strbuf;
-			}
-
-			n = dur.hours() / 24;
-			snprintf(strbuf, 256, ngettext("%i day ago", "%i days ago", n).c_str(), n);
-			return strbuf;
-		}
-		break;
-	}
-	
-	if(mTime == boost::posix_time::not_a_date_time)
-	  return _("unknown");
-
-	boost::posix_time::time_facet* facet = new boost::posix_time::time_facet();
-	facet->format(fmt.c_str());
-	std::locale loc(std::locale::classic(), facet);
-
-	std::stringstream ss;
-	ss.imbue(loc);
-	ss << mTime;
-	return ss.str();
+	mDisplayRelative = displayRelative;
+	onTextChanged();
 }
 
-std::shared_ptr<Font> DateTimeComponent::getFont() const
+void DateTimeComponent::onTextChanged()
 {
-	if(mFont)
-		return mFont;
+	mText = getDisplayString();
 
-	return Font::get(FONT_SIZE_MEDIUM);
+	TextComponent::onTextChanged();
 }
 
-void DateTimeComponent::updateTextCache()
+std::string DateTimeComponent::getDisplayString() const
 {
-	DisplayMode mode = getCurrentDisplayMode();
-	const std::string dispString = mUppercase ? strToUpper(getDisplayString(mode)) : getDisplayString(mode);
-	std::shared_ptr<Font> font = getFont();
-	mTextCache = std::unique_ptr<TextCache>(font->buildTextCache(dispString, 0, 0, mColor));
+	if (mDisplayRelative) {
+		//relative time
+		if(mTime.getTime() == 0)
+			return "never";
 
-	if(mAutoSize)
-	{
-		mSize = mTextCache->metrics.size;
+		Utils::Time::DateTime now(Utils::Time::now());
+		Utils::Time::Duration dur(now.getTime() - mTime.getTime());
 
-		mAutoSize = false;
-		if(getParent())
-			getParent()->onSizeChanged();
+		char buf[64];
+
+		if(dur.getDays() > 0)
+			sprintf(buf, "%d day%s ago", dur.getDays(), (dur.getDays() > 1) ? "s" : "");
+		else if(dur.getHours() > 0)
+			sprintf(buf, "%d hour%s ago", dur.getHours(), (dur.getHours() > 1) ? "s" : "");
+		else if(dur.getMinutes() > 0)
+			sprintf(buf, "%d minute%s ago", dur.getMinutes(), (dur.getMinutes() > 1) ? "s" : "");
+		else
+			sprintf(buf, "%d second%s ago", dur.getSeconds(), (dur.getSeconds() > 1) ? "s" : "");
+
+		return std::string(buf);
 	}
 
-	//set up cursor positions
-	mCursorBoxes.clear();
+	if(mTime.getTime() == 0)
+		return "unknown";
 
-	if(dispString.empty() || mode == DISP_RELATIVE_TO_NOW)
-		return;
-
-	//month
-	Eigen::Vector2f start(0, 0);
-	Eigen::Vector2f end = font->sizeText(dispString.substr(0, 2));
-	Eigen::Vector2f diff = end - start;
-	mCursorBoxes.push_back(Eigen::Vector4f(start[0], start[1], diff[0], diff[1]));
-
-	//day
-	start[0] = font->sizeText(dispString.substr(0, 3)).x();
-	end = font->sizeText(dispString.substr(0, 5));
-	diff = end - start;
-	mCursorBoxes.push_back(Eigen::Vector4f(start[0], start[1], diff[0], diff[1]));
-
-	//year
-	start[0] = font->sizeText(dispString.substr(0, 6)).x();
-	end = font->sizeText(dispString.substr(0, 10));
-	diff = end - start;
-	mCursorBoxes.push_back(Eigen::Vector4f(start[0], start[1], diff[0], diff[1]));
-
-	//if mode == DISP_DATE_TIME do times too but I don't wanna do the logic for editing times because no one will ever use it so screw it
+	return Utils::Time::timeToString(mTime.getTime(), mFormat);
 }
 
-void DateTimeComponent::setColor(unsigned int color)
+void DateTimeComponent::render(const Transform4x4f& parentTrans)
 {
-	mColor = color;
-	if(mTextCache)
-		mTextCache->setColor(color);
+	TextComponent::render(parentTrans);
 }
 
-void DateTimeComponent::setFont(std::shared_ptr<Font> font)
-{
-	mFont = font;
-	updateTextCache();
-}
-
-void DateTimeComponent::onSizeChanged()
-{
-	mAutoSize = false;
-	updateTextCache();
-}
-
-void DateTimeComponent::setUppercase(bool uppercase)
-{
-	mUppercase = uppercase;
-	updateTextCache();
-}
 
 void DateTimeComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "datetime");
-	if(!elem)
-		return;
-
-	// We set mAutoSize BEFORE calling GuiComponent::applyTheme because it calls
-	// setSize(), which will call updateTextCache(), which will reset mSize if 
-	// mAutoSize == true, ignoring the theme's value.
-	if(properties & ThemeFlags::SIZE)
-		mAutoSize = !elem->has("size");
-
 	GuiComponent::applyTheme(theme, view, element, properties);
 
 	using namespace ThemeFlags;
 
-	if(properties & COLOR && elem->has("color"))
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "datetime");
+	if(!elem)
+		return;
+
+	if(elem->has("displayRelative"))
+		setDisplayRelative(elem->get<bool>("displayRelative"));
+
+	if(elem->has("format"))
+		setFormat(elem->get<std::string>("format"));
+
+	if (properties & COLOR && elem->has("color"))
 		setColor(elem->get<unsigned int>("color"));
+
+	setRenderBackground(false);
+	if (properties & COLOR && elem->has("backgroundColor")) {
+		setBackgroundColor(elem->get<unsigned int>("backgroundColor"));
+		setRenderBackground(true);
+	}
+
+	if(properties & ALIGNMENT && elem->has("alignment"))
+	{
+		std::string str = elem->get<std::string>("alignment");
+		if(str == "left")
+			setHorizontalAlignment(ALIGN_LEFT);
+		else if(str == "center")
+			setHorizontalAlignment(ALIGN_CENTER);
+		else if(str == "right")
+			setHorizontalAlignment(ALIGN_RIGHT);
+		else
+		LOG(LogError) << "Unknown text alignment string: " << str;
+	}
 
 	if(properties & FORCE_UPPERCASE && elem->has("forceUppercase"))
 		setUppercase(elem->get<bool>("forceUppercase"));
+
+	if(properties & LINE_SPACING && elem->has("lineSpacing"))
+		setLineSpacing(elem->get<float>("lineSpacing"));
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
 }

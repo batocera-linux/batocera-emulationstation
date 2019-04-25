@@ -1,19 +1,19 @@
 #pragma once
+#ifndef ES_APP_VOLUME_CONTROL_H
+#define ES_APP_VOLUME_CONTROL_H
 
 #include <memory>
-#include <stdint.h>
 
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+    #error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	#include <unistd.h>
 	#include <fcntl.h>
 	#include <alsa/asoundlib.h>
 #elif defined(WIN32) || defined(_WIN32)
 	#include <Windows.h>
-	#include <MMSystem.h>
-	#include <mmdeviceapi.h>
 	#include <endpointvolume.h>
+	#include <mmeapi.h>
 #endif
 
 /*!
@@ -22,12 +22,12 @@ Singleton pattern. Call getInstance() to get an object.
 class VolumeControl
 {
 #if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+    #error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
     static const char * mixerName;
     static const char * mixerCard;
     int mixerIndex;
-	snd_mixer_t* mixerHandle;
+    snd_mixer_t* mixerHandle;
     snd_mixer_elem_t* mixerElem;
     snd_mixer_selem_id_t* mixerSelemId;
 #elif defined(WIN32) || defined(_WIN32)
@@ -56,3 +56,5 @@ public:
 
 	~VolumeControl();
 };
+
+#endif // ES_APP_VOLUME_CONTROL_H

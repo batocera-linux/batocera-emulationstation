@@ -1,6 +1,6 @@
 #pragma once
-
-#include <map>
+#ifndef ES_APP_PLATFORM_ID_H
+#define ES_APP_PLATFORM_ID_H
 
 namespace PlatformIds
 {
@@ -24,20 +24,18 @@ namespace PlatformIds
 		ATARI_XE,
 		COLECOVISION,
 		COMMODORE_64,
-		FAMILY_COMPUTER_DISK_SYSTEM,
 		INTELLIVISION,
-        	MACOS,
+		MAC_OS,
 		XBOX,
 		XBOX_360,
 		MSX,
-		MSX1,
-		MSX2,
 		NEOGEO,
 		NEOGEO_POCKET,
 		NEOGEO_POCKET_COLOR,
 		NINTENDO_3DS,
 		NINTENDO_64,
 		NINTENDO_DS,
+		FAMICOM_DISK_SYSTEM,
 		NINTENDO_ENTERTAINMENT_SYSTEM,
 		GAME_BOY,
 		GAME_BOY_ADVANCE,
@@ -45,6 +43,8 @@ namespace PlatformIds
 		NINTENDO_GAMECUBE,
 		NINTENDO_WII,
 		NINTENDO_WII_U,
+		NINTENDO_VIRTUAL_BOY,
+		NINTENDO_GAME_AND_WATCH,
 		PC,
 		SEGA_32X,
 		SEGA_CD,
@@ -54,38 +54,32 @@ namespace PlatformIds
 		SEGA_MASTER_SYSTEM,
 		SEGA_MEGA_DRIVE,
 		SEGA_SATURN,
+		SEGA_SG1000,
 		PLAYSTATION,
 		PLAYSTATION_2,
 		PLAYSTATION_3,
 		PLAYSTATION_4,
 		PLAYSTATION_VITA,
 		PLAYSTATION_PORTABLE,
-		SG_1000,
 		SUPER_NINTENDO,
-		TURBOGRAFX_16, // (also PC Engine)
+		SCUMMVM,
+		SHARP_X6800,
+		TURBOGRAFX_16, // (aka PC Engine) HuCards only
+		TURBOGRAFX_CD, // (aka PC Engine) CD-ROMs only
 		WONDERSWAN,
 		WONDERSWAN_COLOR,
 		ZX_SPECTRUM,
-		VIRTUAL_BOY,
-		GAME_AND_WATCH,
-		PC_ENGINE_CD,
-		SUPERGRAFX,
-		PRBOOM,
+		VIDEOPAC_ODYSSEY2,
 		VECTREX,
-		LUTRO,
-		CAVE_STORY,
-		ODYSSEY_2,
-		ZX_81,
-		MOONLIGHT,
-		SCUMMVM,
+		TRS80_COLOR_COMPUTER,
+		TANDY,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
-
 	};
 
 	PlatformId getPlatformId(const char* str);
 	const char* getPlatformName(PlatformId id);
-
-	const char* getCleanMameName(const char* from);
 }
+
+#endif // ES_APP_PLATFORM_ID_H

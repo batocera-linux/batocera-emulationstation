@@ -1,17 +1,18 @@
 #include "guis/GuiTextEditPopup.h"
+
+#include "components/ButtonComponent.h"
 #include "components/MenuComponent.h"
 #include "LocaleES.h"
-
-using namespace Eigen;
+#include "components/TextEditComponent.h"
 
 GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, const std::string& initValue, 
-				   const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
+	const std::function<void(const std::string&)>& okCallback, bool multiLine, const char* acceptBtnText)
 	: GuiComponent(window), mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 3)), mMultiLine(multiLine)
 {
 	addChild(&mBackground);
 	addChild(&mGrid);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, strToUpper(title), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
 
 	mText = std::make_shared<TextEditComponent>(mWindow);
 	mText->setValue(initValue);
@@ -40,7 +41,7 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
 
 void GuiTextEditPopup::onSizeChanged()
 {
-	mBackground.fitTo(mSize, Eigen::Vector3f::Zero(), Eigen::Vector2f(-32, -32));
+	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mText->setSize(mSize.x() - 40, mText->getSize().y());
 

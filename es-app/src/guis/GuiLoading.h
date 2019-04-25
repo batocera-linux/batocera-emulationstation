@@ -20,7 +20,7 @@ public:
 
     virtual ~GuiLoading();
 
-    void render(const Eigen::Affine3f &parentTrans) override;
+    void render(const Transform4x4f &parentTrans) override;
 
     bool input(InputConfig *config, Input input) override;
 

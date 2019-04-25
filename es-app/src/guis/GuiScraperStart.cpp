@@ -1,14 +1,13 @@
 #include "guis/GuiScraperStart.h"
-#include "guis/GuiScraperMulti.h"
-#include "guis/GuiMsgBox.h"
-#include "views/ViewController.h"
 
-#include "components/TextComponent.h"
 #include "components/OptionListComponent.h"
 #include "components/SwitchComponent.h"
+#include "guis/GuiMsgBox.h"
+#include "guis/GuiScraperMulti.h"
+#include "views/ViewController.h"
+#include "FileData.h"
+#include "SystemData.h"
 #include "LocaleES.h"
-#include "Settings.h"
-
 
 GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
   mMenu(window, _("SCRAPE NOW").c_str())
@@ -25,24 +24,15 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 	// add systems (all with a platformid specified selected)
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE THESE SYSTEMS"), true);
-	for(auto it = SystemData::sSystemVector.begin(); it != SystemData::sSystemVector.end(); it++)
+	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		if(!(*it)->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 			mSystems->add((*it)->getFullName(), *it, !(*it)->getPlatformIds().empty());
 	}
 	mMenu.addWithLabel(_("SYSTEMS"), mSystems);
 
-	// add mix images option (if scraper = screenscraper)
-	std::string scraperName = Settings::getInstance()->getString("Scraper");
-
-	if(scraperName == "Screenscraper") {
-		mMixImages = std::make_shared<SwitchComponent>(mWindow);
-		mMixImages->setState(true);
-		//mMenu.addWithLabel(_("USE COMPOSED VISUALS"), mMixImages);
-	}
-
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
-	mApproveResults->setState(false);
+	mApproveResults->setState(true);
 	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
 
 	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this));
@@ -54,7 +44,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 void GuiScraperStart::pressedStart()
 {
 	std::vector<SystemData*> sys = mSystems->getSelectedObjects();
-	for(auto it = sys.begin(); it != sys.end(); it++)
+	for(auto it = sys.cbegin(); it != sys.cend(); it++)
 	{
 		if((*it)->getPlatformIds().empty())
 		{
@@ -72,9 +62,6 @@ void GuiScraperStart::pressedStart()
 void GuiScraperStart::start()
 {
 	std::queue<ScraperSearchParams> searches = getSearches(mSystems->getSelectedObjects(), mFilters->getSelected());
-	if(Settings::getInstance()->getString("Scraper") == "Screenscraper") {
-		Settings::getInstance()->setBool("MixImages", mMixImages->getState());
-	}
 
 	if(searches.empty())
 	{
@@ -90,10 +77,10 @@ void GuiScraperStart::start()
 std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemData*> systems, GameFilterFunc selector)
 {
 	std::queue<ScraperSearchParams> queue;
-	for(auto sys = systems.begin(); sys != systems.end(); sys++)
+	for(auto sys = systems.cbegin(); sys != systems.cend(); sys++)
 	{
 		std::vector<FileData*> games = (*sys)->getRootFolder()->getFilesRecursive(GAME);
-		for(auto game = games.begin(); game != games.end(); game++)
+		for(auto game = games.cbegin(); game != games.cend(); game++)
 		{
 			if(selector((*sys), (*game)))
 			{

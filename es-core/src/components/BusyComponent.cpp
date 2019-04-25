@@ -1,6 +1,7 @@
 #include "BusyComponent.h"
 
 #include "components/AnimatedImageComponent.h"
+#include "components/ImageComponent.h"
 #include "components/TextComponent.h"
 #include "Renderer.h"
 #include "LocaleES.h"
@@ -14,14 +15,10 @@ AnimationFrame BUSY_ANIMATION_FRAMES[] = {
 };
 const AnimationDef BUSY_ANIMATION_DEF = { BUSY_ANIMATION_FRAMES, 4, true };
 
-using namespace Eigen;
-
 BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(5, 3))
 {
         mutex = SDL_CreateMutex();
-
-  
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);
 	mText = std::make_shared<TextComponent>(mWindow, _("WORKING..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
@@ -46,7 +43,7 @@ void BusyComponent::setText(std::string txt) {
   }
 }
 
-void BusyComponent::render(const Eigen::Affine3f& parentTrans) {
+void BusyComponent::render(const Transform4x4f& parentTrans) {
   if (SDL_LockMutex(mutex) == 0) {
     if(threadMessagechanged) {
       threadMessagechanged = false;

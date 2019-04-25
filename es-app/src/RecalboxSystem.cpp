@@ -37,6 +37,7 @@
 #include <boost/algorithm/string/classification.hpp>
 
 #include <fstream>
+#include <SDL.h>
 
 #if defined(WIN32)
 #define popen _popen

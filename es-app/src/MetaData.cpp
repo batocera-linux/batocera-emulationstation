@@ -1,28 +1,22 @@
 #include "MetaData.h"
-#include "components/TextComponent.h"
+
+#include "utils/FileSystemUtil.h"
 #include "Log.h"
-#include "Util.h"
-#if defined(WIN32)
-#include <string>
-#else
-#include <strings.h>
-#endif
+#include <pugixml/src/pugixml.hpp>
 #include "LocaleES.h"
 
-namespace fs = boost::filesystem;
-
+/*
 std::vector<MetaDataDecl> gameMDD;
 std::vector<MetaDataDecl> folderMDD;
-
+	// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
 void initMetadata() {
-  // WARN : statistic metadata must be last in list !
-  gameMDD.push_back(MetaDataDecl("emulator",	MD_LIST,		"auto",  		false,		_("Emulator"),			_("enter emulator")));
-  gameMDD.push_back(MetaDataDecl("core",	MD_LIST,		"auto",	        	false,		_("Core"),			_("enter core")));
-  gameMDD.push_back(MetaDataDecl("ratio",	MD_LIST,		"auto",			false,		_("Ratio"),			_("enter ratio")));
   gameMDD.push_back(MetaDataDecl("name",	MD_STRING,		"", 			false,		_("Name"),			_("enter game name")));
+  gameMDD.push_back(MetaDataDecl("sortname",	MD_STRING,		"", 			false,		_("Sort name"),			_("enter game sort name")));
   gameMDD.push_back(MetaDataDecl("desc",	MD_MULTILINE_STRING,	"", 			false,		_("Description"),		_("enter description")));
-  gameMDD.push_back(MetaDataDecl("image",	MD_IMAGE_PATH,		"", 			false,		_("Image"),			_("enter path to image")));
-  gameMDD.push_back(MetaDataDecl("thumbnail",	MD_IMAGE_PATH,		"", 			false,		_("Thumbnail"),			_("enter path to thumbnail")));
+  gameMDD.push_back(MetaDataDecl("image",	MD_PATH,		"", 			false,		_("Image"),			_("enter path to image")));
+  gameMDD.push_back(MetaDataDecl("video",	MD_PATH,		"", 			false,		_("Path to video"),			_("enter path to thumbnail")));
+  gameMDD.push_back(MetaDataDecl("marquee",	MD_PATH,		"", 			false,		_("Path to marquee"),			_("enter path to thumbnail")));
+  gameMDD.push_back(MetaDataDecl("thumbnail",	MD_PATH,		"", 			false,		_("Thumbnail"),			_("enter path to thumbnail")));
   gameMDD.push_back(MetaDataDecl("rating",	MD_RATING,		"0.000000", 		false,		_("Rating"),			_("enter rating")));
   gameMDD.push_back(MetaDataDecl("releasedate", MD_DATE,		"not-a-date-time", 	false,		_("Release date"),		_("enter release date")));
   gameMDD.push_back(MetaDataDecl("developer",	MD_STRING,		"unknown",		false,		_("Developer"),			_("enter game developer")));
@@ -30,19 +24,64 @@ void initMetadata() {
   gameMDD.push_back(MetaDataDecl("genre",	MD_STRING,		"unknown",		false,		_("Genre"),			_("enter game genre")));
   gameMDD.push_back(MetaDataDecl("players",	MD_INT,			"1",			false,		_("Players"),			_("enter number of players")));
   gameMDD.push_back(MetaDataDecl("favorite",	MD_BOOL,		"false",		false,		_("Favorite"),			_("enter favorite")));
-  gameMDD.push_back(MetaDataDecl("region",	MD_STRING,		"",			false,		_("Region"),			_("enter region")));
-  gameMDD.push_back(MetaDataDecl("romtype",	MD_STRING,		"Original",		false,		_("Romtype"),			_("enter romtype")));
   gameMDD.push_back(MetaDataDecl("hidden",	MD_BOOL,		"false",		false,		_("Hidden"),			_("set hidden")));
-
+  gameMDD.push_back(MetaDataDecl("kidgame",	MD_BOOL,		"false",		false,		_("Kidgame"),			_("set kidgame")));
   gameMDD.push_back(MetaDataDecl("playcount",	MD_INT,			"0",			true,		_("Play count"),		_("enter number of times played")));
   gameMDD.push_back(MetaDataDecl("lastplayed",	MD_TIME,		"0", 			true,		_("Last played"),		_("enter last played date")));
 
+  // batocera
+  gameMDD.push_back(MetaDataDecl("emulator",	MD_LIST,		"auto",  		false,		_("Emulator"),			_("enter emulator")));
+  gameMDD.push_back(MetaDataDecl("core",	MD_LIST,		"auto",	        	false,		_("Core"),			_("enter core")));
+  gameMDD.push_back(MetaDataDecl("ratio",	MD_LIST,		"auto",			false,		_("Ratio"),			_("enter ratio")));
+
   folderMDD.push_back(MetaDataDecl("name",	MD_STRING,		"", 		false));
   folderMDD.push_back(MetaDataDecl("desc",	MD_MULTILINE_STRING,	"", 		false));
-  folderMDD.push_back(MetaDataDecl("image",	MD_IMAGE_PATH,		"", 		false));
-  folderMDD.push_back(MetaDataDecl("thumbnail",	MD_IMAGE_PATH,		"", 		false));
+  folderMDD.push_back(MetaDataDecl("image",	MD_PATH,		"", 		false));
+  folderMDD.push_back(MetaDataDecl("thumbnail",	MD_PATH,		"", 		false));
   folderMDD.push_back(MetaDataDecl("hidden",	MD_BOOL,		"false",	false));
 }
+*/
+
+MetaDataDecl gameDecls[] = {
+	// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
+	{"name",        MD_STRING,              "",                 false,      "name",                 "enter game name"},
+	{"sortname",    MD_STRING,              "",                 false,      "sortname",             "enter game sort name"},
+	{"desc",        MD_MULTILINE_STRING,    "",                 false,      "description",          "enter description"},
+	{"image",       MD_PATH,                "",                 false,      "image",                "enter path to image"},
+	{"video",       MD_PATH     ,           "",                 false,      "video",                "enter path to video"},
+	{"marquee",     MD_PATH,                "",                 false,      "marquee",              "enter path to marquee"},
+	{"thumbnail",   MD_PATH,                "",                 false,      "thumbnail",            "enter path to thumbnail"},
+	{"rating",      MD_RATING,              "0.000000",         false,      "rating",               "enter rating"},
+	{"releasedate", MD_DATE,                "not-a-date-time",  false,      "release date",         "enter release date"},
+	{"developer",   MD_STRING,              "unknown",          false,      "developer",            "enter game developer"},
+	{"publisher",   MD_STRING,              "unknown",          false,      "publisher",            "enter game publisher"},
+	{"genre",       MD_STRING,              "unknown",          false,      "genre",                "enter game genre"},
+	{"players",     MD_INT,                 "1",                false,      "players",              "enter number of players"},
+	{"favorite",    MD_BOOL,                "false",            false,      "favorite",             "enter favorite off/on"},
+	{"hidden",      MD_BOOL,                "false",            false,      "hidden",               "enter hidden off/on" },
+	{"kidgame",     MD_BOOL,                "false",            false,      "kidgame",              "enter kidgame off/on" },
+	{"playcount",   MD_INT,                 "0",                true,       "play count",           "enter number of times played"},
+	{"lastplayed",  MD_TIME,                "0",                true,       "last played",          "enter last played date"}
+};
+const std::vector<MetaDataDecl> gameMDD(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
+
+MetaDataDecl folderDecls[] = {
+	{"name",        MD_STRING,              "",                 false,      "name",                 "enter game name"},
+	{"sortname",    MD_STRING,              "",                 false,      "sortname",             "enter game sort name"},
+	{"desc",        MD_MULTILINE_STRING,    "",                 false,      "description",          "enter description"},
+	{"image",       MD_PATH,                "",                 false,      "image",                "enter path to image"},
+	{"thumbnail",   MD_PATH,                "",                 false,      "thumbnail",            "enter path to thumbnail"},
+	{"video",       MD_PATH,                "",                 false,      "video",                "enter path to video"},
+	{"marquee",     MD_PATH,                "",                 false,      "marquee",              "enter path to marquee"},
+	{"rating",      MD_RATING,              "0.000000",         false,      "rating",               "enter rating"},
+	{"releasedate", MD_DATE,                "not-a-date-time",  false,      "release date",         "enter release date"},
+	{"developer",   MD_STRING,              "unknown",          false,      "developer",            "enter game developer"},
+	{"publisher",   MD_STRING,              "unknown",          false,      "publisher",            "enter game publisher"},
+	{"genre",       MD_STRING,              "unknown",          false,      "genre",                "enter game genre"},
+	{"players",     MD_INT,                 "1",                false,      "players",              "enter number of players"}
+};
+const std::vector<MetaDataDecl> folderMDD(folderDecls, folderDecls + sizeof(folderDecls) / sizeof(folderDecls[0]));
+
 
 const std::vector<MetaDataDecl>& getMDDByType(MetaDataListType type)
 {
@@ -64,27 +103,28 @@ MetaDataList::MetaDataList(MetaDataListType type)
 	: mType(type), mWasChanged(false)
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
-	for(auto iter = mdd.begin(); iter != mdd.end(); iter++)
+	for(auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 		set(iter->key, iter->defaultValue);
 }
 
 
-MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node node, const fs::path& relativeTo)
+MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& node, const std::string& relativeTo)
 {
 	MetaDataList mdl(type);
 
 	const std::vector<MetaDataDecl>& mdd = mdl.getMDD();
 
-	for(auto iter = mdd.begin(); iter != mdd.end(); iter++)
+	for(auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 	{
 		pugi::xml_node md = node.child(iter->key.c_str());
 		if(md)
 		{
 			// if it's a path, resolve relative paths
 			std::string value = md.text().get();
-			if(iter->type == MD_IMAGE_PATH)
-				value = resolvePath(value, relativeTo, true).generic_string();
-
+			if (iter->type == MD_PATH)
+			{
+				value = Utils::FileSystem::resolveRelativePath(value, relativeTo, true);
+			}
 			mdl.set(iter->key, value);
 		}else{
 			mdl.set(iter->key, iter->defaultValue);
@@ -94,14 +134,14 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node n
 	return mdl;
 }
 
-void MetaDataList::appendToXML(pugi::xml_node parent, bool ignoreDefaults, const fs::path& relativeTo) const
+void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
 
-	for(auto mddIter = mdd.begin(); mddIter != mdd.end(); mddIter++)
+	for(auto mddIter = mdd.cbegin(); mddIter != mdd.cend(); mddIter++)
 	{
 		auto mapIter = mMap.find(mddIter->key);
-		if(mapIter != mMap.end())
+		if(mapIter != mMap.cend())
 		{
 			// we have this value!
 			// if it's just the default (and we ignore defaults), don't write it
@@ -110,8 +150,8 @@ void MetaDataList::appendToXML(pugi::xml_node parent, bool ignoreDefaults, const
 			
 			// try and make paths relative if we can
 			std::string value = mapIter->second;
-			if(mddIter->type == MD_IMAGE_PATH)
-				value = makeRelativePath(value, relativeTo, true).generic_string();
+			if (mddIter->type == MD_PATH)
+				value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
 
 			parent.append_child(mapIter->first.c_str()).text().set(value.c_str());
 		}
@@ -122,11 +162,6 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 {
 	mMap[key] = value;
 	mWasChanged = true;
-}
-
-void MetaDataList::setTime(const std::string& key, const boost::posix_time::ptime& time)
-{
-	set(key, boost::posix_time::to_iso_string(time));
 }
 
 const std::string& MetaDataList::get(const std::string& key) const
@@ -144,43 +179,13 @@ float MetaDataList::getFloat(const std::string& key) const
 	return (float)atof(get(key).c_str());
 }
 
-boost::posix_time::ptime MetaDataList::getTime(const std::string& key) const
-{
-	return string_to_ptime(get(key), "%Y%m%dT%H%M%S%F%q");
-}
-
-void MetaDataList::merge(const MetaDataList& other) {
-	const std::vector<MetaDataDecl> &mdd = getMDD();
-
-	for (auto otherIter = other.mMap.begin(); otherIter != other.mMap.end(); otherIter++) {
-		bool mustMerge = true;
-		// Check if default value, if so continue
-		for (auto mddIter = mdd.begin(); mddIter != mdd.end(); mddIter++) {
-			if(mddIter->key == otherIter->first){
-				if(otherIter->second == mddIter->defaultValue || mddIter->isStatistic){
-					mustMerge = false;
-				}
-			}
-		}
-		if(mustMerge){
-			this->set(otherIter->first, otherIter->second);
-		}
-	}
-}
-
 bool MetaDataList::isDefault()
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
 
-        for(auto mddIter = mdd.begin(); mddIter != mdd.end(); mddIter++)
-        {
-                auto mapIter = mMap.find(mddIter->key);
-                if(mapIter != mMap.end())
-                {
-                        if(mapIter->second != mddIter->defaultValue)
-                                return false;
-                }
-        }
+	for (unsigned int i = 1; i < mMap.size(); i++) {
+		if (mMap.at(mdd[i].key) != mdd[i].defaultValue) return false;
+	}
 
 	return true;
 }

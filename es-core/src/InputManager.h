@@ -1,13 +1,13 @@
-#ifndef _INPUTMANAGER_H_
-#define _INPUTMANAGER_H_
+#pragma once
+#ifndef ES_CORE_INPUT_MANAGER_H
+#define ES_CORE_INPUT_MANAGER_H
 
-#include <SDL.h>
-#include <vector>
+#include <SDL_joystick.h>
 #include <map>
-#include <string>
 
 class InputConfig;
 class Window;
+union SDL_Event;
 
 //you should only ever instantiate one of these, by the way
 class InputManager
@@ -24,6 +24,7 @@ private:
 	std::map<SDL_JoystickID, SDL_Joystick*> mJoysticks;
 	std::map<SDL_JoystickID, InputConfig*> mInputConfigs;
 	InputConfig* mKeyboardInputConfig;
+	InputConfig* mCECInputConfig;
 
 	std::map<SDL_JoystickID, int*> mPrevAxisValues;
 
@@ -34,10 +35,9 @@ private:
 
 	void addJoystickByDeviceIndex(int id);
 	void removeJoystickByJoystickID(SDL_JoystickID id);
-	bool loadInputConfig(InputConfig* config); // returns true if successfully loaded, false if not (or didn't exist)                
+	bool loadInputConfig(InputConfig* config); // returns true if successfully loaded, false if not (or didn't exist)
         void clearJoystick();
         void addAllJoysticks();
-
 
 public:
 	virtual ~InputManager();
@@ -45,17 +45,17 @@ public:
 	static InputManager* getInstance();
 
 	void writeDeviceConfig(InputConfig* config);
+	void doOnFinish();
 	static std::string getConfigPath();
-	static std::string getLastConfigPath();
+	static std::string getTemporaryConfigPath();
 
 	void init();
 	void deinit();
 
 	int getNumJoysticks();
+	int getAxisCountByDevice(int deviceId);
 	const std::map<SDL_JoystickID, SDL_Joystick*>& getJoysticks() { return  mJoysticks; }
 	int getButtonCountByDevice(int deviceId);
-	int getAxisCountByDevice(int deviceId);
-
 	int getNumConfiguredDevices();
 
 	std::string getDeviceGUIDString(int deviceId);
@@ -70,4 +70,4 @@ public:
 	void computeLastKnownPlayersDeviceIndexes();
 };
 
-#endif
+#endif // ES_CORE_INPUT_MANAGER_H
