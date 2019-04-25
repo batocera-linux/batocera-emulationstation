@@ -11,8 +11,7 @@
 #include <algorithm>
 #include <iomanip>
 #include "guis/GuiMsgBox.h"
-//#include "RecalboxSystem.h"
-#include "RecalboxConf.h"
+#include "SystemConf.h"
 #include "LocaleES.h"
 
 #define PLAYER_PAD_TIME_MS 200
@@ -188,7 +187,7 @@ void Window::input(InputConfig* config, Input input)
 #if ENABLE_FILEMANAGER == 1
 	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
 	{
-	  RecalboxSystem::getInstance()->launchFileManager(this);
+	  ApiSystem::getInstance()->launchFileManager(this);
 	}
 #endif
 	else
@@ -200,12 +199,12 @@ void Window::input(InputConfig* config, Input input)
 	  }
 
 #if ENABLE_KODI == 1
-            if(config->isMappedTo("x", input) && input.value && !launchKodi && RecalboxConf::getInstance()->get("kodi.enabled") == "1" && RecalboxConf::getInstance()->get("kodi.xbutton") == "1"){
+            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1"){
                 launchKodi = true;
                 Window * window = this;
                 this->pushGui(new GuiMsgBox(this, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
 				[window, this] { 
-                                    if( ! RecalboxSystem::getInstance()->launchKodi(window)) {
+                                    if( ! ApiSystem::getInstance()->launchKodi(window)) {
                                         LOG(LogWarning) << "Shutdown terminated with non-zero result!";
                                     }
                                     launchKodi = false;

@@ -1,6 +1,6 @@
 #include "guis/GuiInstallStart.h"
 
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "components/OptionListComponent.h"
 #include "guis/GuiInstall.h"
 #include <boost/algorithm/string/predicate.hpp>
@@ -15,8 +15,8 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 {
 	addChild(&mMenu);
 
-	std::vector<std::string> availableStorage = RecalboxSystem::getInstance()->getAvailableInstallDevices();
-	std::vector<std::string> availableArchitecture = RecalboxSystem::getInstance()->getAvailableInstallArchitectures();
+	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableInstallDevices();
+	std::vector<std::string> availableArchitecture = ApiSystem::getInstance()->getAvailableInstallArchitectures();
 	bool installationPossible = true;
 	if(availableArchitecture.size() == 0) {
 	  installationPossible = false;

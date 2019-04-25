@@ -1,5 +1,5 @@
-#ifndef RECALBOX_SYSTEM
-#define    RECALBOX_SYSTEM
+#ifndef API_SYSTEM
+#define API_SYSTEM
 
 #include <string>
 #include "Window.h"
@@ -16,10 +16,10 @@ struct BiosSystem {
   std::vector<BiosFile> bios;
 };
 
-class RecalboxSystem {
+class ApiSystem {
 public:
 
-    static RecalboxSystem *getInstance();
+    static ApiSystem *getInstance();
 
     const static Uint32 SDL_FAST_QUIT = 0x800F;
     const static Uint32 SDL_RB_SHUTDOWN = 0X4000;
@@ -98,9 +98,9 @@ public:
     std::vector<std::string> getAvailableVideoOutputDevices();
 
 private:
-    static RecalboxSystem *instance;
+    static ApiSystem *instance;
 
-    RecalboxSystem();
+    ApiSystem();
 
     bool halt(bool reboot, bool fast);
 

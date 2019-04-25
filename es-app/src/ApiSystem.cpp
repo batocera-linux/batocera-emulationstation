@@ -1,11 +1,4 @@
-/*
- * File:   RecalboxSystem.cpp
- * Author: digitallumberjack
- * 
- * Created on 29 novembre 2014, 03:15
- */
-
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include <stdlib.h>
 #if !defined(WIN32)
 #include <sys/statvfs.h>
@@ -44,20 +37,20 @@
 #define pclose _pclose
 #endif
 
-RecalboxSystem::RecalboxSystem() {
+ApiSystem::ApiSystem() {
 }
 
-RecalboxSystem *RecalboxSystem::instance = NULL;
+ApiSystem *ApiSystem::instance = NULL;
 
 
-RecalboxSystem *RecalboxSystem::getInstance() {
-    if (RecalboxSystem::instance == NULL) {
-        RecalboxSystem::instance = new RecalboxSystem();
+ApiSystem *ApiSystem::getInstance() {
+    if (ApiSystem::instance == NULL) {
+        ApiSystem::instance = new ApiSystem();
     }
-    return RecalboxSystem::instance;
+    return ApiSystem::instance;
 }
 
-unsigned long RecalboxSystem::getFreeSpaceGB(std::string mountpoint) {
+unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint) {
 #if !defined(WIN32)
     struct statvfs fiData;
     const char *fnPath = mountpoint.c_str();
@@ -71,7 +64,7 @@ unsigned long RecalboxSystem::getFreeSpaceGB(std::string mountpoint) {
 #endif
 }
 
-std::string RecalboxSystem::getFreeSpaceInfo() {
+std::string ApiSystem::getFreeSpaceInfo() {
     std::string sharePart = "/userdata/";
     if (sharePart.size() > 0) {
         const char *fnPath = sharePart.c_str();
@@ -102,7 +95,7 @@ std::string RecalboxSystem::getFreeSpaceInfo() {
     }
 }
 
-bool RecalboxSystem::isFreeSpaceLimit() {
+bool ApiSystem::isFreeSpaceLimit() {
     std::string sharePart = "/userdata/";
     if (sharePart.size() > 0) {
         return getFreeSpaceGB(sharePart) < 2;
@@ -112,7 +105,7 @@ bool RecalboxSystem::isFreeSpaceLimit() {
 
 }
 
-std::string RecalboxSystem::getVersion() {
+std::string ApiSystem::getVersion() {
     std::string version = "/usr/share/batocera/batocera.version";
     if (version.size() > 0) {
         std::ifstream ifs(version);
@@ -126,7 +119,7 @@ std::string RecalboxSystem::getVersion() {
     return "";
 }
 
-bool RecalboxSystem::needToShowVersionMessage() {
+bool ApiSystem::needToShowVersionMessage() {
     createLastVersionFileIfNotExisting();
     std::string versionFile = "/userdata/system/update.done";
     if (versionFile.size() > 0) {
@@ -143,7 +136,7 @@ bool RecalboxSystem::needToShowVersionMessage() {
     return true;
 }
 
-bool RecalboxSystem::createLastVersionFileIfNotExisting() {
+bool ApiSystem::createLastVersionFileIfNotExisting() {
     std::string versionFile = "/userdata/system/update.done";
 
     FILE *file;
@@ -154,7 +147,7 @@ bool RecalboxSystem::createLastVersionFileIfNotExisting() {
     return updateLastVersionFile();
 }
 
-bool RecalboxSystem::updateLastVersionFile() {
+bool ApiSystem::updateLastVersionFile() {
     std::string versionFile = "/userdata/system/update.done";
     std::string currentVersion = getVersion();
     std::ostringstream oss;
@@ -168,7 +161,7 @@ bool RecalboxSystem::updateLastVersionFile() {
     }
 }
 
-bool RecalboxSystem::setOverscan(bool enable) {
+bool ApiSystem::setOverscan(bool enable) {
 
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "overscan";
@@ -189,7 +182,7 @@ bool RecalboxSystem::setOverscan(bool enable) {
 
 }
 
-bool RecalboxSystem::setOverclock(std::string mode) {
+bool ApiSystem::setOverclock(std::string mode) {
     if (mode != "") {
         std::ostringstream oss;
         oss << "/recalbox/scripts/recalbox-overclock.sh set " << mode;
@@ -208,7 +201,7 @@ bool RecalboxSystem::setOverclock(std::string mode) {
 }
 
 
-std::pair<std::string,int> RecalboxSystem::updateSystem(BusyComponent* ui) {
+std::pair<std::string,int> ApiSystem::updateSystem(BusyComponent* ui) {
   std::string updatecommand = "/recalbox/scripts/recalbox-upgrade.sh";
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
@@ -228,7 +221,7 @@ std::pair<std::string,int> RecalboxSystem::updateSystem(BusyComponent* ui) {
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
-std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::string device) {
+std::pair<std::string,int> ApiSystem::backupSystem(BusyComponent* ui, std::string device) {
     std::string updatecommand = std::string("/recalbox/scripts/recalbox-sync.sh sync ") + device;
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
@@ -248,7 +241,7 @@ std::pair<std::string,int> RecalboxSystem::backupSystem(BusyComponent* ui, std::
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
-std::pair<std::string,int> RecalboxSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) {
+std::pair<std::string,int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) {
     std::string updatecommand = std::string("/recalbox/scripts/recalbox-install.sh install ") + device + " " + architecture;
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
@@ -268,7 +261,7 @@ std::pair<std::string,int> RecalboxSystem::installSystem(BusyComponent* ui, std:
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
-std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
+std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
   std::string scrapecommand = std::string("/recalbox/scripts/recalbox-scraper.sh");
   FILE *pipe = popen(scrapecommand.c_str(), "r");
   char line[1024] = "";
@@ -291,14 +284,14 @@ std::pair<std::string,int> RecalboxSystem::scrape(BusyComponent* ui) {
   return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
-bool RecalboxSystem::ping() {
+bool ApiSystem::ping() {
     std::string updateserver = "batocera-linux.xorhub.com";
     std::string s("timeout -t 1 fping -c 1 -t 1000 " + updateserver);
     int exitcode = system(s.c_str());
     return exitcode == 0;
 }
 
-bool RecalboxSystem::canUpdate(std::vector<std::string>& output) {
+bool ApiSystem::canUpdate(std::vector<std::string>& output) {
     int res;
     int exitCode;
     std::ostringstream oss;
@@ -329,7 +322,7 @@ bool RecalboxSystem::canUpdate(std::vector<std::string>& output) {
     }
 }
 
-bool RecalboxSystem::launchKodi(Window *window) {
+bool ApiSystem::launchKodi(Window *window) {
 
     LOG(LogInfo) << "Attempting to launch kodi...";
 
@@ -371,7 +364,7 @@ bool RecalboxSystem::launchKodi(Window *window) {
 
 }
 
-bool RecalboxSystem::launchFileManager(Window *window) {
+bool ApiSystem::launchFileManager(Window *window) {
     LOG(LogInfo) << "Attempting to launch filemanager...";
 
     AudioManager::getInstance()->deinit();
@@ -396,7 +389,7 @@ bool RecalboxSystem::launchFileManager(Window *window) {
     return exitCode == 0;
 }
 
-bool RecalboxSystem::enableWifi(std::string ssid, std::string key) {
+bool ApiSystem::enableWifi(std::string ssid, std::string key) {
     std::ostringstream oss;
     boost::replace_all(ssid, "\"", "\\\"");
     boost::replace_all(key, "\"", "\\\"");
@@ -415,7 +408,7 @@ bool RecalboxSystem::enableWifi(std::string ssid, std::string key) {
     }
 }
 
-bool RecalboxSystem::disableWifi() {
+bool ApiSystem::disableWifi() {
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " "
     << "wifi" << " "
@@ -432,7 +425,7 @@ bool RecalboxSystem::disableWifi() {
 }
 
 
-bool RecalboxSystem::halt(bool reboot, bool fast) {
+bool ApiSystem::halt(bool reboot, bool fast) {
     SDL_Event *quit = new SDL_Event();
     if (fast)
         if (reboot)
@@ -448,24 +441,24 @@ bool RecalboxSystem::halt(bool reboot, bool fast) {
     return 0;
 }
 
-bool RecalboxSystem::reboot() {
+bool ApiSystem::reboot() {
     return halt(true, false);
 }
 
-bool RecalboxSystem::fastReboot() {
+bool ApiSystem::fastReboot() {
     return halt(true, true);
 }
 
-bool RecalboxSystem::shutdown() {
+bool ApiSystem::shutdown() {
     return halt(false, false);
 }
 
-bool RecalboxSystem::fastShutdown() {
+bool ApiSystem::fastShutdown() {
     return halt(false, true);
 }
 
 
-std::string RecalboxSystem::getIpAdress() {
+std::string ApiSystem::getIpAdress() {
 #if !defined(WIN32)
     struct ifaddrs *ifAddrStruct = NULL;
     struct ifaddrs *ifa = NULL;
@@ -516,7 +509,7 @@ std::string RecalboxSystem::getIpAdress() {
 #endif
 }
 
-bool RecalboxSystem::scanNewBluetooth() {
+bool ApiSystem::scanNewBluetooth() {
     std::vector<std::string> *res = new std::vector<std::string>();
     std::ostringstream oss;
     oss << "/recalbox/scripts/bluetooth/pair-device";
@@ -536,7 +529,7 @@ bool RecalboxSystem::scanNewBluetooth() {
     return exitCode == 0;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableStorageDevices() {
+std::vector<std::string> ApiSystem::getAvailableStorageDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -557,7 +550,7 @@ std::vector<std::string> RecalboxSystem::getAvailableStorageDevices() {
     return res;
 }
 
-std::vector<std::string> RecalboxSystem::getVideoModes() {
+std::vector<std::string> ApiSystem::getVideoModes() {
   std::vector<std::string> res;
   std::ostringstream oss;
   oss << "batocera-resolution listModes";
@@ -577,7 +570,7 @@ std::vector<std::string> RecalboxSystem::getVideoModes() {
   return res;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableBackupDevices() {
+std::vector<std::string> ApiSystem::getAvailableBackupDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -598,7 +591,7 @@ std::vector<std::string> RecalboxSystem::getAvailableBackupDevices() {
     return res;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableInstallDevices() {
+std::vector<std::string> ApiSystem::getAvailableInstallDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -619,7 +612,7 @@ std::vector<std::string> RecalboxSystem::getAvailableInstallDevices() {
     return res;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableInstallArchitectures() {
+std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -640,7 +633,7 @@ std::vector<std::string> RecalboxSystem::getAvailableInstallArchitectures() {
     return res;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableOverclocking() {
+std::vector<std::string> ApiSystem::getAvailableOverclocking() {
   std::vector<std::string> res;
   std::ostringstream oss;
   oss << "/recalbox/scripts/recalbox-overclock.sh list";
@@ -660,7 +653,7 @@ std::vector<std::string> RecalboxSystem::getAvailableOverclocking() {
   return res;
 }
 
-std::vector<std::string> RecalboxSystem::getSystemInformations() {
+std::vector<std::string> ApiSystem::getSystemInformations() {
     std::vector<std::string> res;
     FILE *pipe = popen("/recalbox/scripts/recalbox-info.sh", "r");
     char line[1024];
@@ -678,7 +671,7 @@ std::vector<std::string> RecalboxSystem::getSystemInformations() {
     return res;
 }
 
-std::vector<BiosSystem> RecalboxSystem::getBiosInformations() {
+std::vector<BiosSystem> ApiSystem::getBiosInformations() {
   std::vector<BiosSystem> res;
   BiosSystem current;
   bool isCurrent = false;
@@ -727,7 +720,7 @@ std::vector<BiosSystem> RecalboxSystem::getBiosInformations() {
   return res;
 }
 
-bool RecalboxSystem::generateSupportFile() {
+bool ApiSystem::generateSupportFile() {
 #if !defined(WIN32)
   std::string cmd = "/recalbox/scripts/recalbox-support.sh";
   int exitcode = system(cmd.c_str());
@@ -740,7 +733,7 @@ bool RecalboxSystem::generateSupportFile() {
 #endif
 }
 
-std::string RecalboxSystem::getCurrentStorage() {
+std::string ApiSystem::getCurrentStorage() {
 
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "storage current";
@@ -759,21 +752,21 @@ std::string RecalboxSystem::getCurrentStorage() {
     return "INTERNAL";
 }
 
-bool RecalboxSystem::setStorage(std::string selected) {
+bool ApiSystem::setStorage(std::string selected) {
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "storage" << " " << selected;
     int exitcode = system(oss.str().c_str());
     return exitcode == 0;
 }
 
-bool RecalboxSystem::forgetBluetoothControllers() {
+bool ApiSystem::forgetBluetoothControllers() {
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "forgetBT";
     int exitcode = system(oss.str().c_str());
     return exitcode == 0;
 }
 
-std::string RecalboxSystem::getRootPassword() {
+std::string ApiSystem::getRootPassword() {
 
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "getRootPassword";
@@ -792,7 +785,7 @@ std::string RecalboxSystem::getRootPassword() {
     return oss.str().c_str();
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableAudioOutputDevices() {
+std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -813,7 +806,7 @@ std::vector<std::string> RecalboxSystem::getAvailableAudioOutputDevices() {
     return res;
 }
 
-std::vector<std::string> RecalboxSystem::getAvailableVideoOutputDevices() {
+std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
@@ -834,7 +827,7 @@ std::vector<std::string> RecalboxSystem::getAvailableVideoOutputDevices() {
     return res;
 }
 
-std::string RecalboxSystem::getCurrentAudioOutputDevice() {
+std::string ApiSystem::getCurrentAudioOutputDevice() {
 
     std::ostringstream oss;
     oss << "/recalbox/scripts/recalbox-config.sh" << " " << "getaudio";
@@ -853,7 +846,7 @@ std::string RecalboxSystem::getCurrentAudioOutputDevice() {
     return "";
 }
 
-bool RecalboxSystem::setAudioOutputDevice(std::string selected) {
+bool ApiSystem::setAudioOutputDevice(std::string selected) {
     std::ostringstream oss;
 
     AudioManager::getInstance()->deinit();

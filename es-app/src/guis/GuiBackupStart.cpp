@@ -1,6 +1,6 @@
 #include "guis/GuiBackupStart.h"
 
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "components/OptionListComponent.h"
 #include "guis/GuiBackup.h"
 #include <boost/algorithm/string/predicate.hpp>
@@ -16,7 +16,7 @@ GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window),
 	addChild(&mMenu);
 
 	// available backup storage
-	std::vector<std::string> availableStorage = RecalboxSystem::getInstance()->getAvailableBackupDevices();
+	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableBackupDevices();
 	moptionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET DEVICE"),
 										  false);
 	for(auto it = availableStorage.begin(); it != availableStorage.end(); it++){

@@ -3,7 +3,7 @@
 #include "Settings.h"
 #include "ThemeData.h"
 #include "AudioManager.h"
-#include "RecalboxConf.h"
+#include "SystemConf.h"
 
 std::map< std::string, std::shared_ptr<Music> > Music::sMap;
 

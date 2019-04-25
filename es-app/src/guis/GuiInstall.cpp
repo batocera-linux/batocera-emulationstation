@@ -6,7 +6,7 @@
 #include <string>
 #include "Log.h"
 #include "Settings.h"
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "LocaleES.h"
 
 GuiInstall::GuiInstall(Window* window, std::string storageDevice, std::string architecture) : GuiComponent(window), mBusyAnim(window)
@@ -86,7 +86,7 @@ void GuiInstall::update(int deltaTime) {
 
 void GuiInstall::threadInstall() 
 {
-    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->installSystem(&mBusyAnim, mstorageDevice, marchitecture);
+    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->installSystem(&mBusyAnim, mstorageDevice, marchitecture);
     if(updateStatus.second == 0){
         this->onInstallOk();
     }else {

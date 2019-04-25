@@ -1,39 +1,39 @@
-#include "RecalboxConf.h"
+#include "SystemConf.h"
 #include <iostream>
 #include <fstream>
 #include <boost/regex.hpp>
 #include "Log.h"
 #include <boost/algorithm/string/predicate.hpp>
 
-RecalboxConf *RecalboxConf::sInstance = NULL;
+SystemConf *SystemConf::sInstance = NULL;
 boost::regex validLine("^(?<key>[^;|#].*?)=(?<val>.*?)$");
 boost::regex commentLine("^;(?<key>.*?)=(?<val>.*?)$");
 
 std::string systemConfFile = "/userdata/system/batocera.conf";
 std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
 
-RecalboxConf::RecalboxConf() {
-    loadRecalboxConf();
+SystemConf::SystemConf() {
+    loadSystemConf();
 }
 
-RecalboxConf *RecalboxConf::getInstance() {
+SystemConf *SystemConf::getInstance() {
     if (sInstance == NULL)
-        sInstance = new RecalboxConf();
+        sInstance = new SystemConf();
 
     return sInstance;
 }
 
-bool RecalboxConf::loadRecalboxConf() {
+bool SystemConf::loadSystemConf() {
     std::string line;
-    std::ifstream recalboxConf(systemConfFile);
-    if (recalboxConf && recalboxConf.is_open()) {
-        while (std::getline(recalboxConf, line)) {
+    std::ifstream systemConf(systemConfFile);
+    if (systemConf && systemConf.is_open()) {
+        while (std::getline(systemConf, line)) {
             boost::smatch lineInfo;
             if (boost::regex_match(line, lineInfo, validLine)) {
                 confMap[std::string(lineInfo["key"])] = std::string(lineInfo["val"]);
             }
         }
-        recalboxConf.close();
+        systemConf.close();
     } else {
         LOG(LogError) << "Unable to open " << systemConfFile;
         return false;
@@ -42,7 +42,7 @@ bool RecalboxConf::loadRecalboxConf() {
 }
 
 
-bool RecalboxConf::saveRecalboxConf() {
+bool SystemConf::saveSystemConf() {
     std::ifstream filein(systemConfFile); //File to read from
     if (!filein) {
         LOG(LogError) << "Unable to open for saving :  " << systemConfFile << "\n";
@@ -92,7 +92,7 @@ bool RecalboxConf::saveRecalboxConf() {
     fileout.close();
 
 
-    /* Copy back the tmp to recalbox.conf */
+    /* Copy back the tmp to batocera.conf */
     std::ifstream  src(systemConfFileTmp, std::ios::binary);
     std::ofstream  dst(systemConfFile,   std::ios::binary);
     dst << src.rdbuf();
@@ -102,19 +102,19 @@ bool RecalboxConf::saveRecalboxConf() {
     return true;
 }
 
-std::string RecalboxConf::get(const std::string &name) {
+std::string SystemConf::get(const std::string &name) {
     if (confMap.count(name)) {
         return confMap[name];
     }
     return "";
 }
-std::string RecalboxConf::get(const std::string &name, const std::string &defaut) {
+std::string SystemConf::get(const std::string &name, const std::string &defaut) {
     if (confMap.count(name)) {
         return confMap[name];
     }
     return defaut;
 }
 
-void RecalboxConf::set(const std::string &name, const std::string &value) {
+void SystemConf::set(const std::string &name, const std::string &value) {
     confMap[name] = value;
 }

@@ -165,7 +165,7 @@ void AudioManager::resumeMusic() {
  /*
 
     this->init();
-    if (currentMusic != NULL && RecalboxConf::getInstance()->get("audio.bgmusic") == "1") {
+    if (currentMusic != NULL && SystemConf::getInstance()->get("audio.bgmusic") == "1") {
         currentMusic->play(runningFromPlaylist ? false : true, runningFromPlaylist ? musicEndInternal : NULL);
     }
  */
@@ -196,7 +196,7 @@ std::shared_ptr<Music> AudioManager::getRandomMusic(std::string themeSoundDirect
 
 void AudioManager::musicEnd() {
     LOG(LogInfo) << "MusicEnded";
-    if (runningFromPlaylist && RecalboxConf::getInstance()->get("audio.bgmusic") == "1") {
+    if (runningFromPlaylist && SystemConf::getInstance()->get("audio.bgmusic") == "1") {
         playRandomMusic();
     }
 }

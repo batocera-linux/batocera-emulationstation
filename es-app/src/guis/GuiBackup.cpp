@@ -6,7 +6,7 @@
 #include <string>
 #include "Log.h"
 #include "Settings.h"
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "LocaleES.h"
 
 GuiBackup::GuiBackup(Window* window, std::string storageDevice) : GuiComponent(window), mBusyAnim(window)
@@ -85,7 +85,7 @@ void GuiBackup::update(int deltaTime) {
 
 void GuiBackup::threadBackup() 
 {
-    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->backupSystem(&mBusyAnim, mstorageDevice);
+    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->backupSystem(&mBusyAnim, mstorageDevice);
     if(updateStatus.second == 0){
         this->onBackupOk();
     }else {

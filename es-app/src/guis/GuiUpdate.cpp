@@ -6,7 +6,7 @@
 #include <string>
 #include "Log.h"
 #include "Settings.h"
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "LocaleES.h"
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
@@ -112,7 +112,7 @@ void GuiUpdate::update(int deltaTime) {
 
 void GuiUpdate::threadUpdate() 
 {
-    std::pair<std::string,int> updateStatus = RecalboxSystem::getInstance()->updateSystem(&mBusyAnim);
+    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->updateSystem(&mBusyAnim);
     if(updateStatus.second == 0){
         this->onUpdateOk();
     }else {
@@ -123,8 +123,8 @@ void GuiUpdate::threadUpdate()
 void GuiUpdate::threadPing() 
 {
   std::vector<std::string> msgtbl;
-        if(RecalboxSystem::getInstance()->ping()){
-            if(RecalboxSystem::getInstance()->canUpdate(msgtbl)){
+        if(ApiSystem::getInstance()->ping()){
+            if(ApiSystem::getInstance()->canUpdate(msgtbl)){
                 this->onUpdateAvailable();
             }else {
                 this->onNoUpdateAvailable();

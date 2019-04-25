@@ -25,8 +25,8 @@
 #include <Windows.h>
 #endif
 #include "LocaleES.h"
-#include <RecalboxConf.h>
-#include "RecalboxSystem.h"
+#include <SystemConf.h>
+#include "ApiSystem.h"
 #include "AudioManager.h"
 #include "VolumeControl.h"
 #include "NetworkThread.h"
@@ -398,18 +398,18 @@ int main(int argc, char* argv[])
 			}));
 	}
 
-	RecalboxConf* recalboxConf = RecalboxConf::getInstance();
+	SystemConf* systemConf = SystemConf::getInstance();
 
 #if ENABLE_KODI == 1
-	if(recalboxConf->get("kodi.enabled") == "1" && recalboxConf->get("kodi.atstartup") == "1"){
-		RecalboxSystem::getInstance()->launchKodi(&window);
+	if(systemConf->get("kodi.enabled") == "1" && systemConf->get("kodi.atstartup") == "1"){
+		ApiSystem::getInstance()->launchKodi(&window);
 	}
 #endif
 
-	RecalboxSystem::getInstance()->getIpAdress();
+	ApiSystem::getInstance()->getIpAdress();
 
 	// UPDATE CHECK THREAD
-	if(recalboxConf->get("updates.enabled") == "1"){
+	if(systemConf->get("updates.enabled") == "1"){
 		NetworkThread * nthread = new NetworkThread(&window);
 	}
 
@@ -467,21 +467,21 @@ int main(int argc, char* argv[])
 			do
 			{
 switch(event.type) {
-				case RecalboxSystem::SDL_FAST_QUIT | RecalboxSystem::SDL_RB_REBOOT:
+				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_RB_REBOOT:
 					running = false;
 					doReboot = true;
 					Settings::getInstance()->setBool("IgnoreGamelist", true);
 					break;
-				case RecalboxSystem::SDL_FAST_QUIT | RecalboxSystem::SDL_RB_SHUTDOWN:
+				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_RB_SHUTDOWN:
 					running = false;
 					doShutdown = true;
 					Settings::getInstance()->setBool("IgnoreGamelist", true);
 					break;
-				case SDL_QUIT | RecalboxSystem::SDL_RB_REBOOT:
+				case SDL_QUIT | ApiSystem::SDL_RB_REBOOT:
 					running = false;
 					doReboot = true;
 					break;
-				case SDL_QUIT | RecalboxSystem::SDL_RB_SHUTDOWN:
+				case SDL_QUIT | ApiSystem::SDL_RB_SHUTDOWN:
 					running = false;
 					doShutdown = true;
 					break;

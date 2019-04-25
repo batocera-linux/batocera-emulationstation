@@ -25,7 +25,8 @@ elseif(EXISTS "${CMAKE_FIND_ROOT_PATH}/opt/vc/include/bcm_host.h")
     set(BCMHOST found)
     set(GLSystem "OpenGL ES" CACHE STRING "The OpenGL system to be used")
 #-------------------------------------------------------------------------------
-#check if we're running on Raspberry Pi
+# batocera / kodi menu
+# disable kodi
 if("${DISABLE_KODI}" STREQUAL "1")
   MESSAGE("kodi disabled")
   add_definitions(-DENABLE_KODI=0)
@@ -33,7 +34,8 @@ else()
   add_definitions(-DENABLE_KODI=1)
 endif()
 
-#check if we're running on Raspberry Pi
+# batocera / file manager f1 button
+# disable file manager
 if("${ENABLE_FILEMANAGER}" STREQUAL "1")
   MESSAGE("file manager enabled")
   add_definitions(-DENABLE_FILEMANAGER=1)
@@ -70,10 +72,11 @@ else()
 endif()
 find_package(Freetype REQUIRED)
 find_package(FreeImage REQUIRED)
+# batocera / background musics
 find_package(SDL2MIXER REQUIRED)
-find_package(SDL2 REQUIRED) 
+# batocera / customisations
 find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
-find_package(Eigen3 REQUIRED)
+find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
@@ -137,10 +140,11 @@ endif()
 set(COMMON_INCLUDE_DIRS
     ${FREETYPE_INCLUDE_DIRS}
     ${FreeImage_INCLUDE_DIRS}
-	${SDLMIXER_INCLUDE_DIR}
-    ${SDL2_INCLUDE_DIR}
+    # batocera / background musics
+    ${SDLMIXER_INCLUDE_DIR}
+    # batocera / customisations
     ${Boost_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
+    ${SDL2_INCLUDE_DIR}
     ${CURL_INCLUDE_DIR}
     ${VLC_INCLUDE_DIR}
     ${RAPIDJSON_INCLUDE_DIRS}
@@ -190,8 +194,9 @@ endif()
 #define libraries and directories
 if(DEFINED BCMHOST)
     link_directories(
+        # batocera / customisations
         ${Boost_LIBRARY_DIRS}
-        "/opt/vc/lib"
+        "${CMAKE_FIND_ROOT_PATH}/opt/vc/lib"
     )
 elseif(DEFINED VERO4K)
     link_directories(
@@ -200,11 +205,13 @@ elseif(DEFINED VERO4K)
 endif()
 
 set(COMMON_LIBRARIES
-    ${Boost_LIBRARIES}
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
-	${SDL2_LIBRARY}
-	${SDLMIXER_LIBRARY}
+    ${SDL2_LIBRARY}
+    # batocera / background musics
+    ${SDLMIXER_LIBRARY}
+    # batocera / customisations
+    ${Boost_LIBRARIES}
     ${CURL_LIBRARIES}
     ${VLC_LIBRARIES}
     pugixml
@@ -274,7 +281,7 @@ add_subdirectory("external")
 add_subdirectory("es-core")
 add_subdirectory("es-app")
 
-
+# batocera / i18n
 # i18n
 find_program (MSGFMT_EXECUTABLE msgfmt)
 find_program (MSGMERGE_EXECUTABLE msgmerge)
@@ -283,3 +290,4 @@ if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE)
 	message (STATUS "Native language support enabled.")
 	add_subdirectory (locale)
 endif()
+

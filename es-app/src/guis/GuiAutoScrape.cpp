@@ -10,7 +10,7 @@
 #include <string>
 #include "Log.h"
 #include "Settings.h"
-#include "RecalboxSystem.h"
+#include "ApiSystem.h"
 #include "LocaleES.h"
 
 GuiAutoScrape::GuiAutoScrape(Window* window) : GuiComponent(window), mBusyAnim(window)
@@ -93,7 +93,7 @@ void GuiAutoScrape::update(int deltaTime) {
 
 void GuiAutoScrape::threadAutoScrape() 
 {
-  std::pair<std::string,int> scrapeStatus = RecalboxSystem::getInstance()->scrape(&mBusyAnim);
+  std::pair<std::string,int> scrapeStatus = ApiSystem::getInstance()->scrape(&mBusyAnim);
   if(scrapeStatus.second == 0){
     this->onAutoScrapeOk();
   }else {
