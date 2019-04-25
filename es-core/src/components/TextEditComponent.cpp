@@ -305,10 +305,10 @@ std::vector<HelpPrompt> TextEditComponent::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	if(mEditing)
 	{
-		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE CURSOR")));
-		prompts.push_back(HelpPrompt("a", _("STOP EDITING")));
+		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE CURSOR"))); // batocera
+		prompts.push_back(HelpPrompt("a", _("STOP EDITING"))); // batocera
 	}else{
-		prompts.push_back(HelpPrompt("b", _("EDIT")));
+		prompts.push_back(HelpPrompt("b", _("EDIT"))); // batocera
 	}
 	return prompts;
 }

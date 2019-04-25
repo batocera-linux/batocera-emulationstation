@@ -12,8 +12,9 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/InputManager.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Music.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Music.h # batocera
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.h
@@ -57,7 +58,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInputConfig.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMsgBox.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopup.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.h # batocera
 
 	# Math
 	${CMAKE_CURRENT_SOURCE_DIR}/src/math/Misc.h
@@ -131,7 +132,8 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInputConfig.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMsgBox.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopup.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.cpp # batocera
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.cpp # batocera
 
 	# Math
 	${CMAKE_CURRENT_SOURCE_DIR}/src/math/Misc.cpp
@@ -155,7 +157,5 @@ set(CORE_SOURCES
 )
 
 include_directories(${COMMON_INCLUDE_DIRS})
-add_library(es-core STATIC ${CORE_SOURCES} ${CORE_HEADERS} src/SystemConf.cpp src/SystemConf.h)
+add_library(es-core STATIC ${CORE_SOURCES} ${CORE_HEADERS})
 target_link_libraries(es-core ${COMMON_LIBRARIES})
-
-TARGET_COMPILE_OPTIONS(es-core PUBLIC -D_SCL_SECURE_NO_WARNINGS)

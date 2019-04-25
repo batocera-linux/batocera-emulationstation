@@ -88,11 +88,11 @@ private:
 				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected));
 			}
 
-			mMenu.addButton(_("BACK"), "accept", [this] { delete this; });
+			mMenu.addButton(_("BACK"), "accept", [this] { delete this; }); // batocera
 
 			if(mParent->mMultiSelect)
 			{
-			  mMenu.addButton(_("SELECT ALL"), "select all", [this, checkboxes] {
+			  mMenu.addButton(_("SELECT ALL"), "select all", [this, checkboxes] { // batocera
 					for(unsigned int i = 0; i < mParent->mEntries.size(); i++)
 					{
 						mParent->mEntries.at(i).selected = true;
@@ -101,7 +101,7 @@ private:
 					mParent->onSelectedChanged();
 				});
 
-				mMenu.addButton(_("SELECT NONE"), "select none", [this, checkboxes] {
+				mMenu.addButton(_("SELECT NONE"), "select none", [this, checkboxes] { // batocera
 					for(unsigned int i = 0; i < mParent->mEntries.size(); i++)
 					{
 						mParent->mEntries.at(i).selected = false;
@@ -117,7 +117,7 @@ private:
 
 		bool input(InputConfig* config, Input input) override
 		{
-			if(config->isMappedTo("a", input) && input.value != 0)
+			if(config->isMappedTo("a", input) && input.value != 0) // batocera
 			{
 				delete this;
 				return true;
@@ -129,7 +129,7 @@ private:
 		std::vector<HelpPrompt> getHelpPrompts() override
 		{
 			auto prompts = mMenu.getHelpPrompts();
-			prompts.push_back(HelpPrompt("a", _("BACK")));
+			prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
 			return prompts;
 		}
 	};
@@ -184,7 +184,7 @@ public:
 	{
 		if(input.value != 0)
 		{
-			if(config->isMappedTo("b", input))
+			if(config->isMappedTo("b", input)) // batocera
 			{
 				open();
 				return true;
@@ -240,6 +240,7 @@ public:
 		return selected.at(0);
 	}
         
+        // batocera
 	std::string getSelectedName()
 	{
                 assert(mMultiSelect == false);
@@ -258,6 +259,7 @@ public:
 		e.name = name;
 		e.object = obj;
 		e.selected = selected;
+                // batocera
 		if(selected)
 			firstSelected = obj;
 
@@ -265,6 +267,7 @@ public:
 		onSelectedChanged();
 	}
 
+        // batocera
 	inline void setSelectedChangedCallback(const std::function<void(const T&)>& callback) {
 		mSelectedChangedCallback = callback;
 	}
@@ -287,6 +290,7 @@ public:
 		onSelectedChanged();
 	}
 
+        // batocera
 	bool changed(){
 		return firstSelected != getSelected();
 	}
@@ -315,10 +319,13 @@ private:
 		if(mMultiSelect)
 		{
 			// display # selected
+
+                        // batocera
 		  	char strbuf[256];
 			int x = getSelectedObjects().size();
 		  	snprintf(strbuf, 256, ngettext("%i SELECTED", "%i SELECTED", x).c_str(), x);
 			mText.setText(strbuf);
+
 			mText.setSize(0, mText.getSize().y());
 			setSize(mText.getSize().x() + mRightArrow.getSize().x() + 24, mText.getSize().y());
 			if(mParent) // hack since theres no "on child size changed" callback atm...
@@ -339,6 +346,7 @@ private:
 			}
 		}
 
+                // batocera
 		if (mSelectedChangedCallback) {
 			mSelectedChangedCallback(mEntries.at(getSelectedId()).object);
 		}
@@ -348,22 +356,22 @@ private:
 	{
 		std::vector<HelpPrompt> prompts;
 		if(!mMultiSelect)
-			prompts.push_back(HelpPrompt("left/right", _("CHANGE")));
+			prompts.push_back(HelpPrompt("left/right", _("CHANGE"))); // batocera
 
-		prompts.push_back(HelpPrompt("b", _("SELECT")));
+		prompts.push_back(HelpPrompt("b", _("SELECT"))); // batocera
 		return prompts;
 	}
 
 	bool mMultiSelect;
 
 	std::string mName;
-	T firstSelected;
+	T firstSelected; // batocera
 	TextComponent mText;
 	ImageComponent mLeftArrow;
 	ImageComponent mRightArrow;
 
 	std::vector<OptionListData> mEntries;
-	std::function<void(const T&)> mSelectedChangedCallback;
+	std::function<void(const T&)> mSelectedChangedCallback; // batocera
 };
 
 #endif // ES_CORE_COMPONENTS_OPTION_LIST_COMPONENT_H

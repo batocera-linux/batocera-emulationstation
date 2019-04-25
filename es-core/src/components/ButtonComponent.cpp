@@ -28,7 +28,7 @@ void ButtonComponent::setPressedFunc(std::function<void()> f)
 
 bool ButtonComponent::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("b", input) && input.value != 0)
+	if(config->isMappedTo("b", input) && input.value != 0) // batocera
 	{
 		if(mPressedFunc && mEnabled)
 			mPressedFunc();

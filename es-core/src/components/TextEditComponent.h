@@ -34,8 +34,8 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
-	void startEditing();
-	void stopEditing();
+	void startEditing(); // batocera
+	void stopEditing(); // batocera
 private:
 
 	void onTextChanged();

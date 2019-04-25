@@ -13,7 +13,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.h # batocera
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -37,16 +37,16 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.h # batocera
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -60,6 +60,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/IGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/ISimpleGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GridGameListView.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/VideoGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.h
@@ -68,9 +69,8 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/animations/LaunchAnimation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/animations/MoveCameraAnimation.h
 
-    # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h # batocera
 )
 
 set(ES_SOURCES
@@ -86,7 +86,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.cpp # batocera
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
@@ -109,13 +109,13 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.cpp # batocera
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp
@@ -134,8 +134,8 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.cpp
 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.cpp # batocera
 )
 
 #-------------------------------------------------------------------------------
@@ -184,7 +184,7 @@ SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Alec Lofquist <allofquist@yahoo.com>")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "misc")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "extra")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6, libsdl2-2.0-0, libsdl2-mixer-2.0-0, libboost-system1.54.0,libboost-thread1.54.0, libboost-filesystem1.54.0, libfreeimage3, libfreetype6, libcurl3, libasound2")
-SET(CPACK_DEBIAN_PACKAGE_BUILDS_DEPENDS "debhelper (>= 8.0.0), cmake, g++ (>= 4.8), libsdl2-dev, libsdl2-mixer-dev, libboost-system-dev, libboost-thread-dev , libboost-filesystem-dev, libboost-date-time-dev, libfreeimage-dev, libfreetype6-dev, libeigen3-dev, libcurl4-openssl-dev, libasound2-dev, libgl1-mesa-dev, rapidjson-dev, libgl1-mesa-dev")
+SET(CPACK_DEBIAN_PACKAGE_BUILDS_DEPENDS "debhelper (>= 8.0.0), cmake, g++ (>= 4.8), libsdl2-dev, libsdl2-mixer-dev, libboost-system-dev, libboost-thread-dev , libboost-filesystem-dev, libboost-date-time-dev, libfreeimage-dev, libfreetype6-dev, libcurl4-openssl-dev, libasound2-dev, libgl1-mesa-dev, rapidjson-dev, libgl1-mesa-dev")
 
 SET(CPACK_PACKAGE_VENDOR "emulationstation.org")
 SET(CPACK_PACKAGE_VERSION "2.0.0~rc1")

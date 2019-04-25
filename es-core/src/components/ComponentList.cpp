@@ -329,7 +329,7 @@ std::vector<HelpPrompt> ComponentList::getHelpPrompts()
 		}
 
 		if(addMovePrompt)
-			prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
+			prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	}
 
 	return prompts;

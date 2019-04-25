@@ -4,7 +4,6 @@
 #include "Log.h"
 #include "Renderer.h"
 #include "Settings.h"
-#include "LocaleES.h"
 
 TextComponent::TextComponent(Window* window) : GuiComponent(window), 
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),

@@ -446,11 +446,11 @@ std::vector<HelpPrompt> ComponentGrid::getHelpPrompts()
 	}
 
 	if(canScrollHoriz && canScrollVert)
-	  prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE")));
+	  prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera
 	else if(canScrollHoriz)
-	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE")));
+	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
 	else if(canScrollVert)
-	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
+	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 
 	return prompts;
 }

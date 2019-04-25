@@ -4,7 +4,6 @@
 #include "Log.h"
 #include "Renderer.h"
 #include "Settings.h"
-#include "LocaleES.h"
 
 DateTimeComponent::DateTimeComponent(Window* window) : TextComponent(window), mDisplayRelative(false)
 {

@@ -27,7 +27,7 @@ static const std::map<std::string, const char*> ICON_PATH_MAP {
 	{ "lr", ":/help/button_lr.svg" },
 	{ "start", ":/help/button_start.svg" },
 	{ "select", ":/help/button_select.svg" },
- 	{ "F1", ":/help/F1.svg" }
+ 	{ "F1", ":/help/F1.svg" } // batocera
 };
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
