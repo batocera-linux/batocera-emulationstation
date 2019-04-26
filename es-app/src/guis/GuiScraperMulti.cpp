@@ -30,13 +30,13 @@ GuiScraperMulti::GuiScraperMulti(Window* window, const std::queue<ScraperSearchP
 	mTotalSkipped = 0;
 
 	// set up grid
-	mTitle = std::make_shared<TextComponent>(mWindow, _("SCRAPING IN PROGRESS"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, _("SCRAPING IN PROGRESS"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false, true);
 
-	mSystem = std::make_shared<TextComponent>(mWindow, _("SYSTEM"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF, ALIGN_CENTER);
+	mSystem = std::make_shared<TextComponent>(mWindow, _("SYSTEM"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mSystem, Vector2i(0, 1), false, true);
 
-	mSubtitle = std::make_shared<TextComponent>(mWindow, _("subtitle text"), Font::get(FONT_SIZE_SMALL), 0x888888FF, ALIGN_CENTER);
+	mSubtitle = std::make_shared<TextComponent>(mWindow, _("subtitle text"), Font::get(FONT_SIZE_SMALL), 0x888888FF, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mSubtitle, Vector2i(0, 2), false, true);
 
 	mSearchComp = std::make_shared<ScraperSearchComponent>(mWindow,
@@ -50,18 +50,18 @@ GuiScraperMulti::GuiScraperMulti(Window* window, const std::queue<ScraperSearchP
 
 	if(approveResults)
 	{
-	  buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("search"), [&] {
+	  buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("search"), [&] { // batocera
 			mSearchComp->openInputScreen(mSearchQueue.front());
 			mGrid.resetCursor();
 		}));
 
-	  buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SKIP"), _("SKIP"), [&] {
+	  buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SKIP"), _("SKIP"), [&] { // batocera
 			skip();
 			mGrid.resetCursor();
 		}));
 	}
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("STOP"), _("stop (progress saved)"), std::bind(&GuiScraperMulti::finish, this)));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("STOP"), _("stop (progress saved)"), std::bind(&GuiScraperMulti::finish, this))); // batocera
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 4), true, false);
@@ -105,8 +105,7 @@ void GuiScraperMulti::doNextSearch()
 	// update subtitle
 	ss.str(""); // clear
 	char strbuf[256];
-	snprintf(strbuf, 256, _("GAME %i OF %i").c_str(), mCurrentGame + 1, mTotalGames);
-
+	snprintf(strbuf, 256, _("GAME %i OF %i").c_str(), mCurrentGame + 1, mTotalGames); // batocera
 	ss << strbuf << " - " << Utils::String::toUpper(Utils::FileSystem::getFileName(mSearchQueue.front().game->getPath()));
 	mSubtitle->setText(ss.str());
 
@@ -145,11 +144,11 @@ void GuiScraperMulti::finish()
 			);
 	} else {
 	  char strbuf[256];
-	  snprintf(strbuf, 256, ngettext("%i GAME SUCCESSFULLY SCRAPED!", "%i GAMES SUCCESSFULLY SCRAPED!", mTotalSuccessful).c_str(), mTotalSuccessful);
+	  snprintf(strbuf, 256, ngettext("%i GAME SUCCESSFULLY SCRAPED!", "%i GAMES SUCCESSFULLY SCRAPED!", mTotalSuccessful).c_str(), mTotalSuccessful); // batocera
 	  ss << strbuf;
 
 	  if(mTotalSkipped > 0) {
-	    snprintf(strbuf, 256, ngettext("%i GAME SKIPPED.", "%i GAMES SKIPPED.", mTotalSkipped).c_str(), mTotalSkipped);
+	    snprintf(strbuf, 256, ngettext("%i GAME SKIPPED.", "%i GAMES SKIPPED.", mTotalSkipped).c_str(), mTotalSkipped); // batocera
 	    ss << "\n" << strbuf;
 	  }
 	}

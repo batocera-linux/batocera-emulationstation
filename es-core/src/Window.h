@@ -46,7 +46,7 @@ public:
 	~Window();
 
 	void pushGui(GuiComponent* gui);
-	void displayMessage(std::string message);
+	void displayMessage(std::string message); // batocera
 	void removeGui(GuiComponent* gui);
 	GuiComponent* peekGui();
 	inline int getGuiStackSize() { return (int)mGuiStack.size(); }
@@ -92,7 +92,7 @@ private:
 	bool			mRenderScreenSaver;
 
 	std::vector<GuiComponent*> mGuiStack;
-	std::vector<std::string> mMessages;
+	std::vector<std::string> mMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
 
@@ -102,11 +102,11 @@ private:
 
 	std::unique_ptr<TextCache> mFrameDataText;
 
-	// clock
+	// clock // batocera
 	int mClockElapsed;
 	std::unique_ptr<TextCache> mClockText;
 
-	// pads
+	// pads // batocera
 	int mplayerPads[MAX_PLAYERS];
 	bool mplayerPadsIsHotkey;
 
@@ -118,7 +118,7 @@ private:
 
 	bool mRenderedHelpPrompts;
         
-	bool launchKodi;
+	bool launchKodi; // batocera
 };
 
 #endif // ES_CORE_WINDOW_H

@@ -74,7 +74,7 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 	}
 
 	/* when it's not configured, allow to remove the message box too to allow the configdevice window a chance */
-	if(mAcceleratorFunc && ((config->isMappedTo("a", input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON)))
+	if(mAcceleratorFunc && ((config->isMappedTo("a", input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON))) // batocera
 	{
 		mAcceleratorFunc();
 		return true;

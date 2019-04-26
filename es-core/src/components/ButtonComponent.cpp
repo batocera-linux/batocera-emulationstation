@@ -79,6 +79,7 @@ void ButtonComponent::updateImage()
 		return;
 	}
 
+        // batocera
 	// If a new color has been set.  
 	if (mNewColor) {
 		mBox.setImagePath(":/button_filled.png");
@@ -125,6 +126,6 @@ unsigned int ButtonComponent::getCurTextColor() const
 std::vector<HelpPrompt> ButtonComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("b", mHelpText.empty() ? mText.c_str() : mHelpText.c_str()));
+	prompts.push_back(HelpPrompt("b", mHelpText.empty() ? mText.c_str() : mHelpText.c_str())); // batocera
 	return prompts;
 }

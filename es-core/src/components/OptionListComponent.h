@@ -292,7 +292,9 @@ public:
 
         // batocera
 	bool changed(){
-		return firstSelected != getSelected();
+	  auto selected = getSelectedObjects();
+	  if(selected.size() != 1) return false;
+	  return firstSelected != getSelected();
 	}
 
 private:

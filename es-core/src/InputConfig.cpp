@@ -50,7 +50,7 @@ std::string toLower(std::string str)
 }
 //end util functions
 
-InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes) : mDeviceId(deviceId), mDeviceIndex(deviceIndex), mDeviceName(deviceName), mDeviceGUID(deviceGUID), mDeviceNbAxes(deviceNbAxes)
+InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes) : mDeviceId(deviceId), mDeviceIndex(deviceIndex), mDeviceName(deviceName), mDeviceGUID(deviceGUID), mDeviceNbAxes(deviceNbAxes)  // batocera
 {
 }
 
@@ -88,12 +88,12 @@ bool InputConfig::getInputByName(const std::string& name, Input* result)
 	return false;
 }
 
-bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis)
+bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis) // batocera
 {
 	Input comp;
 	if(!getInputByName(name, &comp))
 		return false;
-	if(reversedAxis) {
+	if(reversedAxis) { // batocera
 	  comp.value *= -1;
 	}
 	if(comp.configured && comp.type == input.type && comp.id == input.id)

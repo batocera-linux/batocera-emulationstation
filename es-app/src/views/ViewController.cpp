@@ -360,6 +360,7 @@ bool ViewController::input(InputConfig* config, Input input)
 	if(mLockInput)
 		return true;
 
+        // batocera
 	/* if we receive a button pressure for a non configured joystick, suggest the joystick configuration */
         if(config->isConfigured() == false) {
 	  if(input.type == TYPE_BUTTON) {

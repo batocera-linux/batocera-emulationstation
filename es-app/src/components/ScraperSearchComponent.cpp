@@ -51,12 +51,12 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mMD_Genre = std::make_shared<TextComponent>(mWindow, "", font, mdColor);
 	mMD_Players = std::make_shared<TextComponent>(mWindow, "", font, mdColor);
 
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Rating") + ":"), font, mdLblColor), mMD_Rating, false));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Released") + ":"), font, mdLblColor), mMD_ReleaseDate));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Developer") + ":"), font, mdLblColor), mMD_Developer));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Publisher") + ":"), font, mdLblColor), mMD_Publisher));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Genre") + ":"), font, mdLblColor), mMD_Genre));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Players") + ":"), font, mdLblColor), mMD_Players));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Rating") + ":"), font, mdLblColor), mMD_Rating, false)); // batocera
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Released") + ":"), font, mdLblColor), mMD_ReleaseDate)); // batocera
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Developer") + ":"), font, mdLblColor), mMD_Developer)); // batocera
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Publisher") + ":"), font, mdLblColor), mMD_Publisher)); // batocera
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Genre") + ":"), font, mdLblColor), mMD_Genre)); // batocera
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Players") + ":"), font, mdLblColor), mMD_Players)); // batocera
 
 	mMD_Grid = std::make_shared<ComponentGrid>(mWindow, Vector2i(2, (int)mMD_Pairs.size()*2 - 1));
 	unsigned int i = 0;
@@ -241,7 +241,7 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 		else
 		{
 			ComponentListRow row;
-			row.addElement(std::make_shared<TextComponent>(mWindow, _("NO GAMES FOUND - SKIP"), font, color), true);
+			row.addElement(std::make_shared<TextComponent>(mWindow, _("NO GAMES FOUND - SKIP"), font, color), true); // batocera
 
 			if(mSkipCallback)
 				row.makeAcceptInputHandler(mSkipCallback);
@@ -280,9 +280,9 @@ void ScraperSearchComponent::onSearchError(const std::string& error)
 {
 	LOG(LogInfo) << "ScraperSearchComponent search error: " << error;
 	mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::toUpper(error),
-				       _("RETRY"), std::bind(&ScraperSearchComponent::search, this, mLastSearch),
-				       _("SKIP"), mSkipCallback,
-				       _("CANCEL"), mCancelCallback));
+				       _("RETRY"), std::bind(&ScraperSearchComponent::search, this, mLastSearch), // batocera
+				       _("SKIP"), mSkipCallback, // batocera
+				       _("CANCEL"), mCancelCallback)); // batocera
 }
 
 int ScraperSearchComponent::getSelectedIndex()

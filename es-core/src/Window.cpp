@@ -17,13 +17,13 @@
 #define PLAYER_PAD_TIME_MS 200
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), launchKodi(false), mClockElapsed(0)
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), launchKodi(false), mClockElapsed(0) // batocera
 {
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
-	mBackgroundOverlay->setImage(":/scroll_gradient.png");
+	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
 
-	// pads
+	// pads // batocera
 	for(int i=0; i<MAX_PLAYERS; i++) {
 	  mplayerPads[i] = 0;
 	}
@@ -52,6 +52,7 @@ void Window::pushGui(GuiComponent* gui)
 	gui->updateHelpPrompts();
 }
 
+// batocera
 void Window::displayMessage(std::string message)
 {
     mMessages.push_back(message);
@@ -184,6 +185,7 @@ void Window::input(InputConfig* config, Input input)
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
+// batocera
 #if ENABLE_FILEMANAGER == 1
 	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
 	{
@@ -198,6 +200,7 @@ void Window::input(InputConfig* config, Input input)
 	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
 	  }
 
+// batocera
 #if ENABLE_KODI == 1
             if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1"){
                 launchKodi = true;
@@ -224,7 +227,7 @@ void Window::input(InputConfig* config, Input input)
 
 void Window::update(int deltaTime)
 {
-    
+        // batocera
         if(!mMessages.empty()){
 		std::string message = mMessages.back();
 		mMessages.pop_back();
@@ -265,7 +268,7 @@ void Window::update(int deltaTime)
 		mFrameCountElapsed = 0;
 	}
 
-	/* draw the clock */
+	/* draw the clock */ // batocera
 	if(Settings::getInstance()->getBool("DrawClock")) {
 	  mClockElapsed -= deltaTime;
 	  if(mClockElapsed <= 0)
@@ -287,7 +290,7 @@ void Window::update(int deltaTime)
 	    }
 	}
 
-	// hide pads
+	// hide pads // batocera
 	for(int i=0; i<MAX_PLAYERS; i++) {
 	  if(mplayerPads[i] > 0) {
 	    mplayerPads[i] -= deltaTime;
@@ -336,14 +339,14 @@ void Window::render()
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
-        // clock
+        // clock // batocera
 	if(Settings::getInstance()->getBool("DrawClock") && mClockText)
 	  {
 	    Renderer::setMatrix(Transform4x4f::Identity());
 	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
 	  }
 
-	// pads
+	// pads // batocera
 	Renderer::setMatrix(Transform4x4f::Identity());
 	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 	for (int player = 0; player < MAX_PLAYERS; player++) {

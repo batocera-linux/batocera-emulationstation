@@ -68,17 +68,16 @@ void Settings::setDefaults()
 	mStringMap["StartupSystem"] = "";
 
         // batocera
-        mBoolMap["UseOSK"] = true;
+        mBoolMap["UseOSK"] = true; // on screen keyboard
         mBoolMap["DrawClock"] = true;
         mIntMap["SystemVolume"] = 95;
-        mBoolMap["FavoritesOnly"] = false;
-        mBoolMap["ShowHidden"] = false;
         mBoolMap["Overscan"] = false;
         mStringMap["Lang"] = "en_US";
         mStringMap["INPUT P1"] = "DEFAULT";
         mStringMap["INPUT P2"] = "DEFAULT";
         mStringMap["INPUT P3"] = "DEFAULT";
         mStringMap["INPUT P4"] = "DEFAULT";
+        mStringMap["INPUT P5"] = "DEFAULT";
         mStringMap["Overclock"] = "none";
 
         // batocera

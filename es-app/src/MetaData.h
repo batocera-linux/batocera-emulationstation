@@ -21,7 +21,7 @@ enum MetaDataType
 	MD_RATING,
 	MD_DATE,
 	MD_TIME, //used for lastplayed
-        MD_LIST
+        MD_LIST // batocera
 };
 
 struct MetaDataDecl
@@ -33,6 +33,7 @@ struct MetaDataDecl
 	std::string displayName; // displayed as this in editors
 	std::string displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
 
+  // batocera
   MetaDataDecl(std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt) {
     this->key = key;
     this->type = type;
@@ -42,6 +43,7 @@ struct MetaDataDecl
     this->displayPrompt = displayPrompt;
   }
 
+  // batocera 
   MetaDataDecl(std::string key, MetaDataType type, std::string defaultValue, bool isStatistic) {
     this->key = key;
     this->type = type;

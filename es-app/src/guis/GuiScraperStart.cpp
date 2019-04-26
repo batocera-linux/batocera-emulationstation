@@ -10,33 +10,33 @@
 #include "LocaleES.h"
 
 GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
-  mMenu(window, _("SCRAPE NOW").c_str())
+  mMenu(window, _("SCRAPE NOW").c_str()) // batocera
 {
 	addChild(&mMenu);
 
 	// add filters (with first one selected)
-	mFilters = std::make_shared< OptionListComponent<GameFilterFunc> >(mWindow, _("SCRAPE THESE GAMES"), false);
-	mFilters->add(_("All Games"), 
+	mFilters = std::make_shared< OptionListComponent<GameFilterFunc> >(mWindow, _("SCRAPE THESE GAMES"), false); // batocera
+	mFilters->add(_("All Games"), // batocera
 		[](SystemData*, FileData*) -> bool { return true; }, false);
 	mFilters->add(_("Only missing image"), 
 		[](SystemData*, FileData* g) -> bool { return g->metadata.get("image").empty(); }, true);
-	mMenu.addWithLabel(_("FILTER"), mFilters);
+	mMenu.addWithLabel(_("FILTER"), mFilters); // batocera
 
-	// add systems (all with a platformid specified selected)
-	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE THESE SYSTEMS"), true);
+	//add systems (all with a platformid specified selected)
+	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE THESE SYSTEMS"), true); // batocera
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		if(!(*it)->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 			mSystems->add((*it)->getFullName(), *it, !(*it)->getPlatformIds().empty());
 	}
-	mMenu.addWithLabel(_("SYSTEMS"), mSystems);
+	mMenu.addWithLabel(_("SYSTEMS"), mSystems); // batocera
 
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
 	mApproveResults->setState(true);
-	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
+	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults); // batocera
 
-	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this));
-	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
+	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this)); // batocera
+	mMenu.addButton(_("BACK"), "back", [&] { delete this; }); // batocera
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
@@ -49,9 +49,9 @@ void GuiScraperStart::pressedStart()
 		if((*it)->getPlatformIds().empty())
 		{
 			mWindow->pushGui(new GuiMsgBox(mWindow, 
-				_("WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\nCONTINUE ANYWAY?"), 
-						       _("YES"), std::bind(&GuiScraperStart::start, this), 
-						       _("NO"), nullptr));
+				_("WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\nCONTINUE ANYWAY?"),  // batocera
+						       _("YES"), std::bind(&GuiScraperStart::start, this),  // batocera
+						       _("NO"), nullptr)); // batocera
 			return;
 		}
 	}
@@ -66,7 +66,7 @@ void GuiScraperStart::start()
 	if(searches.empty())
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow,
-					       _("NO GAMES FIT THAT CRITERIA.")));
+					       _("NO GAMES FIT THAT CRITERIA."))); // batocera
 	}else{
 		GuiScraperMulti* gsm = new GuiScraperMulti(mWindow, searches, mApproveResults->getState());
 		mWindow->pushGui(gsm);
@@ -102,7 +102,7 @@ bool GuiScraperStart::input(InputConfig* config, Input input)
 	if(consumed)
 		return true;
 	
-	if(input.value != 0 && config->isMappedTo("a", input))
+	if(input.value != 0 && config->isMappedTo("a", input)) // batocera
 	{
 		delete this;
 		return true;
@@ -123,7 +123,7 @@ bool GuiScraperStart::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiScraperStart::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", _("BACK")));
-	prompts.push_back(HelpPrompt("start", _("CLOSE")));
+	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
 	return prompts;
 }

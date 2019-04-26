@@ -33,29 +33,29 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root) :
 	addChild(&mImage);
 
 	// metadata labels + values
-	mLblRating.setText(_("Rating") + ": ");
+	mLblRating.setText(_("Rating") + ": "); // batocera
 	addChild(&mLblRating);
 	addChild(&mRating);
-	mLblReleaseDate.setText(_("Released") + ": ");
+	mLblReleaseDate.setText(_("Released") + ": "); // batocera
 	addChild(&mLblReleaseDate);
 	addChild(&mReleaseDate);
-	mLblDeveloper.setText(_("Developer") + ": ");
+	mLblDeveloper.setText(_("Developer") + ": "); // batocera
 	addChild(&mLblDeveloper);
 	addChild(&mDeveloper);
-	mLblPublisher.setText(_("Publisher") + ": ");
+	mLblPublisher.setText(_("Publisher") + ": "); // batocera
 	addChild(&mLblPublisher);
 	addChild(&mPublisher);
-	mLblGenre.setText(_("Genre") + ": ");
+	mLblGenre.setText(_("Genre") + ": "); // batocera
 	addChild(&mLblGenre);
 	addChild(&mGenre);
-	mLblPlayers.setText(_("Players") + ": ");
+	mLblPlayers.setText(_("Players") + ": "); // batocera
 	addChild(&mLblPlayers);
 	addChild(&mPlayers);
-	mLblLastPlayed.setText(_("Last played") + ": ");
+	mLblLastPlayed.setText(_("Last played") + ": "); // batocera
 	addChild(&mLblLastPlayed);
 	mLastPlayed.setDisplayRelative(true);
 	addChild(&mLastPlayed);
-	mLblPlayCount.setText(_("Times played") + ": ");
+	mLblPlayCount.setText(_("Times played") + ": "); // batocera
 	addChild(&mLblPlayCount);
 	addChild(&mPlayCount);
 

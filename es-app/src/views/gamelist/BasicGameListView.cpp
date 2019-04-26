@@ -147,10 +147,10 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 
 	if(Settings::getInstance()->getBool("QuickSystemSelect"))
-	  prompts.push_back(HelpPrompt("left/right", _("SYSTEM")));
-	prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
-	prompts.push_back(HelpPrompt("b", _("LAUNCH")));
-	prompts.push_back(HelpPrompt("a", _("BACK")));
+	  prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+	prompts.push_back(HelpPrompt("b", _("LAUNCH"))); // batocera
+	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
 	if(!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", "options"));
 	if(mRoot->getSystem()->isGameSystem())

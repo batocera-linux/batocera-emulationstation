@@ -23,7 +23,7 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	addChild(&mGrid);
 	
 	// title
-	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"),
+	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"), // batocera
 		Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
@@ -33,22 +33,22 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	
 	if(numDevices > 0) {
 	  char strbuf[256];
-	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices).c_str(), numDevices);
+	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices).c_str(), numDevices); // batocera
 	  deviceInfo << strbuf;
 	}
 	else
-		deviceInfo << _("NO GAMEPADS DETECTED");
+		deviceInfo << _("NO GAMEPADS DETECTED"); // batocera
 	mDeviceInfo = std::make_shared<TextComponent>(mWindow, deviceInfo.str(), Font::get(FONT_SIZE_SMALL), 0x999999FF, ALIGN_CENTER);
 	mGrid.setEntry(mDeviceInfo, Vector2i(0, 1), false, true);
 
 	// message
-	mMsg1 = std::make_shared<TextComponent>(mWindow, _("HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
+	mMsg1 = std::make_shared<TextComponent>(mWindow, _("HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mMsg1, Vector2i(0, 2), false, true);
 
 	if(firstRun) {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS F4 TO QUIT AT ANY TIME."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS F4 TO QUIT AT ANY TIME."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	} else {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC OR THE HOTKEY TO CANCEL."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC OR THE HOTKEY TO CANCEL."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	}
 	mGrid.setEntry(mMsg2, Vector2i(0, 3), false, true);
 
@@ -78,7 +78,7 @@ bool GuiDetectDevice::input(InputConfig* config, Input input)
 	PowerSaver::pause();
 
 	if(!mFirstRun && (input.device == DEVICE_KEYBOARD && input.type == TYPE_KEY && input.value && input.id == SDLK_ESCAPE) ||
-	                 (input.device != DEVICE_KEYBOARD && config->isMappedTo("hotkey", input)))
+	                 (input.device != DEVICE_KEYBOARD && config->isMappedTo("hotkey", input))) // batocera
 	{
 		// cancel configuring
 		PowerSaver::resume();

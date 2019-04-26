@@ -35,7 +35,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		if(curChar < startChar || curChar > endChar)
 			curChar = startChar;
 
-		mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO..."), false);
+		mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO..."), false); // batocera
 		for (char c = startChar; c <= endChar; c++)
 		{
 			// check if c is a valid first letter in current list
@@ -51,7 +51,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 			}
 		}
 
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
 		row.addElement(mJumpToLetterList, false);
 		row.input_handler = [&](InputConfig* config, Input input) {
 			if(config->isMappedTo("a", input) && input.value)
@@ -75,13 +75,13 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 			mListSort->add(sort.description, &sort, i == 0); // TODO - actually make the sort type persistent
 		}
 
-		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort);
+		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
 	// show filtered menu
 	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("FILTER GAMELIST"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("FILTER GAMELIST"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
 		row.addElement(makeArrow(mWindow), false);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 		mMenu.addRow(row);		

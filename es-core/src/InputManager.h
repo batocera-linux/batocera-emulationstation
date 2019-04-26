@@ -28,6 +28,7 @@ private:
 
 	std::map<SDL_JoystickID, int*> mPrevAxisValues;
 
+        // batocera
 	std::map<int, int> m_lastKnownPlayersDeviceIndexes;
 	std::map<int, InputConfig*> computePlayersConfigs();
 
@@ -36,6 +37,8 @@ private:
 	void addJoystickByDeviceIndex(int id);
 	void removeJoystickByJoystickID(SDL_JoystickID id);
 	bool loadInputConfig(InputConfig* config); // returns true if successfully loaded, false if not (or didn't exist)
+
+        // batocera
         void clearJoystick();
         void addAllJoysticks();
 
@@ -54,7 +57,7 @@ public:
 
 	int getNumJoysticks();
 	int getAxisCountByDevice(int deviceId);
-	const std::map<SDL_JoystickID, SDL_Joystick*>& getJoysticks() { return  mJoysticks; }
+	const std::map<SDL_JoystickID, SDL_Joystick*>& getJoysticks() { return  mJoysticks; } // batocera
 	int getButtonCountByDevice(int deviceId);
 	int getNumConfiguredDevices();
 
@@ -63,9 +66,9 @@ public:
 	InputConfig* getInputConfigByDevice(int deviceId);
 
 	bool parseEvent(const SDL_Event& ev, Window* window);
-	std::string configureEmulators();
+	std::string configureEmulators(); // batocera
 
-	// information about last association players/pads
+	// information about last association players/pads // batocera
 	std::map<int, int> lastKnownPlayersDeviceIndexes();
 	void computeLastKnownPlayersDeviceIndexes();
 };

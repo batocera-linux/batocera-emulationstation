@@ -18,10 +18,10 @@ const AnimationDef BUSY_ANIMATION_DEF = { BUSY_ANIMATION_FRAMES, 4, true };
 BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(5, 3))
 {
-        mutex = SDL_CreateMutex();
+        mutex = SDL_CreateMutex(); // batocera
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);
-	mText = std::make_shared<TextComponent>(mWindow, _("WORKING..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+	mText = std::make_shared<TextComponent>(mWindow, _("WORKING..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF); // batocera
 
 	// col 0 = animation, col 1 = spacer, col 2 = text
 	mGrid.setEntry(mAnimation, Vector2i(1, 1), false, true);
@@ -31,10 +31,12 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	addChild(&mGrid);
 }
 
+// batocera
 BusyComponent::~BusyComponent() {
   SDL_DestroyMutex(mutex);
 }
 
+// batocera
 void BusyComponent::setText(std::string txt) {
   if (SDL_LockMutex(mutex) == 0) {
     threadMessage = txt;
@@ -43,6 +45,7 @@ void BusyComponent::setText(std::string txt) {
   }
 }
 
+// batocera
 void BusyComponent::render(const Transform4x4f& parentTrans) {
   if (SDL_LockMutex(mutex) == 0) {
     if(threadMessagechanged) {

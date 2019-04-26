@@ -6,7 +6,6 @@
 #include "Settings.h"
 #include "Sound.h"
 #include "SystemData.h"
-#include "LocaleES.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FileData* root) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window)
@@ -81,7 +80,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
 	if(input.value != 0)
 	{
-		if(config->isMappedTo("b", input))
+		if(config->isMappedTo("b", input)) // batocera
 		{
 			FileData* cursor = getCursor();
 			if(cursor->getType() == GAME)
@@ -100,7 +99,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 
 			return true;
-		}else if(config->isMappedTo("a", input))
+		}else if(config->isMappedTo("a", input)) // batocera
 		{
 			if(mCursorStack.size())
 			{

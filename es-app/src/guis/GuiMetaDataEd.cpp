@@ -36,7 +36,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER); // batocera
 	mSubtitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(Utils::FileSystem::getFileName(scraperParams.game->getPath())),
 		Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
@@ -251,9 +251,9 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 	{
 		// changes were made, ask if the user wants to save them
 		mWindow->pushGui(new GuiMsgBox(mWindow,
-			_("SAVE CHANGES?"),
-			_("YES"), [this, closeFunc] { save(); closeFunc(); },
-			_("NO"), closeFunc
+			_("SAVE CHANGES?"), // batocera
+			_("YES"), [this, closeFunc] { save(); closeFunc(); }, // batocera
+			_("NO"), closeFunc // batocera
 		));
 	}else{
 		closeFunc();
@@ -266,7 +266,7 @@ bool GuiMetaDataEd::input(InputConfig* config, Input input)
 		return true;
 
 	const bool isStart = config->isMappedTo("start", input);
-	if(input.value != 0 && (config->isMappedTo("a", input) || isStart))
+	if(input.value != 0 && (config->isMappedTo("a", input) || isStart)) // batocera
 	{
 		close(isStart);
 		return true;
@@ -278,7 +278,7 @@ bool GuiMetaDataEd::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiMetaDataEd::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", _("BACK")));
-	prompts.push_back(HelpPrompt("start", _("CLOSE")));
+	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
 	return prompts;
 }

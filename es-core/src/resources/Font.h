@@ -18,8 +18,8 @@ class TextCache;
 #define FONT_SIZE_MEDIUM ((unsigned int)(0.045f * Math::min((int)Renderer::getScreenHeight(), (int)Renderer::getScreenWidth())))
 #define FONT_SIZE_LARGE ((unsigned int)(0.085f * Math::min((int)Renderer::getScreenHeight(), (int)Renderer::getScreenWidth())))
 
-#define FONT_PATH_LIGHT ":/ubuntu_condensed.ttf"
-#define FONT_PATH_REGULAR ":/ubuntu_condensed.ttf"
+#define FONT_PATH_LIGHT ":/ubuntu_condensed.ttf" // batocera
+#define FONT_PATH_REGULAR ":/ubuntu_condensed.ttf" // batocera
 
 enum Alignment
 {

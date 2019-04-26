@@ -382,6 +382,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("left/right", "choose"));
 	prompts.push_back(HelpPrompt("a", "select"));
 	prompts.push_back(HelpPrompt("x", "random"));
+// batocera
 #if ENABLE_FILEMANAGER == 1
 	prompts.push_back(HelpPrompt("F1", _("FILES")));
 #endif

@@ -6,7 +6,6 @@
 #include "CollectionSystemManager.h"
 #include "Settings.h"
 #include "SystemData.h"
-#include "LocaleES.h"
 
 GridGameListView::GridGameListView(Window* window, FileData* root) :
 	ISimpleGameListView(window, root),

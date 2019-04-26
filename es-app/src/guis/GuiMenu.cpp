@@ -439,13 +439,12 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                              reboot = true;
                          }
 
-                         if (Settings::getInstance()->getString("Overclock") != overclock_choice->getSelected() ||
-			     (Settings::getInstance()->getString("Overclock") == "" && overclock_choice->getSelected() != "none")) {
+			 if(overclock_choice->changed()) {
                              Settings::getInstance()->setString("Overclock", overclock_choice->getSelected());
                              ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
                              reboot = true;
                          }
-                         if (language != language_choice->getSelected()) {
+			 if(language_choice->changed()) {
                              SystemConf::getInstance()->set("system.language",
                                                               language_choice->getSelected());
                              SystemConf::getInstance()->saveSystemConf();
@@ -477,8 +476,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      auto ratio_choice = createRatioOptionList(mWindow, "global");
                      s->addWithLabel(_("GAME RATIO"), ratio_choice);
                      s->addSaveFunc([ratio_choice] {
-                         SystemConf::getInstance()->set("global.ratio", ratio_choice->getSelected());
-                         SystemConf::getInstance()->saveSystemConf();
+			 if(ratio_choice->changed()) {
+			   SystemConf::getInstance()->set("global.ratio", ratio_choice->getSelected());
+			   SystemConf::getInstance()->saveSystemConf();
+			 }
                      });
                  }
                  // smoothing
@@ -523,8 +524,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		 integerscale_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get("global.integerscale") == "0");
                  s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
                  s->addSaveFunc([integerscale_enabled] {
-                     SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected());
-                     SystemConf::getInstance()->saveSystemConf();
+		     if(integerscale_enabled->changed()) {
+		       SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected());
+		       SystemConf::getInstance()->saveSystemConf();
+		     }
                  });
 
 		 // decorations
@@ -550,8 +553,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		   }
 		   s->addWithLabel(_("DECORATION"), decorations);
 		   s->addSaveFunc([decorations] {
-		       SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-		       SystemConf::getInstance()->saveSystemConf();
+		       if(decorations->changed()) {
+			 SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+			 SystemConf::getInstance()->saveSystemConf();
+		       }
 		     });
 		 }
 
@@ -758,10 +763,14 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      }
                  }
                  s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled] {
-                     SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
-                     SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
-                     SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
-                     SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
+		     if(smoothing_enabled->changed())
+		       SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
+		     if(rewind_enabled->changed())
+		       SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
+		     if(shaders_choices->changed())
+		       SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
+		     if(autosave_enabled->changed())
+		       SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
                      SystemConf::getInstance()->saveSystemConf();
                  });
                  mWindow->pushGui(s);
@@ -798,7 +807,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		     s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 
 		     s->addSaveFunc([this, optionsVideo, currentDevice] {
-			 if (currentDevice != optionsVideo->getSelected()) {
+			 if (optionsVideo->changed()) {
 			   SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 			   SystemConf::getInstance()->saveSystemConf();
 			   this->mWindow->pushGui(
@@ -844,7 +853,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                                                    Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
                      s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
                      s->addSaveFunc([screensaver_behavior] {
-                         Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
+			 if(screensaver_behavior->changed()) {
+			   Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
+			 }
                      });
 
                      // framerate
@@ -897,7 +908,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
                      s->addWithLabel(_("TRANSITION STYLE"), transition_style);
                      s->addSaveFunc([transition_style] {
-                         Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
+			 if(transition_style->changed()) {
+			   Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
+			 }
                      });
 
                      // theme set
@@ -917,10 +930,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                          Window *window = mWindow;
                          s->addSaveFunc([window, theme_set] {
                              bool needReload = false;
-                             if (Settings::getInstance()->getString("ThemeSet") != theme_set->getSelected())
+                             if (theme_set->changed()) {
                                  needReload = true;
-
-                             Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
+				 Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
+			     }
 
                              if (needReload)
                                  ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
@@ -999,7 +1012,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                      else
                          AudioManager::getInstance()->playRandomMusic();
 
-                     if (selectedAudio != optionsAudio->getSelected()) {
+                     if (optionsAudio->changed()) {
                          SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
                          ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
 			 v_need_reboot = true;
@@ -1117,7 +1130,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
 		   s->addWithLabel(_("SCRAPE FROM"), scraper_list);
 		   s->addSaveFunc([scraper_list] {
-		       Settings::getInstance()->setString("Scraper", scraper_list->getSelected());
+		       if(scraper_list->changed()) {
+			 Settings::getInstance()->setString("Scraper", scraper_list->getSelected());
+		       }
                      });
 
 		   // scrape ratings
@@ -1227,9 +1242,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
                  mWindow->pushGui(s);
              });
 
-    mVersion.setFont(Font::get(FONT_SIZE_SMALL));
-    mVersion.setColor(0xC6C6C6FF);
-    mVersion.setText("EMULATIONSTATION V" + Utils::String::toUpper(PROGRAM_VERSION_STRING));
+    // batocera
+    //mVersion.setFont(Font::get(FONT_SIZE_SMALL));
+    //mVersion.setColor(0xC6C6C6FF);
+    //mVersion.setText("EMULATIONSTATION V" + Utils::String::toUpper(PROGRAM_VERSION_STRING));
 
     addChild(&mMenu);
     addChild(&mVersion);
@@ -1321,20 +1337,16 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
     systemConfiguration->addSaveFunc(
 				     [systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled] {
                 if(ratio_choice->changed()){
-                    SystemConf::getInstance()->set(systemData->getName() + ".ratio",
-                                                     ratio_choice->getSelected());
+                    SystemConf::getInstance()->set(systemData->getName() + ".ratio", ratio_choice->getSelected());
                 }
 		if(videoResolutionMode_choice->changed()){
-                    SystemConf::getInstance()->set(systemData->getName() + ".videomode",
-                                                     videoResolutionMode_choice->getSelected());
+                    SystemConf::getInstance()->set(systemData->getName() + ".videomode", videoResolutionMode_choice->getSelected());
                 }
                 if(rewind_enabled->changed()) {
-                    SystemConf::getInstance()->set(systemData->getName() + ".rewind",
-                                                     rewind_enabled->getSelected());
+                    SystemConf::getInstance()->set(systemData->getName() + ".rewind", rewind_enabled->getSelected());
                 }
                 if(smoothing_enabled->changed()){
-                    SystemConf::getInstance()->set(systemData->getName() + ".smooth",
-                                                     smoothing_enabled->getSelected());
+                    SystemConf::getInstance()->set(systemData->getName() + ".smooth", smoothing_enabled->getSelected());
                 }
 
 		// the menu GuiMenu::popSystemConfigurationGui is a hack
@@ -1342,15 +1354,14 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
 		// this is especially bad for core while the changed() value is lost too.
 		// to avoid this issue, instead of reprogramming this part, i will force a save of the emulator and core
 		// at each GuiMenu::popSystemConfigurationGui call, including the ending saving one (when changed() values are bad)
-                //if(emu_choice->changed()) {
+                if(emu_choice->changed()) {
                     SystemConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
-		//}
-                //if(core_choice->changed()){
+		}
+                if(core_choice->changed()){
                     SystemConf::getInstance()->set(systemData->getName() + ".core", core_choice->getSelected());
-		//}
+		}
                 if(autosave_enabled->changed()) {
-                    SystemConf::getInstance()->set(systemData->getName() + ".autosave",
-                                                     autosave_enabled->getSelected());
+                    SystemConf::getInstance()->set(systemData->getName() + ".autosave", autosave_enabled->getSelected());
                 }
                 SystemConf::getInstance()->saveSystemConf();
             });
@@ -1523,7 +1534,7 @@ void GuiMenu::createConfigInput() {
 	      Settings::getInstance()->setString(confName, name);
 	      Settings::getInstance()->setString(confGuid, "");
             } else {
-	      if(input_p1->getSelected() != NULL) {
+	      if(input_p1->changed()) {
 		LOG(LogWarning) << "Found the selected controller ! : name in list  = " << selectedName;
 		LOG(LogWarning) << "Found the selected controller ! : guid  = " << input_p1->getSelected()->deviceGUIDString;
 

@@ -39,11 +39,11 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	// buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("search"), [&] {
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("search"), [&] { // batocera
 		mSearch->openInputScreen(mSearchParams);
 		mGrid.resetCursor();
 	}));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("cancel"), [&] { delete this; }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("cancel"), [&] { delete this; })); // batocera
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
@@ -95,7 +95,7 @@ void GuiGameScraper::onSizeChanged()
 
 bool GuiGameScraper::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("a", input) && input.value)
+	if(config->isMappedTo("a", input) && input.value) // batocera
 	{
 		PowerSaver::resume();
 		delete this;

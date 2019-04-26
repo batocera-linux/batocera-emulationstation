@@ -13,6 +13,7 @@ namespace pugi { class xml_node; }
 
 #define DEVICE_KEYBOARD -1
 #define DEVICE_CEC      -2
+// batocera
 #define MAX_PLAYERS 5
 
 enum InputType
@@ -97,7 +98,7 @@ public:
 class InputConfig
 {
 public:
-	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes);
+	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes); // batocera
 
 	void clear();
 	void mapInput(const std::string& name, Input input);
@@ -105,13 +106,13 @@ public:
 
 	inline int getDeviceId() const { return mDeviceId; };
         
-	inline int getDeviceIndex() const { return mDeviceIndex; };
+	inline int getDeviceIndex() const { return mDeviceIndex; }; // batocera
 	inline const std::string& getDeviceName() { return mDeviceName; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
-	inline int getDeviceNbAxes() const { return mDeviceNbAxes; };
+	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; // batocera
 
 	//Returns true if Input is mapped to this name, false otherwise.
-	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false);
+	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false); // batocera
 	bool isMappedLike(const std::string& name, Input input);
 
 	//Returns a list of names this input is mapped to.
@@ -129,10 +130,10 @@ public:
 private:
 	std::map<std::string, Input> mNameMap;
 	const int mDeviceId;
-	const int mDeviceIndex;
+	const int mDeviceIndex; // batocera
 	const std::string mDeviceName;
 	const std::string mDeviceGUID;
-	const int mDeviceNbAxes; // number of axes of the device
+	const int mDeviceNbAxes; // number of axes of the device // batocera
 };
 
 #endif // ES_CORE_INPUT_CONFIG_H
