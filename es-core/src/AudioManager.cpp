@@ -72,7 +72,6 @@ std::shared_ptr<AudioManager> & AudioManager::getInstance()
 
 void AudioManager::init()
 {
-  return;
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
 		LOG(LogError) << "Error initializing SDL audio!\n" << SDL_GetError();
@@ -153,81 +152,4 @@ void AudioManager::stop()
 	}
 	//pause audio
 	SDL_PauseAudio(1);
-}
-
-void AudioManager::stopMusic() {
-    Mix_FadeOutMusic(1000);
-    Mix_HaltMusic();
-    //currentMusic = NULL;
-}
-
-void AudioManager::resumeMusic() {
- /*
-
-    this->init();
-    if (currentMusic != NULL && SystemConf::getInstance()->get("audio.bgmusic") == "1") {
-        currentMusic->play(runningFromPlaylist ? false : true, runningFromPlaylist ? musicEndInternal : NULL);
-    }
- */
-}
-
-
-/*
-std::shared_ptr<Music> AudioManager::getRandomMusic(std::string themeSoundDirectory) {
-    // 1 check in User music directory
-    std::vector<std::string> musics = getMusicIn("/userdata/music/");
-    if (musics.empty()) {
-        //  Check in theme sound directory
-        if (themeSoundDirectory != "") {
-            musics = getMusicIn(themeSoundDirectory);
-            if(musics.empty()) return NULL;
-        } else return NULL;
-    }
-#if defined(WIN32)
-    srand(time(NULL) % getpid());
-#else
-    srand(time(NULL) % getpid() + getppid());
-#endif
-
-    int randomIndex = rand() % musics.size();
-    std::shared_ptr<Music> bgsound = Music::get(musics.at(randomIndex));
-    return bgsound;
-}
-
-void AudioManager::musicEnd() {
-    LOG(LogInfo) << "MusicEnded";
-    if (runningFromPlaylist && SystemConf::getInstance()->get("audio.bgmusic") == "1") {
-        playRandomMusic();
-    }
-}
-*/
-void AudioManager::playRandomMusic() {// Find a random song in user directory or theme music directory
-  /*
-    std::shared_ptr<Music> bgsound = getRandomMusic(currentThemeMusicDirectory);
-    if (bgsound) {
-        runningFromPlaylist = true;
-        stopMusic();
-        bgsound->play(false, musicEndInternal);
-        currentMusic = bgsound;
-        return;
-    } else {
-        // Not running from playlist, and no theme song found
-        stopMusic();
-    }
-  */
-}
-
-void AudioManager::playCheckSound() {
-/*
-	std::string selectedTheme = Settings::getInstance()->getString("ThemeSet");
-	std::string loadingMusic = getHomePath()+"/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
-
-	if(boost::filesystem::exists(loadingMusic) == false){
-	  loadingMusic = "/usr/share/batocera/datainit/system/.emulationstation/themes/"+selectedTheme+"/fx/loading.ogg";
-	}
-
-	if(boost::filesystem::exists(loadingMusic)){
-	  Music::get(loadingMusic)->play(false, NULL);
-	}
-*/
 }

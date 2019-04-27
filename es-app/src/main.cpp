@@ -35,8 +35,6 @@
 
 bool scrape_cmdline = false;
 
-void playSound(std::string name);
-
 bool parseArgs(int argc, char* argv[])
 {
 	Settings::getInstance()->setString("ExePath", argv[0]);
@@ -236,6 +234,7 @@ void onExit()
 	Log::close();
 }
 
+// batocera
 int setLocale(char * argv1)
 {
  	char path_save[PATH_MAX];
@@ -337,7 +336,9 @@ int main(int argc, char* argv[])
 	atexit(&onExit);
 
 	// Set locale
-	setLocale(argv[0]);
+	setLocale(argv[0]); // batocera
+	// metadata init    // batocera
+	initMetadata();     // require locale
 
 	Window window;
 	SystemScreenSaver screensaver(&window);
@@ -370,11 +371,10 @@ int main(int argc, char* argv[])
 		}
 	}
 
+        // batocera
 	// Initialize audio manager
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
-
-	playSound("loading");
 
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(&errorMsg))
@@ -391,23 +391,25 @@ int main(int argc, char* argv[])
 		// we can't handle es_systems.cfg file problems inside ES itself, so display the error message then quit
 		window.pushGui(new GuiMsgBox(&window,
 			errorMsg,
-					     _("QUIT"), [] { 
+			_("QUIT"), [] { // batocera
 				SDL_Event* quit = new SDL_Event();
 				quit->type = SDL_QUIT;
 				SDL_PushEvent(quit);
 			}));
 	}
 
-	SystemConf* systemConf = SystemConf::getInstance();
+	SystemConf* systemConf = SystemConf::getInstance(); // batocera
 
+// batocera
 #if ENABLE_KODI == 1
 	if(systemConf->get("kodi.enabled") == "1" && systemConf->get("kodi.atstartup") == "1"){
 		ApiSystem::getInstance()->launchKodi(&window);
 	}
 #endif
 
-	ApiSystem::getInstance()->getIpAdress();
+	ApiSystem::getInstance()->getIpAdress(); // batocera
 
+        // batocera
 	// UPDATE CHECK THREAD
 	if(systemConf->get("updates.enabled") == "1"){
 		NetworkThread * nthread = new NetworkThread(&window);
@@ -440,13 +442,11 @@ int main(int argc, char* argv[])
 		}
 	}
 
+        // batocera
 	// Create a flag in  temporary directory to signal READY state
-/*
-	fs::path ready_path = fs::temp_directory_path();
-	ready_path /= "emulationstation.ready";
-	FILE* ready_file = fopen(ready_path.generic_string().c_str(), "w");
-	if(ready_file) fclose(ready_file);
-*/
+        FILE* fd = fopen("/tmp/emulationstation.ready", "w");
+        if(fd != NULL) { fclose(fd); }
+
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
@@ -454,9 +454,7 @@ int main(int argc, char* argv[])
 	int ps_time = SDL_GetTicks();
 
 	bool running = true;
-	bool doReboot = false;
-	bool doShutdown = false;
-	
+
 	while(running)
 	{
 		SDL_Event event;
@@ -466,26 +464,6 @@ int main(int argc, char* argv[])
 		{
 			do
 			{
-switch(event.type) {
-				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_RB_REBOOT:
-					running = false;
-					doReboot = true;
-					Settings::getInstance()->setBool("IgnoreGamelist", true);
-					break;
-				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_RB_SHUTDOWN:
-					running = false;
-					doShutdown = true;
-					Settings::getInstance()->setBool("IgnoreGamelist", true);
-					break;
-				case SDL_QUIT | ApiSystem::SDL_RB_REBOOT:
-					running = false;
-					doReboot = true;
-					break;
-				case SDL_QUIT | ApiSystem::SDL_RB_SHUTDOWN:
-					running = false;
-					doShutdown = true;
-					break;
-}
 				InputManager::getInstance()->parseEvent(event, &window);
 
 				if(event.type == SDL_QUIT)
@@ -528,10 +506,7 @@ switch(event.type) {
 
 		Log::flush();
 	}
-/*
-	// Clean ready flag
-	if(fs::exists(ready_path)) fs::remove(ready_path);
-*/
+
 	while(window.peekGui() != ViewController::get())
 		delete window.peekGui();
 	window.deinit();
@@ -546,25 +521,6 @@ switch(event.type) {
 #endif
 
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
-	if (doReboot) {
-		LOG(LogInfo) << "Rebooting system";
-		system("touch /tmp/reboot.please");
-		system("shutdown -r now");
-	} else if (doShutdown) {
-		LOG(LogInfo) << "Shutting system down";
-		system("touch /tmp/shutdown.please");
-		system("shutdown -h now");
-	}
 
 	return 0;
-}
-
-void playSound(std::string name) {
-/*
-	std::string selectedTheme = Settings::getInstance()->getString("ThemeSet");
-	std::string loadingMusic = getHomePath()+"/.emulationstation/themes/"+selectedTheme+"/fx/"+name+".ogg";
-	if(boost::filesystem::exists(loadingMusic)){
-		Music::get(loadingMusic)->play(false, NULL);
-	}
-*/
 }

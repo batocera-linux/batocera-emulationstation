@@ -13,6 +13,7 @@
 #include "Scripting.h"
 #include "SystemData.h"
 #include "VolumeControl.h"
+#include "InputManager.h"
 #include "Window.h"
 #include <assert.h>
 
@@ -269,7 +270,7 @@ void FileData::launchGame(Window* window)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
 
-	AudioManager::getInstance()->deinit();
+	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 	window->deinit();
 
@@ -278,10 +279,12 @@ void FileData::launchGame(Window* window)
 	const std::string rom      = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw  = Utils::FileSystem::getPreferredPath(getPath());
+	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera
 
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
+	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 
 	Scripting::fireEvent("game-start", rom, basename);
 
@@ -297,6 +300,7 @@ void FileData::launchGame(Window* window)
 
 	window->init();
 	VolumeControl::getInstance()->init();
+        AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched

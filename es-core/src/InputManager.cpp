@@ -59,17 +59,18 @@ void InputManager::init()
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 	SDL_JoystickEventState(SDL_ENABLE);
 
+        // batocera
 	// first, open all currently present joysticks
         this->addAllJoysticks();
 	computeLastKnownPlayersDeviceIndexes();
 
-	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0);
+	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0); // batocera
 	loadInputConfig(mKeyboardInputConfig);
 
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
 	SDL_USER_CECBUTTONUP   = SDL_USER_CECBUTTONDOWN + 1;
 	CECInput::init();
-	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0);
+	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0); // batocera
 	loadInputConfig(mCECInputConfig);
 }
 
@@ -89,7 +90,7 @@ void InputManager::addJoystickByDeviceIndex(int id)
 	SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 65);
 
 	// create the InputConfig
-	mInputConfigs[joyId] = new InputConfig(joyId, id, SDL_JoystickName(joy), guid, SDL_JoystickNumAxes(joy));
+	mInputConfigs[joyId] = new InputConfig(joyId, id, SDL_JoystickName(joy), guid, SDL_JoystickNumAxes(joy)); // batocera
 	if(!loadInputConfig(mInputConfigs[joyId]))
 	{
 		LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << id << ").";
@@ -128,6 +129,7 @@ void InputManager::removeJoystickByJoystickID(SDL_JoystickID joyId)
 	}
 }
 
+// batocera
 void InputManager::addAllJoysticks()
 {
     clearJoystick();
@@ -138,6 +140,7 @@ void InputManager::addAllJoysticks()
     }
 }
 
+// batocera
 void InputManager::clearJoystick()
 {
     for(auto iter = mJoysticks.begin(); iter != mJoysticks.end(); iter++)
@@ -275,6 +278,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		if(ev.key.repeat)
 			return false;
 
+                // batocera
 		//if(ev.key.keysym.sym == SDLK_F4)
 		//{
 		//	SDL_Event* quit = new SDL_Event();
@@ -331,6 +335,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	if(!root)
 		return false;
 
+        // batocera
 	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
 	pugi::xml_node configNode(NULL);
 
@@ -362,6 +367,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	if(!configNode)
 		return false;
 
+        // batocera
 	if(found_exact == false) {
 	  LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
 	}
@@ -425,6 +431,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 				}
 				else
 				{
+                                        // batocera
 					//pugi::xml_node oldEntry = root.find_child_by_attribute("inputConfig", "deviceGUID",
 					//						  config->getDeviceGUIDString().c_str());
 					//if(oldEntry)
@@ -456,6 +463,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 	doOnFinish();
 	loadInputConfig(config);
 
+        // batocera
 	/* create a es_last_input.cfg so that people can easily share their config */
 	pugi::xml_document lastdoc;
 	pugi::xml_node lastroot = lastdoc.append_child("inputList");
@@ -516,7 +524,7 @@ std::string InputManager::getConfigPath()
 std::string InputManager::getTemporaryConfigPath()
 {
 	std::string path = Utils::FileSystem::getHomePath();
-	path += "/.emulationstation/es_last_input.log";
+	path += "/.emulationstation/es_last_input.log"; // batocera
 	return path;
 }
 
@@ -563,6 +571,7 @@ std::string InputManager::getDeviceGUIDString(int deviceId)
 	return std::string(guid);
 }
 
+// batocera
 void InputManager::computeLastKnownPlayersDeviceIndexes() {
   std::map<int, InputConfig*> playerJoysticks = computePlayersConfigs();
 
@@ -574,10 +583,12 @@ void InputManager::computeLastKnownPlayersDeviceIndexes() {
   }
 }
 
+// batocera
 std::map<int, int> InputManager::lastKnownPlayersDeviceIndexes() {
   return m_lastKnownPlayersDeviceIndexes;
 }
 
+// batocera
 std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
     // 1 recuperer les configurated
     std::list<InputConfig *> availableConfigured;
@@ -665,6 +676,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
     return playerJoysticks;
 }
 
+// batocera
 std::string InputManager::configureEmulators() {
   std::map<int, InputConfig*> playerJoysticks = computePlayersConfigs();
   std::stringstream command;

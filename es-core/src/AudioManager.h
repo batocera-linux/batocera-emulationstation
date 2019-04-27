@@ -5,7 +5,6 @@
 #include <SDL_audio.h>
 #include <memory>
 #include <vector>
-#include "Music.h"
 
 class Sound;
 
@@ -31,15 +30,7 @@ public:
 	void play();
 	void stop();
 
-    void stopMusic();
-    void resumeMusic();
-    void playRandomMusic();
-    void playCheckSound();
-
-    virtual ~AudioManager();
-
-private:
-    std::shared_ptr<Music> getRandomMusic(std::string themeSoundDirectory);
+	virtual ~AudioManager();
 };
 
 #endif // ES_CORE_AUDIO_MANAGER_H

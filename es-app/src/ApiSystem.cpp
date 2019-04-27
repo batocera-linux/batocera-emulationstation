@@ -345,7 +345,7 @@ bool ApiSystem::launchKodi(Window *window) {
 
     window->init();
     VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->resumeMusic();
+    AudioManager::getInstance()->init();
     window->normalizeNextUpdate();
 
     // handle end of kodi
@@ -383,7 +383,7 @@ bool ApiSystem::launchFileManager(Window *window) {
 
     window->init();
     VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->resumeMusic();
+    AudioManager::getInstance()->init();
     window->normalizeNextUpdate();
 
     return exitCode == 0;
@@ -856,8 +856,8 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
     int exitcode = system(oss.str().c_str());
 
     VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->resumeMusic();
-    AudioManager::getInstance()->playCheckSound();
+    AudioManager::getInstance()->init();
+    //AudioManager::getInstance()->playCheckSound();
 
     return exitcode == 0;
 }

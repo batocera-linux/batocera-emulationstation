@@ -178,7 +178,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			break;
 		}
 
-		if(config->isMappedTo("a", input))
+		if(config->isMappedTo("b", input))
 		{
 			stopScrolling();
 			ViewController::get()->goToGameList(getSelected());
@@ -197,12 +197,13 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("up", input) ||
 			config->isMappedLike("down", input))
 			listInput(0);
-		if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
-		{
-			mWindow->startScreenSaver();
-			mWindow->renderScreenSaver();
-			return true;
-		}
+		// batocera
+		//if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
+		//{
+		//	mWindow->startScreenSaver();
+		//	mWindow->renderScreenSaver();
+		//	return true;
+		//}
 	}
 
 	return GuiComponent::input(config, input);
@@ -387,8 +388,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	prompts.push_back(HelpPrompt("F1", _("FILES")));
 #endif
 
-	if (!UIModeController::getInstance()->isUIModeKid() && Settings::getInstance()->getBool("ScreenSaverControls"))
-		prompts.push_back(HelpPrompt("select", "launch screensaver"));
+	// batocera
+	//if (!UIModeController::getInstance()->isUIModeKid() && Settings::getInstance()->getBool("ScreenSaverControls"))
+	//	prompts.push_back(HelpPrompt("select", "launch screensaver"));
 
 	return prompts;
 }
