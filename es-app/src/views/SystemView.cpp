@@ -378,11 +378,11 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 	if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
-		prompts.push_back(HelpPrompt("up/down", "choose"));
+	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	else
-		prompts.push_back(HelpPrompt("left/right", "choose"));
-	prompts.push_back(HelpPrompt("a", "select"));
-	prompts.push_back(HelpPrompt("x", "random"));
+	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
+	prompts.push_back(HelpPrompt("a", _("SELECT"))); // batocera
+	prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 // batocera
 #if ENABLE_FILEMANAGER == 1
 	prompts.push_back(HelpPrompt("F1", _("FILES")));

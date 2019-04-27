@@ -152,9 +152,9 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	prompts.push_back(HelpPrompt("b", _("LAUNCH"))); // batocera
 	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
 	if(!UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("select", "options"));
+	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 	if(mRoot->getSystem()->isGameSystem())
-		prompts.push_back(HelpPrompt("x", "random"));
+	  prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
 	{
 		std::string prompt = CollectionSystemManager::get()->getEditingCollection();

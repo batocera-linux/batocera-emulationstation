@@ -6,6 +6,7 @@
 #include "CollectionSystemManager.h"
 #include "Settings.h"
 #include "SystemData.h"
+#include "LocaleES.h"
 
 GridGameListView::GridGameListView(Window* window, FileData* root) :
 	ISimpleGameListView(window, root),
@@ -364,14 +365,14 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 
 	if(Settings::getInstance()->getBool("QuickSystemSelect"))
-		prompts.push_back(HelpPrompt("lr", "system"));
-	prompts.push_back(HelpPrompt("up/down/left/right", "choose"));
-	prompts.push_back(HelpPrompt("b", "launch"));
-	prompts.push_back(HelpPrompt("a", "back"));
+	  prompts.push_back(HelpPrompt("lr", _("SYSTEM"))); // batocera
+	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera
+	prompts.push_back(HelpPrompt("b", _("LAUNCH"))); // batocera
+	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
 	if(!UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("select", "options"));
+	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 	if(mRoot->getSystem()->isGameSystem())
-		prompts.push_back(HelpPrompt("x", "random"));
+	  prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
 	{
 		std::string prompt = CollectionSystemManager::get()->getEditingCollection();

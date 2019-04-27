@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 20:59+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "INPUT"
 msgstr ""
 
-msgid "search"
+msgid "SEARCH"
 msgstr ""
 
 msgid "CANCEL"
@@ -57,22 +57,13 @@ msgstr ""
 msgid "CLOSE"
 msgstr ""
 
-msgid "OPTIONS"
-msgstr ""
-
-msgid "JUMP TO LETTER"
+msgid "JUMP TO..."
 msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr ""
 
-msgid "FAVORITES ONLY"
-msgstr ""
-
-msgid "SHOW HIDDEN"
-msgstr ""
-
-msgid "EDIT THIS GAME'S METADATA"
+msgid "FILTER GAMELIST"
 msgstr ""
 
 msgid "FINNISHED"
@@ -84,7 +75,43 @@ msgstr ""
 msgid "KODI MEDIA CENTER"
 msgstr ""
 
+msgid "GAMES SETTINGS"
+msgstr ""
+
+msgid "CONTROLLERS SETTINGS"
+msgstr ""
+
+msgid "UI SETTINGS"
+msgstr ""
+
+msgid "SOUND SETTINGS"
+msgstr ""
+
+msgid "NETWORK SETTINGS"
+msgstr ""
+
+msgid "SCRAPE"
+msgstr ""
+
 msgid "SYSTEM SETTINGS"
+msgstr ""
+
+msgid "QUIT"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "SCRAPE RATINGS"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr ""
+
+msgid "CHOOSE"
+msgstr ""
+
+msgid "SELECT"
 msgstr ""
 
 msgid "INFORMATION"
@@ -154,9 +181,6 @@ msgid "ROOT PASSWORD"
 msgstr ""
 
 msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr ""
-
-msgid "GAMES SETTINGS"
 msgstr ""
 
 msgid "GAME RATIO"
@@ -243,10 +267,34 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
+msgid ""
+"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
+"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
+"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
+"SNES CONTROLLER."
 msgstr ""
 
-msgid "UI SETTINGS"
+msgid "CONFIGURE A CONTROLLER"
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr ""
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr ""
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr ""
+
+#, c-format
+msgid "INPUT P%i"
 msgstr ""
 
 msgid "VIDEO OUTPUT"
@@ -282,9 +330,6 @@ msgstr ""
 msgid "THEME SET"
 msgstr ""
 
-msgid "SOUND SETTINGS"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr ""
 
@@ -295,9 +340,6 @@ msgid "OUTPUT DEVICE"
 msgstr ""
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
 msgstr ""
 
 msgid "CONNECTED"
@@ -327,9 +369,6 @@ msgstr ""
 msgid "WIFI CONFIGURATION ERROR"
 msgstr ""
 
-msgid "SCRAPE"
-msgstr ""
-
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -337,18 +376,6 @@ msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr ""
-
-msgid "SCRAPE RATINGS"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr ""
-
-msgid "QUIT"
 msgstr ""
 
 msgid "REALLY RESTART?"
@@ -378,42 +405,6 @@ msgstr ""
 msgid "VIDEO MODE"
 msgstr ""
 
-msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
-msgstr ""
-
-msgid "CONFIGURE A CONTROLLER"
-msgstr ""
-
-msgid "CONTROLLER PAIRED"
-msgstr ""
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr ""
-
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr ""
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr ""
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr ""
-
-#, c-format
-msgid "INPUT P%i"
-msgstr ""
-
-msgid "CHOOSE"
-msgstr ""
-
-msgid "SELECT"
-msgstr ""
-
 msgid "INSTALL BATOCERA"
 msgstr ""
 
@@ -432,6 +423,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr ""
 
@@ -439,6 +433,9 @@ msgid "SYSTEM"
 msgstr ""
 
 msgid "subtitle text"
+msgstr ""
+
+msgid "search"
 msgstr ""
 
 msgid "SKIP"
@@ -508,36 +505,19 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr ""
 
-msgid "SAVE"
-msgstr ""
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-
-msgid "DELETE"
-msgstr ""
-
 msgid "SAVE CHANGES?"
-msgstr ""
-
-msgid "enter emulator"
-msgstr ""
-
-msgid "enter core"
-msgstr ""
-
-msgid "Ratio"
-msgstr ""
-
-msgid "enter ratio"
 msgstr ""
 
 msgid "Name"
 msgstr ""
 
 msgid "enter game name"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
 msgstr ""
 
 msgid "Description"
@@ -552,10 +532,16 @@ msgstr ""
 msgid "enter path to image"
 msgstr ""
 
-msgid "Thumbnail"
+msgid "Path to video"
 msgstr ""
 
 msgid "enter path to thumbnail"
+msgstr ""
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
 msgstr ""
 
 msgid "Rating"
@@ -600,22 +586,16 @@ msgstr ""
 msgid "enter favorite"
 msgstr ""
 
-msgid "Region"
-msgstr ""
-
-msgid "enter region"
-msgstr ""
-
-msgid "Romtype"
-msgstr ""
-
-msgid "enter romtype"
-msgstr ""
-
 msgid "Hidden"
 msgstr ""
 
 msgid "set hidden"
+msgstr ""
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
 msgstr ""
 
 msgid "Play count"
@@ -630,23 +610,35 @@ msgstr ""
 msgid "enter last played date"
 msgstr ""
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] ""
-msgstr[1] ""
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] ""
-msgstr[1] ""
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -660,31 +652,10 @@ msgstr ""
 msgid "LAUNCH"
 msgstr ""
 
-msgid "SCROLL"
+msgid "OPTIONS"
 msgstr ""
 
 msgid "MENU"
-msgstr ""
-
-msgid "FILENAME"
-msgstr ""
-
-msgid "RATING"
-msgstr ""
-
-msgid "TIMES PLAYED"
-msgstr ""
-
-msgid "LAST PLAYED"
-msgstr ""
-
-msgid "NUMBER OF PLAYERS"
-msgstr ""
-
-msgid "DEVELOPER"
-msgstr ""
-
-msgid "GENRE"
 msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
@@ -693,55 +664,19 @@ msgstr ""
 msgid "RETRY"
 msgstr ""
 
-msgid "SEARCH FOR"
-msgstr ""
-
-msgid "SEARCH"
-msgstr ""
-
 msgid "ACCEPT RESULT"
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr ""
-
-msgid "DOWN"
-msgstr ""
-
-msgid "LEFT"
-msgstr ""
-
-msgid "RIGHT"
-msgstr ""
-
-msgid "JOYSTICK 1 UP"
-msgstr ""
-
-msgid "JOYSTICK 1 LEFT"
-msgstr ""
-
-msgid "JOYSTICK 2 UP"
-msgstr ""
-
-msgid "JOYSTICK 2 LEFT"
-msgstr ""
-
-msgid "PAGE UP"
-msgstr ""
-
-msgid "PAGE DOWN"
-msgstr ""
-
-msgid "HOTKEY"
-msgstr ""
-
 msgid "CONFIGURING"
 msgstr ""
 
 msgid "KEYBOARD"
+msgstr ""
+
+msgid "CEC"
 msgstr ""
 
 #, c-format
@@ -752,6 +687,12 @@ msgid "HOLD ANY BUTTON TO SKIP"
 msgstr ""
 
 msgid "-NOT DEFINED-"
+msgstr ""
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 
 #, c-format
@@ -770,6 +711,9 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "SPACE"
+msgstr ""
+
+msgid "DELETE"
 msgstr ""
 
 msgid "DELETE A CHAR"
@@ -806,45 +750,6 @@ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr ""
-
-msgid "LOADING..."
-msgstr ""
-
-msgid "PLEASE WAIT..."
-msgstr ""
-
-msgid "never"
-msgstr ""
-
-msgid "just now"
-msgstr ""
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "unknown"
 msgstr ""
 
 msgid "MOVE CURSOR"
