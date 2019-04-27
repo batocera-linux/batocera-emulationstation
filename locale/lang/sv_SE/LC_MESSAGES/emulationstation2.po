@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,8 +37,8 @@ msgstr "ETT FEL INTRÄFFADE"
 msgid "INPUT"
 msgstr "VÄLJ"
 
-msgid "search"
-msgstr "sök"
+msgid "SEARCH"
+msgstr ""
 
 msgid "CANCEL"
 msgstr "AVBRYT"
@@ -49,23 +49,14 @@ msgstr "TILLBAKA"
 msgid "CLOSE"
 msgstr "STÄNG"
 
-msgid "OPTIONS"
+msgid "JUMP TO..."
 msgstr ""
-
-msgid "JUMP TO LETTER"
-msgstr "HOPPA TILL BOKSTAV"
 
 msgid "SORT GAMES BY"
 msgstr "SORTERA SPEL EFTER"
 
-msgid "FAVORITES ONLY"
-msgstr "ENBART FAVORITER"
-
-msgid "SHOW HIDDEN"
+msgid "FILTER GAMELIST"
 msgstr ""
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
 
 msgid "FINNISHED"
 msgstr ""
@@ -76,8 +67,44 @@ msgstr "HUVUDMENY "
 msgid "KODI MEDIA CENTER"
 msgstr ""
 
+msgid "GAMES SETTINGS"
+msgstr "SPEL INSTÄLLNINGAR"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "KONTROLLER INSTÄLLNINGAR"
+
+msgid "UI SETTINGS"
+msgstr "GRÄNSNITTS INSTÄLLNINGAR"
+
+msgid "SOUND SETTINGS"
+msgstr "LJUD INSTÄLLNINGAR"
+
+msgid "NETWORK SETTINGS"
+msgstr "NÄTVERKSINSTÄLLNINGAR"
+
+msgid "SCRAPE"
+msgstr ""
+
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
+
+msgid "QUIT"
+msgstr "AVSLUTA"
+
+msgid "SCRAPE FROM"
+msgstr "SKRAPA INFO FRÅN"
+
+msgid "SCRAPE RATINGS"
+msgstr "SKRAPAR OMDÖMME"
+
+msgid "SCRAPE NOW"
+msgstr "SKRAPA NU"
+
+msgid "CHOOSE"
+msgstr "VÄLJ"
+
+msgid "SELECT"
+msgstr "VÄLJ"
 
 msgid "INFORMATION"
 msgstr ""
@@ -147,9 +174,6 @@ msgstr ""
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "SYSTEMET STARTAR NU OM"
-
-msgid "GAMES SETTINGS"
-msgstr "SPEL INSTÄLLNINGAR"
 
 msgid "GAME RATIO"
 msgstr "SPEL PROPORTION"
@@ -235,11 +259,35 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KONTROLLER INSTÄLLNINGAR"
+msgid ""
+"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
+"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
+"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
+"SNES CONTROLLER."
+msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "GRÄNSNITTS INSTÄLLNINGAR"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "KONFIGURERA KONTROLL"
+
+msgid "CONTROLLER PAIRED"
+msgstr "KONTROLLER PARAD"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "KAN INTE PARA KONTROLLER"
+
+msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr "PARA EN BLUETOOTH KONTROLLER"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr ""
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr ""
+
+#, c-format
+msgid "INPUT P%i"
+msgstr ""
 
 msgid "VIDEO OUTPUT"
 msgstr ""
@@ -274,9 +322,6 @@ msgstr ""
 msgid "THEME SET"
 msgstr "SÄTT TEMA"
 
-msgid "SOUND SETTINGS"
-msgstr "LJUD INSTÄLLNINGAR"
-
 msgid "SYSTEM VOLUME"
 msgstr "SYSTEM VOLYM"
 
@@ -288,9 +333,6 @@ msgstr "LJUDUTGÅNG"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
 msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "NÄTVERKSINSTÄLLNINGAR"
 
 msgid "CONNECTED"
 msgstr "ANSLUTEN"
@@ -319,9 +361,6 @@ msgstr "WIFI AKTIV"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI FELINSTÄLLD"
 
-msgid "SCRAPE"
-msgstr ""
-
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -330,18 +369,6 @@ msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "SKRAPA INFO FRÅN"
-
-msgid "SCRAPE RATINGS"
-msgstr "SKRAPAR OMDÖMME"
-
-msgid "SCRAPE NOW"
-msgstr "SKRAPA NU"
-
-msgid "QUIT"
-msgstr "AVSLUTA"
 
 msgid "REALLY RESTART?"
 msgstr "SÄKER PÅ ATT DU VILL STARTA OM?"
@@ -370,42 +397,6 @@ msgstr ""
 msgid "VIDEO MODE"
 msgstr ""
 
-msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
-msgstr ""
-
-msgid "CONFIGURE A CONTROLLER"
-msgstr "KONFIGURERA KONTROLL"
-
-msgid "CONTROLLER PAIRED"
-msgstr "KONTROLLER PARAD"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "KAN INTE PARA KONTROLLER"
-
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PARA EN BLUETOOTH KONTROLLER"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr ""
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr ""
-
-#, c-format
-msgid "INPUT P%i"
-msgstr ""
-
-msgid "CHOOSE"
-msgstr "VÄLJ"
-
-msgid "SELECT"
-msgstr "VÄLJ"
-
 msgid "INSTALL BATOCERA"
 msgstr ""
 
@@ -424,6 +415,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "SKRAPNING PÅGÅR"
 
@@ -432,6 +426,9 @@ msgstr "SYSTEM"
 
 msgid "subtitle text"
 msgstr ""
+
+msgid "search"
+msgstr "sök"
 
 msgid "SKIP"
 msgstr "HOPPA ÖVER"
@@ -500,37 +497,20 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr "ÄNDRA INFORMATION (METADATA)"
 
-msgid "SAVE"
-msgstr "SPARA"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr "DETTA KOMMER RADERA FILEN / ÄR DU SÄKER ?"
-
-msgid "DELETE"
-msgstr "TA BORT"
-
 msgid "SAVE CHANGES?"
 msgstr "SPARA ÄNDRINGAR?"
-
-msgid "enter emulator"
-msgstr ""
-
-msgid "enter core"
-msgstr ""
-
-msgid "Ratio"
-msgstr ""
-
-msgid "enter ratio"
-msgstr ""
 
 msgid "Name"
 msgstr ""
 
 msgid "enter game name"
 msgstr "Ange speltitel"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr ""
@@ -544,10 +524,16 @@ msgstr ""
 msgid "enter path to image"
 msgstr ""
 
-msgid "Thumbnail"
+msgid "Path to video"
 msgstr ""
 
 msgid "enter path to thumbnail"
+msgstr ""
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
 msgstr ""
 
 msgid "Rating"
@@ -592,22 +578,16 @@ msgstr ""
 msgid "enter favorite"
 msgstr "ange favorit"
 
-msgid "Region"
-msgstr ""
-
-msgid "enter region"
-msgstr ""
-
-msgid "Romtype"
-msgstr ""
-
-msgid "enter romtype"
-msgstr ""
-
 msgid "Hidden"
 msgstr ""
 
 msgid "set hidden"
+msgstr ""
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
 msgstr ""
 
 msgid "Play count"
@@ -622,23 +602,35 @@ msgstr ""
 msgid "enter last played date"
 msgstr ""
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] ""
-msgstr[1] ""
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] ""
-msgstr[1] ""
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -652,31 +644,10 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "STARTA"
 
-msgid "SCROLL"
+msgid "OPTIONS"
 msgstr ""
 
 msgid "MENU"
-msgstr ""
-
-msgid "FILENAME"
-msgstr ""
-
-msgid "RATING"
-msgstr ""
-
-msgid "TIMES PLAYED"
-msgstr ""
-
-msgid "LAST PLAYED"
-msgstr ""
-
-msgid "NUMBER OF PLAYERS"
-msgstr ""
-
-msgid "DEVELOPER"
-msgstr ""
-
-msgid "GENRE"
 msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
@@ -685,55 +656,19 @@ msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
 msgid "RETRY"
 msgstr ""
 
-msgid "SEARCH FOR"
-msgstr ""
-
-msgid "SEARCH"
-msgstr ""
-
 msgid "ACCEPT RESULT"
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "UPP"
-
-msgid "DOWN"
-msgstr "NER"
-
-msgid "LEFT"
-msgstr "VÄNSTER"
-
-msgid "RIGHT"
-msgstr "HÖGER"
-
-msgid "JOYSTICK 1 UP"
-msgstr "JOYSTICK 1 UPP"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "JOYSTICK 1 VÄNSTER"
-
-msgid "JOYSTICK 2 UP"
-msgstr "JOYSTICK 2 UPP"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "JOYSTICK 2 VÄNSTER"
-
-msgid "PAGE UP"
-msgstr "SIDA UPP"
-
-msgid "PAGE DOWN"
-msgstr "SIDA NER"
-
-msgid "HOTKEY"
-msgstr ""
-
 msgid "CONFIGURING"
 msgstr "KONFIGURERAR"
 
 msgid "KEYBOARD"
+msgstr ""
+
+msgid "CEC"
 msgstr ""
 
 #, c-format
@@ -745,6 +680,12 @@ msgstr "HÅLL NERE VALFRI KNAPP FÖR ATT HOPPA ÖVER"
 
 msgid "-NOT DEFINED-"
 msgstr "-INTE DEFINERAD-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -763,6 +704,9 @@ msgstr ""
 
 msgid "SPACE"
 msgstr ""
+
+msgid "DELETE"
+msgstr "TA BORT"
 
 msgid "DELETE A CHAR"
 msgstr ""
@@ -800,45 +744,6 @@ msgstr ""
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VILL DU STARTA KODI MEDIACENTER? "
 
-msgid "LOADING..."
-msgstr "LADDAR…"
-
-msgid "PLEASE WAIT..."
-msgstr "VÄNLIGEN VÄNTA…"
-
-msgid "never"
-msgstr ""
-
-msgid "just now"
-msgstr ""
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "unknown"
-msgstr ""
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -865,6 +770,59 @@ msgstr "ÄNDRA"
 
 msgid "WORKING..."
 msgstr "ARBETAR…"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "HOPPA TILL BOKSTAV"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "ENBART FAVORITER"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
+
+#~ msgid "SAVE"
+#~ msgstr "SPARA"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr "DETTA KOMMER RADERA FILEN / ÄR DU SÄKER ?"
+
+#~ msgid "UP"
+#~ msgstr "UPP"
+
+#~ msgid "DOWN"
+#~ msgstr "NER"
+
+#~ msgid "LEFT"
+#~ msgstr "VÄNSTER"
+
+#~ msgid "RIGHT"
+#~ msgstr "HÖGER"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "JOYSTICK 1 UPP"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "JOYSTICK 1 VÄNSTER"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "JOYSTICK 2 UPP"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "JOYSTICK 2 VÄNSTER"
+
+#~ msgid "PAGE UP"
+#~ msgstr "SIDA UPP"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "SIDA NER"
+
+#~ msgid "LOADING..."
+#~ msgstr "LADDAR…"
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "VÄNLIGEN VÄNTA…"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "EN UPPDATERING FINNS TILLGÄNGLIG"

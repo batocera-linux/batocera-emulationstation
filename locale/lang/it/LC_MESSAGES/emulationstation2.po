@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,8 +37,8 @@ msgstr "SI E’ VERIFICATO UN ERRORE"
 msgid "INPUT"
 msgstr "MODIFICA"
 
-msgid "search"
-msgstr "cerca"
+msgid "SEARCH"
+msgstr "CERCA"
 
 msgid "CANCEL"
 msgstr "ANNULLA"
@@ -49,23 +49,14 @@ msgstr "INDIETRO"
 msgid "CLOSE"
 msgstr "CHIUDI"
 
-msgid "OPTIONS"
-msgstr "OPZIONI"
-
-msgid "JUMP TO LETTER"
-msgstr "VAI ALLA LETTERA"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
 
-msgid "FAVORITES ONLY"
-msgstr "SOLO PREFERITI"
-
-msgid "SHOW HIDDEN"
-msgstr "MOSTRA NASCOSTI"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+msgid "FILTER GAMELIST"
+msgstr ""
 
 msgid "FINNISHED"
 msgstr ""
@@ -76,8 +67,44 @@ msgstr "MENU PRINCIPALE"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
+msgid "GAMES SETTINGS"
+msgstr "OPZIONI DEI GIOCHI"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "OPZIONI CONTROLLER"
+
+msgid "UI SETTINGS"
+msgstr "OPZIONI DELL'INTERFACCIA"
+
+msgid "SOUND SETTINGS"
+msgstr "OPZIONI SONORO"
+
+msgid "NETWORK SETTINGS"
+msgstr "OPZIONI DI RETE"
+
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
 msgid "SYSTEM SETTINGS"
 msgstr "OPZIONI DI SISTEMA"
+
+msgid "QUIT"
+msgstr "ESCI"
+
+msgid "SCRAPE FROM"
+msgstr "INFORMAZIONI DA"
+
+msgid "SCRAPE RATINGS"
+msgstr "INFORMAZIONI VOTI"
+
+msgid "SCRAPE NOW"
+msgstr "RACCOLTA INFORMAZIONI"
+
+msgid "CHOOSE"
+msgstr "SCEGLIERE"
+
+msgid "SELECT"
+msgstr "SELEZIONA"
 
 msgid "INFORMATION"
 msgstr ""
@@ -147,9 +174,6 @@ msgstr "PASSWORD DI ROOT"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "IL SISTEMA VERRA' RIAVVIATO"
-
-msgid "GAMES SETTINGS"
-msgstr "OPZIONI DEI GIOCHI"
 
 msgid "GAME RATIO"
 msgstr "FORMATO GIOCO"
@@ -235,141 +259,6 @@ msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
 msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "OPZIONI CONTROLLER"
-
-msgid "UI SETTINGS"
-msgstr "OPZIONI DELL'INTERFACCIA"
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
-
-msgid "SCREENSAVER AFTER"
-msgstr "SALVASCHERMO DOPO"
-
-msgid "TRANSITION STYLE"
-msgstr "STILE TRANSIZIONE"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "COMPORTAMENTO DEL SALVASCHERMO"
-
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA IL FRAMERATE"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "AIUTO SU SCHERMO"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "SELEZIONE RAPIDA DEL SISTEMA"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "TASTIERA A SCHERMO"
-
-msgid "THEME SET"
-msgstr "TEMA SELEZIONATO"
-
-msgid "SOUND SETTINGS"
-msgstr "OPZIONI SONORO"
-
-msgid "SYSTEM VOLUME"
-msgstr "VOLUME DI SISTEMA"
-
-msgid "FRONTEND MUSIC"
-msgstr "MUSICA FRONTEND"
-
-msgid "OUTPUT DEVICE"
-msgstr "USCITA AUDIO"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "OPZIONI DI RETE"
-
-msgid "CONNECTED"
-msgstr "CONNESSO"
-
-msgid "NOT CONNECTED"
-msgstr "NON CONNESSO"
-
-msgid "IP ADDRESS"
-msgstr "INDIRIZZO IP"
-
-msgid "HOSTNAME"
-msgstr "NOME HOST"
-
-msgid "ENABLE WIFI"
-msgstr "ATTIVA WIFI"
-
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
-
-msgid "WIFI KEY"
-msgstr "CHIAVE WIFI"
-
-msgid "WIFI ENABLED"
-msgstr "WIFI ATTIVO"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERRORE DI CONFIGURAZIONE WIFI"
-
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "INFORMAZIONI DA"
-
-msgid "SCRAPE RATINGS"
-msgstr "INFORMAZIONI VOTI"
-
-msgid "SCRAPE NOW"
-msgstr "RACCOLTA INFORMAZIONI"
-
-msgid "QUIT"
-msgstr "ESCI"
-
-msgid "REALLY RESTART?"
-msgstr "RIAVVIARE?"
-
-msgid "RESTART SYSTEM"
-msgstr "RIAVVIA IL SISTEMA"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "ARRESTARE?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "ARRESTA IL SISTEMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE I METADATA?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SPEGNIMENTO VELOCE DEL SISTEMA"
-
-msgid "Emulator"
-msgstr "Emulatore"
-
-msgid "Core"
-msgstr "Core"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -405,11 +294,113 @@ msgstr "CANCELLA I CONTROLLER BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "INPUT P%i"
 
-msgid "CHOOSE"
-msgstr "SCEGLIERE"
+msgid "VIDEO OUTPUT"
+msgstr ""
 
-msgid "SELECT"
-msgstr "SELEZIONA"
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SCREENSAVER AFTER"
+msgstr "SALVASCHERMO DOPO"
+
+msgid "TRANSITION STYLE"
+msgstr "STILE TRANSIZIONE"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "COMPORTAMENTO DEL SALVASCHERMO"
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA IL FRAMERATE"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "AIUTO SU SCHERMO"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELEZIONE RAPIDA DEL SISTEMA"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "TASTIERA A SCHERMO"
+
+msgid "THEME SET"
+msgstr "TEMA SELEZIONATO"
+
+msgid "SYSTEM VOLUME"
+msgstr "VOLUME DI SISTEMA"
+
+msgid "FRONTEND MUSIC"
+msgstr "MUSICA FRONTEND"
+
+msgid "OUTPUT DEVICE"
+msgstr "USCITA AUDIO"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
+
+msgid "CONNECTED"
+msgstr "CONNESSO"
+
+msgid "NOT CONNECTED"
+msgstr "NON CONNESSO"
+
+msgid "IP ADDRESS"
+msgstr "INDIRIZZO IP"
+
+msgid "HOSTNAME"
+msgstr "NOME HOST"
+
+msgid "ENABLE WIFI"
+msgstr "ATTIVA WIFI"
+
+msgid "WIFI SSID"
+msgstr "SSID WIFI"
+
+msgid "WIFI KEY"
+msgstr "CHIAVE WIFI"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI ATTIVO"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "ERRORE DI CONFIGURAZIONE WIFI"
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "REALLY RESTART?"
+msgstr "RIAVVIARE?"
+
+msgid "RESTART SYSTEM"
+msgstr "RIAVVIA IL SISTEMA"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "ARRESTARE?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "ARRESTA IL SISTEMA"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE I METADATA?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SPEGNIMENTO VELOCE DEL SISTEMA"
+
+msgid "Emulator"
+msgstr "Emulatore"
+
+msgid "Core"
+msgstr "Core"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr ""
@@ -429,6 +420,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "RACCOLTA INFORMAZIONI IN CORSO"
 
@@ -437,6 +431,9 @@ msgstr "SISTEMA"
 
 msgid "subtitle text"
 msgstr "testo sottotitolo"
+
+msgid "search"
+msgstr "cerca"
 
 msgid "SKIP"
 msgstr "SALTA"
@@ -508,39 +505,20 @@ msgstr "NESSUN GIOCO SODDISFA QUESTO CRITERIO DI RICERCA"
 msgid "EDIT METADATA"
 msgstr "MODIFICA LE INFORMAZIONI"
 
-msgid "SAVE"
-msgstr "SALVA"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"STAI CANCELLANDO UN FILE!\n"
-"SEI SICURO?"
-
-msgid "DELETE"
-msgstr "ELIMINA"
-
 msgid "SAVE CHANGES?"
 msgstr "SALVARE LE MODIFICHE ?"
-
-msgid "enter emulator"
-msgstr "inserisci emulatore"
-
-msgid "enter core"
-msgstr "inserisci core"
-
-msgid "Ratio"
-msgstr "Rapporto"
-
-msgid "enter ratio"
-msgstr "inserisci rapporto"
 
 msgid "Name"
 msgstr "Nome"
 
 msgid "enter game name"
 msgstr "Nome del gioco"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Descrizione"
@@ -554,11 +532,17 @@ msgstr "immagine"
 msgid "enter path to image"
 msgstr "inserisci percorso immagine"
 
-msgid "Thumbnail"
-msgstr "Miniatura"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "inserisci percorso miniatura"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Miniatura"
 
 msgid "Rating"
 msgstr "Voto"
@@ -602,23 +586,17 @@ msgstr "Preferito"
 msgid "enter favorite"
 msgstr "inserisci preferito"
 
-msgid "Region"
-msgstr "Regione"
-
-msgid "enter region"
-msgstr "inserisci regione"
-
-msgid "Romtype"
-msgstr "Tipo di rom"
-
-msgid "enter romtype"
-msgstr "inserisci tipo di rom"
-
 msgid "Hidden"
 msgstr "Nascosto"
 
 msgid "set hidden"
 msgstr "imposta nascosto"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Numero di partite giocate"
@@ -632,23 +610,35 @@ msgstr "Ultima partita"
 msgid "enter last played date"
 msgstr "inserisci la data dell'utlima partita"
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i GIOCO DISPONIBILE"
-msgstr[1] "%i GIOCHI DISPONIBILI"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i PREFERITO"
-msgstr[1] "%i PREFERITI"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -662,32 +652,11 @@ msgstr "Numero partite"
 msgid "LAUNCH"
 msgstr "AVVIA"
 
-msgid "SCROLL"
-msgstr "SCORRI"
+msgid "OPTIONS"
+msgstr "OPZIONI"
 
 msgid "MENU"
 msgstr "MENU"
-
-msgid "FILENAME"
-msgstr "NOME FILE"
-
-msgid "RATING"
-msgstr "VOTO"
-
-msgid "TIMES PLAYED"
-msgstr "NUMERO PARTITE"
-
-msgid "LAST PLAYED"
-msgstr "ULTIMA PARTITA"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "NUMERO DI GIOCATORI"
-
-msgid "DEVELOPER"
-msgstr "SVILUPPATORE"
-
-msgid "GENRE"
-msgstr "GENERE"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NESSUN GIOCO TROVATO - SALTA"
@@ -695,56 +664,20 @@ msgstr "NESSUN GIOCO TROVATO - SALTA"
 msgid "RETRY"
 msgstr "RIPROVA"
 
-msgid "SEARCH FOR"
-msgstr "CERCA PER"
-
-msgid "SEARCH"
-msgstr "CERCA"
-
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "SU"
-
-msgid "DOWN"
-msgstr "GIU"
-
-msgid "LEFT"
-msgstr "SINISTRA"
-
-msgid "RIGHT"
-msgstr "DESTRA"
-
-msgid "JOYSTICK 1 UP"
-msgstr "JOYSTICK 1 SU"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "JOYSTICK 1 SINISTRA"
-
-msgid "JOYSTICK 2 UP"
-msgstr "JOYSTICK 2 SU"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "JOYSTICK 2 SINISTRA"
-
-msgid "PAGE UP"
-msgstr "PAGINA PRECEDENTE"
-
-msgid "PAGE DOWN"
-msgstr "PAGINA SUCCESSIVA"
-
-msgid "HOTKEY"
-msgstr "COMBINAZIONE DI TASTI"
-
 msgid "CONFIGURING"
 msgstr "CONFIGURAZIONE"
 
 msgid "KEYBOARD"
 msgstr "TASTIERA"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -755,6 +688,12 @@ msgstr "TIENI PREMUTO UN PULSANTE PER SALTARE"
 
 msgid "-NOT DEFINED-"
 msgstr "-NON CONFIGURATO-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -773,6 +712,9 @@ msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
 
 msgid "SPACE"
 msgstr "SPAZIO"
+
+msgid "DELETE"
+msgstr "ELIMINA"
 
 msgid "DELETE A CHAR"
 msgstr "CANCELLA UN CARATTERE"
@@ -810,45 +752,6 @@ msgstr "PREMI ESC O UNA COMBINAZIONE DI TASTI PER ANNULLARE"
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
 
-msgid "LOADING..."
-msgstr "CARICAMENTO…"
-
-msgid "PLEASE WAIT..."
-msgstr "ATTENDERE PREGO…"
-
-msgid "never"
-msgstr "mai"
-
-msgid "just now"
-msgstr "adesso"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i secondo fa"
-msgstr[1] "%i secondi fa"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i minuto fa"
-msgstr[1] "%i minuti fa"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i ora fa"
-msgstr[1] "%i ore fa"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i giorno fa"
-msgstr[1] "%i giorni fa"
-
-msgid "unknown"
-msgstr "sconosciuto"
-
 msgid "MOVE CURSOR"
 msgstr "SPOSTA CURSORE"
 
@@ -875,6 +778,157 @@ msgstr "MODIFICA"
 
 msgid "WORKING..."
 msgstr "ATTENDERE..."
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "VAI ALLA LETTERA"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "SOLO PREFERITI"
+
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "MOSTRA NASCOSTI"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+
+#~ msgid "SAVE"
+#~ msgstr "SALVA"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "STAI CANCELLANDO UN FILE!\n"
+#~ "SEI SICURO?"
+
+#~ msgid "enter emulator"
+#~ msgstr "inserisci emulatore"
+
+#~ msgid "enter core"
+#~ msgstr "inserisci core"
+
+#~ msgid "Ratio"
+#~ msgstr "Rapporto"
+
+#~ msgid "enter ratio"
+#~ msgstr "inserisci rapporto"
+
+#~ msgid "Region"
+#~ msgstr "Regione"
+
+#~ msgid "enter region"
+#~ msgstr "inserisci regione"
+
+#~ msgid "Romtype"
+#~ msgstr "Tipo di rom"
+
+#~ msgid "enter romtype"
+#~ msgstr "inserisci tipo di rom"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i GIOCO DISPONIBILE"
+#~ msgstr[1] "%i GIOCHI DISPONIBILI"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i PREFERITO"
+#~ msgstr[1] "%i PREFERITI"
+
+#~ msgid "SCROLL"
+#~ msgstr "SCORRI"
+
+#~ msgid "FILENAME"
+#~ msgstr "NOME FILE"
+
+#~ msgid "RATING"
+#~ msgstr "VOTO"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "NUMERO PARTITE"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "ULTIMA PARTITA"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "NUMERO DI GIOCATORI"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "SVILUPPATORE"
+
+#~ msgid "GENRE"
+#~ msgstr "GENERE"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "CERCA PER"
+
+#~ msgid "UP"
+#~ msgstr "SU"
+
+#~ msgid "DOWN"
+#~ msgstr "GIU"
+
+#~ msgid "LEFT"
+#~ msgstr "SINISTRA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DESTRA"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "JOYSTICK 1 SU"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "JOYSTICK 1 SINISTRA"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "JOYSTICK 2 SU"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "JOYSTICK 2 SINISTRA"
+
+#~ msgid "PAGE UP"
+#~ msgstr "PAGINA PRECEDENTE"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "PAGINA SUCCESSIVA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "COMBINAZIONE DI TASTI"
+
+#~ msgid "LOADING..."
+#~ msgstr "CARICAMENTO…"
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "ATTENDERE PREGO…"
+
+#~ msgid "never"
+#~ msgstr "mai"
+
+#~ msgid "just now"
+#~ msgstr "adesso"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i secondo fa"
+#~ msgstr[1] "%i secondi fa"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i minuto fa"
+#~ msgstr[1] "%i minuti fa"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i ora fa"
+#~ msgstr[1] "%i ore fa"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i giorno fa"
+#~ msgstr[1] "%i giorni fa"
+
+#~ msgid "unknown"
+#~ msgstr "sconosciuto"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "E' DISPONIBILE UN AGGIORNAMENTO PER BATOCERA.LINUX"

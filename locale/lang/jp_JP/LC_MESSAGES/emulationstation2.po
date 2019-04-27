@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "エラーが発生しました"
 msgid "INPUT"
 msgstr "入力"
 
-msgid "search"
+msgid "SEARCH"
 msgstr "検索"
 
 msgid "CANCEL"
@@ -49,24 +49,14 @@ msgstr "戻る"
 msgid "CLOSE"
 msgstr "閉じる"
 
-msgid "OPTIONS"
-msgstr "オプション"
-
-msgid "JUMP TO LETTER"
-msgstr "文字に移動"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "ゲームのソート"
 
-msgid "FAVORITES ONLY"
-msgstr "お気に入りのみ"
-
-#, fuzzy
-msgid "SHOW HIDDEN"
-msgstr "隠した項目を表示"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "このゲームのメタ情報を編集"
+msgid "FILTER GAMELIST"
+msgstr ""
 
 msgid "FINNISHED"
 msgstr ""
@@ -77,8 +67,44 @@ msgstr "メインメニュー"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI メディアセンター"
 
+msgid "GAMES SETTINGS"
+msgstr "ゲーム設定"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "コントローラー設定"
+
+msgid "UI SETTINGS"
+msgstr "UI設定"
+
+msgid "SOUND SETTINGS"
+msgstr "音声設定"
+
+msgid "NETWORK SETTINGS"
+msgstr "ネットワーク設定"
+
+msgid "SCRAPE"
+msgstr "スクレイプ"
+
 msgid "SYSTEM SETTINGS"
 msgstr "システム設定"
+
+msgid "QUIT"
+msgstr "終了"
+
+msgid "SCRAPE FROM"
+msgstr "スクレイプ元"
+
+msgid "SCRAPE RATINGS"
+msgstr "スクレイプ評価"
+
+msgid "SCRAPE NOW"
+msgstr "今すぐスクレイプする"
+
+msgid "CHOOSE"
+msgstr "選択"
+
+msgid "SELECT"
+msgstr "選択"
 
 msgid "INFORMATION"
 msgstr ""
@@ -153,9 +179,6 @@ msgstr "ルートパスワード"
 #, fuzzy
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "システムは 再起動します"
-
-msgid "GAMES SETTINGS"
-msgstr "ゲーム設定"
 
 msgid "GAME RATIO"
 msgstr "ゲーム比率"
@@ -243,142 +266,6 @@ msgstr "ゲームリストを更新しますか？"
 msgid "UPDATE GAMES LISTS"
 msgstr "ゲームリストを更新"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "コントローラー設定"
-
-msgid "UI SETTINGS"
-msgstr "UI設定"
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "オーバースキャン"
-
-msgid "SCREENSAVER AFTER"
-msgstr "スクリーンセーバー 時間"
-
-msgid "TRANSITION STYLE"
-msgstr "画面遷移スタイル"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "スクリーンセーバー動作"
-
-msgid "SHOW FRAMERATE"
-msgstr "フレームレートを表示"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "オンスクリーン ヘルプ"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "クイックシステム選択"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "スクリーンキーボード"
-
-msgid "THEME SET"
-msgstr "テーマ設定"
-
-msgid "SOUND SETTINGS"
-msgstr "音声設定"
-
-msgid "SYSTEM VOLUME"
-msgstr "システム音量"
-
-#, fuzzy
-msgid "FRONTEND MUSIC"
-msgstr "フロントエンド音楽"
-
-msgid "OUTPUT DEVICE"
-msgstr "出力デバイス"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "ネットワーク設定"
-
-msgid "CONNECTED"
-msgstr "接続済み"
-
-msgid "NOT CONNECTED"
-msgstr "未接続"
-
-msgid "IP ADDRESS"
-msgstr "IP アドレス"
-
-msgid "HOSTNAME"
-msgstr "ホスト名"
-
-msgid "ENABLE WIFI"
-msgstr "WIFI を有効にする"
-
-msgid "WIFI SSID"
-msgstr "WIFI の SSID"
-
-msgid "WIFI KEY"
-msgstr "WIFI のキー"
-
-msgid "WIFI ENABLED"
-msgstr "WIFI が有効になりました"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 設定エラー"
-
-msgid "SCRAPE"
-msgstr "スクレイプ"
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "スクレイプ元"
-
-msgid "SCRAPE RATINGS"
-msgstr "スクレイプ評価"
-
-msgid "SCRAPE NOW"
-msgstr "今すぐスクレイプする"
-
-msgid "QUIT"
-msgstr "終了"
-
-msgid "REALLY RESTART?"
-msgstr "終了しますか？"
-
-msgid "RESTART SYSTEM"
-msgstr "システムを再起動"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "シャットダウンしますか？"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "システムをシャットダウン"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "メタ情報を保存せずに シャットダウンしますか？"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "高速 シャットダウン システム"
-
-msgid "Emulator"
-msgstr "エミュレータ"
-
-msgid "Core"
-msgstr "コア"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 #, fuzzy
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -416,11 +303,114 @@ msgstr "ブルートゥースのコントローラーを解除"
 msgid "INPUT P%i"
 msgstr "入力 P%i"
 
-msgid "CHOOSE"
-msgstr "選択"
+msgid "VIDEO OUTPUT"
+msgstr ""
 
-msgid "SELECT"
-msgstr "選択"
+msgid "OVERSCAN"
+msgstr "オーバースキャン"
+
+msgid "SCREENSAVER AFTER"
+msgstr "スクリーンセーバー 時間"
+
+msgid "TRANSITION STYLE"
+msgstr "画面遷移スタイル"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "スクリーンセーバー動作"
+
+msgid "SHOW FRAMERATE"
+msgstr "フレームレートを表示"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "オンスクリーン ヘルプ"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "クイックシステム選択"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "スクリーンキーボード"
+
+msgid "THEME SET"
+msgstr "テーマ設定"
+
+msgid "SYSTEM VOLUME"
+msgstr "システム音量"
+
+#, fuzzy
+msgid "FRONTEND MUSIC"
+msgstr "フロントエンド音楽"
+
+msgid "OUTPUT DEVICE"
+msgstr "出力デバイス"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
+
+msgid "CONNECTED"
+msgstr "接続済み"
+
+msgid "NOT CONNECTED"
+msgstr "未接続"
+
+msgid "IP ADDRESS"
+msgstr "IP アドレス"
+
+msgid "HOSTNAME"
+msgstr "ホスト名"
+
+msgid "ENABLE WIFI"
+msgstr "WIFI を有効にする"
+
+msgid "WIFI SSID"
+msgstr "WIFI の SSID"
+
+msgid "WIFI KEY"
+msgstr "WIFI のキー"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI が有効になりました"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "WIFI 設定エラー"
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "REALLY RESTART?"
+msgstr "終了しますか？"
+
+msgid "RESTART SYSTEM"
+msgstr "システムを再起動"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "シャットダウンしますか？"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "システムをシャットダウン"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "メタ情報を保存せずに シャットダウンしますか？"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "高速 シャットダウン システム"
+
+msgid "Emulator"
+msgstr "エミュレータ"
+
+msgid "Core"
+msgstr "コア"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr ""
@@ -440,6 +430,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "情報を取得中"
 
@@ -448,6 +441,9 @@ msgstr "システム"
 
 msgid "subtitle text"
 msgstr "字幕テキスト"
+
+msgid "search"
+msgstr "検索"
 
 msgid "SKIP"
 msgstr "スキップ"
@@ -521,43 +517,20 @@ msgstr "適合する ゲームが 見つかりませんでした。"
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
 
-msgid "SAVE"
-msgstr "保存"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ファイルを削除します！ \n"
-"よろしいですか？"
-
-msgid "DELETE"
-msgstr "削除"
-
 msgid "SAVE CHANGES?"
 msgstr "変更を保存しますか？"
-
-#, fuzzy
-msgid "enter emulator"
-msgstr "エミュレータ"
-
-#, fuzzy
-msgid "enter core"
-msgstr "コア"
-
-#, fuzzy
-msgid "Ratio"
-msgstr "比率"
-
-#, fuzzy
-msgid "enter ratio"
-msgstr "比率を入力"
 
 msgid "Name"
 msgstr "名前"
 
 msgid "enter game name"
 msgstr "ゲームの名前を入力"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "概要"
@@ -571,11 +544,17 @@ msgstr "画像"
 msgid "enter path to image"
 msgstr "画像のパスを入力"
 
-msgid "Thumbnail"
-msgstr "サムネイル画像"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "サムネイル画像のパスを入力"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "サムネイル画像"
 
 msgid "Rating"
 msgstr "評価"
@@ -620,20 +599,6 @@ msgstr "お気に入り"
 msgid "enter favorite"
 msgstr "お気に入りを入力"
 
-msgid "Region"
-msgstr "地域"
-
-msgid "enter region"
-msgstr "地域を入力"
-
-#, fuzzy
-msgid "Romtype"
-msgstr "ROMタイプ"
-
-#, fuzzy
-msgid "enter romtype"
-msgstr "ROMタイプを入力"
-
 #, fuzzy
 msgid "Hidden"
 msgstr "隠す"
@@ -641,6 +606,12 @@ msgstr "隠す"
 #, fuzzy
 msgid "set hidden"
 msgstr "隠す"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "プレイ回数"
@@ -654,20 +625,35 @@ msgstr "最後にプレイした日時"
 msgid "enter last played date"
 msgstr "最後にプレイした日時を入力"
 
-#, fuzzy, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i 個のゲームがあります"
+msgid "name"
+msgstr ""
 
-#, fuzzy, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i 個のお気に入り"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -681,32 +667,11 @@ msgstr "回プレイ済み"
 msgid "LAUNCH"
 msgstr "起動"
 
-msgid "SCROLL"
-msgstr "スクロール"
+msgid "OPTIONS"
+msgstr "オプション"
 
 msgid "MENU"
 msgstr "メニュー"
-
-msgid "FILENAME"
-msgstr "ファイル名"
-
-msgid "RATING"
-msgstr "評価"
-
-msgid "TIMES PLAYED"
-msgstr "プレイ時間"
-
-msgid "LAST PLAYED"
-msgstr "最終プレイ日時"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "プレイヤー数"
-
-msgid "DEVELOPER"
-msgstr "開発"
-
-msgid "GENRE"
-msgstr "ジャンル"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ゲームが見つかりません - スキップ"
@@ -715,53 +680,11 @@ msgid "RETRY"
 msgstr "再試行"
 
 #, fuzzy
-msgid "SEARCH FOR"
-msgstr "検索"
-
-msgid "SEARCH"
-msgstr "検索"
-
-#, fuzzy
 msgid "ACCEPT RESULT"
 msgstr "了解"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
-
-msgid "UP"
-msgstr "上"
-
-msgid "DOWN"
-msgstr "下"
-
-msgid "LEFT"
-msgstr "左"
-
-msgid "RIGHT"
-msgstr "右"
-
-msgid "JOYSTICK 1 UP"
-msgstr "方向キー 1 上"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "方向キー 1 左"
-
-msgid "JOYSTICK 2 UP"
-msgstr "方向キー 2 上"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "方向キー 2 左"
-
-#, fuzzy
-msgid "PAGE UP"
-msgstr "PAGE UP"
-
-#, fuzzy
-msgid "PAGE DOWN"
-msgstr "PAGE DOWN"
-
-msgid "HOTKEY"
-msgstr "ホットキー"
 
 #, fuzzy
 msgid "CONFIGURING"
@@ -769,6 +692,9 @@ msgstr "設定中"
 
 msgid "KEYBOARD"
 msgstr "キーボード"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -779,6 +705,12 @@ msgstr "何かのボタンを押し続けるとスキップします"
 
 msgid "-NOT DEFINED-"
 msgstr "-未定義-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, fuzzy, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -797,6 +729,9 @@ msgstr "大文字, 小文字, 特殊記号のための SHIFT"
 #, fuzzy
 msgid "SPACE"
 msgstr "空白"
+
+msgid "DELETE"
+msgstr "削除"
 
 msgid "DELETE A CHAR"
 msgstr "文字を削除"
@@ -834,43 +769,6 @@ msgstr "ESCかホットキーを押すと キャンセルします。"
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODIメディアセンターを開始しますか？"
 
-msgid "LOADING..."
-msgstr "読み込み中..."
-
-msgid "PLEASE WAIT..."
-msgstr "お待ちください..."
-
-#, fuzzy
-msgid "never"
-msgstr "しない"
-
-#, fuzzy
-msgid "just now"
-msgstr "今すぐ"
-
-#, fuzzy, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i 秒前"
-
-#, fuzzy, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i 分前"
-
-#, fuzzy, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i 時間前"
-
-#, fuzzy, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i 日前"
-
-msgid "unknown"
-msgstr "不明"
-
 msgid "MOVE CURSOR"
 msgstr "カーソル移動"
 
@@ -897,6 +795,169 @@ msgstr "変更"
 #, fuzzy
 msgid "WORKING..."
 msgstr "処理中..."
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "文字に移動"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "お気に入りのみ"
+
+#, fuzzy
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "隠した項目を表示"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "このゲームのメタ情報を編集"
+
+#~ msgid "SAVE"
+#~ msgstr "保存"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "ファイルを削除します！ \n"
+#~ "よろしいですか？"
+
+#, fuzzy
+#~ msgid "enter emulator"
+#~ msgstr "エミュレータ"
+
+#, fuzzy
+#~ msgid "enter core"
+#~ msgstr "コア"
+
+#, fuzzy
+#~ msgid "Ratio"
+#~ msgstr "比率"
+
+#, fuzzy
+#~ msgid "enter ratio"
+#~ msgstr "比率を入力"
+
+#~ msgid "Region"
+#~ msgstr "地域"
+
+#~ msgid "enter region"
+#~ msgstr "地域を入力"
+
+#, fuzzy
+#~ msgid "Romtype"
+#~ msgstr "ROMタイプ"
+
+#, fuzzy
+#~ msgid "enter romtype"
+#~ msgstr "ROMタイプを入力"
+
+#, fuzzy
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i 個のゲームがあります"
+
+#, fuzzy
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i 個のお気に入り"
+
+#~ msgid "SCROLL"
+#~ msgstr "スクロール"
+
+#~ msgid "FILENAME"
+#~ msgstr "ファイル名"
+
+#~ msgid "RATING"
+#~ msgstr "評価"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "プレイ時間"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "最終プレイ日時"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "プレイヤー数"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "開発"
+
+#~ msgid "GENRE"
+#~ msgstr "ジャンル"
+
+#, fuzzy
+#~ msgid "SEARCH FOR"
+#~ msgstr "検索"
+
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgid "RIGHT"
+#~ msgstr "右"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "方向キー 1 上"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "方向キー 1 左"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "方向キー 2 上"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "方向キー 2 左"
+
+#, fuzzy
+#~ msgid "PAGE UP"
+#~ msgstr "PAGE UP"
+
+#, fuzzy
+#~ msgid "PAGE DOWN"
+#~ msgstr "PAGE DOWN"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ホットキー"
+
+#~ msgid "LOADING..."
+#~ msgstr "読み込み中..."
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "お待ちください..."
+
+#, fuzzy
+#~ msgid "never"
+#~ msgstr "しない"
+
+#, fuzzy
+#~ msgid "just now"
+#~ msgstr "今すぐ"
+
+#, fuzzy
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i 秒前"
+
+#, fuzzy
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i 分前"
+
+#, fuzzy
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i 時間前"
+
+#, fuzzy
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i 日前"
+
+#~ msgid "unknown"
+#~ msgstr "不明"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "BATOCERA.LINUXのアップデートがあります"

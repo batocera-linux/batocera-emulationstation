@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,8 +38,8 @@ msgstr "WYSTĄPIŁ BŁĄD"
 msgid "INPUT"
 msgstr "WEJŚCIE"
 
-msgid "search"
-msgstr "szukaj"
+msgid "SEARCH"
+msgstr "SZUKAJ"
 
 msgid "CANCEL"
 msgstr "ANULUJ"
@@ -50,22 +50,13 @@ msgstr "WSTECZ"
 msgid "CLOSE"
 msgstr "ZAMKNIJ"
 
-msgid "OPTIONS"
-msgstr "OPCJE"
-
-msgid "JUMP TO LETTER"
+msgid "JUMP TO..."
 msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "SORTUJ GRY"
 
-msgid "FAVORITES ONLY"
-msgstr "TYLKO ULUBIONE"
-
-msgid "SHOW HIDDEN"
-msgstr "POKAŻ UKRYTE"
-
-msgid "EDIT THIS GAME'S METADATA"
+msgid "FILTER GAMELIST"
 msgstr ""
 
 msgid "FINNISHED"
@@ -77,8 +68,44 @@ msgstr "MENU GŁÓWNE"
 msgid "KODI MEDIA CENTER"
 msgstr "CENTRUM MULTIMEDIÓW KODI"
 
+msgid "GAMES SETTINGS"
+msgstr "USTAWIENIA GIER"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "USTAWIENIA KONTROLERÓW"
+
+msgid "UI SETTINGS"
+msgstr "USTAWIENIA MENU"
+
+msgid "SOUND SETTINGS"
+msgstr "USTAWIENIA DŹWIĘKU"
+
+msgid "NETWORK SETTINGS"
+msgstr "USTAWIENIA SIECI"
+
+msgid "SCRAPE"
+msgstr ""
+
 msgid "SYSTEM SETTINGS"
 msgstr "USTAWIENIA SYSTEMU"
+
+msgid "QUIT"
+msgstr "WYJDŹ"
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "SCRAPE RATINGS"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr ""
+
+msgid "CHOOSE"
+msgstr "WYBIERZ"
+
+msgid "SELECT"
+msgstr "ZAZNACZ"
 
 msgid "INFORMATION"
 msgstr ""
@@ -148,9 +175,6 @@ msgstr "HASŁO ADMINISTRATORA"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "SYSTEM ZOSTANIE PONOWNIE URUCHOMIONY"
-
-msgid "GAMES SETTINGS"
-msgstr "USTAWIENIA GIER"
 
 msgid "GAME RATIO"
 msgstr "PRĘDKOŚĆ GRY"
@@ -236,11 +260,35 @@ msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
 msgid "UPDATE GAMES LISTS"
 msgstr "ZAKTUALIZUJ LISTĘ GIER"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "USTAWIENIA KONTROLERÓW"
+msgid ""
+"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
+"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
+"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
+"SNES CONTROLLER."
+msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "USTAWIENIA MENU"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "SKONFIGURUJ KONTROLER"
+
+msgid "CONTROLLER PAIRED"
+msgstr "PODŁĄCZONO KONTROLER"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
+
+msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr "PODŁĄCZ KONTROLER ZA POMOCĄ BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr ""
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "USUŃ KONTROLER BLUETOOTH Z LISTY ZAPISANYCH"
+
+#, c-format
+msgid "INPUT P%i"
+msgstr ""
 
 msgid "VIDEO OUTPUT"
 msgstr ""
@@ -275,9 +323,6 @@ msgstr "KLAWIATURA EKRANOWA"
 msgid "THEME SET"
 msgstr "USTAWIENIA SKÓRY"
 
-msgid "SOUND SETTINGS"
-msgstr "USTAWIENIA DŹWIĘKU"
-
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
 
@@ -289,9 +334,6 @@ msgstr "URZĄDZENIE WYJŚCIOWE"
 
 msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
 msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "USTAWIENIA SIECI"
 
 msgid "CONNECTED"
 msgstr "POŁĄCZONO"
@@ -320,9 +362,6 @@ msgstr "WIFI WŁĄCZONY"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "BŁĄD KONFIGURACJI WIFI"
 
-msgid "SCRAPE"
-msgstr ""
-
 msgid "REALLY SCRAPE?"
 msgstr ""
 
@@ -331,18 +370,6 @@ msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr ""
-
-msgid "SCRAPE RATINGS"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr ""
-
-msgid "QUIT"
-msgstr "WYJDŹ"
 
 msgid "REALLY RESTART?"
 msgstr "URUCHOMIĆ PONOWNIE SYSTEM?"
@@ -371,42 +398,6 @@ msgstr "RDZEŃ"
 msgid "VIDEO MODE"
 msgstr ""
 
-msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
-msgstr ""
-
-msgid "CONFIGURE A CONTROLLER"
-msgstr "SKONFIGURUJ KONTROLER"
-
-msgid "CONTROLLER PAIRED"
-msgstr "PODŁĄCZONO KONTROLER"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
-
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PODŁĄCZ KONTROLER ZA POMOCĄ BLUETOOTH"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr ""
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "USUŃ KONTROLER BLUETOOTH Z LISTY ZAPISANYCH"
-
-#, c-format
-msgid "INPUT P%i"
-msgstr ""
-
-msgid "CHOOSE"
-msgstr "WYBIERZ"
-
-msgid "SELECT"
-msgstr "ZAZNACZ"
-
 msgid "INSTALL BATOCERA"
 msgstr ""
 
@@ -425,6 +416,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "AKTUALIZACJA BIBLIOTEKI W TOKU"
 
@@ -433,6 +427,9 @@ msgstr "SYSTEM"
 
 msgid "subtitle text"
 msgstr "tekst napisów"
+
+msgid "search"
+msgstr "szukaj"
 
 msgid "SKIP"
 msgstr "POMIŃ"
@@ -503,37 +500,20 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr "EDYTUJ METADANE"
 
-msgid "SAVE"
-msgstr "ZAPISZ"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr "CZY NA PEWNO CHCESZ USUNĄĆ PLIK?"
-
-msgid "DELETE"
-msgstr "USUŃ"
-
 msgid "SAVE CHANGES?"
 msgstr "ZAPISAĆ ZMIANY?"
-
-msgid "enter emulator"
-msgstr "Wprowadź emulator"
-
-msgid "enter core"
-msgstr "Wprowadź rdzeń"
-
-msgid "Ratio"
-msgstr ""
-
-msgid "enter ratio"
-msgstr ""
 
 msgid "Name"
 msgstr "Nazwa"
 
 msgid "enter game name"
 msgstr "Wprowadź nazwę gry"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Informacje"
@@ -547,11 +527,17 @@ msgstr "Obraz"
 msgid "enter path to image"
 msgstr "Wprowadź ścieżkę do obrazu"
 
-msgid "Thumbnail"
-msgstr "Miniaturka"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "Wprowadź ścieżkę do miniaturki"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Miniaturka"
 
 msgid "Rating"
 msgstr "Ocena"
@@ -595,22 +581,16 @@ msgstr "Ulubione"
 msgid "enter favorite"
 msgstr ""
 
-msgid "Region"
-msgstr "Region"
-
-msgid "enter region"
-msgstr "Wprowadź region"
-
-msgid "Romtype"
-msgstr ""
-
-msgid "enter romtype"
-msgstr ""
-
 msgid "Hidden"
 msgstr ""
 
 msgid "set hidden"
+msgstr ""
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
 msgstr ""
 
 msgid "Play count"
@@ -625,26 +605,35 @@ msgstr "Ostatnio grano"
 msgid "enter last played date"
 msgstr ""
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i GRA DOSTĘPNA"
-msgstr[1] "%i GIER DOSTĘPNYCH"
-msgstr[2] "%i GIER DOSTĘPNYCH"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i ULUBIONA"
-msgstr[1] "%i ULUBIONYCH"
-msgstr[2] "%i ULUBIONYCH"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -658,32 +647,11 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "Uruchom"
 
-msgid "SCROLL"
-msgstr ""
+msgid "OPTIONS"
+msgstr "OPCJE"
 
 msgid "MENU"
 msgstr "MENU"
-
-msgid "FILENAME"
-msgstr "NAZWA PLIKU"
-
-msgid "RATING"
-msgstr "OCENA"
-
-msgid "TIMES PLAYED"
-msgstr "CZAS GRY"
-
-msgid "LAST PLAYED"
-msgstr "OSATNIO GRANO"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "LICZBA MAKSYMALNYCH GRACZY"
-
-msgid "DEVELOPER"
-msgstr "PRODUCENT"
-
-msgid "GENRE"
-msgstr "GATUNEK"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
@@ -691,56 +659,20 @@ msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
 msgid "RETRY"
 msgstr "PONÓW"
 
-msgid "SEARCH FOR"
-msgstr "SZUKAJ"
-
-msgid "SEARCH"
-msgstr "SZUKAJ"
-
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "GÓRA"
-
-msgid "DOWN"
-msgstr "DÓŁ"
-
-msgid "LEFT"
-msgstr "LEWO"
-
-msgid "RIGHT"
-msgstr "PRAWO"
-
-msgid "JOYSTICK 1 UP"
-msgstr "KONTROLER 1 GÓRA"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "KONTROLER 1 LEWO"
-
-msgid "JOYSTICK 2 UP"
-msgstr "KONTROLER 2 GÓRA"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "KONTROLER 2 LEWO"
-
-msgid "PAGE UP"
-msgstr "DO GÓRY"
-
-msgid "PAGE DOWN"
-msgstr "NA DÓŁ"
-
-msgid "HOTKEY"
-msgstr "SKRÓT KLAWISZOWY"
-
 msgid "CONFIGURING"
 msgstr "KONFIGUROWANIE"
 
 msgid "KEYBOARD"
 msgstr "KLAWIATURA"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -751,6 +683,12 @@ msgstr "PRZYTRZYMAJ DOWOLNY PRZYCISK ABY POMINĄĆ"
 
 msgid "-NOT DEFINED-"
 msgstr "-NIEZDEFINIOWANY-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -770,6 +708,9 @@ msgstr ""
 
 msgid "SPACE"
 msgstr ""
+
+msgid "DELETE"
+msgstr "USUŃ"
 
 msgid "DELETE A CHAR"
 msgstr "USUŃ ZNAK"
@@ -808,49 +749,6 @@ msgstr ""
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 
-msgid "LOADING..."
-msgstr "ŁADOWANIE..."
-
-msgid "PLEASE WAIT..."
-msgstr "PROSZĘ CZEKAĆ"
-
-msgid "never"
-msgstr "nigdy"
-
-msgid "just now"
-msgstr "przed chwilą"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i sekundę temu"
-msgstr[1] "%i sekund temu"
-msgstr[2] "%i sekund temu"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i minutę temu"
-msgstr[1] "%i minut temu"
-msgstr[2] "%i minut temu"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i godzinę temu"
-msgstr[1] "%i godzin temu"
-msgstr[2] "%i godzin temu"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i dzień temu"
-msgstr[1] "%i dni temu"
-msgstr[2] "%i dni temu"
-
-msgid "unknown"
-msgstr "nieznany"
-
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
 
@@ -878,6 +776,140 @@ msgstr "ZMIEŃ"
 
 msgid "WORKING..."
 msgstr "PRACUJE.."
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "TYLKO ULUBIONE"
+
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "POKAŻ UKRYTE"
+
+#~ msgid "SAVE"
+#~ msgstr "ZAPISZ"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr "CZY NA PEWNO CHCESZ USUNĄĆ PLIK?"
+
+#~ msgid "enter emulator"
+#~ msgstr "Wprowadź emulator"
+
+#~ msgid "enter core"
+#~ msgstr "Wprowadź rdzeń"
+
+#~ msgid "Region"
+#~ msgstr "Region"
+
+#~ msgid "enter region"
+#~ msgstr "Wprowadź region"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i GRA DOSTĘPNA"
+#~ msgstr[1] "%i GIER DOSTĘPNYCH"
+#~ msgstr[2] "%i GIER DOSTĘPNYCH"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i ULUBIONA"
+#~ msgstr[1] "%i ULUBIONYCH"
+#~ msgstr[2] "%i ULUBIONYCH"
+
+#~ msgid "FILENAME"
+#~ msgstr "NAZWA PLIKU"
+
+#~ msgid "RATING"
+#~ msgstr "OCENA"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "CZAS GRY"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "OSATNIO GRANO"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "LICZBA MAKSYMALNYCH GRACZY"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "PRODUCENT"
+
+#~ msgid "GENRE"
+#~ msgstr "GATUNEK"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "SZUKAJ"
+
+#~ msgid "UP"
+#~ msgstr "GÓRA"
+
+#~ msgid "DOWN"
+#~ msgstr "DÓŁ"
+
+#~ msgid "LEFT"
+#~ msgstr "LEWO"
+
+#~ msgid "RIGHT"
+#~ msgstr "PRAWO"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "KONTROLER 1 GÓRA"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "KONTROLER 1 LEWO"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "KONTROLER 2 GÓRA"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "KONTROLER 2 LEWO"
+
+#~ msgid "PAGE UP"
+#~ msgstr "DO GÓRY"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "NA DÓŁ"
+
+#~ msgid "HOTKEY"
+#~ msgstr "SKRÓT KLAWISZOWY"
+
+#~ msgid "LOADING..."
+#~ msgstr "ŁADOWANIE..."
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "PROSZĘ CZEKAĆ"
+
+#~ msgid "never"
+#~ msgstr "nigdy"
+
+#~ msgid "just now"
+#~ msgstr "przed chwilą"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i sekundę temu"
+#~ msgstr[1] "%i sekund temu"
+#~ msgstr[2] "%i sekund temu"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i minutę temu"
+#~ msgstr[1] "%i minut temu"
+#~ msgstr[2] "%i minut temu"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i godzinę temu"
+#~ msgstr[1] "%i godzin temu"
+#~ msgstr[2] "%i godzin temu"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i dzień temu"
+#~ msgstr[1] "%i dni temu"
+#~ msgstr[2] "%i dni temu"
+
+#~ msgid "unknown"
+#~ msgstr "nieznany"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "NOWA WERSJA BATOCERA.LINUX'A JEST DOSTĘPNA"

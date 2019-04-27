@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -41,8 +41,8 @@ msgstr "ПРОИЗОШЛА ОШИБКА"
 msgid "INPUT"
 msgstr "ВВОД"
 
-msgid "search"
-msgstr "поиск"
+msgid "SEARCH"
+msgstr "ПОИСК"
 
 msgid "CANCEL"
 msgstr "ОТМЕНА"
@@ -53,23 +53,14 @@ msgstr "НАЗАД"
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
 
-msgid "OPTIONS"
-msgstr "ПАРАМЕТРЫ"
-
-msgid "JUMP TO LETTER"
-msgstr "ПЕРЕЙТИ К БУКВЕ"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
-msgid "FAVORITES ONLY"
-msgstr "ТОЛЬКО ИЗБРАННЫЕ"
-
-msgid "SHOW HIDDEN"
-msgstr "ПОКАЗЫВАТЬ СКРЫТЫЕ"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
+msgid "FILTER GAMELIST"
+msgstr ""
 
 msgid "FINNISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -80,8 +71,44 @@ msgstr "ГЛАВНОЕ МЕНЮ"
 msgid "KODI MEDIA CENTER"
 msgstr "МЕДИАЦЕНТР KODI"
 
+msgid "GAMES SETTINGS"
+msgstr "ИГРОВЫЕ НАСТРОЙКИ"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
+
+msgid "UI SETTINGS"
+msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
+
+msgid "SOUND SETTINGS"
+msgstr "НАСТРОЙКИ ЗВУКА"
+
+msgid "NETWORK SETTINGS"
+msgstr "НАСТРОЙКИ СЕТИ"
+
+msgid "SCRAPE"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
+
+msgid "QUIT"
+msgstr "ВЫХОД"
+
+msgid "SCRAPE FROM"
+msgstr "ЗАГРУЗКА ИЗ"
+
+msgid "SCRAPE RATINGS"
+msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+
+msgid "SCRAPE NOW"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
+msgid "CHOOSE"
+msgstr "ВЫБЕРИТЕ"
+
+msgid "SELECT"
+msgstr "ВЫБОР"
 
 msgid "INFORMATION"
 msgstr "ИНФОРМАЦИЯ"
@@ -151,9 +178,6 @@ msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
-
-msgid "GAMES SETTINGS"
-msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
@@ -239,141 +263,6 @@ msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
-
-msgid "UI SETTINGS"
-msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
-
-msgid "VIDEO OUTPUT"
-msgstr "ВИДЕО ВЫВОД"
-
-msgid "OVERSCAN"
-msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
-
-msgid "SCREENSAVER AFTER"
-msgstr "ЗАСТАВКА ЧЕРЕЗ"
-
-msgid "TRANSITION STYLE"
-msgstr "СТИЛЬ ПЕРЕХОДОВ"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
-
-msgid "SHOW FRAMERATE"
-msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМЫ"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "ЭКРАННАЯ КЛАВИАТУРА"
-
-msgid "THEME SET"
-msgstr "ТЕМА"
-
-msgid "SOUND SETTINGS"
-msgstr "НАСТРОЙКИ ЗВУКА"
-
-msgid "SYSTEM VOLUME"
-msgstr "ГРОМКОСТЬ"
-
-msgid "FRONTEND MUSIC"
-msgstr "МУЗЫКА В МЕНЮ"
-
-msgid "OUTPUT DEVICE"
-msgstr "УСТРОЙСТВО ВЫВОДА"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
-
-msgid "NETWORK SETTINGS"
-msgstr "НАСТРОЙКИ СЕТИ"
-
-msgid "CONNECTED"
-msgstr "ПОДКЛЮЧЕНО"
-
-msgid "NOT CONNECTED"
-msgstr "НЕ ПОДКЛЮЧЕНО"
-
-msgid "IP ADDRESS"
-msgstr "IP-АДРЕС"
-
-msgid "HOSTNAME"
-msgstr "ИМЯ ХОСТА"
-
-msgid "ENABLE WIFI"
-msgstr "ВКЛЮЧИТЬ WI-FI"
-
-msgid "WIFI SSID"
-msgstr "ИМЯ СЕТИ WI-FI"
-
-msgid "WIFI KEY"
-msgstr "ПАРОЛЬ СЕТИ WI-FI"
-
-msgid "WIFI ENABLED"
-msgstr "WI-FI ВКЛЮЧЕН"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
-
-msgid "SCRAPE"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
-
-msgid "REALLY SCRAPE?"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
-
-msgid "AUTOMATIC SCRAPER"
-msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
-
-msgid "MANUAL SCRAPER"
-msgstr "РУЧНАЯ ЗАГРУЗКА"
-
-msgid "SCRAPE FROM"
-msgstr "ЗАГРУЗКА ИЗ"
-
-msgid "SCRAPE RATINGS"
-msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
-
-msgid "SCRAPE NOW"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
-
-msgid "QUIT"
-msgstr "ВЫХОД"
-
-msgid "REALLY RESTART?"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
-
-msgid "RESTART SYSTEM"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
-
-msgid "Emulator"
-msgstr "Эмулятор"
-
-msgid "Core"
-msgstr "Ядро"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -409,11 +298,113 @@ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
 msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
-msgid "CHOOSE"
-msgstr "ВЫБЕРИТЕ"
+msgid "VIDEO OUTPUT"
+msgstr "ВИДЕО ВЫВОД"
 
-msgid "SELECT"
-msgstr "ВЫБОР"
+msgid "OVERSCAN"
+msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
+
+msgid "SCREENSAVER AFTER"
+msgstr "ЗАСТАВКА ЧЕРЕЗ"
+
+msgid "TRANSITION STYLE"
+msgstr "СТИЛЬ ПЕРЕХОДОВ"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
+
+msgid "SHOW FRAMERATE"
+msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМЫ"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "ЭКРАННАЯ КЛАВИАТУРА"
+
+msgid "THEME SET"
+msgstr "ТЕМА"
+
+msgid "SYSTEM VOLUME"
+msgstr "ГРОМКОСТЬ"
+
+msgid "FRONTEND MUSIC"
+msgstr "МУЗЫКА В МЕНЮ"
+
+msgid "OUTPUT DEVICE"
+msgstr "УСТРОЙСТВО ВЫВОДА"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
+
+msgid "CONNECTED"
+msgstr "ПОДКЛЮЧЕНО"
+
+msgid "NOT CONNECTED"
+msgstr "НЕ ПОДКЛЮЧЕНО"
+
+msgid "IP ADDRESS"
+msgstr "IP-АДРЕС"
+
+msgid "HOSTNAME"
+msgstr "ИМЯ ХОСТА"
+
+msgid "ENABLE WIFI"
+msgstr "ВКЛЮЧИТЬ WI-FI"
+
+msgid "WIFI SSID"
+msgstr "ИМЯ СЕТИ WI-FI"
+
+msgid "WIFI KEY"
+msgstr "ПАРОЛЬ СЕТИ WI-FI"
+
+msgid "WIFI ENABLED"
+msgstr "WI-FI ВКЛЮЧЕН"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
+
+msgid "REALLY SCRAPE?"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
+
+msgid "AUTOMATIC SCRAPER"
+msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
+
+msgid "MANUAL SCRAPER"
+msgstr "РУЧНАЯ ЗАГРУЗКА"
+
+msgid "REALLY RESTART?"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
+
+msgid "RESTART SYSTEM"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
+
+msgid "Emulator"
+msgstr "Эмулятор"
+
+msgid "Core"
+msgstr "Ядро"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "УСТАНОВИТЬ BATOCERA"
@@ -433,6 +424,9 @@ msgstr "ДА, Я УВЕРЕН"
 msgid "INSTALL"
 msgstr "УСТАНОВИТЬ"
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЕТ ЗАГРУЗКА ДАННЫХ"
 
@@ -441,6 +435,9 @@ msgstr "СИСТЕМА"
 
 msgid "subtitle text"
 msgstr "текст cубтитров"
+
+msgid "search"
+msgstr "поиск"
 
 msgid "SKIP"
 msgstr "ПРОПУСТИТЬ"
@@ -517,39 +514,20 @@ msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
-msgid "SAVE"
-msgstr "СОХРАНИТЬ"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ФАЙЛ БУДЕТ УДАЛЕН!\n"
-"ВЫ УВЕРЕНЫ?"
-
-msgid "DELETE"
-msgstr "УДАЛИТЬ"
-
 msgid "SAVE CHANGES?"
 msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
-
-msgid "enter emulator"
-msgstr "введите эмулятор"
-
-msgid "enter core"
-msgstr "введите ядро"
-
-msgid "Ratio"
-msgstr "Пропорции"
-
-msgid "enter ratio"
-msgstr "введите пропорции"
 
 msgid "Name"
 msgstr "Название"
 
 msgid "enter game name"
 msgstr "введите название игры"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Описание"
@@ -563,11 +541,17 @@ msgstr "Изображение"
 msgid "enter path to image"
 msgstr "введите путь к изображению"
 
-msgid "Thumbnail"
-msgstr "Эскиз"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "введите путь к эскизу"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Эскиз"
 
 msgid "Rating"
 msgstr "Рейтинг"
@@ -611,23 +595,17 @@ msgstr "Избранное"
 msgid "enter favorite"
 msgstr "введите избранное"
 
-msgid "Region"
-msgstr "Регион"
-
-msgid "enter region"
-msgstr "введите регион"
-
-msgid "Romtype"
-msgstr "Тип рома"
-
-msgid "enter romtype"
-msgstr "введите тип рома"
-
 msgid "Hidden"
 msgstr "Скрыть"
 
 msgid "set hidden"
 msgstr "сделать скрытым"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Сыграно раз"
@@ -641,26 +619,35 @@ msgstr "Последний запуск"
 msgid "enter last played date"
 msgstr "введите дату последнего запуска"
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i ИГРА ДОСТУПНА"
-msgstr[1] "%i ИГРЫ ДОСТУПНО"
-msgstr[2] "%i ИГР ДОСТУПНО"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i В ИЗБРАННЫХ"
-msgstr[1] "%i В ИЗБРАННЫХ"
-msgstr[2] "%i В ИЗБРАННЫХ"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] "%i ИГРА СКРЫТА"
-msgstr[1] "%i ИГРЫ СКРЫТО"
-msgstr[2] "%i ИГР СКРЫТО"
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -674,32 +661,11 @@ msgstr "Сыграно раз"
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
-msgid "SCROLL"
-msgstr "ЛИСТАТЬ"
+msgid "OPTIONS"
+msgstr "ПАРАМЕТРЫ"
 
 msgid "MENU"
 msgstr "МЕНЮ"
-
-msgid "FILENAME"
-msgstr "ИМЯ ФАЙЛА"
-
-msgid "RATING"
-msgstr "РЕЙТИНГ"
-
-msgid "TIMES PLAYED"
-msgstr "СЫГРАНО РАЗ"
-
-msgid "LAST PLAYED"
-msgstr "ПОСЛЕДНИЙ ЗАПУСК"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "КОЛИЧЕСТВО ИГРОКОВ"
-
-msgid "DEVELOPER"
-msgstr "РАЗРАБОТЧИК"
-
-msgid "GENRE"
-msgstr "ЖАНР"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
@@ -707,56 +673,20 @@ msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
 
-msgid "SEARCH FOR"
-msgstr "ПОИСК ПО"
-
-msgid "SEARCH"
-msgstr "ПОИСК"
-
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "ВВЕРХ"
-
-msgid "DOWN"
-msgstr "ВНИЗ"
-
-msgid "LEFT"
-msgstr "ВЛЕВО"
-
-msgid "RIGHT"
-msgstr "ВПРАВО"
-
-msgid "JOYSTICK 1 UP"
-msgstr "ДЖОЙСТИК 1 ВВЕРХ"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "ДЖОЙСТИК 1 ВЛЕВО"
-
-msgid "JOYSTICK 2 UP"
-msgstr "ДЖОЙСТИК 2 ВВЕРХ"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "ДЖОЙСТИК 2 ВЛЕВО"
-
-msgid "PAGE UP"
-msgstr "СТРАНИЦА ВВЕРХ"
-
-msgid "PAGE DOWN"
-msgstr "СТРАНИЦА ВНИЗ"
-
-msgid "HOTKEY"
-msgstr "\"ГОРЯЧАЯ\" КНОПКА"
-
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
 
 msgid "KEYBOARD"
 msgstr "КЛАВИАТУРА"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -767,6 +697,12 @@ msgstr "УДЕРЖИВАЙТЕ КНОПКУ ДЛЯ ПРОПУСКА"
 
 msgid "-NOT DEFINED-"
 msgstr "-НЕ НАЗНАЧЕНО-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -786,6 +722,9 @@ msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "SPACE"
 msgstr "ПРОБЕЛ"
+
+msgid "DELETE"
+msgstr "УДАЛИТЬ"
 
 msgid "DELETE A CHAR"
 msgstr "УДАЛИТЬ СИМВОЛ"
@@ -824,49 +763,6 @@ msgstr "ДЛЯ ОТМЕНЫ НАЖМИТЕ ESC ИЛИ ГОРЯЧУЮ КНОПК�
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
-msgid "LOADING..."
-msgstr "ЗАГРУЗКА..."
-
-msgid "PLEASE WAIT..."
-msgstr "ПОДОЖДИТЕ, ПОЖАЛУЙСТА..."
-
-msgid "never"
-msgstr "никогда"
-
-msgid "just now"
-msgstr "только что"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i секунда назад"
-msgstr[1] "%i секунды назад"
-msgstr[2] "%i секунд назад"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i минута назад"
-msgstr[1] "%i минуты назад"
-msgstr[2] "%i минут назад"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i час назад"
-msgstr[1] "%i часа назад"
-msgstr[2] "%i часов назад"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i день назад"
-msgstr[1] "%i дня назад"
-msgstr[2] "%i дней назад"
-
-msgid "unknown"
-msgstr "неизвестно"
-
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 
@@ -894,6 +790,169 @@ msgstr "ИЗМЕНИТЬ"
 
 msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "ПЕРЕЙТИ К БУКВЕ"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "ТОЛЬКО ИЗБРАННЫЕ"
+
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "ПОКАЗЫВАТЬ СКРЫТЫЕ"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
+
+#~ msgid "SAVE"
+#~ msgstr "СОХРАНИТЬ"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "ФАЙЛ БУДЕТ УДАЛЕН!\n"
+#~ "ВЫ УВЕРЕНЫ?"
+
+#~ msgid "enter emulator"
+#~ msgstr "введите эмулятор"
+
+#~ msgid "enter core"
+#~ msgstr "введите ядро"
+
+#~ msgid "Ratio"
+#~ msgstr "Пропорции"
+
+#~ msgid "enter ratio"
+#~ msgstr "введите пропорции"
+
+#~ msgid "Region"
+#~ msgstr "Регион"
+
+#~ msgid "enter region"
+#~ msgstr "введите регион"
+
+#~ msgid "Romtype"
+#~ msgstr "Тип рома"
+
+#~ msgid "enter romtype"
+#~ msgstr "введите тип рома"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i ИГРА ДОСТУПНА"
+#~ msgstr[1] "%i ИГРЫ ДОСТУПНО"
+#~ msgstr[2] "%i ИГР ДОСТУПНО"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i В ИЗБРАННЫХ"
+#~ msgstr[1] "%i В ИЗБРАННЫХ"
+#~ msgstr[2] "%i В ИЗБРАННЫХ"
+
+#~ msgid "%i GAME HIDDEN"
+#~ msgid_plural "%i GAMES HIDDEN"
+#~ msgstr[0] "%i ИГРА СКРЫТА"
+#~ msgstr[1] "%i ИГРЫ СКРЫТО"
+#~ msgstr[2] "%i ИГР СКРЫТО"
+
+#~ msgid "SCROLL"
+#~ msgstr "ЛИСТАТЬ"
+
+#~ msgid "FILENAME"
+#~ msgstr "ИМЯ ФАЙЛА"
+
+#~ msgid "RATING"
+#~ msgstr "РЕЙТИНГ"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "СЫГРАНО РАЗ"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "ПОСЛЕДНИЙ ЗАПУСК"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "КОЛИЧЕСТВО ИГРОКОВ"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "РАЗРАБОТЧИК"
+
+#~ msgid "GENRE"
+#~ msgstr "ЖАНР"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "ПОИСК ПО"
+
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgid "LEFT"
+#~ msgstr "ВЛЕВО"
+
+#~ msgid "RIGHT"
+#~ msgstr "ВПРАВО"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "ДЖОЙСТИК 1 ВВЕРХ"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "ДЖОЙСТИК 1 ВЛЕВО"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "ДЖОЙСТИК 2 ВВЕРХ"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "ДЖОЙСТИК 2 ВЛЕВО"
+
+#~ msgid "PAGE UP"
+#~ msgstr "СТРАНИЦА ВВЕРХ"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "СТРАНИЦА ВНИЗ"
+
+#~ msgid "HOTKEY"
+#~ msgstr "\"ГОРЯЧАЯ\" КНОПКА"
+
+#~ msgid "LOADING..."
+#~ msgstr "ЗАГРУЗКА..."
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "ПОДОЖДИТЕ, ПОЖАЛУЙСТА..."
+
+#~ msgid "never"
+#~ msgstr "никогда"
+
+#~ msgid "just now"
+#~ msgstr "только что"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i секунда назад"
+#~ msgstr[1] "%i секунды назад"
+#~ msgstr[2] "%i секунд назад"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i минута назад"
+#~ msgstr[1] "%i минуты назад"
+#~ msgstr[2] "%i минут назад"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i час назад"
+#~ msgstr[1] "%i часа назад"
+#~ msgstr[2] "%i часов назад"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i день назад"
+#~ msgstr[1] "%i дня назад"
+#~ msgstr[2] "%i дней назад"
+
+#~ msgid "unknown"
+#~ msgstr "неизвестно"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "ДОСТУПНО ОБНОВЛЕНИЕ ДЛЯ BATOCERA.LINUX"

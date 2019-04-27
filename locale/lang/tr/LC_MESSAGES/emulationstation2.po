@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,8 +37,8 @@ msgstr "BİR HATA OLUŞTU"
 msgid "INPUT"
 msgstr "GİRDİ"
 
-msgid "search"
-msgstr "ara"
+msgid "SEARCH"
+msgstr "ARA"
 
 msgid "CANCEL"
 msgstr "İPTAL"
@@ -49,23 +49,14 @@ msgstr "GERİ"
 msgid "CLOSE"
 msgstr "KAPAT"
 
-msgid "OPTIONS"
-msgstr "SEÇENEKLER"
-
-msgid "JUMP TO LETTER"
-msgstr "ŞU HARFE GİT"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "SIRALAMA KRİTERİ"
 
-msgid "FAVORITES ONLY"
-msgstr "SADECE FAVORİLER"
-
-msgid "SHOW HIDDEN"
+msgid "FILTER GAMELIST"
 msgstr ""
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "OYUN BİLGİLERİNİ DÜZENLE"
 
 msgid "FINNISHED"
 msgstr ""
@@ -76,8 +67,44 @@ msgstr "ANA MENÜ"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
+msgid "GAMES SETTINGS"
+msgstr "OYUN AYARLARI"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "KUMANDA AYARLARI"
+
+msgid "UI SETTINGS"
+msgstr "ARABİRİM AYARLARI"
+
+msgid "SOUND SETTINGS"
+msgstr "SES AYARLARI"
+
+msgid "NETWORK SETTINGS"
+msgstr "AĞ AYARLARI"
+
+msgid "SCRAPE"
+msgstr "ÇEK"
+
 msgid "SYSTEM SETTINGS"
 msgstr "SİSTEM AYARLARI"
+
+msgid "QUIT"
+msgstr "ÇIKIŞ"
+
+msgid "SCRAPE FROM"
+msgstr "ŞURADAN ÇEK"
+
+msgid "SCRAPE RATINGS"
+msgstr "PUANLARI ÇEK"
+
+msgid "SCRAPE NOW"
+msgstr "ŞİMDİ ÇEK"
+
+msgid "CHOOSE"
+msgstr "DEĞİŞTİR"
+
+msgid "SELECT"
+msgstr "SEÇ"
 
 msgid "INFORMATION"
 msgstr ""
@@ -147,9 +174,6 @@ msgstr "ROOT PAROLASI"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "SİSTEM YENİDEN BAŞLATILIYOR"
-
-msgid "GAMES SETTINGS"
-msgstr "OYUN AYARLARI"
 
 msgid "GAME RATIO"
 msgstr "GÖRÜNTÜ ORANI"
@@ -235,141 +259,6 @@ msgstr "OYUN LİSTESİ GÜNCELLENSİN Mİ?"
 msgid "UPDATE GAMES LISTS"
 msgstr "OYUN LİSTESİNİ GÜNCELLE"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KUMANDA AYARLARI"
-
-msgid "UI SETTINGS"
-msgstr "ARABİRİM AYARLARI"
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
-
-msgid "SCREENSAVER AFTER"
-msgstr "EKRAN KORUYUCU"
-
-msgid "TRANSITION STYLE"
-msgstr "GEÇİŞ STİLİ"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "EKRAN KORUYUCU DAVRANIŞI"
-
-msgid "SHOW FRAMERATE"
-msgstr "FRAMERATE GÖSTER"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "YARDIMI GÖSTER"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "HIZLI SİSTEM SEÇİMİ"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "EKRAN KLAVYESİ"
-
-msgid "THEME SET"
-msgstr "TEMA"
-
-msgid "SOUND SETTINGS"
-msgstr "SES AYARLARI"
-
-msgid "SYSTEM VOLUME"
-msgstr "SİSTEM SESİ"
-
-msgid "FRONTEND MUSIC"
-msgstr "ARABİRİM MÜZİĞİ"
-
-msgid "OUTPUT DEVICE"
-msgstr "ÇIKTI AYGITI"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "AĞ AYARLARI"
-
-msgid "CONNECTED"
-msgstr "BAĞLI"
-
-msgid "NOT CONNECTED"
-msgstr "BAĞLI DEĞİL"
-
-msgid "IP ADDRESS"
-msgstr "IP ADRESİ"
-
-msgid "HOSTNAME"
-msgstr "SİSTEM ADI"
-
-msgid "ENABLE WIFI"
-msgstr "WIFI ETKİNLEŞTİR"
-
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
-
-msgid "WIFI KEY"
-msgstr "WIFI ANAHTARI"
-
-msgid "WIFI ENABLED"
-msgstr "WIFI ETKİN"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI YAPILANDIRMA HATASI"
-
-msgid "SCRAPE"
-msgstr "ÇEK"
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "ŞURADAN ÇEK"
-
-msgid "SCRAPE RATINGS"
-msgstr "PUANLARI ÇEK"
-
-msgid "SCRAPE NOW"
-msgstr "ŞİMDİ ÇEK"
-
-msgid "QUIT"
-msgstr "ÇIKIŞ"
-
-msgid "REALLY RESTART?"
-msgstr "YENİDEN BAŞLAT"
-
-msgid "RESTART SYSTEM"
-msgstr "YENİDEN BAŞLAT"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "KAPAT"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "KAPAT"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr ""
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr ""
-
-msgid "Emulator"
-msgstr "Emulator"
-
-msgid "Core"
-msgstr "Core"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -404,11 +293,113 @@ msgstr "BLUETOOTH KUMANDA AYARLARINI UNUT"
 msgid "INPUT P%i"
 msgstr "GİRDİ P%i"
 
-msgid "CHOOSE"
-msgstr "DEĞİŞTİR"
+msgid "VIDEO OUTPUT"
+msgstr ""
 
-msgid "SELECT"
-msgstr "SEÇ"
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SCREENSAVER AFTER"
+msgstr "EKRAN KORUYUCU"
+
+msgid "TRANSITION STYLE"
+msgstr "GEÇİŞ STİLİ"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "EKRAN KORUYUCU DAVRANIŞI"
+
+msgid "SHOW FRAMERATE"
+msgstr "FRAMERATE GÖSTER"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "YARDIMI GÖSTER"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "HIZLI SİSTEM SEÇİMİ"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "EKRAN KLAVYESİ"
+
+msgid "THEME SET"
+msgstr "TEMA"
+
+msgid "SYSTEM VOLUME"
+msgstr "SİSTEM SESİ"
+
+msgid "FRONTEND MUSIC"
+msgstr "ARABİRİM MÜZİĞİ"
+
+msgid "OUTPUT DEVICE"
+msgstr "ÇIKTI AYGITI"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
+
+msgid "CONNECTED"
+msgstr "BAĞLI"
+
+msgid "NOT CONNECTED"
+msgstr "BAĞLI DEĞİL"
+
+msgid "IP ADDRESS"
+msgstr "IP ADRESİ"
+
+msgid "HOSTNAME"
+msgstr "SİSTEM ADI"
+
+msgid "ENABLE WIFI"
+msgstr "WIFI ETKİNLEŞTİR"
+
+msgid "WIFI SSID"
+msgstr "WIFI SSID"
+
+msgid "WIFI KEY"
+msgstr "WIFI ANAHTARI"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI ETKİN"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "WIFI YAPILANDIRMA HATASI"
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "REALLY RESTART?"
+msgstr "YENİDEN BAŞLAT"
+
+msgid "RESTART SYSTEM"
+msgstr "YENİDEN BAŞLAT"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "KAPAT"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "KAPAT"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr ""
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr ""
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "Core"
+msgstr "Core"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr ""
@@ -428,6 +419,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "ÇEKME İŞLEMİ SÜRÜYOR"
 
@@ -436,6 +430,9 @@ msgstr "SİSTEM"
 
 msgid "subtitle text"
 msgstr "altyazı metni"
+
+msgid "search"
+msgstr "ara"
 
 msgid "SKIP"
 msgstr "GEÇ"
@@ -507,39 +504,20 @@ msgstr "BU KRİTERE UYAN OYUN BULUNAMADI."
 msgid "EDIT METADATA"
 msgstr "DÜZENLE"
 
-msgid "SAVE"
-msgstr "KAYDET"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"BU İŞLEM BİR DOSYA SİLECEK!\n"
-"EMİN MİSİNİZ?"
-
-msgid "DELETE"
-msgstr "SİL"
-
 msgid "SAVE CHANGES?"
 msgstr "DEĞİŞİKLİKLERİ KAYDET?"
-
-msgid "enter emulator"
-msgstr "emulator girin"
-
-msgid "enter core"
-msgstr "core girin"
-
-msgid "Ratio"
-msgstr ""
-
-msgid "enter ratio"
-msgstr ""
 
 msgid "Name"
 msgstr "İsim"
 
 msgid "enter game name"
 msgstr "oyun ismi girin"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Açıklama"
@@ -553,11 +531,17 @@ msgstr "Resim"
 msgid "enter path to image"
 msgstr "resim adresini girin"
 
-msgid "Thumbnail"
-msgstr "Mini-resim"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "mini-resmin adresini girin"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Mini-resim"
 
 msgid "Rating"
 msgstr "Puan"
@@ -601,23 +585,17 @@ msgstr "Favori"
 msgid "enter favorite"
 msgstr "favori girin"
 
-msgid "Region"
-msgstr "Bölge"
-
-msgid "enter region"
-msgstr "bölge girin"
-
-msgid "Romtype"
-msgstr "Rom tipi"
-
-msgid "enter romtype"
-msgstr "rom tipi girin"
-
 msgid "Hidden"
 msgstr "Gizli"
 
 msgid "set hidden"
 msgstr "gizle"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Oynama sayısı"
@@ -631,23 +609,35 @@ msgstr "Son oynanma"
 msgid "enter last played date"
 msgstr "son oynanma tarihini girin"
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i OYUN"
-msgstr[1] "%i OYUN"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i FAVORİ"
-msgstr[1] "%i FAVORİ"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -661,32 +651,11 @@ msgstr "Kaç kez oynandı"
 msgid "LAUNCH"
 msgstr "BAŞLAT"
 
-msgid "SCROLL"
-msgstr "KAYDIR"
+msgid "OPTIONS"
+msgstr "SEÇENEKLER"
 
 msgid "MENU"
 msgstr "MENÜ"
-
-msgid "FILENAME"
-msgstr "DOSYA ADI"
-
-msgid "RATING"
-msgstr ""
-
-msgid "TIMES PLAYED"
-msgstr "KAÇ KEZ OYNANDI"
-
-msgid "LAST PLAYED"
-msgstr "SON OYNANMA"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "OYUNCU SAYISI"
-
-msgid "DEVELOPER"
-msgstr "GELİŞTİRİCİ"
-
-msgid "GENRE"
-msgstr "TÜR"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "OYUN BULUNAMADI"
@@ -694,56 +663,20 @@ msgstr "OYUN BULUNAMADI"
 msgid "RETRY"
 msgstr "TEKRAR DENE"
 
-msgid "SEARCH FOR"
-msgstr "ARAMA YAP"
-
-msgid "SEARCH"
-msgstr "ARA"
-
 msgid "ACCEPT RESULT"
 msgstr "ONAYLA"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "YUKARI"
-
-msgid "DOWN"
-msgstr "AŞAĞI"
-
-msgid "LEFT"
-msgstr "SOL"
-
-msgid "RIGHT"
-msgstr "SAĞ"
-
-msgid "JOYSTICK 1 UP"
-msgstr "JOYSTICK 1 YUKARI"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "JOYSTICK 1 SOL"
-
-msgid "JOYSTICK 2 UP"
-msgstr "JOYSTICK 2 YUKARI"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "JOYSTICK 2 SOL"
-
-msgid "PAGE UP"
-msgstr "PAGE UP"
-
-msgid "PAGE DOWN"
-msgstr "PAGE DOWN"
-
-msgid "HOTKEY"
-msgstr "HOTKEY"
-
 msgid "CONFIGURING"
 msgstr "YAPILANDIRILIYOR"
 
 msgid "KEYBOARD"
 msgstr "KLAVYE"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -754,6 +687,12 @@ msgstr "GEÇMEK İÇİN BİR TUŞA BASILI TUTUN"
 
 msgid "-NOT DEFINED-"
 msgstr "-TANIMLI DEĞİL-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -772,6 +711,9 @@ msgstr ""
 
 msgid "SPACE"
 msgstr "BOŞLUK"
+
+msgid "DELETE"
+msgstr "SİL"
 
 msgid "DELETE A CHAR"
 msgstr ""
@@ -809,45 +751,6 @@ msgstr "İPTAL İÇİN ESC VEYA HOTKEY TUŞUNA BAS."
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI SUNUCUSU BAŞLATILSIN MI?"
 
-msgid "LOADING..."
-msgstr "YÜKLENİYOR..."
-
-msgid "PLEASE WAIT..."
-msgstr "LÜTFEN BEKLEYİN..."
-
-msgid "never"
-msgstr "hiç"
-
-msgid "just now"
-msgstr "az önce"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i saniye önce"
-msgstr[1] "%i saniye önce"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i dakika önce"
-msgstr[1] "%i dakika önce"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i saat önce"
-msgstr[1] "%i saat önce"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i gün önce"
-msgstr[1] "%i gün önce"
-
-msgid "unknown"
-msgstr "bilinmiyor"
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -874,6 +777,145 @@ msgstr "DEĞİŞTİR"
 
 msgid "WORKING..."
 msgstr "DEVAM EDİYOR..."
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "ŞU HARFE GİT"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "SADECE FAVORİLER"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "OYUN BİLGİLERİNİ DÜZENLE"
+
+#~ msgid "SAVE"
+#~ msgstr "KAYDET"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "BU İŞLEM BİR DOSYA SİLECEK!\n"
+#~ "EMİN MİSİNİZ?"
+
+#~ msgid "enter emulator"
+#~ msgstr "emulator girin"
+
+#~ msgid "enter core"
+#~ msgstr "core girin"
+
+#~ msgid "Region"
+#~ msgstr "Bölge"
+
+#~ msgid "enter region"
+#~ msgstr "bölge girin"
+
+#~ msgid "Romtype"
+#~ msgstr "Rom tipi"
+
+#~ msgid "enter romtype"
+#~ msgstr "rom tipi girin"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i OYUN"
+#~ msgstr[1] "%i OYUN"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i FAVORİ"
+#~ msgstr[1] "%i FAVORİ"
+
+#~ msgid "SCROLL"
+#~ msgstr "KAYDIR"
+
+#~ msgid "FILENAME"
+#~ msgstr "DOSYA ADI"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "KAÇ KEZ OYNANDI"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "SON OYNANMA"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "OYUNCU SAYISI"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "GELİŞTİRİCİ"
+
+#~ msgid "GENRE"
+#~ msgstr "TÜR"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "ARAMA YAP"
+
+#~ msgid "UP"
+#~ msgstr "YUKARI"
+
+#~ msgid "DOWN"
+#~ msgstr "AŞAĞI"
+
+#~ msgid "LEFT"
+#~ msgstr "SOL"
+
+#~ msgid "RIGHT"
+#~ msgstr "SAĞ"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "JOYSTICK 1 YUKARI"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "JOYSTICK 1 SOL"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "JOYSTICK 2 YUKARI"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "JOYSTICK 2 SOL"
+
+#~ msgid "PAGE UP"
+#~ msgstr "PAGE UP"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "PAGE DOWN"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
+
+#~ msgid "LOADING..."
+#~ msgstr "YÜKLENİYOR..."
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "LÜTFEN BEKLEYİN..."
+
+#~ msgid "never"
+#~ msgstr "hiç"
+
+#~ msgid "just now"
+#~ msgstr "az önce"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i saniye önce"
+#~ msgstr[1] "%i saniye önce"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i dakika önce"
+#~ msgstr[1] "%i dakika önce"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i saat önce"
+#~ msgstr[1] "%i saat önce"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i gün önce"
+#~ msgstr[1] "%i gün önce"
+
+#~ msgid "unknown"
+#~ msgstr "bilinmiyor"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "SİSTEMİNİZE AİT GÜNCELLEME MEVCUT"

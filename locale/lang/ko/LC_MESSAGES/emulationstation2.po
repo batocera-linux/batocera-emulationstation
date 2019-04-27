@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "오류 발생됨"
 msgid "INPUT"
 msgstr "입력"
 
-msgid "search"
+msgid "SEARCH"
 msgstr "검색"
 
 msgid "CANCEL"
@@ -49,23 +49,14 @@ msgstr "뒤로"
 msgid "CLOSE"
 msgstr "닫기"
 
-msgid "OPTIONS"
-msgstr "옵션"
-
-msgid "JUMP TO LETTER"
-msgstr "문자로 이동"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "다음으로 게임 정렬"
 
-msgid "FAVORITES ONLY"
-msgstr "즐겨찾기만 표시"
-
-msgid "SHOW HIDDEN"
-msgstr "숨김 표시"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임 정보 편집"
+msgid "FILTER GAMELIST"
+msgstr ""
 
 msgid "FINNISHED"
 msgstr "완료"
@@ -76,8 +67,44 @@ msgstr "메인 메뉴"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 미디어 센터"
 
+msgid "GAMES SETTINGS"
+msgstr "게임 설정"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "컨트롤러 설정"
+
+msgid "UI SETTINGS"
+msgstr "사용자 인터페이스 설정"
+
+msgid "SOUND SETTINGS"
+msgstr "사운드 설정"
+
+msgid "NETWORK SETTINGS"
+msgstr "네트워크 설정"
+
+msgid "SCRAPE"
+msgstr "스크랩"
+
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
+
+msgid "QUIT"
+msgstr "종료"
+
+msgid "SCRAPE FROM"
+msgstr "수집 출처"
+
+msgid "SCRAPE RATINGS"
+msgstr "평점 수집"
+
+msgid "SCRAPE NOW"
+msgstr "수집 시작"
+
+msgid "CHOOSE"
+msgstr "선택"
+
+msgid "SELECT"
+msgstr "선택"
 
 msgid "INFORMATION"
 msgstr "정보"
@@ -147,9 +174,6 @@ msgstr "관리자 비밀번호"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "시스템이 지금 다시 시작됩니다."
-
-msgid "GAMES SETTINGS"
-msgstr "게임 설정"
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
@@ -235,141 +259,6 @@ msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
 msgid "UPDATE GAMES LISTS"
 msgstr "게임 목록 업데이트"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "컨트롤러 설정"
-
-msgid "UI SETTINGS"
-msgstr "사용자 인터페이스 설정"
-
-msgid "VIDEO OUTPUT"
-msgstr "비디오 출력"
-
-msgid "OVERSCAN"
-msgstr "오버 스캔"
-
-msgid "SCREENSAVER AFTER"
-msgstr "화면 보호기 작동"
-
-msgid "TRANSITION STYLE"
-msgstr "화면 전환 형식"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "화면 보호기 행동"
-
-msgid "SHOW FRAMERATE"
-msgstr "프레임 속도 표시"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "도움말 표시"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "빠른 시스템 선택"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "화상 키보드"
-
-msgid "THEME SET"
-msgstr "테마 선택"
-
-msgid "SOUND SETTINGS"
-msgstr "사운드 설정"
-
-msgid "SYSTEM VOLUME"
-msgstr "시스템 음량"
-
-msgid "FRONTEND MUSIC"
-msgstr "배경 음악"
-
-msgid "OUTPUT DEVICE"
-msgstr "출력 기기"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
-
-msgid "NETWORK SETTINGS"
-msgstr "네트워크 설정"
-
-msgid "CONNECTED"
-msgstr "연결됨"
-
-msgid "NOT CONNECTED"
-msgstr "연결되지 않음"
-
-msgid "IP ADDRESS"
-msgstr "IP 주소"
-
-msgid "HOSTNAME"
-msgstr "호스트 이름"
-
-msgid "ENABLE WIFI"
-msgstr "WIFI 활성화"
-
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
-
-msgid "WIFI KEY"
-msgstr "WIFI 비밀번호"
-
-msgid "WIFI ENABLED"
-msgstr "WIFI 활성화됨"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 구성 오류"
-
-msgid "SCRAPE"
-msgstr "스크랩"
-
-msgid "REALLY SCRAPE?"
-msgstr "수집 할까요?"
-
-msgid "AUTOMATIC SCRAPER"
-msgstr "자동 수집"
-
-msgid "MANUAL SCRAPER"
-msgstr "수동 수집"
-
-msgid "SCRAPE FROM"
-msgstr "수집 출처"
-
-msgid "SCRAPE RATINGS"
-msgstr "평점 수집"
-
-msgid "SCRAPE NOW"
-msgstr "수집 시작"
-
-msgid "QUIT"
-msgstr "종료"
-
-msgid "REALLY RESTART?"
-msgstr "정말로 다시 시작 하시겠습니까?"
-
-msgid "RESTART SYSTEM"
-msgstr "시스템 다시 시작"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "정말로 시스템을 종료하시겠습니까?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "시스템 종료"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "빠른 시스템 종료"
-
-msgid "Emulator"
-msgstr "에뮬레이터"
-
-msgid "Core"
-msgstr "코어"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -404,11 +293,113 @@ msgstr "블루투스 컨트롤러 삭제"
 msgid "INPUT P%i"
 msgstr "입력 P%i"
 
-msgid "CHOOSE"
-msgstr "선택"
+msgid "VIDEO OUTPUT"
+msgstr "비디오 출력"
 
-msgid "SELECT"
-msgstr "선택"
+msgid "OVERSCAN"
+msgstr "오버 스캔"
+
+msgid "SCREENSAVER AFTER"
+msgstr "화면 보호기 작동"
+
+msgid "TRANSITION STYLE"
+msgstr "화면 전환 형식"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "화면 보호기 행동"
+
+msgid "SHOW FRAMERATE"
+msgstr "프레임 속도 표시"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "도움말 표시"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "빠른 시스템 선택"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "화상 키보드"
+
+msgid "THEME SET"
+msgstr "테마 선택"
+
+msgid "SYSTEM VOLUME"
+msgstr "시스템 음량"
+
+msgid "FRONTEND MUSIC"
+msgstr "배경 음악"
+
+msgid "OUTPUT DEVICE"
+msgstr "출력 기기"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
+
+msgid "CONNECTED"
+msgstr "연결됨"
+
+msgid "NOT CONNECTED"
+msgstr "연결되지 않음"
+
+msgid "IP ADDRESS"
+msgstr "IP 주소"
+
+msgid "HOSTNAME"
+msgstr "호스트 이름"
+
+msgid "ENABLE WIFI"
+msgstr "WIFI 활성화"
+
+msgid "WIFI SSID"
+msgstr "WIFI SSID"
+
+msgid "WIFI KEY"
+msgstr "WIFI 비밀번호"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI 활성화됨"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "WIFI 구성 오류"
+
+msgid "REALLY SCRAPE?"
+msgstr "수집 할까요?"
+
+msgid "AUTOMATIC SCRAPER"
+msgstr "자동 수집"
+
+msgid "MANUAL SCRAPER"
+msgstr "수동 수집"
+
+msgid "REALLY RESTART?"
+msgstr "정말로 다시 시작 하시겠습니까?"
+
+msgid "RESTART SYSTEM"
+msgstr "시스템 다시 시작"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "정말로 시스템을 종료하시겠습니까?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "시스템 종료"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "빠른 시스템 종료"
+
+msgid "Emulator"
+msgstr "에뮬레이터"
+
+msgid "Core"
+msgstr "코어"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "바투세라 설치"
@@ -428,6 +419,9 @@ msgstr "예, 확실합니다."
 msgid "INSTALL"
 msgstr "설치"
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "스크랩 진행 중"
 
@@ -436,6 +430,9 @@ msgstr "시스템"
 
 msgid "subtitle text"
 msgstr "자막"
+
+msgid "search"
+msgstr "검색"
 
 msgid "SKIP"
 msgstr "건너뛰기"
@@ -508,39 +505,20 @@ msgstr "조건에 맞는 게임이 없습니다."
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
 
-msgid "SAVE"
-msgstr "저장"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"파일을 삭제합니다.\n"
-"정말로 진행하시겠습니까?"
-
-msgid "DELETE"
-msgstr "삭제"
-
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
-
-msgid "enter emulator"
-msgstr "에뮬레이터 선택"
-
-msgid "enter core"
-msgstr "코어 선택"
-
-msgid "Ratio"
-msgstr "화면 비율"
-
-msgid "enter ratio"
-msgstr "비율 선택"
 
 msgid "Name"
 msgstr "이름"
 
 msgid "enter game name"
 msgstr "게임 이름 입력"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "설명"
@@ -554,11 +532,17 @@ msgstr "이미지"
 msgid "enter path to image"
 msgstr "이미지 경로 입력"
 
-msgid "Thumbnail"
-msgstr "축소판 그림"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "축소판 그림 경로 입력"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "축소판 그림"
 
 msgid "Rating"
 msgstr "평점"
@@ -602,23 +586,17 @@ msgstr "즐겨찾기"
 msgid "enter favorite"
 msgstr "즐겨찾기 입력"
 
-msgid "Region"
-msgstr "지역"
-
-msgid "enter region"
-msgstr "지역"
-
-msgid "Romtype"
-msgstr "롬 형식"
-
-msgid "enter romtype"
-msgstr "롬 형식 입력"
-
 msgid "Hidden"
 msgstr "숨김"
 
 msgid "set hidden"
 msgstr "숨김 설정"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "플레이 횟수"
@@ -632,20 +610,35 @@ msgstr "마지막 플레이"
 msgid "enter last played date"
 msgstr "마지막 플레이한 날짜 입력"
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i 개의 게임 사용 가능"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "%i 개의 즐겨찾기"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] "%i 개의 게임 숨김"
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -659,32 +652,11 @@ msgstr "플레이 횟수"
 msgid "LAUNCH"
 msgstr "실행"
 
-msgid "SCROLL"
-msgstr "스크롤"
+msgid "OPTIONS"
+msgstr "옵션"
 
 msgid "MENU"
 msgstr "메뉴"
-
-msgid "FILENAME"
-msgstr "파일 이름"
-
-msgid "RATING"
-msgstr "평점"
-
-msgid "TIMES PLAYED"
-msgstr "실행 횟수"
-
-msgid "LAST PLAYED"
-msgstr "마지막 실행"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "플레이어 수"
-
-msgid "DEVELOPER"
-msgstr "개발자"
-
-msgid "GENRE"
-msgstr "장르"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
@@ -692,56 +664,20 @@ msgstr "발견된 게임 없음 - 건너뛰기"
 msgid "RETRY"
 msgstr "재시도"
 
-msgid "SEARCH FOR"
-msgstr "검색 중"
-
-msgid "SEARCH"
-msgstr "검색"
-
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "위"
-
-msgid "DOWN"
-msgstr "아래"
-
-msgid "LEFT"
-msgstr "왼쪽"
-
-msgid "RIGHT"
-msgstr "오른쪽"
-
-msgid "JOYSTICK 1 UP"
-msgstr "조이스틱 1 위"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "조이스틱 1 왼쪽"
-
-msgid "JOYSTICK 2 UP"
-msgstr "조이스틱 2 위"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "조이스틱 2 왼쪽"
-
-msgid "PAGE UP"
-msgstr "한 페이지 위"
-
-msgid "PAGE DOWN"
-msgstr "한 페이지 아래"
-
-msgid "HOTKEY"
-msgstr "단축키"
-
 msgid "CONFIGURING"
 msgstr "구성 중"
 
 msgid "KEYBOARD"
 msgstr "키보드"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -752,6 +688,12 @@ msgstr "건너뛰려면 아무 버튼이나 누르세요."
 
 msgid "-NOT DEFINED-"
 msgstr "-정의되지 않음-"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -769,6 +711,9 @@ msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
 
 msgid "SPACE"
 msgstr "스페이스"
+
+msgid "DELETE"
+msgstr "삭제"
 
 msgid "DELETE A CHAR"
 msgstr "문자 삭제"
@@ -805,41 +750,6 @@ msgstr "ESC 또는 단축키를 누르면 취소합니다."
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI 미디어 센터를 실행하시겠습니까?"
 
-msgid "LOADING..."
-msgstr "불러오는 중..."
-
-msgid "PLEASE WAIT..."
-msgstr "잠시 기다려 주십시오..."
-
-msgid "never"
-msgstr "없음"
-
-msgid "just now"
-msgstr "방금 전"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "%i 초 전"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "%i 분 전"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "%i 시간 전"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "%i 일 전"
-
-msgid "unknown"
-msgstr "알수없음"
-
 msgid "MOVE CURSOR"
 msgstr "커서 이동"
 
@@ -865,6 +775,155 @@ msgstr "변경"
 
 msgid "WORKING..."
 msgstr "작업 중..."
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "문자로 이동"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "즐겨찾기만 표시"
+
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "숨김 표시"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "게임 정보 편집"
+
+#~ msgid "SAVE"
+#~ msgstr "저장"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "파일을 삭제합니다.\n"
+#~ "정말로 진행하시겠습니까?"
+
+#~ msgid "enter emulator"
+#~ msgstr "에뮬레이터 선택"
+
+#~ msgid "enter core"
+#~ msgstr "코어 선택"
+
+#~ msgid "Ratio"
+#~ msgstr "화면 비율"
+
+#~ msgid "enter ratio"
+#~ msgstr "비율 선택"
+
+#~ msgid "Region"
+#~ msgstr "지역"
+
+#~ msgid "enter region"
+#~ msgstr "지역"
+
+#~ msgid "Romtype"
+#~ msgstr "롬 형식"
+
+#~ msgid "enter romtype"
+#~ msgstr "롬 형식 입력"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i 개의 게임 사용 가능"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "%i 개의 즐겨찾기"
+
+#~ msgid "%i GAME HIDDEN"
+#~ msgid_plural "%i GAMES HIDDEN"
+#~ msgstr[0] "%i 개의 게임 숨김"
+
+#~ msgid "SCROLL"
+#~ msgstr "스크롤"
+
+#~ msgid "FILENAME"
+#~ msgstr "파일 이름"
+
+#~ msgid "RATING"
+#~ msgstr "평점"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "실행 횟수"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "마지막 실행"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "플레이어 수"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "개발자"
+
+#~ msgid "GENRE"
+#~ msgstr "장르"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "검색 중"
+
+#~ msgid "UP"
+#~ msgstr "위"
+
+#~ msgid "DOWN"
+#~ msgstr "아래"
+
+#~ msgid "LEFT"
+#~ msgstr "왼쪽"
+
+#~ msgid "RIGHT"
+#~ msgstr "오른쪽"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "조이스틱 1 위"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "조이스틱 1 왼쪽"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "조이스틱 2 위"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "조이스틱 2 왼쪽"
+
+#~ msgid "PAGE UP"
+#~ msgstr "한 페이지 위"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "한 페이지 아래"
+
+#~ msgid "HOTKEY"
+#~ msgstr "단축키"
+
+#~ msgid "LOADING..."
+#~ msgstr "불러오는 중..."
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "잠시 기다려 주십시오..."
+
+#~ msgid "never"
+#~ msgstr "없음"
+
+#~ msgid "just now"
+#~ msgstr "방금 전"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "%i 초 전"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "%i 분 전"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "%i 시간 전"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "%i 일 전"
+
+#~ msgid "unknown"
+#~ msgstr "알수없음"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "새로운 업데이트를 사용할 수 있습니다."

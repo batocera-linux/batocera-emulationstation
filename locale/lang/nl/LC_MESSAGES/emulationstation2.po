@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "Er is een probleem opgetreden"
 msgid "INPUT"
 msgstr "Invoer"
 
-msgid "search"
+msgid "SEARCH"
 msgstr "Zoeken"
 
 msgid "CANCEL"
@@ -49,23 +49,14 @@ msgstr "Terug"
 msgid "CLOSE"
 msgstr "Sluiten"
 
-msgid "OPTIONS"
-msgstr "Opties"
-
-msgid "JUMP TO LETTER"
-msgstr "Ga naar letter"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "Sorteer spellen op"
 
-msgid "FAVORITES ONLY"
-msgstr "Alleen favorieten"
-
-msgid "SHOW HIDDEN"
+msgid "FILTER GAMELIST"
 msgstr ""
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "Bewerk deze spelgegevens"
 
 msgid "FINNISHED"
 msgstr ""
@@ -76,8 +67,44 @@ msgstr "Hoofdmenu"
 msgid "KODI MEDIA CENTER"
 msgstr "Kodi Media Center"
 
+msgid "GAMES SETTINGS"
+msgstr "Spel instellingen"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "Controller instellingen"
+
+msgid "UI SETTINGS"
+msgstr "UI instellingen"
+
+msgid "SOUND SETTINGS"
+msgstr "Geluid instellingen"
+
+msgid "NETWORK SETTINGS"
+msgstr "Netwerk instellingen"
+
+msgid "SCRAPE"
+msgstr "Scrape"
+
 msgid "SYSTEM SETTINGS"
 msgstr "Systeem instellingen"
+
+msgid "QUIT"
+msgstr "Stoppen"
+
+msgid "SCRAPE FROM"
+msgstr "Scrape vanaf"
+
+msgid "SCRAPE RATINGS"
+msgstr "Scrape beoordelingen"
+
+msgid "SCRAPE NOW"
+msgstr "Nu scrapen"
+
+msgid "CHOOSE"
+msgstr "Kies"
+
+msgid "SELECT"
+msgstr "Selecteer"
 
 msgid "INFORMATION"
 msgstr ""
@@ -147,9 +174,6 @@ msgstr "Root Wachtwoord"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "Het systeem zal nu herstarten"
-
-msgid "GAMES SETTINGS"
-msgstr "Spel instellingen"
 
 msgid "GAME RATIO"
 msgstr "Spel Ratio"
@@ -235,141 +259,6 @@ msgstr "Spellijst updaten?"
 msgid "UPDATE GAMES LISTS"
 msgstr "Update spellijst"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "Controller instellingen"
-
-msgid "UI SETTINGS"
-msgstr "UI instellingen"
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "Overscan"
-
-msgid "SCREENSAVER AFTER"
-msgstr "Schermbeveiliging na"
-
-msgid "TRANSITION STYLE"
-msgstr "Transitie stijl"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "Schermbeveiliging gedrag"
-
-msgid "SHOW FRAMERATE"
-msgstr "Toon framerate"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "Scherm hulp"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "Snelle systeem keuze"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "Thema set"
-
-msgid "SOUND SETTINGS"
-msgstr "Geluid instellingen"
-
-msgid "SYSTEM VOLUME"
-msgstr "Systeem volume"
-
-msgid "FRONTEND MUSIC"
-msgstr "Frontend Muziek"
-
-msgid "OUTPUT DEVICE"
-msgstr "Output apparaat"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "Netwerk instellingen"
-
-msgid "CONNECTED"
-msgstr "Verbonden"
-
-msgid "NOT CONNECTED"
-msgstr "Niet verbonden"
-
-msgid "IP ADDRESS"
-msgstr "IP Adres"
-
-msgid "HOSTNAME"
-msgstr "Host naam"
-
-msgid "ENABLE WIFI"
-msgstr "Wifi inschakelen"
-
-msgid "WIFI SSID"
-msgstr "Wifi SSID"
-
-msgid "WIFI KEY"
-msgstr "Wifi sleutel"
-
-msgid "WIFI ENABLED"
-msgstr "Wifi ingeschakeld"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "Wifi configuratie fout"
-
-msgid "SCRAPE"
-msgstr "Scrape"
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "Scrape vanaf"
-
-msgid "SCRAPE RATINGS"
-msgstr "Scrape beoordelingen"
-
-msgid "SCRAPE NOW"
-msgstr "Nu scrapen"
-
-msgid "QUIT"
-msgstr "Stoppen"
-
-msgid "REALLY RESTART?"
-msgstr "Systeem herstarten?"
-
-msgid "RESTART SYSTEM"
-msgstr "Systeem herstarten"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "Systeem uitschakelen?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "Systeem uitschakelen"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "Uitschakelen zonder opslaan van Metadata?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "Snel uitschakelen systeem"
-
-msgid "Emulator"
-msgstr "Emulator"
-
-msgid "Core"
-msgstr "Core"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -406,11 +295,113 @@ msgstr "Vergeet Bluetooth controllers"
 msgid "INPUT P%i"
 msgstr "Input P%i"
 
-msgid "CHOOSE"
-msgstr "Kies"
+msgid "VIDEO OUTPUT"
+msgstr ""
 
-msgid "SELECT"
-msgstr "Selecteer"
+msgid "OVERSCAN"
+msgstr "Overscan"
+
+msgid "SCREENSAVER AFTER"
+msgstr "Schermbeveiliging na"
+
+msgid "TRANSITION STYLE"
+msgstr "Transitie stijl"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "Schermbeveiliging gedrag"
+
+msgid "SHOW FRAMERATE"
+msgstr "Toon framerate"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "Scherm hulp"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "Snelle systeem keuze"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "Thema set"
+
+msgid "SYSTEM VOLUME"
+msgstr "Systeem volume"
+
+msgid "FRONTEND MUSIC"
+msgstr "Frontend Muziek"
+
+msgid "OUTPUT DEVICE"
+msgstr "Output apparaat"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
+
+msgid "CONNECTED"
+msgstr "Verbonden"
+
+msgid "NOT CONNECTED"
+msgstr "Niet verbonden"
+
+msgid "IP ADDRESS"
+msgstr "IP Adres"
+
+msgid "HOSTNAME"
+msgstr "Host naam"
+
+msgid "ENABLE WIFI"
+msgstr "Wifi inschakelen"
+
+msgid "WIFI SSID"
+msgstr "Wifi SSID"
+
+msgid "WIFI KEY"
+msgstr "Wifi sleutel"
+
+msgid "WIFI ENABLED"
+msgstr "Wifi ingeschakeld"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "Wifi configuratie fout"
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "REALLY RESTART?"
+msgstr "Systeem herstarten?"
+
+msgid "RESTART SYSTEM"
+msgstr "Systeem herstarten"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "Systeem uitschakelen?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "Systeem uitschakelen"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "Uitschakelen zonder opslaan van Metadata?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "Snel uitschakelen systeem"
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "Core"
+msgstr "Core"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr ""
@@ -430,6 +421,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "Bezig met scrapen"
 
@@ -438,6 +432,9 @@ msgstr "Systeem"
 
 msgid "subtitle text"
 msgstr "Ondertitelings tekst"
+
+msgid "search"
+msgstr "Zoeken"
 
 msgid "SKIP"
 msgstr "Overslaan"
@@ -511,39 +508,20 @@ msgstr "Geen spellen gevonden met die criteria"
 msgid "EDIT METADATA"
 msgstr "Wijzigen metadata"
 
-msgid "SAVE"
-msgstr "Opslaan"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"Dit zal een bestand wissen!\n"
-"Weet je het zeker?"
-
-msgid "DELETE"
-msgstr "Wissen"
-
 msgid "SAVE CHANGES?"
 msgstr "Wijzigingen opslaan?"
-
-msgid "enter emulator"
-msgstr "Wijzig emulator"
-
-msgid "enter core"
-msgstr "Wijzig core"
-
-msgid "Ratio"
-msgstr "Ratio"
-
-msgid "enter ratio"
-msgstr "Wijzig ratio"
 
 msgid "Name"
 msgstr "Naam"
 
 msgid "enter game name"
 msgstr "Wijzig spel naam"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Beschrijving"
@@ -557,11 +535,17 @@ msgstr "Beeld"
 msgid "enter path to image"
 msgstr "Toets pad naar afbeelding"
 
-msgid "Thumbnail"
-msgstr "Thumbnail"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "Toets pad naar beeld"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Thumbnail"
 
 msgid "Rating"
 msgstr "Beoordeling"
@@ -605,23 +589,17 @@ msgstr "Favoriet"
 msgid "enter favorite"
 msgstr "Wijzig favoriet"
 
-msgid "Region"
-msgstr "Regio"
-
-msgid "enter region"
-msgstr "Wijzig regio"
-
-msgid "Romtype"
-msgstr "Romtype"
-
-msgid "enter romtype"
-msgstr "Wijzig Romtype"
-
 msgid "Hidden"
 msgstr "Verborgen"
 
 msgid "set hidden"
 msgstr "Maak verborgen"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Speel teller"
@@ -635,27 +613,35 @@ msgstr "Laatst gespeeld"
 msgid "enter last played date"
 msgstr "Wijzig laatst gespeelde datum"
 
-#, fuzzy, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] ""
-"%i Spel beschikbaar\n"
-"%i Spellen beschikbaar"
-msgstr[1] ""
+msgid "name"
+msgstr ""
 
-#, fuzzy, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] ""
-"%i Favoriet\n"
-"%i Favorieten"
-msgstr[1] ""
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -669,32 +655,11 @@ msgstr "Keren gespeeld"
 msgid "LAUNCH"
 msgstr "Spelen"
 
-msgid "SCROLL"
-msgstr "Scroll"
+msgid "OPTIONS"
+msgstr "Opties"
 
 msgid "MENU"
 msgstr "Menu"
-
-msgid "FILENAME"
-msgstr ""
-
-msgid "RATING"
-msgstr ""
-
-msgid "TIMES PLAYED"
-msgstr ""
-
-msgid "LAST PLAYED"
-msgstr ""
-
-msgid "NUMBER OF PLAYERS"
-msgstr ""
-
-msgid "DEVELOPER"
-msgstr ""
-
-msgid "GENRE"
-msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "Geen spellen gevonden - Overslaan"
@@ -702,56 +667,20 @@ msgstr "Geen spellen gevonden - Overslaan"
 msgid "RETRY"
 msgstr "Opnieuw"
 
-msgid "SEARCH FOR"
-msgstr "Zoeken naar"
-
-msgid "SEARCH"
-msgstr "Zoeken"
-
 msgid "ACCEPT RESULT"
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "Omhoog"
-
-msgid "DOWN"
-msgstr "Beneden"
-
-msgid "LEFT"
-msgstr "Links"
-
-msgid "RIGHT"
-msgstr "Rechts"
-
-msgid "JOYSTICK 1 UP"
-msgstr "Joystick 1 omhoog"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "Joystick 1 links"
-
-msgid "JOYSTICK 2 UP"
-msgstr "Joystick 2 omhoog"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "Joystick 2 Links"
-
-msgid "PAGE UP"
-msgstr "Pagina omhoog"
-
-msgid "PAGE DOWN"
-msgstr "Pagina omlaag"
-
-msgid "HOTKEY"
-msgstr "Hotkey"
-
 msgid "CONFIGURING"
 msgstr "Configureren"
 
 msgid "KEYBOARD"
 msgstr "Toetsenbord"
+
+msgid "CEC"
+msgstr ""
 
 #, fuzzy, c-format
 msgid "GAMEPAD %i"
@@ -762,6 +691,12 @@ msgstr "Druk willekeurige toets voor overslaan"
 
 msgid "-NOT DEFINED-"
 msgstr "-Niet ge"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, fuzzy, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -784,6 +719,9 @@ msgstr ""
 
 msgid "SPACE"
 msgstr ""
+
+msgid "DELETE"
+msgstr "Wissen"
 
 msgid "DELETE A CHAR"
 msgstr ""
@@ -823,53 +761,6 @@ msgstr "Druk ESC of de Hotkey om te stoppen"
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "Wil je Kodi Media Center starten?"
 
-msgid "LOADING..."
-msgstr "Laden"
-
-msgid "PLEASE WAIT..."
-msgstr "Wachten a.u.b."
-
-msgid "never"
-msgstr "Nooit"
-
-msgid "just now"
-msgstr "Net"
-
-#, fuzzy, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] ""
-"%i sec geleden\n"
-"%i sec geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] ""
-"%i min geleden\n"
-"%i min geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] ""
-"%i uur geleden\n"
-"%i uur geleden"
-msgstr[1] ""
-
-#, fuzzy, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] ""
-"%i dag geleden\n"
-"% dagen geleden"
-msgstr[1] ""
-
-msgid "unknown"
-msgstr "Onbekend"
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -898,6 +789,151 @@ msgstr "Wijzig"
 
 msgid "WORKING..."
 msgstr "Bezig"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "Ga naar letter"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "Alleen favorieten"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "Bewerk deze spelgegevens"
+
+#~ msgid "SAVE"
+#~ msgstr "Opslaan"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "Dit zal een bestand wissen!\n"
+#~ "Weet je het zeker?"
+
+#~ msgid "enter emulator"
+#~ msgstr "Wijzig emulator"
+
+#~ msgid "enter core"
+#~ msgstr "Wijzig core"
+
+#~ msgid "Ratio"
+#~ msgstr "Ratio"
+
+#~ msgid "enter ratio"
+#~ msgstr "Wijzig ratio"
+
+#~ msgid "Region"
+#~ msgstr "Regio"
+
+#~ msgid "enter region"
+#~ msgstr "Wijzig regio"
+
+#~ msgid "Romtype"
+#~ msgstr "Romtype"
+
+#~ msgid "enter romtype"
+#~ msgstr "Wijzig Romtype"
+
+#, fuzzy
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] ""
+#~ "%i Spel beschikbaar\n"
+#~ "%i Spellen beschikbaar"
+#~ msgstr[1] ""
+
+#, fuzzy
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] ""
+#~ "%i Favoriet\n"
+#~ "%i Favorieten"
+#~ msgstr[1] ""
+
+#~ msgid "SCROLL"
+#~ msgstr "Scroll"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "Zoeken naar"
+
+#~ msgid "UP"
+#~ msgstr "Omhoog"
+
+#~ msgid "DOWN"
+#~ msgstr "Beneden"
+
+#~ msgid "LEFT"
+#~ msgstr "Links"
+
+#~ msgid "RIGHT"
+#~ msgstr "Rechts"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "Joystick 1 omhoog"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "Joystick 1 links"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "Joystick 2 omhoog"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "Joystick 2 Links"
+
+#~ msgid "PAGE UP"
+#~ msgstr "Pagina omhoog"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "Pagina omlaag"
+
+#~ msgid "HOTKEY"
+#~ msgstr "Hotkey"
+
+#~ msgid "LOADING..."
+#~ msgstr "Laden"
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "Wachten a.u.b."
+
+#~ msgid "never"
+#~ msgstr "Nooit"
+
+#~ msgid "just now"
+#~ msgstr "Net"
+
+#, fuzzy
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] ""
+#~ "%i sec geleden\n"
+#~ "%i sec geleden"
+#~ msgstr[1] ""
+
+#, fuzzy
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] ""
+#~ "%i min geleden\n"
+#~ "%i min geleden"
+#~ msgstr[1] ""
+
+#, fuzzy
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] ""
+#~ "%i uur geleden\n"
+#~ "%i uur geleden"
+#~ msgstr[1] ""
+
+#, fuzzy
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] ""
+#~ "%i dag geleden\n"
+#~ "% dagen geleden"
+#~ msgstr[1] ""
+
+#~ msgid "unknown"
+#~ msgstr "Onbekend"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "Er is een update beschikbaar voor je BATOCERA.LINUX"

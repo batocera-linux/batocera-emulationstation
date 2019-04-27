@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 21:09+0100\n"
+"POT-Creation-Date: 2019-04-27 22:51+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,8 +37,8 @@ msgstr "S'HA PRODUÏT UN ERROR"
 msgid "INPUT"
 msgstr "ENTRADA"
 
-msgid "search"
-msgstr "cerca"
+msgid "SEARCH"
+msgstr "CERCA"
 
 msgid "CANCEL"
 msgstr "CANCEL·LA"
@@ -49,23 +49,14 @@ msgstr "ENRERE"
 msgid "CLOSE"
 msgstr "TANCA"
 
-msgid "OPTIONS"
-msgstr "OPCIONS"
-
-msgid "JUMP TO LETTER"
-msgstr "SALTA A UNA LLETRA"
+msgid "JUMP TO..."
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "ORDENA ELS JOCS PER"
 
-msgid "FAVORITES ONLY"
-msgstr "NOMÉS PREFERITS"
-
-msgid "SHOW HIDDEN"
-msgstr "MOSTRA ELS OCULTS"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITA LES METADADES D'AQUEST JOC"
+msgid "FILTER GAMELIST"
+msgstr ""
 
 msgid "FINNISHED"
 msgstr ""
@@ -76,8 +67,44 @@ msgstr "MENÚ PRINCIPAL"
 msgid "KODI MEDIA CENTER"
 msgstr "CENTRE MULTIMÈDIA DEL KODI"
 
+msgid "GAMES SETTINGS"
+msgstr "PARÀMETRES DELS JOCS"
+
+msgid "CONTROLLERS SETTINGS"
+msgstr "PARÀMETRES DELS COMANDAMENTS"
+
+msgid "UI SETTINGS"
+msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
+
+msgid "SOUND SETTINGS"
+msgstr "PARÀMETRES DEL SO"
+
+msgid "NETWORK SETTINGS"
+msgstr "PARÀMETRES DE LA XARXA"
+
+msgid "SCRAPE"
+msgstr "OBTÉ DADES"
+
 msgid "SYSTEM SETTINGS"
 msgstr "PARÀMETRES DEL SISTEMA"
+
+msgid "QUIT"
+msgstr "SURT"
+
+msgid "SCRAPE FROM"
+msgstr "OBTÉ DADES DE"
+
+msgid "SCRAPE RATINGS"
+msgstr "OBTÉ DADES DE VALORACIÓ"
+
+msgid "SCRAPE NOW"
+msgstr "OBTÉ LES DADES ARA"
+
+msgid "CHOOSE"
+msgstr "TRIA"
+
+msgid "SELECT"
+msgstr "SELECCIONA"
 
 msgid "INFORMATION"
 msgstr ""
@@ -147,9 +174,6 @@ msgstr "CONTRASENYA DE ROOT"
 
 msgid "THE SYSTEM WILL NOW REBOOT"
 msgstr "ES REINICIARÀ EL SISTEMA ARA"
-
-msgid "GAMES SETTINGS"
-msgstr "PARÀMETRES DELS JOCS"
 
 msgid "GAME RATIO"
 msgstr "PROPORCIÓ DEL JOC"
@@ -235,141 +259,6 @@ msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALITZA LES LLISTES DELS JOCS"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "PARÀMETRES DELS COMANDAMENTS"
-
-msgid "UI SETTINGS"
-msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "SOBRE-EXPLORACIÓ"
-
-msgid "SCREENSAVER AFTER"
-msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
-
-msgid "TRANSITION STYLE"
-msgstr "ESTIL DE LES TRANSICIONS"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
-
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
-
-msgid "SHOW CLOCK"
-msgstr ""
-
-msgid "ON-SCREEN HELP"
-msgstr "AJUDA EN PANTALLA"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "TECLAT EN PANTALLA"
-
-msgid "THEME SET"
-msgstr "TEMA ESTABLERT"
-
-msgid "SOUND SETTINGS"
-msgstr "PARÀMETRES DEL SO"
-
-msgid "SYSTEM VOLUME"
-msgstr "VOLUM DEL SISTEMA"
-
-msgid "FRONTEND MUSIC"
-msgstr "MÚSICA DEL FRONTAL"
-
-msgid "OUTPUT DEVICE"
-msgstr "DISPOSITIU DE SORTIDA"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-
-msgid "NETWORK SETTINGS"
-msgstr "PARÀMETRES DE LA XARXA"
-
-msgid "CONNECTED"
-msgstr "CONNECTAT"
-
-msgid "NOT CONNECTED"
-msgstr "NO CONNECTAT"
-
-msgid "IP ADDRESS"
-msgstr "ADREÇA IP"
-
-msgid "HOSTNAME"
-msgstr "NOM DE LA MÀQUINA"
-
-msgid "ENABLE WIFI"
-msgstr "ACTIVA EL WIFI"
-
-msgid "WIFI SSID"
-msgstr "SSID DEL WIFI"
-
-msgid "WIFI KEY"
-msgstr "CLAU DEL WIFI"
-
-msgid "WIFI ENABLED"
-msgstr "EL WIFI ESTÀ ACTIU"
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
-
-msgid "SCRAPE"
-msgstr "OBTÉ DADES"
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "OBTÉ DADES DE"
-
-msgid "SCRAPE RATINGS"
-msgstr "OBTÉ DADES DE VALORACIÓ"
-
-msgid "SCRAPE NOW"
-msgstr "OBTÉ LES DADES ARA"
-
-msgid "QUIT"
-msgstr "SURT"
-
-msgid "REALLY RESTART?"
-msgstr "ESTEU SEGUR QUE VOLEU REINICIAR?"
-
-msgid "RESTART SYSTEM"
-msgstr "REINICIA EL SISTEMA"
-
-msgid "REALLY SHUTDOWN?"
-msgstr "ESTEU SEGUR QUE VOLEU APAGAR?"
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "APAGA EL SISTEMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "APAGA EL SISTEMA RÀPIDAMENT"
-
-msgid "Emulator"
-msgstr "Emulador"
-
-msgid "Core"
-msgstr "Nucli"
-
-msgid "VIDEO MODE"
-msgstr ""
-
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
@@ -406,11 +295,113 @@ msgstr "OBLIDA ELS COMANDAMENTS BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
-msgid "CHOOSE"
-msgstr "TRIA"
+msgid "VIDEO OUTPUT"
+msgstr ""
 
-msgid "SELECT"
-msgstr "SELECCIONA"
+msgid "OVERSCAN"
+msgstr "SOBRE-EXPLORACIÓ"
+
+msgid "SCREENSAVER AFTER"
+msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
+
+msgid "TRANSITION STYLE"
+msgstr "ESTIL DE LES TRANSICIONS"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
+
+msgid "SHOW CLOCK"
+msgstr ""
+
+msgid "ON-SCREEN HELP"
+msgstr "AJUDA EN PANTALLA"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "TECLAT EN PANTALLA"
+
+msgid "THEME SET"
+msgstr "TEMA ESTABLERT"
+
+msgid "SYSTEM VOLUME"
+msgstr "VOLUM DEL SISTEMA"
+
+msgid "FRONTEND MUSIC"
+msgstr "MÚSICA DEL FRONTAL"
+
+msgid "OUTPUT DEVICE"
+msgstr "DISPOSITIU DE SORTIDA"
+
+msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgstr ""
+
+msgid "CONNECTED"
+msgstr "CONNECTAT"
+
+msgid "NOT CONNECTED"
+msgstr "NO CONNECTAT"
+
+msgid "IP ADDRESS"
+msgstr "ADREÇA IP"
+
+msgid "HOSTNAME"
+msgstr "NOM DE LA MÀQUINA"
+
+msgid "ENABLE WIFI"
+msgstr "ACTIVA EL WIFI"
+
+msgid "WIFI SSID"
+msgstr "SSID DEL WIFI"
+
+msgid "WIFI KEY"
+msgstr "CLAU DEL WIFI"
+
+msgid "WIFI ENABLED"
+msgstr "EL WIFI ESTÀ ACTIU"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
+
+msgid "REALLY SCRAPE?"
+msgstr ""
+
+msgid "AUTOMATIC SCRAPER"
+msgstr ""
+
+msgid "MANUAL SCRAPER"
+msgstr ""
+
+msgid "REALLY RESTART?"
+msgstr "ESTEU SEGUR QUE VOLEU REINICIAR?"
+
+msgid "RESTART SYSTEM"
+msgstr "REINICIA EL SISTEMA"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "ESTEU SEGUR QUE VOLEU APAGAR?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "APAGA EL SISTEMA"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "APAGA EL SISTEMA RÀPIDAMENT"
+
+msgid "Emulator"
+msgstr "Emulador"
+
+msgid "Core"
+msgstr "Nucli"
+
+msgid "VIDEO MODE"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr ""
@@ -430,6 +421,9 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
+msgid "NETWORK REQUIRED"
+msgstr ""
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "S'ESTÀ OBTENINT DADES"
 
@@ -438,6 +432,9 @@ msgstr "SISTEMA"
 
 msgid "subtitle text"
 msgstr "text del subtítol"
+
+msgid "search"
+msgstr "cerca"
 
 msgid "SKIP"
 msgstr "OMET"
@@ -509,39 +506,20 @@ msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 msgid "EDIT METADATA"
 msgstr "EDITA LES METADADES"
 
-msgid "SAVE"
-msgstr "DESA"
-
-msgid ""
-"THIS WILL DELETE A FILE!\n"
-"ARE YOU SURE?"
-msgstr ""
-"S'ESBORRARÀ UN FITXER.\n"
-"ESTEU SEGUR?"
-
-msgid "DELETE"
-msgstr "ESBORRA"
-
 msgid "SAVE CHANGES?"
 msgstr "VOLEU DESAR ELS CANVIS?"
-
-msgid "enter emulator"
-msgstr "introduïu l'emulador"
-
-msgid "enter core"
-msgstr "introduïu el nucli"
-
-msgid "Ratio"
-msgstr "Proporció"
-
-msgid "enter ratio"
-msgstr "introduïu la proporció"
 
 msgid "Name"
 msgstr "Nom"
 
 msgid "enter game name"
 msgstr "introduïu el nom del joc"
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Description"
 msgstr "Descripció"
@@ -555,11 +533,17 @@ msgstr "Imatge"
 msgid "enter path to image"
 msgstr "introduïu el camí a la imatge"
 
-msgid "Thumbnail"
-msgstr "Miniatura"
+msgid "Path to video"
+msgstr ""
 
 msgid "enter path to thumbnail"
 msgstr "introduïu el camí a la miniatura"
+
+msgid "Path to marquee"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr "Miniatura"
 
 msgid "Rating"
 msgstr "Valoració"
@@ -603,23 +587,17 @@ msgstr "Preferit"
 msgid "enter favorite"
 msgstr "introduïu el preferit"
 
-msgid "Region"
-msgstr "Regió"
-
-msgid "enter region"
-msgstr "introduïu la regió"
-
-msgid "Romtype"
-msgstr "Tipus de ROM"
-
-msgid "enter romtype"
-msgstr "introduïu el tipus de ROM"
-
 msgid "Hidden"
 msgstr "Ocult"
 
 msgid "set hidden"
 msgstr "oculteu"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Contador de jugades"
@@ -633,23 +611,35 @@ msgstr "Jugat per última vegada"
 msgid "enter last played date"
 msgstr "introduïu quan vau jugar per última vegada"
 
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "HI HA %i JOC DISPONIBLE"
-msgstr[1] "HI HA %i JOCS DISPONIBLES"
+msgid "name"
+msgstr ""
 
-#, c-format
-msgid "%i FAVORITE"
-msgid_plural "%i FAVORITES"
-msgstr[0] "HI HA %i PREFERIT"
-msgstr[1] "HI HA %i PREFERITS"
+msgid "sortname"
+msgstr ""
 
-#, c-format
-msgid "%i GAME HIDDEN"
-msgid_plural "%i GAMES HIDDEN"
-msgstr[0] ""
-msgstr[1] ""
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
 
 msgid "FILES"
 msgstr ""
@@ -663,32 +653,11 @@ msgstr "Nombre de vegades que s'ha jugat"
 msgid "LAUNCH"
 msgstr "EXECUTA"
 
-msgid "SCROLL"
-msgstr "DESPLAÇA"
+msgid "OPTIONS"
+msgstr "OPCIONS"
 
 msgid "MENU"
 msgstr "MENÚ"
-
-msgid "FILENAME"
-msgstr "FITXER"
-
-msgid "RATING"
-msgstr "VALORACIÓ"
-
-msgid "TIMES PLAYED"
-msgstr "VEGADES JUGAT"
-
-msgid "LAST PLAYED"
-msgstr "JUGAT PER ÚLTIMA VEGADA"
-
-msgid "NUMBER OF PLAYERS"
-msgstr "NOMBRE DE JUGADORS"
-
-msgid "DEVELOPER"
-msgstr "DESENVOLUPADOR"
-
-msgid "GENRE"
-msgstr "GÈNERE"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
@@ -696,56 +665,20 @@ msgstr "NO S'HA TROBAT CAP JOC - OMET"
 msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
 
-msgid "SEARCH FOR"
-msgstr "CERCA PER"
-
-msgid "SEARCH"
-msgstr "CERCA"
-
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTA EL RESULTAT"
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "UP"
-msgstr "AMUNT"
-
-msgid "DOWN"
-msgstr "AVALL"
-
-msgid "LEFT"
-msgstr "ESQUERRA"
-
-msgid "RIGHT"
-msgstr "DRETA"
-
-msgid "JOYSTICK 1 UP"
-msgstr "PALANCA DE CONTROL 1 AMUNT"
-
-msgid "JOYSTICK 1 LEFT"
-msgstr "PALANCA DE CONTROL 1 ESQUERRA"
-
-msgid "JOYSTICK 2 UP"
-msgstr "PALANCA DE CONTROL 2 AMUNT"
-
-msgid "JOYSTICK 2 LEFT"
-msgstr "PALANCA DE CONTROL 2 ESQUERRA"
-
-msgid "PAGE UP"
-msgstr "PÀGINA AMUNT"
-
-msgid "PAGE DOWN"
-msgstr "PÀGINA AVALL"
-
-msgid "HOTKEY"
-msgstr "DRECERA DE TECLAT"
-
 msgid "CONFIGURING"
 msgstr "S'ESTÀ CONFIGURANT"
 
 msgid "KEYBOARD"
 msgstr "TECLAT"
+
+msgid "CEC"
+msgstr ""
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -756,6 +689,12 @@ msgstr "MANTENIU PREMUT QUALSEVOL BOTÓ PER OMETRE"
 
 msgid "-NOT DEFINED-"
 msgstr "NO S'HA DEFINIT"
+
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -774,6 +713,9 @@ msgstr ""
 
 msgid "SPACE"
 msgstr "ESPAI"
+
+msgid "DELETE"
+msgstr "ESBORRA"
 
 msgid "DELETE A CHAR"
 msgstr "ESBORRA UN CARÀCTER"
@@ -811,45 +753,6 @@ msgstr "PREMEU ESC O UNA DRECERA DE TECLAT PER A CANCEL·LAR."
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOLEU INICIAR EL CENTRE MULTIMÈDIA DEL KODI?"
 
-msgid "LOADING..."
-msgstr "S'ESTÀ CARREGANT…"
-
-msgid "PLEASE WAIT..."
-msgstr "ESPEREU…"
-
-msgid "never"
-msgstr "mai"
-
-msgid "just now"
-msgstr "fa un moment"
-
-#, c-format
-msgid "%i sec ago"
-msgid_plural "%i secs ago"
-msgstr[0] "fa %i segon"
-msgstr[1] "fa %i segons"
-
-#, c-format
-msgid "%i min ago"
-msgid_plural "%i mins ago"
-msgstr[0] "fa %i minut"
-msgstr[1] "fa %i minuts"
-
-#, c-format
-msgid "%i hour ago"
-msgid_plural "%i hours ago"
-msgstr[0] "fa %i hora"
-msgstr[1] "fa %i hores"
-
-#, c-format
-msgid "%i day ago"
-msgid_plural "%i days ago"
-msgstr[0] "fa %i dia"
-msgstr[1] "fa %i dies"
-
-msgid "unknown"
-msgstr "desconegut"
-
 msgid "MOVE CURSOR"
 msgstr "MOVEU EL CURSOR"
 
@@ -876,6 +779,157 @@ msgstr "CANVIA"
 
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "SALTA A UNA LLETRA"
+
+#~ msgid "FAVORITES ONLY"
+#~ msgstr "NOMÉS PREFERITS"
+
+#~ msgid "SHOW HIDDEN"
+#~ msgstr "MOSTRA ELS OCULTS"
+
+#~ msgid "EDIT THIS GAME'S METADATA"
+#~ msgstr "EDITA LES METADADES D'AQUEST JOC"
+
+#~ msgid "SAVE"
+#~ msgstr "DESA"
+
+#~ msgid ""
+#~ "THIS WILL DELETE A FILE!\n"
+#~ "ARE YOU SURE?"
+#~ msgstr ""
+#~ "S'ESBORRARÀ UN FITXER.\n"
+#~ "ESTEU SEGUR?"
+
+#~ msgid "enter emulator"
+#~ msgstr "introduïu l'emulador"
+
+#~ msgid "enter core"
+#~ msgstr "introduïu el nucli"
+
+#~ msgid "Ratio"
+#~ msgstr "Proporció"
+
+#~ msgid "enter ratio"
+#~ msgstr "introduïu la proporció"
+
+#~ msgid "Region"
+#~ msgstr "Regió"
+
+#~ msgid "enter region"
+#~ msgstr "introduïu la regió"
+
+#~ msgid "Romtype"
+#~ msgstr "Tipus de ROM"
+
+#~ msgid "enter romtype"
+#~ msgstr "introduïu el tipus de ROM"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "HI HA %i JOC DISPONIBLE"
+#~ msgstr[1] "HI HA %i JOCS DISPONIBLES"
+
+#~ msgid "%i FAVORITE"
+#~ msgid_plural "%i FAVORITES"
+#~ msgstr[0] "HI HA %i PREFERIT"
+#~ msgstr[1] "HI HA %i PREFERITS"
+
+#~ msgid "SCROLL"
+#~ msgstr "DESPLAÇA"
+
+#~ msgid "FILENAME"
+#~ msgstr "FITXER"
+
+#~ msgid "RATING"
+#~ msgstr "VALORACIÓ"
+
+#~ msgid "TIMES PLAYED"
+#~ msgstr "VEGADES JUGAT"
+
+#~ msgid "LAST PLAYED"
+#~ msgstr "JUGAT PER ÚLTIMA VEGADA"
+
+#~ msgid "NUMBER OF PLAYERS"
+#~ msgstr "NOMBRE DE JUGADORS"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "DESENVOLUPADOR"
+
+#~ msgid "GENRE"
+#~ msgstr "GÈNERE"
+
+#~ msgid "SEARCH FOR"
+#~ msgstr "CERCA PER"
+
+#~ msgid "UP"
+#~ msgstr "AMUNT"
+
+#~ msgid "DOWN"
+#~ msgstr "AVALL"
+
+#~ msgid "LEFT"
+#~ msgstr "ESQUERRA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DRETA"
+
+#~ msgid "JOYSTICK 1 UP"
+#~ msgstr "PALANCA DE CONTROL 1 AMUNT"
+
+#~ msgid "JOYSTICK 1 LEFT"
+#~ msgstr "PALANCA DE CONTROL 1 ESQUERRA"
+
+#~ msgid "JOYSTICK 2 UP"
+#~ msgstr "PALANCA DE CONTROL 2 AMUNT"
+
+#~ msgid "JOYSTICK 2 LEFT"
+#~ msgstr "PALANCA DE CONTROL 2 ESQUERRA"
+
+#~ msgid "PAGE UP"
+#~ msgstr "PÀGINA AMUNT"
+
+#~ msgid "PAGE DOWN"
+#~ msgstr "PÀGINA AVALL"
+
+#~ msgid "HOTKEY"
+#~ msgstr "DRECERA DE TECLAT"
+
+#~ msgid "LOADING..."
+#~ msgstr "S'ESTÀ CARREGANT…"
+
+#~ msgid "PLEASE WAIT..."
+#~ msgstr "ESPEREU…"
+
+#~ msgid "never"
+#~ msgstr "mai"
+
+#~ msgid "just now"
+#~ msgstr "fa un moment"
+
+#~ msgid "%i sec ago"
+#~ msgid_plural "%i secs ago"
+#~ msgstr[0] "fa %i segon"
+#~ msgstr[1] "fa %i segons"
+
+#~ msgid "%i min ago"
+#~ msgid_plural "%i mins ago"
+#~ msgstr[0] "fa %i minut"
+#~ msgstr[1] "fa %i minuts"
+
+#~ msgid "%i hour ago"
+#~ msgid_plural "%i hours ago"
+#~ msgstr[0] "fa %i hora"
+#~ msgstr[1] "fa %i hores"
+
+#~ msgid "%i day ago"
+#~ msgid_plural "%i days ago"
+#~ msgstr[0] "fa %i dia"
+#~ msgstr[1] "fa %i dies"
+
+#~ msgid "unknown"
+#~ msgstr "desconegut"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "HI HA UNA ACTUALITZACIÓ DISPONIBLE PER EL BATOCERA.LINUX"
