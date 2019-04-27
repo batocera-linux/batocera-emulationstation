@@ -652,7 +652,7 @@ msgstr[0] "%i JEU CACHÉ"
 msgstr[1] "%i JEUX CACHÉS"
 
 msgid "FILES"
-msgstr ""
+msgstr "FICHIERS"
 
 msgid "Released"
 msgstr "Sortie"
