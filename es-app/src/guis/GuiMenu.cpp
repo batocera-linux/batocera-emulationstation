@@ -58,7 +58,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 #endif
 
   // GAMES SETTINGS
-  addEntry(_("GAMES SETTINGS").c_str(), 0x777777FF, true, [this] { openGamesSettings_batocera(); });
+  if (isFullUI)
+    addEntry(_("GAMES SETTINGS").c_str(), 0x777777FF, true, [this] { openGamesSettings_batocera(); });
 
   // CONTROLLERS SETTINGS
   if (isFullUI)
