@@ -2097,23 +2097,23 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
   auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
   bool selected = false;
   std::string selectedEmulator = "";
-  /*
-    for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) {
+
+  for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) {
     bool found;
     std::string curEmulatorName = it->first;
     if (previouslySelectedEmulator != "") {
-    // We just changed the emulator
-    found = previouslySelectedEmulator == curEmulatorName;
+      // We just changed the emulator
+      found = previouslySelectedEmulator == curEmulatorName;
     } else {
-    found = (SystemConf::getInstance()->get(systemData->getName() + ".emulator") == curEmulatorName);
+      found = (SystemConf::getInstance()->get(systemData->getName() + ".emulator") == curEmulatorName);
     }
     if (found) {
-    selectedEmulator = curEmulatorName;
+      selectedEmulator = curEmulatorName;
     }
     selected = selected || found;
     emu_choice->add(curEmulatorName, curEmulatorName, found);
-    }
-  */
+  }
+
   emu_choice->add(_("AUTO"), "auto", !selected);
   emu_choice->setSelectedChangedCallback([this, systemConfiguration, systemData](std::string s) {
       popSystemConfigurationGui(systemData, s);
@@ -2124,18 +2124,16 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
   // Core choice
   auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
   selected = false;
-  /*
-    for (auto emulator = systemData->getEmulators()->begin();
-    emulator != systemData->getEmulators()->end(); emulator++) {
+  for (auto emulator = systemData->getEmulators()->begin();
+       emulator != systemData->getEmulators()->end(); emulator++) {
     if (selectedEmulator == emulator->first) {
-    for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-    bool found = (SystemConf::getInstance()->get(systemData->getName() + ".core") == *core);
-    selected = selected || found;
-    core_choice->add(*core, *core, found);
+      for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
+	bool found = (SystemConf::getInstance()->get(systemData->getName() + ".core") == *core);
+	selected = selected || found;
+	core_choice->add(*core, *core, found);
+      }
     }
-    }
-    }
-  */
+  }
   core_choice->add(_("AUTO"), "auto", !selected);
   systemConfiguration->addWithLabel(_("Core"), core_choice);
 

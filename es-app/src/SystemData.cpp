@@ -18,10 +18,11 @@
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, bool CollectionSystem) :
+SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) :
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mFilterIndex = new FileFilterIndex();
+	mEmulators = emulators;
 
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if(!CollectionSystem)
@@ -266,7 +267,20 @@ bool SystemData::loadConfig()
 		envData->mLaunchCommand = cmd;
 		envData->mPlatformIds = platformIds;
 
-		SystemData* newSys = new SystemData(name, fullname, envData, themeFolder);
+		// emulators and cores
+		std::map<std::string, std::vector<std::string>*> * systemEmulators = new std::map<std::string, std::vector<std::string>*>();
+		pugi::xml_node emulatorsNode = system.child("emulators");
+		for(pugi::xml_node emuNode = emulatorsNode.child("emulator"); emuNode; emuNode = emuNode.next_sibling("emulator")) {
+		  std::string emulatorName = emuNode.attribute("name").as_string();
+		  (*systemEmulators)[emulatorName] = new std::vector<std::string>();
+		  pugi::xml_node coresNode = emuNode.child("cores");
+		  for (pugi::xml_node coreNode = coresNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core")) {
+		    std::string corename = coreNode.text().as_string();
+		    (*systemEmulators)[emulatorName]->push_back(corename);
+		  }
+		}
+		
+		SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, systemEmulators);
 		if(newSys->getRootFolder()->getChildrenByFilename().size() == 0)
 		{
 			LOG(LogWarning) << "System \"" << name << "\" has no games! Ignoring it.";
@@ -501,4 +515,8 @@ void SystemData::loadTheme()
 		LOG(LogError) << e.what();
 		mTheme = std::make_shared<ThemeData>(); // reset to empty
 	}
+}
+
+std::map<std::string, std::vector<std::string>*>* SystemData::getEmulators() {
+	return mEmulators;
 }

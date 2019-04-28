@@ -7,6 +7,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <map>
 
 class FileData;
 class FileFilterIndex;
@@ -23,7 +24,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-	SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, bool CollectionSystem = false);
+        SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false);
 	~SystemData();
 
 	inline FileData* getRootFolder() const { return mRootFolder; };
@@ -68,7 +69,7 @@ public:
 	void loadTheme();
 
 	FileFilterIndex* getIndex() { return mFilterIndex; };
-
+	std::map<std::string, std::vector<std::string> *> * getEmulators();
 private:
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
@@ -85,6 +86,7 @@ private:
 	FileFilterIndex* mFilterIndex;
 
 	FileData* mRootFolder;
+	std::map<std::string, std::vector<std::string> *> *mEmulators;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H
