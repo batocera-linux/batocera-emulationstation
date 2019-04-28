@@ -673,7 +673,7 @@ SystemData* CollectionSystemManager::addNewCustomCollection(std::string name)
 // creates a new, empty Collection system, based on the name and declaration
 SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, CollectionSystemDecl sysDecl, bool index)
 {
-  SystemData* newSys = new SystemData(name, sysDecl.longName, mCollectionEnvData, sysDecl.themeFolder, NULL, true);
+	SystemData* newSys = new SystemData(name, sysDecl.longName, mCollectionEnvData, sysDecl.themeFolder, NULL, true); // batocera
 
 	CollectionSystemData newCollectionData;
 	newCollectionData.system = newSys;

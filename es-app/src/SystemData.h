@@ -24,7 +24,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-        SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false);
+        SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false); // batocera
 	~SystemData();
 
 	inline FileData* getRootFolder() const { return mRootFolder; };
@@ -69,7 +69,7 @@ public:
 	void loadTheme();
 
 	FileFilterIndex* getIndex() { return mFilterIndex; };
-	std::map<std::string, std::vector<std::string> *> * getEmulators();
+	std::map<std::string, std::vector<std::string> *> * getEmulators(); // batocera
 private:
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
@@ -86,7 +86,7 @@ private:
 	FileFilterIndex* mFilterIndex;
 
 	FileData* mRootFolder;
-	std::map<std::string, std::vector<std::string> *> *mEmulators;
+	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

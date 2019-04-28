@@ -18,11 +18,11 @@
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) :
+SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mFilterIndex = new FileFilterIndex();
-	mEmulators = emulators;
+	mEmulators = emulators; // batocera
 
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if(!CollectionSystem)
@@ -267,6 +267,7 @@ bool SystemData::loadConfig()
 		envData->mLaunchCommand = cmd;
 		envData->mPlatformIds = platformIds;
 
+                // batocera
 		// emulators and cores
 		std::map<std::string, std::vector<std::string>*> * systemEmulators = new std::map<std::string, std::vector<std::string>*>();
 		pugi::xml_node emulatorsNode = system.child("emulators");
@@ -280,7 +281,7 @@ bool SystemData::loadConfig()
 		  }
 		}
 		
-		SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, systemEmulators);
+		SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, systemEmulators); // batocera
 		if(newSys->getRootFolder()->getChildrenByFilename().size() == 0)
 		{
 			LOG(LogWarning) << "System \"" << name << "\" has no games! Ignoring it.";
@@ -517,6 +518,7 @@ void SystemData::loadTheme()
 	}
 }
 
+// batocera
 std::map<std::string, std::vector<std::string>*>* SystemData::getEmulators() {
 	return mEmulators;
 }
