@@ -501,15 +501,13 @@ void InputManager::doOnFinish()
 
 std::string InputManager::getConfigPath()
 {
-	std::string path = Utils::FileSystem::getHomePath();
-	path += "/.emulationstation/es_input.cfg";
+	std::string path = "/userdata/system/configs/emulationstation/es_input.cfg"; // batocera
 	return path;
 }
 
 std::string InputManager::getTemporaryConfigPath()
 {
-	std::string path = Utils::FileSystem::getHomePath();
-	path += "/.emulationstation/es_last_input.log"; // batocera
+	std::string path = "/userdata/system/configs/emulationstation/es_last_input.log"; // batocera
 	return path;
 }
 

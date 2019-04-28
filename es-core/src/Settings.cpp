@@ -125,9 +125,9 @@ void Settings::setDefaults()
 
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
-	mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/audio/slideshow_bg.wav";
+	mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/system/configs/emulationstation/slideshow/audio/slideshow_bg.wav"; // batocera
 	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
-	mStringMap["SlideshowScreenSaverImageDir"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/image";
+	mStringMap["SlideshowScreenSaverImageDir"] = "/userdata/system/configs/emulationstation/slideshow/image"; // batocera
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 
@@ -197,7 +197,7 @@ void saveMap(pugi::xml_document& doc, std::map<K, V>& map, const char* type)
 void Settings::saveFile()
 {
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
-	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
+	const std::string path = "/userdata/system/configs/emulationstation/es_settings.cfg"; // batocera
 
 	pugi::xml_document doc;
 
@@ -221,7 +221,7 @@ void Settings::saveFile()
 
 void Settings::loadFile()
 {
-	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
+        const std::string path = "/userdata/system/configs/emulationstation/es_settings.cfg"; // batocera
 
 	if(!Utils::FileSystem::exists(path))
 		return;

@@ -187,7 +187,7 @@ bool verifyHomeFolderExists()
 {
 	//make sure the config directory exists
 	std::string home = Utils::FileSystem::getHomePath();
-	std::string configDir = home + "/.emulationstation";
+	std::string configDir = "/userdata/system/configs/emulationstation"; // batocera
 	if(!Utils::FileSystem::exists(configDir))
 	{
 		std::cout << "Creating config directory \"" << configDir << "\"\n";

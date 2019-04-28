@@ -18,7 +18,7 @@ namespace Scripting
             scriptDirList.push_back(test);
 
         // check in homepath
-        test = Utils::FileSystem::getHomePath() + "/.emulationstation/scripts/" + eventName;
+        test = "/userdata/system/configs/emulationstation/scripts/" + eventName; // batocera
         if(Utils::FileSystem::exists(test))
             scriptDirList.push_back(test);
 

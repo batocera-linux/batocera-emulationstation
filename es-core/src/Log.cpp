@@ -15,7 +15,7 @@ LogLevel Log::getReportingLevel()
 std::string Log::getLogPath()
 {
 	std::string home = Utils::FileSystem::getHomePath();
-	return home + "/.emulationstation/es_log.txt";
+	return "/userdata/system/configs/emulationstation/es_log.txt"; // batocera
 }
 
 void Log::setReportingLevel(LogLevel level)
