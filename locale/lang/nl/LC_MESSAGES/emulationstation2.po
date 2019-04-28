@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -673,6 +673,33 @@ msgstr ""
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "Omhoog"
+
+msgid "DOWN"
+msgstr "Beneden"
+
+msgid "LEFT"
+msgstr "Links"
+
+msgid "RIGHT"
+msgstr "Rechts"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "Hotkey"
+
 msgid "CONFIGURING"
 msgstr "Configureren"
 
@@ -855,18 +882,6 @@ msgstr "Bezig"
 #~ msgid "SEARCH FOR"
 #~ msgstr "Zoeken naar"
 
-#~ msgid "UP"
-#~ msgstr "Omhoog"
-
-#~ msgid "DOWN"
-#~ msgstr "Beneden"
-
-#~ msgid "LEFT"
-#~ msgstr "Links"
-
-#~ msgid "RIGHT"
-#~ msgstr "Rechts"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "Joystick 1 omhoog"
 
@@ -884,9 +899,6 @@ msgstr "Bezig"
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "Pagina omlaag"
-
-#~ msgid "HOTKEY"
-#~ msgstr "Hotkey"
 
 #~ msgid "LOADING..."
 #~ msgstr "Laden"

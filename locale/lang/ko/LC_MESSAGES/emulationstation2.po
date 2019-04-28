@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -670,6 +670,33 @@ msgstr "결과 동의"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "위"
+
+msgid "DOWN"
+msgstr "아래"
+
+msgid "LEFT"
+msgstr "왼쪽"
+
+msgid "RIGHT"
+msgstr "오른쪽"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "단축키"
+
 msgid "CONFIGURING"
 msgstr "구성 중"
 
@@ -861,18 +888,6 @@ msgstr "작업 중..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "검색 중"
 
-#~ msgid "UP"
-#~ msgstr "위"
-
-#~ msgid "DOWN"
-#~ msgstr "아래"
-
-#~ msgid "LEFT"
-#~ msgstr "왼쪽"
-
-#~ msgid "RIGHT"
-#~ msgstr "오른쪽"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "조이스틱 1 위"
 
@@ -890,9 +905,6 @@ msgstr "작업 중..."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "한 페이지 아래"
-
-#~ msgid "HOTKEY"
-#~ msgstr "단축키"
 
 #~ msgid "LOADING..."
 #~ msgstr "불러오는 중..."

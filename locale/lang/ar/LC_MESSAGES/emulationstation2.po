@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -677,6 +677,33 @@ msgstr "قبول التعديلات"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "فوق"
+
+msgid "DOWN"
+msgstr "تحت"
+
+msgid "LEFT"
+msgstr "يسار"
+
+msgid "RIGHT"
+msgstr "يمين"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "زر مميز (HOTKEY)"
+
 msgid "CONFIGURING"
 msgstr "إعداد"
 
@@ -865,18 +892,6 @@ msgstr "تشغيل..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "بحث عن"
 
-#~ msgid "UP"
-#~ msgstr "فوق"
-
-#~ msgid "DOWN"
-#~ msgstr "تحت"
-
-#~ msgid "LEFT"
-#~ msgstr "يسار"
-
-#~ msgid "RIGHT"
-#~ msgstr "يمين"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "يد تحكم 1 فوق"
 
@@ -894,9 +909,6 @@ msgstr "تشغيل..."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "صفحة تحت"
-
-#~ msgid "HOTKEY"
-#~ msgstr "زر مميز (HOTKEY)"
 
 #~ msgid "LOADING..."
 #~ msgstr "جاري التحميل..."

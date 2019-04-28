@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -668,6 +668,33 @@ msgid "ACCEPT RESULT"
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
+msgid "DOWN"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
 msgstr ""
 
 msgid "CONFIGURING"

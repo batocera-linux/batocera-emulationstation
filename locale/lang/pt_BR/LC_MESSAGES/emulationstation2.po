@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -675,6 +675,33 @@ msgstr "Aceitar Resultados"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "CIMA"
+
+msgid "DOWN"
+msgstr "BAIXO"
+
+msgid "LEFT"
+msgstr "ESQUERDA"
+
+msgid "RIGHT"
+msgstr "DIREITA"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "HOTKEY"
+
 msgid "CONFIGURING"
 msgstr "CONFIGURAÇÃO"
 
@@ -867,18 +894,6 @@ msgstr "EM PROGRESSO..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "PROCURAR POR"
 
-#~ msgid "UP"
-#~ msgstr "CIMA"
-
-#~ msgid "DOWN"
-#~ msgstr "BAIXO"
-
-#~ msgid "LEFT"
-#~ msgstr "ESQUERDA"
-
-#~ msgid "RIGHT"
-#~ msgstr "DIREITA"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "ANALÓGICO J1 CIMA"
 
@@ -896,9 +911,6 @@ msgstr "EM PROGRESSO..."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "R1 (PÁGINA ABAIXO)"
-
-#~ msgid "HOTKEY"
-#~ msgstr "HOTKEY"
 
 #~ msgid "LOADING..."
 #~ msgstr "CARREGANDO..."

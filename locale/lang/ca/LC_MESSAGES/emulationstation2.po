@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,6 +671,33 @@ msgstr "ACCEPTA EL RESULTAT"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "AMUNT"
+
+msgid "DOWN"
+msgstr "AVALL"
+
+msgid "LEFT"
+msgstr "ESQUERRA"
+
+msgid "RIGHT"
+msgstr "DRETA"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "DRECERA DE TECLAT"
+
 msgid "CONFIGURING"
 msgstr "S'ESTÀ CONFIGURANT"
 
@@ -863,18 +890,6 @@ msgstr "S'ESTÀ TREBALLANT…"
 #~ msgid "SEARCH FOR"
 #~ msgstr "CERCA PER"
 
-#~ msgid "UP"
-#~ msgstr "AMUNT"
-
-#~ msgid "DOWN"
-#~ msgstr "AVALL"
-
-#~ msgid "LEFT"
-#~ msgstr "ESQUERRA"
-
-#~ msgid "RIGHT"
-#~ msgstr "DRETA"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "PALANCA DE CONTROL 1 AMUNT"
 
@@ -892,9 +907,6 @@ msgstr "S'ESTÀ TREBALLANT…"
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "PÀGINA AVALL"
-
-#~ msgid "HOTKEY"
-#~ msgstr "DRECERA DE TECLAT"
 
 #~ msgid "LOADING..."
 #~ msgstr "S'ESTÀ CARREGANT…"

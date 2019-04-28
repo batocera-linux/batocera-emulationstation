@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -686,6 +686,33 @@ msgstr "了解"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "上"
+
+msgid "DOWN"
+msgstr "下"
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "ホットキー"
+
 #, fuzzy
 msgid "CONFIGURING"
 msgstr "設定中"
@@ -887,18 +914,6 @@ msgstr "処理中..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "検索"
 
-#~ msgid "UP"
-#~ msgstr "上"
-
-#~ msgid "DOWN"
-#~ msgstr "下"
-
-#~ msgid "LEFT"
-#~ msgstr "左"
-
-#~ msgid "RIGHT"
-#~ msgstr "右"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "方向キー 1 上"
 
@@ -918,9 +933,6 @@ msgstr "処理中..."
 #, fuzzy
 #~ msgid "PAGE DOWN"
 #~ msgstr "PAGE DOWN"
-
-#~ msgid "HOTKEY"
-#~ msgstr "ホットキー"
 
 #~ msgid "LOADING..."
 #~ msgstr "読み込み中..."

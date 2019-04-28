@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -665,6 +665,33 @@ msgstr "AKCEPTUJ WYNIK"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "GÓRA"
+
+msgid "DOWN"
+msgstr "DÓŁ"
+
+msgid "LEFT"
+msgstr "LEWO"
+
+msgid "RIGHT"
+msgstr "PRAWO"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "SKRÓT KLAWISZOWY"
+
 msgid "CONFIGURING"
 msgstr "KONFIGUROWANIE"
 
@@ -839,18 +866,6 @@ msgstr "PRACUJE.."
 #~ msgid "SEARCH FOR"
 #~ msgstr "SZUKAJ"
 
-#~ msgid "UP"
-#~ msgstr "GÓRA"
-
-#~ msgid "DOWN"
-#~ msgstr "DÓŁ"
-
-#~ msgid "LEFT"
-#~ msgstr "LEWO"
-
-#~ msgid "RIGHT"
-#~ msgstr "PRAWO"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "KONTROLER 1 GÓRA"
 
@@ -868,9 +883,6 @@ msgstr "PRACUJE.."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "NA DÓŁ"
-
-#~ msgid "HOTKEY"
-#~ msgstr "SKRÓT KLAWISZOWY"
 
 #~ msgid "LOADING..."
 #~ msgstr "ŁADOWANIE..."

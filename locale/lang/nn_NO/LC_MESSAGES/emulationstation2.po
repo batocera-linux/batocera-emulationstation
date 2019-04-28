@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -670,6 +670,33 @@ msgstr "AKSEPTER RESULTAT"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "OPP"
+
+msgid "DOWN"
+msgstr "NED"
+
+msgid "LEFT"
+msgstr "VENSTRE"
+
+msgid "RIGHT"
+msgstr "HØYRE"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "HURTIGTAST"
+
 msgid "CONFIGURING"
 msgstr "KONFIGUERER"
 
@@ -850,18 +877,6 @@ msgstr "ARBEIDER..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "SØK ETTER"
 
-#~ msgid "UP"
-#~ msgstr "OPP"
-
-#~ msgid "DOWN"
-#~ msgstr "NED"
-
-#~ msgid "LEFT"
-#~ msgstr "VENSTRE"
-
-#~ msgid "RIGHT"
-#~ msgstr "HØYRE"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "JOYSTICK 1 OPP"
 
@@ -879,9 +894,6 @@ msgstr "ARBEIDER..."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "SIDE NED"
-
-#~ msgid "HOTKEY"
-#~ msgstr "HURTIGTAST"
 
 #~ msgid "LOADING..."
 #~ msgstr "LASTER..."

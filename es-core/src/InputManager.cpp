@@ -419,32 +419,17 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 			pugi::xml_node root = doc.child("inputList");
 			if(root)
 			{
-				// if inputAction @type=onfinish is set, let onfinish command take care for creating input configuration.
-				// we just put the input configuration into a temporary input config file.
-				pugi::xml_node actionnode = root.find_child_by_attribute("inputAction", "type", "onfinish");
-				if(actionnode)
-				{
-					path = getTemporaryConfigPath();
-					doc.reset();
-					root = doc.append_child("inputList");
-					root.append_copy(actionnode);
-				}
-				else
-				{
-                                        // batocera
-					//pugi::xml_node oldEntry = root.find_child_by_attribute("inputConfig", "deviceGUID",
-					//						  config->getDeviceGUIDString().c_str());
-					//if(oldEntry)
-					//{
-					//	root.remove_child(oldEntry);
-					//}
-					//oldEntry = root.find_child_by_attribute("inputConfig", "deviceName",
-					//										config->getDeviceName().c_str());
-					//if(oldEntry)
-					//{
-					//	root.remove_child(oldEntry);
-					//}
-				}
+			  // batocera
+			  pugi::xml_node oldEntry(NULL);
+			  for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) {
+			    if(strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0 &&
+			       strcmp(config->getDeviceName().c_str(),       item.attribute("deviceName").value()) == 0) {
+			      oldEntry = item;
+			      break;
+			    }
+			  }
+			  if(oldEntry)
+			    root.remove_child(oldEntry);
 			}
 		}
 	}

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 22:51+0200\n"
+"POT-Creation-Date: 2019-04-28 21:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -679,6 +679,33 @@ msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
+msgid "UP"
+msgstr "ВВЕРХ"
+
+msgid "DOWN"
+msgstr "ВНИЗ"
+
+msgid "LEFT"
+msgstr "ВЛЕВО"
+
+msgid "RIGHT"
+msgstr "ВПРАВО"
+
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "\"ГОРЯЧАЯ\" КНОПКА"
+
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
 
@@ -882,18 +909,6 @@ msgstr "ОБРАБОТКА..."
 #~ msgid "SEARCH FOR"
 #~ msgstr "ПОИСК ПО"
 
-#~ msgid "UP"
-#~ msgstr "ВВЕРХ"
-
-#~ msgid "DOWN"
-#~ msgstr "ВНИЗ"
-
-#~ msgid "LEFT"
-#~ msgstr "ВЛЕВО"
-
-#~ msgid "RIGHT"
-#~ msgstr "ВПРАВО"
-
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "ДЖОЙСТИК 1 ВВЕРХ"
 
@@ -911,9 +926,6 @@ msgstr "ОБРАБОТКА..."
 
 #~ msgid "PAGE DOWN"
 #~ msgstr "СТРАНИЦА ВНИЗ"
-
-#~ msgid "HOTKEY"
-#~ msgstr "\"ГОРЯЧАЯ\" КНОПКА"
 
 #~ msgid "LOADING..."
 #~ msgstr "ЗАГРУЗКА..."
