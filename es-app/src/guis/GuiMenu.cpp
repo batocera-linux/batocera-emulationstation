@@ -1481,12 +1481,10 @@ void GuiMenu::openControllersSettings_batocera() {
 	std::string confGuid = sstm.str() + "GUID";
 
 	auto input_p1 = options.at(player);
-	std::string name;
 	std::string selectedName = input_p1->getSelectedName();
 
-	if (selectedName.compare(Utils::String::toUpper("default")) == 0) {
-	  name = "DEFAULT";
-	  Settings::getInstance()->setString(confName, name);
+	if (selectedName.compare("default") == 0) {
+	  Settings::getInstance()->setString(confName, "DEFAULT");
 	  Settings::getInstance()->setString(confGuid, "");
 	} else {
 	  if(input_p1->changed()) {

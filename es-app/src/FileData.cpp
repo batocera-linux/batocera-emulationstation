@@ -272,6 +272,7 @@ void FileData::launchGame(Window* window)
 
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
+	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	window->deinit();
 
 	std::string command = mEnvData->mLaunchCommand;
@@ -279,7 +280,6 @@ void FileData::launchGame(Window* window)
 	const std::string rom      = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw  = Utils::FileSystem::getPreferredPath(getPath());
-	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera
 
 	command = Utils::String::replace(command, "%SYSTEM%", mSystem->getName()); // batocera
 	command = Utils::String::replace(command, "%ROM%", rom);
