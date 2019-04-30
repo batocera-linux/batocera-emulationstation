@@ -50,13 +50,13 @@ msgid "CLOSE"
 msgstr "FERMER"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "ALLER À..."
 
 msgid "SORT GAMES BY"
 msgstr "TRIER LES JEUX PAR"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "FILTRER"
 
 msgid "FINNISHED"
 msgstr "TERMINÉ"
@@ -182,13 +182,13 @@ msgid "SMOOTH GAMES"
 msgstr "LISSER LES JEUX"
 
 msgid "AUTO"
-msgstr ""
+msgstr "AUTO"
 
 msgid "ON"
-msgstr ""
+msgstr "OUI"
 
 msgid "OFF"
-msgstr ""
+msgstr "NON"
 
 msgid "REWIND"
 msgstr "REMBOBINAGE"
@@ -227,7 +227,7 @@ msgid "LEADERBOARDS"
 msgstr ""
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "MODE VERBEUX"
 
 msgid "AUTOMATIC SCREESHOT"
 msgstr ""
@@ -401,7 +401,7 @@ msgid "Core"
 msgstr "Core"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "MODE VIDÉO"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLER BATOCERA"
@@ -422,7 +422,7 @@ msgid "INSTALL"
 msgstr "INSTALLER"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "RÉSEAU REQUIS"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING EN COURS"
@@ -516,10 +516,10 @@ msgid "enter game name"
 msgstr "entrer le nom du jeu"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Trier par nom"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "entrer le nom de tri"
 
 msgid "Description"
 msgstr "Description"
@@ -534,7 +534,7 @@ msgid "enter path to image"
 msgstr "entrer le chemin vers l'image"
 
 msgid "Path to video"
-msgstr ""
+msgstr "Chemin vers la vidéo"
 
 msgid "enter path to thumbnail"
 msgstr "entrer le chemin vers la miniature"
@@ -612,25 +612,25 @@ msgid "enter last played date"
 msgstr "entrer la date de la dernière partie"
 
 msgid "name"
-msgstr ""
+msgstr "Nom"
 
 msgid "sortname"
-msgstr ""
+msgstr "Nom de tri"
 
 msgid "description"
-msgstr ""
+msgstr "description"
 
 msgid "image"
-msgstr ""
+msgstr "image"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "miniature"
 
 msgid "video"
-msgstr ""
+msgstr "vidéo"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "entrer le chemin vers la vidéo"
 
 msgid "marquee"
 msgstr ""
@@ -639,10 +639,10 @@ msgid "enter path to marquee"
 msgstr ""
 
 msgid "RANDOM"
-msgstr ""
+msgstr "ALÉATOIRE"
 
 msgid "FILES"
-msgstr ""
+msgstr "FICHIERS"
 
 msgid "Released"
 msgstr "Sortie"
