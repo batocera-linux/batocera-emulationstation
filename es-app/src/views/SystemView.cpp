@@ -153,11 +153,13 @@ bool SystemView::input(InputConfig* config, Input input)
 
 		// batocera
 #ifdef _ENABLE_FILEMANAGER_
-		if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
-		  {
-		    ApiSystem::getInstance()->launchFileManager(mWindow);
-		    return true;
-		  }
+		if(UIModeController::getInstance()->isUIModeFull()) {
+		  if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
+		    {
+		      ApiSystem::getInstance()->launchFileManager(mWindow);
+		      return true;
+		    }
+		}
 #endif
 // batocera
 #ifdef _ENABLE_KODI_
@@ -425,7 +427,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	}
 // batocera
 #ifdef _ENABLE_FILEMANAGER_
-	prompts.push_back(HelpPrompt("F1", _("FILES")));
+	if(UIModeController::getInstance()->isUIModeFull()) {
+	  prompts.push_back(HelpPrompt("F1", _("FILES")));
+	}
 #endif
 
 	// batocera
