@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-01 21:09+0200\n"
+"POT-Creation-Date: 2019-05-01 21:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -680,6 +680,9 @@ msgid "Loading..."
 msgstr ""
 
 msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
