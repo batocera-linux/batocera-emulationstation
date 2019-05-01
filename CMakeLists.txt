@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 2.8)
 option(GLES "Set to ON if targeting OpenGL ES" ${GLES})
 option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
 
+# batocera
+option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem")
+option(DISABLE_KODI "Set to ON to disable kodi in menu")
+
 project(emulationstation-all)
 
 #-------------------------------------------------------------------------------
@@ -11,6 +15,21 @@ LIST(APPEND CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Utils
     ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Packages
 )
+
+# batocera / kodi menu
+# disable kodi
+if("${DISABLE_KODI}" STREQUAL "1")
+  MESSAGE("kodi disabled")
+else()
+  add_definitions(-D_ENABLE_KODI_)
+endif()
+
+# batocera / file manager f1 button
+# disable file manager
+if("${ENABLE_FILEMANAGER}" STREQUAL "1")
+  MESSAGE("file manager enabled")
+  add_definitions(-D_ENABLE_FILEMANAGER_)
+endif()
 
 #-------------------------------------------------------------------------------
 #set up OpenGL system variable
@@ -25,24 +44,6 @@ elseif(EXISTS "${CMAKE_FIND_ROOT_PATH}/opt/vc/include/bcm_host.h")
     set(BCMHOST found)
     set(GLSystem "OpenGL ES" CACHE STRING "The OpenGL system to be used")
 #-------------------------------------------------------------------------------
-# batocera / kodi menu
-# disable kodi
-if("${DISABLE_KODI}" STREQUAL "1")
-  MESSAGE("kodi disabled")
-  add_definitions(-DENABLE_KODI=0)
-else()
-  add_definitions(-DENABLE_KODI=1)
-endif()
-
-# batocera / file manager f1 button
-# disable file manager
-if("${ENABLE_FILEMANAGER}" STREQUAL "1")
-  MESSAGE("file manager enabled")
-  add_definitions(-DENABLE_FILEMANAGER=1)
-else()
-  add_definitions(-DENABLE_FILEMANAGER=0)
-endif()
-
 #check if we're running on OSMC Vero4K
 elseif(EXISTS "${CMAKE_FIND_ROOT_PATH}/opt/vero3/lib/libMali.so")
     MESSAGE("libMali.so found")

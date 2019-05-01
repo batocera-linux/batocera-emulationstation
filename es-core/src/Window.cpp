@@ -17,7 +17,7 @@
 #define PLAYER_PAD_TIME_MS 200
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), launchKodi(false), mClockElapsed(0) // batocera
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
 {
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
@@ -185,13 +185,11 @@ void Window::input(InputConfig* config, Input input)
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
-// batocera
-#if ENABLE_FILEMANAGER == 1
-	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
+	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
-	  ApiSystem::getInstance()->launchFileManager(this);
+		// toggle TextComponent debug view with Ctrl-I
+		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
 	}
-#endif
 	else
 	{
 	  // show the pad button
@@ -200,28 +198,10 @@ void Window::input(InputConfig* config, Input input)
 	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
 	  }
 
-// batocera
-#if ENABLE_KODI == 1
-            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1"){
-                launchKodi = true;
-                Window * window = this;
-                this->pushGui(new GuiMsgBox(this, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
-				[window, this] { 
-                                    if( ! ApiSystem::getInstance()->launchKodi(window)) {
-                                        LOG(LogWarning) << "Shutdown terminated with non-zero result!";
-                                    }
-                                    launchKodi = false;
-					    }, _("NO"), [this] {
-                                    launchKodi = false;
-                                }));
-            } else {
-		if(peekGui())
-			this->peekGui()->input(config, input);
-            }
-#else
-	    if(peekGui())
-	      this->peekGui()->input(config, input);
-#endif
+		if (peekGui())
+		{
+			this->peekGui()->input(config, input); // this is where the majority of inputs will be consumed: the GuiComponent Stack
+		}
 	}
 }
 

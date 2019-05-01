@@ -401,7 +401,7 @@ int main(int argc, char* argv[])
 	SystemConf* systemConf = SystemConf::getInstance(); // batocera
 
 // batocera
-#if ENABLE_KODI == 1
+#ifdef _ENABLE_KODI_
 	if(systemConf->get("kodi.enabled") == "1" && systemConf->get("kodi.atstartup") == "1"){
 		ApiSystem::getInstance()->launchKodi(&window);
 	}

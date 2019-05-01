@@ -10,6 +10,8 @@
 #include "SystemData.h"
 #include "Window.h"
 #include "LocaleES.h"
+#include "ApiSystem.h"
+#include "SystemConf.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -22,6 +24,7 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mCamOffset = 0;
 	mExtrasCamOffset = 0;
 	mExtrasFadeOpacity = 0.0f;
+	launchKodi = false; // batocera
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	populate();
@@ -147,6 +150,30 @@ bool SystemView::input(InputConfig* config, Input input)
 			return true;
 		}
 
+		// batocera
+#ifdef _ENABLE_FILEMANAGER_
+		if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
+		  {
+		    ApiSystem::getInstance()->launchFileManager(mWindow);
+		    return true;
+		  }
+#endif
+// batocera
+#ifdef _ENABLE_KODI_
+            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1") {
+                Window * window = mWindow;
+                mWindow->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
+			       [window,this] { 
+                                    if( ! ApiSystem::getInstance()->launchKodi(window)) {
+                                        LOG(LogWarning) << "Shutdown terminated with non-zero result!";
+                                    }
+                                    this->launchKodi = false;
+					       }, _("NO"), [window,this] {
+                                    this->launchKodi = false;
+                                }));
+		return true;
+            }
+#endif
 		switch (mCarousel.type)
 		{
 		case VERTICAL:
@@ -382,9 +409,16 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	else
 	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt("a", _("SELECT"))); // batocera
-	prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+#ifdef _ENABLE_KODI_
+	if(SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1") {
+	  prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
+	} else
+#endif
+        {
+	  prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+	}
 // batocera
-#if ENABLE_FILEMANAGER == 1
+#ifdef _ENABLE_FILEMANAGER_
 	prompts.push_back(HelpPrompt("F1", _("FILES")));
 #endif
 

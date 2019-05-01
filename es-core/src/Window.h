@@ -117,8 +117,6 @@ private:
 	unsigned int mTimeSinceLastInput;
 
 	bool mRenderedHelpPrompts;
-        
-	bool launchKodi; // batocera
 };
 
 #endif // ES_CORE_WINDOW_H

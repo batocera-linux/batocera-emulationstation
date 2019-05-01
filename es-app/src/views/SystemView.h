@@ -85,6 +85,7 @@ private:
 
 	bool mViewNeedsReload;
 	bool mShowing;
+	bool launchKodi;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

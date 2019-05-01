@@ -51,7 +51,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   // QUIT >
   
   // KODI
-#if ENABLE_KODI == 1
+#ifdef _ENABLE_KODI_
   if (SystemConf::getInstance()->get("kodi.enabled") != "0") {
     addEntry(_("KODI MEDIA CENTER").c_str(), 0x777777FF, true, [this] { openKodiLauncher_batocera(); });
   }
@@ -886,7 +886,7 @@ void GuiMenu::openSystemSettings_batocera() {
     s->addRow(row);
   }
   
-#if ENABLE_KODI == 1
+#ifdef _ENABLE_KODI_
   //Kodi
   {
     ComponentListRow row;
