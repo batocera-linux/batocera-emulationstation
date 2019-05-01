@@ -429,14 +429,14 @@ bool ApiSystem::halt(bool reboot, bool fast) {
     SDL_Event *quit = new SDL_Event();
     if (fast)
         if (reboot)
-            quit->type = SDL_FAST_QUIT | SDL_RB_REBOOT;
+            quit->type = SDL_FAST_QUIT | SDL_SYS_REBOOT;
         else
-            quit->type = SDL_FAST_QUIT | SDL_RB_SHUTDOWN;
+            quit->type = SDL_FAST_QUIT | SDL_SYS_SHUTDOWN;
     else
         if (reboot)
-            quit->type = SDL_QUIT | SDL_RB_REBOOT;
+            quit->type = SDL_QUIT | SDL_SYS_REBOOT;
         else
-            quit->type = SDL_QUIT | SDL_RB_SHUTDOWN;
+            quit->type = SDL_QUIT | SDL_SYS_SHUTDOWN;
     SDL_PushEvent(quit);
     return 0;
 }

@@ -12,6 +12,7 @@
 #include "LocaleES.h"
 #include "ApiSystem.h"
 #include "SystemConf.h"
+#include "guis/GuiMenu.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -218,6 +219,11 @@ bool SystemView::input(InputConfig* config, Input input)
 			setCursor(SystemData::getRandomSystem());
 			return true;
 		}
+		// batocera
+		if(config->isMappedTo("select", input))
+		{
+		  GuiMenu::openQuitMenu_batocera_static(mWindow);
+                }
 	}else{
 		if(config->isMappedLike("left", input) ||
 			config->isMappedLike("right", input) ||

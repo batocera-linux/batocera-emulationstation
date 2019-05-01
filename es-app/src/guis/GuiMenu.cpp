@@ -1976,9 +1976,12 @@ void GuiMenu::openScraperSettings_batocera() {
 
 void GuiMenu::openQuitMenu_batocera()
 {
-  auto s = new GuiSettings(mWindow, _("QUIT").c_str());
+  GuiMenu::openQuitMenu_batocera_static(mWindow);
+}
 
-  Window *window = mWindow;
+void GuiMenu::openQuitMenu_batocera_static(Window *window)
+{
+  auto s = new GuiSettings(window, _("QUIT").c_str());
 
   ComponentListRow row;
   row.makeAcceptInputHandler([window] {
@@ -2037,7 +2040,7 @@ void GuiMenu::openQuitMenu_batocera()
     }*/
   //ViewController::get()->reloadAll();
 
-  mWindow->pushGui(s);
+  window->pushGui(s);
 }
 
 void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password) {

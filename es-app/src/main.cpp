@@ -454,6 +454,8 @@ int main(int argc, char* argv[])
 	int ps_time = SDL_GetTicks();
 
 	bool running = true;
+	bool doReboot = false;
+	bool doShutdown = false;
 
 	while(running)
 	{
@@ -466,8 +468,29 @@ int main(int argc, char* argv[])
 			{
 				InputManager::getInstance()->parseEvent(event, &window);
 
-				if(event.type == SDL_QUIT)
-					running = false;
+				switch(event.type) {
+				case SDL_QUIT:
+				  running = false;
+				  break;
+				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_SYS_REBOOT:
+				  running = false;
+				  doReboot = true;
+				  Settings::getInstance()->setBool("IgnoreGamelist", true);
+				  break;
+				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_SYS_SHUTDOWN:
+				  running = false;
+				  doShutdown = true;
+				  Settings::getInstance()->setBool("IgnoreGamelist", true);
+				  break;
+				case SDL_QUIT | ApiSystem::SDL_SYS_REBOOT:
+				  running = false;
+				  doReboot = true;
+				  break;
+				case SDL_QUIT | ApiSystem::SDL_SYS_SHUTDOWN:
+				  running = false;
+				  doShutdown = true;
+				  break;
+				}
 			} while(SDL_PollEvent(&event));
 
 			// triggered if exiting from SDL_WaitEvent due to event
@@ -522,5 +545,16 @@ int main(int argc, char* argv[])
 
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 
+	// batocera
+	if (doReboot) {
+		LOG(LogInfo) << "Rebooting system";
+		system("touch /tmp/reboot.please");
+		system("shutdown -r now");
+	} else if (doShutdown) {
+		LOG(LogInfo) << "Shutting system down";
+		system("touch /tmp/shutdown.please");
+		system("shutdown -h now");
+	}
+	
 	return 0;
 }

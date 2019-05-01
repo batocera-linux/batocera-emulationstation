@@ -30,6 +30,7 @@ public:
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
 	HelpStyle getHelpStyle() override;
+	static void openQuitMenu_batocera_static(Window *window); // batocera
 
 private:
 	void addEntry(const char* name, unsigned int color, bool add_arrow, const std::function<void()>& func);
