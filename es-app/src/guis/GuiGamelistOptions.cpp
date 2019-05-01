@@ -239,7 +239,7 @@ void GuiGamelistOptions::jumpToLetter()
 
 bool GuiGamelistOptions::input(InputConfig* config, Input input)
 {
-	if((config->isMappedTo("b", input) || config->isMappedTo("select", input)) && input.value)
+  if((config->isMappedTo("a", input) || config->isMappedTo("select", input)) && input.value) // batocera
 	{
 		delete this;
 		return true;
