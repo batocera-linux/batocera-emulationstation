@@ -364,9 +364,9 @@ int main(int argc, char* argv[])
 		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 		if(splashScreen)
 		{
-			std::string progressText = "Loading...";
+		  std::string progressText = _("Loading..."); // batocera
 			if (splashScreenProgress)
-				progressText = "Loading system config...";
+			  progressText = _("Loading system config..."); // batocera
 			window.renderLoadingScreen(progressText);
 		}
 	}
@@ -429,7 +429,7 @@ int main(int argc, char* argv[])
 	ViewController::get()->preload();
 
 	if(splashScreen && splashScreenProgress)
-		window.renderLoadingScreen("Done.");
+	  window.renderLoadingScreen(_("Done.")); // batocera
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
