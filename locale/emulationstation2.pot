@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-01 20:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,9 @@ msgid "SORT GAMES BY"
 msgstr ""
 
 msgid "FILTER GAMELIST"
+msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
 msgid "FINNISHED"
@@ -637,6 +640,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr ""
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -774,9 +783,6 @@ msgid "PRESS F4 TO QUIT AT ANY TIME."
 msgstr ""
 
 msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr ""
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr ""
 
 msgid "MOVE CURSOR"
