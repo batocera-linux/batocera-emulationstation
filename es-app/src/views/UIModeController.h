@@ -38,7 +38,7 @@ private:
 	void unlockUIMode(); 
 
 	static UIModeController * sInstance;
-	const std::vector<std::string> mUIModes = { "Full", "Kiosk", /*"Kid"*/ }; // batocera
+	const std::vector<std::string> mUIModes = { "Full", "Kiosk", "Kid" };
 	
 	// default passkeyseq = "uuddlrlrba", as defined in the setting 'UIMode_passkey'.
 	std::string mPassKeySequence;
