@@ -33,7 +33,7 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 			return test;
 
 		// check in exepath
-		test = std::string("/usr/share/batocera/datainit/system/.emulationstation/resources/") + &path[2]; // batocera
+		test = std::string("/usr/share/emulationstation/resources/") + &path[2]; // batocera
 		if(Utils::FileSystem::exists(test))
 			return test;
 
