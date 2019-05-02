@@ -371,11 +371,6 @@ int main(int argc, char* argv[])
 		}
 	}
 
-        // batocera
-	// Initialize audio manager
-	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->init();
-
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(&errorMsg))
 	{
