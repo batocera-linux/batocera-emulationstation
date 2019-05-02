@@ -97,6 +97,9 @@ public:
     /* video output */
     std::vector<std::string> getAvailableVideoOutputDevices();
 
+    // Batocera
+    std::string getRetroAchievements();
+
 private:
     static ApiSystem *instance;
 

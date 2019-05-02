@@ -74,6 +74,9 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     addEntry(_("NETWORK SETTINGS").c_str(), 0x777777FF, true, [this] { openNetworkSettings_batocera(); });
 
   if (isFullUI)
+    addEntry(_("RETROACHIEVEMENTS").c_str(), 0x777777FF, true, [this] { openRetroAchievements_batocera(); });
+
+  if (isFullUI)
     addEntry(_("SCRAPE").c_str(), 0x777777FF, true, [this] { openScraperSettings_batocera(); });
 
   // SYSTEM
@@ -1926,6 +1929,22 @@ void GuiMenu::openNetworkSettings_batocera() {
 	ApiSystem::getInstance()->disableWifi();
       }
     });
+  mWindow->pushGui(s);
+}
+
+void GuiMenu::openRetroAchievements_batocera() {
+  Window *window = mWindow;
+  auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
+  ComponentListRow row;
+  std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
+  if (RetroAchievementsString.empty()) {
+    RetroAchievementsString = std::string("Please configure [Games Settings]->[Retroachievements Settings] first");
+  }
+  auto RAString = std::make_shared<TextComponent>(mWindow,
+  	     RetroAchievementsString,
+  	     Font::get(FONT_SIZE_SMALL), 0x777777FF);
+  row.addElement(RAString, false);
+  s->addRow(row);
   mWindow->pushGui(s);
 }
 

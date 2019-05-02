@@ -861,3 +861,25 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
 
     return exitcode == 0;
 }
+
+// Batocera
+std::string ApiSystem::getRetroAchievements() {
+
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/batocera-retroachievements-info" ;
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return "";
+    }
+
+    if (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        pclose(pipe);
+        return std::string(line);
+    }
+    return "";
+}
+
+
