@@ -51,6 +51,7 @@ private:
 	void openControllersSettings_batocera();
 	void openUISettings_batocera();
 	void openSoundSettings_batocera();
+	void openRetroAchievements_batocera();
 	void openNetworkSettings_batocera();
 	void openScraperSettings_batocera();
 	void openQuitMenu_batocera();
