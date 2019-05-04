@@ -31,6 +31,7 @@
 
 #include <fstream>
 #include <SDL.h>
+#include <Sound.h>
 
 #if defined(WIN32)
 #define popen _popen
@@ -857,7 +858,7 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
 
     VolumeControl::getInstance()->init();
     AudioManager::getInstance()->init();
-    //AudioManager::getInstance()->playCheckSound();
+    Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
 
     return exitcode == 0;
 }

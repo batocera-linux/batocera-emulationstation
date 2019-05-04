@@ -27,8 +27,6 @@
 #include "LocaleES.h"
 #include <SystemConf.h>
 #include "ApiSystem.h"
-#include "AudioManager.h"
-#include "VolumeControl.h"
 #include "NetworkThread.h"
 
 #include <FreeImage.h>
