@@ -45,11 +45,12 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	mMsg1 = std::make_shared<TextComponent>(mWindow, _("HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mMsg1, Vector2i(0, 2), false, true);
 
-	if(firstRun) {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS F4 TO QUIT AT ANY TIME."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
-	} else {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC OR THE HOTKEY TO CANCEL."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
-	}
+	// batocera
+	//if(firstRun) {
+	//  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS F4 TO QUIT AT ANY TIME."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
+	//} else {
+	//  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC OR THE HOTKEY TO CANCEL."), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
+	//}
 	mGrid.setEntry(mMsg2, Vector2i(0, 3), false, true);
 
 	// currently held device
