@@ -974,14 +974,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	  }
 	  
 	  if (reboot) {
-	    window->pushGui(
-			    new GuiMsgBox(window, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-					  [window] {
-					    if (runRestartCommand() != 0) {
-					      LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					    }
-					  })
-			    );
+	    window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	  }
 	});
       mWindow->pushGui(securityGui);
@@ -1014,14 +1007,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	reboot = true;
       }
       if (reboot) {
-	window->pushGui(
-			new GuiMsgBox(window, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-				      [window] {
-					if (runRestartCommand() != 0) {
-					  LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					}
-				      })
-			);
+	window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
       
     });
@@ -1565,14 +1551,7 @@ void GuiMenu::openUISettings_batocera() {
       if (optionsVideo->changed()) {
 	SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 	SystemConf::getInstance()->saveSystemConf();
-	this->mWindow->pushGui(
-			       new GuiMsgBox(this->mWindow, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-					     [] {
-					       if (runRestartCommand() != 0) {
-						 LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					       }
-					     })
-			       );
+	mWindow->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
     });
 
@@ -1876,11 +1855,7 @@ void GuiMenu::openSoundSettings_batocera() {
       }
       SystemConf::getInstance()->saveSystemConf();
       if(v_need_reboot) {
-	this->mWindow->pushGui(
-			       new GuiMsgBox(this->mWindow, _("YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."), _("OK"),
-					     [] {
-					     })
-			       );
+	mWindow->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
     });
 
