@@ -150,8 +150,14 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		{
 			if(mRoot->getSystem()->isGameSystem())
 			{
-				if(CollectionSystemManager::get()->toggleGameInCollection(getCursor()))
+			  // batocera
+			  bool adding;
+			  if(CollectionSystemManager::get()->toggleGameInCollection(getCursor(), adding))
 				{
+				  			  FileData* cursor = getCursor();
+							  int cursorPlace = getCursorIndex();
+							  populateList(cursor->getParent()->getChildren());
+							  setCursorIndex(cursorPlace + (adding ? 1 : -1));
 					return true;
 				}
 			}

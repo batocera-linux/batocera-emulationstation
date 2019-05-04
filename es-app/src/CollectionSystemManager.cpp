@@ -451,12 +451,12 @@ void CollectionSystemManager::exitEditMode()
 }
 
 // adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file)
+bool CollectionSystemManager::toggleGameInCollection(FileData* file, bool& adding) // batocera
 {
 	if (file->getType() == GAME)
 	{
 		GuiInfoPopup* s;
-		bool adding = true;
+		adding = true;
 		std::string name = file->getName();
 		std::string sysName = mEditingCollection;
 		if (mIsEditingCustom)

@@ -17,6 +17,8 @@ public:
 
 	virtual FileData* getCursor() override;
 	virtual void setCursor(FileData*) override;
+	virtual int getCursorIndex() override; // batocera
+	virtual void setCursorIndex(int index) override; // batocera
 
 	virtual bool input(InputConfig* config, Input input) override;
 

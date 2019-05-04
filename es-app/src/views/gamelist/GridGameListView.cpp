@@ -117,6 +117,14 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	mHeaderText.setText(mRoot->getSystem()->getFullName());
 	if (files.size() > 0)
 	{
+	  // batocera
+	  for(auto it = files.cbegin(); it != files.cend(); it++)
+	    {
+	      if ((*it)->getType() != FOLDER && (*it)->metadata.get("favorite").compare("true") == 0) {
+		mGrid.add("\uF006 " + (*it)->getName(), (*it)->getThumbnailPath(), *it);
+	      }
+	    }
+
 		for (auto it = files.cbegin(); it != files.cend(); it++)
 		{
 			mGrid.add((*it)->getName(), (*it)->getThumbnailPath(), *it);
@@ -379,4 +387,14 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("y", prompt));
 	}
 	return prompts;
+}
+
+// batocera
+void GridGameListView::setCursorIndex(int cursor){
+  mGrid.setCursorIndex(cursor);
+}
+
+// batocera
+int GridGameListView::getCursorIndex(){
+  return mGrid.getCursorIndex();
 }
