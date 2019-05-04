@@ -68,7 +68,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   if (isFullUI)
     addEntry(_("UI SETTINGS").c_str(), 0x777777FF, true, [this] { openUISettings_batocera(); });
 
-  addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
+  if (isFullUI)
+    addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
 
   if (isFullUI)
     addEntry(_("NETWORK SETTINGS").c_str(), 0x777777FF, true, [this] { openNetworkSettings_batocera(); });
@@ -80,8 +81,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     addEntry(_("SCRAPE").c_str(), 0x777777FF, true, [this] { openScraperSettings_batocera(); });
 
   // SYSTEM
-  if (isFullUI)
+  if (isFullUI) {
     addEntry(_("SYSTEM SETTINGS").c_str(), 0x777777FF, true, [this] { openSystemSettings_batocera(); });
+  } else {
+    addEntry(_("INFORMATIONS").c_str(), 0x777777FF, true, [this] { openSystemInformations_batocera(); });
+  }
 
   addEntry(_("QUIT").c_str(), 0x777777FF, true, [this] { openQuitMenu_batocera(); });
 
@@ -672,73 +676,79 @@ void GuiMenu::openKodiLauncher_batocera()
   }
 }
 
+void GuiMenu::openSystemInformations_batocera() {
+  Window *window = mWindow;
+  bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+  GuiSettings *informationsGui = new GuiSettings(window, _("INFORMATION").c_str());
+
+  auto version = std::make_shared<TextComponent>(window,
+						 ApiSystem::getInstance()->getVersion(),
+						 Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+  informationsGui->addWithLabel(_("VERSION"), version);
+  bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
+  auto space = std::make_shared<TextComponent>(window,
+					       ApiSystem::getInstance()->getFreeSpaceInfo(),
+					       Font::get(FONT_SIZE_MEDIUM),
+					       warning ? 0xFF0000FF : 0x777777FF);
+  informationsGui->addWithLabel(_("DISK USAGE"), space);
+
+  // various informations
+  std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
+  for(auto it = infos.begin(); it != infos.end(); it++) {
+    std::vector<std::string> tokens;
+    boost::split( tokens, (*it), boost::is_any_of(":") );
+    if(tokens.size()>= 2){
+      // concatenat the ending words
+      std::string vname = "";
+      for(unsigned int i=1; i<tokens.size(); i++) {
+	if(i > 1) vname += " ";
+	vname += tokens.at(i);
+      }
+
+      auto space = std::make_shared<TextComponent>(window,
+						   vname,
+						   Font::get(FONT_SIZE_MEDIUM),
+						   0x777777FF);
+      informationsGui->addWithLabel(tokens.at(0), space);
+    }
+  }
+
+  // support
+  if(isFullUI) {
+    ComponentListRow row;
+    row.makeAcceptInputHandler([window] {
+	window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+				      [window] {
+					if(ApiSystem::getInstance()->generateSupportFile()) {
+					  window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+					} else {
+					  window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
+					}
+				      }, _("NO"), nullptr));
+      });
+    auto supportFile = std::make_shared<TextComponent>(window, _("CREATE A SUPPORT FILE"),
+						       Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+    row.addElement(supportFile, false);
+    informationsGui->addRow(row);
+  }
+
+  window->pushGui(informationsGui);
+}
+
 void GuiMenu::openSystemSettings_batocera() {
   Window *window = mWindow;
 
   auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
-
+  bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+  
   // system informations
   {
     ComponentListRow row;
     std::function<void()> openGui = [this] {
-      GuiSettings *informationsGui = new GuiSettings(mWindow, _("INFORMATION").c_str());
-      
-      auto version = std::make_shared<TextComponent>(mWindow,
-						     ApiSystem::getInstance()->getVersion(),
-						     Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-      informationsGui->addWithLabel(_("VERSION"), version);
-      bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
-      auto space = std::make_shared<TextComponent>(mWindow,
-						   ApiSystem::getInstance()->getFreeSpaceInfo(),
-						   Font::get(FONT_SIZE_MEDIUM),
-						   warning ? 0xFF0000FF : 0x777777FF);
-      informationsGui->addWithLabel(_("DISK USAGE"), space);
-      
-      // various informations
-      std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
-      for(auto it = infos.begin(); it != infos.end(); it++) {
-	std::vector<std::string> tokens;
-	boost::split( tokens, (*it), boost::is_any_of(":") );
-	if(tokens.size()>= 2){
-	  // concatenat the ending words
-	  std::string vname = "";
-	  for(unsigned int i=1; i<tokens.size(); i++) {
-	    if(i > 1) vname += " ";
-	    vname += tokens.at(i);
-	  }
-	  
-	  auto space = std::make_shared<TextComponent>(mWindow,
-						       vname,
-						       Font::get(FONT_SIZE_MEDIUM),
-						       0x777777FF);
-	  informationsGui->addWithLabel(tokens.at(0), space);
-	}
-      }
-      
-      // support
-      {
-	ComponentListRow row;
-	row.makeAcceptInputHandler([this] {
-	    mWindow->pushGui(new GuiMsgBox(mWindow, _("CREATE A SUPPORT FILE ?"), _("YES"),
-					   [this] {
-					     if(ApiSystem::getInstance()->generateSupportFile()) {
-					       mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
-					     } else {
-					       mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATION FAILED"), _("OK")));
-					     }
-					   }, _("NO"), nullptr));
-	  });
-	auto supportFile = std::make_shared<TextComponent>(mWindow, _("CREATE A SUPPORT FILE"),
-							   Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-	row.addElement(supportFile, false);
-	informationsGui->addRow(row);
-      }
-      
-      mWindow->pushGui(informationsGui);
+      openSystemInformations_batocera();
     };
     row.makeAcceptInputHandler(openGui);
-    auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATION"),
-								Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+    auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATION"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
     auto bracket = makeArrow(mWindow);
     row.addElement(informationsSettings, true);
     row.addElement(bracket, false);
@@ -1566,114 +1576,6 @@ void GuiMenu::openUISettings_batocera() {
       }
     });
 
-  // overscan
-  auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
-  overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
-  s->addWithLabel(_("OVERSCAN"), overscan_enabled);
-  s->addSaveFunc([overscan_enabled] {
-      if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
-	Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
-	ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
-      }
-    });
-
-  // screensaver time
-  auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 30.f, 1.f, "m");
-  screensaver_time->setValue(
-                             (float) (Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
-  s->addWithLabel(_("SCREENSAVER AFTER"), screensaver_time);
-  s->addSaveFunc([screensaver_time] {
-      Settings::getInstance()->setInt("ScreenSaverTime",
-				      (int) round(screensaver_time->getValue()) * (1000 * 60));
-    });
-
-  // screensaver behavior
-  auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,
-										  _("TRANSITION STYLE"),
-										  false);
-  std::vector<std::string> screensavers;
-  screensavers.push_back("dim");
-  screensavers.push_back("black");
-  for (auto it = screensavers.begin(); it != screensavers.end(); it++)
-    screensaver_behavior->add(*it, *it,
-			      Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
-  s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
-  s->addSaveFunc([screensaver_behavior] {
-      if(screensaver_behavior->changed()) {
-	Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
-      }
-    });
-
-  // framerate
-  auto framerate = std::make_shared<SwitchComponent>(mWindow);
-  framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
-  s->addWithLabel(_("SHOW FRAMERATE"), framerate);
-  s->addSaveFunc(
-		 [framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
-
-  // clock
-  auto clock = std::make_shared<SwitchComponent>(mWindow);
-  clock->setState(Settings::getInstance()->getBool("DrawClock"));
-  s->addWithLabel(_("SHOW CLOCK"), clock);
-  s->addSaveFunc(
-		 [clock] { Settings::getInstance()->setBool("DrawClock", clock->getState()); });
-
-  // show help
-  auto show_help = std::make_shared<SwitchComponent>(mWindow);
-  show_help->setState(Settings::getInstance()->getBool("ShowHelpPrompts"));
-  s->addWithLabel(_("ON-SCREEN HELP"), show_help);
-  s->addSaveFunc(
-		 [show_help] {
-		   Settings::getInstance()->setBool("ShowHelpPrompts", show_help->getState());
-		 });
-
-  // quick system select (left/right in game list view)
-  auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
-  quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
-  s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
-  s->addSaveFunc([quick_sys_select] {
-      Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
-    });
-
-  // Enable OSK (On-Screen-Keyboard)
-  auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
-  osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
-  s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
-  s->addSaveFunc([osk_enable] {
-      Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); } );
-
-  // carousel transition option
-  auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
-  move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
-  s->addWithLabel("CAROUSEL TRANSITIONS", move_carousel);
-  s->addSaveFunc([move_carousel] {
-      if (move_carousel->getState()
-	  && !Settings::getInstance()->getBool("MoveCarousel")
-	  && PowerSaver::getMode() == PowerSaver::INSTANT)
-	{
-	  Settings::getInstance()->setString("PowerSaverMode", "default");
-	  PowerSaver::init();
-	}
-      Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
-    });
-  
-  // transition style
-  auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
-									      _("TRANSITION STYLE"),
-									      false);
-  std::vector<std::string> transitions;
-  transitions.push_back("fade");
-  transitions.push_back("slide");
-  transitions.push_back("instant");
-  for (auto it = transitions.begin(); it != transitions.end(); it++)
-    transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
-  s->addWithLabel(_("TRANSITION STYLE"), transition_style);
-  s->addSaveFunc([transition_style] {
-      if(transition_style->changed()) {
-	Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
-      }
-    });
-
   // theme set
   auto themeSets = ThemeData::getThemeSets();
 
@@ -1737,6 +1639,96 @@ void GuiMenu::openUISettings_batocera() {
       Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
     });
 
+  // transition style
+  auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
+									      _("TRANSITION STYLE"),
+									      false);
+  std::vector<std::string> transitions;
+  transitions.push_back("fade");
+  transitions.push_back("slide");
+  transitions.push_back("instant");
+  for (auto it = transitions.begin(); it != transitions.end(); it++)
+    transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
+  s->addWithLabel(_("TRANSITION STYLE"), transition_style);
+  s->addSaveFunc([transition_style] {
+      if(transition_style->changed()) {
+	Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
+      }
+    });
+
+  // screensaver time
+  auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 30.f, 1.f, "m");
+  screensaver_time->setValue(
+                             (float) (Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
+  s->addWithLabel(_("SCREENSAVER AFTER"), screensaver_time);
+  s->addSaveFunc([screensaver_time] {
+      Settings::getInstance()->setInt("ScreenSaverTime",
+				      (int) round(screensaver_time->getValue()) * (1000 * 60));
+    });
+
+  // screensaver behavior
+  auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,
+										  _("TRANSITION STYLE"),
+										  false);
+  std::vector<std::string> screensavers;
+  screensavers.push_back("dim");
+  screensavers.push_back("black");
+  for (auto it = screensavers.begin(); it != screensavers.end(); it++)
+    screensaver_behavior->add(*it, *it,
+			      Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
+  s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
+  s->addSaveFunc([screensaver_behavior] {
+      if(screensaver_behavior->changed()) {
+	Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
+      }
+    });
+
+  // clock
+  auto clock = std::make_shared<SwitchComponent>(mWindow);
+  clock->setState(Settings::getInstance()->getBool("DrawClock"));
+  s->addWithLabel(_("SHOW CLOCK"), clock);
+  s->addSaveFunc(
+		 [clock] { Settings::getInstance()->setBool("DrawClock", clock->getState()); });
+
+  // show help
+  auto show_help = std::make_shared<SwitchComponent>(mWindow);
+  show_help->setState(Settings::getInstance()->getBool("ShowHelpPrompts"));
+  s->addWithLabel(_("ON-SCREEN HELP"), show_help);
+  s->addSaveFunc(
+		 [show_help] {
+		   Settings::getInstance()->setBool("ShowHelpPrompts", show_help->getState());
+		 });
+
+  // quick system select (left/right in game list view)
+  auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
+  quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
+  s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
+  s->addSaveFunc([quick_sys_select] {
+      Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
+    });
+
+  // Enable OSK (On-Screen-Keyboard)
+  auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
+  osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
+  s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
+  s->addSaveFunc([osk_enable] {
+      Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); } );
+
+  // carousel transition option
+  auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
+  move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
+  s->addWithLabel("CAROUSEL TRANSITIONS", move_carousel);
+  s->addSaveFunc([move_carousel] {
+      if (move_carousel->getState()
+	  && !Settings::getInstance()->getBool("MoveCarousel")
+	  && PowerSaver::getMode() == PowerSaver::INSTANT)
+	{
+	  Settings::getInstance()->setString("PowerSaverMode", "default");
+	  PowerSaver::init();
+	}
+      Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
+    });
+
   // enable filters (ForceDisableFilters)
   auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
   enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
@@ -1747,6 +1739,23 @@ void GuiMenu::openUISettings_batocera() {
       if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
     });
 
+  // framerate
+  auto framerate = std::make_shared<SwitchComponent>(mWindow);
+  framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
+  s->addWithLabel(_("SHOW FRAMERATE"), framerate);
+  s->addSaveFunc(
+		 [framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
+
+  // overscan
+  auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
+  overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
+  s->addWithLabel(_("OVERSCAN"), overscan_enabled);
+  s->addSaveFunc([overscan_enabled] {
+      if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
+	Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
+	ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
+      }
+    });
   
   // gamelists
   auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
@@ -1937,15 +1946,14 @@ void GuiMenu::openRetroAchievements_batocera() {
   auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
   ComponentListRow row;
   std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
-  if (RetroAchievementsString.empty()) {
-    RetroAchievementsString = std::string("Please configure [Games Settings]->[Retroachievements Settings] first");
+  if (RetroAchievementsString.empty() == false) {
+    auto RAString = std::make_shared<TextComponent>(mWindow,
+						    RetroAchievementsString,
+						    Font::get(FONT_SIZE_SMALL), 0x777777FF);
+    row.addElement(RAString, false);
+    s->addRow(row);
+    mWindow->pushGui(s);
   }
-  auto RAString = std::make_shared<TextComponent>(mWindow,
-  	     RetroAchievementsString,
-  	     Font::get(FONT_SIZE_SMALL), 0x777777FF);
-  row.addElement(RAString, false);
-  s->addRow(row);
-  mWindow->pushGui(s);
 }
 
 void GuiMenu::openScraperSettings_batocera() {

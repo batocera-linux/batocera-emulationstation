@@ -55,6 +55,7 @@ private:
 	void openNetworkSettings_batocera();
 	void openScraperSettings_batocera();
 	void openQuitMenu_batocera();
+	void openSystemInformations_batocera();
 
 	void createInputTextRow(GuiSettings * gui, std::string title, const char* settingsID, bool password);
 	MenuComponent mMenu;
