@@ -113,17 +113,17 @@ bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversed
 	return false;
 }
 
-bool InputConfig::isMappedLike(const std::string& name, Input input)
+bool InputConfig::isMappedLike(const std::string& name, Input input) // batocera
 {
 	if(name == "left")
 	{
-		return isMappedTo("left", input) || isMappedTo("leftanalogleft", input) || isMappedTo("rightanalogleft", input);
+	  return isMappedTo("left", input) || isMappedTo("joystick1left", input); // batocera
 	}else if(name == "right"){
-		return isMappedTo("right", input) || isMappedTo("leftanalogright", input) || isMappedTo("rightanalogright", input);
+	  return isMappedTo("right", input) || isMappedTo("joystick1left", input, true); // batocera
 	}else if(name == "up"){
-		return isMappedTo("up", input) || isMappedTo("leftanalogup", input) || isMappedTo("rightanalogup", input);
+	  return isMappedTo("up", input) || isMappedTo("joystick1up", input); // batocera
 	}else if(name == "down"){
-		return isMappedTo("down", input) || isMappedTo("leftanalogdown", input) || isMappedTo("rightanalogdown", input);
+	  return isMappedTo("down", input) || isMappedTo("joystick1up", input, true); // batocera
 	}
 	return isMappedTo(name, input);
 }
