@@ -54,7 +54,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
 		row.addElement(mJumpToLetterList, false);
 		row.input_handler = [&](InputConfig* config, Input input) {
-			if(config->isMappedTo("a", input) && input.value)
+		  if(config->isMappedTo("b", input) && input.value) // batocera
 			{
 				jumpToLetter();
 				return true;
