@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-01 00:15+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "TRIER LES JEUX PAR"
 msgid "FILTER GAMELIST"
 msgstr "FILTRER"
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "ÉDITER LES DONNÉES DU JEU"
+
 msgid "FINNISHED"
 msgstr "TERMINÉ"
 
@@ -82,11 +85,17 @@ msgstr "OPTIONS DU SON"
 msgid "NETWORK SETTINGS"
 msgstr "OPTIONS RÉSEAU"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
 msgid "SCRAPE"
 msgstr "SCRAPPER"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPTIONS SYSTÈME"
+
+msgid "INFORMATIONS"
+msgstr "INFORMATIONS"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -172,8 +181,8 @@ msgstr "RENFORCER LA SÉCURITÉ"
 msgid "ROOT PASSWORD"
 msgstr "MOT DE PASSE ROOT"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "LE SYSTÈME VA REDÉMARRER"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA CONFIGURATION"
 
 msgid "GAME RATIO"
 msgstr "FORMAT JEUX"
@@ -217,20 +226,17 @@ msgstr "DÉCORATION"
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPTIONS DE RETROACHIEVEMENTS"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
-
 msgid "HARDCORE MODE"
 msgstr "MODE HARDCORE"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "LEADERBOARDS"
 
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
 
-msgid "AUTOMATIC SCREESHOT"
-msgstr ""
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "SCREENSHOT AUTOMATIC"
 
 msgid "USERNAME"
 msgstr "NOM UTILISATEUR"
@@ -295,23 +301,29 @@ msgstr "OUBLIER LES MANETTES BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "JOUEUR %i"
 
+msgid "UI MODE"
+msgstr "MODE D'AFFICHAGE"
+
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDEO"
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "THÈME"
 
-msgid "SCREENSAVER AFTER"
-msgstr "ÉCRAN DE VEILLE APRÈS"
+msgid "GAMELIST VIEW STYLE"
+msgstr "TYPE DE VUE DES JEUX"
+
+msgid "START ON SYSTEM"
+msgstr "DÉMARRER SUR UN SYSTÈME"
 
 msgid "TRANSITION STYLE"
 msgstr "STYLE DE LA TRANSITION"
 
+msgid "SCREENSAVER AFTER"
+msgstr "ÉCRAN DE VEILLE APRÈS"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTEMENT DE L'ÉCRAN DE VEILLE"
-
-msgid "SHOW FRAMERATE"
-msgstr "AFFICHER LE FRAMERATE"
 
 msgid "SHOW CLOCK"
 msgstr "AFFICHER L'HEURE"
@@ -325,8 +337,32 @@ msgstr "SÉLECTION RAPIDE DU SYSTÈME"
 msgid "ON SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"
 
-msgid "THEME SET"
-msgstr "THÈME"
+msgid "CAROUSEL TRANSITIONS"
+msgstr "TRANSITIONS CAROUSSEL"
+
+msgid "ENABLE FILTERS"
+msgstr "ACTIVER LES FILTRES"
+
+msgid "SHOW FRAMERATE"
+msgstr "AFFICHER LE FRAMERATE"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "SAUVEGARDER LES METADONNÉES EN QUITTANT"
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "RECHERCHER DES GRAPHISMES SUR LE DISQUE"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "AFFICHER LES FICHIERS CACHÉS"
+
+msgid "VRAM LIMIT"
+msgstr "LIMITE VRAM"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
@@ -334,11 +370,14 @@ msgstr "VOLUME DU SYSTÈME"
 msgid "FRONTEND MUSIC"
 msgstr "MUSIQUE DE FOND"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "ACTIVER LES SONS DE NAVIGATION"
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr "ACTIVER LES SONS DES VIDÉOS"
+
 msgid "OUTPUT DEVICE"
 msgstr "SORTIE AUDIO"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr "VOUS DEVEZ REDEMARRER POUR APPLIQUER CETTE OPTION"
 
 msgid "CONNECTED"
 msgstr "CONNECTÉ"
@@ -389,7 +428,7 @@ msgid "SHUTDOWN SYSTEM"
 msgstr "ÉTEINDRE"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES METADATAS ?"
+msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES METADONNÉES ?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXCTINCTION RAPIDE"
@@ -504,7 +543,7 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND."
 
 msgid "EDIT METADATA"
-msgstr "ÉDITER LES DONNÉES"
+msgstr "ÉDITER LES METADONNÉES"
 
 msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER ?"
@@ -540,7 +579,7 @@ msgid "enter path to thumbnail"
 msgstr "entrer le chemin vers la miniature"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "Chemin vers le marqueur"
 
 msgid "Thumbnail"
 msgstr "Miniature"
@@ -594,10 +633,10 @@ msgid "set hidden"
 msgstr "Mettre caché"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Jeu enfant"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "Mettre en jeu enfant"
 
 msgid "Play count"
 msgstr "Nb parties"
@@ -633,16 +672,16 @@ msgid "enter path to video"
 msgstr "entrer le chemin vers la vidéo"
 
 msgid "marquee"
-msgstr ""
+msgstr "marqueur"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "entrer le chemin vers le marqueur"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER LE MEDIA CENTER KODI ?"
 
 msgid "KODI"
-msgstr ""
+msgstr "KODI"
 
 msgid "RANDOM"
 msgstr "ALÉATOIRE"
@@ -673,6 +712,15 @@ msgstr "RECOMMENCER"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
+
+msgid "Loading..."
+msgstr "Chargement..."
+
+msgid "Loading system config..."
+msgstr "Chargement de la configuration système"
+
+msgid "Done."
+msgstr "Terminé."
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -728,6 +776,8 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"VOUS N'AVEZ PAS SÉLECTIONNÉ DE TOUCHE HOTKEY. C'EST NÉCESSAIRE POUR QUITTER "
+"UN JEU.VOULEZ-VOUS ATTRIBUER CETTE ACTION À LA TOUCHE SELECT ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -777,12 +827,6 @@ msgstr "AUCUNE MANETTE DÉTECTÉE"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR LA MANETTE POUR LA CONFIGURER"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "APPUYEZ SUR F4 POUR QUITTER À TOUT MOMENT"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "APPUYEZ SUR ECHAP OU LA TOUCHE HOTKEY POUR ANNULER"
-
 msgid "MOVE CURSOR"
 msgstr "BOUGER LE CURSEUR"
 
@@ -809,174 +853,3 @@ msgstr "CHANGER"
 
 msgid "WORKING..."
 msgstr "EN COURS..."
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "ALLER À LA LETTRE"
-
-#~ msgid "FAVORITES ONLY"
-#~ msgstr "FAVORIS SEULEMENT"
-
-#~ msgid "SHOW HIDDEN"
-#~ msgstr "AFFICHER LES FICHIERS CACHÉS"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "ÉDITER LES DONNÉES DU JEU"
-
-#~ msgid "SAVE"
-#~ msgstr "SAUVEGARDER"
-
-#~ msgid ""
-#~ "THIS WILL DELETE A FILE!\n"
-#~ "ARE YOU SURE?"
-#~ msgstr ""
-#~ "CELA VA EFFACER LE FICHIER\n"
-#~ "ÊTES-VOUS SUR ?"
-
-#~ msgid "enter emulator"
-#~ msgstr "entrer l'émulateur"
-
-#~ msgid "enter core"
-#~ msgstr "entrer le core"
-
-#~ msgid "Ratio"
-#~ msgstr "Ratio"
-
-#~ msgid "enter ratio"
-#~ msgstr "entrer le ratio"
-
-#~ msgid "Region"
-#~ msgstr "Région"
-
-#~ msgid "enter region"
-#~ msgstr "entrer la région"
-
-#~ msgid "Romtype"
-#~ msgstr "Type de rom"
-
-#~ msgid "enter romtype"
-#~ msgstr "entre le type de rom"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i JEU DISPONIBLE"
-#~ msgstr[1] "%i JEUX DISPONIBLES"
-
-#~ msgid "%i FAVORITE"
-#~ msgid_plural "%i FAVORITES"
-#~ msgstr[0] "%i FAVORI"
-#~ msgstr[1] "%i FAVORIS"
-
-#~ msgid "%i GAME HIDDEN"
-#~ msgid_plural "%i GAMES HIDDEN"
-#~ msgstr[0] "%i JEU CACHÉ"
-#~ msgstr[1] "%i JEUX CACHÉS"
-
-#~ msgid "SCROLL"
-#~ msgstr "SCROLLER"
-
-#~ msgid "FILENAME"
-#~ msgstr "FICHIER"
-
-#~ msgid "RATING"
-#~ msgstr "VOTES"
-
-#~ msgid "TIMES PLAYED"
-#~ msgstr "PARTIES JOUÉES"
-
-#~ msgid "LAST PLAYED"
-#~ msgstr "DERNIÈRE PARTIE"
-
-#~ msgid "NUMBER OF PLAYERS"
-#~ msgstr "NOMBRE DE JOUEURS"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "DÉVELOPPEUR"
-
-#~ msgid "GENRE"
-#~ msgstr "GENRE"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "RECHERCHER"
-
-#~ msgid "JOYSTICK 1 UP"
-#~ msgstr "JOYSTICK 1 HAUT"
-
-#~ msgid "JOYSTICK 1 LEFT"
-#~ msgstr "JOYSTICK 1 GAUCHE"
-
-#~ msgid "JOYSTICK 2 UP"
-#~ msgstr "JOYSTICK 2 HAUT"
-
-#~ msgid "JOYSTICK 2 LEFT"
-#~ msgstr "JOYSTICK 2 GAUCHE"
-
-#~ msgid "PAGE UP"
-#~ msgstr "L1 (PAGE PRECEDENTE)"
-
-#~ msgid "PAGE DOWN"
-#~ msgstr "R1 (PAGE SUIVANTE)"
-
-#~ msgid "LOADING..."
-#~ msgstr "CHARGEMENT..."
-
-#~ msgid "PLEASE WAIT..."
-#~ msgstr "VEUILLEZ PATIENTER..."
-
-#~ msgid "never"
-#~ msgstr "jamais"
-
-#~ msgid "just now"
-#~ msgstr "à l'instant"
-
-#~ msgid "%i sec ago"
-#~ msgid_plural "%i secs ago"
-#~ msgstr[0] "il y a %i sec"
-#~ msgstr[1] "il y a %i secs"
-
-#~ msgid "%i min ago"
-#~ msgid_plural "%i mins ago"
-#~ msgstr[0] "il y a %i min"
-#~ msgstr[1] "il y a %i mins"
-
-#~ msgid "%i hour ago"
-#~ msgid_plural "%i hours ago"
-#~ msgstr[0] "il y a %i heure"
-#~ msgstr[1] "il y a %i heures"
-
-#~ msgid "%i day ago"
-#~ msgid_plural "%i days ago"
-#~ msgstr[0] "il y a %i jour"
-#~ msgstr[1] "il y a %i jours"
-
-#~ msgid "unknown"
-#~ msgstr "inconnu"
-
-#~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "EXTREM (1100Mhz)"
-
-#~ msgid "TURBO (1000Mhz)"
-#~ msgstr "TURBO (1000Mhz)"
-
-#~ msgid "HIGH (950Mhz)"
-#~ msgstr "HIGH (950Mhz)"
-
-#~ msgid "HIGH (1050Mhz)"
-#~ msgstr "HIGH (1050Mhz)"
-
-#~ msgid "NONE (900Mhz)"
-#~ msgstr "AUCUN (900Mhz)"
-
-#~ msgid "EXTREM (1350Mhz)"
-#~ msgstr "EXTREM (1350Mhz)"
-
-#~ msgid "TURBO (1325Mhz)+"
-#~ msgstr "TURBO (1325Mhz)+"
-
-#~ msgid "HIGH (1300Mhz)"
-#~ msgstr "HIGH (1300Mhz)"
-
-#~ msgid "NONE (1200Mhz)"
-#~ msgstr "AUCUN (1200Mhz)"
-
-#~ msgid "NO CONTROLLERS FOUND"
-#~ msgstr "AUCUNE MANETTE DÉTECTÉE"

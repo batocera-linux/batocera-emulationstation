@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "SORTERA SPEL EFTER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "LJUD INSTÄLLNINGAR"
 msgid "NETWORK SETTINGS"
 msgstr "NÄTVERKSINSTÄLLNINGAR"
 
+msgid "RETROACHIEVEMENTS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr ""
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "AVSLUTA"
@@ -172,8 +181,8 @@ msgstr ""
 msgid "ROOT PASSWORD"
 msgstr ""
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "SYSTEMET STARTAR NU OM"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "SPEL PROPORTION"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS"
-msgstr ""
-
 msgid "HARDCORE MODE"
 msgstr ""
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -289,23 +295,29 @@ msgstr ""
 msgid "INPUT P%i"
 msgstr ""
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
+msgid "THEME SET"
+msgstr "SÄTT TEMA"
+
+msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
-msgid "SCREENSAVER AFTER"
-msgstr "SKÄRMSLÄCKAREN AKTIVERAS EFTER"
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "ÖVERGÅNGS STIL"
 
+msgid "SCREENSAVER AFTER"
+msgstr "SKÄRMSLÄCKAREN AKTIVERAS EFTER"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SKÄRMSLÄCKARE"
-
-msgid "SHOW FRAMERATE"
-msgstr "VISA BILDHASTIGHET"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -319,8 +331,32 @@ msgstr "SNABBVÄLJ SYSTEM"
 msgid "ON SCREEN KEYBOARD"
 msgstr ""
 
-msgid "THEME SET"
-msgstr "SÄTT TEMA"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "VISA BILDHASTIGHET"
+
+msgid "OVERSCAN"
+msgstr ""
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "SYSTEM VOLYM"
@@ -328,11 +364,14 @@ msgstr "SYSTEM VOLYM"
 msgid "FRONTEND MUSIC"
 msgstr "MUSIK I MENYN"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "LJUDUTGÅNG"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "ANSLUTEN"
@@ -629,6 +668,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "VILL DU STARTA KODI MEDIACENTER? "
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -657,6 +702,15 @@ msgid "RETRY"
 msgstr ""
 
 msgid "ACCEPT RESULT"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
@@ -762,15 +816,6 @@ msgstr "INGA HANDKONTROLLER FUNNA"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HÅLL INNE VALFRI KNAPP PÅ KONTROLLEN FÖR ATT KONFIGURERA"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "TRYCK PÅ F4 FÖR ATT SLUTA"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr ""
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "VILL DU STARTA KODI MEDIACENTER? "
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -798,14 +843,17 @@ msgstr "ÄNDRA"
 msgid "WORKING..."
 msgstr "ARBETAR…"
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "SYSTEMET STARTAR NU OM"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "TRYCK PÅ F4 FÖR ATT SLUTA"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "HOPPA TILL BOKSTAV"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "ENBART FAVORITER"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
 
 #~ msgid "SAVE"
 #~ msgstr "SPARA"

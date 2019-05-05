@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "Sorteer spellen op"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "Bewerk deze spelgegevens"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "Geluid instellingen"
 msgid "NETWORK SETTINGS"
 msgstr "Netwerk instellingen"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "Retroarchievements"
+
 msgid "SCRAPE"
 msgstr "Scrape"
 
 msgid "SYSTEM SETTINGS"
 msgstr "Systeem instellingen"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "Stoppen"
@@ -172,8 +181,8 @@ msgstr "Forceer Beveiliging"
 msgid "ROOT PASSWORD"
 msgstr "Root Wachtwoord"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "Het systeem zal nu herstarten"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "Spel Ratio"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "Retroarchievements instellingen"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "Retroarchievements"
-
 msgid "HARDCORE MODE"
 msgstr "Hardcore mode"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -295,23 +301,29 @@ msgstr "Vergeet Bluetooth controllers"
 msgid "INPUT P%i"
 msgstr "Input P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "Overscan"
+msgid "THEME SET"
+msgstr "Thema set"
 
-msgid "SCREENSAVER AFTER"
-msgstr "Schermbeveiliging na"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "Transitie stijl"
 
+msgid "SCREENSAVER AFTER"
+msgstr "Schermbeveiliging na"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "Schermbeveiliging gedrag"
-
-msgid "SHOW FRAMERATE"
-msgstr "Toon framerate"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -325,8 +337,32 @@ msgstr "Snelle systeem keuze"
 msgid "ON SCREEN KEYBOARD"
 msgstr ""
 
-msgid "THEME SET"
-msgstr "Thema set"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "Toon framerate"
+
+msgid "OVERSCAN"
+msgstr "Overscan"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "Systeem volume"
@@ -334,11 +370,14 @@ msgstr "Systeem volume"
 msgid "FRONTEND MUSIC"
 msgstr "Frontend Muziek"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "Output apparaat"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "Verbonden"
@@ -640,6 +679,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "Wil je Kodi Media Center starten?"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -668,6 +713,15 @@ msgid "RETRY"
 msgstr "Opnieuw"
 
 msgid "ACCEPT RESULT"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
@@ -779,15 +833,6 @@ msgstr "Geen controllers gevonden"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "Houdt A knop ingedrukt op je apparaat om te configureren"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "Druk F4 om te stoppen"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "Druk ESC of de Hotkey om te stoppen"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "Wil je Kodi Media Center starten?"
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -817,14 +862,20 @@ msgstr "Wijzig"
 msgid "WORKING..."
 msgstr "Bezig"
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "Het systeem zal nu herstarten"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "Druk F4 om te stoppen"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "Druk ESC of de Hotkey om te stoppen"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "Ga naar letter"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "Alleen favorieten"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "Bewerk deze spelgegevens"
 
 #~ msgid "SAVE"
 #~ msgstr "Opslaan"

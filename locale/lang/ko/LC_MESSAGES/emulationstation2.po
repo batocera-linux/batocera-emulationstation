@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "다음으로 게임 정렬"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "게임 정보 편집"
+
 msgid "FINNISHED"
 msgstr "완료"
 
@@ -82,11 +85,17 @@ msgstr "사운드 설정"
 msgid "NETWORK SETTINGS"
 msgstr "네트워크 설정"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "레트로 도전 과제"
+
 msgid "SCRAPE"
 msgstr "스크랩"
 
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "종료"
@@ -172,8 +181,8 @@ msgstr "보안 강화"
 msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "시스템이 지금 다시 시작됩니다."
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
@@ -217,9 +226,6 @@ msgstr "장식"
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전 과제 설정"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "레트로 도전 과제"
-
 msgid "HARDCORE MODE"
 msgstr "어려움 모드"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -293,23 +299,29 @@ msgstr "블루투스 컨트롤러 삭제"
 msgid "INPUT P%i"
 msgstr "입력 P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"
 
-msgid "OVERSCAN"
-msgstr "오버 스캔"
+msgid "THEME SET"
+msgstr "테마 선택"
 
-msgid "SCREENSAVER AFTER"
-msgstr "화면 보호기 작동"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
 
+msgid "SCREENSAVER AFTER"
+msgstr "화면 보호기 작동"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "화면 보호기 행동"
-
-msgid "SHOW FRAMERATE"
-msgstr "프레임 속도 표시"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -323,8 +335,32 @@ msgstr "빠른 시스템 선택"
 msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"
 
-msgid "THEME SET"
-msgstr "테마 선택"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "프레임 속도 표시"
+
+msgid "OVERSCAN"
+msgstr "오버 스캔"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
@@ -332,11 +368,14 @@ msgstr "시스템 음량"
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "출력 기기"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
 
 msgid "CONNECTED"
 msgstr "연결됨"
@@ -637,6 +676,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "KODI 미디어 센터를 실행하시겠습니까?"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -666,6 +711,15 @@ msgstr "재시도"
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
@@ -768,15 +822,6 @@ msgstr "발견된 게임 패드 없음"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "언제든지 F4 를 누르면 종료합니다."
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ESC 또는 단축키를 누르면 취소합니다."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODI 미디어 센터를 실행하시겠습니까?"
-
 msgid "MOVE CURSOR"
 msgstr "커서 이동"
 
@@ -803,6 +848,18 @@ msgstr "변경"
 msgid "WORKING..."
 msgstr "작업 중..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "시스템이 지금 다시 시작됩니다."
+
+#~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+#~ msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "언제든지 F4 를 누르면 종료합니다."
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "ESC 또는 단축키를 누르면 취소합니다."
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "문자로 이동"
 
@@ -811,9 +868,6 @@ msgstr "작업 중..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "숨김 표시"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "게임 정보 편집"
 
 #~ msgid "SAVE"
 #~ msgstr "저장"

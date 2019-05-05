@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "ORDENAR JOGOS POR"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
+
 msgid "FINNISHED"
 msgstr "FINALIZADO"
 
@@ -82,11 +85,17 @@ msgstr "OPÇÕES DE ÁUDIO"
 msgid "NETWORK SETTINGS"
 msgstr "OPÇÕES DE REDE"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
 msgid "SCRAPE"
 msgstr "SCRAPE"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DE SISTEMA"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -172,8 +181,8 @@ msgstr "REFORÇAR A SEGURANÇA"
 msgid "ROOT PASSWORD"
 msgstr "SENHA ROOT"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "O SISTEMA SERÁ REINICIADO"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "FORMATO DE TELA"
@@ -217,9 +226,6 @@ msgstr "DECORATION"
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
-
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -293,23 +299,29 @@ msgstr "DESCONECTAR CONTROLES BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "TEMA"
 
-msgid "SCREENSAVER AFTER"
-msgstr "ATIVAR PROTEÇÃO DE TELA"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
 
+msgid "SCREENSAVER AFTER"
+msgstr "ATIVAR PROTEÇÃO DE TELA"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DA PROTEÇÃO DE TELA"
-
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRAR FRAMERATE"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -323,8 +335,32 @@ msgstr "SELEÇÃO RÁPIDA DE SISTEMA"
 msgid "ON SCREEN KEYBOARD"
 msgstr "Teclado na tela"
 
-msgid "THEME SET"
-msgstr "TEMA"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRAR FRAMERATE"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -332,12 +368,14 @@ msgstr "VOLUME DO SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "SAÍDA DE ÁUDIO"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
-"VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
 
 msgid "CONNECTED"
 msgstr "CONECTADO"
@@ -642,6 +680,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -671,6 +715,15 @@ msgstr "REPETIR"
 
 msgid "ACCEPT RESULT"
 msgstr "Aceitar Resultados"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
@@ -775,15 +828,6 @@ msgstr "NENHUM CONTROLE DETECTADO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "APERTE ESC OU HOTKEY PARA CANCELAR."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
-
 msgid "MOVE CURSOR"
 msgstr "Mover Cursor"
 
@@ -811,6 +855,19 @@ msgstr "MODIFICAR"
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "O SISTEMA SERÁ REINICIADO"
+
+#~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+#~ msgstr ""
+#~ "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "APERTE ESC OU HOTKEY PARA CANCELAR."
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "IR PARA A LETRA"
 
@@ -819,9 +876,6 @@ msgstr "EM PROGRESSO..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRAR OCULTOS"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 #~ msgid "SAVE"
 #~ msgstr "SALVAR"

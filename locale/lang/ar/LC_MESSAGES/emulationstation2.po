@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "ترتيب الالعاب حسب"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل بيانات اللعبة (METADATA)"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -83,11 +86,17 @@ msgstr "أعدادت الصوت"
 msgid "NETWORK SETTINGS"
 msgstr "أعدادت الشبكة"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "انجازات RETROACHIEVEMENTS "
+
 msgid "SCRAPE"
 msgstr "بحث بيانات"
 
 msgid "SYSTEM SETTINGS"
 msgstr "أعدادت النظام"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "خروج"
@@ -173,8 +182,8 @@ msgstr "فرض الأمان"
 msgid "ROOT PASSWORD"
 msgstr "باسورد الرووت"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "سيتم اعادة تشغيل النظام"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "تقييم اللعبة"
@@ -218,9 +227,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "اعدادت RETROACHIEVEMENTS"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "انجازات RETROACHIEVEMENTS "
-
 msgid "HARDCORE MODE"
 msgstr "الطور الصعب"
 
@@ -230,7 +236,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -294,23 +300,29 @@ msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتو�
 msgid "INPUT P%i"
 msgstr "ادخال P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "اختيار التنسيق"
 
-msgid "SCREENSAVER AFTER"
-msgstr "اظهار شاشة التوقف بعد"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "نمط التنقل"
 
+msgid "SCREENSAVER AFTER"
+msgstr "اظهار شاشة التوقف بعد"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "اسلوب شاشة التوقف"
-
-msgid "SHOW FRAMERATE"
-msgstr "اظهار معدل الاطار"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -324,8 +336,32 @@ msgstr "اختيار النظام السريع"
 msgid "ON SCREEN KEYBOARD"
 msgstr "لوحة المفاتيح المرئية"
 
-msgid "THEME SET"
-msgstr "اختيار التنسيق"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "اظهار معدل الاطار"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "مستوى صوت النظام"
@@ -333,11 +369,14 @@ msgstr "مستوى صوت النظام"
 msgid "FRONTEND MUSIC"
 msgstr "أغنية الواجهة"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "جهاز خرج الصوت"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "متصل"
@@ -644,6 +683,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "هل تريد بدأ برنامج الملتيميديا (KODI)؟"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -673,6 +718,15 @@ msgstr "إعادة محاولة"
 
 msgid "ACCEPT RESULT"
 msgstr "قبول التعديلات"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
@@ -785,15 +839,6 @@ msgstr "لم يتم التعرف على ايدي تحكم"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "اضغط زر (A) في يد التحكم ليتم اعدادها"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "اضغط (F4) للخروج في اي وقت"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "اضغط (ESC) او الزر المميز (HOTKEY) للإلغاء"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "هل تريد بدأ برنامج الملتيميديا (KODI)؟"
-
 msgid "MOVE CURSOR"
 msgstr "تحريك المؤشر"
 
@@ -825,14 +870,20 @@ msgstr "تغيير"
 msgid "WORKING..."
 msgstr "تشغيل..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "سيتم اعادة تشغيل النظام"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "اضغط (F4) للخروج في اي وقت"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "اضغط (ESC) او الزر المميز (HOTKEY) للإلغاء"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "القفز إلى حرف"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "المفضلة فقط"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "تعديل بيانات اللعبة (METADATA)"
 
 #~ msgid "SAVE"
 #~ msgstr "حفظ"

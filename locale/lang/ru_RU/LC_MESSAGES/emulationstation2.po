@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -62,6 +62,9 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
+
 msgid "FINNISHED"
 msgstr "ЗАВЕРШЕНО"
 
@@ -86,11 +89,17 @@ msgstr "НАСТРОЙКИ ЗВУКА"
 msgid "NETWORK SETTINGS"
 msgstr "НАСТРОЙКИ СЕТИ"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "РЕТРОДОСТИЖЕНИЯ"
+
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -176,8 +185,8 @@ msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
@@ -221,9 +230,6 @@ msgstr "ДЕКОРИРОВАНИЕ"
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "РЕТРОДОСТИЖЕНИЯ"
-
 msgid "HARDCORE MODE"
 msgstr "ХАРДКОР РЕЖИМ"
 
@@ -233,7 +239,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -298,23 +304,29 @@ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
 msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
 
-msgid "OVERSCAN"
-msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
+msgid "THEME SET"
+msgstr "ТЕМА"
 
-msgid "SCREENSAVER AFTER"
-msgstr "ЗАСТАВКА ЧЕРЕЗ"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
+msgid "SCREENSAVER AFTER"
+msgstr "ЗАСТАВКА ЧЕРЕЗ"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
-
-msgid "SHOW FRAMERATE"
-msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -328,8 +340,32 @@ msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМЫ"
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
 
-msgid "THEME SET"
-msgstr "ТЕМА"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
+
+msgid "OVERSCAN"
+msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -337,11 +373,14 @@ msgstr "ГРОМКОСТЬ"
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "УСТРОЙСТВО ВЫВОДА"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
 
 msgid "CONNECTED"
 msgstr "ПОДКЛЮЧЕНО"
@@ -646,6 +685,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -675,6 +720,15 @@ msgstr "ПОВТОРИТЬ"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr ""
@@ -781,15 +835,6 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ ЕГО НАСТРОЙКИ."
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "ДЛЯ ВЫХОДА В ЛЮБОЕ ВРЕМЯ НАЖМИТЕ F4."
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ДЛЯ ОТМЕНЫ НАЖМИТЕ ESC ИЛИ ГОРЯЧУЮ КНОПКУ."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
-
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 
@@ -818,6 +863,18 @@ msgstr "ИЗМЕНИТЬ"
 msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
+
+#~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+#~ msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "ДЛЯ ВЫХОДА В ЛЮБОЕ ВРЕМЯ НАЖМИТЕ F4."
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "ДЛЯ ОТМЕНЫ НАЖМИТЕ ESC ИЛИ ГОРЯЧУЮ КНОПКУ."
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "ПЕРЕЙТИ К БУКВЕ"
 
@@ -826,9 +883,6 @@ msgstr "ОБРАБОТКА..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "ПОКАЗЫВАТЬ СКРЫТЫЕ"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 #~ msgid "SAVE"
 #~ msgstr "СОХРАНИТЬ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-01 21:17+0200\n"
+"POT-Creation-Date: 2019-05-05 08:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,10 +93,16 @@ msgstr ""
 msgid "NETWORK SETTINGS"
 msgstr ""
 
+msgid "RETROACHIEVEMENTS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr ""
 
 msgid "SYSTEM SETTINGS"
+msgstr ""
+
+msgid "INFORMATIONS"
 msgstr ""
 
 msgid "QUIT"
@@ -183,7 +189,7 @@ msgstr ""
 msgid "ROOT PASSWORD"
 msgstr ""
 
-msgid "THE SYSTEM WILL NOW REBOOT"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "GAME RATIO"
@@ -228,9 +234,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS"
-msgstr ""
-
 msgid "HARDCORE MODE"
 msgstr ""
 
@@ -240,7 +243,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -300,22 +303,28 @@ msgstr ""
 msgid "INPUT P%i"
 msgstr ""
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
+msgid "THEME SET"
 msgstr ""
 
-msgid "SCREENSAVER AFTER"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
 msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr ""
 
-msgid "SCREENSAVER BEHAVIOR"
+msgid "SCREENSAVER AFTER"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
+msgid "SCREENSAVER BEHAVIOR"
 msgstr ""
 
 msgid "SHOW CLOCK"
@@ -330,7 +339,31 @@ msgstr ""
 msgid "ON SCREEN KEYBOARD"
 msgstr ""
 
-msgid "THEME SET"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr ""
+
+msgid "OVERSCAN"
+msgstr ""
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -339,10 +372,13 @@ msgstr ""
 msgid "FRONTEND MUSIC"
 msgstr ""
 
-msgid "OUTPUT DEVICE"
+msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
+msgid "OUTPUT DEVICE"
 msgstr ""
 
 msgid "CONNECTED"
@@ -786,12 +822,6 @@ msgid "NO GAMEPADS DETECTED"
 msgstr ""
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
-
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr ""
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 msgstr ""
 
 msgid "MOVE CURSOR"

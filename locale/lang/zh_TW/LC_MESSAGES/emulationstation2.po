@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-05 07:54+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "遊戲排序方式"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "編輯此遊戲的簡介資料"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "聲音設定"
 msgid "NETWORK SETTINGS"
 msgstr "網路設定"
 
+msgid "RETROACHIEVEMENTS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "資料搜刮"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "離開"
@@ -172,8 +181,8 @@ msgstr "啟用安全防護"
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "系統將重新啟動"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "遊戲顯示比例"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS 設定"
 
-msgid "RETROACHIEVEMENTS"
-msgstr ""
-
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -294,23 +300,29 @@ msgstr "解除配對藍芽控制器"
 msgid "INPUT P%i"
 msgstr "輸入 P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "過掃描填滿效果"
+msgid "THEME SET"
+msgstr "主題佈景設定"
 
-msgid "SCREENSAVER AFTER"
-msgstr "螢幕保護時間"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "轉場效果"
 
+msgid "SCREENSAVER AFTER"
+msgstr "螢幕保護時間"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "螢幕保護效果"
-
-msgid "SHOW FRAMERATE"
-msgstr "顯示FPS幀率"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -324,8 +336,32 @@ msgstr "快速遊戲平台選擇(左右鍵)"
 msgid "ON SCREEN KEYBOARD"
 msgstr ""
 
-msgid "THEME SET"
-msgstr "主題佈景設定"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "顯示FPS幀率"
+
+msgid "OVERSCAN"
+msgstr "過掃描填滿效果"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "系統音量"
@@ -333,11 +369,14 @@ msgstr "系統音量"
 msgid "FRONTEND MUSIC"
 msgstr "系統背景音樂"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "輸出裝置"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "已連接"
@@ -634,6 +673,12 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "你想啟動 KODI 媒體播放中心嗎?"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -662,6 +707,15 @@ msgid "RETRY"
 msgstr "重試"
 
 msgid "ACCEPT RESULT"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
@@ -765,15 +819,6 @@ msgstr "沒有檢測到遊戲手把"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "請按住您要設定的控制器上的任一個按鈕。"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "退出請按 F4。"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "按 ESC 鍵或熱鍵取消"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "你想啟動 KODI 媒體播放中心嗎?"
-
 msgid "MOVE CURSOR"
 msgstr ""
 
@@ -800,14 +845,20 @@ msgstr "修改"
 msgid "WORKING..."
 msgstr "更新中..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "系統將重新啟動"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "退出請按 F4。"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "按 ESC 鍵或熱鍵取消"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "按字母排序"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "僅顯示收藏項目"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "編輯此遊戲的簡介資料"
 
 #~ msgid "SAVE"
 #~ msgstr "儲存"
