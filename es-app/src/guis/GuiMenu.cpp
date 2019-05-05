@@ -74,7 +74,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   if (isFullUI)
     addEntry(_("NETWORK SETTINGS").c_str(), 0x777777FF, true, [this] { openNetworkSettings_batocera(); });
 
-  if (isFullUI)
+  if (isFullUI && ApiSystem::getInstance()->getRetroAchievements().empty() == false)
     addEntry(_("RETROACHIEVEMENTS").c_str(), 0x777777FF, true, [this] { openRetroAchievements_batocera(); });
 
   if (isFullUI)
