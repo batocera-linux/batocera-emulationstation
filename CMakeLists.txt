@@ -225,6 +225,7 @@ if(DEFINED libCEC_FOUND)
 if(DEFINED BCMHOST)
     LIST(APPEND COMMON_LIBRARIES
         vchiq_arm
+	vchostif
     )
 endif()
     LIST(APPEND COMMON_LIBRARIES
