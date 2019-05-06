@@ -53,13 +53,13 @@ msgid "CLOSE"
 msgstr "FECHAR"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "SALTAR PARA..."
 
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "FILTRAR GAMELIST"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -98,7 +98,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DO SISTEMA"
 
 msgid "INFORMATIONS"
-msgstr ""
+msgstr "INFORMAÇÕES"
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -116,7 +116,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECIONAR"
+msgstr "SELECT"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -185,7 +185,7 @@ msgid "ROOT PASSWORD"
 msgstr "SENHA ROOT"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "GAME RATIO"
 msgstr "FORMATO DA TELA"
@@ -197,10 +197,10 @@ msgid "AUTO"
 msgstr "AUTOMÁTICO"
 
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
@@ -233,13 +233,13 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "CLASSIFICAÇÃO"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "MODO VERBOSE"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -296,14 +296,14 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "DESEMPARELHAR COMANDO BLUETOOTH"
+msgstr "DESEMPARELHAR COMANDOS BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "MODO DO INTERFACE"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAIDA DE VIDEO"
@@ -312,10 +312,10 @@ msgid "THEME SET"
 msgstr "TEMA"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "INICIAR UM SISTEMA"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
@@ -327,7 +327,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DA TELA"
 
 msgid "SHOW CLOCK"
-msgstr "SHOW RELÓGIO"
+msgstr "MOSTRAR RELÓGIO"
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA NA TELA"
@@ -339,10 +339,10 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "TECLADO NA TELA"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
+msgstr "TRANSIÇÃO CARROSSEL"
 
 msgid "ENABLE FILTERS"
-msgstr ""
+msgstr "ATIVAR FILTROS"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR FRAMERATE"
@@ -351,19 +351,19 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr ""
+msgstr "GUARDAR METADATA NA SAÍDA"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
+msgstr "ANALIZAR APENAS AS GAMELISTS"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
+msgstr "PROCURAR POR IMAGENS NO DISCO"
 
 msgid "SHOW HIDDEN FILES"
-msgstr ""
+msgstr "MOSTRAR FICHEIROS OCULTOS"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "LIMITE DA VRAM"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -372,10 +372,10 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr ""
+msgstr "ATIVAR ÁUDIO DO VÍDEO"
 
 msgid "OUTPUT DEVICE"
 msgstr "SAÍDA DE ÁUDIO"
@@ -429,7 +429,7 @@ msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
+msgstr "DESEJA DESLIGAR SEM GUARDAR AS METADATAS?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
@@ -438,10 +438,10 @@ msgid "Emulator"
 msgstr "Emulador"
 
 msgid "Core"
-msgstr "Núcleo de emulação"
+msgstr "NÚCLEO DE EMULAÇÃO"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "MODO VÍDEO"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALAR BATOCERA"
@@ -462,7 +462,7 @@ msgid "INSTALL"
 msgstr "INSTALAR"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "NECESSÁRIO LIGAÇÃO A REDE"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING EM PROGRESSO"
@@ -533,7 +533,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "USUÁRIO DECIDE NOS CONFLITOS"
 
 msgid "START"
-msgstr "INICIAR"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -561,16 +561,16 @@ msgid "enter game name"
 msgstr "digite o nome do jogo"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Classificar nome"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "insira o nome de classificação do jogo"
 
 msgid "Description"
-msgstr "Descrição"
+msgstr "DESCRIÇÃO"
 
 msgid "enter description"
-msgstr "digite a descrição"
+msgstr "DIGITE A DISCRIÇÃO"
 
 msgid "Image"
 msgstr "Imagem"
@@ -579,28 +579,28 @@ msgid "enter path to image"
 msgstr "digite o diretório da imagem"
 
 msgid "Path to video"
-msgstr ""
+msgstr "CAMINHO PARA O VÍDEO"
 
 msgid "enter path to thumbnail"
-msgstr "digite o diretório da miniatura"
+msgstr "DIGITE O DIRETÓRIO DA MINIATURA"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "Caminho para o marcador"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
 
 msgid "Rating"
-msgstr "Avaliação"
+msgstr "AVALIAÇÃO"
 
 msgid "enter rating"
 msgstr "digite a classificação"
 
 msgid "Release date"
-msgstr "Data de lançamento"
+msgstr "DATA DE LANÇAMENTO"
 
 msgid "enter release date"
-msgstr "digite a data de lançamento"
+msgstr "DIGITE A DATA DE LANÇAMENTO"
 
 msgid "Developer"
 msgstr "Desenvolvedor"
@@ -618,7 +618,7 @@ msgid "Genre"
 msgstr "Género"
 
 msgid "enter game genre"
-msgstr "digite o género"
+msgstr "DIGITE O GÉNERO"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -639,64 +639,64 @@ msgid "set hidden"
 msgstr "ocultar rom"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Jogo infantil"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "tipo de jogo infantil "
 
 msgid "Play count"
-msgstr "Vezes jogadas"
+msgstr "VEZES JOGADAS"
 
 msgid "enter number of times played"
-msgstr "digite o número de tempo jogado"
+msgstr "DIGITE O NÚMERO DE TEMPO JOGADO"
 
 msgid "Last played"
-msgstr "Número vezes jogadas"
+msgstr "NÚMERO VEZES JOGADAS"
 
 msgid "enter last played date"
-msgstr "digite a última data jogada"
+msgstr "DIGITE A ÚLTIMA DATA JOGADA"
 
 msgid "name"
-msgstr ""
+msgstr "nome"
 
 msgid "sortname"
-msgstr ""
+msgstr "ordenar nome"
 
 msgid "description"
-msgstr ""
+msgstr "DESCRIÇÃO"
 
 msgid "image"
-msgstr ""
+msgstr "imagem"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "miniatura"
 
 msgid "video"
-msgstr ""
+msgstr "VÍDEO"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "INSIRE O CAMINHO PARA VÍDEO"
 
 msgid "marquee"
-msgstr ""
+msgstr "marcador"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "insira o caminho para o marcador"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "KODI"
-msgstr ""
+msgstr "KODI"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "ALEATÓRIO"
 
 msgid "FILES"
-msgstr ""
+msgstr "FICHEIROS"
 
 msgid "Released"
-msgstr "Lançado"
+msgstr "LANÇADO"
 
 msgid "Times played"
 msgstr "Vezes jogadas"
@@ -720,16 +720,16 @@ msgid "ACCEPT RESULT"
 msgstr "Aceitar Resultados"
 
 msgid "Loading..."
-msgstr ""
+msgstr "A Carregar..."
 
 msgid "Loading system config..."
-msgstr ""
+msgstr " A Carregar a configuração do sistema..."
 
 msgid "Done."
-msgstr ""
+msgstr "Concluído."
 
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "UP"
 msgstr "CIMA"
@@ -744,16 +744,16 @@ msgid "RIGHT"
 msgstr "DIREITA"
 
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ANALÓG ESQ - CIMA"
 
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓG ESQ - ESQ"
 
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ANALÓG DIR - CIMA"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓG DIR - ESQ"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -765,7 +765,7 @@ msgid "KEYBOARD"
 msgstr "TECLADO"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -781,13 +781,14 @@ msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
-msgstr ""
+msgstr "VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR "
+"DOS JOGOS.VOCÊ QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
 msgstr[0] "SEGURE POR %i SEG PARA PULAR"
-msgstr[1] "SEGURE POR %i SEGS PARA PASSAR"
+msgstr[1] "SEGURE POR %i SEGS PARA PULAR"
 
 msgid "PRESS ANYTHING"
 msgstr "PRESSIONE QUALQUER BOTÃO"
@@ -829,16 +830,16 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "NENHUM COMANDO DETECTADO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "SEGURE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
+msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
 
 msgid "MOVE CURSOR"
-msgstr "Mover Cursor"
+msgstr "MOVER CURSOR"
 
 msgid "STOP EDITING"
-msgstr "Parar Edição"
+msgstr "PARAR EDIÇÃO"
 
 msgid "EDIT"
-msgstr "Editar"
+msgstr "EDITAR"
 
 msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
