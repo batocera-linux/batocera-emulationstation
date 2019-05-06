@@ -89,7 +89,7 @@ void Settings::setDefaults()
     mBoolMap["VSync"] = true;
 #endif
 
-	mBoolMap["EnableSounds"] = true;
+    mBoolMap["EnableSounds"] = false; // batocera
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
 	mBoolMap["IgnoreGamelist"] = false;
