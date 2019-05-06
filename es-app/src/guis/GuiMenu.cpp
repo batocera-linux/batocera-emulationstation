@@ -654,9 +654,9 @@ bool GuiMenu::input(InputConfig* config, Input input)
 
 HelpStyle GuiMenu::getHelpStyle()
 {
-	HelpStyle style = HelpStyle();
-	style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system");
-	return style;
+  HelpStyle style = HelpStyle();
+  //style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system"); // batocera ; make game lists reload crashing (viewcontroller delete) ; seems not usefull
+  return style;
 }
 
 std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
@@ -1290,6 +1290,11 @@ void GuiMenu::openGamesSettings_batocera() {
 					  delete ViewController::get();
 					  SystemData::deleteSystems();
 					  SystemData::loadConfig();
+					  GuiComponent *gui;
+					  while ((gui = window->peekGui()) != NULL) {
+					    window->removeGui(gui);
+					    delete gui;
+					  }
 					  ViewController::init(window);
 					  ViewController::get()->reloadAll();
 					  window->pushGui(ViewController::get());
