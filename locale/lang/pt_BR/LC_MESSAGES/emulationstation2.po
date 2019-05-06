@@ -50,13 +50,13 @@ msgid "CLOSE"
 msgstr "FECHAR"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "PULE PARA..."
 
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "FILTRAR GAMELIST"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -95,7 +95,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DE SISTEMA"
 
 msgid "INFORMATIONS"
-msgstr ""
+msgstr "INFORMAÇÃO"
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -113,7 +113,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECIONAR"
+msgstr "SELECT"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -182,7 +182,7 @@ msgid "ROOT PASSWORD"
 msgstr "SENHA ROOT"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "GAME RATIO"
 msgstr "FORMATO DE TELA"
@@ -194,10 +194,10 @@ msgid "AUTO"
 msgstr "AUTOMÁTICO"
 
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 msgid "REWIND"
 msgstr "RETROCEDER"
@@ -230,13 +230,13 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "CLASSIFICAÇÃO"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "MODO VERBOSE"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -300,7 +300,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "MODO DA INTERFACE"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
@@ -309,10 +309,10 @@ msgid "THEME SET"
 msgstr "TEMA"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "COMECE NO SISTEMA"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
@@ -324,7 +324,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DA PROTEÇÃO DE TELA"
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "MOSTRAR RELÓGIO"
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA NA TELA"
@@ -333,13 +333,13 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SELEÇÃO RÁPIDA DE SISTEMA"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr "Teclado na tela"
+msgstr "TECLADO NA TELA"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
+msgstr "TRANSIÇÃO CARROSSEL"
 
 msgid "ENABLE FILTERS"
-msgstr ""
+msgstr "ATIVAR FILTROS"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR FRAMERATE"
@@ -348,19 +348,19 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr ""
+msgstr "SALVAR METADATA NA SAÍDA"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
+msgstr "ANALISAR APENAS A GAMESLISTS"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
+msgstr "PESQUISA DE ARTE LOCAL"
 
 msgid "SHOW HIDDEN FILES"
-msgstr ""
+msgstr "MOSTRAR ARQUIVOS OCULTOS"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "LIMITE DE VRAM"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -369,10 +369,10 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr ""
+msgstr "ATIVAR ÁUDIO DO VÍDEO"
 
 msgid "OUTPUT DEVICE"
 msgstr "SAÍDA DE ÁUDIO"
@@ -435,10 +435,10 @@ msgid "Emulator"
 msgstr "Emulador"
 
 msgid "Core"
-msgstr "Núcleo de emulação"
+msgstr "NÚCLEO DE EMULAÇÃO"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "MODO VÍDEO"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALAR BATOCERA"
@@ -459,7 +459,7 @@ msgid "INSTALL"
 msgstr "INSTALAR"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "REDE NECESSÁRIA"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING EM PROGRESSO"
@@ -530,7 +530,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "USUÁRIO DECIDE CONFLITOS"
 
 msgid "START"
-msgstr "INICIAR"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -558,16 +558,16 @@ msgid "enter game name"
 msgstr "digite o nome do jogo"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Classificar nome"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "INSIRA O NOME DE CLASSIFICAÇÃO DO JOGO"
 
 msgid "Description"
-msgstr "Descrição"
+msgstr "DESCRIÇÃO"
 
 msgid "enter description"
-msgstr "digite a descrição"
+msgstr "DIGITE A DESCRIÇÃO"
 
 msgid "Image"
 msgstr "Imagem"
@@ -576,28 +576,28 @@ msgid "enter path to image"
 msgstr "digite o diretório da imagem"
 
 msgid "Path to video"
-msgstr ""
+msgstr "CAMINHO PARA O VÍDEO"
 
 msgid "enter path to thumbnail"
-msgstr "digite o diretório da miniatura"
+msgstr "DIGITE O DIRETÓRIO DA MINIATURA"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "Caminho para a marquee"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
 
 msgid "Rating"
-msgstr "Avaliação"
+msgstr "AVALIAÇÃO"
 
 msgid "enter rating"
 msgstr "digite a nota"
 
 msgid "Release date"
-msgstr "Data de lançamento"
+msgstr "DATA DE LANÇAMENTO"
 
 msgid "enter release date"
-msgstr "digite a data de lançamento"
+msgstr "DIGITE A DATA DE LANÇAMENTO"
 
 msgid "Developer"
 msgstr "Desenvolvedor"
@@ -612,10 +612,10 @@ msgid "enter game publisher"
 msgstr "digite o nome da publicadora"
 
 msgid "Genre"
-msgstr "Gênero"
+msgstr "GÊNERO"
 
 msgid "enter game genre"
-msgstr "digite o gênero"
+msgstr "DIGITE O GÊNERO"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -636,64 +636,64 @@ msgid "set hidden"
 msgstr "ocultar rom"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Infantil"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "definir infantil"
 
 msgid "Play count"
-msgstr "Número de jogadas"
+msgstr "NÚMERO DE JOGADAS"
 
 msgid "enter number of times played"
-msgstr "digite o número de vezes jogadas"
+msgstr "DIGITE O NÚMERO DE VEZES JOGADAS"
 
 msgid "Last played"
-msgstr "Última vez jogado"
+msgstr "ÚLTIMA VEZ JOGADO"
 
 msgid "enter last played date"
-msgstr "digite a última data jogada"
+msgstr "DIGITE A ÚLTIMA DATA JOGADA"
 
 msgid "name"
-msgstr ""
+msgstr "nome"
 
 msgid "sortname"
-msgstr ""
+msgstr "ordenarnome"
 
 msgid "description"
-msgstr ""
+msgstr "DESCRIÇÃO"
 
 msgid "image"
-msgstr ""
+msgstr "imagem"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "miniatura"
 
 msgid "video"
-msgstr ""
+msgstr "VÍDEO"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "INSIRA O CAMINHO PARA O VÍDEO"
 
 msgid "marquee"
-msgstr ""
+msgstr "marquee"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "insira o caminho para a marquee"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "KODI"
-msgstr ""
+msgstr "KODI"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "ALEATÓRIO"
 
 msgid "FILES"
-msgstr ""
+msgstr "ARQUIVOS"
 
 msgid "Released"
-msgstr "Lançado"
+msgstr "LANÇADO"
 
 msgid "Times played"
 msgstr "Vezes jogados"
@@ -717,16 +717,16 @@ msgid "ACCEPT RESULT"
 msgstr "Aceitar Resultados"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Carregando..."
 
 msgid "Loading system config..."
-msgstr ""
+msgstr "Carregando a configuração do sistema..."
 
 msgid "Done."
-msgstr ""
+msgstr "Terminado."
 
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "UP"
 msgstr "CIMA"
@@ -741,16 +741,16 @@ msgid "RIGHT"
 msgstr "DIREITA"
 
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ANALOG ESQ - CIMA"
 
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ANALOG ESQ - ESQUERDO"
 
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ANALOG DIR - CIMA"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ANALOG DIR - ESQUERDO"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -762,7 +762,7 @@ msgid "KEYBOARD"
 msgstr "TECLADO"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -796,19 +796,19 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARÁCTERES ESPECIAIS"
 
 msgid "SPACE"
-msgstr "Espaço"
+msgstr "ESPAÇO"
 
 msgid "DELETE"
 msgstr "EXCLUIR"
 
 msgid "DELETE A CHAR"
-msgstr "Deletar um Carácter"
+msgstr "DELETAR UM CARÁCTER"
 
 msgid "DISCARD CHANGES"
 msgstr "ANULAR MODIFICAÇÕES"
 
 msgid "SHIFT"
-msgstr "Mudança"
+msgstr "MUDANÇA"
 
 msgid "WELCOME"
 msgstr "BEM-VINDO"
@@ -829,13 +829,13 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
 
 msgid "MOVE CURSOR"
-msgstr "Mover Cursor"
+msgstr "MOVER CURSOR"
 
 msgid "STOP EDITING"
-msgstr "Parar Edição"
+msgstr "PARAR EDIÇÃO"
 
 msgid "EDIT"
-msgstr "Editar"
+msgstr "EDITAR"
 
 msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
