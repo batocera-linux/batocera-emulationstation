@@ -1784,6 +1784,13 @@ void GuiMenu::openSoundSettings_batocera() {
   auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
   music_enabled->setState(!(SystemConf::getInstance()->get("audio.bgmusic") == "0"));
   s->addWithLabel(_("FRONTEND MUSIC"), music_enabled);
+  s->addSaveFunc([music_enabled] {
+      SystemConf::getInstance()->set("audio.bgmusic", music_enabled->getState() ? "1" : "0");
+      if (music_enabled->getState())
+	AudioManager::getInstance()->playRandomMusic();
+      else
+	AudioManager::getInstance()->stopMusic();
+    });
 
   // disable sounds
   auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -1839,19 +1846,12 @@ void GuiMenu::openSoundSettings_batocera() {
     s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
   }
 
-  s->addSaveFunc([this, optionsAudio, selectedAudio, sounds_enabled, volume] {
+  s->addSaveFunc([this, optionsAudio, selectedAudio, volume] {
       bool v_need_reboot = false;
 
       VolumeControl::getInstance()->setVolume((int) round(volume->getValue()));
       SystemConf::getInstance()->set("audio.volume",
 				     std::to_string((int) round(volume->getValue())));
-
-      SystemConf::getInstance()->set("audio.bgmusic",
-				     sounds_enabled->getState() ? "1" : "0");
-      //      if (!sounds_enabled->getState())
-      //	AudioManager::getInstance()->stopMusic();
-      //      else
-      //	AudioManager::getInstance()->playRandomMusic();
 
       if (optionsAudio->changed()) {
 	SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());

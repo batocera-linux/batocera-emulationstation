@@ -27,6 +27,7 @@
 #include "LocaleES.h"
 #include <SystemConf.h>
 #include "ApiSystem.h"
+#include "AudioManager.h"
 #include "NetworkThread.h"
 
 #include <FreeImage.h>
@@ -423,6 +424,10 @@ int main(int argc, char* argv[])
 
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera
+
+	// batocera
+	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+	  AudioManager::getInstance()->playRandomMusic();
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)

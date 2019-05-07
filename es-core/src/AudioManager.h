@@ -5,6 +5,7 @@
 #include <SDL_audio.h>
 #include <memory>
 #include <vector>
+#include "SDL_mixer.h"
 
 class Sound;
 
@@ -18,6 +19,10 @@ class AudioManager
 
 	AudioManager();
 
+	Mix_Music* currentMusic; // batocera
+	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
+	static void musicEnd_callback(); // batocera
+
 public:
 	static std::shared_ptr<AudioManager> & getInstance();
 
@@ -30,6 +35,10 @@ public:
 	void play();
 	void stop();
 
+	// batocera
+	void playRandomMusic(bool continueIfPlaying = true);
+	void stopMusic();
+	
 	virtual ~AudioManager();
 };
 
