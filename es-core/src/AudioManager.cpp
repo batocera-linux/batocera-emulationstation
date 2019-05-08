@@ -104,10 +104,11 @@ void AudioManager::init()
 	//	LOG(LogError) << "AudioManager Error - Unable to open SDL audio: " << SDL_GetError() << std::endl;
 	//}
 
+	// batocera : don't initialize globally, just as needed
 	// mixer: Open the audio device and pause
-        if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
-            LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
-        }
+        //if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
+        //    LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
+        //}
 }
 
 void AudioManager::deinit()
@@ -222,6 +223,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
     // mixer: Open the audio device and pause
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
       LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
+      return;
     }
   }
 
@@ -229,10 +231,14 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
   currentMusic = Mix_LoadMUS(musics.at(randomIndex).c_str());
   if(currentMusic == NULL) {
     LOG(LogError) <<Mix_GetError() << " for " << musics.at(randomIndex);
+    Mix_CloseAudio();
     return;
   }
 
   if(Mix_PlayMusic(currentMusic, 1) == -1){
+    Mix_FreeMusic(currentMusic);
+    currentMusic = NULL;
+    Mix_CloseAudio();
     return;
   }
   Mix_HookMusicFinished(AudioManager::musicEnd_callback);
