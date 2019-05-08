@@ -736,11 +736,11 @@ msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "Adicionado '%s' a '%s'"
+msgstr "'%s' adicionado ao '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "Removido '%s' de '%s'"
+msgstr "'%s' removido do '%s'"
 
 msgid "UP"
 msgstr "CIMA"
