@@ -10,7 +10,7 @@
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 SDL_AudioSpec AudioManager::sAudioFormat;
 std::shared_ptr<AudioManager> AudioManager::sInstance;
-
+Mix_Music* AudioManager::currentMusic = NULL;
 
 void AudioManager::mixAudio(void* /*unused*/, Uint8 *stream, int len)
 {
@@ -97,16 +97,17 @@ void AudioManager::init()
 	sAudioFormat.callback = mixAudio;
 	sAudioFormat.userdata = NULL;
 
+	// batocera
 	//Open the audio device and pause
-	if (SDL_OpenAudio(&sAudioFormat, NULL) < 0) {
-		LOG(LogError) << "AudioManager Error - Unable to open SDL audio: " << SDL_GetError() << std::endl;
-	}
+	// don't initialized sdl_audio (for navigation sounds) while it takes the sound card (and we have no sound server)
+	//if (SDL_OpenAudio(&sAudioFormat, NULL) < 0) {
+	//	LOG(LogError) << "AudioManager Error - Unable to open SDL audio: " << SDL_GetError() << std::endl;
+	//}
 
 	// mixer: Open the audio device and pause
         if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
             LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
         }
-	currentMusic = NULL;
 }
 
 void AudioManager::deinit()
@@ -122,7 +123,6 @@ void AudioManager::deinit()
 	if(currentMusic != NULL){
 	  stopMusic();
 	}
-	Mix_CloseAudio();
 }
 
 void AudioManager::registerSound(std::shared_ptr<Sound> & sound)
@@ -210,10 +210,19 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
   
   int randomIndex = rand() % musics.size();
 
-  // free the previous music
+  // continue playing ?
   if(currentMusic != NULL) {
     if(continueIfPlaying) return;
-    stopMusic();
+  }
+
+  // free the previous music
+  if(currentMusic != NULL) {
+    Mix_FreeMusic(currentMusic);
+  } else {
+    // mixer: Open the audio device and pause
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
+      LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
+    }
   }
 
   // load a new music
@@ -238,6 +247,7 @@ void AudioManager::musicEnd_callback() {
 void AudioManager::stopMusic() {
   if(currentMusic != NULL) {
     Mix_FreeMusic(currentMusic);
+    Mix_CloseAudio();
     currentMusic = NULL;
   }
 }

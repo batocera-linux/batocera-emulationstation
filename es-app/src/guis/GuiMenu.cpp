@@ -1793,19 +1793,19 @@ void GuiMenu::openSoundSettings_batocera() {
     });
 
   // disable sounds
-  auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
-  sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
-  s->addWithLabel(_("ENABLE NAVIGATION SOUNDS"), sounds_enabled);
-  s->addSaveFunc([sounds_enabled] {
-      if (sounds_enabled->getState()
-	  && !Settings::getInstance()->getBool("EnableSounds")
-	  && PowerSaver::getMode() == PowerSaver::INSTANT)
-	{
-	  Settings::getInstance()->setString("PowerSaverMode", "default");
-	  PowerSaver::init();
-	}
-      Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
-    });
+  //auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
+  //sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
+  //s->addWithLabel(_("ENABLE NAVIGATION SOUNDS"), sounds_enabled);
+  //s->addSaveFunc([sounds_enabled] {
+  //    if (sounds_enabled->getState()
+  //	  && !Settings::getInstance()->getBool("EnableSounds")
+  //	  && PowerSaver::getMode() == PowerSaver::INSTANT)
+  //	{
+  //	  Settings::getInstance()->setString("PowerSaverMode", "default");
+  //	  PowerSaver::init();
+  //	}
+  //    Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
+  //  });
 
   auto video_audio = std::make_shared<SwitchComponent>(mWindow);
   video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));

@@ -19,7 +19,7 @@ class AudioManager
 
 	AudioManager();
 
-	Mix_Music* currentMusic; // batocera
+	static Mix_Music* currentMusic; // batocera
 	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
 	static void musicEnd_callback(); // batocera
 
