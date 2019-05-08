@@ -57,6 +57,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   }
 #endif
 
+  if (isFullUI &&
+      SystemConf::getInstance()->get("global.retroachievements") == "1" &&
+      SystemConf::getInstance()->get("global.retroachievements.username") != "")
+    addEntry(_("RETROACHIEVEMENTS").c_str(), 0x777777FF, true, [this] { openRetroAchievements_batocera(); });
+
   // GAMES SETTINGS
   if (isFullUI)
     addEntry(_("GAMES SETTINGS").c_str(), 0x777777FF, true, [this] { openGamesSettings_batocera(); });
@@ -73,9 +78,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
   if (isFullUI)
     addEntry(_("NETWORK SETTINGS").c_str(), 0x777777FF, true, [this] { openNetworkSettings_batocera(); });
-
-  if (isFullUI && ApiSystem::getInstance()->getRetroAchievements().empty() == false)
-    addEntry(_("RETROACHIEVEMENTS").c_str(), 0x777777FF, true, [this] { openRetroAchievements_batocera(); });
 
   if (isFullUI)
     addEntry(_("SCRAPE").c_str(), 0x777777FF, true, [this] { openScraperSettings_batocera(); });
@@ -1926,14 +1928,12 @@ void GuiMenu::openRetroAchievements_batocera() {
   auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
   ComponentListRow row;
   std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
-  if (RetroAchievementsString.empty() == false) {
     auto RAString = std::make_shared<TextComponent>(mWindow,
 						    RetroAchievementsString,
 						    Font::get(FONT_SIZE_SMALL), 0x777777FF);
     row.addElement(RAString, false);
     s->addRow(row);
     mWindow->pushGui(s);
-  }
 }
 
 void GuiMenu::openScraperSettings_batocera() {
