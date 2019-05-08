@@ -351,7 +351,7 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "GUARDAR METADATA NA SAÍDA"
+msgstr "GUARDAR INFORMAÇÕES NA SAÍDA"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALIZAR APENAS AS GAMELISTS"
@@ -429,7 +429,7 @@ msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM GUARDAR AS METADATAS?"
+msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
@@ -618,7 +618,7 @@ msgid "Genre"
 msgstr "Género"
 
 msgid "enter game genre"
-msgstr "DIGITE O GÉNERO"
+msgstr "DIGITE O GENERO"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -739,11 +739,11 @@ msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "'%s' Adicionado a '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr "'%s' Removido de '%s'"
 
 msgid "UP"
 msgstr "CIMA"
@@ -796,7 +796,7 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR DOS JOGOS.VOCÊ "
+"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR DOS JOGOS. "
 "QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
 
 #, c-format
