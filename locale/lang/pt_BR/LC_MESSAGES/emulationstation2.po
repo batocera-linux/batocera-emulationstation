@@ -218,10 +218,10 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "ESCALA INTEGER (PIXEL PERFEITO)"
 
 msgid "DECORATION"
-msgstr "DECORATION"
+msgstr "DECORAÇÃO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
@@ -348,7 +348,7 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "SALVAR METADATA NA SAÍDA"
+msgstr "SALVAR INFORMAÇÕES NA SAÍDA"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALISAR APENAS A GAMESLISTS"
@@ -426,7 +426,7 @@ msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM SALVAR OS METADADOS?"
+msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
@@ -515,7 +515,7 @@ msgid "All Games"
 msgstr "Todos os jogos"
 
 msgid "Only missing image"
-msgstr "somente imagens faltantes"
+msgstr "Somente imagens faltantes"
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -573,7 +573,7 @@ msgid "Image"
 msgstr "Imagem"
 
 msgid "enter path to image"
-msgstr "digite o diretório da imagem"
+msgstr "DIGITE O DIRETÓRIO DA IMAGEM"
 
 msgid "Path to video"
 msgstr "CAMINHO PARA O VÍDEO"
@@ -729,18 +729,18 @@ msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
 
 msgid "Done."
-msgstr "Terminado."
+msgstr "Concluído."
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "Adicionado '%s' a '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr "Removido '%s' de '%s'"
 
 msgid "UP"
 msgstr "CIMA"
