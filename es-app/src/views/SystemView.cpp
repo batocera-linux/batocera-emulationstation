@@ -292,11 +292,14 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	// also change the text after we've fully faded out
 	setAnimation(infoFadeOut, 0, [this, gameCount] {
 		std::stringstream ss;
-
+		char strbuf[256];
+ 
 		if (!getSelected()->isGameSystem())
 			ss << "CONFIGURATION";
-		else
-			ss << gameCount << " GAMES AVAILABLE";
+		else {
+		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount).c_str(), gameCount);
+		  ss << strbuf;
+		}
 
 		mSystemInfo.setText(ss.str());
 	}, false, 1);

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 07:54+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -686,6 +686,12 @@ msgstr "insira o caminho para o marcador"
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i JOGO DISPONÍVEL"
+msgstr[1] "%i JOGOS DISPONÍVEIS"
+
 msgid "KODI"
 msgstr "KODI"
 
@@ -730,6 +736,14 @@ msgstr "Concluído."
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr ""
 
 msgid "UP"
 msgstr "CIMA"
@@ -781,8 +795,9 @@ msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
-msgstr "VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR "
-"DOS JOGOS.VOCÊ QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
+msgstr ""
+"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR DOS JOGOS.VOCÊ "
+"QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -913,11 +928,6 @@ msgstr "EM PROGRESSO..."
 
 #~ msgid "enter romtype"
 #~ msgstr "digite o tipo de rom"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i JOGO DISPONÍVEL"
-#~ msgstr[1] "%i JOGOS DISPONÍVEIS"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

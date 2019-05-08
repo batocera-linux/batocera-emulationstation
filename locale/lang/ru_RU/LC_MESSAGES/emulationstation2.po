@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 07:54+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -688,6 +688,13 @@ msgstr ""
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i ИГРА ДОСТУПНА"
+msgstr[1] "%i ИГРЫ ДОСТУПНО"
+msgstr[2] "%i ИГР ДОСТУПНО"
+
 msgid "KODI"
 msgstr ""
 
@@ -731,6 +738,14 @@ msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -917,12 +932,6 @@ msgstr "ОБРАБОТКА..."
 
 #~ msgid "enter romtype"
 #~ msgstr "введите тип рома"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i ИГРА ДОСТУПНА"
-#~ msgstr[1] "%i ИГРЫ ДОСТУПНО"
-#~ msgstr[2] "%i ИГР ДОСТУПНО"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

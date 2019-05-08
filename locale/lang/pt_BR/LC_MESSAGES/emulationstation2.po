@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 07:54+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -683,6 +683,12 @@ msgstr "insira o caminho para a marquee"
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i JOGO DISPONÍVEL"
+msgstr[1] "%i JOGOS DISPONÍVEIS"
+
 msgid "KODI"
 msgstr "KODI"
 
@@ -727,6 +733,14 @@ msgstr "Terminado."
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr ""
 
 msgid "UP"
 msgstr "CIMA"
@@ -910,11 +924,6 @@ msgstr "EM PROGRESSO..."
 
 #~ msgid "enter romtype"
 #~ msgstr "digite o tipo de rom"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i JOGO DISPONÍVEL"
-#~ msgstr[1] "%i JOGOS DISPONÍVEIS"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

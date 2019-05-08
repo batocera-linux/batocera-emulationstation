@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 07:54+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,6 +671,12 @@ msgstr ""
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VILL DU STARTA KODI MEDIACENTER? "
 
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "KODI"
 msgstr ""
 
@@ -714,6 +720,14 @@ msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"

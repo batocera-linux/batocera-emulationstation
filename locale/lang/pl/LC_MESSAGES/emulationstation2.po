@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 07:54+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -674,6 +674,13 @@ msgstr ""
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i GRA DOSTĘPNA"
+msgstr[1] "%i GIER DOSTĘPNYCH"
+msgstr[2] "%i GIER DOSTĘPNYCH"
+
 msgid "KODI"
 msgstr ""
 
@@ -717,6 +724,14 @@ msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -880,12 +895,6 @@ msgstr "PRACUJE.."
 
 #~ msgid "enter region"
 #~ msgstr "Wprowadź region"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i GRA DOSTĘPNA"
-#~ msgstr[1] "%i GIER DOSTĘPNYCH"
-#~ msgstr[2] "%i GIER DOSTĘPNYCH"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"
