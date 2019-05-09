@@ -594,7 +594,7 @@ msgid "Rating"
 msgstr "AVALIAÇÃO"
 
 msgid "enter rating"
-msgstr "digite a classificação"
+msgstr "DIGITE A CLASSIFICAÇÃO"
 
 msgid "Release date"
 msgstr "DATA DE LANÇAMENTO"
@@ -615,10 +615,10 @@ msgid "enter game publisher"
 msgstr "digite o nome da publicadora"
 
 msgid "Genre"
-msgstr "Género"
+msgstr "GÉNERO"
 
 msgid "enter game genre"
-msgstr "DIGITE O GENERO"
+msgstr "DIGITE O GÉNERO"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -961,7 +961,7 @@ msgstr "EM PROGRESSO..."
 #~ msgstr "Desenvolvedor"
 
 #~ msgid "GENRE"
-#~ msgstr "Género"
+#~ msgstr "GÉNERO"
 
 #~ msgid "SEARCH FOR"
 #~ msgstr "PROCURAR POR"
