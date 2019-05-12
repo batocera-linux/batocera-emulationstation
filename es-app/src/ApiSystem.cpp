@@ -13,6 +13,7 @@
 #include "AudioManager.h"
 #include "VolumeControl.h"
 #include "InputManager.h"
+#include <SystemConf.h>
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -361,6 +362,10 @@ bool ApiSystem::launchKodi(Window *window) {
             break;
     }
 
+    // batocera
+    if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+      AudioManager::getInstance()->playRandomMusic();
+
     return exitCode == 0;
 
 }
@@ -368,12 +373,12 @@ bool ApiSystem::launchKodi(Window *window) {
 bool ApiSystem::launchFileManager(Window *window) {
     LOG(LogInfo) << "Attempting to launch filemanager...";
 
-    AudioManager::getInstance()->deinit();
-    VolumeControl::getInstance()->deinit();
+    //AudioManager::getInstance()->deinit();
+    //VolumeControl::getInstance()->deinit();
 
     std::string command = "/recalbox/scripts/filemanagerlauncher.sh";
 
-    window->deinit();
+    //window->deinit();
 
     int exitCode = system(command.c_str());
 #if !defined(WIN32)
@@ -382,11 +387,14 @@ bool ApiSystem::launchFileManager(Window *window) {
     }
 #endif
 
-    window->init();
-    VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->init();
-    window->normalizeNextUpdate();
-
+    //window->init();
+    //VolumeControl::getInstance()->init();
+    //AudioManager::getInstance()->init();
+    //window->normalizeNextUpdate();
+    // batocera
+    //if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+    //AudioManager::getInstance()->playRandomMusic();
+    
     return exitCode == 0;
 }
 
