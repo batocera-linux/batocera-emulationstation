@@ -7,6 +7,7 @@
 #include "components/ScrollableContainer.h"
 #include "components/TextComponent.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
@@ -456,10 +457,19 @@ void ScraperSearchComponent::openInputScreen(ScraperSearchParams& params)
 	};
 
 	stop();
-	mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, "SEARCH FOR", // batocera
-		// initial value is last search if there was one, otherwise the clean path name
-		params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride, 
-		searchForFunc, false, "SEARCH"));
+
+	// batocera
+	if (Settings::getInstance()->getBool("UseOSK")) {
+	  mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, "SEARCH FOR",
+							// initial value is last search if there was one, otherwise the clean path name
+							params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride, 
+							searchForFunc, false, "SEARCH"));
+	} else {
+	  mWindow->pushGui(new GuiTextEditPopup(mWindow, "SEARCH FOR",
+						// initial value is last search if there was one, otherwise the clean path name
+						params.nameOverride.empty() ? params.game->getCleanName() : params.nameOverride, 
+						searchForFunc, false, "SEARCH"));
+	}
 }
 
 std::vector<HelpPrompt> ScraperSearchComponent::getHelpPrompts()
