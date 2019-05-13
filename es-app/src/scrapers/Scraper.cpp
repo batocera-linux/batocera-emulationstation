@@ -307,15 +307,16 @@ std::string getSaveAsPath(const ScraperSearchParams& params, const std::string& 
 	const std::string subdirectory = params.system->getName();
 	const std::string name = Utils::FileSystem::getStem(params.game->getPath()) + "-" + suffix;
 
-	std::string path = "/userdata/system/configs/emulationstation/downloaded_images/"; // batocera
+	std::string path = params.system->getRootFolder()->getPath() + "/images/"; // batocera
 
 	if(!Utils::FileSystem::exists(path))
 		Utils::FileSystem::createDirectory(path);
 
-	path += subdirectory + "/";
-
-	if(!Utils::FileSystem::exists(path))
-		Utils::FileSystem::createDirectory(path);
+	// batocera
+	//path += subdirectory + "/";
+	//
+	//if(!Utils::FileSystem::exists(path))
+	//	Utils::FileSystem::createDirectory(path);
 
 
 	path += name + extension;

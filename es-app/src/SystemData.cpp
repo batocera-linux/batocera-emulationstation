@@ -402,7 +402,7 @@ std::string SystemData::getGamelistPath(bool forWrite) const
 	if(Utils::FileSystem::exists(filePath))
 		return filePath;
 
-	filePath = "/userdata/system/configs/emulationstation/gamelists/" + mName + "/gamelist.xml"; // batocera
+	//filePath = "/userdata/system/configs/emulationstation/gamelists/" + mName + "/gamelist.xml"; // batocera
 	if(forWrite) // make sure the directory exists if we're going to write to it, or crashes will happen
 		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
 	if(forWrite || Utils::FileSystem::exists(filePath))
