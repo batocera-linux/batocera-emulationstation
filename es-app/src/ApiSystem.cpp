@@ -891,4 +891,44 @@ std::string ApiSystem::getRetroAchievements() {
     return "";
 }
 
+std::vector<std::string> ApiSystem::getBatoceraThemesList() {
+
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/batocera-es-theme" << " " << "list";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+    char *pch;
+
+    if (pipe == NULL) {
+        return res;
+    }
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        // provide only themes that are [A]vailable or [I]nstalled as a result
+        // (Eliminate [?] and other non-installable lines of text)
+        if ((strncmp(line,"[A]",3) == 0) || (strncmp(line,"[I]",3) == 0))
+                res.push_back(std::string(line));
+    }
+    pclose(pipe);
+    return res;
+}
+
+bool ApiSystem::installBatoceraTheme(char *theme) {
+
+    std::ostringstream oss;
+    char *thname;
+    oss << "/recalbox/scripts/batocera-es-theme" << " " << "install" << " " << theme;
+    std::string command = oss.str();
+    LOG(LogInfo) << "Launching " << command;
+
+    if (system(command.c_str())) {
+        LOG(LogWarning) << "Error executing:" << command;
+        return false;
+    } else {
+        LOG(LogInfo) << "Theme '" << theme << "' succesfully installed.";
+        return true;
+    }
+}
+
 
