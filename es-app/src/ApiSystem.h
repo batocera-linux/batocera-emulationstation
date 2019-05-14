@@ -99,6 +99,8 @@ public:
 
     // Batocera
     std::string getRetroAchievements();
+    std::vector<std::string> getBatoceraThemesList();
+    bool installBatoceraTheme(char *theme);
 
 private:
     static ApiSystem *instance;

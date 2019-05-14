@@ -1389,9 +1389,6 @@ void GuiMenu::openControllersSettings_batocera() {
   row.elements.clear();
 
 
-
-  row.elements.clear();
-
   // Here we go; for each player
   std::list<int> alreadyTaken = std::list<int>();
 
@@ -1673,6 +1670,52 @@ void GuiMenu::openUISettings_batocera() {
 	Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
       }
     });
+
+  // Batocera themes installer/browser
+  {
+      std::function<void()> openThemesListD = [this, s] {
+	GuiSettings *thlist = new GuiSettings(mWindow, _("BATOCERA THEMES").c_str());
+	ComponentListRow row;
+	std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
+	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
+		auto itstring = std::make_shared<TextComponent>(mWindow,
+				(*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+		char *tmp=new char [(*it).length()+1];
+		std::strcpy (tmp, (*it).c_str());
+		char *thname = strtok (tmp, " ");
+		// Get theme name (from the command line '[A] Theme_name http://url_of_this_theme
+		thname = strtok (NULL, " ");
+		row.makeAcceptInputHandler([this, thname] {
+				std::string msg;
+				if(ApiSystem::getInstance()->installBatoceraTheme(thname)) {
+					std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
+					std::string locname = thname;
+					msg = "THEME '" + locname + "' INSTALLED SUCCESSFULLY";
+				} else {
+					std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
+					std::string locname = thname;
+					msg = "THEME '" + locname + "' INSTALL FAILED";
+				}
+				mWindow->pushGui(new GuiMsgBox(mWindow, msg, _("OK")));
+			});
+		row.addElement(itstring, true);
+		thlist->addRow(row);
+		row.elements.clear();
+	}
+	mWindow->pushGui(thlist);
+      };
+      // themes button
+      ComponentListRow row;
+      row.makeAcceptInputHandler(openThemesListD);
+      auto themesL = std::make_shared<TextComponent>(mWindow, _("INSTALL BATOCERA THEMES"),
+						  Font::get(FONT_SIZE_MEDIUM),
+						  0x777777FF);
+      auto bracket = makeArrow(mWindow);
+      row.addElement(themesL, true);
+      row.addElement(bracket, false);
+      s->addRow(row);
+    }
+
 
   // theme set
   auto themeSets = ThemeData::getThemeSets();
