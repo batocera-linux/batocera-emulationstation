@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "JOKUAN ORDENATU:"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "JOKU HONEN DATUAK EDITATU"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "SOINU EZARPENAK"
 msgid "NETWORK SETTINGS"
 msgstr "SARE KONFIGURAZIOA"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIVEMENTS"
+
 msgid "SCRAPE"
 msgstr "DATUAK LORTU"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SISTEMAREN KONFIGURAZIOA"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "IRTEN"
@@ -172,8 +181,8 @@ msgstr "ZIURTATU SEGURTASUNA"
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASAHITZA"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "SISTEMA BERRABIARAZIKO DA"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "JOKOAREN RATIOA"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIVEMENTS EZARPENAK"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIVEMENTS"
-
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUA"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -294,23 +300,29 @@ msgstr "AHAZTU BLUETOOTH AGINTEAK"
 msgid "INPUT P%i"
 msgstr "P%i SARRERA"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "GAIA"
 
-msgid "SCREENSAVER AFTER"
-msgstr "PANTAILA BABESLEA ZENBAT SEGUNDU ONDOREN:"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "TRANTSIZIO MOTA"
 
+msgid "SCREENSAVER AFTER"
+msgstr "PANTAILA BABESLEA ZENBAT SEGUNDU ONDOREN:"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "PANTAILA BABESLEAREN PORTAERA"
-
-msgid "SHOW FRAMERATE"
-msgstr "ERAKUTSI FRAMERATEA"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -324,8 +336,32 @@ msgstr "SISTEMA AUKERATZE AZKARRA"
 msgid "ON SCREEN KEYBOARD"
 msgstr "PANTAILAKO TEKLATUA"
 
-msgid "THEME SET"
-msgstr "GAIA"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "ERAKUTSI FRAMERATEA"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "SISTEMAREN BOLUMENA"
@@ -333,11 +369,14 @@ msgstr "SISTEMAREN BOLUMENA"
 msgid "FRONTEND MUSIC"
 msgstr "ATZEKO MUSIKA"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "SOINU IRTEERA"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "KONEKTATUTA"
@@ -637,6 +676,18 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "KODI MULTIMEDIA GUNEA ABIARAZI NAHI DUZU?"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "JOKO %i ERABILGARRI"
+msgstr[1] "%i JOKO ERABILGARRI"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -667,7 +718,24 @@ msgstr "BERRIRO SAIATU"
 msgid "ACCEPT RESULT"
 msgstr "ONARTU EMAITZA"
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -770,15 +838,6 @@ msgstr "EZ DA AGINTERIK DETEKTATU"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BOTOI BAT SAKATUA MANTENDU AGINTEAN KONFIGURATZEKO."
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "F4 SAKATU EDOZEIN UNETAN IRTETZEKO."
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ESC EDO HOTKEY SAKATU EZEZTATZEKO."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODI MULTIMEDIA GUNEA ABIARAZI NAHI DUZU?"
-
 msgid "MOVE CURSOR"
 msgstr "MUGITU KRUTSOREA"
 
@@ -806,6 +865,15 @@ msgstr "ALDATU"
 msgid "WORKING..."
 msgstr "LANEAN..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "SISTEMA BERRABIARAZIKO DA"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "F4 SAKATU EDOZEIN UNETAN IRTETZEKO."
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "ESC EDO HOTKEY SAKATU EZEZTATZEKO."
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "LETRARA JOAN"
 
@@ -814,9 +882,6 @@ msgstr "LANEAN..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "ERAKUTSI EZKUTUKOA"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "JOKU HONEN DATUAK EDITATU"
 
 #~ msgid "SAVE"
 #~ msgstr "GORDE"
@@ -851,11 +916,6 @@ msgstr "LANEAN..."
 
 #~ msgid "enter romtype"
 #~ msgstr "sartu rom mota"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "JOKO %i ERABILGARRI"
-#~ msgstr[1] "%i JOKO ERABILGARRI"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

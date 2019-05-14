@@ -57,6 +57,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   }
 #endif
 
+  if (isFullUI &&
+      SystemConf::getInstance()->get("global.retroachievements") == "1" &&
+      SystemConf::getInstance()->get("global.retroachievements.username") != "")
+    addEntry(_("RETROACHIEVEMENTS").c_str(), 0x777777FF, true, [this] { openRetroAchievements_batocera(); });
+
   // GAMES SETTINGS
   if (isFullUI)
     addEntry(_("GAMES SETTINGS").c_str(), 0x777777FF, true, [this] { openGamesSettings_batocera(); });
@@ -68,7 +73,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   if (isFullUI)
     addEntry(_("UI SETTINGS").c_str(), 0x777777FF, true, [this] { openUISettings_batocera(); });
 
-  addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
+  if (isFullUI)
+    addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
 
   if (isFullUI)
     addEntry(_("NETWORK SETTINGS").c_str(), 0x777777FF, true, [this] { openNetworkSettings_batocera(); });
@@ -77,8 +83,11 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
     addEntry(_("SCRAPE").c_str(), 0x777777FF, true, [this] { openScraperSettings_batocera(); });
 
   // SYSTEM
-  if (isFullUI)
+  if (isFullUI) {
     addEntry(_("SYSTEM SETTINGS").c_str(), 0x777777FF, true, [this] { openSystemSettings_batocera(); });
+  } else {
+    addEntry(_("INFORMATIONS").c_str(), 0x777777FF, true, [this] { openSystemInformations_batocera(); });
+  }
 
   addEntry(_("QUIT").c_str(), 0x777777FF, true, [this] { openQuitMenu_batocera(); });
 
@@ -647,9 +656,9 @@ bool GuiMenu::input(InputConfig* config, Input input)
 
 HelpStyle GuiMenu::getHelpStyle()
 {
-	HelpStyle style = HelpStyle();
-	style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system");
-	return style;
+  HelpStyle style = HelpStyle();
+  //style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system"); // batocera ; make game lists reload crashing (viewcontroller delete) ; seems not usefull
+  return style;
 }
 
 std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
@@ -669,73 +678,79 @@ void GuiMenu::openKodiLauncher_batocera()
   }
 }
 
+void GuiMenu::openSystemInformations_batocera() {
+  Window *window = mWindow;
+  bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+  GuiSettings *informationsGui = new GuiSettings(window, _("INFORMATION").c_str());
+
+  auto version = std::make_shared<TextComponent>(window,
+						 ApiSystem::getInstance()->getVersion(),
+						 Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+  informationsGui->addWithLabel(_("VERSION"), version);
+  bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
+  auto space = std::make_shared<TextComponent>(window,
+					       ApiSystem::getInstance()->getFreeSpaceInfo(),
+					       Font::get(FONT_SIZE_MEDIUM),
+					       warning ? 0xFF0000FF : 0x777777FF);
+  informationsGui->addWithLabel(_("DISK USAGE"), space);
+
+  // various informations
+  std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
+  for(auto it = infos.begin(); it != infos.end(); it++) {
+    std::vector<std::string> tokens;
+    boost::split( tokens, (*it), boost::is_any_of(":") );
+    if(tokens.size()>= 2){
+      // concatenat the ending words
+      std::string vname = "";
+      for(unsigned int i=1; i<tokens.size(); i++) {
+	if(i > 1) vname += " ";
+	vname += tokens.at(i);
+      }
+
+      auto space = std::make_shared<TextComponent>(window,
+						   vname,
+						   Font::get(FONT_SIZE_MEDIUM),
+						   0x777777FF);
+      informationsGui->addWithLabel(tokens.at(0), space);
+    }
+  }
+
+  // support
+  if(isFullUI) {
+    ComponentListRow row;
+    row.makeAcceptInputHandler([window] {
+	window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+				      [window] {
+					if(ApiSystem::getInstance()->generateSupportFile()) {
+					  window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+					} else {
+					  window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
+					}
+				      }, _("NO"), nullptr));
+      });
+    auto supportFile = std::make_shared<TextComponent>(window, _("CREATE A SUPPORT FILE"),
+						       Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+    row.addElement(supportFile, false);
+    informationsGui->addRow(row);
+  }
+
+  window->pushGui(informationsGui);
+}
+
 void GuiMenu::openSystemSettings_batocera() {
   Window *window = mWindow;
 
   auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
-
+  bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+  
   // system informations
   {
     ComponentListRow row;
     std::function<void()> openGui = [this] {
-      GuiSettings *informationsGui = new GuiSettings(mWindow, _("INFORMATION").c_str());
-      
-      auto version = std::make_shared<TextComponent>(mWindow,
-						     ApiSystem::getInstance()->getVersion(),
-						     Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-      informationsGui->addWithLabel(_("VERSION"), version);
-      bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
-      auto space = std::make_shared<TextComponent>(mWindow,
-						   ApiSystem::getInstance()->getFreeSpaceInfo(),
-						   Font::get(FONT_SIZE_MEDIUM),
-						   warning ? 0xFF0000FF : 0x777777FF);
-      informationsGui->addWithLabel(_("DISK USAGE"), space);
-      
-      // various informations
-      std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
-      for(auto it = infos.begin(); it != infos.end(); it++) {
-	std::vector<std::string> tokens;
-	boost::split( tokens, (*it), boost::is_any_of(":") );
-	if(tokens.size()>= 2){
-	  // concatenat the ending words
-	  std::string vname = "";
-	  for(unsigned int i=1; i<tokens.size(); i++) {
-	    if(i > 1) vname += " ";
-	    vname += tokens.at(i);
-	  }
-	  
-	  auto space = std::make_shared<TextComponent>(mWindow,
-						       vname,
-						       Font::get(FONT_SIZE_MEDIUM),
-						       0x777777FF);
-	  informationsGui->addWithLabel(tokens.at(0), space);
-	}
-      }
-      
-      // support
-      {
-	ComponentListRow row;
-	row.makeAcceptInputHandler([this] {
-	    mWindow->pushGui(new GuiMsgBox(mWindow, _("CREATE A SUPPORT FILE ?"), _("YES"),
-					   [this] {
-					     if(ApiSystem::getInstance()->generateSupportFile()) {
-					       mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
-					     } else {
-					       mWindow->pushGui(new GuiMsgBox(mWindow, _("FILE GENERATION FAILED"), _("OK")));
-					     }
-					   }, _("NO"), nullptr));
-	  });
-	auto supportFile = std::make_shared<TextComponent>(mWindow, _("CREATE A SUPPORT FILE"),
-							   Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-	row.addElement(supportFile, false);
-	informationsGui->addRow(row);
-      }
-      
-      mWindow->pushGui(informationsGui);
+      openSystemInformations_batocera();
     };
     row.makeAcceptInputHandler(openGui);
-    auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATION"),
-								Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+    auto informationsSettings = std::make_shared<TextComponent>(mWindow, _("INFORMATION"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
     auto bracket = makeArrow(mWindow);
     row.addElement(informationsSettings, true);
     row.addElement(bracket, false);
@@ -961,14 +976,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	  }
 	  
 	  if (reboot) {
-	    window->pushGui(
-			    new GuiMsgBox(window, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-					  [window] {
-					    if (runRestartCommand() != 0) {
-					      LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					    }
-					  })
-			    );
+	    window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	  }
 	});
       mWindow->pushGui(securityGui);
@@ -1001,14 +1009,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	reboot = true;
       }
       if (reboot) {
-	window->pushGui(
-			new GuiMsgBox(window, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-				      [window] {
-					if (runRestartCommand() != 0) {
-					  LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					}
-				      })
-			);
+	window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
       
     });
@@ -1143,7 +1144,7 @@ void GuiMenu::openGamesSettings_batocera() {
 	auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_screenshot_enabled->setState(
 						       SystemConf::getInstance()->get("global.retroachievements.screenshot") == "1");
-	retroachievements->addWithLabel(_("AUTOMATIC SCREESHOT"), retroachievements_screenshot_enabled);
+	retroachievements->addWithLabel(_("AUTOMATIC SCREENSHOT"), retroachievements_screenshot_enabled);
 
 	// retroachievements, username, password
 	createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username",
@@ -1291,6 +1292,11 @@ void GuiMenu::openGamesSettings_batocera() {
 					  delete ViewController::get();
 					  SystemData::deleteSystems();
 					  SystemData::loadConfig();
+					  GuiComponent *gui;
+					  while ((gui = window->peekGui()) != NULL) {
+					    window->removeGui(gui);
+					    delete gui;
+					  }
 					  ViewController::init(window);
 					  ViewController::get()->reloadAll();
 					  window->pushGui(ViewController::get());
@@ -1504,11 +1510,11 @@ void GuiMenu::openUISettings_batocera() {
   auto s = new GuiSettings(mWindow, _("UI SETTINGS").c_str());
 
   //UI mode
-  auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, "UI MODE", false);
+  auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
   std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
   for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
     UImodeSelection->add(*it, *it, Settings::getInstance()->getString("UIMode") == *it);
-  s->addWithLabel("UI MODE", UImodeSelection);
+  s->addWithLabel(_("UI MODE"), UImodeSelection);
   Window* window = mWindow;
   s->addSaveFunc([ UImodeSelection, window]
 		 {
@@ -1552,25 +1558,87 @@ void GuiMenu::openUISettings_batocera() {
       if (optionsVideo->changed()) {
 	SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 	SystemConf::getInstance()->saveSystemConf();
-	this->mWindow->pushGui(
-			       new GuiMsgBox(this->mWindow, _("THE SYSTEM WILL NOW REBOOT"), _("OK"),
-					     [] {
-					       if (runRestartCommand() != 0) {
-						 LOG(LogWarning) << "Reboot terminated with non-zero result!";
-					       }
-					     })
-			       );
+	mWindow->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
     });
 
-  // overscan
-  auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
-  overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
-  s->addWithLabel(_("OVERSCAN"), overscan_enabled);
-  s->addSaveFunc([overscan_enabled] {
-      if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
-	Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
-	ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
+  // theme set
+  auto themeSets = ThemeData::getThemeSets();
+
+  if (!themeSets.empty()) {
+    auto selectedSet = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+    if (selectedSet == themeSets.end())
+      selectedSet = themeSets.begin();
+
+    auto theme_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME SET"),
+									 false);
+    for (auto it = themeSets.begin(); it != themeSets.end(); it++)
+      theme_set->add(it->first, it->first, it == selectedSet);
+    s->addWithLabel(_("THEME SET"), theme_set);
+
+    Window *window = mWindow;
+    s->addSaveFunc([window, theme_set] {
+	bool needReload = false;
+	if (theme_set->changed()) {
+	  needReload = true;
+	  Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
+	}
+
+	if (needReload)
+	  ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
+      });
+  }
+
+  // GameList view style
+  auto gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
+  std::vector<std::string> styles;
+  styles.push_back("automatic");
+  styles.push_back("basic");
+  styles.push_back("detailed");
+  styles.push_back("video");
+  styles.push_back("grid");
+
+  for (auto it = styles.cbegin(); it != styles.cend(); it++)
+    gamelist_style->add(*it, *it, Settings::getInstance()->getString("GamelistViewStyle") == *it);
+  s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
+  s->addSaveFunc([gamelist_style] {
+      bool needReload = false;
+      if (Settings::getInstance()->getString("GamelistViewStyle") != gamelist_style->getSelected())
+	needReload = true;
+      Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected());
+      if (needReload)
+	ViewController::get()->reloadAll();
+    });
+
+  // Optionally start in selected system
+  auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
+  systemfocus_list->add("NONE", "", Settings::getInstance()->getString("StartupSystem") == "");
+  for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
+    {
+      if ("retropie" != (*it)->getName())
+	{
+	  systemfocus_list->add((*it)->getName(), (*it)->getName(), Settings::getInstance()->getString("StartupSystem") == (*it)->getName());
+	}
+    }
+  s->addWithLabel(_("START ON SYSTEM"), systemfocus_list);
+  s->addSaveFunc([systemfocus_list] {
+      Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
+    });
+
+  // transition style
+  auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
+									      _("TRANSITION STYLE"),
+									      false);
+  std::vector<std::string> transitions;
+  transitions.push_back("fade");
+  transitions.push_back("slide");
+  transitions.push_back("instant");
+  for (auto it = transitions.begin(); it != transitions.end(); it++)
+    transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
+  s->addWithLabel(_("TRANSITION STYLE"), transition_style);
+  s->addSaveFunc([transition_style] {
+      if(transition_style->changed()) {
+	Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
       }
     });
 
@@ -1600,13 +1668,6 @@ void GuiMenu::openUISettings_batocera() {
 	Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
       }
     });
-
-  // framerate
-  auto framerate = std::make_shared<SwitchComponent>(mWindow);
-  framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
-  s->addWithLabel(_("SHOW FRAMERATE"), framerate);
-  s->addSaveFunc(
-		 [framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
 
   // clock
   auto clock = std::make_shared<SwitchComponent>(mWindow);
@@ -1642,7 +1703,7 @@ void GuiMenu::openUISettings_batocera() {
   // carousel transition option
   auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
   move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
-  s->addWithLabel("CAROUSEL TRANSITIONS", move_carousel);
+  s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
   s->addSaveFunc([move_carousel] {
       if (move_carousel->getState()
 	  && !Settings::getInstance()->getBool("MoveCarousel")
@@ -1653,124 +1714,61 @@ void GuiMenu::openUISettings_batocera() {
 	}
       Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
     });
-  
-  // transition style
-  auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
-									      _("TRANSITION STYLE"),
-									      false);
-  std::vector<std::string> transitions;
-  transitions.push_back("fade");
-  transitions.push_back("slide");
-  transitions.push_back("instant");
-  for (auto it = transitions.begin(); it != transitions.end(); it++)
-    transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
-  s->addWithLabel(_("TRANSITION STYLE"), transition_style);
-  s->addSaveFunc([transition_style] {
-      if(transition_style->changed()) {
-	Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
-      }
-    });
-
-  // theme set
-  auto themeSets = ThemeData::getThemeSets();
-
-  if (!themeSets.empty()) {
-    auto selectedSet = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
-    if (selectedSet == themeSets.end())
-      selectedSet = themeSets.begin();
-
-    auto theme_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME SET"),
-									 false);
-    for (auto it = themeSets.begin(); it != themeSets.end(); it++)
-      theme_set->add(it->first, it->first, it == selectedSet);
-    s->addWithLabel(_("THEME SET"), theme_set);
-
-    Window *window = mWindow;
-    s->addSaveFunc([window, theme_set] {
-	bool needReload = false;
-	if (theme_set->changed()) {
-	  needReload = true;
-	  Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
-	}
-
-	if (needReload)
-	  ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
-      });
-  }
-
-  // GameList view style
-  auto gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, "GAMELIST VIEW STYLE", false);
-  std::vector<std::string> styles;
-  styles.push_back("automatic");
-  styles.push_back("basic");
-  styles.push_back("detailed");
-  styles.push_back("video");
-  styles.push_back("grid");
-
-  for (auto it = styles.cbegin(); it != styles.cend(); it++)
-    gamelist_style->add(*it, *it, Settings::getInstance()->getString("GamelistViewStyle") == *it);
-  s->addWithLabel("GAMELIST VIEW STYLE", gamelist_style);
-  s->addSaveFunc([gamelist_style] {
-      bool needReload = false;
-      if (Settings::getInstance()->getString("GamelistViewStyle") != gamelist_style->getSelected())
-	needReload = true;
-      Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected());
-      if (needReload)
-	ViewController::get()->reloadAll();
-    });
-
-  // Optionally start in selected system
-  auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, "START ON SYSTEM", false);
-  systemfocus_list->add("NONE", "", Settings::getInstance()->getString("StartupSystem") == "");
-  for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-    {
-      if ("retropie" != (*it)->getName())
-	{
-	  systemfocus_list->add((*it)->getName(), (*it)->getName(), Settings::getInstance()->getString("StartupSystem") == (*it)->getName());
-	}
-    }
-  s->addWithLabel("START ON SYSTEM", systemfocus_list);
-  s->addSaveFunc([systemfocus_list] {
-      Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
-    });
 
   // enable filters (ForceDisableFilters)
   auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
   enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
-  s->addWithLabel("ENABLE FILTERS", enable_filter);
+  s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
   s->addSaveFunc([enable_filter] { 
       bool filter_is_enabled = !Settings::getInstance()->getBool("ForceDisableFilters");
       Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState()); 
       if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
     });
 
+  // framerate
+  auto framerate = std::make_shared<SwitchComponent>(mWindow);
+  framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
+  s->addWithLabel(_("SHOW FRAMERATE"), framerate);
+  s->addSaveFunc(
+		 [framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
+
+  // overscan
+  auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
+  overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
+  s->addWithLabel(_("OVERSCAN"), overscan_enabled);
+  s->addSaveFunc([overscan_enabled] {
+      if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
+	Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
+	ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
+      }
+    });
   
   // gamelists
   auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
   save_gamelists->setState(Settings::getInstance()->getBool("SaveGamelistsOnExit"));
-  s->addWithLabel("SAVE METADATA ON EXIT", save_gamelists);
+  s->addWithLabel(_("SAVE METADATA ON EXIT"), save_gamelists);
   s->addSaveFunc([save_gamelists] { Settings::getInstance()->setBool("SaveGamelistsOnExit", save_gamelists->getState()); });
 
   auto parse_gamelists = std::make_shared<SwitchComponent>(mWindow);
   parse_gamelists->setState(Settings::getInstance()->getBool("ParseGamelistOnly"));
-  s->addWithLabel("PARSE GAMESLISTS ONLY", parse_gamelists);
+  s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
   s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
 
   auto local_art = std::make_shared<SwitchComponent>(mWindow);
   local_art->setState(Settings::getInstance()->getBool("LocalArt"));
-  s->addWithLabel("SEARCH FOR LOCAL ART", local_art);
+  s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
   s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
   // hidden files
   auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
   hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
-  s->addWithLabel("SHOW HIDDEN FILES", hidden_files);
+  s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
   s->addSaveFunc([hidden_files] { Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()); });
 
   // maximum vram
   auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
   max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
-  s->addWithLabel("VRAM LIMIT", max_vram);
+  s->addWithLabel(_("VRAM LIMIT"), max_vram);
   s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
   
   mWindow->pushGui(s);
@@ -1788,25 +1786,32 @@ void GuiMenu::openSoundSettings_batocera() {
   auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
   music_enabled->setState(!(SystemConf::getInstance()->get("audio.bgmusic") == "0"));
   s->addWithLabel(_("FRONTEND MUSIC"), music_enabled);
+  s->addSaveFunc([music_enabled] {
+      SystemConf::getInstance()->set("audio.bgmusic", music_enabled->getState() ? "1" : "0");
+      if (music_enabled->getState())
+	AudioManager::getInstance()->playRandomMusic();
+      else
+	AudioManager::getInstance()->stopMusic();
+    });
 
   // disable sounds
-  auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
-  sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
-  s->addWithLabel("ENABLE NAVIGATION SOUNDS", sounds_enabled);
-  s->addSaveFunc([sounds_enabled] {
-      if (sounds_enabled->getState()
-	  && !Settings::getInstance()->getBool("EnableSounds")
-	  && PowerSaver::getMode() == PowerSaver::INSTANT)
-	{
-	  Settings::getInstance()->setString("PowerSaverMode", "default");
-	  PowerSaver::init();
-	}
-      Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
-    });
+  //auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
+  //sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
+  //s->addWithLabel(_("ENABLE NAVIGATION SOUNDS"), sounds_enabled);
+  //s->addSaveFunc([sounds_enabled] {
+  //    if (sounds_enabled->getState()
+  //	  && !Settings::getInstance()->getBool("EnableSounds")
+  //	  && PowerSaver::getMode() == PowerSaver::INSTANT)
+  //	{
+  //	  Settings::getInstance()->setString("PowerSaverMode", "default");
+  //	  PowerSaver::init();
+  //	}
+  //    Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
+  //  });
 
   auto video_audio = std::make_shared<SwitchComponent>(mWindow);
   video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
-  s->addWithLabel("ENABLE VIDEO AUDIO", video_audio);
+  s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
   s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
   
   // audio device
@@ -1843,19 +1848,12 @@ void GuiMenu::openSoundSettings_batocera() {
     s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
   }
 
-  s->addSaveFunc([this, optionsAudio, selectedAudio, sounds_enabled, volume] {
+  s->addSaveFunc([this, optionsAudio, selectedAudio, volume] {
       bool v_need_reboot = false;
 
       VolumeControl::getInstance()->setVolume((int) round(volume->getValue()));
       SystemConf::getInstance()->set("audio.volume",
 				     std::to_string((int) round(volume->getValue())));
-
-      SystemConf::getInstance()->set("audio.bgmusic",
-				     sounds_enabled->getState() ? "1" : "0");
-      //      if (!sounds_enabled->getState())
-      //	AudioManager::getInstance()->stopMusic();
-      //      else
-      //	AudioManager::getInstance()->playRandomMusic();
 
       if (optionsAudio->changed()) {
 	SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
@@ -1864,11 +1862,7 @@ void GuiMenu::openSoundSettings_batocera() {
       }
       SystemConf::getInstance()->saveSystemConf();
       if(v_need_reboot) {
-	this->mWindow->pushGui(
-			       new GuiMsgBox(this->mWindow, _("YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."), _("OK"),
-					     [] {
-					     })
-			       );
+	mWindow->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
     });
 
@@ -1927,6 +1921,19 @@ void GuiMenu::openNetworkSettings_batocera() {
       }
     });
   mWindow->pushGui(s);
+}
+
+void GuiMenu::openRetroAchievements_batocera() {
+  Window *window = mWindow;
+  auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
+  ComponentListRow row;
+  std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
+    auto RAString = std::make_shared<TextComponent>(mWindow,
+						    RetroAchievementsString,
+						    Font::get(FONT_SIZE_SMALL), 0x777777FF);
+    row.addElement(RAString, false);
+    s->addRow(row);
+    mWindow->pushGui(s);
 }
 
 void GuiMenu::openScraperSettings_batocera() {

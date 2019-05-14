@@ -11,6 +11,7 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include "ThemeData.h"
+#include "LocaleES.h"
 #include <pugixml/src/pugixml.hpp>
 #include <fstream>
 
@@ -451,12 +452,13 @@ void CollectionSystemManager::exitEditMode()
 }
 
 // adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file)
+bool CollectionSystemManager::toggleGameInCollection(FileData* file, bool& adding) // batocera
 {
+  char trstring[256];
 	if (file->getType() == GAME)
 	{
 		GuiInfoPopup* s;
-		bool adding = true;
+		adding = true;
 		std::string name = file->getName();
 		std::string sysName = mEditingCollection;
 		if (mIsEditingCustom)
@@ -525,11 +527,13 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 		}
 		if (adding)
 		{
-			s = new GuiInfoPopup(mWindow, "Added '" + Utils::String::removeParenthesis(name) + "' to '" + Utils::String::toUpper(sysName) + "'", 4000);
+		  sprintf(trstring, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
+		  s = new GuiInfoPopup(mWindow, trstring, 4000); // batocera
 		}
 		else
 		{
-			s = new GuiInfoPopup(mWindow, "Removed '" + Utils::String::removeParenthesis(name) + "' from '" + Utils::String::toUpper(sysName) + "'", 4000);
+		  sprintf(trstring, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
+		  s = new GuiInfoPopup(mWindow, trstring, 4000);
 		}
 		mWindow->setInfoPopup(s);
 		return true;

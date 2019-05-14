@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "ORDENA ELS JOCS PER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITA LES METADADES D'AQUEST JOC"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "PARÀMETRES DEL SO"
 msgid "NETWORK SETTINGS"
 msgstr "PARÀMETRES DE LA XARXA"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "ASSOLIMENTS RETRO"
+
 msgid "SCRAPE"
 msgstr "OBTÉ DADES"
 
 msgid "SYSTEM SETTINGS"
 msgstr "PARÀMETRES DEL SISTEMA"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "SURT"
@@ -172,8 +181,8 @@ msgstr "FES COMPLIR LA SEGURETAT"
 msgid "ROOT PASSWORD"
 msgstr "CONTRASENYA DE ROOT"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "ES REINICIARÀ EL SISTEMA ARA"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "PROPORCIÓ DEL JOC"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARÀMETRES DELS ASSOLIMENTS RETRO"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "ASSOLIMENTS RETRO"
-
 msgid "HARDCORE MODE"
 msgstr "MODE HARDCORE"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -295,23 +301,29 @@ msgstr "OBLIDA ELS COMANDAMENTS BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "SOBRE-EXPLORACIÓ"
+msgid "THEME SET"
+msgstr "TEMA ESTABLERT"
 
-msgid "SCREENSAVER AFTER"
-msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "ESTIL DE LES TRANSICIONS"
 
+msgid "SCREENSAVER AFTER"
+msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
-
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -325,8 +337,32 @@ msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
 
-msgid "THEME SET"
-msgstr "TEMA ESTABLERT"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
+
+msgid "OVERSCAN"
+msgstr "SOBRE-EXPLORACIÓ"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM DEL SISTEMA"
@@ -334,11 +370,14 @@ msgstr "VOLUM DEL SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DEL FRONTAL"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "DISPOSITIU DE SORTIDA"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "CONNECTAT"
@@ -638,6 +677,18 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "VOLEU INICIAR EL CENTRE MULTIMÈDIA DEL KODI?"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "HI HA %i JOC DISPONIBLE"
+msgstr[1] "HI HA %i JOCS DISPONIBLES"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -668,7 +719,24 @@ msgstr "TORNA-HO A INTENTAR"
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTA EL RESULTAT"
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -771,15 +839,6 @@ msgstr "NO S'HA DETECTAT CAP CONTROLADOR"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PREMEU UN BOTÓ DEL VOSTRE DISPOSITIU PER CONFIGURAR-LO."
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "PREMEU F4 PER SORTIR EN QUALSEVOL MOMENT."
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "PREMEU ESC O UNA DRECERA DE TECLAT PER A CANCEL·LAR."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "VOLEU INICIAR EL CENTRE MULTIMÈDIA DEL KODI?"
-
 msgid "MOVE CURSOR"
 msgstr "MOVEU EL CURSOR"
 
@@ -807,6 +866,15 @@ msgstr "CANVIA"
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "ES REINICIARÀ EL SISTEMA ARA"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "PREMEU F4 PER SORTIR EN QUALSEVOL MOMENT."
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "PREMEU ESC O UNA DRECERA DE TECLAT PER A CANCEL·LAR."
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "SALTA A UNA LLETRA"
 
@@ -815,9 +883,6 @@ msgstr "S'ESTÀ TREBALLANT…"
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRA ELS OCULTS"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "EDITA LES METADADES D'AQUEST JOC"
 
 #~ msgid "SAVE"
 #~ msgstr "DESA"
@@ -852,11 +917,6 @@ msgstr "S'ESTÀ TREBALLANT…"
 
 #~ msgid "enter romtype"
 #~ msgstr "introduïu el tipus de ROM"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "HI HA %i JOC DISPONIBLE"
-#~ msgstr[1] "HI HA %i JOCS DISPONIBLES"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

@@ -33,7 +33,7 @@ void NetworkThread::run(){
 	      if(i != 0) msg += "\n";
 	      msg += msgtbl[i];
 	    }
-	    mWindow->displayMessage(_("UPDATE AVAILABLE") + std::string(":\n") + msg);
+	    mWindow->displayMessage(_("UPDATE AVAILABLE") + std::string(": ") + msg);
 	    mRunning = false;
 	  }
 	}

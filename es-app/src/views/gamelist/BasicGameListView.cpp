@@ -46,6 +46,13 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 	mHeaderText.setText(mRoot->getSystem()->getFullName());
 	if (files.size() > 0)
 	{
+	  // batocera
+	  for(auto it = files.cbegin(); it != files.cend(); it++)
+	    {
+	      if ((*it)->getType() != FOLDER && (*it)->metadata.get("favorite").compare("true") == 0) {
+		mList.add("\uF006 " + (*it)->getName(), *it, ((*it)->getType() == FOLDER));
+	      }
+	    }
 		for(auto it = files.cbegin(); it != files.cend(); it++)
 		{
 			mList.add((*it)->getName(), *it, ((*it)->getType() == FOLDER));
@@ -161,4 +168,14 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("y", prompt));
 	}
 	return prompts;
+}
+
+// batocera
+void BasicGameListView::setCursorIndex(int cursor){
+	mList.setCursorIndex(cursor);
+}
+
+// batocera
+int BasicGameListView::getCursorIndex(){
+	return mList.getCursorIndex();
 }

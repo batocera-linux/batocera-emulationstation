@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "ORDINA I GIOCHI PER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "OPZIONI SONORO"
 msgid "NETWORK SETTINGS"
 msgstr "OPZIONI DI RETE"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
 msgid "SCRAPE"
 msgstr "SCRAPE"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPZIONI DI SISTEMA"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ESCI"
@@ -172,8 +181,8 @@ msgstr "AUMENTA LA SICUREZZA"
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD DI ROOT"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "IL SISTEMA VERRA' RIAVVIATO"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "FORMATO GIOCO"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPZIONI RETROACHIEVEMENTS"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
-
 msgid "HARDCORE MODE"
 msgstr "MODALITÀ HARDCORE"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -294,23 +300,29 @@ msgstr "CANCELLA I CONTROLLER BLUETOOTH"
 msgid "INPUT P%i"
 msgstr "INPUT P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "TEMA SELEZIONATO"
 
-msgid "SCREENSAVER AFTER"
-msgstr "SALVASCHERMO DOPO"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
+msgid "SCREENSAVER AFTER"
+msgstr "SALVASCHERMO DOPO"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTAMENTO DEL SALVASCHERMO"
-
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA IL FRAMERATE"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -324,8 +336,32 @@ msgstr "SELEZIONE RAPIDA DEL SISTEMA"
 msgid "ON SCREEN KEYBOARD"
 msgstr "TASTIERA A SCHERMO"
 
-msgid "THEME SET"
-msgstr "TEMA SELEZIONATO"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA IL FRAMERATE"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
@@ -333,11 +369,14 @@ msgstr "VOLUME DI SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MUSICA FRONTEND"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "USCITA AUDIO"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "CONNESSO"
@@ -637,6 +676,18 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i GIOCO DISPONIBILE"
+msgstr[1] "%i GIOCHI DISPONIBILI"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -667,7 +718,24 @@ msgstr "RIPROVA"
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -770,15 +838,6 @@ msgstr "NESSUN GAMEPAD RILEVATO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TIENI PREMUTO UN PULSANTE SUL GAMEPAD PER CONFIGURARLO"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "PREMI F4 PER USCIRE IN QUALSIASI MOMENTO"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "PREMI ESC O UNA COMBINAZIONE DI TASTI PER ANNULLARE"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
-
 msgid "MOVE CURSOR"
 msgstr "SPOSTA CURSORE"
 
@@ -806,6 +865,15 @@ msgstr "MODIFICA"
 msgid "WORKING..."
 msgstr "ATTENDERE..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "IL SISTEMA VERRA' RIAVVIATO"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "PREMI F4 PER USCIRE IN QUALSIASI MOMENTO"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "PREMI ESC O UNA COMBINAZIONE DI TASTI PER ANNULLARE"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "VAI ALLA LETTERA"
 
@@ -814,9 +882,6 @@ msgstr "ATTENDERE..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRA NASCOSTI"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
 
 #~ msgid "SAVE"
 #~ msgstr "SALVA"
@@ -851,11 +916,6 @@ msgstr "ATTENDERE..."
 
 #~ msgid "enter romtype"
 #~ msgstr "inserisci tipo di rom"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i GIOCO DISPONIBILE"
-#~ msgstr[1] "%i GIOCHI DISPONIBILI"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

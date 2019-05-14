@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "ゲームのソート"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "このゲームのメタ情報を編集"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "音声設定"
 msgid "NETWORK SETTINGS"
 msgstr "ネットワーク設定"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RetroAchievements"
+
 msgid "SCRAPE"
 msgstr "スクレイプ"
 
 msgid "SYSTEM SETTINGS"
 msgstr "システム設定"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "終了"
@@ -176,9 +185,8 @@ msgstr "セキュリティ保護"
 msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
 
-#, fuzzy
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "システムは 再起動します"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "ゲーム比率"
@@ -223,9 +231,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RetroAchievements"
-
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
 
@@ -235,7 +240,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -303,23 +308,29 @@ msgstr "ブルートゥースのコントローラーを解除"
 msgid "INPUT P%i"
 msgstr "入力 P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "オーバースキャン"
+msgid "THEME SET"
+msgstr "テーマ設定"
 
-msgid "SCREENSAVER AFTER"
-msgstr "スクリーンセーバー 時間"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "画面遷移スタイル"
 
+msgid "SCREENSAVER AFTER"
+msgstr "スクリーンセーバー 時間"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "スクリーンセーバー動作"
-
-msgid "SHOW FRAMERATE"
-msgstr "フレームレートを表示"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -333,8 +344,32 @@ msgstr "クイックシステム選択"
 msgid "ON SCREEN KEYBOARD"
 msgstr "スクリーンキーボード"
 
-msgid "THEME SET"
-msgstr "テーマ設定"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "フレームレートを表示"
+
+msgid "OVERSCAN"
+msgstr "オーバースキャン"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "システム音量"
@@ -343,11 +378,14 @@ msgstr "システム音量"
 msgid "FRONTEND MUSIC"
 msgstr "フロントエンド音楽"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "出力デバイス"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "接続済み"
@@ -652,6 +690,17 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "KODIメディアセンターを開始しますか？"
+
+#, fuzzy, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i 個のゲームがあります"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -683,7 +732,24 @@ msgstr "再試行"
 msgid "ACCEPT RESULT"
 msgstr "了解"
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -787,15 +853,6 @@ msgstr "ゲームパッドが検出されませんでした"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 デバイスの設定をします。"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "F4を押すと いつでも終了できます。"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ESCかホットキーを押すと キャンセルします。"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODIメディアセンターを開始しますか？"
-
 msgid "MOVE CURSOR"
 msgstr "カーソル移動"
 
@@ -823,6 +880,16 @@ msgstr "変更"
 msgid "WORKING..."
 msgstr "処理中..."
 
+#, fuzzy
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "システムは 再起動します"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "F4を押すと いつでも終了できます。"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "ESCかホットキーを押すと キャンセルします。"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "文字に移動"
 
@@ -832,9 +899,6 @@ msgstr "処理中..."
 #, fuzzy
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "隠した項目を表示"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "このゲームのメタ情報を編集"
 
 #~ msgid "SAVE"
 #~ msgstr "保存"
@@ -875,11 +939,6 @@ msgstr "処理中..."
 #, fuzzy
 #~ msgid "enter romtype"
 #~ msgstr "ROMタイプを入力"
-
-#, fuzzy
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i 個のゲームがあります"
 
 #, fuzzy
 #~ msgid "%i FAVORITE"

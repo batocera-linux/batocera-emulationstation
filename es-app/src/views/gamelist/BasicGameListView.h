@@ -17,6 +17,8 @@ public:
 
 	virtual FileData* getCursor() override;
 	virtual void setCursor(FileData* file) override;
+	virtual int getCursorIndex() override; // batocera
+	virtual void setCursorIndex(int index) override; // batocera
 
 	virtual const char* getName() const override { return "basic"; }
 

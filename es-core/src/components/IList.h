@@ -109,6 +109,22 @@ public:
 		onCursorChanged(CURSOR_STOPPED);
 	}
 
+	// batocera
+	void setCursorIndex(int index)
+	{
+		if(index > 0 && index < mEntries.size()) {
+			mCursor = index;
+			onCursorChanged(CURSOR_STOPPED);
+		}
+	}
+
+	// batocera
+	int getCursorIndex()
+	{
+		return mCursor;
+	}
+
+
 	void clear()
 	{
 		mEntries.clear();

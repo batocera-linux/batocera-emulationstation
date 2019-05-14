@@ -163,7 +163,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #endif
 // batocera
 #ifdef _ENABLE_KODI_
-            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1") {
+            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
                 Window * window = mWindow;
                 mWindow->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
 			       [window,this] { 
@@ -292,11 +292,14 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	// also change the text after we've fully faded out
 	setAnimation(infoFadeOut, 0, [this, gameCount] {
 		std::stringstream ss;
-
+		char strbuf[256];
+ 
 		if (!getSelected()->isGameSystem())
 			ss << "CONFIGURATION";
-		else
-			ss << gameCount << " GAMES AVAILABLE";
+		else {
+		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount).c_str(), gameCount);
+		  ss << strbuf;
+		}
 
 		mSystemInfo.setText(ss.str());
 	}, false, 1);
@@ -418,7 +421,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt("a", _("SELECT"))); // batocera
 #ifdef _ENABLE_KODI_
-	if(SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1") {
+	if(SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
 	  prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
 	} else
 #endif

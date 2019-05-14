@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,9 @@ msgstr "游戏排序方式"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "编辑此游戏的数据"
+
 msgid "FINNISHED"
 msgstr ""
 
@@ -82,11 +85,17 @@ msgstr "声音设置"
 msgid "NETWORK SETTINGS"
 msgstr "网络设置"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
 msgid "SCRAPE"
 msgstr "搜刮"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
+
+msgid "INFORMATIONS"
+msgstr ""
 
 msgid "QUIT"
 msgstr "退出"
@@ -172,8 +181,8 @@ msgstr "强制安全"
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "系统将重新启动"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "GAME RATIO"
 msgstr "游戏显示比例"
@@ -217,9 +226,6 @@ msgstr ""
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS 设置"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
-
 msgid "HARDCORE MODE"
 msgstr "专家模式"
 
@@ -229,7 +235,7 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
-msgid "AUTOMATIC SCREESHOT"
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "USERNAME"
@@ -293,23 +299,29 @@ msgstr "删除蓝牙控制器"
 msgid "INPUT P%i"
 msgstr "输入 P%i"
 
+msgid "UI MODE"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
-msgid "OVERSCAN"
-msgstr "过扫描"
+msgid "THEME SET"
+msgstr "主题设置"
 
-msgid "SCREENSAVER AFTER"
-msgstr "屏幕保护延时"
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "过渡样式"
 
+msgid "SCREENSAVER AFTER"
+msgstr "屏幕保护延时"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "屏幕保护效果"
-
-msgid "SHOW FRAMERATE"
-msgstr "显示帧率"
 
 msgid "SHOW CLOCK"
 msgstr ""
@@ -323,8 +335,32 @@ msgstr "快速系统选择"
 msgid "ON SCREEN KEYBOARD"
 msgstr "虚拟键盘"
 
-msgid "THEME SET"
-msgstr "主题设置"
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "显示帧率"
+
+msgid "OVERSCAN"
+msgstr "过扫描"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"
@@ -332,11 +368,14 @@ msgstr "系统音量"
 msgid "FRONTEND MUSIC"
 msgstr "前端音乐"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr ""
+
 msgid "OUTPUT DEVICE"
 msgstr "輸出裝置"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "已连接"
@@ -634,6 +673,17 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "你想启动 KODI 媒体中心吗?"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i 个可用游戏"
+
+msgid "KODI"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -664,7 +714,24 @@ msgstr "重试"
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "Done."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "UP"
@@ -765,15 +832,6 @@ msgstr "没有检测到游戏手柄"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住您要设置的设备上的一个按钮。"
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "退出请按 F4。"
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "按 ESC 键或热键取消"
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "你想启动 KODI 媒体中心吗?"
-
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"
 
@@ -800,6 +858,15 @@ msgstr "改变"
 msgid "WORKING..."
 msgstr "进行中..."
 
+#~ msgid "THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "系统将重新启动"
+
+#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
+#~ msgstr "退出请按 F4。"
+
+#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
+#~ msgstr "按 ESC 键或热键取消"
+
 #~ msgid "JUMP TO LETTER"
 #~ msgstr "按字母跳转"
 
@@ -808,9 +875,6 @@ msgstr "进行中..."
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "显示隐藏"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "编辑此游戏的数据"
 
 #~ msgid "SAVE"
 #~ msgstr "保存"
@@ -845,10 +909,6 @@ msgstr "进行中..."
 
 #~ msgid "enter romtype"
 #~ msgstr "输入Rom类型"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i 个可用游戏"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"

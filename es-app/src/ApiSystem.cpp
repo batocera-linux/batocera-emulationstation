@@ -13,6 +13,7 @@
 #include "AudioManager.h"
 #include "VolumeControl.h"
 #include "InputManager.h"
+#include <SystemConf.h>
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -31,6 +32,7 @@
 
 #include <fstream>
 #include <SDL.h>
+#include <Sound.h>
 
 #if defined(WIN32)
 #define popen _popen
@@ -360,6 +362,10 @@ bool ApiSystem::launchKodi(Window *window) {
             break;
     }
 
+    // batocera
+    if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+      AudioManager::getInstance()->playRandomMusic();
+
     return exitCode == 0;
 
 }
@@ -367,12 +373,12 @@ bool ApiSystem::launchKodi(Window *window) {
 bool ApiSystem::launchFileManager(Window *window) {
     LOG(LogInfo) << "Attempting to launch filemanager...";
 
-    AudioManager::getInstance()->deinit();
-    VolumeControl::getInstance()->deinit();
+    //AudioManager::getInstance()->deinit();
+    //VolumeControl::getInstance()->deinit();
 
     std::string command = "/recalbox/scripts/filemanagerlauncher.sh";
 
-    window->deinit();
+    //window->deinit();
 
     int exitCode = system(command.c_str());
 #if !defined(WIN32)
@@ -381,11 +387,14 @@ bool ApiSystem::launchFileManager(Window *window) {
     }
 #endif
 
-    window->init();
-    VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->init();
-    window->normalizeNextUpdate();
-
+    //window->init();
+    //VolumeControl::getInstance()->init();
+    //AudioManager::getInstance()->init();
+    //window->normalizeNextUpdate();
+    // batocera
+    //if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+    //AudioManager::getInstance()->playRandomMusic();
+    
     return exitCode == 0;
 }
 
@@ -857,7 +866,29 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
 
     VolumeControl::getInstance()->init();
     AudioManager::getInstance()->init();
-    //AudioManager::getInstance()->playCheckSound();
+    Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
 
     return exitcode == 0;
 }
+
+// Batocera
+std::string ApiSystem::getRetroAchievements() {
+
+    std::ostringstream oss;
+    oss << "/recalbox/scripts/batocera-retroachievements-info" ;
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+
+    if (pipe == NULL) {
+        return "";
+    }
+
+    if (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        pclose(pipe);
+        return std::string(line);
+    }
+    return "";
+}
+
+

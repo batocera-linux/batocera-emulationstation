@@ -16,6 +16,7 @@
 #include "InputManager.h"
 #include "Window.h"
 #include <assert.h>
+#include <SystemConf.h>
 
 FileData::FileData(FileType type, const std::string& path, SystemEnvironmentData* envData, SystemData* system)
 	: mType(type), mPath(path), mSystem(system), mEnvData(envData), mSourceFileData(NULL), mParent(NULL), metadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -314,6 +315,10 @@ void FileData::launchGame(Window* window)
 	//update last played time
 	gameToUpdate->metadata.set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
 	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
+
+	// batocera
+	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+	  AudioManager::getInstance()->playRandomMusic();
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)

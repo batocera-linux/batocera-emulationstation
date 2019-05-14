@@ -10,7 +10,7 @@
 #include "Scripting.h"
 #include <algorithm>
 #include <iomanip>
-#include "guis/GuiMsgBox.h"
+#include "guis/GuiInfoPopup.h"
 #include "SystemConf.h"
 #include "LocaleES.h"
 
@@ -211,7 +211,7 @@ void Window::update(int deltaTime)
         if(!mMessages.empty()){
 		std::string message = mMessages.back();
 		mMessages.pop_back();
-                pushGui(new GuiMsgBox(this, message));
+		this->setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
 	}
 	if(mNormalizeNextUpdate)
 	{

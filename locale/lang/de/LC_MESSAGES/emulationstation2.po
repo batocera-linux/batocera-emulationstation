@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: recalbox-emulationstation\n"
+"Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 21:58+0200\n"
+"POT-Creation-Date: 2019-05-08 13:36+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "UPDATE HERUNTERGELADEN. DAS SYSTEM WIRD NEUGESTARTET."
+msgstr "UPDATE HERUNTERGELADEN. DAS SYSTEM WIRD NEU GESTARTET."
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "KEIN UPDATE VERFÜGBAR"
@@ -50,16 +50,19 @@ msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "SPRINGE ZU..."
 
 msgid "SORT GAMES BY"
 msgstr "SPIELE SORTIEREN NACH"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "FILTERE SPIELELISTE"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "METADATEN BEARBEITEN"
 
 msgid "FINNISHED"
-msgstr ""
+msgstr "FERTIG"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -82,11 +85,17 @@ msgstr "SOUNDEINSTELLUNGEN"
 msgid "NETWORK SETTINGS"
 msgstr "NETZWERKEINSTELLUNGEN"
 
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
 msgid "SCRAPE"
 msgstr "SCRAPEN"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMEINSTELLUNGEN"
+
+msgid "INFORMATIONS"
+msgstr "INFORMATIONEN"
 
 msgid "QUIT"
 msgstr "BEENDEN"
@@ -107,7 +116,7 @@ msgid "SELECT"
 msgstr "AUSWÄHLEN"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "INFORMATIONEN"
 
 msgid "VERSION"
 msgstr "VERSION"
@@ -116,16 +125,16 @@ msgid "DISK USAGE"
 msgstr "SPEICHERNUTZUNG"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "EINE SUPPORT DATEI ERSTELLEN?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "DATEI ERFOLGREICH ERSTELLT"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "DATEI ERSTELLUNG FEHLGESCHLAGEN"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "EINE SUPPORT DATEI ERSTELLEN"
 
 msgid "STORAGE DEVICE"
 msgstr "SPEICHER"
@@ -146,7 +155,7 @@ msgid "START UPDATE"
 msgstr "UPDATE STARTEN"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "BENUTZERDATEN SICHERN"
 
 msgid "KODI SETTINGS"
 msgstr "KODI EINSTELLUNGEN"
@@ -161,7 +170,7 @@ msgid "START KODI WITH X"
 msgstr "KODI MIT X STARTEN"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "INSTALLIERE BATOCERA AUF EINEM NEUEN DATENTRÄGER"
 
 msgid "SECURITY"
 msgstr "SICHERHEIT"
@@ -172,8 +181,8 @@ msgstr "ERZWINGE SICHERHEIT"
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSWORT"
 
-msgid "THE SYSTEM WILL NOW REBOOT"
-msgstr "DAS SYSTEM WIRD JETZT NEU GESTARTET"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DIE NEUE KONFIGURATION ANZUWENDEN "
 
 msgid "GAME RATIO"
 msgstr "BILDFORMAT"
@@ -185,10 +194,10 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "ON"
-msgstr ""
+msgstr "EIN"
 
 msgid "OFF"
-msgstr ""
+msgstr "AUS"
 
 msgid "REWIND"
 msgstr "ZURÜCKSPULEN"
@@ -209,28 +218,25 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "INTEGER SCALE (PIXEL PERFECT)"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "DEKORATION"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "LEADERBOARDS"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "VERBOSE MODE"
 
-msgid "AUTOMATIC SCREESHOT"
-msgstr ""
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "AUTOMATISCHER SCREENSHOT"
 
 msgid "USERNAME"
 msgstr "BENUTZERNAME"
@@ -239,13 +245,13 @@ msgid "PASSWORD"
 msgstr "PASSWORT"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "FEHLENDE BIOS DATEIEN"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "KEINE FEHLENDE BIOS DATEIEN"
 
 msgid "MD5"
-msgstr ""
+msgstr "MD5"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -295,26 +301,32 @@ msgstr "BLUETOOTH CONTROLLER VERGESSEN"
 msgid "INPUT P%i"
 msgstr "EINGABE P%i"
 
+msgid "UI MODE"
+msgstr "UI MODUS"
+
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "BILD AUSGABE"
 
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgid "THEME SET"
+msgstr "THEME"
 
-msgid "SCREENSAVER AFTER"
-msgstr "BILDSCHIRMSCHONER NACH"
+msgid "GAMELIST VIEW STYLE"
+msgstr "SPIELELISTE ANSICHTSSTIL"
+
+msgid "START ON SYSTEM"
+msgstr "START MIT SYSTEM"
 
 msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
 
+msgid "SCREENSAVER AFTER"
+msgstr "BILDSCHIRMSCHONER NACH"
+
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "BILDSCHIRMSCHONER EINSTELLEN"
 
-msgid "SHOW FRAMERATE"
-msgstr "BILDRATE ANZEIGEN"
-
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "UHRZEIT ANZEIGEN"
 
 msgid "ON-SCREEN HELP"
 msgstr "BILDSCHIRMHILFE"
@@ -325,8 +337,32 @@ msgstr "SYSTEM SCHNELLAUSWAHL"
 msgid "ON SCREEN KEYBOARD"
 msgstr "BILDSCHIRMTASTATUR"
 
-msgid "THEME SET"
-msgstr "THEME"
+msgid "CAROUSEL TRANSITIONS"
+msgstr "KARUSSEL ÜBERGÄNGE"
+
+msgid "ENABLE FILTERS"
+msgstr "FILTER AKTIVIEREN"
+
+msgid "SHOW FRAMERATE"
+msgstr "BILDRATE ANZEIGEN"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "METADATEN BEIM BEENDEN SPEICHERN"
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr "NUR SPIELELISTEN PARSEN"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "SUCHE NACH LOKALER KUNST"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ZEIGE VERSTECKTE DATEIEN"
+
+msgid "VRAM LIMIT"
+msgstr "VRAM LIMIT"
 
 msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE"
@@ -334,11 +370,14 @@ msgstr "LAUTSTÄRKE"
 msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"
 
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "NAVIGATION SOUNDS AKTIVIEREN"
+
+msgid "ENABLE VIDEO AUDIO"
+msgstr "VIDEO AUDIO AKTIVIEREN"
+
 msgid "OUTPUT DEVICE"
 msgstr "AUSGANGSGERÄT"
-
-msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-msgstr ""
 
 msgid "CONNECTED"
 msgstr "VERBUNDEN"
@@ -368,13 +407,13 @@ msgid "WIFI CONFIGURATION ERROR"
 msgstr "WLAN EINSTELLUNGSFEHLER"
 
 msgid "REALLY SCRAPE?"
-msgstr ""
+msgstr "WIRKLICH SCRAPEN?"
 
 msgid "AUTOMATIC SCRAPER"
-msgstr ""
+msgstr "AUTOMATISCHER SCRAPER"
 
 msgid "MANUAL SCRAPER"
-msgstr ""
+msgstr "MANUELLER SCRAPER"
 
 msgid "REALLY RESTART?"
 msgstr "WIRKLICH NEUSTARTEN?"
@@ -401,28 +440,28 @@ msgid "Core"
 msgstr "Core"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "VIDEO MODUS"
 
 msgid "INSTALL BATOCERA"
-msgstr ""
+msgstr "INSTALLIERE BATOCERA"
 
 msgid "TARGET DEVICE"
-msgstr ""
+msgstr "ZIELGERÄT"
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
+msgstr "ZIELARCHITEKTUR"
 
 msgid "VALIDATION"
-msgstr ""
+msgstr "VALIDIERUNG"
 
 msgid "YES, I'M SURE"
-msgstr ""
+msgstr "JA, ICH BIN SICHER"
 
 msgid "INSTALL"
-msgstr ""
+msgstr "INSTALLIERE"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "NETZWERK BENÖTIGT"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPER LÄUFT"
@@ -454,6 +493,9 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
+"WIR KÖNNEN KEINE SYSTEME FINDEN!\n"
+"PRÜFE, DASS DIE PFADE IN DER SYSTEMKONFIGURATIONSDATEI RICHTIG SIND, UND "
+"DEIN SPIELEVERZEICHNIS MINDESTENS EIN SPIEL MIT DER KORREKTEN DATEIENDUNG HAT."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -516,10 +558,10 @@ msgid "enter game name"
 msgstr "Spielname eingeben"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Name sortieren"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "Spielsortiername eingeben"
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -534,13 +576,13 @@ msgid "enter path to image"
 msgstr "Bildpfad angeben"
 
 msgid "Path to video"
-msgstr ""
+msgstr "Pfad zum Video"
 
 msgid "enter path to thumbnail"
 msgstr "Pfad zum Vorschaubild angeben"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "Pfad zur Laufschrift"
 
 msgid "Thumbnail"
 msgstr "Vorschaubild"
@@ -594,10 +636,10 @@ msgid "set hidden"
 msgstr "Verstecken"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Kinderspiel"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "Kinderspiel einstellen"
 
 msgid "Play count"
 msgstr "Anzahl gespielt"
@@ -612,37 +654,49 @@ msgid "enter last played date"
 msgstr "Datum Zuletzt gespielt eingeben"
 
 msgid "name"
-msgstr ""
+msgstr "Name"
 
 msgid "sortname"
-msgstr ""
+msgstr "Sortiername"
 
 msgid "description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "image"
-msgstr ""
+msgstr "Bild"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "Miniaturansicht"
 
 msgid "video"
-msgstr ""
+msgstr "Video"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "Pfad zum Video eingeben"
 
 msgid "marquee"
-msgstr ""
+msgstr "Laufschrift"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "Pfad zur Laufschrift eingeben"
+
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN?"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i SPIEL VERFÜGBAR"
+msgstr[1] "%i SPIELE VERFÜGBAR"
+
+msgid "KODI"
+msgstr "KODI"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "ZUFALL"
 
 msgid "FILES"
-msgstr ""
+msgstr "DATEIEN"
 
 msgid "Released"
 msgstr "Veröffentlicht"
@@ -668,8 +722,25 @@ msgstr "WIEDERHOLEN"
 msgid "ACCEPT RESULT"
 msgstr "ERGEBNIS AKZEPTIEREN"
 
+msgid "Loading..."
+msgstr "Lade..."
+
+msgid "Loading system config..."
+msgstr "Lade System Konfiguration"
+
+msgid "Done."
+msgstr "Fertig."
+
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "UPDATE VERFÜGBAR"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s' to '%s' hinzugefügt"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s' from '%s' entfernt"
 
 msgid "UP"
 msgstr "HOCH"
@@ -684,16 +755,16 @@ msgid "RIGHT"
 msgstr "RECHTS"
 
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "LINKER ANALOGSTICK NACH OBEN"
 
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "LINKER ANALOGSTICK NACH LINKS"
 
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "RECHTER ANALOGSTICK NACH OBEN"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "RECHTER ANALOGSTICK NACH LINKS"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -705,7 +776,7 @@ msgid "KEYBOARD"
 msgstr "TASTATUR"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -722,6 +793,9 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"ES WURDE KEINE HOTKEY AKTIVIERUNGSTASTE AUSGEWÄHLT. DIES IST FÜR DAS BEENDEN VON SPIELEN MIT EINEM "
+"CONTROLLER ABER ERFORDERLICH. SOLL DIE SELECT TASTE STANDARDMÄSSIG DAFÜR VERWENDET WERDEN? BITTE "
+"ANTWORTE MIT JA UM DIE SELECT TASTE ZU VERWENDEN ODER MIT NEIN UM KEINE HOTKEY AKTIVIERUNGSTASTE EINZUSTELLEN."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -771,15 +845,6 @@ msgstr "KEIN GAMEPAD ERKANNT"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
 
-msgid "PRESS F4 TO QUIT AT ANY TIME."
-msgstr "F4 DRÜCKEN, UM JEDERZEIT ZU BEENDEN."
-
-msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-msgstr "ESC, ODER DEN HOTKEY ZUM ABBRECHEN DRÜCKEN."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN?"
-
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"
 
@@ -806,229 +871,3 @@ msgstr "ÄNDERN"
 
 msgid "WORKING..."
 msgstr "ARBEITET..."
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "SPRINGE ZU BUCHSTABE"
-
-#~ msgid "FAVORITES ONLY"
-#~ msgstr "NUR FAVORITEN"
-
-#~ msgid "SHOW HIDDEN"
-#~ msgstr "ZEIGE VERSTECKTE"
-
-#~ msgid "EDIT THIS GAME'S METADATA"
-#~ msgstr "METADATEN BEARBEITEN"
-
-#~ msgid "SAVE"
-#~ msgstr "SPEICHERN"
-
-#~ msgid ""
-#~ "THIS WILL DELETE A FILE!\n"
-#~ "ARE YOU SURE?"
-#~ msgstr "DATEI WIRKLICH LÖSCHEN?"
-
-#~ msgid "enter emulator"
-#~ msgstr "Emulator angeben"
-
-#~ msgid "enter core"
-#~ msgstr "Core angeben"
-
-#~ msgid "Ratio"
-#~ msgstr "Ratio"
-
-#~ msgid "enter ratio"
-#~ msgstr "Ratio eingeben"
-
-#~ msgid "Region"
-#~ msgstr "Region"
-
-#~ msgid "enter region"
-#~ msgstr "Region eingeben"
-
-#~ msgid "Romtype"
-#~ msgstr "Romtyp"
-
-#~ msgid "enter romtype"
-#~ msgstr "Romtyp angeben"
-
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i SPIEL VERFÜGBAR"
-#~ msgstr[1] "%i SPIELE VERFÜGBAR"
-
-#~ msgid "%i FAVORITE"
-#~ msgid_plural "%i FAVORITES"
-#~ msgstr[0] "%i FAVORIT"
-#~ msgstr[1] "%i FAVORITEN"
-
-#~ msgid "SCROLL"
-#~ msgstr "SCROLLEN"
-
-#~ msgid "FILENAME"
-#~ msgstr "DATEINAME"
-
-#~ msgid "RATING"
-#~ msgstr "BEWERTUNG"
-
-#~ msgid "TIMES PLAYED"
-#~ msgstr "GESPIELT"
-
-#~ msgid "LAST PLAYED"
-#~ msgstr "ZULETZT GESPIELT"
-
-#~ msgid "NUMBER OF PLAYERS"
-#~ msgstr "SPIELER ANZAHL"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "ENTWICKLER"
-
-#~ msgid "GENRE"
-#~ msgstr "GENRE"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "SUCHE NACH"
-
-#~ msgid "JOYSTICK 1 UP"
-#~ msgstr "JOYSTICK 1 HOCH"
-
-#~ msgid "JOYSTICK 1 LEFT"
-#~ msgstr "JOYSTICK 1 LINKS"
-
-#~ msgid "JOYSTICK 2 UP"
-#~ msgstr "JOYSTICK 2 HOCH"
-
-#~ msgid "JOYSTICK 2 LEFT"
-#~ msgstr "JOYSTICK 2 LINKS"
-
-#~ msgid "PAGE UP"
-#~ msgstr "L1 (SEITE HOCH)"
-
-#~ msgid "PAGE DOWN"
-#~ msgstr "R1 (SEITE RUNTER)"
-
-#~ msgid "LOADING..."
-#~ msgstr "LÄDT..."
-
-#~ msgid "PLEASE WAIT..."
-#~ msgstr "BITTE WARTEN..."
-
-#~ msgid "never"
-#~ msgstr "Noch nie"
-
-#~ msgid "just now"
-#~ msgstr "Gerade eben"
-
-#~ msgid "%i sec ago"
-#~ msgid_plural "%i secs ago"
-#~ msgstr[0] "Vor %i Sek"
-#~ msgstr[1] "Vor %i Sek"
-
-#~ msgid "%i min ago"
-#~ msgid_plural "%i mins ago"
-#~ msgstr[0] "Vor %i Min"
-#~ msgstr[1] "Vor %i Min"
-
-#~ msgid "%i hour ago"
-#~ msgid_plural "%i hours ago"
-#~ msgstr[0] "Vor %i Std"
-#~ msgstr[1] "Vor %i Std"
-
-#~ msgid "%i day ago"
-#~ msgid_plural "%i days ago"
-#~ msgstr[0] "Vor %i Tag"
-#~ msgstr[1] "Vor %i Tagen"
-
-#~ msgid "unknown"
-#~ msgstr "Unbekannt"
-
-#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-#~ msgstr "EIN UPDATE FÜR BATOCERA.LINUX IST VERFÜGBAR"
-
-#~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "EXTREM (1100Mhz)"
-
-#~ msgid "TURBO (1000Mhz)"
-#~ msgstr "TURBO (1000Mhz)"
-
-#~ msgid "HIGH (950Mhz)"
-#~ msgstr "HOCH (950Mhz)"
-
-#~ msgid "HIGH (1050Mhz)"
-#~ msgstr "HOCH (1050Mhz)"
-
-#~ msgid "NONE (900Mhz)"
-#~ msgstr "KEINE (900Mhz)"
-
-#~ msgid "NONE (1200Mhz)"
-#~ msgstr "KEINE (1200Mhz)"
-
-#~ msgid "NO CONTROLLERS FOUND"
-#~ msgstr "KEIN CONTROLLER GEFUNDEN"
-
-#~ msgid "SCRAPER"
-#~ msgstr "SCRAPER"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.FR FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "WIR KÖNNEN KEINE SYSTEME FINDEN!\n"
-#~ "PRÜFE IN DER KONFIGURATIONSDATEI, OB ALLE PFADE RICHTIG GESETZT SIND UND "
-#~ "OB MINDESTENS EIN SPIEL MIT DER RICHTIGEN ERWEITERUNG VORHANDEN IST.\n"
-#~ "\n"
-#~ "BESUCHE RECALBOX.COM FÜR MEHR INFORMATIONEN."
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-#~ "\n"
-#~ "VISIT RECALBOX.COM FOR MORE INFORMATION."
-#~ msgstr ""
-#~ "KEINE SYSTEME GEFUNDEN!\n"
-#~ "ÜBERPRÜFE DIE PFADE IN DER KONFIGURATIONSDATEI UND STELLE MINDESTENS EIN "
-#~ "SPIEL MIT KORREKTER DATEIERWEITERUNG ZUR VERFÜGUNG.\n"
-#~ "\n"
-#~ "BESUCHE RECALBOX.COM FÜR MEHR INFORMATIONEN."
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "KEINE (700Mhz)"
-
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "TURBO (1050Mhz)+"
-
-#~ msgid "HDMI"
-#~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "KLINKE"
-
-#~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "UPDATE FEHLGESCHLAGEN. DAS SYSTEM WIR NEUGESTARTET"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "DATEINAME, AUFSTEIGEND"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "DATEINAME, ABSTEIGEND"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "BEWERTUNG, AUFSTEIGEND"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "BEWERTUNG, ABSTEIGEND"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "ANZAHL GESPIELT, AUFSTEIGEND"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "ANZAHL GESPIELT, ABSTEIGEND"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "ZULETZT GESPIELT, AUFSTEIGEND"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "ZULETZT GESPIELT, ABSTEIGEND"
