@@ -45,7 +45,7 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
   //{ "RightAnalogLeft",  true,  "RIGHT ANALOG LEFT",  ":/help/analog_left.svg" },
   //{ "RightAnalogRight", true,  "RIGHT ANALOG RIGHT", ":/help/analog_right.svg" },
   //{ "HotKeyEnable",     true,  "HOTKEY ENABLE",      ":/help/button_hotkey.svg" }
-  
+
   { "joystick1up",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
   { "joystick1left",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
   { "joystick2up",     true,  "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
@@ -76,8 +76,8 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 
 #define HOLD_TO_SKIP_MS 1000
 
-GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
-	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
+GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window),
+	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)),
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
 {
 	LOG(LogInfo) << "Configuring device " << target->getDeviceId() << " (" << target->getDeviceName() << ").";
@@ -118,7 +118,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	for(int i = 0; i < inputCount; i++)
 	{
 		ComponentListRow row;
-		
+
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 		icon->setImage(GUI_INPUT_CONFIG_LIST[i].icon);
@@ -155,14 +155,13 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 					setPress(mapping);
 					return true;
 				}
-				
+
 				// we're not configuring and they didn't press A to start, so ignore this
 				return false;
 			}
 
-
-			// filter for input quirks specific to Sony DualShock 3
-			if(filterTrigger(input, config))
+			// apply filtering for quirks related to trigger mapping
+			if(filterTrigger(input, config, i))
 				return false;
 
 			// we are configuring
@@ -213,7 +212,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		InputManager::getInstance()->writeDeviceConfig(mTargetConfig); // save
 		if(okCallback)
 			okCallback();
-		delete this; 
+		delete this;
 	};
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("OK"), "ok", [this, okFunction] { // batocera
 		// check if the hotkey enable button is set. if not prompt the user to use select or nothing.
@@ -291,7 +290,7 @@ void GuiInputConfig::update(int deltaTime)
 	}
 }
 
-// move cursor to the next thing if we're configuring all, 
+// move cursor to the next thing if we're configuring all,
 // or come out of "configure mode" if we were only configuring one row
 void GuiInputConfig::rowDone()
 {
@@ -350,7 +349,7 @@ bool GuiInputConfig::assign(Input input, int inputId)
 	}
 
 	setAssignedTo(mMappings.at(inputId), input);
-	
+
 	input.configured = true;
 	mTargetConfig->mapInput(GUI_INPUT_CONFIG_LIST[inputId].name, input);
 
@@ -364,7 +363,7 @@ void GuiInputConfig::clearAssignment(int inputId)
 	mTargetConfig->unmapInput(GUI_INPUT_CONFIG_LIST[inputId].name);
 }
 
-bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
+bool GuiInputConfig::filterTrigger(Input input, InputConfig* config, int inputId)
 {
   // batocera
   return false;
@@ -372,16 +371,21 @@ bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
 #if defined(__linux__)
 	// match PlayStation joystick with 6 axes only
 	if((strstr(config->getDeviceName().c_str(), "PLAYSTATION") != NULL \
-	  || strstr(config->getDeviceName().c_str(), "PS3 Game") != NULL \
-	  || strstr(config->getDeviceName().c_str(), "PS(R) Game") != NULL) \
+	  || strstr(config->getDeviceName().c_str(), "PS3 Ga") != NULL \
+	  || strstr(config->getDeviceName().c_str(), "PS(R) Ga") != NULL) \
 	  && InputManager::getInstance()->getAxisCountByDevice(config->getDeviceId()) == 6)
 	{
 		// digital triggers are unwanted
 		if (input.type == TYPE_BUTTON && (input.id == 6 || input.id == 7))
 			return true;
-		// ignore analog values < 0
-		if (input.type == TYPE_AXIS && (input.id == 2 || input.id == 5) && input.value < 0)
-			return true;
+	}
+
+	// ignore negative pole for axes 2/5 only when triggers are being configured
+	if((mSkipAxis || strstr(GUI_INPUT_CONFIG_LIST[inputId].name, "Trigger") != NULL) \
+		 && input.type == TYPE_AXIS && (input.id == 2 || input.id == 5) && input.value < 0)
+	{
+		mSkipAxis = true;
+		return true;
 	}
 #endif
 
