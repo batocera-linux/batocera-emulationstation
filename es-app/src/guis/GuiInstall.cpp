@@ -50,7 +50,7 @@ void GuiInstall::render(const Transform4x4f& parentTrans)
 void GuiInstall::update(int deltaTime) {
         GuiComponent::update(deltaTime);
         mBusyAnim.update(deltaTime);
-        
+
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
@@ -84,14 +84,14 @@ void GuiInstall::update(int deltaTime) {
         }
 }
 
-void GuiInstall::threadInstall() 
+void GuiInstall::threadInstall()
 {
     std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->installSystem(&mBusyAnim, mstorageDevice, marchitecture);
     if(updateStatus.second == 0){
         this->onInstallOk();
     }else {
         this->onInstallError(updateStatus);
-    }  
+    }
 }
 
 void GuiInstall::onInstallError(std::pair<std::string, int> result)

@@ -70,9 +70,9 @@ namespace Renderer
 		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY") ? Settings::getInstance()->getInt("ScreenOffsetY") : 0;
 		screenRotate  = Settings::getInstance()->getInt("ScreenRotate")  ? Settings::getInstance()->getInt("ScreenRotate")  : 0;
 
-		sdlWindow = SDL_CreateWindow("EmulationStation", 
-			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
-			windowWidth, windowHeight, 
+		sdlWindow = SDL_CreateWindow("EmulationStation",
+			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+			windowWidth, windowHeight,
 			SDL_WINDOW_OPENGL | (Settings::getInstance()->getBool("Windowed") ? 0 : (Settings::getInstance()->getBool("FullscreenBorderless") ? SDL_WINDOW_BORDERLESS : SDL_WINDOW_FULLSCREEN)));
 
 		if(sdlWindow == NULL)
@@ -127,8 +127,8 @@ namespace Renderer
 		// vsync
 		if(Settings::getInstance()->getBool("VSync"))
 		{
-			// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default), 
-			// 1 for updates synchronized with the vertical retrace, 
+			// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default),
+			// 1 for updates synchronized with the vertical retrace,
 			// or -1 for late swap tearing.
 			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
 			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing

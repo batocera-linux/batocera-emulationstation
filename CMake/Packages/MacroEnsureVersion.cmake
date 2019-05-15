@@ -113,5 +113,3 @@ MACRO(MACRO_ENSURE_VERSION_RANGE min_version found_version max_version var_ok)
 
     MACRO_CHECK_RANGE_INCLUSIVE_LOWER( ${req_vers_num} ${found_vers_num} ${max_vers_num} ${var_ok})
 ENDMACRO(MACRO_ENSURE_VERSION_RANGE)
-
-

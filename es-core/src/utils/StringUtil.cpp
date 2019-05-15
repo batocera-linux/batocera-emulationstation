@@ -285,8 +285,8 @@ namespace Utils
 		{
 			std::string buffer = _input;
 
-			for (size_t i = 0; i < _input.size(); ++i) 
-			{               
+			for (size_t i = 0; i < _input.size(); ++i)
+			{
 				buffer[i] = _input[i] ^ key[i];
 			}
 

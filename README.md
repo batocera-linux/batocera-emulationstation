@@ -23,7 +23,7 @@ All of this be easily installed with `dnf` (with rpmfusion activated) :
 ```bash
 sudo dnf install SDL2-devel freeimage-devel freetype-devel curl-devel \
   alsa-lib-devel mesa-libGL-devel cmake \
-  vlc-devel rapidjson-devel 
+  vlc-devel rapidjson-devel
 ```
 
 Note this Repository uses a git submodule - to checkout the source and all submodules, use
@@ -32,7 +32,7 @@ Note this Repository uses a git submodule - to checkout the source and all submo
 git clone --recursive https://github.com/RetroPie/EmulationStation.git
 ```
 
-or 
+or
 
 ```bash
 git clone https://github.com/RetroPie/EmulationStation.git

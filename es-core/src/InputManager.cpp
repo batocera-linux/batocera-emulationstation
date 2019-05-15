@@ -21,7 +21,7 @@
 //    It can change even if the device is the same, and is only used to open joysticks (required to receive SDL events).
 // 2. SDL_JoystickID - this is an ID for each joystick that is supposed to remain consistent between plugging and unplugging.
 //    ES doesn't care if it does, though.
-// 3. "Device ID" - this is something I made up and is what InputConfig's getDeviceID() returns.  
+// 3. "Device ID" - this is something I made up and is what InputConfig's getDeviceID() returns.
 //    This is actually just an SDL_JoystickID (also called instance ID), but -1 means "keyboard" instead of "error."
 // 4. Joystick GUID - this is some squashed version of joystick vendor, version, and a bunch of other device-specific things.
 //    It should remain the same across runs of the program/system restarts/device reordering and is what I use to identify which joystick to load.
@@ -54,7 +54,7 @@ void InputManager::init()
 	if(initialized())
 		deinit();
 
-	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, 
+	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS,
 		Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 	SDL_JoystickEventState(SDL_ENABLE);
@@ -77,7 +77,7 @@ void InputManager::init()
 void InputManager::addJoystickByDeviceIndex(int id)
 {
 	assert(id >= 0 && id < SDL_NumJoysticks());
-	
+
 	// open joystick & add to our list
 	SDL_Joystick* joy = SDL_JoystickOpen(id);
 	assert(joy);
@@ -333,7 +333,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	std::string path = getConfigPath();
 	if(!Utils::FileSystem::exists(path))
 		return false;
-	
+
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = doc.load_file(path.c_str());
 
@@ -359,7 +359,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	    // found a correct guid
 	    found_guid = true; // no more need to check the name only
 	    configNode = item;
-	    
+
 	    if(strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
 	      // found the exact device
 	      found_exact = true;
@@ -375,7 +375,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	    }
 	  }
 	}
-	    
+
 	if(!configNode)
 		return false;
 
@@ -383,7 +383,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 	if(found_exact == false) {
 	  LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
 	}
-	  
+
 	config->loadFromXML(configNode);
 	return true;
 }
@@ -455,7 +455,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("controls-changed");
-	
+
 	// execute any onFinish commands and re-load the config for changes
 	doOnFinish();
 	loadInputConfig(config);

@@ -14,5 +14,3 @@ private:
     boost::thread * mThreadHandle;
     void run();
 };
-
-

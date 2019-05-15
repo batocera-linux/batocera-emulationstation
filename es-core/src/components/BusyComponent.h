@@ -15,7 +15,7 @@ class BusyComponent : public GuiComponent
 public:
 	BusyComponent(Window* window);
 	~BusyComponent(); // batocera
-  
+
 	void onSizeChanged() override;
 	void setText(std::string txt); // batocera
 

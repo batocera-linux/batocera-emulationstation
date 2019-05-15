@@ -223,7 +223,7 @@ You can theme multiple elements *of the same type* simultaneously.  The `name` a
     <formatVersion>3</formatVersion>
     <view name="detailed">
     	<!-- Weird spaces/newline on purpose! -->
-    	<text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, 
+    	<text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher,
     	md_lbl_genre,    md_lbl_players,        md_lbl_lastplayed, md_lbl_playcount">
         	<color>48474D</color>
         </text>
@@ -728,7 +728,7 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 * `color` - type: COLOR.
 	- Multiply each pixel's color by this color. For example, an all-white image with `<color>FF0000</color>` would become completely red.  You can also control the transparency of an image with `<color>FFFFFFAA</color>` - keeping all the pixels their normal color and only affecting the alpha channel.
 * `zIndex` - type: FLOAT.
-	- z-index value for component.  Components will be rendered in order of z-index value from low to high.	
+	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
 
 #### datetime
 * `pos` - type: NORMALIZED_PAIR.

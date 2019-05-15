@@ -208,7 +208,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
 #else
   srand(time(NULL) % getpid() + getppid());
 #endif
-  
+
   int randomIndex = rand() % musics.size();
 
   // continue playing ?

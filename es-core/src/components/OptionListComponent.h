@@ -239,7 +239,7 @@ public:
 		assert(selected.size() == 1);
 		return selected.at(0);
 	}
-        
+
         // batocera
 	std::string getSelectedName()
 	{
@@ -251,7 +251,7 @@ public:
 		}
                 return "";
 	}
-        
+
 
 	void add(const std::string& name, const T& obj, bool selected)
 	{

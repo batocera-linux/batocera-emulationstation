@@ -49,7 +49,7 @@ void GuiBackup::render(const Transform4x4f& parentTrans)
 void GuiBackup::update(int deltaTime) {
         GuiComponent::update(deltaTime);
         mBusyAnim.update(deltaTime);
-        
+
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
@@ -83,14 +83,14 @@ void GuiBackup::update(int deltaTime) {
         }
 }
 
-void GuiBackup::threadBackup() 
+void GuiBackup::threadBackup()
 {
     std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->backupSystem(&mBusyAnim, mstorageDevice);
     if(updateStatus.second == 0){
         this->onBackupOk();
     }else {
         this->onBackupError(updateStatus);
-    }  
+    }
 }
 
 void GuiBackup::onBackupError(std::pair<std::string, int> result)

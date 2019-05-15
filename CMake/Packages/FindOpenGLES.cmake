@@ -10,7 +10,7 @@
 
 # - Try to find OpenGLES
 # Once done this will define
-#  
+#
 #  OPENGLES_FOUND        - system has OpenGLES
 #  OPENGLES_INCLUDE_DIR  - the GL include directory
 #  OPENGLES_LIBRARIES    - Link these to use OpenGLES
@@ -71,7 +71,7 @@ ELSE (WIN32)
     ENDIF (DEFINED BCMHOST)
 
     # On Unix OpenGL most certainly always requires X11.
-    # Feel free to tighten up these conditions if you don't 
+    # Feel free to tighten up these conditions if you don't
     # think this is always true.
 
     IF (OPENGLES_gl_LIBRARY)

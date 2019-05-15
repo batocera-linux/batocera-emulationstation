@@ -57,7 +57,7 @@ void GuiAutoScrape::render(const Transform4x4f& parentTrans)
 void GuiAutoScrape::update(int deltaTime) {
         GuiComponent::update(deltaTime);
         mBusyAnim.update(deltaTime);
-        
+
         Window* window = mWindow;
 
         if(mState == 1){
@@ -65,7 +65,7 @@ void GuiAutoScrape::update(int deltaTime) {
 	  mHandle = new boost::thread(boost::bind(&GuiAutoScrape::threadAutoScrape, this));
 	  mState = 0;
         }
-	
+
         if(mState == 4){
             window->pushGui(
 			    new GuiMsgBox(window, _("FINNISHED"), _("OK"),
@@ -75,7 +75,7 @@ void GuiAutoScrape::update(int deltaTime) {
             );
             mState = 0;
         }
-	
+
         if(mState == 5){
             window->pushGui(
                     new GuiMsgBox(window, mResult.first, _("OK"),
@@ -91,7 +91,7 @@ void GuiAutoScrape::update(int deltaTime) {
         }
 }
 
-void GuiAutoScrape::threadAutoScrape() 
+void GuiAutoScrape::threadAutoScrape()
 {
   std::pair<std::string,int> scrapeStatus = ApiSystem::getInstance()->scrape(&mBusyAnim);
   if(scrapeStatus.second == 0){

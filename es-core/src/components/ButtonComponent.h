@@ -44,7 +44,7 @@ private:
 	unsigned int mModdedColor; // batocera
 	unsigned int mTextColorFocused;
 	unsigned int mTextColorUnfocused;
-	
+
 	unsigned int getCurTextColor() const;
 	void updateImage();
 

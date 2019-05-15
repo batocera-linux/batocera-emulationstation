@@ -293,4 +293,3 @@ if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE)
 	message (STATUS "Native language support enabled.")
 	add_subdirectory (locale)
 endif()
-

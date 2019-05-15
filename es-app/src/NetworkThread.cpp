@@ -5,7 +5,7 @@
 #include "LocaleES.h"
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window){
-    
+
     // creer le thread
     mFirstRun = true;
     mRunning = true;
@@ -39,4 +39,3 @@ void NetworkThread::run(){
 	}
     }
 }
-

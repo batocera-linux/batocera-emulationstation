@@ -49,7 +49,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   // SCRAPER >
   // SYSTEM SETTINGS >
   // QUIT >
-  
+
   // KODI
 #ifdef _ENABLE_KODI_
   if (SystemConf::getInstance()->get("kodi.enabled") != "0") {
@@ -69,7 +69,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   // CONTROLLERS SETTINGS
   if (isFullUI)
     addEntry(_("CONTROLLERS SETTINGS").c_str(), 0x777777FF, true, [this] { openControllersSettings_batocera(); });
-  
+
   if (isFullUI)
     addEntry(_("UI SETTINGS").c_str(), 0x777777FF, true, [this] { openUISettings_batocera(); });
 
@@ -107,7 +107,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   // batocera
   //if (isFullUI)
   //	addEntry("CONFIGURE INPUT", 0x777777FF, true, [this] { openConfigInput(); });
-  
+
   // batocera
   //addEntry("QUIT", 0x777777FF, true, [this] {openQuitMenu(); });
 
@@ -289,7 +289,7 @@ void GuiMenu::openUISettings()
 			msg += "To unlock and return to the full UI, enter this code: \n";
 			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
 			msg += "Do you want to proceed?";
-			window->pushGui(new GuiMsgBox(window, msg, 
+			window->pushGui(new GuiMsgBox(window, msg,
 				"YES", [selectedMode] {
 					LOG(LogDebug) << "Setting UI mode to " << selectedMode;
 					Settings::getInstance()->setString("UIMode", selectedMode);
@@ -427,9 +427,9 @@ void GuiMenu::openUISettings()
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
 	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
 	s->addWithLabel("ENABLE FILTERS", enable_filter);
-	s->addSaveFunc([enable_filter] { 
+	s->addSaveFunc([enable_filter] {
 		bool filter_is_enabled = !Settings::getInstance()->getBool("ForceDisableFilters");
-		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState()); 
+		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
 		if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
 	});
 
@@ -742,7 +742,7 @@ void GuiMenu::openSystemSettings_batocera() {
 
   auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
   bool isFullUI = UIModeController::getInstance()->isUIModeFull();
-  
+
   // system informations
   {
     ComponentListRow row;
@@ -756,10 +756,10 @@ void GuiMenu::openSystemSettings_batocera() {
     row.addElement(bracket, false);
     s->addRow(row);
   }
-  
+
   std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
   std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
-  
+
   // Storage device
   auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"),
 									    false);
@@ -783,8 +783,8 @@ void GuiMenu::openSystemSettings_batocera() {
     }
   }
   s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
-  
-  
+
+
   // language choice
   auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"),
 									     false);
@@ -813,16 +813,16 @@ void GuiMenu::openSystemSettings_batocera() {
   language_choice->add("JAPANESE",            "ja_JP", language == "ja_JP");
   language_choice->add("RUSSIAN",             "ru_RU", language == "ru_RU");
   language_choice->add("HUNGARIAN",           "hu_HU", language == "hu_HU");
-  
+
   s->addWithLabel(_("LANGUAGE"), language_choice);
-  
+
   // Overclock choice
   auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"),
 									      false);
   std::string currentOverclock = Settings::getInstance()->getString("Overclock");
   if(currentOverclock == "") currentOverclock = "none";
   std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
-  
+
   // Overclocking device
   bool isOneSet = false;
   for(auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++){
@@ -846,7 +846,7 @@ void GuiMenu::openSystemSettings_batocera() {
     overclock_choice->add(currentOverclock, currentOverclock, true);
   }
   s->addWithLabel(_("OVERCLOCK"), overclock_choice);
-  
+
   // Updates
   {
     ComponentListRow row;
@@ -857,7 +857,7 @@ void GuiMenu::openSystemSettings_batocera() {
       updates_enabled->setState(
 				SystemConf::getInstance()->get("updates.enabled") == "1");
       updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
-      
+
       // Start update
       {
 	ComponentListRow updateRow;
@@ -877,7 +877,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	  SystemConf::getInstance()->saveSystemConf();
 	});
       mWindow->pushGui(updateGui);
-      
+
     };
     row.makeAcceptInputHandler(openGuiD);
     auto update = std::make_shared<TextComponent>(mWindow, _("UPDATES"), Font::get(FONT_SIZE_MEDIUM),
@@ -887,7 +887,7 @@ void GuiMenu::openSystemSettings_batocera() {
     row.addElement(bracket, false);
     s->addRow(row);
   }
-  
+
   // backup
   {
     ComponentListRow row;
@@ -900,7 +900,7 @@ void GuiMenu::openSystemSettings_batocera() {
     row.addElement(bracket, false);
     s->addRow(row);
   }
-  
+
 #ifdef _ENABLE_KODI_
   //Kodi
   {
@@ -949,7 +949,7 @@ void GuiMenu::openSystemSettings_batocera() {
     row.addElement(bracket, false);
     s->addRow(row);
   }
-  
+
   //Security
   {
     ComponentListRow row;
@@ -958,23 +958,23 @@ void GuiMenu::openSystemSettings_batocera() {
       auto securityEnabled = std::make_shared<SwitchComponent>(mWindow);
       securityEnabled->setState(SystemConf::getInstance()->get("system.security.enabled") == "1");
       securityGui->addWithLabel(_("ENFORCE SECURITY"), securityEnabled);
-      
+
       auto rootpassword = std::make_shared<TextComponent>(mWindow,
 							  ApiSystem::getInstance()->getRootPassword(),
 							  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
       securityGui->addWithLabel(_("ROOT PASSWORD"), rootpassword);
-      
+
       securityGui->addSaveFunc([this, securityEnabled] {
 	  Window* window = this->mWindow;
 	  bool reboot = false;
-	  
+
 	  if (securityEnabled->changed()) {
 	    SystemConf::getInstance()->set("system.security.enabled",
 					   securityEnabled->getState() ? "1" : "0");
 	    SystemConf::getInstance()->saveSystemConf();
 	    reboot = true;
 	  }
-	  
+
 	  if (reboot) {
 	    window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	  }
@@ -989,14 +989,14 @@ void GuiMenu::openSystemSettings_batocera() {
     row.addElement(bracket, false);
     s->addRow(row);
   }
-  
+
   s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage] {
       bool reboot = false;
       if (optionsStorage->changed()) {
 	ApiSystem::getInstance()->setStorage(optionsStorage->getSelected());
 	reboot = true;
       }
-      
+
       if(overclock_choice->changed()) {
 	Settings::getInstance()->setString("Overclock", overclock_choice->getSelected());
 	ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
@@ -1011,7 +1011,7 @@ void GuiMenu::openSystemSettings_batocera() {
       if (reboot) {
 	window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
       }
-      
+
     });
   mWindow->pushGui(s);
 }
@@ -1356,14 +1356,14 @@ void GuiMenu::openControllersSettings_batocera() {
 
   std::function<void(void *)> showControllerResult = [window, this, s](void *success) {
     bool result = (bool) success;
-      
+
     if(result) {
       window->pushGui(new GuiMsgBox(window, _("CONTROLLER PAIRED"), _("OK")));
     } else {
       window->pushGui(new GuiMsgBox(window, _("UNABLE TO PAIR CONTROLLER"), _("OK")));
     }
   };
-    
+
   row.makeAcceptInputHandler([window, this, s, showControllerResult] {
       window->pushGui(new GuiLoading(window, [] {
 	    bool success = ApiSystem::getInstance()->scanNewBluetooth();
@@ -1526,7 +1526,7 @@ void GuiMenu::openUISettings_batocera() {
 		       msg += "To unlock and return to the full UI, enter this code: \n";
 		       msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
 		       msg += "Do you want to proceed?";
-		       window->pushGui(new GuiMsgBox(window, msg, 
+		       window->pushGui(new GuiMsgBox(window, msg,
 						     "YES", [selectedMode] {
 						       LOG(LogDebug) << "Setting UI mode to " << selectedMode;
 						       Settings::getInstance()->setString("UIMode", selectedMode);
@@ -1534,7 +1534,7 @@ void GuiMenu::openUISettings_batocera() {
 						     }, "NO",nullptr));
 		     }
 		 });
-  
+
   // video device
   auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
   std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
@@ -1764,9 +1764,9 @@ void GuiMenu::openUISettings_batocera() {
   auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
   enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
   s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
-  s->addSaveFunc([enable_filter] { 
+  s->addSaveFunc([enable_filter] {
       bool filter_is_enabled = !Settings::getInstance()->getBool("ForceDisableFilters");
-      Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState()); 
+      Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
       if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
     });
 
@@ -1787,7 +1787,7 @@ void GuiMenu::openUISettings_batocera() {
 	ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
       }
     });
-  
+
   // gamelists
   auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
   save_gamelists->setState(Settings::getInstance()->getBool("SaveGamelistsOnExit"));
@@ -1815,7 +1815,7 @@ void GuiMenu::openUISettings_batocera() {
   max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
   s->addWithLabel(_("VRAM LIMIT"), max_vram);
   s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
-  
+
   mWindow->pushGui(s);
 }
 
@@ -1858,7 +1858,7 @@ void GuiMenu::openSoundSettings_batocera() {
   video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
   s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
   s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
-  
+
   // audio device
   auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("OUTPUT DEVICE"),
 									  false);

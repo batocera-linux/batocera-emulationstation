@@ -12,7 +12,7 @@
 # Once done, this will define
 #
 #  FreeImage_FOUND - system has FreeImage
-#  FreeImage_INCLUDE_DIRS - the FreeImage include directories 
+#  FreeImage_INCLUDE_DIRS - the FreeImage include directories
 #  FreeImage_LIBRARIES - link these to use FreeImage
 
 include(FindPkgMacros)

@@ -28,7 +28,7 @@ private:
     std::pair<std::string, int> mResult;
 
     std::string mstorageDevice;
-    
+
     boost::thread *mHandle;
 
     void onBackupError(std::pair<std::string, int>);

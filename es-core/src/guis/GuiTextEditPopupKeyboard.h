@@ -56,4 +56,3 @@ private:
 	bool mShift = false;
 	bool mShiftChange = false;
 };
-

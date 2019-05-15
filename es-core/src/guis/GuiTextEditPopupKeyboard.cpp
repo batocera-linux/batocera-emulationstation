@@ -270,7 +270,7 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 		shiftKeys();
 	}
 
-	
+
 
 	return false;
 }
@@ -342,4 +342,3 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 	prompts.push_back(HelpPrompt("l", _("DELETE")));
 	return prompts;
 }
-

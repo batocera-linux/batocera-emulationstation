@@ -13,7 +13,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.h
@@ -56,7 +56,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInputConfig.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMsgBox.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.h # batocera
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopup.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.h # batocera
 
@@ -131,10 +131,10 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInputConfig.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMsgBox.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.cpp # batocera
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInfoPopup.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopup.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiTextEditPopupKeyboard.cpp # batocera
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.cpp # batocera
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.cpp # batocera
 
 	# Math
 	${CMAKE_CURRENT_SOURCE_DIR}/src/math/Misc.cpp

@@ -18,7 +18,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	mFilters = std::make_shared< OptionListComponent<GameFilterFunc> >(mWindow, _("SCRAPE THESE GAMES"), false); // batocera
 	mFilters->add(_("All Games"), // batocera
 		[](SystemData*, FileData*) -> bool { return true; }, false);
-	mFilters->add(_("Only missing image"), 
+	mFilters->add(_("Only missing image"),
 		[](SystemData*, FileData* g) -> bool { return g->metadata.get("image").empty(); }, true);
 	mMenu.addWithLabel(_("FILTER"), mFilters); // batocera
 
@@ -48,7 +48,7 @@ void GuiScraperStart::pressedStart()
 	{
 		if((*it)->getPlatformIds().empty())
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, 
+			mWindow->pushGui(new GuiMsgBox(mWindow,
 				_("WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\nCONTINUE ANYWAY?"),  // batocera
 						       _("YES"), std::bind(&GuiScraperStart::start, this),  // batocera
 						       _("NO"), nullptr)); // batocera
@@ -87,7 +87,7 @@ std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemD
 				ScraperSearchParams search;
 				search.game = *game;
 				search.system = *sys;
-				
+
 				queue.push(search);
 			}
 		}
@@ -101,7 +101,7 @@ bool GuiScraperStart::input(InputConfig* config, Input input)
 	bool consumed = GuiComponent::input(config, input);
 	if(consumed)
 		return true;
-	
+
 	if(input.value != 0 && config->isMappedTo("a", input)) // batocera
 	{
 		delete this;

@@ -270,7 +270,7 @@ std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
   if (pipe == NULL) {
     return std::pair<std::string,int>(std::string("Cannot call scrape command"),-1);
   }
-  
+
   FILE *flog = fopen("/userdata/system/logs/recalbox-scrape.log", "w");
   while (fgets(line, 1024, pipe)) {
     strtok(line, "\n");
@@ -281,7 +281,7 @@ std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
     }
   }
   if(flog != NULL) fclose(flog);
-  
+
   int exitCode = pclose(pipe);
   return std::pair<std::string,int>(std::string(line), exitCode);
 }
@@ -394,7 +394,7 @@ bool ApiSystem::launchFileManager(Window *window) {
     // batocera
     //if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
     //AudioManager::getInstance()->playRandomMusic();
-    
+
     return exitCode == 0;
 }
 
@@ -565,11 +565,11 @@ std::vector<std::string> ApiSystem::getVideoModes() {
   oss << "batocera-resolution listModes";
   FILE *pipe = popen(oss.str().c_str(), "r");
   char line[1024];
-  
+
   if (pipe == NULL) {
     return res;
   }
-  
+
   while (fgets(line, 1024, pipe)) {
     strtok(line, "\n");
     res.push_back(std::string(line));
@@ -648,17 +648,17 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking() {
   oss << "/recalbox/scripts/recalbox-overclock.sh list";
   FILE *pipe = popen(oss.str().c_str(), "r");
   char line[1024];
-  
+
   if (pipe == NULL) {
     return res;
   }
-  
+
   while (fgets(line, 1024, pipe)) {
     strtok(line, "\n");
     res.push_back(std::string(line));
   }
   pclose(pipe);
-  
+
   return res;
 }
 
@@ -930,5 +930,3 @@ bool ApiSystem::installBatoceraTheme(char *theme) {
         return true;
     }
 }
-
-

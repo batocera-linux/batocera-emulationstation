@@ -2,7 +2,7 @@
 # Once done, this will define
 #
 #  libCEC_FOUND - system has libCEC
-#  libCEC_INCLUDE_DIRS - the libCEC include directories 
+#  libCEC_INCLUDE_DIRS - the libCEC include directories
 #  libCEC_LIBRARIES - link these to use libCEC
 
 include(FindPkgMacros)

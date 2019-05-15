@@ -21,7 +21,7 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 	if(availableArchitecture.size() == 0) {
 	  installationPossible = false;
 	}
-	
+
 	// available install storage
 	if(installationPossible) {
 	  moptionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET DEVICE"),
@@ -51,7 +51,7 @@ GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 	  }
 	  mMenu.addWithLabel(_("TARGET ARCHITECTURE"), moptionsArchitecture);
 	}
-	
+
 	// validation
 	if(installationPossible) {
 	  moptionsValidation = std::make_shared<OptionListComponent<std::string> >(window, _("VALIDATION"),
@@ -92,7 +92,7 @@ bool GuiInstallStart::input(InputConfig* config, Input input)
 	bool consumed = GuiComponent::input(config, input);
 	if(consumed)
 		return true;
-	
+
 	if(input.value != 0 && config->isMappedTo("a", input))
 	{
 		delete this;

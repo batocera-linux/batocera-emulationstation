@@ -49,12 +49,12 @@ void GuiUpdate::render(const Transform4x4f& parentTrans)
 void GuiUpdate::update(int deltaTime) {
         GuiComponent::update(deltaTime);
         mBusyAnim.update(deltaTime);
-        
+
         Window* window = mWindow;
         if(mState == 1){
             window->pushGui(
 			    new GuiMsgBox(window, _("REALLY UPDATE?"), _("YES"),
-                           [this] { 
+                           [this] {
                                mState = 2;
                                mLoading = true;
                                mHandle = new boost::thread(boost::bind(&GuiUpdate::threadUpdate, this));
@@ -62,14 +62,14 @@ void GuiUpdate::update(int deltaTime) {
 					  }, _("NO"), [this] {
                                mState = -1;
                            })
-                                   
+
             );
             mState = 0;
         }
-         
+
         if(mState == 3){
             window->pushGui(
-			    new GuiMsgBox(window, _("NETWORK CONNECTION NEEDED"), _("OK"), 
+			    new GuiMsgBox(window, _("NETWORK CONNECTION NEEDED"), _("OK"),
                 [this] {
                     mState = -1;
                 })
@@ -99,7 +99,7 @@ void GuiUpdate::update(int deltaTime) {
         }
         if(mState == 6){
             window->pushGui(
-			    new GuiMsgBox(window, _("NO UPDATE AVAILABLE"), _("OK"), 
+			    new GuiMsgBox(window, _("NO UPDATE AVAILABLE"), _("OK"),
                 [this] {
                     mState = -1;
                 }));
@@ -110,17 +110,17 @@ void GuiUpdate::update(int deltaTime) {
         }
 }
 
-void GuiUpdate::threadUpdate() 
+void GuiUpdate::threadUpdate()
 {
     std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->updateSystem(&mBusyAnim);
     if(updateStatus.second == 0){
         this->onUpdateOk();
     }else {
         this->onUpdateError(updateStatus);
-    }  
+    }
 }
 
-void GuiUpdate::threadPing() 
+void GuiUpdate::threadPing()
 {
   std::vector<std::string> msgtbl;
         if(ApiSystem::getInstance()->ping()){
@@ -134,21 +134,21 @@ void GuiUpdate::threadPing()
             this->onPingError();
         }
 }
-void GuiUpdate::onUpdateAvailable() 
-{	
+void GuiUpdate::onUpdateAvailable()
+{
     mLoading = false;
-    LOG(LogInfo) << "update available" << "\n";	
+    LOG(LogInfo) << "update available" << "\n";
     mState = 1;
 }
-void GuiUpdate::onNoUpdateAvailable() 
-{	
+void GuiUpdate::onNoUpdateAvailable()
+{
     mLoading = false;
-    LOG(LogInfo) << "no update available" << "\n";	
+    LOG(LogInfo) << "no update available" << "\n";
     mState = 6;
 }
-void GuiUpdate::onPingError() 
+void GuiUpdate::onPingError()
 {
-    LOG(LogInfo) << "ping nok" << "\n";	
+    LOG(LogInfo) << "ping nok" << "\n";
     mLoading = false;
     mState = 3;
 }

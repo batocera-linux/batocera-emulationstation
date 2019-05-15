@@ -166,7 +166,7 @@ bool SystemView::input(InputConfig* config, Input input)
             if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
                 Window * window = mWindow;
                 mWindow->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
-			       [window,this] { 
+			       [window,this] {
                                     if( ! ApiSystem::getInstance()->launchKodi(window)) {
                                         LOG(LogWarning) << "Shutdown terminated with non-zero result!";
                                     }
@@ -293,7 +293,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	setAnimation(infoFadeOut, 0, [this, gameCount] {
 		std::stringstream ss;
 		char strbuf[256];
- 
+
 		if (!getSelected()->isGameSystem())
 			ss << "CONFIGURATION";
 		else {

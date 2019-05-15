@@ -29,7 +29,7 @@ private:
 
     std::string mstorageDevice;
     std::string marchitecture;
-    
+
     boost::thread *mHandle;
 
     void onInstallError(std::pair<std::string, int>);

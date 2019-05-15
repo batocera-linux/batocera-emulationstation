@@ -57,7 +57,7 @@ bool GuiBackupStart::input(InputConfig* config, Input input)
 	bool consumed = GuiComponent::input(config, input);
 	if(consumed)
 		return true;
-	
+
 	if(input.value != 0 && config->isMappedTo("a", input))
 	{
 		delete this;

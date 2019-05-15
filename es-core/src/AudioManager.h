@@ -38,7 +38,7 @@ public:
 	// batocera
 	void playRandomMusic(bool continueIfPlaying = true);
 	void stopMusic();
-	
+
 	virtual ~AudioManager();
 };
 

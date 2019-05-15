@@ -6,9 +6,9 @@
 
 ButtonComponent::ButtonComponent(Window* window, const std::string& text, const std::string& helpText, const std::function<void()>& func) : GuiComponent(window),
 	mBox(window, ":/button.png"),
-	mFont(Font::get(FONT_SIZE_MEDIUM)), 
-	mFocused(false), 
-	mEnabled(true), 
+	mFont(Font::get(FONT_SIZE_MEDIUM)),
+	mFocused(false),
+	mEnabled(true),
 	mTextColorFocused(0xFFFFFFFF), mTextColorUnfocused(0x777777FF)
 {
 	setPressedFunc(func);
@@ -42,7 +42,7 @@ void ButtonComponent::setText(const std::string& text, const std::string& helpTe
 {
 	mText = Utils::String::toUpper(text);
 	mHelpText = helpText;
-	
+
 	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(mText, 0, 0, getCurTextColor()));
 
 	float minWidth = mFont->sizeText("DELETE").x() + 12;
@@ -80,7 +80,7 @@ void ButtonComponent::updateImage()
 	}
 
         // batocera
-	// If a new color has been set.  
+	// If a new color has been set.
 	if (mNewColor) {
 		mBox.setImagePath(":/button_filled.png");
 		mBox.setCenterColor(mModdedColor);
@@ -97,7 +97,7 @@ void ButtonComponent::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = parentTrans * getTransform();
 	trans.round();
-	
+
 	mBox.render(trans);
 
 	if(mTextCache)

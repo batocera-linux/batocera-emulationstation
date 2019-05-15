@@ -251,7 +251,7 @@ int setLocale(char * argv1)
     		getcwd(abs_exe_path, sizeof(abs_exe_path));
     		chdir(path_save);
   	}
-	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global(); 
+	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global();
 	// Get global backend
 
     	my.select("std");
@@ -553,6 +553,6 @@ int main(int argc, char* argv[])
 		system("touch /tmp/shutdown.please");
 		system("shutdown -h now");
 	}
-	
+
 	return 0;
 }

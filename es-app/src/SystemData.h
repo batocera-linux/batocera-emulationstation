@@ -59,7 +59,7 @@ public:
 	inline bool isGameSystem() { return mIsGameSystem; };
 
 	bool isVisible();
-	
+
 	SystemData* getNext() const;
 	SystemData* getPrev() const;
 	static SystemData* getRandomSystem();
