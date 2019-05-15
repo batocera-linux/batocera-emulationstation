@@ -59,7 +59,7 @@ void GuiBackup::update(int deltaTime) {
 
         if(mState == 2){
 	  window->pushGui(
-			  new GuiMsgBox(window, _("FINNISHED"), _("OK"),
+			  new GuiMsgBox(window, _("FINISHED"), _("OK"),
 					[this] {
 					  mState = -1;
 					}
