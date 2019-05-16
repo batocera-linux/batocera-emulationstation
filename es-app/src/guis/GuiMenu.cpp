@@ -615,12 +615,12 @@ void GuiMenu::openScreensaverOptions() {
 
 // new screensaver options for Batocera
 void GuiMenu::openSlideshowScreensaverOptions() {
-	mWindow->pushGui(new GuiSlideshowScreensaverOptions(mWindow, "SLIDESHOW SETTINGS"));
+	mWindow->pushGui(new GuiSlideshowScreensaverOptions(mWindow, _("SLIDESHOW SETTINGS").c_str()));
 }
 
 // new screensaver options for Batocera
 void GuiMenu::openVideoScreensaverOptions() {
-	mWindow->pushGui(new GuiVideoScreensaverOptions(mWindow, "RANDOM VIDEO SETTINGS"));
+	mWindow->pushGui(new GuiVideoScreensaverOptions(mWindow, _("RANDOM VIDEO SETTINGS").c_str()));
 }
 
 
@@ -1721,14 +1721,14 @@ void GuiMenu::openUISettings_batocera() {
   screensavers.push_back("slideshow");
   for(auto it = screensavers.cbegin(); it != screensavers.cend(); it++)
 	  screensaver_behavior->add(*it, *it, Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
-  s->addWithLabel("SCREENSAVER BEHAVIOR", screensaver_behavior);
+  s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
   s->addSaveFunc([this, screensaver_behavior] {
 		  if (Settings::getInstance()->getString("ScreenSaverBehavior") != "random video" 
 						&& screensaver_behavior->getSelected() == "random video") {
 			// if before it wasn't risky but now there's a risk of problems, show warning
 			mWindow->pushGui(new GuiMsgBox(mWindow,
-			"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\nIF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\nMORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" MENU.",
-				"OK", [] { return; }));
+			_("THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\nIF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\nMORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" MENU."),
+				_("OK"), [] { return; }));
 		}
 		Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
 		PowerSaver::updateTimeouts();
@@ -1737,13 +1737,13 @@ void GuiMenu::openUISettings_batocera() {
   ComponentListRow row;
   // show filtered menu
   row.elements.clear();
-  row.addElement(std::make_shared<TextComponent>(mWindow, "RANDOM VIDEO SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+  row.addElement(std::make_shared<TextComponent>(mWindow, _("RANDOM VIDEO SCREENSAVER SETTINGS"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
   row.addElement(makeArrow(mWindow), false);
   row.makeAcceptInputHandler(std::bind(&GuiMenu::openVideoScreensaverOptions, this));
   s->addRow(row);
 
   row.elements.clear();
-  row.addElement(std::make_shared<TextComponent>(mWindow, "SLIDESHOW SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+  row.addElement(std::make_shared<TextComponent>(mWindow, _("SLIDESHOW SCREENSAVER SETTINGS"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
   row.addElement(makeArrow(mWindow), false);
   row.makeAcceptInputHandler(std::bind(&GuiMenu::openSlideshowScreensaverOptions, this));
   s->addRow(row);
