@@ -33,7 +33,7 @@ void GuiScreensaverOptions::save()
 
 bool GuiScreensaverOptions::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("b", input) && input.value != 0)
+	if(config->isMappedTo("a", input) && input.value != 0) // batocera "a" instead of "b"
 	{
 		delete this;
 		return true;

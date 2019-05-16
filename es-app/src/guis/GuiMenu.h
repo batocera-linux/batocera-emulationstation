@@ -41,6 +41,8 @@ private:
 	void openQuitMenu();
 	void openScraperSettings();
 	void openScreensaverOptions();
+	void openSlideshowScreensaverOptions();
+	void openVideoScreensaverOptions();
 	void openSoundSettings();
 	void openUISettings();
 
