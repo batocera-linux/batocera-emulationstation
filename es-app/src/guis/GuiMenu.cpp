@@ -6,6 +6,8 @@
 #include "guis/GuiCollectionSystemsOptions.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiGeneralScreensaverOptions.h"
+#include "guis/GuiSlideshowScreensaverOptions.h"
+#include "guis/GuiVideoScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiSettings.h"
@@ -610,6 +612,17 @@ void GuiMenu::addVersionInfo()
 void GuiMenu::openScreensaverOptions() {
 	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow, "SCREENSAVER SETTINGS"));
 }
+
+// new screensaver options for Batocera
+void GuiMenu::openSlideshowScreensaverOptions() {
+	mWindow->pushGui(new GuiSlideshowScreensaverOptions(mWindow, "SLIDESHOW SETTINGS"));
+}
+
+// new screensaver options for Batocera
+void GuiMenu::openVideoScreensaverOptions() {
+	mWindow->pushGui(new GuiVideoScreensaverOptions(mWindow, "RANDOM VIDEO SETTINGS"));
+}
+
 
 void GuiMenu::openCollectionSystemSettings() {
 	mWindow->pushGui(new GuiCollectionSystemsOptions(mWindow));
@@ -1697,22 +1710,43 @@ void GuiMenu::openUISettings_batocera() {
 				      (int) round(screensaver_time->getValue()) * (1000 * 60));
     });
 
-  // screensaver behavior
+  // Batocera screensavers: added "random video" (aka "demo mode") and slideshow at the same time,
+  // for those who don't scrape videos and stick with pictures
   auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,
-										  _("TRANSITION STYLE"),
-										  false);
+								_("TRANSITION STYLE"), false);
   std::vector<std::string> screensavers;
   screensavers.push_back("dim");
   screensavers.push_back("black");
-  for (auto it = screensavers.begin(); it != screensavers.end(); it++)
-    screensaver_behavior->add(*it, *it,
-			      Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
-  s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
-  s->addSaveFunc([screensaver_behavior] {
-      if(screensaver_behavior->changed()) {
-	Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
-      }
-    });
+  screensavers.push_back("random video");
+  screensavers.push_back("slideshow");
+  for(auto it = screensavers.cbegin(); it != screensavers.cend(); it++)
+	  screensaver_behavior->add(*it, *it, Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
+  s->addWithLabel("SCREENSAVER BEHAVIOR", screensaver_behavior);
+  s->addSaveFunc([this, screensaver_behavior] {
+		  if (Settings::getInstance()->getString("ScreenSaverBehavior") != "random video" 
+						&& screensaver_behavior->getSelected() == "random video") {
+			// if before it wasn't risky but now there's a risk of problems, show warning
+			mWindow->pushGui(new GuiMsgBox(mWindow,
+			"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\nIF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\nMORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" MENU.",
+				"OK", [] { return; }));
+		}
+		Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
+		PowerSaver::updateTimeouts();
+		});
+
+  ComponentListRow row;
+  // show filtered menu
+  row.elements.clear();
+  row.addElement(std::make_shared<TextComponent>(mWindow, "RANDOM VIDEO SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+  row.addElement(makeArrow(mWindow), false);
+  row.makeAcceptInputHandler(std::bind(&GuiMenu::openVideoScreensaverOptions, this));
+  s->addRow(row);
+
+  row.elements.clear();
+  row.addElement(std::make_shared<TextComponent>(mWindow, "SLIDESHOW SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+  row.addElement(makeArrow(mWindow), false);
+  row.makeAcceptInputHandler(std::bind(&GuiMenu::openSlideshowScreensaverOptions, this));
+  s->addRow(row);
 
   // clock
   auto clock = std::make_shared<SwitchComponent>(mWindow);
