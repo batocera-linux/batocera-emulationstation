@@ -5,13 +5,14 @@
 #include "components/SwitchComponent.h"
 #include "guis/GuiMsgBox.h"
 #include "Settings.h"
+#include "LocaleES.h"
 
 GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const char* title) : GuiScreensaverOptions(window, title)
 {
 	// timeout to swap videos
 	auto swap = std::make_shared<SliderComponent>(mWindow, 10.f, 1000.f, 1.f, "s");
 	swap->setValue((float)(Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout") / (1000)));
-	addWithLabel("SWAP VIDEO AFTER (SECS)", swap);
+	addWithLabel(_("SWAP VIDEO AFTER (SECS)"), swap);
 	addSaveFunc([swap] {
 		int playNextTimeout = (int)Math::round(swap->getValue()) * (1000);
 		Settings::getInstance()->setInt("ScreenSaverSwapVideoTimeout", playNextTimeout);
@@ -21,31 +22,31 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 #ifdef _RPI_
 	auto ss_omx = std::make_shared<SwitchComponent>(mWindow);
 	ss_omx->setState(Settings::getInstance()->getBool("ScreenSaverOmxPlayer"));
-	addWithLabel("USE OMX PLAYER FOR SCREENSAVER", ss_omx);
+	addWithLabel(_("USE OMX PLAYER FOR SCREENSAVER"), ss_omx);
 	addSaveFunc([ss_omx, this] { Settings::getInstance()->setBool("ScreenSaverOmxPlayer", ss_omx->getState()); });
 #endif
 
 	// Render Video Game Name as subtitles
-	auto ss_info = std::make_shared< OptionListComponent<std::string> >(mWindow, "SHOW GAME INFO", false);
+	auto ss_info = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW GAME INFO"), false);
 	std::vector<std::string> info_type;
 	info_type.push_back("always");
 	info_type.push_back("start & end");
 	info_type.push_back("never");
 	for(auto it = info_type.cbegin(); it != info_type.cend(); it++)
 		ss_info->add(*it, *it, Settings::getInstance()->getString("ScreenSaverGameInfo") == *it);
-	addWithLabel("SHOW GAME INFO ON SCREENSAVER", ss_info);
+	addWithLabel(_("SHOW GAME INFO ON SCREENSAVER"), ss_info);
 	addSaveFunc([ss_info, this] { Settings::getInstance()->setString("ScreenSaverGameInfo", ss_info->getSelected()); });
 
 #ifndef _RPI_
 	auto captions_compatibility = std::make_shared<SwitchComponent>(mWindow);
 	captions_compatibility->setState(Settings::getInstance()->getBool("CaptionsCompatibility"));
-	addWithLabel("USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS", captions_compatibility);
+	addWithLabel(_("USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"), captions_compatibility);
 	addSaveFunc([captions_compatibility] { Settings::getInstance()->setBool("CaptionsCompatibility", captions_compatibility->getState()); });
 #endif
 
 	auto stretch_screensaver = std::make_shared<SwitchComponent>(mWindow);
 	stretch_screensaver->setState(Settings::getInstance()->getBool("StretchVideoOnScreenSaver"));
-	addWithLabel("STRETCH VIDEO ON SCREENSAVER", stretch_screensaver);
+	addWithLabel(_("STRETCH VIDEO ON SCREENSAVER"), stretch_screensaver);
 	addSaveFunc([stretch_screensaver] { Settings::getInstance()->setBool("StretchVideoOnScreenSaver", stretch_screensaver->getState()); });
 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 18:55+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -530,6 +530,45 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr ""
