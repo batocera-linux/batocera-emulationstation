@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 18:55+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "OYUN BİLGİLERİNİ DÜZENLE"
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -69,6 +69,9 @@ msgstr "ANA MENÜ"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENT"
 
 msgid "GAMES SETTINGS"
 msgstr "OYUN AYARLARI"
@@ -84,9 +87,6 @@ msgstr "SES AYARLARI"
 
 msgid "NETWORK SETTINGS"
 msgstr "AĞ AYARLARI"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENT"
 
 msgid "SCRAPE"
 msgstr "ÇEK"
@@ -108,6 +108,12 @@ msgstr "PUANLARI ÇEK"
 
 msgid "SCRAPE NOW"
 msgstr "ŞİMDİ ÇEK"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "DEĞİŞTİR"
@@ -147,6 +153,12 @@ msgstr "HIZAŞIMI"
 
 msgid "UPDATES"
 msgstr "GÜNCELLEMELER"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "OTOMATİK GÜNCELLEME"
@@ -323,6 +335,20 @@ msgstr "EKRAN KORUYUCU"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "EKRAN KORUYUCU DAVRANIŞI"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -367,9 +393,6 @@ msgstr "SİSTEM SESİ"
 
 msgid "FRONTEND MUSIC"
 msgstr "ARABİRİM MÜZİĞİ"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""

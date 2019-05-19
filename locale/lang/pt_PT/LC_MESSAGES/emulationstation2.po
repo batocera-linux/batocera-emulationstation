@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 18:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -64,14 +64,17 @@ msgstr "FILTRAR GAMELIST"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
-msgid "FINNISHED"
-msgstr "TERMINADO"
+msgid "FINISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "GAMES SETTINGS"
 msgstr "OPÇÕES DOS JOGOS"
@@ -87,9 +90,6 @@ msgstr "OPÇÕES DE ÁUDIO"
 
 msgid "NETWORK SETTINGS"
 msgstr "OPÇÕES DE REDE"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -111,6 +111,12 @@ msgstr "SCRAPE DAS AVALIAÇÕES"
 
 msgid "SCRAPE NOW"
 msgstr "INICIAR SCRAPE"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "ESCOLHER"
@@ -150,6 +156,12 @@ msgstr "OVERCLOCK"
 
 msgid "UPDATES"
 msgstr "ATUALIZAÇÕES"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
@@ -326,6 +338,20 @@ msgstr "PROTEÇÃO DA TELA"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DA TELA"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "MOSTRAR RELÓGIO"
 
@@ -370,9 +396,6 @@ msgstr "VOLUME DO SISTEMA"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
@@ -796,8 +819,8 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR DOS JOGOS. "
-"QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
+"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAÍR DOS JOGOS. QUER "
+"ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECIONAR ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -873,6 +896,12 @@ msgstr "MODIFICAR"
 
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
+
+#~ msgid "FINNISHED"
+#~ msgstr "TERMINADO"
+
+#~ msgid "ENABLE NAVIGATION SOUNDS"
+#~ msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "O SISTEMA SERÁ REINICIADO"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 18:55+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,14 +61,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
-msgid "FINNISHED"
-msgstr "완료"
+msgid "FINISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 미디어 센터"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "레트로 도전 과제"
 
 msgid "GAMES SETTINGS"
 msgstr "게임 설정"
@@ -84,9 +87,6 @@ msgstr "사운드 설정"
 
 msgid "NETWORK SETTINGS"
 msgstr "네트워크 설정"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "레트로 도전 과제"
 
 msgid "SCRAPE"
 msgstr "스크랩"
@@ -108,6 +108,12 @@ msgstr "평점 수집"
 
 msgid "SCRAPE NOW"
 msgstr "수집 시작"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "선택"
@@ -147,6 +153,12 @@ msgstr "오버클럭"
 
 msgid "UPDATES"
 msgstr "업데이트"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "자동 업데이트"
@@ -323,6 +335,20 @@ msgstr "화면 보호기 작동"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "화면 보호기 행동"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -367,9 +393,6 @@ msgstr "시스템 음량"
 
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -860,6 +883,9 @@ msgstr "변경"
 
 msgid "WORKING..."
 msgstr "작업 중..."
+
+#~ msgid "FINNISHED"
+#~ msgstr "완료"
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "시스템이 지금 다시 시작됩니다."

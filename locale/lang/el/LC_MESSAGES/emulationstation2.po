@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 18:55+0200\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,13 +61,16 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
 msgstr ""
 
 msgid "KODI MEDIA CENTER"
+msgstr ""
+
+msgid "RETROACHIEVEMENTS"
 msgstr ""
 
 msgid "GAMES SETTINGS"
@@ -83,9 +86,6 @@ msgid "SOUND SETTINGS"
 msgstr ""
 
 msgid "NETWORK SETTINGS"
-msgstr ""
-
-msgid "RETROACHIEVEMENTS"
 msgstr ""
 
 msgid "SCRAPE"
@@ -107,6 +107,12 @@ msgid "SCRAPE RATINGS"
 msgstr ""
 
 msgid "SCRAPE NOW"
+msgstr ""
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
 msgstr ""
 
 msgid "CHOOSE"
@@ -146,6 +152,12 @@ msgid "OVERCLOCK"
 msgstr ""
 
 msgid "UPDATES"
+msgstr ""
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -319,6 +331,20 @@ msgstr ""
 msgid "SCREENSAVER BEHAVIOR"
 msgstr ""
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -362,9 +388,6 @@ msgid "SYSTEM VOLUME"
 msgstr ""
 
 msgid "FRONTEND MUSIC"
-msgstr ""
-
-msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
