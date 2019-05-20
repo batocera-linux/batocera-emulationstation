@@ -310,22 +310,22 @@ msgstr "Vergeet Bluetooth-controllers"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "Input P%i"
+msgstr "Ingang P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "Gebruikersinterface-modus"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "Video-output"
 
 msgid "THEME SET"
-msgstr "Thema set"
+msgstr "Thema instellen"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "Spelllijst stijl"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "Start op systeem"
 
 msgid "TRANSITION STYLE"
 msgstr "Transitie stijl"
@@ -343,24 +343,29 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
+"DE \"WILLEKEURIGE VIDEO\" SCREENSAVER TOONT VIDEO'S VAN JE GAMELIST.\n"
+"ALS JE GEEN VIDEO'S HEBT, OF ALS GEEN VAN DE VIDEO'S NA EEN PAAR POGINGEN "
+"KAN WORDEN AFGESPEELD, ZAL HET STANDAARD OP \"BLACK\" STAAN.\m"
+"MEER OPTIES IN DE \"GEBRUIKERSINTERFACE-INSTELLINGEN" -> \"WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN\" "
+"MENU."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "SLIDESHOW SCREENSAVER INSTELLINGEN"
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "De tijd weergeven"
 
 msgid "ON-SCREEN HELP"
-msgstr "Scherm hulp"
+msgstr "On-screen hulp"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "Snelle systeem keuze"
+msgstr "Snelle systeemkeuze"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "On-screen toetsenbord"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr ""
