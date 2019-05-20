@@ -865,6 +865,52 @@ void GuiMenu::openSystemSettings_batocera() {
     ComponentListRow row;
     std::function<void()> openGuiD = [this] {
       GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
+
+      // Batocera themes installer/browser
+      {
+	  std::function<void()> openThemesListD = [this, updateGui] {
+		  GuiSettings *thlist = new GuiSettings(mWindow, _("THEMES").c_str());
+		  ComponentListRow row;
+		  std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
+		  for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
+			  auto itstring = std::make_shared<TextComponent>(mWindow,
+					  (*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+			  char *tmp=new char [(*it).length()+1];
+			  std::strcpy (tmp, (*it).c_str());
+			  char *thname = strtok (tmp, " ");
+			  // Get theme name (from the command line '[A] Theme_name http://url_of_this_theme
+			  thname = strtok (NULL, " ");
+			  row.makeAcceptInputHandler([this, thname] {
+					  std::string msg;
+					  if(ApiSystem::getInstance()->installBatoceraTheme(thname)) {
+					  std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
+					  std::string locname = thname;
+					  msg = "THEME '" + locname + "' INSTALLED SUCCESSFULLY";
+					  } else {
+					  std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
+					  std::string locname = thname;
+					  msg = "THEME '" + locname + "' INSTALL FAILED";
+					  }
+					  mWindow->pushGui(new GuiMsgBox(mWindow, msg, _("OK")));
+					  });
+			  row.addElement(itstring, true);
+			  thlist->addRow(row);
+			  row.elements.clear();
+		  }
+		  mWindow->pushGui(thlist);
+	  };
+	  // themes button
+	  ComponentListRow row;
+	  row.makeAcceptInputHandler(openThemesListD);
+	  auto themesL = std::make_shared<TextComponent>(mWindow, _("INSTALL THEMES"),
+			  Font::get(FONT_SIZE_MEDIUM),
+			  0x777777FF);
+	  auto bracket = makeArrow(mWindow);
+	  row.addElement(themesL, true);
+	  row.addElement(bracket, false);
+	  updateGui->addRow(row);
+      }
+      
       // Enable updates
       auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
       updates_enabled->setState(
@@ -1600,51 +1646,6 @@ void GuiMenu::openUISettings_batocera() {
 	if (needReload)
 	  ViewController::get()->reloadAll(); // TODO - replace this with some sort of signal-based implementation
       });
-  }
-
-  // Batocera themes installer/browser
-  {
-	  std::function<void()> openThemesListD = [this, s] {
-		  GuiSettings *thlist = new GuiSettings(mWindow, _("BATOCERA THEMES").c_str());
-		  ComponentListRow row;
-		  std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
-		  for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
-			  auto itstring = std::make_shared<TextComponent>(mWindow,
-					  (*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
-			  char *tmp=new char [(*it).length()+1];
-			  std::strcpy (tmp, (*it).c_str());
-			  char *thname = strtok (tmp, " ");
-			  // Get theme name (from the command line '[A] Theme_name http://url_of_this_theme
-			  thname = strtok (NULL, " ");
-			  row.makeAcceptInputHandler([this, thname] {
-					  std::string msg;
-					  if(ApiSystem::getInstance()->installBatoceraTheme(thname)) {
-					  std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
-					  std::string locname = thname;
-					  msg = "THEME '" + locname + "' INSTALLED SUCCESSFULLY";
-					  } else {
-					  std::use_facet<std::ctype<char>>(std::locale()).toupper(&thname[0], &thname[0] + strlen(thname));
-					  std::string locname = thname;
-					  msg = "THEME '" + locname + "' INSTALL FAILED";
-					  }
-					  mWindow->pushGui(new GuiMsgBox(mWindow, msg, _("OK")));
-					  });
-			  row.addElement(itstring, true);
-			  thlist->addRow(row);
-			  row.elements.clear();
-		  }
-		  mWindow->pushGui(thlist);
-	  };
-	  // themes button
-	  ComponentListRow row;
-	  row.makeAcceptInputHandler(openThemesListD);
-	  auto themesL = std::make_shared<TextComponent>(mWindow, _("INSTALL BATOCERA THEMES"),
-			  Font::get(FONT_SIZE_MEDIUM),
-			  0x777777FF);
-	  auto bracket = makeArrow(mWindow);
-	  row.addElement(themesL, true);
-	  row.addElement(bracket, false);
-	  s->addRow(row);
   }
 
   // GameList view style

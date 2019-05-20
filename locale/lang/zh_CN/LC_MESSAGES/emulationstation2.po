@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的数据"
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -69,6 +69,9 @@ msgstr "主菜单"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 媒体中心"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "GAMES SETTINGS"
 msgstr "游戏设置"
@@ -84,9 +87,6 @@ msgstr "声音设置"
 
 msgid "NETWORK SETTINGS"
 msgstr "网络设置"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
 
 msgid "SCRAPE"
 msgstr "搜刮"
@@ -108,6 +108,12 @@ msgstr "搜刮评级"
 
 msgid "SCRAPE NOW"
 msgstr "开始搜刮"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "浏览"
@@ -147,6 +153,12 @@ msgstr "超频"
 
 msgid "UPDATES"
 msgstr "更新"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "自动更新"
@@ -323,6 +335,20 @@ msgstr "屏幕保护延时"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "屏幕保护效果"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -367,9 +393,6 @@ msgstr "系统音量"
 
 msgid "FRONTEND MUSIC"
 msgstr "前端音乐"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -501,6 +524,45 @@ msgstr[0] "%i 个游戏搜刮成功！"
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "跳过了 %i 个游戏。"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "搜刮这些游戏"

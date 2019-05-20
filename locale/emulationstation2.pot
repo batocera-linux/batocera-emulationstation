@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,13 +69,16 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
 msgstr ""
 
 msgid "KODI MEDIA CENTER"
+msgstr ""
+
+msgid "RETROACHIEVEMENTS"
 msgstr ""
 
 msgid "GAMES SETTINGS"
@@ -91,9 +94,6 @@ msgid "SOUND SETTINGS"
 msgstr ""
 
 msgid "NETWORK SETTINGS"
-msgstr ""
-
-msgid "RETROACHIEVEMENTS"
 msgstr ""
 
 msgid "SCRAPE"
@@ -115,6 +115,12 @@ msgid "SCRAPE RATINGS"
 msgstr ""
 
 msgid "SCRAPE NOW"
+msgstr ""
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
 msgstr ""
 
 msgid "CHOOSE"
@@ -154,6 +160,12 @@ msgid "OVERCLOCK"
 msgstr ""
 
 msgid "UPDATES"
+msgstr ""
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -327,6 +339,20 @@ msgstr ""
 msgid "SCREENSAVER BEHAVIOR"
 msgstr ""
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -370,9 +396,6 @@ msgid "SYSTEM VOLUME"
 msgstr ""
 
 msgid "FRONTEND MUSIC"
-msgstr ""
-
-msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
@@ -507,6 +530,45 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr ""

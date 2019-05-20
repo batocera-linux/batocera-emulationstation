@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -65,14 +65,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
-msgid "FINNISHED"
-msgstr "ЗАВЕРШЕНО"
+msgid "FINISHED"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
 
 msgid "KODI MEDIA CENTER"
 msgstr "МЕДИАЦЕНТР KODI"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "РЕТРОДОСТИЖЕНИЯ"
 
 msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
@@ -88,9 +91,6 @@ msgstr "НАСТРОЙКИ ЗВУКА"
 
 msgid "NETWORK SETTINGS"
 msgstr "НАСТРОЙКИ СЕТИ"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "РЕТРОДОСТИЖЕНИЯ"
 
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -112,6 +112,12 @@ msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "ВЫБЕРИТЕ"
@@ -151,6 +157,12 @@ msgstr "РАЗГОН"
 
 msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -328,6 +340,20 @@ msgstr "ЗАСТАВКА ЧЕРЕЗ"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -372,9 +398,6 @@ msgstr "ГРОМКОСТЬ"
 
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -513,6 +536,45 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i ИГРА ПРОПУЩЕНА."
 msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
@@ -877,6 +939,9 @@ msgstr "ИЗМЕНИТЬ"
 
 msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
+
+#~ msgid "FINNISHED"
+#~ msgstr "ЗАВЕРШЕНО"
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"

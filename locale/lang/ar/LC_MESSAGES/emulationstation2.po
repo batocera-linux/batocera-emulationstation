@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل بيانات اللعبة (METADATA)"
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -70,6 +70,9 @@ msgstr "القائمة الرئيسية"
 
 msgid "KODI MEDIA CENTER"
 msgstr "كودي ميديا سينتر"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "انجازات RETROACHIEVEMENTS "
 
 msgid "GAMES SETTINGS"
 msgstr "اعادادت اللعبة"
@@ -85,9 +88,6 @@ msgstr "أعدادت الصوت"
 
 msgid "NETWORK SETTINGS"
 msgstr "أعدادت الشبكة"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "انجازات RETROACHIEVEMENTS "
 
 msgid "SCRAPE"
 msgstr "بحث بيانات"
@@ -109,6 +109,12 @@ msgstr "تقييمات البحث"
 
 msgid "SCRAPE NOW"
 msgstr "بحث الأن"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "اختار"
@@ -148,6 +154,12 @@ msgstr "رفع سرعة المعالج"
 
 msgid "UPDATES"
 msgstr "تحديث"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "تحديث تلقائي"
@@ -324,6 +336,20 @@ msgstr "اظهار شاشة التوقف بعد"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "اسلوب شاشة التوقف"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -368,9 +394,6 @@ msgstr "مستوى صوت النظام"
 
 msgid "FRONTEND MUSIC"
 msgstr "أغنية الواجهة"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -512,6 +535,45 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] "%i لعب تم تجاهلها"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "يتم التجميع حالياً"

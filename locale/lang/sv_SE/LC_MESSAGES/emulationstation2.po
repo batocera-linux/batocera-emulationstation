@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,13 +61,16 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY "
 
 msgid "KODI MEDIA CENTER"
+msgstr ""
+
+msgid "RETROACHIEVEMENTS"
 msgstr ""
 
 msgid "GAMES SETTINGS"
@@ -84,9 +87,6 @@ msgstr "LJUD INSTÄLLNINGAR"
 
 msgid "NETWORK SETTINGS"
 msgstr "NÄTVERKSINSTÄLLNINGAR"
-
-msgid "RETROACHIEVEMENTS"
-msgstr ""
 
 msgid "SCRAPE"
 msgstr ""
@@ -108,6 +108,12 @@ msgstr "SKRAPAR OMDÖMME"
 
 msgid "SCRAPE NOW"
 msgstr "SKRAPA NU"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "VÄLJ"
@@ -147,6 +153,12 @@ msgstr ""
 
 msgid "UPDATES"
 msgstr "UPPDATERINGAR"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "AUTOMATISKA UPPDATERINGAR"
@@ -319,6 +331,20 @@ msgstr "SKÄRMSLÄCKAREN AKTIVERAS EFTER"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SKÄRMSLÄCKARE"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -363,9 +389,6 @@ msgstr "SYSTEM VOLYM"
 
 msgid "FRONTEND MUSIC"
 msgstr "MUSIK I MENYN"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -499,6 +522,45 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SKRAPA DESSA SPEL"

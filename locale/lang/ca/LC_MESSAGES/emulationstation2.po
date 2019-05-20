@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 13:36+0200\n"
+"POT-Creation-Date: 2019-05-19 21:30+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITA LES METADADES D'AQUEST JOC"
 
-msgid "FINNISHED"
+msgid "FINISHED"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -69,6 +69,9 @@ msgstr "MENÚ PRINCIPAL"
 
 msgid "KODI MEDIA CENTER"
 msgstr "CENTRE MULTIMÈDIA DEL KODI"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "ASSOLIMENTS RETRO"
 
 msgid "GAMES SETTINGS"
 msgstr "PARÀMETRES DELS JOCS"
@@ -84,9 +87,6 @@ msgstr "PARÀMETRES DEL SO"
 
 msgid "NETWORK SETTINGS"
 msgstr "PARÀMETRES DE LA XARXA"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "ASSOLIMENTS RETRO"
 
 msgid "SCRAPE"
 msgstr "OBTÉ DADES"
@@ -108,6 +108,12 @@ msgstr "OBTÉ DADES DE VALORACIÓ"
 
 msgid "SCRAPE NOW"
 msgstr "OBTÉ LES DADES ARA"
+
+msgid "SLIDESHOW SETTINGS"
+msgstr ""
+
+msgid "RANDOM VIDEO SETTINGS"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "TRIA"
@@ -147,6 +153,12 @@ msgstr "VELOCITAT DE RELLOTGE"
 
 msgid "UPDATES"
 msgstr "ACTUALITZACIONS"
+
+msgid "THEMES"
+msgstr ""
+
+msgid "INSTALL THEMES"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "ACTUALITZACIONS AUTOMÀTIQUES"
@@ -325,6 +337,20 @@ msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
 
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -369,9 +395,6 @@ msgstr "VOLUM DEL SISTEMA"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DEL FRONTAL"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
@@ -505,6 +528,45 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "S'HA OMÈS %i JOC."
 msgstr[1] "S'HA OMÈS %i JOCS."
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "BACKGROUND AUDIO"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTÉ DADES D'AQUESTS JOCS"
