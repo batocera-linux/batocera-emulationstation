@@ -315,7 +315,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "UI MODE"
-msgstr "MODO DO INTERFACE"
+msgstr "MODO DA INTERFACE"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAIDA DE VIDEO"
