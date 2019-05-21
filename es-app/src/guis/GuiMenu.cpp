@@ -2007,13 +2007,36 @@ void GuiMenu::openRetroAchievements_batocera() {
   Window *window = mWindow;
   auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
   ComponentListRow row;
-  std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
-    auto RAString = std::make_shared<TextComponent>(mWindow,
-						    RetroAchievementsString,
-						    Font::get(FONT_SIZE_SMALL), 0x777777FF);
-    row.addElement(RAString, false);
-    s->addRow(row);
-    mWindow->pushGui(s);
+  std::vector<std::string> retroRes = ApiSystem::getInstance()->getRetroAchievements();
+  for(auto it = retroRes.begin(); it != retroRes.end(); it++){
+	  int itsize=(*it).length()+1;
+	  char *tmp=new char [itsize];
+	  char *lcmsg=new char [itsize];
+	  char *longmsg=new char [itsize];
+	  std::strcpy (tmp, (*it).c_str());
+	  // Format of the string returned by batocera-retroachievements-info:
+	  // "Bust-A-Move (SNES)@0 of 27 achievements@0/400 points@Last played 2019-05-20 03:06:16"
+	  char *gamename = strtok (tmp, "@"); // or whatever is given before the first @
+	  char *achiev = strtok (NULL, "@");
+	  char *points = strtok (NULL, "@");
+	  char *lastplayed = strtok (NULL, "@");
+	  if (achiev)
+		  sprintf(lcmsg,"%s ~ %s", gamename, achiev); // beautiful 1-liner
+	  else
+		  sprintf(lcmsg,"%s", gamename);
+	  auto itstring = std::make_shared<TextComponent>(mWindow,
+			  lcmsg, Font::get(FONT_SIZE_SMALL), 0x777777FF);
+	  if ( points && lastplayed ) {
+		  sprintf(longmsg,"%s\n%s\n%s\n%s\n", gamename, achiev, points, lastplayed);
+		  row.makeAcceptInputHandler([this, longmsg] {
+			  mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
+			  });
+	  }
+	  row.addElement(itstring, true);
+	  s->addRow(row);
+	  row.elements.clear();
+  }
+  mWindow->pushGui(s);
 }
 
 void GuiMenu::openScraperSettings_batocera() {
