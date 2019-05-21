@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "REALLY UPDATE?"
-msgstr "Wil je updaten?"
+msgstr "Wil je echt updaten?"
 
 msgid "YES"
 msgstr "Ja"
@@ -20,13 +20,13 @@ msgid "NO"
 msgstr "Nee"
 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "Netwerk verbinding nodig"
+msgstr "Plug een netwerkkabel"
 
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "Update gedownload, Het systeem zal nu herstarten"
+msgstr "Update gedownload, het systeem zal nu herstarten"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "Er is geen update beschikbaar"
@@ -50,19 +50,19 @@ msgid "CLOSE"
 msgstr "Sluiten"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "Ga naar..."
 
 msgid "SORT GAMES BY"
 msgstr "Sorteer spellen op"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "Spellen filteren"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "Bewerk deze spelgegevens"
 
 msgid "FINISHED"
-msgstr ""
+msgstr "Klaar"
 
 msgid "MAIN MENU"
 msgstr "Hoofdmenu"
@@ -74,28 +74,28 @@ msgid "RETROACHIEVEMENTS"
 msgstr "Retroarchievements"
 
 msgid "GAMES SETTINGS"
-msgstr "Spel instellingen"
+msgstr "Instellingen van de spelletjes"
 
 msgid "CONTROLLERS SETTINGS"
-msgstr "Controller instellingen"
+msgstr "Instellingen van de controllers"
 
 msgid "UI SETTINGS"
-msgstr "UI instellingen"
+msgstr "Instellingen van de gebruikersinterface"
 
 msgid "SOUND SETTINGS"
-msgstr "Geluid instellingen"
+msgstr "Instellingen van het geluid"
 
 msgid "NETWORK SETTINGS"
-msgstr "Netwerk instellingen"
+msgstr "Instellingen van het netwerk"
 
 msgid "SCRAPE"
 msgstr "Scrape"
 
 msgid "SYSTEM SETTINGS"
-msgstr "Systeem instellingen"
+msgstr "Instellingen van het systeem"
 
 msgid "INFORMATIONS"
-msgstr ""
+msgstr "Algemene informatie"
 
 msgid "QUIT"
 msgstr "Stoppen"
@@ -110,10 +110,10 @@ msgid "SCRAPE NOW"
 msgstr "Nu scrapen"
 
 msgid "SLIDESHOW SETTINGS"
-msgstr ""
+msgstr "Instellingen van de slideshow"
 
 msgid "RANDOM VIDEO SETTINGS"
-msgstr ""
+msgstr "Random video-instelligen"
 
 msgid "CHOOSE"
 msgstr "Kies"
@@ -122,28 +122,28 @@ msgid "SELECT"
 msgstr "Selecteer"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "Informatie"
 
 msgid "VERSION"
 msgstr "Versie"
 
 msgid "DISK USAGE"
-msgstr "Geheugen verbruik"
+msgstr "Gebruikt verbruik"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr ""
+msgstr "Support file maken?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "File aangemaakt"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "Geen file aangemaakt"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr ""
+msgstr "Support file maken"
 
 msgid "STORAGE DEVICE"
-msgstr "Opslag apparaat"
+msgstr "Opslagmedium"
 
 msgid "LANGUAGE"
 msgstr "Taal"
@@ -155,19 +155,19 @@ msgid "UPDATES"
 msgstr "Updates"
 
 msgid "THEMES"
-msgstr ""
+msgstr "Visuele thema's"
 
 msgid "INSTALL THEMES"
-msgstr ""
+msgstr "Visuele thema's installeer"
 
 msgid "AUTO UPDATES"
-msgstr "Auto Updates"
+msgstr "Automatisch Updates"
 
 msgid "START UPDATE"
-msgstr "Start update"
+msgstr "Nu updaten"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "Back-up van gebruikersgegevens"
 
 msgid "KODI SETTINGS"
 msgstr "Kodi Instellingen"
@@ -176,46 +176,46 @@ msgid "ENABLE KODI"
 msgstr "Activeer Kodi"
 
 msgid "KODI AT START"
-msgstr "Kodi bij Starten"
+msgstr "Start systeem met Kodi"
 
 msgid "START KODI WITH X"
-msgstr "Start Kodi met X"
+msgstr "Start Kodi met X toets"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
+msgstr "Installeer Batocera op een nieuwe disk"
 
 msgid "SECURITY"
-msgstr "Beveiliging"
+msgstr "Veiligheid"
 
 msgid "ENFORCE SECURITY"
-msgstr "Forceer Beveiliging"
+msgstr "Veiligheid versterken"
 
 msgid "ROOT PASSWORD"
 msgstr "Root Wachtwoord"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "Een herstart van het systeem is nodig om de nieuwe configuratie te gebruiken"
 
 msgid "GAME RATIO"
-msgstr "Spel Ratio"
+msgstr "Spelratio"
 
 msgid "SMOOTH GAMES"
-msgstr "Vloeiende spellen"
+msgstr "Visuele weergave verbeteren"
 
 msgid "AUTO"
 msgstr "Automatisch"
 
 msgid "ON"
-msgstr ""
+msgstr "Aan"
 
 msgid "OFF"
-msgstr ""
+msgstr "Uit"
 
 msgid "REWIND"
 msgstr "Terugspoelen"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "Auto opslaan/laden"
+msgstr "Automatisch opslaan/laden"
 
 msgid "SHADERS SET"
 msgstr "Shaders Set"
@@ -230,10 +230,10 @@ msgid "RETRO"
 msgstr "Retro"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr ""
+msgstr "Integer schaal (Pixel perfect)"
 
 msgid "DECORATION"
-msgstr ""
+msgstr "Aankleding"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "Retroarchievements instellingen"
@@ -242,13 +242,13 @@ msgid "HARDCORE MODE"
 msgstr "Hardcore mode"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "Scorebord"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "Feedback modus"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "Automatische schermafdruk"
 
 msgid "USERNAME"
 msgstr "Gebruikersnaam"
@@ -257,13 +257,13 @@ msgid "PASSWORD"
 msgstr "Wachtwoord"
 
 msgid "MISSING BIOS"
-msgstr ""
+msgstr "BIOS ontbreekt"
 
 msgid "NO MISSING BIOS"
-msgstr ""
+msgstr "Alle BIOSsen aanwezig"
 
 msgid "MD5"
-msgstr ""
+msgstr "MD%"
 
 msgid "STATUS"
 msgstr "Status"
@@ -272,10 +272,10 @@ msgid "ADVANCED"
 msgstr "Geavanceerd"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "Spellijst updaten?"
+msgstr "Spellijst echt updaten?"
 
 msgid "UPDATE GAMES LISTS"
-msgstr "Update spellijst"
+msgstr "Updaten spellijst"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -284,49 +284,48 @@ msgid ""
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"Je gaat nu een controller configureren. Als je slechts één controller "
-"configureert gebruik dan alleen de directie knoppen en sla de Joystick "
-"coniguratie over door de A knop ingedrukt te houden. Als je geen speciale "
-"toets hebt voor de Hotkeys kies dan de SELECT knop. Sla alle knoppen over "
-"die je niet hebt door de A knop ingedrukt te houden. De knoppen zijn "
-"gebaseerd op de SNES Controller."
+"Je gaat nu een controller configureren. Als je slechts één joystick hebt, "
+"configureer de richtingstoetsen en sla de joystick over door een knop ingedrukt te houden. "
+"Als je geen speciale sleutel voor de sneltoets hebt, kies je de SELECT knop. "
+"Skip alle knoppen die je niet hebt door een knop vast te houden. "
+"De namen van de knoppen zijn gebaseerd op de SNES controller."
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "Configureer een controller"
 
 msgid "CONTROLLER PAIRED"
-msgstr "Controller gepaard"
+msgstr "Controller gekoppeld"
 
 msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "Niet mogelijk de controller te linken"
+msgstr "Niet mogelijk de controller te koppelen"
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "Link een Bluetooth controller"
+msgstr "Koppel een Bluetooth-controller"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "Gelinkte controllers zijn gewist"
+msgstr "Gekoppeld controllers zijn gewist"
 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "Vergeet Bluetooth controllers"
+msgstr "Vergeet Bluetooth-controllers"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "Input P%i"
+msgstr "Ingang P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "Gebruikersinterface-modus"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "Video-output"
 
 msgid "THEME SET"
-msgstr "Thema set"
+msgstr "Thema instellen"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "Spelllijst stijl"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "Start op systeem"
 
 msgid "TRANSITION STYLE"
 msgstr "Transitie stijl"
@@ -344,24 +343,29 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
+"DE \"WILLEKEURIGE VIDEO\" SCREENSAVER TOONT VIDEO'S VAN JE GAMELIST.\n"
+"ALS JE GEEN VIDEO'S HEBT, OF ALS GEEN VAN DE VIDEO'S NA EEN PAAR POGINGEN "
+"KAN WORDEN AFGESPEELD, ZAL HET STANDAARD OP \"BLACK\" STAAN.\n"
+"MEER OPTIES IN DE \"GEBRUIKERSINTERFACE-INSTELLINGEN\" -> \"WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN\" "
+"MENU."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "SLIDESHOW SCREENSAVER INSTELLINGEN"
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "De tijd weergeven"
 
 msgid "ON-SCREEN HELP"
-msgstr "Scherm hulp"
+msgstr "On-screen hulp"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "Snelle systeem keuze"
+msgstr "Snelle systeemkeuze"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr ""
+msgstr "On-screen toetsenbord"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr ""
