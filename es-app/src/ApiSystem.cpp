@@ -288,7 +288,7 @@ std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
 
 bool ApiSystem::ping() {
     std::string updateserver = "batocera-linux.xorhub.com";
-    std::string s("timeout -t 1 fping -c 1 -t 1000 " + updateserver);
+    std::string s("timeout 1 fping -c 1 -t 1000 " + updateserver);
     int exitcode = system(s.c_str());
     return exitcode == 0;
 }
