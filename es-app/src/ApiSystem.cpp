@@ -872,23 +872,24 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
 }
 
 // Batocera
-std::string ApiSystem::getRetroAchievements() {
+std::vector<std::string> ApiSystem::getRetroAchievements() {
 
+    std::vector<std::string> res;
     std::ostringstream oss;
     oss << "/recalbox/scripts/batocera-retroachievements-info" ;
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
     if (pipe == NULL) {
-        return "";
+        return res;
     }
 
-    if (fgets(line, 1024, pipe)) {
+    while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
-        pclose(pipe);
-        return std::string(line);
+	res.push_back(std::string(line));
     }
-    return "";
+    pclose(pipe);
+    return res;
 }
 
 std::vector<std::string> ApiSystem::getBatoceraThemesList() {

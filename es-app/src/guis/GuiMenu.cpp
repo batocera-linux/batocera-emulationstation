@@ -2007,13 +2007,20 @@ void GuiMenu::openRetroAchievements_batocera() {
   Window *window = mWindow;
   auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
   ComponentListRow row;
-  std::string RetroAchievementsString = ApiSystem::getInstance()->getRetroAchievements();
-    auto RAString = std::make_shared<TextComponent>(mWindow,
-						    RetroAchievementsString,
-						    Font::get(FONT_SIZE_SMALL), 0x777777FF);
-    row.addElement(RAString, false);
-    s->addRow(row);
-    mWindow->pushGui(s);
+  std::string msgRet;
+  std::vector<std::string> retroRes = ApiSystem::getInstance()->getRetroAchievements();
+  for(auto it = retroRes.begin(); it != retroRes.end(); it++){
+	  auto itstring = std::make_shared<TextComponent>(mWindow,
+			  (*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+	  row.addElement(itstring, false);
+	  s->addRow(row);
+	  row.elements.clear();
+	  msgRet=msgRet+(*it)+"\n";
+  }
+  mWindow->pushGui(s);
+
+  // mWindow->pushGui(new GuiMsgBox(mWindow, msgRet, _("OK"), [] { return; }));
+
 }
 
 void GuiMenu::openScraperSettings_batocera() {
