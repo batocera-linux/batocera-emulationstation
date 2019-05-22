@@ -10,6 +10,7 @@
 #include "guis/GuiVideoScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
+#include "guis/GuiThemeInstallStart.h"
 #include "guis/GuiSettings.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
@@ -868,6 +869,16 @@ void GuiMenu::openSystemSettings_batocera() {
 
       // Batocera themes installer/browser
       {
+	auto openThemesInstallNow = [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); };
+	ComponentListRow row;
+	row.makeAcceptInputHandler(openThemesInstallNow);
+	auto ThemeInstallSettings = std::make_shared<TextComponent>(mWindow, _("BATOCERA THEMES"),
+ 							  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+	auto bracket = makeArrow(mWindow);
+	row.addElement(ThemeInstallSettings, true);
+	row.addElement(bracket, false);
+	updateGui->addRow(row);
+	/* block 2
 	  std::function<void()> openThemesListD = [this, updateGui] {
 		  GuiSettings *thlist = new GuiSettings(mWindow, _("THEMES").c_str());
 		  ComponentListRow row;
@@ -909,6 +920,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	  row.addElement(themesL, true);
 	  row.addElement(bracket, false);
 	  updateGui->addRow(row);
+       */
       }
       
       // Enable updates
