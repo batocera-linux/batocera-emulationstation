@@ -893,7 +893,6 @@ std::vector<std::string> ApiSystem::getRetroAchievements() {
 }
 
 std::vector<std::string> ApiSystem::getBatoceraThemesList() {
-
     std::vector<std::string> res;
     std::ostringstream oss;
     oss << "/recalbox/scripts/batocera-es-theme" << " " << "list";
@@ -915,21 +914,22 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList() {
     return res;
 }
 
-bool ApiSystem::installBatoceraTheme(char *theme) {
-
-    std::ostringstream oss;
-    char *thname;
-    oss << "/recalbox/scripts/batocera-es-theme" << " " << "install" << " " << theme;
-    std::string command = oss.str();
-    LOG(LogInfo) << "Launching " << command;
-
-    if (system(command.c_str())) {
-        LOG(LogWarning) << "Error executing:" << command;
-        return false;
-    } else {
-        LOG(LogInfo) << "Theme '" << theme << "' succesfully installed.";
-        return true;
+std::pair<std::string,int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) {
+    std::string updatecommand = std::string("/recalbox/scripts/batocera-es-theme install ") + thname;
+    LOG(LogWarning) << "Installing theme " << thname;
+    FILE *pipe = popen(updatecommand.c_str(), "r");
+    char line[1024] = "";
+    if (pipe == NULL) {
+        return std::pair<std::string,int>(std::string("Error starting `batocera-es-theme` command."),-1);
     }
-}
 
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        LOG(LogWarning) << "Theme install: " << line;
+        ui->setText(std::string(line));
+    }
+
+    int exitCode = pclose(pipe);
+    return std::pair<std::string,int>(std::string(line), exitCode);
+}
 
