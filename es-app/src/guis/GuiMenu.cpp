@@ -872,7 +872,7 @@ void GuiMenu::openSystemSettings_batocera() {
 	auto openThemesInstallNow = [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); };
 	ComponentListRow row;
 	row.makeAcceptInputHandler(openThemesInstallNow);
-	auto ThemeInstallSettings = std::make_shared<TextComponent>(mWindow, _("BATOCERA THEMES"),
+	auto ThemeInstallSettings = std::make_shared<TextComponent>(mWindow, _("THEMES"),
  							  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
 	auto bracket = makeArrow(mWindow);
 	row.addElement(ThemeInstallSettings, true);

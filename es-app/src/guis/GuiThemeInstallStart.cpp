@@ -12,7 +12,7 @@
 #include "LocaleES.h"
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
-	:GuiComponent(window), mMenu(window, _("SELECT BATOCERA THEME").c_str())
+	:GuiComponent(window), mMenu(window, _("SELECT THEME").c_str())
 {
 	addChild(&mMenu);
 	ComponentListRow row;

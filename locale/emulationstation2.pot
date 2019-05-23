@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,9 +163,6 @@ msgid "UPDATES"
 msgstr ""
 
 msgid "THEMES"
-msgstr ""
-
-msgid "INSTALL THEMES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -531,6 +528,9 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
@@ -601,6 +601,9 @@ msgid ""
 msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
+msgstr ""
+
+msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"

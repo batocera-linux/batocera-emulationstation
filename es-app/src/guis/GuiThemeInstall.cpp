@@ -60,8 +60,7 @@ void GuiThemeInstall::update(int deltaTime) {
 
         if(mState == 2){
 	  window->pushGui(
-			  new GuiMsgBox(window, _("FINISHED\nTheme '") + 
-				  mThemeName + _("' succesfully installed."), _("OK"),
+			  new GuiMsgBox(window, _("FINISHED") + "\n" + _("THEME INSTALLED SUCCESSFULLY"), _("OK"),
 					[this] {
 					  mState = -1;
 					}
@@ -103,7 +102,7 @@ void GuiThemeInstall::onInstallError(std::pair<std::string, int> result)
     mLoading = false;
     mState = 3;
     mResult = result;
-    mResult.first = _("AN ERROR OCCURED\nUnable to install theme '") + mThemeName + _("'\nCheck the system/logs directory.");
+    mResult.first = _("AN ERROR OCCURED");
 }
 
 void GuiThemeInstall::onInstallOk()

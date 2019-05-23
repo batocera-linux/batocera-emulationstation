@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-22 22:42+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,8 +154,8 @@ msgstr "OVERCLOCK"
 msgid "UPDATES"
 msgstr "ACTUALIZACIONES"
 
-msgid "BATOCERA THEMES"
-msgstr ""
+msgid "THEMES"
+msgstr "TEMAS"
 
 msgid "AUTO UPDATES"
 msgstr "ACTUALIZACIONES AUTOMÁTICAS"
@@ -534,22 +534,7 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JUEGO IGNORADO"
 msgstr[1] "%i JUEGOS IGNORADOS"
 
-msgid ""
-"FINISHED\n"
-"Theme '"
-msgstr ""
-
-msgid "' succesfully installed."
-msgstr ""
-
-msgid ""
-"AN ERROR OCCURED\n"
-"Unable to install theme '"
-msgstr ""
-
-msgid ""
-"'\n"
-"Check the system/logs directory."
+msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
@@ -627,7 +612,7 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO."
 
-msgid "SELECT BATOCERA THEME"
+msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -956,9 +941,6 @@ msgstr "CAMBIAR"
 
 msgid "WORKING..."
 msgstr "EN CURSO..."
-
-#~ msgid "THEMES"
-#~ msgstr "TEMAS"
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"

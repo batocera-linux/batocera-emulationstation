@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dm1\n"
 "Language-Team: \n"
@@ -159,9 +159,6 @@ msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
 
 msgid "THEMES"
-msgstr ""
-
-msgid "INSTALL THEMES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -537,6 +534,9 @@ msgstr[0] "%i ИГРА ПРОПУЩЕНА."
 msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
@@ -611,6 +611,9 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
+
+msgid "SELECT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"

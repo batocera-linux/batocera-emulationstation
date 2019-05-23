@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,9 +156,6 @@ msgid "UPDATES"
 msgstr "AKTUALIZACJE"
 
 msgid "THEMES"
-msgstr ""
-
-msgid "INSTALL THEMES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -526,6 +523,9 @@ msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA"
 msgstr[1] "%i GIER ZOSTAŁO POMINIĘTYCH"
 msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH"
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
@@ -596,6 +596,9 @@ msgid ""
 msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
+msgstr ""
+
+msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"

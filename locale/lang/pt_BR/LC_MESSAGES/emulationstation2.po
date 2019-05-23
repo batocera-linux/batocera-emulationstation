@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,9 +156,6 @@ msgstr "ATUALIZAÇÕES"
 
 msgid "THEMES"
 msgstr "TEMAS"
-
-msgid "INSTALL THEMES"
-msgstr "INSTALAR TEMAS"
 
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
@@ -345,7 +342,8 @@ msgstr ""
 "O SCREENSAVER \"VÍDEO ALEATÓRIO\" MOSTRA VÍDEOS DO SEU GAMELIST.\n"
 "SE VOCÊ NÃO TEM VÍDEOS, OU SE NENHUM DELES PODE SER EXECUTADO APÓS ALGUMAS "
 "TENTATIVAS, POR PADRÃO FICARÁ \"PRETO\".\n"
-"MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NO SCREENSAVER DE VÍDEO ALEATÓRIOS\""
+"MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NO "
+"SCREENSAVER DE VÍDEO ALEATÓRIOS\""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIOS"
@@ -535,6 +533,9 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SCRAPE IGNORADO."
 msgstr[1] "%i SCRAPES IGNORADOS."
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
 
@@ -610,6 +611,9 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO"
+
+msgid "SELECT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -936,6 +940,9 @@ msgstr "MODIFICAR"
 
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
+
+#~ msgid "INSTALL THEMES"
+#~ msgstr "INSTALAR TEMAS"
 
 #~ msgid "FINNISHED"
 #~ msgstr "FINALIZADO"
