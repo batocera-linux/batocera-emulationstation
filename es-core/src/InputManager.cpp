@@ -453,13 +453,6 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 	config->writeToXML(root);
 	doc.save_file(path.c_str());
 
-	Scripting::fireEvent("config-changed");
-	Scripting::fireEvent("controls-changed");
-	
-	// execute any onFinish commands and re-load the config for changes
-	doOnFinish();
-	loadInputConfig(config);
-
         // batocera
 	/* create a es_last_input.cfg so that people can easily share their config */
 	pugi::xml_document lastdoc;
@@ -467,6 +460,13 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 	config->writeToXML(lastroot);
 	std::string lastpath = getTemporaryConfigPath();
 	lastdoc.save_file(lastpath.c_str());
+
+	Scripting::fireEvent("config-changed");
+	Scripting::fireEvent("controls-changed");
+	
+	// execute any onFinish commands and re-load the config for changes
+	doOnFinish();
+	loadInputConfig(config);
 }
 
 void InputManager::doOnFinish()
