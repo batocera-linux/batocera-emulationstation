@@ -100,7 +100,7 @@ public:
     // Batocera
     std::vector<std::string> getRetroAchievements();
     std::vector<std::string> getBatoceraThemesList();
-    bool installBatoceraTheme(char *theme);
+    std::pair<std::string,int> installBatoceraTheme(BusyComponent* ui, std::string thname);
 
 private:
     static ApiSystem *instance;
@@ -109,6 +109,9 @@ private:
 
     bool halt(bool reboot, bool fast);
 
+    
+    void launchExternalWindow_before(Window *window);
+    void launchExternalWindow_after(Window *window);
 };
 
 #endif

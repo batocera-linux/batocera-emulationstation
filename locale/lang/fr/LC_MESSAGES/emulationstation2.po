@@ -2,12 +2,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:18+0200\n"
+"Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "REALLY UPDATE?"
@@ -156,9 +156,6 @@ msgstr "MISES À JOUR"
 
 msgid "THEMES"
 msgstr "THÈMES"
-
-msgid "INSTALL THEMES"
-msgstr "INSTALLER DES THÈMES"
 
 msgid "AUTO UPDATES"
 msgstr "MISES À JOUR AUTO"
@@ -535,6 +532,9 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JEU PASSÉ."
 msgstr[1] "%i JEUX PASSÉS."
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "THÈME INSTALLÉ AVEC SUCCÈS"
+
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CHANGER L'IMAGE APRÈS (SECS)"
 
@@ -609,6 +609,9 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND."
+
+msgid "SELECT THEME"
+msgstr "SÉLECTIONNER UN THÈME"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES METADONNÉES"
@@ -935,9 +938,3 @@ msgstr "CHANGER"
 
 msgid "WORKING..."
 msgstr "EN COURS..."
-
-#~ msgid "FINNISHED"
-#~ msgstr "TERMINÉ"
-
-#~ msgid "ENABLE NAVIGATION SOUNDS"
-#~ msgstr "ACTIVER LES SONS DE NAVIGATION"
