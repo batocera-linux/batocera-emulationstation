@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 21:30+0200\n"
+"POT-Creation-Date: 2019-05-23 19:13+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Dm1\n"
+"Last-Translator: Ckau\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -54,19 +54,19 @@ msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "ПЕРЕЙТИ К..."
 
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "ФИЛЬТР СПИСКА ИГР"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 msgid "FINISHED"
-msgstr ""
+msgstr "ЗАВЕРШЕНО"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -99,7 +99,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "INFORMATIONS"
-msgstr ""
+msgstr "МЕТАДАННЫЕ"
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -114,16 +114,16 @@ msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "SLIDESHOW SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ СЛАЙДШОУ"
 
 msgid "RANDOM VIDEO SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
 
 msgid "CHOOSE"
 msgstr "ВЫБЕРИТЕ"
 
 msgid "SELECT"
-msgstr "ВЫБОР"
+msgstr "SELECT"
 
 msgid "INFORMATION"
 msgstr "ИНФОРМАЦИЯ"
@@ -159,10 +159,7 @@ msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
 
 msgid "THEMES"
-msgstr ""
-
-msgid "INSTALL THEMES"
-msgstr ""
+msgstr "ТЕМЫ"
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -198,7 +195,7 @@ msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
@@ -207,13 +204,13 @@ msgid "SMOOTH GAMES"
 msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
 
 msgid "AUTO"
-msgstr ""
+msgstr "АВТО"
 
 msgid "ON"
-msgstr ""
+msgstr "ВКЛ"
 
 msgid "OFF"
-msgstr ""
+msgstr "ВЫКЛ"
 
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
@@ -246,13 +243,13 @@ msgid "HARDCORE MODE"
 msgstr "ХАРДКОР РЕЖИМ"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "ДОСКА ЛИДЕРОВ"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "USERNAME"
 msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
@@ -317,7 +314,7 @@ msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "РЕЖИМ ИНТЕРФЕЙСА"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
@@ -326,10 +323,10 @@ msgid "THEME SET"
 msgstr "ТЕМА"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "ВИД СПИСКА ИГР"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -347,15 +344,20 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
+"\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ОТОБРАЖАЕТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
+"ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО ПОСЛЕ "
+"НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK\".\n"
+"БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" "
+"МЕНЮ."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ СЛАЙДШОУ ЗАСТАВКИ"
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "ПОКАЗАТЬ ЧАСЫ"
 
 msgid "ON-SCREEN HELP"
 msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
@@ -367,10 +369,10 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
+msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 
 msgid "ENABLE FILTERS"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
 
 msgid "SHOW FRAMERATE"
 msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
@@ -379,19 +381,19 @@ msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr ""
+msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
+msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
+msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
 msgid "SHOW HIDDEN FILES"
-msgstr ""
+msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "ЛИМИТ VRAM"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -400,7 +402,7 @@ msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
 
 msgid "OUTPUT DEVICE"
 msgstr "УСТРОЙСТВО ВЫВОДА"
@@ -466,7 +468,7 @@ msgid "Core"
 msgstr "Ядро"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "ВИДЕО РЕЖИМ"
 
 msgid "INSTALL BATOCERA"
 msgstr "УСТАНОВИТЬ BATOCERA"
@@ -487,7 +489,7 @@ msgid "INSTALL"
 msgstr "УСТАНОВИТЬ"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "ТРЕБУЕТСЯ СЕТЬ"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЕТ ЗАГРУЗКА ДАННЫХ"
@@ -537,44 +539,47 @@ msgstr[0] "%i ИГРА ПРОПУЩЕНА."
 msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
+
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr ""
+msgstr "СМЕНА ИЗОБРАЖЕНИЯ ПОСЛЕ (СЕК)"
 
 msgid "STRETCH IMAGES"
-msgstr ""
+msgstr "РАСТЯНУТЬ ИЗОБРАЖЕНИЕ"
 
 msgid "BACKGROUND AUDIO"
-msgstr ""
+msgstr "ФОНОВАЯ МУЗЫКА"
 
 msgid "USE CUSTOM IMAGES"
-msgstr ""
+msgstr "ПОЛЬЗОВАТЕЛЬСКИЕ ИЗОБРАЖЕНИЯ"
 
 msgid "CUSTOM IMAGE DIR"
-msgstr ""
+msgstr "ПАПКА ПОЛЬЗ. ИЗОБР."
 
 msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr ""
+msgstr "ПАПКА ПОЛЬЗ. ИЗОБРАЖЕНИЙ РЕКУРСИВНО"
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr ""
+msgstr "ФИЛЬТР ПОЛЬЗ. ИЗОБР."
 
 msgid "SWAP VIDEO AFTER (SECS)"
-msgstr ""
+msgstr "СМЕНА ВИДЕО ПОСЛЕ (СЕК)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР ДЛЯ ЗАСТАВКИ"
 
 msgid "SHOW GAME INFO"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
+msgstr "ИНФ. ОБ ИГРЕ НА ЗАСТАВКЕ"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ НИЗКОЕ СОВМЕСТИМОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr ""
+msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
@@ -598,7 +603,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "КОНФЛИКТЫ РАЗРЕШАЕТ ПОЛЬЗОВАТЕЛЬ"
 
 msgid "START"
-msgstr "НАЧАТЬ"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -611,6 +616,9 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
+
+msgid "SELECT THEME"
+msgstr "ВЫБРАТЬ ТЕМУ"
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
@@ -625,10 +633,10 @@ msgid "enter game name"
 msgstr "введите название игры"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Название для сортировки"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "введите название для сортируемой игры"
 
 msgid "Description"
 msgstr "Описание"
@@ -643,13 +651,13 @@ msgid "enter path to image"
 msgstr "введите путь к изображению"
 
 msgid "Path to video"
-msgstr ""
+msgstr "Путь к видео"
 
 msgid "enter path to thumbnail"
 msgstr "введите путь к эскизу"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "Путь к банеру"
 
 msgid "Thumbnail"
 msgstr "Эскиз"
@@ -703,10 +711,10 @@ msgid "set hidden"
 msgstr "сделать скрытым"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Детская игра"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "установить детскую игру"
 
 msgid "Play count"
 msgstr "Сыграно раз"
@@ -721,31 +729,31 @@ msgid "enter last played date"
 msgstr "введите дату последнего запуска"
 
 msgid "name"
-msgstr ""
+msgstr "название"
 
 msgid "sortname"
-msgstr ""
+msgstr "название для сортировки"
 
 msgid "description"
-msgstr ""
+msgstr "описание"
 
 msgid "image"
-msgstr ""
+msgstr "изображение"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "эскиз"
 
 msgid "video"
-msgstr ""
+msgstr "видео"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "введите путь к видео"
 
 msgid "marquee"
-msgstr ""
+msgstr "банер"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "введите путь к банеру"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
@@ -758,13 +766,13 @@ msgstr[1] "%i ИГРЫ ДОСТУПНО"
 msgstr[2] "%i ИГР ДОСТУПНО"
 
 msgid "KODI"
-msgstr ""
+msgstr "KODI"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "СЛУЧАЙНО"
 
 msgid "FILES"
-msgstr ""
+msgstr "ФАЙЛЫ"
 
 msgid "Released"
 msgstr "Выход"
@@ -791,24 +799,24 @@ msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Загрузка..."
 
 msgid "Loading system config..."
-msgstr ""
+msgstr "Загрузка системных настроек..."
 
 msgid "Done."
-msgstr ""
+msgstr "Готово."
 
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "'%s' добавлено в '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr "'%s' удалено из '%s'"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -823,16 +831,16 @@ msgid "RIGHT"
 msgstr "ВПРАВО"
 
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВВЕРХ"
 
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВЛЕВО"
 
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ПРВАВЫЙ АНАЛОГ ВВЕРХ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
 
 msgid "HOTKEY"
 msgstr "\"ГОРЯЧАЯ\" КНОПКА"
@@ -844,7 +852,7 @@ msgid "KEYBOARD"
 msgstr "КЛАВИАТУРА"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -861,6 +869,9 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"ВЫ НЕ НАЗНАЧИЛИ ГОРЯЧУЮ КЛАВИШУ. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА "
+"ИЗ ИГР С ПОМОЩЬЮ КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT ПО УМОЛЧАНИЮ? "
+"ПОЖАЛУЙСТА, ОТВЕТЬТЕ "ДА", ЧТОБЫ ИСПОЛЬЗОВАТЬ SELECT ИЛИ "НЕТ", ЧТОБЫ НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
