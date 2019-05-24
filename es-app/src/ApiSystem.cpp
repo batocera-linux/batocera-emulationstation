@@ -288,7 +288,7 @@ std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
 
 bool ApiSystem::ping() {
     std::string updateserver = "batocera-linux.xorhub.com";
-    std::string s("timeout -t 1 fping -c 1 -t 1000 " + updateserver);
+    std::string s("timeout 1 fping -c 1 -t 1000 " + updateserver);
     int exitcode = system(s.c_str());
     return exitcode == 0;
 }
@@ -324,19 +324,30 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output) {
     }
 }
 
-bool ApiSystem::launchKodi(Window *window) {
-
-    LOG(LogInfo) << "Attempting to launch kodi...";
-
-
+void ApiSystem::launchExternalWindow_before(Window *window) {
     AudioManager::getInstance()->deinit();
     VolumeControl::getInstance()->deinit();
-
-    std::string commandline = InputManager::getInstance()->configureEmulators();
-    std::string command = "python /usr/lib/python2.7/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
-
     window->deinit();
-    int exitCode = system(command.c_str());
+}
+
+void ApiSystem::launchExternalWindow_after(Window *window) {
+  window->init();
+  VolumeControl::getInstance()->init();
+  AudioManager::getInstance()->init();
+  window->normalizeNextUpdate();
+
+  if(SystemConf::getInstance()->get("audio.bgmusic") != "0") {
+    AudioManager::getInstance()->playRandomMusic();
+  }
+}
+
+bool ApiSystem::launchKodi(Window *window) {
+  std::string commandline = InputManager::getInstance()->configureEmulators();
+  std::string command = "python /usr/lib/python2.7/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
+
+  ApiSystem::launchExternalWindow_before(window);
+
+  int exitCode = system(command.c_str());
 #if !defined(WIN32)
     // WIFEXITED returns a nonzero value if the child process terminated normally with exit or _exit.
     // https://www.gnu.org/software/libc/manual/html_node/Process-Completion-Status.html
@@ -345,10 +356,7 @@ bool ApiSystem::launchKodi(Window *window) {
     }
 #endif
 
-    window->init();
-    VolumeControl::getInstance()->init();
-    AudioManager::getInstance()->init();
-    window->normalizeNextUpdate();
+    ApiSystem::launchExternalWindow_after(window);
 
     // handle end of kodi
     switch (exitCode) {
@@ -362,23 +370,14 @@ bool ApiSystem::launchKodi(Window *window) {
             break;
     }
 
-    // batocera
-    if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-      AudioManager::getInstance()->playRandomMusic();
-
     return exitCode == 0;
 
 }
 
 bool ApiSystem::launchFileManager(Window *window) {
-    LOG(LogInfo) << "Attempting to launch filemanager...";
-
-    //AudioManager::getInstance()->deinit();
-    //VolumeControl::getInstance()->deinit();
-
     std::string command = "/recalbox/scripts/filemanagerlauncher.sh";
 
-    //window->deinit();
+    ApiSystem::launchExternalWindow_before(window);
 
     int exitCode = system(command.c_str());
 #if !defined(WIN32)
@@ -387,14 +386,8 @@ bool ApiSystem::launchFileManager(Window *window) {
     }
 #endif
 
-    //window->init();
-    //VolumeControl::getInstance()->init();
-    //AudioManager::getInstance()->init();
-    //window->normalizeNextUpdate();
-    // batocera
-    //if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-    //AudioManager::getInstance()->playRandomMusic();
-    
+    ApiSystem::launchExternalWindow_after(window);
+
     return exitCode == 0;
 }
 

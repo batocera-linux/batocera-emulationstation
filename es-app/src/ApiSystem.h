@@ -109,6 +109,9 @@ private:
 
     bool halt(bool reboot, bool fast);
 
+    
+    void launchExternalWindow_before(Window *window);
+    void launchExternalWindow_after(Window *window);
 };
 
 #endif

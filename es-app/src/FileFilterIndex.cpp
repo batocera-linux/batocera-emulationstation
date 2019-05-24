@@ -242,6 +242,13 @@ void FileFilterIndex::clearAllFilters()
 void FileFilterIndex::resetFilters()
 {
 	clearAllFilters();
+
+	// batocera
+	// apply filterByHidden by default
+	filterByHidden = true;
+	std::vector<std::string> val = { "FALSE" };
+	setFilter(HIDDEN_FILTER, &val);
+
 	setUIModeFilters();
 }
 
@@ -257,7 +264,7 @@ void FileFilterIndex::setUIModeFilters()
 		if (UIModeController::getInstance()->isUIModeKid())
 		{
 			filterByKidGame = true;
-			std::vector<std::string> val = { "TRUE" };
+			std::vector<std::string> val = { "FALSE" }; // batocera
 			setFilter(KIDGAME_FILTER, &val);
 		}
 	}
