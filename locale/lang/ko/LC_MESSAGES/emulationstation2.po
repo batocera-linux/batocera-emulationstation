@@ -532,7 +532,7 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "테마 성공적으로 설치됨"
 
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "후 이미지 필터 교체"
+msgstr "(몇초 후) 후 이미지 필터 교체"
 
 msgid "STRETCH IMAGES"
 msgstr "이미지 늘리기"
@@ -553,7 +553,7 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "커스텀 이미지 필터"
 
 msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "(SECS) 후 비디오 필터 교체 "
+msgstr "(몇초 후) 후 비디오 필터 교체 "
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "화면보호기를 위해 OMX 플레이어 사용"
