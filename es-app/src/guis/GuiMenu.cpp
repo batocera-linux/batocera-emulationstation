@@ -2258,12 +2258,9 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
 				     // this is especially bad for core while the changed() value is lost too.
 				     // to avoid this issue, instead of reprogramming this part, i will force a save of the emulator and core
 				     // at each GuiMenu::popSystemConfigurationGui call, including the ending saving one (when changed() values are bad)
-				     if(emu_choice->changed()) {
-				       SystemConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
-				     }
-				     if(core_choice->changed()){
-				       SystemConf::getInstance()->set(systemData->getName() + ".core", core_choice->getSelected());
-				     }
+				     SystemConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
+				     SystemConf::getInstance()->set(systemData->getName() + ".core", core_choice->getSelected());
+
 				     if(autosave_enabled->changed()) {
 				       SystemConf::getInstance()->set(systemData->getName() + ".autosave", autosave_enabled->getSelected());
 				     }
