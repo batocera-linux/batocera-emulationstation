@@ -1,3 +1,5 @@
+
+
 msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
@@ -313,7 +315,7 @@ msgid "UI MODE"
 msgstr "MODALITA’ INTERFACCIA"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "OUTPUT VIDEO"
 
 msgid "THEME SET"
 msgstr "TEMA SELEZIONATO"
@@ -388,7 +390,7 @@ msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRA FILE NASCOSTI"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "LIMITE VRAM"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
@@ -626,10 +628,10 @@ msgid "enter game name"
 msgstr "Nome del gioco"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Criterio di ordinamento"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "inserire nome per l'ordinamento del gioco"
 
 msgid "Description"
 msgstr "Descrizione"
@@ -725,7 +727,7 @@ msgid "name"
 msgstr "nome"
 
 msgid "sortname"
-msgstr ""
+msgstr "Criterio di ordinamento"
 
 msgid "description"
 msgstr "descrizione"
@@ -737,13 +739,13 @@ msgid "thumbnail"
 msgstr "miniatura"
 
 msgid "video"
-msgstr ""
+msgstr "video"
 
 msgid "enter path to video"
 msgstr "inserisci percorso dei video"
 
 msgid "marquee"
-msgstr ""
+msgstr "marquee"
 
 msgid "enter path to marquee"
 msgstr "inserisci percorso dei marquee"
@@ -764,7 +766,7 @@ msgid "RANDOM"
 msgstr "CASUALE"
 
 msgid "FILES"
-msgstr ""
+msgstr "FILE"
 
 msgid "Released"
 msgstr "Rilasciato"
@@ -1143,3 +1145,4 @@ msgstr "ATTENDERE..."
 
 #~ msgid "LAST PLAYED, DESCENDING"
 #~ msgstr "ULTIMA PARTITA, DISCENDENTE"
+
