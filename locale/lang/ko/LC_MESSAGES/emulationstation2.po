@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-05-26 19:13+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,19 +50,19 @@ msgid "CLOSE"
 msgstr "닫기"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "이동하기"
 
 msgid "SORT GAMES BY"
 msgstr "다음으로 게임 정렬"
 
 msgid "FILTER GAMELIST"
-msgstr ""
+msgstr "게임리스트 필터"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
 msgid "FINISHED"
-msgstr ""
+msgstr "완료"
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -95,7 +95,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
 
 msgid "INFORMATIONS"
-msgstr ""
+msgstr "인포메이션"
 
 msgid "QUIT"
 msgstr "종료"
@@ -110,10 +110,10 @@ msgid "SCRAPE NOW"
 msgstr "수집 시작"
 
 msgid "SLIDESHOW SETTINGS"
-msgstr ""
+msgstr "슬라이드쇼 세팅"
 
 msgid "RANDOM VIDEO SETTINGS"
-msgstr ""
+msgstr "랜덤 비디오 세팅"
 
 msgid "CHOOSE"
 msgstr "선택"
@@ -155,7 +155,7 @@ msgid "UPDATES"
 msgstr "업데이트"
 
 msgid "THEMES"
-msgstr ""
+msgstr "주제"
 
 msgid "AUTO UPDATES"
 msgstr "자동 업데이트"
@@ -191,7 +191,7 @@ msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "새로운 환경설정을 적용하기 위해서는 시스템 리부팅이 필요합니다."
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
@@ -200,13 +200,13 @@ msgid "SMOOTH GAMES"
 msgstr "부드러운 게임"
 
 msgid "AUTO"
-msgstr ""
+msgstr "자동"
 
 msgid "ON"
-msgstr ""
+msgstr "켜짐"
 
 msgid "OFF"
-msgstr ""
+msgstr "꺼짐"
 
 msgid "REWIND"
 msgstr "되감기"
@@ -239,13 +239,13 @@ msgid "HARDCORE MODE"
 msgstr "어려움 모드"
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "순위표"
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "상세 모드"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "자동 스크린샷"
 
 msgid "USERNAME"
 msgstr "사용자 이름"
@@ -309,7 +309,7 @@ msgid "INPUT P%i"
 msgstr "입력 P%i"
 
 msgid "UI MODE"
-msgstr ""
+msgstr "UI 모드"
 
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"
@@ -318,10 +318,10 @@ msgid "THEME SET"
 msgstr "테마 선택"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "게임리스트 정렬방법"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "시스템 착수하기"
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
@@ -339,15 +339,18 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
+"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
+"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
+"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "랜덤 비디오 화면보호기 셋팅"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "슬라이스쇼 화면보호기 셋팅"
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "시간 보기"
 
 msgid "ON-SCREEN HELP"
 msgstr "도움말 표시"
@@ -359,10 +362,10 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
+msgstr "캐러셀 변형"
 
 msgid "ENABLE FILTERS"
-msgstr ""
+msgstr "필터 활성화"
 
 msgid "SHOW FRAMERATE"
 msgstr "프레임 속도 표시"
@@ -371,19 +374,19 @@ msgid "OVERSCAN"
 msgstr "오버 스캔"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr ""
+msgstr "나갈 때 메타데이터 저장하기"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
+msgstr "오직 게임리슽만 분석"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
+msgstr "로컬 아트 서치"
 
 msgid "SHOW HIDDEN FILES"
-msgstr ""
+msgstr "숨겨진 파일 보여주기"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "비디오램 리미트"
 
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
@@ -392,7 +395,7 @@ msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr ""
+msgstr "비디오 오디오 활성화"
 
 msgid "OUTPUT DEVICE"
 msgstr "출력 기기"
@@ -458,7 +461,7 @@ msgid "Core"
 msgstr "코어"
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "비디오 모드"
 
 msgid "INSTALL BATOCERA"
 msgstr "바투세라 설치"
@@ -479,7 +482,7 @@ msgid "INSTALL"
 msgstr "설치"
 
 msgid "NETWORK REQUIRED"
-msgstr ""
+msgstr "네트워크 요구됨"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "스크랩 진행 중"
@@ -526,46 +529,46 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 개의 게임을 건너뛰었습니다."
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "테마 성공적으로 설치됨"
 
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr ""
+msgstr "(몇초 후) 후 이미지 필터 교체"
 
 msgid "STRETCH IMAGES"
-msgstr ""
+msgstr "이미지 늘리기"
 
 msgid "BACKGROUND AUDIO"
-msgstr ""
+msgstr "배경 오디오"
 
 msgid "USE CUSTOM IMAGES"
-msgstr ""
+msgstr "커스텀 이미지 사용"
 
 msgid "CUSTOM IMAGE DIR"
-msgstr ""
+msgstr "커스텀 이미지 디렉터리"
 
 msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr ""
+msgstr "커스텀 이미지 되부름의 디렉터리"
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr ""
+msgstr "커스텀 이미지 필터"
 
 msgid "SWAP VIDEO AFTER (SECS)"
-msgstr ""
+msgstr "(몇초 후) 후 비디오 필터 교체 "
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr ""
+msgstr "화면보호기를 위해 OMX 플레이어 사용"
 
 msgid "SHOW GAME INFO"
-msgstr ""
+msgstr "게임 정보 보여주기"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
+msgstr "화면보호기에 게임 정보 보여주기"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr ""
+msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr ""
+msgstr "화면보호기에 비디오 늘이기"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들을 수집"
@@ -604,7 +607,7 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
 
 msgid "SELECT THEME"
-msgstr ""
+msgstr "테마 선택"
 
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
@@ -619,10 +622,10 @@ msgid "enter game name"
 msgstr "게임 이름 입력"
 
 msgid "Sort name"
-msgstr ""
+msgstr "별명"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "게임 별명 입력"
 
 msgid "Description"
 msgstr "설명"
@@ -637,13 +640,13 @@ msgid "enter path to image"
 msgstr "이미지 경로 입력"
 
 msgid "Path to video"
-msgstr ""
+msgstr "비디오 경로"
 
 msgid "enter path to thumbnail"
 msgstr "축소판 그림 경로 입력"
 
 msgid "Path to marquee"
-msgstr ""
+msgstr "움직이는 텍스트 경로"
 
 msgid "Thumbnail"
 msgstr "축소판 그림"
@@ -697,10 +700,10 @@ msgid "set hidden"
 msgstr "숨김 설정"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Kidgame"
 
 msgid "set kidgame"
-msgstr ""
+msgstr "Kidgame 설정"
 
 msgid "Play count"
 msgstr "플레이 횟수"
@@ -715,31 +718,31 @@ msgid "enter last played date"
 msgstr "마지막 플레이한 날짜 입력"
 
 msgid "name"
-msgstr ""
+msgstr "이름"
 
 msgid "sortname"
-msgstr ""
+msgstr "별명"
 
 msgid "description"
-msgstr ""
+msgstr "서술"
 
 msgid "image"
-msgstr ""
+msgstr "이미지"
 
 msgid "thumbnail"
-msgstr ""
+msgstr "섬네일"
 
 msgid "video"
-msgstr ""
+msgstr "비디오"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "비디오 경로 입력"
 
 msgid "marquee"
-msgstr ""
+msgstr "움직이는 텍스트"
 
 msgid "enter path to marquee"
-msgstr ""
+msgstr "움직이는 텍스트의 경로 입력"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI 미디어 센터를 실행하시겠습니까?"
@@ -750,13 +753,13 @@ msgid_plural "%i GAMES AVAILABLE"
 msgstr[0] "%i 개의 게임 사용 가능"
 
 msgid "KODI"
-msgstr ""
+msgstr "KODI"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "랜덤"
 
 msgid "FILES"
-msgstr ""
+msgstr "파일"
 
 msgid "Released"
 msgstr "발매일"
@@ -783,24 +786,24 @@ msgid "ACCEPT RESULT"
 msgstr "결과 동의"
 
 msgid "Loading..."
-msgstr ""
+msgstr "로딩"
 
 msgid "Loading system config..."
-msgstr ""
+msgstr "로딩 시스템 설정"
 
 msgid "Done."
-msgstr ""
+msgstr "완료"
 
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "업데이트 가능함"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "'%s'에서 '%s'로 증가함"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr " '%s'에서'%s'로 떨어짐 "
 
 msgid "UP"
 msgstr "위"
@@ -815,16 +818,16 @@ msgid "RIGHT"
 msgstr "오른쪽"
 
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "왼쪽 연속 위"
 
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "왼쪽 연속 왼쪽"
 
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "오른쪽 연속 위"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "오른쪽 연속 왼쪽"
 
 msgid "HOTKEY"
 msgstr "단축키"
@@ -836,7 +839,7 @@ msgid "KEYBOARD"
 msgstr "키보드"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -853,6 +856,9 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"핫키 활성화 버튼을 선택하지 않으셨습니다. 게임을 나가기 위해 필요합니다. 제어"
+"기로 선택 버튼 드라이버를 이용하시겠습니까?선택을 하려면 YES 로 답하시고 핫"
+"키 활성화 버튼을 세팅하지 않으려면 NO라고 답하십시오."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -925,178 +931,3 @@ msgstr "변경"
 
 msgid "WORKING..."
 msgstr "작업 중..."
-
-#~ msgid "FINNISHED"
-#~ msgstr "완료"
-
-#~ msgid "THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "시스템이 지금 다시 시작됩니다."
-
-#~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-#~ msgstr "옵션을 적용하기 위해선 재시작이 필요합니다."
-
-#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
-#~ msgstr "언제든지 F4 를 누르면 종료합니다."
-
-#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-#~ msgstr "ESC 또는 단축키를 누르면 취소합니다."
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "문자로 이동"
-
-#~ msgid "FAVORITES ONLY"
-#~ msgstr "즐겨찾기만 표시"
-
-#~ msgid "SHOW HIDDEN"
-#~ msgstr "숨김 표시"
-
-#~ msgid "SAVE"
-#~ msgstr "저장"
-
-#~ msgid ""
-#~ "THIS WILL DELETE A FILE!\n"
-#~ "ARE YOU SURE?"
-#~ msgstr ""
-#~ "파일을 삭제합니다.\n"
-#~ "정말로 진행하시겠습니까?"
-
-#~ msgid "enter emulator"
-#~ msgstr "에뮬레이터 선택"
-
-#~ msgid "enter core"
-#~ msgstr "코어 선택"
-
-#~ msgid "Ratio"
-#~ msgstr "화면 비율"
-
-#~ msgid "enter ratio"
-#~ msgstr "비율 선택"
-
-#~ msgid "Region"
-#~ msgstr "지역"
-
-#~ msgid "enter region"
-#~ msgstr "지역"
-
-#~ msgid "Romtype"
-#~ msgstr "롬 형식"
-
-#~ msgid "enter romtype"
-#~ msgstr "롬 형식 입력"
-
-#~ msgid "%i FAVORITE"
-#~ msgid_plural "%i FAVORITES"
-#~ msgstr[0] "%i 개의 즐겨찾기"
-
-#~ msgid "%i GAME HIDDEN"
-#~ msgid_plural "%i GAMES HIDDEN"
-#~ msgstr[0] "%i 개의 게임 숨김"
-
-#~ msgid "SCROLL"
-#~ msgstr "스크롤"
-
-#~ msgid "FILENAME"
-#~ msgstr "파일 이름"
-
-#~ msgid "RATING"
-#~ msgstr "평점"
-
-#~ msgid "TIMES PLAYED"
-#~ msgstr "실행 횟수"
-
-#~ msgid "LAST PLAYED"
-#~ msgstr "마지막 실행"
-
-#~ msgid "NUMBER OF PLAYERS"
-#~ msgstr "플레이어 수"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "개발자"
-
-#~ msgid "GENRE"
-#~ msgstr "장르"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "검색 중"
-
-#~ msgid "JOYSTICK 1 UP"
-#~ msgstr "조이스틱 1 위"
-
-#~ msgid "JOYSTICK 1 LEFT"
-#~ msgstr "조이스틱 1 왼쪽"
-
-#~ msgid "JOYSTICK 2 UP"
-#~ msgstr "조이스틱 2 위"
-
-#~ msgid "JOYSTICK 2 LEFT"
-#~ msgstr "조이스틱 2 왼쪽"
-
-#~ msgid "PAGE UP"
-#~ msgstr "한 페이지 위"
-
-#~ msgid "PAGE DOWN"
-#~ msgstr "한 페이지 아래"
-
-#~ msgid "LOADING..."
-#~ msgstr "불러오는 중..."
-
-#~ msgid "PLEASE WAIT..."
-#~ msgstr "잠시 기다려 주십시오..."
-
-#~ msgid "never"
-#~ msgstr "없음"
-
-#~ msgid "just now"
-#~ msgstr "방금 전"
-
-#~ msgid "%i sec ago"
-#~ msgid_plural "%i secs ago"
-#~ msgstr[0] "%i 초 전"
-
-#~ msgid "%i min ago"
-#~ msgid_plural "%i mins ago"
-#~ msgstr[0] "%i 분 전"
-
-#~ msgid "%i hour ago"
-#~ msgid_plural "%i hours ago"
-#~ msgstr[0] "%i 시간 전"
-
-#~ msgid "%i day ago"
-#~ msgid_plural "%i days ago"
-#~ msgstr[0] "%i 일 전"
-
-#~ msgid "unknown"
-#~ msgstr "알수없음"
-
-#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-#~ msgstr "새로운 업데이트를 사용할 수 있습니다."
-
-#~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "익스트림 (1100Mhz) "
-
-#~ msgid "TURBO (1000Mhz)"
-#~ msgstr "터보 (1000Mhz) "
-
-#~ msgid "HIGH (950Mhz)"
-#~ msgstr "높음 (950Mhz) "
-
-#~ msgid "HIGH (1050Mhz)"
-#~ msgstr "높음 (1050Mhz) "
-
-#~ msgid "NONE (900Mhz)"
-#~ msgstr "없음 (900Mhz) "
-
-#~ msgid "EXTREM (1350Mhz)"
-#~ msgstr "익스트림 (1350Mhz)"
-
-#~ msgid "TURBO (1325Mhz)+"
-#~ msgstr "터보 (1325Mhz)+"
-
-#~ msgid "HIGH (1300Mhz)"
-#~ msgstr "높음 (1300Mhz)"
-
-#~ msgid "NONE (1200Mhz)"
-#~ msgstr "없음 (1200Mhz) "
-
-#~ msgid "NO CONTROLLERS FOUND"
-#~ msgstr "발견된 컨트롤러 없음"
