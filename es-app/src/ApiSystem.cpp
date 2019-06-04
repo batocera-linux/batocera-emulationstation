@@ -919,6 +919,9 @@ std::pair<std::string,int> ApiSystem::installBatoceraTheme(BusyComponent* ui, st
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
         LOG(LogWarning) << "Theme install: " << line;
+	// Long theme names/URL can crash the GUI MsgBox
+	if (strlen(line)>48)
+		line[48]='\0';
         ui->setText(std::string(line));
     }
 
