@@ -29,6 +29,8 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 		char *thname = strtok (tmp, " \t");
 		thname = strtok (NULL, " \t");
 		// Names longer than this will crash GuiMsgBox downstream
+		// "48" found by trials and errors. Ideally should be fixed
+		// in es-core MsgBox -- FIXME
 		if (strlen(thname) > 48)
 			thname[47]='\0';
 		row.makeAcceptInputHandler([this, thname] {
