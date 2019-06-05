@@ -923,7 +923,7 @@ std::pair<std::string,int> ApiSystem::installBatoceraTheme(BusyComponent* ui, st
 	// "48" found by trials and errors. Ideally should be fixed
 	// in es-core MsgBox -- FIXME
 	if (strlen(line)>48)
-		line[48]='\0';
+		line[47]='\0';
         ui->setText(std::string(line));
     }
 
