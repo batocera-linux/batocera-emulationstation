@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:18+0200\n"
+"POT-Creation-Date: 2019-06-06 18:36+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgid "NETWORK SETTINGS"
 msgstr "OPTIONS RÉSEAU"
 
 msgid "SCRAPE"
-msgstr "SCRAPPER"
+msgstr "SCRAPER"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPTIONS SYSTÈME"
@@ -101,13 +101,13 @@ msgid "QUIT"
 msgstr "QUITTER"
 
 msgid "SCRAPE FROM"
-msgstr "SCRAPPER DEPUIS"
+msgstr "SCRAPER DEPUIS"
 
 msgid "SCRAPE RATINGS"
-msgstr "SCRAPPER LES NOTES"
+msgstr "SCRAPER LES NOTES"
 
 msgid "SCRAPE NOW"
-msgstr "SCRAPPER MAINTENANT"
+msgstr "SCRAPER MAINTENANT"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "PARAMÈTRES SLIDESHOW"
@@ -119,7 +119,7 @@ msgid "CHOOSE"
 msgstr "CHOISIR"
 
 msgid "SELECT"
-msgstr "SÉLECTIONNER"
+msgstr "SELECT"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -575,7 +575,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
 
 msgid "SCRAPE THESE GAMES"
-msgstr "SCRAPPER CES JEUX"
+msgstr "SCRAPER CES JEUX"
 
 msgid "All Games"
 msgstr "Tous les jeux"
@@ -587,7 +587,7 @@ msgid "FILTER"
 msgstr "FILTRE"
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr "SCRAPPER CES SYSTÈMES"
+msgstr "SCRAPER CES SYSTÈMES"
 
 msgid "SYSTEMS"
 msgstr "SYSTÈMES"
@@ -596,7 +596,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "CHOISIR SI CONFLIT"
 
 msgid "START"
-msgstr "DÉMARRER"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
