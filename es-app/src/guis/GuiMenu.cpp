@@ -1080,7 +1080,6 @@ void GuiMenu::openGamesSettings_batocera() {
   s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
   // Shaders preset
-
   auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
 									     false);
   std::string currentShader = SystemConf::getInstance()->get("global.shaderset");
@@ -1092,7 +1091,9 @@ void GuiMenu::openGamesSettings_batocera() {
   shaders_choices->add(_("NONE"), "none", currentShader == "none");
   shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
   shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
+  shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
   s->addWithLabel(_("SHADERS SET"), shaders_choices);
+
   // Integer scale
   auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
   integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.integerscale") != "0" && SystemConf::getInstance()->get("global.integerscale") != "1");
