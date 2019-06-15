@@ -2246,8 +2246,16 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".autosave") == "0");
   systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
+  // ps2 full boot
+  auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
+  fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
+  fullboot_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".fullboot") == "1");
+  fullboot_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".fullboot") == "0");
+  if(systemData->getName() == "ps2") // only for ps2
+    systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
+  
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2260,6 +2268,12 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     if(smoothing_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected());
 				     }
+				     if(autosave_enabled->changed()) {
+				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
+				     }
+				     if(fullboot_enabled->changed()){
+				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
+				     }
 
 				     // the menu GuiMenu::popSystemConfigurationGui is a hack
 				     // if you change any option except emulator and change the emulator, the value is lost
@@ -2269,9 +2283,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
 				     SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
 
-				     if(autosave_enabled->changed()) {
-				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
-				     }
 				     SystemConf::getInstance()->saveSystemConf();
 				   });
   mWindow->pushGui(systemConfiguration);
