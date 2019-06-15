@@ -2253,9 +2253,17 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   fullboot_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".fullboot") == "0");
   if(systemData->getName() == "ps2") // only for ps2
     systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
-  
+
+  // wii emulated wiimotes
+  auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
+  emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
+  emulatedwiimotes_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
+  emulatedwiimotes_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
+  if(systemData->getName() == "wii") // only for wii
+    systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
+
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled, emulatedwiimotes_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2273,6 +2281,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     }
 				     if(fullboot_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
+				     }
+				     if(emulatedwiimotes_enabled->changed()){
+				       SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
 				     }
 
 				     // the menu GuiMenu::popSystemConfigurationGui is a hack
