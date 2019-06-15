@@ -11,6 +11,7 @@
 #include "GuiMetaDataEd.h"
 #include "SystemData.h"
 #include "LocaleES.h"
+#include "guis/GuiMenu.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
 	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false)
@@ -113,6 +114,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		row.addElement(std::make_shared<TextComponent>(mWindow, _("EDIT THIS GAME'S METADATA"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
 		row.addElement(makeArrow(mWindow), false);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openMetaDataEd, this));
+		mMenu.addRow(row);
+	}
+
+	// batocera
+	if (UIModeController::getInstance()->isUIModeFull())
+	{
+		row.elements.clear();
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADVANCED"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(makeArrow(mWindow), false);
+		row.makeAcceptInputHandler([this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), system, ""); });
 		mMenu.addRow(row);
 	}
 
