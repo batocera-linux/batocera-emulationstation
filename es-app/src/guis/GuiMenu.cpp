@@ -12,6 +12,7 @@
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiThemeInstallStart.h"
 #include "guis/GuiSettings.h"
+#include "guis/GuiSystemsHide.h" //batocera
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -1563,7 +1564,17 @@ void GuiMenu::openUISettings_batocera() {
 						     }, "NO",nullptr));
 		     }
 		 });
-  
+  // Batocera: select systems to hide
+  auto openSystemsHideNow = [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); };
+  ComponentListRow rowHide;
+  rowHide.makeAcceptInputHandler(openSystemsHideNow);
+  auto SystemsHideSettings = std::make_shared<TextComponent>(mWindow, _("DISPLAY / HIDE SYSTEMS"),
+		  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+  auto bracket = makeArrow(mWindow);
+  rowHide.addElement(SystemsHideSettings, true);
+  rowHide.addElement(bracket, false);
+  s->addRow(rowHide);
+
   // video device
   auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
   std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
