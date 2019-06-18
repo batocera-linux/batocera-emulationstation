@@ -1291,7 +1291,7 @@ void GuiMenu::openGamesSettings_batocera() {
 	  systemRow.addElement(bracket, false);
 	  SystemData *systemData = (*system);
 	  systemRow.makeAcceptInputHandler([this, systemData] {
-	      popSystemConfigurationGui(systemData, "");
+	      popSystemConfigurationGui(mWindow, systemData, "");
 	    });
 	  configuration->addRow(systemRow);
 	}
@@ -2165,10 +2165,17 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
   gui->addRow(row);
 }
 
-void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string previouslySelectedEmulator) const {
+void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator) {
+  popSpecificConfigurationGui(mWindow, systemData->getFullName(), systemData->getName(), systemData, previouslySelectedEmulator);
+}
+
+void GuiMenu::popGameConfigurationGui(Window* mWindow, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator) {
+  popSpecificConfigurationGui(mWindow, romFilename, romFilename, systemData, previouslySelectedEmulator);
+}
+
+void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator) {
   // The system configuration
-  GuiSettings *systemConfiguration = new GuiSettings(mWindow,
-						     systemData->getFullName().c_str());
+  GuiSettings *systemConfiguration = new GuiSettings(mWindow, title.c_str());
   //Emulator choice
   auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
   bool selected = false;
@@ -2181,7 +2188,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
       // We just changed the emulator
       found = previouslySelectedEmulator == curEmulatorName;
     } else {
-      found = (SystemConf::getInstance()->get(systemData->getName() + ".emulator") == curEmulatorName);
+      found = (SystemConf::getInstance()->get(configName + ".emulator") == curEmulatorName);
     }
     if (found) {
       selectedEmulator = curEmulatorName;
@@ -2191,8 +2198,8 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
   }
 
   emu_choice->add(_("AUTO"), "auto", !selected);
-  emu_choice->setSelectedChangedCallback([this, systemConfiguration, systemData](std::string s) {
-      popSystemConfigurationGui(systemData, s);
+  emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData](std::string s) {
+      popSpecificConfigurationGui(mWindow, title, configName, systemData, s);
       delete systemConfiguration;
     });
   systemConfiguration->addWithLabel(_("Emulator"), emu_choice);
@@ -2204,7 +2211,7 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
        emulator != systemData->getEmulators()->end(); emulator++) {
     if (selectedEmulator == emulator->first) {
       for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-	bool found = (SystemConf::getInstance()->get(systemData->getName() + ".core") == *core);
+	bool found = (SystemConf::getInstance()->get(configName + ".core") == *core);
 	selected = selected || found;
 	core_choice->add(*core, *core, found);
       }
@@ -2215,43 +2222,68 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
 
 
   // Screen ratio choice
-  auto ratio_choice = createRatioOptionList(mWindow, systemData->getName());
+  auto ratio_choice = createRatioOptionList(mWindow, title);
   systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
   // video resolution mode
-  auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, systemData->getName());
+  auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, title);
   systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
   // smoothing
   auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
-  smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(systemData->getName() + ".smooth") != "0" && SystemConf::getInstance()->get(systemData->getName() + ".smooth") != "1");
-  smoothing_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(systemData->getName() + ".smooth") == "1");
-  smoothing_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(systemData->getName() + ".smooth") == "0");
+  smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".smooth") != "0" && SystemConf::getInstance()->get(configName + ".smooth") != "1");
+  smoothing_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".smooth") == "1");
+  smoothing_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".smooth") == "0");
   systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
   // rewind
   auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
-  rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(systemData->getName() + ".rewind") != "0" && SystemConf::getInstance()->get(systemData->getName() + ".rewind") != "1");
-  rewind_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(systemData->getName() + ".rewind") == "1");
-  rewind_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(systemData->getName() + ".rewind") == "0");
+  rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
+  rewind_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".rewind") == "1");
+  rewind_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".rewind") == "0");
   systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
   // autosave
   auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-  autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(systemData->getName() + ".autosave") != "0" && SystemConf::getInstance()->get(systemData->getName() + ".autosave") != "1");
-  autosave_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(systemData->getName() + ".autosave") == "1");
-  autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(systemData->getName() + ".autosave") == "0");
+  autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
+  autosave_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".autosave") == "1");
+  autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".autosave") == "0");
   systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
+  // ps2 full boot
+  auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
+  fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
+  fullboot_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".fullboot") == "1");
+  fullboot_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".fullboot") == "0");
+  if(systemData->getName() == "ps2") // only for ps2
+    systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
+
+  // wii emulated wiimotes
+  auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
+  emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
+  emulatedwiimotes_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
+  emulatedwiimotes_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
+  if(systemData->getName() == "wii") // only for wii
+    systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
+
   systemConfiguration->addSaveFunc(
-				   [systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled, emulatedwiimotes_enabled] {
 				     if(ratio_choice->changed()){
-				       SystemConf::getInstance()->set(systemData->getName() + ".ratio", ratio_choice->getSelected());
+				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
 				     if(videoResolutionMode_choice->changed()){
-				       SystemConf::getInstance()->set(systemData->getName() + ".videomode", videoResolutionMode_choice->getSelected());
+				       SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected());
 				     }
 				     if(rewind_enabled->changed()) {
-				       SystemConf::getInstance()->set(systemData->getName() + ".rewind", rewind_enabled->getSelected());
+				       SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected());
 				     }
 				     if(smoothing_enabled->changed()){
-				       SystemConf::getInstance()->set(systemData->getName() + ".smooth", smoothing_enabled->getSelected());
+				       SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected());
+				     }
+				     if(autosave_enabled->changed()) {
+				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
+				     }
+				     if(fullboot_enabled->changed()){
+				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
+				     }
+				     if(emulatedwiimotes_enabled->changed()){
+				       SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
 				     }
 
 				     // the menu GuiMenu::popSystemConfigurationGui is a hack
@@ -2259,19 +2291,16 @@ void GuiMenu::popSystemConfigurationGui(SystemData *systemData, std::string prev
 				     // this is especially bad for core while the changed() value is lost too.
 				     // to avoid this issue, instead of reprogramming this part, i will force a save of the emulator and core
 				     // at each GuiMenu::popSystemConfigurationGui call, including the ending saving one (when changed() values are bad)
-				     SystemConf::getInstance()->set(systemData->getName() + ".emulator", emu_choice->getSelected());
-				     SystemConf::getInstance()->set(systemData->getName() + ".core", core_choice->getSelected());
+				     SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
+				     SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
 
-				     if(autosave_enabled->changed()) {
-				       SystemConf::getInstance()->set(systemData->getName() + ".autosave", autosave_enabled->getSelected());
-				     }
 				     SystemConf::getInstance()->saveSystemConf();
 				   });
   mWindow->pushGui(systemConfiguration);
 }
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList(Window *window,
-                                                                                 std::string configname) const {
+                                                                                 std::string configname) {
   auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(window, _("GAME RATIO"), false);
   std::string currentRatio = SystemConf::getInstance()->get(configname + ".ratio");
   if (currentRatio.empty()) {
@@ -2287,7 +2316,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList
 }
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window,
-											       std::string configname) const {
+											       std::string configname) {
   auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
   std::string currentVideoMode = SystemConf::getInstance()->get(configname + ".videomode");
   if (currentVideoMode.empty()) {

@@ -32,6 +32,9 @@ public:
 	HelpStyle getHelpStyle() override;
 	static void openQuitMenu_batocera_static(Window *window); // batocera
 
+	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);
+	static void popGameConfigurationGui(Window* mWindow, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
+
 private:
 	void addEntry(const char* name, unsigned int color, bool add_arrow, const std::function<void()>& func);
 	void addVersionInfo();
@@ -64,9 +67,9 @@ private:
 	MenuComponent mMenu;
 	TextComponent mVersion;
 
-	std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname) const;
-	std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname) const;
-	void popSystemConfigurationGui(SystemData *systemData, std::string previouslySelectedEmulator) const;
+	static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
+	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname);
+	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator);
 
 	std::vector<StrInputConfig*> mLoadedInput; // used to keep information about loaded devices in case there are unpluged between device window load and save
 	void clearLoadedInput();

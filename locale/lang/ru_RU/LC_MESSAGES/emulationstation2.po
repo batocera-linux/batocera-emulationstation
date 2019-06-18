@@ -123,7 +123,7 @@ msgid "CHOOSE"
 msgstr "ВЫБЕРИТЕ"
 
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "ВЫБОР"
 
 msgid "INFORMATION"
 msgstr "ИНФОРМАЦИЯ"
@@ -576,7 +576,7 @@ msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "ИНФ. ОБ ИГРЕ НА ЗАСТАВКЕ"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "ИСПОЛЬЗОВАТЬ НИЗКОЕ СОВМЕСТИМОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
+msgstr "ИСП. НИЗКОЕ СОВМЕСТИМОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
@@ -603,7 +603,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "КОНФЛИКТЫ РАЗРЕШАЕТ ПОЛЬЗОВАТЕЛЬ"
 
 msgid "START"
-msgstr "START"
+msgstr "НАЧАТЬ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
