@@ -1,5 +1,6 @@
 #include "SystemData.h"
 
+#include "SystemConf.h"
 #include "utils/FileSystemUtil.h"
 #include "CollectionSystemManager.h"
 #include "FileFilterIndex.h"
@@ -17,6 +18,7 @@
 #endif
 
 std::vector<SystemData*> SystemData::sSystemVector;
+std::vector<SystemData*> SystemData::sFileSystemVector; //batocera
 
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
@@ -288,6 +290,7 @@ bool SystemData::loadConfig()
 			delete newSys;
 		}else{
 			sSystemVector.push_back(newSys);
+			sFileSystemVector.push_back(newSys); //batocera
 		}
 	}
 	CollectionSystemManager::get()->loadCollectionSystems();
@@ -361,7 +364,10 @@ std::string SystemData::getConfigPath(bool forWrite)
 
 bool SystemData::isVisible()
 {
-   return (getDisplayedGameCount() > 0 || 
+	if (SystemConf::getInstance()->get(getName() + ".hide") == "1") // batocera (hide systems)
+	    return 0; // batocera (hide systems)
+
+	return (getDisplayedGameCount() > 0 || 
            (UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||
            (mIsCollectionSystem && mName == "favorites"));
 }

@@ -129,6 +129,18 @@ void SystemView::populate()
 			Settings::getInstance()->setString("UIMode", "Full");
 			mWindow->pushGui(new GuiMsgBox(mWindow, "The selected UI mode has nothing to show,\n returning to UI mode: FULL", "OK", nullptr));
 		}
+
+		//batocera - behavior when all systems are hidden (re-enable all)
+		LOG (LogError) << "Error: every system is hidden in batocera.conf, please put at least one system available like 'nes.hide=0'";
+		for (auto it = SystemData::sFileSystemVector.cbegin(); it != SystemData::sFileSystemVector.cend(); it++)
+		{
+			SystemConf::getInstance()->set((*it)->getName()+".hide", "0");
+			Settings::getInstance()->setBool((*it)->getName()+".hide", false);
+		}
+		SystemConf::getInstance()->saveSystemConf();
+		// refresh GUI
+		populate();
+		mWindow->pushGui(new GuiMsgBox(mWindow, "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW", "OK", nullptr));
 	}
 }
 
