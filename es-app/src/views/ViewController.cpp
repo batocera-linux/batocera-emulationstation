@@ -17,6 +17,8 @@
 #include "SystemData.h"
 #include "Window.h"
 #include "guis/GuiDetectDevice.h"
+#include "SystemConf.h"
+#include "AudioManager.h"
 
 ViewController* ViewController::sInstance = NULL;
 
@@ -130,6 +132,14 @@ void ViewController::goToGameList(SystemData* system)
 
 	mState.viewing = GAME_LIST;
 	mState.system = system;
+
+        // batocera
+        if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0") {
+		if (AudioManager::getInstance()->getName() != system->getName()) {
+			AudioManager::getInstance()->setName(system->getName());
+			AudioManager::getInstance()->playRandomMusic(0);
+		}
+	}
 
 	if (mCurrentView)
 	{
