@@ -1855,6 +1855,14 @@ void GuiMenu::openSoundSettings_batocera() {
 	AudioManager::getInstance()->stopMusic();
     });
 
+  // batocera - music per system
+  auto music_per_system = std::make_shared<SwitchComponent>(mWindow);
+  music_per_system->setState(!(SystemConf::getInstance()->get("audio.persystem") == "0"));
+  s->addWithLabel(_("ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"), music_per_system);
+  s->addSaveFunc([music_per_system] {
+      SystemConf::getInstance()->set("audio.persystem", music_per_system->getState() ? "1" : "0");
+    });
+
   // disable sounds
   //auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
   //sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));

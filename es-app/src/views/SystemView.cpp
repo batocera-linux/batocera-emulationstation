@@ -13,6 +13,7 @@
 #include "ApiSystem.h"
 #include "SystemConf.h"
 #include "guis/GuiMenu.h"
+#include "AudioManager.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -298,6 +299,16 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	{
 		mSystemInfo.setOpacity((unsigned char)(Math::lerp(infoStartOpacity, 0.f, t) * 255));
 	}, (int)(infoStartOpacity * (goFast ? 10 : 150)));
+
+        // batocera - per system music folder
+        if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0")  {
+		if (getSelected()->isGameSystem()) {
+			if (AudioManager::getInstance()->getName() != getSelected()->getName()) {
+				AudioManager::getInstance()->setName(getSelected()->getName());
+				AudioManager::getInstance()->playRandomMusic(0);
+			}
+		}
+        }
 
 	unsigned int gameCount = getSelected()->getDisplayedGameCount();
 

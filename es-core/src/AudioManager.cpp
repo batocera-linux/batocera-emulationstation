@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include <unistd.h>
 #include "utils/FileSystemUtil.h"
+#include "SystemConf.h"
 
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 SDL_AudioSpec AudioManager::sAudioFormat;
@@ -169,10 +170,16 @@ void AudioManager::stop()
 	SDL_PauseAudio(1);
 }
 
+// batocera - per system music folder
+void AudioManager::setName(std::string newname) {
+        mSystem = newname;
+}
+
 // batocera
 void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files) {
     Utils::FileSystem::stringList dirContent;
     std::string extension;
+    std::string last_path;
 
     if(!Utils::FileSystem::isDirectory(path)) {
         return;
@@ -187,7 +194,14 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 	}
       } else if(Utils::FileSystem::isDirectory(*it)) {
 	if(strcmp(extension.c_str(), ".") != 0 && strcmp(extension.c_str(), "..") != 0) {
-	  getMusicIn(*it, all_matching_files);
+		// batocera - if music_per_system
+		last_path = it->substr(it->find_last_of("/") + 1);
+		if (SystemConf::getInstance()->get("audio.persystem") != "1") {
+			getMusicIn(*it, all_matching_files);
+		}
+		else if (strcmp(getName().c_str(), last_path.c_str()) == 0) {
+			getMusicIn(*it, all_matching_files);
+		}
 	}
       }
     }
