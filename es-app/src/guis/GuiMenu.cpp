@@ -77,6 +77,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   if (isFullUI)
     addEntry(_("UI SETTINGS").c_str(), 0x777777FF, true, [this] { openUISettings_batocera(); });
 
+  // batocera
+  if (isFullUI)
+    addEntry(_("GAME COLLECTION SETTINGS").c_str(), 0x777777FF, true, [this] { openCollectionSystemSettings(); });
+
   if (isFullUI)
     addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
 
@@ -100,10 +104,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
   //if (isFullUI)
   //addEntry("UI SETTINGS", 0x777777FF, true, [this] { openUISettings(); });
-
-  // batocera
-  //if (isFullUI)
-  //	addEntry("GAME COLLECTION SETTINGS", 0x777777FF, true, [this] { openCollectionSystemSettings(); });
 
   //if (isFullUI)
   //addEntry("OTHER SETTINGS", 0x777777FF, true, [this] { openOtherSettings(); });
@@ -2215,7 +2215,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     selected = selected || found;
     emu_choice->add(curEmulatorName, curEmulatorName, found);
   }
-
   emu_choice->add(_("AUTO"), "auto", !selected);
   emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData](std::string s) {
       popSpecificConfigurationGui(mWindow, title, configName, systemData, s);
