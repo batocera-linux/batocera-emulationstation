@@ -282,7 +282,7 @@ void FileData::launchGame(Window* window)
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw  = Utils::FileSystem::getPreferredPath(getPath());
 
-	command = Utils::String::replace(command, "%SYSTEM%", mSystem->getName()); // batocera
+	command = Utils::String::replace(command, "%SYSTEM%", getSourceFileData()->getSystem()->getName()); // batocera
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
