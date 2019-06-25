@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-06-25 23:19+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
 
+msgid "ADVANCED"
+msgstr ""
+
 msgid "FINISHED"
 msgstr ""
 
@@ -81,6 +84,9 @@ msgstr "KONTROLLER INSTÄLLNINGAR"
 
 msgid "UI SETTINGS"
 msgstr "GRÄNSNITTS INSTÄLLNINGAR"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "LJUD INSTÄLLNINGAR"
@@ -226,6 +232,9 @@ msgstr ""
 msgid "RETRO"
 msgstr ""
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
@@ -263,9 +272,6 @@ msgid "MD5"
 msgstr ""
 
 msgid "STATUS"
-msgstr ""
-
-msgid "ADVANCED"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -307,6 +313,15 @@ msgstr ""
 msgid "UI MODE"
 msgstr ""
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
@@ -317,6 +332,9 @@ msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "START ON SYSTEM"
+msgstr ""
+
+msgid "DISPLAY / HIDE SYSTEMS"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -387,6 +405,9 @@ msgstr "SYSTEM VOLYM"
 msgid "FRONTEND MUSIC"
 msgstr "MUSIK I MENYN"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
@@ -454,6 +475,12 @@ msgid "Core"
 msgstr ""
 
 msgid "VIDEO MODE"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
 msgstr ""
 
 msgid "INSTALL BATOCERA"
@@ -593,6 +620,21 @@ msgid ""
 msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
+msgstr ""
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
 msgstr ""
 
 msgid "SELECT THEME"

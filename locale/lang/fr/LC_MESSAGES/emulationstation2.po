@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-06 18:36+0200\n"
+"POT-Creation-Date: 2019-06-25 22:42+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,9 @@ msgstr "FILTRER"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES DONNÉES DU JEU"
 
+msgid "ADVANCED"
+msgstr "AVANCÉES"
+
 msgid "FINISHED"
 msgstr "TERMINÉ"
 
@@ -81,6 +84,9 @@ msgstr "OPTIONS MANETTES"
 
 msgid "UI SETTINGS"
 msgstr "OPTIONS DE L'INTERFACE"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "OPTIONS DES COLLECTIONS DE JEUX"
 
 msgid "SOUND SETTINGS"
 msgstr "OPTIONS DU SON"
@@ -226,6 +232,9 @@ msgstr "SCANLINES"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgid "ENHANCED"
+msgstr "AMÉLIORÉ"
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
 
@@ -264,9 +273,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "STATUT"
-
-msgid "ADVANCED"
-msgstr "AVANCÉES"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
@@ -313,6 +319,17 @@ msgstr "JOUEUR %i"
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr "Vous allez passer dans un mode restreint:\n"
+"Cela va masquer la plupart des options pour éviter des changements de configuration.\n"
+"Pour revenir au mode normal, taper le code suivant:"
+
+msgid "Do you want to proceed ?"
+msgstr "Voulez-vous continuer ?"
+
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDEO"
 
@@ -324,6 +341,9 @@ msgstr "TYPE DE VUE DES JEUX"
 
 msgid "START ON SYSTEM"
 msgstr "DÉMARRER SUR UN SYSTÈME"
+
+msgid "DISPLAY / HIDE SYSTEMS"
+msgstr "MASQUER DES SYSTÈMES"
 
 msgid "TRANSITION STYLE"
 msgstr "STYLE DE LA TRANSITION"
@@ -399,6 +419,9 @@ msgstr "VOLUME DU SYSTÈME"
 msgid "FRONTEND MUSIC"
 msgstr "MUSIQUE DE FOND"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr "JOUER SEULEMENT LES MUSIQUES SPÉCIFIQUES AUX SYSTÈMES"
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ACTIVER LES SONS DES VIDÉOS"
 
@@ -467,6 +490,12 @@ msgstr "Core"
 
 msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
+
+msgid "FULL BOOT"
+msgstr "FULL BOOT"
+
+msgid "EMULATED WIIMOTES"
+msgstr "WIIMOTES ÉMULÉES"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLER BATOCERA"
@@ -609,6 +638,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr "CHOISIR LES SYSTÈMES À AFFICHER"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "SYSTÈMES AFFICHÉS"
+
+msgid "APPLY"
+msgstr "APPLIQUER"
+
+msgid "REVERT"
+msgstr "ANNULER"
+
+msgid "VALIDATE"
+msgstr "VALIDER"
 
 msgid "SELECT THEME"
 msgstr "SÉLECTIONNER UN THÈME"

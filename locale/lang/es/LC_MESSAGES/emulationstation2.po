@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:18+0200\n"
+"POT-Creation-Date: 2019-06-25 23:19+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,9 @@ msgstr "FILTRO DE JUEGOS"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR LA INFORMACION DE ESTE JUEGO"
 
+msgid "ADVANCED"
+msgstr "AVANZADO"
+
 msgid "FINISHED"
 msgstr "TERMINADO"
 
@@ -81,6 +84,9 @@ msgstr "CONFIGURACIÓN DE MANDOS"
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "CONFIGURACIÓN DE AUDIO"
@@ -226,6 +232,9 @@ msgstr "LÍNEAS"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
 
@@ -264,9 +273,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "ESTADO"
-
-msgid "ADVANCED"
-msgstr "AVANZADO"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
@@ -312,6 +318,15 @@ msgstr "ENTRADA P%i"
 msgid "UI MODE"
 msgstr "MODO GUI"
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "SALIDA DE VIDEO"
 
@@ -323,6 +338,9 @@ msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "START ON SYSTEM"
 msgstr "INICIAR EN SYSTEMA"
+
+msgid "DISPLAY / HIDE SYSTEMS"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "TIPO DE TRANSICIÓN"
@@ -398,6 +416,9 @@ msgstr "VOLUMEN DEL SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FONDO"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ACTIVAR AUDIO DE VIDEO"
 
@@ -466,6 +487,12 @@ msgstr "NÚCLEO"
 
 msgid "VIDEO MODE"
 msgstr "MODO DE VIDEO"
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALAR BATOCERA"
@@ -611,6 +638,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr "SELECCIONAR TEMA"

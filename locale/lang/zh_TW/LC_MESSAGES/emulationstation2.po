@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-06-25 23:19+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "編輯此遊戲的簡介資料"
 
+msgid "ADVANCED"
+msgstr "進階設定"
+
 msgid "FINISHED"
 msgstr ""
 
@@ -81,6 +84,9 @@ msgstr "控制器設定"
 
 msgid "UI SETTINGS"
 msgstr "用戶界面設定"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "聲音設定"
@@ -226,6 +232,9 @@ msgstr "掃描線"
 msgid "RETRO"
 msgstr "復古"
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
@@ -264,9 +273,6 @@ msgstr ""
 
 msgid "STATUS"
 msgstr "目前狀態"
-
-msgid "ADVANCED"
-msgstr "進階設定"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "確定要進行遊戲列表更新嗎?"
@@ -312,6 +318,15 @@ msgstr "輸入 P%i"
 msgid "UI MODE"
 msgstr ""
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
@@ -322,6 +337,9 @@ msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "START ON SYSTEM"
+msgstr ""
+
+msgid "DISPLAY / HIDE SYSTEMS"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -392,6 +410,9 @@ msgstr "系統音量"
 msgid "FRONTEND MUSIC"
 msgstr "系統背景音樂"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
@@ -459,6 +480,12 @@ msgid "Core"
 msgstr "核心"
 
 msgid "VIDEO MODE"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
 msgstr ""
 
 msgid "INSTALL BATOCERA"
@@ -599,6 +626,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "沒有符合的遊戲。"
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr ""
