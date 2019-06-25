@@ -22,7 +22,7 @@ GuiSystemsHide::GuiSystemsHide(Window* window) : GuiComponent(window),
 	{
 		mSystems->add((*it)->getFullName(), *it, (SystemConf::getInstance()->get((*it)->getName() + ".hide") != "1"));
 	}
-	mMenu.addWithLabel(_("SELECT SYSTEMS TO BE DISPLAYED"), mSystems);
+	mMenu.addWithLabel(_("SELECT SYSTEMS TO DISPLAY"), mSystems);
 
 	mMenu.addButton(_("APPLY"), "apply", std::bind(&GuiSystemsHide::Apply, this));
 	mMenu.addButton(_("REVERT"), "back", [&] { delete this; });
@@ -45,9 +45,6 @@ void GuiSystemsHide::Apply()
 		Settings::getInstance()->setBool((*it)->getName()+".hide", (value_cfg_hidden == "1"));
 	}
 	SystemConf::getInstance()->saveSystemConf();
-	mWindow->pushGui(new GuiMsgBox(mWindow, 
-		_("RETURN TO THIS CONFIGURATION SCREEN IN 'UI SETTINGS' TO RE-ENABLE HIDDEN SYSTEMS"),  // batocera
-		_("OK"), nullptr)); // batocera
 	delete this;
 	// refresh GUI
 	ViewController::get()->reloadAll();

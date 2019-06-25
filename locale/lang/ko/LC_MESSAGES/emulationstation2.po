@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-26 19:13+0200\n"
+"POT-Creation-Date: 2019-06-25 23:19+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr "게임리스트 필터"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
+msgid "ADVANCED"
+msgstr "고급"
+
 msgid "FINISHED"
 msgstr "완료"
 
@@ -81,6 +84,9 @@ msgstr "컨트롤러 설정"
 
 msgid "UI SETTINGS"
 msgstr "사용자 인터페이스 설정"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "사운드 설정"
@@ -226,6 +232,9 @@ msgstr "스캔 라인"
 msgid "RETRO"
 msgstr "레트로"
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
@@ -264,9 +273,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "상태"
-
-msgid "ADVANCED"
-msgstr "고급"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
@@ -311,6 +317,15 @@ msgstr "입력 P%i"
 msgid "UI MODE"
 msgstr "UI 모드"
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"
 
@@ -322,6 +337,9 @@ msgstr "게임리스트 정렬방법"
 
 msgid "START ON SYSTEM"
 msgstr "시스템 착수하기"
+
+msgid "DISPLAY / HIDE SYSTEMS"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
@@ -394,6 +412,9 @@ msgstr "시스템 음량"
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr "비디오 오디오 활성화"
 
@@ -462,6 +483,12 @@ msgstr "코어"
 
 msgid "VIDEO MODE"
 msgstr "비디오 모드"
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "바투세라 설치"
@@ -605,6 +632,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr "테마 선택"

@@ -1551,29 +1551,17 @@ void GuiMenu::openUISettings_batocera() {
 		   std::string selectedMode = UImodeSelection->getSelected();
 		   if (selectedMode != "Full")
 		     {
-		       std::string msg = "You are changing the UI to a restricted mode:\n" + selectedMode + "\n";
-		       msg += "This will hide most menu-options to prevent changes to the system.\n";
-		       msg += "To unlock and return to the full UI, enter this code: \n";
+		       std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
 		       msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-		       msg += "Do you want to proceed?";
+		       msg += _("Do you want to proceed ?");
 		       window->pushGui(new GuiMsgBox(window, msg, 
-						     "YES", [selectedMode] {
+						     _("YES"), [selectedMode] {
 						       LOG(LogDebug) << "Setting UI mode to " << selectedMode;
 						       Settings::getInstance()->setString("UIMode", selectedMode);
 						       Settings::getInstance()->saveFile();
-						     }, "NO",nullptr));
+						     }, _("NO") ,nullptr));
 		     }
 		 });
-  // Batocera: select systems to hide
-  auto openSystemsHideNow = [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); };
-  ComponentListRow rowHide;
-  rowHide.makeAcceptInputHandler(openSystemsHideNow);
-  auto SystemsHideSettings = std::make_shared<TextComponent>(mWindow, _("DISPLAY / HIDE SYSTEMS"),
-		  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-  auto bracket = makeArrow(mWindow);
-  rowHide.addElement(SystemsHideSettings, true);
-  rowHide.addElement(bracket, false);
-  s->addRow(rowHide);
 
   // video device
   auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
@@ -1664,6 +1652,17 @@ void GuiMenu::openUISettings_batocera() {
   s->addSaveFunc([systemfocus_list] {
       Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
     });
+
+  // Batocera: select systems to hide
+  auto openSystemsHideNow = [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); };
+  ComponentListRow rowHide;
+  rowHide.makeAcceptInputHandler(openSystemsHideNow);
+  auto SystemsHideSettings = std::make_shared<TextComponent>(mWindow, _("DISPLAY / HIDE SYSTEMS"),
+		  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+  auto bracket = makeArrow(mWindow);
+  rowHide.addElement(SystemsHideSettings, true);
+  rowHide.addElement(bracket, false);
+  s->addRow(rowHide);
 
   // transition style
   auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
