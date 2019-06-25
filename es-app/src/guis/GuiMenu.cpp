@@ -2257,6 +2257,64 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".autosave") == "0");
   systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
+  // Shaders preset
+  auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
+									     false);
+  std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
+  if (currentShader.empty()) {
+    currentShader = std::string("auto");
+  }
+
+  shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
+  shaders_choices->add(_("NONE"), "none", currentShader == "none");
+  shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
+  shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
+  shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
+  systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
+
+  // Integer scale
+  auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+  integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
+  integerscale_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".integerscale") == "1");
+  integerscale_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".integerscale") == "0");
+  systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+  systemConfiguration->addSaveFunc([integerscale_enabled, configName] {
+      if(integerscale_enabled->changed()) {
+	SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected());
+	SystemConf::getInstance()->saveSystemConf();
+      }
+    });
+
+  // decorations
+  {
+    auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+    std::vector<std::string> decorations_item;
+    decorations_item.push_back(_("AUTO"));
+    decorations_item.push_back(_("NONE"));
+
+    std::vector<std::string> sets = GuiMenu::getDecorationsSets();
+    for(auto it = sets.begin(); it != sets.end(); it++) {
+      decorations_item.push_back(*it);
+    }
+
+    for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+      decorations->add(*it, *it,
+		       (SystemConf::getInstance()->get(configName + ".bezel") == *it)
+		       ||
+		       (SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
+		       ||
+		       (SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
+		       );
+    }
+    systemConfiguration->addWithLabel(_("DECORATION"), decorations);
+    systemConfiguration->addSaveFunc([decorations, configName] {
+	if(decorations->changed()) {
+	  SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+	  SystemConf::getInstance()->saveSystemConf();
+	}
+      });
+  }
+  
   // ps2 full boot
   auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
   fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
@@ -2274,7 +2332,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled, emulatedwiimotes_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, fullboot_enabled, emulatedwiimotes_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2289,6 +2347,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     }
 				     if(autosave_enabled->changed()) {
 				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
+				     }
+				     if(shaders_choices->changed()) {
+				       SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
 				     }
 				     if(fullboot_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());

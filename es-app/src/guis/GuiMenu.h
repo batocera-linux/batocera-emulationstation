@@ -73,7 +73,7 @@ private:
 
 	std::vector<StrInputConfig*> mLoadedInput; // used to keep information about loaded devices in case there are unpluged between device window load and save
 	void clearLoadedInput();
-	std::vector<std::string> getDecorationsSets();
+	static std::vector<std::string> getDecorationsSets();
 };
 
 #endif // ES_APP_GUIS_GUI_MENU_H
