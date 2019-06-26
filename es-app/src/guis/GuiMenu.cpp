@@ -2320,6 +2320,72 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
       });
   }
+
+  // gameboy colorize
+  auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
+  std::string currentColorization = SystemConf::getInstance()->get(configName + ".colorization");
+  if (currentColorization.empty()) {
+    currentColorization = std::string("auto");
+  }
+  colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
+  colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
+
+  const char* all_gambate_gc_colors_modes[] = {"GB - DMG",
+					       "GB - Light",
+					       "GB - Pocket",
+					       "GBC - Blue",
+					       "GBC - Brown",
+					       "GBC - Dark Blue",
+					       "GBC - Dark Brown",
+					       "GBC - Dark Green",
+					       "GBC - Grayscale",
+					       "GBC - Green",
+					       "GBC - Inverted",
+					       "GBC - Orange",
+					       "GBC - Pastel Mix",
+					       "GBC - Red",
+					       "GBC - Yellow",
+					       "SGB - 1A",
+					       "SGB - 1B",
+					       "SGB - 1C",
+					       "SGB - 1D",
+					       "SGB - 1E",
+					       "SGB - 1F",
+					       "SGB - 1G",
+					       "SGB - 1H",
+					       "SGB - 2A",
+					       "SGB - 2B",
+					       "SGB - 2C",
+					       "SGB - 2D",
+					       "SGB - 2E",
+					       "SGB - 2F",
+					       "SGB - 2G",
+					       "SGB - 2H",
+					       "SGB - 3A",
+					       "SGB - 3B",
+					       "SGB - 3C",
+					       "SGB - 3D",
+					       "SGB - 3E",
+					       "SGB - 3F",
+					       "SGB - 3G",
+					       "SGB - 3H",
+					       "SGB - 4A",
+					       "SGB - 4B",
+					       "SGB - 4C",
+					       "SGB - 4D",
+					       "SGB - 4E",
+					       "SGB - 4F",
+					       "SGB - 4G",
+					       "SGB - 4H",
+					       "Special 1",
+					       "Special 2",
+					       "Special 3" };
+  int n_all_gambate_gc_colors_modes = 50;
+  for(int i=0; i<n_all_gambate_gc_colors_modes; i++) {
+    colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
+  }
+  if(systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players") // only for gb, gbc and gb2players
+    systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
   
   // ps2 full boot
   auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
@@ -2338,7 +2404,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, fullboot_enabled, emulatedwiimotes_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2357,6 +2423,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     if(shaders_choices->changed()) {
 				       SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
 				     }
+				     if(colorizations_choices->changed()){
+				       SystemConf::getInstance()->set(configName + ".colorization", colorizations_choices->getSelected());
+				     }
+
 				     if(fullboot_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
 				     }

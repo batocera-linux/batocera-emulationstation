@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 23:19+0200\n"
+"POT-Creation-Date: 2019-06-26 22:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: \n"
@@ -489,6 +489,9 @@ msgstr "Ядро"
 
 msgid "VIDEO MODE"
 msgstr "ВИДЕО РЕЖИМ"
+
+msgid "COLORIZATION"
+msgstr ""
 
 msgid "FULL BOOT"
 msgstr ""

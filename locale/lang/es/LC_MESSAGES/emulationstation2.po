@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 23:19+0200\n"
+"POT-Creation-Date: 2019-06-26 22:55+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -487,6 +487,9 @@ msgstr "NÚCLEO"
 
 msgid "VIDEO MODE"
 msgstr "MODO DE VIDEO"
+
+msgid "COLORIZATION"
+msgstr ""
 
 msgid "FULL BOOT"
 msgstr ""
