@@ -125,10 +125,12 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	      }
 	    }
 
+	  if(mRoot->getSystem()->getName() != "favorites") { // batocera
 		for (auto it = files.cbegin(); it != files.cend(); it++)
 		{
 			mGrid.add((*it)->getName(), (*it)->getThumbnailPath(), *it);
 		}
+	  }
 	}
 	else
 	{

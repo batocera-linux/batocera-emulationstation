@@ -53,10 +53,14 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		mList.add("\uF006 " + (*it)->getName(), *it, ((*it)->getType() == FOLDER));
 	      }
 	    }
+
+	  if(mRoot->getSystem()->getName() != "favorites") { // batocera
+
 		for(auto it = files.cbegin(); it != files.cend(); it++)
 		{
 			mList.add((*it)->getName(), *it, ((*it)->getType() == FOLDER));
 		}
+	  }
 	}
 	else
 	{
