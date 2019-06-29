@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:55+0200\n"
+"POT-Creation-Date: 2019-06-29 10:47+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -502,6 +502,36 @@ msgstr "FULL BOOT"
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES ÉMULÉES"
 
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr "CRÉER UNE NOUVELLE COLLECTION DEPUIS UN THÈME"
+
+msgid "SELECT THEME FOLDER"
+msgstr "CHOISIR LE DOSSIER DU THÈME"
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr "CRÉER UNE NOUVELLE COLLECTION"
+
+msgid "New Collection Name"
+msgstr "Nom de la collection"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "GROUPER LES COLLECTIONS SANS THÈME"
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr "CLASSER LES COLLECTIONS AVEC LES SYSTÈMES"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr "FINIR L'ÉDITION DE LA COLLECTION"
+
+msgid "SELECT COLLECTIONS"
+msgstr "CHOISIR LES COLLECTIONS"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "COLLECTIONS AUTOMATIQUES"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "COLLECTIONS PERSONNALISÉES"
+
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLER BATOCERA"
 
@@ -850,6 +880,18 @@ msgstr "Terminé."
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
+
+msgid "all games"
+msgstr "tous les jeux"
+
+msgid "last played"
+msgstr "derniers joués"
+
+msgid "favorites"
+msgstr "favoris"
+
+msgid "collections"
+msgstr "collections"
 
 #, c-format
 msgid "Added '%s' to '%s'"
