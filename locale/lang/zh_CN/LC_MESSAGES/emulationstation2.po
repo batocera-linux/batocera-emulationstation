@@ -634,6 +634,18 @@ msgstr "小标题使用设备兼容的低分辨率"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "屏保拉伸显示"
 
+msgid "GAME INFO ALIGNMENT"
+msgstr ""
+
+msgid "GAME INFO FONT SIZE"
+msgstr ""
+
+msgid "PATH TO FONT FILE"
+msgstr ""
+
+msgid "PATH TO ITALIC FONT FILE"
+msgstr ""
+
 msgid "SCRAPE THESE GAMES"
 msgstr "抓取游戏元数据"
 

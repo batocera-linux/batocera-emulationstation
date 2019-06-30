@@ -625,6 +625,18 @@ msgstr ""
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr ""
 
+msgid "GAME INFO ALIGNMENT"
+msgstr ""
+
+msgid "GAME INFO FONT SIZE"
+msgstr ""
+
+msgid "PATH TO FONT FILE"
+msgstr ""
+
+msgid "PATH TO ITALIC FONT FILE"
+msgstr ""
+
 msgid "SCRAPE THESE GAMES"
 msgstr "搜刮這些遊戲"
 

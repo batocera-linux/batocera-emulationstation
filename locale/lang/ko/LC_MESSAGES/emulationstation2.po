@@ -630,6 +630,18 @@ msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "화면보호기에 비디오 늘이기"
 
+msgid "GAME INFO ALIGNMENT"
+msgstr ""
+
+msgid "GAME INFO FONT SIZE"
+msgstr ""
+
+msgid "PATH TO FONT FILE"
+msgstr ""
+
+msgid "PATH TO ITALIC FONT FILE"
+msgstr ""
+
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들을 수집"
 
