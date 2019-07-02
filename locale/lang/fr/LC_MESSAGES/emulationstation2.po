@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-29 10:47+0200\n"
+"POT-Creation-Date: 2019-07-02 18:54+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -889,6 +889,12 @@ msgstr "derniers joués"
 
 msgid "favorites"
 msgstr "favoris"
+
+msgid "2 players"
+msgstr "2 joueurs"
+
+msgid "4 players"
+msgstr "4 joueurs"
 
 msgid "collections"
 msgstr "collections"

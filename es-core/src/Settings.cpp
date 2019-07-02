@@ -147,7 +147,7 @@ void Settings::setDefaults()
 	mBoolMap["CaptionsCompatibility"] = true;
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";
-	mStringMap["CollectionSystemsAuto"] = "favorites,recent"; // batocera
+	mStringMap["CollectionSystemsAuto"] = "2players,4players,favorites,recent"; // batocera
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; // batocera
 	mBoolMap["UseCustomCollectionsSystem"] = true;

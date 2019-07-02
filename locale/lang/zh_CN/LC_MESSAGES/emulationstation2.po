@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-29 10:47+0200\n"
+"POT-Creation-Date: 2019-07-02 18:55+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -885,6 +885,12 @@ msgstr ""
 msgid "favorites"
 msgstr ""
 
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
 msgid "collections"
 msgstr ""
 
@@ -1044,13 +1050,6 @@ msgstr "进行中..."
 
 #~ msgid "SAVE"
 #~ msgstr "保存"
-
-#~ msgid ""
-#~ "THIS WILL DELETE A FILE!\n"
-#~ "ARE YOU SURE?"
-#~ msgstr ""
-"将要删除文件!\n"
-"是否继续?"
 
 #~ msgid "enter emulator"
 #~ msgstr "输入模拟器"
