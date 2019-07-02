@@ -30,6 +30,8 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 	  { AUTO_ALL_GAMES,       "all",          _("all games"),         "filename, ascending",      "auto-allgames",           false },
 	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       "last played, descending",  "auto-lastplayed",         false },
 	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         "filename, ascending",      "auto-favorites",          false },
+	  { AUTO_AT2PLAYERS,      "2players",   _("2 players"),         "filename, ascending",      "auto-at2players",          false }, // batocera
+	  { AUTO_AT4PLAYERS,      "4players",   _("4 players"),         "filename, ascending",      "auto-at4players",          false }, // batocera
 	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),    "filename, ascending",      "custom-collections",      true }
 	};
 
@@ -724,6 +726,13 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						// we may still want to add files we don't want in auto collections in "favorites"
 						include = (*gameIt)->metadata.get("favorite") == "true";
 						break;
+					case AUTO_AT2PLAYERS: // batocera
+					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 2;
+					  break;
+					case AUTO_AT4PLAYERS: // batocera
+					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 4;
+					  break;
+
 				}
 
 				if (include) {
