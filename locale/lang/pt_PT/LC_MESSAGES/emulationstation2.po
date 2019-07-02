@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 18:54+0200\n"
+"POT-Creation-Date: 2019-07-02 21:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -60,6 +60,9 @@ msgstr "ORDENAR JOGOS POR"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTRAR GAMELIST"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -514,9 +517,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 18:54+0200\n"
+"POT-Creation-Date: 2019-07-02 21:41+0200\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,6 +56,9 @@ msgid "SORT GAMES BY"
 msgstr ""
 
 msgid "FILTER GAMELIST"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
@@ -502,9 +505,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"

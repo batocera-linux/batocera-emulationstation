@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 18:54+0200\n"
+"POT-Creation-Date: 2019-07-02 21:41+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,6 +57,9 @@ msgstr "다음으로 게임 정렬"
 
 msgid "FILTER GAMELIST"
 msgstr "게임리스트 필터"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
@@ -509,9 +512,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"

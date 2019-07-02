@@ -26,7 +26,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	// add "Create New Custom Collection from Theme"
 
 	std::vector<std::string> unusedFolders = CollectionSystemManager::get()->getUnusedSystemsFromTheme();
-	if (unusedFolders.size() > 0)
+	if (unusedFolders.size() > 0 && false) // batocera
 	{
 	  addEntry(_("CREATE NEW CUSTOM COLLECTION FROM THEME").c_str(), 0x777777FF, true,
 		[this, unusedFolders] {

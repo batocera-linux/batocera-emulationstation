@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 18:54+0200\n"
+"POT-Creation-Date: 2019-07-02 21:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: \n"
@@ -61,6 +61,9 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
 msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
@@ -515,9 +518,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"

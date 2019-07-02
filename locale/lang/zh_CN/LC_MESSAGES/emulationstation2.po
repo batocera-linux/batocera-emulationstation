@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 18:55+0200\n"
+"POT-Creation-Date: 2019-07-02 21:41+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,6 +57,9 @@ msgstr "游戏排序方式"
 
 msgid "FILTER GAMELIST"
 msgstr "筛选游戏"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的元数据"
@@ -514,9 +517,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
