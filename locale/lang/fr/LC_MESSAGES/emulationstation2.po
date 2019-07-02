@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 21:41+0200\n"
+"POT-Creation-Date: 2019-07-02 22:17+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -517,12 +517,6 @@ msgstr "CRÉER UNE NOUVELLE COLLECTION"
 msgid "New Collection Name"
 msgstr "Nom de la collection"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GROUPER LES COLLECTIONS SANS THÈME"
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "CLASSER LES COLLECTIONS AVEC LES SYSTÈMES"
-
 msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
 
@@ -1035,3 +1029,9 @@ msgstr "CHANGER"
 
 msgid "WORKING..."
 msgstr "EN COURS..."
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "CLASSER LES COLLECTIONS AVEC LES SYSTÈMES"

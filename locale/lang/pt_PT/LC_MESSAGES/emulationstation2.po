@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 21:41+0200\n"
+"POT-Creation-Date: 2019-07-02 22:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -511,12 +511,6 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr ""
 
 msgid "New Collection Name"
-msgstr ""
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
