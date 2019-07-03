@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 22:17+0200\n"
+"POT-Creation-Date: 2019-07-03 23:38+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,9 @@ msgstr "TRIER LES JEUX PAR"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTRER"
+
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "FINIR L'ÉDITION DE LA COLLECTION"
@@ -893,6 +896,12 @@ msgstr "4 joueurs"
 msgid "collections"
 msgstr "collections"
 
+msgid "Editing the collection. Add/remove games with Y."
+msgstr "Edition de la collection. Ajouter/supprimer des jeux avec Y."
+
+msgid "Finished editing the collection."
+msgstr "Fin de l'édition de la collection."
+
 #, c-format
 msgid "Added '%s' to '%s'"
 msgstr "'%s' ajouté à '%s'"
@@ -1030,8 +1039,8 @@ msgstr "CHANGER"
 msgid "WORKING..."
 msgstr "EN COURS..."
 
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "TRIER LES COLLECTIONS AVEC LES SYSTÈMES"
+
 #~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 #~ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
-
-#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-#~ msgstr "CLASSER LES COLLECTIONS AVEC LES SYSTÈMES"

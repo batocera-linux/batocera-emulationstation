@@ -73,7 +73,7 @@ public:
 	void exitEditMode();
 	inline bool isEditing() { return mIsEditingCustom; };
 	inline std::string getEditingCollection() { return mEditingCollection; };
-	bool toggleGameInCollection(FileData* file, bool& adding); // batocera
+	bool toggleGameInCollection(FileData* file);
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);

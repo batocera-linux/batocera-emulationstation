@@ -1320,14 +1320,15 @@ void GuiMenu::openGamesSettings_batocera() {
 					[this, window] {
 					  ViewController::get()->goToStart();
 					  delete ViewController::get();
-					  SystemData::deleteSystems();
+					  ViewController::init(window);
+					  CollectionSystemManager::deinit();
+					  CollectionSystemManager::init(window);
 					  SystemData::loadConfig();
 					  GuiComponent *gui;
 					  while ((gui = window->peekGui()) != NULL) {
 					    window->removeGui(gui);
 					    delete gui;
 					  }
-					  ViewController::init(window);
 					  ViewController::get()->reloadAll();
 					  window->pushGui(ViewController::get());
 					}, _("NO"), nullptr));

@@ -172,7 +172,7 @@ void GuiCollectionSystemsOptions::applySettings()
 	std::string outCustom = Utils::String::vectorToCommaString(customOptionList->getSelectedObjects());
 	std::string prevCustom = Settings::getInstance()->getString("CollectionSystemsCustom");
 	bool outSort = sortAllSystemsSwitch->getState();
-	bool prevSort = /*Settings::getInstance()->getBool("SortAllSystems"); batocera */ false;
+	bool prevSort = Settings::getInstance()->getBool("SortAllSystems");
 	bool outBundle = bundleCustomCollections->getState();
 	bool prevBundle = Settings::getInstance()->getBool("UseCustomCollectionsSystem");
 	bool needUpdateSettings = prevAuto != outAuto || prevCustom != outCustom || outSort != prevSort || outBundle != prevBundle;
