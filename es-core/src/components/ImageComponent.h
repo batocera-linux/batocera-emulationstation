@@ -55,6 +55,8 @@ public:
 
 	// Multiply all pixels in the image by this color when rendering.
 	void setColorShift(unsigned int color);
+	void setColorShiftEnd(unsigned int color);
+	void setColorGradientHorizontal(bool horizontal);
 	virtual void setColor(unsigned int color) { setColorShift(color); }
 
 	void setFlipX(bool flip); // Mirror on the X axis.
@@ -90,6 +92,8 @@ private:
 	void fadeIn(bool textureLoaded);
 
 	unsigned int mColorShift;
+	unsigned int mColorShiftEnd;
+	bool mColorGradientHorizontal;
 
 	std::string mDefaultPath;
 
