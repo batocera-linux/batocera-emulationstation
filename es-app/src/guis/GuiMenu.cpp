@@ -1282,21 +1282,21 @@ void GuiMenu::openGamesSettings_batocera() {
 	// For each activated system
 	std::vector<SystemData *> systems = SystemData::sSystemVector;
 	for (auto system = systems.begin(); system != systems.end(); system++) {
-	  //if ((*system) != SystemData::getFavoriteSystem()) {
-	  ComponentListRow systemRow;
-	  auto systemText = std::make_shared<TextComponent>(mWindow, (*system)->getFullName(),
-							    Font::get(FONT_SIZE_MEDIUM),
-							    0x777777FF);
-	  auto bracket = makeArrow(mWindow);
-	  systemRow.addElement(systemText, true);
-	  systemRow.addElement(bracket, false);
-	  SystemData *systemData = (*system);
-	  systemRow.makeAcceptInputHandler([this, systemData] {
-	      popSystemConfigurationGui(mWindow, systemData, "");
-	    });
-	  configuration->addRow(systemRow);
+	  if((*system)->isCollection() == false) {
+	    ComponentListRow systemRow;
+	    auto systemText = std::make_shared<TextComponent>(mWindow, (*system)->getFullName(),
+							      Font::get(FONT_SIZE_MEDIUM),
+							      0x777777FF);
+	    auto bracket = makeArrow(mWindow);
+	    systemRow.addElement(systemText, true);
+	    systemRow.addElement(bracket, false);
+	    SystemData *systemData = (*system);
+	    systemRow.makeAcceptInputHandler([this, systemData] {
+		popSystemConfigurationGui(mWindow, systemData, "");
+	      });
+	    configuration->addRow(systemRow);
+	  }
 	}
-	//}
 	mWindow->pushGui(configuration);
 
       };
