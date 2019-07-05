@@ -2324,7 +2324,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
   // gameboy colorize
   auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
-  std::string currentColorization = SystemConf::getInstance()->get(configName + ".colorization");
+  std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
   if (currentColorization.empty()) {
     currentColorization = std::string("auto");
   }
@@ -2425,7 +2425,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				       SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
 				     }
 				     if(colorizations_choices->changed()){
-				       SystemConf::getInstance()->set(configName + ".colorization", colorizations_choices->getSelected());
+				       SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
 				     }
 
 				     if(fullboot_enabled->changed()){
