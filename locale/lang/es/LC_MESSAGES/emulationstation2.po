@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "REALLY UPDATE?"
-msgstr "¿ESTAS SEGURO DE ACTUALIZAR EL SISTEMA?"
+msgstr "¿ESTAS SEGURO DE ACTUALIZAR?"
 
 msgid "YES"
 msgstr "SÍ"
@@ -20,7 +20,7 @@ msgid "NO"
 msgstr "NO"
 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "SE NECESITA UNA CONEXIÓN DE RED"
+msgstr "ES NECESARIA UNA CONEXION DE RED"
 
 msgid "OK"
 msgstr "OK"
@@ -59,10 +59,10 @@ msgid "FILTER GAMELIST"
 msgstr "FILTRO DE JUEGOS"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "AGREGAR / REMOVER JUEGOS A ESTA COLECCION"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "EDICION DE COLECCION FINALIZADA"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR LA INFORMACION DE ESTE JUEGO"
@@ -92,7 +92,7 @@ msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "CONFIGURACION DE LAS COLECCIONES"
 
 msgid "SOUND SETTINGS"
 msgstr "CONFIGURACIÓN DE AUDIO"
@@ -152,7 +152,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ERROR EN LA CREACION DEL ARCHIVO"
 
 msgid "CREATE A SUPPORT FILE"
-msgstr "GENERAR UN ARCHIVO DE SOPORTE"
+msgstr "CREAR UN ARCHIVO DE SOPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ALMACENAMIENTO"
@@ -176,7 +176,7 @@ msgid "START UPDATE"
 msgstr "EMPEZAR ACTUALIZACIÓN"
 
 msgid "BACKUP USER DATA"
-msgstr "RESPALDO DE LA INFORMACION DEL USUARIO"
+msgstr "RESPALDAR INFORMACION DEL USUARIO"
 
 msgid "KODI SETTINGS"
 msgstr "CONFIGURACIÓN DE KODI"
@@ -239,7 +239,7 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "MEJORADO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
@@ -329,9 +329,12 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"Estas cambiando del modo GUI al modo restringido:\n"
+"Esto ocultara la mayoria de las opciones para prevenir cambios en el sistema.\n"
+"para desbloquear y regresar al modo GUI completo, ingresa el siguiente codigo:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "QUIERES CONTINUAR?"
 
 msgid "VIDEO OUTPUT"
 msgstr "SALIDA DE VIDEO"
@@ -343,10 +346,10 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "START ON SYSTEM"
-msgstr "INICIAR EN SYSTEMA"
+msgstr "INICIAR EN SISTEMA"
 
 msgid "DISPLAY / HIDE SYSTEMS"
-msgstr ""
+msgstr "MOSTRAR / OCULTAR SISTEMAS"
 
 msgid "TRANSITION STYLE"
 msgstr "TIPO DE TRANSICIÓN"
@@ -423,7 +426,7 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FONDO"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "SOLAMENTE REPRODUCIR LA CARPETA ESPECIFICA DE MUSICA"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ACTIVAR AUDIO DE VIDEO"
@@ -495,34 +498,34 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VIDEO"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "COLORIZACION"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "ARRANQUE COMPLETO"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "WII MOTES EMULADOS"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "CREAR NUEVA COLECCION PARA EL TEMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "SELECCIONA LA CARPETA DEL TEMA"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "CREAR NUEVA COLECCION PERSONALIZADA"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "NOMBRE DE LA COLECCION"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "SELECCION DE COLECCIONES"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "COLECCIONES DE JUEGOS AUTOMATICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "COLECCIONES DE JUEGOS PERSONALIZADAS"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALAR BATOCERA"
@@ -575,9 +578,9 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
-"NO HEMOS PODIDO ENCONTRAR NINGUN SYSEMA!/ASCONFIRMA DE QUE LA CONFIGURACIÓN "
-"DE LAS RUTAS SEAN CORRECTA EN EL FICHERO DE CONFIGURACIÓN, yQUE LA CARPETA "
-"DE TUS JUEGOS CONTENGA POR LO MENOS 1 JUEGO CON LA EXTENSIÓN CORRECTA"
+"NO SE HA PODIDO ENCONTRAR NINGUN SISTEMA!\n"
+"CONFIRMA DE QUE LA CONFIGURACIÓN DE LAS RUTAS SEAN CORRECTA EN EL FICHERO DE CONFIGURACIÓN, Y"
+"QUE LA CARPETA DE TUS JUEGOS CONTENGA POR LO MENOS 1 JUEGO CON LA EXTENSIÓN CORRECTA"
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -670,19 +673,19 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "SELECCIONA LOS EMULADORES A MOSTRAR"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "EMULADORES MOSTRADOS"
 
 msgid "APPLY"
-msgstr ""
+msgstr "APLICAR"
 
 msgid "REVERT"
-msgstr ""
+msgstr "REVERTIR"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "VALIDAR"
 
 msgid "SELECT THEME"
 msgstr "SELECCIONAR TEMA"
@@ -877,28 +880,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACION DISPONIBLE"
 
 msgid "all games"
-msgstr ""
+msgstr "TODOS LOS JUEGOS"
 
 msgid "last played"
-msgstr ""
+msgstr "ULTIMA VEZ JUGADO"
 
 msgid "favorites"
-msgstr ""
+msgstr "FAVORITOS"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 JUGADORES"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 JUGADORES"
 
 msgid "collections"
-msgstr ""
+msgstr "COLECCIONES"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "EDITANDO COLECCION. AGREGA/QUITA JUEGOS CON Y"
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "EDICION DE COLECCION TERMINADA"
 
 #, c-format
 msgid "Added '%s' to '%s'"
