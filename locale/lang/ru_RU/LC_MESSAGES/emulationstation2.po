@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 23:38+0200\n"
+"POT-Creation-Date: 2019-07-07 22:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: \n"
@@ -515,6 +515,12 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr ""
 
 msgid "New Collection Name"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
