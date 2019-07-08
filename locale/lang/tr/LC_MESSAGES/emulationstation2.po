@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-07-03 23:38+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,17 @@ msgstr "OYUNA GÖRE SIRALA"
 msgid "FILTER GAMELIST"
 msgstr "OYUN LÝSTESÝ FÝLTRE"
 
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "OYUN BÝLGÝLERÝNÝ DÜZENLE"
+
+msgid "ADVANCED"
+msgstr "GELÝÞMÝÞ"
 
 msgid "FINISHED"
 msgstr "BÝTTÝ"
@@ -81,6 +90,9 @@ msgstr "KUMANDA AYARLARI"
 
 msgid "UI SETTINGS"
 msgstr "ARABÝRÝM AYARLARI"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "SES AYARLARI"
@@ -191,7 +203,8 @@ msgid "ROOT PASSWORD"
 msgstr "ROOT PAROLASI"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "YENÝ YAPILANDIRMANIN UYGULANMASI ÝÇÝN SÝSTEMÝN TEKRAR BAÞLATILMASI GEREKÝR"
+msgstr ""
+"YENÝ YAPILANDIRMANIN UYGULANMASI ÝÇÝN SÝSTEMÝN TEKRAR BAÞLATILMASI GEREKÝR"
 
 msgid "GAME RATIO"
 msgstr "GÖRÜNTÜ ORANI"
@@ -225,6 +238,9 @@ msgstr "SCANLINES"
 
 msgid "RETRO"
 msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ENTEGER ÖLÇEÐÝ (PÝKSEL MÜKEMMEL)"
@@ -264,9 +280,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "DURUM"
-
-msgid "ADVANCED"
-msgstr "GELÝÞMÝÞ"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "OYUN LÝSTESÝ GÜNCELLENSÝN MÝ?"
@@ -311,6 +324,15 @@ msgstr "GÝRDÝ P%i"
 msgid "UI MODE"
 msgstr "KULLANICI ARAYÜZÜ"
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "VÝDEO ÇIKIÞI"
 
@@ -323,6 +345,9 @@ msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
 msgid "START ON SYSTEM"
 msgstr "SÝSTEMÝ BAÞLAT"
 
+msgid "DISPLAY / HIDE SYSTEMS"
+msgstr ""
+
 msgid "TRANSITION STYLE"
 msgstr "GEÇÝÞ STÝLÝ"
 
@@ -332,22 +357,18 @@ msgstr "EKRAN KORUYUCU"
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "EKRAN KORUYUCU DAVRANIÞI"
 
-msgid 
+msgid ""
 "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
-
-
-
-msgstr 
+msgstr ""
 "THE \"RASGELE VIDEO \" EKRAN KORUYUCU VÝDEOLARI OYUN LÝSTESÝNDEN GÖSTERÝR.\n"
-"VÝDEO YOKSA, VEYA BÝR SONRA VÝDEO OYNATILAMAZSA"
-"DENEMELER, VARSAYILAN OLACAK \"SÝYAH\".\n"
-"DAHA FAZLA SEÇENEK\"ARAYÜZ AYARLARI\" -> \"RASGELE VIDEO EKRAN KORUYUCU AYARLARI\" "
-"MENU."
-
+"VÝDEO YOKSA, VEYA BÝR SONRA VÝDEO OYNATILAMAZSADENEMELER, VARSAYILAN OLACAK "
+"\"SÝYAH\".\n"
+"DAHA FAZLA SEÇENEK\"ARAYÜZ AYARLARI\" -> \"RASGELE VIDEO EKRAN KORUYUCU "
+"AYARLARI\" MENU."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "RASGELE VÝDEO EKRAN KORUYUCU AYARLARI"
@@ -399,6 +420,9 @@ msgstr "SÝSTEM SESÝ"
 
 msgid "FRONTEND MUSIC"
 msgstr "ARABÝRÝM MÜZÝÐÝ"
+
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "VÝDEO SESÝ ETKÝNLEÞTÝR"
@@ -468,6 +492,36 @@ msgstr "Core"
 
 msgid "VIDEO MODE"
 msgstr "VÝDEO MODU"
+
+msgid "COLORIZATION"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "BATOCERA KUR"
@@ -610,6 +664,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr "TEMA SEÇÝN"
@@ -803,6 +872,30 @@ msgstr "tamam"
 msgid "UPDATE AVAILABLE"
 msgstr "GÜNCELLEME MEVCUT"
 
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+msgid "Editing the collection. Add/remove games with Y."
+msgstr ""
+
+msgid "Finished editing the collection."
+msgstr ""
+
 #, c-format
 msgid "Added '%s' to '%s'"
 msgstr "EKLENDÝ '%s' -ye'%s'"
@@ -857,14 +950,14 @@ msgstr "GEÇMEK ÝÇÝN BÝR TUÞA BASILI TUTUN"
 msgid "-NOT DEFINED-"
 msgstr "-TANIMLI DEÐÝL-"
 
-msgid   "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-	"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-	"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
-
-msgstr "BÝR HOTKEY DÜÐMESÝ SEÇMEDÝN. BU OYUNLARDAN ÇIKMAK ÝÇÝN GEREKLÝDÝR"
-	"KONTROL CÝHAZI ÝLE.SSEÇME TUÞUNU ÖN TANIMLI KULLANMAK ÝSTER MÝSÝNÝZ? LÜTFEN"
-	"EVET ÝSE SEÇ TUÞUNA BAS HAYIR ÝSE KKISAYOL TUÞUNU AYARLA"
-	
+msgid ""
+"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
+"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+msgstr ""
+"BÝR HOTKEY DÜÐMESÝ SEÇMEDÝN. BU OYUNLARDAN ÇIKMAK ÝÇÝN GEREKLÝDÝRKONTROL "
+"CÝHAZI ÝLE.SSEÇME TUÞUNU ÖN TANIMLI KULLANMAK ÝSTER MÝSÝNÝZ? LÜTFENEVET ÝSE "
+"SEÇ TUÞUNA BAS HAYIR ÝSE KKISAYOL TUÞUNU AYARLA"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"

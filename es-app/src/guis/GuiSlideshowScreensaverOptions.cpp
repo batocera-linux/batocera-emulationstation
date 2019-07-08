@@ -3,6 +3,7 @@
 #include "components/SliderComponent.h"
 #include "components/SwitchComponent.h"
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 #include "utils/StringUtil.h"
 #include "Settings.h"
 #include "Window.h"
@@ -102,7 +103,11 @@ void GuiSlideshowScreensaverOptions::addEditableTextComponent(ComponentListRow r
 
 	auto updateVal = [ed](const std::string& newVal) { ed->setValue(newVal); }; // ok callback (apply new value to ed)
 	row.makeAcceptInputHandler([this, label, ed, updateVal] {
-		mWindow->pushGui(new GuiTextEditPopup(mWindow, label, ed->getValue(), updateVal, false));
+	    if (Settings::getInstance()->getBool("UseOSK")) {
+	      mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, label, ed->getValue(), updateVal, false));
+	    } else {
+	      mWindow->pushGui(new GuiTextEditPopup(mWindow, label, ed->getValue(), updateVal, false));
+	    }
 	});
 
 	assert(ed);

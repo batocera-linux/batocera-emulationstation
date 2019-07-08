@@ -235,7 +235,12 @@ void GuiTextEditPopupKeyboard::onSizeChanged()
 	// for an unknown reason, without setting that, the position is "sometimes" (1/2 on s905x for example) not displayed correctly
 	// as if a variable were not correctly initialized
 	mKeyboardGrid->setSize(Renderer::getScreenWidth() * 0.95f, (mText->getFont()->getHeight() + 6) * 5);
-	mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 40 + 6);
+
+	if(Renderer::getScreenWidth() < 400 && Renderer::getScreenHeight() < 400) { // small screens // batocera
+	  mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 15 + 6);
+	} else {
+	  mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 40 + 6);
+	}
 }
 
 bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)

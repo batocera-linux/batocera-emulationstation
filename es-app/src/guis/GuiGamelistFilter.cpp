@@ -28,7 +28,7 @@ void GuiGamelistFilter::initializeMenu()
 
 	addFiltersToMenu();
 
-	mMenu.addButton("BACK", "back", std::bind(&GuiGamelistFilter::applyFilters, this));
+	mMenu.addButton(_("BACK"), "back", std::bind(&GuiGamelistFilter::applyFilters, this));
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
@@ -112,6 +112,6 @@ bool GuiGamelistFilter::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiGamelistFilter::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt("b", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
 	return prompts;
 }

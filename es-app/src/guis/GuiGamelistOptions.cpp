@@ -95,7 +95,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName()))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, "ADD/REMOVE GAMES TO THIS GAME COLLECTION", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::startEditMode, this));
 		mMenu.addRow(row);
 	}
@@ -103,7 +103,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if(UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, "FINISH EDITING '" + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()) + "' COLLECTION", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::exitEditMode, this));
 		mMenu.addRow(row);
 	}
@@ -118,12 +118,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	}
 
 	// batocera
-	if (UIModeController::getInstance()->isUIModeFull())
+	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
 	{
 		row.elements.clear();
 		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADVANCED"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 		row.addElement(makeArrow(mWindow), false);
-		row.makeAcceptInputHandler([this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), system, ""); });
+		row.makeAcceptInputHandler([this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
 		mMenu.addRow(row);
 	}
 

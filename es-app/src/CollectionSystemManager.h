@@ -16,6 +16,8 @@ enum CollectionSystemType
 	AUTO_ALL_GAMES,
 	AUTO_LAST_PLAYED,
 	AUTO_FAVORITES,
+	AUTO_AT2PLAYERS,
+	AUTO_AT4PLAYERS,
 	CUSTOM_COLLECTION
 };
 
@@ -71,7 +73,7 @@ public:
 	void exitEditMode();
 	inline bool isEditing() { return mIsEditingCustom; };
 	inline std::string getEditingCollection() { return mEditingCollection; };
-	bool toggleGameInCollection(FileData* file, bool& adding); // batocera
+	bool toggleGameInCollection(FileData* file);
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);

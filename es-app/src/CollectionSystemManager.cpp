@@ -27,10 +27,12 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 {
 	CollectionSystemDecl systemDecls[] = {
 		//type                  name            long name            //default sort              // theme folder            // isCustom
-		{ AUTO_ALL_GAMES,       "all",          "all games",         "filename, ascending",      "auto-allgames",           false },
-		{ AUTO_LAST_PLAYED,     "recent",       "last played",       "last played, descending",  "auto-lastplayed",         false },
-		{ AUTO_FAVORITES,       "favorites",    "favorites",         "filename, ascending",      "auto-favorites",          false },
-		{ CUSTOM_COLLECTION,    myCollectionsName,  "collections",    "filename, ascending",      "custom-collections",      true }
+	  { AUTO_ALL_GAMES,       "all",          _("all games"),         "filename, ascending",      "auto-allgames",           false },
+	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       "last played, descending",  "auto-lastplayed",         false },
+	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         "filename, ascending",      "auto-favorites",          false },
+	  { AUTO_AT2PLAYERS,      "2players",   _("2 players"),         "filename, ascending",      "auto-at2players",          false }, // batocera
+	  { AUTO_AT4PLAYERS,      "4players",   _("4 players"),         "filename, ascending",      "auto-at4players",          false }, // batocera
+	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),    "filename, ascending",      "custom-collections",      true }
 	};
 
 	// create a map
@@ -439,22 +441,23 @@ void CollectionSystemManager::setEditMode(std::string collectionName)
 	// if it's bundled, this needs to be the bundle system
 	mEditingCollectionSystemData = sysData;
 
-	GuiInfoPopup* s = new GuiInfoPopup(mWindow, "Editing the '" + Utils::String::toUpper(collectionName) + "' Collection. Add/remove games with Y.", 10000);
+	GuiInfoPopup* s = new GuiInfoPopup(mWindow, _("Editing the collection. Add/remove games with Y."), 10000);
 	mWindow->setInfoPopup(s);
 }
 
 void CollectionSystemManager::exitEditMode()
 {
-	GuiInfoPopup* s = new GuiInfoPopup(mWindow, "Finished editing the '" + mEditingCollection + "' Collection.", 4000);
+  GuiInfoPopup* s = new GuiInfoPopup(mWindow, _("Finished editing the collection."), 4000);
 	mWindow->setInfoPopup(s);
 	mIsEditingCustom = false;
 	mEditingCollection = "Favorites";
 }
 
 // adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file, bool& adding) // batocera
+bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 {
   char trstring[256];
+  bool adding;
 	if (file->getType() == GAME)
 	{
 		GuiInfoPopup* s;
@@ -477,7 +480,6 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, bool& addin
 			std::string name = sysData->getName();
 
 			SystemData* systemViewToUpdate = getSystemToView(sysData);
-
 			if (found) {
 				adding = false;
 				// if we found it, we need to remove it
@@ -628,10 +630,11 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		desc = "This collection contains " + std::to_string(games_counter) + " games, including " + games_list;
 
 		FileData* randomGame = sys->getRandomGame();
-
-		video = randomGame->getVideoPath();
-		thumbnail = randomGame->getThumbnailPath();
-		image = randomGame->getImagePath();
+		if(randomGame != NULL) { // batocera
+		  video = randomGame->getVideoPath();
+		  thumbnail = randomGame->getThumbnailPath();
+		  image = randomGame->getImagePath();
+		}
 	}
 
 
@@ -724,6 +727,13 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						// we may still want to add files we don't want in auto collections in "favorites"
 						include = (*gameIt)->metadata.get("favorite") == "true";
 						break;
+					case AUTO_AT2PLAYERS: // batocera
+					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 2;
+					  break;
+					case AUTO_AT4PLAYERS: // batocera
+					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 4;
+					  break;
+
 				}
 
 				if (include) {
@@ -798,7 +808,6 @@ void CollectionSystemManager::removeCollectionsFromDisplayedSystems()
 			sysIt++;
 		}
 	}
-
 	// remove all custom collections in bundle
 	// this should not delete the objects from memory!
 	FileData* customRoot = mCustomCollectionsBundle->getRootFolder();
@@ -833,7 +842,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 				}
 			}
 			// check if it has its own view
-			if(!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem"))
+			if(!it->second.decl.isCustom || themeFolderExists(it->first) /*|| !Settings::getInstance()->getBool("UseCustomCollectionsSystem")*/) // batocera
 			{
 				// exists theme folder, or we chose not to bundle it under the custom-collections system
 				// so we need to create a view

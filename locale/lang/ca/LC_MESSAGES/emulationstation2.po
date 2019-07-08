@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-07-03 23:38+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,17 @@ msgstr "ORDENA ELS JOCS PER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITA LES METADADES D'AQUEST JOC"
+
+msgid "ADVANCED"
+msgstr "AVANÇAT"
 
 msgid "FINISHED"
 msgstr ""
@@ -81,6 +90,9 @@ msgstr "PARÀMETRES DELS COMANDAMENTS"
 
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "PARÀMETRES DEL SO"
@@ -226,6 +238,9 @@ msgstr "SCANLINES"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
@@ -264,9 +279,6 @@ msgstr ""
 
 msgid "STATUS"
 msgstr "ESTAT"
-
-msgid "ADVANCED"
-msgstr "AVANÇAT"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
@@ -313,6 +325,15 @@ msgstr "ENTRADA P%i"
 msgid "UI MODE"
 msgstr ""
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
@@ -323,6 +344,9 @@ msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "START ON SYSTEM"
+msgstr ""
+
+msgid "DISPLAY / HIDE SYSTEMS"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -393,6 +417,9 @@ msgstr "VOLUM DEL SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DEL FRONTAL"
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
@@ -460,6 +487,36 @@ msgid "Core"
 msgstr "Nucli"
 
 msgid "VIDEO MODE"
+msgstr ""
+
+msgid "COLORIZATION"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
 msgstr ""
 
 msgid "INSTALL BATOCERA"
@@ -603,6 +660,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr ""
@@ -794,6 +866,30 @@ msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+msgid "Editing the collection. Add/remove games with Y."
+msgstr ""
+
+msgid "Finished editing the collection."
 msgstr ""
 
 #, c-format

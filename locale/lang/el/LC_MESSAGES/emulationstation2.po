@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: recalbox-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-07-03 23:38+0200\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,16 @@ msgstr ""
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
 msgid "EDIT THIS GAME'S METADATA"
+msgstr ""
+
+msgid "ADVANCED"
 msgstr ""
 
 msgid "FINISHED"
@@ -80,6 +89,9 @@ msgid "CONTROLLERS SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
+msgstr ""
+
+msgid "GAME COLLECTION SETTINGS"
 msgstr ""
 
 msgid "SOUND SETTINGS"
@@ -226,6 +238,9 @@ msgstr ""
 msgid "RETRO"
 msgstr ""
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
@@ -263,9 +278,6 @@ msgid "MD5"
 msgstr ""
 
 msgid "STATUS"
-msgstr ""
-
-msgid "ADVANCED"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -307,6 +319,15 @@ msgstr ""
 msgid "UI MODE"
 msgstr ""
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr ""
 
@@ -317,6 +338,9 @@ msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "START ON SYSTEM"
+msgstr ""
+
+msgid "DISPLAY / HIDE SYSTEMS"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -387,6 +411,9 @@ msgstr ""
 msgid "FRONTEND MUSIC"
 msgstr ""
 
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
@@ -454,6 +481,36 @@ msgid "Core"
 msgstr ""
 
 msgid "VIDEO MODE"
+msgstr ""
+
+msgid "COLORIZATION"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
 msgstr ""
 
 msgid "INSTALL BATOCERA"
@@ -593,6 +650,21 @@ msgid ""
 msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
+msgstr ""
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
 msgstr ""
 
 msgid "SELECT THEME"
@@ -785,6 +857,30 @@ msgid "Done."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
+msgstr ""
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+msgid "Editing the collection. Add/remove games with Y."
+msgstr ""
+
+msgid "Finished editing the collection."
 msgstr ""
 
 #, c-format

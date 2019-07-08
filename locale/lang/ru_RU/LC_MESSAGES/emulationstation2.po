@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:13+0200\n"
+"POT-Creation-Date: 2019-07-03 23:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: \n"
@@ -62,8 +62,17 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
 
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
+
+msgid "ADVANCED"
+msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -85,6 +94,9 @@ msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "НАСТРОЙКИ ЗВУКА"
@@ -230,6 +242,9 @@ msgstr "ЧЕРЕССТРОЧНОСТЬ"
 msgid "RETRO"
 msgstr "РЕТРО"
 
+msgid "ENHANCED"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
@@ -268,9 +283,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
-
-msgid "ADVANCED"
-msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
@@ -316,6 +328,15 @@ msgstr "ВВОД P%i"
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
 
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
 
@@ -327,6 +348,9 @@ msgstr "ВИД СПИСКА ИГР"
 
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
+
+msgid "DISPLAY / HIDE SYSTEMS"
+msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -347,8 +371,7 @@ msgstr ""
 "\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ОТОБРАЖАЕТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
 "ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО ПОСЛЕ "
 "НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK\".\n"
-"БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" "
-"МЕНЮ."
+"БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" МЕНЮ."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
@@ -400,6 +423,9 @@ msgstr "ГРОМКОСТЬ"
 
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
+
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -469,6 +495,36 @@ msgstr "Ядро"
 
 msgid "VIDEO MODE"
 msgstr "ВИДЕО РЕЖИМ"
+
+msgid "COLORIZATION"
+msgstr ""
+
+msgid "FULL BOOT"
+msgstr ""
+
+msgid "EMULATED WIIMOTES"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
 
 msgid "INSTALL BATOCERA"
 msgstr "УСТАНОВИТЬ BATOCERA"
@@ -616,6 +672,21 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
 
 msgid "SELECT THEME"
 msgstr "ВЫБРАТЬ ТЕМУ"
@@ -810,6 +881,30 @@ msgstr "Готово."
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
 
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+msgid "Editing the collection. Add/remove games with Y."
+msgstr ""
+
+msgid "Finished editing the collection."
+msgstr ""
+
 #, c-format
 msgid "Added '%s' to '%s'"
 msgstr "'%s' добавлено в '%s'"
@@ -869,9 +964,10 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"ВЫ НЕ НАЗНАЧИЛИ ГОРЯЧУЮ КЛАВИШУ. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА "
-"ИЗ ИГР С ПОМОЩЬЮ КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT ПО УМОЛЧАНИЮ? "
-"ПОЖАЛУЙСТА, ОТВЕТЬТЕ \"ДА\", ЧТОБЫ ИСПОЛЬЗОВАТЬ SELECT ИЛИ \"НЕТ\", ЧТОБЫ НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ."
+"ВЫ НЕ НАЗНАЧИЛИ ГОРЯЧУЮ КЛАВИШУ. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
+"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT ПО УМОЛЧАНИЮ? ПОЖАЛУЙСТА, "
+"ОТВЕТЬТЕ \"ДА\", ЧТОБЫ ИСПОЛЬЗОВАТЬ SELECT ИЛИ \"НЕТ\", ЧТОБЫ НЕ "
+"УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"

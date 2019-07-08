@@ -77,6 +77,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
   if (isFullUI)
     addEntry(_("UI SETTINGS").c_str(), 0x777777FF, true, [this] { openUISettings_batocera(); });
 
+  // batocera
+  if (isFullUI)
+    addEntry(_("GAME COLLECTION SETTINGS").c_str(), 0x777777FF, true, [this] { openCollectionSystemSettings(); });
+
   if (isFullUI)
     addEntry(_("SOUND SETTINGS").c_str(), 0x777777FF, true, [this] { openSoundSettings_batocera(); });
 
@@ -100,10 +104,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
   //if (isFullUI)
   //addEntry("UI SETTINGS", 0x777777FF, true, [this] { openUISettings(); });
-
-  // batocera
-  //if (isFullUI)
-  //	addEntry("GAME COLLECTION SETTINGS", 0x777777FF, true, [this] { openCollectionSystemSettings(); });
 
   //if (isFullUI)
   //addEntry("OTHER SETTINGS", 0x777777FF, true, [this] { openOtherSettings(); });
@@ -1282,21 +1282,21 @@ void GuiMenu::openGamesSettings_batocera() {
 	// For each activated system
 	std::vector<SystemData *> systems = SystemData::sSystemVector;
 	for (auto system = systems.begin(); system != systems.end(); system++) {
-	  //if ((*system) != SystemData::getFavoriteSystem()) {
-	  ComponentListRow systemRow;
-	  auto systemText = std::make_shared<TextComponent>(mWindow, (*system)->getFullName(),
-							    Font::get(FONT_SIZE_MEDIUM),
-							    0x777777FF);
-	  auto bracket = makeArrow(mWindow);
-	  systemRow.addElement(systemText, true);
-	  systemRow.addElement(bracket, false);
-	  SystemData *systemData = (*system);
-	  systemRow.makeAcceptInputHandler([this, systemData] {
-	      popSystemConfigurationGui(mWindow, systemData, "");
-	    });
-	  configuration->addRow(systemRow);
+	  if((*system)->isCollection() == false) {
+	    ComponentListRow systemRow;
+	    auto systemText = std::make_shared<TextComponent>(mWindow, (*system)->getFullName(),
+							      Font::get(FONT_SIZE_MEDIUM),
+							      0x777777FF);
+	    auto bracket = makeArrow(mWindow);
+	    systemRow.addElement(systemText, true);
+	    systemRow.addElement(bracket, false);
+	    SystemData *systemData = (*system);
+	    systemRow.makeAcceptInputHandler([this, systemData] {
+		popSystemConfigurationGui(mWindow, systemData, "");
+	      });
+	    configuration->addRow(systemRow);
+	  }
 	}
-	//}
 	mWindow->pushGui(configuration);
 
       };
@@ -1320,14 +1320,15 @@ void GuiMenu::openGamesSettings_batocera() {
 					[this, window] {
 					  ViewController::get()->goToStart();
 					  delete ViewController::get();
-					  SystemData::deleteSystems();
+					  ViewController::init(window);
+					  CollectionSystemManager::deinit();
+					  CollectionSystemManager::init(window);
 					  SystemData::loadConfig();
 					  GuiComponent *gui;
 					  while ((gui = window->peekGui()) != NULL) {
 					    window->removeGui(gui);
 					    delete gui;
 					  }
-					  ViewController::init(window);
 					  ViewController::get()->reloadAll();
 					  window->pushGui(ViewController::get());
 					}, _("NO"), nullptr));
@@ -1551,29 +1552,17 @@ void GuiMenu::openUISettings_batocera() {
 		   std::string selectedMode = UImodeSelection->getSelected();
 		   if (selectedMode != "Full")
 		     {
-		       std::string msg = "You are changing the UI to a restricted mode:\n" + selectedMode + "\n";
-		       msg += "This will hide most menu-options to prevent changes to the system.\n";
-		       msg += "To unlock and return to the full UI, enter this code: \n";
+		       std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
 		       msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-		       msg += "Do you want to proceed?";
+		       msg += _("Do you want to proceed ?");
 		       window->pushGui(new GuiMsgBox(window, msg, 
-						     "YES", [selectedMode] {
+						     _("YES"), [selectedMode] {
 						       LOG(LogDebug) << "Setting UI mode to " << selectedMode;
 						       Settings::getInstance()->setString("UIMode", selectedMode);
 						       Settings::getInstance()->saveFile();
-						     }, "NO",nullptr));
+						     }, _("NO") ,nullptr));
 		     }
 		 });
-  // Batocera: select systems to hide
-  auto openSystemsHideNow = [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); };
-  ComponentListRow rowHide;
-  rowHide.makeAcceptInputHandler(openSystemsHideNow);
-  auto SystemsHideSettings = std::make_shared<TextComponent>(mWindow, _("DISPLAY / HIDE SYSTEMS"),
-		  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
-  auto bracket = makeArrow(mWindow);
-  rowHide.addElement(SystemsHideSettings, true);
-  rowHide.addElement(bracket, false);
-  s->addRow(rowHide);
 
   // video device
   auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
@@ -1664,6 +1653,17 @@ void GuiMenu::openUISettings_batocera() {
   s->addSaveFunc([systemfocus_list] {
       Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
     });
+
+  // Batocera: select systems to hide
+  auto openSystemsHideNow = [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); };
+  ComponentListRow rowHide;
+  rowHide.makeAcceptInputHandler(openSystemsHideNow);
+  auto SystemsHideSettings = std::make_shared<TextComponent>(mWindow, _("DISPLAY / HIDE SYSTEMS"),
+		  Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+  auto bracket = makeArrow(mWindow);
+  rowHide.addElement(SystemsHideSettings, true);
+  rowHide.addElement(bracket, false);
+  s->addRow(rowHide);
 
   // transition style
   auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
@@ -2215,7 +2215,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     selected = selected || found;
     emu_choice->add(curEmulatorName, curEmulatorName, found);
   }
-
   emu_choice->add(_("AUTO"), "auto", !selected);
   emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData](std::string s) {
       popSpecificConfigurationGui(mWindow, title, configName, systemData, s);
@@ -2265,6 +2264,130 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".autosave") == "0");
   systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 
+  // Shaders preset
+  auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
+									     false);
+  std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
+  if (currentShader.empty()) {
+    currentShader = std::string("auto");
+  }
+
+  shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
+  shaders_choices->add(_("NONE"), "none", currentShader == "none");
+  shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
+  shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
+  shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
+  systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
+
+  // Integer scale
+  auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+  integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
+  integerscale_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".integerscale") == "1");
+  integerscale_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".integerscale") == "0");
+  systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+  systemConfiguration->addSaveFunc([integerscale_enabled, configName] {
+      if(integerscale_enabled->changed()) {
+	SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected());
+	SystemConf::getInstance()->saveSystemConf();
+      }
+    });
+
+  // decorations
+  {
+    auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+    std::vector<std::string> decorations_item;
+    decorations_item.push_back(_("AUTO"));
+    decorations_item.push_back(_("NONE"));
+
+    std::vector<std::string> sets = GuiMenu::getDecorationsSets();
+    for(auto it = sets.begin(); it != sets.end(); it++) {
+      decorations_item.push_back(*it);
+    }
+
+    for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+      decorations->add(*it, *it,
+		       (SystemConf::getInstance()->get(configName + ".bezel") == *it)
+		       ||
+		       (SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
+		       ||
+		       (SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
+		       );
+    }
+    systemConfiguration->addWithLabel(_("DECORATION"), decorations);
+    systemConfiguration->addSaveFunc([decorations, configName] {
+	if(decorations->changed()) {
+	  SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+	  SystemConf::getInstance()->saveSystemConf();
+	}
+      });
+  }
+
+  // gameboy colorize
+  auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
+  std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
+  if (currentColorization.empty()) {
+    currentColorization = std::string("auto");
+  }
+  colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
+  colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
+
+  const char* all_gambate_gc_colors_modes[] = {"GB - DMG",
+					       "GB - Light",
+					       "GB - Pocket",
+					       "GBC - Blue",
+					       "GBC - Brown",
+					       "GBC - Dark Blue",
+					       "GBC - Dark Brown",
+					       "GBC - Dark Green",
+					       "GBC - Grayscale",
+					       "GBC - Green",
+					       "GBC - Inverted",
+					       "GBC - Orange",
+					       "GBC - Pastel Mix",
+					       "GBC - Red",
+					       "GBC - Yellow",
+					       "SGB - 1A",
+					       "SGB - 1B",
+					       "SGB - 1C",
+					       "SGB - 1D",
+					       "SGB - 1E",
+					       "SGB - 1F",
+					       "SGB - 1G",
+					       "SGB - 1H",
+					       "SGB - 2A",
+					       "SGB - 2B",
+					       "SGB - 2C",
+					       "SGB - 2D",
+					       "SGB - 2E",
+					       "SGB - 2F",
+					       "SGB - 2G",
+					       "SGB - 2H",
+					       "SGB - 3A",
+					       "SGB - 3B",
+					       "SGB - 3C",
+					       "SGB - 3D",
+					       "SGB - 3E",
+					       "SGB - 3F",
+					       "SGB - 3G",
+					       "SGB - 3H",
+					       "SGB - 4A",
+					       "SGB - 4B",
+					       "SGB - 4C",
+					       "SGB - 4D",
+					       "SGB - 4E",
+					       "SGB - 4F",
+					       "SGB - 4G",
+					       "SGB - 4H",
+					       "Special 1",
+					       "Special 2",
+					       "Special 3" };
+  int n_all_gambate_gc_colors_modes = 50;
+  for(int i=0; i<n_all_gambate_gc_colors_modes; i++) {
+    colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
+  }
+  if(systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players") // only for gb, gbc and gb2players
+    systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
+  
   // ps2 full boot
   auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
   fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
@@ -2282,7 +2405,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, fullboot_enabled, emulatedwiimotes_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2298,6 +2421,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     if(autosave_enabled->changed()) {
 				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
 				     }
+				     if(shaders_choices->changed()) {
+				       SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
+				     }
+				     if(colorizations_choices->changed()){
+				       SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
+				     }
+
 				     if(fullboot_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
 				     }
