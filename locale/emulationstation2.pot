@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 23:38+0200\n"
+"POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -413,6 +413,9 @@ msgstr ""
 msgid "VRAM LIMIT"
 msgstr ""
 
+msgid "POWER SAVER MODES"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr ""
 
@@ -510,6 +513,12 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr ""
 
 msgid "New Collection Name"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"

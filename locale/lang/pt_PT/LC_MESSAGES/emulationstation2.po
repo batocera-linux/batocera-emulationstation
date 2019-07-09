@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 22:41+0200\n"
+"POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -416,6 +416,9 @@ msgstr "MOSTRAR FICHEIROS OCULTOS"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"

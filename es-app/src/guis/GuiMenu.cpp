@@ -1831,6 +1831,26 @@ void GuiMenu::openUISettings_batocera() {
   max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
   s->addWithLabel(_("VRAM LIMIT"), max_vram);
   s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
+
+  // power saver
+  auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
+  std::vector<std::string> modes;
+  modes.push_back("disabled");
+  modes.push_back("default");
+  modes.push_back("enhanced");
+  modes.push_back("instant");
+  for (auto it = modes.cbegin(); it != modes.cend(); it++)
+    power_saver->add(*it, *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
+  s->addWithLabel(_("POWER SAVER MODES"), power_saver);
+  s->addSaveFunc([this, power_saver] {
+      if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
+	Settings::getInstance()->setString("TransitionStyle", "instant");
+	Settings::getInstance()->setBool("MoveCarousel", false);
+	Settings::getInstance()->setBool("EnableSounds", false);
+      }
+      Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
+      PowerSaver::init();
+    });
   
   mWindow->pushGui(s);
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-08 23:28+0200\n"
+"POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: \n"
@@ -421,6 +421,9 @@ msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
