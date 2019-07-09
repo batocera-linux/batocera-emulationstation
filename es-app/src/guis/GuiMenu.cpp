@@ -2224,18 +2224,37 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
   // Core choice
   auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
-  selected = false;
+
+  // search if one will be selected
+  bool onefound = false;
+  for (auto emulator = systemData->getEmulators()->begin();
+       emulator != systemData->getEmulators()->end(); emulator++) {
+    if (selectedEmulator == emulator->first) {
+      for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
+	if((SystemConf::getInstance()->get(configName + ".core") == *core)) {
+	  onefound = true;
+	}
+      }
+    }
+  }
+
+  // add auto if emu_choice is auto
+  if(emu_choice->getSelected() == "auto") { // allow auto only if emulator is auto
+    core_choice->add(_("AUTO"), "auto", !onefound);
+    onefound = true;
+  }
+    
+  // list
   for (auto emulator = systemData->getEmulators()->begin();
        emulator != systemData->getEmulators()->end(); emulator++) {
     if (selectedEmulator == emulator->first) {
       for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
 	bool found = (SystemConf::getInstance()->get(configName + ".core") == *core);
-	selected = selected || found;
-	core_choice->add(*core, *core, found);
+	core_choice->add(*core, *core, found || !onefound); // select the first one if none is selected
+	onefound = true;
       }
     }
   }
-  core_choice->add(_("AUTO"), "auto", !selected);
   systemConfiguration->addWithLabel(_("Core"), core_choice);
 
 
