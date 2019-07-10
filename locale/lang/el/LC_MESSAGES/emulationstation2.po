@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: recalbox-emulationstation\n"
+"Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "Language: el\n"

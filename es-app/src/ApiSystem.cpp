@@ -166,7 +166,7 @@ bool ApiSystem::updateLastVersionFile() {
 bool ApiSystem::setOverscan(bool enable) {
 
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "overscan";
+    oss << "batocera-config" << " " << "overscan";
     if (enable) {
         oss << " " << "enable";
     } else {
@@ -187,7 +187,7 @@ bool ApiSystem::setOverscan(bool enable) {
 bool ApiSystem::setOverclock(std::string mode) {
     if (mode != "") {
         std::ostringstream oss;
-        oss << "/recalbox/scripts/recalbox-overclock.sh set " << mode;
+        oss << "batocera-overclock set " << mode;
         std::string command = oss.str();
         LOG(LogInfo) << "Launching " << command;
         if (system(command.c_str())) {
@@ -204,14 +204,14 @@ bool ApiSystem::setOverclock(std::string mode) {
 
 
 std::pair<std::string,int> ApiSystem::updateSystem(BusyComponent* ui) {
-  std::string updatecommand = "/recalbox/scripts/recalbox-upgrade.sh";
+  std::string updatecommand = "batocera-upgrade";
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
     if (pipe == NULL) {
         return std::pair<std::string,int>(std::string("Cannot call update command"),-1);
     }
 
-    FILE *flog = fopen("/userdata/system/logs/recalbox-upgrade.log", "w");
+    FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
 	if(flog != NULL) fprintf(flog, "%s\n", line);
@@ -224,14 +224,14 @@ std::pair<std::string,int> ApiSystem::updateSystem(BusyComponent* ui) {
 }
 
 std::pair<std::string,int> ApiSystem::backupSystem(BusyComponent* ui, std::string device) {
-    std::string updatecommand = std::string("/recalbox/scripts/recalbox-sync.sh sync ") + device;
+    std::string updatecommand = std::string("batocera-sync sync ") + device;
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
     if (pipe == NULL) {
         return std::pair<std::string,int>(std::string("Cannot call sync command"),-1);
     }
 
-    FILE *flog = fopen("/userdata/system/logs/recalbox-sync.log", "w");
+    FILE *flog = fopen("/userdata/system/logs/batocera-sync.log", "w");
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
 	if(flog != NULL) fprintf(flog, "%s\n", line);
@@ -244,14 +244,14 @@ std::pair<std::string,int> ApiSystem::backupSystem(BusyComponent* ui, std::strin
 }
 
 std::pair<std::string,int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) {
-    std::string updatecommand = std::string("/recalbox/scripts/recalbox-install.sh install ") + device + " " + architecture;
+    std::string updatecommand = std::string("batocera-install install ") + device + " " + architecture;
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
     if (pipe == NULL) {
         return std::pair<std::string,int>(std::string("Cannot call install command"),-1);
     }
 
-    FILE *flog = fopen("/userdata/system/logs/recalbox-install.log", "w");
+    FILE *flog = fopen("/userdata/system/logs/batocera-install.log", "w");
     while (fgets(line, 1024, pipe)) {
         strtok(line, "\n");
 	if(flog != NULL) fprintf(flog, "%s\n", line);
@@ -264,14 +264,14 @@ std::pair<std::string,int> ApiSystem::installSystem(BusyComponent* ui, std::stri
 }
 
 std::pair<std::string,int> ApiSystem::scrape(BusyComponent* ui) {
-  std::string scrapecommand = std::string("/recalbox/scripts/recalbox-scraper.sh");
+  std::string scrapecommand = std::string("batocera-scraper");
   FILE *pipe = popen(scrapecommand.c_str(), "r");
   char line[1024] = "";
   if (pipe == NULL) {
     return std::pair<std::string,int>(std::string("Cannot call scrape command"),-1);
   }
   
-  FILE *flog = fopen("/userdata/system/logs/recalbox-scrape.log", "w");
+  FILE *flog = fopen("/userdata/system/logs/batocera-scraper.log", "w");
   while (fgets(line, 1024, pipe)) {
     strtok(line, "\n");
     if(flog != NULL) fprintf(flog, "%s\n", line);
@@ -297,7 +297,7 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output) {
     int res;
     int exitCode;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "canupdate";
+    oss << "batocera-config" << " " << "canupdate";
     std::string command = oss.str();
     LOG(LogInfo) << "Launching " << command;
 
@@ -375,7 +375,7 @@ bool ApiSystem::launchKodi(Window *window) {
 }
 
 bool ApiSystem::launchFileManager(Window *window) {
-    std::string command = "/recalbox/scripts/filemanagerlauncher.sh";
+    std::string command = "filemanagerlauncher";
 
     ApiSystem::launchExternalWindow_before(window);
 
@@ -395,7 +395,7 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key) {
     std::ostringstream oss;
     boost::replace_all(ssid, "\"", "\\\"");
     boost::replace_all(key, "\"", "\\\"");
-    oss << "/recalbox/scripts/recalbox-config.sh" << " "
+    oss << "batocera-config" << " "
     << "wifi" << " "
     << "enable" << " \""
     << ssid << "\" \"" << key << "\"";
@@ -412,7 +412,7 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key) {
 
 bool ApiSystem::disableWifi() {
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " "
+    oss << "batocera-config" << " "
     << "wifi" << " "
     << "disable";
     std::string command = oss.str();
@@ -535,7 +535,7 @@ std::vector<std::string> ApiSystem::getAvailableStorageDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "storage list";
+    oss << "batocera-config" << " " << "storage list";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -576,7 +576,7 @@ std::vector<std::string> ApiSystem::getAvailableBackupDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-sync.sh list";
+    oss << "batocera-sync list";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -597,7 +597,7 @@ std::vector<std::string> ApiSystem::getAvailableInstallDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-install.sh listDisks";
+    oss << "batocera-install listDisks";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -618,7 +618,7 @@ std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-install.sh listArchs";
+    oss << "batocera-install listArchs";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -638,7 +638,7 @@ std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
 std::vector<std::string> ApiSystem::getAvailableOverclocking() {
   std::vector<std::string> res;
   std::ostringstream oss;
-  oss << "/recalbox/scripts/recalbox-overclock.sh list";
+  oss << "batocera-overclock list";
   FILE *pipe = popen(oss.str().c_str(), "r");
   char line[1024];
   
@@ -657,7 +657,7 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking() {
 
 std::vector<std::string> ApiSystem::getSystemInformations() {
     std::vector<std::string> res;
-    FILE *pipe = popen("/recalbox/scripts/recalbox-info.sh", "r");
+    FILE *pipe = popen("batocera-info", "r");
     char line[1024];
 
     if (pipe == NULL) {
@@ -678,7 +678,7 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations() {
   BiosSystem current;
   bool isCurrent = false;
 
-  FILE *pipe = popen("/recalbox/scripts/recalbox-systems.py", "r");
+  FILE *pipe = popen("batocera-systems", "r");
   char line[1024];
 
   if (pipe == NULL) {
@@ -724,7 +724,7 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations() {
 
 bool ApiSystem::generateSupportFile() {
 #if !defined(WIN32)
-  std::string cmd = "/recalbox/scripts/recalbox-support.sh";
+  std::string cmd = "batocera-support";
   int exitcode = system(cmd.c_str());
   if (WIFEXITED(exitcode)) {
     exitcode = WEXITSTATUS(exitcode);
@@ -738,7 +738,7 @@ bool ApiSystem::generateSupportFile() {
 std::string ApiSystem::getCurrentStorage() {
 
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "storage current";
+    oss << "batocera-config" << " " << "storage current";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -756,14 +756,14 @@ std::string ApiSystem::getCurrentStorage() {
 
 bool ApiSystem::setStorage(std::string selected) {
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "storage" << " " << selected;
+    oss << "batocera-config" << " " << "storage" << " " << selected;
     int exitcode = system(oss.str().c_str());
     return exitcode == 0;
 }
 
 bool ApiSystem::forgetBluetoothControllers() {
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "forgetBT";
+    oss << "batocera-config" << " " << "forgetBT";
     int exitcode = system(oss.str().c_str());
     return exitcode == 0;
 }
@@ -771,7 +771,7 @@ bool ApiSystem::forgetBluetoothControllers() {
 std::string ApiSystem::getRootPassword() {
 
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "getRootPassword";
+    oss << "batocera-config" << " " << "getRootPassword";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -791,7 +791,7 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "lsaudio";
+    oss << "batocera-config" << " " << "lsaudio";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -812,7 +812,7 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "lsoutputs";
+    oss << "batocera-config" << " " << "lsoutputs";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -832,7 +832,7 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() {
 std::string ApiSystem::getCurrentAudioOutputDevice() {
 
     std::ostringstream oss;
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "getaudio";
+    oss << "batocera-config" << " " << "getaudio";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -854,7 +854,7 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
     AudioManager::getInstance()->deinit();
     VolumeControl::getInstance()->deinit();
 
-    oss << "/recalbox/scripts/recalbox-config.sh" << " " << "audio" << " '" << selected << "'";
+    oss << "batocera-config" << " " << "audio" << " '" << selected << "'";
     int exitcode = system(oss.str().c_str());
 
     VolumeControl::getInstance()->init();
@@ -869,7 +869,7 @@ std::vector<std::string> ApiSystem::getRetroAchievements() {
 
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/batocera-retroachievements-info" ;
+    oss << "batocera-retroachievements-info" ;
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
@@ -888,7 +888,7 @@ std::vector<std::string> ApiSystem::getRetroAchievements() {
 std::vector<std::string> ApiSystem::getBatoceraThemesList() {
     std::vector<std::string> res;
     std::ostringstream oss;
-    oss << "/recalbox/scripts/batocera-es-theme" << " " << "list";
+    oss << "batocera-es-theme" << " " << "list";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
     char *pch;
@@ -908,7 +908,7 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList() {
 }
 
 std::pair<std::string,int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) {
-    std::string updatecommand = std::string("/recalbox/scripts/batocera-es-theme install ") + thname;
+    std::string updatecommand = std::string("batocera-es-theme install ") + thname;
     LOG(LogWarning) << "Installing theme " << thname;
     FILE *pipe = popen(updatecommand.c_str(), "r");
     char line[1024] = "";
