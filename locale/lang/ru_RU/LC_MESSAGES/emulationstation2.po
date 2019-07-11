@@ -96,7 +96,7 @@ msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ КОЛЛЕКЦИИ ИГР"
 
 msgid "SOUND SETTINGS"
 msgstr "НАСТРОЙКИ ЗВУКА"
@@ -243,7 +243,7 @@ msgid "RETRO"
 msgstr "РЕТРО"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "РАСШИРЕННЫЙ"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -423,7 +423,7 @@ msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -432,7 +432,7 @@ msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "ИГРАТЬ ТОЛЬКО ИЗ СИСТЕМНОЙ ПАПКИ С МУЗЫКОЙ"
+msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -513,7 +513,7 @@ msgid "EMULATED WIIMOTES"
 msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
+msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
 
 msgid "SELECT THEME FOLDER"
 msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
@@ -525,16 +525,16 @@ msgid "New Collection Name"
 msgstr "Название новой коллекции"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "АВТОМАТИЧЕСКИЕ КОЛЛЕКЦИИ ИГР"
+msgstr "АВТО-КОЛЛЕКЦИИ ИГР"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "КОЛЛЕКЦИИ ИГР"
@@ -645,7 +645,7 @@ msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "ИНФ. ОБ ИГРЕ НА ЗАСТАВКЕ"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "ИСП. НИЗКОЕ СОВМЕСТИМОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
+msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
@@ -916,7 +916,7 @@ msgid "Editing the collection. Add/remove games with Y."
 msgstr "Редактирование коллекции. Добавить/Удалить игры с помощью Y."
 
 msgid "Finished editing the collection."
-msgstr "Завершить редактирование коллекции."
+msgstr "Редактирование коллекции завершено."
 
 #, c-format
 msgid "Added '%s' to '%s'"
