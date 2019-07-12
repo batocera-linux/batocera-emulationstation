@@ -514,7 +514,7 @@ std::string ApiSystem::getIpAdress() {
 bool ApiSystem::scanNewBluetooth() {
     std::vector<std::string> *res = new std::vector<std::string>();
     std::ostringstream oss;
-    oss << "/recalbox/scripts/bluetooth/pair-device";
+    oss << "batocera-bt-pair-device";
     FILE *pipe = popen(oss.str().c_str(), "r");
     char line[1024];
 
