@@ -62,10 +62,10 @@ msgid "FILTER GAMELIST"
 msgstr "FILTRAR GAMELIST"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "EDIÇÃO DE COLEÇÃO TERMINADA"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -95,7 +95,7 @@ msgid "UI SETTINGS"
 msgstr "DEFINIÇÕES DA INTERFACE"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DA COLEÇÃO DE JOGOS"
 
 msgid "SOUND SETTINGS"
 msgstr "DEFINIÇÕES DE ÁUDIO"
@@ -116,7 +116,7 @@ msgid "QUIT"
 msgstr "SAIR"
 
 msgid "SCRAPE FROM"
-msgstr "OBTER A PARTIR DE"
+msgstr "OBTER A PARTIR DE:"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTER CLASSIFICAÇÕES"
@@ -242,7 +242,7 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "MELHORADO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
@@ -331,9 +331,13 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"VAI ENTRAR EM MODO RESTRITO:\n"
+"ISSO OCULTARÁ A MAIORIA DAS DEFINIÇÕES PARA EVITAR ALTERAÇÕES NO"
+"SISTEMA.\n"
+"PARA REGRESSAR AO MODO COMPLETO, DIGITE O SEGUINTE CÓDIGO:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "DESEJA CONTINUAR?"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAIDA DE VIDEO"
@@ -348,7 +352,7 @@ msgid "START ON SYSTEM"
 msgstr "INICIAR UM SISTEMA"
 
 msgid "DISPLAY / HIDE SYSTEMS"
-msgstr ""
+msgstr "MOSTRAR / OCULTAR SISTEMAS"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
@@ -418,7 +422,7 @@ msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "MODO POUPANÇA DE ENERGIA"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -427,7 +431,7 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
@@ -499,40 +503,40 @@ msgid "VIDEO MODE"
 msgstr "MODO VÍDEO"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "COLORIZAÇÃO"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "FULL BOOT"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "WIIMOTES EMULADOS"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA PARA O TEMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "SELECIONE A PASTA DO TEMA"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "CRIAR UMA NOVA COLEÇÃO"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "NOME DA COLEÇÃO"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "AGRUPAR COLEÇÕES SEM TEMAS"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORGANIZAR COLEÇÕES PERSONALIZADAS E SISTEMAS"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES PERSONALIZADAS"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALAR BATOCERA"
@@ -654,7 +658,7 @@ msgid "Only missing image"
 msgstr "Somente imagens em falta"
 
 msgid "FILTER"
-msgstr "FILTRO"
+msgstr "FILTRO:"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "OBTER INFO DOS SISTEMAS"
@@ -673,27 +677,27 @@ msgid ""
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"AVISO: ALGUNS DOS SISTEMAS SELECIONADOS NÃO POSSUEM INFORMAÇÕES SUFICIENTES. "
-"O RESULTADO PODE SER MAIS IMPRECISO QUE O HABITUAL!\n"
-" CONTINUAR MESMO ASSIM?"
+"AVISO: ALGUNS DOS SISTEMAS SELECIONADOS NÃO POSSUEM INFORMAÇÕES "
+"SUFICIENTES. O RESULTADO PODE SER MAIS IMPRECISO QUE O HABITUAL!\n "
+"CONTINUAR MESMO ASSIM?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NÃO SEGUE OS CRITÉRIOS DO JOGO"
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "ESCOLHER SISTEMAS"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "SISTEMAS EXIBIDOS"
 
 msgid "APPLY"
-msgstr ""
+msgstr "APLICAR"
 
 msgid "REVERT"
-msgstr ""
+msgstr "CANCELAR"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "VALIDAR"
 
 msgid "SELECT THEME"
 msgstr "SELECIONAR TEMA"
@@ -888,28 +892,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "all games"
-msgstr ""
+msgstr "TODOS OS JOGOS"
 
 msgid "last played"
-msgstr ""
+msgstr "ULTIMA VEZ JOGADO"
 
 msgid "favorites"
-msgstr ""
+msgstr "FAVORITOS"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 JOGADORES"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 JOGADORES"
 
 msgid "collections"
-msgstr ""
+msgstr "COLEÇÕES"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "EDITAR A COLEÇÃO. ADICIONAR/REMOVER JOGOS COM Y."
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "EDIÇÃO DA COLEÇÃO TERMINADA."
 
 #, c-format
 msgid "Added '%s' to '%s'"
