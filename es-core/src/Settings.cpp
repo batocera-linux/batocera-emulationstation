@@ -149,6 +149,7 @@ void Settings::setDefaults()
 	mStringMap["OMXAudioDev"] = "both";
 	mStringMap["CollectionSystemsAuto"] = "2players,4players,favorites,recent"; // batocera
 	mStringMap["CollectionSystemsCustom"] = "";
+	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["SortAllSystems"] = true; // batocera
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 

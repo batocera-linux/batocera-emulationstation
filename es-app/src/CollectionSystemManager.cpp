@@ -287,7 +287,7 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 			trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
 			ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
 		}
-		else 
+		else
 			ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
 	}
 }
@@ -1044,7 +1044,6 @@ bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)
 	// but for now a simple string comparison is more performant
 	return file->getName() != "kodi" && file->getSystem()->isGameSystem();
 }
-
 
 std::string getCustomCollectionConfigPath(std::string collectionName)
 {

@@ -523,6 +523,9 @@ msgstr ""
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr ""
 
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
 msgid "SELECT COLLECTIONS"
 msgstr ""
 

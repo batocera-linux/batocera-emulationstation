@@ -530,6 +530,9 @@ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
 
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
 
