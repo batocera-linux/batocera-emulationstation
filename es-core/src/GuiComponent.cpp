@@ -11,7 +11,7 @@
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5),
-	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false)
+	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true)
 {
 	for(unsigned char i = 0; i < MAX_ANIMATIONS; i++)
 		mAnimationMap[i] = NULL;
@@ -63,6 +63,9 @@ void GuiComponent::update(int deltaTime)
 
 void GuiComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
 	renderChildren(trans);
 }
@@ -156,6 +159,15 @@ float GuiComponent::getDefaultZIndex() const
 void GuiComponent::setDefaultZIndex(float z)
 {
 	mDefaultZIndex = z;
+}
+
+bool GuiComponent::isVisible() const
+{
+	return mVisible;
+}
+void GuiComponent::setVisible(bool visible)
+{
+	mVisible = visible;
 }
 
 Vector2f GuiComponent::getCenter() const
@@ -428,6 +440,11 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 		setZIndex(elem->get<float>("zIndex"));
 	else
 		setZIndex(getDefaultZIndex());
+
+	if(properties & ThemeFlags::VISIBLE && elem->has("visible"))
+		setVisible(elem->get<bool>("visible"));
+	else
+		setVisible(true);
 }
 
 void GuiComponent::updateHelpPrompts()

@@ -149,6 +149,9 @@ void VideoVlcComponent::resize()
 
 void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	VideoComponent::render(parentTrans);
 
 	bool initFromPixels = true;
