@@ -404,7 +404,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "나갈 때 메타데이터 저장하기"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr "오직 게임리슽만 분석"
+msgstr "오직 게임리스트만 분석"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
