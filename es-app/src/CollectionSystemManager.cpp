@@ -842,7 +842,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 				}
 			}
 			// check if it has its own view
-			if(!it->second.decl.isCustom || themeFolderExists(it->first) /*|| !Settings::getInstance()->getBool("UseCustomCollectionsSystem")*/) // batocera
+			if(!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
 			{
 				// exists theme folder, or we chose not to bundle it under the custom-collections system
 				// so we need to create a view

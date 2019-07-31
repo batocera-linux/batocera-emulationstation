@@ -26,7 +26,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	// add "Create New Custom Collection from Theme"
 
 	std::vector<std::string> unusedFolders = CollectionSystemManager::get()->getUnusedSystemsFromTheme();
-	if (unusedFolders.size() > 0 && false) // batocera
+	if (unusedFolders.size() > 0)
 	{
 	  addEntry(_("CREATE NEW CUSTOM COLLECTION FROM THEME").c_str(), 0x777777FF, true,
 		[this, unusedFolders] {
@@ -74,11 +74,11 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	bundleCustomCollections = std::make_shared<SwitchComponent>(mWindow);
 	bundleCustomCollections->setState(Settings::getInstance()->getBool("UseCustomCollectionsSystem"));
-	//mMenu.addWithLabel(_("GROUP UNTHEMED CUSTOM COLLECTIONS"), bundleCustomCollections);
+	mMenu.addWithLabel(_("GROUP UNTHEMED CUSTOM COLLECTIONS"), bundleCustomCollections);
 
 	sortAllSystemsSwitch = std::make_shared<SwitchComponent>(mWindow);
 	sortAllSystemsSwitch->setState(Settings::getInstance()->getBool("SortAllSystems"));
-	//mMenu.addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
+	mMenu.addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
 
 	if(CollectionSystemManager::get()->isEditing())
 	{

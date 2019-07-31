@@ -245,9 +245,9 @@ void FileFilterIndex::resetFilters()
 
 	// batocera
 	// apply filterByHidden by default
-	filterByHidden = true;
-	std::vector<std::string> val = { "FALSE" };
-	setFilter(HIDDEN_FILTER, &val);
+	//filterByHidden = true;
+	//std::vector<std::string> val = { "FALSE" };
+	//setFilter(HIDDEN_FILTER, &val);
 
 	setUIModeFilters();
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 23:38+0200\n"
+"POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -404,7 +404,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "나갈 때 메타데이터 저장하기"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr "오직 게임리슽만 분석"
+msgstr "오직 게임리스트만 분석"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
@@ -414,6 +414,9 @@ msgstr "숨겨진 파일 보여주기"
 
 msgid "VRAM LIMIT"
 msgstr "비디오램 리미트"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
@@ -513,6 +516,12 @@ msgstr "새 커스텀 컬렉션 만들기"
 
 msgid "New Collection Name"
 msgstr "새 컬렉션 이름"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
 
 msgid "SELECT COLLECTIONS"
 msgstr "컬렉션 선택"

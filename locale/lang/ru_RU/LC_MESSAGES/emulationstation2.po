@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 23:38+0200\n"
+"POT-Creation-Date: 2019-07-09 21:43+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Ckau\n"
+"Last-Translator: Ckau, viroot\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -63,10 +63,10 @@ msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "ДОБАВИТЬ / УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
@@ -96,7 +96,7 @@ msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ КОЛЛЕКЦИИ ИГР"
 
 msgid "SOUND SETTINGS"
 msgstr "НАСТРОЙКИ ЗВУКА"
@@ -243,7 +243,7 @@ msgid "RETRO"
 msgstr "РЕТРО"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "РАСШИРЕННЫЙ"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -333,9 +333,13 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"Вы переводите интерфейс в ограниченный режим:\n"
+"Это скроет большинство пунктов меню, чтобы предотвратить изменения в "
+"системе.\n"
+"Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "Вы хотите продолжить ?"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
@@ -350,7 +354,7 @@ msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
 msgid "DISPLAY / HIDE SYSTEMS"
-msgstr ""
+msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -418,6 +422,9 @@ msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
 
+msgid "POWER SAVER MODES"
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
+
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
 
@@ -425,7 +432,7 @@ msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -497,34 +504,40 @@ msgid "VIDEO MODE"
 msgstr "ВИДЕО РЕЖИМ"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "РАСКРАШИВАНИЕ"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "ПОЛНАЯ ЗАГРУЗКА"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Название новой коллекции"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "ВЫБОР КОЛЛЕКЦИИ"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "АВТО-КОЛЛЕКЦИИ ИГР"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "КОЛЛЕКЦИИ ИГР"
 
 msgid "INSTALL BATOCERA"
 msgstr "УСТАНОВИТЬ BATOCERA"
@@ -632,7 +645,7 @@ msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "ИНФ. ОБ ИГРЕ НА ЗАСТАВКЕ"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "ИСП. НИЗКОЕ СОВМЕСТИМОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
+msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
@@ -674,19 +687,19 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "ВЫБОР СИСТЕМЫ ДЛЯ ОТОБРАЖЕНИЯ"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
 
 msgid "APPLY"
-msgstr ""
+msgstr "ПРИМЕНИТЬ"
 
 msgid "REVERT"
-msgstr ""
+msgstr "ВЕРНУТЬ"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "ПОДТВЕРДИТЬ"
 
 msgid "SELECT THEME"
 msgstr "ВЫБРАТЬ ТЕМУ"
@@ -882,28 +895,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
 
 msgid "all games"
-msgstr ""
+msgstr "все игры"
 
 msgid "last played"
-msgstr ""
+msgstr "недавно играли"
 
 msgid "favorites"
-msgstr ""
+msgstr "избранное"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 игрока"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 игрока"
 
 msgid "collections"
-msgstr ""
+msgstr "коллекции"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "Редактирование коллекции. Добавить/Удалить игры с помощью Y."
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "Редактирование коллекции завершено."
 
 #, c-format
 msgid "Added '%s' to '%s'"
