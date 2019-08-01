@@ -19,7 +19,6 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
 
 	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
-	    	//moptionsTheme->add((*it), (*it), false);
 		auto itstring = std::make_shared<TextComponent>(mWindow,
 				(*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
 		char *tmp=new char [(*it).length()+1];

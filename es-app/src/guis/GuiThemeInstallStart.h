@@ -19,6 +19,5 @@ private:
 	void start();
 
 	MenuComponent mMenu;
-	// std::shared_ptr< OptionListComponent<std::string> >moptionsTheme;
 	char *mSelectedTheme;
 };

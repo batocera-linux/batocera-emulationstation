@@ -59,17 +59,17 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
   { "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
 };
 
-#define fake_gettext _("UP")
-#define fake_gettext _("DOWN")
-#define fake_gettext _("LEFT")
-#define fake_gettext _("RIGHT")
-#define fake_gettext _("START")
-#define fake_gettext _("SELECT")
-#define fake_gettext _("LEFT ANALOG UP")
-#define fake_gettext _("LEFT ANALOG LEFT")
-#define fake_gettext _("RIGHT ANALOG UP")
-#define fake_gettext _("RIGHT ANALOG LEFT")
-#define fake_gettext _("HOTKEY")
+#define fake_gettext_up _("UP")
+#define fake_gettext_down _("DOWN")
+#define fake_gettext_left _("LEFT")
+#define fake_gettext_right _("RIGHT")
+#define fake_gettext_start _("START")
+#define fake_gettext_select _("SELECT")
+#define fake_gettext_left_a_up _("LEFT ANALOG UP")
+#define fake_gettext_left_a_left _("LEFT ANALOG LEFT")
+#define fake_gettext_right_a_up _("RIGHT ANALOG UP")
+#define fake_gettext_right_a_left _("RIGHT ANALOG LEFT")
+#define fake_gettext_hotkey _("HOTKEY")
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
 //If you want, you can manually add them to es_input.cfg.

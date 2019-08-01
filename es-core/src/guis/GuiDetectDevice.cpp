@@ -47,9 +47,9 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 
 	// batocera
 	if(firstRun) {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _(""), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	} else {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, _(""), Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER); // batocera
 	}
 	mGrid.setEntry(mMsg2, Vector2i(0, 3), false, true);
 
