@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 21:43+0200\n"
+"POT-Creation-Date: 2019-08-02 23:26+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -510,6 +510,9 @@ msgstr "ARRANQUE COMPLETO"
 
 msgid "EMULATED WIIMOTES"
 msgstr "WII MOTES EMULADOS"
+
+msgid "INTERNAL RESOLUTION"
+msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CREAR NUEVA COLECCION PARA EL TEMA"
