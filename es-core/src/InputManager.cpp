@@ -312,12 +312,12 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 
 	case SDL_JOYDEVICEADDED:
 		addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
-		computeLastKnownPlayersDeviceIndexes();
+		computeLastKnownPlayersDeviceIndexes(); // batocera
 		return true;
 
 	case SDL_JOYDEVICEREMOVED:
 		removeJoystickByJoystickID(ev.jdevice.which); // ev.jdevice.which is an SDL_JoystickID (instance ID)
-		computeLastKnownPlayersDeviceIndexes();
+		computeLastKnownPlayersDeviceIndexes(); // batocera
 		return false;
 	}
 
