@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 21:43+0200\n"
+"POT-Creation-Date: 2019-08-02 23:26+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -510,6 +510,9 @@ msgstr "FULL BOOT"
 
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES ÉMULÉES"
+
+msgid "INTERNAL RESOLUTION"
+msgstr "RÉSOLUTION INTERNE"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRÉER UNE NOUVELLE COLLECTION DEPUIS UN THÈME"
