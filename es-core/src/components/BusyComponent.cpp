@@ -3,7 +3,6 @@
 #include "components/AnimatedImageComponent.h"
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
-#include "Renderer.h"
 #include "LocaleES.h"
 
 // animation definition

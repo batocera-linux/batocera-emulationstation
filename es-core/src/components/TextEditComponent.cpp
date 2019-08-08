@@ -2,7 +2,6 @@
 
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
-#include "Renderer.h"
 #include "LocaleES.h"
 
 #define TEXT_PADDING_HORIZ 10

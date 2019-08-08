@@ -23,6 +23,7 @@
 #include "VolumeControl.h"
 #include <SDL_events.h>
 #include <algorithm>
+#include "platform.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
