@@ -218,6 +218,7 @@ set(COMMON_LIBRARIES
     ${VLC_LIBRARIES}
     pugixml
     nanosvg
+    id3v2
 )
 
 #add libCEC_LIBRARIES

@@ -29,6 +29,7 @@
 #include "ApiSystem.h"
 #include "AudioManager.h"
 #include "NetworkThread.h"
+#include "SongName.h"
 
 #include <FreeImage.h>
 
@@ -409,6 +410,8 @@ int main(int argc, char* argv[])
 	if(systemConf->get("updates.enabled") == "1"){
 		NetworkThread * nthread = new NetworkThread(&window);
 	}
+	// Batocera: display music names
+	SongNameThread * songthread = new SongNameThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)

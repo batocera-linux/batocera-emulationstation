@@ -14,6 +14,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SongName.h # batocera
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -90,6 +91,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SongName.cpp # batocera
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp

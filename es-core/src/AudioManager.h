@@ -7,6 +7,7 @@
 #include <vector>
 #include "SDL_mixer.h"
 #include <string> // batocera
+#include <iostream> // batocera
 
 class Sound;
 
@@ -24,6 +25,7 @@ class AudioManager
 	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
 	static void musicEnd_callback(); // batocera
 	std::string mSystem = ""; // batocera (per system music folder)
+	std::string mCurrentSong = ""; // batocera (pop-up for SongName.cpp)
 
 public:
 	static std::shared_ptr<AudioManager> & getInstance();
@@ -41,6 +43,8 @@ public:
 	void playRandomMusic(bool continueIfPlaying = true);
 	void stopMusic();
 	inline const std::string getName() const { return mSystem; }
+	inline const std::string getSongName() const { return mCurrentSong; }
+	void setSongName(std::string song); 
 	void setName(std::string name);
 
 	virtual ~AudioManager();
