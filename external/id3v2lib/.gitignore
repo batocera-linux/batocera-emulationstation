@@ -1,0 +1,6 @@
+build
+/Debug/
+.cproject
+.project
+.DS_Store
+test
