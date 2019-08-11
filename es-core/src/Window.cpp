@@ -264,7 +264,7 @@ void Window::update(int deltaTime)
 		// Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
 		// for more information about date/time format
 		strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
-		mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-50.0f, 0x33333366));
+		mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-40.0f, 0xFFFFFF55));
 	      }
 	      mClockElapsed = 1000; // next update in 1000ms
 	    }
