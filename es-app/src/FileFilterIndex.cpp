@@ -264,7 +264,7 @@ void FileFilterIndex::setUIModeFilters()
 		if (UIModeController::getInstance()->isUIModeKid())
 		{
 			filterByKidGame = true;
-			std::vector<std::string> val = { "FALSE" }; // batocera
+			std::vector<std::string> val = { "TRUE" };
 			setFilter(KIDGAME_FILTER, &val);
 		}
 	}
