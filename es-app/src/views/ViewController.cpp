@@ -380,7 +380,7 @@ bool ViewController::input(InputConfig* config, Input input)
         }
 
 	// open menu
-	if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("start", input) && input.value != 0)
+	if(config->isMappedTo("start", input) && input.value != 0)
 	{
 		// open menu
 		mWindow->pushGui(new GuiMenu(mWindow));
