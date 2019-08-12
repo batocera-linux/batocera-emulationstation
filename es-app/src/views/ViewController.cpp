@@ -463,7 +463,7 @@ void ViewController::preload()
 		}
 
 		(*it)->getIndex()->resetFilters();
-		getGameListView(*it);
+		//getGameListView(*it); // batocera - performances
 	}
 }
 
