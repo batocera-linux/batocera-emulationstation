@@ -10,7 +10,8 @@
 #include "guis/GuiVideoScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
-#include "guis/GuiThemeInstallStart.h"
+#include "guis/GuiThemeInstallStart.h" //batocera
+#include "guis/GuiBezelInstallStart.h" //batocera
 #include "guis/GuiSettings.h"
 #include "guis/GuiSystemsHide.h" //batocera
 #include "views/UIModeController.h"
@@ -880,7 +881,20 @@ void GuiMenu::openSystemSettings_batocera() {
 	row.addElement(bracket, false);
 	updateGui->addRow(row);
       }
-      
+
+      // Batocera integration with theBezelProject
+      {
+	auto openBezelMenuNow = [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); };
+	ComponentListRow row;
+	row.makeAcceptInputHandler(openBezelMenuNow);
+	auto BezelInstallMenuSettings = std::make_shared<TextComponent>(mWindow, _("THE BEZEL PROJECT"),
+			Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+	auto bracket = makeArrow(mWindow);
+	row.addElement(BezelInstallMenuSettings, true);
+	row.addElement(bracket, false);
+	updateGui->addRow(row);
+      }
+
       // Enable updates
       auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
       updates_enabled->setState(
