@@ -8,7 +8,6 @@
 #include "ApiSystem.h"
 #include "LocaleES.h"
 #include "GuiBezelInstall.h"
-#include "views/ViewController.h"
 
 // Batcera - theBezelProject Install
 GuiBezelInstall::GuiBezelInstall(Window* window, char *bezel) : GuiComponent(window), mBusyAnim(window)
@@ -17,7 +16,7 @@ GuiBezelInstall::GuiBezelInstall(Window* window, char *bezel) : GuiComponent(win
         mLoading = true;
 	mState = 1;
         mBusyAnim.setSize(mSize);
-	mBezelName = bezel; //FIXME
+	mBezelName = bezel;
 }
 
 GuiBezelInstall::~GuiBezelInstall()
@@ -67,8 +66,6 @@ void GuiBezelInstall::update(int deltaTime) {
 					}
 					)
 			  );
-	  // In case you have no active theme
-	  // ViewController::get()->reloadAll();
 	  mState = 0;
         }
         if(mState == 3){
@@ -89,8 +86,6 @@ void GuiBezelInstall::update(int deltaTime) {
 
 void GuiBezelInstall::threadBezel() 
 {
-    // Batocera script will be invoked there 
-    // FIXME
     std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->installBatoceraBezel(&mBusyAnim, mBezelName);
     
     if(updateStatus.second == 0){
@@ -123,7 +118,7 @@ GuiBezelUninstall::GuiBezelUninstall(Window* window, char *bezel) : GuiComponent
         mLoading = true;
 	mState = 1;
         mBusyAnim.setSize(mSize);
-	mBezelName = bezel; //FIXME
+	mBezelName = bezel;
 }
 
 GuiBezelUninstall::~GuiBezelUninstall()
@@ -173,8 +168,6 @@ void GuiBezelUninstall::update(int deltaTime) {
 					}
 					)
 			  );
-	  // In case you have no active theme
-	  // ViewController::get()->reloadAll();
 	  mState = 0;
         }
         if(mState == 3){
@@ -195,8 +188,6 @@ void GuiBezelUninstall::update(int deltaTime) {
 
 void GuiBezelUninstall::threadBezel() 
 {
-    // Batocera script will be invoked there 
-    // FIXME
     std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->uninstallBatoceraBezel(&mBusyAnim, mBezelName);
     
     if(updateStatus.second == 0){
