@@ -1875,6 +1875,14 @@ void GuiMenu::openSoundSettings_batocera() {
 	AudioManager::getInstance()->stopMusic();
     });
 
+  // batocera - display music titles
+  auto display_titles = std::make_shared<SwitchComponent>(mWindow);
+  display_titles->setState(!(SystemConf::getInstance()->get("audio.display_titles") == "0"));
+  s->addWithLabel(_("DISPLAY SONG TITLES"), display_titles);
+  s->addSaveFunc([display_titles] {
+      SystemConf::getInstance()->set("audio.display_titles", display_titles->getState() ? "1" : "0");
+    });
+
   // batocera - music per system
   auto music_per_system = std::make_shared<SwitchComponent>(mWindow);
   music_per_system->setState(!(SystemConf::getInstance()->get("audio.persystem") == "0"));
