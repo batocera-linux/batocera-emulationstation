@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -168,6 +168,9 @@ msgstr "ACTUALIZACIONES"
 
 msgid "THEMES"
 msgstr "TEMAS"
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "ACTUALIZACIONES AUTOMÁTICAS"
@@ -430,6 +433,9 @@ msgstr "VOLUMEN DEL SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FONDO"
 
+msgid "DISPLAY SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SOLAMENTE REPRODUCIR LA CARPETA ESPECIFICA DE MUSICA"
 
@@ -609,6 +615,24 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JUEGO IGNORADO"
 msgstr[1] "%i JUEGOS IGNORADOS"
 
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr ""
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO SATISFACTORIAMENTE"
 
@@ -650,6 +674,12 @@ msgstr "UTILIZAR COMPATIBLIDAD DE BAJA RESOLUCION PARA LAS CAPTURAS"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "AJUSTAR VIDEO EN SALVAPANTALLAS"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTENER DATOS DE ESTOS JUEGOS"
@@ -839,6 +869,9 @@ msgstr "MARQUESINA"
 
 msgid "enter path to marquee"
 msgstr "COLOCAR RUTA PARA MARQUESINA"
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"

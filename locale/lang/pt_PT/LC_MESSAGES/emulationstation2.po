@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -171,6 +171,9 @@ msgstr "ATUALIZAÇÕES"
 
 msgid "THEMES"
 msgstr "TEMAS"
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
@@ -429,6 +432,9 @@ msgstr "VOLUME DO SISTEMA"
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
+msgid "DISPLAY SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
 
@@ -608,6 +614,24 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JOGO IGNORADO."
 msgstr[1] "%i JOGOS IGNORADOS."
 
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr ""
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO COM SUCESSO"
 
@@ -649,6 +673,12 @@ msgstr "USAR BAIXA RESOLUÇÃO PARA A LEGENDA"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
@@ -838,6 +868,9 @@ msgstr "marcador"
 
 msgid "enter path to marquee"
 msgstr "insira o caminho para o marcador"
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
