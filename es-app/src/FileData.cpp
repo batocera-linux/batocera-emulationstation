@@ -301,8 +301,12 @@ void FileData::launchGame(Window* window)
 	Scripting::fireEvent("game-end");
 
 	window->init();
-	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
+	VolumeControl::getInstance()->init(); 
+	// batocera system-specific music
+	if (mSystem != NULL)
+		AudioManager::getInstance()->setName(mSystem->getName());
+	else
+		AudioManager::getInstance()->setName("");
         AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
