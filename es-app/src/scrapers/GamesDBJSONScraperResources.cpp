@@ -17,7 +17,7 @@ using namespace rapidjson;
 
 namespace
 {
-constexpr char GamesDBAPIKey[] = "445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600";
+constexpr char GamesDBAPIKey[] = "b699c2e6f9f85730fc2e4aa831b24172e68701352310f4e4d301d9342ae39636"; // batocera
 
 
 constexpr int MAX_WAIT_MS = 90000;

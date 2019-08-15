@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,6 +175,9 @@ msgid "UPDATES"
 msgstr ""
 
 msgid "THEMES"
+msgstr ""
+
+msgid "THE BEZEL PROJECT"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -422,6 +425,9 @@ msgstr ""
 msgid "FRONTEND MUSIC"
 msgstr ""
 
+msgid "DISPLAY SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr ""
 
@@ -597,6 +603,24 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr ""
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
@@ -637,6 +661,12 @@ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
 msgstr ""
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr ""
 
 msgid "SCRAPE THESE GAMES"
@@ -823,6 +853,9 @@ msgid "marquee"
 msgstr ""
 
 msgid "enter path to marquee"
+msgstr ""
+
+msgid "Now playing: "
 msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"

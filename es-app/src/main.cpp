@@ -424,7 +424,7 @@ int main(int argc, char* argv[])
 
 	// preload what we can right away instead of waiting for the user to select it
 	// this makes for no delays when accessing content, but a longer startup time
-	//ViewController::get()->preload(); // batocera
+	ViewController::get()->preload();
 
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera

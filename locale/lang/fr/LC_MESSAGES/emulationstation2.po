@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -168,6 +168,9 @@ msgstr "MISES À JOUR"
 
 msgid "THEMES"
 msgstr "THÈMES"
+
+msgid "THE BEZEL PROJECT"
+msgstr "THE BEZEL PROJECT"
 
 msgid "AUTO UPDATES"
 msgstr "MISES À JOUR AUTO"
@@ -430,6 +433,9 @@ msgstr "VOLUME DU SYSTÈME"
 msgid "FRONTEND MUSIC"
 msgstr "MUSIQUE DE FOND"
 
+msgid "DISPLAY SONG TITLES"
+msgstr "AFFICHER LES TITRES DES MUSIQUES"
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "JOUER SEULEMENT LES MUSIQUES SPÉCIFIQUES AUX SYSTÈMES"
 
@@ -605,6 +611,24 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JEU PASSÉ."
 msgstr[1] "%i JEUX PASSÉS."
 
+msgid "INSTALL BEZELS"
+msgstr "INSTALLER DES DÉCORATIONS"
+
+msgid "UNINSTALL BEZELS"
+msgstr "DÉSINSTALLER DES DÉCORATIONS"
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr "INSTALLER THE BEZEL PROJECT"
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr "CHOISIR LES DÉCORATIONS À INSTALLER"
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr "DÉSINSTALLER THE BEZEL PROJECT"
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THÈME INSTALLÉ AVEC SUCCÈS"
 
@@ -646,6 +670,12 @@ msgstr "UTILISER UNE RÉSOLUTION BASSE POUR LES TITRES"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCÈS"
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPER CES JEUX"
@@ -835,6 +865,9 @@ msgstr "marqueur"
 
 msgid "enter path to marquee"
 msgstr "entrer le chemin vers le marqueur"
+
+msgid "Now playing: "
+msgstr "En cours: "
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER LE MEDIA CENTER KODI ?"

@@ -101,6 +101,9 @@ public:
     std::vector<std::string> getRetroAchievements();
     std::vector<std::string> getBatoceraThemesList();
     std::pair<std::string,int> installBatoceraTheme(BusyComponent* ui, std::string thname);
+    std::vector<std::string> getBatoceraBezelsList();
+    std::pair<std::string,int> installBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
+    std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
 
 private:
     static ApiSystem *instance;

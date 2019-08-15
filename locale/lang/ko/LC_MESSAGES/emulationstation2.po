@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,6 +168,9 @@ msgstr "업데이트"
 
 msgid "THEMES"
 msgstr "주제"
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
 
 msgid "AUTO UPDATES"
 msgstr "자동 업데이트"
@@ -424,6 +427,9 @@ msgstr "시스템 음량"
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
 
+msgid "DISPLAY SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "특정 뮤직 폴더 시스템만 플레이"
 
@@ -600,6 +606,24 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 개의 게임을 건너뛰었습니다."
 
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr ""
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "테마 성공적으로 설치됨"
 
@@ -641,6 +665,12 @@ msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "화면보호기에 비디오 늘이기"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들을 수집"
@@ -830,6 +860,9 @@ msgstr "움직이는 텍스트"
 
 msgid "enter path to marquee"
 msgstr "움직이는 텍스트의 경로 입력"
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI 미디어 센터를 실행하시겠습니까?"

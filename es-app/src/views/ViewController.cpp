@@ -380,7 +380,7 @@ bool ViewController::input(InputConfig* config, Input input)
         }
 
 	// open menu
-	if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("start", input) && input.value != 0)
+	if(config->isMappedTo("start", input) && input.value != 0) // batocera
 	{
 		// open menu
 		mWindow->pushGui(new GuiMenu(mWindow));
@@ -463,7 +463,7 @@ void ViewController::preload()
 		}
 
 		(*it)->getIndex()->resetFilters();
-		getGameListView(*it);
+		//getGameListView(*it); // batocera - performances
 	}
 }
 

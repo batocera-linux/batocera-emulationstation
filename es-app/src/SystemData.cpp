@@ -365,7 +365,7 @@ std::string SystemData::getConfigPath(bool forWrite)
 bool SystemData::isVisible()
 {
 	if (SystemConf::getInstance()->get(getName() + ".hide") == "1") // batocera (hide systems)
-	    return 0; // batocera (hide systems)
+	    return false; // batocera (hide systems)
 
 	return (getDisplayedGameCount() > 0 || 
            (UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||

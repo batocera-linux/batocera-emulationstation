@@ -931,3 +931,71 @@ std::pair<std::string,int> ApiSystem::installBatoceraTheme(BusyComponent* ui, st
     return std::pair<std::string,int>(std::string(line), exitCode);
 }
 
+
+std::vector<std::string> ApiSystem::getBatoceraBezelsList() {
+    std::vector<std::string> res;
+    std::ostringstream oss;
+    oss << "batocera-es-thebezelproject list";
+    FILE *pipe = popen(oss.str().c_str(), "r");
+    char line[1024];
+    char *pch;
+
+    if (pipe == NULL) {
+        return res;
+    }
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        // provide only themes that are [A]vailable or [I]nstalled as a result
+        // (Eliminate [?] and other non-installable lines of text)
+        if ((strncmp(line,"[A]",3) == 0) || (strncmp(line,"[I]",3) == 0))
+                res.push_back(std::string(line));
+    }
+    pclose(pipe);
+    return res;
+}
+
+std::pair<std::string,int> ApiSystem::installBatoceraBezel(BusyComponent* ui, std::string bezelsystem) {
+    std::string updatecommand = std::string("batocera-es-thebezelproject install ") + bezelsystem;
+    LOG(LogWarning) << "Installing bezels for " << bezelsystem;
+    FILE *pipe = popen(updatecommand.c_str(), "r");
+    char line[1024] = "";
+    if (pipe == NULL) {
+        return std::pair<std::string,int>(std::string("Error starting `batocera-es-thebezelproject install` command."),-1);
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        // Long theme names/URL can crash the GUI MsgBox
+        // "48" found by trials and errors. Ideally should be fixed
+        // in es-core MsgBox -- FIXME
+        if (strlen(line)>48)
+                line[47]='\0';
+        ui->setText(std::string(line));
+    }
+
+    int exitCode = pclose(pipe);
+    return std::pair<std::string,int>(std::string(line), exitCode);
+}
+
+std::pair<std::string,int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) {
+    std::string updatecommand = std::string("batocera-es-thebezelproject remove ") + bezelsystem;
+    LOG(LogWarning) << "Removing bezels for " << bezelsystem;
+    FILE *pipe = popen(updatecommand.c_str(), "r");
+    char line[1024] = "";
+    if (pipe == NULL) {
+        return std::pair<std::string,int>(std::string("Error starting `batocera-es-thebezelproject remove` command."),-1); 
+    }
+
+    while (fgets(line, 1024, pipe)) {
+        strtok(line, "\n");
+        // Long theme names/URL can crash the GUI MsgBox
+        // "48" found by trials and errors. Ideally should be fixed
+        // in es-core MsgBox -- FIXME
+        if (strlen(line)>48)
+                line[47]='\0';
+        ui->setText(std::string(line));
+    }
+
+    int exitCode = pclose(pipe);
+    return std::pair<std::string,int>(std::string(line), exitCode);
+}

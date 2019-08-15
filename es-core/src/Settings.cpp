@@ -179,8 +179,9 @@ void Settings::setDefaults()
 	mStringMap["ExePath"] = "";
 }
 
+// batocera
 template <typename K, typename V>
-void saveMap(pugi::xml_document& doc, std::map<K, V>& map, const char* type)
+void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type)
 {
 	for(auto iter = map.cbegin(); iter != map.cend(); iter++)
 	{
@@ -188,12 +189,13 @@ void saveMap(pugi::xml_document& doc, std::map<K, V>& map, const char* type)
 		if(std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), iter->first) != settings_dont_save.cend())
 			continue;
 
-		pugi::xml_node node = doc.append_child(type);
-		node.append_attribute("name").set_value(iter->first.c_str());
-		node.append_attribute("value").set_value(iter->second);
+		pugi::xml_node parent_node= node.append_child(type);
+		parent_node.append_attribute("name").set_value(iter->first.c_str());
+		parent_node.append_attribute("value").set_value(iter->second);
 	}
 }
 
+// batocera
 void Settings::saveFile()
 {
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
@@ -201,14 +203,16 @@ void Settings::saveFile()
 
 	pugi::xml_document doc;
 
-	saveMap<std::string, bool>(doc, mBoolMap, "bool");
-	saveMap<std::string, int>(doc, mIntMap, "int");
-	saveMap<std::string, float>(doc, mFloatMap, "float");
+	pugi::xml_node config = doc.append_child("config"); // batocera, root element
 
-	//saveMap<std::string, std::string>(doc, mStringMap, "string");
+	saveMap<std::string, bool>(config, mBoolMap, "bool");
+	saveMap<std::string, int>(config, mIntMap, "int");
+	saveMap<std::string, float>(config, mFloatMap, "float");
+
+	//saveMap<std::string, std::string>(config, mStringMap, "string");
 	for(auto iter = mStringMap.cbegin(); iter != mStringMap.cend(); iter++)
 	{
-		pugi::xml_node node = doc.append_child("string");
+		pugi::xml_node node = config.append_child("string");
 		node.append_attribute("name").set_value(iter->first.c_str());
 		node.append_attribute("value").set_value(iter->second.c_str());
 	}
@@ -234,6 +238,18 @@ void Settings::loadFile()
 		return;
 	}
 
+    // batocera
+    pugi::xml_node config = doc.child("config");
+    if(config) { /* correct file format, having a config root node */
+	for(pugi::xml_node node = config.child("bool"); node; node = node.next_sibling("bool"))
+		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
+	for(pugi::xml_node node = config.child("int"); node; node = node.next_sibling("int"))
+		setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
+	for(pugi::xml_node node = config.child("float"); node; node = node.next_sibling("float"))
+		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
+	for(pugi::xml_node node = config.child("string"); node; node = node.next_sibling("string"))
+		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
+    } else { /* the old format, without the root config node -- keep for a transparent upgrade */
 	for(pugi::xml_node node = doc.child("bool"); node; node = node.next_sibling("bool"))
 		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
 	for(pugi::xml_node node = doc.child("int"); node; node = node.next_sibling("int"))
@@ -242,6 +258,8 @@ void Settings::loadFile()
 		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
 	for(pugi::xml_node node = doc.child("string"); node; node = node.next_sibling("string"))
 		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
+
+    }
 }
 
 //Print a warning message if the setting we're trying to get doesn't already exist in the map, then return the value in the map.
