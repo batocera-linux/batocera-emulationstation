@@ -74,7 +74,7 @@ std::shared_ptr<AudioManager> & AudioManager::getInstance()
 	return sInstance;
 }
 
-void AudioManager::init()
+void AudioManager::init(std::string system)
 {
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
@@ -111,6 +111,9 @@ void AudioManager::init()
         //if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
         //    LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
         //}
+
+	// batocera
+	mSystem = system;
 }
 
 void AudioManager::deinit()
@@ -171,11 +174,6 @@ void AudioManager::stop()
 	SDL_PauseAudio(1);
 }
 
-// batocera - per system music folder
-void AudioManager::setName(std::string newname) {
-        mSystem = newname;
-}
-
 // batocera
 void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files) {
     Utils::FileSystem::stringList dirContent;
@@ -233,6 +231,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
 
   // free the previous music
   if(currentMusic != NULL) {
+    Mix_HookMusicFinished(NULL);
     Mix_FreeMusic(currentMusic);
   } else {
     // mixer: Open the audio device and pause
@@ -251,6 +250,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
   }
 
   if(Mix_PlayMusic(currentMusic, 1) == -1){
+    Mix_HookMusicFinished(NULL);
     Mix_FreeMusic(currentMusic);
     currentMusic = NULL;
     Mix_CloseAudio();
@@ -279,6 +279,11 @@ void AudioManager::stopMusic() {
     Mix_CloseAudio();
     currentMusic = NULL;
   }
+}
+
+// batocera
+void AudioManager::setSystemName(std::string name) {
+	mSystem = name;
 }
 
 // batocera
