@@ -30,7 +30,7 @@ class AudioManager
 public:
 	static std::shared_ptr<AudioManager> & getInstance();
 
-	void init();
+	void init(std::string system = "");
 	void deinit();
 
 	void registerSound(std::shared_ptr<Sound> & sound);
@@ -45,7 +45,7 @@ public:
 	inline const std::string getName() const { return mSystem; }
 	inline const std::string getSongName() const { return mCurrentSong; }
 	void setSongName(std::string song); 
-	void setName(std::string name);
+	void setSystemName(std::string name);
 
 	virtual ~AudioManager();
 };
