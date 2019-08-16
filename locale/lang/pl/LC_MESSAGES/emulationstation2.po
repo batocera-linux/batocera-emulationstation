@@ -60,10 +60,10 @@ msgid "FILTER GAMELIST"
 msgstr "FILTRUJ LISTĘ GIER"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "ZAKOŃCZ EDYCJĘ KOLEKCJI"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
@@ -93,7 +93,7 @@ msgid "UI SETTINGS"
 msgstr "USTAWIENIA INTERFEJSU"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA KOLEKCJI GIER"
 
 msgid "SOUND SETTINGS"
 msgstr "USTAWIENIA DŹWIĘKU"
@@ -117,7 +117,7 @@ msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
 
 msgid "SCRAPE RATINGS"
-msgstr "OCENY Z SCRAPE'A"
+msgstr "OCENY SCRAPE'A"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
@@ -171,7 +171,7 @@ msgid "THEMES"
 msgstr "SKÓRY"
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "PROJEKT RAMEK"
 
 msgid "AUTO UPDATES"
 msgstr "AUTOMATYCZNE AKTUALIZACJE"
@@ -207,7 +207,7 @@ msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJE"
+msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJĘ"
 
 msgid "GAME RATIO"
 msgstr "PRĘDKOŚĆ GRY"
@@ -243,7 +243,7 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "ROZSZERZONE"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
@@ -258,7 +258,7 @@ msgid "HARDCORE MODE"
 msgstr "TRYB HARDCORE"
 
 msgid "LEADERBOARDS"
-msgstr "LEADERBOARDS"
+msgstr "RANKINGI"
 
 msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
@@ -319,7 +319,7 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
 
 msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "USUŃ KONTROLER BLUETOOTH Z LISTY ZAPISANYCH"
+msgstr "USUŃ KONTROLERY BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -333,9 +333,12 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"Zmieniasz interfejs użytkownika do trybu ograniczonego:\n"
+"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w systemie.\n"
+"Aby odblokować i powrócić do pełnego interfejsu, wprowadź ten kod:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "Czy chcesz kontynuować?"
 
 msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
@@ -350,7 +353,7 @@ msgid "START ON SYSTEM"
 msgstr "URUCHOM Z SYSTEMEM"
 
 msgid "DISPLAY / HIDE SYSTEMS"
-msgstr ""
+msgstr "WYŚWIETL/UKRYJ SYSTEMY"
 
 msgid "TRANSITION STYLE"
 msgstr "RODZAJ PRZEJŚCIA"
@@ -420,7 +423,7 @@ msgid "VRAM LIMIT"
 msgstr "LIMIT VRAM"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
@@ -429,10 +432,10 @@ msgid "FRONTEND MUSIC"
 msgstr "MUZYKA"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "WYŚWIETLANIE TYTUŁÓW UTWORÓW"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "WŁĄCZ DŹWIĘK WIDEO"
@@ -504,43 +507,43 @@ msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "KOLOROWANIE"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "PEŁNY ROZRUCH"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "EMULOWANE WIIMOTES"
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
+msgstr "WEWNĘTRZNA ROZDZIELCZOŚĆ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "WYBIERZ FOLDER SKÓRY"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Nowa nazwa kolekcji"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "WYBIERZ KOLEKCJE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "AUTOMATYCZNE KOLEKCJE GIER"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "WŁASNE KOLEKCJE GIER"
 
 msgid "INSTALL BATOCERA"
 msgstr "ZAINSTALUJ BATOCERA"
@@ -594,40 +597,40 @@ msgid ""
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
 "NIE MOŻEMY ZNALEŹĆ ŻADNYCH SYSTEMÓW!\n"
-"SPRAWDŹ CZY ŚCIEŻKI DOSTĘPU SĄ POPRAWNE W PLIKACH KONFIGURACYJNYCH, I CZY "
+"SPRAWDŹ CZY ŚCIEŻKI DOSTĘPU W PLIKACH KONFIGURACYJNYCH SĄ POPRAWNE, I CZY "
 "KATALOG Z GRAMI ZAWIERA PRZYNAJMNIEJ JEDNĄ GRĘ Z POPRAWNYM ROZSZERZENIEM."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
 msgstr[0] "%i GRA ZOSTAŁA POPRAWNIE DODANA!"
-msgstr[1] "%i GIER ZOSTAŁO POPRAWNIE DODANYCH!"
+msgstr[1] "%i GRY ZOSTAŁY POPRAWNIE DODANE!"
 msgstr[2] "%i GIER ZOSTAŁO POPRAWNIE DODANYCH!"
 
 #, c-format
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA."
-msgstr[1] "%i GIER ZOSTAŁO POMINIĘTYCH."
+msgstr[1] "%i GRY ZOSTAŁY POMINIĘTE."
 msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH."
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "INSTALACJA RAMEK"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "ODINSTALUJ RAMKI"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "ZAINSTALUJ PROJEKT RAMEK"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
+msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ INSTALOWANE RAMKI"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "ODINSTALUJ PROJEKT RAMEK"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "WYBIERZ SYSTEM, W KTÓRYM ZOSTANĄ USUNIĘTE RAMKI"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "SKÓRA ZAINSTALOWANA POMYŚLNIE"
@@ -672,10 +675,10 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgstr "RAMKI USUNIĘTE POMYŚLNIE"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE'UJ TE GRY"
@@ -714,19 +717,19 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "WYBIERZ SYSTEMY DO WYŚWIETLENIA"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "WYŚWIETLANE SYSTEMY"
 
 msgid "APPLY"
-msgstr ""
+msgstr "ZASTOSUJ"
 
 msgid "REVERT"
-msgstr ""
+msgstr "PRZYWRÓĆ"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "SPRAWDZĆ"
 
 msgid "SELECT THEME"
 msgstr "WYBIERZ SKÓRĘ"
@@ -867,7 +870,7 @@ msgid "enter path to marquee"
 msgstr "wprowadź ścieżkę do marquee"
 
 msgid "Now playing: "
-msgstr ""
+msgstr "Teraz gra: "
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
@@ -876,7 +879,7 @@ msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
 msgstr[0] "%i GRA DOSTĘPNA"
-msgstr[1] "%i GIER DOSTĘPNYCH"
+msgstr[1] "%i GRY DOSTĘPNE"
 msgstr[2] "%i GIER DOSTĘPNYCH"
 
 msgid "KODI"
@@ -925,28 +928,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
 
 msgid "all games"
-msgstr ""
+msgstr "wszystkie gry"
 
 msgid "last played"
-msgstr ""
+msgstr "ostatnio grane"
 
 msgid "favorites"
-msgstr ""
+msgstr "ulubione"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 graczy"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 graczy"
 
 msgid "collections"
-msgstr ""
+msgstr "kolekcje"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "Edytowanie kolekcji. Dodaj/usuń gry przez Y."
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "Zakończono edycję kolekcji."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1054,13 +1057,13 @@ msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
 msgstr[0] "WYKRYTO %i KONTROLER"
 msgstr[1] "WYKRYTO %i KONTROLERY"
-msgstr[2] "WYKRYTO %i KONTROLERY"
+msgstr[2] "WYKRYTO %i KONTROLERÓW"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "PRZYTRZYMAJ A NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
+msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
@@ -1081,7 +1084,7 @@ msgstr "ODZNACZ WSZYSTKO"
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
 msgstr[0] "%i WYBRANA"
-msgstr[1] "%i WYBRANYCH"
+msgstr[1] "%i WYBRANE"
 msgstr[2] "%i WYBRANYCH"
 
 msgid "CHANGE"
