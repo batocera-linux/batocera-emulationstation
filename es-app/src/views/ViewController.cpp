@@ -136,7 +136,7 @@ void ViewController::goToGameList(SystemData* system)
         // batocera
         if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0") {
 		if (AudioManager::getInstance()->getName() != system->getName()) {
-			AudioManager::getInstance()->setSystemName(system->getName());
+			AudioManager::getInstance()->setName(system->getName());
 			AudioManager::getInstance()->playRandomMusic(0);
 		}
 	}
