@@ -302,7 +302,8 @@ void FileData::launchGame(Window* window)
 
 	window->init();
 	VolumeControl::getInstance()->init();
-        AudioManager::getInstance()->init(mSystem->getName()); // batocera
+	AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
+        AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched

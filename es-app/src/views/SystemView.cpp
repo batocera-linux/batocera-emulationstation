@@ -304,7 +304,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
         if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0")  {
 		if (getSelected()->isGameSystem()) {
 			if (AudioManager::getInstance()->getName() != getSelected()->getName()) {
-				AudioManager::getInstance()->setSystemName(getSelected()->getName());
+				AudioManager::getInstance()->setName(getSelected()->getName());
 				AudioManager::getInstance()->playRandomMusic(0);
 			}
 		}

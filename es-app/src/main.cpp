@@ -429,6 +429,10 @@ int main(int argc, char* argv[])
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera
 
+	// batocera
+	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+	  AudioManager::getInstance()->playRandomMusic();
+
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
 	{
@@ -439,10 +443,6 @@ int main(int argc, char* argv[])
 			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(); }));
 		}
 	}
-
-	// batocera
-	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-	  AudioManager::getInstance()->playRandomMusic();
 
         // batocera
 	// Create a flag in  temporary directory to signal READY state
