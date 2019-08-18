@@ -302,7 +302,9 @@ void FileData::launchGame(Window* window)
 
 	window->init();
 	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
+
+	// mSystem can be NULL
+	//AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
         AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
