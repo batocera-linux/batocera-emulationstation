@@ -115,6 +115,8 @@ void AudioManager::init()
 
 void AudioManager::deinit()
 {
+	if (sInstance == null) return;
+
 	// batocera music
 	if(currentMusic != NULL){
 	  stopMusic();
