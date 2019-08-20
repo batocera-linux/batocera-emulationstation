@@ -173,10 +173,10 @@ namespace Utils
 
 		std::string getCWDPath()
 		{
-			char temp[512];
+			char temp[2048];
 
 			// return current working directory path
-			return (getcwd(temp, 512) ? getGenericPath(temp) : "");
+			return (getcwd(temp, 2048) ? getGenericPath(temp) : "");
 
 		} // getCWDPath
 
@@ -346,8 +346,14 @@ namespace Utils
 
 		std::string getAbsolutePath(const std::string& _path, const std::string& _base)
 		{
-			std::string path = getGenericPath(_path);
-			std::string base = isAbsolute(_base) ? getGenericPath(_base) : getAbsolutePath(_base);
+		  std::string base;
+		  std::string path = getGenericPath(_path);
+
+		  if(base == "") { // in case getAbsolutePath fails, prevent infinite loop
+		    base = "/";
+		  } else {
+		    base = isAbsolute(_base) ? getGenericPath(_base) : getAbsolutePath(_base);
+		  }
 
 			// return absolute path
 			return isAbsolute(path) ? path : getGenericPath(base + "/" + path);
