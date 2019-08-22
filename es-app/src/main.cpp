@@ -411,7 +411,7 @@ int main(int argc, char* argv[])
 		NetworkThread * nthread = new NetworkThread(&window);
 	}
 	// Batocera: display music names
-	SongNameThread * songthread = new SongNameThread(&window);
+	// SongNameThread * songthread = new SongNameThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)
