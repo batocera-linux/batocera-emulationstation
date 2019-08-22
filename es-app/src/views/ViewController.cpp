@@ -509,13 +509,21 @@ void ViewController::reloadAll()
 	}
 	mGameListViews.clear();
 
-
+	// If preloaded is disabled
+	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
+	{
+		if (cursorMap.find((*it)) == cursorMap.end())
+			cursorMap[(*it)] = NULL;
+	}
+	
 	// load themes, create gamelistviews and reset filters
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
 		it->first->loadTheme();
 		it->first->getIndex()->resetFilters();
-		getGameListView(it->first)->setCursor(it->second);
+		
+		if (it->second != NULL)
+			getGameListView(it->first)->setCursor(it->second);
 	}
 
 	// Rebuild SystemListView
