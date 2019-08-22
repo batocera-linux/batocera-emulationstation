@@ -12,17 +12,15 @@
 class Sound;
 
 class AudioManager
-{
-	static SDL_AudioSpec sAudioFormat;
+{	
 	static std::vector<std::shared_ptr<Sound>> sSoundVector;
 	static std::shared_ptr<AudioManager> sInstance;
-
-	static void mixAudio(void *unused, Uint8 *stream, int len);
 
 	AudioManager();
 
 	static Mix_Music* currentMusic; // batocera
 	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
+	void playMusic(std::string path);
 	static void musicEnd_callback(); // batocera
 	std::string mSystem = ""; // batocera (per system music folder)
 	std::string mCurrentSong = ""; // batocera (pop-up for SongName.cpp)
