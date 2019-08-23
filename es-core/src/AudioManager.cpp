@@ -19,33 +19,20 @@ std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 std::shared_ptr<AudioManager> AudioManager::sInstance;
 Mix_Music* AudioManager::currentMusic = NULL;
 
-AudioManager::AudioManager()
+AudioManager::AudioManager() : mInitialized(false)
 {
 	init();
 }
 
 AudioManager::~AudioManager()
 {
-	//stop all playback
-	stop();
-	stopMusic();
-
-	// Stop playing all Sounds & reload them 
-	for (unsigned int i = 0; i < sSoundVector.size(); i++)
-		sSoundVector[i]->deinit();
-
-	Mix_HookMusicFinished(nullptr);
-	Mix_HaltMusic();
-
-	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
-	SDL_CloseAudio();
-	SDL_QuitSubSystem(SDL_INIT_AUDIO);
+	deinit();
 }
 
 std::shared_ptr<AudioManager> & AudioManager::getInstance()
 {
 	//check if an AudioManager instance is already created, if not create one
-	if (sInstance == nullptr) // 	if (!Settings::getInstance()->getBool("EnableSounds"))
+	if (sInstance == nullptr)
 		sInstance = std::shared_ptr<AudioManager>(new AudioManager);
 
 	return sInstance;
@@ -53,6 +40,9 @@ std::shared_ptr<AudioManager> & AudioManager::getInstance()
 
 void AudioManager::init()
 {
+	if (mInitialized)
+		return;
+
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
 		LOG(LogError) << "Error initializing SDL audio!\n" << SDL_GetError();
@@ -73,13 +63,34 @@ void AudioManager::init()
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0)
 		LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
 	else
+	{
 		LOG(LogInfo) << "SDL AUDIO Initialized";
+		mInitialized = true;
+	}
 }
 
 
 void AudioManager::deinit()
 {
-	sInstance = NULL;
+	if (!mInitialized)
+		return;
+
+	mInitialized = false;
+
+	//stop all playback
+	stop();
+	stopMusic();
+
+	// Stop playing all Sounds & reload them 
+	for (unsigned int i = 0; i < sSoundVector.size(); i++)
+		sSoundVector[i]->deinit();
+
+	Mix_HookMusicFinished(nullptr);
+	Mix_HaltMusic();
+
+	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
+	Mix_CloseAudio();
+	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 }
 
 void AudioManager::registerSound(std::shared_ptr<Sound> & sound)
@@ -188,7 +199,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
 void AudioManager::playMusic(std::string path)
 {
 	// free the previous music
-	stopMusic();
+	stopMusic(false);
 
 	// load a new music
 	currentMusic = Mix_LoadMUS(path.c_str());
@@ -215,19 +226,22 @@ void AudioManager::musicEnd_callback()
 }
 
 // batocera
-void AudioManager::stopMusic()
+void AudioManager::stopMusic(bool fadeOut)
 {
 	if (currentMusic == NULL)
 		return;
 
 	Mix_HookMusicFinished(nullptr);
-	
-	// Fade-out is nicer on Batocera!
-	while (!Mix_FadeOutMusic(500))
-		SDL_Delay(100);	
-	
-	Mix_FreeMusic(currentMusic);
+
+	if (fadeOut)
+	{
+		// Fade-out is nicer on Batocera!
+		while (!Mix_FadeOutMusic(500))
+			SDL_Delay(100);
+	}
+
 	Mix_HaltMusic();
+	Mix_FreeMusic(currentMusic);
 
 	currentMusic = NULL;
 }

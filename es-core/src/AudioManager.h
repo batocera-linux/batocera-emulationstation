@@ -24,6 +24,7 @@ class AudioManager
 	static void musicEnd_callback(); // batocera
 	std::string mSystem = ""; // batocera (per system music folder)
 	std::string mCurrentSong = ""; // batocera (pop-up for SongName.cpp)
+	bool mInitialized;
 
 public:
 	static std::shared_ptr<AudioManager> & getInstance();
@@ -39,7 +40,7 @@ public:
 
 	// batocera
 	void playRandomMusic(bool continueIfPlaying = true);
-	void stopMusic();
+	void stopMusic(bool fadeOut=true);
 	inline const std::string getName() const { return mSystem; }
 	inline const std::string getSongName() const { return mCurrentSong; }
 	void setSongName(std::string song); 
