@@ -221,12 +221,11 @@ void AudioManager::stopMusic()
 		return;
 
 	Mix_HookMusicFinished(nullptr);
-	/*
+	
 	// Fade-out is nicer on Batocera!
-	while (!Mix_FadeOutMusic(500)) {
-		SDL_Delay(100);
-	}
-	*/
+	while (!Mix_FadeOutMusic(500))
+		SDL_Delay(100);	
+	
 	Mix_FreeMusic(currentMusic);
 	Mix_HaltMusic();
 

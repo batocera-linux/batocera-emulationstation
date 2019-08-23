@@ -71,7 +71,7 @@ public:
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
 
 	void setScreenSaver(ScreenSaver* screenSaver) { mScreenSaver = screenSaver; }
-	void setInfoPopup(InfoPopup* infoPopup) { delete mInfoPopup; mInfoPopup = infoPopup; }
+	void setInfoPopup(InfoPopup* infoPopup) { if (mInfoPopup) delete mInfoPopup; mInfoPopup = infoPopup; }
 	inline void stopInfoPopup() { if (mInfoPopup) mInfoPopup->stop(); };
 
 	void startScreenSaver();
