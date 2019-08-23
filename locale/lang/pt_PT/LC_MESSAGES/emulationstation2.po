@@ -870,7 +870,7 @@ msgid "enter path to marquee"
 msgstr "insira o caminho para o marcador"
 
 msgid "Now playing: "
-msgstr "A tocar: "
+msgstr "A Reproduzir: "
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
