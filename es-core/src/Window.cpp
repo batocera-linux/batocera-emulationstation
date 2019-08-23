@@ -212,8 +212,11 @@ void Window::update(int deltaTime)
 	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
 	{
 		std::string songName = AudioManager::getInstance()->getSongName();
-		displayMessage(_("Now playing: ") + songName);
-		AudioManager::getInstance()->setSongName("");
+		if (!songName.empty())
+		{
+			displayMessage(_("Now playing: ") + songName);
+			AudioManager::getInstance()->setSongName("");
+		}
 	}
 
     if(!mMessages.empty())
