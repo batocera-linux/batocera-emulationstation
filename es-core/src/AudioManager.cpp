@@ -236,7 +236,7 @@ void AudioManager::stopMusic(bool fadeOut)
 	if (fadeOut)
 	{
 		// Fade-out is nicer on Batocera!
-		while (!Mix_FadeOutMusic(500))
+		while (!Mix_FadeOutMusic(500) && Mix_PlayingMusic())
 			SDL_Delay(100);
 	}
 
