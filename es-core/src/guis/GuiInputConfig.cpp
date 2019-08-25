@@ -166,7 +166,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 				return false;
 
 			// we are configuring, the button is unpressed or the axis is relaxed
-			if(input.value != 0 || (input.value == TYPE_AXIS && input.value > 2000) ))
+			if(input.value != 0 || (input.value == TYPE_AXIS && input.value > 2000) )
 			{
 				// input down
 				// if we're already holding something, ignore this, otherwise plan to map this input
