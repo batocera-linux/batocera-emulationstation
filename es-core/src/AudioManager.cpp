@@ -249,7 +249,8 @@ void AudioManager::stopMusic(bool fadeOut)
 // batocera
 void AudioManager::setSongName(std::string song)
 {
-	if (song.empty()) {
+	if (song.empty())
+	{
 		mCurrentSong = "";
 		return;
 	}
@@ -257,8 +258,7 @@ void AudioManager::setSongName(std::string song)
 	if (song == mCurrentSong)
 		return;
 
-	// First, start with an ID3 v1 tag
-	FILE *f;
+	// First, start with an ID3 v1 tag	
 	struct {
 		char tag[3];	// i.e. "TAG"
 		char title[30];
@@ -269,37 +269,47 @@ void AudioManager::setSongName(std::string song)
 		unsigned char genre;
 	} info;
 
-	if (!(f = fopen(song.c_str(), "r"))) {
+	FILE* file = fopen(song.c_str(), "r");
+	if (file != NULL)
+	{
+		if (fseek(file, -128, SEEK_END) < 0)
+			LOG(LogError) << "Error AudioManager seeking " << song;
+		else if (fread(&info, sizeof(info), 1, file) != 1)
+			LOG(LogError) << "Error AudioManager reading " << song;
+		else if (strncmp(info.tag, "TAG", 3) == 0) {
+			mCurrentSong = info.title;
+			fclose(file);
+			return;
+		}
+
+		fclose(file);
+	}
+	else
 		LOG(LogError) << "Error AudioManager opening " << song;
-		return;
-	}
-	if (fseek(f, -128, SEEK_END) < 0) {
-		LOG(LogError) << "Error AudioManager seeking " << song;
-		return;
-	}
-	if (fread(&info, sizeof(info), 1, f) != 1) {
-		LOG(LogError) << "Error AudioManager reading " << song;
-		return;
-	}
-	if (strncmp(info.tag, "TAG", 3) == 0) {
-		mCurrentSong = info.title;
-		return;
-	}
 
 	// Then let's try with an ID3 v2 tag
-#define MAX_STR_SIZE 60 // Empiric max size of a MP3 title
+#define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
+
 	ID3v2_tag* tag = load_tag(song.c_str());
-	if (tag != NULL) {
+	if (tag != NULL)
+	{
 		ID3v2_frame* title_frame = tag_get_title(tag);
-		ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-		if (title_content->size < MAX_STR_SIZE)
-			title_content->data[title_content->size] = '\0';
-		if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE)) {
-			mCurrentSong = title_content->data;
-			return;
+		if (title_frame != NULL)
+		{
+			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
+			if (title_content != NULL)
+			{
+				if (title_content->size < MAX_STR_SIZE)
+					title_content->data[title_content->size] = '\0';
+
+				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
+				{
+					mCurrentSong = title_content->data;
+					return;
+				}
+			}
 		}
 	}
 
-	// Otherwise, let's just use the filename
-	mCurrentSong = Utils::FileSystem::getFileName(song.c_str());
+	mCurrentSong = Utils::FileSystem::getStem(song.c_str());
 }
