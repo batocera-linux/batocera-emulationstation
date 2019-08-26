@@ -249,9 +249,10 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	    // in es, the trick is to minus this value to the value to do as if it started at 0
 	    int initialValue = 0;
 	    Sint16 x;
-	    if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
-	      initialValue = x;
-	    }
+	    // SDL_JoystickGetAxisInitialState doesn't work with 8bitdo start+b
+	    //if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
+	    //  initialValue = x;
+	    //}
 
 		//if it switched boundaries
 		if((abs(ev.jaxis.value-initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE)) // batocera
