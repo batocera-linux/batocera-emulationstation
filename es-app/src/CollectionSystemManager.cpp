@@ -1045,7 +1045,6 @@ bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)
 	return file->getName() != "kodi" && file->getSystem()->isGameSystem();
 }
 
-
 std::string getCustomCollectionConfigPath(std::string collectionName)
 {
 	return getCollectionsFolder() + "/custom-" + collectionName + ".cfg";
@@ -1053,7 +1052,7 @@ std::string getCustomCollectionConfigPath(std::string collectionName)
 
 std::string getCollectionsFolder()
 {
-	return Utils::FileSystem::getGenericPath("/userdata/system/configs/emulationstation/collections"); // batocera
+	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/collections");
 }
 
 bool systemSort(SystemData* sys1, SystemData* sys2)

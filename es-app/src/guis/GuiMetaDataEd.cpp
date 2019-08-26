@@ -272,7 +272,7 @@ bool GuiMetaDataEd::input(InputConfig* config, Input input)
 		return true;
 
 	const bool isStart = config->isMappedTo("start", input);
-	if(input.value != 0 && (config->isMappedTo("a", input) || isStart)) // batocera
+	if(input.value != 0 && (config->isMappedTo(BUTTON_BACK, input) || isStart))
 	{
 		close(isStart);
 		return true;
@@ -284,7 +284,7 @@ bool GuiMetaDataEd::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiMetaDataEd::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
 	return prompts;
 }

@@ -2,7 +2,6 @@
 #include "guis/GuiMsgBox.h"
 
 #include "Window.h"
-#include <boost/thread.hpp>
 #include <string>
 #include "Log.h"
 #include "Settings.h"
@@ -13,7 +12,7 @@ GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 {
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
         mLoading = true;
-        mPingHandle = new boost::thread(boost::bind(&GuiUpdate::threadPing, this));
+        mPingHandle = new std::thread(&GuiUpdate::threadPing, this);
         mBusyAnim.setSize(mSize);
 }
 
@@ -57,7 +56,7 @@ void GuiUpdate::update(int deltaTime) {
                            [this] { 
                                mState = 2;
                                mLoading = true;
-                               mHandle = new boost::thread(boost::bind(&GuiUpdate::threadUpdate, this));
+                               mHandle = new std::thread(&GuiUpdate::threadUpdate, this);
 
 					  }, _("NO"), [this] {
                                mState = -1;

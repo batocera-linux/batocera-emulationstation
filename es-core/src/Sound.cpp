@@ -87,7 +87,7 @@ void Sound::play()
 }
 
 bool Sound::isPlaying() const
-{
+{	
 	return (mPlayingChannel >= 0);
 }
 

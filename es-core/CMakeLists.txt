@@ -13,7 +13,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.h
@@ -92,6 +92,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/InputManager.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer_draw_gl.cpp

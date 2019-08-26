@@ -21,9 +21,6 @@
 #include <SDL_timer.h>
 #include <iostream>
 #include <time.h>
-#ifdef WIN32
-#include <Windows.h>
-#endif
 #include "LocaleES.h"
 #include <SystemConf.h>
 #include "ApiSystem.h"
@@ -32,11 +29,35 @@
 
 #include <FreeImage.h>
 
+#ifdef WIN32
+#include <Windows.h>
+#include <direct.h>
+#define PATH_MAX MAX_PATH
+#endif
+
+
 bool scrape_cmdline = false;
 
 bool parseArgs(int argc, char* argv[])
 {
-	Settings::getInstance()->setString("ExePath", argv[0]);
+	Utils::FileSystem::setExePath(argv[0]);
+	
+	// We need to process --home before any call to Settings::getInstance(), because settings are loaded from homepath
+	for (int i = 1; i < argc; i++)
+	{
+		if (strcmp(argv[i], "--home") == 0)
+		{
+			if (i == argc - 1)
+				continue;
+
+			std::string arg = argv[i + 1];
+			if (arg.find("-") == 0)
+				continue;
+
+			Utils::FileSystem::setHomePath(argv[i + 1]);
+			break;
+		}
+	}
 
 	for(int i = 1; i < argc; i++)
 	{
@@ -173,6 +194,7 @@ bool parseArgs(int argc, char* argv[])
 				"--force-kid		Force the UI mode to be Kid\n"
 				"--force-kiosk		Force the UI mode to be Kiosk\n"
 				"--force-disable-filters		Force the UI to ignore applied filters in gamelist\n"
+				"--home [path]		Directory to use as home path\n"
 				"--help, -h			summon a sentient, angry tuba\n\n"
 				"More information available in README.md.\n";
 			return false; //exit after printing help
@@ -184,9 +206,8 @@ bool parseArgs(int argc, char* argv[])
 
 bool verifyHomeFolderExists()
 {
-	//make sure the config directory exists
-	std::string home = Utils::FileSystem::getHomePath();
-	std::string configDir = "/userdata/system/configs/emulationstation"; // batocera
+	//make sure the config directory exists	
+	std::string configDir = Utils::FileSystem::getEsConfigPath(); // batocera
 	if(!Utils::FileSystem::exists(configDir))
 	{
 		std::cout << "Creating config directory \"" << configDir << "\"\n";
@@ -233,47 +254,56 @@ void onExit()
 	Log::close();
 }
 
+#ifdef WIN32
+#define PATH_MAX MAX_PATH
+#include <direct.h>
+#endif
+
 // batocera
 int setLocale(char * argv1)
 {
- 	char path_save[PATH_MAX];
-  	char abs_exe_path[PATH_MAX];
+#if WIN32
+	std::locale::global(std::locale("en-US"));
+#else
+	std::string abs_exe_path;
 	char *p;
-	int ret; // necessary to eliminate ugly warnings at compile time
-	char *r;
 
-	if(!(p = strrchr(argv1, '/'))) {
-		r = getcwd(abs_exe_path, sizeof(abs_exe_path));
+
+	if (!(p = strrchr(argv1, '/'))) {
+		abs_exe_path = Utils::FileSystem::getCWDPath();
 	}
-	else {
-		*p = '\0';
-		r = getcwd(path_save, sizeof(path_save));
-		ret = chdir(argv1);
-		r = getcwd(abs_exe_path, sizeof(abs_exe_path));
-		ret = chdir(path_save);
-  	}
-	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global(); 
+	else 
+	{
+		std::string path_save = Utils::FileSystem::getCWDPath();
+		chdir(argv1);
+		abs_exe_path = Utils::FileSystem::getCWDPath();
+		chdir(path_save.c_str());
+	}
+
+	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global();
 	// Get global backend
 
-    	my.select("std");
+	my.select("std");
 	boost::locale::localization_backend_manager::global(my);
-    	// set this backend globally
+	// set this backend globally
 
-    	boost::locale::generator gen;
+	boost::locale::generator gen;
 
 	std::string localeDir = abs_exe_path;
 	localeDir += "/locale/lang";
 	LOG(LogInfo) << "Setting local directory to " << localeDir;
-    	// Specify location of dictionaries
-    	gen.add_messages_path(localeDir);
-    	gen.add_messages_path("/usr/share/locale");
-    	gen.add_messages_domain("emulationstation2");
+	// Specify location of dictionaries
+	gen.add_messages_path(localeDir);
+	gen.add_messages_path("/usr/share/locale");
+	gen.add_messages_domain("emulationstation2");
 
-    	// Generate locales and imbue them to iostream
-    	std::locale::global(gen(""));
-    	std::cout.imbue(std::locale());
-        LOG(LogInfo) << "Locals set...";
-    return 0;
+	// Generate locales and imbue them to iostream
+	std::locale::global(gen(""));
+	std::cout.imbue(std::locale());
+	LOG(LogInfo) << "Locals set...";
+#endif
+
+	return 0;
 }
 
 int main(int argc, char* argv[])
@@ -404,11 +434,13 @@ int main(int argc, char* argv[])
 
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
-        // batocera
+#ifndef WIN32
+    // batocera
 	// UPDATE CHECK THREAD
-	if(systemConf->get("updates.enabled") == "1"){
+	if(systemConf->get("updates.enabled") == "1")
 		NetworkThread * nthread = new NetworkThread(&window);
-	}
+#endif
+
 	// Batocera: display music names
 	// SongNameThread * songthread = new SongNameThread(&window);
 

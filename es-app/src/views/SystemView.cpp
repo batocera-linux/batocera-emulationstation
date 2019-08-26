@@ -221,7 +221,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			break;
 		}
 
-		if(config->isMappedTo("b", input))
+		if(config->isMappedTo(BUTTON_OK, input))
 		{
 			stopScrolling();
 			ViewController::get()->goToGameList(getSelected());
@@ -442,7 +442,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	else
 	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
-	prompts.push_back(HelpPrompt("b", _("SELECT"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 #ifdef _ENABLE_KODI_
 	if(SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
 	  prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera

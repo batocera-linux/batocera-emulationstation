@@ -52,23 +52,23 @@ void GuiSystemsHide::Apply()
 
 bool GuiSystemsHide::input(InputConfig* config, Input input)
 {
-        if(GuiComponent::input(config, input))
-                return true;
+	if (GuiComponent::input(config, input))
+		return true;
 
-        if((config->isMappedTo("a", input) || config->isMappedTo("start", input)) && input.value != 0) 
-        {
-                delete this;
-                return true;
-        }
+	if ((config->isMappedTo(BUTTON_BACK, input) || config->isMappedTo("start", input)) && input.value != 0)
+	{
+		delete this;
+		return true;
+	}
 
-        return false;
+	return false;
 }
 
 std::vector<HelpPrompt> GuiSystemsHide::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", _("BACK"))); 
-	prompts.push_back(HelpPrompt("b", _("VALIDATE"))); 
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("VALIDATE")));
 	prompts.push_back(HelpPrompt("start", _("CLOSE"))); 
 	return prompts;
 }

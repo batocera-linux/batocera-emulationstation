@@ -146,7 +146,7 @@ void RatingComponent::render(const Transform4x4f& parentTrans)
 
 bool RatingComponent::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("b", input) && input.value != 0) // batocera
+	if(config->isMappedTo(BUTTON_OK, input) && input.value != 0)
 	{
 		mValue += 1.f / NUM_RATING_STARS;
 		if(mValue > 1.0f)
@@ -191,6 +191,6 @@ void RatingComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const 
 std::vector<HelpPrompt> RatingComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("b", "add star"));  // batocera
+	prompts.push_back(HelpPrompt(BUTTON_OK, "add star"));
 	return prompts;
 }

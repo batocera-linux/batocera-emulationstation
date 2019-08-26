@@ -95,7 +95,7 @@ void GuiGameScraper::onSizeChanged()
 
 bool GuiGameScraper::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("a", input) && input.value) // batocera
+	if(config->isMappedTo(BUTTON_BACK, input) && input.value)
 	{
 		PowerSaver::resume();
 		delete this;

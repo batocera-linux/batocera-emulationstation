@@ -91,8 +91,9 @@ bool InputConfig::getInputByName(const std::string& name, Input* result)
 bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis) // batocera
 {
 	Input comp;
-	if(!getInputByName(name, &comp))
+	if (!getInputByName(name, &comp))
 		return false;
+
 	if(reversedAxis) { // batocera
 	  comp.value *= -1;
 	}

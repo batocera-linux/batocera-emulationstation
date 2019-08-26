@@ -4,7 +4,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiThemeInstall : public GuiComponent {
 public:
@@ -29,7 +29,7 @@ private:
 
     std::string mThemeName;
     
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onInstallError(std::pair<std::string, int>);
 

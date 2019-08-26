@@ -10,8 +10,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiLoading  : public GuiComponent {
 public:
@@ -30,7 +29,7 @@ public:
 
 private:
     BusyComponent mBusyAnim;
-    boost::thread *mHandle;
+    std::thread *mHandle;
     bool mRunning;
     const std::function<void*()> mFunc;
     const std::function<void(void *)> mFunc2;

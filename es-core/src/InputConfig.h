@@ -16,6 +16,14 @@ namespace pugi { class xml_node; }
 // batocera
 #define MAX_PLAYERS 5
 
+#ifdef WIN32
+#define BUTTON_OK	"a"
+#define BUTTON_BACK	"b"
+#else
+#define BUTTON_OK	"b"
+#define BUTTON_BACK	"a"
+#endif
+
 enum InputType
 {
 	TYPE_AXIS,

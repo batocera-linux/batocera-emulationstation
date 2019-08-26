@@ -355,7 +355,7 @@ void SystemData::deleteSystems()
 
 std::string SystemData::getConfigPath(bool forWrite)
 {
-	std::string path = "/userdata/system/configs/emulationstation/es_systems.cfg"; // batocera
+	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_systems.cfg"; // batocera
 	if(forWrite || Utils::FileSystem::exists(path))
 		return path;
 

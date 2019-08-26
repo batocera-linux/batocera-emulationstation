@@ -174,7 +174,7 @@ msgid "THEMES"
 msgstr "ТЕМЫ"
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "ПРОЕКТ РАМКИ"
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -435,7 +435,7 @@ msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
@@ -519,7 +519,7 @@ msgid "EMULATED WIIMOTES"
 msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
+msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
@@ -618,22 +618,22 @@ msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "УСТНОВИТЬ РАМКИ (ОВЕРЛЕИ)"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "УДАЛИТЬ РАМКИ (ОВЕРЛЕИ)"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "УСТАНОВИТЬ ПРОЕКТ РАМКИ"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
+msgstr "ВЫБЕРИТЕ СИСТЕМУ, В КОТОРОЙ РАМКИ БУДУТ УСТАНОВЛЕНЫ"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "УДАЛИТЬ ПРОЕКТ РАМКИ"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "ВЫБЕРИТЕ СИСТЕМУ, ГДЕ РАМКИ БУДУТ УДАЛЕНЫ"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
@@ -678,10 +678,10 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
@@ -873,7 +873,7 @@ msgid "enter path to marquee"
 msgstr "введите путь к банеру"
 
 msgid "Now playing: "
-msgstr ""
+msgstr "Сейчас играет: "
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
