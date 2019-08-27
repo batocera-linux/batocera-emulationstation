@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-02 23:26+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,10 +59,10 @@ msgid "FILTER GAMELIST"
 msgstr "FILTERE SPIELELISTE"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "BEARBEITUNG DER SAMMLUNG BEENDEN"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN BEARBEITEN"
@@ -92,7 +92,7 @@ msgid "UI SETTINGS"
 msgstr "UI EINSTELLUNGEN"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "SPIELSAMMLUNGSEINSTELLUNGEN"
 
 msgid "SOUND SETTINGS"
 msgstr "SOUNDEINSTELLUNGEN"
@@ -169,9 +169,6 @@ msgstr "UPDATES"
 msgid "THEMES"
 msgstr "THEMES"
 
-msgid "THE BEZEL PROJECT"
-msgstr ""
-
 msgid "AUTO UPDATES"
 msgstr "AUTOMATISCHE UPDATES"
 
@@ -244,7 +241,7 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "VERBESSERT"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
@@ -334,10 +331,12 @@ msgid ""
 "You are changing the UI to a restricted mode:\n"
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
-msgstr ""
+msgstr "Sie ändern die Benutzeroberfläche in einen eingeschränkten Modus:\n"
+"Dadurch werden die meisten Menüoptionen ausgeblendet, um Änderungen am System zu verhindern.\n"
+"Geben Sie den folgenden Code ein, um die Sperre aufzuheben und zur vollständigen Benutzeroberfläche zurückzukehren:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "Möchten Sie fortfahren ?"
 
 msgid "VIDEO OUTPUT"
 msgstr "BILD AUSGABE"
@@ -352,7 +351,7 @@ msgid "START ON SYSTEM"
 msgstr "START MIT SYSTEM"
 
 msgid "DISPLAY / HIDE SYSTEMS"
-msgstr ""
+msgstr "ZEIGE / VERSTECKE SYSTEME"
 
 msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
@@ -422,7 +421,7 @@ msgid "VRAM LIMIT"
 msgstr "VRAM LIMIT"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "ENERGIESPAR-MODI"
 
 msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE"
@@ -430,11 +429,8 @@ msgstr "LAUTSTÄRKE"
 msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"
 
-msgid "DISPLAY SONG TITLES"
-msgstr ""
-
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "NUR SYSTEM-SPEZIFISCHE MUSIK-ORDNER ABSPIELEN"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "VIDEO AUDIO AKTIVIEREN"
@@ -506,43 +502,43 @@ msgid "VIDEO MODE"
 msgstr "VIDEO MODUS"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "FARBEN"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "VOLLER START"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "EMULIERTE WIIMOTES"
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
+msgstr "INTERNE AUFLÖSUNG"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "NEUE BENUTZERDEFINIERTE SAMMLUNG AUS THEMA ERSTELLEN"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "THEMEN-ORDNER AUSWÄHLEN"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "NEUE BENUTZERDEFINIERTE SAMMLUNG ERSTELLEN"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Name der neuen Sammlung"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "UNTHEMATISIERTE BENUTZERDEFINIERTE SAMMLUNG GRUPPIEREN"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "BENUTZERDEFINIERTE SAMMLUNGEN UND SYSTEME SORTIEREN"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "SAMMLUNGEN AUSWÄHLEN"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "AUTOMATISCHE SPIELE-SAMMLUNGEN"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "BENUTZERDEFINIERTE SPIELE-SAMMLUNGEN"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLIERE BATOCERA"
@@ -612,24 +608,6 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SPIEL ÜBERSPRUNGEN"
 msgstr[1] "%i SPIELE ÜBERSPRUNGEN"
 
-msgid "INSTALL BEZELS"
-msgstr ""
-
-msgid "UNINSTALL BEZELS"
-msgstr ""
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
-
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEME ERFOLGREICH INSTALLIERT"
 
@@ -672,12 +650,6 @@ msgstr "KOMPATIBLE NIEDRIGE AUFLÖSUNG FÜR GROSSBUCHSTABEN VERWENDEN"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "VIDEO BEI BILDSCHIRMSCHONER STRECKEN"
 
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
-
 msgid "SCRAPE THESE GAMES"
 msgstr "DIESE SPIELE SCRAPEN"
 
@@ -715,19 +687,19 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN"
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "WÄHLE SYSTEME ZUR ANZEIGE AUS"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "ANGEZEIGTE SYSTEME"
 
 msgid "APPLY"
-msgstr ""
+msgstr "ANWENDEN"
 
 msgid "REVERT"
-msgstr ""
+msgstr "ZURÜCKSETZEN"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "VALIDIEREN"
 
 msgid "SELECT THEME"
 msgstr "THEME AUSWÄHLEN"
@@ -867,9 +839,6 @@ msgstr "Laufschrift"
 msgid "enter path to marquee"
 msgstr "Pfad zur Laufschrift eingeben"
 
-msgid "Now playing: "
-msgstr ""
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN?"
 
@@ -925,28 +894,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
 
 msgid "all games"
-msgstr ""
+msgstr "alle Spiele"
 
 msgid "last played"
-msgstr ""
+msgstr "zuletzt gespielt"
 
 msgid "favorites"
-msgstr ""
+msgstr "Favoriten"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 Spieler"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 Spieler"
 
 msgid "collections"
-msgstr ""
+msgstr "Sammlungen"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "Sammlung bearbeiten. Spiele hinzufügen/entfernen mit Y."
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "Bearbeitung der Sammlung beenden"
 
 #, c-format
 msgid "Added '%s' to '%s'"

@@ -13,6 +13,7 @@
 #include "guis/GuiInfoPopup.h"
 #include "SystemConf.h"
 #include "LocaleES.h"
+#include "AudioManager.h"
 
 #define PLAYER_PAD_TIME_MS 200
 
@@ -207,12 +208,24 @@ void Window::input(InputConfig* config, Input input)
 
 void Window::update(int deltaTime)
 {
-        // batocera
-        if(!mMessages.empty()){
+	// batocera        
+	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
+	{
+		std::string songName = AudioManager::getInstance()->getSongName();
+		if (!songName.empty())
+		{
+			displayMessage(_("Now playing: ") + songName);
+			AudioManager::getInstance()->setSongName("");
+		}
+	}
+
+    if(!mMessages.empty())
+	{
 		std::string message = mMessages.back();
 		mMessages.pop_back();
 		this->setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
 	}
+
 	if(mNormalizeNextUpdate)
 	{
 		mNormalizeNextUpdate = false;

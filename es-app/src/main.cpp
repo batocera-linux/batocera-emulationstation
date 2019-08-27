@@ -29,7 +29,6 @@
 #include "ApiSystem.h"
 #include "AudioManager.h"
 #include "NetworkThread.h"
-#include "SongName.h"
 
 #include <FreeImage.h>
 
@@ -411,7 +410,7 @@ int main(int argc, char* argv[])
 		NetworkThread * nthread = new NetworkThread(&window);
 	}
 	// Batocera: display music names
-	SongNameThread * songthread = new SongNameThread(&window);
+	// SongNameThread * songthread = new SongNameThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)
@@ -429,6 +428,10 @@ int main(int argc, char* argv[])
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera
 
+	// batocera
+	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
+	  AudioManager::getInstance()->playRandomMusic();
+
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
 	{
@@ -439,10 +442,6 @@ int main(int argc, char* argv[])
 			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(); }));
 		}
 	}
-
-	// batocera
-	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-	  AudioManager::getInstance()->playRandomMusic();
 
         // batocera
 	// Create a flag in  temporary directory to signal READY state

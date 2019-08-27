@@ -136,7 +136,7 @@ void ViewController::goToGameList(SystemData* system)
         // batocera
         if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0") {
 		if (AudioManager::getInstance()->getName() != system->getName()) {
-			AudioManager::getInstance()->setSystemName(system->getName());
+			AudioManager::getInstance()->setName(system->getName());
 			AudioManager::getInstance()->playRandomMusic(0);
 		}
 	}
@@ -509,13 +509,21 @@ void ViewController::reloadAll()
 	}
 	mGameListViews.clear();
 
-
+	// If preloaded is disabled
+	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
+	{
+		if (cursorMap.find((*it)) == cursorMap.end())
+			cursorMap[(*it)] = NULL;
+	}
+	
 	// load themes, create gamelistviews and reset filters
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
 		it->first->loadTheme();
 		it->first->getIndex()->resetFilters();
-		getGameListView(it->first)->setCursor(it->second);
+		
+		if (it->second != NULL)
+			getGameListView(it->first)->setCursor(it->second);
 	}
 
 	// Rebuild SystemListView

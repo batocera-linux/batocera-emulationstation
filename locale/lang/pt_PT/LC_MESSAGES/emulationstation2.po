@@ -173,7 +173,7 @@ msgid "THEMES"
 msgstr "TEMAS"
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "O PROJETO BEZEL"
 
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
@@ -433,7 +433,7 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "MOSTRAR OS TÍTULOS DA MÚSICA"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
@@ -615,22 +615,22 @@ msgstr[0] "%i JOGO IGNORADO."
 msgstr[1] "%i JOGOS IGNORADOS."
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "INSTALAR DECORAÇÕES"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "DESINSTALAR DECORAÇÕES"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "INSTALAR O PROJETO BEZEL"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
+msgstr "ESCOLHA AS DECORAÇÕES A INSTALAR"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "DESINSTALAR O PROJETO BEZEL"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "ESCOLHA AS DECORAÇÕES A DESINSTALAR"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO COM SUCESSO"
@@ -675,10 +675,10 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "DECORAÇÕES INSTALADAS COM SUCESSO"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgstr "DECORAÇÕES ELIMINADAS COM SUCESSO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
@@ -870,7 +870,7 @@ msgid "enter path to marquee"
 msgstr "insira o caminho para o marcador"
 
 msgid "Now playing: "
-msgstr ""
+msgstr "A Reproduzir: "
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"

@@ -165,7 +165,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 			if(filterTrigger(input, config))
 				return false;
 
-			// we are configuring
+			// we are configuring, the button is unpressed or the axis is relaxed
 			if(input.value != 0)
 			{
 				// input down
