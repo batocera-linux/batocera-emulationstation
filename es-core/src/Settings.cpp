@@ -80,14 +80,7 @@ void Settings::setDefaults()
         mStringMap["INPUT P5"] = "DEFAULT";
         mStringMap["Overclock"] = "none";
 
-        // batocera
-#ifdef _RPI_
-	// don't enable VSync by default on the Pi, since it already
-	// has trouble trying to render things at 60fps in certain menus
-	mBoolMap["VSync"] = false;
-    #else
-    mBoolMap["VSync"] = true;
-#endif
+		mBoolMap["VSync"] = true;
 
     mBoolMap["EnableSounds"] = false; // batocera
 	mBoolMap["ShowHelpPrompts"] = true;
