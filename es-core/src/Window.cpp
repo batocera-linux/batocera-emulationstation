@@ -14,6 +14,7 @@
 #include "SystemConf.h"
 #include "LocaleES.h"
 #include "AudioManager.h"
+#include <SDL_events.h>
 
 #define PLAYER_PAD_TIME_MS 200
 
@@ -399,11 +400,25 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
-void Window::renderLoadingScreen(std::string text)
+void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
 {
 	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFFFF); // batocera
+	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity); // batocera
+
+	if (percent >= 0)
+	{
+		float baseHeight = 0.04f;
+
+		float w = Renderer::getScreenWidth() / 2;
+		float h = Renderer::getScreenHeight() * baseHeight;
+
+		float x = Renderer::getScreenWidth() / 2 - w / 2;
+		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
+
+		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
+		Renderer::drawRect(x, y, (w*percent), h, 0xCF000000 | opacity);
+	}
 
 	ImageComponent splash(this, true);
 	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
@@ -412,16 +427,22 @@ void Window::renderLoadingScreen(std::string text)
 	splash.render(trans);
 
 	auto& font = mDefaultFonts.at(1);
-	TextCache* cache = font->buildTextCache(text, 0, 0, 0x656565FF);
+	TextCache* cache = font->buildTextCache(text, 0, 0, 0x65656500 | opacity);
 
 	float x = Math::round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f);
-	float y = Math::round(Renderer::getScreenHeight() * 0.835f);
+	float y = Math::round(Renderer::getScreenHeight() * 0.78f);// * 0.835f
 	trans = trans.translate(Vector3f(x, y, 0.0f));
 	Renderer::setMatrix(trans);
 	font->renderTextCache(cache);
 	delete cache;
 
 	Renderer::swapBuffers();
+
+#if defined(_WIN32)
+	// Avoid Window Freezing on Windows
+	SDL_Event event;
+	while (SDL_PollEvent(&event));
+#endif
 }
 
 void Window::renderHelpPromptsEarly()
