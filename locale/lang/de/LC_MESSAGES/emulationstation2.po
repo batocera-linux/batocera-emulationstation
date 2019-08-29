@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-02 23:26+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -169,6 +169,9 @@ msgstr "UPDATES"
 msgid "THEMES"
 msgstr "THEMES"
 
+msgid "THE BEZEL PROJECT"
+msgstr ""
+
 msgid "AUTO UPDATES"
 msgstr "AUTOMATISCHE UPDATES"
 
@@ -242,6 +245,9 @@ msgstr "RETRO"
 
 msgid "ENHANCED"
 msgstr "VERBESSERT"
+
+msgid "CURVATURE"
+msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
@@ -331,9 +337,12 @@ msgid ""
 "You are changing the UI to a restricted mode:\n"
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
-msgstr "Sie ändern die Benutzeroberfläche in einen eingeschränkten Modus:\n"
-"Dadurch werden die meisten Menüoptionen ausgeblendet, um Änderungen am System zu verhindern.\n"
-"Geben Sie den folgenden Code ein, um die Sperre aufzuheben und zur vollständigen Benutzeroberfläche zurückzukehren:"
+msgstr ""
+"Sie ändern die Benutzeroberfläche in einen eingeschränkten Modus:\n"
+"Dadurch werden die meisten Menüoptionen ausgeblendet, um Änderungen am "
+"System zu verhindern.\n"
+"Geben Sie den folgenden Code ein, um die Sperre aufzuheben und zur "
+"vollständigen Benutzeroberfläche zurückzukehren:"
 
 msgid "Do you want to proceed ?"
 msgstr "Möchten Sie fortfahren ?"
@@ -423,14 +432,23 @@ msgstr "VRAM LIMIT"
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE"
 
 msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"
 
+msgid "DISPLAY SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "NUR SYSTEM-SPEZIFISCHE MUSIK-ORDNER ABSPIELEN"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "NAVIGATION SOUNDS AKTIVIEREN"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "VIDEO AUDIO AKTIVIEREN"
@@ -608,6 +626,24 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SPIEL ÜBERSPRUNGEN"
 msgstr[1] "%i SPIELE ÜBERSPRUNGEN"
 
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
+msgstr ""
+
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEME ERFOLGREICH INSTALLIERT"
 
@@ -649,6 +685,12 @@ msgstr "KOMPATIBLE NIEDRIGE AUFLÖSUNG FÜR GROSSBUCHSTABEN VERWENDEN"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "VIDEO BEI BILDSCHIRMSCHONER STRECKEN"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "DIESE SPIELE SCRAPEN"
@@ -872,6 +914,9 @@ msgstr "OPTIONEN"
 msgid "MENU"
 msgstr "MENÜ"
 
+msgid "Favorites"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "KEINE SPIELE GEFUNDEN - ÜBERSPRINGEN"
 
@@ -1030,6 +1075,9 @@ msgstr "KEIN GAMEPAD ERKANNT"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
 
+msgid "Now playing: "
+msgstr ""
+
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"
 
@@ -1062,6 +1110,3 @@ msgstr "ARBEITET..."
 
 #~ msgid "FINNISHED"
 #~ msgstr "FERTIG"
-
-#~ msgid "ENABLE NAVIGATION SOUNDS"
-#~ msgstr "NAVIGATION SOUNDS AKTIVIEREN"

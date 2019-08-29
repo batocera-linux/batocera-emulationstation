@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -247,6 +247,9 @@ msgstr "RETRO"
 msgid "ENHANCED"
 msgstr "MELHORADO"
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
 
@@ -426,6 +429,9 @@ msgstr "LIMITE DA VRAM"
 msgid "POWER SAVER MODES"
 msgstr "MODO POUPANÇA DE ENERGIA"
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
@@ -437,6 +443,9 @@ msgstr "MOSTRAR OS TÍTULOS DA MÚSICA"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
@@ -869,9 +878,6 @@ msgstr "marcador"
 msgid "enter path to marquee"
 msgstr "insira o caminho para o marcador"
 
-msgid "Now playing: "
-msgstr "A Reproduzir: "
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
@@ -904,6 +910,9 @@ msgstr "OPÇÕES"
 
 msgid "MENU"
 msgstr "MENU"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
@@ -1060,6 +1069,9 @@ msgstr "NENHUM COMANDO DETECTADO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
 
+msgid "Now playing: "
+msgstr "A Reproduzir: "
+
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
 
@@ -1092,9 +1104,6 @@ msgstr "EM PROGRESSO..."
 
 #~ msgid "FINNISHED"
 #~ msgstr "TERMINADO"
-
-#~ msgid "ENABLE NAVIGATION SOUNDS"
-#~ msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "O SISTEMA SERÁ REINICIADO"

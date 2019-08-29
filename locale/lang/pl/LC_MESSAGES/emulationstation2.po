@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,6 +245,9 @@ msgstr "RETRO"
 msgid "ENHANCED"
 msgstr "ROZSZERZONE"
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
 
@@ -334,7 +337,8 @@ msgid ""
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
 "Zmieniasz interfejs użytkownika do trybu ograniczonego:\n"
-"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w systemie.\n"
+"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w "
+"systemie.\n"
 "Aby odblokować i powrócić do pełnego interfejsu, wprowadź ten kod:"
 
 msgid "Do you want to proceed ?"
@@ -425,6 +429,9 @@ msgstr "LIMIT VRAM"
 msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
 
@@ -436,6 +443,9 @@ msgstr "WYŚWIETLANIE TYTUŁÓW UTWORÓW"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "WŁĄCZ DŹWIĘK WIDEO"
@@ -869,9 +879,6 @@ msgstr "marquee"
 msgid "enter path to marquee"
 msgstr "wprowadź ścieżkę do marquee"
 
-msgid "Now playing: "
-msgstr "Teraz gra: "
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 
@@ -905,6 +912,9 @@ msgstr "OPCJE"
 
 msgid "MENU"
 msgstr "MENU"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
@@ -1064,6 +1074,9 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
+
+msgid "Now playing: "
+msgstr "Teraz gra: "
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"

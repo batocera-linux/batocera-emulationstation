@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,6 +244,9 @@ msgstr "复古"
 msgid "ENHANCED"
 msgstr "增强"
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
 
@@ -423,6 +426,9 @@ msgstr "限制 VRAM"
 msgid "POWER SAVER MODES"
 msgstr ""
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"
 
@@ -434,6 +440,9 @@ msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "仅播放指定游戏平台中的音乐"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "启用视频音频"
@@ -862,9 +871,6 @@ msgstr "标记"
 msgid "enter path to marquee"
 msgstr "输入标记路径"
 
-msgid "Now playing: "
-msgstr ""
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "是否启动 KODI 媒体中心?"
 
@@ -896,6 +902,9 @@ msgstr "选项"
 
 msgid "MENU"
 msgstr "菜单"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
@@ -1051,6 +1060,9 @@ msgstr "未检测到游戏手柄"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"

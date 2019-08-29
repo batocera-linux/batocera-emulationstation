@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -244,6 +244,9 @@ msgstr "RETRO"
 msgid "ENHANCED"
 msgstr "MEJORADO"
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
 
@@ -427,6 +430,9 @@ msgstr "LÍMITE DE VRAM"
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGIA"
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
 
@@ -438,6 +444,9 @@ msgstr "MOSTRAR TITULOS DE CANCIONES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SOLAMENTE REPRODUCIR LA CARPETA ESPECIFICA DE MUSICA"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ACTIVAR AUDIO DE VIDEO"
@@ -870,9 +879,6 @@ msgstr "MARQUESINA"
 msgid "enter path to marquee"
 msgstr "COLOCAR RUTA PARA MARQUESINA"
 
-msgid "Now playing: "
-msgstr "SONANDO AHORA: "
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
@@ -905,6 +911,9 @@ msgstr "OPCIONES"
 
 msgid "MENU"
 msgstr "MENÚ"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
@@ -1061,6 +1070,9 @@ msgstr "NO SE DETECTARON MANDOS"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PULSADO UN BOTÓN DEL MANDO PARA CONFIGURARLO"
+
+msgid "Now playing: "
+msgstr "SONANDO AHORA: "
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
