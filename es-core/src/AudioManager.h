@@ -30,6 +30,7 @@ class AudioManager
 
 public:
 	static std::shared_ptr<AudioManager> & getInstance();
+	static bool isInitialized();
 
 	void init();
 	void deinit();
