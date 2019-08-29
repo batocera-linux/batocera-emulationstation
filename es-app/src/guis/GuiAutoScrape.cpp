@@ -6,7 +6,6 @@
 #include "SystemData.h"
 
 #include "Window.h"
-#include <boost/thread.hpp>
 #include <string>
 #include "Log.h"
 #include "Settings.h"
@@ -62,7 +61,7 @@ void GuiAutoScrape::update(int deltaTime) {
 
         if(mState == 1){
 	  mLoading = true;
-	  mHandle = new boost::thread(boost::bind(&GuiAutoScrape::threadAutoScrape, this));
+	  mHandle = new std::thread(&GuiAutoScrape::threadAutoScrape, this);
 	  mState = 0;
         }
 	

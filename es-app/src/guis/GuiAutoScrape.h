@@ -4,8 +4,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiAutoScrape : public GuiComponent {
 public:
@@ -27,7 +26,7 @@ private:
     int mState;
     std::pair<std::string, int> mResult;
 
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onAutoScrapeError(std::pair<std::string, int>);
 

@@ -487,7 +487,7 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 	{
 		theme = std::shared_ptr<ThemeData>(new ThemeData());
 
-		const std::string path = "/userdata/system/configs/emulationstation/es_theme_default.xml"; // batocera
+		const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_theme_default.xml";
 		if(Utils::FileSystem::exists(path))
 		{
 			try
@@ -538,11 +538,12 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 {
 	std::map<std::string, ThemeSet> sets;
 
-	static const size_t pathCount = 2;
+	static const size_t pathCount = 3;
 	std::string paths[pathCount] =
 	{ 
-		"/etc/emulationstation/themes", 
-	        "/userdata/themes" // batocera
+		Utils::FileSystem::getHomePath() + "/.emulationstation/themes",
+		"/etc/emulationstation/themes",
+	    "/userdata/themes" // batocera
 	};
 
 	for(size_t i = 0; i < pathCount; i++)

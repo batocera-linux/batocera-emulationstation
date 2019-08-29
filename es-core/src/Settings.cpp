@@ -33,8 +33,7 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenHeight" },
 	{ "ScreenOffsetX" },
 	{ "ScreenOffsetY" },
-	{ "ScreenRotate" },
-	{ "ExePath" }
+	{ "ScreenRotate" }
 };
 
 Settings::Settings()
@@ -168,8 +167,6 @@ void Settings::setDefaults()
 	mIntMap["ScreenOffsetX"] = 0;
 	mIntMap["ScreenOffsetY"] = 0;
 	mIntMap["ScreenRotate"]  = 0;
-
-	mStringMap["ExePath"] = "";
 }
 
 // batocera
@@ -192,7 +189,8 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type)
 void Settings::saveFile()
 {
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
-	const std::string path = "/userdata/system/configs/emulationstation/es_settings.cfg"; // batocera
+
+	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
 
 	pugi::xml_document doc;
 
@@ -218,8 +216,7 @@ void Settings::saveFile()
 
 void Settings::loadFile()
 {
-        const std::string path = "/userdata/system/configs/emulationstation/es_settings.cfg"; // batocera
-
+	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
 	if(!Utils::FileSystem::exists(path))
 		return;
 

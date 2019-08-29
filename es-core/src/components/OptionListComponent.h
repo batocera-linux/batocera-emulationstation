@@ -117,7 +117,7 @@ private:
 
 		bool input(InputConfig* config, Input input) override
 		{
-			if(config->isMappedTo("a", input) && input.value != 0) // batocera
+			if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0) // batocera
 			{
 				delete this;
 				return true;
@@ -129,7 +129,7 @@ private:
 		std::vector<HelpPrompt> getHelpPrompts() override
 		{
 			auto prompts = mMenu.getHelpPrompts();
-			prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+			prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 			return prompts;
 		}
 	};
@@ -184,7 +184,7 @@ public:
 	{
 		if(input.value != 0)
 		{
-			if(config->isMappedTo("b", input)) // batocera
+			if(config->isMappedTo(BUTTON_OK, input))
 			{
 				open();
 				return true;
@@ -360,7 +360,7 @@ private:
 		if(!mMultiSelect)
 			prompts.push_back(HelpPrompt("left/right", _("CHANGE"))); // batocera
 
-		prompts.push_back(HelpPrompt("b", _("SELECT"))); // batocera
+		prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 		return prompts;
 	}
 

@@ -207,23 +207,23 @@ void Window::input(InputConfig* config, Input input)
 }
 
 void Window::update(int deltaTime)
-{
+{        
 	// batocera        
-	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
+	if(SystemConf::getInstance()->get("audio.display_titles") == "1")
 	{
 		std::string songName = AudioManager::getInstance()->getSongName();
 		if (!songName.empty())
 		{
-			displayMessage(_("Now playing: ") + songName);
+			mMessages.push_back(_("Now playing: ") + songName);
 			AudioManager::getInstance()->setSongName("");
 		}
 	}
 
-    if(!mMessages.empty())
+	if(!mMessages.empty())
 	{
 		std::string message = mMessages.back();
 		mMessages.pop_back();
-		this->setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
+		setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
 	}
 
 	if(mNormalizeNextUpdate)

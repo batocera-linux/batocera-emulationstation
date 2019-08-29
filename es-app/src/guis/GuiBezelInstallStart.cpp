@@ -4,9 +4,6 @@
 #include "components/OptionListComponent.h"
 #include "guis/GuiBezelInstall.h"
 #include "guis/GuiSettings.h"
-#include <boost/algorithm/string/predicate.hpp>
-#include <boost/algorithm/string/split.hpp>
-#include <boost/algorithm/string/classification.hpp>
 #include "views/ViewController.h"
 #include "SystemData.h"
 
@@ -51,7 +48,7 @@ bool GuiBezelInstallMenu::input(InputConfig* config, Input input)
 	if(consumed)
 		return true;
 	
-	if(input.value != 0 && config->isMappedTo("a", input))
+	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		delete this;
 		return true;
@@ -69,7 +66,7 @@ bool GuiBezelInstallMenu::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiBezelInstallMenu::getHelpPrompts()
 {
         std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt("a", _("BACK")));
+        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
         prompts.push_back(HelpPrompt("start", _("CLOSE")));
         return prompts;
 }
@@ -133,7 +130,7 @@ bool GuiBezelInstallStart::input(InputConfig* config, Input input)
 	if(consumed)
 		return true;
 	
-	if(input.value != 0 && config->isMappedTo("a", input))
+	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		delete this;
 		return true;
@@ -151,7 +148,7 @@ bool GuiBezelInstallStart::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiBezelInstallStart::getHelpPrompts()
 {
         std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt("a", _("BACK")));
+        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
         prompts.push_back(HelpPrompt("start", _("CLOSE")));
 	return prompts;
 }
@@ -227,7 +224,7 @@ bool GuiBezelUninstallStart::input(InputConfig* config, Input input)
 	if(consumed)
 		return true;
 	
-	if(input.value != 0 && config->isMappedTo("a", input))
+	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		delete this;
 		return true;
@@ -245,7 +242,7 @@ bool GuiBezelUninstallStart::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiBezelUninstallStart::getHelpPrompts()
 {
         std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt("a", _("BACK")));
+        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
         prompts.push_back(HelpPrompt("start", _("CLOSE")));
 	return prompts;
 }

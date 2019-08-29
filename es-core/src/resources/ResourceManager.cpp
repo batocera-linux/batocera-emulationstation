@@ -23,25 +23,23 @@ std::shared_ptr<ResourceManager>& ResourceManager::getInstance()
 std::string ResourceManager::getResourcePath(const std::string& path) const
 {
 	// check if this is a resource file
-	if((path[0] == ':') && (path[1] == '/'))
-	{
-		std::string test;
+	if (path.size() < 2 || path[0] != ':' || path[1] != '/')
+		return path;
 
-		// check in homepath
-		test = std::string("/userdata/system/configs/emulationstation/resources/") + &path[2]; // batocera
-		if(Utils::FileSystem::exists(test))
-			return test;
+	// check in homepath
+	std::string test = Utils::FileSystem::getEsConfigPath() + "/resources/" + &path[2];
+	if(Utils::FileSystem::exists(test))
+		return test;
 
-		// check in exepath
-		test = std::string("/usr/share/emulationstation/resources/") + &path[2]; // batocera
-		if(Utils::FileSystem::exists(test))
-			return test;
+	// check in exepath
+	test = Utils::FileSystem::getSharedConfigPath() + "/resources/" + &path[2];
+	if(Utils::FileSystem::exists(test))
+		return test;
 
-		// check in cwd
-		test = Utils::FileSystem::getCWDPath() + "/resources/" + &path[2];
-		if(Utils::FileSystem::exists(test))
-			return test;
-	}
+	// check in cwd
+	test = Utils::FileSystem::getCWDPath() + "/resources/" + &path[2];
+	if(Utils::FileSystem::exists(test))
+		return test;
 
 	// not a resource, return unmodified path
 	return path;

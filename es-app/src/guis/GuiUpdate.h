@@ -4,8 +4,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiUpdate : public GuiComponent {
 public:
@@ -27,8 +26,8 @@ private:
     int mState;
     std::pair<std::string, int> mResult;
 
-    boost::thread *mHandle;
-    boost::thread *mPingHandle;
+	std::thread *mHandle;
+	std::thread *mPingHandle;
 
     void onUpdateError(std::pair<std::string, int>);
 

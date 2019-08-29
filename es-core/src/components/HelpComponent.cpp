@@ -7,6 +7,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "Settings.h"
+#include "InputConfig.h"
 
 #define OFFSET_X 12 // move the entire thing right by this amount (px)
 #define OFFSET_Y 12 // move the entire thing up by this amount (px)
@@ -73,6 +74,7 @@ void HelpComponent::updateGrid()
 	for(auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
 		auto icon = std::make_shared<ImageComponent>(mWindow);
+
 		icon->setImage(getIconTexture(it->first.c_str()));
 		icon->setColorShift(mStyle.iconColor);
 		icon->setResize(0, height);

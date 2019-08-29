@@ -26,6 +26,23 @@ namespace Utils
 {
 	namespace FileSystem
 	{
+		std::string getEsConfigPath()
+		{
+#ifdef WIN32
+			return Utils::FileSystem::getHomePath() + "/.emulationstation";
+#else
+			return "/userdata/system/configs/emulationstation"; // batocera
+#endif
+		}
+
+		std::string getSharedConfigPath()
+		{
+#ifdef WIN32
+			return Utils::FileSystem::getExePath();
+#else
+			return "/usr/share/emulationstation"; // batocera
+#endif
+		}
 
 #if defined(_WIN32)
 		static std::string convertFromWideString(const std::wstring wstring)
@@ -138,36 +155,53 @@ namespace Utils
 
 		} // getPathList
 
+		std::string homePath;
+
+		void setHomePath(const std::string& _path)
+		{
+			homePath = _path;
+		}
+
 		std::string getHomePath()
 		{
-			static std::string path;
+			if (homePath.length())
+				return homePath;
 
-			// only construct the homepath once
-			if(!path.length())
+#ifdef WIN32
+			// Is it a portable installation ? Check if ".emulationstation/es_systems.cfg" exists in the exe's path
+			if (!homePath.length())
 			{
-				// this should give us something like "/home/YOUR_USERNAME" on Linux and "C:/Users/YOUR_USERNAME/" on Windows
-				char* envHome = getenv("HOME");
-				if(envHome)
-					path = getGenericPath(envHome);
+				std::string portableCfg = getExePath() + "/.emulationstation/es_systems.cfg";
+				if (Utils::FileSystem::exists(portableCfg))
+					homePath = getExePath();
+			}
+#endif
 
-#if defined(_WIN32)
-				// but does not seem to work for Windows XP or Vista, so try something else
-				if(!path.length())
-				{
-					char* envHomeDrive = getenv("HOMEDRIVE");
-					char* envHomePath  = getenv("HOMEPATH");
-					if(envHomeDrive && envHomePath)
-						path = getGenericPath(std::string(envHomeDrive) + "/" + envHomePath);
-				}
+			// HOME has different usages in Linux & Windows
+			// On Windows,  "HOME" is not a system variable but a user's environment variable that can be defined by users in batch files. 
+			// If defined : The environment variable has priority over all
+			char* envHome = getenv("HOME");
+			if (envHome)
+				homePath = getGenericPath(envHome);		
+
+#ifdef WIN32
+			// On Windows, getenv("HOME") is not the system's user path but a user environment variable.
+			// Instead we get the home user's path using %HOMEDRIVE%/%HOMEPATH% which are system variables.
+			if (!homePath.length())
+			{
+				char* envHomeDrive = getenv("HOMEDRIVE");
+				char* envHomePath = getenv("HOMEPATH");
+				if (envHomeDrive && envHomePath)
+					homePath = getGenericPath(std::string(envHomeDrive) + "/" + envHomePath);
+			}
 #endif // _WIN32
 
-				// no homepath found, fall back to current working directory
-				if(!path.length())
-					path = getCWDPath();
-			}
+			// no homepath found, fall back to current working directory
+			if (!homePath.length())
+				homePath = getCWDPath();
 
 			// return constructed homepath
-			return path;
+			return homePath;
 
 		} // getHomePath
 
@@ -180,23 +214,20 @@ namespace Utils
 
 		} // getCWDPath
 
+		std::string exePath;
+
+		void setExePath(const std::string& _path)
+		{
+			std::string path = getCanonicalPath(_path);
+			if (isRegularFile(path))
+				path = getParent(path);
+
+			exePath = path;
+		} // setExePath
+
 		std::string getExePath()
 		{
-			static std::string path;
-
-			// only construct the exepath once
-			if(!path.length())
-			{
-				path = getCanonicalPath(Settings::getInstance()->getString("ExePath"));
-
-				if(isRegularFile(path))
-				{
-					path = getParent(path);
-				}
-			}
-
-			// return constructed exepath
-			return path;
+			return exePath;
 
 		} // getExePath
 
@@ -661,3 +692,6 @@ namespace Utils
 	} // FileSystem::
 
 } // Utils::
+
+
+

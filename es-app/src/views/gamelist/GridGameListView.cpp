@@ -377,8 +377,8 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 	if(Settings::getInstance()->getBool("QuickSystemSelect"))
 	  prompts.push_back(HelpPrompt("lr", _("SYSTEM"))); // batocera
 	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera
-	prompts.push_back(HelpPrompt("b", _("LAUNCH"))); // batocera
-	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 	if(mRoot->getSystem()->isGameSystem())

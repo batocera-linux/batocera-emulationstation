@@ -54,8 +54,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
 		row.addElement(mJumpToLetterList, false);
-		row.input_handler = [&](InputConfig* config, Input input) {
-		  if(config->isMappedTo("b", input) && input.value) // batocera
+		row.input_handler = [&](InputConfig* config, Input input) 
+		{
+		  if(config->isMappedTo(BUTTON_OK, input) && input.value)
 			{
 				jumpToLetter();
 				return true;
@@ -250,7 +251,7 @@ void GuiGamelistOptions::jumpToLetter()
 
 bool GuiGamelistOptions::input(InputConfig* config, Input input)
 {
-  if((config->isMappedTo("a", input) || config->isMappedTo("select", input)) && input.value) // batocera
+	if ((config->isMappedTo(BUTTON_BACK, input) || config->isMappedTo("select", input)) && input.value)
 	{
 		delete this;
 		return true;
@@ -269,7 +270,7 @@ HelpStyle GuiGamelistOptions::getHelpStyle()
 std::vector<HelpPrompt> GuiGamelistOptions::getHelpPrompts()
 {
 	auto prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt("b", _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
 	return prompts;
 }
 

@@ -17,7 +17,7 @@ std::string getTitlePath() {
 }
 
 std::string getTitleFolder() {
-	return "/userdata/system/configs/emulationstation/tmp/"; // batocera
+	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
 }
 
 void writeSubtitle(const char* gameName, const char* systemName, bool always)
@@ -228,7 +228,7 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> ret;
-	ret.push_back(HelpPrompt("b", _("SELECT"))); // batocera
+	ret.push_back(HelpPrompt(BUTTON_BACK, _("SELECT"))); // batocera
 	return ret;
 }
 

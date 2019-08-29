@@ -2,7 +2,6 @@
 #include "guis/GuiMsgBox.h"
 
 #include "Window.h"
-#include <boost/thread.hpp>
 #include <string>
 #include "Log.h"
 #include "Settings.h"
@@ -53,7 +52,7 @@ void GuiBackup::update(int deltaTime) {
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
-	  mHandle = new boost::thread(boost::bind(&GuiBackup::threadBackup, this));
+	  mHandle = new std::thread(&GuiBackup::threadBackup, this);
 	  mState = 0;
         }
 

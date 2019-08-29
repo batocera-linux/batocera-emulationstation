@@ -49,8 +49,7 @@ void ensureScrapersResourcesDir()
 
 std::string getScrapersResouceDir()
 {
-	return Utils::FileSystem::getGenericPath(
-						 std::string("/userdata/system/configs/emulationstation/") + SCRAPER_RESOURCES_DIR); // batocera
+	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + std::string("/") + SCRAPER_RESOURCES_DIR); // batocera
 }
 
 std::string TheGamesDBJSONRequestResources::getApiKey() const { return GamesDBAPIKey; }

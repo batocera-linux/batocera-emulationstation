@@ -28,6 +28,8 @@ namespace Utils
 		std::string  format             (const char* _string, ...);      
 		std::string  scramble           (const std::string& _input, const std::string& key);
 
+		std::vector<std::string> split  (const std::string& s, char seperator);
+
 	} // String::
 
 } // Utils::

@@ -1,7 +1,6 @@
 #include "guis/GuiBackup.h"
 #include "guis/GuiMsgBox.h"
 #include "Window.h"
-#include <boost/thread.hpp>
 #include <string>
 #include "Log.h"
 #include "Settings.h"
@@ -54,7 +53,7 @@ void GuiBezelInstall::update(int deltaTime) {
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
-	  mHandle = new boost::thread(boost::bind(&GuiBezelInstall::threadBezel, this));
+	  mHandle = new std::thread(&GuiBezelInstall::threadBezel, this);
 	  mState = 0;
         }
 
@@ -156,7 +155,7 @@ void GuiBezelUninstall::update(int deltaTime) {
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
-	  mHandle = new boost::thread(boost::bind(&GuiBezelUninstall::threadBezel, this));
+	  mHandle = new std::thread(&GuiBezelUninstall::threadBezel, this);
 	  mState = 0;
         }
 

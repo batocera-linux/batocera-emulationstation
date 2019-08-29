@@ -13,7 +13,7 @@ AsyncReqComponent::AsyncReqComponent(Window* window, std::shared_ptr<HttpReq> re
 
 bool AsyncReqComponent::input(InputConfig* config, Input input)
 {
-	if(input.value != 0 && config->isMappedTo("a", input)) // batocera
+	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		if(mCancelFunc)
 			mCancelFunc();
@@ -49,6 +49,6 @@ void AsyncReqComponent::render(const Transform4x4f& /*parentTrans*/)
 std::vector<HelpPrompt> AsyncReqComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("a", _("CANCEL"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CANCEL")));
 	return prompts;
 }

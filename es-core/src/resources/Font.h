@@ -18,8 +18,13 @@ class TextCache;
 #define FONT_SIZE_MEDIUM ((unsigned int)(0.045f * Math::min((int)Renderer::getScreenHeight(), (int)Renderer::getScreenWidth())))
 #define FONT_SIZE_LARGE ((unsigned int)(0.085f * Math::min((int)Renderer::getScreenHeight(), (int)Renderer::getScreenWidth())))
 
+#ifdef WIN32
+#define FONT_PATH_LIGHT ":/opensans_hebrew_condensed_light.ttf"
+#define FONT_PATH_REGULAR ":/opensans_hebrew_condensed_regular.ttf"
+#else
 #define FONT_PATH_LIGHT ":/ubuntu_condensed.ttf" // batocera
 #define FONT_PATH_REGULAR ":/ubuntu_condensed.ttf" // batocera
+#endif
 
 enum Alignment
 {

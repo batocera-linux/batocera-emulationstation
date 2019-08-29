@@ -452,6 +452,7 @@ void ViewController::preload()
 	uint32_t i = 0;
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
+		/*
 		if(Settings::getInstance()->getBool("SplashScreen") &&
 			Settings::getInstance()->getBool("SplashScreenProgress"))
 		{
@@ -461,9 +462,9 @@ void ViewController::preload()
 				(*it)->getFullName().c_str(), i, (int)SystemData::sSystemVector.size());
 			mWindow->renderLoadingScreen(std::string(buffer));
 		}
-
+		*/
 		(*it)->getIndex()->resetFilters();
-		//getGameListView(*it); // batocera - performances
+		// getGameListView(*it); // batocera - performances
 	}
 }
 
@@ -508,20 +509,20 @@ void ViewController::reloadAll()
 		cursorMap[it->first] = it->second->getCursor();
 	}
 	mGameListViews.clear();
-
+	
 	// If preloaded is disabled
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		if (cursorMap.find((*it)) == cursorMap.end())
 			cursorMap[(*it)] = NULL;
 	}
-	
+
 	// load themes, create gamelistviews and reset filters
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
 		it->first->loadTheme();
 		it->first->getIndex()->resetFilters();
-		
+
 		if (it->second != NULL)
 			getGameListView(it->first)->setCursor(it->second);
 	}
