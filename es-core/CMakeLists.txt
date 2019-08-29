@@ -79,6 +79,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.h
 )
 
 set(CORE_SOURCES
@@ -156,6 +157,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.cpp
 )
 
 include_directories(${COMMON_INCLUDE_DIRS})

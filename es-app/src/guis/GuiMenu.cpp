@@ -1344,7 +1344,7 @@ void GuiMenu::openGamesSettings_batocera() {
 					  ViewController::init(window);
 					  CollectionSystemManager::deinit();
 					  CollectionSystemManager::init(window);
-					  SystemData::loadConfig();
+					  SystemData::loadConfig(window);
 					  GuiComponent *gui;
 					  while ((gui = window->peekGui()) != NULL) {
 					    window->removeGui(gui);
@@ -1876,6 +1876,12 @@ void GuiMenu::openUISettings_batocera()
 		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
 		PowerSaver::init();
 	});
+
+	// threaded loading -> Should be moved in a "developper" submenu
+	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
+	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
+	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
+	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
 
 	mWindow->pushGui(s);
 }

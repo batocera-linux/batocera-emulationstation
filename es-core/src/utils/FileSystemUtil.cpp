@@ -10,6 +10,7 @@
 // because windows...
 #include <direct.h>
 #include <Windows.h>
+#include <mutex>
 #define getcwd _getcwd
 #define mkdir(x,y) _mkdir(x)
 #define snprintf _snprintf
@@ -45,6 +46,8 @@ namespace Utils
 		}
 
 #if defined(_WIN32)
+		static std::mutex mFileMutex;
+
 		static std::string convertFromWideString(const std::wstring wstring)
 		{
 			int         numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
@@ -68,6 +71,11 @@ namespace Utils
 			{
 
 #if defined(_WIN32)
+				std::unique_lock<std::mutex>* pLock = nullptr;
+
+				if (!_recursive)
+					pLock = new std::unique_lock<std::mutex>(mFileMutex);
+
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
 				HANDLE           hFind    = FindFirstFileW(std::wstring(wildcard.begin(), wildcard.end()).c_str(), &findData);
@@ -85,7 +93,7 @@ namespace Utils
 							std::string fullName(getGenericPath(path + "/" + name));
 							contentList.push_back(fullName);
 
-							if(_recursive && isDirectory(fullName))
+							if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
 								contentList.merge(getDirContent(fullName, true));
 						}
 					}
@@ -93,6 +101,9 @@ namespace Utils
 
 					FindClose(hFind);
 				}
+
+				if (pLock != nullptr)
+					delete pLock;
 #else // _WIN32
 				DIR* dir = opendir(path.c_str());
 
