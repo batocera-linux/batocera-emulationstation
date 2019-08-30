@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,9 @@ msgstr "ÉDITER LES DONNÉES DU JEU"
 
 msgid "ADVANCED"
 msgstr "AVANCÉES"
+
+msgid "RESET ALL FILTERS"
+msgstr "REMETTRE À ZÉRO LES FILTRES"
 
 msgid "FINISHED"
 msgstr "TERMINÉ"
@@ -142,6 +145,9 @@ msgstr "VERSION"
 msgid "DISK USAGE"
 msgstr "ESPACE DISQUE"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRÉER UN FICHIER DE SUPPORT"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "CRÉER UN FICHIER DE SUPPORT ?"
 
@@ -150,9 +156,6 @@ msgstr "FICHIER GÉNÉRÉ AVEC SUCCES"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ECHEC DE LA GÉNÉRATION DU FICHIER"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "STORAGE DEVICE"
 msgstr "MÉDIA DE STOCKAGE"
@@ -286,11 +289,14 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "STATUT"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "METTRE À JOUR LES LISTES DES JEUX"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "METTRE À JOUR LES LISTES DES JEUX"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "CONFIGURER UNE MANETTE"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -306,9 +312,6 @@ msgstr ""
 "N'A PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. LES NOMS DES BOUTONS "
 "SONT BASÉS SUR LA SUPER NINTENDO"
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "CONFIGURER UNE MANETTE"
-
 msgid "CONTROLLER PAIRED"
 msgstr "MANETTE ASSOCIÉE"
 
@@ -318,11 +321,11 @@ msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LES LIENS VERS LES MANETTES ONT ÉTÉ SUPPRIMÉS."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "OUBLIER LES MANETTES BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "LES LIENS VERS LES MANETTES ONT ÉTÉ SUPPRIMÉS."
 
 #, c-format
 msgid "INPUT P%i"
@@ -349,6 +352,30 @@ msgstr "SORTIE VIDEO"
 
 msgid "THEME SET"
 msgstr "THÈME"
+
+msgid "THEME CONFIGURATION"
+msgstr "CONFIGURATION DU THÈME"
+
+msgid "THEME COLORSET"
+msgstr "COULEURS DU THÈME"
+
+msgid "THEME ICONSET"
+msgstr "ICÔNES DU THÈME"
+
+msgid "THEME MENU"
+msgstr "MENU THÈME"
+
+msgid "THEME SYSTEMVIEW"
+msgstr "VUE SYSTÈME DU THÈME"
+
+msgid "THEME GAMELISTVIEW"
+msgstr "VUE JEUX DU THÈME"
+
+msgid "THEME REGION"
+msgstr "RÉGION DU THÈME"
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr "CE THÈME N'A PAS D'OPTION"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TYPE DE VUE DES JEUX"
@@ -481,32 +508,38 @@ msgstr "WIFI ACTIVÉ"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERREUR DE CONFIGURATION WIFI"
 
-msgid "REALLY SCRAPE?"
-msgstr "VOULEZ-VOUS VRAIMENT SCRAPER ?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "SCRAPER AUTOMATIQUEMENT"
+
+msgid "REALLY SCRAPE?"
+msgstr "VOULEZ-VOUS VRAIMENT SCRAPER ?"
 
 msgid "MANUAL SCRAPER"
 msgstr "SCRAPER MANUELLEMENT"
 
-msgid "REALLY RESTART?"
-msgstr "REDÉMARRER ?"
-
 msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "ÉTEINDRE ?"
+msgid "REALLY RESTART?"
+msgstr "REDÉMARRER ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ÉTEINDRE"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES METADONNÉES ?"
+msgid "REALLY SHUTDOWN?"
+msgstr "ÉTEINDRE ?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXCTINCTION RAPIDE"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES METADONNÉES ?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr "QUITTER EMULATIONSTATION"
+
+msgid "REALLY QUIT?"
+msgstr "VRAIMENT QUITTER ?"
 
 msgid "Emulator"
 msgstr "Émulateur"
@@ -1078,11 +1111,20 @@ msgstr "ARRETER L'EDITION"
 msgid "EDIT"
 msgstr "EDITER"
 
+msgid "accept"
+msgstr "accepter"
+
 msgid "SELECT ALL"
 msgstr "TOUT SÉLECTIONNER"
 
+msgid "select all"
+msgstr "sélectionner tous"
+
 msgid "SELECT NONE"
 msgstr "AUCUN"
+
+msgid "select none"
+msgstr "sélectionner aucun"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1095,3 +1137,6 @@ msgstr "CHANGER"
 
 msgid "WORKING..."
 msgstr "EN COURS..."
+
+msgid "up/down"
+msgstr "haut/bas"

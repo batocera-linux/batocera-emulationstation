@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -72,6 +72,9 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -145,6 +148,9 @@ msgstr "VERSÃO"
 msgid "DISK USAGE"
 msgstr "ESPAÇO DISPONÍVEL"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRIAR UM ARQUIVO DE SUPORTE"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
@@ -153,9 +159,6 @@ msgstr "ARQUIVO GERADO COM SUCESSO"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ARQUIVO GERADO SEM SUCESSO"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "CRIAR UM ARQUIVO DE SUPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ARMAZENAMENTO"
@@ -289,11 +292,14 @@ msgstr "EXAMINADOR MD5"
 msgid "STATUS"
 msgstr "ESTADO DA REDE"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ATUALIZAR LISTAS DE JOGOS"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ATUALIZAR LISTAS DE JOGOS"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "CONFIGURAR COMANDO"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -307,9 +313,6 @@ msgstr ""
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM NO SEU COMANDO PRESSIONANDO UM BOTÃO JÁ CONFIGURADO."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "CONFIGURAR COMANDO"
-
 msgid "CONTROLLER PAIRED"
 msgstr "COMANDO EMPARELHADO"
 
@@ -319,11 +322,11 @@ msgstr "NAO FOI POSSÍVEL EMPARELHAR O COMANDO"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "EMPARELHAR COMANDO BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "DESEMPARELHAR COMANDOS BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 
 #, c-format
 msgid "INPUT P%i"
@@ -349,6 +352,30 @@ msgstr "SAIDA DE VIDEO"
 
 msgid "THEME SET"
 msgstr "TEMA"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
@@ -480,32 +507,38 @@ msgstr "WIFI ATIVADO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRO NA CONFIGURAÇÃO WIFI"
 
-msgid "REALLY SCRAPE?"
-msgstr "DESEJA INICIAR?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "PROCURAR CAPAS AUTOMÁTICAMENTE"
+
+msgid "REALLY SCRAPE?"
+msgstr "DESEJA INICIAR?"
 
 msgid "MANUAL SCRAPER"
 msgstr "PROCURAR CAPAS MANUALMENTE"
 
-msgid "REALLY RESTART?"
-msgstr "DESEJA REINICIAR?"
-
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR O SISTEMA"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "DESEJA DESLIGAR?"
+msgid "REALLY RESTART?"
+msgstr "DESEJA REINICIAR?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
+msgid "REALLY SHUTDOWN?"
+msgstr "DESEJA DESLIGAR?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -1081,11 +1114,20 @@ msgstr "PARAR EDIÇÃO"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "NENHUM SELECIONADO"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1098,6 +1140,9 @@ msgstr "MODIFICAR"
 
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"

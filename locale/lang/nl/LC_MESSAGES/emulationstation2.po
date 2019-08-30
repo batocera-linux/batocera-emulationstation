@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "Bewerk deze spelgegevens"
 
 msgid "ADVANCED"
 msgstr "Geavanceerd"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "Klaar"
@@ -142,6 +145,9 @@ msgstr "Versie"
 msgid "DISK USAGE"
 msgstr "Gebruikt verbruik"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "Support file maken"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "Support file maken?"
 
@@ -150,9 +156,6 @@ msgstr "File aangemaakt"
 
 msgid "FILE GENERATION FAILED"
 msgstr "Geen file aangemaakt"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "Support file maken"
 
 msgid "STORAGE DEVICE"
 msgstr "Opslagmedium"
@@ -287,11 +290,14 @@ msgstr "MD%"
 msgid "STATUS"
 msgstr "Status"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "Updaten spellijst"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "Spellijst echt updaten?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "Updaten spellijst"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "Configureer een controller"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -306,9 +312,6 @@ msgstr ""
 "kies je de SELECT knop. Skip alle knoppen die je niet hebt door een knop "
 "vast te houden. De namen van de knoppen zijn gebaseerd op de SNES controller."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "Configureer een controller"
-
 msgid "CONTROLLER PAIRED"
 msgstr "Controller gekoppeld"
 
@@ -318,11 +321,11 @@ msgstr "Niet mogelijk de controller te koppelen"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "Koppel een Bluetooth-controller"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "Gekoppeld controllers zijn gewist"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "Vergeet Bluetooth-controllers"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "Gekoppeld controllers zijn gewist"
 
 #, c-format
 msgid "INPUT P%i"
@@ -345,6 +348,30 @@ msgstr "Video-output"
 
 msgid "THEME SET"
 msgstr "Thema instellen"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "Spelllijst stijl"
@@ -476,32 +503,38 @@ msgstr "Wifi ingeschakeld"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "Wifi configuratie fout"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "Systeem herstarten?"
-
 msgid "RESTART SYSTEM"
 msgstr "Systeem herstarten"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "Systeem uitschakelen?"
+msgid "REALLY RESTART?"
+msgstr "Systeem herstarten?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "Systeem uitschakelen"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "Uitschakelen zonder opslaan van Metadata?"
+msgid "REALLY SHUTDOWN?"
+msgstr "Systeem uitschakelen?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "Snel uitschakelen systeem"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "Uitschakelen zonder opslaan van Metadata?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -1081,11 +1114,20 @@ msgstr ""
 msgid "EDIT"
 msgstr ""
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "Selecteer alles"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "Selecteer niks"
+
+msgid "select none"
+msgstr ""
 
 #, fuzzy, c-format
 msgid "%i SELECTED"
@@ -1100,6 +1142,9 @@ msgstr "Wijzig"
 
 msgid "WORKING..."
 msgstr "Bezig"
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "Visuele thema's installeer"

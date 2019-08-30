@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,9 @@ msgstr "EDITAR LA INFORMACION DE ESTE JUEGO"
 
 msgid "ADVANCED"
 msgstr "AVANZADO"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -142,6 +145,9 @@ msgstr "VERSIÓN"
 msgid "DISK USAGE"
 msgstr "USO DE DISCO"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "CREAR UN ARCHIVO DE SOPORTE"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "CREAR UN ARCHIVO DE SOPORTE?"
 
@@ -150,9 +156,6 @@ msgstr "ARCHIVO CREADO CON ÉXITO"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ERROR EN LA CREACION DEL ARCHIVO"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "CREAR UN ARCHIVO DE SOPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ALMACENAMIENTO"
@@ -286,11 +289,14 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "ESTADO"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALIZAR LISTAS DE JUEGOS"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALIZAR LISTAS DE JUEGOS"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "CONFIGURAR UN MANDO"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -305,9 +311,6 @@ msgstr ""
 "IGNORA LOS BOTONES QUE NO EXISTAN EN TU MANDO MANTENIENDO UNA TECLA PULSADA. "
 "LOS NOMBRES DE LOS BOTONES SE BASAN EN EL MANDO DE LA SNES."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "CONFIGURAR UN MANDO"
-
 msgid "CONTROLLER PAIRED"
 msgstr "MANDO EMPAREJADO"
 
@@ -317,11 +320,11 @@ msgstr "NO SE PUEDE EMPAREJAR EL MANDO"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "EMPAREJAR UN MANDO BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "DESEMPAREJAR MANDOS BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -349,6 +352,30 @@ msgstr "SALIDA DE VIDEO"
 
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
@@ -481,32 +508,38 @@ msgstr "WIFI ACTIVADO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACIÓN WIFI"
 
-msgid "REALLY SCRAPE?"
-msgstr "OBTENER CARÁTULAS?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "OBTENER CARÁTULAS AUTOMATICAMENTE"
+
+msgid "REALLY SCRAPE?"
+msgstr "OBTENER CARÁTULAS?"
 
 msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
 
-msgid "REALLY RESTART?"
-msgstr "¿REINICIAR?"
-
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR EL SISTEMA"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "¿APAGAR?"
+msgid "REALLY RESTART?"
+msgstr "¿REINICIAR?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "APAGAR EL SISTEMA"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "¿SEGURO DE APAGAR SIN GUARDAR DATOS?"
+msgid "REALLY SHUTDOWN?"
+msgstr "¿APAGAR?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "¿APAGAR RÁPIDAMENTE?"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "¿SEGURO DE APAGAR SIN GUARDAR DATOS?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "EMULADOR"
@@ -1083,11 +1116,20 @@ msgstr "TERMINAR EDICIÓN"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "TODOS"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "NINGUNO"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1100,6 +1142,9 @@ msgstr "CAMBIAR"
 
 msgid "WORKING..."
 msgstr "EN CURSO..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"

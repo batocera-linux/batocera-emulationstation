@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,6 +70,9 @@ msgstr "このゲームのメタ情報を編集"
 #, fuzzy
 msgid "ADVANCED"
 msgstr "アドバンス"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -143,6 +146,9 @@ msgstr "バージョン"
 msgid "DISK USAGE"
 msgstr "ディスク使用"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -150,9 +156,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -292,11 +295,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "ステータス"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ゲームリストを更新"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ゲームリストを更新しますか？"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ゲームリストを更新"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "コントローラー設定"
 
 #, fuzzy
 msgid ""
@@ -312,9 +318,6 @@ msgstr ""
 "さい。 すべてのボタンを 長押しで スキップした場合、 ボタン名が スーパーファミ"
 "コンを ベースとしたものに なります。"
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "コントローラー設定"
-
 msgid "CONTROLLER PAIRED"
 msgstr "コントローラーがペアリングされました"
 
@@ -324,12 +327,12 @@ msgstr "コントローラーのペアリングができません"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ブルートゥースコントローラのペアリング"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "コントローラーのリンクが切れました。"
-
 #, fuzzy
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "ブルートゥースのコントローラーを解除"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "コントローラーのリンクが切れました。"
 
 #, c-format
 msgid "INPUT P%i"
@@ -352,6 +355,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "テーマ設定"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -479,32 +506,38 @@ msgstr "WIFI が有効になりました"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 設定エラー"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "終了しますか？"
-
 msgid "RESTART SYSTEM"
 msgstr "システムを再起動"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "シャットダウンしますか？"
+msgid "REALLY RESTART?"
+msgstr "終了しますか？"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "システムをシャットダウン"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "メタ情報を保存せずに シャットダウンしますか？"
+msgid "REALLY SHUTDOWN?"
+msgstr "シャットダウンしますか？"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "高速 シャットダウン システム"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "メタ情報を保存せずに シャットダウンしますか？"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "エミュレータ"
@@ -1080,11 +1113,20 @@ msgstr "編集を中止"
 msgid "EDIT"
 msgstr "編集"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "すべて選択"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "選択解除"
+
+msgid "select none"
+msgstr ""
 
 #, fuzzy, c-format
 msgid "%i SELECTED"
@@ -1097,6 +1139,9 @@ msgstr "変更"
 #, fuzzy
 msgid "WORKING..."
 msgstr "処理中..."
+
+msgid "up/down"
+msgstr ""
 
 #, fuzzy
 #~ msgid "THE SYSTEM WILL NOW REBOOT"

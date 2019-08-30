@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "JOKU HONEN DATUAK EDITATU"
 
 msgid "ADVANCED"
 msgstr "AURRERATUA"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -142,6 +145,9 @@ msgstr "BERTSIOA"
 msgid "DISK USAGE"
 msgstr "DISKO ERABILERA"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -149,9 +155,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -286,11 +289,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "EGOERA"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "EGUNERATU JOKO ZERRENDAK"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ZIUR JOKO ZERRENDAK EGUNERATU NAHI DITUZULA?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "EGUNERATU JOKO ZERRENDAK"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "AGINTE BAT KONFIGURATU"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -305,9 +311,6 @@ msgstr ""
 "AGINTEAN EXISTITZEN EZ DIREN BOTOIEI EZ EGIN KASURIK BOTOI BAT SAKATU ETA "
 "MANTENDUZ."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "AGINTE BAT KONFIGURATU"
-
 msgid "CONTROLLER PAIRED"
 msgstr "AGINTEA PAREKATUA"
 
@@ -317,11 +320,11 @@ msgstr "AGINTEA PAREKATZEA EZINEZKOA"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH AGINTE BAT PAREKATU"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "AGINTEEN ESTEKAK EZABATUAK IZAN DIRA"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "AHAZTU BLUETOOTH AGINTEAK"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "AGINTEEN ESTEKAK EZABATUAK IZAN DIRA"
 
 #, c-format
 msgid "INPUT P%i"
@@ -344,6 +347,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "GAIA"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -470,32 +497,38 @@ msgstr "WIFI-a AKTIBATUTA"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI KONFIGURAZIO ERROREA"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "BERRABIARAZI?"
-
 msgid "RESTART SYSTEM"
 msgstr "SISTEMA BERRABIARAZI"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "ITZALI?"
+msgid "REALLY RESTART?"
+msgstr "BERRABIARAZI?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ITZALI SISTEMA"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "BENETAN METADATUAK GORDE GABE ITZALI?"
+msgid "REALLY SHUTDOWN?"
+msgstr "ITZALI?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SISTEMAREN ITZALTZE AZKARRA"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "BENETAN METADATUAK GORDE GABE ITZALI?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulatzaile"
@@ -1065,11 +1098,20 @@ msgstr "GELDITU EDIZIOA"
 msgid "EDIT"
 msgstr "EDITATU"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "DENAK"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "BAT ERE EZ"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1082,6 +1124,9 @@ msgstr "ALDATU"
 
 msgid "WORKING..."
 msgstr "LANEAN..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "SISTEMA BERRABIARAZIKO DA"
