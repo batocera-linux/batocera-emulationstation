@@ -32,6 +32,9 @@ struct ComponentListRow
 	// Utility method for making an input handler for "when the users presses A on this, do func."
 	inline void makeAcceptInputHandler(const std::function<void()>& func)
 	{
+		if (func == nullptr)
+			return;
+
 		input_handler = [func](InputConfig* config, Input input) -> bool {
 			if(config->isMappedTo(BUTTON_OK, input) && input.value != 0) // batocera
 			{

@@ -22,7 +22,7 @@ private:
 	void initializeMenu();
 	void applySettings();
 	void addSystemsToMenu();
-	void addEntry(const char* name, unsigned int color, bool add_arrow, const std::function<void()>& func);
+	void addEntry(const char* name, bool add_arrow, const std::function<void()>& func);
 	void updateSettings(std::string newAutoSettings, std::string newCustomSettings);
 	void createCollection(std::string inName);
 	void exitEditMode();

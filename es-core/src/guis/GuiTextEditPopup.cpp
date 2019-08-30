@@ -9,10 +9,15 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
 	const std::function<void(const std::string&)>& okCallback, bool multiLine, const char* acceptBtnText)
 	: GuiComponent(window), mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 3)), mMultiLine(multiLine)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackground.setImagePath(theme->Background.path);
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
+
 	addChild(&mBackground);
 	addChild(&mGrid);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 
 	mText = std::make_shared<TextEditComponent>(mWindow);
 	mText->setValue(initValue);

@@ -300,6 +300,9 @@ bool SystemData::loadConfig(Window* window)
 		CollectionSystemManager::get()->loadCollectionSystems();
 	}
 
+	if (SystemData::sSystemVector.size() > 0)
+		ThemeData::setMenuTheme(SystemData::sSystemVector.at(0)->getTheme().get());
+
 	return true;
 }
 
@@ -618,7 +621,7 @@ void SystemData::loadTheme()
 		sysData.insert(std::pair<std::string, std::string>("system.theme", getThemeFolder()));
 		sysData.insert(std::pair<std::string, std::string>("system.fullName", getFullName()));
 		
-		mTheme->loadFile(sysData, path);
+		mTheme->loadFile(getThemeFolder(), sysData, path);
 	} catch(ThemeException& e)
 	{
 		LOG(LogError) << e.what();

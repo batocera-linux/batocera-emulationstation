@@ -20,6 +20,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid(window, Vector2i(4, 3)), mBusyAnim(window), 
 	mSearchType(type)
 {
+	auto theme = ThemeData::getMenuTheme();
 	addChild(&mGrid);
 
 	mBlockAccept = false;
@@ -28,7 +29,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(0, 0), false, false, Vector2i(1, 3), GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
 
 	// selected result name
-	mResultName = std::make_shared<TextComponent>(mWindow, "Result name", Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+	mResultName = std::make_shared<TextComponent>(mWindow, "Result name", theme->Text.font, theme->Text.color);
 
 	// selected result thumbnail
 	mResultThumbnail = std::make_shared<ImageComponent>(mWindow);
@@ -36,14 +37,14 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 
 	// selected result desc + container
 	mDescContainer = std::make_shared<ScrollableContainer>(mWindow);
-	mResultDesc = std::make_shared<TextComponent>(mWindow, "Result desc", Font::get(FONT_SIZE_SMALL), 0x777777FF);
+	mResultDesc = std::make_shared<TextComponent>(mWindow, "Result desc", theme->TextSmall.font, theme->Text.color);
 	mDescContainer->addChild(mResultDesc.get());
 	mDescContainer->setAutoScroll(true);
 	
 	// metadata
-	auto font = Font::get(FONT_SIZE_SMALL); // this gets replaced in onSizeChanged() so its just a placeholder
-	const unsigned int mdColor = 0x777777FF;
-	const unsigned int mdLblColor = 0x666666FF;
+	auto font = theme->TextSmall.font; // this gets replaced in onSizeChanged() so its just a placeholder
+	const unsigned int mdColor = theme->Text.color;
+	const unsigned int mdLblColor = theme->TextSmall.color;
 	mMD_Rating = std::make_shared<RatingComponent>(mWindow);
 	mMD_ReleaseDate = std::make_shared<DateTimeEditComponent>(mWindow);
 	mMD_ReleaseDate->setColor(mdColor);
@@ -229,8 +230,9 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 
 	mScraperResults = results;
 
-	auto font = Font::get(FONT_SIZE_MEDIUM);
-	unsigned int color = 0x777777FF;
+	auto theme = ThemeData::getMenuTheme();
+	auto font = theme->TextSmall.font;
+	unsigned int color = theme->Text.color;
 	if(results.empty())
 	{
 		// Check if the scraper used is still valid

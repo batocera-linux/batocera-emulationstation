@@ -7,10 +7,15 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
 	: GuiComponent(window), mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), mMultiLine(multiLine)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackground.setImagePath(theme->Background.path);
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
+
 	addChild(&mBackground);
 	addChild(&mGrid);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(12, 5));
 
 	mText = std::make_shared<TextEditComponent>(mWindow);

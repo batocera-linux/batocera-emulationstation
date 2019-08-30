@@ -80,6 +80,12 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackground.setImagePath(theme->Background.path);
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
+	mGrid.setSeparatorColor(theme->Text.separatorColor);
+
 	LOG(LogInfo) << "Configuring device " << target->getDeviceId() << " (" << target->getDeviceName() << ").";
 
 	if(reconfigureAll)
@@ -94,7 +100,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	// 0 is a spacer row
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(0, 0), false);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("CONFIGURING"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("CONFIGURING"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mTitle, Vector2i(0, 1), false, true);
 
 	char strbuf[256];
@@ -105,10 +111,10 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	else {
 	  snprintf(strbuf, 256, _("GAMEPAD %i").c_str(), target->getDeviceId() + 1); // batocera
 	}
-	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf), Font::get(FONT_SIZE_MEDIUM), 0x555555FF, ALIGN_CENTER); // batocera
+	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf), theme->Text.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mSubtitle1, Vector2i(0, 2), false, true);
 
-	mSubtitle2 = std::make_shared<TextComponent>(mWindow, _("HOLD ANY BUTTON TO SKIP"), Font::get(FONT_SIZE_SMALL), 0x999999FF, ALIGN_CENTER); // batocera
+	mSubtitle2 = std::make_shared<TextComponent>(mWindow, _("HOLD ANY BUTTON TO SKIP"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER); // batocera
 	mGrid.setEntry(mSubtitle2, Vector2i(0, 3), false, true);
 
 	// 4 is a spacer row
@@ -122,7 +128,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 		icon->setImage(GUI_INPUT_CONFIG_LIST[i].icon);
-		icon->setColorShift(0x777777FF);
+		icon->setColorShift(theme->Text.color);
 		icon->setResize(0, Font::get(FONT_SIZE_MEDIUM)->getLetterHeight() * 1.25f);
 		row.addElement(icon, false);
 
@@ -131,10 +137,10 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		spacer->setSize(16, 0);
 		row.addElement(spacer, false);
 
-		auto text = std::make_shared<TextComponent>(mWindow, _(GUI_INPUT_CONFIG_LIST[i].dispName), Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+		auto text = std::make_shared<TextComponent>(mWindow, _(GUI_INPUT_CONFIG_LIST[i].dispName), theme->Text.font, theme->Text.color);
 		row.addElement(text, true);
 
-		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT), 0x999999FF, ALIGN_RIGHT); // batocera
+		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), theme->Text.font, theme->TextSmall.color, ALIGN_RIGHT); // batocera
 		setNotDefined(mapping); // overrides text and color set above
 		row.addElement(mapping, true);
 		mMappings.push_back(mapping);
@@ -251,13 +257,20 @@ void GuiInputConfig::onSizeChanged()
 
 	// update grid
 	mGrid.setSize(mSize);
+	
+	float h = (mTitle->getFont()->getHeight() + // *0.75f
+		mSubtitle1->getFont()->getHeight() +
+		mSubtitle2->getFont()->getHeight() +
+		0.03f +
+		mButtonGrid->getSize().y()) / mSize.y();
 
-	//mGrid.setRowHeightPerc(0, 0.025f);
-	mGrid.setRowHeightPerc(1, mTitle->getFont()->getHeight()*0.75f / mSize.y());
+	int cnt = (1.0 - h) / (mList->getRowHeight(0) / mSize.y());
+
+	mGrid.setRowHeightPerc(1, mTitle->getFont()->getHeight() / mSize.y()); // *0.75f
 	mGrid.setRowHeightPerc(2, mSubtitle1->getFont()->getHeight() / mSize.y());
 	mGrid.setRowHeightPerc(3, mSubtitle2->getFont()->getHeight() / mSize.y());
 	//mGrid.setRowHeightPerc(4, 0.03f);
-	mGrid.setRowHeightPerc(5, (mList->getRowHeight(0) * 5 + 2) / mSize.y());
+	mGrid.setRowHeightPerc(5, (mList->getRowHeight(0) * cnt + 2) / mSize.y());
 	mGrid.setRowHeightPerc(6, mButtonGrid->getSize().y() / mSize.y());
 
 	mBusyAnim.setSize(mSize);
@@ -285,7 +298,7 @@ void GuiInputConfig::update(int deltaTime)
 				char strbuf[256];
 				snprintf(strbuf, 256, ngettext("HOLD FOR %iS TO SKIP", "HOLD FOR %iS TO SKIP", HOLD_TO_SKIP_MS/1000 - curSec).c_str(), HOLD_TO_SKIP_MS/1000 - curSec); // batocera
 				text->setText(strbuf);
-				text->setColor(0x777777FF);
+				text->setColor(ThemeData::getMenuTheme()->Text.color);
 			}
 		}
 	}

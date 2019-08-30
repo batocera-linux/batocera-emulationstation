@@ -745,7 +745,21 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations() {
 	BiosSystem current;
 	bool isCurrent = false;
 
+#if WIN32 && _DEBUG
+	current.name = "atari5200";
+
+	BiosFile biosFile;
+	biosFile.md5 = "281f20ea4320404ec820fb7ec0693b38";
+	biosFile.path = "bios/5200.rom";
+	biosFile.status = "missing";
+	current.bios.push_back(biosFile);
+
+	res.push_back(current);
+	return res;
+#endif
+
 	FILE *pipe = popen("batocera-systems", "r");
+
 	char line[1024];
 
 	if (pipe == NULL) {

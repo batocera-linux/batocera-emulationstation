@@ -160,6 +160,13 @@ void Settings::setDefaults()
 	mBoolMap["ForceKid"] = false;
 	mBoolMap["ForceDisableFilters"] = false;
 
+	mStringMap["ThemeColorSet"] = "";
+	mStringMap["ThemeIconSet"] = "";
+	mStringMap["ThemeMenu"] = "";
+	mStringMap["ThemeSystemView"] = "";
+	mStringMap["ThemeGamelistView"] = "";
+	mStringMap["ThemeRegionName"] = "eu";
+
 	mBoolMap["ThreadedLoading"] = true;
 
 	mIntMap["WindowWidth"]   = 0;

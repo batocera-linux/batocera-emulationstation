@@ -290,6 +290,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	std::shared_ptr<IGameListView> view;
 
 	bool themeHasVideoView = system->getTheme()->hasView("video");
+	bool themeHasGridView = system->getTheme()->hasView("grid");
 
 	//decide type
 	GameListViewType selectedViewType = AUTOMATIC;
@@ -297,11 +298,11 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	std::string viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
 	if (viewPreference.compare("basic") == 0)
 		selectedViewType = BASIC;
-	if (viewPreference.compare("detailed") == 0)
+	else if (viewPreference.compare("detailed") == 0)
 		selectedViewType = DETAILED;
-	if (viewPreference.compare("grid") == 0)
+	else if (themeHasGridView && viewPreference.compare("grid") == 0)
 		selectedViewType = GRID;
-	if (viewPreference.compare("video") == 0)
+	else if (themeHasVideoView && viewPreference.compare("video") == 0)
 		selectedViewType = VIDEO;
 
 	if (selectedViewType == AUTOMATIC)
@@ -317,7 +318,9 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 			else if (!(*it)->getThumbnailPath().empty())
 			{
 				selectedViewType = DETAILED;
-				// Don't break out in case any subsequent files have video
+				
+				if (!themeHasVideoView)
+					break;
 			}
 		}
 	}

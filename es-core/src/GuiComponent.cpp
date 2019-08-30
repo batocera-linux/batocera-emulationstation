@@ -7,6 +7,7 @@
 #include "ThemeData.h"
 #include "Window.h"
 #include <algorithm>
+#include "animations/LambdaAnimation.h"
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5),
@@ -478,4 +479,30 @@ void GuiComponent::topWindow(bool isTop)
 {
 	for(unsigned int i = 0; i < getChildCount(); i++)
 		getChild(i)->topWindow(isTop);
+}
+
+void GuiComponent::setAnimatedPosition(float y1, float y2)
+{
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant" || Settings::getInstance()->getString("TransitionStyle") == "instant")
+		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
+	else
+	{
+		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y1);
+
+		auto fadeFunc = [this, y1, y2](float t) {
+
+			t -= 1; // cubic ease out
+			float pct = Math::lerp(0, 1, t*t*t + 1);
+
+			float y = y1 * (1 - pct) + y2 * pct;
+			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y);
+		};
+
+		setAnimation(new LambdaAnimation(fadeFunc, 350), 0, [this, fadeFunc, y2]
+		{
+			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
+		});
+
+		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
+	}
 }

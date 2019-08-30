@@ -15,6 +15,7 @@
 #include "LocaleES.h"
 #include "AudioManager.h"
 #include <SDL_events.h>
+#include "ThemeData.h"
 
 #define PLAYER_PAD_TIME_MS 200
 

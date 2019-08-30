@@ -11,13 +11,15 @@
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	:GuiComponent(window), mMenu(window, _("SELECT THEME").c_str())
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mMenu);
 	ComponentListRow row;
 	std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
 
 	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
 		auto itstring = std::make_shared<TextComponent>(mWindow,
-				(*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+				(*it).c_str(), theme->TextSmall.font, theme->Text.color);
 		char *tmp=new char [(*it).length()+1];
 		mSelectedTheme=new char [(*it).length()+1];
 		std::strcpy (tmp, (*it).c_str());

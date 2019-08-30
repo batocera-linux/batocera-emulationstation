@@ -30,18 +30,17 @@ public:
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
 	HelpStyle getHelpStyle() override;
-	static void openQuitMenu_batocera_static(Window *window); // batocera
+	static void openQuitMenu_batocera_static(Window *window, bool forceWin32Menu=false); // batocera
 
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);
 	static void popGameConfigurationGui(Window* mWindow, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
 
 private:
-	void addEntry(const char* name, unsigned int color, bool add_arrow, const std::function<void()>& func);
+	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
 	void addVersionInfo();
 	void openCollectionSystemSettings();
 	void openConfigInput();
-	void openOtherSettings();
-	void openQuitMenu();
+	void openOtherSettings();	
 	void openScraperSettings();
 	void openScreensaverOptions();
 	void openSlideshowScreensaverOptions();

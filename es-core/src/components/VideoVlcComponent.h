@@ -13,6 +13,7 @@ struct libvlc_media_player_t;
 struct VideoContext {
 	SDL_Surface*		surface;
 	SDL_mutex*			mutex;
+	VideoComponent*		component;
 	bool				valid;
 };
 
@@ -57,6 +58,8 @@ private:
 	virtual void stopVideo();
 	// Handle looping the video. Must be called periodically
 	virtual void handleLooping();
+
+	virtual void onVideoStarted();
 
 	void setupContext();
 	void freeContext();

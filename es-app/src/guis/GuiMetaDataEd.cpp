@@ -32,14 +32,19 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	mMetaData(md),
 	mSavedCallback(saveCallback), mDeleteFunc(deleteFunc)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackground.setImagePath(theme->Background.path); // ":/frame.png"
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
+
 	addChild(&mBackground);
 	addChild(&mGrid);
 
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mSubtitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(Utils::FileSystem::getFileName(scraperParams.game->getPath())),
-		Font::get(FONT_SIZE_SMALL), 0x777777FF, ALIGN_CENTER);
+		theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
@@ -60,7 +65,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		// create ed and add it (and any related components) to mMenu
 		// ed's value will be set below
 		ComponentListRow row;
-		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(iter->displayName), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(iter->displayName), theme->Text.font, theme->Text.color);
 		row.addElement(lbl, true); // label
 
 		switch(iter->type)
@@ -111,7 +116,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		default:
 			{
 				// MD_STRING
-				ed = std::make_shared<TextComponent>(window, "", Font::get(FONT_SIZE_SMALL, FONT_PATH_LIGHT), 0x777777FF, ALIGN_RIGHT);
+				ed = std::make_shared<TextComponent>(window, "", theme->TextSmall.font, theme->Text.color, ALIGN_RIGHT);
 				row.addElement(ed, true);
 
 				auto spacer = std::make_shared<GuiComponent>(mWindow);
@@ -119,7 +124,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				row.addElement(spacer, false);
 
 				auto bracket = std::make_shared<ImageComponent>(mWindow);
-				bracket->setImage(":/arrow.svg");
+				bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
 				bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
 				row.addElement(bracket, false);
 
@@ -161,6 +166,20 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 	mButtons = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtons, Vector2i(0, 2), true, false);
+
+	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool {
+		if (config->isMappedLike("down", input)) {
+			mGrid.setCursorTo(mList);
+			mList->setCursorIndex(0);
+			return true;
+		}
+		if (config->isMappedLike("up", input)) {
+			mList->setCursorIndex(mList->size() - 1);
+			mGrid.moveCursor(Vector2i(0, 1));
+			return true;
+		}
+		return false;
+	});
 
 	// resize + center	
 	float width = (float)Math::min(Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));

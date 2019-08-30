@@ -7,12 +7,16 @@
 #include "components/ScrollableContainer.h"
 #include "views/gamelist/BasicGameListView.h"
 
+class VideoComponent;
+
 class DetailedGameListView : public BasicGameListView
 {
 public:
 	DetailedGameListView(Window* window, FileData* root);
+	~DetailedGameListView();
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
+	virtual void onShow() override;
 
 	virtual const char* getName() const override { return "detailed"; }
 
@@ -21,10 +25,16 @@ public:
 private:
 	void updateInfoPanel();
 
+	void createVideo();
+	void createMarquee();
+	void createImage();
+
 	void initMDLabels();
 	void initMDValues();
-
-	ImageComponent mImage;
+	
+	ImageComponent* mImage;
+	ImageComponent* mMarquee;
+	VideoComponent* mVideo;
 
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount;
 

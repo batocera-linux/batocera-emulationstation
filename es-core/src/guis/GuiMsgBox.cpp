@@ -2,6 +2,7 @@
 
 #include "components/ButtonComponent.h"
 #include "components/MenuComponent.h"
+#include "LocaleES.h"
 
 #define HORIZONTAL_PADDING_PX 20
 
@@ -11,10 +12,15 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	const std::string& name3, const std::function<void()>& func3) : GuiComponent(window), 
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 2))
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackground.setImagePath(theme->Background.path);
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
+
 	float width = Renderer::getScreenWidth() * 0.6f; // max width
 	float minWidth = Renderer::getScreenWidth() * 0.3f; // minimum width
 
-	mMsg = std::make_shared<TextComponent>(mWindow, text, Font::get(FONT_SIZE_MEDIUM), 0x777777FF, ALIGN_CENTER);
+	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, ALIGN_CENTER);
 	mGrid.setEntry(mMsg, Vector2i(0, 0), false, false);
 
 	// create the buttons
@@ -31,7 +37,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	}else{
 		for(auto it = mButtons.cbegin(); it != mButtons.cend(); it++)
 		{
-			if(Utils::String::toUpper((*it)->getText()) == "OK" || Utils::String::toUpper((*it)->getText()) == "NO")
+			if(Utils::String::toUpper((*it)->getText()) == _("OK") || Utils::String::toUpper((*it)->getText()) == _("NO"))
 			{
 				mAcceleratorFunc = (*it)->getPressedFunc();
 				break;
@@ -75,10 +81,10 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 
 	/* when it's not configured, allow to remove the message box too to allow the configdevice window a chance */
 	if(mAcceleratorFunc && ((config->isMappedTo(BUTTON_BACK, input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON))) // batocera
-	{
+	//{
 		mAcceleratorFunc();
-		return true;
-	}
+	//	return true;
+	//}
 
 	return GuiComponent::input(config, input);
 }

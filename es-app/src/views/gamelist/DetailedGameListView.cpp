@@ -4,10 +4,15 @@
 #include "views/ViewController.h"
 #include "LocaleES.h"
 
+#ifdef _RPI_
+#include "components/VideoPlayerComponent.h"
+#endif
+#include "components/VideoVlcComponent.h"
+
 DetailedGameListView::DetailedGameListView(Window* window, FileData* root) : 
 	BasicGameListView(window, root), 
 	mDescContainer(window), mDescription(window), 
-	mImage(window),
+	mImage(nullptr), mMarquee(nullptr), mVideo(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window), 
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window),
@@ -16,8 +21,6 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root) :
 	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window),
 	mName(window)
 {
-	//mHeaderImage.setPosition(mSize.x() * 0.25f, 0);
-
 	const float padding = 0.01f;
 
 	mList.setPosition(mSize.x() * (0.50f + padding), mList.getPosition().y());
@@ -26,11 +29,7 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root) :
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) { updateInfoPanel(); });
 
 	// image
-	mImage.setOrigin(0.5f, 0.5f);
-	mImage.setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
-	mImage.setMaxSize(mSize.x() * (0.50f - 2*padding), mSize.y() * 0.4f);
-	mImage.setDefaultZIndex(30);
-	addChild(&mImage);
+	createImage();
 
 	// metadata labels + values
 	mLblRating.setText(_("Rating") + ": "); // batocera
@@ -82,13 +81,115 @@ DetailedGameListView::DetailedGameListView(Window* window, FileData* root) :
 	updateInfoPanel();
 }
 
+DetailedGameListView::~DetailedGameListView()
+{
+	if (mImage != nullptr)
+		delete mImage;
+
+	if (mMarquee != nullptr)
+		delete mMarquee;
+
+	if (mVideo != nullptr)
+		delete mVideo;
+}
+
+void DetailedGameListView::createImage()
+{
+	if (mImage != nullptr)
+		return;
+
+	const float padding = 0.01f;
+
+	// Image
+	mImage = new ImageComponent(mWindow, true);
+	mImage->setOrigin(0.5f, 0.5f);
+	mImage->setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
+	mImage->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
+	mImage->setDefaultZIndex(30);
+	addChild(mImage);
+}
+
+void DetailedGameListView::createVideo()
+{
+	if (mVideo != nullptr)
+		return;
+
+	const float padding = 0.01f;
+
+	// video
+// Create the correct type of video window
+#ifdef _RPI_
+	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
+		mVideo = new VideoPlayerComponent(window, "");
+	else
+#endif
+		mVideo = new VideoVlcComponent(mWindow, "");
+
+	mVideo->setOrigin(0.5f, 0.5f);
+	mVideo->setPosition(mSize.x() * 0.25f, mSize.y() * 0.4f);
+	mVideo->setSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.4f);
+	mVideo->setStartDelay(2000);
+	mVideo->setDefaultZIndex(31);
+	addChild(mVideo);
+}
+
+void DetailedGameListView::createMarquee()
+{
+	const float padding = 0.01f;
+
+	// Marquee
+	mMarquee = new ImageComponent(mWindow);
+	mMarquee->setOrigin(0.5f, 0.5f);
+	mMarquee->setPosition(mSize.x() * 0.25f, mSize.y() * 0.10f);
+	mMarquee->setMaxSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.18f);
+	mMarquee->setDefaultZIndex(35);
+	addChild(mMarquee);
+
+}
+
 void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	BasicGameListView::onThemeChanged(theme);
 
 	using namespace ThemeFlags;
-	mImage.applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
+	//mImage.applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
 	mName.applyTheme(theme, getName(), "md_name", ALL);
+
+	if (theme->getElement(getName(), "md_video", "video"))
+	{
+		createVideo();
+		mVideo->applyTheme(theme, getName(), "md_video", POSITION | ThemeFlags::SIZE | ThemeFlags::DELAY | Z_INDEX | ROTATION);
+	}
+	else if (mVideo != nullptr)
+	{
+		removeChild(mVideo);
+		delete mVideo;
+		mVideo = nullptr;
+	}
+	
+	if (mVideo == nullptr || theme->getElement(getName(), "md_image", "image"))
+	{
+		createImage();
+		mImage->applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
+	}
+	else if (mImage != nullptr)
+	{
+		removeChild(mImage);
+		delete mImage;
+		mImage = nullptr;
+	}
+
+	if (theme->getElement(getName(), "md_marquee", "image"))
+	{
+		createMarquee();
+		mMarquee->applyTheme(theme, getName(), "md_marquee", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
+	}
+	else if (mMarquee != nullptr)
+	{
+		removeChild(mMarquee);
+		delete mMarquee;
+		mMarquee = nullptr;
+	}
 
 	initMDLabels();
 	std::vector<TextComponent*> labels = getMDLabels();
@@ -122,6 +223,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
 
 	sortChildren();
+	updateInfoPanel();
 }
 
 void DetailedGameListView::initMDLabels()
@@ -196,11 +298,31 @@ void DetailedGameListView::updateInfoPanel()
 	bool fadingOut;
 	if(file == NULL)
 	{
+		if (mVideo != nullptr)
+			mVideo->setVideo("");
+
 		//mImage.setImage("");
 		//mDescription.setText("");
 		fadingOut = true;
-	}else{
-		mImage.setImage(file->getImagePath());
+	}
+	else
+	{
+		std::string imagePath = file->getImagePath().empty() ? file->getThumbnailPath() : file->getImagePath();
+
+		if (mVideo != nullptr)
+		{
+			if (!mVideo->setVideo(file->getVideoPath()))
+				mVideo->setDefaultVideo();
+
+			mVideo->setImage(imagePath);
+		}
+
+		if (mImage != nullptr)
+			mImage->setImage(imagePath);
+
+		if (mMarquee != nullptr)
+			mMarquee->setImage(file->getMarqueePath());
+		
 		mDescription.setText(file->metadata.get("desc"));
 		mDescContainer.reset();
 
@@ -222,7 +344,16 @@ void DetailedGameListView::updateInfoPanel()
 	}
 
 	std::vector<GuiComponent*> comps = getMDValues();
-	comps.push_back(&mImage);
+
+	if (mVideo != nullptr)
+		comps.push_back(mVideo);
+
+	if (mImage != nullptr)
+		comps.push_back(mImage);
+
+	if (mMarquee != nullptr)
+		comps.push_back(mMarquee);
+
 	comps.push_back(&mDescription);
 	comps.push_back(&mName);
 	std::vector<TextComponent*> labels = getMDLabels();
@@ -250,8 +381,11 @@ void DetailedGameListView::updateInfoPanel()
 void DetailedGameListView::launch(FileData* game)
 {
 	Vector3f target(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0);
-	if(mImage.hasImage())
-		target = Vector3f(mImage.getCenter().x(), mImage.getCenter().y(), 0);
+	
+	if (mVideo != nullptr)
+		target = Vector3f(mVideo->getCenter().x(), mVideo->getCenter().y(), 0);
+	else if (mImage != nullptr && mImage->hasImage())
+		target = Vector3f(mImage->getCenter().x(), mImage->getCenter().y(), 0);
 
 	ViewController::get()->launch(game, target);
 }
@@ -282,4 +416,10 @@ std::vector<GuiComponent*> DetailedGameListView::getMDValues()
 	ret.push_back(&mLastPlayed);
 	ret.push_back(&mPlayCount);
 	return ret;
+}
+
+void DetailedGameListView::onShow()
+{
+	BasicGameListView::onShow();
+	updateInfoPanel();
 }
