@@ -51,10 +51,12 @@ void Sound::loadFile(const std::string & path)
 
 void Sound::init()
 {
-	if (mSampleData != nullptr)
-		deinit();
+	deinit();
 
-	if (mPath.empty())
+	if (!AudioManager::isInitialized())
+		return;
+
+	if (mPath.empty() || !Utils::FileSystem::exists(mPath))
 		return;
 
 	if (!Settings::getInstance()->getBool("EnableSounds"))
@@ -71,11 +73,12 @@ void Sound::init()
 
 void Sound::deinit()
 {
-	if (mSampleData != nullptr)
-	{
-		stop();
-		Mix_FreeChunk(mSampleData);
-	}
+	if (mSampleData == nullptr)
+		return;
+
+	stop();
+	Mix_FreeChunk(mSampleData);
+	mSampleData = nullptr;	
 }
 
 void Sound::play()
@@ -87,7 +90,7 @@ void Sound::play()
 }
 
 bool Sound::isPlaying() const
-{
+{	
 	return (mPlayingChannel >= 0);
 }
 

@@ -34,7 +34,7 @@ void GuiSettings::save()
 
 bool GuiSettings::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("a", input) && input.value != 0) // batocera
+	if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0)
 	{
 		delete this;
 		return true;
@@ -63,7 +63,7 @@ std::vector<HelpPrompt> GuiSettings::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 
-	prompts.push_back(HelpPrompt("a", _("BACK"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
 
 	return prompts;

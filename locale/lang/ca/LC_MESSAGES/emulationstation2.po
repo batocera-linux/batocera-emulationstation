@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,6 +244,9 @@ msgstr "RETRO"
 msgid "ENHANCED"
 msgstr ""
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
@@ -417,6 +420,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM DEL SISTEMA"
 
@@ -427,6 +433,9 @@ msgid "DISPLAY SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
@@ -856,9 +865,6 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
-msgid "Now playing: "
-msgstr ""
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOLEU INICIAR EL CENTRE MULTIMÈDIA DEL KODI?"
 
@@ -891,6 +897,9 @@ msgstr "OPCIONS"
 
 msgid "MENU"
 msgstr "MENÚ"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
@@ -1044,6 +1053,9 @@ msgstr "NO S'HA DETECTAT CAP CONTROLADOR"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PREMEU UN BOTÓ DEL VOSTRE DISPOSITIU PER CONFIGURAR-LO."
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "MOVEU EL CURSOR"

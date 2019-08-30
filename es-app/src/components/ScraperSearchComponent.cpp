@@ -343,7 +343,7 @@ void ScraperSearchComponent::updateInfoPane()
 
 bool ScraperSearchComponent::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("b", input) && input.value != 0) // batocera
+	if(config->isMappedTo(BUTTON_OK, input) && input.value != 0)
 	{
 		if(mBlockAccept)
 			return true;
@@ -476,7 +476,7 @@ std::vector<HelpPrompt> ScraperSearchComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
 	if(getSelectedIndex() != -1)
-		prompts.push_back(HelpPrompt("b", _("ACCEPT RESULT"))); // batocera
+		prompts.push_back(HelpPrompt(BUTTON_OK, _("ACCEPT RESULT")));
 	
 	return prompts;
 }

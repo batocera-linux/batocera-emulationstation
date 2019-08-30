@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,6 +245,9 @@ msgstr "Retro"
 msgid "ENHANCED"
 msgstr ""
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "Integer schaal (Pixel perfect)"
 
@@ -422,6 +425,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "Systeem volume"
 
@@ -432,6 +438,9 @@ msgid "DISPLAY SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
@@ -863,9 +872,6 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
-msgid "Now playing: "
-msgstr ""
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "Wil je Kodi Media Center starten?"
 
@@ -900,6 +906,9 @@ msgstr "Opties"
 
 msgid "MENU"
 msgstr "Menu"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "Geen spellen gevonden - Overslaan"
@@ -1059,6 +1068,9 @@ msgstr "Geen controllers gevonden"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "Houdt A knop ingedrukt op je apparaat om te configureren"
+
+msgid "Now playing: "
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr ""

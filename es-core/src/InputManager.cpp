@@ -403,8 +403,8 @@ void InputManager::loadDefaultKBConfig()
 	cfg->mapInput("left", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_LEFT, 1, true));
 	cfg->mapInput("right", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_RIGHT, 1, true));
 
-	cfg->mapInput("a", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_RETURN, 1, true));
-	cfg->mapInput("b", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_ESCAPE, 1, true));
+	cfg->mapInput(BUTTON_OK, Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_RETURN, 1, true));
+	cfg->mapInput(BUTTON_BACK, Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_ESCAPE, 1, true));
 	cfg->mapInput("start", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_F1, 1, true));
 	cfg->mapInput("select", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_F2, 1, true));
 
@@ -516,14 +516,12 @@ void InputManager::doOnFinish()
 
 std::string InputManager::getConfigPath()
 {
-	std::string path = "/userdata/system/configs/emulationstation/es_input.cfg"; // batocera
-	return path;
+	return Utils::FileSystem::getEsConfigPath() + "/es_input.cfg";
 }
 
 std::string InputManager::getTemporaryConfigPath()
 {
-	std::string path = "/userdata/system/configs/emulationstation/es_last_input.log"; // batocera
-	return path;
+	return Utils::FileSystem::getEsConfigPath() + "/es_last_input.cfg";
 }
 
 bool InputManager::initialized() const

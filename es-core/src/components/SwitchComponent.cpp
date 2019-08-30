@@ -18,7 +18,7 @@ void SwitchComponent::onSizeChanged()
 
 bool SwitchComponent::input(InputConfig* config, Input input)
 {
-	if(config->isMappedTo("b", input) && input.value) // batocera
+	if(config->isMappedTo(BUTTON_OK, input) && input.value)
 	{
 		mState = !mState;
 		onStateChanged();
@@ -74,7 +74,7 @@ void SwitchComponent::onStateChanged()
 std::vector<HelpPrompt> SwitchComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("b", _("CHANGE"))); // batocera
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("CHANGE")));
 	return prompts;
 }
 

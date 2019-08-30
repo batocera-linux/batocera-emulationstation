@@ -13,7 +13,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.h
@@ -79,6 +79,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.h
 )
 
 set(CORE_SOURCES
@@ -92,6 +93,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/InputManager.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer_draw_gl.cpp
@@ -155,6 +157,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.cpp
 )
 
 include_directories(${COMMON_INCLUDE_DIRS})

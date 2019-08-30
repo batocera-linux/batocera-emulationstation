@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -244,6 +244,9 @@ msgstr "RETRO"
 msgid "ENHANCED"
 msgstr "AMÉLIORÉ"
 
+msgid "CURVATURE"
+msgstr "COURBÉE"
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
 
@@ -427,6 +430,9 @@ msgstr "LIMITE VRAM"
 msgid "POWER SAVER MODES"
 msgstr "MODE ÉCONOMIE D'ÉNERGIE"
 
+msgid "THREADED LOADING"
+msgstr "CHARGEMENT EN PARALLÈLE"
+
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
 
@@ -438,6 +444,9 @@ msgstr "AFFICHER LES TITRES DES MUSIQUES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "JOUER SEULEMENT LES MUSIQUES SPÉCIFIQUES AUX SYSTÈMES"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "ACTIVER LES SONS DE NAVIGATION"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ACTIVER LES SONS DES VIDÉOS"
@@ -866,9 +875,6 @@ msgstr "marqueur"
 msgid "enter path to marquee"
 msgstr "entrer le chemin vers le marqueur"
 
-msgid "Now playing: "
-msgstr "En cours: "
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER LE MEDIA CENTER KODI ?"
 
@@ -901,6 +907,9 @@ msgstr "OPTIONS"
 
 msgid "MENU"
 msgstr "MENU"
+
+msgid "Favorites"
+msgstr "Favoris"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU CORRESPONDANT - PASSER"
@@ -1056,6 +1065,9 @@ msgstr "AUCUNE MANETTE DÉTECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR LA MANETTE POUR LA CONFIGURER"
+
+msgid "Now playing: "
+msgstr "En cours: "
 
 msgid "MOVE CURSOR"
 msgstr "BOUGER LE CURSEUR"

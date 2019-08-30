@@ -4,9 +4,6 @@
 #include "components/OptionListComponent.h"
 #include "guis/GuiThemeInstall.h"
 #include "guis/GuiSettings.h"
-#include <boost/algorithm/string/predicate.hpp>
-#include <boost/algorithm/string/split.hpp>
-#include <boost/algorithm/string/classification.hpp>
 #include "views/ViewController.h"
 
 #include "LocaleES.h"
@@ -58,7 +55,7 @@ bool GuiThemeInstallStart::input(InputConfig* config, Input input)
 	if(consumed)
 		return true;
 	
-	if(input.value != 0 && config->isMappedTo("a", input))
+	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		delete this;
 		return true;
@@ -76,7 +73,7 @@ bool GuiThemeInstallStart::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiThemeInstallStart::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt("a", _("BACK")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("start", _("CLOSE")));
 	return prompts;
 }

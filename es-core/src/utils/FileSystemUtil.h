@@ -38,6 +38,12 @@ namespace Utils
 		bool        isSymlink          (const std::string& _path);
 		bool        isHidden           (const std::string& _path);
 
+		void		setHomePath		   (const std::string& _path);
+		void		setExePath		   (const std::string& _path);
+
+
+		std::string getEsConfigPath();
+		std::string getSharedConfigPath();
 	} // FileSystem::
 
 } // Utils::

@@ -33,7 +33,7 @@ struct ComponentListRow
 	inline void makeAcceptInputHandler(const std::function<void()>& func)
 	{
 		input_handler = [func](InputConfig* config, Input input) -> bool {
-			if(config->isMappedTo("b", input) && input.value != 0) // batocera
+			if(config->isMappedTo(BUTTON_OK, input) && input.value != 0) // batocera
 			{
 				func();
 				return true;

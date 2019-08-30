@@ -4,8 +4,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiBackup : public GuiComponent {
 public:
@@ -29,7 +28,7 @@ private:
 
     std::string mstorageDevice;
     
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onBackupError(std::pair<std::string, int>);
 

@@ -4,7 +4,7 @@
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
 
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiBezelInstall : public GuiComponent {
 public:
@@ -28,7 +28,7 @@ private:
 
     std::string mBezelName;
     
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onInstallError(std::pair<std::string, int>);
 
@@ -60,7 +60,7 @@ private:
 
     std::string mBezelName;
     
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onInstallError(std::pair<std::string, int>);
 

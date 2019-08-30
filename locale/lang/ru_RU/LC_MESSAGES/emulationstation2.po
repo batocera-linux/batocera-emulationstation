@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 13:34+0200\n"
+"POT-Creation-Date: 2019-08-29 21:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: \n"
@@ -248,6 +248,9 @@ msgstr "РЕТРО"
 msgid "ENHANCED"
 msgstr "РАСШИРЕННЫЙ"
 
+msgid "CURVATURE"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
@@ -428,6 +431,9 @@ msgstr "ЛИМИТ VRAM"
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
+msgid "THREADED LOADING"
+msgstr ""
+
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
 
@@ -439,6 +445,9 @@ msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -872,9 +881,6 @@ msgstr "банер"
 msgid "enter path to marquee"
 msgstr "введите путь к банеру"
 
-msgid "Now playing: "
-msgstr "Сейчас играет: "
-
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
@@ -908,6 +914,9 @@ msgstr "ПАРАМЕТРЫ"
 
 msgid "MENU"
 msgstr "МЕНЮ"
+
+msgid "Favorites"
+msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
@@ -1067,6 +1076,9 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ ЕГО НАСТРОЙКИ."
+
+msgid "Now playing: "
+msgstr "Сейчас играет: "
 
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"

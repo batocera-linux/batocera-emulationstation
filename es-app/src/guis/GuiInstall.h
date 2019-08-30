@@ -5,7 +5,7 @@
 #include "components/BusyComponent.h"
 
 
-#include <boost/thread.hpp>
+#include <thread>
 
 class GuiInstall : public GuiComponent {
 public:
@@ -30,7 +30,7 @@ private:
     std::string mstorageDevice;
     std::string marchitecture;
     
-    boost::thread *mHandle;
+    std::thread *mHandle;
 
     void onInstallError(std::pair<std::string, int>);
 

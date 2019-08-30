@@ -24,7 +24,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	if(!name3.empty())
 		mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name3, name3, std::bind(&GuiMsgBox::deleteMeAndCall, this, func3)));
 
-	// set accelerator automatically (button to press when "b" is pressed)
+	// set accelerator automatically (button to press when BUTTON_BACK is pressed)
 	if(mButtons.size() == 1)
 	{
 		mAcceleratorFunc = mButtons.front()->getPressedFunc();
@@ -74,7 +74,7 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 	}
 
 	/* when it's not configured, allow to remove the message box too to allow the configdevice window a chance */
-	if(mAcceleratorFunc && ((config->isMappedTo("a", input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON))) // batocera
+	if(mAcceleratorFunc && ((config->isMappedTo(BUTTON_BACK, input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON))) // batocera
 	{
 		mAcceleratorFunc();
 		return true;
