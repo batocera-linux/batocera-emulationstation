@@ -61,6 +61,8 @@ public:
     void setSize(float w, float h);
     virtual void onSizeChanged() {};
 
+	virtual void setColor(unsigned int color) {};
+
 	virtual Vector2f getRotationSize() const { return getSize(); };
 
 	float getRotation() const;
@@ -133,11 +135,12 @@ public:
 
 	// Returns true if the component is busy doing background processing (e.g. HTTP downloads)
 	bool isProcessing() const;
-
+	
 protected:
 	void renderChildren(const Transform4x4f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
 	void updateChildren(int deltaTime); // updates animations
+	void setAnimatedPosition(float y1, float y2);
 
 	unsigned char mOpacity;
 	Window* mWindow;

@@ -3,6 +3,7 @@
 #include "Renderer.h"
 #include "Settings.h"
 #include "LocaleES.h"
+#include "ThemeData.h"
 
 using namespace GridFlags;
 
@@ -11,6 +12,7 @@ ComponentGrid::ComponentGrid(Window* window, const Vector2i& gridDimensions) : G
 {
 	assert(gridDimensions.x() > 0 && gridDimensions.y() > 0);
 
+	mSeparatorColor = ThemeData::getMenuTheme()->Text.separatorColor;
 	mCells.reserve(gridDimensions.x() * gridDimensions.y());
 
 	mColWidths = new float[gridDimensions.x()];
@@ -196,7 +198,7 @@ void ComponentGrid::updateSeparators()
 	}
 
 	mLineColors.reserve(mLines.size());
-	Renderer::buildGLColorArray((GLubyte*)mLineColors.data(), 0xC6C7C6FF, (unsigned int)mLines.size());
+	Renderer::buildGLColorArray((GLubyte*)mLineColors.data(), mSeparatorColor, (unsigned int)mLines.size());
 }
 
 void ComponentGrid::onSizeChanged()
@@ -234,24 +236,21 @@ bool ComponentGrid::input(InputConfig* config, Input input)
 	if(!input.value)
 		return false;
 
-	if(config->isMappedLike("down", input))
-	{
-		return moveCursor(Vector2i(0, 1));
-	}
-	if(config->isMappedLike("up", input))
-	{
-		return moveCursor(Vector2i(0, -1));
-	}
-	if(config->isMappedLike("left", input))
-	{
-		return moveCursor(Vector2i(-1, 0));
-	}
-	if(config->isMappedLike("right", input))
-	{
-		return moveCursor(Vector2i(1, 0));
-	}
+	bool result = false;
 
-	return false;
+	if (config->isMappedLike("down", input))
+		result = moveCursor(Vector2i(0, 1));
+	if (config->isMappedLike("up", input))
+		result = moveCursor(Vector2i(0, -1));
+	if (config->isMappedLike("left", input))
+		result = moveCursor(Vector2i(-1, 0));
+	if (config->isMappedLike("right", input))
+		result = moveCursor(Vector2i(1, 0));
+
+	if (!result && mUnhandledInputCallback)
+		return mUnhandledInputCallback(config, input);	
+
+	return result;
 }
 
 void ComponentGrid::resetCursor()

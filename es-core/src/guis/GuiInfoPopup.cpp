@@ -9,6 +9,9 @@
 GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	GuiComponent(window), mMessage(message), mDuration(duration), running(true)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBackColor = theme->Background.color;
+
 	mFrame = new NinePatchComponent(window);
 	float maxWidth = Renderer::getScreenWidth() * 0.9f;
 	float maxHeight = Renderer::getScreenHeight() * 0.2f;
@@ -16,7 +19,7 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	std::shared_ptr<TextComponent> s = std::make_shared<TextComponent>(mWindow,
 		"",
 		Font::get(FONT_SIZE_MINI),
-		0x444444FF,
+		theme->Text.color,
 		ALIGN_CENTER);
 
 	// we do this to force the text container to resize and return an actual expected popup size
@@ -45,7 +48,9 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 
 	setPosition(posX, posY, 0);
 
-	mFrame->setImagePath(":/frame.png");
+	mFrame->setImagePath(theme->Background.path);
+	mFrame->setCenterColor(mBackColor);
+	mFrame->setEdgeColor(mBackColor);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 
@@ -56,11 +61,6 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	mGrid->setSize(mSize);
 	mGrid->setEntry(s, Vector2i(0, 1), false, true);
 	addChild(mGrid);
-}
-
-GuiInfoPopup::~GuiInfoPopup()
-{
-
 }
 
 void GuiInfoPopup::render(const Transform4x4f& /*parentTrans*/)
@@ -108,10 +108,15 @@ bool GuiInfoPopup::updateState()
 	{
 		alpha = ((-(curTime - mStartTime - mDuration)*255)/500);
 	}
+
+	if (alpha > mBackColor & 0xff)
+		alpha = mBackColor & 0xff;
+
 	mGrid->setOpacity((unsigned char)alpha);
 
 	// apply fade in effect to popup frame
-	mFrame->setEdgeColor(0xFFFFFF00 | (unsigned char)(alpha));
-	mFrame->setCenterColor(0xFFFFFF00 | (unsigned char)(alpha));
+	mFrame->setEdgeColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
+	mFrame->setCenterColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
+
 	return true;
 }

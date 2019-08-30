@@ -68,3 +68,16 @@ std::vector<HelpPrompt> GuiSettings::getHelpPrompts()
 
 	return prompts;
 }
+
+void GuiSettings::addSubMenu(const std::string& label, const std::function<void()>& func) 
+{
+	ComponentListRow row;
+	row.makeAcceptInputHandler(func);
+
+	auto theme = ThemeData::getMenuTheme();
+
+	auto entryMenu = std::make_shared<TextComponent>(mWindow, label, theme->Text.font, theme->Text.color);
+	row.addElement(entryMenu, true);
+	row.addElement(makeArrow(mWindow), false);
+	mMenu.addRow(row);
+};

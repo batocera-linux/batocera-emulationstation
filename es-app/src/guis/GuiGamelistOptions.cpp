@@ -16,6 +16,8 @@
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
 	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false)
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mMenu);
 
 	// check it's not a placeholder folder - if it is, only show "Filter Options"
@@ -52,7 +54,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 			}
 		}
 
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), theme->Text.font, theme->Text.color), true); // batocera
 		row.addElement(mJumpToLetterList, false);
 		row.input_handler = [&](InputConfig* config, Input input) 
 		{
@@ -83,7 +85,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("FILTER GAMELIST"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("FILTER GAMELIST"), theme->Text.font, theme->Text.color), true); // batocera
 		row.addElement(makeArrow(mWindow), false);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 		mMenu.addRow(row);		
@@ -96,7 +98,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName()))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), theme->Text.font, theme->Text.color), true);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::startEditMode, this));
 		mMenu.addRow(row);
 	}
@@ -104,7 +106,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if(UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), theme->Text.font, theme->Text.color), true);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::exitEditMode, this));
 		mMenu.addRow(row);
 	}
@@ -112,7 +114,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if (UIModeController::getInstance()->isUIModeFull() && !fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("EDIT THIS GAME'S METADATA"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true); // batocera
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("EDIT THIS GAME'S METADATA"), theme->Text.font, theme->Text.color), true); // batocera
 		row.addElement(makeArrow(mWindow), false);
 		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 		mMenu.addRow(row);
@@ -122,7 +124,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
 	{
 		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADVANCED"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADVANCED"), theme->Text.font, theme->Text.color), true);
 		row.addElement(makeArrow(mWindow), false);
 		row.makeAcceptInputHandler([this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
 		mMenu.addRow(row);

@@ -12,7 +12,7 @@ class GuiInfoPopup : public GuiComponent, public Window::InfoPopup
 {
 public:
 	GuiInfoPopup(Window* window, std::string message, int duration);
-	~GuiInfoPopup();
+
 	void render(const Transform4x4f& parentTrans) override;
 	inline void stop() { running = false; };
 private:
@@ -24,6 +24,7 @@ private:
 	ComponentGrid* mGrid;
 	NinePatchComponent* mFrame;
 	bool running;
+	unsigned int mBackColor;
 };
 
 #endif // ES_APP_GUIS_GUI_INFO_POPUP_H

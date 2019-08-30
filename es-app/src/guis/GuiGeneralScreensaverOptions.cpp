@@ -10,6 +10,8 @@
 
 GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, const char* title) : GuiScreensaverOptions(window, title)
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	// screensaver time
 	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 30.f, 1.f, "m");
 	screensaver_time->setValue((float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
@@ -50,13 +52,13 @@ GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, const
 
 	// show filtered menu
 	row.elements.clear();
-	row.addElement(std::make_shared<TextComponent>(mWindow, "VIDEO SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+	row.addElement(std::make_shared<TextComponent>(mWindow, "VIDEO SCREENSAVER SETTINGS", theme->Text.font, theme->Text.color), true);
 	row.addElement(makeArrow(mWindow), false);
 	row.makeAcceptInputHandler(std::bind(&GuiGeneralScreensaverOptions::openVideoScreensaverOptions, this));
 	addRow(row);
 
 	row.elements.clear();
-	row.addElement(std::make_shared<TextComponent>(mWindow, "SLIDESHOW SCREENSAVER SETTINGS", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+	row.addElement(std::make_shared<TextComponent>(mWindow, "SLIDESHOW SCREENSAVER SETTINGS", theme->Text.font, theme->Text.color), true);
 	row.addElement(makeArrow(mWindow), false);
 	row.makeAcceptInputHandler(std::bind(&GuiGeneralScreensaverOptions::openSlideshowScreensaverOptions, this));
 	addRow(row);

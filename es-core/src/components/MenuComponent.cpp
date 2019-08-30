@@ -10,17 +10,40 @@
 MenuComponent::MenuComponent(Window* window, const char* title, const std::shared_ptr<Font>& titleFont) : GuiComponent(window),
 	mBackground(window), mGrid(window, Vector2i(1, 3))
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mBackground);
 	addChild(&mGrid);
 
-	mBackground.setImagePath(":/frame.png");
+	mBackground.setImagePath(theme->Background.path);
+	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setEdgeColor(theme->Background.color);
 
 	// set up title
 	mTitle = std::make_shared<TextComponent>(mWindow);
 	mTitle->setHorizontalAlignment(ALIGN_CENTER);
-	mTitle->setColor(0x555555FF);
-	setTitle(title, titleFont);
+	mTitle->setColor(theme->Title.color); // 0x555555FF
+	setTitle(title, theme->Title.font); //  titleFont
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false);
+
+	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool {
+		if (config->isMappedLike("down", input)) {
+			mGrid.setCursorTo(mList);
+			mList->setCursorIndex(0);
+			return true;
+		}
+		if (config->isMappedLike("up", input)) {
+			mList->setCursorIndex(mList->size() - 1);
+			if (mButtons.size()) {
+				mGrid.moveCursor(Vector2i(0, 1));
+			}
+			else {
+				mGrid.setCursorTo(mList);
+			}
+			return true;
+		}
+		return false;
+	});
 
 	// set up list which will never change (externally, anyway)
 	mList = std::make_shared<ComponentList>(mWindow);
@@ -32,6 +55,75 @@ MenuComponent::MenuComponent(Window* window, const char* title, const std::share
 	mGrid.resetCursor();
 }
 
+void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+{
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+
+	if (!iconName.empty())
+	{
+		std::string iconPath = theme->getMenuIcon(iconName);
+		if (!iconPath.empty())
+		{
+			// icon
+			auto icon = std::make_shared<ImageComponent>(mWindow);
+			icon->setImage(iconPath);
+			icon->setColorShift(theme->Text.color);
+			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+			row.addElement(icon, false);
+
+			// spacer between icon and text
+			auto spacer = std::make_shared<GuiComponent>(mWindow);
+			spacer->setSize(10, 0);
+			row.addElement(spacer, false);
+		}
+	}
+
+	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
+	row.addElement(comp, false, invert_when_selected);
+	addRow(row, setCursorHere);
+}
+
+void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+{
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	// populate the list
+	ComponentListRow row;
+
+	if (!iconName.empty())
+	{
+		std::string iconPath = theme->getMenuIcon(iconName);
+		if (!iconPath.empty())
+		{
+			// icon
+			auto icon = std::make_shared<ImageComponent>(mWindow);
+			icon->setImage(iconPath);
+			icon->setColorShift(theme->Text.color);
+			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+			row.addElement(icon, false);
+
+			// spacer between icon and text
+			auto spacer = std::make_shared<GuiComponent>(mWindow);
+			spacer->setSize(10, 0);
+			row.addElement(spacer, false);
+		}
+	}
+
+	row.addElement(std::make_shared<TextComponent>(mWindow, name, font, color), true, invert_when_selected);
+
+	if (add_arrow)
+		row.addElement(makeArrow(mWindow), false);
+
+	if (func != nullptr)
+		row.makeAcceptInputHandler(func);
+
+	addRow(row, setCursorHere);
+}
+
 void MenuComponent::setTitle(const char* title, const std::shared_ptr<Font>& font)
 {
 	mTitle->setText(Utils::String::toUpper(title));
@@ -40,7 +132,8 @@ void MenuComponent::setTitle(const char* title, const std::shared_ptr<Font>& fon
 
 float MenuComponent::getButtonGridHeight() const
 {
-	return (mButtonGrid ? mButtonGrid->getSize().y() : Font::get(FONT_SIZE_MEDIUM)->getHeight() + BUTTON_GRID_VERT_PADDING);
+	auto menuTheme = ThemeData::getMenuTheme();
+	return (mButtonGrid ? mButtonGrid->getSize().y() : menuTheme->Text.font->getHeight() + BUTTON_GRID_VERT_PADDING);	
 }
 
 void MenuComponent::updateSize()
@@ -126,8 +219,12 @@ std::shared_ptr<ComponentGrid> makeButtonGrid(Window* window, const std::vector<
 
 std::shared_ptr<ImageComponent> makeArrow(Window* window)
 {
+	auto menuTheme = ThemeData::getMenuTheme();
+
 	auto bracket = std::make_shared<ImageComponent>(window);
-	bracket->setImage(":/arrow.svg");
-	bracket->setResize(0, Math::round(Font::get(FONT_SIZE_MEDIUM)->getLetterHeight()));
+	bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow); // ":/arrow.svg");
+	bracket->setColorShift(menuTheme->Text.color);
+	bracket->setResize(0, round(menuTheme->Text.font->getLetterHeight()));
+
 	return bracket;
 }

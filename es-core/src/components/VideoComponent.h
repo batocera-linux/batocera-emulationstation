@@ -38,6 +38,8 @@ public:
 	// sets whether it's going to render in screensaver mode
 	void setScreensaverMode(bool isScreensaver);
 
+	void setStartDelay(int delay) { mConfig.startDelay = delay; }
+
 	virtual void onShow() override;
 	virtual void onHide() override;
 	virtual void onScreenSaverActivate() override;
@@ -69,6 +71,17 @@ public:
 	// Never breaks the aspect ratio. setMaxSize() and setResize() are mutually exclusive.
 	virtual void setMaxSize(float width, float height) = 0;
 	inline void setMaxSize(const Vector2f& size) { setMaxSize(size.x(), size.y()); }
+
+	Vector2f getVideoSize() { return Vector2f(mVideoWidth, mVideoHeight); }
+	bool isPlaying() {
+		return mIsPlaying;
+	}
+
+	bool isWaitingForVideoToStart() {
+		return mIsWaitingForVideoToStart;
+	}
+
+	virtual void onVideoStarted();
 
 private:
 	// Start the video Immediately
@@ -106,6 +119,8 @@ protected:
 	bool							mScreensaverActive;
 	bool							mScreensaverMode;
 	bool							mTargetIsMax;
+
+	bool							mIsWaitingForVideoToStart;
 
 	Configuration					mConfig;
 };
