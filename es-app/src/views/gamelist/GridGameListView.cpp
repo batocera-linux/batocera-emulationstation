@@ -121,7 +121,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	  for(auto it = files.cbegin(); it != files.cend(); it++)
 	    {
 	      if ((*it)->getType() != FOLDER && (*it)->metadata.get("favorite").compare("true") == 0) {
-		mGrid.add("\uF006 " + (*it)->getName(), (*it)->getThumbnailPath(), *it);
+		mGrid.add(_U("\uF006 ") + (*it)->getName(), (*it)->getThumbnailPath(), *it);
 	      }
 	    }
 

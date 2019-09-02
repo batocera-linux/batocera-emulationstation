@@ -144,6 +144,9 @@ void Settings::setDefaults()
 	mBoolMap["SortAllSystems"] = true; // batocera
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 
+	mBoolMap["CollectionShowSystemInfo"] = true;
+	mBoolMap["FavoritesFirst"] = true;
+
 	mBoolMap["LocalArt"] = false;
 
 	// Audio out device for volume control

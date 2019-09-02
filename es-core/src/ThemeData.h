@@ -214,7 +214,9 @@ public:
 	static std::map<std::string, std::string> sortThemeSubSets(const std::map<std::string, std::string>& subsetmap, const std::string& subset);
 	static std::map<std::string, std::string> getThemeSubSets(const std::string& theme);
 
-	static void setMenuTheme(ThemeData* theme);
+	static void setDefaultTheme(ThemeData* theme);
+	static ThemeData* getDefaultTheme() { return mDefaultTheme; }
+	
 	std::string getSystemThemeFolder() { return mSystemThemeFolder; }
 	
 	std::vector<std::string> getViewsOfTheme();
@@ -255,7 +257,7 @@ private:
 	std::map<std::string, ThemeView> mViews;
 
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
-	static ThemeData* mCurrentTheme;
+	static ThemeData* mDefaultTheme;
 };
 
 #endif // ES_CORE_THEME_DATA_H

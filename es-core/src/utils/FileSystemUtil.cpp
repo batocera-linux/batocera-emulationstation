@@ -48,18 +48,6 @@ namespace Utils
 
 #if defined(_WIN32)
 		static std::mutex mFileMutex;
-
-		static std::string convertFromWideString(const std::wstring wstring)
-		{
-			int         numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
-			std::string string;
-
-			string.resize(numBytes);
-			WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), (char*)string.c_str(), numBytes, nullptr, nullptr);
-
-			return std::string(string);
-
-		} // convertFromWideString
 #endif // _WIN32
 
 		stringList getDirContent(const std::string& _path, const bool _recursive)
@@ -86,7 +74,7 @@ namespace Utils
 					// loop over all files in the directory
 					do
 					{
-						std::string name = convertFromWideString(findData.cFileName);
+						std::string name = Utils::String::convertFromWideString(findData.cFileName);
 
 						// ignore "." and ".."
 						if((name != ".") && (name != ".."))
@@ -162,7 +150,7 @@ namespace Utils
 					// loop over all files in the directory
 					do
 					{
-						std::string name = convertFromWideString(findData.cFileName);
+						std::string name = Utils::String::convertFromWideString(findData.cFileName);
 
 						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && name == "." || name == "..")
 							continue;

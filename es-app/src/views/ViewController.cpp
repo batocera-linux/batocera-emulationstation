@@ -382,6 +382,15 @@ bool ViewController::input(InputConfig* config, Input input)
 	  }
         }
 
+		if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
+		{
+			mWindow->render();
+			mWindow->renderLoadingScreen(_("Loading..."), -1, 180);
+
+			ViewController::get()->reloadAll();			
+			return true;
+		}
+
 	// open menu
 	if(config->isMappedTo("start", input) && input.value != 0) // batocera
 	{
@@ -505,6 +514,17 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 void ViewController::reloadAll()
 {
+	SystemData* system = nullptr;
+
+	if (mState.viewing == SYSTEM_SELECT)
+	{
+		int idx = mSystemListView->getCursorIndex();
+		if (idx >= 0 && idx < SystemData::sSystemVector.size())
+			system = SystemData::sSystemVector[mSystemListView->getCursorIndex()];
+		else
+			system = mState.getSystem();
+	}
+
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
@@ -538,15 +558,15 @@ void ViewController::reloadAll()
 	if(mState.viewing == GAME_LIST)
 	{
 		mCurrentView = getGameListView(mState.getSystem());
-	}else if(mState.viewing == SYSTEM_SELECT)
+	}
+	else if(mState.viewing == SYSTEM_SELECT && system != nullptr)
 	{
-		SystemData* system = mState.getSystem();
 		goToSystemView(SystemData::sSystemVector.front());
 		mSystemListView->goToSystem(system, false);
 		mCurrentView = mSystemListView;
-	}else{
-		goToSystemView(SystemData::sSystemVector.front());
 	}
+	else
+		goToSystemView(SystemData::sSystemVector.front());	
 
 	updateHelpPrompts();
 }

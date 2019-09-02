@@ -54,9 +54,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
 	// KODI
 #ifdef _ENABLE_KODI_
-	if (SystemConf::getInstance()->get("kodi.enabled") != "0") {
-		addEntry(_("KODI MEDIA CENTER").c_str(), true, [this] { openKodiLauncher_batocera(); }, "iconKodi");
-	}
+	if (SystemConf::getInstance()->get("kodi.enabled") != "0")
+		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] { openKodiLauncher_batocera(); }, "iconKodi");	
 #endif
 
 	if (isFullUI &&
@@ -103,7 +102,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	addChild(&mMenu);
 	addVersionInfo(); // batocera
 	setSize(mMenu.getSize());
-	setAnimatedPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
+	animateTo(
+		Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.9),
+		Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f));
 }
 
 void GuiMenu::openScraperSettings()
@@ -353,7 +355,7 @@ void GuiMenu::addVersionInfo()
 	mVersion.setColor(theme->Footer.color);
 
 	if (!ApiSystem::getInstance()->getVersion().empty())
-		mVersion.setText("Batocera " + ApiSystem::getInstance()->getVersion() + buildDate);
+		mVersion.setText("BATOCERA V" + ApiSystem::getInstance()->getVersion() + buildDate);
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
 	addChild(&mVersion);
@@ -438,13 +440,6 @@ bool GuiMenu::input(InputConfig* config, Input input)
 	}
 
 	return false;
-}
-
-HelpStyle GuiMenu::getHelpStyle()
-{
-  HelpStyle style = HelpStyle();
-  //style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system"); // batocera ; make game lists reload crashing (viewcontroller delete) ; seems not usefull
-  return style;
 }
 
 std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
@@ -946,8 +941,8 @@ void GuiMenu::openGamesSettings_batocera()
 							biosFileRow.addElement(biosPath, true);
 							configurationInfo->addRow(biosFileRow);
 
-							configurationInfo->addWithLabel(_("MD5"), biosMd5);
-							configurationInfo->addWithLabel(_("STATUS"), biosStatus);
+							configurationInfo->addWithLabel("   " + _("MD5"), biosMd5);
+							configurationInfo->addWithLabel("   " + _("STATUS"), biosStatus);
 						}
 						mWindow->pushGui(configurationInfo);
 					});
@@ -1969,6 +1964,12 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 		}, "iconQuit");
 	}
 #endif
+
+	if (forceWin32Menu)
+		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
+
+	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.9),
+	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
 
 	window->pushGui(s);
 }

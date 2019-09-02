@@ -53,6 +53,9 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		return false;
 	}
 
+	if (svgImage->width == 0 || svgImage->height == 0)
+		return false;
+
 	// We want to rasterise this texture at a specific resolution. If the source size
 	// variables are set then use them otherwise set them from the parsed file
 	if ((mSourceWidth == 0.0f) && (mSourceHeight == 0.0f))
@@ -60,8 +63,11 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		mSourceWidth = svgImage->width;
 		mSourceHeight = svgImage->height;
 	}
-	mWidth = (size_t)Math::round(mSourceWidth);
-	mHeight = (size_t)Math::round(mSourceHeight);
+	else
+		mSourceWidth = (mSourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
+
+	mWidth = (int)mSourceWidth;
+	mHeight = (int)mSourceHeight;
 
 	if (mWidth == 0)
 	{
@@ -98,8 +104,8 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 			return true;
 	}
 
-	std::vector<unsigned char> imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height);
-	if (imageRGBA.size() == 0)
+	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height);
+	if (imageRGBA == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
 		return false;
@@ -109,19 +115,25 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 	mSourceHeight = (float) height;
 	mScalable = false;
 
-	return initFromRGBA(imageRGBA.data(), width, height);
+	return initFromRGBA(imageRGBA, width, height, false);
 }
 
-bool TextureData::initFromRGBA(const unsigned char* dataRGBA, size_t width, size_t height)
+bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool copyData)
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
 	if (mDataRGBA)
 		return true;
 
-	// Take a copy
-	mDataRGBA = new unsigned char[width * height * 4];
-	memcpy(mDataRGBA, dataRGBA, width * height * 4);
+	if (copyData)
+	{
+		// Take a copy
+		mDataRGBA = new unsigned char[width * height * 4];
+		memcpy(mDataRGBA, dataRGBA, width * height * 4);
+	}
+	else
+		mDataRGBA = dataRGBA;
+
 	mWidth = width;
 	mHeight = height;
 	return true;
@@ -240,7 +252,7 @@ void TextureData::setSourceSize(float width, float height)
 {
 	if (mScalable)
 	{
-		if ((mSourceWidth != width) || (mSourceHeight != height))
+		if (mSourceHeight < height)
 		{
 			mSourceWidth = width;
 			mSourceHeight = height;

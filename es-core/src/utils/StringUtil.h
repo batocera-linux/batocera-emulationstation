@@ -30,6 +30,10 @@ namespace Utils
 
 		std::vector<std::string> split  (const std::string& s, char seperator);
 
+#if defined(_WIN32)
+		const std::string convertFromWideString(const std::wstring wstring);
+		const std::wstring convertToWideString(const std::string string);
+#endif
 	} // String::
 
 } // Utils::

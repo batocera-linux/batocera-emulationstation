@@ -17,7 +17,7 @@ class TextureResource : public IReloadable
 {
 public:
 	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true);
-	void initFromPixels(const unsigned char* dataRGBA, size_t width, size_t height);
+	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);
 
 	// For scalable source images in textures we want to set the resolution to rasterize at
@@ -37,8 +37,8 @@ public:
 
 protected:
 	TextureResource(const std::string& path, bool tile, bool dynamic);
-	virtual void unload(std::shared_ptr<ResourceManager>& rm);
-	virtual void reload(std::shared_ptr<ResourceManager>& rm);
+	virtual bool unload();
+	virtual void reload();
 
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones

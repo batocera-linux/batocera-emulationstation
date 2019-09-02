@@ -102,10 +102,11 @@ namespace Renderer
 		size_t width = 0;
 		size_t height = 0;
 		ResourceData resData = ResourceManager::getInstance()->getFileData(":/window_icon_256.png");
-		std::vector<unsigned char> rawData = ImageIO::loadFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
-		if (!rawData.empty())
+		
+		unsigned char* rawData = ImageIO::loadFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
+		if (rawData != nullptr)
 		{
-			ImageIO::flipPixelsVert(rawData.data(), width, height);
+			ImageIO::flipPixelsVert(rawData, width, height);
 
 			//SDL interprets each pixel as a 32-bit number, so our masks must depend on the endianness (byte order) of the machine
 			#if SDL_BYTEORDER == SDL_BIG_ENDIAN
@@ -114,12 +115,14 @@ namespace Renderer
 						Uint32 rmask = 0x000000ff; Uint32 gmask = 0x0000ff00; Uint32 bmask = 0x00ff0000; Uint32 amask = 0xff000000;
 			#endif
 			//try creating SDL surface from logo data
-			SDL_Surface * logoSurface = SDL_CreateRGBSurfaceFrom((void *)rawData.data(), (int)width, (int)height, 32, (int)(width * 4), rmask, gmask, bmask, amask);
+			SDL_Surface * logoSurface = SDL_CreateRGBSurfaceFrom(rawData, (int)width, (int)height, 32, (int)(width * 4), rmask, gmask, bmask, amask);
 			if (logoSurface != NULL)
 			{
 				SDL_SetWindowIcon(sdlWindow, logoSurface);
 				SDL_FreeSurface(logoSurface);
 			}
+
+			delete rawData;
 		}
 
 		sdlContext = SDL_GL_CreateContext(sdlWindow);
