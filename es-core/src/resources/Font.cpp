@@ -72,10 +72,14 @@ Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 {
 	assert(mSize > 0);
 	
+	mLoaded = true;
 	mMaxGlyphHeight = 0;
 
 	if(!sLibrary)
 		initLibrary();
+
+	for (unsigned int i = 0; i < 255; i++)
+		mGlyphCacheArray[i] = NULL;
 
 	// always initialize ASCII characters
 	for(unsigned int i = 32; i < 128; i++)
@@ -86,17 +90,31 @@ Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 
 Font::~Font()
 {
-	unload(ResourceManager::getInstance());
+	for (auto it = mGlyphMap.cbegin(); it != mGlyphMap.cend(); it++)
+		delete it->second;
+
+	unload();
 }
 
-void Font::reload(std::shared_ptr<ResourceManager>& /*rm*/)
+void Font::reload()
 {
+	if (mLoaded)
+		return;
+
 	rebuildTextures();
+	mLoaded = true;
 }
 
-void Font::unload(std::shared_ptr<ResourceManager>& /*rm*/)
+bool  Font::unload()
 {
-	unloadTextures();
+	if (mLoaded)
+	{
+		unloadTextures();
+		mLoaded = false;
+		return true;
+	}
+
+	return false;
 }
 
 std::shared_ptr<Font> Font::get(int size, const std::string& path)
@@ -235,8 +253,10 @@ std::vector<std::string> getFallbackFontPaths()
 	fontDir += "\\Fonts\\";
 
 	const char* fontNames[] = {
+		":/fontawesome_webfont.ttf",
+		":/fontawesome-webfont.ttf",
 		"meiryo.ttc", // japanese
-		"simhei.ttf", // chinese
+		"simhei.ttf", // chinese		
 		"arial.ttf"   // latin
 	};
 
@@ -246,7 +266,7 @@ std::vector<std::string> getFallbackFontPaths()
 
 	for(unsigned int i = 0; i < sizeof(fontNames) / sizeof(fontNames[0]); i++)
 	{
-		std::string path = fontDir + fontNames[i];
+		std::string path = Utils::String::startsWith(fontNames[i], ":/") ? fontNames[i] : fontDir + fontNames[i];
 		if(ResourceManager::getInstance()->fileExists(path))
 			fontPaths.push_back(path);
 	}
@@ -312,10 +332,21 @@ void Font::clearFaceCache()
 
 Font::Glyph* Font::getGlyph(unsigned int id)
 {
-	// is it already loaded?
-	auto it = mGlyphMap.find(id);
-	if(it != mGlyphMap.cend())
-		return &it->second;
+	if (id < 255)
+	{
+		// FCA Optimisation : array is faster than a map
+		// When computing & displaying long descriptions in gamelist views, it can come here textsize*2 times per frame
+		Glyph* fastCache = mGlyphCacheArray[id];
+		if (fastCache != NULL)
+			return fastCache;
+	}
+	else
+	{
+		// is it already loaded?
+		auto it = mGlyphMap.find(id);
+		if (it != mGlyphMap.cend())
+			return it->second;
+	}
 
 	// nope, need to make a glyph
 	FT_Face face = getFaceForChar(id);
@@ -347,14 +378,14 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	}
 
 	// create glyph
-	Glyph& glyph = mGlyphMap[id];
+	Glyph* pGlyph = new Glyph();
 	
-	glyph.texture = tex;
-	glyph.texPos = Vector2f(cursor.x() / (float)tex->textureSize.x(), cursor.y() / (float)tex->textureSize.y());
-	glyph.texSize = Vector2f(glyphSize.x() / (float)tex->textureSize.x(), glyphSize.y() / (float)tex->textureSize.y());
+	pGlyph->texture = tex;
+	pGlyph->texPos = Vector2f(cursor.x() / (float)tex->textureSize.x(), cursor.y() / (float)tex->textureSize.y());
+	pGlyph->texSize = Vector2f(glyphSize.x() / (float)tex->textureSize.x(), glyphSize.y() / (float)tex->textureSize.y());
 
-	glyph.advance = Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
-	glyph.bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);
+	pGlyph->advance = Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
+	pGlyph->bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);
 
 	// upload glyph bitmap to texture
 	glBindTexture(GL_TEXTURE_2D, tex->textureId);
@@ -365,8 +396,13 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	if(glyphSize.y() > mMaxGlyphHeight)
 		mMaxGlyphHeight = glyphSize.y();
 
+	mGlyphMap[id] = pGlyph;
+
+	if (id < 255)
+		mGlyphCacheArray[id] = pGlyph;
+
 	// done
-	return &glyph;
+	return pGlyph;
 }
 
 // completely recreate the texture data for all textures based on mGlyphs information
@@ -387,11 +423,11 @@ void Font::rebuildTextures()
 		// load the glyph bitmap through FT
 		FT_Load_Char(face, it->first, FT_LOAD_RENDER);
 
-		FontTexture* tex = it->second.texture;
+		FontTexture* tex = it->second->texture;
 		
 		// find the position/size
-		Vector2i cursor((int)(it->second.texPos.x() * tex->textureSize.x()), (int)(it->second.texPos.y() * tex->textureSize.y()));
-		Vector2i glyphSize((int)(it->second.texSize.x() * tex->textureSize.x()), (int)(it->second.texSize.y() * tex->textureSize.y()));
+		Vector2i cursor((int)(it->second->texPos.x() * tex->textureSize.x()), (int)(it->second->texPos.y() * tex->textureSize.y()));
+		Vector2i glyphSize((int)(it->second->texSize.x() * tex->textureSize.x()), (int)(it->second->texSize.y() * tex->textureSize.y()));
 		
 		// upload to texture
 		glBindTexture(GL_TEXTURE_2D, tex->textureId);
@@ -712,9 +748,17 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 
 	float sh = (float)Renderer::getScreenHeight();
 	if(properties & FONT_SIZE && elem->has("fontSize")) 
-		size = (int)(sh * elem->get<float>("fontSize"));
+	{
+		if ((int)(sh * elem->get<float>("fontSize")) > 0)
+			size = (int)(sh * elem->get<float>("fontSize"));
+	}
+
 	if(properties & FONT_PATH && elem->has("fontPath"))
-		path = elem->get<std::string>("fontPath");
+	{
+		std::string tmppath = elem->get<std::string>("fontPath");
+		if (ResourceManager::getInstance()->fileExists(tmppath))
+			path = tmppath;
+	}
 
 	return get(size, path);
 }

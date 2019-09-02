@@ -93,6 +93,17 @@ const std::string& FileData::getSortName()
 		return metadata.get("sortname");
 }
 
+const bool FileData::getFavorite()
+{
+	return metadata.get("favorite") == "true";
+}
+
+const bool FileData::getHidden()
+{
+	return metadata.get("hidden") == "true";
+}
+
+
 const std::vector<FileData*>& FileData::getChildrenListToDisplay() {
 
 	FileFilterIndex* idx = CollectionSystemManager::get()->getSystemToView(mSystem)->getIndex();
@@ -365,7 +376,11 @@ const std::string& CollectionFileData::getName()
 		mCollectionFileName += " [" + Utils::String::toUpper(mSourceFileData->getSystem()->getName()) + "]";
 		mDirty = false;
 	}
-	return mCollectionFileName;
+
+	if (Settings::getInstance()->getBool("CollectionShowSystemInfo"))
+		return mCollectionFileName;
+
+	return mSourceFileData->metadata.get("name");
 }
 
 // returns Sort Type based on a string description

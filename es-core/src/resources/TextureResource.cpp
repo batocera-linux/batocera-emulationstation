@@ -50,11 +50,19 @@ TextureResource::~TextureResource()
 	sAllTextures.erase(sAllTextures.find(this));
 }
 
-void TextureResource::initFromPixels(const unsigned char* dataRGBA, size_t width, size_t height)
+void TextureResource::initFromPixels(unsigned char* dataRGBA, size_t width, size_t height)
 {
 	// This is only valid if we have a local texture data object
 	assert(mTextureData != nullptr);
 	mTextureData->releaseVRAM();
+
+	// FCA optimisation, if streamed image size is already the same, don't free/reallocate memory (which is slow), just copy bytes
+	if (mTextureData->getDataRGBA() != nullptr && mSize.x() == width && mSize.y() == height)
+	{
+		memcpy(mTextureData->getDataRGBA(), dataRGBA, width * height * 4);
+		return;
+	}
+
 	mTextureData->releaseRAM();
 	mTextureData->initFromRGBA(dataRGBA, width, height);
 	// Cache the image dimensions
@@ -83,7 +91,8 @@ bool TextureResource::isTiled() const
 {
 	if (mTextureData != nullptr)
 		return mTextureData->tiled();
-	std::shared_ptr<TextureData> data = sTextureDataManager.get(this);
+
+	std::shared_ptr<TextureData> data = sTextureDataManager.get(this, false);
 	return data->tiled();
 }
 
@@ -94,10 +103,8 @@ bool TextureResource::bind()
 		mTextureData->uploadAndBind();
 		return true;
 	}
-	else
-	{
-		return sTextureDataManager.bind(this);
-	}
+
+	return sTextureDataManager.bind(this);	
 }
 
 std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic)
@@ -125,12 +132,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic));
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get());
 
-	// is it an SVG?
-	if(key.first.substr(key.first.size() - 4, std::string::npos) != ".svg")
-	{
-		// Probably not. Add it to our map. We don't add SVGs because 2 svgs might be rasterized at different sizes
-		sTextureMap[key] = std::weak_ptr<TextureResource>(tex);
-	}
+	sTextureMap[key] = std::weak_ptr<TextureResource>(tex);
 
 	// Add it to the reloadable list
 	rm->addReloadable(tex);
@@ -139,7 +141,9 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	if (forceLoad)
 	{
 		tex->mForceLoad = forceLoad;
-		data->load();
+
+		if (data != nullptr && !data->isLoaded())
+			data->load();
 	}
 
 	return tex;
@@ -148,15 +152,22 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 // For scalable source images in textures we want to set the resolution to rasterize at
 void TextureResource::rasterizeAt(size_t width, size_t height)
 {
+	// Avoids crashing if a theme (in grids) defines negative sizes
+	if (width < 0) width = -width;
+	if (height < 0) height = -height;
+
 	std::shared_ptr<TextureData> data;
 	if (mTextureData != nullptr)
 		data = mTextureData;
 	else
 		data = sTextureDataManager.get(this);
+
 	mSourceSize = Vector2f((float)width, (float)height);
 	data->setSourceSize((float)width, (float)height);
+	
 	if (mForceLoad || (mTextureData != nullptr))
-		data->load();
+		if (!data->isLoaded())
+			data->load();
 }
 
 Vector2f TextureResource::getSourceImageSize() const
@@ -199,23 +210,36 @@ size_t TextureResource::getTotalTextureSize()
 	return total;
 }
 
-void TextureResource::unload(std::shared_ptr<ResourceManager>& /*rm*/)
+bool TextureResource::unload()
 {
 	// Release the texture's resources
 	std::shared_ptr<TextureData> data;
 	if (mTextureData == nullptr)
-		data = sTextureDataManager.get(this);
+		data = sTextureDataManager.get(this, false);
 	else
 		data = mTextureData;
 
-	data->releaseVRAM();
-	data->releaseRAM();
+	if (data != nullptr && data->isLoaded())
+	{
+		data->releaseVRAM();
+		data->releaseRAM();
+
+		return true;
+	}
+
+	return false;
 }
 
-void TextureResource::reload(std::shared_ptr<ResourceManager>& /*rm*/)
+void TextureResource::reload()
 {
 	// For dynamically loaded textures the texture manager will load them on demand.
 	// For manually loaded textures we have to reload them here
-	if (mTextureData)
+	if (mTextureData && !mTextureData->isLoaded())
 		mTextureData->load();
+
+	// Uncomment this 2 lines in future release in order to reload texture VRAM exactly as it was before
+	// This is commented because it needs true images async loading, or it will be very long
+
+	// else if (mTextureData == nullptr)
+	//	 sTextureDataManager.get(this);
 }

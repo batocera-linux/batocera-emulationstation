@@ -25,6 +25,8 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts() override;
 	HelpStyle getHelpStyle() override;
 
+	MenuComponent& getMenu() { return mMenu; }
+
 private:
         bool doSave = true; // batocera
 	MenuComponent mMenu;

@@ -301,7 +301,7 @@ bool SystemData::loadConfig(Window* window)
 	}
 
 	if (SystemData::sSystemVector.size() > 0)
-		ThemeData::setMenuTheme(SystemData::sSystemVector.at(0)->getTheme().get());
+		ThemeData::setDefaultTheme(SystemData::sSystemVector.at(0)->getTheme().get());
 
 	return true;
 }

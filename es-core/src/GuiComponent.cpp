@@ -236,6 +236,9 @@ unsigned char GuiComponent::getOpacity() const
 
 void GuiComponent::setOpacity(unsigned char opacity)
 {
+	if (mOpacity == opacity)
+		return;
+
 	mOpacity = opacity;
 	for(auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
 	{
@@ -443,7 +446,15 @@ void GuiComponent::updateHelpPrompts()
 
 HelpStyle GuiComponent::getHelpStyle()
 {
-	return HelpStyle();
+	HelpStyle style = HelpStyle();
+
+	if (ThemeData::getDefaultTheme() != nullptr)
+	{
+		std::shared_ptr<ThemeData> theme = std::shared_ptr<ThemeData>(ThemeData::getDefaultTheme(), [](ThemeData*) { });
+		style.applyTheme(theme, "system");
+	}
+
+	return style;
 }
 
 bool GuiComponent::isProcessing() const
@@ -481,28 +492,60 @@ void GuiComponent::topWindow(bool isTop)
 		getChild(i)->topWindow(isTop);
 }
 
-void GuiComponent::setAnimatedPosition(float y1, float y2)
+void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, int delay)
 {
+	if ((flags & AnimateFlags::POSITION)==0)
+		from = to;
+
+	float scale = mScale;
+
+	float x1 = from.x();
+	float x2 = to.x();
+	float y1 = from.y();
+	float y2 = to.y();
+
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant" || Settings::getInstance()->getString("TransitionStyle") == "instant")
-		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
+		setPosition(x2, y2);
 	else
 	{
-		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y1);
+		setPosition(x1, y1);
 
-		auto fadeFunc = [this, y1, y2](float t) {
+		if ((flags & AnimateFlags::OPACITY) == AnimateFlags::OPACITY)
+			setOpacity(0);
+
+		if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
+			mScale = 0.0f;
+
+		auto fadeFunc = [this, x1, x2, y1, y2, flags, scale](float t) {
 
 			t -= 1; // cubic ease out
 			float pct = Math::lerp(0, 1, t*t*t + 1);
+			
+			if ((flags & AnimateFlags::OPACITY) == AnimateFlags::OPACITY)
+				setOpacity(pct*255.0);
 
-			float y = y1 * (1 - pct) + y2 * pct;
-			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y);
+			if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
+				mScale = pct * scale;
+
+			float x = (x1 + mSize.x() / 2 - (mSize.x() / 2 * mScale)) * (1 - pct) + (x2 + mSize.x() / 2 - (mSize.x() / 2 * mScale)) * pct;
+			float y = (y1 + mSize.x() / 2 - (mSize.y() / 2 * mScale)) * (1 - pct) + (y2 + mSize.y() / 2 - (mSize.y() / 2 * mScale)) * pct;
+
+			if (mScale != 0.0f)
+				setPosition(x, y);
 		};
 
-		setAnimation(new LambdaAnimation(fadeFunc, 350), 0, [this, fadeFunc, y2]
-		{
-			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
-		});
+		setAnimation(new LambdaAnimation(fadeFunc, delay), 0, [this, fadeFunc, x2, y2, flags, scale]
+		{			
+			if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
+				mScale = scale;
 
-		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, y2);
+			if ((flags & AnimateFlags::OPACITY) == AnimateFlags::OPACITY)
+				setOpacity(255);
+
+			float x = x2 + mSize.x() / 2 - (mSize.x() / 2 * mScale);
+			float y = y2 + mSize.y() / 2 - (mSize.y() / 2 * mScale);
+			
+			setPosition(x, y);
+		});
 	}
 }

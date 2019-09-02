@@ -90,6 +90,9 @@ public:
 	void sort(const SortType& type);
 	MetaDataList metadata;
 
+	virtual const bool getHidden();
+	virtual const bool getFavorite();
+
 protected:
 	FileData* mSourceFileData;
 	FileData* mParent;

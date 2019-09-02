@@ -196,7 +196,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 };
 
 std::shared_ptr<ThemeData::ThemeMenu> ThemeData::mMenuTheme;
-ThemeData* ThemeData::mCurrentTheme = nullptr;
+ThemeData* ThemeData::mDefaultTheme = nullptr;
 
 #define MINIMUM_THEME_FORMAT_VERSION 3
 #define CURRENT_THEME_FORMAT_VERSION 6
@@ -305,13 +305,13 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseFeatures(root);
 
 	mMenuTheme = nullptr;
-	mCurrentTheme = this;
+	mDefaultTheme = this;
 }
 
 const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
 {
-	if (mMenuTheme == nullptr && mCurrentTheme != nullptr)
-		mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(mCurrentTheme));
+	if (mMenuTheme == nullptr && mDefaultTheme != nullptr)
+		mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(mDefaultTheme));
 	else if (mMenuTheme == nullptr)
 	{
 		auto emptyData = ThemeData();
@@ -989,9 +989,9 @@ std::map<std::string, std::string> ThemeData::getThemeSubSets(const std::string&
 	return sets;
 }
 
-void ThemeData::setMenuTheme(ThemeData* theme) 
+void ThemeData::setDefaultTheme(ThemeData* theme) 
 { 
-	mCurrentTheme = theme; 
+	mDefaultTheme = theme; 
 	mMenuTheme = nullptr;
 };
 

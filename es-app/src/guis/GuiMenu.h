@@ -28,8 +28,7 @@ public:
 
 	bool input(InputConfig* config, Input input) override;
 	void onSizeChanged() override;
-	std::vector<HelpPrompt> getHelpPrompts() override;
-	HelpStyle getHelpStyle() override;
+	std::vector<HelpPrompt> getHelpPrompts() override;	
 	static void openQuitMenu_batocera_static(Window *window, bool forceWin32Menu=false); // batocera
 
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);

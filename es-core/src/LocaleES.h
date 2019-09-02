@@ -7,6 +7,7 @@
 
 #define _(A) boost::locale::gettext(A)
 #define ngettext(A, B, C) boost::locale::ngettext(A, B, C)
+#define _U(x) x
 
 #else // WIN32
 
@@ -14,6 +15,8 @@
 #include <map>
 #include <functional>
 #include "utils/StringUtil.h"
+
+#define _U(x) Utils::String::convertFromWideString(L ## x)
 
 struct PluralRule
 {
