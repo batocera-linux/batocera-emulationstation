@@ -28,11 +28,11 @@ namespace Renderer
 		size_t                     width   = 0;
 		size_t                     height  = 0;
 		ResourceData               resData = ResourceManager::getInstance()->getFileData(":/window_icon_256.png");
-		std::vector<unsigned char> rawData = ImageIO::loadFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
+		unsigned char*             rawData = ImageIO::loadFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
 
-		if(!rawData.empty())
+		if(rawData != nullptr)
 		{
-			ImageIO::flipPixelsVert(rawData.data(), width, height);
+			ImageIO::flipPixelsVert(rawData, width, height);
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 			unsigned int rmask = 0xFF000000;
@@ -46,13 +46,15 @@ namespace Renderer
 			unsigned int amask = 0xFF000000;
 #endif
 			// try creating SDL surface from logo data
-			SDL_Surface* logoSurface = SDL_CreateRGBSurfaceFrom((void*)rawData.data(), (int)width, (int)height, 32, (int)(width * 4), rmask, gmask, bmask, amask);
+			SDL_Surface* logoSurface = SDL_CreateRGBSurfaceFrom((void*)rawData, (int)width, (int)height, 32, (int)(width * 4), rmask, gmask, bmask, amask);
 			
 			if(logoSurface != nullptr)
 			{
 				SDL_SetWindowIcon(sdlWindow, logoSurface);
 				SDL_FreeSurface(logoSurface);
 			}
+
+			delete rawData;
 		}
 
 	} // setIcon
@@ -235,6 +237,11 @@ namespace Renderer
 		else                  setScissor(clipStack.top());
 
 	} // popClipRect
+
+	void drawRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	{
+		drawRect(_x, _y, _w, _h, _color, _color, true, _srcBlendFactor, _dstBlendFactor);
+	} // drawRect
 
 	void drawRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{

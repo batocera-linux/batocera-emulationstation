@@ -6,6 +6,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "ApiSystem.h"
+#include "platform.h"
 #include "LocaleES.h"
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)

@@ -5,7 +5,7 @@
 #include "HelpPrompt.h"
 #include "InputConfig.h"
 #include "Settings.h"
-
+#include "math/Vector2f.h"
 #include <memory>
 
 class FileData;
@@ -106,6 +106,7 @@ private:
 	int mClockElapsed;
 
 	unsigned int mClockColor;
+	Vector2f mClockPos;
 	std::shared_ptr<Font> mClockFont;
 	std::unique_ptr<TextCache> mClockText;
 

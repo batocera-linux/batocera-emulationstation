@@ -90,8 +90,7 @@ void VideoPlayerComponent::startVideo()
 				mPlayerPid = pid;
 				// Update the playing state
 				signal(SIGCHLD, catch_child);
-				mIsPlaying = true;
-				mFadeIn = 0.0f;
+				onVideoStarted();
 			}
 			else
 			{

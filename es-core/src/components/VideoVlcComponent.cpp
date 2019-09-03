@@ -182,33 +182,27 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	GuiComponent::renderChildren(trans);
 	Renderer::setMatrix(trans);
 
-	if (mIsPlaying && mContext.valid)
-	{
-		const unsigned int fadeIn = (unsigned int)(Math::clamp(0.0f, mFadeIn, 1.0f) * 255.0f);
-		const unsigned int color  = Renderer::convertColor((fadeIn << 24) | (fadeIn << 16) | (fadeIn << 8) | 255);
-		Renderer::Vertex   vertices[4];
-
-		vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
-		vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
-		vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
-		vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
-
-		// round vertices
-		for(int i = 0; i < 4; ++i)
-			vertices[i].pos.round();
-
-		// Build a texture for the video frame
+	// Build a texture for the video frame
+	if (initFromPixels)
 		mTexture->initFromPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
 
+	const unsigned int fadeIn = t * 255.0f;
+	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
+	Renderer::Vertex   vertices[4];
+
+	vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
+	vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
+	vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
+	vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+
+	// round vertices
+	for(int i = 0; i < 4; ++i)
+		vertices[i].pos.round();
+	
 	mTexture->bind();
 
-		// Render it
-		Renderer::drawTriangleStrips(&vertices[0], 4);
-	}
-	else
-	{
-		VideoComponent::renderSnapshot(parentTrans);
-	}
+	// Render it
+	Renderer::drawTriangleStrips(&vertices[0], 4);
 }
 
 void VideoVlcComponent::setupContext()

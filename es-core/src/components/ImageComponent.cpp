@@ -248,18 +248,13 @@ void ImageComponent::setFlipY(bool flip)
 void ImageComponent::setColorShift(unsigned int color)
 {
 	mColorShift = color;
-	// Grab the opacity from the color shift because we may need to apply it if
-	// fading textures in
-	mOpacity = color & 0xff;
+	mColorShiftEnd = color;
 	updateColors();
 }
 
 void ImageComponent::setColorShiftEnd(unsigned int color)
 {
 	mColorShiftEnd = color;
-	// Grab the opacity from the color shift because we may need to apply it if
-	// fading textures in
-	mOpacity = color & 0xff;
 	updateColors();
 }
 
@@ -271,8 +266,7 @@ void ImageComponent::setColorGradientHorizontal(bool horizontal)
 
 void ImageComponent::setOpacity(unsigned char opacity)
 {
-	mOpacity = opacity;
-	mColorShift = (mColorShift >> 8 << 8) | mOpacity;
+	mOpacity = opacity;	
 	updateColors();
 }
 
@@ -314,8 +308,10 @@ void ImageComponent::updateVertices()
 
 void ImageComponent::updateColors()
 {
-	const unsigned int color    = Renderer::convertColor(mColorShift);
-	const unsigned int colorEnd = Renderer::convertColor(mColorShiftEnd);
+	float opacity = (mOpacity * (mFading ? mFadeOpacity / 255.0 : 1.0)) / 255.0;
+
+	const unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
+	const unsigned int colorEnd = Renderer::convertColor(mColorShiftEnd & 0xFFFFFF00 | (unsigned char)((mColorShiftEnd & 0xFF) * opacity));
 
 	mVertices[0].col = color;
 	mVertices[1].col = mColorGradientHorizontal ? colorEnd : color;
@@ -368,8 +364,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 				// Start with a zero opacity and flag it as fading
 				mFadeOpacity = 0;
 				mFading = true;
-				// Set the colours to be translucent
-				mColorShift = (mColorShift >> 8 << 8) | 0;
+				
 				updateColors();
 			}
 		}
@@ -389,9 +384,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 			{
 				mFadeOpacity = (unsigned char)opacity;
 			}
-			// Apply the combination of the target opacity and current fade
-			float newOpacity = (float)mOpacity * ((float)mFadeOpacity / 255.0f);
-			mColorShift = (mColorShift >> 8 << 8) | (unsigned char)newOpacity;
+			// Apply the combination of the target opacity and current fade			
 			updateColors();
 		}
 	}

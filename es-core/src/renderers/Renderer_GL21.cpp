@@ -78,7 +78,7 @@ namespace Renderer
 		sdlContext = SDL_GL_CreateContext(getSDLWindow());
 		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
 
-		glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 		std::string glExts = (const char*)glGetString(GL_EXTENSIONS);
 		LOG(LogInfo) << "Checking available OpenGL extensions...";
