@@ -25,6 +25,7 @@ public:
 	void onSizeChanged() override;
 	
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+	virtual void setColor(unsigned int color);
 
 private:
 	void onValueChanged();
@@ -34,6 +35,7 @@ private:
 	float mSingleIncrement;
 	float mMoveRate;
 	int mMoveAccumulator;
+	unsigned int mColor;
 
 	ImageComponent mKnob;
 

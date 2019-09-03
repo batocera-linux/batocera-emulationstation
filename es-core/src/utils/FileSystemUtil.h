@@ -41,9 +41,22 @@ namespace Utils
 		void		setHomePath		   (const std::string& _path);
 		void		setExePath		   (const std::string& _path);
 
-
 		std::string getEsConfigPath();
 		std::string getSharedConfigPath();
+
+		// FCA
+		struct FileInfo
+		{
+		public:
+			std::string path;
+			bool hidden;
+			bool directory;
+		};
+
+		typedef std::list<FileInfo> fileList;
+
+		fileList  getDirectoryFiles(const std::string& _path);
+
 	} // FileSystem::
 
 } // Utils::

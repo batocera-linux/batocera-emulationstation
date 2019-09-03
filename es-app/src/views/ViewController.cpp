@@ -290,6 +290,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	std::shared_ptr<IGameListView> view;
 
 	bool themeHasVideoView = system->getTheme()->hasView("video");
+	bool themeHasGridView = system->getTheme()->hasView("grid");
 
 	//decide type
 	GameListViewType selectedViewType = AUTOMATIC;
@@ -297,11 +298,11 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	std::string viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
 	if (viewPreference.compare("basic") == 0)
 		selectedViewType = BASIC;
-	if (viewPreference.compare("detailed") == 0)
+	else if (viewPreference.compare("detailed") == 0)
 		selectedViewType = DETAILED;
-	if (viewPreference.compare("grid") == 0)
+	else if (themeHasGridView && viewPreference.compare("grid") == 0)
 		selectedViewType = GRID;
-	if (viewPreference.compare("video") == 0)
+	else if (themeHasVideoView && viewPreference.compare("video") == 0)
 		selectedViewType = VIDEO;
 
 	if (selectedViewType == AUTOMATIC)
@@ -317,7 +318,9 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 			else if (!(*it)->getThumbnailPath().empty())
 			{
 				selectedViewType = DETAILED;
-				// Don't break out in case any subsequent files have video
+				
+				if (!themeHasVideoView)
+					break;
 			}
 		}
 	}
@@ -378,6 +381,15 @@ bool ViewController::input(InputConfig* config, Input input)
 	    return true;
 	  }
         }
+
+		if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
+		{
+			mWindow->render();
+			mWindow->renderLoadingScreen(_("Loading..."), -1, 180);
+
+			ViewController::get()->reloadAll();			
+			return true;
+		}
 
 	// open menu
 	if(config->isMappedTo("start", input) && input.value != 0) // batocera
@@ -502,6 +514,17 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 void ViewController::reloadAll()
 {
+	SystemData* system = nullptr;
+
+	if (mState.viewing == SYSTEM_SELECT)
+	{
+		int idx = mSystemListView->getCursorIndex();
+		if (idx >= 0 && idx < SystemData::sSystemVector.size())
+			system = SystemData::sSystemVector[mSystemListView->getCursorIndex()];
+		else
+			system = mState.getSystem();
+	}
+
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
@@ -535,15 +558,15 @@ void ViewController::reloadAll()
 	if(mState.viewing == GAME_LIST)
 	{
 		mCurrentView = getGameListView(mState.getSystem());
-	}else if(mState.viewing == SYSTEM_SELECT)
+	}
+	else if(mState.viewing == SYSTEM_SELECT && system != nullptr)
 	{
-		SystemData* system = mState.getSystem();
 		goToSystemView(SystemData::sSystemVector.front());
 		mSystemListView->goToSystem(system, false);
 		mCurrentView = mSystemListView;
-	}else{
-		goToSystemView(SystemData::sSystemVector.front());
 	}
+	else
+		goToSystemView(SystemData::sSystemVector.front());	
 
 	updateHelpPrompts();
 }

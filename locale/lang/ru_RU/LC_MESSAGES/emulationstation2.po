@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: \n"
@@ -73,6 +73,9 @@ msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 msgid "ADVANCED"
 msgstr "ДОПОЛНИТЕЛЬНО"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -146,6 +149,9 @@ msgstr "ВЕРСИЯ"
 msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
 
@@ -154,9 +160,6 @@ msgstr "ФАЙЛ УСПЕШНО СГЕНЕРИРОВАН"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
 msgid "STORAGE DEVICE"
 msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
@@ -290,11 +293,14 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -309,9 +315,6 @@ msgstr ""
 "КОНТРОЛЛЕРЕ ОТСУТСТВУЕТ ОТДЕЛЬНАЯ \"ГОРЯЧАЯ\" КНОПКА, ИСПОЛЬЗУЙТЕ ВМЕСТО НЕЁ "
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
-
 msgid "CONTROLLER PAIRED"
 msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
 
@@ -321,11 +324,11 @@ msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "ССЫЛКИ КОНТРОЛЛЕРОВ БЫЛИ УДАЛЕНЫ."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "ССЫЛКИ КОНТРОЛЛЕРОВ БЫЛИ УДАЛЕНЫ."
 
 #, c-format
 msgid "INPUT P%i"
@@ -352,6 +355,30 @@ msgstr "ВИДЕО ВЫВОД"
 
 msgid "THEME SET"
 msgstr "ТЕМА"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
@@ -482,32 +509,38 @@ msgstr "WI-FI ВКЛЮЧЕН"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
 
-msgid "REALLY SCRAPE?"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
+
+msgid "REALLY SCRAPE?"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
 
 msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
 
-msgid "REALLY RESTART?"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
-
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
+msgid "REALLY RESTART?"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
+msgid "REALLY SHUTDOWN?"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Эмулятор"
@@ -1089,11 +1122,20 @@ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ"
 msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "ВЫБРАТЬ ВСЕ"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "СНЯТЬ ВЫБОР"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1107,6 +1149,9 @@ msgstr "ИЗМЕНИТЬ"
 
 msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "FINNISHED"
 #~ msgstr "ЗАВЕРШЕНО"

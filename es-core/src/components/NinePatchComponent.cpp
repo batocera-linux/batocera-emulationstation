@@ -15,6 +15,15 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 		buildVertices();
 }
 
+void NinePatchComponent::setOpacity(unsigned char opacity)
+{
+	if (mOpacity == opacity)
+		return;
+
+	mOpacity = opacity;
+	updateColors();
+}
+
 NinePatchComponent::~NinePatchComponent()
 {
 	if (mVertices != NULL)
@@ -26,8 +35,13 @@ NinePatchComponent::~NinePatchComponent()
 
 void NinePatchComponent::updateColors()
 {
-	Renderer::buildGLColorArray(mColors, mEdgeColor, 6 * 9);
-	Renderer::buildGLColorArray(&mColors[4 * 6 * 4], mCenterColor, 6);
+	float opacity = mOpacity / 255.0;
+
+	const unsigned int edgeColor = mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity);
+	const unsigned int centerColor = mCenterColor & 0xFFFFFF00 | (unsigned char)((mCenterColor & 0xFF) * opacity);
+
+	Renderer::buildGLColorArray(mColors, edgeColor, 6 * 9);
+	Renderer::buildGLColorArray(&mColors[4 * 6 * 4], centerColor, 6);
 }
 
 void NinePatchComponent::buildVertices()

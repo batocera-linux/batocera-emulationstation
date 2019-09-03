@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
 
 msgid "ADVANCED"
 msgstr "HALADÓ"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -142,6 +145,9 @@ msgstr "VERZIÓ"
 msgid "DISK USAGE"
 msgstr "LEMEZHASZNÁLAT"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -149,9 +155,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -286,11 +289,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "STÁTUSZ"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "JÁTÉKLISTA FRISSÍTÉSE"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "BIZTOS FRISSÍTED A JÁTÉK LISTÁT?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "JÁTÉKLISTA FRISSÍTÉSE"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "KONTROLLER KONFIGURÁLÁSA"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -305,9 +311,6 @@ msgstr ""
 "SELECT GOMBOT. UGORD ÁT AZOKAT A GOMBOKAT, AMIK HIÁNYOZNAK BÁRMELYIK GOMB "
 "NYOMVATARTÁSÁVAL. A GOMBOK NEVEI MEGEGYEZNEK AZ SNES KONTROLLERÉVEL."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "KONTROLLER KONFIGURÁLÁSA"
-
 msgid "CONTROLLER PAIRED"
 msgstr "KONTROLLER PÁROSÍTVA"
 
@@ -317,11 +320,11 @@ msgstr "NEM PÁROSÍTHATÓ A KONTROLLER"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH KONTROLLER PÁROSÍTÁSA"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "BLUETOOTH KONTROLLER ELFELEJTÉSE"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
 
 #, c-format
 msgid "INPUT P%i"
@@ -344,6 +347,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "TÉMAVÁLASZTÁS"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -470,32 +497,38 @@ msgstr "WIFI ENGEDÉLYEZVE"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI BEÁLLÍTÁSI HIBA"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "BIZTOS ÚJRAINDÍTOD?"
-
 msgid "RESTART SYSTEM"
 msgstr "ÚJRAINDÍTÁS"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "BIZTOS, HOGY LEÁLLÍTOD?"
+msgid "REALLY RESTART?"
+msgstr "BIZTOS ÚJRAINDÍTOD?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "LEÁLLÍTÁS"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "BIZTOS LEÁLLÍTOD A METAADATOK MENTÉSE NÉLKÜL?"
+msgid "REALLY SHUTDOWN?"
+msgstr "BIZTOS, HOGY LEÁLLÍTOD?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "GYORS LEÁLLÍTÁS"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "BIZTOS LEÁLLÍTOD A METAADATOK MENTÉSE NÉLKÜL?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulátor"
@@ -1065,11 +1098,20 @@ msgstr "SZERKESZTÉS VÉGE"
 msgid "EDIT"
 msgstr "SZERKESZT"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "ÖSSZES"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "SEMELYIK"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1082,6 +1124,9 @@ msgstr "VÁLTOZTAT"
 
 msgid "WORKING..."
 msgstr "DOLGOZOM..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "A RENDSZER ÚJRAINDUL"

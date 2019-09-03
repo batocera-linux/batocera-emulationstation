@@ -17,6 +17,17 @@ class InputConfig;
 class ThemeData;
 class Window;
 
+namespace AnimateFlags
+{
+	enum Flags : unsigned int
+	{
+		POSITION = 1,
+		SCALE = 2,
+		OPACITY = 4,
+		ALL = 0xFFFFFFFF
+	};
+}
+
 class GuiComponent
 {
 public:
@@ -60,6 +71,8 @@ public:
     inline void setSize(const Vector2f& size) { setSize(size.x(), size.y()); }
     void setSize(float w, float h);
     virtual void onSizeChanged() {};
+
+	virtual void setColor(unsigned int color) {};
 
 	virtual Vector2f getRotationSize() const { return getSize(); };
 
@@ -133,6 +146,9 @@ public:
 
 	// Returns true if the component is busy doing background processing (e.g. HTTP downloads)
 	bool isProcessing() const;
+	
+	void animateTo(Vector2f from, Vector2f to, unsigned int flags = 0xFFFFFFFF, int delay = 350);
+	void animateTo(Vector2f from, unsigned int flags = AnimateFlags::OPACITY | AnimateFlags::SCALE, int delay = 350) { animateTo(from, from, flags, delay); }
 
 protected:
 	void renderChildren(const Transform4x4f& transform) const;

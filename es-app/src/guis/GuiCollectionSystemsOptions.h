@@ -22,14 +22,16 @@ private:
 	void initializeMenu();
 	void applySettings();
 	void addSystemsToMenu();
-	void addEntry(const char* name, unsigned int color, bool add_arrow, const std::function<void()>& func);
+	void addEntry(const char* name, bool add_arrow, const std::function<void()>& func);
 	void updateSettings(std::string newAutoSettings, std::string newCustomSettings);
 	void createCollection(std::string inName);
 	void exitEditMode();
 	std::shared_ptr< OptionListComponent<std::string> > autoOptionList;
 	std::shared_ptr< OptionListComponent<std::string> > customOptionList;
+	std::shared_ptr<SwitchComponent> favoritesFirstSwitch; 
 	std::shared_ptr<SwitchComponent> sortAllSystemsSwitch;
 	std::shared_ptr<SwitchComponent> bundleCustomCollections;
+	std::shared_ptr<SwitchComponent> toggleSystemNameInCollections;
 	MenuComponent mMenu;
 	SystemData* mSystem;
 };

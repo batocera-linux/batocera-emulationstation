@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "EDITA LES METADADES D'AQUEST JOC"
 
 msgid "ADVANCED"
 msgstr "AVANÇAT"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -142,6 +145,9 @@ msgstr "VERSIÓ"
 msgid "DISK USAGE"
 msgstr "ÚS DEL DISC"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -149,9 +155,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -286,11 +289,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "ESTAT"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "CONFIGUREU UN COMANDAMENT"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -306,9 +312,6 @@ msgstr ""
 "TECLA A. ELS NOMS DELS BOTONS ESTAN BASATS EN EL COMANDAMENT DE LA SUPER "
 "NINTENDO."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "CONFIGUREU UN COMANDAMENT"
-
 msgid "CONTROLLER PAIRED"
 msgstr "S'HA APARELLAT TOTS ELS COMANDAMENTS"
 
@@ -318,11 +321,11 @@ msgstr "NO S'HA POGUT APARELLAR EL COMANDAMENT"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "APARELLA UN COMANDAMENT BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "OBLIDA ELS COMANDAMENTS BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 
 #, c-format
 msgid "INPUT P%i"
@@ -345,6 +348,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "TEMA ESTABLERT"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -471,32 +498,38 @@ msgstr "EL WIFI ESTÀ ACTIU"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "ESTEU SEGUR QUE VOLEU REINICIAR?"
-
 msgid "RESTART SYSTEM"
 msgstr "REINICIA EL SISTEMA"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "ESTEU SEGUR QUE VOLEU APAGAR?"
+msgid "REALLY RESTART?"
+msgstr "ESTEU SEGUR QUE VOLEU REINICIAR?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "APAGA EL SISTEMA"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
+msgid "REALLY SHUTDOWN?"
+msgstr "ESTEU SEGUR QUE VOLEU APAGAR?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGA EL SISTEMA RÀPIDAMENT"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -1066,11 +1099,20 @@ msgstr "ATURA L'EDICIÓ"
 msgid "EDIT"
 msgstr "EDITA"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "SELECCIONA-HO TOT"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "NO SELECCIONIS RES"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1083,6 +1125,9 @@ msgstr "CANVIA"
 
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "ES REINICIARÀ EL SISTEMA ARA"

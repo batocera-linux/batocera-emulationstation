@@ -15,12 +15,16 @@
 #include "LocaleES.h"
 #include "AudioManager.h"
 #include <SDL_events.h>
+#include "ThemeData.h"
 
 #define PLAYER_PAD_TIME_MS 200
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
-{
+{	
+	mClockColor = 0xFFFFFF55;
+	mClockFont = nullptr; 
+
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
@@ -208,9 +212,9 @@ void Window::input(InputConfig* config, Input input)
 }
 
 void Window::update(int deltaTime)
-{        
+{
 	// batocera        
-	if(SystemConf::getInstance()->get("audio.display_titles") == "1")
+	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
 	{
 		std::string songName = AudioManager::getInstance()->getSongName();
 		if (!songName.empty())
@@ -220,27 +224,27 @@ void Window::update(int deltaTime)
 		}
 	}
 
-	if(!mMessages.empty())
+	if (!mMessages.empty())
 	{
 		std::string message = mMessages.back();
 		mMessages.pop_back();
 		setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
 	}
 
-	if(mNormalizeNextUpdate)
+	if (mNormalizeNextUpdate)
 	{
 		mNormalizeNextUpdate = false;
-		if(deltaTime > mAverageDeltaTime)
+		if (deltaTime > mAverageDeltaTime)
 			deltaTime = mAverageDeltaTime;
 	}
 
 	mFrameTimeElapsed += deltaTime;
 	mFrameCountElapsed++;
-	if(mFrameTimeElapsed > 500)
+	if (mFrameTimeElapsed > 500)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
 
-		if(Settings::getInstance()->getBool("DrawFramerate"))
+		if (Settings::getInstance()->getBool("DrawFramerate"))
 		{
 			std::stringstream ss;
 
@@ -254,7 +258,7 @@ void Window::update(int deltaTime)
 			float fontVramUsageMb = Font::getTotalMemUsage() / 1000.0f / 1000.0f;
 
 			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb <<
-				  " Tex Max: " << textureTotalUsageMb;
+				" Tex Max: " << textureTotalUsageMb;
 			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(1)->buildTextCache(ss.str(), 50.f, 50.f, 0xFF00FFFF));
 		}
 
@@ -263,42 +267,46 @@ void Window::update(int deltaTime)
 	}
 
 	/* draw the clock */ // batocera
-	if(Settings::getInstance()->getBool("DrawClock")) {
-	  mClockElapsed -= deltaTime;
-	  if(mClockElapsed <= 0)
-	    {
-	      time_t     clockNow;
-	      struct tm  clockTstruct;
-	      char       clockBuf[32];
+	if (Settings::getInstance()->getBool("DrawClock")) {
+		mClockElapsed -= deltaTime;
+		if (mClockElapsed <= 0)
+		{
+			time_t     clockNow;
+			struct tm  clockTstruct;
+			char       clockBuf[32];
 
-	      clockNow = time(0);
-	      clockTstruct = *localtime(&clockNow);
+			clockNow = time(0);
+			clockTstruct = *localtime(&clockNow);
 
-	      if(clockTstruct.tm_year > 100) { /* display the clock only if year is more than 1900+100 ; rpi have no internal clock and out of the networks, the date time information has no value */
-		// Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-		// for more information about date/time format
-		strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
-		mClockText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(clockBuf, Renderer::getScreenWidth()-80.0f, Renderer::getScreenHeight()-40.0f, 0xFFFFFF55));
-	      }
-	      mClockElapsed = 1000; // next update in 1000ms
-	    }
+			if (clockTstruct.tm_year > 100) { /* display the clock only if year is more than 1900+100 ; rpi have no internal clock and out of the networks, the date time information has no value */
+		  // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+		  // for more information about date/time format
+				strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
+
+				if (mClockFont == nullptr)
+					mClockFont = mDefaultFonts.at(0);
+
+				mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
+			}
+			mClockElapsed = 1000; // next update in 1000ms
+		}
 	}
 
 	// hide pads // batocera
-	for(int i=0; i<MAX_PLAYERS; i++) {
-	  if(mplayerPads[i] > 0) {
-	    mplayerPads[i] -= deltaTime;
-	    if(mplayerPads[i] < 0) {
-	      mplayerPads[i] = 0;
-	    }
-	  }
+	for (int i = 0; i < MAX_PLAYERS; i++) {
+		if (mplayerPads[i] > 0) {
+			mplayerPads[i] -= deltaTime;
+			if (mplayerPads[i] < 0) {
+				mplayerPads[i] = 0;
+			}
+		}
 	}
 
 	mTimeSinceLastInput += deltaTime;
 
-	if(peekGui())
+	if (peekGui())
 		peekGui()->update(deltaTime);
-	
+
 	// Update the screensaver
 	if (mScreenSaver)
 		mScreenSaver->update(deltaTime);
@@ -334,11 +342,15 @@ void Window::render()
 	}
 
         // clock // batocera
-	if(Settings::getInstance()->getBool("DrawClock") && mClockText)
-	  {
-	    Renderer::setMatrix(Transform4x4f::Identity());
-	    mDefaultFonts.at(1)->renderTextCache(mClockText.get());
-	  }
+	if (Settings::getInstance()->getBool("DrawClock") && mClockText)
+	{
+		Renderer::setMatrix(Transform4x4f::Identity());
+
+		if (mClockFont == nullptr)
+			mClockFont = mDefaultFonts.at(0);
+
+		mClockFont->renderTextCache(mClockText.get());
+	}
 
 	// pads // batocera
 	Renderer::setMatrix(Transform4x4f::Identity());
@@ -455,6 +467,9 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 {
 	mHelp->clearPrompts();
 	mHelp->setStyle(style);
+
+	mClockFont = style.font;
+	mClockColor = style.textColor;
 
 	std::vector<HelpPrompt> addPrompts;
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,6 +76,9 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
 msgid "ADVANCED"
+msgstr ""
+
+msgid "RESET ALL FILTERS"
 msgstr ""
 
 msgid "FINISHED"
@@ -150,6 +153,9 @@ msgstr ""
 msgid "DISK USAGE"
 msgstr ""
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -157,9 +163,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -294,10 +297,13 @@ msgstr ""
 msgid "STATUS"
 msgstr ""
 
+msgid "UPDATE GAMES LISTS"
+msgstr ""
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
+msgid "CONFIGURE A CONTROLLER"
 msgstr ""
 
 msgid ""
@@ -306,9 +312,6 @@ msgid ""
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
-msgstr ""
-
-msgid "CONFIGURE A CONTROLLER"
 msgstr ""
 
 msgid "CONTROLLER PAIRED"
@@ -320,10 +323,10 @@ msgstr ""
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr ""
 
-msgid "FORGET BLUETOOTH CONTROLLERS"
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr ""
 
 #, c-format
@@ -346,6 +349,30 @@ msgid "VIDEO OUTPUT"
 msgstr ""
 
 msgid "THEME SET"
+msgstr ""
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -473,31 +500,37 @@ msgstr ""
 msgid "WIFI CONFIGURATION ERROR"
 msgstr ""
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr ""
-
 msgid "RESTART SYSTEM"
 msgstr ""
 
-msgid "REALLY SHUTDOWN?"
+msgid "REALLY RESTART?"
 msgstr ""
 
 msgid "SHUTDOWN SYSTEM"
 msgstr ""
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgid "REALLY SHUTDOWN?"
 msgstr ""
 
 msgid "FAST SHUTDOWN SYSTEM"
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr ""
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
 msgstr ""
 
 msgid "Emulator"
@@ -1065,10 +1098,19 @@ msgstr ""
 msgid "EDIT"
 msgstr ""
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr ""
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
+msgstr ""
+
+msgid "select none"
 msgstr ""
 
 #, c-format
@@ -1081,4 +1123,7 @@ msgid "CHANGE"
 msgstr ""
 
 msgid "WORKING..."
+msgstr ""
+
+msgid "up/down"
 msgstr ""

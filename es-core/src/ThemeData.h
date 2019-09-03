@@ -9,6 +9,7 @@
 #include <memory>
 #include <sstream>
 #include <vector>
+#include <pugixml/src/pugixml.hpp>
 
 namespace pugi { class xml_node; }
 
@@ -21,6 +22,7 @@ class NinePatchComponent;
 class Sound;
 class TextComponent;
 class Window;
+class Font;
 
 namespace ThemeFlags
 {
@@ -81,9 +83,56 @@ struct ThemeSet
 	inline std::string getThemePath(const std::string& system) const { return path + "/" + system + "/theme.xml"; }
 };
 
+struct MenuElement 
+{
+	unsigned int color;
+	unsigned int selectedColor;
+	unsigned int selectorColor;
+	unsigned int separatorColor;
+	unsigned int selectorGradientColor;
+	std::string path;
+	std::string fadePath;
+	std::shared_ptr<Font> font;
+};
+
+struct IconElement 
+{
+	std::string button;
+	std::string button_filled;
+	std::string on;
+	std::string off;
+	std::string option_arrow;
+	std::string arrow;
+	std::string knob;
+};
+
 class ThemeData
 {
 public:
+	class ThemeMenu
+	{
+	public:
+		ThemeMenu(ThemeData* theme);
+
+		MenuElement Background{ 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0, ":/frame.png", ":/scroll_gradient.png", nullptr };
+		MenuElement Title{ 0x555555FF, 0x555555FF, 0x555555FF, 0xFFFFFFFF, 0, "", "", nullptr };
+		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0, "", "", nullptr };
+		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0, "", "", nullptr };
+		MenuElement Footer{ 0xC6C6C6FF, 0xC6C6C6FF, 0xC6C6C6FF, 0xFFFFFFFF, 0, "", "", nullptr };
+		IconElement Icons{ ":/button.png", ":/button_filled.png", ":/on.svg", ":/off.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg" };
+
+		std::string getMenuIcon(const std::string name)
+		{
+			auto it = mMenuIcons.find(name);
+			if (it != mMenuIcons.cend())
+				return it->second;
+
+			return "";
+		}
+
+	private:
+		std::map<std::string, std::string>		mMenuIcons;
+	};
 
 	class ThemeElement
 	{
@@ -135,7 +184,7 @@ public:
 	ThemeData();
 
 	// throws ThemeException
-	void loadFile(std::map<std::string, std::string> sysDataMap, const std::string& path);
+	void loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path);
 
 	enum ElementPropertyType
 	{
@@ -158,8 +207,25 @@ public:
 
 	static std::map<std::string, ThemeSet> getThemeSets();
 	static std::string getThemeFromCurrentSet(const std::string& system);
+	
+	bool hasSubsets() { return mHasSubsets; }
+	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
+
+	static std::map<std::string, std::string> sortThemeSubSets(const std::map<std::string, std::string>& subsetmap, const std::string& subset);
+	static std::map<std::string, std::string> getThemeSubSets(const std::string& theme);
+
+	static void setDefaultTheme(ThemeData* theme);
+	static ThemeData* getDefaultTheme() { return mDefaultTheme; }
+	
+	std::string getSystemThemeFolder() { return mSystemThemeFolder; }
+	
+	std::vector<std::string> getViewsOfTheme();
 
 private:
+	static void crawlIncludes(const pugi::xml_node& root, std::map<std::string, std::string>& sets, std::deque<std::string>& dequepath);
+	static void findRegion(const pugi::xml_document& doc, std::map<std::string, std::string>& sets);
+
+
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
 	static std::vector<std::string> sSupportedFeatures;
 	static std::vector<std::string> sSupportedViews;
@@ -173,8 +239,25 @@ private:
 	void parseViews(const pugi::xml_node& themeRoot);
 	void parseView(const pugi::xml_node& viewNode, ThemeView& view);
 	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element);
+	bool parseRegion(const pugi::xml_node& node);
+	bool parseSubset(const pugi::xml_node& node);
 
+	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
+	std::string resolvePlaceholders(const char* in);
+
+	std::string mColorset;
+	std::string mIconset;
+	std::string mMenu;
+	std::string mSystemview;
+	std::string mGamelistview;
+	std::string mSystemThemeFolder;
+	bool mHasSubsets;
+	
+	std::map<std::string, std::string> mVariables;
 	std::map<std::string, ThemeView> mViews;
+
+	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
+	static ThemeData* mDefaultTheme;
 };
 
 #endif // ES_CORE_THEME_DATA_H

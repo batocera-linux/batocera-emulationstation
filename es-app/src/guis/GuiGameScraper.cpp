@@ -14,6 +14,11 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	mSearchParams(params),
 	mClose(false)
 {
+	auto theme = ThemeData::getMenuTheme();
+	mBox.setImagePath(theme->Background.path);
+	mBox.setCenterColor(theme->Background.color);
+	mBox.setEdgeColor(theme->Background.color);
+
 	PowerSaver::pause();
 	addChild(&mBox);
 	addChild(&mGrid);
@@ -21,13 +26,12 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	// row 0 is a spacer
 
 	mGameName = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(Utils::FileSystem::getFileName(mSearchParams.game->getPath())),
-		Font::get(FONT_SIZE_MEDIUM), 0x777777FF, ALIGN_CENTER);
+		theme->Text.font, theme->Text.color, ALIGN_CENTER);
 	mGrid.setEntry(mGameName, Vector2i(0, 1), false, true);
 
 	// row 2 is a spacer
 
-	mSystemName = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(mSearchParams.system->getFullName()), Font::get(FONT_SIZE_SMALL),
-		0x888888FF, ALIGN_CENTER);
+	mSystemName = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(mSearchParams.system->getFullName()), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mGrid.setEntry(mSystemName, Vector2i(0, 3), false, true);
 
 	// row 4 is a spacer

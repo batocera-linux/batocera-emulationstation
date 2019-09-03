@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -142,6 +145,9 @@ msgstr "VERSÃO"
 msgid "DISK USAGE"
 msgstr "ESPAÇO DISPONÍVEL"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRIAR UM ARQUIVO DE SUPORTE"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
@@ -150,9 +156,6 @@ msgstr "ARQUIVO GERADO COM SUCESSO"
 
 msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "CRIAR UM ARQUIVO DE SUPORTE"
 
 msgid "STORAGE DEVICE"
 msgstr "ARMAZENAMENTO"
@@ -286,11 +289,14 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "STATUS"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "ATUALIZAR LISTAS DE JOGOS"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ATUALIZAR LISTAS DE JOGOS"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "CONFIGURAR UM CONTROLE"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -304,9 +310,6 @@ msgstr ""
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM EM SEU CONTROLE PRESSIONANDO UM BOTÃO JÁ CONFIGURADO EM SEU CONTROLE."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "CONFIGURAR UM CONTROLE"
-
 msgid "CONTROLLER PAIRED"
 msgstr "CONTROLE PAREADO"
 
@@ -316,11 +319,11 @@ msgstr "IMPOSSÍVEL DE PAREAR CONTROLE"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAREAR UM CONTROLE BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "DESCONECTAR CONTROLES BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -348,6 +351,30 @@ msgstr "SAÍDA DE VÍDEO"
 
 msgid "THEME SET"
 msgstr "TEMA"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
@@ -479,32 +506,38 @@ msgstr "WIFI ATIVO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRO NA CONFIGURAÇÃO DO WIFI"
 
-msgid "REALLY SCRAPE?"
-msgstr "REALIZAR SCRAPE?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "SCRAPER AUTOMÁTICO"
+
+msgid "REALLY SCRAPE?"
+msgstr "REALIZAR SCRAPE?"
 
 msgid "MANUAL SCRAPER"
 msgstr "SCRAPER MANUAL"
 
-msgid "REALLY RESTART?"
-msgstr "DESEJA REINICIAR?"
-
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "DESEJA DESLIGAR?"
+msgid "REALLY RESTART?"
+msgstr "DESEJA REINICIAR?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES?"
+msgid "REALLY SHUTDOWN?"
+msgstr "DESEJA DESLIGAR?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -1081,11 +1114,20 @@ msgstr "PARAR EDIÇÃO"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "SELECIONAR NADA"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1098,6 +1140,9 @@ msgstr "MODIFICAR"
 
 msgid "WORKING..."
 msgstr "EM PROGRESSO..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"

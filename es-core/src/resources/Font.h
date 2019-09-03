@@ -58,8 +58,8 @@ public:
 	float getHeight(float lineSpacing = 1.5f) const;
 	float getLetterHeight();
 
-	void unload(std::shared_ptr<ResourceManager>& rm) override;
-	void reload(std::shared_ptr<ResourceManager>& rm) override;
+	bool unload() override;
+	void reload() override;
 
 	int getSize() const;
 	inline const std::string& getPath() const { return mPath; }
@@ -125,7 +125,8 @@ private:
 		Vector2f bearing;
 	};
 
-	std::map<unsigned int, Glyph> mGlyphMap;
+	Glyph* mGlyphCacheArray[255]; // used to cache 255 first chars
+	std::map<unsigned int, Glyph*> mGlyphMap;
 
 	Glyph* getGlyph(unsigned int id);
 
@@ -133,6 +134,7 @@ private:
 	
 	const int mSize;
 	const std::string mPath;
+	bool mLoaded;
 
 	float getNewlineStartOffset(const std::string& text, const unsigned int& charStart, const float& xLen, const Alignment& alignment);
 

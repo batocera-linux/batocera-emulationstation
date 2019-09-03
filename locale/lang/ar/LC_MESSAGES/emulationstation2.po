@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,6 +70,9 @@ msgstr "تعديل بيانات اللعبة (METADATA)"
 
 msgid "ADVANCED"
 msgstr "متطور"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -143,6 +146,9 @@ msgstr "الاصدار"
 msgid "DISK USAGE"
 msgstr "الاستخدام للقرص"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -150,9 +156,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -287,11 +290,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "الحالة"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "تحديث قوائم الالعاب"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "تحديث قوائم الالعاب، متأكد؟"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "تحديث قوائم الالعاب"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "إعداد يد التحكم"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -305,9 +311,6 @@ msgstr ""
 "Key)، قم بإختيار زر (select).  قم بتخطي الازار التي لاتملكها وذلك بالاستمرار "
 "الضغط على اي زر. اسماء الازرار تم تعيينها وفق يد تحكم سوبر ننتندو (SNES)."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "إعداد يد التحكم"
-
 msgid "CONTROLLER PAIRED"
 msgstr "تم اقتران يد التحكم"
 
@@ -317,11 +320,11 @@ msgstr "فشل اقتران يد التحكم"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "اقتران يد تحكم بالبلوتوث"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #, c-format
 msgid "INPUT P%i"
@@ -344,6 +347,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "اختيار التنسيق"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -470,32 +497,38 @@ msgstr "WIFI مفعّل"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "إعدادت WIFI خاطئة"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "إعادة تشغيل، متأكد؟"
-
 msgid "RESTART SYSTEM"
 msgstr "إعادة تشغيل"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "إيقاف تشغيل، متأكد؟"
+msgid "REALLY RESTART?"
+msgstr "إعادة تشغيل، متأكد؟"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "إيقاف تشغيل"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "متاكد من ايقاف التشغيل من دون حفظ الـMETADATAS؟"
+msgid "REALLY SHUTDOWN?"
+msgstr "إيقاف تشغيل، متأكد؟"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "اعادة تشغيل سريع"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "متاكد من ايقاف التشغيل من دون حفظ الـMETADATAS؟"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "مُحاكي"
@@ -1084,11 +1117,20 @@ msgstr "ايقاف التعديل"
 msgid "EDIT"
 msgstr "تعديل"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "اختيار الكل"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "الغاء الاختيار"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1105,6 +1147,9 @@ msgstr "تغيير"
 
 msgid "WORKING..."
 msgstr "تشغيل..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "سيتم اعادة تشغيل النظام"

@@ -209,8 +209,8 @@ void TextEditComponent::setCursor(size_t pos)
 void TextEditComponent::onTextChanged()
 {
 	std::string wrappedText = (isMultiline() ? mFont->wrapText(mText, getTextAreaSize().x()) : mText);
-	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(wrappedText, 0, 0, 0x77777700 | getOpacity()));
-
+	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(wrappedText, 0, 0, (ThemeData::getMenuTheme()->Text.color & 0xFFFFFF00) | getOpacity()));
+	
 	if(mCursor > (int)mText.length())
 		mCursor = (unsigned int)mText.length();
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "게임 정보 편집"
 
 msgid "ADVANCED"
 msgstr "고급"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "완료"
@@ -142,6 +145,9 @@ msgstr "버전"
 msgid "DISK USAGE"
 msgstr "디스크 사용량"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "보조 파일 생성"
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "보조 파일을 만드시겠습니까?"
 
@@ -150,9 +156,6 @@ msgstr "파일 생성 완료"
 
 msgid "FILE GENERATION FAILED"
 msgstr "파일 생성 실패"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "보조 파일 생성"
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
@@ -286,11 +289,14 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "상태"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "컨트롤러 설정"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -304,9 +310,6 @@ msgstr ""
 "키 버턴이 없다면, 셀렉트 버턴을 선택하세요.모든버턴을 거르려면 너는 A키를 누"
 "르고 있을 필요는 없습니다. 버턴의 이름은 슈퍼패미콤 컨트롤러 기준이다."
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "컨트롤러 설정"
-
 msgid "CONTROLLER PAIRED"
 msgstr "컨트롤러 페어링 완료"
 
@@ -316,11 +319,11 @@ msgstr "컨트롤러 페어링 불가"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "블루투스 컨트롤러 페어링"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "컨트롤러와의 연결이 삭제되었습니다."
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "블루투스 컨트롤러 삭제"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
 #, c-format
 msgid "INPUT P%i"
@@ -346,6 +349,30 @@ msgstr "비디오 출력"
 
 msgid "THEME SET"
 msgstr "테마 선택"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임리스트 정렬방법"
@@ -475,32 +502,38 @@ msgstr "WIFI 활성화됨"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 구성 오류"
 
-msgid "REALLY SCRAPE?"
-msgstr "수집 할까요?"
-
 msgid "AUTOMATIC SCRAPER"
 msgstr "자동 수집"
+
+msgid "REALLY SCRAPE?"
+msgstr "수집 할까요?"
 
 msgid "MANUAL SCRAPER"
 msgstr "수동 수집"
 
-msgid "REALLY RESTART?"
-msgstr "정말로 다시 시작 하시겠습니까?"
-
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "정말로 시스템을 종료하시겠습니까?"
+msgid "REALLY RESTART?"
+msgstr "정말로 다시 시작 하시겠습니까?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "시스템 종료"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
+msgid "REALLY SHUTDOWN?"
+msgstr "정말로 시스템을 종료하시겠습니까?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "빠른 시스템 종료"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "에뮬레이터"
@@ -1071,11 +1104,20 @@ msgstr "편집 중단"
 msgid "EDIT"
 msgstr "편집"
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "모두 선택"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "모두 선택 안함"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1087,3 +1129,6 @@ msgstr "변경"
 
 msgid "WORKING..."
 msgstr "작업 중..."
+
+msgid "up/down"
+msgstr ""

@@ -6,10 +6,9 @@
 #include "Log.h"
 #include "platform.h"
 #include "Settings.h"
-#include <pugixml/src/pugixml.hpp>
 #include <algorithm>
 
-std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" } };
+std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
@@ -122,7 +121,18 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "textColor", COLOR },
 		{ "iconColor", COLOR },
 		{ "fontPath", PATH },
-		{ "fontSize", FLOAT } } },
+		{ "fontSize", FLOAT },
+		{ "iconUpDown", PATH },
+		{ "iconLeftRight", PATH },
+		{ "iconUpDownLeftRight", PATH },
+		{ "iconA", PATH },
+		{ "iconB", PATH },
+		{ "iconX", PATH },
+		{ "iconY", PATH },
+		{ "iconL", PATH },
+		{ "iconR", PATH },
+		{ "iconStart", PATH },
+		{ "iconSelect", PATH } } },
 	{ "video", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -147,8 +157,46 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoSize", NORMALIZED_PAIR },
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
-		{ "zIndex", FLOAT } } }
+		{ "zIndex", FLOAT } } },
+	{ "menuText", {
+		{ "fontPath", PATH },
+		{ "fontSize", FLOAT },
+		{ "separatorColor", COLOR },
+		{ "selectorColor", COLOR },
+		{ "selectorColorEnd", COLOR },
+		{ "selectedColor", COLOR },
+		{ "color", COLOR } } },
+	{ "menuTextSmall", {
+		{ "fontPath", PATH },
+		{ "fontSize", FLOAT },
+		{ "color", COLOR } } },
+	{ "menuBackground", {
+		{ "path", PATH },
+		{ "fadePath", PATH },
+		{ "color", COLOR } } },
+	{ "menuIcons", { 		
+		{ "iconSystem", PATH },
+		{ "iconUpdates", PATH },
+		{ "iconControllers", PATH },
+		{ "iconGames", PATH },
+		{ "iconUI", PATH },
+		{ "iconSound", PATH },
+		{ "iconNetwork", PATH },
+		{ "iconScraper", PATH },
+		{ "iconAdvanced", PATH },
+		{ "iconQuit", PATH } } },
+	{ "menuSwitch",{
+		{ "pathOn", PATH },
+		{ "pathOff", PATH } } },
+	{ "menuSlider",{
+		{ "path", PATH } } },
+	{ "menuButton",{
+		{ "path", PATH },
+		{ "filledPath", PATH } } },
 };
+
+std::shared_ptr<ThemeData::ThemeMenu> ThemeData::mMenuTheme;
+ThemeData* ThemeData::mDefaultTheme = nullptr;
 
 #define MINIMUM_THEME_FORMAT_VERSION 3
 #define CURRENT_THEME_FORMAT_VERSION 6
@@ -157,12 +205,20 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 unsigned int getHexColor(const char* str)
 {
 	ThemeException error;
-	if(!str)
-		throw error << "Empty color";
+	if (!str)
+	{
+		//throw error << "Empty color";
+		LOG(LogWarning) << "Empty color";
+		return 0;
+	}
 
 	size_t len = strlen(str);
 	if(len != 6 && len != 8)
-		throw error << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
+	{
+		//throw error << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
+		LOG(LogWarning) << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
+		return 0;
+	}
 
 	unsigned int val;
 	std::stringstream ss;
@@ -175,9 +231,7 @@ unsigned int getHexColor(const char* str)
 	return val;
 }
 
-std::map<std::string, std::string> mVariables;
-
-std::string resolvePlaceholders(const char* in)
+std::string ThemeData::resolvePlaceholders(const char* in)
 {
 	std::string inStr(in);
 
@@ -199,10 +253,17 @@ std::string resolvePlaceholders(const char* in)
 
 ThemeData::ThemeData()
 {
+	mHasSubsets = false;
+	mColorset = Settings::getInstance()->getString("ThemeColorSet");
+	mIconset = Settings::getInstance()->getString("ThemeIconSet");
+	mMenu = Settings::getInstance()->getString("ThemeMenu");
+	mSystemview = Settings::getInstance()->getString("ThemeSystemView");
+	mGamelistview = Settings::getInstance()->getString("ThemeGamelistView");
+
 	mVersion = 0;
 }
 
-void ThemeData::loadFile(std::map<std::string, std::string> sysDataMap, const std::string& path)
+void ThemeData::loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path)
 {
 	mPaths.push_back(path);
 
@@ -212,10 +273,13 @@ void ThemeData::loadFile(std::map<std::string, std::string> sysDataMap, const st
 	if(!Utils::FileSystem::exists(path))
 		throw error << "File does not exist!";
 
+	mHasSubsets = false;
 	mVersion = 0;
 	mViews.clear();
-	mVariables.clear();
 
+	mSystemThemeFolder = system;
+
+	mVariables.clear();
 	mVariables.insert(sysDataMap.cbegin(), sysDataMap.cend());
 
 	pugi::xml_document doc;
@@ -239,6 +303,62 @@ void ThemeData::loadFile(std::map<std::string, std::string> sysDataMap, const st
 	parseIncludes(root);
 	parseViews(root);
 	parseFeatures(root);
+
+	mMenuTheme = nullptr;
+	mDefaultTheme = this;
+}
+
+const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
+{
+	if (mMenuTheme == nullptr && mDefaultTheme != nullptr)
+		mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(mDefaultTheme));
+	else if (mMenuTheme == nullptr)
+	{
+		auto emptyData = ThemeData();
+		return std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(&emptyData));
+	}
+
+	return mMenuTheme;
+}
+
+std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path)
+{
+	std::string result = path;
+
+	size_t start_pos = result.find("$system");
+	if (start_pos == std::string::npos)
+		return path;
+
+	result.replace(start_pos, 7, systemThemeFolder);
+	return result;
+}
+
+bool ThemeData::parseSubset(const pugi::xml_node& node)
+{
+	if (!node.attribute("subset"))
+		return true;
+
+	mHasSubsets = true;
+
+	const std::string subsetAttr = node.attribute("subset").as_string();
+	const std::string nameAttr = node.attribute("name").as_string();
+
+	if (subsetAttr == "colorset" && nameAttr == mColorset)
+		return true;
+
+	if (subsetAttr == "iconset" && nameAttr == mIconset)
+		return true;
+
+	if (subsetAttr == "menu" && nameAttr == mMenu)
+		return true;
+
+	if (subsetAttr == "systemview" && nameAttr == mSystemview)
+		return true;
+
+	if (subsetAttr == "gamelistview" && nameAttr == mGamelistview)
+		return true;
+
+	return false;
 }
 
 void ThemeData::parseIncludes(const pugi::xml_node& root)
@@ -248,10 +368,18 @@ void ThemeData::parseIncludes(const pugi::xml_node& root)
 
 	for(pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
 	{
+		if (!parseSubset(node))
+			continue;
+
 		std::string relPath = resolvePlaceholders(node.text().as_string());
 		std::string path = Utils::FileSystem::resolveRelativePath(relPath, mPaths.back(), true);
+		path = resolveSystemVariable(mSystemThemeFolder, path);
+
 		if(!ResourceManager::getInstance()->fileExists(path))
-			throw error << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+		{
+			LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+			continue;
+		}		
 
 		error << "    from included file \"" << relPath << "\":\n    ";
 
@@ -282,8 +410,11 @@ void ThemeData::parseFeatures(const pugi::xml_node& root)
 
 	for(pugi::xml_node node = root.child("feature"); node; node = node.next_sibling("feature"))
 	{
-		if(!node.attribute("supported"))
-			throw error << "Feature missing \"supported\" attribute!";
+		if (!node.attribute("supported"))
+		{
+			LOG(LogWarning) << "Feature missing \"supported\" attribute!";
+			continue;
+		}
 
 		const std::string supportedAttr = node.attribute("supported").as_string();
 
@@ -322,8 +453,11 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 	// parse views
 	for(pugi::xml_node node = root.child("view"); node; node = node.next_sibling("view"))
 	{
-		if(!node.attribute("name"))
-			throw error << "View missing \"name\" attribute!";
+		if (!node.attribute("name"))
+		{
+			LOG(LogWarning) << "View missing \"name\" attribute!";
+			continue;
+		}
 
 		const char* delim = " \t\r\n,";
 		const std::string nameAttr = node.attribute("name").as_string();
@@ -353,31 +487,62 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view)
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		if(!node.attribute("name"))
-			throw error << "Element of type \"" << node.name() << "\" missing \"name\" attribute!";
+		{		
+			LOG(LogWarning) << "Element of type \"" << node.name() << "\" missing \"name\" attribute!";
+			continue;
+		}		
 
 		auto elemTypeIt = sElementMap.find(node.name());
 		if(elemTypeIt == sElementMap.cend())
-			throw error << "Unknown element of type \"" << node.name() << "\"!";
+		{		
+			LOG(LogWarning) << "Unknown element of type \"" << node.name() << "\"!";
+			continue;
+		}		
 
-		const char* delim = " \t\r\n,";
-		const std::string nameAttr = node.attribute("name").as_string();
-		size_t prevOff = nameAttr.find_first_not_of(delim, 0);
-		size_t off =  nameAttr.find_first_of(delim, prevOff);
-		while(off != std::string::npos || prevOff != std::string::npos)
+		if (parseRegion(node))
 		{
-			std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
-			prevOff = nameAttr.find_first_not_of(delim, off);
-			off = nameAttr.find_first_of(delim, prevOff);
-			
-			parseElement(node, elemTypeIt->second, 
-				view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second);
+			const char* delim = " \t\r\n,";
+			const std::string nameAttr = node.attribute("name").as_string();
+			size_t prevOff = nameAttr.find_first_not_of(delim, 0);
+			size_t off = nameAttr.find_first_of(delim, prevOff);
+			while (off != std::string::npos || prevOff != std::string::npos)
+			{
+				std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
+				prevOff = nameAttr.find_first_not_of(delim, off);
+				off = nameAttr.find_first_of(delim, prevOff);
 
-			if(std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
-				view.orderedKeys.push_back(elemKey);
+				parseElement(node, elemTypeIt->second,
+					view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second);
+
+				if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
+					view.orderedKeys.push_back(elemKey);
+			}
 		}
 	}
 }
 
+bool ThemeData::parseRegion(const pugi::xml_node& node)
+{
+	if (!node.attribute("region"))
+		return true;
+
+	std::string regionsetting = Settings::getInstance()->getString("ThemeRegionName");
+	
+	const char* delim = " \t\r\n,";
+	const std::string nameAttr = node.attribute("region").as_string();
+	size_t prevOff = nameAttr.find_first_not_of(delim, 0);
+	size_t off = nameAttr.find_first_of(delim, prevOff);
+	while (off != std::string::npos || prevOff != std::string::npos)
+	{
+		std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
+		prevOff = nameAttr.find_first_not_of(delim, off);
+		off = nameAttr.find_first_of(delim, prevOff);
+		if (elemKey == regionsetting)
+			return true;
+	}
+
+	return false;
+}
 
 void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element)
 {
@@ -389,19 +554,40 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
+		ElementPropertyType type = STRING;
+
+		if (element.type == "menuIcons")
+		{
+			auto tmp = 1;
+		}
+
 		auto typeIt = typeMap.find(node.name());
 		if(typeIt == typeMap.cend())
-			throw error << "Unknown property type \"" << node.name() << "\" (for element of type " << root.name() << ").";
+		{
+			// Exception for menuIcons that can be extended
+			if (element.type == "menuIcons")
+				type = PATH;
+			else
+			{
+				LOG(LogWarning) << "Unknown property type \"" << node.name() << "\" (for element of type " << root.name() << ").";
+				continue;
+			}
+		}
+		else
+			type = typeIt->second;
+		
+		std::string str = resolveSystemVariable(mSystemThemeFolder, resolvePlaceholders(node.text().as_string()));
 
-		std::string str = resolvePlaceholders(node.text().as_string());
-
-		switch(typeIt->second)
+		switch(type)
 		{
 		case NORMALIZED_PAIR:
 		{
 			size_t divider = str.find(' ');
 			if(divider == std::string::npos) 
-				throw error << "invalid normalized pair (property \"" << node.name() << "\", value \"" << str.c_str() << "\")";
+			{			
+				LOG(LogWarning) << "invalid normalized pair (property \"" << node.name() << "\", value \"" << str.c_str() << "\")";
+				break;
+			}			
 
 			std::string first = str.substr(0, divider);
 			std::string second = str.substr(divider, std::string::npos);
@@ -417,6 +603,14 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		case PATH:
 		{
 			std::string path = Utils::FileSystem::resolveRelativePath(str, mPaths.back(), true);
+
+			if (!ResourceManager::getInstance()->fileExists(path))
+			{
+				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, mPaths.front(), true);
+				if (ResourceManager::getInstance()->fileExists(rootPath))
+					path = rootPath;
+			}
+
 			if(!ResourceManager::getInstance()->fileExists(path))
 			{
 				std::stringstream ss;
@@ -426,7 +620,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 					ss << "(which resolved to \"" << path << "\") ";
 				LOG(LogWarning) << ss.str();
 			}
-			element.properties[node.name()] = path;
+			else
+				element.properties[node.name()] = path;
+
 			break;
 		}
 		case COLOR:
@@ -450,7 +646,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		}
 		default:
-			throw error << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << node.name();
+			LOG(LogWarning) << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << node.name();
+			break;
 		}
 	}
 }
@@ -493,7 +690,7 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 			try
 			{
 				std::map<std::string, std::string> emptyMap;
-				theme->loadFile(emptyMap, path);
+				theme->loadFile("", emptyMap, path);
 			} catch(ThemeException& e)
 			{
 				LOG(LogError) << e.what();
@@ -518,12 +715,16 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 		ThemeElement& elem = viewIt->second.elements.at(*it);
 		if(elem.extra)
 		{
-			GuiComponent* comp = NULL;
+			GuiComponent* comp = nullptr;
+
 			const std::string& t = elem.type;
 			if(t == "image")
 				comp = new ImageComponent(window);
 			else if(t == "text")
 				comp = new TextComponent(window);
+
+			if (comp == nullptr)
+				continue;
 
 			comp->setDefaultZIndex(10);
 			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
@@ -584,4 +785,226 @@ std::string ThemeData::getThemeFromCurrentSet(const std::string& system)
 	}
 
 	return set->second.getThemePath(system);
+}
+
+ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
+{
+	Title.font = Font::get(FONT_SIZE_LARGE);
+	Footer.font = Font::get(FONT_SIZE_SMALL);
+	Text.font = Font::get(FONT_SIZE_MEDIUM);
+	TextSmall.font = Font::get(FONT_SIZE_SMALL);
+
+	auto elem = theme->getElement("menu", "menubg", "menuBackground");
+	if (elem)
+	{
+		if (elem->has("path") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("path")))
+			Background.path = elem->get<std::string>("path");
+
+		if (elem->has("fadePath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("fadePath")))
+			Background.fadePath = elem->get<std::string>("fadePath");
+
+		if (elem->has("color"))
+			Background.color = elem->get<unsigned int>("color");
+	}
+
+	elem = theme->getElement("menu", "menutitle", "menuText");
+	if (elem)
+	{
+		if (elem->has("fontPath") || elem->has("fontSize"))
+			Title.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_LARGE));
+		if (elem->has("color"))
+			Title.color = elem->get<unsigned int>("color");
+	}
+
+	elem = theme->getElement("menu", "menufooter", "menuText");
+	if (elem)
+	{
+		if (elem->has("fontPath") || elem->has("fontSize"))
+			Footer.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+		if (elem->has("color"))
+			Footer.color = elem->get<unsigned int>("color");
+	}
+
+	elem = theme->getElement("menu", "menutextsmall", "menuTextSmall");
+	if (elem)
+	{
+		if (elem->has("fontPath") || elem->has("fontSize"))
+			TextSmall.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+
+		if (elem->has("color"))
+			TextSmall.color = elem->get<unsigned int>("color");
+		if (elem->has("selectedColor"))
+			Text.selectedColor = elem->get<unsigned int>("selectedColor");
+		if (elem->has("selectorColor"))
+			Text.selectedColor = elem->get<unsigned int>("selectorColor");
+	}
+
+	elem = theme->getElement("menu", "menutext", "menuText");
+	if (elem)
+	{
+		if (elem->has("fontPath") || elem->has("fontSize"))
+			Text.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_MEDIUM));
+
+		if (elem->has("color"))
+			Text.color = elem->get<unsigned int>("color");
+		if (elem->has("separatorColor"))
+			Text.separatorColor = elem->get<unsigned int>("separatorColor");
+		if (elem->has("selectedColor"))
+			Text.selectedColor = elem->get<unsigned int>("selectedColor");
+		if (elem->has("selectorColor"))
+			Text.selectorColor = elem->get<unsigned int>("selectorColor");
+		if (elem->has("selectorColorEnd"))
+			Text.selectorGradientColor = elem->get<unsigned int>("selectorColorEnd");
+	}
+
+	elem = theme->getElement("menu", "menubutton", "menuButton");
+	if (elem)
+	{
+		if (elem->has("path"))
+			Icons.button = elem->get<std::string>("path");
+		if (elem->has("filledPath"))
+			Icons.button_filled = elem->get<std::string>("filledPath");
+	}
+
+	elem = theme->getElement("menu", "menuswitch", "menuSwitch");
+	if (elem)
+	{
+		if (elem->has("pathOn") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("pathOn")))
+			Icons.on = elem->get<std::string>("pathOn");
+		if (elem->has("pathOff") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("pathOff")))
+			Icons.off = elem->get<std::string>("pathOff");
+	}
+
+	elem = theme->getElement("menu", "menuslider", "menuSlider");
+	if (elem && elem->has("path") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("path")))
+		Icons.knob = elem->get<std::string>("path");
+
+	elem = theme->getElement("menu", "menuicons", "menuIcons");
+	if (elem)
+	{
+		for (auto prop : elem->properties)
+		{
+			std::string path = prop.second.s;
+			if (!path.empty() && ResourceManager::getInstance()->fileExists(path))
+				mMenuIcons[prop.first] = path;
+		}
+	}
+}
+
+std::map<std::string, std::string> ThemeData::sortThemeSubSets(const std::map<std::string, std::string>& subsetmap, const std::string& subset)
+{
+	std::map<std::string, std::string> sortedsets;
+
+	for (const auto& it : subsetmap)
+	{
+		if (it.second == subset)
+			sortedsets[it.first] = it.first;
+	}
+	return sortedsets;
+}
+
+
+void ThemeData::crawlIncludes(const pugi::xml_node& root, std::map<std::string, std::string>& sets, std::deque<std::string>& dequepath)
+{
+	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
+	{
+		sets[node.attribute("name").as_string()] = node.attribute("subset").as_string();
+
+		const char* relPath = node.text().get();
+		std::string path = Utils::FileSystem::resolveRelativePath(relPath, dequepath.back(), true);
+
+		dequepath.push_back(path);
+		pugi::xml_document includeDoc;
+		/*pugi::xml_parse_result result =*/ includeDoc.load_file(path.c_str());
+
+		pugi::xml_node root = includeDoc.child("theme");
+		crawlIncludes(root, sets, dequepath);
+		findRegion(includeDoc, sets);
+		dequepath.pop_back();
+	}
+}
+
+void ThemeData::findRegion(const pugi::xml_document& doc, std::map<std::string, std::string>& sets)
+{
+	pugi::xpath_node_set regionattr = doc.select_nodes("//@region");
+	for (auto xpath_node : regionattr)
+	{
+		if (xpath_node.attribute() != nullptr)
+			sets[xpath_node.attribute().value()] = "region";
+	}
+}
+
+std::map<std::string, std::string> ThemeData::getThemeSubSets(const std::string& theme)
+{
+	std::map<std::string, std::string> sets;
+
+	std::deque<std::string> dequepath;
+
+	static const size_t pathCount = 2;
+	std::string paths[pathCount] =
+	{
+		"/etc/emulationstation/themes",
+		Utils::FileSystem::getHomePath() + "/.emulationstation/themes"
+	};
+
+	for (size_t i = 0; i < pathCount; i++)
+	{
+		if (!Utils::FileSystem::isDirectory(paths[i]))
+			continue;
+
+		auto dirs = Utils::FileSystem::getDirectoryFiles(paths[i] + "/" + theme);
+		for (auto it = dirs.cbegin(); it != dirs.cend(); ++it)
+		{
+			if (!it->directory || it->hidden)
+				continue;
+
+			std::string path = it->path + "/theme.xml";
+			if (!Utils::FileSystem::exists(path))
+				continue;
+
+			dequepath.push_back(path);
+			pugi::xml_document doc;
+			doc.load_file(path.c_str());
+
+			pugi::xml_node root = doc.child("theme");
+			crawlIncludes(root, sets, dequepath);
+			findRegion(doc, sets);
+			dequepath.pop_back();
+		}
+
+		std::string path = paths[i] + "/" + theme + "/theme.xml";
+		if (!Utils::FileSystem::exists(path))
+			continue;
+
+		dequepath.push_back(path);
+		pugi::xml_document doc;
+		doc.load_file(path.c_str());
+
+		pugi::xml_node root = doc.child("theme");
+		crawlIncludes(root, sets, dequepath);
+		findRegion(doc, sets);
+		dequepath.pop_back();
+	}
+
+	return sets;
+}
+
+void ThemeData::setDefaultTheme(ThemeData* theme) 
+{ 
+	mDefaultTheme = theme; 
+	mMenuTheme = nullptr;
+};
+
+std::vector<std::string> ThemeData::getViewsOfTheme()
+{
+	std::vector<std::string> ret;
+	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
+	{
+		if (it->first == "menu" || it->first == "system")
+			continue;
+
+		ret.push_back(it->first);
+	}
+
+	return ret;
 }

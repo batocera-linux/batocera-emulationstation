@@ -21,7 +21,7 @@ public:
 	void initFromPath(const std::string& path);
 	bool initSVGFromMemory(const unsigned char* fileData, size_t length);
 	bool initImageFromMemory(const unsigned char* fileData, size_t length);
-	bool initFromRGBA(const unsigned char* dataRGBA, size_t width, size_t height);
+	bool initFromRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool copyData = true);
 
 	// Read the data into memory if necessary
 	bool load();
@@ -49,6 +49,9 @@ public:
 
 	bool tiled() { return mTile; }
 
+	unsigned char* getDataRGBA() {
+		return mDataRGBA;
+	}
 private:
 	std::mutex		mMutex;
 	bool			mTile;

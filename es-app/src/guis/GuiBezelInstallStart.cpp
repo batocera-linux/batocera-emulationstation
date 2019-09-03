@@ -13,13 +13,15 @@
 GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
         :GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str())
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mMenu);
 	ComponentListRow row;
       {
         auto openBezelInstallNow = [this] { mWindow->pushGui(new GuiBezelInstallStart(mWindow)); };
         row.makeAcceptInputHandler(openBezelInstallNow);
         auto BezelInstallSettings = std::make_shared<TextComponent>(mWindow, _("INSTALL BEZELS"),
-                                                          Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+			theme->Text.font, theme->Text.color);
         auto bracket = makeArrow(mWindow);
         row.addElement(BezelInstallSettings, true);
         row.addElement(bracket, false);
@@ -30,7 +32,7 @@ GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
         auto openBezelUninstallNow = [this] { mWindow->pushGui(new GuiBezelUninstallStart(mWindow)); };
         row.makeAcceptInputHandler(openBezelUninstallNow);
         auto BezelUninstallSettings = std::make_shared<TextComponent>(mWindow, _("UNINSTALL BEZELS"),
-                                                          Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+			theme->Text.font, theme->Text.color);
         auto bracket = makeArrow(mWindow);
         row.addElement(BezelUninstallSettings, true);
         row.addElement(bracket, false);
@@ -75,10 +77,12 @@ std::vector<HelpPrompt> GuiBezelInstallMenu::getHelpPrompts()
 GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	:GuiComponent(window), mMenu(window, _("INSTALL THE BEZEL PROJECT").c_str())
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mMenu);
 	ComponentListRow row;
 	
-	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"), theme->Text.font, theme->Text.color), true);
 	mMenu.addRow(row);
 	row.elements.clear();
 
@@ -88,7 +92,7 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
         for(auto it = availableBezels.begin(); it != availableBezels.end(); it++){
 
                 auto itstring = std::make_shared<TextComponent>(mWindow,
-                                (*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+                                (*it).c_str(), theme->TextSmall.font, theme->Text.color);
 
                 char *tmp=new char [(*it).length()+1];
                 mSelectedBezel=new char [(*it).length()+1];
@@ -157,10 +161,12 @@ std::vector<HelpPrompt> GuiBezelInstallStart::getHelpPrompts()
 GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 	:GuiComponent(window), mMenu(window, _("UNINSTALL THE BEZEL PROJECT").c_str())
 {
+	auto theme = ThemeData::getMenuTheme();
+
 	addChild(&mMenu);
 	ComponentListRow row;
 	
-	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"), theme->Text.font, theme->Text.color), true);
 	mMenu.addRow(row);
 	row.elements.clear();
 
@@ -170,7 +176,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
         for(auto it = availableBezels.begin(); it != availableBezels.end(); it++){
 
                 auto itstring = std::make_shared<TextComponent>(mWindow,
-                                (*it).c_str(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+                                (*it).c_str(), theme->TextSmall.font, theme->Text.color);
                 char *tmp=new char [(*it).length()+1];
                 mSelectedBezel=new char [(*it).length()+1];
                 std::strcpy (tmp, (*it).c_str());
@@ -189,7 +195,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 			// Let's put the pretty name of the system
 			if (! strcmp ((*itSystem)->getName().c_str(), bezel_cli))
 				itstring = std::make_shared<TextComponent>(mWindow,
-						(*itSystem)->getFullName(), Font::get(FONT_SIZE_SMALL), 0x777777FF);
+						(*itSystem)->getFullName(), theme->TextSmall.font, theme->Text.color);
 		}
 
                 // Names longer than this will crash GuiMsgBox downstream

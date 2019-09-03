@@ -41,6 +41,8 @@ public:
 	void setCornerSize(int sizeX, int sizeY);
 	inline void setCornerSize(const Vector2f& size) { setCornerSize(size.x(), size.y()); }
 
+	virtual void setOpacity(unsigned char opacity);
+
 private:
 	void buildVertices();
 	void updateColors();

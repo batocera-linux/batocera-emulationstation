@@ -56,6 +56,7 @@ public:
 
 	// Multiply all pixels in the image by this color when rendering.
 	void setColorShift(unsigned int color);
+	virtual void setColor(unsigned int color) { setColorShift(color); }
 
 	void setFlipX(bool flip); // Mirror on the X axis.
 	void setFlipY(bool flip); // Mirror on the Y axis.

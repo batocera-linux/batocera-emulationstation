@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 21:23+0200\n"
+"POT-Creation-Date: 2019-08-30 22:11+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgstr "編輯此遊戲的簡介資料"
 
 msgid "ADVANCED"
 msgstr "進階設定"
+
+msgid "RESET ALL FILTERS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr ""
@@ -142,6 +145,9 @@ msgstr "版本"
 msgid "DISK USAGE"
 msgstr "磁碟使用情況"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
@@ -149,9 +155,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
 msgid "STORAGE DEVICE"
@@ -286,11 +289,14 @@ msgstr ""
 msgid "STATUS"
 msgstr "目前狀態"
 
+msgid "UPDATE GAMES LISTS"
+msgstr "更新遊戲列表"
+
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "確定要進行遊戲列表更新嗎?"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "更新遊戲列表"
+msgid "CONFIGURE A CONTROLLER"
+msgstr "設定遊戲控制器"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -305,9 +311,6 @@ msgstr ""
 "若無足夠按鍵設定「熱鍵」請直接按SELECT鍵\n"
 "預設按鍵名稱定義來自超任手把"
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "設定遊戲控制器"
-
 msgid "CONTROLLER PAIRED"
 msgstr "遊戲控制器已設定成功"
 
@@ -317,11 +320,11 @@ msgstr "無法成功設定遊戲控制器"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "配對藍牙遊戲控制器"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "遊戲控制器已經刪除"
-
 msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "解除配對藍芽控制器"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "遊戲控制器已經刪除"
 
 #, c-format
 msgid "INPUT P%i"
@@ -344,6 +347,30 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "主題佈景設定"
+
+msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "THEME COLORSET"
+msgstr ""
+
+msgid "THEME ICONSET"
+msgstr ""
+
+msgid "THEME MENU"
+msgstr ""
+
+msgid "THEME SYSTEMVIEW"
+msgstr ""
+
+msgid "THEME GAMELISTVIEW"
+msgstr ""
+
+msgid "THEME REGION"
+msgstr ""
+
+msgid "THIS THEME HAS NO OPTION"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
@@ -470,32 +497,38 @@ msgstr "已啟用WIFI無線網路"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI無線網路設定錯誤"
 
-msgid "REALLY SCRAPE?"
+msgid "AUTOMATIC SCRAPER"
 msgstr ""
 
-msgid "AUTOMATIC SCRAPER"
+msgid "REALLY SCRAPE?"
 msgstr ""
 
 msgid "MANUAL SCRAPER"
 msgstr ""
 
-msgid "REALLY RESTART?"
-msgstr "確定要重新啟動嗎?"
-
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
 
-msgid "REALLY SHUTDOWN?"
-msgstr "確定要關機嗎?"
+msgid "REALLY RESTART?"
+msgstr "確定要重新啟動嗎?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "系統關機"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "確定不儲存資料直接關機嗎?"
+msgid "REALLY SHUTDOWN?"
+msgstr "確定要關機嗎?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速關機"
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgstr "確定不儲存資料直接關機嗎?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr ""
+
+msgid "REALLY QUIT?"
+msgstr ""
 
 msgid "Emulator"
 msgstr "模擬器"
@@ -1059,11 +1092,20 @@ msgstr ""
 msgid "EDIT"
 msgstr ""
 
+msgid "accept"
+msgstr ""
+
 msgid "SELECT ALL"
 msgstr "選擇全部"
 
+msgid "select all"
+msgstr ""
+
 msgid "SELECT NONE"
 msgstr "取消選擇"
+
+msgid "select none"
+msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1075,6 +1117,9 @@ msgstr "修改"
 
 msgid "WORKING..."
 msgstr "更新中..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "系統將重新啟動"

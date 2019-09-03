@@ -1,6 +1,7 @@
 #define _FILE_OFFSET_BITS 64
 
 #include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
 
 #include "Settings.h"
 #include <sys/stat.h>
@@ -47,18 +48,6 @@ namespace Utils
 
 #if defined(_WIN32)
 		static std::mutex mFileMutex;
-
-		static std::string convertFromWideString(const std::wstring wstring)
-		{
-			int         numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
-			std::string string;
-
-			string.resize(numBytes);
-			WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), (char*)string.c_str(), numBytes, nullptr, nullptr);
-
-			return std::string(string);
-
-		} // convertFromWideString
 #endif // _WIN32
 
 		stringList getDirContent(const std::string& _path, const bool _recursive)
@@ -85,7 +74,7 @@ namespace Utils
 					// loop over all files in the directory
 					do
 					{
-						std::string name = convertFromWideString(findData.cFileName);
+						std::string name = Utils::String::convertFromWideString(findData.cFileName);
 
 						// ignore "." and ".."
 						if((name != ".") && (name != ".."))
@@ -140,6 +129,76 @@ namespace Utils
 			return contentList;
 
 		} // getDirContent
+
+		fileList getDirectoryFiles(const std::string& _path)
+		{
+			std::string path = getGenericPath(_path);
+			fileList  contentList;
+
+			// only parse the directory, if it's a directory
+			if (isDirectory(path))
+			{
+#if defined(_WIN32)
+				std::unique_lock<std::mutex> lock(mFileMutex);
+
+				WIN32_FIND_DATAW findData;
+				std::string      wildcard = path + "/*";
+				HANDLE           hFind = FindFirstFileW(std::wstring(wildcard.begin(), wildcard.end()).c_str(), &findData);
+
+				if (hFind != INVALID_HANDLE_VALUE)
+				{
+					// loop over all files in the directory
+					do
+					{
+						std::string name = Utils::String::convertFromWideString(findData.cFileName);
+
+						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && name == "." || name == "..")
+							continue;
+
+						FileInfo fi;
+						fi.path = path + "/" + name;
+						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
+						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
+						contentList.push_back(fi);
+					} while (FindNextFileW(hFind, &findData));
+
+					FindClose(hFind);
+				}
+#else // _WIN32
+				DIR* dir = opendir(path.c_str());
+
+				if (dir != NULL)
+				{
+					struct dirent* entry;
+
+					// loop over all files in the directory
+					while ((entry = readdir(dir)) != NULL)
+					{
+						std::string name(entry->d_name);
+
+						// ignore "." and ".."
+						if ((name != ".") && (name != ".."))
+						{
+							std::string fullName(getGenericPath(path + "/" + name));
+
+							FileInfo fi;
+							fi.path = fullName;
+							fi.hidden = Utils::FileSystem::isHidden(fullName);
+							fi.directory = isDirectory(fullName); // Way to optimize using ??? (entry->d_type & DT_DIR) == DT_DIR  ?
+							contentList.push_back(fi);
+						}
+					}
+
+					closedir(dir);
+				}
+#endif // _WIN32
+
+			}
+
+			// return the content list
+			return contentList;
+
+		} // getDirectoryFiles
 
 		stringList getPathList(const std::string& _path)
 		{

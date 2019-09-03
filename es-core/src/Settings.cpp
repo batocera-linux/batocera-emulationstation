@@ -144,6 +144,9 @@ void Settings::setDefaults()
 	mBoolMap["SortAllSystems"] = true; // batocera
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 
+	mBoolMap["CollectionShowSystemInfo"] = true;
+	mBoolMap["FavoritesFirst"] = true;
+
 	mBoolMap["LocalArt"] = false;
 
 	// Audio out device for volume control
@@ -159,6 +162,13 @@ void Settings::setDefaults()
 	mBoolMap["ForceKiosk"] = false;
 	mBoolMap["ForceKid"] = false;
 	mBoolMap["ForceDisableFilters"] = false;
+
+	mStringMap["ThemeColorSet"] = "";
+	mStringMap["ThemeIconSet"] = "";
+	mStringMap["ThemeMenu"] = "";
+	mStringMap["ThemeSystemView"] = "";
+	mStringMap["ThemeGamelistView"] = "";
+	mStringMap["ThemeRegionName"] = "eu";
 
 	mBoolMap["ThreadedLoading"] = true;
 

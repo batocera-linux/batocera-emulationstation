@@ -5,6 +5,7 @@
 #include "components/ImageComponent.h"
 #include "resources/Font.h"
 #include "PowerSaver.h"
+#include "ThemeData.h"
 
 enum CursorState
 {
@@ -89,7 +90,8 @@ public:
 		mTitleOverlayOpacity = 0x00;
 		mTitleOverlayColor = 0xFFFFFF00;
 		mGradient.setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-		mGradient.setImage(":/scroll_gradient.png");
+		mGradient.setImage(ThemeData::getMenuTheme()->Background.fadePath); // ":/scroll_gradient.png"
+		
 		mTitleOverlayFont = Font::get(FONT_SIZE_LARGE);
 	}
 
@@ -112,7 +114,11 @@ public:
 	// batocera
 	void setCursorIndex(int index)
 	{
-		if(index > 0 && index < mEntries.size()) {
+		if (mCursor == index)
+			return;
+
+		if(index >= 0 && index < (int)mEntries.size()) 
+		{
 			mCursor = index;
 			onCursorChanged(CURSOR_STOPPED);
 		}

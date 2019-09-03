@@ -20,6 +20,7 @@ public:
 	void render(const Transform4x4f& parent) override;
 	void setOpacity(unsigned char opacity) override;
 
+	inline HelpStyle& getStyle() { return mStyle; }
 	void setStyle(const HelpStyle& style);
 
 private:

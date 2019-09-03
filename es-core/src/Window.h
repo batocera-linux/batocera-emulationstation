@@ -104,6 +104,9 @@ private:
 
 	// clock // batocera
 	int mClockElapsed;
+
+	unsigned int mClockColor;
+	std::shared_ptr<Font> mClockFont;
 	std::unique_ptr<TextCache> mClockText;
 
 	// pads // batocera

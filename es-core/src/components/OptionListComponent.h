@@ -6,6 +6,7 @@
 #include "Log.h"
 #include "Window.h"
 #include "LocaleES.h"
+#include "ThemeData.h"
 
 //Used to display a list of options.
 //Can select one or multiple options.
@@ -40,7 +41,10 @@ private:
 		OptionListPopup(Window* window, OptionListComponent<T>* parent, const std::string& title) : GuiComponent(window),
 			mMenu(window, title.c_str()), mParent(parent)
 		{
-			auto font = Font::get(FONT_SIZE_MEDIUM);
+			auto menuTheme = ThemeData::getMenuTheme();
+			auto font = menuTheme->Text.font;
+			auto color = menuTheme->Text.color;
+
 			ComponentListRow row;
 
 			// for select all/none
@@ -49,7 +53,7 @@ private:
 			for(auto it = mParent->mEntries.begin(); it != mParent->mEntries.end(); it++)
 			{
 				row.elements.clear();
-				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(it->name), font, 0x777777FF), true);
+				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(it->name), font, color), true);
 
 				OptionListData& e = *it;
 
@@ -88,11 +92,11 @@ private:
 				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected));
 			}
 
-			mMenu.addButton(_("BACK"), "accept", [this] { delete this; }); // batocera
+			mMenu.addButton(_("BACK"), _("accept"), [this] { delete this; }); // batocera
 
 			if(mParent->mMultiSelect)
 			{
-			  mMenu.addButton(_("SELECT ALL"), "select all", [this, checkboxes] { // batocera
+			  mMenu.addButton(_("SELECT ALL"), _("select all"), [this, checkboxes] { // batocera
 					for(unsigned int i = 0; i < mParent->mEntries.size(); i++)
 					{
 						mParent->mEntries.at(i).selected = true;
@@ -101,7 +105,7 @@ private:
 					mParent->onSelectedChanged();
 				});
 
-				mMenu.addButton(_("SELECT NONE"), "select none", [this, checkboxes] { // batocera
+				mMenu.addButton(_("SELECT NONE"), _("select none"), [this, checkboxes] { // batocera
 					for(unsigned int i = 0; i < mParent->mEntries.size(); i++)
 					{
 						mParent->mEntries.at(i).selected = false;
@@ -138,9 +142,10 @@ public:
 	OptionListComponent(Window* window, const std::string& name, bool multiSelect = false) : GuiComponent(window), mMultiSelect(multiSelect), mName(name),
 		 mText(window), mLeftArrow(window), mRightArrow(window)
 	{
-		auto font = Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT);
-		mText.setFont(font);
-		mText.setColor(0x777777FF);
+		auto theme = ThemeData::getMenuTheme();
+
+		mText.setFont(theme->Text.font);
+		mText.setColor(theme->Text.color);
 		mText.setHorizontalAlignment(ALIGN_CENTER);
 		addChild(&mText);
 
@@ -149,18 +154,30 @@ public:
 
 		if(mMultiSelect)
 		{
-			mRightArrow.setImage(":/arrow.svg");
+			mRightArrow.setImage(ThemeData::getMenuTheme()->Icons.arrow);
+			mRightArrow.setColorShift(theme->Text.color);
 			addChild(&mRightArrow);
-		}else{
-			mLeftArrow.setImage(":/option_arrow.svg");
+		}
+		else
+		{
+			mLeftArrow.setImage(ThemeData::getMenuTheme()->Icons.option_arrow);
+			mLeftArrow.setColorShift(theme->Text.color);
 			mLeftArrow.setFlipX(true);
 			addChild(&mLeftArrow);
 
-			mRightArrow.setImage(":/option_arrow.svg");
+			mRightArrow.setImage(ThemeData::getMenuTheme()->Icons.option_arrow); // ":/option_arrow.svg");
+			mRightArrow.setColorShift(theme->Text.color);
 			addChild(&mRightArrow);
 		}
 
-		setSize(mLeftArrow.getSize().x() + mRightArrow.getSize().x(), font->getHeight());
+		setSize(mLeftArrow.getSize().x() + mRightArrow.getSize().x(), theme->Text.font->getHeight());
+	}
+
+	virtual void setColor(unsigned int color)
+	{
+		mText.setColor(color);
+		mLeftArrow.setColorShift(color);
+		mRightArrow.setColorShift(color);
 	}
 
 	// handles positioning/resizing of text and arrows
@@ -206,6 +223,9 @@ public:
 
 				}else if(config->isMappedLike("right", input))
 				{
+					if (mEntries.size() == 0)
+						return true;
+
 					// move selection to next
 					unsigned int i = getSelectedId();
 					int next = (i + 1) % mEntries.size();
@@ -297,6 +317,25 @@ public:
 	  return firstSelected != getSelected();
 	}
 
+	void selectFirstItem()
+	{
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+			mEntries.at(i).selected = false;
+
+		if (mEntries.size() > 0)
+			mEntries.at(0).selected = true;
+
+		onSelectedChanged();
+	}
+
+	void clear() {
+		mEntries.clear();
+	}
+
+	inline void invalidate() {
+		onSelectedChanged();
+	}
+
 private:
 	unsigned int getSelectedId()
 	{
@@ -348,10 +387,9 @@ private:
 			}
 		}
 
-                // batocera
-		if (mSelectedChangedCallback) {
-			mSelectedChangedCallback(mEntries.at(getSelectedId()).object);
-		}
+        // batocera
+		if (mSelectedChangedCallback)
+			mSelectedChangedCallback(mEntries.at(getSelectedId()).object);		
 	}
 
 	std::vector<HelpPrompt> getHelpPrompts() override
