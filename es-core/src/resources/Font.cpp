@@ -244,11 +244,10 @@ std::vector<std::string> getFallbackFontPaths()
 	fontDir += "\\Fonts\\";
 
 	const char* fontNames[] = {
-		":/fontawesome_webfont.ttf",
 		":/fontawesome-webfont.ttf",
+		"arial.ttf",   // latin
 		"meiryo.ttc", // japanese
-		"simhei.ttf", // chinese		
-		"arial.ttf"   // latin
+		"simhei.ttf" // chinese				
 	};
 
 	//prepend to font file names

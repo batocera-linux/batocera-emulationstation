@@ -17,6 +17,7 @@ class InputConfig;
 class TextCache;
 class Transform4x4f;
 struct HelpStyle;
+class TextureResource;
 
 class Window
 {
@@ -66,6 +67,7 @@ public:
 	void setAllowSleep(bool sleep);
 
 	void renderLoadingScreen(std::string text, float percent = -1, unsigned char opacity = 255);
+	void endRenderLoadingScreen();
 
 	void renderHelpPromptsEarly(); // used to render HelpPrompts before a fade
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
@@ -95,6 +97,7 @@ private:
 	std::vector<std::string> mMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
+	std::shared_ptr<TextureResource> mSplash;
 
 	int mFrameTimeElapsed;
 	int mFrameCountElapsed;

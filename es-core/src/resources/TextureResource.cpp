@@ -107,7 +107,7 @@ bool TextureResource::bind()
 	return sTextureDataManager.bind(this);	
 }
 
-std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic)
+std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 
@@ -132,10 +132,13 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic));
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get());
 
-	sTextureMap[key] = std::weak_ptr<TextureResource>(tex);
+	if (asReloadable)
+	{
+		sTextureMap[key] = std::weak_ptr<TextureResource>(tex);
 
-	// Add it to the reloadable list
-	rm->addReloadable(tex);
+		// Add it to the reloadable list
+		rm->addReloadable(tex);
+	}
 
 	// Force load it if necessary. Note that it may get dumped from VRAM if we run low
 	if (forceLoad)

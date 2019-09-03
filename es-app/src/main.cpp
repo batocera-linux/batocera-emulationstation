@@ -480,6 +480,8 @@ int main(int argc, char* argv[])
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
+	window.endRenderLoadingScreen();
+
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
 

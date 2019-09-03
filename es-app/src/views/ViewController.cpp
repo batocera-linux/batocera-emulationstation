@@ -68,9 +68,10 @@ void ViewController::goToStart()
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderLoadingScreen("Loading...");
+	mWindow->renderLoadingScreen(_("Loading..."));
 	ViewController::get()->reloadAll();
 	ViewController::get()->goToStart();
+	mWindow->endRenderLoadingScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
@@ -386,8 +387,8 @@ bool ViewController::input(InputConfig* config, Input input)
 		{
 			mWindow->render();
 			mWindow->renderLoadingScreen(_("Loading..."), -1, 180);
-
-			ViewController::get()->reloadAll();			
+			ViewController::get()->reloadAll();		
+			mWindow->endRenderLoadingScreen();
 			return true;
 		}
 
