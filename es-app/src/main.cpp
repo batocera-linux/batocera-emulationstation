@@ -267,7 +267,7 @@ int setLocale(char * argv1)
 #else
 	std::string abs_exe_path;
 	char *p;
-
+	int unused; //remove a warning when using chdir
 
 	if (!(p = strrchr(argv1, '/'))) {
 		abs_exe_path = Utils::FileSystem::getCWDPath();
@@ -275,9 +275,9 @@ int setLocale(char * argv1)
 	else 
 	{
 		std::string path_save = Utils::FileSystem::getCWDPath();
-		chdir(argv1);
+		unused = chdir(argv1);
 		abs_exe_path = Utils::FileSystem::getCWDPath();
-		chdir(path_save.c_str());
+		unused = chdir(path_save.c_str());
 	}
 
 	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global();
@@ -435,14 +435,11 @@ int main(int argc, char* argv[])
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
 #ifndef WIN32
-    // batocera
+	// batocera
 	// UPDATE CHECK THREAD
 	if(systemConf->get("updates.enabled") == "1")
 		NetworkThread * nthread = new NetworkThread(&window);
 #endif
-
-	// Batocera: display music names
-	// SongNameThread * songthread = new SongNameThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)

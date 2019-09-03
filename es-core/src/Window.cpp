@@ -228,7 +228,15 @@ void Window::update(int deltaTime)
 	{
 		std::string message = mMessages.back();
 		mMessages.pop_back();
-		setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
+		// batocera
+		std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
+		if (currentTitlesTime.empty())
+			currentTitlesTime = std::string("10");
+		// Check if the string we got has only digits, otherwise throw a default value
+		bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
+		if (!has_only_digits)
+			currentTitlesTime = std::string("10");
+		setInfoPopup(new GuiInfoPopup(this, message, 1000 * (float)std::stoi(currentTitlesTime))); // batocera
 	}
 
 	if (mNormalizeNextUpdate)
