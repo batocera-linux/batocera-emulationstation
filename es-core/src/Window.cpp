@@ -336,9 +336,10 @@ void Window::render()
 			top->render(transform);
 		}
 	}
-
-	if(!mRenderedHelpPrompts)
-		mHelp->render(transform);
+	
+	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
+		if(!mRenderedHelpPrompts)
+			mHelp->render(transform);
 
 	if(Settings::getInstance()->getBool("DrawFramerate") && mFrameDataText)
 	{
@@ -347,7 +348,7 @@ void Window::render()
 	}
 
         // clock // batocera
-	if (Settings::getInstance()->getBool("DrawClock") && mClockText)
+	if (Settings::getInstance()->getBool("DrawClock") && mClockText && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 

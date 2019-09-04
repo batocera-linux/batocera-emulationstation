@@ -13,7 +13,11 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 	mMenu.addButton(_("BACK"), "go back", [this] { delete this; }); // batocera
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-	mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+	else
+		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 GuiSettings::~GuiSettings()

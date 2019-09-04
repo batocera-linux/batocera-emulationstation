@@ -90,7 +90,10 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	mMenu.addButton(_("BACK"), "back", std::bind(&GuiCollectionSystemsOptions::applySettings, this));
 
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiCollectionSystemsOptions::addEntry(const char* name, bool add_arrow, const std::function<void()>& func)
