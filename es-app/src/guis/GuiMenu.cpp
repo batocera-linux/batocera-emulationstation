@@ -1703,6 +1703,21 @@ void GuiMenu::openSoundSettings_batocera()
 		SystemConf::getInstance()->set("audio.display_titles", display_titles->getState() ? "1" : "0");
 	});
 
+	// batocera - how long to display the song titles?
+	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 300.f, 2.f, "s");
+	std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
+	if (currentTitlesTime.empty())
+		currentTitlesTime = std::string("10");
+	// Check if the string we got has only digits, otherwise throw a default value
+	bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
+	if (!has_only_digits)
+		currentTitlesTime = std::string("10");
+	titles_time->setValue((float)std::stoi(currentTitlesTime));
+	s->addWithLabel(_("HOW MANY SECONDS FOR SONG TITLES"), titles_time);
+	s->addSaveFunc([titles_time] {
+		SystemConf::getInstance()->set("audio.display_titles_time", std::to_string((int)round(titles_time->getValue())));
+	});
+
 	// batocera - music per system
 	auto music_per_system = std::make_shared<SwitchComponent>(mWindow);
 	music_per_system->setState(!(SystemConf::getInstance()->get("audio.persystem") == "0"));
