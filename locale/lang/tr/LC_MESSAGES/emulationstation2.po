@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-04 19:59+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -463,6 +463,9 @@ msgstr "ARABÝRÝM MÜZÝÐÝ"
 msgid "DISPLAY SONG TITLES"
 msgstr ""
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr ""
 
@@ -572,6 +575,12 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -932,6 +941,9 @@ msgstr "BAÞLAT"
 msgid "OPTIONS"
 msgstr "SEÇENEKLER"
 
+msgid "Loading..."
+msgstr "yükleniyor"
+
 msgid "MENU"
 msgstr "MENÜ"
 
@@ -946,9 +958,6 @@ msgstr "TEKRAR DENE"
 
 msgid "ACCEPT RESULT"
 msgstr "ONAYLA"
-
-msgid "Loading..."
-msgstr "yükleniyor"
 
 msgid "Loading system config..."
 msgstr "Sistem yapýlandýrma yükleniyor"

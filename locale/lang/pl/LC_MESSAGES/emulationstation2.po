@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-04 19:59+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -468,6 +468,9 @@ msgstr "MUZYKA"
 msgid "DISPLAY SONG TITLES"
 msgstr "WYŚWIETLANIE TYTUŁÓW UTWORÓW"
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
 
@@ -578,6 +581,12 @@ msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
+
+msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
 
 msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
@@ -943,6 +952,9 @@ msgstr "Uruchom"
 msgid "OPTIONS"
 msgstr "OPCJE"
 
+msgid "Loading..."
+msgstr "Ładuję..."
+
 msgid "MENU"
 msgstr "MENU"
 
@@ -957,9 +969,6 @@ msgstr "PONÓW"
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
-
-msgid "Loading..."
-msgstr "Ładuję..."
 
 msgid "Loading system config..."
 msgstr "Ładuję konfigurację systemową..."

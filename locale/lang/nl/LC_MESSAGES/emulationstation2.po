@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-04 19:59+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -464,6 +464,9 @@ msgstr "Frontend Muziek"
 msgid "DISPLAY SONG TITLES"
 msgstr ""
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr ""
 
@@ -573,6 +576,12 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -937,6 +946,9 @@ msgstr "Spelen"
 msgid "OPTIONS"
 msgstr "Opties"
 
+msgid "Loading..."
+msgstr ""
+
 msgid "MENU"
 msgstr "Menu"
 
@@ -950,9 +962,6 @@ msgid "RETRY"
 msgstr "Opnieuw"
 
 msgid "ACCEPT RESULT"
-msgstr ""
-
-msgid "Loading..."
 msgstr ""
 
 msgid "Loading system config..."

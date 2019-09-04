@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-04 19:59+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -469,6 +469,9 @@ msgstr "MUSIQUE DE FOND"
 msgid "DISPLAY SONG TITLES"
 msgstr "AFFICHER LES TITRES DES MUSIQUES"
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr "DURÉE DES TITRES DES MUSIQUES"
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "JOUER SEULEMENT LES MUSIQUES SPÉCIFIQUES AUX SYSTÈMES"
 
@@ -579,6 +582,12 @@ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "TRIER LES COLLECTIONS AVEC LES SYSTÈMES"
+
+msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+msgstr "AFFICHAGE DES FAVORIS EN PREMIER"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "AFFICHER LES NOMS DES SYSTÈMES DANS LES COLLECTIONS"
 
 msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
@@ -938,6 +947,9 @@ msgstr "LANCER"
 msgid "OPTIONS"
 msgstr "OPTIONS"
 
+msgid "Loading..."
+msgstr "Chargement..."
+
 msgid "MENU"
 msgstr "MENU"
 
@@ -952,9 +964,6 @@ msgstr "RECOMMENCER"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
-
-msgid "Loading..."
-msgstr "Chargement..."
 
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système"

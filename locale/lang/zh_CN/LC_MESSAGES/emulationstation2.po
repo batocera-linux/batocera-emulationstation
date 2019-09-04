@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-04 19:59+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -465,6 +465,9 @@ msgstr "前端音乐"
 msgid "DISPLAY SONG TITLES"
 msgstr ""
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "仅播放指定游戏平台中的音乐"
 
@@ -574,6 +577,12 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -933,6 +942,9 @@ msgstr "启动"
 msgid "OPTIONS"
 msgstr "选项"
 
+msgid "Loading..."
+msgstr "载入中..."
+
 msgid "MENU"
 msgstr "菜单"
 
@@ -947,9 +959,6 @@ msgstr "重试"
 
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
-
-msgid "Loading..."
-msgstr "载入中..."
 
 msgid "Loading system config..."
 msgstr "正在载入系统配置..."
