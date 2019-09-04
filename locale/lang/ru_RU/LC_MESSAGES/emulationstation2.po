@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-08-15 13:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: \n"
@@ -73,9 +73,6 @@ msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 msgid "ADVANCED"
 msgstr "ДОПОЛНИТЕЛЬНО"
-
-msgid "RESET ALL FILTERS"
-msgstr ""
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -149,9 +146,6 @@ msgstr "ВЕРСИЯ"
 msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
-
 msgid "CREATE A SUPPORT FILE ?"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
 
@@ -160,6 +154,9 @@ msgstr "ФАЙЛ УСПЕШНО СГЕНЕРИРОВАН"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
+
+msgid "CREATE A SUPPORT FILE"
+msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
 msgid "STORAGE DEVICE"
 msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
@@ -177,7 +174,7 @@ msgid "THEMES"
 msgstr "ТЕМЫ"
 
 msgid "THE BEZEL PROJECT"
-msgstr "ПРОЕКТ РАМКИ"
+msgstr "НАБОР РАМКОК (ОВЕРЛЕЕВ)"
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -251,9 +248,6 @@ msgstr "РЕТРО"
 msgid "ENHANCED"
 msgstr "РАСШИРЕННЫЙ"
 
-msgid "CURVATURE"
-msgstr ""
-
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
@@ -293,14 +287,11 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
-
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -315,6 +306,9 @@ msgstr ""
 "КОНТРОЛЛЕРЕ ОТСУТСТВУЕТ ОТДЕЛЬНАЯ \"ГОРЯЧАЯ\" КНОПКА, ИСПОЛЬЗУЙТЕ ВМЕСТО НЕЁ "
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
+msgid "CONFIGURE A CONTROLLER"
+msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
+
 msgid "CONTROLLER PAIRED"
 msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
 
@@ -324,11 +318,11 @@ msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
 
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
-
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "ССЫЛКИ КОНТРОЛЛЕРОВ БЫЛИ УДАЛЕНЫ."
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
 
 #, c-format
 msgid "INPUT P%i"
@@ -355,30 +349,6 @@ msgstr "ВИДЕО ВЫВОД"
 
 msgid "THEME SET"
 msgstr "ТЕМА"
-
-msgid "THEME CONFIGURATION"
-msgstr ""
-
-msgid "THEME COLORSET"
-msgstr ""
-
-msgid "THEME ICONSET"
-msgstr ""
-
-msgid "THEME MENU"
-msgstr ""
-
-msgid "THEME SYSTEMVIEW"
-msgstr ""
-
-msgid "THEME GAMELISTVIEW"
-msgstr ""
-
-msgid "THEME REGION"
-msgstr ""
-
-msgid "THIS THEME HAS NO OPTION"
-msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
@@ -458,9 +428,6 @@ msgstr "ЛИМИТ VRAM"
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
 
@@ -471,10 +438,7 @@ msgid "DISPLAY SONG TITLES"
 msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "МУЗЫКА ИЗ ПАПКИ СИСТЕМ"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -509,38 +473,32 @@ msgstr "WI-FI ВКЛЮЧЕН"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
-
 msgid "REALLY SCRAPE?"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
+
+msgid "AUTOMATIC SCRAPER"
+msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
 
 msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
 
-msgid "RESTART SYSTEM"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
-
 msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
 
-msgid "SHUTDOWN SYSTEM"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
+msgid "RESTART SYSTEM"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
 
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
+msgid "SHUTDOWN SYSTEM"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
 
-msgid "QUIT EMULATIONSTATION"
-msgstr ""
-
-msgid "REALLY QUIT?"
-msgstr ""
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "Emulator"
 msgstr "Эмулятор"
@@ -666,16 +624,16 @@ msgid "UNINSTALL BEZELS"
 msgstr "УДАЛИТЬ РАМКИ (ОВЕРЛЕИ)"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr "УСТАНОВИТЬ ПРОЕКТ РАМКИ"
+msgstr "УСТАНОВИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr "ВЫБЕРИТЕ СИСТЕМУ, В КОТОРОЙ РАМКИ БУДУТ УСТАНОВЛЕНЫ"
+msgstr "В КАКУЮ СИСТЕМУ УСТАНОВИТЬ РАМКИ?"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "УДАЛИТЬ ПРОЕКТ РАМКИ"
+msgstr "УДАЛИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "ВЫБЕРИТЕ СИСТЕМУ, ГДЕ РАМКИ БУДУТ УДАЛЕНЫ"
+msgstr "ИЗ КАКОЙ СИСТЕМЫ УДАЛИТЬ РАМКИ?"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
@@ -914,6 +872,9 @@ msgstr "банер"
 msgid "enter path to marquee"
 msgstr "введите путь к банеру"
 
+msgid "Now playing: "
+msgstr "Сейчас играет: "
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
@@ -947,9 +908,6 @@ msgstr "ПАРАМЕТРЫ"
 
 msgid "MENU"
 msgstr "МЕНЮ"
-
-msgid "Favorites"
-msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
@@ -1110,9 +1068,6 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ ЕГО НАСТРОЙКИ."
 
-msgid "Now playing: "
-msgstr "Сейчас играет: "
-
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 
@@ -1122,20 +1077,11 @@ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ"
 msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
-msgid "accept"
-msgstr ""
-
 msgid "SELECT ALL"
 msgstr "ВЫБРАТЬ ВСЕ"
 
-msgid "select all"
-msgstr ""
-
 msgid "SELECT NONE"
 msgstr "СНЯТЬ ВЫБОР"
-
-msgid "select none"
-msgstr ""
 
 #, c-format
 msgid "%i SELECTED"
@@ -1149,9 +1095,6 @@ msgstr "ИЗМЕНИТЬ"
 
 msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
-
-msgid "up/down"
-msgstr ""
 
 #~ msgid "FINNISHED"
 #~ msgstr "ЗАВЕРШЕНО"
