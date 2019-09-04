@@ -7,7 +7,6 @@
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
 #include "utils/StringUtil.h"
-#include "Renderer.h"
 
 class ButtonComponent;
 class ImageComponent;
@@ -38,10 +37,11 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	float getButtonGridHeight() const;
+
 private:
 	void updateSize();
 	void updateGrid();
-	float getButtonGridHeight() const;
 
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;

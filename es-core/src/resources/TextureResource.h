@@ -16,7 +16,7 @@ class TextureData;
 class TextureResource : public IReloadable
 {
 public:
-	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true);
+	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);
 

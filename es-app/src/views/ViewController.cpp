@@ -68,9 +68,10 @@ void ViewController::goToStart()
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderLoadingScreen("Loading...");
+	mWindow->renderLoadingScreen(_("Loading..."));
 	ViewController::get()->reloadAll();
 	ViewController::get()->goToStart();
+	mWindow->endRenderLoadingScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
@@ -386,8 +387,8 @@ bool ViewController::input(InputConfig* config, Input input)
 		{
 			mWindow->render();
 			mWindow->renderLoadingScreen(_("Loading..."), -1, 180);
-
-			ViewController::get()->reloadAll();			
+			ViewController::get()->reloadAll();		
+			mWindow->endRenderLoadingScreen();
 			return true;
 		}
 
@@ -454,8 +455,9 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	// fade out
 	if(mFadeOpacity)
 	{
+		unsigned int fadeColor = 0x00000000 | (unsigned char)(mFadeOpacity * 255);
 		Renderer::setMatrix(parentTrans);
-		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x00000000 | (unsigned char)(mFadeOpacity * 255));
+		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), fadeColor, fadeColor);
 	}
 }
 

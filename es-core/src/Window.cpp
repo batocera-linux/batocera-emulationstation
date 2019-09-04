@@ -6,7 +6,6 @@
 #include "resources/TextureResource.h"
 #include "InputManager.h"
 #include "Log.h"
-#include "Renderer.h"
 #include "Scripting.h"
 #include <algorithm>
 #include <iomanip>
@@ -22,12 +21,15 @@
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
 {	
+	mClockPos = Vector2f(-1, -1);
 	mClockColor = 0xFFFFFF55;
 	mClockFont = nullptr; 
 
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
+
+	mSplash = nullptr;
 
 	// pads // batocera
 	for(int i=0; i<MAX_PLAYERS; i++) {
@@ -286,7 +288,10 @@ void Window::update(int deltaTime)
 				if (mClockFont == nullptr)
 					mClockFont = mDefaultFonts.at(0);
 
-				mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
+				if (mClockPos.x() == -1 && mClockPos.y() == -1)
+					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
+				else
+					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, mClockPos.x(), mClockPos.y(), mClockColor));
 			}
 			mClockElapsed = 1000; // next update in 1000ms
 		}
@@ -412,11 +417,19 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
+void Window::endRenderLoadingScreen()
+{
+	mSplash = nullptr;	
+}
+
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
 {
+	if (mSplash == NULL)
+		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, false, false);
+
 	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity); // batocera
+	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity, 0xEFEFEF00 | opacity, true); // batocera
 
 	if (percent >= 0)
 	{
@@ -429,12 +442,17 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
 
 		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
-		Renderer::drawRect(x, y, (w*percent), h, 0xCF000000 | opacity);
+		Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0xAF000000 | opacity, true);
 	}
 
 	ImageComponent splash(this, true);
 	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
-	splash.setImage(":/splash_batocera.svg"); // batocera
+
+	if (mSplash != NULL)
+		splash.setImage(mSplash);
+	else
+		splash.setImage(":/splash_batocera.svg"); // batocera
+
 	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
 	splash.render(trans);
 
@@ -468,8 +486,10 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 	mHelp->clearPrompts();
 	mHelp->setStyle(style);
 
-	mClockFont = style.font;
-	mClockColor = style.textColor;
+	mClockFont = style.clockFont;
+	mClockColor = style.clockColor;
+	mClockPos = style.clockPosition;
+	mClockElapsed = -1;
 
 	std::vector<HelpPrompt> addPrompts;
 

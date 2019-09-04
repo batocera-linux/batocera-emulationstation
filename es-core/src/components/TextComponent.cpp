@@ -2,7 +2,6 @@
 
 #include "utils/StringUtil.h"
 #include "Log.h"
-#include "Renderer.h"
 #include "Settings.h"
 
 TextComponent::TextComponent(Window* window) : GuiComponent(window), 
@@ -95,12 +94,15 @@ void TextComponent::setUppercase(bool uppercase)
 
 void TextComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
 
 	if (mRenderBackground)
 	{
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), mBgColor);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), mBgColor, mBgColor);
 	}
 
 	if(mTextCache)
@@ -125,11 +127,10 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		{
 			// draw the "textbox" area, what we are aligned within
 			Renderer::setMatrix(trans);
-			Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), 0xFF000033);
+			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
 		}
 
 		trans.translate(off);
-		trans.round();
 		Renderer::setMatrix(trans);
 
 		// draw the text area, where the text actually is going
@@ -138,13 +139,13 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 			switch(mHorizontalAlignment)
 			{
 			case ALIGN_LEFT:
-				Renderer::drawRect(0.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
+				Renderer::drawRect(0.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
 				break;
 			case ALIGN_CENTER:
-				Renderer::drawRect((mSize.x() - mTextCache->metrics.size.x()) / 2.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
+				Renderer::drawRect((mSize.x() - mTextCache->metrics.size.x()) / 2.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
 				break;
 			case ALIGN_RIGHT:
-				Renderer::drawRect(mSize.x() - mTextCache->metrics.size.x(), 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
+				Renderer::drawRect(mSize.x() - mTextCache->metrics.size.x(), 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
 				break;
 			}
 		}

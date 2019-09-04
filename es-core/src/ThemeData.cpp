@@ -9,7 +9,7 @@
 #include <algorithm>
 
 std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" } };
-std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" } };
+std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
 	{ "image", {
@@ -23,6 +23,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "default", PATH },
 		{ "tile", BOOLEAN },
 		{ "color", COLOR },
+		{ "colorEnd", COLOR },
+		{ "gradientType", STRING },
+		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
@@ -55,6 +58,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
+		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "textlist", {
 		{ "pos", NORMALIZED_PAIR },
@@ -63,6 +67,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "selectorHeight", FLOAT },
 		{ "selectorOffsetY", FLOAT },
 		{ "selectorColor", COLOR },
+		{ "selectorColorEnd", COLOR },
+		{ "selectorGradientType", STRING },
 		{ "selectorImagePath", PATH },
 		{ "selectorImageTile", BOOLEAN },
 		{ "selectedColor", COLOR },
@@ -80,11 +86,13 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 	 	{ "origin", NORMALIZED_PAIR },
-		{ "zIndex", FLOAT } } },
+	 	{ "visible", BOOLEAN },
+	 	{ "zIndex", FLOAT } } },
 	{ "ninepatch", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 		{ "path", PATH },
+	 	{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "datetime", {
 		{ "pos", NORMALIZED_PAIR },
@@ -102,7 +110,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "value", STRING },
 		{ "format", STRING },
 		{ "displayRelative", BOOLEAN },
-		{ "zIndex", FLOAT } } },
+	 	{ "visible", BOOLEAN },
+	 	{ "zIndex", FLOAT } } },
 	{ "rating", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -112,9 +121,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "color", COLOR },
 		{ "filledPath", PATH },
 		{ "unfilledPath", PATH },
+		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "sound", {
 		{ "path", PATH } } },
+	{ "clock", {
+		{ "pos", NORMALIZED_PAIR },
+		{ "fontPath", PATH },
+		{ "fontSize", FLOAT },
+		{ "textColor", COLOR } } },
 	{ "helpsystem", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
@@ -142,7 +157,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "rotationOrigin", NORMALIZED_PAIR },
 		{ "default", PATH },
 		{ "delay", FLOAT },
-		{ "zIndex", FLOAT },
+	 	{ "visible", BOOLEAN },
+	 	{ "zIndex", FLOAT },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {
@@ -151,6 +167,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
 		{ "color", COLOR },
+		{ "colorEnd", COLOR },
+		{ "gradientType", STRING },
 		{ "logoScale", FLOAT },
 		{ "logoRotation", FLOAT },
 		{ "logoRotationOrigin", NORMALIZED_PAIR },
@@ -164,6 +182,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "separatorColor", COLOR },
 		{ "selectorColor", COLOR },
 		{ "selectorColorEnd", COLOR },
+		{ "selectorGradientType", STRING },
 		{ "selectedColor", COLOR },
 		{ "color", COLOR } } },
 	{ "menuTextSmall", {
@@ -852,9 +871,14 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		if (elem->has("selectedColor"))
 			Text.selectedColor = elem->get<unsigned int>("selectedColor");
 		if (elem->has("selectorColor"))
+		{
 			Text.selectorColor = elem->get<unsigned int>("selectorColor");
+			Text.selectorGradientColor = Text.selectorColor;
+		}
 		if (elem->has("selectorColorEnd"))
 			Text.selectorGradientColor = elem->get<unsigned int>("selectorColorEnd");
+		if (elem->has("selectorGradientType"))
+			Text.selectorGradientType = !(elem->get<std::string>("selectorGradientType").compare("horizontal"));
 	}
 
 	elem = theme->getElement("menu", "menubutton", "menuButton");

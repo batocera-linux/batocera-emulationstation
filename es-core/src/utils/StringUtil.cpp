@@ -152,13 +152,21 @@ namespace Utils
 
 		std::string toUpper(const std::string& _string)
 		{
+#if defined(_WIN32)
+			std::wstring stringW = convertToWideString(_string);
+
+			auto& f = std::use_facet<std::ctype<wchar_t>>(std::locale());
+			f.toupper(&stringW[0], &stringW[0] + stringW.size());
+
+			return convertFromWideString(stringW);
+#else
 			std::string string;
 
 			for(size_t i = 0; i < _string.length(); ++i)
 				string += (char)toupper(_string[i]);
 
 			return string;
-
+#endif
 		} // toUpper
 
 		std::string trim(const std::string& _string)

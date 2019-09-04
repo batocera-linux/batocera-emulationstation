@@ -389,9 +389,6 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 
-		std::string glExts = (const char*)glGetString(GL_EXTENSIONS);
-		LOG(LogInfo) << "Checking available OpenGL extensions...";
-		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 		if(splashScreen)
 		{
 		  std::string progressText = _("Loading..."); // batocera
@@ -482,6 +479,8 @@ int main(int argc, char* argv[])
 
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
+
+	window.endRenderLoadingScreen();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();

@@ -2,7 +2,6 @@
 
 #include "resources/TextureResource.h"
 #include "Log.h"
-#include "Renderer.h"
 #include "Settings.h"
 #include "ThemeData.h"
 #include "LocaleES.h"
@@ -22,8 +21,8 @@ Vector2f ImageComponent::getSize() const
 
 ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : GuiComponent(window),
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
-	mForceLoad(forceLoad), mDynamic(dynamic), mFadeOpacity(0), mFading(false), mRotateByTargetSize(false),
-	mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f)
+	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
+	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f)
 {
 	updateColors();
 }
@@ -249,16 +248,25 @@ void ImageComponent::setFlipY(bool flip)
 void ImageComponent::setColorShift(unsigned int color)
 {
 	mColorShift = color;
-	// Grab the opacity from the color shift because we may need to apply it if
-	// fading textures in
-	mOpacity = color & 0xff;
+	mColorShiftEnd = color;
+	updateColors();
+}
+
+void ImageComponent::setColorShiftEnd(unsigned int color)
+{
+	mColorShiftEnd = color;
+	updateColors();
+}
+
+void ImageComponent::setColorGradientHorizontal(bool horizontal)
+{
+	mColorGradientHorizontal = horizontal;
 	updateColors();
 }
 
 void ImageComponent::setOpacity(unsigned char opacity)
 {
-	mOpacity = opacity;
-	mColorShift = (mColorShift >> 8 << 8) | mOpacity;
+	mOpacity = opacity;	
 	updateColors();
 }
 
@@ -269,55 +277,53 @@ void ImageComponent::updateVertices()
 
 	// we go through this mess to make sure everything is properly rounded
 	// if we just round vertices at the end, edge cases occur near sizes of 0.5
-	Vector2f size(Math::round(mSize.x()), Math::round(mSize.y()));
-	Vector2f topLeft(size * mTopLeftCrop);
-	Vector2f bottomRight(size * mBottomRightCrop);
+	const Vector2f     topLeft     = { mSize * mTopLeftCrop };
+	const Vector2f     bottomRight = { mSize * mBottomRightCrop };
+	const float        px          = mTexture->isTiled() ? mSize.x() / getTextureSize().x() : 1.0f;
+	const float        py          = mTexture->isTiled() ? mSize.y() / getTextureSize().y() : 1.0f;
+	const unsigned int color       = Renderer::convertColor(mColorShift);
+	const unsigned int colorEnd    = Renderer::convertColor(mColorShiftEnd);
 
-	mVertices[0].pos = Vector2f(topLeft.x(), topLeft.y());
-	mVertices[1].pos = Vector2f(topLeft.x(), bottomRight.y());
-	mVertices[2].pos = Vector2f(bottomRight.x(), topLeft.y());
+	mVertices[0] = { { topLeft.x(),     topLeft.y()     }, { mTopLeftCrop.x(),          py   - mTopLeftCrop.y()     }, color };
+	mVertices[1] = { { topLeft.x(),     bottomRight.y() }, { mTopLeftCrop.x(),          1.0f - mBottomRightCrop.y() }, mColorGradientHorizontal ? colorEnd : color };
+	mVertices[2] = { { bottomRight.x(), topLeft.y()     }, { mBottomRightCrop.x() * px, py   - mTopLeftCrop.y()     }, mColorGradientHorizontal ? color : colorEnd };
+	mVertices[3] = { { bottomRight.x(), bottomRight.y() }, { mBottomRightCrop.x() * px, 1.0f - mBottomRightCrop.y() }, color };
 
-	mVertices[3].pos = Vector2f(bottomRight.x(), topLeft.y());
-	mVertices[4].pos = Vector2f(topLeft.x(), bottomRight.y());
-	mVertices[5].pos = Vector2f(bottomRight.x(), bottomRight.y());
-
-	float px, py;
-	if(mTexture->isTiled())
-	{
-		px = mSize.x() / getTextureSize().x();
-		py = mSize.y() / getTextureSize().y();
-	}else{
-		px = 1;
-		py = 1;
-	}
-
-	mVertices[0].tex = Vector2f(mTopLeftCrop.x(), py - mTopLeftCrop.y());
-	mVertices[1].tex = Vector2f(mTopLeftCrop.x(), 1 - mBottomRightCrop.y());
-	mVertices[2].tex = Vector2f(px * mBottomRightCrop.x(), py - mTopLeftCrop.y());
-
-	mVertices[3].tex = Vector2f(px * mBottomRightCrop.x(), py - mTopLeftCrop.y());
-	mVertices[4].tex = Vector2f(mTopLeftCrop.x(), 1 - mBottomRightCrop.y());
-	mVertices[5].tex = Vector2f(px * mBottomRightCrop.x(), 1 - mBottomRightCrop.y());
+	// round vertices
+	for(int i = 0; i < 4; ++i)
+		mVertices[i].pos.round();
 
 	if(mFlipX)
 	{
-		for(int i = 0; i < 6; i++)
+		for(int i = 0; i < 4; ++i)
 			mVertices[i].tex[0] = px - mVertices[i].tex[0];
 	}
+
 	if(mFlipY)
 	{
-		for(int i = 0; i < 6; i++)
+		for(int i = 0; i < 4; ++i)
 			mVertices[i].tex[1] = py - mVertices[i].tex[1];
 	}
 }
 
 void ImageComponent::updateColors()
 {
-	Renderer::buildGLColorArray(mColors, mColorShift, 6);
+	float opacity = (mOpacity * (mFading ? mFadeOpacity / 255.0 : 1.0)) / 255.0;
+
+	const unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
+	const unsigned int colorEnd = Renderer::convertColor(mColorShiftEnd & 0xFFFFFF00 | (unsigned char)((mColorShiftEnd & 0xFF) * opacity));
+
+	mVertices[0].col = color;
+	mVertices[1].col = mColorGradientHorizontal ? colorEnd : color;
+	mVertices[2].col = mColorGradientHorizontal ? color : colorEnd;
+	mVertices[3].col = colorEnd;
 }
 
 void ImageComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
 	Renderer::setMatrix(trans);
 
@@ -325,8 +331,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	{
 		if(Settings::getInstance()->getBool("DebugImage")) {
 			Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
-			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033);
-			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033);
+			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
+			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
 		}
 		if(mTexture->isInitialized())
 		{
@@ -335,27 +341,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			// texture is bound in this case but we want to handle a fade so it doesn't just 'jump' in
 			// when it finally loads
 			fadeIn(mTexture->bind());
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 
-			glEnable(GL_TEXTURE_2D);
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-			glEnableClientState(GL_VERTEX_ARRAY);
-			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-			glEnableClientState(GL_COLOR_ARRAY);
-
-			glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &mVertices[0].pos);
-			glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &mVertices[0].tex);
-			glColorPointer(4, GL_UNSIGNED_BYTE, 0, mColors);
-
-			glDrawArrays(GL_TRIANGLES, 0, 6);
-
-			glDisableClientState(GL_VERTEX_ARRAY);
-			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-			glDisableClientState(GL_COLOR_ARRAY);
-
-			glDisable(GL_TEXTURE_2D);
-			glDisable(GL_BLEND);
 		}else{
 			LOG(LogError) << "Image texture is not initialized!";
 			mTexture.reset();
@@ -377,8 +364,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 				// Start with a zero opacity and flag it as fading
 				mFadeOpacity = 0;
 				mFading = true;
-				// Set the colours to be translucent
-				mColorShift = (mColorShift >> 8 << 8) | 0;
+				
 				updateColors();
 			}
 		}
@@ -398,9 +384,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 			{
 				mFadeOpacity = (unsigned char)opacity;
 			}
-			// Apply the combination of the target opacity and current fade
-			float newOpacity = (float)mOpacity * ((float)mFadeOpacity / 255.0f);
-			mColorShift = (mColorShift >> 8 << 8) | (unsigned char)newOpacity;
+			// Apply the combination of the target opacity and current fade			
 			updateColors();
 		}
 	}
@@ -453,8 +437,20 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setImage(elem->get<std::string>("path"), tile);
 	}
 
-	if(properties & COLOR && elem->has("color"))
-		setColorShift(elem->get<unsigned int>("color"));
+	if(properties & COLOR)
+	{
+		if(elem->has("color"))
+		{
+			setColorShift(elem->get<unsigned int>("color"));
+			setColorShiftEnd(elem->get<unsigned int>("color"));
+		}
+
+		if (elem->has("colorEnd"))
+			setColorShiftEnd(elem->get<unsigned int>("colorEnd"));
+
+		if (elem->has("gradientType"))
+			setColorGradientHorizontal(!(elem->get<std::string>("gradientType").compare("horizontal")));
+	}
 
 	if(properties & ThemeFlags::ROTATION) {
 		if(elem->has("rotation"))
@@ -467,6 +463,11 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setZIndex(elem->get<float>("zIndex"));
 	else
 		setZIndex(getDefaultZIndex());
+
+	if(properties & ThemeFlags::VISIBLE && elem->has("visible"))
+		setVisible(elem->get<bool>("visible"));
+	else
+		setVisible(true);
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()

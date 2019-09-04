@@ -1,6 +1,7 @@
 #include "components/ScrollableContainer.h"
 
-#include "Renderer.h"
+#include "math/Vector2i.h"
+#include "renderers/Renderer.h"
 
 #define AUTO_SCROLL_RESET_DELAY 3000 // ms to reset to top after we reach the bottom
 #define AUTO_SCROLL_DELAY 1000 // ms to wait before we start to scroll
@@ -13,6 +14,9 @@ ScrollableContainer::ScrollableContainer(Window* window) : GuiComponent(window),
 
 void ScrollableContainer::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
 
 	Vector2i clipPos((int)trans.translation().x(), (int)trans.translation().y());

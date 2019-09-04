@@ -23,6 +23,7 @@
 #include "VolumeControl.h"
 #include <SDL_events.h>
 #include <algorithm>
+#include "platform.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -354,10 +355,12 @@ void GuiMenu::addVersionInfo()
 	mVersion.setFont(theme->Footer.font);
 	mVersion.setColor(theme->Footer.color);
 
+	mVersion.setLineSpacing(0);
 	if (!ApiSystem::getInstance()->getVersion().empty())
-		mVersion.setText("BATOCERA V" + ApiSystem::getInstance()->getVersion() + buildDate);
+		mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
+	mVersion.setVerticalAlignment(ALIGN_CENTER);
 	addChild(&mVersion);
 }
 
@@ -384,8 +387,10 @@ void GuiMenu::openCollectionSystemSettings() {
 
 void GuiMenu::onSizeChanged()
 {
-	mVersion.setSize(mSize.x(), 0);
-	mVersion.setPosition(0, mSize.y() - mVersion.getSize().y());
+	float h = mMenu.getButtonGridHeight();
+
+	mVersion.setSize(mSize.x(), h);
+	mVersion.setPosition(0, mSize.y() - h); //  mVersion.getSize().y()
 }
 
 void GuiMenu::addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName)
@@ -984,12 +989,13 @@ void GuiMenu::openGamesSettings_batocera()
 				CollectionSystemManager::deinit();
 				CollectionSystemManager::init(window);
 				SystemData::loadConfig(window);
+				window->endRenderLoadingScreen();
 				GuiComponent *gui;
 				while ((gui = window->peekGui()) != NULL) {
 					window->removeGui(gui);
 					delete gui;
 				}
-				ViewController::get()->reloadAll();
+				ViewController::get()->reloadAll();				
 				window->pushGui(ViewController::get());
 			}, _("NO"), nullptr));
 		});
@@ -1966,7 +1972,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 #endif
 
 	if (forceWin32Menu)
-		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
+		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2));
 
 	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.9),
 	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
