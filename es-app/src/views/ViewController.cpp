@@ -386,8 +386,7 @@ bool ViewController::input(InputConfig* config, Input input)
 		if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
 		{
 			mWindow->render();
-			mWindow->renderLoadingScreen(_("Loading..."), -1, 180);
-			ViewController::get()->reloadAll();		
+			ViewController::get()->reloadAll(mWindow);
 			mWindow->endRenderLoadingScreen();
 			return true;
 		}
@@ -514,7 +513,7 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 }
 
-void ViewController::reloadAll()
+void ViewController::reloadAll(Window* window)
 {
 	SystemData* system = nullptr;
 
@@ -542,6 +541,7 @@ void ViewController::reloadAll()
 			cursorMap[(*it)] = NULL;
 	}
 
+	float idx = 0;
 	// load themes, create gamelistviews and reset filters
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
@@ -550,6 +550,11 @@ void ViewController::reloadAll()
 
 		if (it->second != NULL)
 			getGameListView(it->first)->setCursor(it->second);
+
+		idx++;
+
+		if (window)
+			window->renderLoadingScreen(_("Loading..."), (float)idx / (float)cursorMap.size());
 	}
 
 	// Rebuild SystemListView

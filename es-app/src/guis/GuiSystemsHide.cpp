@@ -27,7 +27,10 @@ GuiSystemsHide::GuiSystemsHide(Window* window) : GuiComponent(window),
 	mMenu.addButton(_("APPLY"), "apply", std::bind(&GuiSystemsHide::Apply, this));
 	mMenu.addButton(_("REVERT"), "back", [&] { delete this; });
 
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiSystemsHide::Apply()

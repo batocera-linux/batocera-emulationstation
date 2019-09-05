@@ -272,4 +272,5 @@ namespace Renderer
 	int         getScreenOffsetY() { return screenOffsetY; }
 	int         getScreenRotate()  { return screenRotate; }
 
+	bool        isSmallScreen()    { return screenWidth < 400 && screenHeight < 400; };
 } // Renderer::

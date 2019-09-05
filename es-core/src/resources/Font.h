@@ -132,7 +132,7 @@ private:
 
 	int mMaxGlyphHeight;
 	
-	const int mSize;
+	int mSize;
 	const std::string mPath;
 	bool mLoaded;
 

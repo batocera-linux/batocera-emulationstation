@@ -97,6 +97,7 @@ namespace Renderer
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
 
+	bool         isSmallScreen      ();
 } // Renderer::
 
 #endif // ES_CORE_RENDERER_RENDERER_H
