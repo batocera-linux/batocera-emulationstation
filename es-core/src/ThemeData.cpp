@@ -2,6 +2,7 @@
 
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
+#include "components/NinePatchComponent.h"
 #include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "platform.h"
@@ -93,6 +94,10 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "size", NORMALIZED_PAIR },
 		{ "path", PATH },
 	 	{ "visible", BOOLEAN },
+		{ "color", COLOR },
+		{ "cornerSize", NORMALIZED_PAIR },
+		{ "centerColor", COLOR },
+		{ "edgeColor", COLOR },
 		{ "zIndex", FLOAT } } },
 	{ "datetime", {
 		{ "pos", NORMALIZED_PAIR },
@@ -748,6 +753,8 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 				comp = new ImageComponent(window);
 			else if(t == "text")
 				comp = new TextComponent(window);
+			else if (t == "ninepatch")
+				comp = new NinePatchComponent(window);
 
 			if (comp == nullptr)
 				continue;
