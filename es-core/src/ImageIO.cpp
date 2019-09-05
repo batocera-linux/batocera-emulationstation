@@ -87,3 +87,19 @@ void ImageIO::flipPixelsVert(unsigned char* imagePx, const size_t& width, const 
 		}
 	}
 }
+
+Vector2f ImageIO::getPictureMinSize(Vector2f imageSize, Vector2f maxSize)
+{
+	float cxDIB = maxSize.x();
+	float cyDIB = maxSize.y();
+
+	float xCoef = maxSize.x() / imageSize.x();
+	float yCoef = maxSize.y() / imageSize.y();
+
+	if (imageSize.x() * yCoef < maxSize.x())
+		cyDIB = imageSize.y() * xCoef;
+	else
+		cxDIB = imageSize.x() * yCoef;
+
+	return Vector2f(cxDIB, cyDIB);
+}

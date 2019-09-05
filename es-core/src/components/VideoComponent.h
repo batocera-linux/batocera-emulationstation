@@ -72,6 +72,9 @@ public:
 	virtual void setMaxSize(float width, float height) = 0;
 	inline void setMaxSize(const Vector2f& size) { setMaxSize(size.x(), size.y()); }
 
+	virtual void setMinSize(float width, float height) = 0;
+	inline void setMinSize(const Vector2f& size) { setMinSize(size.x(), size.y()); }
+
 	Vector2f getVideoSize() { return Vector2f(mVideoWidth, mVideoHeight); }
 	bool isPlaying() {
 		return mIsPlaying;
@@ -119,6 +122,7 @@ protected:
 	bool							mScreensaverActive;
 	bool							mScreensaverMode;
 	bool							mTargetIsMax;
+	bool							mTargetIsMin;
 
 	bool							mIsWaitingForVideoToStart;
 

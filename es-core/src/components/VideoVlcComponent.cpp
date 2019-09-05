@@ -12,6 +12,8 @@
 #include <codecvt>
 #endif
 
+#include "ImageIO.h"
+
 libvlc_instance_t* VideoVlcComponent::mVLC = NULL;
 
 // VLC prepares to render a video frame.
@@ -61,23 +63,37 @@ VideoVlcComponent::~VideoVlcComponent()
 
 void VideoVlcComponent::setResize(float width, float height)
 {
-	if (mSize.x() != 0 && mSize.y() != 0 && !mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+	if (mSize.x() != 0 && mSize.y() != 0 && !mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
 	mTargetIsMax = false;
+	mTargetIsMin = false;
 	mStaticImage.setResize(width, height);
 	resize();
 }
 
 void VideoVlcComponent::setMaxSize(float width, float height)
 {
-	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
 	mTargetIsMax = true;
+	mTargetIsMin = false;
 	mStaticImage.setMaxSize(width, height);
+	resize();
+}
+
+void VideoVlcComponent::setMinSize(float width, float height)
+{
+	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMin && !mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+		return;
+
+	mTargetSize = Vector2f(width, height);
+	mTargetIsMax = false;
+	mTargetIsMin = true;
+	mStaticImage.setMinSize(width, height);
 	resize();
 }
 
@@ -123,7 +139,12 @@ void VideoVlcComponent::resize()
 			mSize[1] = Math::round(mSize[1]);
 			mSize[0] = (mSize[1] / textureSize.y()) * textureSize.x();
 
-		}else{
+		}
+		else if (mTargetIsMin)
+		{
+			mSize = ImageIO::getPictureMinSize(textureSize, mTargetSize);
+		}
+		else {
 			// if both components are set, we just stretch
 			// if no components are set, we don't resize at all
 			mSize = mTargetSize == Vector2f::Zero() ? textureSize : mTargetSize;
@@ -205,8 +226,22 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	
 	mTexture->bind();
 
+	if (mTargetIsMin)
+	{
+		Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
+
+		Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
+		Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
+		Renderer::pushClipRect(pos, size);
+	}
+
 	// Render it
 	Renderer::drawTriangleStrips(&vertices[0], 4);
+
+	if (mTargetIsMin)
+		Renderer::popClipRect();
+
+	Renderer::bindTexture(0);
 }
 
 void VideoVlcComponent::setupContext()

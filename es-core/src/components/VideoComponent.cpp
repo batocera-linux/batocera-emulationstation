@@ -62,6 +62,7 @@ VideoComponent::VideoComponent(Window* window) :
 	mDisable(false),
 	mScreensaverMode(false),
 	mTargetIsMax(false),
+	mTargetIsMin(false),
 	mTargetSize(0, 0)
 {
 	mFadeIn = 0.0f;
@@ -223,6 +224,8 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setResize(elem->get<Vector2f>("size") * scale);
 		else if(elem->has("maxSize"))
 			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
+		else if (elem->has("minSize"))
+			setMinSize(elem->get<Vector2f>("minSize") * scale);
 	}
 
 	// position + size also implies origin
@@ -257,6 +260,14 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	if (elem->has("path"))
+	{
+		if (Utils::FileSystem::exists(elem->get<std::string>("path")))
+			mVideoPath = elem->get<std::string>("path");
+		else
+			mVideoPath = mConfig.defaultVideoPath;
+	}
 }
 
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()
