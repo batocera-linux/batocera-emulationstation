@@ -314,14 +314,14 @@ void DetailedGameListView::updateInfoPanel()
 			if (!mVideo->setVideo(file->getVideoPath()))
 				mVideo->setDefaultVideo();
 
-			mVideo->setImage(imagePath);
+			mVideo->setImage(imagePath, false, mVideo->getMaxSizeInfo());
 		}
 
 		if (mImage != nullptr)
-			mImage->setImage(imagePath);
+			mImage->setImage(imagePath, false, mImage->getMaxSizeInfo());
 
 		if (mMarquee != nullptr)
-			mMarquee->setImage(file->getMarqueePath());
+			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
 		
 		mDescription.setText(file->metadata.get("desc"));
 		mDescContainer.reset();

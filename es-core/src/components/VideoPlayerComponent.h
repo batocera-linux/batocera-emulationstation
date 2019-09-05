@@ -25,6 +25,7 @@ public:
 	// Can be set before or after a video is loaded.
 	// Never breaks the aspect ratio. setMaxSize() and setResize() are mutually exclusive.
 	void setMaxSize(float width, float height);
+	void setMinSize(float width, float height);
 
 private:
 	// Start the video Immediately

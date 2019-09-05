@@ -4,6 +4,7 @@
 
 #include "components/ImageComponent.h"
 #include "GuiComponent.h"
+#include "ImageIO.h"
 #include <string>
 
 class TextureResource;
@@ -30,7 +31,7 @@ public:
 	// Loads the video at the given filepath
 	bool setVideo(std::string path);
 	// Loads a static image that is displayed if the video cannot be played
-	void setImage(std::string path);
+	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
 
 	// Configures the component to show the default video
 	void setDefaultVideo();
@@ -72,6 +73,9 @@ public:
 	virtual void setMaxSize(float width, float height) = 0;
 	inline void setMaxSize(const Vector2f& size) { setMaxSize(size.x(), size.y()); }
 
+	virtual void setMinSize(float width, float height) = 0;
+	inline void setMinSize(const Vector2f& size) { setMinSize(size.x(), size.y()); }
+
 	Vector2f getVideoSize() { return Vector2f(mVideoWidth, mVideoHeight); }
 	bool isPlaying() {
 		return mIsPlaying;
@@ -82,6 +86,14 @@ public:
 	}
 
 	virtual void onVideoStarted();
+
+	const MaxSizeInfo getMaxSizeInfo()
+	{
+		if (mTargetSize == Vector2f(0, 0))
+			return MaxSizeInfo(mSize, mTargetIsMax);
+
+		return MaxSizeInfo(mTargetSize, mTargetIsMax);
+	};
 
 private:
 	// Start the video Immediately
@@ -119,6 +131,7 @@ protected:
 	bool							mScreensaverActive;
 	bool							mScreensaverMode;
 	bool							mTargetIsMax;
+	bool							mTargetIsMin;
 
 	bool							mIsWaitingForVideoToStart;
 

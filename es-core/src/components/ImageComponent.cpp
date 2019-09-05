@@ -24,6 +24,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f)
 {
+	mAllowFading = true;
 	updateColors();
 }
 
@@ -131,17 +132,17 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile)
+void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
 	if(path.empty() || !ResourceManager::getInstance()->fileExists(path))
 	{
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
-			mTexture = TextureResource::get(mDefaultPath, tile, mForceLoad, mDynamic);
-	} else {
-		mTexture = TextureResource::get(path, tile, mForceLoad, mDynamic);
-	}
+			mTexture = TextureResource::get(mDefaultPath, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+	} 
+	else
+		mTexture = TextureResource::get(path, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 
 	resize();
 }
@@ -325,6 +326,10 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
+
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	Renderer::setMatrix(trans);
 
 	if(mTexture && mOpacity > 0)
@@ -354,6 +359,9 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 void ImageComponent::fadeIn(bool textureLoaded)
 {
+	if (!mAllowFading)
+		return;
+
 	if (!mForceLoad)
 	{
 		if (!textureLoaded)
@@ -368,7 +376,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 				updateColors();
 			}
 		}
-		else if (mFading)
+		else if (mFading && textureLoaded)
 		{
 			// The texture is loaded and we need to fade it in. The fade is based on the frame rate
 			// and is 1/4 second if running at 60 frames per second although the actual value is not
@@ -434,7 +442,10 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if(properties & PATH && elem->has("path"))
 	{
 		bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-		setImage(elem->get<std::string>("path"), tile);
+
+		auto path = elem->get<std::string>("path");
+		if (Utils::FileSystem::exists(path))
+			setImage(path, tile);
 	}
 
 	if(properties & COLOR)

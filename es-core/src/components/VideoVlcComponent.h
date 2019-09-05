@@ -31,7 +31,7 @@ class VideoVlcComponent : public VideoComponent
 public:
 	static void setupVLC(std::string subtitles);
 
-	VideoVlcComponent(Window* window, std::string subtitles);
+	VideoVlcComponent(Window* window, std::string subtitles="");
 	virtual ~VideoVlcComponent();
 
 	void render(const Transform4x4f& parentTrans) override;
@@ -47,6 +47,7 @@ public:
 	// Can be set before or after a video is loaded.
 	// Never breaks the aspect ratio. setMaxSize() and setResize() are mutually exclusive.
 	void setMaxSize(float width, float height);
+	void setMinSize(float width, float height);
 
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
@@ -70,6 +71,9 @@ private:
 	libvlc_media_player_t*			mMediaPlayer;
 	VideoContext					mContext;
 	std::shared_ptr<TextureResource> mTexture;
+
+	std::string					    mSubtitlePath;
+	std::string					    mSubtitleTmpFile;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

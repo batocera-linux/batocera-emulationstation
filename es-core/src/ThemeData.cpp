@@ -2,6 +2,8 @@
 
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
+#include "components/NinePatchComponent.h"
+#include "components/VideoVlcComponent.h"
 #include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "platform.h"
@@ -93,6 +95,10 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "size", NORMALIZED_PAIR },
 		{ "path", PATH },
 	 	{ "visible", BOOLEAN },
+		{ "color", COLOR },
+		{ "cornerSize", NORMALIZED_PAIR },
+		{ "centerColor", COLOR },
+		{ "edgeColor", COLOR },
 		{ "zIndex", FLOAT } } },
 	{ "datetime", {
 		{ "pos", NORMALIZED_PAIR },
@@ -152,10 +158,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 		{ "maxSize", NORMALIZED_PAIR },
+		{ "minSize", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
 		{ "default", PATH },
+		{ "path", PATH },
 		{ "delay", FLOAT },
 	 	{ "visible", BOOLEAN },
 	 	{ "zIndex", FLOAT },
@@ -173,6 +181,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoRotation", FLOAT },
 		{ "logoRotationOrigin", NORMALIZED_PAIR },
 		{ "logoSize", NORMALIZED_PAIR },
+		{ "logoPos", NORMALIZED_PAIR },
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
 		{ "zIndex", FLOAT } } },
@@ -546,7 +555,14 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 		return true;
 
 	std::string regionsetting = Settings::getInstance()->getString("ThemeRegionName");
-	
+	if (regionsetting.empty())
+	{
+		if (mHasSubsets)
+			regionsetting = "en";
+		else
+			return true;
+	}
+
 	const char* delim = " \t\r\n,";
 	const std::string nameAttr = node.attribute("region").as_string();
 	size_t prevOff = nameAttr.find_first_not_of(delim, 0);
@@ -741,6 +757,10 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 				comp = new ImageComponent(window);
 			else if(t == "text")
 				comp = new TextComponent(window);
+			else if (t == "ninepatch")
+				comp = new NinePatchComponent(window);
+			else if (t == "video")
+				comp = new VideoVlcComponent(window);
 
 			if (comp == nullptr)
 				continue;

@@ -80,7 +80,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 		addEntry(_("GAME COLLECTION SETTINGS").c_str(), true, [this] { openCollectionSystemSettings(); }, "iconAdvanced");
 
 	if (isFullUI)
-		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings_batocera(); }, "iconSound");
+		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
 
 	if (isFullUI)
 		addEntry(_("NETWORK SETTINGS").c_str(), true, [this] { openNetworkSettings_batocera(); }, "iconNetwork");
@@ -141,120 +141,6 @@ void GuiMenu::openScraperSettings()
 	s->addEntry(_("SCRAPE NOW"), true, openAndSave);
 
 	mWindow->pushGui(s);
-}
-
-void GuiMenu::openSoundSettings()
-{
-	auto s = new GuiSettings(mWindow, "SOUND SETTINGS");
-
-	// volume
-	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
-	volume->setValue((float)VolumeControl::getInstance()->getVolume());
-	s->addWithLabel("SYSTEM VOLUME", volume);
-	s->addSaveFunc([volume] { VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue())); });
-
-	if (UIModeController::getInstance()->isUIModeFull())
-	{
-#if defined(__linux__)
-		// audio card
-		auto audio_card = std::make_shared< OptionListComponent<std::string> >(mWindow, "AUDIO CARD", false);
-		std::vector<std::string> audio_cards;
-	#ifdef _RPI_
-		// RPi Specific  Audio Cards
-		audio_cards.push_back("local");
-		audio_cards.push_back("hdmi");
-		audio_cards.push_back("both");
-	#endif
-		audio_cards.push_back("default");
-		audio_cards.push_back("sysdefault");
-		audio_cards.push_back("dmix");
-		audio_cards.push_back("hw");
-		audio_cards.push_back("plughw");
-		audio_cards.push_back("null");
-		if (Settings::getInstance()->getString("AudioCard") != "") {
-			if(std::find(audio_cards.begin(), audio_cards.end(), Settings::getInstance()->getString("AudioCard")) == audio_cards.end()) {
-				audio_cards.push_back(Settings::getInstance()->getString("AudioCard"));
-			}
-		}
-		for(auto ac = audio_cards.cbegin(); ac != audio_cards.cend(); ac++)
-			audio_card->add(*ac, *ac, Settings::getInstance()->getString("AudioCard") == *ac);
-		s->addWithLabel("AUDIO CARD", audio_card);
-		s->addSaveFunc([audio_card] {
-			Settings::getInstance()->setString("AudioCard", audio_card->getSelected());
-			VolumeControl::getInstance()->deinit();
-			VolumeControl::getInstance()->init();
-		});
-
-		// volume control device
-		auto vol_dev = std::make_shared< OptionListComponent<std::string> >(mWindow, "AUDIO DEVICE", false);
-		std::vector<std::string> transitions;
-		transitions.push_back("PCM");
-		transitions.push_back("Speaker");
-		transitions.push_back("Master");
-		transitions.push_back("Digital");
-		transitions.push_back("Analogue");
-		if (Settings::getInstance()->getString("AudioDevice") != "") {
-			if(std::find(transitions.begin(), transitions.end(), Settings::getInstance()->getString("AudioDevice")) == transitions.end()) {
-				transitions.push_back(Settings::getInstance()->getString("AudioDevice"));
-			}
-		}
-		for(auto it = transitions.cbegin(); it != transitions.cend(); it++)
-			vol_dev->add(*it, *it, Settings::getInstance()->getString("AudioDevice") == *it);
-		s->addWithLabel("AUDIO DEVICE", vol_dev);
-		s->addSaveFunc([vol_dev] {
-			Settings::getInstance()->setString("AudioDevice", vol_dev->getSelected());
-			VolumeControl::getInstance()->deinit();
-			VolumeControl::getInstance()->init();
-		});
-#endif
-
-		// disable sounds
-		auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
-		sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
-		s->addWithLabel("ENABLE NAVIGATION SOUNDS", sounds_enabled);
-		s->addSaveFunc([sounds_enabled] {
-			if (sounds_enabled->getState()
-				&& !Settings::getInstance()->getBool("EnableSounds")
-				&& PowerSaver::getMode() == PowerSaver::INSTANT)
-			{
-				Settings::getInstance()->setString("PowerSaverMode", "default");
-				PowerSaver::init();
-			}
-			Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
-		});
-
-		auto video_audio = std::make_shared<SwitchComponent>(mWindow);
-		video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
-		s->addWithLabel("ENABLE VIDEO AUDIO", video_audio);
-		s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
-
-#ifdef _RPI_
-		// OMX player Audio Device
-		auto omx_audio_dev = std::make_shared< OptionListComponent<std::string> >(mWindow, "OMX PLAYER AUDIO DEVICE", false);
-		std::vector<std::string> omx_cards;
-		// RPi Specific  Audio Cards
-		omx_cards.push_back("local");
-		omx_cards.push_back("hdmi");
-		omx_cards.push_back("both");
-		omx_cards.push_back("alsa:hw:0,0");
-		omx_cards.push_back("alsa:hw:1,0");
-		if (Settings::getInstance()->getString("OMXAudioDev") != "") {
-			if (std::find(omx_cards.begin(), omx_cards.end(), Settings::getInstance()->getString("OMXAudioDev")) == omx_cards.end()) {
-				omx_cards.push_back(Settings::getInstance()->getString("OMXAudioDev"));
-			}
-		}
-		for (auto it = omx_cards.cbegin(); it != omx_cards.cend(); it++)
-			omx_audio_dev->add(*it, *it, Settings::getInstance()->getString("OMXAudioDev") == *it);
-		s->addWithLabel("OMX PLAYER AUDIO DEVICE", omx_audio_dev);
-		s->addSaveFunc([omx_audio_dev] {
-			if (Settings::getInstance()->getString("OMXAudioDev") != omx_audio_dev->getSelected())
-				Settings::getInstance()->setString("OMXAudioDev", omx_audio_dev->getSelected());
-		});
-#endif
-	}
-
-	mWindow->pushGui(s);
-
 }
 
 void GuiMenu::openOtherSettings()
@@ -508,31 +394,16 @@ void GuiMenu::openSystemInformations_batocera()
 			informationsGui->addWithLabel(tokens.at(0), space);
 		}
 	}
-
-	// support
-	if (isFullUI) 
-	{
-		informationsGui->addEntry(_("CREATE A SUPPORT FILE"), false, [window] {
-			window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
-				[window] {
-				if (ApiSystem::getInstance()->generateSupportFile()) {
-					window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
-				}
-				else {
-					window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
-				}
-			}, _("NO"), nullptr));
-		});
-	}
-
+	
 	window->pushGui(informationsGui);
 }
 
 void GuiMenu::openDeveloperSettings()
 {
-	auto s = new GuiSettings(mWindow, _("DEVELOPER SETTINGS").c_str());
+	Window *window = mWindow;
 
-
+	auto s = new GuiSettings(mWindow, _("DEVELOPER").c_str());
+	
 	// maximum vram
 	auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
 	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
@@ -546,11 +417,46 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc(
 		[framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
 	
+	// vsync
+	auto vsync = std::make_shared<SwitchComponent>(mWindow);
+	vsync->setState(Settings::getInstance()->getBool("VSync"));
+	s->addWithLabel(_("VSYNC"), vsync);
+	s->addSaveFunc([vsync]
+	{
+		if (Settings::getInstance()->setBool("VSync", vsync->getState()))
+			Renderer::setSwapInterval();
+	});
+
+	// preload UI
+	auto preloadUI = std::make_shared<SwitchComponent>(mWindow);
+	preloadUI->setState(Settings::getInstance()->getBool("PreloadUI"));
+	s->addWithLabel(_("PRELOAD UI"), preloadUI);
+	s->addSaveFunc([preloadUI] { Settings::getInstance()->setBool("PreloadUI", preloadUI->getState()); });
+
 	// threaded loading -> Should be moved in a "developper" submenu
 	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
 	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
 	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
 	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
+
+	// optimizeVram
+	auto optimizeVram = std::make_shared<SwitchComponent>(mWindow);
+	optimizeVram->setState(Settings::getInstance()->getBool("OptimizeVRAM"));
+	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
+	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
+
+	// support
+	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
+		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+			[window] {
+			if (ApiSystem::getInstance()->generateSupportFile()) {
+				window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+			}
+			else {
+				window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
+			}
+		}, _("NO"), nullptr));
+	});
 
 	mWindow->pushGui(s);
 }
@@ -662,7 +568,9 @@ void GuiMenu::openSystemSettings_batocera()
 	if (isOneSet == false)
 		overclock_choice->add(currentOverclock, currentOverclock, true);
 	
+#ifndef WIN32
 	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
+#endif
 
 	// Updates
 	s->addEntry(_("UPDATES"), true, [this] 
@@ -782,7 +690,8 @@ void GuiMenu::openSystemSettings_batocera()
 	});
 
 	// Developer options
-	s->addEntry(_("DEVELOPER"), true, [this] { openDeveloperSettings(); });
+	if (isFullUI)
+		s->addEntry(_("DEVELOPER"), true, [this] { openDeveloperSettings(); });
 
 	mWindow->pushGui(s);
 }
@@ -1759,7 +1668,7 @@ void GuiMenu::openUISettings()
 	mWindow->pushGui(s);
 }
 
-void GuiMenu::openSoundSettings_batocera() 
+void GuiMenu::openSoundSettings() 
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
@@ -1767,6 +1676,7 @@ void GuiMenu::openSoundSettings_batocera()
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
 	volume->setValue((float)VolumeControl::getInstance()->getVolume());
 	s->addWithLabel(_("SYSTEM VOLUME"), volume);
+	s->addSaveFunc([volume] { VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue())); });
 
 	// disable sounds
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);

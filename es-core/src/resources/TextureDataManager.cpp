@@ -105,7 +105,17 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 {
 	// See if it's already loaded
 	if (tex->isLoaded())
-		return;
+	{
+		if (tex->isMaxSizeValid())
+			return;
+
+		tex->releaseVRAM();
+		tex->releaseRAM();
+
+		mLoader->remove(tex);
+		block = true; // Reload instantly or other instances will fade again
+	}
+
 	// Not loaded. Make sure there is room
 	size_t size = TextureResource::getTotalMemUsage();
 	size_t max_texture = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;

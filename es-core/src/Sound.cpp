@@ -86,6 +86,9 @@ void Sound::play()
 	if (mSampleData == nullptr)
 		return;
 
+	if (!Settings::getInstance()->getBool("EnableSounds"))
+		return;
+
 	mPlayingChannel = Mix_PlayChannel(-1, mSampleData, 0);
 }
 

@@ -143,6 +143,9 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	if(size() == 0)
 		return;
 
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	const float entrySize = Math::max(font->getHeight(1.0), (float)font->getSize()) * mLineSpacing;
 
 	int startEntry = 0;

@@ -6,17 +6,16 @@
 #include "math/Vector2f.h"
 #include "resources/ResourceManager.h"
 #include "resources/TextureDataManager.h"
+#include "resources/TextureData.h"
 #include <set>
 #include <string>
-
-class TextureData;
 
 // An OpenGL texture.
 // Automatically recreates the texture with renderer deinit/reinit.
 class TextureResource : public IReloadable
 {
 public:
-	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true);
+	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, MaxSizeInfo* maxSize = nullptr);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);
 
@@ -36,7 +35,7 @@ public:
 	static size_t getTotalTextureSize(); // returns the number of bytes that would be used if all textures were in memory
 
 protected:
-	TextureResource(const std::string& path, bool tile, bool dynamic);
+	TextureResource(const std::string& path, bool tile, bool dynamic, MaxSizeInfo* maxSize = nullptr);
 	virtual bool unload();
 	virtual void reload();
 

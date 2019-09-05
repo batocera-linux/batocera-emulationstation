@@ -462,22 +462,24 @@ void ViewController::render(const Transform4x4f& parentTrans)
 
 void ViewController::preload()
 {
-	uint32_t i = 0;
+	int i = 1;
+	int max = SystemData::sSystemVector.size() + 1;
+
+	bool preloadUI = Settings::getInstance()->getBool("PreloadUI");
+	bool splash = preloadUI && Settings::getInstance()->getBool("SplashScreen") && Settings::getInstance()->getBool("SplashScreenProgress");
+
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-	{
-		/*
-		if(Settings::getInstance()->getBool("SplashScreen") &&
-			Settings::getInstance()->getBool("SplashScreenProgress"))
+	{		
+		if (splash)
 		{
 			i++;
-			char buffer[100];
-			sprintf (buffer, "Loading '%s' (%d/%d)",
-				(*it)->getFullName().c_str(), i, (int)SystemData::sSystemVector.size());
-			mWindow->renderLoadingScreen(std::string(buffer));
+			mWindow->renderLoadingScreen(_("Preloading UI"), (float)i / (float)max);
 		}
-		*/
+
 		(*it)->getIndex()->resetFilters();
-		// getGameListView(*it); // batocera - performances
+
+		if (preloadUI)
+			getGameListView(*it);
 	}
 }
 

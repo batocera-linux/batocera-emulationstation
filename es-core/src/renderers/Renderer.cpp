@@ -13,6 +13,8 @@
 namespace Renderer
 {
 	static std::stack<Rect> clipStack;
+	static std::stack<Rect> nativeClipStack;
+
 	static SDL_Window*      sdlWindow          = nullptr;
 	static int              windowWidth        = 0;
 	static int              windowHeight       = 0;
@@ -218,6 +220,7 @@ namespace Renderer
 		if(box.h < 0) box.h = 0;
 
 		clipStack.push(box);
+		nativeClipStack.push(Rect(_pos.x(), _pos.y(), _size.x(), _size.y()));
 
 		setScissor(box);
 
@@ -232,6 +235,7 @@ namespace Renderer
 		}
 
 		clipStack.pop();
+		nativeClipStack.pop();
 
 		if(clipStack.empty()) setScissor(Rect(0, 0, 0, 0));
 		else                  setScissor(clipStack.top());
@@ -273,4 +277,46 @@ namespace Renderer
 	int         getScreenRotate()  { return screenRotate; }
 
 	bool        isSmallScreen()    { return screenWidth < 400 && screenHeight < 400; };
+
+	bool isClippingEnabled() { return !clipStack.empty(); }
+
+	bool valueInRange(int value, int min, int max)
+	{
+		return (value >= min) && (value <= max);
+	}
+
+	bool rectOverlap(Rect &A, Rect &B)
+	{
+		bool xOverlap = valueInRange(A.x, B.x, B.x + B.w) ||
+			valueInRange(B.x, A.x, A.x + A.w);
+
+		bool yOverlap = valueInRange(A.y, B.y, B.y + B.h) ||
+			valueInRange(B.y, A.y, A.y + A.h);
+
+		return xOverlap && yOverlap;
+	}
+
+	bool isVisibleOnScreen(float x, float y, float w, float h)
+	{
+		Rect screen = Rect(0, 0, Renderer::getWindowWidth(), Renderer::getWindowHeight());
+		Rect box = Rect(x, y, w, h);
+
+		if (w > 0 && x + w <= 0)
+			return false;
+
+		if (h > 0 && y + h <= 0)
+			return false;
+
+		if (x == screen.w || y == screen.h)
+			return false;
+
+		if (!rectOverlap(box, screen))
+			return false;
+
+		if (clipStack.empty())
+			return true;
+
+		screen = nativeClipStack.top();
+		return rectOverlap(screen, box);
+	}
 } // Renderer::

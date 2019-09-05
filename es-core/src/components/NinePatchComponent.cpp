@@ -10,6 +10,8 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	mPath(path),
 	mVertices(NULL)
 {
+	mPreviousSize = Vector2f(0, 0);
+
 	if(!mPath.empty())
 		buildVertices();
 }
@@ -111,6 +113,9 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();
 
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	if(mTexture && mVertices != NULL)
 	{
 		Renderer::setMatrix(trans);
@@ -124,6 +129,10 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 
 void NinePatchComponent::onSizeChanged()
 {
+	if (mPreviousSize == mSize)
+		return;
+
+	mPreviousSize = mSize;
 	buildVertices();
 }
 
@@ -134,6 +143,9 @@ const Vector2f& NinePatchComponent::getCornerSize() const
 
 void NinePatchComponent::setCornerSize(int sizeX, int sizeY)
 {
+	if (mCornerSize.x() == sizeX && mCornerSize.y() == sizeY)
+		return;
+
 	mCornerSize = Vector2f(sizeX, sizeY);
 	buildVertices();
 }
@@ -151,18 +163,28 @@ void NinePatchComponent::fitTo(Vector2f size, Vector3f position, Vector2f paddin
 
 void NinePatchComponent::setImagePath(const std::string& path)
 {
+	if (mPath == path)
+		return;
+
 	mPath = path;
+	mTexture = nullptr;
 	buildVertices();
 }
 
 void NinePatchComponent::setEdgeColor(unsigned int edgeColor)
 {
+	if (mEdgeColor == edgeColor)
+		return;
+
 	mEdgeColor = edgeColor;
 	updateColors();
 }
 
 void NinePatchComponent::setCenterColor(unsigned int centerColor)
 {
+	if (mCenterColor == centerColor)
+		return;
+
 	mCenterColor = centerColor;
 	updateColors();
 }
@@ -179,4 +201,22 @@ void NinePatchComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 
 	if(properties & PATH && elem->has("path"))
 		setImagePath(elem->get<std::string>("path"));
+
+	if(properties & COLOR)
+	{
+		if(elem->has("color"))
+		{
+			setCenterColor(elem->get<unsigned int>("color"));
+			setEdgeColor(elem->get<unsigned int>("color"));
+		}
+
+		if(elem->has("centerColor"))
+			setCenterColor(elem->get<unsigned int>("centerColor"));
+
+		if(elem->has("edgeColor"))
+			setEdgeColor(elem->get<unsigned int>("edgeColor"));
+	}
+
+	if(elem->has("cornerSize"))
+		setCornerSize(elem->get<Vector2f>("cornerSize"));
 }

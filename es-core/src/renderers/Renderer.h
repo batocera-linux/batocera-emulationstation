@@ -97,6 +97,9 @@ namespace Renderer
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
 
+	// batocera methods
+	bool         isClippingEnabled  ();
+	bool         isVisibleOnScreen  (float x, float y, float w, float h);
 	bool         isSmallScreen      ();
 } // Renderer::
 

@@ -26,14 +26,44 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mExtrasCamOffset = 0;
 	mExtrasFadeOpacity = 0.0f;
 	launchKodi = false; // batocera
-
+	mScreensaverActive = false;
+	mDisable = false;
+	mShowing = false;
+	mLastCursor = 0;
+	mStaticBackground = nullptr;
+	
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	populate();
 }
 
+SystemView::~SystemView()
+{
+	if (mStaticBackground != nullptr)
+	{
+		delete mStaticBackground;
+		mStaticBackground = nullptr;
+	}
+
+	clearEntries();
+}
+
+void SystemView::clearEntries()
+{
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		for (auto extra : mEntries[i].data.backgroundExtras)
+			delete extra;
+
+		mEntries[i].data.backgroundExtras.clear();
+	}
+
+	mEntries.clear();
+}
+
+
 void SystemView::populate()
 {
-	mEntries.clear();
+	clearEntries();
 
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
@@ -59,7 +89,17 @@ void SystemView::populate()
 				{
 					ImageComponent* logo = new ImageComponent(mWindow, false, false);
 					logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
-					logo->applyTheme(theme, "system", "logo", ThemeFlags::PATH | ThemeFlags::COLOR);
+					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR); //  ThemeFlags::PATH | 
+
+					// Process here to be enable to set max picture size
+					auto elem = theme->getElement("system", "logo", "image");
+					if (elem && elem->has("path"))
+					{
+						auto path = elem->get<std::string>("path");
+						if (Utils::FileSystem::exists(path))
+							logo->setImage(path, (elem->has("tile") && elem->get<bool>("tile")), MaxSizeInfo(mCarousel.logoSize * mCarousel.logoScale));
+					}
+
 					logo->setRotateByTargetSize(true);
 					e.data.logo = std::shared_ptr<GuiComponent>(logo);
 				}
@@ -259,6 +299,7 @@ bool SystemView::input(InputConfig* config, Input input)
 void SystemView::update(int deltaTime)
 {
 	listUpdate(deltaTime);
+	updateExtras([this, deltaTime](GuiComponent* p) { p->update(deltaTime); });
 	GuiComponent::update(deltaTime);
 }
 
@@ -339,6 +380,12 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	if(endPos == mCamOffset && endPos == mExtrasCamOffset)
 		return;
 
+	if (mLastCursor == mCursor)
+		return;
+
+	int oldCursor = mLastCursor;
+	mLastCursor = mCursor;
+
 	Animation* anim;
 	bool move_carousel = Settings::getInstance()->getBool("MoveCarousel");
 	if(transition_style == "fade")
@@ -400,8 +447,19 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 		}, move_carousel ? 500 : 1);
 	}
 
+	for (int i = 0; i < mEntries.size(); i++)
+		if (i != oldCursor && i != mCursor)
+			activateExtras(i, false);
 
-	setAnimation(anim, 0, nullptr, false, 0);
+	activateExtras(mCursor);
+
+	setAnimation(anim, 0, [this]
+	{
+		for (int i = 0; i < mEntries.size(); i++)
+			if (i != mCursor)
+				activateExtras(i, false);
+
+	}, false, 0);
 }
 
 void SystemView::render(const Transform4x4f& parentTrans)
@@ -411,11 +469,17 @@ void SystemView::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = getTransform() * parentTrans;
 
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	auto systemInfoZIndex = mSystemInfo.getZIndex();
 	auto minMax = std::minmax(mCarousel.zIndex, systemInfoZIndex);
 
 	renderExtras(trans, INT16_MIN, minMax.first);
 	renderFade(trans);
+
+	if (mStaticBackground != nullptr)
+		mStaticBackground->render(trans);
 
 	if (mCarousel.zIndex > mSystemInfo.getZIndex()) {
 		renderInfoBar(trans);
@@ -496,6 +560,20 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 	if (sysInfoElem)
 		mSystemInfo.applyTheme(theme, "system", "systemInfo", ThemeFlags::ALL);
 
+	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "fixedBackground", "image");
+	if (fixedBackgroundElem)
+	{
+		if (mStaticBackground == nullptr)
+			mStaticBackground = new ImageComponent(mWindow, false);
+
+		mStaticBackground->applyTheme(theme, "system", "staticBackground", ThemeFlags::ALL);
+	}
+	else if (mStaticBackground != nullptr)
+	{
+		delete mStaticBackground;
+		mStaticBackground = nullptr;
+	}
+
 	mViewNeedsReload = false;
 }
 
@@ -563,6 +641,12 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			break;
 	}
 
+	if (mCarousel.logoPos.x() >= 0)
+		xOff = mCarousel.logoPos.x() - (mCarousel.type == HORIZONTAL ? (mCamOffset * logoSpacing[0]) : 0);
+
+	if (mCarousel.logoPos.y() >= 0)
+		yOff = mCarousel.logoPos.y() - (mCarousel.type == VERTICAL ? (mCamOffset * logoSpacing[1]) : 0);
+
 	int center = (int)(mCamOffset);
 	int logoCount = Math::min(mCarousel.maxLogoCount, (int)mEntries.size());
 
@@ -570,7 +654,7 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	int bufferIndex = getScrollingVelocity() + 1;
 	int bufferLeft = logoBuffersLeft[bufferIndex];
 	int bufferRight = logoBuffersRight[bufferIndex];
-	if (logoCount == 1)
+	if (logoCount == 1 && mCamOffset == 0)
 	{
 		bufferLeft = 0;
 		bufferRight = 0;
@@ -688,6 +772,7 @@ void  SystemView::getDefaultElements(void)
 	mCarousel.logoRotationOrigin.y() = 0.5;
 	mCarousel.logoSize.x() = 0.25f * mSize.x();
 	mCarousel.logoSize.y() = 0.155f * mSize.y();
+	mCarousel.logoPos = Vector2f(-1, -1);
 	mCarousel.maxLogoCount = 3;
 	mCarousel.zIndex = 40;
 
@@ -700,6 +785,12 @@ void  SystemView::getDefaultElements(void)
 	mSystemInfo.setColor(0x000000FF);
 	mSystemInfo.setZIndex(50);
 	mSystemInfo.setDefaultZIndex(50);
+
+	if (mStaticBackground != nullptr)
+	{
+		delete mStaticBackground;
+		mStaticBackground = nullptr;
+	}
 }
 
 void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
@@ -734,6 +825,8 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 		mCarousel.logoScale = elem->get<float>("logoScale");
 	if (elem->has("logoSize"))
 		mCarousel.logoSize = elem->get<Vector2f>("logoSize") * mSize;
+	if (elem->has("logoPos"))
+		mCarousel.logoPos = elem->get<Vector2f>("logoPos") * mSize;
 	if (elem->has("maxLogoCount"))
 		mCarousel.maxLogoCount = (int)Math::round(elem->get<float>("maxLogoCount"));
 	if (elem->has("zIndex"))
@@ -760,9 +853,60 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 void SystemView::onShow()
 {
 	mShowing = true;
+	activateExtras(mCursor);
 }
 
 void SystemView::onHide()
 {
 	mShowing = false;
+	updateExtras([this](GuiComponent* p) { p->onHide(); });
+}
+
+void SystemView::onScreenSaverActivate()
+{
+	mScreensaverActive = true;
+	updateExtras([this](GuiComponent* p) { p->onScreenSaverActivate(); });
+}
+
+void SystemView::onScreenSaverDeactivate()
+{
+	mScreensaverActive = false;
+	updateExtras([this](GuiComponent* p) { p->onScreenSaverDeactivate(); });
+}
+
+void SystemView::topWindow(bool isTop)
+{
+	mDisable = !isTop;
+	updateExtras([this, isTop](GuiComponent* p) { p->topWindow(isTop); });
+}
+
+void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)
+{
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		SystemViewData data = mEntries.at(i).data;
+		for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
+		{
+			GuiComponent* extra = data.backgroundExtras[j];
+			func(extra);
+		}
+	}
+}
+
+void SystemView::activateExtras(int cursor, bool activate)
+{
+	if (cursor < 0 || cursor >= mEntries.size())
+		return;
+
+	bool show = activate && mShowing && !mScreensaverActive && !mDisable;
+
+	SystemViewData data = mEntries.at(cursor).data;
+	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
+	{
+		GuiComponent *extra = data.backgroundExtras[j];
+		if (show && activate)
+			extra->onShow();
+		else
+			extra->onHide();
+	}
 }

@@ -5,6 +5,7 @@
 #include "SystemData.h"
 #include "Window.h"
 #include "LocaleES.h"
+#include "SystemConf.h"
 
 GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(window), mMenu(window, title)
 {
@@ -34,6 +35,7 @@ void GuiSettings::save()
 		(*it)();
 
 	Settings::getInstance()->saveFile();
+	SystemConf::getInstance()->saveSystemConf();
 }
 
 bool GuiSettings::input(InputConfig* config, Input input)

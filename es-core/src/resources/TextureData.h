@@ -4,6 +4,7 @@
 
 #include <mutex>
 #include <string>
+#include "ImageIO.h"
 
 class TextureResource;
 
@@ -50,6 +51,10 @@ public:
 	unsigned char* getDataRGBA() {
 		return mDataRGBA;
 	}
+
+	void setMaxSize(MaxSizeInfo maxSize);
+	bool isMaxSizeValid();
+
 private:
 	std::mutex		mMutex;
 	bool			mTile;
@@ -62,6 +67,10 @@ private:
 	float			mSourceHeight;
 	bool			mScalable;
 	bool			mReloadable;
+
+	MaxSizeInfo		mMaxSize;
+	Vector2i		mPackedSize;
+	Vector2i		mBaseSize;
 };
 
 #endif // ES_CORE_RESOURCES_TEXTURE_DATA_H
