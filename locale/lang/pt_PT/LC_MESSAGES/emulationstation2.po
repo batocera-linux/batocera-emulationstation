@@ -74,7 +74,7 @@ msgid "ADVANCED"
 msgstr "AVANÇADO"
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "REINICIAR TODOS OS FILTROS"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -354,28 +354,28 @@ msgid "THEME SET"
 msgstr "TEMA"
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "THEME COLORSET"
-msgstr ""
+msgstr "CORES DO TEMA"
 
 msgid "THEME ICONSET"
-msgstr ""
+msgstr "ÍCONES DO TEMA"
 
 msgid "THEME MENU"
-msgstr ""
+msgstr "TEMA MENU"
 
 msgid "THEME SYSTEMVIEW"
-msgstr ""
+msgstr "VER TEMA DO SISTEMA"
 
 msgid "THEME GAMELISTVIEW"
-msgstr ""
+msgstr "VER TEMA DO JOGO"
 
 msgid "THEME REGION"
-msgstr ""
+msgstr "REGIÃO DO TEMA"
 
 msgid "THIS THEME HAS NO OPTION"
-msgstr ""
+msgstr "ESTE TEMA NÃO TEM OPÇÃO"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
@@ -469,7 +469,7 @@ msgid "DISPLAY SONG TITLES"
 msgstr "MOSTRAR OS TÍTULOS DA MÚSICA"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "DURAÇÃO DOS TÍTULOS DA MÚSICA"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
@@ -538,10 +538,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "DESEJA SAIR?"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -583,10 +583,10 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLEÇÕES PERSONALIZADAS E SISTEMAS"
 
 msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
-msgstr ""
+msgstr "MOSTRAR OS FAVORITOS PRIMEIRO"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "MOSTRAR NOME DO SISTEMA NAS COLECÇÕES"
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
@@ -1124,19 +1124,19 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "accept"
-msgstr ""
+msgstr "aceitar"
 
 msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
 
 msgid "select all"
-msgstr ""
+msgstr "selecionar tudo"
 
 msgid "SELECT NONE"
 msgstr "NENHUM SELECIONADO"
 
 msgid "select none"
-msgstr ""
+msgstr "nenhum selecionado"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1151,7 +1151,7 @@ msgid "WORKING..."
 msgstr "EM PROGRESSO..."
 
 msgid "up/down"
-msgstr ""
+msgstr "cima/baixo"
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"
