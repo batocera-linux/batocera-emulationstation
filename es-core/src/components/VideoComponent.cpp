@@ -127,13 +127,13 @@ bool VideoComponent::setVideo(std::string path)
 	return false;
 }
 
-void VideoComponent::setImage(std::string path)
+void VideoComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
 	// Check that the image has changed
 	if (path == mStaticImagePath)
 		return;
 
-	mStaticImage.setImage(path);
+	mStaticImage.setImage(path, tile, maxSize);
 	mFadeIn = 0.0f;
 	mStaticImagePath = path;
 }

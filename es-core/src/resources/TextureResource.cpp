@@ -3,12 +3,13 @@
 #include "utils/FileSystemUtil.h"
 #include "resources/TextureData.h"
 #include <cstring>
+#include "Settings.h"
 
 TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
 std::set<TextureResource*> 	TextureResource::sAllTextures;
 
-TextureResource::TextureResource(const std::string& path, bool tile, bool dynamic) : mTextureData(nullptr), mForceLoad(false)
+TextureResource::TextureResource(const std::string& path, bool tile, bool dynamic, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
 {
 	// Create a texture data object for this texture
 	if (!path.empty())
@@ -19,6 +20,9 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		if (dynamic)
 		{
 			data = sTextureDataManager.add(this, tile);
+			if (maxSize != nullptr)
+				data->setMaxSize(*maxSize);
+
 			data->initFromPath(path);
 			// Force the texture manager to load it using a blocking load
 			sTextureDataManager.load(data, true);
@@ -27,6 +31,8 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		{
 			mTextureData = std::shared_ptr<TextureData>(new TextureData(tile));
 			data = mTextureData;
+			if (maxSize != nullptr)
+				data->setMaxSize(*maxSize);
 			data->initFromPath(path);
 			// Load it so we can read the width/height
 			data->load();
@@ -108,7 +114,7 @@ bool TextureResource::bind()
 	return sTextureDataManager.bind(this);	
 }
 
-std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable)
+std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 
@@ -124,14 +130,34 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	auto foundTexture = sTextureMap.find(key);
 	if(foundTexture != sTextureMap.cend())
 	{
-		if(!foundTexture->second.expired())
-			return foundTexture->second.lock();
+		if (!foundTexture->second.expired())
+		{
+			std::shared_ptr<TextureResource> rc = foundTexture->second.lock();
+
+			if (maxSize != nullptr && !maxSize->empty() && Settings::getInstance()->getBool("OptimizeVRAM"))
+			{
+				auto dt = sTextureDataManager.get(rc.get());
+				if (dt != nullptr)
+				{
+					dt->setMaxSize(*maxSize);
+
+					if (dt->isLoaded() && !dt->isMaxSizeValid())
+					{
+						dt->releaseVRAM();
+						dt->releaseRAM();
+						dt->load();
+					}
+				}
+			}
+
+			return rc;
+		}
 	}
 
 	// need to create it
 	std::shared_ptr<TextureResource> tex;
-	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic));
-	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get());
+	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic, maxSize));
+	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get(), !forceLoad);
 
 	if (asReloadable)
 	{
@@ -140,6 +166,9 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 		// Add it to the reloadable list
 		rm->addReloadable(tex);
 	}
+
+	if (data != nullptr && maxSize != nullptr)
+		data->setMaxSize(*maxSize);
 
 	// Force load it if necessary. Note that it may get dumped from VRAM if we run low
 	if (forceLoad)

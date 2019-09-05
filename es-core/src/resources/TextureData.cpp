@@ -9,11 +9,15 @@
 #include <nanosvg/nanosvgrast.h>
 #include <assert.h>
 #include <string.h>
+#include "Settings.h"
 
 #define DPI 96
 
+#define OPTIMIZEVRAM Settings::getInstance()->getBool("OptimizeVRAM")
+
 TextureData::TextureData(bool tile) : mTile(tile), mTextureID(0), mDataRGBA(nullptr), mScalable(false),
-									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f)
+									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
+									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
 }
 
@@ -79,6 +83,31 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		mHeight = (size_t)Math::round(((float)mWidth / svgImage->width) * svgImage->height);
 	}
 
+	mBaseSize = Vector2i(mWidth, mHeight);
+
+	if (OPTIMIZEVRAM && !mMaxSize.empty())
+	{
+		if (mHeight < mMaxSize.y() && mWidth < mMaxSize.x()) // FCATMP
+		{
+			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+			mHeight = sz.y();
+			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
+		}
+
+		if (!mMaxSize.empty() && (mWidth > mMaxSize.x() || mHeight > mMaxSize.y()))
+		{
+			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+			mHeight = sz.y();
+			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
+			
+			mPackedSize = Vector2i(mWidth, mHeight);
+		}
+		else
+			mPackedSize = Vector2i(0, 0);
+	}
+	else
+		mPackedSize = Vector2i(0, 0);
+
 	unsigned char* dataRGBA = new unsigned char[mWidth * mHeight * 4];
 
 	NSVGrasterizer* rast = nsvgCreateRasterizer();
@@ -103,7 +132,11 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 			return true;
 	}
 
-	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height);
+	MaxSizeInfo maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight(), false);
+	if (!mMaxSize.empty())
+		maxSize = mMaxSize;
+
+	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
 	if (imageRGBA == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
@@ -257,4 +290,41 @@ size_t TextureData::getVRAMUsage()
 		return mWidth * mHeight * 4;
 	else
 		return 0;
+}
+
+void TextureData::setMaxSize(MaxSizeInfo maxSize)
+{
+	if (mSourceWidth == 0 || mSourceHeight == 0)
+		mMaxSize = maxSize;
+	else
+	{
+		Vector2i value = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+		Vector2i newVal = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(maxSize.x(), maxSize.y()), mMaxSize.externalZoom());
+
+		if (newVal.x() > value.x() || newVal.y() > value.y())
+			mMaxSize = maxSize;
+	}
+}
+
+bool TextureData::isMaxSizeValid()
+{
+	if (!OPTIMIZEVRAM)
+		return true;
+
+	if (mPackedSize == Vector2i(0, 0))
+		return true;
+
+	if (mBaseSize == Vector2i(0, 0))
+		return true;
+
+	if (mMaxSize.empty())
+		return true;
+
+	if ((int)mMaxSize.x() <= mPackedSize.x() || (int)mMaxSize.y() <= mPackedSize.y())
+		return true;
+
+	if (mBaseSize.x() <= mPackedSize.x() || mBaseSize.y() <= mPackedSize.y())
+		return true;
+
+	return false;
 }

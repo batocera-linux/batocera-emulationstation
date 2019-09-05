@@ -4,8 +4,14 @@
 #include <FreeImage.h>
 #include <string.h>
 
-unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height)
+unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
 {
+	if (baseSize != nullptr)
+		*baseSize = Vector2i(0, 0);
+
+	if (baseSize != nullptr)
+		*packedSize = Vector2i(0, 0);
+
 	std::vector<unsigned char> rawData;
 	width = 0;
 	height = 0;
@@ -35,6 +41,26 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 				{
 					width = FreeImage_GetWidth(fiBitmap);
 					height = FreeImage_GetHeight(fiBitmap);
+
+					if (baseSize != nullptr)
+						*baseSize = Vector2i(width, height);
+
+					if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
+					{
+						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+						if (sz.x() != width || sz.y() != height)
+						{
+							FIBITMAP* imageRescaled = FreeImage_Rescale(fiBitmap, sz.x(), sz.y(), FILTER_BOX);
+							FreeImage_Unload(fiBitmap);
+							fiBitmap = imageRescaled;
+
+							width = FreeImage_GetWidth(fiBitmap);
+							height = FreeImage_GetHeight(fiBitmap);
+
+							if (packedSize != nullptr)
+								*packedSize = Vector2i(width, height);
+						}
+					}
 
 					unsigned char* tempData = new unsigned char[width * height * 4];
 
@@ -86,6 +112,45 @@ void ImageIO::flipPixelsVert(unsigned char* imagePx, const size_t& width, const 
 			arr[x + (height * width) - ((y + 1) * width)] = temp;
 		}
 	}
+}
+
+Vector2i ImageIO::adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize)
+{
+	if (externSize)
+	{
+		Vector2f szf = getPictureMinSize(Vector2f(imageSize.x(), imageSize.y()), Vector2f(maxSize.x(), maxSize.y()));
+		return Vector2i(szf.x(), szf.y());
+	}
+
+	int cxDIB = imageSize.x();
+	int cyDIB = imageSize.y();
+	int iMaxX = maxSize.x();
+	int iMaxY = maxSize.y();
+
+	double xCoef = (double)iMaxX / (double)cxDIB;
+	double yCoef = (double)iMaxY / (double)cyDIB;
+
+#if WIN32
+	cyDIB = (int)((double)cyDIB * std::fmax(xCoef, yCoef));
+	cxDIB = (int)((double)cxDIB * std::fmax(xCoef, yCoef));
+#else
+	cyDIB = (int)((double)cyDIB * std::max(xCoef, yCoef));
+	cxDIB = (int)((double)cxDIB * std::max(xCoef, yCoef));
+#endif
+
+	if (cxDIB > iMaxX)
+	{
+		cyDIB = (int)((double)cyDIB * (double)iMaxX / (double)cxDIB);
+		cxDIB = iMaxX;
+	}
+
+	if (cyDIB > iMaxY)
+	{
+		cxDIB = (int)((double)cxDIB * (double)iMaxY / (double)cyDIB);
+		cyDIB = iMaxY;
+	}
+
+	return Vector2i(cxDIB, cyDIB);
 }
 
 Vector2f ImageIO::getPictureMinSize(Vector2f imageSize, Vector2f maxSize)

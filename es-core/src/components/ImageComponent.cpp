@@ -132,17 +132,17 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile)
+void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
 	if(path.empty() || !ResourceManager::getInstance()->fileExists(path))
 	{
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
-			mTexture = TextureResource::get(mDefaultPath, tile, mForceLoad, mDynamic);
-	} else {
-		mTexture = TextureResource::get(path, tile, mForceLoad, mDynamic);
-	}
+			mTexture = TextureResource::get(mDefaultPath, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+	} 
+	else
+		mTexture = TextureResource::get(path, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 
 	resize();
 }

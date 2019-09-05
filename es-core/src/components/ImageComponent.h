@@ -5,8 +5,10 @@
 #include "renderers/Renderer.h"
 #include "math/Vector2i.h"
 #include "GuiComponent.h"
+#include "ImageIO.h"
 
 class TextureResource;
+class MaxSizeInfo;
 
 class ImageComponent : public GuiComponent
 {
@@ -17,7 +19,7 @@ public:
 	void setDefaultImage(std::string path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
-	void setImage(std::string path, bool tile = false);
+	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
 	//Loads an image from memory.
 	void setImage(const char* image, size_t length, bool tile = false);
 	//Use an already existing texture.
@@ -78,6 +80,14 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 	void setAllowFading(bool fade) { mAllowFading = fade; };
+
+	const MaxSizeInfo getMaxSizeInfo()
+	{
+		if (mTargetSize == Vector2f(0, 0))
+			return MaxSizeInfo(mSize, mTargetIsMax);
+
+		return MaxSizeInfo(mTargetSize, mTargetIsMax);
+	};
 
 private:
 	Vector2f mTargetSize;
