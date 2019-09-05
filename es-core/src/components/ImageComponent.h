@@ -76,6 +76,9 @@ public:
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+
+	void setAllowFading(bool fade) { mAllowFading = fade; };
+
 private:
 	Vector2f mTargetSize;
 
@@ -106,6 +109,8 @@ private:
 
 	Vector2f mTopLeftCrop;
 	Vector2f mBottomRightCrop;
+
+	bool mAllowFading;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
