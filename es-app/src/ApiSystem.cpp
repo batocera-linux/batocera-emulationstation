@@ -32,6 +32,7 @@
 #include <Sound.h>
 
 #if defined(WIN32)
+#include <Windows.h>
 #include "EmulationStation.h"
 #define popen _popen
 #define pclose _pclose
@@ -337,7 +338,32 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui) {
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-bool ApiSystem::ping() {
+bool ApiSystem::ping() 
+{
+#if WIN32
+	bool connected = false;
+
+	HMODULE hWinInet = LoadLibrary("WININET.DLL");
+	if (hWinInet != NULL)
+	{
+		typedef BOOL(WINAPI *PF_INETGETCONNECTEDSTATE)(LPDWORD, DWORD);
+		PF_INETGETCONNECTEDSTATE pfInternetGetConnectedState;
+
+		pfInternetGetConnectedState = (PF_INETGETCONNECTEDSTATE) ::GetProcAddress(hWinInet, "InternetGetConnectedState");
+		// affectation du pointeur sur la fonction
+		if (pfInternetGetConnectedState != NULL)
+		{
+			DWORD TypeCon;
+			if (pfInternetGetConnectedState(&TypeCon, 0))
+				connected = true;			
+		}
+
+		FreeLibrary(hWinInet);
+	}
+
+	return connected;
+#endif
+
 	std::string updateserver = "batocera-linux.xorhub.com";
 	std::string s("timeout 1 fping -c 1 -t 1000 " + updateserver);
 	int exitcode = system(s.c_str());
@@ -568,7 +594,7 @@ std::string ApiSystem::getIpAdress() {
 	if (ifAddrStruct != NULL) freeifaddrs(ifAddrStruct);
 	return result;
 #else
-	return std::string();
+	return std::string("127.0.0.1");
 #endif
 }
 
@@ -702,8 +728,11 @@ std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getAvailableOverclocking() {
+std::vector<std::string> ApiSystem::getAvailableOverclocking() 
+{
 	std::vector<std::string> res;
+
+#ifndef WIN32
 	std::ostringstream oss;
 	oss << "batocera-overclock list";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -718,12 +747,49 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking() {
 		res.push_back(std::string(line));
 	}
 	pclose(pipe);
+#endif
 
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getSystemInformations() {
+std::vector<std::string> ApiSystem::getSystemInformations() 
+{
 	std::vector<std::string> res;
+
+#if WIN32
+	int CPUInfo[4] = { -1 };
+	unsigned   nExIds, i = 0;
+	char CPUBrandString[0x40];
+	// Get the information associated with each extended ID.
+	__cpuid(CPUInfo, 0x80000000);
+	nExIds = CPUInfo[0];
+	for (i = 0x80000000; i <= nExIds; ++i)
+	{
+		__cpuid(CPUInfo, i);
+		// Interpret CPU brand string
+		if (i == 0x80000002)
+			memcpy(CPUBrandString, CPUInfo, sizeof(CPUInfo));
+		else if (i == 0x80000003)
+			memcpy(CPUBrandString + 16, CPUInfo, sizeof(CPUInfo));
+		else if (i == 0x80000004)
+			memcpy(CPUBrandString + 32, CPUInfo, sizeof(CPUInfo));
+	}
+
+	//string includes manufacturer, model and clockspeed
+	res.push_back("CPU:" + std::string(CPUBrandString));
+
+	SYSTEM_INFO sysInfo;
+	GetSystemInfo(&sysInfo);	
+	res.push_back("CORES:" + std::to_string(sysInfo.dwNumberOfProcessors));
+
+	MEMORYSTATUSEX statex;
+	statex.dwLength = sizeof(statex);
+	GlobalMemoryStatusEx(&statex);
+	res.push_back("MEMORY:" + std::to_string((statex.ullTotalPhys / 1024) / 1024) + "MB");
+
+	return res;
+#endif
+
 	FILE *pipe = popen("batocera-info", "r");
 	char line[1024];
 

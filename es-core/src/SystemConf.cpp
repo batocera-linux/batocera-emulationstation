@@ -33,7 +33,9 @@ SystemConf *SystemConf::getInstance() {
 #include <string>
 #include <iostream>
 
-bool SystemConf::loadSystemConf() {
+bool SystemConf::loadSystemConf() 
+{
+	mWasChanged = false;
 
     std::string line;
     std::ifstream systemConf(systemConfFile);
@@ -59,7 +61,11 @@ bool SystemConf::loadSystemConf() {
 }
 
 
-bool SystemConf::saveSystemConf() {
+bool SystemConf::saveSystemConf() 
+{
+	if (!mWasChanged)
+		return false;
+
 	std::ifstream filein(systemConfFile); //File to read from
 	if (!filein) {
 		LOG(LogError) << "Unable to open for saving :  " << systemConfFile << "\n";
@@ -68,9 +74,9 @@ bool SystemConf::saveSystemConf() {
 	/* Read all lines in a vector */
 	std::vector<std::string> fileLines;
 	std::string line;
-	while (std::getline(filein, line)) {
+	while (std::getline(filein, line))
 		fileLines.push_back(line);
-	}
+
 	filein.close();
 
 
@@ -108,31 +114,42 @@ bool SystemConf::saveSystemConf() {
 	}
 
 	fileout.close();
-
-
+	
 	/* Copy back the tmp to batocera.conf */
 	std::ifstream  src(systemConfFileTmp, std::ios::binary);
 	std::ofstream  dst(systemConfFile, std::ios::binary);
 	dst << src.rdbuf();
 
 	remove(systemConfFileTmp.c_str());
+	mWasChanged = false;
 
 	return true;
 }
 
-std::string SystemConf::get(const std::string &name) {
-    if (confMap.count(name)) {
+std::string SystemConf::get(const std::string &name) 
+{
+    if (confMap.count(name))
         return confMap[name];
-    }
+    
     return "";
 }
-std::string SystemConf::get(const std::string &name, const std::string &defaut) {
-    if (confMap.count(name)) {
+
+std::string SystemConf::get(const std::string &name, const std::string &defaut) 
+{
+    if (confMap.count(name))
         return confMap[name];
-    }
+    
     return defaut;
 }
 
-void SystemConf::set(const std::string &name, const std::string &value) {
-    confMap[name] = value;
+bool SystemConf::set(const std::string &name, const std::string &value) 
+{
+	if (confMap.count(name) == 0 || confMap[name] != value)
+	{
+		confMap[name] = value;
+		mWasChanged = true;
+		return true;
+	}
+
+	return false;
 }

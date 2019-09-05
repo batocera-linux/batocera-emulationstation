@@ -546,7 +546,14 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 		return true;
 
 	std::string regionsetting = Settings::getInstance()->getString("ThemeRegionName");
-	
+	if (regionsetting.empty())
+	{
+		if (mHasSubsets)
+			regionsetting = "en";
+		else
+			return true;
+	}
+
 	const char* delim = " \t\r\n,";
 	const std::string nameAttr = node.attribute("region").as_string();
 	size_t prevOff = nameAttr.find_first_not_of(delim, 0);
