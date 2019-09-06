@@ -109,8 +109,13 @@ void Settings::setDefaults()
 	mStringMap["TransitionStyle"] = "slide"; // batocera
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
-	mStringMap["Scraper"] = "TheGamesDB";
 	mStringMap["GamelistViewStyle"] = "automatic";
+
+	mStringMap["Scraper"] = "ScreenScraper";
+	mStringMap["ScrapperImageSrc"] = "box-2D";
+	mStringMap["ScrapperThumbSrc"] = "";
+	mBoolMap["ScrapeMarquee"] = false;
+	mBoolMap["ScrapeVideos"] = false;
 
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";

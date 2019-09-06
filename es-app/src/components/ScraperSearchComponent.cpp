@@ -231,8 +231,9 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 	mScraperResults = results;
 
 	auto theme = ThemeData::getMenuTheme();
-	auto font = theme->TextSmall.font;
+	auto font = theme->Text.font;
 	unsigned int color = theme->Text.color;
+
 	if(results.empty())
 	{
 		// Check if the scraper used is still valid

@@ -4,7 +4,7 @@
 
 #include <sstream>
 
-#define LOG(level) if(Log::Enabled() && level <= Log::getReportingLevel()) Log().get(level)
+#define LOG(level) if(!Log::Enabled() || level <= Log::getReportingLevel()) ; else Log().get(level)
 
 enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 
