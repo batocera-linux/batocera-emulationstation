@@ -445,6 +445,16 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
 	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
 
+	// enableLogs
+	auto enableLogs = std::make_shared<SwitchComponent>(mWindow);
+	enableLogs->setState(Settings::getInstance()->getBool("EnableLogging"));
+	s->addWithLabel(_("ENABLE LOG FILE"), enableLogs);
+	s->addSaveFunc([enableLogs]
+	{ 
+		if (Settings::getInstance()->setBool("EnableLogging", enableLogs->getState()))
+			Log::init();
+	});
+
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
 		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
