@@ -491,18 +491,24 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("PRELOAD UI"), preloadUI);
 	s->addSaveFunc([preloadUI] { Settings::getInstance()->setBool("PreloadUI", preloadUI->getState()); });
 
-	// threaded loading -> Should be moved in a "developper" submenu
+	// threaded loading
 	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
 	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
 	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
 	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
 
+	// threaded loading
+	auto asyncImages = std::make_shared<SwitchComponent>(mWindow);
+	asyncImages->setState(Settings::getInstance()->getBool("AsyncImages"));
+	s->addWithLabel(_("ASYNC IMAGES LOADING"), asyncImages);
+	s->addSaveFunc([asyncImages] { Settings::getInstance()->setBool("AsyncImages", asyncImages->getState()); });
+	
 	// optimizeVram
 	auto optimizeVram = std::make_shared<SwitchComponent>(mWindow);
 	optimizeVram->setState(Settings::getInstance()->getBool("OptimizeVRAM"));
 	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
 	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
-
+	
 	// enableLogs
 	auto enableLogs = std::make_shared<SwitchComponent>(mWindow);
 	enableLogs->setState(Settings::getInstance()->getBool("EnableLogging"));

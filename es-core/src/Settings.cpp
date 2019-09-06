@@ -100,11 +100,16 @@ void Settings::setDefaults()
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 400;
 	mIntMap["ScraperResizeHeight"] = 0;
+
+#if defined(_WIN32)
+	mIntMap["MaxVRAM"] = 256;
+#else
 	#ifdef _RPI_
 		mIntMap["MaxVRAM"] = 80;
 	#else
 		mIntMap["MaxVRAM"] = 100;
 	#endif
+#endif
 
 	mStringMap["TransitionStyle"] = "slide"; // batocera
 	mStringMap["ThemeSet"] = "";
@@ -178,6 +183,7 @@ void Settings::setDefaults()
 	mStringMap["ThemeRegionName"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
+	mBoolMap["AsyncImages"] = true;	
 	mBoolMap["PreloadUI"] = false;
 	mBoolMap["OptimizeVRAM"] = true;
 	mBoolMap["EnableLogging"] = true;

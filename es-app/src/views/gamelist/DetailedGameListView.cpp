@@ -102,6 +102,7 @@ void DetailedGameListView::createImage()
 
 	// Image
 	mImage = new ImageComponent(mWindow, true);
+	mImage->setAllowFading(false);
 	mImage->setOrigin(0.5f, 0.5f);
 	mImage->setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
 	mImage->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
@@ -139,6 +140,7 @@ void DetailedGameListView::createMarquee()
 
 	// Marquee
 	mMarquee = new ImageComponent(mWindow);
+	mMarquee->setAllowFading(false);
 	mMarquee->setOrigin(0.5f, 0.5f);
 	mMarquee->setPosition(mSize.x() * 0.25f, mSize.y() * 0.10f);
 	mMarquee->setMaxSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.18f);

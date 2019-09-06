@@ -44,6 +44,7 @@ VideoGameListView::VideoGameListView(Window* window, FileData* root) :
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) { updateInfoPanel(); });
 
 	// Marquee
+	mMarquee.setAllowFading(false);
 	mMarquee.setOrigin(0.5f, 0.5f);
 	mMarquee.setPosition(mSize.x() * 0.25f, mSize.y() * 0.10f);
 	mMarquee.setMaxSize(mSize.x() * (0.5f - 2*padding), mSize.y() * 0.18f);
@@ -51,6 +52,7 @@ VideoGameListView::VideoGameListView(Window* window, FileData* root) :
 	addChild(&mMarquee);
 
 	// Image
+	mImage.setAllowFading(false);
 	mImage.setOrigin(0.5f, 0.5f);
 	// Default to off the screen
 	mImage.setPosition(2.0f, 2.0f);

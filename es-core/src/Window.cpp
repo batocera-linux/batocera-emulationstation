@@ -131,6 +131,7 @@ void Window::deinit()
 		(*i)->onHide();
 	}
 	InputManager::getInstance()->deinit();
+	TextureResource::clearQueue();
 	ResourceManager::getInstance()->unloadAll();
 	Renderer::deinit();
 }

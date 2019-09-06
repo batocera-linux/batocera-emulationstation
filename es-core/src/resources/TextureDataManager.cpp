@@ -16,7 +16,7 @@ TextureDataManager::TextureDataManager()
 		data[i*4+3] = 0;
 	}
 	mBlank->initFromRGBA(data, 5, 5);
-	mLoader = new TextureLoader;
+	mLoader = new TextureLoader(this);
 }
 
 TextureDataManager::~TextureDataManager()
@@ -24,17 +24,39 @@ TextureDataManager::~TextureDataManager()
 	delete mLoader;
 }
 
+void TextureDataManager::onTextureLoaded(std::shared_ptr<TextureData> tex)
+{
+	std::unique_lock<std::mutex> lock(mMutex);
+
+	for (auto it = mTextureLookup.cbegin(); it != mTextureLookup.cend(); it++)
+	{
+		std::shared_ptr<TextureData> texture = *(*it).second;
+		if (texture == tex)
+		{
+			const TextureResource* pResource = it->first;
+			((TextureResource*)pResource)->onTextureLoaded(tex);
+		}
+	}
+}
+
 std::shared_ptr<TextureData> TextureDataManager::add(const TextureResource* key, bool tiled)
 {
 	remove(key);
 	std::shared_ptr<TextureData> data(new TextureData(tiled));
 	mTextures.push_front(data);
-	mTextureLookup[key] = mTextures.cbegin();
+	
+	{
+		std::unique_lock<std::mutex> lock(mMutex);
+		mTextureLookup[key] = mTextures.cbegin();
+	}
+
 	return data;
 }
 
 void TextureDataManager::remove(const TextureResource* key)
 {
+	std::unique_lock<std::mutex> lock(mMutex);
+
 	// Find the entry in the list
 	auto it = mTextureLookup.find(key);
 	if (it != mTextureLookup.cend())
@@ -48,6 +70,8 @@ void TextureDataManager::remove(const TextureResource* key)
 
 std::shared_ptr<TextureData> TextureDataManager::get(const TextureResource* key, bool enableLoading)
 {
+	std::unique_lock<std::mutex> lock(mMutex);
+
 	// If it's in the cache then we want to remove it from it's current location and
 	// move it to the top
 	std::shared_ptr<TextureData> tex;
@@ -101,6 +125,16 @@ size_t TextureDataManager::getQueueSize()
 	return mLoader->getQueueSize();
 }
 
+bool compareTextures(const std::shared_ptr<TextureData>& first, const std::shared_ptr<TextureData>& second)
+{
+	bool isResource = first->getPath().rfind(":/") == 0;
+	bool secondIsResource = second->getPath().rfind(":/") == 0;
+	if (isResource && !secondIsResource)
+		return true;
+
+	return false;
+}
+
 void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 {
 	// See if it's already loaded
@@ -120,27 +154,46 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 	size_t size = TextureResource::getTotalMemUsage();
 	size_t max_texture = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
 
-	for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
+	if (size >= max_texture)
 	{
-		if (size < max_texture)
-			break;
-		//size -= (*it)->getVRAMUsage();
-		(*it)->releaseVRAM();
-		(*it)->releaseRAM();
-		// It may be already in the loader queue. In this case it wouldn't have been using
-		// any VRAM yet but it will be. Remove it from the loader queue
-		mLoader->remove(*it);
-		size = TextureResource::getTotalMemUsage();
+		std::list<std::shared_ptr<TextureData>> orderedTextures(mTextures);
+		orderedTextures.sort(compareTextures);
+
+		for (auto it = orderedTextures.crbegin(); it != orderedTextures.crend(); ++it)
+		{
+			if (size < max_texture)
+				break;
+
+			if ((*it) == tex)
+				continue;
+
+			//size -= (*it)->getVRAMUsage();
+			(*it)->releaseVRAM();
+			(*it)->releaseRAM();
+			// It may be already in the loader queue. In this case it wouldn't have been using
+			// any VRAM yet but it will be. Remove it from the loader queue
+			mLoader->remove(*it);
+			size = TextureResource::getTotalMemUsage();
+		}
 	}
+
 	if (!block)
 		mLoader->load(tex);
 	else
+	{
+		mLoader->remove(tex);
 		tex->load();
+	}
 }
 
-TextureLoader::TextureLoader() : mExit(false)
+TextureLoader::TextureLoader(TextureDataManager* mgr) : mManager(mgr), mExit(false)
 {
-	mThread = new std::thread(&TextureLoader::threadProc, this);
+	int num_threads = std::thread::hardware_concurrency() / 2;
+	if (num_threads == 0)
+		num_threads = 1;
+
+	for (size_t i = 0; i < num_threads; i++)
+		mThreads.push_back(std::thread(&TextureLoader::threadProc, this));
 }
 
 TextureLoader::~TextureLoader()
@@ -151,9 +204,10 @@ TextureLoader::~TextureLoader()
 
 	// Exit the thread
 	mExit = true;
-	mEvent.notify_one();
-	mThread->join();
-	delete mThread;
+	mEvent.notify_all();
+
+	for (std::thread& t : mThreads)
+		t.join();
 }
 
 void TextureLoader::threadProc()
@@ -164,28 +218,32 @@ void TextureLoader::threadProc()
 		{
 			// Wait for an event to say there is something in the queue
 			std::unique_lock<std::mutex> lock(mMutex);
-			mEvent.wait(lock);
+		
 			if (!mTextureDataQ.empty())
 			{
 				textureData = mTextureDataQ.front();
 				mTextureDataQ.pop_front();
 				mTextureDataLookup.erase(mTextureDataLookup.find(textureData.get()));
+				mProcessingTextureDataQ.push_back(textureData);
 			}
 		}
-		// Queue has been released here but we might have a texture to process
-		while (textureData)
+
+		if (textureData)
 		{
 			textureData->load();
+			mManager->onTextureLoaded(textureData);
 
-			// See if there is another item in the queue
-			textureData = nullptr;
-			std::unique_lock<std::mutex> lock(mMutex);
-			if (!mTextureDataQ.empty())
 			{
-				textureData = mTextureDataQ.front();
-				mTextureDataQ.pop_front();
-				mTextureDataLookup.erase(mTextureDataLookup.find(textureData.get()));
+				std::unique_lock<std::mutex> lock(mMutex);
+				mProcessingTextureDataQ.remove(textureData);
 			}
+
+			std::this_thread::yield();
+		}
+		else
+		{
+			std::this_thread::yield();
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 	}
 }
@@ -196,6 +254,12 @@ void TextureLoader::load(std::shared_ptr<TextureData> textureData)
 	if (!textureData->isLoaded())
 	{
 		std::unique_lock<std::mutex> lock(mMutex);
+
+		// If is is currently loading, don't add again
+		for (auto it = mProcessingTextureDataQ.begin(); it != mProcessingTextureDataQ.end(); it++)
+			if ((*it) == textureData)
+				return;
+
 		// Remove it from the queue if it is already there
 		auto td = mTextureDataLookup.find(textureData.get());
 		if (td != mTextureDataLookup.cend())
@@ -207,7 +271,7 @@ void TextureLoader::load(std::shared_ptr<TextureData> textureData)
 		// Put it on the start of the queue as we want the newly requested textures to load first
 		mTextureDataQ.push_front(textureData);
 		mTextureDataLookup[textureData.get()] = mTextureDataQ.cbegin();
-		mEvent.notify_one();
+		mEvent.notify_all();
 	}
 }
 
@@ -234,4 +298,17 @@ size_t TextureLoader::getQueueSize()
 		mem += tex->width() * tex->height() * 4;
 	}
 	return mem;
+}
+
+void TextureLoader::clearQueue()
+{
+	// Just abort any waiting texture
+	mTextureDataQ.clear();
+	mTextureDataLookup.clear();
+}
+
+void TextureDataManager::clearQueue()
+{
+	if (mLoader != nullptr)
+		mLoader->clearQueue();
 }

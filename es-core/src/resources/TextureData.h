@@ -55,6 +55,10 @@ public:
 	void setMaxSize(MaxSizeInfo maxSize);
 	bool isMaxSizeValid();
 
+	void setTemporarySize(float width, float height);
+
+	inline const std::string& getPath() { return mPath; };
+
 private:
 	std::mutex		mMutex;
 	bool			mTile;

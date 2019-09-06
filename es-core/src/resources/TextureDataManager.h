@@ -8,31 +8,37 @@
 #include <memory>
 #include <mutex>
 #include <thread>
+#include <vector>
 
+class TextureDataManager;
 class TextureData;
 class TextureResource;
 
 class TextureLoader
 {
 public:
-	TextureLoader();
+	TextureLoader(TextureDataManager* mgr);
 	~TextureLoader();
 
 	void load(std::shared_ptr<TextureData> textureData);
 	void remove(std::shared_ptr<TextureData> textureData);
+	void clearQueue();
 
 	size_t getQueueSize();
 
 private:	
 	void threadProc();
 
+	std::list<std::shared_ptr<TextureData>> 										mProcessingTextureDataQ;
 	std::list<std::shared_ptr<TextureData> > 										mTextureDataQ;
 	std::map<TextureData*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureDataLookup;
 
-	std::thread*				mThread;
+	std::vector<std::thread>	mThreads;
 	std::mutex					mMutex;
 	std::condition_variable		mEvent;
 	bool 						mExit;
+
+	TextureDataManager*			mManager;
 };
 
 //
@@ -75,7 +81,12 @@ public:
 	// Load a texture, freeing resources as necessary to make space
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
+	void clearQueue();
+
+	void onTextureLoaded(std::shared_ptr<TextureData> tex);
+
 private:
+	std::mutex					mMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;

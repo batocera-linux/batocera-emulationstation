@@ -121,6 +121,10 @@ private:
 	Vector2f mBottomRightCrop;
 
 	bool mAllowFading;
+
+	std::string mPath;
+
+	std::shared_ptr<TextureResource> mLoadingTexture;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
