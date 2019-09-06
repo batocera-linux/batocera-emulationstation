@@ -270,6 +270,14 @@ float TextureData::sourceHeight()
 	return mSourceHeight;
 }
 
+void TextureData::setTemporarySize(float width, float height)
+{
+	mWidth = width;
+	mHeight = height;
+	mSourceWidth = width;
+	mSourceHeight = height;
+}
+
 void TextureData::setSourceSize(float width, float height)
 {
 	if (mScalable)

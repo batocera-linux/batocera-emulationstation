@@ -49,6 +49,7 @@ public:
 	// batocera
 	static Vector2f getPictureMinSize(Vector2f imageSize, Vector2f maxSize);
 	static Vector2i adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize = false);
+	static bool		loadImageSize(const char *fn, unsigned int *x, unsigned int *y);
 };
 
 #endif // ES_CORE_IMAGE_IO

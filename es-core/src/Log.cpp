@@ -3,9 +3,11 @@
 #include "utils/FileSystemUtil.h"
 #include "platform.h"
 #include <iostream>
+#include "Settings.h"
 
 LogLevel Log::reportingLevel = LogInfo;
-FILE* Log::file = NULL; //fopen(getLogPath().c_str(), "w");
+bool Log::dirty = false;
+FILE* Log::file = NULL;
 
 LogLevel Log::getReportingLevel()
 {
@@ -24,15 +26,22 @@ void Log::setReportingLevel(LogLevel level)
 
 void Log::init()
 {
+	if (file != NULL)
+		close();
+
+	if (!Settings::getInstance()->getBool("EnableLogging"))
+	{
+		remove(getLogPath().c_str());
+		return;
+	}
+
 	remove((getLogPath() + ".bak").c_str());
+
 	// rename previous log file
 	rename(getLogPath().c_str(), (getLogPath() + ".bak").c_str());
-	return;
-}
 
-void Log::open()
-{
 	file = fopen(getLogPath().c_str(), "w");
+	dirty = false;
 }
 
 std::ostringstream& Log::get(LogLevel level)
@@ -45,36 +54,36 @@ std::ostringstream& Log::get(LogLevel level)
 
 void Log::flush()
 {
-	fflush(getOutput());
+	if (!dirty)
+		return;
+
+	fflush(file);
+	dirty = false;
 }
 
 void Log::close()
 {
-	fclose(file);
-	file = NULL;
-}
+	if (file != NULL)
+	{
+		fflush(file);
+		fclose(file);
+	}
 
-FILE* Log::getOutput()
-{
-	return file;
+	dirty = false;
+	file = NULL;
 }
 
 Log::~Log()
 {
-	os << std::endl;
-
-	if(getOutput() == NULL)
+	if (file != NULL)
 	{
-		// not open yet, print to stdout
-		std::cerr << "ERROR - tried to write to log file before it was open! The following won't be logged:\n";
-		std::cerr << os.str();
-		return;
+		os << std::endl;
+		fprintf(file, "%s", os.str().c_str());
+		dirty = true;
 	}
 
-	fprintf(getOutput(), "%s", os.str().c_str());
-
-	//if it's an error, also print to console
-	//print all messages if using --debug
+	// If it's an error, also print to console
+	// print all messages if using --debug
 	if(messageLevel == LogError || reportingLevel >= LogDebug)
 		fprintf(stderr, "%s", os.str().c_str());
 }

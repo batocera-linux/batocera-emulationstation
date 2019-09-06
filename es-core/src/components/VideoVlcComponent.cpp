@@ -181,7 +181,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	{
 		// If video is still attached to the path & texture is initialized, we suppose it had just been stopped (onhide, ondisable, screensaver...)
 		// still render the last frame
-		if (mTexture != nullptr && !mVideoPath.empty() && mPlayingVideoPath == mVideoPath && mTexture->isInitialized())
+		if (mTexture != nullptr && !mVideoPath.empty() && mPlayingVideoPath == mVideoPath && mTexture->isLoaded())
 			initFromPixels = false;
 		else
 			return;

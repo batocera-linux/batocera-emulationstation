@@ -358,8 +358,7 @@ int main(int argc, char* argv[])
 		return 1;
 
 	//start the logger
-	Log::init();
-	Log::open();
+	Log::init();	
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
 	//always close the log on exit
@@ -368,7 +367,7 @@ int main(int argc, char* argv[])
 	// Set locale
 	setLocale(argv[0]); // batocera
 	// metadata init    // batocera
-	initMetadata();     // require locale
+	MetaDataList::initMetadata();     // require locale
 
 	Window window;
 	SystemScreenSaver screensaver(&window);

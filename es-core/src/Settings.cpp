@@ -100,17 +100,27 @@ void Settings::setDefaults()
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 400;
 	mIntMap["ScraperResizeHeight"] = 0;
+
+#if defined(_WIN32)
+	mIntMap["MaxVRAM"] = 256;
+#else
 	#ifdef _RPI_
 		mIntMap["MaxVRAM"] = 80;
 	#else
 		mIntMap["MaxVRAM"] = 100;
 	#endif
+#endif
 
 	mStringMap["TransitionStyle"] = "slide"; // batocera
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
-	mStringMap["Scraper"] = "TheGamesDB";
 	mStringMap["GamelistViewStyle"] = "automatic";
+
+	mStringMap["Scraper"] = "ScreenScraper";
+	mStringMap["ScrapperImageSrc"] = "box-2D";
+	mStringMap["ScrapperThumbSrc"] = "";
+	mBoolMap["ScrapeMarquee"] = false;
+	mBoolMap["ScrapeVideos"] = false;
 
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";
@@ -173,9 +183,10 @@ void Settings::setDefaults()
 	mStringMap["ThemeRegionName"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
+	mBoolMap["AsyncImages"] = true;	
 	mBoolMap["PreloadUI"] = false;
 	mBoolMap["OptimizeVRAM"] = true;
-	
+	mBoolMap["EnableLogging"] = true;
 
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;

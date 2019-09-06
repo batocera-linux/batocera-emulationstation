@@ -4,9 +4,7 @@
 
 #include <sstream>
 
-#define LOG(level) \
-if(level > Log::getReportingLevel()) ; \
-else Log().get(level)
+#define LOG(level) if(!Log::Enabled() || level <= Log::getReportingLevel()) ; else Log().get(level)
 
 enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 
@@ -24,14 +22,18 @@ public:
 
 	static void flush();
 	static void init();
-	static void open();
 	static void close();
+
+	static inline bool Enabled() { return file != NULL; }
+
 protected:
 	std::ostringstream os;
 	static FILE* file;
+
 private:
 	static LogLevel reportingLevel;
-	static FILE* getOutput();
+	static bool dirty;
+
 	LogLevel messageLevel;
 };
 

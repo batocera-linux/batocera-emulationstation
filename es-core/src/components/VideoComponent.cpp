@@ -68,6 +68,8 @@ VideoComponent::VideoComponent(Window* window) :
 	mFadeIn = 0.0f;
 	mIsWaitingForVideoToStart = false;
 
+	mStaticImage.setAllowFading(false);
+
 	// Setup the default configuration
 	mConfig.showSnapshotDelay 		= false;
 	mConfig.showSnapshotNoVideo		= false;

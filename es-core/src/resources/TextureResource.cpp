@@ -9,7 +9,7 @@ TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
 std::set<TextureResource*> 	TextureResource::sAllTextures;
 
-TextureResource::TextureResource(const std::string& path, bool tile, bool dynamic, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
+TextureResource::TextureResource(const std::string& path, bool tile, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
 {
 	// Create a texture data object for this texture
 	if (!path.empty())
@@ -24,8 +24,33 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 				data->setMaxSize(*maxSize);
 
 			data->initFromPath(path);
+
+			bool async = false;
+
+			std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
+			auto fullpath = rm->getResourcePath(path);
+
+			unsigned int width, height;
+
+			if (allowAsync && Settings::getInstance()->getBool("AsyncImages") && ImageIO::loadImageSize(fullpath.c_str(), &width, &height))
+			{
+				data->setTemporarySize(width, height);
+				async = true;
+			}
+
 			// Force the texture manager to load it using a blocking load
-			sTextureDataManager.load(data, true);
+			sTextureDataManager.load(data, !async); // 
+
+			if (async)
+			{
+				mSize = Vector2i(width, height);
+				mSourceSize = Vector2f(width, height);
+			}
+			else
+			{
+				mSize = Vector2i((int)data->width(), (int)data->height());
+				mSourceSize = Vector2f(data->sourceWidth(), data->sourceHeight());
+			}
 		}
 		else
 		{
@@ -46,7 +71,9 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		// Create a texture managed by this class because it cannot be dynamically loaded and unloaded
 		mTextureData = std::shared_ptr<TextureData>(new TextureData(tile));
 	}
-	sAllTextures.insert(this);
+
+	if (sAllTextures.find(this) == sAllTextures.end())
+		sAllTextures.insert(this);
 }
 
 TextureResource::~TextureResource()
@@ -54,7 +81,18 @@ TextureResource::~TextureResource()
 	if (mTextureData == nullptr)
 		sTextureDataManager.remove(this);
 
-	sAllTextures.erase(sAllTextures.find(this));
+	if (sAllTextures.size() > 0)
+	{
+		auto pthis = sAllTextures.find(this);
+		if (pthis != sAllTextures.end())
+			sAllTextures.erase(pthis);
+	}
+}
+
+void TextureResource::onTextureLoaded(std::shared_ptr<TextureData> tex)
+{
+	mSize = Vector2i((int)tex->width(), (int)tex->height());
+	mSourceSize = Vector2f(tex->sourceWidth(), tex->sourceHeight());
 }
 
 void TextureResource::initFromPixels(unsigned char* dataRGBA, size_t width, size_t height)
@@ -121,10 +159,14 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	const std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 	if(canonicalPath.empty())
 	{
-		std::shared_ptr<TextureResource> tex(new TextureResource("", tile, false));
+		std::shared_ptr<TextureResource> tex(new TextureResource("", tile, false, false));
 		rm->addReloadable(tex); //make sure we get properly deinitialized even though we do nothing on reinitialization
 		return tex;
 	}
+
+	// internal resources should not be dynamic
+	if (canonicalPath.length() > 0 && canonicalPath[0] == ':')
+		dynamic = false;
 
 	TextureKeyType key(canonicalPath, tile);
 	auto foundTexture = sTextureMap.find(key);
@@ -152,11 +194,13 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 
 			return rc;
 		}
+		else
+			sTextureMap.erase(foundTexture);
 	}
 
 	// need to create it
 	std::shared_ptr<TextureResource> tex;
-	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic, maxSize));
+	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic, !forceLoad, maxSize));
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get(), !forceLoad);
 
 	if (asReloadable)
@@ -195,7 +239,7 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	else
 		data = sTextureDataManager.get(this);
 
-	mSourceSize = Vector2f((float)width, (float)height);
+	// mSourceSize = Vector2f((float)width, (float)height);
 	data->setSourceSize((float)width, (float)height);
 	
 	if (mForceLoad || (mTextureData != nullptr))
@@ -208,8 +252,15 @@ Vector2f TextureResource::getSourceImageSize() const
 	return mSourceSize;
 }
 
-bool TextureResource::isInitialized() const
+bool TextureResource::isLoaded() const
 {
+	if (mTextureData != nullptr)
+		return mTextureData->isLoaded();
+
+	auto data = sTextureDataManager.get(this, false); 
+	if (data != nullptr)
+		return data->isLoaded();
+
 	return true;
 }
 
@@ -269,10 +320,11 @@ void TextureResource::reload()
 	// For manually loaded textures we have to reload them here
 	if (mTextureData && !mTextureData->isLoaded())
 		mTextureData->load();
+	else if (mTextureData == nullptr)
+		sTextureDataManager.get(this);
+}
 
-	// Uncomment this 2 lines in future release in order to reload texture VRAM exactly as it was before
-	// This is commented because it needs true images async loading, or it will be very long
-
-	// else if (mTextureData == nullptr)
-	//	 sTextureDataManager.get(this);
+void TextureResource::clearQueue()
+{
+	sTextureDataManager.clearQueue();
 }
