@@ -239,7 +239,7 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	else
 		data = sTextureDataManager.get(this);
 
-	mSourceSize = Vector2f((float)width, (float)height);
+	// mSourceSize = Vector2f((float)width, (float)height);
 	data->setSourceSize((float)width, (float)height);
 	
 	if (mForceLoad || (mTextureData != nullptr))

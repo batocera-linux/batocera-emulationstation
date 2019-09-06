@@ -101,7 +101,7 @@ void DetailedGameListView::createImage()
 	const float padding = 0.01f;
 
 	// Image
-	mImage = new ImageComponent(mWindow, true);
+	mImage = new ImageComponent(mWindow);
 	mImage->setAllowFading(false);
 	mImage->setOrigin(0.5f, 0.5f);
 	mImage->setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
