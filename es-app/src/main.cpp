@@ -367,7 +367,7 @@ int main(int argc, char* argv[])
 	// Set locale
 	setLocale(argv[0]); // batocera
 	// metadata init    // batocera
-	initMetadata();     // require locale
+	MetaDataList::initMetadata();     // require locale
 
 	Window window;
 	SystemScreenSaver screensaver(&window);

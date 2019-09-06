@@ -82,17 +82,9 @@ const std::string FileData::getThumbnailPath() const
 	return thumbnail;
 }
 
-const std::string& FileData::getName()
+const std::string FileData::getName()
 {
 	return metadata.get("name");
-}
-
-const std::string& FileData::getSortName()
-{
-	if (metadata.get("sortname").empty())
-		return metadata.get("name");
-	else
-		return metadata.get("sortname");
 }
 
 const bool FileData::getFavorite()
@@ -371,7 +363,7 @@ void CollectionFileData::refreshMetadata()
 	mDirty = true;
 }
 
-const std::string& CollectionFileData::getName()
+const std::string CollectionFileData::getName()
 {
 	if (mDirty) {
 		mCollectionFileName  = Utils::String::removeParenthesis(mSourceFileData->metadata.get("name"));
@@ -382,7 +374,7 @@ const std::string& CollectionFileData::getName()
 	if (Settings::getInstance()->getBool("CollectionShowSystemInfo"))
 		return mCollectionFileName;
 
-	return mSourceFileData->metadata.get("name");
+	return Utils::String::removeParenthesis(mSourceFileData->metadata.get("name"));
 }
 
 // returns Sort Type based on a string description
