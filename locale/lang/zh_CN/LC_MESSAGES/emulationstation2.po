@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 19:59+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,6 +121,36 @@ msgstr "游戏数据来源"
 msgid "SCRAPE RATINGS"
 msgstr "抓取游戏评分"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "无"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
 
@@ -144,6 +174,33 @@ msgstr "版本"
 
 msgid "DISK USAGE"
 msgstr "磁盘使用情况"
+
+msgid "DEVELOPER"
+msgstr "开发者"
+
+msgid "VRAM LIMIT"
+msgstr "限制 VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "显示帧率"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
@@ -234,9 +291,6 @@ msgstr "自动保存/加载"
 
 msgid "SHADERS SET"
 msgstr "着色器设置"
-
-msgid "NONE"
-msgstr "无"
 
 msgid "SCANLINES"
 msgstr "扫描线"
@@ -352,6 +406,9 @@ msgstr "视频输出"
 msgid "THEME SET"
 msgstr "主题设置"
 
+msgid "Loading..."
+msgstr "载入中..."
+
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -371,6 +428,9 @@ msgid "THEME GAMELISTVIEW"
 msgstr ""
 
 msgid "THEME REGION"
+msgstr ""
+
+msgid "FORCE GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
@@ -429,9 +489,6 @@ msgstr "循环画面转场"
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"
 
-msgid "SHOW FRAMERATE"
-msgstr "显示帧率"
-
 msgid "OVERSCAN"
 msgstr "过扫描"
 
@@ -447,13 +504,7 @@ msgstr "在磁盘上查找图形"
 msgid "SHOW HIDDEN FILES"
 msgstr "显示隐藏文件"
 
-msgid "VRAM LIMIT"
-msgstr "限制 VRAM"
-
 msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -790,12 +841,6 @@ msgstr "游戏名"
 msgid "enter game name"
 msgstr "输入游戏名称"
 
-msgid "Sort name"
-msgstr "排序名"
-
-msgid "enter game sort name"
-msgstr "输入游戏排序名称"
-
 msgid "Description"
 msgstr "游戏描述"
 
@@ -889,9 +934,6 @@ msgstr "输入最后游玩时间"
 msgid "name"
 msgstr "游戏名"
 
-msgid "sortname"
-msgstr "排序名"
-
 msgid "description"
 msgstr "游戏描述"
 
@@ -942,8 +984,8 @@ msgstr "启动"
 msgid "OPTIONS"
 msgstr "选项"
 
-msgid "Loading..."
-msgstr "载入中..."
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "菜单"
@@ -1144,6 +1186,15 @@ msgstr "进行中..."
 msgid "up/down"
 msgstr ""
 
+#~ msgid "Sort name"
+#~ msgstr "排序名"
+
+#~ msgid "enter game sort name"
+#~ msgstr "输入游戏排序名称"
+
+#~ msgid "sortname"
+#~ msgstr "排序名"
+
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "系统将要重启"
 
@@ -1210,9 +1261,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "游玩人数"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "开发者"
 
 #~ msgid "GENRE"
 #~ msgstr "类型"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 19:59+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -121,6 +121,36 @@ msgstr "SCRAPER DEPUIS"
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPER LES NOTES"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr "SOURCE D'IMAGE PRÉFÉRÉE"
+
+msgid "NONE"
+msgstr "AUCUN"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURE D'ÉCRAN"
+
+msgid "BOX 2D"
+msgstr "BOÎTE 2D"
+
+msgid "BOX 3D"
+msgstr "BOÎTE 3D"
+
+msgid "MIX"
+msgstr "MIX"
+
+msgid "WHEEL"
+msgstr "ROUE"
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr "SOURCE DE MINIATURE PRÉFÉRÉE	"
+
+msgid "SCRAPE MARQUEE"
+msgstr "SCRAPPER LES MARQUEURS"
+
+msgid "SCRAPE VIDEOS"
+msgstr "SCRAPPER LES VIDÉOS"
+
 msgid "SCRAPE NOW"
 msgstr "SCRAPER MAINTENANT"
 
@@ -144,6 +174,33 @@ msgstr "VERSION"
 
 msgid "DISK USAGE"
 msgstr "ESPACE DISQUE"
+
+msgid "DEVELOPER"
+msgstr "DÉVELOPPEUR"
+
+msgid "VRAM LIMIT"
+msgstr "LIMITE VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "AFFICHER LE FRAMERATE"
+
+msgid "VSYNC"
+msgstr "VSYNC"
+
+msgid "PRELOAD UI"
+msgstr "PRÉCHARGEMENT DE L'INTERFACE"
+
+msgid "THREADED LOADING"
+msgstr "CHARGEMENT EN PARALLÈLE"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr "CHARGEMENT DES IMAGES ASYNCHRONE"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OPTIMISER LES IMAGES EN RAM"
+
+msgid "ENABLE LOG FILE"
+msgstr "ACTIVER LE FICHIER DE LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRÉER UN FICHIER DE SUPPORT"
@@ -234,9 +291,6 @@ msgstr "SAUVEGARDE/CHARGEMENT AUTOMATIQUE"
 
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
-
-msgid "NONE"
-msgstr "AUCUN"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -353,6 +407,9 @@ msgstr "SORTIE VIDEO"
 msgid "THEME SET"
 msgstr "THÈME"
 
+msgid "Loading..."
+msgstr "Chargement..."
+
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
 
@@ -373,6 +430,9 @@ msgstr "VUE JEUX DU THÈME"
 
 msgid "THEME REGION"
 msgstr "RÉGION DU THÈME"
+
+msgid "FORCE GAMELIST VIEW STYLE"
+msgstr "FORCER LE STYLE DE LA VUE DES JEUX"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "CE THÈME N'A PAS D'OPTION"
@@ -433,9 +493,6 @@ msgstr "TRANSITIONS CAROUSSEL"
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
 
-msgid "SHOW FRAMERATE"
-msgstr "AFFICHER LE FRAMERATE"
-
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -451,14 +508,8 @@ msgstr "RECHERCHER DES GRAPHISMES SUR LE DISQUE"
 msgid "SHOW HIDDEN FILES"
 msgstr "AFFICHER LES FICHIERS CACHÉS"
 
-msgid "VRAM LIMIT"
-msgstr "LIMITE VRAM"
-
 msgid "POWER SAVER MODES"
 msgstr "MODE ÉCONOMIE D'ÉNERGIE"
-
-msgid "THREADED LOADING"
-msgstr "CHARGEMENT EN PARALLÈLE"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
@@ -794,12 +845,6 @@ msgstr "Nom"
 msgid "enter game name"
 msgstr "entrer le nom du jeu"
 
-msgid "Sort name"
-msgstr "nom de tri"
-
-msgid "enter game sort name"
-msgstr "entrer le nom de tri"
-
 msgid "Description"
 msgstr "Description"
 
@@ -893,9 +938,6 @@ msgstr "entrer la date de la dernière partie"
 msgid "name"
 msgstr "Nom"
 
-msgid "sortname"
-msgstr "Nom de tri"
-
 msgid "description"
 msgstr "description"
 
@@ -947,8 +989,8 @@ msgstr "LANCER"
 msgid "OPTIONS"
 msgstr "OPTIONS"
 
-msgid "Loading..."
-msgstr "Chargement..."
+msgid "Preloading UI"
+msgstr "Préchargement de l'interface"
 
 msgid "MENU"
 msgstr "MENU"
@@ -1149,3 +1191,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "Sort name"
+#~ msgstr "nom de tri"
+
+#~ msgid "enter game sort name"
+#~ msgstr "entrer le nom de tri"
+
+#~ msgid "sortname"
+#~ msgstr "Nom de tri"
