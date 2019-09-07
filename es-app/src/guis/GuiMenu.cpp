@@ -1459,7 +1459,7 @@ void GuiMenu::openUISettings()
 						viewPreference = "automatic";
 
 					for (auto it = styles.cbegin(); it != styles.cend(); it++)
-						gamelist_style->add(_(*it), *it, viewPreference == *it);
+					  gamelist_style->add(_((*it).c_str()), *it, viewPreference == *it);
 
 					themeconfig->addWithLabel(_("FORCE GAMELIST VIEW STYLE"), gamelist_style);
 				}
