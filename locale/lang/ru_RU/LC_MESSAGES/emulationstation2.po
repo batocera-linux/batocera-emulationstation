@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 19:59+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -124,6 +124,36 @@ msgstr "ЗАГРУЗКА ИЗ"
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "НЕТ"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
@@ -147,6 +177,33 @@ msgstr "ВЕРСИЯ"
 
 msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
+
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr "ЛИМИТ VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr "THREADED ЗАГРУЗКА"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
@@ -237,9 +294,6 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
-
-msgid "NONE"
-msgstr "НЕТ"
 
 msgid "SCANLINES"
 msgstr "ЧЕРЕССТРОЧНОСТЬ"
@@ -355,6 +409,9 @@ msgstr "ВИДЕО ВЫВОД"
 msgid "THEME SET"
 msgstr "ТЕМА"
 
+msgid "Loading..."
+msgstr "Загрузка..."
+
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
 
@@ -375,6 +432,9 @@ msgstr "ТЕМА СПИСКА ИГР"
 
 msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
+
+msgid "FORCE GAMELIST VIEW STYLE"
+msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "ТЕМА НЕ ИМЕЕТ НАСТРОЕК"
@@ -433,9 +493,6 @@ msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
 
-msgid "SHOW FRAMERATE"
-msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
-
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
@@ -451,14 +508,8 @@ msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 msgid "SHOW HIDDEN FILES"
 msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
-msgid "VRAM LIMIT"
-msgstr "ЛИМИТ VRAM"
-
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
-
-msgid "THREADED LOADING"
-msgstr "THREADED ЗАГРУЗКА"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -799,12 +850,6 @@ msgstr "Название"
 msgid "enter game name"
 msgstr "введите название игры"
 
-msgid "Sort name"
-msgstr "Название для сортировки"
-
-msgid "enter game sort name"
-msgstr "введите название для сортируемой игры"
-
 msgid "Description"
 msgstr "Описание"
 
@@ -898,9 +943,6 @@ msgstr "введите дату последнего запуска"
 msgid "name"
 msgstr "название"
 
-msgid "sortname"
-msgstr "название для сортировки"
-
 msgid "description"
 msgstr "описание"
 
@@ -953,8 +995,8 @@ msgstr "ЗАПУСК"
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
-msgid "Loading..."
-msgstr "Загрузка..."
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "МЕНЮ"
@@ -1160,3 +1202,12 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "Sort name"
+#~ msgstr "Название для сортировки"
+
+#~ msgid "enter game sort name"
+#~ msgstr "введите название для сортируемой игры"
+
+#~ msgid "sortname"
+#~ msgstr "название для сортировки"

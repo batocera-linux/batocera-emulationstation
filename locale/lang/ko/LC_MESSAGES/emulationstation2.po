@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 19:59+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,6 +121,36 @@ msgstr "수집 출처"
 msgid "SCRAPE RATINGS"
 msgstr "평점 수집"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "없음 "
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "수집 시작"
 
@@ -144,6 +174,33 @@ msgstr "버전"
 
 msgid "DISK USAGE"
 msgstr "디스크 사용량"
+
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr "비디오램 리미트"
+
+msgid "SHOW FRAMERATE"
+msgstr "프레임 속도 표시"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "보조 파일 생성"
@@ -234,9 +291,6 @@ msgstr "자동 저장/불러오기"
 
 msgid "SHADERS SET"
 msgstr "셰이더 선택"
-
-msgid "NONE"
-msgstr "없음 "
 
 msgid "SCANLINES"
 msgstr "스캔 라인"
@@ -350,6 +404,9 @@ msgstr "비디오 출력"
 msgid "THEME SET"
 msgstr "테마 선택"
 
+msgid "Loading..."
+msgstr "로딩"
+
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -369,6 +426,9 @@ msgid "THEME GAMELISTVIEW"
 msgstr ""
 
 msgid "THEME REGION"
+msgstr ""
+
+msgid "FORCE GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
@@ -427,9 +487,6 @@ msgstr "캐러셀 변형"
 msgid "ENABLE FILTERS"
 msgstr "필터 활성화"
 
-msgid "SHOW FRAMERATE"
-msgstr "프레임 속도 표시"
-
 msgid "OVERSCAN"
 msgstr "오버 스캔"
 
@@ -445,13 +502,7 @@ msgstr "로컬 아트 서치"
 msgid "SHOW HIDDEN FILES"
 msgstr "숨겨진 파일 보여주기"
 
-msgid "VRAM LIMIT"
-msgstr "비디오램 리미트"
-
 msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -789,12 +840,6 @@ msgstr "이름"
 msgid "enter game name"
 msgstr "게임 이름 입력"
 
-msgid "Sort name"
-msgstr "별명"
-
-msgid "enter game sort name"
-msgstr "게임 별명 입력"
-
 msgid "Description"
 msgstr "설명"
 
@@ -888,9 +933,6 @@ msgstr "마지막 플레이한 날짜 입력"
 msgid "name"
 msgstr "이름"
 
-msgid "sortname"
-msgstr "별명"
-
 msgid "description"
 msgstr "서술"
 
@@ -941,8 +983,8 @@ msgstr "실행"
 msgid "OPTIONS"
 msgstr "옵션"
 
-msgid "Loading..."
-msgstr "로딩"
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "메뉴"
@@ -1141,3 +1183,12 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "Sort name"
+#~ msgstr "별명"
+
+#~ msgid "enter game sort name"
+#~ msgstr "게임 별명 입력"
+
+#~ msgid "sortname"
+#~ msgstr "별명"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 20:06+0200\n"
+"POT-Creation-Date: 2019-09-07 07:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,6 +129,36 @@ msgstr ""
 msgid "SCRAPE RATINGS"
 msgstr ""
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr ""
 
@@ -151,6 +181,33 @@ msgid "VERSION"
 msgstr ""
 
 msgid "DISK USAGE"
+msgstr ""
+
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr ""
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
 msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
@@ -241,9 +298,6 @@ msgid "AUTO SAVE/LOAD"
 msgstr ""
 
 msgid "SHADERS SET"
-msgstr ""
-
-msgid "NONE"
 msgstr ""
 
 msgid "SCANLINES"
@@ -351,6 +405,9 @@ msgstr ""
 msgid "THEME SET"
 msgstr ""
 
+msgid "Loading..."
+msgstr ""
+
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -370,6 +427,9 @@ msgid "THEME GAMELISTVIEW"
 msgstr ""
 
 msgid "THEME REGION"
+msgstr ""
+
+msgid "FORCE GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
@@ -425,9 +485,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr ""
-
 msgid "OVERSCAN"
 msgstr ""
 
@@ -443,13 +500,7 @@ msgstr ""
 msgid "SHOW HIDDEN FILES"
 msgstr ""
 
-msgid "VRAM LIMIT"
-msgstr ""
-
 msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -783,12 +834,6 @@ msgstr ""
 msgid "enter game name"
 msgstr ""
 
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 
@@ -882,9 +927,6 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -936,7 +978,7 @@ msgstr ""
 msgid "OPTIONS"
 msgstr ""
 
-msgid "Loading..."
+msgid "Preloading UI"
 msgstr ""
 
 msgid "MENU"

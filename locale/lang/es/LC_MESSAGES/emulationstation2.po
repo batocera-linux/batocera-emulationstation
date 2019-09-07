@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 20:06+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -121,6 +121,36 @@ msgstr "OBTENER CARÁTULAS DESDE"
 msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "NINGUNO"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
 
@@ -144,6 +174,33 @@ msgstr "VERSIÓN"
 
 msgid "DISK USAGE"
 msgstr "USO DE DISCO"
+
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr "LÍMITE DE VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRAR LA TASA DE REFRESCO"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr "ACTUALIZACIÓN DE HILOS"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CREAR UN ARCHIVO DE SOPORTE"
@@ -234,9 +291,6 @@ msgstr "GUARDAR/CARGAR AUTOMÁTICAMENTE"
 
 msgid "SHADERS SET"
 msgstr "JUEGO DE SHADERS"
-
-msgid "NONE"
-msgstr "NINGUNO"
 
 msgid "SCANLINES"
 msgstr "LÍNEAS"
@@ -353,6 +407,9 @@ msgstr "SALIDA DE VIDEO"
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
 
+msgid "Loading..."
+msgstr "CARGANDO..."
+
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DE TEMA"
 
@@ -373,6 +430,9 @@ msgstr "VISTA DE JUEGOS DE TEMAS"
 
 msgid "THEME REGION"
 msgstr "REGION DEL TEMA"
+
+msgid "FORCE GAMELIST VIEW STYLE"
+msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "EL TEMA NO TIENE ESA OPCION"
@@ -433,9 +493,6 @@ msgstr "TRANSICIONES DE CARROUSEL"
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTROS"
 
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRAR LA TASA DE REFRESCO"
-
 msgid "OVERSCAN"
 msgstr "SOBREESCANEO"
 
@@ -451,14 +508,8 @@ msgstr "BUSCAR ARTE LOCAL"
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRAR ARCHIVOS OCULTOS"
 
-msgid "VRAM LIMIT"
-msgstr "LÍMITE DE VRAM"
-
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGIA"
-
-msgid "THREADED LOADING"
-msgstr "ACTUALIZACIÓN DE HILOS"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
@@ -798,12 +849,6 @@ msgstr "NOMBRE"
 msgid "enter game name"
 msgstr "NOMBRE DEL JUEGO"
 
-msgid "Sort name"
-msgstr "ORDENAR NOMBRE"
-
-msgid "enter game sort name"
-msgstr "INGRESA EL NOMBRE DEL JUEGO PARA ORDENAR"
-
 msgid "Description"
 msgstr "DESCRIPCIÓN"
 
@@ -897,9 +942,6 @@ msgstr "INTRODUCIR FECHA DE LA ÚLTIMA PARTIDA"
 msgid "name"
 msgstr "NOMBRE"
 
-msgid "sortname"
-msgstr "ORDENAR NOMBRE"
-
 msgid "description"
 msgstr "DESCRIPCIÓN"
 
@@ -951,8 +993,8 @@ msgstr "LANZAR"
 msgid "OPTIONS"
 msgstr "OPCIONES"
 
-msgid "Loading..."
-msgstr "CARGANDO..."
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -1154,6 +1196,15 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "Sort name"
+#~ msgstr "ORDENAR NOMBRE"
+
+#~ msgid "enter game sort name"
+#~ msgstr "INGRESA EL NOMBRE DEL JUEGO PARA ORDENAR"
+
+#~ msgid "sortname"
+#~ msgstr "ORDENAR NOMBRE"
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "INSTALAR TEMAS"

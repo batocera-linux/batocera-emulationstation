@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 19:59+0200\n"
+"POT-Creation-Date: 2019-09-07 07:32+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,6 +121,36 @@ msgstr "RACCOGLI INFORMAZIONI DA"
 msgid "SCRAPE RATINGS"
 msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "NESSUNO"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
 
@@ -144,6 +174,33 @@ msgstr "VERSIONE"
 
 msgid "DISK USAGE"
 msgstr "UTILIZZO DISCO"
+
+msgid "DEVELOPER"
+msgstr "SVILUPPATORE"
+
+msgid "VRAM LIMIT"
+msgstr "LIMITE VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA IL FRAMERATE"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CREA UN FILE DI SUPPORTO"
@@ -235,9 +292,6 @@ msgstr "SALVATAGGIO/CARICAMENTO AUTOMATICO"
 
 msgid "SHADERS SET"
 msgstr "SET DI SHADERS"
-
-msgid "NONE"
-msgstr "NESSUNO"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -349,6 +403,9 @@ msgstr "OUTPUT VIDEO"
 msgid "THEME SET"
 msgstr "TEMA SELEZIONATO"
 
+msgid "Loading..."
+msgstr "Caricamento..."
+
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -368,6 +425,9 @@ msgid "THEME GAMELISTVIEW"
 msgstr ""
 
 msgid "THEME REGION"
+msgstr ""
+
+msgid "FORCE GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
@@ -429,9 +489,6 @@ msgstr "MODALITA' DI TRANSIZIONE CAROUSEL"
 msgid "ENABLE FILTERS"
 msgstr "ABILITA FILTRI"
 
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA IL FRAMERATE"
-
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -447,13 +504,7 @@ msgstr "RICERCA IMMAGINI IN LOCALE"
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRA FILE NASCOSTI"
 
-msgid "VRAM LIMIT"
-msgstr "LIMITE VRAM"
-
 msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -794,12 +845,6 @@ msgstr "Nome"
 msgid "enter game name"
 msgstr "Nome del gioco"
 
-msgid "Sort name"
-msgstr "Criterio di ordinamento"
-
-msgid "enter game sort name"
-msgstr "inserire nome per l'ordinamento del gioco"
-
 msgid "Description"
 msgstr "Descrizione"
 
@@ -893,9 +938,6 @@ msgstr "inserisci la data dell'utlima partita"
 msgid "name"
 msgstr "nome"
 
-msgid "sortname"
-msgstr "Criterio di ordinamento"
-
 msgid "description"
 msgstr "descrizione"
 
@@ -947,8 +989,8 @@ msgstr "AVVIA"
 msgid "OPTIONS"
 msgstr "OPZIONI"
 
-msgid "Loading..."
-msgstr "Caricamento..."
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENU"
@@ -1152,6 +1194,15 @@ msgstr "ATTENDERE..."
 msgid "up/down"
 msgstr ""
 
+#~ msgid "Sort name"
+#~ msgstr "Criterio di ordinamento"
+
+#~ msgid "enter game sort name"
+#~ msgstr "inserire nome per l'ordinamento del gioco"
+
+#~ msgid "sortname"
+#~ msgstr "Criterio di ordinamento"
+
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "IL SISTEMA VERRA' RIAVVIATO"
 
@@ -1226,9 +1277,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "NUMERO DI GIOCATORI"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "SVILUPPATORE"
 
 #~ msgid "GENRE"
 #~ msgstr "GENERE"
