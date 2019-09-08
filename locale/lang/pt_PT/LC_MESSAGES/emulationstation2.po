@@ -125,34 +125,34 @@ msgid "SCRAPE RATINGS"
 msgstr "OBTER CLASSIFICAÇÕES"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "FONTE DE IMAGEM PREFERIDA"
 
 msgid "NONE"
 msgstr "NENHUM"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "CAIXA 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "CAIXA 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MIX"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "RODA"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "FONTE DE MINIATURA PREFERIDA"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "OBTER MARCADOR"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "OBTER VIDEOS"
 
 msgid "SCRAPE NOW"
 msgstr "INICIAR PROCURA"
@@ -188,22 +188,22 @@ msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR FRAMERATE"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "OTIMIZAR IMAGENS NA RAM"
 
 msgid "ENABLE LOG FILE"
-msgstr ""
+msgstr "ATIVAR ARQUIVO LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
