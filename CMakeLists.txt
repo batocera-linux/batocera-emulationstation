@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
 option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
 option(RPI "Set to ON to enable the Raspberry PI video player (omxplayer)" ${RPI})
+option(CEC "CEC" ON)
 
 # batocera
 option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem")
@@ -30,6 +31,12 @@ endif()
 if("${ENABLE_FILEMANAGER}" STREQUAL "1")
   MESSAGE("file manager enabled")
   add_definitions(-D_ENABLE_FILEMANAGER_)
+endif()
+
+if(CEC)
+  MESSAGE("CEC enabled")
+else()
+  MESSAGE("CEC disabled")
 endif()
 
 #-------------------------------------------------------------------------------
@@ -83,7 +90,10 @@ find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
-find_package(libCEC)
+
+if(CEC)
+  find_package(libCEC)
+endif()
 
 #add ALSA for Linux
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -100,8 +110,10 @@ if(DEFINED VERO4K)
     add_definitions(-D_VERO4K_)
 endif()
 
-if(DEFINED libCEC_FOUND)
+if(CEC)
+  if(DEFINED libCEC_FOUND)
     add_definitions(-DHAVE_LIBCEC)
+  endif()
 endif()
 
 #-------------------------------------------------------------------------------
@@ -156,10 +168,12 @@ set(COMMON_INCLUDE_DIRS
 )
 
 #add libCEC_INCLUDE_DIR
-if(DEFINED libCEC_FOUND)
+if(CEC)
+  if(DEFINED libCEC_FOUND)
     LIST(APPEND COMMON_INCLUDE_DIRS
-        ${libCEC_INCLUDE_DIR}
-    )
+      ${libCEC_INCLUDE_DIR}
+      )
+  endif()
 endif()
 
 #add ALSA for Linux
@@ -223,17 +237,19 @@ set(COMMON_LIBRARIES
 )
 
 #add libCEC_LIBRARIES
-if(DEFINED libCEC_FOUND)
-if(DEFINED BCMHOST)
-    LIST(APPEND COMMON_LIBRARIES
+if(CEC)
+  if(DEFINED libCEC_FOUND)
+    if(DEFINED BCMHOST)
+      LIST(APPEND COMMON_LIBRARIES
         vchiq_arm
 	vchostif
-    )
-endif()
+	)
+    endif()
     LIST(APPEND COMMON_LIBRARIES
-        dl
-        ${libCEC_LIBRARIES}
-    )
+      dl
+      ${libCEC_LIBRARIES}
+      )
+  endif()
 endif()
 
 #add ALSA for Linux
