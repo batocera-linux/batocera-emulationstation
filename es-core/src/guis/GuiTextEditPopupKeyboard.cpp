@@ -28,7 +28,7 @@ std::vector<std::vector<UNICODE_CHARTYPE>> kbFr {
 	{ _L("1"), _L("2"), _L("3"), _L("4"), _L("5"), _L("6"), _L("7"), _L("8"), _L("9"), _L("0"), _L("@"), _L("_") },
 	
 	{ _L("à"), _L("ä"), _L("ë"), _L("ì"), _L("ï"), _L("ò"), _L("ö"), _L("ü"), _L("\\"), _L("|"), _L("§"), _L("°") },
-	{ _L("á"), _L("â"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú",  "û"), _L("ñ"), _L("¡"), _L("¿") },
+	{ _L("á"), _L("â"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú"), _L("û"), _L("ñ"), _L("¡"), _L("¿") },
 	
 	{ _L("a"), _L("z"), _L("e"), _L("r"), _L("t"), _L("y"), _L("u"), _L("i"), _L("o"), _L("p"), _L("^"), _L("$") },
 	{ _L("A"), _L("Z"), _L("E"), _L("R"), _L("T"), _L("Y"), _L("U"), _L("I"), _L("O"), _L("P"), _L("¨"), _L("*") },
@@ -83,9 +83,6 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 			if (shortNameDivider != std::string::npos)
 				language = Utils::String::toLower(language.substr(0, shortNameDivider));
 		}
-
-		if (EsLocale::getLanguage() == "fr")
-			layout = kbFr;
 
 		for (unsigned int i = 0; i < layout.size() / 2; i++)
 		{
