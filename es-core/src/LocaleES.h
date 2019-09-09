@@ -7,7 +7,10 @@
 
 #define _(A) boost::locale::gettext(A)
 #define ngettext(A, B, C) boost::locale::ngettext(A, B, C)
+
 #define _U(x) x
+#define UNICODE_CHARTYPE char*
+#define _L(x) x
 
 #else // WIN32
 

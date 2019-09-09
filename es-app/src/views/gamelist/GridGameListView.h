@@ -11,7 +11,7 @@
 class GridGameListView : public ISimpleGameListView
 {
 public:
-	GridGameListView(Window* window, FileData* root);
+	GridGameListView(Window* window, FolderData* root);
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
 

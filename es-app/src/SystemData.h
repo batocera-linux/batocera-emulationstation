@@ -9,9 +9,11 @@
 #include <vector>
 #include <map>
 #include <pugixml/src/pugixml.hpp>
+#include <unordered_map>
+#include "FileFilterIndex.h"
 
 class FileData;
-class FileFilterIndex;
+class FolderData;
 class ThemeData;
 class Window;
 
@@ -21,6 +23,11 @@ struct SystemEnvironmentData
 	std::vector<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::vector<PlatformIds::PlatformId> mPlatformIds;
+
+	bool isValidExtension(const std::string extension)
+	{
+		return std::find(mSearchExtensions.cbegin(), mSearchExtensions.cend(), extension) != mSearchExtensions.cend();
+	}
 };
 
 class SystemData
@@ -29,7 +36,7 @@ public:
         SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false); // batocera
 	~SystemData();
 
-	inline FileData* getRootFolder() const { return mRootFolder; };
+	inline FolderData* getRootFolder() const { return mRootFolder; };
 	inline const std::string& getName() const { return mName; }
 	inline const std::string& getFullName() const { return mFullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
@@ -71,7 +78,29 @@ public:
 	// Load or re-load theme.
 	void loadTheme();
 
-	FileFilterIndex* getIndex() { return mFilterIndex; };
+	FileFilterIndex* getIndex(bool createIndex);
+	void deleteIndex();
+
+	void removeFromIndex(FileData* game) {
+		if (mFilterIndex != nullptr) mFilterIndex->removeFromIndex(game);
+	};
+
+	void addToIndex(FileData* game) {
+		if (mFilterIndex != nullptr) mFilterIndex->addToIndex(game);
+	};
+
+	void resetFilters() {
+		if (mFilterIndex != nullptr) mFilterIndex->resetFilters();
+	};
+
+	void resetIndex() {
+		if (mFilterIndex != nullptr) mFilterIndex->resetIndex();
+	};
+	
+	void setUIModeFilters() {
+		if (mFilterIndex != nullptr) mFilterIndex->setUIModeFilters();
+	}
+
 	std::map<std::string, std::vector<std::string> *> * getEmulators(); // batocera
 private:
 	bool mIsCollectionSystem;
@@ -82,15 +111,15 @@ private:
 	std::string mThemeFolder;
 	std::shared_ptr<ThemeData> mTheme;
 
-	void populateFolder(FileData* folder);
-	void indexAllGameFilters(const FileData* folder);
+	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
+	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
 	
 	static SystemData* loadSystem(pugi::xml_node system);
 
 	FileFilterIndex* mFilterIndex;
 
-	FileData* mRootFolder;
+	FolderData* mRootFolder;
 	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
 };
 

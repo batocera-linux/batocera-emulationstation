@@ -12,7 +12,7 @@ class VideoComponent;
 class VideoGameListView : public BasicGameListView
 {
 public:
-	VideoGameListView(Window* window, FileData* root);
+	VideoGameListView(Window* window, FolderData* root);
 	virtual ~VideoGameListView();
 
 	virtual void onShow() override;

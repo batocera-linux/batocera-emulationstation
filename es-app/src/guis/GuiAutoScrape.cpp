@@ -22,11 +22,9 @@ GuiAutoScrape::GuiAutoScrape(Window* window) : GuiComponent(window), mBusyAnim(w
 
 GuiAutoScrape::~GuiAutoScrape()
 {
-  // view type probably changed (basic -> detailed)
-  for(auto it = SystemData::sSystemVector.begin(); it != SystemData::sSystemVector.end(); it++) {
-    parseGamelist(*it);
-    ViewController::get()->reloadGameListView(*it, false);
-  }
+	// view type probably changed (basic -> detailed)
+	ViewController::get()->reloadAll(mWindow);
+	mWindow->endRenderLoadingScreen();
 }
 
 bool GuiAutoScrape::input(InputConfig* config, Input input)

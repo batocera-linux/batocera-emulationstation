@@ -13,7 +13,7 @@ class Window;
 class IGameListView : public GuiComponent
 {
 public:
-	IGameListView(Window* window, FileData* root) : GuiComponent(window), mRoot(root)
+	IGameListView(Window* window, FolderData* root) : GuiComponent(window), mRoot(root)
 		{ setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight()); }
 
 	virtual ~IGameListView() {}
@@ -42,7 +42,7 @@ public:
 
 	void render(const Transform4x4f& parentTrans) override;
 protected:
-	FileData* mRoot;
+	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;
 };
 

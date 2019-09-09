@@ -55,7 +55,7 @@ MenuComponent::MenuComponent(Window* window, const char* title, const std::share
 	mGrid.resetCursor();
 }
 
-void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -82,6 +82,10 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 
 	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 	row.addElement(comp, false, invert_when_selected);
+
+	if (func != nullptr)
+		row.makeAcceptInputHandler(func);
+
 	addRow(row, setCursorHere);
 }
 

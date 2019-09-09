@@ -16,7 +16,7 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
 	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 	else
 		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }

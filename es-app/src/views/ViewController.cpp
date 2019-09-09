@@ -286,7 +286,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	if(exists != mGameListViews.cend())
 		return exists->second;
 
-	system->getIndex()->setUIModeFilters();
+	system->setUIModeFilters();
 	//if we didn't, make it, remember it, and return it
 	std::shared_ptr<IGameListView> view;
 
@@ -462,10 +462,12 @@ void ViewController::render(const Transform4x4f& parentTrans)
 
 void ViewController::preload()
 {
+	bool preloadUI = Settings::getInstance()->getBool("PreloadUI");
+	if (!preloadUI)
+		return;
+
 	int i = 1;
 	int max = SystemData::sSystemVector.size() + 1;
-
-	bool preloadUI = Settings::getInstance()->getBool("PreloadUI");
 	bool splash = preloadUI && Settings::getInstance()->getBool("SplashScreen") && Settings::getInstance()->getBool("SplashScreenProgress");
 
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
@@ -476,10 +478,8 @@ void ViewController::preload()
 			mWindow->renderLoadingScreen(_("Preloading UI"), (float)i / (float)max);
 		}
 
-		(*it)->getIndex()->resetFilters();
-
-		if (preloadUI)
-			getGameListView(*it);
+		(*it)->resetFilters();
+		getGameListView(*it);
 	}
 }
 
@@ -496,7 +496,7 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 			if(reloadTheme)
 				system->loadTheme();
-			system->getIndex()->setUIModeFilters();
+			system->setUIModeFilters();
 			std::shared_ptr<IGameListView> newView = getGameListView(system);
 
 			// to counter having come from a placeholder
@@ -548,7 +548,7 @@ void ViewController::reloadAll(Window* window)
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
 		it->first->loadTheme();
-		it->first->getIndex()->resetFilters();
+		it->first->resetFilters();
 
 		if (it->second != NULL)
 			getGameListView(it->first)->setCursor(it->second);

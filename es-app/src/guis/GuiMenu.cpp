@@ -519,6 +519,7 @@ void GuiMenu::openDeveloperSettings()
 			Log::init();
 	});
 
+
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
 		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
@@ -531,6 +532,29 @@ void GuiMenu::openDeveloperSettings()
 			}
 		}, _("NO"), nullptr));
 	});
+
+
+#ifdef _RPI_
+	// Video Player - VideoOmxPlayer
+	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
+	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
+	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
+	s->addSaveFunc([omx_player, window]
+	{
+		// need to reload all views to re-create the right video components
+		bool needReload = false;
+		if (Settings::getInstance()->getBool("VideoOmxPlayer") != omx_player->getState())
+			needReload = true;
+
+		Settings::getInstance()->setBool("VideoOmxPlayer", omx_player->getState());
+
+		if (needReload)
+		{
+			ViewController::get()->reloadAll(window);
+			window->endRenderLoadingScreen();
+		}
+	});
+#endif
 
 	mWindow->pushGui(s);
 }
@@ -1685,7 +1709,7 @@ void GuiMenu::openUISettings()
 		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
 		if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
 	});
-
+	
 	// overscan
 	auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
 	overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));

@@ -12,7 +12,7 @@ class VideoComponent;
 class DetailedGameListView : public BasicGameListView
 {
 public:
-	DetailedGameListView(Window* window, FileData* root);
+	DetailedGameListView(Window* window, FolderData* root);
 	~DetailedGameListView();
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
