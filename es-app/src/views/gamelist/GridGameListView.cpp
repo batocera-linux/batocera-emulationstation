@@ -8,7 +8,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 
-GridGameListView::GridGameListView(Window* window, FileData* root) :
+GridGameListView::GridGameListView(Window* window, FolderData* root) :
 	ISimpleGameListView(window, root),
 	mGrid(window),
 	mDescContainer(window), mDescription(window),
@@ -304,7 +304,7 @@ void GridGameListView::updateInfoPanel()
 void GridGameListView::addPlaceholder()
 {
 	// empty grid - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<No Entries Found>", this->mRoot->getSystem()->getSystemEnvData(), this->mRoot->getSystem());
+	FileData* placeholder = new FileData(PLACEHOLDER, "<No Entries Found>", this->mRoot->getSystem());
 	mGrid.add(placeholder->getName(), "", placeholder);
 }
 
@@ -317,7 +317,7 @@ void GridGameListView::remove(FileData *game, bool deleteFile)
 {
 	if (deleteFile)
 		Utils::FileSystem::removeFile(game->getPath());  // actually delete the file on the filesystem
-	FileData* parent = game->getParent();
+	FolderData* parent = game->getParent();
 	if (getCursor() == game)                     // Select next element in list, or prev if none
 	{
 		std::vector<FileData*> siblings = parent->getChildrenListToDisplay();

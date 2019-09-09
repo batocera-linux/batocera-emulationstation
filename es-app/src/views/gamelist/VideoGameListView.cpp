@@ -11,7 +11,7 @@
 #include "Settings.h"
 #endif
 
-VideoGameListView::VideoGameListView(Window* window, FileData* root) :
+VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 	BasicGameListView(window, root),
 	mDescContainer(window), mDescription(window),
 	mMarquee(window),

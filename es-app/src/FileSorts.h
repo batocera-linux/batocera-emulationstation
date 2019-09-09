@@ -18,7 +18,7 @@ namespace FileSorts
 	bool comparePublisher(const FileData* file1, const FileData* file2);
 	bool compareSystem(const FileData* file1, const FileData* file2);
 
-	extern const std::vector<FileData::SortType> SortTypes;
+	extern const std::vector<FolderData::SortType> SortTypes;
 };
 
 #endif // ES_APP_FILE_SORTS_H

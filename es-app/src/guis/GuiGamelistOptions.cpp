@@ -5,6 +5,7 @@
 #include "views/gamelist/IGameListView.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
+#include "components/SwitchComponent.h"
 #include "CollectionSystemManager.h"
 #include "FileFilterIndex.h"
 #include "FileSorts.h"
@@ -14,7 +15,7 @@
 #include "guis/GuiMenu.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
-	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false)
+	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -75,21 +76,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		mListSort = std::make_shared<SortList>(mWindow, "SORT GAMES BY", false);
 		for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
 		{
-			const FileData::SortType& sort = FileSorts::SortTypes.at(i);
+			const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
 			mListSort->add(sort.description, &sort, i == 0); // TODO - actually make the sort type persistent
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
+
 	// show filtered menu
 	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
-	{
-		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("FILTER GAMELIST"), theme->Text.font, theme->Text.color), true); // batocera
-		row.addElement(makeArrow(mWindow), false);
-		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openGamelistFilter, this));
-		mMenu.addRow(row);		
-	}
+		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
@@ -97,38 +93,18 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		((customCollections.find(system->getName()) != customCollections.cend() && CollectionSystemManager::get()->getEditingCollection() != system->getName()) ||
 		CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName()))
 	{
-		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), theme->Text.font, theme->Text.color), true);
-		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::startEditMode, this));
-		mMenu.addRow(row);
+		mMenu.addEntry(_("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), false, std::bind(&GuiGamelistOptions::startEditMode, this));
 	}
 
 	if(UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
-	{
-		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), theme->Text.font, theme->Text.color), true);
-		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::exitEditMode, this));
-		mMenu.addRow(row);
-	}
-
+		mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
+	
 	if (UIModeController::getInstance()->isUIModeFull() && !fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
-	{
-		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("EDIT THIS GAME'S METADATA"), theme->Text.font, theme->Text.color), true); // batocera
-		row.addElement(makeArrow(mWindow), false);
-		row.makeAcceptInputHandler(std::bind(&GuiGamelistOptions::openMetaDataEd, this));
-		mMenu.addRow(row);
-	}
+		mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 
 	// batocera
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
-	{
-		row.elements.clear();
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("ADVANCED"), theme->Text.font, theme->Text.color), true);
-		row.addElement(makeArrow(mWindow), false);
-		row.makeAcceptInputHandler([this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
-		mMenu.addRow(row);
-	}
+		mMenu.addEntry(_("ADVANCED"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
 
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -137,15 +113,26 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 GuiGamelistOptions::~GuiGamelistOptions()
 {
+	for (auto it = mSaveFuncs.cbegin(); it != mSaveFuncs.cend(); it++)
+		(*it)();
+
 	// apply sort
-	if (!fromPlaceholder) {
-		FileData* root = mSystem->getRootFolder();
+	if (!fromPlaceholder) 
+	{
+		FolderData* root = mSystem->getRootFolder();
 		root->sort(*mListSort->getSelected()); // will also recursively sort children
 
 		// notify that the root folder was sorted
 		getGamelist()->onFileChanged(root, FILE_SORTED);
 	}
-	if (mFiltersChanged)
+
+	if (mReloadAll)
+	{
+		mWindow->renderLoadingScreen(_("Loading..."));
+		ViewController::get()->reloadAll(mWindow);
+		mWindow->endRenderLoadingScreen();
+	}
+	else if (mFiltersChanged)
 	{
 		// only reload full view if we came from a placeholder
 		// as we need to re-display the remaining elements for whatever new

@@ -21,6 +21,8 @@ public:
 	virtual HelpStyle getHelpStyle() override;
 
 private:
+	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
+
 	void openGamelistFilter();
 	void openMetaDataEd();
 	void startEditMode();
@@ -32,13 +34,16 @@ private:
 	typedef OptionListComponent<char> LetterList;
 	std::shared_ptr<LetterList> mJumpToLetterList;
 
-	typedef OptionListComponent<const FileData::SortType*> SortList;
+	typedef OptionListComponent<const FolderData::SortType*> SortList;
 	std::shared_ptr<SortList> mListSort;
 
 	SystemData* mSystem;
 	IGameListView* getGamelist();
 	bool fromPlaceholder;
 	bool mFiltersChanged;
+
+	std::vector< std::function<void()> > mSaveFuncs;
+	bool mReloadAll;
 };
 
 #endif // ES_APP_GUIS_GUI_GAME_LIST_OPTIONS_H

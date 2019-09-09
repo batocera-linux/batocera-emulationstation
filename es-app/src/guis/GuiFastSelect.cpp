@@ -131,9 +131,9 @@ void GuiFastSelect::updateSortText()
 
 void GuiFastSelect::updateGameListSort()
 {
-	const FileData::SortType& sort = FileSorts::SortTypes.at(mSortId);
+	const FolderData::SortType& sort = FileSorts::SortTypes.at(mSortId);
 
-	FileData* root = mGameList->getCursor()->getSystem()->getRootFolder();
+	FolderData* root = mGameList->getCursor()->getSystem()->getRootFolder();
 	root->sort(sort); // will also recursively sort children
 
 	// notify that the root folder was sorted
@@ -145,7 +145,7 @@ void GuiFastSelect::updateGameListCursor()
 	const std::vector<FileData*>& list = mGameList->getCursor()->getParent()->getChildren();
 
 	// only skip by letter when the sort mode is alphabetical
-	const FileData::SortType& sort = FileSorts::SortTypes.at(mSortId);
+	const FolderData::SortType& sort = FileSorts::SortTypes.at(mSortId);
 	if(sort.comparisonFunction != &FileSorts::compareName)
 		return;
 

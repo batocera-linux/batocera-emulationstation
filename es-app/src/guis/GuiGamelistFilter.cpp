@@ -15,7 +15,7 @@ void GuiGamelistFilter::initializeMenu()
 
 	// get filters from system
 
-	mFilterIndex = mSystem->getIndex();
+	mFilterIndex = mSystem->getIndex(true);
 
 	ComponentListRow row;
 
@@ -43,6 +43,9 @@ void GuiGamelistFilter::resetAllFilters()
 GuiGamelistFilter::~GuiGamelistFilter()
 {
 	mFilterOptions.clear();
+
+	if (!mFilterIndex->isFiltered())
+		mSystem->deleteIndex();
 }
 
 void GuiGamelistFilter::addFiltersToMenu()

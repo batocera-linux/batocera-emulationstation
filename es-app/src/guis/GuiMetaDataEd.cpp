@@ -208,7 +208,7 @@ void GuiMetaDataEd::onSizeChanged()
 void GuiMetaDataEd::save()
 {
 	// remove game from index
-	mScraperParams.system->getIndex()->removeFromIndex(mScraperParams.game);
+	mScraperParams.system->removeFromIndex(mScraperParams.game);
 
 	for(unsigned int i = 0; i < mEditors.size(); i++)
 	{
@@ -218,7 +218,7 @@ void GuiMetaDataEd::save()
 	}
 
 	// enter game in index
-	mScraperParams.system->getIndex()->addToIndex(mScraperParams.game);
+	mScraperParams.system->addToIndex(mScraperParams.game);
 
 	if(mSavedCallback)
 		mSavedCallback();

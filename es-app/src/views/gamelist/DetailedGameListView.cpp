@@ -9,7 +9,7 @@
 #endif
 #include "components/VideoVlcComponent.h"
 
-DetailedGameListView::DetailedGameListView(Window* window, FileData* root) : 
+DetailedGameListView::DetailedGameListView(Window* window, FolderData* root) : 
 	BasicGameListView(window, root), 
 	mDescContainer(window), mDescription(window), 
 	mImage(nullptr), mMarquee(nullptr), mVideo(nullptr),

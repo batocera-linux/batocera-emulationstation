@@ -1,6 +1,7 @@
 #include "Gamelist.h"
 
 #include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
 #include "FileData.h"
 #include "FileFilterIndex.h"
 #include "Log.h"
@@ -8,10 +9,10 @@
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
 
-FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type)
+FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	// first, verify that path is within the system's root folder
-	FileData* root = system->getRootFolder();
+	FolderData* root = system->getRootFolder();
 	bool contains = false;
 	std::string relative = Utils::FileSystem::removeCommonPath(path, root->getPath(), contains);
 
@@ -21,43 +22,49 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 		return NULL;
 	}
 
+	auto pGame = fileMap.find(path);
+	if (pGame != fileMap.end())
+		return pGame->second;
+
 	Utils::FileSystem::stringList pathList = Utils::FileSystem::getPathList(relative);
 	auto path_it = pathList.begin();
-	FileData* treeNode = root;
-	bool found = false;
+	FolderData* treeNode = root;
+
 	while(path_it != pathList.end())
 	{
-		const std::unordered_map<std::string, FileData*>& children = treeNode->getChildrenByFilename();
-
-		std::string key = *path_it;
-		found = children.find(key) != children.cend();
-		if (found) {
-			treeNode = children.at(key);
-		}
-
+		std::string key = Utils::FileSystem::combine(treeNode->getPath(), *path_it);
+		FileData* item = (fileMap.find(key) != fileMap.end()) ? fileMap[key] : nullptr;
+		if (item != nullptr)
+			return item;
+		
 		// this is the end
 		if(path_it == --pathList.end())
 		{
-			if(found)
-				return treeNode;
-
 			if(type == FOLDER)
 			{
 				LOG(LogWarning) << "gameList: folder doesn't already exist, won't create";
 				return NULL;
 			}
 
-			FileData* file = new FileData(type, path, system->getSystemEnvData(), system);
-
-			// skipping arcade assets from gamelist
-			if(!file->isArcadeAsset())
+			// Skip if the extension in the gamelist is unknown
+			if (!system->getSystemEnvData()->isValidExtension(Utils::String::toLower(Utils::FileSystem::getExtension(path))))
 			{
-				treeNode->addChild(file);
+				LOG(LogWarning) << "gameList: file extension is not known by systemlist";
+				return NULL;
 			}
-			return file;
+
+			// Add final game
+			item = new FileData(GAME, path, system);
+			if (!item->isArcadeAsset())
+			{
+				fileMap[key] = item;
+				treeNode->addChild(item);
+			}
+
+			return item;
 		}
 
-		if(!found)
+		if(item == nullptr)
 		{
 			// don't create folders unless it's leading up to a game
 			// if type is a folder it's gonna be empty, so don't bother
@@ -68,7 +75,7 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 			}
 
 			// create missing folder
-			FileData* folder = new FileData(FOLDER, Utils::FileSystem::getStem(treeNode->getPath()) + "/" + *path_it, system->getSystemEnvData(), system);
+			FolderData* folder = new FolderData(Utils::FileSystem::getStem(treeNode->getPath()) + "/" + *path_it, system);
 			treeNode->addChild(folder);
 			treeNode = folder;
 		}
@@ -79,27 +86,27 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 	return NULL;
 }
 
-void parseGamelist(SystemData* system)
+void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)
 {
-	bool trustGamelist = Settings::getInstance()->getBool("ParseGamelistOnly");
 	std::string xmlpath = system->getGamelistPath(false);
-
-	if(!Utils::FileSystem::exists(xmlpath))
+	if (!Utils::FileSystem::exists(xmlpath))
 		return;
+
+	bool trustGamelist = Settings::getInstance()->getBool("ParseGamelistOnly");
 
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(xmlpath.c_str());
 
-	if(!result)
+	if (!result)
 	{
 		LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
 		return;
 	}
 
 	pugi::xml_node root = doc.child("gameList");
-	if(!root)
+	if (!root)
 	{
 		LOG(LogError) << "Could not find <gameList> node in gamelist \"" << xmlpath << "\"!";
 		return;
@@ -107,44 +114,49 @@ void parseGamelist(SystemData* system)
 
 	std::string relativeTo = system->getStartPath();
 
-	const char* tagList[2] = { "game", "folder" };
-	FileType typeList[2] = { GAME, FOLDER };
-	for(int i = 0; i < 2; i++)
+	for (pugi::xml_node fileNode : root.children())
 	{
-		const char* tag = tagList[i];
-		FileType type = typeList[i];
-		for(pugi::xml_node fileNode = root.child(tag); fileNode; fileNode = fileNode.next_sibling(tag))
+		FileType type = GAME;
+
+		std::string tag = fileNode.name();
+
+		if (tag == "folder")
+			type = FOLDER;
+		else if (tag != "game")
+			continue;
+
+		const std::string path = Utils::FileSystem::resolveRelativePath(fileNode.child("path").text().get(), relativeTo, false);
+
+		if (!trustGamelist && !Utils::FileSystem::exists(path))
 		{
-			const std::string path = Utils::FileSystem::resolveRelativePath(fileNode.child("path").text().get(), relativeTo, false);
+			LOG(LogWarning) << "File \"" << path << "\" does not exist! Ignoring.";
+			continue;
+		}
 
-			if(!trustGamelist && !Utils::FileSystem::exists(path))
-			{
-				LOG(LogWarning) << "File \"" << path << "\" does not exist! Ignoring.";
-				continue;
-			}
+		FileData* file = findOrCreateFile(system, path, type, fileMap);
+		if (!file)
+		{
+			LOG(LogError) << "Error finding/creating FileData for \"" << path << "\", skipping.";
+			continue;
+		}
+		else if (!file->isArcadeAsset())
+		{
+			std::string defaultName = file->metadata.get("name");
+			file->metadata = MetaDataList::createFromXML(GAME_METADATA, fileNode, system);
 
-			FileData* file = findOrCreateFile(system, path, type);
-			if(!file)
-			{
-				LOG(LogError) << "Error finding/creating FileData for \"" << path << "\", skipping.";
-				continue;
-			}
-			else if(!file->isArcadeAsset())
-			{
-				std::string defaultName = file->metadata.get("name");
-				file->metadata = MetaDataList::createFromXML(GAME_METADATA, fileNode, system);
+			//make sure name gets set if one didn't exist
+			if (file->metadata.get("name").empty())
+				file->metadata.set("name", defaultName);
 
-				//make sure name gets set if one didn't exist
-				if(file->metadata.get("name").empty())
-					file->metadata.set("name", defaultName);
+			if (Utils::FileSystem::isHidden(path))
+				file->metadata.set("hidden", "true");
 
-				file->metadata.resetChangedFlag();
-			}
+			file->metadata.resetChangedFlag();
 		}
 	}
 }
 
-void addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* tag, SystemData* system)
+bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* tag, SystemData* system)
 {
 	//create game and add to parent node
 	pugi::xml_node newNode = parent.append_child(tag);
@@ -159,12 +171,13 @@ void addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* t
 		//if the only info is the default name, don't bother with this node
 		//delete it and ultimately do nothing
 		parent.remove_child(newNode);
-	}else{
-		//there's something useful in there so we'll keep the node, add the path
-
-		// try and make the path relative if we can so things still work if we change the rom folder location in the future
-		newNode.prepend_child("path").text().set(Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str());
+		return false;
 	}
+
+	// there's something useful in there so we'll keep the node, add the path
+	// try and make the path relative if we can so things still work if we change the rom folder location in the future
+	newNode.prepend_child("path").text().set(Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str());
+	return true;	
 }
 
 void updateGamelist(SystemData* system)
@@ -205,7 +218,7 @@ void updateGamelist(SystemData* system)
 
 
 	//now we have all the information from the XML. now iterate through all our games and add information from there
-	FileData* rootFolder = system->getRootFolder();
+	FolderData* rootFolder = system->getRootFolder();
 	if (rootFolder != nullptr)
 	{
 		int numUpdated = 0;
@@ -220,6 +233,8 @@ void updateGamelist(SystemData* system)
 			// do not touch if it wasn't changed anyway
 			if (!(*fit)->metadata.wasChanged())
 				continue;
+
+			bool removed = false;
 
 			// check if the file already exists in the XML
 			// if it does, remove it before adding
@@ -237,14 +252,17 @@ void updateGamelist(SystemData* system)
 				if(nodePath == gamePath)
 				{
 					// found it
+					removed = true;
 					root.remove_child(fileNode);
 					break;
 				}
 			}
 
 			// it was either removed or never existed to begin with; either way, we can add it now
-			addFileDataNode(root, *fit, tag, system);
-			++numUpdated;
+			if (addFileDataNode(root, *fit, tag, system))
+				++numUpdated; // Only if really added
+			else if (removed)
+				++numUpdated; // Only if really removed
 		}
 
 		//now write the file
