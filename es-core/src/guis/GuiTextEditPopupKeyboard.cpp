@@ -1,7 +1,45 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "components/MenuComponent.h"
+#include "utils/StringUtil.h"
 #include "Log.h"
 #include "LocaleES.h"
+#include "SystemConf.h"
+
+std::vector<std::vector<UNICODE_CHARTYPE>> kbUs {
+
+	{ _L("1"), _L("2"), _L("3"), _L("4"), _L("5"), _L("6"), _L("7"), _L("8"), _L("9"), _L("0"), _L("_"), _L("+") },
+	{ _L("!"), _L("@"), _L("#"), _L("$"), _L("%"), _L("^"), _L("&"), _L("*"), _L("("), _L(")"), _L("-"), _L("=") },
+
+	{ _L("à"), _L("ä"), _L("è"), _L("ë"), _L("ì"), _L("ï"), _L("ò"), _L("ö"), _L("ù"), _L("ü"), _L("¨"), _L("¿") },
+	{ _L("á"), _L("â"), _L("é"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú"), _L("û"), _L("ñ"), _L("¡") },
+
+	{ _L("q"), _L("w"), _L("e"), _L("r"), _L("t"), _L("y"), _L("u"), _L("i"), _L("o"), _L("p"), _L("{"), _L("}") },
+	{ _L("Q"), _L("W"), _L("E"), _L("R"), _L("T"), _L("Y"), _L("U"), _L("I"), _L("O"), _L("P"), _L("["), _L("]") },
+
+	{ _L("a"), _L("s"), _L("d"), _L("f"), _L("g"), _L("h"), _L("j"), _L("k"), _L("l"), _L(";"), _L("\""), _L("|") },
+	{ _L("A"), _L("S"), _L("D"), _L("F"), _L("G"), _L("H"), _L("J"), _L("K"), _L("L"), _L(":"), _L("'"), _L("\\") },
+
+	{ _L("SHIFT"), _L("~"), _L("z"), _L("x"), _L("c"), _L("v"), _L("b"), _L("n"), _L("m"), _L(","), _L("."), _L("?") },
+	{ _L("SHIFT"), _L("`"), _L("Z"), _L("X"), _L("C"), _L("V"), _L("B"), _L("N"), _L("M"), _L("<"), _L(">"), _L("/") },
+};
+
+std::vector<std::vector<UNICODE_CHARTYPE>> kbFr {
+	{ _L("&"), _L("é"), _L("\""), _L("'"), _L("("), _L("#"), _L("è"), _L("!"), _L("ç"), _L("à"), _L(")"), _L("-") },
+	{ _L("1"), _L("2"), _L("3"), _L("4"), _L("5"), _L("6"), _L("7"), _L("8"), _L("9"), _L("0"), _L("@"), _L("_") },
+	
+	{ _L("à"), _L("ä"), _L("ë"), _L("ì"), _L("ï"), _L("ò"), _L("ö"), _L("ü"), _L("\\"), _L("|"), _L("§"), _L("°") },
+	{ _L("á"), _L("â"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú",  "û"), _L("ñ"), _L("¡"), _L("¿") },
+	
+	{ _L("a"), _L("z"), _L("e"), _L("r"), _L("t"), _L("y"), _L("u"), _L("i"), _L("o"), _L("p"), _L("^"), _L("$") },
+	{ _L("A"), _L("Z"), _L("E"), _L("R"), _L("T"), _L("Y"), _L("U"), _L("I"), _L("O"), _L("P"), _L("¨"), _L("*") },
+
+	{ _L("q"), _L("s"), _L("d"), _L("f"), _L("g"), _L("h"), _L("j"), _L("k"), _L("l"), _L("m"), _L("ù"), _L("`") },
+	{ _L("Q"), _L("S"), _L("D"), _L("F"), _L("G"), _L("H"), _L("J"), _L("K"), _L("L"), _L("M"), _L("%"), _L("£") },
+
+	//SHIFT key at position 0
+   { _L("SHIFT"), _L("<"), _L("w"), _L("x"), _L("c"), _L("v"), _L("b"), _L("n"), _L(","), _L(";"), _L(":"), _L("=") },
+   { _L("SHIFT"), _L(">"), _L("W"), _L("X"), _L("C"), _L("V"), _L("B"), _L("N"), _L("?"), _L("."), _L("/"), _L("+") }
+};
 
 GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::string& title, const std::string& initValue,
 	const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
@@ -30,154 +68,65 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	// Text edit add
 	mGrid.setEntry(mText, Vector2i(0, 1), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
 
+	std::vector< std::vector< std::shared_ptr<ButtonComponent> > > buttonList;
 
 	// Keyboard
 	// Case for if multiline is enabled, then don't create the keyboard.
-	if (!mMultiLine) {
+	if (!mMultiLine) 
+	{
+		std::vector<std::vector<UNICODE_CHARTYPE>> &layout = kbUs;
 
-		// Locale for shifting upper/lower case
-		std::locale loc;
-
-		// Digit Row & Special Chara.
-		for (int k = 0; k < 12; k++) {
-			// Create string for button display name.
-			std::string strName = "";
-			strName += numRow[k];
-			strName += " ";
-			strName += numRowUp[k];
-
-			// Init button and store in Vector
-			digitButtons.push_back(std::make_shared<ButtonComponent>
-				(mWindow, strName, numRow[k], [this, k, loc] {
-				mText->startEditing();
-				if (mShift) mText->textInput(numRowUp[k]);
-				else mText->textInput(numRow[k]);
-				mText->stopEditing();
-			}));
-
-			// Send just created button into mGrid
-			digitButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-			mKeyboardGrid->setEntry(digitButtons[k], Vector2i(k, 0), true, false);
+		std::string language = SystemConf::getInstance()->get("system.language");
+		if (!language.empty())
+		{
+			auto shortNameDivider = language.find("_");
+			if (shortNameDivider != std::string::npos)
+				language = Utils::String::toLower(language.substr(0, shortNameDivider));
 		}
 
-		// Accent Row & Special Chara.
-		for (int k = 0; k < 12; k++) {
-			// Create string for button display name.
-			std::string strName = "";
-			strName += specialRow[k];
-			strName += " ";
-			strName += specialRowUp[k];
+		if (EsLocale::getLanguage() == "fr")
+			layout = kbFr;
 
-			// Init button and store in Vector
-			sButtons.push_back(std::make_shared<ButtonComponent>
-				(mWindow, strName, specialRow[k], [this, k, loc] {
-				mText->startEditing();
-				if (mShift) mText->textInput(specialRowUp[k]);
-				else mText->textInput(specialRow[k]);
-				mText->stopEditing();
-			}));
+		for (unsigned int i = 0; i < layout.size() / 2; i++)
+		{
+			std::vector<std::shared_ptr<ButtonComponent>> buttons;
+			for (unsigned int j = 0; j < layout[2 * i].size(); j++)
+			{
+#ifdef WIN32
+				std::wstring toConvert = layout[2 * i][j];
+				std::string atj = Utils::String::convertFromWideString(toConvert);
 
-			// Send just created button into mGrid
-			sButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-			mKeyboardGrid->setEntry(sButtons[k], Vector2i(k, 1), true, false);
-		}
+				toConvert = layout[2 * i + 1][j];
+				std::string atjs = Utils::String::convertFromWideString(toConvert);
+#else
+				std::string atj = layout[2 * i][j];
+				std::string atjs = layout[2 * i + 1][j];
 
-		// Top row [Q - P]
-		for (int k = 0; k < 10; k++) {
-			kButtons.push_back(std::make_shared<ButtonComponent>
-				(mWindow, topRowUp[k], topRowUp[k], [this, k, loc] {
-				mText->startEditing();
-				if (mShift) mText->textInput(topRowUp[k]);
-				else mText->textInput(topRow[k]);
-				mText->stopEditing();
-			}));
-		}
+#endif
 
-		// Top row - Add in the last three manualy because they're special chara [{ , }]
-		for (int k = 10; k < 12; k++) {
-			kButtons.push_back(std::make_shared<ButtonComponent>(mWindow, topRow[k], topRow[k], [this, k] {
-				mText->startEditing();
-				if (mShift) mText->textInput(topRowUp[k]);
-				else mText->textInput(topRow[k]);
-				mText->stopEditing();
-			}));
-		}
+				std::shared_ptr<ButtonComponent> button = nullptr;
 
-		for (int k = 0; k < 12; k++) {
-			kButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-			mKeyboardGrid->setEntry(kButtons[k], Vector2i(k, 2), true, false);
-		}
+				if (atj == "SHIFT")
+				{
+					// Special case for shift key \u25B2
 
-		// Home row [A - L]
-		for (int k = 0; k < 9; k++) {
-			hButtons.push_back(std::make_shared<ButtonComponent>
-				(mWindow, homeRowUp[k], homeRowUp[k], [this, k, loc] {
-				mText->startEditing();
-				if (mShift) mText->textInput(homeRowUp[k]);
-				else mText->textInput(homeRow[k]);
-				mText->stopEditing();
-			}));
-		}
+					mShiftButton = std::make_shared<ButtonComponent>(mWindow, Renderer::isSmallScreen() ? _U("\u2191") : "SHIFT", _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
+						shiftKeys();
+					}, false);
+					button = mShiftButton;
+					buttons.push_back(mShiftButton);
+				}
+				else
+				{
+					button = makeButton(atj, atjs);
+					buttons.push_back(button);					
+				}
 
-		// Home row - Add in the last three manualy because they're special chara [" , |]
-		for (int k = 9; k < 12; k++) {
-			hButtons.push_back(std::make_shared<ButtonComponent>(mWindow, homeRow[k], homeRow[k], [this, k] {
-				mText->startEditing();
-				if (mShift) mText->textInput(homeRowUp[k]);
-				else mText->textInput(homeRow[k]);
-				mText->stopEditing();
-			}));
-		}
-
-		for (int k = 0; k < 12; k++) {
-			hButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-			mKeyboardGrid->setEntry(hButtons[k], Vector2i(k, 3), true, false);
-		}
-
-		// Special case for shift key
-		bButtons.push_back(std::make_shared<ButtonComponent>(mWindow, "SHIFT", _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
-			if (mShift) mShift = false;
-			else mShift = true;
-			shiftKeys();
-		}));
-
-		// Bottom row - Add in the first manualy because it is a special chara [~]
-		for (int k = 0; k < 1; k++) {
-			bButtons.push_back(std::make_shared<ButtonComponent>(mWindow, bottomRow[0], bottomRow[0], [this, k] {
-				mText->startEditing();
-				if (mShift) mText->textInput(bottomRowUp[k]);
-				else mText->textInput(bottomRow[k]);
-				mText->stopEditing();
-			}));
-		}
-
-		// Bottom row [Z - M]
-		for (int k = 1; k < 8; k++) {
-			bButtons.push_back(std::make_shared<ButtonComponent>
-				(mWindow, bottomRowUp[k], bottomRowUp[k], [this, k, loc] {
-				mText->startEditing();
-				if (mShift) mText->textInput(bottomRowUp[k]);
-				else mText->textInput(bottomRow[k]);
-				mText->stopEditing();
-			}));
-		}
-
-		// Bottom row - Add in the last three manualy because they're special chara [< , > , /]
-		for (int k = 8; k < 11; k++) {
-			bButtons.push_back(std::make_shared<ButtonComponent>(mWindow, bottomRow[k], bottomRow[k], [this, k] {
-				mText->startEditing();
-				if (mShift) mText->textInput(bottomRowUp[k]);
-				else mText->textInput(bottomRow[k]);
-				mText->stopEditing();
-			}));
-		}
-
-		// Do a sererate for loop because shift key makes it weird
-		for (int k = 0; k < 11; k++) {
-			bButtons[k]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-			mKeyboardGrid->setEntry(bButtons[k], Vector2i(k, 4), true, false);
-		}
-
+				button->setSize(getButtonSize());
+				mKeyboardGrid->setEntry(button, Vector2i(j, i), true, false);
+				buttonList.push_back(buttons);
+			}
+		}		
 		// END KEYBOARD IF
 	}
 
@@ -211,13 +160,22 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	mText->setSize(0, textHeight);
 
 	// If multiline, set all diminsions back to default, else draw size for keyboard.
-	if (mMultiLine) {
-		setSize(Renderer::getScreenWidth() * 0.5f, mTitle->getFont()->getHeight() + textHeight + mKeyboardGrid->getSize().y() + 40);
+	if (mMultiLine) 
+	{
+		if (Renderer::isSmallScreen())
+			setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		else
+			setSize(Renderer::getScreenWidth() * 0.5f, mTitle->getFont()->getHeight() + textHeight + mKeyboardGrid->getSize().y() + 40);
+
 		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 	}
-	else {
-		// Set size based on ScreenHieght * .08f by the amount of keyboard rows there are.
-		setSize(Renderer::getScreenWidth() * 0.99f, mTitle->getFont()->getHeight() + textHeight + 40 + (Renderer::getScreenHeight() * 0.085f) * 6);
+	else 
+	{
+		if (Renderer::isSmallScreen())
+			setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		else // Set size based on ScreenHieght * .08f by the amount of keyboard rows there are.
+			setSize(Renderer::getScreenWidth() * 0.95f, mTitle->getFont()->getHeight() + textHeight + 40 + (Renderer::getScreenHeight() * 0.085f) * 6);
+
 		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 	}
 }
@@ -239,12 +197,17 @@ void GuiTextEditPopupKeyboard::onSizeChanged()
 	// force the keyboard size and position here
 	// for an unknown reason, without setting that, the position is "sometimes" (1/2 on s905x for example) not displayed correctly
 	// as if a variable were not correctly initialized
-	mKeyboardGrid->setSize(Renderer::getScreenWidth() * 0.95f, (mText->getFont()->getHeight() + 6) * 5);
 
 	if (Renderer::isSmallScreen())  // small screens // batocera
+	{
+		mKeyboardGrid->setSize(getButtonSize().x() * 12.0f, getButtonSize().y() * 5.0f);
 		mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 15 + 6);
+	}
 	else
+	{
+		mKeyboardGrid->setSize(getButtonSize().x() * 12.2f, getButtonSize().y() * 5.2f); // Small margin between buttons
 		mKeyboardGrid->setPosition(Renderer::getScreenWidth() * 0.05f / 2.00f, mTitle->getFont()->getHeight() + mText->getFont()->getHeight() + 40 + 6);
+	}
 }
 
 bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
@@ -289,57 +252,21 @@ void GuiTextEditPopupKeyboard::update(int deltatime) {
 }
 
 // Shifts the keys when user hits the shift button.
-void GuiTextEditPopupKeyboard::shiftKeys() {
-	if (mShift) {
-		// FOR SHIFTING UP
-		// Change Shift button color
-		bButtons[0]->setColorShift(0xEBFD00AA);
-		// Change Special chara
-		kButtons[10]->setText("[", "[");
-		kButtons[11]->setText("]", "]");
-		hButtons[9]->setText(":", ":");
-		hButtons[10]->setText("'", "'");
-		hButtons[11]->setText("\\", "\\");
-		bButtons[1]->setText("`", "`");
-		bButtons[9]->setText("<", "<");
-		bButtons[10]->setText(">", ">");
-		bButtons[11]->setText("/", "/");
-		// Resize Special chara key
-		kButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		kButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[1]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-	} else {
-		// UNSHIFTING
-		// Remove button color
-		bButtons[0]->removeColorShift();
-		// Change Special chara
-		kButtons[10]->setText("{", "{");
-		kButtons[11]->setText("}", "}");
-		hButtons[9]->setText(";", ";");
-		hButtons[10]->setText("\"", "\"");
-		hButtons[11]->setText("|", "|");
-		bButtons[1]->setText("~", "~");
-		bButtons[9]->setText(",", ",");
-		bButtons[10]->setText(".", ".");
-		bButtons[11]->setText("?", "?");
-		// Resize Special chara key
-		kButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		kButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		hButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[1]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[9]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[10]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-		bButtons[11]->setSize((Renderer::getScreenWidth() * 0.95f) / 12, (mText->getFont()->getHeight() + 6));
-	}
+void GuiTextEditPopupKeyboard::shiftKeys() 
+{
+	mShift = !mShift;
 
+	if (mShift)
+		mShiftButton->setColorShift(0xFF0000FF);
+	else
+		mShiftButton->removeColorShift();
+
+	for (auto & kb : keyboardButtons)
+	{
+		const std::string& text = mShift ? kb.shiftedKey : kb.key;
+		kb.button->setText(text, text, false);
+		kb.button->setSize(getButtonSize());
+	}
 }
 
 std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
@@ -352,3 +279,32 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 	return prompts;
 }
 
+std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std::string& key, const std::string& shiftedKey)
+{
+	std::shared_ptr<ButtonComponent> button = std::make_shared<ButtonComponent>(mWindow, key, key, [this, key, shiftedKey] 
+	{
+		mText->startEditing();
+
+		if (mShift)
+			mText->textInput(shiftedKey.c_str());
+		else
+			mText->textInput(key.c_str());
+
+		mText->stopEditing();
+	}, false);
+	
+	KeyboardButton kb(button, key, shiftedKey);
+	keyboardButtons.push_back(kb);
+	return button;
+}
+
+const Vector2f GuiTextEditPopupKeyboard::getButtonSize()
+{
+	if (Renderer::isSmallScreen())
+	{
+		float height = Renderer::getScreenHeight() / 9.0;
+		return Vector2f((Renderer::getScreenWidth() * 0.95f) / 12.0f, height);
+	}
+
+	return Vector2f((Renderer::getScreenWidth() * 0.89f) / 12.0f, mText->getFont()->getHeight() + 6.0f);
+}
