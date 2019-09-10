@@ -20,8 +20,10 @@ public:
 		Vector3f pos = Vector3f::Zero(), Vector2f size = Vector2f::Zero(), unsigned int bgcolor = 0x00000000);
 
 	void setFont(const std::shared_ptr<Font>& font);
+	void setFont(std::string path, int size);
 	void setUppercase(bool uppercase);
 	void onSizeChanged() override;
+	const std::string getText() { return mText; }
 	void setText(const std::string& text);
 	void setColor(unsigned int color);
 	void setHorizontalAlignment(Alignment align);
@@ -41,6 +43,10 @@ public:
 	inline std::shared_ptr<Font> getFont() const { return mFont; }
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
+
+	void setGlowColor(unsigned int color) { mGlowColor = color; };
+	void setGlowSize(unsigned int size) { mGlowSize = size; };
+
 
 protected:
 	virtual void onTextChanged();
@@ -65,6 +71,11 @@ private:
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;
 	float mLineSpacing;
+
+	unsigned int mGlowColor;
+	unsigned int mGlowSize;
+	Vector2f	 mGlowOffset;
+	Vector4f	mPadding;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H

@@ -570,3 +570,12 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 		});
 	}
 }
+
+bool GuiComponent::isChild(GuiComponent* cmp)
+{
+	for (auto i = mChildren.cbegin(); i != mChildren.cend(); i++)
+		if (*i == cmp)
+			return true;
+
+	return false;
+}

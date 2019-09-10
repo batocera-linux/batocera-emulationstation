@@ -81,6 +81,8 @@ public:
 
 	void setAllowFading(bool fade) { mAllowFading = fade; };
 
+	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
+
 	const MaxSizeInfo getMaxSizeInfo()
 	{
 		if (mTargetSize == Vector2f(0, 0))

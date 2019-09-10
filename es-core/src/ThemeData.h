@@ -3,9 +3,11 @@
 #define ES_CORE_THEME_DATA_H
 
 #include "math/Vector2f.h"
+#include "math/Vector4f.h"
 #include "utils/FileSystemUtil.h"
 #include <deque>
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include <sstream>
 #include <vector>
@@ -149,12 +151,14 @@ public:
 			void operator= (const unsigned int& value) { i = value; }
 			void operator= (const float& value)        { f = value; }
 			void operator= (const bool& value)         { b = value; }
+			void operator= (const Vector4f& value)     { r = value; v = Vector2f(value.x(), value.y()); }
 
 			Vector2f     v;
 			std::string  s;
 			unsigned int i;
 			float        f;
 			bool         b;
+			Vector4f     r;
 		};
 
 		std::map< std::string, Property > properties;
@@ -167,6 +171,7 @@ public:
 			else if(std::is_same<T, unsigned int>::value) return *(const T*)&properties.at(prop).i;
 			else if(std::is_same<T, float>::value)        return *(const T*)&properties.at(prop).f;
 			else if(std::is_same<T, bool>::value)         return *(const T*)&properties.at(prop).b;
+			else if (std::is_same<T, Vector4f>::value)         return *(const T*)&properties.at(prop).r;
 			return T();
 		}
 
@@ -190,6 +195,7 @@ public:
 
 	enum ElementPropertyType
 	{
+		NORMALIZED_RECT,
 		NORMALIZED_PAIR,
 		PATH,
 		STRING,
@@ -213,8 +219,8 @@ public:
 	bool hasSubsets() { return mHasSubsets; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 
-	static std::map<std::string, std::string> sortThemeSubSets(const std::map<std::string, std::string>& subsetmap, const std::string& subset);
-	static std::map<std::string, std::string> getThemeSubSets(const std::string& theme);
+	static std::unordered_map<std::string, std::string> getSubSet(const std::unordered_map<std::string, std::string>& subsetmap, const std::string& subset);
+	static std::unordered_map<std::string, std::string> getThemeSubSets(const std::string& theme);
 
 	static void setDefaultTheme(ThemeData* theme);
 	static ThemeData* getDefaultTheme() { return mDefaultTheme; }
@@ -224,8 +230,8 @@ public:
 	std::vector<std::string> getViewsOfTheme();
 
 private:
-	static void crawlIncludes(const pugi::xml_node& root, std::map<std::string, std::string>& sets, std::deque<std::string>& dequepath);
-	static void findRegion(const pugi::xml_document& doc, std::map<std::string, std::string>& sets);
+	static void crawlIncludes(const pugi::xml_node& root, std::unordered_map<std::string, std::string>& sets, std::deque<std::string>& dequepath);
+	static void findRegion(const pugi::xml_document& doc, std::unordered_map<std::string, std::string>& sets);
 
 
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
@@ -243,6 +249,7 @@ private:
 	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element);
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
+	bool isFirstSubset(const pugi::xml_node& node);
 
 	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
 	std::string resolvePlaceholders(const char* in);
