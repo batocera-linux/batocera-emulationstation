@@ -15,6 +15,7 @@
 #include <fstream>
 #include "Window.h"
 #include "LocaleES.h"
+#include "utils/StringUtil.h"
 
 using namespace Utils;
 
