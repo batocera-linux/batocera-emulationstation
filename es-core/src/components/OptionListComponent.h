@@ -207,13 +207,18 @@ public:
 		{
 			if(config->isMappedTo(BUTTON_OK, input))
 			{
-				open();
+				if (mEntries.size() > 0)
+					open();
+
 				return true;
 			}
 			if(!mMultiSelect)
 			{
 				if(config->isMappedLike("left", input))
 				{
+					if (mEntries.size() == 0)
+						return true;
+
 					// move selection to previous
 					unsigned int i = getSelectedId();
 					int next = (int)i - 1;
