@@ -1309,12 +1309,12 @@ void GuiMenu::openUISettings()
 				Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
 
 				auto themeSubSets = ThemeData::getThemeSubSets(theme_set->getSelected());
-				auto themeColorSets = ThemeData::sortThemeSubSets(themeSubSets, "colorset");
-				auto themeIconSets = ThemeData::sortThemeSubSets(themeSubSets, "iconset");
-				auto themeMenus = ThemeData::sortThemeSubSets(themeSubSets, "menu");
-				auto themeSystemviewSets = ThemeData::sortThemeSubSets(themeSubSets, "systemview");
-				auto themeGamelistViewSets = ThemeData::sortThemeSubSets(themeSubSets, "gamelistview");
-				auto themeRegions = ThemeData::sortThemeSubSets(themeSubSets, "region");
+				auto themeColorSets = ThemeData::getSubSet(themeSubSets, "colorset");
+				auto themeIconSets = ThemeData::getSubSet(themeSubSets, "iconset");
+				auto themeMenus = ThemeData::getSubSet(themeSubSets, "menu");
+				auto themeSystemviewSets = ThemeData::getSubSet(themeSubSets, "systemview");
+				auto themeGamelistViewSets = ThemeData::getSubSet(themeSubSets, "gamelistview");
+				auto themeRegions = ThemeData::getSubSet(themeSubSets, "region");
 
 				// theme changed without setting options, forcing options to avoid crash/blank theme
 				Settings::getInstance()->setString("ThemeRegionName", themeRegions.empty() ? "" : themeRegions.begin()->first);
@@ -1347,12 +1347,12 @@ void GuiMenu::openUISettings()
 				auto SelectedTheme = theme_set->getSelected();
 
 				auto themeSubSets = ThemeData::getThemeSubSets(SelectedTheme);
-				auto themeColorSets = ThemeData::sortThemeSubSets(themeSubSets, "colorset");
-				auto themeIconSets = ThemeData::sortThemeSubSets(themeSubSets, "iconset");
-				auto themeMenus = ThemeData::sortThemeSubSets(themeSubSets, "menu");
-				auto themeSystemviewSets = ThemeData::sortThemeSubSets(themeSubSets, "systemview");
-				auto themeGamelistViewSets = ThemeData::sortThemeSubSets(themeSubSets, "gamelistview");
-				auto themeRegions = ThemeData::sortThemeSubSets(themeSubSets, "region");
+				auto themeColorSets = ThemeData::getSubSet(themeSubSets, "colorset");
+				auto themeIconSets = ThemeData::getSubSet(themeSubSets, "iconset");
+				auto themeMenus = ThemeData::getSubSet(themeSubSets, "menu");
+				auto themeSystemviewSets = ThemeData::getSubSet(themeSubSets, "systemview");
+				auto themeGamelistViewSets = ThemeData::getSubSet(themeSubSets, "gamelistview");
+				auto themeRegions = ThemeData::getSubSet(themeSubSets, "region");
 
 				// colorset
 				std::shared_ptr<OptionListComponent<std::string>> theme_colorset = nullptr;

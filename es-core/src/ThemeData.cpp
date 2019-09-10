@@ -5,6 +5,7 @@
 #include "components/NinePatchComponent.h"
 #include "components/VideoVlcComponent.h"
 #include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
 #include "Log.h"
 #include "platform.h"
 #include "Settings.h"
@@ -33,9 +34,18 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 		{ "margin", NORMALIZED_PAIR },
+		{ "padding", NORMALIZED_RECT },
+		{ "autoLayout", NORMALIZED_PAIR },
+		{ "autoLayoutSelectedZoom", FLOAT },
+		{ "animateSelection", BOOLEAN },
+		{ "imageSource", STRING }, // image, thumbnail, marquee
+		{ "zIndex", FLOAT },
 		{ "gameImage", PATH },
 		{ "folderImage", PATH },
-		{ "scrollDirection", STRING } } },
+		{ "showVideoAtDelay", FLOAT },
+		{ "scrollDirection", STRING },
+		{ "centerSelection", BOOLEAN },
+		{ "scrollLoop", BOOLEAN } } },
 	{ "gridtile", {
 		{ "size", NORMALIZED_PAIR },
 		{ "padding", NORMALIZED_PAIR },
@@ -44,7 +54,10 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "backgroundCornerSize", NORMALIZED_PAIR },
 		{ "backgroundColor", COLOR },
 		{ "backgroundCenterColor", COLOR },
-		{ "backgroundEdgeColor", COLOR } } },
+		{ "backgroundEdgeColor", COLOR },
+		{ "selectionMode", STRING },
+		{ "reflexion", NORMALIZED_PAIR },
+		{ "imageSizeMode", STRING } } },
 	{ "text", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -60,6 +73,10 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
+		{ "glowColor", COLOR },
+		{ "glowSize", FLOAT },
+		{ "glowOffset", NORMALIZED_PAIR },
+		{ "padding", NORMALIZED_RECT },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "textlist", {
@@ -361,6 +378,26 @@ std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolde
 	return result;
 }
 
+bool ThemeData::isFirstSubset(const pugi::xml_node& node)
+{
+	const std::string subsetToFind = node.attribute("subset").as_string();
+	const std::string name = node.attribute("name").as_string();
+
+	pugi::xml_node root = node.parent();
+
+	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
+	{
+		const std::string subsetAttr = node.attribute("subset").as_string();
+		if (subsetAttr.empty() || subsetAttr != subsetToFind)
+			continue;
+
+		const std::string nameAttr = node.attribute("name").as_string();
+		return (nameAttr == name);
+	}
+
+	return false;
+}
+
 bool ThemeData::parseSubset(const pugi::xml_node& node)
 {
 	if (!node.attribute("subset"))
@@ -371,19 +408,19 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 	const std::string subsetAttr = node.attribute("subset").as_string();
 	const std::string nameAttr = node.attribute("name").as_string();
 
-	if (subsetAttr == "colorset" && nameAttr == mColorset)
+	if (subsetAttr == "colorset" && (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node))))
 		return true;
 
-	if (subsetAttr == "iconset" && nameAttr == mIconset)
+	if (subsetAttr == "iconset" && (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node))))
 		return true;
 
-	if (subsetAttr == "menu" && nameAttr == mMenu)
+	if (subsetAttr == "menu" && (nameAttr == mMenu || (mMenu.empty() && isFirstSubset(node))))
 		return true;
 
-	if (subsetAttr == "systemview" && nameAttr == mSystemview)
+	if (subsetAttr == "systemview" && (nameAttr == mSystemview || (mSystemview.empty() && isFirstSubset(node))))
 		return true;
 
-	if (subsetAttr == "gamelistview" && nameAttr == mGamelistview)
+	if (subsetAttr == "gamelistview" && (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node))))
 		return true;
 
 	return false;
@@ -469,7 +506,10 @@ void ThemeData::parseVariables(const pugi::xml_node& root)
 		std::string val = it->text().as_string();
 
 		if (!val.empty())
+		{
+			mVariables.erase(key);
 			mVariables.insert(std::pair<std::string, std::string>(key, val));
+		}
 	}
 }
 
@@ -485,6 +525,17 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 		{
 			LOG(LogWarning) << "View missing \"name\" attribute!";
 			continue;
+		}
+
+		if (node.attribute("tinyScreen"))
+		{
+			const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
+			
+			if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
+				continue;
+
+			if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+				continue;				
 		}
 
 		const char* delim = " \t\r\n,";
@@ -615,6 +666,25 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 		switch(type)
 		{
+		case NORMALIZED_RECT:
+		{
+			Vector4f val;
+
+			auto splits = Utils::String::split(str, ' ');
+			if (splits.size() == 2)
+			{
+				val = Vector4f((float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
+					(float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()));
+			}
+			else if (splits.size() == 4)
+			{
+				val = Vector4f((float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
+					(float)atof(splits.at(2).c_str()), (float)atof(splits.at(3).c_str()));
+			}
+
+			element.properties[node.name()] = val;
+			break;
+		}
 		case NORMALIZED_PAIR:
 		{
 			size_t divider = str.find(' ');
@@ -935,9 +1005,9 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	}
 }
 
-std::map<std::string, std::string> ThemeData::sortThemeSubSets(const std::map<std::string, std::string>& subsetmap, const std::string& subset)
+std::unordered_map<std::string, std::string> ThemeData::getSubSet(const std::unordered_map<std::string, std::string>& subsetmap, const std::string& subset)
 {
-	std::map<std::string, std::string> sortedsets;
+	std::unordered_map<std::string, std::string> sortedsets;
 
 	for (const auto& it : subsetmap)
 	{
@@ -948,18 +1018,21 @@ std::map<std::string, std::string> ThemeData::sortThemeSubSets(const std::map<st
 }
 
 
-void ThemeData::crawlIncludes(const pugi::xml_node& root, std::map<std::string, std::string>& sets, std::deque<std::string>& dequepath)
+void ThemeData::crawlIncludes(const pugi::xml_node& root, std::unordered_map<std::string, std::string>& sets, std::deque<std::string>& dequepath)
 {
 	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
 	{
-		sets[node.attribute("name").as_string()] = node.attribute("subset").as_string();
+		std::string name = node.attribute("name").as_string();
+		std::string subset = node.attribute("subset").as_string();
+		if (!subset.empty())
+			sets.insert(std::pair<std::string, std::string>(name, subset));
 
 		const char* relPath = node.text().get();
 		std::string path = Utils::FileSystem::resolveRelativePath(relPath, dequepath.back(), true);
 
 		dequepath.push_back(path);
 		pugi::xml_document includeDoc;
-		/*pugi::xml_parse_result result =*/ includeDoc.load_file(path.c_str());
+		includeDoc.load_file(path.c_str());
 
 		pugi::xml_node root = includeDoc.child("theme");
 		crawlIncludes(root, sets, dequepath);
@@ -968,7 +1041,7 @@ void ThemeData::crawlIncludes(const pugi::xml_node& root, std::map<std::string, 
 	}
 }
 
-void ThemeData::findRegion(const pugi::xml_document& doc, std::map<std::string, std::string>& sets)
+void ThemeData::findRegion(const pugi::xml_document& doc, std::unordered_map<std::string, std::string>& sets)
 {
 	pugi::xpath_node_set regionattr = doc.select_nodes("//@region");
 	for (auto xpath_node : regionattr)
@@ -978,9 +1051,9 @@ void ThemeData::findRegion(const pugi::xml_document& doc, std::map<std::string, 
 	}
 }
 
-std::map<std::string, std::string> ThemeData::getThemeSubSets(const std::string& theme)
+std::unordered_map<std::string, std::string> ThemeData::getThemeSubSets(const std::string& theme)
 {
-	std::map<std::string, std::string> sets;
+	std::unordered_map<std::string, std::string> sets;
 
 	std::deque<std::string> dequepath;
 

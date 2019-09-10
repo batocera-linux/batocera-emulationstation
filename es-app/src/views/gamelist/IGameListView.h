@@ -41,9 +41,12 @@ public:
 	virtual HelpStyle getHelpStyle() override;
 
 	void render(const Transform4x4f& parentTrans) override;
+	virtual void setThemeName(std::string name);
+
 protected:
 	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;
+	std::string mCustomThemeName;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_IGAME_LIST_VIEW_H

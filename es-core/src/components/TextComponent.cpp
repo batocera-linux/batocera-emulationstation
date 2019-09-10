@@ -7,7 +7,7 @@
 TextComponent::TextComponent(Window* window) : GuiComponent(window), 
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
-	mRenderBackground(false)
+	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0))
 {
 }
 
@@ -15,7 +15,7 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	Vector3f pos, Vector2f size, unsigned int bgcolor) : GuiComponent(window), 
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(align), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
-	mRenderBackground(false)
+	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0))
 {
 	setFont(font);
 	setColor(color);
@@ -35,6 +35,20 @@ void TextComponent::setFont(const std::shared_ptr<Font>& font)
 {
 	mFont = font;
 	onTextChanged();
+}
+
+void TextComponent::setFont(std::string path, int size)
+{
+	std::shared_ptr<Font> font;
+	int fontSize = size > 0 ? size : (mFont ? mFont->getSize() : FONT_SIZE_MEDIUM);
+	std::string fontPath = !path.empty() ? path : (mFont ? mFont->getPath() : Font::getDefaultPath());
+
+	font = Font::get(fontSize, fontPath);
+	if (mFont != font)
+	{
+		mFont = font;
+		onTextChanged();
+	}
 }
 
 //  Set the color of the font/text
@@ -124,13 +138,55 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 				yOff = (getSize().y() - textSize.y()) / 2.0f;
 				break;
 		}
-		Vector3f off(0, yOff, 0);
+		Vector3f off(mPadding.x(), mPadding.y() + yOff, 0);
 
 		if(Settings::getInstance()->getBool("DebugText"))
 		{
 			// draw the "textbox" area, what we are aligned within
 			Renderer::setMatrix(trans);
 			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+		}
+
+		if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
+		{
+			auto draw = [this, off, yOff, parentTrans](int margin)
+			{
+				auto func = [this, off, yOff, parentTrans](float x, float y)
+				{  
+					Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
+					Transform4x4f trans = parentTrans * getTransform();
+
+					trans.translate(off);
+					trans.round();
+
+					Renderer::setMatrix(trans);
+
+					unsigned char o = (unsigned char)((float)(mGlowColor & 0x000000FF) / 255.f * (float)(mColor & 0x000000FF));
+					unsigned int color = (mGlowColor & 0xFFFFFF00) | (unsigned char)o;
+
+					mTextCache->setColor(color);
+					mFont->renderTextCache(mTextCache.get());
+					mTextCache->setColor(mColor);
+				};
+
+				int x = -margin;
+				int y = -margin;
+				func(x, y);
+
+				for (int i = 0; i < 2 * margin; i++)
+					func(++x, y);
+
+				for (int i = 0; i < 2 * margin; i++)
+					func(x, ++y);
+
+				for (int i = 0; i < 2 * margin; i++)
+					func(--x, y);
+
+				for (int i = 0; i < 2 * margin; i++)
+					func(x, --y);
+			};
+
+			draw(mGlowSize);
 		}
 
 		trans.translate(off);
@@ -179,10 +235,13 @@ void TextComponent::onTextChanged()
 		return;
 	}
 
+	int sx = mSize.x() - mPadding.x() - mPadding.z();
+	int sy = mSize.y() - mPadding.y() - mPadding.w();
+
 	std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 	std::shared_ptr<Font> f = mFont;
-	const bool isMultiline = (mSize.y() == 0 || mSize.y() > f->getHeight()*1.2f);
+	const bool isMultiline = (mSize.y() == 0 || sy > f->getHeight()*1.2f);
 
 	bool addAbbrev = false;
 	if(!isMultiline)
@@ -193,13 +252,13 @@ void TextComponent::onTextChanged()
 	}
 
 	Vector2f size = f->sizeText(text);
-	if(!isMultiline && mSize.x() && text.size() && (size.x() > mSize.x() || addAbbrev))
+	if(!isMultiline && sx && text.size() && (size.x() > sx || addAbbrev))
 	{
 		// abbreviate text
 		const std::string abbrev = "...";
 		Vector2f abbrevSize = f->sizeText(abbrev);
 
-		while(text.size() && size.x() + abbrevSize.x() > mSize.x())
+		while(text.size() && size.x() + abbrevSize.x() > sx)
 		{
 			size_t newSize = Utils::String::prevCursor(text, text.size());
 			text.erase(newSize, text.size() - newSize);
@@ -208,9 +267,9 @@ void TextComponent::onTextChanged()
 
 		text.append(abbrev);
 
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, mSize.x(), mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
 	}else{
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, mSize.x()), Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, mSize.x(), mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
 	}
 }
 
@@ -281,6 +340,12 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 			LOG(LogError) << "Unknown text alignment string: " << str;
 	}
 
+	if (properties & ALIGNMENT && elem->has("padding"))
+	{
+		Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+		mPadding = elem->get<Vector4f>("padding") * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+	}
+
 	if(properties & TEXT && elem->has("text"))
 		setText(elem->get<std::string>("text"));
 
@@ -289,6 +354,15 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 
 	if(properties & LINE_SPACING && elem->has("lineSpacing"))
 		setLineSpacing(elem->get<float>("lineSpacing"));
+
+	if (properties & COLOR && elem->has("glowColor"))
+		mGlowColor = elem->get<unsigned int>("glowColor");
+
+	if (properties & COLOR && elem->has("glowSize"))
+		mGlowSize = (int)elem->get<float>("glowSize");
+
+	if (properties & COLOR && elem->has("glowOffset"))
+		mGlowOffset = elem->get<Vector2f>("glowOffset");
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
 }

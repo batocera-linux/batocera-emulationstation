@@ -57,3 +57,8 @@ void IGameListView::render(const Transform4x4f& parentTrans)
 	renderChildren(trans);
 	Renderer::popClipRect();
 }
+
+void IGameListView::setThemeName(std::string name)
+{
+	mCustomThemeName = name;
+}
