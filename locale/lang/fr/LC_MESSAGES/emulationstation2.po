@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 07:32+0200\n"
+"POT-Creation-Date: 2019-09-10 20:47+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,9 @@ msgstr "ÉDITER LES DONNÉES DU JEU"
 
 msgid "ADVANCED"
 msgstr "AVANCÉES"
+
+msgid "Loading..."
+msgstr "Chargement..."
 
 msgid "RESET ALL FILTERS"
 msgstr "REMETTRE À ZÉRO LES FILTRES"
@@ -143,7 +146,7 @@ msgid "WHEEL"
 msgstr "ROUE"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "SOURCE DE MINIATURE PRÉFÉRÉE	"
+msgstr "SOURCE DE MINIATURE PRÉFÉRÉE"
 
 msgid "SCRAPE MARQUEE"
 msgstr "SCRAPPER LES MARQUEURS"
@@ -406,9 +409,6 @@ msgstr "SORTIE VIDEO"
 
 msgid "THEME SET"
 msgstr "THÈME"
-
-msgid "Loading..."
-msgstr "Chargement..."
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
@@ -983,6 +983,9 @@ msgstr "Sortie"
 msgid "Times played"
 msgstr "Nb parties"
 
+msgid "<No Entries Found>"
+msgstr "<Aucune entrée>"
+
 msgid "LAUNCH"
 msgstr "LANCER"
 
@@ -1047,6 +1050,25 @@ msgstr "'%s' ajouté à '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "'%s' supprimé de '%s'"
+
+msgid "This collection is empty."
+msgstr "Cette collection est vide."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Aucun"
+
+msgid "Various"
+msgstr "Plusieurs"
+
+msgid "among other titles."
+msgstr ""
+
+msgid "This collection contains"
+msgstr ""
+
+msgid "games, including"
+msgstr ""
 
 msgid "UP"
 msgstr "HAUT"

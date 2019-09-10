@@ -621,6 +621,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			rating = (new_rating > rating ? (new_rating != "" ? new_rating : rating) : rating);
 			players = (new_players > players ? (new_players != "" ? new_players : players) : players);
 			releasedate = (new_releasedate < releasedate ? (new_releasedate != "" ? new_releasedate : releasedate) : releasedate);
+			// TRANSLATION: number of developpers / various developpers
 			developer = (developer == _("None") ? new_developer : (new_developer != developer ? _("Various") : new_developer));
 			genre = (genre == _("None") ? new_genre : (new_genre != genre ? _("Various") : new_genre));
 
