@@ -101,6 +101,7 @@ namespace Renderer
 	bool         isClippingEnabled  ();
 	bool         isVisibleOnScreen  (float x, float y, float w, float h);
 	bool         isSmallScreen      ();
+	unsigned int mixColors(unsigned int first, unsigned int second, float percent);
 } // Renderer::
 
 #endif // ES_CORE_RENDERER_RENDERER_H

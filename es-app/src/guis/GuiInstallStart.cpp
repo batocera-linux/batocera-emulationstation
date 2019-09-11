@@ -76,7 +76,10 @@ mMenu(window, _("INSTALL BATOCERA").c_str())
 		mMenu.addButton(_("NETWORK REQUIRED"), "back", [&] { delete this; });
 	}
 
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.1f);
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.1f);
 }
 
 void GuiInstallStart::start()

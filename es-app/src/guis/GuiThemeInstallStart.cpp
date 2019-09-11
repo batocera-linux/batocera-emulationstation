@@ -5,40 +5,50 @@
 #include "guis/GuiThemeInstall.h"
 #include "guis/GuiSettings.h"
 #include "views/ViewController.h"
-
+#include "utils/StringUtil.h"
+#include "components/ComponentGrid.h"
 #include "LocaleES.h"
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
-	:GuiComponent(window), mMenu(window, _("SELECT THEME").c_str())
+	: GuiComponent(window), mMenu(window, _("SELECT THEME").c_str())
 {
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
-	ComponentListRow row;
+	
 	std::vector<std::string> availableThemes = ApiSystem::getInstance()->getBatoceraThemesList();
 
-	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++){
-		auto itstring = std::make_shared<TextComponent>(mWindow,
-				(*it).c_str(), theme->TextSmall.font, theme->Text.color);
-		char *tmp=new char [(*it).length()+1];
-		mSelectedTheme=new char [(*it).length()+1];
-		std::strcpy (tmp, (*it).c_str());
-		// Get theme name (from string '[A] Theme_name http://url_of_this_theme')
-		char *thname = strtok (tmp, " \t");
-		thname = strtok (NULL, " \t");
-		// Names longer than this will crash GuiMsgBox downstream
-		// "48" found by trials and errors. Ideally should be fixed
-		// in es-core MsgBox -- FIXME
-		if (strlen(thname) > 48)
-			thname[47]='\0';
-		row.makeAcceptInputHandler([this, thname] {
-				strcpy (mSelectedTheme,thname);
-				this->start();
-				});
-		row.addElement(itstring, true);
-		mMenu.addRow(row);
-		row.elements.clear();
+	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++)
+	{
+		auto parts = Utils::String::split(*it, '\t');
+		if (parts.size() != 3)
+			continue;
+
+		bool isInstalled = (Utils::String::startsWith(parts[0],"[I]"));
+		std::string themeName = parts[1];
+		std::string themeUrl = parts[2];
+
+		ComponentListRow row;
+
+		// icon
+		auto icon = std::make_shared<ImageComponent>(mWindow);
+		icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
+		icon->setColorShift(theme->Text.color);
+		icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+		row.addElement(icon, false);
+
+		// spacer between icon and text
+		auto spacer = std::make_shared<GuiComponent>(mWindow);
+		spacer->setSize(10, 0);
+		row.addElement(spacer, false);
+
+		auto grid = std::make_shared<MultiLineMenuEntry>(window, themeName, themeUrl);
+		row.addElement(grid, true);
+		row.makeAcceptInputHandler([this, themeName] { start(themeName); });
+
+		mMenu.addRow(row);	
 	}
+
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
 	if (Renderer::isSmallScreen())
@@ -47,18 +57,15 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
-void GuiThemeInstallStart::start()
+void GuiThemeInstallStart::start(std::string themeName)
 {
-  if(strcmp(mSelectedTheme,"")) {
-    mWindow->pushGui(new GuiThemeInstall(mWindow, mSelectedTheme));
+	mWindow->pushGui(new GuiThemeInstall(mWindow, themeName.c_str()));
     delete this;
-  }
 }
 
 bool GuiThemeInstallStart::input(InputConfig* config, Input input)
 {
-	bool consumed = GuiComponent::input(config, input);
-	if(consumed)
+	if(GuiComponent::input(config, input))
 		return true;
 	
 	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
@@ -66,6 +73,7 @@ bool GuiThemeInstallStart::input(InputConfig* config, Input input)
 		delete this;
 		return true;
 	}
+
 	if(config->isMappedTo("start", input) && input.value != 0)
 	{
 		// close everything

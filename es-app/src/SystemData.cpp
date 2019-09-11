@@ -212,6 +212,7 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 bool SystemData::loadConfig(Window* window)
 {
 	deleteSystems();
+	ThemeData::setDefaultTheme(nullptr);
 
 	std::string path = getConfigPath(false);
 

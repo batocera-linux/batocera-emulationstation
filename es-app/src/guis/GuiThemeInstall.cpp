@@ -9,7 +9,7 @@
 #include "GuiThemeInstall.h"
 #include "views/ViewController.h"
 
-GuiThemeInstall::GuiThemeInstall(Window* window, char *theme) : GuiComponent(window), mBusyAnim(window)
+GuiThemeInstall::GuiThemeInstall(Window* window, const char *theme) : GuiComponent(window), mBusyAnim(window)
 {
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
         mLoading = true;

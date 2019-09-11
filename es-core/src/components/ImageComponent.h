@@ -80,6 +80,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 	void setAllowFading(bool fade) { mAllowFading = fade; };
+	void setMirroring(Vector2f mirror) { mReflection = mirror; };
 
 	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
 
@@ -122,6 +123,7 @@ private:
 	Vector2f mTopLeftCrop;
 	Vector2f mBottomRightCrop;
 
+	Vector2f mReflection;
 	bool mAllowFading;
 
 	std::string mPath;

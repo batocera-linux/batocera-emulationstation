@@ -493,6 +493,10 @@ void Window::renderHelpPromptsEarly()
 
 void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style)
 {
+	// Keep a temporary reference to the previous grid.
+	// It avoids unloading/reloading images if they are the same, and avoids flickerings
+	auto oldGrid = mHelp->getGrid();
+
 	mHelp->clearPrompts();
 	mHelp->setStyle(style);
 
