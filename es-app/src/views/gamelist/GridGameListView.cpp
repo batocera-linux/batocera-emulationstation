@@ -113,7 +113,7 @@ void GridGameListView::createVideo()
 // Create the correct type of video window
 #ifdef _RPI_
 	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
-		mVideo = new VideoPlayerComponent(window, "");
+		mVideo = new VideoPlayerComponent(mWindow, "");
 	else
 #endif
 		mVideo = new VideoVlcComponent(mWindow, "");
