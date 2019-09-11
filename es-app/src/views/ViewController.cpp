@@ -307,6 +307,20 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	GameListViewType selectedViewType = AUTOMATIC;
 
 	std::string viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
+
+	std::string customThemeName;
+	Vector2f gridSizeOverride = Vector2f(0.0, 0.0);
+	
+	if (system->getTheme()->isCustomView(viewPreference))
+	{
+		auto baseClass = system->getTheme()->getCustomViewBaseType(viewPreference);
+		if (!baseClass.empty()) // this is a customView
+		{
+			customThemeName = viewPreference;
+			viewPreference = baseClass;
+		}
+	}
+
 	if (viewPreference.compare("basic") == 0)
 		selectedViewType = BASIC;
 	else if (viewPreference.compare("detailed") == 0)
@@ -346,7 +360,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 			view = std::shared_ptr<IGameListView>(new DetailedGameListView(mWindow, system->getRootFolder()));
 			break;
 		case GRID:
-			view = std::shared_ptr<IGameListView>(new GridGameListView(mWindow, system->getRootFolder(), system->getTheme()));
+			view = std::shared_ptr<IGameListView>(new GridGameListView(mWindow, system->getRootFolder(), system->getTheme(), customThemeName, gridSizeOverride));
 			break;
 		case BASIC:
 		default:
@@ -354,7 +368,15 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 			break;
 	}
 
-	view->setTheme(system->getTheme());
+	if (selectedViewType != GRID)
+	{
+		// GridGameListView theme needs to be loaded before populating.
+
+		if (!customThemeName.empty())
+			view->setThemeName(customThemeName);
+
+		view->setTheme(system->getTheme());
+	}
 
 	std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
 	int id = (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());

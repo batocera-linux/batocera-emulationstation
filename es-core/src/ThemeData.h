@@ -182,8 +182,12 @@ private:
 	class ThemeView
 	{
 	public:
+		ThemeView() { isCustomView = false; }
+
 		std::map<std::string, ThemeElement> elements;
 		std::vector<std::string> orderedKeys;
+		std::string baseType;
+		bool isCustomView;
 	};
 
 public:
@@ -205,6 +209,9 @@ public:
 	};
 
 	bool hasView(const std::string& view);
+
+	bool isCustomView(const std::string& view);
+	std::string getCustomViewBaseType(const std::string& view);
 
 	// If expectedType is an empty string, will do no type checking.
 	const ThemeElement* getElement(const std::string& view, const std::string& element, const std::string& expectedType) const;
@@ -245,11 +252,14 @@ private:
 	void parseIncludes(const pugi::xml_node& themeRoot);
 	void parseVariables(const pugi::xml_node& root);
 	void parseViews(const pugi::xml_node& themeRoot);
-	void parseView(const pugi::xml_node& viewNode, ThemeView& view);
-	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element);
+	void parseCustomViews(const pugi::xml_node& root);
+	void parseView(const pugi::xml_node& viewNode, ThemeView& view, bool overwriteElements = true);
+	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, bool overwrite = true);
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
 	bool isFirstSubset(const pugi::xml_node& node);
+
+	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
 
 	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
 	std::string resolvePlaceholders(const char* in);

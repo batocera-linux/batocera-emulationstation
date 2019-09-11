@@ -20,7 +20,13 @@ public:
 	virtual int getCursorIndex() override; // batocera
 	virtual void setCursorIndex(int index) override; // batocera
 
-	virtual const char* getName() const override { return "basic"; }
+	virtual const char* getName() const override
+	{
+		if (!mCustomThemeName.empty())
+			return mCustomThemeName.c_str();
+
+		return "basic";
+	}
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void launch(FileData* game) override;

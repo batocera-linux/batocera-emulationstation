@@ -1447,7 +1447,7 @@ void GuiMenu::openUISettings()
 					if (selectedRegion == themeRegions.end())
 						selectedRegion = themeRegions.begin();
 
-					theme_region = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME GAMELISTVIEW"), false);
+					theme_region = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME REGION"), false);
 
 					for (auto it = themeRegions.begin(); it != themeRegions.end(); it++)
 						theme_region->add(it->first, it->first, it == selectedRegion);
@@ -1460,7 +1460,7 @@ void GuiMenu::openUISettings()
 				std::shared_ptr<OptionListComponent<std::string>> gamelist_style = nullptr;
 				//if (theme_gamelistview == nullptr)
 				{
-					gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("FORCE GAMELIST VIEW STYLE"), false);
+					gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
 
 					std::vector<std::string> styles;
 					styles.push_back("automatic");
@@ -1485,7 +1485,7 @@ void GuiMenu::openUISettings()
 					for (auto it = styles.cbegin(); it != styles.cend(); it++)
 					  gamelist_style->add(_((*it).c_str()), *it, viewPreference == *it);
 
-					themeconfig->addWithLabel(_("FORCE GAMELIST VIEW STYLE"), gamelist_style);
+					themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 				}
 
 				themeconfig->addSaveFunc([this, s, theme_set, theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region, gamelist_style] {

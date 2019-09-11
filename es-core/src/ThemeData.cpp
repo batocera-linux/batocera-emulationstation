@@ -348,6 +348,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseVariables(root);
 	parseIncludes(root);
 	parseViews(root);
+	parseCustomViews(root);
 	parseFeatures(root);
 
 	mMenuTheme = nullptr;
@@ -463,6 +464,7 @@ void ThemeData::parseIncludes(const pugi::xml_node& root)
 		parseVariables(theme);
 		parseIncludes(theme);
 		parseViews(theme);
+		parseCustomViews(theme);
 		parseFeatures(theme);
 
 		mPaths.pop_back();
@@ -554,12 +556,111 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 			{
 				ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
 				parseView(node, view);
+
+				for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
+				{
+					if (it->second.isCustomView && it->second.baseType == viewKey)
+					{
+						ThemeView& customView = (ThemeView&)it->second;
+						parseView(node, customView);
+					}
+				}
 			}
 		}
 	}
 }
 
-void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view)
+void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass)
+{
+	bool found = false;
+
+	// Import original view properties
+	for (pugi::xml_node nodec = root.child("view"); nodec; nodec = nodec.next_sibling("view"))
+	{
+		if (!nodec.attribute("name"))
+			continue;
+
+		const char* delim = " \t\r\n,";
+		const std::string nameAttr = nodec.attribute("name").as_string();
+
+		size_t prevOff = nameAttr.find_first_not_of(delim, 0);
+		size_t off = nameAttr.find_first_of(delim, prevOff);
+		std::string viewKey;
+		while (off != std::string::npos || prevOff != std::string::npos)
+		{
+			viewKey = nameAttr.substr(prevOff, off - prevOff);
+			prevOff = nameAttr.find_first_not_of(delim, off);
+			off = nameAttr.find_first_of(delim, prevOff);
+
+			if (viewKey == baseClass)
+			{
+				found = true;
+				parseView(nodec, view);
+			}
+		}
+	}
+
+	if (found)
+		return;
+
+	// base class is a customview ?
+	for (pugi::xml_node nodec = root.child("customView"); nodec; nodec = nodec.next_sibling("customView"))
+	{
+		const std::string nameAttr = nodec.attribute("name").as_string();
+
+		if (!nameAttr.empty() && nameAttr == baseClass)
+		{
+			std::string inherits = nodec.attribute("inherits").as_string();
+			if (!inherits.empty() && inherits != baseClass)
+			{
+				view.baseType = inherits;
+				parseCustomViewBaseClass(root, view, inherits);
+			}
+
+			parseView(nodec, view);
+		}
+	}
+}
+
+void ThemeData::parseCustomViews(const pugi::xml_node& root)
+{
+	ThemeException error;
+	error.setFiles(mPaths);
+
+	// parse views
+	for (pugi::xml_node node = root.child("customView"); node; node = node.next_sibling("customView"))
+	{
+		if (!node.attribute("name"))
+			continue;
+
+		if (node.attribute("tinyScreen"))
+		{
+			const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
+
+			if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
+				continue;
+
+			if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+				continue;
+		}
+
+		std::string viewKey = node.attribute("name").as_string();
+
+		ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
+		view.isCustomView = true;
+
+		std::string inherits = node.attribute("inherits").as_string();
+		if (!inherits.empty())
+		{
+			view.baseType = inherits;
+			parseCustomViewBaseClass(root, view, inherits);
+		}
+
+		parseView(node, view);
+	}
+}
+
+void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool overwriteElements)
 {
 	ThemeException error;
 	error.setFiles(mPaths);
@@ -592,7 +693,7 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view)
 				off = nameAttr.find_first_of(delim, prevOff);
 
 				parseElement(node, elemTypeIt->second,
-					view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second);
+					view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second, overwriteElements);
 
 				if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
 					view.orderedKeys.push_back(elemKey);
@@ -631,7 +732,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	return false;
 }
 
-void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element)
+void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, bool overwrite)
 {
 	ThemeException error;
 	error.setFiles(mPaths);
@@ -642,11 +743,6 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		ElementPropertyType type = STRING;
-
-		if (element.type == "menuIcons")
-		{
-			auto tmp = 1;
-		}
 
 		auto typeIt = typeMap.find(node.name());
 		if(typeIt == typeMap.cend())
@@ -663,6 +759,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		else
 			type = typeIt->second;
 		
+		if (!overwrite && element.properties.find(node.name()) != element.properties.cend())
+			continue;
+
 		std::string str = resolveSystemVariable(mSystemThemeFolder, resolvePlaceholders(node.text().as_string()));
 
 		switch(type)
@@ -756,6 +855,24 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		}
 	}
+}
+
+std::string ThemeData::getCustomViewBaseType(const std::string& view)
+{
+	auto viewIt = mViews.find(view);
+	if (viewIt != mViews.cend())
+		return viewIt->second.baseType;
+
+	return "";
+}
+
+bool ThemeData::isCustomView(const std::string& view)
+{
+	auto viewIt = mViews.find(view);
+	if (viewIt != mViews.cend())
+		return viewIt->second.isCustomView;
+
+	return false;
 }
 
 bool ThemeData::hasView(const std::string& view)
