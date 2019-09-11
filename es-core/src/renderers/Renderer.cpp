@@ -319,4 +319,26 @@ namespace Renderer
 		screen = nativeClipStack.top();
 		return rectOverlap(screen, box);
 	}
+
+
+	unsigned int mixColors(unsigned int first, unsigned int second, float percent)
+	{
+		unsigned char alpha0 = (first >> 24) & 0xFF;
+		unsigned char blue0 = (first >> 16) & 0xFF;
+		unsigned char green0 = (first >> 8) & 0xFF;
+		unsigned char red0 = first & 0xFF;
+
+		unsigned char alpha1 = (second >> 24) & 0xFF;
+		unsigned char blue1 = (second >> 16) & 0xFF;
+		unsigned char green1 = (second >> 8) & 0xFF;
+		unsigned char red1 = second & 0xFF;
+
+		unsigned char alpha = (unsigned char)(alpha0 * (1.0 - percent) + alpha1 * percent);
+		unsigned char blue = (unsigned char)(blue0 * (1.0 - percent) + blue1 * percent);
+		unsigned char green = (unsigned char)(green0 * (1.0 - percent) + green1 * percent);
+		unsigned char red = (unsigned char)(red0 * (1.0 - percent) + red1 * percent);
+
+		return (alpha << 24) | (blue << 16) | (green << 8) | red;
+	}
+
 } // Renderer::

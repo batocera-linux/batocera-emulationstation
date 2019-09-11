@@ -985,9 +985,9 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 	static const size_t pathCount = 3;
 	std::string paths[pathCount] =
 	{ 
-		Utils::FileSystem::getHomePath() + "/.emulationstation/themes",
 		"/etc/emulationstation/themes",
-	    "/userdata/themes" // batocera
+		Utils::FileSystem::getEsConfigPath() + "/themes",
+		"/userdata/themes" // batocera
 	};
 
 	for(size_t i = 0; i < pathCount; i++)

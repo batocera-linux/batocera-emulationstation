@@ -1035,8 +1035,25 @@ std::vector<std::string> ApiSystem::getRetroAchievements() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getBatoceraThemesList() {
+std::vector<std::string> ApiSystem::getBatoceraThemesList() 
+{
+
 	std::vector<std::string> res;
+
+#if WIN32 && _DEBUG
+	// http://batocera-linux.xorhub.com/upgrades/themes.txt
+	res.push_back("[A]\tAlekfull\thttps://github.com/jdorigao/es-theme-alekfull");
+	res.push_back("[A]\tArt-book\thttps://github.com/anthonycaccese/es-theme-art-book");
+	res.push_back("[A]\tBatopicase\thttps://github.com/Genetik57/es-theme-simply-batopicase");
+	res.push_back("[A]\tFundamental\thttps://github.com/jdorigao/es-theme-fundamental");
+	res.push_back("[I]\tMinimal\thttps://github.com/crcerror/es-theme-minimal");
+	res.push_back("[A]\tRVGM\thttps://github.com/Darknior/RVGM-ES-Theme");
+	res.push_back("[A]\tSimple\thttps://github.com/RetroPie/es-theme-simple");
+	res.push_back("[A]\tZoid\thttps://github.com/RetroPie/es-theme-zoid");
+	res.push_back("[A]\tVideoGame\thttps://github.com/jdorigao/es-theme-videogame");
+	return res;
+#endif
+
 	std::ostringstream oss;
 	oss << "batocera-es-theme" << " " << "list";
 	FILE *pipe = popen(oss.str().c_str(), "r");

@@ -683,26 +683,6 @@ void GridTileComponent::setVisible(bool visible)
 	mVisible = visible;
 }
 
-unsigned int mixColors(unsigned int first, unsigned int second, float percent)
-{
-	unsigned char alpha0 = (first >> 24) & 0xFF;
-	unsigned char blue0 = (first >> 16) & 0xFF;
-	unsigned char green0 = (first >> 8) & 0xFF;
-	unsigned char red0 = first & 0xFF;
-
-	unsigned char alpha1 = (second >> 24) & 0xFF;
-	unsigned char blue1 = (second >> 16) & 0xFF;
-	unsigned char green1 = (second >> 8) & 0xFF;
-	unsigned char red1 = second & 0xFF;
-
-	unsigned char alpha = (unsigned char)(alpha0 * (1.0 - percent) + alpha1 * percent);
-	unsigned char blue = (unsigned char)(blue0 * (1.0 - percent) + blue1 * percent);
-	unsigned char green = (unsigned char)(green0 * (1.0 - percent) + green1 * percent);
-	unsigned char red = (unsigned char)(red0 * (1.0 - percent) + red1 * percent);
-
-	return (alpha << 24) | (blue << 16) | (green << 8) | red;
-}
-
 const GridTileProperties& GridTileComponent::getCurrentProperties() 
 {
 	if (mSelectedZoomPercent == 0.0f || mSelectedZoomPercent == 1.0f)
@@ -728,7 +708,7 @@ const GridTileProperties& GridTileComponent::getCurrentProperties()
 
 	if (mDefaultProperties.mImageColor != mSelectedProperties.mImageColor)
 	{
-		mMixedProperties.mImageColor = mixColors(mDefaultProperties.mImageColor, mSelectedProperties.mImageColor, mSelectedZoomPercent);
+		mMixedProperties.mImageColor = Renderer::mixColors(mDefaultProperties.mImageColor, mSelectedProperties.mImageColor, mSelectedZoomPercent);
 	}
 
 	if (mDefaultProperties.mLabelSize != mSelectedProperties.mLabelSize)
@@ -736,13 +716,13 @@ const GridTileProperties& GridTileComponent::getCurrentProperties()
 			mDefaultProperties.mLabelSize.y() * (1.0 - mSelectedZoomPercent) + mSelectedProperties.mLabelSize.y() * mSelectedZoomPercent);
 
 	if (mDefaultProperties.mLabelColor != mSelectedProperties.mLabelColor)
-		mMixedProperties.mLabelColor = mixColors(mDefaultProperties.mLabelColor, mSelectedProperties.mLabelColor, mSelectedZoomPercent);
+		mMixedProperties.mLabelColor = Renderer::mixColors(mDefaultProperties.mLabelColor, mSelectedProperties.mLabelColor, mSelectedZoomPercent);
 
 	if (mDefaultProperties.mLabelBackColor != mSelectedProperties.mLabelBackColor)
-		mMixedProperties.mLabelBackColor = mixColors(mDefaultProperties.mLabelBackColor, mSelectedProperties.mLabelBackColor, mSelectedZoomPercent);
+		mMixedProperties.mLabelBackColor = Renderer::mixColors(mDefaultProperties.mLabelBackColor, mSelectedProperties.mLabelBackColor, mSelectedZoomPercent);
 
 	if (mDefaultProperties.mLabelGlowColor != mSelectedProperties.mLabelGlowColor)
-		mMixedProperties.mLabelGlowColor = mixColors(mDefaultProperties.mLabelGlowColor, mSelectedProperties.mLabelGlowColor, mSelectedZoomPercent);
+		mMixedProperties.mLabelGlowColor = Renderer::mixColors(mDefaultProperties.mLabelGlowColor, mSelectedProperties.mLabelGlowColor, mSelectedZoomPercent);
 
 	if (mDefaultProperties.mLabelGlowSize != mSelectedProperties.mLabelGlowSize)
 		mMixedProperties.mLabelGlowSize = mDefaultProperties.mLabelGlowSize * (1.0 - mSelectedZoomPercent) + mSelectedProperties.mLabelGlowSize * mSelectedZoomPercent;
