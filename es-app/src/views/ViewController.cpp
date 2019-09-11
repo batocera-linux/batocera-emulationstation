@@ -305,12 +305,20 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 
 	//decide type
 	GameListViewType selectedViewType = AUTOMATIC;
+	bool allowDetailedDowngrade = false;
 
 	std::string viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
 
 	std::string customThemeName;
 	Vector2f gridSizeOverride = Vector2f(0.0, 0.0);
 	
+	if (viewPreference == "automatic")
+	{
+		auto defaultView = system->getTheme()->getDefaultView();
+		if (!defaultView.empty() && system->getTheme()->hasView(defaultView))
+			viewPreference = defaultView;
+	}
+
 	if (system->getTheme()->isCustomView(viewPreference))
 	{
 		auto baseClass = system->getTheme()->getCustomViewBaseType(viewPreference);
@@ -324,28 +332,39 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	if (viewPreference.compare("basic") == 0)
 		selectedViewType = BASIC;
 	else if (viewPreference.compare("detailed") == 0)
+	{
+		auto defaultView = system->getTheme()->getDefaultView();
+		if (!defaultView.empty() && system->getTheme()->hasView(defaultView) && defaultView != "detailed")
+			allowDetailedDowngrade = true;
+
 		selectedViewType = DETAILED;
+	}
 	else if (themeHasGridView && viewPreference.compare("grid") == 0)
 		selectedViewType = GRID;
 	else if (themeHasVideoView && viewPreference.compare("video") == 0)
 		selectedViewType = VIDEO;
 
-	if (selectedViewType == AUTOMATIC)
+	if (selectedViewType == AUTOMATIC || allowDetailedDowngrade)
 	{
-		std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME | FOLDER);
-		for (auto it = files.cbegin(); it != files.cend(); it++)
+		selectedViewType = BASIC;
+
+		if (system->getTheme()->getDefaultView() != "basic")
 		{
-			if (themeHasVideoView && !(*it)->getVideoPath().empty())
+			std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME | FOLDER);
+			for (auto it = files.cbegin(); it != files.cend(); it++)
 			{
-				selectedViewType = VIDEO;
-				break;
-			}
-			else if (!(*it)->getThumbnailPath().empty())
-			{
-				selectedViewType = DETAILED;
-				
-				if (!themeHasVideoView)
+				if (themeHasVideoView && !(*it)->getVideoPath().empty())
+				{
+					selectedViewType = VIDEO;
 					break;
+				}
+				else if (!(*it)->getThumbnailPath().empty())
+				{
+					selectedViewType = DETAILED;
+
+					if (!themeHasVideoView)
+						break;
+				}
 			}
 		}
 	}
