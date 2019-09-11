@@ -66,6 +66,7 @@ void Settings::setDefaults()
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
+	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "";
 
         // batocera

@@ -46,8 +46,10 @@ ViewController::~ViewController()
 	sInstance = NULL;
 }
 
-void ViewController::goToStart()
+void ViewController::goToStart(bool forceImmediate)
 {
+	bool startOnGamelist = Settings::getInstance()->getBool("StartupOnGameList");
+
 	// If specific system is requested, go directly to the game list
 	auto requestedSystem = Settings::getInstance()->getString("StartupSystem");
 	if("" != requestedSystem && "retropie" != requestedSystem)
@@ -55,7 +57,11 @@ void ViewController::goToStart()
 		for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++){
 			if ((*it)->getName() == requestedSystem)
 			{
-				goToGameList(*it);
+				if (startOnGamelist)
+					goToGameList(*it, forceImmediate);
+				else
+					goToSystemView(*it, forceImmediate);
+
 				return;
 			}
 		}
@@ -63,14 +69,18 @@ void ViewController::goToStart()
 		// Requested system doesn't exist
 		Settings::getInstance()->setString("StartupSystem", "");
 	}
-	goToSystemView(SystemData::sSystemVector.at(0));
+
+	if (startOnGamelist)
+		goToGameList(SystemData::sSystemVector.at(0), forceImmediate);
+	else
+		goToSystemView(SystemData::sSystemVector.at(0));
 }
 
 void ViewController::ReloadAndGoToStart()
 {
 	mWindow->renderLoadingScreen(_("Loading..."));
 	ViewController::get()->reloadAll();
-	ViewController::get()->goToStart();
+	ViewController::get()->goToStart(true);
 	mWindow->endRenderLoadingScreen();
 }
 
@@ -80,7 +90,7 @@ int ViewController::getSystemId(SystemData* system)
 	return (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
 }
 
-void ViewController::goToSystemView(SystemData* system)
+void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 {
 	// Tell any current view it's about to be hidden
 	if (mCurrentView)
@@ -99,7 +109,7 @@ void ViewController::goToSystemView(SystemData* system)
 	mCurrentView->onShow();
 	PowerSaver::setState(true);
 
-	playViewTransition();
+	playViewTransition(forceImmediate);
 }
 
 void ViewController::goToNextGameList()
@@ -118,7 +128,7 @@ void ViewController::goToPrevGameList()
 	goToGameList(system->getPrev());
 }
 
-void ViewController::goToGameList(SystemData* system)
+void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 {
 	if(mState.viewing == SYSTEM_SELECT)
 	{
@@ -151,10 +161,10 @@ void ViewController::goToGameList(SystemData* system)
 	{
 		mCurrentView->onShow();
 	}
-	playViewTransition();
+	playViewTransition(forceImmediate);
 }
 
-void ViewController::playViewTransition()
+void ViewController::playViewTransition(bool forceImmediate)
 {
 	Vector3f target(Vector3f::Zero());
 	if(mCurrentView)
@@ -165,7 +175,7 @@ void ViewController::playViewTransition()
 		return;
 
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
-	if(transition_style == "fade")
+	if(!forceImmediate && transition_style == "fade")
 	{
 		// fade
 		// stop whatever's currently playing, leaving mFadeOpacity wherever it is
@@ -193,7 +203,7 @@ void ViewController::playViewTransition()
 		}else{
 			advanceAnimation(0, (int)(mFadeOpacity * FADE_DURATION));
 		}
-	} else if (transition_style == "slide"){
+	} else if (!forceImmediate && transition_style == "slide"){
 		// slide or simple slide
 		setAnimation(new MoveCameraAnimation(mCamera, target));
 		updateHelpPrompts(); // update help prompts immediately

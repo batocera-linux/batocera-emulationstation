@@ -1594,6 +1594,12 @@ void GuiMenu::openUISettings()
 		Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
 	});
 
+	// Open gamelist at start
+	auto startOnGamelist = std::make_shared<SwitchComponent>(mWindow);
+	startOnGamelist->setState(Settings::getInstance()->getBool("StartupOnGameList"));
+	s->addWithLabel(_("START ON GAMELIST"), startOnGamelist);
+	s->addSaveFunc([startOnGamelist] { Settings::getInstance()->setBool("StartupOnGameList", startOnGamelist->getState()); });
+
 	// Batocera: select systems to hide
 	s->addEntry(_("DISPLAY / HIDE SYSTEMS"), true, [this] { mWindow->pushGui(new GuiSystemsHide(mWindow)); });
 

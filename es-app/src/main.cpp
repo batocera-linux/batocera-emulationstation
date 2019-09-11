@@ -462,9 +462,9 @@ int main(int argc, char* argv[])
 	{
 		if(Utils::FileSystem::exists(InputManager::getConfigPath()) && InputManager::getInstance()->getNumConfiguredDevices() > 0)
 		{
-			ViewController::get()->goToStart();
+			ViewController::get()->goToStart(true);
 		}else{
-			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(); }));
+			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(true); }));
 		}
 	}
 
