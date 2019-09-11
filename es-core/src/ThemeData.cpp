@@ -345,9 +345,6 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	if(mVersion < MINIMUM_THEME_FORMAT_VERSION)
 		throw error << "Theme uses format version " << mVersion << ". Minimum supported version is " << MINIMUM_THEME_FORMAT_VERSION << ".";
 
-	if (root.attribute("defaultView"))
-		mDefaultView = root.attribute("defaultView").as_string();
-
 	parseVariables(root);
 	parseTheme(root);
 	
@@ -432,6 +429,17 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 {
 	if (!parseSubset(node))
 		return;
+
+	if (node.attribute("tinyScreen"))
+	{
+		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
+
+		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
+			return;
+
+		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return;
+	}
 
 	std::string relPath = resolvePlaceholders(node.text().as_string());
 	std::string path = Utils::FileSystem::resolveRelativePath(relPath, mPaths.back(), true);
@@ -557,6 +565,9 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 
 void ThemeData::parseTheme(const pugi::xml_node& root)
 {
+	if (root.attribute("defaultView"))
+		mDefaultView = root.attribute("defaultView").as_string();
+
 	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		std::string name = node.name();	
