@@ -19,6 +19,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 		{ "maxSize", NORMALIZED_PAIR },
+		{ "minSize", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
 	 	{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
