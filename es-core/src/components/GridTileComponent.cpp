@@ -158,7 +158,7 @@ void GridTileComponent::resize()
 		mImage->setOrigin(0.5f, 0.5f);
 		mImage->setPosition(size.x() / 2.0f, (size.y() - height) / 2.0f);
 		mImage->setColorShift(currentProperties.mImageColor);
-// TODO		mImage->setMirroring(currentProperties.mMirror);
+		mImage->setMirroring(currentProperties.mMirror);
 
 		if (currentProperties.mImageSizeMode == "minSize")
 			mImage->setMinSize(imageWidth, imageHeight);

@@ -22,7 +22,8 @@ Vector2f ImageComponent::getSize() const
 ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : GuiComponent(window),
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
-	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f)
+	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
+	mReflection(0.0f, 0.0f)
 {
 	mLoadingTexture = nullptr;
 	mAllowFading = true;
@@ -379,6 +380,46 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		// when it finally loads
 		fadeIn(mTexture->bind());
 		Renderer::drawTriangleStrips(&mVertices[0], 4);
+
+		if (mReflection.x() != 0 || mReflection.y() != 0)
+		{
+			float baseOpacity = (mOpacity * (mFading ? mFadeOpacity / 255.0 : 1.0)) / 255.0;
+
+			float alpha = baseOpacity * ((mColorShift & 0x000000ff)) / 255.0;
+			float alpha2 = baseOpacity * alpha * mReflection.y();
+
+			alpha *= mReflection.x();
+
+			const unsigned int colorT = Renderer::convertColor((mColorShift & 0xffffff00) + (unsigned char)(255.0*alpha));
+			const unsigned int colorB = Renderer::convertColor((mColorShift & 0xffffff00) + (unsigned char)(255.0*alpha2));
+
+			int h = mVertices[1].pos.y() - mVertices[0].pos.y();
+
+			Renderer::Vertex mirrorVertices[4];
+
+			mirrorVertices[0] = {
+				{ mVertices[0].pos.x(), mVertices[0].pos.y() + h },
+				{ mVertices[0].tex.x(), mVertices[1].tex.y() },
+				colorT };
+
+			mirrorVertices[1] = {
+				{ mVertices[1].pos.x(), mVertices[1].pos.y() + h },
+				{ mVertices[1].tex.x(), mVertices[0].tex.y() },
+				colorB };
+
+			mirrorVertices[2] = {
+				{ mVertices[2].pos.x(), mVertices[2].pos.y() + h },
+				{ mVertices[2].tex.x(), mVertices[3].tex.y() },
+				colorT };
+
+			mirrorVertices[3] = {
+				{ mVertices[3].pos.x(), mVertices[3].pos.y() + h },
+				{ mVertices[3].tex.x(), mVertices[2].tex.y() },
+				colorB };
+
+			Renderer::drawTriangleStrips(&mirrorVertices[0], 4);
+		}
+
 		Renderer::bindTexture(0);
 	}
 
@@ -490,6 +531,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		if (elem->has("gradientType"))
 			setColorGradientHorizontal(!(elem->get<std::string>("gradientType").compare("horizontal")));
 	}
+
+	if(properties & COLOR && elem->has("reflexion"))
+		mReflection = elem->get<Vector2f>("reflexion");
 
 	if(properties & ThemeFlags::ROTATION) {
 		if(elem->has("rotation"))
