@@ -152,6 +152,14 @@ bool TextureResource::bind()
 	return sTextureDataManager.bind(this);	
 }
 
+void TextureResource::cancelAsync(std::shared_ptr<TextureResource> texture)
+{
+	if (texture == nullptr)
+		return;
+
+	sTextureDataManager.cancelAsync(texture.get());
+}
+
 std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();

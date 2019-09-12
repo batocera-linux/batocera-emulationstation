@@ -13,6 +13,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 #include "guis/GuiMenu.h"
+#include "guis/GuiMsgBox.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
 	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false)
@@ -73,19 +74,55 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		mMenu.addRow(row);
 
 		// sort list by
-		mListSort = std::make_shared<SortList>(mWindow, "SORT GAMES BY", false);
+		unsigned int currentSortId = mSystem->getSortId();
+		if (currentSortId > FileSorts::SortTypes.size())
+			currentSortId = 0;
+
+		mListSort = std::make_shared<SortList>(mWindow, _("SORT GAMES BY"), false);
 		for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
 		{
 			const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-			mListSort->add(sort.description, &sort, i == 0); // TODO - actually make the sort type persistent
+			mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description)), i, i == currentSortId); // TODO - actually make the sort type persistent
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
 
-	// show filtered menu
-	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
+	// Show filtered menu
+	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
 		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+
+	// Show favorites first in gamelists
+	auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
+	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
+	mMenu.addWithLabel(_("SHOW FAVORITES ON TOP"), favoritesFirstSwitch);
+	addSaveFunc([favoritesFirstSwitch, this]
+	{
+		if (Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState()))
+			mReloadAll = true;
+	});
+
+	// hidden files
+	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
+	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
+	mMenu.addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
+	addSaveFunc([hidden_files, this]
+	{
+		if (Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()))
+			mReloadAll = true;
+	});
+
+	// Flat folders
+	auto flatFolders = std::make_shared<SwitchComponent>(mWindow);
+	flatFolders->setState(!Settings::getInstance()->getBool("FlatFolders"));
+	mMenu.addWithLabel(_("SHOW FOLDERS"), flatFolders); // batocera
+	addSaveFunc([flatFolders, this] 
+	{ 
+		if (Settings::getInstance()->setBool("FlatFolders", !flatFolders->getState()))
+			mReloadAll = true;
+	});
+
+
 
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
@@ -104,7 +141,38 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 	// batocera
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
-		mMenu.addEntry(_("ADVANCED"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
+		mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
+
+	// Game List Update
+	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
+	{
+		window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [this, window]
+		{
+			std::string systemName = mSystem->getName();
+			
+			mSystem = nullptr;
+
+			ViewController::get()->goToStart(true);
+
+			delete ViewController::get();
+			ViewController::init(window);
+			CollectionSystemManager::deinit();
+			CollectionSystemManager::init(window);
+			SystemData::loadConfig(window);
+			window->endRenderLoadingScreen();
+			GuiComponent *gui;
+			while ((gui = window->peekGui()) != NULL) {
+				window->removeGui(gui);
+				delete gui;
+			}
+			ViewController::get()->reloadAll();
+			window->pushGui(ViewController::get());
+
+			if (!ViewController::get()->goToGameList(systemName, true))
+				ViewController::get()->goToStart(true);			
+			
+		}, _("NO"), nullptr));
+	});
 
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -113,14 +181,21 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 GuiGamelistOptions::~GuiGamelistOptions()
 {
+	if (mSystem == nullptr)
+		return;
+
 	for (auto it = mSaveFuncs.cbegin(); it != mSaveFuncs.cend(); it++)
 		(*it)();
 
 	// apply sort
-	if (!fromPlaceholder) 
+	if (!fromPlaceholder && mListSort->getSelected() != mSystem->getSortId())
 	{
+		mSystem->setSortId(mListSort->getSelected());
+
 		FolderData* root = mSystem->getRootFolder();
-		root->sort(*mListSort->getSelected()); // will also recursively sort children
+
+		const FolderData::SortType& sort = FileSorts::SortTypes.at(mListSort->getSelected());
+		root->sort(sort);
 
 		// notify that the root folder was sorted
 		getGamelist()->onFileChanged(root, FILE_SORTED);
@@ -139,10 +214,13 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// game is selected
 		ViewController::get()->reloadGameListView(mSystem);
 	}
+
+	Settings::getInstance()->saveFile();
 }
 
 void GuiGamelistOptions::openGamelistFilter()
 {
+	mReloadAll = false;
 	mFiltersChanged = true;
 	GuiGamelistFilter* ggf = new GuiGamelistFilter(mWindow, mSystem);
 	mWindow->pushGui(ggf);
@@ -207,6 +285,18 @@ void GuiGamelistOptions::jumpToLetter()
 {
 	char letter = mJumpToLetterList->getSelected();
 	IGameListView* gamelist = getGamelist();
+
+	if (mListSort->getSelected() != 0)
+	{
+		mListSort->selectFirstItem();
+		mSystem->setSortId(0);
+
+		FolderData* root = mSystem->getRootFolder();
+		const FolderData::SortType& sort = FileSorts::SortTypes.at(0);
+		root->sort(sort);
+
+		getGamelist()->onFileChanged(root, FILE_SORTED);
+	}
 
 	// this is a really shitty way to get a list of files
 	const std::vector<FileData*>& files = gamelist->getCursor()->getParent()->getChildrenListToDisplay();

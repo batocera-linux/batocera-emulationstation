@@ -92,7 +92,7 @@ void ScraperSearchHandle::update()
 	}
 
 	// we finished without any errors!
-	if(mRequestQueue.empty())
+	if(mRequestQueue.empty() && mStatus != ASYNC_ERROR)
 	{
 		setStatus(ASYNC_DONE);
 		return;

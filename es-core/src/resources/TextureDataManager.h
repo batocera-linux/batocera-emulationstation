@@ -68,6 +68,7 @@ public:
 	// will be deleted when the other thread has finished with it
 	void remove(const TextureResource* key);
 
+	void cancelAsync(const TextureResource* key);
 	std::shared_ptr<TextureData> get(const TextureResource* key, bool enableLoading = true);
 	bool bind(const TextureResource* key);
 

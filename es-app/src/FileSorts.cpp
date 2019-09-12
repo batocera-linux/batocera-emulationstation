@@ -1,39 +1,40 @@
 #include "FileSorts.h"
 
 #include "utils/StringUtil.h"
+#include "LocaleES.h"
 
 namespace FileSorts
 {
 	const FolderData::SortType typesArr[] = {
-		FolderData::SortType(&compareName, true, "filename, ascending"),
-		FolderData::SortType(&compareName, false, "filename, descending"),
+		FolderData::SortType(&compareName, true, "Filename, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&compareName, false, "Filename, descending", _U("\uF15e ")),
 
-		FolderData::SortType(&compareRating, true, "rating, ascending"),
-		FolderData::SortType(&compareRating, false, "rating, descending"),
+		FolderData::SortType(&compareRating, true, "Rating, Ascending", _U("\uF165 ")),
+		FolderData::SortType(&compareRating, false, "Rating, Descending", _U("\uF164 ")),
 
-		FolderData::SortType(&compareTimesPlayed, true, "times played, ascending"),
-		FolderData::SortType(&compareTimesPlayed, false, "times played, descending"),
+		FolderData::SortType(&compareTimesPlayed, true, "Times played, Ascending", _U("\uF160 ")),
+		FolderData::SortType(&compareTimesPlayed, false, "Times played, Descending", _U("\uF161 ")),
 
-		FolderData::SortType(&compareLastPlayed, true, "last played, ascending"),
-		FolderData::SortType(&compareLastPlayed, false, "last played, descending"),
+		FolderData::SortType(&compareLastPlayed, true, "Last played, Ascending", _U("\uF160 ")),
+		FolderData::SortType(&compareLastPlayed, false, "Last played, Descending", _U("\uF161 ")),
 
-		FolderData::SortType(&compareNumPlayers, true, "number players, ascending"),
-		FolderData::SortType(&compareNumPlayers, false, "number players, descending"),
+		FolderData::SortType(&compareNumPlayers, true, "Number players, Ascending", _U("\uF162 ")),
+		FolderData::SortType(&compareNumPlayers, false, "Number players, Descending", _U("\uF163 ")),
 
-		FolderData::SortType(&compareReleaseDate, true, "release date, ascending"),
-		FolderData::SortType(&compareReleaseDate, false, "release date, descending"),
+		FolderData::SortType(&compareReleaseDate, true, "Release date, Ascending"),
+		FolderData::SortType(&compareReleaseDate, false, "Release date, Descending"),
 
-		FolderData::SortType(&compareGenre, true, "genre, ascending"),
-		FolderData::SortType(&compareGenre, false, "genre, descending"),
+		FolderData::SortType(&compareGenre, true, "Genre, Ascending"),
+		FolderData::SortType(&compareGenre, false, "Genre, Descending"),
 
-		FolderData::SortType(&compareDeveloper, true, "developer, ascending"),
-		FolderData::SortType(&compareDeveloper, false, "developer, descending"),
+		FolderData::SortType(&compareDeveloper, true, "Developer, Ascending"),
+		FolderData::SortType(&compareDeveloper, false, "Developer, Descending"),
 
-		FolderData::SortType(&comparePublisher, true, "publisher, ascending"),
-		FolderData::SortType(&comparePublisher, false, "publisher, descending"),
+		FolderData::SortType(&comparePublisher, true, "Publisher, Ascending"),
+		FolderData::SortType(&comparePublisher, false, "Publisher, Descending"),
 
-		FolderData::SortType(&compareSystem, true, "system, ascending"),
-		FolderData::SortType(&compareSystem, false, "system, descending")
+		FolderData::SortType(&compareSystem, true, "System, Ascending"),
+		FolderData::SortType(&compareSystem, false, "System, Descending")
 	};
 
 	const std::vector<FolderData::SortType> SortTypes(typesArr, typesArr + sizeof(typesArr)/sizeof(typesArr[0]));

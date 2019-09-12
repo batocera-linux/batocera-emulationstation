@@ -35,6 +35,7 @@ public:
 	void goToNextGameList();
 	void goToPrevGameList();
 	void goToGameList(SystemData* system, bool forceImmediate = false);
+	bool goToGameList(std::string& systemName, bool forceImmediate = false);
 	void goToSystemView(SystemData* system, bool forceImmediate = false);
 	void goToStart(bool forceImmediate = false);
 	void ReloadAndGoToStart();

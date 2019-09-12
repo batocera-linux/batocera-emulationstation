@@ -2,15 +2,28 @@
 
 #include "components/ButtonComponent.h"
 #include "components/MenuComponent.h"
+#include "components/ImageComponent.h"
+#include "resources/ResourceManager.h"
 #include "LocaleES.h"
 
-#define HORIZONTAL_PADDING_PX 20
+#define HORIZONTAL_PADDING_PX  (Renderer::getScreenWidth()*0.01)
+
+GuiMsgBox::GuiMsgBox(Window* window, const std::string& text, const std::string& name1, const std::function<void()>& func1, GuiMsgBoxIcon icon) 
+	: GuiMsgBox(window, text, name1, func1, "", nullptr, "", nullptr, icon) { }
+
+GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
+	const std::string& name1, const std::function<void()>& func1,
+	const std::string& name2, const std::function<void()>& func2,
+	GuiMsgBoxIcon icon)
+	: GuiMsgBox(window, text, name1, func1, name2, func2, "", nullptr, icon) { }
 
 GuiMsgBox::GuiMsgBox(Window* window, const std::string& text, 
 	const std::string& name1, const std::function<void()>& func1,
 	const std::string& name2, const std::function<void()>& func2, 
-	const std::string& name3, const std::function<void()>& func3) : GuiComponent(window), 
-	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 2))
+	const std::string& name3, const std::function<void()>& func3,
+	GuiMsgBoxIcon icon) : GuiComponent(window),
+	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(2, 2))
+	
 {
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
@@ -19,9 +32,54 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 
 	float width = Renderer::getScreenWidth() * 0.6f; // max width
 	float minWidth = Renderer::getScreenWidth() * 0.3f; // minimum width
+	
+	mImage = nullptr;
 
-	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, ALIGN_CENTER);
-	mGrid.setEntry(mMsg, Vector2i(0, 0), false, false);
+	std::string imageFile;
+
+	switch (icon)
+	{
+	case ICON_INFORMATION:
+		imageFile = ":/info.svg";
+		break;
+	case ICON_QUESTION:
+		imageFile = ":/question.svg";
+		break;
+	case ICON_WARNING:
+		imageFile = ":/warning.svg";
+		break;
+	case ICON_ERROR:
+		imageFile = ":/alert.svg";
+		break;
+	case ICON_AUTOMATIC:
+
+		if (text.rfind("?") != std::string::npos || name1 == _("YES"))
+			imageFile = ":/question.svg";
+		else if (name1 == _("OK"))
+		{
+			if (name2.empty())
+				imageFile = ":/info.svg";
+			else
+				imageFile = ":/question.svg";
+		}
+
+		break;
+	}
+
+	if (!imageFile.empty() && ResourceManager::getInstance()->fileExists(imageFile))
+	{
+		mImage = std::make_shared<ImageComponent>(window);
+		mImage->setImage(imageFile);
+		mImage->setColorShift(theme->Text.color);
+		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);
+
+		mGrid.setEntry(mImage, Vector2i(0, 0), false, false);
+	}
+
+	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr ? ALIGN_CENTER : ALIGN_LEFT); // CENTER
+	mMsg->setPadding(Vector4f(Renderer::getScreenWidth()*0.015f, 0, Renderer::getScreenWidth()*0.015f, 0));
+	
+	mGrid.setEntry(mMsg, Vector2i(mImage == nullptr ? 0 : 1, 0), false, false, Vector2i(mImage == nullptr ? 2 : 1, 1));
 
 	// create the buttons
 	mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name1, name1, std::bind(&GuiMsgBox::deleteMeAndCall, this, func1)));
@@ -47,7 +105,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 
 	// put the buttons into a ComponentGrid
 	mButtonGrid = makeButtonGrid(mWindow, mButtons);
-	mGrid.setEntry(mButtonGrid, Vector2i(0, 1), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP);
+	mGrid.setEntry(mButtonGrid, Vector2i(0, 1), true, false, Vector2i(2, 1), GridFlags::BORDER_TOP);
 
 	// decide final width
 	if(mMsg->getSize().x() < width && mButtonGrid->getSize().x() < width)
@@ -56,7 +114,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 		width = Math::max(mButtonGrid->getSize().x(), mMsg->getSize().x());
 		width = Math::max(width, minWidth);
 	}
-
+	
 	// now that we know width, we can find height
 	mMsg->setSize(width, 0); // mMsg->getSize.y() now returns the proper length
 	const float msgHeight = Math::max(Font::get(FONT_SIZE_LARGE)->getHeight(), mMsg->getSize().y()*1.225f);
@@ -92,9 +150,12 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 void GuiMsgBox::onSizeChanged()
 {
 	mGrid.setSize(mSize);
+
+	if (mImage != nullptr)
+		mGrid.setColWidthPerc(0, (ThemeData::getMenuTheme()->Text.font->getLetterHeight() * 4.5f) / mSize.x());
+
 	mGrid.setRowHeightPerc(1, mButtonGrid->getSize().y() / mSize.y());
-	
-	// update messagebox size
+			
 	mMsg->setSize(mSize.x() - HORIZONTAL_PADDING_PX*2, mGrid.getRowHeight(0));
 	mGrid.onSizeChanged();
 

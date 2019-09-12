@@ -68,6 +68,13 @@ void TextureDataManager::remove(const TextureResource* key)
 	}
 }
 
+void TextureDataManager::cancelAsync(const TextureResource* key)
+{
+	std::shared_ptr<TextureData> tex = get(key);
+	if (tex != nullptr)
+		mLoader->remove(tex);
+}
+
 std::shared_ptr<TextureData> TextureDataManager::get(const TextureResource* key, bool enableLoading)
 {
 	std::unique_lock<std::mutex> lock(mMutex);

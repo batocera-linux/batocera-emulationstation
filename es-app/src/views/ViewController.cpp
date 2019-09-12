@@ -128,6 +128,20 @@ void ViewController::goToPrevGameList()
 	goToGameList(system->getPrev());
 }
 
+bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
+{
+	for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+	{
+		if ((*sysIt)->getName() == systemName)
+		{
+			goToGameList(*sysIt, forceImmediate);
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 {
 	if(mState.viewing == SYSTEM_SELECT)
@@ -353,7 +367,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 			std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME | FOLDER);
 			for (auto it = files.cbegin(); it != files.cend(); it++)
 			{
-				if (themeHasVideoView && !(*it)->getVideoPath().empty())
+				if (!allowDetailedDowngrade && themeHasVideoView && !(*it)->getVideoPath().empty())
 				{
 					selectedViewType = VIDEO;
 					break;

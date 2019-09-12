@@ -140,6 +140,10 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 		return;
 
 	mPath = path;
+
+	// If the previous image is in the async queue, remove it
+	TextureResource::cancelAsync(mLoadingTexture);
+	TextureResource::cancelAsync(mTexture);
 	mLoadingTexture = nullptr;
 
 	if(path.empty() || !ResourceManager::getInstance()->fileExists(path))
@@ -153,7 +157,6 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	{
 		std::shared_ptr<TextureResource> texture = TextureResource::get(path, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 
-		// TODO probleme de proportions si l'on fait ca, à investiguer...
 		if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
 			mLoadingTexture = texture;
 		else

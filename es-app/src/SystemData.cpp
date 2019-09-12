@@ -25,6 +25,8 @@ std::vector<SystemData*> SystemData::sFileSystemVector; //batocera
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mSortId = Settings::getInstance()->getInt(getName() + ".sort"),
+
 	mFilterIndex = nullptr;
 	mEmulators = emulators; // batocera
 
@@ -46,15 +48,17 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 		if(!Settings::getInstance()->getBool("IgnoreGamelist"))
 			parseGamelist(this, fileMap);
 
-		mRootFolder->sort(FileSorts::SortTypes.at(0));
-
-		// indexAllGameFilters(mRootFolder);
+		if (mSortId >= 0 && mSortId < FileSorts::SortTypes.size())
+			mRootFolder->sort(FileSorts::SortTypes.at(mSortId));
+		else
+			mRootFolder->sort(FileSorts::SortTypes.at(0));
 	}
 	else
 	{
 		// virtual systems are updated afterwards, we're just creating the data structure
 		mRootFolder = new FolderData("" + name, this);
 	}
+
 	setIsGameSystemStatus();
 	loadTheme();
 }
@@ -676,4 +680,10 @@ void SystemData::loadTheme()
 // batocera
 std::map<std::string, std::vector<std::string>*>* SystemData::getEmulators() {
 	return mEmulators;
+}
+
+void SystemData::setSortId(const unsigned int sortId)
+{
+	mSortId = sortId;
+	Settings::getInstance()->setInt(getName() + ".sort", mSortId);
 }
