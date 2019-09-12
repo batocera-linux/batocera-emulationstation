@@ -18,6 +18,7 @@ protected:
 	TextureResource(const std::string& path, bool tile, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize = nullptr);
 
 public:
+	static void cancelAsync(std::shared_ptr<TextureResource> texture);
 	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, MaxSizeInfo* maxSize = nullptr);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);

@@ -376,7 +376,17 @@ void DetailedGameListView::updateInfoPanel()
 			{
 				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t)*255));
 			};
-			comp->setAnimation(new LambdaAnimation(func, 150), 0, nullptr, fadingOut);
+
+			bool isFadeOut = fadingOut;
+			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut]
+			{
+				if (isFadeOut)
+				{
+					if (mVideo != nullptr) mVideo->setImage("");
+					if (mImage != nullptr) mImage->setImage("");
+					if (mMarquee != nullptr) mMarquee->setImage("");
+				}
+			}, fadingOut);
 		}
 	}
 }
