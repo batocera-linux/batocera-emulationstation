@@ -246,13 +246,13 @@ void GuiMenu::openOtherSettings()
 	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
 	s->addWithLabel("SEARCH FOR LOCAL ART", local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
-
+	/*
 	// hidden files
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
 	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
-	s->addWithLabel("SHOW HIDDEN FILES", hidden_files);
+	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
 	s->addSaveFunc([hidden_files] { Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()); });
-
+	*/
 #ifdef _RPI_
 	// Video Player - VideoOmxPlayer
 	auto omx_player = std::make_shared<SwitchComponent>(mWindow);

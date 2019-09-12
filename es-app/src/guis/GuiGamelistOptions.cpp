@@ -13,6 +13,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 #include "guis/GuiMenu.h"
+#include "guis/GuiMsgBox.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
 	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false)
@@ -87,8 +88,29 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
 
-	// show filtered menu
-	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
+	// hidden files
+	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
+	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
+	mMenu.addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
+	addSaveFunc([hidden_files, this]
+	{
+		if (Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()))
+			mReloadAll = true;
+	});
+
+	// Flat folders
+	auto flatFolders = std::make_shared<SwitchComponent>(mWindow);
+	flatFolders->setState(!Settings::getInstance()->getBool("FlatFolders"));
+	mMenu.addWithLabel(_("SHOW FOLDERS"), flatFolders); // batocera
+	addSaveFunc([flatFolders, this] 
+	{ 
+		if (Settings::getInstance()->setBool("FlatFolders", !flatFolders->getState()))
+			mReloadAll = true;
+	});
+
+
+	// Show filtered menu
+	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
 		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
@@ -108,7 +130,38 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 	// batocera
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
-		mMenu.addEntry(_("ADVANCED"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
+		mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
+
+	// Game List Update
+	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
+	{
+		window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [this, window]
+		{
+			std::string systemName = mSystem->getName();
+			
+			mSystem = nullptr;
+
+			ViewController::get()->goToStart(true);
+
+			delete ViewController::get();
+			ViewController::init(window);
+			CollectionSystemManager::deinit();
+			CollectionSystemManager::init(window);
+			SystemData::loadConfig(window);
+			window->endRenderLoadingScreen();
+			GuiComponent *gui;
+			while ((gui = window->peekGui()) != NULL) {
+				window->removeGui(gui);
+				delete gui;
+			}
+			ViewController::get()->reloadAll();
+			window->pushGui(ViewController::get());
+
+			if (!ViewController::get()->goToGameList(systemName, true))
+				ViewController::get()->goToStart(true);			
+			
+		}, _("NO"), nullptr));
+	});
 
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -117,6 +170,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 
 GuiGamelistOptions::~GuiGamelistOptions()
 {
+	if (mSystem == nullptr)
+		return;
+
 	for (auto it = mSaveFuncs.cbegin(); it != mSaveFuncs.cend(); it++)
 		(*it)();
 
@@ -153,6 +209,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 
 void GuiGamelistOptions::openGamelistFilter()
 {
+	mReloadAll = false;
 	mFiltersChanged = true;
 	GuiGamelistFilter* ggf = new GuiGamelistFilter(mWindow, mSystem);
 	mWindow->pushGui(ggf);

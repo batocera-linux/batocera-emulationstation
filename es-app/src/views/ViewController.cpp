@@ -128,6 +128,20 @@ void ViewController::goToPrevGameList()
 	goToGameList(system->getPrev());
 }
 
+bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
+{
+	for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+	{
+		if ((*sysIt)->getName() == systemName)
+		{
+			goToGameList(*sysIt, forceImmediate);
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 {
 	if(mState.viewing == SYSTEM_SELECT)
