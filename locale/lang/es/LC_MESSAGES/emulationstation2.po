@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 07:32+0200\n"
+"POT-Creation-Date: 2019-09-12 21:21+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,15 @@ msgstr "ORDENAR LOS JUEGOS POR"
 msgid "FILTER GAMELIST"
 msgstr "FILTRAR JUEGOS"
 
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "MOSTRAR ARCHIVOS OCULTOS"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AGREGAR / REMOVER JUEGOS A ESTA COLECCIÓN"
 
@@ -67,8 +76,17 @@ msgstr "EDICIÓN DE COLECCIÓN FINALIZADA"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 
-msgid "ADVANCED"
-msgstr "AVANZADO"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALIZAR LISTAS DE JUEGOS"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
+
+msgid "Loading..."
+msgstr "CARGANDO..."
 
 msgid "RESET ALL FILTERS"
 msgstr "REESTABLECER FILTROS"
@@ -343,11 +361,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "ESTADO"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALIZAR LISTAS DE JUEGOS"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
+msgid "ADVANCED"
+msgstr "AVANZADO"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURAR UN MANDO"
@@ -407,9 +422,6 @@ msgstr "SALIDA DE VIDEO"
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
 
-msgid "Loading..."
-msgstr "CARGANDO..."
-
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DE TEMA"
 
@@ -431,17 +443,17 @@ msgstr "VISTA DE JUEGOS DE TEMAS"
 msgid "THEME REGION"
 msgstr "REGION DEL TEMA"
 
-msgid "FORCE GAMELIST VIEW STYLE"
-msgstr "FORZAR VISTA DE JUEGOS"
+msgid "GAMELIST VIEW STYLE"
+msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "EL TEMA NO TIENE ESA OPCION"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
-
 msgid "START ON SYSTEM"
 msgstr "INICIAR EN SISTEMA"
+
+msgid "START ON GAMELIST"
+msgstr ""
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr "MOSTRAR / OCULTAR SISTEMAS"
@@ -504,9 +516,6 @@ msgstr "CONVERTIR UNICAMENTE LISTAS DE JUEGOS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "MOSTRAR ARCHIVOS OCULTOS"
 
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGIA"
@@ -633,9 +642,6 @@ msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMA"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLECCIONES PERSONALIZADAS Y EMULADORES"
-
-msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
-msgstr "MOSTRAR LOS FAVORITOS PRIMERO"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DE CONSOLA EN LAS COLECCIONES"
@@ -834,6 +840,9 @@ msgstr "REVERTIR"
 msgid "VALIDATE"
 msgstr "VALIDAR"
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "SELECCIONAR TEMA"
 
@@ -987,6 +996,9 @@ msgstr "LANZAMIENTO"
 msgid "Times played"
 msgstr "VECES JUGADO"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "LANZAR"
 
@@ -1004,6 +1016,9 @@ msgstr "FAVORITOS"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "REINTENTAR"
@@ -1051,6 +1066,29 @@ msgstr "AGREGADO '%s' PARA '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "ELIMINADO '%s' DE '%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "ARRIBA"
@@ -1196,6 +1234,12 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "FORCE GAMELIST VIEW STYLE"
+#~ msgstr "FORZAR VISTA DE JUEGOS"
+
+#~ msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+#~ msgstr "MOSTRAR LOS FAVORITOS PRIMERO"
 
 #~ msgid "Sort name"
 #~ msgstr "ORDENAR NOMBRE"

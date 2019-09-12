@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-10 20:47+0200\n"
+"POT-Creation-Date: 2019-09-12 21:04+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,15 @@ msgstr "TRIER LES JEUX PAR"
 msgid "FILTER GAMELIST"
 msgstr "FILTRER"
 
+msgid "SHOW FAVORITES ON TOP"
+msgstr "FAVORIS EN HAUT DES LISTES"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "AFFICHER LES FICHIERS CACHÉS"
+
+msgid "SHOW FOLDERS"
+msgstr "AFFICHER LES DOSSIERS"
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
 
@@ -67,8 +76,14 @@ msgstr "FINIR L'ÉDITION DE LA COLLECTION"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES DONNÉES DU JEU"
 
-msgid "ADVANCED"
-msgstr "AVANCÉES"
+msgid "ADVANCED GAME OPTIONS"
+msgstr "OPTIONS AVANCÉES DU JEU"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "METTRE À JOUR LES LISTES DES JEUX"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
 
 msgid "Loading..."
 msgstr "Chargement..."
@@ -346,11 +361,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "STATUT"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "METTRE À JOUR LES LISTES DES JEUX"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
+msgid "ADVANCED"
+msgstr "AVANCÉES"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURER UNE MANETTE"
@@ -431,17 +443,17 @@ msgstr "VUE JEUX DU THÈME"
 msgid "THEME REGION"
 msgstr "RÉGION DU THÈME"
 
-msgid "FORCE GAMELIST VIEW STYLE"
-msgstr "FORCER LE STYLE DE LA VUE DES JEUX"
+msgid "GAMELIST VIEW STYLE"
+msgstr "TYPE DE VUE DES JEUX"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "CE THÈME N'A PAS D'OPTION"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "TYPE DE VUE DES JEUX"
-
 msgid "START ON SYSTEM"
 msgstr "DÉMARRER SUR UN SYSTÈME"
+
+msgid "START ON GAMELIST"
+msgstr "DÉMARRER SUR LA LISTE DE JEUX"
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr "MASQUER DES SYSTÈMES"
@@ -504,9 +516,6 @@ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES GRAPHISMES SUR LE DISQUE"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "AFFICHER LES FICHIERS CACHÉS"
 
 msgid "POWER SAVER MODES"
 msgstr "MODE ÉCONOMIE D'ÉNERGIE"
@@ -633,9 +642,6 @@ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "TRIER LES COLLECTIONS AVEC LES SYSTÈMES"
-
-msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
-msgstr "AFFICHAGE DES FAVORIS EN PREMIER"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "AFFICHER LES NOMS DES SYSTÈMES DANS LES COLLECTIONS"
@@ -830,6 +836,9 @@ msgstr "ANNULER"
 msgid "VALIDATE"
 msgstr "VALIDER"
 
+msgid "NO DEVICE FOUND"
+msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
+
 msgid "SELECT THEME"
 msgstr "SÉLECTIONNER UN THÈME"
 
@@ -1004,6 +1013,9 @@ msgstr "Favoris"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU CORRESPONDANT - PASSER"
 
+msgid "AN ERROR HAS OCCURED"
+msgstr "UNE ERREUR S'EST PRODUITE"
+
 msgid "RETRY"
 msgstr "RECOMMENCER"
 
@@ -1061,14 +1073,18 @@ msgstr "Aucun"
 msgid "Various"
 msgstr "Plusieurs"
 
-msgid "among other titles."
-msgstr ""
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] "Cette collection contient %1$i jeu, dont %2$s."
+msgstr[1] "Cette collection contient %1$i jeux, dont %2$s."
 
-msgid "This collection contains"
-msgstr ""
-
-msgid "games, including"
-msgstr ""
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] "Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres."
+msgstr[1] "Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres."
 
 msgid "UP"
 msgstr "HAUT"
@@ -1213,6 +1229,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
+#~ msgstr "AFFICHAGE DES FAVORIS EN PREMIER"
+
+#~ msgid "FORCE GAMELIST VIEW STYLE"
+#~ msgstr "FORCER LE STYLE DE LA VUE DES JEUX"
 
 #~ msgid "Sort name"
 #~ msgstr "nom de tri"

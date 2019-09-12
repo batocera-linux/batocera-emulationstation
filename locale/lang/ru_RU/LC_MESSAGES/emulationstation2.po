@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 07:32+0200\n"
+"POT-Creation-Date: 2019-09-12 21:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -61,6 +61,15 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
 
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
 
@@ -70,8 +79,17 @@ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
-msgid "ADVANCED"
-msgstr "ДОПОЛНИТЕЛЬНО"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+
+msgid "Loading..."
+msgstr "Загрузка..."
 
 msgid "RESET ALL FILTERS"
 msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
@@ -346,11 +364,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+msgid "ADVANCED"
+msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
@@ -409,9 +424,6 @@ msgstr "ВИДЕО ВЫВОД"
 msgid "THEME SET"
 msgstr "ТЕМА"
 
-msgid "Loading..."
-msgstr "Загрузка..."
-
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
 
@@ -433,17 +445,17 @@ msgstr "ТЕМА СПИСКА ИГР"
 msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
 
-msgid "FORCE GAMELIST VIEW STYLE"
-msgstr ""
+msgid "GAMELIST VIEW STYLE"
+msgstr "ВИД СПИСКА ИГР"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "ТЕМА НЕ ИМЕЕТ НАСТРОЕК"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "ВИД СПИСКА ИГР"
-
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
+
+msgid "START ON GAMELIST"
+msgstr ""
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
@@ -504,9 +516,6 @@ msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -633,9 +642,6 @@ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
-
-msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
-msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
@@ -835,6 +841,9 @@ msgstr "ВЕРНУТЬ"
 msgid "VALIDATE"
 msgstr "ПОДТВЕРДИТЬ"
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "ВЫБРАТЬ ТЕМУ"
 
@@ -989,6 +998,9 @@ msgstr "Выход"
 msgid "Times played"
 msgstr "Сыграно раз"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
@@ -1006,6 +1018,9 @@ msgstr "Избранное"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
@@ -1053,6 +1068,31 @@ msgstr "'%s' добавлено в '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "'%s' удалено из '%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "UP"
 msgstr "ВВЕРХ"

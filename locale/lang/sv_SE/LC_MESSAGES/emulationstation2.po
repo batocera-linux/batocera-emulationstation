@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 07:32+0200\n"
+"POT-Creation-Date: 2019-09-12 21:21+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,15 @@ msgstr "SORTERA SPEL EFTER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,7 +76,16 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÄNDRA SPELETS INFORMATION (METADATA)"
 
-msgid "ADVANCED"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr ""
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr ""
+
+msgid "Loading..."
 msgstr ""
 
 msgid "RESET ALL FILTERS"
@@ -343,10 +361,7 @@ msgstr ""
 msgid "STATUS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr ""
-
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "ADVANCED"
 msgstr ""
 
 msgid "CONFIGURE A CONTROLLER"
@@ -397,9 +412,6 @@ msgstr ""
 msgid "THEME SET"
 msgstr "SÄTT TEMA"
 
-msgid "Loading..."
-msgstr ""
-
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -421,16 +433,16 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "FORCE GAMELIST VIEW STYLE"
+msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "START ON SYSTEM"
+msgid "START ON GAMELIST"
 msgstr ""
 
 msgid "DISPLAY / HIDE SYSTEMS"
@@ -487,9 +499,6 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
-
-msgid "SHOW HIDDEN FILES"
 msgstr ""
 
 msgid "POWER SAVER MODES"
@@ -616,9 +625,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -811,6 +817,9 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
@@ -964,6 +973,9 @@ msgstr ""
 msgid "Times played"
 msgstr ""
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "STARTA"
 
@@ -981,6 +993,9 @@ msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr ""
@@ -1028,6 +1043,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "UPP"
