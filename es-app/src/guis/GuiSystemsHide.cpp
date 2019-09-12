@@ -18,7 +18,7 @@ GuiSystemsHide::GuiSystemsHide(Window* window) : GuiComponent(window),
 
 	//list all systems available
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS DISPLAYED"), true);
-	for (auto it = SystemData::sFileSystemVector.cbegin(); it != SystemData::sFileSystemVector.cend(); it++)
+	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		mSystems->add((*it)->getFullName(), *it, (SystemConf::getInstance()->get((*it)->getName() + ".hide") != "1"));
 	}
@@ -37,7 +37,7 @@ void GuiSystemsHide::Apply()
 {	
 	std::string value_cfg_hidden;
 	std::vector<SystemData*> sys = mSystems->getSelectedObjects();
-	for (auto it = SystemData::sFileSystemVector.cbegin(); it != SystemData::sFileSystemVector.cend(); it++)
+	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		value_cfg_hidden="1";
 		for(auto selected = sys.cbegin(); selected != sys.cend(); selected++) {
