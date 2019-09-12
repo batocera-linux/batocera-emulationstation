@@ -20,7 +20,6 @@
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
-std::vector<SystemData*> SystemData::sFileSystemVector; //batocera
 
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)

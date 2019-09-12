@@ -198,7 +198,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 			continue;
 
 		std::vector<SystemData*>::const_iterator itSystem;
-		for (itSystem = SystemData::sFileSystemVector.cbegin(); itSystem != SystemData::sFileSystemVector.cend(); itSystem++)
+		for (itSystem = SystemData::sSystemVector.cbegin(); itSystem != SystemData::sSystemVector.cend(); itSystem++)
 		{
 			// Let's put the pretty name of the system
 			if (! strcmp ((*itSystem)->getName().c_str(), bezel_cli))
