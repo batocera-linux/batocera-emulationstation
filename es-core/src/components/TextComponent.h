@@ -47,6 +47,7 @@ public:
 	void setGlowColor(unsigned int color) { mGlowColor = color; };
 	void setGlowSize(unsigned int size) { mGlowSize = size; };
 
+	void setPadding(const Vector4f padding) { mPadding = padding; }
 
 protected:
 	virtual void onTextChanged();

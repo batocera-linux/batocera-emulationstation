@@ -341,6 +341,13 @@ void Window::render()
 		bottom->render(transform);
 		if(bottom != top)
 		{
+			if (top->getValue() == "GuiMsgBox" && mGuiStack.size() > 2)
+			{
+				auto& middle = mGuiStack.at(mGuiStack.size()-2);
+				if (middle != bottom)
+					middle->render(transform);
+			}
+
 			mBackgroundOverlay->render(transform);
 			top->render(transform);
 		}
