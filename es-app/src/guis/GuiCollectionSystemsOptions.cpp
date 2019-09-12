@@ -77,10 +77,6 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	sortAllSystemsSwitch->setState(Settings::getInstance()->getBool("SortAllSystems"));
 	mMenu.addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
 
-	favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
-	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
-	mMenu.addWithLabel(_("DISPLAY FAVORITES FIRST IN GAMELIST"), favoritesFirstSwitch);
-
 	toggleSystemNameInCollections = std::make_shared<SwitchComponent>(mWindow);
 	toggleSystemNameInCollections->setState(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
 	mMenu.addWithLabel(_("SHOW SYSTEM NAME IN COLLECTIONS"), toggleSystemNameInCollections);
@@ -181,10 +177,7 @@ void GuiCollectionSystemsOptions::applySettings()
 	bool outBundle = bundleCustomCollections->getState();
 	bool prevBundle = Settings::getInstance()->getBool("UseCustomCollectionsSystem");
 
-	bool outFavoritesFirst = favoritesFirstSwitch->getState();
-	bool prevFavoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
-
-	bool needUpdateSettings = prevAuto != outAuto || prevCustom != outCustom || outSort != prevSort || outBundle != prevBundle || outFavoritesFirst != prevFavoritesFirst;
+	bool needUpdateSettings = prevAuto != outAuto || prevCustom != outCustom || outSort != prevSort || outBundle != prevBundle;
 	if (needUpdateSettings)
 	{
 		updateSettings(outAuto, outCustom);
@@ -198,8 +191,7 @@ void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, st
 	Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);
 	Settings::getInstance()->setBool("SortAllSystems", sortAllSystemsSwitch->getState());
 	Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState());
-	Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState());
-	Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState());
+	Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState());	
 	Settings::getInstance()->saveFile();
 	CollectionSystemManager::get()->loadEnabledListFromSettings();
 	CollectionSystemManager::get()->updateSystemsList();

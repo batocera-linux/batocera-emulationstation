@@ -88,6 +88,20 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
 
+	// Show filtered menu
+	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
+		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+
+	// Show favorites first in gamelists
+	auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
+	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
+	mMenu.addWithLabel(_("SHOW FAVORITES ON TOP"), favoritesFirstSwitch);
+	addSaveFunc([favoritesFirstSwitch, this]
+	{
+		if (Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState()))
+			mReloadAll = true;
+	});
+
 	// hidden files
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
 	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
@@ -109,9 +123,6 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	});
 
 
-	// Show filtered menu
-	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
