@@ -282,7 +282,7 @@ public:
 	}
         
 
-	void add(const std::string& name, const T& obj, bool selected)
+	void add(const std::string name, const T& obj, bool selected)
 	{
 		OptionListData e;
 		e.name = name;

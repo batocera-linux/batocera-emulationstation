@@ -102,6 +102,10 @@ public:
 	}
 
 	std::map<std::string, std::vector<std::string> *> * getEmulators(); // batocera
+
+	unsigned int getSortId() const { return mSortId; };
+	void setSortId(const unsigned int sortId = 0);
+
 private:
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
@@ -121,6 +125,8 @@ private:
 
 	FolderData* mRootFolder;
 	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
+	
+	unsigned int mSortId;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

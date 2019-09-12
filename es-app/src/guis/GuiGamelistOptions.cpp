@@ -73,11 +73,15 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		mMenu.addRow(row);
 
 		// sort list by
-		mListSort = std::make_shared<SortList>(mWindow, "SORT GAMES BY", false);
+		unsigned int currentSortId = mSystem->getSortId();
+		if (currentSortId > FileSorts::SortTypes.size())
+			currentSortId = 0;
+
+		mListSort = std::make_shared<SortList>(mWindow, _("SORT GAMES BY"), false);
 		for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
 		{
 			const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-			mListSort->add(sort.description, &sort, i == 0); // TODO - actually make the sort type persistent
+			mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description)), i, i == currentSortId); // TODO - actually make the sort type persistent
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
@@ -117,10 +121,14 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		(*it)();
 
 	// apply sort
-	if (!fromPlaceholder) 
+	if (!fromPlaceholder && mListSort->getSelected() != mSystem->getSortId())
 	{
+		mSystem->setSortId(mListSort->getSelected());
+
 		FolderData* root = mSystem->getRootFolder();
-		root->sort(*mListSort->getSelected()); // will also recursively sort children
+
+		const FolderData::SortType& sort = FileSorts::SortTypes.at(mListSort->getSelected());
+		root->sort(sort);
 
 		// notify that the root folder was sorted
 		getGamelist()->onFileChanged(root, FILE_SORTED);
@@ -139,6 +147,8 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// game is selected
 		ViewController::get()->reloadGameListView(mSystem);
 	}
+
+	Settings::getInstance()->saveFile();
 }
 
 void GuiGamelistOptions::openGamelistFilter()
@@ -207,6 +217,18 @@ void GuiGamelistOptions::jumpToLetter()
 {
 	char letter = mJumpToLetterList->getSelected();
 	IGameListView* gamelist = getGamelist();
+
+	if (mListSort->getSelected() != 0)
+	{
+		mListSort->selectFirstItem();
+		mSystem->setSortId(0);
+
+		FolderData* root = mSystem->getRootFolder();
+		const FolderData::SortType& sort = FileSorts::SortTypes.at(0);
+		root->sort(sort);
+
+		getGamelist()->onFileChanged(root, FILE_SORTED);
+	}
 
 	// this is a really shitty way to get a list of files
 	const std::vector<FileData*>& files = gamelist->getCursor()->getParent()->getChildrenListToDisplay();

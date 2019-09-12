@@ -130,9 +130,10 @@ public:
 		ComparisonFunction* comparisonFunction;
 		bool ascending;
 		std::string description;
+		std::string icon;
 
-		SortType(ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription)
-			: comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription) {}
+		SortType(ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription, const std::string & iconId = "")
+			: comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription), icon(iconId) {}
 	};
 
 	void sort(ComparisonFunction& comparator, bool ascending = true);
