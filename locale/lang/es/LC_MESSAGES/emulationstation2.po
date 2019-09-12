@@ -122,34 +122,34 @@ msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "ORIGEN DE IMAGEN PREFERIDO"
 
 msgid "NONE"
 msgstr "NINGUNO"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "CAPTURA DE PANTALLA"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "CAJA 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "CAJA 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MEZCLA"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "RUEDA"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "ORIGEN DE MINIATURA PREFERIDO"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "MARQUESINA DE INFORMACIÓN"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "OBTENER VIDEOS"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
@@ -176,7 +176,7 @@ msgid "DISK USAGE"
 msgstr "USO DE DISCO"
 
 msgid "DEVELOPER"
-msgstr ""
+msgstr "DESARROLLADOR"
 
 msgid "VRAM LIMIT"
 msgstr "LÍMITE DE VRAM"
@@ -185,22 +185,22 @@ msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR LA TASA DE REFRESCO"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "PRECARGAR INTERFAZ"
 
 msgid "THREADED LOADING"
 msgstr "ACTUALIZACIÓN DE HILOS"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "CARGANDO ASYNC DE IMAGENES"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "OPTIMIZAR VRAM EN USO DE IMAGENES"
 
 msgid "ENABLE LOG FILE"
-msgstr ""
+msgstr "HABILITAR ARCHIVO LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CREAR UN ARCHIVO DE SOPORTE"
@@ -278,10 +278,10 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "ON"
-msgstr "CONECTADO"
+msgstr "ENCENDIDO"
 
 msgid "OFF"
-msgstr "DESCONECTADO"
+msgstr "APAGADO"
 
 msgid "REWIND"
 msgstr "REBOBINAR"
@@ -432,7 +432,7 @@ msgid "THEME REGION"
 msgstr "REGION DEL TEMA"
 
 msgid "FORCE GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "FORZAR VISTA DE JUEGOS"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr "EL TEMA NO TIENE ESA OPCION"
@@ -521,7 +521,7 @@ msgid "DISPLAY SONG TITLES"
 msgstr "MOSTRAR TITULOS DE CANCIONES"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "CUANTOS SEGUNDOS DE TITULO DE CANCIONES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SOLAMENTE REPRODUCIR LA CARPETA ESPECIFICA DE MUSICA"
@@ -635,10 +635,10 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLECCIONES PERSONALIZADAS Y EMULADORES"
 
 msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
-msgstr ""
+msgstr "MOSTRAR LOS FAVORITOS PRIMERO"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "MOSTRAR NOMBRE DE CONSOLA EN LAS COLECCIONES"
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECCION DE COLECCIONES"
@@ -994,7 +994,7 @@ msgid "OPTIONS"
 msgstr "OPCIONES"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "PRECARGAR INTERFAZ"
 
 msgid "MENU"
 msgstr "MENÚ"
