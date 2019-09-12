@@ -7,12 +7,15 @@
 #include "Settings.h"
 #include <vlc/vlc.h>
 #include <SDL_mutex.h>
+#include <cmath>
 
 #ifdef WIN32
 #include <codecvt>
 #endif
 
 #include "ImageIO.h"
+
+#define MATHPI          3.141592653589793238462643383279502884L
 
 libvlc_instance_t* VideoVlcComponent::mVLC = NULL;
 
@@ -215,10 +218,31 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
 	Renderer::Vertex   vertices[4];
 
-	vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
-	vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
-	vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
-	vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+	if (mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	{
+		// Bump Effect
+		float bump = sin((MATHPI / 2.0) * mFadeIn) + sin(MATHPI * mFadeIn) / 2.0;
+
+		float w = mSize.x() * bump;
+		float h = mSize.y() * bump;
+		float centerX = mSize.x() / 2.0f;
+		float centerY = mSize.y() / 2.0f;
+
+		Vector2f topLeft(Math::round(centerX - w / 2.0f), Math::round(centerY - h / 2.0f));
+		Vector2f bottomRight(Math::round(centerX + w / 2.0f), Math::round(centerY + h / 2.0f));
+
+		vertices[0] = { { topLeft.x()		, topLeft.y()	  }, { 0.0f, 0.0f }, color };
+		vertices[1] = { { topLeft.x()		, bottomRight.y() }, { 0.0f, 1.0f }, color };
+		vertices[2] = { { bottomRight.x()	, topLeft.y()     }, { 1.0f, 0.0f }, color };
+		vertices[3] = { { bottomRight.x()	, bottomRight.y() }, { 1.0f, 1.0f }, color };
+	}
+	else
+	{
+		vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
+		vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
+		vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
+		vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+	}
 
 	// round vertices
 	for(int i = 0; i < 4; ++i)

@@ -1237,7 +1237,16 @@ void ThemeData::crawlIncludes(const pugi::xml_node& root, std::vector<Subset>& s
 		std::string subset = node.attribute("subset").as_string();
 		if (!subset.empty())
 		{
-			sets.push_back(Subset(subset, name));
+			bool add = true;
+
+			for (auto sb : sets) {
+				if (sb.subset == subset && sb.name == name) {
+					add = false; break;
+				}
+			}
+
+			if (add)
+				sets.push_back(Subset(subset, name));
 		}
 		//	sets.insert(std::pair<std::string, std::string>(name, subset));
 

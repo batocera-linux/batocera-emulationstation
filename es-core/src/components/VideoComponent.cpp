@@ -8,7 +8,7 @@
 #include <SDL_timer.h>
 #include "LocaleES.h"
 
-#define FADE_TIME_MS	200
+#define FADE_TIME_MS	800
 
 std::string getTitlePath() {
 	std::string titleFolder = getTitleFolder();
