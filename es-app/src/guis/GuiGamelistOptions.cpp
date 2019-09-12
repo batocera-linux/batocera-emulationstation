@@ -82,7 +82,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
 		{
 			const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-			mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description)), i, i == currentSortId); // TODO - actually make the sort type persistent
+			mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description).c_str()), i, i == currentSortId); // TODO - actually make the sort type persistent
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera

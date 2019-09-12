@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 07:32+0200\n"
+"POT-Creation-Date: 2019-09-12 21:21+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,15 @@ msgstr "ORDINA I GIOCHI PER"
 msgid "FILTER GAMELIST"
 msgstr "FILTRA LA LISTA DEI GIOCHI"
 
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "MOSTRA FILE NASCOSTI"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +76,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
 
-msgid "ADVANCED"
-msgstr "AVANZATE"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "AGGIORNA LE LISTE DEI GIOCHI"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
+
+msgid "Loading..."
+msgstr "Caricamento..."
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -344,11 +362,8 @@ msgstr "CHECKSUM MD5"
 msgid "STATUS"
 msgstr "STATO"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "AGGIORNA LE LISTE DEI GIOCHI"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
+msgid "ADVANCED"
+msgstr "AVANZATE"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURARE UN CONTROLLER"
@@ -403,9 +418,6 @@ msgstr "OUTPUT VIDEO"
 msgid "THEME SET"
 msgstr "TEMA SELEZIONATO"
 
-msgid "Loading..."
-msgstr "Caricamento..."
-
 msgid "THEME CONFIGURATION"
 msgstr ""
 
@@ -427,17 +439,17 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "FORCE GAMELIST VIEW STYLE"
-msgstr ""
+msgid "GAMELIST VIEW STYLE"
+msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 
 msgid "THIS THEME HAS NO OPTION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
-
 msgid "START ON SYSTEM"
 msgstr "SISTEMA DI AVVIO"
+
+msgid "START ON GAMELIST"
+msgstr ""
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr ""
@@ -500,9 +512,6 @@ msgstr "ANALIZZA SOLAMENTE LE LISTE GIOCHI"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RICERCA IMMAGINI IN LOCALE"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "MOSTRA FILE NASCOSTI"
 
 msgid "POWER SAVER MODES"
 msgstr ""
@@ -628,9 +637,6 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -830,6 +836,9 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "SELEZIONA TEMA"
 
@@ -983,6 +992,9 @@ msgstr "Rilasciato"
 msgid "Times played"
 msgstr "Numero partite"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "AVVIA"
 
@@ -1000,6 +1012,9 @@ msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NESSUN GIOCO TROVATO - SALTA"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "RIPROVA"
@@ -1047,6 +1062,29 @@ msgstr "Aggiunto' %s' a '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "Rimosso '%s' da '%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "SU"

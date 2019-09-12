@@ -542,13 +542,13 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 		}
 		if (adding)
 		{
-			sprintf(trstring, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
-			s = new GuiInfoPopup(mWindow, trstring, 4000); // batocera
+		  snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
+		  s = new GuiInfoPopup(mWindow, trstring, 4000); // batocera
 		}
 		else
 		{
-			sprintf(trstring, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
-			s = new GuiInfoPopup(mWindow, trstring, 4000);
+		  snprintf(trstring, 256, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
+		  s = new GuiInfoPopup(mWindow, trstring, 4000);
 		}
 		mWindow->setInfoPopup(s);
 		return true;
@@ -602,6 +602,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	std::string image = "";
 
 	auto games = rootFolder->getChildren();
+	char trstring[512];
 
 	if (games.size() > 0)
 	{
@@ -633,12 +634,17 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			case 1:
 				games_list += "'" + file->getName() + "'";
 				break;
-			case 4:
-				games_list += " " + _("among other titles.");
 			}
 		}
 
-		desc = _("This collection contains") + " " + std::to_string(games_counter) + " " + _("games, including") + " " + games_list;
+		if(games_counter <= 3) {
+		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s.",
+						   "This collection contains %1$i games, including %2$s.", games_counter).c_str(), games_counter, games_list.c_str());
+		} else {
+		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s among other titles.",
+						   "This collection contains %1$i games, including %2$s among other titles.", games_counter).c_str(), games_counter, games_list.c_str());
+		}
+		desc = trstring;
 
 		FileData* randomGame = sys->getRandomGame();
 		if (randomGame != nullptr) { // batocera
