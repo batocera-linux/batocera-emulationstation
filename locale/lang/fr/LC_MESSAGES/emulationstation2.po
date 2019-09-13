@@ -164,10 +164,10 @@ msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "SOURCE DE MINIATURE PRÉFÉRÉE"
 
 msgid "SCRAPE MARQUEE"
-msgstr "SCRAPPER LES MARQUEURS"
+msgstr "SCRAPER LES MARQUEURS"
 
 msgid "SCRAPE VIDEOS"
-msgstr "SCRAPPER LES VIDÉOS"
+msgstr "SCRAPER LES VIDÉOS"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER MAINTENANT"
@@ -710,8 +710,8 @@ msgstr "AUCUN SYSTÈME TROUVÉ !"
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i JEU SCRAPPÉ !"
-msgstr[1] "%i JEUX SCRAPPÉS !"
+msgstr[0] "%i JEU SCRAPÉ !"
+msgstr[1] "%i JEUX SCRAPÉS !"
 
 #, c-format
 msgid "%i GAME SKIPPED."
