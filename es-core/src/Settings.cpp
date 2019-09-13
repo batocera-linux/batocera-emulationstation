@@ -72,6 +72,7 @@ void Settings::setDefaults()
         // batocera
         mBoolMap["UseOSK"] = true; // on screen keyboard
         mBoolMap["DrawClock"] = true;
+		mBoolMap["ShowControllerActivity"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
         mStringMap["Lang"] = "en_US";
@@ -183,6 +184,7 @@ void Settings::setDefaults()
 	mStringMap["ThemeSystemView"] = "";
 	mStringMap["ThemeGamelistView"] = "";
 	mStringMap["ThemeRegionName"] = "";
+	mStringMap["DefaultGridSize"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
 	mBoolMap["AsyncImages"] = true;	

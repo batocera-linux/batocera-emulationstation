@@ -44,7 +44,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 				};
 				row.makeAcceptInputHandler(createCollectionCall);
 
-				auto themeFolder = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(name), ThemeData::getMenuTheme()->TextSmall.font, ThemeData::getMenuTheme()->Text.color);
+				auto themeFolder = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(name), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 				row.addElement(themeFolder, true);
 				s->addRow(row);				
 			}

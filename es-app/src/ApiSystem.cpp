@@ -1042,7 +1042,7 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 
 #if WIN32 && _DEBUG
 	// http://batocera-linux.xorhub.com/upgrades/themes.txt
-	res.push_back("[A]\tAlekfull\thttps://github.com/jdorigao/es-theme-alekfull");
+	res.push_back("[A] Alekfull - https://github.com/jdorigao/es-theme-alekfull");
 	res.push_back("[A]\tArt-book\thttps://github.com/anthonycaccese/es-theme-art-book");
 	res.push_back("[A]\tBatopicase\thttps://github.com/Genetik57/es-theme-simply-batopicase");
 	res.push_back("[A]\tFundamental\thttps://github.com/jdorigao/es-theme-fundamental");

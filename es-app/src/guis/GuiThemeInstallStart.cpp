@@ -20,13 +20,13 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 
 	for(auto it = availableThemes.begin(); it != availableThemes.end(); it++)
 	{
-		auto parts = Utils::String::split(*it, '\t');
-		if (parts.size() != 3)
+		auto parts = Utils::String::splitAny(*it, " \t");
+		if (parts.size() < 2)
 			continue;
 
 		bool isInstalled = (Utils::String::startsWith(parts[0],"[I]"));
 		std::string themeName = parts[1];
-		std::string themeUrl = parts[2];
+		std::string themeUrl = parts.size() < 3 ? "" : (parts[2]=="-" ? parts[3] : parts[2]);
 
 		ComponentListRow row;
 

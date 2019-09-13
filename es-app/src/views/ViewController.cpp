@@ -259,7 +259,13 @@ void ViewController::launch(FileData* game, Vector3f center)
 	mWindow->stopInfoPopup(); // make sure we disable any existing info popup
 	mLockInput = true;
 
+	
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+
+	// Workaround, the grid scale has problems when sliding giving bad effects
+	if(transition_style == "slide" && mCurrentView->getTag() == "grid")
+		transition_style = "fade";
+
 	if(transition_style == "fade")
 	{
 		// fade out, launch game, fade back in
@@ -320,12 +326,27 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	//decide type
 	GameListViewType selectedViewType = AUTOMATIC;
 	bool allowDetailedDowngrade = false;
+	bool forceView = false;
 
 	std::string viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
+	if (!system->getTheme()->hasView(viewPreference))
+		viewPreference = "automatic";
 
 	std::string customThemeName;
-	Vector2f gridSizeOverride = Vector2f(0.0, 0.0);
-	
+	Vector2f gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString("DefaultGridSize"));
+	if (viewPreference != "automatic" && !system->getSystemViewMode().empty() && system->getTheme()->hasView(system->getSystemViewMode()) && system->getSystemViewMode() != viewPreference)
+		gridSizeOverride = Vector2f(0, 0);
+
+	Vector2f bySystemGridOverride = system->getGridSizeOverride();
+	if (bySystemGridOverride != Vector2f(0, 0))
+		gridSizeOverride = bySystemGridOverride;
+
+	if (!system->getSystemViewMode().empty() && system->getTheme()->hasView(system->getSystemViewMode()))
+	{
+		viewPreference = system->getSystemViewMode();
+		forceView = true;
+	}
+
 	if (viewPreference == "automatic")
 	{
 		auto defaultView = system->getTheme()->getDefaultView();
@@ -358,7 +379,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	else if (themeHasVideoView && viewPreference.compare("video") == 0)
 		selectedViewType = VIDEO;
 
-	if (selectedViewType == AUTOMATIC || allowDetailedDowngrade)
+	if (!forceView && (selectedViewType == AUTOMATIC || allowDetailedDowngrade))
 	{
 		selectedViewType = BASIC;
 
