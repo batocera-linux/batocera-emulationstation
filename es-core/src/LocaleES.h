@@ -9,7 +9,7 @@
 #define ngettext(A, B, C) boost::locale::ngettext(A, B, C)
 
 #define _U(x) x
-#define UNICODE_CHARTYPE char*
+#define UNICODE_CHARTYPE const char*
 #define _L(x) x
 
 #else // WIN32
@@ -46,7 +46,7 @@ private:
 };
 
 
-#define UNICODE_CHARTYPE wchar_t*
+#define UNICODE_CHARTYPE const wchar_t*
 #define _L(x) L ## x
 #define _U(x) Utils::String::convertFromWideString(L ## x)
 

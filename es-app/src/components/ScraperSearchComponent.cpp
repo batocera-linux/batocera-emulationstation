@@ -375,7 +375,7 @@ void ScraperSearchComponent::returnResult(ScraperSearchResult result)
 	mBlockAccept = true;
 
 	// resolve metadata image before returning
-	if(!result.imageUrl.empty())
+	if(result.hadMedia())
 	{
 		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
 		return;

@@ -24,7 +24,8 @@ std::vector<SystemData*> SystemData::sSystemVector;
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
-	mSortId = Settings::getInstance()->getInt(getName() + ".sort"),
+	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
+	mGridSizeOverride = Vector2f(0, 0);
 
 	mFilterIndex = nullptr;
 	mEmulators = emulators; // batocera
@@ -57,6 +58,10 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 		// virtual systems are updated afterwards, we're just creating the data structure
 		mRootFolder = new FolderData("" + name, this);
 	}
+
+	auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
+	auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
+	setSystemViewMode(defaultView, gridSizeOverride, false);
 
 	setIsGameSystemStatus();
 	loadTheme();
@@ -685,4 +690,29 @@ void SystemData::setSortId(const unsigned int sortId)
 {
 	mSortId = sortId;
 	Settings::getInstance()->setInt(getName() + ".sort", mSortId);
+}
+
+bool SystemData::setSystemViewMode(std::string newViewMode, Vector2f gridSizeOverride, bool setChanged)
+{
+	if (newViewMode == "automatic")
+		newViewMode = "";
+
+	if (mViewMode == newViewMode && gridSizeOverride == mGridSizeOverride)
+		return false;
+
+	mGridSizeOverride = gridSizeOverride;
+	mViewMode = newViewMode;
+
+	if (setChanged)
+	{
+		Settings::getInstance()->setString(getName() + ".defaultView", mViewMode);
+		Settings::getInstance()->setString(getName() + ".gridSize", Utils::String::replace(Utils::String::replace(mGridSizeOverride.toString(), ".000000", ""), "0 0", ""));
+	}
+
+	return true;
+}
+
+Vector2f SystemData::getGridSizeOverride()
+{
+	return mGridSizeOverride;
 }

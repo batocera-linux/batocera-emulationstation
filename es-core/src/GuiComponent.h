@@ -155,6 +155,9 @@ public:
 
 	bool isChild(GuiComponent* cmp);
 
+	std::string getTag() const { return mTag; };
+	void setTag(const std::string& value) { mTag = value; };
+
 protected:
 	void renderChildren(const Transform4x4f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
@@ -186,6 +189,8 @@ public:
 private:
 	Transform4x4f mTransform; //Don't access this directly! Use getTransform()!
 	AnimationController* mAnimationMap[MAX_ANIMATIONS];
+
+	std::string mTag;
 };
 
 #endif // ES_CORE_GUI_COMPONENT_H

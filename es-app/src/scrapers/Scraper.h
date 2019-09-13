@@ -34,6 +34,11 @@ struct ScraperSearchResult
 	std::string videoUrl;
 	std::string marqueeUrl;
 
+	bool hadMedia()
+	{
+		return !imageUrl.empty() || !thumbnailUrl.empty() || !videoUrl.empty() || !marqueeUrl.empty();
+	}
+
 	// Needed to pre-set the image type
 	std::string imageType;
 };

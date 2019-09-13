@@ -11,6 +11,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include <unordered_map>
 #include "FileFilterIndex.h"
+#include "math/Vector2f.h"
 
 class FileData;
 class FolderData;
@@ -105,6 +106,12 @@ public:
 	unsigned int getSortId() const { return mSortId; };
 	void setSortId(const unsigned int sortId = 0);
 
+	std::string getSystemViewMode() const { if (mViewMode == "automatic") return ""; else return mViewMode; };
+	bool setSystemViewMode(std::string newViewMode, Vector2f gridSizeOverride = Vector2f(0, 0), bool setChanged = true);
+
+	Vector2f getGridSizeOverride();
+
+
 private:
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
@@ -126,6 +133,8 @@ private:
 	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
 	
 	unsigned int mSortId;
+	std::string mViewMode;
+	Vector2f    mGridSizeOverride;	
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

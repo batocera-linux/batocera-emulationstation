@@ -54,6 +54,26 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	addChild(&mGrid);
 
 	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), theme->Title.font, theme->Title.color, ALIGN_CENTER);
+
+	// Accept/Cancel/Delete/Space buttons
+	std::vector<std::shared_ptr<ButtonComponent> > buttons;
+
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, acceptBtnText, acceptBtnText, [this, okCallback] { okCallback(mText->getValue()); delete this; }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SPACE"), _("SPACE"), [this] {
+		mText->startEditing();
+		mText->textInput(" ");
+		mText->stopEditing();
+	}));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE A CHAR"), [this] {
+		mText->startEditing();
+		mText->textInput("\b");
+		mText->stopEditing();
+	}));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("DISCARD CHANGES"), [this] { delete this; }));
+
+	// Add buttons
+	mButtons = makeButtonGrid(mWindow, buttons);
+
 	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(12, 5));
 
 	mText = std::make_shared<TextEditComponent>(mWindow);
@@ -74,7 +94,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	// Case for if multiline is enabled, then don't create the keyboard.
 	if (!mMultiLine) 
 	{
-		std::vector<std::vector<UNICODE_CHARTYPE>> &layout = kbUs;
+		std::vector<std::vector<UNICODE_CHARTYPE>>* layout = &kbUs;
 
 		std::string language = SystemConf::getInstance()->get("system.language");
 		if (!language.empty())
@@ -84,40 +104,40 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				language = Utils::String::toLower(language.substr(0, shortNameDivider));
 		}
 
-		for (unsigned int i = 0; i < layout.size() / 2; i++)
+		if (language == "fr")
+			layout = &kbFr;
+
+		for (unsigned int i = 0; i < 5; i++)
 		{
 			std::vector<std::shared_ptr<ButtonComponent>> buttons;
-			for (unsigned int j = 0; j < layout[2 * i].size(); j++)
+			for (unsigned int j = 0; j < 12; j++)
 			{
 #ifdef WIN32
-				std::wstring toConvert = layout[2 * i][j];
-				std::string atj = Utils::String::convertFromWideString(toConvert);
+				std::wstring toConvert = (*layout)[2 * i][j];
+				std::string lower = Utils::String::convertFromWideString(toConvert);
 
-				toConvert = layout[2 * i + 1][j];
-				std::string atjs = Utils::String::convertFromWideString(toConvert);
+				toConvert = (*layout)[2 * i + 1][j];
+				std::string upper = Utils::String::convertFromWideString(toConvert);
 #else
-				std::string atj = layout[2 * i][j];
-				std::string atjs = layout[2 * i + 1][j];
-
+				std::string lower = (*layout)[2 * i][j];
+				std::string upper = (*layout)[2 * i + 1][j];
 #endif
 
 				std::shared_ptr<ButtonComponent> button = nullptr;
 
-				if (atj == "SHIFT")
+				if (lower == "SHIFT")
 				{
-					// Special case for shift key \u25B2
-
-					mShiftButton = std::make_shared<ButtonComponent>(mWindow, Renderer::isSmallScreen() ? _U("\u2191") : "SHIFT", _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
+					// Special case for shift key
+					mShiftButton = std::make_shared<ButtonComponent>(mWindow, _U("\uF176"), _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
 						shiftKeys();
 					}, false);
+
 					button = mShiftButton;
-					buttons.push_back(mShiftButton);
 				}
 				else
-				{
-					button = makeButton(atj, atjs);
-					buttons.push_back(button);					
-				}
+					button = makeButton(lower, upper);					
+
+				buttons.push_back(button);
 
 				button->setSize(getButtonSize());
 				mKeyboardGrid->setEntry(button, Vector2i(j, i), true, false);
@@ -129,25 +149,6 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 
 	// Add keyboard keys
 	mGrid.setEntry(mKeyboardGrid, Vector2i(0, 2), true, true, Vector2i(2, 4));
-
-	// Accept/Cancel/Delete/Space buttons
-	std::vector<std::shared_ptr<ButtonComponent> > buttons;
-
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, acceptBtnText, acceptBtnText, [this, okCallback] { okCallback(mText->getValue()); delete this; }));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SPACE"), _("SPACE"), [this] {
-		mText->startEditing();
-		mText->textInput(" ");
-		mText->stopEditing();
-	}));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE A CHAR"), [this] {
-		mText->startEditing();
-		mText->textInput("\b");
-		mText->stopEditing();
-	}));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("DISCARD CHANGES"), [this] { delete this; }));
-
-	// Add buttons
-	mButtons = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtons, Vector2i(0, 6), true, false);
 
 	// Determine size from text size
@@ -299,7 +300,7 @@ const Vector2f GuiTextEditPopupKeyboard::getButtonSize()
 {
 	if (Renderer::isSmallScreen())
 	{
-		float height = Renderer::getScreenHeight() / 9.0;
+		float height = (Renderer::getScreenHeight() - mText->getSize().y() - mTitle->getSize().y() - mButtons->getSize().y()) / 6.0;
 		return Vector2f((Renderer::getScreenWidth() * 0.95f) / 12.0f, height);
 	}
 

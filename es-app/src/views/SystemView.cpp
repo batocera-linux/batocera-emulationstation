@@ -175,10 +175,8 @@ void SystemView::populate()
 		//batocera - behavior when all systems are hidden (re-enable all)
 		LOG (LogError) << "Error: every system is hidden in batocera.conf, please put at least one system available like 'nes.hide=0'";
 		for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		{
 			SystemConf::getInstance()->set((*it)->getName()+".hide", "0");
-			Settings::getInstance()->setBool((*it)->getName()+".hide", false);
-		}
+
 		SystemConf::getInstance()->saveSystemConf();
 		// refresh GUI
 		populate();

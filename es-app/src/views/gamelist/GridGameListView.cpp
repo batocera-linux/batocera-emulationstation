@@ -28,6 +28,8 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window),
 	mName(window)
 {
+	setTag("grid");
+
 	const float padding = 0.01f;
 
 	mLoaded = false;
@@ -174,6 +176,15 @@ std::string GridGameListView::getQuickSystemSelectLeftButton()
 
 bool GridGameListView::input(InputConfig* config, Input input)
 {
+	if (!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && input.value)
+	{
+		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+		mWindow->pushGui(new GuiGamelistOptions(mWindow, this->mRoot->getSystem(), true));
+		return true;
+
+		// Ctrl-R to reload a view when debugging
+	}
+
 	if(config->isMappedLike("left", input) || config->isMappedLike("right", input))
 		return GuiComponent::input(config, input);
 

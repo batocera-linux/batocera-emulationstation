@@ -305,7 +305,7 @@ void Window::update(int deltaTime)
 			mClockElapsed = 1000; // next update in 1000ms
 		}
 	}
-
+	
 	// hide pads // batocera
 	for (int i = 0; i < MAX_PLAYERS; i++) {
 		if (mplayerPads[i] > 0) {
@@ -376,21 +376,24 @@ void Window::render()
 
 	// pads // batocera
 	Renderer::setMatrix(Transform4x4f::Identity());
-	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
-	for (int player = 0; player < MAX_PLAYERS; player++) {
-	  if(playerJoysticks.count(player) == 1) {
-	    unsigned int padcolor = 0xFFFFFF99;
 
-	    if(mplayerPads[playerJoysticks[player]] > 0) {
-	      if(mplayerPadsIsHotkey) {
-		padcolor = 0x0000FF66;
-	      } else {
-		padcolor = 0xFF000066;
-	      }
-	    }
+	if (Settings::getInstance()->getBool("ShowControllerActivity"))
+	{
+		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+		for (int player = 0; player < MAX_PLAYERS; player++) 
+		{
+			if (playerJoysticks.count(player) == 1) 
+			{
+				unsigned int padcolor = 0xFFFFFF99;
 
-	    Renderer::drawRect((player*(10+4))+2, Renderer::getScreenHeight()-10-2, 10, 10, padcolor);
-	  }
+				if (mplayerPads[playerJoysticks[player]] > 0)
+					padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
+
+				float sz = Renderer::getScreenHeight() / 100.0;
+
+				Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);
+			}
+		}
 	}
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");

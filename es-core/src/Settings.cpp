@@ -72,6 +72,7 @@ void Settings::setDefaults()
         // batocera
         mBoolMap["UseOSK"] = true; // on screen keyboard
         mBoolMap["DrawClock"] = true;
+		mBoolMap["ShowControllerActivity"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
         mStringMap["Lang"] = "en_US";
@@ -183,6 +184,7 @@ void Settings::setDefaults()
 	mStringMap["ThemeSystemView"] = "";
 	mStringMap["ThemeGamelistView"] = "";
 	mStringMap["ThemeRegionName"] = "";
+	mStringMap["DefaultGridSize"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
 	mBoolMap["AsyncImages"] = true;	
@@ -231,10 +233,10 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::m
 }
 
 // batocera
-void Settings::saveFile()
+bool Settings::saveFile()
 {
 	if (!mWasChanged)
-		return;
+		return false;
 
 	mWasChanged = false;
 
@@ -275,6 +277,8 @@ void Settings::saveFile()
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
+
+	return true;
 }
 
 void Settings::loadFile()

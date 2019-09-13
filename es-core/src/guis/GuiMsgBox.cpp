@@ -66,17 +66,17 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 		break;
 	}
 
-	if (!imageFile.empty() && ResourceManager::getInstance()->fileExists(imageFile))
+	if (!imageFile.empty() && ResourceManager::getInstance()->fileExists(imageFile) && !Renderer::isSmallScreen())
 	{
 		mImage = std::make_shared<ImageComponent>(window);
 		mImage->setImage(imageFile);
 		mImage->setColorShift(theme->Text.color);
-		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);
+		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);		
 
 		mGrid.setEntry(mImage, Vector2i(0, 0), false, false);
 	}
 
-	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr ? ALIGN_CENTER : ALIGN_LEFT); // CENTER
+	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr || Renderer::isSmallScreen() ? ALIGN_CENTER : ALIGN_LEFT); // CENTER
 	mMsg->setPadding(Vector4f(Renderer::getScreenWidth()*0.015f, 0, Renderer::getScreenWidth()*0.015f, 0));
 	
 	mGrid.setEntry(mMsg, Vector2i(mImage == nullptr ? 0 : 1, 0), false, false, Vector2i(mImage == nullptr ? 2 : 1, 1));
@@ -111,14 +111,27 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	if(mMsg->getSize().x() < width && mButtonGrid->getSize().x() < width)
 	{
 		// mMsg and buttons are narrower than width
-		width = Math::max(mButtonGrid->getSize().x(), mMsg->getSize().x());
+		width = Math::max(mButtonGrid->getSize().x(), mMsg->getSize().x() + 3 * HORIZONTAL_PADDING_PX);
+
+		if (mImage != nullptr)
+			width += mImage->getSize().x() + 2 * HORIZONTAL_PADDING_PX;
+
 		width = Math::max(width, minWidth);
 	}
 	
 	// now that we know width, we can find height
 	mMsg->setSize(width, 0); // mMsg->getSize.y() now returns the proper length
-	const float msgHeight = Math::max(Font::get(FONT_SIZE_LARGE)->getHeight(), mMsg->getSize().y()*1.225f);
-	setSize(width + HORIZONTAL_PADDING_PX*2, msgHeight + mButtonGrid->getSize().y());
+	
+	float msgHeight = Math::max(Font::get(FONT_SIZE_LARGE)->getHeight(), mMsg->getSize().y()*1.225f);
+	
+	if (msgHeight + mButtonGrid->getSize().y() > Renderer::getScreenHeight())
+	{
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		if (mImage != nullptr)
+			mMsg->setSize(Renderer::getScreenWidth() - mImage->getSize().x() - 4* HORIZONTAL_PADDING_PX, 0);
+	}
+	else
+		setSize(width + HORIZONTAL_PADDING_PX*2, msgHeight + mButtonGrid->getSize().y());
 
 	// center for good measure
 	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2.0f, (Renderer::getScreenHeight() - mSize.y()) / 2.0f);
@@ -139,10 +152,10 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 
 	/* when it's not configured, allow to remove the message box too to allow the configdevice window a chance */
 	if(mAcceleratorFunc && ((config->isMappedTo(BUTTON_BACK, input) && input.value != 0) || (config->isConfigured() == false && input.type == TYPE_BUTTON))) // batocera
-	//{
+	{
 		mAcceleratorFunc();
-	//	return true;
-	//}
+		return true;
+	}
 
 	return GuiComponent::input(config, input);
 }
@@ -152,7 +165,10 @@ void GuiMsgBox::onSizeChanged()
 	mGrid.setSize(mSize);
 
 	if (mImage != nullptr)
-		mGrid.setColWidthPerc(0, (ThemeData::getMenuTheme()->Text.font->getLetterHeight() * 4.5f) / mSize.x());
+	{
+		auto width = mImage->getSize().x() + (Renderer::isSmallScreen() ? 5 : 2) * HORIZONTAL_PADDING_PX;
+		mGrid.setColWidthPerc(0, width / mSize.x(), true);
+	}
 
 	mGrid.setRowHeightPerc(1, mButtonGrid->getSize().y() / mSize.y());
 			

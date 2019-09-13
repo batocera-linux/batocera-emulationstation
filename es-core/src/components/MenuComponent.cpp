@@ -67,7 +67,7 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 		if (!iconPath.empty())
 		{
 			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow);
+			auto icon = std::make_shared<ImageComponent>(mWindow, true);
 			icon->setImage(iconPath);
 			icon->setColorShift(theme->Text.color);
 			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
@@ -104,7 +104,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 		if (!iconPath.empty())
 		{
 			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow);
+			auto icon = std::make_shared<ImageComponent>(mWindow, true);
 			icon->setImage(iconPath);
 			icon->setColorShift(theme->Text.color);
 			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);

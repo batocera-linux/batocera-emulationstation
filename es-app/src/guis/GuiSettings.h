@@ -19,7 +19,7 @@ public:
 
 	void addSubMenu(const std::string& label, const std::function<void()>& func);
 
-    inline void setSave(bool sav) { doSave = sav; }; // batocera
+    inline void setSave(bool sav) { mDoSave = sav; }; // batocera
 
 	bool input(InputConfig* config, Input input) override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
@@ -27,10 +27,28 @@ public:
 
 	MenuComponent& getMenu() { return mMenu; }
 
+	inline void onFinalize(const std::function<void()>& func) { mOnFinalizeFunc = func; };
+
+	bool getVariable(const std::string name) 
+	{
+		if (mVariableMap.find(name) == mVariableMap.cend())
+			return false;
+
+		return mVariableMap[name];
+	}
+
+	void setVariable(const std::string name, bool value) { mVariableMap[name] = value; }
+
 private:
-        bool doSave = true; // batocera
+	void Close();
+
+	bool mDoSave = true; // batocera
+
 	MenuComponent mMenu;
 	std::vector< std::function<void()> > mSaveFuncs;
+	std::function<void()> mOnFinalizeFunc;
+
+	std::map<std::string, bool> mVariableMap;
 };
 
 #endif // ES_APP_GUIS_GUI_SETTINGS_H

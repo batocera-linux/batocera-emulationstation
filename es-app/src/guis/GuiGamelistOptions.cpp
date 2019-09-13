@@ -15,9 +15,65 @@
 #include "guis/GuiMenu.h"
 #include "guis/GuiMsgBox.h"
 
-GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
+std::vector<std::string> GuiGamelistOptions::gridSizes {
+	"automatic",
+
+	"1x1",
+
+	"2x1",
+	"2x2",
+	"2x3",
+	"2x4",
+	"2x5",
+	"2x6",
+	"2x7",
+
+	"3x1",
+	"3x2",
+	"3x3",
+	"3x4",
+	"3x5",
+	"3x6",
+	"3x7",
+
+	"4x1",
+	"4x2",
+	"4x3",
+	"4x4",
+	"4x5",
+	"4x6",
+	"4x7",
+
+	"5x1",
+	"5x2",
+	"5x3",
+	"5x4",
+	"5x5",
+	"5x6",
+	"5x7",
+
+	"6x1",
+	"6x2",
+	"6x3",
+	"6x4",
+	"6x5",
+	"6x6",
+	"6x7",
+
+	"7x1",
+	"7x2",
+	"7x3",
+	"7x4",
+	"7x5",
+	"7x6",
+	"7x7"
+};
+
+GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool showGridFeatures) : GuiComponent(window),
 	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false)
 {
+	mGridSize = nullptr;
+
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
@@ -92,6 +148,57 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
 		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
+	// GameList view style
+	mViewMode = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
+	std::vector<std::string> styles;
+	styles.push_back("automatic");
+
+	auto mViews = system->getTheme()->getViewsOfTheme();
+	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
+		styles.push_back(*it);
+
+	std::string viewMode = system->getSystemViewMode();
+
+	bool found = false;
+	for (auto it = styles.cbegin(); it != styles.cend(); it++)
+	{
+		bool sel = (viewMode.empty() && *it == "automatic") || viewMode == *it;
+		if (sel)
+			found = true;
+
+		mViewMode->add(_(*it), *it, sel);
+	}
+
+	if (!found)
+		mViewMode->selectFirstItem();
+
+	mMenu.addWithLabel(_("GAMELIST VIEW STYLE"), mViewMode);
+
+	// Grid size override
+	if (showGridFeatures)
+	{
+		auto gridOverride = system->getGridSizeOverride();
+		auto ovv = std::to_string((int)gridOverride.x()) + "x" + std::to_string((int)gridOverride.y());
+
+		mGridSize = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GRID SIZE"), false);
+
+		found = false;
+		for (auto it = gridSizes.cbegin(); it != gridSizes.cend(); it++)
+		{
+			bool sel = (gridOverride == Vector2f(0, 0) && *it == "automatic") || ovv == *it;
+			if (sel)
+				found = true;
+
+			mGridSize->add(_(*it), *it, sel);
+		}
+
+		if (!found)
+			mGridSize->selectFirstItem();
+
+		mMenu.addWithLabel(_("GRID SIZE"), mGridSize);
+	}
+
+
 	// Show favorites first in gamelists
 	auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
 	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
@@ -121,9 +228,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 		if (Settings::getInstance()->setBool("FlatFolders", !flatFolders->getState()))
 			mReloadAll = true;
 	});
-
-
-
+	
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
 	if(UIModeController::getInstance()->isUIModeFull() &&
@@ -201,13 +306,33 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		getGamelist()->onFileChanged(root, FILE_SORTED);
 	}
 
+	Vector2f gridSizeOverride(0, 0);
+
+	if (mGridSize != NULL)
+	{
+		auto str = mGridSize->getSelected();
+
+		size_t divider = str.find('x');
+		if (divider != std::string::npos)
+		{
+			std::string first = str.substr(0, divider);
+			std::string second = str.substr(divider + 1, std::string::npos);
+
+			gridSizeOverride = Vector2f((float)atof(first.c_str()), (float)atof(second.c_str()));
+		}
+	}
+
+	bool viewModeChanged = mSystem->setSystemViewMode(mViewMode->getSelected(), gridSizeOverride);
+
+	Settings::getInstance()->saveFile();
+
 	if (mReloadAll)
 	{
 		mWindow->renderLoadingScreen(_("Loading..."));
 		ViewController::get()->reloadAll(mWindow);
 		mWindow->endRenderLoadingScreen();
 	}
-	else if (mFiltersChanged)
+	else if (mFiltersChanged || viewModeChanged)
 	{
 		// only reload full view if we came from a placeholder
 		// as we need to re-display the remaining elements for whatever new
@@ -215,7 +340,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		ViewController::get()->reloadGameListView(mSystem);
 	}
 
-	Settings::getInstance()->saveFile();
+	
 }
 
 void GuiGamelistOptions::openGamelistFilter()
