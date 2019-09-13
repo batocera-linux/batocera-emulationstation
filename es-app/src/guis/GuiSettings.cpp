@@ -11,7 +11,7 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 {
 	addChild(&mMenu);
 
-	mMenu.addButton(_("BACK"), "go back", [this] { delete this; }); // batocera
+	mMenu.addButton(_("BACK"), _("go back"), [this] { Close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -23,7 +23,17 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 
 GuiSettings::~GuiSettings()
 {
-	if(doSave) save(); // batocera
+	
+}
+
+void GuiSettings::Close()
+{
+	save();
+
+	if (mOnFinalizeFunc != nullptr)
+		mOnFinalizeFunc();
+
+	delete this;
 }
 
 void GuiSettings::save()
@@ -42,7 +52,7 @@ bool GuiSettings::input(InputConfig* config, Input input)
 {
 	if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0)
 	{
-		delete this;
+		Close();
 		return true;
 	}
 

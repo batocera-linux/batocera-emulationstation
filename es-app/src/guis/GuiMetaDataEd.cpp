@@ -145,6 +145,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 		assert(ed);
 		mList->addRow(row);
+
+		ed->setTag(iter->key);
 		ed->setValue(mMetaData->get(iter->key));
 		mEditors.push_back(ed);
 	}
@@ -152,16 +154,16 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 
 	if(!scraperParams.system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "SCRAPE", "scrape", std::bind(&GuiMetaDataEd::fetch, this)));
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SCRAPE"), _("SCRAPE"), std::bind(&GuiMetaDataEd::fetch, this)));
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "SAVE", "save", [&] { save(); delete this; }));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "CANCEL", "cancel", [&] { delete this; }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [&] { save(); delete this; }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [&] { delete this; }));
 
 	if(mDeleteFunc)
 	{
 		auto deleteFileAndSelf = [&] { mDeleteFunc(); delete this; };
-		auto deleteBtnFunc = [this, deleteFileAndSelf] { mWindow->pushGui(new GuiMsgBox(mWindow, "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?", "YES", deleteFileAndSelf, "NO", nullptr)); };
-		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "DELETE", "delete", deleteBtnFunc));
+		auto deleteBtnFunc = [this, deleteFileAndSelf] { mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?"), _("YES"), deleteFileAndSelf, _("NO"), nullptr)); };
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), deleteBtnFunc));
 	}
 
 	mButtons = makeButtonGrid(mWindow, buttons);
@@ -182,8 +184,15 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	});
 
 	// resize + center	
-	float width = (float)Math::min(Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
-	setSize(width, Renderer::getScreenHeight() * 0.82f);
+
+	if (Renderer::isSmallScreen())
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	else
+	{
+		float width = (float)Math::min(Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
+		setSize(width, Renderer::getScreenHeight() * 0.82f);
+	}
+
 	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 }
 
@@ -205,16 +214,29 @@ void GuiMetaDataEd::onSizeChanged()
 	mHeaderGrid->setRowHeightPerc(3, subtitleHeight / mHeaderGrid->getSize().y());
 }
 
+bool GuiMetaDataEd::isStatistic(const std::string name)
+{
+	for (auto in : mMetaDataDecl)
+		if (in.key == name && in.isStatistic)
+			return true;
+
+	return false;
+}
+
 void GuiMetaDataEd::save()
 {
 	// remove game from index
 	mScraperParams.system->removeFromIndex(mScraperParams.game);
 
-	for(unsigned int i = 0; i < mEditors.size(); i++)
+	for (unsigned int i = 0; i < mEditors.size(); i++)
 	{
-		if(mMetaDataDecl.at(i).isStatistic)
+		std::shared_ptr<GuiComponent> ed = mEditors.at(i);		
+
+		auto key = ed->getTag();
+		if (isStatistic(key))
 			continue;
-		mMetaData->set(mMetaDataDecl.at(i).key, mEditors.at(i)->getValue());
+
+		mMetaData->set(key, ed->getValue());
 	}
 
 	// enter game in index
@@ -235,12 +257,12 @@ void GuiMetaDataEd::fetch()
 
 void GuiMetaDataEd::fetchDone(const ScraperSearchResult& result)
 {
-	for(unsigned int i = 0; i < mEditors.size(); i++)
+	for (unsigned int i = 0; i < mEditors.size(); i++)
 	{
-		if(mMetaDataDecl.at(i).isStatistic)
+		auto key = mEditors.at(i)->getTag();
+		if (isStatistic(key))
 			continue;
 
-		const std::string& key = mMetaDataDecl.at(i).key;
 		mEditors.at(i)->setValue(result.mdl.get(key));
 	}
 }
@@ -251,7 +273,7 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 	bool dirty = false;
 	for(unsigned int i = 0; i < mEditors.size(); i++)
 	{
-		const std::string& key = mMetaDataDecl.at(i).key;
+		auto key = mEditors.at(i)->getTag();
 		if(mMetaData->get(key) != mEditors.at(i)->getValue())
 		{
 			dirty = true;

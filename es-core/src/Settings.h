@@ -11,7 +11,7 @@ public:
 	static Settings* getInstance();
 
 	void loadFile();
-	void saveFile();
+	bool saveFile();
 
 	//You will get a warning if you try a get on a key that is not already present.
 	bool getBool(const std::string& name);

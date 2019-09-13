@@ -231,10 +231,10 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::m
 }
 
 // batocera
-void Settings::saveFile()
+bool Settings::saveFile()
 {
 	if (!mWasChanged)
-		return;
+		return false;
 
 	mWasChanged = false;
 
@@ -275,6 +275,8 @@ void Settings::saveFile()
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
+
+	return true;
 }
 
 void Settings::loadFile()

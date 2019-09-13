@@ -167,30 +167,29 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 		path += HttpReq::urlEncode(std::to_string(*platform));
 		requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path)));
 	}
-
 }
 
 void ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
 {
 	assert(req->status() == HttpReq::REQ_SUCCESS);
 
+	auto content = req->getContent();
+
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load(req->getContent().c_str());
+	pugi::xml_parse_result parseResult = doc.load(content.c_str());
 
 	if (!parseResult)
 	{
 		std::stringstream ss;
 		ss << "ScreenScraperRequest - Error parsing XML." << std::endl << parseResult.description() << "";
-
 		std::string err = ss.str();
-		setError(err);
-		LOG(LogError) << err;
+		//setError(err); Don't consider it an error -> Request is a success. Simply : Game is not found		
+		LOG(LogWarning) << err;
 
 		return;
 	}
 
 	processGame(doc, results);
-
 }
 
 pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region)

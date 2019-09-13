@@ -107,7 +107,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				{
 					// Special case for shift key \u25B2
 
-					mShiftButton = std::make_shared<ButtonComponent>(mWindow, Renderer::isSmallScreen() ? _U("\u2191") : "SHIFT", _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
+					mShiftButton = std::make_shared<ButtonComponent>(mWindow, _U("\uF176"), _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
 						shiftKeys();
 					}, false);
 					button = mShiftButton;

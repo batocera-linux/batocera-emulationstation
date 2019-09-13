@@ -22,6 +22,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
+	bool isStatistic(const std::string name);
+
 	void save();
 	void fetch();
 	void fetchDone(const ScraperSearchResult& result);

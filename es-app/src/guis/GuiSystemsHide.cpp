@@ -44,8 +44,7 @@ void GuiSystemsHide::Apply()
 			if ((*it)->getName() == (*selected)->getName())
 				value_cfg_hidden="0";
 		}
-		SystemConf::getInstance()->set((*it)->getName()+".hide", value_cfg_hidden);
-		Settings::getInstance()->setBool((*it)->getName()+".hide", (value_cfg_hidden == "1"));
+		SystemConf::getInstance()->set((*it)->getName()+".hide", value_cfg_hidden);		
 	}
 	SystemConf::getInstance()->saveSystemConf();
 	delete this;
