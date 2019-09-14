@@ -5,40 +5,39 @@
 #include "LocaleES.h"
 #include "SystemConf.h"
 
-std::vector<std::vector<UNICODE_CHARTYPE>> kbUs {
+std::vector<std::vector<const char*>> kbUs {
 
-	{ _L("1"), _L("2"), _L("3"), _L("4"), _L("5"), _L("6"), _L("7"), _L("8"), _L("9"), _L("0"), _L("_"), _L("+") },
-	{ _L("!"), _L("@"), _L("#"), _L("$"), _L("%"), _L("^"), _L("&"), _L("*"), _L("("), _L(")"), _L("-"), _L("=") },
+	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "+" },
+	{ "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=" },
 
-	{ _L("à"), _L("ä"), _L("è"), _L("ë"), _L("ì"), _L("ï"), _L("ò"), _L("ö"), _L("ù"), _L("ü"), _L("¨"), _L("¿") },
-	{ _L("á"), _L("â"), _L("é"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú"), _L("û"), _L("ñ"), _L("¡") },
+	{ "Ã ", "Ã¤", "Ã¨", "Ã«", "Ã¬", "Ã¯", "Ã²", "Ã¶", "Ã¹", "Ã¼", "Â¨", "Â¿" },
+	{ "Ã¡", "Ã¢", "Ã©", "Ãª", "Ã­", "Ã®", "Ã³", "Ã´", "Ãº", "Ã»", "Ã±", "Â¡" },
 
-	{ _L("q"), _L("w"), _L("e"), _L("r"), _L("t"), _L("y"), _L("u"), _L("i"), _L("o"), _L("p"), _L("{"), _L("}") },
-	{ _L("Q"), _L("W"), _L("E"), _L("R"), _L("T"), _L("Y"), _L("U"), _L("I"), _L("O"), _L("P"), _L("["), _L("]") },
+	{ "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}" },
+	{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]" },
 
-	{ _L("a"), _L("s"), _L("d"), _L("f"), _L("g"), _L("h"), _L("j"), _L("k"), _L("l"), _L(";"), _L("\""), _L("|") },
-	{ _L("A"), _L("S"), _L("D"), _L("F"), _L("G"), _L("H"), _L("J"), _L("K"), _L("L"), _L(":"), _L("'"), _L("\\") },
+	{ "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "\"", "|" },
+	{ "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "'", "\\" },
 
-	{ _L("SHIFT"), _L("~"), _L("z"), _L("x"), _L("c"), _L("v"), _L("b"), _L("n"), _L("m"), _L(","), _L("."), _L("?") },
-	{ _L("SHIFT"), _L("`"), _L("Z"), _L("X"), _L("C"), _L("V"), _L("B"), _L("N"), _L("M"), _L("<"), _L(">"), _L("/") },
+	{ "SHIFT", "~", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" },
+	{ "SHIFT", "`", "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/" },
 };
 
-std::vector<std::vector<UNICODE_CHARTYPE>> kbFr {
-	{ _L("&"), _L("é"), _L("\""), _L("'"), _L("("), _L("#"), _L("è"), _L("!"), _L("ç"), _L("à"), _L(")"), _L("-") },
-	{ _L("1"), _L("2"), _L("3"), _L("4"), _L("5"), _L("6"), _L("7"), _L("8"), _L("9"), _L("0"), _L("@"), _L("_") },
+std::vector<std::vector<const char*>> kbFr {
+	{ "&", "Ã©", "\"", "'", "(", "#", "Ã¨", "!", "Ã§", "Ã ", ")", "-" },
+	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "@", "_" },
 	
-	{ _L("à"), _L("ä"), _L("ë"), _L("ì"), _L("ï"), _L("ò"), _L("ö"), _L("ü"), _L("\\"), _L("|"), _L("§"), _L("°") },
-	{ _L("á"), _L("â"), _L("ê"), _L("í"), _L("î"), _L("ó"), _L("ô"), _L("ú"), _L("û"), _L("ñ"), _L("¡"), _L("¿") },
+	{ "Ã ", "Ã¤", "Ã«", "Ã¬", "Ã¯", "Ã²", "Ã¶", "Ã¼", "\\", "|", "Â§", "Â°" },
+	{ "Ã¡", "Ã¢", "Ãª", "Ã­", "Ã®", "Ã³", "Ã´", "Ãº", "Ã»", "Ã±", "Â¡", "Â¿" },
 	
-	{ _L("a"), _L("z"), _L("e"), _L("r"), _L("t"), _L("y"), _L("u"), _L("i"), _L("o"), _L("p"), _L("^"), _L("$") },
-	{ _L("A"), _L("Z"), _L("E"), _L("R"), _L("T"), _L("Y"), _L("U"), _L("I"), _L("O"), _L("P"), _L("¨"), _L("*") },
+	{ "a", "z", "e", "r", "t", "y", "u", "i", "o", "p", "^", "$" },
+	{ "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P", "Â¨", "*" },
 
-	{ _L("q"), _L("s"), _L("d"), _L("f"), _L("g"), _L("h"), _L("j"), _L("k"), _L("l"), _L("m"), _L("ù"), _L("`") },
-	{ _L("Q"), _L("S"), _L("D"), _L("F"), _L("G"), _L("H"), _L("J"), _L("K"), _L("L"), _L("M"), _L("%"), _L("£") },
-
-	//SHIFT key at position 0
-   { _L("SHIFT"), _L("<"), _L("w"), _L("x"), _L("c"), _L("v"), _L("b"), _L("n"), _L(","), _L(";"), _L(":"), _L("=") },
-   { _L("SHIFT"), _L(">"), _L("W"), _L("X"), _L("C"), _L("V"), _L("B"), _L("N"), _L("?"), _L("."), _L("/"), _L("+") }
+	{ "q", "s", "d", "f", "g", "h", "j", "k", "l", "m", "Ã¹", "`" },
+	{ "Q", "S", "D", "F", "G", "H", "J", "K", "L", "M", "%", "Â£" },
+	
+	{ "SHIFT", "<", "w", "x", "c", "v", "b", "n", ",", ";", ":", "=" },
+	{ "SHIFT", ">", "W", "X", "C", "V", "B", "N", "?", ".", "/", "+" }
 };
 
 GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::string& title, const std::string& initValue,
@@ -59,11 +58,15 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	std::vector<std::shared_ptr<ButtonComponent> > buttons;
 
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, acceptBtnText, acceptBtnText, [this, okCallback] { okCallback(mText->getValue()); delete this; }));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SPACE"), _("SPACE"), [this] {
+	auto space = std::make_shared<ButtonComponent>(mWindow, _("SPACE"), _("SPACE"), [this] {
 		mText->startEditing();
 		mText->textInput(" ");
 		mText->stopEditing();
-	}));
+	});
+
+	space->setSize(space->getSize().x() * 3, space->getSize().y());
+
+	buttons.push_back(space);
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE A CHAR"), [this] {
 		mText->startEditing();
 		mText->textInput("\b");
@@ -94,7 +97,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	// Case for if multiline is enabled, then don't create the keyboard.
 	if (!mMultiLine) 
 	{
-		std::vector<std::vector<UNICODE_CHARTYPE>>* layout = &kbUs;
+		std::vector<std::vector<const char*>>* layout = &kbUs;
 
 		std::string language = SystemConf::getInstance()->get("system.language");
 		if (!language.empty())
@@ -112,16 +115,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 			std::vector<std::shared_ptr<ButtonComponent>> buttons;
 			for (unsigned int j = 0; j < 12; j++)
 			{
-#ifdef WIN32
-				std::wstring toConvert = (*layout)[2 * i][j];
-				std::string lower = Utils::String::convertFromWideString(toConvert);
-
-				toConvert = (*layout)[2 * i + 1][j];
-				std::string upper = Utils::String::convertFromWideString(toConvert);
-#else
 				std::string lower = (*layout)[2 * i][j];
 				std::string upper = (*layout)[2 * i + 1][j];
-#endif
 
 				std::shared_ptr<ButtonComponent> button = nullptr;
 
