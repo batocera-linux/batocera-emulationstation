@@ -62,13 +62,13 @@ msgid "FILTER GAMELIST"
 msgstr "FILTRAR GAMELIST"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "MOSTRAR FAVORITOS NO TOPO"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRAR FICHEIROS OCULTOS"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "MOSTRAR PASTAS"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
@@ -80,7 +80,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
@@ -453,7 +453,7 @@ msgid "START ON SYSTEM"
 msgstr "INICIAR UM SISTEMA"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "COMECE NA LISTA DE JOGOS"
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr "MOSTRAR / OCULTAR SISTEMAS"
@@ -840,7 +840,7 @@ msgid "VALIDATE"
 msgstr "VALIDAR"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
 msgid "SELECT THEME"
 msgstr "SELECIONAR TEMA"
@@ -996,7 +996,7 @@ msgid "Times played"
 msgstr "Vezes jogadas"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<Nenhuma Entrada Encontrada>"
 
 msgid "LAUNCH"
 msgstr "EXECUTAR"
@@ -1005,7 +1005,7 @@ msgid "OPTIONS"
 msgstr "OPÇÕES"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "Pré-carregamento da interface"
 
 msgid "MENU"
 msgstr "MENU"
@@ -1017,7 +1017,7 @@ msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "OCORREU UM ERRO"
 
 msgid "RETRY"
 msgstr "TENTE NOVAMENTE"
@@ -1067,27 +1067,27 @@ msgid "Removed '%s' from '%s'"
 msgstr "'%s' Removido de '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Esta coleção está vazia."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgid "Various"
-msgstr ""
+msgstr "Várias"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %1$i jogo, incluindo %2$s."
+msgstr[1] "Esta coleção contém %1$i jogos, incluindo %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %1$i jogo, incluindo %2$s entre outro título."
+msgstr[1] "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
 
 msgid "UP"
 msgstr "CIMA"
