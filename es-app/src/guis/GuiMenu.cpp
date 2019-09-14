@@ -1399,7 +1399,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			if (sel)
 				found = true;
 
-			mGridSize->add(_(it->c_str()), *it, sel);
+			mGridSize->add(_(*it), *it, sel);
 		}
 
 		if (!found)
