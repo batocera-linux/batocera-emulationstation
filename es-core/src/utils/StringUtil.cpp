@@ -2,6 +2,8 @@
 
 #include <algorithm>
 #include <stdarg.h>
+#include <string.h>
+#include <cstring>
 
 #if defined(_WIN32)
 #include <Windows.h>
