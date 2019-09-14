@@ -166,7 +166,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (sel)
 			found = true;
 
-		mViewMode->add(_(*it), *it, sel);
+		mViewMode->add(_(it->c_str()), *it, sel);
 	}
 
 	if (!found)
@@ -189,7 +189,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			if (sel)
 				found = true;
 
-			mGridSize->add(_(*it), *it, sel);
+			mGridSize->add(_(it->c_str()), *it, sel);
 		}
 
 		if (!found)

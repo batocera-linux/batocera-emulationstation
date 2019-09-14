@@ -196,8 +196,9 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 	// reading PNG dimensions requires the first 24 bytes of the file
 	// reading JPEG dimensions requires scanning through jpeg chunks
 	// In all formats, the file is at least 24 bytes big, so we'll read that always
-	unsigned char buf[24]; fread(buf, 1, 24, f);
-
+	unsigned char buf[24]; 
+	if (fread(buf, 1, 24, f) != 24)
+		return false;
 
 	// For JPEGs, we need to read the first 12 bytes of each chunk.
 	// We'll read those 12 bytes at buf+2...buf+14, i.e. overwriting the existing buf.
@@ -214,7 +215,8 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 			pos += 2 + (buf[4] << 8) + buf[5];
 			if (pos + 12 > len) break;
 			fseek(f, pos, SEEK_SET);
-			fread(buf + 2, 1, 12, f);
+			if (fread(buf + 2, 1, 12, f) != 12)
+				break;
 		}
 	}
 
