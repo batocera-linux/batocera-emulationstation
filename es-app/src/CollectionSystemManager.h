@@ -99,7 +99,7 @@ private:
 	void populateCustomCollection(CollectionSystemData* sysData, std::unordered_map<std::string, FileData*>* pMap = nullptr);
 
 	void removeCollectionsFromDisplayedSystems();
-	void addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData);
+	void addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap);
 
 	std::vector<std::string> getSystemsFromConfig();
 	std::vector<std::string> getSystemsFromTheme();

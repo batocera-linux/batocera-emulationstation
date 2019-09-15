@@ -1236,9 +1236,17 @@ void GuiMenu::openControllersSettings_batocera()
 
 void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set)
 {
+	auto SelectedTheme = theme_set->getSelected();
+
+	if (Settings::getInstance()->getString("ThemeSet") != SelectedTheme)
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"), _("OK")));
+		return;
+	}
+
 	auto themeconfig = new GuiSettings(mWindow, _("THEME CONFIGURATION").c_str());
 
-	auto SelectedTheme = theme_set->getSelected();
+	auto system = ViewController::get()->getState().getSystem();
 
 	auto themeSubSets = ThemeData::getThemeSubSets(SelectedTheme);
 	auto themeColorSets = ThemeData::getSubSet(themeSubSets, "colorset");
@@ -1350,8 +1358,6 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			themeconfig->addWithLabel(_("THEME REGION"), theme_region);
 	}
 
-	auto system = ViewController::get()->getState().getSystem();
-
 	// gamelist_style
 	std::shared_ptr<OptionListComponent<std::string>> gamelist_style = nullptr;
 	//if (theme_gamelistview == nullptr)
@@ -1449,10 +1455,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		}
 	});
 
-	if (!themeRegions.empty() || !themeGamelistViewSets.empty() || !themeSystemviewSets.empty() || !themeIconSets.empty() || !themeMenus.empty() || !themeColorSets.empty())
-		mWindow->pushGui(themeconfig);
-	else
-		mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS THEME HAS NO OPTION"), _("OK")));
+	mWindow->pushGui(themeconfig);
 }
 
 void GuiMenu::openUISettings() 
@@ -1595,7 +1598,7 @@ void GuiMenu::openUISettings()
 				if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
 				{
 					s->setVariable("reloadAll", true);
-					s->setVariable("reloadUISettings", true);
+					s->setVariable("reloadGuiMenu", true);
 				}
 			});
 		}
@@ -1820,12 +1823,7 @@ void GuiMenu::openUISettings()
 			window->endRenderLoadingScreen();
 		}
 
-		if (s->getVariable("reloadUISettings"))
-		{
-			delete s;
-			pthis->openUISettings();
-		}
-		else if (s->getVariable("reloadGuiMenu"))
+		if (s->getVariable("reloadGuiMenu"))
 		{
 			delete pthis;
 			window->pushGui(new GuiMenu(window));
@@ -2286,10 +2284,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 
   // Screen ratio choice
-  auto ratio_choice = createRatioOptionList(mWindow, title);
+  auto ratio_choice = createRatioOptionList(mWindow, configName);
   systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
   // video resolution mode
-  auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, title);
+  auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
   systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
   // smoothing
   auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));

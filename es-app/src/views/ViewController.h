@@ -83,7 +83,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual HelpStyle getHelpStyle() override;
 
-	std::shared_ptr<IGameListView> getGameListView(SystemData* system);
+	std::shared_ptr<IGameListView> getGameListView(SystemData* system, bool loadIfnull = true);
 	std::shared_ptr<SystemView> getSystemListView();
 	void removeGameListView(SystemData* system);
 
