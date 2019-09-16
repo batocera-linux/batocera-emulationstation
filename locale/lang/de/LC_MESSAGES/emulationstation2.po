@@ -59,13 +59,13 @@ msgid "FILTER GAMELIST"
 msgstr "FILTERE SPIELELISTE"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "ZEIGE FAVORITEN AN ERSTER STELLE"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "ZEIGE VERSTECKTE DATEIEN"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "ZEIGE ORDNER"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
@@ -77,7 +77,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN BEARBEITEN"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "ERWEITERTE SPIELE-OPTIONEN"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "SPIELELISTE AKTUALISIEREN"
@@ -89,7 +89,7 @@ msgid "Loading..."
 msgstr "Lade..."
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "ALLE FILTER ZURÜCKSETZEN"
 
 msgid "FINISHED"
 msgstr "FERTIG"
@@ -140,34 +140,34 @@ msgid "SCRAPE RATINGS"
 msgstr "BEWERTUNGEN SCRAPEN"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "BEVORZUGTE BILD-QUELLE"
 
 msgid "NONE"
 msgstr "KEINE"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "BOX 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MIX"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "WHEEL"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "BEVORZUGTE THUMBNAIL QUELLE"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "SCRAPE MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "VIDEOS SCRAPEN"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER STARTEN"
@@ -194,7 +194,7 @@ msgid "DISK USAGE"
 msgstr "SPEICHERNUTZUNG"
 
 msgid "DEVELOPER"
-msgstr ""
+msgstr "ENTWICKLER"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM LIMIT"
@@ -203,22 +203,22 @@ msgid "SHOW FRAMERATE"
 msgstr "BILDRATE ANZEIGEN"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "PRELOAD UI"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "THREADED LOADING"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "ASYNC IMAGES LOADING"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "BILDER VRAM-NUTZUNG OPTIMIEREN"
 
 msgid "ENABLE LOG FILE"
-msgstr ""
+msgstr "PROTOKOLLDATEI AKTIVEREN"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "EINE SUPPORT DATEI ERSTELLEN"
@@ -248,7 +248,7 @@ msgid "THEMES"
 msgstr "THEMES"
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "THE BEZEL PROJECT"
 
 msgid "AUTO UPDATES"
 msgstr "AUTOMATISCHE UPDATES"
@@ -322,7 +322,7 @@ msgid "ENHANCED"
 msgstr "VERBESSERT"
 
 msgid "CURVATURE"
-msgstr ""
+msgstr WÖLBUNG
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
@@ -426,37 +426,37 @@ msgid "THEME SET"
 msgstr "THEME"
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "THEME KONFIGURATION"
 
 msgid "THEME COLORSET"
-msgstr ""
+msgstr "THEME COLORSET"
 
 msgid "THEME ICONSET"
-msgstr ""
+msgstr "THEME ICONSET"
 
 msgid "THEME MENU"
-msgstr ""
+msgstr "THEME MENÜ"
 
 msgid "THEME SYSTEMVIEW"
-msgstr ""
+msgstr "THEME SYSTEMANSICHT"
 
 msgid "THEME GAMELISTVIEW"
-msgstr ""
+msgstr "TEHEM SPIELELISTEN-ANSICHT"
 
 msgid "THEME REGION"
-msgstr ""
+msgstr "THEME REGION"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "SPIELELISTE ANSICHTSSTIL"
 
 msgid "THIS THEME HAS NO OPTION"
-msgstr ""
+msgstr "DIESES THEME HAT KEINE OPTION"
 
 msgid "START ON SYSTEM"
 msgstr "START MIT SYSTEM"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "STARTE BEI SPIELELISTE"
 
 msgid "DISPLAY / HIDE SYSTEMS"
 msgstr "ZEIGE / VERSTECKE SYSTEME"
@@ -529,10 +529,10 @@ msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "ZEIGE SONG TITEL AN"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "WIEVIELE SEKUNDEN FÜR SONG TITEL"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "NUR SYSTEM-SPEZIFISCHE MUSIK-ORDNER ABSPIELEN"
@@ -601,10 +601,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "WIRKLICH HERUNTERFAHREN OHNE SPEICHERN DER METADATEN?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "EMULATIONSTATION BEENDEN"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "WIRKLICH BEENDEN?"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -726,22 +726,22 @@ msgstr[0] "%i SPIEL ÜBERSPRUNGEN"
 msgstr[1] "%i SPIELE ÜBERSPRUNGEN"
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "BEZELS INSTALLIEREN"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "BEZELS DEINSTALLIEREN"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "THE BEZEL PROJECT INSTALLIEREN"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
+msgstr "WÄHLE SYSTEM WO BEZELS INSTALLIERT WERDEN"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "THE BEZEL PROJECT DEINSTALLIEREN"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "WÄHLE SYSTEM WO BEZELS ENTFERNT WERDEN"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEME ERFOLGREICH INSTALLIERT"
@@ -786,10 +786,10 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "VIDEO BEI BILDSCHIRMSCHONER STRECKEN"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS ERFOLGREICH INSTALLIERT"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS ERFOLGREICH GELÖSCHT"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "DIESE SPIELE SCRAPEN"
@@ -843,7 +843,7 @@ msgid "VALIDATE"
 msgstr "VALIDIEREN"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "KEIN GERÄT GEFUNDEN"
 
 msgid "SELECT THEME"
 msgstr "THEME AUSWÄHLEN"
@@ -975,7 +975,7 @@ msgid "enter path to marquee"
 msgstr "Pfad zur Laufschrift eingeben"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN?"
+msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
 
 #, c-format
 msgid "%i GAME AVAILABLE"
@@ -999,7 +999,7 @@ msgid "Times played"
 msgstr "Anzahl gespielt"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "Keine Einträge gefunden"
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -1008,19 +1008,19 @@ msgid "OPTIONS"
 msgstr "OPTIONEN"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "Vorladen des UI"
 
 msgid "MENU"
 msgstr "MENÜ"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Favoriten"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "KEINE SPIELE GEFUNDEN - ÜBERSPRINGEN"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "EIN FEHLER IST AUFGETRETEN"
 
 msgid "RETRY"
 msgstr "WIEDERHOLEN"
@@ -1070,27 +1070,27 @@ msgid "Removed '%s' from '%s'"
 msgstr "'%s' from '%s' entfernt"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Diese Sammlung ist leer"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 msgid "Various"
-msgstr ""
+msgstr "Verschiedene"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Diese Sammlung enthält %1$i Spiel, einschließlich %2$s."
+msgstr[1] "Diese Sammlung enthält %1$i Spiele, einschließlich %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Diese Sammlung enthält %1$i Spiel, einschließlich %2$s unter anderen Titeln."
+msgstr[1] "Diese Sammlung enthält %1$i Spiele, einschließlich %2$s unter anderen Titeln."
 
 msgid "UP"
 msgstr "HOCH"
@@ -1198,7 +1198,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
 
 msgid "Now playing: "
-msgstr ""
+msgstr "Gerade läuft: "
 
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"
@@ -1210,19 +1210,19 @@ msgid "EDIT"
 msgstr "ÄNDERN"
 
 msgid "accept"
-msgstr ""
+msgstr "akzeptieren"
 
 msgid "SELECT ALL"
 msgstr "ALLES AUSWÄHLEN"
 
 msgid "select all"
-msgstr ""
+msgstr "Alles auswählen"
 
 msgid "SELECT NONE"
 msgstr "AUSWAHL AUFHEBEN"
 
 msgid "select none"
-msgstr ""
+msgstr "Auswahl aufheben"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1237,7 +1237,7 @@ msgid "WORKING..."
 msgstr "ARBEITET..."
 
 msgid "up/down"
-msgstr ""
+msgstr "hoch/runter"
 
 #~ msgid "Sort name"
 #~ msgstr "Name sortieren"
