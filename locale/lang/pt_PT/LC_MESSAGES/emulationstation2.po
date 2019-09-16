@@ -185,7 +185,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "SELECIONAR"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -197,7 +197,7 @@ msgid "DISK USAGE"
 msgstr "ESPAÇO DISPONÍVEL"
 
 msgid "DEVELOPER"
-msgstr "Desenvolvedor"
+msgstr "DESENVOLVEDOR"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
@@ -311,7 +311,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SAVE AUTOMÁTICO/LOADING"
 
 msgid "SHADERS SET"
-msgstr "FILTRO DE IMAGEM"
+msgstr "FILTROS DE IMAGEM"
 
 msgid "SCANLINES"
 msgstr "SCANLINES"
@@ -607,7 +607,7 @@ msgid "Emulator"
 msgstr "Emulador"
 
 msgid "Core"
-msgstr "NÚCLEO DE EMULAÇÃO"
+msgstr "CORE"
 
 msgid "VIDEO MODE"
 msgstr "MODO VÍDEO"
@@ -1023,7 +1023,7 @@ msgid "RETRY"
 msgstr "TENTE NOVAMENTE"
 
 msgid "ACCEPT RESULT"
-msgstr "Aceitar Resultados"
+msgstr "ACEITAR RESULTADOS"
 
 msgid "Loading system config..."
 msgstr " A Carregar a configuração do sistema..."
