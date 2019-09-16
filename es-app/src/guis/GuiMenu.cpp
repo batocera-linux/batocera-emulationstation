@@ -202,88 +202,6 @@ void GuiMenu::openScraperSettings()
 	mWindow->pushGui(s);
 }
 
-void GuiMenu::openOtherSettings()
-{
-	auto s = new GuiSettings(mWindow, "OTHER SETTINGS");
-
-	// maximum vram
-	auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
-	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
-	s->addWithLabel("VRAM LIMIT", max_vram);
-	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)Math::round(max_vram->getValue())); });
-
-	// power saver
-	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, "POWER SAVER MODES", false);
-	std::vector<std::string> modes;
-	modes.push_back("disabled");
-	modes.push_back("default");
-	modes.push_back("enhanced");
-	modes.push_back("instant");
-	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(*it, *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
-	s->addWithLabel("POWER SAVER MODES", power_saver);
-	s->addSaveFunc([this, power_saver] {
-		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
-			Settings::getInstance()->setString("TransitionStyle", "instant");
-			Settings::getInstance()->setBool("MoveCarousel", false);
-			Settings::getInstance()->setBool("EnableSounds", false);
-		}
-		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
-		PowerSaver::init();
-	});
-
-	// gamelists
-	auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
-	save_gamelists->setState(Settings::getInstance()->getBool("SaveGamelistsOnExit"));
-	s->addWithLabel("SAVE METADATA ON EXIT", save_gamelists);
-	s->addSaveFunc([save_gamelists] { Settings::getInstance()->setBool("SaveGamelistsOnExit", save_gamelists->getState()); });
-
-	auto parse_gamelists = std::make_shared<SwitchComponent>(mWindow);
-	parse_gamelists->setState(Settings::getInstance()->getBool("ParseGamelistOnly"));
-	s->addWithLabel("PARSE GAMESLISTS ONLY", parse_gamelists);
-	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
-
-	auto local_art = std::make_shared<SwitchComponent>(mWindow);
-	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
-	s->addWithLabel("SEARCH FOR LOCAL ART", local_art);
-	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
-	/*
-	// hidden files
-	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
-	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
-	s->addSaveFunc([hidden_files] { Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()); });
-	*/
-#ifdef _RPI_
-	// Video Player - VideoOmxPlayer
-	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
-	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
-	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
-	s->addSaveFunc([omx_player]
-	{
-		// need to reload all views to re-create the right video components
-		bool needReload = false;
-		if(Settings::getInstance()->getBool("VideoOmxPlayer") != omx_player->getState())
-			needReload = true;
-
-		Settings::getInstance()->setBool("VideoOmxPlayer", omx_player->getState());
-
-		if(needReload)
-			ViewController::get()->reloadAll();
-	});
-
-#endif
-
-	// framerate
-	auto framerate = std::make_shared<SwitchComponent>(mWindow);
-	framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
-	s->addWithLabel("SHOW FRAMERATE", framerate);
-	s->addSaveFunc([framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
-
-
-	mWindow->pushGui(s);
-}
-
 void GuiMenu::openConfigInput()
 {
 	Window* window = mWindow;
@@ -510,6 +428,13 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
 	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
 	
+	// optimizeVideo
+	auto optimizeVideo = std::make_shared<SwitchComponent>(mWindow);
+	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
+	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
+	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
+
+
 	// enableLogs
 	auto enableLogs = std::make_shared<SwitchComponent>(mWindow);
 	enableLogs->setState(Settings::getInstance()->getBool("EnableLogging"));
@@ -670,6 +595,26 @@ void GuiMenu::openSystemSettings_batocera()
 #ifndef WIN32
 	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 #endif
+	
+	// power saver
+	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
+	std::vector<std::string> modes;
+	modes.push_back("disabled");
+	modes.push_back("default");
+	modes.push_back("enhanced");
+	modes.push_back("instant");
+	for (auto it = modes.cbegin(); it != modes.cend(); it++)
+		power_saver->add(*it, *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
+	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
+	s->addSaveFunc([this, power_saver] {
+		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
+			Settings::getInstance()->setString("TransitionStyle", "instant");
+			Settings::getInstance()->setBool("MoveCarousel", false);
+			Settings::getInstance()->setBool("EnableSounds", false);
+		}
+		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
+		PowerSaver::init();
+	});
 
 	// Updates
 	s->addEntry(_("UPDATES"), true, [this] 
@@ -703,6 +648,7 @@ void GuiMenu::openSystemSettings_batocera()
 		mWindow->pushGui(updateGui);
 	}, "iconUpdates");
 	
+
 	// backup
 	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
 
@@ -1792,25 +1738,7 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
 	s->addSaveFunc([hidden_files] { Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()); });
 	
-	// power saver
-	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
-	std::vector<std::string> modes;
-	modes.push_back("disabled");
-	modes.push_back("default");
-	modes.push_back("enhanced");
-	modes.push_back("instant");
-	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(*it, *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
-	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
-	s->addSaveFunc([this, power_saver] {
-		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
-			Settings::getInstance()->setString("TransitionStyle", "instant");
-			Settings::getInstance()->setBool("MoveCarousel", false);
-			Settings::getInstance()->setBool("EnableSounds", false);
-		}
-		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
-		PowerSaver::init();
-	});
+
 
 	s->onFinalize([s, pthis, window]
 	{

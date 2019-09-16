@@ -15,6 +15,7 @@ struct VideoContext {
 	SDL_mutex*			mutex;
 	VideoComponent*		component;
 	bool				valid;
+	bool				hasFrame;
 };
 
 class VideoVlcComponent : public VideoComponent
@@ -35,7 +36,6 @@ public:
 	virtual ~VideoVlcComponent();
 
 	void render(const Transform4x4f& parentTrans) override;
-
 
 	// Resize the video to fit this size. If one axis is zero, scale that axis to maintain aspect ratio.
 	// If both are non-zero, potentially break the aspect ratio.  If both are zero, no resizing.

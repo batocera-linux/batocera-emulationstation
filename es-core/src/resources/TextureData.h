@@ -59,6 +59,8 @@ public:
 
 	inline const std::string& getPath() { return mPath; };
 
+	bool initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
+
 private:
 	std::mutex		mMutex;
 	bool			mTile;
@@ -75,6 +77,8 @@ private:
 	MaxSizeInfo		mMaxSize;
 	Vector2i		mPackedSize;
 	Vector2i		mBaseSize;
+
+	bool			mIsExternalDataRGBA;
 };
 
 #endif // ES_CORE_RESOURCES_TEXTURE_DATA_H

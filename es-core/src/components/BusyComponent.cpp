@@ -4,6 +4,7 @@
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
 #include "LocaleES.h"
+#include "PowerSaver.h"
 
 // animation definition
 AnimationFrame BUSY_ANIMATION_FRAMES[] = {
@@ -33,33 +34,42 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 
 	addChild(&mBackground);
 	addChild(&mGrid);
+
+	PowerSaver::pause();
 }
 
 // batocera
-BusyComponent::~BusyComponent() {
-  SDL_DestroyMutex(mutex);
+BusyComponent::~BusyComponent() 
+{
+	PowerSaver::resume();
+	SDL_DestroyMutex(mutex);
 }
 
 // batocera
-void BusyComponent::setText(std::string txt) {
-  if (SDL_LockMutex(mutex) == 0) {
-    threadMessage = txt;
-    threadMessagechanged = true;
-    SDL_UnlockMutex(mutex);
-  }
+void BusyComponent::setText(std::string txt)
+{
+	if (SDL_LockMutex(mutex) == 0)
+	{
+		threadMessage = txt;
+		threadMessagechanged = true;
+		SDL_UnlockMutex(mutex);
+	}
 }
 
 // batocera
-void BusyComponent::render(const Transform4x4f& parentTrans) {
-  if (SDL_LockMutex(mutex) == 0) {
-    if(threadMessagechanged) {
-      threadMessagechanged = false;
-      mText->setText(threadMessage);
-      onSizeChanged();
-    }
-    SDL_UnlockMutex(mutex);
-  }
-  GuiComponent::render(parentTrans);
+void BusyComponent::render(const Transform4x4f& parentTrans)
+{
+	if (SDL_LockMutex(mutex) == 0)
+	{
+		if (threadMessagechanged) 
+		{
+			threadMessagechanged = false;
+			mText->setText(threadMessage);
+			onSizeChanged();
+		}
+		SDL_UnlockMutex(mutex);
+	}
+	GuiComponent::render(parentTrans);
 }
 
 void BusyComponent::onSizeChanged()

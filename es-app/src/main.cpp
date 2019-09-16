@@ -492,6 +492,10 @@ int main(int argc, char* argv[])
 
 		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
 		{
+			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
+			// Reset this event's state
+			PowerSaver::resetRefreshEvent();
+
 			do
 			{
 				InputManager::getInstance()->parseEvent(event, &window);

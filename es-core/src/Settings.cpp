@@ -191,7 +191,8 @@ void Settings::setDefaults()
 	mBoolMap["PreloadUI"] = false;
 	mBoolMap["OptimizeVRAM"] = true;
 	mBoolMap["EnableLogging"] = true;
-
+	mBoolMap["OptimizeVideo"] = true;
+	
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;
 	mIntMap["ScreenWidth"]   = 0;

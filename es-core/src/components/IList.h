@@ -211,7 +211,7 @@ protected:
 
 	bool listInput(int velocity) // a velocity of 0 = stop scrolling
 	{
-		PowerSaver::setState(velocity == 0);
+		PowerSaver::lock(velocity == 0);
 
 		// generate an onCursorChanged event in the stopped state when the user lets go of the key
 		if(velocity == 0 && mScrollVelocity != 0)

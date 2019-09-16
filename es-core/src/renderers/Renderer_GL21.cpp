@@ -115,7 +115,7 @@ namespace Renderer
 		return texture;
 
 	} // createTexture
-
+	
 	void destroyTexture(const unsigned int _texture)
 	{
 		glDeleteTextures(1, &_texture);
@@ -124,9 +124,17 @@ namespace Renderer
 
 	void updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
 	{
-		bindTexture(_texture);
-		glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, convertTextureType(_type), GL_UNSIGNED_BYTE, _data);
-		bindTexture(0);
+		glBindTexture(GL_TEXTURE_2D, _texture);
+
+		if (_x == -1 && _y == -1)
+		{
+			const GLenum type = convertTextureType(_type);
+			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
+		}
+		else 
+			glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, convertTextureType(_type), GL_UNSIGNED_BYTE, _data);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
 
 	} // updateTexture
 

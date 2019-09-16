@@ -236,8 +236,8 @@ void VideoPlayerComponent::startVideo()
 				dup2(fdin, 0);
 				dup2(fdout, 1);
 				// Run the omxplayer binary
-				execve("/usr/bin/omxplayer.bin", (char**)argv, (char**)env);
-
+				execve("/usr/bin/omxplayer", (char**)argv, (char**)env); // .bin
+				
 				_exit(EXIT_FAILURE);
 			}
 		}

@@ -8,6 +8,7 @@
 #include <vlc/vlc.h>
 #include <SDL_mutex.h>
 #include <cmath>
+#include "SystemConf.h"
 
 #ifdef WIN32
 #include <codecvt>
@@ -31,6 +32,8 @@ static void *lock(void *data, void **p_pixels) {
 // VLC just rendered a video frame.
 static void unlock(void *data, void* /*id*/, void *const* /*p_pixels*/) {
 	struct VideoContext *c = (struct VideoContext *)data;
+	c->hasFrame = true;
+
 	SDL_UnlockSurface(c->surface);
 	SDL_UnlockMutex(c->mutex);
 }
@@ -211,8 +214,15 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	Renderer::setMatrix(trans);
 
 	// Build a texture for the video frame
-	if (initFromPixels)
-		mTexture->initFromPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
+	if (initFromPixels && mContext.hasFrame)
+	{		
+		if (SDL_LockMutex(mContext.mutex) == 0)
+		{
+			mTexture->initFromExternalPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
+			mContext.hasFrame = false;
+			SDL_UnlockMutex(mContext.mutex);
+		}
+	}
 
 	const unsigned int fadeIn = t * 255.0f;
 	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
@@ -275,9 +285,10 @@ void VideoVlcComponent::setupContext()
 	
 	// Create an RGBA surface to render the video into
 	mContext.surface = SDL_CreateRGBSurface(SDL_SWSURFACE, (int)mVideoWidth, (int)mVideoHeight, 32, 0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);
+	mContext.hasFrame = false;
 	mContext.mutex = SDL_CreateMutex();
 	mContext.component = this;
-	mContext.valid = true;
+	mContext.valid = true;	
 	resize();	
 }
 
@@ -288,8 +299,15 @@ void VideoVlcComponent::freeContext()
 
 	SDL_FreeSurface(mContext.surface);
 	SDL_DestroyMutex(mContext.mutex);
+	mContext.hasFrame = false;
 	mContext.component = NULL;
-	mContext.valid = false;	
+	mContext.valid = false;			
+
+	if (!mDisable)
+	{
+		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
+		mTexture = TextureResource::get("");
+	}
 }
 
 void VideoVlcComponent::setupVLC(std::string subtitles)
@@ -297,6 +315,30 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 	if (mVLC != nullptr)
 		return;
 
+	std::vector<std::string> cmdline;
+	cmdline.push_back("--quiet");
+	cmdline.push_back("--no-video-title-show");
+	
+	if (!subtitles.empty())
+	{
+		cmdline.push_back("--sub-file");
+		cmdline.push_back(subtitles);
+	}
+
+	std::string commandLine = SystemConf::getInstance()->get("vlc.commandline");
+	if (!commandLine.empty())
+	{
+		std::vector<std::string> tokens = Utils::String::split(commandLine, ' ');
+		for (auto token : tokens)
+			cmdline.push_back(token);
+	}
+
+	const char* *theArgs = new const char*[10];
+
+	for (int i = 0 ; i < cmdline.size() ; i++)
+		theArgs[i] = cmdline[i].c_str();
+
+	/*
 	// If VLC hasn't been initialised yet then do it now
 	const char** args;
 	const char* newargs[] = { "--quiet", "--sub-file", subtitles.c_str() };
@@ -312,8 +354,10 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 	{
 		argslen = sizeof(singleargs) / sizeof(singleargs[0]);
 		args = singleargs;
-	}
-	mVLC = libvlc_new(argslen, args);
+	}*/
+	mVLC = libvlc_new(cmdline.size(), theArgs);
+
+	delete[] theArgs;
 }
 
 void VideoVlcComponent::handleLooping()
@@ -394,6 +438,18 @@ void VideoVlcComponent::startVideo()
 					}
 				}
 #endif
+
+				if (Settings::getInstance()->getBool("OptimizeVideo"))
+				{
+					// If video is bigger than display, ask VLC for a smaller image
+					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()));
+					if (sz.x() < mVideoWidth || sz.y() < mVideoHeight)
+					{
+						mVideoWidth = sz.x();
+						mVideoHeight = sz.y();
+					}
+				}
+
 				PowerSaver::pause();
 				setupContext();
 
