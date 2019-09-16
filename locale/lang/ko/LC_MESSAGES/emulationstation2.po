@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "취소"
 msgid "BACK"
 msgstr "뒤로"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "닫기"
 
@@ -57,6 +60,12 @@ msgstr "다음으로 게임 정렬"
 
 msgid "FILTER GAMELIST"
 msgstr "게임리스트 필터"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "게임리스트 정렬방법"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr ""
@@ -217,6 +226,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -240,6 +252,9 @@ msgstr "언어"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "업데이트"
@@ -398,26 +413,11 @@ msgstr "컨트롤러와의 연결이 삭제되었습니다."
 msgid "INPUT P%i"
 msgstr "입력 P%i"
 
-msgid "UI MODE"
-msgstr "UI 모드"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
-"UI를 제한된 모드로 바꾸고 있습니다.:\n"
-"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
-"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
 
-msgid "Do you want to proceed ?"
-msgstr "계속 진행하시겠습니다?"
-
-msgid "VIDEO OUTPUT"
-msgstr "비디오 출력"
-
-msgid "THEME SET"
-msgstr "테마 선택"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -440,11 +440,29 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "게임리스트 정렬방법"
-
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
+
+msgid "UI MODE"
+msgstr "UI 모드"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"UI를 제한된 모드로 바꾸고 있습니다.:\n"
+"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
+"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
+
+msgid "Do you want to proceed ?"
+msgstr "계속 진행하시겠습니다?"
+
+msgid "VIDEO OUTPUT"
+msgstr "비디오 출력"
+
+msgid "THEME SET"
+msgstr "테마 선택"
 
 msgid "START ON SYSTEM"
 msgstr "시스템 착수하기"
@@ -452,8 +470,8 @@ msgstr "시스템 착수하기"
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "시스템 진열/숨기기"
+msgid "SYSTEMS DISPLAYED"
+msgstr "시스템 진열"
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
@@ -510,9 +528,6 @@ msgstr "오직 게임리스트만 분석"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
-
-msgid "POWER SAVER MODES"
-msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
@@ -819,9 +834,6 @@ msgstr "조건에 맞는 게임이 없습니다."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "시스템 진열 선택"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "시스템 진열"
-
 msgid "APPLY"
 msgstr "지원"
 
@@ -839,6 +851,17 @@ msgstr "테마 선택"
 
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "삭제"
 
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
@@ -1004,6 +1027,9 @@ msgstr "메뉴"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
 
@@ -1144,20 +1170,17 @@ msgstr "아무 버튼이나 누르세요."
 msgid "ALREADY TAKEN"
 msgstr "이미 설정되었습니다."
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
-
 msgid "SPACE"
 msgstr "스페이스"
-
-msgid "DELETE"
-msgstr "삭제"
 
 msgid "DELETE A CHAR"
 msgstr "문자 삭제"
 
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
 
 msgid "SHIFT"
 msgstr "쉬프트"
@@ -1219,6 +1242,9 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "시스템 진열/숨기기"
 
 #~ msgid "Sort name"
 #~ msgstr "별명"

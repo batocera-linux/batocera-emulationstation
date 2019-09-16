@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "取消"
 msgid "BACK"
 msgstr "返回"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "关闭"
 
@@ -57,6 +60,12 @@ msgstr "游戏排序方式"
 
 msgid "FILTER GAMELIST"
 msgstr "筛选游戏"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "游戏列表样式"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr ""
@@ -217,6 +226,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -240,6 +252,9 @@ msgstr "语言"
 
 msgid "OVERCLOCK"
 msgstr "超频"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "更新"
@@ -400,26 +415,11 @@ msgstr "控制器链接已被删除。"
 msgid "INPUT P%i"
 msgstr "%i号玩家"
 
-msgid "UI MODE"
-msgstr "显示方式"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
-"您即将使用受限模式:\n"
-"此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
-"如果需要返回完整模式，请按顺序输入以下按键："
 
-msgid "Do you want to proceed ?"
-msgstr "是否继续?"
-
-msgid "VIDEO OUTPUT"
-msgstr "视频输出"
-
-msgid "THEME SET"
-msgstr "主题设置"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -442,11 +442,29 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "游戏列表样式"
-
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
+
+msgid "UI MODE"
+msgstr "显示方式"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"您即将使用受限模式:\n"
+"此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
+"如果需要返回完整模式，请按顺序输入以下按键："
+
+msgid "Do you want to proceed ?"
+msgstr "是否继续?"
+
+msgid "VIDEO OUTPUT"
+msgstr "视频输出"
+
+msgid "THEME SET"
+msgstr "主题设置"
 
 msgid "START ON SYSTEM"
 msgstr "启动时运行"
@@ -454,8 +472,8 @@ msgstr "启动时运行"
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "显示/隐藏游戏平台"
+msgid "SYSTEMS DISPLAYED"
+msgstr "显示的游戏平台"
 
 msgid "TRANSITION STYLE"
 msgstr "画面转场样式"
@@ -512,9 +530,6 @@ msgstr "仅分析游戏列表"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
-
-msgid "POWER SAVER MODES"
-msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"
@@ -820,9 +835,6 @@ msgstr "没有匹配的游戏。"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "选择显示的游戏平台"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "显示的游戏平台"
-
 msgid "APPLY"
 msgstr "应用"
 
@@ -840,6 +852,17 @@ msgstr "选择主题"
 
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
+
+msgid "SAVE"
+msgstr "保存"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "删除"
 
 msgid "SAVE CHANGES?"
 msgstr "是否保存更改?"
@@ -1005,6 +1028,9 @@ msgstr "菜单"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
 
@@ -1146,20 +1172,17 @@ msgstr "按任意键"
 msgid "ALREADY TAKEN"
 msgstr "按键已占用"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT键可切换大小写或特殊字符"
-
 msgid "SPACE"
 msgstr "空格"
-
-msgid "DELETE"
-msgstr "删除"
 
 msgid "DELETE A CHAR"
 msgstr "删除一个字符"
 
 msgid "DISCARD CHANGES"
 msgstr "放弃更改"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT键可切换大小写或特殊字符"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1222,6 +1245,9 @@ msgstr "进行中..."
 msgid "up/down"
 msgstr ""
 
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "显示/隐藏游戏平台"
+
 #~ msgid "Sort name"
 #~ msgstr "排序名"
 
@@ -1248,9 +1274,6 @@ msgstr ""
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "显示隐藏"
-
-#~ msgid "SAVE"
-#~ msgstr "保存"
 
 #~ msgid "enter emulator"
 #~ msgstr "输入模拟器"

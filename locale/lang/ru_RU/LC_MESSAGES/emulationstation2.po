@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -49,6 +49,9 @@ msgstr "ОТМЕНА"
 msgid "BACK"
 msgstr "НАЗАД"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
 
@@ -60,6 +63,12 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
 msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "ВИД СПИСКА ИГР"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr ""
@@ -220,6 +229,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -243,6 +255,9 @@ msgstr "ЯЗЫК"
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
+
+msgid "POWER SAVER MODES"
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
@@ -402,27 +417,11 @@ msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
-msgid "UI MODE"
-msgstr "РЕЖИМ ИНТЕРФЕЙСА"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
-"Вы переводите интерфейс в ограниченный режим:\n"
-"Это скроет большинство пунктов меню, чтобы предотвратить изменения в "
-"системе.\n"
-"Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
 
-msgid "Do you want to proceed ?"
-msgstr "Вы хотите продолжить?"
-
-msgid "VIDEO OUTPUT"
-msgstr "ВИДЕО ВЫВОД"
-
-msgid "THEME SET"
-msgstr "ТЕМА"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
@@ -445,11 +444,30 @@ msgstr "ТЕМА СПИСКА ИГР"
 msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "ВИД СПИСКА ИГР"
+msgid "DEFAULT GRID SIZE"
+msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
-msgstr "ТЕМА НЕ ИМЕЕТ НАСТРОЕК"
+msgid "UI MODE"
+msgstr "РЕЖИМ ИНТЕРФЕЙСА"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Вы переводите интерфейс в ограниченный режим:\n"
+"Это скроет большинство пунктов меню, чтобы предотвратить изменения в "
+"системе.\n"
+"Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
+
+msgid "Do you want to proceed ?"
+msgstr "Вы хотите продолжить?"
+
+msgid "VIDEO OUTPUT"
+msgstr "ВИДЕО ВЫВОД"
+
+msgid "THEME SET"
+msgstr "ТЕМА"
 
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
@@ -457,8 +475,8 @@ msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
+msgid "SYSTEMS DISPLAYED"
+msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -516,9 +534,6 @@ msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
-
-msgid "POWER SAVER MODES"
-msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -829,9 +844,6 @@ msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "ВЫБОР СИСТЕМЫ ДЛЯ ОТОБРАЖЕНИЯ"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
-
 msgid "APPLY"
 msgstr "ПРИМЕНИТЬ"
 
@@ -849,6 +861,17 @@ msgstr "ВЫБРАТЬ ТЕМУ"
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "УДАЛИТЬ"
 
 msgid "SAVE CHANGES?"
 msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
@@ -1016,6 +1039,9 @@ msgstr "МЕНЮ"
 msgid "Favorites"
 msgstr "Избранное"
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
 
@@ -1163,20 +1189,17 @@ msgstr "НАЖМИТЕ ЛЮБУЮ КНОПКУ"
 msgid "ALREADY TAKEN"
 msgstr "УЖЕ ЗАНЯТО"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
-
 msgid "SPACE"
 msgstr "ПРОБЕЛ"
-
-msgid "DELETE"
-msgstr "УДАЛИТЬ"
 
 msgid "DELETE A CHAR"
 msgstr "УДАЛИТЬ СИМВОЛ"
 
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1242,6 +1265,12 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "ТЕМА НЕ ИМЕЕТ НАСТРОЕК"
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
 
 #~ msgid "Sort name"
 #~ msgstr "Название для сортировки"

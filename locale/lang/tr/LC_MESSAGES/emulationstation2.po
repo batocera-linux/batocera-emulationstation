@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "ÝPTAL"
 msgid "BACK"
 msgstr "GERÝ"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "KAPAT"
 
@@ -57,6 +60,12 @@ msgstr "OYUNA GÖRE SIRALA"
 
 msgid "FILTER GAMELIST"
 msgstr "OYUN LÝSTESÝ FÝLTRE"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr ""
@@ -217,6 +226,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -240,6 +252,9 @@ msgstr "DÝL"
 
 msgid "OVERCLOCK"
 msgstr "HIZAÞIMI"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "GÜNCELLEMELER"
@@ -399,23 +414,11 @@ msgstr "KUMANDA BAÐLANTILARI SÝLÝNDÝ."
 msgid "INPUT P%i"
 msgstr "GÝRDÝ P%i"
 
-msgid "UI MODE"
-msgstr "KULLANICI ARAYÜZÜ"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid "Do you want to proceed ?"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr "VÝDEO ÇIKIÞI"
-
-msgid "THEME SET"
-msgstr "TEMA AYARI"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -438,11 +441,26 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
-
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
+
+msgid "UI MODE"
+msgstr "KULLANICI ARAYÜZÜ"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VÝDEO ÇIKIÞI"
+
+msgid "THEME SET"
+msgstr "TEMA AYARI"
 
 msgid "START ON SYSTEM"
 msgstr "SÝSTEMÝ BAÞLAT"
@@ -450,7 +468,7 @@ msgstr "SÝSTEMÝ BAÞLAT"
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -510,9 +528,6 @@ msgstr "oyun listesini ayrýþtýr"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "yerel resimleri ara"
-
-msgid "POWER SAVER MODES"
-msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "SÝSTEM SESÝ"
@@ -818,9 +833,6 @@ msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -838,6 +850,17 @@ msgstr "TEMA SEÇÝN"
 
 msgid "EDIT METADATA"
 msgstr "DÜZENLE"
+
+msgid "SAVE"
+msgstr "KAYDET"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "SÝL"
 
 msgid "SAVE CHANGES?"
 msgstr "DEÐÝÞÝKLÝKLERÝ KAYDET?"
@@ -1004,6 +1027,9 @@ msgstr "MENÜ"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "OYUN BULUNAMADI"
 
@@ -1147,20 +1173,17 @@ msgstr "HERHANGÝ BÝR TUÞA BASIN"
 msgid "ALREADY TAKEN"
 msgstr "ÖNCEDEN TANIMLANMIÞ"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
 msgstr "BOÞLUK"
-
-msgid "DELETE"
-msgstr "SÝL"
 
 msgid "DELETE A CHAR"
 msgstr "CHAR SÝL"
 
 msgid "DISCARD CHANGES"
 msgstr "DEÐÝÞÝKLÝKLERÝ KAYDETME"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
 msgid "SHIFT"
 msgstr "DEÐÝÞTÝR"
@@ -1248,9 +1271,6 @@ msgstr ""
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "SADECE FAVORÝLER"
-
-#~ msgid "SAVE"
-#~ msgstr "KAYDET"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

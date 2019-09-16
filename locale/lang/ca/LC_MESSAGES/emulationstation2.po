@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 18:52+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "CANCEL·LA"
 msgid "BACK"
 msgstr "ENRERE"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "TANCA"
 
@@ -56,6 +59,12 @@ msgid "SORT GAMES BY"
 msgstr "ORDENA ELS JOCS PER"
 
 msgid "FILTER GAMELIST"
+msgstr ""
+
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
 msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
@@ -217,6 +226,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -240,6 +252,9 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "VELOCITAT DE RELLOTGE"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "ACTUALITZACIONS"
@@ -400,23 +415,11 @@ msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "TEMA ESTABLERT"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -439,11 +442,26 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "TEMA ESTABLERT"
 
 msgid "START ON SYSTEM"
 msgstr ""
@@ -451,7 +469,7 @@ msgstr ""
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -505,9 +523,6 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
-
-msgid "POWER SAVER MODES"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -814,9 +829,6 @@ msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -834,6 +846,17 @@ msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITA LES METADADES"
+
+msgid "SAVE"
+msgstr "DESA"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "ESBORRA"
 
 msgid "SAVE CHANGES?"
 msgstr "VOLEU DESAR ELS CANVIS?"
@@ -1000,6 +1023,9 @@ msgstr "MENÚ"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
@@ -1140,20 +1166,17 @@ msgstr "PREMEU QUALSEVOL COSA"
 msgid "ALREADY TAKEN"
 msgstr "JA ESTÀ AGAFAT"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
 msgstr "ESPAI"
-
-msgid "DELETE"
-msgstr "ESBORRA"
 
 msgid "DELETE A CHAR"
 msgstr "ESBORRA UN CARÀCTER"
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTA ELS CANVIS"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
 msgid "SHIFT"
 msgstr "MAJÚSCULES"
@@ -1235,9 +1258,6 @@ msgstr ""
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRA ELS OCULTS"
-
-#~ msgid "SAVE"
-#~ msgstr "DESA"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

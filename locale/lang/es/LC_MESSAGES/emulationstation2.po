@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,9 @@ msgstr "CANCELAR"
 msgid "BACK"
 msgstr "VOLVER"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "CERRAR"
 
@@ -57,6 +60,12 @@ msgstr "ORDENAR LOS JUEGOS POR"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTRAR JUEGOS"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr ""
@@ -217,6 +226,9 @@ msgstr "CARGANDO ASYNC DE IMAGENES"
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMIZAR VRAM EN USO DE IMAGENES"
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr "HABILITAR ARCHIVO LOG"
 
@@ -240,6 +252,9 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODO AHORRO DE ENERGIA"
 
 msgid "UPDATES"
 msgstr "ACTUALIZACIÓNES"
@@ -399,6 +414,36 @@ msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS"
 msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
+
+msgid "THEME CONFIGURATION"
+msgstr "CONFIGURACIÓN DE TEMA"
+
+msgid "THEME COLORSET"
+msgstr "COLORES DEL TEMA"
+
+msgid "THEME ICONSET"
+msgstr "ICONOS DEL TEMA"
+
+msgid "THEME MENU"
+msgstr "MENÚ DE TEMAS"
+
+msgid "THEME SYSTEMVIEW"
+msgstr "VISTA DE TEMAS DEL SISTEMA"
+
+msgid "THEME GAMELISTVIEW"
+msgstr "VISTA DE JUEGOS DE TEMAS"
+
+msgid "THEME REGION"
+msgstr "REGION DEL TEMA"
+
+msgid "DEFAULT GRID SIZE"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "MODO GUI"
 
@@ -422,41 +467,14 @@ msgstr "SALIDA DE VIDEO"
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
 
-msgid "THEME CONFIGURATION"
-msgstr "CONFIGURACIÓN DE TEMA"
-
-msgid "THEME COLORSET"
-msgstr "COLORES DEL TEMA"
-
-msgid "THEME ICONSET"
-msgstr "ICONOS DEL TEMA"
-
-msgid "THEME MENU"
-msgstr "MENÚ DE TEMAS"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "VISTA DE TEMAS DEL SISTEMA"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "VISTA DE JUEGOS DE TEMAS"
-
-msgid "THEME REGION"
-msgstr "REGION DEL TEMA"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
-
-msgid "THIS THEME HAS NO OPTION"
-msgstr "EL TEMA NO TIENE ESA OPCION"
-
 msgid "START ON SYSTEM"
 msgstr "INICIAR EN SISTEMA"
 
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "MOSTRAR / OCULTAR SISTEMAS"
+msgid "SYSTEMS DISPLAYED"
+msgstr "EMULADORES MOSTRADOS"
 
 msgid "TRANSITION STYLE"
 msgstr "TIPO DE TRANSICIÓN"
@@ -516,9 +534,6 @@ msgstr "CONVERTIR UNICAMENTE LISTAS DE JUEGOS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
-
-msgid "POWER SAVER MODES"
-msgstr "MODO AHORRO DE ENERGIA"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
@@ -828,9 +843,6 @@ msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "SELECCIONA LOS EMULADORES A MOSTRAR"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "EMULADORES MOSTRADOS"
-
 msgid "APPLY"
 msgstr "APLICAR"
 
@@ -848,6 +860,17 @@ msgstr "SELECCIONAR TEMA"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS DATOS"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "BORRAR"
 
 msgid "SAVE CHANGES?"
 msgstr "¿GUARDAR LOS CAMBIOS?"
@@ -1014,6 +1037,9 @@ msgstr "MENÚ"
 msgid "Favorites"
 msgstr "FAVORITOS"
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
 
@@ -1157,20 +1183,17 @@ msgstr "PULSA CUALQUIER BOTÓN"
 msgid "ALREADY TAKEN"
 msgstr "EN USO"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
-
 msgid "SPACE"
 msgstr "ESPACIO"
-
-msgid "DELETE"
-msgstr "BORRAR"
 
 msgid "DELETE A CHAR"
 msgstr "ELIMINAR CARÁCTER"
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR LOS CAMBIOS"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1234,6 +1257,12 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "EL TEMA NO TIENE ESA OPCION"
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "MOSTRAR / OCULTAR SISTEMAS"
 
 #~ msgid "FORCE GAMELIST VIEW STYLE"
 #~ msgstr "FORZAR VISTA DE JUEGOS"

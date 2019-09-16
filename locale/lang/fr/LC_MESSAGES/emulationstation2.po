@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:04+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,9 @@ msgstr "ANNULER"
 msgid "BACK"
 msgstr "RETOUR"
 
+msgid "go back"
+msgstr "aller en arrière"
+
 msgid "CLOSE"
 msgstr "FERMER"
 
@@ -57,6 +60,12 @@ msgstr "TRIER LES JEUX PAR"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTRER"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "TYPE DE VUE DES JEUX"
+
+msgid "GRID SIZE"
+msgstr "TAILLE DE LA GRILLE"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "FAVORIS EN HAUT DES LISTES"
@@ -217,6 +226,9 @@ msgstr "CHARGEMENT DES IMAGES ASYNCHRONE"
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMISER LES IMAGES EN RAM"
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "OPTIMIZE LA TAILLE DE LA RAM VIDÉO"
+
 msgid "ENABLE LOG FILE"
 msgstr "ACTIVER LE FICHIER DE LOG"
 
@@ -240,6 +252,9 @@ msgstr "LANGUE"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODE ÉCONOMIE D'ÉNERGIE"
 
 msgid "UPDATES"
 msgstr "MISES À JOUR"
@@ -400,27 +415,11 @@ msgstr "LES LIENS VERS LES MANETTES ONT ÉTÉ SUPPRIMÉS."
 msgid "INPUT P%i"
 msgstr "JOUEUR %i"
 
-msgid "UI MODE"
-msgstr "MODE D'AFFICHAGE"
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "AFFICHER L'ACTIVITÉ DU CONTRÔLEUR"
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"Vous allez passer dans un mode restreint:\n"
-"Cela va masquer la plupart des options pour éviter des changements de "
-"configuration.\n"
-"Pour revenir au mode normal, taper le code suivant:"
-
-msgid "Do you want to proceed ?"
-msgstr "Voulez-vous continuer ?"
-
-msgid "VIDEO OUTPUT"
-msgstr "SORTIE VIDEO"
-
-msgid "THEME SET"
-msgstr "THÈME"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D'ÉDITER LA CONFIGURATION"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
@@ -443,11 +442,30 @@ msgstr "VUE JEUX DU THÈME"
 msgid "THEME REGION"
 msgstr "RÉGION DU THÈME"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "TYPE DE VUE DES JEUX"
+msgid "DEFAULT GRID SIZE"
+msgstr "TAILLE DE LA GRILLE PAR DÉFAUT"
 
-msgid "THIS THEME HAS NO OPTION"
-msgstr "CE THÈME N'A PAS D'OPTION"
+msgid "UI MODE"
+msgstr "MODE D'AFFICHAGE"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Vous allez passer dans un mode restreint:\n"
+"Cela va masquer la plupart des options pour éviter des changements de "
+"configuration.\n"
+"Pour revenir au mode normal, taper le code suivant:"
+
+msgid "Do you want to proceed ?"
+msgstr "Voulez-vous continuer ?"
+
+msgid "VIDEO OUTPUT"
+msgstr "SORTIE VIDEO"
+
+msgid "THEME SET"
+msgstr "THÈME"
 
 msgid "START ON SYSTEM"
 msgstr "DÉMARRER SUR UN SYSTÈME"
@@ -455,8 +473,8 @@ msgstr "DÉMARRER SUR UN SYSTÈME"
 msgid "START ON GAMELIST"
 msgstr "DÉMARRER SUR LA LISTE DE JEUX"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "MASQUER DES SYSTÈMES"
+msgid "SYSTEMS DISPLAYED"
+msgstr "SYSTÈMES AFFICHÉS"
 
 msgid "TRANSITION STYLE"
 msgstr "STYLE DE LA TRANSITION"
@@ -516,9 +534,6 @@ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES GRAPHISMES SUR LE DISQUE"
-
-msgid "POWER SAVER MODES"
-msgstr "MODE ÉCONOMIE D'ÉNERGIE"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
@@ -824,9 +839,6 @@ msgstr "AUCUN JEU NE CORRESPOND."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "CHOISIR LES SYSTÈMES À AFFICHER"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "SYSTÈMES AFFICHÉS"
-
 msgid "APPLY"
 msgstr "APPLIQUER"
 
@@ -844,6 +856,17 @@ msgstr "SÉLECTIONNER UN THÈME"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES METADONNÉES"
+
+msgid "SAVE"
+msgstr "SAUVEGARDER"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr "VOULEZ-VOUS VRAIMENT SUPPRIMER LE JEU ?"
+
+msgid "DELETE"
+msgstr "SUPPRIMER"
 
 msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER ?"
@@ -1010,6 +1033,9 @@ msgstr "MENU"
 msgid "Favorites"
 msgstr "Favoris"
 
+msgid "SEARCHING"
+msgstr "RECHERCHE EN COURS"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU CORRESPONDANT - PASSER"
 
@@ -1083,8 +1109,10 @@ msgstr[1] "Cette collection contient %1$i jeux, dont %2$s."
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres."
-msgstr[1] "Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres."
+msgstr[0] ""
+"Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres."
+msgstr[1] ""
+"Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres."
 
 msgid "UP"
 msgstr "HAUT"
@@ -1152,20 +1180,17 @@ msgstr "APPUYEZ SUR UN BOUTON"
 msgid "ALREADY TAKEN"
 msgstr "DÉJÀ PRIS"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "APPUYEZ SUR SHIFT POUR OBTENIR LES MAJUSCULES"
-
 msgid "SPACE"
 msgstr "ESPACE"
-
-msgid "DELETE"
-msgstr "SUPPRIMER"
 
 msgid "DELETE A CHAR"
 msgstr "EFFACER UN CARACTERE"
 
 msgid "DISCARD CHANGES"
 msgstr "ANNULER LES MODIFICATIONS"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "APPUYEZ SUR SHIFT POUR OBTENIR LES MAJUSCULES"
 
 msgid "SHIFT"
 msgstr "MAJUSCULE"
@@ -1229,6 +1254,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "CE THÈME N'A PAS D'OPTION"
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "MASQUER DES SYSTÈMES"
 
 #~ msgid "DISPLAY FAVORITES FIRST IN GAMELIST"
 #~ msgstr "AFFICHAGE DES FAVORIS EN PREMIER"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,9 @@ msgstr ""
 msgid "BACK"
 msgstr ""
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr ""
 
@@ -64,6 +67,12 @@ msgid "SORT GAMES BY"
 msgstr ""
 
 msgid "FILTER GAMELIST"
+msgstr ""
+
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
 msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
@@ -225,6 +234,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -247,6 +259,9 @@ msgid "LANGUAGE"
 msgstr ""
 
 msgid "OVERCLOCK"
+msgstr ""
+
+msgid "POWER SAVER MODES"
 msgstr ""
 
 msgid "UPDATES"
@@ -402,22 +417,10 @@ msgstr ""
 msgid "INPUT P%i"
 msgstr ""
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
@@ -441,10 +444,25 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "UI MODE"
+msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
 msgstr ""
 
 msgid "START ON SYSTEM"
@@ -453,7 +471,7 @@ msgstr ""
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -507,9 +525,6 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
-
-msgid "POWER SAVER MODES"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -813,9 +828,6 @@ msgstr ""
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -832,6 +844,17 @@ msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
+msgstr ""
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
 msgstr ""
 
 msgid "SAVE CHANGES?"
@@ -999,6 +1022,9 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr ""
 
@@ -1139,19 +1165,16 @@ msgstr ""
 msgid "ALREADY TAKEN"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
-msgstr ""
-
-msgid "DELETE"
 msgstr ""
 
 msgid "DELETE A CHAR"
 msgstr ""
 
 msgid "DISCARD CHANGES"
+msgstr ""
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "SHIFT"

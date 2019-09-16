@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "ABBRECHEN"
 msgid "BACK"
 msgstr "ZURÜCK"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
@@ -57,6 +60,12 @@ msgstr "SPIELE SORTIEREN NACH"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTERE SPIELELISTE"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "SPIELELISTE ANSICHTSSTIL"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "ZEIGE FAVORITEN AN ERSTER STELLE"
@@ -217,6 +226,9 @@ msgstr "ASYNC IMAGES LOADING"
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "BILDER VRAM-NUTZUNG OPTIMIEREN"
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr "PROTOKOLLDATEI AKTIVEREN"
 
@@ -240,6 +252,9 @@ msgstr "SPRACHE"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
+
+msgid "POWER SAVER MODES"
+msgstr "ENERGIESPAR-MODI"
 
 msgid "UPDATES"
 msgstr "UPDATES"
@@ -322,7 +337,7 @@ msgid "ENHANCED"
 msgstr "VERBESSERT"
 
 msgid "CURVATURE"
-msgstr WÖLBUNG
+msgstr "WÖLBUNG"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
@@ -402,6 +417,36 @@ msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT"
 msgid "INPUT P%i"
 msgstr "EINGABE P%i"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
+
+msgid "THEME CONFIGURATION"
+msgstr "THEME KONFIGURATION"
+
+msgid "THEME COLORSET"
+msgstr "THEME COLORSET"
+
+msgid "THEME ICONSET"
+msgstr "THEME ICONSET"
+
+msgid "THEME MENU"
+msgstr "THEME MENÜ"
+
+msgid "THEME SYSTEMVIEW"
+msgstr "THEME SYSTEMANSICHT"
+
+msgid "THEME GAMELISTVIEW"
+msgstr "TEHEM SPIELELISTEN-ANSICHT"
+
+msgid "THEME REGION"
+msgstr "THEME REGION"
+
+msgid "DEFAULT GRID SIZE"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "UI MODUS"
 
@@ -425,41 +470,14 @@ msgstr "BILD AUSGABE"
 msgid "THEME SET"
 msgstr "THEME"
 
-msgid "THEME CONFIGURATION"
-msgstr "THEME KONFIGURATION"
-
-msgid "THEME COLORSET"
-msgstr "THEME COLORSET"
-
-msgid "THEME ICONSET"
-msgstr "THEME ICONSET"
-
-msgid "THEME MENU"
-msgstr "THEME MENÜ"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "THEME SYSTEMANSICHT"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "TEHEM SPIELELISTEN-ANSICHT"
-
-msgid "THEME REGION"
-msgstr "THEME REGION"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "SPIELELISTE ANSICHTSSTIL"
-
-msgid "THIS THEME HAS NO OPTION"
-msgstr "DIESES THEME HAT KEINE OPTION"
-
 msgid "START ON SYSTEM"
 msgstr "START MIT SYSTEM"
 
 msgid "START ON GAMELIST"
 msgstr "STARTE BEI SPIELELISTE"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "ZEIGE / VERSTECKE SYSTEME"
+msgid "SYSTEMS DISPLAYED"
+msgstr "ANGEZEIGTE SYSTEME"
 
 msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
@@ -518,9 +536,6 @@ msgstr "NUR SPIELELISTEN PARSEN"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SUCHE NACH LOKALER KUNST"
-
-msgid "POWER SAVER MODES"
-msgstr "ENERGIESPAR-MODI"
 
 msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE"
@@ -830,9 +845,6 @@ msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "WÄHLE SYSTEME ZUR ANZEIGE AUS"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "ANGEZEIGTE SYSTEME"
-
 msgid "APPLY"
 msgstr "ANWENDEN"
 
@@ -850,6 +862,17 @@ msgstr "THEME AUSWÄHLEN"
 
 msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "LÖSCHEN"
 
 msgid "SAVE CHANGES?"
 msgstr "ÄNDERUNGEN SPEICHERN?"
@@ -1016,6 +1039,9 @@ msgstr "MENÜ"
 msgid "Favorites"
 msgstr "Favoriten"
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "KEINE SPIELE GEFUNDEN - ÜBERSPRINGEN"
 
@@ -1089,8 +1115,10 @@ msgstr[1] "Diese Sammlung enthält %1$i Spiele, einschließlich %2$s."
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Diese Sammlung enthält %1$i Spiel, einschließlich %2$s unter anderen Titeln."
-msgstr[1] "Diese Sammlung enthält %1$i Spiele, einschließlich %2$s unter anderen Titeln."
+msgstr[0] ""
+"Diese Sammlung enthält %1$i Spiel, einschließlich %2$s unter anderen Titeln."
+msgstr[1] ""
+"Diese Sammlung enthält %1$i Spiele, einschließlich %2$s unter anderen Titeln."
 
 msgid "UP"
 msgstr "HOCH"
@@ -1161,20 +1189,17 @@ msgstr "DRÜCKE IRGENDWAS"
 msgid "ALREADY TAKEN"
 msgstr "BEREITS VERGEBEN"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT FÜR GROß-, KLEINSCHREIBUNG UND SONDERZEICHEN"
-
 msgid "SPACE"
 msgstr "LEERTASTE"
-
-msgid "DELETE"
-msgstr "LÖSCHEN"
 
 msgid "DELETE A CHAR"
 msgstr "BUCHSTABE ENTFERNEN"
 
 msgid "DISCARD CHANGES"
 msgstr "ÄNDERUNGEN VERWERFEN"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT FÜR GROß-, KLEINSCHREIBUNG UND SONDERZEICHEN"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1238,6 +1263,12 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "DIESES THEME HAT KEINE OPTION"
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "ZEIGE / VERSTECKE SYSTEME"
 
 #~ msgid "Sort name"
 #~ msgstr "Name sortieren"

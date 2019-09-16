@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
@@ -49,6 +49,9 @@ msgstr "CANCELAR"
 msgid "BACK"
 msgstr "VOLTAR"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "FECHAR"
 
@@ -60,6 +63,12 @@ msgstr "ORDENAR JOGOS POR"
 
 msgid "FILTER GAMELIST"
 msgstr "FILTRAR GAMELIST"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
+
+msgid "GRID SIZE"
+msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -220,6 +229,9 @@ msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OTIMIZAR O USO DAS IMAGENS NA RAM"
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr "HABILITAR ARQUIVO DE LOG"
 
@@ -243,6 +255,9 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODOS ECONOMIA DE ENERGIA"
 
 msgid "UPDATES"
 msgstr "ATUALIZAÇÕES"
@@ -401,6 +416,36 @@ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
+
+msgid "THEME CONFIGURATION"
+msgstr "CONFIGURAÇÃO DO TEMA"
+
+msgid "THEME COLORSET"
+msgstr "CORES DO TEMA"
+
+msgid "THEME ICONSET"
+msgstr "ÍCONES DO TEMA"
+
+msgid "THEME MENU"
+msgstr "TEMA MENU"
+
+msgid "THEME SYSTEMVIEW"
+msgstr "VER TEMA DO SISTEMA"
+
+msgid "THEME GAMELISTVIEW"
+msgstr "VER TEMA DO JOGO"
+
+msgid "THEME REGION"
+msgstr "REGIÃO DO TEMA"
+
+msgid "DEFAULT GRID SIZE"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -424,41 +469,14 @@ msgstr "SAÍDA DE VÍDEO"
 msgid "THEME SET"
 msgstr "TEMA"
 
-msgid "THEME CONFIGURATION"
-msgstr "CONFIGURAÇÃO DO TEMA"
-
-msgid "THEME COLORSET"
-msgstr "CORES DO TEMA"
-
-msgid "THEME ICONSET"
-msgstr "ÍCONES DO TEMA"
-
-msgid "THEME MENU"
-msgstr "TEMA MENU"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "VER TEMA DO SISTEMA"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "VER TEMA DO JOGO"
-
-msgid "THEME REGION"
-msgstr "REGIÃO DO TEMA"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
-
-msgid "THIS THEME HAS NO OPTION"
-msgstr "ESTE TEMA NÃO TEM OPÇÃO"
-
 msgid "START ON SYSTEM"
 msgstr "COMECE NO SISTEMA"
 
 msgid "START ON GAMELIST"
 msgstr "COMECE NA LISTA DE JOGOS"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "EXIBIR / ESCONDER SISTEMAS"
+msgid "SYSTEMS DISPLAYED"
+msgstr "SISTEMAS EXIBIDOS"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
@@ -517,9 +535,6 @@ msgstr "ANALISAR APENAS A GAMESLISTS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "PESQUISA DE ARTE LOCAL"
-
-msgid "POWER SAVER MODES"
-msgstr "MODOS ECONOMIA DE ENERGIA"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -830,9 +845,6 @@ msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "SELECIONAR SISTEMAS PARA EXIBIR"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "SISTEMAS EXIBIDOS"
-
 msgid "APPLY"
 msgstr "APLICAR"
 
@@ -850,6 +862,17 @@ msgstr "SELECIONAR TEMA"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
+
+msgid "SAVE"
+msgstr "SALVAR"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "EXCLUIR"
 
 msgid "SAVE CHANGES?"
 msgstr "SALVAR MODIFICAÇÕES?"
@@ -1016,6 +1039,9 @@ msgstr "MENU"
 msgid "Favorites"
 msgstr "Favoritos"
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PASSAR"
 
@@ -1160,20 +1186,17 @@ msgstr "PRESSIONE QUALQUER BOTÃO"
 msgid "ALREADY TAKEN"
 msgstr "BOTÃO JÁ MAPEADO"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
-
 msgid "SPACE"
 msgstr "ESPAÇO"
-
-msgid "DELETE"
-msgstr "EXCLUIR"
 
 msgid "DELETE A CHAR"
 msgstr "DELETAR UM CARACTERE"
 
 msgid "DISCARD CHANGES"
 msgstr "ANULAR MODIFICAÇÕES"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
 
 msgid "SHIFT"
 msgstr "MUDANÇA"
@@ -1238,6 +1261,12 @@ msgstr "EM PROGRESSO..."
 msgid "up/down"
 msgstr "cima/baixo"
 
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "ESTE TEMA NÃO TEM OPÇÃO"
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "EXIBIR / ESCONDER SISTEMAS"
+
 #~ msgid "Sort name"
 #~ msgstr "Classificar nome"
 
@@ -1274,9 +1303,6 @@ msgstr "cima/baixo"
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRAR OCULTOS"
-
-#~ msgid "SAVE"
-#~ msgstr "SALVAR"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

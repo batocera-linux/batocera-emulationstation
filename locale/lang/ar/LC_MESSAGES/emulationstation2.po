@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 21:21+0200\n"
+"POT-Creation-Date: 2019-09-16 18:52+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,6 +47,9 @@ msgstr "إلغاء"
 msgid "BACK"
 msgstr "العودة"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "اغلاق"
 
@@ -57,6 +60,12 @@ msgid "SORT GAMES BY"
 msgstr "ترتيب الالعاب حسب"
 
 msgid "FILTER GAMELIST"
+msgstr ""
+
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
 msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
@@ -218,6 +227,9 @@ msgstr ""
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
 msgid "ENABLE LOG FILE"
 msgstr ""
 
@@ -241,6 +253,9 @@ msgstr "اللغة"
 
 msgid "OVERCLOCK"
 msgstr "رفع سرعة المعالج"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "تحديث"
@@ -399,23 +414,11 @@ msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلو
 msgid "INPUT P%i"
 msgstr "ادخال P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "اختيار التنسيق"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -438,11 +441,26 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "اختيار التنسيق"
 
 msgid "START ON SYSTEM"
 msgstr ""
@@ -450,7 +468,7 @@ msgstr ""
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -504,9 +522,6 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr ""
-
-msgid "POWER SAVER MODES"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
@@ -820,9 +835,6 @@ msgstr "لم يتم  العثور على العاب بصيغة البحث الم
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -840,6 +852,17 @@ msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات"
+
+msgid "SAVE"
+msgstr "حفظ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "حذف"
 
 msgid "SAVE CHANGES?"
 msgstr "حفظ التعديلات؟"
@@ -1010,6 +1033,9 @@ msgstr "قائمة"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "لم يتم العثور على العاب - تخطي"
 
@@ -1162,20 +1188,17 @@ msgstr "اضغط اي زر"
 msgid "ALREADY TAKEN"
 msgstr "معرّف مسبقاً"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
-
 msgid "SPACE"
 msgstr "مسافة"
-
-msgid "DELETE"
-msgstr "حذف"
 
 msgid "DELETE A CHAR"
 msgstr "حذف حرف"
 
 msgid "DISCARD CHANGES"
 msgstr "الغاء التعديلات"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
 
 msgid "SHIFT"
 msgstr "زر الانتقال"
@@ -1262,9 +1285,6 @@ msgstr ""
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "المفضلة فقط"
-
-#~ msgid "SAVE"
-#~ msgstr "حفظ"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
