@@ -50,7 +50,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "go back"
-msgstr ""
+msgstr "VOLTAR"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -68,7 +68,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DA GRID"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -230,7 +230,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OTIMIZAR IMAGENS NA RAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OTIMIZAR USO DA VRAM DE VIDEO"
 
 msgid "ENABLE LOG FILE"
 msgstr "ATIVAR ARQUIVO LOG"
@@ -417,10 +417,10 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "MOSTRAR ATIVIDADE DO COMANDO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
@@ -444,7 +444,7 @@ msgid "THEME REGION"
 msgstr "REGIÃO DO TEMA"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DA GRID PADRÃO"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -866,7 +866,7 @@ msgstr "SAVE"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr ""
+msgstr "DESEJA REALMENTE EXCLUIR O JOGO?"
 
 msgid "DELETE"
 msgstr "EXCLUIR"
@@ -1037,7 +1037,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "A PROCURAR"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
