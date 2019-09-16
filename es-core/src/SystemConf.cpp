@@ -67,17 +67,26 @@ bool SystemConf::saveSystemConf()
 		return false;
 
 	std::ifstream filein(systemConfFile); //File to read from
-	if (!filein) {
+
+#ifndef WIN32
+	if (!filein) 
+	{
 		LOG(LogError) << "Unable to open for saving :  " << systemConfFile << "\n";
 		return false;
 	}
+#endif
+
 	/* Read all lines in a vector */
 	std::vector<std::string> fileLines;
 	std::string line;
-	while (std::getline(filein, line))
-		fileLines.push_back(line);
 
-	filein.close();
+	if (filein)
+	{
+		while (std::getline(filein, line))
+			fileLines.push_back(line);
+
+		filein.close();
+	}
 
 
 	/* Save new value if exists */

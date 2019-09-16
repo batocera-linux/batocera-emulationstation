@@ -38,8 +38,7 @@ private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
 	void addVersionInfo();
 	void openCollectionSystemSettings();
-	void openConfigInput();
-	void openOtherSettings();	
+	void openConfigInput();	
 	void openScraperSettings();
 	void openScreensaverOptions();
 	void openSlideshowScreensaverOptions();

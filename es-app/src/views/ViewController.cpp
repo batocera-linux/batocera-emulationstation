@@ -107,7 +107,10 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	systemList->goToSystem(system, false);
 	mCurrentView = systemList;
 	mCurrentView->onShow();
-	PowerSaver::setState(true);
+
+	PowerSaver::pause();
+	PowerSaver::resume();
+	//PowerSaver::setState(true);
 
 	playViewTransition(forceImmediate);
 }

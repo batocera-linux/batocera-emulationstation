@@ -317,11 +317,11 @@ void DetailedGameListView::updateInfoPanel()
 			if (!mVideo->setVideo(file->getVideoPath()))
 				mVideo->setDefaultVideo();
 
-			mVideo->setImage(imagePath, false, mVideo->getMaxSizeInfo());
+			mVideo->setImage(imagePath);
 		}
 
 		if (mImage != nullptr)
-			mImage->setImage(imagePath, false, mImage->getMaxSizeInfo());
+			mImage->setImage(imagePath);
 
 		if (mMarquee != nullptr)
 			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());

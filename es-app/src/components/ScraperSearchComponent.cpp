@@ -20,6 +20,8 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid(window, Vector2i(4, 3)), mBusyAnim(window), 
 	mSearchType(type)
 {
+	mBusyAnim.setText(_("SEARCHING"));
+
 	auto theme = ThemeData::getMenuTheme();
 	addChild(&mGrid);
 

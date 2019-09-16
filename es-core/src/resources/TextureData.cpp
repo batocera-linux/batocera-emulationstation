@@ -19,6 +19,7 @@ TextureData::TextureData(bool tile) : mTile(tile), mTextureID(0), mDataRGBA(null
 									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
 									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
+	mIsExternalDataRGBA = false;
 }
 
 TextureData::~TextureData()
@@ -154,6 +155,13 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
+
+	if (mIsExternalDataRGBA)
+	{
+		mIsExternalDataRGBA = false;
+		mDataRGBA = nullptr;
+	}
+
 	if (mDataRGBA)
 		return true;
 
@@ -168,6 +176,25 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 
 	mWidth = width;
 	mHeight = height;
+	return true;
+}
+
+bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
+{
+	// If already initialised then don't read again
+	std::unique_lock<std::mutex> lock(mMutex);
+
+	if (!mIsExternalDataRGBA && mDataRGBA != nullptr)
+		delete[] mDataRGBA;
+
+	mIsExternalDataRGBA = true;
+	mDataRGBA = dataRGBA;
+	mWidth = width;
+	mHeight = height;
+
+	if (mTextureID != 0)
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, -1, -1, mWidth, mHeight, mDataRGBA);
+
 	return true;
 }
 
@@ -238,7 +265,10 @@ void TextureData::releaseVRAM()
 void TextureData::releaseRAM()
 {
 	std::unique_lock<std::mutex> lock(mMutex);
-	delete[] mDataRGBA;
+
+	if (!mIsExternalDataRGBA)
+		delete[] mDataRGBA;
+
 	mDataRGBA = 0;
 }
 

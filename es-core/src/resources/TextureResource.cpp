@@ -4,6 +4,7 @@
 #include "resources/TextureData.h"
 #include <cstring>
 #include "Settings.h"
+#include "PowerSaver.h"
 
 TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
@@ -93,7 +94,19 @@ void TextureResource::onTextureLoaded(std::shared_ptr<TextureData> tex)
 {
 	mSize = Vector2i((int)tex->width(), (int)tex->height());
 	mSourceSize = Vector2f(tex->sourceWidth(), tex->sourceHeight());
+
+	PowerSaver::pushRefreshEvent();
 }
+
+void TextureResource::initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height)
+{
+	mTextureData->initFromExternalRGBA(dataRGBA, width, height);
+
+	// Cache the image dimensions
+	mSize = Vector2i((int)width, (int)height);
+	mSourceSize = Vector2f(mTextureData->sourceWidth(), mTextureData->sourceHeight());
+}
+
 
 void TextureResource::initFromPixels(unsigned char* dataRGBA, size_t width, size_t height)
 {

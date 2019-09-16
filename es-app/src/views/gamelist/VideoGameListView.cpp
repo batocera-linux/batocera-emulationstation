@@ -254,8 +254,8 @@ void VideoGameListView::updateInfoPanel()
 		}
 		mVideoPlaying = true;
 
-		mVideo->setImage(file->getThumbnailPath(), false, mVideo->getMaxSizeInfo());
-		mMarquee.setImage(file->getMarqueePath(), false, mMarquee.getMaxSizeInfo());
+		mVideo->setImage(file->getThumbnailPath()/*, false, mVideo->getMaxSizeInfo()*/); // Too slow on pi
+		mMarquee.setImage(file->getMarqueePath()/*, false, mMarquee.getMaxSizeInfo()*/); // Too slow on pi
 		mImage.setImage(file->getImagePath(), false, mImage.getMaxSizeInfo());
 
 		mDescription.setText(file->metadata.get("desc"));
