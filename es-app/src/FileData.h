@@ -39,7 +39,7 @@ public:
 	inline FileType getType() const { return mType; }
 	
 	inline FolderData* getParent() const { return mParent; }
-	void setParent(FolderData* parent) { mParent = parent; }
+	inline void setParent(FolderData* parent) { mParent = parent; }
 
 	inline SystemData* getSystem() const { return mSystem; }
 

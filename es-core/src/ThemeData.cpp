@@ -1170,7 +1170,7 @@ std::vector<Subset> ThemeData::getThemeSubSets(const std::string& theme)
 	{
 		"/etc/emulationstation/themes",		
 		Utils::FileSystem::getEsConfigPath() + "/themes",
-		Utils::FileSystem::getSharedConfigPath() + "/themes"
+		"/userdata/themes" // batocera
 	};
 
 	for (size_t i = 0; i < pathCount; i++)

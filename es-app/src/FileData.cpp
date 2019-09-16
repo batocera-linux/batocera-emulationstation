@@ -346,6 +346,9 @@ FolderData::SortType getSortTypeFromString(std::string desc) {
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
 {
+	if (mSystem->isCollection())
+		return mChildren;
+
 	std::vector<FileData*> ret;
 
 	bool flatFolders = Settings::getInstance()->getBool("FlatFolders");
@@ -447,7 +450,7 @@ void FolderData::addChild(FileData* file)
 	assert(mType == FOLDER);
 	assert(file->getParent() == NULL);
 
-	const std::string key = file->getKey();
+//	const std::string key = file->getKey();
 
 	mChildren.push_back(file);
 	file->setParent(this);	

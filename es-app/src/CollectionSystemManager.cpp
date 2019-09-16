@@ -176,8 +176,12 @@ void CollectionSystemManager::updateSystemsList()
 {
 	// remove all Collection Systems
 	removeCollectionsFromDisplayedSystems();
+
+	std::unordered_map<std::string, FileData*> map;
+	getAllGamesCollection()->getRootFolder()->createChildrenByFilenameMap(map);
+
 	// add custom enabled ones
-	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData);
+	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
 	if(Settings::getInstance()->getBool("SortAllSystems"))
 	{
@@ -208,7 +212,7 @@ void CollectionSystemManager::updateSystemsList()
 	}
 
 	// add auto enabled ones
-	addEnabledCollectionsToDisplayedSystems(&mAutoCollectionSystemsData);
+	addEnabledCollectionsToDisplayedSystems(&mAutoCollectionSystemsData, &map);
 
 	// create views for collections, before reload
 	/*
@@ -304,10 +308,16 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 void CollectionSystemManager::trimCollectionCount(FolderData* rootFolder, int limit)
 {
 	SystemData* curSys = rootFolder->getSystem();
-	while ((int)rootFolder->getChildrenListToDisplay().size() > limit)
+	std::shared_ptr<IGameListView> listView = ViewController::get()->getGameListView(curSys, false);
+	
+	auto& childs = rootFolder->getChildren();
+	while ((int)childs.size() > limit)
 	{
-		CollectionFileData* gameToRemove = (CollectionFileData*)rootFolder->getChildrenListToDisplay().back();
-		ViewController::get()->getGameListView(curSys).get()->remove(gameToRemove, false);
+		CollectionFileData* gameToRemove = (CollectionFileData*)childs.back();
+		if (listView == nullptr)
+			delete gameToRemove;
+		else
+			listView.get()->remove(gameToRemove, false);
 	}
 }
 
@@ -847,11 +857,8 @@ void CollectionSystemManager::removeCollectionsFromDisplayedSystems()
 	ViewController::get()->removeGameListView(mCustomCollectionsBundle);
 }
 
-void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData)
+void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap)
 {
-	std::unordered_map<std::string, FileData*> map;
-	getAllGamesCollection()->getRootFolder()->createChildrenByFilenameMap(map);
-
 	// add auto enabled ones
 	for(std::map<std::string, CollectionSystemData>::iterator it = colSystemData->begin() ; it != colSystemData->end() ; it++ )
 	{
@@ -862,7 +869,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 			{
 				if(it->second.decl.isCustom)
 				{
-					populateCustomCollection(&(it->second), &map);
+					populateCustomCollection(&(it->second), pMap);
 				}
 				else
 				{

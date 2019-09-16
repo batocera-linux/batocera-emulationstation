@@ -309,12 +309,15 @@ void ViewController::removeGameListView(SystemData* system)
 	}
 }
 
-std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* system)
+std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* system, bool loadIfnull)
 {
 	//if we already made one, return that one
 	auto exists = mGameListViews.find(system);
 	if(exists != mGameListViews.cend())
 		return exists->second;
+
+	if (!loadIfnull)
+		return nullptr;
 
 	system->setUIModeFilters();
 	//if we didn't, make it, remember it, and return it
