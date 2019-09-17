@@ -36,8 +36,7 @@ public:
 
 	std::string getValue() const override;
 	void setValue(const std::string& value) override;
-
-	unsigned char getOpacity() const override;
+	
 	void setOpacity(unsigned char opacity) override;
 
 	inline std::shared_ptr<Font> getFont() const { return mFont; }
@@ -62,8 +61,7 @@ private:
 
 	unsigned int mColor;
 	unsigned int mBgColor;
-	unsigned char mColorOpacity;
-	unsigned char mBgColorOpacity;
+
 	bool mRenderBackground;
 
 	bool mUppercase;

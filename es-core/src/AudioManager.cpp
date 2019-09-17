@@ -163,7 +163,11 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 }
 
 // batocera
-void AudioManager::playRandomMusic(bool continueIfPlaying) {
+void AudioManager::playRandomMusic(bool continueIfPlaying) 
+{
+	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+		return;
+
 	// check in User music directory
 	std::vector<std::string> musics;
 	getMusicIn("/userdata/music", musics);
@@ -192,7 +196,6 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
 		return;
 
 	playMusic(musics.at(randomIndex));
-	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 
 	setSongName(musics.at(randomIndex));
 }
@@ -204,6 +207,9 @@ void AudioManager::playMusic(std::string path)
 
 	// free the previous music
 	stopMusic(false);
+
+	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+		return;
 
 	// load a new music
 	currentMusic = Mix_LoadMUS(path.c_str());

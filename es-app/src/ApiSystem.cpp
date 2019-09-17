@@ -419,9 +419,7 @@ void ApiSystem::launchExternalWindow_after(Window *window) {
 	AudioManager::getInstance()->init();
 	window->normalizeNextUpdate();
 
-	if (SystemConf::getInstance()->get("audio.bgmusic") != "0") {
-		AudioManager::getInstance()->playRandomMusic();
-	}
+	AudioManager::getInstance()->playRandomMusic();
 }
 
 bool ApiSystem::launchKodi(Window *window) {

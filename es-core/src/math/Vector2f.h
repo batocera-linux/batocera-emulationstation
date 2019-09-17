@@ -12,8 +12,8 @@ class Vector4f;
 class Vector2f
 {
 public:
+	Vector2f() { mX = 0; mY = 0; }
 
-	         Vector2f()                                                                                { }
 	         Vector2f(const float _f)                 : mX(_f),                 mY(_f)                 { }
 	         Vector2f(const float _x, const float _y) : mX(_x),                 mY(_y)                 { }
 	explicit Vector2f(const Vector3f& _v)             : mX(((Vector2f&)_v).mX), mY(((Vector2f&)_v).mY) { }

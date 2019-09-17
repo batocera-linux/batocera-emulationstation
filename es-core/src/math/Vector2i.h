@@ -7,8 +7,8 @@
 class Vector2i
 {
 public:
+	Vector2i() { mX = 0; mY = 0; }
 
-	         Vector2i()                                            { }
 	         Vector2i(const int _i)               : mX(_i), mY(_i) { }
 	         Vector2i(const int _x, const int _y) : mX(_x), mY(_y) { }
 

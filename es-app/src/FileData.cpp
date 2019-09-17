@@ -263,8 +263,7 @@ void FileData::launchGame(Window* window)
 	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 
 	// batocera
-	if (SystemConf::getInstance()->get("audio.bgmusic") != "0")
-		AudioManager::getInstance()->playRandomMusic();
+	AudioManager::getInstance()->playRandomMusic();
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)

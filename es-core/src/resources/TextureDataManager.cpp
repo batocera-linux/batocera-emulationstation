@@ -206,8 +206,7 @@ TextureLoader::TextureLoader(TextureDataManager* mgr) : mManager(mgr), mExit(fal
 TextureLoader::~TextureLoader()
 {
 	// Just abort any waiting texture
-	mTextureDataQ.clear();
-	mTextureDataLookup.clear();
+	clearQueue();
 
 	// Exit the thread
 	mExit = true;
@@ -309,6 +308,8 @@ size_t TextureLoader::getQueueSize()
 
 void TextureLoader::clearQueue()
 {
+	std::unique_lock<std::mutex> lock(mMutex);
+
 	// Just abort any waiting texture
 	mTextureDataQ.clear();
 	mTextureDataLookup.clear();

@@ -35,7 +35,6 @@
 #define PATH_MAX MAX_PATH
 #endif
 
-
 bool scrape_cmdline = false;
 
 bool parseArgs(int argc, char* argv[])
@@ -454,8 +453,7 @@ int main(int argc, char* argv[])
 	  window.renderLoadingScreen(_("Done.")); // batocera
 
 	// batocera
-	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-	  AudioManager::getInstance()->playRandomMusic();
+	AudioManager::getInstance()->playRandomMusic();
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
@@ -494,11 +492,11 @@ int main(int argc, char* argv[])
 		{
 			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
 			// Reset this event's state
-			PowerSaver::resetRefreshEvent();
+			TRYCATCH("resetRefreshEvent", PowerSaver::resetRefreshEvent());
 
 			do
 			{
-				InputManager::getInstance()->parseEvent(event, &window);
+				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
 
 				switch(event.type) {
 				case SDL_QUIT:
@@ -555,8 +553,9 @@ int main(int argc, char* argv[])
 		if(deltaTime < 0)
 			deltaTime = 1000;
 
-		window.update(deltaTime);
-		window.render();
+		TRYCATCH("Window.update" ,window.update(deltaTime))	
+		TRYCATCH("Window.render", window.render())
+
 		Renderer::swapBuffers();
 
 		Log::flush();

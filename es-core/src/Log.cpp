@@ -57,7 +57,9 @@ void Log::flush()
 	if (!dirty)
 		return;
 
-	fflush(file);
+	if (file != nullptr)
+		fflush(file);
+
 	dirty = false;
 }
 

@@ -32,9 +32,9 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mSplash = nullptr;
 
 	// pads // batocera
-	for(int i=0; i<MAX_PLAYERS; i++) {
-	  mplayerPads[i] = 0;
-	}
+	for(int i=0; i<MAX_PLAYERS; i++)
+		mplayerPads[i] = 0;
+	
 	mplayerPadsIsHotkey = false;
 }
 
@@ -145,12 +145,12 @@ void Window::textInput(const char* text)
 void Window::input(InputConfig* config, Input input)
 {
 	if (mScreenSaver) {
-		if(mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
-		   (Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
+		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
+			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
 		{
-			if(mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			if (mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
 			{
-				if(config->isMappedLike("right", input) || config->isMappedTo("select", input))
+				if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
 				{
 					if (input.value != 0) {
 						// handle screensaver control
@@ -158,7 +158,7 @@ void Window::input(InputConfig* config, Input input)
 					}
 					return;
 				}
-				else if(config->isMappedTo("start", input) && input.value != 0)
+				else if (config->isMappedTo("start", input) && input.value != 0)
 				{
 					// launch game!
 					cancelScreenSaver();
@@ -170,7 +170,7 @@ void Window::input(InputConfig* config, Input input)
 		}
 	}
 
-	if(mSleeping)
+	if (mSleeping)
 	{
 		// wake up
 		mTimeSinceLastInput = 0;
@@ -184,28 +184,32 @@ void Window::input(InputConfig* config, Input input)
 	if (cancelScreenSaver())
 		return;
 
-	if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
 		Settings::getInstance()->setBool("DebugGrid", !Settings::getInstance()->getBool("DebugGrid"));
 	}
-	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
-	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-I
 		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
 	}
 	else
 	{
-	  // show the pad button
-	  if(config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT)) {
-	    mplayerPads[config->getDeviceIndex()] = PLAYER_PAD_TIME_MS;
-	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
-	  }
+		// show the pad button
+		if (config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT))
+		{
+			int idx = config->getDeviceIndex(); 
+			if (idx >= 0 && idx < MAX_PLAYERS)
+				mplayerPads[idx] = PLAYER_PAD_TIME_MS;
+
+			mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
+		}
 
 		if (peekGui())
 		{
@@ -382,17 +386,21 @@ void Window::render()
 		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
-			if (playerJoysticks.count(player) == 1) 
-			{
-				unsigned int padcolor = 0xFFFFFF99;
+			if (playerJoysticks.count(player) != 1)
+				continue;
+			
+			unsigned int padcolor = 0xFFFFFF99;
 
-				if (mplayerPads[playerJoysticks[player]] > 0)
-					padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
+			int idx = playerJoysticks[player];
+			if (idx < 0 || idx >= MAX_PLAYERS)
+				continue;
 
-				float sz = Renderer::getScreenHeight() / 100.0;
+			if (mplayerPads[idx] > 0)
+				padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
 
-				Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);
-			}
+			float sz = Renderer::getScreenHeight() / 100.0;
+
+			Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);			
 		}
 	}
 

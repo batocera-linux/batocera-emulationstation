@@ -56,7 +56,7 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	memset(&mContext, 0, sizeof(mContext));
 
 	// Get an empty texture for rendering the video
-	mTexture = TextureResource::get("");
+	mTexture = nullptr;// TextureResource::get("");
 
 	// Make sure VLC has been initialised
 	setupVLC(subtitles);
@@ -218,11 +218,20 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	{		
 		if (SDL_LockMutex(mContext.mutex) == 0)
 		{
+			if (mTexture == nullptr)
+			{
+				mTexture = TextureResource::get("");
+				resize();
+			}
+
 			mTexture->initFromExternalPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
 			mContext.hasFrame = false;
 			SDL_UnlockMutex(mContext.mutex);
 		}
 	}
+
+	if (mTexture == nullptr)
+		return;
 
 	const unsigned int fadeIn = t * 255.0f;
 	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
@@ -297,17 +306,17 @@ void VideoVlcComponent::freeContext()
 	if (!mContext.valid)
 		return;
 
+	if (!mDisable)
+	{
+		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
+		mTexture = nullptr;
+	}
+
 	SDL_FreeSurface(mContext.surface);
 	SDL_DestroyMutex(mContext.mutex);
 	mContext.hasFrame = false;
 	mContext.component = NULL;
 	mContext.valid = false;			
-
-	if (!mDisable)
-	{
-		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
-		mTexture = TextureResource::get("");
-	}
 }
 
 void VideoVlcComponent::setupVLC(std::string subtitles)

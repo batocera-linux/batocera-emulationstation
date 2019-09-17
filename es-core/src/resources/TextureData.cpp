@@ -40,7 +40,7 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
-	if (mDataRGBA)
+	if (mDataRGBA || (mTextureID != 0))
 		return true;
 
 	// nsvgParse excepts a modifiable, null-terminated string
@@ -129,7 +129,7 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 	// If already initialised then don't read again
 	{
 		std::unique_lock<std::mutex> lock(mMutex);
-		if (mDataRGBA)
+		if (mDataRGBA || (mTextureID != 0))
 			return true;
 	}
 
@@ -248,6 +248,13 @@ bool TextureData::uploadAndBind()
 
 		// Upload texture
 		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, true, mTile, mWidth, mHeight, mDataRGBA);
+		if (mTextureID)
+		{
+			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
+				delete[] mDataRGBA;
+
+			mDataRGBA = nullptr;
+		}
 	}
 	return true;
 }
@@ -266,7 +273,7 @@ void TextureData::releaseRAM()
 {
 	std::unique_lock<std::mutex> lock(mMutex);
 
-	if (!mIsExternalDataRGBA)
+	if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
 		delete[] mDataRGBA;
 
 	mDataRGBA = 0;

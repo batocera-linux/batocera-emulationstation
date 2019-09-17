@@ -54,8 +54,10 @@ void TextComponent::setFont(std::string path, int size)
 //  Set the color of the font/text
 void TextComponent::setColor(unsigned int color)
 {
+	if (mColor == color)
+		return;
+
 	mColor = color;
-	mColorOpacity = mColor & 0x000000FF;
 	onColorChanged();
 }
 
@@ -63,7 +65,6 @@ void TextComponent::setColor(unsigned int color)
 void TextComponent::setBackgroundColor(unsigned int color)
 {
 	mBgColor = color;
-	mBgColorOpacity = mBgColor & 0x000000FF;
 }
 
 void TextComponent::setRenderBackground(bool render)
@@ -74,24 +75,11 @@ void TextComponent::setRenderBackground(bool render)
 //  Scale the opacity
 void TextComponent::setOpacity(unsigned char opacity)
 {
-	// This method is mostly called to do fading in-out of the Text component element.
-	// Therefore, we assume here that opacity is a fractional value (expressed as an int 0-255),
-	// of the opacity originally set with setColor() or setBackgroundColor().
+	if (opacity == mOpacity)
+		return;
 
-	unsigned char o = (unsigned char)((float)opacity / 255.f * (float) mColorOpacity);
-	mColor = (mColor & 0xFFFFFF00) | (unsigned char) o;
-
-	unsigned char bgo = (unsigned char)((float)opacity / 255.f * (float)mBgColorOpacity);
-	mBgColor = (mBgColor & 0xFFFFFF00) | (unsigned char)bgo;
-
+	mOpacity = opacity;
 	onColorChanged();
-
-	GuiComponent::setOpacity(opacity);
-}
-
-unsigned char TextComponent::getOpacity() const
-{
-	return mColor & 0x000000FF;
 }
 
 void TextComponent::setText(const std::string& text)
@@ -119,10 +107,12 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 	if (mRenderBackground)
 	{
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), mBgColor, mBgColor);
+
+		auto bgColor = mBgColor & 0xFFFFFF00 | (unsigned char)((mBgColor & 0xFF) * (mOpacity / 255.0));
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor, bgColor);
 	}
 
-	if(mTextCache)
+	if(mTextCache && mFont)
 	{
 		const Vector2f& textSize = mTextCache->metrics.size;
 		float yOff = 0;
@@ -251,6 +241,8 @@ void TextComponent::onTextChanged()
 		addAbbrev = newline != std::string::npos;
 	}
 
+	auto color = mColor & 0xFFFFFF00 | (unsigned char)((mColor & 0xFF) * (mOpacity / 255.0));
+
 	Vector2f size = f->sizeText(text);
 	if(!isMultiline && sx && text.size() && (size.x() > sx || addAbbrev))
 	{
@@ -267,9 +259,9 @@ void TextComponent::onTextChanged()
 
 		text.append(abbrev);
 
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
 	}else{
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
 	}
 }
 
@@ -277,7 +269,8 @@ void TextComponent::onColorChanged()
 {
 	if(mTextCache)
 	{
-		mTextCache->setColor(mColor);
+		auto color = mColor & 0xFFFFFF00 | (unsigned char)((mColor & 0xFF) * (mOpacity / 255.0));
+		mTextCache->setColor(color);
 	}
 }
 
