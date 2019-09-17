@@ -55,7 +55,7 @@ MenuComponent::MenuComponent(Window* window, const char* title, const std::share
 	mGrid.resetCursor();
 }
 
-void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -67,7 +67,7 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 		if (!iconPath.empty())
 		{
 			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow);
+			auto icon = std::make_shared<ImageComponent>(mWindow, true);
 			icon->setImage(iconPath);
 			icon->setColorShift(theme->Text.color);
 			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
@@ -82,6 +82,10 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 
 	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 	row.addElement(comp, false, invert_when_selected);
+
+	if (func != nullptr)
+		row.makeAcceptInputHandler(func);
+
 	addRow(row, setCursorHere);
 }
 
@@ -100,7 +104,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 		if (!iconPath.empty())
 		{
 			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow);
+			auto icon = std::make_shared<ImageComponent>(mWindow, true);
 			icon->setImage(iconPath);
 			icon->setColorShift(theme->Text.color);
 			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
@@ -138,6 +142,13 @@ float MenuComponent::getButtonGridHeight() const
 
 void MenuComponent::updateSize()
 {
+	// GPI
+	if (Renderer::isSmallScreen())
+	{
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		return;
+	}
+
 	const float maxHeight = Renderer::getScreenHeight() * 0.75f;
 	float height = TITLE_HEIGHT + mList->getTotalRowHeight() + getButtonGridHeight() + 2;
 	if(height > maxHeight)

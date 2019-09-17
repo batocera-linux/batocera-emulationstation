@@ -7,6 +7,7 @@
 #include "resources/Font.h"
 #include "GuiComponent.h"
 #include <memory>
+#include <functional>
 
 class AnimatedImageComponent;
 class SystemData;
@@ -36,8 +37,11 @@ struct SystemViewCarousel
 	Vector2f logoRotationOrigin;
 	Alignment logoAlignment;
 	unsigned int color;
+	unsigned int colorEnd;
+	bool colorGradientHorizontal;
 	int maxLogoCount; // number of logos shown on the carousel
 	Vector2f logoSize;
+	Vector2f logoPos;
 	float zIndex;
 };
 
@@ -45,6 +49,7 @@ class SystemView : public IList<SystemViewData, SystemData*>
 {
 public:
 	SystemView(Window* window);
+	~SystemView();
 
 	virtual void onShow() override;
 	virtual void onHide() override;
@@ -64,6 +69,14 @@ protected:
 	void onCursorChanged(const CursorState& state) override;
 
 private:
+	void	 activateExtras(int cursor, bool activate = true);
+	void	 updateExtras(const std::function<void(GuiComponent*)>& func);
+	void	 clearEntries();
+
+	virtual void onScreenSaverActivate() override;
+	virtual void onScreenSaverDeactivate() override;
+	virtual void topWindow(bool isTop) override;
+
 	void populate();
 	void getViewElements(const std::shared_ptr<ThemeData>& theme);
 	void getDefaultElements(void);
@@ -77,6 +90,7 @@ private:
 
 	SystemViewCarousel mCarousel;
 	TextComponent mSystemInfo;
+	ImageComponent*		mStaticBackground;
 
 	// unit is list index
 	float mCamOffset;
@@ -86,6 +100,11 @@ private:
 	bool mViewNeedsReload;
 	bool mShowing;
 	bool launchKodi;
+
+	bool mDisable;
+	bool mScreensaverActive;
+
+	int mLastCursor;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

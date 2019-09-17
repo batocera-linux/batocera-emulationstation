@@ -2,7 +2,6 @@
 
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
-#include "Renderer.h"
 #include "LocaleES.h"
 
 #define TEXT_PADDING_HORIZ 10
@@ -244,6 +243,10 @@ void TextEditComponent::onCursorChanged()
 void TextEditComponent::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = getTransform() * parentTrans;
+
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	renderChildren(trans);
 
 	// text + cursor rendering
@@ -256,8 +259,6 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 	Renderer::pushClipRect(clipPos, clipDim);
 
 	trans.translate(Vector3f(-mScrollOffset.x(), -mScrollOffset.y(), 0));
-	trans.round();
-
 	Renderer::setMatrix(trans);
 
 	if(mTextCache)
@@ -281,7 +282,7 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 		}
 
 		float cursorHeight = mFont->getHeight() * 0.8f;
-		Renderer::drawRect(cursorPos.x(), cursorPos.y() + (mFont->getHeight() - cursorHeight) / 2, 2.0f, cursorHeight, 0x000000FF);
+		Renderer::drawRect(cursorPos.x(), cursorPos.y() + (mFont->getHeight() - cursorHeight) / 2, 2.0f, cursorHeight, 0x000000FF, 0x000000FF);
 	}
 }
 

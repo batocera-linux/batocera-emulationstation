@@ -20,6 +20,8 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid(window, Vector2i(4, 3)), mBusyAnim(window), 
 	mSearchType(type)
 {
+	mBusyAnim.setText(_("SEARCHING"));
+
 	auto theme = ThemeData::getMenuTheme();
 	addChild(&mGrid);
 
@@ -231,8 +233,9 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 	mScraperResults = results;
 
 	auto theme = ThemeData::getMenuTheme();
-	auto font = theme->TextSmall.font;
+	auto font = theme->Text.font;
 	unsigned int color = theme->Text.color;
+
 	if(results.empty())
 	{
 		// Check if the scraper used is still valid
@@ -282,10 +285,10 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 void ScraperSearchComponent::onSearchError(const std::string& error)
 {
 	LOG(LogInfo) << "ScraperSearchComponent search error: " << error;
-	mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::toUpper(error),
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR HAS OCCURED") + " :\n" + Utils::String::toUpper(error),
 				       _("RETRY"), std::bind(&ScraperSearchComponent::search, this, mLastSearch), // batocera
 				       _("SKIP"), mSkipCallback, // batocera
-				       _("CANCEL"), mCancelCallback)); // batocera
+				       _("CANCEL"), mCancelCallback, ICON_ERROR)); // batocera
 }
 
 int ScraperSearchComponent::getSelectedIndex()
@@ -363,9 +366,7 @@ void ScraperSearchComponent::render(const Transform4x4f& parentTrans)
 	if(mBlockAccept)
 	{
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), 0x00000011);
-		//Renderer::drawRect((int)mResultList->getPosition().x(), (int)mResultList->getPosition().y(),
-		//	(int)mResultList->getSize().x(), (int)mResultList->getSize().y(), 0x00000011);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000011, 0x00000011);
 
 		mBusyAnim.render(trans);
 	}
@@ -376,7 +377,7 @@ void ScraperSearchComponent::returnResult(ScraperSearchResult result)
 	mBlockAccept = true;
 
 	// resolve metadata image before returning
-	if(!result.imageUrl.empty())
+	if(result.hadMedia())
 	{
 		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
 		return;

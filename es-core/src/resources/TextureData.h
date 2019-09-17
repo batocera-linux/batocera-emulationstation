@@ -2,10 +2,9 @@
 #ifndef ES_CORE_RESOURCES_TEXTURE_DATA_H
 #define ES_CORE_RESOURCES_TEXTURE_DATA_H
 
-#include "platform.h"
-#include GLHEADER
 #include <mutex>
 #include <string>
+#include "ImageIO.h"
 
 class TextureResource;
 
@@ -52,11 +51,21 @@ public:
 	unsigned char* getDataRGBA() {
 		return mDataRGBA;
 	}
+
+	void setMaxSize(MaxSizeInfo maxSize);
+	bool isMaxSizeValid();
+
+	void setTemporarySize(float width, float height);
+
+	inline const std::string& getPath() { return mPath; };
+
+	bool initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
+
 private:
 	std::mutex		mMutex;
 	bool			mTile;
 	std::string		mPath;
-	GLuint 			mTextureID;
+	unsigned int	mTextureID;
 	unsigned char*	mDataRGBA;
 	size_t			mWidth;
 	size_t			mHeight;
@@ -64,6 +73,12 @@ private:
 	float			mSourceHeight;
 	bool			mScalable;
 	bool			mReloadable;
+
+	MaxSizeInfo		mMaxSize;
+	Vector2i		mPackedSize;
+	Vector2i		mBaseSize;
+
+	bool			mIsExternalDataRGBA;
 };
 
 #endif // ES_CORE_RESOURCES_TEXTURE_DATA_H

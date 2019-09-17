@@ -4,8 +4,8 @@
 
 #include "math/Vector2f.h"
 #include "math/Vector2i.h"
+#include "renderers/Renderer.h"
 #include "resources/ResourceManager.h"
-#include "Renderer.h"
 #include "ThemeData.h"
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -79,7 +79,7 @@ private:
 
 	struct FontTexture
 	{
-		GLuint textureId;
+		unsigned int textureId;
 		Vector2i textureSize;
 
 		Vector2i writePos;
@@ -132,7 +132,7 @@ private:
 
 	int mMaxGlyphHeight;
 	
-	const int mSize;
+	int mSize;
 	const std::string mPath;
 	bool mLoaded;
 
@@ -148,17 +148,11 @@ private:
 class TextCache
 {
 protected:
-	struct Vertex
-	{
-		Vector2f pos;
-		Vector2f tex;
-	};
 
 	struct VertexList
 	{
-		GLuint* textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
-		std::vector<Vertex> verts;
-		std::vector<GLubyte> colors;
+		std::vector<Renderer::Vertex> verts;
+		unsigned int* textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
 	};
 
 	std::vector<VertexList> vertexLists;

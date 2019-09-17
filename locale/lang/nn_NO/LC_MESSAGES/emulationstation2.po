@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "Avbryt"
 msgid "BACK"
 msgstr "TILBAKE"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "LUKK"
 
@@ -58,6 +61,21 @@ msgstr "SORTER SPILL ETTER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ENDRE DETTE SPILLETS METADATA"
 
-msgid "ADVANCED"
-msgstr "AVANSERT"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "OPPDATER SPILLISTER"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "VIL DU VIRKELIG OPPDATERE SPILLISTENE?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "SØK I"
 msgid "SCRAPE RATINGS"
 msgstr "HENT RANGERINGER"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "INGEN"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SØK NÅ"
 
@@ -145,6 +202,36 @@ msgstr "VERSJON"
 msgid "DISK USAGE"
 msgstr "HARDISK BRUK"
 
+msgid "DEVELOPER"
+msgstr "UTVIKLER"
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "VIS BILDEFREKVENS"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -165,6 +252,9 @@ msgstr "SPRÅK"
 
 msgid "OVERCLOCK"
 msgstr "OVERKLOKKING"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "OPPDATERINGER"
@@ -235,9 +325,6 @@ msgstr "AUTO LAGRE/LASTE"
 msgid "SHADERS SET"
 msgstr "SKYGGELEGGER SETT"
 
-msgid "NONE"
-msgstr "INGEN"
-
 msgid "SCANLINES"
 msgstr "LINJESKAN"
 
@@ -289,11 +376,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "STATUS"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "OPPDATER SPILLISTER"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "VIL DU VIRKELIG OPPDATERE SPILLISTENE?"
+msgid "ADVANCED"
+msgstr "AVANSERT"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "KONFIGUER EN KONTROLLER"
@@ -330,23 +414,11 @@ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
 msgid "INPUT P%i"
 msgstr "SETT IN P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "TEMA INSTILLINGER"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -369,16 +441,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "TEMA INSTILLINGER"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -422,9 +512,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "VIS BILDEFREKVENS"
-
 msgid "OVERSCAN"
 msgstr "OVERSKANN"
 
@@ -437,18 +524,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "SYSTEM VOLUM"
 
@@ -456,6 +531,9 @@ msgid "FRONTEND MUSIC"
 msgstr "BAKGRUNNSMUSIKK"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -567,6 +645,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -747,9 +828,6 @@ msgstr "INGEN SPILL MATCHER DISSE KRITERIENE"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -759,11 +837,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "ENDRE METADATA"
+
+msgid "SAVE"
+msgstr "LAGRE"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "SLETT"
 
 msgid "SAVE CHANGES?"
 msgstr "LAGRE ENDRINGER?"
@@ -773,12 +865,6 @@ msgstr "Navn"
 
 msgid "enter game name"
 msgstr "skriv inn spillets navn"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "Beskrivelse"
@@ -873,9 +959,6 @@ msgstr "skriv inn siste gang spilt"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -921,11 +1004,17 @@ msgstr "Utgitt"
 msgid "Times played"
 msgstr "Ganger spilt"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "START"
 
 msgid "OPTIONS"
 msgstr "VALG"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENY"
@@ -933,17 +1022,20 @@ msgstr "MENY"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGEN SPILL FUNNET - HOPP OVER"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "PRØV IGJEN"
 
 msgid "ACCEPT RESULT"
 msgstr "AKSEPTER RESULTAT"
-
-msgid "Loading..."
-msgstr ""
 
 msgid "Loading system config..."
 msgstr ""
@@ -985,6 +1077,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "OPP"
@@ -1050,20 +1165,17 @@ msgstr "TRYKK HVA SOM HELST"
 msgid "ALREADY TAKEN"
 msgstr "ALLEREDE OPPTATT"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SKIFT TEGN"
-
 msgid "SPACE"
 msgstr "Mellomrom"
-
-msgid "DELETE"
-msgstr "SLETT"
 
 msgid "DELETE A CHAR"
 msgstr "SLETT ET TEGN"
 
 msgid "DISCARD CHANGES"
 msgstr "FORKAST ENDRINGER"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SKIFT TEGN"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1146,9 +1258,6 @@ msgstr ""
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "VIS SKJULTE"
 
-#~ msgid "SAVE"
-#~ msgstr "LAGRE"
-
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
 #~ "ARE YOU SURE?"
@@ -1195,9 +1304,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "ANTALL SPILLERE"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "UTVIKLER"
 
 #~ msgid "GENRE"
 #~ msgstr "SJANGER"

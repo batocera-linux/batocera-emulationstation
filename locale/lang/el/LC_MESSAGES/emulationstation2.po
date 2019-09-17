@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "Ακύρωση"
 msgid "BACK"
 msgstr ""
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr ""
 
@@ -58,6 +61,21 @@ msgstr ""
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,7 +85,16 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr ""
 
-msgid "ADVANCED"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr ""
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr ""
+
+msgid "Loading..."
 msgstr ""
 
 msgid "RESET ALL FILTERS"
@@ -121,6 +148,36 @@ msgstr ""
 msgid "SCRAPE RATINGS"
 msgstr ""
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr ""
 
@@ -145,6 +202,36 @@ msgstr ""
 msgid "DISK USAGE"
 msgstr ""
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr ""
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -164,6 +251,9 @@ msgid "LANGUAGE"
 msgstr ""
 
 msgid "OVERCLOCK"
+msgstr ""
+
+msgid "POWER SAVER MODES"
 msgstr ""
 
 msgid "UPDATES"
@@ -235,9 +325,6 @@ msgstr ""
 msgid "SHADERS SET"
 msgstr ""
 
-msgid "NONE"
-msgstr ""
-
 msgid "SCANLINES"
 msgstr ""
 
@@ -289,10 +376,7 @@ msgstr ""
 msgid "STATUS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr ""
-
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "ADVANCED"
 msgstr ""
 
 msgid "CONFIGURE A CONTROLLER"
@@ -325,22 +409,10 @@ msgstr ""
 msgid "INPUT P%i"
 msgstr ""
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
@@ -364,16 +436,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
+msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
 msgstr ""
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -417,9 +507,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr ""
-
 msgid "OVERSCAN"
 msgstr ""
 
@@ -432,18 +519,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr ""
 
@@ -451,6 +526,9 @@ msgid "FRONTEND MUSIC"
 msgstr ""
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -562,6 +640,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -739,9 +820,6 @@ msgstr ""
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -751,10 +829,24 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
+msgstr ""
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
 msgstr ""
 
 msgid "SAVE CHANGES?"
@@ -764,12 +856,6 @@ msgid "Name"
 msgstr ""
 
 msgid "enter game name"
-msgstr ""
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
 msgstr ""
 
 msgid "Description"
@@ -865,9 +951,6 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -913,10 +996,16 @@ msgstr ""
 msgid "Times played"
 msgstr ""
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr ""
 
 msgid "OPTIONS"
+msgstr ""
+
+msgid "Preloading UI"
 msgstr ""
 
 msgid "MENU"
@@ -925,16 +1014,19 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
+msgstr ""
+
+msgid "AN ERROR HAS OCCURED"
 msgstr ""
 
 msgid "RETRY"
 msgstr ""
 
 msgid "ACCEPT RESULT"
-msgstr ""
-
-msgid "Loading..."
 msgstr ""
 
 msgid "Loading system config..."
@@ -977,6 +1069,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr ""
@@ -1042,19 +1157,16 @@ msgstr ""
 msgid "ALREADY TAKEN"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
-msgstr ""
-
-msgid "DELETE"
 msgstr ""
 
 msgid "DELETE A CHAR"
 msgstr ""
 
 msgid "DISCARD CHANGES"
+msgstr ""
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "SHIFT"

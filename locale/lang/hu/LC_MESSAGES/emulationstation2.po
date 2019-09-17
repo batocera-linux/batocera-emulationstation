@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "MÉGSE"
 msgid "BACK"
 msgstr "VISSZA"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "BEZÁR"
 
@@ -58,6 +61,21 @@ msgstr "JÁTÉKOK RENDEZÉSE"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
 
-msgid "ADVANCED"
-msgstr "HALADÓ"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "JÁTÉKLISTA FRISSÍTÉSE"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "BIZTOS FRISSÍTED A JÁTÉK LISTÁT?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "LEKÉRÉS INNEN"
 msgid "SCRAPE RATINGS"
 msgstr "ÉRTÉKELÉSEK LEKÉRÉSE"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "NINCS"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "LEKÉRÉS INDÍTÁSA"
 
@@ -145,6 +202,36 @@ msgstr "VERZIÓ"
 msgid "DISK USAGE"
 msgstr "LEMEZHASZNÁLAT"
 
+msgid "DEVELOPER"
+msgstr "FEJLESZTŐ"
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "FPS MUTATÁSA"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -165,6 +252,9 @@ msgstr "NYELV"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "FRISSÍTÉSEK"
@@ -235,9 +325,6 @@ msgstr "AUTO MENTÉS/TÖLTÉS"
 msgid "SHADERS SET"
 msgstr "SHADER VÁLASZTÁS"
 
-msgid "NONE"
-msgstr "NINCS"
-
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
@@ -289,11 +376,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "STÁTUSZ"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "JÁTÉKLISTA FRISSÍTÉSE"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "BIZTOS FRISSÍTED A JÁTÉK LISTÁT?"
+msgid "ADVANCED"
+msgstr "HALADÓ"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "KONTROLLER KONFIGURÁLÁSA"
@@ -330,23 +414,11 @@ msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
 msgid "INPUT P%i"
 msgstr "BEMENET P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "TÉMAVÁLASZTÁS"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -369,16 +441,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "TÉMAVÁLASZTÁS"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -422,9 +512,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "FPS MUTATÁSA"
-
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -437,18 +524,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "HANGERŐ"
 
@@ -456,6 +531,9 @@ msgid "FRONTEND MUSIC"
 msgstr "HÁTTÉRZENE"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -567,6 +645,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -747,9 +828,6 @@ msgstr "NINCS A FELTÉTELEKNEK MEGFELELŐ JÁTÉK."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -759,11 +837,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
+
+msgid "SAVE"
+msgstr "MENTÉS"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "TÖRLÉS"
 
 msgid "SAVE CHANGES?"
 msgstr "MENTI A VÁLTOZÁSOKAT?"
@@ -773,12 +865,6 @@ msgstr "Név"
 
 msgid "enter game name"
 msgstr "játéknév megadása"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "Leírás"
@@ -873,9 +959,6 @@ msgstr "utolsó játék idejének megadása"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -921,11 +1004,17 @@ msgstr "Kiadva"
 msgid "Times played"
 msgstr "Játszott idő"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "ELINDÍT"
 
 msgid "OPTIONS"
 msgstr "BEÁLLÍTÁSOK"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -933,17 +1022,20 @@ msgstr "MENÜ"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NINCS JÁTÉK - KIHAGYÁS"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "ÚJRA"
 
 msgid "ACCEPT RESULT"
 msgstr "EREDMÉNYEK MENTÉSE"
-
-msgid "Loading..."
-msgstr ""
 
 msgid "Loading system config..."
 msgstr ""
@@ -985,6 +1077,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "FEL"
@@ -1050,20 +1165,17 @@ msgstr "NYOMJ LE EGY GOMBOT"
 msgid "ALREADY TAKEN"
 msgstr "MÁR BE VAN ÁLLÍTVA"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
-
 msgid "SPACE"
 msgstr "SZÓKÖZ"
-
-msgid "DELETE"
-msgstr "TÖRLÉS"
 
 msgid "DELETE A CHAR"
 msgstr "KARAKTER TÖRLÉSE"
 
 msgid "DISCARD CHANGES"
 msgstr "MÓDOSÍTÁSOK ELVETÉSE"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1146,9 +1258,6 @@ msgstr ""
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "REJTETT MUTATÁSA"
 
-#~ msgid "SAVE"
-#~ msgstr "MENTÉS"
-
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
 #~ "ARE YOU SURE?"
@@ -1202,9 +1311,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "JÁTÉKOSOK SZÁMA"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "FEJLESZTŐ"
 
 #~ msgid "GENRE"
 #~ msgstr "MŰFAJ"

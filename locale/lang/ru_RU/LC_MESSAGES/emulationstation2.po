@@ -2,15 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
-"Language-Team: \n"
+"Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -50,6 +49,9 @@ msgstr "ОТМЕНА"
 msgid "BACK"
 msgstr "НАЗАД"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
 
@@ -62,8 +64,23 @@ msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 msgid "FILTER GAMELIST"
 msgstr "ФИЛЬТР СПИСКА ИГР"
 
+msgid "GAMELIST VIEW STYLE"
+msgstr "ВИД СПИСКА ИГР"
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "ДОБАВИТЬ / УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
+msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
@@ -71,11 +88,20 @@ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
-msgid "ADVANCED"
-msgstr "ДОПОЛНИТЕЛЬНО"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+
+msgid "Loading..."
+msgstr "Загрузка..."
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -114,7 +140,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "INFORMATIONS"
-msgstr "МЕТАДАННЫЕ"
+msgstr "ДАННЫЕ"
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -124,6 +150,36 @@ msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "НЕТ"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -149,6 +205,36 @@ msgstr "ВЕРСИЯ"
 msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr "ЛИМИТ VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr "THREADED ЗАГРУЗКА"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
@@ -170,6 +256,9 @@ msgstr "ЯЗЫК"
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
 
+msgid "POWER SAVER MODES"
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
+
 msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
 
@@ -177,7 +266,7 @@ msgid "THEMES"
 msgstr "ТЕМЫ"
 
 msgid "THE BEZEL PROJECT"
-msgstr "ПРОЕКТ РАМКИ"
+msgstr "НАБОР РАМКОК (ОВЕРЛЕЕВ)"
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -239,9 +328,6 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
 
-msgid "NONE"
-msgstr "НЕТ"
-
 msgid "SCANLINES"
 msgstr "ЧЕРЕССТРОЧНОСТЬ"
 
@@ -252,7 +338,7 @@ msgid "ENHANCED"
 msgstr "РАСШИРЕННЫЙ"
 
 msgid "CURVATURE"
-msgstr ""
+msgstr "КРИВИЗНА"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -293,11 +379,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+msgid "ADVANCED"
+msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
@@ -328,11 +411,41 @@ msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "ССЫЛКИ КОНТРОЛЛЕРОВ БЫЛИ УДАЛЕНЫ."
+msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 
 #, c-format
 msgid "INPUT P%i"
 msgstr "ВВОД P%i"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
+
+msgid "THEME CONFIGURATION"
+msgstr "НАСТРОКА ТЕМЫ"
+
+msgid "THEME COLORSET"
+msgstr "ЦВЕТ ТЕМЫ"
+
+msgid "THEME ICONSET"
+msgstr "ИКОНКИ ТЕМЫ"
+
+msgid "THEME MENU"
+msgstr "МЕНЮ ТЕМЫ"
+
+msgid "THEME SYSTEMVIEW"
+msgstr "ТЕМА СПИСКА СИСТЕМ"
+
+msgid "THEME GAMELISTVIEW"
+msgstr "ТЕМА СПИСКА ИГР"
+
+msgid "THEME REGION"
+msgstr "РЕГИОН ТЕМЫ"
+
+msgid "DEFAULT GRID SIZE"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
@@ -348,7 +461,7 @@ msgstr ""
 "Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
 
 msgid "Do you want to proceed ?"
-msgstr "Вы хотите продолжить ?"
+msgstr "Вы хотите продолжить?"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
@@ -356,38 +469,14 @@ msgstr "ВИДЕО ВЫВОД"
 msgid "THEME SET"
 msgstr "ТЕМА"
 
-msgid "THEME CONFIGURATION"
-msgstr ""
-
-msgid "THEME COLORSET"
-msgstr ""
-
-msgid "THEME ICONSET"
-msgstr ""
-
-msgid "THEME MENU"
-msgstr ""
-
-msgid "THEME SYSTEMVIEW"
-msgstr ""
-
-msgid "THEME GAMELISTVIEW"
-msgstr ""
-
-msgid "THEME REGION"
-msgstr ""
-
-msgid "THIS THEME HAS NO OPTION"
-msgstr ""
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "ВИД СПИСКА ИГР"
-
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -434,9 +523,6 @@ msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
 
-msgid "SHOW FRAMERATE"
-msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
-
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
@@ -449,18 +535,6 @@ msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
-msgid "SHOW HIDDEN FILES"
-msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
-
-msgid "VRAM LIMIT"
-msgstr "ЛИМИТ VRAM"
-
-msgid "POWER SAVER MODES"
-msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
 
@@ -470,11 +544,14 @@ msgstr "МУЗЫКА В МЕНЮ"
 msgid "DISPLAY SONG TITLES"
 msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
 
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
+
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "ТОЛЬКО МУЗЫКА ИЗ СИСТЕМНОЙ ПАПКИ"
+msgstr "МУЗЫКА ИЗ ПАПКИ СИСТЕМ"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
@@ -537,10 +614,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "ВЫЙТИ СЕЙЧАС?"
 
 msgid "Emulator"
 msgstr "Эмулятор"
@@ -580,6 +657,9 @@ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
@@ -666,16 +746,16 @@ msgid "UNINSTALL BEZELS"
 msgstr "УДАЛИТЬ РАМКИ (ОВЕРЛЕИ)"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr "УСТАНОВИТЬ ПРОЕКТ РАМКИ"
+msgstr "УСТАНОВИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr "ВЫБЕРИТЕ СИСТЕМУ, В КОТОРОЙ РАМКИ БУДУТ УСТАНОВЛЕНЫ"
+msgstr "В КАКУЮ СИСТЕМУ УСТАНОВИТЬ РАМКИ?"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "УДАЛИТЬ ПРОЕКТ РАМКИ"
+msgstr "УДАЛИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "ВЫБЕРИТЕ СИСТЕМУ, ГДЕ РАМКИ БУДУТ УДАЛЕНЫ"
+msgstr "ИЗ КАКОЙ СИСТЕМЫ УДАЛИТЬ РАМКИ?"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
@@ -764,9 +844,6 @@ msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "ВЫБОР СИСТЕМЫ ДЛЯ ОТОБРАЖЕНИЯ"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
-
 msgid "APPLY"
 msgstr "ПРИМЕНИТЬ"
 
@@ -776,11 +853,25 @@ msgstr "ВЕРНУТЬ"
 msgid "VALIDATE"
 msgstr "ПОДТВЕРДИТЬ"
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "ВЫБРАТЬ ТЕМУ"
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "УДАЛИТЬ"
 
 msgid "SAVE CHANGES?"
 msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
@@ -790,12 +881,6 @@ msgstr "Название"
 
 msgid "enter game name"
 msgstr "введите название игры"
-
-msgid "Sort name"
-msgstr "Название для сортировки"
-
-msgid "enter game sort name"
-msgstr "введите название для сортируемой игры"
 
 msgid "Description"
 msgstr "Описание"
@@ -890,9 +975,6 @@ msgstr "введите дату последнего запуска"
 msgid "name"
 msgstr "название"
 
-msgid "sortname"
-msgstr "название для сортировки"
-
 msgid "description"
 msgstr "описание"
 
@@ -939,29 +1021,38 @@ msgstr "Выход"
 msgid "Times played"
 msgstr "Сыграно раз"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
+msgid "Preloading UI"
+msgstr ""
+
 msgid "MENU"
 msgstr "МЕНЮ"
 
 msgid "Favorites"
+msgstr "Избранное"
+
+msgid "SEARCHING"
 msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
-
-msgid "Loading..."
-msgstr "Загрузка..."
 
 msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
@@ -1003,6 +1094,31 @@ msgstr "'%s' добавлено в '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "'%s' удалено из '%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1073,20 +1189,17 @@ msgstr "НАЖМИТЕ ЛЮБУЮ КНОПКУ"
 msgid "ALREADY TAKEN"
 msgstr "УЖЕ ЗАНЯТО"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
-
 msgid "SPACE"
 msgstr "ПРОБЕЛ"
-
-msgid "DELETE"
-msgstr "УДАЛИТЬ"
 
 msgid "DELETE A CHAR"
 msgstr "УДАЛИТЬ СИМВОЛ"
 
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1123,19 +1236,19 @@ msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
 msgid "accept"
-msgstr ""
+msgstr "принять"
 
 msgid "SELECT ALL"
 msgstr "ВЫБРАТЬ ВСЕ"
 
 msgid "select all"
-msgstr ""
+msgstr "выбрать все"
 
 msgid "SELECT NONE"
 msgstr "СНЯТЬ ВЫБОР"
 
 msgid "select none"
-msgstr ""
+msgstr "снять выбор"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1151,191 +1264,19 @@ msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
-msgstr ""
+msgstr "вверх/вниз"
 
-#~ msgid "FINNISHED"
-#~ msgstr "ЗАВЕРШЕНО"
+#~ msgid "THIS THEME HAS NO OPTION"
+#~ msgstr "ТЕМА НЕ ИМЕЕТ НАСТРОЕК"
 
-#~ msgid "THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "СЕЙЧАС СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "ПОКАЗАТЬ / СКРЫТЬ СИСТЕМЫ"
 
-#~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-#~ msgstr "НЕОБХОДИМО ПЕРЕЗАГРУЗИТЬ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ НАСТРОЙКИ."
+#~ msgid "Sort name"
+#~ msgstr "Название для сортировки"
 
-#~ msgid "PRESS F4 TO QUIT AT ANY TIME."
-#~ msgstr "ДЛЯ ВЫХОДА В ЛЮБОЕ ВРЕМЯ НАЖМИТЕ F4."
+#~ msgid "enter game sort name"
+#~ msgstr "введите название для сортируемой игры"
 
-#~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-#~ msgstr "ДЛЯ ОТМЕНЫ НАЖМИТЕ ESC ИЛИ ГОРЯЧУЮ КНОПКУ."
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "ПЕРЕЙТИ К БУКВЕ"
-
-#~ msgid "FAVORITES ONLY"
-#~ msgstr "ТОЛЬКО ИЗБРАННЫЕ"
-
-#~ msgid "SHOW HIDDEN"
-#~ msgstr "ПОКАЗЫВАТЬ СКРЫТЫЕ"
-
-#~ msgid "SAVE"
-#~ msgstr "СОХРАНИТЬ"
-
-#~ msgid ""
-#~ "THIS WILL DELETE A FILE!\n"
-#~ "ARE YOU SURE?"
-#~ msgstr ""
-#~ "ФАЙЛ БУДЕТ УДАЛЕН!\n"
-#~ "ВЫ УВЕРЕНЫ?"
-
-#~ msgid "enter emulator"
-#~ msgstr "введите эмулятор"
-
-#~ msgid "enter core"
-#~ msgstr "введите ядро"
-
-#~ msgid "Ratio"
-#~ msgstr "Пропорции"
-
-#~ msgid "enter ratio"
-#~ msgstr "введите пропорции"
-
-#~ msgid "Region"
-#~ msgstr "Регион"
-
-#~ msgid "enter region"
-#~ msgstr "введите регион"
-
-#~ msgid "Romtype"
-#~ msgstr "Тип рома"
-
-#~ msgid "enter romtype"
-#~ msgstr "введите тип рома"
-
-#~ msgid "%i FAVORITE"
-#~ msgid_plural "%i FAVORITES"
-#~ msgstr[0] "%i В ИЗБРАННЫХ"
-#~ msgstr[1] "%i В ИЗБРАННЫХ"
-#~ msgstr[2] "%i В ИЗБРАННЫХ"
-
-#~ msgid "%i GAME HIDDEN"
-#~ msgid_plural "%i GAMES HIDDEN"
-#~ msgstr[0] "%i ИГРА СКРЫТА"
-#~ msgstr[1] "%i ИГРЫ СКРЫТО"
-#~ msgstr[2] "%i ИГР СКРЫТО"
-
-#~ msgid "SCROLL"
-#~ msgstr "ЛИСТАТЬ"
-
-#~ msgid "FILENAME"
-#~ msgstr "ИМЯ ФАЙЛА"
-
-#~ msgid "RATING"
-#~ msgstr "РЕЙТИНГ"
-
-#~ msgid "TIMES PLAYED"
-#~ msgstr "СЫГРАНО РАЗ"
-
-#~ msgid "LAST PLAYED"
-#~ msgstr "ПОСЛЕДНИЙ ЗАПУСК"
-
-#~ msgid "NUMBER OF PLAYERS"
-#~ msgstr "КОЛИЧЕСТВО ИГРОКОВ"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "РАЗРАБОТЧИК"
-
-#~ msgid "GENRE"
-#~ msgstr "ЖАНР"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "ПОИСК ПО"
-
-#~ msgid "JOYSTICK 1 UP"
-#~ msgstr "ДЖОЙСТИК 1 ВВЕРХ"
-
-#~ msgid "JOYSTICK 1 LEFT"
-#~ msgstr "ДЖОЙСТИК 1 ВЛЕВО"
-
-#~ msgid "JOYSTICK 2 UP"
-#~ msgstr "ДЖОЙСТИК 2 ВВЕРХ"
-
-#~ msgid "JOYSTICK 2 LEFT"
-#~ msgstr "ДЖОЙСТИК 2 ВЛЕВО"
-
-#~ msgid "PAGE UP"
-#~ msgstr "СТРАНИЦА ВВЕРХ"
-
-#~ msgid "PAGE DOWN"
-#~ msgstr "СТРАНИЦА ВНИЗ"
-
-#~ msgid "LOADING..."
-#~ msgstr "ЗАГРУЗКА..."
-
-#~ msgid "PLEASE WAIT..."
-#~ msgstr "ПОДОЖДИТЕ, ПОЖАЛУЙСТА..."
-
-#~ msgid "never"
-#~ msgstr "никогда"
-
-#~ msgid "just now"
-#~ msgstr "только что"
-
-#~ msgid "%i sec ago"
-#~ msgid_plural "%i secs ago"
-#~ msgstr[0] "%i секунда назад"
-#~ msgstr[1] "%i секунды назад"
-#~ msgstr[2] "%i секунд назад"
-
-#~ msgid "%i min ago"
-#~ msgid_plural "%i mins ago"
-#~ msgstr[0] "%i минута назад"
-#~ msgstr[1] "%i минуты назад"
-#~ msgstr[2] "%i минут назад"
-
-#~ msgid "%i hour ago"
-#~ msgid_plural "%i hours ago"
-#~ msgstr[0] "%i час назад"
-#~ msgstr[1] "%i часа назад"
-#~ msgstr[2] "%i часов назад"
-
-#~ msgid "%i day ago"
-#~ msgid_plural "%i days ago"
-#~ msgstr[0] "%i день назад"
-#~ msgstr[1] "%i дня назад"
-#~ msgstr[2] "%i дней назад"
-
-#~ msgid "unknown"
-#~ msgstr "неизвестно"
-
-#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-#~ msgstr "ДОСТУПНО ОБНОВЛЕНИЕ ДЛЯ BATOCERA.LINUX"
-
-#~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "ЭКСТРИМ (1100Mhz)"
-
-#~ msgid "TURBO (1000Mhz)"
-#~ msgstr "ТУРБО (1000Mhz)"
-
-#~ msgid "HIGH (950Mhz)"
-#~ msgstr "ВЫСОКИЙ (950Mhz)"
-
-#~ msgid "HIGH (1050Mhz)"
-#~ msgstr "ВЫСОКИЙ (1050Mhz)"
-
-#~ msgid "NONE (900Mhz)"
-#~ msgstr "НЕТ (900Mhz)"
-
-#~ msgid "EXTREM (1350Mhz)"
-#~ msgstr "ЭКСТРИМ (1350Mhz)"
-
-#~ msgid "TURBO (1325Mhz)+"
-#~ msgstr "ТУРБО (1325Mhz)+"
-
-#~ msgid "HIGH (1300Mhz)"
-#~ msgstr "ВЫСОКИЙ (1300Mhz)"
-
-#~ msgid "NONE (1200Mhz)"
-#~ msgstr "НЕТ (1200Mhz)"
-
-#~ msgid "NO CONTROLLERS FOUND"
-#~ msgstr "КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
+#~ msgid "sortname"
+#~ msgstr "название для сортировки"

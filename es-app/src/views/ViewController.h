@@ -2,14 +2,15 @@
 #ifndef ES_APP_VIEWS_VIEW_CONTROLLER_H
 #define ES_APP_VIEWS_VIEW_CONTROLLER_H
 
+#include "renderers/Renderer.h"
 #include "FileData.h"
 #include "GuiComponent.h"
-#include "Renderer.h"
 #include <vector>
 
 class IGameListView;
 class SystemData;
 class SystemView;
+class Window;
 
 // Used to smoothly transition the camera between multiple views (e.g. from system to system, from gamelist to gamelist).
 class ViewController : public GuiComponent
@@ -28,14 +29,15 @@ public:
 	// the current gamelist view (as it may change to be detailed).
 	void reloadGameListView(IGameListView* gamelist, bool reloadTheme = false);
 	inline void reloadGameListView(SystemData* system, bool reloadTheme = false) { reloadGameListView(getGameListView(system).get(), reloadTheme); }
-	void reloadAll(); // Reload everything with a theme.  Used when the "ThemeSet" setting changes.
+	void reloadAll(Window* window = nullptr); // Reload everything with a theme.  Used when the "ThemeSet" setting changes.
 
 	// Navigation.
 	void goToNextGameList();
 	void goToPrevGameList();
-	void goToGameList(SystemData* system);
-	void goToSystemView(SystemData* system);
-	void goToStart();
+	void goToGameList(SystemData* system, bool forceImmediate = false);
+	bool goToGameList(std::string& systemName, bool forceImmediate = false);
+	void goToSystemView(SystemData* system, bool forceImmediate = false);
+	void goToStart(bool forceImmediate = false);
 	void ReloadAndGoToStart();
 
 	void onFileChanged(FileData* file, FileChangeType change);
@@ -81,7 +83,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual HelpStyle getHelpStyle() override;
 
-	std::shared_ptr<IGameListView> getGameListView(SystemData* system);
+	std::shared_ptr<IGameListView> getGameListView(SystemData* system, bool loadIfnull = true);
 	std::shared_ptr<SystemView> getSystemListView();
 	void removeGameListView(SystemData* system);
 
@@ -89,7 +91,7 @@ private:
 	ViewController(Window* window);
 	static ViewController* sInstance;
 
-	void playViewTransition();
+	void playViewTransition(bool forceImmediate);
 	int getSystemId(SystemData* system);
 	
 	std::shared_ptr<GuiComponent> mCurrentView;

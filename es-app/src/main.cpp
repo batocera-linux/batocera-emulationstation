@@ -267,7 +267,7 @@ int setLocale(char * argv1)
 #else
 	std::string abs_exe_path;
 	char *p;
-
+	int unused; //remove a warning when using chdir
 
 	if (!(p = strrchr(argv1, '/'))) {
 		abs_exe_path = Utils::FileSystem::getCWDPath();
@@ -275,9 +275,9 @@ int setLocale(char * argv1)
 	else 
 	{
 		std::string path_save = Utils::FileSystem::getCWDPath();
-		chdir(argv1);
+		unused = chdir(argv1);
 		abs_exe_path = Utils::FileSystem::getCWDPath();
-		chdir(path_save.c_str());
+		unused = chdir(path_save.c_str());
 	}
 
 	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global();
@@ -358,8 +358,7 @@ int main(int argc, char* argv[])
 		return 1;
 
 	//start the logger
-	Log::init();
-	Log::open();
+	Log::init();	
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
 	//always close the log on exit
@@ -368,7 +367,7 @@ int main(int argc, char* argv[])
 	// Set locale
 	setLocale(argv[0]); // batocera
 	// metadata init    // batocera
-	initMetadata();     // require locale
+	MetaDataList::initMetadata();     // require locale
 
 	Window window;
 	SystemScreenSaver screensaver(&window);
@@ -389,9 +388,6 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 
-		std::string glExts = (const char*)glGetString(GL_EXTENSIONS);
-		LOG(LogInfo) << "Checking available OpenGL extensions...";
-		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 		if(splashScreen)
 		{
 		  std::string progressText = _("Loading..."); // batocera
@@ -435,14 +431,11 @@ int main(int argc, char* argv[])
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
 #ifndef WIN32
-    // batocera
+	// batocera
 	// UPDATE CHECK THREAD
 	if(systemConf->get("updates.enabled") == "1")
 		NetworkThread * nthread = new NetworkThread(&window);
 #endif
-
-	// Batocera: display music names
-	// SongNameThread * songthread = new SongNameThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)
@@ -469,9 +462,9 @@ int main(int argc, char* argv[])
 	{
 		if(Utils::FileSystem::exists(InputManager::getConfigPath()) && InputManager::getInstance()->getNumConfiguredDevices() > 0)
 		{
-			ViewController::get()->goToStart();
+			ViewController::get()->goToStart(true);
 		}else{
-			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(); }));
+			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(true); }));
 		}
 	}
 
@@ -482,6 +475,8 @@ int main(int argc, char* argv[])
 
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
+
+	window.endRenderLoadingScreen();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
@@ -497,6 +492,10 @@ int main(int argc, char* argv[])
 
 		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
 		{
+			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
+			// Reset this event's state
+			PowerSaver::resetRefreshEvent();
+
 			do
 			{
 				InputManager::getInstance()->parseEvent(event, &window);

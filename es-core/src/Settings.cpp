@@ -9,6 +9,7 @@
 #include <vector>
 
 Settings* Settings::sInstance = NULL;
+static std::string mEmptyString = "";
 
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
@@ -24,7 +25,7 @@ std::vector<const char*> settings_dont_save {
 	{ "ShowExit" },
 	{ "SplashScreen" },
 	{ "SplashScreenProgress" },
-	{ "VSync" },
+	// { "VSync" },
 	{ "FullscreenBorderless" },
 	{ "Windowed" },
 	{ "WindowWidth" },
@@ -52,6 +53,7 @@ Settings* Settings::getInstance()
 
 void Settings::setDefaults()
 {
+	mWasChanged = false;
 	mBoolMap.clear();
 	mIntMap.clear();
 
@@ -64,11 +66,13 @@ void Settings::setDefaults()
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
+	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "";
 
         // batocera
         mBoolMap["UseOSK"] = true; // on screen keyboard
         mBoolMap["DrawClock"] = true;
+		mBoolMap["ShowControllerActivity"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
         mStringMap["Lang"] = "en_US";
@@ -80,6 +84,7 @@ void Settings::setDefaults()
         mStringMap["Overclock"] = "none";
 
 		mBoolMap["VSync"] = true;
+		mBoolMap["FlatFolders"] = false;		
 
     mBoolMap["EnableSounds"] = false; // batocera
 	mBoolMap["ShowHelpPrompts"] = true;
@@ -98,17 +103,27 @@ void Settings::setDefaults()
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 400;
 	mIntMap["ScraperResizeHeight"] = 0;
+
+#if defined(_WIN32)
+	mIntMap["MaxVRAM"] = 256;
+#else
 	#ifdef _RPI_
 		mIntMap["MaxVRAM"] = 80;
 	#else
 		mIntMap["MaxVRAM"] = 100;
 	#endif
+#endif
 
 	mStringMap["TransitionStyle"] = "slide"; // batocera
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
-	mStringMap["Scraper"] = "TheGamesDB";
 	mStringMap["GamelistViewStyle"] = "automatic";
+
+	mStringMap["Scraper"] = "ScreenScraper";
+	mStringMap["ScrapperImageSrc"] = "box-2D";
+	mStringMap["ScrapperThumbSrc"] = "";
+	mBoolMap["ScrapeMarquee"] = false;
+	mBoolMap["ScrapeVideos"] = false;
 
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";
@@ -168,10 +183,16 @@ void Settings::setDefaults()
 	mStringMap["ThemeMenu"] = "";
 	mStringMap["ThemeSystemView"] = "";
 	mStringMap["ThemeGamelistView"] = "";
-	mStringMap["ThemeRegionName"] = "eu";
+	mStringMap["ThemeRegionName"] = "";
+	mStringMap["DefaultGridSize"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
-
+	mBoolMap["AsyncImages"] = true;	
+	mBoolMap["PreloadUI"] = false;
+	mBoolMap["OptimizeVRAM"] = true;
+	mBoolMap["EnableLogging"] = true;
+	mBoolMap["OptimizeVideo"] = true;
+	
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;
 	mIntMap["ScreenWidth"]   = 0;
@@ -179,16 +200,31 @@ void Settings::setDefaults()
 	mIntMap["ScreenOffsetX"] = 0;
 	mIntMap["ScreenOffsetY"] = 0;
 	mIntMap["ScreenRotate"]  = 0;
+
+	mStringMap["INPUT P1NAME"] = "DEFAULT";
+	mStringMap["INPUT P2NAME"] = "DEFAULT";
+	mStringMap["INPUT P3NAME"] = "DEFAULT";
+	mStringMap["INPUT P4NAME"] = "DEFAULT";
+	mStringMap["INPUT P5NAME"] = "DEFAULT";
+
+	mDefaultBoolMap = mBoolMap;
+	mDefaultIntMap = mIntMap;
+	mDefaultFloatMap = mFloatMap;
+	mDefaultStringMap = mStringMap;
 }
 
 // batocera
 template <typename K, typename V>
-void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type)
+void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::map<K, V>& defaultMap)
 {
 	for(auto iter = map.cbegin(); iter != map.cend(); iter++)
 	{
 		// key is on the "don't save" list, so don't save it
 		if(std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), iter->first) != settings_dont_save.cend())
+			continue;
+
+		auto def = defaultMap.find(iter->first);
+		if (def != defaultMap.cend() && def->second == iter->second)
 			continue;
 
 		pugi::xml_node parent_node= node.append_child(type);
@@ -198,8 +234,13 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type)
 }
 
 // batocera
-void Settings::saveFile()
+bool Settings::saveFile()
 {
+	if (!mWasChanged)
+		return false;
+
+	mWasChanged = false;
+
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
 
 	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
@@ -208,13 +249,26 @@ void Settings::saveFile()
 
 	pugi::xml_node config = doc.append_child("config"); // batocera, root element
 
-	saveMap<std::string, bool>(config, mBoolMap, "bool");
-	saveMap<std::string, int>(config, mIntMap, "int");
-	saveMap<std::string, float>(config, mFloatMap, "float");
+	saveMap<std::string, bool>(config, mBoolMap, "bool", mDefaultBoolMap);
+	saveMap<std::string, int>(config, mIntMap, "int", mDefaultIntMap);
+	saveMap<std::string, float>(config, mFloatMap, "float", mDefaultFloatMap);
 
 	//saveMap<std::string, std::string>(config, mStringMap, "string");
 	for(auto iter = mStringMap.cbegin(); iter != mStringMap.cend(); iter++)
 	{
+		// key is on the "don't save" list, so don't save it
+		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), iter->first) != settings_dont_save.cend())
+			continue;
+
+		// Value is not known, and empty, don't save it
+		auto def = mDefaultStringMap.find(iter->first);
+		if (def == mDefaultStringMap.cend() && iter->second.empty())
+			continue;
+
+		// Value is know and has default value, don't save it
+		if (def != mDefaultStringMap.cend() && def->second == iter->second)
+			continue;
+
 		pugi::xml_node node = config.append_child("string");
 		node.append_attribute("name").set_value(iter->first.c_str());
 		node.append_attribute("value").set_value(iter->second.c_str());
@@ -224,6 +278,8 @@ void Settings::saveFile()
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
+
+	return true;
 }
 
 void Settings::loadFile()
@@ -240,45 +296,49 @@ void Settings::loadFile()
 		return;
 	}
 
-    // batocera
-    pugi::xml_node config = doc.child("config");
-    if(config) { /* correct file format, having a config root node */
-	for(pugi::xml_node node = config.child("bool"); node; node = node.next_sibling("bool"))
-		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
-	for(pugi::xml_node node = config.child("int"); node; node = node.next_sibling("int"))
-		setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
-	for(pugi::xml_node node = config.child("float"); node; node = node.next_sibling("float"))
-		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
-	for(pugi::xml_node node = config.child("string"); node; node = node.next_sibling("string"))
-		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
-    } else { /* the old format, without the root config node -- keep for a transparent upgrade */
-	for(pugi::xml_node node = doc.child("bool"); node; node = node.next_sibling("bool"))
-		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
-	for(pugi::xml_node node = doc.child("int"); node; node = node.next_sibling("int"))
-		setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
-	for(pugi::xml_node node = doc.child("float"); node; node = node.next_sibling("float"))
-		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
-	for(pugi::xml_node node = doc.child("string"); node; node = node.next_sibling("string"))
-		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
+	pugi::xml_node root = doc;
 
-    }
+	// Batocera use a <config> root element
+	pugi::xml_node config = doc.child("config");
+	if (config)
+		root = config;
+
+	for(pugi::xml_node node = root.child("bool"); node; node = node.next_sibling("bool"))
+		setBool(node.attribute("name").as_string(), node.attribute("value").as_bool());
+	for(pugi::xml_node node = root.child("int"); node; node = node.next_sibling("int"))
+		setInt(node.attribute("name").as_string(), node.attribute("value").as_int());
+	for(pugi::xml_node node = root.child("float"); node; node = node.next_sibling("float"))
+		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
+	for(pugi::xml_node node = root.child("string"); node; node = node.next_sibling("string"))
+		setString(node.attribute("name").as_string(), node.attribute("value").as_string());    
+
+	mWasChanged = false;
 }
 
 //Print a warning message if the setting we're trying to get doesn't already exist in the map, then return the value in the map.
-#define SETTINGS_GETSET(type, mapName, getMethodName, setMethodName) type Settings::getMethodName(const std::string& name) \
+#define SETTINGS_GETSET(type, mapName, getMethodName, setMethodName, defaultValue) type Settings::getMethodName(const std::string& name) \
 { \
 	if(mapName.find(name) == mapName.cend()) \
 	{ \
-		LOG(LogError) << "Tried to use unset setting " << name << "!"; \
+		/* LOG(LogError) << "Tried to use unset setting " << name << "!"; */ \
+		return defaultValue; \
 	} \
 	return mapName[name]; \
 } \
-void Settings::setMethodName(const std::string& name, type value) \
+bool Settings::setMethodName(const std::string& name, type value) \
 { \
-	mapName[name] = value; \
+	if (mapName.count(name) == 0 || mapName[name] != value) { \
+		mapName[name] = value; \
+\
+		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend()) \
+			mWasChanged = true; \
+\
+		return true; \
+	} \
+	return false; \
 }
 
-SETTINGS_GETSET(bool, mBoolMap, getBool, setBool);
-SETTINGS_GETSET(int, mIntMap, getInt, setInt);
-SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat);
-SETTINGS_GETSET(const std::string&, mStringMap, getString, setString);
+SETTINGS_GETSET(bool, mBoolMap, getBool, setBool, false);
+SETTINGS_GETSET(int, mIntMap, getInt, setInt, 0);
+SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat, 0.0f);
+SETTINGS_GETSET(const std::string&, mStringMap, getString, setString, mEmptyString);

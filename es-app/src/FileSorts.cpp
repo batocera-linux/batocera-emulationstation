@@ -1,55 +1,50 @@
 #include "FileSorts.h"
 
 #include "utils/StringUtil.h"
+#include "LocaleES.h"
 
 namespace FileSorts
 {
-	const FileData::SortType typesArr[] = {
-		FileData::SortType(&compareName, true, "filename, ascending"),
-		FileData::SortType(&compareName, false, "filename, descending"),
+	const FolderData::SortType typesArr[] = {
+		FolderData::SortType(&compareName, true, "Filename, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&compareName, false, "Filename, descending", _U("\uF15e ")),
 
-		FileData::SortType(&compareRating, true, "rating, ascending"),
-		FileData::SortType(&compareRating, false, "rating, descending"),
+		FolderData::SortType(&compareRating, true, "Rating, Ascending", _U("\uF165 ")),
+		FolderData::SortType(&compareRating, false, "Rating, Descending", _U("\uF164 ")),
 
-		FileData::SortType(&compareTimesPlayed, true, "times played, ascending"),
-		FileData::SortType(&compareTimesPlayed, false, "times played, descending"),
+		FolderData::SortType(&compareTimesPlayed, true, "Times played, Ascending", _U("\uF160 ")),
+		FolderData::SortType(&compareTimesPlayed, false, "Times played, Descending", _U("\uF161 ")),
 
-		FileData::SortType(&compareLastPlayed, true, "last played, ascending"),
-		FileData::SortType(&compareLastPlayed, false, "last played, descending"),
+		FolderData::SortType(&compareLastPlayed, true, "Last played, Ascending", _U("\uF160 ")),
+		FolderData::SortType(&compareLastPlayed, false, "Last played, Descending", _U("\uF161 ")),
 
-		FileData::SortType(&compareNumPlayers, true, "number players, ascending"),
-		FileData::SortType(&compareNumPlayers, false, "number players, descending"),
+		FolderData::SortType(&compareNumPlayers, true, "Number players, Ascending", _U("\uF162 ")),
+		FolderData::SortType(&compareNumPlayers, false, "Number players, Descending", _U("\uF163 ")),
 
-		FileData::SortType(&compareReleaseDate, true, "release date, ascending"),
-		FileData::SortType(&compareReleaseDate, false, "release date, descending"),
+		FolderData::SortType(&compareReleaseDate, true, "Release date, Ascending"),
+		FolderData::SortType(&compareReleaseDate, false, "Release date, Descending"),
 
-		FileData::SortType(&compareGenre, true, "genre, ascending"),
-		FileData::SortType(&compareGenre, false, "genre, descending"),
+		FolderData::SortType(&compareGenre, true, "Genre, Ascending"),
+		FolderData::SortType(&compareGenre, false, "Genre, Descending"),
 
-		FileData::SortType(&compareDeveloper, true, "developer, ascending"),
-		FileData::SortType(&compareDeveloper, false, "developer, descending"),
+		FolderData::SortType(&compareDeveloper, true, "Developer, Ascending"),
+		FolderData::SortType(&compareDeveloper, false, "Developer, Descending"),
 
-		FileData::SortType(&comparePublisher, true, "publisher, ascending"),
-		FileData::SortType(&comparePublisher, false, "publisher, descending"),
+		FolderData::SortType(&comparePublisher, true, "Publisher, Ascending"),
+		FolderData::SortType(&comparePublisher, false, "Publisher, Descending"),
 
-		FileData::SortType(&compareSystem, true, "system, ascending"),
-		FileData::SortType(&compareSystem, false, "system, descending")
+		FolderData::SortType(&compareSystem, true, "System, Ascending"),
+		FolderData::SortType(&compareSystem, false, "System, Descending")
 	};
 
-	const std::vector<FileData::SortType> SortTypes(typesArr, typesArr + sizeof(typesArr)/sizeof(typesArr[0]));
+	const std::vector<FolderData::SortType> SortTypes(typesArr, typesArr + sizeof(typesArr)/sizeof(typesArr[0]));
 
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		std::string name1 = Utils::String::toUpper(file1->metadata.get("sortname"));
-		std::string name2 = Utils::String::toUpper(file2->metadata.get("sortname"));
-		if(name1.empty()){
-			name1 = Utils::String::toUpper(file1->metadata.get("name"));
-		}
-		if(name2.empty()){
-			name2 = Utils::String::toUpper(file2->metadata.get("name"));
-		}
+		std::string name1 = Utils::String::toUpper(file1->metadata.getName());
+		std::string name2 = Utils::String::toUpper(file2->metadata.getName());
 		return name1.compare(name2) < 0;
 	}
 

@@ -247,7 +247,11 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
 
-	setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.75f);
+	if (Renderer::isSmallScreen())
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	else
+		setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.75f);
+
 	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 }
 
@@ -383,11 +387,17 @@ bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
   return false;
 
 #if defined(__linux__)
-	// match PlayStation joystick with 6 axes only
-	if((strstr(config->getDeviceName().c_str(), "PLAYSTATION") != NULL \
-	  || strstr(config->getDeviceName().c_str(), "PS3 Game") != NULL \
-	  || strstr(config->getDeviceName().c_str(), "PS(R) Game") != NULL) \
-	  && InputManager::getInstance()->getAxisCountByDevice(config->getDeviceId()) == 6)
+	// on Linux, some gamepads return both an analog axis and a digital button for the trigger;
+	// we want the analog axis only, so this function removes the button press event
+
+	if((
+	  // match PlayStation joystick with 6 axes only
+	  strstr(config->getDeviceName().c_str(), "PLAYSTATION") != NULL
+	  || strstr(config->getDeviceName().c_str(), "PS3 Ga") != NULL
+	  || strstr(config->getDeviceName().c_str(), "PS(R) Ga") != NULL
+	  // BigBen kid's PS3 gamepad 146b:0902, matched on SDL GUID because its name "Bigben Interactive Bigben Game Pad" may be too generic
+	  || strcmp(config->getDeviceGUIDString().c_str(), "030000006b1400000209000011010000") == 0
+	  ) && InputManager::getInstance()->getAxisCountByDevice(config->getDeviceId()) == 6)
 	{
 		// digital triggers are unwanted
 		if (input.type == TYPE_BUTTON && (input.id == 6 || input.id == 7))

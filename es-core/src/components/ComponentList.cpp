@@ -1,8 +1,5 @@
 #include "components/ComponentList.h"
-
-#include "Renderer.h"
 #include "LocaleES.h"
-
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
 ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP)
@@ -170,9 +167,9 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	unsigned int bgColor = menuTheme->Background.color;
 	unsigned int separatorColor = menuTheme->Text.separatorColor;
 	unsigned int textColor = menuTheme->Text.color;
+	bool selectorGradientHorz = menuTheme->Text.selectorGradientType;
 
 	Transform4x4f trans = parentTrans * getTransform();
-	trans.round();
 
 	// clip everything to be inside our bounds
 	Vector3f dim(mSize.x(), mSize.y(), 0);
@@ -215,18 +212,11 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 		const float selectedRowHeight = getRowHeight(mEntries.at(mCursor).data);
 
-		if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) 
-		{			
-			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, bgColor, GL_ZERO, GL_ONE_MINUS_SRC_COLOR);
-			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, selectorColor, GL_ONE, GL_ONE);		
+		if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) {
+
+			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
+			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
 		}
-
-		//Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0xFFFFFFFF, GL_ONE_MINUS_DST_COLOR, GL_ZERO);
-		//Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0x777777FF, GL_ONE, GL_ONE);
-
-		// hack to draw 2px dark on left/right of the bar
-		//Renderer::drawRect(0.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x878787FF);
-		//Renderer::drawRect(mSize.x() - 2.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x878787FF);
 
 		auto& entry = mEntries.at(mCursor);
 		for (auto& element : entry.data.elements)

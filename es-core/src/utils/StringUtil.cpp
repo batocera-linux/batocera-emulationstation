@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <stdarg.h>
+#include <cstring>
 
 #if defined(_WIN32)
 #include <Windows.h>
@@ -152,13 +153,21 @@ namespace Utils
 
 		std::string toUpper(const std::string& _string)
 		{
+#if defined(_WIN32)
+			std::wstring stringW = convertToWideString(_string);
+
+			auto& f = std::use_facet<std::ctype<wchar_t>>(std::locale());
+			f.toupper(&stringW[0], &stringW[0] + stringW.size());
+
+			return convertFromWideString(stringW);
+#else
 			std::string string;
 
 			for(size_t i = 0; i < _string.length(); ++i)
 				string += (char)toupper(_string[i]);
 
 			return string;
-
+#endif
 		} // toUpper
 
 		std::string trim(const std::string& _string)
@@ -314,6 +323,25 @@ namespace Utils
 
 			output.push_back(s.substr(prev_pos, pos - prev_pos)); // Last word
 
+			return output;
+		}
+
+		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator)
+		{
+			std::vector<std::string> output;
+
+			char* str = new char[s.length() + 1];
+			std::strcpy(str, s.c_str());
+			
+			char* pch = strtok(str, seperator.c_str());
+			while (pch != NULL)
+			{
+				output.push_back(pch);
+				pch = strtok(NULL, seperator.c_str());
+			}
+
+			delete str;
+		
 			return output;
 		}
 

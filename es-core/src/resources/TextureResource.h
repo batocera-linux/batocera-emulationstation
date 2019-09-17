@@ -6,18 +6,22 @@
 #include "math/Vector2f.h"
 #include "resources/ResourceManager.h"
 #include "resources/TextureDataManager.h"
+#include "resources/TextureData.h"
 #include <set>
 #include <string>
-
-class TextureData;
 
 // An OpenGL texture.
 // Automatically recreates the texture with renderer deinit/reinit.
 class TextureResource : public IReloadable
 {
+protected:
+	TextureResource(const std::string& path, bool tile, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize = nullptr);
+
 public:
-	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true);
+	static void cancelAsync(std::shared_ptr<TextureResource> texture);
+	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, MaxSizeInfo* maxSize = nullptr);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
+	void initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);
 
 	// For scalable source images in textures we want to set the resolution to rasterize at
@@ -26,7 +30,7 @@ public:
 
 	virtual ~TextureResource();
 
-	bool isInitialized() const;
+	bool isLoaded() const;
 	bool isTiled() const;
 
 	const Vector2i getSize() const;
@@ -34,11 +38,13 @@ public:
 
 	static size_t getTotalMemUsage(); // returns an approximation of total VRAM used by textures (in bytes)
 	static size_t getTotalTextureSize(); // returns the number of bytes that would be used if all textures were in memory
-
-protected:
-	TextureResource(const std::string& path, bool tile, bool dynamic);
+	
 	virtual bool unload();
 	virtual void reload();
+
+	void onTextureLoaded(std::shared_ptr<TextureData> tex);
+
+	static void clearQueue();
 
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones

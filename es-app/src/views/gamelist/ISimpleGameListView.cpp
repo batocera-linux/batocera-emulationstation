@@ -7,7 +7,7 @@
 #include "Sound.h"
 #include "SystemData.h"
 
-ISimpleGameListView::ISimpleGameListView(Window* window, FileData* root) : IGameListView(window, root),
+ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window)
 {
 	mHeaderText.setText("Logo Text");
@@ -83,16 +83,21 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		if(config->isMappedTo(BUTTON_OK, input))
 		{
 			FileData* cursor = getCursor();
+			FolderData* folder = NULL;
+
+			if (cursor->getType() == FOLDER)
+				folder = (FolderData*)cursor;
+
 			if(cursor->getType() == GAME)
 			{
 				Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 				launch(cursor);
 			}else{
 				// it's a folder
-				if(cursor->getChildren().size() > 0)
+				if (folder != nullptr && folder->getChildren().size() > 0)
 				{
 					mCursorStack.push(cursor);
-					populateList(cursor->getChildrenListToDisplay());
+					populateList(folder->getChildrenListToDisplay());
 					FileData* cursor = getCursor();
 					setCursor(cursor);
 				}

@@ -7,6 +7,7 @@
 
 #define _(A) boost::locale::gettext(A)
 #define ngettext(A, B, C) boost::locale::ngettext(A, B, C)
+
 #define _U(x) x
 
 #else // WIN32
@@ -42,9 +43,6 @@ private:
 	static PluralRule mPluralRule;
 };
 
-
-#define UNICODE_CHARTYPE wchar_t*
-#define _L(x) L ## x
 #define _U(x) Utils::String::convertFromWideString(L ## x)
 
 #define _(x) EsLocale::getText(x)

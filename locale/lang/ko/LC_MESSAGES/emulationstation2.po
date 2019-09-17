@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "취소"
 msgid "BACK"
 msgstr "뒤로"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "닫기"
 
@@ -58,6 +61,21 @@ msgstr "다음으로 게임 정렬"
 msgid "FILTER GAMELIST"
 msgstr "게임리스트 필터"
 
+msgid "GAMELIST VIEW STYLE"
+msgstr "게임리스트 정렬방법"
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "숨겨진 파일 보여주기"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "이 게임 컬렉션에 게임 추가/제거"
 
@@ -67,8 +85,17 @@ msgstr "컬렉션 편집 끝내기"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
-msgid "ADVANCED"
-msgstr "고급"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
+
+msgid "Loading..."
+msgstr "로딩"
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "수집 출처"
 msgid "SCRAPE RATINGS"
 msgstr "평점 수집"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "없음 "
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "수집 시작"
 
@@ -145,6 +202,36 @@ msgstr "버전"
 msgid "DISK USAGE"
 msgstr "디스크 사용량"
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr "비디오램 리미트"
+
+msgid "SHOW FRAMERATE"
+msgstr "프레임 속도 표시"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr "보조 파일 생성"
 
@@ -165,6 +252,9 @@ msgstr "언어"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "업데이트"
@@ -235,9 +325,6 @@ msgstr "자동 저장/불러오기"
 msgid "SHADERS SET"
 msgstr "셰이더 선택"
 
-msgid "NONE"
-msgstr "없음 "
-
 msgid "SCANLINES"
 msgstr "스캔 라인"
 
@@ -289,11 +376,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "상태"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
+msgid "ADVANCED"
+msgstr "고급"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "컨트롤러 설정"
@@ -329,26 +413,11 @@ msgstr "컨트롤러와의 연결이 삭제되었습니다."
 msgid "INPUT P%i"
 msgstr "입력 P%i"
 
-msgid "UI MODE"
-msgstr "UI 모드"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
-"UI를 제한된 모드로 바꾸고 있습니다.:\n"
-"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
-"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
 
-msgid "Do you want to proceed ?"
-msgstr "계속 진행하시겠습니다?"
-
-msgid "VIDEO OUTPUT"
-msgstr "비디오 출력"
-
-msgid "THEME SET"
-msgstr "테마 선택"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -371,17 +440,38 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "게임리스트 정렬방법"
+msgid "UI MODE"
+msgstr "UI 모드"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"UI를 제한된 모드로 바꾸고 있습니다.:\n"
+"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
+"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
+
+msgid "Do you want to proceed ?"
+msgstr "계속 진행하시겠습니다?"
+
+msgid "VIDEO OUTPUT"
+msgstr "비디오 출력"
+
+msgid "THEME SET"
+msgstr "테마 선택"
 
 msgid "START ON SYSTEM"
 msgstr "시스템 착수하기"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "시스템 진열/숨기기"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "시스템 진열"
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
@@ -427,9 +517,6 @@ msgstr "캐러셀 변형"
 msgid "ENABLE FILTERS"
 msgstr "필터 활성화"
 
-msgid "SHOW FRAMERATE"
-msgstr "프레임 속도 표시"
-
 msgid "OVERSCAN"
 msgstr "오버 스캔"
 
@@ -442,18 +529,6 @@ msgstr "오직 게임리스트만 분석"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
 
-msgid "SHOW HIDDEN FILES"
-msgstr "숨겨진 파일 보여주기"
-
-msgid "VRAM LIMIT"
-msgstr "비디오램 리미트"
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
 
@@ -461,6 +536,9 @@ msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -572,6 +650,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -753,9 +834,6 @@ msgstr "조건에 맞는 게임이 없습니다."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "시스템 진열 선택"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "시스템 진열"
-
 msgid "APPLY"
 msgstr "지원"
 
@@ -765,11 +843,25 @@ msgstr "복귀"
 msgid "VALIDATE"
 msgstr "승인"
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "테마 선택"
 
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
+
+msgid "SAVE"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "삭제"
 
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
@@ -779,12 +871,6 @@ msgstr "이름"
 
 msgid "enter game name"
 msgstr "게임 이름 입력"
-
-msgid "Sort name"
-msgstr "별명"
-
-msgid "enter game sort name"
-msgstr "게임 별명 입력"
 
 msgid "Description"
 msgstr "설명"
@@ -879,9 +965,6 @@ msgstr "마지막 플레이한 날짜 입력"
 msgid "name"
 msgstr "이름"
 
-msgid "sortname"
-msgstr "별명"
-
 msgid "description"
 msgstr "서술"
 
@@ -926,11 +1009,17 @@ msgstr "발매일"
 msgid "Times played"
 msgstr "플레이 횟수"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "실행"
 
 msgid "OPTIONS"
 msgstr "옵션"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "메뉴"
@@ -938,17 +1027,20 @@ msgstr "메뉴"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "재시도"
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
-
-msgid "Loading..."
-msgstr "로딩"
 
 msgid "Loading system config..."
 msgstr "로딩 시스템 설정"
@@ -990,6 +1082,27 @@ msgstr "'%s'에서 '%s'로 증가함"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr " '%s'에서'%s'로 떨어짐 "
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
 
 msgid "UP"
 msgstr "위"
@@ -1057,20 +1170,17 @@ msgstr "아무 버튼이나 누르세요."
 msgid "ALREADY TAKEN"
 msgstr "이미 설정되었습니다."
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
-
 msgid "SPACE"
 msgstr "스페이스"
-
-msgid "DELETE"
-msgstr "삭제"
 
 msgid "DELETE A CHAR"
 msgstr "문자 삭제"
 
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
 
 msgid "SHIFT"
 msgstr "쉬프트"
@@ -1132,3 +1242,15 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "시스템 진열/숨기기"
+
+#~ msgid "Sort name"
+#~ msgstr "별명"
+
+#~ msgid "enter game sort name"
+#~ msgstr "게임 별명 입력"
+
+#~ msgid "sortname"
+#~ msgstr "별명"

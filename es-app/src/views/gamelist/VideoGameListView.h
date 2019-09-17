@@ -12,14 +12,21 @@ class VideoComponent;
 class VideoGameListView : public BasicGameListView
 {
 public:
-	VideoGameListView(Window* window, FileData* root);
+	VideoGameListView(Window* window, FolderData* root);
 	virtual ~VideoGameListView();
 
 	virtual void onShow() override;
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
 
-	virtual const char* getName() const override { return "video"; }
+	virtual const char* getName() const override
+	{
+		if (!mCustomThemeName.empty())
+			return mCustomThemeName.c_str();
+
+		return "video";
+	}
+
 	virtual void launch(FileData* game) override;
 
 protected:

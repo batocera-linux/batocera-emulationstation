@@ -25,36 +25,39 @@ enum FileChangeType
 	FILE_SORTED
 };
 
-// Used for loading/saving gamelist.xml.
-const char* fileTypeToString(FileType type);
-FileType stringToFileType(const char* str);
+class FolderData;
 
 // A tree node that holds information for a file.
 class FileData
 {
 public:
-	FileData(FileType type, const std::string& path, SystemEnvironmentData* envData, SystemData* system);
+	FileData(FileType type, const std::string& path, SystemData* system);
 	virtual ~FileData();
 
-	virtual const std::string& getName();
-	virtual const std::string& getSortName();
+	virtual const std::string getName();
+
 	inline FileType getType() const { return mType; }
-	inline const std::string& getPath() const { return mPath; }
-	inline FileData* getParent() const { return mParent; }
-	inline const std::unordered_map<std::string, FileData*>& getChildrenByFilename() const { return mChildrenByFilename; }
-	inline const std::vector<FileData*>& getChildren() const { return mChildren; }
+	
+	inline FolderData* getParent() const { return mParent; }
+	inline void setParent(FolderData* parent) { mParent = parent; }
+
 	inline SystemData* getSystem() const { return mSystem; }
-	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
+
+	virtual const std::string getPath() const;
+
+	virtual SystemEnvironmentData* getSystemEnvData() const;
+
 	virtual const std::string getThumbnailPath() const;
 	virtual const std::string getVideoPath() const;
 	virtual const std::string getMarqueePath() const;
 	virtual const std::string getImagePath() const;
 
-	const std::vector<FileData*>& getChildrenListToDisplay();
-	std::vector<FileData*> getFilesRecursive(unsigned int typeMask, bool displayedOnly = false) const;
+	virtual const std::string getCore() const;
+	virtual const std::string getEmulator() const;
 
-	void addChild(FileData* file); // Error if mType != FOLDER
-	void removeChild(FileData* file); //Error if mType != FOLDER
+	virtual const bool getHidden();
+	virtual const bool getFavorite();
+	virtual const bool getKidGame();
 
 	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };
 
@@ -65,7 +68,7 @@ public:
 	inline std::string getFullPath() { return getPath(); };
 	inline std::string getFileName() { return Utils::FileSystem::getFileName(getPath()); };
 	virtual FileData* getSourceFileData();
-	inline std::string getSystemName() const { return mSystemName; };
+	virtual std::string getSystemName() const;
 
 	// Returns our best guess at the "real" name for this file (will attempt to perform MAME name translation)
 	std::string getDisplayName() const;
@@ -75,37 +78,13 @@ public:
 
 	void launchGame(Window* window);
 
-	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
-	struct SortType
-	{
-		ComparisonFunction* comparisonFunction;
-		bool ascending;
-		std::string description;
-
-		SortType(ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription)
-			: comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription) {}
-	};
-
-	void sort(ComparisonFunction& comparator, bool ascending = true);
-	void sort(const SortType& type);
 	MetaDataList metadata;
 
-	virtual const bool getHidden();
-	virtual const bool getFavorite();
-
-protected:
-	FileData* mSourceFileData;
-	FileData* mParent;
-	std::string mSystemName;
-
-private:
-	FileType mType;
+protected:	
+	FolderData* mParent;
 	std::string mPath;
-	SystemEnvironmentData* mEnvData;
+	FileType mType;
 	SystemData* mSystem;
-	std::unordered_map<std::string,FileData*> mChildrenByFilename;
-	std::vector<FileData*> mChildren;
-	std::vector<FileData*> mFilteredChildren;
 };
 
 class CollectionFileData : public FileData
@@ -113,16 +92,69 @@ class CollectionFileData : public FileData
 public:
 	CollectionFileData(FileData* file, SystemData* system);
 	~CollectionFileData();
-	const std::string& getName();
+	const std::string getName();
 	void refreshMetadata();
 	FileData* getSourceFileData();
 	std::string getKey();
+	virtual const std::string getPath() const;
+
+	virtual std::string getSystemName() const;
+	virtual SystemEnvironmentData* getSystemEnvData() const;
+
 private:
 	// needs to be updated when metadata changes
 	std::string mCollectionFileName;
+	FileData* mSourceFileData;
+
 	bool mDirty;
 };
 
-FileData::SortType getSortTypeFromString(std::string desc);
+class FolderData : public FileData
+{
+public:
+	FolderData(const std::string& startpath, SystemData* system) : FileData(FOLDER, startpath, system)
+	{
+	}
+
+	~FolderData()
+	{
+		for (int i = mChildren.size() - 1; i >= 0; i--)
+			delete mChildren.at(i);
+
+		mChildren.clear();
+	}
+
+	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
+	struct SortType
+	{
+		ComparisonFunction* comparisonFunction;
+		bool ascending;
+		std::string description;
+		std::string icon;
+
+		SortType(ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription, const std::string & iconId = "")
+			: comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription), icon(iconId) {}
+	};
+
+	void sort(ComparisonFunction& comparator, bool ascending = true);
+	void sort(const SortType& type);
+
+	FileData* FindByPath(const std::string& path);
+
+	inline const std::vector<FileData*>& getChildren() const { return mChildren; }
+	const std::vector<FileData*> getChildrenListToDisplay();
+	std::vector<FileData*> getFilesRecursive(unsigned int typeMask, bool displayedOnly = false, SystemData* system = nullptr) const;
+	std::vector<FileData*> getFlatGameList(bool displayedOnly, SystemData* system) const;
+
+	void addChild(FileData* file); // Error if mType != FOLDER
+	void removeChild(FileData* file); //Error if mType != FOLDER
+
+	void createChildrenByFilenameMap(std::unordered_map<std::string, FileData*>& map);
+
+private:
+	std::vector<FileData*> mChildren;
+};
+
+FolderData::SortType getSortTypeFromString(std::string desc);
 
 #endif // ES_APP_FILE_DATA_H

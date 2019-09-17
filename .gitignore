@@ -45,3 +45,5 @@ CPackSourceConfig.cmake
 # batocera
 # po backup
 *.po~
+/.vs/
+*.sqlite

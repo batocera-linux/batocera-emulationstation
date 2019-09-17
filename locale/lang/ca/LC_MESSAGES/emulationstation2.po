@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 18:52+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "CANCEL·LA"
 msgid "BACK"
 msgstr "ENRERE"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "TANCA"
 
@@ -58,6 +61,21 @@ msgstr "ORDENA ELS JOCS PER"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITA LES METADADES D'AQUEST JOC"
 
-msgid "ADVANCED"
-msgstr "AVANÇAT"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "OBTÉ DADES DE"
 msgid "SCRAPE RATINGS"
 msgstr "OBTÉ DADES DE VALORACIÓ"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "NORMAL"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "OBTÉ LES DADES ARA"
 
@@ -145,6 +202,36 @@ msgstr "VERSIÓ"
 msgid "DISK USAGE"
 msgstr "ÚS DEL DISC"
 
+msgid "DEVELOPER"
+msgstr "DESENVOLUPADOR"
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -165,6 +252,9 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "VELOCITAT DE RELLOTGE"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "ACTUALITZACIONS"
@@ -235,9 +325,6 @@ msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 msgid "SHADERS SET"
 msgstr "SHADERS ESTABLERTS"
 
-msgid "NONE"
-msgstr "NORMAL"
-
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
@@ -289,11 +376,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "ESTAT"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALITZA LES LLISTES DELS JOCS"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
+msgid "ADVANCED"
+msgstr "AVANÇAT"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGUREU UN COMANDAMENT"
@@ -331,23 +415,11 @@ msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "TEMA ESTABLERT"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -370,16 +442,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "TEMA ESTABLERT"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -423,9 +513,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
-
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 
@@ -438,18 +525,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM DEL SISTEMA"
 
@@ -457,6 +532,9 @@ msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DEL FRONTAL"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -568,6 +646,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -748,9 +829,6 @@ msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -760,11 +838,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITA LES METADADES"
+
+msgid "SAVE"
+msgstr "DESA"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "ESBORRA"
 
 msgid "SAVE CHANGES?"
 msgstr "VOLEU DESAR ELS CANVIS?"
@@ -774,12 +866,6 @@ msgstr "Nom"
 
 msgid "enter game name"
 msgstr "introduïu el nom del joc"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "Descripció"
@@ -874,9 +960,6 @@ msgstr "introduïu quan vau jugar per última vegada"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -922,11 +1005,17 @@ msgstr "Publicat"
 msgid "Times played"
 msgstr "Nombre de vegades que s'ha jugat"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "EXECUTA"
 
 msgid "OPTIONS"
 msgstr "OPCIONS"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -934,17 +1023,20 @@ msgstr "MENÚ"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTA EL RESULTAT"
-
-msgid "Loading..."
-msgstr ""
 
 msgid "Loading system config..."
 msgstr ""
@@ -986,6 +1078,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "AMUNT"
@@ -1051,20 +1166,17 @@ msgstr "PREMEU QUALSEVOL COSA"
 msgid "ALREADY TAKEN"
 msgstr "JA ESTÀ AGAFAT"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
 msgstr "ESPAI"
-
-msgid "DELETE"
-msgstr "ESBORRA"
 
 msgid "DELETE A CHAR"
 msgstr "ESBORRA UN CARÀCTER"
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTA ELS CANVIS"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
 msgid "SHIFT"
 msgstr "MAJÚSCULES"
@@ -1147,9 +1259,6 @@ msgstr ""
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "MOSTRA ELS OCULTS"
 
-#~ msgid "SAVE"
-#~ msgstr "DESA"
-
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
 #~ "ARE YOU SURE?"
@@ -1203,9 +1312,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "NOMBRE DE JUGADORS"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "DESENVOLUPADOR"
 
 #~ msgid "GENRE"
 #~ msgstr "GÈNERE"

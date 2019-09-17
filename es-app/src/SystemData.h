@@ -9,9 +9,12 @@
 #include <vector>
 #include <map>
 #include <pugixml/src/pugixml.hpp>
+#include <unordered_map>
+#include "FileFilterIndex.h"
+#include "math/Vector2f.h"
 
 class FileData;
-class FileFilterIndex;
+class FolderData;
 class ThemeData;
 class Window;
 
@@ -21,6 +24,11 @@ struct SystemEnvironmentData
 	std::vector<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::vector<PlatformIds::PlatformId> mPlatformIds;
+
+	bool isValidExtension(const std::string extension)
+	{
+		return std::find(mSearchExtensions.cbegin(), mSearchExtensions.cend(), extension) != mSearchExtensions.cend();
+	}
 };
 
 class SystemData
@@ -29,7 +37,7 @@ public:
         SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false); // batocera
 	~SystemData();
 
-	inline FileData* getRootFolder() const { return mRootFolder; };
+	inline FolderData* getRootFolder() const { return mRootFolder; };
 	inline const std::string& getName() const { return mName; }
 	inline const std::string& getFullName() const { return mFullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
@@ -54,7 +62,6 @@ public:
 	static std::string getConfigPath(bool forWrite); // if forWrite, will only return ~/.emulationstation/es_systems.cfg, never /etc/emulationstation/es_systems.cfg
 
 	static std::vector<SystemData*> sSystemVector;
-	static std::vector<SystemData*> sFileSystemVector; // batocera (hide systems
 
 	inline std::vector<SystemData*>::const_iterator getIterator() const { return std::find(sSystemVector.cbegin(), sSystemVector.cend(), this); };
 	inline std::vector<SystemData*>::const_reverse_iterator getRevIterator() const { return std::find(sSystemVector.crbegin(), sSystemVector.crend(), this); };
@@ -71,8 +78,40 @@ public:
 	// Load or re-load theme.
 	void loadTheme();
 
-	FileFilterIndex* getIndex() { return mFilterIndex; };
+	FileFilterIndex* getIndex(bool createIndex);
+	void deleteIndex();
+
+	void removeFromIndex(FileData* game) {
+		if (mFilterIndex != nullptr) mFilterIndex->removeFromIndex(game);
+	};
+
+	void addToIndex(FileData* game) {
+		if (mFilterIndex != nullptr) mFilterIndex->addToIndex(game);
+	};
+
+	void resetFilters() {
+		if (mFilterIndex != nullptr) mFilterIndex->resetFilters();
+	};
+
+	void resetIndex() {
+		if (mFilterIndex != nullptr) mFilterIndex->resetIndex();
+	};
+	
+	void setUIModeFilters() {
+		if (mFilterIndex != nullptr) mFilterIndex->setUIModeFilters();
+	}
+
 	std::map<std::string, std::vector<std::string> *> * getEmulators(); // batocera
+
+	unsigned int getSortId() const { return mSortId; };
+	void setSortId(const unsigned int sortId = 0);
+
+	std::string getSystemViewMode() const { if (mViewMode == "automatic") return ""; else return mViewMode; };
+	bool setSystemViewMode(std::string newViewMode, Vector2f gridSizeOverride = Vector2f(0, 0), bool setChanged = true);
+
+	Vector2f getGridSizeOverride();
+
+
 private:
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
@@ -82,16 +121,20 @@ private:
 	std::string mThemeFolder;
 	std::shared_ptr<ThemeData> mTheme;
 
-	void populateFolder(FileData* folder);
-	void indexAllGameFilters(const FileData* folder);
+	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
+	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
 	
 	static SystemData* loadSystem(pugi::xml_node system);
 
 	FileFilterIndex* mFilterIndex;
 
-	FileData* mRootFolder;
+	FolderData* mRootFolder;
 	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
+	
+	unsigned int mSortId;
+	std::string mViewMode;
+	Vector2f    mGridSizeOverride;	
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

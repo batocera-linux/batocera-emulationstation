@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,6 +47,9 @@ msgstr "ANULUJ"
 msgid "BACK"
 msgstr "WSTECZ"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "ZAMKNIJ"
 
@@ -59,6 +62,21 @@ msgstr "SORTUJ GRY"
 msgid "FILTER GAMELIST"
 msgstr "FILTRUJ LISTĘ GIER"
 
+msgid "GAMELIST VIEW STYLE"
+msgstr "RODZAJ WIDOKU LISTY GIER"
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "POKAŻ UKRYTE PLIKI"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
 
@@ -68,8 +86,17 @@ msgstr "ZAKOŃCZ EDYCJĘ KOLEKCJI"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
 
-msgid "ADVANCED"
-msgstr "ZAAWANSOWANE"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ZAKTUALIZUJ LISTĘ GIER"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
+
+msgid "Loading..."
+msgstr "Ładuję..."
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -122,6 +149,36 @@ msgstr "SCRAPE'UJ Z"
 msgid "SCRAPE RATINGS"
 msgstr "OCENY SCRAPE'A"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "BRAK"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
 
@@ -146,6 +203,36 @@ msgstr "WERSJA"
 msgid "DISK USAGE"
 msgstr "UŻYCIE DYSKU"
 
+msgid "DEVELOPER"
+msgstr "PRODUCENT"
+
+msgid "VRAM LIMIT"
+msgstr "LIMIT VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "POKAŻ FPS"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr "STWÓRZ PLIK POMOCY TECHNICZNEJ"
 
@@ -166,6 +253,9 @@ msgstr "JĘZYK"
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
+
+msgid "POWER SAVER MODES"
+msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
 msgid "UPDATES"
 msgstr "AKTUALIZACJE"
@@ -236,9 +326,6 @@ msgstr "AUTOMATYCZNY ZAPIS/WCZYTANIE"
 msgid "SHADERS SET"
 msgstr "ZESTAW SHADERÓW"
 
-msgid "NONE"
-msgstr "BRAK"
-
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
@@ -290,11 +377,8 @@ msgstr "MD5"
 msgid "STATUS"
 msgstr "STATUS"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ZAKTUALIZUJ LISTĘ GIER"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
+msgid "ADVANCED"
+msgstr "ZAAWANSOWANE"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "SKONFIGURUJ KONTROLER"
@@ -331,27 +415,11 @@ msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
 msgid "INPUT P%i"
 msgstr "WEJŚCIE P%i"
 
-msgid "UI MODE"
-msgstr "TRYB INTERFEJSU"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
-"Zmieniasz interfejs użytkownika do trybu ograniczonego:\n"
-"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w "
-"systemie.\n"
-"Aby odblokować i powrócić do pełnego interfejsu, wprowadź ten kod:"
 
-msgid "Do you want to proceed ?"
-msgstr "Czy chcesz kontynuować?"
-
-msgid "VIDEO OUTPUT"
-msgstr "WYJŚCIE WIDEO"
-
-msgid "THEME SET"
-msgstr "USTAWIENIA SKÓRY"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -374,17 +442,39 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "RODZAJ WIDOKU LISTY GIER"
+msgid "UI MODE"
+msgstr "TRYB INTERFEJSU"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Zmieniasz interfejs użytkownika do trybu ograniczonego:\n"
+"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w "
+"systemie.\n"
+"Aby odblokować i powrócić do pełnego interfejsu, wprowadź ten kod:"
+
+msgid "Do you want to proceed ?"
+msgstr "Czy chcesz kontynuować?"
+
+msgid "VIDEO OUTPUT"
+msgstr "WYJŚCIE WIDEO"
+
+msgid "THEME SET"
+msgstr "USTAWIENIA SKÓRY"
 
 msgid "START ON SYSTEM"
 msgstr "URUCHOM Z SYSTEMEM"
 
-msgid "DISPLAY / HIDE SYSTEMS"
-msgstr "WYŚWIETL/UKRYJ SYSTEMY"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "WYŚWIETLANE SYSTEMY"
 
 msgid "TRANSITION STYLE"
 msgstr "RODZAJ PRZEJŚCIA"
@@ -432,9 +522,6 @@ msgstr "PRZEJŚCIA KARUZELI"
 msgid "ENABLE FILTERS"
 msgstr "WŁĄCZ FILTRY"
 
-msgid "SHOW FRAMERATE"
-msgstr "POKAŻ FPS"
-
 msgid "OVERSCAN"
 msgstr "PRZESKALOWANIE"
 
@@ -447,18 +534,6 @@ msgstr "ANALIZUJ TYLKO LISTY GIER"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
 
-msgid "SHOW HIDDEN FILES"
-msgstr "POKAŻ UKRYTE PLIKI"
-
-msgid "VRAM LIMIT"
-msgstr "LIMIT VRAM"
-
-msgid "POWER SAVER MODES"
-msgstr "TRYBY OSZCZĘDZANIA ENERGII"
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
 
@@ -467,6 +542,9 @@ msgstr "MUZYKA"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "WYŚWIETLANIE TYTUŁÓW UTWORÓW"
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
@@ -578,6 +656,9 @@ msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
 
 msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
@@ -762,9 +843,6 @@ msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "WYBIERZ SYSTEMY DO WYŚWIETLENIA"
 
-msgid "SYSTEMS DISPLAYED"
-msgstr "WYŚWIETLANE SYSTEMY"
-
 msgid "APPLY"
 msgstr "ZASTOSUJ"
 
@@ -774,11 +852,25 @@ msgstr "PRZYWRÓĆ"
 msgid "VALIDATE"
 msgstr "SPRAWDZĆ"
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr "WYBIERZ SKÓRĘ"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ METADANE"
+
+msgid "SAVE"
+msgstr "ZAPISZ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "USUŃ"
 
 msgid "SAVE CHANGES?"
 msgstr "ZAPISAĆ ZMIANY?"
@@ -788,12 +880,6 @@ msgstr "Nazwa"
 
 msgid "enter game name"
 msgstr "wprowadź nazwę gry"
-
-msgid "Sort name"
-msgstr "Sortuj nazwę"
-
-msgid "enter game sort name"
-msgstr "wprowadź nazwę gry do sortowania"
 
 msgid "Description"
 msgstr "Informacje"
@@ -888,9 +974,6 @@ msgstr "wpisz datę ostatniej gry"
 msgid "name"
 msgstr "nazwa"
 
-msgid "sortname"
-msgstr "słowo klucz"
-
 msgid "description"
 msgstr "opis"
 
@@ -937,11 +1020,17 @@ msgstr "Opublikowana"
 msgid "Times played"
 msgstr "Rozegrano razy"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "Uruchom"
 
 msgid "OPTIONS"
 msgstr "OPCJE"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENU"
@@ -949,17 +1038,20 @@ msgstr "MENU"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "PONÓW"
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
-
-msgid "Loading..."
-msgstr "Ładuję..."
 
 msgid "Loading system config..."
 msgstr "Ładuję konfigurację systemową..."
@@ -1001,6 +1093,31 @@ msgstr "Dodano '%s' do '%s'"
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr "Usunięto '%s' z '%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "UP"
 msgstr "GÓRA"
@@ -1071,20 +1188,17 @@ msgstr "NACIŚNIJ DOWOLNY PRZYCISK"
 msgid "ALREADY TAKEN"
 msgstr "JUŻ UŻYTE"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
-
 msgid "SPACE"
 msgstr "SPACJA"
-
-msgid "DELETE"
-msgstr "USUŃ"
 
 msgid "DELETE A CHAR"
 msgstr "USUŃ ZNAK"
 
 msgid "DISCARD CHANGES"
 msgstr "COFNIJ ZMIANY"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -1151,6 +1265,18 @@ msgstr "PRACUJE.."
 msgid "up/down"
 msgstr ""
 
+#~ msgid "DISPLAY / HIDE SYSTEMS"
+#~ msgstr "WYŚWIETL/UKRYJ SYSTEMY"
+
+#~ msgid "Sort name"
+#~ msgstr "Sortuj nazwę"
+
+#~ msgid "enter game sort name"
+#~ msgstr "wprowadź nazwę gry do sortowania"
+
+#~ msgid "sortname"
+#~ msgstr "słowo klucz"
+
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "SYSTEM ZOSTANIE PONOWNIE URUCHOMIONY"
 
@@ -1162,9 +1288,6 @@ msgstr ""
 
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "POKAŻ UKRYTE"
-
-#~ msgid "SAVE"
-#~ msgstr "ZAPISZ"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
@@ -1203,9 +1326,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "LICZBA MAKSYMALNYCH GRACZY"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "PRODUCENT"
 
 #~ msgid "GENRE"
 #~ msgstr "GATUNEK"

@@ -1,21 +1,25 @@
 #include "resources/TextureData.h"
 
 #include "math/Misc.h"
+#include "renderers/Renderer.h"
 #include "resources/ResourceManager.h"
 #include "ImageIO.h"
 #include "Log.h"
-#include "platform.h"
-#include GLHEADER
 #include <nanosvg/nanosvg.h>
 #include <nanosvg/nanosvgrast.h>
 #include <assert.h>
 #include <string.h>
+#include "Settings.h"
 
 #define DPI 96
 
+#define OPTIMIZEVRAM Settings::getInstance()->getBool("OptimizeVRAM")
+
 TextureData::TextureData(bool tile) : mTile(tile), mTextureID(0), mDataRGBA(nullptr), mScalable(false),
-									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f)
+									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
+									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
+	mIsExternalDataRGBA = false;
 }
 
 TextureData::~TextureData()
@@ -80,6 +84,31 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		mHeight = (size_t)Math::round(((float)mWidth / svgImage->width) * svgImage->height);
 	}
 
+	mBaseSize = Vector2i(mWidth, mHeight);
+
+	if (OPTIMIZEVRAM && !mMaxSize.empty())
+	{
+		if (mHeight < mMaxSize.y() && mWidth < mMaxSize.x()) // FCATMP
+		{
+			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+			mHeight = sz.y();
+			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
+		}
+
+		if (!mMaxSize.empty() && (mWidth > mMaxSize.x() || mHeight > mMaxSize.y()))
+		{
+			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+			mHeight = sz.y();
+			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
+			
+			mPackedSize = Vector2i(mWidth, mHeight);
+		}
+		else
+			mPackedSize = Vector2i(0, 0);
+	}
+	else
+		mPackedSize = Vector2i(0, 0);
+
 	unsigned char* dataRGBA = new unsigned char[mWidth * mHeight * 4];
 
 	NSVGrasterizer* rast = nsvgCreateRasterizer();
@@ -104,7 +133,11 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 			return true;
 	}
 
-	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height);
+	MaxSizeInfo maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight(), false);
+	if (!mMaxSize.empty())
+		maxSize = mMaxSize;
+
+	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
 	if (imageRGBA == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
@@ -122,6 +155,13 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
+
+	if (mIsExternalDataRGBA)
+	{
+		mIsExternalDataRGBA = false;
+		mDataRGBA = nullptr;
+	}
+
 	if (mDataRGBA)
 		return true;
 
@@ -136,6 +176,25 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 
 	mWidth = width;
 	mHeight = height;
+	return true;
+}
+
+bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
+{
+	// If already initialised then don't read again
+	std::unique_lock<std::mutex> lock(mMutex);
+
+	if (!mIsExternalDataRGBA && mDataRGBA != nullptr)
+		delete[] mDataRGBA;
+
+	mIsExternalDataRGBA = true;
+	mDataRGBA = dataRGBA;
+	mWidth = width;
+	mHeight = height;
+
+	if (mTextureID != 0)
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, -1, -1, mWidth, mHeight, mDataRGBA);
+
 	return true;
 }
 
@@ -174,7 +233,7 @@ bool TextureData::uploadAndBind()
 	std::unique_lock<std::mutex> lock(mMutex);
 	if (mTextureID != 0)
 	{
-		glBindTexture(GL_TEXTURE_2D, mTextureID);
+		Renderer::bindTexture(mTextureID);
 	}
 	else
 	{
@@ -186,19 +245,9 @@ bool TextureData::uploadAndBind()
 		// Make sure we're ready to upload
 		if ((mWidth == 0) || (mHeight == 0) || (mDataRGBA == nullptr))
 			return false;
-		glGetError();
-		//now for the openGL texture stuff
-		glGenTextures(1, &mTextureID);
-		glBindTexture(GL_TEXTURE_2D, mTextureID);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)mWidth, (GLsizei)mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, mDataRGBA);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-		const GLint wrapMode = mTile ? GL_REPEAT : GL_CLAMP_TO_EDGE;
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapMode);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapMode);
+		// Upload texture
+		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, true, mTile, mWidth, mHeight, mDataRGBA);
 	}
 	return true;
 }
@@ -208,7 +257,7 @@ void TextureData::releaseVRAM()
 	std::unique_lock<std::mutex> lock(mMutex);
 	if (mTextureID != 0)
 	{
-		glDeleteTextures(1, &mTextureID);
+		Renderer::destroyTexture(mTextureID);
 		mTextureID = 0;
 	}
 }
@@ -216,7 +265,10 @@ void TextureData::releaseVRAM()
 void TextureData::releaseRAM()
 {
 	std::unique_lock<std::mutex> lock(mMutex);
-	delete[] mDataRGBA;
+
+	if (!mIsExternalDataRGBA)
+		delete[] mDataRGBA;
+
 	mDataRGBA = 0;
 }
 
@@ -248,6 +300,14 @@ float TextureData::sourceHeight()
 	return mSourceHeight;
 }
 
+void TextureData::setTemporarySize(float width, float height)
+{
+	mWidth = width;
+	mHeight = height;
+	mSourceWidth = width;
+	mSourceHeight = height;
+}
+
 void TextureData::setSourceSize(float width, float height)
 {
 	if (mScalable)
@@ -268,4 +328,41 @@ size_t TextureData::getVRAMUsage()
 		return mWidth * mHeight * 4;
 	else
 		return 0;
+}
+
+void TextureData::setMaxSize(MaxSizeInfo maxSize)
+{
+	if (mSourceWidth == 0 || mSourceHeight == 0)
+		mMaxSize = maxSize;
+	else
+	{
+		Vector2i value = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+		Vector2i newVal = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(maxSize.x(), maxSize.y()), mMaxSize.externalZoom());
+
+		if (newVal.x() > value.x() || newVal.y() > value.y())
+			mMaxSize = maxSize;
+	}
+}
+
+bool TextureData::isMaxSizeValid()
+{
+	if (!OPTIMIZEVRAM)
+		return true;
+
+	if (mPackedSize == Vector2i(0, 0))
+		return true;
+
+	if (mBaseSize == Vector2i(0, 0))
+		return true;
+
+	if (mMaxSize.empty())
+		return true;
+
+	if ((int)mMaxSize.x() <= mPackedSize.x() || (int)mMaxSize.y() <= mPackedSize.y())
+		return true;
+
+	if (mBaseSize.x() <= mPackedSize.x() || mBaseSize.y() <= mPackedSize.y())
+		return true;
+
+	return false;
 }

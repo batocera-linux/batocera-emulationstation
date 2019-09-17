@@ -5,7 +5,7 @@
 #include "HelpPrompt.h"
 #include "InputConfig.h"
 #include "Settings.h"
-
+#include "math/Vector2f.h"
 #include <memory>
 
 class FileData;
@@ -17,6 +17,7 @@ class InputConfig;
 class TextCache;
 class Transform4x4f;
 struct HelpStyle;
+class TextureResource;
 
 class Window
 {
@@ -66,6 +67,7 @@ public:
 	void setAllowSleep(bool sleep);
 
 	void renderLoadingScreen(std::string text, float percent = -1, unsigned char opacity = 255);
+	void endRenderLoadingScreen();
 
 	void renderHelpPromptsEarly(); // used to render HelpPrompts before a fade
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
@@ -95,6 +97,7 @@ private:
 	std::vector<std::string> mMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
+	std::shared_ptr<TextureResource> mSplash;
 
 	int mFrameTimeElapsed;
 	int mFrameCountElapsed;
@@ -106,6 +109,7 @@ private:
 	int mClockElapsed;
 
 	unsigned int mClockColor;
+	Vector2f mClockPos;
 	std::shared_ptr<Font> mClockFont;
 	std::unique_ptr<TextCache> mClockText;
 

@@ -8,7 +8,7 @@
 class BasicGameListView : public ISimpleGameListView
 {
 public:
-	BasicGameListView(Window* window, FileData* root);
+	BasicGameListView(Window* window, FolderData* root);
 
 	// Called when a FileData* is added, has its metadata changed, or is removed
 	virtual void onFileChanged(FileData* file, FileChangeType change);
@@ -20,7 +20,13 @@ public:
 	virtual int getCursorIndex() override; // batocera
 	virtual void setCursorIndex(int index) override; // batocera
 
-	virtual const char* getName() const override { return "basic"; }
+	virtual const char* getName() const override
+	{
+		if (!mCustomThemeName.empty())
+			return mCustomThemeName.c_str();
+
+		return "basic";
+	}
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void launch(FileData* game) override;

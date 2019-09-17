@@ -3,8 +3,8 @@
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
-#include "Renderer.h"
 #include <SDL_timer.h>
+#include "PowerSaver.h"
 
 GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	GuiComponent(window), mMessage(message), mDuration(duration), running(true)
@@ -61,6 +61,18 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	mGrid->setSize(mSize);
 	mGrid->setEntry(s, Vector2i(0, 1), false, true);
 	addChild(mGrid);
+
+	PowerSaver::pause();
+}
+
+GuiInfoPopup::~GuiInfoPopup()
+{
+	if (running)
+	{
+		// if SDL reset
+		running = false;
+		PowerSaver::resume();
+	}
 }
 
 void GuiInfoPopup::render(const Transform4x4f& /*parentTrans*/)
@@ -88,13 +100,23 @@ bool GuiInfoPopup::updateState()
 	// compute fade in effect
 	if (curTime - mStartTime > mDuration)
 	{
-		// we're past the popup duration, no need to render
-		running = false;
+		if (running)
+		{
+			// we're past the popup duration, no need to render
+			running = false;
+			PowerSaver::resume();
+		}
+
 		return false;
 	}
-	else if (curTime < mStartTime) {
-		// if SDL reset
-		running = false;
+	else if (curTime < mStartTime) 
+	{
+		if (running)
+		{
+			// if SDL reset
+			running = false;
+			PowerSaver::resume();
+		}
 		return false;
 	}
 	else if (curTime - mStartTime <= 500) {

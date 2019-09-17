@@ -6,7 +6,6 @@
 #include "resources/TextureResource.h"
 #include "InputManager.h"
 #include "Log.h"
-#include "Renderer.h"
 #include "Scripting.h"
 #include <algorithm>
 #include <iomanip>
@@ -22,12 +21,15 @@
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
 {	
+	mClockPos = Vector2f(-1, -1);
 	mClockColor = 0xFFFFFF55;
 	mClockFont = nullptr; 
 
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
+
+	mSplash = nullptr;
 
 	// pads // batocera
 	for(int i=0; i<MAX_PLAYERS; i++) {
@@ -129,6 +131,7 @@ void Window::deinit()
 		(*i)->onHide();
 	}
 	InputManager::getInstance()->deinit();
+	TextureResource::clearQueue();
 	ResourceManager::getInstance()->unloadAll();
 	Renderer::deinit();
 }
@@ -228,7 +231,15 @@ void Window::update(int deltaTime)
 	{
 		std::string message = mMessages.back();
 		mMessages.pop_back();
-		setInfoPopup(new GuiInfoPopup(this, message, 4000)); // batocera
+		// batocera
+		std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
+		if (currentTitlesTime.empty())
+			currentTitlesTime = std::string("10");
+		// Check if the string we got has only digits, otherwise throw a default value
+		bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
+		if (!has_only_digits)
+			currentTitlesTime = std::string("10");
+		setInfoPopup(new GuiInfoPopup(this, message, 1000 * (float)std::stoi(currentTitlesTime))); // batocera
 	}
 
 	if (mNormalizeNextUpdate)
@@ -286,12 +297,15 @@ void Window::update(int deltaTime)
 				if (mClockFont == nullptr)
 					mClockFont = mDefaultFonts.at(0);
 
-				mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
+				if (mClockPos.x() == -1 && mClockPos.y() == -1)
+					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
+				else
+					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, mClockPos.x(), mClockPos.y(), mClockColor));
 			}
 			mClockElapsed = 1000; // next update in 1000ms
 		}
 	}
-
+	
 	// hide pads // batocera
 	for (int i = 0; i < MAX_PLAYERS; i++) {
 		if (mplayerPads[i] > 0) {
@@ -327,13 +341,21 @@ void Window::render()
 		bottom->render(transform);
 		if(bottom != top)
 		{
+			if (top->getValue() == "GuiMsgBox" && mGuiStack.size() > 2)
+			{
+				auto& middle = mGuiStack.at(mGuiStack.size()-2);
+				if (middle != bottom)
+					middle->render(transform);
+			}
+
 			mBackgroundOverlay->render(transform);
 			top->render(transform);
 		}
 	}
-
-	if(!mRenderedHelpPrompts)
-		mHelp->render(transform);
+	
+	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
+		if(!mRenderedHelpPrompts)
+			mHelp->render(transform);
 
 	if(Settings::getInstance()->getBool("DrawFramerate") && mFrameDataText)
 	{
@@ -342,7 +364,7 @@ void Window::render()
 	}
 
         // clock // batocera
-	if (Settings::getInstance()->getBool("DrawClock") && mClockText)
+	if (Settings::getInstance()->getBool("DrawClock") && mClockText && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 
@@ -354,21 +376,24 @@ void Window::render()
 
 	// pads // batocera
 	Renderer::setMatrix(Transform4x4f::Identity());
-	std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
-	for (int player = 0; player < MAX_PLAYERS; player++) {
-	  if(playerJoysticks.count(player) == 1) {
-	    unsigned int padcolor = 0xFFFFFF99;
 
-	    if(mplayerPads[playerJoysticks[player]] > 0) {
-	      if(mplayerPadsIsHotkey) {
-		padcolor = 0x0000FF66;
-	      } else {
-		padcolor = 0xFF000066;
-	      }
-	    }
+	if (Settings::getInstance()->getBool("ShowControllerActivity"))
+	{
+		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+		for (int player = 0; player < MAX_PLAYERS; player++) 
+		{
+			if (playerJoysticks.count(player) == 1) 
+			{
+				unsigned int padcolor = 0xFFFFFF99;
 
-	    Renderer::drawRect((player*(10+4))+2, Renderer::getScreenHeight()-10-2, 10, 10, padcolor);
-	  }
+				if (mplayerPads[playerJoysticks[player]] > 0)
+					padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
+
+				float sz = Renderer::getScreenHeight() / 100.0;
+
+				Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);
+			}
+		}
 	}
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
@@ -412,11 +437,19 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
+void Window::endRenderLoadingScreen()
+{
+	mSplash = nullptr;	
+}
+
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
 {
+	if (mSplash == NULL)
+		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, false, false);
+
 	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity); // batocera
+	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity, 0xEFEFEF00 | opacity, true); // batocera
 
 	if (percent >= 0)
 	{
@@ -429,12 +462,17 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
 
 		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
-		Renderer::drawRect(x, y, (w*percent), h, 0xCF000000 | opacity);
+		Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0xAF000000 | opacity, true);
 	}
 
 	ImageComponent splash(this, true);
 	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
-	splash.setImage(":/splash_batocera.svg"); // batocera
+
+	if (mSplash != NULL)
+		splash.setImage(mSplash);
+	else
+		splash.setImage(":/splash_batocera.svg"); // batocera
+
 	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
 	splash.render(trans);
 
@@ -465,11 +503,17 @@ void Window::renderHelpPromptsEarly()
 
 void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style)
 {
+	// Keep a temporary reference to the previous grid.
+	// It avoids unloading/reloading images if they are the same, and avoids flickerings
+	auto oldGrid = mHelp->getGrid();
+
 	mHelp->clearPrompts();
 	mHelp->setStyle(style);
 
-	mClockFont = style.font;
-	mClockColor = style.textColor;
+	mClockFont = style.clockFont;
+	mClockColor = style.clockColor;
+	mClockPos = style.clockPosition;
+	mClockElapsed = -1;
 
 	std::vector<HelpPrompt> addPrompts;
 

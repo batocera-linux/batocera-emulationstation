@@ -23,6 +23,8 @@ public:
 	inline HelpStyle& getStyle() { return mStyle; }
 	void setStyle(const HelpStyle& style);
 
+	std::shared_ptr<ComponentGrid> getGrid() { return mGrid; };
+
 private:
 	std::shared_ptr<TextureResource> getIconTexture(const char* name);
 	std::map< std::string, std::shared_ptr<TextureResource> > mIconCache;

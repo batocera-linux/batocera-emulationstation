@@ -8,7 +8,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 
-BasicGameListView::BasicGameListView(Window* window, FileData* root)
+BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root), mList(window)
 {
 	mList.setSize(mSize.x(), mSize.y() * 0.8f);
@@ -128,7 +128,7 @@ void BasicGameListView::setCursor(FileData* cursor)
 void BasicGameListView::addPlaceholder()
 {
 	// empty list - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<No Entries Found>", this->mRoot->getSystem()->getSystemEnvData(), this->mRoot->getSystem());
+	FileData* placeholder = new FileData(PLACEHOLDER, _("<No Entries Found>"), this->mRoot->getSystem());
 	mList.add(placeholder->getName(), placeholder, (placeholder->getType() == PLACEHOLDER));
 }
 
@@ -151,7 +151,7 @@ void BasicGameListView::remove(FileData *game, bool deleteFile)
 {
 	if (deleteFile)
 		Utils::FileSystem::removeFile(game->getPath());  // actually delete the file on the filesystem
-	FileData* parent = game->getParent();
+	FolderData* parent = game->getParent();
 	if (getCursor() == game)                     // Select next element in list, or prev if none
 	{
 		std::vector<FileData*> siblings = parent->getChildrenListToDisplay();

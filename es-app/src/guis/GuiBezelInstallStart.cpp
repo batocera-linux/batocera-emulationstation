@@ -41,7 +41,11 @@ GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
       }
 
         mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 bool GuiBezelInstallMenu::input(InputConfig* config, Input input)
@@ -117,7 +121,11 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
         }
 
         mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
+		if (Renderer::isSmallScreen())
+			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+		else
+			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiBezelInstallStart::start()
@@ -190,7 +198,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 			continue;
 
 		std::vector<SystemData*>::const_iterator itSystem;
-		for (itSystem = SystemData::sFileSystemVector.cbegin(); itSystem != SystemData::sFileSystemVector.cend(); itSystem++)
+		for (itSystem = SystemData::sSystemVector.cbegin(); itSystem != SystemData::sSystemVector.cend(); itSystem++)
 		{
 			// Let's put the pretty name of the system
 			if (! strcmp ((*itSystem)->getName().c_str(), bezel_cli))
@@ -213,7 +221,11 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
         }
 
         mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiBezelUninstallStart::start()

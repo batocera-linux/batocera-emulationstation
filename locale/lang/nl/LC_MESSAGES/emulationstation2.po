@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "Stoppen"
 msgid "BACK"
 msgstr "Terug"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "Sluiten"
 
@@ -58,6 +61,21 @@ msgstr "Sorteer spellen op"
 msgid "FILTER GAMELIST"
 msgstr "Spellen filteren"
 
+msgid "GAMELIST VIEW STYLE"
+msgstr "Spelllijst stijl"
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "Bewerk deze spelgegevens"
 
-msgid "ADVANCED"
-msgstr "Geavanceerd"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "Updaten spellijst"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "Spellijst echt updaten?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "Scrape vanaf"
 msgid "SCRAPE RATINGS"
 msgstr "Scrape beoordelingen"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "Geen"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "Nu scrapen"
 
@@ -145,6 +202,36 @@ msgstr "Versie"
 msgid "DISK USAGE"
 msgstr "Gebruikt verbruik"
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "Toon framerate"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr "Support file maken"
 
@@ -165,6 +252,9 @@ msgstr "Taal"
 
 msgid "OVERCLOCK"
 msgstr "Overklok"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "Updates"
@@ -236,9 +326,6 @@ msgstr "Automatisch opslaan/laden"
 msgid "SHADERS SET"
 msgstr "Shaders Set"
 
-msgid "NONE"
-msgstr "Geen"
-
 msgid "SCANLINES"
 msgstr "Scanlines"
 
@@ -290,11 +377,8 @@ msgstr "MD%"
 msgid "STATUS"
 msgstr "Status"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "Updaten spellijst"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "Spellijst echt updaten?"
+msgid "ADVANCED"
+msgstr "Geavanceerd"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "Configureer een controller"
@@ -331,23 +415,11 @@ msgstr "Gekoppeld controllers zijn gewist"
 msgid "INPUT P%i"
 msgstr "Ingang P%i"
 
-msgid "UI MODE"
-msgstr "Gebruikersinterface-modus"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid "Do you want to proceed ?"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr "Video-output"
-
-msgid "THEME SET"
-msgstr "Thema instellen"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -370,16 +442,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "Spelllijst stijl"
+msgid "UI MODE"
+msgstr "Gebruikersinterface-modus"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "Video-output"
+
+msgid "THEME SET"
+msgstr "Thema instellen"
 
 msgid "START ON SYSTEM"
 msgstr "Start op systeem"
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -428,9 +518,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "Toon framerate"
-
 msgid "OVERSCAN"
 msgstr "Overscan"
 
@@ -443,18 +530,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "Systeem volume"
 
@@ -462,6 +537,9 @@ msgid "FRONTEND MUSIC"
 msgstr "Frontend Muziek"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -573,6 +651,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -755,9 +836,6 @@ msgstr "Geen spellen gevonden met die criteria"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -767,11 +845,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "Wijzigen metadata"
+
+msgid "SAVE"
+msgstr "Opslaan"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "Wissen"
 
 msgid "SAVE CHANGES?"
 msgstr "Wijzigingen opslaan?"
@@ -781,12 +873,6 @@ msgstr "Naam"
 
 msgid "enter game name"
 msgstr "Wijzig spel naam"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "Beschrijving"
@@ -881,9 +967,6 @@ msgstr "Wijzig laatst gespeelde datum"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -931,11 +1014,17 @@ msgstr "Uitgebracht"
 msgid "Times played"
 msgstr "Keren gespeeld"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "Spelen"
 
 msgid "OPTIONS"
 msgstr "Opties"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "Menu"
@@ -943,16 +1032,19 @@ msgstr "Menu"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "Geen spellen gevonden - Overslaan"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "Opnieuw"
 
 msgid "ACCEPT RESULT"
-msgstr ""
-
-msgid "Loading..."
 msgstr ""
 
 msgid "Loading system config..."
@@ -995,6 +1087,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "Omhoog"
@@ -1064,20 +1179,17 @@ msgstr "Druk willekeurig"
 msgid "ALREADY TAKEN"
 msgstr "In gebruik"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
 msgstr ""
-
-msgid "DELETE"
-msgstr "Wissen"
 
 msgid "DELETE A CHAR"
 msgstr ""
 
 msgid "DISCARD CHANGES"
 msgstr "Verwijder wijzigingen"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
 msgid "SHIFT"
 msgstr ""
@@ -1163,9 +1275,6 @@ msgstr ""
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "Alleen favorieten"
-
-#~ msgid "SAVE"
-#~ msgstr "Opslaan"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

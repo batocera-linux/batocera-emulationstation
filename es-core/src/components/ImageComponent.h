@@ -2,12 +2,13 @@
 #ifndef ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
 #define ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
 
+#include "renderers/Renderer.h"
 #include "math/Vector2i.h"
 #include "GuiComponent.h"
-#include "platform.h"
-#include GLHEADER
+#include "ImageIO.h"
 
 class TextureResource;
+class MaxSizeInfo;
 
 class ImageComponent : public GuiComponent
 {
@@ -18,7 +19,7 @@ public:
 	void setDefaultImage(std::string path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
-	void setImage(std::string path, bool tile = false);
+	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
 	//Loads an image from memory.
 	void setImage(const char* image, size_t length, bool tile = false);
 	//Use an already existing texture.
@@ -56,6 +57,8 @@ public:
 
 	// Multiply all pixels in the image by this color when rendering.
 	void setColorShift(unsigned int color);
+	void setColorShiftEnd(unsigned int color);
+	void setColorGradientHorizontal(bool horizontal);
 	virtual void setColor(unsigned int color) { setColorShift(color); }
 
 	void setFlipX(bool flip); // Mirror on the X axis.
@@ -75,6 +78,20 @@ public:
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+
+	void setAllowFading(bool fade) { mAllowFading = fade; };
+	void setMirroring(Vector2f mirror) { mReflection = mirror; };
+
+	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
+
+	const MaxSizeInfo getMaxSizeInfo()
+	{
+		if (mTargetSize == Vector2f(0, 0))
+			return MaxSizeInfo(mSize, mTargetIsMax);
+
+		return MaxSizeInfo(mTargetSize, mTargetIsMax);
+	};
+
 private:
 	Vector2f mTargetSize;
 
@@ -84,19 +101,15 @@ private:
 	// Used internally whenever the resizing parameters or texture change.
 	void resize();
 
-	struct Vertex
-	{
-		Vector2f pos;
-		Vector2f tex;
-	} mVertices[6];
-
-	GLubyte mColors[6*4];
+	Renderer::Vertex mVertices[4];
 
 	void updateVertices();
 	void updateColors();
 	void fadeIn(bool textureLoaded);
 
 	unsigned int mColorShift;
+	unsigned int mColorShiftEnd;
+	bool mColorGradientHorizontal;
 
 	std::string mDefaultPath;
 
@@ -109,6 +122,13 @@ private:
 
 	Vector2f mTopLeftCrop;
 	Vector2f mBottomRightCrop;
+
+	Vector2f mReflection;
+	bool mAllowFading;
+
+	std::string mPath;
+
+	std::shared_ptr<TextureResource> mLoadingTexture;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H

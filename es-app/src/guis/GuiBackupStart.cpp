@@ -29,16 +29,24 @@ GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window), mMenu(win
 				moptionsStorage->add(vname, tokens.at(1), false);
 			}
 		}
-		else {
-			moptionsStorage->add((*it), (*it), false);
-		}
-	}
+		else
+			moptionsStorage->add((*it), (*it), false);		
+	}	
+
+	if (availableStorage.size() == 0)
+		moptionsStorage->add(_("NO DEVICE FOUND"), "", true);
+	else
+		moptionsStorage->selectFirstItem();
+	
 	mMenu.addWithLabel(_("TARGET DEVICE"), moptionsStorage);
 
 	mMenu.addButton(_("START"), "start", std::bind(&GuiBackupStart::start, this));
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.1f);
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.1f);
 }
 
 void GuiBackupStart::start()

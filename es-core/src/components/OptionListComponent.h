@@ -115,7 +115,11 @@ private:
 				});
 			}
 
-			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+			if (Renderer::isSmallScreen())
+				mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+			else
+				mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+
 			addChild(&mMenu);
 		}
 
@@ -203,13 +207,18 @@ public:
 		{
 			if(config->isMappedTo(BUTTON_OK, input))
 			{
-				open();
+				if (mEntries.size() > 0)
+					open();
+
 				return true;
 			}
 			if(!mMultiSelect)
 			{
 				if(config->isMappedLike("left", input))
 				{
+					if (mEntries.size() == 0)
+						return true;
+
 					// move selection to previous
 					unsigned int i = getSelectedId();
 					int next = (int)i - 1;
@@ -273,7 +282,7 @@ public:
 	}
         
 
-	void add(const std::string& name, const T& obj, bool selected)
+	void add(const std::string name, const T& obj, bool selected)
 	{
 		OptionListData e;
 		e.name = name;

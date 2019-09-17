@@ -44,7 +44,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 				};
 				row.makeAcceptInputHandler(createCollectionCall);
 
-				auto themeFolder = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(name), ThemeData::getMenuTheme()->TextSmall.font, ThemeData::getMenuTheme()->Text.color);
+				auto themeFolder = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(name), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 				row.addElement(themeFolder, true);
 				s->addRow(row);				
 			}
@@ -77,10 +77,6 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	sortAllSystemsSwitch->setState(Settings::getInstance()->getBool("SortAllSystems"));
 	mMenu.addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
 
-	favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
-	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
-	mMenu.addWithLabel(_("DISPLAY FAVORITES FIRST IN GAMELIST"), favoritesFirstSwitch);
-
 	toggleSystemNameInCollections = std::make_shared<SwitchComponent>(mWindow);
 	toggleSystemNameInCollections->setState(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
 	mMenu.addWithLabel(_("SHOW SYSTEM NAME IN COLLECTIONS"), toggleSystemNameInCollections);
@@ -90,7 +86,10 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	mMenu.addButton(_("BACK"), "back", std::bind(&GuiCollectionSystemsOptions::applySettings, this));
 
-	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	if (Renderer::isSmallScreen())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiCollectionSystemsOptions::addEntry(const char* name, bool add_arrow, const std::function<void()>& func)
@@ -178,10 +177,7 @@ void GuiCollectionSystemsOptions::applySettings()
 	bool outBundle = bundleCustomCollections->getState();
 	bool prevBundle = Settings::getInstance()->getBool("UseCustomCollectionsSystem");
 
-	bool outFavoritesFirst = favoritesFirstSwitch->getState();
-	bool prevFavoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
-
-	bool needUpdateSettings = prevAuto != outAuto || prevCustom != outCustom || outSort != prevSort || outBundle != prevBundle || outFavoritesFirst != prevFavoritesFirst;
+	bool needUpdateSettings = prevAuto != outAuto || prevCustom != outCustom || outSort != prevSort || outBundle != prevBundle;
 	if (needUpdateSettings)
 	{
 		updateSettings(outAuto, outCustom);
@@ -195,8 +191,7 @@ void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, st
 	Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);
 	Settings::getInstance()->setBool("SortAllSystems", sortAllSystemsSwitch->getState());
 	Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState());
-	Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState());
-	Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState());
+	Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState());	
 	Settings::getInstance()->saveFile();
 	CollectionSystemManager::get()->loadEnabledListFromSettings();
 	CollectionSystemManager::get()->updateSystemsList();

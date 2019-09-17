@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "取消"
 msgid "BACK"
 msgstr "返回"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "關閉"
 
@@ -58,6 +61,21 @@ msgstr "遊戲排序方式"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "編輯此遊戲的簡介資料"
 
-msgid "ADVANCED"
-msgstr "進階設定"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "更新遊戲列表"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "確定要進行遊戲列表更新嗎?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "資料搜刮來源"
 msgid "SCRAPE RATINGS"
 msgstr "搜刮評分"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "開始搜刮"
 
@@ -145,6 +202,36 @@ msgstr "版本"
 msgid "DISK USAGE"
 msgstr "磁碟使用情況"
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "顯示FPS幀率"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -165,6 +252,9 @@ msgstr "語言"
 
 msgid "OVERCLOCK"
 msgstr "超頻"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "更新"
@@ -235,9 +325,6 @@ msgstr "自動儲存/讀取"
 msgid "SHADERS SET"
 msgstr "濾鏡著色器設定"
 
-msgid "NONE"
-msgstr ""
-
 msgid "SCANLINES"
 msgstr "掃描線"
 
@@ -289,11 +376,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "目前狀態"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "更新遊戲列表"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "確定要進行遊戲列表更新嗎?"
+msgid "ADVANCED"
+msgstr "進階設定"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "設定遊戲控制器"
@@ -330,23 +414,11 @@ msgstr "遊戲控制器已經刪除"
 msgid "INPUT P%i"
 msgstr "輸入 P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "主題佈景設定"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -369,16 +441,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "主題佈景設定"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -422,9 +512,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "顯示FPS幀率"
-
 msgid "OVERSCAN"
 msgstr "過掃描填滿效果"
 
@@ -437,18 +524,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "系統音量"
 
@@ -456,6 +531,9 @@ msgid "FRONTEND MUSIC"
 msgstr "系統背景音樂"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -567,6 +645,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -744,9 +825,6 @@ msgstr "沒有符合的遊戲。"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -756,11 +834,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "編輯簡介"
+
+msgid "SAVE"
+msgstr "儲存"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "刪除"
 
 msgid "SAVE CHANGES?"
 msgstr "儲存本次修改嗎?"
@@ -770,12 +862,6 @@ msgstr "名稱"
 
 msgid "enter game name"
 msgstr "輸入遊戲名稱"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "簡介"
@@ -870,9 +956,6 @@ msgstr "輸入最後遊戲執行日期"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -917,11 +1000,17 @@ msgstr "發行日期"
 msgid "Times played"
 msgstr "遊戲執行次數"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "執行"
 
 msgid "OPTIONS"
 msgstr "選項"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "選單"
@@ -929,16 +1018,19 @@ msgstr "選單"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "搜尋不到資料 - 按B鍵快速略過"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "重試"
 
 msgid "ACCEPT RESULT"
-msgstr ""
-
-msgid "Loading..."
 msgstr ""
 
 msgid "Loading system config..."
@@ -981,6 +1073,27 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
 
 msgid "UP"
 msgstr "上"
@@ -1045,20 +1158,17 @@ msgstr "按下對應按鍵"
 msgid "ALREADY TAKEN"
 msgstr "已經用過了"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SPACE"
 msgstr ""
-
-msgid "DELETE"
-msgstr "刪除"
 
 msgid "DELETE A CHAR"
 msgstr ""
 
 msgid "DISCARD CHANGES"
 msgstr "放棄本次修改"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
 msgid "SHIFT"
 msgstr ""
@@ -1135,9 +1245,6 @@ msgstr ""
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "僅顯示收藏項目"
-
-#~ msgid "SAVE"
-#~ msgstr "儲存"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

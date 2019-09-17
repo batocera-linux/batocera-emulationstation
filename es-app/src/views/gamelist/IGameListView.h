@@ -2,9 +2,9 @@
 #ifndef ES_APP_VIEWS_GAME_LIST_IGAME_LIST_VIEW_H
 #define ES_APP_VIEWS_GAME_LIST_IGAME_LIST_VIEW_H
 
+#include "renderers/Renderer.h"
 #include "FileData.h"
 #include "GuiComponent.h"
-#include "Renderer.h"
 
 class ThemeData;
 class Window;
@@ -13,7 +13,7 @@ class Window;
 class IGameListView : public GuiComponent
 {
 public:
-	IGameListView(Window* window, FileData* root) : GuiComponent(window), mRoot(root)
+	IGameListView(Window* window, FolderData* root) : GuiComponent(window), mRoot(root)
 		{ setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight()); }
 
 	virtual ~IGameListView() {}
@@ -41,9 +41,12 @@ public:
 	virtual HelpStyle getHelpStyle() override;
 
 	void render(const Transform4x4f& parentTrans) override;
+	virtual void setThemeName(std::string name);
+
 protected:
-	FileData* mRoot;
+	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;
+	std::string mCustomThemeName;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_IGAME_LIST_VIEW_H

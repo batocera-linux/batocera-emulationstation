@@ -549,6 +549,12 @@ namespace Utils
 
 		std::string createRelativePath(const std::string& _path, const std::string& _relativeTo, const bool _allowHome)
 		{
+			if (_relativeTo.empty())
+				return _path;
+
+			if (_path == _relativeTo)
+				return "";
+
 			bool        contains = false;
 			std::string path     = removeCommonPath(_path, _relativeTo, contains);
 
@@ -580,7 +586,7 @@ namespace Utils
 			std::string common = isDirectory(_common) ? getGenericPath(_common) : getParent(_common);
 
 			// check if path contains common
-			if(path.find(common) == 0)
+			if(path.find(common) == 0 && path != common)
 			{
 				_contains = true;
 				return path.substr(common.length() + 1);
@@ -759,6 +765,58 @@ namespace Utils
 
 		} // isHidden
 
+		std::string combine(const std::string& _path, const std::string& filename)
+		{
+			std::string gp = getGenericPath(_path);
+
+			if (Utils::String::startsWith(filename, "/.."))
+			{
+				auto f = getPathList(filename);
+
+				int count = 0;
+				for (auto it = f.cbegin(); it != f.cend(); ++it)
+				{
+					if (*it != "..")
+						break;
+
+					count++;
+				}
+
+				if (count > 0)
+				{
+					auto list = getPathList(gp);
+					std::vector<std::string> p(list.begin(), list.end());
+
+					std::string result;
+
+					for (int i = 0; i < p.size() - count; i++)
+					{
+						if (result.empty())
+							result = p.at(i);
+						else
+							result = result + "/" + p.at(i);
+					}
+
+					std::vector<std::string> fn(f.begin(), f.end());
+					for (int i = count; i < fn.size(); i++)
+					{
+						if (result.empty())
+							result = fn.at(i);
+						else
+							result = result + "/" + fn.at(i);
+					}
+
+					return result;
+				}
+			}
+
+
+			if (!Utils::String::endsWith(gp, "/") && !Utils::String::endsWith(gp, "\\"))
+				if (!Utils::String::startsWith(filename, "/") && !Utils::String::startsWith(filename, "\\"))
+					gp += "/";
+
+			return gp + filename;
+		}
 	} // FileSystem::
 
 } // Utils::

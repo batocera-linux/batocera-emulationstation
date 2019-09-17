@@ -1,16 +1,22 @@
 #include "components/VideoVlcComponent.h"
 
+#include "renderers/Renderer.h"
 #include "resources/TextureResource.h"
 #include "utils/StringUtil.h"
 #include "PowerSaver.h"
-#include "Renderer.h"
 #include "Settings.h"
 #include <vlc/vlc.h>
 #include <SDL_mutex.h>
+#include <cmath>
+#include "SystemConf.h"
 
 #ifdef WIN32
 #include <codecvt>
 #endif
+
+#include "ImageIO.h"
+
+#define MATHPI          3.141592653589793238462643383279502884L
 
 libvlc_instance_t* VideoVlcComponent::mVLC = NULL;
 
@@ -26,6 +32,8 @@ static void *lock(void *data, void **p_pixels) {
 // VLC just rendered a video frame.
 static void unlock(void *data, void* /*id*/, void *const* /*p_pixels*/) {
 	struct VideoContext *c = (struct VideoContext *)data;
+	c->hasFrame = true;
+
 	SDL_UnlockSurface(c->surface);
 	SDL_UnlockMutex(c->mutex);
 }
@@ -61,23 +69,37 @@ VideoVlcComponent::~VideoVlcComponent()
 
 void VideoVlcComponent::setResize(float width, float height)
 {
-	if (mSize.x() != 0 && mSize.y() != 0 && !mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+	if (mSize.x() != 0 && mSize.y() != 0 && !mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
 	mTargetIsMax = false;
+	mTargetIsMin = false;
 	mStaticImage.setResize(width, height);
 	resize();
 }
 
 void VideoVlcComponent::setMaxSize(float width, float height)
 {
-	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
 	mTargetIsMax = true;
+	mTargetIsMin = false;
 	mStaticImage.setMaxSize(width, height);
+	resize();
+}
+
+void VideoVlcComponent::setMinSize(float width, float height)
+{
+	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMin && !mTargetIsMax && mTargetSize.x() == width && mTargetSize.y() == height)
+		return;
+
+	mTargetSize = Vector2f(width, height);
+	mTargetIsMax = false;
+	mTargetIsMin = true;
+	mStaticImage.setMinSize(width, height);
 	resize();
 }
 
@@ -123,7 +145,12 @@ void VideoVlcComponent::resize()
 			mSize[1] = Math::round(mSize[1]);
 			mSize[0] = (mSize[1] / textureSize.y()) * textureSize.x();
 
-		}else{
+		}
+		else if (mTargetIsMin)
+		{
+			mSize = ImageIO::getPictureMinSize(textureSize, mTargetSize);
+		}
+		else {
 			// if both components are set, we just stretch
 			// if no components are set, we don't resize at all
 			mSize = mTargetSize == Vector2f::Zero() ? textureSize : mTargetSize;
@@ -149,6 +176,9 @@ void VideoVlcComponent::resize()
 
 void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	VideoComponent::render(parentTrans);
 
 	bool initFromPixels = true;
@@ -157,7 +187,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	{
 		// If video is still attached to the path & texture is initialized, we suppose it had just been stopped (onhide, ondisable, screensaver...)
 		// still render the last frame
-		if (mTexture != nullptr && !mVideoPath.empty() && mPlayingVideoPath == mVideoPath && mTexture->isInitialized())
+		if (mTexture != nullptr && !mVideoPath.empty() && mPlayingVideoPath == mVideoPath && mTexture->isLoaded())
 			initFromPixels = false;
 		else
 			return;
@@ -176,82 +206,76 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
-	GuiComponent::renderChildren(trans);
 
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
+	GuiComponent::renderChildren(trans);
 	Renderer::setMatrix(trans);
 
-	const unsigned int fadeIn = t * 255.0f;
-
-	float x, y;
-
-	float tex_offs_x = 0.0f;
-	float tex_offs_y = 0.0f;
-	float x2;
-	float y2;
-
-	x = 0.0;
-	y = 0.0;
-	x2 = mSize.x();
-	y2 = mSize.y();
-
-	// Define a structure to contain the data for each vertex
-	struct Vertex
-	{
-		Vector2f pos;
-		Vector2f tex;
-		Vector4f colour;
-	} vertices[6];
-
-	// We need two triangles to cover the rectangular area
-	vertices[0].pos[0] = x; 			vertices[0].pos[1] = y;
-	vertices[1].pos[0] = x; 			vertices[1].pos[1] = y2;
-	vertices[2].pos[0] = x2;			vertices[2].pos[1] = y;
-
-	vertices[3].pos[0] = x2;			vertices[3].pos[1] = y;
-	vertices[4].pos[0] = x; 			vertices[4].pos[1] = y2;
-	vertices[5].pos[0] = x2;			vertices[5].pos[1] = y2;
-
-	// Texture coordinates
-	vertices[0].tex[0] = -tex_offs_x; 			vertices[0].tex[1] = -tex_offs_y;
-	vertices[1].tex[0] = -tex_offs_x; 			vertices[1].tex[1] = 1.0f + tex_offs_y;
-	vertices[2].tex[0] = 1.0f + tex_offs_x;		vertices[2].tex[1] = -tex_offs_y;
-
-	vertices[3].tex[0] = 1.0f + tex_offs_x;		vertices[3].tex[1] = -tex_offs_y;
-	vertices[4].tex[0] = -tex_offs_x;			vertices[4].tex[1] = 1.0f + tex_offs_y;
-	vertices[5].tex[0] = 1.0f + tex_offs_x;		vertices[5].tex[1] = 1.0f + tex_offs_y;
-
-	// Colours - use this to fade the video in and out
-	for (int i = 0; i < (4 * 6); ++i) {
-		if ((i%4) < 3)
-			vertices[i / 4].colour[i % 4] = fadeIn;
-		else
-			vertices[i / 4].colour[i % 4] = 1.0f;
+	// Build a texture for the video frame
+	if (initFromPixels && mContext.hasFrame)
+	{		
+		if (SDL_LockMutex(mContext.mutex) == 0)
+		{
+			mTexture->initFromExternalPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
+			mContext.hasFrame = false;
+			SDL_UnlockMutex(mContext.mutex);
+		}
 	}
 
-	glEnable(GL_TEXTURE_2D);
+	const unsigned int fadeIn = t * 255.0f;
+	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
+	Renderer::Vertex   vertices[4];
 
-	// Build a texture for the video frame
-	if (initFromPixels)
-		mTexture->initFromPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
+	if (mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	{
+		// Bump Effect
+		float bump = sin((MATHPI / 2.0) * mFadeIn) + sin(MATHPI * mFadeIn) / 2.0;
 
+		float w = mSize.x() * bump;
+		float h = mSize.y() * bump;
+		float centerX = mSize.x() / 2.0f;
+		float centerY = mSize.y() / 2.0f;
+
+		Vector2f topLeft(Math::round(centerX - w / 2.0f), Math::round(centerY - h / 2.0f));
+		Vector2f bottomRight(Math::round(centerX + w / 2.0f), Math::round(centerY + h / 2.0f));
+
+		vertices[0] = { { topLeft.x()		, topLeft.y()	  }, { 0.0f, 0.0f }, color };
+		vertices[1] = { { topLeft.x()		, bottomRight.y() }, { 0.0f, 1.0f }, color };
+		vertices[2] = { { bottomRight.x()	, topLeft.y()     }, { 1.0f, 0.0f }, color };
+		vertices[3] = { { bottomRight.x()	, bottomRight.y() }, { 1.0f, 1.0f }, color };
+	}
+	else
+	{
+		vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
+		vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
+		vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
+		vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+	}
+
+	// round vertices
+	for(int i = 0; i < 4; ++i)
+		vertices[i].pos.round();
+	
 	mTexture->bind();
 
+	if (mTargetIsMin)
+	{
+		Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
+
+		Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
+		Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
+		Renderer::pushClipRect(pos, size);
+	}
+
 	// Render it
-	glEnableClientState(GL_COLOR_ARRAY);
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	Renderer::drawTriangleStrips(&vertices[0], 4);
 
-	glColorPointer(4, GL_FLOAT, sizeof(Vertex), &vertices[0].colour);
-	glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &vertices[0].pos);
-	glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &vertices[0].tex);
+	if (mTargetIsMin)
+		Renderer::popClipRect();
 
-	glDrawArrays(GL_TRIANGLES, 0, 6);
-
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
-
-	glDisable(GL_TEXTURE_2D);
+	Renderer::bindTexture(0);
 }
 
 void VideoVlcComponent::setupContext()
@@ -261,9 +285,10 @@ void VideoVlcComponent::setupContext()
 	
 	// Create an RGBA surface to render the video into
 	mContext.surface = SDL_CreateRGBSurface(SDL_SWSURFACE, (int)mVideoWidth, (int)mVideoHeight, 32, 0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);
+	mContext.hasFrame = false;
 	mContext.mutex = SDL_CreateMutex();
 	mContext.component = this;
-	mContext.valid = true;
+	mContext.valid = true;	
 	resize();	
 }
 
@@ -274,8 +299,15 @@ void VideoVlcComponent::freeContext()
 
 	SDL_FreeSurface(mContext.surface);
 	SDL_DestroyMutex(mContext.mutex);
+	mContext.hasFrame = false;
 	mContext.component = NULL;
-	mContext.valid = false;	
+	mContext.valid = false;			
+
+	if (!mDisable)
+	{
+		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
+		mTexture = TextureResource::get("");
+	}
 }
 
 void VideoVlcComponent::setupVLC(std::string subtitles)
@@ -283,6 +315,30 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 	if (mVLC != nullptr)
 		return;
 
+	std::vector<std::string> cmdline;
+	cmdline.push_back("--quiet");
+	cmdline.push_back("--no-video-title-show");
+	
+	if (!subtitles.empty())
+	{
+		cmdline.push_back("--sub-file");
+		cmdline.push_back(subtitles);
+	}
+
+	std::string commandLine = SystemConf::getInstance()->get("vlc.commandline");
+	if (!commandLine.empty())
+	{
+		std::vector<std::string> tokens = Utils::String::split(commandLine, ' ');
+		for (auto token : tokens)
+			cmdline.push_back(token);
+	}
+
+	const char* *theArgs = new const char*[10];
+
+	for (int i = 0 ; i < cmdline.size() ; i++)
+		theArgs[i] = cmdline[i].c_str();
+
+	/*
 	// If VLC hasn't been initialised yet then do it now
 	const char** args;
 	const char* newargs[] = { "--quiet", "--sub-file", subtitles.c_str() };
@@ -298,8 +354,10 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 	{
 		argslen = sizeof(singleargs) / sizeof(singleargs[0]);
 		args = singleargs;
-	}
-	mVLC = libvlc_new(argslen, args);
+	}*/
+	mVLC = libvlc_new(cmdline.size(), theArgs);
+
+	delete[] theArgs;
 }
 
 void VideoVlcComponent::handleLooping()
@@ -380,6 +438,18 @@ void VideoVlcComponent::startVideo()
 					}
 				}
 #endif
+
+				if (Settings::getInstance()->getBool("OptimizeVideo"))
+				{
+					// If video is bigger than display, ask VLC for a smaller image
+					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()));
+					if (sz.x() < mVideoWidth || sz.y() < mVideoHeight)
+					{
+						mVideoWidth = sz.x();
+						mVideoHeight = sz.y();
+					}
+				}
+
 				PowerSaver::pause();
 				setupContext();
 

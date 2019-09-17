@@ -5,8 +5,10 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 class FileData;
+class FolderData;
 class SystemData;
 class Window;
 struct SystemEnvironmentData;
@@ -94,10 +96,10 @@ private:
 	SystemData* getAllGamesCollection();
 	SystemData* createNewCollectionEntry(std::string name, CollectionSystemDecl sysDecl, bool index = true);
 	void populateAutoCollection(CollectionSystemData* sysData);
-	void populateCustomCollection(CollectionSystemData* sysData);
+	void populateCustomCollection(CollectionSystemData* sysData, std::unordered_map<std::string, FileData*>* pMap = nullptr);
 
 	void removeCollectionsFromDisplayedSystems();
-	void addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData);
+	void addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap);
 
 	std::vector<std::string> getSystemsFromConfig();
 	std::vector<std::string> getSystemsFromTheme();
@@ -105,7 +107,7 @@ private:
 	std::vector<std::string> getCollectionThemeFolders(bool custom);
 	std::vector<std::string> getUserCollectionThemeFolders();
 
-	void trimCollectionCount(FileData* rootFolder, int limit);
+	void trimCollectionCount(FolderData* rootFolder, int limit);
 
 	bool themeFolderExists(std::string folder);
 

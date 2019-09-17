@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 18:52+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,6 +47,9 @@ msgstr "إلغاء"
 msgid "BACK"
 msgstr "العودة"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "اغلاق"
 
@@ -59,6 +62,21 @@ msgstr "ترتيب الالعاب حسب"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -68,8 +86,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل بيانات اللعبة (METADATA)"
 
-msgid "ADVANCED"
-msgstr "متطور"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "تحديث قوائم الالعاب"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "تحديث قوائم الالعاب، متأكد؟"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -122,6 +149,36 @@ msgstr "بحث من"
 msgid "SCRAPE RATINGS"
 msgstr "تقييمات البحث"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "لاشيء"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "بحث الأن"
 
@@ -146,6 +203,36 @@ msgstr "الاصدار"
 msgid "DISK USAGE"
 msgstr "الاستخدام للقرص"
 
+msgid "DEVELOPER"
+msgstr ""
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "اظهار معدل الاطار"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -166,6 +253,9 @@ msgstr "اللغة"
 
 msgid "OVERCLOCK"
 msgstr "رفع سرعة المعالج"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "تحديث"
@@ -236,9 +326,6 @@ msgstr "الحفظ/التحميل اوتو"
 msgid "SHADERS SET"
 msgstr "مجموعة الفلاتر"
 
-msgid "NONE"
-msgstr "لاشيء"
-
 msgid "SCANLINES"
 msgstr "خطوط المسح"
 
@@ -290,11 +377,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "الحالة"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "تحديث قوائم الالعاب"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "تحديث قوائم الالعاب، متأكد؟"
+msgid "ADVANCED"
+msgstr "متطور"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "إعداد يد التحكم"
@@ -330,23 +414,11 @@ msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلو
 msgid "INPUT P%i"
 msgstr "ادخال P%i"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "اختيار التنسيق"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -369,16 +441,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "اختيار التنسيق"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -422,9 +512,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "اظهار معدل الاطار"
-
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -437,18 +524,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "مستوى صوت النظام"
 
@@ -456,6 +531,9 @@ msgid "FRONTEND MUSIC"
 msgstr "أغنية الواجهة"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -567,6 +645,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -754,9 +835,6 @@ msgstr "لم يتم  العثور على العاب بصيغة البحث الم
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -766,11 +844,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات"
+
+msgid "SAVE"
+msgstr "حفظ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "حذف"
 
 msgid "SAVE CHANGES?"
 msgstr "حفظ التعديلات؟"
@@ -780,12 +872,6 @@ msgstr "الاسم"
 
 msgid "enter game name"
 msgstr "ادخل اسم اللعبة"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "الوصف"
@@ -880,9 +966,6 @@ msgstr "ادخل تاريخ اخر مره تم لعبها"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -932,11 +1015,17 @@ msgstr "صُدر"
 msgid "Times played"
 msgstr "مرات اللعب"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "تشغيل"
 
 msgid "OPTIONS"
 msgstr "اعدادات"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "قائمة"
@@ -944,17 +1033,20 @@ msgstr "قائمة"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "لم يتم العثور على العاب - تخطي"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "إعادة محاولة"
 
 msgid "ACCEPT RESULT"
 msgstr "قبول التعديلات"
-
-msgid "Loading..."
-msgstr ""
 
 msgid "Loading system config..."
 msgstr ""
@@ -996,6 +1088,37 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 msgid "UP"
 msgstr "فوق"
@@ -1065,20 +1188,17 @@ msgstr "اضغط اي زر"
 msgid "ALREADY TAKEN"
 msgstr "معرّف مسبقاً"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
-
 msgid "SPACE"
 msgstr "مسافة"
-
-msgid "DELETE"
-msgstr "حذف"
 
 msgid "DELETE A CHAR"
 msgstr "حذف حرف"
 
 msgid "DISCARD CHANGES"
 msgstr "الغاء التعديلات"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
 
 msgid "SHIFT"
 msgstr "زر الانتقال"
@@ -1165,9 +1285,6 @@ msgstr ""
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "المفضلة فقط"
-
-#~ msgid "SAVE"
-#~ msgstr "حفظ"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"

@@ -6,7 +6,6 @@
 #include "utils/StringUtil.h"
 #include "InputManager.h"
 #include "PowerSaver.h"
-#include "Renderer.h"
 #include "Window.h"
 #include "LocaleES.h"
 
@@ -62,7 +61,11 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	mDeviceHeld = std::make_shared<TextComponent>(mWindow, "", theme->Text.font, theme->Text.selectedColor, ALIGN_CENTER);
 	mGrid.setEntry(mDeviceHeld, Vector2i(0, 4), false, true);
 
-	setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.5f);
+	if (Renderer::isSmallScreen())
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	else
+		setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.5f);
+
 	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 }
 

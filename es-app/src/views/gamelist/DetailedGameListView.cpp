@@ -5,11 +5,12 @@
 #include "LocaleES.h"
 
 #ifdef _RPI_
+#include "Settings.h"
 #include "components/VideoPlayerComponent.h"
 #endif
 #include "components/VideoVlcComponent.h"
 
-DetailedGameListView::DetailedGameListView(Window* window, FileData* root) : 
+DetailedGameListView::DetailedGameListView(Window* window, FolderData* root) : 
 	BasicGameListView(window, root), 
 	mDescContainer(window), mDescription(window), 
 	mImage(nullptr), mMarquee(nullptr), mVideo(nullptr),
@@ -101,7 +102,8 @@ void DetailedGameListView::createImage()
 	const float padding = 0.01f;
 
 	// Image
-	mImage = new ImageComponent(mWindow, true);
+	mImage = new ImageComponent(mWindow);
+	mImage->setAllowFading(false);
 	mImage->setOrigin(0.5f, 0.5f);
 	mImage->setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
 	mImage->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
@@ -120,7 +122,7 @@ void DetailedGameListView::createVideo()
 // Create the correct type of video window
 #ifdef _RPI_
 	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
-		mVideo = new VideoPlayerComponent(window, "");
+		mVideo = new VideoPlayerComponent(mWindow, "");
 	else
 #endif
 		mVideo = new VideoVlcComponent(mWindow, "");
@@ -139,6 +141,7 @@ void DetailedGameListView::createMarquee()
 
 	// Marquee
 	mMarquee = new ImageComponent(mWindow);
+	mMarquee->setAllowFading(false);
 	mMarquee->setOrigin(0.5f, 0.5f);
 	mMarquee->setPosition(mSize.x() * 0.25f, mSize.y() * 0.10f);
 	mMarquee->setMaxSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.18f);
@@ -170,7 +173,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	if (mVideo == nullptr || theme->getElement(getName(), "md_image", "image"))
 	{
 		createImage();
-		mImage->applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
+		mImage->applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
 	}
 	else if (mImage != nullptr)
 	{
@@ -218,7 +221,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
 	}
 
-	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX);
+	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
 	mDescription.setSize(mDescContainer.getSize().x(), 0);
 	mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
 
@@ -321,7 +324,7 @@ void DetailedGameListView::updateInfoPanel()
 			mImage->setImage(imagePath);
 
 		if (mMarquee != nullptr)
-			mMarquee->setImage(file->getMarqueePath());
+			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
 		
 		mDescription.setText(file->metadata.get("desc"));
 		mDescContainer.reset();
@@ -373,7 +376,17 @@ void DetailedGameListView::updateInfoPanel()
 			{
 				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t)*255));
 			};
-			comp->setAnimation(new LambdaAnimation(func, 150), 0, nullptr, fadingOut);
+
+			bool isFadeOut = fadingOut;
+			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut]
+			{
+				if (isFadeOut)
+				{
+					if (mVideo != nullptr) mVideo->setImage("");
+					if (mImage != nullptr) mImage->setImage("");
+					if (mMarquee != nullptr) mMarquee->setImage("");
+				}
+			}, fadingOut);
 		}
 	}
 }

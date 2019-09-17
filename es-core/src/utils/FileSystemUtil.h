@@ -56,6 +56,7 @@ namespace Utils
 		typedef std::list<FileInfo> fileList;
 
 		fileList  getDirectoryFiles(const std::string& _path);
+		std::string combine(const std::string& _path, const std::string& filename);
 
 	} // FileSystem::
 

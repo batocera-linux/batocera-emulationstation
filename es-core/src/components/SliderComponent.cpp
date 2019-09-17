@@ -1,7 +1,6 @@
 #include "components/SliderComponent.h"
 
 #include "resources/Font.h"
-#include "Renderer.h"
 #include "LocaleES.h"
 
 #define MOVE_REPEAT_DELAY 500
@@ -74,7 +73,10 @@ void SliderComponent::update(int deltaTime)
 void SliderComponent::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = parentTrans * getTransform();
-	trans.round();
+
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	Renderer::setMatrix(trans);
 
 	// render suffix

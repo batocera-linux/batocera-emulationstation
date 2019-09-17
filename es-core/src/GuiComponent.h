@@ -89,6 +89,9 @@ public:
     float getDefaultZIndex() const;
     void setDefaultZIndex(float zIndex);
 
+    bool isVisible() const;
+    void setVisible(bool visible);
+
 	// Returns the center point of the image (takes origin into account).
 	Vector2f getCenter() const;
 
@@ -150,6 +153,11 @@ public:
 	void animateTo(Vector2f from, Vector2f to, unsigned int flags = 0xFFFFFFFF, int delay = 350);
 	void animateTo(Vector2f from, unsigned int flags = AnimateFlags::OPACITY | AnimateFlags::SCALE, int delay = 350) { animateTo(from, from, flags, delay); }
 
+	bool isChild(GuiComponent* cmp);
+
+	std::string getTag() const { return mTag; };
+	void setTag(const std::string& value) { mTag = value; };
+
 protected:
 	void renderChildren(const Transform4x4f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
@@ -173,6 +181,7 @@ protected:
 	float mZIndex = 0;
 
 	bool mIsProcessing;
+	bool mVisible;
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;
@@ -180,6 +189,8 @@ public:
 private:
 	Transform4x4f mTransform; //Don't access this directly! Use getTransform()!
 	AnimationController* mAnimationMap[MAX_ANIMATIONS];
+
+	std::string mTag;
 };
 
 #endif // ES_CORE_GUI_COMPONENT_H

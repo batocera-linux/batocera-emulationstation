@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 22:11+0200\n"
+"POT-Creation-Date: 2019-09-16 19:08+0200\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,9 @@ msgstr "EZEZTATU"
 msgid "BACK"
 msgstr "ATZERA"
 
+msgid "go back"
+msgstr ""
+
 msgid "CLOSE"
 msgstr "ITXI"
 
@@ -58,6 +61,21 @@ msgstr "JOKUAN ORDENATU:"
 msgid "FILTER GAMELIST"
 msgstr ""
 
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
@@ -67,8 +85,17 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "JOKU HONEN DATUAK EDITATU"
 
-msgid "ADVANCED"
-msgstr "AURRERATUA"
+msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "EGUNERATU JOKO ZERRENDAK"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ZIUR JOKO ZERRENDAK EGUNERATU NAHI DITUZULA?"
+
+msgid "Loading..."
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr ""
@@ -121,6 +148,36 @@ msgstr "LORTU DATUAK HEMENDIK:"
 msgid "SCRAPE RATINGS"
 msgstr "LORTU PUNTUAZIOAK"
 
+msgid "PREFERED IMAGE SOURCE"
+msgstr ""
+
+msgid "NONE"
+msgstr "BAT ERE EZ"
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "MIX"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "PREFERED THUMBNAIL SOURCE"
+msgstr ""
+
+msgid "SCRAPE MARQUEE"
+msgstr ""
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "DATUAK LORTU"
 
@@ -145,6 +202,36 @@ msgstr "BERTSIOA"
 msgid "DISK USAGE"
 msgstr "DISKO ERABILERA"
 
+msgid "DEVELOPER"
+msgstr "GARATZAILEA"
+
+msgid "VRAM LIMIT"
+msgstr ""
+
+msgid "SHOW FRAMERATE"
+msgstr "ERAKUTSI FRAMERATEA"
+
+msgid "VSYNC"
+msgstr ""
+
+msgid "PRELOAD UI"
+msgstr ""
+
+msgid "THREADED LOADING"
+msgstr ""
+
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr ""
+
+msgid "ENABLE LOG FILE"
+msgstr ""
+
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
@@ -165,6 +252,9 @@ msgstr "HIZKUNTZA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr ""
 
 msgid "UPDATES"
 msgstr "EGUNERAKETAK"
@@ -235,9 +325,6 @@ msgstr "AUTO GORDE/KARGATU"
 msgid "SHADERS SET"
 msgstr "EZARRI SHADER-ak"
 
-msgid "NONE"
-msgstr "BAT ERE EZ"
-
 msgid "SCANLINES"
 msgstr "SCANLINE-ak"
 
@@ -289,11 +376,8 @@ msgstr ""
 msgid "STATUS"
 msgstr "EGOERA"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "EGUNERATU JOKO ZERRENDAK"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ZIUR JOKO ZERRENDAK EGUNERATU NAHI DITUZULA?"
+msgid "ADVANCED"
+msgstr "AURRERATUA"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "AGINTE BAT KONFIGURATU"
@@ -330,23 +414,11 @@ msgstr "AGINTEEN ESTEKAK EZABATUAK IZAN DIRA"
 msgid "INPUT P%i"
 msgstr "P%i SARRERA"
 
-msgid "UI MODE"
+msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "GAIA"
 
 msgid "THEME CONFIGURATION"
 msgstr ""
@@ -369,16 +441,34 @@ msgstr ""
 msgid "THEME REGION"
 msgstr ""
 
-msgid "THIS THEME HAS NO OPTION"
+msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "UI MODE"
 msgstr ""
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "THEME SET"
+msgstr "GAIA"
 
 msgid "START ON SYSTEM"
 msgstr ""
 
-msgid "DISPLAY / HIDE SYSTEMS"
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
 msgid "TRANSITION STYLE"
@@ -422,9 +512,6 @@ msgstr ""
 msgid "ENABLE FILTERS"
 msgstr ""
 
-msgid "SHOW FRAMERATE"
-msgstr "ERAKUTSI FRAMERATEA"
-
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
@@ -437,18 +524,6 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "VRAM LIMIT"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
-msgid "THREADED LOADING"
-msgstr ""
-
 msgid "SYSTEM VOLUME"
 msgstr "SISTEMAREN BOLUMENA"
 
@@ -456,6 +531,9 @@ msgid "FRONTEND MUSIC"
 msgstr "ATZEKO MUSIKA"
 
 msgid "DISPLAY SONG TITLES"
+msgstr ""
+
+msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
@@ -567,6 +645,9 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
@@ -747,9 +828,6 @@ msgstr "EZ DAGO JOKORIK IRIZPIDE HORI BETETZEN DUENIK"
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "APPLY"
 msgstr ""
 
@@ -759,11 +837,25 @@ msgstr ""
 msgid "VALIDATE"
 msgstr ""
 
+msgid "NO DEVICE FOUND"
+msgstr ""
+
 msgid "SELECT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "DATUAK EDITATU"
+
+msgid "SAVE"
+msgstr "GORDE"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "EZABATU"
 
 msgid "SAVE CHANGES?"
 msgstr "ALDAKETAK GORDE?"
@@ -773,12 +865,6 @@ msgstr "Izena"
 
 msgid "enter game name"
 msgstr "jokoarean izena sartu"
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
 
 msgid "Description"
 msgstr "Deskribapena"
@@ -873,9 +959,6 @@ msgstr "sartu azken jokatutako data"
 msgid "name"
 msgstr ""
 
-msgid "sortname"
-msgstr ""
-
 msgid "description"
 msgstr ""
 
@@ -921,11 +1004,17 @@ msgstr "Argitaratuta"
 msgid "Times played"
 msgstr "Zenbat aldiz jokatua"
 
+msgid "<No Entries Found>"
+msgstr ""
+
 msgid "LAUNCH"
 msgstr "ABIARAZI"
 
 msgid "OPTIONS"
 msgstr "AUKERAK"
+
+msgid "Preloading UI"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENUA"
@@ -933,17 +1022,20 @@ msgstr "MENUA"
 msgid "Favorites"
 msgstr ""
 
+msgid "SEARCHING"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "EZ DIRA JOKUAK AURKITU - TXANDAPASA"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
 
 msgid "RETRY"
 msgstr "BERRIRO SAIATU"
 
 msgid "ACCEPT RESULT"
 msgstr "ONARTU EMAITZA"
-
-msgid "Loading..."
-msgstr ""
 
 msgid "Loading system config..."
 msgstr ""
@@ -985,6 +1077,29 @@ msgstr ""
 #, c-format
 msgid "Removed '%s' from '%s'"
 msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "GORA"
@@ -1050,20 +1165,17 @@ msgstr "EDOZEIN BOTOI SAKATU"
 msgid "ALREADY TAKEN"
 msgstr "ERABILITA"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
-
 msgid "SPACE"
 msgstr "HUTSUNEA"
-
-msgid "DELETE"
-msgstr "EZABATU"
 
 msgid "DELETE A CHAR"
 msgstr "EZABATU HIZKIA"
 
 msgid "DISCARD CHANGES"
 msgstr "ALDAKETAK BAZTERTU"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
 
 msgid "SHIFT"
 msgstr "MAIUS"
@@ -1146,9 +1258,6 @@ msgstr ""
 #~ msgid "SHOW HIDDEN"
 #~ msgstr "ERAKUTSI EZKUTUKOA"
 
-#~ msgid "SAVE"
-#~ msgstr "GORDE"
-
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
 #~ "ARE YOU SURE?"
@@ -1202,9 +1311,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "JOKALARI KOPURUA"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "GARATZAILEA"
 
 #~ msgid "GENRE"
 #~ msgstr "GENEROA"

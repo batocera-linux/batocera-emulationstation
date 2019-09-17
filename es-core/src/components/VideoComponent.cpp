@@ -3,13 +3,12 @@
 #include "resources/ResourceManager.h"
 #include "utils/FileSystemUtil.h"
 #include "PowerSaver.h"
-#include "Renderer.h"
 #include "ThemeData.h"
 #include "Window.h"
 #include <SDL_timer.h>
 #include "LocaleES.h"
 
-#define FADE_TIME_MS	200
+#define FADE_TIME_MS	800
 
 std::string getTitlePath() {
 	std::string titleFolder = getTitleFolder();
@@ -53,7 +52,7 @@ void VideoComponent::setScreensaverMode(bool isScreensaver)
 
 VideoComponent::VideoComponent(Window* window) :
 	GuiComponent(window),
-	mStaticImage(window),
+	mStaticImage(window, true),
 	mVideoHeight(0),
 	mVideoWidth(0),
 	mStartDelayed(false),
@@ -63,10 +62,13 @@ VideoComponent::VideoComponent(Window* window) :
 	mDisable(false),
 	mScreensaverMode(false),
 	mTargetIsMax(false),
+	mTargetIsMin(false),
 	mTargetSize(0, 0)
 {
 	mFadeIn = 0.0f;
 	mIsWaitingForVideoToStart = false;
+
+	mStaticImage.setAllowFading(false);
 
 	// Setup the default configuration
 	mConfig.showSnapshotDelay 		= false;
@@ -127,13 +129,13 @@ bool VideoComponent::setVideo(std::string path)
 	return false;
 }
 
-void VideoComponent::setImage(std::string path)
+void VideoComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
 	// Check that the image has changed
 	if (path == mStaticImagePath)
 		return;
 
-	mStaticImage.setImage(path);
+	mStaticImage.setImage(path, tile, maxSize);
 	mFadeIn = 0.0f;
 	mStaticImagePath = path;
 }
@@ -152,7 +154,14 @@ void VideoComponent::setOpacity(unsigned char opacity)
 
 void VideoComponent::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
+
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+		return;
+
 	GuiComponent::renderChildren(trans);
 
 	VideoComponent::renderSnapshot(parentTrans);
@@ -217,6 +226,8 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setResize(elem->get<Vector2f>("size") * scale);
 		else if(elem->has("maxSize"))
 			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
+		else if (elem->has("minSize"))
+			setMinSize(elem->get<Vector2f>("minSize") * scale);
 	}
 
 	// position + size also implies origin
@@ -246,6 +257,19 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setZIndex(elem->get<float>("zIndex"));
 	else
 		setZIndex(getDefaultZIndex());
+
+	if(properties & ThemeFlags::VISIBLE && elem->has("visible"))
+		setVisible(elem->get<bool>("visible"));
+	else
+		setVisible(true);
+
+	if (elem->has("path"))
+	{
+		if (Utils::FileSystem::exists(elem->get<std::string>("path")))
+			mVideoPath = elem->get<std::string>("path");
+		else
+			mVideoPath = mConfig.defaultVideoPath;
+	}
 }
 
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()

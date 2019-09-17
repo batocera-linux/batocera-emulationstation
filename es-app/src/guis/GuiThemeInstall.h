@@ -9,7 +9,7 @@
 class GuiThemeInstall : public GuiComponent {
 public:
   //  GuiThemeInstall(Window *window, std::string theme);
-    GuiThemeInstall(Window *window, char *theme);
+    GuiThemeInstall(Window *window, const char *theme);
 
     virtual ~GuiThemeInstall();
 

@@ -11,7 +11,7 @@
 #include "Settings.h"
 #endif
 
-VideoGameListView::VideoGameListView(Window* window, FileData* root) :
+VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 	BasicGameListView(window, root),
 	mDescContainer(window), mDescription(window),
 	mMarquee(window),
@@ -44,6 +44,7 @@ VideoGameListView::VideoGameListView(Window* window, FileData* root) :
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) { updateInfoPanel(); });
 
 	// Marquee
+	mMarquee.setAllowFading(false);
 	mMarquee.setOrigin(0.5f, 0.5f);
 	mMarquee.setPosition(mSize.x() * 0.25f, mSize.y() * 0.10f);
 	mMarquee.setMaxSize(mSize.x() * (0.5f - 2*padding), mSize.y() * 0.18f);
@@ -51,6 +52,7 @@ VideoGameListView::VideoGameListView(Window* window, FileData* root) :
 	addChild(&mMarquee);
 
 	// Image
+	mImage.setAllowFading(false);
 	mImage.setOrigin(0.5f, 0.5f);
 	// Default to off the screen
 	mImage.setPosition(2.0f, 2.0f);
@@ -123,9 +125,9 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	BasicGameListView::onThemeChanged(theme);
 
 	using namespace ThemeFlags;
-	mMarquee.applyTheme(theme, getName(), "md_marquee", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
-	mImage.applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
-	mVideo->applyTheme(theme, getName(), "md_video", POSITION | ThemeFlags::SIZE | ThemeFlags::DELAY | Z_INDEX | ROTATION);
+	mMarquee.applyTheme(theme, getName(), "md_marquee", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
+	mImage.applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
+	mVideo->applyTheme(theme, getName(), "md_video", POSITION | ThemeFlags::SIZE | ThemeFlags::DELAY | Z_INDEX | ROTATION | VISIBLE);
 	mName.applyTheme(theme, getName(), "md_name", ALL);
 
 	initMDLabels();
@@ -155,7 +157,7 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
 	}
 
-	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX);
+	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
 	mDescription.setSize(mDescContainer.getSize().x(), 0);
 	mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
 
@@ -252,9 +254,9 @@ void VideoGameListView::updateInfoPanel()
 		}
 		mVideoPlaying = true;
 
-		mVideo->setImage(file->getThumbnailPath());
-		mMarquee.setImage(file->getMarqueePath());
-		mImage.setImage(file->getImagePath());
+		mVideo->setImage(file->getThumbnailPath()/*, false, mVideo->getMaxSizeInfo()*/); // Too slow on pi
+		mMarquee.setImage(file->getMarqueePath()/*, false, mMarquee.getMaxSizeInfo()*/); // Too slow on pi
+		mImage.setImage(file->getImagePath(), false, mImage.getMaxSizeInfo());
 
 		mDescription.setText(file->metadata.get("desc"));
 		mDescContainer.reset();
@@ -299,7 +301,17 @@ void VideoGameListView::updateInfoPanel()
 			{
 				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t)*255));
 			};
-			comp->setAnimation(new LambdaAnimation(func, 150), 0, nullptr, fadingOut);
+
+			bool isFadeOut = fadingOut;
+			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut]
+			{
+				if (isFadeOut)
+				{
+					if (mVideo != nullptr) mVideo->setImage("");
+					mImage.setImage("");
+					mMarquee.setImage("");
+				}
+			}, fadingOut);
 		}
 	}
 }

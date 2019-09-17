@@ -38,8 +38,7 @@ private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
 	void addVersionInfo();
 	void openCollectionSystemSettings();
-	void openConfigInput();
-	void openOtherSettings();	
+	void openConfigInput();	
 	void openScraperSettings();
 	void openScreensaverOptions();
 	void openSlideshowScreensaverOptions();
@@ -51,15 +50,14 @@ private:
 	void openKodiLauncher_batocera();
 	void openSystemSettings_batocera();
 	void openGamesSettings_batocera();
-	void openControllersSettings_batocera();
-	void openUISettings_batocera();
-	void openSoundSettings_batocera();
-	void openRetroAchievements_batocera();
-	void openThemesList_batocera();
+	void openControllersSettings_batocera();		
+	void openRetroAchievements_batocera();	
 	void openNetworkSettings_batocera();
 	void openScraperSettings_batocera();
 	void openQuitMenu_batocera();
 	void openSystemInformations_batocera();
+	void openDeveloperSettings();
+	void openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set);
 
 	void createInputTextRow(GuiSettings * gui, std::string title, const char* settingsID, bool password);
 	MenuComponent mMenu;

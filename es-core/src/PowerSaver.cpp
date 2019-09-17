@@ -2,6 +2,7 @@
 
 #include "AudioManager.h"
 #include "Settings.h"
+#include <SDL.h>
 
 bool PowerSaver::mState = false;
 bool PowerSaver::mRunningScreenSaver = false;
@@ -9,6 +10,28 @@ bool PowerSaver::mRunningScreenSaver = false;
 int PowerSaver::mWakeupTimeout = -1;
 int PowerSaver::mScreenSaverTimeout = -1;
 PowerSaver::mode PowerSaver::mMode = PowerSaver::DISABLED;
+
+bool PowerSaver::mHasPushedEvent = false;
+int PowerSaver::mPushEventID = -1;
+int PowerSaver::mPauseCounter = 0;
+
+void PowerSaver::pushRefreshEvent()
+{
+	if (mHasPushedEvent || !mState)
+		return;
+
+	if (mPushEventID == -1)
+		mPushEventID = SDL_RegisterEvents(1);
+
+	SDL_Event ev;
+	ev.type = mPushEventID;
+	SDL_PushEvent(&ev);
+}
+
+void PowerSaver::resetRefreshEvent()
+{
+	mHasPushedEvent = false;
+}
 
 void PowerSaver::init()
 {
@@ -18,8 +41,8 @@ void PowerSaver::init()
 
 int PowerSaver::getTimeout()
 {
-	if (SDL_GetAudioStatus() == SDL_AUDIO_PAUSED)
-		AudioManager::getInstance()->deinit();
+//	if (SDL_GetAudioStatus() == SDL_AUDIO_PAUSED)
+//		AudioManager::getInstance()->deinit();
 
 	// Used only for SDL_WaitEventTimeout. Use `getMode()` for modes.
 	return mRunningScreenSaver ? mWakeupTimeout : mScreenSaverTimeout;
@@ -73,7 +96,13 @@ bool PowerSaver::getState()
 void PowerSaver::setState(bool state)
 {
 	bool ps_enabled = Settings::getInstance()->getString("PowerSaverMode") != "disabled";
+
+	if (mState == ps_enabled && state)
+		return;
+	
 	mState = ps_enabled && state;
+	if (state)
+		pushRefreshEvent(); // Exit SDL_WaitEventTimeout loop by sending an event
 }
 
 void PowerSaver::runningScreenSaver(bool state)

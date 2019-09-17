@@ -15,39 +15,54 @@
 #include <fstream>
 #include "Window.h"
 #include "LocaleES.h"
+#include "utils/StringUtil.h"
 
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
-std::vector<SystemData*> SystemData::sFileSystemVector; //batocera
 
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
-	mFilterIndex = new FileFilterIndex();
+	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
+	mGridSizeOverride = Vector2f(0, 0);
+
+	mFilterIndex = nullptr;
 	mEmulators = emulators; // batocera
 
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if(!CollectionSystem)
 	{
-		mRootFolder = new FileData(FOLDER, mEnvData->mStartPath, mEnvData, this);
+		mRootFolder = new FolderData(mEnvData->mStartPath, this);
 		mRootFolder->metadata.set("name", mFullName);
 
-		if(!Settings::getInstance()->getBool("ParseGamelistOnly"))
-			populateFolder(mRootFolder);
+		std::unordered_map<std::string, FileData*> fileMap;
+
+		if (!Settings::getInstance()->getBool("ParseGamelistOnly"))
+		{
+			populateFolder(mRootFolder, fileMap);
+			if (mRootFolder->getChildren().size() == 0)
+				return;
+		}
 
 		if(!Settings::getInstance()->getBool("IgnoreGamelist"))
-			parseGamelist(this);
+			parseGamelist(this, fileMap);
 
-		mRootFolder->sort(FileSorts::SortTypes.at(0));
-
-		indexAllGameFilters(mRootFolder);
+		if (mSortId >= 0 && mSortId < FileSorts::SortTypes.size())
+			mRootFolder->sort(FileSorts::SortTypes.at(mSortId));
+		else
+			mRootFolder->sort(FileSorts::SortTypes.at(0));
 	}
 	else
 	{
 		// virtual systems are updated afterwards, we're just creating the data structure
-		mRootFolder = new FileData(FOLDER, "" + name, mEnvData, this);
+		mRootFolder = new FolderData("" + name, this);
 	}
+
+	auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
+	auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
+	setSystemViewMode(defaultView, gridSizeOverride, false);
+
 	setIsGameSystemStatus();
 	loadTheme();
 }
@@ -55,7 +70,9 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 SystemData::~SystemData()
 {
 	delete mRootFolder;
-	delete mFilterIndex;
+
+	if (mFilterIndex != nullptr)
+		delete mFilterIndex;
 }
 
 void SystemData::setIsGameSystemStatus()
@@ -66,7 +83,7 @@ void SystemData::setIsGameSystemStatus()
 	mIsGameSystem = (mName != "retropie");
 }
 
-void SystemData::populateFolder(FileData* folder)
+void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	const std::string& folderPath = folder->getPath();
 	if(!Utils::FileSystem::isDirectory(folderPath))
@@ -90,51 +107,85 @@ void SystemData::populateFolder(FileData* folder)
 	std::string extension;
 	bool isGame;
 	bool showHidden = Settings::getInstance()->getBool("ShowHiddenFiles");
-	Utils::FileSystem::stringList dirContent = Utils::FileSystem::getDirContent(folderPath);
-	for(Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
+
+	Utils::FileSystem::fileList dirContent = Utils::FileSystem::getDirectoryFiles(folderPath);
+	for (auto fileInfo : dirContent)
 	{
-		filePath = *it;
+		filePath = fileInfo.path;
 
 		// skip hidden files and folders
-		if(!showHidden && Utils::FileSystem::isHidden(filePath))
+		if(!showHidden && fileInfo.hidden)
 			continue;
 
 		//this is a little complicated because we allow a list of extensions to be defined (delimited with a space)
 		//we first get the extension of the file itself:
-		extension = Utils::FileSystem::getExtension(filePath);
+		extension = Utils::String::toLower(Utils::FileSystem::getExtension(filePath));
 
 		//fyi, folders *can* also match the extension and be added as games - this is mostly just to support higan
 		//see issue #75: https://github.com/Aloshi/EmulationStation/issues/75
 
 		isGame = false;
-		if(std::find(mEnvData->mSearchExtensions.cbegin(), mEnvData->mSearchExtensions.cend(), extension) != mEnvData->mSearchExtensions.cend())
+		if(mEnvData->isValidExtension(extension))
 		{
-			FileData* newGame = new FileData(GAME, filePath, mEnvData, this);
+			FileData* newGame = new FileData(GAME, filePath, this);
 
 			// preventing new arcade assets to be added
 			if(!newGame->isArcadeAsset())
 			{
 				folder->addChild(newGame);
+				fileMap[filePath] = newGame;
 				isGame = true;
 			}
 		}
 
 		//add directories that also do not match an extension as folders
-		if(!isGame && Utils::FileSystem::isDirectory(filePath))
+		if(!isGame && fileInfo.directory)
 		{
-			FileData* newFolder = new FileData(FOLDER, filePath, mEnvData, this);
-			populateFolder(newFolder);
+			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
+			if(filePath.rfind("downloaded_") != std::string::npos || filePath.rfind("media") != std::string::npos)
+				continue;
+
+			FolderData* newFolder = new FolderData(filePath, this);
+			populateFolder(newFolder, fileMap);
 
 			//ignore folders that do not contain games
-			if(newFolder->getChildrenByFilename().size() == 0)
+			if(newFolder->getChildren().size() == 0)
 				delete newFolder;
-			else
-				folder->addChild(newFolder);
+			else 
+			{
+				const std::string& key = newFolder->getPath();
+				if (fileMap.find(key) == fileMap.end())
+				{
+					folder->addChild(newFolder);
+					fileMap[key] = newFolder;
+				}
+			}
 		}
 	}
 }
 
-void SystemData::indexAllGameFilters(const FileData* folder)
+FileFilterIndex* SystemData::getIndex(bool createIndex)
+{
+	if (mFilterIndex == nullptr && createIndex)
+	{
+		mFilterIndex = new FileFilterIndex();
+		indexAllGameFilters(mRootFolder);
+		mFilterIndex->setUIModeFilters();
+	}
+
+	return mFilterIndex;
+}
+
+void SystemData::deleteIndex()
+{
+	if (mFilterIndex != nullptr)
+	{
+		delete mFilterIndex;
+		mFilterIndex = nullptr;
+	}
+}
+
+void SystemData::indexAllGameFilters(const FolderData* folder)
 {
 	const std::vector<FileData*>& children = folder->getChildren();
 
@@ -143,7 +194,7 @@ void SystemData::indexAllGameFilters(const FileData* folder)
 		switch((*it)->getType())
 		{
 			case GAME:   { mFilterIndex->addToIndex(*it); } break;
-			case FOLDER: { indexAllGameFilters(*it);      } break;
+			case FOLDER: { indexAllGameFilters((FolderData*)*it); } break;
 		}
 	}
 }
@@ -169,6 +220,7 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 bool SystemData::loadConfig(Window* window)
 {
 	deleteSystems();
+	ThemeData::setDefaultTheme(nullptr);
 
 	std::string path = getConfigPath(false);
 
@@ -337,10 +389,10 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 		}
 
 		// if there appears to be an actual platform ID supplied but it didn't match the list, warn
-		if (str != NULL && str[0] != '\0' && platformId == PlatformIds::PLATFORM_UNKNOWN)
-			LOG(LogWarning) << "  Unknown platform for system \"" << name << "\" (platform \"" << str << "\" from list \"" << platformList << "\")";
-		else if (platformId != PlatformIds::PLATFORM_UNKNOWN)
+		if (platformId != PlatformIds::PLATFORM_UNKNOWN)
 			platformIds.push_back(platformId);
+		else if (str != NULL && str[0] != '\0' && platformId == PlatformIds::PLATFORM_UNKNOWN)
+			LOG(LogWarning) << "  Unknown platform for system \"" << name << "\" (platform \"" << str << "\" from list \"" << platformList << "\")";
 	}
 
 	// theme folder
@@ -385,7 +437,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	}
 
 	SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, systemEmulators); // batocera
-	if (newSys->getRootFolder()->getChildrenByFilename().size() == 0)
+	if (newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << name << "\" has no games! Ignoring it.";
 		delete newSys;
@@ -632,4 +684,35 @@ void SystemData::loadTheme()
 // batocera
 std::map<std::string, std::vector<std::string>*>* SystemData::getEmulators() {
 	return mEmulators;
+}
+
+void SystemData::setSortId(const unsigned int sortId)
+{
+	mSortId = sortId;
+	Settings::getInstance()->setInt(getName() + ".sort", mSortId);
+}
+
+bool SystemData::setSystemViewMode(std::string newViewMode, Vector2f gridSizeOverride, bool setChanged)
+{
+	if (newViewMode == "automatic")
+		newViewMode = "";
+
+	if (mViewMode == newViewMode && gridSizeOverride == mGridSizeOverride)
+		return false;
+
+	mGridSizeOverride = gridSizeOverride;
+	mViewMode = newViewMode;
+
+	if (setChanged)
+	{
+		Settings::getInstance()->setString(getName() + ".defaultView", mViewMode);
+		Settings::getInstance()->setString(getName() + ".gridSize", Utils::String::replace(Utils::String::replace(mGridSizeOverride.toString(), ".000000", ""), "0 0", ""));
+	}
+
+	return true;
+}
+
+Vector2f SystemData::getGridSizeOverride()
+{
+	return mGridSizeOverride;
 }
