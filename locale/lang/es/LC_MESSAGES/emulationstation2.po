@@ -47,7 +47,7 @@ msgid "BACK"
 msgstr "VOLVER"
 
 msgid "go back"
-msgstr ""
+msgstr "IR ATRAS"
 
 msgid "CLOSE"
 msgstr "CERRAR"
@@ -65,16 +65,16 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "TAMAÑO DE CUADRICULA"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "MOSTRAR FAVORITOS PRIMERO"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRAR ARCHIVOS OCULTOS"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "MOSTRAR CARPETAS"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AGREGAR / REMOVER JUEGOS A ESTA COLECCIÓN"
@@ -86,7 +86,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "OPCIONES AVANZADAS DEL JUEGO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"
@@ -227,7 +227,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMIZAR VRAM EN USO DE IMAGENES"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OPTIMIZAR EL USO DE VRAM EN VIDEOS"
 
 msgid "ENABLE LOG FILE"
 msgstr "HABILITAR ARCHIVO LOG"
@@ -415,10 +415,10 @@ msgid "INPUT P%i"
 msgstr "ENTRADA P%i"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "MOSTRAR ACTIVIDAD DEL MANDO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "DEBERAS APLICAR LOS CAMBIOS DEL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DE TEMA"
@@ -442,7 +442,7 @@ msgid "THEME REGION"
 msgstr "REGION DEL TEMA"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "TAMAÑO PREDETERMINADO DE CUADRICULA"
 
 msgid "UI MODE"
 msgstr "MODO GUI"
@@ -471,7 +471,7 @@ msgid "START ON SYSTEM"
 msgstr "INICIAR EN SISTEMA"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "INICIAR EN LISTAS DE JUEGOS"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "EMULADORES MOSTRADOS"
@@ -853,7 +853,7 @@ msgid "VALIDATE"
 msgstr "VALIDAR"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "NO SE ENCONTRO DISPOSITIVO"
 
 msgid "SELECT THEME"
 msgstr "SELECCIONAR TEMA"
@@ -862,12 +862,14 @@ msgid "EDIT METADATA"
 msgstr "EDITAR LOS DATOS"
 
 msgid "SAVE"
-msgstr ""
+msgstr "GUARDAR"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"ESTO ELIMINAR EL ARCHIVO S) DEL JUEGO ACTUAL!\n"
+"ESTAS SEGURO?"
 
 msgid "DELETE"
 msgstr "BORRAR"
@@ -1020,7 +1022,7 @@ msgid "Times played"
 msgstr "VECES JUGADO"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<NO SE ENCONTRARON RESULTADOS>"
 
 msgid "LAUNCH"
 msgstr "LANZAR"
@@ -1038,13 +1040,13 @@ msgid "Favorites"
 msgstr "FAVORITOS"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "BUSCANDO"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "OCURRIÓ UN ERROR"
 
 msgid "RETRY"
 msgstr "REINTENTAR"
@@ -1094,27 +1096,27 @@ msgid "Removed '%s' from '%s'"
 msgstr "ELIMINADO '%s' DE '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "LA COLECCION ESTA VACIA"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "NINGUNO"
 
 msgid "Various"
-msgstr ""
+msgstr "VARIOS"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ESTA COLECCION CONTIENE %1$i JUEGO, INCLUYENDO %2$s."
+msgstr[1] "ESTA COLECCION CONTIENE %1$i JUEGOS, INCLUYENDO %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ESTA COLECCION CONTIENE %1$i JUEGO, INCLUYENDO %2$s, SOBRE OTRO TITULO"
+msgstr[1] "ESTA COLECCION CONTIENE %1$i JUEGOS, INCLUYENDO %2$s, SOBRE OTROS TITULOS."
 
 msgid "UP"
 msgstr "ARRIBA"
