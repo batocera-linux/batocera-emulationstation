@@ -202,10 +202,13 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 
 	// For JPEGs, we need to read the first 12 bytes of each chunk.
 	// We'll read those 12 bytes at buf+2...buf+14, i.e. overwriting the existing buf.
+	bool jfif = false;
 
 	if ((buf[0] == 0xFF && buf[1] == 0xD8 && buf[2] == 0xFF && buf[3] == 0xE0 && buf[6] == 'J' && buf[7] == 'F' && buf[8] == 'I' && buf[9] == 'F') ||
 		(buf[0] == 0xFF && buf[1] == 0xD8 && buf[2] == 0xFF && buf[3] == 0xE1 && buf[6] == 'E' && buf[7] == 'x' && buf[8] == 'i' && buf[9] == 'f'))
 	{
+		jfif = true;
+
 		long pos = 2;
 		while (buf[2] == 0xFF)
 		{
@@ -223,7 +226,7 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 	fclose(f);
 
 	// JPEG: (first two bytes of buf are first two bytes of the jpeg file; rest of buf is the DCT frame
-	if (buf[0] == 0xFF && buf[1] == 0xD8 && buf[2] == 0xFF)
+	if (jfif && buf[0] == 0xFF && buf[1] == 0xD8 && buf[2] == 0xFF)
 	{
 		*y = (buf[7] << 8) + buf[8];
 		*x = (buf[9] << 8) + buf[10];
