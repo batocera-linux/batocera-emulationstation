@@ -8,6 +8,7 @@
 #include "GridTileComponent.h"
 #include "animations/LambdaAnimation.h"
 #include "Settings.h"
+#include <algorithm>
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::getInstance()->getString("TransitionStyle") != "instant")
