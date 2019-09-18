@@ -50,7 +50,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "go back"
-msgstr ""
+msgstr "voltar"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -68,7 +68,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DO GRID"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -176,10 +176,10 @@ msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "FONTE DE MINIATURA PREFERIDA"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "SCRAPE MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "SCRAPE VIDEOS"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
@@ -221,16 +221,16 @@ msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "CARREGANDO EM PARALELO"
 
 msgid "ASYNC IMAGES LOADING"
 msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OTIMIZAR O USO DAS IMAGENS NA RAM"
+msgstr "OTIMIZAR O USO DAS IMAGENS NA VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
 msgid "ENABLE LOG FILE"
 msgstr "HABILITAR ARQUIVO DE LOG"
@@ -417,10 +417,10 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "MOSTRAR ATIVIDADE DO CONTROLE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
@@ -444,7 +444,7 @@ msgid "THEME REGION"
 msgstr "REGIÃO DO TEMA"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "TAMANHO PADRÃO DA GRID"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -870,6 +870,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
+"VOCÊ TEM CERTEZA?"
 
 msgid "DELETE"
 msgstr "EXCLUIR"
@@ -1040,7 +1042,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "PROCURANDO"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PASSAR"
