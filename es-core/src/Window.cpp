@@ -15,6 +15,7 @@
 #include "AudioManager.h"
 #include <SDL_events.h>
 #include "ThemeData.h"
+#include <mutex>
 
 #define PLAYER_PAD_TIME_MS 200
 
@@ -58,12 +59,6 @@ void Window::pushGui(GuiComponent* gui)
 	}
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
-}
-
-// batocera
-void Window::displayMessage(std::string message)
-{
-    mMessages.push_back(message);
 }
 
 void Window::removeGui(GuiComponent* gui)
@@ -218,33 +213,76 @@ void Window::input(InputConfig* config, Input input)
 	}
 }
 
-void Window::update(int deltaTime)
+// batocera Notification messages
+static std::mutex mNotificationMessagesLock;
+
+void Window::displayNotificationMessage(std::string message, int duration)
 {
-	// batocera        
-	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	if (duration <= 0)
 	{
-		std::string songName = AudioManager::getInstance()->getSongName();
-		if (!songName.empty())
-		{
-			mMessages.push_back(_("Now playing: ") + songName);
-			AudioManager::getInstance()->setSongName("");
-		}
+		duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
+		if (duration <= 0)
+			duration = 10;
+
+		duration *= 1000;
 	}
 
-	if (!mMessages.empty())
+	NotificationMessage msg;
+	msg.first = message;
+	msg.second = duration;
+	mNotificationMessages.push_back(msg);
+}
+
+void Window::stopInfoPopup() 
+{
+	if (mInfoPopup == nullptr)
+		return;
+	
+	delete mInfoPopup; 
+	mInfoPopup = nullptr;
+}
+
+void Window::processNotificationMessages()
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	if (mNotificationMessages.empty())
+		return;
+	
+	NotificationMessage msg = mNotificationMessages.back();
+	mNotificationMessages.pop_back();
+
+	float duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
+	if (duration <= 0)
+		duration = 10;
+
+	LOG(LogDebug) << "Notification message :" << msg.first.c_str();
+
+	if (mInfoPopup) 
+		delete mInfoPopup; 
+	
+	mInfoPopup = new GuiInfoPopup(this, msg.first, msg.second);
+}
+
+void Window::processSongTitleNotifications()
+{
+	if (SystemConf::getInstance()->get("audio.display_titles") != "1")
+		return;
+
+	std::string songName = AudioManager::getInstance()->getSongName();
+	if (!songName.empty())
 	{
-		std::string message = mMessages.back();
-		mMessages.pop_back();
-		// batocera
-		std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
-		if (currentTitlesTime.empty())
-			currentTitlesTime = std::string("10");
-		// Check if the string we got has only digits, otherwise throw a default value
-		bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
-		if (!has_only_digits)
-			currentTitlesTime = std::string("10");
-		setInfoPopup(new GuiInfoPopup(this, message, 1000 * (float)std::stoi(currentTitlesTime))); // batocera
-	}
+		displayNotificationMessage(_("Now playing: ") + songName);
+		AudioManager::getInstance()->setSongName("");
+	}	
+}
+
+void Window::update(int deltaTime)
+{
+	processSongTitleNotifications();
+	processNotificationMessages();
 
 	if (mNormalizeNextUpdate)
 	{

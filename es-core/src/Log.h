@@ -22,6 +22,7 @@ public:
 
 	static LogLevel getReportingLevel();
 	static void setReportingLevel(LogLevel level);
+	static void setupReportingLevel();
 
 	static std::string getLogPath();
 

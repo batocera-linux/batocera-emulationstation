@@ -382,7 +382,7 @@ void GuiMenu::openDeveloperSettings()
 	auto s = new GuiSettings(mWindow, _("DEVELOPER").c_str());
 	
 	// maximum vram
-	auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
+	auto max_vram = std::make_shared<SliderComponent>(mWindow, 40.f, 1000.f, 10.f, "Mb");
 	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
 	s->addWithLabel(_("VRAM LIMIT"), max_vram);
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
@@ -435,16 +435,31 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 
 
-	// enableLogs
-	auto enableLogs = std::make_shared<SwitchComponent>(mWindow);
-	enableLogs->setState(Settings::getInstance()->getBool("EnableLogging"));
-	s->addWithLabel(_("ENABLE LOG FILE"), enableLogs);
-	s->addSaveFunc([enableLogs]
-	{ 
-		if (Settings::getInstance()->setBool("EnableLogging", enableLogs->getState()))
-			Log::init();
-	});
+	// log level
+	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
+	std::vector<std::string> modes;
+	modes.push_back("default");
+	modes.push_back("disabled");
+	modes.push_back("warning");
+	modes.push_back("error");
+	modes.push_back("debug");
 
+	auto level = Settings::getInstance()->getString("LogLevel");
+	if (level.empty())
+		level = "default";
+
+	for (auto it = modes.cbegin(); it != modes.cend(); it++)
+		logLevel->add(_(it->c_str()), *it, level == *it);
+
+	s->addWithLabel(_("LOG LEVEL"), logLevel);
+	s->addSaveFunc([this, logLevel] 
+	{		
+		if (Settings::getInstance()->setString("LogLevel", logLevel->getSelected() == "default" ? "" : logLevel->getSelected()))
+		{
+			Log::setupReportingLevel();
+			Log::init();			
+		}
+	});
 
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
@@ -705,7 +720,7 @@ void GuiMenu::openSystemSettings_batocera()
 			}
 
 			if (reboot)
-				window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));			
+				window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		});
 		mWindow->pushGui(securityGui);
 	});
@@ -728,9 +743,8 @@ void GuiMenu::openSystemSettings_batocera()
 			SystemConf::getInstance()->saveSystemConf();
 			reboot = true;
 		}
-		if (reboot) {
-			window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		}
+		if (reboot)
+			window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));		
 
 	});
 

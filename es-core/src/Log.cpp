@@ -3,7 +3,14 @@
 #include "utils/FileSystemUtil.h"
 #include "platform.h"
 #include <iostream>
+#include <mutex>
 #include "Settings.h"
+
+#if WIN32
+#include <Windows.h>
+#endif
+
+static std::mutex mLogLock;
 
 LogLevel Log::reportingLevel = LogInfo;
 bool Log::dirty = false;
@@ -26,10 +33,12 @@ void Log::setReportingLevel(LogLevel level)
 
 void Log::init()
 {
+	std::unique_lock<std::mutex> lock(mLogLock);
+
 	if (file != NULL)
 		close();
 
-	if (!Settings::getInstance()->getBool("EnableLogging"))
+	if (Settings::getInstance()->getString("LogLevel") == "disabled")
 	{
 		remove(getLogPath().c_str());
 		return;
@@ -46,7 +55,22 @@ void Log::init()
 
 std::ostringstream& Log::get(LogLevel level)
 {
-	os << "lvl" << level << ": \t";
+	switch (level)
+	{
+	case LogError:
+		os << "ERROR\t";
+		break;
+	case LogWarning:
+		os << "WARNING\t";
+		break;
+	case LogDebug:
+		os << "DEBUG\t";
+		break;
+	default:
+		os << "INFO\t";
+		break;
+	}
+
 	messageLevel = level;
 
 	return os;
@@ -77,6 +101,8 @@ void Log::close()
 
 Log::~Log()
 {
+	std::unique_lock<std::mutex> lock(mLogLock);
+
 	if (file != NULL)
 	{
 		os << std::endl;
@@ -86,6 +112,34 @@ Log::~Log()
 
 	// If it's an error, also print to console
 	// print all messages if using --debug
-	if(messageLevel == LogError || reportingLevel >= LogDebug)
+	if (messageLevel == LogError || reportingLevel >= LogDebug)
+	{
+#if WIN32
+		OutputDebugStringA(os.str().c_str());
+#else
 		fprintf(stderr, "%s", os.str().c_str());
+#endif
+	}
+}
+
+void Log::setupReportingLevel()
+{
+	LogLevel lvl = LogInfo;
+
+	if (Settings::getInstance()->getBool("Debug"))
+		lvl = LogDebug;
+	else
+	{
+		auto level = Settings::getInstance()->getString("LogLevel");
+		if (level == "debug")
+			lvl = LogDebug;
+		else if (level == "information")
+			lvl = LogInfo;
+		else if (level == "warning")
+			lvl = LogWarning;
+		else if (level == "error")
+			lvl = LogError;
+	}
+
+	setReportingLevel(lvl);
 }

@@ -276,7 +276,8 @@ bool SystemView::input(InputConfig* config, Input input)
 		// batocera
 		if(config->isMappedTo("select", input))
 		{
-			GuiMenu::openQuitMenu_batocera_static(mWindow, true);                
+			GuiMenu::openQuitMenu_batocera_static(mWindow, true);        
+			return true;
 		}
 	}else{
 		if(config->isMappedLike("left", input) ||

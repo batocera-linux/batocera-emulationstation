@@ -444,6 +444,7 @@ void Font::renderTextCache(TextCache* cache)
 
 		Renderer::bindTexture(*it->textureIdPtr);
 		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
+		Renderer::bindTexture(0);
 	}
 }
 

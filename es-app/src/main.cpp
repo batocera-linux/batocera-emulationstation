@@ -132,7 +132,7 @@ bool parseArgs(int argc, char* argv[])
 		{
 			Settings::getInstance()->setBool("Debug", true);
 			Settings::getInstance()->setBool("HideConsole", false);
-			Log::setReportingLevel(LogDebug);
+			// Log::setReportingLevel(LogDebug);
 		}else if(strcmp(argv[i], "--fullscreen-borderless") == 0)
 		{
 			Settings::getInstance()->setBool("FullscreenBorderless", true);
@@ -357,6 +357,7 @@ int main(int argc, char* argv[])
 		return 1;
 
 	//start the logger
+	Log::setupReportingLevel();
 	Log::init();	
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
@@ -452,8 +453,6 @@ int main(int argc, char* argv[])
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera
 
-	// batocera
-	AudioManager::getInstance()->playRandomMusic();
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
@@ -466,15 +465,18 @@ int main(int argc, char* argv[])
 		}
 	}
 
-        // batocera
-	// Create a flag in  temporary directory to signal READY state
-        FILE* fd = fopen("/tmp/emulationstation.ready", "w");
-        if(fd != NULL) { fclose(fd); }
-
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
 	window.endRenderLoadingScreen();
+
+	// batocera
+	// Create a flag in  temporary directory to signal READY state
+	FILE* fd = fopen("/tmp/emulationstation.ready", "w");
+	if (fd != NULL) { fclose(fd); }
+
+	// batocera, play music
+	AudioManager::getInstance()->playRandomMusic();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();

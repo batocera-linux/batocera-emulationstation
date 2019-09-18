@@ -10,7 +10,17 @@ struct libvlc_instance_t;
 struct libvlc_media_t;
 struct libvlc_media_player_t;
 
-struct VideoContext {
+struct VideoContext 
+{
+	VideoContext()
+	{
+		surface = nullptr;
+		mutex = nullptr;
+		component = nullptr;
+		valid = false;
+		hasFrame = false;
+	}
+
 	SDL_Surface*		surface;
 	SDL_mutex*			mutex;
 	VideoComponent*		component;

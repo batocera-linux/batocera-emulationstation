@@ -53,8 +53,6 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	VideoComponent(window),
 	mMediaPlayer(nullptr)
 {
-	memset(&mContext, 0, sizeof(mContext));
-
 	// Get an empty texture for rendering the video
 	mTexture = nullptr;// TextureResource::get("");
 
@@ -267,24 +265,25 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	for(int i = 0; i < 4; ++i)
 		vertices[i].pos.round();
 	
-	mTexture->bind();
-
-	if (mTargetIsMin)
+	if (mTexture->bind())
 	{
-		Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
+		if (mTargetIsMin)
+		{
+			Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
 
-		Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
-		Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
-		Renderer::pushClipRect(pos, size);
+			Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
+			Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
+			Renderer::pushClipRect(pos, size);
+		}
+
+		// Render it
+		Renderer::drawTriangleStrips(&vertices[0], 4);
+
+		if (mTargetIsMin)
+			Renderer::popClipRect();
+
+		Renderer::bindTexture(0);
 	}
-
-	// Render it
-	Renderer::drawTriangleStrips(&vertices[0], 4);
-
-	if (mTargetIsMin)
-		Renderer::popClipRect();
-
-	Renderer::bindTexture(0);
 }
 
 void VideoVlcComponent::setupContext()
@@ -448,7 +447,7 @@ void VideoVlcComponent::startVideo()
 				}
 #endif
 
-				if (Settings::getInstance()->getBool("OptimizeVideo"))
+				if (Settings::getInstance()->getBool("OptimizeVideo") && !mTargetSize.empty())
 				{
 					// If video is bigger than display, ask VLC for a smaller image
 					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()));

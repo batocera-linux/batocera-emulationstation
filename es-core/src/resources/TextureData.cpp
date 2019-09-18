@@ -205,6 +205,8 @@ bool TextureData::load()
 	// Need to load. See if there is a file
 	if (!mPath.empty())
 	{
+		LOG(LogDebug) << "TextureData::load " << mPath;
+
 		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 		const ResourceData& data = rm->getFileData(mPath);
 		// is it an SVG?

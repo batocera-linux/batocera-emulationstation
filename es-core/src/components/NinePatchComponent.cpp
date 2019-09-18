@@ -115,7 +115,15 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
-	if (mTexture->bind())
+	if (mCornerSize.x() == 0 && mCornerSize.y() == 0)
+	{
+		float opacity = mOpacity / 255.0;
+		const unsigned int edgeColor = mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity);
+
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor, edgeColor);
+	}
+	else if (mTexture->bind())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawTriangleStrips(&mVertices[0], 6 * 9);

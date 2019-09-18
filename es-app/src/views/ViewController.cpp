@@ -37,6 +37,7 @@ void ViewController::init(Window* window)
 ViewController::ViewController(Window* window)
 	: GuiComponent(window), mCurrentView(nullptr), mCamera(Transform4x4f::Identity()), mFadeOpacity(0), mLockInput(false)
 {
+	mSystemListView = nullptr;
 	mState.viewing = NOTHING;
 }
 
@@ -422,7 +423,6 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 		case GRID:
 			view = std::shared_ptr<IGameListView>(new GridGameListView(mWindow, system->getRootFolder(), system->getTheme(), customThemeName, gridSizeOverride));
 			break;
-		case BASIC:
 		default:
 			view = std::shared_ptr<IGameListView>(new BasicGameListView(mWindow, system->getRootFolder()));
 			break;
@@ -616,6 +616,9 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 void ViewController::reloadAll(Window* window)
 {
+	if (mCurrentView != nullptr)
+		mCurrentView->onHide();
+
 	ThemeData::setDefaultTheme(nullptr);
 
 	SystemData* system = nullptr;
@@ -680,6 +683,9 @@ void ViewController::reloadAll(Window* window)
 	}
 	else
 		goToSystemView(SystemData::sSystemVector.front());	
+
+	if (mCurrentView != nullptr)
+		mCurrentView->onShow();
 
 	updateHelpPrompts();
 }

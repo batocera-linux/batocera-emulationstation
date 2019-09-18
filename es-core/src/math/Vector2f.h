@@ -62,6 +62,7 @@ public:
 	static const Vector2f parseString(const std::string& _input);
 	const std::string toString();
 
+	inline bool empty() { return mX == 0.0 && mY == 0.0; }
 private:
 
 	float mX;
