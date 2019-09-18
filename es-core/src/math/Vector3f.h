@@ -10,9 +10,12 @@ class Vector4f;
 
 class Vector3f
 {
-public:
+public:	   
+	Vector3f()
+	{ 
+		mX = 0; mY = 0; mZ = 0;
+	}
 
-	         Vector3f()                                                                                                                        { }
 	         Vector3f(const float _f)                                 : mX(_f),            mY(_f),                      mZ(_f)                 { }
 	         Vector3f(const float _x, const float _y, const float _z) : mX(_x),            mY(_y),                      mZ(_z)                 { }
 	explicit Vector3f(const Vector2f& _v)                             : mX(((Vector3f&)_v).mX), mY(((Vector3f&)_v).mY), mZ(0)                  { }

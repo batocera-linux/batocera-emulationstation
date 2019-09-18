@@ -705,7 +705,7 @@ bool SystemData::setSystemViewMode(std::string newViewMode, Vector2f gridSizeOve
 
 	if (setChanged)
 	{
-		Settings::getInstance()->setString(getName() + ".defaultView", mViewMode);
+		Settings::getInstance()->setString(getName() + ".defaultView", mViewMode == "automatic" ? "" : mViewMode);
 		Settings::getInstance()->setString(getName() + ".gridSize", Utils::String::replace(Utils::String::replace(mGridSizeOverride.toString(), ".000000", ""), "0 0", ""));
 	}
 

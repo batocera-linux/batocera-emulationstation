@@ -8,14 +8,13 @@
 class ComponentGrid;
 class NinePatchComponent;
 
-class GuiInfoPopup : public GuiComponent, public Window::InfoPopup
+class GuiInfoPopup : public GuiComponent
 {
 public:
 	GuiInfoPopup(Window* window, std::string message, int duration);
 	~GuiInfoPopup();
 
-	void render(const Transform4x4f& parentTrans) override;
-	inline void stop() { running = false; };
+	void render(const Transform4x4f& parentTrans) override;	
 private:
 	std::string mMessage;
 	int mDuration;

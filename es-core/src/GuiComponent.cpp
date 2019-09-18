@@ -33,10 +33,7 @@ GuiComponent::~GuiComponent()
 bool GuiComponent::input(InputConfig* config, Input input)
 {
 	for(unsigned int i = 0; i < getChildCount(); i++)
-	{
-		if(getChild(i)->input(config, input))
-			return true;
-	}
+		TRYCATCH("GuiComponent::input", if (getChild(i)->input(config, input)) return true)
 
 	return false;
 }
@@ -50,9 +47,7 @@ void GuiComponent::updateSelf(int deltaTime)
 void GuiComponent::updateChildren(int deltaTime)
 {
 	for(unsigned int i = 0; i < getChildCount(); i++)
-	{
-		getChild(i)->update(deltaTime);
-	}
+		TRYCATCH("GuiComponent::updateChildren", getChild(i)->update(deltaTime))
 }
 
 void GuiComponent::update(int deltaTime)
@@ -70,16 +65,14 @@ void GuiComponent::render(const Transform4x4f& parentTrans)
 
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
-
+	
 	renderChildren(trans);
 }
 
 void GuiComponent::renderChildren(const Transform4x4f& transform) const
 {
 	for(unsigned int i = 0; i < getChildCount(); i++)
-	{
-		getChild(i)->render(transform);
-	}
+		TRYCATCH("GuiComponent::renderChildren", getChild(i)->render(transform))		
 }
 
 Vector3f GuiComponent::getPosition() const

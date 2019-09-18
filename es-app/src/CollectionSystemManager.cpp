@@ -459,14 +459,12 @@ void CollectionSystemManager::setEditMode(std::string collectionName)
 	// if it's bundled, this needs to be the bundle system
 	mEditingCollectionSystemData = sysData;
 
-	GuiInfoPopup* s = new GuiInfoPopup(mWindow, _("Editing the collection. Add/remove games with Y."), 10000);
-	mWindow->setInfoPopup(s);
+	mWindow->displayNotificationMessage(_("Editing the collection. Add/remove games with Y."), 10000);
 }
 
 void CollectionSystemManager::exitEditMode()
 {
-  GuiInfoPopup* s = new GuiInfoPopup(mWindow, _("Finished editing the collection."), 4000);
-	mWindow->setInfoPopup(s);
+	mWindow->displayNotificationMessage(_("Finished editing the collection."), 4000);
 	mIsEditingCustom = false;
 	mEditingCollection = "Favorites";
 }
@@ -476,8 +474,7 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 {
 	char trstring[256];
 	if (file->getType() == GAME)
-	{
-		GuiInfoPopup* s;
+	{	
 		bool adding = true;
 		std::string name = file->getName();
 		std::string sysName = mEditingCollection;
@@ -550,17 +547,13 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(file, FILE_METADATA_CHANGED);
 			}
 		}
+
 		if (adding)
-		{
-		  snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
-		  s = new GuiInfoPopup(mWindow, trstring, 4000); // batocera
-		}
+			snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
 		else
-		{
-		  snprintf(trstring, 256, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
-		  s = new GuiInfoPopup(mWindow, trstring, 4000);
-		}
-		mWindow->setInfoPopup(s);
+			snprintf(trstring, 256, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera		  
+
+		mWindow->displayNotificationMessage(trstring, 4000);
 		return true;
 	}
 	return false;

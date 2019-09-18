@@ -80,6 +80,9 @@ public:
 	std::shared_ptr<TextureResource> getTexture();
 
 private:
+	void	resetProperties();
+	void	createVideo();
+
 	void resize();
 	const GridTileProperties& getCurrentProperties();
 

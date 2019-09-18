@@ -5,6 +5,7 @@
 #include <cstring>
 #include "Settings.h"
 #include "PowerSaver.h"
+#include "Log.h"
 
 TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
@@ -55,7 +56,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		}
 		else
 		{
-			mTextureData = std::shared_ptr<TextureData>(new TextureData(tile));
+			mTextureData = std::make_shared<TextureData>(tile);
 			data = mTextureData;
 			if (maxSize != nullptr)
 				data->setMaxSize(*maxSize);
@@ -70,7 +71,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 	else
 	{
 		// Create a texture managed by this class because it cannot be dynamically loaded and unloaded
-		mTextureData = std::shared_ptr<TextureData>(new TextureData(tile));
+		mTextureData = std::make_shared<TextureData>(tile);
 	}
 
 	if (sAllTextures.find(this) == sAllTextures.end())
@@ -79,6 +80,8 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 
 TextureResource::~TextureResource()
 {
+	LOG(LogDebug) << "~TextureResource";
+	
 	if (mTextureData == nullptr)
 		sTextureDataManager.remove(this);
 
@@ -180,7 +183,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	const std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 	if(canonicalPath.empty())
 	{
-		std::shared_ptr<TextureResource> tex(new TextureResource("", tile, false, false));
+		std::shared_ptr<TextureResource> tex = std::make_shared<TextureResource>("", tile, false, false);
 		rm->addReloadable(tex); //make sure we get properly deinitialized even though we do nothing on reinitialization
 		return tex;
 	}
@@ -218,10 +221,10 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 		else
 			sTextureMap.erase(foundTexture);
 	}
-
+	
 	// need to create it
 	std::shared_ptr<TextureResource> tex;
-	tex = std::shared_ptr<TextureResource>(new TextureResource(key.first, tile, dynamic, !forceLoad, maxSize));
+	tex = std::make_shared<TextureResource>(key.first, tile, dynamic, !forceLoad, maxSize);
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get(), !forceLoad);
 
 	if (asReloadable)
@@ -258,14 +261,17 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	if (mTextureData != nullptr)
 		data = mTextureData;
 	else
-		data = sTextureDataManager.get(this);
+		data = sTextureDataManager.get(this, false);
 
 	// mSourceSize = Vector2f((float)width, (float)height);
-	data->setSourceSize((float)width, (float)height);
-	
-	if (mForceLoad || (mTextureData != nullptr))
-		if (!data->isLoaded())
-			data->load();
+	if (data != nullptr)
+	{
+		data->setSourceSize((float)width, (float)height);
+
+		if (mForceLoad || (mTextureData != nullptr))
+			if (!data->isLoaded())
+				data->load();
+	}
 }
 
 Vector2f TextureResource::getSourceImageSize() const

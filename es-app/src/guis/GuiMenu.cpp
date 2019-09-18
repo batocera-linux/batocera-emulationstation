@@ -147,7 +147,7 @@ void GuiMenu::openScraperSettings()
 		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
 		imageSource->add(_("MIX"), "mixrbv1", imageSourceName == "mixrbv1");
 		imageSource->add(_("WHEEL"), "wheel", imageSourceName == "wheel");
-		s->addWithLabel("PREFERED IMAGE SOURCE", imageSource);
+		s->addWithLabel(_("PREFERED IMAGE SOURCE"), imageSource);
 
 		s->addSaveFunc([imageSource] {
 			if (Settings::getInstance()->getString("ScrapperImageSrc") != imageSource->getSelected())
@@ -162,7 +162,7 @@ void GuiMenu::openScraperSettings()
 		thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
 		thumbSource->add(_("MIX"), "mixrbv1", thumbSourceName == "mixrbv1");
 		thumbSource->add(_("WHEEL"), "wheel", thumbSourceName == "wheel");
-		s->addWithLabel("PREFERED THUMBNAIL SOURCE", thumbSource);
+		s->addWithLabel(_("PREFERED THUMBNAIL SOURCE"), thumbSource);
 
 		s->addSaveFunc([thumbSource] {
 			if (Settings::getInstance()->getString("ScrapperThumbSrc") != thumbSource->getSelected())
@@ -382,7 +382,7 @@ void GuiMenu::openDeveloperSettings()
 	auto s = new GuiSettings(mWindow, _("DEVELOPER").c_str());
 	
 	// maximum vram
-	auto max_vram = std::make_shared<SliderComponent>(mWindow, 0.f, 1000.f, 10.f, "Mb");
+	auto max_vram = std::make_shared<SliderComponent>(mWindow, 40.f, 1000.f, 10.f, "Mb");
 	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
 	s->addWithLabel(_("VRAM LIMIT"), max_vram);
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
@@ -435,16 +435,31 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 
 
-	// enableLogs
-	auto enableLogs = std::make_shared<SwitchComponent>(mWindow);
-	enableLogs->setState(Settings::getInstance()->getBool("EnableLogging"));
-	s->addWithLabel(_("ENABLE LOG FILE"), enableLogs);
-	s->addSaveFunc([enableLogs]
-	{ 
-		if (Settings::getInstance()->setBool("EnableLogging", enableLogs->getState()))
-			Log::init();
-	});
+	// log level
+	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
+	std::vector<std::string> modes;
+	modes.push_back("default");
+	modes.push_back("disabled");
+	modes.push_back("warning");
+	modes.push_back("error");
+	modes.push_back("debug");
 
+	auto level = Settings::getInstance()->getString("LogLevel");
+	if (level.empty())
+		level = "default";
+
+	for (auto it = modes.cbegin(); it != modes.cend(); it++)
+		logLevel->add(_(it->c_str()), *it, level == *it);
+
+	s->addWithLabel(_("LOG LEVEL"), logLevel);
+	s->addSaveFunc([this, logLevel] 
+	{		
+		if (Settings::getInstance()->setString("LogLevel", logLevel->getSelected() == "default" ? "" : logLevel->getSelected()))
+		{
+			Log::setupReportingLevel();
+			Log::init();			
+		}
+	});
 
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
@@ -604,7 +619,7 @@ void GuiMenu::openSystemSettings_batocera()
 	modes.push_back("enhanced");
 	modes.push_back("instant");
 	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(*it, *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
+		power_saver->add(_(it->c_str()), *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
 	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
 	s->addSaveFunc([this, power_saver] {
 		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
@@ -705,7 +720,7 @@ void GuiMenu::openSystemSettings_batocera()
 			}
 
 			if (reboot)
-				window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));			
+				window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		});
 		mWindow->pushGui(securityGui);
 	});
@@ -728,9 +743,8 @@ void GuiMenu::openSystemSettings_batocera()
 			SystemConf::getInstance()->saveSystemConf();
 			reboot = true;
 		}
-		if (reboot) {
-			window->displayMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		}
+		if (reboot)
+			window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));		
 
 	});
 
@@ -1128,11 +1142,11 @@ void GuiMenu::openControllersSettings_batocera()
 		}
 		if (configuratedName.compare("") == 0 || !found) {
 			LOG(LogWarning) << "adding default entry for player " << player << "(selected : true)";
-			inputOptionList->add("default", NULL, true);
+			inputOptionList->add(_("default"), NULL, true);
 		}
 		else {
 			LOG(LogWarning) << "adding default entry for player" << player << "(selected : false)";
-			inputOptionList->add("default", NULL, false);
+			inputOptionList->add(_("default"), NULL, false);
 		}
 
 		// ADD default config
@@ -1330,7 +1344,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			viewPreference = "automatic";
 
 		for (auto it = styles.cbegin(); it != styles.cend(); it++)
-			gamelist_style->add(_((*it).c_str()), *it, viewPreference == *it);
+			gamelist_style->add(_(it->c_str()), *it, viewPreference == *it);
 
 		themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 	}
@@ -1496,12 +1510,17 @@ void GuiMenu::openUISettings()
 				auto themeRegions = ThemeData::getSubSet(themeSubSets, "region");
 
 				// theme changed without setting options, forcing options to avoid crash/blank theme
-				Settings::getInstance()->setString("ThemeRegionName", themeRegions.empty() ? "" : themeRegions[0]);
-				Settings::getInstance()->setString("ThemeColorSet", themeColorSets.empty() ? "" : themeColorSets[0]);
-				Settings::getInstance()->setString("ThemeIconSet", themeIconSets.empty() ? "" : themeIconSets[0]);
-				Settings::getInstance()->setString("ThemeMenu", themeMenus.empty() ? "" : themeMenus[0]);
-				Settings::getInstance()->setString("ThemeSystemView", themeSystemviewSets.empty() ? "" : themeSystemviewSets[0]);
-				Settings::getInstance()->setString("ThemeGamelistView", themeGamelistViewSets.empty() ? "" : themeGamelistViewSets[0]);
+				Settings::getInstance()->setString("ThemeRegionName", themeRegions.empty() || themeRegions[0]  == "en" ? "" : themeRegions[0]);
+				Settings::getInstance()->setString("ThemeColorSet", "");
+				Settings::getInstance()->setString("ThemeIconSet", "");
+				Settings::getInstance()->setString("ThemeMenu", "");
+				Settings::getInstance()->setString("ThemeSystemView", "");
+				Settings::getInstance()->setString("ThemeGamelistView", "");
+				Settings::getInstance()->setString("GamelistViewStyle", "");
+				Settings::getInstance()->setString("DefaultGridSize", "");
+
+				for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+					(*sysIt)->setSystemViewMode("automatic", Vector2f(0,0));
 
 				s->setVariable("reloadCollections", true);
 				s->setVariable("reloadAll", true);
@@ -1537,8 +1556,13 @@ void GuiMenu::openUISettings()
 				styles.push_back("grid");
 			}
 
+			auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
+			if (!system->getTheme()->hasView(viewPreference))
+				viewPreference = "automatic";
+
 			for (auto it = styles.cbegin(); it != styles.cend(); it++)
-				gamelist_style->add(*it, *it, Settings::getInstance()->getString("GamelistViewStyle") == *it);
+				gamelist_style->add(_(it->c_str()), *it, viewPreference == *it);
+
 			s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 			s->addSaveFunc([s, gamelist_style, window] {
 				if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
@@ -1554,7 +1578,7 @@ void GuiMenu::openUISettings()
 
 	// Optionally start in selected system
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
-	systemfocus_list->add("NONE", "", Settings::getInstance()->getString("StartupSystem") == "");
+	systemfocus_list->add(_("NONE"), "", Settings::getInstance()->getString("StartupSystem") == "");
 
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 		if ("retropie" != (*it)->getName())
@@ -1601,7 +1625,7 @@ void GuiMenu::openUISettings()
 	transitions.push_back("slide");
 	transitions.push_back("instant");
 	for (auto it = transitions.begin(); it != transitions.end(); it++)
-		transition_style->add(*it, *it, Settings::getInstance()->getString("TransitionStyle") == *it);
+		transition_style->add(_(it->c_str()), *it, Settings::getInstance()->getString("TransitionStyle") == *it);
 	s->addWithLabel(_("TRANSITION STYLE"), transition_style);
 	s->addSaveFunc([transition_style] {
 		if (transition_style->changed()) {
@@ -1629,7 +1653,7 @@ void GuiMenu::openUISettings()
 	screensavers.push_back("random video");
 	screensavers.push_back("slideshow");
 	for (auto it = screensavers.cbegin(); it != screensavers.cend(); it++)
-		screensaver_behavior->add(*it, *it, Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
+		screensaver_behavior->add(_(it->c_str()), *it, Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
 	s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
 	s->addSaveFunc([this, screensaver_behavior] {
 		if (Settings::getInstance()->getString("ScreenSaverBehavior") != "random video"
@@ -1775,12 +1799,15 @@ void GuiMenu::openSoundSettings()
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
 	music_enabled->setState(!(SystemConf::getInstance()->get("audio.bgmusic") == "0"));
 	s->addWithLabel(_("FRONTEND MUSIC"), music_enabled);
-	s->addSaveFunc([music_enabled] {
-		SystemConf::getInstance()->set("audio.bgmusic", music_enabled->getState() ? "1" : "0");
-		if (music_enabled->getState())
-			AudioManager::getInstance()->playRandomMusic();
-		else
-			AudioManager::getInstance()->stopMusic();
+	s->addSaveFunc([music_enabled] 
+	{
+		if (SystemConf::getInstance()->set("audio.bgmusic", music_enabled->getState() ? "1" : "0"))
+		{
+			if (music_enabled->getState())
+				AudioManager::getInstance()->playRandomMusic();
+			else
+				AudioManager::getInstance()->stopMusic();
+		}
 	});
 
 	// batocera - display music titles

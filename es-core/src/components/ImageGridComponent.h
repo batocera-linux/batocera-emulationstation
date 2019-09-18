@@ -698,10 +698,7 @@ void ImageGridComponent<T>::updateTiles(bool allowAnimation, bool updateSelected
 	// Temporary store previous texture so they can't be unloaded
 	std::vector<std::shared_ptr<TextureResource>> previousTextures;
 	for (int ti = 0; ti < (int)mTiles.size(); ti++)
-	{
-		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
-		previousTextures.push_back(tile->getTexture());
-	}
+		previousTextures.push_back(mTiles.at(ti)->getTexture());
 
 	int i = 0;
 	int end = (int)mTiles.size();
@@ -713,6 +710,19 @@ void ImageGridComponent<T>::updateTiles(bool allowAnimation, bool updateSelected
 	{
 		updateTileAtPos(i, img, allowAnimation, updateSelectedState);
 		i++; img++;
+	}
+	
+	std::vector<std::shared_ptr<TextureResource>> newTextures;
+	for (int ti = 0; ti < (int)mTiles.size(); ti++)
+		newTextures.push_back(mTiles.at(ti)->getTexture());
+
+	for (auto tex : previousTextures)
+	{
+		if (tex == nullptr)
+			continue;
+
+		if (std::find(newTextures.cbegin(), newTextures.cend(), tex) == newTextures.cend())
+			TextureResource::cancelAsync(tex);
 	}
 
 	if (updateSelectedState)

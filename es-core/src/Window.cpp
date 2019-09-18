@@ -15,6 +15,7 @@
 #include "AudioManager.h"
 #include <SDL_events.h>
 #include "ThemeData.h"
+#include <mutex>
 
 #define PLAYER_PAD_TIME_MS 200
 
@@ -32,9 +33,9 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mSplash = nullptr;
 
 	// pads // batocera
-	for(int i=0; i<MAX_PLAYERS; i++) {
-	  mplayerPads[i] = 0;
-	}
+	for(int i=0; i<MAX_PLAYERS; i++)
+		mplayerPads[i] = 0;
+	
 	mplayerPadsIsHotkey = false;
 }
 
@@ -58,12 +59,6 @@ void Window::pushGui(GuiComponent* gui)
 	}
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
-}
-
-// batocera
-void Window::displayMessage(std::string message)
-{
-    mMessages.push_back(message);
 }
 
 void Window::removeGui(GuiComponent* gui)
@@ -145,12 +140,12 @@ void Window::textInput(const char* text)
 void Window::input(InputConfig* config, Input input)
 {
 	if (mScreenSaver) {
-		if(mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
-		   (Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
+		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
+			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
 		{
-			if(mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			if (mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
 			{
-				if(config->isMappedLike("right", input) || config->isMappedTo("select", input))
+				if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
 				{
 					if (input.value != 0) {
 						// handle screensaver control
@@ -158,7 +153,7 @@ void Window::input(InputConfig* config, Input input)
 					}
 					return;
 				}
-				else if(config->isMappedTo("start", input) && input.value != 0)
+				else if (config->isMappedTo("start", input) && input.value != 0)
 				{
 					// launch game!
 					cancelScreenSaver();
@@ -170,7 +165,7 @@ void Window::input(InputConfig* config, Input input)
 		}
 	}
 
-	if(mSleeping)
+	if (mSleeping)
 	{
 		// wake up
 		mTimeSinceLastInput = 0;
@@ -184,28 +179,32 @@ void Window::input(InputConfig* config, Input input)
 	if (cancelScreenSaver())
 		return;
 
-	if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
 		Settings::getInstance()->setBool("DebugGrid", !Settings::getInstance()->getBool("DebugGrid"));
 	}
-	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
-	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-I
 		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
 	}
 	else
 	{
-	  // show the pad button
-	  if(config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT)) {
-	    mplayerPads[config->getDeviceIndex()] = PLAYER_PAD_TIME_MS;
-	    mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
-	  }
+		// show the pad button
+		if (config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT))
+		{
+			int idx = config->getDeviceIndex(); 
+			if (idx >= 0 && idx < MAX_PLAYERS)
+				mplayerPads[idx] = PLAYER_PAD_TIME_MS;
+
+			mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
+		}
 
 		if (peekGui())
 		{
@@ -214,33 +213,76 @@ void Window::input(InputConfig* config, Input input)
 	}
 }
 
-void Window::update(int deltaTime)
+// batocera Notification messages
+static std::mutex mNotificationMessagesLock;
+
+void Window::displayNotificationMessage(std::string message, int duration)
 {
-	// batocera        
-	if (SystemConf::getInstance()->get("audio.display_titles") == "1")
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	if (duration <= 0)
 	{
-		std::string songName = AudioManager::getInstance()->getSongName();
-		if (!songName.empty())
-		{
-			mMessages.push_back(_("Now playing: ") + songName);
-			AudioManager::getInstance()->setSongName("");
-		}
+		duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
+		if (duration <= 0)
+			duration = 10;
+
+		duration *= 1000;
 	}
 
-	if (!mMessages.empty())
+	NotificationMessage msg;
+	msg.first = message;
+	msg.second = duration;
+	mNotificationMessages.push_back(msg);
+}
+
+void Window::stopInfoPopup() 
+{
+	if (mInfoPopup == nullptr)
+		return;
+	
+	delete mInfoPopup; 
+	mInfoPopup = nullptr;
+}
+
+void Window::processNotificationMessages()
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	if (mNotificationMessages.empty())
+		return;
+	
+	NotificationMessage msg = mNotificationMessages.back();
+	mNotificationMessages.pop_back();
+
+	float duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
+	if (duration <= 0)
+		duration = 10;
+
+	LOG(LogDebug) << "Notification message :" << msg.first.c_str();
+
+	if (mInfoPopup) 
+		delete mInfoPopup; 
+	
+	mInfoPopup = new GuiInfoPopup(this, msg.first, msg.second);
+}
+
+void Window::processSongTitleNotifications()
+{
+	if (SystemConf::getInstance()->get("audio.display_titles") != "1")
+		return;
+
+	std::string songName = AudioManager::getInstance()->getSongName();
+	if (!songName.empty())
 	{
-		std::string message = mMessages.back();
-		mMessages.pop_back();
-		// batocera
-		std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
-		if (currentTitlesTime.empty())
-			currentTitlesTime = std::string("10");
-		// Check if the string we got has only digits, otherwise throw a default value
-		bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
-		if (!has_only_digits)
-			currentTitlesTime = std::string("10");
-		setInfoPopup(new GuiInfoPopup(this, message, 1000 * (float)std::stoi(currentTitlesTime))); // batocera
-	}
+		displayNotificationMessage(_("Now playing: ") + songName);
+		AudioManager::getInstance()->setSongName("");
+	}	
+}
+
+void Window::update(int deltaTime)
+{
+	processSongTitleNotifications();
+	processNotificationMessages();
 
 	if (mNormalizeNextUpdate)
 	{
@@ -382,17 +424,21 @@ void Window::render()
 		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
-			if (playerJoysticks.count(player) == 1) 
-			{
-				unsigned int padcolor = 0xFFFFFF99;
+			if (playerJoysticks.count(player) != 1)
+				continue;
+			
+			unsigned int padcolor = 0xFFFFFF99;
 
-				if (mplayerPads[playerJoysticks[player]] > 0)
-					padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
+			int idx = playerJoysticks[player];
+			if (idx < 0 || idx >= MAX_PLAYERS)
+				continue;
 
-				float sz = Renderer::getScreenHeight() / 100.0;
+			if (mplayerPads[idx] > 0)
+				padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
 
-				Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);
-			}
+			float sz = Renderer::getScreenHeight() / 100.0;
+
+			Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);			
 		}
 	}
 

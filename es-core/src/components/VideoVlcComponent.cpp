@@ -53,10 +53,8 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	VideoComponent(window),
 	mMediaPlayer(nullptr)
 {
-	memset(&mContext, 0, sizeof(mContext));
-
 	// Get an empty texture for rendering the video
-	mTexture = TextureResource::get("");
+	mTexture = nullptr;// TextureResource::get("");
 
 	// Make sure VLC has been initialised
 	setupVLC(subtitles);
@@ -218,11 +216,20 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	{		
 		if (SDL_LockMutex(mContext.mutex) == 0)
 		{
+			if (mTexture == nullptr)
+			{
+				mTexture = TextureResource::get("");
+				resize();
+			}
+
 			mTexture->initFromExternalPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
 			mContext.hasFrame = false;
 			SDL_UnlockMutex(mContext.mutex);
 		}
 	}
+
+	if (mTexture == nullptr)
+		return;
 
 	const unsigned int fadeIn = t * 255.0f;
 	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
@@ -258,24 +265,25 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	for(int i = 0; i < 4; ++i)
 		vertices[i].pos.round();
 	
-	mTexture->bind();
-
-	if (mTargetIsMin)
+	if (mTexture->bind())
 	{
-		Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
+		if (mTargetIsMin)
+		{
+			Vector2f targetPos = (mTargetSize - mSize) * mOrigin * -1;
 
-		Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
-		Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
-		Renderer::pushClipRect(pos, size);
+			Vector2i pos(trans.translation().x() + (int)targetPos.x(), trans.translation().y() + (int)targetPos.y());
+			Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
+			Renderer::pushClipRect(pos, size);
+		}
+
+		// Render it
+		Renderer::drawTriangleStrips(&vertices[0], 4);
+
+		if (mTargetIsMin)
+			Renderer::popClipRect();
+
+		Renderer::bindTexture(0);
 	}
-
-	// Render it
-	Renderer::drawTriangleStrips(&vertices[0], 4);
-
-	if (mTargetIsMin)
-		Renderer::popClipRect();
-
-	Renderer::bindTexture(0);
 }
 
 void VideoVlcComponent::setupContext()
@@ -297,17 +305,17 @@ void VideoVlcComponent::freeContext()
 	if (!mContext.valid)
 		return;
 
+	if (!mDisable)
+	{
+		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
+		mTexture = nullptr;
+	}
+
 	SDL_FreeSurface(mContext.surface);
 	SDL_DestroyMutex(mContext.mutex);
 	mContext.hasFrame = false;
 	mContext.component = NULL;
 	mContext.valid = false;			
-
-	if (!mDisable)
-	{
-		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
-		mTexture = TextureResource::get("");
-	}
 }
 
 void VideoVlcComponent::setupVLC(std::string subtitles)
@@ -439,7 +447,7 @@ void VideoVlcComponent::startVideo()
 				}
 #endif
 
-				if (Settings::getInstance()->getBool("OptimizeVideo"))
+				if (Settings::getInstance()->getBool("OptimizeVideo") && !mTargetSize.empty())
 				{
 					// If video is bigger than display, ask VLC for a smaller image
 					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()));

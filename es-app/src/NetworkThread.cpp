@@ -3,12 +3,14 @@
 #include "SystemConf.h"
 #include "guis/GuiMsgBox.h"
 #include "LocaleES.h"
-
+#include "Log.h"
 #include <chrono>
 #include <thread>
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window)
 {    
+	LOG(LogDebug) << "NetworkThread : Starting";
+
     // creer le thread
     mFirstRun = true;
     mRunning = true;
@@ -17,6 +19,9 @@ NetworkThread::NetworkThread(Window* window) : mWindow(window)
 
 NetworkThread::~NetworkThread() 
 {
+	LOG(LogDebug) << "NetworkThread : Exit";
+
+	mRunning = false;
 	mThread->join();
 	delete mThread;
 }
@@ -35,6 +40,8 @@ void NetworkThread::run()
 
 		if (SystemConf::getInstance()->get("updates.enabled") == "1") 
 		{
+			LOG(LogDebug) << "NetworkThread : Checking for updates";
+
 			std::vector<std::string> msgtbl;
 			if (ApiSystem::getInstance()->canUpdate(msgtbl)) 
 			{
@@ -44,8 +51,14 @@ void NetworkThread::run()
 					if (i != 0) msg += "\n";
 					msg += msgtbl[i];
 				}
-				mWindow->displayMessage(_("UPDATE AVAILABLE") + std::string(": ") + msg);
+
+				LOG(LogDebug) << "NetworkThread : Update available " << msg.c_str();
+				mWindow->displayNotificationMessage(_("UPDATE AVAILABLE") + std::string(": ") + msg);
 				mRunning = false;
+			}
+			else
+			{
+				LOG(LogDebug) << "NetworkThread : No update found";				
 			}
 		}
 	}

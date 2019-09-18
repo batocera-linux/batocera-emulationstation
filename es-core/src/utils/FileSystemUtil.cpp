@@ -817,6 +817,18 @@ namespace Utils
 
 			return gp + filename;
 		}
+
+		size_t getFileSize(const std::string& _path)
+		{
+			std::string path = getGenericPath(_path);
+			struct stat64 info;
+
+			// check if stat64 succeeded
+			if ((stat64(path.c_str(), &info) == 0))
+				return (size_t)info.st_size;
+
+			return 0;
+		}
 	} // FileSystem::
 
 } // Utils::
