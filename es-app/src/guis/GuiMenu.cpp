@@ -83,11 +83,20 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	if (isFullUI)
 		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
 
+#if !defined(WIN32) || defined(_DEBUG)
 	if (isFullUI)
 		addEntry(_("NETWORK SETTINGS").c_str(), true, [this] { openNetworkSettings_batocera(); }, "iconNetwork");
+#endif
 
 	if (isFullUI)
+	{
+#ifdef WIN32
+		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");		
+#else
 		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings_batocera(); }, "iconScraper");
+#endif
+	}
+	
 
 	// SYSTEM
 	if (isFullUI)
@@ -538,8 +547,10 @@ void GuiMenu::openSystemSettings_batocera()
 			}
 		}
 	}
+#if !defined(WIN32) || defined(_DEBUG)
 	s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
-	
+#endif
+
 	// language choice
 	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
 
@@ -642,7 +653,7 @@ void GuiMenu::openSystemSettings_batocera()
 		// Batocera integration with theBezelProject
 		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
 
-		#ifndef WIN32
+		#if !defined(WIN32) || defined(_DEBUG)
 
 		// Enable updates
 		auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -663,15 +674,16 @@ void GuiMenu::openSystemSettings_batocera()
 		mWindow->pushGui(updateGui);
 	}, "iconUpdates");
 	
-
+#if !defined(WIN32) || defined(_DEBUG)
 	// backup
 	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
+#endif
 
 #ifdef _ENABLE_KODI_
 	s->addEntry(_("KODI SETTINGS"), true, [this] {
 		GuiSettings *kodiGui = new GuiSettings(mWindow, _("KODI SETTINGS").c_str());
 		auto kodiEnabled = std::make_shared<SwitchComponent>(mWindow);
-		kodiEnabled->setState(SystemConf::getInstance()->get("kodi.enabled") == "1");
+		kodiEnabled->setState(SystemConf::getInstance()->get("kodi.enabled") != "0");
 		kodiGui->addWithLabel(_("ENABLE KODI"), kodiEnabled);
 		auto kodiAtStart = std::make_shared<SwitchComponent>(mWindow);
 		kodiAtStart->setState(
@@ -693,6 +705,7 @@ void GuiMenu::openSystemSettings_batocera()
 	});
 #endif
 
+#if !defined(WIN32) || defined(_DEBUG)
 	// Install
 	s->addEntry(_("INSTALL BATOCERA ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
 
@@ -724,6 +737,7 @@ void GuiMenu::openSystemSettings_batocera()
 		});
 		mWindow->pushGui(securityGui);
 	});
+#endif
 
 	s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage] {
 		bool reboot = false;
@@ -1197,6 +1211,7 @@ void GuiMenu::openControllersSettings_batocera()
 void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set)
 {
 	auto SelectedTheme = theme_set->getSelected();
+	Window* window = mWindow;
 
 	if (Settings::getInstance()->getString("ThemeSet") != SelectedTheme)
 	{
@@ -1374,7 +1389,20 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		themeconfig->addWithLabel(_("DEFAULT GRID SIZE"), mGridSize);
 	}
 
-	themeconfig->addSaveFunc([this, s, theme_set, theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region, gamelist_style, mGridSize]
+
+	themeconfig->addEntry(_("RESET GAMELIST CUSTOMISATIONS"), false, [s, themeconfig, window]
+	{
+		Settings::getInstance()->setString("GamelistViewStyle", "");
+		Settings::getInstance()->setString("DefaultGridSize", "");
+
+		for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+			(*sysIt)->setSystemViewMode("automatic", Vector2f(0, 0));
+
+		themeconfig->setVariable("reloadAll", true);
+		themeconfig->close();		
+	});
+
+	themeconfig->addSaveFunc([this, themeconfig, theme_set, theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region, gamelist_style, mGridSize, window]
 	{
 		bool reloadAll = Settings::getInstance()->setString("ThemeSet", theme_set == nullptr ? "" : theme_set->getSelected());
 		reloadAll |= Settings::getInstance()->setString("ThemeColorSet", theme_colorset == nullptr ? "" : theme_colorset->getSelected());
@@ -1405,10 +1433,11 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		else 
 			reloadAll |= Settings::getInstance()->setString("DefaultGridSize", "");
 
-		if (reloadAll)
+		if (reloadAll || themeconfig->getVariable("reloadAll"))
 		{
-			s->setVariable("reloadAll", true);
-			s->setVariable("reloadCollections", true);
+			CollectionSystemManager::get()->updateSystemsList();
+			ViewController::get()->reloadAll(window);
+			window->endRenderLoadingScreen();
 
 			std::string oldTheme = Settings::getInstance()->getString("ThemeSet");
 			Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
@@ -1684,9 +1713,10 @@ void GuiMenu::openUISettings()
 	auto show_help = std::make_shared<SwitchComponent>(mWindow);
 	show_help->setState(Settings::getInstance()->getBool("ShowHelpPrompts"));
 	s->addWithLabel(_("ON-SCREEN HELP"), show_help);
-	s->addSaveFunc(
-		[show_help] {
-		Settings::getInstance()->setBool("ShowHelpPrompts", show_help->getState());
+	s->addSaveFunc([s, show_help] 
+	{
+		if (Settings::getInstance()->setBool("ShowHelpPrompts", show_help->getState()))
+			s->setVariable("reloadAll", true);
 	});
 
 	// quick system select (left/right in game list view)
@@ -1729,6 +1759,7 @@ void GuiMenu::openUISettings()
 		if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
 	});
 	
+#if !defined(WIN32) || defined(_DEBUG)
 	// overscan
 	auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
 	overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
@@ -1739,6 +1770,7 @@ void GuiMenu::openUISettings()
 			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
 		}
 	});
+#endif
 
 	// gamelists
 	auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);

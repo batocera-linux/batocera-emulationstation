@@ -215,7 +215,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #endif
 // batocera
 #ifdef _ENABLE_KODI_
-            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
+            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
                 Window * window = mWindow;
                 mWindow->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
 			       [window,this] { 
@@ -508,7 +508,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 #ifdef _ENABLE_KODI_
-	if(SystemConf::getInstance()->get("kodi.enabled") == "1" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
+	if(SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
 	  prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
 	} else
 #endif

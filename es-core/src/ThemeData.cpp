@@ -442,6 +442,18 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 			return;
 	}
 
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
+			return;
+	}
+
 	std::string relPath = resolvePlaceholders(node.text().as_string());
 	std::string path = Utils::FileSystem::resolveRelativePath(relPath, mPaths.back(), true);
 	path = resolveSystemVariable(mSystemThemeFolder, path);
@@ -533,6 +545,18 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 			return;
 
 		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return;
+	}
+
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
 			return;
 	}
 
@@ -661,6 +685,18 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 			return;
 
 		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return;
+	}
+
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
 			return;
 	}
 
@@ -969,6 +1005,7 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 			if (comp == nullptr)
 				continue;
 
+			comp->setTag((*it).c_str());
 			comp->setDefaultZIndex(10);
 			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
 			comps.push_back(comp);

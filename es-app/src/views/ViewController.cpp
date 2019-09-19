@@ -109,9 +109,8 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	mCurrentView = systemList;
 	mCurrentView->onShow();
 
-	PowerSaver::pause();
-	PowerSaver::resume();
-	//PowerSaver::setState(true);
+//	PowerSaver::pause();
+//	PowerSaver::resume();
 
 	playViewTransition(forceImmediate);
 }
@@ -525,19 +524,27 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	// Keep track of UI mode changes.
 	UIModeController::getInstance()->monitorUIMode();
 
-	// draw systemview
-	getSystemListView()->render(trans);
 
-	// draw gamelists
-	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
+	if (!isAnimationPlaying(0) && mCurrentView != nullptr)
 	{
-		// clipping
-		Vector3f guiStart = it->second->getPosition();
-		Vector3f guiEnd = it->second->getPosition() + Vector3f(it->second->getSize().x(), it->second->getSize().y(), 0);
+		mCurrentView->render(trans);
+	}
+	else
+	{
+		// draw systemview
+		getSystemListView()->render(trans);
 
-		if(guiEnd.x() >= viewStart.x() && guiEnd.y() >= viewStart.y() &&
-			guiStart.x() <= viewEnd.x() && guiStart.y() <= viewEnd.y())
-			it->second->render(trans);
+		// draw gamelists
+		for (auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
+		{
+			// clipping
+			Vector3f guiStart = it->second->getPosition();
+			Vector3f guiEnd = it->second->getPosition() + Vector3f(it->second->getSize().x(), it->second->getSize().y(), 0);
+
+			//	if (guiEnd.x() >= viewStart.x() && guiEnd.y() >= viewStart.y() && guiStart.x() <= viewEnd.x() && guiStart.y() <= viewEnd.y())
+			if (guiEnd.x() > viewStart.x() && guiEnd.y() > viewStart.y() && guiStart.x() < viewEnd.x() && guiStart.y() < viewEnd.y())
+				it->second->render(trans);
+		}
 	}
 
 	if(mWindow->peekGui() == this)
