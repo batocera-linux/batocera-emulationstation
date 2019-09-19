@@ -305,8 +305,32 @@ int setLocale(char * argv1)
 	return 0;
 }
 
-int main(int argc, char* argv[])
+#include <csignal>
+
+void signalHandler(int signum) 
 {
+	if (signum == SIGSEGV)
+		LOG(LogError) << "Interrupt signal SIGSEGV received.\n";
+	else if (signum == SIGFPE)
+		LOG(LogError) << "Interrupt signal SIGFPE received.\n";
+	else if (signum == SIGFPE)
+		LOG(LogError) << "Interrupt signal SIGFPE received.\n";
+	else
+		LOG(LogError) << "Interrupt signal (" << signum << ") received.\n";
+
+	// cleanup and close up stuff here  
+	exit(signum);
+}
+
+int main(int argc, char* argv[])
+{	
+	signal(SIGABRT, signalHandler);
+	signal(SIGFPE, signalHandler);
+	signal(SIGILL, signalHandler);
+	signal(SIGINT, signalHandler);
+	signal(SIGSEGV, signalHandler);
+	signal(SIGTERM, signalHandler);
+
 	srand((unsigned int)time(NULL));
 
 	std::locale::global(std::locale("C"));
@@ -423,7 +447,7 @@ int main(int argc, char* argv[])
 
 // batocera
 #ifdef _ENABLE_KODI_
-	if(systemConf->get("kodi.enabled") == "1" && systemConf->get("kodi.atstartup") == "1"){
+	if(systemConf->get("kodi.enabled") != "0" && systemConf->get("kodi.atstartup") == "1"){
 		ApiSystem::getInstance()->launchKodi(&window);
 	}
 #endif

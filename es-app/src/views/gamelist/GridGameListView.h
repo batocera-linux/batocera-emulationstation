@@ -75,15 +75,12 @@ private:
 	bool mImageVisible;
 
 	VideoComponent* mVideo;
-	bool			mVideoVisible;
 
 	std::vector<TextComponent*> getMDLabels();
 	std::vector<GuiComponent*> getMDValues();
 
 	ScrollableContainer mDescContainer;
-	TextComponent mDescription;
-
-	bool	mLoaded;
+	TextComponent mDescription;	
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_GRID_GAME_LIST_VIEW_H

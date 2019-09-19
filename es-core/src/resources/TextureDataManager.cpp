@@ -78,9 +78,11 @@ void TextureDataManager::remove(const TextureResource* key)
 
 void TextureDataManager::cancelAsync(const TextureResource* key)
 {
-	std::shared_ptr<TextureData> tex = get(key);
-	if (tex != nullptr)
-		mLoader->remove(tex);
+	std::unique_lock<std::mutex> lock(mMutex);
+
+	auto it = mTextureLookup.find(key);
+	if (it != mTextureLookup.cend())
+		mLoader->remove(*(*it).second);
 }
 
 std::shared_ptr<TextureData> TextureDataManager::get(const TextureResource* key, bool enableLoading)

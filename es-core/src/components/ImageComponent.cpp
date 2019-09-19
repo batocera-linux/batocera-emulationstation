@@ -25,7 +25,6 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f)
 {
-	mLoadingTexture = nullptr;
 	mAllowFading = true;
 	updateColors();
 }
@@ -144,7 +143,7 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	// If the previous image is in the async queue, remove it
 	TextureResource::cancelAsync(mLoadingTexture);
 	TextureResource::cancelAsync(mTexture);
-	mLoadingTexture = nullptr;
+	mLoadingTexture.reset();
 
 	if(path.empty() || !ResourceManager::getInstance()->fileExists(path))
 	{
@@ -357,7 +356,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
 	{
 		mTexture = mLoadingTexture;
-		mLoadingTexture = nullptr;			
+		mLoadingTexture.reset();
 		resize();
 		updateColors();
 	}

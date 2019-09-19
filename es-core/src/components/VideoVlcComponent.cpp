@@ -51,7 +51,8 @@ static void display(void* data, void* id)
 
 VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	VideoComponent(window),
-	mMediaPlayer(nullptr)
+	mMediaPlayer(nullptr), 
+	mMedia(nullptr)
 {
 	// Get an empty texture for rendering the video
 	mTexture = nullptr;// TextureResource::get("");
@@ -380,7 +381,9 @@ void VideoVlcComponent::handleLooping()
 				libvlc_audio_set_mute(mMediaPlayer, 1);
 			}
 			//libvlc_media_player_set_position(mMediaPlayer, 0.0f);
-			libvlc_media_player_set_media(mMediaPlayer, mMedia);
+			if (mMedia)
+				libvlc_media_player_set_media(mMediaPlayer, mMedia);
+
 			libvlc_media_player_play(mMediaPlayer);
 		}
 	}
@@ -483,14 +486,22 @@ void VideoVlcComponent::stopVideo()
 {
 	mIsPlaying = false;
 	mStartDelayed = false;
+
 	// Release the media player so it stops calling back to us
 	if (mMediaPlayer)
 	{
 		libvlc_media_player_stop(mMediaPlayer);
 		libvlc_media_player_release(mMediaPlayer);
-		libvlc_media_release(mMedia);
 		mMediaPlayer = NULL;
-		freeContext();
-		PowerSaver::resume();
 	}
+
+	// Release the media
+	if (mMedia)
+	{
+		libvlc_media_release(mMedia); 
+		mMedia = NULL;
+	}		
+		
+	freeContext();
+	PowerSaver::resume();	
 }

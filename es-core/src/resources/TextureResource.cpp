@@ -98,7 +98,7 @@ void TextureResource::onTextureLoaded(std::shared_ptr<TextureData> tex)
 	mSize = Vector2i((int)tex->width(), (int)tex->height());
 	mSourceSize = Vector2f(tex->sourceWidth(), tex->sourceHeight());
 
-	PowerSaver::pushRefreshEvent();
+//	PowerSaver::pushRefreshEvent();
 }
 
 void TextureResource::initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height)
@@ -109,7 +109,6 @@ void TextureResource::initFromExternalPixels(unsigned char* dataRGBA, size_t wid
 	mSize = Vector2i((int)width, (int)height);
 	mSourceSize = Vector2f(mTextureData->sourceWidth(), mTextureData->sourceHeight());
 }
-
 
 void TextureResource::initFromPixels(unsigned char* dataRGBA, size_t width, size_t height)
 {
@@ -170,10 +169,8 @@ bool TextureResource::bind()
 
 void TextureResource::cancelAsync(std::shared_ptr<TextureResource> texture)
 {
-	if (texture == nullptr)
-		return;
-
-	sTextureDataManager.cancelAsync(texture.get());
+	if (texture != nullptr)
+		sTextureDataManager.cancelAsync(texture.get());
 }
 
 std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
