@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-18 21:12+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,7 +229,7 @@ msgstr ""
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
-msgid "ENABLE LOG FILE"
+msgid "LOG LEVEL"
 msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
@@ -412,6 +412,9 @@ msgstr "컨트롤러와의 연결이 삭제되었습니다."
 #, c-format
 msgid "INPUT P%i"
 msgstr "입력 P%i"
+
+msgid "default"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-18 21:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
-msgid "ENABLE LOG FILE"
+msgid "LOG LEVEL"
 msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
@@ -415,6 +415,9 @@ msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
+msgstr ""
+
+msgid "default"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"

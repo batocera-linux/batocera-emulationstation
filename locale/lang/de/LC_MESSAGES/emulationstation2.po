@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-18 21:12+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,8 +229,8 @@ msgstr "BILDER VRAM-NUTZUNG OPTIMIEREN"
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
-msgid "ENABLE LOG FILE"
-msgstr "PROTOKOLLDATEI AKTIVEREN"
+msgid "LOG LEVEL"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "EINE SUPPORT DATEI ERSTELLEN"
@@ -416,6 +416,9 @@ msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT"
 #, c-format
 msgid "INPUT P%i"
 msgstr "EINGABE P%i"
+
+msgid "default"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
@@ -1263,6 +1266,9 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "ENABLE LOG FILE"
+#~ msgstr "PROTOKOLLDATEI AKTIVEREN"
 
 #~ msgid "THIS THEME HAS NO OPTION"
 #~ msgstr "DIESES THEME HAT KEINE OPTION"

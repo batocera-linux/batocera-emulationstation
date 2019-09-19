@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-18 21:12+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -229,8 +229,8 @@ msgstr "OPTIMISER LES IMAGES EN RAM"
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "OPTIMIZE LA TAILLE DE LA RAM VIDÉO"
 
-msgid "ENABLE LOG FILE"
-msgstr "ACTIVER LE FICHIER DE LOG"
+msgid "LOG LEVEL"
+msgstr "NIVEAU DE LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRÉER UN FICHIER DE SUPPORT"
@@ -414,6 +414,9 @@ msgstr "LES LIENS VERS LES MANETTES ONT ÉTÉ SUPPRIMÉS."
 #, c-format
 msgid "INPUT P%i"
 msgstr "JOUEUR %i"
+
+msgid "default"
+msgstr "par défaut"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "AFFICHER L'ACTIVITÉ DU CONTRÔLEUR"
@@ -1254,6 +1257,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "ENABLE LOG FILE"
+#~ msgstr "ACTIVER LE FICHIER DE LOG"
 
 #~ msgid "THIS THEME HAS NO OPTION"
 #~ msgstr "CE THÈME N'A PAS D'OPTION"
