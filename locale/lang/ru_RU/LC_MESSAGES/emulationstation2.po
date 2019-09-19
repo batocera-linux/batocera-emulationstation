@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-18 21:12+0200\n"
+"POT-Creation-Date: 2019-09-19 20:40+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -448,6 +448,9 @@ msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
 
 msgid "DEFAULT GRID SIZE"
+msgstr ""
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
 msgid "UI MODE"

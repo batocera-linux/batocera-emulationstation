@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-18 21:12+0200\n"
+"POT-Creation-Date: 2019-09-19 20:40+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -447,6 +447,9 @@ msgstr "RÉGION DU THÈME"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAILLE DE LA GRILLE PAR DÉFAUT"
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
+msgstr "RÉINITIALISER LA PERSONNALISATION DES LISTES DE JEUX"
 
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"

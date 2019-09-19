@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-18 21:12+0200\n"
+"POT-Creation-Date: 2019-09-19 20:40+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -446,6 +446,9 @@ msgstr "REGION DEL TEMA"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMAÑO PREDETERMINADO DE CUADRICULA"
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "MODO GUI"
