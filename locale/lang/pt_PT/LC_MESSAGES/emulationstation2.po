@@ -50,7 +50,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "go back"
-msgstr "VOLTAR"
+msgstr "voltar"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -233,7 +233,7 @@ msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "OTIMIZAR VIDEO NA VRAM"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "NÍVEL DO LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
@@ -417,7 +417,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "default"
-msgstr ""
+msgstr "por padrão"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO COMANDO"
@@ -652,7 +652,7 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr "CRIAR UMA NOVA COLEÇÃO"
 
 msgid "New Collection Name"
-msgstr "NOME DA COLEÇÃO"
+msgstr "Nome Da Nova Coleção"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLEÇÕES SEM TEMAS"
@@ -870,7 +870,7 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-"ISTO EXCLUIRÁ O ARQUIVO DO JOGO(S)!\n"
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
 "TEM A CERTEZA?"
 
 msgid "DELETE"
@@ -895,13 +895,13 @@ msgid "Image"
 msgstr "Imagem"
 
 msgid "enter path to image"
-msgstr "digite o diretório da imagem"
+msgstr "digite o caminho da imagem"
 
 msgid "Path to video"
 msgstr "CAMINHO PARA O VÍDEO"
 
 msgid "enter path to thumbnail"
-msgstr "DIGITE O DIRETÓRIO DA MINIATURA"
+msgstr "digite o caminho da miniatura"
 
 msgid "Path to marquee"
 msgstr "Caminho para a marquee"
@@ -916,10 +916,10 @@ msgid "enter rating"
 msgstr "DIGITE A CLASSIFICAÇÃO"
 
 msgid "Release date"
-msgstr "DATA DE LANÇAMENTO"
+msgstr "Data de lançamento"
 
 msgid "enter release date"
-msgstr "DIGITE A DATA DE LANÇAMENTO"
+msgstr "digite a data de lançamento"
 
 msgid "Developer"
 msgstr "Desenvolvedor"
@@ -934,10 +934,10 @@ msgid "enter game publisher"
 msgstr "digite o nome da publicadora"
 
 msgid "Genre"
-msgstr "GÉNERO"
+msgstr "Género"
 
 msgid "enter game genre"
-msgstr "DIGITE O GÉNERO"
+msgstr "digite o género"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -964,22 +964,22 @@ msgid "set kidgame"
 msgstr "tipo de jogo infantil "
 
 msgid "Play count"
-msgstr "VEZES JOGADAS"
+msgstr "Vezes jogadas"
 
 msgid "enter number of times played"
-msgstr "DIGITE O NÚMERO DE TEMPO JOGADO"
+msgstr "Digite o número de vezes jogadas"
 
 msgid "Last played"
-msgstr "NÚMERO VEZES JOGADAS"
+msgstr "Última vez jogado"
 
 msgid "enter last played date"
-msgstr "DIGITE A ÚLTIMA DATA JOGADA"
+msgstr "digite a última data jogada"
 
 msgid "name"
 msgstr "nome"
 
 msgid "description"
-msgstr "DESCRIÇÃO"
+msgstr "descrição"
 
 msgid "image"
 msgstr "imagem"
@@ -988,10 +988,10 @@ msgid "thumbnail"
 msgstr "miniatura"
 
 msgid "video"
-msgstr "VÍDEO"
+msgstr "vídeo"
 
 msgid "enter path to video"
-msgstr "INSIRE O CAMINHO PARA O VÍDEO"
+msgstr "insire o caminho para o vídeo"
 
 msgid "marquee"
 msgstr "marquee"
@@ -1069,7 +1069,7 @@ msgid "all games"
 msgstr "TODOS OS JOGOS"
 
 msgid "last played"
-msgstr "ULTIMA VEZ JOGADO"
+msgstr "Ultima vez jogado"
 
 msgid "favorites"
 msgstr "FAVORITOS"
@@ -1105,7 +1105,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Various"
-msgstr "Várias"
+msgstr "Vários"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
