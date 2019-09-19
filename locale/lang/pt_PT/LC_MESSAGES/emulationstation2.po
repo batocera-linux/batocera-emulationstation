@@ -176,7 +176,7 @@ msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "FONTE DE MINIATURA PREFERIDA"
 
 msgid "SCRAPE MARQUEE"
-msgstr "OBTER MARCADOR"
+msgstr "OBTER MARQUEE"
 
 msgid "SCRAPE VIDEOS"
 msgstr "OBTER VIDEOS"
@@ -904,7 +904,7 @@ msgid "enter path to thumbnail"
 msgstr "DIGITE O DIRETÓRIO DA MINIATURA"
 
 msgid "Path to marquee"
-msgstr "Caminho para o marcador"
+msgstr "Caminho para a marquee"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
@@ -991,13 +991,13 @@ msgid "video"
 msgstr "VÍDEO"
 
 msgid "enter path to video"
-msgstr "INSIRE O CAMINHO PARA VÍDEO"
+msgstr "INSIRE O CAMINHO PARA O VÍDEO"
 
 msgid "marquee"
-msgstr "marcador"
+msgstr "marquee"
 
 msgid "enter path to marquee"
-msgstr "insira o caminho para o marcador"
+msgstr "insira o caminho para a marquee"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
