@@ -152,6 +152,7 @@ void GuiMenu::openScraperSettings()
 		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED IMAGE SOURCE"), false);
 		imageSource->add(_("NONE"), "", imageSourceName.empty());
 		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
+		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
 		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
 		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
 		imageSource->add(_("MIX"), "mixrbv1", imageSourceName == "mixrbv1");
@@ -167,6 +168,7 @@ void GuiMenu::openScraperSettings()
 		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED THUMBNAIL SOURCE"), false);
 		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
 		thumbSource->add(_("SCREENSHOT"), "ss", thumbSourceName == "ss");
+		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", thumbSourceName == "sstitle");
 		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
 		thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
 		thumbSource->add(_("MIX"), "mixrbv1", thumbSourceName == "mixrbv1");
@@ -1210,20 +1212,20 @@ void GuiMenu::openControllersSettings_batocera()
 
 void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set)
 {
-	auto SelectedTheme = theme_set->getSelected();
-	Window* window = mWindow;
-
-	if (Settings::getInstance()->getString("ThemeSet") != SelectedTheme)
+	if (Settings::getInstance()->getString("ThemeSet") != theme_set->getSelected())
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"), _("OK")));
 		return;
 	}
 
-	auto themeconfig = new GuiSettings(mWindow, _("THEME CONFIGURATION").c_str());
+	Window* window = mWindow;
 
 	auto system = ViewController::get()->getState().getSystem();
+	auto theme = system->getTheme();
 
-	auto themeSubSets = ThemeData::getThemeSubSets(SelectedTheme);
+	auto themeconfig = new GuiSettings(mWindow, _("THEME CONFIGURATION").c_str());
+
+	auto themeSubSets = theme->getSubSets();
 	auto themeColorSets = ThemeData::getSubSet(themeSubSets, "colorset");
 	auto themeIconSets = ThemeData::getSubSet(themeSubSets, "iconset");
 	auto themeMenus = ThemeData::getSubSet(themeSubSets, "menu");
@@ -1344,7 +1346,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 	
 		if (system != NULL)
 		{
-			auto mViews = system->getTheme()->getViewsOfTheme();
+			auto mViews = theme->getViewsOfTheme();
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 				styles.push_back(*it);
 		}
@@ -1355,7 +1357,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		}
 
 		auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
-		if (!system->getTheme()->hasView(viewPreference))
+		if (!theme->hasView(viewPreference))
 			viewPreference = "automatic";
 
 		for (auto it = styles.cbegin(); it != styles.cend(); it++)
@@ -1366,7 +1368,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 
 	// Default grid size
 	std::shared_ptr<OptionListComponent<std::string>> mGridSize = nullptr;
-	if (system != NULL && system->getTheme()->hasView("grid"))
+	if (system != NULL && theme->hasView("grid"))
 	{
 		Vector2f gridOverride = Vector2f::parseString(Settings::getInstance()->getString("DefaultGridSize"));
 		auto ovv = std::to_string((int)gridOverride.x()) + "x" + std::to_string((int)gridOverride.y());
@@ -1530,16 +1532,8 @@ void GuiMenu::openUISettings()
 			{
 				Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
 
-				auto themeSubSets = ThemeData::getThemeSubSets(theme_set->getSelected());
-				auto themeColorSets = ThemeData::getSubSet(themeSubSets, "colorset");
-				auto themeIconSets = ThemeData::getSubSet(themeSubSets, "iconset");
-				auto themeMenus = ThemeData::getSubSet(themeSubSets, "menu");
-				auto themeSystemviewSets = ThemeData::getSubSet(themeSubSets, "systemview");
-				auto themeGamelistViewSets = ThemeData::getSubSet(themeSubSets, "gamelistview");
-				auto themeRegions = ThemeData::getSubSet(themeSubSets, "region");
-
 				// theme changed without setting options, forcing options to avoid crash/blank theme
-				Settings::getInstance()->setString("ThemeRegionName", themeRegions.empty() || themeRegions[0]  == "en" ? "" : themeRegions[0]);
+				Settings::getInstance()->setString("ThemeRegionName", "");
 				Settings::getInstance()->setString("ThemeColorSet", "");
 				Settings::getInstance()->setString("ThemeIconSet", "");
 				Settings::getInstance()->setString("ThemeMenu", "");

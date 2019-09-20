@@ -94,6 +94,23 @@ void TextComponent::setUppercase(bool uppercase)
 	onTextChanged();
 }
 
+void TextComponent::renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y)
+{
+	Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
+	Transform4x4f trans = parentTrans * getTransform();
+
+	trans.translate(off);
+	trans.round();
+
+	Renderer::setMatrix(trans);
+
+	unsigned char alpha = (unsigned char) ((mGlowColor & 0xFF) * (mOpacity / 255.0));
+	unsigned int color = (mGlowColor & 0xFFFFFF00) | alpha;
+
+	mTextCache->setColor(color);
+	mFont->renderTextCache(mTextCache.get());	
+}
+
 void TextComponent::render(const Transform4x4f& parentTrans)
 {
 	if (!isVisible())
@@ -138,45 +155,25 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		}
 
 		if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
-		{
-			auto draw = [this, off, yOff, parentTrans](int margin)
-			{
-				auto func = [this, off, yOff, parentTrans](float x, float y)
-				{  
-					Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
-					Transform4x4f trans = parentTrans * getTransform();
+		{			
+			int x = -mGlowSize;
+			int y = -mGlowSize;
+			renderSingleGlow(parentTrans, yOff, x, y);
 
-					trans.translate(off);
-					trans.round();
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, ++x, y);
 
-					Renderer::setMatrix(trans);
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, x, ++y);
 
-					unsigned char o = (unsigned char)((float)(mGlowColor & 0x000000FF) / 255.f * (float)(mColor & 0x000000FF));
-					unsigned int color = (mGlowColor & 0xFFFFFF00) | (unsigned char)o;
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, --x, y);
 
-					mTextCache->setColor(color);					
-					mFont->renderTextCache(mTextCache.get());
-					mTextCache->setColor(mColor);
-				};
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, x, --y);
 
-				int x = -margin;
-				int y = -margin;
-				func(x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(++x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(x, ++y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(--x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(x, --y);
-			};
-
-			draw(mGlowSize);
+			// Restore text color
+			onColorChanged();
 		}
 
 		trans.translate(off);
@@ -198,6 +195,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 				break;
 			}
 		}
+		
 		mFont->renderTextCache(mTextCache.get());
 	}
 }

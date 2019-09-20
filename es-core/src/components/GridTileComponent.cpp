@@ -104,7 +104,7 @@ std::shared_ptr<TextureResource> GridTileComponent::getTexture()
 
 void GridTileComponent::resize()
 {
-	const GridTileProperties& currentProperties = getCurrentProperties();
+	auto currentProperties = getCurrentProperties();
 
 	Vector2f size = currentProperties.mSize;
 	if (mSize != size)
@@ -270,17 +270,19 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x(), mSize.y()))
 		return;
 
-	float padding = getCurrentProperties().mPadding.x();
-	float topPadding = getCurrentProperties().mPadding.y();
+	auto currentProperties = getCurrentProperties();
+
+	float padding = currentProperties.mPadding.x();
+	float topPadding = currentProperties.mPadding.y();
 	float bottomPadding = topPadding;
 
 	if (mLabelVisible && !mLabelMerged)
-		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * getCurrentProperties().mLabelSize.y()));
+		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.mLabelSize.y()));
 
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
-	if (getCurrentProperties().mImageSizeMode == "minSize")
+	if (currentProperties.mImageSizeMode == "minSize")
 		Renderer::pushClipRect(pos, size);
 
 	if (mImage != NULL)
@@ -289,13 +291,13 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mSelected && !mVideoPath.empty() && mVideo != nullptr)
 		mVideo->render(trans);
 
-	if (!mLabelMerged && getCurrentProperties().mImageSizeMode == "minSize")
+	if (!mLabelMerged && currentProperties.mImageSizeMode == "minSize")
 		Renderer::popClipRect();
 
-	if (mLabelVisible && getCurrentProperties().mLabelSize.y()>0)
+	if (mLabelVisible && currentProperties.mLabelSize.y()>0)
 		mLabel.render(trans);
 
-	if (mLabelMerged && getCurrentProperties().mImageSizeMode == "minSize")
+	if (mLabelMerged && currentProperties.mImageSizeMode == "minSize")
 		Renderer::popClipRect();
 }
 
@@ -548,7 +550,7 @@ void GridTileComponent::setImage(const std::string& path)
 	resize();	
 }
 
-void GridTileComponent::reset()
+void GridTileComponent::resetImages()
 {
 	setLabel("");
 	setVideo("");
@@ -701,8 +703,10 @@ void GridTileComponent::setVisible(bool visible)
 	mVisible = visible;
 }
 
-const GridTileProperties& GridTileComponent::getCurrentProperties() 
+GridTileProperties GridTileComponent::getCurrentProperties() 
 {
+	GridTileProperties mMixedProperties;
+
 	if (mSelectedZoomPercent == 0.0f || mSelectedZoomPercent == 1.0f)
 		return mSelected ? mSelectedProperties : mDefaultProperties;
 
