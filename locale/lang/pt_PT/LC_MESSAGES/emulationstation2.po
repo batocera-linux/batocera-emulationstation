@@ -161,7 +161,7 @@ msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "TÍTULO DO SCREENSHOT"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
