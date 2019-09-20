@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-19 20:40+0200\n"
+"POT-Creation-Date: 2019-09-20 21:54+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -156,6 +156,9 @@ msgstr "NINGUNO"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
+
+msgid "TITLE SCREENSHOT"
+msgstr ""
 
 msgid "BOX 2D"
 msgstr "CAJA 2D"
