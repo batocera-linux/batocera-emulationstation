@@ -158,6 +158,8 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 	mCenterSelection = false;
 	mScrollLoop = false;
 	mScrollDirection = SCROLL_VERTICALLY;
+
+	mCursorChangedCallback = nullptr;
 }
 
 template<typename T>
@@ -528,8 +530,7 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 			mCursorChangedCallback(state);
 
 		return;
-	}
-	
+	}	
 		
 	bool direction = mCursor >= mLastCursor;
 
@@ -541,6 +542,8 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 
 	float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
 	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
+	if (dimOpposite == 0)
+		dimOpposite = 1;
 
 	int centralCol = (int)(dimScrollable - 0.5) / 2;
 	int maxCentralCol = (int)(dimScrollable) / 2;
@@ -767,7 +770,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		if (updateSelectedState)
 			tile->setSelected(false, allowAnimation);
 
-		tile->reset();
+		tile->resetImages();
 		tile->setVisible(false);
 	}
 	else
@@ -875,13 +878,10 @@ void ImageGridComponent<T>::buildTiles()
 			// In Horizontal mod, tiles are ordered from top to bottom, then from left to right
 			X = vert ? x : y - EXTRAITEMS;
 			Y = vert ? y - EXTRAITEMS : x;
-			
-			//if (!isVertical())
-			//	X--;
 
 			tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
 			tile->setOrigin(0.5f, 0.5f);
-			tile->reset();
+	//		tile->resetImages();
 
 			if (mTheme)
 				tile->applyTheme(mTheme, mName, "gridtile", ThemeFlags::ALL);

@@ -316,6 +316,12 @@ namespace Renderer
 		if (clipStack.empty())
 			return true;
 
+		if (nativeClipStack.empty())
+		{
+			LOG(LogDebug) << "Renderer::isVisibleOnScreen used without any clip stack!";
+			return true;
+		}
+
 		screen = nativeClipStack.top();
 		return rectOverlap(screen, box);
 	}

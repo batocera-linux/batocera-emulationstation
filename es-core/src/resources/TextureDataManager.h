@@ -30,8 +30,7 @@ private:
 	void threadProc();
 
 	std::list<std::shared_ptr<TextureData>> 										mProcessingTextureDataQ;
-	std::list<std::shared_ptr<TextureData> > 										mTextureDataQ;
-	std::map<TextureData*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureDataLookup;
+	std::list<std::shared_ptr<TextureData>> 										mTextureDataQ;
 
 	std::vector<std::thread>	mThreads;
 	std::mutex					mLoaderLock;

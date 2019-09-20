@@ -236,13 +236,12 @@ public:
 	static std::map<std::string, ThemeSet> getThemeSets();
 	static std::string getThemeFromCurrentSet(const std::string& system);
 	
-	bool hasSubsets() { return mHasSubsets; }
+	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 
-	static std::vector<Subset>		getThemeSubSets(const std::string& theme);
+	std::vector<Subset>		getSubSets() { return mSubsets; }
+
 	static std::vector<std::string> getSubSet(const std::vector<Subset>& subsets, const std::string& subset);
-	static void findRegion(const pugi::xml_document& doc, std::vector<Subset>& sets);
-	static void crawlIncludes(const pugi::xml_node& root, std::vector<Subset>& sets, std::deque<std::string>& dequepath);
 
 	static void setDefaultTheme(ThemeData* theme);
 	static ThemeData* getDefaultTheme() { return mDefaultTheme; }
@@ -286,11 +285,12 @@ private:
 	std::string mMenu;
 	std::string mSystemview;
 	std::string mGamelistview;
-	std::string mSystemThemeFolder;
-	bool mHasSubsets;
+	std::string mSystemThemeFolder;	
 	
 	std::map<std::string, std::string> mVariables;
 	std::map<std::string, ThemeView> mViews;
+
+	std::vector<Subset> mSubsets;
 
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
 	static ThemeData* mDefaultTheme;	
