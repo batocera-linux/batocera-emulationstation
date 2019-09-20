@@ -56,6 +56,7 @@ protected:
 
 private:
 	void calculateExtent();
+	void renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y);
 
 	void onColorChanged();
 
