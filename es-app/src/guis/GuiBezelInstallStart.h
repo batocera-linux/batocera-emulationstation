@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GuiComponent.h"
+#include "GuiThemeInstallStart.h"
 #include "components/MenuComponent.h"
 
 template<typename T>
@@ -15,9 +16,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
-	void start();
+	void start(std::string SelectedBezel);
 	MenuComponent mMenu;
-	char *mSelectedBezel;
 };
 
 class GuiBezelUninstallStart : public GuiComponent
@@ -28,9 +28,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
-	void start();
+	void start(char *bezel);
 	MenuComponent mMenu;
-	char *mSelectedBezel;
 };
 
 class GuiBezelInstallMenu : public GuiComponent
