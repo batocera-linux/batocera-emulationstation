@@ -43,6 +43,8 @@ public:
 	void render(const Transform4x4f& parentTrans) override;
 	virtual void setThemeName(std::string name);
 
+	virtual std::vector<std::string> getEntriesLetters() = 0;
+
 protected:
 	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;

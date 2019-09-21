@@ -196,6 +196,15 @@ public:
 
 	inline int size() const { return (int)mEntries.size(); }
 
+	inline std::vector<UserData> getObjects()
+	{
+		std::vector<UserData> objects;
+		for (auto it = mEntries.begin(); it != mEntries.end(); it++)
+			objects.push_back((*it).object);
+		
+		return objects;
+	}
+
 protected:
 	void remove(typename std::vector<Entry>::const_iterator& it)
 	{
