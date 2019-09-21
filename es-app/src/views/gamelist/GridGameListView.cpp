@@ -597,3 +597,8 @@ void GridGameListView::setCursorIndex(int cursor){
 int GridGameListView::getCursorIndex(){
 	return mGrid.getCursorIndex();
 }
+
+std::vector<FileData*> GridGameListView::getFileDataEntries()
+{
+	return mGrid.getObjects();
+}

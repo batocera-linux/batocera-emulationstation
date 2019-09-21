@@ -83,51 +83,41 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	fromPlaceholder = file->isPlaceHolder();
 	ComponentListRow row;
 
-	if (!fromPlaceholder) {
+	if (!fromPlaceholder) 
+	{
 		// jump to letter
 		row.elements.clear();
 
-		// define supported character range
-		// this range includes all numbers, capital letters, and most reasonable symbols
-		char startChar = '!';
-		char endChar = '_';
-
-		char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
-		if(curChar < startChar || curChar > endChar)
-			curChar = startChar;
-
-		mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO..."), false); // batocera
-		for (char c = startChar; c <= endChar; c++)
+		std::vector<std::string> letters = getGamelist()->getEntriesLetters();
+		if (!letters.empty())
 		{
-			// check if c is a valid first letter in current list
-			const std::vector<FileData*>& files = getGamelist()->getCursor()->getParent()->getChildrenListToDisplay();
-			for (auto file : files)
+			mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO..."), false); // batocera
+
+			char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
+
+			if (std::find(letters.begin(), letters.end(), std::string(1, curChar)) == letters.end())
+				curChar = letters.at(0)[0];
+
+			for (auto letter : letters)
+				mJumpToLetterList->add(letter, letter[0], letter[0] == curChar);
+
+			row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), theme->Text.font, theme->Text.color), true); // batocera
+			row.addElement(mJumpToLetterList, false);
+			row.input_handler = [&](InputConfig* config, Input input)
 			{
-				char candidate = (char)toupper(file->getName()[0]);
-				if (c == candidate)
+				if (config->isMappedTo(BUTTON_OK, input) && input.value)
 				{
-					mJumpToLetterList->add(std::string(1, c), c, c == curChar);
-					break;
+					jumpToLetter();
+					return true;
 				}
-			}
+				else if (mJumpToLetterList->input(config, input))
+				{
+					return true;
+				}
+				return false;
+			};
+			mMenu.addRow(row);
 		}
-
-		row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), theme->Text.font, theme->Text.color), true); // batocera
-		row.addElement(mJumpToLetterList, false);
-		row.input_handler = [&](InputConfig* config, Input input) 
-		{
-		  if(config->isMappedTo(BUTTON_OK, input) && input.value)
-			{
-				jumpToLetter();
-				return true;
-			}
-			else if(mJumpToLetterList->input(config, input))
-			{
-				return true;
-			}
-			return false;
-		};
-		mMenu.addRow(row);
 
 		// sort list by
 		unsigned int currentSortId = mSystem->getSortId();

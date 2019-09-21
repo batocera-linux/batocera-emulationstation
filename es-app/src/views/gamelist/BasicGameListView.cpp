@@ -206,3 +206,8 @@ void BasicGameListView::setCursorIndex(int cursor){
 int BasicGameListView::getCursorIndex(){
 	return mList.getCursorIndex();
 }
+
+std::vector<FileData*> BasicGameListView::getFileDataEntries()
+{
+	return mList.getObjects();	
+}

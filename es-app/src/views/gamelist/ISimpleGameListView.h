@@ -6,6 +6,7 @@
 #include "components/TextComponent.h"
 #include "views/gamelist/IGameListView.h"
 #include <stack>
+#include <set>
 
 class ISimpleGameListView : public IGameListView
 {
@@ -28,8 +29,11 @@ public:
 
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void launch(FileData* game) = 0;
+	
+	virtual std::vector<std::string> getEntriesLetters() override;
 
 protected:
+	virtual std::vector<FileData*> getFileDataEntries() = 0;
 	virtual std::string getQuickSystemSelectRightButton() = 0;
 	virtual std::string getQuickSystemSelectLeftButton() = 0;
 	virtual void populateList(const std::vector<FileData*>& files) = 0;
