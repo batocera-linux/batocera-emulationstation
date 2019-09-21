@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-20 21:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "go back"
-msgstr ""
+msgstr "voltar"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -68,7 +68,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DO GRID"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -160,6 +160,9 @@ msgstr "NENHUM"
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
+msgid "TITLE SCREENSHOT"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
 
@@ -176,10 +179,10 @@ msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "FONTE DE MINIATURA PREFERIDA"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "SCRAPE MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "SCRAPE VIDEOS"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
@@ -221,19 +224,19 @@ msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "CARREGANDO EM PARALELO"
 
 msgid "ASYNC IMAGES LOADING"
 msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OTIMIZAR O USO DAS IMAGENS NA RAM"
+msgstr "OTIMIZAR O USO DAS IMAGENS NA VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
-msgid "ENABLE LOG FILE"
-msgstr "HABILITAR ARQUIVO DE LOG"
+msgid "LOG LEVEL"
+msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
@@ -416,11 +419,14 @@ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
-msgid "SHOW CONTROLLER ACTIVITY"
+msgid "default"
 msgstr ""
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "MOSTRAR ATIVIDADE DO CONTROLE"
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
@@ -444,6 +450,9 @@ msgid "THEME REGION"
 msgstr "REGIÃO DO TEMA"
 
 msgid "DEFAULT GRID SIZE"
+msgstr "TAMANHO PADRÃO DA GRID"
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
 msgid "UI MODE"
@@ -870,6 +879,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
+"VOCÊ TEM CERTEZA?"
 
 msgid "DELETE"
 msgstr "EXCLUIR"
@@ -1040,7 +1051,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "PROCURANDO"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PASSAR"
@@ -1260,6 +1271,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "ENABLE LOG FILE"
+#~ msgstr "HABILITAR ARQUIVO DE LOG"
 
 #~ msgid "THIS THEME HAS NO OPTION"
 #~ msgstr "ESTE TEMA NÃO TEM OPÇÃO"

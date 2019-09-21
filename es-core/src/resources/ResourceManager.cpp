@@ -50,9 +50,10 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 	//check if its a resource
 	const std::string respath = getResourcePath(path);
 
-	if(Utils::FileSystem::exists(respath))
+	auto size = Utils::FileSystem::getFileSize(respath);
+	if (size > 0)
 	{
-		ResourceData data = loadFile(respath);
+		ResourceData data = loadFile(respath, size);
 		return data;
 	}
 
@@ -61,13 +62,16 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 	return data;
 }
 
-ResourceData ResourceManager::loadFile(const std::string& path) const
+ResourceData ResourceManager::loadFile(const std::string& path, size_t size) const
 {
 	std::ifstream stream(path, std::ios::binary);
-
-	stream.seekg(0, stream.end);
-	size_t size = (size_t)stream.tellg();
-	stream.seekg(0, stream.beg);
+	
+	if (size == 0 || size == SIZE_MAX)
+	{
+		stream.seekg(0, stream.end);
+		size = (size_t)stream.tellg();
+		stream.seekg(0, stream.beg);
+	}
 
 	//supply custom deleter to properly free array
 	std::shared_ptr<unsigned char> data(new unsigned char[size], array_deleter);

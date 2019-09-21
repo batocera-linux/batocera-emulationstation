@@ -7,13 +7,10 @@
 NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, unsigned int edgeColor, unsigned int centerColor) : GuiComponent(window),
 	mCornerSize(16, 16),
 	mEdgeColor(edgeColor), mCenterColor(centerColor),
-	mPath(path),
 	mVertices(NULL)
 {
-	mPreviousSize = Vector2f(0, 0);
-
-	if(!mPath.empty())
-		buildVertices();
+	mPreviousSize = Vector2f(0, 0);	
+	setImagePath(path);
 }
 
 void NinePatchComponent::setOpacity(unsigned char opacity)
@@ -50,10 +47,11 @@ void NinePatchComponent::updateColors()
 
 void NinePatchComponent::buildVertices()
 {
-	if(mVertices != NULL)
-		delete[] mVertices;
+	if(mTexture == nullptr)
+		return;
 
-	mTexture = TextureResource::get(mPath);
+	if(mVertices != NULL)
+		delete[] mVertices;	
 
 	if(mTexture->getSize() == Vector2i::Zero())
 	{
@@ -65,6 +63,8 @@ void NinePatchComponent::buildVertices()
 	mVertices = new Renderer::Vertex[6 * 9];
 
 	const Vector2f texSize = Vector2f((float)mTexture->getSize().x(), (float)mTexture->getSize().y());
+	if (texSize.x() <= 0 || texSize.y() <= 0)
+		return;
 
 	const float imgSizeX[3] = { mCornerSize.x(), mSize.x() - mCornerSize.x() * 2, mCornerSize.x()};
 	const float imgSizeY[3] = { mCornerSize.y(), mSize.y() - mCornerSize.y() * 2, mCornerSize.y()};
@@ -108,20 +108,26 @@ void NinePatchComponent::buildVertices()
 
 void NinePatchComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (!isVisible() || mTexture == nullptr || mVertices == nullptr)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
-
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
-	if(mTexture && mVertices != NULL)
+	if (mCornerSize.x() == 0 && mCornerSize.y() == 0)
+	{
+		float opacity = mOpacity / 255.0;
+		const unsigned int edgeColor = mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity);
+
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor, edgeColor);
+	}
+	else if (mTexture->bind())
 	{
 		Renderer::setMatrix(trans);
-
-		mTexture->bind();
-		Renderer::drawTriangleStrips(&mVertices[0], 6*9);
+		Renderer::drawTriangleStrips(&mVertices[0], 6 * 9);
+		Renderer::bindTexture(0);		
 	}
 
 	renderChildren(trans);
@@ -167,7 +173,7 @@ void NinePatchComponent::setImagePath(const std::string& path)
 		return;
 
 	mPath = path;
-	mTexture = nullptr;
+	mTexture = TextureResource::get(mPath);
 	buildVertices();
 }
 

@@ -14,11 +14,11 @@ class Sound;
 class AudioManager
 {	
 	static std::vector<std::shared_ptr<Sound>> sSoundVector;
-	static std::shared_ptr<AudioManager> sInstance;
+	static AudioManager* sInstance;
 
 	AudioManager();
 
-	static Mix_Music* currentMusic; // batocera
+	Mix_Music* mCurrentMusic; // batocera
 	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
 	void playMusic(std::string path);
 	static void musicEnd_callback(); // batocera
@@ -29,7 +29,7 @@ class AudioManager
 	bool mInitialized;
 
 public:
-	static std::shared_ptr<AudioManager> & getInstance();
+	static AudioManager* getInstance();
 	static bool isInitialized();
 
 	void init();

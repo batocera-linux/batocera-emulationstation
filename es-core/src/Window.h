@@ -18,6 +18,7 @@ class TextCache;
 class Transform4x4f;
 struct HelpStyle;
 class TextureResource;
+class GuiInfoPopup;
 
 class Window
 {
@@ -36,18 +37,11 @@ public:
 		virtual void resetCounts() = 0;
 	};
 
-	class InfoPopup {
-	public:
-		virtual void render(const Transform4x4f& parentTrans) = 0;
-		virtual void stop() = 0;
-		virtual ~InfoPopup() {};
-	};
-
 	Window();
 	~Window();
 
 	void pushGui(GuiComponent* gui);
-	void displayMessage(std::string message); // batocera
+	void displayNotificationMessage(std::string message, int duration = -1); // batocera
 	void removeGui(GuiComponent* gui);
 	GuiComponent* peekGui();
 	inline int getGuiStackSize() { return (int)mGuiStack.size(); }
@@ -73,28 +67,33 @@ public:
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
 
 	void setScreenSaver(ScreenSaver* screenSaver) { mScreenSaver = screenSaver; }
-	void setInfoPopup(InfoPopup* infoPopup) { if (mInfoPopup) delete mInfoPopup; mInfoPopup = infoPopup; }
-	inline void stopInfoPopup() { if (mInfoPopup) mInfoPopup->stop(); };
+
+	void stopInfoPopup();
 
 	void startScreenSaver();
 	bool cancelScreenSaver();
 	void renderScreenSaver();
 
 private:
+	void processNotificationMessages();
+	void processSongTitleNotifications();
+
 	void onSleep();
 	void onWake();
 
 	// Returns true if at least one component on the stack is processing
 	bool isProcessing();
 
-	HelpComponent* mHelp;
+	HelpComponent*	mHelp;
 	ImageComponent* mBackgroundOverlay;
 	ScreenSaver*	mScreenSaver;
-	InfoPopup*		mInfoPopup;
+	GuiInfoPopup*	mInfoPopup;
 	bool			mRenderScreenSaver;
 
 	std::vector<GuiComponent*> mGuiStack;
-	std::vector<std::string> mMessages; // batocera
+
+	typedef std::pair<std::string, int> NotificationMessage;
+	std::vector<NotificationMessage> mNotificationMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
 	std::shared_ptr<TextureResource> mSplash;

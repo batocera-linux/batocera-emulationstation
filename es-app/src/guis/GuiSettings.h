@@ -11,6 +11,8 @@ public:
 	GuiSettings(Window* window, const char* title);
 	virtual ~GuiSettings(); // just calls save();
 
+	void close();
+
 	void save();
 	inline void addRow(const ComponentListRow& row) { mMenu.addRow(row); };
 	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp) { mMenu.addWithLabel(label, comp); };
@@ -40,7 +42,7 @@ public:
 	void setVariable(const std::string name, bool value) { mVariableMap[name] = value; }
 
 private:
-	void Close();
+	
 
 	bool mDoSave = true; // batocera
 

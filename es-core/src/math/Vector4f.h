@@ -11,8 +11,11 @@ class Vector3f;
 class Vector4f
 {
 public:
+	Vector4f()
+	{
+		mX = 0; mY = 0; mZ = 0; mW = 0;
+	}
 
-	         Vector4f()                                                                                                                                                { }
 	         Vector4f(const float _f)                                                 : mX(_f),                 mY(_f),                 mZ(_f),                 mW(_f) { }
 	         Vector4f(const float _x, const float _y, const float _z, const float _w) : mX(_x),                 mY(_y),                 mZ(_z),                 mW(_w) { }
 	explicit Vector4f(const Vector2f& _v)                                             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(0),                  mW(0)  { }

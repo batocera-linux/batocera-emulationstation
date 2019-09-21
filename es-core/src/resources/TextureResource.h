@@ -14,7 +14,7 @@
 // Automatically recreates the texture with renderer deinit/reinit.
 class TextureResource : public IReloadable
 {
-protected:
+public:
 	TextureResource(const std::string& path, bool tile, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize = nullptr);
 
 public:

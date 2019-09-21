@@ -54,6 +54,8 @@ ApiSystem *ApiSystem::getInstance()
 
 unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint) 
 {
+	LOG(LogDebug) << "ApiSystem::getFreeSpaceGB";
+
 #if !defined(WIN32)
 	struct statvfs fiData;
 	const char *fnPath = mountpoint.c_str();
@@ -82,6 +84,8 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 
 std::string ApiSystem::getFreeSpaceInfo() 
 {
+	LOG(LogDebug) << "ApiSystem::getFreeSpaceInfo";
+
 	std::string sharePart = "/userdata/";
 	if (sharePart.size() > 0) {
 		const char *fnPath = sharePart.c_str();
@@ -138,7 +142,10 @@ std::string ApiSystem::getFreeSpaceInfo()
 		return "ERROR";	
 }
 
-bool ApiSystem::isFreeSpaceLimit() {
+bool ApiSystem::isFreeSpaceLimit() 
+{
+	LOG(LogDebug) << "ApiSystem::isFreeSpaceLimit";
+
 	std::string sharePart = "/userdata/";
 	if (sharePart.size() > 0) {
 		return getFreeSpaceGB(sharePart) < 2;
@@ -151,6 +158,8 @@ bool ApiSystem::isFreeSpaceLimit() {
 
 std::string ApiSystem::getVersion() 
 {
+	LOG(LogDebug) << "ApiSystem::getVersion";
+
 #if WIN32
 	return PROGRAM_VERSION_STRING;
 #endif
@@ -168,7 +177,10 @@ std::string ApiSystem::getVersion()
 	return "";
 }
 
-bool ApiSystem::needToShowVersionMessage() {
+bool ApiSystem::needToShowVersionMessage() 
+{
+	LOG(LogDebug) << "ApiSystem::needToShowVersionMessage";
+
 	createLastVersionFileIfNotExisting();
 	std::string versionFile = "/userdata/system/update.done";
 	if (versionFile.size() > 0) {
@@ -185,7 +197,10 @@ bool ApiSystem::needToShowVersionMessage() {
 	return true;
 }
 
-bool ApiSystem::createLastVersionFileIfNotExisting() {
+bool ApiSystem::createLastVersionFileIfNotExisting() 
+{
+	LOG(LogDebug) << "ApiSystem::createLastVersionFileIfNotExisting";
+
 	std::string versionFile = "/userdata/system/update.done";
 
 	FILE *file;
@@ -196,22 +211,29 @@ bool ApiSystem::createLastVersionFileIfNotExisting() {
 	return updateLastVersionFile();
 }
 
-bool ApiSystem::updateLastVersionFile() {
+bool ApiSystem::updateLastVersionFile() 
+{
+	LOG(LogDebug) << "ApiSystem::updateLastVersionFile";
+
 	std::string versionFile = "/userdata/system/update.done";
 	std::string currentVersion = getVersion();
 	std::ostringstream oss;
 	oss << "echo " << currentVersion << " > " << versionFile;
-	if (system(oss.str().c_str())) {
-		LOG(LogWarning) << "Error executing " << oss.str().c_str();
+	if (system(oss.str().c_str())) 
+	{
+		LOG(LogError) << "Error executing " << oss.str().c_str();
 		return false;
 	}
-	else {
-		LOG(LogError) << "Last version file updated";
+	else 
+	{
+		LOG(LogInfo) << "Last version file updated";
 		return true;
 	}
 }
 
-bool ApiSystem::setOverscan(bool enable) {
+bool ApiSystem::setOverscan(bool enable) 
+{
+	LOG(LogDebug) << "ApiSystem::setOverscan";
 
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "overscan";
@@ -224,24 +246,26 @@ bool ApiSystem::setOverscan(bool enable) {
 	std::string command = oss.str();
 	LOG(LogInfo) << "Launching " << command;
 	if (system(command.c_str())) {
-		LOG(LogWarning) << "Error executing " << command;
+		LOG(LogError) << "Error executing " << command;
 		return false;
 	}
 	else {
 		LOG(LogInfo) << "Overscan set to : " << enable;
 		return true;
 	}
-
 }
 
-bool ApiSystem::setOverclock(std::string mode) {
+bool ApiSystem::setOverclock(std::string mode) 
+{
+	LOG(LogDebug) << "ApiSystem::setOverclock";
+
 	if (mode != "") {
 		std::ostringstream oss;
 		oss << "batocera-overclock set " << mode;
 		std::string command = oss.str();
 		LOG(LogInfo) << "Launching " << command;
 		if (system(command.c_str())) {
-			LOG(LogWarning) << "Error executing " << command;
+			LOG(LogError) << "Error executing " << command;
 			return false;
 		}
 		else {
@@ -254,7 +278,10 @@ bool ApiSystem::setOverclock(std::string mode) {
 }
 
 
-std::pair<std::string, int> ApiSystem::updateSystem(BusyComponent* ui) {
+std::pair<std::string, int> ApiSystem::updateSystem(BusyComponent* ui) 
+{
+	LOG(LogDebug) << "ApiSystem::updateSystem";
+
 	std::string updatecommand = "batocera-upgrade";
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	char line[1024] = "";
@@ -274,7 +301,10 @@ std::pair<std::string, int> ApiSystem::updateSystem(BusyComponent* ui) {
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::string device) {
+std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::string device) 
+{
+	LOG(LogDebug) << "ApiSystem::backupSystem";
+
 	std::string updatecommand = std::string("batocera-sync sync ") + device;
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	char line[1024] = "";
@@ -294,7 +324,10 @@ std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::stri
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) {
+std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) 
+{
+	LOG(LogDebug) << "ApiSystem::installSystem";
+
 	std::string updatecommand = std::string("batocera-install install ") + device + " " + architecture;
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	char line[1024] = "";
@@ -314,7 +347,10 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui) {
+std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui) 
+{
+	LOG(LogDebug) << "ApiSystem::scrape";
+
 	std::string scrapecommand = std::string("batocera-scraper");
 	FILE *pipe = popen(scrapecommand.c_str(), "r");
 	char line[1024] = "";
@@ -340,6 +376,8 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui) {
 
 bool ApiSystem::ping() 
 {
+	LOG(LogDebug) << "ApiSystem::ping";
+
 #if WIN32
 	bool connected = false;
 
@@ -370,7 +408,10 @@ bool ApiSystem::ping()
 	return exitcode == 0;
 }
 
-bool ApiSystem::canUpdate(std::vector<std::string>& output) {
+bool ApiSystem::canUpdate(std::vector<std::string>& output) 
+{
+	LOG(LogDebug) << "ApiSystem::canUpdate";
+
 	int res;
 	int exitCode;
 	std::ostringstream oss;
@@ -407,24 +448,35 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output) {
 	}
 }
 
-void ApiSystem::launchExternalWindow_before(Window *window) {
+void ApiSystem::launchExternalWindow_before(Window *window) 
+{
+	LOG(LogDebug) << "ApiSystem::launchExternalWindow_before";
+
 	AudioManager::getInstance()->deinit();
 	VolumeControl::getInstance()->deinit();
 	window->deinit();
+
+	LOG(LogDebug) << "ApiSystem::launchExternalWindow_before OK";
 }
 
-void ApiSystem::launchExternalWindow_after(Window *window) {
+void ApiSystem::launchExternalWindow_after(Window *window) 
+{
+	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
+
 	window->init();
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
 	window->normalizeNextUpdate();
 
-	if (SystemConf::getInstance()->get("audio.bgmusic") != "0") {
-		AudioManager::getInstance()->playRandomMusic();
-	}
+	AudioManager::getInstance()->playRandomMusic();
+
+	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after OK";
 }
 
-bool ApiSystem::launchKodi(Window *window) {
+bool ApiSystem::launchKodi(Window *window) 
+{
+	LOG(LogDebug) << "ApiSystem::launchKodi";
+
 	std::string commandline = InputManager::getInstance()->configureEmulators();
 	std::string command = "python /usr/lib/python2.7/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
 
@@ -457,7 +509,10 @@ bool ApiSystem::launchKodi(Window *window) {
 
 }
 
-bool ApiSystem::launchFileManager(Window *window) {
+bool ApiSystem::launchFileManager(Window *window) 
+{
+	LOG(LogDebug) << "ApiSystem::launchFileManager";
+
 	std::string command = "filemanagerlauncher";
 
 	ApiSystem::launchExternalWindow_before(window);
@@ -474,7 +529,10 @@ bool ApiSystem::launchFileManager(Window *window) {
 	return exitCode == 0;
 }
 
-bool ApiSystem::enableWifi(std::string ssid, std::string key) {
+bool ApiSystem::enableWifi(std::string ssid, std::string key) 
+{
+	LOG(LogDebug) << "ApiSystem::enableWifi";
+
 	std::ostringstream oss;
 
 	Utils::String::replace(ssid, "\"", "\\\"");
@@ -491,12 +549,15 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key) {
 		return true;
 	}
 	else {
-		LOG(LogInfo) << "Cannot enable wifi ";
+		LOG(LogError) << "Cannot enable wifi ";
 		return false;
 	}
 }
 
-bool ApiSystem::disableWifi() {
+bool ApiSystem::disableWifi() 
+{
+	LOG(LogDebug) << "ApiSystem::disableWifi";
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " "
 		<< "wifi" << " "
@@ -508,13 +569,16 @@ bool ApiSystem::disableWifi() {
 		return true;
 	}
 	else {
-		LOG(LogInfo) << "Cannot disable wifi ";
+		LOG(LogError) << "Cannot disable wifi ";
 		return false;
 	}
 }
 
 
-bool ApiSystem::halt(bool reboot, bool fast) {
+bool ApiSystem::halt(bool reboot, bool fast) 
+{
+	LOG(LogDebug) << "ApiSystem::halt";
+
 	SDL_Event *quit = new SDL_Event();
 	if (fast)
 		if (reboot)
@@ -547,7 +611,10 @@ bool ApiSystem::fastShutdown() {
 }
 
 
-std::string ApiSystem::getIpAdress() {
+std::string ApiSystem::getIpAdress() 
+{
+	LOG(LogDebug) << "ApiSystem::getIpAdress";
+
 #if !defined(WIN32)
 	struct ifaddrs *ifAddrStruct = NULL;
 	struct ifaddrs *ifa = NULL;
@@ -598,7 +665,10 @@ std::string ApiSystem::getIpAdress() {
 #endif
 }
 
-bool ApiSystem::scanNewBluetooth() {
+bool ApiSystem::scanNewBluetooth() 
+{
+	LOG(LogDebug) << "ApiSystem::scanNewBluetooth";
+
 	std::vector<std::string> *res = new std::vector<std::string>();
 	std::ostringstream oss;
 	oss << "batocera-bt-pair-device";
@@ -620,6 +690,8 @@ bool ApiSystem::scanNewBluetooth() {
 
 std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
 {
+	LOG(LogDebug) << "ApiSystem::getAvailableStorageDevices";
+
 	std::vector<std::string> res;
 
 #if WIN32
@@ -645,7 +717,10 @@ std::vector<std::string> ApiSystem::getAvailableStorageDevices()
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getVideoModes() {
+std::vector<std::string> ApiSystem::getVideoModes() 
+{
+	LOG(LogDebug) << "ApiSystem::getVideoModes";
+
 	std::vector<std::string> res;
 	std::ostringstream oss;
 	oss << "batocera-resolution listModes";
@@ -665,7 +740,9 @@ std::vector<std::string> ApiSystem::getVideoModes() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getAvailableBackupDevices() {
+std::vector<std::string> ApiSystem::getAvailableBackupDevices() 
+{
+	LOG(LogDebug) << "ApiSystem::getAvailableBackupDevices";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -686,7 +763,9 @@ std::vector<std::string> ApiSystem::getAvailableBackupDevices() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getAvailableInstallDevices() {
+std::vector<std::string> ApiSystem::getAvailableInstallDevices() 
+{
+	LOG(LogDebug) << "ApiSystem::getAvailableInstallDevices";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -707,7 +786,9 @@ std::vector<std::string> ApiSystem::getAvailableInstallDevices() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
+std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() 
+{
+	LOG(LogDebug) << "ApiSystem::getAvailableInstallArchitectures";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -730,6 +811,8 @@ std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() {
 
 std::vector<std::string> ApiSystem::getAvailableOverclocking() 
 {
+	LOG(LogDebug) << "ApiSystem::getAvailableOverclocking";
+
 	std::vector<std::string> res;
 
 #ifndef WIN32
@@ -754,6 +837,8 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking()
 
 std::vector<std::string> ApiSystem::getSystemInformations() 
 {
+	LOG(LogDebug) << "ApiSystem::getSystemInformations";
+
 	std::vector<std::string> res;
 
 #if WIN32
@@ -806,7 +891,10 @@ std::vector<std::string> ApiSystem::getSystemInformations()
 	return res;
 }
 
-std::vector<BiosSystem> ApiSystem::getBiosInformations() {
+std::vector<BiosSystem> ApiSystem::getBiosInformations() 
+{
+	LOG(LogDebug) << "ApiSystem::getBiosInformations";
+
 	std::vector<BiosSystem> res;
 	BiosSystem current;
 	bool isCurrent = false;
@@ -868,7 +956,10 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations() {
 	return res;
 }
 
-bool ApiSystem::generateSupportFile() {
+bool ApiSystem::generateSupportFile() 
+{
+	LOG(LogDebug) << "ApiSystem::generateSupportFile";
+
 #if !defined(WIN32)
 	std::string cmd = "batocera-support";
 	int exitcode = system(cmd.c_str());
@@ -883,6 +974,8 @@ bool ApiSystem::generateSupportFile() {
 
 std::string ApiSystem::getCurrentStorage() 
 {
+	LOG(LogDebug) << "ApiSystem::getCurrentStorage";
+
 #if WIN32
 	return "DEFAULT";
 #endif
@@ -904,21 +997,29 @@ std::string ApiSystem::getCurrentStorage()
 	return "INTERNAL";
 }
 
-bool ApiSystem::setStorage(std::string selected) {
+bool ApiSystem::setStorage(std::string selected) 
+{
+	LOG(LogDebug) << "ApiSystem::setStorage";
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "storage" << " " << selected;
 	int exitcode = system(oss.str().c_str());
 	return exitcode == 0;
 }
 
-bool ApiSystem::forgetBluetoothControllers() {
+bool ApiSystem::forgetBluetoothControllers() 
+{
+	LOG(LogDebug) << "ApiSystem::forgetBluetoothControllers";
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "forgetBT";
 	int exitcode = system(oss.str().c_str());
 	return exitcode == 0;
 }
 
-std::string ApiSystem::getRootPassword() {
+std::string ApiSystem::getRootPassword() 
+{
+	LOG(LogDebug) << "ApiSystem::getRootPassword";
 
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "getRootPassword";
@@ -937,7 +1038,9 @@ std::string ApiSystem::getRootPassword() {
 	return oss.str().c_str();
 }
 
-std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() {
+std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() 
+{
+	LOG(LogDebug) << "ApiSystem::getAvailableAudioOutputDevices";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -958,7 +1061,9 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() {
 	return res;
 }
 
-std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() {
+std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
+{
+	LOG(LogDebug) << "ApiSystem::getAvailableVideoOutputDevices";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -979,7 +1084,9 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() {
 	return res;
 }
 
-std::string ApiSystem::getCurrentAudioOutputDevice() {
+std::string ApiSystem::getCurrentAudioOutputDevice() 
+{
+	LOG(LogDebug) << "ApiSystem::getCurrentAudioOutputDevice";
 
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "getaudio";
@@ -998,7 +1105,10 @@ std::string ApiSystem::getCurrentAudioOutputDevice() {
 	return "";
 }
 
-bool ApiSystem::setAudioOutputDevice(std::string selected) {
+bool ApiSystem::setAudioOutputDevice(std::string selected) 
+{
+	LOG(LogDebug) << "ApiSystem::setAudioOutputDevice";
+
 	std::ostringstream oss;
 
 	AudioManager::getInstance()->deinit();
@@ -1015,7 +1125,9 @@ bool ApiSystem::setAudioOutputDevice(std::string selected) {
 }
 
 // Batocera
-std::vector<std::string> ApiSystem::getRetroAchievements() {
+std::vector<std::string> ApiSystem::getRetroAchievements() 
+{
+	LOG(LogDebug) << "ApiSystem::getRetroAchievements";
 
 	std::vector<std::string> res;
 	std::ostringstream oss;
@@ -1037,6 +1149,7 @@ std::vector<std::string> ApiSystem::getRetroAchievements() {
 
 std::vector<std::string> ApiSystem::getBatoceraThemesList() 
 {
+	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
 
 	std::vector<std::string> res;
 
@@ -1074,7 +1187,10 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	return res;
 }
 
-std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) {
+std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) 
+{
+	LOG(LogDebug) << "ApiSystem::installBatoceraTheme";
+
 	std::string updatecommand = std::string("batocera-es-theme install ") + thname;
 	LOG(LogWarning) << "Installing theme " << thname;
 	FILE *pipe = popen(updatecommand.c_str(), "r");
@@ -1099,7 +1215,10 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, s
 }
 
 
-std::vector<std::string> ApiSystem::getBatoceraBezelsList() {
+std::vector<std::string> ApiSystem::getBatoceraBezelsList() 
+{
+	LOG(LogDebug) << "ApiSystem::getBatoceraBezelsList";
+
 	std::vector<std::string> res;
 	std::ostringstream oss;
 	oss << "batocera-es-thebezelproject list";
@@ -1121,7 +1240,10 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList() {
 	return res;
 }
 
-std::pair<std::string, int> ApiSystem::installBatoceraBezel(BusyComponent* ui, std::string bezelsystem) {
+std::pair<std::string, int> ApiSystem::installBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
+{
+	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
+
 	std::string updatecommand = std::string("batocera-es-thebezelproject install ") + bezelsystem;
 	LOG(LogWarning) << "Installing bezels for " << bezelsystem;
 	FILE *pipe = popen(updatecommand.c_str(), "r");
@@ -1144,7 +1266,10 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(BusyComponent* ui, s
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) {
+std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
+{
+	LOG(LogDebug) << "ApiSystem::uninstallBatoceraBezel";
+
 	std::string updatecommand = std::string("batocera-es-thebezelproject remove ") + bezelsystem;
 	LOG(LogWarning) << "Removing bezels for " << bezelsystem;
 	FILE *pipe = popen(updatecommand.c_str(), "r");

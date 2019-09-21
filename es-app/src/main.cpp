@@ -35,7 +35,6 @@
 #define PATH_MAX MAX_PATH
 #endif
 
-
 bool scrape_cmdline = false;
 
 bool parseArgs(int argc, char* argv[])
@@ -133,7 +132,7 @@ bool parseArgs(int argc, char* argv[])
 		{
 			Settings::getInstance()->setBool("Debug", true);
 			Settings::getInstance()->setBool("HideConsole", false);
-			Log::setReportingLevel(LogDebug);
+			// Log::setReportingLevel(LogDebug);
 		}else if(strcmp(argv[i], "--fullscreen-borderless") == 0)
 		{
 			Settings::getInstance()->setBool("FullscreenBorderless", true);
@@ -306,8 +305,32 @@ int setLocale(char * argv1)
 	return 0;
 }
 
-int main(int argc, char* argv[])
+#include <csignal>
+
+void signalHandler(int signum) 
 {
+	if (signum == SIGSEGV)
+		LOG(LogError) << "Interrupt signal SIGSEGV received.\n";
+	else if (signum == SIGFPE)
+		LOG(LogError) << "Interrupt signal SIGFPE received.\n";
+	else if (signum == SIGFPE)
+		LOG(LogError) << "Interrupt signal SIGFPE received.\n";
+	else
+		LOG(LogError) << "Interrupt signal (" << signum << ") received.\n";
+
+	// cleanup and close up stuff here  
+	exit(signum);
+}
+
+int main(int argc, char* argv[])
+{	
+	signal(SIGABRT, signalHandler);
+	signal(SIGFPE, signalHandler);
+	signal(SIGILL, signalHandler);
+	signal(SIGINT, signalHandler);
+	signal(SIGSEGV, signalHandler);
+	signal(SIGTERM, signalHandler);
+
 	srand((unsigned int)time(NULL));
 
 	std::locale::global(std::locale("C"));
@@ -358,6 +381,7 @@ int main(int argc, char* argv[])
 		return 1;
 
 	//start the logger
+	Log::setupReportingLevel();
 	Log::init();	
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
@@ -423,7 +447,7 @@ int main(int argc, char* argv[])
 
 // batocera
 #ifdef _ENABLE_KODI_
-	if(systemConf->get("kodi.enabled") == "1" && systemConf->get("kodi.atstartup") == "1"){
+	if(systemConf->get("kodi.enabled") != "0" && systemConf->get("kodi.atstartup") == "1"){
 		ApiSystem::getInstance()->launchKodi(&window);
 	}
 #endif
@@ -453,9 +477,6 @@ int main(int argc, char* argv[])
 	if(splashScreen && splashScreenProgress)
 	  window.renderLoadingScreen(_("Done.")); // batocera
 
-	// batocera
-	if(SystemConf::getInstance()->get("audio.bgmusic") != "0")
-	  AudioManager::getInstance()->playRandomMusic();
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)
@@ -468,15 +489,18 @@ int main(int argc, char* argv[])
 		}
 	}
 
-        // batocera
-	// Create a flag in  temporary directory to signal READY state
-        FILE* fd = fopen("/tmp/emulationstation.ready", "w");
-        if(fd != NULL) { fclose(fd); }
-
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
 	window.endRenderLoadingScreen();
+
+	// batocera
+	// Create a flag in  temporary directory to signal READY state
+	FILE* fd = fopen("/tmp/emulationstation.ready", "w");
+	if (fd != NULL) { fclose(fd); }
+
+	// batocera, play music
+	AudioManager::getInstance()->playRandomMusic();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
@@ -494,11 +518,11 @@ int main(int argc, char* argv[])
 		{
 			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
 			// Reset this event's state
-			PowerSaver::resetRefreshEvent();
+			TRYCATCH("resetRefreshEvent", PowerSaver::resetRefreshEvent());
 
 			do
 			{
-				InputManager::getInstance()->parseEvent(event, &window);
+				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
 
 				switch(event.type) {
 				case SDL_QUIT:
@@ -555,8 +579,9 @@ int main(int argc, char* argv[])
 		if(deltaTime < 0)
 			deltaTime = 1000;
 
-		window.update(deltaTime);
-		window.render();
+		TRYCATCH("Window.update" ,window.update(deltaTime))	
+		TRYCATCH("Window.render", window.render())
+
 		Renderer::swapBuffers();
 
 		Log::flush();

@@ -299,8 +299,7 @@ std::string ThemeData::resolvePlaceholders(const char* in)
 }
 
 ThemeData::ThemeData()
-{
-	mHasSubsets = false;
+{	
 	mColorset = Settings::getInstance()->getString("ThemeColorSet");
 	mIconset = Settings::getInstance()->getString("ThemeIconSet");
 	mMenu = Settings::getInstance()->getString("ThemeMenu");
@@ -319,8 +318,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 
 	if(!Utils::FileSystem::exists(path))
 		throw error << "File does not exist!";
-
-	mHasSubsets = false;
+	
 	mVersion = 0;
 	mViews.clear();
 
@@ -403,11 +401,24 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 	if (!node.attribute("subset"))
 		return true;
 
-	mHasSubsets = true;
-
 	const std::string subsetAttr = node.attribute("subset").as_string();
 	const std::string nameAttr = node.attribute("name").as_string();
 
+	if (!subsetAttr.empty())
+	{
+		bool add = true;
+
+		for (auto sb : mSubsets) {
+			if (sb.subset == subsetAttr && sb.name == nameAttr) {
+				add = false; break;
+			}
+		}
+
+		if (add)
+			mSubsets.push_back(Subset(subsetAttr, nameAttr));
+	}
+
+	
 	if (subsetAttr == "colorset" && (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node))))
 		return true;
 
@@ -439,6 +450,18 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 			return;
 
 		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return;
+	}
+
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
 			return;
 	}
 
@@ -523,17 +546,6 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 	{
 		LOG(LogWarning) << "View missing \"name\" attribute!";
 		return;
-	}
-
-	if (node.attribute("tinyScreen"))
-	{
-		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
-
-		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
-			return;
-
-		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
-			return;
 	}
 
 	const char* delim = " \t\r\n,";
@@ -664,6 +676,18 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 			return;
 	}
 
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
+			return;
+	}
+
 	std::string viewKey = node.attribute("name").as_string();
 
 	ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
@@ -683,6 +707,29 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 {
 	ThemeException error;
 	error.setFiles(mPaths);
+
+	if (root.attribute("tinyScreen"))
+	{
+		const std::string tinyScreenAttr = root.attribute("tinyScreen").as_string();
+
+		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
+			return;
+
+		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return;
+	}
+
+	if (root.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = root.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return;
+
+		if (help && helpVisibleAttr == "false")
+			return;
+	}
 
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
@@ -728,9 +775,23 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 
 	const std::string nameAttr = node.attribute("region").as_string();
 
+	if (!nameAttr.empty())
+	{
+		bool add = true;
+
+		for (auto sb : mSubsets) {
+			if (sb.subset == "region" && sb.name == nameAttr) {
+				add = false; break;
+			}
+		}
+
+		if (add)
+			mSubsets.push_back(Subset("region", nameAttr));
+	}
+
 	std::string regionsetting = Settings::getInstance()->getString("ThemeRegionName");
 	if (regionsetting.empty())
-		regionsetting = "eu";
+		regionsetting = "eu";	
 
 	const char* delim = " \t\r\n,";
 	
@@ -969,6 +1030,7 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 			if (comp == nullptr)
 				continue;
 
+			comp->setTag((*it).c_str());
 			comp->setDefaultZIndex(10);
 			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
 			comps.push_back(comp);
@@ -1159,127 +1221,14 @@ std::vector<std::string> ThemeData::getViewsOfTheme()
 	return ret;
 }
 
-std::vector<Subset> ThemeData::getThemeSubSets(const std::string& theme)
-{
-	std::vector<Subset> sets;
-
-	std::deque<std::string> dequepath;
-
-	static const size_t pathCount = 3;
-	std::string paths[pathCount] =
-	{
-		"/etc/emulationstation/themes",		
-		Utils::FileSystem::getEsConfigPath() + "/themes",
-		"/userdata/themes" // batocera
-	};
-
-	for (size_t i = 0; i < pathCount; i++)
-	{
-		if (!Utils::FileSystem::isDirectory(paths[i]))
-			continue;
-
-		auto dirs = Utils::FileSystem::getDirectoryFiles(paths[i] + "/" + theme);
-		for (auto it = dirs.cbegin(); it != dirs.cend(); ++it)
-		{
-			if (!it->directory || it->hidden)
-				continue;
-
-			std::string path = it->path + "/theme.xml";
-			if (!Utils::FileSystem::exists(path))
-				continue;
-
-			dequepath.push_back(path);
-			pugi::xml_document doc;
-			doc.load_file(path.c_str());
-
-			pugi::xml_node root = doc.child("theme");
-			crawlIncludes(root, sets, dequepath);
-			findRegion(doc, sets);
-			dequepath.pop_back();
-		}
-
-		std::string path = paths[i] + "/" + theme + "/theme.xml";
-		if (!Utils::FileSystem::exists(path))
-			continue;
-
-		dequepath.push_back(path);
-		pugi::xml_document doc;
-		doc.load_file(path.c_str());
-
-		pugi::xml_node root = doc.child("theme");
-		crawlIncludes(root, sets, dequepath);
-		findRegion(doc, sets);
-		dequepath.pop_back();
-	}
-
-	return sets;
-}
-
 std::vector<std::string> ThemeData::getSubSet(const std::vector<Subset>& subsets, const std::string& subset)
 {
 	std::vector<std::string> ret;
 
 	for (const auto& it : subsets)
-	{
 		if (it.subset == subset)
 			ret.push_back(it.name);
-	}
 
 	return ret;
 }
 
-
-void ThemeData::crawlIncludes(const pugi::xml_node& root, std::vector<Subset>& sets, std::deque<std::string>& dequepath)
-{
-	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
-	{
-		std::string name = node.attribute("name").as_string();
-		std::string subset = node.attribute("subset").as_string();
-		if (!subset.empty())
-		{
-			bool add = true;
-
-			for (auto sb : sets) {
-				if (sb.subset == subset && sb.name == name) {
-					add = false; break;
-				}
-			}
-
-			if (add)
-				sets.push_back(Subset(subset, name));
-		}
-		//	sets.insert(std::pair<std::string, std::string>(name, subset));
-
-		const char* relPath = node.text().get();
-		std::string path = Utils::FileSystem::resolveRelativePath(relPath, dequepath.back(), true);
-
-		dequepath.push_back(path);
-		pugi::xml_document includeDoc;
-		includeDoc.load_file(path.c_str());
-
-		pugi::xml_node root = includeDoc.child("theme");
-		crawlIncludes(root, sets, dequepath);
-		findRegion(includeDoc, sets);
-		dequepath.pop_back();
-	}
-}
-
-void ThemeData::findRegion(const pugi::xml_document& doc, std::vector<Subset>& sets)
-{
-	pugi::xpath_node_set regionattr = doc.select_nodes("//@region");
-	for (auto xpath_node : regionattr)
-	{
-		if (xpath_node.attribute() == nullptr)
-			continue;
-		
-		std::string elemKey = xpath_node.attribute().value();
-		if (elemKey.empty())
-			continue;
-
-		for (auto sb : sets)
-			if (sb.subset == "region" && sb.name == elemKey)
-				return;
-
-		sets.push_back(Subset("region", elemKey));
-	}
-}

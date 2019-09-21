@@ -6,8 +6,8 @@
 #include "ImageComponent.h"
 #include "TextComponent.h"
 
-
 class VideoComponent;
+
 struct GridTileProperties
 {
 	Vector2f mSize;
@@ -32,10 +32,6 @@ struct GridTileProperties
 	unsigned int	mFontSize;
 
 	Vector2f		mMirror;
-
-	/*
-	<fontPath>. / main / fonts / Dosis - Bold.ttf< / fontPath>
-		<fontSize>0.025< / fontSize>*/
 };
 
 class GridTileComponent : public GuiComponent
@@ -54,7 +50,7 @@ public:
 	Vector2f getSelectedTileSize() const;
 	bool isSelected() const;
 
-	void reset();
+	void resetImages();
 
 	void setLabel(std::string name);
 	void setVideo(const std::string& path, float defaultDelay = -1.0);
@@ -80,8 +76,11 @@ public:
 	std::shared_ptr<TextureResource> getTexture();
 
 private:
+	void	resetProperties();
+	void	createVideo();
+
 	void resize();
-	const GridTileProperties& getCurrentProperties();
+	GridTileProperties getCurrentProperties();
 
 	std::shared_ptr<ImageComponent> mImage;
 
@@ -93,8 +92,7 @@ private:
 	NinePatchComponent mBackground;
 
 	GridTileProperties mDefaultProperties;
-	GridTileProperties mSelectedProperties;
-	GridTileProperties mMixedProperties;
+	GridTileProperties mSelectedProperties;	
 
 	std::string mCurrentPath;
 	std::string mVideoPath;

@@ -15,11 +15,10 @@
 #include <unistd.h>
 #endif
 
+AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
-std::shared_ptr<AudioManager> AudioManager::sInstance;
-Mix_Music* AudioManager::currentMusic = NULL;
 
-AudioManager::AudioManager() : mInitialized(false)
+AudioManager::AudioManager() : mInitialized(false), mCurrentMusic(nullptr)
 {
 	init();
 }
@@ -29,11 +28,11 @@ AudioManager::~AudioManager()
 	deinit();
 }
 
-std::shared_ptr<AudioManager> & AudioManager::getInstance()
+AudioManager* AudioManager::getInstance()
 {
 	//check if an AudioManager instance is already created, if not create one
 	if (sInstance == nullptr)
-		sInstance = std::shared_ptr<AudioManager>(new AudioManager);
+		sInstance = new AudioManager();
 
 	return sInstance;
 }
@@ -76,6 +75,8 @@ void AudioManager::deinit()
 	if (!mInitialized)
 		return;
 
+	LOG(LogDebug) << "AudioManager::deinit";
+
 	mInitialized = false;
 
 	//stop all playback
@@ -92,6 +93,8 @@ void AudioManager::deinit()
 	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
 	Mix_CloseAudio();
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
+
+	LOG(LogInfo) << "SDL AUDIO Deinitialized";
 }
 
 void AudioManager::registerSound(std::shared_ptr<Sound> & sound)
@@ -112,7 +115,7 @@ void AudioManager::unregisterSound(std::shared_ptr<Sound> & sound)
 			return;
 		}
 	}
-	LOG(LogError) << "AudioManager Error - tried to unregister a sound that wasn't registered!";
+	LOG(LogWarning) << "AudioManager Error - tried to unregister a sound that wasn't registered!";
 }
 
 void AudioManager::play()
@@ -163,7 +166,11 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 }
 
 // batocera
-void AudioManager::playRandomMusic(bool continueIfPlaying) {
+void AudioManager::playRandomMusic(bool continueIfPlaying) 
+{
+	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+		return;
+
 	// check in User music directory
 	std::vector<std::string> musics;
 	getMusicIn("/userdata/music", musics);
@@ -188,11 +195,10 @@ void AudioManager::playRandomMusic(bool continueIfPlaying) {
 	int randomIndex = rand() % musics.size();
 
 	// continue playing ?
-	if (currentMusic != NULL && continueIfPlaying)
+	if (mCurrentMusic != nullptr && continueIfPlaying)
 		return;
 
 	playMusic(musics.at(randomIndex));
-	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 
 	setSongName(musics.at(randomIndex));
 }
@@ -205,15 +211,18 @@ void AudioManager::playMusic(std::string path)
 	// free the previous music
 	stopMusic(false);
 
+	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+		return;
+
 	// load a new music
-	currentMusic = Mix_LoadMUS(path.c_str());
-	if (currentMusic == NULL)
+	mCurrentMusic = Mix_LoadMUS(path.c_str());
+	if (mCurrentMusic == NULL)
 	{
 		LOG(LogError) << Mix_GetError() << " for " << path;
 		return;
 	}
 
-	if (Mix_FadeInMusic(currentMusic, 1, 1000) == -1)
+	if (Mix_FadeInMusic(mCurrentMusic, 1, 1000) == -1)
 	{
 		stopMusic();
 		return;
@@ -221,7 +230,6 @@ void AudioManager::playMusic(std::string path)
 
 	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 }
-
 
 // batocera
 void AudioManager::musicEnd_callback()
@@ -232,7 +240,7 @@ void AudioManager::musicEnd_callback()
 // batocera
 void AudioManager::stopMusic(bool fadeOut)
 {
-	if (currentMusic == NULL)
+	if (mCurrentMusic == NULL)
 		return;
 
 	Mix_HookMusicFinished(nullptr);
@@ -245,9 +253,8 @@ void AudioManager::stopMusic(bool fadeOut)
 	}
 
 	Mix_HaltMusic();
-	Mix_FreeMusic(currentMusic);
-
-	currentMusic = NULL;
+	Mix_FreeMusic(mCurrentMusic);
+	mCurrentMusic = NULL;
 }
 
 // batocera
@@ -261,6 +268,8 @@ void AudioManager::setSongName(std::string song)
 
 	if (song == mCurrentSong)
 		return;
+
+	LOG(LogDebug) << "AudioManager::setSongName";
 
 	// First, start with an ID3 v1 tag	
 	struct {

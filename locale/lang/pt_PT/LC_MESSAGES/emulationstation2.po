@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-20 21:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "go back"
-msgstr ""
+msgstr "voltar"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -68,7 +68,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DA GRID"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -160,6 +160,9 @@ msgstr "NENHUM"
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
+msgid "TITLE SCREENSHOT"
+msgstr "TÍTULO DO SCREENSHOT"
+
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
 
@@ -176,7 +179,7 @@ msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "FONTE DE MINIATURA PREFERIDA"
 
 msgid "SCRAPE MARQUEE"
-msgstr "OBTER MARCADOR"
+msgstr "OBTER MARQUEE"
 
 msgid "SCRAPE VIDEOS"
 msgstr "OBTER VIDEOS"
@@ -230,10 +233,10 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OTIMIZAR IMAGENS NA RAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OTIMIZAR VIDEO NA VRAM"
 
-msgid "ENABLE LOG FILE"
-msgstr "ATIVAR ARQUIVO LOG"
+msgid "LOG LEVEL"
+msgstr "NÍVEL DO LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
@@ -416,11 +419,14 @@ msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
+msgid "default"
+msgstr "por padrão"
+
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "MOSTRAR ATIVIDADE DO COMANDO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
@@ -444,7 +450,10 @@ msgid "THEME REGION"
 msgstr "REGIÃO DO TEMA"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "TAMANHO DA GRID PADRÃO"
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
+msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -649,7 +658,7 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr "CRIAR UMA NOVA COLEÇÃO"
 
 msgid "New Collection Name"
-msgstr "NOME DA COLEÇÃO"
+msgstr "Nome Da Nova Coleção"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLEÇÕES SEM TEMAS"
@@ -867,6 +876,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
+"TEM A CERTEZA?"
 
 msgid "DELETE"
 msgstr "EXCLUIR"
@@ -890,16 +901,16 @@ msgid "Image"
 msgstr "Imagem"
 
 msgid "enter path to image"
-msgstr "digite o diretório da imagem"
+msgstr "digite o caminho da imagem"
 
 msgid "Path to video"
 msgstr "CAMINHO PARA O VÍDEO"
 
 msgid "enter path to thumbnail"
-msgstr "DIGITE O DIRETÓRIO DA MINIATURA"
+msgstr "digite o caminho da miniatura"
 
 msgid "Path to marquee"
-msgstr "Caminho para o marcador"
+msgstr "Caminho para a marquee"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
@@ -911,10 +922,10 @@ msgid "enter rating"
 msgstr "DIGITE A CLASSIFICAÇÃO"
 
 msgid "Release date"
-msgstr "DATA DE LANÇAMENTO"
+msgstr "Data de lançamento"
 
 msgid "enter release date"
-msgstr "DIGITE A DATA DE LANÇAMENTO"
+msgstr "digite a data de lançamento"
 
 msgid "Developer"
 msgstr "Desenvolvedor"
@@ -929,10 +940,10 @@ msgid "enter game publisher"
 msgstr "digite o nome da publicadora"
 
 msgid "Genre"
-msgstr "GÉNERO"
+msgstr "Género"
 
 msgid "enter game genre"
-msgstr "DIGITE O GÉNERO"
+msgstr "digite o género"
 
 msgid "Players"
 msgstr "Jogadores"
@@ -959,22 +970,22 @@ msgid "set kidgame"
 msgstr "tipo de jogo infantil "
 
 msgid "Play count"
-msgstr "VEZES JOGADAS"
+msgstr "Vezes jogadas"
 
 msgid "enter number of times played"
-msgstr "DIGITE O NÚMERO DE TEMPO JOGADO"
+msgstr "Digite o número de vezes jogadas"
 
 msgid "Last played"
-msgstr "NÚMERO VEZES JOGADAS"
+msgstr "Última vez jogado"
 
 msgid "enter last played date"
-msgstr "DIGITE A ÚLTIMA DATA JOGADA"
+msgstr "digite a última data jogada"
 
 msgid "name"
 msgstr "nome"
 
 msgid "description"
-msgstr "DESCRIÇÃO"
+msgstr "descrição"
 
 msgid "image"
 msgstr "imagem"
@@ -983,16 +994,16 @@ msgid "thumbnail"
 msgstr "miniatura"
 
 msgid "video"
-msgstr "VÍDEO"
+msgstr "vídeo"
 
 msgid "enter path to video"
-msgstr "INSIRE O CAMINHO PARA VÍDEO"
+msgstr "insire o caminho para o vídeo"
 
 msgid "marquee"
-msgstr "marcador"
+msgstr "marquee"
 
 msgid "enter path to marquee"
-msgstr "insira o caminho para o marcador"
+msgstr "insira o caminho para a marquee"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1037,7 +1048,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "A PROCURAR"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
@@ -1064,7 +1075,7 @@ msgid "all games"
 msgstr "TODOS OS JOGOS"
 
 msgid "last played"
-msgstr "ULTIMA VEZ JOGADO"
+msgstr "Ultima vez jogado"
 
 msgid "favorites"
 msgstr "FAVORITOS"
@@ -1100,7 +1111,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Various"
-msgstr "Várias"
+msgstr "Vários"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
@@ -1256,6 +1267,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "ENABLE LOG FILE"
+#~ msgstr "ATIVAR ARQUIVO LOG"
 
 #~ msgid "THIS THEME HAS NO OPTION"
 #~ msgstr "ESTE TEMA NÃO TEM OPÇÃO"

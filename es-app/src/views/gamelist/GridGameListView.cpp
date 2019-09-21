@@ -32,8 +32,6 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 
 	const float padding = 0.01f;
 
-	mLoaded = false;
-
 	mGrid.setGridSizeOverride(gridSize);
 	mGrid.setPosition(mSize.x() * 0.1f, mSize.y() * 0.1f);
 	mGrid.setDefaultZIndex(20);

@@ -43,7 +43,7 @@ private:
 
 	static std::shared_ptr<ResourceManager> sInstance;
 
-	ResourceData loadFile(const std::string& path) const;
+	ResourceData loadFile(const std::string& path, size_t size) const;
 
 	class ReloadableInfo
 	{

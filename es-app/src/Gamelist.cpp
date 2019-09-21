@@ -18,7 +18,7 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 
 	if(!contains)
 	{
-		LOG(LogError) << "File path \"" << path << "\" is outside system path \"" << system->getStartPath() << "\"";
+		LOG(LogWarning) << "File path \"" << path << "\" is outside system path \"" << system->getStartPath() << "\"";
 		return NULL;
 	}
 

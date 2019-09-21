@@ -11,7 +11,7 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 {
 	addChild(&mMenu);
 
-	mMenu.addButton(_("BACK"), _("go back"), [this] { Close(); });
+	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -26,7 +26,7 @@ GuiSettings::~GuiSettings()
 	
 }
 
-void GuiSettings::Close()
+void GuiSettings::close()
 {
 	save();
 
@@ -52,7 +52,7 @@ bool GuiSettings::input(InputConfig* config, Input input)
 {
 	if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0)
 	{
-		Close();
+		close();
 		return true;
 	}
 

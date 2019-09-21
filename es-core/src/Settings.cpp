@@ -190,7 +190,6 @@ void Settings::setDefaults()
 	mBoolMap["AsyncImages"] = true;	
 	mBoolMap["PreloadUI"] = false;
 	mBoolMap["OptimizeVRAM"] = true;
-	mBoolMap["EnableLogging"] = true;
 	mBoolMap["OptimizeVideo"] = true;
 	
 	mIntMap["WindowWidth"]   = 0;

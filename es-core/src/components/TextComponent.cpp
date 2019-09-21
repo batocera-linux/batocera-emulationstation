@@ -54,8 +54,10 @@ void TextComponent::setFont(std::string path, int size)
 //  Set the color of the font/text
 void TextComponent::setColor(unsigned int color)
 {
+	if (mColor == color)
+		return;
+
 	mColor = color;
-	mColorOpacity = mColor & 0x000000FF;
 	onColorChanged();
 }
 
@@ -63,7 +65,6 @@ void TextComponent::setColor(unsigned int color)
 void TextComponent::setBackgroundColor(unsigned int color)
 {
 	mBgColor = color;
-	mBgColorOpacity = mBgColor & 0x000000FF;
 }
 
 void TextComponent::setRenderBackground(bool render)
@@ -74,24 +75,11 @@ void TextComponent::setRenderBackground(bool render)
 //  Scale the opacity
 void TextComponent::setOpacity(unsigned char opacity)
 {
-	// This method is mostly called to do fading in-out of the Text component element.
-	// Therefore, we assume here that opacity is a fractional value (expressed as an int 0-255),
-	// of the opacity originally set with setColor() or setBackgroundColor().
+	if (opacity == mOpacity)
+		return;
 
-	unsigned char o = (unsigned char)((float)opacity / 255.f * (float) mColorOpacity);
-	mColor = (mColor & 0xFFFFFF00) | (unsigned char) o;
-
-	unsigned char bgo = (unsigned char)((float)opacity / 255.f * (float)mBgColorOpacity);
-	mBgColor = (mBgColor & 0xFFFFFF00) | (unsigned char)bgo;
-
+	mOpacity = opacity;
 	onColorChanged();
-
-	GuiComponent::setOpacity(opacity);
-}
-
-unsigned char TextComponent::getOpacity() const
-{
-	return mColor & 0x000000FF;
 }
 
 void TextComponent::setText(const std::string& text)
@@ -104,6 +92,23 @@ void TextComponent::setUppercase(bool uppercase)
 {
 	mUppercase = uppercase;
 	onTextChanged();
+}
+
+void TextComponent::renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y)
+{
+	Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
+	Transform4x4f trans = parentTrans * getTransform();
+
+	trans.translate(off);
+	trans.round();
+
+	Renderer::setMatrix(trans);
+
+	unsigned char alpha = (unsigned char) ((mGlowColor & 0xFF) * (mOpacity / 255.0));
+	unsigned int color = (mGlowColor & 0xFFFFFF00) | alpha;
+
+	mTextCache->setColor(color);
+	mFont->renderTextCache(mTextCache.get());	
 }
 
 void TextComponent::render(const Transform4x4f& parentTrans)
@@ -119,10 +124,12 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 	if (mRenderBackground)
 	{
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), mBgColor, mBgColor);
+
+		auto bgColor = mBgColor & 0xFFFFFF00 | (unsigned char)((mBgColor & 0xFF) * (mOpacity / 255.0));
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor, bgColor);
 	}
 
-	if(mTextCache)
+	if(mTextCache && mFont)
 	{
 		const Vector2f& textSize = mTextCache->metrics.size;
 		float yOff = 0;
@@ -148,45 +155,25 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		}
 
 		if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
-		{
-			auto draw = [this, off, yOff, parentTrans](int margin)
-			{
-				auto func = [this, off, yOff, parentTrans](float x, float y)
-				{  
-					Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
-					Transform4x4f trans = parentTrans * getTransform();
+		{			
+			int x = -mGlowSize;
+			int y = -mGlowSize;
+			renderSingleGlow(parentTrans, yOff, x, y);
 
-					trans.translate(off);
-					trans.round();
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, ++x, y);
 
-					Renderer::setMatrix(trans);
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, x, ++y);
 
-					unsigned char o = (unsigned char)((float)(mGlowColor & 0x000000FF) / 255.f * (float)(mColor & 0x000000FF));
-					unsigned int color = (mGlowColor & 0xFFFFFF00) | (unsigned char)o;
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, --x, y);
 
-					mTextCache->setColor(color);
-					mFont->renderTextCache(mTextCache.get());
-					mTextCache->setColor(mColor);
-				};
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(parentTrans, yOff, x, --y);
 
-				int x = -margin;
-				int y = -margin;
-				func(x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(++x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(x, ++y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(--x, y);
-
-				for (int i = 0; i < 2 * margin; i++)
-					func(x, --y);
-			};
-
-			draw(mGlowSize);
+			// Restore text color
+			onColorChanged();
 		}
 
 		trans.translate(off);
@@ -208,6 +195,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 				break;
 			}
 		}
+		
 		mFont->renderTextCache(mTextCache.get());
 	}
 }
@@ -251,6 +239,8 @@ void TextComponent::onTextChanged()
 		addAbbrev = newline != std::string::npos;
 	}
 
+	auto color = mColor & 0xFFFFFF00 | (unsigned char)((mColor & 0xFF) * (mOpacity / 255.0));
+
 	Vector2f size = f->sizeText(text);
 	if(!isMultiline && sx && text.size() && (size.x() > sx || addAbbrev))
 	{
@@ -267,9 +257,9 @@ void TextComponent::onTextChanged()
 
 		text.append(abbrev);
 
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
 	}else{
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), (mColor >> 8 << 8) | mOpacity, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
 	}
 }
 
@@ -277,7 +267,8 @@ void TextComponent::onColorChanged()
 {
 	if(mTextCache)
 	{
-		mTextCache->setColor(mColor);
+		auto color = mColor & 0xFFFFFF00 | (unsigned char)((mColor & 0xFF) * (mOpacity / 255.0));
+		mTextCache->setColor(color);
 	}
 }
 

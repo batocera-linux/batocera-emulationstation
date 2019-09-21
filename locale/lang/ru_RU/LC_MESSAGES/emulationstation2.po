@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:08+0200\n"
+"POT-Creation-Date: 2019-09-20 21:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -160,6 +160,9 @@ msgstr "НЕТ"
 msgid "SCREENSHOT"
 msgstr ""
 
+msgid "TITLE SCREENSHOT"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr ""
 
@@ -232,7 +235,7 @@ msgstr ""
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
-msgid "ENABLE LOG FILE"
+msgid "LOG LEVEL"
 msgstr ""
 
 msgid "CREATE A SUPPORT FILE"
@@ -417,6 +420,9 @@ msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
+msgid "default"
+msgstr ""
+
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
@@ -445,6 +451,9 @@ msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
 
 msgid "DEFAULT GRID SIZE"
+msgstr ""
+
+msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
 msgid "UI MODE"

@@ -8,6 +8,7 @@
 #include "GridTileComponent.h"
 #include "animations/LambdaAnimation.h"
 #include "Settings.h"
+#include <algorithm>
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::getInstance()->getString("TransitionStyle") != "instant")
@@ -158,6 +159,8 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 	mCenterSelection = false;
 	mScrollLoop = false;
 	mScrollDirection = SCROLL_VERTICALLY;
+
+	mCursorChangedCallback = nullptr;
 }
 
 template<typename T>
@@ -528,8 +531,7 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 			mCursorChangedCallback(state);
 
 		return;
-	}
-	
+	}	
 		
 	bool direction = mCursor >= mLastCursor;
 
@@ -541,6 +543,8 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 
 	float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
 	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
+	if (dimOpposite == 0)
+		dimOpposite = 1;
 
 	int centralCol = (int)(dimScrollable - 0.5) / 2;
 	int maxCentralCol = (int)(dimScrollable) / 2;
@@ -698,10 +702,7 @@ void ImageGridComponent<T>::updateTiles(bool allowAnimation, bool updateSelected
 	// Temporary store previous texture so they can't be unloaded
 	std::vector<std::shared_ptr<TextureResource>> previousTextures;
 	for (int ti = 0; ti < (int)mTiles.size(); ti++)
-	{
-		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
-		previousTextures.push_back(tile->getTexture());
-	}
+		previousTextures.push_back(mTiles.at(ti)->getTexture());
 
 	int i = 0;
 	int end = (int)mTiles.size();
@@ -713,6 +714,19 @@ void ImageGridComponent<T>::updateTiles(bool allowAnimation, bool updateSelected
 	{
 		updateTileAtPos(i, img, allowAnimation, updateSelectedState);
 		i++; img++;
+	}
+	
+	std::vector<std::shared_ptr<TextureResource>> newTextures;
+	for (int ti = 0; ti < (int)mTiles.size(); ti++)
+		newTextures.push_back(mTiles.at(ti)->getTexture());
+
+	for (auto tex : previousTextures)
+	{
+		if (tex == nullptr)
+			continue;
+
+		if (std::find(newTextures.cbegin(), newTextures.cend(), tex) == newTextures.cend())
+			TextureResource::cancelAsync(tex);
 	}
 
 	if (updateSelectedState)
@@ -757,7 +771,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		if (updateSelectedState)
 			tile->setSelected(false, allowAnimation);
 
-		tile->reset();
+		tile->resetImages();
 		tile->setVisible(false);
 	}
 	else
@@ -865,13 +879,10 @@ void ImageGridComponent<T>::buildTiles()
 			// In Horizontal mod, tiles are ordered from top to bottom, then from left to right
 			X = vert ? x : y - EXTRAITEMS;
 			Y = vert ? y - EXTRAITEMS : x;
-			
-			//if (!isVertical())
-			//	X--;
 
 			tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
 			tile->setOrigin(0.5f, 0.5f);
-			tile->reset();
+	//		tile->resetImages();
 
 			if (mTheme)
 				tile->applyTheme(mTheme, mName, "gridtile", ThemeFlags::ALL);

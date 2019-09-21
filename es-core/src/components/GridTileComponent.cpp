@@ -23,14 +23,30 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 {	
 	mSelectedZoomPercent = 1.0f;
 	mAnimPosition = Vector3f(0, 0);
+	mVideo = nullptr;
 
 	mLabelMerged = false;
 
+	resetProperties();
+
+	mImage = std::make_shared<ImageComponent>(mWindow);
+	mImage->setOrigin(0.5f, 0.5f);
+
+	addChild(&mBackground);
+	addChild(&(*mImage));
+	addChild(&mLabel);
+
+	setSelected(false);
+	setVisible(true);
+}
+
+void GridTileComponent::resetProperties()
+{
 	mDefaultProperties.mSize = getDefaultTileSize();
 	mDefaultProperties.mPadding = Vector2f(16.0f, 16.0f);
 	mDefaultProperties.mImageColor = 0xFFFFFFDD; // 0xAAAAAABB;
 	mDefaultProperties.mBackgroundImage = ":/frame.png";
-	mDefaultProperties.mBackgroundCornerSize = Vector2f(16 ,16);
+	mDefaultProperties.mBackgroundCornerSize = Vector2f(16, 16);
 	mDefaultProperties.mBackgroundCenterColor = 0xAAAAEEFF;
 	mDefaultProperties.mBackgroundEdgeColor = 0xAAAAEEFF;
 
@@ -41,7 +57,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mSelectedProperties.mBackgroundCornerSize = mDefaultProperties.mBackgroundCornerSize;
 	mSelectedProperties.mBackgroundCenterColor = 0xFFFFFFFF;
 	mSelectedProperties.mBackgroundEdgeColor = 0xFFFFFFFF;
-	
+
 	mDefaultProperties.mLabelSize = Vector2f(1.0, 0.30);
 	mDefaultProperties.mLabelColor = 0xFFFFFFFF;
 	mDefaultProperties.mLabelBackColor = 0;
@@ -62,31 +78,6 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 
 	mDefaultProperties.mMirror = Vector2f(0, 0);
 	mSelectedProperties.mMirror = Vector2f(0, 0);
-
-	mImage = std::make_shared<ImageComponent>(mWindow);
-	mImage->setOrigin(0.5f, 0.5f);
-	// mImage->setAllowFading(false);
-
-	addChild(&mBackground);
-	addChild(&(*mImage));
-	addChild(&mLabel);
-		/*
-	// Create the correct type of video window
-#ifdef _RPI_
-	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
-		mVideo = new VideoPlayerComponent(window, "");
-	else
-#endif*/
-		mVideo = new VideoVlcComponent(window, "");
-
-	// video
-	mVideo->setOrigin(0.5f, 0.5f);
-	mVideo->setStartDelay(VIDEODELAY);
-	mVideo->setDefaultZIndex(30);
-	addChild(mVideo);
-	
-	setSelected(false);
-	setVisible(true);
 }
 
 void GridTileComponent::forceSize(Vector2f size, float selectedZoom)
@@ -113,37 +104,38 @@ std::shared_ptr<TextureResource> GridTileComponent::getTexture()
 
 void GridTileComponent::resize()
 {
-	const GridTileProperties& currentProperties = getCurrentProperties();
+	auto currentProperties = getCurrentProperties();
 
 	Vector2f size = currentProperties.mSize;
-	setSize(size);
+	if (mSize != size)
+		setSize(size);
 
 	float height = (int) (size.y() * currentProperties.mLabelSize.y());
 	float labelHeight = height;
 
-	mLabel.setColor(currentProperties.mLabelColor);
-	mLabel.setBackgroundColor(currentProperties.mLabelBackColor);
-	mLabel.setGlowColor(currentProperties.mLabelGlowColor);
-	mLabel.setGlowSize(currentProperties.mLabelGlowSize);
-
-	if (mDefaultProperties.mFontPath != mSelectedProperties.mFontPath || mDefaultProperties.mFontSize != mSelectedProperties.mFontSize)
-		mLabel.setFont(currentProperties.mFontPath, currentProperties.mFontSize);
-
-	if (mLabelMerged)
+	if (mLabelVisible)
 	{
-		mLabel.setPosition(currentProperties.mPadding.x(), mSize.y() - height - currentProperties.mPadding.y());
-		mLabel.setSize(size.x() - 2 * currentProperties.mPadding.x(), height);
-	}
-	else
-	{		
- 		mLabel.setPosition(0, mSize.y() - height);
-		mLabel.setSize(size.x(), height);
+		mLabel.setColor(currentProperties.mLabelColor);
+		mLabel.setBackgroundColor(currentProperties.mLabelBackColor);
+		mLabel.setGlowColor(currentProperties.mLabelGlowColor);
+		mLabel.setGlowSize(currentProperties.mLabelGlowSize);
+
+		if (mDefaultProperties.mFontPath != mSelectedProperties.mFontPath || mDefaultProperties.mFontSize != mSelectedProperties.mFontSize)
+			mLabel.setFont(currentProperties.mFontPath, currentProperties.mFontSize);
+
+		if (mLabelMerged)
+		{
+			mLabel.setPosition(currentProperties.mPadding.x(), mSize.y() - height - currentProperties.mPadding.y());
+			mLabel.setSize(size.x() - 2 * currentProperties.mPadding.x(), height);
+		}
+		else
+		{
+			mLabel.setPosition(0, mSize.y() - height);
+			mLabel.setSize(size.x(), height);
+		}
 	}
 
-	if (!mLabelVisible || mLabelMerged)
-		height = 0;
-
-	if (currentProperties.mLabelSize.x() == 0)
+	if (!mLabelVisible || mLabelMerged || currentProperties.mLabelSize.x() == 0)
 		height = 0;
 
 	float topPadding = currentProperties.mPadding.y();
@@ -154,8 +146,7 @@ void GridTileComponent::resize()
 	float imageHeight = size.y() - topPadding - bottomPadding;
 
 	if (mImage != nullptr)
-	{
-		mImage->setOrigin(0.5f, 0.5f);
+	{		
 		mImage->setPosition(size.x() / 2.0f, (size.y() - height) / 2.0f);
 		mImage->setColorShift(currentProperties.mImageColor);
 		mImage->setMirroring(currentProperties.mMirror);
@@ -167,15 +158,18 @@ void GridTileComponent::resize()
 		else
 			mImage->setMaxSize(imageWidth, imageHeight);
 
-		if (mLabelMerged)
+		if (mLabelVisible)
 		{
-			mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, currentProperties.mPadding.y() + mImage->getSize().y() - labelHeight);
-			mLabel.setSize(mImage->getSize().x(), labelHeight);
-		}
-		else if (currentProperties.mPadding.x() == 0)
-		{
-			mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, mImage->getSize().y());
-			mLabel.setSize(mImage->getSize().x(), labelHeight);
+			if (mLabelMerged)
+			{
+				mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, currentProperties.mPadding.y() + mImage->getSize().y() - labelHeight);
+				mLabel.setSize(mImage->getSize().x(), labelHeight);
+			}
+			else if (currentProperties.mPadding.x() == 0)
+			{
+				mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, mImage->getSize().y());
+				mLabel.setSize(mImage->getSize().x(), labelHeight);
+			}
 		}
 	}
 
@@ -201,11 +195,6 @@ void GridTileComponent::resize()
 
 	Vector3f bkposition = Vector3f(0, 0);
 	Vector2f bkSize = size;
-
-
-
-//	if (!mLabelMerged && currentProperties.mImageSizeMode == "minSize")
-//		bkSize = Vector2f(size.x(), size.y() - bottomPadding + topPadding);
 
 	if (mImage != NULL && currentProperties.mSelectionMode == "image" && mImage->getSize() != Vector2f(0,0))
 	{
@@ -257,7 +246,7 @@ void GridTileComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 	
-	if ((mVideo != nullptr && mVideo->isPlaying()))
+	if (mVideo != nullptr && mVideo->isPlaying())
 		resize();
 }
 
@@ -281,17 +270,19 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x(), mSize.y()))
 		return;
 
-	float padding = getCurrentProperties().mPadding.x();
-	float topPadding = getCurrentProperties().mPadding.y();
+	auto currentProperties = getCurrentProperties();
+
+	float padding = currentProperties.mPadding.x();
+	float topPadding = currentProperties.mPadding.y();
 	float bottomPadding = topPadding;
 
 	if (mLabelVisible && !mLabelMerged)
-		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * getCurrentProperties().mLabelSize.y()));
+		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.mLabelSize.y()));
 
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
-	if (getCurrentProperties().mImageSizeMode == "minSize")
+	if (currentProperties.mImageSizeMode == "minSize")
 		Renderer::pushClipRect(pos, size);
 
 	if (mImage != NULL)
@@ -300,13 +291,13 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mSelected && !mVideoPath.empty() && mVideo != nullptr)
 		mVideo->render(trans);
 
-	if (!mLabelMerged && getCurrentProperties().mImageSizeMode == "minSize")
+	if (!mLabelMerged && currentProperties.mImageSizeMode == "minSize")
 		Renderer::popClipRect();
 
-	if (mLabelVisible && getCurrentProperties().mLabelSize.y()>0)
+	if (mLabelVisible && currentProperties.mLabelSize.y()>0)
 		mLabel.render(trans);
 
-	if (mLabelMerged && getCurrentProperties().mImageSizeMode == "minSize")
+	if (mLabelMerged && currentProperties.mImageSizeMode == "minSize")
 		Renderer::popClipRect();
 }
 
@@ -319,10 +310,39 @@ void GridTileComponent::render(const Transform4x4f& parentTrans)
 	renderContent(parentTrans);
 }
 
+void GridTileComponent::createVideo()
+{
+	if (mVideo != nullptr)
+		return;
+
+	mVideo = new VideoVlcComponent(mWindow, "");
+
+	// video
+	mVideo->setOrigin(0.5f, 0.5f);
+	mVideo->setStartDelay(VIDEODELAY);
+	mVideo->setDefaultZIndex(30);
+	addChild(mVideo);
+}
+
 void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
+	resetProperties();
+
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
+	const ThemeData::ThemeElement* grid = theme->getElement(view, "gamegrid", "imagegrid");
+	if (grid && grid->has("showVideoAtDelay"))
+	{
+		createVideo();
+		mVideo->applyTheme(theme, view, element, properties);
+	}
+	else if (mVideo != nullptr)
+	{
+		removeChild(mVideo);
+		delete mVideo;
+		mVideo = nullptr;
+	}
+	
 	// Apply theme to the default gridtile
 	const ThemeData::ThemeElement* elem = theme->getElement(view, "default", "gridtile");
 	if (elem)
@@ -530,7 +550,7 @@ void GridTileComponent::setImage(const std::string& path)
 	resize();	
 }
 
-void GridTileComponent::reset()
+void GridTileComponent::resetImages()
 {
 	setLabel("");
 	setVideo("");
@@ -683,8 +703,10 @@ void GridTileComponent::setVisible(bool visible)
 	mVisible = visible;
 }
 
-const GridTileProperties& GridTileComponent::getCurrentProperties() 
+GridTileProperties GridTileComponent::getCurrentProperties() 
 {
+	GridTileProperties mMixedProperties;
+
 	if (mSelectedZoomPercent == 0.0f || mSelectedZoomPercent == 1.0f)
 		return mSelected ? mSelectedProperties : mDefaultProperties;
 

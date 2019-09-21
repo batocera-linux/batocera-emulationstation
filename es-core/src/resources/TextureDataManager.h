@@ -21,7 +21,7 @@ public:
 	~TextureLoader();
 
 	void load(std::shared_ptr<TextureData> textureData);
-	void remove(std::shared_ptr<TextureData> textureData);
+	bool remove(std::shared_ptr<TextureData> textureData);
 	void clearQueue();
 
 	size_t getQueueSize();
@@ -30,11 +30,10 @@ private:
 	void threadProc();
 
 	std::list<std::shared_ptr<TextureData>> 										mProcessingTextureDataQ;
-	std::list<std::shared_ptr<TextureData> > 										mTextureDataQ;
-	std::map<TextureData*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureDataLookup;
+	std::list<std::shared_ptr<TextureData>> 										mTextureDataQ;
 
 	std::vector<std::thread>	mThreads;
-	std::mutex					mMutex;
+	std::mutex					mLoaderLock;
 	std::condition_variable		mEvent;
 	bool 						mExit;
 
