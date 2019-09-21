@@ -8,8 +8,8 @@
 #include "LocaleES.h"
 #include "GuiBezelInstall.h"
 
-// Batcera - theBezelProject Install
-GuiBezelInstall::GuiBezelInstall(Window* window, char *bezel) : GuiComponent(window), mBusyAnim(window)
+// Batocera - theBezelProject Install
+GuiBezelInstall::GuiBezelInstall(Window* window, const char *bezel) : GuiComponent(window), mBusyAnim(window)
 {
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
         mLoading = true;

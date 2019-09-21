@@ -8,7 +8,7 @@
 
 class GuiBezelInstall : public GuiComponent {
 public:
-    GuiBezelInstall(Window *window, char *theme);
+    GuiBezelInstall(Window *window, const char *theme);
 
     virtual ~GuiBezelInstall();
 

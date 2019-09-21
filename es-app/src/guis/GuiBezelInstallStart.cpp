@@ -5,6 +5,7 @@
 #include "guis/GuiBezelInstall.h"
 #include "guis/GuiSettings.h"
 #include "views/ViewController.h"
+#include "components/ComponentGrid.h"
 #include "SystemData.h"
 
 #include "LocaleES.h"
@@ -86,38 +87,42 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	addChild(&mMenu);
 	ComponentListRow row;
 	
-	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"), theme->Text.font, theme->Text.color), true);
+	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"), theme->Text.font, theme->Text.color), true);
 	mMenu.addRow(row);
 	row.elements.clear();
 
 	//list all bezels available from TheBezelProject
 	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();
 
-        for(auto it = availableBezels.begin(); it != availableBezels.end(); it++){
+        for (auto it = availableBezels.begin(); it != availableBezels.end(); it++)
+        {
+                auto parts = Utils::String::splitAny(*it, " \t");
+                if (parts.size() < 2)
+                        continue;
 
-                auto itstring = std::make_shared<TextComponent>(mWindow,
-                                (*it).c_str(), theme->TextSmall.font, theme->Text.color);
+                // Get bezel install status (from string '[I] Bezel_name http://url_of_this_Bezel')
+                bool isInstalled = (Utils::String::startsWith(parts[0],"[I]"));
+                std::string bezelName = parts[1];
+                std::string bezelUrl = parts.size() < 3 ? "" : (parts[2]=="-" ? parts[3] : parts[2]);
 
-                char *tmp=new char [(*it).length()+1];
-                mSelectedBezel=new char [(*it).length()+1];
-                std::strcpy (tmp, (*it).c_str());
-                // Get Bezel_System name (from string '[A] Bezel_name http://url_of_this_Bezel')
-		// as bezel_cli
-                char *bezel_cli = strtok (tmp, " \t");
-                bezel_cli = strtok (NULL, " \t");
-		
-                // Names longer than this will crash GuiMsgBox downstream
-                // "48" found by trials and errors. Ideally should be fixed
-                // in es-core MsgBox -- FIXME
-                if (strlen(bezel_cli) > 48)
-                        bezel_cli[47]='\0';
-                row.makeAcceptInputHandler([this, bezel_cli] {
-                                strcpy (mSelectedBezel, bezel_cli);
-                                this->start();
-                                });
-                row.addElement(itstring, true);
+                ComponentListRow row;
+
+                // icon
+                auto icon = std::make_shared<ImageComponent>(mWindow);
+                icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
+                icon->setColorShift(theme->Text.color);
+                icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+                row.addElement(icon, false);
+
+                // spacer between icon and text
+                auto spacer = std::make_shared<GuiComponent>(mWindow);
+                spacer->setSize(10, 0);
+                row.addElement(spacer, false);
+
+                auto grid = std::make_shared<MultiLineMenuEntry>(window, bezelName, bezelUrl);
+                row.addElement(grid, true);
+                row.makeAcceptInputHandler([this, bezelName] { this->start(bezelName); });
                 mMenu.addRow(row);
-                row.elements.clear();
         }
 
         mMenu.addButton(_("BACK"), "back", [&] { delete this; });
@@ -128,10 +133,10 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
-void GuiBezelInstallStart::start()
+void GuiBezelInstallStart::start(std::string SelectedBezel)
 {
-  if(strcmp(mSelectedBezel,"")) {
-    mWindow->pushGui(new GuiBezelInstall(mWindow, mSelectedBezel));
+  if(!SelectedBezel.empty()) {
+    mWindow->pushGui(new GuiBezelInstall(mWindow, SelectedBezel.c_str()));
     delete this;
   }
 }
@@ -181,19 +186,18 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 	//list all bezels available from TheBezelProject
 	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();
 
-        for(auto it = availableBezels.begin(); it != availableBezels.end(); it++){
+        for (auto it = availableBezels.begin(); it != availableBezels.end(); it++){
 
                 auto itstring = std::make_shared<TextComponent>(mWindow,
                                 (*it).c_str(), theme->TextSmall.font, theme->Text.color);
                 char *tmp=new char [(*it).length()+1];
-                mSelectedBezel=new char [(*it).length()+1];
                 std::strcpy (tmp, (*it).c_str());
                 // Get Bezel_System name (from string '[I] Bezel_name http://url_of_this_Bezel')
 		// as bezel_cli (short system name, long names will be fetched below)
                 char *bezel_cli = strtok (tmp, " \t");
                 bezel_cli = strtok (NULL, " \t");
 
-		// Only show [I]nstalled bezels not the other
+		// Only show [I]nstalled bezels not the others
 		if (strcmp (tmp, "[I]"))
 			continue;
 
@@ -206,18 +210,15 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 						(*itSystem)->getFullName(), theme->TextSmall.font, theme->Text.color);
 		}
 
-                // Names longer than this will crash GuiMsgBox downstream
-                // "48" found by trials and errors. Ideally should be fixed
-                // in es-core MsgBox -- FIXME
-                if (strlen(bezel_cli) > 48)
-                        bezel_cli[47]='\0';
-                row.makeAcceptInputHandler([this, bezel_cli] {
-                                strcpy (mSelectedBezel, bezel_cli);
-                                this->start();
-                                });
-                row.addElement(itstring, true);
-                mMenu.addRow(row);
-                row.elements.clear();
+		// Names longer than this will crash GuiMsgBox downstream
+		// "48" found by trials and errors. Ideally should be fixed
+		// in es-core MsgBox -- FIXME (might be fixed with the recent refactoring!)
+		if (strlen(bezel_cli) > 48)
+			bezel_cli[47]='\0';
+		row.makeAcceptInputHandler([this, bezel_cli] { this->start(bezel_cli); });
+		row.addElement(itstring, true);
+		mMenu.addRow(row);
+		row.elements.clear();
         }
 
         mMenu.addButton(_("BACK"), "back", [&] { delete this; });
@@ -228,10 +229,10 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
-void GuiBezelUninstallStart::start()
+void GuiBezelUninstallStart::start(char *bezel)
 {
-  if(strcmp(mSelectedBezel,"")) {
-    mWindow->pushGui(new GuiBezelUninstall(mWindow, mSelectedBezel));
+  if (strcmp(bezel,"")) {
+    mWindow->pushGui(new GuiBezelUninstall(mWindow, bezel));
     delete this;
   }
 }
