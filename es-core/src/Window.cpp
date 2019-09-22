@@ -512,7 +512,7 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 	}
 
 	ImageComponent splash(this, true);
-	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
+	splash.setResize(Renderer::getScreenWidth() * 0.51f, 0.0f);
 
 	if (mSplash != NULL)
 		splash.setImage(mSplash);
