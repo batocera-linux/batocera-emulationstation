@@ -47,7 +47,7 @@ msgid "BACK"
 msgstr "返回"
 
 msgid "go back"
-msgstr ""
+msgstr "返回"
 
 msgid "CLOSE"
 msgstr "关闭"
@@ -65,28 +65,28 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "游戏列表样式"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "网格大小"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "在顶部显示收藏夹"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "显示隐藏文件"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "显示文件夹"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "向游戏合辑中 添加/删除 游戏"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "完成游戏合辑编辑"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的元数据"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "高级游戏选项"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "更新游戏列表"
@@ -98,7 +98,7 @@ msgid "Loading..."
 msgstr "载入中..."
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "重置所有筛选器"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -122,7 +122,7 @@ msgid "UI SETTINGS"
 msgstr "UI 设置"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "游戏系列设置"
+msgstr "游戏合辑设置"
 
 msgid "SOUND SETTINGS"
 msgstr "声音设置"
@@ -149,37 +149,37 @@ msgid "SCRAPE RATINGS"
 msgstr "抓取游戏评分"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "首选图像源"
 
 msgid "NONE"
 msgstr "无"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "截图"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "标题截图"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "2D 盒子"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "3D 盒子"
 
 msgid "MIX"
-msgstr ""
+msgstr "混合"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "旋转"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "首选缩略图源"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "抓取标记"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "抓取视频"
 
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
@@ -215,25 +215,25 @@ msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "垂直同步"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "预加载UI"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "线程载入中"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "异步图像载入中"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "优化图像VRAM使用"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "优化视频VRAM的使用"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "日志级别"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
@@ -257,7 +257,7 @@ msgid "OVERCLOCK"
 msgstr "超频"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "省电模式"
 
 msgid "UPDATES"
 msgstr "更新"
@@ -266,7 +266,7 @@ msgid "THEMES"
 msgstr "主题"
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "框架项目"
 
 msgid "AUTO UPDATES"
 msgstr "自动更新"
@@ -338,7 +338,7 @@ msgid "ENHANCED"
 msgstr "增强"
 
 msgid "CURVATURE"
-msgstr ""
+msgstr "弯曲"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
@@ -419,43 +419,43 @@ msgid "INPUT P%i"
 msgstr "%i号玩家"
 
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "显示控制器活动"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "在编辑配置之前必须应用主题"
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "主题配置"
 
 msgid "THEME COLORSET"
-msgstr ""
+msgstr "主题颜色"
 
 msgid "THEME ICONSET"
-msgstr ""
+msgstr "主题图标"
 
 msgid "THEME MENU"
-msgstr ""
+msgstr "主题菜单"
 
 msgid "THEME SYSTEMVIEW"
-msgstr ""
+msgstr "主题系统视图"
 
 msgid "THEME GAMELISTVIEW"
-msgstr ""
+msgstr "主题游戏列表视图"
 
 msgid "THEME REGION"
-msgstr ""
+msgstr "主题区域"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "默认网格大小"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr ""
+msgstr "重置自定游戏列表"
 
 msgid "UI MODE"
-msgstr "显示方式"
+msgstr "UI模式"
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
@@ -476,10 +476,10 @@ msgid "THEME SET"
 msgstr "主题设置"
 
 msgid "START ON SYSTEM"
-msgstr "启动时运行"
+msgstr "启动到系统"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "启动到游戏列表"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "显示的游戏平台"
@@ -547,16 +547,16 @@ msgid "FRONTEND MUSIC"
 msgstr "前端音乐"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "显示歌曲名称"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "歌曲的秒数"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "仅播放指定游戏平台中的音乐"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "启用导航声音"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "启用视频音频"
@@ -619,10 +619,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "是否不保存元数据并直接关机?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "退出EmulationStation"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "确定退出?"
 
 msgid "Emulator"
 msgstr "模拟器"
@@ -643,37 +643,37 @@ msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES 模拟"
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
+msgstr "内部分辨率"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "从主题创建新的自定合辑"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "选择主题文件夹"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "创建新的自定合辑"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "新合辑名称"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "对无主题的自定合辑进行分组"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "对自定合辑和系统进行排序"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "选择合辑"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "自动归类游戏合辑"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "自定游戏合辑"
 
 msgid "INSTALL BATOCERA"
 msgstr "安装 BATOCERA"
@@ -740,22 +740,22 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "跳过了 %i 个游戏。"
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "安装框架"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "卸载框架"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "安装框架项目"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
-msgstr ""
+msgstr "选择安装框架的游戏平台"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "卸载框架项目"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "选择移除框架的游戏平台"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
@@ -770,16 +770,16 @@ msgid "BACKGROUND AUDIO"
 msgstr "背景音乐"
 
 msgid "USE CUSTOM IMAGES"
-msgstr "使用自定义图像"
+msgstr "使用自定图像"
 
 msgid "CUSTOM IMAGE DIR"
-msgstr "自定义图像目录"
+msgstr "自定图像目录"
 
 msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr "自定义图像目录递归"
+msgstr "递归自定图像目录"
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr "自定义图像筛选"
+msgstr "自定图像筛选"
 
 msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "视频替换 (SECS)"
@@ -800,10 +800,10 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "屏保拉伸显示"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "框架安装成功"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgstr "框架删除程控"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "抓取游戏元数据"
@@ -854,7 +854,7 @@ msgid "VALIDATE"
 msgstr "有效"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "未找到设备"
 
 msgid "SELECT THEME"
 msgstr "选择主题"
@@ -869,6 +869,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"这将删除实际的游戏文件!\n"
+"确定执行吗?"
 
 msgid "DELETE"
 msgstr "删除"
@@ -1020,7 +1022,7 @@ msgid "Times played"
 msgstr "游玩次数"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<未找到条目>"
 
 msgid "LAUNCH"
 msgstr "启动"
@@ -1029,22 +1031,22 @@ msgid "OPTIONS"
 msgstr "选项"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "预加载 UI"
 
 msgid "MENU"
 msgstr "菜单"
 
 msgid "Favorites"
-msgstr ""
+msgstr "收藏夹"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "正在搜索"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "发生了一个错误"
 
 msgid "RETRY"
 msgstr "重试"
@@ -1062,28 +1064,28 @@ msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
 
 msgid "all games"
-msgstr ""
+msgstr "全部游戏"
 
 msgid "last played"
-msgstr ""
+msgstr "最后游玩"
 
 msgid "favorites"
-msgstr ""
+msgstr "收藏夹"
 
 msgid "2 players"
-msgstr ""
+msgstr "双人游戏"
 
 msgid "4 players"
-msgstr ""
+msgstr "四人游戏"
 
 msgid "collections"
-msgstr ""
+msgstr "合辑"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "编辑合辑. 使用 Y 键添加/删除游戏"
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "已完成对合辑的编辑"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1094,25 +1096,25 @@ msgid "Removed '%s' from '%s'"
 msgstr "移除 '%s' 从 '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "此合辑为空."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "无"
 
 msgid "Various"
-msgstr ""
+msgstr "多开发商"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
+msgstr[0] "此合辑中的 %1$i 款游戏已存在于 %2$s 合辑中."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
+msgstr[0] "此合辑中的 %1$i 款游戏已存在于 %2$s 等其他合辑中."
 
 msgid "UP"
 msgstr "上"
@@ -1214,7 +1216,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
 
 msgid "Now playing: "
-msgstr ""
+msgstr "正在游玩: "
 
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"
@@ -1226,19 +1228,19 @@ msgid "EDIT"
 msgstr "编辑"
 
 msgid "accept"
-msgstr ""
+msgstr "接受"
 
 msgid "SELECT ALL"
 msgstr "全部选择"
 
 msgid "select all"
-msgstr ""
+msgstr "全部选择"
 
 msgid "SELECT NONE"
 msgstr "全部不选"
 
 msgid "select none"
-msgstr ""
+msgstr "全部不选"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1252,7 +1254,7 @@ msgid "WORKING..."
 msgstr "进行中..."
 
 msgid "up/down"
-msgstr ""
+msgstr "上/下"
 
 #~ msgid "DISPLAY / HIDE SYSTEMS"
 #~ msgstr "显示/隐藏游戏平台"
