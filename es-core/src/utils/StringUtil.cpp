@@ -6,6 +6,8 @@
 
 #if defined(_WIN32)
 #include <Windows.h>
+#else
+#include <boost/locale.hpp>
 #endif
 
 namespace Utils
@@ -142,13 +144,16 @@ namespace Utils
 
 		std::string toLower(const std::string& _string)
 		{
-			std::string string;
+#if defined(_WIN32)
+			std::wstring stringW = convertToWideString(_string);
 
-			for(size_t i = 0; i < _string.length(); ++i)
-				string += (char)tolower(_string[i]);
+			auto& f = std::use_facet<std::ctype<wchar_t>>(std::locale());
+			f.tolower(&stringW[0], &stringW[0] + stringW.size());
 
-			return string;
-
+			return convertFromWideString(stringW);
+#else
+			return boost::locale::to_lower(_string);
+#endif
 		} // toLower
 
 		std::string toUpper(const std::string& _string)
@@ -161,12 +166,7 @@ namespace Utils
 
 			return convertFromWideString(stringW);
 #else
-			std::string string;
-
-			for(size_t i = 0; i < _string.length(); ++i)
-				string += (char)toupper(_string[i]);
-
-			return string;
+			return boost::locale::to_upper(_string);
 #endif
 		} // toUpper
 
@@ -184,12 +184,17 @@ namespace Utils
 
 		std::string replace(const std::string& _string, const std::string& _replace, const std::string& _with)
 		{
+			if (_replace.empty())
+				return _string;
+
 			std::string string = _string;
-			size_t      pos;
-
-			while((pos = string.find(_replace)) != std::string::npos)
-				string = string.replace(pos, _replace.length(), _with.c_str(), _with.length());
-
+			
+			size_t pos = 0;
+			while ((pos = string.find(_replace, pos)) != std::string::npos) {
+				string = string.replace(pos, _replace.length(), _with.c_str());
+				pos += _with.length();
+			}
+			
 			return string;
 
 		} // replace
