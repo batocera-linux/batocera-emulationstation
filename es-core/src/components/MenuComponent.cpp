@@ -10,6 +10,8 @@
 MenuComponent::MenuComponent(Window* window, const char* title, const std::shared_ptr<Font>& titleFont) : GuiComponent(window),
 	mBackground(window), mGrid(window, Vector2i(1, 3))
 {
+	mMaxHeight = 0;
+
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mBackground);
@@ -149,7 +151,8 @@ void MenuComponent::updateSize()
 		return;
 	}
 
-	const float maxHeight = Renderer::getScreenHeight() * 0.75f;
+	const float maxHeight = mMaxHeight <= 0 ? Renderer::getScreenHeight() * 0.75f : mMaxHeight;
+
 	float height = TITLE_HEIGHT + mList->getTotalRowHeight() + getButtonGridHeight() + 2;
 	if(height > maxHeight)
 	{

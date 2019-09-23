@@ -561,7 +561,7 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 	if (sysInfoElem)
 		mSystemInfo.applyTheme(theme, "system", "systemInfo", ThemeFlags::ALL);
 
-	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "fixedBackground", "image");
+	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "staticBackground", "image");
 	if (fixedBackgroundElem)
 	{
 		if (mStaticBackground == nullptr)

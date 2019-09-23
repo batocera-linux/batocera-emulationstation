@@ -14,6 +14,8 @@
 #include "LocaleES.h"
 #include "guis/GuiMenu.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -78,12 +80,15 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	addChild(&mMenu);
 
+	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
+		addTextFilterToMenu();
+
 	// check it's not a placeholder folder - if it is, only show "Filter Options"
 	FileData* file = getGamelist()->getCursor();
 	fromPlaceholder = file->isPlaceHolder();
 	ComponentListRow row;
 
-	if (!fromPlaceholder) 
+	if (!fromPlaceholder)
 	{
 		// jump to letter
 		row.elements.clear();
@@ -118,25 +123,25 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			};
 			mMenu.addRow(row);
 		}
-
-		// sort list by
-		unsigned int currentSortId = mSystem->getSortId();
-		if (currentSortId > FileSorts::SortTypes.size())
-			currentSortId = 0;
-
-		mListSort = std::make_shared<SortList>(mWindow, _("SORT GAMES BY"), false);
-		for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
-		{
-			const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-			mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description).c_str()), i, i == currentSortId); // TODO - actually make the sort type persistent
-		}
-
-		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera
 	}
+
+	// sort list by
+	unsigned int currentSortId = mSystem->getSortId();
+	if (currentSortId > FileSorts::SortTypes.size())
+		currentSortId = 0;
+
+	mListSort = std::make_shared<SortList>(mWindow, _("SORT GAMES BY"), false);
+	for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
+	{
+		const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
+		mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description).c_str()), i, i == currentSortId); // TODO - actually make the sort type persistent
+	}
+
+	mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera	
 
 	// Show filtered menu
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-		mMenu.addEntry(_("FILTER GAMELIST"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+		mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
 	// GameList view style
 	mViewMode = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
@@ -237,7 +242,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	// batocera
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
 		mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
-
+	/*
 	// Game List Update
 	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
 	{
@@ -268,10 +273,72 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			
 		}, _("NO"), nullptr));
 	});
+	*/
 
+	mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	mMenu.animateTo(Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2));
+}
+
+void GuiGamelistOptions::addTextFilterToMenu()
+{
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(mWindow, _("FILTER GAMES BY TEXT"), font, color);
+	row.addElement(lbl, true); // label
+
+	std::string searchText;
+	
+	auto idx = mSystem->getIndex(false);
+	if (idx != nullptr)
+		searchText = idx->getTextFilter();
+
+	mTextFilter = std::make_shared<TextComponent>(mWindow, searchText, font, color, ALIGN_RIGHT);
+	row.addElement(mTextFilter, true);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+
+	auto searchIcon = theme->getMenuIcon("searchIcon");
+	bracket->setImage(searchIcon.empty() ? ":/search.svg" : searchIcon);
+
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+	row.addElement(bracket, false);
+
+	auto updateVal = [this](const std::string& newVal)
+	{
+		mTextFilter->setValue(Utils::String::toUpper(newVal));
+
+		auto index = mSystem->getIndex(!newVal.empty());
+		if (index != nullptr)
+		{
+			mFiltersChanged = true;
+
+			index->setTextFilter(newVal);
+			if (!index->isFiltered())
+				mSystem->deleteIndex();
+
+			delete this;
+		}
+	};
+
+	row.makeAcceptInputHandler([this, updateVal]
+	{
+		if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FILTER GAMES BY TEXT"), mTextFilter->getValue(), updateVal, false));
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FILTER GAMES BY TEXT"), mTextFilter->getValue(), updateVal, false));
+	});
+
+	mMenu.addRow(row);
 }
 
 GuiGamelistOptions::~GuiGamelistOptions()
@@ -329,8 +396,6 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// game is selected
 		ViewController::get()->reloadGameListView(mSystem);
 	}
-
-	
 }
 
 void GuiGamelistOptions::openGamelistFilter()

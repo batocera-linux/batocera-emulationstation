@@ -236,6 +236,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "menuSwitch",{
 		{ "pathOn", PATH },
 		{ "pathOff", PATH } } },
+	{ "menuTextEdit",{
+		{ "active", PATH },
+		{ "inactive", PATH } } },
 	{ "menuSlider",{
 		{ "path", PATH } } },
 	{ "menuButton",{
@@ -1175,6 +1178,15 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Icons.button = elem->get<std::string>("path");
 		if (elem->has("filledPath"))
 			Icons.button_filled = elem->get<std::string>("filledPath");
+	}
+
+	elem = theme->getElement("menu", "menutextedit", "menuTextEdit");
+	if (elem)
+	{
+		if (elem->has("active") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("active")))
+			Icons.textinput_ninepatch_active = elem->get<std::string>("active");
+		if (elem->has("inactive") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("inactive")))
+			Icons.textinput_ninepatch = elem->get<std::string>("inactive");
 	}
 
 	elem = theme->getElement("menu", "menuswitch", "menuSwitch");

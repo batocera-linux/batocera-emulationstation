@@ -52,9 +52,6 @@ public:
 	virtual const std::string getMarqueePath() const;
 	virtual const std::string getImagePath() const;
 
-	virtual const std::string getCore() const;
-	virtual const std::string getEmulator() const;
-
 	virtual const bool getHidden();
 	virtual const bool getFavorite();
 	virtual const bool getKidGame();

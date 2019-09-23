@@ -62,6 +62,8 @@ private:
 
 	std::shared_ptr<Font> mFont;
 	std::unique_ptr<TextCache> mTextCache;
+
+	int mBlinkTime;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_EDIT_COMPONENT_H
