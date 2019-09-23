@@ -5,6 +5,7 @@
 #include "utils/StringUtil.h"
 #include "AudioManager.h"
 #include "Settings.h"
+#include "math/Misc.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <wait.h>
@@ -118,40 +119,40 @@ void VideoPlayerComponent::startVideo()
 				{
 					case 0:
 					{
-						const int x1 = (int)(Renderer::getScreenOffsetX() + x);
-						const int y1 = (int)(Renderer::getScreenOffsetY() + y);
-						const int x2 = (int)(x1 + mSize.x());
-						const int y2 = (int)(y1 + mSize.y());
+						const int x1 = (int)Math::round(Renderer::getScreenOffsetX() + x);
+						const int y1 = (int)Math::round(Renderer::getScreenOffsetY() + y);
+						const int x2 = (int)Math::round(x1 + mSize.x());
+						const int y2 = (int)Math::round(y1 + mSize.y());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 1:
 					{
-						const int x1 = (int)(Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
-						const int y1 = (int)(Renderer::getScreenOffsetX() + x);
-						const int x2 = (int)(x1 + mSize.y());
-						const int y2 = (int)(y1 + mSize.x());
+						const int x1 = (int)Math::round((Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
+						const int y1 = (int)Math::round(Renderer::getScreenOffsetX() + x);
+						const int x2 = (int)Math::round(x1 + mSize.y());
+						const int y2 = (int)Math::round(y1 + mSize.x());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 2:
 					{
-						const int x1 = (int)(Renderer::getScreenWidth()  - Renderer::getScreenOffsetX() - x - mSize.x());
-						const int y1 = (int)(Renderer::getScreenHeight() - Renderer::getScreenOffsetY() - y - mSize.y());
-						const int x2 = (int)(x1 + mSize.x());
-						const int y2 = (int)(y1 + mSize.y());
+						const int x1 = (int)Math::round(Renderer::getScreenWidth()  - Renderer::getScreenOffsetX() - x - mSize.x());
+						const int y1 = (int)Math::round(Renderer::getScreenHeight() - Renderer::getScreenOffsetY() - y - mSize.y());
+						const int x2 = (int)Math::round(x1 + mSize.x());
+						const int y2 = (int)Math::round(y1 + mSize.y());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 3:
 					{
-						const int x1 = (int)(Renderer::getScreenOffsetY() + y);
-						const int y1 = (int)(Renderer::getScreenHeight() - Renderer::getScreenOffsetX() - x - mSize.x());
-						const int x2 = (int)(x1 + mSize.y());
-						const int y2 = (int)(y1 + mSize.x());
+						const int x1 = (int)Math::round(Renderer::getScreenOffsetY() + y);
+						const int y1 = (int)Math::round(Renderer::getScreenHeight() - Renderer::getScreenOffsetX() - x - mSize.x());
+						const int x2 = (int)Math::round(x1 + mSize.y());
+						const int y2 = (int)Math::round(y1 + mSize.x());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
