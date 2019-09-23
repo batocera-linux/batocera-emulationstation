@@ -64,7 +64,10 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		mText->stopEditing();
 	});
 
-	space->setSize(space->getSize().x() * 3, space->getSize().y());
+	if (Renderer::isSmallScreen())
+		space->setSize(space->getSize().x(), space->getSize().y());
+	else
+		space->setSize(space->getSize().x() * 3, space->getSize().y());
 
 	buttons.push_back(space);
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE A CHAR"), [this] {
@@ -72,6 +75,9 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		mText->textInput("\b");
 		mText->stopEditing();
 	}));
+
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("RESET"), _("RESET"), [this, okCallback] { okCallback(""); delete this; }));
+
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("DISCARD CHANGES"), [this] { delete this; }));
 
 	// Add buttons
@@ -239,10 +245,10 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 
 	return false;
 }
-
+/*
 void GuiTextEditPopupKeyboard::update(int deltatime) {
 
-}
+}*/
 
 // Shifts the keys when user hits the shift button.
 void GuiTextEditPopupKeyboard::shiftKeys() 

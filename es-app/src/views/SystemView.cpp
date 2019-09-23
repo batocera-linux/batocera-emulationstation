@@ -243,6 +243,17 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
+			if (config->isMappedTo("pagedown", input))
+			{
+				listInput(10);
+				return true;
+			}
+			if (config->isMappedTo("pageup", input))
+			{
+				listInput(-10);
+				return true;
+			}
+
 			break;
 		case HORIZONTAL:
 		case HORIZONTAL_WHEEL:
@@ -257,6 +268,17 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
+			if (config->isMappedTo("pagedown", input))
+			{
+				listInput(10);
+				return true;
+			}
+			if (config->isMappedTo("pageup", input))
+			{
+				listInput(-10);
+				return true;
+			}
+
 			break;
 		}
 
@@ -283,7 +305,9 @@ bool SystemView::input(InputConfig* config, Input input)
 		if(config->isMappedLike("left", input) ||
 			config->isMappedLike("right", input) ||
 			config->isMappedLike("up", input) ||
-			config->isMappedLike("down", input))
+			config->isMappedLike("down", input) ||
+			config->isMappedLike("pagedown", input) ||
+			config->isMappedLike("pageup", input))
 			listInput(0);
 		// batocera
 		//if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
@@ -561,7 +585,7 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 	if (sysInfoElem)
 		mSystemInfo.applyTheme(theme, "system", "systemInfo", ThemeFlags::ALL);
 
-	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "fixedBackground", "image");
+	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "staticBackground", "image");
 	if (fixedBackgroundElem)
 	{
 		if (mStaticBackground == nullptr)

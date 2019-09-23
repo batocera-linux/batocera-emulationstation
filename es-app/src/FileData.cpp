@@ -120,16 +120,6 @@ const std::string FileData::getName()
 	return metadata.getName();
 }
 
-const std::string FileData::getCore() const
-{
-	return metadata.get("core");	
-}
-
-const std::string FileData::getEmulator() const
-{
-	return metadata.get("emulator");
-}
-
 const std::string FileData::getVideoPath() const
 {
 	std::string video = metadata.get("video");
@@ -216,6 +206,7 @@ void FileData::launchGame(Window* window)
 
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
+
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	window->deinit();
 
@@ -230,6 +221,18 @@ void FileData::launchGame(Window* window)
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
+	
+	std::string emulator = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".emulator");
+	if (emulator.length() == 0)		
+		emulator = SystemConf::getInstance()->get(mSystem->getFullName() + ".emulator");
+
+	std::string core = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".core");
+	if (core.length() == 0)
+		core = SystemConf::getInstance()->get(mSystem->getFullName() + ".core");
+
+	command = Utils::String::replace(command, "%EMULATOR%", emulator);
+	command = Utils::String::replace(command, "%CORE%", core);
+	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
 
 	Scripting::fireEvent("game-start", rom, basename);
 
@@ -345,8 +348,8 @@ FolderData::SortType getSortTypeFromString(std::string desc) {
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
 {
-	if (mSystem->isCollection())
-		return mChildren;
+//	if (mSystem->isCollection())
+//		return mChildren;
 
 	std::vector<FileData*> ret;
 

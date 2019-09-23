@@ -175,7 +175,6 @@ void GridTileComponent::resize()
 
 	if (mVideo != nullptr && mVideo->isPlaying())
 	{
-		mVideo->setOrigin(0.5f, 0.5f);
 		mVideo->setPosition(size.x() / 2.0f, (size.y() - height) / 2.0f);
 
 		if (currentProperties.mImageSizeMode == "minSize")
@@ -552,9 +551,9 @@ void GridTileComponent::setImage(const std::string& path)
 
 void GridTileComponent::resetImages()
 {
-	setLabel("");
-	setVideo("");
+	setLabel("");	
 	setImage("");
+	stopVideo();
 }
 
 void GridTileComponent::setLabel(std::string name)
@@ -579,7 +578,7 @@ void GridTileComponent::setVideo(const std::string& path, float defaultDelay)
 			mVideo->setStartDelay(defaultDelay);
 		
 		if (mVideoPath.empty())
-			mVideo->setVideo("");
+			stopVideo();
 	}
 
 	resize();
@@ -597,6 +596,26 @@ void GridTileComponent::onHide()
 	mShown = false;
 }
 
+void GridTileComponent::startVideo()
+{
+	if (mVideo != nullptr)
+	{		
+		// Inform video component about size before staring in order to be able to use OptimizeVideo parameter
+		if (mSelectedProperties.mImageSizeMode == "minSize")
+			mVideo->setMinSize(mSelectedProperties.mSize);
+		else 
+			mVideo->setResize(mSelectedProperties.mSize);
+		
+		mVideo->setVideo(mVideoPath);
+	}
+}
+
+void GridTileComponent::stopVideo()
+{
+	if (mVideo != nullptr)
+		mVideo->setVideo("");
+}
+
 void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f* pPosition, bool force)
 {
 	if (!mShown || !ALLOWANIMATIONS)
@@ -604,16 +623,16 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 
 	if (mSelected == selected && !force)
 	{
-		if (mSelected && mVideo != nullptr)
-			mVideo->setVideo(mVideoPath);
+		if (mSelected)
+			startVideo();
 
 		return;
 	}
 
 	mSelected = selected;	
 
-	if (!mSelected && mVideo != nullptr)
-		mVideo->setVideo("");	
+	if (!mSelected)
+		stopVideo();
 
 	if (selected)
 	{
@@ -623,9 +642,7 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 			
 			this->setSelectedZoom(1);
 			mAnimPosition = Vector3f(0, 0, 0);
-
-			if (mVideo != NULL)
-				mVideo->setVideo(mVideoPath);	
+			startVideo();
 
 			resize();
 		}
@@ -648,10 +665,7 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 			setAnimation(new LambdaAnimation(func, 250), 0, [this] {
 				this->setSelectedZoom(1);
 				mAnimPosition = Vector3f(0, 0, 0);
-
-				if (mVideo != NULL)
-					mVideo->setVideo(mVideoPath);
-
+				startVideo();
 			}, false, 3);
 		}
 	}
@@ -661,18 +675,13 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 		{
 			cancelAnimation(3);
 			this->setSelectedZoom(0);
-
-			if (mVideo != NULL)
-				mVideo->setVideo("");
-
+			stopVideo();
 			resize();
 		}
 		else
 		{
 			this->setSelectedZoom(1);
-
-			if (mVideo != NULL)
-				mVideo->setVideo("");
+			stopVideo();
 
 			auto func = [this](float t)
 			{

@@ -24,12 +24,15 @@ private:
 	void applyFilters();
 	void resetAllFilters();
 	void addFiltersToMenu();
+	void addTextFilterToMenu();
 
 	std::map<FilterIndexType, std::shared_ptr< OptionListComponent<std::string> >> mFilterOptions;
 
 	MenuComponent mMenu;
 	SystemData* mSystem;
 	FileFilterIndex* mFilterIndex;
+
+	std::shared_ptr<GuiComponent> mTextFilter;
 };
 
 #endif // ES_APP_GUIS_GUI_GAME_LIST_FILTER_H

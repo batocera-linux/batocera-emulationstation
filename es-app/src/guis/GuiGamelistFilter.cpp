@@ -3,6 +3,8 @@
 #include "components/OptionListComponent.h"
 #include "views/UIModeController.h"
 #include "SystemData.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 GuiGamelistFilter::GuiGamelistFilter(Window* window, SystemData* system) : GuiComponent(window), mMenu(window, "FILTER GAMELIST BY"), mSystem(system)
 {
@@ -21,6 +23,7 @@ void GuiGamelistFilter::initializeMenu()
 
 	mMenu.addEntry(_("RESET ALL FILTERS"), false, std::bind(&GuiGamelistFilter::resetAllFilters, this));
 
+	// addTextFilterToMenu();
 	addFiltersToMenu();
 
 	mMenu.addButton(_("BACK"), "back", std::bind(&GuiGamelistFilter::applyFilters, this));
@@ -48,6 +51,42 @@ GuiGamelistFilter::~GuiGamelistFilter()
 		mSystem->deleteIndex();
 }
 
+void GuiGamelistFilter::addTextFilterToMenu()
+{
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(mWindow, _("FIND GAMES"), font, color);
+	row.addElement(lbl, true); // label
+
+	mTextFilter = std::make_shared<TextComponent>(mWindow, mFilterIndex->getTextFilter(), font, color, ALIGN_RIGHT);
+	row.addElement(mTextFilter, true);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+	bracket->setImage(theme->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+	row.addElement(bracket, false);
+
+	auto updateVal = [this](const std::string& newVal) { mTextFilter->setValue(Utils::String::toUpper(newVal)); };
+
+	row.makeAcceptInputHandler([this, updateVal] 
+	{
+		if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FIND GAMES"), mTextFilter->getValue(), updateVal, false));		
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FIND GAMES"), mTextFilter->getValue(), updateVal, false));		
+	});
+
+	mMenu.addRow(row);
+}
+
 void GuiGamelistFilter::addFiltersToMenu()
 {
 	std::vector<FilterDataDecl> decls = mFilterIndex->getFilterDataDecls();
@@ -64,8 +103,7 @@ void GuiGamelistFilter::addFiltersToMenu()
 		std::map<std::string, int>* allKeys = (*it).allIndexKeys; // all possible filters for this type
 		std::string menuLabel = (*it).menuLabel; // text to show in menu
 		std::shared_ptr< OptionListComponent<std::string> > optionList;
-
-
+		
 		// add filters (with first one selected)
 		ComponentListRow row;
 
@@ -84,8 +122,12 @@ void GuiGamelistFilter::addFiltersToMenu()
 
 void GuiGamelistFilter::applyFilters()
 {
+	if (mTextFilter)
+		mFilterIndex->setTextFilter(mTextFilter->getValue());
+
 	std::vector<FilterDataDecl> decls = mFilterIndex->getFilterDataDecls();
-	for (std::map<FilterIndexType, std::shared_ptr< OptionListComponent<std::string> >>::const_iterator it = mFilterOptions.cbegin(); it != mFilterOptions.cend(); ++it ) {
+	for (std::map<FilterIndexType, std::shared_ptr< OptionListComponent<std::string> >>::const_iterator it = mFilterOptions.cbegin(); it != mFilterOptions.cend(); ++it ) 
+	{
 		std::shared_ptr< OptionListComponent<std::string> > optionList = it->second;
 		std::vector<std::string> filters = optionList->getSelectedObjects();
 		mFilterIndex->setFilter(it->first, &filters);

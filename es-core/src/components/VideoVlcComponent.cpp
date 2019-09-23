@@ -9,6 +9,7 @@
 #include <SDL_mutex.h>
 #include <cmath>
 #include "SystemConf.h"
+#include "ThemeData.h"
 
 #ifdef WIN32
 #include <codecvt>
@@ -56,6 +57,7 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 {
 	// Get an empty texture for rendering the video
 	mTexture = nullptr;// TextureResource::get("");
+	mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
 
 	// Make sure VLC has been initialised
 	setupVLC(subtitles);
@@ -236,7 +238,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	const unsigned int color = Renderer::convertColor(0xFFFFFF00 | fadeIn);
 	Renderer::Vertex   vertices[4];
 
-	if (mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	if (mEffect == VideoVlcFlags::VideoVlcEffect::BUMP && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
 	{
 		// Bump Effect
 		float bump = sin((MATHPI / 2.0) * mFadeIn) + sin(MATHPI * mFadeIn) / 2.0;
@@ -449,11 +451,11 @@ void VideoVlcComponent::startVideo()
 					}
 				}
 #endif
-
+				
 				if (Settings::getInstance()->getBool("OptimizeVideo") && !mTargetSize.empty())
 				{
 					// If video is bigger than display, ask VLC for a smaller image
-					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()));
+					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()), mTargetIsMin);
 					if (sz.x() < mVideoWidth || sz.y() < mVideoHeight)
 					{
 						mVideoWidth = sz.x();
@@ -504,4 +506,20 @@ void VideoVlcComponent::stopVideo()
 		
 	freeContext();
 	PowerSaver::resume();	
+}
+
+void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
+{
+	VideoComponent::applyTheme(theme, view, element, properties);
+
+	using namespace ThemeFlags;
+
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
+	if (elem && elem->has("effect"))
+	{
+		if (!(elem->get<std::string>("effect").compare("bump")))
+			mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
+		else
+			mEffect = VideoVlcFlags::VideoVlcEffect::NONE;
+	}
 }

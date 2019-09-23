@@ -28,6 +28,16 @@ struct VideoContext
 	bool				hasFrame;
 };
 
+
+namespace VideoVlcFlags
+{
+	enum VideoVlcEffect
+	{
+		NONE,
+		BUMP
+	};
+}
+
 class VideoVlcComponent : public VideoComponent
 {
 	// Structure that groups together the configuration of the video component
@@ -59,6 +69,8 @@ public:
 	void setMaxSize(float width, float height);
 	void setMinSize(float width, float height);
 
+	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
+
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
@@ -75,6 +87,8 @@ private:
 	void setupContext();
 	void freeContext();
 
+	void setEffect(VideoVlcFlags::VideoVlcEffect effect) { mEffect = effect; }
+
 private:
 	static libvlc_instance_t*		mVLC;
 	libvlc_media_t*					mMedia;
@@ -84,6 +98,8 @@ private:
 
 	std::string					    mSubtitlePath;
 	std::string					    mSubtitleTmpFile;
+
+	VideoVlcFlags::VideoVlcEffect	mEffect;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

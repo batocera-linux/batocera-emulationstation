@@ -39,6 +39,15 @@ public:
 
 	float getButtonGridHeight() const;
 
+	void setMaxHeight(float maxHeight) 
+	{ 
+		if (mMaxHeight == maxHeight)
+			return;
+
+		mMaxHeight = maxHeight; 
+		updateSize();
+	}
+
 private:
 	void updateSize();
 	void updateGrid();
@@ -50,6 +59,8 @@ private:
 	std::shared_ptr<ComponentList> mList;
 	std::shared_ptr<ComponentGrid> mButtonGrid;
 	std::vector< std::shared_ptr<ButtonComponent> > mButtons;
+
+	float mMaxHeight;
 };
 
 #endif // ES_CORE_COMPONENTS_MENU_COMPONENT_H

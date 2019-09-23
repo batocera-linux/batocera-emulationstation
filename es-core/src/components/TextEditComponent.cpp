@@ -10,11 +10,18 @@
 #define CURSOR_REPEAT_START_DELAY 500
 #define CURSOR_REPEAT_SPEED 28 // lower is faster
 
+#define BLINKTIME	1000
+
 TextEditComponent::TextEditComponent(Window* window) : GuiComponent(window),
 	mBox(window, ":/textinput_ninepatch.png"), mFocused(false), 
 	mScrollOffset(0.0f, 0.0f), mCursor(0), mEditing(false), mFont(Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT)), 
 	mCursorRepeatDir(0)
 {
+	mBlinkTime = 0;
+
+	auto theme = ThemeData::getMenuTheme();
+	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch);
+
 	addChild(&mBox);
 	
 	onFocusLost();
@@ -25,13 +32,13 @@ TextEditComponent::TextEditComponent(Window* window) : GuiComponent(window),
 void TextEditComponent::onFocusGained()
 {
 	mFocused = true;
-	mBox.setImagePath(":/textinput_ninepatch_active.png");
+	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch_active);	
 }
 
 void TextEditComponent::onFocusLost()
 {
 	mFocused = false;
-	mBox.setImagePath(":/textinput_ninepatch.png");
+	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch);
 }
 
 void TextEditComponent::onSizeChanged()
@@ -89,7 +96,7 @@ void TextEditComponent::stopEditing()
 }
 
 bool TextEditComponent::input(InputConfig* config, Input input)
-{
+{	
 	bool const cursor_left = (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("left", input)) ||
 		(config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_LEFT);
 	bool const cursor_right = (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("right", input)) ||
@@ -137,10 +144,12 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 			// TODO
 		}else if(cursor_left || cursor_right)
 		{
+			mBlinkTime = 0;
 			mCursorRepeatDir = cursor_left ? -1 : 1;
 			mCursorRepeatTimer = -(CURSOR_REPEAT_START_DELAY - CURSOR_REPEAT_SPEED);
 			moveCursor(mCursorRepeatDir);
-		} else if(config->getDeviceId() == DEVICE_KEYBOARD)
+		} 
+		else if(config->getDeviceId() == DEVICE_KEYBOARD)
 		{
 			switch(input.id)
 			{
@@ -172,6 +181,10 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 
 void TextEditComponent::update(int deltaTime)
 {
+	mBlinkTime += deltaTime;
+	if (mBlinkTime >= BLINKTIME)
+		mBlinkTime = 0;
+
 	updateCursorRepeat(deltaTime);
 	GuiComponent::update(deltaTime);
 }
@@ -276,13 +289,19 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 		if(isMultiline())
 		{
 			cursorPos = mFont->getWrappedTextCursorOffset(mText, getTextAreaSize().x(), mCursor);
-		}else{
+		}
+		else
+		{
 			cursorPos = mFont->sizeText(mText.substr(0, mCursor));
 			cursorPos[1] = 0;
 		}
 
-		float cursorHeight = mFont->getHeight() * 0.8f;
-		Renderer::drawRect(cursorPos.x(), cursorPos.y() + (mFont->getHeight() - cursorHeight) / 2, 2.0f, cursorHeight, 0x000000FF, 0x000000FF);
+		if (mBlinkTime < BLINKTIME / 2)
+		{
+			float cursorHeight = mFont->getHeight() * 0.8f;
+			auto cursorColor = (ThemeData::getMenuTheme()->Text.color & 0xFFFFFF00) | getOpacity();
+			Renderer::drawRect(cursorPos.x(), cursorPos.y() + (mFont->getHeight() - cursorHeight) / 2, 2.0f, cursorHeight, cursorColor, cursorColor); // 0x000000FF
+		}
 	}
 }
 

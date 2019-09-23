@@ -192,7 +192,21 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 			dir[0 ^ idx] = -1;
 		else if(config->isMappedLike("right", input))
 			dir[0 ^ idx] = 1;
-
+		else  if (config->isMappedTo("pageup", input))
+		{
+			if (isVertical())
+				dir[1 ^ idx] = -10;
+			else
+				dir[0 ^ idx] = -10;
+		}
+		else if (config->isMappedTo("pagedown", input))
+		{
+			if (isVertical())
+				dir[1 ^ idx] = 10;
+			else
+				dir[0 ^ idx] = 10;
+		}
+		
 		if(dir != Vector2i::Zero())
 		{
 			if (isVertical())
@@ -203,7 +217,9 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 			return true;
 		}
 	}else{
-		if(config->isMappedLike("up", input) || config->isMappedLike("down", input) || config->isMappedLike("left", input) || config->isMappedLike("right", input))
+		if(config->isMappedLike("up", input) || config->isMappedLike("down", input) || 
+			config->isMappedLike("left", input) || config->isMappedLike("right", input) ||
+			config->isMappedTo("pagedown", input) || config->isMappedTo("pageup", input))
 		{
 			stopScrolling();
 		}

@@ -24,7 +24,8 @@ public:
 
 private:
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
-
+	
+	void addTextFilterToMenu();
 	void openGamelistFilter();
 	void openMetaDataEd();
 	void startEditMode();
@@ -38,6 +39,8 @@ private:
 
 	typedef OptionListComponent<unsigned int> SortList;
 	std::shared_ptr<SortList> mListSort;
+
+	std::shared_ptr<GuiComponent> mTextFilter;
 
 	std::shared_ptr<OptionListComponent<std::string>> mViewMode;
 	std::shared_ptr<OptionListComponent<std::string>> mGridSize;

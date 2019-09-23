@@ -5,6 +5,7 @@
 #include "utils/StringUtil.h"
 #include "AudioManager.h"
 #include "Settings.h"
+#include "math/Misc.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <wait.h>
@@ -118,40 +119,40 @@ void VideoPlayerComponent::startVideo()
 				{
 					case 0:
 					{
-						const int x1 = (int)(Renderer::getScreenOffsetX() + x);
-						const int y1 = (int)(Renderer::getScreenOffsetY() + y);
-						const int x2 = (int)(x1 + mSize.x());
-						const int y2 = (int)(y1 + mSize.y());
+						const int x1 = (int)Math::round(Renderer::getScreenOffsetX() + x);
+						const int y1 = (int)Math::round(Renderer::getScreenOffsetY() + y);
+						const int x2 = (int)Math::round(x1 + mSize.x());
+						const int y2 = (int)Math::round(y1 + mSize.y());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 1:
 					{
-						const int x1 = (int)(Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
-						const int y1 = (int)(Renderer::getScreenOffsetX() + x);
-						const int x2 = (int)(x1 + mSize.y());
-						const int y2 = (int)(y1 + mSize.x());
+						const int x1 = (int)Math::round((Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
+						const int y1 = (int)Math::round(Renderer::getScreenOffsetX() + x);
+						const int x2 = (int)Math::round(x1 + mSize.y());
+						const int y2 = (int)Math::round(y1 + mSize.x());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 2:
 					{
-						const int x1 = (int)(Renderer::getScreenWidth()  - Renderer::getScreenOffsetX() - x - mSize.x());
-						const int y1 = (int)(Renderer::getScreenHeight() - Renderer::getScreenOffsetY() - y - mSize.y());
-						const int x2 = (int)(x1 + mSize.x());
-						const int y2 = (int)(y1 + mSize.y());
+						const int x1 = (int)Math::round(Renderer::getScreenWidth()  - Renderer::getScreenOffsetX() - x - mSize.x());
+						const int y1 = (int)Math::round(Renderer::getScreenHeight() - Renderer::getScreenOffsetY() - y - mSize.y());
+						const int x2 = (int)Math::round(x1 + mSize.x());
+						const int y2 = (int)Math::round(y1 + mSize.y());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
 
 					case 3:
 					{
-						const int x1 = (int)(Renderer::getScreenOffsetY() + y);
-						const int y1 = (int)(Renderer::getScreenHeight() - Renderer::getScreenOffsetX() - x - mSize.x());
-						const int x2 = (int)(x1 + mSize.y());
-						const int y2 = (int)(y1 + mSize.x());
+						const int x1 = (int)Math::round(Renderer::getScreenOffsetY() + y);
+						const int y1 = (int)Math::round(Renderer::getScreenHeight() - Renderer::getScreenOffsetX() - x - mSize.x());
+						const int x2 = (int)Math::round(x1 + mSize.y());
+						const int y2 = (int)Math::round(y1 + mSize.x());
 						sprintf(buf1, "%d,%d,%d,%d", x1, y1, x2, y2);
 					}
 					break;
@@ -169,7 +170,8 @@ void VideoPlayerComponent::startVideo()
 				// We need to specify the layer of 10000 or above to ensure the video is displayed on top
 				// of our SDL display
 
-				const char* argv[] = { "", "--layer", "10010", "--loop", "--no-osd", "--aspect-mode", "letterbox", "--vol", "0", "-o", "both","--win", buf1, "--orientation", buf2, "", "", "", "", "", "", "", "", "", "", "", NULL };
+				//const char* argv[] = { "", "--layer", "10010", "--loop", "--no-osd", "--aspect-mode", "letterbox", "--vol", "0", "-o", "both","--win", buf1, "--orientation", buf2, "", "", "", "", "", "", "", "", "", "", "", NULL };
+				const char* argv[] = { "", "--layer", "10010", "--loop", "--no-osd", "--aspect-mode", "letterbox", "--vol", "0", "-o", "both","--win", buf1, "--orientation", buf2, "", "", "", "", NULL };
 
 				// check if we want to mute the audio
 				if (!Settings::getInstance()->getBool("VideoAudio") || (float)VolumeControl::getInstance()->getVolume() == 0)
@@ -200,6 +202,7 @@ void VideoPlayerComponent::startVideo()
 						argv[15] = "--subtitles";
 						argv[16] = subtitlePath.c_str();
 						argv[17] = mPlayingVideoPath.c_str();
+						/*
 						argv[18] = "--font";
 						argv[19] = Settings::getInstance()->getString("SubtitleFont").c_str();
 						argv[20] = "--italic-font";
@@ -207,7 +210,7 @@ void VideoPlayerComponent::startVideo()
 						argv[22] = "--font-size";
 						argv[23] = std::to_string(Settings::getInstance()->getInt("SubtitleSize")).c_str();
 						argv[24] = "--align";
-						argv[25] = Settings::getInstance()->getString("SubtitleAlignment").c_str();
+						argv[25] = Settings::getInstance()->getString("SubtitleAlignment").c_str();*/
 					}
 					else
 					{

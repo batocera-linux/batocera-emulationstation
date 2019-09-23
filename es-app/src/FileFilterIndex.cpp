@@ -296,6 +296,11 @@ void FileFilterIndex::debugPrintIndexes()
 	}
 }
 
+void FileFilterIndex::setTextFilter(const std::string text) 
+{ 
+	mTextFilter = Utils::String::toUpper(text);
+}
+
 bool FileFilterIndex::showFile(FileData* game)
 {
 	// this shouldn't happen, but just in case let's get it out of the way
@@ -318,6 +323,9 @@ bool FileFilterIndex::showFile(FileData* game)
 	}
 
 	bool keepGoing = false;
+
+	if (!mTextFilter.empty() && Utils::String::toUpper(game->getName()).find(mTextFilter) != std::string::npos)
+		keepGoing = true;
 
 	for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it ) {
 		FilterDataDecl filterData = (*it);

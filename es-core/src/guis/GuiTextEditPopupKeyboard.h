@@ -13,7 +13,7 @@ public:
 		const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText = "OK");
 
 	bool input(InputConfig* config, Input input);
-	void update(int deltatime) override;
+	//void update(int deltatime) override;
 	void onSizeChanged();
 	std::vector<HelpPrompt> getHelpPrompts() override;
 

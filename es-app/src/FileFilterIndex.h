@@ -42,7 +42,7 @@ public:
 	void clearAllFilters();
 	void debugPrintIndexes();
 	bool showFile(FileData* game);
-	bool isFiltered() { return (filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByHidden || filterByKidGame); };
+	bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByHidden || filterByKidGame); };
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl>& getFilterDataDecls();
 
@@ -50,6 +50,9 @@ public:
 	void resetIndex();
 	void resetFilters();
 	void setUIModeFilters();
+
+	void setTextFilter(const std::string text);
+	inline const std::string getTextFilter() { return mTextFilter; }
 
 private:
 	std::vector<FilterDataDecl> filterDataDecl;
@@ -92,6 +95,8 @@ private:
 	std::vector<std::string> kidGameIndexFilteredKeys;
 
 	FileData* mRootFolder;
+
+	std::string mTextFilter;
 
 };
 
