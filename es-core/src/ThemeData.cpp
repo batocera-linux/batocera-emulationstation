@@ -184,8 +184,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "default", PATH },
 		{ "path", PATH },
 		{ "delay", FLOAT },
+		{ "effect", STRING },
 	 	{ "visible", BOOLEAN },
-	 	{ "zIndex", FLOAT },
+	 	{ "zIndex", FLOAT },		
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {

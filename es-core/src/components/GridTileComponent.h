@@ -78,6 +78,9 @@ public:
 private:
 	void	resetProperties();
 	void	createVideo();
+	
+	void	startVideo();
+	void	stopVideo();
 
 	void resize();
 	GridTileProperties getCurrentProperties();
