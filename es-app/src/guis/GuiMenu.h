@@ -45,7 +45,7 @@ public:
 	static void openQuitMenu_batocera_static(Window *window, bool forceWin32Menu=false); // batocera
 
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);
-	static void popGameConfigurationGui(Window* mWindow, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
+	static void popGameConfigurationGui(Window* mWindow, std::string title, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
 
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");

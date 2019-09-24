@@ -2217,8 +2217,9 @@ void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData *systemData,
   popSpecificConfigurationGui(mWindow, systemData->getFullName(), systemData->getName(), systemData, previouslySelectedEmulator);
 }
 
-void GuiMenu::popGameConfigurationGui(Window* mWindow, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator) {
-  popSpecificConfigurationGui(mWindow, romFilename, romFilename, systemData, previouslySelectedEmulator);
+void GuiMenu::popGameConfigurationGui(Window* mWindow, std::string title, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator)
+{
+  popSpecificConfigurationGui(mWindow, title, romFilename, systemData, previouslySelectedEmulator);
 }
 
 void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator) {
