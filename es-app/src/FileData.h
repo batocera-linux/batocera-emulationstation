@@ -56,6 +56,8 @@ public:
 	virtual const bool getFavorite();
 	virtual const bool getKidGame();
 
+	const std::string FileData::getConfigurationName();
+
 	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };
 
 	virtual inline void refreshMetadata() { return; };

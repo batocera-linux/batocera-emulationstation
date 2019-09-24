@@ -40,6 +40,15 @@ const std::string FileData::getPath() const
 	return Utils::FileSystem::resolveRelativePath(mPath, getSystemEnvData()->mStartPath, true);	
 }
 
+const std::string FileData::getConfigurationName()
+{
+	std::string gameConf = Utils::FileSystem::getFileName(getPath());
+	gameConf = Utils::String::replace(gameConf, "=", "");
+	gameConf = Utils::String::replace(gameConf, "#", "");
+	gameConf = getSourceFileData()->getSystem()->getName() + std::string("[\"") + gameConf + std::string("\"]");
+	return gameConf;
+}
+
 inline SystemEnvironmentData* FileData::getSystemEnvData() const
 { 
 	return mSystem->getSystemEnvData(); 
@@ -225,7 +234,7 @@ void FileData::launchGame(Window* window)
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 	
-	std::string emulator = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".emulator");
+	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
 	if (emulator.length() == 0)		
 		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");
 
@@ -236,7 +245,7 @@ void FileData::launchGame(Window* window)
 			emulator = emul->begin()->first;
 	}
 
-	std::string core = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".core");
+	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");
 	if (core.length() == 0)
 		core = SystemConf::getInstance()->get(mSystem->getName() + ".core");
 
