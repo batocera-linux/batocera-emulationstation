@@ -10,23 +10,27 @@
 #include <iostream> // batocera
 
 class Sound;
+class ThemeData;
 
 class AudioManager
 {	
-	static std::vector<std::shared_ptr<Sound>> sSoundVector;
-	static AudioManager* sInstance;
-
+private:
 	AudioManager();
 
+	static std::vector<std::shared_ptr<Sound>> sSoundVector;
+	static AudioManager* sInstance;
+	
 	Mix_Music* mCurrentMusic; // batocera
 	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
 	void playMusic(std::string path);
-	static void musicEnd_callback(); // batocera
+	static void musicEnd_callback();	// batocera
 
-	std::string mSystem = ""; // batocera (per system music folder)
-	std::string mCurrentSong = ""; // batocera (pop-up for SongName.cpp)
+	std::string mSystemName;				// batocera (per system music folder)
+	std::string mCurrentSong;			// batocera (pop-up for SongName.cpp)
+	std::string mCurrentThemeMusicDirectory;
 
-	bool mInitialized;
+	bool		mInitialized;
+	std::string	mPlayingSystemThemeSong;
 
 public:
 	static AudioManager* getInstance();
@@ -44,10 +48,11 @@ public:
 	// batocera
 	void playRandomMusic(bool continueIfPlaying = true);
 	void stopMusic(bool fadeOut=true);
-	inline const std::string getName() const { return mSystem; }
+	
 	inline const std::string getSongName() const { return mCurrentSong; }
 	void setSongName(std::string song); 
-	void setName(std::string name);
+
+	void changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force = false);
 
 	virtual ~AudioManager();
 };

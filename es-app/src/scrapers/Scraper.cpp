@@ -144,28 +144,32 @@ std::unique_ptr<MDResolveHandle> resolveMetaDataAssets(const ScraperSearchResult
 
 MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const ScraperSearchParams& search) : mResult(result)
 {
-	if(!result.imageUrl.empty())
+	std::string ext;
+
+	// If we have a file extension returned by the scraper, then use it.
+	// Otherwise, try to guess it by the name of the URL, which point to an image.
+	if (!result.imageType.empty())
 	{
+		ext = result.imageType;
+	}
+	else 
+	{
+		size_t dot = result.imageUrl.find_last_of('.');
 
-		std::string ext;
+		if (dot != std::string::npos)
+			ext = result.imageUrl.substr(dot, std::string::npos);
+	}
+	
+	if (!result.imageUrl.empty())
+	{
+		std::string imgPath = getSaveAsPath(search, "image", ext);
 
-		// If we have a file extension returned by the scraper, then use it.
-		// Otherwise, try to guess it by the name of the URL, which point to an image.
-		if (!result.imageType.empty()) 
-		{
-			ext = result.imageType;
-		}else{
-			size_t dot = result.imageUrl.find_last_of('.');
-
-			if (dot != std::string::npos)
-				ext = result.imageUrl.substr(dot, std::string::npos);
-		}
-
-		if (!result.imageUrl.empty())
-		{
-			std::string imgPath = getSaveAsPath(search, "image", ext);
-
-			mFuncs.push_back(ResolvePair(downloadImageAsync(result.imageUrl, imgPath), [this, imgPath]
+		mFuncs.push_back(new ResolvePair(
+			[this, result, imgPath] 
+			{ 
+				return downloadImageAsync(result.imageUrl, imgPath); 
+			},
+			[this, imgPath]
 			{
 				mResult.mdl.set("image", imgPath);
 
@@ -173,41 +177,65 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 					mResult.thumbnailUrl = "";
 
 				mResult.imageUrl = "";
-			}));
-		}
+			}, "IMAGE", result.mdl.getName()));
+	}
 
-		if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
-		{
-			std::string thumbPath = getSaveAsPath(search, "thumb", ext);
+	if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
+	{
+		std::string thumbPath = getSaveAsPath(search, "thumb", ext);
 
-			mFuncs.push_back(ResolvePair(downloadImageAsync(result.thumbnailUrl, thumbPath), [this, thumbPath]
+		mFuncs.push_back(new ResolvePair(
+			[this, result, thumbPath]
+			{
+				return downloadImageAsync(result.thumbnailUrl, thumbPath);
+			},
+			[this, thumbPath]
 			{
 				mResult.mdl.set("thumbnail", thumbPath);
 				mResult.thumbnailUrl = "";
-			}));
-		}
+			}, "THUMBNAIL", result.mdl.getName()));
+	}
 
-		if (!result.marqueeUrl.empty())
-		{
-			std::string marqueePath = getSaveAsPath(search, "marquee", ext);
+	if (!result.marqueeUrl.empty())
+	{
+		std::string marqueePath = getSaveAsPath(search, "marquee", ext);
 
-			mFuncs.push_back(ResolvePair(downloadImageAsync(result.marqueeUrl, marqueePath), [this, marqueePath]
+		mFuncs.push_back(new ResolvePair(
+			[this, result, marqueePath]
+			{
+				return downloadImageAsync(result.marqueeUrl, marqueePath);
+			}, 
+			[this, marqueePath]
 			{
 				mResult.mdl.set("marquee", marqueePath);
 				mResult.marqueeUrl = "";
-			}));
-		}
+			}, "MARQUEE", result.mdl.getName()));
+	}
 
-		if (!result.videoUrl.empty())
-		{
-			std::string videoPath = getSaveAsPath(search, "video", ".mp4");
+	if (!result.videoUrl.empty())
+	{
+		std::string videoPath = getSaveAsPath(search, "video", ".mp4");
 
-			mFuncs.push_back(ResolvePair(downloadImageAsync(result.videoUrl, videoPath), [this, videoPath]
+		mFuncs.push_back(new ResolvePair(
+			[this, result, videoPath]
+			{
+				return downloadImageAsync(result.videoUrl, videoPath);
+			},
+			[this, videoPath]
 			{
 				mResult.mdl.set("video", videoPath);
 				mResult.videoUrl = "";
-			}));
-		}
+			}, "VIDEO", result.mdl.getName()));
+	}
+
+	auto it = mFuncs.cbegin();
+	if (it == mFuncs.cend())
+		setStatus(ASYNC_DONE);
+	else
+	{
+		mSource = (*it)->source;
+		mCurrentItem = (*it)->name;
+		(*it)->Run();		
 	}
 }
 
@@ -217,21 +245,37 @@ void MDResolveHandle::update()
 		return;
 	
 	auto it = mFuncs.cbegin();
-	while(it != mFuncs.cend())
+	if (it == mFuncs.cend())
 	{
-		if(it->first->status() == ASYNC_ERROR)
-		{
-			setError(it->first->getStatusString());
-			return;
-		}else if(it->first->status() == ASYNC_DONE)
-		{
-			it->second();
-			it = mFuncs.erase(it);
-			continue;
-		}
-		it++;
+		setStatus(ASYNC_DONE);
+		return;
 	}
 
+	ResolvePair* pPair = (*it);
+		
+	if (pPair->handle->status() == ASYNC_ERROR)
+	{
+		setError(pPair->handle->getStatusString());
+		for (auto fc : mFuncs)
+			delete fc;
+
+		return;
+	}
+	else if (pPair->handle->status() == ASYNC_DONE)
+	{
+		pPair->onFinished();
+		mFuncs.erase(it);
+		delete pPair;
+
+		auto next = mFuncs.cbegin();
+		if (next != mFuncs.cend())
+		{
+			mSource = (*next)->source;
+			mCurrentItem = (*next)->name;
+			(*next)->Run();
+		}
+	}
+	
 	if(mFuncs.empty())
 		setStatus(ASYNC_DONE);
 }

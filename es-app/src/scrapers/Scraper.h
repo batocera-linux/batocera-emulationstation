@@ -136,13 +136,48 @@ public:
 	MDResolveHandle(const ScraperSearchResult& result, const ScraperSearchParams& search);
 
 	void update() override;
-	inline const ScraperSearchResult& getResult() const { assert(mStatus == ASYNC_DONE); return mResult; }
+	inline const ScraperSearchResult& getResult() const { return mResult; } //  assert(mStatus == ASYNC_DONE); -> FCA : Why ???
+
+	std::string getCurrentItem() {
+		return mCurrentItem;
+	}
+
+	std::string getCurrentSource() {
+		return mSource;
+	}
 
 private:
 	ScraperSearchResult mResult;
 
-	typedef std::pair< std::unique_ptr<AsyncHandle>, std::function<void()> > ResolvePair;
-	std::vector<ResolvePair> mFuncs;
+	class ResolvePair
+	{	
+	public:
+		ResolvePair(std::function<std::unique_ptr<AsyncHandle>()> _invoker, std::function<void()> _function, std::string _name, std::string _source)
+		{
+			func = _invoker;
+			onFinished = _function;
+			name = _name;
+			source = _source;
+		}
+
+		void Run()
+		{
+			handle = func();
+		}
+	
+		std::function<void()> onFinished;
+		std::string name;
+		std::string source;
+
+		std::unique_ptr<AsyncHandle> handle;
+
+	private:
+		std::function<std::unique_ptr<AsyncHandle>()> func;
+	};
+
+	std::vector<ResolvePair*> mFuncs;
+	std::string mCurrentItem;
+	std::string mSource;
 };
 
 class ImageDownloadHandle : public AsyncHandle

@@ -500,7 +500,7 @@ int main(int argc, char* argv[])
 	if (fd != NULL) { fclose(fd); }
 
 	// batocera, play music
-	AudioManager::getInstance()->playRandomMusic();
+//	AudioManager::getInstance()->playRandomMusic();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();

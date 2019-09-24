@@ -432,17 +432,22 @@ void ScreenScraperRequest::processList(const pugi::xml_document& xmldoc, std::ve
 
 		game = game.next_sibling("jeu");
 	}
-
-
 }
 
 std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName) const
 {
-	return API_URL_BASE
+	std::string ret =  API_URL_BASE
 		+ "/jeuInfos.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
 		+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
 		+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
 		+ "&output=xml"
 		+ "&romnom=" + HttpReq::urlEncode(gameName);
 
+	std::string user = Settings::getInstance()->getString("ScreenScraperUser");
+	std::string pass = Settings::getInstance()->getString("ScreenScraperPass");
+
+	if (!user.empty() && !pass.empty())
+		ret = ret + "&ssid=" + HttpReq::urlEncode(user) + "&sspassword=" + HttpReq::urlEncode(pass);
+
+	return ret;
 }

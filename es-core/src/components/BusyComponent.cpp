@@ -50,8 +50,12 @@ void BusyComponent::setText(std::string txt)
 {
 	if (SDL_LockMutex(mutex) == 0)
 	{
-		threadMessage = txt;
-		threadMessagechanged = true;
+		if (threadMessage != txt)
+		{
+			threadMessage = txt;
+			threadMessagechanged = true;
+		}
+
 		SDL_UnlockMutex(mutex);
 	}
 }

@@ -27,6 +27,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void setColor(unsigned int color);
 
+	inline void setOnValueChanged(const std::function<void(const float&)>& callback) { mValueChanged = callback; }
+
 private:
 	void onValueChanged();
 
@@ -42,6 +44,8 @@ private:
 	std::string mSuffix;
 	std::shared_ptr<Font> mFont;
 	std::shared_ptr<TextCache> mValueCache;
+
+	std::function<void(const float&)> mValueChanged;
 };
 
 #endif // ES_CORE_COMPONENTS_SLIDER_COMPONENT_H

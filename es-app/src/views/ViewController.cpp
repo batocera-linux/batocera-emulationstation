@@ -161,23 +161,16 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	mState.viewing = GAME_LIST;
 	mState.system = system;
 
-        // batocera
-        if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0") {
-		if (AudioManager::getInstance()->getName() != system->getName()) {
-			AudioManager::getInstance()->setName(system->getName());
-			AudioManager::getInstance()->playRandomMusic(0);
-		}
-	}
-
 	if (mCurrentView)
-	{
 		mCurrentView->onHide();
-	}
+
 	mCurrentView = getGameListView(system);
+	
 	if (mCurrentView)
-	{
-		mCurrentView->onShow();
-	}
+		mCurrentView->onShow();	
+
+	AudioManager::getInstance()->changePlaylist(system->getTheme());
+
 	playViewTransition(forceImmediate);
 }
 
