@@ -8,6 +8,7 @@
 #include "utils/StringUtil.h"
 #include "SystemConf.h"
 #include "id3v2lib/include/id3v2lib.h"
+#include "ThemeData.h"
 
 #ifdef WIN32
 #include <time.h>
@@ -49,6 +50,8 @@ void AudioManager::init()
 {
 	if (mInitialized)
 		return;
+	
+	mPlayingSystemThemeSong = "none";
 
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
@@ -131,12 +134,6 @@ void AudioManager::stop()
 			sSoundVector[i]->stop();
 }
 
-// batocera - per system music folder
-void AudioManager::setName(std::string newname)
-{
-	mSystem = newname;
-}
-
 // batocera
 void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files)
 {
@@ -153,7 +150,7 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 			if (*it == "." || *it == "..")
 				continue;
 
-			if (anySystem || mSystem == Utils::FileSystem::getFileName(*it))
+			if (anySystem || mSystemName == Utils::FileSystem::getFileName(*it))
 				getMusicIn(*it, all_matching_files);
 		}
 		else
@@ -168,12 +165,18 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 // batocera
 void AudioManager::playRandomMusic(bool continueIfPlaying) 
 {
-	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+	if (!Settings::getInstance()->getBool("audio.bgmusic"))
 		return;
+		
+	std::vector<std::string> musics;
+
+	// check in Theme music directory
+	if (!mCurrentThemeMusicDirectory.empty())
+		getMusicIn(mCurrentThemeMusicDirectory, musics);
 
 	// check in User music directory
-	std::vector<std::string> musics;
-	getMusicIn("/userdata/music", musics);
+	if (musics.empty())
+		getMusicIn("/userdata/music", musics);
 
 	// check in system sound directory
 	if (musics.empty())
@@ -199,8 +202,8 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 		return;
 
 	playMusic(musics.at(randomIndex));
-
 	setSongName(musics.at(randomIndex));
+	mPlayingSystemThemeSong = "";
 }
 
 void AudioManager::playMusic(std::string path)
@@ -211,7 +214,7 @@ void AudioManager::playMusic(std::string path)
 	// free the previous music
 	stopMusic(false);
 
-	if (SystemConf::getInstance()->get("audio.bgmusic") == "0")
+	if (!Settings::getInstance()->getBool("audio.bgmusic"))
 		return;
 
 	// load a new music
@@ -234,6 +237,12 @@ void AudioManager::playMusic(std::string path)
 // batocera
 void AudioManager::musicEnd_callback()
 {
+	if (!AudioManager::getInstance()->mPlayingSystemThemeSong.empty())
+	{
+		AudioManager::getInstance()->playMusic(AudioManager::getInstance()->mPlayingSystemThemeSong);
+		return;
+	}
+
 	AudioManager::getInstance()->playRandomMusic(false);
 }
 
@@ -326,3 +335,42 @@ void AudioManager::setSongName(std::string song)
 
 	mCurrentSong = Utils::FileSystem::getStem(song.c_str());
 }
+
+void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force)
+{
+	if (!force && mSystemName == theme->getSystemThemeFolder())
+		return;
+
+	mSystemName = theme->getSystemThemeFolder();
+	mCurrentThemeMusicDirectory = "";
+
+	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+		return;
+
+	const ThemeData::ThemeElement* elem = theme->getElement("system", "directory", "sound");
+
+	if (Settings::getInstance()->getBool("audio.thememusics"))
+	{
+		if (elem && elem->has("path") && !Settings::getInstance()->getBool("audio.persystem"))
+			mCurrentThemeMusicDirectory = elem->get<std::string>("path");
+
+		std::string bgSound;
+
+		elem = theme->getElement("system", "bgsound", "sound");
+		if (elem && elem->has("path") && Utils::FileSystem::exists(elem->get<std::string>("path")))
+			bgSound = elem->get<std::string>("path");
+
+		// Found a music for the system
+		if (!bgSound.empty())
+		{
+			mPlayingSystemThemeSong = bgSound;
+			playMusic(bgSound);
+			// setSongName(bgSound); ???
+			return;
+		}
+	}
+	
+	if (force || !mPlayingSystemThemeSong.empty() || Settings::getInstance()->getBool("audio.persystem"))
+		playRandomMusic(false);
+}
+

@@ -735,7 +735,7 @@ void GuiMenu::openSystemSettings_batocera()
 			}
 
 			if (reboot)
-				window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+				window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		});
 		mWindow->pushGui(securityGui);
 	});
@@ -760,7 +760,7 @@ void GuiMenu::openSystemSettings_batocera()
 			reboot = true;
 		}
 		if (reboot)
-			window->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));		
+			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 
 	});
 
@@ -1504,7 +1504,7 @@ void GuiMenu::openUISettings()
 		if (optionsVideo->changed()) {
 			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 			SystemConf::getInstance()->saveSystemConf();
-			mWindow->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		}
 	});
 #endif
@@ -1657,7 +1657,7 @@ void GuiMenu::openUISettings()
 	});
 
 	// screensaver time
-	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 30.f, 1.f, "m");
+	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 120.f, 1.f, "m");
 	screensaver_time->setValue(
 		(float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
 	s->addWithLabel(_("SCREENSAVER AFTER"), screensaver_time);
@@ -1818,16 +1818,16 @@ void GuiMenu::openSoundSettings()
 	// volume
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
 	volume->setValue((float)VolumeControl::getInstance()->getVolume());
+	volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
 	s->addWithLabel(_("SYSTEM VOLUME"), volume);
-	s->addSaveFunc([volume] { VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue())); });
 
 	// disable sounds
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
-	music_enabled->setState(!(SystemConf::getInstance()->get("audio.bgmusic") == "0"));
+	music_enabled->setState(Settings::getInstance()->getBool("audio.bgmusic"));
 	s->addWithLabel(_("FRONTEND MUSIC"), music_enabled);
 	s->addSaveFunc([music_enabled] 
 	{
-		if (SystemConf::getInstance()->set("audio.bgmusic", music_enabled->getState() ? "1" : "0"))
+		if (Settings::getInstance()->setBool("audio.bgmusic", music_enabled->getState()))
 		{
 			if (music_enabled->getState())
 				AudioManager::getInstance()->playRandomMusic();
@@ -1838,33 +1838,36 @@ void GuiMenu::openSoundSettings()
 
 	// batocera - display music titles
 	auto display_titles = std::make_shared<SwitchComponent>(mWindow);
-	display_titles->setState((SystemConf::getInstance()->get("audio.display_titles") == "1"));
+	display_titles->setState(Settings::getInstance()->getBool("audio.display_titles"));
 	s->addWithLabel(_("DISPLAY SONG TITLES"), display_titles);
 	s->addSaveFunc([display_titles] {
-		SystemConf::getInstance()->set("audio.display_titles", display_titles->getState() ? "1" : "0");
+		Settings::getInstance()->setBool("audio.display_titles", display_titles->getState());
 	});
 
 	// batocera - how long to display the song titles?
-	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 300.f, 2.f, "s");
-	std::string currentTitlesTime = SystemConf::getInstance()->get("audio.display_titles_time");
-	if (currentTitlesTime.empty())
-		currentTitlesTime = std::string("10");
-	// Check if the string we got has only digits, otherwise throw a default value
-	bool has_only_digits = (currentTitlesTime.find_first_not_of("0123456789") == std::string::npos);
-	if (!has_only_digits)
-		currentTitlesTime = std::string("10");
-	titles_time->setValue((float)std::stoi(currentTitlesTime));
+	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
+	titles_time->setValue(Settings::getInstance()->getInt("audio.display_titles_time"));
 	s->addWithLabel(_("HOW MANY SECONDS FOR SONG TITLES"), titles_time);
 	s->addSaveFunc([titles_time] {
-		SystemConf::getInstance()->set("audio.display_titles_time", std::to_string((int)round(titles_time->getValue())));
+		Settings::getInstance()->setInt("audio.display_titles_time", (int)Math::round(titles_time->getValue()));
 	});
 
 	// batocera - music per system
 	auto music_per_system = std::make_shared<SwitchComponent>(mWindow);
-	music_per_system->setState(!(SystemConf::getInstance()->get("audio.persystem") == "0"));
+	music_per_system->setState(Settings::getInstance()->getBool("audio.persystem"));
 	s->addWithLabel(_("ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"), music_per_system);
 	s->addSaveFunc([music_per_system] {
-		SystemConf::getInstance()->set("audio.persystem", music_per_system->getState() ? "1" : "0");
+		if (Settings::getInstance()->setBool("audio.persystem", music_per_system->getState()))
+			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
+	});
+
+	// batocera - music per system
+	auto enableThemeMusics = std::make_shared<SwitchComponent>(mWindow);
+	enableThemeMusics->setState(Settings::getInstance()->getBool("audio.thememusics"));
+	s->addWithLabel(_("PLAY THEME MUSICS"), enableThemeMusics);
+	s->addSaveFunc([enableThemeMusics] {
+		if (Settings::getInstance()->setBool("audio.thememusics", enableThemeMusics->getState()))
+			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
 	});
 
 	// disable sounds
@@ -1941,7 +1944,7 @@ void GuiMenu::openSoundSettings()
 		}
 		SystemConf::getInstance()->saveSystemConf();
 		if (v_need_reboot)
-			mWindow->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	});
 #endif
 

@@ -148,6 +148,9 @@ void SliderComponent::onValueChanged()
 	mKnob.setResize(0, mSize.y() * 0.7f);
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
 	mKnob.setPosition(((mValue + mMin) / mMax) * lineLength + mKnob.getSize().x()/2, mSize.y() / 2);
+
+	if (mValueChanged)
+		mValueChanged(mValue);
 }
 
 std::vector<HelpPrompt> SliderComponent::getHelpPrompts()

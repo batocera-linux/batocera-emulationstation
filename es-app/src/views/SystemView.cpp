@@ -330,6 +330,8 @@ void SystemView::update(int deltaTime)
 
 void SystemView::onCursorChanged(const CursorState& /*state*/)
 {
+	AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
+
 	// update help style
 	updateHelpPrompts();
 
@@ -364,16 +366,6 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	{
 		mSystemInfo.setOpacity((unsigned char)(Math::lerp(infoStartOpacity, 0.f, t) * 255));
 	}, (int)(infoStartOpacity * (goFast ? 10 : 150)));
-
-        // batocera - per system music folder
-        if(SystemConf::getInstance()->get("audio.persystem") == "1" && SystemConf::getInstance()->get("audio.bgmusic") != "0")  {
-		if (getSelected()->isGameSystem()) {
-			if (AudioManager::getInstance()->getName() != getSelected()->getName()) {
-				AudioManager::getInstance()->setName(getSelected()->getName());
-				AudioManager::getInstance()->playRandomMusic(0);
-			}
-		}
-        }
 
 	unsigned int gameCount = getSelected()->getDisplayedGameCount();
 

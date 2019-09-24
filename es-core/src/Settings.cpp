@@ -206,6 +206,13 @@ void Settings::setDefaults()
 	mStringMap["INPUT P4NAME"] = "DEFAULT";
 	mStringMap["INPUT P5NAME"] = "DEFAULT";
 
+	// Audio settings
+	mBoolMap["audio.bgmusic"] = true;
+	mBoolMap["audio.persystem"] = false;
+	mBoolMap["audio.display_titles"] = true;
+	mBoolMap["audio.thememusics"] = true;	
+	mIntMap["audio.display_titles_time"] = 10;
+	
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;
 	mDefaultFloatMap = mFloatMap;

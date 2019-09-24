@@ -222,8 +222,8 @@ void Window::displayNotificationMessage(std::string message, int duration)
 
 	if (duration <= 0)
 	{
-		duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
-		if (duration <= 0)
+		duration = Settings::getInstance()->getInt("audio.display_titles_time");
+		if (duration <= 2 || duration > 120)
 			duration = 10;
 
 		duration *= 1000;
@@ -254,10 +254,6 @@ void Window::processNotificationMessages()
 	NotificationMessage msg = mNotificationMessages.back();
 	mNotificationMessages.pop_back();
 
-	float duration = atof(SystemConf::getInstance()->get("audio.display_titles_time").c_str());
-	if (duration <= 0)
-		duration = 10;
-
 	LOG(LogDebug) << "Notification message :" << msg.first.c_str();
 
 	if (mInfoPopup) 
@@ -268,13 +264,13 @@ void Window::processNotificationMessages()
 
 void Window::processSongTitleNotifications()
 {
-	if (SystemConf::getInstance()->get("audio.display_titles") != "1")
+	if (!Settings::getInstance()->getBool("audio.display_titles"))
 		return;
 
 	std::string songName = AudioManager::getInstance()->getSongName();
 	if (!songName.empty())
 	{
-		displayNotificationMessage(_("Now playing: ") + songName);
+		displayNotificationMessage(_U("\uF001  ") + songName); // _("Now playing: ") + 
 		AudioManager::getInstance()->setSongName("");
 	}	
 }
@@ -436,7 +432,7 @@ void Window::render()
 			if (mplayerPads[idx] > 0)
 				padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
 
-			float sz = Renderer::getScreenHeight() / 100.0;
+			float sz = Renderer::getScreenHeight() / 100.0f;
 
 			Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);			
 		}
@@ -501,10 +497,10 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 	{
 		float baseHeight = 0.04f;
 
-		float w = Renderer::getScreenWidth() / 2;
+		float w = Renderer::getScreenWidth() / 2.0f;
 		float h = Renderer::getScreenHeight() * baseHeight;
 
-		float x = Renderer::getScreenWidth() / 2 - w / 2;
+		float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
 		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
 
 		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
