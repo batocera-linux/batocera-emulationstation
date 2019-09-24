@@ -93,8 +93,17 @@ void ScraperSearchComponent::onSizeChanged()
 	else
 		mGrid.setColWidthPerc(0, 0.01f);
 	
-	mGrid.setColWidthPerc(1, 0.25f);
-	mGrid.setColWidthPerc(2, 0.25f);
+	/*
+	if (mSearchType == ALWAYS_ACCEPT_FIRST_RESULT)
+	{
+		mGrid.setColWidthPerc(1, 0.0001f);
+		mGrid.setColWidthPerc(2, 0.4999f);
+	}
+	else
+	{*/
+		mGrid.setColWidthPerc(1, 0.25f);
+		mGrid.setColWidthPerc(2, 0.25f);
+	//}
 	
 	// row heights
 	if(mSearchType == ALWAYS_ACCEPT_FIRST_RESULT) // show name
@@ -135,9 +144,11 @@ void ScraperSearchComponent::resizeMetadata()
 	mMD_Grid->setSize(mGrid.getColWidth(2), mGrid.getRowHeight(1));
 	if(mMD_Grid->getSize().y() > mMD_Pairs.size())
 	{
-		const int fontHeight = (int)(mMD_Grid->getSize().y() / mMD_Pairs.size() * 0.8f);
-		auto fontLbl = Font::get(fontHeight, FONT_PATH_REGULAR);
-		auto fontComp = Font::get(fontHeight, FONT_PATH_LIGHT);
+		auto theme = ThemeData::getMenuTheme();		
+
+		//const int fontHeight = (int)(mMD_Grid->getSize().y() / mMD_Pairs.size() * 0.8f);
+		auto fontLbl = theme->TextSmall.font; // Font::get(fontHeight, theme->Text.font->getPath()); // FONT_PATH_REGULAR);
+		auto fontComp = theme->Text.font; // Font::get(fontHeight, theme->TextSmall.font->getPath()); // FONT_PATH_LIGHT);
 
 		// update label fonts
 		float maxLblWidth = 0;
@@ -168,7 +179,7 @@ void ScraperSearchComponent::resizeMetadata()
 		mMD_Grid->onSizeChanged();
 
 		// make result font follow label font
-		mResultDesc->setFont(Font::get(fontHeight, FONT_PATH_REGULAR));
+		mResultDesc->setFont(theme->Text.font); // Font::get(fontHeight, FONT_PATH_REGULAR)
 	}
 }
 
@@ -315,12 +326,15 @@ void ScraperSearchComponent::updateInfoPane()
 		mDescContainer->reset();
 
 		mResultThumbnail->setImage("");
-		const std::string& thumb = res.thumbnailUrl.empty() ? res.imageUrl : res.thumbnailUrl;
-		if(!thumb.empty())
+
+		if (mSearchType != ALWAYS_ACCEPT_FIRST_RESULT)
 		{
-			mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(thumb));
-		}else{
-			mThumbnailReq.reset();
+			// Don't ask for thumbs in automatic mode to boost scraping -> mResultThumbnail is assigned after downloading first image 
+			const std::string& thumb = res.thumbnailUrl.empty() ? res.imageUrl : res.thumbnailUrl;
+			if (!thumb.empty())
+				mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(thumb));
+			else
+				mThumbnailReq.reset();			
 		}
 
 		// metadata
@@ -392,6 +406,23 @@ void ScraperSearchComponent::update(int deltaTime)
 
 	if(mBlockAccept)
 	{
+		if (mMDResolveHandle && mMDResolveHandle->status() == ASYNC_IN_PROGRESS)
+		{
+			if (mSearchType == ALWAYS_ACCEPT_FIRST_RESULT && !mResultThumbnail->hasImage())
+			{
+				ScraperSearchResult result = mMDResolveHandle->getResult();
+
+				if (!result.mdl.get("thumbnail").empty())
+					mResultThumbnail->setImage(result.mdl.get("thumbnail"));
+				else if (!result.mdl.get("image").empty())
+					mResultThumbnail->setImage(result.mdl.get("image"));
+			}
+
+			mBusyAnim.setText(_("DOWNLOADING") + " " + mMDResolveHandle->getCurrentItem());
+		}
+		else if (mSearchHandle && mSearchHandle->status() == ASYNC_IN_PROGRESS)
+			mBusyAnim.setText(_("SEARCHING"));
+
 		mBusyAnim.update(deltaTime);
 	}
 
@@ -425,7 +456,7 @@ void ScraperSearchComponent::update(int deltaTime)
 		{
 			ScraperSearchResult result = mMDResolveHandle->getResult();
 			mMDResolveHandle.reset();
-
+		
 			// this might end in us being deleted, depending on mAcceptCallback - so make sure this is the last thing we do in update()
 			returnResult(result);
 		}else if(mMDResolveHandle->status() == ASYNC_ERROR)

@@ -420,10 +420,11 @@ void Window::render()
 		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
+			unsigned int padcolor = 0xFFFFFF99;
+
+#ifndef _DEBUG
 			if (playerJoysticks.count(player) != 1)
 				continue;
-			
-			unsigned int padcolor = 0xFFFFFF99;
 
 			int idx = playerJoysticks[player];
 			if (idx < 0 || idx >= MAX_PLAYERS)
@@ -431,6 +432,7 @@ void Window::render()
 
 			if (mplayerPads[idx] > 0)
 				padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
+#endif
 
 			float sz = Renderer::getScreenHeight() / 100.0f;
 

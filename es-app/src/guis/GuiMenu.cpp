@@ -90,11 +90,8 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 
 	if (isFullUI)
 	{
-#ifdef WIN32
 		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");		
-#else
-		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings_batocera(); }, "iconScraper");
-#endif
+//		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings_batocera(); }, "iconScraper");
 	}
 	
 
@@ -139,11 +136,6 @@ void GuiMenu::openScraperSettings()
 	s->addWithLabel(_("SCRAPE FROM"), scraper_list); // batocera
 	s->addSaveFunc([scraper_list] { Settings::getInstance()->setString("Scraper", scraper_list->getSelected()); });
 
-	// scrape ratings
-	auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
-	scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
-	s->addWithLabel(_("SCRAPE RATINGS"), scrape_ratings); // batocera
-	s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
 
 	if (scraper == "ScreenScraper")
 	{
@@ -180,6 +172,12 @@ void GuiMenu::openScraperSettings()
 				Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected());
 		});
 
+		// scrape ratings
+		auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
+		scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
+		s->addWithLabel(_("SCRAPE RATINGS"), scrape_ratings); // batocera
+		s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
+
 		// scrape marquee
 		auto scrape_marquee = std::make_shared<SwitchComponent>(mWindow);
 		scrape_marquee->setState(Settings::getInstance()->getBool("ScrapeMarquee"));
@@ -191,6 +189,18 @@ void GuiMenu::openScraperSettings()
 		scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
 		s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
 		s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+
+		// Account
+		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
+		createInputTextRow(s, _("PASSWORD"), "ScreenScraperPass", true, true);
+	}
+	else
+	{
+		// scrape ratings
+		auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
+		scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
+		s->addWithLabel(_("SCRAPE RATINGS"), scrape_ratings); // batocera
+		s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
 	}
 
 	// scrape now
@@ -2139,7 +2149,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	window->pushGui(s);
 }
 
-void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password)
+void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password, bool storeInSettings)
 {
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
@@ -2154,10 +2164,9 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 
 	std::shared_ptr<GuiComponent> ed;
 
-	ed = std::make_shared<TextComponent>(window, ((password &&
-		SystemConf::getInstance()->get(settingsID) != "")
-		? "*********" : SystemConf::getInstance()->get(
-			settingsID)), font, color, ALIGN_RIGHT); // Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT)
+	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+	ed = std::make_shared<TextComponent>(window, ((password && value != "") ? "*********" : value), font, color, ALIGN_RIGHT); // Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT)
 	row.addElement(ed, true);
 
 	auto spacer = std::make_shared<GuiComponent>(mWindow);
@@ -2169,27 +2178,29 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
 	row.addElement(bracket, false);
 
-	auto updateVal = [ed, settingsID, password](const std::string &newVal) {
+	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal) {
 		if (!password)
 			ed->setValue(newVal);
 		else {
 			ed->setValue("*********");
 		}
-		SystemConf::getInstance()->set(settingsID, newVal);
+
+		if (storeInSettings)
+			Settings::getInstance()->setString(settingsID, newVal);
+		else
+			SystemConf::getInstance()->set(settingsID, newVal);
 	}; // ok callback (apply new value to ed)
 
-	row.makeAcceptInputHandler([this, title, updateVal, settingsID] {
-		if (Settings::getInstance()->getBool("UseOSK")) {
-			mWindow->pushGui(
-				new GuiTextEditPopupKeyboard(mWindow, title, SystemConf::getInstance()->get(settingsID),
-					updateVal, false));
-		}
-		else {
-			mWindow->pushGui(
-				new GuiTextEditPopup(mWindow, title, SystemConf::getInstance()->get(settingsID),
-					updateVal, false));
-		}
+	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings]
+	{
+		std::string data = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+		if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, data, updateVal, false));
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, title, data, updateVal, false));
 	});
+
 	gui->addRow(row);
 }
 

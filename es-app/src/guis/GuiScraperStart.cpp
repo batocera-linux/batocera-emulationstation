@@ -22,17 +22,28 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 		[](SystemData*, FileData* g) -> bool { return g->metadata.get("image").empty(); }, true);
 	mMenu.addWithLabel(_("FILTER"), mFilters); // batocera
 
-	//add systems (all with a platformid specified selected)
+
+	std::string currentSystem;
+
+	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST)
+		currentSystem = ViewController::get()->getState().getSystem()->getName();
+
+
+	//add systems (all with a platformidz specified selected)
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE THESE SYSTEMS"), true); // batocera
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		if(!(*it)->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-			mSystems->add((*it)->getFullName(), *it, !(*it)->getPlatformIds().empty());
+			mSystems->add((*it)->getFullName(), *it, 
+				currentSystem.empty() ? 
+				!(*it)->getPlatformIds().empty() : 
+				(*it)->getName() == currentSystem && !(*it)->getPlatformIds().empty());
 	}
+
 	mMenu.addWithLabel(_("SYSTEMS"), mSystems); // batocera
 
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
-	mApproveResults->setState(true);
+	mApproveResults->setState(false);
 	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults); // batocera
 
 	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this)); // batocera
