@@ -82,6 +82,7 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 HttpReq::HttpReq(const std::string& url)
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL)
 {
+	mPercent = -1;
 	mHandle = curl_easy_init();
 
 	if(mHandle == NULL)
@@ -263,8 +264,23 @@ std::string HttpReq::getErrorMsg()
 //return value is number of elements successfully read
 size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_ptr)
 {
-	std::stringstream& ss = ((HttpReq*)req_ptr)->mContent;
+	HttpReq* request = ((HttpReq*)req_ptr);
+
+	std::stringstream& ss = request->mContent;
 	ss.write((char*)buff, size * nmemb);
+
+
+	double cl;
+	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
+	{		
+		if (cl <= 0)
+			request->mPercent = -1;
+		else
+		{
+			double position = (double)ss.tellp();
+			request->mPercent = (int) (position * 100.0 / cl);
+		}
+	}
 
 	return nmemb;
 }

@@ -18,9 +18,12 @@ class SystemData;
 
 struct ScraperSearchParams
 {
+	ScraperSearchParams() { overWriteMedias = true; }
+
 	SystemData* system;
 	FileData* game;
 
+	bool overWriteMedias;
 	std::string nameOverride;
 };
 
@@ -146,6 +149,10 @@ public:
 		return mSource;
 	}
 
+	int getPercent() {
+		return mPercent;
+	}
+
 private:
 	ScraperSearchResult mResult;
 
@@ -178,6 +185,7 @@ private:
 	std::vector<ResolvePair*> mFuncs;
 	std::string mCurrentItem;
 	std::string mSource;
+	int mPercent;
 };
 
 class ImageDownloadHandle : public AsyncHandle
@@ -186,6 +194,8 @@ public:
 	ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight);
 
 	void update() override;
+
+	virtual int getPercent();
 
 private:
 	std::unique_ptr<HttpReq> mReq;

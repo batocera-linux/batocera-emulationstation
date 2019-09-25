@@ -18,6 +18,7 @@
 #include <assert.h>
 #include "SystemConf.h"
 #include "InputManager.h"
+#include "scrapers/ThreadedScraper.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), metadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -207,6 +208,8 @@ void FileData::launchGame(Window* window)
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 
+	//ThreadedScraper::pause();
+
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	window->deinit();
 
@@ -267,6 +270,8 @@ void FileData::launchGame(Window* window)
 
 	// batocera
 	AudioManager::getInstance()->playRandomMusic();
+
+	// ThreadedScraper::resume();
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)

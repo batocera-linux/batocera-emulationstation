@@ -49,6 +49,8 @@ public:
 	static std::string urlEncode(const std::string &s);
 	static bool isUrl(const std::string& s);
 
+	int getPercent() { return mPercent; }
+
 private:
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
 	//static int update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow);
@@ -67,6 +69,8 @@ private:
 
 	std::stringstream mContent;
 	std::string mErrorMsg;
+
+	int mPercent;
 };
 
 #endif // ES_CORE_HTTP_REQ_H

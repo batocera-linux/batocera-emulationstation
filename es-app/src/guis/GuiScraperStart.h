@@ -35,6 +35,7 @@ private:
 	std::shared_ptr<SwitchComponent> mApproveResults;
 
 	MenuComponent mMenu;
+	bool mOverwriteMedias;
 };
 
 #endif // ES_APP_GUIS_GUI_SCRAPER_START_H

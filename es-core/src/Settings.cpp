@@ -120,8 +120,8 @@ void Settings::setDefaults()
 	mStringMap["GamelistViewStyle"] = "automatic";
 
 	mStringMap["Scraper"] = "ScreenScraper";
-	mStringMap["ScrapperImageSrc"] = "box-2D";
-	mStringMap["ScrapperThumbSrc"] = "";
+	mStringMap["ScrapperImageSrc"] = "ss";
+	mStringMap["ScrapperThumbSrc"] = "box-2D";
 	mBoolMap["ScrapeMarquee"] = false;
 	mBoolMap["ScrapeVideos"] = false;
 
