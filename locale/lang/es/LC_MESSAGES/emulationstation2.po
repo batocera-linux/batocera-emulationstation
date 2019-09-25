@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -58,8 +58,8 @@ msgstr "IR A..."
 msgid "SORT GAMES BY"
 msgstr "ORDENAR LOS JUEGOS POR"
 
-msgid "FILTER GAMELIST"
-msgstr "FILTRAR JUEGOS"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
@@ -88,17 +88,20 @@ msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONES AVANZADAS DEL JUEGO"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALIZAR LISTAS DE JUEGOS"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "CARGANDO..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
 msgstr "REESTABLECER FILTROS"
+
+msgid "FIND GAMES"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -145,9 +148,6 @@ msgstr "SALIR"
 msgid "SCRAPE FROM"
 msgstr "OBTENER CARÁTULAS DESDE"
 
-msgid "SCRAPE RATINGS"
-msgstr "OBTENER CALIFICACIONES"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr "ORIGEN DE IMAGEN PREFERIDO"
 
@@ -175,11 +175,23 @@ msgstr "RUEDA"
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "ORIGEN DE MINIATURA PREFERIDO"
 
+msgid "SCRAPE RATINGS"
+msgstr "OBTENER CALIFICACIONES"
+
 msgid "SCRAPE MARQUEE"
 msgstr "MARQUESINA DE INFORMACIÓN"
 
 msgid "SCRAPE VIDEOS"
 msgstr "OBTENER VIDEOS"
+
+msgid "USERNAME"
+msgstr "USUARIO"
+
+msgid "PASSWORD"
+msgstr "CONTRASEÑA"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
@@ -361,12 +373,6 @@ msgstr "MODO DETALLADO"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMATICO"
 
-msgid "USERNAME"
-msgstr "USUARIO"
-
-msgid "PASSWORD"
-msgstr "CONTRASEÑA"
-
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANTES"
 
@@ -381,6 +387,12 @@ msgstr "ESTADO"
 
 msgid "ADVANCED"
 msgstr "AVANZADO"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALIZAR LISTAS DE JUEGOS"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURAR UN MANDO"
@@ -558,6 +570,9 @@ msgstr "CUANTOS SEGUNDOS DE TITULO DE CANCIONES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SOLAMENTE REPRODUCIR LA CARPETA ESPECIFICA DE MUSICA"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "HABILITAR NAVEGACION DE MUSICA"
@@ -819,8 +834,8 @@ msgstr "OBTENER DATOS DE ESTOS JUEGOS"
 msgid "All Games"
 msgstr "TODOS LOS JUEGOS"
 
-msgid "Only missing image"
-msgstr "SOLO IMAGENES FALTANTES"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -1006,6 +1021,15 @@ msgstr "MARQUESINA"
 msgid "enter path to marquee"
 msgstr "COLOCAR RUTA PARA MARQUESINA"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
@@ -1059,6 +1083,9 @@ msgstr "OCURRIÓ UN ERROR"
 
 msgid "RETRY"
 msgstr "REINTENTAR"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACEPTAR RESULTADO"
@@ -1202,6 +1229,9 @@ msgstr "ESPACIO"
 msgid "DELETE A CHAR"
 msgstr "ELIMINAR CARÁCTER"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR LOS CAMBIOS"
 
@@ -1228,9 +1258,6 @@ msgstr "NO SE DETECTARON MANDOS"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PULSADO UN BOTÓN DEL MANDO PARA CONFIGURARLO"
-
-msgid "Now playing: "
-msgstr "SONANDO AHORA: "
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
@@ -1270,6 +1297,15 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "FILTRAR JUEGOS"
+
+#~ msgid "Only missing image"
+#~ msgstr "SOLO IMAGENES FALTANTES"
+
+#~ msgid "Now playing: "
+#~ msgstr "SONANDO AHORA: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "SELECCIONA EL SISTEMA DONDE LOS BISELES SERAN INSTALADOS"

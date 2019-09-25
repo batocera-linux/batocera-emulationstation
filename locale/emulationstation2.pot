@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-22 08:59+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "SORT GAMES BY"
 msgstr ""
 
-msgid "FILTER GAMELIST"
+msgid "OTHER FILTERS"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -96,16 +96,19 @@ msgstr ""
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr ""
-
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
 msgid "Loading..."
 msgstr ""
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "FINISHED"
@@ -153,9 +156,6 @@ msgstr ""
 msgid "SCRAPE FROM"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr ""
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -183,10 +183,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr ""
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr ""
+
+msgid "PASSWORD"
+msgstr ""
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -369,12 +381,6 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "USERNAME"
-msgstr ""
-
-msgid "PASSWORD"
-msgstr ""
-
 msgid "MISSING BIOS"
 msgstr ""
 
@@ -388,6 +394,12 @@ msgid "STATUS"
 msgstr ""
 
 msgid "ADVANCED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr ""
+
+msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr ""
 
 msgid "CONFIGURE A CONTROLLER"
@@ -549,6 +561,9 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "PLAY THEME MUSICS"
 msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
@@ -807,7 +822,7 @@ msgstr ""
 msgid "All Games"
 msgstr ""
 
-msgid "Only missing image"
+msgid "Only missing medias"
 msgstr ""
 
 msgid "FILTER"
@@ -989,6 +1004,15 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr ""
 
@@ -1041,6 +1065,9 @@ msgid "AN ERROR HAS OCCURED"
 msgstr ""
 
 msgid "RETRY"
+msgstr ""
+
+msgid "DOWNLOADING"
 msgstr ""
 
 msgid "ACCEPT RESULT"
@@ -1180,6 +1207,9 @@ msgstr ""
 msgid "DELETE A CHAR"
 msgstr ""
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr ""
 
@@ -1205,9 +1235,6 @@ msgid "NO GAMEPADS DETECTED"
 msgstr ""
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
-
-msgid "Now playing: "
 msgstr ""
 
 msgid "MOVE CURSOR"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -61,8 +61,8 @@ msgstr "ПЕРЕЙТИ К..."
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
-msgid "FILTER GAMELIST"
-msgstr "ФИЛЬТР СПИСКА ИГР"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
@@ -91,17 +91,20 @@ msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Загрузка..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
 msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
+
+msgid "FIND GAMES"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -148,9 +151,6 @@ msgstr "ВЫХОД"
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
-msgid "SCRAPE RATINGS"
-msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -178,10 +178,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
+
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -364,12 +376,6 @@ msgstr "ПОДРОБНЫЙ РЕЖИМ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
-msgid "USERNAME"
-msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
-
-msgid "PASSWORD"
-msgstr "ПАРОЛЬ"
-
 msgid "MISSING BIOS"
 msgstr "НЕДОСТАЮЩИЙ BIOS"
 
@@ -384,6 +390,12 @@ msgstr "СОСТОЯНИЕ"
 
 msgid "ADVANCED"
 msgstr "ДОПОЛНИТЕЛЬНО"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
@@ -558,6 +570,9 @@ msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "МУЗЫКА ИЗ ПАПКИ СИСТЕМ"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
@@ -820,8 +835,8 @@ msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
 msgid "All Games"
 msgstr "Все игры"
 
-msgid "Only missing image"
-msgstr "Только отсутствующие изображения"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "ФИЛЬТР"
@@ -1005,6 +1020,15 @@ msgstr "банер"
 msgid "enter path to marquee"
 msgstr "введите путь к банеру"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
@@ -1059,6 +1083,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -1204,6 +1231,9 @@ msgstr "ПРОБЕЛ"
 msgid "DELETE A CHAR"
 msgstr "УДАЛИТЬ СИМВОЛ"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
 
@@ -1231,9 +1261,6 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ ЕГО НАСТРОЙКИ."
-
-msgid "Now playing: "
-msgstr "Сейчас играет: "
 
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"
@@ -1274,6 +1301,15 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "ФИЛЬТР СПИСКА ИГР"
+
+#~ msgid "Only missing image"
+#~ msgstr "Только отсутствующие изображения"
+
+#~ msgid "Now playing: "
+#~ msgstr "Сейчас играет: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "В КАКУЮ СИСТЕМУ УСТАНОВИТЬ РАМКИ?"

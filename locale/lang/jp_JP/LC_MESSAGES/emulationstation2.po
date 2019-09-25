@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "SORT GAMES BY"
 msgstr "ゲームのソート"
 
-msgid "FILTER GAMELIST"
+msgid "OTHER FILTERS"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -88,16 +88,19 @@ msgstr "このゲームのメタ情報を編集"
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ゲームリストを更新"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ゲームリストを更新しますか？"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr ""
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "FINISHED"
@@ -145,9 +148,6 @@ msgstr "終了"
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
 
-msgid "SCRAPE RATINGS"
-msgstr "スクレイプ評価"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -175,10 +175,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr "スクレイプ評価"
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "ユーザー名"
+
+msgid "PASSWORD"
+msgstr "パスワード"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -366,12 +378,6 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "USERNAME"
-msgstr "ユーザー名"
-
-msgid "PASSWORD"
-msgstr "パスワード"
-
 msgid "MISSING BIOS"
 msgstr ""
 
@@ -387,6 +393,12 @@ msgstr "ステータス"
 #, fuzzy
 msgid "ADVANCED"
 msgstr "アドバンス"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ゲームリストを更新"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ゲームリストを更新しますか？"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "コントローラー設定"
@@ -555,6 +567,9 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "PLAY THEME MUSICS"
 msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
@@ -812,8 +827,8 @@ msgstr "このゲームをスクレイプ"
 msgid "All Games"
 msgstr "全てのゲーム"
 
-msgid "Only missing image"
-msgstr "画像が無いゲームのみ"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "フィルター"
@@ -1003,6 +1018,15 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODIメディアセンターを開始しますか？"
 
@@ -1055,6 +1079,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "再試行"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 #, fuzzy
 msgid "ACCEPT RESULT"
@@ -1193,6 +1220,9 @@ msgstr "空白"
 msgid "DELETE A CHAR"
 msgstr "文字を削除"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "変更を破棄する"
 
@@ -1219,9 +1249,6 @@ msgstr "ゲームパッドが検出されませんでした"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 デバイスの設定をします。"
-
-msgid "Now playing: "
-msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "カーソル移動"
@@ -1261,6 +1288,9 @@ msgstr "処理中..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "Only missing image"
+#~ msgstr "画像が無いゲームのみ"
 
 #, fuzzy
 #~ msgid "THE SYSTEM WILL NOW REBOOT"

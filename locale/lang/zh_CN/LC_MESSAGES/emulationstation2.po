@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-22 08:59+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,8 @@ msgstr "跳转到..."
 msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
 
-msgid "FILTER GAMELIST"
-msgstr "筛选游戏"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "游戏列表样式"
@@ -88,17 +88,20 @@ msgstr "编辑此游戏的元数据"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏选项"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "更新游戏列表"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "是否更新游戏列表?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "载入中..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
 msgstr "重置所有筛选器"
+
+msgid "FIND GAMES"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "完成"
@@ -145,9 +148,6 @@ msgstr "退出"
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源"
 
-msgid "SCRAPE RATINGS"
-msgstr "抓取游戏评分"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr "首选图像源"
 
@@ -175,11 +175,23 @@ msgstr "旋转"
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "首选缩略图源"
 
+msgid "SCRAPE RATINGS"
+msgstr "抓取游戏评分"
+
 msgid "SCRAPE MARQUEE"
 msgstr "抓取标记"
 
 msgid "SCRAPE VIDEOS"
 msgstr "抓取视频"
+
+msgid "USERNAME"
+msgstr "用户名"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
@@ -361,12 +373,6 @@ msgstr "详细模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
-msgid "USERNAME"
-msgstr "用户名"
-
-msgid "PASSWORD"
-msgstr "密码"
-
 msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
 
@@ -381,6 +387,12 @@ msgstr "状态"
 
 msgid "ADVANCED"
 msgstr "高级设置"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "更新游戏列表"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "是否更新游戏列表?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "配置控制器"
@@ -554,6 +566,9 @@ msgstr "歌曲的秒数"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "仅播放指定游戏平台中的音乐"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "启用导航声音"
@@ -811,8 +826,8 @@ msgstr "抓取游戏元数据"
 msgid "All Games"
 msgstr "全部游戏"
 
-msgid "Only missing image"
-msgstr "仅缺失封面图的游戏"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "筛选"
@@ -998,6 +1013,15 @@ msgstr "标记"
 msgid "enter path to marquee"
 msgstr "输入标记路径"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "是否启动 KODI 媒体中心?"
 
@@ -1050,6 +1074,9 @@ msgstr "发生了一个错误"
 
 msgid "RETRY"
 msgstr "重试"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
@@ -1189,6 +1216,9 @@ msgstr "空格"
 msgid "DELETE A CHAR"
 msgstr "删除一个字符"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "放弃更改"
 
@@ -1214,9 +1244,6 @@ msgstr "未检测到游戏手柄"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
-
-msgid "Now playing: "
-msgstr "正在游玩: "
 
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"
@@ -1255,6 +1282,15 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "筛选游戏"
+
+#~ msgid "Only missing image"
+#~ msgstr "仅缺失封面图的游戏"
+
+#~ msgid "Now playing: "
+#~ msgstr "正在游玩: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "选择安装框架的游戏平台"

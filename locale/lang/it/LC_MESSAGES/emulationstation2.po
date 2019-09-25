@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,8 @@ msgstr "SALTA A..."
 msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
 
-msgid "FILTER GAMELIST"
-msgstr "FILTRA LA LISTA DEI GIOCHI"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
@@ -88,16 +88,19 @@ msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "AGGIORNA LE LISTE DEI GIOCHI"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Caricamento..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "FINISHED"
@@ -145,9 +148,6 @@ msgstr "ESCI"
 msgid "SCRAPE FROM"
 msgstr "RACCOGLI INFORMAZIONI DA"
 
-msgid "SCRAPE RATINGS"
-msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -175,10 +175,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "NOME UTENTE"
+
+msgid "PASSWORD"
+msgstr "PASSWORD"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -362,12 +374,6 @@ msgstr "MODALITA’ VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
-msgid "USERNAME"
-msgstr "NOME UTENTE"
-
-msgid "PASSWORD"
-msgstr "PASSWORD"
-
 msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
 
@@ -382,6 +388,12 @@ msgstr "STATO"
 
 msgid "ADVANCED"
 msgstr "AVANZATE"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "AGGIORNA LE LISTE DEI GIOCHI"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURARE UN CONTROLLER"
@@ -553,6 +565,9 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "PLAY THEME MUSICS"
 msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
@@ -815,8 +830,8 @@ msgstr "INFORMAZIONI SU QUESTI GIOCHI"
 msgid "All Games"
 msgstr "Tutti i Giochi"
 
-msgid "Only missing image"
-msgstr "Solo immagini mancanti"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -1000,6 +1015,15 @@ msgstr "marquee"
 msgid "enter path to marquee"
 msgstr "inserisci percorso dei marquee"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
 
@@ -1053,6 +1077,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "RIPROVA"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1195,6 +1222,9 @@ msgstr "SPAZIO"
 msgid "DELETE A CHAR"
 msgstr "CANCELLA UN CARATTERE"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ANNULLA LE MODIFICHE"
 
@@ -1221,9 +1251,6 @@ msgstr "NESSUN GAMEPAD RILEVATO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TIENI PREMUTO UN PULSANTE SUL GAMEPAD PER CONFIGURARLO"
-
-msgid "Now playing: "
-msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "SPOSTA IL CURSORE"
@@ -1263,6 +1290,12 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "FILTRA LA LISTA DEI GIOCHI"
+
+#~ msgid "Only missing image"
+#~ msgstr "Solo immagini mancanti"
 
 #~ msgid "Sort name"
 #~ msgstr "Criterio di ordinamento"

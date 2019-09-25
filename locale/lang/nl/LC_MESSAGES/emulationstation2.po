@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,8 @@ msgstr "Ga naar..."
 msgid "SORT GAMES BY"
 msgstr "Sorteer spellen op"
 
-msgid "FILTER GAMELIST"
-msgstr "Spellen filteren"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "Spelllijst stijl"
@@ -88,16 +88,19 @@ msgstr "Bewerk deze spelgegevens"
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "Updaten spellijst"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "Spellijst echt updaten?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr ""
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "FINISHED"
@@ -145,9 +148,6 @@ msgstr "Stoppen"
 msgid "SCRAPE FROM"
 msgstr "Scrape vanaf"
 
-msgid "SCRAPE RATINGS"
-msgstr "Scrape beoordelingen"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -175,10 +175,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr "Scrape beoordelingen"
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "Gebruikersnaam"
+
+msgid "PASSWORD"
+msgstr "Wachtwoord"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -362,12 +374,6 @@ msgstr "Feedback modus"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "Automatische schermafdruk"
 
-msgid "USERNAME"
-msgstr "Gebruikersnaam"
-
-msgid "PASSWORD"
-msgstr "Wachtwoord"
-
 msgid "MISSING BIOS"
 msgstr "BIOS ontbreekt"
 
@@ -382,6 +388,12 @@ msgstr "Status"
 
 msgid "ADVANCED"
 msgstr "Geavanceerd"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "Updaten spellijst"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "Spellijst echt updaten?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "Configureer een controller"
@@ -552,6 +564,9 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr ""
+
+msgid "PLAY THEME MUSICS"
 msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
@@ -812,8 +827,8 @@ msgstr "Scrape deze spellen"
 msgid "All Games"
 msgstr "Alle spellen"
 
-msgid "Only missing image"
-msgstr "Alleen missende afbeeldingen"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "Filter"
@@ -997,6 +1012,15 @@ msgstr ""
 msgid "enter path to marquee"
 msgstr ""
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "Wil je Kodi Media Center starten?"
 
@@ -1052,6 +1076,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "Opnieuw"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr ""
@@ -1194,6 +1221,9 @@ msgstr ""
 msgid "DELETE A CHAR"
 msgstr ""
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "Verwijder wijzigingen"
 
@@ -1222,9 +1252,6 @@ msgstr "Geen controllers gevonden"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "Houdt A knop ingedrukt op je apparaat om te configureren"
-
-msgid "Now playing: "
-msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr ""
@@ -1266,6 +1293,12 @@ msgstr "Bezig"
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "Spellen filteren"
+
+#~ msgid "Only missing image"
+#~ msgstr "Alleen missende afbeeldingen"
 
 #~ msgid "INSTALL THEMES"
 #~ msgstr "Visuele thema's installeer"

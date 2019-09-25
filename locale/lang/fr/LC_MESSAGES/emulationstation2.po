@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -58,8 +58,8 @@ msgstr "ALLER À..."
 msgid "SORT GAMES BY"
 msgstr "TRIER LES JEUX PAR"
 
-msgid "FILTER GAMELIST"
-msgstr "FILTRER"
+msgid "OTHER FILTERS"
+msgstr "AUTRES FILTRES"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TYPE DE VUE DES JEUX"
@@ -88,17 +88,20 @@ msgstr "ÉDITER LES DONNÉES DU JEU"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPTIONS AVANCÉES DU JEU"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "METTRE À JOUR LES LISTES DES JEUX"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTRER LES JEUX PAR TEXTE"
 
 msgid "Loading..."
 msgstr "Chargement..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQUE LE SCRAPING EST EN COURS"
+
 msgid "RESET ALL FILTERS"
 msgstr "REMETTRE À ZÉRO LES FILTRES"
+
+msgid "FIND GAMES"
+msgstr "RECHERCHER DES JEUX"
 
 msgid "FINISHED"
 msgstr "TERMINÉ"
@@ -145,9 +148,6 @@ msgstr "QUITTER"
 msgid "SCRAPE FROM"
 msgstr "SCRAPER DEPUIS"
 
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPER LES NOTES"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr "SOURCE D'IMAGE PRÉFÉRÉE"
 
@@ -175,11 +175,23 @@ msgstr "ROUE"
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "SOURCE DE MINIATURE PRÉFÉRÉE"
 
+msgid "SCRAPE RATINGS"
+msgstr "SCRAPER LES NOTES"
+
 msgid "SCRAPE MARQUEE"
 msgstr "SCRAPER LES MARQUEURS"
 
 msgid "SCRAPE VIDEOS"
 msgstr "SCRAPER LES VIDÉOS"
+
+msgid "USERNAME"
+msgstr "NOM UTILISATEUR"
+
+msgid "PASSWORD"
+msgstr "MOT DE PASSE"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "LE SCRAPING EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER MAINTENANT"
@@ -361,12 +373,6 @@ msgstr "MODE VERBEUX"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATIC"
 
-msgid "USERNAME"
-msgstr "NOM UTILISATEUR"
-
-msgid "PASSWORD"
-msgstr "MOT DE PASSE"
-
 msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
@@ -381,6 +387,12 @@ msgstr "STATUT"
 
 msgid "ADVANCED"
 msgstr "AVANCÉES"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "METTRE À JOUR LES LISTES DES JEUX"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "CONFIRMER LA MISE À JOUR DES LISTES DES JEUX ?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURER UNE MANETTE"
@@ -558,6 +570,9 @@ msgstr "DURÉE DES TITRES DES MUSIQUES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "JOUER SEULEMENT LES MUSIQUES SPÉCIFIQUES AUX SYSTÈMES"
+
+msgid "PLAY THEME MUSICS"
+msgstr "JOUER LES MUSIQUES DU THÈME"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ACTIVER LES SONS DE NAVIGATION"
@@ -753,7 +768,7 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "INSTALLER THE BEZEL PROJECT"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES BEZELS"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DÉSINSTALLER THE BEZEL PROJECT"
@@ -815,8 +830,8 @@ msgstr "SCRAPER CES JEUX"
 msgid "All Games"
 msgstr "Tous les jeux"
 
-msgid "Only missing image"
-msgstr "Seulement images manquantes"
+msgid "Only missing medias"
+msgstr "Seulement les médias manquants"
 
 msgid "FILTER"
 msgstr "FILTRE"
@@ -1000,6 +1015,15 @@ msgstr "marqueur"
 msgid "enter path to marquee"
 msgstr "entrer le chemin vers le marqueur"
 
+msgid "SCRAPING"
+msgstr "Scraping en cours"
+
+msgid "Searching"
+msgstr "Recherche en cours"
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr "SCRAPING TERMINÉ. METTEZ À JOUR LES JEUX POUR APPLIQUER LES CHANGEMENTS"
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER LE MEDIA CENTER KODI ?"
 
@@ -1053,6 +1077,9 @@ msgstr "UNE ERREUR S'EST PRODUITE"
 
 msgid "RETRY"
 msgstr "RECOMMENCER"
+
+msgid "DOWNLOADING"
+msgstr "TÉLÉCHARGEMENT EN COURS"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
@@ -1195,6 +1222,9 @@ msgstr "ESPACE"
 msgid "DELETE A CHAR"
 msgstr "EFFACER UN CARACTERE"
 
+msgid "RESET"
+msgstr "RÉINITIALISATION"
+
 msgid "DISCARD CHANGES"
 msgstr "ANNULER LES MODIFICATIONS"
 
@@ -1221,9 +1251,6 @@ msgstr "AUCUNE MANETTE DÉTECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR LA MANETTE POUR LA CONFIGURER"
-
-msgid "Now playing: "
-msgstr "En cours: "
 
 msgid "MOVE CURSOR"
 msgstr "BOUGER LE CURSEUR"
@@ -1263,6 +1290,15 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "FILTRER"
+
+#~ msgid "Only missing image"
+#~ msgstr "Seulement images manquantes"
+
+#~ msgid "Now playing: "
+#~ msgstr "En cours: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "CHOISIR LES DÉCORATIONS À INSTALLER"

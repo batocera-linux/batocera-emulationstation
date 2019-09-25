@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,8 +59,8 @@ msgstr "PRZESKOCZ DO..."
 msgid "SORT GAMES BY"
 msgstr "SORTUJ GRY"
 
-msgid "FILTER GAMELIST"
-msgstr "FILTRUJ LISTĘ GIER"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
@@ -89,16 +89,19 @@ msgstr "EDYTUJ METADANE GRY"
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ZAKTUALIZUJ LISTĘ GIER"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Ładuję..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "FINISHED"
@@ -146,9 +149,6 @@ msgstr "WYJDŹ"
 msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
 
-msgid "SCRAPE RATINGS"
-msgstr "OCENY SCRAPE'A"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr ""
 
@@ -176,10 +176,22 @@ msgstr ""
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr ""
 
+msgid "SCRAPE RATINGS"
+msgstr "OCENY SCRAPE'A"
+
 msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "NAZWA UŻYTKOWNIKA"
+
+msgid "PASSWORD"
+msgstr "HASŁO"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPE NOW"
@@ -362,12 +374,6 @@ msgstr "TRYB INFORMACJI PEŁNEJ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
-msgid "USERNAME"
-msgstr "NAZWA UŻYTKOWNIKA"
-
-msgid "PASSWORD"
-msgstr "HASŁO"
-
 msgid "MISSING BIOS"
 msgstr "BRAKUJĄCY BIOS"
 
@@ -382,6 +388,12 @@ msgstr "STATUS"
 
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ZAKTUALIZUJ LISTĘ GIER"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "SKONFIGURUJ KONTROLER"
@@ -557,6 +569,9 @@ msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
@@ -819,8 +834,8 @@ msgstr "SCRAPE'UJ TE GRY"
 msgid "All Games"
 msgstr "Wszystkie gry"
 
-msgid "Only missing image"
-msgstr "Tylko brakujące obrazy"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "FILTRUJ"
@@ -1004,6 +1019,15 @@ msgstr "marquee"
 msgid "enter path to marquee"
 msgstr "wprowadź ścieżkę do marquee"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 
@@ -1058,6 +1082,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "PONÓW"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
@@ -1203,6 +1230,9 @@ msgstr "SPACJA"
 msgid "DELETE A CHAR"
 msgstr "USUŃ ZNAK"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "COFNIJ ZMIANY"
 
@@ -1230,9 +1260,6 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
-
-msgid "Now playing: "
-msgstr "Teraz gra: "
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
@@ -1273,6 +1300,15 @@ msgstr "PRACUJE.."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "FILTRUJ LISTĘ GIER"
+
+#~ msgid "Only missing image"
+#~ msgstr "Tylko brakujące obrazy"
+
+#~ msgid "Now playing: "
+#~ msgstr "Teraz gra: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ INSTALOWANE RAMKI"

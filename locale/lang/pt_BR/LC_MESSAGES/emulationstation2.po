@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -61,8 +61,8 @@ msgstr "PULE PARA..."
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
-msgid "FILTER GAMELIST"
-msgstr "FILTRAR GAMELIST"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
@@ -91,17 +91,20 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ATUALIZAR LISTAS DE JOGOS"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Carregando..."
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
+
+msgid "FIND GAMES"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -148,9 +151,6 @@ msgstr "SAIR"
 msgid "SCRAPE FROM"
 msgstr "SCRAPER DO"
 
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPE DAS AVALIAÇÕES"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr "FONTE DE IMAGEM PREFERIDA"
 
@@ -178,11 +178,23 @@ msgstr "RODA"
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "FONTE DE MINIATURA PREFERIDA"
 
+msgid "SCRAPE RATINGS"
+msgstr "SCRAPE DAS AVALIAÇÕES"
+
 msgid "SCRAPE MARQUEE"
 msgstr "SCRAPE MARQUEE"
 
 msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE VIDEOS"
+
+msgid "USERNAME"
+msgstr "USUÁRIO"
+
+msgid "PASSWORD"
+msgstr "SENHA"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
@@ -364,12 +376,6 @@ msgstr "MODO VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
-msgid "USERNAME"
-msgstr "USUÁRIO"
-
-msgid "PASSWORD"
-msgstr "SENHA"
-
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
 
@@ -384,6 +390,12 @@ msgstr "STATUS"
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ATUALIZAR LISTAS DE JOGOS"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONFIGURAR UM CONTROLE"
@@ -559,6 +571,9 @@ msgstr "DURAÇÃO DOS TÍTULOS DA MÚSICA"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "REPRODUZIR MÚSICA ESPECÍFICA DO SISTEMA"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ATIVAR SOM DE NAVEGAÇÃO"
@@ -820,8 +835,8 @@ msgstr "SCRAPE DESSES JOGOS"
 msgid "All Games"
 msgstr "Todos os Jogos"
 
-msgid "Only missing image"
-msgstr "Somente imagens faltantes"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -1008,6 +1023,15 @@ msgstr "marquee"
 msgid "enter path to marquee"
 msgstr "insira o caminho para a marquee"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
@@ -1061,6 +1085,9 @@ msgstr "OCORREU UM ERRO"
 
 msgid "RETRY"
 msgstr "REPETIR"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -1203,6 +1230,9 @@ msgstr "ESPAÇO"
 msgid "DELETE A CHAR"
 msgstr "DELETAR UM CARACTERE"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ANULAR MODIFICAÇÕES"
 
@@ -1229,9 +1259,6 @@ msgstr "NENHUM CONTROLE DETECTADO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
-
-msgid "Now playing: "
-msgstr "Tocando: "
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
@@ -1271,6 +1298,15 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "FILTRAR GAMELIST"
+
+#~ msgid "Only missing image"
+#~ msgstr "Somente imagens faltantes"
+
+#~ msgid "Now playing: "
+#~ msgstr "Tocando: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "SELECIONAR SISTEMA PARA INSTALAÇÃO DAS MOLDURAS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-21 19:06+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,8 @@ msgstr "이동하기"
 msgid "SORT GAMES BY"
 msgstr "다음으로 게임 정렬"
 
-msgid "FILTER GAMELIST"
-msgstr "게임리스트 필터"
+msgid "OTHER FILTERS"
+msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임리스트 정렬방법"
@@ -88,17 +88,20 @@ msgstr "게임 정보 편집"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "고급 게임 옵션"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
-
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
+msgid "FILTER GAMES BY TEXT"
+msgstr ""
 
 msgid "Loading..."
 msgstr "로딩"
 
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr ""
+
 msgid "RESET ALL FILTERS"
 msgstr "모든 필터 리셋"
+
+msgid "FIND GAMES"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "완료"
@@ -145,9 +148,6 @@ msgstr "종료"
 msgid "SCRAPE FROM"
 msgstr "수집 출처"
 
-msgid "SCRAPE RATINGS"
-msgstr "평점 수집"
-
 msgid "PREFERED IMAGE SOURCE"
 msgstr "선호하는 이미지 소스"
 
@@ -175,11 +175,23 @@ msgstr "휠"
 msgid "PREFERED THUMBNAIL SOURCE"
 msgstr "선호하는 썸네일 소스"
 
+msgid "SCRAPE RATINGS"
+msgstr "평점 수집"
+
 msgid "SCRAPE MARQUEE"
 msgstr "마키 수집"
 
 msgid "SCRAPE VIDEOS"
 msgstr "비디오 수집"
+
+msgid "USERNAME"
+msgstr "사용자 이름"
+
+msgid "PASSWORD"
+msgstr "비밀번호"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "수집 시작"
@@ -361,12 +373,6 @@ msgstr "상세 모드"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
 
-msgid "USERNAME"
-msgstr "사용자 이름"
-
-msgid "PASSWORD"
-msgstr "비밀번호"
-
 msgid "MISSING BIOS"
 msgstr "없는 바이오스"
 
@@ -381,6 +387,12 @@ msgstr "상태"
 
 msgid "ADVANCED"
 msgstr "고급"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
+
+msgid "REALLY UPDATE GAMES LISTS ?"
+msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "컨트롤러 설정"
@@ -552,6 +564,9 @@ msgstr "노래 제목 표시 시간"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "특정 뮤직 폴더 시스템만 플레이"
+
+msgid "PLAY THEME MUSICS"
+msgstr ""
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "네비게이션 사운드 활성화"
@@ -810,8 +825,8 @@ msgstr "이 게임들을 수집"
 msgid "All Games"
 msgstr "모든 게임"
 
-msgid "Only missing image"
-msgstr "이미지가 없는 게임만"
+msgid "Only missing medias"
+msgstr ""
 
 msgid "FILTER"
 msgstr "필터"
@@ -997,6 +1012,15 @@ msgstr "움직이는 텍스트"
 msgid "enter path to marquee"
 msgstr "움직이는 텍스트의 경로 입력"
 
+msgid "SCRAPING"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI 미디어 센터를 실행하시겠습니까?"
 
@@ -1049,6 +1073,9 @@ msgstr "오류가 발생"
 
 msgid "RETRY"
 msgstr "재시도"
+
+msgid "DOWNLOADING"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
@@ -1189,6 +1216,9 @@ msgstr "스페이스"
 msgid "DELETE A CHAR"
 msgstr "문자 삭제"
 
+msgid "RESET"
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
 
@@ -1214,9 +1244,6 @@ msgstr "발견된 게임 패드 없음"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
-
-msgid "Now playing: "
-msgstr "현재 플레이 진행: "
 
 msgid "MOVE CURSOR"
 msgstr "커서 이동"
@@ -1255,6 +1282,15 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "FILTER GAMELIST"
+#~ msgstr "게임리스트 필터"
+
+#~ msgid "Only missing image"
+#~ msgstr "이미지가 없는 게임만"
+
+#~ msgid "Now playing: "
+#~ msgstr "현재 플레이 진행: "
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE INSTALLED"
 #~ msgstr "베젤이 설치 될 시스템 선택"
