@@ -38,6 +38,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
+#include "scrapers/ThreadedScraper.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -205,7 +206,23 @@ void GuiMenu::openScraperSettings()
 
 	// scrape now
 	ComponentListRow row;
-	auto openScrapeNow = [this] { mWindow->pushGui(new GuiScraperStart(mWindow)); };
+	auto openScrapeNow = [this] 
+	{ 
+		if (ThreadedScraper::isRunning())
+		{
+			Window* window = mWindow;
+
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
+			{
+				ThreadedScraper::stop();
+			}, _("NO"), nullptr));
+
+			return;
+		}
+
+		mWindow->pushGui(new GuiScraperStart(mWindow)); 
+	};
+
 	std::function<void()> openAndSave = openScrapeNow;
 	openAndSave = [s, openAndSave] { s->save(); openAndSave(); };
 	s->addEntry(_("SCRAPE NOW"), false, openAndSave, "iconScraper");
@@ -1008,6 +1025,16 @@ void GuiMenu::openGamesSettings_batocera()
 		// Game List Update
 		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] 
 		{
+			if (ThreadedScraper::isRunning())
+			{
+				window->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
+				{
+					ThreadedScraper::stop();
+				}, _("NO"), nullptr));
+
+				return;
+			}
+
 			window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"),
 				[this, window] {
 				ViewController::get()->goToStart();

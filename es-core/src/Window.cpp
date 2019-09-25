@@ -270,7 +270,7 @@ void Window::processSongTitleNotifications()
 	std::string songName = AudioManager::getInstance()->getSongName();
 	if (!songName.empty())
 	{
-		displayNotificationMessage(_U("\uF001  ") + songName); // _("Now playing: ") + 
+		displayNotificationMessage(_U("\uF006  ") + songName); // _("Now playing: ") + 
 		AudioManager::getInstance()->setSongName("");
 	}	
 }
@@ -449,9 +449,9 @@ void Window::render()
 	renderScreenSaver();
 
 	if(!mRenderScreenSaver && mInfoPopup)
-	{
 		mInfoPopup->render(transform);
-	}
+
+	renderRegisteredChilds(transform);
 	
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
@@ -674,4 +674,30 @@ void Window::renderScreenSaver()
 {
 	if (mScreenSaver)
 		mScreenSaver->renderScreenSaver();
+}
+
+void Window::registerChild(GuiComponent* pc)
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	if (std::find(mChilds.cbegin(), mChilds.cend(), pc) != mChilds.cend())
+		return;
+
+	mChilds.push_back(pc);
+}
+
+void Window::unRegisterChild(GuiComponent* pc)
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	auto it = std::find(mChilds.cbegin(), mChilds.cend(), pc);
+	if (it != mChilds.cend())
+		mChilds.erase(it);	
+}
+
+void Window::renderRegisteredChilds(const Transform4x4f& trans)
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+	for (auto child : mChilds)
+		child->render(trans);
 }

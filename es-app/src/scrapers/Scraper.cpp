@@ -144,6 +144,8 @@ std::unique_ptr<MDResolveHandle> resolveMetaDataAssets(const ScraperSearchResult
 
 MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const ScraperSearchParams& search) : mResult(result)
 {
+	mPercent = -1;
+
 	std::string ext;
 
 	// If we have a file extension returned by the scraper, then use it.
@@ -159,8 +161,15 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		if (dot != std::string::npos)
 			ext = result.imageUrl.substr(dot, std::string::npos);
 	}
-	
-	if (!result.imageUrl.empty())
+
+	bool ss = Settings::getInstance()->getString("Scraper") == "ScreenScraper";
+
+	auto tmp = Settings::getInstance()->getString("ScrapperImageSrc");
+	auto md = search.game->metadata.get("image");
+
+	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperImageSrc").empty() && !search.game->metadata.get("image").empty())
+		mResult.mdl.set("image", search.game->metadata.get("image"));
+	else if (!result.imageUrl.empty())
 	{
 		std::string imgPath = getSaveAsPath(search, "image", ext);
 
@@ -177,10 +186,12 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 					mResult.thumbnailUrl = "";
 
 				mResult.imageUrl = "";
-			}, "IMAGE", result.mdl.getName()));
+			}, "image", result.mdl.getName()));
 	}
 
-	if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
+	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !search.game->metadata.get("thumbnail").empty())
+		mResult.mdl.set("thumbnail", search.game->metadata.get("thumbnail"));
+	else if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
 	{
 		std::string thumbPath = getSaveAsPath(search, "thumb", ext);
 
@@ -193,10 +204,12 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 			{
 				mResult.mdl.set("thumbnail", thumbPath);
 				mResult.thumbnailUrl = "";
-			}, "THUMBNAIL", result.mdl.getName()));
+			}, "thumbnail", result.mdl.getName()));
 	}
 
-	if (!result.marqueeUrl.empty())
+	if (!search.overWriteMedias && Settings::getInstance()->getBool("ScrapeMarquee") && !search.game->metadata.get("marquee").empty())
+		mResult.mdl.set("marquee", search.game->metadata.get("marquee"));
+	else if (!result.marqueeUrl.empty())
 	{
 		std::string marqueePath = getSaveAsPath(search, "marquee", ext);
 
@@ -209,10 +222,12 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 			{
 				mResult.mdl.set("marquee", marqueePath);
 				mResult.marqueeUrl = "";
-			}, "MARQUEE", result.mdl.getName()));
+			}, "marquee", result.mdl.getName()));
 	}
 
-	if (!result.videoUrl.empty())
+	if (!search.overWriteMedias && Settings::getInstance()->getBool("ScrapeVideos") && !search.game->metadata.get("video").empty())
+		mResult.mdl.set("video", search.game->metadata.get("video"));
+	else if (!result.videoUrl.empty())
 	{
 		std::string videoPath = getSaveAsPath(search, "video", ".mp4");
 
@@ -225,7 +240,7 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 			{
 				mResult.mdl.set("video", videoPath);
 				mResult.videoUrl = "";
-			}, "VIDEO", result.mdl.getName()));
+			}, "video", result.mdl.getName()));
 	}
 
 	auto it = mFuncs.cbegin();
@@ -253,6 +268,9 @@ void MDResolveHandle::update()
 
 	ResolvePair* pPair = (*it);
 		
+	if (pPair->handle->status() == ASYNC_IN_PROGRESS)
+		mPercent = pPair->handle->getPercent();
+
 	if (pPair->handle->status() == ASYNC_ERROR)
 	{
 		setError(pPair->handle->getStatusString());
@@ -289,6 +307,14 @@ std::unique_ptr<ImageDownloadHandle> downloadImageAsync(const std::string& url, 
 ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight) : 
 	mSavePath(path), mMaxWidth(maxWidth), mMaxHeight(maxHeight), mReq(new HttpReq(url))
 {
+}
+
+int ImageDownloadHandle::getPercent()
+{
+	if (mReq->status() == HttpReq::REQ_IN_PROGRESS)
+		return mReq->getPercent();
+
+	return -1;
 }
 
 void ImageDownloadHandle::update()

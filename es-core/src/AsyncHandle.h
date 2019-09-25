@@ -23,6 +23,8 @@ public:
 	// Update and return the latest status.
 	inline AsyncHandleStatus status() { update(); return mStatus; }
 
+	virtual int getPercent() { return -1; }
+
 	// User-friendly string of our current status.  Will return error message if status() == SEARCH_ERROR.
 	inline std::string getStatusString()
 	{

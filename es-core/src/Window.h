@@ -74,7 +74,13 @@ public:
 	bool cancelScreenSaver();
 	void renderScreenSaver();
 
+	void registerChild(GuiComponent* pc);
+	void unRegisterChild(GuiComponent* pc);
+
 private:
+	void renderRegisteredChilds(const Transform4x4f& trans);
+	std::vector<GuiComponent*> mChilds;
+
 	void processNotificationMessages();
 	void processSongTitleNotifications();
 

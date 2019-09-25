@@ -16,6 +16,7 @@
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "scrapers/ThreadedScraper.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -246,6 +247,11 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	// Game List Update
 	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
 	{
+		if (ThreadedScraper::isRunning())
+		{
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING")));
+			return;
+		}
 		window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [this, window]
 		{
 			std::string systemName = mSystem->getName();
@@ -436,6 +442,12 @@ void GuiGamelistOptions::exitEditMode()
 
 void GuiGamelistOptions::openMetaDataEd()
 {
+	if (ThreadedScraper::isRunning())
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING")));
+		return;
+	}
+
 	// open metadata editor
 	// get the FileData that hosts the original metadata
 	FileData* file = getGamelist()->getCursor()->getSourceFileData();
