@@ -62,7 +62,7 @@ msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "OUTROS FILTROS"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
@@ -92,19 +92,19 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "Loading..."
 msgstr "A Carregar..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "ESTA FUNÇÃO É DESATIVADA QUANDO A PROCURA ESTÁ EM CURSO"
 
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "PROCURAR JOGOS"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -194,7 +194,7 @@ msgid "PASSWORD"
 msgstr "SENHA"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "A PROCURA ESTÁ EM CURSO. DESEJA PARAR ?"
 
 msgid "SCRAPE NOW"
 msgstr "INICIAR PROCURA"
@@ -571,7 +571,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "MÚSICA ESPECIFICA DE CADA SISTEMA"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "REPRODUZIR MUSICAS DO TEMA"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ATIVAR SOM DE NAVEGAÇÃO"
@@ -715,7 +715,7 @@ msgid "NETWORK REQUIRED"
 msgstr "NECESSÁRIO LIGAÇÃO A REDE"
 
 msgid "SCRAPING IN PROGRESS"
-msgstr "SCRAPING EM PROGRESSO"
+msgstr "PROCURA EM CURSO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -834,7 +834,7 @@ msgid "All Games"
 msgstr "Todos os Jogos"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "Apenas mídias em falta"
 
 msgid "FILTER"
 msgstr "FILTRO:"
@@ -1021,13 +1021,13 @@ msgid "enter path to marquee"
 msgstr "insira o caminho para a marquee"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "A PROCURAR"
 
 msgid "Searching"
-msgstr ""
+msgstr "Em andamento"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1084,7 +1084,7 @@ msgid "RETRY"
 msgstr "TENTE NOVAMENTE"
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "A TRANSFERIR"
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -1227,7 +1227,7 @@ msgid "DELETE A CHAR"
 msgstr "ELIMINAR CARACTERES"
 
 msgid "RESET"
-msgstr ""
+msgstr "REINICIAR"
 
 msgid "DISCARD CHANGES"
 msgstr "ANULAR MODIFICAÇÕES"
