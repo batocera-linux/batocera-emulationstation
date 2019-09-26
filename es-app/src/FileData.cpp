@@ -353,9 +353,6 @@ FolderData::SortType getSortTypeFromString(std::string desc) {
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
 {
-//	if (mSystem->isCollection())
-//		return mChildren;
-
 	std::vector<FileData*> ret;
 
 	bool flatFolders = Settings::getInstance()->getBool("FlatFolders");
@@ -370,9 +367,6 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (UIModeController::getInstance()->isUIModeKid())
 			filterKidGame = true;
 	}
-
-	if (!flatFolders && !showHiddenFiles && !filterKidGame)
-		return mChildren;
 
 	auto sys = CollectionSystemManager::get()->getSystemToView(mSystem);
 

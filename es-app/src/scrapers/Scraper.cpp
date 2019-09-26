@@ -330,32 +330,24 @@ void ImageDownloadHandle::update()
 		return;
 	}
 
-	// download is done, save it to disk
-	std::ofstream stream(mSavePath, std::ios_base::out | std::ios_base::binary);
-	if(stream.bad())
+	if (mStatus == ASYNC_IN_PROGRESS)
 	{
-		setError("Failed to open image path to write. Permission error? Disk full?");
-		return;
-	}
-
-	const std::string& content = mReq->getContent();
-	stream.write(content.data(), content.length());
-	stream.close();
-	if(stream.bad())
-	{
-		setError("Failed to save image. Disk full?");
-		return;
-	}
-
-	// It's an image ?
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
-	if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")
-	{
-		// resize it
-		if (!resizeImage(mSavePath, mMaxWidth, mMaxHeight))
+		if (!mReq->saveContent(mSavePath))
 		{
-			setError("Error saving resized image. Out of memory? Disk full?");
+			setError("Failed to save image. Disk full?");
 			return;
+		}
+	
+		// It's an image ?
+		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
+		if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")
+		{
+			// resize it
+			if (!resizeImage(mSavePath, mMaxWidth, mMaxHeight))
+			{
+				setError("Error saving resized image. Out of memory? Disk full?");
+				return;
+			}
 		}
 	}
 

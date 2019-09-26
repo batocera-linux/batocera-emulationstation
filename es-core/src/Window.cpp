@@ -16,6 +16,7 @@
 #include <SDL_events.h>
 #include "ThemeData.h"
 #include <mutex>
+#include "components/AsyncNotificationComponent.h"
 
 #define PLAYER_PAD_TIME_MS 200
 
@@ -270,13 +271,14 @@ void Window::processSongTitleNotifications()
 	std::string songName = AudioManager::getInstance()->getSongName();
 	if (!songName.empty())
 	{
-		displayNotificationMessage(_U("\uF006  ") + songName); // _("Now playing: ") + 
+		displayNotificationMessage(_U("\uF028  ") + songName); // _("Now playing: ") + 
 		AudioManager::getInstance()->setSongName("");
 	}	
 }
 
 void Window::update(int deltaTime)
 {
+	processPostedFunctions();
 	processSongTitleNotifications();
 	processNotificationMessages();
 
@@ -451,7 +453,7 @@ void Window::render()
 	if(!mRenderScreenSaver && mInfoPopup)
 		mInfoPopup->render(transform);
 
-	renderRegisteredChilds(transform);
+	renderRegisteredNotificationComponents(transform);
 	
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
@@ -676,28 +678,57 @@ void Window::renderScreenSaver()
 		mScreenSaver->renderScreenSaver();
 }
 
-void Window::registerChild(GuiComponent* pc)
+void Window::registerNotificationComponent(AsyncNotificationComponent* pc)
 {
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	if (std::find(mChilds.cbegin(), mChilds.cend(), pc) != mChilds.cend())
+	if (std::find(mAsyncNotificationComponent.cbegin(), mAsyncNotificationComponent.cend(), pc) != mAsyncNotificationComponent.cend())
 		return;
 
-	mChilds.push_back(pc);
+	mAsyncNotificationComponent.push_back(pc);
 }
 
-void Window::unRegisterChild(GuiComponent* pc)
+void Window::unRegisterNotificationComponent(AsyncNotificationComponent* pc)
 {
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	auto it = std::find(mChilds.cbegin(), mChilds.cend(), pc);
-	if (it != mChilds.cend())
-		mChilds.erase(it);	
+	auto it = std::find(mAsyncNotificationComponent.cbegin(), mAsyncNotificationComponent.cend(), pc);
+	if (it != mAsyncNotificationComponent.cend())
+		mAsyncNotificationComponent.erase(it);
 }
 
-void Window::renderRegisteredChilds(const Transform4x4f& trans)
+void Window::renderRegisteredNotificationComponents(const Transform4x4f& trans)
 {
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
-	for (auto child : mChilds)
+
+#define PADDING_H  (Renderer::getScreenWidth()*0.01)
+
+	float posY = Renderer::getScreenHeight() * 0.02f;
+
+	for (auto child : mAsyncNotificationComponent)
+	{		
+		float posX = Renderer::getScreenWidth()*0.99f - child->getSize().x();
+
+		child->setPosition(posX, posY, 0);
 		child->render(trans);
+
+		posY += child->getSize().y() + PADDING_H;
+	}
+}
+
+void Window::postToUiThread(const std::function<void(Window*)>& func)
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	mFunctions.push_back(func);	
+}
+
+void Window::processPostedFunctions()
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	for (auto func : mFunctions)
+		func(this);	
+
+	mFunctions.clear();
 }

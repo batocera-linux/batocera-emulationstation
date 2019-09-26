@@ -1,6 +1,5 @@
 #include "guis/GuiUpdate.h"
 #include "guis/GuiMsgBox.h"
-
 #include "Window.h"
 #include <string>
 #include "Log.h"
@@ -8,6 +7,98 @@
 #include "ApiSystem.h"
 #include "platform.h"
 #include "LocaleES.h"
+#include "components/AsyncNotificationComponent.h"
+
+GuiUpdateState::State GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
+
+class ThreadedUpdater
+{
+public:
+	ThreadedUpdater(Window* window) : mWindow(window)
+	{
+		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
+
+		mWndNotification = new AsyncNotificationComponent(window, false);
+		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
+
+		mWindow->registerNotificationComponent(mWndNotification);
+		mHandle = new std::thread(&ThreadedUpdater::threadUpdate, this);
+	}
+
+	~ThreadedUpdater()
+	{
+		mWindow->unRegisterNotificationComponent(mWndNotification);
+		delete mWndNotification;
+	}
+
+	void threadUpdate()
+	{
+		std::pair<std::string, int> updateStatus = ApiSystem::getInstance()->updateSystem([this](const std::string info)
+		{
+			auto pos = info.find(">>>");
+			if (pos != std::string::npos)
+			{
+				std::string percent(info.substr(pos));		
+				percent = Utils::String::replace(percent, ">", "");
+				percent = Utils::String::replace(percent, "%", "");
+				percent = Utils::String::replace(percent, " ", "");
+
+				int value = atoi(percent.c_str());
+
+				std::string text(info.substr(0, pos));
+				text = Utils::String::trim(text);
+
+				mWndNotification->updatePercent(value);
+				mWndNotification->updateText(text);
+			}
+			else
+			{
+				mWndNotification->updatePercent(-1);
+				mWndNotification->updateText(info);
+			}
+		});
+
+		if (updateStatus.second == 0)
+		{
+			GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
+
+			mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
+			mWndNotification->updateText("REBOOT SYSTEM TO APPLY");
+
+			std::this_thread::yield();
+			std::this_thread::sleep_for(std::chrono::hours(12));
+
+			/*
+			mWindow->postToUiThread([](Window* window)
+			{
+				window->pushGui(new GuiMsgBox(window, _("THE UPDATE IS READY. DO YOU WANT TO REBOOT THE SYSTEM NOW ?"), _("YES"), []
+				{
+#if defined(WIN32) && defined(_DEBUG)
+					quitES("");
+#else
+					if (runRestartCommand() != 0)
+						LOG(LogWarning) << "Reboot terminated with non-zero result!";
+#endif
+				}, _("LATER"), nullptr));
+			});*/
+		}
+		else
+		{
+			GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
+
+			std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+			mWindow->displayNotificationMessage(error);
+		}
+
+		delete this;
+	}
+
+private:
+	std::thread*				mHandle;
+	AsyncNotificationComponent* mWndNotification;
+	Window*						mWindow;
+};
+
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 {
@@ -15,25 +106,104 @@ GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
+	mState = 0;	
     mLoading = true;
     mPingHandle = new std::thread(&GuiUpdate::threadPing, this);
     mBusyAnim.setSize(mSize);
 }
 
 GuiUpdate::~GuiUpdate()
-{
+{	
 	mPingHandle->join();
 	delete mPingHandle;
 }
 
-bool GuiUpdate::input(InputConfig* config, Input input)
-{        
-	return false;
+void GuiUpdate::threadPing()
+{	
+	if (ApiSystem::getInstance()->ping())
+	{
+		std::vector<std::string> msgtbl;
+		if (ApiSystem::getInstance()->canUpdate(msgtbl))
+			onUpdateAvailable();
+		else
+			onNoUpdateAvailable();
+	}
+	else
+		onPingError();
 }
 
-std::vector<HelpPrompt> GuiUpdate::getHelpPrompts()
+void GuiUpdate::onUpdateAvailable()
 {
-	return std::vector<HelpPrompt>();
+	mLoading = false;
+	LOG(LogInfo) << "GuiUpdate : Update available" << "\n";
+	mState = 1;
+}
+
+void GuiUpdate::onNoUpdateAvailable()
+{
+	mLoading = false;
+	LOG(LogInfo) << "GuiUpdate : No update available" << "\n";
+	mState = 6;
+}
+
+void GuiUpdate::onPingError()
+{
+	LOG(LogError) << "GuiUpdate : Ping failed" << "\n";
+
+	mLoading = false;
+	mState = 3;
+}
+
+void GuiUpdate::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mLoading)
+		mBusyAnim.update(deltaTime);
+
+	Window* window = mWindow;
+
+	switch (mState)
+	{
+		case 1:
+		
+			mState = 0;
+			window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE?"), _("YES"), [this] 
+			{
+				mState = 2;
+				mLoading = true;
+
+				mState = -1;
+				new ThreadedUpdater(mWindow);
+
+			}, _("NO"), [this]  { mState = -1; }));		
+		
+			break;
+
+		case 3:
+		
+			mState = 0;
+			window->pushGui(new GuiMsgBox(window, _("NETWORK CONNECTION NEEDED"), _("OK"), [this] 
+			{
+				mState = -1;
+			}));			
+		
+			break;
+
+		case 6:
+
+			mState = 0;
+			window->pushGui(new GuiMsgBox(window, _("NO UPDATE AVAILABLE"), _("OK"), [this] 
+			{
+				mState = -1;
+			}));
+
+			break;
+
+		case -1:
+			delete this;
+			break;
+	}
 }
 
 void GuiUpdate::render(const Transform4x4f& parentTrans)
@@ -49,128 +219,13 @@ void GuiUpdate::render(const Transform4x4f& parentTrans)
 		mBusyAnim.render(trans);
 }
 
-void GuiUpdate::update(int deltaTime)
+bool GuiUpdate::input(InputConfig* config, Input input)
 {
-	GuiComponent::update(deltaTime);
-	mBusyAnim.update(deltaTime);
-
-	Window* window = mWindow;
-	if (mState == 1) {
-		window->pushGui(
-			new GuiMsgBox(window, _("REALLY UPDATE?"), _("YES"),
-				[this] {
-			mState = 2;
-			mLoading = true;
-			mHandle = new std::thread(&GuiUpdate::threadUpdate, this);
-
-		}, _("NO"), [this] {
-			mState = -1;
-		})
-
-		);
-		mState = 0;
-	}
-
-	if (mState == 3) {
-		window->pushGui(
-			new GuiMsgBox(window, _("NETWORK CONNECTION NEEDED"), _("OK"),
-				[this] {
-			mState = -1;
-		})
-		);
-		mState = 0;
-	}
-	if (mState == 4) {
-		window->pushGui(
-			new GuiMsgBox(window, _("UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"), _("OK"),
-				[this] {
-			if (runRestartCommand() != 0) {
-				LOG(LogWarning) << "Reboot terminated with non-zero result!";
-			}
-		})
-		);
-		mState = 0;
-	}
-	if (mState == 5) {
-		window->pushGui(
-			new GuiMsgBox(window, mResult.first, _("OK"),
-				[this] {
-			mState = -1;
-		}
-			)
-		);
-		mState = 0;
-	}
-	if (mState == 6) {
-		window->pushGui(
-			new GuiMsgBox(window, _("NO UPDATE AVAILABLE"), _("OK"),
-				[this] {
-			mState = -1;
-		}));
-		mState = 0;
-	}
-	if (mState == -1)
-		delete this;
+	return false;
 }
 
-void GuiUpdate::threadUpdate() 
+std::vector<HelpPrompt> GuiUpdate::getHelpPrompts()
 {
-    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->updateSystem(&mBusyAnim);
-    if(updateStatus.second == 0)
-        onUpdateOk();
-    else
-        onUpdateError(updateStatus);    
+	return std::vector<HelpPrompt>();
 }
 
-void GuiUpdate::threadPing()
-{
-	std::vector<std::string> msgtbl;
-	if (ApiSystem::getInstance()->ping())
-	{
-		if (ApiSystem::getInstance()->canUpdate(msgtbl))
-			onUpdateAvailable();
-		else
-			onNoUpdateAvailable();
-	}
-	else
-		onPingError();
-}
-
-void GuiUpdate::onUpdateAvailable() 
-{	
-    mLoading = false;
-    LOG(LogInfo) << "GuiUpdate : Update available" << "\n";	
-    mState = 1;
-}
-
-void GuiUpdate::onNoUpdateAvailable() 
-{	
-    mLoading = false;
-    LOG(LogInfo) << "GuiUpdate : No update available" << "\n";	
-    mState = 6;
-}
-
-void GuiUpdate::onPingError() 
-{
-    LOG(LogError) << "GuiUpdate : Ping failed" << "\n";
-
-    mLoading = false;
-    mState = 3;
-}
-void GuiUpdate::onUpdateError(std::pair<std::string, int> result)
-{
-	LOG(LogError) << "GuiUpdate : " << result.first.c_str();
-	
-	mLoading = false;
-    mState = 5;
-    mResult = result;
-    mResult.first = _("AN ERROR OCCURED") + std::string(": ") + mResult.first;
-}
-
-void GuiUpdate::onUpdateOk()
-{
-	LOG(LogInfo) << "GuiUpdate : Update OK";
-
-    mLoading = false;
-    mState = 4;
-}
