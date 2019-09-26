@@ -4,6 +4,14 @@
 #include "Log.h"
 #include <assert.h>
 
+#include <SDL.h>
+
+#ifdef WIN32
+#include <time.h>
+#else
+#include <unistd.h>
+#endif
+
 CURLM* HttpReq::s_multi_handle = curl_multi_init();
 
 std::map<CURL*, HttpReq*> HttpReq::s_requests;
@@ -174,11 +182,27 @@ HttpReq::HttpReq(const std::string& url)
 		}
 	}
 #endif
+	
+#if defined(WIN32)
+	srand(time(NULL) % getpid());
+	std::string TempPath;
+	char charPath[MAX_PATH];
+	if (GetTempPathA(MAX_PATH, charPath))
+		mStreamPath = std::string(charPath) + "httpreq" + std::to_string(rand() % 99999) + ".tmp";
+#else
+	srand(time(NULL) % getpid() + getppid());
+	mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp";
+#endif
+	
+	mStream.open(mStreamPath, std::ios_base::out | std::ios_base::binary);
 
 	//add the handle to our multi
 	CURLMcode merr = curl_multi_add_handle(s_multi_handle, mHandle);
 	if(merr != CURLM_OK)
 	{
+		if (mStream.is_open())
+			mStream.close();
+
 		mStatus = REQ_IO_ERROR;
 		onError(curl_multi_strerror(merr));
 		return;
@@ -189,6 +213,11 @@ HttpReq::HttpReq(const std::string& url)
 
 HttpReq::~HttpReq()
 {
+	if (mStream.is_open())
+		mStream.close();
+
+	Utils::FileSystem::removeFile(mStreamPath);
+
 	if(mHandle)
 	{
 		s_requests.erase(mHandle);
@@ -210,6 +239,9 @@ HttpReq::Status HttpReq::status()
 		CURLMcode merr = curl_multi_perform(s_multi_handle, &handle_count);
 		if(merr != CURLM_OK && merr != CURLM_CALL_MULTI_PERFORM)
 		{
+			if (mStream.is_open())
+				mStream.close();
+
 			mStatus = REQ_IO_ERROR;
 			onError(curl_multi_strerror(merr));
 			return mStatus;
@@ -229,10 +261,15 @@ HttpReq::Status HttpReq::status()
 					continue;
 				}
 
+				if (mStream.is_open())
+					mStream.close();
+
 				if(msg->data.result == CURLE_OK)
 				{
 					req->mStatus = REQ_SUCCESS;
-				}else{
+				}
+				else
+				{
 					req->mStatus = REQ_IO_ERROR;
 					req->onError(curl_easy_strerror(msg->data.result));
 				}
@@ -243,10 +280,24 @@ HttpReq::Status HttpReq::status()
 	return mStatus;
 }
 
-std::string HttpReq::getContent() const
+std::string HttpReq::getContent() 
 {
 	assert(mStatus == REQ_SUCCESS);
-	return mContent.str();
+
+	if (mStream.is_open())
+	{
+		mStream.flush();
+		mStream.close();
+	}
+
+	std::ifstream t(mStreamPath);
+	t.seekg(0, std::ios::end);
+	size_t size = t.tellg();
+	std::string buffer(size, ' ');
+	t.seekg(0);
+	t.read(&buffer[0], size);
+
+	return buffer; // mContent.str();
 }
 
 void HttpReq::onError(const char* msg)
@@ -265,10 +316,9 @@ std::string HttpReq::getErrorMsg()
 size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_ptr)
 {
 	HttpReq* request = ((HttpReq*)req_ptr);
-
-	std::stringstream& ss = request->mContent;
+		
+	std::ofstream& ss = request->mStream;
 	ss.write((char*)buff, size * nmemb);
-
 
 	double cl;
 	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
@@ -285,8 +335,36 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	return nmemb;
 }
 
-//used as a curl callback
-/*int HttpReq::update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow)
+bool HttpReq::saveContent(const std::string filename)
 {
-	
-}*/
+	assert(mStatus == REQ_SUCCESS);
+
+	if (mStream.is_open())
+	{
+		mStream.flush();
+		mStream.close();
+	}
+
+	if (!Utils::FileSystem::exists(mStreamPath))
+		return false;
+
+	std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
+	if (ifs.bad())
+		return false;
+
+	if (Utils::FileSystem::exists(filename))
+		Utils::FileSystem::removeFile(filename);
+
+	std::ofstream ofs(filename, std::ios_base::out | std::ios_base::binary);
+	if (ofs.bad())
+		return false;
+
+	ofs << ifs.rdbuf();
+
+	ifs.close();
+	ofs.close();
+	if (ofs.bad())
+		return false;
+		
+	return true;
+}

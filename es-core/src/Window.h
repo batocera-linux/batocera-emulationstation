@@ -7,6 +7,7 @@
 #include "Settings.h"
 #include "math/Vector2f.h"
 #include <memory>
+#include <functional>
 
 class FileData;
 class Font;
@@ -19,6 +20,7 @@ class Transform4x4f;
 struct HelpStyle;
 class TextureResource;
 class GuiInfoPopup;
+class AsyncNotificationComponent;
 
 class Window
 {
@@ -74,12 +76,20 @@ public:
 	bool cancelScreenSaver();
 	void renderScreenSaver();
 
-	void registerChild(GuiComponent* pc);
-	void unRegisterChild(GuiComponent* pc);
+	void registerNotificationComponent(AsyncNotificationComponent* pc);
+	void unRegisterNotificationComponent(AsyncNotificationComponent* pc);
+
+	void postToUiThread(const std::function<void(Window*)>& func);
 
 private:
-	void renderRegisteredChilds(const Transform4x4f& trans);
-	std::vector<GuiComponent*> mChilds;
+	void processPostedFunctions();
+
+	void renderRegisteredNotificationComponents(const Transform4x4f& trans);
+	std::vector<AsyncNotificationComponent*> mAsyncNotificationComponent;
+
+
+	std::vector<std::function<void(Window*)>> mFunctions;
+
 
 	void processNotificationMessages();
 	void processSongTitleNotifications();

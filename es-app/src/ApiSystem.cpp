@@ -38,6 +38,8 @@
 #define pclose _pclose
 #endif
 
+#include "platform.h"
+
 ApiSystem::ApiSystem() 
 {
 }
@@ -277,25 +279,48 @@ bool ApiSystem::setOverclock(std::string mode)
 	return false;
 }
 
-
-std::pair<std::string, int> ApiSystem::updateSystem(BusyComponent* ui) 
+// BusyComponent* ui
+std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
 {
+#if defined(WIN32) && defined(_DEBUG)
+	for (int i = 0; i < 100; i += 2)
+	{
+		if (func != nullptr)
+			func(std::string("Downloading >>> "+ std::to_string(i)+" %"));
+
+		::Sleep(200);
+	}
+
+	if (func != nullptr)
+		func(std::string("Inflating package..."));
+
+	::Sleep(750);
+
+	return std::pair<std::string, int>("Cool raoul ! T'y a cru, hein ?", 0);
+#endif
+
 	LOG(LogDebug) << "ApiSystem::updateSystem";
 
 	std::string updatecommand = "batocera-upgrade";
+
 	FILE *pipe = popen(updatecommand.c_str(), "r");
-	char line[1024] = "";
-	if (pipe == NULL) {
+	if (pipe == nullptr)
 		return std::pair<std::string, int>(std::string("Cannot call update command"), -1);
+
+	char line[1024] = "";
+	FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
+	while (fgets(line, 1024, pipe)) 
+	{
+		strtok(line, "\n");
+		if (flog != nullptr) 
+			fprintf(flog, "%s\n", line);
+
+		if (func != nullptr)
+			func(std::string(line));		
 	}
 
-	FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		if (flog != NULL) fprintf(flog, "%s\n", line);
-		ui->setText(std::string(line));
-	}
-	if (flog != NULL) fclose(flog);
+	if (flog != NULL) 
+		fclose(flog);
 
 	int exitCode = pclose(pipe);
 	return std::pair<std::string, int>(std::string(line), exitCode);
@@ -410,6 +435,11 @@ bool ApiSystem::ping()
 
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 
 {
+#if defined(WIN32) && defined(_DEBUG)
+	output.push_back("super");
+	return true;
+#endif
+
 	LOG(LogDebug) << "ApiSystem::canUpdate";
 
 	int res;
@@ -1153,17 +1183,60 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 
 	std::vector<std::string> res;
 
-#if WIN32 && _DEBUG
-	// http://batocera-linux.xorhub.com/upgrades/themes.txt
-	res.push_back("[A] Alekfull - https://github.com/jdorigao/es-theme-alekfull");
-	res.push_back("[A]\tArt-book\thttps://github.com/anthonycaccese/es-theme-art-book");
-	res.push_back("[A]\tBatopicase\thttps://github.com/Genetik57/es-theme-simply-batopicase");
-	res.push_back("[A]\tFundamental\thttps://github.com/jdorigao/es-theme-fundamental");
-	res.push_back("[I]\tMinimal\thttps://github.com/crcerror/es-theme-minimal");
-	res.push_back("[A]\tRVGM\thttps://github.com/Darknior/RVGM-ES-Theme");
-	res.push_back("[A]\tSimple\thttps://github.com/RetroPie/es-theme-simple");
-	res.push_back("[A]\tZoid\thttps://github.com/RetroPie/es-theme-zoid");
-	res.push_back("[A]\tVideoGame\thttps://github.com/jdorigao/es-theme-videogame");
+#if WIN32
+	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera-linux.xorhub.com/upgrades/themes.txt");
+	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event));
+	}
+
+	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	{		
+		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		for (auto line : lines)
+		{
+			auto parts = Utils::String::splitAny(line, " \t");
+			if (parts.size() > 1)
+			{
+				auto themeName = parts[0];
+				std::string themeUrl = Utils::FileSystem::getFileName(parts[1]);
+
+				bool themeExists = false;
+
+				std::vector<std::string> paths { 
+					"/etc/emulationstation/themes",
+					Utils::FileSystem::getEsConfigPath() + "/themes",
+					"/userdata/themes" // batocera
+				};
+
+				for (auto path : paths)
+				{
+					if (Utils::FileSystem::isDirectory(path + "/" + themeUrl+"-master"))
+					{
+						themeExists = true;
+						break;
+					}
+					else if (Utils::FileSystem::isDirectory(path + "/" + themeUrl))
+					{
+						themeExists = true;
+						break;
+					}
+					else if (Utils::FileSystem::isDirectory(path + "/"+ themeName))
+					{
+						themeExists = true;
+						break;
+					}
+				}
+
+				if (themeExists)
+					res.push_back("[I]\t" + line);
+				else
+					res.push_back("[A]\t" + line);
+			}
+		}
+	}
+
 	return res;
 #endif
 
@@ -1189,6 +1262,67 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) 
 {
+#if WIN32
+	for (auto theme : getBatoceraThemesList())
+	{
+		auto parts = Utils::String::splitAny(theme, " \t");
+		if (parts.size() < 2)
+			continue;
+
+		if (parts[1] == thname)
+		{
+			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+
+			ui->setText("Downloading " + thname);
+
+			std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(themeUrl+"/archive/master.zip");
+			while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+			{
+				SDL_Event event;
+				while (SDL_PollEvent(&event));
+			}
+
+			if (httpreq->status() == HttpReq::REQ_SUCCESS)
+			{
+				std::string fn = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
+				httpreq->saveContent(fn);
+
+				std::string zip = "c:\\Program Files\\7-Zip\\7z.exe";
+				if (!Utils::FileSystem::exists(zip))
+					zip = "c:\\Program Files (x86)\\7-Zip\\7z.exe";
+				
+				if (Utils::FileSystem::exists(zip))
+				{
+					std::string batfn = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".bat";
+					std::string cmd = "\"" + zip + "\" x \"" + fn + "\" -o\"" + Utils::FileSystem::getEsConfigPath() + "/themes\"";
+
+					std::fstream fs;
+					fs.open(batfn.c_str(), std::fstream::out);
+					fs << cmd;
+					fs.close();
+
+					runSystemCommand(batfn);
+
+					Utils::FileSystem::removeFile(batfn);
+				}
+
+				Utils::FileSystem::removeFile(fn);
+
+				return std::pair<std::string, int>(std::string("OK"), 0);
+			}
+
+			break;
+		}
+	}
+
+	return std::pair<std::string, int>(std::string(""), 1);
+#endif
+
+
+
+
+
 	LOG(LogDebug) << "ApiSystem::installBatoceraTheme";
 
 	std::string updatecommand = std::string("batocera-es-theme install ") + thname;
@@ -1220,6 +1354,27 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	LOG(LogDebug) << "ApiSystem::getBatoceraBezelsList";
 
 	std::vector<std::string> res;
+
+#if WIN32
+	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera-linux.xorhub.com/upgrades/bezels.txt");
+	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event));
+	}
+
+	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	{
+		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		for (auto line : lines)
+			res.push_back("[A]\t" + line);
+	}
+
+	return res;
+#endif
+
+
+
 	std::ostringstream oss;
 	oss << "batocera-es-thebezelproject list";
 	FILE *pipe = popen(oss.str().c_str(), "r");

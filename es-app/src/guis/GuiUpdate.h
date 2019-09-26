@@ -6,18 +6,27 @@
 
 #include <thread>
 
-class GuiUpdate : public GuiComponent {
-public:
-    GuiUpdate(Window *window);
+namespace GuiUpdateState
+{
+	enum State
+	{
+		NO_UPDATE,
+		UPDATER_RUNNING,
+		UPDATE_READY
+	};
+}
 
+class GuiUpdate : public GuiComponent 
+{
+public:
+	static GuiUpdateState::State state;
+
+    GuiUpdate(Window *window);
     virtual ~GuiUpdate();
 
     void render(const Transform4x4f &parentTrans) override;
-
     bool input(InputConfig *config, Input input) override;
-
     std::vector<HelpPrompt> getHelpPrompts() override;
-
     void update(int deltaTime) override;
 
 private:
@@ -26,21 +35,10 @@ private:
     int mState;
     std::pair<std::string, int> mResult;
 
-	std::thread *mHandle;
-	std::thread *mPingHandle;
-
-    void onUpdateError(std::pair<std::string, int>);
-
-    void onUpdateOk();
-
-    void threadUpdate();
+	std::thread* mPingHandle;
 
     void threadPing();
-
     void onUpdateAvailable();
-
     void onNoUpdateAvailable();
-
     void onPingError();
-
 };

@@ -545,8 +545,50 @@ void GuiMenu::openSystemSettings_batocera()
 	auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
 	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
 
-	// system informations
+	// System informations
 	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
+
+	// Updates
+	s->addEntry(_("UPDATES"), true, [this]
+	{
+		GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
+
+		// Batocera themes installer/browser
+		updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
+
+		// Batocera integration with theBezelProject
+		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
+
+#if !defined(WIN32) || defined(_DEBUG)
+
+		// Enable updates
+		auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
+		updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
+		updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
+		updateGui->addSaveFunc([updates_enabled]
+		{
+			SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
+			SystemConf::getInstance()->saveSystemConf();
+		});
+
+		// Start update
+		updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
+		{ 
+			if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
+			{
+				if (runRestartCommand() != 0)
+					LOG(LogWarning) << "Reboot terminated with non-zero result!";
+			}
+			else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATE IS ALREADY RUNNING")));
+			else
+				mWindow->pushGui(new GuiUpdate(mWindow)); 
+		});
+#endif
+
+		mWindow->pushGui(updateGui);
+	}, "iconUpdates");
+
 
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
 	std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
@@ -671,38 +713,7 @@ void GuiMenu::openSystemSettings_batocera()
 		PowerSaver::init();
 	});
 
-	// Updates
-	s->addEntry(_("UPDATES"), true, [this] 
-	{
-		GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
 
-		// Batocera themes installer/browser
-		updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
-
-		// Batocera integration with theBezelProject
-		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
-
-		#if !defined(WIN32) || defined(_DEBUG)
-
-		// Enable updates
-		auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
-		updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
-		updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
-
-		// Start update
-		updateGui->addEntry(_("START UPDATE"), true, [this] { mWindow->pushGui(new GuiUpdate(mWindow)); });
-
-		updateGui->addSaveFunc([updates_enabled] 
-		{
-			SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
-			SystemConf::getInstance()->saveSystemConf();
-		});
-
-		#endif
-
-		mWindow->pushGui(updateGui);
-	}, "iconUpdates");
-	
 #if !defined(WIN32) || defined(_DEBUG)
 	// backup
 	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
@@ -1631,10 +1642,8 @@ void GuiMenu::openUISettings()
 					s->setVariable("reloadGuiMenu", true);
 				}
 			});
-		}
-		
+		}		
 	}
-
 
 	// Optionally start in selected system
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);

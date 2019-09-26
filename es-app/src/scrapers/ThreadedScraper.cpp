@@ -1,8 +1,7 @@
 #include "ThreadedScraper.h"
 #include "Window.h"
 #include "FileData.h"
-
-#include "components/BusyComponent.h"
+#include "components/AsyncNotificationComponent.h"
 #include "LocaleES.h"
 
 #define GUIICON _U("\uF03E ")
@@ -16,16 +15,16 @@ ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchP
 	mExit = false;
 	mTotal = (int) mSearchQueue.size();
 
-	mWndNotification = new GuiScraperProgress(window);
+	mWndNotification = new AsyncNotificationComponent(window);
 
-	mWindow->registerChild(mWndNotification);
+	mWindow->registerNotificationComponent(mWndNotification);
 	search(mSearchQueue.front());
 	mHandle = new std::thread(&ThreadedScraper::run, this);	
 }
 
 ThreadedScraper::~ThreadedScraper()
 {
-	mWindow->unRegisterChild(mWndNotification);
+	mWindow->unRegisterNotificationComponent(mWndNotification);
 	delete mWndNotification;
 
 	ThreadedScraper::mInstance = nullptr;
@@ -148,87 +147,6 @@ void ThreadedScraper::acceptResult(const ScraperSearchResult& result)
 	search.game->metadata = result.mdl;
 }
 
-
-#include "ThemeData.h"
-#include "PowerSaver.h"
-#include "components/ComponentGrid.h"
-#include "components/NinePatchComponent.h"
-#include "components/TextComponent.h"
-#include "LocaleES.h"
-
-#define PADDING_PX  (Renderer::getScreenWidth()*0.01)
-
-GuiScraperProgress::GuiScraperProgress(Window* window) 
-	: GuiComponent(window)
-{
-	mPercent = -1;
-
-	float width = Renderer::getScreenWidth() * 0.14f;
-
-	auto theme = ThemeData::getMenuTheme();
-
-	mTitle = std::make_shared<TextComponent>(mWindow, GUIICON + _("SCRAPING"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_LEFT);
-	mGameName = std::make_shared<TextComponent>(mWindow, "name", theme->TextSmall.font, theme->Text.color, ALIGN_LEFT);
-	mAction = std::make_shared<TextComponent>(mWindow, "action", theme->TextSmall.font, theme->Text.color, ALIGN_LEFT);
-
-	Vector2f fullSize(width + 2 * PADDING_PX, 2 * PADDING_PX + mTitle->getSize().y() + mGameName->getSize().y() + mAction->getSize().y());
-	Vector2f gridSize(width, mTitle->getSize().y() + mGameName->getSize().y() + mAction->getSize().y());
-
-	setSize(fullSize);
-
-	mFrame = new NinePatchComponent(window);
-	mFrame->setImagePath(theme->Background.path);
-	mFrame->setCenterColor(theme->Background.color);
-	mFrame->setEdgeColor(theme->Background.color);
-	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
-	addChild(mFrame);
-
-	mGrid = new ComponentGrid(window, Vector2i(1, 3));
-	mGrid->setPosition((fullSize.x() - gridSize.x()) / 2.0, (fullSize.y() - gridSize.y()) / 2.0);
-	mGrid->setSize(gridSize);
-	mGrid->setEntry(mTitle, Vector2i(0, 0), false, true);
-	mGrid->setEntry(mGameName, Vector2i(0, 1), false, true);
-	mGrid->setEntry(mAction, Vector2i(0, 2), false, true);
-	addChild(mGrid);
-
-	float posX = Renderer::getScreenWidth()*0.5f - mSize.x()*0.5f;
-	float posY = Renderer::getScreenHeight() * 0.02f;
-
-	// FCA TopRight
-	posX = Renderer::getScreenWidth()*0.99f - mSize.x();
-	posY = Renderer::getScreenHeight() * 0.02f;
-
-	setPosition(posX, posY, 0);
-	setOpacity(200);
-
-	PowerSaver::pause();
-}
-
-GuiScraperProgress::~GuiScraperProgress()
-{
-	delete mFrame;
-	delete mGrid;
-
-	PowerSaver::resume();
-}
-
-void GuiScraperProgress::updateText(const std::string text, const std::string action)
-{
-	mGameName->setText(text);
-	mAction->setText(action);
-}
-
-void GuiScraperProgress::updatePercent(int percent)
-{
-	mPercent = percent;
-}
-
-void GuiScraperProgress::updateTitle(const std::string text)
-{
-	mTitle->setText(text);
-}
-
-
 void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams>& searches)
 {
 	if (ThreadedScraper::mInstance != nullptr)
@@ -250,39 +168,3 @@ void ThreadedScraper::stop()
 	catch (...) {}
 }
 
-
-
-
-void GuiScraperProgress::render(const Transform4x4f& parentTrans)
-{
-	Transform4x4f trans = parentTrans * getTransform();
-
-	mFrame->render(trans);
-	
-	float x = mGrid->getPosition().x() + mAction->getPosition().x();
-	float y = mGrid->getPosition().y() + mAction->getPosition().y();
-
-	float w = mAction->getSize().x();
-	float h = mAction->getSize().y();
-
-	h /= 10.0;
-	y += mAction->getSize().y();
-
-	Renderer::setMatrix(trans);
-	//Renderer::drawRect(x, y, w, h, 0xA0A0A050);
-
-	if (mPercent >= 0)
-	{
-		float percent = mPercent / 100.0;
-		if (percent < 0)
-			percent = 0;
-		if (percent > 100)
-			percent = 100;
-
-		auto theme = ThemeData::getMenuTheme();
-		auto color = (theme->Text.selectedColor & 0xFFFFFF00) | 0x40;
-		Renderer::drawRect(x, y, (w*percent), h, color);
-	}
-
-	mGrid->render(trans);
-}

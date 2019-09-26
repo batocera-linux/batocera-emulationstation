@@ -2,38 +2,10 @@
 
 #include <thread>
 #include "Scraper.h"
-#include "GuiComponent.h"
-#include "Window.h"
-
-class ComponentGrid;
-class NinePatchComponent;
-class TextComponent;
-
-class GuiScraperProgress : public GuiComponent
-{
-public:
-	GuiScraperProgress(Window* window);
-	~GuiScraperProgress();
-
-	void updateTitle(const std::string text);
-	void updateText(const std::string text, const std::string action);
-	void updatePercent(int percent);
-
-	void render(const Transform4x4f& parentTrans) override;
-
-private:
-	std::shared_ptr<TextComponent> mTitle;
-	std::shared_ptr<TextComponent> mGameName;
-	std::shared_ptr<TextComponent> mAction;
-	int mPercent;
-
-	ComponentGrid* mGrid;
-	NinePatchComponent* mFrame;
-};
+#include "components/AsyncNotificationComponent.h"
 
 class ThreadedScraper
 {
-
 public:
 	static void start(Window* window, const std::queue<ScraperSearchParams>& searches);
 	static void stop();
@@ -47,7 +19,7 @@ private:
 	~ThreadedScraper();
 
 	Window* mWindow;
-	GuiScraperProgress* mWndNotification;
+	AsyncNotificationComponent* mWndNotification;
 	std::string		mCurrentAction;
 
 	std::vector<std::string> mErrors;
