@@ -1,6 +1,6 @@
 project("emulationstation")
 
-set(ES_HEADERS
+set(ES_HEADERS	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.h
@@ -14,6 +14,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ContentInstaller.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ThreadedScraper.h
 
     # GuiComponents
@@ -48,12 +49,10 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstallStart.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstall.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstall.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemsHide.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstallStart.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstall.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstall.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelUnInstall.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelUnInstall.cpp # batocera
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -94,6 +93,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/NetworkThread.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ContentInstaller.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ThreadedScraper.cpp
 
     # GuiComponents

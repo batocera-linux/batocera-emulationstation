@@ -537,7 +537,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setColorShiftEnd(elem->get<unsigned int>("colorEnd"));
 
 		if (elem->has("gradientType"))
-			setColorGradientHorizontal(!(elem->get<std::string>("gradientType").compare("horizontal")));
+			setColorGradientHorizontal(elem->get<std::string>("gradientType").compare("horizontal"));
 	}
 
 	if(properties & COLOR && elem->has("reflexion"))

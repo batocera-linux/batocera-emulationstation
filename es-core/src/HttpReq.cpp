@@ -12,6 +12,9 @@
 #include <unistd.h>
 #endif
 
+#include <mutex>
+static std::mutex mMutex;
+
 CURLM* HttpReq::s_multi_handle = curl_multi_init();
 
 std::map<CURL*, HttpReq*> HttpReq::s_requests;
@@ -183,15 +186,31 @@ HttpReq::HttpReq(const std::string& url)
 	}
 #endif
 	
+	std::unique_lock<std::mutex> lock(mMutex);
+
 #if defined(WIN32)
 	srand(time(NULL) % getpid());
 	std::string TempPath;
-	char charPath[MAX_PATH];
-	if (GetTempPathA(MAX_PATH, charPath))
-		mStreamPath = std::string(charPath) + "httpreq" + std::to_string(rand() % 99999) + ".tmp";
+	char lpTempPathBuffer[MAX_PATH];
+	if (GetTempPathA(MAX_PATH, lpTempPathBuffer))
+	{
+
+		TCHAR szTempFileName[MAX_PATH];
+
+		if (GetTempFileName(lpTempPathBuffer, TEXT("httpreq"), 0, szTempFileName))
+			mStreamPath = std::string(szTempFileName);
+		else
+		{
+			do { mStreamPath = std::string(lpTempPathBuffer) + "httpreq" + std::to_string(rand() % 99999) + ".tmp"; } 
+			while (Utils::FileSystem::exists(mStreamPath));	
+		}
+	}
+	
 #else
 	srand(time(NULL) % getpid() + getppid());
-	mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp";
+
+	do { mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; }
+	while (Utils::FileSystem::exists(mStreamPath));
 #endif
 	
 	mStream.open(mStreamPath, std::ios_base::out | std::ios_base::binary);
@@ -213,8 +232,13 @@ HttpReq::HttpReq(const std::string& url)
 
 HttpReq::~HttpReq()
 {
+	std::unique_lock<std::mutex> lock(mMutex);
+
 	if (mStream.is_open())
+	{
+		mStream.flush();
 		mStream.close();
+	}
 
 	Utils::FileSystem::removeFile(mStreamPath);
 
@@ -233,6 +257,8 @@ HttpReq::~HttpReq()
 
 HttpReq::Status HttpReq::status()
 {
+	std::unique_lock<std::mutex> lock(mMutex);
+
 	if(mStatus == REQ_IN_PROGRESS)
 	{
 		int handle_count;
@@ -253,16 +279,18 @@ HttpReq::Status HttpReq::status()
 		{
 			if(msg->msg == CURLMSG_DONE)
 			{
-				HttpReq* req = s_requests[msg->easy_handle];
-				
+				HttpReq* req = s_requests[msg->easy_handle];				
 				if(req == NULL)
 				{
 					LOG(LogError) << "Cannot find easy handle!";
 					continue;
 				}
 
-				if (mStream.is_open())
-					mStream.close();
+				if (req->mStream.is_open())
+				{
+					req->mStream.flush();
+					req->mStream.close();
+				}
 
 				if(msg->data.result == CURLE_OK)
 				{

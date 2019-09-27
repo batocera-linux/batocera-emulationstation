@@ -2,12 +2,13 @@
 
 #include "ApiSystem.h"
 #include "components/OptionListComponent.h"
-#include "guis/GuiThemeInstall.h"
 #include "guis/GuiSettings.h"
 #include "views/ViewController.h"
 #include "utils/StringUtil.h"
 #include "components/ComponentGrid.h"
 #include "LocaleES.h"
+
+#include "ContentInstaller.h"
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	: GuiComponent(window), mMenu(window, _("SELECT THEME").c_str())
@@ -59,7 +60,14 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 
 void GuiThemeInstallStart::start(std::string themeName)
 {
-	mWindow->pushGui(new GuiThemeInstall(mWindow, themeName.c_str()));
+	if (themeName.empty())
+		return;
+
+	char trstring[256];
+	snprintf(trstring, 256, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), themeName.c_str()); // batocera
+	mWindow->displayNotificationMessage(_U("\uF019 ") + trstring);
+
+	ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME, themeName);
     delete this;
 }
 
