@@ -65,7 +65,7 @@ void GuiThemeInstallStart::start(std::string themeName)
 
 	char trstring[256];
 	snprintf(trstring, 256, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), themeName.c_str()); // batocera
-	mWindow->displayNotificationMessage(_U("\uF019 ") + trstring);
+	mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 	ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME, themeName);
     delete this;
