@@ -3,9 +3,8 @@
 #define ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H
 
 #include "VideoComponent.h"
+#include <mutex>
 
-struct SDL_mutex;
-struct SDL_Surface;
 struct libvlc_instance_t;
 struct libvlc_media_t;
 struct libvlc_media_player_t;
@@ -14,18 +13,22 @@ struct VideoContext
 {
 	VideoContext()
 	{
-		surface = nullptr;
-		mutex = nullptr;
+		surfaces[0] = nullptr;
+		surfaces[1] = nullptr;
 		component = nullptr;
 		valid = false;
-		hasFrame = false;
+		hasFrame[0] = false;
+		hasFrame[1] = false;
+		surfaceId = 0;
 	}
 
-	SDL_Surface*		surface;
-	SDL_mutex*			mutex;
+	int					surfaceId;
+	unsigned char*		surfaces[2];	
+	std::mutex			mutexes[2];
+	bool				hasFrame[2];
+
 	VideoComponent*		component;
-	bool				valid;
-	bool				hasFrame;
+	bool				valid;	
 };
 
 
