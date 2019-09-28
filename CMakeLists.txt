@@ -85,7 +85,7 @@ find_package(FreeImage REQUIRED)
 # batocera / background musics
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
-if(!MSVC)
+if(NOT DEFINED MSVC)
 	find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
 endif()
 find_package(SDL2 REQUIRED)
@@ -168,7 +168,7 @@ set(COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/es-core/src
 )
 
-if(!MSVC)
+if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_INCLUDE_DIRS
       ${Boost_INCLUDE_DIRS}
       )
@@ -242,7 +242,7 @@ set(COMMON_LIBRARIES
     id3v2
 )
 
-if(!MSVC)
+if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_LIBRARIES
       ${Boost_LIBRARIES}
       )
