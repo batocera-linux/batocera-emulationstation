@@ -45,6 +45,7 @@ private:
 	void openVideoScreensaverOptions();
 	void openSoundSettings();
 	void openUISettings();
+	void openUpdatesSettings();
 
 	// batocera
 	void openKodiLauncher_batocera();

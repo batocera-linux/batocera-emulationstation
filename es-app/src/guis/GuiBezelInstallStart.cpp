@@ -2,13 +2,13 @@
 
 #include "ApiSystem.h"
 #include "components/OptionListComponent.h"
-#include "guis/GuiBezelInstall.h"
 #include "guis/GuiSettings.h"
 #include "views/ViewController.h"
 #include "components/ComponentGrid.h"
 #include "SystemData.h"
-
+#include "GuiBezelUnInstall.h"
 #include "LocaleES.h"
+#include "ContentInstaller.h"
 
 // Batocera integration with theBezelProject
 GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
@@ -135,10 +135,15 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 
 void GuiBezelInstallStart::start(std::string SelectedBezel)
 {
-  if(!SelectedBezel.empty()) {
-    mWindow->pushGui(new GuiBezelInstall(mWindow, SelectedBezel.c_str()));
-    delete this;
-  }
+	if (SelectedBezel.empty())
+		return;
+
+	char trstring[256];
+	snprintf(trstring, 256, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), SelectedBezel.c_str()); // batocera
+	mWindow->displayNotificationMessage(_U("\uF019 ") + trstring);
+
+	ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME, SelectedBezel);	
+	delete this;	
 }
 
 bool GuiBezelInstallStart::input(InputConfig* config, Input input)

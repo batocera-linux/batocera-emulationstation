@@ -380,7 +380,7 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 		if (elem->has("selectorColorEnd"))
 			setSelectorColorEnd(elem->get<unsigned int>("selectorColorEnd"));
 		if (elem->has("selectorGradientType"))
-			setSelectorColorGradientHorizontal(!(elem->get<std::string>("selectorGradientType").compare("horizontal")));
+			setSelectorColorGradientHorizontal(elem->get<std::string>("selectorGradientType").compare("horizontal"));
 		if(elem->has("selectedColor"))
 			setSelectedColor(elem->get<unsigned int>("selectedColor"));
 		if(elem->has("primaryColor"))

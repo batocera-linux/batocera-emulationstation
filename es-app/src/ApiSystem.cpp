@@ -36,6 +36,7 @@
 #include "EmulationStation.h"
 #define popen _popen
 #define pclose _pclose
+#include <thread>
 #endif
 
 #include "platform.h"
@@ -845,7 +846,10 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking()
 
 	std::vector<std::string> res;
 
-#ifndef WIN32
+#if WIN32
+	return res;
+#endif
+
 	std::ostringstream oss;
 	oss << "batocera-overclock list";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -860,7 +864,6 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking()
 		res.push_back(std::string(line));
 	}
 	pclose(pipe);
-#endif
 
 	return res;
 }
@@ -1096,6 +1099,11 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices()
 	LOG(LogDebug) << "ApiSystem::getAvailableVideoOutputDevices";
 
 	std::vector<std::string> res;
+
+#if WIN32
+	return res;
+#endif
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "lsoutputs";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -1185,11 +1193,9 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 
 #if WIN32
 	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera-linux.xorhub.com/upgrades/themes.txt");
+
 	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event));
-	}
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
 	if (httpreq->status() == HttpReq::REQ_SUCCESS)
 	{		
@@ -1260,7 +1266,7 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	return res;
 }
 
-std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, std::string thname) 
+std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
 {
 #if WIN32
 	for (auto theme : getBatoceraThemesList())
@@ -1274,14 +1280,13 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, s
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
 
-			ui->setText("Downloading " + thname);
+			if (func != nullptr)
+				func("Downloading " + thname);
 
 			std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(themeUrl+"/archive/master.zip");
+
 			while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-			{
-				SDL_Event event;
-				while (SDL_PollEvent(&event));
-			}
+				std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
 			if (httpreq->status() == HttpReq::REQ_SUCCESS)
 			{
@@ -1302,7 +1307,7 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, s
 					fs << cmd;
 					fs.close();
 
-					runSystemCommand(batfn);
+			//		runSystemCommand(batfn);
 
 					Utils::FileSystem::removeFile(batfn);
 				}
@@ -1333,7 +1338,8 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, s
 		return std::pair<std::string, int>(std::string("Error starting `batocera-es-theme` command."), -1);
 	}
 
-	while (fgets(line, 1024, pipe)) {
+	while (fgets(line, 1024, pipe)) 
+	{
 		strtok(line, "\n");
 		LOG(LogWarning) << "Theme install: " << line;
 		// Long theme names/URL can crash the GUI MsgBox
@@ -1341,7 +1347,9 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(BusyComponent* ui, s
 		// in es-core MsgBox -- FIXME
 		if (strlen(line) > 48)
 			line[47] = '\0';
-		ui->setText(std::string(line));
+
+		if (func != nullptr)
+			func(std::string(line));		
 	}
 
 	int exitCode = pclose(pipe);
@@ -1357,11 +1365,9 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 
 #if WIN32
 	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera-linux.xorhub.com/upgrades/bezels.txt");
+	
 	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event));
-	}
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
 	if (httpreq->status() == HttpReq::REQ_SUCCESS)
 	{
@@ -1395,7 +1401,7 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	return res;
 }
 
-std::pair<std::string, int> ApiSystem::installBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
+std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
 
@@ -1414,7 +1420,9 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(BusyComponent* ui, s
 		// in es-core MsgBox -- FIXME
 		if (strlen(line) > 48)
 			line[47] = '\0';
-		ui->setText(std::string(line));
+
+		if (func != nullptr)
+			func(std::string(line));			
 	}
 
 	int exitCode = pclose(pipe);

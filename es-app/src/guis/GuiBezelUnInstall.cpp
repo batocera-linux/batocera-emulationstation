@@ -6,33 +6,33 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 #include "LocaleES.h"
-#include "GuiThemeInstall.h"
-#include "views/ViewController.h"
+#include "GuiBezelUnInstall.h"
 
-GuiThemeInstall::GuiThemeInstall(Window* window, const char *theme) : GuiComponent(window), mBusyAnim(window)
+// And now the UnInstall for this
+GuiBezelUninstall::GuiBezelUninstall(Window* window, char *bezel) : GuiComponent(window), mBusyAnim(window)
 {
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
         mLoading = true;
 	mState = 1;
         mBusyAnim.setSize(mSize);
-	mThemeName = theme;
+	mBezelName = bezel;
 }
 
-GuiThemeInstall::~GuiThemeInstall()
+GuiBezelUninstall::~GuiBezelUninstall()
 {
 }
 
-bool GuiThemeInstall::input(InputConfig* config, Input input)
+bool GuiBezelUninstall::input(InputConfig* config, Input input)
 {
         return false;
 }
 
-std::vector<HelpPrompt> GuiThemeInstall::getHelpPrompts()
+std::vector<HelpPrompt> GuiBezelUninstall::getHelpPrompts()
 {
 	return std::vector<HelpPrompt>();
 }
 
-void GuiThemeInstall::render(const Transform4x4f& parentTrans)
+void GuiBezelUninstall::render(const Transform4x4f& parentTrans)
 {
         Transform4x4f trans = parentTrans * getTransform();
 
@@ -46,27 +46,25 @@ void GuiThemeInstall::render(const Transform4x4f& parentTrans)
 
 }
 
-void GuiThemeInstall::update(int deltaTime) {
+void GuiBezelUninstall::update(int deltaTime) {
         GuiComponent::update(deltaTime);
         mBusyAnim.update(deltaTime);
        
         Window* window = mWindow;
         if(mState == 1){
 	  mLoading = true;
-	  mHandle = new std::thread(&GuiThemeInstall::threadTheme, this);
+	  mHandle = new std::thread(&GuiBezelUninstall::threadBezel, this);
 	  mState = 0;
         }
 
         if(mState == 2){
 	  window->pushGui(
-			  new GuiMsgBox(window, _("FINISHED") + "\n" + _("THEME INSTALLED SUCCESSFULLY"), _("OK"),
+			  new GuiMsgBox(window, _("FINISHED") + "\n" + _("BEZELS DELETED SUCCESSFULLY"), _("OK"),
 					[this] {
 					  mState = -1;
 					}
 					)
 			  );
-	  // In case you have no active theme
-	  ViewController::get()->reloadAll();
 	  mState = 0;
         }
         if(mState == 3){
@@ -85,18 +83,19 @@ void GuiThemeInstall::update(int deltaTime) {
         }
 }
 
-void GuiThemeInstall::threadTheme() 
+void GuiBezelUninstall::threadBezel() 
 {
-    // Batocera script will be invoked there 
-    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->installBatoceraTheme(&mBusyAnim, mThemeName);
+    std::pair<std::string,int> updateStatus = ApiSystem::getInstance()->uninstallBatoceraBezel(&mBusyAnim, mBezelName);
+    
     if(updateStatus.second == 0){
         this->onInstallOk();
     }else {
         this->onInstallError(updateStatus);
-    }  
+    } 
+    
 }
 
-void GuiThemeInstall::onInstallError(std::pair<std::string, int> result)
+void GuiBezelUninstall::onInstallError(std::pair<std::string, int> result)
 {
     mLoading = false;
     mState = 3;
@@ -104,8 +103,10 @@ void GuiThemeInstall::onInstallError(std::pair<std::string, int> result)
     mResult.first = _("AN ERROR OCCURED");
 }
 
-void GuiThemeInstall::onInstallOk()
+void GuiBezelUninstall::onInstallOk()
 {
     mLoading = false;
     mState = 2;
 }
+
+

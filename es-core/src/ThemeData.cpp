@@ -1123,6 +1123,8 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Title.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_LARGE));
 		if (elem->has("color"))
 			Title.color = elem->get<unsigned int>("color");
+		if (elem->has("selectorColor"))
+			Title.selectorColor = elem->get<unsigned int>("selectorColor");
 	}
 
 	elem = theme->getElement("menu", "menufooter", "menuText");
@@ -1132,6 +1134,8 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Footer.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
 		if (elem->has("color"))
 			Footer.color = elem->get<unsigned int>("color");
+		if (elem->has("selectorColor"))
+			Footer.selectorColor = elem->get<unsigned int>("selectorColor");
 	}
 
 	elem = theme->getElement("menu", "menutextsmall", "menuTextSmall");
@@ -1168,7 +1172,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		if (elem->has("selectorColorEnd"))
 			Text.selectorGradientColor = elem->get<unsigned int>("selectorColorEnd");
 		if (elem->has("selectorGradientType"))
-			Text.selectorGradientType = !(elem->get<std::string>("selectorGradientType").compare("horizontal"));
+			Text.selectorGradientType = (elem->get<std::string>("selectorGradientType").compare("horizontal"));
 	}
 
 	elem = theme->getElement("menu", "menubutton", "menuButton");

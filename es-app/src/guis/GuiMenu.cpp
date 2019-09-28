@@ -95,7 +95,6 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 //		addEntry(_("SCRAPE").c_str(), true, [this] { openScraperSettings_batocera(); }, "iconScraper");
 	}
 	
-
 	// SYSTEM
 	if (isFullUI)
 		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings_batocera(); }, "iconSystem");
@@ -538,6 +537,46 @@ void GuiMenu::openDeveloperSettings()
 	mWindow->pushGui(s);
 }
 
+void GuiMenu::openUpdatesSettings()
+{
+	GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
+
+	// Batocera themes installer/browser
+	updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
+
+	// Batocera integration with theBezelProject
+	updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
+
+#if !defined(WIN32) || defined(_DEBUG)
+
+	// Enable updates
+	auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
+	updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
+	updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
+	updateGui->addSaveFunc([updates_enabled]
+	{
+		SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// Start update
+	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
+	{
+		if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
+		{
+			if (runRestartCommand() != 0)
+				LOG(LogWarning) << "Reboot terminated with non-zero result!";
+		}
+		else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATE IS ALREADY RUNNING")));
+		else
+			mWindow->pushGui(new GuiUpdate(mWindow));
+	});
+#endif
+
+	mWindow->pushGui(updateGui);
+}
+
 void GuiMenu::openSystemSettings_batocera() 
 {
 	Window *window = mWindow;
@@ -548,79 +587,8 @@ void GuiMenu::openSystemSettings_batocera()
 	// System informations
 	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
 
-	// Updates
-	s->addEntry(_("UPDATES"), true, [this]
-	{
-		GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
-
-		// Batocera themes installer/browser
-		updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
-
-		// Batocera integration with theBezelProject
-		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
-
-#if !defined(WIN32) || defined(_DEBUG)
-
-		// Enable updates
-		auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
-		updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
-		updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
-		updateGui->addSaveFunc([updates_enabled]
-		{
-			SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
-			SystemConf::getInstance()->saveSystemConf();
-		});
-
-		// Start update
-		updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
-		{ 
-			if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
-			{
-				if (runRestartCommand() != 0)
-					LOG(LogWarning) << "Reboot terminated with non-zero result!";
-			}
-			else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
-				mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATE IS ALREADY RUNNING")));
-			else
-				mWindow->pushGui(new GuiUpdate(mWindow)); 
-		});
-#endif
-
-		mWindow->pushGui(updateGui);
-	}, "iconUpdates");
-
-
-	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
-	std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
-
-	// Storage device
-	auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
-	for (auto it = availableStorage.begin(); it != availableStorage.end(); it++) 
-	{
-		if ((*it) != "RAM")
-		{
-			if (Utils::String::startsWith(*it, "DEV"))
-			{
-				std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-				if (tokens.size() >= 3) {
-					// concatenat the ending words
-					std::string vname = "";
-					for (unsigned int i = 2; i < tokens.size(); i++) {
-						if (i > 2) vname += " ";
-						vname += tokens.at(i);
-					}
-					optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
-				}
-			}
-			else {
-				optionsStorage->add((*it), (*it), selectedStorage == (*it));
-			}
-		}
-	}
-#if !defined(WIN32) || defined(_DEBUG)
-	s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
-#endif
+	// Updates -> Moved one level down
+	s->addEntry(_("UPDATES"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
 
 	// language choice
 	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
@@ -713,6 +681,37 @@ void GuiMenu::openSystemSettings_batocera()
 		PowerSaver::init();
 	});
 
+	// Storage device
+	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
+	std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
+
+	auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
+	for (auto it = availableStorage.begin(); it != availableStorage.end(); it++)
+	{
+		if ((*it) != "RAM")
+		{
+			if (Utils::String::startsWith(*it, "DEV"))
+			{
+				std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+				if (tokens.size() >= 3) {
+					// concatenat the ending words
+					std::string vname = "";
+					for (unsigned int i = 2; i < tokens.size(); i++) {
+						if (i > 2) vname += " ";
+						vname += tokens.at(i);
+					}
+					optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
+				}
+			}
+			else {
+				optionsStorage->add((*it), (*it), selectedStorage == (*it));
+			}
+		}
+	}
+#if !defined(WIN32) || defined(_DEBUG)
+	s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
+#endif
 
 #if !defined(WIN32) || defined(_DEBUG)
 	// backup
@@ -1504,59 +1503,6 @@ void GuiMenu::openUISettings()
 
 	auto s = new GuiSettings(mWindow, _("UI SETTINGS").c_str());
 
-	//UI mode
-	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
-	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
-	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
-		UImodeSelection->add(*it, *it, Settings::getInstance()->getString("UIMode") == *it);
-	s->addWithLabel(_("UI MODE"), UImodeSelection);
-
-	s->addSaveFunc([UImodeSelection, window]
-	{
-		std::string selectedMode = UImodeSelection->getSelected();
-		if (selectedMode != "Full")
-		{
-			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
-			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-			msg += _("Do you want to proceed ?");
-			window->pushGui(new GuiMsgBox(window, msg,
-				_("YES"), [selectedMode] {
-				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
-				Settings::getInstance()->setString("UIMode", selectedMode);
-				Settings::getInstance()->saveFile();
-			}, _("NO"), nullptr));
-		}
-	});
-
-#ifndef WIN32
-	// video device
-	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
-	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
-	if (currentDevice.empty()) currentDevice = "auto";
-
-	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
-
-	bool vfound = false;
-	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
-		optionsVideo->add((*it), (*it), currentDevice == (*it));
-		if (currentDevice == (*it)) {
-			vfound = true;
-		}
-	}
-	if (vfound == false) {
-		optionsVideo->add(currentDevice, currentDevice, true);
-	}
-	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
-
-	s->addSaveFunc([this, optionsVideo, currentDevice] {
-		if (optionsVideo->changed()) {
-			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
-			SystemConf::getInstance()->saveSystemConf();
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		}
-	});
-#endif
-
 	// theme set
 	auto theme = ThemeData::getMenuTheme();
 	auto themeSets = ThemeData::getThemeSets();
@@ -1644,6 +1590,59 @@ void GuiMenu::openUISettings()
 			});
 		}		
 	}
+
+	//UI mode
+	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
+	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
+	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
+		UImodeSelection->add(*it, *it, Settings::getInstance()->getString("UIMode") == *it);
+	s->addWithLabel(_("UI MODE"), UImodeSelection);
+	s->addSaveFunc([UImodeSelection, window]
+	{
+		std::string selectedMode = UImodeSelection->getSelected();
+		if (selectedMode != "Full")
+		{
+			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
+			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
+			msg += _("Do you want to proceed ?");
+			window->pushGui(new GuiMsgBox(window, msg,
+				_("YES"), [selectedMode] {
+				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
+				Settings::getInstance()->setString("UIMode", selectedMode);
+				Settings::getInstance()->saveFile();
+			}, _("NO"), nullptr));
+		}
+	});
+
+
+#if !defined(WIN32) || defined(_DEBUG)
+	// video device
+	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
+	if (currentDevice.empty()) currentDevice = "auto";
+
+	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
+
+	bool vfound = false;
+	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
+		optionsVideo->add((*it), (*it), currentDevice == (*it));
+		if (currentDevice == (*it)) {
+			vfound = true;
+		}
+	}
+	if (vfound == false) {
+		optionsVideo->add(currentDevice, currentDevice, true);
+	}
+	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
+
+	s->addSaveFunc([this, optionsVideo, currentDevice] {
+		if (optionsVideo->changed()) {
+			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
+			SystemConf::getInstance()->saveSystemConf();
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		}
+	});
+#endif
 
 	// Optionally start in selected system
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);

@@ -161,7 +161,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	if (theme->getElement(getName(), "md_video", "video"))
 	{
 		createVideo();
-		mVideo->applyTheme(theme, getName(), "md_video", POSITION | ThemeFlags::SIZE | ThemeFlags::DELAY | Z_INDEX | ROTATION);
+		mVideo->applyTheme(theme, getName(), "md_video", ALL ^ (PATH));
 	}
 	else if (mVideo != nullptr)
 	{
@@ -173,7 +173,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	if (mVideo == nullptr || theme->getElement(getName(), "md_image", "image"))
 	{
 		createImage();
-		mImage->applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
+		mImage->applyTheme(theme, getName(), "md_image", ALL ^ (PATH));
 	}
 	else if (mImage != nullptr)
 	{
@@ -185,7 +185,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	if (theme->getElement(getName(), "md_marquee", "image"))
 	{
 		createMarquee();
-		mMarquee->applyTheme(theme, getName(), "md_marquee", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION);
+		mMarquee->applyTheme(theme, getName(), "md_marquee", ALL ^ (PATH));
 	}
 	else if (mMarquee != nullptr)
 	{

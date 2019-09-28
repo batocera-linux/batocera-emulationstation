@@ -837,7 +837,7 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 	if (elem->has("colorEnd"))
 		mCarousel.colorEnd = elem->get<unsigned int>("colorEnd");
 	if (elem->has("gradientType"))
-		mCarousel.colorGradientHorizontal = !(elem->get<std::string>("gradientType").compare("horizontal"));
+		mCarousel.colorGradientHorizontal = elem->get<std::string>("gradientType").compare("horizontal");
 	if (elem->has("logoScale"))
 		mCarousel.logoScale = elem->get<float>("logoScale");
 	if (elem->has("logoSize"))

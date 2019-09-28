@@ -125,9 +125,9 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	BasicGameListView::onThemeChanged(theme);
 
 	using namespace ThemeFlags;
-	mMarquee.applyTheme(theme, getName(), "md_marquee", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
-	mImage.applyTheme(theme, getName(), "md_image", POSITION | ThemeFlags::SIZE | Z_INDEX | ROTATION | VISIBLE);
-	mVideo->applyTheme(theme, getName(), "md_video", POSITION | ThemeFlags::SIZE | ThemeFlags::DELAY | Z_INDEX | ROTATION | VISIBLE);
+	mMarquee.applyTheme(theme, getName(), "md_marquee", ALL ^ (PATH));
+	mImage.applyTheme(theme, getName(), "md_image", ALL ^ (PATH));
+	mVideo->applyTheme(theme, getName(), "md_video", ALL ^ (PATH));
 	mName.applyTheme(theme, getName(), "md_name", ALL);
 
 	initMDLabels();
