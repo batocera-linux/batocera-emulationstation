@@ -129,7 +129,7 @@ void VideoPlayerComponent::startVideo()
 
 					case 1:
 					{
-						const int x1 = (int)Math::round((Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
+						const int x1 = (int)Math::round(Renderer::getScreenWidth() - Renderer::getScreenOffsetY() - y - mSize.y());
 						const int y1 = (int)Math::round(Renderer::getScreenOffsetX() + x);
 						const int x2 = (int)Math::round(x1 + mSize.y());
 						const int y2 = (int)Math::round(y1 + mSize.x());
