@@ -22,21 +22,28 @@
 libvlc_instance_t* VideoVlcComponent::mVLC = NULL;
 
 // VLC prepares to render a video frame.
-static void *lock(void *data, void **p_pixels) {
+static void *lock(void *data, void **p_pixels) 
+{
 	struct VideoContext *c = (struct VideoContext *)data;
-	SDL_LockMutex(c->mutex);
-	SDL_LockSurface(c->surface);
-	*p_pixels = c->surface->pixels;
+	
+	int frame = (c->surfaceId ^ 1);
+	
+	c->mutexes[frame].lock();
+	c->hasFrame[frame] = false;
+	*p_pixels = c->surfaces[frame];
 	return NULL; // Picture identifier, not needed here.
 }
 
 // VLC just rendered a video frame.
-static void unlock(void *data, void* /*id*/, void *const* /*p_pixels*/) {
+static void unlock(void *data, void* /*id*/, void *const* /*p_pixels*/) 
+{
 	struct VideoContext *c = (struct VideoContext *)data;
-	c->hasFrame = true;
 
-	SDL_UnlockSurface(c->surface);
-	SDL_UnlockMutex(c->mutex);
+	int frame = (c->surfaceId ^ 1);	
+
+	c->surfaceId = frame;
+	c->hasFrame[frame] = true;
+	c->mutexes[frame].unlock();
 }
 
 // VLC wants to display a video frame.
@@ -215,9 +222,10 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	Renderer::setMatrix(trans);
 
 	// Build a texture for the video frame
-	if (initFromPixels && mContext.hasFrame)
+	if (initFromPixels)
 	{		
-		if (SDL_LockMutex(mContext.mutex) == 0)
+		int frame = mContext.surfaceId;
+		if (mContext.hasFrame[frame])
 		{
 			if (mTexture == nullptr)
 			{
@@ -225,9 +233,10 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 				resize();
 			}
 
-			mTexture->initFromExternalPixels((unsigned char*)mContext.surface->pixels, mContext.surface->w, mContext.surface->h);
-			mContext.hasFrame = false;
-			SDL_UnlockMutex(mContext.mutex);
+			mContext.mutexes[frame].lock();
+			mTexture->initFromExternalPixels(mContext.surfaces[frame], mVideoWidth, mVideoHeight);
+			mContext.hasFrame[frame] = false;
+			mContext.mutexes[frame].unlock();
 		}
 	}
 
@@ -295,9 +304,10 @@ void VideoVlcComponent::setupContext()
 		return;
 	
 	// Create an RGBA surface to render the video into
-	mContext.surface = SDL_CreateRGBSurface(SDL_SWSURFACE, (int)mVideoWidth, (int)mVideoHeight, 32, 0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);
-	mContext.hasFrame = false;
-	mContext.mutex = SDL_CreateMutex();
+	mContext.surfaces[0] = new unsigned char[mVideoWidth * mVideoHeight * 4];
+	mContext.surfaces[1] = new unsigned char[mVideoWidth * mVideoHeight * 4];
+	mContext.hasFrame[0] = false;	
+	mContext.hasFrame[1] = false;
 	mContext.component = this;
 	mContext.valid = true;	
 	resize();	
@@ -314,9 +324,12 @@ void VideoVlcComponent::freeContext()
 		mTexture = nullptr;
 	}
 
-	SDL_FreeSurface(mContext.surface);
-	SDL_DestroyMutex(mContext.mutex);
-	mContext.hasFrame = false;
+	delete[] mContext.surfaces[0];
+	delete[] mContext.surfaces[1];
+	mContext.surfaces[0] = nullptr;
+	mContext.surfaces[1] = nullptr;	
+	mContext.hasFrame[0] = false;
+	mContext.hasFrame[1] = false;
 	mContext.component = NULL;
 	mContext.valid = false;			
 }
