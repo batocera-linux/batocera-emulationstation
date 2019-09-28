@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,6 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "OCORREU UM ERRO"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
@@ -28,14 +37,8 @@ msgstr "CONEXÃO COM A INTERNET NECESSÁRIA"
 msgid "OK"
 msgstr "OK"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "ATUALIZAÇÃO INSTALADA, O SISTEMA SERÁ REINICIADO"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
-
-msgid "AN ERROR OCCURED"
-msgstr "OCORREU UM ERRO"
 
 msgid "INPUT"
 msgstr "EDITAR"
@@ -262,18 +265,6 @@ msgstr "ARQUIVO GERADO COM SUCESSO"
 msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
 
-msgid "STORAGE DEVICE"
-msgstr "ARMAZENAMENTO"
-
-msgid "LANGUAGE"
-msgstr "IDIOMA"
-
-msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
-
-msgid "POWER SAVER MODES"
-msgstr "MODOS ECONOMIA DE ENERGIA"
-
 msgid "UPDATES"
 msgstr "ATUALIZAÇÕES"
 
@@ -286,8 +277,26 @@ msgstr "PROJETO MOLDURA"
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "INICIAR ATUALIZAÇÃO"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "IDIOMA"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODOS ECONOMIA DE ENERGIA"
+
+msgid "STORAGE DEVICE"
+msgstr "ARMAZENAMENTO"
 
 msgid "BACKUP USER DATA"
 msgstr "BACKUP DOS DADOS DO USUÁRIO"
@@ -467,6 +476,9 @@ msgstr "TAMANHO PADRÃO DA GRID"
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "THEME SET"
+msgstr "TEMA"
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -486,9 +498,6 @@ msgstr "Você quer prosseguir?"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
-
-msgid "THEME SET"
-msgstr "TEMA"
 
 msgid "START ON SYSTEM"
 msgstr "COMECE NO SISTEMA"
@@ -775,14 +784,18 @@ msgstr "INSTALAR PROJETO DE MOLDURAS"
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DESINSTALAR PROJETO DE MOLDURAS"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "SELECIONAR SISTEMA PARA REMOÇÃO DAS MOLDURAS"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA INSTALADO COM SUCESSO"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -822,12 +835,6 @@ msgstr "USAR BAIXA RESOLUÇÃO PARA LEGENDA"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO SCREENSAVER"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "MOLDURAS INSTALADAS COM SUCESSO"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE DESSES JOGOS"
@@ -1071,6 +1078,15 @@ msgstr "Pré-carregamento da interface"
 msgid "MENU"
 msgstr "MENU"
 
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA INSTALADO COM SUCESSO"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "MOLDURAS INSTALADAS COM SUCESSO"
+
 msgid "Favorites"
 msgstr "Favoritos"
 
@@ -1085,9 +1101,6 @@ msgstr "OCORREU UM ERRO"
 
 msgid "RETRY"
 msgstr "REPETIR"
-
-msgid "DOWNLOADING"
-msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -1298,6 +1311,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "ATUALIZAÇÃO INSTALADA, O SISTEMA SERÁ REINICIADO"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "FILTRAR GAMELIST"

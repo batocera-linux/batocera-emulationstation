@@ -2,13 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "오류가 발생됨"
 
 msgid "REALLY UPDATE?"
 msgstr "정말로 업데이트 하시겠습니까?"
@@ -25,14 +34,8 @@ msgstr "인터넷 연결 필요함"
 msgid "OK"
 msgstr "확인"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
-
-msgid "AN ERROR OCCURED"
-msgstr "오류가 발생됨"
 
 msgid "INPUT"
 msgstr "입력"
@@ -259,18 +262,6 @@ msgstr "파일 생성 완료"
 msgid "FILE GENERATION FAILED"
 msgstr "파일 생성 실패"
 
-msgid "STORAGE DEVICE"
-msgstr "저장 장치"
-
-msgid "LANGUAGE"
-msgstr "언어"
-
-msgid "OVERCLOCK"
-msgstr "오버클럭"
-
-msgid "POWER SAVER MODES"
-msgstr "절전 모드"
-
 msgid "UPDATES"
 msgstr "업데이트"
 
@@ -283,8 +274,26 @@ msgstr "베젤 프로젝트"
 msgid "AUTO UPDATES"
 msgstr "자동 업데이트"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "업데이트 시작"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "언어"
+
+msgid "OVERCLOCK"
+msgstr "오버클럭"
+
+msgid "POWER SAVER MODES"
+msgstr "절전 모드"
+
+msgid "STORAGE DEVICE"
+msgstr "저장 장치"
 
 msgid "BACKUP USER DATA"
 msgstr "사용자 데이터 백업"
@@ -464,6 +473,9 @@ msgstr "그리드 사이즈 초기화"
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "THEME SET"
+msgstr "테마 선택"
+
 msgid "UI MODE"
 msgstr "UI 모드"
 
@@ -481,9 +493,6 @@ msgstr "계속 진행하시겠습니다?"
 
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"
-
-msgid "THEME SET"
-msgstr "테마 선택"
 
 msgid "START ON SYSTEM"
 msgstr "시스템 착수하기"
@@ -765,14 +774,18 @@ msgstr "베젤 프로젝트 설치"
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "베젤 프로젝트 제거"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "베젤을 제거 할 시스템 선택"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "테마가 성공적으로 설치됨"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "베젤이 성공적으로 삭제됨"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "(몇초 후) 후 이미지 필터 교체"
@@ -812,12 +825,6 @@ msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "화면보호기에 비디오 늘이기"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 설치됨"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 삭제됨"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들을 수집"
@@ -1059,6 +1066,15 @@ msgstr "UI 사전 로딩중"
 msgid "MENU"
 msgstr "메뉴"
 
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "테마가 성공적으로 설치됨"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "베젤이 성공적으로 설치됨"
+
 msgid "Favorites"
 msgstr "즐겨 찾기"
 
@@ -1073,9 +1089,6 @@ msgstr "오류가 발생"
 
 msgid "RETRY"
 msgstr "재시도"
-
-msgid "DOWNLOADING"
-msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
@@ -1282,6 +1295,9 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "게임리스트 필터"

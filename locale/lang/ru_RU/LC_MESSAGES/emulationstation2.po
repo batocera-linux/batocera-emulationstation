@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -12,6 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "REALLY UPDATE?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ?"
@@ -28,14 +37,8 @@ msgstr "НЕОБХОДИМО СЕТЕВОЕ СОЕДИНЕНИЕ"
 msgid "OK"
 msgstr "ОК"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "ОБНОВЛЕНИЕ ЗАГРУЖЕНО, СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "НЕТ ДОСТУПНЫХ ОБНОВЛЕНИЙ"
-
-msgid "AN ERROR OCCURED"
-msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "INPUT"
 msgstr "ВВОД"
@@ -262,18 +265,6 @@ msgstr "ФАЙЛ УСПЕШНО СГЕНЕРИРОВАН"
 msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
 
-msgid "STORAGE DEVICE"
-msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
-
-msgid "LANGUAGE"
-msgstr "ЯЗЫК"
-
-msgid "OVERCLOCK"
-msgstr "РАЗГОН"
-
-msgid "POWER SAVER MODES"
-msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
-
 msgid "UPDATES"
 msgstr "ОБНОВЛЕНИЯ"
 
@@ -286,8 +277,26 @@ msgstr "НАБОР РАМКОК (ОВЕРЛЕЕВ)"
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "ЯЗЫК"
+
+msgid "OVERCLOCK"
+msgstr "РАЗГОН"
+
+msgid "POWER SAVER MODES"
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
+
+msgid "STORAGE DEVICE"
+msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
 
 msgid "BACKUP USER DATA"
 msgstr "РЕЗЕРВНАЯ КОПИЯ"
@@ -468,6 +477,9 @@ msgstr ""
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "THEME SET"
+msgstr "ТЕМА"
+
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
 
@@ -486,9 +498,6 @@ msgstr "Вы хотите продолжить?"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫВОД"
-
-msgid "THEME SET"
-msgstr "ТЕМА"
 
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
@@ -775,14 +784,18 @@ msgstr "УСТАНОВИТЬ НАБОР РАМОК"
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "УДАЛИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "ИЗ КАКОЙ СИСТЕМЫ УДАЛИТЬ РАМКИ?"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "СМЕНА ИЗОБРАЖЕНИЯ ПОСЛЕ (СЕК)"
@@ -822,12 +835,6 @@ msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
@@ -1069,6 +1076,15 @@ msgstr ""
 msgid "MENU"
 msgstr "МЕНЮ"
 
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
+
 msgid "Favorites"
 msgstr "Избранное"
 
@@ -1083,9 +1099,6 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
-
-msgid "DOWNLOADING"
-msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -1301,6 +1314,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "ОБНОВЛЕНИЕ ЗАГРУЖЕНО, СИСТЕМА БУДЕТ ПЕРЕЗАГРУЖЕНА"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "ФИЛЬТР СПИСКА ИГР"

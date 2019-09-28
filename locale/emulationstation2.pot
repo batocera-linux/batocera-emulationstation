@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 11:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr ""
@@ -33,13 +42,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr ""
-
 msgid "NO UPDATE AVAILABLE"
-msgstr ""
-
-msgid "AN ERROR OCCURED"
 msgstr ""
 
 msgid "INPUT"
@@ -267,18 +270,6 @@ msgstr ""
 msgid "FILE GENERATION FAILED"
 msgstr ""
 
-msgid "STORAGE DEVICE"
-msgstr ""
-
-msgid "LANGUAGE"
-msgstr ""
-
-msgid "OVERCLOCK"
-msgstr ""
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
 msgid "UPDATES"
 msgstr ""
 
@@ -291,7 +282,25 @@ msgstr ""
 msgid "AUTO UPDATES"
 msgstr ""
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
+msgstr ""
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr ""
+
+msgid "OVERCLOCK"
+msgstr ""
+
+msgid "POWER SAVER MODES"
+msgstr ""
+
+msgid "STORAGE DEVICE"
 msgstr ""
 
 msgid "BACKUP USER DATA"
@@ -468,6 +477,9 @@ msgstr ""
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "THEME SET"
+msgstr ""
+
 msgid "UI MODE"
 msgstr ""
 
@@ -481,9 +493,6 @@ msgid "Do you want to proceed ?"
 msgstr ""
 
 msgid "VIDEO OUTPUT"
-msgstr ""
-
-msgid "THEME SET"
 msgstr ""
 
 msgid "START ON SYSTEM"
@@ -762,13 +771,17 @@ msgstr ""
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr ""
 
-msgid "THEME INSTALLED SUCCESSFULLY"
+msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
@@ -808,12 +821,6 @@ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
 msgstr ""
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr ""
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr ""
 
 msgid "SCRAPE THESE GAMES"
@@ -1052,6 +1059,15 @@ msgstr ""
 msgid "MENU"
 msgstr ""
 
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "Favorites"
 msgstr ""
 
@@ -1065,9 +1081,6 @@ msgid "AN ERROR HAS OCCURED"
 msgstr ""
 
 msgid "RETRY"
-msgstr ""
-
-msgid "DOWNLOADING"
 msgstr ""
 
 msgid "ACCEPT RESULT"

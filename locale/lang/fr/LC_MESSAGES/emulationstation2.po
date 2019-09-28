@@ -2,13 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr "MISE À JOUR EN COURS DE BATOCERA"
+
+msgid "UPDATE IS READY"
+msgstr "LA MISE À JOUR EST PRÊTE"
+
+msgid "AN ERROR OCCURED"
+msgstr "UNE ERREUR EST SURVENUE"
 
 msgid "REALLY UPDATE?"
 msgstr "METTRE À JOUR LE SYSTÈME ?"
@@ -25,14 +34,8 @@ msgstr "VEUILLEZ BRANCHER UN CÂBLE RÉSEAU"
 msgid "OK"
 msgstr "OK"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "MISE À JOUR TÉLÉCHARGÉE, REDÉMARRAGE EN COURS"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "AUCUNE MISE À JOUR DISPONIBLE"
-
-msgid "AN ERROR OCCURED"
-msgstr "UNE ERREUR EST SURVENUE"
 
 msgid "INPUT"
 msgstr "ÉDITER"
@@ -259,18 +262,6 @@ msgstr "FICHIER GÉNÉRÉ AVEC SUCCES"
 msgid "FILE GENERATION FAILED"
 msgstr "ECHEC DE LA GÉNÉRATION DU FICHIER"
 
-msgid "STORAGE DEVICE"
-msgstr "MÉDIA DE STOCKAGE"
-
-msgid "LANGUAGE"
-msgstr "LANGUE"
-
-msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
-
-msgid "POWER SAVER MODES"
-msgstr "MODE ÉCONOMIE D'ÉNERGIE"
-
 msgid "UPDATES"
 msgstr "MISES À JOUR"
 
@@ -283,8 +274,26 @@ msgstr "THE BEZEL PROJECT"
 msgid "AUTO UPDATES"
 msgstr "MISES À JOUR AUTO"
 
+msgid "APPLY UPDATE"
+msgstr "APPLIQUER LA MISE À JOUR"
+
 msgid "START UPDATE"
 msgstr "LANCER LA MISE À JOUR"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
+
+msgid "LANGUAGE"
+msgstr "LANGUE"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODE ÉCONOMIE D'ÉNERGIE"
+
+msgid "STORAGE DEVICE"
+msgstr "MÉDIA DE STOCKAGE"
 
 msgid "BACKUP USER DATA"
 msgstr "SAUVEGARDE DES DONNÉES"
@@ -466,6 +475,9 @@ msgstr "TAILLE DE LA GRILLE PAR DÉFAUT"
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RÉINITIALISER LA PERSONNALISATION DES LISTES DE JEUX"
 
+msgid "THEME SET"
+msgstr "THÈME"
+
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"
 
@@ -484,9 +496,6 @@ msgstr "Voulez-vous continuer ?"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDEO"
-
-msgid "THEME SET"
-msgstr "THÈME"
 
 msgid "START ON SYSTEM"
 msgstr "DÉMARRER SUR UN SYSTÈME"
@@ -770,14 +779,18 @@ msgstr "INSTALLER THE BEZEL PROJECT"
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES BEZELS"
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' SERA PROCHAINEMENT TÉLÉCHARGÉ"
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DÉSINSTALLER THE BEZEL PROJECT"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "THÈME INSTALLÉ AVEC SUCCÈS"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CHANGER L'IMAGE APRÈS (SECS)"
@@ -817,12 +830,6 @@ msgstr "UTILISER UNE RÉSOLUTION BASSE POUR LES TITRES"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCÈS"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPER CES JEUX"
@@ -1022,7 +1029,8 @@ msgid "Searching"
 msgstr "Recherche en cours"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPING TERMINÉ. METTEZ À JOUR LES JEUX POUR APPLIQUER LES CHANGEMENTS"
+msgstr ""
+"SCRAPING TERMINÉ. METTEZ À JOUR LES JEUX POUR APPLIQUER LES CHANGEMENTS"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER LE MEDIA CENTER KODI ?"
@@ -1063,6 +1071,15 @@ msgstr "Préchargement de l'interface"
 msgid "MENU"
 msgstr "MENU"
 
+msgid "DOWNLOADING"
+msgstr "TÉLÉCHARGEMENT EN COURS"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "THÈME INSTALLÉ AVEC SUCCÈS"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCÈS"
+
 msgid "Favorites"
 msgstr "Favoris"
 
@@ -1077,9 +1094,6 @@ msgstr "UNE ERREUR S'EST PRODUITE"
 
 msgid "RETRY"
 msgstr "RECOMMENCER"
-
-msgid "DOWNLOADING"
-msgstr "TÉLÉCHARGEMENT EN COURS"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
@@ -1290,6 +1304,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "MISE À JOUR TÉLÉCHARGÉE, REDÉMARRAGE EN COURS"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "FILTRER"

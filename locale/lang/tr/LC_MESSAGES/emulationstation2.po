@@ -2,13 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "BÝR HATA OLUÞTU"
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -25,14 +34,8 @@ msgstr "AÐ BAÐLANTISI GEREKÝYOR"
 msgid "OK"
 msgstr "TAMAM"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "GÜNCELLEME ÝNDÝRÝLDÝ, SÝSTEM YENÝDEN BAÞLATILACAK"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "YENÝ GÜNCELLEME YOK"
-
-msgid "AN ERROR OCCURED"
-msgstr "BÝR HATA OLUÞTU"
 
 msgid "INPUT"
 msgstr "GÝRDÝ"
@@ -259,18 +262,6 @@ msgstr "DOSYA OLUÞTURMA BAÞARILI"
 msgid "FILE GENERATION FAILED"
 msgstr "DOSYA OLUÞTURMA BAÞARISIZ"
 
-msgid "STORAGE DEVICE"
-msgstr "DEPO CÝHAZI"
-
-msgid "LANGUAGE"
-msgstr "DÝL"
-
-msgid "OVERCLOCK"
-msgstr "HIZAÞIMI"
-
-msgid "POWER SAVER MODES"
-msgstr ""
-
 msgid "UPDATES"
 msgstr "GÜNCELLEMELER"
 
@@ -283,8 +274,26 @@ msgstr ""
 msgid "AUTO UPDATES"
 msgstr "OTOMATÝK GÜNCELLEME"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "GÜNCELLE"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "DÝL"
+
+msgid "OVERCLOCK"
+msgstr "HIZAÞIMI"
+
+msgid "POWER SAVER MODES"
+msgstr ""
+
+msgid "STORAGE DEVICE"
+msgstr "DEPO CÝHAZI"
 
 msgid "BACKUP USER DATA"
 msgstr "YEDEKLEME KULLANICI VERÝLERÝ"
@@ -465,6 +474,9 @@ msgstr ""
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "THEME SET"
+msgstr "TEMA AYARI"
+
 msgid "UI MODE"
 msgstr "KULLANICI ARAYÜZÜ"
 
@@ -479,9 +491,6 @@ msgstr ""
 
 msgid "VIDEO OUTPUT"
 msgstr "VÝDEO ÇIKIÞI"
-
-msgid "THEME SET"
-msgstr "TEMA AYARI"
 
 msgid "START ON SYSTEM"
 msgstr "SÝSTEMÝ BAÞLAT"
@@ -764,14 +773,18 @@ msgstr ""
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr ""
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA BAÞARIYLA YÜKLENDÝ"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "sonra resmi deðiþtir"
@@ -811,12 +824,6 @@ msgstr "DÜÞÜK ÇÖZÜNÜRLÜK ALTYAZI KULLANIN"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "VÝDEOYU EKRAN KORUYUCUDA GÖSTER"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ÞU OYUNLARI ÇEK"
@@ -1057,6 +1064,15 @@ msgstr ""
 msgid "MENU"
 msgstr "MENÜ"
 
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA BAÞARIYLA YÜKLENDÝ"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
 msgid "Favorites"
 msgstr ""
 
@@ -1071,9 +1087,6 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "TEKRAR DENE"
-
-msgid "DOWNLOADING"
-msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ONAYLA"
@@ -1283,6 +1296,9 @@ msgstr "DEVAM EDÝYOR..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "GÜNCELLEME ÝNDÝRÝLDÝ, SÝSTEM YENÝDEN BAÞLATILACAK"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "OYUN LÝSTESÝ FÝLTRE"

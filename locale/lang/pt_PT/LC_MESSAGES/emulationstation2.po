@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-09-28 08:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,6 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "OCORREU UM ERRO"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
@@ -28,14 +37,8 @@ msgstr "NECESSÁRIO CONECÇÃO A INTERNET"
 msgid "OK"
 msgstr "OK"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "ATUALIZAÇÃO TRANSFERIDA, O SISTEMA SERÁ REINICIADO"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
-
-msgid "AN ERROR OCCURED"
-msgstr "OCORREU UM ERRO"
 
 msgid "INPUT"
 msgstr "EDITAR"
@@ -262,18 +265,6 @@ msgstr "ARQUIVO GERADO COM SUCESSO"
 msgid "FILE GENERATION FAILED"
 msgstr "ARQUIVO GERADO SEM SUCESSO"
 
-msgid "STORAGE DEVICE"
-msgstr "ARMAZENAMENTO"
-
-msgid "LANGUAGE"
-msgstr "IDIOMA"
-
-msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
-
-msgid "POWER SAVER MODES"
-msgstr "MODO POUPANÇA DE ENERGIA"
-
 msgid "UPDATES"
 msgstr "ATUALIZAÇÕES"
 
@@ -286,8 +277,26 @@ msgstr "PROJETO MOLDURA"
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "INICIAR ATUALIZAÇÃO"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "IDIOMA"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODO POUPANÇA DE ENERGIA"
+
+msgid "STORAGE DEVICE"
+msgstr "ARMAZENAMENTO"
 
 msgid "BACKUP USER DATA"
 msgstr "BACKUP DADOS DO USUÁRIO"
@@ -467,6 +476,9 @@ msgstr "TAMANHO DA GRID PADRÃO"
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
 
+msgid "THEME SET"
+msgstr "TEMA"
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -484,9 +496,6 @@ msgstr "DESEJA CONTINUAR?"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAIDA DE VIDEO"
-
-msgid "THEME SET"
-msgstr "TEMA"
 
 msgid "START ON SYSTEM"
 msgstr "INICIAR UM SISTEMA"
@@ -773,14 +782,18 @@ msgstr "INSTALAR PROJETO MOLDURA"
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr "SELECIONE O SISTEMA A (RE)INSTALAR AS MOLDURAS"
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DESINSTALAR PROJETO DE MOLDURAS"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "SELECIONE O SISTEMA A REMOVER AS MOLDURAS"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA INSTALADO COM SUCESSO"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -820,12 +833,6 @@ msgstr "USAR BAIXA RESOLUÇÃO PARA A LEGENDA"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "MOLDURAS INSTALADAS COM SUCESSO"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
@@ -1027,7 +1034,8 @@ msgid "Searching"
 msgstr "Em andamento"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr ""
+"A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1068,6 +1076,15 @@ msgstr "Pré-carregamento da interface"
 msgid "MENU"
 msgstr "MENU"
 
+msgid "DOWNLOADING"
+msgstr "A TRANSFERIR"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA INSTALADO COM SUCESSO"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "MOLDURAS INSTALADAS COM SUCESSO"
+
 msgid "Favorites"
 msgstr "Favoritos"
 
@@ -1082,9 +1099,6 @@ msgstr "OCORREU UM ERRO"
 
 msgid "RETRY"
 msgstr "TENTE NOVAMENTE"
-
-msgid "DOWNLOADING"
-msgstr "A TRANSFERIR"
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -1294,6 +1308,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "ATUALIZAÇÃO TRANSFERIDA, O SISTEMA SERÁ REINICIADO"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "FILTRAR GAMELIST"
