@@ -140,7 +140,7 @@ void GuiBezelInstallStart::start(std::string SelectedBezel)
 
 	char trstring[256];
 	snprintf(trstring, 256, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), SelectedBezel.c_str()); // batocera
-	mWindow->displayNotificationMessage(_U("\uF019 ") + trstring);
+	mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 	ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME, SelectedBezel);	
 	delete this;	
