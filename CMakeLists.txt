@@ -85,7 +85,9 @@ find_package(FreeImage REQUIRED)
 # batocera / background musics
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
-find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
+if(!MSVC)
+	find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
+endif()
 find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
@@ -157,8 +159,7 @@ set(COMMON_INCLUDE_DIRS
     ${FreeImage_INCLUDE_DIRS}
     # batocera / background musics
     ${SDLMIXER_INCLUDE_DIR}
-    # batocera / customisations
-    ${Boost_INCLUDE_DIRS}
+    # batocera / customisations    
     ${SDL2_INCLUDE_DIR}
     ${CURL_INCLUDE_DIR}
     ${VLC_INCLUDE_DIR}
@@ -166,6 +167,12 @@ set(COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/external
     ${CMAKE_CURRENT_SOURCE_DIR}/es-core/src
 )
+
+if(!MSVC)
+ LIST(APPEND COMMON_INCLUDE_DIRS
+      ${Boost_INCLUDE_DIRS}
+      )
+endif()
 
 #add libCEC_INCLUDE_DIR
 if(CEC)
@@ -227,14 +234,19 @@ set(COMMON_LIBRARIES
     ${SDL2_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
-    # batocera / customisations
-    ${Boost_LIBRARIES}
+    # batocera / customisations    
     ${CURL_LIBRARIES}
     ${VLC_LIBRARIES}
     pugixml
     nanosvg
     id3v2
 )
+
+if(!MSVC)
+ LIST(APPEND COMMON_LIBRARIES
+      ${Boost_LIBRARIES}
+      )
+endif()
 
 #add libCEC_LIBRARIES
 if(CEC)
