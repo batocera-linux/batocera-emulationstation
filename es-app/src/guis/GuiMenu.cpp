@@ -64,7 +64,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	if (isFullUI &&
 		SystemConf::getInstance()->get("global.retroachievements") == "1" &&
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
-		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { openRetroAchievements_batocera(); });
+		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { openRetroAchievements_batocera(); }, "iconRetroachievements");
 
 	// GAMES SETTINGS
 	if (isFullUI)
@@ -2082,7 +2082,7 @@ void GuiMenu::openRetroAchievements_batocera()
 		else
 			sprintf(lcmsg, "%s", gamename);
 		auto itstring = std::make_shared<TextComponent>(mWindow,
-			lcmsg, ThemeData::getMenuTheme()->TextSmall.font, ThemeData::getMenuTheme()->TextSmall.color);
+			lcmsg, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 		if (points && lastplayed) {
 			sprintf(longmsg, "%s\n%s\n%s\n%s\n", gamename, achiev, points, lastplayed);
 			row.makeAcceptInputHandler([this, longmsg] {
