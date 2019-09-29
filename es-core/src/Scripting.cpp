@@ -12,15 +12,15 @@ namespace Scripting
         std::list<std::string> scriptDirList;
         std::string test;
 
-        // check in exepath
-        test = Utils::FileSystem::getExePath() + "/scripts/" + eventName;
-        if(Utils::FileSystem::exists(test))
-            scriptDirList.push_back(test);
-
         // check in homepath
 		test = Utils::FileSystem::getEsConfigPath() + "/scripts/" + eventName;
         if(Utils::FileSystem::exists(test))
             scriptDirList.push_back(test);
+
+		// check in getSharedConfigPath ( or exe path )
+		test = Utils::FileSystem::getSharedConfigPath() + "/scripts/" + eventName;
+		if (Utils::FileSystem::exists(test))
+			scriptDirList.push_back(test);
 
         for(std::list<std::string>::const_iterator dirIt = scriptDirList.cbegin(); dirIt != scriptDirList.cend(); ++dirIt) {
             std::list<std::string> scripts = Utils::FileSystem::getDirContent(*dirIt);
