@@ -14,10 +14,10 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
 msgid "AN ERROR OCCURED"
 msgstr "ПРОИЗОШЛА ОШИБКА"
@@ -53,7 +53,7 @@ msgid "BACK"
 msgstr "НАЗАД"
 
 msgid "go back"
-msgstr ""
+msgstr "назад"
 
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
@@ -65,22 +65,22 @@ msgid "SORT GAMES BY"
 msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "ОСТАЛЬНЫЕ ФИЛЬТРЫ"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "РАЗМЕР СЕТКИ"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИЗБР. СВЕРХУ"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "ПОКАЗАТЬ ПАПКИ"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
@@ -92,22 +92,22 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "РАСШИРЕННЫЕ ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "ФИЛЬТР ИГРЫ ПО ТЕКСТУ"
 
 msgid "Loading..."
 msgstr "Загрузка..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТСКЛЮЧЕНА"
 
 msgid "RESET ALL FILTERS"
 msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "НАЙТИ ИГРЫ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -155,40 +155,40 @@ msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "ПРЕДПОЧТИТЕЛЬНЫЙ ИСТОЧНИК ИЗОБРАЖЕНИЯ"
 
 msgid "NONE"
 msgstr "НЕТ"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "TITLE SCREENSHOT"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "BOX 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MIX"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "WHEEL"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "ПРЕДПОЧТИТЕЛЬНЫЙ ИСТОЧНИК THUMBNAIL"
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "ЗАГРУЗКА БАНЕРА"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "ЗАГРУЗКА ВИДЕО"
 
 msgid "USERNAME"
 msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
@@ -197,7 +197,7 @@ msgid "PASSWORD"
 msgstr "ПАРОЛЬ"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "ИДЕТ ЗАГРУЗКА. ОСТАНОВИТЬ?"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -224,7 +224,7 @@ msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
 msgid "DEVELOPER"
-msgstr ""
+msgstr "РАЗРАБОТЧИК"
 
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
@@ -233,25 +233,25 @@ msgid "SHOW FRAMERATE"
 msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "ПРЕДЗАГРУЗКА UI"
 
 msgid "THREADED LOADING"
 msgstr "THREADED ЗАГРУЗКА"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "ЗАГРУЗКА ИЗОБРАЖЕНИЙ ASYNC"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ДЛЯ VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "ОПТИМИЗАЦИЯ ВИДЕО ДЛЯ VRAM"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "УРОВЕНЬ ЖУРНАЛА"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
@@ -278,13 +278,13 @@ msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "ПРИМЕНИТЬ ОБНОВЛЕНИЕ"
 
 msgid "START UPDATE"
 msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУШЕНО"
 
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
@@ -442,13 +442,13 @@ msgid "INPUT P%i"
 msgstr "ВВОД P%i"
 
 msgid "default"
-msgstr ""
+msgstr "по умолчанию"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
 
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
@@ -472,10 +472,10 @@ msgid "THEME REGION"
 msgstr "РЕГИОН ТЕМЫ"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr ""
+msgstr "СБРОСИТЬ НАСТРОЙКИ GAMELIST"
 
 msgid "THEME SET"
 msgstr "ТЕМА"
@@ -503,7 +503,7 @@ msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "НАЧАТЬ GAMELIST"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
@@ -575,13 +575,13 @@ msgid "DISPLAY SONG TITLES"
 msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "ДЛИТЕЛЬНОСТЬ НАЗВАНИЯ ПЕСНИ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "МУЗЫКА ИЗ ПАПКИ СИСТЕМ"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "МУЗЫКА ИЗ ТЕМЫ"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
@@ -692,7 +692,7 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИМЯ СИСТЕМЫ В КОЛЛЕКЦИЯХ"
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
@@ -782,11 +782,11 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "УСТАНОВИТЬ НАБОР РАМОК"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "В КАКОЙ СИСТЕМЕ ПЕРЕУСТАНОВИТЬ РАМКИ?"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "'%s' ДОБАВЛЕНО В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "УДАЛИТЬ НАБОР РАМОК"
@@ -843,7 +843,7 @@ msgid "All Games"
 msgstr "Все игры"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "Только отсутствующие"
 
 msgid "FILTER"
 msgstr "ФИЛЬТР"
@@ -885,7 +885,7 @@ msgid "VALIDATE"
 msgstr "ПОДТВЕРДИТЬ"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
 msgid "SELECT THEME"
 msgstr "ВЫБРАТЬ ТЕМУ"
@@ -894,12 +894,14 @@ msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "SAVE"
-msgstr ""
+msgstr "СОХРАНИТЬ"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"УДАЛЕНИЕ ФАЙЛОВ ИГРЫ!\n"
+"ВЫ УВЕРЕНЫ?"
 
 msgid "DELETE"
 msgstr "УДАЛИТЬ"
@@ -1028,13 +1030,13 @@ msgid "enter path to marquee"
 msgstr "введите путь к банеру"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "SCRAPING"
 
 msgid "Searching"
-msgstr ""
+msgstr "Поиск"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНЕНИТЬ ИЗМЕНЕНИЯ"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
@@ -1062,7 +1064,7 @@ msgid "Times played"
 msgstr "Сыграно раз"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<Записей не найдено>"
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
@@ -1071,13 +1073,13 @@ msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "Предзагрузка UI"
 
 msgid "MENU"
 msgstr "МЕНЮ"
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "ЗАГРУЗКА"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
@@ -1089,13 +1091,13 @@ msgid "Favorites"
 msgstr "Избранное"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "ПОИСК"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
@@ -1149,25 +1151,25 @@ msgstr ""
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 msgid "Various"
-msgstr ""
+msgstr "Различные"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Коллекция содержит %1$i игру, включая %2$s."
+msgstr[1] "Коллекция содержит %1$i игры, включая %2$s."
+msgstr[2] "Коллекция содержит %1$i игр, включая %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Коллекция содержит %1$i игру, включая %2$s и другие"
+msgstr[1] "Коллекция содержит %1$i игры, включая %2$s и другие"
+msgstr[2] "Коллекция содержит %1$i игр, включая %2$s и другие"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1245,7 +1247,7 @@ msgid "DELETE A CHAR"
 msgstr "УДАЛИТЬ СИМВОЛ"
 
 msgid "RESET"
-msgstr ""
+msgstr "СБРОС"
 
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
