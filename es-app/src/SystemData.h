@@ -54,7 +54,9 @@ public:
 	std::string getThemePath() const;
 
 	unsigned int getGameCount() const;
-	unsigned int getDisplayedGameCount() const;
+
+	int getDisplayedGameCount();
+	void updateDisplayedGameCount();
 
 	static void deleteSystems();
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.
@@ -135,6 +137,8 @@ private:
 	unsigned int mSortId;
 	std::string mViewMode;
 	Vector2f    mGridSizeOverride;	
+
+	int			mGameCount;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

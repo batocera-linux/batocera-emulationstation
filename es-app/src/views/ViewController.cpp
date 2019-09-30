@@ -316,6 +316,8 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 		return nullptr;
 
 	system->setUIModeFilters();
+	system->updateDisplayedGameCount();
+
 	//if we didn't, make it, remember it, and return it
 	std::shared_ptr<IGameListView> view;
 
@@ -591,7 +593,10 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 
 			if(reloadTheme)
 				system->loadTheme();
+
 			system->setUIModeFilters();
+			system->updateDisplayedGameCount();
+
 			std::shared_ptr<IGameListView> newView = getGameListView(system);
 
 			// to counter having come from a placeholder

@@ -24,6 +24,7 @@ std::vector<SystemData*> SystemData::sSystemVector;
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mGameCount = -1;
 	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
 	mGridSizeOverride = Vector2f(0, 0);
 
@@ -651,9 +652,17 @@ FileData* SystemData::getRandomGame()
 	return list.at(target);
 }
 
-unsigned int SystemData::getDisplayedGameCount() const
+int SystemData::getDisplayedGameCount()
 {
-	return (unsigned int)mRootFolder->getFilesRecursive(GAME, true).size();
+	if (mGameCount < 0)
+		mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+
+	return mGameCount;
+}
+
+void SystemData::updateDisplayedGameCount()
+{
+	mGameCount =-1;
 }
 
 void SystemData::loadTheme()

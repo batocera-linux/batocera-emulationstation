@@ -20,6 +20,19 @@ class StrInputConfig
   std::string deviceGUIDString;
 };
 
+struct DecorationSetInfo
+{
+	DecorationSetInfo() {}
+	DecorationSetInfo(const std::string _name, const std::string _path, const std::string _imageUrl)
+	{
+		name = _name; path = _path; imageUrl = _imageUrl;
+	}
+
+	std::string name;
+	std::string path;
+	std::string imageUrl;
+};
+
 class GuiMenu : public GuiComponent
 {
 public:
@@ -70,7 +83,7 @@ private:
 
 	std::vector<StrInputConfig*> mLoadedInput; // used to keep information about loaded devices in case there are unpluged between device window load and save
 	void clearLoadedInput();
-	static std::vector<std::string> getDecorationsSets();
+	static std::vector<DecorationSetInfo> getDecorationsSets(SystemData* system = nullptr);
 };
 
 #endif // ES_APP_GUIS_GUI_MENU_H

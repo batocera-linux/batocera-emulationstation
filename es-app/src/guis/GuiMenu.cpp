@@ -874,20 +874,54 @@ void GuiMenu::openGamesSettings_batocera()
 			SystemConf::getInstance()->saveSystemConf();
 		}
 	});
-
+	
 	// decorations
-	{
+	{		
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+
 		auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+		decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+		{
+			Vector2f maxSize(320, 180);
+
+			int IMGPADDING = Renderer::getScreenHeight()*0.01f;
+			
+			auto theme = ThemeData::getMenuTheme();
+			std::shared_ptr<Font> font = theme->Text.font;
+			unsigned int color = theme->Text.color;
+
+			// spacer between icon and text
+			auto spacer = std::make_shared<GuiComponent>(window);
+			spacer->setSize(IMGPADDING, 0);
+			row.addElement(spacer, false);
+			row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
+
+			std::string imageUrl;
+
+			for (auto set : sets)
+				if (set.name == data)
+					imageUrl = set.imageUrl;
+
+			// image
+			if (!imageUrl.empty())
+			{
+				auto icon = std::make_shared<ImageComponent>(window);
+				icon->setImage(imageUrl, false, maxSize);
+				icon->setMaxSize(maxSize);
+				icon->setColorShift(theme->Text.color);
+				icon->setPadding(IMGPADDING);
+				row.addElement(icon, false);
+			}
+		});
+		
 		std::vector<std::string> decorations_item;
 		decorations_item.push_back(_("AUTO"));
-		decorations_item.push_back(_("NONE"));
+		decorations_item.push_back(_("NONE"));			
+		for(auto set : sets)		
+			decorations_item.push_back(set.name);		
 
-		std::vector<std::string> sets = GuiMenu::getDecorationsSets();
-		for (auto it = sets.begin(); it != sets.end(); it++) {
-			decorations_item.push_back(*it);
-		}
-
-		for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+		for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) 
+		{
 			decorations->add(*it, *it,
 				(SystemConf::getInstance()->get("global.bezel") == *it)
 				||
@@ -904,7 +938,7 @@ void GuiMenu::openGamesSettings_batocera()
 			}
 		});
 	}
-
+	
 	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
 	{
 		// Retroachievements
@@ -2369,15 +2403,50 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
   // decorations
   {
+	Window* window = mWindow;
+	auto sets = GuiMenu::getDecorationsSets(systemData);
     auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+	decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+	{
+		Vector2f maxSize(320, 180);
+
+		int IMGPADDING = Renderer::getScreenHeight()*0.01f;
+
+		auto theme = ThemeData::getMenuTheme();
+		std::shared_ptr<Font> font = theme->Text.font;
+		unsigned int color = theme->Text.color;
+
+		// spacer between icon and text
+		auto spacer = std::make_shared<GuiComponent>(window);
+		spacer->setSize(IMGPADDING, 0);
+		row.addElement(spacer, false);
+		row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
+
+		std::string imageUrl;
+
+		for (auto set : sets)
+			if (set.name == data)
+				imageUrl = set.imageUrl;
+
+		// image
+		if (!imageUrl.empty())
+		{
+			auto icon = std::make_shared<ImageComponent>(window);
+			icon->setImage(imageUrl, false, maxSize);
+			icon->setMaxSize(maxSize);
+			icon->setColorShift(theme->Text.color);
+			icon->setPadding(IMGPADDING);
+			row.addElement(icon, false);
+		}
+	});
+
     std::vector<std::string> decorations_item;
     decorations_item.push_back(_("AUTO"));
     decorations_item.push_back(_("NONE"));
 
-    std::vector<std::string> sets = GuiMenu::getDecorationsSets();
-    for(auto it = sets.begin(); it != sets.end(); it++) {
-      decorations_item.push_back(*it);
-    }
+ 
+    for(auto set : sets)
+      decorations_item.push_back(set.name);    
 
     for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
       decorations->add(*it, *it,
@@ -2396,7 +2465,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
       });
   }
-
+  
   // gameboy colorize
   auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
   std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
@@ -2595,36 +2664,66 @@ void GuiMenu::clearLoadedInput() {
   mLoadedInput.clear();
 }
 
-std::vector<std::string> GuiMenu::getDecorationsSets()
-{
-  std::vector<std::string> sets;
-
-  static const size_t pathCount = 2;
-  std::string paths[pathCount] = {
-    "/usr/share/batocera/datainit/decorations",
-    "/userdata/decorations"
-  };
-  Utils::FileSystem::stringList dirContent;
-  std::string folder;
-
-  for(size_t i = 0; i < pathCount; i++) {
-    if(!Utils::FileSystem::isDirectory(paths[i])) continue;
-    dirContent = Utils::FileSystem::getDirContent(paths[i]);
-    for (Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it) {
-      if(Utils::FileSystem::isDirectory(*it)) {
-	folder = *it;
-	folder = folder.substr(paths[i].size()+1);
-	sets.push_back(folder);
-      }
-    }
-  }
-
-  // sort and remove duplicates
-  sort(sets.begin(), sets.end());
-  sets.erase(unique(sets.begin(), sets.end()), sets.end());
-  return sets;
-}
-
 GuiMenu::~GuiMenu() {
   clearLoadedInput();
+}
+
+std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
+{
+	std::vector<DecorationSetInfo> sets;
+
+	static const size_t pathCount = 3;
+
+	std::string paths[pathCount] = {
+	  "/usr/share/batocera/datainit/decorations",
+	  "/userdata/decorations",
+	  Utils::FileSystem::getEsConfigPath() + "/decorations" // for win32 testings
+	};
+
+	Utils::FileSystem::stringList dirContent;
+	std::string folder;
+
+	for (size_t i = 0; i < pathCount; i++)
+	{
+		if (!Utils::FileSystem::isDirectory(paths[i]))
+			continue;
+
+		dirContent = Utils::FileSystem::getDirContent(paths[i]);
+		for (Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
+		{
+			if (Utils::FileSystem::isDirectory(*it))
+			{
+				folder = *it;
+
+				DecorationSetInfo info;
+				info.name = folder.substr(paths[i].size() + 1);
+				info.path = folder;
+
+				if (system != nullptr && info.name == "default")
+				{
+					std::string systemImg = paths[i] + "/default/systems/" + system->getName() + ".png";
+					if (Utils::FileSystem::exists(systemImg))
+						info.imageUrl = systemImg;
+				}
+
+				if (info.imageUrl.empty())
+				{
+					std::string img = folder + "/default.png";
+					if (Utils::FileSystem::exists(img))
+						info.imageUrl = img;
+				}
+
+				sets.push_back(info);
+			}
+		}
+	}
+
+	struct { bool operator()(DecorationSetInfo& a, DecorationSetInfo& b) const { return a.name < b.name; } } compareByName;
+	struct { bool operator()(DecorationSetInfo& a, DecorationSetInfo& b) const { return a.name == b.name; } } nameEquals;
+
+	// sort and remove duplicates
+	std::sort(sets.begin(), sets.end(), compareByName);
+	sets.erase(std::unique(sets.begin(), sets.end(), nameEquals), sets.end());
+
+	return sets;
 }

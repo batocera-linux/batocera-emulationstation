@@ -426,7 +426,19 @@ void VideoVlcComponent::startVideo()
 		// Open the media
 		mMedia = libvlc_media_new_path(mVLC, path.c_str());
 		if (mMedia)
-		{
+		{			
+			// use : vlc –long-help
+			// WIN32 ? libvlc_media_add_option(mMedia, ":avcodec-hw=dxva2");
+			// RPI/OMX ? libvlc_media_add_option(mMedia, ":codec=mediacodec,iomx,all"); .
+
+			std::string options = SystemConf::getInstance()->get("vlc.options");
+			if (!options.empty())
+			{
+				std::vector<std::string> tokens = Utils::String::split(options, ' ');
+				for (auto token : tokens)
+					libvlc_media_add_option(mMedia, token.c_str());
+			}
+
 			unsigned track_count;
 			// Get the media metadata so we can find the aspect ratio
 			libvlc_media_parse(mMedia);
@@ -465,10 +477,24 @@ void VideoVlcComponent::startVideo()
 				}
 #endif
 				
-				if (Settings::getInstance()->getBool("OptimizeVideo") && !mTargetSize.empty())
+				if (Settings::getInstance()->getBool("OptimizeVideo"))
 				{
+					// Avoid videos bigger than resolution
+					Vector2f maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+										
+#ifdef _RPI_
+					// Temporary -> RPI -> Try to limit videos to 400x300 for performance benchmark
+					if (!Renderer::isSmallScreen())
+						maxSize = Vector2f(400, 300);
+#endif
+
+					if (!mTargetSize.empty() && (mTargetSize.x() < maxSize.x() || mTargetSize.y() < maxSize.y()))
+						maxSize = mTargetSize;
+
+					
+
 					// If video is bigger than display, ask VLC for a smaller image
-					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()), mTargetIsMin);
+					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(maxSize.x(), maxSize.y()), mTargetIsMin);
 					if (sz.x() < mVideoWidth || sz.y() < mVideoHeight)
 					{
 						mVideoWidth = sz.x();
@@ -484,6 +510,7 @@ void VideoVlcComponent::startVideo()
 
 				if (!Settings::getInstance()->getBool("VideoAudio"))
 					libvlc_audio_set_mute(mMediaPlayer, 1);
+
 
 				libvlc_media_player_play(mMediaPlayer);
 				libvlc_video_set_callbacks(mMediaPlayer, lock, unlock, display, (void*)&mContext);

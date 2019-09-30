@@ -41,12 +41,12 @@ public:
 
 	void setVariable(const std::string name, bool value) { mVariableMap[name] = value; }
 
-private:
-	
+protected:
+	MenuComponent mMenu;
 
+private:
 	bool mDoSave = true; // batocera
 
-	MenuComponent mMenu;
 	std::vector< std::function<void()> > mSaveFuncs;
 	std::function<void()> mOnFinalizeFunc;
 

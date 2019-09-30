@@ -309,16 +309,15 @@ bool FileFilterIndex::showFile(FileData* game)
 
 	// if folder, needs further inspection - i.e. see if folder contains at least one element
 	// that should be shown
-	if (game->getType() == FOLDER) {
+	if (game->getType() == FOLDER) 
+	{
 		std::vector<FileData*> children = ((FolderData*)game)->getChildren();
 		// iterate through all of the children, until there's a match
 
-		for (std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it ) {
+		for (std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it )
 			if (showFile(*it))
-			{
 				return true;
-			}
-		}
+
 		return false;
 	}
 

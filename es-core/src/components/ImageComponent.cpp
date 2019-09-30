@@ -23,7 +23,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
-	mReflection(0.0f, 0.0f)
+	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
 	mAllowFading = true;
 	updateColors();
@@ -312,11 +312,19 @@ void ImageComponent::updateVertices()
 	const float        py          = mTexture->isTiled() ? mSize.y() / getTextureSize().y() : 1.0f;
 	const unsigned int color       = Renderer::convertColor(mColorShift);
 	const unsigned int colorEnd    = Renderer::convertColor(mColorShiftEnd);
+	
 
-	mVertices[0] = { { topLeft.x(),     topLeft.y()     }, { mTopLeftCrop.x(),          py   - mTopLeftCrop.y()     }, color };
-	mVertices[1] = { { topLeft.x(),     bottomRight.y() }, { mTopLeftCrop.x(),          1.0f - mBottomRightCrop.y() }, mColorGradientHorizontal ? colorEnd : color };
-	mVertices[2] = { { bottomRight.x(), topLeft.y()     }, { mBottomRightCrop.x() * px, py   - mTopLeftCrop.y()     }, mColorGradientHorizontal ? color : colorEnd };
-	mVertices[3] = { { bottomRight.x(), bottomRight.y() }, { mBottomRightCrop.x() * px, 1.0f - mBottomRightCrop.y() }, color };
+	mVertices[0] = { { topLeft.x() + mPadding.x(),     topLeft.y() + mPadding.y()     },
+		{ mTopLeftCrop.x(),          py   - mTopLeftCrop.y()     }, color };
+
+	mVertices[1] = { { topLeft.x() + mPadding.x(),     bottomRight.y() - mPadding.w() }, 
+		{ mTopLeftCrop.x(),          1.0f - mBottomRightCrop.y() }, mColorGradientHorizontal ? colorEnd : color };
+
+	mVertices[2] = { { bottomRight.x() - mPadding.z(), topLeft.y() + mPadding.y()	},
+		{ mBottomRightCrop.x() * px, py   - mTopLeftCrop.y()     }, mColorGradientHorizontal ? color : colorEnd };
+
+	mVertices[3] = { { bottomRight.x() - mPadding.z(), bottomRight.y() - mPadding.w() }, 
+	{ mBottomRightCrop.x() * px, 1.0f - mBottomRightCrop.y() }, color };
 
 	// round vertices
 	for(int i = 0; i < 4; ++i)
