@@ -14,10 +14,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "ATUALIZANDO O BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
 msgid "AN ERROR OCCURED"
 msgstr "OCORREU UM ERRO"
@@ -65,7 +65,7 @@ msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "OUTROS FILTROS"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
@@ -95,19 +95,19 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "Loading..."
 msgstr "Carregando..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "ESTÁ FUNÇÃO É DESATIVANDA ENQUANTO O SCRAPER ESTÁ EXECUTANDO"
 
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "PROCURAR JOGOS"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -164,7 +164,7 @@ msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "TÍTULO DO SCREENSHOT"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -197,7 +197,7 @@ msgid "PASSWORD"
 msgstr "SENHA"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "O SCRAPER ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
@@ -251,7 +251,7 @@ msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "NÍVEL DE LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
@@ -278,13 +278,13 @@ msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "APLICAR ATUALIZAÇÃO"
 
 msgid "START UPDATE"
 msgstr "INICIAR ATUALIZAÇÃO"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "ATUALIZAÇÃO JÁ ESTÁ EXECUTANDO"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -441,7 +441,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "default"
-msgstr ""
+msgstr "pardrão"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO CONTROLE"
@@ -474,7 +474,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO PADRÃO DA GRID"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr ""
+msgstr "RESTAURAR PERSONALIZAÇÕES GAMELIST"
 
 msgid "THEME SET"
 msgstr "TEMA"
@@ -582,7 +582,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "REPRODUZIR MÚSICA ESPECÍFICA DO SISTEMA"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "TOCAR MÚSICAS DO TEMA"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ATIVAR SOM DE NAVEGAÇÃO"
@@ -782,11 +782,11 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "INSTALAR PROJETO DE MOLDURAS"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "SELECIONE O SISTEMA ONDE OS BEZELS SERÃO (RE)INSTALADOS"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "'%s' ADICIONADO A FILA DE DOWNLOAD"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DESINSTALAR PROJETO DE MOLDURAS"
@@ -843,7 +843,7 @@ msgid "All Games"
 msgstr "Todos os Jogos"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "Apenas mídias ausentes"
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -1031,13 +1031,13 @@ msgid "enter path to marquee"
 msgstr "insira o caminho para a marquee"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "SCRAPING"
 
 msgid "Searching"
-msgstr ""
+msgstr "Procurando"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1079,7 +1079,7 @@ msgid "MENU"
 msgstr "MENU"
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "BAIXANDO"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO COM SUCESSO"
@@ -1244,7 +1244,7 @@ msgid "DELETE A CHAR"
 msgstr "DELETAR UM CARACTERE"
 
 msgid "RESET"
-msgstr ""
+msgstr "REINICIAR"
 
 msgid "DISCARD CHANGES"
 msgstr "ANULAR MODIFICAÇÕES"
