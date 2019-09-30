@@ -426,7 +426,19 @@ void VideoVlcComponent::startVideo()
 		// Open the media
 		mMedia = libvlc_media_new_path(mVLC, path.c_str());
 		if (mMedia)
-		{
+		{			
+			// use : vlc –long-help
+			// WIN32 ? libvlc_media_add_option(mMedia, ":avcodec-hw=dxva2");
+			// RPI/OMX ? libvlc_media_add_option(mMedia, ":codec=mediacodec,iomx,all"); .
+
+			std::string options = SystemConf::getInstance()->get("vlc.options");
+			if (!options.empty())
+			{
+				std::vector<std::string> tokens = Utils::String::split(options, ' ');
+				for (auto token : tokens)
+					libvlc_media_add_option(mMedia, token.c_str());
+			}
+
 			unsigned track_count;
 			// Get the media metadata so we can find the aspect ratio
 			libvlc_media_parse(mMedia);
@@ -498,6 +510,7 @@ void VideoVlcComponent::startVideo()
 
 				if (!Settings::getInstance()->getBool("VideoAudio"))
 					libvlc_audio_set_mute(mMediaPlayer, 1);
+
 
 				libvlc_media_player_play(mMediaPlayer);
 				libvlc_video_set_callbacks(mMediaPlayer, lock, unlock, display, (void*)&mContext);
