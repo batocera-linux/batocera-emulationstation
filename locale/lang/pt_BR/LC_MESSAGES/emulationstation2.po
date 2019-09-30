@@ -101,7 +101,7 @@ msgid "Loading..."
 msgstr "Carregando..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "ESTÁ FUNÇÃO É DESATIVANDA ENQUANTO O SCRAPER ESTÁ EXECUTANDO"
+msgstr "ESTÁ FUNÇÃO É DESATIVADA ENQUANTO O SCRAPER ESTÁ EXECUTANDO"
 
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
@@ -441,7 +441,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "default"
-msgstr "pardrão"
+msgstr "padrão"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO CONTROLE"
