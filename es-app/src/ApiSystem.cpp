@@ -293,11 +293,11 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 	}
 
 	if (func != nullptr)
-		func(std::string("Inflating package..."));
+		func(std::string("Extracting files"));
 
 	::Sleep(750);
 
-	return std::pair<std::string, int>("Cool raoul ! T'y a cru, hein ?", 0);
+	return std::pair<std::string, int>("done.", 0);
 #endif
 
 	LOG(LogDebug) << "ApiSystem::updateSystem";
@@ -320,10 +320,14 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 			func(std::string(line));		
 	}
 
-	if (flog != NULL) 
-		fclose(flog);
-
 	int exitCode = pclose(pipe);
+
+	if (flog != NULL)
+	{
+		fprintf(flog, "Exit code : %d\n", exitCode);
+		fclose(flog);
+	}
+
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -367,9 +371,15 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 		if (flog != NULL) fprintf(flog, "%s\n", line);
 		ui->setText(std::string(line));
 	}
-	if (flog != NULL) fclose(flog);
 
 	int exitCode = pclose(pipe);
+
+	if (flog != NULL)
+	{
+		fprintf(flog, "Exit code : %d\n", exitCode);
+		fclose(flog);
+	}
+
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 

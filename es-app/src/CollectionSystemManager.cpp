@@ -294,6 +294,9 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 				ViewController::get()->getGameListView(curSys)->onFileChanged(newGame, FILE_METADATA_CHANGED);
 			}
 		}
+
+		curSys->updateDisplayedGameCount();
+
 		rootFolder->sort(getSortTypeFromString(mCollectionSystemDeclsIndex[name].defaultSort));
 		if (name == "recent")
 		{

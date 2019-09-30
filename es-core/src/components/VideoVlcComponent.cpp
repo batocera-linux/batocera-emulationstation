@@ -465,10 +465,24 @@ void VideoVlcComponent::startVideo()
 				}
 #endif
 				
-				if (Settings::getInstance()->getBool("OptimizeVideo") && !mTargetSize.empty())
+				if (Settings::getInstance()->getBool("OptimizeVideo"))
 				{
+					// Avoid videos bigger than resolution
+					Vector2f maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+										
+#ifdef _RPI_
+					// Temporary -> RPI -> Try to limit videos to 400x300 for performance benchmark
+					if (!Renderer::isSmallScreen())
+						maxSize = Vector2f(400, 300);
+#endif
+
+					if (!mTargetSize.empty() && (mTargetSize.x() < maxSize.x() || mTargetSize.y() < maxSize.y()))
+						maxSize = mTargetSize;
+
+					
+
 					// If video is bigger than display, ask VLC for a smaller image
-					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(mTargetSize.x(), mTargetSize.y()), mTargetIsMin);
+					auto sz = ImageIO::adjustPictureSize(Vector2i(mVideoWidth, mVideoHeight), Vector2i(maxSize.x(), maxSize.y()), mTargetIsMin);
 					if (sz.x() < mVideoWidth || sz.y() < mVideoHeight)
 					{
 						mVideoWidth = sz.x();
