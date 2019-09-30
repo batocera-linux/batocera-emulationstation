@@ -92,6 +92,8 @@ public:
 		return MaxSizeInfo(mTargetSize, mTargetIsMax);
 	};
 
+	void setPadding(const Vector4f padding) { mPadding = padding; updateVertices(); }
+
 private:
 	Vector2f mTargetSize;
 
@@ -129,6 +131,7 @@ private:
 	std::string mPath;
 
 	std::shared_ptr<TextureResource> mLoadingTexture;
+	Vector4f	mPadding;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
