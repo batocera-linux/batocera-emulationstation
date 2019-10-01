@@ -90,7 +90,7 @@ void SystemView::populate()
 					// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
 					ImageComponent* logo = new ImageComponent(mWindow, false, Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
 					logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
-					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR); //  ThemeFlags::PATH | 
+					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 
 					// Process here to be enable to set max picture size
 					auto elem = theme->getElement("system", "logo", "image");

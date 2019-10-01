@@ -23,6 +23,9 @@
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
 {	
+	mTransiting = nullptr;
+	mTransitionOffset = 0;
+
 	mClockPos = Vector2f(-1, -1);
 	mClockColor = 0xFFFFFF55;
 	mClockFont = nullptr; 
@@ -50,14 +53,68 @@ Window::~Window()
 
 	delete mHelp;
 }
-
+/*
+#include "animations/LambdaAnimation.h"
+#include "animations/AnimationController.h"
+#include <SDL_main.h>
+#include <SDL_timer.h>
+*/
 void Window::pushGui(GuiComponent* gui)
 {
+	mTransiting = nullptr;
+
 	if (mGuiStack.size() > 0)
 	{
 		auto& top = mGuiStack.back();
 		top->topWindow(false);
+		/*
+		if (top->getValue() != "GuiMsgBox" && mGuiStack.size() >= 2)
+		{	
+			GuiComponent* showing = gui;
+			GuiComponent* hiding = top;
+
+			mTransiting = hiding;
+			mTransitionOffset = 0;
+
+			showing->setOpacity(0);
+			mGuiStack.push_back(showing);
+
+			int duration = 250;
+			int lastTime = SDL_GetTicks();
+			int curTime = lastTime;
+			int deltaTime = 0.00001;
+
+			AnimationController animController(new LambdaAnimation([this, showing](float t)
+			{
+				float value = Math::lerp(0.0f, 1.0f, t);
+				mTransitionOffset = Renderer::getScreenWidth() * value;
+				mTransiting->setOpacity(255 - (255 * value));
+				showing->setOpacity(255 * value);
+			}, duration));
+		
+			do
+			{
+				curTime = SDL_GetTicks();
+				deltaTime = curTime - lastTime;
+				lastTime = curTime;
+
+				this->update(deltaTime);
+				this->render();
+
+				Renderer::swapBuffers();
+			} 
+			while (!animController.update(deltaTime));
+
+			showing->setOpacity(255);
+			mTransiting->setOpacity(255);
+			mTransitionOffset = 0;
+			mTransiting = nullptr;
+
+			gui->updateHelpPrompts();
+			return;
+		}*/
 	}
+
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
 }
@@ -67,7 +124,7 @@ void Window::removeGui(GuiComponent* gui)
 	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 	{
 		if(*i == gui)
-		{
+		{						
 			i = mGuiStack.erase(i);
 
 			if(i == mGuiStack.cend() && mGuiStack.size()) // we just popped the stack and the stack is not empty
@@ -180,17 +237,17 @@ void Window::input(InputConfig* config, Input input)
 	if (cancelScreenSaver())
 		return;
 
-	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
 		Settings::getInstance()->setBool("DebugGrid", !Settings::getInstance()->getBool("DebugGrid"));
 	}
-	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
 	}
-	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-I
 		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
@@ -358,6 +415,9 @@ void Window::update(int deltaTime)
 
 	mTimeSinceLastInput += deltaTime;
 
+	if (mTransiting != nullptr)
+		mTransiting->update(deltaTime);
+
 	if (peekGui())
 		peekGui()->update(deltaTime);
 
@@ -381,7 +441,7 @@ void Window::render()
 		bottom->render(transform);
 		if(bottom != top)
 		{
-			if (top->getValue() == "GuiMsgBox" && mGuiStack.size() > 2)
+			if (mTransiting == nullptr && top->getValue() == "GuiMsgBox" && mGuiStack.size() > 2)
 			{
 				auto& middle = mGuiStack.at(mGuiStack.size()-2);
 				if (middle != bottom)
@@ -389,7 +449,23 @@ void Window::render()
 			}
 
 			mBackgroundOverlay->render(transform);
-			top->render(transform);
+
+			Transform4x4f topTransform = transform;
+
+			if (mTransiting != nullptr)
+			{
+				Vector3f target(mTransitionOffset, 0, 0);
+
+				Transform4x4f cam = Transform4x4f::Identity();
+				cam.translation() = -target;
+
+				mTransiting->render(cam);
+
+				target = Vector3f(Renderer::getScreenWidth() - mTransitionOffset, 0, 0);
+				topTransform.translation() = target;
+			}
+
+			top->render(topTransform);
 		}
 	}
 	
@@ -486,6 +562,9 @@ void Window::setAllowSleep(bool sleep)
 void Window::endRenderLoadingScreen()
 {
 	mSplash = nullptr;	
+
+	// Window has not way to apply Theme -> As a workaround : endRenderLoadingScreen is always called when theme changes.
+	mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
 }
 
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)

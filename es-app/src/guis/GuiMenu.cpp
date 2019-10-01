@@ -882,36 +882,7 @@ void GuiMenu::openGamesSettings_batocera()
 		auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
 		decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
 		{
-			Vector2f maxSize(320, 180);
-
-			int IMGPADDING = Renderer::getScreenHeight()*0.01f;
-			
-			auto theme = ThemeData::getMenuTheme();
-			std::shared_ptr<Font> font = theme->Text.font;
-			unsigned int color = theme->Text.color;
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(window);
-			spacer->setSize(IMGPADDING, 0);
-			row.addElement(spacer, false);
-			row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
-
-			std::string imageUrl;
-
-			for (auto set : sets)
-				if (set.name == data)
-					imageUrl = set.imageUrl;
-
-			// image
-			if (!imageUrl.empty())
-			{
-				auto icon = std::make_shared<ImageComponent>(window);
-				icon->setImage(imageUrl, false, maxSize);
-				icon->setMaxSize(maxSize);
-				icon->setColorShift(theme->Text.color);
-				icon->setPadding(IMGPADDING);
-				row.addElement(icon, false);
-			}
+			createDecorationItemTemplate(window, sets, data, row);		
 		});
 		
 		std::vector<std::string> decorations_item;
@@ -2164,6 +2135,9 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 #endif
 
 	auto s = new GuiSettings(window, _("QUIT").c_str());
+	
+	if (forceWin32Menu)
+		s->setCloseButton("select");
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), _("YES"),
@@ -2271,6 +2245,40 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 	});
 
 	gui->addRow(row);
+}
+
+void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<DecorationSetInfo> sets, std::string data, ComponentListRow& row)
+{
+	Vector2f maxSize(Renderer::getScreenWidth() * 0.14, Renderer::getScreenHeight() * 0.14);
+
+	int IMGPADDING = Renderer::getScreenHeight()*0.01f;
+
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	// spacer between icon and text
+	auto spacer = std::make_shared<GuiComponent>(window);
+	spacer->setSize(IMGPADDING, 0);
+	row.addElement(spacer, false);
+	row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
+
+	std::string imageUrl;
+
+	for (auto set : sets)
+		if (set.name == data)
+			imageUrl = set.imageUrl;
+
+	// image
+	if (!imageUrl.empty())
+	{
+		auto icon = std::make_shared<ImageComponent>(window);
+		icon->setImage(imageUrl, false, maxSize);
+		icon->setMaxSize(maxSize);
+		icon->setColorShift(theme->Text.color);
+		icon->setPadding(IMGPADDING);
+		row.addElement(icon, false);
+	}
 }
 
 void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator) {
@@ -2408,36 +2416,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
 	decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
 	{
-		Vector2f maxSize(320, 180);
-
-		int IMGPADDING = Renderer::getScreenHeight()*0.01f;
-
-		auto theme = ThemeData::getMenuTheme();
-		std::shared_ptr<Font> font = theme->Text.font;
-		unsigned int color = theme->Text.color;
-
-		// spacer between icon and text
-		auto spacer = std::make_shared<GuiComponent>(window);
-		spacer->setSize(IMGPADDING, 0);
-		row.addElement(spacer, false);
-		row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
-
-		std::string imageUrl;
-
-		for (auto set : sets)
-			if (set.name == data)
-				imageUrl = set.imageUrl;
-
-		// image
-		if (!imageUrl.empty())
-		{
-			auto icon = std::make_shared<ImageComponent>(window);
-			icon->setImage(imageUrl, false, maxSize);
-			icon->setMaxSize(maxSize);
-			icon->setColorShift(theme->Text.color);
-			icon->setPadding(IMGPADDING);
-			row.addElement(icon, false);
-		}
+		createDecorationItemTemplate(window, sets, data, row);		
 	});
 
     std::vector<std::string> decorations_item;

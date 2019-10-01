@@ -139,6 +139,10 @@ private:
 	unsigned int mTimeSinceLastInput;
 
 	bool mRenderedHelpPrompts;
+
+
+	GuiComponent* mTransiting;
+	int mTransitionOffset;
 };
 
 #endif // ES_CORE_WINDOW_H
