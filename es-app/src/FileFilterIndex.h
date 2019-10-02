@@ -63,7 +63,7 @@ private:
 	void managePubDevEntryInIndex(FileData* game, bool remove = false);
 	void manageRatingsEntryInIndex(FileData* game, bool remove = false);
 	void manageFavoritesEntryInIndex(FileData* game, bool remove = false);
-	void manageHiddenEntryInIndex(FileData* game, bool remove = false);
+	//void manageHiddenEntryInIndex(FileData* game, bool remove = false);
 	void manageKidGameEntryInIndex(FileData* game, bool remove = false);
 
 	void manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove);
@@ -83,7 +83,7 @@ private:
 	std::map<std::string, int> pubDevIndexAllKeys;
 	std::map<std::string, int> ratingsIndexAllKeys;
 	std::map<std::string, int> favoritesIndexAllKeys;
-	std::map<std::string, int> hiddenIndexAllKeys;
+	//std::map<std::string, int> hiddenIndexAllKeys;
 	std::map<std::string, int> kidGameIndexAllKeys;
 
 	std::vector<std::string> genreIndexFilteredKeys;
@@ -91,7 +91,7 @@ private:
 	std::vector<std::string> pubDevIndexFilteredKeys;
 	std::vector<std::string> ratingsIndexFilteredKeys;
 	std::vector<std::string> favoritesIndexFilteredKeys;
-	std::vector<std::string> hiddenIndexFilteredKeys;
+	//std::vector<std::string> hiddenIndexFilteredKeys;
 	std::vector<std::string> kidGameIndexFilteredKeys;
 
 	FileData* mRootFolder;
