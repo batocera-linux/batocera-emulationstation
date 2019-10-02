@@ -25,6 +25,9 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
+	mHorizontalAlignment = ALIGN_CENTER;
+	mVerticalAlignment = ALIGN_CENTER;
+	mReflectOnBorders = false;
 	mAllowFading = true;
 	updateColors();
 }
@@ -378,8 +381,10 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 	if(mTexture && mOpacity > 0)
 	{
-		if(Settings::getInstance()->getBool("DebugImage")) {
-			Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
+		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
+
+		if(Settings::getInstance()->getBool("DebugImage")) 
+		{
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
 			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
 		}
@@ -393,6 +398,22 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			fadeIn(false);
 			return;
 		}
+
+		// Align left
+		//trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
+		
+		if (mVerticalAlignment == ALIGN_TOP)
+			trans.translate(Vector3f(0, targetSizePos.y(), 0.0f));
+		else if (mVerticalAlignment == ALIGN_BOTTOM)
+			trans.translate(Vector3f(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y(), 0.0f));
+
+		if (mHorizontalAlignment == ALIGN_LEFT)
+			trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
+		else if (mHorizontalAlignment == ALIGN_BOTTOM)
+			trans.translate(Vector3f(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y(), 0.0f));
+
+		Renderer::setMatrix(trans);
+
 
 		fadeIn(true);
 		Renderer::drawTriangleStrips(&mVertices[0], 4);
@@ -410,6 +431,9 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			const unsigned int colorB = Renderer::convertColor((mColorShift & 0xffffff00) + (unsigned char)(255.0*alpha2));
 
 			int h = mVertices[1].pos.y() - mVertices[0].pos.y();
+
+			if (mReflectOnBorders)
+				h = mTargetSize.y();
 
 			Renderer::Vertex mirrorVertices[4];
 
@@ -493,38 +517,38 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	using namespace ThemeFlags;
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "image");
-	if(!elem)
+	if (!elem)
 	{
 		return;
 	}
 
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-	
-	if(properties & POSITION && elem->has("pos"))
+
+	if (properties & POSITION && elem->has("pos"))
 	{
 		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
 		setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
 	}
 
-	if(properties & ThemeFlags::SIZE)
+	if (properties & ThemeFlags::SIZE)
 	{
-		if(elem->has("size"))
+		if (elem->has("size"))
 			setResize(elem->get<Vector2f>("size") * scale);
-		else if(elem->has("maxSize"))
+		else if (elem->has("maxSize"))
 			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
-		else if(elem->has("minSize"))
+		else if (elem->has("minSize"))
 			setMinSize(elem->get<Vector2f>("minSize") * scale);
 	}
 
 	// position + size also implies origin
-	if((properties & ORIGIN || (properties & POSITION && properties & ThemeFlags::SIZE)) && elem->has("origin"))
+	if ((properties & ORIGIN || (properties & POSITION && properties & ThemeFlags::SIZE)) && elem->has("origin"))
 		setOrigin(elem->get<Vector2f>("origin"));
 
-	if(elem->has("default")) {
+	if (elem->has("default")) {
 		setDefaultImage(elem->get<std::string>("default"));
 	}
 
-	if(properties & PATH && elem->has("path"))
+	if (properties & PATH && elem->has("path"))
 	{
 		bool tile = (elem->has("tile") && elem->get<bool>("tile"));
 
@@ -533,9 +557,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setImage(path, tile);
 	}
 
-	if(properties & COLOR)
+	if (properties & COLOR)
 	{
-		if(elem->has("color"))
+		if (elem->has("color"))
 		{
 			setColorShift(elem->get<unsigned int>("color"));
 			setColorShiftEnd(elem->get<unsigned int>("color"));
@@ -546,16 +570,53 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 		if (elem->has("gradientType"))
 			setColorGradientHorizontal(elem->get<std::string>("gradientType").compare("horizontal"));
-	}
+		
+		if (elem->has("reflexion"))
+			mReflection = elem->get<Vector2f>("reflexion");
+		else
+			mReflection = Vector2f::Zero();
 
-	if(properties & COLOR && elem->has("reflexion"))
-		mReflection = elem->get<Vector2f>("reflexion");
+		if (elem->has("reflexionOnFrame"))
+			mReflectOnBorders = elem->get<bool>("reflexionOnFrame");
+		else
+			mReflectOnBorders = false;
+	}	
 
-	if(properties & ThemeFlags::ROTATION) {
+	if(properties & ThemeFlags::ROTATION) 
+	{
 		if(elem->has("rotation"))
 			setRotationDegrees(elem->get<float>("rotation"));
+
 		if(elem->has("rotationOrigin"))
 			setRotationOrigin(elem->get<Vector2f>("rotationOrigin"));
+
+		if (elem->has("flipX"))
+			setFlipX(elem->get<bool>("flipX"));
+
+		if (elem->has("flipY"))
+			setFlipY(elem->get<bool>("flipY"));
+	}
+
+	if (properties & ALIGNMENT && elem->has("horizontalAlignment"))
+	{
+		std::string str = elem->get<std::string>("horizontalAlignment");
+		if (str == "left")
+			setHorizontalAlignment(ALIGN_LEFT);
+		else if (str == "right")
+			setHorizontalAlignment(ALIGN_RIGHT);
+		else
+			setHorizontalAlignment(ALIGN_CENTER);		
+	}
+
+	if (properties & ALIGNMENT && elem->has("verticalAlignment"))
+	{
+		std::string str = elem->get<std::string>("verticalAlignment");
+		if (str == "top")
+			setVerticalAlignment(ALIGN_TOP);
+		else if (str == "bottom")
+			setVerticalAlignment(ALIGN_BOTTOM);
+		else
+			setVerticalAlignment(ALIGN_CENTER);
 	}
 
 	if(properties & ThemeFlags::Z_INDEX && elem->has("zIndex"))

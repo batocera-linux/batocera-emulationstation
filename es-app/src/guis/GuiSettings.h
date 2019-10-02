@@ -39,6 +39,7 @@ public:
 		return mVariableMap[name];
 	}
 
+	void setCloseButton(const std::string name) { mCloseButton = name; }
 	void setVariable(const std::string name, bool value) { mVariableMap[name] = value; }
 
 protected:
@@ -51,6 +52,8 @@ private:
 	std::function<void()> mOnFinalizeFunc;
 
 	std::map<std::string, bool> mVariableMap;
+
+	std::string		mCloseButton;
 };
 
 #endif // ES_APP_GUIS_GUI_SETTINGS_H

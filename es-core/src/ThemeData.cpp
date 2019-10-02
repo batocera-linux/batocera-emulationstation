@@ -31,6 +31,11 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "gradientType", STRING },
 		{ "visible", BOOLEAN },
 		{ "reflexion", NORMALIZED_PAIR },
+		{ "reflexionOnFrame", BOOLEAN },
+		{ "horizontalAlignment", STRING },		
+		{ "verticalAlignment", STRING },
+		{ "flipX", BOOLEAN },
+		{ "flipY", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },

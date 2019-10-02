@@ -11,6 +11,7 @@ GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(windo
 {
 	addChild(&mMenu);
 
+	mCloseButton = "start";
 	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -56,7 +57,7 @@ bool GuiSettings::input(InputConfig* config, Input input)
 		return true;
 	}
 
-	if(config->isMappedTo("start", input) && input.value != 0)
+	if(config->isMappedTo(mCloseButton, input) && input.value != 0)
 	{
 		// close everything
 		Window* window = mWindow;
@@ -80,7 +81,7 @@ std::vector<HelpPrompt> GuiSettings::getHelpPrompts()
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt(mCloseButton, _("CLOSE"))); // batocera
 
 	return prompts;
 }
