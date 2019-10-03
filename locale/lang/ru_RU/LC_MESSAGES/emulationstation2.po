@@ -83,19 +83,19 @@ msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К ЭТОЙ КОЛЛЕКЦИИ"
+msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ЭТОЙ ИГРЫ"
+msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ИГРЫ"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "РАСШИРЕННЫЕ ИГРОВЫЕ НАСТРОЙКИ"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "ФИЛЬТР ИГРЫ ПО ТЕКСТУ"
+msgstr "ФИЛЬТР ИГР ПО ТЕКСТУ"
 
 msgid "Loading..."
 msgstr "Загрузка..."
@@ -155,7 +155,7 @@ msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr "ПРЕДПОЧТИТЕЛЬНЫЙ ИСТОЧНИК ИЗОБРАЖЕНИЯ"
+msgstr "ТИП ИЗОБРАЖЕНИЯ"
 
 msgid "NONE"
 msgstr "НЕТ"
@@ -179,7 +179,7 @@ msgid "WHEEL"
 msgstr "WHEEL"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "ПРЕДПОЧТИТЕЛЬНЫЙ ИСТОЧНИК THUMBNAIL"
+msgstr "ТИП ЭСКИЗА"
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
@@ -197,7 +197,7 @@ msgid "PASSWORD"
 msgstr "ПАРОЛЬ"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "ИДЕТ ЗАГРУЗКА. ОСТАНОВИТЬ?"
+msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -236,7 +236,7 @@ msgid "VSYNC"
 msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr "ПРЕДЗАГРУЗКА UI"
+msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
 
 msgid "THREADED LOADING"
 msgstr "THREADED ЗАГРУЗКА"
@@ -503,10 +503,10 @@ msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
 msgid "START ON GAMELIST"
-msgstr "НАЧАТЬ GAMELIST"
+msgstr "НАЧАТЬ СО СПИСКА ИГР"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr "ОТОБРАЖЕНЫ СИСТЕМЫ"
+msgstr "ОТОБРАЖЕНИЕ СИСТЕМ"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -542,7 +542,7 @@ msgid "ON-SCREEN HELP"
 msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМЫ"
+msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
@@ -689,10 +689,10 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИЙ И СИСТЕМ"
+msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИИ И СИСТЕМЫ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "ПОКАЗАТЬ ИМЯ СИСТЕМЫ В КОЛЛЕКЦИЯХ"
+msgstr "ПРИПИСКА СИСТЕМ В КОЛЛЕКЦИЯХ"
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
@@ -786,7 +786,7 @@ msgstr "В КАКОЙ СИСТЕМЕ ПЕРЕУСТАНОВИТЬ РАМКИ?"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' ДОБАВЛЕНО В ОЧЕРЕДЬ ЗАГРУЗКИ"
+msgstr "'%s' ДОБАВЛЕНА В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "УДАЛИТЬ НАБОР РАМОК"
@@ -837,7 +837,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "SCRAPE THESE GAMES"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ ЭТИХ ИГР"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ ИГР"
 
 msgid "All Games"
 msgstr "Все игры"
@@ -1036,7 +1036,7 @@ msgid "Searching"
 msgstr "Поиск"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНЕНИТЬ ИЗМЕНЕНИЯ"
+msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
@@ -1147,7 +1147,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "'%s' удалено из '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Коллекция пуста"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"

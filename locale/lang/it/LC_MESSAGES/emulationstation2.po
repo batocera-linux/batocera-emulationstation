@@ -2,22 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-09-25 20:18+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "UPDATING BATOCERA"
-msgstr ""
-
-msgid "UPDATE IS READY"
-msgstr ""
-
-msgid "AN ERROR OCCURED"
-msgstr "SI E’ VERIFICATO UN ERRORE"
 
 msgid "REALLY UPDATE?"
 msgstr "VUOI AGGIORNARE?"
@@ -34,8 +25,14 @@ msgstr "E' NECESSARIA UNA CONNESSIONE DI RETE"
 msgid "OK"
 msgstr "OK"
 
+msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
+
 msgid "NO UPDATE AVAILABLE"
 msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
+
+msgid "AN ERROR OCCURED"
+msgstr "SI E’ VERIFICATO UN ERRORE"
 
 msgid "INPUT"
 msgstr "INPUT"
@@ -62,49 +59,49 @@ msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "ALTRI FILTRI"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "GRANDEZZA DELLA GRIGLIA"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "MOSTRA PRIMA I FAVORITI"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRA FILE NASCOSTI"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "MOSTRA LE CARTELLE"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
+msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "FINE MODIFICA DELLA COLLEZIONE"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "OPZIONI AVANZATE DEL GIOCO"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "FILTRA GIOCHI PER NOME"
 
 msgid "Loading..."
 msgstr "Caricamento..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "QUESTA FUNZIONE E' DISABILITATA QUANDO LO SCRAPE E' IN ESECUZIONE"
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "CANCELLA TUTTI I FILTRI"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "CERCA GIOCHI"
 
 msgid "FINISHED"
 msgstr "TERMINATO"
@@ -128,7 +125,7 @@ msgid "UI SETTINGS"
 msgstr "OPZIONI INTERFACCIA"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI DELLA COLLEZIONE GIOCHI"
 
 msgid "SOUND SETTINGS"
 msgstr "OPZIONI SONORO"
@@ -152,40 +149,40 @@ msgid "SCRAPE FROM"
 msgstr "RACCOGLI INFORMAZIONI DA"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "SORGENTE IMMAGINE PREFERITA"
 
 msgid "NONE"
 msgstr "NESSUNO"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "SCREENSHOT DEL TITOLO"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "BOX 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MIX"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "RUOTA"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "SORGENTE MINIATURA PREFERITA"
 
 msgid "SCRAPE RATINGS"
 msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "SCRAPE MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "SCRAPE VIDEO"
 
 msgid "USERNAME"
 msgstr "NOME UTENTE"
@@ -194,7 +191,7 @@ msgid "PASSWORD"
 msgstr "PASSWORD"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "SCRAPE IN ESECUZIONE. VUOI FERMARLO?"
 
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
@@ -230,25 +227,25 @@ msgid "SHOW FRAMERATE"
 msgstr "MOSTRA IL FRAMERATE"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "UI PRECARICATA"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "CARICAMENTO INCODATO"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "CARICAMENTO IMMAGINI ASINCRONO"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "OTTIMIZZAZIONE IMMAGINI PER L'USO VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OTTIMIZZAZIONE VIDEO PER L'USO VRAM"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "LIVELLO DI LOG"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CREA UN FILE DI SUPPORTO"
@@ -262,26 +259,8 @@ msgstr "FILE GENERATO CON SUCCESSO"
 msgid "FILE GENERATION FAILED"
 msgstr "IMPOSSIBILE GENERARE FILE"
 
-msgid "UPDATES"
-msgstr "AGGIORNAMENTI"
-
-msgid "THEMES"
-msgstr "TEMI"
-
-msgid "THE BEZEL PROJECT"
-msgstr ""
-
-msgid "AUTO UPDATES"
-msgstr "AGGIORNAMENTI AUTOMATICI"
-
-msgid "APPLY UPDATE"
-msgstr ""
-
-msgid "START UPDATE"
-msgstr "INIZIA AGGIORNAMENTO"
-
-msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgid "STORAGE DEVICE"
+msgstr "UNITA’ DI ARCHIVIAZIONE"
 
 msgid "LANGUAGE"
 msgstr "LINGUA"
@@ -290,10 +269,22 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "MODALITA' RISPARMIO ENERGETICO"
 
-msgid "STORAGE DEVICE"
-msgstr "UNITA’ DI ARCHIVIAZIONE"
+msgid "UPDATES"
+msgstr "AGGIORNAMENTI"
+
+msgid "THEMES"
+msgstr "TEMI"
+
+msgid "THE BEZEL PROJECT"
+msgstr "IL PROGETTO BEZEL"
+
+msgid "AUTO UPDATES"
+msgstr "AGGIORNAMENTI AUTOMATICI"
+
+msgid "START UPDATE"
+msgstr "INIZIA AGGIORNAMENTO"
 
 msgid "BACKUP USER DATA"
 msgstr "EFFETTUA IL BACKUP DEI DATI UTENTE"
@@ -357,10 +348,10 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr ""
+msgstr "MIGLIORATO"
 
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURA"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (GRAFICA PIXEL PERFECT)"
@@ -440,43 +431,40 @@ msgid "INPUT P%i"
 msgstr "INPUT P%i"
 
 msgid "default"
-msgstr ""
+msgstr "default"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "MOSTRA ATTIVITA' DEL CONTROLLER"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "DEVI APPLICARE IL TEMA PRIMA DI MODIFICARE LA CONFIGURAZIONE"
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAZIONE DEL TEMA"
 
 msgid "THEME COLORSET"
-msgstr ""
+msgstr "COLORI DEL TEMA"
 
 msgid "THEME ICONSET"
-msgstr ""
+msgstr "ICONE DEL TEMA"
 
 msgid "THEME MENU"
-msgstr ""
+msgstr "MENU' DEL TEMA"
 
 msgid "THEME SYSTEMVIEW"
-msgstr ""
+msgstr "TEMA DI SISTEMA"
 
 msgid "THEME GAMELISTVIEW"
-msgstr ""
+msgstr "TEMA DELLA LISTA GIOCHI"
 
 msgid "THEME REGION"
-msgstr ""
+msgstr "TEMA DEL REGIONE"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr ""
-
-msgid "THEME SET"
-msgstr "TEMA SELEZIONATO"
+msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
 msgid "UI MODE"
 msgstr "MODALITA’ INTERFACCIA"
@@ -486,21 +474,27 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"Stai cambiando l'UI alla modalità restrittiva:\n"
+"Questo nasconderà la maggior parte delle impostazioni di sistema.\n"
+"Per sbloccarle e ritornare all'interfaccia normale, immetti questo codice:"
 
 msgid "Do you want to proceed ?"
-msgstr ""
+msgstr "Vuoi procedere?"
 
 msgid "VIDEO OUTPUT"
 msgstr "OUTPUT VIDEO"
+
+msgid "THEME SET"
+msgstr "TEMA SELEZIONATO"
 
 msgid "START ON SYSTEM"
 msgstr "SISTEMA DI AVVIO"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "INIZIA DALLA LISTA GIOCHI"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "SISTEMA VISUALIZZATO"
 
 msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
@@ -568,19 +562,19 @@ msgid "FRONTEND MUSIC"
 msgstr "MUSICA FRONTEND"
 
 msgid "DISPLAY SONG TITLES"
-msgstr ""
+msgstr "VISUALIZZA TITOLI DELLE CANZONI"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "QUANTI SECONDI PER TITOLO CANZONE"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr ""
+msgstr "SUONA SOLO MUSICA SPECIFICA PER CARTELLA SISTEMA"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "SUONA MUSICHE A TEMA"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "ABILITA SUONI DI NAVIGAZIONE"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ABILITA L’AUDIO DELLE VIDEO ANTEPRIME"
@@ -643,10 +637,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE I METADATI?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "ESCI DA EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "ESCI DAVVERO?"
 
 msgid "Emulator"
 msgstr "Emulatore"
@@ -658,46 +652,46 @@ msgid "VIDEO MODE"
 msgstr "MODALITA' VIDEO"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "COLORI"
 
 msgid "FULL BOOT"
-msgstr ""
+msgstr "CARICAMENTO TOTALE"
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "EMULA WIIMOTES"
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
+msgstr "RISOLUZIONE INTERNA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "CREA UNA COLLEZIONE PERSONALE DA UN TEMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "SELEZIONA CARTELLA A TEMA"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
+msgstr "CREA NUOVA COLLEZIONE PERSONALIZZATA"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Nuovo nome della collezione"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
 
 msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORDINA LE COLLEZIONI E I SISTEMI PERSONALI"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "MOSTRA IL NOME DEL SISTEMA NELLA COLLEZIONE"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "SELEZIONA COLLEZIONE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "COLLEZIONI DI GIOCHI AUTOMATICHE"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "COLLEZIONI DI GIOCHI PERSONALIZZATE"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLA BATOCERA"
@@ -779,18 +773,14 @@ msgstr ""
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
-
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA INSTALLATO CON SUCCESSO"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIA IMMAGINE DOPO (SECONDI)"
@@ -831,6 +821,12 @@ msgstr "USA BASSA RISOLUZIONE PER DIDASCALIE"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ADATTA VIDEO NEL SALVASCHERMO"
 
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "BEZELS INSTALLATE CON SUCCESSO"
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "BEZELS CANCELLATE CON SUCCESSO"
+
 msgid "SCRAPE THESE GAMES"
 msgstr "INFORMAZIONI SU QUESTI GIOCHI"
 
@@ -838,7 +834,7 @@ msgid "All Games"
 msgstr "Tutti i Giochi"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "Solo media mancanti"
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -868,19 +864,19 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NESSUN GIOCO SODDISFA QUESTO CRITERIO DI RICERCA"
 
 msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
+msgstr "SELEZIONA IL SISTEMA DA MOSTRARE"
 
 msgid "APPLY"
-msgstr ""
+msgstr "APPLICA"
 
 msgid "REVERT"
-msgstr ""
+msgstr "INVERTI"
 
 msgid "VALIDATE"
-msgstr ""
+msgstr "CONVALIDA"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "NESSUN DISPOSITIVO TROVATO"
 
 msgid "SELECT THEME"
 msgstr "SELEZIONA TEMA"
@@ -895,6 +891,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"QUESTO CANCELLERA' IL/I GIOCHI ATTUALI!\n"
+"SEI SICURO?"
 
 msgid "DELETE"
 msgstr "ELIMINA"
@@ -1023,13 +1021,13 @@ msgid "enter path to marquee"
 msgstr "inserisci percorso dei marquee"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "SCRAPING"
 
 msgid "Searching"
-msgstr ""
+msgstr "Cercando"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
@@ -1056,7 +1054,7 @@ msgid "Times played"
 msgstr "Numero partite"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<Nessun risultato trovato>"
 
 msgid "LAUNCH"
 msgstr "AVVIA"
@@ -1065,34 +1063,28 @@ msgid "OPTIONS"
 msgstr "OPZIONI"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "Precaricamento UI"
 
 msgid "MENU"
 msgstr "MENU"
 
-msgid "DOWNLOADING"
-msgstr ""
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA INSTALLATO CON SUCCESSO"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
 msgid "Favorites"
-msgstr ""
+msgstr "Preferiti"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "RICERCA"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NESSUN GIOCO TROVATO - SALTA"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "SI E' VERIFICATO UN ERRORE"
 
 msgid "RETRY"
 msgstr "RIPROVA"
+
+msgid "DOWNLOADING"
+msgstr "DOWNLOADING"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1101,34 +1093,34 @@ msgid "Loading system config..."
 msgstr "Caricamento configurazione di sistema..."
 
 msgid "Done."
-msgstr "Fatto"
+msgstr "Fatto."
 
 msgid "UPDATE AVAILABLE"
 msgstr "AGGIORNAMENTO DISPONIBILE"
 
 msgid "all games"
-msgstr ""
+msgstr "tutti i giochi"
 
 msgid "last played"
-msgstr ""
+msgstr "ultimi giocati"
 
 msgid "favorites"
-msgstr ""
+msgstr "preferiti"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 giocatori"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 giocatori"
 
 msgid "collections"
-msgstr ""
+msgstr "collezione"
 
 msgid "Editing the collection. Add/remove games with Y."
-msgstr ""
+msgstr "Modifica la collezione. Aggiungi/rimuovi con la Y."
 
 msgid "Finished editing the collection."
-msgstr ""
+msgstr "Fine modifica della collezione"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1139,27 +1131,27 @@ msgid "Removed '%s' from '%s'"
 msgstr "Rimosso '%s' da '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Questa collezione e' vuota"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 msgid "Various"
-msgstr ""
+msgstr "Vari"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s."
+msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
+msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s tra gli altri titoli."
 
 msgid "UP"
 msgstr "SU"
@@ -1236,7 +1228,7 @@ msgid "DELETE A CHAR"
 msgstr "CANCELLA UN CARATTERE"
 
 msgid "RESET"
-msgstr ""
+msgstr "RIAVVIA"
 
 msgid "DISCARD CHANGES"
 msgstr "ANNULLA LE MODIFICHE"
@@ -1275,19 +1267,19 @@ msgid "EDIT"
 msgstr "MODIFICA"
 
 msgid "accept"
-msgstr ""
+msgstr "accetta"
 
 msgid "SELECT ALL"
 msgstr "SELEZIONA TUTTI"
 
 msgid "select all"
-msgstr ""
+msgstr "seleziona tutti"
 
 msgid "SELECT NONE"
 msgstr "SELEZIONA NESSUNO"
 
 msgid "select none"
-msgstr ""
+msgstr "seleziona nessuno"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1302,10 +1294,7 @@ msgid "WORKING..."
 msgstr "ATTENDERE..."
 
 msgid "up/down"
-msgstr ""
-
-#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
+msgstr "su/giu'"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "FILTRA LA LISTA DEI GIOCHI"
