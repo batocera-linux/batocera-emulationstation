@@ -80,7 +80,7 @@ public:
 	virtual void onHide();
 	virtual void update(int deltaTime);
 
-	std::shared_ptr<TextureResource> getTexture();
+	std::shared_ptr<TextureResource> getTexture(bool marquee = false);
 
 private:
 	void	resetProperties();

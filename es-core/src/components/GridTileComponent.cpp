@@ -97,13 +97,15 @@ GridTileComponent::~GridTileComponent()
 	mVideo = nullptr;
 }
 
-std::shared_ptr<TextureResource> GridTileComponent::getTexture() 
+std::shared_ptr<TextureResource> GridTileComponent::getTexture(bool marquee) 
 { 
-	if (mImage != nullptr)
+	if (marquee && mMarquee  != nullptr)
+		return mMarquee->getTexture();
+	else if (!marquee && mImage != nullptr)
 		return mImage->getTexture();
 
 	return nullptr; 
-};
+}
 
 void GridTileComponent::resize()
 {
