@@ -165,7 +165,7 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 			mTexture = texture;
 	}
 
-	if (mLoadingTexture == nullptr);
+	if (mLoadingTexture == nullptr)
 		resize();
 }
 

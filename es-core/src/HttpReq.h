@@ -48,7 +48,7 @@ public:
 	std::string getContent(); // mStatus must be REQ_SUCCESS
 
 
-	bool saveContent(const std::string filename);
+	int saveContent(const std::string filename, bool checkMedia = false);
 
 	static std::string urlEncode(const std::string &s);
 	static bool isUrl(const std::string& s);
@@ -74,7 +74,6 @@ private:
 	std::string   mStreamPath;
 	std::ofstream mStream;
 
-	//std::stringstream mContent;
 	std::string mErrorMsg;
 
 	int mPercent;

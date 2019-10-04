@@ -21,7 +21,9 @@ struct GridTileProperties
 	std::string mImageSizeMode;
 	std::string mSelectionMode;
 
+	Vector2f mLabelPos;
 	Vector2f mLabelSize;
+
 	unsigned int mLabelColor;
 	unsigned int mLabelBackColor;
 
@@ -32,6 +34,10 @@ struct GridTileProperties
 	unsigned int	mFontSize;
 
 	Vector2f		mMirror;
+
+
+	Vector2f mMarqueePos;
+	Vector2f mMarqueeSize;
 };
 
 class GridTileComponent : public GuiComponent
@@ -56,7 +62,8 @@ public:
 	void setVideo(const std::string& path, float defaultDelay = -1.0);
 
 	void setImage(const std::string& path);
-	// void setImage(const std::shared_ptr<TextureResource>& texture, std::string name);
+	void setMarquee(const std::string& path);
+
 	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force=false);
 	void setVisible(bool visible);
 
@@ -78,6 +85,7 @@ public:
 private:
 	void	resetProperties();
 	void	createVideo();
+	void	createMarquee();
 	
 	void	startVideo();
 	void	stopVideo();
@@ -97,6 +105,7 @@ private:
 	GridTileProperties mDefaultProperties;
 	GridTileProperties mSelectedProperties;	
 
+	std::string mCurrentMarquee;
 	std::string mCurrentPath;
 	std::string mVideoPath;
 
@@ -109,6 +118,8 @@ private:
 	Vector3f mAnimPosition;
 
 	VideoComponent* mVideo;
+	ImageComponent* mMarquee;
+
 	bool mVideoPlaying;
 	bool mShown;
 };

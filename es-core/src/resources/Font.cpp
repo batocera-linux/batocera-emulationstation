@@ -440,13 +440,67 @@ void Font::renderTextCache(TextCache* cache)
 	{
 		assert(*it->textureIdPtr != 0);
 
-		auto vertexList = *it;
-
 		Renderer::bindTexture(*it->textureIdPtr);
 		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
 		Renderer::bindTexture(0);
 	}
 }
+
+void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
+{
+	if (cache == NULL)
+	{
+		LOG(LogError) << "Attempted to draw NULL TextCache!";
+		return;
+	}
+
+	for (auto it = cache->vertexLists.cbegin(); it != cache->vertexLists.cend(); it++)
+	{
+		assert(*it->textureIdPtr != 0);
+
+		std::vector<Renderer::Vertex> vxs;
+		vxs.resize(it->verts.size());
+
+		float maxY = -1;
+
+		for (int i = 0; i < it->verts.size(); i += 6)
+			if (maxY == -1 || maxY < it->verts[i + 2].pos.y())
+				maxY = it->verts[i + 2].pos.y();
+
+		for (int i = 0; i < it->verts.size(); i += 6)
+		{
+			float topOffset = it->verts[i + 1].pos.y();
+			float bottomOffset = it->verts[i + 2].pos.y();
+			
+			float topPercent = (maxY == 0 ? 1.0 : topOffset / maxY);
+			float bottomPercent = (maxY == 0 ? 1.0 : bottomOffset / maxY);
+
+			const unsigned int colorT = Renderer::mixColors(colorTop, colorBottom, topPercent);
+			const unsigned int colorB = Renderer::mixColors(colorTop, colorBottom, bottomPercent);
+		
+			vxs[i + 1] = it->verts[i + 1];
+			vxs[i + 1].col = colorT;
+
+			vxs[i + 2] = it->verts[i + 2];
+			vxs[i + 2].col = colorB;
+
+			vxs[i + 3] = it->verts[i + 3];
+			vxs[i + 3].col = colorT;
+
+			vxs[i + 4] = it->verts[i + 4];
+			vxs[i + 4].col = colorB;
+
+			// make duplicates of first and last vertex so this can be rendered as a triangle strip
+			vxs[i + 0] = vxs[i + 1];
+			vxs[i + 5] = vxs[i + 4];
+		}
+
+		Renderer::bindTexture(*it->textureIdPtr);
+		Renderer::drawTriangleStrips(&vxs[0], vxs.size());
+		Renderer::bindTexture(0);
+	}
+}
+
 
 Vector2f Font::sizeText(std::string text, float lineSpacing)
 {

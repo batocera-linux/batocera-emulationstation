@@ -160,7 +160,7 @@ void GuiMenu::openScraperSettings()
 		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED THUMBNAIL SOURCE"), false);
 		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
 		thumbSource->add(_("SCREENSHOT"), "ss", thumbSourceName == "ss");
-		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", thumbSourceName == "sstitle");
+		thumbSource->add(_("TITLE SCREENSHOT"), "sstitle", thumbSourceName == "sstitle");
 		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
 		thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
 		thumbSource->add(_("MIX"), "mixrbv1", thumbSourceName == "mixrbv1");
@@ -1600,7 +1600,7 @@ void GuiMenu::openUISettings()
 	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
 	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
 	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
-		UImodeSelection->add(*it, *it, Settings::getInstance()->getString("UIMode") == *it);
+		UImodeSelection->add(_(it->c_str()), *it, Settings::getInstance()->getString("UIMode") == *it);
 	s->addWithLabel(_("UI MODE"), UImodeSelection);
 	s->addSaveFunc([UImodeSelection, window]
 	{
@@ -1797,10 +1797,10 @@ void GuiMenu::openUISettings()
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
 	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
 	s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
-	s->addSaveFunc([enable_filter] {
+	s->addSaveFunc([enable_filter, s] {
 		bool filter_is_enabled = !Settings::getInstance()->getBool("ForceDisableFilters");
-		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
-		if (enable_filter->getState() != filter_is_enabled) ViewController::get()->ReloadAndGoToStart();
+		if (Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState()))
+			s->setVariable("reloadAll", true);		
 	});
 	
 #if !defined(WIN32) || defined(_DEBUG)

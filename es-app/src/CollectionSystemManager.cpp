@@ -462,12 +462,17 @@ void CollectionSystemManager::setEditMode(std::string collectionName)
 	// if it's bundled, this needs to be the bundle system
 	mEditingCollectionSystemData = sysData;
 
-	mWindow->displayNotificationMessage(_("Editing the collection. Add/remove games with Y."), 10000);
+	char strbuf[512];
+	snprintf(strbuf, 512, _("Editing the '%s' Collection. Add/remove games with Y.").c_str(), Utils::String::toUpper(collectionName).c_str());
+	mWindow->displayNotificationMessage(strbuf, 10000);
 }
 
 void CollectionSystemManager::exitEditMode()
 {
-	mWindow->displayNotificationMessage(_("Finished editing the collection."), 4000);
+	char strbuf[512];
+	snprintf(strbuf, 512, _("Finished editing the '%s' Collection.").c_str(), mEditingCollection.c_str());
+	mWindow->displayNotificationMessage(strbuf, 4000);
+
 	mIsEditingCustom = false;
 	mEditingCollection = "Favorites";
 }

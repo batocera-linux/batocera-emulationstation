@@ -235,13 +235,8 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 	}
 
 	// For Shifting (Y)
-	if (config->isMappedTo("y", input) && input.value) {
-		if (mShift) mShift = false;
-		else mShift = true;
+	if (config->isMappedTo("y", input) && input.value) 
 		shiftKeys();
-	}
-
-	
 
 	return false;
 }
