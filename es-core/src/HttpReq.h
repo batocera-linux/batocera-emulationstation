@@ -74,7 +74,6 @@ private:
 	std::string   mStreamPath;
 	std::ofstream mStream;
 
-	//std::stringstream mContent;
 	std::string mErrorMsg;
 
 	int mPercent;

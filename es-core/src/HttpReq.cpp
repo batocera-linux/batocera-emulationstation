@@ -318,15 +318,16 @@ std::string HttpReq::getContent()
 		mStream.flush();
 		mStream.close();
 	}
+	
+	std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
+	if (ifs.bad())
+		return "";
 
-	std::ifstream t(mStreamPath);
-	t.seekg(0, std::ios::end);
-	size_t size = t.tellg();
-	std::string buffer(size, ' ');
-	t.seekg(0);
-	t.read(&buffer[0], size);
+	std::stringstream ofs;
+	ofs << ifs.rdbuf();
+	ifs.close();
 
-	return buffer; // mContent.str();
+	return ofs.str(); 
 }
 
 void HttpReq::onError(const char* msg)
