@@ -1,6 +1,7 @@
 #include "HttpReq.h"
 
 #include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
 #include "Log.h"
 #include <assert.h>
 
@@ -363,7 +364,7 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	return nmemb;
 }
 
-bool HttpReq::saveContent(const std::string filename)
+int HttpReq::saveContent(const std::string filename, bool checkMedia)
 {
 	assert(mStatus == REQ_SUCCESS);
 
@@ -376,23 +377,30 @@ bool HttpReq::saveContent(const std::string filename)
 	if (!Utils::FileSystem::exists(mStreamPath))
 		return false;
 
+	if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 300)
+	{
+		auto data = Utils::String::toUpper(getContent());
+		if (data.find("NOMEDIA") != std::string::npos || data.find("ERREUR") != std::string::npos || data.find("ERROR") != std::string::npos || data.find("PROBL") != std::string::npos)
+			return 2;
+	}
+	
 	std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
 	if (ifs.bad())
-		return false;
+		return 1;
 
 	if (Utils::FileSystem::exists(filename))
 		Utils::FileSystem::removeFile(filename);
 
 	std::ofstream ofs(filename, std::ios_base::out | std::ios_base::binary);
 	if (ofs.bad())
-		return false;
+		return 1;
 
 	ofs << ifs.rdbuf();
 
 	ifs.close();
 	ofs.close();
 	if (ofs.bad())
-		return false;
+		return 1;
 		
-	return true;
+	return 0;
 }

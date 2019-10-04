@@ -332,23 +332,22 @@ void ImageDownloadHandle::update()
 
 	if (mStatus == ASYNC_IN_PROGRESS)
 	{
-		if (!mReq->saveContent(mSavePath))
+		int ret = mReq->saveContent(mSavePath, true);
+		if (ret == 2)
 		{
-			setError("Failed to save image. Disk full?");
+			setError("Failed to save media : The server response is invalid");
+			return;
+		}
+		else if (ret == 1)
+		{
+			setError("Failed to save image on disk. Disk full?");
 			return;
 		}
 	
 		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
 		if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")
-		{
-			// resize it
-			if (!resizeImage(mSavePath, mMaxWidth, mMaxHeight))
-			{
-				setError("Error saving resized image. Out of memory? Disk full?");
-				return;
-			}
-		}
+			resizeImage(mSavePath, mMaxWidth, mMaxHeight);
 	}
 
 	setStatus(ASYNC_DONE);
