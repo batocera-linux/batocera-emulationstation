@@ -24,6 +24,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mSelectedZoomPercent = 1.0f;
 	mAnimPosition = Vector3f(0, 0);
 	mVideo = nullptr;
+	mMarquee = nullptr;
 
 	mLabelMerged = false;
 
@@ -58,6 +59,7 @@ void GridTileComponent::resetProperties()
 	mSelectedProperties.mBackgroundCenterColor = 0xFFFFFFFF;
 	mSelectedProperties.mBackgroundEdgeColor = 0xFFFFFFFF;
 
+	mDefaultProperties.mLabelPos = Vector2f(-1, -1);
 	mDefaultProperties.mLabelSize = Vector2f(1.0, 0.30);
 	mDefaultProperties.mLabelColor = 0xFFFFFFFF;
 	mDefaultProperties.mLabelBackColor = 0;
@@ -67,6 +69,7 @@ void GridTileComponent::resetProperties()
 	mDefaultProperties.mFontPath = "";
 	mDefaultProperties.mFontSize = 0;
 
+	mSelectedProperties.mLabelPos = Vector2f(-1, -1);
 	mSelectedProperties.mLabelSize = Vector2f(1.0, 0.30);
 	mSelectedProperties.mLabelColor = 0xFFFFFFFF;
 	mSelectedProperties.mLabelBackColor = 0;
@@ -113,6 +116,7 @@ void GridTileComponent::resize()
 	float height = (int) (size.y() * currentProperties.mLabelSize.y());
 	float labelHeight = height;
 
+
 	if (mLabelVisible)
 	{
 		mLabel.setColor(currentProperties.mLabelColor);
@@ -123,15 +127,18 @@ void GridTileComponent::resize()
 		if (mDefaultProperties.mFontPath != mSelectedProperties.mFontPath || mDefaultProperties.mFontSize != mSelectedProperties.mFontSize)
 			mLabel.setFont(currentProperties.mFontPath, currentProperties.mFontSize);
 
-		if (mLabelMerged)
+		if (currentProperties.mLabelPos.x() < 0)
 		{
-			mLabel.setPosition(currentProperties.mPadding.x(), mSize.y() - height - currentProperties.mPadding.y());
-			mLabel.setSize(size.x() - 2 * currentProperties.mPadding.x(), height);
-		}
-		else
-		{
-			mLabel.setPosition(0, mSize.y() - height);
-			mLabel.setSize(size.x(), height);
+			if (mLabelMerged)
+			{
+				mLabel.setPosition(currentProperties.mPadding.x(), mSize.y() - height - currentProperties.mPadding.y());
+				mLabel.setSize(size.x() - 2 * currentProperties.mPadding.x(), height);
+			}
+			else
+			{
+				mLabel.setPosition(0, mSize.y() - height);
+				mLabel.setSize(size.x(), height);
+			}
 		}
 	}
 
@@ -145,6 +152,17 @@ void GridTileComponent::resize()
 	float imageWidth = size.x() - paddingX * 2.0;
 	float imageHeight = size.y() - topPadding - bottomPadding;
 
+	if (mMarquee != nullptr)
+	{		
+		mMarquee->setPosition(
+			currentProperties.mMarqueePos.x() * size.x(),
+			currentProperties.mMarqueePos.y() * size.y());
+
+		mMarquee->setMaxSize(
+			currentProperties.mMarqueeSize.x() * size.x(), 
+			currentProperties.mMarqueeSize.y() * size.y());
+	}
+	
 	if (mImage != nullptr)
 	{		
 		mImage->setPosition(size.x() / 2.0f, (size.y() - height) / 2.0f);
@@ -158,7 +176,7 @@ void GridTileComponent::resize()
 		else
 			mImage->setMaxSize(imageWidth, imageHeight);
 
-		if (mLabelVisible)
+		if (mLabelVisible && currentProperties.mLabelPos.x() < 0)
 		{
 			if (mLabelMerged)
 			{
@@ -171,6 +189,17 @@ void GridTileComponent::resize()
 				mLabel.setSize(mImage->getSize().x(), labelHeight);
 			}
 		}
+	}
+
+	if (currentProperties.mLabelPos.x() >= 0)
+	{
+		mLabel.setPosition(
+			currentProperties.mLabelPos.x() * size.x(),
+			currentProperties.mLabelPos.y() * size.y());
+
+		mLabel.setSize(
+			currentProperties.mLabelSize.x() * size.x(),
+			currentProperties.mLabelSize.y() * size.y());
 	}
 
 	if (mVideo != nullptr && mVideo->isPlaying())
@@ -293,7 +322,9 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (!mLabelMerged && currentProperties.mImageSizeMode == "minSize")
 		Renderer::popClipRect();
 
-	if (mLabelVisible && currentProperties.mLabelSize.y()>0)
+	if (mMarquee != nullptr && mMarquee->hasImage())
+		mMarquee->render(trans);
+	else if (mLabelVisible && currentProperties.mLabelSize.y()>0)
 		mLabel.render(trans);
 
 	if (mLabelMerged && currentProperties.mImageSizeMode == "minSize")
@@ -307,6 +338,17 @@ void GridTileComponent::render(const Transform4x4f& parentTrans)
 
 	renderBackground(parentTrans);
 	renderContent(parentTrans);
+}
+
+void GridTileComponent::createMarquee()
+{
+	if (mMarquee != nullptr)
+		return;
+
+	mMarquee = new ImageComponent(mWindow);
+	mMarquee->setOrigin(0.5f, 0.5f);
+	mMarquee->setDefaultZIndex(35);
+	addChild(mMarquee);
 }
 
 void GridTileComponent::createVideo()
@@ -391,9 +433,33 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 			mSelectedProperties.mMirror = mDefaultProperties.mMirror;
 		}
 	}
+	
+	elem = theme->getElement(view, "gridtile.marquee", "image");
+	if (elem)
+	{
+		createMarquee();
+		mMarquee->applyTheme(theme, view, "gridtile.marquee", ThemeFlags::ALL ^ (ThemeFlags::PATH));
 
-//	mDefaultProperties.mMirror = Vector2f(0, 0);
-//	mSelectedProperties.mMirror = Vector2f(0, 0);
+		if (elem->has("pos"))
+			mDefaultProperties.mMarqueePos = elem->get<Vector2f>("pos");
+		else 
+			mDefaultProperties.mMarqueeSize = Vector2f(0, 0);
+
+		if (elem->has("pos"))
+			mDefaultProperties.mMarqueeSize = elem->get<Vector2f>("size");
+		else
+			mDefaultProperties.mMarqueeSize = Vector2f(1, 1);
+
+		mSelectedProperties.mMarqueePos = mDefaultProperties.mMarqueePos;
+		mSelectedProperties.mMarqueeSize = mDefaultProperties.mMarqueeSize;
+	}
+
+	else if (mMarquee != nullptr)
+	{
+		removeChild(mMarquee);
+		delete mMarquee;
+		mMarquee = nullptr;
+	}
 
 	// Apply theme to the selected gridtile
 	// NOTE that some of the default gridtile properties influence on the selected gridtile properties
@@ -440,11 +506,22 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	{
 		float sh = (float)Renderer::getScreenHeight();
 
+		if (elem && elem->has("pos"))
+		{
+			mDefaultProperties.mLabelPos = elem->get<Vector2f>("pos");
+			mSelectedProperties.mLabelPos = mDefaultProperties.mLabelPos;
+			mLabelMerged = true;
+		}
+		else 
+			mLabelMerged = false;
+
 		if (elem && elem->has("size"))
 		{
 			mDefaultProperties.mLabelSize = elem->get<Vector2f>("size");
 			mSelectedProperties.mLabelSize = mDefaultProperties.mLabelSize;
-			mLabelMerged = mDefaultProperties.mLabelSize.x() == 0;
+
+			if (!mLabelMerged)
+				mLabelMerged = mDefaultProperties.mLabelSize.x() == 0;
 		}
 
 		if (elem && elem->has("color"))
@@ -489,6 +566,9 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		elem = theme->getElement(view, "gridtile_selected", "text");
 		if (elem != NULL)
 		{
+			if (elem && elem->has("pos") && mDefaultProperties.mLabelPos.x() >= 0)
+				mSelectedProperties.mLabelPos = elem->get<Vector2f>("pos");
+
 			if (elem && elem->has("size"))
 				mSelectedProperties.mLabelSize = elem->get<Vector2f>("size");
 
@@ -549,10 +629,29 @@ void GridTileComponent::setImage(const std::string& path)
 	resize();	
 }
 
+void GridTileComponent::setMarquee(const std::string& path)
+{
+	if (mMarquee == nullptr)
+		return;
+
+	if (mCurrentMarquee == path)
+		return;
+
+	mCurrentMarquee = path;
+
+	if (mSelectedProperties.mSize.x() > mSize.x())
+		mMarquee->setImage(path, false, MaxSizeInfo(mSelectedProperties.mSize));
+	else
+		mMarquee->setImage(path, false, MaxSizeInfo(mSize));
+
+	resize();
+}
+
 void GridTileComponent::resetImages()
 {
 	setLabel("");	
 	setImage("");
+	setMarquee("");
 	stopVideo();
 }
 
