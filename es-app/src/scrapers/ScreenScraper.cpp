@@ -253,6 +253,8 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 		ripList = { "box-3D", "box-2D" };
 	else if (imageSource == "wheel")
 		ripList = { "wheel", "screenmarqueesmall", "screenmarquee" };
+	else if (imageSource == "marquee")
+		ripList = { "wheel", "wheelsteel", "screenmarqueesmall", "screenmarquee" };
 
 	return ripList;
 }
@@ -380,11 +382,15 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 			if (Settings::getInstance()->getBool("ScrapeMarquee"))
 			{
-				pugi::xml_node art = findMedia(media_list, "marquee", region);
-				if (art)
-					result.marqueeUrl = Utils::String::replace(art.text().get(), " ", "%20");
-				else
-					LOG(LogDebug) << "Failed to find media XML node for video";
+				ripList = getRipList("marquee");
+				if (!ripList.empty())
+				{
+					pugi::xml_node art = findMedia(media_list, ripList, region);
+					if (art)
+						result.marqueeUrl = Utils::String::replace(art.text().get(), " ", "%20");
+					else
+						LOG(LogDebug) << "Failed to find media XML node for video";
+				}
 			}
 
 			if (Settings::getInstance()->getBool("ScrapeVideos"))
