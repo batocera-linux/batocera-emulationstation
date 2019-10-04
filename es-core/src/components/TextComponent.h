@@ -75,7 +75,11 @@ private:
 	unsigned int mGlowColor;
 	unsigned int mGlowSize;
 	Vector2f	 mGlowOffset;
-	Vector4f	mPadding;
+	Vector4f	 mPadding;
+
+
+	Vector2f	mReflection;
+	bool		mReflectOnBorders;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H

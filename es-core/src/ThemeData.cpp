@@ -80,6 +80,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
+		{ "reflexion", NORMALIZED_PAIR },
+		{ "reflexionOnFrame", BOOLEAN },
 		{ "glowColor", COLOR },
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },

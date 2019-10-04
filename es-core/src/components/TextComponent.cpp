@@ -7,7 +7,8 @@
 TextComponent::TextComponent(Window* window) : GuiComponent(window), 
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
-	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0))
+	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
 {
 }
 
@@ -15,7 +16,8 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	Vector3f pos, Vector2f size, unsigned int bgcolor) : GuiComponent(window), 
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(align), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
-	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0))
+	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0)),
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
 {
 	setFont(font);
 	setColor(color);
@@ -197,6 +199,32 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		}
 		
 		mFont->renderTextCache(mTextCache.get());
+
+		if (mReflection.x() != 0 || mReflection.y() != 0)
+		{
+			Transform4x4f mirror = trans;
+			mirror.translate(-off);
+			mirror.r1().y() = -mirror.r1().y();
+			mirror.r3().y() = mirror.r3().y() + off.y() + textSize.y();
+
+			if (mReflectOnBorders)
+				mirror.r3().y() = mirror.r3().y() + mSize.y();
+			else
+				mirror.r3().y() = mirror.r3().y() + textSize.y();
+
+			Renderer::setMatrix(mirror);
+			
+			float baseOpacity = mOpacity / 255.0;
+			float alpha = baseOpacity * ((mColor & 0x000000ff)) / 255.0;
+			float alpha2 = baseOpacity * alpha * mReflection.y();
+
+			alpha *= mReflection.x();
+
+			const unsigned int colorT = Renderer::convertColor((mColor & 0xffffff00) + (unsigned char)(255.0*alpha));
+			const unsigned int colorB = Renderer::convertColor((mColor & 0xffffff00) + (unsigned char)(255.0*alpha2));
+
+			mFont->renderGradientTextCache(mTextCache.get(), colorB, colorT);
+		}
 	}
 }
 
@@ -346,14 +374,27 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 	if(properties & LINE_SPACING && elem->has("lineSpacing"))
 		setLineSpacing(elem->get<float>("lineSpacing"));
 
-	if (properties & COLOR && elem->has("glowColor"))
-		mGlowColor = elem->get<unsigned int>("glowColor");
+	if (properties & COLOR)
+	{
+		if (elem->has("glowColor"))
+			mGlowColor = elem->get<unsigned int>("glowColor");
 
-	if (properties & COLOR && elem->has("glowSize"))
-		mGlowSize = (int)elem->get<float>("glowSize");
+		if (elem->has("glowSize"))
+			mGlowSize = (int)elem->get<float>("glowSize");
 
-	if (properties & COLOR && elem->has("glowOffset"))
-		mGlowOffset = elem->get<Vector2f>("glowOffset");
+		if (elem->has("glowOffset"))
+			mGlowOffset = elem->get<Vector2f>("glowOffset");
+
+		if (elem->has("reflexion"))
+			mReflection = elem->get<Vector2f>("reflexion");
+		else
+			mReflection = Vector2f::Zero();
+
+		if (elem->has("reflexionOnFrame"))
+			mReflectOnBorders = elem->get<bool>("reflexionOnFrame");
+		else
+			mReflectOnBorders = false;
+	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
 }

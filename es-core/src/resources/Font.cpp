@@ -440,13 +440,63 @@ void Font::renderTextCache(TextCache* cache)
 	{
 		assert(*it->textureIdPtr != 0);
 
-		auto vertexList = *it;
-
 		Renderer::bindTexture(*it->textureIdPtr);
 		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
 		Renderer::bindTexture(0);
 	}
 }
+
+void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
+{
+	if (cache == NULL)
+	{
+		LOG(LogError) << "Attempted to draw NULL TextCache!";
+		return;
+	}
+
+	for (auto it = cache->vertexLists.cbegin(); it != cache->vertexLists.cend(); it++)
+	{
+		assert(*it->textureIdPtr != 0);
+
+		std::vector<Renderer::Vertex> vxs;
+		vxs.resize(it->verts.size());
+
+		for (int i = 0; i < it->verts.size(); i += 6)
+		{
+			vxs[i + 1] = it->verts[i + 1];
+			vxs[i + 1].col = colorTop;
+
+			vxs[i + 2] = it->verts[i + 2];
+			vxs[i + 2].col = colorBottom;
+
+			vxs[i + 3] = it->verts[i + 3];
+			vxs[i + 3].col = colorTop;
+
+			vxs[i + 4] = it->verts[i + 4];
+			vxs[i + 4].col = colorBottom;
+
+			// make duplicates of first and last vertex so this can be rendered as a triangle strip
+			vxs[i + 0] = vxs[i + 1];
+			vxs[i + 5] = vxs[i + 4];
+
+			/*
+			vertices[1] = { { glyphStartX                                       , y - glyph->bearing.y()                                          }, { glyph->texPos.x(),                      glyph->texPos.y()                      }, convertedColor };
+			vertices[2] = { { glyphStartX                                       , y - glyph->bearing.y() + (glyph->texSize.y() * textureSize.y()) }, { glyph->texPos.x(),                      glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
+			vertices[3] = { { glyphStartX + glyph->texSize.x() * textureSize.x(), y - glyph->bearing.y()                                          }, { glyph->texPos.x() + glyph->texSize.x(), glyph->texPos.y()                      }, convertedColor };
+			vertices[4] = { { glyphStartX + glyph->texSize.x() * textureSize.x(), y - glyph->bearing.y() + (glyph->texSize.y() * textureSize.y()) }, { glyph->texPos.x() + glyph->texSize.x(), glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
+
+			// make duplicates of first and last vertex so this can be rendered as a triangle strip
+			vertices[0] = vertices[1];
+			vertices[5] = vertices[4];
+			*/
+		}
+
+		Renderer::bindTexture(*it->textureIdPtr);
+		Renderer::drawTriangleStrips(&vxs[0], vxs.size());
+		Renderer::bindTexture(0);
+	}
+}
+
 
 Vector2f Font::sizeText(std::string text, float lineSpacing)
 {
