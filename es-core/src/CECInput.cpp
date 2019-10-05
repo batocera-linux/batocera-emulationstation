@@ -3,6 +3,8 @@
 #ifdef HAVE_LIBCEC
 #include "Log.h"
 #include <SDL_events.h>
+#include <iostream> // bad bad cecloader
+#include <libcec/cecloader.h>
 #ifdef _RPI_
 extern "C" {
 #include <interface/vmcs_host/vc_cecservice.h>

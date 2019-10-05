@@ -6,8 +6,6 @@
 
 #ifdef HAVE_LIBCEC
 #include <libcec/cec.h>
-#include <iostream> // bad bad cecloader
-#include <libcec/cecloader.h>
 #endif
 
 namespace CEC { class ICECAdapter; }
