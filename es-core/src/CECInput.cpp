@@ -2,9 +2,6 @@
 
 #ifdef HAVE_LIBCEC
 #include "Log.h"
-#include <libcec/cec.h>
-#include <iostream> // bad bad cecloader
-#include <libcec/cecloader.h>
 #include <SDL_events.h>
 #ifdef _RPI_
 extern "C" {
@@ -99,8 +96,9 @@ CECInput::CECInput() : mlibCEC(nullptr)
 	vchi_tv_and_cec_init();
 #endif // _RPI_
 
-	CEC::ICECCallbacks        callbacks;
-	CEC::libcec_configuration config;
+	// CEC::ICECCallbacks        callbacks;
+	// CEC::libcec_configuration config;
+
 	callbacks.Clear();
 	config.Clear();
 

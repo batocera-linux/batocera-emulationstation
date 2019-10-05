@@ -60,7 +60,7 @@ private:
 				{
 					callback(e.object, row);
 
-					if (!mParent->mMultiSelect)
+					if (mParent->mMultiSelect)
 					{
 						row.makeAcceptInputHandler([this, &e]
 						{

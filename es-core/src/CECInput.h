@@ -4,6 +4,12 @@
 
 #include <string>
 
+#ifdef HAVE_LIBCEC
+#include <libcec/cec.h>
+#include <iostream> // bad bad cecloader
+#include <libcec/cecloader.h>
+#endif
+
 namespace CEC { class ICECAdapter; }
 
 class CECInput
@@ -17,6 +23,10 @@ public:
 	static std::string getKeyCodeString  (const unsigned int _keyCode);
 
 private:
+#ifdef HAVE_LIBCEC
+	CEC::ICECCallbacks        callbacks;
+	CEC::libcec_configuration config;
+#endif
 
 	 CECInput();
 	~CECInput();
