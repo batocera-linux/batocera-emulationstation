@@ -828,7 +828,7 @@ msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "ИНФ. ОБ ИГРЕ НА ЗАСТАВКЕ"
+msgstr "ИНФ. О ИГРЕ НА ЗАСТАВКЕ"
 
 msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
 msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
@@ -1134,11 +1134,11 @@ msgstr "коллекции"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "Редактирование коллекции '%s'. Добавить/Удалить игры с помощью Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "Редактирование коллекции '%s' завершено"
 
 #, c-format
 msgid "Added '%s' to '%s'"
