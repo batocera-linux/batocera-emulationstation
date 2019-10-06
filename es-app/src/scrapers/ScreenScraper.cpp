@@ -134,8 +134,8 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 	}
 	else
 	{
-		path = ssConfig.getGameSearchUrl(params.nameOverride);
-		path += "&romtype=jeu";
+		path = ssConfig.getGameSearchUrl(params.nameOverride, true);
+		//path += "&romtype=jeu";
 	}
 
 	auto& platforms = params.system->getPlatformIds();
@@ -251,10 +251,8 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 		ripList = { "box-2D", "box-3D" };
 	else if (imageSource == "box-3D")
 		ripList = { "box-3D", "box-2D" };
-	else if (imageSource == "wheel")
-		ripList = { "wheel", "screenmarqueesmall", "screenmarquee" };
-	else if (imageSource == "marquee")
-		ripList = { "wheel", "wheelsteel", "screenmarqueesmall", "screenmarquee" };
+	else if (imageSource == "wheel" || imageSource == "marquee")
+		ripList = { "wheel", "wheel-hd", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
 
 	return ripList;
 }
@@ -262,9 +260,10 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& out_results)
 {
 	pugi::xml_node data = xmldoc.child("Data");
-	pugi::xml_node game = data.child("jeu");
+	if (data.child("jeux"))
+		data = data.child("jeux");
 
-	if (game)
+	for (pugi::xml_node game = data.child("jeu"); game; game = game.next_sibling("jeu"))
 	{
 		ScraperSearchResult result;
 		ScreenScraperRequest::ScreenScraperConfig ssConfig;
@@ -440,14 +439,26 @@ void ScreenScraperRequest::processList(const pugi::xml_document& xmldoc, std::ve
 	}
 }
 
-std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName) const
+std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName, bool jeuRecherche) const
 {
+	
+
 	std::string ret =  API_URL_BASE
 		+ "/jeuInfos.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
 		+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
 		+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
 		+ "&output=xml"
 		+ "&romnom=" + HttpReq::urlEncode(gameName);
+
+	if (jeuRecherche)
+	{
+		ret = API_URL_BASE
+			+ "/jeuRecherche.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
+			+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
+			+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
+			+ "&output=xml"
+			+ "&recherche=" + HttpReq::urlEncode(gameName);
+	}
 
 	std::string user = Settings::getInstance()->getString("ScreenScraperUser");
 	std::string pass = Settings::getInstance()->getString("ScreenScraperPass");
