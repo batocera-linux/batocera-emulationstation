@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 07:18+0200\n"
+"POT-Creation-Date: 2019-10-06 21:30+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -18,6 +18,9 @@ msgstr "ОБНОВЛЕНИЕ BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
+
+msgid "REBOOT SYSTEM TO APPLY"
+msgstr ""
 
 msgid "AN ERROR OCCURED"
 msgstr "ПРОИЗОШЛА ОШИБКА"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-04 21:25+0200\n"
+"POT-Creation-Date: 2019-10-06 21:30+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,9 @@ msgstr "ACTUALIZANDO BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "ACTUALIZACIÓN LISTA"
+
+msgid "REBOOT SYSTEM TO APPLY"
+msgstr ""
 
 msgid "AN ERROR OCCURED"
 msgstr "OCURRIÓ UN ERROR"

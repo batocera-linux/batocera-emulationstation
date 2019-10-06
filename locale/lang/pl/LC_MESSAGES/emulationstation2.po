@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 07:18+0200\n"
+"POT-Creation-Date: 2019-10-06 21:30+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,6 +16,9 @@ msgstr "AKTUALIZUJĘ SYSTEM"
 
 msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
+
+msgid "REBOOT SYSTEM TO APPLY"
+msgstr ""
 
 msgid "AN ERROR OCCURED"
 msgstr "WYSTĄPIŁ BŁĄD"
