@@ -227,11 +227,27 @@ void FileData::launchGame(Window* window)
 	
 	std::string emulator = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".emulator");
 	if (emulator.length() == 0)		
-		emulator = SystemConf::getInstance()->get(mSystem->getFullName() + ".emulator");
+		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");
+
+	if (emulator.length() == 0)
+	{
+		auto emul = mSystem->getEmulators();
+		if (emul != nullptr && emul->size() > 0)
+			emulator = emul->begin()->first;
+	}
 
 	std::string core = SystemConf::getInstance()->get(Utils::FileSystem::getFileName(getPath()) + ".core");
 	if (core.length() == 0)
-		core = SystemConf::getInstance()->get(mSystem->getFullName() + ".core");
+		core = SystemConf::getInstance()->get(mSystem->getName() + ".core");
+
+	if (core.length() == 0)
+	{
+		auto emul = mSystem->getEmulators();
+		if (emul != nullptr && emul->find(emulator) != emul->cend())
+			core = emul->find(emulator)->first;
+		if (emul != nullptr && emul->size() > 0 && emul->begin()->second->begin() != emul->begin()->second->cend())
+			core = *emul->begin()->second->begin();
+	}
 
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
