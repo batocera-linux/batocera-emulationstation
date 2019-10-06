@@ -63,7 +63,7 @@ public:
 			GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
 
 			mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
-			mWndNotification->updateText("REBOOT SYSTEM TO APPLY");
+			mWndNotification->updateText(_("REBOOT SYSTEM TO APPLY"));
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::hours(12));
