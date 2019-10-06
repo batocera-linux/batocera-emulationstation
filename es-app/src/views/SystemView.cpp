@@ -245,12 +245,29 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input))
 			{
-				listInput(10);
+				int cursor = mCursor + 10;
+				if (cursor < 0)
+					cursor += (int)mEntries.size();
+
+				if (cursor >= (int)mEntries.size())
+					cursor -= (int)mEntries.size();
+
+				auto sd = mEntries.at(cursor).object;
+				ViewController::get()->goToSystemView(sd, true);
+				//listInput(10);
 				return true;
 			}
 			if (config->isMappedTo("pageup", input))
 			{
-				listInput(-10);
+				int cursor = mCursor - 10;
+				if (cursor < 0)
+					cursor += (int)mEntries.size();
+				if (cursor >= (int)mEntries.size())
+					cursor -= (int)mEntries.size();
+
+				auto sd = mEntries.at(cursor).object;
+				ViewController::get()->goToSystemView(sd, true);
+				//listInput(-10);
 				return true;
 			}
 
@@ -270,12 +287,29 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input))
 			{
-				listInput(10);
+				int cursor = mCursor + 10;
+				if (cursor < 0)
+					cursor += (int)mEntries.size();
+
+				if (cursor >= (int)mEntries.size())
+					cursor -= (int)mEntries.size();
+
+				auto sd = mEntries.at(cursor).object;
+				ViewController::get()->goToSystemView(sd, true);
+				//listInput(10);
 				return true;
 			}
 			if (config->isMappedTo("pageup", input))
 			{
-				listInput(-10);
+				int cursor = mCursor - 10;
+				if (cursor < 0)
+					cursor += (int)mEntries.size();
+				if (cursor >= (int)mEntries.size())
+					cursor -= (int)mEntries.size();
+
+				auto sd = mEntries.at(cursor).object;
+				ViewController::get()->goToSystemView(sd, true);
+				//listInput(-10);
 				return true;
 			}
 

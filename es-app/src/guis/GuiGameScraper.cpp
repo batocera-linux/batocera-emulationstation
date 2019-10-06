@@ -77,8 +77,12 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	mSearch->setAcceptCallback([this, doneFunc](const ScraperSearchResult& result) { doneFunc(result); close(); });
 	mSearch->setCancelCallback([&] { delete this; });
 
-	setSize(Renderer::getScreenWidth() * 0.95f, Renderer::getScreenHeight() * 0.747f);
-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+	if (Renderer::isSmallScreen())
+		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	else
+		setSize(Renderer::getScreenWidth() * 0.90f, Renderer::getScreenHeight() * 0.85f);
+		
+	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);	
 
 	mGrid.resetCursor();
 	mSearch->search(params); // start the search

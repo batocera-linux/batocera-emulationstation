@@ -278,6 +278,13 @@ void AudioManager::setSongName(std::string song)
 	if (song == mCurrentSong)
 		return;
 
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(song));
+	if (ext != ".mp3")
+	{
+		mCurrentSong = Utils::FileSystem::getStem(song.c_str());
+		return;
+	}
+
 	LOG(LogDebug) << "AudioManager::setSongName";
 
 	// First, start with an ID3 v1 tag	
