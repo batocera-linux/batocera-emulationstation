@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1127,10 +1127,12 @@ msgstr ""
 msgid "collections"
 msgstr ""
 
-msgid "Editing the collection. Add/remove games with Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
 msgstr ""
 
-msgid "Finished editing the collection."
+#, c-format
+msgid "Finished editing the '%s' Collection."
 msgstr ""
 
 #, c-format

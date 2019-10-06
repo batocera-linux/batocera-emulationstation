@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-06 07:18+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,10 +12,10 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "AKTUALIZUJĘ SYSTEM"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "AKTUALIZACJA JEST GOTOWA"
 
 msgid "AN ERROR OCCURED"
 msgstr "WYSTĄPIŁ BŁĄD"
@@ -51,7 +51,7 @@ msgid "BACK"
 msgstr "WSTECZ"
 
 msgid "go back"
-msgstr ""
+msgstr "wstecz"
 
 msgid "CLOSE"
 msgstr "ZAMKNIJ"
@@ -63,22 +63,22 @@ msgid "SORT GAMES BY"
 msgstr "SORTUJ GRY"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "INNE FILTRY"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
 
 msgid "GRID SIZE"
-msgstr ""
+msgstr "ROZMIAR SIATKI"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "POKAŻ ULUBIONE NA GÓRZE"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "POKAŻ UKRYTE PLIKI"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "POKAŻ FOLDERY"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
@@ -90,22 +90,22 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr ""
+msgstr "ZAAWANSOWANE OPCJE GRY"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "FILTRUJ GRY WEDŁUG TEKSTU"
 
 msgid "Loading..."
 msgstr "Ładuję..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "FUNKCJA TA JEST WYŁĄCZONA PO URUCHOMIENIU SCRAPE'A"
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "ZRESETUJ WSZYSTKIE FILTRY"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "ZNAJDŹ GRY"
 
 msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
@@ -153,40 +153,40 @@ msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
 
 msgid "PREFERED IMAGE SOURCE"
-msgstr ""
+msgstr "PREFEROWANE ŹRÓDŁO OBRAZU"
 
 msgid "NONE"
 msgstr "BRAK"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "ZRZUT EKRANU"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "ZRZUT EKRANU TYTUŁU"
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "RAMKA 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "RAMKA 3D"
 
 msgid "MIX"
-msgstr ""
+msgstr "MIX"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "KOŁO"
 
 msgid "PREFERED THUMBNAIL SOURCE"
-msgstr ""
+msgstr "PREFEROWANE ŹRÓDŁO MINIATUR"
 
 msgid "SCRAPE RATINGS"
 msgstr "OCENY SCRAPE'A"
 
 msgid "SCRAPE MARQUEE"
-msgstr ""
+msgstr "SCRAPE'UJ MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "SCRAPE'UJ WIDEO"
 
 msgid "USERNAME"
 msgstr "NAZWA UŻYTKOWNIKA"
@@ -195,7 +195,7 @@ msgid "PASSWORD"
 msgstr "HASŁO"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "SCRAPE JEST W TRAKCIE DZIAŁANIA. CZY CHCESZ GO ZATRZYMAĆ?"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
@@ -231,25 +231,25 @@ msgid "SHOW FRAMERATE"
 msgstr "POKAŻ FPS"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "PRELOAD UI"
-msgstr ""
+msgstr "ZAŁADUJ WSTĘPNIE INTERFEJS"
 
 msgid "THREADED LOADING"
-msgstr ""
+msgstr "ŁADOWNAIE WĄTKOWE"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr ""
+msgstr "ASYNCHRONICZNE ŁADOWANIE OBRAZÓW"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
+msgstr "OPTYMALIZUJ OBRAZY DLA VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr ""
+msgstr "OPTYMALIZUJ WIDEO DLA VRAM"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "POZIOM LOGOWANIA"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "STWÓRZ PLIK POMOCY TECHNICZNEJ"
@@ -267,7 +267,7 @@ msgid "UPDATES"
 msgstr "AKTUALIZACJE"
 
 msgid "THEMES"
-msgstr "SKÓRY"
+msgstr "MOTYWY"
 
 msgid "THE BEZEL PROJECT"
 msgstr "PROJEKT RAMEK"
@@ -276,13 +276,13 @@ msgid "AUTO UPDATES"
 msgstr "AUTOMATYCZNE AKTUALIZACJE"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "ZASTOSUJ AKTUALIZACJĘ"
 
 msgid "START UPDATE"
 msgstr "ROZPOCZNIJ AKTUALIZACJĘ"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "AKTUALIZACJA ZOSTAŁA JUŻ URUCHOMIONA"
 
 msgid "LANGUAGE"
 msgstr "JĘZYK"
@@ -360,7 +360,7 @@ msgid "ENHANCED"
 msgstr "ROZSZERZONE"
 
 msgid "CURVATURE"
-msgstr ""
+msgstr "KRZYWIZNA"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
@@ -440,43 +440,43 @@ msgid "INPUT P%i"
 msgstr "WEJŚCIE P%i"
 
 msgid "default"
-msgstr ""
+msgstr "domyślnie"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "POKAŻ DZIAŁANIE KONTROLERA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr ""
+msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "KONFIGURACJA MOTYWU"
 
 msgid "THEME COLORSET"
-msgstr ""
+msgstr "KOLORY MOTYWU"
 
 msgid "THEME ICONSET"
-msgstr ""
+msgstr "IKONY MOTYWU"
 
 msgid "THEME MENU"
-msgstr ""
+msgstr "MENU MOTYWU"
 
 msgid "THEME SYSTEMVIEW"
-msgstr ""
+msgstr "WIDOK SYSTEMÓW DLA MOTYWU"
 
 msgid "THEME GAMELISTVIEW"
-msgstr ""
+msgstr "WIDOK LISTY GIER DLA MOTYWU"
 
 msgid "THEME REGION"
-msgstr ""
+msgstr "REGION MOTYWU"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "DOMYŚLNY ROZMIAR SIATKI"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr ""
+msgstr "ZRESETUJ DOSTOSOWYWANIA LISTY GIER"
 
 msgid "THEME SET"
-msgstr "USTAWIENIA SKÓRY"
+msgstr "USTAWIENIA MOTYWU"
 
 msgid "UI MODE"
 msgstr "TRYB INTERFEJSU"
@@ -486,7 +486,7 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"Zmieniasz interfejs użytkownika do trybu ograniczonego:\n"
+"Zmieniasz interfejs użytkownika w tryb ograniczonego dostępu:\n"
 "Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w "
 "systemie.\n"
 "Aby odblokować i powrócić do pełnego interfejsu, wprowadź ten kod:"
@@ -501,7 +501,7 @@ msgid "START ON SYSTEM"
 msgstr "URUCHOM Z SYSTEMEM"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "URUCHOM Z LISTĄ GIER"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "WYŚWIETLANE SYSTEMY"
@@ -574,16 +574,16 @@ msgid "DISPLAY SONG TITLES"
 msgstr "WYŚWIETLANIE TYTUŁÓW UTWORÓW"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr ""
+msgstr "ILE SEKUND NA TYTUŁY PIOSENEK"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "ODTWÓRZ MUZYKĘ MOTYWU"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "WŁĄCZ DŹWIĘKI NAWIGACJI"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "WŁĄCZ DŹWIĘK WIDEO"
@@ -646,10 +646,10 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "WYŁĄCZYĆ SYSTEM BEZ ZAPISU METADANYCH?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr ""
+msgstr "WYJDŹ Z EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr ""
+msgstr "NAPRAWDĘ WYJŚĆ?"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -676,7 +676,7 @@ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
 
 msgid "SELECT THEME FOLDER"
-msgstr "WYBIERZ FOLDER SKÓRY"
+msgstr "WYBIERZ FOLDER MOTYWU"
 
 msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"
@@ -691,7 +691,7 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
 
 msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
@@ -781,11 +781,11 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "ZAINSTALUJ PROJEKT RAMEK"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ ZAINSTALOWANE RAMKI"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "'%s' DODANO DO KOLEJKI POBIERANIA"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "ODINSTALUJ PROJEKT RAMEK"
@@ -842,7 +842,7 @@ msgid "All Games"
 msgstr "Wszystkie gry"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "Tylko brakujące media"
 
 msgid "FILTER"
 msgstr "FILTRUJ"
@@ -884,10 +884,10 @@ msgid "VALIDATE"
 msgstr "SPRAWDZĆ"
 
 msgid "NO DEVICE FOUND"
-msgstr ""
+msgstr "NIE ZNALEZIONO URZĄDZEŃ"
 
 msgid "SELECT THEME"
-msgstr "WYBIERZ SKÓRĘ"
+msgstr "WYBIERZ MOTYW"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ METADANE"
@@ -899,6 +899,8 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
+"TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
+"JESTEŚ PEWIEN?"
 
 msgid "DELETE"
 msgstr "USUŃ"
@@ -1027,13 +1029,13 @@ msgid "enter path to marquee"
 msgstr "wprowadź ścieżkę do marquee"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "SCRAPE'OWANIE"
 
 msgid "Searching"
-msgstr ""
+msgstr "Wyszukiwanie"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
@@ -1061,7 +1063,7 @@ msgid "Times played"
 msgstr "Rozegrano razy"
 
 msgid "<No Entries Found>"
-msgstr ""
+msgstr "<Nie Znaleziono Wpisów>"
 
 msgid "LAUNCH"
 msgstr "Uruchom"
@@ -1070,31 +1072,31 @@ msgid "OPTIONS"
 msgstr "OPCJE"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "Ładuję wstępnie interfejs"
 
 msgid "MENU"
 msgstr "MENU"
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "Pobieranie"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "SKÓRA ZAINSTALOWANA POMYŚLNIE"
+msgstr "MOTYW ZAINSTALOWANY POMYŚLNIE"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Ulubione"
 
 msgid "SEARCHING"
-msgstr ""
+msgstr "WYSZUKIWANIE"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
 
 msgid "AN ERROR HAS OCCURED"
-msgstr ""
+msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
 
 msgid "RETRY"
 msgstr "PONÓW"
@@ -1129,11 +1131,13 @@ msgstr "4 graczy"
 msgid "collections"
 msgstr "kolekcje"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "Edytowanie kolekcji. Dodaj/usuń gry przez Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "Zakończono edycję kolekcji."
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1144,29 +1148,29 @@ msgid "Removed '%s' from '%s'"
 msgstr "Usunięto '%s' z '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Ta kolekcja jest pusta."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Brak"
 
 msgid "Various"
-msgstr ""
+msgstr "Rozmaite"
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s."
+msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s."
+msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s wśród innych tytułów."
+msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s wśród innych tytułów."
+msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s wśród innych tytułów."
 
 msgid "UP"
 msgstr "GÓRA"
@@ -1244,7 +1248,7 @@ msgid "DELETE A CHAR"
 msgstr "USUŃ ZNAK"
 
 msgid "RESET"
-msgstr ""
+msgstr "ZRESETUJ"
 
 msgid "DISCARD CHANGES"
 msgstr "COFNIJ ZMIANY"
@@ -1284,19 +1288,19 @@ msgid "EDIT"
 msgstr "EDYTUJ"
 
 msgid "accept"
-msgstr ""
+msgstr "zaakceptuj"
 
 msgid "SELECT ALL"
 msgstr "ZAZNACZ WSZYSTKO"
 
 msgid "select all"
-msgstr ""
+msgstr "wybierz wszystko"
 
 msgid "SELECT NONE"
 msgstr "ODZNACZ WSZYSTKO"
 
 msgid "select none"
-msgstr ""
+msgstr "nic nie wybierz"
 
 #, c-format
 msgid "%i SELECTED"
@@ -1312,7 +1316,13 @@ msgid "WORKING..."
 msgstr "PRACUJE.."
 
 msgid "up/down"
-msgstr ""
+msgstr "góra/dół"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "Edytowanie kolekcji. Dodaj/usuń gry przez Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "Zakończono edycję kolekcji."
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "AKTUALIZACJA GOTOWA, NASTĄPI PONOWNE URUCHOMIENIE"

@@ -2,13 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 20:18+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "UPDATING BATOCERA"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "SI E’ VERIFICATO UN ERRORE"
 
 msgid "REALLY UPDATE?"
 msgstr "VUOI AGGIORNARE?"
@@ -25,14 +34,8 @@ msgstr "E' NECESSARIA UNA CONNESSIONE DI RETE"
 msgid "OK"
 msgstr "OK"
 
-msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
-
-msgid "AN ERROR OCCURED"
-msgstr "SI E’ VERIFICATO UN ERRORE"
 
 msgid "INPUT"
 msgstr "INPUT"
@@ -259,18 +262,6 @@ msgstr "FILE GENERATO CON SUCCESSO"
 msgid "FILE GENERATION FAILED"
 msgstr "IMPOSSIBILE GENERARE FILE"
 
-msgid "STORAGE DEVICE"
-msgstr "UNITA’ DI ARCHIVIAZIONE"
-
-msgid "LANGUAGE"
-msgstr "LINGUA"
-
-msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
-
-msgid "POWER SAVER MODES"
-msgstr "MODALITA' RISPARMIO ENERGETICO"
-
 msgid "UPDATES"
 msgstr "AGGIORNAMENTI"
 
@@ -283,8 +274,26 @@ msgstr "IL PROGETTO BEZEL"
 msgid "AUTO UPDATES"
 msgstr "AGGIORNAMENTI AUTOMATICI"
 
+msgid "APPLY UPDATE"
+msgstr ""
+
 msgid "START UPDATE"
 msgstr "INIZIA AGGIORNAMENTO"
+
+msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr "LINGUA"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
+
+msgid "POWER SAVER MODES"
+msgstr "MODALITA' RISPARMIO ENERGETICO"
+
+msgid "STORAGE DEVICE"
+msgstr "UNITA’ DI ARCHIVIAZIONE"
 
 msgid "BACKUP USER DATA"
 msgstr "EFFETTUA IL BACKUP DEI DATI UTENTE"
@@ -466,6 +475,9 @@ msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
+msgid "THEME SET"
+msgstr "TEMA SELEZIONATO"
+
 msgid "UI MODE"
 msgstr "MODALITA’ INTERFACCIA"
 
@@ -483,9 +495,6 @@ msgstr "Vuoi procedere?"
 
 msgid "VIDEO OUTPUT"
 msgstr "OUTPUT VIDEO"
-
-msgid "THEME SET"
-msgstr "TEMA SELEZIONATO"
 
 msgid "START ON SYSTEM"
 msgstr "SISTEMA DI AVVIO"
@@ -773,14 +782,18 @@ msgstr ""
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr ""
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA INSTALLATO CON SUCCESSO"
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "BEZELS CANCELLATE CON SUCCESSO"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIA IMMAGINE DOPO (SECONDI)"
@@ -820,12 +833,6 @@ msgstr "USA BASSA RISOLUZIONE PER DIDASCALIE"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ADATTA VIDEO NEL SALVASCHERMO"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZELS INSTALLATE CON SUCCESSO"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "BEZELS CANCELLATE CON SUCCESSO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "INFORMAZIONI SU QUESTI GIOCHI"
@@ -1068,6 +1075,15 @@ msgstr "Precaricamento UI"
 msgid "MENU"
 msgstr "MENU"
 
+msgid "DOWNLOADING"
+msgstr "DOWNLOADING"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA INSTALLATO CON SUCCESSO"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "BEZELS INSTALLATE CON SUCCESSO"
+
 msgid "Favorites"
 msgstr "Preferiti"
 
@@ -1082,9 +1098,6 @@ msgstr "SI E' VERIFICATO UN ERRORE"
 
 msgid "RETRY"
 msgstr "RIPROVA"
-
-msgid "DOWNLOADING"
-msgstr "DOWNLOADING"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1116,11 +1129,13 @@ msgstr "4 giocatori"
 msgid "collections"
 msgstr "collezione"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "Modifica la collezione. Aggiungi/rimuovi con la Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "Fine modifica della collezione"
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1150,8 +1165,10 @@ msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
-msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s tra gli altri titoli."
+msgstr[0] ""
+"Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
+msgstr[1] ""
+"Questa collezione contiene %1$i giochi, incluso %2$s tra gli altri titoli."
 
 msgid "UP"
 msgstr "SU"
@@ -1295,6 +1312,15 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr "su/giu'"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "Modifica la collezione. Aggiungi/rimuovi con la Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "Fine modifica della collezione"
+
+#~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
+#~ msgstr "AGGIORNAMENTO SCARICATO, IL SISTEMA VERRA’ RIAVVIATO"
 
 #~ msgid "FILTER GAMELIST"
 #~ msgstr "FILTRA LA LISTA DEI GIOCHI"

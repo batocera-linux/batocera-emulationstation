@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1120,11 +1120,13 @@ msgstr "플레이어 4명"
 msgid "collections"
 msgstr "컬렉션"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "컬렉션 편집. Y로 게임 추가/제거."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "컬렉션 편집 완료"
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1295,6 +1297,12 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "컬렉션 편집. Y로 게임 추가/제거."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "컬렉션 편집 완료"
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "업데이트 다운로드 완료, 시스템이 지금 다시 시작됩니다."

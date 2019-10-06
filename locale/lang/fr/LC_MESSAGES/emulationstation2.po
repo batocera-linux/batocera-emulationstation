@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1125,11 +1125,13 @@ msgstr "4 joueurs"
 msgid "collections"
 msgstr "collections"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "Edition de la collection. Ajouter/supprimer des jeux avec Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr "Edition de la collection '%s'. Ajouter/supprimer des jeux avec Y."
 
-msgid "Finished editing the collection."
-msgstr "Fin de l'édition de la collection."
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr "Fin d'édition de la collection '%s'."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1304,6 +1306,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "Edition de la collection. Ajouter/supprimer des jeux avec Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "Fin de l'édition de la collection."
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "MISE À JOUR TÉLÉCHARGÉE, REDÉMARRAGE EN COURS"

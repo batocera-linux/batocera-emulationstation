@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1037,7 +1037,8 @@ msgid "Searching"
 msgstr "Procurando"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr ""
+"SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1132,11 +1133,13 @@ msgstr "4 jogadores"
 msgid "collections"
 msgstr "coleções"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "Editando a coleção. Adicionar/remover jogos com Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "Terminar de editar a coleção."
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1311,6 +1314,12 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "Editando a coleção. Adicionar/remover jogos com Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "Terminar de editar a coleção."
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "ATUALIZAÇÃO INSTALADA, O SISTEMA SERÁ REINICIADO"

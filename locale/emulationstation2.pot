@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 11:34+0200\n"
+"POT-Creation-Date: 2019-10-06 07:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1113,10 +1113,12 @@ msgstr ""
 msgid "collections"
 msgstr ""
 
-msgid "Editing the collection. Add/remove games with Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
 msgstr ""
 
-msgid "Finished editing the collection."
+#, c-format
+msgid "Finished editing the '%s' Collection."
 msgstr ""
 
 #, c-format

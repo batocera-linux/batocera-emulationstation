@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1132,11 +1132,13 @@ msgstr "4 Spieler"
 msgid "collections"
 msgstr "Sammlungen"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "Sammlung bearbeiten. Spiele hinzufügen/entfernen mit Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "Bearbeitung der Sammlung beenden"
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1314,6 +1316,12 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "Sammlung bearbeiten. Spiele hinzufügen/entfernen mit Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "Bearbeitung der Sammlung beenden"
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "UPDATE HERUNTERGELADEN. DAS SYSTEM WIRD NEU GESTARTET."

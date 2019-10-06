@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1121,11 +1121,13 @@ msgstr "四人游戏"
 msgid "collections"
 msgstr "合辑"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "编辑合辑. 使用 Y 键添加/删除游戏"
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "已完成对合辑的编辑"
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1295,6 +1297,12 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "编辑合辑. 使用 Y 键添加/删除游戏"
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "已完成对合辑的编辑"
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "更新下载完成，系统即将重启"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:38+0200\n"
+"POT-Creation-Date: 2019-10-04 21:25+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1130,11 +1130,13 @@ msgstr "4 JOGADORES"
 msgid "collections"
 msgstr "COLEÇÕES"
 
-msgid "Editing the collection. Add/remove games with Y."
-msgstr "EDITAR A COLEÇÃO. ADICIONAR/REMOVER JOGOS COM Y."
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
 
-msgid "Finished editing the collection."
-msgstr "EDIÇÃO DA COLEÇÃO TERMINADA."
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1308,6 +1310,12 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "Editing the collection. Add/remove games with Y."
+#~ msgstr "EDITAR A COLEÇÃO. ADICIONAR/REMOVER JOGOS COM Y."
+
+#~ msgid "Finished editing the collection."
+#~ msgstr "EDIÇÃO DA COLEÇÃO TERMINADA."
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "ATUALIZAÇÃO TRANSFERIDA, O SISTEMA SERÁ REINICIADO"
