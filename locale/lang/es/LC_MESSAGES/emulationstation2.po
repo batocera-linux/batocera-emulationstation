@@ -17,7 +17,7 @@ msgid "UPDATE IS READY"
 msgstr "ACTUALIZACIÓN LISTA"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "REINICIAR EL SISTEMA PARA APLICAR"
 
 msgid "AN ERROR OCCURED"
 msgstr "OCURRIÓ UN ERROR"
@@ -1136,11 +1136,11 @@ msgstr "COLECCIONES"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "EDITANDO COLECCION '%s'" . AGREGAR/QUITAR JUEGOS CON Y"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "EDICION DE COLECCION '%s' FINALIZADA"
 
 #, c-format
 msgid "Added '%s' to '%s'"
