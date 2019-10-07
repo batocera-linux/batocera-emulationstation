@@ -284,6 +284,8 @@ void FileData::launchGame(Window* window)
 	gameToUpdate->metadata.set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
 	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 
+	window->reactivateGui();
+
 	// batocera
 	AudioManager::getInstance()->playRandomMusic();
 

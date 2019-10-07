@@ -79,6 +79,7 @@ public:
 	
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;	
+	virtual void onScroll(int /*amt*/) { if (!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
 
 private:
 	// TILES
@@ -104,6 +105,8 @@ private:
 	Vector2f mTileSize;
 	Vector2i mGridDimension;
 	Vector2f mGridSizeOverride;
+
+	std::string mScrollSound;
 
 	std::shared_ptr<ThemeData> mTheme;
 	std::vector< std::shared_ptr<GridTileComponent> > mTiles;
@@ -461,7 +464,7 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 		if (elem->has("showVideoAtDelay"))
 		{
 			mVideoDelay = elem->get<float>("showVideoAtDelay");
-			mAllowVideo = true;
+			mAllowVideo = (mVideoDelay >= 0);
 		}
 		else
 			mAllowVideo = false;
@@ -516,6 +519,9 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 			}
 		}
 	}
+
+	if (elem->has("scrollSound"))
+		mScrollSound = elem->get<std::string>("scrollSound");
 
 	// We still need to manually get the grid tile size here,
 	// so we can recalculate the new grid dimension, and THEN (re)build the tiles

@@ -176,6 +176,15 @@ bool Window::init()
 	return true;
 }
 
+void Window::reactivateGui()
+{
+	for (auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
+		(*i)->onShow();
+
+	if (peekGui())
+		peekGui()->updateHelpPrompts();
+}
+
 void Window::deinit()
 {
 	// Hide all GUI elements on uninitialisation - this disable
@@ -199,16 +208,16 @@ void Window::input(InputConfig* config, Input input)
 {
 	if (mScreenSaver) {
 		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
-			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video"))
+			((Settings::getInstance()->getString("ScreenSaverBehavior") == "slideshow") || 			
+			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video")))
 		{
-			if (mScreenSaver->getCurrentGame() != NULL && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			if (mScreenSaver->getCurrentGame() != nullptr && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
 			{
 				if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
 				{
-					if (input.value != 0) {
-						// handle screensaver control
+					if (input.value != 0) // handle screensaver control
 						mScreenSaver->nextVideo();
-					}
+					
 					return;
 				}
 				else if (config->isMappedTo("start", input) && input.value != 0)

@@ -508,6 +508,7 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
 	window->normalizeNextUpdate();
+	window->reactivateGui();
 
 	AudioManager::getInstance()->playRandomMusic();
 

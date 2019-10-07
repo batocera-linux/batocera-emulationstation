@@ -3,10 +3,34 @@
 #define ES_APP_SYSTEM_SCREEN_SAVER_H
 
 #include "Window.h"
+#include "GuiComponent.h"
 
 class ImageComponent;
 class Sound;
 class VideoComponent;
+class TextComponent;
+
+class ImageScreenSaver : GuiComponent
+{
+public:
+	ImageScreenSaver(Window* window);
+	~ImageScreenSaver();
+
+	void setGame(FileData* mCurrentGame);
+	void setImage(const std::string path);
+	bool hasImage();
+
+	void render(const Transform4x4f& transform) override;
+	void update(int deltaTime) override;
+
+	void setOpacity(unsigned char opacity) override;
+
+private:
+	ImageComponent*		mImage;	
+	ImageComponent*		mMarquee;	
+	TextComponent*		mLabelGame;
+	TextComponent*		mLabelSystem;
+};
 
 // Screensaver implementation for main window
 class SystemScreenSaver : public Window::ScreenSaver
@@ -36,8 +60,6 @@ private:
 	void pickRandomGameListImage(std::string& path);
 	void pickRandomCustomImage(std::string& path);
 
-	void input(InputConfig* config, Input input);
-
 	enum STATE {
 		STATE_INACTIVE,
 		STATE_FADE_OUT_WINDOW,
@@ -51,7 +73,10 @@ private:
 	VideoComponent*		mVideoScreensaver;
 	bool			mImagesCounted;
 	unsigned long		mImageCount;
-	ImageComponent*		mImageScreensaver;
+
+	std::shared_ptr<ImageScreenSaver>		mFadingImageScreensaver;
+	std::shared_ptr<ImageScreenSaver>		mImageScreensaver;
+
 	Window*			mWindow;
 	STATE			mState;
 	float			mOpacity;
@@ -60,8 +85,10 @@ private:
 	std::string		mGameName;
 	std::string		mSystemName;
 	int 			mVideoChangeTime;
-	std::shared_ptr<Sound>	mBackgroundAudio;
-	bool			mStopBackgroundAudio;
+	
+	//std::shared_ptr<Sound>	mBackgroundAudio;
+	bool			mLoadingNext;
+
 };
 
 #endif // ES_APP_SYSTEM_SCREEN_SAVER_H
