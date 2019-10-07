@@ -269,7 +269,7 @@ void GuiMenu::addVersionInfo()
 
 void GuiMenu::openScreensaverOptions() 
 {
-	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow, "SCREENSAVER SETTINGS"));
+	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow, _("SCREENSAVER SETTINGS").c_str()));
 }
 
 // new screensaver options for Batocera
@@ -1706,6 +1706,8 @@ void GuiMenu::openUISettings()
 		}
 	});
 
+	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
+/*
 	// screensaver time
 	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 120.f, 1.f, "m");
 	screensaver_time->setValue(
@@ -1718,8 +1720,7 @@ void GuiMenu::openUISettings()
 
 	// Batocera screensavers: added "random video" (aka "demo mode") and slideshow at the same time,
 	// for those who don't scrape videos and stick with pictures
-	auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,
-		_("TRANSITION STYLE"), false);
+	auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,_("TRANSITION STYLE"), false);
 	std::vector<std::string> screensavers;
 	screensavers.push_back("dim");
 	screensavers.push_back("black");
@@ -1745,7 +1746,7 @@ void GuiMenu::openUISettings()
 
 	// SLIDESHOW SCREENSAVER SETTINGS
 	s->addEntry(_("SLIDESHOW SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openSlideshowScreensaverOptions, this));
-
+*/
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
 	clock->setState(Settings::getInstance()->getBool("DrawClock"));

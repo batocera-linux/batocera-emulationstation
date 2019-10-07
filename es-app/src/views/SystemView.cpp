@@ -329,12 +329,15 @@ bool SystemView::input(InputConfig* config, Input input)
 			setCursor(SystemData::getRandomSystem());
 			return true;
 		}
+#ifndef WIN32
 		// batocera
 		if(config->isMappedTo("select", input))
 		{
 			GuiMenu::openQuitMenu_batocera_static(mWindow, true);        
 			return true;
 		}
+#endif
+
 	}else{
 		if(config->isMappedLike("left", input) ||
 			config->isMappedLike("right", input) ||
@@ -343,13 +346,16 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("pagedown", input) ||
 			config->isMappedLike("pageup", input))
 			listInput(0);
+
+#ifdef WIN32
 		// batocera
-		//if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
-		//{
-		//	mWindow->startScreenSaver();
-		//	mWindow->renderScreenSaver();
-		//	return true;
-		//}
+		if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
+		{
+			mWindow->startScreenSaver();
+			mWindow->renderScreenSaver();
+			return true;
+		}
+#endif
 	}
 
 	return GuiComponent::input(config, input);

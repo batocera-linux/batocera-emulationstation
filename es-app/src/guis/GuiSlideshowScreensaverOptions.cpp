@@ -24,6 +24,12 @@ GuiSlideshowScreensaverOptions::GuiSlideshowScreensaverOptions(Window* window, c
 		Settings::getInstance()->setInt("ScreenSaverSwapImageTimeout", playNextTimeout);
 		PowerSaver::updateTimeouts();
 	});
+	
+	// SHOW GAME NAME
+	auto ss_controls = std::make_shared<SwitchComponent>(mWindow);
+	ss_controls->setState(Settings::getInstance()->getBool("SlideshowScreenSaverGameName"));
+	addWithLabel(row, _("SHOW GAME NAME"), ss_controls);
+	addSaveFunc([ss_controls] { Settings::getInstance()->setBool("SlideshowScreenSaverGameName", ss_controls->getState()); });
 
 	// stretch
 	auto sss_stretch = std::make_shared<SwitchComponent>(mWindow);
@@ -33,13 +39,14 @@ GuiSlideshowScreensaverOptions::GuiSlideshowScreensaverOptions(Window* window, c
 		Settings::getInstance()->setBool("SlideshowScreenSaverStretch", sss_stretch->getState());
 	});
 
+	/*
 	// background audio file
 	auto sss_bg_audio_file = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color);
 	addEditableTextComponent(row, _("BACKGROUND AUDIO"), sss_bg_audio_file, Settings::getInstance()->getString("SlideshowScreenSaverBackgroundAudioFile"));
 	addSaveFunc([sss_bg_audio_file] {
 		Settings::getInstance()->setString("SlideshowScreenSaverBackgroundAudioFile", sss_bg_audio_file->getValue());
 	});
-
+	*/
 	// image source
 	auto sss_custom_source = std::make_shared<SwitchComponent>(mWindow);
 	sss_custom_source->setState(Settings::getInstance()->getBool("SlideshowScreenSaverCustomImageSource"));
@@ -67,6 +74,7 @@ GuiSlideshowScreensaverOptions::GuiSlideshowScreensaverOptions(Window* window, c
 	addSaveFunc([sss_image_filter] {
 		Settings::getInstance()->setString("SlideshowScreenSaverImageFilter", sss_image_filter->getValue());
 	});
+
 }
 
 GuiSlideshowScreensaverOptions::~GuiSlideshowScreensaverOptions()

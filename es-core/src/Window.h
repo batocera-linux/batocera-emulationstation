@@ -80,6 +80,7 @@ public:
 	void unRegisterNotificationComponent(AsyncNotificationComponent* pc);
 
 	void postToUiThread(const std::function<void(Window*)>& func);
+	void reactivateGui();
 
 private:
 	void processPostedFunctions();
