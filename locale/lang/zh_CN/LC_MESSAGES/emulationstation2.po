@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 21:30+0200\n"
+"POT-Creation-Date: 2019-10-07 22:44+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,6 +201,9 @@ msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr ""
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "幻灯片设置"
@@ -511,29 +514,6 @@ msgstr "显示的游戏平台"
 msgid "TRANSITION STYLE"
 msgstr "画面转场样式"
 
-msgid "SCREENSAVER AFTER"
-msgstr "屏保等待时间"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "屏保样式"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
-"如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"
-"更多选项可以到 \"UI 设置 -> 屏保-随机视频设置\" 进行设置。"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "屏保-随机视频设置"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "屏保-幻灯片设置"
-
 msgid "SHOW CLOCK"
 msgstr "显示时钟"
 
@@ -794,11 +774,11 @@ msgstr "框架删除程控"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "图像替换 (SECS)"
 
+msgid "SHOW GAME NAME"
+msgstr ""
+
 msgid "STRETCH IMAGES"
 msgstr "拉伸图像"
-
-msgid "BACKGROUND AUDIO"
-msgstr "背景音乐"
 
 msgid "USE CUSTOM IMAGES"
 msgstr "使用自定图像"
@@ -877,6 +857,38 @@ msgstr "撤销"
 
 msgid "VALIDATE"
 msgstr "有效"
+
+msgid "SCREENSAVER AFTER"
+msgstr "屏保等待时间"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "屏保样式"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+"屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
+"如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"
+"更多选项可以到 \"UI 设置 -> 屏保-随机视频设置\" 进行设置。"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "屏保-随机视频设置"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "屏保-幻灯片设置"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
@@ -1300,6 +1312,9 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "BACKGROUND AUDIO"
+#~ msgstr "背景音乐"
 
 #~ msgid "Editing the collection. Add/remove games with Y."
 #~ msgstr "编辑合辑. 使用 Y 键添加/删除游戏"

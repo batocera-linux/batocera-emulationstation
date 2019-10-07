@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 21:30+0200\n"
+"POT-Creation-Date: 2019-10-07 22:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -204,6 +204,9 @@ msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr ""
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "НАСТРОЙКИ СЛАЙДШОУ"
@@ -514,30 +517,6 @@ msgstr "ОТОБРАЖЕНИЕ СИСТЕМ"
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
-msgid "SCREENSAVER AFTER"
-msgstr "ЗАСТАВКА ЧЕРЕЗ"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ОТОБРАЖАЕТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
-"ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО ПОСЛЕ "
-"НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK\".\n"
-"БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" МЕНЮ."
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "НАСТРОЙКИ СЛАЙДШОУ ЗАСТАВКИ"
-
 msgid "SHOW CLOCK"
 msgstr "ПОКАЗАТЬ ЧАСЫ"
 
@@ -803,11 +782,11 @@ msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "СМЕНА ИЗОБРАЖЕНИЯ ПОСЛЕ (СЕК)"
 
+msgid "SHOW GAME NAME"
+msgstr ""
+
 msgid "STRETCH IMAGES"
 msgstr "РАСТЯНУТЬ ИЗОБРАЖЕНИЕ"
-
-msgid "BACKGROUND AUDIO"
-msgstr "ФОНОВАЯ МУЗЫКА"
 
 msgid "USE CUSTOM IMAGES"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЕ ИЗОБРАЖЕНИЯ"
@@ -886,6 +865,39 @@ msgstr "ВЕРНУТЬ"
 
 msgid "VALIDATE"
 msgstr "ПОДТВЕРДИТЬ"
+
+msgid "SCREENSAVER AFTER"
+msgstr "ЗАСТАВКА ЧЕРЕЗ"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+"\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ОТОБРАЖАЕТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
+"ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО ПОСЛЕ "
+"НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK\".\n"
+"БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" МЕНЮ."
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "НАСТРОЙКИ СЛАЙДШОУ ЗАСТАВКИ"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -1321,6 +1333,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "BACKGROUND AUDIO"
+#~ msgstr "ФОНОВАЯ МУЗЫКА"
 
 #~ msgid "Editing the collection. Add/remove games with Y."
 #~ msgstr "Редактирование коллекции. Добавить/Удалить игры с помощью Y."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 21:30+0200\n"
+"POT-Creation-Date: 2019-10-07 22:44+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,6 +201,9 @@ msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "수집 시작"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr ""
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "슬라이드쇼 세팅"
@@ -509,29 +512,6 @@ msgstr "시스템 진열"
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
 
-msgid "SCREENSAVER AFTER"
-msgstr "화면 보호기 작동"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "화면 보호기 행동"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
-"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
-"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "랜덤 비디오 화면보호기 셋팅"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "슬라이스쇼 화면보호기 셋팅"
-
 msgid "SHOW CLOCK"
 msgstr "시간 보기"
 
@@ -793,11 +773,11 @@ msgstr "베젤이 성공적으로 삭제됨"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "(몇초 후) 후 이미지 필터 교체"
 
+msgid "SHOW GAME NAME"
+msgstr ""
+
 msgid "STRETCH IMAGES"
 msgstr "이미지 늘리기"
-
-msgid "BACKGROUND AUDIO"
-msgstr "배경 오디오"
 
 msgid "USE CUSTOM IMAGES"
 msgstr "커스텀 이미지 사용"
@@ -876,6 +856,38 @@ msgstr "복귀"
 
 msgid "VALIDATE"
 msgstr "승인"
+
+msgid "SCREENSAVER AFTER"
+msgstr "화면 보호기 작동"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "화면 보호기 행동"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
+"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
+"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "랜덤 비디오 화면보호기 셋팅"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "슬라이스쇼 화면보호기 셋팅"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "장치 찾기 없음"
@@ -1300,6 +1312,9 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "BACKGROUND AUDIO"
+#~ msgstr "배경 오디오"
 
 #~ msgid "Editing the collection. Add/remove games with Y."
 #~ msgstr "컬렉션 편집. Y로 게임 추가/제거."

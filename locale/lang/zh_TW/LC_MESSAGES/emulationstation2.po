@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 21:30+0200\n"
+"POT-Creation-Date: 2019-10-07 22:44+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,6 +201,9 @@ msgstr ""
 
 msgid "SCRAPE NOW"
 msgstr "開始搜刮"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr ""
 
 msgid "SLIDESHOW SETTINGS"
 msgstr ""
@@ -507,26 +510,6 @@ msgstr ""
 msgid "TRANSITION STYLE"
 msgstr "轉場效果"
 
-msgid "SCREENSAVER AFTER"
-msgstr "螢幕保護時間"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "螢幕保護效果"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr ""
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr ""
-
 msgid "SHOW CLOCK"
 msgstr ""
 
@@ -785,10 +768,10 @@ msgstr ""
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
-msgid "STRETCH IMAGES"
+msgid "SHOW GAME NAME"
 msgstr ""
 
-msgid "BACKGROUND AUDIO"
+msgid "STRETCH IMAGES"
 msgstr ""
 
 msgid "USE CUSTOM IMAGES"
@@ -866,6 +849,35 @@ msgid "REVERT"
 msgstr ""
 
 msgid "VALIDATE"
+msgstr ""
+
+msgid "SCREENSAVER AFTER"
+msgstr "螢幕保護時間"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "螢幕保護效果"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
