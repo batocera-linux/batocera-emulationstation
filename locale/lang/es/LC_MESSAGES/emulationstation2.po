@@ -1136,7 +1136,7 @@ msgstr "COLECCIONES"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "EDITANDO COLECCION '%s'" . AGREGAR/QUITAR JUEGOS CON Y"
+msgstr "EDITANDO COLECCION '%s'. AGREGAR/QUITAR JUEGOS CON Y"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
