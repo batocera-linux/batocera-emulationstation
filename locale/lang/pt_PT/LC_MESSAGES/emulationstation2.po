@@ -191,7 +191,7 @@ msgid "SCRAPE MARQUEE"
 msgstr "OBTER MARQUEE"
 
 msgid "SCRAPE VIDEOS"
-msgstr "OBTER VIDEOS"
+msgstr "OBTER VÍDEOS"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -206,7 +206,7 @@ msgid "SCRAPE NOW"
 msgstr "INICIAR PROCURA"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DO PROTETOR DE ECRÃ"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "DEFINIÇÕES DO SLIDESHOW"
@@ -254,7 +254,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OTIMIZAR IMAGENS NA RAM"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "OTIMIZAR VIDEO NA VRAM"
+msgstr "OTIMIZAR VÍDEO NA VRAM"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DO LOG"
@@ -447,7 +447,7 @@ msgid "INPUT P%i"
 msgstr "CONTROLE P%i"
 
 msgid "default"
-msgstr "POR PADRÃO"
+msgstr "PADRÃO"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO COMANDO"
@@ -501,7 +501,7 @@ msgid "Do you want to proceed ?"
 msgstr "DESEJA CONTINUAR?"
 
 msgid "VIDEO OUTPUT"
-msgstr "SAIDA DE VIDEO"
+msgstr "SAÍDA DE VÍDEO"
 
 msgid "START ON SYSTEM"
 msgstr "INICIAR UM SISTEMA"
@@ -765,7 +765,7 @@ msgstr "SELECIONE O SISTEMA A (RE)INSTALAR AS MOLDURAS"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' ADICIONADO A LISTA DE TRANSFERENCIAS"
+msgstr "'%s' ADICIONADO Á LISTA DE TRANSFERENCIAS"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "DESINSTALAR PROJETO DE MOLDURAS"
@@ -780,7 +780,7 @@ msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
 
 msgid "SHOW GAME NAME"
-msgstr ""
+msgstr "MOSTRAR NOME DO JOGO"
 
 msgid "STRETCH IMAGES"
 msgstr "ESTICAR IMAGEM"
@@ -822,7 +822,7 @@ msgid "All Games"
 msgstr "Todos os Jogos"
 
 msgid "Only missing medias"
-msgstr "Apenas mídias em falta"
+msgstr "Apenas imagens em falta"
 
 msgid "FILTER"
 msgstr "FILTRO:"
@@ -864,7 +864,7 @@ msgid "VALIDATE"
 msgstr "VALIDAR"
 
 msgid "SCREENSAVER AFTER"
-msgstr "PROTEÇÃO DE ECRÃ"
+msgstr "PROTEÇÃO DE ECRÃ APÓS"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DE ECRÃ"
@@ -889,13 +889,13 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "PROTEÇÃO DE ECRÃ SLIDESHOW"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "CONTROLO DO PROTETOR DE ECRÃ"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "VÍDEO NO PROTETOR DE ECRÃ"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "SLIDESHOW NO PROTETOR DE ECRÃ"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -1279,7 +1279,7 @@ msgstr "CONFIGURAÇÃO DOS COMANDOS"
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
 msgstr[0] "%i COMANDO DETECTADO"
-msgstr[1] "%i CONTROLES DETECTADOS"
+msgstr[1] "%i COMANDOS DETECTADOS"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "NENHUM COMANDO DETECTADO"
