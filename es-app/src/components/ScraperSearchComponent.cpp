@@ -436,17 +436,28 @@ void ScraperSearchComponent::update(int deltaTime)
 		auto status = mSearchHandle->status();
 		auto results = mSearchHandle->getResults();
 		auto statusString = mSearchHandle->getStatusString();
-
-		// we reset here because onSearchDone in auto mode can call mSkipCallback() which can call 
-		// another search() which will set our mSearchHandle to something important
-		mSearchHandle.reset();
-
-		if(status == ASYNC_DONE)
+			
+		if (status == ASYNC_DONE && results.size() == 0 && mSearchType == NEVER_AUTO_ACCEPT && 
+			mLastSearch.nameOverride.empty() && Settings::getInstance()->getString("Scraper") == "ScreenScraper")
 		{
-			onSearchDone(results);
-		}else if(status == ASYNC_ERROR)
+			// ScreenScraper in UI mode -> jeuInfo has no result, try with jeuRecherche
+			mLastSearch.nameOverride = mLastSearch.game->getName();
+			mSearchHandle = startScraperSearch(mLastSearch);
+		}
+		else
 		{
-			onSearchError(statusString);
+			// we reset here because onSearchDone in auto mode can call mSkipCallback() which can call 
+			// another search() which will set our mSearchHandle to something important
+			mSearchHandle.reset();
+
+			if (status == ASYNC_DONE)
+			{
+				onSearchDone(results);
+			}
+			else if (status == ASYNC_ERROR)
+			{
+				onSearchError(statusString);
+			}
 		}
 	}
 

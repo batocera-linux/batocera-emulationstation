@@ -251,7 +251,7 @@ void GuiMetaDataEd::save()
 
 void GuiMetaDataEd::fetch()
 {
-	mScraperParams.nameOverride = mScraperParams.game->getName();
+//	mScraperParams.nameOverride = mScraperParams.game->getName();
 
 	GuiGameScraper* scr = new GuiGameScraper(mWindow, mScraperParams, std::bind(&GuiMetaDataEd::fetchDone, this, std::placeholders::_1));
 	mWindow->pushGui(scr);

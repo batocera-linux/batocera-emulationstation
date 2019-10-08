@@ -457,26 +457,7 @@ void VideoVlcComponent::startVideo()
 
 			// Make sure we found a valid video track
 			if ((mVideoWidth > 0) && (mVideoHeight > 0))
-			{
-#ifndef _RPI_
-				if (mScreensaverMode)
-				{
-					if(!Settings::getInstance()->getBool("CaptionsCompatibility")) {
-
-						Vector2f resizeScale((Renderer::getScreenWidth() / (float)mVideoWidth), (Renderer::getScreenHeight() / (float)mVideoHeight));
-
-						if(resizeScale.x() < resizeScale.y())
-						{
-							mVideoWidth = (unsigned int) (mVideoWidth * resizeScale.x());
-							mVideoHeight = (unsigned int) (mVideoHeight * resizeScale.x());
-						}else{
-							mVideoWidth = (unsigned int) (mVideoWidth * resizeScale.y());
-							mVideoHeight = (unsigned int) (mVideoHeight * resizeScale.y());
-						}
-					}
-				}
-#endif
-				
+			{			
 				if (Settings::getInstance()->getBool("OptimizeVideo"))
 				{
 					// Avoid videos bigger than resolution

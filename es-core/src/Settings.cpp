@@ -124,7 +124,8 @@ void Settings::setDefaults()
 	mStringMap["ScrapperThumbSrc"] = "box-2D";
 	mBoolMap["ScrapeMarquee"] = false;
 	mBoolMap["ScrapeVideos"] = false;
-
+	
+	mBoolMap["ScreenSaverMarquee"] = true;
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
@@ -138,6 +139,8 @@ void Settings::setDefaults()
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;	
+	mBoolMap["ScreenSaverDecoration"] = false;
+	
 
 	// This setting only applies to raspberry pi but set it for all platforms so
 	// we don't get a warning if we encounter it on a different platform
@@ -152,7 +155,7 @@ void Settings::setDefaults()
 	mIntMap["ScreenSaverSwapVideoTimeout"] = 30000;
 
 	mBoolMap["VideoAudio"] = true;
-	mBoolMap["CaptionsCompatibility"] = true;
+
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";
 	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent

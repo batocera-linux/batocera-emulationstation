@@ -80,6 +80,9 @@ void SwitchComponent::onStateChanged()
 {
 	auto theme = ThemeData::getMenuTheme();
 	mImage.setImage(mState ? theme->Icons.on : theme->Icons.off);
+
+	if (mOnChangedCallback != nullptr)
+		mOnChangedCallback();
 }
 
 std::vector<HelpPrompt> SwitchComponent::getHelpPrompts()

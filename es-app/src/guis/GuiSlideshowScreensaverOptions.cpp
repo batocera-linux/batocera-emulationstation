@@ -28,8 +28,18 @@ GuiSlideshowScreensaverOptions::GuiSlideshowScreensaverOptions(Window* window, c
 	// SHOW GAME NAME
 	auto ss_controls = std::make_shared<SwitchComponent>(mWindow);
 	ss_controls->setState(Settings::getInstance()->getBool("SlideshowScreenSaverGameName"));
-	addWithLabel(row, _("SHOW GAME NAME"), ss_controls);
+	addWithLabel(row, _("SHOW GAME INFO"), ss_controls);
 	addSaveFunc([ss_controls] { Settings::getInstance()->setBool("SlideshowScreenSaverGameName", ss_controls->getState()); });
+
+	auto marquee_screensaver = std::make_shared<SwitchComponent>(mWindow);
+	marquee_screensaver->setState(Settings::getInstance()->getBool("ScreenSaverMarquee"));
+	addWithLabel(row, _("USE MARQUEE AS GAME INFO"), marquee_screensaver);
+	addSaveFunc([marquee_screensaver] { Settings::getInstance()->setBool("ScreenSaverMarquee", marquee_screensaver->getState()); });
+
+	auto decoration_screensaver = std::make_shared<SwitchComponent>(mWindow);
+	decoration_screensaver->setState(Settings::getInstance()->getBool("ScreenSaverDecoration"));
+	addWithLabel(row, _("USE RANDOM DECORATION"), decoration_screensaver);
+	addSaveFunc([decoration_screensaver] { Settings::getInstance()->setBool("ScreenSaverDecoration", decoration_screensaver->getState()); });
 
 	// stretch
 	auto sss_stretch = std::make_shared<SwitchComponent>(mWindow);
