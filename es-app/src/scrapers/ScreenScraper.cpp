@@ -23,7 +23,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ AMSTRAD_CPC, 65 },
 	{ APPLE_II, 86 },
 	{ ARCADE, 75 },
-	{ ATARI_800, 26 }, // Use ATARI_2600 as an alias for atari 800
+	{ ATARI_800, 43 },
 	{ ATARI_2600, 26 },
 	{ ATARI_5200, 40 },
 	{ ATARI_7800, 41 },
