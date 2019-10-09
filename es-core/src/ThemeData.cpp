@@ -9,6 +9,7 @@
 #include "Log.h"
 #include "platform.h"
 #include "Settings.h"
+#include "SystemConf.h"
 #include <algorithm>
 
 std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" } };
@@ -319,6 +320,19 @@ ThemeData::ThemeData()
 	mSystemview = Settings::getInstance()->getString("ThemeSystemView");
 	mGamelistview = Settings::getInstance()->getString("ThemeGamelistView");
 
+
+	std::string language = SystemConf::getInstance()->get("system.language");
+	if (!language.empty())
+	{
+		auto shortNameDivider = language.find("_");
+		if (shortNameDivider != std::string::npos)
+			language = Utils::String::toLower(language.substr(0, shortNameDivider));
+	}
+
+	if (language.empty())
+		language = "en";
+
+	mLanguage = Utils::String::toLower(language);
 	mVersion = 0;
 }
 
@@ -519,6 +533,9 @@ void ThemeData::parseFeature(const pugi::xml_node& node)
 		return;
 	}
 
+	if (!parseRegion(node) || !parseLanguage(node))
+		return;
+
 	const std::string supportedAttr = node.attribute("supported").as_string();
 
 	if (std::find(sSupportedFeatures.cbegin(), sSupportedFeatures.cend(), supportedAttr) != sSupportedFeatures.cend())
@@ -596,7 +613,10 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 
 	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
-		std::string name = node.name();	
+		if (!parseRegion(node) || !parseLanguage(node))
+			continue;
+
+		std::string name = node.name();
 
 		if (name == "include")
 			parseInclude(node);
@@ -759,26 +779,51 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 			continue;
 		}		
 
-		if (parseRegion(node))
+		if (!parseRegion(node) || !parseLanguage(node))
+			continue;
+		
+		const char* delim = " \t\r\n,";
+		const std::string nameAttr = node.attribute("name").as_string();
+		size_t prevOff = nameAttr.find_first_not_of(delim, 0);
+		size_t off = nameAttr.find_first_of(delim, prevOff);
+		while (off != std::string::npos || prevOff != std::string::npos)
 		{
-			const char* delim = " \t\r\n,";
-			const std::string nameAttr = node.attribute("name").as_string();
-			size_t prevOff = nameAttr.find_first_not_of(delim, 0);
-			size_t off = nameAttr.find_first_of(delim, prevOff);
-			while (off != std::string::npos || prevOff != std::string::npos)
-			{
-				std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
-				prevOff = nameAttr.find_first_not_of(delim, off);
-				off = nameAttr.find_first_of(delim, prevOff);
+			std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
+			prevOff = nameAttr.find_first_not_of(delim, off);
+			off = nameAttr.find_first_of(delim, prevOff);
 
-				parseElement(node, elemTypeIt->second,
-					view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second, overwriteElements);
+			parseElement(node, elemTypeIt->second,
+				view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second, overwriteElements);
 
-				if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
-					view.orderedKeys.push_back(elemKey);
-			}
-		}
+			if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
+				view.orderedKeys.push_back(elemKey);
+		}		
 	}
+}
+
+bool ThemeData::parseLanguage(const pugi::xml_node& node)
+{
+	if (!node.attribute("lang"))
+		return true;
+
+	const std::string nameAttr = Utils::String::toLower(node.attribute("lang").as_string());
+	if (nameAttr.empty() || nameAttr == "default")
+		return true;
+
+	const char* delim = " \t\r\n,";
+
+	size_t prevOff = nameAttr.find_first_not_of(delim, 0);
+	size_t off = nameAttr.find_first_of(delim, prevOff);
+	while (off != std::string::npos || prevOff != std::string::npos)
+	{
+		std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
+		prevOff = nameAttr.find_first_not_of(delim, off);
+		off = nameAttr.find_first_of(delim, prevOff);
+		if (elemKey == mLanguage)
+			return true;
+	}
+
+	return false;
 }
 
 bool ThemeData::parseRegion(const pugi::xml_node& node)
@@ -832,6 +877,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
+		if (!parseRegion(node) || !parseLanguage(node))
+			continue;
+
 		ElementPropertyType type = STRING;
 
 		auto typeIt = typeMap.find(node.name());

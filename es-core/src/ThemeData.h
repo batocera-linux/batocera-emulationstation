@@ -276,6 +276,7 @@ private:
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
 	bool isFirstSubset(const pugi::xml_node& node);
+	bool parseLanguage(const pugi::xml_node& node);
 	
 	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
 
@@ -288,6 +289,7 @@ private:
 	std::string mSystemview;
 	std::string mGamelistview;
 	std::string mSystemThemeFolder;	
+	std::string mLanguage;
 	
 	std::map<std::string, std::string> mVariables;
 	std::map<std::string, ThemeView> mViews;
