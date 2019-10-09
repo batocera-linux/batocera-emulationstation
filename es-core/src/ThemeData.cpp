@@ -548,6 +548,9 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 	if (key.empty())
 		return;
 
+	if (!parseRegion(node) || !parseLanguage(node))
+		return;
+
 	std::string val = node.text().as_string();
 	if (val.empty())
 		return;
@@ -562,10 +565,12 @@ void ThemeData::parseVariables(const pugi::xml_node& root)
 	error.setFiles(mPaths);
     
 	pugi::xml_node variables = root.child("variables");
-
 	if(!variables)
 		return;
-    
+
+	if (!parseRegion(variables) || !parseLanguage(variables))
+		return;
+
 	for(pugi::xml_node_iterator it = variables.begin(); it != variables.end(); ++it)
 		parseVariable(*it);
 }
