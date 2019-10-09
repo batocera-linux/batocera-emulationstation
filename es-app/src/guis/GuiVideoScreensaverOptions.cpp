@@ -19,13 +19,11 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 		PowerSaver::updateTimeouts();
 	});
 
-//#ifdef _RPI_
+#ifdef _RPI_
 	auto ss_omx = std::make_shared<SwitchComponent>(mWindow);
 	ss_omx->setState(Settings::getInstance()->getBool("ScreenSaverOmxPlayer"));
 	addWithLabel(_("USE OMX PLAYER FOR SCREENSAVER"), ss_omx);
 	addSaveFunc([ss_omx, this] { Settings::getInstance()->setBool("ScreenSaverOmxPlayer", ss_omx->getState()); });
-//#endif
-
 	ss_omx->setOnChangedCallback([this, ss_omx, window]()
 	{
 		if (Settings::getInstance()->setBool("ScreenSaverOmxPlayer", ss_omx->getState()))
@@ -35,7 +33,8 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 			pw->pushGui(new GuiVideoScreensaverOptions(pw, _("VIDEO SCREENSAVER").c_str()));
 		}
 	});
-
+#endif
+	   
 	// Render Video Game Name as subtitles
 	auto ss_info = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW GAME INFO"), false);
 	std::vector<std::string> info_type;
@@ -49,9 +48,9 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 
 	bool advancedOptions = true;
 
-//#ifdef _RPI_
+#ifdef _RPI_
 	advancedOptions = !Settings::getInstance()->getBool("ScreenSaverOmxPlayer");
-//#endif
+#endif
 
 	if (advancedOptions)
 	{
