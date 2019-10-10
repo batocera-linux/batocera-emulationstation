@@ -530,16 +530,20 @@ void Window::render()
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 		startScreenSaver();
-	
-	// Always call the screensaver render function regardless of whether the screensaver is active
-	// or not because it may perform a fade on transition
-	renderScreenSaver();
 
 	if(!mRenderScreenSaver && mInfoPopup)
 		mInfoPopup->render(transform);
 
 	renderRegisteredNotificationComponents(transform);
 	
+
+	// Always call the screensaver render function regardless of whether the screensaver is active
+	// or not because it may perform a fade on transition
+	renderScreenSaver();
+
+	if (mImageShader)
+		mImageShader->render(transform);
+
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
 		if (!isProcessing() && mAllowSleep && (!mScreenSaver || mScreenSaver->allowSleep()))
@@ -572,6 +576,21 @@ void Window::endRenderLoadingScreen()
 {
 	mSplash = nullptr;	
 
+	if (ThemeData::getMenuTheme()->Background.shaderPath.empty())
+		mImageShader = nullptr;
+	else
+	{
+		if (mImageShader == nullptr)
+			mImageShader = std::make_shared<ImageComponent>(this, true, false);
+		
+		auto theme = ThemeData::getMenuTheme()->Background;
+
+		mImageShader->setImage(theme.shaderPath, theme.shaderTiled);
+		mImageShader->setColorShift(theme.shaderColor);
+		mImageShader->setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
+	}
+	
 	// Window has not way to apply Theme -> As a workaround : endRenderLoadingScreen is always called when theme changes.
 	mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
 }

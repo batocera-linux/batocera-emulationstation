@@ -18,8 +18,9 @@ MenuComponent::MenuComponent(Window* window, const char* title, const std::share
 	addChild(&mGrid);
 
 	mBackground.setImagePath(theme->Background.path);
-	mBackground.setCenterColor(theme->Background.color);
 	mBackground.setEdgeColor(theme->Background.color);
+	mBackground.setCenterColor(theme->Background.centerColor);
+	mBackground.setCornerSize(theme->Background.cornerSize);
 
 	// set up title
 	mTitle = std::make_shared<TextComponent>(mWindow);

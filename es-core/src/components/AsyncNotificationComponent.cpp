@@ -30,8 +30,9 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 
 	mFrame = new NinePatchComponent(window);
 	mFrame->setImagePath(theme->Background.path);
-	mFrame->setCenterColor(theme->Background.color);
 	mFrame->setEdgeColor(theme->Background.color);
+	mFrame->setCenterColor(theme->Background.centerColor);
+	mFrame->setCornerSize(theme->Background.cornerSize);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 

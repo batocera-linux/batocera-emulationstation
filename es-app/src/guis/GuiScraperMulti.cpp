@@ -17,9 +17,10 @@ GuiScraperMulti::GuiScraperMulti(Window* window, const std::queue<ScraperSearchP
 	mSearchQueue(searches)
 {
 	auto theme = ThemeData::getMenuTheme();
-	mBackground.setImagePath(theme->Background.path); // ":/frame.png"
-	mBackground.setCenterColor(theme->Background.color);
+	mBackground.setImagePath(theme->Background.path); // ":/frame.png"	
 	mBackground.setEdgeColor(theme->Background.color);
+	mBackground.setCenterColor(theme->Background.centerColor);
+	mBackground.setCornerSize(theme->Background.cornerSize);
 
 	assert(mSearchQueue.size());
 

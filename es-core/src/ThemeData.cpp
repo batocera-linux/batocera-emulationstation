@@ -231,7 +231,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "menuBackground", {
 		{ "path", PATH },
 		{ "fadePath", PATH },
-		{ "color", COLOR } } },
+		{ "shaderPath", PATH },
+		{ "shaderColor", COLOR },
+		{ "shaderTiled", BOOLEAN },
+		{ "color", COLOR },
+		{ "centerColor", COLOR },
+		{ "cornerSize", NORMALIZED_PAIR } } },
 	{ "menuIcons", { 		
 		{ "iconSystem", PATH },
 		{ "iconUpdates", PATH },
@@ -319,7 +324,9 @@ ThemeData::ThemeData()
 	mMenu = Settings::getInstance()->getString("ThemeMenu");
 	mSystemview = Settings::getInstance()->getString("ThemeSystemView");
 	mGamelistview = Settings::getInstance()->getString("ThemeGamelistView");
-
+	mRegion = Settings::getInstance()->getString("ThemeRegionName");
+	if (mRegion.empty())
+		mRegion = "eu";
 
 	std::string language = SystemConf::getInstance()->get("system.language");
 	if (!language.empty())
@@ -353,6 +360,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 
 	mVariables.clear();
 	mVariables.insert(sysDataMap.cbegin(), sysDataMap.cend());
+	mVariables["lang"] = mLanguage;
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = doc.load_file(path.c_str());
@@ -446,51 +454,48 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 	}
 
 	
-	if (subsetAttr == "colorset" && (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node))))
-		return true;
-
-	if (subsetAttr == "iconset" && (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node))))
-		return true;
-
-	if (subsetAttr == "menu" && (nameAttr == mMenu || (mMenu.empty() && isFirstSubset(node))))
-		return true;
-
-	if (subsetAttr == "systemview" && (nameAttr == mSystemview || (mSystemview.empty() && isFirstSubset(node))))
-		return true;
-
-	if (subsetAttr == "gamelistview" && (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node))))
-		return true;
+	if (subsetAttr == "colorset")
+	{
+		if (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node)))
+			return true;
+	}
+	else if (subsetAttr == "iconset")
+	{
+		if (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node)))
+			return true;
+	}
+	else if (subsetAttr == "menu")
+	{
+		if (nameAttr == mMenu || (mMenu.empty() && isFirstSubset(node)))
+			return true;
+	}
+	else if (subsetAttr == "systemview")
+	{
+		if (nameAttr == mSystemview || (mSystemview.empty() && isFirstSubset(node)))
+			return true;
+	}
+	else if (subsetAttr == "gamelistview")
+	{
+		if (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node)))
+			return true;
+	}
+	else
+	{
+		std::string setID = Settings::getInstance()->getString("subset."+ subsetAttr);
+		if (nameAttr == setID || (setID.empty() && isFirstSubset(node)))
+			return true;
+	}
 
 	return false;
 }
 
 void ThemeData::parseInclude(const pugi::xml_node& node)
 {
-	if (!parseSubset(node))
+	if (!parseFilterAttributes(node))
 		return;
 
-	if (node.attribute("tinyScreen"))
-	{
-		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
-
-		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
-			return;
-
-		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
-			return;
-	}
-
-	if (node.attribute("ifHelpPrompts"))
-	{
-		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
-		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
-
-		if (!help && helpVisibleAttr == "true")
-			return;
-
-		if (help && helpVisibleAttr == "false")
-			return;
-	}
+	if (!parseSubset(node))
+		return;
 
 	std::string relPath = resolvePlaceholders(node.text().as_string());
 	std::string path = Utils::FileSystem::resolveRelativePath(relPath, mPaths.back(), true);
@@ -533,7 +538,7 @@ void ThemeData::parseFeature(const pugi::xml_node& node)
 		return;
 	}
 
-	if (!parseRegion(node) || !parseLanguage(node))
+	if (!parseFilterAttributes(node))
 		return;
 
 	const std::string supportedAttr = node.attribute("supported").as_string();
@@ -548,7 +553,7 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 	if (key.empty())
 		return;
 
-	if (!parseRegion(node) || !parseLanguage(node))
+	if (!parseFilterAttributes(node))
 		return;
 
 	std::string val = node.text().as_string();
@@ -568,7 +573,7 @@ void ThemeData::parseVariables(const pugi::xml_node& root)
 	if(!variables)
 		return;
 
-	if (!parseRegion(variables) || !parseLanguage(variables))
+	if (!parseFilterAttributes(variables))
 		return;
 
 	for(pugi::xml_node_iterator it = variables.begin(); it != variables.end(); ++it)
@@ -611,6 +616,38 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 	}
 }
 
+bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
+{
+	if (!parseRegion(node))
+		return false;
+
+	if (!parseLanguage(node))
+		return false;
+
+	if (node.attribute("tinyScreen"))
+	{
+		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
+
+		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
+			return false;
+		else if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return false;
+	}
+
+	if (node.attribute("ifHelpPrompts"))
+	{
+		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
+		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
+
+		if (!help && helpVisibleAttr == "true")
+			return false;
+		else if (help && helpVisibleAttr == "false")
+			return false;
+	}
+
+	return true;
+}
+
 void ThemeData::parseTheme(const pugi::xml_node& root)
 {
 	if (root.attribute("defaultView"))
@@ -618,7 +655,7 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 
 	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
-		if (!parseRegion(node) || !parseLanguage(node))
+		if (!parseFilterAttributes(node))
 			continue;
 
 		std::string name = node.name();
@@ -703,28 +740,8 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 	if (!node.attribute("name"))
 		return;
 
-	if (node.attribute("tinyScreen"))
-	{
-		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
-
-		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
-			return;
-
-		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
-			return;
-	}
-
-	if (node.attribute("ifHelpPrompts"))
-	{
-		const std::string helpVisibleAttr = node.attribute("ifHelpPrompts").as_string();
-		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
-
-		if (!help && helpVisibleAttr == "true")
-			return;
-
-		if (help && helpVisibleAttr == "false")
-			return;
-	}
+	if (!parseFilterAttributes(node))
+		return;
 
 	std::string viewKey = node.attribute("name").as_string();
 
@@ -746,28 +763,8 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 	ThemeException error;
 	error.setFiles(mPaths);
 
-	if (root.attribute("tinyScreen"))
-	{
-		const std::string tinyScreenAttr = root.attribute("tinyScreen").as_string();
-
-		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
-			return;
-
-		if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
-			return;
-	}
-
-	if (root.attribute("ifHelpPrompts"))
-	{
-		const std::string helpVisibleAttr = root.attribute("ifHelpPrompts").as_string();
-		bool help = Settings::getInstance()->getBool("ShowHelpPrompts");
-
-		if (!help && helpVisibleAttr == "true")
-			return;
-
-		if (help && helpVisibleAttr == "false")
-			return;
-	}
+	if (!parseFilterAttributes(root))
+		return;
 
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
@@ -784,7 +781,7 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 			continue;
 		}		
 
-		if (!parseRegion(node) || !parseLanguage(node))
+		if (!parseFilterAttributes(node))
 			continue;
 		
 		const char* delim = " \t\r\n,";
@@ -836,25 +833,20 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	if (!node.attribute("region"))
 		return true;
 
-	const std::string nameAttr = node.attribute("region").as_string();
+	const std::string nameAttr = Utils::String::toLower(node.attribute("region").as_string());	
+	if (nameAttr.empty() || nameAttr == "default")
+		return true;
 
-	if (!nameAttr.empty())
-	{
-		bool add = true;
+	bool add = true;
 
-		for (auto sb : mSubsets) {
-			if (sb.subset == "region" && sb.name == nameAttr) {
-				add = false; break;
-			}
+	for (auto sb : mSubsets) {
+		if (sb.subset == "region" && sb.name == nameAttr) {
+			add = false; break;
 		}
-
-		if (add)
-			mSubsets.push_back(Subset("region", nameAttr));
 	}
 
-	std::string regionsetting = Settings::getInstance()->getString("ThemeRegionName");
-	if (regionsetting.empty())
-		regionsetting = "eu";	
+	if (add)
+		mSubsets.push_back(Subset("region", nameAttr));
 
 	const char* delim = " \t\r\n,";
 	
@@ -865,7 +857,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 		std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
 		prevOff = nameAttr.find_first_not_of(delim, off);
 		off = nameAttr.find_first_of(delim, prevOff);
-		if (elemKey == regionsetting)
+		if (elemKey == mRegion)
 			return true;
 	}
 
@@ -882,7 +874,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
-		if (!parseRegion(node) || !parseLanguage(node))
+		if (!parseFilterAttributes(node))
 			continue;
 
 		ElementPropertyType type = STRING;
@@ -1174,8 +1166,30 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		if (elem->has("fadePath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("fadePath")))
 			Background.fadePath = elem->get<std::string>("fadePath");
 
+		if (elem->has("shaderPath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("shaderPath")))
+			Background.shaderPath = elem->get<std::string>("shaderPath");
+
+		if (elem->has("shaderColor"))
+			Background.shaderColor = elem->get<unsigned int>("shaderColor");
+
+		if (elem->has("shaderTiled"))
+			Background.shaderTiled = elem->get<bool>("shaderTiled");
+
 		if (elem->has("color"))
+		{
 			Background.color = elem->get<unsigned int>("color");
+			Background.centerColor = Background.color;
+		}
+
+		if (elem->has("centerColor"))
+		{
+			Background.centerColor = elem->get<unsigned int>("centerColor");
+			if (!elem->has("color"))
+				Background.color = Background.centerColor;
+		}
+
+		if (elem->has("cornerSize"))
+			Background.cornerSize = elem->get<Vector2f>("cornerSize");
 	}
 
 	elem = theme->getElement("menu", "menutitle", "menuText");
@@ -1311,3 +1325,13 @@ std::vector<std::string> ThemeData::getSubSet(const std::vector<Subset>& subsets
 	return ret;
 }
 
+std::vector<std::string> ThemeData::getSubSetNames()
+{
+	std::vector<std::string> ret;
+
+	for (const auto& it : mSubsets)
+		if (std::find(ret.cbegin(), ret.cend(), it.subset) == ret.cend())
+			ret.push_back(it.subset);
+
+	return ret;
+}

@@ -215,7 +215,8 @@ void EsLocale::checkLocalisationLoaded()
 				{
 					std::string	msgstr = line.substr(start + 1, end - start - 1);
 					if (!msgid.empty() && !msgstr.empty())
-						mItems[msgid] = msgstr;
+						if (idx.empty() || idx == "0")
+							mItems[msgid] = msgstr;
 
 					if (!msgid_plural.empty() && !msgstr.empty())
 					{

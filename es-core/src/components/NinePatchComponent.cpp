@@ -38,11 +38,11 @@ void NinePatchComponent::updateColors()
 	const unsigned int edgeColor   = Renderer::convertColor(mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity));
 	const unsigned int centerColor = Renderer::convertColor(mCenterColor & 0xFFFFFF00 | (unsigned char)((mCenterColor & 0xFF) * opacity));
 
-	for(int i = 0; i < 6*9; ++i)
+	for(int i = 0; i < 6*9; i++)
 		mVertices[i].col = edgeColor;
 
-	for(int i = 6*4; i < 6; ++i)
-		mVertices[(6*4)+i].col = centerColor;
+	for(int i = 0; i < 6; i++)
+		mVertices[(4 * 6) + i].col = centerColor;
 }
 
 void NinePatchComponent::buildVertices()
