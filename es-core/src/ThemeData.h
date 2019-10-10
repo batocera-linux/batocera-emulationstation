@@ -108,8 +108,20 @@ struct MenuElement
 	unsigned int selectorGradientColor;
 	bool selectorGradientType;
 	std::string path;
-	std::string fadePath;
 	std::shared_ptr<Font> font;
+};
+
+struct MenuBackground
+{
+	unsigned int color;
+	unsigned int centerColor;
+	std::string path;
+	std::string fadePath;	
+	Vector2f cornerSize;	
+
+	std::string shaderPath;
+	unsigned int shaderColor;
+	bool shaderTiled;
 };
 
 struct IconElement 
@@ -133,11 +145,11 @@ public:
 	public:
 		ThemeMenu(ThemeData* theme);
 
-		MenuElement Background{ 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, true, ":/frame.png", ":/scroll_gradient.png", nullptr };
-		MenuElement Title{ 0x555555FF, 0x555555FF, 0x555555FF, 0xFFFFFFFF, 0x555555FF, true, "", "", nullptr };
-		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", "", nullptr };
-		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", "", nullptr };
-		MenuElement Footer{ 0xC6C6C6FF, 0xC6C6C6FF, 0xC6C6C6FF, 0xFFFFFFFF, 0xC6C6C6FF, true, "", "", nullptr };
+		MenuBackground Background{ 0xFFFFFFFF, 0xFFFFFFFF, ":/frame.png", ":/scroll_gradient.png", Vector2f(16, 16), "", 0xFFFFFFFF, true };
+		MenuElement Title{ 0x555555FF, 0x555555FF, 0x555555FF, 0xFFFFFFFF, 0x555555FF, true, "", nullptr };
+		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
+		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
+		MenuElement Footer{ 0xC6C6C6FF, 0xC6C6C6FF, 0xC6C6C6FF, 0xFFFFFFFF, 0xC6C6C6FF, true, "", nullptr };
 		IconElement Icons{ ":/button.png", ":/button_filled.png", ":/on.svg", ":/off.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
 
 		std::string getMenuIcon(const std::string name)
@@ -241,7 +253,8 @@ public:
 	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 
-	std::vector<Subset>		getSubSets() { return mSubsets; }
+	std::vector<Subset>		    getSubSets() { return mSubsets; }
+	std::vector<std::string>	getSubSetNames();
 
 	static std::vector<std::string> getSubSet(const std::vector<Subset>& subsets, const std::string& subset);
 
@@ -276,7 +289,9 @@ private:
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
 	bool isFirstSubset(const pugi::xml_node& node);
-	
+	bool parseLanguage(const pugi::xml_node& node);
+	bool parseFilterAttributes(const pugi::xml_node& node);
+
 	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
 
 	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
@@ -288,7 +303,9 @@ private:
 	std::string mSystemview;
 	std::string mGamelistview;
 	std::string mSystemThemeFolder;	
-	
+	std::string mLanguage;
+	std::string mRegion;
+
 	std::map<std::string, std::string> mVariables;
 	std::map<std::string, ThemeView> mViews;
 

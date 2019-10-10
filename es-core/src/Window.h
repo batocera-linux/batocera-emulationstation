@@ -107,6 +107,8 @@ private:
 	GuiInfoPopup*	mInfoPopup;
 	bool			mRenderScreenSaver;
 
+	std::shared_ptr<ImageComponent> mImageShader;
+
 	std::vector<GuiComponent*> mGuiStack;
 
 	typedef std::pair<std::string, int> NotificationMessage;

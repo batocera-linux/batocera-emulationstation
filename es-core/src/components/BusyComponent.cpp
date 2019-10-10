@@ -20,8 +20,9 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 {
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
-	mBackground.setCenterColor(theme->Background.color);
 	mBackground.setEdgeColor(theme->Background.color);
+	mBackground.setCenterColor(theme->Background.centerColor);
+	mBackground.setCornerSize(theme->Background.cornerSize);
     
 	mutex = SDL_CreateMutex(); // batocera
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);

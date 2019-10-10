@@ -51,6 +51,7 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	mFrame->setImagePath(theme->Background.path);
 	mFrame->setCenterColor(mBackColor);
 	mFrame->setEdgeColor(mBackColor);
+	mFrame->setCornerSize(theme->Background.cornerSize);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 

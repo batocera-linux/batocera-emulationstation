@@ -24,6 +24,8 @@ public:
 	bool setFloat(const std::string& name, float value);
 	bool setString(const std::string& name, const std::string& value);
 
+	std::map<std::string, std::string>& getStringMap() { return mStringMap; }
+
 private:
 	static Settings* sInstance;
 
