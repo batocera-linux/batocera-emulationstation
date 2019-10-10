@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -455,24 +455,6 @@ msgstr "테마구성을 편집하기 전에 테마를 적용해야합니다"
 msgid "THEME CONFIGURATION"
 msgstr "테마 구성"
 
-msgid "THEME COLORSET"
-msgstr "테마 컬러셋"
-
-msgid "THEME ICONSET"
-msgstr "테마 아이콘셋"
-
-msgid "THEME MENU"
-msgstr "테마 메뉴"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "테마 시스템뷰"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "테마 게임리스트뷰"
-
-msgid "THEME REGION"
-msgstr "테마 지역"
-
 msgid "DEFAULT GRID SIZE"
 msgstr "그리드 사이즈 초기화"
 
@@ -773,7 +755,13 @@ msgstr "베젤이 성공적으로 삭제됨"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "(몇초 후) 후 이미지 필터 교체"
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr "게임 정보 보여주기"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -797,14 +785,11 @@ msgstr "(몇초 후) 후 비디오 필터 교체 "
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "화면보호기를 위해 OMX 플레이어 사용"
 
-msgid "SHOW GAME INFO"
-msgstr "게임 정보 보여주기"
+msgid "VIDEO SCREENSAVER"
+msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "화면보호기에 게임 정보 보여주기"
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "화면보호기에 비디오 늘이기"
@@ -881,9 +866,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "슬라이스쇼 화면보호기 셋팅"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
@@ -1312,6 +1294,27 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "THEME COLORSET"
+#~ msgstr "테마 컬러셋"
+
+#~ msgid "THEME ICONSET"
+#~ msgstr "테마 아이콘셋"
+
+#~ msgid "THEME MENU"
+#~ msgstr "테마 메뉴"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "테마 시스템뷰"
+
+#~ msgid "THEME GAMELISTVIEW"
+#~ msgstr "테마 게임리스트뷰"
+
+#~ msgid "THEME REGION"
+#~ msgstr "테마 지역"
+
+#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+#~ msgstr "캡션을 위해 호환 가능한 저해상도 사용"
 
 #~ msgid "BACKGROUND AUDIO"
 #~ msgstr "배경 오디오"

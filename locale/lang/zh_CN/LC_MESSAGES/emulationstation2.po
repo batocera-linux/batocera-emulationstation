@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -457,24 +457,6 @@ msgstr "在编辑配置之前必须应用主题"
 msgid "THEME CONFIGURATION"
 msgstr "主题配置"
 
-msgid "THEME COLORSET"
-msgstr "主题颜色"
-
-msgid "THEME ICONSET"
-msgstr "主题图标"
-
-msgid "THEME MENU"
-msgstr "主题菜单"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "主题系统视图"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "主题游戏列表视图"
-
-msgid "THEME REGION"
-msgstr "主题区域"
-
 msgid "DEFAULT GRID SIZE"
 msgstr "默认网格大小"
 
@@ -774,7 +756,13 @@ msgstr "框架删除程控"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "图像替换 (SECS)"
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr "显示游戏信息"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -798,14 +786,11 @@ msgstr "视频替换 (SECS)"
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "屏保使用 OMX 播放器"
 
-msgid "SHOW GAME INFO"
-msgstr "显示游戏信息"
+msgid "VIDEO SCREENSAVER"
+msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "屏保显示游戏信息"
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "小标题使用设备兼容的低分辨率"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "屏保拉伸显示"
@@ -882,9 +867,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "屏保-幻灯片设置"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
@@ -1312,6 +1294,27 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "THEME COLORSET"
+#~ msgstr "主题颜色"
+
+#~ msgid "THEME ICONSET"
+#~ msgstr "主题图标"
+
+#~ msgid "THEME MENU"
+#~ msgstr "主题菜单"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "主题系统视图"
+
+#~ msgid "THEME GAMELISTVIEW"
+#~ msgstr "主题游戏列表视图"
+
+#~ msgid "THEME REGION"
+#~ msgstr "主题区域"
+
+#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+#~ msgstr "小标题使用设备兼容的低分辨率"
 
 #~ msgid "BACKGROUND AUDIO"
 #~ msgstr "背景音乐"

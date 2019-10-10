@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -457,24 +457,6 @@ msgstr ""
 msgid "THEME CONFIGURATION"
 msgstr ""
 
-msgid "THEME COLORSET"
-msgstr ""
-
-msgid "THEME ICONSET"
-msgstr ""
-
-msgid "THEME MENU"
-msgstr ""
-
-msgid "THEME SYSTEMVIEW"
-msgstr ""
-
-msgid "THEME GAMELISTVIEW"
-msgstr ""
-
-msgid "THEME REGION"
-msgstr ""
-
 msgid "DEFAULT GRID SIZE"
 msgstr ""
 
@@ -773,7 +755,13 @@ msgstr ""
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -797,13 +785,10 @@ msgstr ""
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr ""
 
-msgid "SHOW GAME INFO"
+msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
 msgstr ""
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
@@ -883,9 +868,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "SLIDESHOW SCREENSAVER INSTELLINGEN"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"

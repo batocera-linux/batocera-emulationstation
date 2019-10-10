@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -458,24 +458,6 @@ msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
-msgid "THEME COLORSET"
-msgstr "CORES DO TEMA"
-
-msgid "THEME ICONSET"
-msgstr "ÍCONES DO TEMA"
-
-msgid "THEME MENU"
-msgstr "TEMA MENU"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "VER TEMA DO SISTEMA"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "VER TEMA DO JOGO"
-
-msgid "THEME REGION"
-msgstr "REGIÃO DO TEMA"
-
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO PADRÃO DA GRID"
 
@@ -781,7 +763,13 @@ msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -805,14 +793,11 @@ msgstr "TROCAR VÍDEO APÓS (SEG)"
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "USE O OMX PLAYER PARA O SCREENSAVER"
 
-msgid "SHOW GAME INFO"
-msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
+msgid "VIDEO SCREENSAVER"
+msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "USAR BAIXA RESOLUÇÃO PARA LEGENDA"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO SCREENSAVER"
@@ -892,9 +877,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DO SLIDESHOW"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
@@ -1329,6 +1311,27 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "THEME COLORSET"
+#~ msgstr "CORES DO TEMA"
+
+#~ msgid "THEME ICONSET"
+#~ msgstr "ÍCONES DO TEMA"
+
+#~ msgid "THEME MENU"
+#~ msgstr "TEMA MENU"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "VER TEMA DO SISTEMA"
+
+#~ msgid "THEME GAMELISTVIEW"
+#~ msgstr "VER TEMA DO JOGO"
+
+#~ msgid "THEME REGION"
+#~ msgstr "REGIÃO DO TEMA"
+
+#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+#~ msgstr "USAR BAIXA RESOLUÇÃO PARA LEGENDA"
 
 #~ msgid "BACKGROUND AUDIO"
 #~ msgstr "ÁUDIO DE FUNDO"

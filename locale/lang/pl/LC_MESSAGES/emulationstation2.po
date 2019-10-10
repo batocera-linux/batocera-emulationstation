@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -457,24 +457,6 @@ msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
 msgid "THEME CONFIGURATION"
 msgstr "KONFIGURACJA MOTYWU"
 
-msgid "THEME COLORSET"
-msgstr "KOLORY MOTYWU"
-
-msgid "THEME ICONSET"
-msgstr "IKONY MOTYWU"
-
-msgid "THEME MENU"
-msgstr "MENU MOTYWU"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "WIDOK SYSTEMÓW DLA MOTYWU"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "WIDOK LISTY GIER DLA MOTYWU"
-
-msgid "THEME REGION"
-msgstr "REGION MOTYWU"
-
 msgid "DEFAULT GRID SIZE"
 msgstr "DOMYŚLNY ROZMIAR SIATKI"
 
@@ -780,7 +762,13 @@ msgstr "RAMKI USUNIĘTE POMYŚLNIE"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "PODMIEŃ OBRAZ PO (SEKUNDACH)"
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr "POKAŻ INFORMACJE O GRZE"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -804,14 +792,11 @@ msgstr "PODMIEŃ WIDEO PO (SEKUNDACH)"
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UŻYJ OMX DLA WYGASZACZA"
 
-msgid "SHOW GAME INFO"
-msgstr "POKAŻ INFORMACJE O GRZE"
+msgid "VIDEO SCREENSAVER"
+msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "POKAŻ INFORMACJE O GRZE NA WYGASZACZU"
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "UŻYJ NISKIEJ ROZDZIELCZOŚCI DLA NAPISÓW"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
@@ -890,9 +875,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA Z POKAZEM SLAJDÓW"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
@@ -1332,6 +1314,27 @@ msgstr "PRACUJE.."
 
 msgid "up/down"
 msgstr "góra/dół"
+
+#~ msgid "THEME COLORSET"
+#~ msgstr "KOLORY MOTYWU"
+
+#~ msgid "THEME ICONSET"
+#~ msgstr "IKONY MOTYWU"
+
+#~ msgid "THEME MENU"
+#~ msgstr "MENU MOTYWU"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "WIDOK SYSTEMÓW DLA MOTYWU"
+
+#~ msgid "THEME GAMELISTVIEW"
+#~ msgstr "WIDOK LISTY GIER DLA MOTYWU"
+
+#~ msgid "THEME REGION"
+#~ msgstr "REGION MOTYWU"
+
+#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+#~ msgstr "UŻYJ NISKIEJ ROZDZIELCZOŚCI DLA NAPISÓW"
 
 #~ msgid "BACKGROUND AUDIO"
 #~ msgstr "AUDIO W TLE"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-07 22:44+0200\n"
+"POT-Creation-Date: 2019-10-10 19:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -459,24 +459,6 @@ msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕН�
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
 
-msgid "THEME COLORSET"
-msgstr "ЦВЕТ ТЕМЫ"
-
-msgid "THEME ICONSET"
-msgstr "ИКОНКИ ТЕМЫ"
-
-msgid "THEME MENU"
-msgstr "МЕНЮ ТЕМЫ"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "ТЕМА СПИСКА СИСТЕМ"
-
-msgid "THEME GAMELISTVIEW"
-msgstr "ТЕМА СПИСКА ИГР"
-
-msgid "THEME REGION"
-msgstr "РЕГИОН ТЕМЫ"
-
 msgid "DEFAULT GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
 
@@ -782,7 +764,13 @@ msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "СМЕНА ИЗОБРАЖЕНИЯ ПОСЛЕ (СЕК)"
 
-msgid "SHOW GAME NAME"
+msgid "SHOW GAME INFO"
+msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "USE RANDOM DECORATION"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -806,14 +794,11 @@ msgstr "СМЕНА ВИДЕО ПОСЛЕ (СЕК)"
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР ДЛЯ ЗАСТАВКИ"
 
-msgid "SHOW GAME INFO"
-msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
+msgid "VIDEO SCREENSAVER"
+msgstr ""
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "ИНФ. О ИГРЕ НА ЗАСТАВКЕ"
-
-msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
@@ -891,9 +876,6 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКИ СЛАЙДШОУ ЗАСТАВКИ"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
@@ -1333,6 +1315,27 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "THEME COLORSET"
+#~ msgstr "ЦВЕТ ТЕМЫ"
+
+#~ msgid "THEME ICONSET"
+#~ msgstr "ИКОНКИ ТЕМЫ"
+
+#~ msgid "THEME MENU"
+#~ msgstr "МЕНЮ ТЕМЫ"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "ТЕМА СПИСКА СИСТЕМ"
+
+#~ msgid "THEME GAMELISTVIEW"
+#~ msgstr "ТЕМА СПИСКА ИГР"
+
+#~ msgid "THEME REGION"
+#~ msgstr "РЕГИОН ТЕМЫ"
+
+#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+#~ msgstr "ИСП. НИЗКОЕ РАЗРЕШЕНИЕ ДЛЯ ТИТРОВ"
 
 #~ msgid "BACKGROUND AUDIO"
 #~ msgstr "ФОНОВАЯ МУЗЫКА"
