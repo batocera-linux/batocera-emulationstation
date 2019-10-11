@@ -58,6 +58,7 @@ public:
 
 protected:
 	void process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) override;
+	std::string ensureUrl(const std::string url);
 
 	void processList(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);
 	void processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);

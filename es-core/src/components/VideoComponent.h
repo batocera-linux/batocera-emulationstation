@@ -3,6 +3,7 @@
 #define ES_CORE_COMPONENTS_VIDEO_COMPONENT_H
 
 #include "components/ImageComponent.h"
+#include "components/ImageGridComponent.h"
 #include "GuiComponent.h"
 #include "ImageIO.h"
 #include <string>
@@ -12,7 +13,14 @@ class TextureResource;
 std::string	getTitlePath();
 std::string	getTitleFolder();
 void writeSubtitle(const char* gameName, const char* systemName, bool always);
-
+/*
+enum ImageSource
+{
+	THUMBNAIL,
+	IMAGE,
+	MARQUEE
+};
+*/
 class VideoComponent : public GuiComponent
 {
 	// Structure that groups together the configuration of the video component
@@ -21,6 +29,7 @@ class VideoComponent : public GuiComponent
 		unsigned						startDelay;
 		bool							showSnapshotNoVideo;
 		bool							showSnapshotDelay;
+		ImageSource						snapshotSource;
 		std::string						defaultVideoPath;
 	};
 
@@ -94,6 +103,9 @@ public:
 
 		return MaxSizeInfo(mTargetSize, mTargetIsMax);
 	};
+
+	ImageSource getSnapshotSource() { return mConfig.snapshotSource; };
+	void setSnapshotSource(ImageSource source) { mConfig.snapshotSource = source; };
 
 private:
 	// Start the video Immediately

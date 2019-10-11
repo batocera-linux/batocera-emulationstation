@@ -21,6 +21,8 @@ struct HelpStyle;
 class TextureResource;
 class GuiInfoPopup;
 class AsyncNotificationComponent;
+class ThemeData;
+class TextComponent;
 
 class Window
 {
@@ -82,6 +84,8 @@ public:
 	void postToUiThread(const std::function<void(Window*)>& func);
 	void reactivateGui();
 
+	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
+
 private:
 	void processPostedFunctions();
 
@@ -106,9 +110,8 @@ private:
 	ScreenSaver*	mScreenSaver;
 	GuiInfoPopup*	mInfoPopup;
 	bool			mRenderScreenSaver;
-
-	std::shared_ptr<ImageComponent> mImageShader;
-
+	
+	std::vector<GuiComponent*> mScreenExtras;
 	std::vector<GuiComponent*> mGuiStack;
 
 	typedef std::pair<std::string, int> NotificationMessage;
@@ -125,11 +128,8 @@ private:
 
 	// clock // batocera
 	int mClockElapsed;
-
-	unsigned int mClockColor;
-	Vector2f mClockPos;
-	std::shared_ptr<Font> mClockFont;
-	std::unique_ptr<TextCache> mClockText;
+	
+	std::shared_ptr<TextComponent>	mClock;
 
 	// pads // batocera
 	int mplayerPads[MAX_PLAYERS];

@@ -87,6 +87,8 @@ public:
 	std::shared_ptr<SystemView> getSystemListView();
 	void removeGameListView(SystemData* system);
 
+	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
+
 private:
 	ViewController(Window* window);
 	static ViewController* sInstance;

@@ -8,20 +8,10 @@ HelpStyle::HelpStyle()
 	origin = Vector2f(0.0f, 0.0f);
 	iconColor = 0x777777FF;
 	textColor = 0x777777FF;
-
-	clockPosition = Vector2f(-1, -1);
-	clockColor = 0x777777FF;
+	font = nullptr;
 
 	if (FONT_SIZE_SMALL != 0)
-	{
 		font = Font::get(FONT_SIZE_SMALL);
-		clockFont = Font::get(FONT_SIZE_SMALL);
-	}
-	else
-	{
-		font = nullptr;
-		clockFont = nullptr;
-	}
 }
 
 void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view)
@@ -36,19 +26,13 @@ void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::s
 			origin = elem->get<Vector2f>("origin");
 
 		if (elem->has("textColor"))
-		{
 			textColor = elem->get<unsigned int>("textColor");
-			clockColor = textColor;
-		}
 
 		if (elem->has("iconColor"))
 			iconColor = elem->get<unsigned int>("iconColor");
 
 		if (elem->has("fontPath") || elem->has("fontSize"))
-		{
 			font = Font::getFromTheme(elem, ThemeFlags::ALL, font);
-			clockFont = font;
-		}
 
 		if (elem->has("iconUpDown"))
 			iconMap["up/down"] = elem->get<std::string>("iconUpDown");
@@ -83,21 +67,4 @@ void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::s
 		if (elem->has("iconSelect"))
 			iconMap["select"] = elem->get<std::string>("iconSelect");
 	}
-
-	elem = theme->getElement(view, "clock", "clock");
-	if (elem)
-	{
-		if (elem->has("pos"))
-			clockPosition = elem->get<Vector2f>("pos") * Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-		else
-			clockPosition = Vector2f(-1, -1);
-
-		if (elem->has("fontPath") || elem->has("fontSize"))
-			clockFont = Font::getFromTheme(elem, ThemeFlags::ALL, font);
-
-		if (elem->has("textColor"))
-			clockColor = elem->get<unsigned int>("textColor");
-	}
-	else
-		clockPosition = Vector2f(-1, -1);
 }

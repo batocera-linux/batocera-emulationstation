@@ -62,6 +62,8 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	mMediaPlayer(nullptr), 
 	mMedia(nullptr)
 {
+	mElapsed = 0;
+
 	// Get an empty texture for rendering the video
 	mTexture = nullptr;// TextureResource::get("");
 	mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
@@ -233,10 +235,19 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 				resize();
 			}
 
-			mContext.mutexes[frame].lock();
-			mTexture->initFromExternalPixels(mContext.surfaces[frame], mVideoWidth, mVideoHeight);
-			mContext.hasFrame[frame] = false;
-			mContext.mutexes[frame].unlock();
+#ifdef _RPI_
+			// Rpi : A lot of videos are encoded in 60fps on screenscraper
+			// Try to limit transfert to opengl textures to 30fps to save CPU
+			if (!Settings::getInstance()->getBool("OptimizeVideo") || mElapsed >= 40) // 40ms = 25fps, 33.33 = 30 fps
+#endif
+			{
+				mContext.mutexes[frame].lock();
+				mTexture->initFromExternalPixels(mContext.surfaces[frame], mVideoWidth, mVideoHeight);
+				mContext.hasFrame[frame] = false;
+				mContext.mutexes[frame].unlock();
+
+				mElapsed = 0;
+			}
 		}
 	}
 
@@ -543,4 +554,10 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		else
 			mEffect = VideoVlcFlags::VideoVlcEffect::NONE;
 	}
+}
+
+void VideoVlcComponent::update(int deltaTime)
+{
+	mElapsed += deltaTime;
+	VideoComponent::update(deltaTime);
 }

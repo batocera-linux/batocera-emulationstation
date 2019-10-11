@@ -18,11 +18,7 @@ struct HelpStyle
 	unsigned int textColor;
 	std::shared_ptr<Font> font;
 	std::map<std::string, std::string> iconMap;
-
-	Vector2f clockPosition;
-	std::shared_ptr<Font> clockFont;
-	unsigned int clockColor;
-
+	
 	HelpStyle(); // default values
 	void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view);
 };

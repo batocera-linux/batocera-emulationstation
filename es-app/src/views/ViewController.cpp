@@ -611,7 +611,7 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 	}
 	
 	if (SystemData::sSystemVector.size() > 0 && reloadTheme)
-		ThemeData::setDefaultTheme(SystemData::sSystemVector.at(0)->getTheme().get());
+		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());
 
 	// Redisplay the current view
 	if (mCurrentView)
@@ -669,7 +669,7 @@ void ViewController::reloadAll(Window* window)
 	}
 
 	if (SystemData::sSystemVector.size() > 0)
-		ThemeData::setDefaultTheme(SystemData::sSystemVector.at(0)->getTheme().get());
+		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());
 
 	// Rebuild SystemListView
 	mSystemListView.reset();
@@ -714,4 +714,11 @@ HelpStyle ViewController::getHelpStyle()
 		return GuiComponent::getHelpStyle();
 
 	return mCurrentView->getHelpStyle();
+}
+
+
+void ViewController::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
+{
+	ThemeData::setDefaultTheme(theme.get());
+	mWindow->onThemeChanged(theme);
 }

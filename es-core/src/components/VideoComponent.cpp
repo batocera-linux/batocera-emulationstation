@@ -22,27 +22,30 @@ std::string getTitleFolder() {
 void writeSubtitle(const char* gameName, const char* systemName, bool always)
 {
 	FILE* file = fopen(getTitlePath().c_str(), "w");
-	int end = (int)(Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout") / (1000));
-	if (always) {
-		fprintf(file, "1\n00:00:01,000 --> 00:00:%d,000\n", end);
-	}
-	else
+	if (file)
 	{
-		fprintf(file, "1\n00:00:01,000 --> 00:00:08,000\n");
-	}
-	fprintf(file, "%s\n", gameName);
-	fprintf(file, "<i>%s</i>\n\n", systemName);
-
-	if (!always) {
-		if (end > 12)
-		{
-			fprintf(file, "2\n00:00:%d,000 --> 00:00:%d,000\n%s\n<i>%s</i>\n", end-4, end, gameName, systemName);
+		int end = (int)(Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout") / (1000));
+		if (always) {
+			fprintf(file, "1\n00:00:01,000 --> 00:00:%d,000\n", end);
 		}
-	}
+		else
+		{
+			fprintf(file, "1\n00:00:01,000 --> 00:00:08,000\n");
+		}
+		fprintf(file, "%s\n", gameName);
+		fprintf(file, "<i>%s</i>\n\n", systemName);
 
-	fflush(file);
-	fclose(file);
-	file = NULL;
+		if (!always) {
+			if (end > 12)
+			{
+				fprintf(file, "2\n00:00:%d,000 --> 00:00:%d,000\n%s\n<i>%s</i>\n", end - 4, end, gameName, systemName);
+			}
+		}
+
+		fflush(file);
+		fclose(file);
+		file = NULL;
+	}
 }
 
 void VideoComponent::setScreensaverMode(bool isScreensaver)
@@ -73,6 +76,7 @@ VideoComponent::VideoComponent(Window* window) :
 	// Setup the default configuration
 	mConfig.showSnapshotDelay 		= false;
 	mConfig.showSnapshotNoVideo		= false;
+	mConfig.snapshotSource = IMAGE;
 	mConfig.startDelay				= 0;
 	if (mWindow->getGuiStackSize() > 1) {
 		topWindow(false);
@@ -245,6 +249,17 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if (elem->has("showSnapshotDelay"))
 		mConfig.showSnapshotDelay = elem->get<bool>("showSnapshotDelay");
+
+	if (elem->has("snapshotSource"))
+	{
+		auto direction = elem->get<std::string>("snapshotSource");
+		if (direction == "image")
+			mConfig.snapshotSource = IMAGE;
+		else if (direction == "marquee")
+			mConfig.snapshotSource = MARQUEE;
+		else
+			mConfig.snapshotSource = THUMBNAIL;
+	}
 
 	if(properties & ThemeFlags::ROTATION) {
 		if(elem->has("rotation"))

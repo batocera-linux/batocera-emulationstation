@@ -378,9 +378,13 @@ int HttpReq::saveContent(const std::string filename, bool checkMedia)
 	if (!Utils::FileSystem::exists(mStreamPath))
 		return false;
 
-	if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 300)
+	if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 1024)
 	{
 		auto data = Utils::String::toUpper(getContent());
+		
+		if (data.find("<!DOCTYPE HTML") != std::string::npos)
+			return 2;
+		
 		if (data.find("NOMEDIA") != std::string::npos || data.find("ERREUR") != std::string::npos || data.find("ERROR") != std::string::npos || data.find("PROBL") != std::string::npos)
 			return 2;
 	}

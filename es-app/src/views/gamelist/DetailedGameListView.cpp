@@ -127,6 +127,9 @@ void DetailedGameListView::createVideo()
 #endif
 		mVideo = new VideoVlcComponent(mWindow, "");
 
+	// Default is IMAGE in Recalbox themes -> video view does not exist
+	mVideo->setSnapshotSource(IMAGE);
+
 	mVideo->setOrigin(0.5f, 0.5f);
 	mVideo->setPosition(mSize.x() * 0.25f, mSize.y() * 0.4f);
 	mVideo->setSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.4f);
@@ -317,7 +320,15 @@ void DetailedGameListView::updateInfoPanel()
 			if (!mVideo->setVideo(file->getVideoPath()))
 				mVideo->setDefaultVideo();
 
-			mVideo->setImage(imagePath);
+			std::string snapShot = imagePath;
+
+			auto src = mVideo->getSnapshotSource();
+			if (src == MARQUEE && !file->getMarqueePath().empty())
+				snapShot = file->getMarqueePath();
+			if (src == THUMBNAIL && !file->getThumbnailPath().empty())
+				snapShot = file->getThumbnailPath();
+
+			mVideo->setImage(snapShot);
 		}
 
 		if (mImage != nullptr)
