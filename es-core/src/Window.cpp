@@ -2,6 +2,7 @@
 
 #include "components/HelpComponent.h"
 #include "components/ImageComponent.h"
+#include "components/TextComponent.h"
 #include "resources/Font.h"
 #include "resources/TextureResource.h"
 #include "InputManager.h"
@@ -26,10 +27,6 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mTransiting = nullptr;
 	mTransitionOffset = 0;
 
-	mClockPos = Vector2f(-1, -1);
-	mClockColor = 0xFFFFFF55;
-	mClockFont = nullptr; 
-
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
@@ -45,6 +42,9 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 
 Window::~Window()
 {
+	for (auto extra : mScreenExtras)
+		delete extra;
+
 	delete mBackgroundOverlay;
 
 	// delete all our GUIs
@@ -169,8 +169,19 @@ bool Window::init()
 	mBackgroundOverlay->setImage(":/scroll_gradient.png");
 	mBackgroundOverlay->setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
+	if (mClock == nullptr)
+	{
+		mClock = std::make_shared<TextComponent>(this);
+		mClock->setFont(Font::get(FONT_SIZE_SMALL));
+		mClock->setHorizontalAlignment(ALIGN_RIGHT);
+		mClock->setVerticalAlignment(ALIGN_TOP);
+		mClock->setPosition(Renderer::getScreenWidth()*0.94, Renderer::getScreenHeight()*0.9965 - Font::get(FONT_SIZE_SMALL)->getHeight());
+		mClock->setSize(Renderer::getScreenWidth()*0.05, 0);
+		mClock->setColor(0x777777FF);
+	}
+
 	// update our help because font sizes probably changed
-	if(peekGui())
+	if (peekGui())
 		peekGui()->updateHelpPrompts();
 
 	return true;
@@ -178,6 +189,9 @@ bool Window::init()
 
 void Window::reactivateGui()
 {
+	for (auto extra : mScreenExtras)
+		extra->onShow();
+
 	for (auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 		(*i)->onShow();
 
@@ -187,11 +201,13 @@ void Window::reactivateGui()
 
 void Window::deinit()
 {
+	for (auto extra : mScreenExtras)
+		extra->onHide();
+
 	// Hide all GUI elements on uninitialisation - this disable
 	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
-	{
 		(*i)->onHide();
-	}
+
 	InputManager::getInstance()->deinit();
 	TextureResource::clearQueue();
 	ResourceManager::getInstance()->unloadAll();
@@ -384,30 +400,24 @@ void Window::update(int deltaTime)
 	}
 
 	/* draw the clock */ // batocera
-	if (Settings::getInstance()->getBool("DrawClock")) {
+	if (Settings::getInstance()->getBool("DrawClock") && mClock) 
+	{
 		mClockElapsed -= deltaTime;
 		if (mClockElapsed <= 0)
 		{
-			time_t     clockNow;
-			struct tm  clockTstruct;
-			char       clockBuf[32];
+			time_t     clockNow = time(0);
+			struct tm  clockTstruct = *localtime(&clockNow);
 
-			clockNow = time(0);
-			clockTstruct = *localtime(&clockNow);
-
-			if (clockTstruct.tm_year > 100) { /* display the clock only if year is more than 1900+100 ; rpi have no internal clock and out of the networks, the date time information has no value */
-		  // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-		  // for more information about date/time format
+			if (clockTstruct.tm_year > 100) 
+			{ 
+				// Display the clock only if year is more than 1900+100 ; rpi have no internal clock and out of the networks, the date time information has no value */
+				// Visit http://en.cppreference.com/w/cpp/chrono/c/strftime for more information about date/time format
+				
+				char       clockBuf[32];
 				strftime(clockBuf, sizeof(clockBuf), "%H:%M", &clockTstruct);
-
-				if (mClockFont == nullptr)
-					mClockFont = mDefaultFonts.at(0);
-
-				if (mClockPos.x() == -1 && mClockPos.y() == -1)
-					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, Renderer::getScreenWidth()*0.95, Renderer::getScreenHeight()*0.9965 - mClockFont->getHeight(), mClockColor));
-				else
-					mClockText = std::unique_ptr<TextCache>(mClockFont->buildTextCache(clockBuf, mClockPos.x(), mClockPos.y(), mClockColor));
+				mClock->setText(clockBuf);
 			}
+
 			mClockElapsed = 1000; // next update in 1000ms
 		}
 	}
@@ -489,14 +499,15 @@ void Window::render()
 	}
 
         // clock // batocera
-	if (Settings::getInstance()->getBool("DrawClock") && mClockText && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+	if (Settings::getInstance()->getBool("DrawClock") && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 	{
-		Renderer::setMatrix(Transform4x4f::Identity());
-
+		mClock->render(transform);
+	//	Renderer::setMatrix(Transform4x4f::Identity());
+		/*
 		if (mClockFont == nullptr)
 			mClockFont = mDefaultFonts.at(0);
 
-		mClockFont->renderTextCache(mClockText.get());
+		mClockFont->renderTextCache(mClockText.get());*/
 	}
 
 	// pads // batocera
@@ -541,8 +552,8 @@ void Window::render()
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
 
-	if (mImageShader)
-		mImageShader->render(transform);
+	for (auto extra : mScreenExtras)
+		extra->render(transform);
 
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
@@ -575,24 +586,6 @@ void Window::setAllowSleep(bool sleep)
 void Window::endRenderLoadingScreen()
 {
 	mSplash = nullptr;	
-
-	if (ThemeData::getMenuTheme()->Background.shaderPath.empty())
-		mImageShader = nullptr;
-	else
-	{
-		if (mImageShader == nullptr)
-			mImageShader = std::make_shared<ImageComponent>(this, true, false);
-		
-		auto theme = ThemeData::getMenuTheme()->Background;
-
-		mImageShader->setImage(theme.shaderPath, theme.shaderTiled);
-		mImageShader->setColorShift(theme.shaderColor);
-		mImageShader->setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
-
-	}
-	
-	// Window has not way to apply Theme -> As a workaround : endRenderLoadingScreen is always called when theme changes.
-	mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
 }
 
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
@@ -663,9 +656,6 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 	mHelp->clearPrompts();
 	mHelp->setStyle(style);
 
-	mClockFont = style.clockFont;
-	mClockColor = style.clockColor;
-	mClockPos = style.clockPosition;
 	mClockElapsed = -1;
 
 	std::vector<HelpPrompt> addPrompts;
@@ -752,6 +742,9 @@ void Window::startScreenSaver()
 {
 	if (mScreenSaver && !mRenderScreenSaver)
 	{
+		for (auto extra : mScreenExtras)
+			extra->onScreenSaverActivate();
+
 		// Tell the GUI components the screensaver is starting
 		for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 			(*i)->onScreenSaverActivate();
@@ -764,7 +757,7 @@ void Window::startScreenSaver()
 bool Window::cancelScreenSaver()
 {
 	if (mScreenSaver && mRenderScreenSaver)
-	{
+	{		
 		mScreenSaver->stopScreenSaver();
 		mRenderScreenSaver = false;
 		mScreenSaver->resetCounts();
@@ -772,6 +765,9 @@ bool Window::cancelScreenSaver()
 		// Tell the GUI components the screensaver has stopped
 		for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 			(*i)->onScreenSaverDeactivate();
+
+		for (auto extra : mScreenExtras)
+			extra->onScreenSaverDeactivate();
 
 		return true;
 	}
@@ -838,4 +834,43 @@ void Window::processPostedFunctions()
 		func(this);	
 
 	mFunctions.clear();
+}
+
+void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
+{
+	for (auto extra : mScreenExtras)
+		delete extra;
+
+	mScreenExtras.clear();
+	mScreenExtras = ThemeData::makeExtras(theme, "screen", this);
+
+	std::stable_sort(mScreenExtras.begin(), mScreenExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
+
+	if (mBackgroundOverlay)
+		mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
+
+	if (mClock)
+	{
+		mClock->setFont(Font::get(FONT_SIZE_SMALL));
+		mClock->setColor(0x777777FF);		
+		mClock->setHorizontalAlignment(ALIGN_RIGHT);
+		mClock->setVerticalAlignment(ALIGN_TOP);
+		
+		// if clock element does not exist in screen view -> <view name="screen"><text name="clock"> 
+		// skin it from system.helpsystem -> <view name="system"><helpsystem name="help"> )
+		if (!theme->getElement("screen", "clock", "text"))
+		{
+			auto elem = theme->getElement("system", "help", "helpsystem");
+			if (elem && elem->has("textColor"))
+				mClock->setColor(elem->get<unsigned int>("textColor"));
+
+			if (elem && (elem->has("fontPath") || elem->has("fontSize")))
+				mClock->setFont(Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_MEDIUM)));
+		}
+		
+		mClock->setPosition(Renderer::getScreenWidth()*0.94, Renderer::getScreenHeight()*0.9965 - mClock->getFont()->getHeight());
+		mClock->setSize(Renderer::getScreenWidth()*0.05, 0);
+
+		mClock->applyTheme(theme, "screen", "clock", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
+	}
 }

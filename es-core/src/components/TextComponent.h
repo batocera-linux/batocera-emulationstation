@@ -76,8 +76,7 @@ private:
 	unsigned int mGlowSize;
 	Vector2f	 mGlowOffset;
 	Vector4f	 mPadding;
-
-
+	
 	Vector2f	mReflection;
 	bool		mReflectOnBorders;
 };

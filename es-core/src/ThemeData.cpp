@@ -12,7 +12,7 @@
 #include "SystemConf.h"
 #include <algorithm>
 
-std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" } };
+std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
@@ -79,6 +79,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontSize", FLOAT },
 		{ "color", COLOR },
 		{ "alignment", STRING },
+		{ "verticalAlignment", STRING },
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
@@ -196,6 +197,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "effect", STRING },
 	 	{ "visible", BOOLEAN },
 	 	{ "zIndex", FLOAT },		
+		{ "snapshotSource", STRING }, // image, thumbnail, marquee
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {
@@ -231,9 +233,6 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "menuBackground", {
 		{ "path", PATH },
 		{ "fadePath", PATH },
-		{ "shaderPath", PATH },
-		{ "shaderColor", COLOR },
-		{ "shaderTiled", BOOLEAN },
 		{ "color", COLOR },
 		{ "centerColor", COLOR },
 		{ "cornerSize", NORMALIZED_PAIR } } },
@@ -1165,15 +1164,6 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 
 		if (elem->has("fadePath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("fadePath")))
 			Background.fadePath = elem->get<std::string>("fadePath");
-
-		if (elem->has("shaderPath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("shaderPath")))
-			Background.shaderPath = elem->get<std::string>("shaderPath");
-
-		if (elem->has("shaderColor"))
-			Background.shaderColor = elem->get<unsigned int>("shaderColor");
-
-		if (elem->has("shaderTiled"))
-			Background.shaderTiled = elem->get<bool>("shaderTiled");
 
 		if (elem->has("color"))
 		{

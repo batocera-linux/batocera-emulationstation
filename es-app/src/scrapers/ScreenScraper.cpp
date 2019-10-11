@@ -13,6 +13,14 @@
 
 using namespace PlatformIds;
 
+std::string ScreenScraperRequest::ensureUrl(const std::string url)
+{
+	return Utils::String::replace(
+		Utils::String::replace(url, " ", "%20") ,
+		"#screenscraperserveur#", "https://www.screenscraper.fr/");
+}
+
+
 /**
 	List of systems and their IDs from
 	https://www.screenscraper.fr/api/systemesListe.php?devid=xxx&devpassword=yyy&softname=zzz&output=XML
@@ -348,7 +356,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				{
 					// Sending a 'softname' containing space will make the image URLs returned by the API also contain the space. 
 					//  Escape any spaces in the URL here
-					result.imageUrl = Utils::String::replace(art.text().get(), " ", "%20");
+					result.imageUrl = ensureUrl(art.text().get());
 
 					// Get the media type returned by ScreenScraper
 					std::string media_type = art.attribute("format").value();
@@ -372,7 +380,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 					{
 						// Ask for the same image, but with a smaller size, for the thumbnail displayed during scraping
-						result.thumbnailUrl = Utils::String::replace(art.text().get(), " ", "%20");
+						result.thumbnailUrl = ensureUrl(art.text().get());
 					}
 					else
 						LOG(LogDebug) << "Failed to find media XML node for thumbnail";
@@ -386,7 +394,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				{
 					pugi::xml_node art = findMedia(media_list, ripList, region);
 					if (art)
-						result.marqueeUrl = Utils::String::replace(art.text().get(), " ", "%20");
+						result.marqueeUrl = ensureUrl(art.text().get());
 					else
 						LOG(LogDebug) << "Failed to find media XML node for video";
 				}
@@ -396,7 +404,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			{
 				pugi::xml_node art = findMedia(media_list, "video", region);
 				if (art)
-					result.videoUrl = Utils::String::replace(art.text().get(), " ", "%20");
+					result.videoUrl = ensureUrl(art.text().get());
 				else
 					LOG(LogDebug) << "Failed to find media XML node for video";
 			}

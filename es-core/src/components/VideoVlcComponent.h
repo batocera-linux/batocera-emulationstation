@@ -73,6 +73,7 @@ public:
 	void setMinSize(float width, float height);
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
+	virtual void update(int deltaTime);
 
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
@@ -103,6 +104,8 @@ private:
 	std::string					    mSubtitleTmpFile;
 
 	VideoVlcFlags::VideoVlcEffect	mEffect;
+
+	int								mElapsed;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

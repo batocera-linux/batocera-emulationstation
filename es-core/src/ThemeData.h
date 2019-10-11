@@ -118,10 +118,6 @@ struct MenuBackground
 	std::string path;
 	std::string fadePath;	
 	Vector2f cornerSize;	
-
-	std::string shaderPath;
-	unsigned int shaderColor;
-	bool shaderTiled;
 };
 
 struct IconElement 
@@ -145,7 +141,7 @@ public:
 	public:
 		ThemeMenu(ThemeData* theme);
 
-		MenuBackground Background{ 0xFFFFFFFF, 0xFFFFFFFF, ":/frame.png", ":/scroll_gradient.png", Vector2f(16, 16), "", 0xFFFFFFFF, true };
+		MenuBackground Background{ 0xFFFFFFFF, 0xFFFFFFFF, ":/frame.png", ":/scroll_gradient.png", Vector2f(16, 16) };
 		MenuElement Title{ 0x555555FF, 0x555555FF, 0x555555FF, 0xFFFFFFFF, 0x555555FF, true, "", nullptr };
 		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
 		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };

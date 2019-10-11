@@ -88,10 +88,11 @@ private:
 	unsigned long countGameListNodes(const char *nodeName);
 	void countVideos();
 	void countImages();
-	void pickGameListNode(unsigned long index, const char *nodeName, std::string& path);
-	void pickRandomVideo(std::string& path);
-	void pickRandomGameListImage(std::string& path);
-	void pickRandomCustomImage(std::string& path);
+
+	std::string pickGameListNode(unsigned long index, const char *nodeName);
+	std::string pickRandomVideo();
+	std::string pickRandomGameListImage();
+	std::string pickRandomCustomImage();
 
 	enum STATE {
 		STATE_INACTIVE,

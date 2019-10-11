@@ -9,7 +9,8 @@ TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
 	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
-{
+{	
+
 }
 
 TextComponent::TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
@@ -302,6 +303,9 @@ void TextComponent::onColorChanged()
 
 void TextComponent::setHorizontalAlignment(Alignment align)
 {
+	if (mHorizontalAlignment == align)
+		return;
+
 	mHorizontalAlignment = align;
 	onTextChanged();
 }
@@ -337,32 +341,41 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 	if(!elem)
 		return;
 
-	if (properties & COLOR && elem->has("color"))
-		setColor(elem->get<unsigned int>("color"));	
-
-	setRenderBackground(false);
-	if (properties & COLOR && elem->has("backgroundColor")) {
-		setBackgroundColor(elem->get<unsigned int>("backgroundColor"));
-		setRenderBackground(true);
-	}
-
-	if(properties & ALIGNMENT && elem->has("alignment"))
+	if (properties & ALIGNMENT)
 	{
-		std::string str = elem->get<std::string>("alignment");
-		if(str == "left")
-			setHorizontalAlignment(ALIGN_LEFT);
-		else if(str == "center")
-			setHorizontalAlignment(ALIGN_CENTER);
-		else if(str == "right")
-			setHorizontalAlignment(ALIGN_RIGHT);
+		if (elem->has("alignment"))
+		{
+			std::string str = elem->get<std::string>("alignment");
+			if (str == "left")
+				setHorizontalAlignment(ALIGN_LEFT);
+			else if (str == "center")
+				setHorizontalAlignment(ALIGN_CENTER);
+			else if (str == "right")
+				setHorizontalAlignment(ALIGN_RIGHT);
+			else
+				LOG(LogError) << "Unknown text alignment string: " << str;
+		}
+
+		if (elem->has("verticalAlignment"))
+		{
+			std::string str = elem->get<std::string>("verticalAlignment");
+			if (str == "top")
+				setVerticalAlignment(ALIGN_TOP);
+			else if (str == "center")
+				setVerticalAlignment(ALIGN_CENTER);
+			else if (str == "bottom")
+				setVerticalAlignment(ALIGN_BOTTOM);
+			else
+				LOG(LogError) << "Unknown text alignment string: " << str;
+		}
+
+		if (elem->has("padding"))
+		{
+			Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+			mPadding = elem->get<Vector4f>("padding") * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+		}
 		else
-			LOG(LogError) << "Unknown text alignment string: " << str;
-	}
-
-	if (properties & ALIGNMENT && elem->has("padding"))
-	{
-		Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-		mPadding = elem->get<Vector4f>("padding") * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+			mPadding = Vector4f::Zero();
 	}
 
 	if(properties & TEXT && elem->has("text"))
@@ -376,8 +389,21 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 
 	if (properties & COLOR)
 	{
+		if (elem->has("color"))
+			setColor(elem->get<unsigned int>("color"));
+
+		if (elem->has("backgroundColor"))
+		{
+			setBackgroundColor(elem->get<unsigned int>("backgroundColor"));
+			setRenderBackground(true);
+		}
+		else 
+			setRenderBackground(false);
+
 		if (elem->has("glowColor"))
 			mGlowColor = elem->get<unsigned int>("glowColor");
+		else
+			mGlowColor = 0;
 
 		if (elem->has("glowSize"))
 			mGlowSize = (int)elem->get<float>("glowSize");
