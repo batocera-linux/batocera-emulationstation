@@ -755,9 +755,8 @@ void VideoScreenSaver::setVideo(const std::string path)
 		if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
 			mVideo = new VideoPlayerComponent(mWindow, getTitlePath());
 		else
-#else
-		mVideo = new VideoVlcComponent(mWindow);
 #endif
+		mVideo = new VideoVlcComponent(mWindow);
 
 		mVideo->topWindow(true);
 		mVideo->setOrigin(0.5f, 0.5f);
