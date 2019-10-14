@@ -10,6 +10,7 @@
 #include <fstream>
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include <thread>
 
 // batocera
 const std::map<std::string, generate_scraper_requests_func> scraper_request_funcs {
@@ -113,6 +114,7 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 {
 	setStatus(ASYNC_IN_PROGRESS);
 	mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
+	mRetryCount = 0;
 }
 
 void ScraperHttpRequest::update()
@@ -121,7 +123,21 @@ void ScraperHttpRequest::update()
 	if(status == HttpReq::REQ_SUCCESS)
 	{
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
-		process(mReq, mResults);
+
+		if (!process(mReq, mResults))
+		{
+			mRetryCount++;
+			if (mRetryCount > 4)
+				return;
+
+			// If the scrapper fails & return false, then retry the request
+			setStatus(ASYNC_IN_PROGRESS);
+
+			std::string url = mReq->getUrl();
+			std::this_thread::sleep_for(std::chrono::seconds(5));
+			mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
+		}
+
 		return;
 	}
 

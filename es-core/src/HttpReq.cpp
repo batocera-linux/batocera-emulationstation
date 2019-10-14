@@ -94,6 +94,8 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 HttpReq::HttpReq(const std::string& url)
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL)
 {
+	mUrl = url;
+
 	mPercent = -1;
 	mHandle = curl_easy_init();
 

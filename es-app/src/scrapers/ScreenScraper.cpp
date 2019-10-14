@@ -10,6 +10,8 @@
 #include <pugixml/src/pugixml.hpp>
 #include <cstring>
 #include "SystemConf.h"
+#include "md5.h"
+#include <thread>
 
 using namespace PlatformIds;
 
@@ -148,6 +150,34 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 		//path += "&romtype=jeu";
 	}
 
+	// Use md5 to search scrapped game if <= 16 Mo
+	int length = Utils::FileSystem::getFileSize(params.game->getFullPath());
+	if (length <= 16384 * 1024)
+	{
+		std::ifstream inBigArrayfile;
+		inBigArrayfile.open(params.game->getFullPath(), std::ios::binary | std::ios::in);
+		if (inBigArrayfile.is_open())
+		{
+			try
+			{
+				char* InFileData = new char[length];
+				if (InFileData)
+				{
+					inBigArrayfile.read(InFileData, length);
+
+					MD5 md5 = MD5(InFileData, length);
+					std::string Temp = md5.hexdigest();
+					path += "&md5=" + md5.hexdigest();
+
+					delete[] InFileData;
+				}
+			}
+			catch (std::bad_alloc& ex) { }
+
+			inBigArrayfile.close();
+		}
+	}
+
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
@@ -179,7 +209,8 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 	}
 }
 
-void ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
+// Process should return false only when we reached a maximum scrap by minute, to retry
+bool ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
 {
 	assert(req->status() == HttpReq::REQ_SUCCESS);
 
@@ -195,11 +226,15 @@ void ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vec
 		std::string err = ss.str();
 		//setError(err); Don't consider it an error -> Request is a success. Simply : Game is not found		
 		LOG(LogWarning) << err;
-
-		return;
+				
+		if (Utils::String::toLower(content).find("maximum threads per minute reached") != std::string::npos)
+			return false;
+		
+		return true;
 	}
 
 	processGame(doc, results);
+	return true;
 }
 
 pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region)

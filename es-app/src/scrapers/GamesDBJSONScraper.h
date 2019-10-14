@@ -28,7 +28,7 @@ class TheGamesDBJSONRequest : public ScraperHttpRequest
 	}
 
   protected:
-	void process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) override;
+	bool process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) override;
 	bool isGameRequest() { return !mRequestQueue; }
 
 	std::queue<std::unique_ptr<ScraperRequest>>* mRequestQueue;

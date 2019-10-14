@@ -95,10 +95,11 @@ public:
 	virtual void update() override;
 
 protected:
-	virtual void process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) = 0;
+	virtual bool process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) = 0;
 
 private:
 	std::unique_ptr<HttpReq> mReq;
+	int	mRetryCount;
 };
 
 // a request to get a list of results
