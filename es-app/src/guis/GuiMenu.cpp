@@ -851,10 +851,14 @@ void GuiMenu::openGamesSettings_batocera()
 		false);
 	std::string currentShader = SystemConf::getInstance()->get("global.shaderset");
 	if (currentShader.empty()) {
-		currentShader = std::string("auto");
+		currentShader = std::string("none");
+	}
+	if (currentShader == "auto") { // Batocera 5.24: no "auto" shaders any longer
+		currentShader = std::string("none");
+		SystemConf::getInstance()->set("global.shaderset", currentShader);
+		SystemConf::getInstance()->saveSystemConf();
 	}
 
-	shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
 	shaders_choices->add(_("NONE"), "none", currentShader == "none");
 	shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
 	shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
@@ -2317,10 +2321,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 									     false);
   std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
   if (currentShader.empty()) {
-    currentShader = std::string("auto");
+    currentShader = std::string("none");
+  }
+  if (currentShader == "auto") { // Batocera 5.24: no "auto" shaders any longer
+    currentShader = std::string("none");
+    SystemConf::getInstance()->set(configName + ".shaderset", currentShader);
+    SystemConf::getInstance()->saveSystemConf();
   }
 
-  shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
   shaders_choices->add(_("NONE"), "none", currentShader == "none");
   shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
   shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
