@@ -97,6 +97,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ VECTREX, "4939" },
 	{ TRS80_COLOR_COMPUTER, "4941" },
 	{ TANDY, "4941" },
+	{ ODYSSEY2, "4927" }
 };
 
 void thegamesdb_generate_json_scraper_requests(const ScraperSearchParams& params,

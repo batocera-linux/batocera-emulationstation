@@ -90,7 +90,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, 104 },
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
-	{ TANDY, 144 }
+	{ TANDY, 144 },
+	{ ODYSSEY2, 104 }
 };
 
 

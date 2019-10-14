@@ -73,6 +73,7 @@ namespace PlatformIds
 		VECTREX,
 		TRS80_COLOR_COMPUTER,
 		TANDY,
+		ODYSSEY2,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
