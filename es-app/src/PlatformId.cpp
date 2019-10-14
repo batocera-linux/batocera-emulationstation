@@ -72,6 +72,7 @@ namespace PlatformIds
 		"vectrex",
 		"trs-80",
 		"coco",
+		"odyssey2",
 
 		"ignore", // do not allow scraping for this system
 		"invalid"
