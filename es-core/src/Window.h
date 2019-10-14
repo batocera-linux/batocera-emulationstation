@@ -23,6 +23,7 @@ class GuiInfoPopup;
 class AsyncNotificationComponent;
 class ThemeData;
 class TextComponent;
+class ControllerActivityComponent;
 
 class Window
 {
@@ -126,14 +127,9 @@ private:
 
 	std::unique_ptr<TextCache> mFrameDataText;
 
-	// clock // batocera
 	int mClockElapsed;
-	
 	std::shared_ptr<TextComponent>	mClock;
-
-	// pads // batocera
-	int mplayerPads[MAX_PLAYERS];
-	bool mplayerPadsIsHotkey;
+	std::shared_ptr<ControllerActivityComponent>	mControllerActivity;
 
 	bool mNormalizeNextUpdate;
 

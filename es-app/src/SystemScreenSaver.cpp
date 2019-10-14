@@ -586,7 +586,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 								auto bottom = doc["bottom"].GetInt();
 								auto right = doc["right"].GetInt();
 
-								mViewport = Renderer::Rect(left * px, top * py, (width - right) * px, (height - bottom) * py);
+								mViewport = Renderer::Rect(left * px, top * py, (width - right - left) * px, (height - bottom - top) * py);
 							}
 						}
 					}
@@ -611,7 +611,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 		mMarquee = new ImageComponent(mWindow, true);
 		mMarquee->setImage(game->getMarqueePath());
 		mMarquee->setOrigin(0.5f, 0.5f);
-		mMarquee->setPosition(mViewport.x / 2.0f + mViewport.w * 0.50f, mViewport.y / 2.0f + mViewport.h * 0.18f);
+		mMarquee->setPosition(mViewport.x + mViewport.w * 0.50f, mViewport.y + mViewport.h * 0.16f);
 		mMarquee->setMaxSize((float)mViewport.w * 0.40f, (float)mViewport.h * 0.22f);
 	}
 	
@@ -623,7 +623,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 	int fh = font->getLetterHeight();
 
 	mLabelGame = new TextComponent(mWindow);
-	mLabelGame->setPosition(mViewport.x / 2.0f, mViewport.y / 2.0f + mViewport.h - h - fh / 2);
+	mLabelGame->setPosition(mViewport.x, mViewport.y + mViewport.h - h - fh / 2);
 	mLabelGame->setSize(mViewport.w, h - fh / 2);
 	mLabelGame->setHorizontalAlignment(ALIGN_CENTER);
 	mLabelGame->setVerticalAlignment(ALIGN_CENTER);
@@ -634,7 +634,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 	mLabelGame->setText(game->getName());
 
 	mLabelSystem = new TextComponent(mWindow);
-	mLabelSystem->setPosition(mViewport.x / 2.0f, mViewport.y / 2.0f + mViewport.h - h + fh / 2);
+	mLabelSystem->setPosition(mViewport.x, mViewport.y + mViewport.h - h + fh / 2);
 	mLabelSystem->setSize(mViewport.w, h + fh / 2);
 	mLabelSystem->setHorizontalAlignment(ALIGN_CENTER);
 	mLabelSystem->setVerticalAlignment(ALIGN_CENTER);
@@ -698,7 +698,7 @@ void ImageScreenSaver::setImage(const std::string path)
 	{
 		mImage = new ImageComponent(mWindow, true);
 		mImage->setOrigin(0.5f, 0.5f);
-		mImage->setPosition((mViewport.x + mViewport.w) / 2.0f, (mViewport.y + mViewport.h) / 2.0f);
+		mImage->setPosition(mViewport.x + mViewport.w / 2.0f, mViewport.y + mViewport.h / 2.0f);
 
 		if (Settings::getInstance()->getBool("SlideshowScreenSaverStretch"))
 			mImage->setMinSize((float)mViewport.w, (float)mViewport.h);
@@ -727,7 +727,6 @@ void ImageScreenSaver::render(const Transform4x4f& transform)
 
 	GameScreenSaverBase::render(transform);
 }
-
 
 // ------------------------------------------------------------------------------------------------------------------------
 // VIDEO SCREEN SAVER CLASS
@@ -761,7 +760,7 @@ void VideoScreenSaver::setVideo(const std::string path)
 		mVideo->topWindow(true);
 		mVideo->setOrigin(0.5f, 0.5f);
 		
-		mVideo->setPosition((mViewport.x + mViewport.w) / 2.0f, (mViewport.y + mViewport.h) / 2.0f);
+		mVideo->setPosition(mViewport.x + mViewport.w / 2.0f, mViewport.y + mViewport.h / 2.0f);
 
 		if (Settings::getInstance()->getBool("StretchVideoOnScreenSaver"))
 			mVideo->setMinSize((float)mViewport.w, (float)mViewport.h);
@@ -822,6 +821,9 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 		mDecoration->setOpacity(mOpacity);
 		mDecoration->render(transform);		
 	}
+
+	if (Settings::getInstance()->getBool("DebugImage"))
+		Renderer::drawRect(mViewport.x, mViewport.y, mViewport.w, mViewport.h, 0xFFFF0090, 0xFFFF0090);
 }
 
 void VideoScreenSaver::update(int deltaTime)

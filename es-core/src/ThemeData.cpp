@@ -160,11 +160,17 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "zIndex", FLOAT } } },
 	{ "sound", {
 		{ "path", PATH } } },
-	{ "clock", {
+	{ "controllerActivity", {
 		{ "pos", NORMALIZED_PAIR },
-		{ "fontPath", PATH },
-		{ "fontSize", FLOAT },
-		{ "textColor", COLOR } } },
+		{ "size", NORMALIZED_PAIR },
+		{ "itemSpacing", FLOAT },
+		{ "horizontalAlignment", STRING },
+		{ "imagePath", PATH },
+		{ "color", COLOR },
+		{ "activityColor", COLOR },
+		{ "hotkeyColor", COLOR },
+		{ "visible", BOOLEAN },
+		{ "zIndex", FLOAT } } },
 	{ "helpsystem", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },

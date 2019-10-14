@@ -18,8 +18,7 @@
 #include "ThemeData.h"
 #include <mutex>
 #include "components/AsyncNotificationComponent.h"
-
-#define PLAYER_PAD_TIME_MS 200
+#include "components/ControllerActivityComponent.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
@@ -32,12 +31,6 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
 
 	mSplash = nullptr;
-
-	// pads // batocera
-	for(int i=0; i<MAX_PLAYERS; i++)
-		mplayerPads[i] = 0;
-	
-	mplayerPadsIsHotkey = false;
 }
 
 Window::~Window()
@@ -180,6 +173,9 @@ bool Window::init()
 		mClock->setColor(0x777777FF);
 	}
 
+	if (mControllerActivity == nullptr)
+		mControllerActivity = std::make_shared<ControllerActivityComponent>(this);
+
 	// update our help because font sizes probably changed
 	if (peekGui())
 		peekGui()->updateHelpPrompts();
@@ -279,20 +275,11 @@ void Window::input(InputConfig* config, Input input)
 	}
 	else
 	{
-		// show the pad button
-		if (config->getDeviceIndex() != -1 && (input.type == TYPE_BUTTON || input.type == TYPE_HAT))
-		{
-			int idx = config->getDeviceIndex(); 
-			if (idx >= 0 && idx < MAX_PLAYERS)
-				mplayerPads[idx] = PLAYER_PAD_TIME_MS;
-
-			mplayerPadsIsHotkey = config->isMappedTo("hotkey", input);
-		}
+		if (mControllerActivity != nullptr)
+			mControllerActivity->input(config, input);
 
 		if (peekGui())
-		{
-			this->peekGui()->input(config, input); // this is where the majority of inputs will be consumed: the GuiComponent Stack
-		}
+			peekGui()->input(config, input); // this is where the majority of inputs will be consumed: the GuiComponent Stack
 	}
 }
 
@@ -421,16 +408,6 @@ void Window::update(int deltaTime)
 			mClockElapsed = 1000; // next update in 1000ms
 		}
 	}
-	
-	// hide pads // batocera
-	for (int i = 0; i < MAX_PLAYERS; i++) {
-		if (mplayerPads[i] > 0) {
-			mplayerPads[i] -= deltaTime;
-			if (mplayerPads[i] < 0) {
-				mplayerPads[i] = 0;
-			}
-		}
-	}
 
 	mTimeSinceLastInput += deltaTime;
 
@@ -443,6 +420,10 @@ void Window::update(int deltaTime)
 	// Update the screensaver
 	if (mScreenSaver)
 		mScreenSaver->update(deltaTime);
+
+	// update pads // batocera
+	if (mControllerActivity)
+		mControllerActivity->update(deltaTime);
 }
 
 void Window::render()
@@ -500,43 +481,12 @@ void Window::render()
 
         // clock // batocera
 	if (Settings::getInstance()->getBool("DrawClock") && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
-	{
 		mClock->render(transform);
-	//	Renderer::setMatrix(Transform4x4f::Identity());
-		/*
-		if (mClockFont == nullptr)
-			mClockFont = mDefaultFonts.at(0);
+	
+	if (Settings::getInstance()->getBool("ShowControllerActivity") && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+		mControllerActivity->render(transform);
 
-		mClockFont->renderTextCache(mClockText.get());*/
-	}
-
-	// pads // batocera
 	Renderer::setMatrix(Transform4x4f::Identity());
-
-	if (Settings::getInstance()->getBool("ShowControllerActivity"))
-	{
-		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
-		for (int player = 0; player < MAX_PLAYERS; player++) 
-		{
-			unsigned int padcolor = 0xFFFFFF99;
-
-#ifndef _DEBUG
-			if (playerJoysticks.count(player) != 1)
-				continue;
-
-			int idx = playerJoysticks[player];
-			if (idx < 0 || idx >= MAX_PLAYERS)
-				continue;
-
-			if (mplayerPads[idx] > 0)
-				padcolor = mplayerPadsIsHotkey ? 0x0000FF66 : 0xFF000066;
-#endif
-
-			float sz = Renderer::getScreenHeight() / 100.0f;
-
-			Renderer::drawRect((player*(sz + 4)) + 2, Renderer::getScreenHeight() - sz - 2, sz, sz, padcolor);			
-		}
-	}
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
@@ -547,7 +497,6 @@ void Window::render()
 
 	renderRegisteredNotificationComponents(transform);
 	
-
 	// Always call the screensaver render function regardless of whether the screensaver is active
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
@@ -872,5 +821,10 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		mClock->setSize(Renderer::getScreenWidth()*0.05, 0);
 
 		mClock->applyTheme(theme, "screen", "clock", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
+	}
+
+	if (mControllerActivity)
+	{
+		mControllerActivity->applyTheme(theme, "screen", "controllerActivity", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
 	}
 }
