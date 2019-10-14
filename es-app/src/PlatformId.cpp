@@ -73,6 +73,7 @@ namespace PlatformIds
 		"trs-80",
 		"coco",
 		"odyssey2",
+		"supergrafx",
 
 		"ignore", // do not allow scraping for this system
 		"invalid"
