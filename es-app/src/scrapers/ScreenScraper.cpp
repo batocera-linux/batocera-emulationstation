@@ -10,6 +10,8 @@
 #include <pugixml/src/pugixml.hpp>
 #include <cstring>
 #include "SystemConf.h"
+#include "md5.h"
+#include <thread>
 
 using namespace PlatformIds;
 
@@ -90,8 +92,40 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, 104 },
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
-	{ TANDY, 144 },
-	{ ODYSSEY2, 104 }
+	{ TANDY, 144 },	
+	{ SUPERGRAFX, 105 },
+	
+	{ AMIGACD32, 130 },
+	{ AMIGACDTV, 129 },
+	{ ATOMISWAVE, 53 },
+	{ CAVESTORY, 135 },
+	{ GX4000, 87 },
+	{ LUTRO, 206 },
+	{ NAOMI, 56 },
+	{ NEOGEO_CD, 142 },
+	{ PCFX, 72 },
+	{ POKEMINI, 211 },
+	{ PRBOOM, 135 },
+	{ SATELLAVIEW, 107 },
+	{ SUFAMITURBO, 108 },
+	{ ZX81, 77 },
+	{ MOONLIGHT, 138 }, // "PC Windows"
+
+	// Windows
+	{ VISUALPINBALL, 198 },
+	{ FUTUREPINBALL, 199 },
+
+	// Misc
+	{ ORICATMOS, 131 },
+	{ CHANNELF, 80 },
+	{ THOMSON_TO_MO, 141 },
+	{ SAMCOUPE, 213 },
+	{ OPENBOR, 214 },
+	{ UZEBOX, 216 },
+	{ APPLE2GS, 217 },
+	{ SPECTRAVIDEO, 218 },
+	{ PALMOS, 219 },
+	{ DAPHNEE, 49 }
 };
 
 
@@ -147,6 +181,34 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 		//path += "&romtype=jeu";
 	}
 
+	// Use md5 to search scrapped game if <= 16 Mo
+	int length = Utils::FileSystem::getFileSize(params.game->getFullPath());
+	if (length <= 16384 * 1024)
+	{
+		std::ifstream inBigArrayfile;
+		inBigArrayfile.open(params.game->getFullPath(), std::ios::binary | std::ios::in);
+		if (inBigArrayfile.is_open())
+		{
+			try
+			{
+				char* InFileData = new char[length];
+				if (InFileData)
+				{
+					inBigArrayfile.read(InFileData, length);
+
+					MD5 md5 = MD5(InFileData, length);
+					std::string Temp = md5.hexdigest();
+					path += "&md5=" + md5.hexdigest();
+
+					delete[] InFileData;
+				}
+			}
+			catch (std::bad_alloc& ex) { }
+
+			inBigArrayfile.close();
+		}
+	}
+
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
@@ -178,7 +240,8 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 	}
 }
 
-void ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
+// Process should return false only when we reached a maximum scrap by minute, to retry
+bool ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
 {
 	assert(req->status() == HttpReq::REQ_SUCCESS);
 
@@ -194,11 +257,15 @@ void ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vec
 		std::string err = ss.str();
 		//setError(err); Don't consider it an error -> Request is a success. Simply : Game is not found		
 		LOG(LogWarning) << err;
-
-		return;
+				
+		if (Utils::String::toLower(content).find("maximum threads per minute reached") != std::string::npos)
+			return false;
+		
+		return true;
 	}
 
 	processGame(doc, results);
+	return true;
 }
 
 pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region)

@@ -55,6 +55,8 @@ public:
 
 	int getPercent() { return mPercent; }
 
+	std::string getUrl() { return mUrl; }
+
 private:
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
 	//static int update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow);
@@ -75,6 +77,7 @@ private:
 	std::ofstream mStream;
 
 	std::string mErrorMsg;
+	std::string mUrl;
 
 	int mPercent;
 };

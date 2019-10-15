@@ -96,8 +96,24 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, "4927" },
 	{ VECTREX, "4939" },
 	{ TRS80_COLOR_COMPUTER, "4941" },
-	{ TANDY, "4941" },
-	{ ODYSSEY2, "4927" }
+	{ TANDY, "4941" },	
+	{ SUPERGRAFX, "34" }, // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
+
+	{ AMIGACD32, "4947" },
+	// { AMIGACDTV, ?? },
+	// { ATOMISWAVE, ?? },
+	{ CAVESTORY, "1" },
+	// { GX4000, ?? },
+	// { LUTRO, ?? },
+	// { NAOMI, ?? },
+	{ NEOGEO_CD, "24" },
+	{ PCFX, "4930" },
+	{ POKEMINI, "4957" },
+	{ PRBOOM, "1" },
+	{ SATELLAVIEW, "6" },
+	{ SUFAMITURBO, "6" },
+//	{ ZX81, ?? },
+	{ MOONLIGHT, "1" }, // "PC"
 };
 
 void thegamesdb_generate_json_scraper_requests(const ScraperSearchParams& params,
@@ -339,7 +355,8 @@ void processGame(const Value& game, const Value& boxart, std::vector<ScraperSear
 }
 } // namespace
 
-void TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
+  // Process should return false only when we reached a maximum scrap by minute, to retry
+bool TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
 {
 	assert(req->status() == HttpReq::REQ_SUCCESS);
 
@@ -352,14 +369,14 @@ void TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::ve
 			std::string("TheGamesDBJSONRequest - Error parsing JSON. \n\t") + GetParseError_En(doc.GetParseError());
 		setError(err);
 		LOG(LogError) << err;
-		return;
+		return true;
 	}
 
 	if (!doc.HasMember("data") || !doc["data"].HasMember("games") || !doc["data"]["games"].IsArray())
 	{
 		std::string warn = "TheGamesDBJSONRequest - Response had no game data.\n";
 		LOG(LogWarning) << warn;
-		return;
+		return true;
 	}
 	const Value& games = doc["data"]["games"];
 
@@ -367,7 +384,7 @@ void TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::ve
 	{
 		std::string warn = "TheGamesDBJSONRequest - Response had no include boxart data.\n";
 		LOG(LogWarning) << warn;
-		return;
+		return true;
 	}
 
 	const Value& boxart = doc["include"]["boxart"];
@@ -376,12 +393,11 @@ void TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::ve
 	{
 		std::string warn = "TheGamesDBJSONRequest - Response include had no usable boxart data.\n";
 		LOG(LogWarning) << warn;
-		return;
+		return true;
 	}
 
 	resources.ensureResources();
-
-
+	
 	for (int i = 0; i < (int)games.Size(); ++i)
 	{
 		auto& v = games[i];
@@ -394,4 +410,6 @@ void TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::ve
 			LOG(LogError) << "Error while processing game: " << e.what();
 		}
 	}
+
+	return true;
 }

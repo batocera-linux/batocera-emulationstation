@@ -672,6 +672,17 @@ namespace Utils
 
 		bool exists(const std::string& _path)
 		{
+			if (_path.empty())
+				return false;
+
+#ifdef WIN32
+			DWORD dwAttr = GetFileAttributes(_path.c_str());
+			if (0xFFFFFFFF == dwAttr)
+				return false;
+
+			return true;
+#endif
+
 			std::string path = getGenericPath(_path);
 			struct stat64 info;
 

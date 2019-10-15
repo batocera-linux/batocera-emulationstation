@@ -70,8 +70,8 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 	else
 		mSourceWidth = (mSourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
 
-	mWidth = (int)mSourceWidth;
-	mHeight = (int)mSourceHeight;
+	mWidth = (size_t)Math::round(mSourceWidth);
+	mHeight = (size_t)Math::round(mSourceHeight);
 
 	if (mWidth == 0)
 	{
@@ -111,8 +111,13 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 
 	unsigned char* dataRGBA = new unsigned char[mWidth * mHeight * 4];
 
+	double scale = ((float)((int)mHeight)) / svgImage->height;
+	double scaleV = ((float)((int)mWidth)) / svgImage->width;
+	if (scaleV < scale)
+		scale = scaleV;
+
 	NSVGrasterizer* rast = nsvgCreateRasterizer();
-	nsvgRasterize(rast, svgImage, 0, 0, mHeight / svgImage->height, dataRGBA, (int)mWidth, (int)mHeight, (int)mWidth * 4);
+	nsvgRasterize(rast, svgImage, 0, 0, scale, dataRGBA, (int)mWidth, (int)mHeight, (int)mWidth * 4);
 	nsvgDeleteRasterizer(rast);
 
 	ImageIO::flipPixelsVert(dataRGBA, mWidth, mHeight);
