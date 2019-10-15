@@ -2,6 +2,8 @@
 #ifndef ES_APP_PLATFORM_ID_H
 #define ES_APP_PLATFORM_ID_H
 
+#include <string>
+
 namespace PlatformIds
 {
 	enum PlatformId : unsigned int
@@ -72,16 +74,46 @@ namespace PlatformIds
 		VIDEOPAC_ODYSSEY2,
 		VECTREX,
 		TRS80_COLOR_COMPUTER,
-		TANDY,
-		ODYSSEY2,
+		TANDY,		
 		SUPERGRAFX,
+		AMIGACD32,
+		AMIGACDTV,
+		ATOMISWAVE,
+		CAVESTORY,
+		GX4000,
+		LUTRO,
+		MOONLIGHT,
+		NAOMI,
+		NEOGEO_CD,
+		PCFX,
+		POKEMINI,
+		PRBOOM,
+		SATELLAVIEW,
+		SUFAMITURBO,
+		ZX81,
+
+		// Windows Specific
+		VISUALPINBALL,
+		FUTUREPINBALL,
+
+		// Misc systems
+		CHANNELF,
+		ORICATMOS,
+		THOMSON_TO_MO,
+		SAMCOUPE,
+		OPENBOR,
+		UZEBOX,
+		APPLE2GS,
+		SPECTRAVIDEO,
+		PALMOS,
+		DAPHNEE,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
 	};
 
-	PlatformId getPlatformId(const char* str);
-	const char* getPlatformName(PlatformId id);
+	PlatformId		getPlatformId(const char* str);
+	std::string		getPlatformName(PlatformId id);
 }
 
 #endif // ES_APP_PLATFORM_ID_H

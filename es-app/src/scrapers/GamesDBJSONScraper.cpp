@@ -96,9 +96,24 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, "4927" },
 	{ VECTREX, "4939" },
 	{ TRS80_COLOR_COMPUTER, "4941" },
-	{ TANDY, "4941" },
-	{ ODYSSEY2, "4927" },
-	{ SUPERGRAFX, "34" } // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
+	{ TANDY, "4941" },	
+	{ SUPERGRAFX, "34" }, // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
+
+	{ AMIGACD32, "4947" },
+	// { AMIGACDTV, ?? },
+	// { ATOMISWAVE, ?? },
+	{ CAVESTORY, "1" },
+	// { GX4000, ?? },
+	// { LUTRO, ?? },
+	// { NAOMI, ?? },
+	{ NEOGEO_CD, "24" },
+	{ PCFX, "4930" },
+	{ POKEMINI, "4957" },
+	{ PRBOOM, "1" },
+	{ SATELLAVIEW, "6" },
+	{ SUFAMITURBO, "6" },
+//	{ ZX81, ?? },
+	{ MOONLIGHT, "1" }, // "PC"
 };
 
 void thegamesdb_generate_json_scraper_requests(const ScraperSearchParams& params,

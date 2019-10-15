@@ -92,9 +92,40 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, 104 },
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
-	{ TANDY, 144 },
-	{ ODYSSEY2, 104 },
-	{ SUPERGRAFX, 105 }
+	{ TANDY, 144 },	
+	{ SUPERGRAFX, 105 },
+	
+	{ AMIGACD32, 130 },
+	{ AMIGACDTV, 129 },
+	{ ATOMISWAVE, 53 },
+	{ CAVESTORY, 135 },
+	{ GX4000, 87 },
+	{ LUTRO, 206 },
+	{ NAOMI, 56 },
+	{ NEOGEO_CD, 142 },
+	{ PCFX, 72 },
+	{ POKEMINI, 211 },
+	{ PRBOOM, 135 },
+	{ SATELLAVIEW, 107 },
+	{ SUFAMITURBO, 108 },
+	{ ZX81, 77 },
+	{ MOONLIGHT, 138 }, // "PC Windows"
+
+	// Windows
+	{ VISUALPINBALL, 198 },
+	{ FUTUREPINBALL, 199 },
+
+	// Misc
+	{ ORICATMOS, 131 },
+	{ CHANNELF, 80 },
+	{ THOMSON_TO_MO, 141 },
+	{ SAMCOUPE, 213 },
+	{ OPENBOR, 214 },
+	{ UZEBOX, 216 },
+	{ APPLE2GS, 217 },
+	{ SPECTRAVIDEO, 218 },
+	{ PALMOS, 219 },
+	{ DAPHNEE, 49 }
 };
 
 
