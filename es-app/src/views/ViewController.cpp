@@ -473,6 +473,9 @@ bool ViewController::input(InputConfig* config, Input input)
 		{
 			mWindow->render();
 			ViewController::get()->reloadAll(mWindow);
+#if WIN32
+			EsLocale::reset();
+#endif
 			mWindow->endRenderLoadingScreen();
 			return true;
 		}

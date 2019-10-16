@@ -1301,7 +1301,7 @@ std::vector<std::string> ThemeData::getViewsOfTheme()
 	std::vector<std::string> ret;
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 	{
-		if (it->first == "menu" || it->first == "system")
+		if (it->first == "menu" || it->first == "system" || it->first == "screen")
 			continue;
 
 		ret.push_back(it->first);

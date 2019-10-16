@@ -1277,6 +1277,79 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	return res;
 }
 
+#if WIN32
+#include <ShlDisp.h>
+#include <comutil.h> // #include for _bstr_t
+#pragma comment(lib, "shell32.lib")
+#pragma comment (lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
+
+void unzipFile(const std::string fileName, const std::string dest)
+{
+	HRESULT          hResult;
+	IShellDispatch *pISD;
+	Folder                *pFromZip = NULL;
+	VARIANT          vDir, vFile, vOpt;
+
+	OleInitialize(NULL);
+	CoInitialize(NULL);
+
+	hResult = CoCreateInstance(CLSID_Shell, NULL, CLSCTX_INPROC_SERVER, IID_IShellDispatch, (void **)&pISD);
+
+	if (SUCCEEDED(hResult))
+	{
+		VariantInit(&vDir);
+		vDir.vt = VT_BSTR;
+
+		int zipDirLen = (lstrlen(fileName.c_str()) + 1) * sizeof(WCHAR);
+		BSTR bstrZip = SysAllocStringByteLen(NULL, zipDirLen);
+		MultiByteToWideChar(CP_ACP, 0, fileName.c_str(), -1, bstrZip, zipDirLen);
+		vDir.bstrVal = bstrZip;
+		
+		hResult = pISD->NameSpace(vDir, &pFromZip);
+
+		if (hResult == S_OK)
+		{
+			if (!Utils::FileSystem::exists(dest))
+				Utils::FileSystem::createDirectory(dest);
+
+			Folder *pToFolder = NULL;
+
+			VariantInit(&vFile);
+			vFile.vt = VT_BSTR;
+
+			int fnLen = (lstrlen(dest.c_str()) + 1) * sizeof(WCHAR);
+			BSTR bstrFolder = SysAllocStringByteLen(NULL, fnLen);
+			MultiByteToWideChar(CP_ACP, 0, dest.c_str(), -1, bstrFolder, fnLen);
+			vFile.bstrVal = bstrFolder;
+
+			hResult = pISD->NameSpace(vFile, &pToFolder);
+			if (hResult == S_OK)
+			{
+				FolderItems *fi = NULL;
+				pFromZip->Items(&fi);
+
+				VariantInit(&vOpt);
+				vOpt.vt = VT_I4;
+				vOpt.lVal = FOF_NO_UI;//4; // Do not display a progress dialog box
+
+				// Creating a new Variant with pointer to FolderItems to be copied
+				VARIANT newV;
+				VariantInit(&newV);
+				newV.vt = VT_DISPATCH;
+				newV.pdispVal = fi;
+				hResult = pToFolder->CopyHere(newV, vOpt);
+
+				pFromZip->Release();
+				pToFolder->Release();
+			}
+		}
+		pISD->Release();
+	}
+	CoUninitialize();
+
+}
+#endif
+
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
 {
 #if WIN32
@@ -1293,36 +1366,64 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 
 			if (func != nullptr)
 				func("Downloading " + thname);
+		
+			long downloadSize = 0;
+
+			std::string statUrl = Utils::String::replace(themeUrl, "https://github.com/", "https://api.github.com/repos/");
+			if (statUrl != themeUrl)
+			{
+				std::shared_ptr<HttpReq> statreq = std::make_shared<HttpReq>(statUrl);
+
+				while (statreq->status() == HttpReq::REQ_IN_PROGRESS)
+					std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+				if (statreq->status() == HttpReq::REQ_SUCCESS)
+				{
+					std::string content = statreq->getContent();
+					auto pos = content.find("\"size\": ");
+					if (pos != std::string::npos)
+					{
+						auto end = content.find(",", pos);
+						if (end != std::string::npos)
+							downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
+					}
+				}
+			}
 
 			std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(themeUrl+"/archive/master.zip");
 
+			int curPos = -1;
 			while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+			{
+				if (downloadSize > 0)
+				{
+					double pos = httpreq->getPosition();
+					if (pos > 0 && curPos != pos)
+					{
+						if (func != nullptr)
+						{
+							std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
+							func(std::string("Downloading " + thname + " >>> " + pc +" %"));
+						}
+
+						curPos = pos;
+					}
+				}
+
 				std::this_thread::sleep_for(std::chrono::milliseconds(20));
+			}
 
 			if (httpreq->status() == HttpReq::REQ_SUCCESS)
 			{
+				if (func != nullptr)
+					func("Extracting " + thname);
+
 				std::string fn = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
+				fn = Utils::String::replace(fn, "/", "\\");
 				httpreq->saveContent(fn);
 
-				std::string zip = "c:\\Program Files\\7-Zip\\7z.exe";
-				if (!Utils::FileSystem::exists(zip))
-					zip = "c:\\Program Files (x86)\\7-Zip\\7z.exe";
-				
-				if (Utils::FileSystem::exists(zip))
-				{
-					std::string batfn = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".bat";
-					std::string cmd = "\"" + zip + "\" x \"" + fn + "\" -o\"" + Utils::FileSystem::getEsConfigPath() + "/themes\"";
-
-					std::fstream fs;
-					fs.open(batfn.c_str(), std::fstream::out);
-					fs << cmd;
-					fs.close();
-
-			//		runSystemCommand(batfn);
-
-					Utils::FileSystem::removeFile(batfn);
-				}
-
+				unzipFile(fn, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
+								
 				Utils::FileSystem::removeFile(fn);
 
 				return std::pair<std::string, int>(std::string("OK"), 0);
