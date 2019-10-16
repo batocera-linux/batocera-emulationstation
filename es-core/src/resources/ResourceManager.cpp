@@ -1,6 +1,7 @@
 #include "ResourceManager.h"
 
 #include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
 #include <fstream>
 
 auto array_deleter = [](unsigned char* p) { delete[] p; };
@@ -30,6 +31,27 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 	std::string test = Utils::FileSystem::getEsConfigPath() + "/resources/" + &path[2];
 	if(Utils::FileSystem::exists(test))
 		return test;
+
+	
+#if WIN32 && _DEBUG
+	// Windows DEBUG -> Avoid resource & locale copy -> Look in project directories
+	
+	test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/resources/" + &path[2];
+	if (Utils::FileSystem::exists(test))
+		return test;
+
+	if (path.find(":/locale/") != std::string::npos)
+	{
+		test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/" + &path[2];
+		if (Utils::FileSystem::exists(test))
+			return test;
+
+		test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/" + Utils::String::replace(path, ":/locale/", "locale/lang/");
+		if (Utils::FileSystem::exists(test))
+			return test;
+	}
+
+#endif
 
 	// check in exepath
 	test = Utils::FileSystem::getSharedConfigPath() + "/resources/" + &path[2];

@@ -34,6 +34,8 @@ public:
 
 	static const std::string getLanguage() { return mCurrentLanguage; }
 
+	static const void reset() { mCurrentLanguageLoaded = false; }
+
 private:
 	static void checkLocalisationLoaded();
 	static std::map<std::string, std::string> mItems;

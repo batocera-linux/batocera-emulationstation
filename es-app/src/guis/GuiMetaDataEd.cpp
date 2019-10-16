@@ -132,13 +132,13 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				bool multiLine = iter->type == MD_MULTILINE_STRING;
 				const std::string title = iter->displayPrompt;
 				auto updateVal = [ed](const std::string& newVal) { ed->setValue(newVal); }; // ok callback (apply new value to ed)
-				row.makeAcceptInputHandler([this, title, ed, updateVal, multiLine] {
+				row.makeAcceptInputHandler([this, title, ed, updateVal, multiLine] 
+				{
 				    // batocera
-				    if (Settings::getInstance()->getBool("UseOSK")) {
-				      mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, ed->getValue(), updateVal, multiLine));
-				    } else {
-				      mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));
-				    }
+					if (!multiLine && Settings::getInstance()->getBool("UseOSK"))
+						mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, ed->getValue(), updateVal, multiLine));
+				    else
+						mWindow->pushGui(new GuiTextEditPopup(mWindow, title, ed->getValue(), updateVal, multiLine));				    
 				});
 				break;
 			}

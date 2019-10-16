@@ -96,6 +96,7 @@ HttpReq::HttpReq(const std::string& url)
 {
 	mUrl = url;
 
+	mPosition = -1;
 	mPercent = -1;
 	mHandle = curl_easy_init();
 
@@ -154,6 +155,15 @@ HttpReq::HttpReq(const std::string& url)
 	//give curl a pointer to this HttpReq so we know where to write the data *to* in our write function
 	err = curl_easy_setopt(mHandle, CURLOPT_WRITEDATA, this);
 	if(err != CURLE_OK)
+	{
+		mStatus = REQ_IO_ERROR;
+		onError(curl_easy_strerror(err));
+		return;
+	}
+
+	// Set fake user agent
+	err = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT x.y; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0");
+	if (err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;
 		onError(curl_easy_strerror(err));
@@ -355,13 +365,13 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	double cl;
 	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
 	{		
+		double position = (double)ss.tellp();
+		request->mPosition = position;
+
 		if (cl <= 0)
 			request->mPercent = -1;
 		else
-		{
-			double position = (double)ss.tellp();
 			request->mPercent = (int) (position * 100.0 / cl);
-		}
 	}
 
 	return nmemb;

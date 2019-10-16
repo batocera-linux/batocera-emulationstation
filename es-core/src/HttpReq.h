@@ -54,6 +54,7 @@ public:
 	static bool isUrl(const std::string& s);
 
 	int getPercent() { return mPercent; }
+	int getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
 
@@ -80,6 +81,7 @@ private:
 	std::string mUrl;
 
 	int mPercent;
+	double mPosition;
 };
 
 #endif // ES_CORE_HTTP_REQ_H

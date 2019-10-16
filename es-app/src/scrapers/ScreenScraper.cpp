@@ -174,41 +174,47 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 	{
 		path = ssConfig.getGameSearchUrl(params.game->getFileName());
 		path += "&romtype=rom";
-	}
-	else
-	{
-		path = ssConfig.getGameSearchUrl(params.nameOverride, true);
-		//path += "&romtype=jeu";
-	}
 
-	// Use md5 to search scrapped game if <= 16 Mo
-	int length = Utils::FileSystem::getFileSize(params.game->getFullPath());
-	if (length <= 16384 * 1024)
-	{
-		std::ifstream inBigArrayfile;
-		inBigArrayfile.open(params.game->getFullPath(), std::ios::binary | std::ios::in);
-		if (inBigArrayfile.is_open())
+		// Use md5 to search scrapped game
+		int length = Utils::FileSystem::getFileSize(params.game->getFullPath());
+		if (length <= 131072 * 1024) // 128 Mb max
 		{
 			try
 			{
-				char* InFileData = new char[length];
-				if (InFileData)
+				// 64 Kb blocks
+				#define MD5BUFFERSIZE 64 * 1024
+
+				char* buffer = new char[MD5BUFFERSIZE];
+				if (buffer)
 				{
-					inBigArrayfile.read(InFileData, length);
+					size_t size;
 
-					MD5 md5 = MD5(InFileData, length);
-					std::string Temp = md5.hexdigest();
-					path += "&md5=" + md5.hexdigest();
+					FILE* file = fopen(params.game->getFullPath().c_str(), "rb");
+					if (file)
+					{
+						MD5 md5 = MD5();
 
-					delete[] InFileData;
+						while (size = fread(buffer, 1, MD5BUFFERSIZE, file))
+							md5.update(buffer, size);
+
+						md5.finalize();
+
+						std::string val = md5.hexdigest();
+						if (!val.empty())
+							path += "&md5=" + val;
+
+						fclose(file);
+					}
+
+					delete buffer;
 				}
 			}
-			catch (std::bad_alloc& ex) { }
-
-			inBigArrayfile.close();
+			catch (std::bad_alloc& ex) {}
 		}
 	}
-
+	else
+		path = ssConfig.getGameSearchUrl(params.nameOverride, true);
+	
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
