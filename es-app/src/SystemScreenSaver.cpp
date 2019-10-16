@@ -796,24 +796,24 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 		return;
 #endif
 
-	if (Settings::getInstance()->getString("ScreenSaverGameInfo") == "never")
-		return;
+	if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never")
+	{
+		if (mMarquee && mFade != 0)
+		{
+			mMarquee->setOpacity(mOpacity * mFade);
+			mMarquee->render(transform);
+		}
+		else if (mLabelGame && mFade != 0)
+		{
+			mLabelGame->setOpacity(mOpacity * mFade);
+			mLabelGame->render(transform);
+		}
 
-	if (mMarquee && mFade != 0)
-	{
-		mMarquee->setOpacity(mOpacity * mFade);
-		mMarquee->render(transform);
-	}
-	else if (mLabelGame && mFade != 0)
-	{
-		mLabelGame->setOpacity(mOpacity * mFade);
-		mLabelGame->render(transform);
-	}
-
-	if (mLabelSystem && mFade != 0)
-	{
-		mLabelSystem->setOpacity(mOpacity * mFade);
-		mLabelSystem->render(transform);
+		if (mLabelSystem && mFade != 0)
+		{
+			mLabelSystem->setOpacity(mOpacity * mFade);
+			mLabelSystem->render(transform);
+		}
 	}
 	
 	if (mDecoration)
