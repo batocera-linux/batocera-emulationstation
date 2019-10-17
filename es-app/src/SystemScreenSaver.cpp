@@ -344,6 +344,7 @@ std::string SystemScreenSaver::pickRandomVideo()
 	if (mVideoCount == 0)
 		return "";
 	
+	rand();
 	int video = (int)(((float)rand() / float(RAND_MAX)) * (float)mVideoCount);
 	return pickGameListNode(video, "video");
 }
@@ -355,6 +356,7 @@ std::string SystemScreenSaver::pickRandomGameListImage()
 	if (mImageCount == 0)
 		return "";
 	
+	rand();
 	int image = (int)(((float)rand() / float(RAND_MAX)) * (float)mImageCount);
 	return pickGameListNode(image, "image");
 }
@@ -549,13 +551,27 @@ void GameScreenSaverBase::setGame(FileData* game)
 
 	mViewport = Renderer::Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
+	std::string decos = Settings::getInstance()->getString("ScreenSaverDecorations");
+
 #ifdef _RPI_
 	if (!Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
 #endif
-	if (Settings::getInstance()->getBool("ScreenSaverDecoration"))
+	if (decos != "none")
 	{
 		auto sets = GuiMenu::getDecorationsSets(game->getSystem());
 		int setId = (int)(((float)rand() / float(RAND_MAX)) * (float)sets.size());
+
+		if (decos == "systems")
+		{
+			for (int i = 0; i < sets.size(); i++)
+			{
+				if (sets[i].name == "default")
+				{
+					setId = i;
+					break;
+				}
+			}
+		}
 
 		if (setId >= 0 && setId < sets.size() && Utils::FileSystem::exists(sets[setId].imageUrl))
 		{
@@ -658,6 +674,7 @@ void GameScreenSaverBase::render(const Transform4x4f& transform)
 		mLabelGame->render(transform);
 	}
 
+	if (mDecoration == nullptr || Settings::getInstance()->getString("ScreenSaverDecorations") != "systems")
 	if (mLabelSystem)
 	{
 		mLabelSystem->setOpacity(mOpacity);
@@ -809,6 +826,7 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 			mLabelGame->render(transform);
 		}
 
+		if (mDecoration == nullptr || Settings::getInstance()->getString("ScreenSaverDecorations") != "systems")
 		if (mLabelSystem && mFade != 0)
 		{
 			mLabelSystem->setOpacity(mOpacity * mFade);

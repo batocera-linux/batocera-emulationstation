@@ -139,7 +139,7 @@ void Settings::setDefaults()
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;	
-	mBoolMap["ScreenSaverDecoration"] = false;
+	mStringMap["ScreenSaverDecorations"] = "systems";
 	
 
 	// This setting only applies to raspberry pi but set it for all platforms so
