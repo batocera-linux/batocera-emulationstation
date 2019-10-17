@@ -1222,29 +1222,31 @@ void GuiMenu::openControllersSettings_batocera()
 		// Populate controllers list
 		s->addWithLabel(strbuf, inputOptionList);
 	}
-	s->addSaveFunc([this, options, window] {
-		for (int player = 0; player < MAX_PLAYERS; player++) {
+	s->addSaveFunc([this, options, window] 
+	{
+		for (int player = 0; player < MAX_PLAYERS; player++) 
+		{
 			std::stringstream sstm;
 			sstm << "INPUT P" << player + 1;
 			std::string confName = sstm.str() + "NAME";
 			std::string confGuid = sstm.str() + "GUID";
 
-			auto input_p1 = options.at(player);
-			std::string selectedName = input_p1->getSelectedName();
+			auto input = options.at(player);
 
-			if (selectedName.compare("default") == 0) {
+			StrInputConfig* selected = input->getSelected();
+			if (selected == nullptr)
+			{
 				Settings::getInstance()->setString(confName, "DEFAULT");
 				Settings::getInstance()->setString(confGuid, "");
 			}
-			else {
-				if (input_p1->changed()) {
-					LOG(LogWarning) << "Found the selected controller ! : name in list  = " << selectedName;
-					LOG(LogWarning) << "Found the selected controller ! : guid  = " << input_p1->getSelected()->deviceGUIDString;
+			else if (input->changed())
+			{
+				LOG(LogWarning) << "Found the selected controller ! : name in list  = " << input->getSelectedName();
+				LOG(LogWarning) << "Found the selected controller ! : guid  = " << selected->deviceGUIDString;
 
-					Settings::getInstance()->setString(confName, input_p1->getSelected()->deviceName);
-					Settings::getInstance()->setString(confGuid, input_p1->getSelected()->deviceGUIDString);
-				}
-			}
+				Settings::getInstance()->setString(confName, selected->deviceName);
+				Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
+			}			
 		}
 
 		Settings::getInstance()->saveFile();
