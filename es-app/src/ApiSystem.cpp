@@ -1283,11 +1283,13 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 #pragma comment(lib, "shell32.lib")
 #pragma comment (lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
 
-void unzipFile(const std::string fileName, const std::string dest)
+bool unzipFile(const std::string fileName, const std::string dest)
 {
+	bool	ret = false;
+
 	HRESULT          hResult;
-	IShellDispatch *pISD;
-	Folder                *pFromZip = NULL;
+	IShellDispatch*	 pISD;
+	Folder*			 pFromZip = nullptr;
 	VARIANT          vDir, vFile, vOpt;
 
 	OleInitialize(NULL);
@@ -1307,7 +1309,7 @@ void unzipFile(const std::string fileName, const std::string dest)
 		
 		hResult = pISD->NameSpace(vDir, &pFromZip);
 
-		if (hResult == S_OK)
+		if (hResult == S_OK && pFromZip != nullptr)
 		{
 			if (!Utils::FileSystem::exists(dest))
 				Utils::FileSystem::createDirectory(dest);
@@ -1323,21 +1325,22 @@ void unzipFile(const std::string fileName, const std::string dest)
 			vFile.bstrVal = bstrFolder;
 
 			hResult = pISD->NameSpace(vFile, &pToFolder);
-			if (hResult == S_OK)
+			if (hResult == S_OK && pToFolder)
 			{
 				FolderItems *fi = NULL;
 				pFromZip->Items(&fi);
 
 				VariantInit(&vOpt);
 				vOpt.vt = VT_I4;
-				vOpt.lVal = FOF_NO_UI;//4; // Do not display a progress dialog box
+				vOpt.lVal = FOF_NO_UI; //4; // Do not display a progress dialog box
 
-				// Creating a new Variant with pointer to FolderItems to be copied
 				VARIANT newV;
 				VariantInit(&newV);
 				newV.vt = VT_DISPATCH;
 				newV.pdispVal = fi;
 				hResult = pToFolder->CopyHere(newV, vOpt);
+				if (hResult == S_OK)
+					ret = true;
 
 				pFromZip->Release();
 				pToFolder->Release();
@@ -1345,8 +1348,66 @@ void unzipFile(const std::string fileName, const std::string dest)
 		}
 		pISD->Release();
 	}
-	CoUninitialize();
 
+	CoUninitialize();
+	return ret;
+}
+
+std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std::string label, const std::function<void(const std::string)>& func)
+{
+	if (func != nullptr)
+		func("Downloading " + label);
+
+	long downloadSize = 0;
+
+	std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
+	if (statUrl != url)
+	{
+		std::shared_ptr<HttpReq> statreq = std::make_shared<HttpReq>(statUrl);
+
+		while (statreq->status() == HttpReq::REQ_IN_PROGRESS)
+			std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+		if (statreq->status() == HttpReq::REQ_SUCCESS)
+		{
+			std::string content = statreq->getContent();
+			auto pos = content.find("\"size\": ");
+			if (pos != std::string::npos)
+			{
+				auto end = content.find(",", pos);
+				if (end != std::string::npos)
+					downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
+			}
+		}
+	}
+
+	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(url + "/archive/master.zip");
+
+	int curPos = -1;
+	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+	{
+		if (downloadSize > 0)
+		{
+			double pos = httpreq->getPosition();
+			if (pos > 0 && curPos != pos)
+			{
+				if (func != nullptr)
+				{
+					std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
+					func(std::string("Downloading " + label + " >>> " + pc + " %"));
+				}
+
+				curPos = pos;
+			}
+		}
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+	}
+
+	if (httpreq->status() != HttpReq::REQ_SUCCESS)
+		return nullptr;
+
+	return httpreq;
 }
 #endif
 
@@ -1362,69 +1423,26 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		if (parts[1] == thname)
 		{
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
-			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-
-			if (func != nullptr)
-				func("Downloading " + thname);
-		
-			long downloadSize = 0;
-
-			std::string statUrl = Utils::String::replace(themeUrl, "https://github.com/", "https://api.github.com/repos/");
-			if (statUrl != themeUrl)
-			{
-				std::shared_ptr<HttpReq> statreq = std::make_shared<HttpReq>(statUrl);
-
-				while (statreq->status() == HttpReq::REQ_IN_PROGRESS)
-					std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-				if (statreq->status() == HttpReq::REQ_SUCCESS)
-				{
-					std::string content = statreq->getContent();
-					auto pos = content.find("\"size\": ");
-					if (pos != std::string::npos)
-					{
-						auto end = content.find(",", pos);
-						if (end != std::string::npos)
-							downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
-					}
-				}
-			}
-
-			std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(themeUrl+"/archive/master.zip");
-
-			int curPos = -1;
-			while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-			{
-				if (downloadSize > 0)
-				{
-					double pos = httpreq->getPosition();
-					if (pos > 0 && curPos != pos)
-					{
-						if (func != nullptr)
-						{
-							std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
-							func(std::string("Downloading " + thname + " >>> " + pc +" %"));
-						}
-
-						curPos = pos;
-					}
-				}
-
-				std::this_thread::sleep_for(std::chrono::milliseconds(20));
-			}
-
-			if (httpreq->status() == HttpReq::REQ_SUCCESS)
+			
+			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, thname, func);
+			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
 			{
 				if (func != nullptr)
 					func("Extracting " + thname);
 
-				std::string fn = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
-				fn = Utils::String::replace(fn, "/", "\\");
-				httpreq->saveContent(fn);
+				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
+				zipFile = Utils::String::replace(zipFile, "/", "\\");
+				httpreq->saveContent(zipFile);
 
-				unzipFile(fn, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
-								
-				Utils::FileSystem::removeFile(fn);
+				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
+
+				std::string folderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + "-master";
+				std::string finalfolderName = Utils::String::replace(folderName, "-master", "");
+
+				rename(folderName.c_str(), finalfolderName.c_str());
+
+				Utils::FileSystem::removeFile(zipFile);
 
 				return std::pair<std::string, int>(std::string("OK"), 0);
 			}
@@ -1435,10 +1453,6 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 
 	return std::pair<std::string, int>(std::string(""), 1);
 #endif
-
-
-
-
 
 	LOG(LogDebug) << "ApiSystem::installBatoceraTheme";
 
@@ -1491,8 +1505,6 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	return res;
 #endif
 
-
-
 	std::ostringstream oss;
 	oss << "batocera-es-thebezelproject list";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -1516,6 +1528,43 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
+
+#if WIN32
+	for (auto bezel : getBatoceraBezelsList())
+	{
+		auto parts = Utils::String::splitAny(bezel, " \t");
+		if (parts.size() < 2)
+			continue;
+
+		if (parts[1] == bezelsystem)
+		{
+			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+
+			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, bezelsystem, func);
+			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
+			{
+				/*
+				if (func != nullptr)
+					func("Extracting " + bezelsystem);
+								
+				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+				zipFile = Utils::String::replace(zipFile, "/", "\\");
+				httpreq->saveContent(zipFile);
+
+				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
+
+				Utils::FileSystem::removeFile(zipFile);
+				*/
+				return std::pair<std::string, int>(std::string("OK"), 0);
+			}
+
+			break;
+		}
+	}
+
+	return std::pair<std::string, int>(std::string(""), 1);
+#endif
 
 	std::string updatecommand = std::string("batocera-es-thebezelproject install ") + bezelsystem;
 	LOG(LogWarning) << "Installing bezels for " << bezelsystem;

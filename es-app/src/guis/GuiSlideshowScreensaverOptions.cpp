@@ -2,6 +2,7 @@
 
 #include "components/SliderComponent.h"
 #include "components/SwitchComponent.h"
+#include "components/OptionListComponent.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "utils/StringUtil.h"
@@ -36,10 +37,23 @@ GuiSlideshowScreensaverOptions::GuiSlideshowScreensaverOptions(Window* window, c
 	addWithLabel(row, _("USE MARQUEE AS GAME INFO"), marquee_screensaver);
 	addSaveFunc([marquee_screensaver] { Settings::getInstance()->setBool("ScreenSaverMarquee", marquee_screensaver->getState()); });
 
-	auto decoration_screensaver = std::make_shared<SwitchComponent>(mWindow);
-	decoration_screensaver->setState(Settings::getInstance()->getBool("ScreenSaverDecoration"));
-	addWithLabel(row, _("USE RANDOM DECORATION"), decoration_screensaver);
-	addSaveFunc([decoration_screensaver] { Settings::getInstance()->setBool("ScreenSaverDecoration", decoration_screensaver->getState()); });
+	std::vector<std::string> decorationType;
+	decorationType.push_back("none");
+	decorationType.push_back("systems");
+	decorationType.push_back("random");
+
+	auto decoration_screensaver = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DECORATIONS"), false);
+	for (auto it = decorationType.cbegin(); it != decorationType.cend(); it++)
+		decoration_screensaver->add(_(it->c_str()), *it, Settings::getInstance()->getString("ScreenSaverDecorations") == *it);
+
+	if (decoration_screensaver->getSelectedName().empty())
+		decoration_screensaver->selectFirstItem();
+
+	addWithLabel(row, _("DECORATIONS"), decoration_screensaver);
+	addSaveFunc([decoration_screensaver]
+	{
+		Settings::getInstance()->setString("ScreenSaverDecorations", decoration_screensaver->getSelected());
+	});
 
 	// stretch
 	auto sss_stretch = std::make_shared<SwitchComponent>(mWindow);
