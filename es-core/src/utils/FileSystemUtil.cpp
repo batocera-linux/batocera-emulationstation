@@ -540,7 +540,7 @@ namespace Utils
 
 			// replace '~' with homePath
 			if(_allowHome && (path[0] == '~') && (path[1] == '/'))
-				return (getHomePath() + &(path[1]));
+				return (getGenericPath(getHomePath()) + &(path[1]));
 
 			// nothing to resolve
 			return path;
