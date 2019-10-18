@@ -105,6 +105,8 @@ public:
     std::pair<std::string,int> installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
     std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
 
+	std::string getCRC32(const std::string fileName, bool fromZipContents = true);
+
 private:
     static ApiSystem *instance;
 
