@@ -370,7 +370,8 @@ void SystemView::update(int deltaTime)
 
 void SystemView::onCursorChanged(const CursorState& /*state*/)
 {
-	AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
+	if (AudioManager::isInitialized())
+		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
 
 	// update help style
 	updateHelpPrompts();

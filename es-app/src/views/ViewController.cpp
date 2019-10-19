@@ -169,7 +169,8 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	if (mCurrentView)
 		mCurrentView->onShow();	
 
-	AudioManager::getInstance()->changePlaylist(system->getTheme());
+	if (AudioManager::isInitialized())
+		AudioManager::getInstance()->changePlaylist(system->getTheme());
 
 	playViewTransition(forceImmediate);
 }
