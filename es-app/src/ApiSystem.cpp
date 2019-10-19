@@ -1615,3 +1615,42 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 	int exitCode = pclose(pipe);
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
+
+std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
+{
+	std::string cmd = "7zr h \"" + fileName + "\"";
+	
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
+		cmd = "7zr l -slt \"" + fileName + "\"";
+
+#if WIN32
+	// Windows : use x86 7za to test. x64 version fails ( cuz our process is x86 )
+	cmd = Utils::String::replace(cmd, "7zr ", "C:\\src\\7za.exe ");
+#endif
+
+	std::string fn = Utils::FileSystem::getFileName(fileName);
+
+	FILE *pipe = popen(cmd.c_str(), "r");
+	if (pipe == NULL)
+		return false;
+
+	std::string crc;
+
+	char line[1024];
+	while (fgets(line, 1024, pipe)) 
+	{
+		strtok(line, "\n");
+		std::string all = line;
+
+		int idx = all.find("CRC = ");
+		if (idx != std::string::npos)
+			crc = all.substr(idx + 6);
+		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
+			crc = all.substr(0, 8);
+	}
+	
+	pclose(pipe);
+
+	return crc;
+}

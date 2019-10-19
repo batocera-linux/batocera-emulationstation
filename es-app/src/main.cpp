@@ -500,7 +500,12 @@ int main(int argc, char* argv[])
 	if (fd != NULL) { fclose(fd); }
 
 	// batocera, play music
-//	AudioManager::getInstance()->playRandomMusic();
+	AudioManager::getInstance()->init();
+
+	if (ViewController::get()->getState().getSystem() != nullptr)
+		AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
+	else
+		AudioManager::getInstance()->playRandomMusic();
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
