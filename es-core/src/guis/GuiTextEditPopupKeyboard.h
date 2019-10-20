@@ -5,6 +5,7 @@
 #include "components/ComponentGrid.h"
 #include "components/TextEditComponent.h"
 #include "components/TextComponent.h"
+#include <functional>
 
 class GuiTextEditPopupKeyboard : public GuiComponent
 {
@@ -42,6 +43,8 @@ private:
 	std::shared_ptr<ComponentGrid> mKeyboardGrid;
 	std::shared_ptr<ComponentGrid> mButtons;
 	
+	std::function<void(const std::string&)> mOkCallback;
+
 	bool mMultiLine;
 	bool mShift = false;	
 };
