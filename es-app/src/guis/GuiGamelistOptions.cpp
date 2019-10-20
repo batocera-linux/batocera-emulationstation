@@ -242,7 +242,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	// batocera
 	if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
-		mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] { GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getPath()), file->getSourceFileData()->getSystem(), ""); });
+		mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] { 	
+		GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getFileName()), file->getConfigurationName(), file->getSourceFileData()->getSystem(), "");
+	});
 	/*
 	// Game List Update
 	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
