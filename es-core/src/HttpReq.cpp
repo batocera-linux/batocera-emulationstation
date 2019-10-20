@@ -307,7 +307,17 @@ HttpReq::Status HttpReq::status()
 
 				if(msg->data.result == CURLE_OK)
 				{
-					req->mStatus = REQ_SUCCESS;
+					int http_status_code;
+					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);
+
+					if (http_status_code < 200 || http_status_code > 299)
+					{
+						req->mStatus = REQ_IO_ERROR;
+						std::string err = "HTTP status " + std::to_string(http_status_code);
+						req->onError(err.c_str());
+					}
+					else
+						req->mStatus = REQ_SUCCESS;
 				}
 				else
 				{
