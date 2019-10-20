@@ -1633,7 +1633,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 
 	FILE *pipe = popen(cmd.c_str(), "r");
 	if (pipe == NULL)
-		return false;
+		return "";
 
 	std::string crc;
 
