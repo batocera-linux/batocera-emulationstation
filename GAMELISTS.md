@@ -54,7 +54,6 @@ Some metadata is also marked as "statistic" - these are kept track of by ES and 
 * `players` - integer, the number of players the game supports.
 * `playcount` - statistic, integer, the number of times this game has been played.
 * `lastplayed` - statistic, datetime, the last date and time this game was played.
-* `sortname` - string, used in sorting the gamelist in a system, instead of `name`.
 
 
 #### `<folder>`
