@@ -418,18 +418,18 @@ std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolde
 
 bool ThemeData::isFirstSubset(const pugi::xml_node& node)
 {
-	const std::string subsetToFind = node.attribute("subset").as_string();
+	const std::string subsetToFind = resolvePlaceholders(node.attribute("subset").as_string());
 	const std::string name = node.attribute("name").as_string();
 
 	pugi::xml_node root = node.parent();
 
 	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
 	{
-		const std::string subsetAttr = node.attribute("subset").as_string();
+		const std::string subsetAttr = resolvePlaceholders(node.attribute("subset").as_string());
 		if (subsetAttr.empty() || subsetAttr != subsetToFind)
 			continue;
 
-		const std::string nameAttr = node.attribute("name").as_string();
+		const std::string nameAttr = resolvePlaceholders(node.attribute("name").as_string());
 		return (nameAttr == name);
 	}
 
@@ -441,8 +441,8 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 	if (!node.attribute("subset"))
 		return true;
 
-	const std::string subsetAttr = node.attribute("subset").as_string();
-	const std::string nameAttr = node.attribute("name").as_string();
+	const std::string subsetAttr = resolvePlaceholders(node.attribute("subset").as_string());
+	const std::string nameAttr = resolvePlaceholders(node.attribute("name").as_string());
 
 	if (!subsetAttr.empty())
 	{
@@ -574,15 +574,14 @@ void ThemeData::parseVariables(const pugi::xml_node& root)
 	ThemeException error;
 	error.setFiles(mPaths);
     
-	pugi::xml_node variables = root.child("variables");
-	if(!variables)
-		return;
+	for (pugi::xml_node variables = root.child("variables"); variables; variables = variables.next_sibling("variables"))
+	{
+		if (!parseFilterAttributes(variables))
+			return;
 
-	if (!parseFilterAttributes(variables))
-		return;
-
-	for(pugi::xml_node_iterator it = variables.begin(); it != variables.end(); ++it)
-		parseVariable(*it);
+		for (pugi::xml_node_iterator it = variables.begin(); it != variables.end(); ++it)
+			parseVariable(*it);
+	}
 }
 
 void ThemeData::parseViewElement(const pugi::xml_node& node)
@@ -751,6 +750,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 	std::string viewKey = node.attribute("name").as_string();
 
 	ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
+	view.displayName = node.attribute("displayName") ? resolvePlaceholders(node.attribute("displayName").as_string()) : viewKey;
 	view.isCustomView = true;
 
 	std::string inherits = node.attribute("inherits").as_string();
@@ -1296,15 +1296,15 @@ void ThemeData::setDefaultTheme(ThemeData* theme)
 	mMenuTheme = nullptr;
 };
 
-std::vector<std::string> ThemeData::getViewsOfTheme()
+std::vector<std::pair<std::string, std::string>> ThemeData::getViewsOfTheme()
 {
-	std::vector<std::string> ret;
+	std::vector<std::pair<std::string, std::string>> ret;
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 	{
 		if (it->first == "menu" || it->first == "system" || it->first == "screen")
 			continue;
 
-		ret.push_back(it->first);
+		ret.push_back(std::pair<std::string, std::string>(it->first, it->second.displayName.empty() ? it->first : it->second.displayName));
 	}
 
 	return ret;

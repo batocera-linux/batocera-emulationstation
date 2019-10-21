@@ -1323,8 +1323,8 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 	{
 		gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
 
-		std::vector<std::string> styles;
-		styles.push_back("automatic");
+		std::vector<std::pair<std::string, std::string>> styles;
+		styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
 	
 		if (system != NULL)
 		{
@@ -1334,8 +1334,8 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		}
 		else
 		{
-			styles.push_back("basic");
-			styles.push_back("detailed");
+			styles.push_back(std::pair<std::string, std::string>("basic", _("basic")));
+			styles.push_back(std::pair<std::string, std::string>("detailed", _("detailed")));
 		}
 
 		auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
@@ -1343,7 +1343,7 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			viewPreference = "automatic";
 
 		for (auto it = styles.cbegin(); it != styles.cend(); it++)
-			gamelist_style->add(_(it->c_str()), *it, viewPreference == *it);
+			gamelist_style->add(it->second, it->first, viewPreference == it->first);
 
 		themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 	}
@@ -1493,8 +1493,8 @@ void GuiMenu::openUISettings()
 		else // GameList view style only, acts like Retropie for simple themes
 		{
 			auto gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
-			std::vector<std::string> styles;
-			styles.push_back("automatic");
+			std::vector<std::pair<std::string, std::string>> styles;
+			styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
 
 			auto system = ViewController::get()->getState().getSystem();
 			if (system != NULL)
@@ -1505,10 +1505,10 @@ void GuiMenu::openUISettings()
 			}
 			else
 			{
-				styles.push_back("basic");
-				styles.push_back("detailed");
-				styles.push_back("video");
-				styles.push_back("grid");
+				styles.push_back(std::pair<std::string, std::string>("basic", _("basic")));
+				styles.push_back(std::pair<std::string, std::string>("detailed", _("detailed")));
+				styles.push_back(std::pair<std::string, std::string>("video", _("video")));
+				styles.push_back(std::pair<std::string, std::string>("grid", _("grid")));
 			}
 
 			auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
@@ -1516,7 +1516,7 @@ void GuiMenu::openUISettings()
 				viewPreference = "automatic";
 
 			for (auto it = styles.cbegin(); it != styles.cend(); it++)
-				gamelist_style->add(_(it->c_str()), *it, viewPreference == *it);
+				gamelist_style->add(it->second, it->first, viewPreference == it->first);
 
 			s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 			s->addSaveFunc([s, gamelist_style, window] {
