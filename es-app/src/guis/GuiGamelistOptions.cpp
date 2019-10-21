@@ -146,8 +146,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	// GameList view style
 	mViewMode = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
-	std::vector<std::string> styles;
-	styles.push_back("automatic");
+	std::vector<std::pair<std::string, std::string>> styles;
+	styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
 
 	auto mViews = system->getTheme()->getViewsOfTheme();
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
@@ -157,12 +157,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	bool found = false;
 	for (auto it = styles.cbegin(); it != styles.cend(); it++)
-	{
-		bool sel = (viewMode.empty() && *it == "automatic") || viewMode == *it;
+	{		
+		bool sel = (viewMode.empty() && it->first == "automatic") || viewMode == it->first;
 		if (sel)
 			found = true;
 
-		mViewMode->add(_(it->c_str()), *it, sel);
+		mViewMode->add(it->second, it->first, sel);
 	}
 
 	if (!found)

@@ -502,7 +502,7 @@ int main(int argc, char* argv[])
 	// batocera, play music
 	AudioManager::getInstance()->init();
 
-	if (ViewController::get()->getState().getSystem() != nullptr)
+	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
 		AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
 	else
 		AudioManager::getInstance()->playRandomMusic();

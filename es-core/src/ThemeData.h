@@ -210,6 +210,9 @@ private:
 		std::map<std::string, ThemeElement> elements;
 		std::vector<std::string> orderedKeys;
 		std::string baseType;
+
+		std::string displayName;
+
 		bool isCustomView;
 	};
 
@@ -259,7 +262,7 @@ public:
 	
 	std::string getSystemThemeFolder() { return mSystemThemeFolder; }
 	
-	std::vector<std::string> getViewsOfTheme();
+	std::vector<std::pair<std::string, std::string>> getViewsOfTheme();
 	std::string getDefaultView() { return mDefaultView; };
 
 private:

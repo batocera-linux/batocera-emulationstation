@@ -6,7 +6,7 @@ EmulationStation allows each system to have its own "theme." A theme is a collec
 The first place ES will check for a theme is in the system's `<path>` folder, for a theme.xml file:
 * `[SYSTEM_PATH]/theme.xml`
 
-If that file doesn't exist, ES will try to find the theme in the current **theme set**.  Theme sets are just a collection of individual system themes arranged in the "themes" folder under some name.  A theme set can provide a default theme that will be used if there is no matching system theme.  Here's an example:
+If that file doesn't exist, ES will try to find the theme in the current **theme set**.  Theme sets are just a collection of individual system themes arranged in the "themes" folder under some name.  A theme set can provide a default theme that will be used if there is no matching system theme.  Here are examples :
 
 ```
 ...
@@ -15,26 +15,36 @@ If that file doesn't exist, ES will try to find the theme in the current **theme
          snes/
             theme.xml
             my_cool_background.jpg
-
          nes/
             theme.xml
             my_other_super_cool_background.jpg
-
          common_resources/
             scroll_sound.wav
 
          theme.xml (Default theme)
+...         
       another_theme_set/
-         snes/
-            theme.xml
-            some_resource.svg
+         resources/            
+            snes-logo.svg
+            snes-back.jpg
+            nes-logo.svg            
+            nes-back.jpg
+         theme.xml (Default theme)
 ```
 
 The theme set system makes it easy for users to try different themes and allows distributions to include multiple theme options.  Users can change the currently active theme set in the "UI Settings" menu.  The option is only visible if at least one theme set exists.
 
-There are two places ES can load theme sets from:
+There are places where ES can load theme sets from:
+
+Windows :
+
 * `[HOME]/.emulationstation/themes/[CURRENT_THEME_SET]/[SYSTEM_THEME]/theme.xml`
-* `/etc/emulationstation/themes/[CURRENT_THEME_SET]/[SYSTEM_THEME]/theme.xml`
+* `[HOME]/.emulationstation/themes/[CURRENT_THEME_SET]/theme.xml`
+
+Linux :
+
+* `/userdata/themes/[CURRENT_THEME_SET]/[SYSTEM_THEME]/theme.xml`
+* `/userdata/themes/[CURRENT_THEME_SET]/theme.xml`
 
 `[SYSTEM_THEME]` is the `<theme>` tag for the system, as defined in `es_systems.cfg`.  If the `<theme>` tag is not set, ES will use the system's `<name>`.
 
@@ -49,7 +59,7 @@ Here is a very simple theme that changes the description text's color:
 
 ```xml
 <theme>
-	<formatVersion>3</formatVersion>
+	<formatVersion>4</formatVersion>
 	<view name="detailed">
 		<text name="description">
 			<color>00FF00</color>
@@ -69,11 +79,11 @@ How it works
 
 Everything must be inside a `<theme>` tag.
 
-**The `<formatVersion>` tag *must* be specified**.  This is the version of the theming system the theme was designed for.  The current version is 3.
+**The `<formatVersion>` tag *must* be specified**.  This is the version of the theming system the theme was designed for.  
+The current version is 4.
 
 
-
-A *view* can be thought of as a particular "screen" within EmulationStation.  Views are defined like this:
+A *view* can be thought of as a particular "display" within EmulationStation.  Views are defined like this:
 
 ```xml
 <view name="ViewNameHere">
@@ -111,20 +121,35 @@ Or, you can create your own elements by adding `extra="true"` (as is done in the
 
 
 
+** BATOCERA 5.24 :
+
+A *customView* can be thought of as a custom "gamelist view" within EmulationStation. 
+Custom Views must inherit one of the standard views (basic, detailed, video or grid) or inherit from another custom view. Custom view inherit every element, attribute and behaviour of its parent view, so only differences or changes are needed.
+
+It is defined like this :
+
+```xml
+<customView name="ViewNameHere" inherits="BaseViewNameHere">
+	... define elements here ...
+</customView>
+```
+
+
 
 Advanced Features
 =================
 
-It is recommended that if you are writing a theme you launch EmulationStation with the `--debug` and `--windowed` switches.  This way you can read error messages without having to check the log file.  You can also reload the current gamelist view and system view with `Ctrl-R` if `--debug` is specified.
+It is recommended that if you are writing a theme you launch EmulationStation with the `--windowed` switches.  This way you can read error messages without having to check the log file.  You can also reload the current gamelist view and system view with `F5` 
 
 ### The `<include>` tag
 
 You can include theme files within theme files, similar to `#include` in C (though the internal mechanism is different, the effect is the same).  Example:
 
 `~/.emulationstation/all_themes.xml`:
+
 ```xml
 <theme>
-	<formatVersion>3</formatVersion>
+	<formatVersion>4</formatVersion>
 	<view name="detailed">
 		<text name="description">
 			<fontPath>./all_themes/myfont.ttf</fontPath>
@@ -135,9 +160,10 @@ You can include theme files within theme files, similar to `#include` in C (thou
 ```
 
 `~/.emulationstation/snes/theme.xml`:
+
 ```xml
 <theme>
-	<formatVersion>3</formatVersion>
+	<formatVersion>4</formatVersion>
 	<include>./../all_themes.xml</include>
 	<view name="detailed">
 		<text name="description">
@@ -150,7 +176,7 @@ You can include theme files within theme files, similar to `#include` in C (thou
 Is equivalent to this `snes/theme.xml`:
 ```xml
 <theme>
-	<formatVersion>3</formatVersion>
+	<formatVersion>4</formatVersion>
 	<view name="detailed">
 		<text name="description">
 			<fontPath>./all_themes/myfont.ttf</fontPath>
@@ -162,54 +188,70 @@ Is equivalent to this `snes/theme.xml`:
 
 Notice that properties that were not specified got merged (`<fontPath>`) and the `snes/theme.xml` could overwrite the included files' values (`<color>`).  Also notice the included file still needed the `<formatVersion>` tag.
 
+### Subsets : Create theme variations declaring subsets
 
+** Batocera 5.24
+
+Subset are usefull to create multiple variations in a theme ( colorsets, iconsets, different system views...)
+
+When a subset is defined, you can choose one of the named elements in the subset. Only one is active at a time. Only the active item is included, the other includes of the same subset are ignored.
+
+"name" attribute must be unique among all includes. 
+
+Common subsets are "colorset", "iconset", "menu", "systemview" or "gamelistview", but you can also add your custom subset names.
+
+```xml
+<theme>
+	<include subset="colorset" name="nice colors">./../nice_colors.xml</include>
+	<include subset="colorset" name="other colors" >./../other_colors.xml</include>
+	
+	<include subset="systemview" name="nice systemview">./../nice_sys.xml</include>
+	<include subset="systemview" name="new carousel" >./../carousel.xml</include>
+	
+	<include subset="mycustomsubset" name="my choice">./../choice1.xml</include>
+	<include subset="mycustomsubset" name="my other choice" >./../choice2.xml</include>
+</theme>
+```
 
 ### Theming multiple views simultaneously
 
 Sometimes you want to apply the same properties to the same elements across multiple views.  The `name` attribute actually works as a list (delimited by any characters of `\t\r\n ,` - that is, whitespace and commas).  So, for example, to easily apply the same header to the basic, grid, and system views:
 
 ```xml
-<theme>
-	<formatVersion>3</formatVersion>
-	<view name="basic, grid, system">
-		<image name="logo">
-			<path>./snes_art/snes_header.png</path>
-		</image>
-	</view>
-	<view name="detailed">
-		<image name="logo">
-			<path>./snes_art/snes_header_detailed.png</path>
-		</image>
-	</view>
-</theme>
+<view name="basic, grid, system">
+    <image name="logo">
+        <path>./snes_art/snes_header.png</path>
+    </image>
+</view>
+<view name="detailed">
+    <image name="logo">
+        <path>./snes_art/snes_header_detailed.png</path>
+    </image>
+</view>
 ```
 
 This is equivalent to:
 ```xml
-<theme>
-	<formatVersion>3</formatVersion>
-	<view name="basic">
-		<image name="logo">
-			<path>./snes_art/snes_header.png</path>
-		</image>
-	</view>
-	<view name="detailed">
-		<image name="logo">
-			<path>./snes_art/snes_header_detailed.png</path>
-		</image>
-	</view>
-	<view name="grid">
-		<image name="logo">
-			<path>./snes_art/snes_header.png</path>
-		</image>
-	</view>
-	<view name="system">
-		<image name="logo">
-			<path>./snes_art/snes_header.png</path>
-		</image>
-	</view>
-	... and any other view that might try to look up "logo" ...
-</theme>
+<view name="basic">
+    <image name="logo">
+        <path>./snes_art/snes_header.png</path>
+    </image>
+</view>
+<view name="detailed">
+    <image name="logo">
+        <path>./snes_art/snes_header_detailed.png</path>
+    </image>
+</view>
+<view name="grid">
+    <image name="logo">
+        <path>./snes_art/snes_header.png</path>
+    </image>
+</view>
+<view name="system">
+    <image name="logo">
+        <path>./snes_art/snes_header.png</path>
+    </image>
+</view>
 ```
 
 
@@ -223,8 +265,7 @@ You can theme multiple elements *of the same type* simultaneously.  The `name` a
     <formatVersion>3</formatVersion>
     <view name="detailed">
     	<!-- Weird spaces/newline on purpose! -->
-    	<text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, 
-    	md_lbl_genre,    md_lbl_players,        md_lbl_lastplayed, md_lbl_playcount">
+    	<text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount">
         	<color>48474D</color>
         </text>
     </view>
@@ -272,7 +313,16 @@ You can now change the order in which elements are rendered by setting `zIndex` 
 
 #### Defaults
 
+##### screen
+
+** Batocera 5.24
+
+* `text name="clock"` - 10 ( customize the clock )
+* `controllerActivity name="controllerActivity"` - 10 ( customize the connected joystick indicators 
+* Extra Elements `extra="true"` - 10
+
 ##### system
+
 * Extra Elements `extra="true"` - 10
 * `carousel name="systemcarousel"` - 40
 * `text name="systemInfo"` - 50
@@ -284,7 +334,7 @@ You can now change the order in which elements are rendered by setting `zIndex` 
 * `imagegrid name="gamegrid"` - 20
 * Media
 	* `image name="md_image"` - 30
-	* `video name="md_video"` - 30
+	* `video name="md_video"` - 31
 	* `image name="md_marquee"` - 35
 * Metadata - 40
 	* Labels
@@ -323,10 +373,11 @@ System variables are system specific and are derived from the values in es_syste
 * `system.name`
 * `system.fullName`
 * `system.theme`
+* `lang`  ** Batocera 5.24
 
 #### Theme Defined Variables
 Variables can also be defined in the theme.
-```
+```xml
 <variables>
 	<themeColor>8b0000</themeColor>
 </variables>
@@ -334,16 +385,57 @@ Variables can also be defined in the theme.
 
 #### Usage in themes
 Variables can be used to specify the value of a theme property:
-```
+```xml
 <color>${themeColor}</color>
 ```
 
 or to specify only a portion of the value of a theme property:
 
-```
+```xml
 <color>${themeColor}c0</color>
 <path>./art/logo/${system.theme}.svg</path>
+<path>./art/logo/${system.theme}-${lang}.svg</path> <!-- use it to select a localized image  -->
 ````
+
+### Filter using attributes
+
+** Batocera 5.24
+
+System attributes allow filtering elements and adapt display under conditions :
+
+* `tinyScreen` - type : BOOL
+  * Allow elements to be active only with small screens like GPI Case (if true), or disable element with normal screens ( if false )
+* `ifHelpPrompts`- type : BOOL
+  * Allow elements to be active only if help is visible/invisible in ES menus.
+* `lang` - type : STRING
+  * Allow elements to be used only if the lang is the current language in EmulationStation.
+  * lang is 2 lower characters. ( fr, br, en, ru, pt.... )
+
+#### Usage in themes
+
+Variables can be used to specify the value of a theme property:
+
+```xml
+ <!-- Include GPICase settings -->
+ <include tinyScreen="true">./gpicase.xml</include>
+ 
+ <!-- Change size of grid if help is hidden -->
+ <view name="grid" ifHelpPrompts="false">
+    <imagegrid name="gamegrid">
+      <size>0.950 0.84</size>
+    </imagegrid>
+  </view>
+  
+ <!-- Change text of extra item in french -->
+ <text name="info" extra="true">
+ 	<text>Manufacturer</text>
+ 	<text lang="fr">Constructeur</text>
+ <text>
+```
+
+or to specify only a portion of the value of a theme property:
+
+
 
 Reference
 =========
@@ -351,6 +443,7 @@ Reference
 ## Views, their elements, and themable properties:
 
 #### basic
+
 * `helpsystem name="help"` - ALL
 	- The help system style for this view.
 * `image name="background"` - ALL
@@ -366,16 +459,21 @@ Reference
 
 #### detailed
 * `helpsystem name="help"` - ALL
+	
 	- The help system style for this view.
 * `image name="background"` - ALL
+	
 	- This is a background image that exists for convenience. It goes from (0, 0) to (1, 1).
 * `text name="logoText"` - ALL
+	
 	- Displays the name of the system.  Only present if no "logo" image is specified.  Displayed at the top of the screen, centered by default.
 * `image name="logo"` - ALL
+	
 	- A header image.  If a non-empty `path` is specified, `text name="logoText"` will be hidden and this image will be, by default, displayed roughly in its place.
 * `textlist name="gamelist"` - ALL
-	- The gamelist.  `primaryColor` is for games, `secondaryColor` is for folders.  Left aligned by default.
-
+	
+- The gamelist.  `primaryColor` is for games, `secondaryColor` is for folders.  Left aligned by default.
+	
 * Metadata
 	* Labels
 		* `text name="md_lbl_rating"` - ALL
@@ -386,12 +484,15 @@ Reference
 		* `text name="md_lbl_players"` - ALL
 		* `text name="md_lbl_lastplayed"` - ALL
 		* `text name="md_lbl_playcount"` - ALL
-
-	* Values
+* Values
 		* All values will follow to the right of their labels if a position isn't specified.
-
-		* `image name="md_image"` - POSITION | SIZE | Z_INDEX
+	
+	* `image name="md_image"` - POSITION | SIZE | Z_INDEX
 			- Path is the "image" metadata for the currently selected game.
+		* `video name="md_video"` - POSITION | SIZE | Z_INDEX
+			- BATOCERA 5.24 : Path is the "video" metadata for the currently selected game.			
+		* `image name="md_marquee"` - POSITION | SIZE | Z_INDEX
+			- Path is the "marquee" metadata for the currently selected game.
 		* `rating name="md_rating"` - ALL
 			- The "rating" metadata.
 		* `datetime name="md_releasedate"` - ALL
@@ -414,6 +515,9 @@ Reference
 			- The "name" metadata (the game name). Unlike the others metadata fields, the name is positioned offscreen by default
 
 #### video
+
+This kind of view is used for retrocompatibility with Retropie themes, but is deprecated.
+
 * `helpsystem name="help"` - ALL
 	- The help system style for this view.
 * `image name="background"` - ALL
@@ -483,7 +587,12 @@ Reference
     - Note that many of the default gridtile parameters change the selected gridtile parameters if they are not explicitly set by the theme. For example, changing the background image of the default gridtile also change the background image of the selected gridtile. Refer to the gridtile documentation for more informations.
 * `gridtile name="selected"` - ALL
     - See default gridtile description right above.
-
+* `text name="gridtile"` - ALL
+    - BATOCERA 5.24 : Describes the text label in the grid. See default text description right above
+* `text name="gridtile_selected"` - ALL
+    - BATOCERA 5.24 : Describes the text label in the grid when the gridtile is selected.
+* `image name="gridtile.marquee"` - ALL
+    - BATOCERA 5.24 : Describes the image to use in the grid as a marquee / wheel image.
 * Metadata
 	* Labels
 		* `text name="md_lbl_rating"` - ALL
@@ -534,10 +643,44 @@ Reference
 	- Displays details of the system currently selected in the carousel.
 * You can use extra elements (elements with `extra="true"`) to add your own backgrounds, etc.  They will be displayed behind the carousel, and scroll relative to the carousel.
 
+#### menu
+* `helpsystem name="help"` - ALL
+	- The help system style for this view. If not defined, menus will have the same helpsystem as defined in system view.
+* `menuBackground name="menubg"` - COLOR | PATH | FADEPATH
+	- The background behind menus. you can set an image and/or change color (alpha supported)
+	
+* `menuSwitch name="menuswitch"` - PATHON | PATHOFF
+	- Images for the on/off switch in menus
+* `menuSlider name="menuslider"` - PATH
+	- Image for the slider knob in menus
+* `menuButton name="menubutton"` - PATH | FILLEDPATH
+	- Images for menu buttons
+* `menuText name="menutext"` - FONTPATH | FONTSIZE | COLOR
+	- text for all menu entries
+* `menuText name="menutitle"` - FONTPATH | FONTSIZE | COLOR
+	- text for menu titles
+* `menuText name="menufooter"` - FONTPATH | FONTSIZE | COLOR
+	- text for menu footers or subtitles
+* `menuTextSmall name="menutextsmall"` - FONTPATH | FONTSIZE | COLOR
+	- text for menu entries in smallerfont
+	
+
+menu is used to theme helpsystem and ES menus.
+
+#### screen
+
+** BATOCERA 5.24
+
+screen is a fixed view and has no themable properties. 
+
+It is used to work like an OSD, to display elements like clock and controllers activity.
+
+It can also contain text, image and video extras.
 
 ## Types of properties:
 
 * NORMALIZED_PAIR - two decimals, in the range [0..1], delimited by a space.  For example, `0.25 0.5`.  Most commonly used for position (x and y coordinates) and size (width and height).
+* NORMALIZED_RECT - four decimals, in the range [0..1], delimited by a space. For example, `0.25 0.5 0.10 0.30`.  Most commonly used for padding to store top, left, bottom and right coordinates. ** BATOCERA 5.24
 * PATH - a path.  If the first character is a `~`, it will be expanded into the environment variable for the home path (`$HOME` for Linux or `%HOMEPATH%` for Windows).  If the first character is a `.`, it will be expanded to the theme file's directory, allowing you to specify resources relative to the theme file, like so: `./../general_art/myfont.ttf`.
 * BOOLEAN - `true`/`1` or `false`/`0`.
 * COLOR - a hexidecimal RGB or RGBA color (6 or 8 digits).  If 6 digits, will assume the alpha channel is `FF` (not transparent).
@@ -580,20 +723,61 @@ Can be created as an extra.
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
+* `reflexion` - type: NORMALIZED_PAIR.
+	- BATOCERA 5.24 : table reflexion effect. First item is top position alpha, second is bottom alpha.
+* `reflexionOnFrame` ` - type: BOOLEAN
+    - BATOCERA 5.24 : When the image is scaled maxSize, tells if the table reflexion effect alignment is done on the bottom of the physical image, or on the bottom of the frame ( according to pos/size  )
+* `minSize` - type: NORMALIZED_PAIR.
+    - BATOCERA 5.24 : The image will be resized so that it fits the entire rectangle and maintains its aspect ratio.  Some parts of the image may be hidden. Used for tiles.
+* `colorEnd` - type: COLOR.
+    - BATOCERA 5.24 : End color for drawing the image with a gradient.
+* `gradientType` - type: STRING.
+    - BATOCERA 5.24 : Direction of the gradient. Values can be 'horizontal' or 'vertical'. Default is 'vertical'
+* `horizontalAlignment` - type: STRING.
+    - BATOCERA 5.24 : If the image is scaled maxSize, tells the image horizontal alignment. Values can be left, right, and center. Default is center.
+* `verticalAlignment` - type: STRING.
+    - BATOCERA 5.24 : If the image is scaled maxSize, tells the image vertical alignment. Values can be top, bottom, and center. Default is center.
+* `flipX` - type: BOOLEAN.
+    - BATOCERA 5.24 : If true, the image will be flipped horizontally.
+* `flipY` - type: BOOLEAN.
+    - BATOCERA 5.24 : If true, the image will be flipped vertically.
+* `visible` - type: BOOLEAN.
+    - BATOCERA 5.24 : Tells if the element is visible or hidden.
+
 
 #### imagegrid
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
     - The size of the grid. Take care the selected tile can go out of the grid size, so don't position the grid too close to another element or the screen border.
-* `margin` - type: NORMALIZED_PAIR.
+* `margin` - type: NORMALIZED_PAIR. Margin between tiles.
 * `gameImage` - type: PATH.
     - The default image used for games which doesn't have an image.
 * `folderImage` - type: PATH.
     - The default image used for folders which doesn't have an image.
 * `scrollDirection` - type: STRING.
     - `vertical` by default, can also be set to `horizontal`. Not that in `horizontal` mod, the tiles are ordered from top to bottom, then from left to right.
-
+* `zIndex` - type: FLOAT.
+    - BATOCERA 5.24: z-index value for component.  Components will be rendered in order of z-index value from low to high.
+	
+* `padding` - type: NORMALIZED_RECT. 
+    - BATOCERA 5.24 : Padding for displaying tiles. 
+* `autoLayout` - type: NORMALIZED_PAIR. 
+    - BATOCERA 5.24 : Number of column and rows in the grid (integer values).
+* `autoLayoutSelectedZoom` - type: FLOAT. 
+    - BATOCERA 5.24: Zoom factor to apply when a tile is selected.    
+* `imageSource` - type: STRING.
+    - BATOCERA 5.24: Selects the image to display. `thumbnail` by default, can also be set to `image` or `marquee`. 
+* `showVideoAtDelay` - type: FLOAT.
+    - BATOCERA 5.24: delay in millseconds to display video, when the tile is selected.
+* `scrollSound` - type: STRING.
+    - BATOCERA 5.24: Path of the sound file to play when the grid selection changes.
+* `centerSelection` - type: BOOL.
+    - BATOCERA 5.24: If true the selection will always be centered in the grid.
+* `scrollLoop` - type: BOOL.
+    - BATOCERA 5.24: If true the grid will loop thoughs elements. If false, when the grid has no more elements, it displays no more items.
+* `animateSelection` - type: BOOL.
+    - BATOCERA 5.24: If true the selection under the image will be moved in an animation.
 #### gridtile
 
 * `size` - type: NORMALIZED_PAIR.
@@ -612,8 +796,16 @@ Can be created as an extra.
     - Set the color of the center part of the ninepatch. The default tile background center color and selected tile background center color have no influence on each others.
 * `backgroundEdgeColor` - type: COLOR.
     - Set the color of the edge parts of the ninepatch. The default tile background edge color and selected tile background edge color have no influence on each others.
-
+* `selectionMode` - type: STRING.
+    - BATOCERA 5.24: Selects if the background is over the full tile or only the image. `full` by default, can also be set to `image`. 
+* `imageSizeMode` - type: STRING.
+    - BATOCERA 5.24: Selects the image sizing mode. `maxSize` by default, can also be set to `minSize` (outer zoom) or `size` (stretch). 
+* `reflexion` - type: NORMALIZED_PAIR.
+	- BATOCERA 5.24: table reflexion effect. First item is top position alpha, second is bottom alpha.
+    
 #### video
+
+Can be created as an extra.
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
@@ -638,7 +830,13 @@ Can be created as an extra.
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
-
+* `path` - type: PATH.
+	- BATOCERA 5.24 : Path to video file if video is an extra.
+	
+* `visible` - type: BOOLEAN.
+    - BATOCERA 5.24 : Tells if the element is visible or hidden.
+* `snapshotSource` - type: STRING.
+    - BATOCERA 5.24 : Defines which image to show during delay. Values can be  image, thumbnail, and marquee.
 #### text
 
 Can be created as an extra.
@@ -670,6 +868,20 @@ Can be created as an extra.
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
+* `glowColor` - type: COLOR;
+	- BATOCERA 5.24 : Defines the color of the glow around the text.
+* `glowSize` - type: FLOAT.
+	- BATOCERA 5.24 : Defines the size of the glow around the text.
+* `glowOffset` - type: FLOAT.
+    - BATOCERA 5.24 : Defines the decal of the glow around the text (used for shadow effects).
+* `reflexion` - type: NORMALIZED_PAIR.
+    - BATOCERA 5.24 : table reflexion effect. First item is top position alpha, second is bottom alpha.
+* `reflexionOnFrame` ` - type: BOOLEAN
+    - BATOCERA 5.24 : When the image is scaled maxSize, tells if the table reflexion effect alignment is done on the bottom of the physical image, or on the bottom of the frame ( according to pos/size  )
+* `padding` - type: NORMALIZED_RECT. 
+    - BATOCERA 5.24 : Padding for displaying text. 
+* `visible` - type: BOOLEAN.
+    - BATOCERA 5.24 : Tells if the element is visible or hidden.
 
 #### textlist
 
@@ -705,8 +917,14 @@ Can be created as an extra.
 * `lineSpacing` - type: FLOAT.  Controls the space between lines (as a multiple of font height).  Default is 1.5.
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
+* `selectorColorEnd` - type: NORMALIZED_PAIR. 
+    - BATOCERA 5.24 : Bottom color for the gradient of the "selector bar."
+* `selectorGradientType` - type: STRING. 
+    - BATOCERA 5.24 : Type of gradient to apply : horizontal or vertical. Default is vertical
 
 #### ninepatch
+
+Can be created as an extra.
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
@@ -715,6 +933,14 @@ Can be created as an extra.
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
+* `color` - type: COLOR.
+    - BATOCERA 5.24 : Fill color ( assigns center & edge color )
+* `centerColor` - type: COLOR.
+    - BATOCERA 5.24 : Color of the center.
+* `edgeColor` - type: COLOR.
+    - BATOCERA 5.24 : Color of the edge.
+* `cornerSize` - type: NORMALIZED_PAIR.
+    - BATOCERA 5.24 : Size of the corners. Default is 32 32.
 
 EmulationStation borrows the concept of "nine patches" from Android (or "9-Slices"). Currently the implementation is very simple and hard-coded to only use 48x48px images (16x16px for each "patch"). Check the `data/resources` directory for some examples (button.png, frame.png).
 
@@ -825,7 +1051,119 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 	- Default is 3
 * `zIndex` - type: FLOAT.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.  
+* `colorEnd` - type: COLOR.
+  - BATOCERA 5.24 : Color for the end of gradient
+* `gradientType` - type: STRING.
+  - BATOCERA 5.24 : Sets the gradient direction. Accepted values are "horizontal" and "vertical".
+* `logoPos` - type: NORMALIZED_PAIR.  
+	- BATOCERA 5.24 : Set the logo position if it is not centered.
+	
+* `systemInfoDelay` - type: FLOAT.
+  - BATOCERA 5.24 : Sets the amount of time before displaying game count information. Default is 1500
+#### menuText & menuTextSmall
 
-The help system is a special element that displays a context-sensitive list of actions the user can take at any time.  You should try and keep the position constant throughout every screen.  Keep in mind the "default" settings (including position) are used whenever the user opens a menu.
+BATOCERA 5.24
 
-[*Check out the "official" themes for some more examples!*](http://aloshi.com/emulationstation#themes)
+* `color` - type: COLOR. 
+	- Default is 777777FF
+* `fontPath` - type: PATH.
+	- Path to a truetype font (.ttf).
+* `fontSize` - type: FLOAT.
+	- Size of the font as a percentage of screen height (e.g. for a value of `0.1`, the text's height would be 10% of the screen height). Default is 0.085 for menutitle, 0.045 for menutext and 0.035 for menufooter and menutextsmall.
+* `separatorColor` - type: COLOR. 
+	- Default is C6C7C6FF. Color of lines that separates menu entries.
+* `selectedColor` - type: COLOR. 
+	- Default is FFFFFFFF. Color of text for selected menu entry.
+* `selectorColor` - type: COLOR. 
+	- Default is 878787FF. Color of the selector bar.
+* `selectorColorEnd` - type: NORMALIZED_PAIR. 
+    - Bottom color for the gradient of the "selector bar."
+	
+
+#### menuSwitch
+
+BATOCERA 5.24 - replace the switch image in menus
+
+* `pathOn` - type: PATH. 
+  - Image path when the switch is on
+* `pathOff` - type: PATH. 
+  - Image path when the switch is off
+
+#### menuButton
+
+BATOCERA 5.24 - replace the button images in menus
+
+* `path` - type: PATH. 
+  - Image path when the button is not selected
+* `filledPath` - type: PATH. 
+  - Image path when the button is selected.
+
+#### menuTextEdit
+
+BATOCERA 5.24 - replace the textbox background images in OSK
+
+* `inactive` - type: PATH. 
+  - Image path when the textbox is not selected
+* `active` - type: PATH. 
+  - Image path when the textbox is selected.
+
+#### menuIcons
+
+BATOCERA 5.24 - Add images to menuitems
+
+* `*` - type: PATH. 
+  - Element name must be the image name in the list : iconSystem, iconUpdates, iconControllers, iconGames, iconUI, iconSound, iconNetwork, iconScraper, iconAdvanced, iconQuit, iconRetroachievements, iconKodi, iconRestart, iconShutdown, iconFastShutdown
+
+#### controllerActivity
+
+BATOCERA 5.24 - controllerActivity element must be defined in screen view 
+
+* `pos` - type: NORMALIZED_PAIR.
+
+* `size` - type: NORMALIZED_PAIR.
+
+  - Only one value is actually used. The other value should be zero.  (e.g. specify width OR height, but not both.  This is done to maintain the aspect ratio.)
+
+* `itemSpacing` - type: FLOAT. 
+
+  - Space between controller images
+
+* `horizontalAlignment` - type: STRING. 
+
+  - Image alignment - left, right, center.
+
+* `imagePath` - type: PATH. 
+
+  - Image to use to represent a joystick.
+
+* `color` - type: COLOR. 
+
+  - Default color.
+
+* `activityColor` - type: COLOR. 
+
+  - Color when the joystick has activity
+
+* `hotkeyColor` - type: COLOR. 
+
+  - Color when the joystick hotkey is pressed.
+
+* `visible` - type: BOOLEAN. 
+
+  - Show/Hides the controllers
+
+* `zIndex` - type: FLOAT.
+
+  - z-index value for component.  Components will be rendered in order of z-index value from low to high.
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
