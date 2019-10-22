@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-21 19:11+0200\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,9 @@ msgstr "AUTRES FILTRES"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TYPE DE VUE DES JEUX"
+
+msgid "automatic"
+msgstr "automatique"
 
 msgid "GRID SIZE"
 msgstr "TAILLE DE LA GRILLE"
@@ -457,6 +460,12 @@ msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D'ÉDITER LA CONFIGURATION"
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
 
+msgid "basic"
+msgstr "basique"
+
+msgid "detailed"
+msgstr "détaillé"
+
 msgid "DEFAULT GRID SIZE"
 msgstr "TAILLE DE LA GRILLE PAR DÉFAUT"
 
@@ -465,6 +474,12 @@ msgstr "RÉINITIALISER LA PERSONNALISATION DES LISTES DE JEUX"
 
 msgid "THEME SET"
 msgstr "THÈME"
+
+msgid "video"
+msgstr "vidéo"
+
+msgid "grid"
+msgstr "grille"
 
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"
@@ -1006,9 +1021,6 @@ msgstr "image"
 
 msgid "thumbnail"
 msgstr "miniature"
-
-msgid "video"
-msgstr "vidéo"
 
 msgid "enter path to video"
 msgstr "entrer le chemin vers la vidéo"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-22 21:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,6 +76,9 @@ msgid "OTHER FILTERS"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "automatic"
 msgstr ""
 
 msgid "GRID SIZE"
@@ -459,6 +462,12 @@ msgstr ""
 msgid "THEME CONFIGURATION"
 msgstr ""
 
+msgid "basic"
+msgstr ""
+
+msgid "detailed"
+msgstr ""
+
 msgid "DEFAULT GRID SIZE"
 msgstr ""
 
@@ -466,6 +475,12 @@ msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
 msgid "THEME SET"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "grid"
 msgstr ""
 
 msgid "UI MODE"
@@ -994,9 +1009,6 @@ msgid "image"
 msgstr ""
 
 msgid "thumbnail"
-msgstr ""
-
-msgid "video"
 msgstr ""
 
 msgid "enter path to video"

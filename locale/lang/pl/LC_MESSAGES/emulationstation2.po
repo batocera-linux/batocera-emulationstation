@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-21 19:11+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,6 +70,9 @@ msgstr "INNE FILTRY"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
+
+msgid "automatic"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "ROZMIAR SIATKI"
@@ -457,6 +460,12 @@ msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
 msgid "THEME CONFIGURATION"
 msgstr "KONFIGURACJA MOTYWU"
 
+msgid "basic"
+msgstr ""
+
+msgid "detailed"
+msgstr ""
+
 msgid "DEFAULT GRID SIZE"
 msgstr "DOMYŚLNY ROZMIAR SIATKI"
 
@@ -465,6 +474,12 @@ msgstr "ZRESETUJ DOSTOSOWYWANIA LISTY GIER"
 
 msgid "THEME SET"
 msgstr "USTAWIENIA MOTYWU"
+
+msgid "video"
+msgstr "wideo"
+
+msgid "grid"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "TRYB INTERFEJSU"
@@ -1012,9 +1027,6 @@ msgstr "obraz"
 
 msgid "thumbnail"
 msgstr "miniaturka"
-
-msgid "video"
-msgstr "wideo"
 
 msgid "enter path to video"
 msgstr "wprowadź ścieżkę do wideo"

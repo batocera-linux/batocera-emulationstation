@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-22 21:28+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,9 @@ msgstr "OTROS FILTROS"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
+
+msgid "automatic"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "TAMAÑO DE CUADRICULA"
@@ -203,7 +206,7 @@ msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "CONFIGURACIÓN SALVAPANTALLAS"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "CONFIGURACIÓN DE PRESENTACIÓN"
@@ -456,6 +459,12 @@ msgstr "DEBERAS APLICAR LOS CAMBIOS DEL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DE TEMA"
 
+msgid "basic"
+msgstr ""
+
+msgid "detailed"
+msgstr ""
+
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMAÑO PREDETERMINADO DE CUADRICULA"
 
@@ -464,6 +473,12 @@ msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"
 
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
+
+msgid "video"
+msgstr "VIDEO"
+
+msgid "grid"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "MODO GUI"
@@ -765,10 +780,10 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMACIÓN DEL JUEGO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "USAR MARQUESINA COMO INFORMACIÓN DE JUEGO"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DECORACIÓNES"
 
 msgid "STRETCH IMAGES"
 msgstr "AJUSTAR IMAGENES"
@@ -792,7 +807,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "USAR REPRODUCTOR OMX PARA SALVAPANTALLAS"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "SALVAPANTALLAS DE VIDEO"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRAR INFORMACIÓN DEL JUEGO EN EL SALVAPANTALLAS"
@@ -875,10 +890,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "CONFIGURACIÓN DEL SALVAPANTALLAS DE PRESENTACIÓN"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "CONTROLES DE SALVAPANTALLAS"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "SALVAPANTALLAS PRESENTACIÓN"
 
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRO DISPOSITIVO"
@@ -1012,9 +1027,6 @@ msgstr "IMAGEN"
 
 msgid "thumbnail"
 msgstr "MINIATURA"
-
-msgid "video"
-msgstr "VIDEO"
 
 msgid "enter path to video"
 msgstr "COLOCAR RUTA PARA VIDEO"

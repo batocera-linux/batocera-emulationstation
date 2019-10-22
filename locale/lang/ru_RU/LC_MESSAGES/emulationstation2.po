@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-22 21:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -20,7 +20,7 @@ msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "ПЕРЕЗАГРУЗКА СИСТЕМЫ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "AN ERROR OCCURED"
 msgstr "ПРОИЗОШЛА ОШИБКА"
@@ -72,6 +72,9 @@ msgstr "ОСТАЛЬНЫЕ ФИЛЬТРЫ"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
+
+msgid "automatic"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ"
@@ -206,7 +209,7 @@ msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКА ЗАСТАВКИ"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "НАСТРОЙКИ СЛАЙДШОУ"
@@ -374,7 +377,7 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
 msgid "DECORATION"
-msgstr "ДЕКОРИРОВАНИЕ"
+msgstr "РАМКИ (ОВЕРЛЕИ)"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
@@ -459,6 +462,12 @@ msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕН�
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
 
+msgid "basic"
+msgstr ""
+
+msgid "detailed"
+msgstr ""
+
 msgid "DEFAULT GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
 
@@ -467,6 +476,12 @@ msgstr "СБРОСИТЬ НАСТРОЙКИ СПИСКА ИГР"
 
 msgid "THEME SET"
 msgstr "ТЕМА"
+
+msgid "video"
+msgstr "видео"
+
+msgid "grid"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
@@ -768,10 +783,10 @@ msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ БАНЕР КАК ИНФОРМАЦИЮ О ИГРЕ"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "РАМКИ (ОВЕРЛЕИ)"
 
 msgid "STRETCH IMAGES"
 msgstr "РАСТЯНУТЬ ИЗОБРАЖЕНИЕ"
@@ -795,7 +810,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР ДЛЯ ЗАСТАВКИ"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "ВИДЕО ЗАСТАВКА"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "ИНФ. О ИГРЕ НА ЗАСТАВКЕ"
@@ -876,10 +891,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКИ СЛАЙДШОУ ЗАСТАВКИ"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "УПРАВЛЕНИЕ ЗАСТАВКОЙ"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "СЛАЙДШОУ ЗАСТАВКА"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -1013,9 +1028,6 @@ msgstr "изображение"
 
 msgid "thumbnail"
 msgstr "эскиз"
-
-msgid "video"
-msgstr "видео"
 
 msgid "enter path to video"
 msgstr "введите путь к видео"

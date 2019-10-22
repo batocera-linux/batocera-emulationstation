@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 08:33+0200\n"
+"POT-Creation-Date: 2019-10-21 19:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -72,6 +72,9 @@ msgstr "OUTROS FILTROS"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
+
+msgid "automatic"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "TAMANHO DA GRID"
@@ -458,6 +461,12 @@ msgstr "DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
+msgid "basic"
+msgstr ""
+
+msgid "detailed"
+msgstr ""
+
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO DA GRID PADRÃO"
 
@@ -466,6 +475,12 @@ msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
 
 msgid "THEME SET"
 msgstr "TEMA"
+
+msgid "video"
+msgstr "vídeo"
+
+msgid "grid"
+msgstr ""
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -1011,9 +1026,6 @@ msgstr "imagem"
 
 msgid "thumbnail"
 msgstr "miniatura"
-
-msgid "video"
-msgstr "vídeo"
 
 msgid "enter path to video"
 msgstr "insire o caminho para o vídeo"
