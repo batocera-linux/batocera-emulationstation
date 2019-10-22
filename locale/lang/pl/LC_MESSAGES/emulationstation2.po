@@ -18,7 +18,7 @@ msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
 
 msgid "AN ERROR OCCURED"
 msgstr "WYSTĄPIŁ BŁĄD"
@@ -204,7 +204,7 @@ msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA WYGASZACZA"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "USTAWIENIA POKAZU SLAJDÓW"
@@ -766,10 +766,10 @@ msgid "SHOW GAME INFO"
 msgstr "POKAŻ INFORMACJE O GRZE"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "UŻYJ MARQUEE JAKO INFORMACJI O GRZE"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DEKORACJE"
 
 msgid "STRETCH IMAGES"
 msgstr "ROZCIĄGNIJ OBRAZY"
@@ -793,7 +793,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UŻYJ OMX DLA WYGASZACZA"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "WYGASZACZ WIDEO"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "POKAŻ INFORMACJE O GRZE NA WYGASZACZU"
@@ -875,10 +875,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA Z POKAZEM SLAJDÓW"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "STEROWANIE WYGASZACZA"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "WYGASZACZ ZE SLAJDAMI"
 
 msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO URZĄDZEŃ"
@@ -1130,11 +1130,11 @@ msgstr "kolekcje"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "Edycja kolekcji '%s'. Dodaj/usuń gry z Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "Zakończono edycję kolekcji '%s'."
 
 #, c-format
 msgid "Added '%s' to '%s'"
