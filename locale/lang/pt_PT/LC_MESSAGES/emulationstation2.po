@@ -74,7 +74,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
 
 msgid "automatic"
-msgstr ""
+msgstr "automático"
 
 msgid "GRID SIZE"
 msgstr "TAMANHO DA GRID"
@@ -462,10 +462,10 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "basic"
-msgstr ""
+msgstr "básico"
 
 msgid "detailed"
-msgstr ""
+msgstr "detalhado"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO DA GRID PADRÃO"
@@ -480,7 +480,7 @@ msgid "video"
 msgstr "vídeo"
 
 msgid "grid"
-msgstr ""
+msgstr "grid"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
