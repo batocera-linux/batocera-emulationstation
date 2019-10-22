@@ -285,7 +285,7 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
-			if (config->isMappedTo("pagedown", input))
+			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
 			{
 				int cursor = mCursor + 10;
 				if (cursor < 0)
@@ -299,7 +299,7 @@ bool SystemView::input(InputConfig* config, Input input)
 				//listInput(10);
 				return true;
 			}
-			if (config->isMappedTo("pageup", input))
+			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
 			{
 				int cursor = mCursor - 10;
 				if (cursor < 0)
