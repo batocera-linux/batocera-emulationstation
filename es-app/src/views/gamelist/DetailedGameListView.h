@@ -34,11 +34,13 @@ private:
 	void createVideo();
 	void createMarquee();
 	void createImage();
+	void createThumbnail();
 
 	void initMDLabels();
 	void initMDValues();
 	
 	ImageComponent* mImage;
+	ImageComponent* mThumbnail;
 	ImageComponent* mMarquee;
 	VideoComponent* mVideo;
 

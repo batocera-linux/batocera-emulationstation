@@ -18,6 +18,7 @@ VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 	mImage(window),
 	mVideo(nullptr),
 	mVideoPlaying(false),
+	mThumbnail(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window),
@@ -120,7 +121,28 @@ VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 
 VideoGameListView::~VideoGameListView()
 {
-	delete mVideo;
+	if (mThumbnail != nullptr)
+		delete mThumbnail;
+
+	if (mVideo != nullptr)
+		delete mVideo;
+}
+
+void VideoGameListView::createThumbnail()
+{
+	if (mThumbnail != nullptr)
+		return;
+
+	const float padding = 0.01f;
+
+	// Image
+	mThumbnail = new ImageComponent(mWindow);
+	mThumbnail->setAllowFading(false);
+	mThumbnail->setOrigin(0.5f, 0.5f);
+	mThumbnail->setPosition(mSize.x() * 0.25f, mList.getPosition().y() + mSize.y() * 0.2125f);
+	mThumbnail->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
+	mThumbnail->setDefaultZIndex(30);
+	addChild(mThumbnail);
 }
 
 void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
@@ -132,6 +154,18 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	mImage.applyTheme(theme, getName(), "md_image", ALL ^ (PATH));
 	mVideo->applyTheme(theme, getName(), "md_video", ALL ^ (PATH));
 	mName.applyTheme(theme, getName(), "md_name", ALL);
+
+	if (theme->getElement(getName(), "md_thumbnail", "image"))
+	{
+		createThumbnail();
+		mThumbnail->applyTheme(theme, getName(), "md_thumbnail", ALL ^ (PATH));
+	}
+	else if (mThumbnail != nullptr)
+	{
+		removeChild(mThumbnail);
+		delete mThumbnail;
+		mThumbnail = nullptr;
+	}
 
 	initMDLabels();
 	std::vector<TextComponent*> labels = getMDLabels();
@@ -270,6 +304,9 @@ void VideoGameListView::updateInfoPanel()
 		mMarquee.setImage(file->getMarqueePath()/*, false, mMarquee.getMaxSizeInfo()*/); // Too slow on pi
 		mImage.setImage(file->getImagePath(), false, mImage.getMaxSizeInfo());
 
+		if (mThumbnail != nullptr)
+			mThumbnail->setImage(file->getThumbnailPath(), false, mThumbnail->getMaxSizeInfo());
+
 		mDescription.setText(file->metadata.get("desc"));
 		mDescContainer.reset();
 
@@ -295,6 +332,10 @@ void VideoGameListView::updateInfoPanel()
 	comps.push_back(mVideo);
 	comps.push_back(&mDescription);
 	comps.push_back(&mImage);
+
+	if (mThumbnail != nullptr)
+		comps.push_back(mThumbnail);
+
 	comps.push_back(&mName);
 	std::vector<TextComponent*> labels = getMDLabels();
 	comps.insert(comps.cend(), labels.cbegin(), labels.cend());
@@ -320,6 +361,8 @@ void VideoGameListView::updateInfoPanel()
 				if (isFadeOut)
 				{
 					if (mVideo != nullptr) mVideo->setImage("");
+					if (mThumbnail != nullptr) mThumbnail->setImage("");
+
 					mImage.setImage("");
 					mMarquee.setImage("");
 				}
@@ -353,10 +396,15 @@ void VideoGameListView::launch(FileData* game)
 	{
 		target = Vector3f(mHeaderImage.getCenter().x(), mHeaderImage.getCenter().y(), 0);
 	}
-	else if(mVideo->getPosition().x() < screenWidth && mVideo->getPosition().x() > 0.0f &&
+	else if(mVideo != nullptr && mVideo->getPosition().x() < screenWidth && mVideo->getPosition().x() > 0.0f &&
 		 mVideo->getPosition().y() < screenHeight && mVideo->getPosition().y() > 0.0f)
 	{
 		target = Vector3f(mVideo->getCenter().x(), mVideo->getCenter().y(), 0);
+	}
+	else if (mThumbnail != nullptr && mThumbnail->getPosition().x() < screenWidth && mThumbnail->getPosition().x() > 0.0f &&
+		mThumbnail->getPosition().y() < screenHeight && mThumbnail->getPosition().y() > 0.0f)
+	{
+		target = Vector3f(mThumbnail->getCenter().x(), mThumbnail->getCenter().y(), 0);
 	}
 
 	ViewController::get()->launch(game, target);
