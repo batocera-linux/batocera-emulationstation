@@ -438,11 +438,12 @@ void Font::renderTextCache(TextCache* cache)
 
 	for(auto it = cache->vertexLists.cbegin(); it != cache->vertexLists.cend(); it++)
 	{
-		assert(*it->textureIdPtr != 0);
-
-		Renderer::bindTexture(*it->textureIdPtr);
-		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
-		Renderer::bindTexture(0);
+		if (*it->textureIdPtr != 0)
+		{
+			Renderer::bindTexture(*it->textureIdPtr);
+			Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
+			Renderer::bindTexture(0);
+		}
 	}
 }
 
