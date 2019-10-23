@@ -71,7 +71,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "automatic"
-msgstr ""
+msgstr "AUTOMATICO"
 
 msgid "GRID SIZE"
 msgstr "TAMAÑO DE CUADRICULA"
@@ -460,10 +460,10 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DE TEMA"
 
 msgid "basic"
-msgstr ""
+msgstr "BASICO"
 
 msgid "detailed"
-msgstr ""
+msgstr "DETALLADO"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMAÑO PREDETERMINADO DE CUADRICULA"
@@ -478,7 +478,7 @@ msgid "video"
 msgstr "VIDEO"
 
 msgid "grid"
-msgstr ""
+msgstr "CUADRICULA"
 
 msgid "UI MODE"
 msgstr "MODO GUI"

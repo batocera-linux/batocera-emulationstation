@@ -11,13 +11,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "AGGIORNAMENTO DI BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "L'AGGIORNAMENTO È PRONTO"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
 
 msgid "AN ERROR OCCURED"
 msgstr "SI E’ VERIFICATO UN ERRORE"
@@ -53,7 +53,7 @@ msgid "BACK"
 msgstr "INDIETRO"
 
 msgid "go back"
-msgstr ""
+msgstr "torna indietro"
 
 msgid "CLOSE"
 msgstr "CHIUDI"
@@ -71,7 +71,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 
 msgid "automatic"
-msgstr ""
+msgstr "automatico"
 
 msgid "GRID SIZE"
 msgstr "GRANDEZZA DELLA GRIGLIA"
@@ -206,7 +206,7 @@ msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI SALVASCHERMO"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "OPZIONI SLIDESHOW"
@@ -284,13 +284,13 @@ msgid "AUTO UPDATES"
 msgstr "AGGIORNAMENTI AUTOMATICI"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "FARE L'AGGIORNAMENTO"
 
 msgid "START UPDATE"
 msgstr "INIZIA AGGIORNAMENTO"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "L'AGGIORNAMENTO È GIÀ IN ESECUZIONE"
 
 msgid "LANGUAGE"
 msgstr "LINGUA"
@@ -332,8 +332,7 @@ msgid "ROOT PASSWORD"
 msgstr "PASSWORD DI ROOT"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"E' NECESSARIO RIAVVIARE IL SISTEMA PER APPLICARE LA NUOVA CONFIGURAZIONE"
+msgstr "E' NECESSARIO RIAVVIARE IL SISTEMA PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "GAME RATIO"
 msgstr "FORMATO VIDEO DEL GIOCO"
@@ -387,7 +386,7 @@ msgid "LEADERBOARDS"
 msgstr "CLASSIFICHE"
 
 msgid "VERBOSE MODE"
-msgstr "MODALITA’ VERBOSE"
+msgstr "MODALITÀ VERBOSE"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
@@ -461,10 +460,10 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAZIONE DEL TEMA"
 
 msgid "basic"
-msgstr ""
+msgstr "basico"
 
 msgid "detailed"
-msgstr ""
+msgstr "dettagliato"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
@@ -479,7 +478,7 @@ msgid "video"
 msgstr "video"
 
 msgid "grid"
-msgstr ""
+msgstr "griglia"
 
 msgid "UI MODE"
 msgstr "MODALITA’ INTERFACCIA"
@@ -748,26 +747,26 @@ msgstr[0] "%i GIOCO SALTATO."
 msgstr[1] "%i GIOCHI SALTATI."
 
 msgid "INSTALL BEZELS"
-msgstr ""
+msgstr "INSTALLA CORNICI"
 
 msgid "UNINSTALL BEZELS"
-msgstr ""
+msgstr "DISINSTALLA CORNICI"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "INSTALLA THE BEZEL PROJECT (CORNICI)"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "SELEZIONA IL SISTEMA DOVE LE CORNICI SARANNO (RE)INSTALLATE"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "%s' AGGIUNTO ALLA CODA DEI DOWNLOAD "
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr ""
+msgstr "DISINSTALLA THE BEZEL PROJECT (CORNICI)"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr ""
+msgstr "SELEZIONA IL SISTEMA DOVE LE CORNICI SARANNO RIMOSSE"
 
 msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr "BEZELS CANCELLATE CON SUCCESSO"
@@ -779,10 +778,10 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "USA LE MARQUEE (TITOLI DI GIOCO) COME INFO GIOCO"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DECORAZIONI"
 
 msgid "STRETCH IMAGES"
 msgstr "ADATTA IMMAGINI"
@@ -806,7 +805,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UTILIZZA IL PALYER OMX COME SALVASCHERMO"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "VIDEO SALVASCHERMO"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRA INFO DEL GIOCO NEL SALVASCHERMO"
@@ -892,7 +891,7 @@ msgid "SCREENSAVER CONTROLS"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "PRESENTAZIONE SALVASCHERMO"
 
 msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
@@ -1140,11 +1139,11 @@ msgstr "collezione"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "Modificando la Collezione '%s'. Aggiungi/rimuovi giochi con Y"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "Finito di modificare la Collezione '%s'."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1172,7 +1171,7 @@ msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
-msgid_plural ""
+msgid_plural "Questa collezione contiene %1$i giochi, incluso 2$s tra gli altri titoli."
 "This collection contains %1$i games, including %2$s among other titles."
 msgstr[0] ""
 "Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
