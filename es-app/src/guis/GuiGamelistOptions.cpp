@@ -151,7 +151,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	auto mViews = system->getTheme()->getViewsOfTheme();
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
-		styles.push_back(*it);
+	{
+		if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
+			styles.push_back(std::pair<std::string, std::string>(it->first, _(it->first.c_str())));
+		else
+			styles.push_back(*it);
+	}
 
 	std::string viewMode = system->getSystemViewMode();
 

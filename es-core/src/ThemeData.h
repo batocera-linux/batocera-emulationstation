@@ -89,14 +89,17 @@ struct ThemeSet
 
 struct Subset
 {
-	Subset(const std::string set, const std::string nm)
+	Subset(const std::string set, const std::string nm, const std::string dn)
 	{
 		subset = set;
 		name = nm;
+		displayName = dn;
 	}
 
 	std::string subset;
-	std::string name;
+	std::string name;	
+
+	std::string displayName;
 };
 
 struct MenuElement 
@@ -255,7 +258,7 @@ public:
 	std::vector<Subset>		    getSubSets() { return mSubsets; }
 	std::vector<std::string>	getSubSetNames();
 
-	static std::vector<std::string> getSubSet(const std::vector<Subset>& subsets, const std::string& subset);
+	static std::vector<Subset> getSubSet(const std::vector<Subset>& subsets, const std::string& subset);
 
 	static void setDefaultTheme(ThemeData* theme);
 	static ThemeData* getDefaultTheme() { return mDefaultTheme; }
@@ -264,6 +267,14 @@ public:
 	
 	std::vector<std::pair<std::string, std::string>> getViewsOfTheme();
 	std::string getDefaultView() { return mDefaultView; };
+
+	std::string getVariable(std::string name)
+	{
+		if (mVariables.find(name) != mVariables.cend())
+			return mVariables[name];
+
+		return "";
+	}	
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
@@ -306,7 +317,47 @@ private:
 	std::string mRegion;
 
 	std::map<std::string, std::string> mVariables;
-	std::map<std::string, ThemeView> mViews;
+	
+	class UnsortedViewMap : public std::vector<std::pair<std::string, ThemeView>>
+	{
+	public:		
+		std::vector<std::pair<std::string, ThemeView>>::const_iterator find(std::string view) const
+		{
+			for (std::vector<std::pair<std::string, ThemeView>>::const_iterator it = cbegin(); it != cend(); it++)
+				if (it->first == view)
+					return it;
+
+			return cend();
+		}
+	
+		std::vector<std::pair<std::string, ThemeView>>::iterator find(std::string view)
+		{
+			for (std::vector<std::pair<std::string, ThemeView>>::iterator it = begin(); it != end(); it++)
+				if (it->first == view)
+					return it;
+
+			return end();
+		}
+
+		std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> insert(std::pair<std::string, ThemeView>& item)
+		{			
+			std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> ret;
+
+			ret.first = find(item.first);
+			ret.second = ret.first != cend();
+
+			if (ret.first == cend())
+			{
+				push_back(item);
+				ret.first = find(item.first);
+			}
+
+			return ret;			
+		}
+	};
+
+	UnsortedViewMap mViews;
+	//	std::map<std::string, ThemeView> mViews;
 
 	std::vector<Subset> mSubsets;
 

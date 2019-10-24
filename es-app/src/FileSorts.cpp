@@ -21,20 +21,20 @@ namespace FileSorts
 		FolderData::SortType(&compareNumPlayers, true, "Number players, Ascending", _U("\uF162 ")),
 		FolderData::SortType(&compareNumPlayers, false, "Number players, Descending", _U("\uF163 ")),
 
-		FolderData::SortType(&compareReleaseDate, true, "Release date, Ascending"),
-		FolderData::SortType(&compareReleaseDate, false, "Release date, Descending"),
+		FolderData::SortType(&compareReleaseDate, true, "Release date, Ascending", _U("\uF160 ")),
+		FolderData::SortType(&compareReleaseDate, false, "Release date, Descending", _U("\uF161 ")),
 
-		FolderData::SortType(&compareGenre, true, "Genre, Ascending"),
-		FolderData::SortType(&compareGenre, false, "Genre, Descending"),
+		FolderData::SortType(&compareGenre, true, "Genre, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&compareGenre, false, "Genre, Descending", _U("\uF15e ")),
 
-		FolderData::SortType(&compareDeveloper, true, "Developer, Ascending"),
-		FolderData::SortType(&compareDeveloper, false, "Developer, Descending"),
+		FolderData::SortType(&compareDeveloper, true, "Developer, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&compareDeveloper, false, "Developer, Descending", _U("\uF15e ")),
 
-		FolderData::SortType(&comparePublisher, true, "Publisher, Ascending"),
-		FolderData::SortType(&comparePublisher, false, "Publisher, Descending"),
+		FolderData::SortType(&comparePublisher, true, "Publisher, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&comparePublisher, false, "Publisher, Descending", _U("\uF15e ")),
 
-		FolderData::SortType(&compareSystem, true, "System, Ascending"),
-		FolderData::SortType(&compareSystem, false, "System, Descending")
+		FolderData::SortType(&compareSystem, true, "System, Ascending", _U("\uF15d ")),
+		FolderData::SortType(&compareSystem, false, "System, Descending", _U("\uF15e "))
 	};
 
 	const std::vector<FolderData::SortType> SortTypes(typesArr, typesArr + sizeof(typesArr)/sizeof(typesArr[0]));
