@@ -123,28 +123,34 @@ void ScraperHttpRequest::update()
 	if(status == HttpReq::REQ_SUCCESS)
 	{
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
+		process(mReq, mResults);		
+		return;
+	}
 
-		if (!process(mReq, mResults))
-		{
-			mRetryCount++;
-			if (mRetryCount > 4)
-				return;
+	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
+	{
+		mRetryCount++;
+		if (mRetryCount > 4)
+			return;
 
-			// If the scrapper fails & return false, then retry the request
-			setStatus(ASYNC_IN_PROGRESS);
+		setStatus(ASYNC_IN_PROGRESS);
 
-			std::string url = mReq->getUrl();
-			std::this_thread::sleep_for(std::chrono::seconds(5));
-			mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
-		}
+		std::string url = mReq->getUrl();
+		std::this_thread::sleep_for(std::chrono::seconds(15));
+		mReq = std::unique_ptr<HttpReq>(new HttpReq(url));		
+		return;
+	}
 
+	if (status == HttpReq::REQ_404_NOTFOUND)
+	{
+		setStatus(ASYNC_DONE);
 		return;
 	}
 
 	// not ready yet
 	if(status == HttpReq::REQ_IN_PROGRESS)
 		return;
-
+	
 	// everything else is some sort of error
 	LOG(LogError) << "ScraperHttpRequest network error (status: " << status << ") - " << mReq->getErrorMsg();
 	setError(mReq->getErrorMsg());
