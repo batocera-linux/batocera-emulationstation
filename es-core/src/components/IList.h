@@ -281,7 +281,30 @@ protected:
 			return;
 
 		// we don't bother caching this because it's only two letters and will change pretty much every frame if we're scrolling
-		const std::string text = getSelectedName().size() >= 2 ? getSelectedName().substr(0, 2) : "??";
+		// const std::string text = getSelectedName().size() >= 2 ? getSelectedName().substr(0, 2) : "??";
+		
+		const std::string source = getSelectedName();
+
+		std::string text;
+
+		int count = 0;
+		size_t i = 0;
+		while (i < source.length())
+		{
+			int unicode = Utils::String::chars2Unicode(source, i); // advances i
+			text += Utils::String::unicode2Chars(unicode);
+
+			//  three+ byte character
+			if (unicode >= 0x800)
+				break;
+
+			count++;
+			if (count == 2)
+				break;
+		}
+
+		if (text.empty())
+			text = "??";
 
 		Vector2f off = mTitleOverlayFont->sizeText(text);
 		off[0] = (Renderer::getScreenWidth() - off.x()) * 0.5f;

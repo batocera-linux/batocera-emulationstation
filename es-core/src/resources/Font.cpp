@@ -438,12 +438,12 @@ void Font::renderTextCache(TextCache* cache)
 
 	for(auto it = cache->vertexLists.cbegin(); it != cache->vertexLists.cend(); it++)
 	{
-		if (*it->textureIdPtr != 0)
-		{
-			Renderer::bindTexture(*it->textureIdPtr);
-			Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
-			Renderer::bindTexture(0);
-		}
+		if (*it->textureIdPtr == 0)
+			continue;
+		
+		Renderer::bindTexture(*it->textureIdPtr);
+		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
+		Renderer::bindTexture(0);		
 	}
 }
 
@@ -733,6 +733,7 @@ TextCache* Font::buildTextCache(const std::string& text, Vector2f offset, unsign
 
 		vertList.textureIdPtr = &it->first->textureId;
 		vertList.verts = it->second;
+		i++;
 	}
 
 	clearFaceCache();
