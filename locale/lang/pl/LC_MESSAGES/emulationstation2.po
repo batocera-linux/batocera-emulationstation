@@ -72,7 +72,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
 
 msgid "automatic"
-msgstr ""
+msgstr "automatyczny"
 
 msgid "GRID SIZE"
 msgstr "ROZMIAR SIATKI"
@@ -216,10 +216,10 @@ msgid "RANDOM VIDEO SETTINGS"
 msgstr "USTAWIENIA LOSOWEGO WIDEO"
 
 msgid "CHOOSE"
-msgstr "WYBIERZ"
+msgstr "ZMIEŃ"
 
 msgid "SELECT"
-msgstr "ZAZNACZ"
+msgstr "WYBIERZ"
 
 msgid "INFORMATION"
 msgstr "INFORMACJA"
@@ -461,10 +461,10 @@ msgid "THEME CONFIGURATION"
 msgstr "KONFIGURACJA MOTYWU"
 
 msgid "basic"
-msgstr ""
+msgstr "podstawowy"
 
 msgid "detailed"
-msgstr ""
+msgstr "szczegółowy"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "DOMYŚLNY ROZMIAR SIATKI"
@@ -479,7 +479,7 @@ msgid "video"
 msgstr "wideo"
 
 msgid "grid"
-msgstr ""
+msgstr "siatka"
 
 msgid "UI MODE"
 msgstr "TRYB INTERFEJSU"
@@ -1303,13 +1303,13 @@ msgid "SELECT ALL"
 msgstr "ZAZNACZ WSZYSTKO"
 
 msgid "select all"
-msgstr "wybierz wszystko"
+msgstr "zaznacz wszystko"
 
 msgid "SELECT NONE"
 msgstr "ODZNACZ WSZYSTKO"
 
 msgid "select none"
-msgstr "nic nie wybierz"
+msgstr "odznacz wszystko"
 
 #, c-format
 msgid "%i SELECTED"

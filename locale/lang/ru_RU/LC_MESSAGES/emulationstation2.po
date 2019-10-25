@@ -74,7 +74,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
 
 msgid "automatic"
-msgstr ""
+msgstr "автоматически"
 
 msgid "GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ"
@@ -463,10 +463,10 @@ msgid "THEME CONFIGURATION"
 msgstr "НАСТРОКА ТЕМЫ"
 
 msgid "basic"
-msgstr ""
+msgstr "базовый"
 
 msgid "detailed"
-msgstr ""
+msgstr "подробно"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
@@ -481,7 +481,7 @@ msgid "video"
 msgstr "видео"
 
 msgid "grid"
-msgstr ""
+msgstr "сетка"
 
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
