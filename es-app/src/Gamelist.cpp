@@ -190,6 +190,9 @@ void updateGamelist(SystemData* system)
 	if(Settings::getInstance()->getBool("IgnoreGamelist"))
 		return;
 
+	if (system != nullptr && system->getName() == "imageviewer")
+		return;
+
 	pugi::xml_document doc;
 	pugi::xml_node root;
 	std::string xmlReadPath = system->getGamelistPath(false);

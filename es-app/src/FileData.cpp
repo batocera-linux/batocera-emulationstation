@@ -174,6 +174,9 @@ const std::string FileData::getImagePath() const
 	// no image, try to use local image
 	if(image.empty())
 	{
+		if (getSystemName() == "imageviewer")
+			image = getPath();
+
 		const char* extList[2] = { ".png", ".jpg" };
 		for(int i = 0; i < 2; i++)
 		{
@@ -184,6 +187,7 @@ const std::string FileData::getImagePath() const
 					image = path;
 			}
 		}
+
 	}
 
 	return image;
