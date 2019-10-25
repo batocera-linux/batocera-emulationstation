@@ -324,12 +324,12 @@ void signalHandler(int signum)
 
 int main(int argc, char* argv[])
 {	
-	signal(SIGABRT, signalHandler);
+	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
 	signal(SIGILL, signalHandler);
 	signal(SIGINT, signalHandler);
 	signal(SIGSEGV, signalHandler);
-	signal(SIGTERM, signalHandler);
+	// signal(SIGTERM, signalHandler);
 
 	srand((unsigned int)time(NULL));
 

@@ -312,7 +312,13 @@ HttpReq::Status HttpReq::status()
 
 					if (http_status_code < 200 || http_status_code > 299)
 					{
-						req->mStatus = REQ_IO_ERROR;
+						if(http_status_code == 404)
+							req->mStatus = REQ_404_NOTFOUND;
+						else if (http_status_code == 429)
+							req->mStatus = REQ_429_TOOMANYREQUESTS;
+						else
+							req->mStatus = REQ_IO_ERROR;
+
 						std::string err = "HTTP status " + std::to_string(http_status_code);
 						req->onError(err.c_str());
 					}

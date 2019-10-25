@@ -37,7 +37,8 @@ public:
 		REQ_SUCCESS,			//request completed successfully, get it with getContent()
 
 		REQ_IO_ERROR,			//some error happened, get it with getErrorMsg()
-		REQ_BAD_STATUS_CODE,	//some invalid HTTP response status code happened (non-200)
+		REQ_404_NOTFOUND,		//HTTP response status code 404 happened
+		REQ_429_TOOMANYREQUESTS,	//HTTP response status code 429 happened
 		REQ_INVALID_RESPONSE	//the HTTP response was invalid
 	};
 
