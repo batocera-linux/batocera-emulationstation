@@ -3,6 +3,7 @@
 #define ES_CORE_COMPONENTS_ILIST_H
 
 #include "components/ImageComponent.h"
+#include "utils/StringUtil.h"
 #include "resources/Font.h"
 #include "PowerSaver.h"
 #include "ThemeData.h"

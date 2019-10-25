@@ -339,7 +339,7 @@ private:
 			return end();
 		}
 
-		std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> insert(std::pair<std::string, ThemeView>& item)
+		std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> insert(std::pair<std::string, ThemeView> item)
 		{			
 			std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> ret;
 
