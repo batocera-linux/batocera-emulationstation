@@ -446,7 +446,13 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	{
 		maxHeight = (int)((maxWidth / width) * height);
 	}
-
+	
+	if (width <= maxWidth && height <= maxHeight)
+	{
+		FreeImage_Unload(image);
+		return true;
+	}
+		
 	FIBITMAP* imageRescaled = FreeImage_Rescale(image, maxWidth, maxHeight, FILTER_BILINEAR);
 	FreeImage_Unload(image);
 
@@ -456,7 +462,14 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 		return false;
 	}
 
-	bool saved = (FreeImage_Save(format, imageRescaled, path.c_str()) != 0);
+	bool saved = false;
+	
+	try
+	{
+		saved = (FreeImage_Save(format, imageRescaled, path.c_str()) != 0);
+	}
+	catch(...) { }
+
 	FreeImage_Unload(imageRescaled);
 
 	if(!saved)
