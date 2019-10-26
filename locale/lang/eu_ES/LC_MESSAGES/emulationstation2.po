@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 19:11+0200\n"
+"POT-Creation-Date: 2019-10-26 11:54+0200\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1068,6 +1068,66 @@ msgstr ""
 msgid "MENU"
 msgstr "MENUA"
 
+msgid "FILENAME, ASCENDING"
+msgstr "FITXATEGI IZENA, IGOTZEN"
+
+msgid "FILENAME, DESCENDING"
+msgstr "FITXATEGI IZENA, JAISTEN"
+
+msgid "RATING, ASCENDING"
+msgstr "PUNTUAZIOA, IGOTZEN"
+
+msgid "RATING, DESCENDING"
+msgstr "PUNTUAZIOA, JAISTEN"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "ZENBAT ALDIZ JOKATUA, IGOTZEN"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "ZENBAT ALDIZ JOKATUA, JAISTEN"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "AZKEN ALDIZ JOKATUA, IGOTZEN"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "AZKEN ALDIZ JOKATUA, JAISTEN"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr ""
 
@@ -1478,27 +1538,3 @@ msgstr ""
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "EGUNERAKETAK HUTS EGIN DU. SISTEMA BERRABIARAZIKO DA ORAIN"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "FITXATEGI IZENA, IGOTZEN"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "FITXATEGI IZENA, JAISTEN"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "PUNTUAZIOA, IGOTZEN"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "PUNTUAZIOA, JAISTEN"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "ZENBAT ALDIZ JOKATUA, IGOTZEN"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "ZENBAT ALDIZ JOKATUA, JAISTEN"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "AZKEN ALDIZ JOKATUA, IGOTZEN"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "AZKEN ALDIZ JOKATUA, JAISTEN"

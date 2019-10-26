@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 19:11+0200\n"
+"POT-Creation-Date: 2019-10-26 11:54+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1073,6 +1073,66 @@ msgstr ""
 msgid "MENU"
 msgstr "MENÜ"
 
+msgid "FILENAME, ASCENDING"
+msgstr "DOSYA ADI, ARTAN"
+
+msgid "FILENAME, DESCENDING"
+msgstr "DOSYA ADI, AZALAN"
+
+msgid "RATING, ASCENDING"
+msgstr "PUAN, ARTAN"
+
+msgid "RATING, DESCENDING"
+msgstr "PUAN, AZALAN"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "OYNANMA SAYISI, ARTAN"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "OYNANMA SAYISI, AZALAN"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "SON OYNANMA, ARTAN"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "SON OYNANMA, AZALAN"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr ""
 
@@ -1492,27 +1552,3 @@ msgstr ""
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "GÜNCELLEME BAÞARISIZ, SÝSTEM YENÝDEN BAÞLATILIYOR"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "DOSYA ADI, ARTAN"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "DOSYA ADI, AZALAN"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "PUAN, ARTAN"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "PUAN, AZALAN"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "OYNANMA SAYISI, ARTAN"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "OYNANMA SAYISI, AZALAN"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "SON OYNANMA, ARTAN"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "SON OYNANMA, AZALAN"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 19:11+0200\n"
+"POT-Creation-Date: 2019-10-26 11:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1088,6 +1088,66 @@ msgstr "Pré-carregamento da interface"
 msgid "MENU"
 msgstr "MENU"
 
+msgid "FILENAME, ASCENDING"
+msgstr "NOME DO ARQUIVO, CRESCENTE"
+
+msgid "FILENAME, DESCENDING"
+msgstr "NOME DO ARQUIVO, DECRESCENTE"
+
+msgid "RATING, ASCENDING"
+msgstr "AVALIAÇÃO, CRESCENTE"
+
+msgid "RATING, DESCENDING"
+msgstr "AVALIAÇÃO, DECRESCENTE"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "VEZES JOGADOS, CRESCENTE"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "VEZES JOGADOS, DECRESCENTE"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "ÚLTIMA VEZ JOGADO, CRESCENTE"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "ÚLTIMA VEZ JOGADO, DECRESCENTE"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "BAIXANDO"
 
@@ -1581,27 +1641,3 @@ msgstr "cima/baixo"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "ATUALIZAÇÃO FALHOU, O SISTEMA SERÁ REINICIADO"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "NOME DO ARQUIVO, CRESCENTE"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "NOME DO ARQUIVO, DECRESCENTE"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "AVALIAÇÃO, CRESCENTE"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "AVALIAÇÃO, DECRESCENTE"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "VEZES JOGADOS, CRESCENTE"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "VEZES JOGADOS, DECRESCENTE"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "ÚLTIMA VEZ JOGADO, CRESCENTE"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "ÚLTIMA VEZ JOGADO, DECRESCENTE"

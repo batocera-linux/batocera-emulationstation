@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 19:11+0200\n"
+"POT-Creation-Date: 2019-10-26 11:54+0200\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1068,6 +1068,66 @@ msgstr ""
 msgid "MENU"
 msgstr "MENY"
 
+msgid "FILENAME, ASCENDING"
+msgstr "FILNAVN, STIGENDE"
+
+msgid "FILENAME, DESCENDING"
+msgstr "FILNAVN, SYNKENDE"
+
+msgid "RATING, ASCENDING"
+msgstr "RANGERING, STIGENDE"
+
+msgid "RATING, DESCENDING"
+msgstr "RANGERING, SYNKENDE"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "MEST SPILT"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "MINST SPILT"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "SIST SPILT"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "LENGST SIDEN SPILT"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr ""
 
@@ -1476,27 +1536,3 @@ msgstr ""
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "OPPDATERING FEILET, SYSTEMET VIL STARTES PÅ NYTT"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "FILNAVN, STIGENDE"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "FILNAVN, SYNKENDE"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "RANGERING, STIGENDE"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "RANGERING, SYNKENDE"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "MEST SPILT"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "MINST SPILT"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "SIST SPILT"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "LENGST SIDEN SPILT"

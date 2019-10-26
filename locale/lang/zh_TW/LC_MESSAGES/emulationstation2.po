@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 19:11+0200\n"
+"POT-Creation-Date: 2019-10-26 11:54+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1064,6 +1064,66 @@ msgstr ""
 msgid "MENU"
 msgstr "選單"
 
+msgid "FILENAME, ASCENDING"
+msgstr "遊戲名（升序）"
+
+msgid "FILENAME, DESCENDING"
+msgstr "遊戲名（降序）"
+
+msgid "RATING, ASCENDING"
+msgstr "評分（升序）"
+
+msgid "RATING, DESCENDING"
+msgstr "評分（降序）"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "遊戲執行次數（升序）"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "遊戲執行次數（降序）"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "最近執行（升序）"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "最近執行（降序）"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr ""
 
@@ -1419,27 +1479,3 @@ msgstr ""
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "更新失敗，系統將重新啟動"
-
-#~ msgid "FILENAME, ASCENDING"
-#~ msgstr "遊戲名（升序）"
-
-#~ msgid "FILENAME, DESCENDING"
-#~ msgstr "遊戲名（降序）"
-
-#~ msgid "RATING, ASCENDING"
-#~ msgstr "評分（升序）"
-
-#~ msgid "RATING, DESCENDING"
-#~ msgstr "評分（降序）"
-
-#~ msgid "TIMES PLAYED, ASCENDING"
-#~ msgstr "遊戲執行次數（升序）"
-
-#~ msgid "TIMES PLAYED, DESCENDING"
-#~ msgstr "遊戲執行次數（降序）"
-
-#~ msgid "LAST PLAYED, ASCENDING"
-#~ msgstr "最近執行（升序）"
-
-#~ msgid "LAST PLAYED, DESCENDING"
-#~ msgstr "最近執行（降序）"
