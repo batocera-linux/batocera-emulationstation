@@ -39,6 +39,7 @@
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
 #include "scrapers/ThreadedScraper.h"
+#include "FileSorts.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -791,6 +792,7 @@ void GuiMenu::openSystemSettings_batocera()
 			reboot = true;
 		}
 		if (language_choice->changed()) {
+			FileSorts::reset();
 			SystemConf::getInstance()->set("system.language",
 				language_choice->getSelected());
 			SystemConf::getInstance()->saveSystemConf();

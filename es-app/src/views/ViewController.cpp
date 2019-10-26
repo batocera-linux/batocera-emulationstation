@@ -19,6 +19,7 @@
 #include "guis/GuiDetectDevice.h"
 #include "SystemConf.h"
 #include "AudioManager.h"
+#include "FileSorts.h"
 
 ViewController* ViewController::sInstance = NULL;
 
@@ -474,6 +475,7 @@ bool ViewController::input(InputConfig* config, Input input)
 		{
 			mWindow->render();
 
+			FileSorts::reset();
 			ResourceManager::getInstance()->unloadAll();
 			ResourceManager::getInstance()->reloadAll();
 

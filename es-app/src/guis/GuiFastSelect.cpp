@@ -73,14 +73,14 @@ bool GuiFastSelect::input(InputConfig* config, Input input)
 		return true;
 	}else if(config->isMappedLike("left", input) && input.value != 0)
 	{
-		mSortId = (mSortId + 1) % FileSorts::SortTypes.size();
+		mSortId = (mSortId + 1) % FileSorts::getSortTypes().size();
 		updateSortText();
 		return true;
 	}else if(config->isMappedLike("right", input) && input.value != 0)
 	{
 		mSortId--;
 		if(mSortId < 0)
-			mSortId += (int)FileSorts::SortTypes.size();
+			mSortId += (int)FileSorts::getSortTypes().size();
 
 		updateSortText();
 		return true;
@@ -125,13 +125,13 @@ void GuiFastSelect::scroll()
 void GuiFastSelect::updateSortText()
 {
 	std::stringstream ss;
-	ss << "<- " << FileSorts::SortTypes.at(mSortId).description << " ->";
+	ss << "<- " << FileSorts::getSortTypes().at(mSortId).description << " ->";
 	mSortText.setText(ss.str());
 }
 
 void GuiFastSelect::updateGameListSort()
 {
-	const FolderData::SortType& sort = FileSorts::SortTypes.at(mSortId);
+	const FolderData::SortType& sort = FileSorts::getSortTypes().at(mSortId);
 
 	FolderData* root = mGameList->getCursor()->getSystem()->getRootFolder();
 	root->sort(sort); // will also recursively sort children
@@ -145,7 +145,7 @@ void GuiFastSelect::updateGameListCursor()
 	const std::vector<FileData*>& list = mGameList->getCursor()->getParent()->getChildren();
 
 	// only skip by letter when the sort mode is alphabetical
-	const FolderData::SortType& sort = FileSorts::SortTypes.at(mSortId);
+	const FolderData::SortType& sort = FileSorts::getSortTypes().at(mSortId);
 	if(sort.comparisonFunction != &FileSorts::compareName)
 		return;
 

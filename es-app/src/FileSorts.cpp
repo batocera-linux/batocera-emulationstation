@@ -5,39 +5,61 @@
 
 namespace FileSorts
 {
-	const FolderData::SortType typesArr[] = {
-		FolderData::SortType(&compareName, true, "Filename, Ascending", _U("\uF15d ")),
-		FolderData::SortType(&compareName, false, "Filename, descending", _U("\uF15e ")),
+	static Singleton* sInstance = nullptr;
 
-		FolderData::SortType(&compareRating, true, "Rating, Ascending", _U("\uF165 ")),
-		FolderData::SortType(&compareRating, false, "Rating, Descending", _U("\uF164 ")),
+	Singleton* getInstance()
+	{
+		if (sInstance == nullptr)
+			sInstance = new Singleton();
 
-		FolderData::SortType(&compareTimesPlayed, true, "Times played, Ascending", _U("\uF160 ")),
-		FolderData::SortType(&compareTimesPlayed, false, "Times played, Descending", _U("\uF161 ")),
+		return sInstance;
+	}
 
-		FolderData::SortType(&compareLastPlayed, true, "Last played, Ascending", _U("\uF160 ")),
-		FolderData::SortType(&compareLastPlayed, false, "Last played, Descending", _U("\uF161 ")),
+	void reset()
+	{
+		if (sInstance != nullptr)
+			delete sInstance;
 
-		FolderData::SortType(&compareNumPlayers, true, "Number players, Ascending", _U("\uF162 ")),
-		FolderData::SortType(&compareNumPlayers, false, "Number players, Descending", _U("\uF163 ")),
+		sInstance = nullptr;
+	}
 
-		FolderData::SortType(&compareReleaseDate, true, "Release date, Ascending", _U("\uF160 ")),
-		FolderData::SortType(&compareReleaseDate, false, "Release date, Descending", _U("\uF161 ")),
+	const std::vector<FolderData::SortType>& getSortTypes()
+	{
+		return getInstance()->mSortTypes;
+	}
 
-		FolderData::SortType(&compareGenre, true, "Genre, Ascending", _U("\uF15d ")),
-		FolderData::SortType(&compareGenre, false, "Genre, Descending", _U("\uF15e ")),
+	FolderData::SortType getSortType(int sortId)
+	{
+		for (auto sort : getSortTypes())
+			if (sort.id == sortId)
+				return sort;
 
-		FolderData::SortType(&compareDeveloper, true, "Developer, Ascending", _U("\uF15d ")),
-		FolderData::SortType(&compareDeveloper, false, "Developer, Descending", _U("\uF15e ")),
+		return getSortTypes().at(0);
+	}
 
-		FolderData::SortType(&comparePublisher, true, "Publisher, Ascending", _U("\uF15d ")),
-		FolderData::SortType(&comparePublisher, false, "Publisher, Descending", _U("\uF15e ")),
-
-		FolderData::SortType(&compareSystem, true, "System, Ascending", _U("\uF15d ")),
-		FolderData::SortType(&compareSystem, false, "System, Descending", _U("\uF15e "))
-	};
-
-	const std::vector<FolderData::SortType> SortTypes(typesArr, typesArr + sizeof(typesArr)/sizeof(typesArr[0]));
+	Singleton::Singleton()
+	{
+		mSortTypes.push_back(FolderData::SortType(FILENAME_ASCENDING, &compareName, true, _("FILENAME, ASCENDING"), _U("\uF15d ")));
+		mSortTypes.push_back(FolderData::SortType(FILENAME_DESCENDING, &compareName, false, _("FILENAME, DESCENDING"), _U("\uF15e ")));
+		mSortTypes.push_back(FolderData::SortType(RATING_ASCENDING, &compareRating, true, _("RATING, ASCENDING"), _U("\uF165 ")));
+		mSortTypes.push_back(FolderData::SortType(RATING_DESCENDING, &compareRating, false, _("RATING, DESCENDING"), _U("\uF164 ")));
+		mSortTypes.push_back(FolderData::SortType(TIMESPLAYED_ASCENDING, &compareTimesPlayed, true, _("TIMES PLAYED, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(FolderData::SortType(TIMESPLAYED_DESCENDING, &compareTimesPlayed, false, _("TIMES PLAYED, DESCENDING"), _U("\uF161 ")));
+		mSortTypes.push_back(FolderData::SortType(LASTPLAYED_ASCENDING, &compareLastPlayed, true, _("LAST PLAYED, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(FolderData::SortType(LASTPLAYED_DESCENDING, &compareLastPlayed, false, _("LAST PLAYED, DESCENDING"), _U("\uF161 ")));
+		mSortTypes.push_back(FolderData::SortType(NUMBERPLAYERS_ASCENDING, &compareNumPlayers, true, _("NUMBER PLAYERS, ASCENDING"), _U("\uF162 ")));
+		mSortTypes.push_back(FolderData::SortType(NUMBERPLAYERS_DESCENDING, &compareNumPlayers, false, _("NUMBER PLAYERS, DESCENDING"), _U("\uF163 ")));
+		mSortTypes.push_back(FolderData::SortType(RELEASEDATE_ASCENDING, &compareReleaseDate, true, _("RELEASE DATE, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(FolderData::SortType(RELEASEDATE_DESCENDING, &compareReleaseDate, false, _("RELEASE DATE, DESCENDING"), _U("\uF161 ")));
+		mSortTypes.push_back(FolderData::SortType(GENRE_ASCENDING, &compareGenre, true, _("GENRE, ASCENDING"), _U("\uF15d ")));		
+		mSortTypes.push_back(FolderData::SortType(GENRE_DESCENDING, &compareGenre, false, _("GENRE, DESCENDING"), _U("\uF15e ")));
+		mSortTypes.push_back(FolderData::SortType(DEVELOPER_ASCENDING, &compareDeveloper, true, _("DEVELOPER, ASCENDING"), _U("\uF15d ")));
+		mSortTypes.push_back(FolderData::SortType(DEVELOPER_DESCENDING, &compareDeveloper, false, _("DEVELOPER, DESCENDING"), _U("\uF15e ")));
+		mSortTypes.push_back(FolderData::SortType(PUBLISHER_ASCENDING, &comparePublisher, true, _("PUBLISHER, ASCENDING"), _U("\uF15d ")));
+		mSortTypes.push_back(FolderData::SortType(PUBLISHER_DESCENDING, &comparePublisher, false, _("PUBLISHER, DESCENDING"), _U("\uF15e ")));
+		mSortTypes.push_back(FolderData::SortType(SYSTEM_ASCENDING, &compareSystem, true, _("SYSTEM, ASCENDING"), _U("\uF15d ")));
+		mSortTypes.push_back(FolderData::SortType(SYSTEM_DESCENDING, &compareSystem, false, _("SYSTEM, DESCENDING"), _U("\uF15e ")));
+	}
 
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
