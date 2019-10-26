@@ -446,6 +446,10 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 
 	if (!subsetAttr.empty())
 	{
+		std::string displayNameAttr = resolvePlaceholders(node.attribute("displayName").as_string());
+		if (displayNameAttr.empty())
+			displayNameAttr = nameAttr;
+
 		bool add = true;
 
 		for (auto sb : mSubsets) {
@@ -455,7 +459,7 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		}
 
 		if (add)
-			mSubsets.push_back(Subset(subsetAttr, nameAttr));
+			mSubsets.push_back(Subset(subsetAttr, nameAttr, displayNameAttr));
 	}
 
 	
@@ -604,7 +608,7 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 		off = nameAttr.find_first_of(delim, prevOff);
 
 		if (std::find(sSupportedViews.cbegin(), sSupportedViews.cend(), viewKey) != sSupportedViews.cend())
-		{
+		{	
 			ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
 			parseView(node, view);
 
@@ -751,6 +755,9 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 
 	ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
 	view.displayName = node.attribute("displayName") ? resolvePlaceholders(node.attribute("displayName").as_string()) : viewKey;
+	if (view.displayName.empty())
+		view.displayName = viewKey;
+
 	view.isCustomView = true;
 
 	std::string inherits = node.attribute("inherits").as_string();
@@ -851,7 +858,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	}
 
 	if (add)
-		mSubsets.push_back(Subset("region", nameAttr));
+		mSubsets.push_back(Subset("region", nameAttr, nameAttr));
 
 	const char* delim = " \t\r\n,";
 	
@@ -1310,13 +1317,13 @@ std::vector<std::pair<std::string, std::string>> ThemeData::getViewsOfTheme()
 	return ret;
 }
 
-std::vector<std::string> ThemeData::getSubSet(const std::vector<Subset>& subsets, const std::string& subset)
+std::vector<Subset> ThemeData::getSubSet(const std::vector<Subset>& subsets, const std::string& subset)
 {
-	std::vector<std::string> ret;
+	std::vector<Subset> ret;
 
 	for (const auto& it : subsets)
 		if (it.subset == subset)
-			ret.push_back(it.name);
+			ret.push_back(it);
 
 	return ret;
 }

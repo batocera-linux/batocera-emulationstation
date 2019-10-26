@@ -12,10 +12,10 @@ static std::vector<MetaDataDecl> gameMDD;
 static std::vector<MetaDataDecl> folderMDD;
 
 static std::string mDefaultGameMap[18];
-static std::string mDefaultFolderMap[13];
+static std::string mDefaultFolderMap[14];
 
 static MetaDataType mGameTypeMap[18];
-static MetaDataType mFolderTypeMap[13];
+static MetaDataType mFolderTypeMap[14];
 
 static std::map<std::string, unsigned char> mGameIdMap;
 static std::map<std::string, unsigned char> mFolderIdMap;
@@ -55,6 +55,7 @@ void MetaDataList::initMetadata()
 	folderMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "unknown", false, _("Publisher"), _("enter game publisher")));
 	folderMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "unknown", false, _("Genre"), _("enter game genre")));
 	folderMDD.push_back(MetaDataDecl(12, "players", MD_INT, "1", false, _("Players"), _("enter number of players")));
+	folderMDD.push_back(MetaDataDecl(13, "hidden", MD_BOOL, "false", false, _("Hidden"), _("set hidden")));
 
 	// Build Game maps
 	{

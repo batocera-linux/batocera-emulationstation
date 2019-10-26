@@ -26,6 +26,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mVideo = nullptr;
 	mMarquee = nullptr;
 
+	mLabelVisible = false;
 	mLabelMerged = false;
 
 	resetProperties();
@@ -508,7 +509,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	{
 		float sh = (float)Renderer::getScreenHeight();
 
-		if (elem && elem->has("pos"))
+		if (elem->has("pos"))
 		{
 			mDefaultProperties.mLabelPos = elem->get<Vector2f>("pos");
 			mSelectedProperties.mLabelPos = mDefaultProperties.mLabelPos;
@@ -517,7 +518,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		else 
 			mLabelMerged = false;
 
-		if (elem && elem->has("size"))
+		if (elem->has("size"))
 		{
 			mDefaultProperties.mLabelSize = elem->get<Vector2f>("size");
 			mSelectedProperties.mLabelSize = mDefaultProperties.mLabelSize;
@@ -526,70 +527,74 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 				mLabelMerged = mDefaultProperties.mLabelSize.x() == 0;
 		}
 
-		if (elem && elem->has("color"))
+		if (elem->has("color"))
 		{
 			mDefaultProperties.mLabelColor = elem->get<unsigned int>("color");
 			mSelectedProperties.mLabelColor = mDefaultProperties.mLabelColor;			
 		}
 
-		if (elem && elem->has("backgroundColor"))
+		if (elem->has("backgroundColor"))
 		{
 			mDefaultProperties.mLabelBackColor = elem->get<unsigned int>("backgroundColor");
 			mSelectedProperties.mLabelBackColor = mDefaultProperties.mLabelBackColor;			
 		}
 
-		if (elem && elem->has("glowSize"))
+		if (elem->has("glowSize"))
 		{
 			mDefaultProperties.mLabelGlowSize = (unsigned int) elem->get<float>("glowSize");
 			mSelectedProperties.mLabelGlowSize = mDefaultProperties.mLabelGlowSize;
 		}
 
-		if (elem && elem->has("glowColor"))
+		if (elem->has("glowColor"))
 		{
 			mDefaultProperties.mLabelGlowColor = elem->get<unsigned int>("glowColor");
 			mSelectedProperties.mLabelGlowColor = mDefaultProperties.mLabelGlowColor;
 		}
 
-		if (elem && elem->has("fontSize"))
+		if (elem->has("fontSize"))
 		{
 			mDefaultProperties.mFontSize = elem->get<float>("fontSize") * sh;
 			mSelectedProperties.mFontSize = mDefaultProperties.mFontSize;
 		}
 
-		if (elem && elem->has("fontPath"))
+		if (elem->has("fontPath"))
 		{
 			mDefaultProperties.mFontPath = elem->get<std::string>("fontPath");
 			mSelectedProperties.mFontPath = mDefaultProperties.mFontPath;
 		}
+	
+		if (elem->has("visible"))
+			mLabelVisible = elem->get<bool>("visible");
+		else
+			mLabelVisible = true;
 
-		mLabelVisible = true;
 		mLabel.applyTheme(theme, view, element, properties);
 
 		elem = theme->getElement(view, "gridtile_selected", "text");
 		if (elem != NULL)
 		{
-			if (elem && elem->has("pos") && mDefaultProperties.mLabelPos.x() >= 0)
+			if (elem->has("pos") && mDefaultProperties.mLabelPos.x() >= 0)
 				mSelectedProperties.mLabelPos = elem->get<Vector2f>("pos");
 
-			if (elem && elem->has("size"))
+			if (elem->has("size"))
 				mSelectedProperties.mLabelSize = elem->get<Vector2f>("size");
 
-			if (elem && elem->has("color"))
+			if (elem->has("color"))
 				mSelectedProperties.mLabelColor = elem->get<unsigned int>("color");
 
-			if (elem && elem->has("backgroundColor"))
+			if (elem->has("backgroundColor"))
 				mSelectedProperties.mLabelBackColor = elem->get<unsigned int>("backgroundColor");
 
-			if (elem && elem->has("glowSize"))
+			if (elem->has("glowSize"))
 				mSelectedProperties.mLabelGlowSize = (unsigned int)elem->get<float>("glowSize");
 
-			if (elem && elem->has("glowColor"))
+			if (elem->has("glowColor"))
 				mSelectedProperties.mLabelGlowColor = elem->get<unsigned int>("glowColor");
 
-			if (elem && elem->has("fontSize"))
+			if (elem->has("fontSize"))
 				mSelectedProperties.mFontSize = elem->get<float>("fontSize") * sh;
 
-			if (elem && elem->has("fontPath"))
+			if (elem->has("fontPath"))
 				mSelectedProperties.mFontPath = elem->get<std::string>("fontPath");
 		}
 	}

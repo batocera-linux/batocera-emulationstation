@@ -42,7 +42,7 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 	info_type.push_back("start & end");
 	info_type.push_back("never");
 	for(auto it = info_type.cbegin(); it != info_type.cend(); it++)
-		ss_info->add(*it, *it, Settings::getInstance()->getString("ScreenSaverGameInfo") == *it);
+		ss_info->add(_(it->c_str()), *it, Settings::getInstance()->getString("ScreenSaverGameInfo") == *it);
 	addWithLabel(_("SHOW GAME INFO ON SCREENSAVER"), ss_info);
 	addSaveFunc([ss_info, this] { Settings::getInstance()->setString("ScreenSaverGameInfo", ss_info->getSelected()); });
 

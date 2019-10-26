@@ -6,6 +6,7 @@
 #include "views/gamelist/IGameListView.h"
 #include "views/ViewController.h"
 #include "FileData.h"
+#include "FileSorts.h"
 #include "FileFilterIndex.h"
 #include "Log.h"
 #include "Settings.h"
@@ -26,13 +27,13 @@ CollectionSystemManager* CollectionSystemManager::sInstance = NULL;
 CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(window)
 {
 	CollectionSystemDecl systemDecls[] = {
-		//type                  name            long name            //default sort              // theme folder            // isCustom
-	  { AUTO_ALL_GAMES,       "all",          _("all games"),         "filename, ascending",      "auto-allgames",           false },
-	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       "last played, descending",  "auto-lastplayed",         false },
-	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         "filename, ascending",      "auto-favorites",          false },
-	  { AUTO_AT2PLAYERS,      "2players",   _("2 players"),         "filename, ascending",      "auto-at2players",          false }, // batocera
-	  { AUTO_AT4PLAYERS,      "4players",   _("4 players"),         "filename, ascending",      "auto-at4players",          false }, // batocera
-	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),    "filename, ascending",      "custom-collections",      true }
+		//type                  name            long name            //default sort						// theme folder            // isCustom
+	  { AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false },
+	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false },
+	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false },
+	  { AUTO_AT2PLAYERS,      "2players",	  _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false }, // batocera
+	  { AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false }, // batocera
+	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
 	};
 
 	// create a map
@@ -207,7 +208,7 @@ void CollectionSystemManager::updateSystemsList()
 
 	if(mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
 	{
-		mCustomCollectionsBundle->getRootFolder()->sort(getSortTypeFromString(mCollectionSystemDeclsIndex[myCollectionsName].defaultSort));
+		mCustomCollectionsBundle->getRootFolder()->sort(FileSorts::getSortType(mCollectionSystemDeclsIndex[myCollectionsName].defaultSortId));
 		SystemData::sSystemVector.push_back(mCustomCollectionsBundle);
 	}
 
@@ -297,7 +298,7 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 
 		curSys->updateDisplayedGameCount();
 
-		rootFolder->sort(getSortTypeFromString(mCollectionSystemDeclsIndex[name].defaultSort));
+		rootFolder->sort(FileSorts::getSortType(mCollectionSystemDeclsIndex[name].defaultSortId));
 		if (name == "recent")
 		{
 			trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
@@ -518,7 +519,7 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				rootFolder->addChild(newGame);
 				sysData->addToIndex(newGame);
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(newGame, FILE_METADATA_CHANGED);
-				rootFolder->sort(getSortTypeFromString(mEditingCollectionSystemData->decl.defaultSort));
+				rootFolder->sort(FileSorts::getSortType(mEditingCollectionSystemData->decl.defaultSortId));
 				ViewController::get()->onFileChanged(systemViewToUpdate->getRootFolder(), FILE_SORTED);
 				// add to bundle index as well, if needed
 				if (systemViewToUpdate != sysData)
@@ -771,7 +772,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			}
 		}
 	}
-	rootFolder->sort(getSortTypeFromString(sysDecl.defaultSort));
+	rootFolder->sort(FileSorts::getSortType(sysDecl.defaultSortId));
 	if (sysDecl.type == AUTO_LAST_PLAYED)
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
 	sysData->isPopulated = true;
@@ -825,7 +826,7 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			LOG(LogInfo) << "Couldn't find game referenced at '" << gameKey << "' for system config '" << path << "'";
 		}
 	}
-	rootFolder->sort(getSortTypeFromString(sysDecl.defaultSort));
+	rootFolder->sort(FileSorts::getSortType(sysDecl.defaultSortId));
 	updateCollectionFolderMetadata(newSys);
 }
 

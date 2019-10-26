@@ -174,6 +174,9 @@ const std::string FileData::getImagePath() const
 	// no image, try to use local image
 	if(image.empty())
 	{
+		if (getSystemName() == "imageviewer")
+			image = getPath();
+
 		const char* extList[2] = { ".png", ".jpg" };
 		for(int i = 0; i < 2; i++)
 		{
@@ -184,6 +187,7 @@ const std::string FileData::getImagePath() const
 					image = path;
 			}
 		}
+
 	}
 
 	return image;
@@ -362,22 +366,6 @@ const std::string CollectionFileData::getName()
 	return Utils::String::removeParenthesis(mSourceFileData->metadata.get("name"));
 }
 
-// returns Sort Type based on a string description
-FolderData::SortType getSortTypeFromString(std::string desc) {
-	std::vector<FolderData::SortType> SortTypes = FileSorts::SortTypes;
-	// find it
-	for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
-	{
-		const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-		if(sort.description == desc)
-		{
-			return sort;
-		}
-	}
-	// if not found default to name, ascending
-	return FileSorts::SortTypes.at(0);
-}
-
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
 {
 	std::vector<FileData*> ret;
@@ -432,10 +420,10 @@ std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemDat
 	std::vector<FileData*> ret = getFilesRecursive(GAME, displayedOnly, system);
 
 	unsigned int currentSortId = system->getSortId();
-	if (currentSortId < 0 || currentSortId >FileSorts::SortTypes.size())
+	if (currentSortId < 0 || currentSortId >FileSorts::getSortTypes().size())
 		currentSortId = 0;
 
-	auto sort = FileSorts::SortTypes.at(currentSortId);
+	auto sort = FileSorts::getSortTypes().at(currentSortId);
 
 	std::stable_sort(ret.begin(), ret.end(), sort.comparisonFunction);
 

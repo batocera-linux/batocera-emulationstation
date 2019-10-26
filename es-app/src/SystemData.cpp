@@ -47,13 +47,13 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 				return;
 		}
 
-		if(!Settings::getInstance()->getBool("IgnoreGamelist"))
+		if(!Settings::getInstance()->getBool("IgnoreGamelist") && mName != "imageviewer")
 			parseGamelist(this, fileMap);
-
-		if (mSortId >= 0 && mSortId < FileSorts::SortTypes.size())
-			mRootFolder->sort(FileSorts::SortTypes.at(mSortId));
+		
+		if (mSortId >= 0 && mSortId < FileSorts::getSortTypes().size())
+			mRootFolder->sort(FileSorts::getSortTypes().at(mSortId));
 		else
-			mRootFolder->sort(FileSorts::SortTypes.at(0));
+			mRootFolder->sort(FileSorts::getSortTypes().at(0));
 	}
 	else
 	{

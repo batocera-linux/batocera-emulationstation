@@ -28,7 +28,7 @@ struct CollectionSystemDecl
 	CollectionSystemType type; // type of system
 	std::string name;
 	std::string longName;
-	std::string defaultSort;
+	int			defaultSortId;
 	std::string themeFolder;
 	bool isCustom;
 };

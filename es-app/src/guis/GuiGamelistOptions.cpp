@@ -128,14 +128,14 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	// sort list by
 	unsigned int currentSortId = mSystem->getSortId();
-	if (currentSortId > FileSorts::SortTypes.size())
+	if (currentSortId > FileSorts::getSortTypes().size())
 		currentSortId = 0;
 
 	mListSort = std::make_shared<SortList>(mWindow, _("SORT GAMES BY"), false);
-	for(unsigned int i = 0; i < FileSorts::SortTypes.size(); i++)
+	for(unsigned int i = 0; i < FileSorts::getSortTypes().size(); i++)
 	{
-		const FolderData::SortType& sort = FileSorts::SortTypes.at(i);
-		mListSort->add(sort.icon + _(Utils::String::toUpper(sort.description).c_str()), i, i == currentSortId); // TODO - actually make the sort type persistent
+		const FolderData::SortType& sort = FileSorts::getSortTypes().at(i);
+		mListSort->add(sort.icon + sort.description, sort.id, sort.id == currentSortId); // TODO - actually make the sort type persistent
 	}
 
 	mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera	
@@ -151,7 +151,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	auto mViews = system->getTheme()->getViewsOfTheme();
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
-		styles.push_back(*it);
+	{
+		if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
+			styles.push_back(std::pair<std::string, std::string>(it->first, _(it->first.c_str())));
+		else
+			styles.push_back(*it);
+	}
 
 	std::string viewMode = system->getSystemViewMode();
 
@@ -364,7 +369,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 
 		FolderData* root = mSystem->getRootFolder();
 
-		const FolderData::SortType& sort = FileSorts::SortTypes.at(mListSort->getSelected());
+		const FolderData::SortType& sort = FileSorts::getSortTypes().at(mListSort->getSelected());
 		root->sort(sort);
 
 		// notify that the root folder was sorted
@@ -486,7 +491,7 @@ void GuiGamelistOptions::jumpToLetter()
 		mSystem->setSortId(0);
 
 		FolderData* root = mSystem->getRootFolder();
-		const FolderData::SortType& sort = FileSorts::SortTypes.at(0);
+		const FolderData::SortType& sort = FileSorts::getSortTypes().at(0);
 		root->sort(sort);
 
 		getGamelist()->onFileChanged(root, FILE_SORTED);

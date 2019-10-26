@@ -126,13 +126,14 @@ public:
 	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
 	struct SortType
 	{
+		int id;
 		ComparisonFunction* comparisonFunction;
 		bool ascending;
 		std::string description;
 		std::string icon;
 
-		SortType(ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription, const std::string & iconId = "")
-			: comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription), icon(iconId) {}
+		SortType(int sortId, ComparisonFunction* sortFunction, bool sortAscending, const std::string & sortDescription, const std::string & iconId = "")
+			: id(sortId), comparisonFunction(sortFunction), ascending(sortAscending), description(sortDescription), icon(iconId) {}
 	};
 
 	void sort(ComparisonFunction& comparator, bool ascending = true);
@@ -153,7 +154,5 @@ public:
 private:
 	std::vector<FileData*> mChildren;
 };
-
-FolderData::SortType getSortTypeFromString(std::string desc);
 
 #endif // ES_APP_FILE_DATA_H

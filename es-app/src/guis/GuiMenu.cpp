@@ -39,6 +39,7 @@
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
 #include "scrapers/ThreadedScraper.h"
+#include "FileSorts.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -791,6 +792,7 @@ void GuiMenu::openSystemSettings_batocera()
 			reboot = true;
 		}
 		if (language_choice->changed()) {
+			FileSorts::reset();
 			SystemConf::getInstance()->set("system.language",
 				language_choice->getSelected());
 			SystemConf::getInstance()->saveSystemConf();
@@ -1295,21 +1297,29 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		else if (subset == "region") settingName = "ThemeRegionName";
 
 		auto themeColorSets = ThemeData::getSubSet(themeSubSets, subset);
-
 		if (themeColorSets.size() > 0)
-		{
-			auto selectedColorSet = std::find(themeColorSets.cbegin(), themeColorSets.cend(), Settings::getInstance()->getString(settingName));
-			if (selectedColorSet == themeColorSets.end())
-				selectedColorSet = themeColorSets.begin();
-			
+		{			
+			auto selectedColorSet = themeColorSets.end();
+			auto selectedName = Settings::getInstance()->getString(settingName);
+
+			for (auto it = themeColorSets.begin(); it != themeColorSets.end() && selectedColorSet == themeColorSets.end(); it++)
+				if (it->name == selectedName)
+					selectedColorSet = it;
+
 			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME "+Utils::String::toUpper(subset)).c_str()), false);
 			item->setTag(settingName);
 
 			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
-				item->add(*it, *it, it == selectedColorSet);
+				item->add(it->displayName, it->name, it == selectedColorSet);
 
 			if (!themeColorSets.empty())
-				themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
+			{
+				std::string displayName = theme->getVariable("subset." + subset);
+				if (!displayName.empty())
+					themeconfig->addWithLabel(displayName, item);
+				else
+					themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
+			}
 
 			options[settingName]  = item;
 		}
@@ -1330,7 +1340,12 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		{
 			auto mViews = theme->getViewsOfTheme();
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
-				styles.push_back(*it);
+			{
+				if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
+					styles.push_back(std::pair<std::string, std::string>(it->first, _(it->first.c_str())));
+				else
+					styles.push_back(*it);
+			}
 		}
 		else
 		{

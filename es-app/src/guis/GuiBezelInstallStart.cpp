@@ -194,7 +194,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
         for (auto it = availableBezels.begin(); it != availableBezels.end(); it++){
 
                 auto itstring = std::make_shared<TextComponent>(mWindow,
-                                (*it).c_str(), theme->TextSmall.font, theme->Text.color);
+                                (*it).c_str(), theme->Text.font, theme->Text.color);
                 char *tmp=new char [(*it).length()+1];
                 std::strcpy (tmp, (*it).c_str());
                 // Get Bezel_System name (from string '[I] Bezel_name http://url_of_this_Bezel')
@@ -212,7 +212,7 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 			// Let's put the pretty name of the system
 			if (! strcmp ((*itSystem)->getName().c_str(), bezel_cli))
 				itstring = std::make_shared<TextComponent>(mWindow,
-						(*itSystem)->getFullName(), theme->TextSmall.font, theme->Text.color);
+						(*itSystem)->getFullName(), theme->Text.font, theme->Text.color);
 		}
 
 		// Names longer than this will crash GuiMsgBox downstream

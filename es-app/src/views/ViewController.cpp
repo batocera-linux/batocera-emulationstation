@@ -19,6 +19,7 @@
 #include "guis/GuiDetectDevice.h"
 #include "SystemConf.h"
 #include "AudioManager.h"
+#include "FileSorts.h"
 
 ViewController* ViewController::sInstance = NULL;
 
@@ -473,6 +474,11 @@ bool ViewController::input(InputConfig* config, Input input)
 		if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
 		{
 			mWindow->render();
+
+			FileSorts::reset();
+			ResourceManager::getInstance()->unloadAll();
+			ResourceManager::getInstance()->reloadAll();
+
 			ViewController::get()->reloadAll(mWindow);
 #if WIN32
 			EsLocale::reset();
