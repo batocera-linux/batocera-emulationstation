@@ -661,19 +661,34 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 	if (root.attribute("defaultView"))
 		mDefaultView = root.attribute("defaultView").as_string();
 
-	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+	if (mVersion <= 4)
 	{
-		if (!parseFilterAttributes(node))
-			continue;
-
-		std::string name = node.name();
-
-		if (name == "include")
+		// Unfortunately, recalbox does not do things in order, features have to be loaded after
+		for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
 			parseInclude(node);
-		else if (name == "view")
+
+		for (pugi::xml_node node = root.child("view"); node; node = node.next_sibling("view"))
 			parseViewElement(node);
-		else if (name == "customView")
-			parseCustomView(node, root);	
+
+		for (pugi::xml_node node = root.child("customView"); node; node = node.next_sibling("customView"))
+			parseCustomView(node, root);
+	}
+	else
+	{
+		for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+		{
+			if (!parseFilterAttributes(node))
+				continue;
+
+			std::string name = node.name();
+
+			if (name == "include")
+				parseInclude(node);
+			else if (name == "view")
+				parseViewElement(node);
+			else if (name == "customView")
+				parseCustomView(node, root);
+		}
 	}
 
 	// Unfortunately, recalbox does not do things in order, features have to be loaded after
@@ -955,6 +970,16 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		case PATH:
 		{
 			std::string path = Utils::FileSystem::resolveRelativePath(str, mPaths.back(), true);
+
+#if WIN32
+			path = Utils::String::replace(path,
+				"/recalbox/share_init/system/.emulationstation/themes",
+				Utils::FileSystem::getEsConfigPath() + "/themes");
+#else
+			path = Utils::String::replace(path,
+				"/recalbox/share_init/system/.emulationstation/themes",
+				"/userdata/themes");
+#endif
 
 			if (!ResourceManager::getInstance()->fileExists(path))
 			{
