@@ -1312,6 +1312,9 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
 				item->add(it->displayName, it->name, it == selectedColorSet);
 
+			if (selectedColorSet == themeColorSets.end())
+				item->selectFirstItem();
+
 			if (!themeColorSets.empty())
 			{
 				std::string displayName = theme->getVariable("subset." + subset);
