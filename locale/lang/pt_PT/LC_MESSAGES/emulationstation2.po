@@ -968,10 +968,10 @@ msgid "enter game developer"
 msgstr "digite o nome da produtora"
 
 msgid "Publisher"
-msgstr "Distribuidor"
+msgstr "Editora"
 
 msgid "enter game publisher"
-msgstr "digite o nome da publicadora"
+msgstr "digite o nome da editora"
 
 msgid "Genre"
 msgstr "Género"
@@ -1110,40 +1110,40 @@ msgid "LAST PLAYED, DESCENDING"
 msgstr "ÚLTIMA VEZ JOGADO, DECRESCENTE"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "NÚMERO DE JOGADORES, CRESCENTE"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "NÚMERO DE JOGADORES, DECRESCENTE"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "DATA DE LANÇAMENTO, CRESCENTE"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "DATA DE LANÇAMENTO, DECRESCENTE"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "GÉNERO, CRESCENTE"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "GÉNERO, DECRESCENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "DESENVOLVEDOR, CRESCENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "DESENVOLVEDOR, DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "EDITORA, CRESCENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "EDITORA, DECRESCENTE"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, CRESCENTE"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, DECRESCENTE"
 
 msgid "DOWNLOADING"
 msgstr "A TRANSFERIR"
