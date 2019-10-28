@@ -151,6 +151,8 @@ public:
 
 	void createChildrenByFilenameMap(std::unordered_map<std::string, FileData*>& map);
 
+	FileData* findUniqueGameForFolder();
+
 private:
 	std::vector<FileData*> mChildren;
 };

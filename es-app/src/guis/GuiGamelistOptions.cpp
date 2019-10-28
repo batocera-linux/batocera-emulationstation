@@ -220,16 +220,23 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			mReloadAll = true;
 	});
 
-	// Flat folders
-	auto flatFolders = std::make_shared<SwitchComponent>(mWindow);
-	flatFolders->setState(!Settings::getInstance()->getBool("FlatFolders"));
-	mMenu.addWithLabel(_("SHOW FOLDERS"), flatFolders); // batocera
-	addSaveFunc([flatFolders, this] 
-	{ 
-		if (Settings::getInstance()->setBool("FlatFolders", !flatFolders->getState()))
+	// Folder View Mode
+	auto foldersBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW FOLDERS"), false);
+	std::vector<std::string> folders;
+	folders.push_back("always");
+	folders.push_back("never");
+	folders.push_back("having multiple games");
+
+	for (auto it = folders.cbegin(); it != folders.cend(); it++)
+		foldersBehavior->add(_(it->c_str()), *it, Settings::getInstance()->getString("FolderViewMode") == *it);
+	
+	mMenu.addWithLabel(_("SHOW FOLDERS"), foldersBehavior);
+	addSaveFunc([this, foldersBehavior] 
+	{
+		if (Settings::getInstance()->setString("FolderViewMode", foldersBehavior->getSelected()))
 			mReloadAll = true;
 	});
-	
+
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
 	if(UIModeController::getInstance()->isUIModeFull() &&
