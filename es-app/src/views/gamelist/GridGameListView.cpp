@@ -537,6 +537,10 @@ void GridGameListView::updateInfoPanel()
 		fadingOut = false;
 	}
 
+	// We're clearing / populating : don't setup fade animations
+	if (file == nullptr && mGrid.getObjects().size() == 0 && mGrid.getCursorIndex() == 0 && mGrid.getScrollingVelocity() == 0)
+		return;
+
 	std::vector<GuiComponent*> comps = getMDValues();
 
 	if (mVideo != nullptr)
