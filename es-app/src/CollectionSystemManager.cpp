@@ -756,12 +756,32 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						include = (*gameIt)->metadata.get("favorite") == "true";
 						break;
 					case AUTO_AT2PLAYERS: // batocera
-					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 2;
-					  break;
-					case AUTO_AT4PLAYERS: // batocera
-					  include = atoi((*gameIt)->metadata.get("players").c_str()) >= 4;
-					  break;
+					case AUTO_AT4PLAYERS:
+						{
+							std::string players = (*gameIt)->metadata.get("players");
+							if (players.empty())
+								include = false;
+							else
+							{
+								int min = -1;
 
+								auto split = players.rfind("+");
+								if (split != std::string::npos)
+									players = Utils::String::replace(players, "+", "-999");
+
+								split = players.rfind("-");
+								if (split != std::string::npos)
+								{
+									min = atoi(players.substr(0, split).c_str());
+									players = players.substr(split + 1);
+								}
+
+								int max = atoi(players.c_str());
+								int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
+								include = min <= 0 ? (val == max) : (min <= val <= max);
+							}
+						}
+						break;
 				}
 
 				if (include) {

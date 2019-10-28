@@ -327,6 +327,10 @@ void VideoGameListView::updateInfoPanel()
 		fadingOut = false;
 	}
 
+	// We're clearing / populating : don't setup fade animations
+	if (file == nullptr && mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0)
+		return;
+
 	std::vector<GuiComponent*> comps = getMDValues();
 	comps.push_back(&mMarquee);
 	comps.push_back(mVideo);

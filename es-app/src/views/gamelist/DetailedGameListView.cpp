@@ -391,6 +391,10 @@ void DetailedGameListView::updateInfoPanel()
 		
 		fadingOut = false;
 	}
+	
+	// We're clearing / populating : don't setup fade animations
+	if (file == nullptr && mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0)
+		return;
 
 	std::vector<GuiComponent*> comps = getMDValues();
 
@@ -427,7 +431,7 @@ void DetailedGameListView::updateInfoPanel()
 			};
 
 			bool isFadeOut = fadingOut;
-			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut]
+			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut, file]
 			{
 				if (isFadeOut)
 				{
