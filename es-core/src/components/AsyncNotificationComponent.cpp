@@ -13,9 +13,10 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 {
 	mPercent = -1;
 
-	float width = Renderer::getScreenWidth() * 0.14f;
-
 	auto theme = ThemeData::getMenuTheme();
+
+	// Note : Don't localize this text -> It is only used to guess width calculation for the component.
+	float width = theme->TextSmall.font->sizeText("TEXT FOR SIZE CALCULATION").x(); // Renderer::getScreenWidth() * 0.14f;											
 
 	mTitle = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->TextSmall.color, ALIGN_LEFT);
 	mGameName = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_LEFT);
@@ -123,7 +124,7 @@ void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
 			percent = 100;
 
 		auto theme = ThemeData::getMenuTheme();
-		auto color = (theme->Text.selectedColor & 0xFFFFFF00) | 0x40;
+		auto color = theme->Text.color & 0xFFFFFF00 | (unsigned char)((theme->Text.color & 0xFF) * (mOpacity / 255.0));
 		Renderer::drawRect(x, y, (w*percent), h, color);
 	}
 
