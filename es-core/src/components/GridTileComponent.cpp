@@ -25,6 +25,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mAnimPosition = Vector3f(0, 0);
 	mVideo = nullptr;
 	mMarquee = nullptr;
+	mIsDefaultImage = false;
 
 	mLabelVisible = false;
 	mLabelMerged = false;
@@ -119,6 +120,7 @@ void GridTileComponent::resize()
 	float height = (int) (size.y() * currentProperties.mLabelSize.y());
 	float labelHeight = height;
 
+	mLabel.setVisible(mLabelVisible || mIsDefaultImage);
 
 	if (mLabelVisible)
 	{
@@ -144,7 +146,7 @@ void GridTileComponent::resize()
 			}
 		}
 	}
-
+		
 	if (!mLabelVisible || mLabelMerged || currentProperties.mLabelSize.x() == 0)
 		height = 0;
 
@@ -260,6 +262,17 @@ void GridTileComponent::resize()
 		bkposition = Vector3f(x - mPosition.x(), y - mPosition.y(), 0);
 	}
 
+	if (!mLabelVisible && mIsDefaultImage)
+	{
+		mLabel.setColor(0xFFFFFFFF);
+		mLabel.setGlowColor(0x00000010);
+		mLabel.setGlowSize(2);
+		mLabel.setOpacity(255);
+		mLabel.setPosition(mSize.x() * 0.1, mSize.y() * 0.2);
+		mLabel.setSize(mSize.x() - mSize.x() * 0.2, mSize.y() - mSize.y() * 0.3);
+	}
+
+
 	mBackground.setPosition(bkposition);
 	mBackground.setSize(bkSize);
 	mBackground.setCornerSize(currentProperties.mBackgroundCornerSize);
@@ -328,6 +341,8 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mMarquee != nullptr && mMarquee->hasImage())
 		mMarquee->render(trans);
 	else if (mLabelVisible && currentProperties.mLabelSize.y()>0)
+		mLabel.render(trans);
+	else if (!mLabelVisible && mIsDefaultImage)
 		mLabel.render(trans);
 
 	if (mLabelMerged && currentProperties.mImageSizeMode == "minSize")
@@ -621,8 +636,9 @@ bool GridTileComponent::isSelected() const
 	return mSelected;
 }
 
-void GridTileComponent::setImage(const std::string& path)
+void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 {
+	mIsDefaultImage = isDefaultImage;
 	if (mCurrentPath == path)
 		return;
 	

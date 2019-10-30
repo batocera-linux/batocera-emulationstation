@@ -86,32 +86,46 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			FileData* cursor = getCursor();
 			FolderData* folder = NULL;
 
-			if (cursor->getType() == FOLDER)
-				folder = (FolderData*)cursor;
-
-			if(cursor->getType() == GAME)
+			if (mCursorStack.size() && cursor->getType() == PLACEHOLDER && cursor->getPath() == "..")
 			{
-				Sound::getFromTheme(getTheme(), getName(), "launch")->play();
-				launch(cursor);
-			}else{
-				// it's a folder
-				if (folder != nullptr && folder->getChildren().size() > 0)
+				auto top = mCursorStack.top();
+				mCursorStack.pop();
+
+				populateList(top->getParent()->getChildrenListToDisplay());
+				setCursor(top);
+				Sound::getFromTheme(getTheme(), getName(), "back")->play();
+			}
+			else
+			{
+				if (cursor->getType() == FOLDER)
+					folder = (FolderData*)cursor;
+
+				if (cursor->getType() == GAME)
 				{
-					mCursorStack.push(cursor);
-					populateList(folder->getChildrenListToDisplay());
-					FileData* cursor = getCursor();
-					setCursor(cursor);
+					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
+					launch(cursor);
+				}
+				else {
+					// it's a folder
+					if (folder != nullptr && folder->getChildren().size() > 0)
+					{
+						mCursorStack.push(cursor);
+						populateList(folder->getChildrenListToDisplay());
+						FileData* cursor = getCursor();
+						setCursor(cursor);
+					}
 				}
 			}
-
 			return true;
 		}else if(config->isMappedTo(BUTTON_BACK, input))
 		{
 			if(mCursorStack.size())
 			{
-				populateList(mCursorStack.top()->getParent()->getChildren());
-				setCursor(mCursorStack.top());
+				auto top = mCursorStack.top();
 				mCursorStack.pop();
+
+				populateList(top->getParent()->getChildrenListToDisplay());
+				setCursor(top);				
 				Sound::getFromTheme(getTheme(), getName(), "back")->play();
 			}else{
 				onFocusLost();

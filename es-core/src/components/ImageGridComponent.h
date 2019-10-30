@@ -819,10 +819,10 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 
 		if (ResourceManager::getInstance()->fileExists(imagePath))
 			tile->setImage(imagePath);
-		else if (mEntries.at(imgPos).object->getType() == 2)		
-			tile->setImage(mDefaultFolderTexture);
+		else if (mEntries.at(imgPos).object->getType() == 2 || (mEntries.at(imgPos).object->getType() == PLACEHOLDER && mEntries.at(imgPos).object->getPath() == ".."))
+			tile->setImage(mDefaultFolderTexture, true);
 		else
-			tile->setImage(mDefaultGameTexture);		
+			tile->setImage(mDefaultGameTexture, true);
 		
 		// Marquee
 		std::string marqueePath = mEntries.at(imgPos).data.marqueePath;
