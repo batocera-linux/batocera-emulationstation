@@ -972,6 +972,63 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(retroachievements);
 		});		
 
+		//AI-enabled translations
+		s->addEntry(_("AI GAME TRANSLATION"), true, [this]
+		{
+			GuiSettings *ai_service = new GuiSettings(mWindow, _("AI GAME TRANSLATION").c_str());
+
+			// AI service enabled?
+			auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
+			ai_service_enabled->setState(
+				SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
+			ai_service->addWithLabel(_("ENABLE AI SERVICE"), ai_service_enabled);
+
+			// Target language - order is: popular languages in the Batocera community first
+			// then alphabetical order of the 2-char lang code (because the strings are localized)
+			auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
+							_("TARGET LANGUAGE"), false);
+			std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
+			if (currentLang.empty())
+				currentLang = std::string("En");
+			lang_choices->add(_("ENGLISH"), "En", currentLang == "En");
+			lang_choices->add(_("FRENCH"), "Fr", currentLang == "Fr");
+			lang_choices->add(_("PORTUGUESE"), "Pt", currentLang == "Pt");
+			lang_choices->add(_("GERMAN"), "De", currentLang == "De");
+			lang_choices->add(_("GREEK"), "El", currentLang == "El");
+			lang_choices->add(_("SPANISH"), "Es", currentLang == "Es");
+			lang_choices->add(_("CZECH"), "Cs", currentLang == "Cs");
+			lang_choices->add(_("DANISH"), "Da", currentLang == "Da");
+			lang_choices->add(_("CROATIAN"), "Hr", currentLang == "Hr");
+			lang_choices->add(_("HUNGARIAN"), "Hu", currentLang == "Hu");
+			lang_choices->add(_("ITALIAN"), "It", currentLang == "It");
+			lang_choices->add(_("JAPANESE"), "Ja", currentLang == "Ja");
+			lang_choices->add(_("KOREAN"), "Ko", currentLang == "Ko");
+			lang_choices->add(_("DUTCH"), "Nl", currentLang == "Nl");
+			lang_choices->add(_("NORWEGIAN"), "Nn", currentLang == "Nn");
+			lang_choices->add(_("POLISH"), "Po", currentLang == "Po");
+			lang_choices->add(_("ROMANIAN"), "Ro", currentLang == "Ro");
+			lang_choices->add(_("RUSSIAN"), "Ru", currentLang == "Ru");
+			lang_choices->add(_("SWEDISH"), "Sv", currentLang == "Sv");
+			lang_choices->add(_("TURKISH"), "Tr", currentLang == "Tr");
+			lang_choices->add(_("CHINESE"), "Zh", currentLang == "Zh");
+			ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
+
+			// Service  URL
+			createInputTextRow(ai_service, _("SERVICE URL"), "global.ai_service_url", false);
+
+			ai_service->addSaveFunc([ai_service_enabled, lang_choices] {
+				if (ai_service_enabled->changed())
+					SystemConf::getInstance()->set("global.ai_service_enabled",
+							ai_service_enabled->getState() ? "1" : "0");
+				if (lang_choices->changed())
+					SystemConf::getInstance()->set("global.ai_target_lang",
+							lang_choices->getSelected());
+				SystemConf::getInstance()->saveSystemConf();
+			});
+
+			mWindow->pushGui(ai_service);
+		});
+
 		// Bios
 		s->addEntry(_("MISSING BIOS"), true, [this, s]
 		{
