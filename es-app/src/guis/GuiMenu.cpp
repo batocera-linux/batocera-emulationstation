@@ -983,39 +983,37 @@ void GuiMenu::openGamesSettings_batocera()
 				SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
 			ai_service->addWithLabel(_("ENABLE AI SERVICE"), ai_service_enabled);
 
-			// Target language
+			// Target language - order is: popular languages in the Batocera community first
+			// then alphabetical order of the 2-char lang code (because the strings are localized)
 			auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
 							_("TARGET LANGUAGE"), false);
 			std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
 			if (currentLang.empty())
-				currentLang = std::string("0");
-			lang_choices->add(_("AUTO (ENGLISH)"), "0", currentLang == "0");
+				currentLang = std::string("En");
 			lang_choices->add(_("ENGLISH"), "En", currentLang == "En");
 			lang_choices->add(_("FRENCH"), "Fr", currentLang == "Fr");
 			lang_choices->add(_("PORTUGUESE"), "Pt", currentLang == "Pt");
 			lang_choices->add(_("GERMAN"), "De", currentLang == "De");
+			lang_choices->add(_("GREEK"), "El", currentLang == "El");
 			lang_choices->add(_("SPANISH"), "Es", currentLang == "Es");
-			lang_choices->add(_("ITALIAN"), "It", currentLang == "It");
-			lang_choices->add(_("JAPANESE"), "Ja", currentLang == "Ja");
-			lang_choices->add(_("DUTCH"), "Nl", currentLang == "Nl");
 			lang_choices->add(_("CZECH"), "Cs", currentLang == "Cs");
 			lang_choices->add(_("DANISH"), "Da", currentLang == "Da");
-			lang_choices->add(_("SWEDISH"), "Sv", currentLang == "Sv");
 			lang_choices->add(_("CROATIAN"), "Hr", currentLang == "Hr");
+			lang_choices->add(_("HUNGARIAN"), "Hu", currentLang == "Hu");
+			lang_choices->add(_("ITALIAN"), "It", currentLang == "It");
+			lang_choices->add(_("JAPANESE"), "Ja", currentLang == "Ja");
 			lang_choices->add(_("KOREAN"), "Ko", currentLang == "Ko");
-			lang_choices->add(_("CHINESE"), "Zh", currentLang == "Zh");
-			lang_choices->add(_("RUSSIAN"), "Ru", currentLang == "Ru");
-			lang_choices->add(_("GREEK"), "El", currentLang == "El");
+			lang_choices->add(_("DUTCH"), "Nl", currentLang == "Nl");
+			lang_choices->add(_("NORWEGIAN"), "Nn", currentLang == "Nn");
+			lang_choices->add(_("POLISH"), "Po", currentLang == "Po");
 			lang_choices->add(_("ROMANIAN"), "Ro", currentLang == "Ro");
+			lang_choices->add(_("RUSSIAN"), "Ru", currentLang == "Ru");
+			lang_choices->add(_("SWEDISH"), "Sv", currentLang == "Sv");
+			lang_choices->add(_("TURKISH"), "Tr", currentLang == "Tr");
+			lang_choices->add(_("CHINESE"), "Zh", currentLang == "Zh");
 			ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
 
 			// Service  URL
-			std::string currentServiceUrl = SystemConf::getInstance()->get("global.ai_service_url");
-			if (currentServiceUrl.empty()) {
-				currentServiceUrl = std::string("http://ztranslate.net/service?api_key=BATOCERA");
-				SystemConf::getInstance()->set("global.ai_service_url",currentServiceUrl);
-				SystemConf::getInstance()->saveSystemConf();
-			}
 			createInputTextRow(ai_service, _("SERVICE URL"), "global.ai_service_url", false);
 
 			ai_service->addSaveFunc([ai_service_enabled, lang_choices] {
