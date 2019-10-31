@@ -207,10 +207,7 @@ void CollectionSystemManager::updateSystemsList()
 	}
 
 	if(mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
-	{
-		mCustomCollectionsBundle->getRootFolder()->sort(FileSorts::getSortType(mCollectionSystemDeclsIndex[myCollectionsName].defaultSortId));
 		SystemData::sSystemVector.push_back(mCustomCollectionsBundle);
-	}
 
 	// add auto enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mAutoCollectionSystemsData, &map);
@@ -298,7 +295,6 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 
 		curSys->updateDisplayedGameCount();
 
-		rootFolder->sort(FileSorts::getSortType(mCollectionSystemDeclsIndex[name].defaultSortId));
 		if (name == "recent")
 		{
 			trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
@@ -519,7 +515,6 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				rootFolder->addChild(newGame);
 				sysData->addToIndex(newGame);
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(newGame, FILE_METADATA_CHANGED);
-				rootFolder->sort(FileSorts::getSortType(mEditingCollectionSystemData->decl.defaultSortId));
 				ViewController::get()->onFileChanged(systemViewToUpdate->getRootFolder(), FILE_SORTED);
 				// add to bundle index as well, if needed
 				if (systemViewToUpdate != sysData)
@@ -792,7 +787,6 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			}
 		}
 	}
-	rootFolder->sort(FileSorts::getSortType(sysDecl.defaultSortId));
 	if (sysDecl.type == AUTO_LAST_PLAYED)
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
 	sysData->isPopulated = true;
@@ -846,7 +840,6 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			LOG(LogInfo) << "Couldn't find game referenced at '" << gameKey << "' for system config '" << path << "'";
 		}
 	}
-	rootFolder->sort(FileSorts::getSortType(sysDecl.defaultSortId));
 	updateCollectionFolderMetadata(newSys);
 }
 

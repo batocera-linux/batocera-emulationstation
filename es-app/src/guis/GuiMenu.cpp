@@ -1784,11 +1784,19 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
-	// hidden files
+	// filenames
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
-	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
-	s->addSaveFunc([hidden_files] { Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()); });
+	hidden_files->setState(Settings::getInstance()->getBool("ShowFilenames"));
+	s->addWithLabel(_("SHOW FILENAMES IN LISTS"), hidden_files);
+	s->addSaveFunc([hidden_files, s] 
+	{ 
+		if (Settings::getInstance()->setBool("ShowFilenames", hidden_files->getState()))
+		{
+			FileData::resetSettings();
+			s->setVariable("reloadCollections", true);
+			s->setVariable("reloadAll", true);
+		}
+	});
 	
 
 

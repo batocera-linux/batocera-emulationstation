@@ -49,11 +49,11 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 
 		if(!Settings::getInstance()->getBool("IgnoreGamelist") && mName != "imageviewer")
 			parseGamelist(this, fileMap);
-		
+		/*
 		if (mSortId >= 0 && mSortId < FileSorts::getSortTypes().size())
 			mRootFolder->sort(FileSorts::getSortTypes().at(mSortId));
 		else
-			mRootFolder->sort(FileSorts::getSortTypes().at(0));
+			mRootFolder->sort(FileSorts::getSortTypes().at(0));*/
 	}
 	else
 	{

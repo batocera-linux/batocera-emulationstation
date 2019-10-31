@@ -61,7 +61,7 @@ public:
 	void setLabel(std::string name);
 	void setVideo(const std::string& path, float defaultDelay = -1.0);
 
-	void setImage(const std::string& path);
+	void setImage(const std::string& path, bool isDefaultImage = false);
 	void setMarquee(const std::string& path);
 
 	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force=false);
@@ -114,6 +114,8 @@ private:
 	float mSelectedZoomPercent;
 	bool mSelected;
 	bool mVisible;
+
+	bool mIsDefaultImage;
 
 	Vector3f mAnimPosition;
 
