@@ -111,28 +111,36 @@ void BasicGameListView::setCursor(FileData* cursor)
 {
 	if(!mList.setCursor(cursor) && (!cursor->isPlaceHolder()))
 	{
-		populateList(cursor->getParent()->getChildrenListToDisplay());
-		mList.setCursor(cursor);
+		auto children = mRoot->getChildrenListToDisplay();
 
-		// update our cursor stack in case our cursor just got set to some folder we weren't in before
-		if(mCursorStack.empty() || mCursorStack.top() != cursor->getParent())
+		auto gameIter = std::find(children.cbegin(), children.cend(), cursor);
+		if (gameIter == children.cend())
 		{
-			std::stack<FileData*> tmp;
-			FileData* ptr = cursor->getParent();
-			while(ptr && ptr != mRoot)
-			{
-				tmp.push(ptr);
-				ptr = ptr->getParent();
-			}
+			children = cursor->getParent()->getChildrenListToDisplay();
 
-			// flip the stack and put it in mCursorStack
-			mCursorStack = std::stack<FileData*>();
-			while(!tmp.empty())
+			// update our cursor stack in case our cursor just got set to some folder we weren't in before
+			if (mCursorStack.empty() || mCursorStack.top() != cursor->getParent())
 			{
-				mCursorStack.push(tmp.top());
-				tmp.pop();
+				std::stack<FileData*> tmp;
+				FileData* ptr = cursor->getParent();
+				while (ptr && ptr != mRoot)
+				{
+					tmp.push(ptr);
+					ptr = ptr->getParent();
+				}
+
+				// flip the stack and put it in mCursorStack
+				mCursorStack = std::stack<FileData*>();
+				while (!tmp.empty())
+				{
+					mCursorStack.push(tmp.top());
+					tmp.pop();
+				}
 			}
 		}
+	
+		populateList(children);
+		mList.setCursor(cursor);
 	}
 }
 

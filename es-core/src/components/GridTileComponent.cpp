@@ -117,6 +117,8 @@ void GridTileComponent::resize()
 	if (mSize != size)
 		setSize(size);
 
+	bool isDefaultImage = mIsDefaultImage && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
+
 	float height = (int) (size.y() * currentProperties.mLabelSize.y());
 	float labelHeight = height;
 
@@ -174,7 +176,7 @@ void GridTileComponent::resize()
 		mImage->setColorShift(currentProperties.mImageColor);
 		mImage->setMirroring(currentProperties.mMirror);
 
-		if (currentProperties.mImageSizeMode == "minSize")
+		if (currentProperties.mImageSizeMode == "minSize" && !isDefaultImage)
 			mImage->setMinSize(imageWidth, imageHeight);
 		else if (currentProperties.mImageSizeMode == "size")
 			mImage->setSize(imageWidth, imageHeight);
@@ -271,8 +273,7 @@ void GridTileComponent::resize()
 		mLabel.setPosition(mSize.x() * 0.1, mSize.y() * 0.2);
 		mLabel.setSize(mSize.x() - mSize.x() * 0.2, mSize.y() - mSize.y() * 0.3);
 	}
-
-
+	
 	mBackground.setPosition(bkposition);
 	mBackground.setSize(bkSize);
 	mBackground.setCornerSize(currentProperties.mBackgroundCornerSize);
@@ -326,7 +327,10 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
-	if (currentProperties.mImageSizeMode == "minSize")
+	bool isDefaultImage = mIsDefaultImage && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
+	bool isMinSize = currentProperties.mImageSizeMode == "minSize" && !isDefaultImage;
+
+	if (isMinSize)
 		Renderer::pushClipRect(pos, size);
 
 	if (mImage != NULL)
@@ -335,7 +339,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mSelected && !mVideoPath.empty() && mVideo != nullptr)
 		mVideo->render(trans);
 
-	if (!mLabelMerged && currentProperties.mImageSizeMode == "minSize")
+	if (!mLabelMerged && isMinSize)
 		Renderer::popClipRect();
 
 	if (mMarquee != nullptr && mMarquee->hasImage())
@@ -345,7 +349,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	else if (!mLabelVisible && mIsDefaultImage)
 		mLabel.render(trans);
 
-	if (mLabelMerged && currentProperties.mImageSizeMode == "minSize")
+	if (mLabelMerged && isMinSize)
 		Renderer::popClipRect();
 }
 

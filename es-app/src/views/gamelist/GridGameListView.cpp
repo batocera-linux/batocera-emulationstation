@@ -157,10 +157,39 @@ FileData* GridGameListView::getCursor()
 
 void GridGameListView::setCursor(FileData* file)
 {
-	if (!mGrid.setCursor(file) && file->getParent() != nullptr)
+	if (!mGrid.setCursor(file) && file->getParent() != nullptr && !file->isPlaceHolder())
 	{
-		populateList(file->getParent()->getChildrenListToDisplay());
+		auto children = mRoot->getChildrenListToDisplay();
+
+		auto gameIter = std::find(children.cbegin(), children.cend(), file);
+		if (gameIter == children.cend())
+		{
+			children = file->getParent()->getChildrenListToDisplay();
+
+			// update our cursor stack in case our cursor just got set to some folder we weren't in before
+			if (mCursorStack.empty() || mCursorStack.top() != file->getParent())
+			{
+				std::stack<FileData*> tmp;
+				FileData* ptr = file->getParent();
+				while (ptr && ptr != mRoot)
+				{
+					tmp.push(ptr);
+					ptr = ptr->getParent();
+				}
+
+				// flip the stack and put it in mCursorStack
+				mCursorStack = std::stack<FileData*>();
+				while (!tmp.empty())
+				{
+					mCursorStack.push(tmp.top());
+					tmp.pop();
+				}
+			}
+		}
+
+		populateList(children);
 		mGrid.setCursor(file);
+
 	}
 }
 
@@ -252,7 +281,10 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 				}
 			}
 
-			mGrid.add((*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+			if (((*it)->getType() == FOLDER) && Utils::FileSystem::exists(getImagePath(*it)))
+				mGrid.add(_U("\uF114 ") + (*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+			else
+				mGrid.add((*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
 		}
 	}
 	else
