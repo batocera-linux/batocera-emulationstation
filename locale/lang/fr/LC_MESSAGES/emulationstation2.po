@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-26 11:54+0200\n"
+"POT-Creation-Date: 2019-10-31 22:01+0100\n"
 "Last-Translator: Nicolas Adenis-Lamarre\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -391,6 +391,18 @@ msgstr "MODE VERBEUX"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATIC"
 
+msgid "AI GAME TRANSLATION"
+msgstr "TRADUCTION DU JEU EN AUTOMATIQUE"
+
+msgid "ENABLE AI SERVICE"
+msgstr "ACTIVER LE SERVICE IA"
+
+msgid "TARGET LANGUAGE"
+msgstr "LANGUE CIBLE"
+
+msgid "SERVICE URL"
+msgstr "URL DU SERVICE"
+
 msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
@@ -541,6 +553,9 @@ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES GRAPHISMES SUR LE DISQUE"
+
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "AFFICHER LES NOMS DES FICHIERS"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
@@ -1123,10 +1138,10 @@ msgid "GENRE, DESCENDING"
 msgstr "GENRE, DESCENDANT"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "DÉVELOPPEUR, ASCENDANT"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "DÉVELOPPEUR, DESCENDANT"
 
 msgid "PUBLISHER, ASCENDING"
 msgstr "EDITEUR, ASCENDANT"

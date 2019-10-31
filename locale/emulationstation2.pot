@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-26 11:54+0200\n"
+"POT-Creation-Date: 2019-10-31 22:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -399,6 +399,18 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
+msgid "AI GAME TRANSLATION"
+msgstr ""
+
+msgid "ENABLE AI SERVICE"
+msgstr ""
+
+msgid "TARGET LANGUAGE"
+msgstr ""
+
+msgid "SERVICE URL"
+msgstr ""
+
 msgid "MISSING BIOS"
 msgstr ""
 
@@ -538,6 +550,9 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "SHOW FILENAMES IN LISTS"
 msgstr ""
 
 msgid "SYSTEM VOLUME"

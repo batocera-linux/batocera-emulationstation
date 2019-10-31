@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-26 11:54+0200\n"
+"POT-Creation-Date: 2019-10-31 22:01+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -391,6 +391,18 @@ msgstr "详细模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
+msgid "AI GAME TRANSLATION"
+msgstr ""
+
+msgid "ENABLE AI SERVICE"
+msgstr ""
+
+msgid "TARGET LANGUAGE"
+msgstr ""
+
+msgid "SERVICE URL"
+msgstr ""
+
 msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
 
@@ -540,6 +552,9 @@ msgstr "仅分析游戏列表"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
+
+msgid "SHOW FILENAMES IN LISTS"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"

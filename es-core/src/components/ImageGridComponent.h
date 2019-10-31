@@ -819,7 +819,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 
 		if (ResourceManager::getInstance()->fileExists(imagePath))
 			tile->setImage(imagePath);
-		else if (mEntries.at(imgPos).object->getType() == 2 || (mEntries.at(imgPos).object->getType() == PLACEHOLDER && mEntries.at(imgPos).object->getPath() == ".."))
+		else if (mEntries.at(imgPos).object->getType() == 2 || (mEntries.at(imgPos).object->getType() == 3 && mEntries.at(imgPos).object->getPath() == ".."))
 			tile->setImage(mDefaultFolderTexture, true);
 		else
 			tile->setImage(mDefaultGameTexture, true);

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-26 11:54+0200\n"
+"POT-Creation-Date: 2019-10-31 22:01+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -395,6 +395,18 @@ msgstr "MODALITÀ VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
+msgid "AI GAME TRANSLATION"
+msgstr ""
+
+msgid "ENABLE AI SERVICE"
+msgstr ""
+
+msgid "TARGET LANGUAGE"
+msgstr ""
+
+msgid "SERVICE URL"
+msgstr ""
+
 msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
 
@@ -543,6 +555,9 @@ msgstr "ANALIZZA SOLAMENTE LE LISTE GIOCHI"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RICERCA IMMAGINI IN LOCALE"
+
+msgid "SHOW FILENAMES IN LISTS"
+msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
