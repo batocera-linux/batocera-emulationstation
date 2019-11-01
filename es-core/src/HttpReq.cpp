@@ -316,6 +316,8 @@ HttpReq::Status HttpReq::status()
 							req->mStatus = REQ_404_NOTFOUND;
 						else if (http_status_code == 429)
 							req->mStatus = REQ_429_TOOMANYREQUESTS;
+						else if (http_status_code == 426)
+							req->mStatus = REQ_426_BLACKLISTED;
 						else
 							req->mStatus = REQ_IO_ERROR;
 

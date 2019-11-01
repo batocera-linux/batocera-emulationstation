@@ -147,6 +147,12 @@ void ScraperHttpRequest::update()
 		return;
 	}
 
+	if (status == HttpReq::REQ_426_BLACKLISTED)
+	{
+		setError("THE SOFTWARE HAS BEEN BLACKLISTED (426)");
+		return;
+	}
+
 	// not ready yet
 	if(status == HttpReq::REQ_IN_PROGRESS)
 		return;

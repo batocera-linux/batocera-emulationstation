@@ -3,6 +3,7 @@
 #include "FileData.h"
 #include "components/AsyncNotificationComponent.h"
 #include "LocaleES.h"
+#include "guis/GuiMsgBox.h"
 
 #define GUIICON _U("\uF03E ")
 
@@ -80,7 +81,19 @@ void ThreadedScraper::run()
 				}
 			}
 			else if (status == ASYNC_ERROR)
-				mErrors.push_back(statusString);
+			{
+				if (statusString.find("426") != std::string::npos) // Blacklist
+				{
+					mExit = true;
+					mWindow->postToUiThread([](Window* w)
+					{
+						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED")));
+					});
+					break;
+				}
+				else
+					mErrors.push_back(statusString);
+			}
 		}
 
 		if (mMDResolveHandle && mMDResolveHandle->status() != ASYNC_IN_PROGRESS)
