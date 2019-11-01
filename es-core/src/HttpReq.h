@@ -38,6 +38,7 @@ public:
 
 		REQ_IO_ERROR,			//some error happened, get it with getErrorMsg()
 		REQ_404_NOTFOUND,		//HTTP response status code 404 happened
+		REQ_426_BLACKLISTED,		//HTTP response status code 426 happened
 		REQ_429_TOOMANYREQUESTS,	//HTTP response status code 429 happened
 		REQ_INVALID_RESPONSE	//the HTTP response was invalid
 	};
