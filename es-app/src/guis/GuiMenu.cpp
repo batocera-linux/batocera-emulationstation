@@ -540,7 +540,7 @@ void GuiMenu::openDeveloperSettings()
 
 void GuiMenu::openUpdatesSettings()
 {
-	GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES").c_str());
+	GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES & DOWNLOADS").c_str());
 
 	// Batocera themes installer/browser
 	updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
@@ -589,7 +589,7 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
 
 	// Updates -> Moved one level down
-	s->addEntry(_("UPDATES"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
+	s->addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
 
 	// language choice
 	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
