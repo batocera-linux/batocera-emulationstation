@@ -89,6 +89,8 @@ public:
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 
+	virtual void onShow() override;	
+
 private:
 	ViewController(Window* window);
 	static ViewController* sInstance;

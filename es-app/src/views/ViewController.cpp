@@ -732,3 +732,11 @@ void ViewController::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	ThemeData::setDefaultTheme(theme.get());
 	mWindow->onThemeChanged(theme);
 }
+
+
+void ViewController::onShow()
+{
+	if (mCurrentView)
+		mCurrentView->onShow();
+}
+
