@@ -275,7 +275,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ARQUIVO GERADO SEM SUCESSO"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -395,16 +395,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "TRADUÇÃO DO JOGO"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "ATIVAR O SERVIÇO AI"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "IDIOMA ALVO"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "SERVIÇO URL"
 
 msgid "MISSING BIOS"
 msgstr "BIOS EM FALTA"
@@ -555,7 +555,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "EXIBIR NOMES DOS ARQUIVOS"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
