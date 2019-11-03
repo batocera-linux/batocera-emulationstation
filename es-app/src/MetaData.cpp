@@ -246,14 +246,14 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (Settings::getInstance()->getString("ScrapperImageSrc").empty())
 			type &= ~MetaDataImportType::Types::IMAGE;
 
-		if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty())
+		if (Settings::getInstance()->getString("ScrapperThumbSrc").empty())
 			type &= ~MetaDataImportType::Types::THUMB;
+
+		if (Settings::getInstance()->getString("ScrapperLogoSrc").empty())
+			type &= ~MetaDataImportType::Types::MARQUEE;
 
 		if (!Settings::getInstance()->getBool("ScrapeVideos"))
 			type &= ~MetaDataImportType::Types::VIDEO;
-
-		if (!Settings::getInstance()->getBool("ScrapeMarquee"))
-			type &= ~MetaDataImportType::Types::MARQUEE;
 	}
 
 	for (auto mdd : getMDD())

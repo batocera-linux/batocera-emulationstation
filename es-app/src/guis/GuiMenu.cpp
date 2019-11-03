@@ -140,50 +140,51 @@ void GuiMenu::openScraperSettings()
 
 	if (scraper == "ScreenScraper")
 	{
-		// image source
+		// Image source : <image> tag
 		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
-		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED IMAGE SOURCE"), false);
+		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
 		imageSource->add(_("NONE"), "", imageSourceName.empty());
 		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
 		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
-		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
-		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
 		imageSource->add(_("MIX"), "mixrbv1", imageSourceName == "mixrbv1");
-		imageSource->add(_("WHEEL"), "wheel", imageSourceName == "wheel");
-		s->addWithLabel(_("PREFERED IMAGE SOURCE"), imageSource);
 
-		s->addSaveFunc([imageSource] {
-			if (Settings::getInstance()->getString("ScrapperImageSrc") != imageSource->getSelected())
-				Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected());
-		});
-		
+		if (!imageSource->hasSelection())
+			imageSource->selectFirstItem();
+
+		s->addWithLabel(_("IMAGE SOURCE"), imageSource);
+		s->addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
+
+		// Box source : <thumbnail> tag
 		std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
-		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED THUMBNAIL SOURCE"), false);
+		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
 		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
-		thumbSource->add(_("SCREENSHOT"), "ss", thumbSourceName == "ss");
-		thumbSource->add(_("TITLE SCREENSHOT"), "sstitle", thumbSourceName == "sstitle");
 		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
 		thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
-		thumbSource->add(_("MIX"), "mixrbv1", thumbSourceName == "mixrbv1");
-		thumbSource->add(_("WHEEL"), "wheel", thumbSourceName == "wheel");
-		s->addWithLabel(_("PREFERED THUMBNAIL SOURCE"), thumbSource);
 
-		s->addSaveFunc([thumbSource] {
-			if (Settings::getInstance()->getString("ScrapperThumbSrc") != thumbSource->getSelected())
-				Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected());
-		});
+		if (!thumbSource->hasSelection())
+			thumbSource->selectFirstItem();
+
+		s->addWithLabel(_("BOX SOURCE"), thumbSource);
+		s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
+
+		// Logo source : <marquee> tag
+		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
+		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
+		logoSource->add(_("NONE"), "", logoSourceName.empty());
+		logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
+		logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
+
+		if (!logoSource->hasSelection())
+			logoSource->selectFirstItem();
+
+		s->addWithLabel(_("LOGO SOURCE"), logoSource);
+		s->addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
 
 		// scrape ratings
 		auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
 		scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
 		s->addWithLabel(_("SCRAPE RATINGS"), scrape_ratings); // batocera
 		s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
-
-		// scrape marquee
-		auto scrape_marquee = std::make_shared<SwitchComponent>(mWindow);
-		scrape_marquee->setState(Settings::getInstance()->getBool("ScrapeMarquee"));
-		s->addWithLabel(_("SCRAPE MARQUEE"), scrape_marquee);
-		s->addSaveFunc([scrape_marquee] { Settings::getInstance()->setBool("ScrapeMarquee", scrape_marquee->getState()); });
 
 		// scrape video
 		auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
