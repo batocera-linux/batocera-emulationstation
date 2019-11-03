@@ -38,9 +38,8 @@ VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 #else
 	mVideo = new VideoVlcComponent(window, getTitlePath());
 #endif
-
-	// Default is thumbnail in Retropie themes & video view
-	mVideo->setSnapshotSource(THUMBNAIL);
+	
+	mVideo->setSnapshotSource(IMAGE);
 
 	mList.setPosition(mSize.x() * (0.50f + padding), mList.getPosition().y());
 	mList.setSize(mSize.x() * (0.50f - padding), mList.getSize().y());
