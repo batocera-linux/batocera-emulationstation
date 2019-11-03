@@ -356,6 +356,15 @@ public:
 	  return firstSelected != getSelected();
 	}
 
+	bool hasSelection()
+	{
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+			if (mEntries.at(i).selected)
+				return true;
+
+		return false;
+	}
+
 	void selectFirstItem()
 	{
 		for (unsigned int i = 0; i < mEntries.size(); i++)

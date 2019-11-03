@@ -122,7 +122,7 @@ void Settings::setDefaults()
 	mStringMap["Scraper"] = "ScreenScraper";
 	mStringMap["ScrapperImageSrc"] = "ss";
 	mStringMap["ScrapperThumbSrc"] = "box-2D";
-	mBoolMap["ScrapeMarquee"] = false;
+	mStringMap["ScrapperLogoSrc"] = "wheel";
 	mBoolMap["ScrapeVideos"] = false;
 	
 	mBoolMap["ScreenSaverMarquee"] = true;

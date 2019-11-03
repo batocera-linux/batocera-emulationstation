@@ -333,8 +333,10 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 		ripList = { "box-2D", "box-3D" };
 	else if (imageSource == "box-3D")
 		ripList = { "box-3D", "box-2D" };
-	else if (imageSource == "wheel" || imageSource == "marquee")
+	else if (imageSource == "wheel")
 		ripList = { "wheel", "wheel-hd", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
+	else if (imageSource == "marquee")
+		ripList = { "screenmarqueesmall", "screenmarquee", "wheel", "wheel-hd", "wheel-steel", "wheel-carbon" };
 
 	return ripList;
 }
@@ -461,9 +463,9 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				}
 			}
 
-			if (Settings::getInstance()->getBool("ScrapeMarquee"))
+			if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty())
 			{
-				ripList = getRipList("marquee");
+				ripList = getRipList(Settings::getInstance()->getString("ScrapperLogoSrc"));
 				if (!ripList.empty())
 				{
 					pugi::xml_node art = findMedia(media_list, ripList, region);
