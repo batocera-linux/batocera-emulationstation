@@ -159,7 +159,7 @@ msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "ŹRÓDŁO OBRAZU"
 
 msgid "NONE"
 msgstr "BRAK"
@@ -174,7 +174,7 @@ msgid "MIX"
 msgstr "MIX"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "ŹRÓDŁO RAMKI"
 
 msgid "BOX 2D"
 msgstr "RAMKA 2D"
@@ -183,13 +183,13 @@ msgid "BOX 3D"
 msgstr "RAMKA 3D"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "ŹRÓDŁO LOGO"
 
 msgid "WHEEL"
 msgstr "KOŁO"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
 msgstr "OCENY SCRAPE'A"
@@ -276,7 +276,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "TWORZENIE PLIKU SIĘ NIE POWIODŁO"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "AKTUALIZACJE I DO ŚCIĄGNIĘCIA"
 
 msgid "THEMES"
 msgstr "MOTYWY"
@@ -396,16 +396,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "TŁUMACZENIE GRY AI"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "WŁĄCZ USŁUGĘ AI"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "JĘZYK DOCELOWY"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "URL USŁUGI"
 
 msgid "MISSING BIOS"
 msgstr "BRAKUJĄCY BIOS"
@@ -558,7 +558,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
 
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
@@ -1062,7 +1062,7 @@ msgid "Searching"
 msgstr "Wyszukiwanie"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: APLIKACJA ZOSTAŁA WPISANA NA CZARNĄ LISTĘ"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
@@ -1108,64 +1108,64 @@ msgid "MENU"
 msgstr "MENU"
 
 msgid "FILENAME, ASCENDING"
-msgstr ""
+msgstr "NAZWA PLIKU, ROSNĄCO"
 
 msgid "FILENAME, DESCENDING"
-msgstr ""
+msgstr "NAZWA PLIKU, MALEJĄCO"
 
 msgid "RATING, ASCENDING"
-msgstr ""
+msgstr "OCENA, ROSNĄCO"
 
 msgid "RATING, DESCENDING"
-msgstr ""
+msgstr "OCENA, MALEJĄCO"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr ""
+msgstr "ROZEGRANO RAZY, ROSNĄCO"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr ""
+msgstr "ROZEGRANO RAZY, MALEJĄCO"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr ""
+msgstr "OSTATNIO GRANE, ROSNĄCO"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr ""
+msgstr "OSTATNIO GRANE, MALEJĄCO"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "LICZBA GRACZY, ROSNĄCO"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "LICZBA GRACZY, MALEJĄCO"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "DATA PREMIERY, ROSNĄCO"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "DATA PREMIERY, MALEJĄCO"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "RODZAJ, ROSNĄCO"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "RODZAJ, MALEJĄCO"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "PRODUCENT, ROSNĄCO"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "PRODUCENT, MALEJĄCO"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "WYDAWCA, ROSNĄCO"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "WYDAWCA, MALEJĄCO"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "SYSTEM, ROSNĄCO"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "SYSTEM, MALEJĄCO"
 
 msgid "DOWNLOADING"
 msgstr "Pobieranie"
@@ -1303,7 +1303,7 @@ msgid "GAMEPAD %i"
 msgstr "KONTROLER %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "PRZYTRZYMAJ DOWOLNY PRZYCISK ABY POMINĄĆ"
+msgstr "PRZYTRZYMAJ PRZYCISK ABY POMINĄĆ"
 
 msgid "-NOT DEFINED-"
 msgstr "-NIEZDEFINIOWANY-"
