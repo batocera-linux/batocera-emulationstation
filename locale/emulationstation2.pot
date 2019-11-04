@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 08:10+0100\n"
+"POT-Creation-Date: 2019-11-04 21:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgstr ""
 msgid "SCRAPE FROM"
 msgstr ""
 
-msgid "PREFERED IMAGE SOURCE"
+msgid "IMAGE SOURCE"
 msgstr ""
 
 msgid "NONE"
@@ -177,25 +177,28 @@ msgstr ""
 msgid "TITLE SCREENSHOT"
 msgstr ""
 
+msgid "MIX"
+msgstr ""
+
+msgid "BOX SOURCE"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr ""
 
 msgid "BOX 3D"
 msgstr ""
 
-msgid "MIX"
+msgid "LOGO SOURCE"
 msgstr ""
 
 msgid "WHEEL"
 msgstr ""
 
-msgid "PREFERED THUMBNAIL SOURCE"
+msgid "MARQUEE"
 msgstr ""
 
 msgid "SCRAPE RATINGS"
-msgstr ""
-
-msgid "SCRAPE MARQUEE"
 msgstr ""
 
 msgid "SCRAPE VIDEOS"
@@ -1039,6 +1042,9 @@ msgid "SCRAPING"
 msgstr ""
 
 msgid "Searching"
+msgstr ""
+
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."

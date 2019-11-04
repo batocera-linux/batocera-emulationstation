@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 08:09+0100\n"
+"POT-Creation-Date: 2019-11-04 21:27+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -157,8 +157,8 @@ msgstr "退出"
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源"
 
-msgid "PREFERED IMAGE SOURCE"
-msgstr "首选图像源"
+msgid "IMAGE SOURCE"
+msgstr ""
 
 msgid "NONE"
 msgstr "无"
@@ -169,26 +169,29 @@ msgstr "截图"
 msgid "TITLE SCREENSHOT"
 msgstr "标题截图"
 
+msgid "MIX"
+msgstr "混合"
+
+msgid "BOX SOURCE"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr "2D 盒子"
 
 msgid "BOX 3D"
 msgstr "3D 盒子"
 
-msgid "MIX"
-msgstr "混合"
+msgid "LOGO SOURCE"
+msgstr ""
 
 msgid "WHEEL"
 msgstr "旋转"
 
-msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "首选缩略图源"
+msgid "MARQUEE"
+msgstr ""
 
 msgid "SCRAPE RATINGS"
 msgstr "抓取游戏评分"
-
-msgid "SCRAPE MARQUEE"
-msgstr "抓取标记"
 
 msgid "SCRAPE VIDEOS"
 msgstr "抓取视频"
@@ -1050,6 +1053,9 @@ msgstr ""
 msgid "Searching"
 msgstr ""
 
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
@@ -1381,6 +1387,15 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "PREFERED IMAGE SOURCE"
+#~ msgstr "首选图像源"
+
+#~ msgid "PREFERED THUMBNAIL SOURCE"
+#~ msgstr "首选缩略图源"
+
+#~ msgid "SCRAPE MARQUEE"
+#~ msgstr "抓取标记"
 
 #~ msgid "UPDATES"
 #~ msgstr "更新"

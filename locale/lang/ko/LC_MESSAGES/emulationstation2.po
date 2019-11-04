@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 08:09+0100\n"
+"POT-Creation-Date: 2019-11-04 21:27+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -157,8 +157,8 @@ msgstr "종료"
 msgid "SCRAPE FROM"
 msgstr "수집 출처"
 
-msgid "PREFERED IMAGE SOURCE"
-msgstr "선호하는 이미지 소스"
+msgid "IMAGE SOURCE"
+msgstr ""
 
 msgid "NONE"
 msgstr "없음 "
@@ -169,26 +169,29 @@ msgstr "스크린샷"
 msgid "TITLE SCREENSHOT"
 msgstr ""
 
+msgid "MIX"
+msgstr "혼합"
+
+msgid "BOX SOURCE"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr "박스 2D"
 
 msgid "BOX 3D"
 msgstr "박스 3D"
 
-msgid "MIX"
-msgstr "혼합"
+msgid "LOGO SOURCE"
+msgstr ""
 
 msgid "WHEEL"
 msgstr "휠"
 
-msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "선호하는 썸네일 소스"
+msgid "MARQUEE"
+msgstr ""
 
 msgid "SCRAPE RATINGS"
 msgstr "평점 수집"
-
-msgid "SCRAPE MARQUEE"
-msgstr "마키 수집"
 
 msgid "SCRAPE VIDEOS"
 msgstr "비디오 수집"
@@ -1049,6 +1052,9 @@ msgstr ""
 msgid "Searching"
 msgstr ""
 
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
@@ -1381,6 +1387,15 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "PREFERED IMAGE SOURCE"
+#~ msgstr "선호하는 이미지 소스"
+
+#~ msgid "PREFERED THUMBNAIL SOURCE"
+#~ msgstr "선호하는 썸네일 소스"
+
+#~ msgid "SCRAPE MARQUEE"
+#~ msgstr "마키 수집"
 
 #~ msgid "UPDATES"
 #~ msgstr "업데이트"

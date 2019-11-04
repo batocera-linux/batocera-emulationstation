@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 08:09+0100\n"
+"POT-Creation-Date: 2019-11-04 21:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -160,8 +160,8 @@ msgstr "ВЫХОД"
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
-msgid "PREFERED IMAGE SOURCE"
-msgstr "ТИП ИЗОБРАЖЕНИЯ"
+msgid "IMAGE SOURCE"
+msgstr ""
 
 msgid "NONE"
 msgstr "НЕТ"
@@ -172,26 +172,29 @@ msgstr "SCREENSHOT"
 msgid "TITLE SCREENSHOT"
 msgstr "TITLE SCREENSHOT"
 
+msgid "MIX"
+msgstr "MIX"
+
+msgid "BOX SOURCE"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr "BOX 2D"
 
 msgid "BOX 3D"
 msgstr "BOX 3D"
 
-msgid "MIX"
-msgstr "MIX"
+msgid "LOGO SOURCE"
+msgstr ""
 
 msgid "WHEEL"
 msgstr "WHEEL"
 
-msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "ТИП ЭСКИЗА"
+msgid "MARQUEE"
+msgstr ""
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
-
-msgid "SCRAPE MARQUEE"
-msgstr "ЗАГРУЗКА БАНЕРА"
 
 msgid "SCRAPE VIDEOS"
 msgstr "ЗАГРУЗКА ВИДЕО"
@@ -233,7 +236,7 @@ msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
 msgid "DEVELOPER"
-msgstr "РАЗРАБОТЧИК"
+msgstr "РЕЖИМ РАЗРАБОТЧИКА"
 
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
@@ -275,7 +278,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ & ЗАГРУЗКА"
 
 msgid "THEMES"
 msgstr "ТЕМЫ"
@@ -395,16 +398,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "ИИ ПЕРЕВОД ИГРЫ"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ИИ СЕРВИСЫ"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "ЯЗЫК ПЕРЕВОДА"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "СЕРВИС URL"
 
 msgid "MISSING BIOS"
 msgstr "НЕДОСТАЮЩИЙ BIOS"
@@ -557,7 +560,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "ПОКАЗАТЬ НАЗВАНИЕ ФАЙЛА В СПИСКЕ"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -1059,6 +1062,9 @@ msgstr "SCRAPING"
 msgid "Searching"
 msgstr "Поиск"
 
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
@@ -1103,64 +1109,64 @@ msgid "MENU"
 msgstr "МЕНЮ"
 
 msgid "FILENAME, ASCENDING"
-msgstr ""
+msgstr "НАЗВАНИЕ ФАЙЛА, ПО ВОЗРАСТАНИЮ"
 
 msgid "FILENAME, DESCENDING"
-msgstr ""
+msgstr "НАЗВАНИЕ ФАЙЛА, ПО УБЫВАНИЮ"
 
 msgid "RATING, ASCENDING"
-msgstr ""
+msgstr "РЕЙТИНГ, ПО ВОЗРАСТАНИЮ"
 
 msgid "RATING, DESCENDING"
-msgstr ""
+msgstr "РЕЙТИНГ, ПО УБЫВАНИЮ"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr ""
+msgstr "СЫГРАНО РАЗ, ПО ВОЗРАСТАНИЮ"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr ""
+msgstr "СЫГРАНО РАЗ, ПО УБЫВАНИЮ"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr ""
+msgstr "НЕДАВНО ИГРАЛИ, ПО ВОЗРАСТАНИЮ"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr ""
+msgstr "НЕДАВНО ИГРАЛИ, ПО УБЫВАНИЮ"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "КОЛ-ВО ИГРОКОВ, ПО ВОЗРАСТАНИЮ"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "КОЛ-ВО ИГРОКОВ, ПО УБЫВАНИЮ"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "ДАТА ВЫХОДА, ПО ВОЗРАСТАНИЮ"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "ДАТА ВЫХОДА, ПО УБЫВАНИЮ"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "ЖАНР, ПО ВОЗРАСТАНИЮ"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "ЖАНР, ПО УБЫВАНИЮ"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "РАЗРАБОТЧИК, ПО ВОЗРАСТАНИЮ"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "РАЗРАБОТЧИК, ПО УБЫВАНИЮ"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "ИЗДАТЕЛЬ, ПО ВОЗРАСТАНИЮ"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "ИЗДАТЕЛЬ, ПО УБЫВАНИЮ"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "СИСТЕМЫ, ПО ВОЗРАСТАНИЮ"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "СИСТЕМЫ, ПО УБЫВАНИЮ"
 
 msgid "DOWNLOADING"
 msgstr "ЗАГРУЗКА"
@@ -1402,6 +1408,15 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "PREFERED IMAGE SOURCE"
+#~ msgstr "ТИП ИЗОБРАЖЕНИЯ"
+
+#~ msgid "PREFERED THUMBNAIL SOURCE"
+#~ msgstr "ТИП ЭСКИЗА"
+
+#~ msgid "SCRAPE MARQUEE"
+#~ msgstr "ЗАГРУЗКА БАНЕРА"
 
 #~ msgid "UPDATES"
 #~ msgstr "ОБНОВЛЕНИЯ"

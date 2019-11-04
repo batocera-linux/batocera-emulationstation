@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 08:09+0100\n"
+"POT-Creation-Date: 2019-11-04 21:27+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -157,8 +157,8 @@ msgstr "SALIR"
 msgid "SCRAPE FROM"
 msgstr "OBTENER CARÁTULAS DESDE"
 
-msgid "PREFERED IMAGE SOURCE"
-msgstr "ORIGEN DE IMAGEN PREFERIDO"
+msgid "IMAGE SOURCE"
+msgstr ""
 
 msgid "NONE"
 msgstr "NINGUNO"
@@ -169,26 +169,29 @@ msgstr "CAPTURA DE PANTALLA"
 msgid "TITLE SCREENSHOT"
 msgstr "TITULO CAPTURA DE PANTALLA"
 
+msgid "MIX"
+msgstr "MEZCLA"
+
+msgid "BOX SOURCE"
+msgstr ""
+
 msgid "BOX 2D"
 msgstr "CAJA 2D"
 
 msgid "BOX 3D"
 msgstr "CAJA 3D"
 
-msgid "MIX"
-msgstr "MEZCLA"
+msgid "LOGO SOURCE"
+msgstr ""
 
 msgid "WHEEL"
 msgstr "RUEDA"
 
-msgid "PREFERED THUMBNAIL SOURCE"
-msgstr "ORIGEN DE MINIATURA PREFERIDO"
+msgid "MARQUEE"
+msgstr ""
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
-
-msgid "SCRAPE MARQUEE"
-msgstr "MARQUESINA DE INFORMACIÓN"
 
 msgid "SCRAPE VIDEOS"
 msgstr "OBTENER VIDEOS"
@@ -1058,6 +1061,9 @@ msgstr "SCRAPEANDO"
 msgid "Searching"
 msgstr "BUSCANDO"
 
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
@@ -1397,6 +1403,15 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "PREFERED IMAGE SOURCE"
+#~ msgstr "ORIGEN DE IMAGEN PREFERIDO"
+
+#~ msgid "PREFERED THUMBNAIL SOURCE"
+#~ msgstr "ORIGEN DE MINIATURA PREFERIDO"
+
+#~ msgid "SCRAPE MARQUEE"
+#~ msgstr "MARQUESINA DE INFORMACIÓN"
 
 #~ msgid "UPDATES"
 #~ msgstr "ACTUALIZACIÓNES"
