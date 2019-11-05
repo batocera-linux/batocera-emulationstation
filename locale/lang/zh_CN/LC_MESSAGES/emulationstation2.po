@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "UPDATING BATOCERA"
-msgstr "更新BATOCERA"
+msgstr "更新 BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
