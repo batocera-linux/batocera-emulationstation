@@ -11,13 +11,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "更新 BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "更新已准备就绪"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "重启系统并应用"
 
 msgid "AN ERROR OCCURED"
 msgstr "出现错误"
@@ -65,13 +65,13 @@ msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "其他筛选器"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "游戏列表样式"
 
 msgid "automatic"
-msgstr ""
+msgstr "自动"
 
 msgid "GRID SIZE"
 msgstr "网格大小"
@@ -98,19 +98,19 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏选项"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "用文本筛选游戏"
 
 msgid "Loading..."
 msgstr "载入中..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "这项功能在抓取进行时禁用"
 
 msgid "RESET ALL FILTERS"
 msgstr "重置所有筛选器"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "搜索游戏"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -158,7 +158,7 @@ msgid "SCRAPE FROM"
 msgstr "游戏数据来源"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "图片数据"
 
 msgid "NONE"
 msgstr "无"
@@ -173,7 +173,7 @@ msgid "MIX"
 msgstr "混合"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "封面数据"
 
 msgid "BOX 2D"
 msgstr "2D 盒子"
@@ -182,13 +182,13 @@ msgid "BOX 3D"
 msgstr "3D 盒子"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "LOGO数据"
 
 msgid "WHEEL"
 msgstr "旋转"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "蒙版"
 
 msgid "SCRAPE RATINGS"
 msgstr "抓取游戏评分"
@@ -203,13 +203,13 @@ msgid "PASSWORD"
 msgstr "密码"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "抓取进行中"
 
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "屏保设置"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "幻灯片设置"
@@ -233,7 +233,7 @@ msgid "DISK USAGE"
 msgstr "磁盘使用情况"
 
 msgid "DEVELOPER"
-msgstr "开发者"
+msgstr "开发者选项"
 
 msgid "VRAM LIMIT"
 msgstr "限制 VRAM"
@@ -275,7 +275,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "文件生成失败"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "更新文件和下载文件"
 
 msgid "THEMES"
 msgstr "主题"
@@ -287,13 +287,13 @@ msgid "AUTO UPDATES"
 msgstr "自动更新"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "确认更新"
 
 msgid "START UPDATE"
 msgstr "开始更新"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "正在更新中"
 
 msgid "LANGUAGE"
 msgstr "语言"
@@ -395,16 +395,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "AI游戏翻译"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "启用AI翻译服务"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "目标语言"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "服务URL"
 
 msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
@@ -476,10 +476,10 @@ msgid "THEME CONFIGURATION"
 msgstr "主题配置"
 
 msgid "basic"
-msgstr ""
+msgstr "基本列表"
 
 msgid "detailed"
-msgstr ""
+msgstr "详细列表"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "默认网格大小"
@@ -494,7 +494,7 @@ msgid "video"
 msgstr "游戏视频"
 
 msgid "grid"
-msgstr ""
+msgstr "网格列表"
 
 msgid "UI MODE"
 msgstr "UI模式"
@@ -557,7 +557,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "在列表中显示文件名"
 
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"
@@ -575,7 +575,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "仅播放指定游戏平台中的音乐"
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "播放主题音乐"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "启用导航声音"
@@ -686,7 +686,7 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "对自定合辑和系统进行排序"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "在合辑中显示系统名称"
 
 msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
@@ -771,11 +771,11 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "安装框架项目"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr ""
+msgstr "选择安装或重新安装边框的系统"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "将 '%s' 添加到下载队列"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr "卸载框架项目"
@@ -793,10 +793,10 @@ msgid "SHOW GAME INFO"
 msgstr "显示游戏信息"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "使用悬浮蒙版图片作为游戏信息"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "装饰框"
 
 msgid "STRETCH IMAGES"
 msgstr "拉伸图像"
@@ -820,7 +820,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "屏保使用 OMX 播放器"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "视频屏保"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "屏保显示游戏信息"
@@ -835,7 +835,7 @@ msgid "All Games"
 msgstr "全部游戏"
 
 msgid "Only missing medias"
-msgstr ""
+msgstr "仅抓取缺少的部分"
 
 msgid "FILTER"
 msgstr "筛选"
@@ -900,10 +900,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "屏保-幻灯片设置"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "屏保控制选项"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "屏保-幻灯片"
 
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
@@ -1048,16 +1048,16 @@ msgid "enter path to marquee"
 msgstr "输入标记路径"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "抓取"
 
 msgid "Searching"
-msgstr ""
+msgstr "搜索中"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "抓取失败 : 抓取请求被列入黑名单"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "抓取完成。更新游戏列表以应用更改。"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "是否启动 KODI 媒体中心?"
@@ -1122,43 +1122,43 @@ msgid "LAST PLAYED, DESCENDING"
 msgstr "最后游玩时间 (降序)"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "玩家数量 (升序)"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "玩家数量 (降序)"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "游戏发行日期 (升序)"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "游戏发行日期 (降序)"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "游戏类型 (升序)"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "游戏类型 (降序)"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "游戏开发公司 (升序)"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "游戏开发公司 (降序)"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "游戏发行公司 (升序)"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "游戏发行公司 (降序)"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "系统 (升序)"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "系统 (降序)"
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "下载中"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
@@ -1213,11 +1213,11 @@ msgstr "合辑"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "编辑 '%s' 合辑。按Y键添加/删除游戏。"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "'%s' 合辑编辑完成。"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1322,7 +1322,7 @@ msgid "DELETE A CHAR"
 msgstr "删除一个字符"
 
 msgid "RESET"
-msgstr ""
+msgstr "重置"
 
 msgid "DISCARD CHANGES"
 msgstr "放弃更改"
