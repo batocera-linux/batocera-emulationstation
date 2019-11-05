@@ -213,7 +213,12 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 		}
 	}
 	else
-		path = ssConfig.getGameSearchUrl(params.nameOverride, true);
+	{
+		std::string name = Utils::String::replace(params.nameOverride, "_", " ");
+		name = Utils::String::replace(name, "-", " ");		
+
+		path = ssConfig.getGameSearchUrl(name, true);
+	}
 	
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
