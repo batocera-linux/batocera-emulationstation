@@ -35,7 +35,12 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 		std::string key = Utils::FileSystem::combine(treeNode->getPath(), *path_it);
 		FileData* item = (fileMap.find(key) != fileMap.end()) ? fileMap[key] : nullptr;
 		if (item != nullptr)
-			return item;
+		{
+			if (item->getType() == FOLDER)
+				treeNode = (FolderData*) item;
+			else
+				return item;
+		}
 		
 		// this is the end
 		if(path_it == --pathList.end())
@@ -76,6 +81,7 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 
 			// create missing folder
 			FolderData* folder = new FolderData(Utils::FileSystem::getStem(treeNode->getPath()) + "/" + *path_it, system);
+			fileMap[key] = folder;
 			treeNode->addChild(folder);
 			treeNode = folder;
 		}
