@@ -161,7 +161,7 @@ msgid "SCRAPE FROM"
 msgstr "OBTER A PARTIR DE:"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "FONTE DA IMAGEM"
 
 msgid "NONE"
 msgstr "NENHUM"
@@ -176,7 +176,7 @@ msgid "MIX"
 msgstr "MIX"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "FONTE DA CAIXA"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -185,13 +185,13 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "FONTE DO LOGOTIPO"
 
 msgid "WHEEL"
 msgstr "RODA"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTER CLASSIFICAÇÕES"
@@ -1061,7 +1061,7 @@ msgid "Searching"
 msgstr "Em andamento"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "FALHA NA PESQUISA : A APLICAÇÃO FOI BLOQUEADA"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
