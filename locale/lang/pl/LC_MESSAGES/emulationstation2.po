@@ -219,7 +219,7 @@ msgid "RANDOM VIDEO SETTINGS"
 msgstr "USTAWIENIA LOSOWEGO WIDEO"
 
 msgid "CHOOSE"
-msgstr "ZMIEŃ"
+msgstr "PRZEJDŹ"
 
 msgid "SELECT"
 msgstr "WYBIERZ"
