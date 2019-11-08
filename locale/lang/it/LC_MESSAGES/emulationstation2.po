@@ -161,7 +161,7 @@ msgid "SCRAPE FROM"
 msgstr "RACCOGLI INFORMAZIONI DA"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "SORGENTE IMMAGINE"
 
 msgid "NONE"
 msgstr "NESSUNO"
@@ -176,7 +176,7 @@ msgid "MIX"
 msgstr "MIX"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "SORGENTE BOX"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -185,13 +185,13 @@ msgid "BOX 3D"
 msgstr "BOX 3D"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "SORGENTE LOGO"
 
 msgid "WHEEL"
 msgstr "RUOTA"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
 msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
@@ -278,7 +278,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "IMPOSSIBILE GENERARE FILE"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "AGGIORNAMENTI E DOWLOADS"
 
 msgid "THEMES"
 msgstr "TEMI"
@@ -399,16 +399,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "TRADUZIONE GIOCO AI"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "ABILITA SERVIZIO AI"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "LINGUA TARGET"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "URL SERVIZIO"
 
 msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
@@ -560,7 +560,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "RICERCA IMMAGINI IN LOCALE"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
@@ -1064,7 +1064,7 @@ msgid "Searching"
 msgstr "Cercando"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "SCRAPE FALLITO : L'APPLICAZIONE E' STATA MESSA NELLA LISTA NERA"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
@@ -1133,40 +1133,40 @@ msgid "LAST PLAYED, DESCENDING"
 msgstr "ULTIMA PARTITA, DISCENDENTE"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "NUMERO GIOCATORI, ASCENDENTE"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "NUMERO GIOCATORI, DISCENDENTE"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "DATA RILASCIO, ASCENDENTE"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "DATA RILASCIO, DISCENDENTE"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "GENERE, ASCENDENTE"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "GENERE, DISCENDENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "SVILUPPATORE, DISCENDENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "SVILUPPATORE, DISCENDENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "EDITORE, ASCENDENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "EDITORE, DISCENDENTE"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, ASCENDENTE"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, DISCENDENTE"
 
 msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
@@ -1254,7 +1254,7 @@ msgid_plural "This collection contains %1$i games, including %2$s."
 msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s."
 msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
 msgid_plural ""
 "This collection contains %1$i games, including %2$s among other titles."
