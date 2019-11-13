@@ -863,6 +863,8 @@ void GuiMenu::openGamesSettings_batocera()
 	shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
 	shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
 	shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
+	shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
+	shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
 	s->addWithLabel(_("SHADERS SET"), shaders_choices);
 
 	// Integer scale
@@ -2413,6 +2415,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
   shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
   shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
+  shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
+  shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
   systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
 
   // Integer scale
