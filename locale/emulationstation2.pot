@@ -351,6 +351,12 @@ msgstr ""
 msgid "SMOOTH GAMES"
 msgstr ""
 
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "SECOND INSTANCE"
+msgstr ""
+
 msgid "AUTO"
 msgstr ""
 

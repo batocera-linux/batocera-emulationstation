@@ -343,6 +343,12 @@ msgstr "RELACIÓN DE ASPECTO"
 msgid "SMOOTH GAMES"
 msgstr "SUAVIZAR LOS JUEGOS"
 
+msgid "RUN-AHEAD FRAMES"
+msgstr "FRAMES POR ADELANTADO"
+
+msgid "SECOND INSTANCE"
+msgstr "SEGUNDA INSTANCIA"
+
 msgid "AUTO"
 msgstr "AUTO"
 
