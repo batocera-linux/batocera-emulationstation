@@ -90,15 +90,15 @@ namespace FileSorts
 
 	bool compareRating(const FileData* file1, const FileData* file2)
 	{
-		return file1->metadata.getFloat("rating") < file2->metadata.getFloat("rating");
+		return file1->getMetadata().getFloat("rating") < file2->getMetadata().getFloat("rating");
 	}
 
 	bool compareTimesPlayed(const FileData* file1, const FileData* file2)
 	{
 		//only games have playcount metadata
-		if(file1->metadata.getType() == GAME_METADATA && file2->metadata.getType() == GAME_METADATA)
+		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
 		{
-			return (file1)->metadata.getInt("playcount") < (file2)->metadata.getInt("playcount");
+			return (file1)->getMetadata().getInt("playcount") < (file2)->getMetadata().getInt("playcount");
 		}
 
 		return false;
@@ -108,39 +108,39 @@ namespace FileSorts
 	{
 		// since it's stored as an ISO string (YYYYMMDDTHHMMSS), we can compare as a string
 		// as it's a lot faster than the time casts and then time comparisons
-		return (file1)->metadata.get("lastplayed") < (file2)->metadata.get("lastplayed");
+		return (file1)->getMetadata().get("lastplayed") < (file2)->getMetadata().get("lastplayed");
 	}
 
 	bool compareNumPlayers(const FileData* file1, const FileData* file2)
 	{
-		return (file1)->metadata.getInt("players") < (file2)->metadata.getInt("players");
+		return (file1)->getMetadata().getInt("players") < (file2)->getMetadata().getInt("players");
 	}
 
 	bool compareReleaseDate(const FileData* file1, const FileData* file2)
 	{
 		// since it's stored as an ISO string (YYYYMMDDTHHMMSS), we can compare as a string
 		// as it's a lot faster than the time casts and then time comparisons
-		return (file1)->metadata.get("releasedate") < (file2)->metadata.get("releasedate");
+		return (file1)->getMetadata().get("releasedate") < (file2)->getMetadata().get("releasedate");
 	}
 
 	bool compareGenre(const FileData* file1, const FileData* file2)
 	{
-		std::string genre1 = Utils::String::toUpper(file1->metadata.get("genre"));
-		std::string genre2 = Utils::String::toUpper(file2->metadata.get("genre"));
+		std::string genre1 = Utils::String::toUpper(file1->getMetadata().get("genre"));
+		std::string genre2 = Utils::String::toUpper(file2->getMetadata().get("genre"));
 		return genre1.compare(genre2) < 0;
 	}
 
 	bool compareDeveloper(const FileData* file1, const FileData* file2)
 	{
-		std::string developer1 = Utils::String::toUpper(file1->metadata.get("developer"));
-		std::string developer2 = Utils::String::toUpper(file2->metadata.get("developer"));
+		std::string developer1 = Utils::String::toUpper(file1->getMetadata().get("developer"));
+		std::string developer2 = Utils::String::toUpper(file2->getMetadata().get("developer"));
 		return developer1.compare(developer2) < 0;
 	}
 
 	bool comparePublisher(const FileData* file1, const FileData* file2)
 	{
-		std::string publisher1 = Utils::String::toUpper(file1->metadata.get("publisher"));
-		std::string publisher2 = Utils::String::toUpper(file2->metadata.get("publisher"));
+		std::string publisher1 = Utils::String::toUpper(file1->getMetadata().get("publisher"));
+		std::string publisher2 = Utils::String::toUpper(file2->getMetadata().get("publisher"));
 		return publisher1.compare(publisher2) < 0;
 	}
 

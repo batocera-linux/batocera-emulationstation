@@ -372,21 +372,21 @@ void DetailedGameListView::updateInfoPanel()
 		if (mMarquee != nullptr)
 			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
 		
-		mDescription.setText(file->metadata.get("desc"));
+		mDescription.setText(file->getMetadata("desc"));
 		mDescContainer.reset();
 
-		mRating.setValue(file->metadata.get("rating"));
-		mReleaseDate.setValue(file->metadata.get("releasedate"));
-		mDeveloper.setValue(file->metadata.get("developer"));
-		mPublisher.setValue(file->metadata.get("publisher"));
-		mGenre.setValue(file->metadata.get("genre"));
-		mPlayers.setValue(file->metadata.get("players"));
-		mName.setValue(file->metadata.get("name"));
+		mRating.setValue(file->getMetadata("rating"));
+		mReleaseDate.setValue(file->getMetadata("releasedate"));
+		mDeveloper.setValue(file->getMetadata("developer"));
+		mPublisher.setValue(file->getMetadata("publisher"));
+		mGenre.setValue(file->getMetadata("genre"));
+		mPlayers.setValue(file->getMetadata("players"));
+		mName.setValue(file->getMetadata("name"));
 
 		if(file->getType() == GAME)
 		{
-			mLastPlayed.setValue(file->metadata.get("lastplayed"));
-			mPlayCount.setValue(file->metadata.get("playcount"));
+			mLastPlayed.setValue(file->getMetadata("lastplayed"));
+			mPlayCount.setValue(file->getMetadata("playcount"));
 		}
 		
 		fadingOut = false;

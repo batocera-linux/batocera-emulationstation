@@ -151,13 +151,13 @@ void ThreadedScraper::processMedias(ScraperSearchResult result)
 	if (result.hadMedia())
 		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
 
-	search.game->metadata.importScrappedMetadata(result.mdl);
+	search.game->getMetadata().importScrappedMetadata(result.mdl);
 }
 
 void ThreadedScraper::acceptResult(const ScraperSearchResult& result)
 {
 	ScraperSearchParams& search = mSearchQueue.front();
-	search.game->metadata = result.mdl;
+	search.game->getMetadata().importScrappedMetadata(result.mdl);// = result.mdl;
 }
 
 void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams>& searches)

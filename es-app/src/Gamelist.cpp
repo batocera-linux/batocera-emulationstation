@@ -147,17 +147,17 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 		}
 		else if (!file->isArcadeAsset())
 		{
-			std::string defaultName = file->metadata.get("name");
-			file->metadata = MetaDataList::createFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system);
+			std::string defaultName = file->getMetadata().get("name");
+			file->setMetadata(MetaDataList::createFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system));
 
 			//make sure name gets set if one didn't exist
-			if (file->metadata.get("name").empty())
-				file->metadata.set("name", defaultName);
+			if (file->getMetadata().get("name").empty())
+				file->setMetadata("name", defaultName);
 
 			if (Utils::FileSystem::isHidden(path))
-				file->metadata.set("hidden", "true");
+				file->getMetadata().set("hidden", "true");
 
-			file->metadata.resetChangedFlag();
+			file->getMetadata().resetChangedFlag();
 		}
 	}
 }
@@ -168,7 +168,7 @@ bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* t
 	pugi::xml_node newNode = parent.append_child(tag);
 
 	//write metadata
-	file->metadata.appendToXML(newNode, true, system->getStartPath());
+	file->getMetadata().appendToXML(newNode, true, system->getStartPath());
 
 	if(newNode.children().begin() == newNode.child("name") //first element is name
 		&& ++newNode.children().begin() == newNode.children().end() //theres only one element
@@ -240,7 +240,7 @@ void updateGamelist(SystemData* system)
 			const char* tag = ((*fit)->getType() == GAME) ? "game" : "folder";
 
 			// do not touch if it wasn't changed anyway
-			if (!(*fit)->metadata.wasChanged())
+			if (!(*fit)->getMetadata().wasChanged())
 				continue;
 
 			bool removed = false;

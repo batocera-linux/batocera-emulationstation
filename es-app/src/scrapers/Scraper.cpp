@@ -193,10 +193,10 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 	bool ss = Settings::getInstance()->getString("Scraper") == "ScreenScraper";
 
 	auto tmp = Settings::getInstance()->getString("ScrapperImageSrc");
-	auto md = search.game->metadata.get("image");
+	auto md = search.game->getMetadata().get("image");
 
-	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperImageSrc").empty() && Utils::FileSystem::exists(search.game->metadata.get("image")))
-		mResult.mdl.set("image", search.game->metadata.get("image"));
+	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperImageSrc").empty() && Utils::FileSystem::exists(search.game->getMetadata().get("image")))
+		mResult.mdl.set("image", search.game->getMetadata().get("image"));
 	else if (!result.imageUrl.empty())
 	{
 		std::string imgPath = getSaveAsPath(search, "image", ext);
@@ -228,8 +228,8 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		}, "image", result.mdl.getName()));
 	}
 
-	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Utils::FileSystem::exists(search.game->metadata.get("thumbnail")))
-		mResult.mdl.set("thumbnail", search.game->metadata.get("thumbnail"));
+	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Utils::FileSystem::exists(search.game->getMetadata().get("thumbnail")))
+		mResult.mdl.set("thumbnail", search.game->getMetadata().get("thumbnail"));
 	else if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
 	{
 		std::string thumbPath = getSaveAsPath(search, "thumb", ext);
@@ -253,8 +253,8 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		}, "thumbnail", result.mdl.getName()));
 	}
 
-	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperLogoSrc").empty() && Utils::FileSystem::exists(search.game->metadata.get("marquee")))
-		mResult.mdl.set("marquee", search.game->metadata.get("marquee"));
+	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperLogoSrc").empty() && Utils::FileSystem::exists(search.game->getMetadata().get("marquee")))
+		mResult.mdl.set("marquee", search.game->getMetadata().get("marquee"));
 	else if (!result.marqueeUrl.empty())
 	{
 		std::string marqueePath = getSaveAsPath(search, "marquee", ext);
@@ -278,8 +278,8 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		}, "marquee", result.mdl.getName()));
 	}
 
-	if (!search.overWriteMedias && Settings::getInstance()->getBool("ScrapeVideos") && Utils::FileSystem::exists(search.game->metadata.get("video")))
-		mResult.mdl.set("video", search.game->metadata.get("video"));
+	if (!search.overWriteMedias && Settings::getInstance()->getBool("ScrapeVideos") && Utils::FileSystem::exists(search.game->getMetadata().get("video")))
+		mResult.mdl.set("video", search.game->getMetadata().get("video"));
 	else if (!result.videoUrl.empty())
 	{
 		std::string videoPath = getSaveAsPath(search, "video", ".mp4");

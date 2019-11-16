@@ -21,15 +21,15 @@
 #include "scrapers/ThreadedScraper.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
-	: mType(type), mSystem(system), mParent(NULL), metadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
+	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
 	mPath = Utils::FileSystem::createRelativePath(path, getSystemEnvData()->mStartPath, false);
 
 	// metadata needs at least a name field (since that's what getName() will return)
-	if (metadata.get("name").empty())
-		metadata.set("name", getDisplayName());	
+	if (mMetadata.get("name").empty())
+		mMetadata.set("name", getDisplayName());
 	
-	metadata.resetChangedFlag();
+	mMetadata.resetChangedFlag();
 }
 
 const std::string FileData::getPath() const
@@ -84,12 +84,12 @@ std::string FileData::getCleanName() const
 
 const std::string FileData::getThumbnailPath() const
 {
-	std::string thumbnail = metadata.get("thumbnail");
+	std::string thumbnail = getMetadata().get("thumbnail");
 
 	// no thumbnail, try image
 	if(thumbnail.empty())
 	{
-		thumbnail = metadata.get("image");
+		thumbnail = getMetadata().get("image");
 		
 		// no image, try to use local image
 		if(thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -112,17 +112,17 @@ const std::string FileData::getThumbnailPath() const
 
 const bool FileData::getFavorite()
 {
-	return metadata.get("favorite") == "true";
+	return getMetadata().get("favorite") == "true";
 }
 
 const bool FileData::getHidden()
 {
-	return metadata.get("hidden") == "true";
+	return getMetadata().get("hidden") == "true";
 }
 
 const bool FileData::getKidGame()
 {
-	return metadata.get("kidgame") != "false";
+	return getMetadata().get("kidgame") != "false";
 }
 
 static std::shared_ptr<bool> showFilenames;
@@ -146,12 +146,12 @@ const std::string FileData::getName()
 			return getDisplayName();
 	}
 
-	return metadata.getName();
+	return getMetadata().getName();
 }
 
 const std::string FileData::getVideoPath() const
 {
-	std::string video = metadata.get("video");
+	std::string video = getMetadata().get("video");
 	
 	// no video, try to use local video
 	if(video.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -166,7 +166,7 @@ const std::string FileData::getVideoPath() const
 
 const std::string FileData::getMarqueePath() const
 {
-	std::string marquee = metadata.get("marquee");
+	std::string marquee = getMetadata().get("marquee");
 
 	// no marquee, try to use local marquee
 	if (marquee.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -188,7 +188,7 @@ const std::string FileData::getMarqueePath() const
 
 const std::string FileData::getImagePath() const
 {
-	std::string image = metadata.get("image");
+	std::string image = getMetadata().get("image");
 
 	// no image, try to use local image
 	if(image.empty())
@@ -309,11 +309,11 @@ void FileData::launchGame(Window* window)
 
 	FileData* gameToUpdate = getSourceFileData();
 
-	int timesPlayed = gameToUpdate->metadata.getInt("playcount") + 1;
-	gameToUpdate->metadata.set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
+	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
 
 	//update last played time
-	gameToUpdate->metadata.set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+	gameToUpdate->getMetadata().set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
 	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 
 	window->reactivateGui();
@@ -329,7 +329,7 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 {
 	mSourceFileData = file->getSourceFileData();
 	mParent = NULL;
-	metadata = mSourceFileData->metadata;	
+	// metadata = mSourceFileData->metadata;	
 	mDirty = true;
 }
 
@@ -367,14 +367,14 @@ FileData* CollectionFileData::getSourceFileData()
 
 void CollectionFileData::refreshMetadata()
 {
-	metadata = mSourceFileData->metadata;
+	// metadata = mSourceFileData->metadata;
 	mDirty = true;
 }
 
 const std::string CollectionFileData::getName()
 {
 	if (mDirty) {
-		mCollectionFileName = Utils::String::removeParenthesis(mSourceFileData->metadata.get("name"));
+		mCollectionFileName = Utils::String::removeParenthesis(mSourceFileData->getMetadata().get("name"));
 		mCollectionFileName += " [" + Utils::String::toUpper(mSourceFileData->getSystem()->getName()) + "]";
 		mDirty = false;
 	}
@@ -382,7 +382,7 @@ const std::string CollectionFileData::getName()
 	if (Settings::getInstance()->getBool("CollectionShowSystemInfo"))
 		return mCollectionFileName;
 		
-	return Utils::String::removeParenthesis(mSourceFileData->metadata.get("name"));
+	return Utils::String::removeParenthesis(mSourceFileData->getMetadata().get("name"));
 }
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
