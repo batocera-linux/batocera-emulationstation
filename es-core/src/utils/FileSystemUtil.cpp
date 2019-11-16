@@ -46,10 +46,6 @@ namespace Utils
 #endif
 		}
 
-#if defined(_WIN32)
-		static std::mutex mFileMutex;
-#endif // _WIN32
-
 		stringList getDirContent(const std::string& _path, const bool _recursive)
 		{
 			std::string path = getGenericPath(_path);
@@ -60,14 +56,12 @@ namespace Utils
 			{
 
 #if defined(_WIN32)
-				std::unique_lock<std::mutex>* pLock = nullptr;
-
-				if (!_recursive)
-					pLock = new std::unique_lock<std::mutex>(mFileMutex);
-
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
-				HANDLE           hFind    = FindFirstFileW(std::wstring(wildcard.begin(), wildcard.end()).c_str(), &findData);
+
+				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
+					FINDEX_INFO_LEVELS::FindExInfoStandard, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
+					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
 				if(hFind != INVALID_HANDLE_VALUE)
 				{
@@ -90,9 +84,6 @@ namespace Utils
 
 					FindClose(hFind);
 				}
-
-				if (pLock != nullptr)
-					delete pLock;
 #else // _WIN32
 				DIR* dir = opendir(path.c_str());
 
@@ -139,11 +130,12 @@ namespace Utils
 			if (isDirectory(path))
 			{
 #if defined(_WIN32)
-				std::unique_lock<std::mutex> lock(mFileMutex);
-
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
-				HANDLE           hFind = FindFirstFileW(std::wstring(wildcard.begin(), wildcard.end()).c_str(), &findData);
+				
+				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
+					FINDEX_INFO_LEVELS::FindExInfoStandard, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
+					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
 				if (hFind != INVALID_HANDLE_VALUE)
 				{
