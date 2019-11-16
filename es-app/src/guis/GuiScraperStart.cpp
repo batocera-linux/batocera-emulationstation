@@ -71,15 +71,12 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
 	mApproveResults->setState(false);
-	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults); // batocera
+	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
 
-	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this)); // batocera
-	mMenu.addButton(_("BACK"), "back", [&] { delete this; }); // batocera
+	mMenu.addButton(_("START"), _("START"), std::bind(&GuiScraperStart::pressedStart, this));
+	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiScraperStart::pressedStart()

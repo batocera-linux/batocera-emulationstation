@@ -147,9 +147,16 @@ void ScraperHttpRequest::update()
 		return;
 	}
 
+	if (status == HttpReq::REQ_400_TOOMANYSCRAPS)
+	{
+		setError(400, "SCRAP LIMIT REACHED TODAY (400)");
+		return;
+	}
+	
+
 	if (status == HttpReq::REQ_426_BLACKLISTED)
 	{
-		setError("THE SOFTWARE HAS BEEN BLACKLISTED (426)");
+		setError(246, "THE SOFTWARE HAS BEEN BLACKLISTED (426)");
 		return;
 	}
 
@@ -230,7 +237,7 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 
 	if (!search.overWriteMedias && ss && !Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Utils::FileSystem::exists(search.game->getMetadata().get("thumbnail")))
 		mResult.mdl.set("thumbnail", search.game->getMetadata().get("thumbnail"));
-	else if (!result.thumbnailUrl.empty() && result.thumbnailUrl.find(result.imageUrl) != 0)
+	else if (!result.thumbnailUrl.empty() && (result.imageUrl.empty() || result.thumbnailUrl.find(result.imageUrl) != 0))
 	{
 		std::string thumbPath = getSaveAsPath(search, "thumb", ext);
 

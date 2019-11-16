@@ -67,6 +67,7 @@ void ThreadedScraper::run()
 			auto status = mSearchHandle->status();
 			auto results = mSearchHandle->getResults();
 			auto statusString = mSearchHandle->getStatusString();
+			auto httpCode = mSearchHandle->getErrorCode();
 
 			mSearchHandle.reset();
 
@@ -82,12 +83,21 @@ void ThreadedScraper::run()
 			}
 			else if (status == ASYNC_ERROR)
 			{
-				if (statusString.find("426") != std::string::npos) // Blacklist
+				if (httpCode == 426) // Blacklist
 				{
 					mExit = true;
 					mWindow->postToUiThread([](Window* w)
 					{
 						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED")));
+					});
+					break;
+				}
+				else if (httpCode == 400) // Too many scraps
+				{
+					mExit = true;
+					mWindow->postToUiThread([](Window* w)
+					{
+						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED : SCRAP LIMIT REACHED TODAY")));
 					});
 					break;
 				}
