@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATING BATOCERA"
@@ -20,7 +20,7 @@ msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "REINICIE O SYSTEMA PARA APLICAR"
 
 msgid "AN ERROR OCCURED"
 msgstr "OCORREU UM ERRO"
@@ -74,7 +74,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
 
 msgid "automatic"
-msgstr ""
+msgstr "Automático"
 
 msgid "GRID SIZE"
 msgstr "TAMANHO DO GRID"
@@ -161,7 +161,7 @@ msgid "SCRAPE FROM"
 msgstr "SCRAPER DO"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "FONTE DA IMAGEM"
 
 msgid "NONE"
 msgstr "NENHUM"
@@ -176,7 +176,7 @@ msgid "MIX"
 msgstr "MISTURADO"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "FONTE DA CAIXA"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -185,13 +185,13 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "FONTE DO LOGOTIPO"
 
 msgid "WHEEL"
 msgstr "RODA"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE DAS AVALIAÇÕES"
@@ -212,7 +212,7 @@ msgid "SCRAPE NOW"
 msgstr "SCRAPE"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DA PROTEÇÃO DE TELA"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "CONFIGURAÇÕES DO SLIDESHOW"
@@ -224,7 +224,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECIONAR"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -278,7 +278,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "ATUALIZAÇÕES & DOWNLOADS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -398,16 +398,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "TRADUÇÃO DO JOGO POR IA"
 
 msgid "ENABLE AI SERVICE"
-msgstr ""
+msgstr "ATIVAR O SERVIÇO IA"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "IDIOMA ALVO"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "URL DO SERVIÇO"
 
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
@@ -477,10 +477,10 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "basic"
-msgstr ""
+msgstr "básico"
 
 msgid "detailed"
-msgstr ""
+msgstr "detalhado"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO PADRÃO DA GRID"
@@ -495,7 +495,7 @@ msgid "video"
 msgstr "vídeo"
 
 msgid "grid"
-msgstr ""
+msgstr "grid"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -560,7 +560,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PESQUISA DE ARTE LOCAL"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr ""
+msgstr "EXIBIR NOMES DOS ARQUIVOS"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -800,10 +800,10 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
+msgstr "USAR MARQUEE COMO INFORMAÇÃO DO JOGO"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DECORAÇÕES"
 
 msgid "STRETCH IMAGES"
 msgstr "ESTICAR IMAGEM"
@@ -827,7 +827,7 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "USE O OMX PLAYER PARA O SCREENSAVER"
 
 msgid "VIDEO SCREENSAVER"
-msgstr ""
+msgstr "VÍDEO COMO PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
@@ -910,10 +910,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DO SLIDESHOW"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr ""
+msgstr "CONTROLES DE PROTEÇÃO DE TELA"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
+msgstr "SLIDESHOW COMO PROTETOR DE TELA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -1064,7 +1064,7 @@ msgid "Searching"
 msgstr "Procurando"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "FALHA NA PESQUISA : A APLICAÇÃO FOI BLOQUEADA"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1134,40 +1134,40 @@ msgid "LAST PLAYED, DESCENDING"
 msgstr "ÚLTIMA VEZ JOGADO, DECRESCENTE"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "NÚMERO DE JOGADORES NA ORDEM CRESCENTE"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "NÚMERO DE JOGADORES NA ORDEM DECRESCENTE"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "DATA DE LANÇAMENTO NA ORDEM CRESCENTE"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "DATA DE LANÇAMENTO NA ORDEM DECRESCENTE"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "GÉNERO NA ORDEM CRESCENTE"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "GÉNERO NA ORDEM DECRESCENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "DESENVOLVEDOR, NA ORDEM CRESCENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "DESENVOLVEDOR, NA ORDEM DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "EDITORA, NA ORDEM CRESCENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "EDITORA, NA ORDEM DECRESCENTE"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, NA ORDEM CRESCENTE"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, NA ORDEM DECRESCENTE"
 
 msgid "DOWNLOADING"
 msgstr "BAIXANDO"
@@ -1225,11 +1225,11 @@ msgstr "coleções"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgstr "Editando a coleção '%s'. Adicione ou remova jogos com Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgstr "Edição da coleção '%s\" terminada."
 
 #, c-format
 msgid "Added '%s' to '%s'"
