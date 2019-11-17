@@ -310,21 +310,21 @@ void VideoGameListView::updateInfoPanel()
 		else
 			mImage.setImage(file->getThumbnailPath(), false, mImage.getMaxSizeInfo());
 
-		mDescription.setText(file->metadata.get("desc"));
+		mDescription.setText(file->getMetadata().get("desc"));
 		mDescContainer.reset();
 
-		mRating.setValue(file->metadata.get("rating"));
-		mReleaseDate.setValue(file->metadata.get("releasedate"));
-		mDeveloper.setValue(file->metadata.get("developer"));
-		mPublisher.setValue(file->metadata.get("publisher"));
-		mGenre.setValue(file->metadata.get("genre"));
-		mPlayers.setValue(file->metadata.get("players"));
-		mName.setValue(file->metadata.get("name"));
+		mRating.setValue(file->getMetadata().get("rating"));
+		mReleaseDate.setValue(file->getMetadata().get("releasedate"));
+		mDeveloper.setValue(file->getMetadata().get("developer"));
+		mPublisher.setValue(file->getMetadata().get("publisher"));
+		mGenre.setValue(file->getMetadata().get("genre"));
+		mPlayers.setValue(file->getMetadata().get("players"));
+		mName.setValue(file->getMetadata().get("name"));
 
 		if(file->getType() == GAME)
 		{
-			mLastPlayed.setValue(file->metadata.get("lastplayed"));
-			mPlayCount.setValue(file->metadata.get("playcount"));
+			mLastPlayed.setValue(file->getMetadata().get("lastplayed"));
+			mPlayCount.setValue(file->getMetadata().get("playcount"));
 		}
 
 		fadingOut = false;

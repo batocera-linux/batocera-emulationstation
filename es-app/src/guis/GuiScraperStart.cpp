@@ -28,22 +28,22 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 		if (Settings::getInstance()->getString("Scraper") == "ScreenScraper")
 		{
-			if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(g->metadata.get("image")))
+			if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("image")))
 				return true;
 
-			if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(g->metadata.get("thumbnail")))
+			if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("thumbnail")))
 				return true;
 
-			if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(g->metadata.get("marquee")))
+			if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("marquee")))
 				return true;
 
-			if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(g->metadata.get("video")))
+			if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(g->getMetadata().get("video")))
 				return true;
 
 			return false;
 		}
 		else
-			return !Utils::FileSystem::exists(g->metadata.get("image"));
+			return !Utils::FileSystem::exists(g->getMetadata().get("image"));
 
 	}, true);
 
@@ -71,15 +71,12 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
 	mApproveResults->setState(false);
-	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults); // batocera
+	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
 
-	mMenu.addButton(_("START"), "start", std::bind(&GuiScraperStart::pressedStart, this)); // batocera
-	mMenu.addButton(_("BACK"), "back", [&] { delete this; }); // batocera
+	mMenu.addButton(_("START"), _("START"), std::bind(&GuiScraperStart::pressedStart, this));
+	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
 void GuiScraperStart::pressedStart()

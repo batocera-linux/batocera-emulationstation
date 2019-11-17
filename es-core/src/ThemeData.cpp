@@ -275,7 +275,7 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 // helper
 unsigned int getHexColor(const char* str)
 {
-	ThemeException error;
+//	ThemeException error;
 	if (!str)
 	{
 		//throw error << "Empty color";
@@ -304,15 +304,19 @@ unsigned int getHexColor(const char* str)
 
 std::string ThemeData::resolvePlaceholders(const char* in)
 {
-	std::string inStr(in);
+	if (in == nullptr || in[0] == '/0')
+		return in;
 
-	if(inStr.empty())
-		return inStr;
+	std::string inStr(in);
+//	if(inStr.empty())
+//		return inStr;
 
 	const size_t variableBegin = inStr.find("${");
-	const size_t variableEnd   = inStr.find("}", variableBegin);
+	if (variableBegin == std::string::npos)
+		return inStr;
 
-	if((variableBegin == std::string::npos) || (variableEnd == std::string::npos))
+	const size_t variableEnd   = inStr.find("}", variableBegin);
+	if(variableEnd == std::string::npos)
 		return inStr;
 
 	std::string prefix  = inStr.substr(0, variableBegin);
@@ -355,7 +359,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	ThemeException error;
 	error.setFiles(mPaths);
 
-	if(!Utils::FileSystem::exists(path))
+	if (!Utils::FileSystem::exists(path))
 		throw error << "File does not exist!";
 	
 	mVersion = 0;
@@ -406,12 +410,11 @@ const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
 
 std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path)
 {
-	std::string result = path;
-
-	size_t start_pos = result.find("$system");
+	size_t start_pos = path.find("$system");
 	if (start_pos == std::string::npos)
 		return path;
 
+	std::string result = path;
 	result.replace(start_pos, 7, systemThemeFolder);
 	return result;
 }
@@ -575,8 +578,8 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 
 void ThemeData::parseVariables(const pugi::xml_node& root)
 {
-	ThemeException error;
-	error.setFiles(mPaths);
+	// ThemeException error;
+	// error.setFiles(mPaths);
     
 	for (pugi::xml_node variables = root.child("variables"); variables; variables = variables.next_sibling("variables"))
 	{
@@ -698,8 +701,8 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 
 void ThemeData::parseViews(const pugi::xml_node& root)
 {
-	ThemeException error;
-	error.setFiles(mPaths);
+	// ThemeException error;
+	// error.setFiles(mPaths);
 
 	// parse views
 	for (pugi::xml_node node = root.child("view"); node; node = node.next_sibling("view"))
@@ -787,8 +790,8 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 
 void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool overwriteElements)
 {
-	ThemeException error;
-	error.setFiles(mPaths);
+	// ThemeException error;
+	// error.setFiles(mPaths);
 
 	if (!parseFilterAttributes(root))
 		return;
@@ -893,8 +896,8 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 
 void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, bool overwrite)
 {
-	ThemeException error;
-	error.setFiles(mPaths);
+	// ThemeException error;
+	// error.setFiles(mPaths);
 
 	element.type = root.name();
 	element.extra = root.attribute("extra").as_bool(false);
@@ -991,8 +994,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			if(!ResourceManager::getInstance()->fileExists(path))
 			{
 				std::stringstream ss;
-				ss << "  Warning " << error.msg; // "from theme yadda yadda, included file yadda yadda
-				ss << "could not find file \"" << node.text().get() << "\" ";
+				ss << "  Warning : could not find file \"" << node.text().get() << "\" ";
 				if(node.text().get() != path)
 					ss << "(which resolved to \"" << path << "\") ";
 				LOG(LogWarning) << ss.str();

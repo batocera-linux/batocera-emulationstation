@@ -77,9 +77,18 @@ public:
 
 	void launchGame(Window* window);
 
-	MetaDataList metadata;
-
 	static void resetSettings();
+	
+	virtual const MetaDataList& getMetadata() const { return mMetadata; }
+	virtual MetaDataList& getMetadata() { return mMetadata; }
+
+	void setMetadata(MetaDataList value) { getMetadata() = value; }
+	
+	std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
+	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
+
+private:
+	MetaDataList mMetadata;
 
 protected:	
 	FolderData* mParent;
@@ -101,6 +110,9 @@ public:
 
 	virtual std::string getSystemName() const;
 	virtual SystemEnvironmentData* getSystemEnvData() const;
+
+	virtual const MetaDataList& getMetadata() const { return mSourceFileData->getMetadata(); }
+	virtual MetaDataList& getMetadata() { return mSourceFileData->getMetadata(); }
 
 private:
 	// needs to be updated when metadata changes

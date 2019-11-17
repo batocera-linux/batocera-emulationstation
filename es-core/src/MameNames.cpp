@@ -77,7 +77,7 @@ MameNames::MameNames()
 	for(pugi::xml_node biosNode = doc.child("bios"); biosNode; biosNode = biosNode.next_sibling("bios"))
 	{
 		std::string bios = biosNode.text().get();
-		mMameBioses.push_back(bios);
+		mMameBioses.insert(bios);
 	}
 	
 	// Read devices
@@ -97,9 +97,9 @@ MameNames::MameNames()
 	}
  	
 	for(pugi::xml_node deviceNode = doc.child("device"); deviceNode; deviceNode = deviceNode.next_sibling("device"))
-	{
+	{		
 		std::string device = deviceNode.text().get();
-		mMameDevices.push_back(device);
+		mMameDevices.insert(device);
 	}
 
 } // MameNames
@@ -130,31 +130,10 @@ std::string MameNames::getRealName(const std::string& _mameName)
 
 const bool MameNames::isBios(const std::string& _biosName)
 {
-	return MameNames::find(mMameBioses, _biosName);
-
+	return (mMameBioses.find(_biosName) != mMameBioses.cend());
 } // isBios
 
 const bool MameNames::isDevice(const std::string& _deviceName)
 {
-	return MameNames::find(mMameDevices, _deviceName);
-	
+	return (mMameDevices.find(_deviceName) != mMameDevices.cend());
 } // isDevice
-
-const bool MameNames::find(std::vector<std::string> devices, const std::string& name)
-{
-	size_t start = 0;
-	size_t end   = devices.size();
-
-	while(start < end)
-	{
-		const size_t index   = (start + end) / 2;
-		const int    compare = strcmp(devices[index].c_str(), name.c_str());
-
-		if(compare < 0)       start = index + 1;
-		else if( compare > 0) end   = index;
-		else                  return true;
-	}
-
-	return false;
-	
-}

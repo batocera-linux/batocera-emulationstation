@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <unordered_set>
 
 class MameNames
 {
@@ -32,10 +33,9 @@ private:
 	static MameNames* sInstance;
 
 	namePairVector mNamePairs;
-	std::vector<std::string> mMameBioses;
-	std::vector<std::string> mMameDevices;
-	
-	const bool find(const std::vector<std::string> devices, const std::string& name);
+
+	std::unordered_set<std::string> mMameBioses;
+	std::unordered_set<std::string> mMameDevices;
 
 }; // MameNames
 

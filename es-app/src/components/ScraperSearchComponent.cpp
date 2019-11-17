@@ -404,7 +404,7 @@ void ScraperSearchComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if(mBlockAccept)
+	if (mBlockAccept)
 	{
 		if (mMDResolveHandle && mMDResolveHandle->status() == ASYNC_IN_PROGRESS)
 		{

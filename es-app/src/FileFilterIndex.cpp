@@ -92,7 +92,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 	{
 		case GENRE_FILTER:
 		{
-			key = Utils::String::toUpper(game->metadata.get("genre"));
+			key = Utils::String::toUpper(game->getMetadata().get("genre"));
 			key = Utils::String::trim(key);
 			if (getSecondary && !key.empty()) {
 				std::istringstream f(key);
@@ -114,18 +114,18 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			if (getSecondary)
 				break;
 
-			key = game->metadata.get("players");
+			key = game->getMetadata().get("players");
 			break;
 		}
 		case PUBDEV_FILTER:
 		{
-			key = Utils::String::toUpper(game->metadata.get("publisher"));
+			key = Utils::String::toUpper(game->getMetadata().get("publisher"));
 			key = Utils::String::trim(key);
 
 			if ((getSecondary && !key.empty()) || (!getSecondary && key.empty()))
-				key = Utils::String::toUpper(game->metadata.get("developer"));
+				key = Utils::String::toUpper(game->getMetadata().get("developer"));
 			else
-				key = Utils::String::toUpper(game->metadata.get("publisher"));
+				key = Utils::String::toUpper(game->getMetadata().get("publisher"));
 			break;
 		}
 		case RATINGS_FILTER:
@@ -133,7 +133,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			int ratingNumber = 0;
 			if (!getSecondary)
 			{
-				std::string ratingString = game->metadata.get("rating");
+				std::string ratingString = game->getMetadata().get("rating");
 				if (!ratingString.empty()) {
 					try {
 						ratingNumber = (int)((std::stod(ratingString)*5)+0.5);
@@ -154,21 +154,21 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->metadata.get("favorite"));
+			key = Utils::String::toUpper(game->getMetadata().get("favorite"));
 			break;
 		}
 		case HIDDEN_FILTER:
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->metadata.get("hidden"));
+			key = Utils::String::toUpper(game->getMetadata().get("hidden"));
 			break;
 		}
 		case KIDGAME_FILTER:
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->metadata.get("kidgame"));
+			key = Utils::String::toUpper(game->getMetadata().get("kidgame"));
 			break;
 		}
 	}

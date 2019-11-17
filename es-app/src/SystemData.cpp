@@ -36,7 +36,7 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 	if(!CollectionSystem)
 	{
 		mRootFolder = new FolderData(mEnvData->mStartPath, this);
-		mRootFolder->metadata.set("name", mFullName);
+		mRootFolder->getMetadata().set("name", mFullName);
 
 		std::unordered_map<std::string, FileData*> fileMap;
 
@@ -49,11 +49,6 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 
 		if(!Settings::getInstance()->getBool("IgnoreGamelist") && mName != "imageviewer")
 			parseGamelist(this, fileMap);
-		/*
-		if (mSortId >= 0 && mSortId < FileSorts::getSortTypes().size())
-			mRootFolder->sort(FileSorts::getSortTypes().at(mSortId));
-		else
-			mRootFolder->sort(FileSorts::getSortTypes().at(0));*/
 	}
 	else
 	{
