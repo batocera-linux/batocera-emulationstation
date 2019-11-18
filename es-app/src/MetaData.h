@@ -99,6 +99,7 @@ public:
 
 	bool wasChanged() const;
 	void resetChangedFlag();
+	void setDirty() { mWasChanged = true; }
 
 	inline MetaDataListType getType() const { return mType; }
 	inline const std::vector<MetaDataDecl>& getMDD() const { return getMDDByType(getType()); }
