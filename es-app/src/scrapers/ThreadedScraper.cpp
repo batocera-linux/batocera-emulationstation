@@ -4,6 +4,7 @@
 #include "components/AsyncNotificationComponent.h"
 #include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
+#include "Gamelist.h"
 
 #define GUIICON _U("\uF03E ")
 
@@ -162,12 +163,14 @@ void ThreadedScraper::processMedias(ScraperSearchResult result)
 		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
 
 	search.game->getMetadata().importScrappedMetadata(result.mdl);
+	saveToGamelistRecovery(search.game);
 }
 
 void ThreadedScraper::acceptResult(const ScraperSearchResult& result)
 {
 	ScraperSearchParams& search = mSearchQueue.front();
 	search.game->getMetadata().importScrappedMetadata(result.mdl);// = result.mdl;
+	saveToGamelistRecovery(search.game);
 }
 
 void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams>& searches)

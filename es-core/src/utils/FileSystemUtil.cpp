@@ -442,7 +442,7 @@ namespace Utils
 		  std::string base;
 		  std::string path = getGenericPath(_path);
 
-		  if(base == "") { // in case getAbsolutePath fails, prevent infinite loop
+		  if(_base.empty()) { // in case getAbsolutePath fails, prevent infinite loop
 		    base = "/";
 		  } else {
 		    base = isAbsolute(_base) ? getGenericPath(_base) : getAbsolutePath(_base);

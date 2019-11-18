@@ -9,6 +9,18 @@
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
 
+#ifdef WIN32
+#include <Windows.h>
+#include <direct.h>
+#else
+#include <unistd.h>
+#endif
+
+std::string getGamelistRecoveryPath(SystemData* system)
+{
+	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/recovery/" + system->getName());
+}
+
 FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	// first, verify that path is within the system's root folder
@@ -92,12 +104,8 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 	return NULL;
 }
 
-void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)
-{
-	std::string xmlpath = system->getGamelistPath(false);
-	if (!Utils::FileSystem::exists(xmlpath))
-		return;
-
+void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unordered_map<std::string, FileData*>& fileMap, size_t checkSize = SIZE_MAX)
+{	
 	bool trustGamelist = Settings::getInstance()->getBool("ParseGamelistOnly");
 
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -118,6 +126,16 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 		return;
 	}
 
+	if (checkSize != SIZE_MAX)
+	{
+		auto parentSize = root.attribute("parentHash").as_uint();
+		if (parentSize != checkSize)
+		{
+			LOG(LogWarning) << "gamelist size don't match !";
+			return;
+		}
+	}
+	
 	std::string relativeTo = system->getStartPath();
 
 	for (pugi::xml_node fileNode : root.children())
@@ -157,9 +175,49 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 			if (Utils::FileSystem::isHidden(path))
 				file->getMetadata().set("hidden", "true");
 
-			file->getMetadata().resetChangedFlag();
+			if (checkSize != SIZE_MAX)
+				file->getMetadata().setDirty();
+			else
+				file->getMetadata().resetChangedFlag();
 		}
 	}
+}
+
+void clearTemporaryGamelistRecovery(SystemData* system)
+{	
+	auto path = getGamelistRecoveryPath(system);
+
+	auto files = Utils::FileSystem::getDirContent(path, true);
+	if (files.size() > 0)
+	{
+		for (auto file : files)
+			if (!Utils::FileSystem::isDirectory(file))
+				Utils::FileSystem::removeFile(file);
+
+		std::reverse(std::begin(files), std::end(files));
+
+		for (auto file : files)
+			if (Utils::FileSystem::isDirectory(file))
+				rmdir(file.c_str());
+	}
+
+	rmdir(path.c_str());
+}
+
+void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)
+{
+	std::string xmlpath = system->getGamelistPath(false);
+
+	auto size = Utils::FileSystem::getFileSize(xmlpath);
+	if (size != 0)
+		loadGamelistFile(xmlpath, system, fileMap);
+
+	auto files = Utils::FileSystem::getDirContent(getGamelistRecoveryPath(system), true);
+	for (auto file : files)
+		loadGamelistFile(file, system, fileMap, size);
+
+	if (size != SIZE_MAX)
+		system->setGamelistHash(size);
 }
 
 bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* tag, SystemData* system)
@@ -184,6 +242,55 @@ bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* t
 	// try and make the path relative if we can so things still work if we change the rom folder location in the future
 	newNode.prepend_child("path").text().set(Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str());
 	return true;	
+}
+
+bool saveToGamelistRecovery(FileData* file)
+{
+	pugi::xml_document doc;
+	pugi::xml_node root = doc.append_child("gameList");
+
+	const char* tag = file->getType() == GAME ? "game" : "folder";
+
+	SystemData* system = file->getSourceFileData()->getSystem();
+	root.append_attribute("parentHash").set_value(system->getGamelistHash());
+
+	if (addFileDataNode(root, file, tag, system))
+	{
+		std::string fp = file->getFullPath();
+		fp = Utils::FileSystem::createRelativePath(file->getFullPath(), system->getRootFolder()->getFullPath(), true);
+		fp = Utils::FileSystem::getParent(fp) + "/" + Utils::FileSystem::getStem(fp) + ".xml";
+
+		std::string path = Utils::FileSystem::getAbsolutePath(fp, getGamelistRecoveryPath(system));
+		path = Utils::FileSystem::getCanonicalPath(path);
+
+		std::string folder = Utils::FileSystem::getParent(path);
+
+		if (!Utils::FileSystem::exists(folder))
+			Utils::FileSystem::createDirectory(folder);
+
+		if (!doc.save_file(path.c_str()))
+		{
+			LOG(LogError) << "Error saving gamelist.xml to \"" << path << "\" (for system " << system->getName() << ")!";
+			return false;
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
+bool hasDirtyFile(SystemData* system)
+{
+	FolderData* rootFolder = system->getRootFolder();
+	if (rootFolder == nullptr)
+		return false;
+
+	for (auto file : rootFolder->getFilesRecursive(GAME | FOLDER))
+		if (file->getMetadata().wasChanged())
+			return true;
+
+	return false;
 }
 
 void updateGamelist(SystemData* system)
@@ -286,6 +393,8 @@ void updateGamelist(SystemData* system)
 			if (!doc.save_file(xmlWritePath.c_str())) {
 				LOG(LogError) << "Error saving gamelist.xml to \"" << xmlWritePath << "\" (for system " << system->getName() << ")!";
 			}
+			else
+				clearTemporaryGamelistRecovery(system);
 		}
 	}else{
 		LOG(LogError) << "Found no root folder for system \"" << system->getName() << "\"!";

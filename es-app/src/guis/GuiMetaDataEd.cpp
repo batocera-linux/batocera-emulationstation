@@ -20,6 +20,7 @@
 #include "Window.h"
 #include "LocaleES.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "Gamelist.h"
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
 	const std::string& /*header*/, std::function<void()> saveCallback, std::function<void()> deleteFunc) : GuiComponent(window),
@@ -245,6 +246,8 @@ void GuiMetaDataEd::save()
 
 	if(mSavedCallback)
 		mSavedCallback();
+
+	saveToGamelistRecovery(mScraperParams.game);
 
 	// update respective Collection Entries
 	CollectionSystemManager::get()->refreshCollectionSystems(mScraperParams.game);

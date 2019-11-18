@@ -58,6 +58,7 @@ public:
 	int getDisplayedGameCount();
 	void updateDisplayedGameCount();
 
+	static bool hasDirtySystems();
 	static void deleteSystems();
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.
 	static void writeExampleConfig(const std::string& path);
@@ -113,8 +114,12 @@ public:
 
 	Vector2f getGridSizeOverride();
 
+	void setGamelistHash(size_t size) { mGameListHash = size; }
+	size_t getGamelistHash() { return mGameListHash; }
 
 private:
+	size_t mGameListHash;
+
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
 	std::string mName;

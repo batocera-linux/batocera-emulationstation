@@ -15,6 +15,7 @@
 #include "LocaleES.h"
 #include <pugixml/src/pugixml.hpp>
 #include <fstream>
+#include "Gamelist.h" 
 
 std::string myCollectionsName = "collections";
 
@@ -551,6 +552,8 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(file, FILE_METADATA_CHANGED);
 			}
 		}
+
+		saveToGamelistRecovery(file);
 
 		if (adding)
 			snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
