@@ -3,7 +3,7 @@
 #include "resources/TextureResource.h"
 #include "ThemeData.h"
 
-RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorShift(0xFFFFFFFF)
+RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorShift(0xFFFFFFFF), mUnfilledColor(0xFFFFFFFF)
 {
 	mFilledTexture = TextureResource::get(":/star_filled.svg", true);
 	mUnfilledTexture = TextureResource::get(":/star_unfilled.svg", true);
@@ -117,8 +117,18 @@ void RatingComponent::render(const Transform4x4f& parentTrans)
 
 	if (mUnfilledTexture->bind())
 	{
+		if (mUnfilledColor != mColorShift)
+		{
+			const unsigned int color = Renderer::convertColor(mUnfilledColor);
+			for (int i = 0; i < 8; ++i)
+				mVertices[i].col = color;
+		}
+
 		Renderer::drawTriangleStrips(&mVertices[4], 4);
 		Renderer::bindTexture(0);
+
+		if (mUnfilledColor != mColorShift)
+			updateColors();
 	}
 
 	if (mFilledTexture->bind())
@@ -167,8 +177,16 @@ void RatingComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const 
 	}
 
 
-	if(properties & COLOR && elem->has("color"))
-		setColorShift(elem->get<unsigned int>("color"));
+	if (properties & COLOR)
+	{
+		if (elem->has("color"))
+			setColorShift(elem->get<unsigned int>("color"));
+
+		if (elem->has("unfilledColor"))
+			mUnfilledColor = elem->get<unsigned int>("unfilledColor");
+		else
+			mUnfilledColor = mColorShift;
+	}
 
 	if(imgChanged)
 		onSizeChanged();

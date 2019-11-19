@@ -102,6 +102,13 @@ namespace Renderer
 	bool         isVisibleOnScreen  (float x, float y, float w, float h);
 	bool         isSmallScreen      ();
 	unsigned int mixColors(unsigned int first, unsigned int second, float percent);
+
+
+	void drawRoundRect(float x, float y, float w, float h, float radius, unsigned int color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
+
+	void enableRoundCornerStencil(float x, float y, float size_x, float size_y, float radius);
+	void disableStencil();
+
 } // Renderer::
 
 #endif // ES_CORE_RENDERER_RENDERER_H

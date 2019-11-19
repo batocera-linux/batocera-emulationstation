@@ -62,6 +62,8 @@ namespace Renderer
 
 	void setupWindow()
 	{
+		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 1);
+
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE,     8);
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,   8);
 		SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,    8);
@@ -257,6 +259,86 @@ namespace Renderer
 
 	} // swapBuffers
 
+#define ROUNDING_PIECES 8.0f
+
+	void drawGLRoundedCorner(float x, float y, double sa, double arc, float r, unsigned int color)
+	{
+		float red = (((color & 0xff000000) >> 24) & 255) / 255.0f;
+		float g = (((color & 0x00ff0000) >> 16) & 255) / 255.0f;
+		float b = (((color & 0x0000ff00) >> 8) & 255) / 255.0f;
+		float a = (((color & 0x000000ff)) & 255) / 255.0f;
+
+		// centre of the arc, for clockwise sense
+		float cent_x = x + r * Math::cosf(sa + ES_PI / 2.0f);
+		float cent_y = y + r * Math::sinf(sa + ES_PI / 2.0f);
+
+		// build up piecemeal including end of the arc
+		int n = ceil(ROUNDING_PIECES * arc / ES_PI * 2.0f);
+		for (int i = 0; i <= n; i++)
+		{
+			float ang = sa + arc * (double)i / (double)n;
+
+			// compute the next point
+			float next_x = cent_x + r * Math::sinf(ang);
+			float next_y = cent_y - r * Math::cosf(ang);
+
+			//glColor4bv((const GLbyte*) &color);
+			glColor4f(red, g, b, a);
+			glVertex2f(next_x, next_y);
+		}
+	}
+
+	void drawRoundRect(float x, float y, float width, float height, float radius, unsigned int color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	{
+		bindTexture(0);
+
+	//	glEnable(GL_MULTISAMPLE);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
+
+		glBegin(GL_POLYGON);
+		drawGLRoundedCorner(x, y + radius, 3.0f * ES_PI / 2.0f, ES_PI / 2.0f, radius, color);
+		drawGLRoundedCorner(x + width - radius, y, 0.0, ES_PI / 2.0f, radius, color);
+		drawGLRoundedCorner(x + width, y + height - radius, ES_PI / 2.0f, ES_PI / 2.0f, radius, color);
+		drawGLRoundedCorner(x + radius, y + height, ES_PI, ES_PI / 2.0f, radius, color);
+		glEnd();
+
+		glDisable(GL_BLEND);
+	//	glDisable(GL_MULTISAMPLE);
+	}
+
+	void enableRoundCornerStencil(float x, float y, float width, float height, float radius)
+	{
+		bool tx = glIsEnabled(GL_TEXTURE_2D);
+		glDisable(GL_TEXTURE_2D);
+
+		glClear(GL_DEPTH_BUFFER_BIT);
+		glEnable(GL_STENCIL_TEST);
+		glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+		glDepthMask(GL_FALSE);
+		glStencilFunc(GL_NEVER, 1, 0xFF);
+		glStencilOp(GL_REPLACE, GL_KEEP, GL_KEEP);
+
+		glStencilMask(0xFF);
+		glClear(GL_STENCIL_BUFFER_BIT);
+
+		drawRoundRect(x, y, width, height, radius, 0xFFFFFFFF);
+
+		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+		glDepthMask(GL_TRUE);
+		glStencilMask(0x00);
+		glStencilFunc(GL_EQUAL, 0, 0xFF);
+		glStencilFunc(GL_EQUAL, 1, 0xFF);
+
+		if (tx)
+			glEnable(GL_TEXTURE_2D);
+	}
+
+	void disableStencil()
+	{
+		glDisable(GL_STENCIL_TEST);
+	}
 } // Renderer::
 
 #endif // USE_OPENGLES_10

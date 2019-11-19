@@ -29,6 +29,9 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mVerticalAlignment = ALIGN_CENTER;
 	mReflectOnBorders = false;
 	mAllowFading = true;
+	mRoundCorners = 0.0f;
+	mShowing = false;
+	mPlaylistTimer = 0;
 	updateColors();
 }
 
@@ -417,14 +420,40 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 		if (mHorizontalAlignment == ALIGN_LEFT)
 			trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
-		else if (mHorizontalAlignment == ALIGN_BOTTOM)
-			trans.translate(Vector3f(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y(), 0.0f));
+		else if (mHorizontalAlignment == ALIGN_RIGHT)
+			trans.translate(Vector3f(targetSizePos.x() + mTargetSize.x() - mSize.x(), targetSizePos.y(), 0.0f));
 
 		Renderer::setMatrix(trans);
 
-
 		fadeIn(true);
+
+		if (mRoundCorners > 0)
+		{
+			float x = 0;
+			float y = 0;
+			float size_x = mSize.x();
+			float size_y = mSize.y();
+
+
+			if (mTargetIsMin)
+			{
+				x = targetSizePos.x();
+				y = targetSizePos.y();
+				size_x = mTargetSize.x();
+				size_y = mTargetSize.y();
+			}
+
+			float radius = Math::max(size_x, size_y) * mRoundCorners;
+
+			Renderer::enableRoundCornerStencil(x, y, size_x, size_y, radius);
+
+			mTexture->bind();
+		}
+
 		Renderer::drawTriangleStrips(&mVertices[0], 4);
+
+		if (mRoundCorners > 0)
+			Renderer::disableStencil();
 
 		if (mReflection.x() != 0 || mReflection.y() != 0)
 		{
@@ -558,11 +587,12 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if (properties & PATH && elem->has("path"))
 	{
-		bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-
 		auto path = elem->get<std::string>("path");
-		if (Utils::FileSystem::exists(path))
+		if (ResourceManager::getInstance()->fileExists(path))
+		{
+			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
 			setImage(path, tile);
+		}
 	}
 
 	if (properties & COLOR)
@@ -627,6 +657,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setVerticalAlignment(ALIGN_CENTER);
 	}
 
+	if (properties & ALIGNMENT && elem->has("roundCorners"))
+		mRoundCorners = elem->get<float>("roundCorners");
+
 	if(properties & ThemeFlags::Z_INDEX && elem->has("zIndex"))
 		setZIndex(elem->get<float>("zIndex"));
 	else
@@ -643,4 +676,55 @@ std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
 	std::vector<HelpPrompt> ret;
 	ret.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 	return ret;
+}
+
+void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
+{
+	mPlaylist = playList;
+	if (mPlaylist == nullptr)
+		return;
+
+	auto image = mPlaylist->getNextItem();
+	if (!image.empty())
+		setImage(image);
+}
+
+void ImageComponent::onShow()
+{
+	GuiComponent::onShow();
+
+	if (!mShowing && mPlaylist != nullptr && !mPath.empty())
+	{
+		auto item = mPlaylist->getNextItem();
+		if (!item.empty())
+			setImage(item, false, getMaxSizeInfo());
+	}
+
+	mShowing = true;
+}
+
+void ImageComponent::onHide()
+{
+	GuiComponent::onHide();
+	mShowing = false;
+}
+
+
+void ImageComponent::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mPlaylist != nullptr && mShowing)
+	{
+		mPlaylistTimer += deltaTime;
+
+		if (mPlaylistTimer >= 10000)
+		{
+			auto item = mPlaylist->getNextItem();
+			if (!item.empty())
+				setImage(item, false, getMaxSizeInfo());
+
+			mPlaylistTimer = 0.0;
+		}
+	}
 }

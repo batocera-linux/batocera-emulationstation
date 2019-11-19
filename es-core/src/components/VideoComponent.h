@@ -21,6 +21,7 @@ enum ImageSource
 	MARQUEE
 };
 */
+
 class VideoComponent : public GuiComponent
 {
 	// Structure that groups together the configuration of the video component
@@ -36,6 +37,8 @@ class VideoComponent : public GuiComponent
 public:
 	VideoComponent(Window* window);
 	virtual ~VideoComponent();
+
+	std::string getValue() const override { return "VideoComponent"; }
 
 	// Loads the video at the given filepath
 	bool setVideo(std::string path);
@@ -107,6 +110,39 @@ public:
 	ImageSource getSnapshotSource() { return mConfig.snapshotSource; };
 	void setSnapshotSource(ImageSource source) { mConfig.snapshotSource = source; };
 
+	inline void setOnVideoEnded(const std::function<bool()>& callback) {
+		mVideoEnded = callback;
+	}
+
+	float getRoundCorners() { return mRoundCorners; }
+	void setRoundCorners(float value) { mRoundCorners = value; }
+	
+	bool isFading() {
+		return mIsPlaying && mFadeIn < 1.0;
+	}
+
+	float getFade() 
+	{
+		if (!mIsPlaying)
+			return 0;
+
+		return mFadeIn;
+	}
+
+	std::string getVideoPath() 
+	{ 
+		if (mPlayingVideoPath.empty())
+			return mPlayingVideoPath;
+
+		return mVideoPath; 
+	}
+
+	void setPlaylist(std::shared_ptr<IPlaylist> playList);
+
+protected:
+	std::shared_ptr<IPlaylist> mPlaylist;
+	std::function<bool()> mVideoEnded;
+
 private:
 	// Start the video Immediately
 	virtual void startVideo() = 0;
@@ -123,6 +159,7 @@ private:
 
 	// Manage the playing state of the component
 	void manageState();
+
 
 protected:
 	unsigned						mVideoWidth;
@@ -146,6 +183,8 @@ protected:
 	bool							mTargetIsMin;
 
 	bool							mIsWaitingForVideoToStart;
+
+	float							mRoundCorners;
 
 	Configuration					mConfig;
 };

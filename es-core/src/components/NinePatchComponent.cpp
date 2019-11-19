@@ -9,7 +9,11 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	mEdgeColor(edgeColor), mCenterColor(centerColor),
 	mVertices(NULL)
 {
-	mPreviousSize = Vector2f(0, 0);	
+	mTimer = 0;
+	mAnimateTiming = 0;
+	mAnimateColor = 0xFFFFFFFF;
+
+	mPreviousSize = Vector2f(0, 0);
 	setImagePath(path);
 }
 
@@ -28,6 +32,18 @@ NinePatchComponent::~NinePatchComponent()
 		delete[] mVertices;
 }
 
+void NinePatchComponent::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mAnimateTiming > 0)
+	{
+		mTimer += deltaTime;
+		if (mTimer >= 2 * mAnimateTiming)
+			mTimer = 0;
+	}
+}
+
 void NinePatchComponent::updateColors()
 {
 	if (mVertices == nullptr)
@@ -35,8 +51,18 @@ void NinePatchComponent::updateColors()
 
 	float opacity = mOpacity / 255.0;
 
-	const unsigned int edgeColor   = Renderer::convertColor(mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity));
-	const unsigned int centerColor = Renderer::convertColor(mCenterColor & 0xFFFFFF00 | (unsigned char)((mCenterColor & 0xFF) * opacity));
+	unsigned int e = mEdgeColor;
+	unsigned int c = mCenterColor;
+
+	if (mAnimateTiming > 0)
+	{
+		float percent = std::abs(mAnimateTiming - mTimer) / mAnimateTiming;
+		e = Renderer::mixColors(e, mAnimateColor, percent);
+		c = Renderer::mixColors(e, mAnimateColor, percent);
+	}
+
+	const unsigned int edgeColor = Renderer::convertColor(e & 0xFFFFFF00 | (unsigned char)((e & 0xFF) * opacity));
+	const unsigned int centerColor = Renderer::convertColor(c & 0xFFFFFF00 | (unsigned char)((c & 0xFF) * opacity));
 
 	for(int i = 0; i < 6*9; i++)
 		mVertices[i].col = edgeColor;
@@ -115,13 +141,29 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
-	if (mCornerSize.x() == 0 && mCornerSize.y() == 0)
+	if (mCornerSize.x() <= 1 && mCornerSize.y() <= 1 && mCornerSize.x() == mCornerSize.y())
 	{
 		float opacity = mOpacity / 255.0;
-		const unsigned int edgeColor = mEdgeColor & 0xFFFFFF00 | (unsigned char)((mEdgeColor & 0xFF) * opacity);
+
+		unsigned int e = mEdgeColor;
+
+		if (mAnimateTiming > 0)
+		{
+			float percent = std::abs(mAnimateTiming - mTimer) / mAnimateTiming;
+			e = Renderer::mixColors(e, mAnimateColor, percent);
+		}
+
+		const unsigned int edgeColor = e & 0xFFFFFF00 | (unsigned char)((e & 0xFF) * opacity);
 
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor, edgeColor);
+		
+		if (mCornerSize.x() > 0)
+		{
+			int radius = Math::max(mSize.x(), mSize.y()) * mCornerSize.x();			
+			Renderer::drawRoundRect(0, 0, mSize.x(), mSize.y(), radius, edgeColor);
+		}
+		else
+			Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor, edgeColor);
 	}
 	else if (mTexture->bind())
 	{
@@ -147,7 +189,7 @@ const Vector2f& NinePatchComponent::getCornerSize() const
 	return mCornerSize;
 }
 
-void NinePatchComponent::setCornerSize(int sizeX, int sizeY)
+void NinePatchComponent::setCornerSize(float sizeX, float sizeY)
 {
 	if (mCornerSize.x() == sizeX && mCornerSize.y() == sizeY)
 		return;
@@ -173,7 +215,7 @@ void NinePatchComponent::setImagePath(const std::string& path)
 		return;
 
 	mPath = path;
-	mTexture = TextureResource::get(mPath);
+	mTexture = TextureResource::get(mPath, false, true);
 	buildVertices();
 }
 
@@ -225,4 +267,10 @@ void NinePatchComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 
 	if(elem->has("cornerSize"))
 		setCornerSize(elem->get<Vector2f>("cornerSize"));
+
+	if (elem->has("animateColor"))
+		setAnimateColor(elem->get<unsigned int>("animateColor"));
+
+	if (elem->has("animateColorTime"))
+		setAnimateTiming(elem->get<float>("animateColorTime"));
 }

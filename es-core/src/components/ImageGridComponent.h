@@ -10,6 +10,7 @@
 #include "Settings.h"
 #include "Sound.h"
 #include <algorithm>
+#include "LocaleES.h"
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::getInstance()->getString("TransitionStyle") != "instant")
@@ -32,6 +33,7 @@ struct ImageGridData
 	std::string texturePath;
 	std::string marqueePath;
 	std::string videoPath;
+	bool		favorite;
 };
 
 template<typename T>
@@ -56,7 +58,7 @@ public:
 
 	ImageGridComponent(Window* window);
 
-	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, const T& obj);
+	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -169,7 +171,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 }
 
 template<typename T>
-void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, const T& obj)
+void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, const T& obj)
 {
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
@@ -177,6 +179,7 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	entry.data.texturePath = imagePath;
 	entry.data.videoPath = videoPath;
 	entry.data.marqueePath = marqueePath;
+	entry.data.favorite = favorite;
 
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 	mEntriesDirty = true;
@@ -812,8 +815,12 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 	{
 		tile->setVisible(true);
 
-		std::string name = mEntries.at(imgPos).name; // .object->getName();
-		tile->setLabel(name);
+		std::string name = mEntries.at(imgPos).name;
+
+		if (!mEntries.at(imgPos).data.favorite || tile->hasFavoriteMedia())
+			tile->setLabel(name);
+		else
+			tile->setLabel(_U("\uF006 ") + name);
 
 		std::string imagePath = mEntries.at(imgPos).data.texturePath;
 
@@ -831,6 +838,8 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 			tile->setMarquee(marqueePath);
 		else
 			tile->setMarquee("");
+
+		tile->setFavorite(mEntries.at(imgPos).data.favorite);
 
 		// Video
 		if (mAllowVideo && imgPos == mCursor)

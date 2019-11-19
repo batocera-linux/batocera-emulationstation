@@ -189,7 +189,6 @@ void GridGameListView::setCursor(FileData* file)
 
 		populateList(children);
 		mGrid.setCursor(file);
-
 	}
 }
 
@@ -243,7 +242,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		if (mCursorStack.size())
 		{
 			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mGrid.add(". .", "", "", "", placeholder);
+			mGrid.add(". .", "", "", "", false, placeholder);
 		}
 
 		std::string systemName = mRoot->getSystem()->getFullName();
@@ -255,42 +254,35 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 		if (favoritesFirst)
 		{
-			for (auto it = files.cbegin(); it != files.cend(); it++)
+			for (auto file : files)
 			{
-				if (!(*it)->getFavorite())
-					continue;
-
-				if (showFavoriteIcon)
-					mGrid.add(_U("\uF006 ") + (*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
-				else
-					mGrid.add((*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+				if (file->getFavorite() && showFavoriteIcon)
+					mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file);
 			}
 		}
 
-		for (auto it = files.cbegin(); it != files.cend(); it++)
+		for (auto file : files)
 		{
-			if ((*it)->getFavorite())
+			if (file->getFavorite())
 			{
 				if (favoritesFirst)
 					continue;
 
 				if (showFavoriteIcon)
 				{
-					mGrid.add(_U("\uF006 ") + (*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+					mGrid.add(_U("\uF006 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file);
 					continue;
 				}
 			}
 
-			if (((*it)->getType() == FOLDER) && Utils::FileSystem::exists(getImagePath(*it)))
-				mGrid.add(_U("\uF114 ") + (*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+			if (file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file)))
+				mGrid.add(_U("\uF114 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file);
 			else
-				mGrid.add((*it)->getName(), getImagePath(*it), (*it)->getVideoPath(), (*it)->getMarqueePath(), *it);
+				mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file);
 		}
 	}
 	else
-	{
 		addPlaceholder();
-	}
 }
 
 void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
@@ -620,8 +612,8 @@ void GridGameListView::updateInfoPanel()
 void GridGameListView::addPlaceholder()
 {
 	// empty grid - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<No Entries Found>", this->mRoot->getSystem());
-	mGrid.add(placeholder->getName(), "", "", "", placeholder);
+	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
+	mGrid.add(placeholder->getName(), "", "", "", false, placeholder);
 }
 
 void GridGameListView::launch(FileData* game)
