@@ -1229,7 +1229,7 @@ msgstr "Editando a coleção '%s'. Adicione ou remova jogos com Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr "Edição da coleção '%s\' terminada."
+msgstr "Edição da coleção '%s' terminada."
 
 #, c-format
 msgid "Added '%s' to '%s'"
