@@ -234,7 +234,7 @@ msgid "DISK USAGE"
 msgstr "UŻYCIE DYSKU"
 
 msgid "DEVELOPER"
-msgstr "PRODUCENT"
+msgstr "DEWELOPER"
 
 msgid "VRAM LIMIT"
 msgstr "LIMIT VRAM"
@@ -396,7 +396,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
 msgid "AI GAME TRANSLATION"
-msgstr "TŁUMACZENIE GRY AI"
+msgstr "TŁUMACZENIE GRY Z AI"
 
 msgid "ENABLE AI SERVICE"
 msgstr "WŁĄCZ USŁUGĘ AI"
@@ -920,7 +920,7 @@ msgid "SELECT THEME"
 msgstr "WYBIERZ MOTYW"
 
 msgid "EDIT METADATA"
-msgstr "EDYTUJ METADANE"
+msgstr "EDYTUJ META DANE"
 
 msgid "SAVE"
 msgstr "ZAPISZ"
@@ -1284,7 +1284,7 @@ msgid "RIGHT ANALOG UP"
 msgstr "PRAWY ANALOG W GÓRĘ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "LEWY ANALOG W LEWO"
+msgstr "PRAWY ANALOG W LEWO"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -1566,19 +1566,19 @@ msgstr "góra/dół"
 #~ msgid "%i sec ago"
 #~ msgid_plural "%i secs ago"
 #~ msgstr[0] "%i sekundę temu"
-#~ msgstr[1] "%i sekund temu"
+#~ msgstr[1] "%i sekundy temu"
 #~ msgstr[2] "%i sekund temu"
 
 #~ msgid "%i min ago"
 #~ msgid_plural "%i mins ago"
 #~ msgstr[0] "%i minutę temu"
-#~ msgstr[1] "%i minut temu"
+#~ msgstr[1] "%i minuty temu"
 #~ msgstr[2] "%i minut temu"
 
 #~ msgid "%i hour ago"
 #~ msgid_plural "%i hours ago"
 #~ msgstr[0] "%i godzinę temu"
-#~ msgstr[1] "%i godzin temu"
+#~ msgstr[1] "%i godziny temu"
 #~ msgstr[2] "%i godzin temu"
 
 #~ msgid "%i day ago"
