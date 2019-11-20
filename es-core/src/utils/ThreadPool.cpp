@@ -8,7 +8,7 @@ namespace Utils
 {
 	ThreadPool::ThreadPool() : mRunning(true), mWaiting(false), mNumWork(0)
 	{
-		size_t num_threads = std::thread::hardware_concurrency() - 1;
+		size_t num_threads = std::thread::hardware_concurrency() * 2;
 
 		auto doWork = [&](size_t id)
 		{

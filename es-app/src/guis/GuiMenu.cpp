@@ -1129,20 +1129,25 @@ void GuiMenu::openGamesSettings_batocera()
 			}
 
 			window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"),
-				[this, window] {
+				[this, window] 
+			{
+				window->renderLoadingScreen(_("Loading..."));
+
 				ViewController::get()->goToStart();
 				delete ViewController::get();
 				ViewController::init(window);
 				CollectionSystemManager::deinit();
 				CollectionSystemManager::init(window);
 				SystemData::loadConfig(window);
-				window->endRenderLoadingScreen();
+
 				GuiComponent *gui;
 				while ((gui = window->peekGui()) != NULL) {
 					window->removeGui(gui);
 					delete gui;
 				}
-				ViewController::get()->reloadAll();				
+				ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
+				window->endRenderLoadingScreen();
+
 				window->pushGui(ViewController::get());
 			}, _("NO"), nullptr));
 		});

@@ -275,6 +275,8 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 // helper
 unsigned int getHexColor(const char* str)
 {
+
+
 //	ThemeException error;
 	if (!str)
 	{
@@ -292,9 +294,7 @@ unsigned int getHexColor(const char* str)
 	}
 
 	unsigned int val;
-	std::stringstream ss;
-	ss << str;
-	ss >> std::hex >> val;
+	sscanf(str, "%x", &val);
 
 	if(len == 6)
 		val = (val << 8) | 0xFF;
@@ -304,7 +304,7 @@ unsigned int getHexColor(const char* str)
 
 std::string ThemeData::resolvePlaceholders(const char* in)
 {
-	if (in == nullptr || in[0] == '/0')
+	if (in == nullptr || in[0] == 0)
 		return in;
 
 	std::string inStr(in);
@@ -397,12 +397,15 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 
 const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
 {
-	if (mMenuTheme == nullptr && mDefaultTheme != nullptr)
-		mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(mDefaultTheme));
-	else if (mMenuTheme == nullptr)
+	if (mMenuTheme == nullptr)
 	{
-		auto emptyData = ThemeData();
-		return std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(&emptyData));
+		if (mDefaultTheme != nullptr)
+			mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(mDefaultTheme));
+		else
+		{
+			auto emptyData = ThemeData();
+			mMenuTheme = std::shared_ptr<ThemeData::ThemeMenu>(new ThemeMenu(&emptyData));
+		}
 	}
 
 	return mMenuTheme;
@@ -510,7 +513,7 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 		return;
 
 	std::string relPath = resolvePlaceholders(node.text().as_string());
-	std::string path = Utils::FileSystem::resolveRelativePath(relPath, mPaths.back(), true);
+	std::string path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
 	path = resolveSystemVariable(mSystemThemeFolder, path);
 
 	if (!ResourceManager::getInstance()->fileExists(path))
@@ -959,12 +962,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				break;
 			}			
 
-			std::string first = str.substr(0, divider);
-			std::string second = str.substr(divider, std::string::npos);
-
-			Vector2f val((float)atof(first.c_str()), (float)atof(second.c_str()));
-
-			element.properties[node.name()] = val;
+			float first = atof(str.substr(0, divider).c_str());
+			float second = atof(str.substr(divider, std::string::npos).c_str());
+			element.properties[node.name()] = Vector2f(first, second);
 			break;
 		}
 		case STRING:
@@ -972,22 +972,25 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		case PATH:
 		{
-			std::string path = Utils::FileSystem::resolveRelativePath(str, mPaths.back(), true);
+			std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
 
+			if (path[0] == '/')
+			{
 #if WIN32
-			path = Utils::String::replace(path,
-				"/recalbox/share_init/system/.emulationstation/themes",
-				Utils::FileSystem::getEsConfigPath() + "/themes");
+				path = Utils::String::replace(path,
+					"/recalbox/share_init/system/.emulationstation/themes",
+					Utils::FileSystem::getEsConfigPath() + "/themes");
 #else
-			path = Utils::String::replace(path,
-				"/recalbox/share_init/system/.emulationstation/themes",
-				"/userdata/themes");
+				path = Utils::String::replace(path,
+					"/recalbox/share_init/system/.emulationstation/themes",
+					"/userdata/themes");
 #endif
+			}
 
 			if (!ResourceManager::getInstance()->fileExists(path))
 			{
-				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, mPaths.front(), true);
-				if (ResourceManager::getInstance()->fileExists(rootPath))
+				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
+				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
 					path = rootPath;
 			}
 
@@ -1009,8 +1012,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		case FLOAT:
 		{
-			float floatVal = static_cast<float>(strtod(str.c_str(), 0));
-			element.properties[node.name()] = floatVal;
+			element.properties[node.name()] = (float) atof(str.c_str());
 			break;
 		}
 

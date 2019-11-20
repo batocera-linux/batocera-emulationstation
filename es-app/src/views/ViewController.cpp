@@ -626,11 +626,12 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 	// Redisplay the current view
 	if (mCurrentView)
 		mCurrentView->onShow();
-
 }
 
-void ViewController::reloadAll(Window* window)
+void ViewController::reloadAll(Window* window, bool reloadTheme)
 {
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
 	if (mCurrentView != nullptr)
 		mCurrentView->onHide();
 
@@ -666,8 +667,11 @@ void ViewController::reloadAll(Window* window)
 	// load themes, create gamelistviews and reset filters
 	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 	{
-		it->first->loadTheme();
-		it->first->resetFilters();
+		if (reloadTheme)
+		{
+			it->first->loadTheme();
+			it->first->resetFilters();
+		}
 
 		if (it->second != NULL)
 			getGameListView(it->first)->setCursor(it->second);

@@ -267,6 +267,8 @@ bool SystemData::loadConfig(Window* window)
 		return false;
 	}
 
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
 	int currentSystem = 0;
 
 	typedef SystemData* SystemDataPtr;
@@ -417,6 +419,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	{
 		path.erase(0, 1);
 		path.insert(0, Utils::FileSystem::getHomePath());
+		path = Utils::FileSystem::getCanonicalPath(path);
 	}
 
 	//create the system runtime environment data
