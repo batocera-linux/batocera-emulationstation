@@ -59,6 +59,8 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(PUBLISHER_DESCENDING, &comparePublisher, false, _("PUBLISHER, DESCENDING"), _U("\uF15e ")));
 		mSortTypes.push_back(SortType(SYSTEM_ASCENDING, &compareSystem, true, _("SYSTEM, ASCENDING"), _U("\uF15d ")));
 		mSortTypes.push_back(SortType(SYSTEM_DESCENDING, &compareSystem, false, _("SYSTEM, DESCENDING"), _U("\uF15e ")));
+		mSortTypes.push_back(SortType(FILECREATION_DATE_ASCENDING, &compareFileCreationDate, true, _("FILE CREATION DATE, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(SortType(FILECREATION_DATE_DESCENDING, &compareFileCreationDate, false, _("FILE CREATION DATE, DESCENDING"), _U("\uF161 ")));
 	}
 
 	//returns if file1 should come before file2
@@ -121,6 +123,14 @@ namespace FileSorts
 		// since it's stored as an ISO string (YYYYMMDDTHHMMSS), we can compare as a string
 		// as it's a lot faster than the time casts and then time comparisons
 		return (file1)->getMetadata().get("releasedate") < (file2)->getMetadata().get("releasedate");
+	}
+
+	bool compareFileCreationDate(const FileData* file1, const FileData* file2)
+	{
+		// As this sort mode is rarely used, don't care about storing date, always ask the file system
+		auto dt1 = Utils::FileSystem::getFileCreationDate(file1->getPath()).getIsoString();
+		auto dt2 = Utils::FileSystem::getFileCreationDate(file2->getPath()).getIsoString();
+		return dt1 < dt2;
 	}
 
 	bool compareGenre(const FileData* file1, const FileData* file2)

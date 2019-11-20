@@ -176,7 +176,7 @@ namespace Utils
 							FileInfo fi;
 							fi.path = fullName;
 							fi.hidden = Utils::FileSystem::isHidden(fullName);
-							fi.directory = isDirectory(fullName); // Way to optimize using ??? (entry->d_type & DT_DIR) == DT_DIR  ?
+							fi.directory = (entry->d_type == 4); // DT_DIR;
 							contentList.push_back(fi);
 						}
 					}
@@ -831,6 +831,18 @@ namespace Utils
 				return (size_t)info.st_size;
 
 			return 0;
+		}
+
+		Utils::Time::DateTime getFileCreationDate(const std::string& _path)
+		{
+			std::string path = getGenericPath(_path);
+			struct stat64 info;
+
+			// check if stat64 succeeded
+			if ((stat64(path.c_str(), &info) == 0))
+				return Utils::Time::DateTime(info.st_ctime);
+
+			return Utils::Time::DateTime();
 		}
 	} // FileSystem::
 

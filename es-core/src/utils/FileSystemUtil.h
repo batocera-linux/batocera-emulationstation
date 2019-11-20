@@ -4,6 +4,7 @@
 
 #include <list>
 #include <string>
+#include "utils/TimeUtil.h"
 
 namespace Utils
 {
@@ -58,6 +59,7 @@ namespace Utils
 		fileList	getDirectoryFiles(const std::string& _path);
 		std::string combine(const std::string& _path, const std::string& filename);
 		size_t		getFileSize(const std::string& _path);
+		Utils::Time::DateTime getFileCreationDate(const std::string& _path);
 
 	} // FileSystem::
 
