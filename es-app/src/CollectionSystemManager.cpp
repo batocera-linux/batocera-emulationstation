@@ -34,6 +34,7 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false },
 	  { AUTO_AT2PLAYERS,      "2players",	  _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false }, // batocera
 	  { AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false }, // batocera
+	  { AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false }, // batocera
 	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
 	};
 
@@ -749,6 +750,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 					case AUTO_LAST_PLAYED:
 						include = include && (*gameIt)->getMetadata("playcount") > "0";
 						break;
+					case AUTO_NEVER_PLAYED:
+						include = include && !((*gameIt)->getMetadata("playcount") > "0");
+						break;
 					case AUTO_FAVORITES:
 						// we may still want to add files we don't want in auto collections in "favorites"
 						include = (*gameIt)->getMetadata("favorite") == "true";
@@ -790,8 +794,10 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			}
 		}
 	}
+
 	if (sysDecl.type == AUTO_LAST_PLAYED)
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
+
 	sysData->isPopulated = true;
 }
 

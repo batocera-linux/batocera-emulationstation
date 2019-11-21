@@ -39,10 +39,18 @@ namespace Utils
 
 		void DateTime::setTime(const time_t& _time)
 		{
-			mTime       = (_time < 0) ? 0 : _time;
-			mTimeStruct = *localtime(&mTime);
-			mIsoString  = timeToString(mTime);
-
+			try
+			{
+				mTime = (_time < 0) ? 0 : _time;
+				mTimeStruct = *localtime(&mTime);
+				mIsoString = timeToString(mTime);
+			}
+			catch (...)
+			{
+				mTime = 0;
+				mTimeStruct = { 0, 0, 0, 1, 0, 0, 0, 0, -1 };
+				mIsoString = "00000000T000000";
+			}
 		} // DateTime::setTime
 
 		void DateTime::setTimeStruct(const tm& _timeStruct)

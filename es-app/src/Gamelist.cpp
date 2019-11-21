@@ -150,7 +150,7 @@ void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unord
 			continue;
 
 		const std::string path = Utils::FileSystem::resolveRelativePath(fileNode.child("path").text().get(), relativeTo, false);
-
+				
 		if (!trustGamelist && !Utils::FileSystem::exists(path))
 		{
 			LOG(LogWarning) << "File \"" << path << "\" does not exist! Ignoring.";
@@ -172,7 +172,7 @@ void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unord
 			if (file->getMetadata().get("name").empty())
 				file->setMetadata("name", defaultName);
 
-			if (Utils::FileSystem::isHidden(path))
+			if (!file->getHidden() && Utils::FileSystem::isHidden(path))
 				file->getMetadata().set("hidden", "true");
 
 			if (checkSize != SIZE_MAX)

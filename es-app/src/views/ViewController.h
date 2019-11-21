@@ -29,7 +29,7 @@ public:
 	// the current gamelist view (as it may change to be detailed).
 	void reloadGameListView(IGameListView* gamelist, bool reloadTheme = false);
 	inline void reloadGameListView(SystemData* system, bool reloadTheme = false) { reloadGameListView(getGameListView(system).get(), reloadTheme); }
-	void reloadAll(Window* window = nullptr); // Reload everything with a theme.  Used when the "ThemeSet" setting changes.
+	void reloadAll(Window* window = nullptr, bool reloadTheme = true); // Reload everything with a theme.  Used when the "ThemeSet" setting changes.
 
 	// Navigation.
 	void goToNextGameList();

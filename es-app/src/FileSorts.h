@@ -28,7 +28,9 @@ namespace FileSorts
 		PUBLISHER_ASCENDING = 16,
 		PUBLISHER_DESCENDING = 17,
 		SYSTEM_ASCENDING = 18,
-		SYSTEM_DESCENDING = 19
+		SYSTEM_DESCENDING = 19,
+		FILECREATION_DATE_ASCENDING = 20,
+		FILECREATION_DATE_DESCENDING = 21,
 	};
 
 	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
@@ -67,5 +69,6 @@ namespace FileSorts
 	bool compareDeveloper(const FileData* file1, const FileData* file2);
 	bool comparePublisher(const FileData* file1, const FileData* file2);
 	bool compareSystem(const FileData* file1, const FileData* file2);
+	bool compareFileCreationDate(const FileData* file1, const FileData* file2);
 };
 #endif // ES_APP_FILE_SORTS_H
