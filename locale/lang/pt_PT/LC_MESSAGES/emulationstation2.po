@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 21:27+0100\n"
+"POT-Creation-Date: 2019-11-22 22:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -163,9 +163,6 @@ msgstr "OBTER A PARTIR DE:"
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA IMAGEM"
 
-msgid "NONE"
-msgstr "NENHUM"
-
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
@@ -177,6 +174,9 @@ msgstr "MIX"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA CAIXA"
+
+msgid "NONE"
+msgstr "NENHUM"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -376,8 +376,20 @@ msgstr "MELHORADO"
 msgid "CURVATURE"
 msgstr "CURVATURA"
 
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "SECOND INSTANCE"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "DECORAÇÃO"
@@ -1063,6 +1075,9 @@ msgstr "Em andamento"
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "FALHA NA PESQUISA : A APLICAÇÃO FOI BLOQUEADA"
 
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
@@ -1091,8 +1106,8 @@ msgstr "LANÇADO"
 msgid "Times played"
 msgstr "Vezes jogadas"
 
-msgid "<No Entries Found>"
-msgstr "<Nenhuma Entrada Encontrada>"
+msgid "No Entries Found"
+msgstr ""
 
 msgid "LAUNCH"
 msgstr "EXECUTAR"
@@ -1166,6 +1181,12 @@ msgstr "SISTEMA, CRESCENTE"
 msgid "SYSTEM, DESCENDING"
 msgstr "SISTEMA, DECRESCENTE"
 
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "A TRANSFERIR"
 
@@ -1199,6 +1220,9 @@ msgstr " A Carregar a configuração do sistema..."
 msgid "Done."
 msgstr "Concluído."
 
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
@@ -1216,6 +1240,9 @@ msgstr "2 JOGADORES"
 
 msgid "4 players"
 msgstr "4 JOGADORES"
+
+msgid "never played"
+msgstr ""
 
 msgid "collections"
 msgstr "COLEÇÕES"
@@ -1400,6 +1427,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "<No Entries Found>"
+#~ msgstr "<Nenhuma Entrada Encontrada>"
 
 #~ msgid "PREFERED IMAGE SOURCE"
 #~ msgstr "FONTE DE IMAGEM PREFERIDA"

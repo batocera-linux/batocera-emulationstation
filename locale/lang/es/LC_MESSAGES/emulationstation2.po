@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 21:27+0100\n"
+"POT-Creation-Date: 2019-11-22 22:21+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -160,9 +160,6 @@ msgstr "OBTENER CARÁTULAS DESDE"
 msgid "IMAGE SOURCE"
 msgstr "ORIGEN DE IMAGEN"
 
-msgid "NONE"
-msgstr "NINGUNO"
-
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
 
@@ -174,6 +171,9 @@ msgstr "MEZCLA"
 
 msgid "BOX SOURCE"
 msgstr "ORIGEN DE CAJA"
+
+msgid "NONE"
+msgstr "NINGUNO"
 
 msgid "BOX 2D"
 msgstr "CAJA 2D"
@@ -343,12 +343,6 @@ msgstr "RELACIÓN DE ASPECTO"
 msgid "SMOOTH GAMES"
 msgstr "SUAVIZAR LOS JUEGOS"
 
-msgid "RUN-AHEAD FRAMES"
-msgstr "FRAMES POR ADELANTADO"
-
-msgid "SECOND INSTANCE"
-msgstr "SEGUNDA INSTANCIA"
-
 msgid "AUTO"
 msgstr "AUTO"
 
@@ -379,8 +373,20 @@ msgstr "MEJORADO"
 msgid "CURVATURE"
 msgstr "CURVATURA"
 
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr "FRAMES POR ADELANTADO"
+
+msgid "SECOND INSTANCE"
+msgstr "SEGUNDA INSTANCIA"
 
 msgid "DECORATION"
 msgstr "DECORACIÓN"
@@ -1070,6 +1076,9 @@ msgstr "BUSCANDO"
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "FALLO EL SCRAPEO : LA APLICACION HA SIDO BANEADA"
 
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
@@ -1098,8 +1107,8 @@ msgstr "LANZAMIENTO"
 msgid "Times played"
 msgstr "VECES JUGADO"
 
-msgid "<No Entries Found>"
-msgstr "<NO SE ENCONTRARON RESULTADOS>"
+msgid "No Entries Found"
+msgstr ""
 
 msgid "LAUNCH"
 msgstr "LANZAR"
@@ -1173,6 +1182,12 @@ msgstr "EMULADOR, ASCENDENTE"
 msgid "SYSTEM, DESCENDING"
 msgstr "EMULADOR, DESCENDENTE"
 
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "DESCARGANDO"
 
@@ -1206,6 +1221,9 @@ msgstr "CARGANDO CONFIGURACIÓN DEL SISTEMA..."
 msgid "Done."
 msgstr "LISTO"
 
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACION DISPONIBLE"
 
@@ -1223,6 +1241,9 @@ msgstr "2 JUGADORES"
 
 msgid "4 players"
 msgstr "4 JUGADORES"
+
+msgid "never played"
+msgstr ""
 
 msgid "collections"
 msgstr "COLECCIONES"
@@ -1409,6 +1430,9 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "<No Entries Found>"
+#~ msgstr "<NO SE ENCONTRARON RESULTADOS>"
 
 #~ msgid "PREFERED IMAGE SOURCE"
 #~ msgstr "ORIGEN DE IMAGEN PREFERIDO"

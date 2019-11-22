@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 21:27+0100\n"
+"POT-Creation-Date: 2019-11-22 22:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -163,9 +163,6 @@ msgstr "ЗАГРУЗКА ИЗ"
 msgid "IMAGE SOURCE"
 msgstr ""
 
-msgid "NONE"
-msgstr "НЕТ"
-
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
@@ -177,6 +174,9 @@ msgstr "MIX"
 
 msgid "BOX SOURCE"
 msgstr ""
+
+msgid "NONE"
+msgstr "НЕТ"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -376,8 +376,20 @@ msgstr "РАСШИРЕННЫЙ"
 msgid "CURVATURE"
 msgstr "КРИВИЗНА"
 
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "SECOND INSTANCE"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
@@ -1065,6 +1077,9 @@ msgstr "Поиск"
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
@@ -1093,8 +1108,8 @@ msgstr "Выход"
 msgid "Times played"
 msgstr "Сыграно раз"
 
-msgid "<No Entries Found>"
-msgstr "<Записей не найдено>"
+msgid "No Entries Found"
+msgstr ""
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
@@ -1168,6 +1183,12 @@ msgstr "СИСТЕМЫ, ПО ВОЗРАСТАНИЮ"
 msgid "SYSTEM, DESCENDING"
 msgstr "СИСТЕМЫ, ПО УБЫВАНИЮ"
 
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "ЗАГРУЗКА"
 
@@ -1201,6 +1222,9 @@ msgstr "Загрузка системных настроек..."
 msgid "Done."
 msgstr "Готово."
 
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
 
@@ -1218,6 +1242,9 @@ msgstr "2 игрока"
 
 msgid "4 players"
 msgstr "4 игрока"
+
+msgid "never played"
+msgstr ""
 
 msgid "collections"
 msgstr "коллекции"
@@ -1408,6 +1435,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "<No Entries Found>"
+#~ msgstr "<Записей не найдено>"
 
 #~ msgid "PREFERED IMAGE SOURCE"
 #~ msgstr "ТИП ИЗОБРАЖЕНИЯ"

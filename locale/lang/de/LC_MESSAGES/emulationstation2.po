@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 21:27+0100\n"
+"POT-Creation-Date: 2019-11-22 22:21+0100\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,9 +160,6 @@ msgstr "SCRAPEN VON"
 msgid "IMAGE SOURCE"
 msgstr ""
 
-msgid "NONE"
-msgstr "KEINE"
-
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
@@ -174,6 +171,9 @@ msgstr "MIX"
 
 msgid "BOX SOURCE"
 msgstr ""
+
+msgid "NONE"
+msgstr "KEINE"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -375,8 +375,20 @@ msgstr "VERBESSERT"
 msgid "CURVATURE"
 msgstr "WÖLBUNG"
 
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "SECOND INSTANCE"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "DEKORATION"
@@ -1066,6 +1078,9 @@ msgstr "Suche"
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING BEENDET. AKTUALISIERE SPIELELISTEN, UM ÄNDERUNGEN ANZUWENDEN"
 
@@ -1093,8 +1108,8 @@ msgstr "Veröffentlicht"
 msgid "Times played"
 msgstr "Anzahl gespielt"
 
-msgid "<No Entries Found>"
-msgstr "Keine Einträge gefunden"
+msgid "No Entries Found"
+msgstr ""
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -1168,6 +1183,12 @@ msgstr ""
 msgid "SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
 
@@ -1201,6 +1222,9 @@ msgstr "Lade System Konfiguration"
 msgid "Done."
 msgstr "Fertig."
 
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
 
@@ -1218,6 +1242,9 @@ msgstr "2 Spieler"
 
 msgid "4 players"
 msgstr "4 Spieler"
+
+msgid "never played"
+msgstr ""
 
 msgid "collections"
 msgstr "Sammlungen"
@@ -1406,6 +1433,9 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "<No Entries Found>"
+#~ msgstr "Keine Einträge gefunden"
 
 #~ msgid "PREFERED IMAGE SOURCE"
 #~ msgstr "BEVORZUGTE BILD-QUELLE"

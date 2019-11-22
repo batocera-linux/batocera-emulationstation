@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 21:27+0100\n"
+"POT-Creation-Date: 2019-11-22 22:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -163,9 +163,6 @@ msgstr "RACCOGLI INFORMAZIONI DA"
 msgid "IMAGE SOURCE"
 msgstr "SORGENTE IMMAGINE"
 
-msgid "NONE"
-msgstr "NESSUNO"
-
 msgid "SCREENSHOT"
 msgstr "SCREENSHOT"
 
@@ -177,6 +174,9 @@ msgstr "MIX"
 
 msgid "BOX SOURCE"
 msgstr "SORGENTE BOX"
+
+msgid "NONE"
+msgstr "NESSUNO"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -377,8 +377,20 @@ msgstr "MIGLIORATO"
 msgid "CURVATURE"
 msgstr "CURVATURA"
 
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (GRAFICA PIXEL PERFECT)"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "SECOND INSTANCE"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "DECORAZIONE"
@@ -1066,6 +1078,9 @@ msgstr "Cercando"
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "SCRAPE FALLITO : L'APPLICAZIONE E' STATA MESSA NELLA LISTA NERA"
 
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
 
@@ -1093,8 +1108,8 @@ msgstr "Rilasciato"
 msgid "Times played"
 msgstr "Numero partite"
 
-msgid "<No Entries Found>"
-msgstr "<Nessun risultato trovato>"
+msgid "No Entries Found"
+msgstr ""
 
 msgid "LAUNCH"
 msgstr "AVVIA"
@@ -1168,6 +1183,12 @@ msgstr "SISTEMA, ASCENDENTE"
 msgid "SYSTEM, DESCENDING"
 msgstr "SISTEMA, DISCENDENTE"
 
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
 
@@ -1201,6 +1222,9 @@ msgstr "Caricamento configurazione di sistema..."
 msgid "Done."
 msgstr "Fatto."
 
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "AGGIORNAMENTO DISPONIBILE"
 
@@ -1218,6 +1242,9 @@ msgstr "2 giocatori"
 
 msgid "4 players"
 msgstr "4 giocatori"
+
+msgid "never played"
+msgstr ""
 
 msgid "collections"
 msgstr "collezione"
@@ -1405,6 +1432,9 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr "su/giù"
+
+#~ msgid "<No Entries Found>"
+#~ msgstr "<Nessun risultato trovato>"
 
 #~ msgid "PREFERED IMAGE SOURCE"
 #~ msgstr "SORGENTE IMMAGINE PREFERITA"
