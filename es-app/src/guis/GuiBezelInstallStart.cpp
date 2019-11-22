@@ -85,12 +85,10 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
+	mMenu.setSubTitle(_("SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"));
+
 	ComponentListRow row;
 	
-	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"), theme->Text.font, theme->Text.color), true);
-	mMenu.addRow(row);
-	row.elements.clear();
-
 	//list all bezels available from TheBezelProject
 	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();
 
@@ -105,15 +103,30 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
                 std::string bezelName = parts[1];
                 std::string bezelUrl = parts.size() < 3 ? "" : (parts[2]=="-" ? parts[3] : parts[2]);
 
+				if (bezelName == "?")
+					continue;
+
                 ComponentListRow row;
 
-                // icon
-                auto icon = std::make_shared<ImageComponent>(mWindow);
-                icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
-                icon->setColorShift(theme->Text.color);
-                icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-                row.addElement(icon, false);
+				/*
+				// icon
+				auto icon = std::make_shared<ImageComponent>(mWindow);
+				icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
+				icon->setColorShift(theme->Text.color);
+				icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+				*/
 
+				auto icon = std::make_shared<TextComponent>(mWindow);
+				icon->setColor(theme->Text.color);
+
+				if (isInstalled)
+					icon->setOpacity(192);
+
+				icon->setFont(theme->Text.font);
+				icon->setText(isInstalled ? _U("\uF021") : _U("\uF019"));
+				icon->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
+				row.addElement(icon, false);
+				
                 // spacer between icon and text
                 auto spacer = std::make_shared<GuiComponent>(mWindow);
                 spacer->setSize(10, 0);
@@ -182,11 +195,9 @@ GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
-	ComponentListRow row;
-	
-	row.addElement(std::make_shared<TextComponent>(window, _("SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"), theme->Text.font, theme->Text.color), true);
-	mMenu.addRow(row);
-	row.elements.clear();
+	mMenu.setSubTitle(_("SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"));
+
+	ComponentListRow row;	
 
 	//list all bezels available from TheBezelProject
 	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();

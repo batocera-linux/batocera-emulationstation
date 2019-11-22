@@ -2109,21 +2109,30 @@ void GuiMenu::openNetworkSettings_batocera()
 void GuiMenu::openRetroAchievements_batocera()
 {
 	Window *window = mWindow;
+
 	auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
+
+	std::string subTitle;
+
 	ComponentListRow row;
-	std::vector<std::string> retroRes = ApiSystem::getInstance()->getRetroAchievements();
-	for (auto it = retroRes.begin(); it != retroRes.end(); it++)
+	std::vector<std::string> lines = ApiSystem::getInstance()->getRetroAchievements();
+	for (auto line : lines)
 	{
-		std::vector<std::string> tokens = Utils::String::split((*it), '@');
+		std::vector<std::string> tokens = Utils::String::split(line, '@');
 		if (tokens.size() == 0)
 			continue;
 
-		std::string label = tokens[0];
-
-		if (tokens.size() >= 2)
-			label = label + " ~ " + tokens[1];
-
-		auto itstring = std::make_shared<TextComponent>(mWindow, label, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
+		if (tokens.size() == 1)
+		{
+			if (subTitle.empty())
+				subTitle = tokens[0];
+			else 
+				subTitle = subTitle + "\n"+ Utils::String::replace(tokens[0], ":", "");
+			
+			continue;
+		}
+	
+		auto itstring = std::make_shared<MultiLineMenuEntry>(window, tokens[0], tokens[1]);
 
 		if (tokens.size() >= 4)
 		{
@@ -2138,6 +2147,8 @@ void GuiMenu::openRetroAchievements_batocera()
 		s->addRow(row);
 		row.elements.clear();
 	}
+
+	s->setSubTitle(subTitle);
 
 	mWindow->pushGui(s);
 }

@@ -37,6 +37,7 @@ public:
 		mText->setVerticalAlignment(ALIGN_TOP);
 
 		mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, theme->Text.color);
+		mSubstring->setOpacity(192);
 
 		setEntry(mText, Vector2i(0, 0), true, true);
 		setEntry(mSubstring, Vector2i(0, 1), false, true);
