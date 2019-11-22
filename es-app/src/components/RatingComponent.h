@@ -45,6 +45,7 @@ private:
 	Renderer::Vertex mVertices[8];
 
 	unsigned int mColorShift;
+	unsigned int mUnfilledColor;
 
 	std::shared_ptr<TextureResource> mFilledTexture;
 	std::shared_ptr<TextureResource> mUnfilledTexture;

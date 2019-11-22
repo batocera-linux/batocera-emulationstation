@@ -13,6 +13,7 @@
 #include "SystemConf.h"
 #include "guis/GuiMenu.h"
 #include "AudioManager.h"
+#include "components/VideoComponent.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -60,6 +61,76 @@ void SystemView::clearEntries()
 	mEntries.clear();
 }
 
+class SystemRandomPlaylist : public IPlaylist
+{
+public:
+	enum PlaylistType
+	{
+		IMAGE,
+		THUMBNAIL,
+		MARQUEE,
+		VIDEO
+	};
+
+	SystemRandomPlaylist(SystemData* system, PlaylistType type)
+	{
+		mFirstRun = true;
+		mSystem = system;
+		mType = type;
+	}
+		
+	std::string getNextItem()
+	{
+		if (mFirstRun)
+		{
+			std::vector<FileData*> files = mSystem->getRootFolder()->getFilesRecursive(GAME, false);
+
+			for (auto file : files)
+			{
+				switch (mType)
+				{
+				case IMAGE:
+					if (!file->getImagePath().empty())
+						mPaths.push_back(file->getImagePath());
+					break;
+
+				case THUMBNAIL:
+					if (!file->getThumbnailPath().empty())
+						mPaths.push_back(file->getThumbnailPath());
+					break;
+
+				case MARQUEE:
+					if (!file->getMarqueePath().empty())
+						mPaths.push_back(file->getMarqueePath());
+					break;
+
+				case VIDEO:
+					if (!file->getVideoPath().empty())
+						mPaths.push_back(file->getVideoPath());
+					break;
+				}
+			}
+
+			mFirstRun = false;
+		}
+
+		int idx = (int) ((float) rand() * mPaths.size()) / float(RAND_MAX);
+				
+		if (idx >= 0 && idx < mPaths.size())
+			return mPaths[idx];
+
+		return "";
+	}
+
+
+
+private:
+	SystemData*		mSystem;
+	bool			mFirstRun;
+	PlaylistType	mType;
+
+	std::vector<std::string> mPaths;
+};
 
 void SystemView::populate()
 {
@@ -158,6 +229,33 @@ void SystemView::populate()
 
 			// make background extras
 			e.data.backgroundExtras = ThemeData::makeExtras((*it)->getTheme(), "system", mWindow);
+
+			for (auto bx : e.data.backgroundExtras)
+			{
+				if (bx->getValue() == "VideoComponent")
+				{
+					auto elem = (*it)->getTheme()->getElement("system", bx->getTag(), "video");
+					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
+						((VideoComponent*)bx)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
+				}
+				else if (bx->getValue() == "ImageComponent")
+				{
+					auto elem = (*it)->getTheme()->getElement("system", bx->getTag(), "image");
+					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
+					{
+						std::string src = elem->get<std::string>("path");
+
+						SystemRandomPlaylist::PlaylistType type = SystemRandomPlaylist::IMAGE;
+
+						if (src == "{random:thumbnail}")
+							type = SystemRandomPlaylist::THUMBNAIL;
+						else if (src == "{random:marquee}")
+							type = SystemRandomPlaylist::MARQUEE;
+
+						((ImageComponent*)bx)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
+					}
+				}
+			}
 
 			// sort the extras by z-index
 			std::stable_sort(e.data.backgroundExtras.begin(), e.data.backgroundExtras.end(),  [](GuiComponent* a, GuiComponent* b) {

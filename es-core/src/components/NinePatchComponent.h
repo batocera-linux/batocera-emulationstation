@@ -25,6 +25,7 @@ public:
 	virtual ~NinePatchComponent();
 
 	void render(const Transform4x4f& parentTrans) override;
+	void update(int deltaTime) override;
 
 	void onSizeChanged() override;
 
@@ -37,10 +38,13 @@ public:
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
 
 	const Vector2f& getCornerSize() const;
-	void setCornerSize(int sizeX, int sizeY);
+	void setCornerSize(float sizeX, float sizeY);
 	inline void setCornerSize(const Vector2f& size) { setCornerSize(size.x(), size.y()); }
 
 	virtual void setOpacity(unsigned char opacity);
+
+	void setAnimateColor(unsigned int color) { mAnimateColor = color; };
+	void setAnimateTiming(float timing) { mAnimateTiming = timing; };
 
 private:
 	void buildVertices();
@@ -55,6 +59,11 @@ private:
 	std::shared_ptr<TextureResource> mTexture;
 	
 	Vector2f mPreviousSize;
+
+
+	float mTimer;
+	float mAnimateTiming;
+	unsigned int mAnimateColor;
 };
 
 #endif // ES_CORE_COMPONENTS_NINE_PATCH_COMPONENT_H

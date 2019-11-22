@@ -37,7 +37,9 @@ namespace VideoVlcFlags
 	enum VideoVlcEffect
 	{
 		NONE,
-		BUMP
+		BUMP,
+		SIZE,
+		SLIDERIGHT
 	};
 }
 
@@ -75,6 +77,10 @@ public:
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
 	virtual void update(int deltaTime);
 
+	void	setColorShift(unsigned int color);
+
+	virtual void onHide() override;
+
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
@@ -105,6 +111,7 @@ private:
 
 	VideoVlcFlags::VideoVlcEffect	mEffect;
 
+	unsigned int					mColorShift;
 	int								mElapsed;
 };
 

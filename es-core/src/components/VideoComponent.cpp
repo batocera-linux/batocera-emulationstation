@@ -68,6 +68,8 @@ VideoComponent::VideoComponent(Window* window) :
 	mTargetIsMin(false),
 	mTargetSize(0, 0)
 {
+	mVideoEnded = nullptr;
+	mRoundCorners = 0.0f;
 	mFadeIn = 0.0f;
 	mIsWaitingForVideoToStart = false;
 
@@ -449,6 +451,13 @@ void VideoComponent::manageState()
 
 void VideoComponent::onShow()
 {
+	if (!mShowing && mPlaylist != nullptr && !mVideoPath.empty())
+	{
+		auto video = mPlaylist->getNextItem();
+		if (!video.empty())
+			mVideoPath = video;
+	}
+
 	mShowing = true;
 	manageState();
 }
@@ -475,4 +484,16 @@ void VideoComponent::topWindow(bool isTop)
 {
 	mDisable = !isTop;
 	manageState();
+}
+
+
+void VideoComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
+{
+	mPlaylist = playList;
+	if (mPlaylist == nullptr)
+		return;
+
+	auto video = mPlaylist->getNextItem();
+	if (!video.empty())
+		setVideo(video);
 }

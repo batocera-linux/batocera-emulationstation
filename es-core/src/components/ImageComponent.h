@@ -11,11 +11,19 @@
 class TextureResource;
 class MaxSizeInfo;
 
+class IPlaylist
+{
+public:
+	virtual std::string getNextItem() = 0;
+};
+
 class ImageComponent : public GuiComponent
 {
 public:
 	ImageComponent(Window* window, bool forceLoad = false, bool dynamic = true);
 	virtual ~ImageComponent();
+
+	std::string getValue() const override { return "ImageComponent"; }
 
 	void setDefaultImage(std::string path);
 
@@ -98,6 +106,15 @@ public:
 	void setHorizontalAlignment(Alignment align) { mHorizontalAlignment = align; }
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }
 
+	float getRoundCorners() { return mRoundCorners; }
+	void setRoundCorners(float value) { mRoundCorners = value; }
+
+	virtual void onShow() override;
+	virtual void onHide() override;
+	virtual void update(int deltaTime);
+
+	void setPlaylist(std::shared_ptr<IPlaylist> playList);
+
 private:
 	Vector2f mTargetSize;
 
@@ -141,6 +158,11 @@ private:
 
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;
+
+	float			mRoundCorners;
+	bool			mShowing;
+	std::shared_ptr<IPlaylist> mPlaylist;
+	float mPlaylistTimer;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H
