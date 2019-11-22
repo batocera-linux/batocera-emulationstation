@@ -47,10 +47,10 @@ public:
 
 	virtual SystemEnvironmentData* getSystemEnvData() const;
 
-	virtual const std::string getThumbnailPath() const;
-	virtual const std::string getVideoPath() const;
-	virtual const std::string getMarqueePath() const;
-	virtual const std::string getImagePath() const;
+	virtual const std::string getThumbnailPath();
+	virtual const std::string getVideoPath();
+	virtual const std::string getMarqueePath();
+	virtual const std::string getImagePath();
 
 	virtual const bool getHidden();
 	virtual const bool getFavorite();
@@ -82,7 +82,7 @@ public:
 	virtual const MetaDataList& getMetadata() const { return mMetadata; }
 	virtual MetaDataList& getMetadata() { return mMetadata; }
 
-	void setMetadata(MetaDataList value) { getMetadata() = value; }
+	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
 	std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
 	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }

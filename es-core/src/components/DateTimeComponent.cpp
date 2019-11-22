@@ -70,7 +70,7 @@ std::string DateTimeComponent::getDisplayString() const
 	}
 
 	if(mTime.getTime() == 0)
-		return "unknown";
+		return "";
 
 	return Utils::Time::timeToString(mTime.getTime(), mFormat);
 }
