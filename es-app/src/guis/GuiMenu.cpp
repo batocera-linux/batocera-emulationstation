@@ -98,7 +98,10 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	
 	// SYSTEM
 	if (isFullUI)
+	{
+		addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
 		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings_batocera(); }, "iconSystem");
+	}
 	else
 		addEntry(_("INFORMATIONS").c_str(), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
 
@@ -443,6 +446,19 @@ void GuiMenu::openDeveloperSettings()
 			Renderer::setSwapInterval();
 	});
 
+#if !defined(WIN32) || defined(_DEBUG)
+	// overscan
+	auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
+	overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
+	s->addWithLabel(_("OVERSCAN"), overscan_enabled);
+	s->addSaveFunc([overscan_enabled] {
+		if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
+			Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
+			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
+		}
+	});
+#endif
+
 	// preload UI
 	auto preloadUI = std::make_shared<SwitchComponent>(mWindow);
 	preloadUI->setState(Settings::getInstance()->getBool("PreloadUI"));
@@ -473,6 +489,42 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 
+
+	// enable filters (ForceDisableFilters)
+	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
+	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
+	s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
+	s->addSaveFunc([this, enable_filter]
+	{
+		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
+	});
+
+	// gamelist saving
+	auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
+	save_gamelists->setState(Settings::getInstance()->getBool("SaveGamelistsOnExit"));
+	s->addWithLabel(_("SAVE METADATA ON EXIT"), save_gamelists);
+	s->addSaveFunc([save_gamelists] { Settings::getInstance()->setBool("SaveGamelistsOnExit", save_gamelists->getState()); });
+
+	// gamelist
+	auto parse_gamelists = std::make_shared<SwitchComponent>(mWindow);
+	parse_gamelists->setState(Settings::getInstance()->getBool("ParseGamelistOnly"));
+	s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
+	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
+
+
+	auto local_art = std::make_shared<SwitchComponent>(mWindow);
+	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
+	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
+	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
+
+	// retroarch.menu_driver = rgui
+	auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
+	retroarchRgui->setState(SystemConf::getInstance()->get("retroarch.menu_driver") == "rgui");
+	s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
+	s->addSaveFunc([retroarchRgui]
+	{ 
+		SystemConf::getInstance()->set("retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
+	});
 
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
@@ -590,7 +642,7 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
 
 	// Updates -> Moved one level down
-	s->addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
+	// s->addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
 
 	// language choice
 	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
@@ -663,6 +715,89 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 #endif
 	
+#if !defined(WIN32) || defined(_DEBUG)
+	// video device
+	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
+	if (currentDevice.empty()) currentDevice = "auto";
+
+	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
+
+	bool vfound = false;
+	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
+		optionsVideo->add((*it), (*it), currentDevice == (*it));
+		if (currentDevice == (*it)) {
+			vfound = true;
+		}
+	}
+	if (vfound == false) {
+		optionsVideo->add(currentDevice, currentDevice, true);
+	}
+	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
+
+	s->addSaveFunc([this, optionsVideo, currentDevice] {
+		if (optionsVideo->changed()) {
+			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
+			SystemConf::getInstance()->saveSystemConf();
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		}
+	});
+
+	// audio device
+	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
+
+	std::vector<std::string> availableAudio = ApiSystem::getInstance()->getAvailableAudioOutputDevices();
+	std::string selectedAudio = ApiSystem::getInstance()->getCurrentAudioOutputDevice();
+	if (selectedAudio.empty())
+		selectedAudio = "auto";
+
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	{
+		bool vfound = false;
+		for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
+		{
+			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+			if (selectedAudio == (*it))
+				vfound = true;
+
+			if (tokens.size() >= 2)
+			{
+				// concatenat the ending words
+				std::string vname = "";
+				for (unsigned int i = 1; i < tokens.size(); i++)
+				{
+					if (i > 2) vname += " ";
+					vname += tokens.at(i);
+				}
+				optionsAudio->add(vname, (*it), selectedAudio == (*it));
+			}
+			else
+				optionsAudio->add((*it), (*it), selectedAudio == (*it));
+		}
+
+		if (vfound == false)
+			optionsAudio->add(selectedAudio, selectedAudio, true);
+
+		s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);
+	}
+
+	s->addSaveFunc([this, optionsAudio, selectedAudio] 
+	{
+		bool v_need_reboot = false;
+
+		if (optionsAudio->changed()) {
+			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
+			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
+			v_need_reboot = true;
+		}
+		SystemConf::getInstance()->saveSystemConf();
+		if (v_need_reboot)
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	});
+#endif
+
+
 	// power saver
 	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
 	std::vector<std::string> modes;
@@ -811,6 +946,49 @@ void GuiMenu::openSystemSettings_batocera()
 	mWindow->pushGui(s);
 }
 
+void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string configName)
+{
+	GuiSettings* guiLatency = new GuiSettings(mWindow, _("LATENCY REDUCTION").c_str());
+
+	auto runaheadValue = SystemConf::getInstance()->get(configName + ".runahead");
+
+	// run-ahead
+	auto runahead_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD FRAMES"));
+	runahead_enabled->add(_("AUTO"), "auto", runaheadValue < "1");
+	runahead_enabled->add("1", "1", runaheadValue == "1");
+	runahead_enabled->add("2", "2", runaheadValue == "2");
+	runahead_enabled->add("3", "3", runaheadValue == "3");
+	runahead_enabled->add("4", "4", runaheadValue == "4");
+	runahead_enabled->add("5", "5", runaheadValue == "5");
+	runahead_enabled->add("6", "6", runaheadValue == "6");
+
+	if (!runahead_enabled->hasSelection())
+		runahead_enabled->selectFirstItem();
+
+	guiLatency->addWithLabel(_("USE RUN-AHEAD FRAMES"), runahead_enabled);
+
+	// second instance
+	auto secondinstanceValue = SystemConf::getInstance()->get(configName + ".secondinstance");
+
+	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD USE SECOND INSTANCE"));
+	secondinstance_enabled->add(_("AUTO"), "auto", secondinstanceValue != "0" && secondinstanceValue != "1");
+	secondinstance_enabled->add(_("ON"), "1", secondinstanceValue == "1");
+	secondinstance_enabled->add(_("OFF"), "0", secondinstanceValue == "0");
+
+	if (!secondinstance_enabled->hasSelection())
+		secondinstance_enabled->selectFirstItem();
+
+	guiLatency->addWithLabel(_("RUN-AHEAD USE SECOND INSTANCE"), secondinstance_enabled);
+
+	guiLatency->addSaveFunc([configName, runahead_enabled, secondinstance_enabled]
+	{
+		SystemConf::getInstance()->set(configName + ".runahead", runahead_enabled->getSelected());
+		SystemConf::getInstance()->set(configName + ".secondinstance", secondinstance_enabled->getSelected());
+	});
+	
+	mWindow->pushGui(guiLatency);
+}
+
 void GuiMenu::openGamesSettings_batocera() 
 {
 	Window* window = mWindow;
@@ -879,22 +1057,6 @@ void GuiMenu::openGamesSettings_batocera()
 			SystemConf::getInstance()->saveSystemConf();
 		}
 	});
-	// run-ahead
-	auto runahead_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD FRAMES"));
-	runahead_enabled->add(_("NO"), "0", SystemConf::getInstance()->get("global.runahead") < "1");
-	runahead_enabled->add("1", "1", SystemConf::getInstance()->get("global.runahead") == "1");
-	runahead_enabled->add("2", "2", SystemConf::getInstance()->get("global.runahead") == "2");
-	runahead_enabled->add("3", "3", SystemConf::getInstance()->get("global.runahead") == "3");
-	runahead_enabled->add("4", "4", SystemConf::getInstance()->get("global.runahead") == "4");
-	runahead_enabled->add("5", "5", SystemConf::getInstance()->get("global.runahead") == "5");
-	runahead_enabled->add("6", "6", SystemConf::getInstance()->get("global.runahead") == "6");
-	s->addWithLabel(_("RUN-AHEAD FRAMES"), runahead_enabled);
-
-	// second instance
-	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SECOND INSTANCE"));
-	secondinstance_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.secondinstance") != "1");
-	secondinstance_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.secondinstance") == "1");
-	s->addWithLabel(_("SECOND INSTANCE"), secondinstance_enabled);
 
 	// decorations
 	{		
@@ -931,6 +1093,66 @@ void GuiMenu::openGamesSettings_batocera()
 		});
 	}
 	
+	// latency reduction
+	s->addEntry(_("LATENCY REDUCTION"), true, [this] { openLatencyReductionConfiguration(mWindow, "global"); });
+
+	//AI-enabled translations
+	s->addEntry(_("AI GAME TRANSLATION"), true, [this]
+	{
+		GuiSettings *ai_service = new GuiSettings(mWindow, _("AI GAME TRANSLATION").c_str());
+
+		// AI service enabled?
+		auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
+		ai_service_enabled->setState(
+			SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
+		ai_service->addWithLabel(_("ENABLE AI SERVICE"), ai_service_enabled);
+
+		// Target language - order is: popular languages in the Batocera community first
+		// then alphabetical order of the 2-char lang code (because the strings are localized)
+		auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
+			_("TARGET LANGUAGE"), false);
+		std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
+		if (currentLang.empty())
+			currentLang = std::string("En");
+		lang_choices->add("ENGLISH", "En", currentLang == "En");
+		lang_choices->add("FRANÇAIS", "Fr", currentLang == "Fr");
+		lang_choices->add("PORTUGUES", "Pt", currentLang == "Pt");
+		lang_choices->add("DEUTSCH", "De", currentLang == "De");
+		lang_choices->add("GREEK", "El", currentLang == "El");
+		lang_choices->add("ESPAÑOL", "Es", currentLang == "Es");
+		lang_choices->add("CZECH", "Cs", currentLang == "Cs");
+		lang_choices->add("DANISH", "Da", currentLang == "Da");
+		lang_choices->add("CROATIAN", "Hr", currentLang == "Hr");
+		lang_choices->add("HUNGARIAN", "Hu", currentLang == "Hu");
+		lang_choices->add("ITALIANO", "It", currentLang == "It");
+		lang_choices->add("JAPANESE", "Ja", currentLang == "Ja");
+		lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
+		lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
+		lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
+		lang_choices->add("POLISH", "Po", currentLang == "Po");
+		lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
+		lang_choices->add("RUSSIAN", "Ru", currentLang == "Ru");
+		lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
+		lang_choices->add("TÜRKÇE", "Tr", currentLang == "Tr");
+		lang_choices->add("简体中文", "Zh", currentLang == "Zh");
+		ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
+
+		// Service  URL
+		createInputTextRow(ai_service, _("SERVICE URL"), "global.ai_service_url", false);
+
+		ai_service->addSaveFunc([ai_service_enabled, lang_choices] {
+			if (ai_service_enabled->changed())
+				SystemConf::getInstance()->set("global.ai_service_enabled",
+					ai_service_enabled->getState() ? "1" : "0");
+			if (lang_choices->changed())
+				SystemConf::getInstance()->set("global.ai_target_lang",
+					lang_choices->getSelected());
+			SystemConf::getInstance()->saveSystemConf();
+		});
+
+		mWindow->pushGui(ai_service);
+	});
+
 	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
 	{
 		// Retroachievements
@@ -991,62 +1213,31 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(retroachievements);
 		});		
 
-		//AI-enabled translations
-		s->addEntry(_("AI GAME TRANSLATION"), true, [this]
+		
+
+
+		// Custom config for systems
+		s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
 		{
-			GuiSettings *ai_service = new GuiSettings(mWindow, _("AI GAME TRANSLATION").c_str());
+			s->save();
+			GuiSettings* configuration = new GuiSettings(window, _("PER SYSTEM ADVANCED CONFIGURATION").c_str());
 
-			// AI service enabled?
-			auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
-			ai_service_enabled->setState(
-				SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
-			ai_service->addWithLabel(_("ENABLE AI SERVICE"), ai_service_enabled);
+			// For each activated system
+			std::vector<SystemData *> systems = SystemData::sSystemVector;
+			for (auto system = systems.begin(); system != systems.end(); system++)
+			{
+				if ((*system)->isCollection())
+					continue;
 
-			// Target language - order is: popular languages in the Batocera community first
-			// then alphabetical order of the 2-char lang code (because the strings are localized)
-			auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
-							_("TARGET LANGUAGE"), false);
-			std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
-			if (currentLang.empty())
-				currentLang = std::string("En");
-			lang_choices->add("ENGLISH", "En", currentLang == "En");
-			lang_choices->add("FRANÇAIS", "Fr", currentLang == "Fr");
-			lang_choices->add("PORTUGUES", "Pt", currentLang == "Pt");
-			lang_choices->add("DEUTSCH", "De", currentLang == "De");
-			lang_choices->add("GREEK", "El", currentLang == "El");
-			lang_choices->add("ESPAÑOL", "Es", currentLang == "Es");
-			lang_choices->add("CZECH", "Cs", currentLang == "Cs");
-			lang_choices->add("DANISH", "Da", currentLang == "Da");
-			lang_choices->add("CROATIAN", "Hr", currentLang == "Hr");
-			lang_choices->add("HUNGARIAN", "Hu", currentLang == "Hu");
-			lang_choices->add("ITALIANO", "It", currentLang == "It");
-			lang_choices->add("JAPANESE", "Ja", currentLang == "Ja");
-			lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
-			lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
-			lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
-			lang_choices->add("POLISH", "Po", currentLang == "Po");
-			lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
-			lang_choices->add("RUSSIAN", "Ru", currentLang == "Ru");
-			lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
-			lang_choices->add("TÜRKÇE", "Tr", currentLang == "Tr");
-			lang_choices->add("简体中文", "Zh", currentLang == "Zh");
-			ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
+				SystemData *systemData = (*system);
+				configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
+					popSystemConfigurationGui(window, systemData, "");
+				});
+			}
 
-			// Service  URL
-			createInputTextRow(ai_service, _("SERVICE URL"), "global.ai_service_url", false);
-
-			ai_service->addSaveFunc([ai_service_enabled, lang_choices] {
-				if (ai_service_enabled->changed())
-					SystemConf::getInstance()->set("global.ai_service_enabled",
-							ai_service_enabled->getState() ? "1" : "0");
-				if (lang_choices->changed())
-					SystemConf::getInstance()->set("global.ai_target_lang",
-							lang_choices->getSelected());
-				SystemConf::getInstance()->saveSystemConf();
-			});
-
-			mWindow->pushGui(ai_service);
+			window->pushGui(configuration);
 		});
+
 
 		// Bios
 		s->addEntry(_("MISSING BIOS"), true, [this, s]
@@ -1093,28 +1284,6 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(configuration);
 		});		
 
-		// Custom config for systems
-		s->addEntry(_("ADVANCED"), true, [this, s, window] 
-		{
-			s->save();
-			GuiSettings* configuration = new GuiSettings(window, _("ADVANCED").c_str());
-
-			// For each activated system
-			std::vector<SystemData *> systems = SystemData::sSystemVector;
-			for (auto system = systems.begin(); system != systems.end(); system++) 
-			{
-				if ((*system)->isCollection())
-					continue;
-				
-				SystemData *systemData = (*system);
-				configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
-					popSystemConfigurationGui(window, systemData, "");
-				});				
-			}
-
-			window->pushGui(configuration);
-		});
-		
 		// Game List Update
 		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] 
 		{
@@ -1152,20 +1321,12 @@ void GuiMenu::openGamesSettings_batocera()
 			}, _("NO"), nullptr));
 		});
 	}
-	s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled, runahead_enabled, secondinstance_enabled] 
+	s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled] 
 	{
-		if (smoothing_enabled->changed())
-			SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
-		if (rewind_enabled->changed())
-			SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
-		if (shaders_choices->changed())
-			SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
-		if (autosave_enabled->changed())
-			SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
-		if (runahead_enabled->changed())
-			SystemConf::getInstance()->set("global.runahead", runahead_enabled->getSelected());
-		if (secondinstance_enabled->changed())
-			SystemConf::getInstance()->set("global.secondinstance", secondinstance_enabled->getSelected());
+		SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
+		SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
+		SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
+		SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
 		SystemConf::getInstance()->saveSystemConf();
 	});
 
@@ -1652,37 +1813,7 @@ void GuiMenu::openUISettings()
 			}, _("NO"), nullptr));
 		}
 	});
-
-
-#if !defined(WIN32) || defined(_DEBUG)
-	// video device
-	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
-	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
-	if (currentDevice.empty()) currentDevice = "auto";
-
-	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
-
-	bool vfound = false;
-	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
-		optionsVideo->add((*it), (*it), currentDevice == (*it));
-		if (currentDevice == (*it)) {
-			vfound = true;
-		}
-	}
-	if (vfound == false) {
-		optionsVideo->add(currentDevice, currentDevice, true);
-	}
-	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
-
-	s->addSaveFunc([this, optionsVideo, currentDevice] {
-		if (optionsVideo->changed()) {
-			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
-			SystemConf::getInstance()->saveSystemConf();
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		}
-	});
-#endif
-
+	
 	// Optionally start in selected system
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
 	systemfocus_list->add(_("NONE"), "", Settings::getInstance()->getString("StartupSystem") == "");
@@ -1741,46 +1872,7 @@ void GuiMenu::openUISettings()
 	});
 
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
-/*
-	// screensaver time
-	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 120.f, 1.f, "m");
-	screensaver_time->setValue(
-		(float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
-	s->addWithLabel(_("SCREENSAVER AFTER"), screensaver_time);
-	s->addSaveFunc([screensaver_time] {
-		Settings::getInstance()->setInt("ScreenSaverTime",
-			(int)round(screensaver_time->getValue()) * (1000 * 60));
-	});
 
-	// Batocera screensavers: added "random video" (aka "demo mode") and slideshow at the same time,
-	// for those who don't scrape videos and stick with pictures
-	auto screensaver_behavior = std::make_shared<OptionListComponent<std::string> >(mWindow,_("TRANSITION STYLE"), false);
-	std::vector<std::string> screensavers;
-	screensavers.push_back("dim");
-	screensavers.push_back("black");
-	screensavers.push_back("random video");
-	screensavers.push_back("slideshow");
-	for (auto it = screensavers.cbegin(); it != screensavers.cend(); it++)
-		screensaver_behavior->add(_(it->c_str()), *it, Settings::getInstance()->getString("ScreenSaverBehavior") == *it);
-	s->addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior);
-	s->addSaveFunc([this, screensaver_behavior] {
-		if (Settings::getInstance()->getString("ScreenSaverBehavior") != "random video"
-			&& screensaver_behavior->getSelected() == "random video") {
-			// if before it wasn't risky but now there's a risk of problems, show warning
-			mWindow->pushGui(new GuiMsgBox(mWindow,
-				_("THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\nIF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\nMORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" MENU."),
-				_("OK"), [] { return; }));
-		}
-		Settings::getInstance()->setString("ScreenSaverBehavior", screensaver_behavior->getSelected());
-		PowerSaver::updateTimeouts();
-	});
-
-	// RANDOM VIDEO SCREENSAVER SETTINGS
-	s->addEntry(_("RANDOM VIDEO SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openVideoScreensaverOptions, this));
-
-	// SLIDESHOW SCREENSAVER SETTINGS
-	s->addEntry(_("SLIDESHOW SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openSlideshowScreensaverOptions, this));
-*/
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
 	clock->setState(Settings::getInstance()->getBool("DrawClock"));
@@ -1828,45 +1920,6 @@ void GuiMenu::openUISettings()
 		Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
 	});
 
-	// enable filters (ForceDisableFilters)
-	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
-	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
-	s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
-	s->addSaveFunc([enable_filter, s] {
-		bool filter_is_enabled = !Settings::getInstance()->getBool("ForceDisableFilters");
-		if (Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState()))
-			s->setVariable("reloadAll", true);		
-	});
-	
-#if !defined(WIN32) || defined(_DEBUG)
-	// overscan
-	auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
-	overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
-	s->addWithLabel(_("OVERSCAN"), overscan_enabled);
-	s->addSaveFunc([overscan_enabled] {
-		if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
-			Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
-			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
-		}
-	});
-#endif
-
-	// gamelists
-	auto save_gamelists = std::make_shared<SwitchComponent>(mWindow);
-	save_gamelists->setState(Settings::getInstance()->getBool("SaveGamelistsOnExit"));
-	s->addWithLabel(_("SAVE METADATA ON EXIT"), save_gamelists);
-	s->addSaveFunc([save_gamelists] { Settings::getInstance()->setBool("SaveGamelistsOnExit", save_gamelists->getState()); });
-
-	auto parse_gamelists = std::make_shared<SwitchComponent>(mWindow);
-	parse_gamelists->setState(Settings::getInstance()->getBool("ParseGamelistOnly"));
-	s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
-	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
-
-	auto local_art = std::make_shared<SwitchComponent>(mWindow);
-	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
-	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
-	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
-
 	// filenames
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
 	hidden_files->setState(Settings::getInstance()->getBool("ShowFilenames"));
@@ -1913,6 +1966,11 @@ void GuiMenu::openSoundSettings()
 	volume->setValue((float)VolumeControl::getInstance()->getVolume());
 	volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
 	s->addWithLabel(_("SYSTEM VOLUME"), volume);
+	s->addSaveFunc([this, volume] 
+	{
+		VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue()));
+		SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
+	});
 
 	// disable sounds
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -1982,64 +2040,6 @@ void GuiMenu::openSoundSettings()
 	video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
 	s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
 	s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
-
-#ifndef WIN32
-	// audio device
-	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("OUTPUT DEVICE"), false);
-
-	std::vector<std::string> availableAudio = ApiSystem::getInstance()->getAvailableAudioOutputDevices();
-	std::string selectedAudio = ApiSystem::getInstance()->getCurrentAudioOutputDevice();
-	if (selectedAudio.empty()) 
-		selectedAudio = "auto";
-
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
-	{
-		bool vfound = false;
-		for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
-		{
-			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-			if (selectedAudio == (*it))
-				vfound = true;
-
-			if (tokens.size() >= 2) 
-			{
-				// concatenat the ending words
-				std::string vname = "";
-				for (unsigned int i = 1; i < tokens.size(); i++) 
-				{
-					if (i > 2) vname += " ";
-					vname += tokens.at(i);
-				}
-				optionsAudio->add(vname, (*it), selectedAudio == (*it));
-			}
-			else
-				optionsAudio->add((*it), (*it), selectedAudio == (*it));			
-		}
-
-		if (vfound == false)
-			optionsAudio->add(selectedAudio, selectedAudio, true);
-
-		s->addWithLabel(_("OUTPUT DEVICE"), optionsAudio);
-	}
-
-	s->addSaveFunc([this, optionsAudio, selectedAudio, volume] {
-		bool v_need_reboot = false;
-
-		VolumeControl::getInstance()->setVolume((int)round(volume->getValue()));
-		SystemConf::getInstance()->set("audio.volume",
-			std::to_string((int)round(volume->getValue())));
-
-		if (optionsAudio->changed()) {
-			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
-			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
-			v_need_reboot = true;
-		}
-		SystemConf::getInstance()->saveSystemConf();
-		if (v_need_reboot)
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-	});
-#endif
 
 	mWindow->pushGui(s);
 }
@@ -2342,329 +2342,282 @@ void GuiMenu::popGameConfigurationGui(Window* mWindow, std::string title, std::s
   popSpecificConfigurationGui(mWindow, title, romFilename, systemData, previouslySelectedEmulator);
 }
 
-void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator) {
-  // The system configuration
-  GuiSettings *systemConfiguration = new GuiSettings(mWindow, title.c_str());
-  //Emulator choice
-  auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
-  bool selected = false;
-  std::string selectedEmulator = "";
+void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator) 
+{
+	// The system configuration
+	GuiSettings* systemConfiguration = new GuiSettings(mWindow, title.c_str());
 
-  for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) {
-    bool found;
-    std::string curEmulatorName = it->first;
-    if (previouslySelectedEmulator != "") {
-      // We just changed the emulator
-      found = previouslySelectedEmulator == curEmulatorName;
-    } else {
-      found = (SystemConf::getInstance()->get(configName + ".emulator") == curEmulatorName);
-    }
-    if (found) {
-      selectedEmulator = curEmulatorName;
-    }
-    selected = selected || found;
-    emu_choice->add(curEmulatorName, curEmulatorName, found);
-  }
-  emu_choice->add(_("AUTO"), "auto", !selected);
-  emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData](std::string s) {
-      popSpecificConfigurationGui(mWindow, title, configName, systemData, s);
-      delete systemConfiguration;
-    });
-  systemConfiguration->addWithLabel(_("Emulator"), emu_choice);
+	//Emulator choice
+	auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
+	bool selected = false;
+	std::string selectedEmulator = "";
 
-  // Core choice
-  auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
-
-  // search if one will be selected
-  bool onefound = false;
-  for (auto emulator = systemData->getEmulators()->begin();
-       emulator != systemData->getEmulators()->end(); emulator++) {
-    if (selectedEmulator == emulator->first) {
-      for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-	if((SystemConf::getInstance()->get(configName + ".core") == *core)) {
-	  onefound = true;
-	}
-      }
-    }
-  }
-
-  // add auto if emu_choice is auto
-  if(emu_choice->getSelected() == "auto") { // allow auto only if emulator is auto
-    core_choice->add(_("AUTO"), "auto", !onefound);
-    onefound = true;
-  }
-    
-  // list
-  for (auto emulator = systemData->getEmulators()->begin();
-       emulator != systemData->getEmulators()->end(); emulator++) {
-    if (selectedEmulator == emulator->first) {
-      for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-	bool found = (SystemConf::getInstance()->get(configName + ".core") == *core);
-	core_choice->add(*core, *core, found || !onefound); // select the first one if none is selected
-	onefound = true;
-      }
-    }
-  }
-  systemConfiguration->addWithLabel(_("Core"), core_choice);
-
-
-  // Screen ratio choice
-  auto ratio_choice = createRatioOptionList(mWindow, configName);
-  systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
-  // video resolution mode
-  auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
-  systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
-  // smoothing
-  auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
-  smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".smooth") != "0" && SystemConf::getInstance()->get(configName + ".smooth") != "1");
-  smoothing_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".smooth") == "1");
-  smoothing_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".smooth") == "0");
-  systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
-  // rewind
-  auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
-  rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
-  rewind_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".rewind") == "1");
-  rewind_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".rewind") == "0");
-  systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
-  // autosave
-  auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-  autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
-  autosave_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".autosave") == "1");
-  autosave_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".autosave") == "0");
-  systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
-
-  // Shaders preset
-  auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
-									     false);
-  std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
-  if (currentShader.empty()) {
-    currentShader = std::string("auto");
-  }
-
-  shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
-  shaders_choices->add(_("NONE"), "none", currentShader == "none");
-  shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
-  shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
-  shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
-  shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
-  shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
-  shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
-  systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
-
-  // Integer scale
-  auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
-  integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
-  integerscale_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".integerscale") == "1");
-  integerscale_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".integerscale") == "0");
-  systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
-  systemConfiguration->addSaveFunc([integerscale_enabled, configName] {
-      if(integerscale_enabled->changed()) {
-	SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected());
-	SystemConf::getInstance()->saveSystemConf();
-      }
-    });
-	// run-ahead
-	auto runahead_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD FRAMES"));
-	runahead_enabled->add(_("NO"), "0", SystemConf::getInstance()->get(configName + ".runahead") < "0");
-	runahead_enabled->add("1", "1", SystemConf::getInstance()->get(configName + ".runahead") == "1");
-	runahead_enabled->add("2", "2", SystemConf::getInstance()->get(configName + ".runahead") == "2");
-	runahead_enabled->add("3", "3", SystemConf::getInstance()->get(configName + ".runahead") == "3");
-	runahead_enabled->add("4", "4", SystemConf::getInstance()->get(configName + ".runahead") == "4");
-	runahead_enabled->add("5", "5", SystemConf::getInstance()->get(configName + ".runahead") == "5");
-	runahead_enabled->add("6", "6", SystemConf::getInstance()->get(configName + ".runahead") == "6");
-	systemConfiguration->addWithLabel(_("RUN-AHEAD FRAMES"), runahead_enabled);
-
-	// second instance
-	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SECOND INSTANCE"));
-	secondinstance_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".secondinstance") != "1");
-	secondinstance_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".secondinstance") == "1");
-	systemConfiguration->addWithLabel(_("SECOND INSTANCE"), secondinstance_enabled);
-
-  // decorations
-  {
-	Window* window = mWindow;
-	auto sets = GuiMenu::getDecorationsSets(systemData);
-    auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
-	decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+	for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) 
 	{
-		createDecorationItemTemplate(window, sets, data, row);		
+		bool found;
+		std::string curEmulatorName = it->first;
+		if (!previouslySelectedEmulator.empty())			
+			found = previouslySelectedEmulator == curEmulatorName; // We just changed the emulator
+		else
+			found = (SystemConf::getInstance()->get(configName + ".emulator") == curEmulatorName);
+
+		if (found)
+			selectedEmulator = curEmulatorName;
+		
+		selected = selected || found;
+		emu_choice->add(curEmulatorName, curEmulatorName, found);
+	}
+	emu_choice->add(_("AUTO"), "auto", !selected);
+	emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData](std::string s) {
+		popSpecificConfigurationGui(mWindow, title, configName, systemData, s);
+		delete systemConfiguration;
+	});
+	systemConfiguration->addWithLabel(_("Emulator"), emu_choice);
+
+	// Core choice
+	auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
+
+	// search if one will be selected
+	bool onefound = false;
+	for (auto emulator = systemData->getEmulators()->begin();
+		emulator != systemData->getEmulators()->end(); emulator++) {
+		if (selectedEmulator == emulator->first) {
+			for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
+				if ((SystemConf::getInstance()->get(configName + ".core") == *core)) {
+					onefound = true;
+				}
+			}
+		}
+	}
+
+	// add auto if emu_choice is auto
+	if (emu_choice->getSelected() == "auto") { // allow auto only if emulator is auto
+		core_choice->add(_("AUTO"), "auto", !onefound);
+		onefound = true;
+	}
+
+	// list
+	for (auto emulator = systemData->getEmulators()->begin();
+		emulator != systemData->getEmulators()->end(); emulator++) {
+		if (selectedEmulator == emulator->first) {
+			for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
+				bool found = (SystemConf::getInstance()->get(configName + ".core") == *core);
+				core_choice->add(*core, *core, found || !onefound); // select the first one if none is selected
+				onefound = true;
+			}
+		}
+	}
+	systemConfiguration->addWithLabel(_("Core"), core_choice);
+
+	// Screen ratio choice
+	auto ratio_choice = createRatioOptionList(mWindow, configName);
+	systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
+	// video resolution mode
+	auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
+	systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
+	// smoothing
+	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
+	smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".smooth") != "0" && SystemConf::getInstance()->get(configName + ".smooth") != "1");
+	smoothing_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".smooth") == "1");
+	smoothing_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".smooth") == "0");
+	systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
+	// rewind
+	auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+	rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
+	rewind_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".rewind") == "1");
+	rewind_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".rewind") == "0");
+	systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
+	// autosave
+	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+	autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
+	autosave_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".autosave") == "1");
+	autosave_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".autosave") == "0");
+	systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+
+	// Shaders preset
+	auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
+		false);
+	std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
+	if (currentShader.empty()) {
+		currentShader = std::string("auto");
+	}
+
+	shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
+	shaders_choices->add(_("NONE"), "none", currentShader == "none");
+	shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
+	shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
+	shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
+	shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
+	shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
+	shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
+	systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
+
+	// Integer scale
+	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+	integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
+	integerscale_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".integerscale") == "1");
+	integerscale_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".integerscale") == "0");
+	systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+	systemConfiguration->addSaveFunc([integerscale_enabled, configName] {
+		if (integerscale_enabled->changed()) {
+			SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected());
+			SystemConf::getInstance()->saveSystemConf();
+		}
 	});
 
-    std::vector<std::string> decorations_item;
-    decorations_item.push_back(_("AUTO"));
-    decorations_item.push_back(_("NONE"));
+	// decorations
+	{
+		Window* window = mWindow;
+		auto sets = GuiMenu::getDecorationsSets(systemData);
+		auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+		decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+		{
+			createDecorationItemTemplate(window, sets, data, row);
+		});
 
- 
-    for(auto set : sets)
-      decorations_item.push_back(set.name);    
+		std::vector<std::string> decorations_item;
+		decorations_item.push_back(_("AUTO"));
+		decorations_item.push_back(_("NONE"));
 
-    for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
-      decorations->add(*it, *it,
-		       (SystemConf::getInstance()->get(configName + ".bezel") == *it)
-		       ||
-		       (SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
-		       ||
-		       (SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
-		       );
-    }
-    systemConfiguration->addWithLabel(_("DECORATION"), decorations);
-    systemConfiguration->addSaveFunc([decorations, configName] {
-	if(decorations->changed()) {
-	  SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-	  SystemConf::getInstance()->saveSystemConf();
+
+		for (auto set : sets)
+			decorations_item.push_back(set.name);
+
+		for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+			decorations->add(*it, *it,
+				(SystemConf::getInstance()->get(configName + ".bezel") == *it)
+				||
+				(SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
+				||
+				(SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
+			);
+		}
+		systemConfiguration->addWithLabel(_("DECORATION"), decorations);
+		systemConfiguration->addSaveFunc([decorations, configName] {
+			if (decorations->changed()) {
+				SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
 	}
-      });
-  }
-  
-  // gameboy colorize
-  auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
-  std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
-  if (currentColorization.empty()) {
-    currentColorization = std::string("auto");
-  }
-  colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
-  colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
 
-  const char* all_gambate_gc_colors_modes[] = {"GB - DMG",
-					       "GB - Light",
-					       "GB - Pocket",
-					       "GBC - Blue",
-					       "GBC - Brown",
-					       "GBC - Dark Blue",
-					       "GBC - Dark Brown",
-					       "GBC - Dark Green",
-					       "GBC - Grayscale",
-					       "GBC - Green",
-					       "GBC - Inverted",
-					       "GBC - Orange",
-					       "GBC - Pastel Mix",
-					       "GBC - Red",
-					       "GBC - Yellow",
-					       "SGB - 1A",
-					       "SGB - 1B",
-					       "SGB - 1C",
-					       "SGB - 1D",
-					       "SGB - 1E",
-					       "SGB - 1F",
-					       "SGB - 1G",
-					       "SGB - 1H",
-					       "SGB - 2A",
-					       "SGB - 2B",
-					       "SGB - 2C",
-					       "SGB - 2D",
-					       "SGB - 2E",
-					       "SGB - 2F",
-					       "SGB - 2G",
-					       "SGB - 2H",
-					       "SGB - 3A",
-					       "SGB - 3B",
-					       "SGB - 3C",
-					       "SGB - 3D",
-					       "SGB - 3E",
-					       "SGB - 3F",
-					       "SGB - 3G",
-					       "SGB - 3H",
-					       "SGB - 4A",
-					       "SGB - 4B",
-					       "SGB - 4C",
-					       "SGB - 4D",
-					       "SGB - 4E",
-					       "SGB - 4F",
-					       "SGB - 4G",
-					       "SGB - 4H",
-					       "Special 1",
-					       "Special 2",
-					       "Special 3" };
-  int n_all_gambate_gc_colors_modes = 50;
-  for(int i=0; i<n_all_gambate_gc_colors_modes; i++) {
-    colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
-  }
-  if(systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players") // only for gb, gbc and gb2players
-    systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
-  
-  // ps2 full boot
-  auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
-  fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
-  fullboot_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".fullboot") == "1");
-  fullboot_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".fullboot") == "0");
-  if(systemData->getName() == "ps2") // only for ps2
-    systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
+	systemConfiguration->addEntry(_("LATENCY REDUCTION"), true, [mWindow, configName] { openLatencyReductionConfiguration(mWindow, configName); });
 
-  // wii emulated wiimotes
-  auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
-  emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
-  emulatedwiimotes_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
-  emulatedwiimotes_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
-  if(systemData->getName() == "wii") // only for wii
-    systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
+	// gameboy colorize
+	auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
+	std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
+	if (currentColorization.empty()) {
+		currentColorization = std::string("auto");
+	}
+	colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
+	colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
 
-  // psp internal resolution
-  auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
-  internalresolution->add(_("AUTO"), "auto",
-			  SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
-			  SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
-			  SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
-			  SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
-			  SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
-  internalresolution->add("1", "1",    SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
-  internalresolution->add("2", "2",    SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
-  internalresolution->add("4", "4",    SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
-  internalresolution->add("8", "8",    SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
-  internalresolution->add("10", "10",  SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-  if(systemData->getName() == "psp") // only for psp
-    systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
+	const char* all_gambate_gc_colors_modes[] = { "GB - DMG",
+							 "GB - Light",
+							 "GB - Pocket",
+							 "GBC - Blue",
+							 "GBC - Brown",
+							 "GBC - Dark Blue",
+							 "GBC - Dark Brown",
+							 "GBC - Dark Green",
+							 "GBC - Grayscale",
+							 "GBC - Green",
+							 "GBC - Inverted",
+							 "GBC - Orange",
+							 "GBC - Pastel Mix",
+							 "GBC - Red",
+							 "GBC - Yellow",
+							 "SGB - 1A",
+							 "SGB - 1B",
+							 "SGB - 1C",
+							 "SGB - 1D",
+							 "SGB - 1E",
+							 "SGB - 1F",
+							 "SGB - 1G",
+							 "SGB - 1H",
+							 "SGB - 2A",
+							 "SGB - 2B",
+							 "SGB - 2C",
+							 "SGB - 2D",
+							 "SGB - 2E",
+							 "SGB - 2F",
+							 "SGB - 2G",
+							 "SGB - 2H",
+							 "SGB - 3A",
+							 "SGB - 3B",
+							 "SGB - 3C",
+							 "SGB - 3D",
+							 "SGB - 3E",
+							 "SGB - 3F",
+							 "SGB - 3G",
+							 "SGB - 3H",
+							 "SGB - 4A",
+							 "SGB - 4B",
+							 "SGB - 4C",
+							 "SGB - 4D",
+							 "SGB - 4E",
+							 "SGB - 4F",
+							 "SGB - 4G",
+							 "SGB - 4H",
+							 "Special 1",
+							 "Special 2",
+							 "Special 3" };
+	int n_all_gambate_gc_colors_modes = 50;
+	for (int i = 0; i < n_all_gambate_gc_colors_modes; i++) {
+		colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
+	}
+	if (systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players") // only for gb, gbc and gb2players
+		systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
 
-  systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, internalresolution, runahead_enabled, secondinstance_enabled] {
-				     if(ratio_choice->changed()){
-				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
-				     }
-				     if(videoResolutionMode_choice->changed()){
-				       SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected());
-				     }
-				     if(rewind_enabled->changed()) {
-				       SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected());
-				     }
-				     if(smoothing_enabled->changed()){
-				       SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected());
-				     }
-				     if(autosave_enabled->changed()) {
-				       SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
-				     }
-				     if(shaders_choices->changed()) {
-				       SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
-				     }
-				     if(colorizations_choices->changed()){
-				       SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
-				     }
+	// ps2 full boot
+	auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
+	fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
+	fullboot_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".fullboot") == "1");
+	fullboot_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".fullboot") == "0");
+	if (systemData->getName() == "ps2") // only for ps2
+		systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
 
-				     if(fullboot_enabled->changed()){
-				       SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());
-				     }
-				     if(emulatedwiimotes_enabled->changed()){
-				       SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
-				     }
-				     if(internalresolution->changed()){
-				       SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected());
-				     }
-					 if(runahead_enabled->changed()){
-				       SystemConf::getInstance()->set(configName + ".runahead", runahead_enabled->getSelected());
-				     }
-					 if(secondinstance_enabled->changed()){
-				       SystemConf::getInstance()->set(configName + ".secondinstance", secondinstance_enabled->getSelected());
-				     }				     
+	// wii emulated wiimotes
+	auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
+	emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
+	emulatedwiimotes_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
+	emulatedwiimotes_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
+	if (systemData->getName() == "wii") // only for wii
+		systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
-				     // the menu GuiMenu::popSystemConfigurationGui is a hack
-				     // if you change any option except emulator and change the emulator, the value is lost
-				     // this is especially bad for core while the changed() value is lost too.
-				     // to avoid this issue, instead of reprogramming this part, i will force a save of the emulator and core
-				     // at each GuiMenu::popSystemConfigurationGui call, including the ending saving one (when changed() values are bad)
-				     SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
-				     SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
+	// psp internal resolution
+	auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
+	internalresolution->add(_("AUTO"), "auto",
+		SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
+		SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
+		SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
+		SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
+		SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
+	internalresolution->add("1", "1", SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
+	internalresolution->add("2", "2", SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
+	internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
+	internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
+	internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
+	if (systemData->getName() == "psp") // only for psp
+		systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 
-				     SystemConf::getInstance()->saveSystemConf();
-				   });
-  mWindow->pushGui(systemConfiguration);
+	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, internalresolution] 
+	{
+		SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());		
+		SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected());		
+		SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected());		
+		SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected());
+		SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
+		SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
+		SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
+		SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());		
+		SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
+		SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected());
+		SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
+		SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
+	});
+
+	mWindow->pushGui(systemConfiguration);
 }
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList(Window *window,

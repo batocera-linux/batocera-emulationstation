@@ -10,21 +10,19 @@
 #include "CollectionSystemManager.h"
 #include "Window.h"
 
-GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window) : GuiComponent(window), mMenu(window, _("GAME COLLECTION SETTINGS").c_str())
+
+GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window) 
+	: GuiSettings(window, _("GAME COLLECTION SETTINGS").c_str())
 {
 	initializeMenu();
 }
 
 void GuiCollectionSystemsOptions::initializeMenu()
 {
-	addChild(&mMenu);
-
 	// get collections
-
 	addSystemsToMenu();
 
 	// add "Create New Custom Collection from Theme"
-
 	std::vector<std::string> unusedFolders = CollectionSystemManager::get()->getUnusedSystemsFromTheme();
 	if (unusedFolders.size() > 0)
 	{
@@ -69,70 +67,87 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		}
 	});
 
-	bundleCustomCollections = std::make_shared<SwitchComponent>(mWindow);
+	std::shared_ptr<SwitchComponent> bundleCustomCollections = std::make_shared<SwitchComponent>(mWindow);
 	bundleCustomCollections->setState(Settings::getInstance()->getBool("UseCustomCollectionsSystem"));
-	mMenu.addWithLabel(_("GROUP UNTHEMED CUSTOM COLLECTIONS"), bundleCustomCollections);
+	addWithLabel(_("GROUP UNTHEMED CUSTOM COLLECTIONS"), bundleCustomCollections);
+	addSaveFunc([this, bundleCustomCollections]
+	{
+		if (Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState()))
+			setVariable("reloadAll", true);
+	});
 
-	sortAllSystemsSwitch = std::make_shared<SwitchComponent>(mWindow);
+	std::shared_ptr<SwitchComponent> sortAllSystemsSwitch = std::make_shared<SwitchComponent>(mWindow);
 	sortAllSystemsSwitch->setState(Settings::getInstance()->getBool("SortAllSystems"));
-	mMenu.addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
-
-	toggleSystemNameInCollections = std::make_shared<SwitchComponent>(mWindow);
+	addWithLabel(_("SORT CUSTOM COLLECTIONS AND SYSTEMS"), sortAllSystemsSwitch);
+	addSaveFunc([this, sortAllSystemsSwitch]
+	{
+		if (Settings::getInstance()->setBool("SortAllSystems", sortAllSystemsSwitch->getState()))
+			setVariable("reloadAll", true);
+	});
+	
+	std::shared_ptr<SwitchComponent> toggleSystemNameInCollections = std::make_shared<SwitchComponent>(mWindow);
 	toggleSystemNameInCollections->setState(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
-	mMenu.addWithLabel(_("SHOW SYSTEM NAME IN COLLECTIONS"), toggleSystemNameInCollections);
+	addWithLabel(_("SHOW SYSTEM NAME IN COLLECTIONS"), toggleSystemNameInCollections);
+	addSaveFunc([this, toggleSystemNameInCollections]
+	{
+		if (Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState()))
+			setVariable("reloadAll", true);
+	});
 
 	if(CollectionSystemManager::get()->isEditing())
 		addEntry((_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection())).c_str(), false, std::bind(&GuiCollectionSystemsOptions::exitEditMode, this));
-
-	mMenu.addButton(_("BACK"), "back", std::bind(&GuiCollectionSystemsOptions::applySettings, this));
-
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
-}
-
-void GuiCollectionSystemsOptions::addEntry(const char* name, bool add_arrow, const std::function<void()>& func)
-{
-	auto theme = ThemeData::getMenuTheme();
-	std::shared_ptr<Font> font = theme->Text.font;
-	unsigned int color = theme->Text.color;
-
-	// populate the list
-	ComponentListRow row;
-	row.addElement(std::make_shared<TextComponent>(mWindow, name, font, color), true);
-
-	if(add_arrow)
+	
+	addSaveFunc([this]
 	{
-		std::shared_ptr<ImageComponent> bracket = makeArrow(mWindow);
-		row.addElement(bracket, false);
-	}
+		std::string newAutoSettings = Utils::String::vectorToCommaString(autoOptionList->getSelectedObjects());
+		std::string newCustomSettings = Utils::String::vectorToCommaString(customOptionList->getSelectedObjects());
 
-	row.makeAcceptInputHandler(func);
+		bool dirty = Settings::getInstance()->setString("CollectionSystemsAuto", newAutoSettings);
+		dirty |= Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);
 
-	mMenu.addRow(row);
+		if (dirty)
+			setVariable("reloadAll", true);
+	});
+
+	onFinalize([this]
+	{
+		if (getVariable("reloadAll"))
+		{			
+			Settings::getInstance()->saveFile();
+
+			CollectionSystemManager::get()->loadEnabledListFromSettings();
+			CollectionSystemManager::get()->updateSystemsList();
+			ViewController::get()->goToStart();
+			ViewController::get()->reloadAll(mWindow);
+			mWindow->endRenderLoadingScreen();
+		}
+	});
 }
 
-void GuiCollectionSystemsOptions::createCollection(std::string inName) {
+void GuiCollectionSystemsOptions::createCollection(std::string inName) 
+{
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
 	customOptionList->add(name, name, true);
+
 	std::string outAuto = Utils::String::vectorToCommaString(autoOptionList->getSelectedObjects());
 	std::string outCustom = Utils::String::vectorToCommaString(customOptionList->getSelectedObjects());
 	updateSettings(outAuto, outCustom);
+
 	ViewController::get()->goToSystemView(newSys);
 
 	Window* window = mWindow;
 	CollectionSystemManager::get()->setEditMode(name);
 	while(window->peekGui() && window->peekGui() != ViewController::get())
 		delete window->peekGui();
+
 	return;
 }
 
 void GuiCollectionSystemsOptions::exitEditMode()
 {
 	CollectionSystemManager::get()->exitEditMode();
-	applySettings();
+	close();
 }
 
 GuiCollectionSystemsOptions::~GuiCollectionSystemsOptions()
@@ -152,7 +167,7 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 	{
 		autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
 	}
-	mMenu.addWithLabel(_("AUTOMATIC GAME COLLECTIONS"), autoOptionList);
+	addWithLabel(_("AUTOMATIC GAME COLLECTIONS"), autoOptionList);
 
 	std::map<std::string, CollectionSystemData> customSystems = CollectionSystemManager::get()->getCustomCollectionSystems();
 
@@ -163,24 +178,13 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 	{
 		customOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
 	}
-	mMenu.addWithLabel(_("CUSTOM GAME COLLECTIONS"), customOptionList);
-}
-
-void GuiCollectionSystemsOptions::applySettings()
-{	
-	std::string newAutoSettings = Utils::String::vectorToCommaString(autoOptionList->getSelectedObjects());
-	std::string newCustomSettings = Utils::String::vectorToCommaString(customOptionList->getSelectedObjects());
-	updateSettings(newAutoSettings, newCustomSettings);
-	delete this;
+	addWithLabel(_("CUSTOM GAME COLLECTIONS"), customOptionList);
 }
 
 void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, std::string newCustomSettings)
 {
 	bool dirty = Settings::getInstance()->setString("CollectionSystemsAuto", newAutoSettings);
 	dirty |= Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);
-	dirty |= Settings::getInstance()->setBool("SortAllSystems", sortAllSystemsSwitch->getState());
-	dirty |= Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState());
-	dirty |= Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState());
 
 	if (dirty)
 	{
@@ -190,23 +194,4 @@ void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, st
 		ViewController::get()->goToStart();
 		ViewController::get()->reloadAll();
 	}
-}
-
-bool GuiCollectionSystemsOptions::input(InputConfig* config, Input input)
-{
-	bool consumed = GuiComponent::input(config, input);
-	if(consumed)
-		return true;
-
-	if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0)
-		applySettings();
-
-	return false;
-}
-
-std::vector<HelpPrompt> GuiCollectionSystemsOptions::getHelpPrompts()
-{
-	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	return prompts;
 }

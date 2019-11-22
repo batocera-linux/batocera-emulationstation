@@ -1087,6 +1087,12 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 	LOG(LogDebug) << "ApiSystem::getAvailableAudioOutputDevices";
 
 	std::vector<std::string> res;
+
+#if WIN32
+	res.push_back("auto");
+	return res;
+#endif
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "lsaudio";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -1135,6 +1141,10 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices()
 
 std::string ApiSystem::getCurrentAudioOutputDevice() 
 {
+#if WIN32
+	return "auto";
+#endif
+
 	LOG(LogDebug) << "ApiSystem::getCurrentAudioOutputDevice";
 
 	std::ostringstream oss;
