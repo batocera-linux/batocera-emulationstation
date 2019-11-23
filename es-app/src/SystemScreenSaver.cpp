@@ -164,6 +164,7 @@ void SystemScreenSaver::startScreenSaver()
 void SystemScreenSaver::stopScreenSaver()
 {
 	bool isExitingScreenSaver = !mLoadingNext;
+	bool isVideoScreenSaver = (mVideoScreensaver != nullptr);
 
 	if (mLoadingNext)
 		mFadingImageScreensaver = mImageScreensaver;
@@ -181,10 +182,14 @@ void SystemScreenSaver::stopScreenSaver()
 	PowerSaver::runningScreenSaver(false);
 
 	// Exiting video screen saver -> Restore sound
-	if (isExitingScreenSaver && Settings::getInstance()->getBool("VideoAudio") && mVideoScreensaver)
+	if (isExitingScreenSaver && isVideoScreenSaver && Settings::getInstance()->getBool("VideoAudio"))
 	{
 		AudioManager::getInstance()->init();
-		AudioManager::getInstance()->playRandomMusic();
+
+		if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
+			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
+		else
+			AudioManager::getInstance()->playRandomMusic();
 	}
 }
 
