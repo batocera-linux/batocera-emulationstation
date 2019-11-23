@@ -115,6 +115,12 @@ void EsLocale::checkLocalisationLoaded()
 			xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/" + shortName + "/emulationstation2.po");
 			if (!Utils::FileSystem::exists(xmlpath))
 				xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/" + shortName + "/LC_MESSAGES/emulationstation2.po");
+
+			if (!Utils::FileSystem::exists(xmlpath))
+				xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/lang/" + shortName + "/emulationstation2.po");
+
+			if (!Utils::FileSystem::exists(xmlpath))
+				xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/lang/" + shortName + "/LC_MESSAGES/emulationstation2.po");
 		}
 	}
 
