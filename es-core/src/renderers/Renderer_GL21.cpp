@@ -7,6 +7,7 @@
 
 #include <SDL_opengl.h>
 #include <SDL.h>
+#include <vector>
 
 namespace Renderer
 {
@@ -264,7 +265,7 @@ namespace Renderer
 
 	#define ROUNDING_PIECES 8.0f
 
-	void drawGLRoundedCorner(float x, float y, double sa, double arc, float r, unsigned int color)
+	void drawGLRoundedCorner(float x, float y, double sa, double arc, float r, unsigned int color, std::vector<Vertex> &vertex)
 	{
 		float red = (((color & 0xff000000) >> 24) & 255) / 255.0f;
 		float g = (((color & 0x00ff0000) >> 16) & 255) / 255.0f;
@@ -285,14 +286,28 @@ namespace Renderer
 			float next_x = cent_x + r * Math::sinf(ang);
 			float next_y = cent_y - r * Math::cosf(ang);
 
-			//glColor4bv((const GLbyte*) &color);
-			glColor4f(red, g, b, a);
-			glVertex2f(next_x, next_y);
+			Vertex vx;
+			vx.pos = Vector2f(next_x, next_y);
+			vx.tex = Vector2f(0, 0);
+			vx.col = color;
+			vertex.push_back(vx);
 		}
 	}
 	
 	void drawRoundRect(float x, float y, float width, float height, float radius, unsigned int color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
+		auto finalColor = convertColor(color);
+
+		std::vector<Vertex> vertex;
+		drawGLRoundedCorner(x, y + radius, 3.0f * ES_PI / 2.0f, ES_PI / 2.0f, radius, finalColor, vertex);
+		drawGLRoundedCorner(x + width - radius, y, 0.0, ES_PI / 2.0f, radius, finalColor, vertex);
+		drawGLRoundedCorner(x + width, y + height - radius, ES_PI / 2.0f, ES_PI / 2.0f, radius, finalColor, vertex);
+		drawGLRoundedCorner(x + radius, y + height, ES_PI, ES_PI / 2.0f, radius, finalColor, vertex);
+
+		Vertex* vxs = new Vertex[vertex.size()];
+		for (int i = 0; i < vertex.size(); i++)
+			vxs[i] = vertex[i];
+
 		bindTexture(0);
 
 		glEnable(GL_MULTISAMPLE);
@@ -300,12 +315,21 @@ namespace Renderer
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
 
-		glBegin(GL_POLYGON);
-		drawGLRoundedCorner(x, y + radius, 3.0f * ES_PI / 2.0f, ES_PI / 2.0f, radius, color);
-		drawGLRoundedCorner(x + width - radius, y, 0.0, ES_PI / 2.0f, radius, color);
-		drawGLRoundedCorner(x + width, y + height - radius, ES_PI / 2.0f, ES_PI / 2.0f, radius, color);
-		drawGLRoundedCorner(x + radius, y + height, ES_PI, ES_PI / 2.0f, radius, color);
-		glEnd();
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
+
+		glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &vxs[0].pos);
+		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &vxs[0].tex);
+		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), &vxs[0].col);
+
+		glDrawArrays(GL_TRIANGLE_FAN, 0, vertex.size());
+
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
+
+		delete[] vxs;
 
 		glDisable(GL_BLEND);
 		glDisable(GL_MULTISAMPLE);
