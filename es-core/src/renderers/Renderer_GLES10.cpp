@@ -7,6 +7,7 @@
 
 #include <GLES/gl.h>
 #include <SDL.h>
+#include <vector>
 
 namespace Renderer
 {
