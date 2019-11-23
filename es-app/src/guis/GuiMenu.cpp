@@ -2165,7 +2165,7 @@ void GuiMenu::openQuitMenu_batocera()
 }
 
 void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
-{
+{	
 #ifdef WIN32
 	if (!forceWin32Menu)
 	{
@@ -2178,7 +2178,20 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	auto s = new GuiSettings(window, _("QUIT").c_str());
 	
 	if (forceWin32Menu)
+	{
 		s->setCloseButton("select");
+
+		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window] 
+		{
+			window->postToUiThread([](Window* w)
+			{
+				w->startScreenSaver();
+				w->renderScreenSaver();
+			});
+			delete s;
+
+		}, "iconScraper", true);
+	}
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), _("YES"),
@@ -2215,10 +2228,10 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	{
 		s->addEntry(_("QUIT EMULATIONSTATION"), false, [window] {
 			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), _("YES"),
-				[] {
-				SDL_Event ev;
-				ev.type = SDL_QUIT;
-				SDL_PushEvent(&ev);
+				[] 
+			{
+				Scripting::fireEvent("quit");
+				quitES("");
 			}, _("NO"), nullptr));
 		}, "iconQuit");
 	}
@@ -2226,9 +2239,6 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 
 	if (forceWin32Menu)
 		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2));
-
-	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.9),
-	//Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
 
 	window->pushGui(s);
 }
