@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-22 22:21+0100\n"
+"POT-Creation-Date: 2019-11-24 08:14+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -636,6 +636,9 @@ msgstr "REALIZAR SCRAPE?"
 
 msgid "MANUAL SCRAPER"
 msgstr "SCRAPER MANUAL"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"

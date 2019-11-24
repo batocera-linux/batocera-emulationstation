@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-22 22:21+0100\n"
+"POT-Creation-Date: 2019-11-24 08:13+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -634,6 +634,9 @@ msgstr "OBTENER CARÁTULAS?"
 
 msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR EL SISTEMA"
