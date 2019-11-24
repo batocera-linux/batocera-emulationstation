@@ -891,10 +891,10 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addWithLabel(_("RUN-AHEAD FRAMES"), runahead_enabled);
 
 	// second instance
-	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SECOND INSTANCE"));
+	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD SECOND INSTANCE"));
 	secondinstance_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.secondinstance") != "1");
 	secondinstance_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.secondinstance") == "1");
-	s->addWithLabel(_("SECOND INSTANCE"), secondinstance_enabled);
+	s->addWithLabel(_("RUN-AHEAD SECOND INSTANCE"), secondinstance_enabled);
 
 	// decorations
 	{		
@@ -2474,10 +2474,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	systemConfiguration->addWithLabel(_("RUN-AHEAD FRAMES"), runahead_enabled);
 
 	// second instance
-	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SECOND INSTANCE"));
+	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD SECOND INSTANCE"));
 	secondinstance_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".secondinstance") != "1");
 	secondinstance_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".secondinstance") == "1");
-	systemConfiguration->addWithLabel(_("SECOND INSTANCE"), secondinstance_enabled);
+	systemConfiguration->addWithLabel(_("RUN-AHEAD SECOND INSTANCE"), secondinstance_enabled);
 
   // decorations
   {
