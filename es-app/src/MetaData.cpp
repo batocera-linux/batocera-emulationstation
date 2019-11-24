@@ -32,9 +32,9 @@ void MetaDataList::initMetadata()
 	gameMDD.push_back(MetaDataDecl(6, "thumbnail", MD_PATH, "", false, _("Thumbnail"), _("enter path to thumbnail")));
 	gameMDD.push_back(MetaDataDecl(7, "rating", MD_RATING, "0.000000", false, _("Rating"), _("enter rating")));
 	gameMDD.push_back(MetaDataDecl(8, "releasedate", MD_DATE, "not-a-date-time", false, _("Release date"), _("enter release date")));
-	gameMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "unknown", false, _("Developer"), _("enter game developer")));
-	gameMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "unknown", false, _("Publisher"), _("enter game publisher")));
-	gameMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "unknown", false, _("Genre"), _("enter game genre")));
+	gameMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "", false, _("Developer"), _("enter game developer")));
+	gameMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "", false, _("Publisher"), _("enter game publisher")));
+	gameMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "", false, _("Genre"), _("enter game genre")));
 	gameMDD.push_back(MetaDataDecl(12, "players", MD_INT, "1", false, _("Players"), _("enter number of players")));
 	gameMDD.push_back(MetaDataDecl(13, "favorite", MD_BOOL, "false", false, _("Favorite"), _("enter favorite")));
 	gameMDD.push_back(MetaDataDecl(14, "hidden", MD_BOOL, "false", false, _("Hidden"), _("set hidden")));
@@ -51,9 +51,9 @@ void MetaDataList::initMetadata()
 	folderMDD.push_back(MetaDataDecl(6, "marquee", MD_PATH, "", false, _("marquee"), _("enter path to marquee")));
 	folderMDD.push_back(MetaDataDecl(7, "rating", MD_RATING, "0.000000", false, _("Rating"), _("enter rating")));
 	folderMDD.push_back(MetaDataDecl(8, "releasedate", MD_DATE, "not-a-date-time", false, _("Release date"), _("enter release date")));
-	folderMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "unknown", false, _("Developer"), _("enter game developer")));
-	folderMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "unknown", false, _("Publisher"), _("enter game publisher")));
-	folderMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "unknown", false, _("Genre"), _("enter game genre")));
+	folderMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "", false, _("Developer"), _("enter game developer")));
+	folderMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "", false, _("Publisher"), _("enter game publisher")));
+	folderMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "", false, _("Genre"), _("enter game genre")));
 	folderMDD.push_back(MetaDataDecl(12, "players", MD_INT, "1", false, _("Players"), _("enter number of players")));
 	folderMDD.push_back(MetaDataDecl(13, "hidden", MD_BOOL, "false", false, _("Hidden"), _("set hidden")));
 

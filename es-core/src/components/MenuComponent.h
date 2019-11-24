@@ -15,11 +15,15 @@ std::shared_ptr<ComponentGrid> makeButtonGrid(Window* window, const std::vector<
 std::shared_ptr<ImageComponent> makeArrow(Window* window);
 
 #define TITLE_VERT_PADDING (Renderer::getScreenHeight()*0.0637f)
+#define TITLE_WITHSUB_VERT_PADDING (Renderer::getScreenHeight()*0.05f)
+#define SUBTITLE_VERT_PADDING (Renderer::getScreenHeight()*0.019f)
 
 class MenuComponent : public GuiComponent
 {
 public:
-	MenuComponent(Window* window, const char* title, const std::shared_ptr<Font>& titleFont = Font::get(FONT_SIZE_LARGE));
+	MenuComponent(Window* window, 
+		const std::string title, const std::shared_ptr<Font>& titleFont = Font::get(FONT_SIZE_LARGE),
+		const std::string subTitle = "");
 
 	void onSizeChanged() override;
 
@@ -30,7 +34,8 @@ public:
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
 
-	void setTitle(const char* title, const std::shared_ptr<Font>& font);
+	void setTitle(const std::string title, const std::shared_ptr<Font>& font = nullptr);
+	void setSubTitle(const std::string text);
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
 	inline void setCursorToButtons() { assert(mButtonGrid); mGrid.setCursorTo(mButtonGrid); }
@@ -55,7 +60,9 @@ private:
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;
 
+	std::shared_ptr<ComponentGrid> mHeaderGrid;
 	std::shared_ptr<TextComponent> mTitle;
+	std::shared_ptr<TextComponent> mSubtitle;
 	std::shared_ptr<ComponentList> mList;
 	std::shared_ptr<ComponentGrid> mButtonGrid;
 	std::vector< std::shared_ptr<ButtonComponent> > mButtons;

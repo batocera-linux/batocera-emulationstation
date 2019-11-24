@@ -1087,6 +1087,12 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 	LOG(LogDebug) << "ApiSystem::getAvailableAudioOutputDevices";
 
 	std::vector<std::string> res;
+
+#if WIN32
+	res.push_back("auto");
+	return res;
+#endif
+
 	std::ostringstream oss;
 	oss << "batocera-config" << " " << "lsaudio";
 	FILE *pipe = popen(oss.str().c_str(), "r");
@@ -1135,6 +1141,10 @@ std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices()
 
 std::string ApiSystem::getCurrentAudioOutputDevice() 
 {
+#if WIN32
+	return "auto";
+#endif
+
 	LOG(LogDebug) << "ApiSystem::getCurrentAudioOutputDevice";
 
 	std::ostringstream oss;
@@ -1176,9 +1186,21 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 // Batocera
 std::vector<std::string> ApiSystem::getRetroAchievements() 
 {
+	std::vector<std::string> res;
+
+#if defined(WIN32) && defined(_DEBUG)
+	res.push_back("Player TOTO (51 points) is 42287 / 61014 ranked users (Top 70%)");
+	res.push_back("Last RetroAchievements games played:");
+	res.push_back("Tetris (Game Boy)@0 of 13 achievements@0/177 points@Last played 2019-11-05 23:47:44");
+	res.push_back("F-Zero - GP Legend (Game Boy Advance)@0 of 41 achievements@0/400 points@Last played 2019-11-04 23:43:02");
+	res.push_back("Ice Climber (NES)@0 of 34 achievements@0/400 points@Last played 2019-10-30 22:06:15");
+	res.push_back("Solstice: The Quest for the Staff of Demnos (NES)@0 of 41 achievements@0/400 points@Last played 2019-10-30 13:38:01");
+	return res;
+#endif
+
 	LOG(LogDebug) << "ApiSystem::getRetroAchievements";
 
-	std::vector<std::string> res;
+
 	std::ostringstream oss;
 	oss << "batocera-retroachievements-info";
 	FILE *pipe = popen(oss.str().c_str(), "r");

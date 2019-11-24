@@ -3,35 +3,29 @@
 #define ES_APP_GUIS_GUI_COLLECTION_SYSTEM_OPTIONS_H
 
 #include "components/MenuComponent.h"
+#include "GuiSettings.h"
 
 template<typename T>
 class OptionListComponent;
 class SwitchComponent;
 class SystemData;
 
-class GuiCollectionSystemsOptions : public GuiComponent
+class GuiCollectionSystemsOptions : public GuiSettings
 {
 public:
 	GuiCollectionSystemsOptions(Window* window);
-	~GuiCollectionSystemsOptions();
-	bool input(InputConfig* config, Input input) override;
-
-	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+	~GuiCollectionSystemsOptions();	
 
 private:
-	void initializeMenu();
-	void applySettings();
+	void initializeMenu();	
 	void addSystemsToMenu();
-	void addEntry(const char* name, bool add_arrow, const std::function<void()>& func);
+	
 	void updateSettings(std::string newAutoSettings, std::string newCustomSettings);
 	void createCollection(std::string inName);
 	void exitEditMode();
 	std::shared_ptr< OptionListComponent<std::string> > autoOptionList;
 	std::shared_ptr< OptionListComponent<std::string> > customOptionList;
-	std::shared_ptr<SwitchComponent> sortAllSystemsSwitch;
-	std::shared_ptr<SwitchComponent> bundleCustomCollections;
-	std::shared_ptr<SwitchComponent> toggleSystemNameInCollections;
-	MenuComponent mMenu;
+
 	SystemData* mSystem;
 };
 

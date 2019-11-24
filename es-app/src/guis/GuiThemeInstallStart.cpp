@@ -31,13 +31,25 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 
 		ComponentListRow row;
 
+		auto icon = std::make_shared<TextComponent>(mWindow);
+		icon->setColor(theme->Text.color);
+
+		if (isInstalled)
+			icon->setOpacity(192);
+
+		icon->setFont(theme->Text.font);
+		icon->setText(isInstalled ? _U("\uF021") : _U("\uF019"));
+		icon->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
+		//icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+		row.addElement(icon, false);
+		/*
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 		icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
 		icon->setColorShift(theme->Text.color);
 		icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
 		row.addElement(icon, false);
-
+		*/
 		// spacer between icon and text
 		auto spacer = std::make_shared<GuiComponent>(mWindow);
 		spacer->setSize(10, 0);

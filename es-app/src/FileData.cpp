@@ -83,15 +83,13 @@ std::string FileData::getCleanName() const
 	return Utils::String::removeParenthesis(this->getDisplayName());
 }
 
-const std::string FileData::getThumbnailPath() const
+const std::string FileData::getThumbnailPath()
 {
 	std::string thumbnail = getMetadata().get("thumbnail");
 
 	// no thumbnail, try image
 	if(thumbnail.empty())
-	{
-		thumbnail = getMetadata().get("image");
-		
+	{			
 		// no image, try to use local image
 		if(thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
 		{
@@ -100,8 +98,32 @@ const std::string FileData::getThumbnailPath() const
 			{
 				if(thumbnail.empty())
 				{
-					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];
-					if(Utils::FileSystem::exists(path))
+					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-thumb" + extList[i];
+					if (Utils::FileSystem::exists(path))
+					{
+						setMetadata("thumbnail", path);
+						thumbnail = path;
+					}
+				}
+			}
+		}
+
+		if (thumbnail.empty())
+			thumbnail = getMetadata().get("image");
+
+		// no image, try to use local image
+		if (thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
+		{
+			const char* extList[2] = { ".png", ".jpg" };
+			for (int i = 0; i < 2; i++)
+			{
+				if (thumbnail.empty())
+				{
+					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];					
+					if (!Utils::FileSystem::exists(path))
+						path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + extList[i];
+
+					if (Utils::FileSystem::exists(path))
 						thumbnail = path;
 				}
 			}
@@ -150,7 +172,7 @@ const std::string FileData::getName()
 	return getMetadata().getName();
 }
 
-const std::string FileData::getVideoPath() const
+const std::string FileData::getVideoPath()
 {
 	std::string video = getMetadata().get("video");
 	
@@ -159,13 +181,16 @@ const std::string FileData::getVideoPath() const
 	{
 		std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-video.mp4";
 		if (Utils::FileSystem::exists(path))
+		{
+			setMetadata("video", path);
 			video = path;
+		}
 	}
 	
 	return video;
 }
 
-const std::string FileData::getMarqueePath() const
+const std::string FileData::getMarqueePath()
 {
 	std::string marquee = getMetadata().get("marquee");
 
@@ -178,8 +203,11 @@ const std::string FileData::getMarqueePath() const
 			if(marquee.empty())
 			{
 				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-marquee" + extList[i];
-				if(Utils::FileSystem::exists(path))
+				if (Utils::FileSystem::exists(path))
+				{
+					setMetadata("marquee", path);
 					marquee = path;
+				}
 			}
 		}
 	}
@@ -187,7 +215,7 @@ const std::string FileData::getMarqueePath() const
 	return marquee;
 }
 
-const std::string FileData::getImagePath() const
+const std::string FileData::getImagePath()
 {
 	std::string image = getMetadata().get("image");
 
@@ -197,17 +225,25 @@ const std::string FileData::getImagePath() const
 		if (getSystemName() == "imageviewer")
 			image = getPath();
 
-		const char* extList[2] = { ".png", ".jpg" };
-		for(int i = 0; i < 2; i++)
+		if (Settings::getInstance()->getBool("LocalArt"))
 		{
-			if(image.empty())
+			const char* extList[2] = { ".png", ".jpg" };
+			for (int i = 0; i < 2; i++)
 			{
-				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];
-				if(Utils::FileSystem::exists(path))
-					image = path;
+				if (image.empty())
+				{
+					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];
+					if (!Utils::FileSystem::exists(path))
+						path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + extList[i];
+
+					if (Utils::FileSystem::exists(path))
+					{
+						getMetadata().setDirty();
+						image = path;
+					}
+				}
 			}
 		}
-
 	}
 
 	return image;
