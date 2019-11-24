@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:14+0100\n"
+"POT-Creation-Date: 2019-11-24 08:33+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,6 +145,9 @@ msgstr "网络设置"
 msgid "SCRAPE"
 msgstr "抓取元数据"
 
+msgid "UPDATES & DOWNLOADS"
+msgstr "更新文件和下载文件"
+
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
@@ -244,6 +247,9 @@ msgstr "显示帧率"
 msgid "VSYNC"
 msgstr "垂直同步"
 
+msgid "OVERSCAN"
+msgstr "过扫描"
+
 msgid "PRELOAD UI"
 msgstr "预加载UI"
 
@@ -259,6 +265,21 @@ msgstr "优化图像VRAM使用"
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "优化视频VRAM的使用"
 
+msgid "ENABLE FILTERS"
+msgstr "启用筛选器"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "退出时保存元数据"
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr "仅分析游戏列表"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "在磁盘上查找图形"
+
+msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr "日志级别"
 
@@ -273,9 +294,6 @@ msgstr "文件生成成功"
 
 msgid "FILE GENERATION FAILED"
 msgstr "文件生成失败"
-
-msgid "UPDATES & DOWNLOADS"
-msgstr "更新文件和下载文件"
 
 msgid "THEMES"
 msgstr "主题"
@@ -300,6 +318,15 @@ msgstr "语言"
 
 msgid "OVERCLOCK"
 msgstr "超频"
+
+msgid "VIDEO OUTPUT"
+msgstr "视频输出"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新启动系统才能应用新配置"
+
+msgid "AUDIO OUTPUT"
+msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr "省电模式"
@@ -334,23 +361,32 @@ msgstr "强制安全性保护"
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新启动系统才能应用新配置"
+msgid "LATENCY REDUCTION"
+msgstr ""
 
-msgid "GAME RATIO"
-msgstr "游戏显示比例"
-
-msgid "SMOOTH GAMES"
-msgstr "图像平滑处理"
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
 
 msgid "AUTO"
 msgstr "自动"
+
+msgid "USE RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgstr ""
 
 msgid "ON"
 msgstr "开"
 
 msgid "OFF"
 msgstr "关"
+
+msgid "GAME RATIO"
+msgstr "游戏显示比例"
+
+msgid "SMOOTH GAMES"
+msgstr "图像平滑处理"
 
 msgid "REWIND"
 msgstr "倒带功能"
@@ -382,14 +418,20 @@ msgstr ""
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
 
-msgid "RUN-AHEAD FRAMES"
-msgstr ""
-
-msgid "SECOND INSTANCE"
-msgstr ""
-
 msgid "DECORATION"
 msgstr "装饰框"
+
+msgid "AI GAME TRANSLATION"
+msgstr "AI游戏翻译"
+
+msgid "ENABLE AI SERVICE"
+msgstr "启用AI翻译服务"
+
+msgid "TARGET LANGUAGE"
+msgstr "目标语言"
+
+msgid "SERVICE URL"
+msgstr "服务URL"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroArch成就设置"
@@ -406,17 +448,8 @@ msgstr "详细模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
-msgid "AI GAME TRANSLATION"
-msgstr "AI游戏翻译"
-
-msgid "ENABLE AI SERVICE"
-msgstr "启用AI翻译服务"
-
-msgid "TARGET LANGUAGE"
-msgstr "目标语言"
-
-msgid "SERVICE URL"
-msgstr "服务URL"
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr ""
 
 msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
@@ -429,9 +462,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "状态"
-
-msgid "ADVANCED"
-msgstr "高级设置"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "更新游戏列表"
@@ -523,9 +553,6 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr "是否继续?"
 
-msgid "VIDEO OUTPUT"
-msgstr "视频输出"
-
 msgid "START ON SYSTEM"
 msgstr "启动到系统"
 
@@ -553,21 +580,6 @@ msgstr "虚拟键盘"
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
 
-msgid "ENABLE FILTERS"
-msgstr "启用筛选器"
-
-msgid "OVERSCAN"
-msgstr "过扫描"
-
-msgid "SAVE METADATA ON EXIT"
-msgstr "退出时保存元数据"
-
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "仅分析游戏列表"
-
-msgid "SEARCH FOR LOCAL ART"
-msgstr "在磁盘上查找图形"
-
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "在列表中显示文件名"
 
@@ -594,9 +606,6 @@ msgstr "启用导航声音"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "启用视频音频"
-
-msgid "OUTPUT DEVICE"
-msgstr "输出驱动"
 
 msgid "CONNECTED"
 msgstr "已连接"
@@ -1417,6 +1426,12 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "ADVANCED"
+#~ msgstr "高级设置"
+
+#~ msgid "OUTPUT DEVICE"
+#~ msgstr "输出驱动"
 
 #~ msgid "<No Entries Found>"
 #~ msgstr "<未找到条目>"

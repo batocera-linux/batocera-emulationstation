@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:14+0100\n"
+"POT-Creation-Date: 2019-11-24 08:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -148,6 +148,9 @@ msgstr "НАСТРОЙКИ СЕТИ"
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
+msgid "UPDATES & DOWNLOADS"
+msgstr "ОБНОВЛЕНИЕ & ЗАГРУЗКА"
+
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
@@ -247,6 +250,9 @@ msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "OVERSCAN"
+msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
+
 msgid "PRELOAD UI"
 msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
 
@@ -262,6 +268,21 @@ msgstr "ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ДЛЯ VRAM"
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "ОПТИМИЗАЦИЯ ВИДЕО ДЛЯ VRAM"
 
+msgid "ENABLE FILTERS"
+msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
+
+msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
 
@@ -276,9 +297,6 @@ msgstr "ФАЙЛ УСПЕШНО СГЕНЕРИРОВАН"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
-
-msgid "UPDATES & DOWNLOADS"
-msgstr "ОБНОВЛЕНИЕ & ЗАГРУЗКА"
 
 msgid "THEMES"
 msgstr "ТЕМЫ"
@@ -303,6 +321,15 @@ msgstr "ЯЗЫК"
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
+
+msgid "VIDEO OUTPUT"
+msgstr "ВИДЕО ВЫВОД"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
+
+msgid "AUDIO OUTPUT"
+msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -337,23 +364,32 @@ msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
+msgid "LATENCY REDUCTION"
+msgstr ""
 
-msgid "GAME RATIO"
-msgstr "СООТНОШЕНИЕ СТОРОН"
-
-msgid "SMOOTH GAMES"
-msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
 
 msgid "AUTO"
 msgstr "АВТО"
+
+msgid "USE RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgstr ""
 
 msgid "ON"
 msgstr "ВКЛ"
 
 msgid "OFF"
 msgstr "ВЫКЛ"
+
+msgid "GAME RATIO"
+msgstr "СООТНОШЕНИЕ СТОРОН"
+
+msgid "SMOOTH GAMES"
+msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
 
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
@@ -385,14 +421,20 @@ msgstr ""
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
-msgid "RUN-AHEAD FRAMES"
-msgstr ""
-
-msgid "SECOND INSTANCE"
-msgstr ""
-
 msgid "DECORATION"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
+
+msgid "AI GAME TRANSLATION"
+msgstr "ИИ ПЕРЕВОД ИГРЫ"
+
+msgid "ENABLE AI SERVICE"
+msgstr "ВКЛЮЧИТЬ ИИ СЕРВИСЫ"
+
+msgid "TARGET LANGUAGE"
+msgstr "ЯЗЫК ПЕРЕВОДА"
+
+msgid "SERVICE URL"
+msgstr "СЕРВИС URL"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
@@ -409,17 +451,8 @@ msgstr "ПОДРОБНЫЙ РЕЖИМ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
-msgid "AI GAME TRANSLATION"
-msgstr "ИИ ПЕРЕВОД ИГРЫ"
-
-msgid "ENABLE AI SERVICE"
-msgstr "ВКЛЮЧИТЬ ИИ СЕРВИСЫ"
-
-msgid "TARGET LANGUAGE"
-msgstr "ЯЗЫК ПЕРЕВОДА"
-
-msgid "SERVICE URL"
-msgstr "СЕРВИС URL"
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr ""
 
 msgid "MISSING BIOS"
 msgstr "НЕДОСТАЮЩИЙ BIOS"
@@ -432,9 +465,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
-
-msgid "ADVANCED"
-msgstr "ДОПОЛНИТЕЛЬНО"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
@@ -526,9 +556,6 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr "Вы хотите продолжить?"
 
-msgid "VIDEO OUTPUT"
-msgstr "ВИДЕО ВЫВОД"
-
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
 
@@ -556,21 +583,6 @@ msgstr "ЭКРАННАЯ КЛАВИАТУРА"
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 
-msgid "ENABLE FILTERS"
-msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
-
-msgid "OVERSCAN"
-msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
-
-msgid "SAVE METADATA ON EXIT"
-msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
-
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
-
-msgid "SEARCH FOR LOCAL ART"
-msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
-
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "ПОКАЗАТЬ НАЗВАНИЕ ФАЙЛА В СПИСКЕ"
 
@@ -597,9 +609,6 @@ msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
-
-msgid "OUTPUT DEVICE"
-msgstr "УСТРОЙСТВО ВЫВОДА"
 
 msgid "CONNECTED"
 msgstr "ПОДКЛЮЧЕНО"
@@ -1438,6 +1447,12 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "ADVANCED"
+#~ msgstr "ДОПОЛНИТЕЛЬНО"
+
+#~ msgid "OUTPUT DEVICE"
+#~ msgstr "УСТРОЙСТВО ВЫВОДА"
 
 #~ msgid "<No Entries Found>"
 #~ msgstr "<Записей не найдено>"

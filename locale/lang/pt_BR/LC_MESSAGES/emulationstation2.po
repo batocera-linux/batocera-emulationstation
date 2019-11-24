@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:14+0100\n"
+"POT-Creation-Date: 2019-11-24 08:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -148,6 +148,9 @@ msgstr "OPÇÕES DE REDE"
 msgid "SCRAPE"
 msgstr "SCRAPE"
 
+msgid "UPDATES & DOWNLOADS"
+msgstr "ATUALIZAÇÕES & DOWNLOADS"
+
 msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DE SISTEMA"
 
@@ -247,6 +250,9 @@ msgstr "MOSTRAR FRAMERATE"
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
@@ -262,6 +268,21 @@ msgstr "OTIMIZAR O USO DAS IMAGENS NA VRAM"
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
+msgid "ENABLE FILTERS"
+msgstr "ATIVAR FILTROS"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "SALVAR INFORMAÇÕES NA SAÍDA"
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr "ANALISAR APENAS A GAMESLISTS"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "PESQUISA DE ARTE LOCAL"
+
+msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr "NÍVEL DE LOG"
 
@@ -276,9 +297,6 @@ msgstr "ARQUIVO GERADO COM SUCESSO"
 
 msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
-
-msgid "UPDATES & DOWNLOADS"
-msgstr "ATUALIZAÇÕES & DOWNLOADS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -303,6 +321,15 @@ msgstr "IDIOMA"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "VIDEO OUTPUT"
+msgstr "SAÍDA DE VÍDEO"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
+
+msgid "AUDIO OUTPUT"
+msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
@@ -337,23 +364,32 @@ msgstr "REFORÇAR A SEGURANÇA"
 msgid "ROOT PASSWORD"
 msgstr "SENHA DO ROOT"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
+msgid "LATENCY REDUCTION"
+msgstr ""
 
-msgid "GAME RATIO"
-msgstr "FORMATO DE TELA"
-
-msgid "SMOOTH GAMES"
-msgstr "SUAVIZAR IMAGEM"
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
+
+msgid "USE RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgstr ""
 
 msgid "ON"
 msgstr "ON"
 
 msgid "OFF"
 msgstr "OFF"
+
+msgid "GAME RATIO"
+msgstr "FORMATO DE TELA"
+
+msgid "SMOOTH GAMES"
+msgstr "SUAVIZAR IMAGEM"
 
 msgid "REWIND"
 msgstr "RETROCEDER"
@@ -385,14 +421,20 @@ msgstr ""
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGER (PIXEL PERFEITO)"
 
-msgid "RUN-AHEAD FRAMES"
-msgstr ""
-
-msgid "SECOND INSTANCE"
-msgstr ""
-
 msgid "DECORATION"
 msgstr "DECORAÇÃO"
+
+msgid "AI GAME TRANSLATION"
+msgstr "TRADUÇÃO DO JOGO POR IA"
+
+msgid "ENABLE AI SERVICE"
+msgstr "ATIVAR O SERVIÇO IA"
+
+msgid "TARGET LANGUAGE"
+msgstr "IDIOMA ALVO"
+
+msgid "SERVICE URL"
+msgstr "URL DO SERVIÇO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
@@ -409,17 +451,8 @@ msgstr "MODO VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
-msgid "AI GAME TRANSLATION"
-msgstr "TRADUÇÃO DO JOGO POR IA"
-
-msgid "ENABLE AI SERVICE"
-msgstr "ATIVAR O SERVIÇO IA"
-
-msgid "TARGET LANGUAGE"
-msgstr "IDIOMA ALVO"
-
-msgid "SERVICE URL"
-msgstr "URL DO SERVIÇO"
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr ""
 
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
@@ -432,9 +465,6 @@ msgstr "MD5"
 
 msgid "STATUS"
 msgstr "STATUS"
-
-msgid "ADVANCED"
-msgstr "AVANÇADO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
@@ -526,9 +556,6 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr "Você quer prosseguir?"
 
-msgid "VIDEO OUTPUT"
-msgstr "SAÍDA DE VÍDEO"
-
 msgid "START ON SYSTEM"
 msgstr "COMECE NO SISTEMA"
 
@@ -556,21 +583,6 @@ msgstr "TECLADO NA TELA"
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
 
-msgid "ENABLE FILTERS"
-msgstr "ATIVAR FILTROS"
-
-msgid "OVERSCAN"
-msgstr "OVERSCAN"
-
-msgid "SAVE METADATA ON EXIT"
-msgstr "SALVAR INFORMAÇÕES NA SAÍDA"
-
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ANALISAR APENAS A GAMESLISTS"
-
-msgid "SEARCH FOR LOCAL ART"
-msgstr "PESQUISA DE ARTE LOCAL"
-
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
 
@@ -597,9 +609,6 @@ msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
-
-msgid "OUTPUT DEVICE"
-msgstr "SAÍDA DE ÁUDIO"
 
 msgid "CONNECTED"
 msgstr "CONECTADO"
@@ -1434,6 +1443,12 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "ADVANCED"
+#~ msgstr "AVANÇADO"
+
+#~ msgid "OUTPUT DEVICE"
+#~ msgstr "SAÍDA DE ÁUDIO"
 
 #~ msgid "<No Entries Found>"
 #~ msgstr "<Nenhuma Entrada Encontrada>"

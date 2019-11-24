@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:14+0100\n"
+"POT-Creation-Date: 2019-11-24 08:33+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,6 +145,9 @@ msgstr "ネットワーク設定"
 msgid "SCRAPE"
 msgstr "スクレイプ"
 
+msgid "UPDATES & DOWNLOADS"
+msgstr ""
+
 msgid "SYSTEM SETTINGS"
 msgstr "システム設定"
 
@@ -244,6 +247,9 @@ msgstr "フレームレートを表示"
 msgid "VSYNC"
 msgstr ""
 
+msgid "OVERSCAN"
+msgstr "オーバースキャン"
+
 msgid "PRELOAD UI"
 msgstr ""
 
@@ -259,6 +265,21 @@ msgstr ""
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr ""
 
@@ -272,9 +293,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "UPDATES & DOWNLOADS"
 msgstr ""
 
 msgid "THEMES"
@@ -300,6 +318,15 @@ msgstr "言語"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+
+msgid "AUDIO OUTPUT"
+msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr ""
@@ -338,7 +365,25 @@ msgstr "セキュリティ保護"
 msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "LATENCY REDUCTION"
+msgstr ""
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "USE RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgstr ""
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
 msgstr ""
 
 msgid "GAME RATIO"
@@ -346,15 +391,6 @@ msgstr "ゲーム比率"
 
 msgid "SMOOTH GAMES"
 msgstr "スムージング"
-
-msgid "AUTO"
-msgstr "自動"
-
-msgid "ON"
-msgstr ""
-
-msgid "OFF"
-msgstr ""
 
 msgid "REWIND"
 msgstr "巻き戻し"
@@ -387,13 +423,19 @@ msgstr ""
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
-msgid "RUN-AHEAD FRAMES"
-msgstr ""
-
-msgid "SECOND INSTANCE"
-msgstr ""
-
 msgid "DECORATION"
+msgstr ""
+
+msgid "AI GAME TRANSLATION"
+msgstr ""
+
+msgid "ENABLE AI SERVICE"
+msgstr ""
+
+msgid "TARGET LANGUAGE"
+msgstr ""
+
+msgid "SERVICE URL"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -411,16 +453,7 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "AI GAME TRANSLATION"
-msgstr ""
-
-msgid "ENABLE AI SERVICE"
-msgstr ""
-
-msgid "TARGET LANGUAGE"
-msgstr ""
-
-msgid "SERVICE URL"
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
 msgid "MISSING BIOS"
@@ -434,10 +467,6 @@ msgstr ""
 
 msgid "STATUS"
 msgstr "ステータス"
-
-#, fuzzy
-msgid "ADVANCED"
-msgstr "アドバンス"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ゲームリストを更新"
@@ -527,9 +556,6 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr ""
 
-msgid "VIDEO OUTPUT"
-msgstr ""
-
 msgid "START ON SYSTEM"
 msgstr ""
 
@@ -555,21 +581,6 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "スクリーンキーボード"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
-
-msgid "ENABLE FILTERS"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "オーバースキャン"
-
-msgid "SAVE METADATA ON EXIT"
-msgstr ""
-
-msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
-
-msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -599,9 +610,6 @@ msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
-
-msgid "OUTPUT DEVICE"
-msgstr "出力デバイス"
 
 msgid "CONNECTED"
 msgstr "接続済み"
@@ -1423,6 +1431,13 @@ msgstr "処理中..."
 
 msgid "up/down"
 msgstr ""
+
+#, fuzzy
+#~ msgid "ADVANCED"
+#~ msgstr "アドバンス"
+
+#~ msgid "OUTPUT DEVICE"
+#~ msgstr "出力デバイス"
 
 #~ msgid "UPDATES"
 #~ msgstr "アップデート"

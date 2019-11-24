@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:14+0100\n"
+"POT-Creation-Date: 2019-11-24 08:33+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,6 +145,9 @@ msgstr "NETTVERKSINSTILLINGER"
 msgid "SCRAPE"
 msgstr "SØK"
 
+msgid "UPDATES & DOWNLOADS"
+msgstr ""
+
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEM INSTILLINGER"
 
@@ -244,6 +247,9 @@ msgstr "VIS BILDEFREKVENS"
 msgid "VSYNC"
 msgstr ""
 
+msgid "OVERSCAN"
+msgstr "OVERSKANN"
+
 msgid "PRELOAD UI"
 msgstr ""
 
@@ -259,6 +265,21 @@ msgstr ""
 msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
+msgid "ENABLE FILTERS"
+msgstr ""
+
+msgid "SAVE METADATA ON EXIT"
+msgstr ""
+
+msgid "PARSE GAMESLISTS ONLY"
+msgstr ""
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr ""
 
@@ -272,9 +293,6 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
-
-msgid "UPDATES & DOWNLOADS"
 msgstr ""
 
 msgid "THEMES"
@@ -300,6 +318,15 @@ msgstr "SPRÅK"
 
 msgid "OVERCLOCK"
 msgstr "OVERKLOKKING"
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+
+msgid "AUDIO OUTPUT"
+msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr ""
@@ -334,7 +361,25 @@ msgstr "TVUNGEN SIKKERHET"
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSORD"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "LATENCY REDUCTION"
+msgstr ""
+
+msgid "RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "USE RUN-AHEAD FRAMES"
+msgstr ""
+
+msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgstr ""
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
 msgstr ""
 
 msgid "GAME RATIO"
@@ -342,15 +387,6 @@ msgstr "SPILL FORHOLD"
 
 msgid "SMOOTH GAMES"
 msgstr "SPILL SOM KJØRER FINT"
-
-msgid "AUTO"
-msgstr "AUTO"
-
-msgid "ON"
-msgstr ""
-
-msgid "OFF"
-msgstr ""
 
 msgid "REWIND"
 msgstr "SPOL TILBAKE"
@@ -382,13 +418,19 @@ msgstr ""
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
-msgid "RUN-AHEAD FRAMES"
-msgstr ""
-
-msgid "SECOND INSTANCE"
-msgstr ""
-
 msgid "DECORATION"
+msgstr ""
+
+msgid "AI GAME TRANSLATION"
+msgstr ""
+
+msgid "ENABLE AI SERVICE"
+msgstr ""
+
+msgid "TARGET LANGUAGE"
+msgstr ""
+
+msgid "SERVICE URL"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -406,16 +448,7 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "AI GAME TRANSLATION"
-msgstr ""
-
-msgid "ENABLE AI SERVICE"
-msgstr ""
-
-msgid "TARGET LANGUAGE"
-msgstr ""
-
-msgid "SERVICE URL"
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
 msgid "MISSING BIOS"
@@ -429,9 +462,6 @@ msgstr ""
 
 msgid "STATUS"
 msgstr "STATUS"
-
-msgid "ADVANCED"
-msgstr "AVANSERT"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "OPPDATER SPILLISTER"
@@ -519,9 +549,6 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr ""
 
-msgid "VIDEO OUTPUT"
-msgstr ""
-
 msgid "START ON SYSTEM"
 msgstr ""
 
@@ -547,21 +574,6 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "Tastatur (På Skjermen)"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
-
-msgid "ENABLE FILTERS"
-msgstr ""
-
-msgid "OVERSCAN"
-msgstr "OVERSKANN"
-
-msgid "SAVE METADATA ON EXIT"
-msgstr ""
-
-msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
-
-msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -590,9 +602,6 @@ msgstr ""
 
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
-
-msgid "OUTPUT DEVICE"
-msgstr "UTENHET"
 
 msgid "CONNECTED"
 msgstr "TILKOBLET"
@@ -1410,6 +1419,12 @@ msgstr "ARBEIDER..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "ADVANCED"
+#~ msgstr "AVANSERT"
+
+#~ msgid "OUTPUT DEVICE"
+#~ msgstr "UTENHET"
 
 #~ msgid "UPDATES"
 #~ msgstr "OPPDATERINGER"
