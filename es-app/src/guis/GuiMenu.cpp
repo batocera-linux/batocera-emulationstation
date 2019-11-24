@@ -2582,6 +2582,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
   if(systemData->getName() == "wii") // only for wii
     systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
+  // Gamecube when controller has no analog stick (digital stick on a bartop) 
+  auto gc_noanalogstick_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("NO ANALOG STICK ON GAMECUBE"));
+  gc_noanalogstick_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".gc_noanalogstick") != "0" && SystemConf::getInstance()->get(configName + ".gc_noanalogstick") != "1");
+  gc_noanalogstick_enabled->add(_("ON"),   "1",    SystemConf::getInstance()->get(configName + ".gc_noanalogstick") == "1");
+  gc_noanalogstick_enabled->add(_("OFF"),  "0",    SystemConf::getInstance()->get(configName + ".gc_noanalogstick") == "0");
+  if(systemData->getName() == "gamecube") // only for NGC
+    systemConfiguration->addWithLabel(_("NO ANALOG STICK ON GAMECUBE"), gc_noanalogstick_enabled);
+
   // psp internal resolution
   auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
   internalresolution->add(_("AUTO"), "auto",
@@ -2599,7 +2607,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
     systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 
   systemConfiguration->addSaveFunc(
-				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, internalresolution, runahead_enabled, secondinstance_enabled] {
+				   [configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, gc_noanalogstick_enabled, internalresolution, runahead_enabled, secondinstance_enabled] {
 				     if(ratio_choice->changed()){
 				       SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());
 				     }
@@ -2627,6 +2635,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				     }
 				     if(emulatedwiimotes_enabled->changed()){
 				       SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
+				     }
+				     if(gc_noanalogstick_enabled->changed()){
+				       SystemConf::getInstance()->set(configName + ".gc_noanalogstick", gc_noanalogstick_enabled->getSelected());
 				     }
 				     if(internalresolution->changed()){
 				       SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected());
