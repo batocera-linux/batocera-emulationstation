@@ -170,9 +170,9 @@ void GridTileComponent::resize()
 		currentProperties.Label.updateTextComponent(&mLabel, mSize);
 		
 		// Automatic layout for not merged labels 
-		if (currentProperties.Label.pos.x() < 0 && !mLabelMerged)
+		if (currentProperties.Label.pos.x() < 0)
 		{			
-			if (currentProperties.Padding.x() == 0)
+			if (currentProperties.Padding.x() == 0 && !mLabelMerged)
 			{
 				mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, mImage->getSize().y());
 				mLabel.setSize(mImage->getSize().x(), labelHeight);
