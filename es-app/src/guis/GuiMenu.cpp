@@ -2112,43 +2112,40 @@ void GuiMenu::openRetroAchievements_batocera()
 
 	auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
 
-	std::string subTitle;
-
-	ComponentListRow row;
-	std::vector<std::string> lines = ApiSystem::getInstance()->getRetroAchievements();
-	for (auto line : lines)
+	auto ra = ApiSystem::getInstance()->getRetroAchievements();
+	if (!ra.error.empty())
+		s->setSubTitle(ra.error);
+	else
 	{
-		std::vector<std::string> tokens = Utils::String::split(line, '@');
-		if (tokens.size() == 0)
-			continue;
-
-		if (tokens.size() == 1)
+		if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic))
 		{
-			if (subTitle.empty())
-				subTitle = tokens[0];
-			else 
-				subTitle = subTitle + "\n"+ Utils::String::replace(tokens[0], ":", "");
-			
-			continue;
-		}
-	
-		auto itstring = std::make_shared<MultiLineMenuEntry>(window, tokens[0], tokens[1]);
-
-		if (tokens.size() >= 4)
-		{
-			std::string longmsg = tokens[0] + "\n" + tokens[1] + "\n" + tokens[2] + "\n" + tokens[3];
-
-			row.makeAcceptInputHandler([this, longmsg] {
-				mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
-			});
+			auto image = std::make_shared<ImageComponent>(mWindow);
+			image->setImage(ra.userpic);
+			s->setTitleImage(image);
 		}
 
-		row.addElement(itstring, true);
-		s->addRow(row);
-		row.elements.clear();
+		s->setSubTitle("Player " + ra.username + " (" + ra.totalpoints + " points) is " + ra.rank);
+
+		for (auto game : ra.games)
+		{		
+			ComponentListRow row;
+
+			auto itstring = std::make_shared<MultiLineMenuEntry>(window, game.name, game.achievements + " achievements");
+
+			if (!game.points.empty())
+			{
+				std::string longmsg = game.name + "\n" + game.achievements + " achievements\n" + game.points + " points\nLast played : " + game.lastplayed;
+
+				row.makeAcceptInputHandler([this, longmsg] {
+					mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
+				});
+			}
+
+			row.addElement(itstring, true);
+			s->addRow(row);
+			row.elements.clear();
+		}
 	}
-
-	s->setSubTitle(subTitle);
 
 	mWindow->pushGui(s);
 }

@@ -16,7 +16,29 @@ struct BiosSystem {
   std::vector<BiosFile> bios;
 };
 
-class ApiSystem {
+struct RetroAchievementGame
+{
+	std::string name;
+	std::string achievements;
+	std::string points;
+	std::string lastplayed;
+};
+
+struct RetroAchievementInfo
+{	
+	std::string username;
+	std::string totalpoints;
+	std::string rank;
+	std::string userpic;
+	std::string registered;
+
+	std::string error;
+
+	std::vector<RetroAchievementGame> games;
+};
+
+class ApiSystem 
+{
 public:
 
     static ApiSystem *getInstance();
@@ -98,7 +120,7 @@ public:
     std::vector<std::string> getAvailableVideoOutputDevices();
 
     // Batocera
-    std::vector<std::string> getRetroAchievements();
+	RetroAchievementInfo getRetroAchievements();
     std::vector<std::string> getBatoceraThemesList();
     std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
     std::vector<std::string> getBatoceraBezelsList();

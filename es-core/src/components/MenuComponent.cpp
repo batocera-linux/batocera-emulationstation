@@ -36,7 +36,10 @@ MenuComponent::MenuComponent(Window* window,
 		mTitle->setRenderBackground(true);
 	}
 
-	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 2));
+	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(2, 2));
+	mHeaderGrid->setColWidthPerc(0, 1);
+	mHeaderGrid->setColWidthPerc(1, 0);
+
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 0), false, true);
 
 	setTitle(title, theme->Title.font); //  titleFont
@@ -155,6 +158,35 @@ void MenuComponent::setTitle(const std::string title, const std::shared_ptr<Font
 		mTitle->setFont(font);
 }
 
+void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage)
+{
+	if (titleImage == nullptr)
+	{
+		if (mTitleImage != nullptr)
+		{
+			mHeaderGrid->removeEntry(mTitleImage);
+			mTitleImage = nullptr;
+		}
+
+		mHeaderGrid->setColWidthPerc(0, 1);
+		mHeaderGrid->setColWidthPerc(1, 0);
+
+		return;
+	}
+
+	mTitleImage = titleImage;
+	mTitleImage->setOrigin(0.5, 0.5);
+
+	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
+	float iw = TITLE_HEIGHT / width;
+
+	mHeaderGrid->setColWidthPerc(0, 1 - iw);
+	mHeaderGrid->setColWidthPerc(1, iw);
+	mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
+
+	updateSize();	
+}
+
 void MenuComponent::setSubTitle(const std::string text)
 {
 	if (text.empty())
@@ -230,6 +262,23 @@ void MenuComponent::updateSize()
 
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	setSize(width, height);
+
+	if (mTitleImage != nullptr)
+	{
+		mTitleImage->setPosition(width - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
+		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
+		
+		float pad = Renderer::getScreenHeight() * 0.015;
+		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+
+		mTitle->setHorizontalAlignment(ALIGN_LEFT);
+		
+		if (mSubtitle != nullptr)
+		{
+			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+		}
+	}
 }
 
 void MenuComponent::onSizeChanged()
