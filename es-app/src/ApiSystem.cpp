@@ -40,6 +40,7 @@
 #endif
 
 #include "platform.h"
+#include <pugixml/src/pugixml.hpp>
 
 ApiSystem::ApiSystem() 
 {
@@ -1183,39 +1184,216 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 	return exitcode == 0;
 }
 
-// Batocera
-std::vector<std::string> ApiSystem::getRetroAchievements() 
-{
-	std::vector<std::string> res;
 
-#if defined(WIN32) && defined(_DEBUG)
-	res.push_back("Player TOTO (51 points) is 42287 / 61014 ranked users (Top 70%)");
-	res.push_back("Last RetroAchievements games played:");
-	res.push_back("Tetris (Game Boy)@0 of 13 achievements@0/177 points@Last played 2019-11-05 23:47:44");
-	res.push_back("F-Zero - GP Legend (Game Boy Advance)@0 of 41 achievements@0/400 points@Last played 2019-11-04 23:43:02");
-	res.push_back("Ice Climber (NES)@0 of 34 achievements@0/400 points@Last played 2019-10-30 22:06:15");
-	res.push_back("Solstice: The Quest for the Staff of Demnos (NES)@0 of 41 achievements@0/400 points@Last played 2019-10-30 13:38:01");
-	return res;
-#endif
+
+// Batocera
+RetroAchievementInfo ApiSystem::getRetroAchievements()
+{
+	RetroAchievementInfo info;
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievements";
-
 
 	std::ostringstream oss;
 	oss << "batocera-retroachievements-info";
 	FILE *pipe = popen(oss.str().c_str(), "r");
 	char line[1024];
 
-	if (pipe == NULL) {
-		return res;
+	if (pipe == NULL)
+	{
+		info.error = "Error accessing 'batocera-retroachievements-info' script";
+		return info;
 	}
 
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
+	std::string data;
+
+	while (fgets(line, 1024, pipe))
+	{
+		strtok(line, "\n");		
+		data = data + std::string(line) + "\n";
 	}
+
 	pclose(pipe);
-	return res;
+
+#if defined(WIN32) && defined(_DEBUG)
+	// Xml Test 
+	data = 
+		"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+		"<retroachievements>"
+		"<username>lbrpdx</username>"
+		"<totalpoints>4743</totalpoints>"
+		"<rank>4184 / 61121 ranked users (Top 8%)</rank>"
+		"<userpic>https://retroachievements.org/UserPic/lbrpdx.png</userpic>"
+		"<registered>29 Aug 2018, 03:00</registered>"
+		"<lastactivity>16 Nov 2019, 02:35</lastactivity>"
+		"  <game>"
+		"	<name>Adventure Island II: Aliens In Paradise (Game Boy)</name>"
+		"	<achievements>7 of 24</achievements>"
+		"	<points>35/260</points>"
+		"	<lastplayed>2019-11-16 02:10:05</lastplayed>"
+		"  </game>"
+		"  <game>"
+		"	<name>Metal Gear (NES)</name>"
+		"	<achievements>0 of 97</achievements>"
+		"	<points>0/650</points>"
+		"	<lastplayed>2019-11-01 04:12:26</lastplayed>"
+		"  </game>"
+		"  <game>"
+		"	<name>Mega Man 2 (NES)</name>"
+		"	<achievements>0 of 84</achievements>"
+		"	<points>0/800</points>"
+		"	<lastplayed>2019-11-01 04:09:19</lastplayed>"
+		"  </game>"
+		"  <game>"
+		"	<name>Fortified Zone (Game Boy)</name>"
+		"	<achievements>0 of 0</achievements>"
+		"	<points>0/0</points>"
+		"	<lastplayed>2019-10-31 03:00:43</lastplayed>"
+		"  </game>"
+		"  <game>"
+		"	<name>Jack Bros. (Virtual Boy)</name>"
+		"	<achievements>0 of 57</achievements>"
+		"	<points>0/725</points>"
+		"	<lastplayed>2019-10-30 03:24:53</lastplayed>"
+		"  </game>"
+		"</retroachievements>";
+	/*
+	// Retrocompatibility Test 
+	data = "Player TOTO (51 points) is 42287 / 61014 ranked users (Top 70%)\n"
+		   "Last RetroAchievements games played:\n"
+			"Tetris (Game Boy)@0 of 13 achievements@0/177 points@Last played 2019-11-05 23:47:44\n"
+			"F-Zero - GP Legend (Game Boy Advance)@0 of 41 achievements@0/400 points@Last played 2019-11-04 23:43:02\n"
+			"Ice Climber (NES)@0 of 34 achievements@0/400 points@Last played 2019-10-30 22:06:15\n"
+			"Solstice: The Quest for the Staff of Demnos (NES)@0 of 41 achievements@0/400 points@Last played 2019-10-30 13:38:01\n";*/
+#endif
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load(data.c_str()); // doc.load_buffer(data.c_str(), data.size);
+
+	if (!result)
+	{
+		// Temporary retrocompatibility mode
+		auto lines = Utils::String::split(data, '\n');
+		if (lines.size() == 1)
+		{
+			info.error = lines[0];
+			return info;
+		}
+
+		for (auto line : lines)
+		{
+			std::vector<std::string> tokens = Utils::String::split(line, '@');
+			if (tokens.size() == 0)
+				continue;
+
+			if (tokens.size() == 1)
+			{					
+				if (info.username.empty())
+				{
+					auto userParse = Utils::String::split(line, ' ');
+					if (userParse.size() > 2)
+						info.username = userParse[1];
+
+					auto infoParsePoints = Utils::String::splitAny(line, "()");
+					if (infoParsePoints.size() > 3)
+					{
+						info.totalpoints = infoParsePoints[1];
+						info.rank = Utils::String::replace(infoParsePoints[2], " is ", "") + " (" + infoParsePoints[3] + ")";
+					}
+				}
+
+				continue;
+			}
+
+			RetroAchievementGame rg;
+			rg.name = tokens[0];
+			rg.achievements = Utils::String::replace(tokens[1], " achievements", "");
+
+			if (tokens.size() >= 4)
+			{
+				rg.points = Utils::String::replace(tokens[2], " points", ""); 
+				rg.lastplayed = Utils::String::replace(tokens[3], "Last played ", "");
+			}
+
+			info.games.push_back(rg);
+		}
+
+		return info;
+	}
+
+	pugi::xml_node root = doc.child("retroachievements");
+	if (!root)
+	{
+		LOG(LogError) << "Could not find <retroachievements> node";
+		return info;
+	}
+
+	for (pugi::xml_node node : root.children())
+	{
+		std::string tag = node.name();
+
+		if (tag == "error")
+		{
+			info.error = node.text().get();
+			break;
+		}
+
+		if (tag == "username")
+			info.username = node.text().get();
+		else if (tag == "totalpoints")
+			info.totalpoints = node.text().get();
+		else if (tag == "rank")
+			info.rank = node.text().get();
+		else if (tag == "userpic")
+		{
+			std::string userpic = node.text().get();
+			if (!userpic.empty())
+			{
+				std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+				if (!Utils::FileSystem::exists(localPath))
+					Utils::FileSystem::createDirectory(localPath);
+
+				std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(userpic);
+				if (!Utils::FileSystem::exists(localFile))
+				{
+					std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(userpic);
+
+					while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+						std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+					if (httpreq->status() == HttpReq::REQ_SUCCESS)
+						httpreq->saveContent(localFile);
+				}
+
+				if (Utils::FileSystem::exists(localFile))
+					info.userpic = localFile;
+			}
+		}
+		else if (tag == "registered")
+			info.registered = node.text().get();
+		else if (tag == "game")
+		{
+			RetroAchievementGame rg;
+
+			for (pugi::xml_node game : node.children())
+			{
+				tag = game.name();
+
+				if (tag == "name")
+					rg.name = game.text().get();
+				else if (tag == "achievements")
+					rg.achievements = game.text().get();
+				else if (tag == "points")
+					rg.points = game.text().get();
+				else if (tag == "lastplayed")
+					rg.lastplayed = game.text().get();
+			}
+
+			if (!rg.name.empty())
+				info.games.push_back(rg);
+		}
+	}
+
+	return info;
 }
 
 std::vector<std::string> ApiSystem::getBatoceraThemesList() 
