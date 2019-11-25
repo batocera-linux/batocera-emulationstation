@@ -552,9 +552,9 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(file, FILE_METADATA_CHANGED);
 			}
-		}
 
-		saveToGamelistRecovery(file);
+			saveToGamelistRecovery(file);
+		}
 
 		if (adding)
 			snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera

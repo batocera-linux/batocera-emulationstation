@@ -519,11 +519,11 @@ void GuiMenu::openDeveloperSettings()
 
 	// retroarch.menu_driver = rgui
 	auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
-	retroarchRgui->setState(SystemConf::getInstance()->get("retroarch.menu_driver") == "rgui");
+	retroarchRgui->setState(SystemConf::getInstance()->get("global.retroarch.menu_driver") == "rgui");
 	s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
 	s->addSaveFunc([retroarchRgui]
 	{ 
-		SystemConf::getInstance()->set("retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
+		SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
 	});
 
 	// log level
