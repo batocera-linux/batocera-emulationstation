@@ -48,6 +48,8 @@ public:
 
 	void setPadding(const Vector4f padding) { mPadding = padding; }
 
+	virtual void update(int deltaTime);
+
 protected:
 	virtual void onTextChanged();
 
@@ -57,6 +59,7 @@ protected:
 private:
 	void calculateExtent();
 	void renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y);
+	void renderGlow(const Transform4x4f& parentTrans, float yOff, float xOff);
 
 	void onColorChanged();
 
@@ -79,6 +82,12 @@ private:
 	
 	Vector2f	mReflection;
 	bool		mReflectOnBorders;
+
+	int mMarqueeOffset;
+	int mMarqueeOffset2;
+	int mMarqueeTime;
+
+	bool mAutoScroll;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H
