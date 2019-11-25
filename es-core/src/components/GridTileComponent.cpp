@@ -170,9 +170,9 @@ void GridTileComponent::resize()
 		currentProperties.Label.updateTextComponent(&mLabel, mSize);
 		
 		// Automatic layout for not merged labels 
-		if (currentProperties.Label.pos.x() < 0 && !mLabelMerged)
+		if (currentProperties.Label.pos.x() < 0)
 		{			
-			if (currentProperties.Padding.x() == 0)
+			if (currentProperties.Padding.x() == 0 && !mLabelMerged)
 			{
 				mLabel.setPosition(mImage->getPosition().x() - mImage->getSize().x() / 2, mImage->getSize().y());
 				mLabel.setSize(mImage->getSize().x(), labelHeight);
@@ -587,6 +587,9 @@ bool GridNinePatchProperties::applyTheme(const ThemeData::ThemeElement* elem)
 
 void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
+	if (mSize == Vector2f::Zero())
+		setSize(getDefaultTileSize());
+
 	resetProperties();
 
 	const ThemeData::ThemeElement* grid = theme->getElement(view, "gamegrid", "imagegrid");
@@ -701,7 +704,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		delete mImageOverlay;
 		mImageOverlay = nullptr;
 	}
-
+	
 
 	// Apply theme to the <text name="gridtile"> element
 	elem = theme->getElement(view, "gridtile", "text");

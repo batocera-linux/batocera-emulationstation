@@ -89,6 +89,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "glowColor", COLOR },
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },
+		{ "autoScroll", BOOLEAN },
 		{ "padding", NORMALIZED_RECT },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },

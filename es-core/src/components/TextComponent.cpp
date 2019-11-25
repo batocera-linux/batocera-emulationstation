@@ -10,6 +10,11 @@ TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
 	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
 {	
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+	mMarqueeTime = 0;
+
+	mAutoScroll = false;
 
 }
 
@@ -26,6 +31,12 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	setText(text);
 	setPosition(pos);
 	setSize(size);
+
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+	mMarqueeTime = 0;
+
+	mAutoScroll = false;
 }
 
 void TextComponent::onSizeChanged()
@@ -87,7 +98,14 @@ void TextComponent::setOpacity(unsigned char opacity)
 
 void TextComponent::setText(const std::string& text)
 {
+	if (mText == text)
+		return;
+
 	mText = text;
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+	mMarqueeTime = 0;
+
 	onTextChanged();
 }
 
@@ -112,6 +130,29 @@ void TextComponent::renderSingleGlow(const Transform4x4f& parentTrans, float yOf
 
 	mTextCache->setColor(color);
 	mFont->renderTextCache(mTextCache.get());	
+}
+
+void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, float xOff)
+{
+	Transform4x4f glowTrans = parentTrans;
+	if (xOff != 0.0)
+		glowTrans.translate(Vector3f(xOff, 0, 0));
+
+	int x = -mGlowSize;
+	int y = -mGlowSize;
+	renderSingleGlow(glowTrans, yOff, x, y);
+
+	for (int i = 0; i < 2 * mGlowSize; i++)
+		renderSingleGlow(glowTrans, yOff, ++x, y);
+
+	for (int i = 0; i < 2 * mGlowSize; i++)
+		renderSingleGlow(glowTrans, yOff, x, ++y);
+
+	for (int i = 0; i < 2 * mGlowSize; i++)
+		renderSingleGlow(glowTrans, yOff, --x, y);
+
+	for (int i = 0; i < 2 * mGlowSize; i++)
+		renderSingleGlow(glowTrans, yOff, x, --y);
 }
 
 void TextComponent::render(const Transform4x4f& parentTrans)
@@ -158,28 +199,19 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		}
 
 		if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
-		{			
-			int x = -mGlowSize;
-			int y = -mGlowSize;
-			renderSingleGlow(parentTrans, yOff, x, y);
-
-			for (int i = 0; i < 2 * mGlowSize; i++)
-				renderSingleGlow(parentTrans, yOff, ++x, y);
-
-			for (int i = 0; i < 2 * mGlowSize; i++)
-				renderSingleGlow(parentTrans, yOff, x, ++y);
-
-			for (int i = 0; i < 2 * mGlowSize; i++)
-				renderSingleGlow(parentTrans, yOff, --x, y);
-
-			for (int i = 0; i < 2 * mGlowSize; i++)
-				renderSingleGlow(parentTrans, yOff, x, --y);
-
-			// Restore text color
+		{
+			renderGlow(parentTrans, yOff, -mMarqueeOffset);
 			onColorChanged();
 		}
 
-		trans.translate(off);
+		Transform4x4f drawTrans = trans;
+
+		if (mMarqueeOffset > 0)
+			trans.translate(off - Vector3f((float)mMarqueeOffset, 0, 0));
+		else
+			trans.translate(off);
+
+//		trans.translate(off);
 		Renderer::setMatrix(trans);
 
 		// draw the text area, where the text actually is going
@@ -200,6 +232,25 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		}
 		
 		mFont->renderTextCache(mTextCache.get());
+
+		// render currently selected item text again if
+		// marquee is scrolled far enough for it to repeat
+		
+		if (mMarqueeOffset2 < 0)
+		{
+			trans = drawTrans;
+			trans.translate(off - Vector3f((float)mMarqueeOffset2, 0, 0));
+
+			if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
+			{
+				renderGlow(parentTrans, yOff, -mMarqueeOffset2);
+				onColorChanged();
+			}
+
+			Renderer::setMatrix(trans);
+			mFont->renderTextCache(mTextCache.get());
+			Renderer::setMatrix(drawTrans);
+		}
 
 		if (mReflection.x() != 0 || mReflection.y() != 0)
 		{
@@ -273,22 +324,68 @@ void TextComponent::onTextChanged()
 	Vector2f size = f->sizeText(text);
 	if(!isMultiline && sx && text.size() && (size.x() > sx || addAbbrev))
 	{
-		// abbreviate text
-		const std::string abbrev = "...";
-		Vector2f abbrevSize = f->sizeText(abbrev);
-
-		while(text.size() && size.x() + abbrevSize.x() > sx)
+		if (!mAutoScroll)
 		{
-			size_t newSize = Utils::String::prevCursor(text, text.size());
-			text.erase(newSize, text.size() - newSize);
-			size = f->sizeText(text);
-		}
+			// abbreviate text
+			const std::string abbrev = "...";
+			Vector2f abbrevSize = f->sizeText(abbrev);
 
-		text.append(abbrev);
+			while (text.size() && size.x() + abbrevSize.x() > sx)
+			{
+				size_t newSize = Utils::String::prevCursor(text, text.size());
+				text.erase(newSize, text.size() - newSize);
+				size = f->sizeText(text);
+			}
+
+			text.append(abbrev);
+		}
 
 		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
 	}else{
 		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
+	}
+}
+
+void TextComponent::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	int sy = mSize.y() - mPadding.y() - mPadding.w();
+	const bool isMultiline = (mSize.y() == 0 || sy > mFont->getHeight()*1.2f);
+
+	if (mAutoScroll && !isMultiline && mSize.x() > 0)
+	{
+		// always reset the marquee offsets
+		mMarqueeOffset = 0;
+		mMarqueeOffset2 = 0;
+
+		std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
+
+		// if we're not scrolling and this object's text goes outside our size, marquee it!
+		const float textLength = mFont->sizeText(text).x();
+		const float limit = mSize.x() - mPadding.x() - mPadding.z();
+		
+		if (textLength > limit)
+		{
+			// loop
+			// pixels per second ( based on nes-mini font at 1920x1080 to produce a speed of 200 )
+			const float speed = mFont->sizeText("ABCDEFGHIJKLMNOPQRSTUVWXYZ").x() * 0.247f;
+			const float delay = 3000;
+			const float scrollLength = textLength;
+			const float returnLength = speed * 1.5f;
+			const float scrollTime = (scrollLength * 1000) / speed;
+			const float returnTime = (returnLength * 1000) / speed;
+			const int   maxTime = (int)(delay + scrollTime + returnTime);
+
+			mMarqueeTime += deltaTime;
+			while (mMarqueeTime > maxTime)
+				mMarqueeTime -= maxTime;
+
+			mMarqueeOffset = (int)(Math::Scroll::loop(delay, scrollTime + returnTime, (float)mMarqueeTime, scrollLength + returnLength));
+
+			if (mMarqueeOffset > (scrollLength - (limit - returnLength)))
+				mMarqueeOffset2 = (int)(mMarqueeOffset - (scrollLength + returnLength));
+		}
 	}
 }
 
@@ -420,6 +517,11 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 			mReflectOnBorders = elem->get<bool>("reflexionOnFrame");
 		else
 			mReflectOnBorders = false;
+
+		if (elem->has("autoScroll"))
+			mAutoScroll = elem->get<bool>("autoScroll");
+		else
+			mAutoScroll = false;
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
