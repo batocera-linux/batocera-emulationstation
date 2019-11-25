@@ -9,6 +9,8 @@
 #include <fstream>
 #include "Log.h"
 #include "HttpReq.h"
+#include <chrono>
+#include <thread>
 
 #include "AudioManager.h"
 #include "VolumeControl.h"
