@@ -36,6 +36,8 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mImage = new ImageComponent(mWindow);
 	mImage->setOrigin(0.5f, 0.5f);
 
+	mLabel.setDefaultZIndex(10);
+
 	addChild(&mBackground);
 	addChild(&(*mImage));
 	addChild(&mLabel);
@@ -47,7 +49,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 void GridTileComponent::resetProperties()
 {
 	mDefaultProperties.Size = getDefaultTileSize();
-	mDefaultProperties.Padding = Vector2f(16.0f, 16.0f);
+	mDefaultProperties.Padding = Vector4f(16.0f, 16.0f, 16.0f, 16.0f);
 
 	mSelectedProperties.Size = getSelectedTileSize();
 	mSelectedProperties.Padding = mDefaultProperties.Padding;
@@ -66,6 +68,7 @@ void GridTileComponent::resetProperties()
 
 void GridTileComponent::forceSize(Vector2f size, float selectedZoom)
 {
+	mSize = size;
 	mDefaultProperties.Size = size;
 	mSelectedProperties.Size = size * selectedZoom;
 	mVideoPlayingProperties.Size = mSelectedProperties.Size;
@@ -122,10 +125,10 @@ void GridTileComponent::resize()
 		height = 0;
 
 	float topPadding = currentProperties.Padding.y();
-	float bottomPadding = std::max(topPadding, height);
+	float bottomPadding = std::max(currentProperties.Padding.w(), height);
 
-	Vector2f imageOffset = currentProperties.Padding;
-	Vector2f imageSize(size.x() - currentProperties.Padding.x() * 2.0, size.y() - topPadding - bottomPadding);
+	Vector2f imageOffset = Vector2f(currentProperties.Padding.x(), currentProperties.Padding.y());
+	Vector2f imageSize(size.x() - currentProperties.Padding.x() - currentProperties.Padding.z(), size.y() - topPadding - bottomPadding);
 
 	// Image
 	if (currentProperties.Image.Loaded)
@@ -134,7 +137,7 @@ void GridTileComponent::resize()
 
 		if (mImage != nullptr && currentProperties.Image.sizeMode != "maxSize" && isDefaultImage)
 			mImage->setMaxSize(imageSize.x(), imageSize.y());
-	}
+	}	
 	else if (mImage != nullptr)
 	{
 		// Retrocompatibility : imagegrid.image is not defined
@@ -167,7 +170,9 @@ void GridTileComponent::resize()
 
 	if (currentProperties.Label.Visible)
 	{
-		currentProperties.Label.updateTextComponent(&mLabel, mSize);
+		auto szRef = mLabelMerged ? mSize - imageOffset : mSize;
+
+		currentProperties.Label.updateTextComponent(&mLabel, szRef);
 		
 		// Automatic layout for not merged labels 
 		if (currentProperties.Label.pos.x() < 0)
@@ -179,7 +184,7 @@ void GridTileComponent::resize()
 			}
 			else
 			{
-				mLabel.setPosition(0, mSize.y() - labelHeight);
+				mLabel.setPosition(0, szRef.y() - labelHeight);
 				mLabel.setSize(size.x(), labelHeight);
 			}
 		}
@@ -235,7 +240,10 @@ void GridTileComponent::resize()
 	if (mImage != NULL && currentProperties.SelectionMode == "image" && mImage->getSize() != Vector2f(0, 0))
 	{
 		if (currentProperties.Image.sizeMode == "minSize")
-			bkSize = Vector2f(size.x(), size.y() - bottomPadding + topPadding);
+		{
+			if (!mLabelMerged)
+				bkSize = Vector2f(size.x(), size.y() - bottomPadding + topPadding);
+		}
 		else
 		{
 			bkPosition = Vector3f(imageOffset.x() - mSelectedProperties.Padding.x(), imageOffset.y() - mSelectedProperties.Padding.y(), 0);
@@ -328,20 +336,25 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	
 	if (!mLabelMerged && isMinSize)
 		Renderer::popClipRect();
-		
+
+	std::vector<GuiComponent*> zOrdered;
+
 	if (mMarquee != nullptr && mMarquee->hasImage())
-		mMarquee->render(trans);
-	else if (currentProperties.Label.Visible && currentProperties.Label.size.y()>0)
-		mLabel.render(trans);
-	else if (!currentProperties.Label.Visible && mIsDefaultImage)
-		mLabel.render(trans);
+		zOrdered.push_back(mMarquee);
+	else
+		zOrdered.push_back(&mLabel);
 
 	if (mFavorite != nullptr && mFavorite->hasImage() && mFavorite->isVisible())
-		mFavorite->render(trans);
+		zOrdered.push_back(mFavorite);
 
 	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible())
-		mImageOverlay->render(trans);
-	
+		zOrdered.push_back(mImageOverlay);
+
+	std::stable_sort(zOrdered.begin(), zOrdered.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
+
+	for (auto comp : zOrdered)
+		comp->render(trans);
+
 	if (mLabelMerged && isMinSize)
 		Renderer::popClipRect();
 }
@@ -362,7 +375,7 @@ void GridTileComponent::createMarquee()
 
 	mMarquee = new ImageComponent(mWindow);
 	mMarquee->setOrigin(0.5f, 0.5f);
-	mMarquee->setDefaultZIndex(35);
+	mMarquee->setDefaultZIndex(20);
 	addChild(mMarquee);
 }
 
@@ -373,7 +386,7 @@ void GridTileComponent::createFavorite()
 
 	mFavorite = new ImageComponent(mWindow);
 	mFavorite->setOrigin(0.5f, 0.5f);
-	mFavorite->setDefaultZIndex(35);
+	mFavorite->setDefaultZIndex(15);
 	mFavorite->setVisible(false);
 	
 	addChild(mFavorite);
@@ -386,7 +399,7 @@ void GridTileComponent::createImageOverlay()
 
 	mImageOverlay = new ImageComponent(mWindow);
 	mImageOverlay->setOrigin(0.5f, 0.5f);
-	mImageOverlay->setDefaultZIndex(35);
+	mImageOverlay->setDefaultZIndex(25);
 	mImageOverlay->setVisible(false);
 
 	addChild(mImageOverlay);
@@ -402,7 +415,7 @@ void GridTileComponent::createVideo()
 	// video
 	mVideo->setOrigin(0.5f, 0.5f);
 	mVideo->setStartDelay(VIDEODELAY);
-	mVideo->setDefaultZIndex(30);
+	mVideo->setDefaultZIndex(11);
 	addChild(mVideo);
 }
 
@@ -417,7 +430,7 @@ void GridTileComponent::applyThemeToProperties(const ThemeData::ThemeElement* el
 		properties.Size = elem->get<Vector2f>("size") * screen;
 
 	if (elem->has("padding"))
-		properties.Padding = elem->get<Vector2f>("padding");
+		properties.Padding = elem->get<Vector4f>("padding");
 
 	if (elem && elem->has("selectionMode"))
 		properties.SelectionMode = elem->get<std::string>("selectionMode");		
@@ -723,7 +736,9 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 			mLabelMerged = mDefaultProperties.Label.size.x() == 0;
 
 		// Apply theme to the <text name="gridtile:selected"> element
-		elem = theme->getElement(view, "gridtile:selected", "text");
+		elem = theme->getElement(view, "gridtile_selected", "text");
+		if (elem == nullptr)
+			elem = theme->getElement(view, "gridtile:selected", "text");
 		if (elem == nullptr) // Apply theme to the <text name="gridtile.text:selected"> element
 			elem = theme->getElement(view, "gridtile.text:selected", "text");
 
@@ -1004,6 +1019,21 @@ static Vector2f mixVectors(const Vector2f& def, const Vector2f& sel, float perce
 	float x = def.x() * (1.0 - percent) + sel.x() * percent;
 	float y = def.y() * (1.0 - percent) + sel.y() * percent;
 	return Vector2f(x, y);	
+}
+
+static Vector4f mixVectors(const Vector4f& def, const Vector4f& sel, float percent)
+{
+	if (def == sel || percent == 0)
+		return def;
+
+	if (percent == 1)
+		return sel;
+
+	float x = def.x() * (1.0 - percent) + sel.x() * percent;
+	float y = def.y() * (1.0 - percent) + sel.y() * percent;
+	float z = def.z() * (1.0 - percent) + sel.z() * percent;
+	float w = def.w() * (1.0 - percent) + sel.w() * percent;
+	return Vector4f(x, y, z, w);
 }
 
 static unsigned int mixUnsigned(const unsigned int def, const unsigned int sel, float percent)

@@ -34,6 +34,7 @@ struct ImageGridData
 	std::string marqueePath;
 	std::string videoPath;
 	bool		favorite;
+	bool		folder;
 };
 
 template<typename T>
@@ -58,7 +59,7 @@ public:
 
 	ImageGridComponent(Window* window);
 
-	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, const T& obj);
+	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -171,7 +172,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 }
 
 template<typename T>
-void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, const T& obj)
+void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, const T& obj)
 {
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
@@ -180,6 +181,7 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	entry.data.videoPath = videoPath;
 	entry.data.marqueePath = marqueePath;
 	entry.data.favorite = favorite;
+	entry.data.folder = folder;
 
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 	mEntriesDirty = true;
@@ -401,11 +403,11 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 template<typename T>
 void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
+	// Keep the theme pointer to apply it on the tiles later on
+	mTheme = nullptr;
+
 	// Apply theme to GuiComponent but not size property, which will be applied at the end of this function
 	GuiComponent::applyTheme(theme, view, element, properties ^ ThemeFlags::SIZE);
-
-	// Keep the theme pointer to apply it on the tiles later on
-	mTheme = theme;
 
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -538,16 +540,22 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 	// Apply size property, will trigger a call to onSizeChanged() which will build the tiles
 	GuiComponent::applyTheme(theme, view, element, ThemeFlags::SIZE | ThemeFlags::Z_INDEX);
 
+	// Keep the theme pointer to apply it on the tiles later on
+	mTheme = theme;
+
 	// Trigger the call manually if the theme have no "imagegrid" element
-	if (!elem)
-		buildTiles();
+	buildTiles();
+	updateTiles(false, false);
 }
 
 template<typename T>
 void ImageGridComponent<T>::onSizeChanged()
 {
+	if (mTheme == nullptr)
+		return;
+
 	buildTiles();
-	updateTiles();
+	updateTiles(false, false);
 }
 
 template<typename T>
@@ -826,7 +834,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 
 		if (ResourceManager::getInstance()->fileExists(imagePath))
 			tile->setImage(imagePath);
-		else if (mEntries.at(imgPos).object->getType() == 2 || (mEntries.at(imgPos).object->getType() == 3 && mEntries.at(imgPos).object->getPath() == ".."))
+		else if (mEntries.at(imgPos).data.folder && Utils::String::startsWith(name, "."))
 			tile->setImage(mDefaultFolderTexture, true);
 		else
 			tile->setImage(mDefaultGameTexture, true);
@@ -848,8 +856,6 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 
 			if (!videoPath.empty() && ResourceManager::getInstance()->fileExists(videoPath))
 				tile->setVideo(videoPath, mVideoDelay);
-			else if (mEntries.at(imgPos).object->getType() == 2)
-				tile->setVideo("");
 			else
 				tile->setVideo("");
 		}
@@ -932,9 +938,9 @@ void ImageGridComponent<T>::buildTiles()
 			X = vert ? x : y - EXTRAITEMS;
 			Y = vert ? y - EXTRAITEMS : x;
 
-			tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
 			tile->setOrigin(0.5f, 0.5f);
-	//		tile->resetImages();
+			tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
+			tile->setSize(mTileSize);
 
 			if (mTheme)
 				tile->applyTheme(mTheme, mName, "gridtile", ThemeFlags::ALL);
