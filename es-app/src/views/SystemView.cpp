@@ -501,6 +501,13 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	cancelAnimation(2);
 
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	if (transition_style == "auto")
+	{
+		if (mCarousel.defaultTransition == "instant" || mCarousel.defaultTransition == "fade" || mCarousel.defaultTransition == "slide")
+			transition_style = mCarousel.defaultTransition;
+		else
+			transition_style = "slide";
+	}
 
 	int systemInfoDelay = mCarousel.systemInfoDelay;
 
@@ -545,6 +552,9 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	if (mLastCursor == mCursor)
 		return;
+
+	if (!mCarousel.scrollSound.empty())
+		Sound::get(mCarousel.scrollSound)->play();
 
 	int oldCursor = mLastCursor;
 	mLastCursor = mCursor;
@@ -942,6 +952,8 @@ void  SystemView::getDefaultElements(void)
 	mCarousel.maxLogoCount = 3;
 	mCarousel.zIndex = 40;
 	mCarousel.systemInfoDelay = 2000;
+	mCarousel.scrollSound = "";
+	mCarousel.defaultTransition = "";
 
 	// System Info Bar
 	mSystemInfo.setSize(mSize.x(), mSystemInfo.getFont()->getLetterHeight()*2.2f);
@@ -1018,7 +1030,12 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 
 	if (elem->has("systemInfoDelay"))
 		mCarousel.systemInfoDelay = elem->get<float>("systemInfoDelay");
-	
+
+	if (elem->has("scrollSound"))
+		mCarousel.scrollSound = elem->get<std::string>("scrollSound");
+
+	if (elem->has("defaultTransition"))
+		mCarousel.defaultTransition = elem->get<std::string>("defaultTransition");
 }
 
 void SystemView::onShow()

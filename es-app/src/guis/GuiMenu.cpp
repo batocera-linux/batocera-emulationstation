@@ -1858,17 +1858,23 @@ void GuiMenu::openUISettings()
 	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
 		_("TRANSITION STYLE"),
 		false);
+
 	std::vector<std::string> transitions;
+	transitions.push_back("auto");
 	transitions.push_back("fade");
 	transitions.push_back("slide");
 	transitions.push_back("instant");
+
 	for (auto it = transitions.begin(); it != transitions.end(); it++)
 		transition_style->add(_(it->c_str()), *it, Settings::getInstance()->getString("TransitionStyle") == *it);
+
+	if (!transition_style->hasSelection())
+		transition_style->selectFirstItem();
+
 	s->addWithLabel(_("TRANSITION STYLE"), transition_style);
-	s->addSaveFunc([transition_style] {
-		if (transition_style->changed()) {
-			Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());
-		}
+	s->addSaveFunc([transition_style] 
+	{
+		Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());		
 	});
 
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
