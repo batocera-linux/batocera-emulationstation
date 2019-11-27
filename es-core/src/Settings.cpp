@@ -114,7 +114,7 @@ void Settings::setDefaults()
 	#endif
 #endif
 
-	mStringMap["TransitionStyle"] = "slide"; // batocera
+	mStringMap["TransitionStyle"] = "auto"; // batocera
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
 	mStringMap["GamelistViewStyle"] = "automatic";

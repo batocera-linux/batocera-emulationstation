@@ -238,7 +238,7 @@ const std::string FileData::getImagePath()
 
 					if (Utils::FileSystem::exists(path))
 					{
-						getMetadata().setDirty();
+						setMetadata("image", path);
 						image = path;
 					}
 				}

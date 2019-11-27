@@ -212,10 +212,12 @@ void ViewController::playViewTransition(bool forceImmediate)
 			advanceAnimation(0, FADE_DURATION);
 			advanceAnimation(0, FADE_WAIT);
 			advanceAnimation(0, FADE_DURATION - (int)(mFadeOpacity * FADE_DURATION));
-		}else{
-			advanceAnimation(0, (int)(mFadeOpacity * FADE_DURATION));
 		}
-	} else if (!forceImmediate && transition_style == "slide"){
+		else
+			advanceAnimation(0, (int)(mFadeOpacity * FADE_DURATION));		
+	} 
+	else if (!forceImmediate && (transition_style == "slide" || transition_style == "auto"))
+	{
 		// slide or simple slide
 		setAnimation(new MoveCameraAnimation(mCamera, target));
 		updateHelpPrompts(); // update help prompts immediately

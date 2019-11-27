@@ -228,7 +228,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoPos", NORMALIZED_PAIR },
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
-		{ "systemInfoDelay", FLOAT },		
+		{ "systemInfoDelay", FLOAT },	
+		{ "defaultTransition", STRING },
+		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 	{ "menuText", {
 		{ "fontPath", PATH },
