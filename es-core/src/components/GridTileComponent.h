@@ -166,7 +166,7 @@ public:
 struct GridTileProperties
 {
 	Vector2f				Size;
-	Vector2f				Padding;
+	Vector4f				Padding;
 	std::string				SelectionMode;
 
 	GridNinePatchProperties Background;

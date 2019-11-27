@@ -58,7 +58,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollLoop", BOOLEAN } } },
 	{ "gridtile", {
 		{ "size", NORMALIZED_PAIR },
-		{ "padding", NORMALIZED_PAIR },
+		{ "padding", NORMALIZED_RECT },
 		{ "imageColor", COLOR },
 		{ "backgroundImage", PATH },
 		{ "backgroundCornerSize", NORMALIZED_PAIR },
@@ -89,7 +89,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "glowColor", COLOR },
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },
-		{ "autoScroll", BOOLEAN },
+		{ "singleLineScroll", BOOLEAN },
 		{ "padding", NORMALIZED_RECT },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
