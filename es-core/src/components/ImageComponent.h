@@ -115,6 +115,9 @@ public:
 
 	void setPlaylist(std::shared_ptr<IPlaylist> playList);
 
+	std::string getImagePath() { return mPath; }
+	bool isTiled();
+
 private:
 	Vector2f mTargetSize;
 
