@@ -211,6 +211,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "color", COLOR },
 	 	{ "zIndex", FLOAT },		
 		{ "snapshotSource", STRING }, // image, thumbnail, marquee
+		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {

@@ -107,6 +107,7 @@ namespace PlatformIds
 		SPECTRAVIDEO,
 		PALMOS,
 		DAPHNEE,
+		SOLARUS,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT

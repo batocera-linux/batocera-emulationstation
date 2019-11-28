@@ -38,7 +38,13 @@ public:
 	VideoComponent(Window* window);
 	virtual ~VideoComponent();
 
-	std::string getValue() const override { return "VideoComponent"; }
+	std::string getValue() const override 
+	{ 
+		if (mPlayingVideoPath.empty())
+			return mPlayingVideoPath;
+
+		return mVideoPath;		
+	}
 
 	// Loads the video at the given filepath
 	bool setVideo(std::string path);
