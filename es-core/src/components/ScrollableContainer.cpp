@@ -4,7 +4,7 @@
 #include "renderers/Renderer.h"
 
 #define AUTO_SCROLL_RESET_DELAY 3000 // ms to reset to top after we reach the bottom
-#define AUTO_SCROLL_DELAY 1000 // ms to wait before we start to scroll
+#define AUTO_SCROLL_DELAY 3000 // ms to wait before we start to scroll
 #define AUTO_SCROLL_SPEED 50 // ms between scrolls
 
 ScrollableContainer::ScrollableContainer(Window* window) : GuiComponent(window), 
