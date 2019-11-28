@@ -241,7 +241,7 @@ void GridTileComponent::resize()
 	{
 		if (currentProperties.Image.sizeMode == "minSize")
 		{
-			if (!mLabelMerged)
+			if (!mLabelMerged && currentProperties.Label.Visible)
 				bkSize = Vector2f(size.x(), size.y() - bottomPadding + topPadding);
 		}
 		else
