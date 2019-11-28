@@ -19,6 +19,7 @@
 #include <mutex>
 #include "components/AsyncNotificationComponent.h"
 #include "components/ControllerActivityComponent.h"
+#include "guis/GuiMsgBox.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
@@ -441,7 +442,7 @@ void Window::render()
 		bottom->render(transform);
 		if(bottom != top)
 		{
-			if (mTransiting == nullptr && top->getValue() == "GuiMsgBox" && mGuiStack.size() > 2)
+			if (mTransiting == nullptr && top->isKindOf<GuiMsgBox>() && mGuiStack.size() > 2)
 			{
 				auto& middle = mGuiStack.at(mGuiStack.size()-2);
 				if (middle != bottom)

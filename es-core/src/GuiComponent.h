@@ -34,6 +34,9 @@ public:
 	GuiComponent(Window* window);
 	virtual ~GuiComponent();
 
+	template<typename T>
+	bool isKindOf() { return (dynamic_cast<T*>(this) != nullptr); }
+
 	virtual void textInput(const char* text);
 
 	//Called when input is received.

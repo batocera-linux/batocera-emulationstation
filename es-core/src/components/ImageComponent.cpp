@@ -5,6 +5,7 @@
 #include "Settings.h"
 #include "ThemeData.h"
 #include "LocaleES.h"
+#include "utils/FileSystemUtil.h"
 
 Vector2i ImageComponent::getTextureSize() const
 {
@@ -148,17 +149,18 @@ void ImageComponent::setDefaultImage(std::string path)
 
 void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
-	if (mPath == path)
+	std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
+	if (mPath == canonicalPath)
 		return;
-
-	mPath = path;
+	
+	mPath = canonicalPath;
 
 	// If the previous image is in the async queue, remove it
 	TextureResource::cancelAsync(mLoadingTexture);
 	TextureResource::cancelAsync(mTexture);
 	mLoadingTexture.reset();
 
-	if(path.empty() || !ResourceManager::getInstance()->fileExists(path))
+	if (mPath.empty() || !ResourceManager::getInstance()->fileExists(mPath))
 	{
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
@@ -167,7 +169,7 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	} 
 	else
 	{
-		std::shared_ptr<TextureResource> texture = TextureResource::get(path, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+		std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 
 		if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
 			mLoadingTexture = texture;

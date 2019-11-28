@@ -231,17 +231,17 @@ void SystemView::populate()
 			// make background extras
 			e.data.backgroundExtras = ThemeData::makeExtras((*it)->getTheme(), "system", mWindow);
 
-			for (auto bx : e.data.backgroundExtras)
+			for (auto extra : e.data.backgroundExtras)
 			{
-				if (bx->getValue() == "VideoComponent")
+				if (extra->isKindOf<VideoComponent>())
 				{
-					auto elem = (*it)->getTheme()->getElement("system", bx->getTag(), "video");
+					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "video");
 					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
-						((VideoComponent*)bx)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
+						((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
 				}
-				else if (bx->getValue() == "ImageComponent")
+				else if (extra->isKindOf<ImageComponent>())
 				{
-					auto elem = (*it)->getTheme()->getElement("system", bx->getTag(), "image");
+					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "image");
 					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
 					{
 						std::string src = elem->get<std::string>("path");
@@ -253,7 +253,7 @@ void SystemView::populate()
 						else if (src == "{random:marquee}")
 							type = SystemRandomPlaylist::MARQUEE;
 
-						((ImageComponent*)bx)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
+						((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
 					}
 				}
 			}
@@ -910,30 +910,30 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		// paths & values must have only the elements that are not common 
 		if (mCursor >= 0 && mCursor < mEntries.size())
 		{
-			for (GuiComponent *extra : mEntries.at(mCursor).data.backgroundExtras)
+			for (GuiComponent* extra : mEntries.at(mCursor).data.backgroundExtras)
 			{
 				if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 					continue;
 
 				std::string value = extra->getValue();
-				if (value == "ImageComponent")
-					paths.insert(Utils::FileSystem::getCanonicalPath(((ImageComponent*)extra)->getImagePath()));
-				else if (value != "VideoComponent")
+				if (extra->isKindOf<ImageComponent>())
+					paths.insert(value);
+				else if (extra->isKindOf<TextComponent>())
 					values.insert(value);
 			}
 
 			allValues = values;
 			allPaths = paths;
 
-			for (GuiComponent *extra : mEntries.at(mExtrasFadeOldCursor).data.backgroundExtras)
+			for (GuiComponent* extra : mEntries.at(mExtrasFadeOldCursor).data.backgroundExtras)
 			{
 				if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 					continue;
 
 				std::string value = extra->getValue();
-				if (value == "ImageComponent")
-					paths.erase(Utils::FileSystem::getCanonicalPath(((ImageComponent*)extra)->getImagePath()));
-				else if (value != "VideoComponent")
+				if (extra->isKindOf<ImageComponent>())
+					paths.erase(value);
+				else if (extra->isKindOf<TextComponent>())
 					values.erase(value);
 			}
 		}
@@ -941,20 +941,20 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		Renderer::pushClipRect(Vector2i((int)trans.translation()[0], (int)trans.translation()[1]), Vector2i((int)mSize.x(), (int)mSize.y()));
 
 		// ExtrasFadeOpacity : Render only items with different paths or values
-		for (GuiComponent *extra : mEntries.at(mExtrasFadeOldCursor).data.backgroundExtras)
+		for (GuiComponent* extra : mEntries.at(mExtrasFadeOldCursor).data.backgroundExtras)
 		{
 			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 				continue;
 			
 			std::string value = extra->getValue();
-			if (value == "ImageComponent")
+			if (extra->isKindOf<ImageComponent>())
 			{
-				if (allPaths.find(Utils::FileSystem::getCanonicalPath(((ImageComponent*)extra)->getImagePath())) == allPaths.cend())
+				if (allPaths.find(value) == allPaths.cend())
 					extra->render(trans);
 				else if (((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
 					extra->render(trans);
 			}
-			else if (allValues.find(value) == allValues.cend())
+			else if (extra->isKindOf<TextComponent>() && allValues.find(value) == allValues.cend())
 				extra->render(trans);
 		}
 
@@ -995,10 +995,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 				if (mExtrasFadeOpacity)
 				{
 					std::string value = extra->getValue();
-					if (value == "ImageComponent")
+					if (extra->isKindOf<ImageComponent>())
 					{
-						std::string imagePath = Utils::FileSystem::getCanonicalPath(((ImageComponent*)extra)->getImagePath());
-						if (paths.find(imagePath) != paths.cend())
+						if (paths.find(value) != paths.cend())
 						{
 							auto opa = extra->getOpacity();
 							extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
@@ -1015,7 +1014,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 							continue;
 						}
 					}
-					else if (values.find(value) != values.cend())
+					else if (extra->isKindOf<TextComponent>() && values.find(value) != values.cend())
 					{
 						auto opa = extra->getOpacity();
 						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
