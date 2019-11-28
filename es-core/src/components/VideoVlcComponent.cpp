@@ -689,7 +689,11 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
 	if (elem && elem->has("effect"))
 	{
-		if (!(elem->get<std::string>("effect").compare("bump")))
+		if (!(elem->get<std::string>("effect").compare("slideRight")))
+			mEffect = VideoVlcFlags::VideoVlcEffect::SLIDERIGHT;
+		else if (!(elem->get<std::string>("effect").compare("size")))
+			mEffect = VideoVlcFlags::VideoVlcEffect::SIZE;
+		else if (!(elem->get<std::string>("effect").compare("bump")))
 			mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
 		else
 			mEffect = VideoVlcFlags::VideoVlcEffect::NONE;
