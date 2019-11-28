@@ -2,6 +2,7 @@
 
 #include <map>
 #include <string.h>
+#include "utils/StringUtil.h"
 
 namespace PlatformIds
 {
@@ -109,13 +110,14 @@ namespace PlatformIds
 		{ "oric",					ORICATMOS },
 		{ "thomson",				THOMSON_TO_MO },
 		{ "samcoupe",				SAMCOUPE },
-		{ "OpenBOR",				OPENBOR },
+		{ "openbor",				OPENBOR },
 		{ "uzebox",					UZEBOX },
-		{ "apple2gs",				APPLE2GS },
-		{ "Spectravideo",			SPECTRAVIDEO },
+		{ "apple2gs",				APPLE2GS },			
+		{ "spectravideo",			SPECTRAVIDEO },
 		{ "palm",					PALMOS },
 		{ "daphne",					DAPHNEE },
-
+		{ "solarus",				SOLARUS },
+						
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};
@@ -125,7 +127,7 @@ namespace PlatformIds
 		if (str == nullptr)
 			return PLATFORM_UNKNOWN;
 
-		auto it = Platforms.find(str);
+		auto it = Platforms.find(Utils::String::toLower(str).c_str());
 		if (it != Platforms.end())
 			return (*it).second;
 

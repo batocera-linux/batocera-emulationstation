@@ -125,7 +125,9 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ APPLE2GS, 217 },
 	{ SPECTRAVIDEO, 218 },
 	{ PALMOS, 219 },
-	{ DAPHNEE, 49 }
+	{ DAPHNEE, 49 },
+	{ SOLARUS, 223 }
+	
 };
 
 
