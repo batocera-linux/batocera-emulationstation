@@ -591,12 +591,12 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 			if (t < 0.3f)
 				this->mExtrasFadeOpacity = 1.0f;
+			else if (t >= 0.7f)
+				this->mExtrasFadeOpacity = 0.0f;
 			else
-				this->mExtrasFadeOpacity = Math::lerp(1.0f, 0.0f, (t - 0.3f) / 0.7f);
-				//this->mExtrasFadeOpacity = Math::lerp(1.0f, 0.0f, t);
+				this->mExtrasFadeOpacity = Math::lerp(1.0f, 0.0f, (t - 0.3f) / 0.4f);
 
-			//if(t > 0.5f)
-				this->mExtrasCamOffset = endPos;
+			this->mExtrasCamOffset = endPos;
 
 		}, 500);
 	} else if (transition_style == "slide") {
