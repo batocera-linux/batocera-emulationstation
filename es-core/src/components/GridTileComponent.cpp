@@ -609,7 +609,11 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	if (grid && grid->has("showVideoAtDelay"))
 	{
 		createVideo();
-		mVideo->applyTheme(theme, view, element, properties);
+
+		if (theme->getElement(view, "gridtile", "video"))
+			mVideo->applyTheme(theme, view, "gridtile", ThemeFlags::ALL ^ (ThemeFlags::PATH));
+		else if (theme->getElement(view, "gridtile.video", "video"))
+			mVideo->applyTheme(theme, view, "gridtile.video", ThemeFlags::ALL ^ (ThemeFlags::PATH));
 	}
 	else if (mVideo != nullptr)
 	{

@@ -113,6 +113,9 @@ private:
 
 	unsigned int					mColorShift;
 	int								mElapsed;
+
+	int								mCurrentLoop;
+	int								mLoops;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

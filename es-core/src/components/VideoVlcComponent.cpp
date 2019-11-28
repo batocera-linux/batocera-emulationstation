@@ -65,6 +65,9 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 {
 	mElapsed = 0;
 	mColorShift = 0xFFFFFFFF;
+	
+	mLoops = -1;
+	mCurrentLoop = 0;
 
 	// Get an empty texture for rendering the video
 	mTexture = nullptr;// TextureResource::get("");
@@ -471,6 +474,20 @@ void VideoVlcComponent::handleLooping()
 		libvlc_state_t state = libvlc_media_player_get_state(mMediaPlayer);
 		if (state == libvlc_Ended)
 		{
+			if (mLoops >= 0)
+			{
+				mCurrentLoop++;
+				if (mCurrentLoop > mLoops)
+				{
+					stopVideo();
+
+					mFadeIn = 0.0;
+					mPlayingVideoPath = "";
+					mVideoPath = "";
+					return;
+				}
+			}
+
 			if (mPlaylist != nullptr)
 			{
 				auto nextVideo = mPlaylist->getNextItem();
@@ -512,6 +529,7 @@ void VideoVlcComponent::startVideo()
 	if (mIsPlaying)
 		return;
 
+	mCurrentLoop = 0;
 	mVideoWidth = 0;
 	mVideoHeight = 0;
 
@@ -685,6 +703,11 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		if (elem && elem->has("color"))
 			setColorShift(elem->get<unsigned int>("color"));
 	}
+
+	if (elem && elem->has("loops"))
+		mLoops = (int)elem->get<float>("loops");
+	else
+		mLoops = -1;
 }
 
 void VideoVlcComponent::update(int deltaTime)
