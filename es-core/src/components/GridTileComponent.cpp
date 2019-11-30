@@ -531,7 +531,11 @@ bool GridTextProperties::applyTheme(const ThemeData::ThemeElement* elem)
 		pos = elem->get<Vector2f>("pos");
 
 	if (elem && elem->has("size"))
+	{
 		size = elem->get<Vector2f>("size");
+		if (size.y() == 0)
+			Visible = false;
+	}
 
 	if (elem && elem->has("color"))
 		color = elem->get<unsigned int>("color");
@@ -735,6 +739,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		mDefaultProperties.Label.applyTheme(elem);
 		mSelectedProperties.Label.applyTheme(elem);		
 
+		bool hasVisible = elem->has("visible");
 		mLabelMerged = elem->has("pos");
 		if (!mLabelMerged && elem->has("size"))
 			mLabelMerged = mDefaultProperties.Label.size.x() == 0;
@@ -747,7 +752,11 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 			elem = theme->getElement(view, "gridtile.text:selected", "text");
 
 		if (elem)
+		{
 			mSelectedProperties.Label.applyTheme(elem);
+			if (hasVisible && !elem->has("visible"))
+				mSelectedProperties.Label.Visible = mDefaultProperties.Label.Visible;
+		}
 	}
 
 	// Apply theme to the <ninepatch name="gridtile"> element
