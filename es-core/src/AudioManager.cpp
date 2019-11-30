@@ -231,6 +231,7 @@ void AudioManager::playMusic(std::string path)
 		return;
 	}
 
+	mCurrentMusicPath = path;
 	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 }
 
@@ -263,6 +264,7 @@ void AudioManager::stopMusic(bool fadeOut)
 
 	Mix_HaltMusic();
 	Mix_FreeMusic(mCurrentMusic);
+	mCurrentMusicPath = "";
 	mCurrentMusic = NULL;
 }
 
@@ -365,7 +367,11 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 
 		elem = theme->getElement("system", "bgsound", "sound");
 		if (elem && elem->has("path") && Utils::FileSystem::exists(elem->get<std::string>("path")))
-			bgSound = elem->get<std::string>("path");
+		{
+			bgSound = Utils::FileSystem::getCanonicalPath(elem->get<std::string>("path"));
+			if (bgSound == mCurrentMusicPath)
+				return;
+		}
 
 		// Found a music for the system
 		if (!bgSound.empty())

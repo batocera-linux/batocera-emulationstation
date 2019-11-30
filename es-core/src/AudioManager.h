@@ -28,6 +28,7 @@ private:
 	std::string mSystemName;				// batocera (per system music folder)
 	std::string mCurrentSong;			// batocera (pop-up for SongName.cpp)
 	std::string mCurrentThemeMusicDirectory;
+	std::string mCurrentMusicPath;
 
 	bool		mInitialized;
 	std::string	mPlayingSystemThemeSong;
