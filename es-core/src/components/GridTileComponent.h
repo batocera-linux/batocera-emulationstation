@@ -97,6 +97,7 @@ public:
 		text->setBackgroundColor(backColor);
 		text->setGlowColor(glowColor);
 		text->setGlowSize(glowSize);
+		text->setAutoScroll(autoScroll);
 		text->setFont(fontPath, fontSize * (float)Renderer::getScreenHeight());
 	}
 
@@ -116,6 +117,7 @@ public:
 
 	std::string  fontPath;
 	float fontSize;
+	bool autoScroll;
 };
 
 struct GridNinePatchProperties

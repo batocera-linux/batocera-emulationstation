@@ -309,7 +309,7 @@ void TextComponent::onTextChanged()
 	std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 	std::shared_ptr<Font> f = mFont;
-	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > f->getHeight()*1.2f);
+	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > f->getHeight()*1.95f);
 
 	bool addAbbrev = false;
 	if(!isMultiline)
@@ -351,7 +351,7 @@ void TextComponent::update(int deltaTime)
 	GuiComponent::update(deltaTime);
 
 	int sy = mSize.y() - mPadding.y() - mPadding.w();
-	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > mFont->getHeight()*1.2f);
+	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > mFont->getHeight()*1.95f);
 
 	if (mAutoScroll && !isMultiline && mSize.x() > 0)
 	{
@@ -370,7 +370,7 @@ void TextComponent::update(int deltaTime)
 			// loop
 			// pixels per second ( based on nes-mini font at 1920x1080 to produce a speed of 200 )
 			const float speed = mFont->sizeText("ABCDEFGHIJKLMNOPQRSTUVWXYZ").x() * 0.247f;
-			const float delay = 3000;
+			const float delay = 1000;
 			const float scrollLength = textLength;
 			const float returnLength = speed * 1.5f;
 			const float scrollTime = (scrollLength * 1000) / speed;
@@ -531,4 +531,13 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
+}
+
+void TextComponent::setAutoScroll(bool value)
+{
+	if (mAutoScroll == value)
+		return;
+
+	mAutoScroll = value;
+	onTextChanged();
 }
