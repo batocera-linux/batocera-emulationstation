@@ -173,7 +173,10 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor, bgColor);
 	}
 
-	if(mTextCache && mFont)
+	if (mAutoScroll)
+		Renderer::pushClipRect(Vector2i(trans.translation().x(), trans.translation().y()), Vector2i(mSize.x(), mSize.y()));
+
+	if (mTextCache && mFont)
 	{
 		const Vector2f& textSize = mTextCache->metrics.size;
 		float yOff = 0;
@@ -277,6 +280,9 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 			mFont->renderGradientTextCache(mTextCache.get(), colorB, colorT);
 		}
+
+		if (mAutoScroll)
+			Renderer::popClipRect();
 	}
 }
 
