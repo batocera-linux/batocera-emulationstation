@@ -555,6 +555,9 @@ bool GridTextProperties::applyTheme(const ThemeData::ThemeElement* elem)
 	if (elem && elem->has("fontPath"))
 		fontPath = elem->get<std::string>("fontPath");
 
+	if (elem->has("singleLineScroll"))
+		autoScroll = elem->get<bool>("singleLineScroll");
+
 	return true;
 }
 

@@ -50,6 +50,9 @@ public:
 
 	virtual void update(int deltaTime);
 
+	bool getAutoScroll() { return mAutoScroll; }
+	void setAutoScroll(bool value);
+
 protected:
 	virtual void onTextChanged();
 

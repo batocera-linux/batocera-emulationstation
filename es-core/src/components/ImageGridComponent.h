@@ -28,6 +28,14 @@ enum ImageSource
 	MARQUEE
 };
 
+enum CenterSelection
+{
+	FULL,
+	PARTIAL,
+	NEVER
+};
+
+
 struct ImageGridData
 {
 	std::string texturePath;
@@ -126,7 +134,8 @@ private:
 	float mCameraDirection;
 
 	// MISCELLANEOUS
-	bool mCenterSelection;
+	CenterSelection mCenterSelection;
+
 	bool mScrollLoop;
 
 	ScrollDirection mScrollDirection;
@@ -164,7 +173,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 
 	mImageSource = THUMBNAIL;
 
-	mCenterSelection = false;
+	mCenterSelection = CenterSelection::NEVER;
 	mScrollLoop = false;
 	mScrollDirection = SCROLL_VERTICALLY;
 
@@ -447,22 +456,22 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 			auto direction = elem->get<std::string>("scrollDirection");
 			if (direction == "horizontal")
 			{
-				mCenterSelection = false;
+				mCenterSelection = CenterSelection::PARTIAL;
 				mScrollDirection = SCROLL_HORIZONTALLY;
 			}
 			else if (direction == "horizontalCenter")
 			{
-				mCenterSelection = true;
+				mCenterSelection = CenterSelection::FULL;
 				mScrollDirection = SCROLL_HORIZONTALLY;
 			}
 			else if (direction == "verticalCenter")
 			{
-				mCenterSelection = true;
+				mCenterSelection = CenterSelection::FULL;
 				mScrollDirection = SCROLL_VERTICALLY;
 			}
 			else
 			{
-				mCenterSelection = false;
+				mCenterSelection = CenterSelection::NEVER;
 				mScrollDirection = SCROLL_VERTICALLY;
 			}
 		}
@@ -476,9 +485,16 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 			mAllowVideo = false;
 
 		if (elem->has("centerSelection"))
-			mCenterSelection = (elem->get<bool>("centerSelection"));
+		{
+			if (!(elem->get<std::string>("centerSelection").compare("true")))
+				mCenterSelection = CenterSelection::FULL;
+			else if (!(elem->get<std::string>("centerSelection").compare("partial")))
+				mCenterSelection = CenterSelection::PARTIAL;
+			else 
+				mCenterSelection = CenterSelection::NEVER;
+		}
 
-		if (mCenterSelection && elem->has("scrollLoop"))
+		if (mCenterSelection != CenterSelection::NEVER && elem->has("scrollLoop"))
 			mScrollLoop = (elem->get<bool>("scrollLoop"));
 		else
 			mScrollLoop = false;
@@ -655,24 +671,36 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 	
 	int firstVisibleCol = mStartPosition / dimOpposite;
 
-	if ((col < centralCol || (col == 0 && col == centralCol)) && !mCenterSelection)
-		mStartPosition = 0;
-	else if ((col - centralCol) > lastScroll && !mCenterSelection && !mScrollLoop)
-		mStartPosition = lastScroll * dimOpposite;
-	else if (maxCentralCol != centralCol && col == firstVisibleCol + maxCentralCol || col == firstVisibleCol + centralCol)
+	if (mCenterSelection == CenterSelection::NEVER)
 	{
-		if (col == firstVisibleCol + maxCentralCol)
-			mStartPosition = (col - maxCentralCol) * dimOpposite;
-		else
-			mStartPosition = (col - centralCol) * dimOpposite;
+		if (col == 0)
+			mStartPosition = 0;
+		if (col < firstVisibleCol)
+			mStartPosition = col * dimOpposite;
+		else if (col >= firstVisibleCol + dimScrollable)
+			mStartPosition = (col - dimScrollable + 1) * dimOpposite;
 	}
 	else
 	{
-		if (oldCol == firstVisibleCol + maxCentralCol)
-			mStartPosition = (col - maxCentralCol) * dimOpposite;
+		if ((col < centralCol || (col == 0 && col == centralCol)) && mCenterSelection == CenterSelection::PARTIAL)
+			mStartPosition = 0;
+		else if ((col - centralCol) > lastScroll && mCenterSelection == CenterSelection::PARTIAL && !mScrollLoop)
+			mStartPosition = lastScroll * dimOpposite;
+		else if (maxCentralCol != centralCol && col == firstVisibleCol + maxCentralCol || col == firstVisibleCol + centralCol)
+		{
+			if (col == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
 		else
-			mStartPosition = (col - centralCol) * dimOpposite;
-	}	
+		{
+			if (oldCol == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
+	}
 
 	auto lastCursor = mLastCursor;
 	mLastCursor = mCursor;
@@ -897,7 +925,7 @@ void ImageGridComponent<T>::buildTiles()
 
 	calcGridDimension();
 
-	if (mCenterSelection)
+	if (mCenterSelection != CenterSelection::NEVER)
 	{
 		int dimScrollable = (isVertical() ? mGridDimension.y() : mGridDimension.x()) - 2 * EXTRAITEMS;
 		mStartPosition -= (int)Math::floorf(dimScrollable / 2.0f);
