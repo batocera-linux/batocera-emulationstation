@@ -11,10 +11,10 @@
 static std::vector<MetaDataDecl> gameMDD;
 static std::vector<MetaDataDecl> folderMDD;
 
-static std::string mDefaultGameMap[18];
+static std::string mDefaultGameMap[20];
 static std::string mDefaultFolderMap[14];
 
-static MetaDataType mGameTypeMap[18];
+static MetaDataType mGameTypeMap[20];
 static MetaDataType mFolderTypeMap[14];
 
 static std::map<std::string, unsigned char> mGameIdMap;
@@ -41,6 +41,10 @@ void MetaDataList::initMetadata()
 	gameMDD.push_back(MetaDataDecl(15, "kidgame", MD_BOOL, "false", false, _("Kidgame"), _("set kidgame")));
 	gameMDD.push_back(MetaDataDecl(16, "playcount", MD_INT, "0", true, _("Play count"), _("enter number of times played")));
 	gameMDD.push_back(MetaDataDecl(17, "lastplayed", MD_TIME, "0", true, _("Last played"), _("enter last played date")));
+
+	gameMDD.push_back(MetaDataDecl(18, "crc32", MD_STRING, "", false, _("Crc32"), _("Crc32 checksum")));
+	gameMDD.push_back(MetaDataDecl(19, "md5", MD_STRING, "", false, _("Md5"), _("Md5 checksum")));
+
 
 	folderMDD.push_back(MetaDataDecl(0, "name", MD_STRING, "", false, _("name"), _("enter game name")));
 	//  folderMDD.push_back(MetaDataDecl(1, "sortname",	MD_STRING,		"", 		false, _("sortname"),    _("enter game sort name")));
@@ -258,7 +262,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 	for (auto mdd : getMDD())
 	{
-		if (mdd.key == "favorite" || mdd.key == "playcount" || mdd.key == "lastplayed")
+		if (mdd.key == "favorite" || mdd.key == "playcount" || mdd.key == "lastplayed" || mdd.key == "crc32" || mdd.key == "md5")
 			continue;
 
 		if (mdd.key == "image" && (type & MetaDataImportType::Types::IMAGE) != MetaDataImportType::Types::IMAGE)

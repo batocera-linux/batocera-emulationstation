@@ -8,6 +8,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 #include "Window.h"
+#include "SystemConf.h"
 #include "guis/GuiGamelistOptions.h"
 
 #ifdef _RPI_
@@ -696,13 +697,18 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 
 	if(Settings::getInstance()->getBool("QuickSystemSelect"))
 		prompts.push_back(HelpPrompt("lr", _("SYSTEM"))); // batocera
+
 	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	if(!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
-	if(mRoot->getSystem()->isGameSystem())
+
+	if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
+		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+	else if(mRoot->getSystem()->isGameSystem())
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
 	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
 	{
 		std::string prompt = CollectionSystemManager::get()->getEditingCollection();

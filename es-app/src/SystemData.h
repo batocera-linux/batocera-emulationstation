@@ -117,6 +117,8 @@ public:
 	void setGamelistHash(size_t size) { mGameListHash = size; }
 	size_t getGamelistHash() { return mGameListHash; }
 
+	bool isNetplaySupported();
+
 private:
 	size_t mGameListHash;
 

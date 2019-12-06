@@ -40,6 +40,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
+#include "ThreadedHasher.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -989,6 +990,44 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 	mWindow->pushGui(guiLatency);
 }
 
+void GuiMenu::openNetplaySettings()
+{
+	GuiSettings* settings = new GuiSettings(mWindow, _("NETPLAY SETTINGS").c_str());
+
+	// Enable
+	auto enableNetplay = std::make_shared<SwitchComponent>(mWindow);
+	enableNetplay->setState(SystemConf::getInstance()->get("global.netplay") == "1");
+	settings->addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
+
+	createInputTextRow(settings, _("NICKNAME"), "global.netplay.nickname", false);
+	createInputTextRow(settings, _("PORT"), "global.netplay.port", false);
+
+	// Mitm
+	std::string mitm = SystemConf::getInstance()->get("global.netplay.relay");
+
+	auto mitms = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MITM"), false);
+	mitms->add(_("NONE"), "none", mitm.empty() || mitm == "none");
+	mitms->add(_("NEW YORK"), "nyc", mitm == "nyc");
+	mitms->add(_("MADRID"), "madrid", mitm == "madrid");
+
+	if (!mitms->hasSelection())
+		mitms->selectFirstItem();
+
+	settings->addWithLabel(_("MITM"), mitms);
+
+	settings->addSaveFunc([enableNetplay, mitms] 
+	{
+		std::string mitm = mitms->getSelected();
+		SystemConf::getInstance()->set("global.netplay", enableNetplay->getState() ? "1" : "0");
+		SystemConf::getInstance()->set("global.netplay.relay", mitm.empty() ? "" : mitm);		
+	});
+	
+	settings->addSubMenu(_("REINDEX ALL GAMES"), [this] { ThreadedHasher::start(mWindow, true); });
+	settings->addSubMenu(_("INDEX MISSING GAMES"), [this] { ThreadedHasher::start(mWindow); });
+	
+	mWindow->pushGui(settings);
+}
+
 void GuiMenu::openGamesSettings_batocera() 
 {
 	Window* window = mWindow;
@@ -1153,7 +1192,7 @@ void GuiMenu::openGamesSettings_batocera()
 		mWindow->pushGui(ai_service);
 	});
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
 	{
 		// Retroachievements
 		s->addEntry(_("RETROACHIEVEMENTS SETTINGS"), true, [this] 
@@ -1213,8 +1252,7 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(retroachievements);
 		});		
 
-		
-
+		s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
 
 		// Custom config for systems
 		s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
@@ -1296,6 +1334,16 @@ void GuiMenu::openGamesSettings_batocera()
 
 				return;
 			}
+
+			if (ThreadedHasher::isRunning())
+			{
+				window->pushGui(new GuiMsgBox(mWindow, _("HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
+				{
+					ThreadedScraper::stop();
+				}, _("NO"), nullptr));
+
+				return;
+			}			
 
 			window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"),
 				[this, window] 

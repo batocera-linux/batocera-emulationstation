@@ -6,6 +6,7 @@
 #include "CollectionSystemManager.h"
 #include "Settings.h"
 #include "SystemData.h"
+#include "SystemConf.h"
 #include "LocaleES.h"
 
 BasicGameListView::BasicGameListView(Window* window, FolderData* root)
@@ -206,8 +207,12 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
-	if(mRoot->getSystem()->isGameSystem())
-	  prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
+	if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
+		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+	else if(mRoot->getSystem()->isGameSystem())
+		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
 	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
 	{
 		std::string prompt = CollectionSystemManager::get()->getEditingCollection();

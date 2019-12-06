@@ -25,6 +25,22 @@ enum FileChangeType
 	FILE_SORTED
 };
 
+enum NetPlayMode
+{
+	DISABLED,
+	CLIENT,
+	SERVER,	
+};
+
+struct LaunchGameOptions
+{
+	LaunchGameOptions() { netPlayMode = NetPlayMode::DISABLED; }
+
+	int netPlayMode;
+	std::string ip;
+	int port;
+};
+
 class FolderData;
 
 // A tree node that holds information for a file.
@@ -75,7 +91,7 @@ public:
 	// As above, but also remove parenthesis
 	std::string getCleanName() const;
 
-	void launchGame(Window* window);
+	void launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
 
 	static void resetSettings();
 	
