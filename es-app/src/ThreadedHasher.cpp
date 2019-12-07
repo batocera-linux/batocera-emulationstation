@@ -12,6 +12,7 @@
 #include <unordered_set>
 #include <queue>
 #include "ApiSystem.h"
+#include "utils/StringUtil.h"
 
 #define ICONINDEX _U("\uF1EC ")
 
