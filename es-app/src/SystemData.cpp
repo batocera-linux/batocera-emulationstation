@@ -751,3 +751,8 @@ Vector2f SystemData::getGridSizeOverride()
 {
 	return mGridSizeOverride;
 }
+
+bool SystemData::isNetplaySupported()
+{
+	return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
+}

@@ -6,6 +6,10 @@
 #include "Settings.h"
 #include "Sound.h"
 #include "SystemData.h"
+#include "SystemConf.h"
+#include "guis/GuiMsgBox.h"
+#include "Window.h"
+#include "LocaleES.h"
 #include <set>
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGameListView(window, root),
@@ -156,14 +160,34 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 		}else if (config->isMappedTo("x", input))
 		{
-			if (mRoot->getSystem()->isGameSystem())
+			if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
 			{
+				FileData* cursor = getCursor();
+				if (cursor->getType() == GAME)
+				{
+					Window* window = mWindow;
+
+					window->pushGui(new GuiMsgBox(mWindow, _("LAUNCH THE GAME AS NETPLAY HOST ?"), _("YES"), [this, window, cursor]
+					{
+						LaunchGameOptions options;
+						options.netPlayMode = SERVER;
+						ViewController::get()->launch(cursor, options);
+
+					}, _("NO"), nullptr));
+
+
+					
+				}
+
+				return true;
+			}
+			else if (mRoot->getSystem()->isGameSystem())
+			{		
 				// go to random system game
 				FileData* randomGame = getCursor()->getSystem()->getRandomGame();
 				if (randomGame)
-				{
 					setCursor(randomGame);
-				}
+
 				return true;
 			}
 		}else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid())

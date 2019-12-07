@@ -1818,6 +1818,91 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
+#if WIN32
+std::string executeCMDInNewProcessAndReadOutput(LPSTR lpCommandLine)
+{
+	std::string ret;
+
+	STARTUPINFO si;
+	SECURITY_ATTRIBUTES sa;
+	PROCESS_INFORMATION pi;
+	HANDLE g_hChildStd_IN_Rd, g_hChildStd_OUT_Wr, g_hChildStd_OUT_Rd, g_hChildStd_IN_Wr;  //pipe handles
+	char buf[1024];           //i/o buffer
+
+	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
+	sa.bInheritHandle = TRUE;
+	sa.lpSecurityDescriptor = NULL;
+
+	if (CreatePipe(&g_hChildStd_IN_Rd, &g_hChildStd_IN_Wr, &sa, 0))   //create stdin pipe
+	{
+		if (CreatePipe(&g_hChildStd_OUT_Rd, &g_hChildStd_OUT_Wr, &sa, 0))  //create stdout pipe
+		{
+			//set startupinfo for the spawned process
+			/*The dwFlags member tells CreateProcess how to make the process.
+			STARTF_USESTDHANDLES: validates the hStd* members.
+			STARTF_USESHOWWINDOW: validates the wShowWindow member*/
+			GetStartupInfo(&si);
+
+			si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+			si.wShowWindow = SW_HIDE;
+			//set the new handles for the child process
+			si.hStdOutput = g_hChildStd_OUT_Wr;
+			si.hStdError = g_hChildStd_OUT_Wr;
+			si.hStdInput = g_hChildStd_IN_Rd;
+
+			//spawn the child process
+			if (CreateProcess(NULL, lpCommandLine, NULL, NULL, TRUE, CREATE_NEW_CONSOLE,
+				NULL, NULL, &si, &pi))
+			{
+				unsigned long bread;   //bytes read
+				unsigned long avail;   //bytes available
+				memset(buf, 0, sizeof(buf));
+
+				for (;;)
+				{
+					PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
+					//check to see if there is any data to read from stdout
+					if (bread != 0)
+					{
+						while (ReadFile(g_hChildStd_OUT_Rd, buf, 1023, &bread, NULL))
+						{						
+							ret += std::string(buf);
+							PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
+							if (bread == 0)
+								break;
+						}
+
+						break;
+					}
+				}
+
+				//clean up all handles
+				CloseHandle(pi.hThread);
+				CloseHandle(pi.hProcess);
+				CloseHandle(g_hChildStd_IN_Rd);
+				CloseHandle(g_hChildStd_OUT_Wr);
+				CloseHandle(g_hChildStd_OUT_Rd);
+				CloseHandle(g_hChildStd_IN_Wr);
+			}
+			else
+			{
+				CloseHandle(g_hChildStd_IN_Rd);
+				CloseHandle(g_hChildStd_OUT_Wr);
+				CloseHandle(g_hChildStd_OUT_Rd);
+				CloseHandle(g_hChildStd_IN_Wr);
+			}
+		}
+		else
+		{
+			CloseHandle(g_hChildStd_IN_Rd);
+			CloseHandle(g_hChildStd_IN_Wr);
+		}
+	}
+
+	return ret;
+}
+#endif
+
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
 	std::string cmd = "7zr h \"" + fileName + "\"";
@@ -1826,18 +1911,29 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
 		cmd = "7zr l -slt \"" + fileName + "\"";
 
+	std::string crc;
+	std::string fn = Utils::FileSystem::getFileName(fileName);
+
 #if WIN32
 	// Windows : use x86 7za to test. x64 version fails ( cuz our process is x86 )
 	cmd = Utils::String::replace(cmd, "7zr ", "C:\\src\\7za.exe ");
-#endif
 
-	std::string fn = Utils::FileSystem::getFileName(fileName);
+	std::string output = executeCMDInNewProcessAndReadOutput((char*)cmd.c_str());
+	for (std::string all : Utils::String::splitAny(output, "\r\n"))
+	{
+		int idx = all.find("CRC = ");
+		if (idx != std::string::npos)
+			crc = all.substr(idx + 6);
+		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
+			crc = all.substr(0, 8);
+	}
+
+	return crc;
+#endif
 
 	FILE *pipe = popen(cmd.c_str(), "r");
 	if (pipe == NULL)
 		return "";
-
-	std::string crc;
 
 	char line[1024];
 	while (fgets(line, 1024, pipe)) 

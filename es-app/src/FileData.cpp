@@ -20,6 +20,7 @@
 #include "InputManager.h"
 #include "scrapers/ThreadedScraper.h"
 #include "Gamelist.h" 
+#include "ApiSystem.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -270,7 +271,7 @@ FileData* FileData::getSourceFileData()
 }
 
 
-void FileData::launchGame(Window* window)
+void FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
 
@@ -282,18 +283,46 @@ void FileData::launchGame(Window* window)
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	window->deinit();
 
+	std::string systemName = getSourceFileData()->getSystem()->getName();
 	std::string command = getSystemEnvData()->mLaunchCommand;
 
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw = Utils::FileSystem::getPreferredPath(getPath());
 
-	command = Utils::String::replace(command, "%SYSTEM%", getSourceFileData()->getSystem()->getName()); // batocera
+	command = Utils::String::replace(command, "%SYSTEM%", systemName); // batocera
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
-	
+
+	if (options.netPlayMode == CLIENT)
+	{
+#if WIN32
+		command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+#else
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+#endif
+	}
+	else if (options.netPlayMode == SERVER)
+	{
+		std::string crc32 = getMetadata("crc32");
+		if (crc32.empty())
+		{
+			crc32 = ApiSystem::getInstance()->getCRC32(getPath(), !isArcadeAsset());
+			if (!crc32.empty())
+				setMetadata("crc32", crc32);
+		}
+		
+#if WIN32
+		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + (crc32.empty() ? "" : " --hash " + crc32) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+#else
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host" + (crc32.empty() ? "" : " -hash " + crc32));
+#endif
+	}
+	else
+		command = Utils::String::replace(command, "%NETPLAY%", "");
+
 	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
 	if (emulator.length() == 0)		
 		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");

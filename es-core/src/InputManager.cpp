@@ -251,9 +251,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	    Sint16 x;
 	    // SDL_JoystickGetAxisInitialState doesn't work with 8bitdo start+b
 	    // required for several pads like xbox and 8bitdo
+#ifndef WIN32
 	    if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
 	      initialValue = x;
 	    }
+#endif
 
 		//if it switched boundaries
 		if((abs(ev.jaxis.value-initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE)) // batocera

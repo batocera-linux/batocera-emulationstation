@@ -14,6 +14,7 @@
 #include "guis/GuiMenu.h"
 #include "AudioManager.h"
 #include "components/VideoComponent.h"
+#include "guis/GuiNetPlay.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -299,6 +300,19 @@ bool SystemView::input(InputConfig* config, Input input)
 {
 	if(input.value != 0)
 	{
+		bool kodi = false;
+		bool netPlay = SystemConf::getInstance()->get("global.netplay") == "1";
+
+#ifdef _ENABLE_KODI_
+		kodi = SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid();
+#endif
+		
+		if (netPlay && config->isMappedTo(kodi ? "y" : "x", input))
+		{
+			mWindow->pushGui(new GuiNetPlay(mWindow));
+			return true;
+		}
+
 		if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_r && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 		{
 			LOG(LogInfo) << " Reloading all";
@@ -687,29 +701,35 @@ void SystemView::render(const Transform4x4f& parentTrans)
 std::vector<HelpPrompt> SystemView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
+
 	if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
-	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	else
-	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
+		prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
+
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
+
+	bool kodi = false;
+
 #ifdef _ENABLE_KODI_
-	if(SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
-	  prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
-	} else
-#endif
-        {
-	  prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
-	}
-// batocera
-#ifdef _ENABLE_FILEMANAGER_
-	if(UIModeController::getInstance()->isUIModeFull()) {
-	  prompts.push_back(HelpPrompt("F1", _("FILES")));
-	}
+	if (SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) 
+	{
+		kodi = true;
+		prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
+	}	
 #endif
 
+	if (SystemConf::getInstance()->get("global.netplay") == "1")
+		prompts.push_back(HelpPrompt(kodi ? "y" : "x", _("NETPLAY")));
+	else
+		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
 	// batocera
-	//if (!UIModeController::getInstance()->isUIModeKid() && Settings::getInstance()->getBool("ScreenSaverControls"))
-	//	prompts.push_back(HelpPrompt("select", "launch screensaver"));
+#ifdef _ENABLE_FILEMANAGER_
+	if (UIModeController::getInstance()->isUIModeFull()) {
+		prompts.push_back(HelpPrompt("F1", _("FILES")));
+	}
+#endif
 
 	return prompts;
 }

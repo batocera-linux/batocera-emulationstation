@@ -17,6 +17,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "scrapers/ThreadedScraper.h"
+#include "ThreadedHasher.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -456,7 +457,7 @@ void GuiGamelistOptions::exitEditMode()
 
 void GuiGamelistOptions::openMetaDataEd()
 {
-	if (ThreadedScraper::isRunning())
+	if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning())
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING")));
 		return;
