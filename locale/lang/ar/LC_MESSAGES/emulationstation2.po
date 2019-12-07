@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -536,20 +536,8 @@ msgstr ""
 "Key)، قم بإختيار زر (select).  قم بتخطي الازار التي لاتملكها وذلك بالاستمرار "
 "الضغط على اي زر. اسماء الازرار تم تعيينها وفق يد تحكم سوبر ننتندو (SNES)."
 
-msgid "CONTROLLER PAIRED"
-msgstr "تم اقتران يد التحكم"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "فشل اقتران يد التحكم"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "اقتران يد تحكم بالبلوتوث"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1301,6 +1289,21 @@ msgstr ""
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "تم اقتران يد التحكم"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "فشل اقتران يد التحكم"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
@@ -1522,6 +1525,12 @@ msgstr "تشغيل..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #~ msgid "ADVANCED"
 #~ msgstr "متطور"

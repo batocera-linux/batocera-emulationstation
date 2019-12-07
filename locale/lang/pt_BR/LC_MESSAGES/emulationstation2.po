@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -538,20 +538,8 @@ msgstr ""
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM EM SEU CONTROLE PRESSIONANDO UM BOTÃO JÁ CONFIGURADO EM SEU CONTROLE."
 
-msgid "CONTROLLER PAIRED"
-msgstr "CONTROLE PAREADO"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "IMPOSSÍVEL DE PAREAR CONTROLE"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAREAR UM CONTROLE BLUETOOTH"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "DESCONECTAR CONTROLES BLUETOOTH"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1310,6 +1298,21 @@ msgstr "Concluído."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "CONTROLE PAREADO"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "IMPOSSÍVEL DE PAREAR CONTROLE"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
 
@@ -1515,6 +1518,12 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "DESCONECTAR CONTROLES BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 #~ msgid "ADVANCED"
 #~ msgstr "AVANÇADO"

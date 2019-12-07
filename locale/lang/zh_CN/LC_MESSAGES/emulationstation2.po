@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,20 +537,8 @@ msgstr ""
 "请使用 \"选择\" 按钮的按键同时作为 \"热键\"。\n"
 "长按任意键可跳过设置。按钮名称基于SNES控制器。"
 
-msgid "CONTROLLER PAIRED"
-msgstr "控制器已配对"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "无法配对控制器"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "配对蓝牙控制器"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "删除蓝牙控制器"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "控制器链接已被删除。"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1298,6 +1286,21 @@ msgstr "完成。"
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "控制器已配对"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "无法配对控制器"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
 
@@ -1498,6 +1501,12 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "删除蓝牙控制器"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "控制器链接已被删除。"
 
 #~ msgid "ADVANCED"
 #~ msgstr "高级设置"

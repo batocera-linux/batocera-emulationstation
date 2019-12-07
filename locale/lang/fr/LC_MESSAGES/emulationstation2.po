@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -537,20 +537,8 @@ msgstr ""
 "N'A PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. LES NOMS DES BOUTONS "
 "SONT BASÉS SUR LA SUPER NINTENDO"
 
-msgid "CONTROLLER PAIRED"
-msgstr "MANETTE ASSOCIÉE"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "OUBLIER LES MANETTES BLUETOOTH"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LES ASSOCIATIONS DES MANETTES ONT ÉTÉ SUPPRIMÉS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1303,6 +1291,21 @@ msgstr "Terminé"
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES METADONNÉES. VEUILLEZ PATIENTEZ..."
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "MANETTE ASSOCIÉE"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
 
@@ -1507,6 +1510,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "OUBLIER LES MANETTES BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "LES ASSOCIATIONS DES MANETTES ONT ÉTÉ SUPPRIMÉS"
 
 #~ msgid "ADVANCED"
 #~ msgstr "AVANCÉS"

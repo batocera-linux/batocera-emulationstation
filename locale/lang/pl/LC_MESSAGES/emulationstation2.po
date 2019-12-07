@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,20 +537,8 @@ msgstr ""
 "WYBIERZ PRZYCISK SELECT. POMIŃ WSZYSTKIE PRZYCISKI KTÓRYCH NIE POSIADASZ "
 "PRZEZ PRZYTRZYMANIE PRZYCISKU. NAZWY PRZYCISKÓW BAZUJĄ NA KONTROLERZE SNES."
 
-msgid "CONTROLLER PAIRED"
-msgstr "PODŁĄCZONO KONTROLER"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PODŁĄCZ KONTROLER ZA POMOCĄ BLUETOOTH"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "USUŃ KONTROLERY BLUETOOTH"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
 
 #, c-format
 msgid "INPUT P%i"
@@ -1309,6 +1297,21 @@ msgstr "Zrobione."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "PODŁĄCZONO KONTROLER"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
 
@@ -1519,6 +1522,12 @@ msgstr "PRACUJE.."
 
 msgid "up/down"
 msgstr "góra/dół"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "USUŃ KONTROLERY BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
 
 #~ msgid "ADVANCED"
 #~ msgstr "ZAAWANSOWANE"

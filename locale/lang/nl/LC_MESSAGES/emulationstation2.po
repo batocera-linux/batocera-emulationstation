@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,20 +537,8 @@ msgstr ""
 "kies je de SELECT knop. Skip alle knoppen die je niet hebt door een knop "
 "vast te houden. De namen van de knoppen zijn gebaseerd op de SNES controller."
 
-msgid "CONTROLLER PAIRED"
-msgstr "Controller gekoppeld"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "Niet mogelijk de controller te koppelen"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "Koppel een Bluetooth-controller"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "Vergeet Bluetooth-controllers"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "Gekoppeld controllers zijn gewist"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1300,6 +1288,21 @@ msgstr ""
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "Controller gekoppeld"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "Niet mogelijk de controller te koppelen"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
@@ -1509,6 +1512,12 @@ msgstr "Bezig"
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "Vergeet Bluetooth-controllers"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "Gekoppeld controllers zijn gewist"
 
 #~ msgid "ADVANCED"
 #~ msgstr "Geavanceerd"

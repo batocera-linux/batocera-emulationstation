@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -536,20 +536,8 @@ msgstr ""
 "HOPP OVER ALLE KNAPPENE DU IKKE HAR VED Å HOLDE EN KNAPP. KNAPPENES NAVN ER "
 "BASERT PÅ EN SNES KONTROLLER."
 
-msgid "CONTROLLER PAIRED"
-msgstr "KONTROLLER PARET"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "KAN IKKE PARE KONTROLLER"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAR EN BLUETOOTH KONRTOLLER"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "GLEM BLUETOOTH KONTROLLERE"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
 
 #, c-format
 msgid "INPUT P%i"
@@ -1290,6 +1278,21 @@ msgstr ""
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "KONTROLLER PARET"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "KAN IKKE PARE KONTROLLER"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
@@ -1491,6 +1494,12 @@ msgstr "ARBEIDER..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "GLEM BLUETOOTH KONTROLLERE"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
 
 #~ msgid "ADVANCED"
 #~ msgstr "AVANSERT"

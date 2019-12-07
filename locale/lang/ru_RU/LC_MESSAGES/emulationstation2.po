@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -539,20 +539,8 @@ msgstr ""
 "КОНТРОЛЛЕРЕ ОТСУТСТВУЕТ ОТДЕЛЬНАЯ \"ГОРЯЧАЯ\" КНОПКА, ИСПОЛЬЗУЙТЕ ВМЕСТО НЕЁ "
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
-msgid "CONTROLLER PAIRED"
-msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1309,6 +1297,21 @@ msgstr "Готово."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
 
@@ -1519,6 +1522,12 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 
 #~ msgid "ADVANCED"
 #~ msgstr "ДОПОЛНИТЕЛЬНО"

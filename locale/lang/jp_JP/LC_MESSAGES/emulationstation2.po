@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 10:48+0100\n"
+"POT-Creation-Date: 2019-12-07 22:11+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -542,21 +542,8 @@ msgstr ""
 "さい。 すべてのボタンを 長押しで スキップした場合、 ボタン名が スーパーファミ"
 "コンを ベースとしたものに なります。"
 
-msgid "CONTROLLER PAIRED"
-msgstr "コントローラーがペアリングされました"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "コントローラーのペアリングができません"
-
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ブルートゥースコントローラのペアリング"
-
-#, fuzzy
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "ブルートゥースのコントローラーを解除"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "コントローラーのリンクが切れました。"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1303,6 +1290,21 @@ msgstr ""
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "CONTROLLER PAIRED"
+msgstr "コントローラーがペアリングされました"
+
+msgid "UNABLE TO PAIR CONTROLLER"
+msgstr "コントローラーのペアリングができません"
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr ""
 
@@ -1503,6 +1505,13 @@ msgstr "処理中..."
 
 msgid "up/down"
 msgstr ""
+
+#, fuzzy
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "ブルートゥースのコントローラーを解除"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "コントローラーのリンクが切れました。"
 
 #, fuzzy
 #~ msgid "ADVANCED"
