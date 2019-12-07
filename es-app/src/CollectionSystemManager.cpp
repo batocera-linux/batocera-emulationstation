@@ -780,7 +780,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 
 								int max = atoi(players.c_str());
 								int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
-								include = min <= 0 ? (val == max) : (min <= val <= max);
+								include = min <= 0 ? (val == max) : (min <= val && val <= max);
 							}
 						}
 						break;
