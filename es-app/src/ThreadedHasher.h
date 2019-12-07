@@ -9,7 +9,7 @@ class FileData;
 class ThreadedHasher
 {
 public:
-	static void start(Window* window, bool forceAllGames=false);
+	static void start(Window* window, bool forceAllGames=false, bool silent=false);
 	static void stop();
 	static bool isRunning() { return mInstance != nullptr; }
 	

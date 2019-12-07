@@ -1015,11 +1015,20 @@ void GuiMenu::openNetplaySettings()
 
 	settings->addWithLabel(_("MITM"), mitms);
 
-	settings->addSaveFunc([enableNetplay, mitms] 
+	Window* window = mWindow;
+	settings->addSaveFunc([enableNetplay, mitms, window] 
 	{
 		std::string mitm = mitms->getSelected();
-		SystemConf::getInstance()->set("global.netplay", enableNetplay->getState() ? "1" : "0");
+		
 		SystemConf::getInstance()->set("global.netplay.relay", mitm.empty() ? "" : mitm);		
+
+		if (SystemConf::getInstance()->set("global.netplay", enableNetplay->getState() ? "1" : "0"))
+		{
+			if (!ThreadedHasher::isRunning() && enableNetplay->getState())
+			{
+				ThreadedHasher::start(window, false, true);
+			}
+		}
 	});
 	
 	settings->addSubMenu(_("REINDEX ALL GAMES"), [this] { ThreadedHasher::start(mWindow, true); });

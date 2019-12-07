@@ -89,10 +89,13 @@ void ThreadedHasher::run()
 	ThreadedHasher::mInstance = nullptr;
 }
 
-void ThreadedHasher::start(Window* window, bool forceAllGames)
+void ThreadedHasher::start(Window* window, bool forceAllGames, bool silent)
 {
 	if (ThreadedHasher::mInstance != nullptr)
 	{
+		if (silent)
+			return;
+
 		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), []
 		{
 			ThreadedHasher::stop();
@@ -115,7 +118,9 @@ void ThreadedHasher::start(Window* window, bool forceAllGames)
 
 	if (searchQueue.size() == 0)
 	{
-		window->pushGui(new GuiMsgBox(window, _("NO GAMES FIT THAT CRITERIA.")));
+		if (!silent)
+			window->pushGui(new GuiMsgBox(window, _("NO GAMES FIT THAT CRITERIA.")));
+
 		return;
 	}
 
