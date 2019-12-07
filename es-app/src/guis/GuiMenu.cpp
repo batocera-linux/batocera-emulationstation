@@ -41,6 +41,7 @@
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
 #include "ThreadedHasher.h"
+#include "ThreadedBluetooth.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -1416,31 +1417,7 @@ void GuiMenu::openControllersSettings_batocera()
 	});
 
 	// PAIR A BLUETOOTH CONTROLLER
-	std::function<void(void *)> showControllerResult = [window, this, s](void *success)
-	{
-		bool result = (bool)success;
-
-		if (result) {
-			window->pushGui(new GuiMsgBox(window, _("CONTROLLER PAIRED"), _("OK")));
-		}
-		else {
-			window->pushGui(new GuiMsgBox(window, _("UNABLE TO PAIR CONTROLLER"), _("OK")));
-		}
-	};
-
-	s->addEntry(_("PAIR A BLUETOOTH CONTROLLER"), false, [window, this, s, showControllerResult] {
-		window->pushGui(new GuiLoading(window, [] {
-			bool success = ApiSystem::getInstance()->scanNewBluetooth();
-			return (void *)success;
-		}, showControllerResult));
-	});
-
-	// FORGET BLUETOOTH CONTROLLERS
-	s->addEntry(_("FORGET BLUETOOTH CONTROLLERS"), false, [window, this, s] {
-		ApiSystem::getInstance()->forgetBluetoothControllers();
-		window->pushGui(new GuiMsgBox(window,
-			_("CONTROLLERS LINKS HAVE BEEN DELETED."), _("OK")));
-	});
+	s->addEntry(_("PAIR A BLUETOOTH CONTROLLER"), false, [window] { ThreadedBluetooth::start(window); });
 
 	ComponentListRow row;
 
