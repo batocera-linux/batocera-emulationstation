@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,14 +52,35 @@ msgstr "PROCURAR"
 msgid "CANCEL"
 msgstr "CANCELAR"
 
-msgid "BACK"
-msgstr "VOLTAR"
+msgid "CONNECT TO NETPLAY"
+msgstr ""
 
-msgid "go back"
-msgstr "voltar"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "FECHAR"
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr "VOLTAR"
+
+msgid "LAUNCH"
+msgstr "EXECUTAR"
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
+msgstr "voltar"
 
 msgid "JUMP TO..."
 msgstr "PULE PARA..."
@@ -385,6 +406,33 @@ msgstr "ON"
 msgid "OFF"
 msgstr "OFF"
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr "FORMATO DE TELA"
 
@@ -468,6 +516,9 @@ msgstr "STATUS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
@@ -1060,6 +1111,18 @@ msgstr "Última vez jogado"
 msgid "enter last played date"
 msgstr "digite a última data jogada"
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr "nome"
 
@@ -1109,6 +1172,9 @@ msgstr[1] "%i JOGOS DISPONÍVEIS"
 msgid "KODI"
 msgstr "KODI"
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr "ALEATÓRIO"
 
@@ -1124,11 +1190,11 @@ msgstr "Vezes jogados"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "LAUNCH"
-msgstr "EXECUTAR"
-
 msgid "OPTIONS"
 msgstr "OPÇÕES"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
@@ -1210,6 +1276,12 @@ msgstr "TEMA INSTALADO COM SUCESSO"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "MOLDURAS INSTALADAS COM SUCESSO"
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "Favorites"
 msgstr "Favoritos"

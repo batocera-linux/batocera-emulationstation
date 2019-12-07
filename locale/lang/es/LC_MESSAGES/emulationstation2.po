@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -49,14 +49,35 @@ msgstr "BUSCAR"
 msgid "CANCEL"
 msgstr "CANCELAR"
 
-msgid "BACK"
-msgstr "VOLVER"
+msgid "CONNECT TO NETPLAY"
+msgstr ""
 
-msgid "go back"
-msgstr "IR ATRAS"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "CERRAR"
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr "VOLVER"
+
+msgid "LAUNCH"
+msgstr "LANZAR"
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
+msgstr "IR ATRAS"
 
 msgid "JUMP TO..."
 msgstr "IR A..."
@@ -382,6 +403,33 @@ msgstr "ENCENDIDO"
 msgid "OFF"
 msgstr "APAGADO"
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr "RELACIÓN DE ASPECTO"
 
@@ -465,6 +513,9 @@ msgstr "ESTADO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
@@ -1058,6 +1109,18 @@ msgstr "ÚLTIMA PARTIDA"
 msgid "enter last played date"
 msgstr "INTRODUCIR FECHA DE LA ÚLTIMA PARTIDA"
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr "NOMBRE"
 
@@ -1107,6 +1170,9 @@ msgstr[1] "%i JUEGOS DISPONIBLES"
 msgid "KODI"
 msgstr "KODI"
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr "ALEATORIO"
 
@@ -1122,11 +1188,11 @@ msgstr "VECES JUGADO"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "LAUNCH"
-msgstr "LANZAR"
-
 msgid "OPTIONS"
 msgstr "OPCIONES"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "PRECARGAR INTERFAZ"
@@ -1208,6 +1274,12 @@ msgstr "TEMA INSTALADO SATISFACTORIAMENTE"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BISELES INSTALADOS CORRECTAMENTE"
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "Favorites"
 msgstr "FAVORITOS"

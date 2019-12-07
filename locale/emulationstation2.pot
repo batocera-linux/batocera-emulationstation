@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,13 +57,34 @@ msgstr ""
 msgid "CANCEL"
 msgstr ""
 
-msgid "BACK"
+msgid "CONNECT TO NETPLAY"
 msgstr ""
 
-msgid "go back"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
 msgstr ""
 
 msgid "CLOSE"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr ""
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
 msgstr ""
 
 msgid "JUMP TO..."
@@ -390,6 +411,33 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr ""
 
@@ -472,6 +520,9 @@ msgid "STATUS"
 msgstr ""
 
 msgid "UPDATE GAMES LISTS"
+msgstr ""
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -1041,6 +1092,18 @@ msgstr ""
 msgid "enter last played date"
 msgstr ""
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr ""
 
@@ -1089,6 +1152,9 @@ msgstr[1] ""
 msgid "KODI"
 msgstr ""
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -1104,10 +1170,10 @@ msgstr ""
 msgid "No Entries Found"
 msgstr ""
 
-msgid "LAUNCH"
+msgid "OPTIONS"
 msgstr ""
 
-msgid "OPTIONS"
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -1189,6 +1255,12 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "Favorites"

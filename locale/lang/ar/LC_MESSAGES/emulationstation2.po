@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,14 +50,35 @@ msgstr "بحث"
 msgid "CANCEL"
 msgstr "إلغاء"
 
-msgid "BACK"
-msgstr "العودة"
+msgid "CONNECT TO NETPLAY"
+msgstr ""
 
-msgid "go back"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
 msgstr ""
 
 msgid "CLOSE"
 msgstr "اغلاق"
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr "العودة"
+
+msgid "LAUNCH"
+msgstr "تشغيل"
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
+msgstr ""
 
 msgid "JUMP TO..."
 msgstr ""
@@ -383,6 +404,33 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr "تقييم اللعبة"
 
@@ -466,6 +514,9 @@ msgstr "الحالة"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "تحديث قوائم الالعاب"
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "تحديث قوائم الالعاب، متأكد؟"
@@ -1048,6 +1099,18 @@ msgstr "اخر مره تم لعبها"
 msgid "enter last played date"
 msgstr "ادخل تاريخ اخر مره تم لعبها"
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr ""
 
@@ -1100,6 +1163,9 @@ msgstr[5] "%i لعب متوفرة"
 msgid "KODI"
 msgstr ""
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr ""
 
@@ -1115,11 +1181,11 @@ msgstr "مرات اللعب"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "LAUNCH"
-msgstr "تشغيل"
-
 msgid "OPTIONS"
 msgstr "اعدادات"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr ""
@@ -1200,6 +1266,12 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "Favorites"

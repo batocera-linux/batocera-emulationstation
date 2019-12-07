@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,14 +52,35 @@ msgstr "CERCA"
 msgid "CANCEL"
 msgstr "ANNULLA"
 
-msgid "BACK"
-msgstr "INDIETRO"
+msgid "CONNECT TO NETPLAY"
+msgstr ""
 
-msgid "go back"
-msgstr "torna indietro"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "CHIUDI"
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr "INDIETRO"
+
+msgid "LAUNCH"
+msgstr "AVVIA"
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
+msgstr "torna indietro"
 
 msgid "JUMP TO..."
 msgstr "SALTA A..."
@@ -386,6 +407,33 @@ msgstr "SI"
 msgid "OFF"
 msgstr "NO"
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr "FORMATO VIDEO DEL GIOCO"
 
@@ -469,6 +517,9 @@ msgstr "STATO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
@@ -1060,6 +1111,18 @@ msgstr "Ultima partita"
 msgid "enter last played date"
 msgstr "inserisci la data dell'utlima partita"
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr "nome"
 
@@ -1108,6 +1171,9 @@ msgstr[1] "%i GIOCHI DISPONIBILI"
 msgid "KODI"
 msgstr "KODI"
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr "CASUALE"
 
@@ -1123,11 +1189,11 @@ msgstr "Numero partite"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "LAUNCH"
-msgstr "AVVIA"
-
 msgid "OPTIONS"
 msgstr "OPZIONI"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Precaricamento UI"
@@ -1209,6 +1275,12 @@ msgstr "TEMA INSTALLATO CON SUCCESSO"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS INSTALLATE CON SUCCESSO"
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "Favorites"
 msgstr "Preferiti"

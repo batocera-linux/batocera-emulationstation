@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-24 08:33+0100\n"
+"POT-Creation-Date: 2019-12-07 10:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -52,14 +52,35 @@ msgstr "ПОИСК"
 msgid "CANCEL"
 msgstr "ОТМЕНА"
 
-msgid "BACK"
-msgstr "НАЗАД"
+msgid "CONNECT TO NETPLAY"
+msgstr ""
 
-msgid "go back"
-msgstr "назад"
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "BACK"
+msgstr "НАЗАД"
+
+msgid "LAUNCH"
+msgstr "ЗАПУСК"
+
+msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "go back"
+msgstr "назад"
 
 msgid "JUMP TO..."
 msgstr "ПЕРЕЙТИ К..."
@@ -385,6 +406,33 @@ msgstr "ВКЛ"
 msgid "OFF"
 msgstr "ВЫКЛ"
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "MITM"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "REINDEX ALL GAMES"
+msgstr ""
+
+msgid "INDEX MISSING GAMES"
+msgstr ""
+
 msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
 
@@ -468,6 +516,9 @@ msgstr "СОСТОЯНИЕ"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
+
+msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
@@ -1059,6 +1110,18 @@ msgstr "Последний запуск"
 msgid "enter last played date"
 msgstr "введите дату последнего запуска"
 
+msgid "Crc32"
+msgstr ""
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
 msgid "name"
 msgstr "название"
 
@@ -1108,6 +1171,9 @@ msgstr[2] "%i ИГР ДОСТУПНО"
 msgid "KODI"
 msgstr "KODI"
 
+msgid "NETPLAY"
+msgstr ""
+
 msgid "RANDOM"
 msgstr "СЛУЧАЙНО"
 
@@ -1123,11 +1189,11 @@ msgstr "Сыграно раз"
 msgid "No Entries Found"
 msgstr "Записей не найдено"
 
-msgid "LAUNCH"
-msgstr "ЗАПУСК"
-
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Предзагрузка интерфейса"
@@ -1209,6 +1275,12 @@ msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "Favorites"
 msgstr "Избранное"
