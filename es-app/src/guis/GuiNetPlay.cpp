@@ -136,7 +136,7 @@ void GuiNetPlay::update(int deltaTime)
 			if (status == HttpReq::REQ_SUCCESS)
 				populateFromJson(mLobbyRequest->getContent());
 			else
-				mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED : " + mLobbyRequest->getErrorMsg())));
+			  mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED") + std::string(" : ") + mLobbyRequest->getErrorMsg()));
 
 			mLobbyRequest.reset();
 		}
