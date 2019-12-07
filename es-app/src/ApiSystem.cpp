@@ -710,23 +710,26 @@ std::string ApiSystem::getIpAdress()
 #endif
 }
 
-bool ApiSystem::scanNewBluetooth() 
+bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
 {
 	LOG(LogDebug) << "ApiSystem::scanNewBluetooth";
 
 	std::vector<std::string> *res = new std::vector<std::string>();
 	std::ostringstream oss;
 	oss << "batocera-bt-pair-device" << " " << "--first";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
 
-	if (pipe == NULL) {
+	FILE* pipe = popen(oss.str().c_str(), "r");
+	if (pipe == NULL)
 		return false;
-	}
-
-	while (fgets(line, 1024, pipe)) {
+	
+	char line[1024];
+	while (fgets(line, 1024, pipe))
+	{
 		strtok(line, "\n");
 		res->push_back(std::string(line));
+
+		if (func != nullptr)
+			func(std::string(line));
 	}
 
 	int exitCode = pclose(pipe);

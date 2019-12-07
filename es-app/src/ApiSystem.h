@@ -92,8 +92,7 @@ public:
 
     std::string getIpAdress();
 
-
-    bool scanNewBluetooth();
+    bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
 
     std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
