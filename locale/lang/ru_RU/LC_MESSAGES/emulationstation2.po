@@ -65,7 +65,7 @@ msgid "JUMP TO..."
 msgstr "ПЕРЕЙТИ К..."
 
 msgid "SORT GAMES BY"
-msgstr "СОРТИРОВАТЬ ИГРЫ ПО"
+msgstr "СОРТИРОВКА ПО"
 
 msgid "OTHER FILTERS"
 msgstr "ОСТАЛЬНЫЕ ФИЛЬТРЫ"
@@ -80,10 +80,10 @@ msgid "GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr "ПОКАЗАТЬ ИЗБР. СВЕРХУ"
+msgstr "ИЗБРАННОЕ ВВЕРХУ СПИСКА"
 
 msgid "SHOW HIDDEN FILES"
-msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
+msgstr "ОТОБРАЖАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
@@ -95,13 +95,13 @@ msgid "FINISH EDITING COLLECTION"
 msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАКТИРОВАТЬ ДАННЫЕ ИГРЫ"
+msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "ФИЛЬТР ИГР ПО ТЕКСТУ"
+msgstr "ПОИСК"
 
 msgid "Loading..."
 msgstr "Загрузка..."
@@ -164,37 +164,37 @@ msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
 
 msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
+msgstr "СКРИНШОТ"
 
 msgid "TITLE SCREENSHOT"
-msgstr "TITLE SCREENSHOT"
+msgstr "СКРИНШОТ ГЛ. МЕНЮ"
 
 msgid "MIX"
-msgstr "MIX"
+msgstr "МИКС"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "СТИЛЬ ОБЛОЖКИ"
 
 msgid "NONE"
 msgstr "НЕТ"
 
 msgid "BOX 2D"
-msgstr "BOX 2D"
+msgstr "ОБЛОЖКИ 2D"
 
 msgid "BOX 3D"
-msgstr "BOX 3D"
+msgstr "ОБЛОЖКИ 3D"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "СТИЛЬ ЛОГО"
 
 msgid "WHEEL"
-msgstr "WHEEL"
+msgstr "КОЛЕСО"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "БАНЕР"
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
@@ -239,7 +239,7 @@ msgid "DISK USAGE"
 msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
 msgid "DEVELOPER"
-msgstr "РЕЖИМ РАЗРАБОТЧИКА"
+msgstr "РАЗРАБОТЧИК"
 
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
@@ -281,7 +281,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -323,13 +323,13 @@ msgid "OVERCLOCK"
 msgstr "РАЗГОН"
 
 msgid "VIDEO OUTPUT"
-msgstr "ВИДЕО ВЫВОД"
+msgstr "ВИДЕО ВЫХОД"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "АУДИО ВЫХОД"
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -365,7 +365,7 @@ msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr ""
@@ -452,7 +452,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "MISSING BIOS"
 msgstr "НЕДОСТАЮЩИЙ BIOS"
@@ -517,7 +517,7 @@ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
 
 msgid "THEME CONFIGURATION"
-msgstr "НАСТРОКА ТЕМЫ"
+msgstr "НАСТРОЙКА ТЕМЫ"
 
 msgid "basic"
 msgstr "базовый"
@@ -575,7 +575,7 @@ msgid "ON-SCREEN HELP"
 msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "БЫСТРЫЙ ВЫБОР СИСТЕМ"
+msgstr "БЫСТРОЕ ПЕРЕКЛЮЧЕНИЕ СИСТЕМ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
@@ -584,7 +584,7 @@ msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr "ПОКАЗАТЬ НАЗВАНИЕ ФАЙЛА В СПИСКЕ"
+msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -647,7 +647,7 @@ msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "ЗАСТАВКА"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -713,7 +713,7 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИИ И СИСТЕМЫ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "ПРИПИСКА СИСТЕМ В КОЛЛЕКЦИЯХ"
+msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
@@ -1087,10 +1087,10 @@ msgid "Searching"
 msgstr "Поиск"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
+msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ : ПРИЛОЖЕНИЕ В ЧЕРНОМ СПИСКЕ"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ : ДОСТИГНУТ СУТОЧНЫЙ ЛИМИТ"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
@@ -1121,7 +1121,7 @@ msgid "Times played"
 msgstr "Сыграно раз"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Записей не найдено"
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
@@ -1196,10 +1196,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "СИСТЕМЫ, ПО УБЫВАНИЮ"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "ДАТА СОЗДАНИЯ ФАЙЛА, ПО ВОЗРАСТАНИЮ"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "ДАТА СОЗДАНИЯ ФАЙЛА, ПО УБЫВАНИЮ"
 
 msgid "DOWNLOADING"
 msgstr "ЗАГРУЗКА"
@@ -1235,7 +1235,7 @@ msgid "Done."
 msgstr "Готово."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -1256,7 +1256,7 @@ msgid "4 players"
 msgstr "4 игрока"
 
 msgid "never played"
-msgstr ""
+msgstr "не запускался"
 
 msgid "collections"
 msgstr "коллекции"
