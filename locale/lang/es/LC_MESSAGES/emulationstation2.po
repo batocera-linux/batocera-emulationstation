@@ -50,22 +50,22 @@ msgid "CANCEL"
 msgstr "CANCELAR"
 
 msgid "CONNECT TO NETPLAY"
-msgstr ""
+msgstr "CONETAR A NETPLAY"
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "SELECCIONA EL JUEGO A DONDE QUIERES UNIRTE"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "ACTUALIZAR"
 
 msgid "CLOSE"
 msgstr "CERRAR"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "ESPERA"
 
 msgid "FAILED"
-msgstr ""
+msgstr "FALLO"
 
 msgid "BACK"
 msgstr "VOLVER"
@@ -74,7 +74,7 @@ msgid "LAUNCH"
 msgstr "LANZAR"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "NINGUN JUEGO ENCONTRADO"
 
 msgid "go back"
 msgstr "IR ATRAS"
@@ -299,7 +299,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "USAR INTERFAZ DE RETROARCH"
 
 msgid "LOG LEVEL"
 msgstr "NIVEL DE LOG"
@@ -347,7 +347,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "SE REQUIERE UN REINICIO PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "SALIDA DE AUDIO"
 
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGIA"
@@ -383,7 +383,7 @@ msgid "ROOT PASSWORD"
 msgstr "CONTRASEÑA ROOT"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "REDUCCION DE LATENCIA"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "FRAMES POR ADELANTADO"
@@ -392,10 +392,10 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "USAR FRAMES PRINCIPALES"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "USAR CABEZERA DE SEGUNDA INSTANCIA"
 
 msgid "ON"
 msgstr "ENCENDIDO"
@@ -404,25 +404,25 @@ msgid "OFF"
 msgstr "APAGADO"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "CONFIGURACIÓN NETPLAY"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "HABILITAR NETPLAY"
 
 msgid "NICKNAME"
-msgstr ""
+msgstr "APODO"
 
 msgid "PORT"
-msgstr ""
+msgstr "PUERTO"
 
 msgid "MITM"
-msgstr ""
+msgstr "MITM"
 
 msgid "REINDEX ALL GAMES"
-msgstr ""
+msgstr "REINDEXAR TODOS LOS JUEGOS"
 
 msgid "INDEX MISSING GAMES"
-msgstr ""
+msgstr "INDEXAR JUEGOS FALTANTES"
 
 msgid "GAME RATIO"
 msgstr "RELACIÓN DE ASPECTO"
@@ -452,10 +452,10 @@ msgid "CURVATURE"
 msgstr "CURVATURA"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXEL PERFECT)"
@@ -491,7 +491,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMATICO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
 
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANTES"
@@ -506,7 +506,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "LA COMPROBACION DE JUEGOS ESTA CORRIENDO, QUIERES DETENERLA?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
@@ -681,7 +681,7 @@ msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "EJECUTAR SALVAPANTALLAS"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR EL SISTEMA"
@@ -1095,10 +1095,10 @@ msgid "enter last played date"
 msgstr "INTRODUCIR FECHA DE LA ÚLTIMA PARTIDA"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "VALIDACIÓN CRC32"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "VALIDACION MD5"
 
 msgid "name"
 msgstr "NOMBRE"
@@ -1131,7 +1131,7 @@ msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "FALLO EL SCRAPEO : LA APLICACION HA SIDO BANEADA"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "SCRAPEO FALLIDO : LIMITE DE SCRAPEO ALCANZADO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1150,7 +1150,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "NETPLAY"
 
 msgid "RANDOM"
 msgstr "ALEATORIO"
@@ -1165,13 +1165,13 @@ msgid "Times played"
 msgstr "VECES JUGADO"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "NO SE ENCONTRARON ENTRADAS"
 
 msgid "OPTIONS"
 msgstr "OPCIONES"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgstr "LANZAR EL JUEGO COMO SERVIDOR DE NETPLAY?"
 
 msgid "Preloading UI"
 msgstr "PRECARGAR INTERFAZ"
@@ -1240,10 +1240,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "EMULADOR, DESCENDENTE"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "FECHA DE CREACION, ASCENDENTE"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "FECHA DE CREACION, DESCENDENTE"
 
 msgid "DOWNLOADING"
 msgstr "DESCARGANDO"
@@ -1255,7 +1255,7 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BISELES INSTALADOS CORRECTAMENTE"
 
 msgid "HASHING GAMES"
-msgstr ""
+msgstr "VALIDANDO JUEGOS"
 
 msgid "Favorites"
 msgstr "FAVORITOS"
@@ -1282,16 +1282,16 @@ msgid "Done."
 msgstr "LISTO"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "SALVANDO METADATA. ESPERE..."
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "ESCANEANDO BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr ""
+msgstr "BUSCANDO CONTROLES"
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "ESCANEO DE BLUETOOTH YA ESTA CORRIENDO"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACION DISPONIBLE"
@@ -1312,7 +1312,7 @@ msgid "4 players"
 msgstr "4 JUGADORES"
 
 msgid "never played"
-msgstr ""
+msgstr "NUNCA JUGADO"
 
 msgid "collections"
 msgstr "COLECCIONES"
