@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 22:11+0100\n"
+"POT-Creation-Date: 2019-12-08 08:31+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,12 +419,6 @@ msgstr ""
 msgid "MITM"
 msgstr ""
 
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
 msgid "REINDEX ALL GAMES"
 msgstr ""
 
@@ -506,16 +500,13 @@ msgstr "BRAKUJĄCY BIOS"
 msgid "NO MISSING BIOS"
 msgstr "BIOS'Y NA MIEJSCU"
 
-msgid "MD5"
-msgstr "MD5"
-
 msgid "STATUS"
 msgstr "STATUS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ZAKTUALIZUJ LISTĘ GIER"
 
-msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -1097,13 +1088,7 @@ msgstr "Ostatnio rozegrane"
 msgid "enter last played date"
 msgstr "wpisz datę ostatniej gry"
 
-msgid "Crc32"
-msgstr ""
-
 msgid "Crc32 checksum"
-msgstr ""
-
-msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1265,9 +1250,6 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
 
 msgid "HASHING GAMES"
-msgstr ""
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "Favorites"
@@ -1522,6 +1504,9 @@ msgstr "PRACUJE.."
 
 msgid "up/down"
 msgstr "góra/dół"
+
+#~ msgid "MD5"
+#~ msgstr "MD5"
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "USUŃ KONTROLERY BLUETOOTH"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 22:11+0100\n"
+"POT-Creation-Date: 2019-12-08 08:31+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -421,12 +421,6 @@ msgstr ""
 msgid "MITM"
 msgstr ""
 
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
 msgid "REINDEX ALL GAMES"
 msgstr ""
 
@@ -508,16 +502,13 @@ msgstr "НЕДОСТАЮЩИЙ BIOS"
 msgid "NO MISSING BIOS"
 msgstr "НЕТ НЕДОСТАЮЩЕГО BIOS"
 
-msgid "MD5"
-msgstr "MD5"
-
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
-msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -1098,13 +1089,7 @@ msgstr "Последний запуск"
 msgid "enter last played date"
 msgstr "введите дату последнего запуска"
 
-msgid "Crc32"
-msgstr ""
-
 msgid "Crc32 checksum"
-msgstr ""
-
-msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1265,9 +1250,6 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
 
 msgid "HASHING GAMES"
-msgstr ""
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "Favorites"
@@ -1522,6 +1504,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "MD5"
+#~ msgstr "MD5"
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"

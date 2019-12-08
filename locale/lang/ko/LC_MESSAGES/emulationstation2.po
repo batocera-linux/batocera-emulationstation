@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-07 22:11+0100\n"
+"POT-Creation-Date: 2019-12-08 08:31+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -418,12 +418,6 @@ msgstr ""
 msgid "MITM"
 msgstr ""
 
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
 msgid "REINDEX ALL GAMES"
 msgstr ""
 
@@ -505,16 +499,13 @@ msgstr "없는 바이오스"
 msgid "NO MISSING BIOS"
 msgstr "있는 바이오스 "
 
-msgid "MD5"
-msgstr "MD5"
-
 msgid "STATUS"
 msgstr "상태"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "게임 목록 업데이트"
 
-msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
@@ -1088,13 +1079,7 @@ msgstr "마지막 플레이"
 msgid "enter last played date"
 msgstr "마지막 플레이한 날짜 입력"
 
-msgid "Crc32"
-msgstr ""
-
 msgid "Crc32 checksum"
-msgstr ""
-
-msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1255,9 +1240,6 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "베젤이 성공적으로 설치됨"
 
 msgid "HASHING GAMES"
-msgstr ""
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "Favorites"
@@ -1503,6 +1485,9 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "MD5"
+#~ msgstr "MD5"
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "블루투스 컨트롤러 삭제"
