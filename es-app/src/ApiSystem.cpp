@@ -716,7 +716,7 @@ bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& f
 
 	std::vector<std::string> *res = new std::vector<std::string>();
 	std::ostringstream oss;
-	oss << "batocera-bt-pair-device" << " " << "--first";
+	oss << "batocera-bt-pair-device";
 
 	FILE* pipe = popen(oss.str().c_str(), "r");
 	if (pipe == NULL)
