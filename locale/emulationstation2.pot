@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:34+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -531,6 +531,12 @@ msgid ""
 msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr ""
 
 #, c-format

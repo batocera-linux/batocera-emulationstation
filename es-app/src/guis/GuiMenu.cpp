@@ -1419,6 +1419,12 @@ void GuiMenu::openControllersSettings_batocera()
 	// PAIR A BLUETOOTH CONTROLLER
 	s->addEntry(_("PAIR A BLUETOOTH CONTROLLER"), false, [window] { ThreadedBluetooth::start(window); });
 
+	// FORGET BLUETOOTH CONTROLLERS
+	s->addEntry(_("FORGET BLUETOOTH CONTROLLERS"), false, [window, this, s] {
+		ApiSystem::getInstance()->forgetBluetoothControllers();
+		window->pushGui(new GuiMsgBox(window,
+			_("CONTROLLERS LINKS HAVE BEEN DELETED."), _("OK")));
+	});
 	ComponentListRow row;
 
 	// Here we go; for each player

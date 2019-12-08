@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -530,6 +530,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "OUBLIER LES MANETTES BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "LES ASSOCIATIONS DES MANETTES ONT ÉTÉ SUPPRIMÉS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1492,9 +1498,3 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "OUBLIER LES MANETTES BLUETOOTH"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "LES ASSOCIATIONS DES MANETTES ONT ÉTÉ SUPPRIMÉS"

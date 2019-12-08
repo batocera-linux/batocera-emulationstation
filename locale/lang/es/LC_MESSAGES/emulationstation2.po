@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -529,6 +529,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "EMPAREJAR UN MANDO BLUETOOTH"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "DESEMPAREJAR MANDOS BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1502,12 +1508,6 @@ msgstr "ARRIBA/ABAJO"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "DESEMPAREJAR MANDOS BLUETOOTH"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS"
 
 #~ msgid "SECOND INSTANCE"
 #~ msgstr "SEGUNDA INSTANCIA"

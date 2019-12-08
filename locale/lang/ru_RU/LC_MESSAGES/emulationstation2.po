@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -532,6 +532,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1507,12 +1513,6 @@ msgstr "вверх/вниз"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "BLUETOOTH КОНТРОЛЛЕРы УДАЛЕНЫ"
 
 #~ msgid "ADVANCED"
 #~ msgstr "ДОПОЛНИТЕЛЬНО"

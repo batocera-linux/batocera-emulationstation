@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -523,6 +523,12 @@ msgid ""
 msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr ""
 
 #, c-format

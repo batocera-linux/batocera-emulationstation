@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -530,6 +530,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "配对蓝牙控制器"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "删除蓝牙控制器"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "控制器链接已被删除。"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1486,12 +1492,6 @@ msgstr "上/下"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "删除蓝牙控制器"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "控制器链接已被删除。"
 
 #~ msgid "ADVANCED"
 #~ msgstr "高级设置"

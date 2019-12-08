@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -531,6 +531,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAREAR UM CONTROLE BLUETOOTH"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "DESCONECTAR CONTROLES BLUETOOTH"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1503,12 +1509,6 @@ msgstr "cima/baixo"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "DESCONECTAR CONTROLES BLUETOOTH"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 #~ msgid "ADVANCED"
 #~ msgstr "AVANÇADO"

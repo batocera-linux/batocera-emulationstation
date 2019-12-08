@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -529,6 +529,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "اقتران يد تحكم بالبلوتوث"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1507,12 +1513,6 @@ msgstr "تشغيل..."
 
 msgid "up/down"
 msgstr ""
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #~ msgid "ADVANCED"
 #~ msgstr "متطور"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:31+0100\n"
+"POT-Creation-Date: 2019-12-08 08:37+0100\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -529,6 +529,12 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "PAR EN BLUETOOTH KONRTOLLER"
+
+msgid "FORGET BLUETOOTH CONTROLLERS"
+msgstr "GLEM BLUETOOTH KONTROLLERE"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
 
 #, c-format
 msgid "INPUT P%i"
@@ -1476,12 +1482,6 @@ msgstr "ARBEIDER..."
 
 msgid "up/down"
 msgstr ""
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "GLEM BLUETOOTH KONTROLLERE"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
 
 #~ msgid "ADVANCED"
 #~ msgstr "AVANSERT"
