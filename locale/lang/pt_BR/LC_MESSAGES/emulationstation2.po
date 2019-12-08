@@ -53,22 +53,22 @@ msgid "CANCEL"
 msgstr "CANCELAR"
 
 msgid "CONNECT TO NETPLAY"
-msgstr ""
+msgstr "CONECTE-SE AOS JOGOS DE REDE"
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "Selecione o jogo que você deseja participar"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "ATUALIZAR"
 
 msgid "CLOSE"
 msgstr "FECHAR"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "POR FAVOR AGUARDE"
 
 msgid "FAILED"
-msgstr ""
+msgstr "FALHOU"
 
 msgid "BACK"
 msgstr "VOLTAR"
@@ -77,7 +77,7 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "NENHUM JOGO ENCONTRADO"
 
 msgid "go back"
 msgstr "voltar"
@@ -248,7 +248,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr ""
+msgstr "SELECIONAR"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -302,7 +302,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PESQUISA DE ARTE LOCAL"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "USAR RETROARCH RGUI MENU"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DE LOG"
@@ -350,7 +350,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "SAÍDA DE ÁUDIO"
 
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
@@ -386,19 +386,19 @@ msgid "ROOT PASSWORD"
 msgstr "SENHA DO ROOT"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "REDUÇÃO DE LATÊNCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "FRAMES ANTECIPADOS"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "USAR FRAMES ANTECIPADOS"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "USAR ANTECIPADOS EM SEGUNDA INSTÂNCIA"
 
 msgid "ON"
 msgstr "ON"
@@ -407,25 +407,25 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "CONFIGURAÇÕES DE JOGOS DE REDE"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "HABILITAR JOGOS DE REDE"
 
 msgid "NICKNAME"
-msgstr ""
+msgstr "APELIDO"
 
 msgid "PORT"
-msgstr ""
+msgstr "PORTA"
 
 msgid "MITM"
-msgstr ""
+msgstr "MITM"
 
 msgid "REINDEX ALL GAMES"
-msgstr ""
+msgstr "REINDEXAR TODO OS JOGOS"
 
 msgid "INDEX MISSING GAMES"
-msgstr ""
+msgstr "INDEXAR JOGOS FALTANDO"
 
 msgid "GAME RATIO"
 msgstr "FORMATO DE TELA"
@@ -455,10 +455,10 @@ msgid "CURVATURE"
 msgstr "CURVATURA"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGER (PIXEL PERFEITO)"
@@ -494,7 +494,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
 
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
@@ -509,7 +509,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "HASHING DO JOGO ESTÁ EXECUTANDO. DESEJA PARAR?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
@@ -683,7 +683,7 @@ msgid "MANUAL SCRAPER"
 msgstr "SCRAPER MANUAL"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "INICIAR PROTEÇÃO DE TELA"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
@@ -1097,10 +1097,10 @@ msgid "enter last played date"
 msgstr "digite a última data jogada"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "Crc32 checksum"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "Md5 checksum"
 
 msgid "name"
 msgstr "nome"
@@ -1133,11 +1133,10 @@ msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "FALHA NA PESQUISA : A APLICAÇÃO FOI BLOQUEADA"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "FALHA NA PESQUISA : LIMITE DE BUSCA DIÁRIO ATINGIDO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-"SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1152,7 +1151,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "JOGOS DE REDE"
 
 msgid "RANDOM"
 msgstr "ALEATÓRIO"
@@ -1167,13 +1166,13 @@ msgid "Times played"
 msgstr "Vezes jogados"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Nenhuma Entrada Encontrada"
 
 msgid "OPTIONS"
 msgstr "OPÇÕES"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgstr "INICIAR O JOGO COMO HOST DO JOGO DE REDE"
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
@@ -1242,10 +1241,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "SISTEMA, NA ORDEM DECRESCENTE"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "DATA DE CRIAÇÃO DE ARQUIVOS, CRESCENTE"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "DATA DE CRIAÇÃO DE ARQUIVOS, DECRESCENTE"
 
 msgid "DOWNLOADING"
 msgstr "BAIXANDO"
@@ -1257,7 +1256,7 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "MOLDURAS INSTALADAS COM SUCESSO"
 
 msgid "HASHING GAMES"
-msgstr ""
+msgstr "HASHING DOS JOGOS"
 
 msgid "Favorites"
 msgstr "Favoritos"
@@ -1284,13 +1283,13 @@ msgid "Done."
 msgstr "Concluído."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "SALVANDO METADADOS. POR FAVOR, ESPERE..."
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "ESCANEANDO BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr ""
+msgstr "Procurando controladores..."
 
 msgid "CONTROLLER PAIRED"
 msgstr "CONTROLE PAREADO"
@@ -1299,7 +1298,7 @@ msgid "UNABLE TO PAIR CONTROLLER"
 msgstr "IMPOSSÍVEL DE PAREAR CONTROLE"
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "O ESCANEAMENTO DE BLUETOOTH ESTÁ EM EXECUÇÃO"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -1320,7 +1319,7 @@ msgid "4 players"
 msgstr "4 jogadores"
 
 msgid "never played"
-msgstr ""
+msgstr "nunca joguei"
 
 msgid "collections"
 msgstr "coleções"
