@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:37+0100\n"
+"POT-Creation-Date: 2019-12-08 19:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1289,12 +1289,6 @@ msgstr ""
 msgid "Searching controllers..."
 msgstr ""
 
-msgid "CONTROLLER PAIRED"
-msgstr "COMANDO EMPARELHADO"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "NAO FOI POSSÍVEL EMPARELHAR O COMANDO"
-
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
 
@@ -1502,6 +1496,12 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "CONTROLLER PAIRED"
+#~ msgstr "COMANDO EMPARELHADO"
+
+#~ msgid "UNABLE TO PAIR CONTROLLER"
+#~ msgstr "NAO FOI POSSÍVEL EMPARELHAR O COMANDO"
 
 #~ msgid "MD5"
 #~ msgstr "EXAMINADOR MD5"

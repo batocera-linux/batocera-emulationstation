@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:37+0100\n"
+"POT-Creation-Date: 2019-12-08 19:21+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1285,12 +1285,6 @@ msgstr "ANALYSE BLUETOOTH"
 msgid "Searching controllers..."
 msgstr "Recherche de manettes"
 
-msgid "CONTROLLER PAIRED"
-msgstr "MANETTE ASSOCIÉE"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"
-
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS."
 
@@ -1498,3 +1492,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "CONTROLLER PAIRED"
+#~ msgstr "MANETTE ASSOCIÉE"
+
+#~ msgid "UNABLE TO PAIR CONTROLLER"
+#~ msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"

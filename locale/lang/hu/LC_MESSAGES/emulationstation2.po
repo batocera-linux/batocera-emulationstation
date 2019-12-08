@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:37+0100\n"
+"POT-Creation-Date: 2019-12-08 19:21+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1272,12 +1272,6 @@ msgstr ""
 msgid "Searching controllers..."
 msgstr ""
 
-msgid "CONTROLLER PAIRED"
-msgstr "KONTROLLER PÁROSÍTVA"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "NEM PÁROSÍTHATÓ A KONTROLLER"
-
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
 
@@ -1482,6 +1476,12 @@ msgstr "DOLGOZOM..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "CONTROLLER PAIRED"
+#~ msgstr "KONTROLLER PÁROSÍTVA"
+
+#~ msgid "UNABLE TO PAIR CONTROLLER"
+#~ msgstr "NEM PÁROSÍTHATÓ A KONTROLLER"
 
 #~ msgid "ADVANCED"
 #~ msgstr "HALADÓ"

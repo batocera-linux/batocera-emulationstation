@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:37+0100\n"
+"POT-Creation-Date: 2019-12-08 19:21+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,22 +51,22 @@ msgid "CANCEL"
 msgstr "ANULUJ"
 
 msgid "CONNECT TO NETPLAY"
-msgstr ""
+msgstr "POŁĄCZ Z NETPLAY"
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "Wybierz grę, do której chcesz dołączyć"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "ODŚWIEŻ"
 
 msgid "CLOSE"
 msgstr "ZAMKNIJ"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "PROSZĘ CZEKAĆ"
 
 msgid "FAILED"
-msgstr ""
+msgstr "NIE POWIODŁO SIĘ"
 
 msgid "BACK"
 msgstr "WSTECZ"
@@ -75,7 +75,7 @@ msgid "LAUNCH"
 msgstr "Uruchom"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "NIE ZNALEZIONO GRY"
 
 msgid "go back"
 msgstr "wstecz"
@@ -300,7 +300,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "UŻYJ RETROARCH RGUI MENU"
 
 msgid "LOG LEVEL"
 msgstr "POZIOM LOGOWANIA"
@@ -348,7 +348,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJĘ"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "WYJŚCIE AUDIO"
 
 msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
@@ -384,19 +384,19 @@ msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "REDUKCJA OPÓŹNIEŃ"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "KLATKI Z WYPRZEDZENIEM"
 
 msgid "AUTO"
 msgstr "AUTOMATYCZNIE"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "KORZYSTANIE Z RAMEK Z WYPRZEDZENIEM"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
 
 msgid "ON"
 msgstr "ON"
@@ -405,25 +405,25 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA NETPLAY"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "WŁĄCZ NETPLAY"
 
 msgid "NICKNAME"
-msgstr ""
+msgstr "PSEUDONIM"
 
 msgid "PORT"
-msgstr ""
+msgstr "PORT"
 
 msgid "MITM"
-msgstr ""
+msgstr "MITM"
 
 msgid "REINDEX ALL GAMES"
-msgstr ""
+msgstr "PRZEINDEKSUJ WSZYSTKIE GRY"
 
 msgid "INDEX MISSING GAMES"
-msgstr ""
+msgstr "PRZEINDEKSUJ BRAKUJĄCE GRY"
 
 msgid "GAME RATIO"
 msgstr "PRĘDKOŚĆ GRY"
@@ -453,10 +453,10 @@ msgid "CURVATURE"
 msgstr "KRZYWIZNA"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
@@ -492,7 +492,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
 
 msgid "MISSING BIOS"
 msgstr "BRAKUJĄCY BIOS"
@@ -507,7 +507,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "ZAKTUALIZUJ LISTĘ GIER"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "HASH'OWANIE GIER W TOKU. CZY CHCESZ TO ZATRZYMAĆ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
@@ -681,7 +681,7 @@ msgid "MANUAL SCRAPER"
 msgstr "SCRAPER RĘCZNY"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "URUCHOM WYGASZACZ EKRANU"
 
 msgid "RESTART SYSTEM"
 msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
@@ -1095,10 +1095,10 @@ msgid "enter last played date"
 msgstr "wpisz datę ostatniej gry"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "Crc32 suma kontrolna"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "Md5 suma kontrolna"
 
 msgid "name"
 msgstr "nazwa"
@@ -1132,7 +1132,7 @@ msgstr ""
 "SCRAPE'OWANIE NIE POWIODŁO SIĘ: APLIKACJA ZOSTAŁA WPISANA NA CZARNĄ LISTĘ"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: OSIĄGNIĘTO LIMIT DZIENNY"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
@@ -1151,7 +1151,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "NETPLAY"
 
 msgid "RANDOM"
 msgstr "LOSOWO"
@@ -1166,13 +1166,13 @@ msgid "Times played"
 msgstr "Rozegrano razy"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Nie Znaleziono Wpisów"
 
 msgid "OPTIONS"
 msgstr "OPCJE"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgstr "URUCHOMIĆ GRĘ JAKO HOST NETPLAY?"
 
 msgid "Preloading UI"
 msgstr "Ładuję wstępnie interfejs"
@@ -1241,10 +1241,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "SYSTEM, MALEJĄCO"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "DATA UTWORZENIA PLIKU, ROSNĄCO"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "DATA UTWORZENIA PLIKU, MALEJĄCO"
 
 msgid "DOWNLOADING"
 msgstr "Pobieranie"
@@ -1256,7 +1256,7 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
 
 msgid "HASHING GAMES"
-msgstr ""
+msgstr "HASH'OWANIE GIER"
 
 msgid "Favorites"
 msgstr "Ulubione"
@@ -1283,19 +1283,13 @@ msgid "Done."
 msgstr "Zrobione."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 msgid "SCANNING BLUETOOTH"
 msgstr ""
 
 msgid "Searching controllers..."
 msgstr ""
-
-msgid "CONTROLLER PAIRED"
-msgstr "PODŁĄCZONO KONTROLER"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
@@ -1319,7 +1313,7 @@ msgid "4 players"
 msgstr "4 graczy"
 
 msgid "never played"
-msgstr ""
+msgstr "nidgy nie grane"
 
 msgid "collections"
 msgstr "kolekcje"
@@ -1511,8 +1505,29 @@ msgstr "PRACUJE.."
 msgid "up/down"
 msgstr "góra/dół"
 
+#~ msgid "NEW YORK"
+#~ msgstr "NOWY JORK"
+
+#~ msgid "MADRID"
+#~ msgstr "MADRYT"
+
 #~ msgid "MD5"
 #~ msgstr "MD5"
+
+#~ msgid "HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+#~ msgstr "HASH'OWANIE W TOKU. CZY CHCESZ TO ZATRZYMAĆ?"
+
+#~ msgid "CONTROLLER PAIRED"
+#~ msgstr "PODŁĄCZONO KONTROLER"
+
+#~ msgid "UNABLE TO PAIR CONTROLLER"
+#~ msgstr "NIE MOŻNA POŁĄCZYĆ Z KONTROLEREM"
+
+#~ msgid "Crc32"
+#~ msgstr "Crc32"
+
+#~ msgid "Md5"
+#~ msgstr "Md5"
 
 #~ msgid "ADVANCED"
 #~ msgstr "ZAAWANSOWANE"

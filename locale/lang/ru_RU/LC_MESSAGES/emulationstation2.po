@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 08:37+0100\n"
+"POT-Creation-Date: 2019-12-08 19:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1291,12 +1291,6 @@ msgstr ""
 msgid "Searching controllers..."
 msgstr ""
 
-msgid "CONTROLLER PAIRED"
-msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
-
-msgid "UNABLE TO PAIR CONTROLLER"
-msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
-
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
 
@@ -1510,6 +1504,12 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "CONTROLLER PAIRED"
+#~ msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
+
+#~ msgid "UNABLE TO PAIR CONTROLLER"
+#~ msgstr "СОПРЯЖЕНИЕ КОНТРОЛЛЕРА НЕ УДАЛОСЬ"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
