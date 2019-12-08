@@ -48,10 +48,10 @@ void ThreadedBluetooth::run()
 		updateNotificationComponentContent(info);
 	});
 
-	if (success)
-		mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("CONTROLLER PAIRED"))); });
-	else
-		mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("UNABLE TO PAIR CONTROLLER"), "OK", nullptr, ICON_ERROR)); });
+	//if (success)
+	//	mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("CONTROLLER PAIRED"))); });
+	//else
+	//	mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("UNABLE TO PAIR CONTROLLER"), "OK", nullptr, ICON_ERROR)); });
 
 	delete this;
 	ThreadedBluetooth::mInstance = nullptr;
