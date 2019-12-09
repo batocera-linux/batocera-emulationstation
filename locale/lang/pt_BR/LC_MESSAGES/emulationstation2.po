@@ -14,19 +14,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr "ATUALIZANDO O BATOCERA"
+msgstr "ATUALIZANDO O SISTEMA BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr "REINICIE O SYSTEMA PARA APLICAR"
+msgstr "REINICIE O SISTEMA PARA APLICAR AS ALTERAÇÕES"
 
 msgid "AN ERROR OCCURED"
 msgstr "OCORREU UM ERRO"
 
 msgid "REALLY UPDATE?"
-msgstr "DESEJA ATUALIZAR O SISTEMA?"
+msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
 
 msgid "YES"
 msgstr "SIM"
@@ -35,7 +35,7 @@ msgid "NO"
 msgstr "NÃO"
 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "CONEXÃO COM A INTERNET NECESSÁRIA"
+msgstr "É NECESSÁRIO CONEXÃO COM A INTERNET"
 
 msgid "OK"
 msgstr "OK"
@@ -44,7 +44,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "INPUT"
-msgstr "EDITAR"
+msgstr "ENTRADA"
 
 msgid "SEARCH"
 msgstr "PROCURAR"
@@ -92,13 +92,13 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr "TIPO DE VISUALIZAÇÃO DA GAMELIST"
+msgstr "MODO DE VISUALIZAÇÃO DA LISTA DE JOGOS"
 
 msgid "automatic"
-msgstr "Automático"
+msgstr "automático"
 
 msgid "GRID SIZE"
-msgstr "TAMANHO DO GRID"
+msgstr "TAMANHO DO GRADE"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITOS NO TOPO"
@@ -143,7 +143,7 @@ msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
 msgid "KODI MEDIA CENTER"
-msgstr "KODI MEDIA CENTER"
+msgstr "CENTRAL DE MÍDIA KODI"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
@@ -221,7 +221,7 @@ msgid "SCRAPE RATINGS"
 msgstr "SCRAPE DAS AVALIAÇÕES"
 
 msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE VIDEOS"
+msgstr "SCRAPE VÍDEOS"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -230,7 +230,7 @@ msgid "PASSWORD"
 msgstr "SENHA"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "O SCRAPER ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
+msgstr "O SCRAPER ESTÁ EM EXECUÇÃO. DESEJA ENCERRAR ?"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
@@ -266,7 +266,7 @@ msgid "VRAM LIMIT"
 msgstr "LIMITE DE VRAM"
 
 msgid "SHOW FRAMERATE"
-msgstr "MOSTRAR FRAMERATE"
+msgstr "MOSTRAR TAXA DE QUADROS"
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -389,22 +389,22 @@ msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "FRAMES ANTECIPADOS"
+msgstr "SALTAR QUADROS"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr "USAR FRAMES ANTECIPADOS"
+msgstr "USAR SALTO DE QUADROS"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USAR ANTECIPADOS EM SEGUNDA INSTÂNCIA"
+msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
 
 msgid "ON"
-msgstr "ON"
+msgstr "LIGADO"
 
 msgid "OFF"
-msgstr "OFF"
+msgstr "DESLIGADO"
 
 msgid "NETPLAY SETTINGS"
 msgstr "CONFIGURAÇÕES DE JOGOS DE REDE"
@@ -461,7 +461,7 @@ msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ESCALA INTEGER (PIXEL PERFEITO)"
+msgstr "ESCALA INTEIRO (PIXEL PERFEITO)"
 
 msgid "DECORATION"
 msgstr "DECORAÇÃO"
@@ -488,10 +488,10 @@ msgid "LEADERBOARDS"
 msgstr "CLASSIFICAÇÃO"
 
 msgid "VERBOSE MODE"
-msgstr "MODO VERBOSE"
+msgstr "MODO VERBOSO"
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr "SCREENSHOT AUTOMÁTICO"
+msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -509,7 +509,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "HASHING DO JOGO ESTÁ EXECUTANDO. DESEJA PARAR?"
+msgstr "HASHING DO JOGO ESTÁ EXECUTANDO. DESEJA ENCERRAR?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
@@ -561,7 +561,7 @@ msgid "detailed"
 msgstr "detalhado"
 
 msgid "DEFAULT GRID SIZE"
-msgstr "TAMANHO PADRÃO DA GRID"
+msgstr "TAMANHO PADRÃO DA GRADE"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESTAURAR PERSONALIZAÇÕES GAMELIST"
@@ -573,7 +573,7 @@ msgid "video"
 msgstr "vídeo"
 
 msgid "grid"
-msgstr "grid"
+msgstr "grade"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -656,7 +656,7 @@ msgid "IP ADDRESS"
 msgstr "ENDEREÇO DE IP"
 
 msgid "HOSTNAME"
-msgstr "HOSTNAME"
+msgstr "NOME DA MÁQUINA"
 
 msgid "ENABLE WIFI"
 msgstr "ATIVAR WIFI"
@@ -713,7 +713,7 @@ msgid "Emulator"
 msgstr "Emulador"
 
 msgid "Core"
-msgstr "Core"
+msgstr "Núcleo"
 
 msgid "VIDEO MODE"
 msgstr "MODO VÍDEO"
@@ -722,7 +722,7 @@ msgid "COLORIZATION"
 msgstr "COLORIZAÇÃO"
 
 msgid "FULL BOOT"
-msgstr "FULL BOOT"
+msgstr "INICIALIZAÇÃO COMPLETA"
 
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES EMULADOS"
@@ -761,7 +761,7 @@ msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLEÇÕES DE JOGO PERSONALIZADOS"
 
 msgid "INSTALL BATOCERA"
-msgstr "INSTALAR BATOCERA"
+msgstr "INSTALAR SISTEMA BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO ALVO"
@@ -838,7 +838,7 @@ msgid "INSTALL THE BEZEL PROJECT"
 msgstr "INSTALAR PROJETO DE MOLDURAS"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "SELECIONE O SISTEMA ONDE OS BEZELS SERÃO (RE)INSTALADOS"
+msgstr "SELECIONE O SISTEMA ONDE AS MOLDURAS SERÃO (RE)INSTALADAS"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
@@ -884,16 +884,16 @@ msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "TROCAR VÍDEO APÓS (SEG)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "USE O OMX PLAYER PARA O SCREENSAVER"
+msgstr "USE O OMX PLAYER PARA A PROTEÇÃO DE TELA"
 
 msgid "VIDEO SCREENSAVER"
 msgstr "VÍDEO COMO PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
+msgstr "MOSTRAR INFORMAÇÃO DO JOGO EM PROTEÇÃO DE TELA"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "ESTICAR VÍDEO NO SCREENSAVER"
+msgstr "ESTICAR VÍDEO NA PROTEÇÃO DE TELA"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE DESSES JOGOS"
@@ -957,11 +957,11 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
-"O SCREENSAVER \"VÍDEO ALEATÓRIO\" MOSTRA VÍDEOS DO SEU GAMELIST.\n"
+"A PROTEÇÃO DE TELA \"VÍDEO ALEATÓRIO\" MOSTRA VÍDEOS DA SUA LISTA DE JOGOS.\n"
 "SE VOCÊ NÃO TEM VÍDEOS, OU SE NENHUM DELES PODE SER EXECUTADO APÓS ALGUMAS "
 "TENTATIVAS, POR PADRÃO FICARÁ \"PRETO\".\n"
-"MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NO "
-"SCREENSAVER DE VÍDEO ALEATÓRIOS\""
+"MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NA "
+"PROTEÇÃO DE TELA DE VÍDEO ALEATÓRIOS\""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIOS"
@@ -1348,8 +1348,7 @@ msgstr "Várias"
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
 msgstr[0] "Esta coleção contém %1$i jogo, incluindo %2$s entre outros títulos."
-msgstr[1] ""
-"Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
+msgstr[1] "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
