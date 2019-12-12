@@ -387,7 +387,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	// Batocera 5.25: how long have you played that game? (more than 5 seconds, otherwise 
 	// your might have experienced a loading problem)
 	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsed_seconds;
-	if (gameTime >= 5)
+	if (elapsed_seconds >= 5)
 		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
 
 	//update last played time
