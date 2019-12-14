@@ -214,8 +214,8 @@ void GridTileComponent::resize()
 	{
 		if (currentProperties.Image.sizeMode == "minSize")
 		{
-			mVideo->setOrigin(0, 0);			
-			mVideo->setPosition(imageOffset.x(), imageOffset.y());
+			mVideo->setOrigin(0.5, 0.5);			
+			mVideo->setPosition(imageOffset.x() + imageSize.x() / 2, imageOffset.y() + imageSize.y() / 2);
 			mVideo->setMinSize(imageSize.x(), imageSize.y());
 
 			if (mImage != nullptr)
