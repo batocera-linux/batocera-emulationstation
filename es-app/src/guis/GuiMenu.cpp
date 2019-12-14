@@ -1262,7 +1262,8 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(retroachievements);
 		});		
 
-		s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
+		if (SystemData::isNetplayActivated())
+			s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
 
 		// Custom config for systems
 		s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]

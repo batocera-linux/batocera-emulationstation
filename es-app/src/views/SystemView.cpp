@@ -301,7 +301,7 @@ bool SystemView::input(InputConfig* config, Input input)
 	if(input.value != 0)
 	{
 		bool kodi = false;
-		bool netPlay = SystemConf::getInstance()->get("global.netplay") == "1";
+		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->get("global.netplay") == "1";
 
 #ifdef _ENABLE_KODI_
 		kodi = SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid();
@@ -719,7 +719,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	}	
 #endif
 
-	if (SystemConf::getInstance()->get("global.netplay") == "1")
+	if (SystemData::isNetplayActivated() && SystemConf::getInstance()->get("global.netplay") == "1")
 		prompts.push_back(HelpPrompt(kodi ? "y" : "x", _("NETPLAY")));
 	else
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera

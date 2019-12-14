@@ -118,6 +118,7 @@ public:
 	size_t getGamelistHash() { return mGameListHash; }
 
 	bool isNetplaySupported();
+	static bool isNetplayActivated();
 
 private:
 	size_t mGameListHash;
