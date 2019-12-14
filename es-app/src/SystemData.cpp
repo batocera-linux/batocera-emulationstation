@@ -756,3 +756,12 @@ bool SystemData::isNetplaySupported()
 {
 	return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
 }
+
+bool SystemData::isNetplayActivated()
+{
+	for (auto sys : SystemData::sSystemVector)
+		if (sys->isNetplaySupported())
+			return true;
+
+	return false;	
+}
