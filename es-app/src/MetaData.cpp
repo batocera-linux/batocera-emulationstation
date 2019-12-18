@@ -43,7 +43,7 @@ void MetaDataList::initMetadata()
 	gameMDD.push_back(MetaDataDecl(17, "lastplayed", MD_TIME, "0", true, _("Last played"), _("enter last played date")));
 	gameMDD.push_back(MetaDataDecl(18, "crc32", MD_STRING, "", false, "Crc32", _("Crc32 checksum")));
 	gameMDD.push_back(MetaDataDecl(19, "md5", MD_STRING, "", false, "Md5", _("Md5 checksum")));
-	gameMDD.push_back(MetaDataDecl(20, "gametime", MD_INT, "0", true, _("Game time"), _("how long the game has been played in total")));
+	gameMDD.push_back(MetaDataDecl(20, "gametime", MD_INT, "0", true, _("Game time"), _("how long the game has been played in total (seconds)")));
 
 	folderMDD.push_back(MetaDataDecl(0, "name", MD_STRING, "", false, _("name"), _("enter game name")));
 	//  folderMDD.push_back(MetaDataDecl(1, "sortname",	MD_STRING,		"", 		false, _("sortname"),    _("enter game sort name")));

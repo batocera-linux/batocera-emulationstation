@@ -370,7 +370,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	VolumeControl::getInstance()->init();
 
 	time_t tend = time(NULL);
-	long elapsed_seconds = difftime(tend, tstart);
+	long elapsedSeconds = difftime(tend, tstart);
 
 	// mSystem can be NULL
 	//AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
@@ -386,8 +386,8 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	// Batocera 5.25: how long have you played that game? (more than 5 seconds, otherwise 
 	// your might have experienced a loading problem)
-	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsed_seconds;
-	if (elapsed_seconds >= 5)
+	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+	if (elapsedSeconds >= 5)
 		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
 
 	//update last played time
