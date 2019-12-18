@@ -664,4 +664,3 @@ void FolderData::createChildrenByFilenameMap(std::unordered_map<std::string, Fil
 			map[(*it)->getKey()] = (*it);
 	}	
 }
-
