@@ -47,6 +47,8 @@ public:
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);
 	static void popGameConfigurationGui(Window* mWindow, std::string title, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
 
+	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
+
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
 	void addVersionInfo();
@@ -72,7 +74,6 @@ private:
 	void openSystemInformations_batocera();
 	void openDeveloperSettings();
 	void openNetplaySettings();
-	void openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set);
 
 	void createInputTextRow(GuiSettings * gui, std::string title, const char* settingsID, bool password, bool storeInSettings=false);
 	MenuComponent mMenu;

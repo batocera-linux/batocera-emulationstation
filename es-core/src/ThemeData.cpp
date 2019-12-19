@@ -452,6 +452,8 @@ bool ThemeData::isFirstSubset(const pugi::xml_node& node)
 	return false;
 }
 
+
+
 bool ThemeData::parseSubset(const pugi::xml_node& node)
 {
 	if (!node.attribute("subset"))
@@ -466,6 +468,14 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (displayNameAttr.empty())
 			displayNameAttr = nameAttr;
 
+		std::string subSetDisplayNameAttr = resolvePlaceholders(node.attribute("subSetDisplayName").as_string());
+		if (subSetDisplayNameAttr.empty())
+		{
+			std::string byVarName = getVariable("subset." + subsetAttr);
+			if (!byVarName.empty())
+				subSetDisplayNameAttr = byVarName;
+		}
+
 		bool add = true;
 
 		for (auto sb : mSubsets) {
@@ -475,18 +485,38 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		}
 
 		if (add)
-			mSubsets.push_back(Subset(subsetAttr, nameAttr, displayNameAttr));
+		{
+			Subset subSet(subsetAttr, nameAttr, displayNameAttr, subSetDisplayNameAttr);
+
+			std::string appliesToAttr = resolvePlaceholders(node.attribute("appliesTo").as_string());
+			if (!appliesToAttr.empty())
+				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ",");
+
+			mSubsets.push_back(subSet);
+		}
 	}
 
 	
 	if (subsetAttr == "colorset")
 	{
-		if (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node)))
+		std::string perSystemSetName = Settings::getInstance()->getString("subset." + mSystemThemeFolder + ".colorset");
+		if (!perSystemSetName.empty())
+		{
+			if (nameAttr == perSystemSetName)
+				return true;
+		}
+		else if (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node)))
 			return true;
 	}
 	else if (subsetAttr == "iconset")
 	{
-		if (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node)))
+		std::string perSystemSetName = Settings::getInstance()->getString("subset." + mSystemThemeFolder + ".iconset");
+		if (!perSystemSetName.empty())
+		{
+			if (nameAttr == perSystemSetName)
+				return true;
+		}
+		else if (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node)))
 			return true;
 	}
 	else if (subsetAttr == "menu")
@@ -501,18 +531,35 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 	}
 	else if (subsetAttr == "gamelistview")
 	{
-		if (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node)))
+		std::string perSystemSetName = Settings::getInstance()->getString("subset." + mSystemThemeFolder + ".gamelistview");
+		if (!perSystemSetName.empty())
+		{
+			if (nameAttr == perSystemSetName)
+				return true;
+		}
+		else if (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node)))
 			return true;
 	}
 	else
 	{
-		std::string setID = Settings::getInstance()->getString("subset."+ subsetAttr);
-		if (nameAttr == setID || (setID.empty() && isFirstSubset(node)))
-			return true;
+		std::string perSystemSetName = Settings::getInstance()->getString("subset." + mSystemThemeFolder + "." + subsetAttr);
+		if (!perSystemSetName.empty())
+		{
+			if (nameAttr == perSystemSetName)
+				return true;
+		}
+		else
+		{
+			std::string setID = Settings::getInstance()->getString("subset." + subsetAttr);
+			if (nameAttr == setID || (setID.empty() && isFirstSubset(node)))
+				return true;
+		}
 	}
 
 	return false;
 }
+
+
 
 void ThemeData::parseInclude(const pugi::xml_node& node)
 {
@@ -704,12 +751,41 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 				parseViewElement(node);
 			else if (name == "customView")
 				parseCustomView(node, root);
+			else if (name == "subset")
+				parseSubsetElement(node);
 		}
 	}
 
 	// Unfortunately, recalbox does not do things in order, features have to be loaded after
 	for (pugi::xml_node node = root.child("feature"); node; node = node.next_sibling("feature"))
 		parseFeature(node);
+}
+
+void ThemeData::parseSubsetElement(const pugi::xml_node& root)
+{
+	const std::string name = root.attribute("name").as_string();
+	const std::string displayName = resolvePlaceholders(root.attribute("displayName").as_string());
+	const std::string appliesTo = root.attribute("appliesTo").as_string();
+
+	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
+	{
+		node.remove_attribute("subset");
+		node.append_attribute("subset") = name.c_str();
+
+		if (!appliesTo.empty())
+		{
+			node.remove_attribute("appliesTo");
+			node.append_attribute("appliesTo") = appliesTo.c_str();
+		}
+
+		if (!displayName.empty())
+		{
+			node.remove_attribute("subSetDisplayName");
+			node.append_attribute("subSetDisplayName") = displayName.c_str();
+		}
+
+		parseInclude(node);
+	}
 }
 
 void ThemeData::parseViews(const pugi::xml_node& root)
@@ -766,6 +842,8 @@ void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& 
 			if (!inherits.empty() && inherits != baseClass)
 			{
 				view.baseType = inherits;
+				view.baseTypes.push_back(inherits);
+
 				parseCustomViewBaseClass(root, view, inherits);
 			}
 
@@ -795,6 +873,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 	if (!inherits.empty())
 	{
 		view.baseType = inherits;
+		view.baseTypes.push_back(inherits);
 		parseCustomViewBaseClass(root, view, inherits);
 	}
 
@@ -889,7 +968,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	}
 
 	if (add)
-		mSubsets.push_back(Subset("region", nameAttr, nameAttr));
+		mSubsets.push_back(Subset("region", nameAttr, nameAttr, "region"));
 
 	const char* delim = " \t\r\n,";
 	
@@ -1075,6 +1154,15 @@ std::string ThemeData::getCustomViewBaseType(const std::string& view)
 	auto viewIt = mViews.find(view);
 	if (viewIt != mViews.cend())
 		return viewIt->second.baseType;
+
+	return "";
+}
+
+std::string ThemeData::getViewDisplayName(const std::string& view)
+{
+	auto viewIt = mViews.find(view);
+	if (viewIt != mViews.cend())
+		return viewIt->second.displayName;
 
 	return "";
 }
@@ -1394,13 +1482,47 @@ std::vector<Subset> ThemeData::getSubSet(const std::vector<Subset>& subsets, con
 	return ret;
 }
 
-std::vector<std::string> ThemeData::getSubSetNames()
+std::vector<std::string> ThemeData::getSubSetNames(const std::string ofView)
 {
 	std::vector<std::string> ret;
 
 	for (const auto& it : mSubsets)
+	{
 		if (std::find(ret.cbegin(), ret.cend(), it.subset) == ret.cend())
-			ret.push_back(it.subset);
+		{
+			if (ofView.empty())
+				ret.push_back(it.subset);
+			else
+			{
+				if (std::find(it.appliesTo.cbegin(), it.appliesTo.cend(), ofView) != it.appliesTo.cend())
+					ret.push_back(it.subset);
+				else
+				{
+					auto viewIt = mViews.find(ofView);
+					if (viewIt != mViews.cend())
+					{					
+						for (auto applyTo : it.appliesTo)
+						{
+							if (viewIt->second.isOfType(applyTo))
+							{
+								ret.push_back(it.subset);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
 	return ret;
+}
+
+std::string	ThemeData::getDefaultSubSetValue(const std::string subsetname)
+{
+	for (const auto& it : mSubsets)
+		if (it.subset == subsetname)
+			return it.name;
+
+	return "";
 }

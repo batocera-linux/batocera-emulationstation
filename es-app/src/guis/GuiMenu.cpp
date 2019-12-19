@@ -42,6 +42,7 @@
 #include "FileSorts.h"
 #include "ThreadedHasher.h"
 #include "ThreadedBluetooth.h"
+#include "views/gamelist/IGameListView.h"
 
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -1551,9 +1552,16 @@ void GuiMenu::openControllersSettings_batocera()
 	window->pushGui(s);
 }
 
-void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListComponent<std::string>> theme_set)
+struct ThemeConfigOption
 {
-	if (Settings::getInstance()->getString("ThemeSet") != theme_set->getSelected())
+	std::string defaultSettingName;
+	std::string subset;
+	std::shared_ptr<OptionListComponent<std::string>> component;
+};
+
+void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme)
+{
+	if (theme_set != nullptr && Settings::getInstance()->getString("ThemeSet") != theme_set->getSelected())
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"), _("OK")));
 		return;
@@ -1564,15 +1572,27 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 	auto system = ViewController::get()->getState().getSystem();
 	auto theme = system->getTheme();
 
-	auto themeconfig = new GuiSettings(mWindow, _("THEME CONFIGURATION").c_str());
+	auto themeconfig = new GuiSettings(mWindow, (systemTheme.empty() ? _("THEME CONFIGURATION") : _("VIEW CUSTOMISATION")).c_str());
 
 	auto themeSubSets = theme->getSubSets();
 
-	std::map<std::string, std::shared_ptr<OptionListComponent<std::string>>> options;
+	std::string viewName;
+	bool showGridFeatures = true;
+	if (!systemTheme.empty())
+	{
+		auto glv = ViewController::get()->getGameListView(system);
+		viewName = glv->getName();
+		std::string baseType = theme->getCustomViewBaseType(viewName);
 
-	for (std::string subset : theme->getSubSetNames())
+		showGridFeatures = (viewName == "grid" || baseType == "grid");
+	}
+
+	std::map<std::string, ThemeConfigOption> options;
+
+	for (std::string subset : theme->getSubSetNames(viewName))
 	{
 		std::string settingName = "subset." + subset;
+		std::string perSystemSettingName = systemTheme.empty() ? "" : "subset." + systemTheme + "." + subset;
 
 		if (subset == "colorset") settingName = "ThemeColorSet";
 		else if (subset == "iconset") settingName = "ThemeIconSet";
@@ -1582,48 +1602,90 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		else if (subset == "region") settingName = "ThemeRegionName";
 
 		auto themeColorSets = ThemeData::getSubSet(themeSubSets, subset);
+
 		if (themeColorSets.size() > 0)
-		{			
+		{
 			auto selectedColorSet = themeColorSets.end();
-			auto selectedName = Settings::getInstance()->getString(settingName);
+			auto selectedName = !perSystemSettingName.empty() ? Settings::getInstance()->getString(perSystemSettingName) : Settings::getInstance()->getString(settingName);
+
+			if (!perSystemSettingName.empty() && selectedName.empty())
+				selectedName = Settings::getInstance()->getString(settingName);
 
 			for (auto it = themeColorSets.begin(); it != themeColorSets.end() && selectedColorSet == themeColorSets.end(); it++)
 				if (it->name == selectedName)
 					selectedColorSet = it;
 
-			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME "+Utils::String::toUpper(subset)).c_str()), false);
-			item->setTag(settingName);
+			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
+			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
 
 			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
-				item->add(it->displayName, it->name, it == selectedColorSet);
+			{
+				std::string displayName = it->displayName;
+
+				if (!systemTheme.empty())
+				{
+					std::string defaultValue = Settings::getInstance()->getString(settingName);
+					if (defaultValue.empty())
+						defaultValue = system->getTheme()->getDefaultSubSetValue(subset);
+
+					if (it->name == defaultValue)
+						displayName = displayName + " (" + _("DEFAULT") + ")";
+				}
+
+				item->add(displayName, it->name, it == selectedColorSet);
+			}
 
 			if (selectedColorSet == themeColorSets.end())
 				item->selectFirstItem();
 
 			if (!themeColorSets.empty())
 			{
-				std::string displayName = theme->getVariable("subset." + subset);
+				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
 				if (!displayName.empty())
-					themeconfig->addWithLabel(displayName, item);
+				{
+					std::string prefix;
+
+					if (systemTheme.empty())
+					{
+						auto itSubsetName = themeColorSets.cbegin()->appliesTo.cbegin();
+						if (itSubsetName != themeColorSets.cbegin()->appliesTo.cend())
+						{
+							prefix = theme->getViewDisplayName(*itSubsetName);
+							if (!prefix.empty())
+								prefix = prefix + " / ";
+						}
+					}
+
+					themeconfig->addWithLabel(prefix + displayName, item);
+				}
 				else
 					themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
 			}
 
-			options[settingName]  = item;
+			ThemeConfigOption opt;
+			opt.component = item;
+			opt.subset = subset;
+			opt.defaultSettingName = settingName;
+			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
 		}
-		else 
-			options[settingName] = nullptr;
+		else
+		{
+			ThemeConfigOption opt;
+			opt.component = nullptr;
+			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
+		}
 	}
 
 	// gamelist_style
 	std::shared_ptr<OptionListComponent<std::string>> gamelist_style = nullptr;
-	//if (theme_gamelistview == nullptr)
+
+	if (systemTheme.empty())
 	{
 		gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
 
 		std::vector<std::pair<std::string, std::string>> styles;
 		styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
-	
+
 		if (system != NULL)
 		{
 			auto mViews = theme->getViewsOfTheme();
@@ -1641,21 +1703,27 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 			styles.push_back(std::pair<std::string, std::string>("detailed", _("detailed")));
 		}
 
-		auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
+		auto viewPreference = systemTheme.empty() ? Settings::getInstance()->getString("GamelistViewStyle") : system->getSystemViewMode();
 		if (!theme->hasView(viewPreference))
 			viewPreference = "automatic";
 
 		for (auto it = styles.cbegin(); it != styles.cend(); it++)
 			gamelist_style->add(it->second, it->first, viewPreference == it->first);
 
+		if (!gamelist_style->hasSelection())
+			gamelist_style->selectFirstItem();
+
 		themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 	}
 
 	// Default grid size
 	std::shared_ptr<OptionListComponent<std::string>> mGridSize = nullptr;
-	if (system != NULL && theme->hasView("grid"))
+	if (showGridFeatures && system != NULL && theme->hasView("grid"))
 	{
-		Vector2f gridOverride = Vector2f::parseString(Settings::getInstance()->getString("DefaultGridSize"));
+		Vector2f gridOverride =
+			systemTheme.empty() ? Vector2f::parseString(Settings::getInstance()->getString("DefaultGridSize")) :
+			system->getGridSizeOverride();
+
 		auto ovv = std::to_string((int)gridOverride.x()) + "x" + std::to_string((int)gridOverride.y());
 
 		mGridSize = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DEFAULT GRID SIZE"), false);
@@ -1676,28 +1744,54 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 		themeconfig->addWithLabel(_("DEFAULT GRID SIZE"), mGridSize);
 	}
 
-
-	themeconfig->addEntry(_("RESET GAMELIST CUSTOMISATIONS"), false, [s, themeconfig, window]
+	if (systemTheme.empty())
 	{
-		Settings::getInstance()->setString("GamelistViewStyle", "");
-		Settings::getInstance()->setString("DefaultGridSize", "");
+		themeconfig->addEntry(_("RESET GAMELIST CUSTOMISATIONS"), false, [s, themeconfig, window]
+		{
+			Settings::getInstance()->setString("GamelistViewStyle", "");
+			Settings::getInstance()->setString("DefaultGridSize", "");
 
-		for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
-			(*sysIt)->setSystemViewMode("automatic", Vector2f(0, 0));
+			for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+				(*sysIt)->setSystemViewMode("automatic", Vector2f(0, 0));
 
-		themeconfig->setVariable("reloadAll", true);
-		themeconfig->close();		
-	});
+			themeconfig->setVariable("reloadAll", true);
+			themeconfig->close();
+		});
+	}
 
 	//  theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region,
-	themeconfig->addSaveFunc([this, themeconfig, theme_set, options, gamelist_style, mGridSize, window]
+	themeconfig->addSaveFunc([systemTheme, system, themeconfig, theme_set, options, gamelist_style, mGridSize, window]
 	{
-		bool reloadAll = Settings::getInstance()->setString("ThemeSet", theme_set == nullptr ? "" : theme_set->getSelected());
+		bool reloadAll = systemTheme.empty() ? Settings::getInstance()->setString("ThemeSet", theme_set == nullptr ? "" : theme_set->getSelected()) : false;
 
-		for (auto option : options)			
-			reloadAll |= Settings::getInstance()->setString(option.first, option.second == nullptr ? "" : option.second->getSelected());
-	
-		reloadAll |= Settings::getInstance()->setString("GamelistViewStyle", gamelist_style == nullptr ? "" : gamelist_style->getSelected());
+		for (auto option : options)
+		{
+			ThemeConfigOption& opt = option.second;
+
+			std::string value;
+
+			if (opt.component != nullptr)
+			{
+				value = opt.component->getSelected();
+
+				if (!systemTheme.empty() && !value.empty())
+				{
+					std::string defaultValue = Settings::getInstance()->getString(opt.defaultSettingName);
+					if (defaultValue.empty())
+						defaultValue = system->getTheme()->getDefaultSubSetValue(opt.subset);
+
+					if (value == defaultValue)
+						value = "";
+				}
+				else if (systemTheme.empty() && value == system->getTheme()->getDefaultSubSetValue(opt.subset))
+					value = "";
+			}
+
+			if (value != Settings::getInstance()->getString(option.first))
+				reloadAll |= Settings::getInstance()->setString(option.first, value);
+		}
+
+		Vector2f gridSizeOverride(0, 0);
 
 		if (mGridSize != nullptr)
 		{
@@ -1710,23 +1804,44 @@ void GuiMenu::openThemeConfiguration(GuiSettings* s, std::shared_ptr<OptionListC
 				std::string first = str.substr(0, divider);
 				std::string second = str.substr(divider + 1, std::string::npos);
 
-				Vector2f gridSizeOverride = Vector2f((float)atof(first.c_str()), (float)atof(second.c_str()));
+				gridSizeOverride = Vector2f((float)atof(first.c_str()), (float)atof(second.c_str()));
 				value = Utils::String::replace(Utils::String::replace(gridSizeOverride.toString(), ".000000", ""), "0 0", "");
 			}
 
-			reloadAll |= Settings::getInstance()->setString("DefaultGridSize", value);
+			if (systemTheme.empty())
+				reloadAll |= Settings::getInstance()->setString("DefaultGridSize", value);
 		}
-		else 
+		else if (systemTheme.empty())
 			reloadAll |= Settings::getInstance()->setString("DefaultGridSize", "");
+
+		if (systemTheme.empty())
+			reloadAll |= Settings::getInstance()->setString("GamelistViewStyle", gamelist_style == nullptr ? "" : gamelist_style->getSelected());
+		else
+		{
+			std::string viewMode = gamelist_style == nullptr ? system->getSystemViewMode() : gamelist_style->getSelected();
+			reloadAll |= system->setSystemViewMode(viewMode, gridSizeOverride);
+		}
 
 		if (reloadAll || themeconfig->getVariable("reloadAll"))
 		{
-			CollectionSystemManager::get()->updateSystemsList();
-			ViewController::get()->reloadAll(window);
-			window->endRenderLoadingScreen();
+			if (systemTheme.empty())
+			{
+				CollectionSystemManager::get()->updateSystemsList();
+				ViewController::get()->reloadAll(window);
+				window->endRenderLoadingScreen();
 
-			std::string oldTheme = Settings::getInstance()->getString("ThemeSet");
-			Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
+				if (theme_set != nullptr)
+				{
+					std::string oldTheme = Settings::getInstance()->getString("ThemeSet");
+					Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
+				}
+			}
+			else
+			{
+				system->loadTheme();
+				system->resetFilters();
+				ViewController::get()->reloadGameListView(system);
+			}
 		}
 	});
 
@@ -1791,7 +1906,7 @@ void GuiMenu::openUISettings()
 		bool showThemeConfiguration = system->getTheme()->hasSubsets() || system->getTheme()->hasView("grid");
 		if (showThemeConfiguration)
 		{
-			s->addSubMenu(_("THEME CONFIGURATION"), [this, s, theme_set]() { openThemeConfiguration(s, theme_set); });
+			s->addSubMenu(_("THEME CONFIGURATION"), [this, s, theme_set]() { openThemeConfiguration(mWindow, s, theme_set); });
 		}
 		else // GameList view style only, acts like Retropie for simple themes
 		{

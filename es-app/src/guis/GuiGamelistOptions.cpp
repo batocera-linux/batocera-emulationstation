@@ -18,6 +18,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "scrapers/ThreadedScraper.h"
 #include "ThreadedHasher.h"
+#include "guis/GuiMenu.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -145,6 +146,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
 		mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 
+	auto glv = ViewController::get()->getGameListView(system);
+	std::string viewName = glv->getName();
+
 	// GameList view style
 	mViewMode = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
 	std::vector<std::pair<std::string, std::string>> styles;
@@ -177,7 +181,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	mMenu.addWithLabel(_("GAMELIST VIEW STYLE"), mViewMode);
 
 	// Grid size override
-	if (showGridFeatures)
+	auto subsetNames = system->getTheme()->getSubSetNames(viewName);
+	if (subsetNames.size() > 0)
+	{
+		mMenu.addEntry(_("VIEW CUSTOMISATION"), true, [this, system]() { GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder()); });
+	}
+	else if (showGridFeatures)
 	{
 		auto gridOverride = system->getGridSizeOverride();
 		auto ovv = std::to_string((int)gridOverride.x()) + "x" + std::to_string((int)gridOverride.y());
@@ -398,7 +407,11 @@ GuiGamelistOptions::~GuiGamelistOptions()
 
 			gridSizeOverride = Vector2f((float)atof(first.c_str()), (float)atof(second.c_str()));
 		}
+		else
+			gridSizeOverride = mSystem->getGridSizeOverride();
 	}
+	else
+		gridSizeOverride = mSystem->getGridSizeOverride();
 
 	bool viewModeChanged = mSystem->setSystemViewMode(mViewMode->getSelected(), gridSizeOverride);
 
