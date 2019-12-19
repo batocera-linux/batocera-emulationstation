@@ -89,17 +89,22 @@ struct ThemeSet
 
 struct Subset
 {
-	Subset(const std::string set, const std::string nm, const std::string dn)
+	Subset(const std::string set, const std::string nm, const std::string dn, const std::string ssdn)
 	{
 		subset = set;
 		name = nm;
 		displayName = dn;
+		subSetDisplayName = ssdn;
 	}
 
 	std::string subset;
 	std::string name;	
 
 	std::string displayName;
+
+	std::vector<std::string> appliesTo;
+
+	std::string subSetDisplayName;
 };
 
 struct MenuElement 
@@ -214,6 +219,13 @@ private:
 		std::vector<std::string> orderedKeys;
 		std::string baseType;
 
+		std::vector<std::string> baseTypes;
+
+		bool isOfType(const std::string type) 
+		{
+			return baseType == type || std::find(baseTypes.cbegin(), baseTypes.cend(), type) != baseTypes.cend();
+		};
+
 		std::string displayName;
 
 		bool isCustomView;
@@ -256,7 +268,9 @@ public:
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 
 	std::vector<Subset>		    getSubSets() { return mSubsets; }
-	std::vector<std::string>	getSubSetNames();
+	std::vector<std::string>	getSubSetNames(const std::string ofView = "");
+
+	std::string					getDefaultSubSetValue(const std::string subsetname);
 
 	static std::vector<Subset> getSubSet(const std::vector<Subset>& subsets, const std::string& subset);
 
@@ -275,6 +289,8 @@ public:
 
 		return "";
 	}	
+
+	std::string getViewDisplayName(const std::string& view);
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
@@ -301,6 +317,7 @@ private:
 	bool isFirstSubset(const pugi::xml_node& node);
 	bool parseLanguage(const pugi::xml_node& node);
 	bool parseFilterAttributes(const pugi::xml_node& node);
+	void parseSubsetElement(const pugi::xml_node& root);
 
 	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
 
