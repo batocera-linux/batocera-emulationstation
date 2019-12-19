@@ -60,8 +60,9 @@ bool SystemConf::loadSystemConf()
     return true;
 }
 
+#include <SDL_timer.h>
 
-bool SystemConf::saveSystemConf() 
+bool SystemConf::saveSystemConf()
 {
 	if (!mWasChanged)
 		return false;
@@ -69,7 +70,7 @@ bool SystemConf::saveSystemConf()
 	std::ifstream filein(systemConfFile); //File to read from
 
 #ifndef WIN32
-	if (!filein) 
+	if (!filein)
 	{
 		LOG(LogError) << "Unable to open for saving :  " << systemConfFile << "\n";
 		return false;
@@ -88,33 +89,56 @@ bool SystemConf::saveSystemConf()
 		filein.close();
 	}
 
+	int lastTime = SDL_GetTicks();
 
 	/* Save new value if exists */
-	for (std::map<std::string, std::string>::iterator it = confMap.begin(); it != confMap.end(); ++it) {
-		std::string key = it->first;
-		std::string val = it->second;
-		bool lineFound = false;
-		for (int i = 0; i < fileLines.size(); i++) {
-			std::string currentLine = fileLines[i];
+	for (auto& it : confMap)
+	{
+		std::string key = it.first + "=";		
+		char key0 = key[0];
 
-			if (Utils::String::startsWith(currentLine, key + "=") || Utils::String::startsWith(currentLine, ";" + key + "=") || Utils::String::startsWith(currentLine, "#" + key + "=")) {
-				if (val != "" && val != "auto") {
-					fileLines[i] = key + "=" + val;
-				}
-				else {
-					fileLines[i] = "#" + key + "=" + val;
-				}
+		bool lineFound = false;
+
+		for (auto& currentLine : fileLines)
+		{
+			if (currentLine.size() < 3)
+				continue;
+
+			char fc = currentLine[0];
+			if (fc != key0 && currentLine[1] != key0)
+				continue;
+
+			int idx = currentLine.find(key);
+			if (idx == std::string::npos)
+				continue;
+
+			if (idx == 0 || (idx == 1 && (fc == ';' || fc == '#')))
+			{
+				std::string val = it.second;
+				if (!val.empty() && val != "auto")
+					currentLine = key + val;
+				else
+					currentLine = "#" + key + it.second;
+
 				lineFound = true;
 			}
 		}
-		if (!lineFound) {
-			if (val != "" && val != "auto") {
-				fileLines.push_back(key + "=" + val);
-			}
+
+		if (!lineFound)
+		{
+			std::string val = it.second;
+			if (!val.empty() && val != "auto")
+				fileLines.push_back(key + val);
 		}
 	}
+
+	lastTime = SDL_GetTicks() - lastTime;
+
+	LOG(LogDebug) << "saveSystemConf :  " << lastTime;
+
 	std::ofstream fileout(systemConfFileTmp); //Temporary file
-	if (!fileout) {
+	if (!fileout)
+	{
 		LOG(LogError) << "Unable to open for saving :  " << systemConfFileTmp << "\n";
 		return false;
 	}
@@ -123,7 +147,7 @@ bool SystemConf::saveSystemConf()
 	}
 
 	fileout.close();
-	
+
 	/* Copy back the tmp to batocera.conf */
 	std::ifstream  src(systemConfFileTmp, std::ios::binary);
 	std::ofstream  dst(systemConfFile, std::ios::binary);
