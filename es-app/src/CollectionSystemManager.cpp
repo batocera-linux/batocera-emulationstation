@@ -542,7 +542,10 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				adding = false;
 				md->set("favorite", "false");
 			}
+
 			sysData->addToIndex(file);
+			saveToGamelistRecovery(file);
+
 			refreshCollectionSystems(file->getSourceFileData());
 
 			SystemData* systemViewToUpdate = getSystemToView(sysData);
@@ -551,9 +554,7 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				// Notify the current gamelist
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
 				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(file, FILE_METADATA_CHANGED);
-			}
-
-			saveToGamelistRecovery(file);
+			}		
 		}
 
 		if (adding)
