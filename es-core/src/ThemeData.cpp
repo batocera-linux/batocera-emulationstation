@@ -438,22 +438,12 @@ bool ThemeData::isFirstSubset(const pugi::xml_node& node)
 	const std::string subsetToFind = resolvePlaceholders(node.attribute("subset").as_string());
 	const std::string name = node.attribute("name").as_string();
 
-	pugi::xml_node root = node.parent();
-
-	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
-	{
-		const std::string subsetAttr = resolvePlaceholders(node.attribute("subset").as_string());
-		if (subsetAttr.empty() || subsetAttr != subsetToFind)
-			continue;
-
-		const std::string nameAttr = resolvePlaceholders(node.attribute("name").as_string());
-		return (nameAttr == name);
-	}
+	for (const auto& it : mSubsets)
+		if (it.subset == subsetToFind)
+			return it.name == name;
 
 	return false;
 }
-
-
 
 bool ThemeData::parseSubset(const pugi::xml_node& node)
 {
