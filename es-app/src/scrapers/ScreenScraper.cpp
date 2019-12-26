@@ -37,8 +37,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ATARI_2600, 26 },
 	{ ATARI_5200, 40 },
 	{ ATARI_7800, 41 },
-	{ ATARI_JAGUAR, 27 },
-	{ ATARI_JAGUAR_CD, 171 },
+	{ JAGUAR, 27 },
+	{ JAGUAR_CD, 171 },
 	{ ATARI_LYNX, 28 },
 	{ ATARI_ST, 42},
 	// missing Atari XE ?
