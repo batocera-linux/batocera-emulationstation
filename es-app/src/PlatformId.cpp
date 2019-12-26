@@ -20,6 +20,7 @@ namespace PlatformIds
 		{ "atari7800",				ATARI_7800 },
 		{ "atarilynx",				ATARI_LYNX },
 		{ "atarist",				ATARI_ST },
+		{ "jaguar",					ATARI_JAGUAR },
 		{ "atarijaguar",			ATARI_JAGUAR },
 		{ "atarijaguarcd",			ATARI_JAGUAR_CD },
 		{ "atarixe",				ATARI_XE },
