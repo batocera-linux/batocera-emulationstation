@@ -690,11 +690,11 @@ namespace Utils
 				return _path;
 
 			// replace '.' with relativeTo
-			if((_path[0] == '.') && (_path[1] == '/'))
+			if((_path[0] == '.') && (_path[1] == '/' || _path[1] == '\\'))
 				return getGenericPath(_relativeTo + &(_path[1]));
 
 			// replace '~' with homePath
-			if(_allowHome && (_path[0] == '~') && (_path[1] == '/'))
+			if(_allowHome && (_path[0] == '~') && (_path[1] == '/' || _path[1] == '\\'))
 				return getCanonicalPath(getHomePath() + &(_path[1]));
 
 			// nothing to resolve

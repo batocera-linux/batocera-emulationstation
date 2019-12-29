@@ -11,6 +11,7 @@
 #include "Settings.h"
 #include "SystemConf.h"
 #include <algorithm>
+#include "LocaleES.h"
 
 std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
@@ -437,22 +438,12 @@ bool ThemeData::isFirstSubset(const pugi::xml_node& node)
 	const std::string subsetToFind = resolvePlaceholders(node.attribute("subset").as_string());
 	const std::string name = node.attribute("name").as_string();
 
-	pugi::xml_node root = node.parent();
-
-	for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
-	{
-		const std::string subsetAttr = resolvePlaceholders(node.attribute("subset").as_string());
-		if (subsetAttr.empty() || subsetAttr != subsetToFind)
-			continue;
-
-		const std::string nameAttr = resolvePlaceholders(node.attribute("name").as_string());
-		return (nameAttr == name);
-	}
+	for (const auto& it : mSubsets)
+		if (it.subset == subsetToFind)
+			return it.name == name;
 
 	return false;
 }
-
-
 
 bool ThemeData::parseSubset(const pugi::xml_node& node)
 {
@@ -861,15 +852,36 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 		return;
 
 	std::string viewKey = node.attribute("name").as_string();
+	std::string inherits = node.attribute("inherits").as_string();
+
+	if (viewKey.find(",") != std::string::npos && inherits.empty())
+	{
+		for (auto name : Utils::String::split(viewKey, ','))
+		{
+			std::string trim = Utils::String::trim(name);
+			if (mViews.find(trim) != mViews.cend())
+			{
+				ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(trim, ThemeView())).first->second;
+
+				if (node.attribute("displayName"))
+					view.displayName = resolvePlaceholders(node.attribute("displayName").as_string());
+
+				parseView(node, view);
+			}
+		}
+
+		return;
+	}
 
 	ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
-	view.displayName = node.attribute("displayName") ? resolvePlaceholders(node.attribute("displayName").as_string()) : viewKey;
-	if (view.displayName.empty())
+
+	if (node.attribute("displayName"))
+		view.displayName = resolvePlaceholders(node.attribute("displayName").as_string());
+	else if (view.displayName.empty())
 		view.displayName = viewKey;
 
 	view.isCustomView = true;
 
-	std::string inherits = node.attribute("inherits").as_string();
 	if (!inherits.empty())
 	{
 		view.baseType = inherits;
@@ -1162,9 +1174,14 @@ std::string ThemeData::getViewDisplayName(const std::string& view)
 {
 	auto viewIt = mViews.find(view);
 	if (viewIt != mViews.cend())
-		return viewIt->second.displayName;
+	{
+		if (viewIt->second.displayName.empty())
+			return _(view.c_str());
 
-	return "";
+		return viewIt->second.displayName;
+	}
+	
+	return view;
 }
 
 bool ThemeData::isCustomView(const std::string& view)
@@ -1496,7 +1513,7 @@ std::vector<std::string> ThemeData::getSubSetNames(const std::string ofView)
 			{
 				if (std::find(it.appliesTo.cbegin(), it.appliesTo.cend(), ofView) != it.appliesTo.cend())
 					ret.push_back(it.subset);
-				else
+			/*	else
 				{
 					auto viewIt = mViews.find(ofView);
 					if (viewIt != mViews.cend())
@@ -1510,7 +1527,7 @@ std::vector<std::string> ThemeData::getSubSetNames(const std::string ofView)
 							}
 						}
 					}
-				}
+				}*/
 			}
 		}
 	}

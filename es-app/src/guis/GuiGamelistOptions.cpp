@@ -413,7 +413,16 @@ GuiGamelistOptions::~GuiGamelistOptions()
 	else
 		gridSizeOverride = mSystem->getGridSizeOverride();
 
-	bool viewModeChanged = mSystem->setSystemViewMode(mViewMode->getSelected(), gridSizeOverride);
+	std::string viewMode = mViewMode->getSelected();
+
+	if (mSystem->getSystemViewMode() != (viewMode == "automatic" ? "" : viewMode))
+	{
+		for (auto sm : Settings::getInstance()->getStringMap())
+			if (Utils::String::startsWith(sm.first, "subset." + mSystem->getThemeFolder() + "."))
+				Settings::getInstance()->setString(sm.first, "");
+	}
+
+	bool viewModeChanged = mSystem->setSystemViewMode(viewMode, gridSizeOverride);
 
 	Settings::getInstance()->saveFile();
 
@@ -428,6 +437,8 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// only reload full view if we came from a placeholder
 		// as we need to re-display the remaining elements for whatever new
 		// game is selected
+		mSystem->loadTheme();
+		mSystem->resetFilters();
 		ViewController::get()->reloadGameListView(mSystem);
 	}
 }

@@ -1587,95 +1587,6 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		showGridFeatures = (viewName == "grid" || baseType == "grid");
 	}
 
-	std::map<std::string, ThemeConfigOption> options;
-
-	for (std::string subset : theme->getSubSetNames(viewName))
-	{
-		std::string settingName = "subset." + subset;
-		std::string perSystemSettingName = systemTheme.empty() ? "" : "subset." + systemTheme + "." + subset;
-
-		if (subset == "colorset") settingName = "ThemeColorSet";
-		else if (subset == "iconset") settingName = "ThemeIconSet";
-		else if (subset == "menu") settingName = "ThemeMenu";
-		else if (subset == "systemview") settingName = "ThemeSystemView";
-		else if (subset == "gamelistview") settingName = "ThemeGamelistView";
-		else if (subset == "region") settingName = "ThemeRegionName";
-
-		auto themeColorSets = ThemeData::getSubSet(themeSubSets, subset);
-
-		if (themeColorSets.size() > 0)
-		{
-			auto selectedColorSet = themeColorSets.end();
-			auto selectedName = !perSystemSettingName.empty() ? Settings::getInstance()->getString(perSystemSettingName) : Settings::getInstance()->getString(settingName);
-
-			if (!perSystemSettingName.empty() && selectedName.empty())
-				selectedName = Settings::getInstance()->getString(settingName);
-
-			for (auto it = themeColorSets.begin(); it != themeColorSets.end() && selectedColorSet == themeColorSets.end(); it++)
-				if (it->name == selectedName)
-					selectedColorSet = it;
-
-			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
-			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
-
-			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
-			{
-				std::string displayName = it->displayName;
-
-				if (!systemTheme.empty())
-				{
-					std::string defaultValue = Settings::getInstance()->getString(settingName);
-					if (defaultValue.empty())
-						defaultValue = system->getTheme()->getDefaultSubSetValue(subset);
-
-					if (it->name == defaultValue)
-						displayName = displayName + " (" + _("DEFAULT") + ")";
-				}
-
-				item->add(displayName, it->name, it == selectedColorSet);
-			}
-
-			if (selectedColorSet == themeColorSets.end())
-				item->selectFirstItem();
-
-			if (!themeColorSets.empty())
-			{
-				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
-				if (!displayName.empty())
-				{
-					std::string prefix;
-
-					if (systemTheme.empty())
-					{
-						auto itSubsetName = themeColorSets.cbegin()->appliesTo.cbegin();
-						if (itSubsetName != themeColorSets.cbegin()->appliesTo.cend())
-						{
-							prefix = theme->getViewDisplayName(*itSubsetName);
-							if (!prefix.empty())
-								prefix = prefix + " / ";
-						}
-					}
-
-					themeconfig->addWithLabel(prefix + displayName, item);
-				}
-				else
-					themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
-			}
-
-			ThemeConfigOption opt;
-			opt.component = item;
-			opt.subset = subset;
-			opt.defaultSettingName = settingName;
-			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
-		}
-		else
-		{
-			ThemeConfigOption opt;
-			opt.component = nullptr;
-			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
-		}
-	}
-
 	// gamelist_style
 	std::shared_ptr<OptionListComponent<std::string>> gamelist_style = nullptr;
 
@@ -1744,6 +1655,102 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		themeconfig->addWithLabel(_("DEFAULT GRID SIZE"), mGridSize);
 	}
 
+	std::map<std::string, ThemeConfigOption> options;
+
+	for (std::string subset : theme->getSubSetNames(viewName))
+	{
+		std::string settingName = "subset." + subset;
+		std::string perSystemSettingName = systemTheme.empty() ? "" : "subset." + systemTheme + "." + subset;
+
+		if (subset == "colorset") settingName = "ThemeColorSet";
+		else if (subset == "iconset") settingName = "ThemeIconSet";
+		else if (subset == "menu") settingName = "ThemeMenu";
+		else if (subset == "systemview") settingName = "ThemeSystemView";
+		else if (subset == "gamelistview") settingName = "ThemeGamelistView";
+		else if (subset == "region") settingName = "ThemeRegionName";
+
+		auto themeColorSets = ThemeData::getSubSet(themeSubSets, subset);
+
+		if (themeColorSets.size() > 0)
+		{
+			auto selectedColorSet = themeColorSets.end();
+			auto selectedName = !perSystemSettingName.empty() ? Settings::getInstance()->getString(perSystemSettingName) : Settings::getInstance()->getString(settingName);
+
+			if (!perSystemSettingName.empty() && selectedName.empty())
+				selectedName = Settings::getInstance()->getString(settingName);
+
+			for (auto it = themeColorSets.begin(); it != themeColorSets.end() && selectedColorSet == themeColorSets.end(); it++)
+				if (it->name == selectedName)
+					selectedColorSet = it;
+
+			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
+			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
+
+			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
+			{
+				std::string displayName = it->displayName;
+
+				if (!systemTheme.empty())
+				{
+					std::string defaultValue = Settings::getInstance()->getString(settingName);
+					if (defaultValue.empty())
+						defaultValue = system->getTheme()->getDefaultSubSetValue(subset);
+
+					if (it->name == defaultValue)
+						displayName = displayName + " (" + _("DEFAULT") + ")";
+				}
+
+				item->add(displayName, it->name, it == selectedColorSet);
+			}
+
+			if (selectedColorSet == themeColorSets.end())
+				item->selectFirstItem();
+
+			if (!themeColorSets.empty())
+			{
+				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
+				if (!displayName.empty())
+				{
+					std::string prefix;
+					if (systemTheme.empty())
+					{
+						for (auto subsetName : themeColorSets.cbegin()->appliesTo)
+						{
+							std::string pfx = theme->getViewDisplayName(subsetName);
+							if (!pfx.empty())
+							{
+								if (prefix.empty())
+									prefix = pfx;
+								else
+									prefix = prefix + ", " + pfx;
+							}
+						}
+
+						if (!prefix.empty())
+							prefix = " (" + prefix + ")";
+
+					}
+
+					themeconfig->addWithLabel(displayName + prefix, item);
+				}
+				else
+					themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
+			}
+
+			ThemeConfigOption opt;
+			opt.component = item;
+			opt.subset = subset;
+			opt.defaultSettingName = settingName;
+			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
+		}
+		else
+		{
+			ThemeConfigOption opt;
+			opt.component = nullptr;
+			options[!perSystemSettingName.empty() ? perSystemSettingName : settingName] = opt;
+		}
+	}
+	
 	if (systemTheme.empty())
 	{
 		themeconfig->addEntry(_("RESET GAMELIST CUSTOMISATIONS"), false, [s, themeconfig, window]
