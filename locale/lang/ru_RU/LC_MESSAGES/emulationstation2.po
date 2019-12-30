@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 19:21+0100\n"
+"POT-Creation-Date: 2019-12-30 18:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -96,6 +96,9 @@ msgstr "ВИД СПИСКА ИГР"
 
 msgid "automatic"
 msgstr "автоматически"
+
+msgid "VIEW CUSTOMISATION"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ"
@@ -563,6 +566,9 @@ msgstr "подробно"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
+
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "СБРОСИТЬ НАСТРОЙКИ СПИСКА ИГР"

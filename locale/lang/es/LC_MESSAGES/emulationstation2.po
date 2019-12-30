@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 19:21+0100\n"
+"POT-Creation-Date: 2019-12-30 18:50+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -93,6 +93,9 @@ msgstr "VER ESTILO DE LA LISTA DE JUEGOS"
 
 msgid "automatic"
 msgstr "AUTOMATICO"
+
+msgid "VIEW CUSTOMISATION"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "TAMAÑO DE CUADRICULA"
@@ -560,6 +563,9 @@ msgstr "DETALLADO"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "TAMAÑO PREDETERMINADO DE CUADRICULA"
+
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 19:21+0100\n"
+"POT-Creation-Date: 2019-12-30 18:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -96,6 +96,9 @@ msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 
 msgid "automatic"
 msgstr "automatico"
+
+msgid "VIEW CUSTOMISATION"
+msgstr ""
 
 msgid "GRID SIZE"
 msgstr "GRANDEZZA DELLA GRIGLIA"
@@ -564,6 +567,9 @@ msgstr "dettagliato"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
+
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
