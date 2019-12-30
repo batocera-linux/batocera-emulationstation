@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-30 18:50+0100\n"
+"POT-Creation-Date: 2019-12-30 21:20+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -53,16 +53,16 @@ msgid "CONNECT TO NETPLAY"
 msgstr "REJOINDRE UNE PARTIE EN RÉSEAU"
 
 msgid "Select the game you want to join"
-msgstr "Choisir la partie à rejoindre"
+msgstr "Choisissez la partie à rejoindre"
 
 msgid "REFRESH"
-msgstr "RAFFRAÎCHIR"
+msgstr "RAFRAICHIR"
 
 msgid "CLOSE"
 msgstr "FERMER"
 
 msgid "PLEASE WAIT"
-msgstr "MERCI D'ATTENDRE"
+msgstr "VEUILLEZ PATIENTER"
 
 msgid "FAILED"
 msgstr "ÉCHEC"
@@ -119,7 +119,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES METADONNÉES DU JEU"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "OPTIONS AVANCÉES DU JEU"
+msgstr "CONFIGURATION AVANCÉE DU JEU"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRER LES JEUX PAR NOM"
@@ -146,7 +146,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "SUCCÈS RÉTRO"
 
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
@@ -323,7 +323,7 @@ msgid "THEMES"
 msgstr "THÈMES"
 
 msgid "THE BEZEL PROJECT"
-msgstr "THE BEZEL PROJECT"
+msgstr "LE BEZEL PROJECT"
 
 msgid "AUTO UPDATES"
 msgstr "NOTIFICATION POUR LES MISES À JOUR"
@@ -371,7 +371,7 @@ msgid "KODI AT START"
 msgstr "LANCER KODI AU DÉMARRAGE"
 
 msgid "START KODI WITH X"
-msgstr "X POUR LANCER KODI"
+msgstr "BOUTON X POUR LANCER KODI"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALLER BATOCERA SUR UN NOUVEAU DISQUE"
@@ -386,19 +386,19 @@ msgid "ROOT PASSWORD"
 msgstr "MOT DE PASSE ROOT"
 
 msgid "LATENCY REDUCTION"
-msgstr "RÉDUCTION DE LATENCE"
+msgstr "RÉDUCTION DE LA LATENCE"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "NOMBRE D'IMAGES RUN-AHEAD"
+msgstr "NOMBRE D'IMAGES EN AVANCE"
 
 msgid "AUTO"
 msgstr "AUTO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr "UTILISER DES IMAGES RUN-AHEAD"
+msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD UTILISE UNE SECONDE INSTANCE"
+msgstr "SECONDE INSTANCE POUR L'EXÉCUTION EN AVANCE"
 
 msgid "ON"
 msgstr "OUI"
@@ -437,7 +437,7 @@ msgid "REWIND"
 msgstr "REMBOBINAGE"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "SAUVEGARDE/CHARGEMENT AUTOMATIQUE"
+msgstr "SAUV./CHARG. AUTOMATIQUE"
 
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
@@ -452,13 +452,13 @@ msgid "ENHANCED"
 msgstr "LISSAGE AMÉLIORÉ"
 
 msgid "CURVATURE"
-msgstr "BALAYAGE COURBÉE"
+msgstr "BALAYAGE COURBÉ"
 
 msgid "ZFAST"
 msgstr "NID D'ABEILLE"
 
 msgid "FLATTEN-GLOW"
-msgstr "APLATI ET BRILLANT"
+msgstr "APPLATI ET BRILLANT"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "RESOLUTION EN  ÉCHELLE ENTIÈRE"
@@ -479,7 +479,7 @@ msgid "SERVICE URL"
 msgstr "URL DU SERVICE"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "PARAMÈTRES DE RETROACHIEVEMENTS"
+msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
 
 msgid "HARDCORE MODE"
 msgstr "MODE DIFFICILE"
@@ -488,7 +488,7 @@ msgid "LEADERBOARDS"
 msgstr "TABLEAU DES SCORES"
 
 msgid "VERBOSE MODE"
-msgstr "MODE VERBEUX"
+msgstr "MODE DÉTAILLÉ"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
@@ -509,7 +509,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "VOULEZ-VOUS INTERROMPRE LE HACHAGE DES JEUX EN COURS ?"
+msgstr "UN HASH DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR LES LISTES DE JEUX ?"
@@ -538,7 +538,7 @@ msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "OUBLIER LES MANETTES BLUETOOTH"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LES ASSOCIATIONS DES MANETTES ONT ÉTÉ SUPPRIMÉS"
+msgstr "LES ASSOCIATIONS DE MANETTES ONT ÉTÉ SUPPRIMÉS"
 
 #, c-format
 msgid "INPUT P%i"
@@ -597,7 +597,7 @@ msgid "Do you want to proceed ?"
 msgstr "Voulez-vous continuer ?"
 
 msgid "START ON SYSTEM"
-msgstr "DÉMARRER SUR UN SYSTÈME"
+msgstr "DÉMARRER SUR LE SYSTÈME"
 
 msgid "START ON GAMELIST"
 msgstr "DÉMARRER SUR LA LISTE DE JEUX"
@@ -621,10 +621,10 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "TRANSITIONS CAROUSEL"
+msgstr "TRANSITIONS CARROUSEL"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr "AFFICHER LES NOMS DE FICHIERS"
+msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
@@ -636,7 +636,7 @@ msgid "DISPLAY SONG TITLES"
 msgstr "AFFICHER LE TITRE DES MUSIQUES"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr "DURÉE POUR LE TITRE DES MUSIQUES (SECS)"
+msgstr "DURÉE POUR LE TITRE DES MUSIQUES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "JOUER SEULEMENT LES MUSIQUES DES SYSTÈMES"
@@ -717,7 +717,7 @@ msgid "Emulator"
 msgstr "Émulateur"
 
 msgid "Core"
-msgstr "Core"
+msgstr "Coeur"
 
 msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
@@ -838,7 +838,7 @@ msgid "UNINSTALL BEZELS"
 msgstr "DÉSINSTALLER DES DÉCORATIONS"
 
 msgid "INSTALL THE BEZEL PROJECT"
-msgstr "INSTALLER THE BEZEL PROJECT"
+msgstr "INSTALLER LE BEZEL PROJECT"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES DÉCORATIONS"
@@ -848,7 +848,7 @@ msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AJOUTÉ DANS LA LISTE DE TÉLÉCHARGEMENT"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "DÉSINSTALLER THE BEZEL PROJECT"
+msgstr "DÉSINSTALLER LE BEZEL PROJECT"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
@@ -857,7 +857,7 @@ msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
 
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "CHANGER L'IMAGE APRÈS (SECS)"
+msgstr "CHANGER L'IMAGE APRÈS"
 
 msgid "SHOW GAME INFO"
 msgstr "AFFICHER LES INFORMATIONS DU JEU"
@@ -884,7 +884,7 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRE SUR LES IMAGES"
 
 msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "CHANGER LA VIDÉO APRÈS (SECS)"
+msgstr "CHANGER LA VIDÉO APRÈS"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UTILISER OMX POUR L'ÉCRAN DE VEILLE"
@@ -920,15 +920,15 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "CHOISIR SI CONFLIT"
 
 msgid "START"
-msgstr "START"
+msgstr "DÉMARRER"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ATTENTION: CERTAINS DE VOS SYSTÈMES N'ONT PAS DE PLATEFORME. LES RÉSULTATS "
-"POURRAIENT ÊTRE INATTENDUS !\n"
+"ATTENTION: CERTAINS DE VOS SYSTÈMES N'ONT PAS DE PLATEFORME DÉFINIT. LES "
+"RÉSULTATS POURRAIENT ÊTRE INATTENDUS !\n"
 "CONTINUER QUAND MÊME ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
@@ -992,7 +992,7 @@ msgstr "SAUVEGARDER"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr "VOULEZ-VOUS VRAIMENT SUPPRIMER LE JEU ?"
+msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
 
 msgid "DELETE"
 msgstr "SUPPRIMER"
@@ -1013,22 +1013,22 @@ msgid "enter description"
 msgstr "entrer la description"
 
 msgid "Image"
-msgstr "Image"
+msgstr "Chemin vers l'image"
 
 msgid "enter path to image"
-msgstr "entrer chemin vers l'image"
+msgstr "entrer le chemin vers l'image"
 
 msgid "Path to video"
 msgstr "Chemin vers la vidéo"
 
 msgid "enter path to thumbnail"
-msgstr "entrer chemin vers la boite"
+msgstr "entrer le chemin vers la boite"
 
 msgid "Path to marquee"
 msgstr "Chemin vers le logo"
 
 msgid "Thumbnail"
-msgstr "Miniature"
+msgstr "Chemin vers la boite"
 
 msgid "Rating"
 msgstr "Note"
@@ -1097,10 +1097,10 @@ msgid "enter last played date"
 msgstr "entrer la date de la dernière partie"
 
 msgid "Crc32 checksum"
-msgstr "Checksum crc32"
+msgstr "Checksum CRC32"
 
 msgid "Md5 checksum"
-msgstr "Checksum md5"
+msgstr "Checksum MD5"
 
 msgid "name"
 msgstr "Nom"
@@ -1144,8 +1144,8 @@ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 #, c-format
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i JEU DISPONIBLE"
-msgstr[1] "%i JEUX DISPONIBLES"
+msgstr[0] "%i JEU"
+msgstr[1] "%i JEUX"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1199,10 +1199,10 @@ msgid "TIMES PLAYED, DESCENDING"
 msgstr "PARTIES JOUÉES, DÉCROISSANT"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr "DERNIÈRE PARTIE, CROISSANT"
+msgstr "DERNIÈRES PARTIES, CROISSANT"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr "DERNIÈRE PARTIE, DÉCROISSANT"
+msgstr "DERNIÈRES PARTIES, DÉCROISSANT"
 
 msgid "NUMBER PLAYERS, ASCENDING"
 msgstr "NOMBRE DE JOUEURS, CROISSANT"
@@ -1265,7 +1265,7 @@ msgid "SEARCHING"
 msgstr "RECHERCHE"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "AUCUN JEU CORRESPONDANT - PASSER"
+msgstr "AUCUN JEU NE CORRESPOND - PASSER"
 
 msgid "AN ERROR HAS OCCURED"
 msgstr "UNE ERREUR S'EST PRODUITE"
@@ -1292,7 +1292,7 @@ msgid "Searching controllers..."
 msgstr "Recherche de manettes"
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS."
+msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -1409,8 +1409,8 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"VOUS N'AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. C'EST NÉCESSAIRE POUR QUITTER "
-"UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ?"
+"VOUS N'AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR "
+"QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
