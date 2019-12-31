@@ -1276,7 +1276,7 @@ void GuiMenu::openGamesSettings_batocera()
 			std::vector<SystemData *> systems = SystemData::sSystemVector;
 			for (auto system = systems.begin(); system != systems.end(); system++)
 			{
-				if ((*system)->isCollection())
+				if ((*system)->isCollection() || (*system)->isGroupSystem())
 					continue;
 
 				SystemData *systemData = (*system);
@@ -1982,7 +1982,7 @@ void GuiMenu::openUISettings()
 	systemfocus_list->add(_("NONE"), "", Settings::getInstance()->getString("StartupSystem") == "");
 
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		if ("retropie" != (*it)->getName())
+		if ("retropie" != (*it)->getName() && (*it)->isVisible())
 			systemfocus_list->add((*it)->getName(), (*it)->getName(), Settings::getInstance()->getString("StartupSystem") == (*it)->getName());
 
 	s->addWithLabel(_("START ON SYSTEM"), systemfocus_list);
@@ -1999,7 +1999,12 @@ void GuiMenu::openUISettings()
 	// Batocera: select systems to hide
 	auto displayedSystems = std::make_shared<OptionListComponent<SystemData*>>(mWindow, _("SYSTEMS DISPLAYED"), true);
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
+	{
+		if ((*it)->isGroupChildSystem())
+			continue;
+
 		displayedSystems->add((*it)->getFullName(), *it, (SystemConf::getInstance()->get((*it)->getName() + ".hide") != "1"));
+	}
 
 	s->addWithLabel(_("SYSTEMS DISPLAYED"), displayedSystems);
 	s->addSaveFunc([s, displayedSystems]
@@ -2007,6 +2012,9 @@ void GuiMenu::openUISettings()
 		std::vector<SystemData*> sys = displayedSystems->getSelectedObjects();
 		for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 		{
+			if ((*it)->isGroupChildSystem())
+				continue;
+
 			std::string value_cfg_hidden = "1";
 			for (auto selected = sys.cbegin(); selected != sys.cend(); selected++)
 				if ((*it)->getName() == (*selected)->getName())

@@ -141,18 +141,23 @@ private:
 class FolderData : public FileData
 {
 public:
-	FolderData(const std::string& startpath, SystemData* system) : FileData(FOLDER, startpath, system)
+	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens=true) : FileData(FOLDER, startpath, system)
 	{
+		mOwnsChildrens = ownsChildrens;
 	}
 
 	~FolderData()
 	{
-		for (int i = mChildren.size() - 1; i >= 0; i--)
-			delete mChildren.at(i);
+		if (mOwnsChildrens)
+		{
+			for (int i = mChildren.size() - 1; i >= 0; i--)
+				delete mChildren.at(i);
+		}
 
 		mChildren.clear();
 	}
 
+	inline bool isVirtualFolder() { return !mOwnsChildrens; }
 
 	FileData* FindByPath(const std::string& path);
 
@@ -161,7 +166,7 @@ public:
 	std::vector<FileData*> getFilesRecursive(unsigned int typeMask, bool displayedOnly = false, SystemData* system = nullptr) const;
 	std::vector<FileData*> getFlatGameList(bool displayedOnly, SystemData* system) const;
 
-	void addChild(FileData* file); // Error if mType != FOLDER
+	void addChild(FileData* file, bool assignParent = true); // Error if mType != FOLDER
 	void removeChild(FileData* file); //Error if mType != FOLDER
 
 	void createChildrenByFilenameMap(std::unordered_map<std::string, FileData*>& map);
@@ -170,6 +175,7 @@ public:
 
 private:
 	std::vector<FileData*> mChildren;
+	bool	mOwnsChildrens;
 };
 
 #endif // ES_APP_FILE_DATA_H

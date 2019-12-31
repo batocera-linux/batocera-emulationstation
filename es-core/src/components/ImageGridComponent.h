@@ -43,6 +43,7 @@ struct ImageGridData
 	std::string videoPath;
 	bool		favorite;
 	bool		folder;
+	bool		virtualFolder;
 };
 
 template<typename T>
@@ -67,7 +68,7 @@ public:
 
 	ImageGridComponent(Window* window);
 
-	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, const T& obj);
+	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -181,7 +182,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 }
 
 template<typename T>
-void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, const T& obj)
+void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj)
 {
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
@@ -191,6 +192,7 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	entry.data.marqueePath = marqueePath;
 	entry.data.favorite = favorite;
 	entry.data.folder = folder;
+	entry.data.virtualFolder = virtualFolder;
 
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 	mEntriesDirty = true;
@@ -861,7 +863,12 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		std::string imagePath = mEntries.at(imgPos).data.texturePath;
 
 		if (ResourceManager::getInstance()->fileExists(imagePath))
-			tile->setImage(imagePath);
+		{
+			if (mEntries.at(imgPos).data.virtualFolder)
+				tile->setLabel(""); // _U("\uF114"));
+
+			tile->setImage(imagePath, mEntries.at(imgPos).data.virtualFolder);
+		}
 		else if (mEntries.at(imgPos).data.folder && Utils::String::startsWith(name, "."))
 			tile->setImage(mDefaultFolderTexture, true);
 		else

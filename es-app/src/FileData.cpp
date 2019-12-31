@@ -590,15 +590,14 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 	return out;
 }
 
-void FolderData::addChild(FileData* file)
+void FolderData::addChild(FileData* file, bool assignParent)
 {
-	assert(mType == FOLDER);
-	assert(file->getParent() == NULL);
-
-//	const std::string key = file->getKey();
+	assert(file->getParent() == nullptr || !assignParent);
 
 	mChildren.push_back(file);
-	file->setParent(this);	
+
+	if (assignParent)
+		file->setParent(this);	
 }
 
 void FolderData::removeChild(FileData* file)

@@ -20,6 +20,9 @@ GuiSystemsHide::GuiSystemsHide(Window* window) : GuiComponent(window),
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS DISPLAYED"), true);
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
+		if ((*it)->isGroupChildSystem())
+			continue;
+
 		mSystems->add((*it)->getFullName(), *it, (SystemConf::getInstance()->get((*it)->getName() + ".hide") != "1"));
 	}
 	mMenu.addWithLabel(_("SELECT SYSTEMS TO DISPLAY"), mSystems);
@@ -39,6 +42,9 @@ void GuiSystemsHide::Apply()
 	std::vector<SystemData*> sys = mSystems->getSelectedObjects();
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
+		if ((*it)->isGroupChildSystem())
+			continue;
+
 		value_cfg_hidden="1";
 		for(auto selected = sys.cbegin(); selected != sys.cend(); selected++) {
 			if ((*it)->getName() == (*selected)->getName())
