@@ -35,7 +35,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-        SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false); // batocera
+    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
