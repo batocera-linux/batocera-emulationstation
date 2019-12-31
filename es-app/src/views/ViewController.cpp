@@ -57,7 +57,7 @@ void ViewController::goToStart(bool forceImmediate)
 	if("" != requestedSystem && "retropie" != requestedSystem)
 	{
 		for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++){
-			if ((*it)->getName() == requestedSystem)
+			if ((*it)->getName() == requestedSystem && !(*it)->isGroupChildSystem())
 			{
 				if (startOnGamelist)
 					goToGameList(*it, forceImmediate);
@@ -136,7 +136,7 @@ bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
 {
 	for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
 	{
-		if ((*sysIt)->getName() == systemName)
+		if ((*sysIt)->getName() == systemName && !(*sysIt)->isGroupChildSystem())
 		{
 			goToGameList(*sysIt, forceImmediate);
 			return true;
@@ -578,6 +578,9 @@ void ViewController::preload()
 
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{		
+		if ((*it)->isGroupChildSystem())
+			continue;
+
 		if (splash)
 		{
 			i++;

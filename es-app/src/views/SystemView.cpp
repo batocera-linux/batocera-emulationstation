@@ -542,9 +542,10 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 		std::stringstream ss;
 		char strbuf[256];
  
-		if (!getSelected()->isGameSystem())
+		if (!getSelected()->isGameSystem() && !getSelected()->isGroupSystem())
 			ss << "CONFIGURATION";
-		else {
+		else 
+		{
 		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount).c_str(), gameCount);
 		  ss << strbuf;
 		}

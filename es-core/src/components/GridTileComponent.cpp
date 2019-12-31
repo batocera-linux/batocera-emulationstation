@@ -116,7 +116,7 @@ void GridTileComponent::resize()
 	if (mSize != size)
 		setSize(size);
 
-	bool isDefaultImage = mIsDefaultImage && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
+	bool isDefaultImage = mIsDefaultImage; // && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
 
 	float height = (int) (size.y() * currentProperties.Label.size.y());
 	float labelHeight = height;
@@ -133,7 +133,16 @@ void GridTileComponent::resize()
 	// Image
 	if (currentProperties.Image.Loaded)
 	{
+		if (isDefaultImage)
+		{
+			imageOffset.x() += imageSize.x() * 0.05;
+			imageSize.x() *= 0.90;
+		}
+
 		currentProperties.Image.updateImageComponent(mImage, imageOffset, imageSize, false);
+
+		if (mImage != nullptr && isDefaultImage)
+			mImage->setRoundCorners(0);
 
 		if (mImage != nullptr && currentProperties.Image.sizeMode != "maxSize" && isDefaultImage)
 			mImage->setMaxSize(imageSize.x(), imageSize.y());
@@ -165,8 +174,8 @@ void GridTileComponent::resize()
 		imageOffset = Vector2f(pos.x() - imageSize.x() * origin.x(), pos.y() - imageSize.y() * origin.y());
 	}
 	
-	// Text
-	mLabel.setVisible(currentProperties.Label.Visible || mIsDefaultImage);
+	// Text	
+	mLabel.setVisible(!mLabel.getText().empty() && (currentProperties.Label.Visible || mIsDefaultImage));
 
 	if (currentProperties.Label.Visible)
 	{
@@ -319,7 +328,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
-	bool isDefaultImage = mIsDefaultImage && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
+	bool isDefaultImage = mIsDefaultImage; // && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
 	bool isMinSize = currentProperties.Image.sizeMode == "minSize" && !isDefaultImage;
 	
 	if (isMinSize)
@@ -813,7 +822,11 @@ bool GridTileComponent::isSelected() const
 
 void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 {
-	mIsDefaultImage = isDefaultImage;
+	if (path == ":/folder.svg" || path == ":/cartridge.svg")
+		mIsDefaultImage = true;
+	else
+		mIsDefaultImage = isDefaultImage;
+
 	if (mCurrentPath == path)
 		return;
 

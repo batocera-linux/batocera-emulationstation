@@ -285,6 +285,9 @@ bool saveToGamelistRecovery(FileData* file)
 
 bool hasDirtyFile(SystemData* system)
 {
+	if (system == nullptr || !system->isGameSystem() || system->getName() == "imageviewer")
+		return false;
+
 	FolderData* rootFolder = system->getRootFolder();
 	if (rootFolder == nullptr)
 		return false;
@@ -303,10 +306,10 @@ void updateGamelist(SystemData* system)
 	//We have the complete information for every game though, so we can simply remove a game
 	//we already have in the system from the XML, and then add it back from its GameData information...
 
-	if(Settings::getInstance()->getBool("IgnoreGamelist"))
+	if(system == nullptr || Settings::getInstance()->getBool("IgnoreGamelist"))
 		return;
 
-	if (system != nullptr && system->getName() == "imageviewer")
+	if (!system->isGameSystem() || system->getName() == "imageviewer")
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();

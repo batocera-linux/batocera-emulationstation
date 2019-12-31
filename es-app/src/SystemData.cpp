@@ -25,6 +25,7 @@ std::vector<SystemData*> SystemData::sSystemVector;
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mIsGroupSystem = false;
 	mGameListHash = 0;
 	mGameCount = -1;
 	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
@@ -57,12 +58,16 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 		mRootFolder = new FolderData("" + name, this);
 	}
 
-	auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
-	auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
-	setSystemViewMode(defaultView, gridSizeOverride, false);
+	// if (mEnvData->mGroup.empty())
+	{
+		auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
+		auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
+		setSystemViewMode(defaultView, gridSizeOverride, false);
+
+		loadTheme();
+	}
 
 	setIsGameSystemStatus();
-	loadTheme();
 }
 
 SystemData::~SystemData()
@@ -217,6 +222,58 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 	return ret;
 }
 
+void SystemData::createGroupedSystems()
+{
+	std::map<std::string, std::vector<SystemData*>> map;
+
+	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
+	{
+		SystemData* sys = *it;
+		if (!sys->isCollection() && !sys->getSystemEnvData()->mGroup.empty())
+			map[sys->getSystemEnvData()->mGroup].push_back(sys);
+	}
+
+	for (auto item : map)
+	{
+		SystemEnvironmentData* envData = new SystemEnvironmentData;
+		envData->mStartPath = "";		
+		envData->mLaunchCommand = "";				
+
+		SystemData* system = new SystemData(item.first, item.first, envData, item.first, nullptr);
+		system->mIsGroupSystem = true;
+		system->mIsGameSystem = false;
+
+		FolderData* root = system->getRootFolder();
+
+		for (auto childSystem : item.second)
+		{			
+			auto folder = new FolderData(childSystem->getRootFolder()->getPath(), childSystem, false);			
+			root->addChild(folder);			
+
+			auto theme = childSystem->getTheme();
+			if (theme)
+			{
+				const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+				if (logoElem && logoElem->has("path"))
+				{
+					std::string path = logoElem->get<std::string>("path");
+					folder->setMetadata("image", path);
+					folder->setMetadata("thumbnail", path);
+				}
+			}
+		
+
+			//folder->getImagePath();
+
+			auto children = childSystem->getRootFolder()->getFilesRecursive(GAME | FOLDER);
+			for (auto child : children)
+				folder->addChild(child, false);
+		}
+
+		sSystemVector.push_back(system);
+	}
+}
+
 //creates systems from information located in a config file
 bool SystemData::loadConfig(Window* window)
 {
@@ -341,10 +398,13 @@ bool SystemData::loadConfig(Window* window)
 		delete[] systems;
 		delete pThreadPool;
 
+		
+
 		if (window != NULL)
 			window->renderLoadingScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		// updateSystemsList can't be run async, systems have to be created before
+		createGroupedSystems();
 		CollectionSystemManager::get()->updateSystemsList();
 	}
 	else
@@ -352,6 +412,7 @@ bool SystemData::loadConfig(Window* window)
 		if (window != NULL)
 			window->renderLoadingScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
+		createGroupedSystems();
 		CollectionSystemManager::get()->loadCollectionSystems();
 	}
 
@@ -428,7 +489,8 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	envData->mSearchExtensions = extensions;
 	envData->mLaunchCommand = cmd;
 	envData->mPlatformIds = platformIds;
-
+	envData->mGroup = system.child("group").text().get();
+	
 	// batocera
 // emulators and cores
 	std::map<std::string, std::vector<std::string>*> * systemEmulators = new std::map<std::string, std::vector<std::string>*>();
@@ -548,6 +610,9 @@ std::string SystemData::getConfigPath(bool forWrite)
 
 bool SystemData::isVisible()
 {
+	if (isGroupChildSystem())
+		return false;
+
 	if (SystemConf::getInstance()->get(getName() + ".hide") == "1") // batocera (hide systems)
 	    return false; // batocera (hide systems)
 
@@ -754,6 +819,9 @@ Vector2f SystemData::getGridSizeOverride()
 
 bool SystemData::isNetplaySupported()
 {
+	if (isGroupSystem())
+		return false;
+
 	return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
 }
 
@@ -764,4 +832,16 @@ bool SystemData::isNetplayActivated()
 			return true;
 
 	return false;	
+}
+
+SystemData* SystemData::getParentGroupSystem()
+{
+	if (!isGroupChildSystem() || isGroupSystem())
+		return this;
+
+	for (auto sys : SystemData::sSystemVector)
+		if (sys->isGroupSystem() && sys->getName() == mEnvData->mGroup)
+			return sys;
+
+	return this;
 }

@@ -24,6 +24,7 @@ struct SystemEnvironmentData
 	std::vector<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::vector<PlatformIds::PlatformId> mPlatformIds;
+	std::string mGroup;
 
 	bool isValidExtension(const std::string extension)
 	{
@@ -70,6 +71,9 @@ public:
 	inline std::vector<SystemData*>::const_reverse_iterator getRevIterator() const { return std::find(sSystemVector.crbegin(), sSystemVector.crend(), this); };
 	inline bool isCollection() { return mIsCollectionSystem; };
 	inline bool isGameSystem() { return mIsGameSystem; };
+
+	inline bool isGroupSystem() { return mIsGroupSystem; };	
+	inline bool isGroupChildSystem() { return mEnvData != nullptr && !mEnvData->mGroup.empty(); }
 
 	bool isVisible();
 	
@@ -120,11 +124,17 @@ public:
 	bool isNetplaySupported();
 	static bool isNetplayActivated();
 
+	SystemData* getParentGroupSystem();
+	
 private:
+	static void createGroupedSystems();
+
 	size_t mGameListHash;
 
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
+	bool mIsGroupSystem;
+
 	std::string mName;
 	std::string mFullName;
 	SystemEnvironmentData* mEnvData;
