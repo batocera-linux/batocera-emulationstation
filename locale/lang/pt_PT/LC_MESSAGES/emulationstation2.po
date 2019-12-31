@@ -98,7 +98,7 @@ msgid "automatic"
 msgstr "automático"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "VER PERSONALIZAÇÕES"
 
 msgid "GRID SIZE"
 msgstr "TAMANHO DA GRID"
@@ -567,7 +567,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO DA GRID PADRÃO"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "PADRÃO"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
@@ -597,10 +597,10 @@ msgid "Do you want to proceed ?"
 msgstr "DESEJA CONTINUAR?"
 
 msgid "START ON SYSTEM"
-msgstr "INICIAR UM SISTEMA"
+msgstr "INICIAR NO SISTEMA"
 
 msgid "START ON GAMELIST"
-msgstr "COMECE NA LISTA DE JOGOS"
+msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMAS EXIBIDOS"
