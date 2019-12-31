@@ -251,7 +251,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECIONAR"
+msgstr "SELECT"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
