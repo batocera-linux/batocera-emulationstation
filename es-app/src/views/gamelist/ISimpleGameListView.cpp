@@ -95,7 +95,11 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				auto top = mCursorStack.top();
 				mCursorStack.pop();
 
-				populateList(top->getParent()->getChildrenListToDisplay());
+				FolderData* folder = top->getParent();
+				if (folder == nullptr)
+					folder = getCursor()->getSystem()->getParentGroupSystem()->getRootFolder();
+
+				populateList(folder->getChildrenListToDisplay());
 				setCursor(top);
 				Sound::getFromTheme(getTheme(), getName(), "back")->play();
 			}
