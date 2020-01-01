@@ -538,23 +538,15 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 FileData* FolderData::findUniqueGameForFolder()
 {
-	std::vector<FileData*> children = getChildren();
-
-	if (children.size() == 1 && children.at(0)->getType() == GAME)
-		return children.at(0);
-
-	for (std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it)
+	auto games = this->getFilesRecursive(GAME);
+	if (games.size() == 1)
 	{
+		auto it = games.cbegin();
 		if ((*it)->getType() == GAME)
-			return NULL;
-
-		FolderData* folder = (FolderData*)(*it);
-		FileData* ret = folder->findUniqueGameForFolder();
-		if (ret != NULL)
-			return ret;
+			return (*it);
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemData* system) const 

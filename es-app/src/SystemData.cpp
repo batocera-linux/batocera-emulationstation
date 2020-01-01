@@ -243,7 +243,7 @@ void SystemData::createGroupedSystems()
 
 		for (auto childSystem : item.second)
 		{			
-			auto children = childSystem->getRootFolder()->getFilesRecursive(GAME | FOLDER);
+			auto children = childSystem->getRootFolder()->getChildren();
 			if (children.size() > 0)
 			{
 				auto folder = new FolderData(childSystem->getRootFolder()->getPath(), childSystem, false);
