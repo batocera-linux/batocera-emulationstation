@@ -437,8 +437,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// only reload full view if we came from a placeholder
 		// as we need to re-display the remaining elements for whatever new
 		// game is selected
-		mSystem->loadTheme();
-		mSystem->resetFilters();
+		mSystem->loadTheme();		
 		ViewController::get()->reloadGameListView(mSystem);
 	}
 }
