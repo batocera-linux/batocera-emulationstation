@@ -6,7 +6,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 
-GuiGamelistFilter::GuiGamelistFilter(Window* window, SystemData* system) : GuiComponent(window), mMenu(window, "FILTER GAMELIST BY"), mSystem(system)
+GuiGamelistFilter::GuiGamelistFilter(Window* window, SystemData* system) : GuiComponent(window), mMenu(window, _("FILTER GAMELIST BY")), mSystem(system)
 {
 	initializeMenu();
 }
@@ -110,9 +110,8 @@ void GuiGamelistFilter::addFiltersToMenu()
 		// add genres
 		optionList = std::make_shared< OptionListComponent<std::string> >(mWindow, menuLabel, true);
 		for(auto it: *allKeys)
-		{
-			optionList->add(it.first, it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
-		}
+			optionList->add(_(it.first.c_str()), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+
 		if (allKeys->size() > 0)
 			mMenu.addWithLabel(menuLabel, optionList);
 
