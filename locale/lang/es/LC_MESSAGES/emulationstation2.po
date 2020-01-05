@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-30 18:50+0100\n"
+"POT-Creation-Date: 2020-01-05 10:15+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1175,6 +1175,9 @@ msgstr "NO SE ENCONTRARON ENTRADAS"
 
 msgid "OPTIONS"
 msgstr "OPCIONES"
+
+msgid "FAVORITES"
+msgstr ""
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "LANZAR EL JUEGO COMO SERVIDOR DE NETPLAY?"
