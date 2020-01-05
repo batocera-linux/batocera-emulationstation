@@ -221,10 +221,10 @@ void GridTileComponent::resize()
 	// Video
 	if (mVideo != nullptr && mVideo->isPlaying())
 	{
-		if (currentProperties.Image.sizeMode == "minSize")
+		if (currentProperties.Image.sizeMode != "size")
 		{
 			mVideo->setOrigin(0.5, 0.5);			
-			mVideo->setPosition(imageOffset.x() + imageSize.x() / 2, imageOffset.y() + imageSize.y() / 2);
+			mVideo->setPosition(imageOffset.x() + imageSize.x() / 2.0f, imageOffset.y() + imageSize.y() / 2.0f);
 			mVideo->setMinSize(imageSize.x(), imageSize.y());
 
 			if (mImage != nullptr)
@@ -329,7 +329,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
 	bool isDefaultImage = mIsDefaultImage; // && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
-	bool isMinSize = currentProperties.Image.sizeMode == "minSize" && !isDefaultImage;
+	bool isMinSize = currentProperties.Image.sizeMode != "size" && !isDefaultImage;
 	
 	if (isMinSize)
 		Renderer::pushClipRect(pos, size);
