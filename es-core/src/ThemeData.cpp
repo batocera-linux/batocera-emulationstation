@@ -39,6 +39,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "roundCorners", FLOAT },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
+		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },

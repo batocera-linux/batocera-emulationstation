@@ -26,6 +26,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
+	mLinear = false;
 	mHorizontalAlignment = ALIGN_CENTER;
 	mVerticalAlignment = ALIGN_CENTER;
 	mReflectOnBorders = false;
@@ -165,11 +166,11 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
-			mTexture = TextureResource::get(mDefaultPath, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 	} 
 	else
 	{
-		std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+		std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
 
 		if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
 			mLoadingTexture = texture;
@@ -560,6 +561,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	{
 		return;
 	}
+
+	if (elem->has("linearSmooth"))
+		mLinear = elem->get<bool>("linearSmooth");
 
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
