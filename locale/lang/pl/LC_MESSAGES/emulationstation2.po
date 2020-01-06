@@ -96,7 +96,7 @@ msgid "automatic"
 msgstr "automatyczny"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "DOSTOSOWYWANIE WIDOKU"
 
 msgid "GRID SIZE"
 msgstr "ROZMIAR SIATKI"
@@ -545,7 +545,7 @@ msgid "INPUT P%i"
 msgstr "WEJŚCIE P%i"
 
 msgid "default"
-msgstr "domyślnie"
+msgstr "domyślne"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "POKAŻ DZIAŁANIE KONTROLERA"
@@ -566,7 +566,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "DOMYŚLNY ROZMIAR SIATKI"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "DOMYŚLNE"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "ZRESETUJ DOSTOSOWYWANIA LISTY GIER"
@@ -1178,7 +1178,7 @@ msgid "OPTIONS"
 msgstr "OPCJE"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "ULUBIONE"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "URUCHOMIĆ GRĘ JAKO HOST NETPLAY?"
@@ -1295,13 +1295,13 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "SKANOWANIE BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr ""
+msgstr "Wyszukiwanie kontrolerów..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "SKANOWANIE BLUETOOTH JEST JUŻ URUCHOMIONE."
 
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
