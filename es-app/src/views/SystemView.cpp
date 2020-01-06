@@ -935,6 +935,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			{
 				if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 					continue;
+				
+				if (extra->isStaticExtra())
+					continue;
 
 				std::string value = extra->getValue();
 				if (extra->isKindOf<ImageComponent>())
@@ -949,6 +952,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			for (GuiComponent* extra : mEntries.at(mExtrasFadeOldCursor).data.backgroundExtras)
 			{
 				if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
+					continue;
+
+				if (extra->isStaticExtra())
 					continue;
 
 				std::string value = extra->getValue();
@@ -967,6 +973,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 				continue;
 			
+			if (extra->isStaticExtra())
+				continue;
+
 			std::string value = extra->getValue();
 			if (extra->isKindOf<ImageComponent>())
 			{
@@ -994,63 +1003,106 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			continue;
 
 		//Only render selected system when not showing
-		if (mShowing || index == mCursor)
+		if (!mShowing && index != mCursor)
+			continue;
+
+		Entry& entry = mEntries.at(index);
+		
+		Vector2i size = Vector2i(Math::round(mSize.x()), Math::round(mSize.y()));
+
+		Transform4x4f extrasTrans = trans;
+		if (mCarousel.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL)
 		{
-			Transform4x4f extrasTrans = trans;
-			if (mCarousel.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL)
-				extrasTrans.translate(Vector3f((i - mExtrasCamOffset) * mSize.x(), 0, 0));
-			else
-				extrasTrans.translate(Vector3f(0, (i - mExtrasCamOffset) * mSize.y(), 0));
+			extrasTrans.translate(Vector3f((i - mExtrasCamOffset) * mSize.x(), 0, 0));
+		
+			if (extrasTrans.translation()[0] >= 0 && extrasTrans.translation()[0] <= Renderer::getScreenWidth() && extrasTrans.translation()[0] + mSize.x() > Renderer::getScreenWidth())
+				size.x() = Renderer::getScreenWidth() - extrasTrans.translation()[0];
+		}
+		else
+		{
+			extrasTrans.translate(Vector3f(0, (i - mExtrasCamOffset) * mSize.y(), 0));
 
-			if (mExtrasFadeOpacity && mExtrasFadeOldCursor == index)
-				extrasTrans = trans;
+			if (extrasTrans.translation()[1] >= 0 && extrasTrans.translation()[1] <= Renderer::getScreenHeight() && extrasTrans.translation()[1] + mSize.y() > Renderer::getScreenHeight())
+				size.y() = Renderer::getScreenHeight() - extrasTrans.translation()[1];
+		}
 
-			Renderer::pushClipRect(Vector2i((int)extrasTrans.translation()[0], (int)extrasTrans.translation()[1]),Vector2i((int)mSize.x(), (int)mSize.y()));
+		if (!Renderer::isVisibleOnScreen(extrasTrans.translation()[0], extrasTrans.translation()[1], mSize.x(), mSize.y()))
+			continue;
 
-			for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
-			{
-				if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
-					continue;
+		if (mExtrasFadeOpacity && mExtrasFadeOldCursor == index)
+			extrasTrans = trans;
+
+		Renderer::pushClipRect(Vector2i(Math::round(extrasTrans.translation()[0]), Math::round(extrasTrans.translation()[1])), Vector2i(Math::round(size.x()), Math::round(size.y())));
+
+		for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
+		{
+			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
+				continue;
 								
-				// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
-				if (mExtrasFadeOpacity)
+			// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
+			if (mExtrasFadeOpacity && !extra->isStaticExtra())
+			{
+				std::string value = extra->getValue();
+				if (extra->isKindOf<ImageComponent>())
 				{
-					std::string value = extra->getValue();
-					if (extra->isKindOf<ImageComponent>())
-					{
-						if (paths.find(value) != paths.cend())
-						{
-							auto opa = extra->getOpacity();
-							extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
-							extra->render(extrasTrans);
-							extra->setOpacity(opa);
-							continue;
-						}								
-						else if (((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
-						{
-							auto opa = extra->getOpacity();
-							extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
-							extra->render(extrasTrans);
-							extra->setOpacity(opa);
-							continue;
-						}
-					}
-					else if (extra->isKindOf<TextComponent>() && values.find(value) != values.cend())
+					if (paths.find(value) != paths.cend())
+					{							
+						auto opa = extra->getOpacity();
+						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
+						extra->render(extra->isStaticExtra() ? trans : extrasTrans);
+						extra->setOpacity(opa);
+						continue;
+					}								
+					else if (((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
 					{
 						auto opa = extra->getOpacity();
 						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
-						extra->render(extrasTrans);
+						extra->render(extra->isStaticExtra() ? trans : extrasTrans);
 						extra->setOpacity(opa);
 						continue;
 					}
 				}
-				
-				extra->render(extrasTrans);				
+				else if (extra->isKindOf<TextComponent>() && values.find(value) != values.cend())
+				{
+					auto opa = extra->getOpacity();
+					extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
+					extra->render(extra->isStaticExtra() ? trans : extrasTrans);
+					extra->setOpacity(opa);
+					continue;
+				}
 			}
+			
+			if (extra->isStaticExtra())
+			{		
+				if (extrasTrans.translation()[0] < 0)
+				{
+					int x = Math::round(size.x() + extrasTrans.translation()[0]);
+					if (x == 0)
+						continue;
 
-			Renderer::popClipRect();
+					Renderer::pushClipRect(Vector2i(0, Math::round(extrasTrans.translation()[1])), Vector2i(x, Math::round(size.y())));
+				}
+				else if (extrasTrans.translation()[1] < 0)
+				{
+					int y = Math::round(size.y() + extrasTrans.translation()[1]);
+					if (y == 0)
+						continue;
+
+					Renderer::pushClipRect(Vector2i(Math::round(extrasTrans.translation()[0]), 0), Vector2i(Math::round(size.x()), y));
+				}
+			
+				extra->render(trans);
+				
+				if (extrasTrans.translation()[0] < 0 || extrasTrans.translation()[1] < 0)
+					Renderer::popClipRect();			
+			}
+			else
+				extra->render(extrasTrans);
 		}
+
+		Renderer::popClipRect();		
 	}
+
 	Renderer::popClipRect();
 }
 

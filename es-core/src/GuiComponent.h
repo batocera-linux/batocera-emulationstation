@@ -160,6 +160,9 @@ public:
 
 	std::string getTag() const { return mTag; };
 	void setTag(const std::string& value) { mTag = value; };
+	
+	bool isStaticExtra() const { return mStaticExtra; }
+	void setIsStaticExtra(bool value) { mStaticExtra = value; }
 
 protected:
 	void renderChildren(const Transform4x4f& transform) const;
@@ -185,6 +188,8 @@ protected:
 
 	bool mIsProcessing;
 	bool mVisible;
+
+	bool mStaticExtra;
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;
