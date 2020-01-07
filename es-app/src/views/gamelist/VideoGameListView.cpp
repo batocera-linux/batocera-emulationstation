@@ -196,6 +196,9 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
 	}
 
+	mLblGameTime.setVisible(theme->getElement(getName(), "md_lbl_gametime", "text") != nullptr);
+	mGameTime.setVisible(theme->getElement(getName(), "md_gametime", "text") != nullptr);
+
 	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
 	mDescription.setSize(mDescContainer.getSize().x(), 0);
 	mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
@@ -329,7 +332,7 @@ void VideoGameListView::updateInfoPanel()
 		{
 			mLastPlayed.setValue(file->getMetadata().get("lastplayed"));
 			mPlayCount.setValue(file->getMetadata().get("playcount"));
-			mGameTime.setValue(file->getMetadata().get("gametime"));
+			mGameTime.setValue(Utils::Time::secondsToString(std::stol(file->getMetadata("gametime"))));
 		}
 
 		fadingOut = false;

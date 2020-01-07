@@ -398,6 +398,9 @@ void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
 	}
 
+	mLblGameTime.setVisible(theme->getElement(getName(), "md_lbl_gametime", "text") != nullptr);
+	mGameTime.setVisible(theme->getElement(getName(), "md_gametime", "text") != nullptr);
+
 	if (theme->getElement(getName(), "md_description", "text"))
 	{
 		mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX);
@@ -592,7 +595,7 @@ void GridGameListView::updateInfoPanel()
 		{
 			mLastPlayed.setValue(file->getMetadata().get("lastplayed"));
 			mPlayCount.setValue(file->getMetadata().get("playcount"));
-			mGameTime.setValue(file->getMetadata().get("gametime"));
+			mGameTime.setValue(Utils::Time::secondsToString(std::stol(file->getMetadata("gametime"))));
 		}
 
 		fadingOut = false;

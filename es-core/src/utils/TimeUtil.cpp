@@ -270,6 +270,17 @@ namespace Utils
 
 		} // timeToString
 
+		std::string secondsToString(const long seconds)
+		{
+		// transforms a number of seconds into HH:MM:SS
+			int h=0, m=0, s=0;
+			h = (seconds/3600) % 24;
+			m = (seconds/60) % 60;
+			s = seconds % 60;
+			return std::to_string(h) + ":" + std::to_string(m) + ":" + std::to_string(s);
+
+		} //secondsToString
+
 		int daysInMonth(const int _year, const int _month)
 		{
 			tm timeStruct = { 0, 0, 0, 0, _month, _year - 1900, 0, 0, -1 };
