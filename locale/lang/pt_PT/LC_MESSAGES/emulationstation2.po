@@ -1176,7 +1176,7 @@ msgid "OPTIONS"
 msgstr "OPÇÕES"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "FAVORITOS"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "INICIAR JOGO COMO HOST DE REDE ?"
