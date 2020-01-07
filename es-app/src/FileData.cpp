@@ -381,12 +381,12 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
 	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
 
-	// Batocera 5.25: how long have you played that game? (more than 5 seconds, otherwise 
+	// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise 
 	// your might have experienced a loading problem)
 	time_t tend = time(NULL);
 	long elapsedSeconds = difftime(tend, tstart);
 	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
-	if (elapsedSeconds >= 5)
+	if (elapsedSeconds >= 10)
 		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
 
 	//update last played time

@@ -63,7 +63,7 @@ private:
 	void initMDLabels();
 	void initMDValues();
 
-	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount;
+	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime;
 
 	RatingComponent mRating;
 	DateTimeComponent mReleaseDate;
@@ -74,6 +74,7 @@ private:
 	DateTimeComponent mLastPlayed;
 	TextComponent mPlayCount;
 	TextComponent mName;
+	TextComponent mGameTime;
 
 	ImageComponent* mImage;
 	ImageComponent* mThumbnail;
