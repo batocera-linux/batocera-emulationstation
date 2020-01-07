@@ -21,6 +21,7 @@
 #include "scrapers/ThreadedScraper.h"
 #include "Gamelist.h" 
 #include "ApiSystem.h"
+#include <time.h>
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -353,6 +354,8 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	Scripting::fireEvent("game-start", rom, basename);
 
+	time_t tstart = time(NULL);
+
 	LOG(LogInfo) << "	" << command;
 	int exitCode = runSystemCommand(command);
 
@@ -377,6 +380,14 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
 	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+
+	// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
+	// you might have experienced a loading problem)
+	time_t tend = time(NULL);
+	long elapsedSeconds = difftime(tend, tstart);
+	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+	if (elapsedSeconds >= 10)
+		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
 
 	//update last played time
 	gameToUpdate->getMetadata().set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
