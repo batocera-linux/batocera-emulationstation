@@ -1109,10 +1109,10 @@ msgid "Md5 checksum"
 msgstr "Md5 checksum"
 
 msgid "Game time"
-msgstr ""
+msgstr "Tempo de jogo"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "tempo total de jogo (segundos)"
 
 msgid "name"
 msgstr "nome"
@@ -1148,8 +1148,7 @@ msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "FALHA NA PESQUISA : LIMITE DE BUSCA DIÁRIO ATINGIDO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-"SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1364,8 +1363,7 @@ msgstr "Várias"
 msgid "This collection contains %1$i game, including %2$s."
 msgid_plural "This collection contains %1$i games, including %2$s."
 msgstr[0] "Esta coleção contém %1$i jogo, incluindo %2$s entre outros títulos."
-msgstr[1] ""
-"Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
+msgstr[1] "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
 
 #, c-format
 msgid "This collection contains %1$i game, including %2$s among other titles."
@@ -1619,8 +1617,7 @@ msgstr "cima/baixo"
 #~ msgstr "O SISTEMA SERÁ REINICIADO"
 
 #~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-#~ msgstr ""
-#~ "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
+#~ msgstr "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
 
 #~ msgid "PRESS F4 TO QUIT AT ANY TIME."
 #~ msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
