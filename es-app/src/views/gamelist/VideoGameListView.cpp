@@ -332,7 +332,7 @@ void VideoGameListView::updateInfoPanel()
 		{
 			mLastPlayed.setValue(file->getMetadata().get("lastplayed"));
 			mPlayCount.setValue(file->getMetadata().get("playcount"));
-			mGameTime.setValue(Utils::Time::secondsToString(std::stol(file->getMetadata("gametime"))));
+			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata("gametime").c_str())));
 		}
 
 		fadingOut = false;
