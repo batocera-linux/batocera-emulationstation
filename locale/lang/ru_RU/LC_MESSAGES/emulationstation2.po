@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 10:15+0100\n"
+"POT-Creation-Date: 2020-01-08 19:18+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1106,6 +1106,12 @@ msgstr "Контрольная сумма CRC32"
 
 msgid "Md5 checksum"
 msgstr "Контрольная сумма MD5"
+
+msgid "Game time"
+msgstr ""
+
+msgid "how long the game has been played in total (seconds)"
+msgstr ""
 
 msgid "name"
 msgstr "название"

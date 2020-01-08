@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 10:15+0100\n"
+"POT-Creation-Date: 2020-01-08 18:56+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1101,6 +1101,12 @@ msgstr "Checksum CRC32"
 
 msgid "Md5 checksum"
 msgstr "Checksum MD5"
+
+msgid "Game time"
+msgstr ""
+
+msgid "how long the game has been played in total (seconds)"
+msgstr ""
 
 msgid "name"
 msgstr "Nom"

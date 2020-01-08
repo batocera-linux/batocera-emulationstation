@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 10:15+0100\n"
+"POT-Creation-Date: 2020-01-08 19:18+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -53,22 +53,22 @@ msgid "CANCEL"
 msgstr "ANNULLA"
 
 msgid "CONNECT TO NETPLAY"
-msgstr ""
+msgstr "COLLEGATI SU NETPLAY"
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "Scegli il gioco"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "AGGIORNA"
 
 msgid "CLOSE"
 msgstr "CHIUDI"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "ATTENDERE PREGO"
 
 msgid "FAILED"
-msgstr ""
+msgstr "FALLITO"
 
 msgid "BACK"
 msgstr "INDIETRO"
@@ -77,7 +77,7 @@ msgid "LAUNCH"
 msgstr "AVVIA"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "NESSUN GIOCO TROVATO"
 
 msgid "go back"
 msgstr "torna indietro"
@@ -98,7 +98,7 @@ msgid "automatic"
 msgstr "automatico"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "MOSTRA PERSONALIZZAZIONE"
 
 msgid "GRID SIZE"
 msgstr "GRANDEZZA DELLA GRIGLIA"
@@ -305,7 +305,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "RICERCA IMMAGINI IN LOCALE"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "USA RGUI MENU DI RETROARCH"
 
 msgid "LOG LEVEL"
 msgstr "LIVELLO DI LOG"
@@ -354,7 +354,7 @@ msgstr ""
 "E' NECESSARIO RIAVVIARE IL SISTEMA PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "USCITA AUDIO"
 
 msgid "POWER SAVER MODES"
 msgstr "MODALITA' RISPARMIO ENERGETICO"
@@ -390,16 +390,16 @@ msgid "ROOT PASSWORD"
 msgstr "PASSWORD DI ROOT"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "RIDUZIONE LATENZA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "METODO RUN-AHEAD FRAMES"
 
 msgid "AUTO"
 msgstr "AUTO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "USA METODO RUN-AHEAD"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr ""
@@ -411,25 +411,25 @@ msgid "OFF"
 msgstr "NO"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI NETPLAY"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "ABILITA NETPLAY"
 
 msgid "NICKNAME"
-msgstr ""
+msgstr "NICKNAME"
 
 msgid "PORT"
-msgstr ""
+msgstr "PORTA"
 
 msgid "MITM"
-msgstr ""
+msgstr "MITM"
 
 msgid "REINDEX ALL GAMES"
-msgstr ""
+msgstr "REINDICIZZA TUTTI I GIOCHI"
 
 msgid "INDEX MISSING GAMES"
-msgstr ""
+msgstr "INDICIZZA GIOCHI MANCANTI"
 
 msgid "GAME RATIO"
 msgstr "FORMATO VIDEO DEL GIOCO"
@@ -459,10 +459,10 @@ msgid "CURVATURE"
 msgstr "CURVATURA"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "PIATTO E LUMINOSO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (GRAFICA PIXEL PERFECT)"
@@ -498,7 +498,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
 
 msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
@@ -569,7 +569,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "DEFAULT"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
@@ -689,7 +689,7 @@ msgid "MANUAL SCRAPER"
 msgstr "RACCOLTA INFORMAZIONI MANUALE"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "AVVIA SALVASCHERMO"
 
 msgid "RESTART SYSTEM"
 msgstr "RIAVVIA IL SISTEMA"
@@ -890,7 +890,7 @@ msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "CAMBIA VIDEO DOPO (SECONDI)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "UTILIZZA IL PALYER OMX COME SALVASCHERMO"
+msgstr "UTILIZZA IL PLAYER OMX COME SALVASCHERMO"
 
 msgid "VIDEO SCREENSAVER"
 msgstr "VIDEO SALVASCHERMO"
@@ -1103,9 +1103,15 @@ msgid "enter last played date"
 msgstr "inserisci la data dell'utlima partita"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "Serie checksum Crc332"
 
 msgid "Md5 checksum"
+msgstr "Serie checksum Md5"
+
+msgid "Game time"
+msgstr ""
+
+msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
 msgid "name"
@@ -1139,7 +1145,7 @@ msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "SCRAPE FALLITO : L'APPLICAZIONE E' STATA MESSA NELLA LISTA NERA"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "SCRAPE FALLITO : LIMITE DI SCRAPE GIORNALIERO RAGGIUNTO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
@@ -1157,7 +1163,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "NEPLAY"
 
 msgid "RANDOM"
 msgstr "CASUALE"
@@ -1172,16 +1178,16 @@ msgid "Times played"
 msgstr "Numero partite"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Nessun Elemento Trovato"
 
 msgid "OPTIONS"
 msgstr "OPZIONI"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "PREFERITI"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgstr "AVVIA IL GIOCO COME HOST SU NETPLAY ?"
 
 msgid "Preloading UI"
 msgstr "Precaricamento UI"
@@ -1250,10 +1256,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "SISTEMA, DISCENDENTE"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "DATA CREAZIONE FILE, ASCENDENTE"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "DATA CREAZIONE FILE, DISCENDENTE"
 
 msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
@@ -1292,16 +1298,16 @@ msgid "Done."
 msgstr "Fatto."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "SALVATAGGIO METADATA. ATTENDERE PREGO..."
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "SCANSIONE BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr ""
+msgstr "Ricerca controller..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "LA SCANSIONE BLUETOOTH E' GIA' IN AVVIO"
 
 msgid "UPDATE AVAILABLE"
 msgstr "AGGIORNAMENTO DISPONIBILE"
@@ -1510,6 +1516,9 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr "su/giù"
+
+#~ msgid "USE OMX PLAYER (HW ACCELERATED)"
+#~ msgstr "USA OMX PLAYER (ACCELERAZIONE HW)"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "ABBINAMENTO CONTROLLER RIUSCITO"
