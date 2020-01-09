@@ -146,7 +146,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "SUCCÈS RÉTRO"
+msgstr "ACTIVER LES SUCCÈS RÉTRO"
 
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
@@ -398,7 +398,7 @@ msgid "USE RUN-AHEAD FRAMES"
 msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "SECONDE INSTANCE POUR L'EXÉCUTION EN AVANCE"
+msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
 
 msgid "ON"
 msgstr "OUI"
@@ -648,7 +648,7 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ACTIVER LES SONS DE NAVIGATION"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr "ACTIVER LES SONS DES VIDÉOS"
+msgstr "ACTIVER LE SON DES VIDÉOS"
 
 msgid "CONNECTED"
 msgstr "CONNECTÉ"
@@ -1103,10 +1103,10 @@ msgid "Md5 checksum"
 msgstr "Checksum MD5"
 
 msgid "Game time"
-msgstr ""
+msgstr "Temps de jeu"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "Entrez le temps de jeu"
 
 msgid "name"
 msgstr "Nom"
