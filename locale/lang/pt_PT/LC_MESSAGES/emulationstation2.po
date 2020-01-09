@@ -1106,10 +1106,10 @@ msgid "Md5 checksum"
 msgstr "Md5 checksum"
 
 msgid "Game time"
-msgstr ""
+msgstr "Tempo de jogo"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "tempo total de jogo (segundos)"
 
 msgid "name"
 msgstr "nome"
