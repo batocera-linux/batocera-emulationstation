@@ -9,7 +9,7 @@
 TextureDataManager::TextureDataManager()
 {
 	unsigned char data[5 * 5 * 4];
-	mBlank = std::make_shared<TextureData>(false);
+	mBlank = std::make_shared<TextureData>(false, false);
 	for (int i = 0; i < (5 * 5); ++i)
 	{
 		data[i * 4] = 0; // (i % 2) * 255;
@@ -41,7 +41,7 @@ void TextureDataManager::onTextureLoaded(std::shared_ptr<TextureData> tex)
 	}
 }
 
-std::shared_ptr<TextureData> TextureDataManager::add(const TextureResource* key, bool tiled)
+std::shared_ptr<TextureData> TextureDataManager::add(const TextureResource* key, bool tiled, bool linear)
 {	
 	std::unique_lock<std::mutex> lock(mMutex);
 
@@ -55,7 +55,7 @@ std::shared_ptr<TextureData> TextureDataManager::add(const TextureResource* key,
 		mTextureLookup.erase(it);
 	}
 
-	std::shared_ptr<TextureData> data = std::make_shared<TextureData>(tiled);
+	std::shared_ptr<TextureData> data = std::make_shared<TextureData>(tiled, linear);
 	mTextures.push_front(data);
 	mTextureLookup[key] = mTextures.cbegin();
 

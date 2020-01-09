@@ -118,6 +118,9 @@ public:
 	std::string getImagePath() { return mPath; }
 	bool isTiled();
 
+	bool isLinear() { return mLinear; }
+	void setIsLinear(bool value) { mLinear = value; }
+
 private:
 	Vector2f mTargetSize;
 
@@ -166,6 +169,8 @@ private:
 	bool			mShowing;
 	std::shared_ptr<IPlaylist> mPlaylist;
 	float mPlaylistTimer;
+
+	bool mLinear;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H

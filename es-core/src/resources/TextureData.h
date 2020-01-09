@@ -11,7 +11,7 @@ class TextureResource;
 class TextureData
 {
 public:
-	TextureData(bool tile);
+	TextureData(bool tile, bool linear);
 	~TextureData();
 
 	// These functions populate mDataRGBA but do not upload the texture to VRAM
@@ -64,6 +64,7 @@ public:
 private:
 	std::mutex		mMutex;
 	bool			mTile;
+	bool			mLinear;
 	std::string		mPath;
 	unsigned int	mTextureID;
 	unsigned char*	mDataRGBA;

@@ -172,7 +172,10 @@ public:
 	class ThemeElement
 	{
 	public:
-		bool extra;
+		ThemeElement() { extra = 0; }
+
+		int extra;
+
 		std::string type;
 
 		struct Property

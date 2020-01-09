@@ -39,6 +39,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "roundCorners", FLOAT },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
+		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
@@ -1004,8 +1005,17 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	// error.setFiles(mPaths);
 
 	element.type = root.name();
-	element.extra = root.attribute("extra").as_bool(false);
-	
+
+	if (root.attribute("extra"))
+	{
+		std::string extra = Utils::String::toLower(root.attribute("extra").as_string());
+		
+		if (extra == "true")
+			element.extra = 1;
+		else if (extra == "static")
+			element.extra = 2;
+	}	
+
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		if (!parseFilterAttributes(node))
@@ -1271,6 +1281,7 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 			if (comp == nullptr)
 				continue;
 
+			comp->setIsStaticExtra(elem.extra == 2);
 			comp->setTag((*it).c_str());
 			comp->setDefaultZIndex(10);
 			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);

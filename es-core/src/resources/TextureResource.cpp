@@ -11,7 +11,7 @@ TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
 std::set<TextureResource*> 	TextureResource::sAllTextures;
 
-TextureResource::TextureResource(const std::string& path, bool tile, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
+TextureResource::TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
 {
 	// Create a texture data object for this texture
 	if (!path.empty())
@@ -21,7 +21,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		std::shared_ptr<TextureData> data;
 		if (dynamic)
 		{
-			data = sTextureDataManager.add(this, tile);
+			data = sTextureDataManager.add(this, tile, linear);
 			if (maxSize != nullptr)
 				data->setMaxSize(*maxSize);
 
@@ -56,7 +56,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 		}
 		else
 		{
-			mTextureData = std::make_shared<TextureData>(tile);
+			mTextureData = std::make_shared<TextureData>(tile, linear);
 			data = mTextureData;
 			if (maxSize != nullptr)
 				data->setMaxSize(*maxSize);
@@ -71,7 +71,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool dynami
 	else
 	{
 		// Create a texture managed by this class because it cannot be dynamically loaded and unloaded
-		mTextureData = std::make_shared<TextureData>(tile);
+		mTextureData = std::make_shared<TextureData>(tile, linear);
 	}
 
 	if (sAllTextures.find(this) == sAllTextures.end())
@@ -173,14 +173,14 @@ void TextureResource::cancelAsync(std::shared_ptr<TextureResource> texture)
 		sTextureDataManager.cancelAsync(texture.get());
 }
 
-std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
+std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 
 	const std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 	if(canonicalPath.empty())
 	{
-		std::shared_ptr<TextureResource> tex = std::make_shared<TextureResource>("", tile, false, false);
+		std::shared_ptr<TextureResource> tex = std::make_shared<TextureResource>("", tile, linear, false, false);
 		rm->addReloadable(tex); //make sure we get properly deinitialized even though we do nothing on reinitialization
 		return tex;
 	}
@@ -189,7 +189,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	if (canonicalPath.length() > 0 && canonicalPath[0] == ':')
 		dynamic = false;
 
-	TextureKeyType key(canonicalPath, tile);
+	TextureKeyType key(canonicalPath, tile, linear);
 	auto foundTexture = sTextureMap.find(key);
 	if(foundTexture != sTextureMap.cend())
 	{
@@ -221,7 +221,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	
 	// need to create it
 	std::shared_ptr<TextureResource> tex;
-	tex = std::make_shared<TextureResource>(key.first, tile, dynamic, !forceLoad, maxSize);
+	tex = std::make_shared<TextureResource>(std::get<0>(key), tile, linear, dynamic, !forceLoad, maxSize);
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get(), !forceLoad);
 
 	if (asReloadable)

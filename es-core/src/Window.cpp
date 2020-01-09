@@ -541,7 +541,7 @@ void Window::endRenderLoadingScreen()
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
 {
 	if (mSplash == NULL)
-		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, false, false);
+		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, true, false, false);
 
 	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);

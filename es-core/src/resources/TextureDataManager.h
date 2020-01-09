@@ -60,7 +60,7 @@ public:
 	TextureDataManager();
 	~TextureDataManager();
 
-	std::shared_ptr<TextureData> add(const TextureResource* key, bool tiled);
+	std::shared_ptr<TextureData> add(const TextureResource* key, bool tiled, bool linear);
 
 	// The texturedata being removed may be loading in a different thread. However it will
 	// be referenced by a smart point so we only need to remove it from our array and it

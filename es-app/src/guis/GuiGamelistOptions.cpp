@@ -232,14 +232,11 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	// Folder View Mode
 	auto foldersBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW FOLDERS"), false);
-	std::vector<std::string> folders;
-	folders.push_back("always");
-	folders.push_back("never");
-	folders.push_back("having multiple games");
 
-	for (auto it = folders.cbegin(); it != folders.cend(); it++)
-		foldersBehavior->add(_(it->c_str()), *it, Settings::getInstance()->getString("FolderViewMode") == *it);
-	
+	foldersBehavior->add(_("always"), "always", Settings::getInstance()->getString("FolderViewMode") == "always");
+	foldersBehavior->add(_("never"), "never", Settings::getInstance()->getString("FolderViewMode") == "never");
+	foldersBehavior->add(_("having multiple games"), "having multiple games", Settings::getInstance()->getString("FolderViewMode") == "having multiple games");
+
 	mMenu.addWithLabel(_("SHOW FOLDERS"), foldersBehavior);
 	addSaveFunc([this, foldersBehavior] 
 	{
