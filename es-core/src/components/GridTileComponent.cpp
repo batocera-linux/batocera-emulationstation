@@ -329,8 +329,8 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
 	bool isDefaultImage = mIsDefaultImage; // && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
-	bool isMinSize = currentProperties.Image.sizeMode != "size" && !isDefaultImage;
-	
+	bool isMinSize = !isDefaultImage && currentProperties.Image.sizeMode == "minSize";
+
 	if (isMinSize)
 		Renderer::pushClipRect(pos, size);
 		
