@@ -258,12 +258,13 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	stopAnimation(1); // make sure the fade in isn't still playing
 	mWindow->stopInfoPopup(); // make sure we disable any existing info popup
 	mLockInput = true;
-
-	
+		
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	if(transition_style == "auto")
+		transition_style = "slide";
 
 	// Workaround, the grid scale has problems when sliding giving bad effects
-	if(transition_style == "slide" && mCurrentView->getTag() == "grid")
+	if(transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
 		transition_style = "fade";
 
 	if(transition_style == "fade")
