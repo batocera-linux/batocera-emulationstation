@@ -2769,6 +2769,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->getName() == "wii") // only for wii
 		systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
 
+	// citra change screen layout
+	auto changescreen_layout = std::make_shared<OptionListComponent<std::string>>(mWindow, _("CHANGE SCREEN LAYOUT"));
+	changescreen_layout->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".layout_option") != "2" && SystemConf::getInstance()->get(configName + ".layout_option") != "3");
+	changescreen_layout->add(_("LARGE SCREEN"), "2", SystemConf::getInstance()->get(configName + ".layout_option") == "2");
+	changescreen_layout->add(_("SIDE BY SIDE"), "3", SystemConf::getInstance()->get(configName + ".layout_option") == "3");
+	if (systemData->getName() == "3ds") // only for 3ds
+		systemConfiguration->addWithLabel(_("CHANGE SCREEN LAYOUT"), changescreen_layout);
+
 	// psp internal resolution
 	auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
 	internalresolution->add(_("AUTO"), "auto",
@@ -2785,7 +2793,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->getName() == "psp") // only for psp
 		systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 
-	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, internalresolution] 
+	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, changescreen_layout, internalresolution] 
 	{
 		SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());		
 		SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected());		
@@ -2796,6 +2804,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
 		SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());		
 		SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
+		SystemConf::getInstance()->set(configName + ".layout_option", changescreen_layout->getSelected());
 		SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected());
 		SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
 		SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
