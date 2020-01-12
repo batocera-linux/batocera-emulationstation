@@ -286,16 +286,18 @@ void TextureLoader::threadProc()
 
 			if (textureData && !textureData->isLoaded())
 			{
-				LOG(LogDebug) << "TextureLoader::Thread\tLoading " << textureData->getPath().c_str();
+				//LOG(LogDebug) << "TextureLoader::Thread\tLoading " << textureData->getPath().c_str();
+				std::this_thread::yield();
 
-				textureData->load();
-				mManager->onTextureLoaded(textureData);				
+				textureData->load(true);
+				//mManager->onTextureLoaded(textureData);				
 
 				lock.lock();
-				mProcessingTextureDataQ.remove(textureData);
-
-				std::this_thread::yield();
+				mProcessingTextureDataQ.remove(textureData);			
+				lock.unlock();
 			}
+
+			std::this_thread::yield();
 		}		
 	}
 }
