@@ -548,7 +548,13 @@ namespace Utils
 			if(_path.size() >= 2 && _path[0] == ':' && _path[1] == '/')
 				return _path;
 
+#if WIN32
+			std::string path = _path[0] == '.' ? getAbsolutePath(_path) : getGenericPath(_path);
+			if (path.find("./") == std::string::npos)
+				return path;
+#else
 			std::string path = exists(_path) ? getAbsolutePath(_path) : getGenericPath(_path);
+#endif
 
 			// cleanup path
 			bool scan = true;
@@ -582,7 +588,7 @@ namespace Utils
 #else // _WIN32
 					// append folder to path
 					path += ("/" + (*it));
-#endif // _WIN32
+
 
 					// resolve symlink
 					if(isSymlink(path))
@@ -603,6 +609,7 @@ namespace Utils
 						scan = true;
 						break;
 					}
+#endif // _WIN32
 				}
 			}
 

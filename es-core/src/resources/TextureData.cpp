@@ -203,7 +203,7 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	return true;
 }
 
-bool TextureData::load()
+bool TextureData::load(bool updateCache)
 {
 	bool retval = false;
 
@@ -222,7 +222,11 @@ bool TextureData::load()
 		}
 		else
 			retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length);
+
+		if (updateCache && retval)
+			ImageIO::updateImageCache(mPath, data.length, mBaseSize.x(), mBaseSize.y());
 	}
+
 	return retval;
 }
 
