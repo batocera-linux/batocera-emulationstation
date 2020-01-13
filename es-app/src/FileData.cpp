@@ -377,6 +377,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	//update number of times the game has been launched
 
 	FileData* gameToUpdate = getSourceFileData();
+	SystemData* system = gameToUpdate->getSystem();
 
 	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
 	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
@@ -397,7 +398,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	window->reactivateGui();
 
 	// batocera
-	AudioManager::getInstance()->playRandomMusic();
+	if (system != nullptr && system->getTheme() != nullptr)
+		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
+	else
+		AudioManager::getInstance()->playRandomMusic();
 
 	// ThreadedScraper::resume();
 }
