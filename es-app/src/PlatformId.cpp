@@ -48,6 +48,7 @@ namespace PlatformIds
 		{ "virtualboy",				NINTENDO_VIRTUAL_BOY },
 		{ "gameandwatch",			NINTENDO_GAME_AND_WATCH },
 		{ "pc",						PC },
+		{ "pc98",						PC_98 },
 		{ "sega32x",				SEGA_32X },
 		{ "segacd",					SEGA_CD },
 		{ "dreamcast",				SEGA_DREAMCAST },
