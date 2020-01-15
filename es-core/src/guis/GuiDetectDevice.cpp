@@ -38,7 +38,7 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	
 	if(numDevices > 0) {
 	  char strbuf[256];
-	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices).c_str(), numDevices); // batocera
+	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices), numDevices); // batocera
 	  deviceInfo << strbuf;
 	}
 	else

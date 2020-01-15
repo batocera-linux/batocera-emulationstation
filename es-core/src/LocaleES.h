@@ -1,14 +1,33 @@
 #ifndef _LOCALE_H_
 #define _LOCALE_H_
 
+
 #if !defined(WIN32)
 
-#include <boost/locale.hpp>
+#ifdef HAVE_INTL
 
-#define _(A) boost::locale::gettext(A)
-#define ngettext(A, B, C) boost::locale::ngettext(A, B, C)
+#include <libintl.h>
+#include <string>
+
+#define _(A) std::string(gettext(A))
+
+#else
+
+#define _(A) A
+char* ngettext(char* msgid, char* msgid_plural, unsigned long int n);
+
+#endif
 
 #define _U(x) x
+
+class EsLocale
+{
+public:
+	static std::string init(std::string locale, std::string path);
+	static std::string changeLocale(const std::string& locale);
+private:
+	static std::string default_LANGUAGE;
+};
 
 #else // WIN32
 
@@ -48,7 +67,7 @@ private:
 #define _U(x) Utils::String::convertFromWideString(L ## x)
 
 #define _(x) EsLocale::getText(x)
-#define ngettext(A, B, C) EsLocale::nGetText(A, B, C)
+#define ngettext(A, B, C) EsLocale::nGetText(A, B, C).c_str()
 
 #endif // WIN32
 

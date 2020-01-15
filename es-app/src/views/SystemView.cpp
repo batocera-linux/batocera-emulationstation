@@ -546,7 +546,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			ss << "CONFIGURATION";
 		else 
 		{
-		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount).c_str(), gameCount);
+		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount), gameCount);
 		  ss << strbuf;
 		}
 
