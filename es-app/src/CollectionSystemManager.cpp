@@ -651,10 +651,10 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 
 		if(games_counter <= 3) {
 		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s.",
-						   "This collection contains %1$i games, including %2$s.", games_counter).c_str(), games_counter, games_list.c_str());
+						   "This collection contains %1$i games, including %2$s.", games_counter), games_counter, games_list.c_str());
 		} else {
 		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s among other titles.",
-						   "This collection contains %1$i games, including %2$s among other titles.", games_counter).c_str(), games_counter, games_list.c_str());
+						   "This collection contains %1$i games, including %2$s among other titles.", games_counter), games_counter, games_list.c_str());
 		}
 		desc = trstring;
 

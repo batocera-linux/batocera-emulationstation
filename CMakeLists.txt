@@ -85,9 +85,6 @@ find_package(FreeImage REQUIRED)
 # batocera / background musics
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
-if(NOT DEFINED MSVC)
-	find_package(Boost REQUIRED COMPONENTS system filesystem date_time regex locale thread)
-endif()
 find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
@@ -170,7 +167,6 @@ set(COMMON_INCLUDE_DIRS
 
 if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_INCLUDE_DIRS
-      ${Boost_INCLUDE_DIRS}
       )
 endif()
 
@@ -219,7 +215,6 @@ endif()
 if(DEFINED BCMHOST)
     link_directories(
         # batocera / customisations
-        ${Boost_LIBRARY_DIRS}
         "${CMAKE_FIND_ROOT_PATH}/opt/vc/lib"
     )
 elseif(DEFINED VERO4K)
@@ -244,7 +239,6 @@ set(COMMON_LIBRARIES
 
 if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_LIBRARIES
-      ${Boost_LIBRARIES}
       )
 endif()
 
@@ -300,6 +294,20 @@ else()
     endif()
 endif()
 
+# batocera / i18n
+# i18n
+find_program (MSGFMT_EXECUTABLE msgfmt)
+find_program (MSGMERGE_EXECUTABLE msgmerge)
+find_program (XGETTEXT_EXECUTABLE xgettext)
+find_package(Intl)
+
+if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FOUND)
+  message (STATUS "Native language support enabled.")
+  add_definitions(-DHAVE_INTL)
+else()
+  message (STATUS "Native language support disabled.")
+endif()
+
 #-------------------------------------------------------------------------------
 # set up build directories
 set(dir ${CMAKE_CURRENT_SOURCE_DIR})
@@ -314,13 +322,7 @@ add_subdirectory("external")
 add_subdirectory("es-core")
 add_subdirectory("es-app")
 
-# batocera / i18n
-# i18n
-find_program (MSGFMT_EXECUTABLE msgfmt)
-find_program (MSGMERGE_EXECUTABLE msgmerge)
-find_program (XGETTEXT_EXECUTABLE xgettext)
-if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE)
-	message (STATUS "Native language support enabled.")
-	add_subdirectory (locale)
+if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FOUND)
+  add_subdirectory (locale)
 endif()
 

@@ -151,11 +151,11 @@ void GuiScraperMulti::finish()
 			);
 	} else {
 	  char strbuf[256];
-	  snprintf(strbuf, 256, ngettext("%i GAME SUCCESSFULLY SCRAPED!", "%i GAMES SUCCESSFULLY SCRAPED!", mTotalSuccessful).c_str(), mTotalSuccessful); // batocera
+	  snprintf(strbuf, 256, ngettext("%i GAME SUCCESSFULLY SCRAPED!", "%i GAMES SUCCESSFULLY SCRAPED!", mTotalSuccessful), mTotalSuccessful); // batocera
 	  ss << strbuf;
 
 	  if(mTotalSkipped > 0) {
-	    snprintf(strbuf, 256, ngettext("%i GAME SKIPPED.", "%i GAMES SKIPPED.", mTotalSkipped).c_str(), mTotalSkipped); // batocera
+	    snprintf(strbuf, 256, ngettext("%i GAME SKIPPED.", "%i GAMES SKIPPED.", mTotalSkipped), mTotalSkipped); // batocera
 	    ss << "\n" << strbuf;
 	  }
 	}
