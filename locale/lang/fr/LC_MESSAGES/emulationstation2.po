@@ -110,13 +110,13 @@ msgid "SHOW FOLDERS"
 msgstr "AFFICHER LES DOSSIERS"
 
 msgid "always"
-msgstr ""
+msgstr "toujours"
 
 msgid "never"
-msgstr ""
+msgstr "jamais"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "avec multiple jeux"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
@@ -140,7 +140,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN SCRAPE EST EN COURS"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTRER LES LISTES DE JEUX PAR"
 
 msgid "RESET ALL FILTERS"
 msgstr "RAZ DE TOUS LES FILTRES"
@@ -738,19 +738,19 @@ msgid "COLORIZATION"
 msgstr "COLORISATION"
 
 msgid "FULL BOOT"
-msgstr "FULL BOOT"
+msgstr "DÉMARRAGE COMPLET"
 
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES ÉMULÉES"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "MODIFIER LA DISPOSITION DE L'ÉCRAN"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "GRAND ÉCRAN"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "COTE À COTE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
@@ -1052,10 +1052,10 @@ msgid "Thumbnail"
 msgstr "Chemin vers la boite"
 
 msgid "Rating"
-msgstr "Note"
+msgstr "Notation"
 
 msgid "enter rating"
-msgstr "entrer les notes"
+msgstr "entrer la notation"
 
 msgid "Release date"
 msgstr "Date de sortie"
@@ -1154,7 +1154,7 @@ msgid "SCRAPING"
 msgstr "SCRAPE"
 
 msgid "Searching"
-msgstr "Recherche en cours"
+msgstr "Recherche"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "SCRAPE ÉCHOUÉ : L'APPLICATION A ÉTÉ BLACKLISTÉE"
@@ -1289,19 +1289,19 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "GENRE"
-msgstr ""
+msgstr "GENRE"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "JOUEURS"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "ÉDITEUR / DÉVELOPPEUR"
 
 msgid "RATING"
-msgstr ""
+msgstr "NOTATION"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "JEU ENFANT"
 
 msgid "HASHING GAMES"
 msgstr "HACHER LES JEUX"
@@ -1334,7 +1334,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "ANALYSE BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr "Recherche de manettes"
+msgstr "Recherche de manettes..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS"
