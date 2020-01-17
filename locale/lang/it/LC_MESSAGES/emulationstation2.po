@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 19:18+0100\n"
+"POT-Creation-Date: 2020-01-17 19:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,6 +112,15 @@ msgstr "MOSTRA FILE NASCOSTI"
 msgid "SHOW FOLDERS"
 msgstr "MOSTRA LE CARTELLE"
 
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr "mai"
+
+msgid "having multiple games"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
 
@@ -132,6 +141,9 @@ msgstr "Caricamento..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "QUESTA FUNZIONE E' DISABILITATA QUANDO LO SCRAPE E' IN ESECUZIONE"
+
+msgid "FILTER GAMELIST BY"
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr "CANCELLA TUTTI I FILTRI"
@@ -733,6 +745,15 @@ msgstr "CARICAMENTO TOTALE"
 msgid "EMULATED WIIMOTES"
 msgstr "EMULA WIIMOTES"
 
+msgid "CHANGE SCREEN LAYOUT"
+msgstr ""
+
+msgid "LARGE SCREEN"
+msgstr ""
+
+msgid "SIDE BY SIDE"
+msgstr ""
+
 msgid "INTERNAL RESOLUTION"
 msgstr "RISOLUZIONE INTERNA"
 
@@ -1183,8 +1204,8 @@ msgstr "Nessun Elemento Trovato"
 msgid "OPTIONS"
 msgstr "OPZIONI"
 
-msgid "FAVORITES"
-msgstr "PREFERITI"
+msgid "Favorites"
+msgstr "Preferiti"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "AVVIA IL GIOCO COME HOST SU NETPLAY ?"
@@ -1270,11 +1291,26 @@ msgstr "TEMA INSTALLATO CON SUCCESSO"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS INSTALLATE CON SUCCESSO"
 
-msgid "HASHING GAMES"
+msgid "FAVORITES"
+msgstr "PREFERITI"
+
+msgid "GENRE"
+msgstr "GENERE"
+
+msgid "PLAYERS"
 msgstr ""
 
-msgid "Favorites"
-msgstr "Preferiti"
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "VOTO"
+
+msgid "KIDGAME"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
 
 msgid "SEARCHING"
 msgstr "RICERCA"
@@ -1658,9 +1694,6 @@ msgstr "su/giù"
 #~ msgid "FILENAME"
 #~ msgstr "NOME FILE"
 
-#~ msgid "RATING"
-#~ msgstr "VOTO"
-
 #~ msgid "TIMES PLAYED"
 #~ msgstr "NUMERO PARTITE"
 
@@ -1669,9 +1702,6 @@ msgstr "su/giù"
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "NUMERO DI GIOCATORI"
-
-#~ msgid "GENRE"
-#~ msgstr "GENERE"
 
 #~ msgid "SEARCH FOR"
 #~ msgstr "CERCA PER"
@@ -1699,9 +1729,6 @@ msgstr "su/giù"
 
 #~ msgid "PLEASE WAIT..."
 #~ msgstr "ATTENDERE PREGO…"
-
-#~ msgid "never"
-#~ msgstr "mai"
 
 #~ msgid "just now"
 #~ msgstr "adesso"

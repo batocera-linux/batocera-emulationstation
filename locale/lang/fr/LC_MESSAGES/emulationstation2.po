@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 18:56+0100\n"
+"POT-Creation-Date: 2020-01-17 19:34+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,15 @@ msgstr "AFFICHER LES JEUX CACHÉS"
 msgid "SHOW FOLDERS"
 msgstr "AFFICHER LES DOSSIERS"
 
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr ""
+
+msgid "having multiple games"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
 
@@ -129,6 +138,9 @@ msgstr "Chargement..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN SCRAPE EST EN COURS"
+
+msgid "FILTER GAMELIST BY"
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr "RAZ DE TOUS LES FILTRES"
@@ -731,6 +743,15 @@ msgstr "FULL BOOT"
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES ÉMULÉES"
 
+msgid "CHANGE SCREEN LAYOUT"
+msgstr ""
+
+msgid "LARGE SCREEN"
+msgstr ""
+
+msgid "SIDE BY SIDE"
+msgstr ""
+
 msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
 
@@ -1177,8 +1198,8 @@ msgstr "Aucune Entrée Trouvée"
 msgid "OPTIONS"
 msgstr "OPTIONS"
 
-msgid "FAVORITES"
-msgstr "FAVORIS"
+msgid "Favorites"
+msgstr "Favoris"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "DÉMARRER LA PARTIE EN TANT QUE SERVEUR ?"
@@ -1264,11 +1285,26 @@ msgstr "THÈME INSTALLÉ AVEC SUCCES"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCES"
 
+msgid "FAVORITES"
+msgstr "FAVORIS"
+
+msgid "GENRE"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "HACHER LES JEUX"
-
-msgid "Favorites"
-msgstr "Favoris"
 
 msgid "SEARCHING"
 msgstr "RECHERCHE"

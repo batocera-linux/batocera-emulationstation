@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 19:18+0100\n"
+"POT-Creation-Date: 2020-01-17 19:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -112,6 +112,15 @@ msgstr "ОТОБРАЖАТЬ СКРЫТЫЕ ФАЙЛЫ"
 msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
 
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr ""
+
+msgid "having multiple games"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
 
@@ -132,6 +141,9 @@ msgstr "Загрузка..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТСКЛЮЧЕНА"
+
+msgid "FILTER GAMELIST BY"
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
@@ -733,6 +745,15 @@ msgstr "ПОЛНАЯ ЗАГРУЗКА"
 msgid "EMULATED WIIMOTES"
 msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
 
+msgid "CHANGE SCREEN LAYOUT"
+msgstr ""
+
+msgid "LARGE SCREEN"
+msgstr ""
+
+msgid "SIDE BY SIDE"
+msgstr ""
+
 msgid "INTERNAL RESOLUTION"
 msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
 
@@ -1183,8 +1204,8 @@ msgstr "Записей не найдено"
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
-msgid "FAVORITES"
-msgstr ""
+msgid "Favorites"
+msgstr "Избранное"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "ЗАПУСТИТЬ ИГРУ В РЕЖИМЕ ХОСТА NETPLAY?"
@@ -1270,11 +1291,26 @@ msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
 
+msgid "FAVORITES"
+msgstr ""
+
+msgid "GENRE"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "ХЕШИРОВАНИЕ ИГР"
-
-msgid "Favorites"
-msgstr "Избранное"
 
 msgid "SEARCHING"
 msgstr "ПОИСК"

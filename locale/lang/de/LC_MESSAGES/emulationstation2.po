@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 18:56+0100\n"
+"POT-Creation-Date: 2020-01-17 19:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,6 +112,15 @@ msgstr "ZEIGE VERSTECKTE DATEIEN"
 msgid "SHOW FOLDERS"
 msgstr "ZEIGE ORDNER"
 
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr ""
+
+msgid "having multiple games"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
 
@@ -132,6 +141,9 @@ msgstr "Lade..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DIESE FUNKTION IST DEAKTIVIERT, WENN SCRAPING LÄUFT"
+
+msgid "FILTER GAMELIST BY"
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr "ALLE FILTER ZURÜCKSETZEN"
@@ -737,6 +749,15 @@ msgstr "VOLLER START"
 msgid "EMULATED WIIMOTES"
 msgstr "EMULIERTE WIIMOTES"
 
+msgid "CHANGE SCREEN LAYOUT"
+msgstr ""
+
+msgid "LARGE SCREEN"
+msgstr ""
+
+msgid "SIDE BY SIDE"
+msgstr ""
+
 msgid "INTERNAL RESOLUTION"
 msgstr "INTERNE AUFLÖSUNG"
 
@@ -1186,8 +1207,8 @@ msgstr "Keine Einträge gefunden"
 msgid "OPTIONS"
 msgstr "OPTIONEN"
 
-msgid "FAVORITES"
-msgstr ""
+msgid "Favorites"
+msgstr "Favoriten"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "DAS SPIEL ALS NETPLAY-HOST STARTEN?"
@@ -1273,11 +1294,26 @@ msgstr "THEME ERFOLGREICH INSTALLIERT"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS ERFOLGREICH INSTALLIERT"
 
+msgid "FAVORITES"
+msgstr ""
+
+msgid "GENRE"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "ERZEUGE HASHCODE DER SPIELE"
-
-msgid "Favorites"
-msgstr "Favoriten"
 
 msgid "SEARCHING"
 msgstr "SUCHE"

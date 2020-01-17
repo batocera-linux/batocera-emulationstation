@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 19:18+0100\n"
+"POT-Creation-Date: 2020-01-17 19:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,6 +112,15 @@ msgstr "MOSTRAR FICHEIROS OCULTOS"
 msgid "SHOW FOLDERS"
 msgstr "MOSTRAR PASTAS"
 
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr "nunca"
+
+msgid "having multiple games"
+msgstr ""
+
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
 
@@ -132,6 +141,9 @@ msgstr "A Carregar..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ESTA FUNÇÃO É DESATIVADA QUANDO A PROCURA ESTÁ EM CURSO"
+
+msgid "FILTER GAMELIST BY"
+msgstr ""
 
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
@@ -731,6 +743,15 @@ msgstr "FULL BOOT"
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES EMULADOS"
 
+msgid "CHANGE SCREEN LAYOUT"
+msgstr ""
+
+msgid "LARGE SCREEN"
+msgstr ""
+
+msgid "SIDE BY SIDE"
+msgstr ""
+
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
@@ -1181,8 +1202,8 @@ msgstr "Nenhuma Entrada Encontrada"
 msgid "OPTIONS"
 msgstr "OPÇÕES"
 
-msgid "FAVORITES"
-msgstr "FAVORITOS"
+msgid "Favorites"
+msgstr "Favoritos"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "INICIAR JOGO COMO HOST DE REDE ?"
@@ -1268,11 +1289,26 @@ msgstr "TEMA INSTALADO COM SUCESSO"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "MOLDURAS INSTALADAS COM SUCESSO"
 
+msgid "FAVORITES"
+msgstr "FAVORITOS"
+
+msgid "GENRE"
+msgstr "GÉNERO"
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "Classificação"
+
+msgid "KIDGAME"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
-
-msgid "Favorites"
-msgstr "Favoritos"
 
 msgid "SEARCHING"
 msgstr "A PROCURAR"
@@ -1688,9 +1724,6 @@ msgstr "cima/baixo"
 #~ msgid "FILENAME"
 #~ msgstr "Nome do Arquivo"
 
-#~ msgid "RATING"
-#~ msgstr "Classificação"
-
 #~ msgid "TIMES PLAYED"
 #~ msgstr "Horas Jogadas"
 
@@ -1699,9 +1732,6 @@ msgstr "cima/baixo"
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "Número de Jogadores"
-
-#~ msgid "GENRE"
-#~ msgstr "GÉNERO"
 
 #~ msgid "SEARCH FOR"
 #~ msgstr "PROCURAR POR"
@@ -1729,9 +1759,6 @@ msgstr "cima/baixo"
 
 #~ msgid "PLEASE WAIT..."
 #~ msgstr "POR FAVOR, AGUARDE..."
-
-#~ msgid "never"
-#~ msgstr "nunca"
 
 #~ msgid "just now"
 #~ msgstr "agora"
