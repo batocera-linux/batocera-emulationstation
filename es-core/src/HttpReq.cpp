@@ -419,23 +419,29 @@ int HttpReq::saveContent(const std::string filename, bool checkMedia)
 			return 2;
 	}
 	
-	std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
-	if (ifs.bad())
+	FILE* infile = fopen(mStreamPath.c_str(), "rb");
+	if (infile == nullptr)
 		return 1;
 
-	if (Utils::FileSystem::exists(filename))
-		Utils::FileSystem::removeFile(filename);
-
-	std::ofstream ofs(filename, std::ios_base::out | std::ios_base::binary);
-	if (ofs.bad())
+	FILE* outfile = fopen(filename.c_str(), "wb");
+	if (outfile == nullptr)
 		return 1;
 
-	ofs << ifs.rdbuf();
+	const int size = 4096;
+	char buffer[size];
 
-	ifs.close();
-	ofs.close();
-	if (ofs.bad())
-		return 1;
-		
+	while (!feof(infile))
+	{
+		int n = fread(buffer, 1, size, infile);
+		if (n == 0)
+			break;
+
+		fwrite(buffer, 1, n, outfile);
+	}
+
+	fclose(infile);
+	fflush(outfile);
+	fclose(outfile);
+
 	return 0;
 }

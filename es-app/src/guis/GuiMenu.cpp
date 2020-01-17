@@ -152,7 +152,10 @@ void GuiMenu::openScraperSettings()
 		//imageSource->add(_("NONE"), "", imageSourceName.empty());
 		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
 		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
-		imageSource->add(_("MIX"), "mixrbv1", imageSourceName == "mixrbv1");
+		imageSource->add(_("MIX V1"), "mixrbv1", imageSourceName == "mixrbv1");
+		imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
+		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
+		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
 
 		if (!imageSource->hasSelection())
 			imageSource->selectFirstItem();
@@ -172,6 +175,19 @@ void GuiMenu::openScraperSettings()
 
 		s->addWithLabel(_("BOX SOURCE"), thumbSource);
 		s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
+
+		imageSource->setSelectedChangedCallback([this, thumbSource](std::string value)
+		{
+			if (value == "box-2D")
+				thumbSource->remove(_("BOX 2D"));
+			else
+				thumbSource->add(_("BOX 2D"), "box-2D", false);
+
+			if (value == "box-3D")
+				thumbSource->remove(_("BOX 3D"));
+			else
+				thumbSource->add(_("BOX 3D"), "box-3D", false);
+		});
 
 		// Logo source : <marquee> tag
 		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
