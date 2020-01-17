@@ -206,10 +206,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AVEC TITRE"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "MÉLANGE D'IMAGES V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MÉLANGE D'IMAGES V2"
 
 msgid "BOX 2D"
 msgstr "BOITE 2D"
