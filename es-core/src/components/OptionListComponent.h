@@ -314,6 +314,10 @@ public:
 
 	void add(const std::string name, const T& obj, bool selected)
 	{
+		for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
+			if (sysIt->name == name)
+				return;
+
 		OptionListData e;
 		e.name = name;
 		e.object = obj;
@@ -324,6 +328,24 @@ public:
 
 		mEntries.push_back(e);
 		onSelectedChanged();
+	}
+
+	void remove(const std::string& name)
+	{
+		for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
+		{
+			if (sysIt->name == name)
+			{
+				bool isSelect = sysIt->selected;
+
+				mEntries.erase(sysIt);
+
+				if (isSelect)
+					selectFirstItem();
+
+				break;
+			}
+		}
 	}
 
         // batocera
