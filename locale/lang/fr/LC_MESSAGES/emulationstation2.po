@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 19:34+0100\n"
+"POT-Creation-Date: 2020-01-17 22:15+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -205,20 +205,23 @@ msgstr "CAPTURE D'ÉCRAN"
 msgid "TITLE SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AVEC TITRE"
 
-msgid "MIX"
-msgstr "MÉLANGE D'IMAGES"
+msgid "MIX V1"
+msgstr ""
 
-msgid "BOX SOURCE"
-msgstr "BOITE SOURCE"
-
-msgid "NONE"
-msgstr "AUCUN"
+msgid "MIX V2"
+msgstr ""
 
 msgid "BOX 2D"
 msgstr "BOITE 2D"
 
 msgid "BOX 3D"
 msgstr "BOITE 3D"
+
+msgid "BOX SOURCE"
+msgstr "BOITE SOURCE"
+
+msgid "NONE"
+msgstr "AUCUN"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO SOURCE"
@@ -1543,6 +1546,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "MIX"
+#~ msgstr "MÉLANGE D'IMAGES"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "MANETTE ASSOCIÉE"

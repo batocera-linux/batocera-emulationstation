@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 19:34+0100\n"
+"POT-Creation-Date: 2020-01-17 22:15+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -205,20 +205,23 @@ msgstr "CAPTURA DE PANTALLA"
 msgid "TITLE SCREENSHOT"
 msgstr "TITULO CAPTURA DE PANTALLA"
 
-msgid "MIX"
-msgstr "MEZCLA"
+msgid "MIX V1"
+msgstr ""
 
-msgid "BOX SOURCE"
-msgstr "ORIGEN DE CAJA"
-
-msgid "NONE"
-msgstr "NINGUNO"
+msgid "MIX V2"
+msgstr ""
 
 msgid "BOX 2D"
 msgstr "CAJA 2D"
 
 msgid "BOX 3D"
 msgstr "CAJA 3D"
+
+msgid "BOX SOURCE"
+msgstr "ORIGEN DE CAJA"
+
+msgid "NONE"
+msgstr "NINGUNO"
 
 msgid "LOGO SOURCE"
 msgstr "ORIGEN DE LOGO"
@@ -1550,6 +1553,9 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "MIX"
+#~ msgstr "MEZCLA"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "MANDO EMPAREJADO"

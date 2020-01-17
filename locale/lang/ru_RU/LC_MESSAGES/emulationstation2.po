@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 19:34+0100\n"
+"POT-Creation-Date: 2020-01-17 22:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -208,20 +208,23 @@ msgstr "СКРИНШОТ"
 msgid "TITLE SCREENSHOT"
 msgstr "СКРИНШОТ ГЛ. МЕНЮ"
 
-msgid "MIX"
-msgstr "МИКС"
+msgid "MIX V1"
+msgstr ""
 
-msgid "BOX SOURCE"
-msgstr "СТИЛЬ ОБЛОЖКИ"
-
-msgid "NONE"
-msgstr "НЕТ"
+msgid "MIX V2"
+msgstr ""
 
 msgid "BOX 2D"
 msgstr "ОБЛОЖКИ 2D"
 
 msgid "BOX 3D"
 msgstr "ОБЛОЖКИ 3D"
+
+msgid "BOX SOURCE"
+msgstr "СТИЛЬ ОБЛОЖКИ"
+
+msgid "NONE"
+msgstr "НЕТ"
 
 msgid "LOGO SOURCE"
 msgstr "СТИЛЬ ЛОГО"
@@ -1555,6 +1558,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "MIX"
+#~ msgstr "МИКС"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "КОНТРОЛЛЕР СОПРЯЖЕН"
