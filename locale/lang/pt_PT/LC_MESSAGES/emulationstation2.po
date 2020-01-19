@@ -113,13 +113,13 @@ msgid "SHOW FOLDERS"
 msgstr "MOSTRAR PASTAS"
 
 msgid "always"
-msgstr ""
+msgstr "sempre"
 
 msgid "never"
 msgstr "nunca"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "tendo vários jogos"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
@@ -143,7 +143,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ESTA FUNÇÃO É DESATIVADA QUANDO A PROCURA ESTÁ EM CURSO"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTRAR LISTA DE JOGOS POR"
 
 msgid "RESET ALL FILTERS"
 msgstr "REINICIAR TODOS OS FILTROS"
@@ -209,10 +209,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "TÍTULO DO SCREENSHOT"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "MIX V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MIX V2"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -747,13 +747,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES EMULADOS"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "ALTERAR LAYOUT DO ECRÃ"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "ECRÃ GRANDE"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "LADO A LADO"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
@@ -1299,16 +1299,16 @@ msgid "GENRE"
 msgstr "GÉNERO"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "JOGADORES"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "EDITORA / DESENVOLVEDOR"
 
 msgid "RATING"
 msgstr "Classificação"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "JOGO INFANTIL"
 
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
