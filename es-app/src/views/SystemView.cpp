@@ -16,6 +16,7 @@
 #include "components/VideoComponent.h"
 #include "components/VideoVlcComponent.h"
 #include "guis/GuiNetPlay.h"
+#include <random>
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -82,7 +83,7 @@ public:
 		VIDEO
 	};
 
-	SystemRandomPlaylist(SystemData* system, PlaylistType type)
+	SystemRandomPlaylist(SystemData* system, PlaylistType type) : mMt19937(mRandomDevice())
 	{
 		mFirstRun = true;
 		mSystem = system;
@@ -121,25 +122,46 @@ public:
 				}
 			}
 
+			if (mPaths.size() > 0)
+				mUniformDistribution = std::uniform_int_distribution<int>(0, mPaths.size() - 1);
+
 			mFirstRun = false;
 		}
 
-		int idx = (int) ((float) rand() * mPaths.size()) / float(RAND_MAX);
-				
-		if (idx >= 0 && idx < mPaths.size())
-			return mPaths[idx];
+		if (mPaths.size() > 0)
+		{
+			int idx = mUniformDistribution(mMt19937);
+			if (idx >= 0 && idx < mPaths.size() && Utils::FileSystem::exists(mPaths[idx]))						
+				return mPaths[idx];
+
+			// File not found ? Try the next file...
+			int stopidx = idx;
+
+			idx++;
+			if (idx >= mPaths.size())
+				idx = 0;
+
+			while (idx != stopidx && idx < mPaths.size() && !Utils::FileSystem::exists(mPaths[idx]))
+			{
+				idx++;
+				if (idx >= mPaths.size())
+					idx = 0;
+			}
+		}
 
 		return "";
 	}
-
-
-
+	
 private:
 	SystemData*		mSystem;
 	bool			mFirstRun;
 	PlaylistType	mType;
 
 	std::vector<std::string> mPaths;
+
+	std::random_device	mRandomDevice;
+	std::mt19937		mMt19937;
+	std::uniform_int_distribution<int> mUniformDistribution;
 };
 
 void SystemView::populate()
