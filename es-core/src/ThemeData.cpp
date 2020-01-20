@@ -1091,9 +1091,26 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		case PATH:
 		{
 			std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
-			
-			if (Utils::String::startsWith(path, "{random"))
+
+            if (Utils::String::startsWith(path, "{random|"))
+            {
+                std::string stringToErase = "{random|";
+                std::string fallbackPath = path;
+
+                fallbackPath.erase(0, stringToErase.length());
+                fallbackPath.erase(fallbackPath.length()-1, 1);
+
+                std::string rootPath = Utils::FileSystem::resolveRelativePath(fallbackPath, Utils::FileSystem::getParent(mPaths.back()), true);
+                if (Utils::FileSystem::exists(rootPath))
+                    path = rootPath;
+                else
+                    path = "{random}";
+            }
+
+
+            if (Utils::String::startsWith(path, "{random"))
 			{
+
 				pugi::xml_node parent = root.parent();
 
 				if (!element.extra)

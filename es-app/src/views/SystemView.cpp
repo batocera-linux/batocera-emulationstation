@@ -267,8 +267,19 @@ void SystemView::populate()
 				if (extra->isKindOf<VideoComponent>())
 				{
 					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "video");
-					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
-						((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
+                    if (elem != nullptr && elem->has("path"))
+                    {
+                        std::string src = elem->get<std::string>("path");
+
+                        if (Utils::String::startsWith(src, "{random"))
+                        {
+                                ((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
+                        }
+					    else
+                        {
+                                ((VideoComponent*)extra)->setVideo(src);
+                        }
+                    }
 				}
 				else if (extra->isKindOf<ImageComponent>())
 				{
