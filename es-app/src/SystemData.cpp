@@ -22,7 +22,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem, bool groupedSystem) : // batocera
+SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mIsGroupSystem = groupedSystem;
@@ -32,7 +32,9 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 	mGridSizeOverride = Vector2f(0, 0);
 
 	mFilterIndex = nullptr;
-	mEmulators = emulators; // batocera
+
+	if (pEmulators != nullptr)
+		mEmulators = *pEmulators; // batocera
 
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if(!CollectionSystem && !mIsGroupSystem)
@@ -493,19 +495,35 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	
 	// batocera
 // emulators and cores
-	std::map<std::string, std::vector<std::string>*> * systemEmulators = new std::map<std::string, std::vector<std::string>*>();
+
+	std::map<std::string, EmulatorData> systemEmulators;
+	
 	pugi::xml_node emulatorsNode = system.child("emulators");
-	for (pugi::xml_node emuNode = emulatorsNode.child("emulator"); emuNode; emuNode = emuNode.next_sibling("emulator")) {
-		std::string emulatorName = emuNode.attribute("name").as_string();
-		(*systemEmulators)[emulatorName] = new std::vector<std::string>();
-		pugi::xml_node coresNode = emuNode.child("cores");
-		for (pugi::xml_node coreNode = coresNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core")) {
-			std::string corename = coreNode.text().as_string();
-			(*systemEmulators)[emulatorName]->push_back(corename);
+	if (emulatorsNode != nullptr)
+	{
+		for (pugi::xml_node emuNode = emulatorsNode.child("emulator"); emuNode; emuNode = emuNode.next_sibling("emulator"))
+		{
+			EmulatorData emulatorData;
+			emulatorData.name = emuNode.attribute("name").value();
+
+			pugi::xml_node coresNode = emuNode.child("cores");
+			if (coresNode != nullptr)
+			{
+				for (pugi::xml_node coreNode = coresNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core"))
+				{
+					CoreData core;
+					core.name = coreNode.text().as_string();
+					core.netplay = coreNode.attribute("netplay") && coreNode.attribute("netplay").value() == "true";
+
+					emulatorData.cores.push_back(core);
+				}
+			}
+
+			systemEmulators[emulatorData.name] = emulatorData;			
 		}
 	}
 
-	SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, systemEmulators); // batocera
+	SystemData* newSys = new SystemData(name, fullname, envData, themeFolder, &systemEmulators); // batocera
 	if (newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << name << "\" has no games! Ignoring it.";
@@ -781,11 +799,6 @@ void SystemData::loadTheme()
 	}
 }
 
-// batocera
-std::map<std::string, std::vector<std::string>*>* SystemData::getEmulators() {
-	return mEmulators;
-}
-
 void SystemData::setSortId(const unsigned int sortId)
 {
 	mSortId = sortId;
@@ -820,7 +833,12 @@ Vector2f SystemData::getGridSizeOverride()
 bool SystemData::isNetplaySupported()
 {
 	if (isGroupSystem())
-		return false;
+		return false;	
+
+	for (auto emul : mEmulators)
+		for (auto core : emul.second.cores)
+			if (core.netplay)
+				return true;
 
 	return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
 }
