@@ -16,6 +16,12 @@ struct ComponentListElement
 
 struct ComponentListRow
 {
+	ComponentListRow() 
+	{
+		selectable = true;
+	};
+
+	bool selectable;
 	std::vector<ComponentListElement> elements;
 
 	// The input handler is called when the user enters any input while this row is highlighted (including up/down).
@@ -74,6 +80,19 @@ public:
 
 protected:
 	void onCursorChanged(const CursorState& state) override;
+
+	virtual int onBeforeScroll(int cursor, int direction) override
+	{ 
+		int looped = cursor;
+		while (cursor >= 0 && cursor < mEntries.size() && !mEntries[cursor].data.selectable)
+		{
+			cursor += direction;
+			if (cursor == looped || cursor < 0 || cursor >= mEntries.size())
+				return mCursor;
+		}
+		
+		return cursor; 
+	}
 
 private:
 	bool mFocused;

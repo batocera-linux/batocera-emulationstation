@@ -113,14 +113,14 @@ public:
 	}
 
 	// batocera
-	void setCursorIndex(int index)
+	void setCursorIndex(int index, bool force = false)
 	{
-		if (mCursor == index)
+		if (mCursor == index && !force)
 			return;
 
 		if(index >= 0 && index < (int)mEntries.size()) 
 		{
-			mCursor = index;
+			mCursor = onBeforeScroll(index, 1);			
 			onCursorChanged(CURSOR_STOPPED);
 		}
 	}
@@ -353,6 +353,9 @@ protected:
 				cursor -= size();
 		}
 
+		if (amt != 0)
+			cursor = onBeforeScroll(cursor, amt > 0 ? 1 : -1);
+
 		if(cursor != mCursor)
 			onScroll(absAmt);
 
@@ -360,8 +363,11 @@ protected:
 		onCursorChanged((mScrollTier > 0) ? CURSOR_SCROLLING : CURSOR_STOPPED);
 	}
 
+
 	virtual void onCursorChanged(const CursorState& /*state*/) {}
 	virtual void onScroll(int /*amt*/) {}
+
+	virtual int onBeforeScroll(int cursor, int direction) { return cursor; }
 };
 
 #endif // ES_CORE_COMPONENTS_ILIST_H
