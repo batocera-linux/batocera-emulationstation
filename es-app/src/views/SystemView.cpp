@@ -142,11 +142,14 @@ public:
 				idx = 0;
 
 			while (idx != stopidx && idx < mPaths.size() && !Utils::FileSystem::exists(mPaths[idx]))
-			{
+			{			
 				idx++;
 				if (idx >= mPaths.size())
 					idx = 0;
 			}
+
+			if (idx >= 0 && idx < mPaths.size() && Utils::FileSystem::exists(mPaths[idx]))
+				return mPaths[idx];
 		}
 
 		return "";
