@@ -2,6 +2,8 @@
 
 #include "animations/LambdaAnimation.h"
 #include "views/ViewController.h"
+#include "FileData.h"
+#include "SystemData.h"
 #include "LocaleES.h"
 
 #ifdef _RPI_
@@ -338,6 +340,9 @@ void DetailedGameListView::initMDValues()
 
 void DetailedGameListView::updateInfoPanel()
 {
+	if (mRoot->getSystem()->isCollection())
+		updateHelpPrompts();
+
 	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
 
 	bool fadingOut;

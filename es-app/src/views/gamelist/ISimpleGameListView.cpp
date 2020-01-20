@@ -170,10 +170,10 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 		}else if (config->isMappedTo("x", input))
 		{
-			if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
+			if (SystemConf::getInstance()->get("global.netplay") == "1") //  && mRoot->getSystem()->isNetplaySupported()
 			{
 				FileData* cursor = getCursor();
-				if (cursor->getType() == GAME)
+				if(cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())
 				{
 					Window* window = mWindow;
 
@@ -185,13 +185,11 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 					}, _("NO"), nullptr));
 
-
-					
-				}
-
-				return true;
+					return true;
+				}				
 			}
-			else if (mRoot->getSystem()->isGameSystem())
+			
+			if (mRoot->getSystem()->isGameSystem())
 			{		
 				// go to random system game
 				FileData* randomGame = getCursor()->getSystem()->getRandomGame();

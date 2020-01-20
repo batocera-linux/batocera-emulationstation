@@ -6,6 +6,8 @@
 #endif
 #include "components/VideoVlcComponent.h"
 #include "utils/FileSystemUtil.h"
+#include "FileData.h"
+#include "SystemData.h"
 #include "views/ViewController.h"
 #ifdef _RPI_
 #include "Settings.h"
@@ -276,6 +278,9 @@ void VideoGameListView::initMDValues()
 
 void VideoGameListView::updateInfoPanel()
 {
+	if (mRoot->getSystem()->isCollection())
+		updateHelpPrompts();
+
 	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
 
 	Utils::FileSystem::removeFile(getTitlePath());

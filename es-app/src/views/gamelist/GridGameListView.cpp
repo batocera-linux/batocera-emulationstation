@@ -533,6 +533,9 @@ void GridGameListView::initMDValues()
 
 void GridGameListView::updateInfoPanel()
 {
+	if (mRoot->getSystem()->isCollection())
+		updateHelpPrompts();
+
 	FileData* file = (mGrid.size() == 0 || mGrid.isScrolling()) ? NULL : mGrid.getSelected();
 
 	bool fadingOut;
@@ -739,8 +742,19 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 	if(!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
-	if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
-		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+	if (SystemConf::getInstance()->get("global.netplay") == "1")
+	{
+		if (mRoot->getSystem()->isNetplaySupported())
+			prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+		else
+		{
+			FileData* cursor = getCursor();
+			if (cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())
+				prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+			else if (mRoot->getSystem()->isGameSystem())
+				prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+		}
+	}
 	else if(mRoot->getSystem()->isGameSystem())
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 
