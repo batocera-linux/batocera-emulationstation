@@ -121,6 +121,8 @@ public:
 		if(index >= 0 && index < (int)mEntries.size()) 
 		{
 			mCursor = onBeforeScroll(index, 1);			
+
+			listInput(0);
 			onCursorChanged(CURSOR_STOPPED);
 		}
 	}
