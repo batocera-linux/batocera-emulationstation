@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 22:15+0100\n"
+"POT-Creation-Date: 2020-01-21 23:03+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,12 @@ msgstr "RETOUR"
 
 msgid "LAUNCH"
 msgstr "LANCER"
+
+msgid "AVAILABLE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "NO GAME FOUND"
 msgstr "PAS DE JEU TROUVÉ"

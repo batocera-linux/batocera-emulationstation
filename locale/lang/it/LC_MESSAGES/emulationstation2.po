@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 22:15+0100\n"
+"POT-Creation-Date: 2020-01-21 23:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -75,6 +75,12 @@ msgstr "INDIETRO"
 
 msgid "LAUNCH"
 msgstr "AVVIA"
+
+msgid "AVAILABLE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "NO GAME FOUND"
 msgstr "NESSUN GIOCO TROVATO"
