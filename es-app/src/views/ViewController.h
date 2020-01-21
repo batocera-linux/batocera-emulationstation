@@ -90,7 +90,9 @@ public:
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 
-	virtual void onShow() override;	
+	virtual void onShow() override;
+	virtual void onScreenSaverActivate();
+	virtual void onScreenSaverDeactivate();
 
 private:
 	ViewController(Window* window);

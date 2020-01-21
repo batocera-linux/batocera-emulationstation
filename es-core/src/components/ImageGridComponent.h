@@ -83,6 +83,8 @@ public:
 	virtual void topWindow(bool isTop);
 	virtual void onShow();
 	virtual void onHide();
+	virtual void onScreenSaverActivate();
+	virtual void onScreenSaverDeactivate();
 
 	ImageSource		getImageSource() { return mImageSource; };
 
@@ -289,6 +291,31 @@ void ImageGridComponent<T>::onShow()
 		tile->onShow();
 	}
 }
+
+template<typename T>
+void ImageGridComponent<T>::onScreenSaverActivate()
+{
+	GuiComponent::onScreenSaverActivate();
+
+	for (int ti = 0; ti < (int)mTiles.size(); ti++)
+	{
+		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
+		tile->onScreenSaverActivate();
+	}
+}
+
+template<typename T>
+void ImageGridComponent<T>::onScreenSaverDeactivate()
+{
+	GuiComponent::onScreenSaverDeactivate();
+
+	for (int ti = 0; ti < (int)mTiles.size(); ti++)
+	{
+		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
+		tile->onScreenSaverDeactivate();
+	}
+}
+
 
 template<typename T>
 void ImageGridComponent<T>::setGridSizeOverride(Vector2f size)

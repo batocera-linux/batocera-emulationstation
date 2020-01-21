@@ -222,6 +222,8 @@ public:
 	virtual void onShow();
 	virtual void onHide();
 	virtual void update(int deltaTime);
+	virtual void onScreenSaverActivate();
+	virtual void onScreenSaverDeactivate();
 
 	std::shared_ptr<TextureResource> getTexture(bool marquee = false);
 
