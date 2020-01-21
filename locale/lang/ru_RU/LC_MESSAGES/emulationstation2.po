@@ -113,13 +113,13 @@ msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
 
 msgid "always"
-msgstr ""
+msgstr "всегда"
 
 msgid "never"
-msgstr ""
+msgstr "никогда"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "несколько игр"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
@@ -143,7 +143,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТСКЛЮЧЕНА"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "ФИЛЬТР СПИСКА ИГР ПО"
 
 msgid "RESET ALL FILTERS"
 msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
@@ -209,10 +209,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "СКРИНШОТ ГЛ. МЕНЮ"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "МИКС V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MIX V2"
 
 msgid "BOX 2D"
 msgstr "ОБЛОЖКИ 2D"
@@ -749,13 +749,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "ИЗМЕНИТЬ РАСПОЛОЖЕНИЕ ЭКРАНА"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "БОЛЬШОЙ ЭКРАН"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "БОК О БОК"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
@@ -1132,10 +1132,10 @@ msgid "Md5 checksum"
 msgstr "Контрольная сумма MD5"
 
 msgid "Game time"
-msgstr ""
+msgstr "Время игры"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "как долго играли в игру (в секундах)"
 
 msgid "name"
 msgstr "название"
@@ -1295,22 +1295,22 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "ИЗБРАННОЕ"
 
 msgid "GENRE"
-msgstr ""
+msgstr "ЖАНР"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "ИГРОКОВ"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "ИЗДАТЕЛЬ / РАЗРАБОТЧИК"
 
 msgid "RATING"
-msgstr ""
+msgstr "РЕЙТИНГ"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "ДЕТСКАЯ ИГРА"
 
 msgid "HASHING GAMES"
 msgstr "ХЕШИРОВАНИЕ ИГР"
