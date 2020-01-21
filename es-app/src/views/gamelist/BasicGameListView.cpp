@@ -7,6 +7,7 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include "SystemConf.h"
+#include "FileData.h"
 #include "LocaleES.h"
 
 BasicGameListView::BasicGameListView(Window* window, FolderData* root)
@@ -15,6 +16,13 @@ BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	mList.setSize(mSize.x(), mSize.y() * 0.8f);
 	mList.setPosition(0, mSize.y() * 0.2f);
 	mList.setDefaultZIndex(20);
+
+	mList.setCursorChangedCallback([&](const CursorState& /*state*/) 
+		{ 
+			if (mRoot->getSystem()->isCollection())
+				updateHelpPrompts();
+		});
+
 	addChild(&mList);
 
 	populateList(root->getChildrenListToDisplay());
@@ -105,6 +113,9 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 FileData* BasicGameListView::getCursor()
 {
+	if (mList.size() == 0)
+		return nullptr;
+
 	return mList.getSelected();
 }
 
@@ -208,8 +219,19 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
-	if (SystemConf::getInstance()->get("global.netplay") == "1" && mRoot->getSystem()->isNetplaySupported())
-		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+	if (SystemConf::getInstance()->get("global.netplay") == "1")
+	{
+		if (mRoot->getSystem()->isNetplaySupported())
+			prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+		else
+		{
+			FileData* cursor = getCursor();
+			if (cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())
+				prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+			else if (mRoot->getSystem()->isGameSystem())
+				prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+		}
+	}
 	else if(mRoot->getSystem()->isGameSystem())
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 

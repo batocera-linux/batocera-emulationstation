@@ -195,7 +195,7 @@ class NetPlayLobbyListEntry : public ComponentGrid
 {
 public:
 	NetPlayLobbyListEntry(Window* window, LobbyAppEntry& entry) :
-		ComponentGrid(window, Vector2i(3, 3))
+		ComponentGrid(window, Vector2i(4, 3))
 	{
 		mEntry = entry;
 
@@ -220,17 +220,29 @@ public:
 		mSubstring->setOpacity(192);
 
 		std::string subInfo = _U("\uf11B  ") + entry.core_name + " (" + entry.retroarch_version + ")";
-		// _U("\uf00c ") + 
 
 		mDetails = std::make_shared<TextComponent>(mWindow, subInfo.c_str(), theme->TextSmall.font, theme->Text.color);
 		mDetails->setOpacity(192);
+		
+		if (entry.has_password || entry.has_spectate_password)
+		{					
+			if (!entry.has_spectate_password)
+				mLockInfo = std::make_shared<TextComponent>(mWindow, std::string(_U("\uf06E")).c_str(), Font::get(FONT_SIZE_MEDIUM, FONT_PATH_REGULAR), theme->Text.color);
+			else
+				mLockInfo = std::make_shared<TextComponent>(mWindow, std::string(_U("\uf023")).c_str(), Font::get(FONT_SIZE_MEDIUM, FONT_PATH_REGULAR), theme->Text.color);
 
+			mLockInfo->setOpacity(192);
+			mLockInfo->setLineSpacing(1);
+		}
 
 		setEntry(mImage, Vector2i(0, 0), false, true, Vector2i(1, 3));
 		setEntry(mText, Vector2i(2, 0), false, true);
 		setEntry(mSubstring, Vector2i(2, 1), false, true);
 		setEntry(mDetails, Vector2i(2, 2), false, true);
-
+		
+		if (mLockInfo != nullptr)
+			setEntry(mLockInfo, Vector2i(3, 0), false, true, Vector2i(1, 3));
+		
 		float h = mText->getSize().y() * 1.1f + mSubstring->getSize().y() + mDetails->getSize().y();
 
 		float sw = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
@@ -250,6 +262,11 @@ public:
 		setColWidthPerc(0, h * 1.15f / sw, false);
 		setColWidthPerc(1, 0.015f, false);
 
+		if (mLockInfo != nullptr)
+			setColWidthPerc(3, 0.055f, false); // cf FONT_SIZE_LARGE
+		else 
+			setColWidthPerc(3, 0.002f, false);
+
 		setRowHeightPerc(0, mText->getSize().y() / h, false);
 		setRowHeightPerc(1, mSubstring->getSize().y() / h, false);
 		setRowHeightPerc(2, mDetails->getSize().y() / h, false);
@@ -266,6 +283,9 @@ public:
 		mText->setColor(color);
 		mSubstring->setColor(color);
 		mDetails->setColor(color);
+
+		if (mLockInfo != nullptr)
+			mLockInfo->setColor(color);
 	}
 
 private:
@@ -274,6 +294,7 @@ private:
 	std::shared_ptr<TextComponent>  mText;
 	std::shared_ptr<TextComponent>  mSubstring;
 	std::shared_ptr<TextComponent>  mDetails;
+	std::shared_ptr<TextComponent>	mLockInfo;
 
 	LobbyAppEntry mEntry;	
 };
@@ -331,10 +352,27 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		entries.push_back(game);
 	}	
 
+	auto theme = ThemeData::getMenuTheme();
+
+	bool groupAvailable = false;
+
 	for (auto game : entries)
 	{
 		if (game.fileData == nullptr)
 			continue;
+
+		if (!groupAvailable)
+		{
+			ComponentListRow row;
+			auto empty = std::make_shared<TextComponent>(mWindow, _("AVAILABLE GAMES"), theme->TextSmall.font, theme->TextSmall.color);
+		//	empty->setHorizontalAlignment(Alignment::ALIGN_CENTER);
+			empty->setLineSpacing(2.5);
+			row.addElement(empty, true, false);
+			row.selectable = false;
+			mList->addRow(row);
+
+			groupAvailable = true;
+		}
 
 		ComponentListRow row;
 		row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
@@ -345,17 +383,32 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		mList->addRow(row);
 	}
 
+	bool groupUnavailable = false;
+
 	for (auto game : entries)
 	{
 		if (game.fileData != nullptr)
 			continue;
+
+		if (!groupUnavailable)
+		{
+			ComponentListRow row;
+			auto empty = std::make_shared<TextComponent>(mWindow, _("UNAVAILABLE GAMES"), theme->TextSmall.font, theme->TextSmall.color);			
+		//	empty->setHorizontalAlignment(Alignment::ALIGN_CENTER);
+			empty->setLineSpacing(2.5);
+			row.addElement(empty, true, false);
+			row.selectable = false;
+			mList->addRow(row);
+
+			groupUnavailable = true;
+		}
 
 		ComponentListRow row;
 		row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
 		mList->addRow(row);
 	}
 
-	if (mList->size() == 0) 
+	if (mList->size() == 0)
 	{
 		ComponentListRow row;
 		auto empty = std::make_shared<TextComponent>(mWindow);
@@ -365,6 +418,8 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		mGrid.moveCursor(Vector2i(0, 1));
 	}
+	else
+		mList->setCursorIndex(0, true);
 
 	return true;
 }

@@ -2552,10 +2552,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	bool selected = false;
 	std::string selectedEmulator = "";
 
-	for (auto it = systemData->getEmulators()->begin(); it != systemData->getEmulators()->end(); it++) 
+	for (auto emulator : systemData->getEmulators()) 
 	{
 		bool found;
-		std::string curEmulatorName = it->first;
+		std::string curEmulatorName = emulator.first;
 		if (!previouslySelectedEmulator.empty())			
 			found = previouslySelectedEmulator == curEmulatorName; // We just changed the emulator
 		else
@@ -2579,15 +2579,20 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 	// search if one will be selected
 	bool onefound = false;
-	for (auto emulator = systemData->getEmulators()->begin();
-		emulator != systemData->getEmulators()->end(); emulator++) {
-		if (selectedEmulator == emulator->first) {
-			for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-				if ((SystemConf::getInstance()->get(configName + ".core") == *core)) {
-					onefound = true;
-				}
+
+	for (auto emulator : systemData->getEmulators()) 
+	{
+		if (selectedEmulator != emulator.first)
+			continue;
+		
+		for (auto core : emulator.second.cores)
+		{
+			if ((SystemConf::getInstance()->get(configName + ".core") == core.name)) 
+			{
+				onefound = true;
+				break;
 			}
-		}
+		}		
 	}
 
 	// add auto if emu_choice is auto
@@ -2597,16 +2602,19 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// list
-	for (auto emulator = systemData->getEmulators()->begin();
-		emulator != systemData->getEmulators()->end(); emulator++) {
-		if (selectedEmulator == emulator->first) {
-			for (auto core = emulator->second->begin(); core != emulator->second->end(); core++) {
-				bool found = (SystemConf::getInstance()->get(configName + ".core") == *core);
-				core_choice->add(*core, *core, found || !onefound); // select the first one if none is selected
-				onefound = true;
-			}
-		}
+	for (auto emulator : systemData->getEmulators())
+	{
+		if (selectedEmulator != emulator.first)
+			continue;
+		
+		for (auto core : emulator.second.cores)
+		{
+			bool found = (SystemConf::getInstance()->get(configName + ".core") == core.name);
+			core_choice->add(core.name, core.name, found || !onefound); // select the first one if none is selected
+			onefound = true;
+		}		
 	}
+
 	systemConfiguration->addWithLabel(_("Core"), core_choice);
 
 	// Screen ratio choice

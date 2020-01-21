@@ -129,6 +129,10 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 
 			if (iter->type == MD_BOOL)
 				value = Utils::String::toLower(value);
+
+			// Players -> remove "1-"
+			if (type == GAME_METADATA && iter->id == 14 && iter->type == MD_INT && Utils::String::startsWith(value, "1-")) // "players"
+				value = Utils::String::replace(value, "1-", "");
 			
 			if (iter->id == 0)
 				mdl.mName = value;
@@ -187,6 +191,13 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 	else
 	{
 		auto id = getId(key);
+		
+		// Players -> remove "1-"
+		if (mType == GAME_METADATA && id == 14 && Utils::String::startsWith(value, "1-")) // "players"
+		{
+			mMap[id] = Utils::String::replace(value, "1-", "");
+			return;
+		}
 
 		auto prev = mMap.find(id);
 		if (prev != mMap.cend() && prev->second == value)
@@ -209,7 +220,7 @@ const std::string MetaDataList::get(const std::string& key) const
 	if (it != mMap.end())
 	{
 		if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
+			return Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true));
 
 		return it->second;
 	}

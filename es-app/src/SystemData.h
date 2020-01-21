@@ -18,6 +18,20 @@ class FolderData;
 class ThemeData;
 class Window;
 
+struct CoreData
+{
+	CoreData() { netplay = false; }
+
+	std::string name;
+	bool netplay;
+};
+
+struct EmulatorData
+{
+	std::string name;
+	std::vector<CoreData> cores;
+};
+
 struct SystemEnvironmentData
 {
 	std::string mStartPath;
@@ -35,7 +49,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, std::vector<std::string>*>* emulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
+    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
@@ -108,7 +122,7 @@ public:
 		if (mFilterIndex != nullptr) mFilterIndex->setUIModeFilters();
 	}
 
-	std::map<std::string, std::vector<std::string> *> * getEmulators(); // batocera
+	std::map<std::string, EmulatorData> getEmulators() { return mEmulators; }
 
 	unsigned int getSortId() const { return mSortId; };
 	void setSortId(const unsigned int sortId = 0);
@@ -150,7 +164,8 @@ private:
 	FileFilterIndex* mFilterIndex;
 
 	FolderData* mRootFolder;
-	std::map<std::string, std::vector<std::string> *> *mEmulators; // batocera
+
+	std::map<std::string, EmulatorData> mEmulators;
 	
 	unsigned int mSortId;
 	std::string mViewMode;

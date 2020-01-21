@@ -186,10 +186,11 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	for(unsigned int i = 0; i < mEntries.size(); i++)
 	{
 		auto& entry = mEntries.at(i);
+		
 		drawAll = !mFocused || i != (unsigned int)mCursor;
 		for(auto it = entry.data.elements.cbegin(); it != entry.data.elements.cend(); it++)
 		{
-			if(drawAll || it->invert_when_selected)
+			if(entry.data.selectable && (drawAll || it->invert_when_selected))
 			{
 				it->component->setColor(textColor);
 				it->component->render(trans);
@@ -212,17 +213,21 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 		const float selectedRowHeight = getRowHeight(mEntries.at(mCursor).data);
 
-		if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) {
-
-			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
-			Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
-		}
-
 		auto& entry = mEntries.at(mCursor);
-		for (auto& element : entry.data.elements)
+		
+		if (entry.data.selectable)
 		{
-			element.component->setColor(selectedColor);
-			drawAfterCursor.push_back(element.component.get());
+			if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) {
+
+				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
+				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
+			}
+
+			for (auto& element : entry.data.elements)
+			{
+				element.component->setColor(selectedColor);
+				drawAfterCursor.push_back(element.component.get());
+			}
 		}
 
 		for(auto it = drawAfterCursor.cbegin(); it != drawAfterCursor.cend(); it++)
