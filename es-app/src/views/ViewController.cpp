@@ -750,3 +750,18 @@ void ViewController::onShow()
 		mCurrentView->onShow();
 }
 
+void ViewController::onScreenSaverActivate()
+{
+	GuiComponent::onScreenSaverActivate();
+
+	if (mCurrentView)
+		mCurrentView->onScreenSaverActivate();
+}
+
+void ViewController::onScreenSaverDeactivate()
+{
+	GuiComponent::onScreenSaverDeactivate();
+
+	if (mCurrentView)
+		mCurrentView->onScreenSaverDeactivate();
+}

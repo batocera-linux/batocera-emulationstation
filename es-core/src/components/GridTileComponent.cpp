@@ -1160,3 +1160,19 @@ GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
 
 	return prop;
 }
+
+void GridTileComponent::onScreenSaverActivate()
+{
+	GuiComponent::onScreenSaverActivate();
+
+	if (mVideo)
+		mVideo->onScreenSaverActivate();
+}
+
+void GridTileComponent::onScreenSaverDeactivate()
+{
+	GuiComponent::onScreenSaverDeactivate();
+
+	if (mVideo)
+		mVideo->onScreenSaverDeactivate();
+}
