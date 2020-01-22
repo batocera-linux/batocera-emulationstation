@@ -220,7 +220,7 @@ const std::string MetaDataList::get(const std::string& key) const
 	if (it != mMap.end())
 	{
 		if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-			return Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true));
+			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
 
 		return it->second;
 	}
