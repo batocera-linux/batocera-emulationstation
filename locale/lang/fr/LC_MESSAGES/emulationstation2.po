@@ -74,10 +74,10 @@ msgid "LAUNCH"
 msgstr "LANCER"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "JEUX DISPONIBLES"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "JEUX NON DISPONIBLES"
 
 msgid "NO GAME FOUND"
 msgstr "PAS DE JEU TROUVÉ"
@@ -1180,8 +1180,8 @@ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 #, c-format
 msgid "%i GAME AVAILABLE"
 msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i JEU"
-msgstr[1] "%i JEUX"
+msgstr[0] "%i JEU DISPONIBLE"
+msgstr[1] "%i JEUX DISPONIBLES"
 
 msgid "KODI"
 msgstr "KODI"
