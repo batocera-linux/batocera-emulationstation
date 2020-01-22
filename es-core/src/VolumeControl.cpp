@@ -260,6 +260,14 @@ int VolumeControl::getVolume() const
 #elif defined(__linux__)
 	if (mixerElem != nullptr)
 	{
+		int mute_state;
+		if (snd_mixer_selem_has_playback_switch(mixerElem)) 
+		{
+			snd_mixer_selem_get_playback_switch(mixerElem, SND_MIXER_SCHN_UNKNOWN, &mute_state);
+			if (!mute_state) // system Muted
+				return 0;
+		}
+
 		//get volume range
 		long minVolume;
 		long maxVolume;
@@ -312,8 +320,16 @@ int VolumeControl::getVolume() const
 	{
 		//Windows Vista or above. use EndpointVolume API
 		float floatVolume = 0.0f; //0-1
-		if (endpointVolume->GetMasterVolumeLevelScalar(&floatVolume) == S_OK)
+
+		BOOL mute = FALSE;
+		if (endpointVolume->GetMute(&mute) == S_OK)
 		{
+			if (mute)
+				return 0;
+		}
+
+		if (endpointVolume->GetMasterVolumeLevelScalar(&floatVolume) == S_OK)
+		{			
 			volume = (int)Math::round(floatVolume * 100.0f);
 			LOG(LogInfo) << " getting volume as " << volume << " ( from float " << floatVolume << ")";
 		}
