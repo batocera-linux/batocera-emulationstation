@@ -77,10 +77,10 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "JOGOS DISPONÍVEIS"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "JOGOS INDISPONÍVEIS"
 
 msgid "NO GAME FOUND"
 msgstr "NENHUM JOGO ENCONTRADO"
