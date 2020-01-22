@@ -53,6 +53,8 @@ public:
 	bool getAutoScroll() { return mAutoScroll; }
 	void setAutoScroll(bool value);
 
+	unsigned int getColor() { return mColor; }
+
 protected:
 	virtual void onTextChanged();
 

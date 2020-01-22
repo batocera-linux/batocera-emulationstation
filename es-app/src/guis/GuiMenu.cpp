@@ -2165,6 +2165,11 @@ void GuiMenu::openSoundSettings()
 		SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
 	});
 
+	auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
+	volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
+	s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
+	s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+
 	// disable sounds
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
 	music_enabled->setState(Settings::getInstance()->getBool("audio.bgmusic"));

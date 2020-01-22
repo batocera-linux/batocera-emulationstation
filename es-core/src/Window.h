@@ -24,6 +24,7 @@ class AsyncNotificationComponent;
 class ThemeData;
 class TextComponent;
 class ControllerActivityComponent;
+class VolumeInfoComponent;
 
 class Window
 {
@@ -130,6 +131,7 @@ private:
 	int mClockElapsed;
 	std::shared_ptr<TextComponent>	mClock;
 	std::shared_ptr<ControllerActivityComponent>	mControllerActivity;
+	std::shared_ptr<VolumeInfoComponent> mVolumeInfo;
 
 	bool mNormalizeNextUpdate;
 
@@ -138,7 +140,6 @@ private:
 	unsigned int mTimeSinceLastInput;
 
 	bool mRenderedHelpPrompts;
-
 
 	GuiComponent* mTransiting;
 	int mTransitionOffset;

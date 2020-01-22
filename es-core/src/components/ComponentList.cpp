@@ -190,13 +190,15 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 		drawAll = !mFocused || i != (unsigned int)mCursor;
 		for(auto it = entry.data.elements.cbegin(); it != entry.data.elements.cend(); it++)
 		{
-			if(entry.data.selectable && (drawAll || it->invert_when_selected))
+			if(drawAll || it->invert_when_selected)
 			{
-				it->component->setColor(textColor);
+				if (entry.data.selectable)
+					it->component->setColor(textColor);
+
 				it->component->render(trans);
-			}else{
-				drawAfterCursor.push_back(it->component.get());
 			}
+			else
+				drawAfterCursor.push_back(it->component.get());			
 		}
 	}
 
