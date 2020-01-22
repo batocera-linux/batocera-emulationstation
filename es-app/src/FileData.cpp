@@ -298,10 +298,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 
 	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
-	if (emulator.length() == 0)
+	if (emulator.empty())
 		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");
 
-	if (emulator.length() == 0)
+	if (emulator.empty())
 	{
 		auto emulators = mSystem->getEmulators();
 		if (emulators.size() > 0)
@@ -309,17 +309,17 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 
 	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");
-	if (core.length() == 0)
+	if (core.empty())
 		core = SystemConf::getInstance()->get(mSystem->getName() + ".core");
 
-	if (core.length() == 0)
+	if (core.empty() && !emulator.empty())
 	{
 		auto emulators = mSystem->getEmulators();
-		if (emulators.find(emulator) != emulators.cend())
-			core = emulators.find(emulator)->first;
 
-		if (emulators.size() > 0 && emulators[0].cores.size() > 0)
-			core = emulators[0].cores[0].name;
+		auto it = emulators.find(emulator);
+		if (it != emulators.cend())
+			if (it->second.cores.size() > 0)
+				core = it->second.cores.begin()->name;
 	}
 
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
