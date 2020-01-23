@@ -1125,13 +1125,20 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			
 			if (extra->isStaticExtra())
 			{		
-				if (extrasTrans.translation()[0] < 0)
+				bool popClip = false;
+				
+				if (extrasTrans.translation()[0] > Renderer::getScreenWidth())
+					continue;
+				else if (extrasTrans.translation()[1] > Renderer::getScreenHeight())
+					continue;
+				else if (extrasTrans.translation()[0] < 0)
 				{
 					int x = Math::round(size.x() + extrasTrans.translation()[0]);
 					if (x == 0)
 						continue;
 
 					Renderer::pushClipRect(Vector2i(0, Math::round(extrasTrans.translation()[1])), Vector2i(x, Math::round(size.y())));
+					popClip = true;
 				}
 				else if (extrasTrans.translation()[1] < 0)
 				{
@@ -1140,12 +1147,13 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 						continue;
 
 					Renderer::pushClipRect(Vector2i(Math::round(extrasTrans.translation()[0]), 0), Vector2i(Math::round(size.x()), y));
+					popClip = true;
 				}
 			
 				extra->render(trans);
 				
-				if (extrasTrans.translation()[0] < 0 || extrasTrans.translation()[1] < 0)
-					Renderer::popClipRect();			
+				if (popClip)
+					Renderer::popClipRect();	
 			}
 			else
 				extra->render(extrasTrans);
