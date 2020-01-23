@@ -755,6 +755,9 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 
 void ThemeData::parseSubsetElement(const pugi::xml_node& root)
 {
+	if (!parseFilterAttributes(root))
+		return;
+
 	const std::string name = root.attribute("name").as_string();
 	const std::string displayName = resolvePlaceholders(root.attribute("displayName").as_string());
 	const std::string appliesTo = root.attribute("appliesTo").as_string();
