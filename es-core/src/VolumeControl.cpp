@@ -260,6 +260,9 @@ int VolumeControl::getVolume() const
 #elif defined(__linux__)
 	if (mixerElem != nullptr)
 	{
+		if (mixerHandle != nullptr)
+			snd_mixer_handle_events(mixerHandle);
+
 		int mute_state;
 		if (snd_mixer_selem_has_playback_switch(mixerElem)) 
 		{

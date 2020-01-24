@@ -9,7 +9,9 @@
 #include "Window.h"
 
 #define PADDING_PX			(Renderer::getScreenWidth()*0.006)
-#define VISIBLE_TIME		3000
+#define PADDING_BAR			(Renderer::isSmallScreen() ? Renderer::getScreenWidth()*0.02 : Renderer::getScreenWidth()*0.006)
+
+#define VISIBLE_TIME		2650
 #define FADE_TIME			350
 #define BASEOPACITY			200
 #define CHECKVOLUMEDELAY	40
@@ -21,11 +23,17 @@ VolumeInfoComponent::VolumeInfoComponent(Window* window, bool actionLine)
 	mVolume = -1;
 	mCheckTime = 0;
 
-	auto theme = ThemeData::getMenuTheme();
+	auto theme = ThemeData::getMenuTheme();	
+
+	auto font = theme->TextSmall.font;
+	if (Renderer::isSmallScreen())
+		font = theme->Text.font;
 
 	Vector2f fullSize(
-		2 * PADDING_PX + theme->TextSmall.font->sizeText("100%").x(),
+		2 * PADDING_PX + font->sizeText("100%").x(),
 		2 * PADDING_PX + Renderer::getScreenHeight() * 0.20f);
+	
+	fullSize.y() = fullSize.x() * 2.5f;
 
 	setSize(fullSize);
 
@@ -37,9 +45,10 @@ VolumeInfoComponent::VolumeInfoComponent(Window* window, bool actionLine)
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 
-	mLabel = new TextComponent(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+
+	mLabel = new TextComponent(mWindow, "", font, theme->Text.color, ALIGN_CENTER);
 	
-	int h = theme->TextSmall.font->sizeText("100%").y() + PADDING_PX;
+	int h = font->sizeText("100%").y() + PADDING_PX;
 	mLabel->setPosition(0, fullSize.y() - h);
 	mLabel->setSize(fullSize.x(), h);
 	addChild(mLabel);
@@ -63,21 +72,26 @@ void VolumeInfoComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	mCheckTime += deltaTime;
-	if (mCheckTime < CHECKVOLUMEDELAY)
-		return;
-
-	mCheckTime = 0;
-
 	if (mDisplayTime >= 0)
 	{
 		mDisplayTime += deltaTime;
 		if (mDisplayTime > VISIBLE_TIME + FADE_TIME)
 		{
 			mDisplayTime = -1;
-			setVisible(false);
+
+			if (isVisible())
+			{
+				setVisible(false);
+				PowerSaver::resume();
+			}
 		}
 	}
+
+	mCheckTime += deltaTime;
+	if (mCheckTime < CHECKVOLUMEDELAY)
+		return;
+
+	mCheckTime = 0;
 
 	int volume = VolumeControl::getInstance()->getVolume();
 	if (volume != mVolume)
@@ -94,7 +108,12 @@ void VolumeInfoComponent::update(int deltaTime)
 		if (!firstTime)
 		{
 			mDisplayTime = 0;
-			setVisible(true);
+
+			if (!isVisible())
+			{
+				setVisible(true);
+				PowerSaver::pause();
+			}
 		}
 	}
 }
@@ -112,9 +131,9 @@ void VolumeInfoComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	Renderer::setMatrix(trans);
 
-	float x = PADDING_PX * 2;
+	float x = PADDING_PX + PADDING_BAR;
 	float y = PADDING_PX * 2;
-	float w = getSize().x() - 4 * PADDING_PX;
+	float w = getSize().x() - 2 * PADDING_PX - 2 * PADDING_BAR;
 	float h = getSize().y() - mLabel->getSize().y() - PADDING_PX - PADDING_PX;
 	
 	auto theme = ThemeData::getMenuTheme();
