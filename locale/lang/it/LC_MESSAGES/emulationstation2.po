@@ -1,4 +1,4 @@
-msgid ""
+﻿msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
@@ -77,10 +77,10 @@ msgid "LAUNCH"
 msgstr "AVVIA"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "GIOCHI DISPONIBILI"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "GIOCHI NON DISPONIBILI"
 
 msgid "NO GAME FOUND"
 msgstr "NESSUN GIOCO TROVATO"
@@ -119,13 +119,13 @@ msgid "SHOW FOLDERS"
 msgstr "MOSTRA LE CARTELLE"
 
 msgid "always"
-msgstr ""
+msgstr "sempre"
 
 msgid "never"
 msgstr "mai"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "avere più giochi"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
@@ -149,7 +149,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "QUESTA FUNZIONE E' DISABILITATA QUANDO LO SCRAPE E' IN ESECUZIONE"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTRA LA LISTA GIOCHI PER"
 
 msgid "RESET ALL FILTERS"
 msgstr "CANCELLA TUTTI I FILTRI"
@@ -215,10 +215,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "SCREENSHOT DEL TITOLO"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "MIX V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MIX V2"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -423,7 +423,7 @@ msgid "USE RUN-AHEAD FRAMES"
 msgstr "USA METODO RUN-AHEAD"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "RUN-AHEDA USA UNA SECONDA ISTANZA DELL'EMULATORE"
 
 msgid "ON"
 msgstr "SI"
@@ -534,7 +534,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "GAME HASHING IN ESECUZIONE. VUOI ARRESTARE IL PROCESSO?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "VUOI AGGIORNARE LE LISTE DEI GIOCHI?"
@@ -755,13 +755,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "EMULA WIIMOTES"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "CAMBIA LAYOUT DELLO SCHERMO"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "SCHERMO LARGO"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "AFFIANCATI"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RISOLUZIONE INTERNA"
@@ -1139,10 +1139,10 @@ msgid "Md5 checksum"
 msgstr "Serie checksum Md5"
 
 msgid "Game time"
-msgstr ""
+msgstr "Tempo di gioco"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "Durata totale del gioco giocato (in secondi)"
 
 msgid "name"
 msgstr "nome"
@@ -1307,19 +1307,19 @@ msgid "GENRE"
 msgstr "GENERE"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "GIOCATORI"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "EDITORE / SVILUPPATORE"
 
 msgid "RATING"
 msgstr "VOTO"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "GIOCO PER RAGAZZI"
 
 msgid "HASHING GAMES"
-msgstr ""
+msgstr "GAME HASHING"
 
 msgid "SEARCHING"
 msgstr "RICERCA"
