@@ -34,6 +34,8 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	void setRenderNonFocusedBackground(bool value) { mRenderNonFocusedBackground = value; }
+
 private:
 	std::shared_ptr<Font> mFont;
 	std::function<void()> mPressedFunc;
@@ -57,6 +59,8 @@ private:
 
 	unsigned int mColor;
 	unsigned int mColorFocused;
+
+	bool mRenderNonFocusedBackground;
 };
 
 #endif // ES_CORE_COMPONENTS_BUTTON_COMPONENT_H

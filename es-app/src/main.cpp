@@ -489,8 +489,8 @@ int main(int argc, char* argv[])
 	while(running)
 	{
 		SDL_Event event;
-		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
 
+		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
 		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
 		{
 			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
@@ -538,7 +538,7 @@ int main(int argc, char* argv[])
 		{
 			// If exitting SDL_WaitEventTimeout due to timeout. Trail considering
 			// timeout as an event
-			ps_time = SDL_GetTicks();
+		//	ps_time = SDL_GetTicks();
 		}
 
 		if(window.isSleeping())

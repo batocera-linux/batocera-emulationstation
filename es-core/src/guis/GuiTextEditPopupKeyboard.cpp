@@ -135,12 +135,13 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 					mShiftButton = std::make_shared<ButtonComponent>(mWindow, _U("\uF176"), _("SHIFTS FOR UPPER,LOWER, AND SPECIAL"), [this] {
 						shiftKeys();
 					}, false);
-
+					
 					button = mShiftButton;
 				}
 				else
 					button = makeButton(lower, upper);					
 
+				button->setRenderNonFocusedBackground(false);
 				buttons.push_back(button);
 
 				button->setSize(getButtonSize());

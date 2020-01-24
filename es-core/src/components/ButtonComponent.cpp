@@ -16,6 +16,7 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 	mTextColorFocused = menuTheme->Text.selectedColor;
 	mColor = menuTheme->Text.color;
 	mColorFocused = menuTheme->Text.selectorColor;
+	mRenderNonFocusedBackground = true;
 
 	setPressedFunc(func);
 	setText(text, helpText, upperCase);
@@ -103,7 +104,8 @@ void ButtonComponent::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = parentTrans * getTransform();
 
-	mBox.render(trans);
+	if (mRenderNonFocusedBackground || mFocused)
+		mBox.render(trans);
 
 	if(mTextCache)
 	{
