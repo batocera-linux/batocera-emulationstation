@@ -2010,7 +2010,7 @@ bool ApiSystem::getBrighness(int& value)
 void ApiSystem::setBrighness(int value)
 {
 #if !WIN32	
-	if (value > 5)
+	if (value < 5)
 		value = 5;
 
 	if (value > 100)
