@@ -21,7 +21,10 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 	mKnob.setImage(ThemeData::getMenuTheme()->Icons.knob);
 	mKnob.setColorShift(mColor);
 	
-	setSize(Renderer::getScreenWidth() * 0.15f, menuTheme->Text.font->getLetterHeight());
+	if (Renderer::isSmallScreen())
+		setSize(Renderer::getScreenWidth() * 0.25f, menuTheme->Text.font->getLetterHeight());
+	else
+		setSize(Renderer::getScreenWidth() * 0.15f, menuTheme->Text.font->getLetterHeight());
 }
 
 void SliderComponent::setColor(unsigned int color) 

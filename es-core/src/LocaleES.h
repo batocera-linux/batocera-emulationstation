@@ -4,16 +4,16 @@
 
 #if !defined(WIN32)
 
+#include <string>
+
 #ifdef HAVE_INTL
 
 #include <libintl.h>
-#include <string>
-
 #define _(A) std::string(gettext(A))
 
 #else
 
-#define _(A) A
+#define _(A) std::string(A)
 char* ngettext(char* msgid, char* msgid_plural, unsigned long int n);
 
 #endif

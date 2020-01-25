@@ -128,6 +128,9 @@ public:
 
 	std::string getCRC32(const std::string fileName, bool fromZipContents = true);
 
+	bool	getBrighness(int& value);
+	void	setBrighness(int value);
+
 private:
     static ApiSystem *instance;
 

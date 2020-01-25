@@ -18,15 +18,17 @@
 #include <SystemConf.h>
 
 #include <stdio.h>
+#include <string.h>
 #include <sys/types.h>
+
 #if !defined(WIN32)
 #include <ifaddrs.h>
 #include <netinet/in.h>
-#endif
-#include <string.h>
-#if !defined(WIN32)
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <arpa/inet.h>
 #endif
+
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include <fstream>
@@ -1954,4 +1956,97 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	pclose(pipe);
 
 	return crc;
+}
+
+const char* BACKLIGHT_BRIGHTNESS_NAME = "/sys/class/backlight/backlight/brightness";
+const char* BACKLIGHT_BRIGHTNESS_MAX_NAME = "/sys/class/backlight/backlight/max_brightness";
+#define BACKLIGHT_BUFFER_SIZE 127
+
+bool ApiSystem::getBrighness(int& value)
+{
+#if WIN32
+	value = 100;
+	return true;
+#else
+	value = 0;
+
+	int fd;
+	int max = 255;	
+	char buffer[BACKLIGHT_BUFFER_SIZE + 1];
+	ssize_t count;
+
+	fd = open(BACKLIGHT_BRIGHTNESS_MAX_NAME, O_RDONLY);
+	if (fd < 0)
+		return false;
+
+	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
+
+	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
+	if (count > 0)
+		max = atoi(buffer);
+
+	close(fd);
+
+	if (max == 0) 
+		return 0;
+
+	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_RDONLY);
+	if (fd < 0)
+		return false;
+
+	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
+
+	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
+	if (count > 0)
+		value = atoi(buffer);
+
+	close(fd);
+
+	value = (uint32_t) (value / (float)max * 100.0f);
+	return true;
+#endif
+}
+
+void ApiSystem::setBrighness(int value)
+{
+#if !WIN32	
+	if (value > 5)
+		value = 5;
+
+	if (value > 100)
+		value = 100;
+
+	int fd;
+	int max = 255;
+	char buffer[BACKLIGHT_BUFFER_SIZE + 1];
+	ssize_t count;
+
+	fd = open(BACKLIGHT_BRIGHTNESS_MAX_NAME, O_RDONLY);
+	if (fd < 0)
+		return;
+
+	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
+
+	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
+	if (count > 0)
+		max = atoi(buffer);
+
+	close(fd);
+
+	if (max == 0) 
+		return;
+
+	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_WRONLY);
+	if (fd < 0)
+		return;
+	
+	float percent = value / 100.0f * (float)max;
+	sprintf(buffer, "%d\n", (uint32_t)percent);
+
+	count = write(fd, buffer, strlen(buffer));
+	if (count < 0)
+		LOG(LogError) << "ApiSystem::setBrighness failed";
+
+	close(fd);
+#endif
 }

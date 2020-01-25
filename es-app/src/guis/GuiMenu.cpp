@@ -696,44 +696,8 @@ void GuiMenu::openSystemSettings_batocera()
 
 	s->addWithLabel(_("LANGUAGE"), language_choice);
 
-	// Overclock choice
-	auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"), false);
 
-	std::string currentOverclock = Settings::getInstance()->getString("Overclock");
-	if (currentOverclock == "") 
-		currentOverclock = "none";
 
-	std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
-
-	// Overclocking device
-	bool isOneSet = false;
-	for (auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++) 
-	{
-		std::vector<std::string> tokens = Utils::String::split(*it, ' ');		
-		if (tokens.size() >= 2) 
-		{
-			// concatenat the ending words
-			std::string vname;
-			for (unsigned int i = 1; i < tokens.size(); i++) 
-			{
-				if (i > 1) vname += " ";
-				vname += tokens.at(i);
-			}
-			bool isSet = currentOverclock == std::string(tokens.at(0));
-			if (isSet) 
-				isOneSet = true;
-			
-			overclock_choice->add(vname, tokens.at(0), isSet);
-		}
-	}
-
-	if (isOneSet == false)
-		overclock_choice->add(currentOverclock, currentOverclock, true);
-	
-#ifndef WIN32
-	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
-#endif
-	
 #if !defined(WIN32) || defined(_DEBUG)
 	// video device
 	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
@@ -761,6 +725,20 @@ void GuiMenu::openSystemSettings_batocera()
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		}
 	});
+
+	// brighness
+	int brighness;
+	if (ApiSystem::getInstance()->getBrighness(brighness))
+	{
+		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
+		brightnessComponent->setValue(brighness);
+		brightnessComponent->setOnValueChanged([](const float &newVal) 
+		{ 
+			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal)); 
+		});
+
+		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
+	}
 
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
@@ -816,6 +794,44 @@ void GuiMenu::openSystemSettings_batocera()
 	});
 #endif
 
+	// Overclock choice
+	auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"), false);
+
+	std::string currentOverclock = Settings::getInstance()->getString("Overclock");
+	if (currentOverclock == "")
+		currentOverclock = "none";
+
+	std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
+
+	// Overclocking device
+	bool isOneSet = false;
+	for (auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++)
+	{
+		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+		if (tokens.size() >= 2)
+		{
+			// concatenat the ending words
+			std::string vname;
+			for (unsigned int i = 1; i < tokens.size(); i++)
+			{
+				if (i > 1) vname += " ";
+				vname += tokens.at(i);
+			}
+			bool isSet = currentOverclock == std::string(tokens.at(0));
+			if (isSet)
+				isOneSet = true;
+
+			overclock_choice->add(vname, tokens.at(0), isSet);
+		}
+	}
+
+	if (isOneSet == false)
+		overclock_choice->add(currentOverclock, currentOverclock, true);
+
+#ifndef WIN32
+	// overclocking
+	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
+#endif
 
 	// power saver
 	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);

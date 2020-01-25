@@ -362,6 +362,7 @@ int main(int argc, char* argv[])
 
 	// Set locale
 	setLocale(argv[0]); // batocera
+
 	// metadata init    // batocera
 	MetaDataList::initMetadata();     // require locale
 
