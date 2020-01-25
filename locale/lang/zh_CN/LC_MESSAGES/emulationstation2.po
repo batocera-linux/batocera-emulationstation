@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:41+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -361,17 +361,20 @@ msgstr "正在更新中"
 msgid "LANGUAGE"
 msgstr "语言"
 
-msgid "OVERCLOCK"
-msgstr "超频"
-
 msgid "VIDEO OUTPUT"
 msgstr "视频输出"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "需要重新启动系统才能应用新配置"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr ""
+
+msgid "OVERCLOCK"
+msgstr "超频"
 
 msgid "POWER SAVER MODES"
 msgstr "省电模式"
@@ -648,6 +651,9 @@ msgstr "在列表中显示文件名"
 
 msgid "SYSTEM VOLUME"
 msgstr "系统音量"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "前端音乐"

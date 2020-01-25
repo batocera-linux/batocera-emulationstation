@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:41+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -361,9 +361,6 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "DÝL"
 
-msgid "OVERCLOCK"
-msgstr "HIZAÞIMI"
-
 msgid "VIDEO OUTPUT"
 msgstr "VÝDEO ÇIKIÞI"
 
@@ -371,8 +368,14 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 "YENÝ YAPILANDIRMANIN UYGULANMASI ÝÇÝN SÝSTEMÝN TEKRAR BAÞLATILMASI GEREKÝR"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr ""
+
+msgid "OVERCLOCK"
+msgstr "HIZAÞIMI"
 
 msgid "POWER SAVER MODES"
 msgstr ""
@@ -644,6 +647,9 @@ msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "SÝSTEM SESÝ"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "ARABÝRÝM MÜZÝÐÝ"

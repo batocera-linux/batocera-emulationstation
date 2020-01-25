@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:41+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -364,17 +364,20 @@ msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУШЕНО"
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
-msgid "OVERCLOCK"
-msgstr "РАЗГОН"
-
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫХОД"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
+
+msgid "OVERCLOCK"
+msgstr "РАЗГОН"
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -651,6 +654,9 @@ msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"

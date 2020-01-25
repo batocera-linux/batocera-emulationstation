@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -369,16 +369,19 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "OVERCLOCK"
-msgstr ""
-
 msgid "VIDEO OUTPUT"
 msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
+msgstr ""
+
+msgid "OVERCLOCK"
 msgstr ""
 
 msgid "POWER SAVER MODES"
@@ -646,6 +649,9 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
+msgstr ""
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr ""
 
 msgid "FRONTEND MUSIC"

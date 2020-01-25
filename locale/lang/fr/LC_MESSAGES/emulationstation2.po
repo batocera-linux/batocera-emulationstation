@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:24+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -361,17 +361,20 @@ msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
 msgid "LANGUAGE"
 msgstr "LANGUE"
 
-msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
-
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LES MODIFICATIONS"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
 
 msgid "POWER SAVER MODES"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
@@ -649,6 +652,9 @@ msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DU SYSTÈME"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "MUSIQUE D'AMBIANCE"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -364,9 +364,6 @@ msgstr "UPDATE LÄUFT BEREITS"
 msgid "LANGUAGE"
 msgstr "SPRACHE"
 
-msgid "OVERCLOCK"
-msgstr "ÜBERTAKTEN"
-
 msgid "VIDEO OUTPUT"
 msgstr "BILD AUSGABE"
 
@@ -375,8 +372,14 @@ msgstr ""
 "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DIE NEUE KONFIGURATION "
 "ANZUWENDEN "
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
+
+msgid "OVERCLOCK"
+msgstr "ÜBERTAKTEN"
 
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
@@ -655,6 +658,9 @@ msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
 
 msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"

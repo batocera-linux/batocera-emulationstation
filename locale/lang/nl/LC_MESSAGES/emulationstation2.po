@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 23:03+0100\n"
+"POT-Creation-Date: 2020-01-25 13:41+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -361,9 +361,6 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "Taal"
 
-msgid "OVERCLOCK"
-msgstr "Overklok"
-
 msgid "VIDEO OUTPUT"
 msgstr "Video-output"
 
@@ -371,8 +368,14 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 "Een herstart van het systeem is nodig om de nieuwe configuratie te gebruiken"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr ""
+
+msgid "OVERCLOCK"
+msgstr "Overklok"
 
 msgid "POWER SAVER MODES"
 msgstr ""
@@ -645,6 +648,9 @@ msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "Systeem volume"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "Frontend Muziek"

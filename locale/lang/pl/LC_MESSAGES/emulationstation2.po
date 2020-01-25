@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 19:15+0100\n"
+"POT-Creation-Date: 2020-01-25 13:41+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -362,17 +362,20 @@ msgstr "AKTUALIZACJA ZOSTAŁA JUŻ URUCHOMIONA"
 msgid "LANGUAGE"
 msgstr "JĘZYK"
 
-msgid "OVERCLOCK"
-msgstr "PRZETAKTOWANIE"
-
 msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJĘ"
 
+msgid "BRIGHTNESS"
+msgstr ""
+
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
+
+msgid "OVERCLOCK"
+msgstr "PRZETAKTOWANIE"
 
 msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
@@ -649,6 +652,9 @@ msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
 
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
 
 msgid "FRONTEND MUSIC"
 msgstr "MUZYKA"
