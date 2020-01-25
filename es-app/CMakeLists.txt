@@ -54,7 +54,8 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemsHide.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstallStart.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelUnInstall.h # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.h # batocera
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -132,7 +133,8 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemsHide.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstallStart.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelUnInstall.cpp # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.cpp # batocera
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp

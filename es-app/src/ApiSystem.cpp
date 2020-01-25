@@ -1230,37 +1230,41 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 		"<userpic>https://retroachievements.org/UserPic/lbrpdx.png</userpic>"
 		"<registered>29 Aug 2018, 03:00</registered>"
 		"<lastactivity>16 Nov 2019, 02:35</lastactivity>"
-		"  <game>"
-		"	<name>Adventure Island II: Aliens In Paradise (Game Boy)</name>"
-		"	<achievements>7 of 24</achievements>"
-		"	<points>35/260</points>"
-		"	<lastplayed>2019-11-16 02:10:05</lastplayed>"
-		"  </game>"
-		"  <game>"
-		"	<name>Metal Gear (NES)</name>"
-		"	<achievements>0 of 97</achievements>"
-		"	<points>0/650</points>"
-		"	<lastplayed>2019-11-01 04:12:26</lastplayed>"
-		"  </game>"
-		"  <game>"
-		"	<name>Mega Man 2 (NES)</name>"
-		"	<achievements>0 of 84</achievements>"
-		"	<points>0/800</points>"
-		"	<lastplayed>2019-11-01 04:09:19</lastplayed>"
-		"  </game>"
-		"  <game>"
-		"	<name>Fortified Zone (Game Boy)</name>"
-		"	<achievements>0 of 0</achievements>"
-		"	<points>0/0</points>"
-		"	<lastplayed>2019-10-31 03:00:43</lastplayed>"
-		"  </game>"
-		"  <game>"
-		"	<name>Jack Bros. (Virtual Boy)</name>"
-		"	<achievements>0 of 57</achievements>"
-		"	<points>0/725</points>"
-		"	<lastplayed>2019-10-30 03:24:53</lastplayed>"
-		"  </game>"
-		"</retroachievements>";
+		"<game>"
+		"  <name>Captain Commando (Arcade)</name>"
+		"  <achievements>4 of 54</achievements>"
+		"  <points>25/830</points>"
+		"  <lastplayed>2020-01-23 04:51:33</lastplayed>"
+		"  <badge>https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/97969.png</badge>"
+		"</game>"
+		"<game>"
+		"  <name>Pac-in-Time (Game Boy)</name>"
+		"  <achievements>0 of 14</achievements>"
+		"  <points>0/140</points>"
+		"  <lastplayed>2020-01-23 04:41:26</lastplayed>"
+		"  <badge>https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/00136_lock.png</badge>"
+		"</game>"
+		"<game>"
+		"<name>1942 (NES)</name>"
+		"  <achievements>6 of 19</achievements>"
+		"  <points>90/400</points>"
+		"  <lastplayed>2020-01-19 23:15:40</lastplayed>"
+		"  <badge>https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/04200.png</badge>"
+		"</game>"
+		"<game>"
+		"<name>Tecmo Bowl (NES)</name>"
+		"  <achievements>3 of 6</achievements>"
+		"  <points>15/35</points>"
+		"  <lastplayed>2020-01-19 15:46:33</lastplayed>"
+		"  <badge>https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/09025.png</game>"
+		"<game>"
+		"<name>Bank Heist (Atari 2600)</name>"
+		"  <achievements>5 of 17</achievements>"
+		"  <points>23/100</points>"
+		"  <lastplayed>2020-01-19 15:38:57</lastplayed>"
+		"  <badge>https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/00083.png</badge>"
+		"</game>"
+
 	/*
 	// Retrocompatibility Test 
 	data = "Player TOTO (51 points) is 42287 / 61014 ranked users (Top 70%)\n"
@@ -1391,6 +1395,31 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 					rg.points = game.text().get();
 				else if (tag == "lastplayed")
 					rg.lastplayed = game.text().get();
+				else if (tag == "badge")
+				{
+					std::string badge = game.text().get();
+
+					if (!badge.empty())
+					{
+						std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+						if (!Utils::FileSystem::exists(localPath))
+							Utils::FileSystem::createDirectory(localPath);
+
+						std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(badge);
+						if (!Utils::FileSystem::exists(localFile))
+						{
+							std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(badge);
+
+							while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+								std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+							if (httpreq->status() == HttpReq::REQ_SUCCESS)
+								httpreq->saveContent(localFile);
+						}
+						if (Utils::FileSystem::exists(localFile))
+							rg.badge = localFile;
+					}
+				}
 			}
 
 			if (!rg.name.empty())
