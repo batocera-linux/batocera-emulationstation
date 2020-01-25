@@ -6,11 +6,11 @@
 #if !defined(WIN32)
 
 #ifndef HAVE_INTL
-std::string ngettext(char* msgid, char* msgid_plural, unsigned long int n)
+char* ngettext(char* msgid, char* msgid_plural, unsigned long int n)
 {
-	if (n != 1) {
+	if (n != 1)
 		return msgid_plural;
-	}
+
 	return msgid;
 }
 #endif

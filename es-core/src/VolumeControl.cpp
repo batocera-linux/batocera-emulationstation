@@ -283,10 +283,7 @@ int VolumeControl::getVolume() const
 				//worked. bring into range 0-100
 				rawVolume -= minVolume;
 				if (rawVolume > 0)
-				{
 					volume = (rawVolume * 100.0) / (maxVolume - minVolume) + 0.5;
-				}
-				//else volume = 0;
 			}
 			else
 			{
@@ -310,18 +307,13 @@ int VolumeControl::getVolume() const
 		mixerControlDetails.cMultipleItems = 0; //always 0 except for a MIXERCONTROL_CONTROLF_MULTIPLE control
 		mixerControlDetails.paDetails = &value;
 		mixerControlDetails.cbDetails = sizeof(MIXERCONTROLDETAILS_UNSIGNED);
+
 		if (mixerGetControlDetails((HMIXEROBJ)mixerHandle, &mixerControlDetails, MIXER_GETCONTROLDETAILSF_VALUE) == MMSYSERR_NOERROR) 
-		{
 			volume = (int)Math::round((value.dwValue * 100) / 65535.0f);
-		}
-		else
-		{
-			LOG(LogError) << "VolumeControl::getVolume() - Failed to get mixer volume!";
-		}
 	}
 	else if (endpointVolume != nullptr)
 	{
-		//Windows Vista or above. use EndpointVolume API
+		// Windows Vista or above. use EndpointVolume API
 		float floatVolume = 0.0f; //0-1
 
 		BOOL mute = FALSE;
@@ -332,26 +324,17 @@ int VolumeControl::getVolume() const
 		}
 
 		if (endpointVolume->GetMasterVolumeLevelScalar(&floatVolume) == S_OK)
-		{			
 			volume = (int)Math::round(floatVolume * 100.0f);
-			LOG(LogInfo) << " getting volume as " << volume << " ( from float " << floatVolume << ")";
-		}
-		else
-		{
-			LOG(LogError) << "VolumeControl::getVolume() - Failed to get master volume!";
-		}
-		
 	}
 #endif
-	//clamp to 0-100 range
+
+	// clamp to 0-100 range
 	if (volume < 0)
-	{
 		volume = 0;
-	}
+
 	if (volume > 100)
-	{
 		volume = 100;
-	}
+
 	return volume;
 }
 
