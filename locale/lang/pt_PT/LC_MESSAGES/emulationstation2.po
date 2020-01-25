@@ -53,7 +53,7 @@ msgid "CANCEL"
 msgstr "CANCELAR"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "CONECTAR-SE AOS JOGOS DE REDE"
+msgstr "CONECTAR-SE AOS JOGOS EM REDE"
 
 msgid "Select the game you want to join"
 msgstr "Selecione o jogo que deseja participar"
@@ -371,7 +371,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "BRILHO"
 
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
@@ -434,10 +434,10 @@ msgid "OFF"
 msgstr "DESLIGADO"
 
 msgid "NETPLAY SETTINGS"
-msgstr "DEFINIÇÕES DE JOGOS DE REDE"
+msgstr "DEFINIÇÕES DE JOGOS EM REDE"
 
 msgid "ENABLE NETPLAY"
-msgstr "LIGAR JOGOS DE REDE"
+msgstr "LIGAR JOGOS EM REDE"
 
 msgid "NICKNAME"
 msgstr "ALCUNHA"
@@ -654,7 +654,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
@@ -1197,7 +1197,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr "JOGOS DE REDE"
+msgstr "JOGOS EM REDE"
 
 msgid "RANDOM"
 msgstr "ALEATÓRIO"
@@ -1221,7 +1221,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "INICIAR JOGO COMO HOST DE REDE ?"
+msgstr "INICIAR JOGO COMO HOST EM REDE ?"
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
