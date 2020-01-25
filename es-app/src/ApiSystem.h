@@ -22,6 +22,7 @@ struct RetroAchievementGame
 	std::string achievements;
 	std::string points;
 	std::string lastplayed;
+	std::string badge;
 };
 
 struct RetroAchievementInfo

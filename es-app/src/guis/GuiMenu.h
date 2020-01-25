@@ -67,7 +67,6 @@ private:
 	void openSystemSettings_batocera();
 	void openGamesSettings_batocera();
 	void openControllersSettings_batocera();		
-	void openRetroAchievements_batocera();	
 	void openNetworkSettings_batocera();
 	void openScraperSettings_batocera();
 	void openQuitMenu_batocera();

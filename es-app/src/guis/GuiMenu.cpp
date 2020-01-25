@@ -14,6 +14,7 @@
 #include "guis/GuiBezelInstallStart.h" //batocera
 #include "guis/GuiSettings.h"
 #include "guis/GuiSystemsHide.h" //batocera
+#include "guis/GuiRetroAchievements.h" //batocera
 #include "guis/GuiGamelistOptions.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
@@ -68,7 +69,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	if (isFullUI &&
 		SystemConf::getInstance()->get("global.retroachievements") == "1" &&
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
-		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { openRetroAchievements_batocera(); }, "iconRetroachievements");
+	        addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { mWindow->pushGui(new GuiRetroAchievements(mWindow)); }, "iconRetroachievements");
 
 	// GAMES SETTINGS
 	if (isFullUI)
@@ -2316,50 +2317,6 @@ void GuiMenu::openNetworkSettings_batocera()
 			ApiSystem::getInstance()->disableWifi();
 		}
 	});
-
-	mWindow->pushGui(s);
-}
-
-void GuiMenu::openRetroAchievements_batocera()
-{
-	Window *window = mWindow;
-
-	auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
-
-	auto ra = ApiSystem::getInstance()->getRetroAchievements();
-	if (!ra.error.empty())
-		s->setSubTitle(ra.error);
-	else
-	{
-		if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic))
-		{
-			auto image = std::make_shared<ImageComponent>(mWindow);
-			image->setImage(ra.userpic);
-			s->setTitleImage(image);
-		}
-
-		s->setSubTitle("Player " + ra.username + " (" + ra.totalpoints + " points) is " + ra.rank);
-
-		for (auto game : ra.games)
-		{		
-			ComponentListRow row;
-
-			auto itstring = std::make_shared<MultiLineMenuEntry>(window, game.name, game.achievements + " achievements");
-
-			if (!game.points.empty())
-			{
-				std::string longmsg = game.name + "\n" + game.achievements + " achievements\n" + game.points + " points\nLast played : " + game.lastplayed;
-
-				row.makeAcceptInputHandler([this, longmsg] {
-					mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
-				});
-			}
-
-			row.addElement(itstring, true);
-			s->addRow(row);
-			row.elements.clear();
-		}
-	}
 
 	mWindow->pushGui(s);
 }
