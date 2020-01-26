@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 13:24+0100\n"
+"POT-Creation-Date: 2020-01-26 18:30+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -153,6 +153,15 @@ msgstr "REESTABLECER FILTROS"
 
 msgid "FIND GAMES"
 msgstr "BUSCAR JUEGOS"
+
+msgid "MANUAL INPUT"
+msgstr ""
+
+msgid "NO WIFI NETWORKS FOUND"
+msgstr ""
+
+msgid "SEACHING WIFI NETWORKS"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "TERMINADO"
