@@ -72,9 +72,11 @@ private:
 	void openQuitMenu_batocera();
 	void openSystemInformations_batocera();
 	void openDeveloperSettings();
-	void openNetplaySettings();
+	void openNetplaySettings(); 
 
-	void createInputTextRow(GuiSettings * gui, std::string title, const char* settingsID, bool password, bool storeInSettings=false);
+	static void openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave);
+
+	void createInputTextRow(GuiSettings * gui, std::string title, const char* settingsID, bool password, bool storeInSettings=false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
 	MenuComponent mMenu;
 	TextComponent mVersion;
 

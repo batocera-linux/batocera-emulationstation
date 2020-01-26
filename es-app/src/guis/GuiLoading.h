@@ -15,7 +15,7 @@
 class GuiLoading  : public GuiComponent {
 public:
     GuiLoading(Window *window, const std::function<void *()> &mFunc, const std::function<void(void *)> &mFunc2);
-    GuiLoading(Window *window, const std::function<void *()> &mFunc);
+    GuiLoading(Window *window, const std::string title, const std::function<void *()> &mFunc);
 
     virtual ~GuiLoading();
 

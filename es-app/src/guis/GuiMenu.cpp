@@ -39,6 +39,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
+#include "guis/GuiWifi.h"
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
 #include "ThreadedHasher.h"
@@ -2259,6 +2260,11 @@ void GuiMenu::openSoundSettings()
 	mWindow->pushGui(s);
 }
 
+void GuiMenu::openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave)
+{
+	win->pushGui(new GuiWifi(win, title, data, onsave));
+}
+
 void GuiMenu::openNetworkSettings_batocera()
 {
 	auto theme = ThemeData::getMenuTheme();
@@ -2287,7 +2293,8 @@ void GuiMenu::openNetworkSettings_batocera()
 
 	// window, title, settingstring,
 	const std::string baseSSID = SystemConf::getInstance()->get("wifi.ssid");
-	createInputTextRow(s, _("WIFI SSID"), "wifi.ssid", false);
+	createInputTextRow(s, _("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+
 	const std::string baseKEY = SystemConf::getInstance()->get("wifi.key");
 	createInputTextRow(s, _("WIFI KEY"), "wifi.key", true);
 
@@ -2422,8 +2429,11 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	window->pushGui(s);
 }
 
-void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password, bool storeInSettings)
+void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password, bool storeInSettings
+	, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor)
 {
+	
+
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
 	unsigned int color = theme->Text.color;
@@ -2451,24 +2461,26 @@ void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char
 	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
 	row.addElement(bracket, false);
 
-	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal) {
+	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal) 
+	{
 		if (!password)
 			ed->setValue(newVal);
-		else {
+		else
 			ed->setValue("*********");
-		}
 
 		if (storeInSettings)
 			Settings::getInstance()->setString(settingsID, newVal);
 		else
 			SystemConf::getInstance()->set(settingsID, newVal);
 	}; // ok callback (apply new value to ed)
-
-	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings]
+	
+	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings, customEditor]
 	{
 		std::string data = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
 
-		if (Settings::getInstance()->getBool("UseOSK"))
+		if (customEditor != nullptr)
+			customEditor(mWindow, title, data, updateVal);
+		else if (Settings::getInstance()->getBool("UseOSK"))
 			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, data, updateVal, false));
 		else
 			mWindow->pushGui(new GuiTextEditPopup(mWindow, title, data, updateVal, false));

@@ -132,7 +132,11 @@ public:
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
 
+	std::vector<std::string> getWifiNetworks(bool scan = false);
+
 private:
+	std::vector<std::string> executeEnumerationScript(const std::string command);
+
     static ApiSystem *instance;
 
     ApiSystem();
