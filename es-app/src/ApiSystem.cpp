@@ -621,7 +621,6 @@ bool ApiSystem::disableWifi()
 	}
 }
 
-
 bool ApiSystem::halt(bool reboot, bool fast) 
 {
 	LOG(LogDebug) << "ApiSystem::halt";
@@ -637,6 +636,7 @@ bool ApiSystem::halt(bool reboot, bool fast)
 			quit->type = SDL_QUIT | SDL_SYS_REBOOT;
 		else
 			quit->type = SDL_QUIT | SDL_SYS_SHUTDOWN;
+
 	SDL_PushEvent(quit);
 	return 0;
 }
@@ -656,7 +656,6 @@ bool ApiSystem::shutdown() {
 bool ApiSystem::fastShutdown() {
 	return halt(false, true);
 }
-
 
 std::string ApiSystem::getIpAdress() 
 {
@@ -714,24 +713,20 @@ std::string ApiSystem::getIpAdress()
 
 bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
 {
+	if (func == nullptr)
+		return false;
+
 	LOG(LogDebug) << "ApiSystem::scanNewBluetooth";
 
-	std::vector<std::string> *res = new std::vector<std::string>();
-	std::ostringstream oss;
-	oss << "batocera-bt-pair-device";
-
-	FILE* pipe = popen(oss.str().c_str(), "r");
+	FILE* pipe = popen("batocera-bt-pair-device", "r");
 	if (pipe == NULL)
 		return false;
 	
 	char line[1024];
 	while (fgets(line, 1024, pipe))
 	{
-		strtok(line, "\n");
-		res->push_back(std::string(line));
-
-		if (func != nullptr)
-			func(std::string(line));
+		strtok(line, "\n");			
+		func(std::string(line));
 	}
 
 	int exitCode = pclose(pipe);
@@ -740,160 +735,47 @@ bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& f
 
 std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableStorageDevices";
-
-	std::vector<std::string> res;
-
 #if WIN32
+	std::vector<std::string> res;
 	res.push_back("DEFAULT");
 	return res;
 #endif
 
-	std::ostringstream oss;
-	oss << "batocera-config" << " " << "storage list";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-config storage list");
 }
 
 std::vector<std::string> ApiSystem::getVideoModes() 
 {
-	LOG(LogDebug) << "ApiSystem::getVideoModes";
-
-	std::vector<std::string> res;
-	std::ostringstream oss;
-	oss << "batocera-resolution listModes";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-resolution listModes");
 }
 
 std::vector<std::string> ApiSystem::getAvailableBackupDevices() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableBackupDevices";
-
-	std::vector<std::string> res;
-	std::ostringstream oss;
-	oss << "batocera-sync list";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-sync list");
 }
 
 std::vector<std::string> ApiSystem::getAvailableInstallDevices() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableInstallDevices";
-
-	std::vector<std::string> res;
-	std::ostringstream oss;
-	oss << "batocera-install listDisks";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-install listDisks");
 }
 
 std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableInstallArchitectures";
-
-	std::vector<std::string> res;
-	std::ostringstream oss;
-	oss << "batocera-install listArchs";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-install listArchs");
 }
 
 std::vector<std::string> ApiSystem::getAvailableOverclocking() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableOverclocking";
-
-	std::vector<std::string> res;
-
-#if WIN32
-	return res;
-#endif
-
-	std::ostringstream oss;
-	oss << "batocera-overclock list";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-overclock list");
 }
 
 std::vector<std::string> ApiSystem::getSystemInformations() 
 {
+#if WIN32
 	LOG(LogDebug) << "ApiSystem::getSystemInformations";
 
 	std::vector<std::string> res;
 
-#if WIN32
 	int CPUInfo[4] = { -1 };
 	unsigned   nExIds, i = 0;
 	char CPUBrandString[0x40];
@@ -927,31 +809,18 @@ std::vector<std::string> ApiSystem::getSystemInformations()
 	return res;
 #endif
 
-	FILE *pipe = popen("batocera-info", "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-info");
 }
 
 std::vector<BiosSystem> ApiSystem::getBiosInformations() 
 {
-	LOG(LogDebug) << "ApiSystem::getBiosInformations";
-
 	std::vector<BiosSystem> res;
 	BiosSystem current;
 	bool isCurrent = false;
 
 #if WIN32 && _DEBUG
+	LOG(LogDebug) << "ApiSystem::getBiosInformations";
+
 	current.name = "atari5200";
 
 	BiosFile biosFile;
@@ -964,34 +833,31 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 	return res;
 #endif
 
-	FILE *pipe = popen("batocera-systems", "r");
-
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		if (Utils::String::startsWith(line, "> ")) {
-			if (isCurrent) {
+	auto systems = executeEnumerationScript("batocera-systems");
+	for (auto line : systems)
+	{
+		if (Utils::String::startsWith(line, "> ")) 
+		{
+			if (isCurrent)
 				res.push_back(current);
-			}
+
 			isCurrent = true;
 			current.name = std::string(std::string(line).substr(2));
 			current.bios.clear();
 		}
-		else {
+		else 
+		{
 			BiosFile biosFile;
 			std::vector<std::string> tokens = Utils::String::split(line, ' ');
-			if (tokens.size() >= 3) {
+			if (tokens.size() >= 3) 
+			{
 				biosFile.status = tokens.at(0);
 				biosFile.md5 = tokens.at(1);
 
 				// concatenat the ending words
 				std::string vname = "";
-				for (unsigned int i = 2; i < tokens.size(); i++) {
+				for (unsigned int i = 2; i < tokens.size(); i++) 
+				{
 					if (i > 2) vname += " ";
 					vname += tokens.at(i);
 				}
@@ -1001,10 +867,10 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 			}
 		}
 	}
-	if (isCurrent) {
+
+	if (isCurrent)
 		res.push_back(current);
-	}
-	pclose(pipe);
+
 	return res;
 }
 
@@ -1092,59 +958,18 @@ std::string ApiSystem::getRootPassword()
 
 std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableAudioOutputDevices";
-
-	std::vector<std::string> res;
-
 #if WIN32
+	std::vector<std::string> res;
 	res.push_back("auto");
 	return res;
 #endif
 
-	std::ostringstream oss;
-	oss << "batocera-config" << " " << "lsaudio";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-config lsaudio");
 }
 
 std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
 {
-	LOG(LogDebug) << "ApiSystem::getAvailableVideoOutputDevices";
-
-	std::vector<std::string> res;
-
-#if WIN32
-	return res;
-#endif
-
-	std::ostringstream oss;
-	oss << "batocera-config" << " " << "lsoutputs";
-	FILE *pipe = popen(oss.str().c_str(), "r");
-	char line[1024];
-
-	if (pipe == NULL) {
-		return res;
-	}
-
-	while (fgets(line, 1024, pipe)) {
-		strtok(line, "\n");
-		res.push_back(std::string(line));
-	}
-	pclose(pipe);
-
-	return res;
+	return executeEnumerationScript("batocera-config lsoutputs");
 }
 
 std::string ApiSystem::getCurrentAudioOutputDevice() 
@@ -1720,7 +1545,6 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-
 std::vector<std::string> ApiSystem::getBatoceraBezelsList() 
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraBezelsList";
@@ -2080,4 +1904,47 @@ void ApiSystem::setBrighness(int value)
 
 	close(fd);
 #endif
+}
+
+std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
+{
+#if WIN32
+	std::vector<std::string> res;
+	if (scan)
+	{
+		::Sleep(1000);
+		res.push_back("Toto");
+		res.push_back("Tata");
+		res.push_back("Titi");
+	}
+	res.push_back("Fake SSID");
+	return res;
+#endif
+
+	return executeEnumerationScript(scan ? "batocera-wifi scanlist" : "batocera-wifi list");
+}
+
+std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string command)
+{
+	LOG(LogDebug) << "ApiSystem::executeEnumerationScript -> " << command;
+
+	std::vector<std::string> res;
+
+#if WIN32
+	return res;
+#endif
+
+	FILE *pipe = popen(command.c_str(), "r");
+	if (pipe == NULL)
+		return res;
+
+	char line[1024];
+	while (fgets(line, 1024, pipe))
+	{
+		strtok(line, "\n");
+		res.push_back(std::string(line));
+	}
+
+	pclose(pipe);
+	return res;
 }

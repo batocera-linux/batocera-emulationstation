@@ -7,15 +7,21 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 
-GuiLoading::GuiLoading(Window *window, const std::function<void*()> &mFunc) : GuiComponent(window), mBusyAnim(window), mFunc(mFunc),mFunc2(NULL) {
+GuiLoading::GuiLoading(Window *window, const std::string title, const std::function<void*()> &mFunc) : GuiComponent(window), mBusyAnim(window), mFunc(mFunc),mFunc2(NULL) 
+{
     setSize((float) Renderer::getScreenWidth(), (float) Renderer::getScreenHeight());
+
+	setTag("popup");
+
     mRunning = true;
     mHandle = new std::thread(&GuiLoading::threadLoading, this);
+	mBusyAnim.setText(title);
     mBusyAnim.setSize(mSize);
 }
 
 GuiLoading::GuiLoading(Window *window, const std::function<void*()> &mFunc, const std::function<void(void *)> &mFunc2) : GuiComponent(window), mBusyAnim(window), mFunc(mFunc),mFunc2(mFunc2) {
     setSize((float) Renderer::getScreenWidth(), (float) Renderer::getScreenHeight());
+	setTag("popup");
     mRunning = true;
     mHandle = new std::thread(&GuiLoading::threadLoading, this);
     mBusyAnim.setSize(mSize);
