@@ -158,13 +158,13 @@ msgid "FIND GAMES"
 msgstr "PROCURAR JOGOS"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "ENTRADA MANUAL"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "NENHUMA REDE WIFI ENCONTRADA"
 
 msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgstr "PESQUISA DE REDES WIFI"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
