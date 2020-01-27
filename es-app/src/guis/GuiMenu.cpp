@@ -1224,13 +1224,22 @@ void GuiMenu::openGamesSettings_batocera()
 		// Service  URL
 		createInputTextRow(ai_service, _("SERVICE URL"), "global.ai_service_url", false);
 
-		ai_service->addSaveFunc([ai_service_enabled, lang_choices] {
+		// Pause game for translation?
+		auto ai_service_pause = std::make_shared<SwitchComponent>(mWindow);
+		ai_service_pause->setState(
+			SystemConf::getInstance()->get("global.ai_service_pause") == "1");
+		ai_service->addWithLabel(_("PAUSE ON TRANSLATED SCREEN"), ai_service_pause);
+
+		ai_service->addSaveFunc([ai_service_enabled, lang_choices, ai_service_pause] {
 			if (ai_service_enabled->changed())
 				SystemConf::getInstance()->set("global.ai_service_enabled",
 					ai_service_enabled->getState() ? "1" : "0");
 			if (lang_choices->changed())
 				SystemConf::getInstance()->set("global.ai_target_lang",
 					lang_choices->getSelected());
+			if (ai_service_pause->changed())
+				SystemConf::getInstance()->set("global.ai_service_pause",
+					ai_service_pause->getState() ? "1" : "0");
 			SystemConf::getInstance()->saveSystemConf();
 		});
 
