@@ -131,6 +131,35 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	
 };
 
+const std::map<unsigned short, std::string> screenscraper_arcadesystemid_map{
+        { 6, "cps1" },
+        { 7, "cps2" },
+        { 8, "cps3" },
+        { 47, "cave" },
+        { 68, "neogeo" },
+        { 142, "neogeo" },
+        { 147, "sega" },
+        { 148, "irem" },
+        { 150, "midway" },
+        { 151, "capcom" },
+        { 153, "tecmo" },
+        { 154, "snk" },
+        { 155, "namco" },
+        { 156, "namco" },
+        { 157, "taito" },
+        { 158, "konami" },
+        { 159, "jaleco" },
+        { 160, "atari" },
+        { 161, "nintendo" },
+        { 162, "dataeast" },
+        { 164, "sammy" },
+        { 166, "acclaim" },
+        { 167, "psikyo" },
+        { 174, "kaneko" },
+        { 183, "coleco" },
+        { 185, "atlus" },
+        { 186, "banpresto" }
+};
 
 // Helper XML parsing method, finding a node-by-name recursively.
 pugi::xml_node find_node_by_name_re(const pugi::xml_node& node, const std::vector<std::string> node_names) {
@@ -420,7 +449,20 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 		// Players
 		result.mdl.set("players", game.child("joueurs").text().get());
 
-		// TODO: Validate rating
+        if(Settings::getInstance()->getBool("ScrapeArcadeSystems") && game.child("systeme").attribute("id"))
+        {
+            int systemId = game.child("systeme").attribute("id").as_int();
+
+            if(screenscraper_arcadesystemid_map.find(systemId) != screenscraper_arcadesystemid_map.cend())
+            {
+                std::string systemName = screenscraper_arcadesystemid_map.at(game.child("systeme").attribute("id").as_int(0));
+                result.mdl.set("arcadesystemname", systemName);
+            }
+            else
+                LOG(LogDebug) << "System " << systemId << "not found";
+        }
+
+        // TODO: Validate rating
 		if (Settings::getInstance()->getBool("ScrapeRatings") && game.child("note"))
 		{
 			float ratingVal = (game.child("note").text().as_int() / 20.0f);

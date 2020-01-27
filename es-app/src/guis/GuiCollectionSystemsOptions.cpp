@@ -169,6 +169,21 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 	}
 	addWithLabel(_("AUTOMATIC GAME COLLECTIONS"), autoOptionList);
 
+	/*
+
+    std::map<std::string, CollectionSystemData> autoArcadeSystemsSystems = CollectionSystemManager::get()->getAutoCollectionSystems();
+
+    autoOptionList = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT COLLECTIONS"), true);
+
+    // add Auto Systems
+    for(std::map<std::string, CollectionSystemData>::const_iterator it = autoSystems.cbegin() ; it != autoSystems.cend() ; it++ )
+    {
+        autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
+    }
+    addWithLabel(_("ARCADE SYSTEMS COLLECTION"), autoOptionList);
+*/
+
+
 	std::map<std::string, CollectionSystemData> customSystems = CollectionSystemManager::get()->getCustomCollectionSystems();
 
 	customOptionList = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT COLLECTIONS"), true);

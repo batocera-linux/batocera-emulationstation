@@ -15,7 +15,7 @@
 #include "LocaleES.h"
 #include <pugixml/src/pugixml.hpp>
 #include <fstream>
-#include "Gamelist.h" 
+#include "Gamelist.h"
 
 std::string myCollectionsName = "collections";
 
@@ -29,14 +29,42 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 {
 	CollectionSystemDecl systemDecls[] = {
 		//type                  name            long name            //default sort						// theme folder            // isCustom
-	  { AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false },
-	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false },
-	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false },
-	  { AUTO_AT2PLAYERS,      "2players",	  _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false }, // batocera
-	  { AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false }, // batocera
-	  { AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false }, // batocera
+	  { AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false , true},
+	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false, true},
+	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false , true},
+	  { AUTO_AT2PLAYERS,      "2players",	  _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false, true }, // batocera
+	  { AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false, true }, // batocera// batocera
+      { AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false, true }, // batocera
+      { CPS1_COLLECTION,    "zcps1",       _("cps1"),      FileSorts::FILENAME_ASCENDING,    "cps1",        false, false },
+      { CPS2_COLLECTION,    "zcps2",       _("cps2"),      FileSorts::FILENAME_ASCENDING,    "cps2",        false, false },
+      { CPS3_COLLECTION,    "zcps3",       _("cps3"),      FileSorts::FILENAME_ASCENDING,    "cps3",        false, false },
+      { CAVE_COLLECTION,    "zcave",       _("cave"),      FileSorts::FILENAME_ASCENDING,    "cave",        false, false },
+      { NEOGEO_COLLECTION,    "zneogeo",       _("neogeo"),      FileSorts::FILENAME_ASCENDING,    "neogeo",        false, false },
+      { SEGA_COLLECTION,    "zsega",       _("sega"),      FileSorts::FILENAME_ASCENDING,    "sega",        false, false },
+      { IREM_COLLECTION,    "zirem",       _("irem"),      FileSorts::FILENAME_ASCENDING,    "irem",        false, false },
+      { MIDWAY_COLLECTION,    "zmidway",       _("midway"),      FileSorts::FILENAME_ASCENDING,    "midway",        false, false },
+      { CAPCOM_COLLECTION,    "zcapcom",       _("capcom"),      FileSorts::FILENAME_ASCENDING,    "capcom",        false, false },
+      { TECMO_COLLECTION,    "ztecmo",       _("tecmo"),      FileSorts::FILENAME_ASCENDING,    "tecmo",        false, false },
+      { SNK_COLLECTION,    "zsnk",       _("snk"),      FileSorts::FILENAME_ASCENDING,    "snk",        false, false },
+      { NAMCO_COLLECTION,    "znamco",       _("namco"),      FileSorts::FILENAME_ASCENDING,    "namco",        false, false },
+      { TAITO_COLLECTION,    "ztaito",       _("taito"),      FileSorts::FILENAME_ASCENDING,    "taito",        false, false },
+      { KONAMI_COLLECTION,    "zkonami",       _("konami"),      FileSorts::FILENAME_ASCENDING,    "konami",        false, false },
+      { JALECO_COLLECTION,    "zjaleco",       _("jaleco"),      FileSorts::FILENAME_ASCENDING,    "jaleco",        false, false },
+      { ATARI_COLLECTION,    "zatari",       _("atari"),      FileSorts::FILENAME_ASCENDING,    "atari",        false, false },
+      { NINTENDO_COLLECTION,    "znintendo",       _("nintendo"),      FileSorts::FILENAME_ASCENDING,    "nintendo",        false, false },
+      { SAMMY_COLLECTION,    "zsammy",       _("sammy"),      FileSorts::FILENAME_ASCENDING,    "sammy",        false, false },
+      { ACCLAIM_COLLECTION,    "zacclaim",       _("acclaim"),      FileSorts::FILENAME_ASCENDING,    "acclaim",        false, false },
+          { PSIKYO_COLLECTION,    "zpsiko",       _("psiko"),      FileSorts::FILENAME_ASCENDING,    "psiko",        false, false },
+      { KANEKO_COLLECTION,    "zkaneko",       _("kaneko"),      FileSorts::FILENAME_ASCENDING,    "kaneko",        false, false },
+      { COLECO_COLLECTION,    "zcoleco",       _("coleco"),      FileSorts::FILENAME_ASCENDING,    "coleco",        false, false },
+      { ATLUS_COLLECTION,    "zatlus",       _("atlus"),      FileSorts::FILENAME_ASCENDING,    "atlus",        false, false },
+      { BANPRESTO_COLLECTION,    "zbanpresto",       _("banpresto"),      FileSorts::FILENAME_ASCENDING,    "banpresto",        false, false },
 	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
 	};
+
+
+
+
 
 	// create a map
 	std::vector<CollectionSystemDecl> tempSystemDecl = std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
@@ -758,6 +786,79 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						// we may still want to add files we don't want in auto collections in "favorites"
 						include = (*gameIt)->getMetadata("favorite") == "true";
 						break;
+                    case CPS1_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps1";
+                        break;
+                    case CPS2_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps2";
+                        break;
+                    case CPS3_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps3";
+                        break;
+                    case CAVE_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "cave";
+                        break;
+                    case NEOGEO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "neogeo";
+                        break;
+                    case SEGA_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "sega";
+                        break;
+                    case IREM_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "irem";
+                        break;
+                    case MIDWAY_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "midway";
+                        break;
+                    case CAPCOM_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "capcom";
+                        break;
+                    case TECMO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "techmo";
+                        break;
+                    case SNK_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "snk";
+                        break;
+                    case NAMCO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "namco";
+                        break;
+                    case TAITO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "taito";
+                        break;
+                    case KONAMI_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "konami";
+                        break;
+                    case JALECO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "jaleco";
+                        break;
+                    case ATARI_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "atari";
+                        break;
+                    case NINTENDO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "nintendo";
+                        break;
+                    case SAMMY_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "sammy";
+                        break;
+                    case ACCLAIM_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "acclaim";
+                        break;
+                    case PSIKYO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "psikyo";
+                        break;
+                    case KANEKO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "kaneko";
+                        break;
+                    case COLECO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "coleco";
+                        break;
+                    case ATLUS_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "atlus";
+                        break;
+                    case BANPRESTO_COLLECTION:
+                        include = (*gameIt)->getMetadata("arcadesystemname") == "banpresto";
+                        break;
+
 					case AUTO_AT2PLAYERS: // batocera
 					case AUTO_AT4PLAYERS:
 						{
@@ -904,9 +1005,15 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 			// check if it has its own view
 			if(!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
 			{
-				// exists theme folder, or we chose not to bundle it under the custom-collections system
-				// so we need to create a view
-				SystemData::sSystemVector.push_back(it->second.system);
+                if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
+                {
+                        // exists theme folder, or we chose not to bundle it under the custom-collections system
+                        // so we need to create a view
+                        if(it->second.isEnabled)
+                            SystemData::sSystemVector.push_back(it->second.system);
+
+
+                }
 			}
 			else
 			{
