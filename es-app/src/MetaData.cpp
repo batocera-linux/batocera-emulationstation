@@ -11,10 +11,10 @@
 static std::vector<MetaDataDecl> gameMDD;
 static std::vector<MetaDataDecl> folderMDD;
 
-static std::string mDefaultGameMap[21];
+static std::string mDefaultGameMap[22];
 static std::string mDefaultFolderMap[14];
 
-static MetaDataType mGameTypeMap[21];
+static MetaDataType mGameTypeMap[22];
 static MetaDataType mFolderTypeMap[14];
 
 static std::map<std::string, unsigned char> mGameIdMap;

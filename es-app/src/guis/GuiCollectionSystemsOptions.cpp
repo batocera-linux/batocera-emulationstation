@@ -1,3 +1,4 @@
+#include <SystemData.h>
 #include "guis/GuiCollectionSystemsOptions.h"
 
 #include "components/OptionListComponent.h"
@@ -158,14 +159,28 @@ GuiCollectionSystemsOptions::~GuiCollectionSystemsOptions()
 void GuiCollectionSystemsOptions::addSystemsToMenu()
 {
 
-	std::map<std::string, CollectionSystemData> autoSystems = CollectionSystemManager::get()->getAutoCollectionSystems();
+	std::map<std::string, CollectionSystemData> &autoSystems = CollectionSystemManager::get()->getAutoCollectionSystems();
 
 	autoOptionList = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT COLLECTIONS"), true);
 
+
+
 	// add Auto Systems
-	for(std::map<std::string, CollectionSystemData>::const_iterator it = autoSystems.cbegin() ; it != autoSystems.cend() ; it++ )
+	for(std::map<std::string, CollectionSystemData>::iterator it = autoSystems.begin(); it != autoSystems.end() ; it++ )
 	{
-		autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
+        if (it->second.decl.displayIfEmpty)
+            autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
+        else
+        {
+            if (!it->second.isPopulated)
+            {
+                CollectionSystemManager::get()->populateAutoCollection(&(it->second));
+            }
+            if (it->second.system->getRootFolder()->getChildren().size() == 0)
+                continue;
+
+            autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
+        }
 	}
 	addWithLabel(_("AUTOMATIC GAME COLLECTIONS"), autoOptionList);
 
