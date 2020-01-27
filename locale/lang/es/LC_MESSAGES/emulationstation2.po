@@ -74,10 +74,10 @@ msgid "LAUNCH"
 msgstr "LANZAR"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "JUEGOS DISPONIBLES"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "JUEGOS NO DISPONIBLES"
 
 msgid "NO GAME FOUND"
 msgstr "NINGUN JUEGO ENCONTRADO"
@@ -116,13 +116,13 @@ msgid "SHOW FOLDERS"
 msgstr "MOSTRAR CARPETAS"
 
 msgid "always"
-msgstr ""
+msgstr "SIEMPRE"
 
 msgid "never"
-msgstr ""
+msgstr "NUNCA"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "TIENE MULTIPLES JUEGOS"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AGREGAR / REMOVER JUEGOS A ESTA COLECCIÓN"
@@ -146,7 +146,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "FUNCION DESHABILITADA CUANDO EL SCRAPPER ESTA EJECUTANDOSE"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTRAR LISTA DE JUEGOS POR"
 
 msgid "RESET ALL FILTERS"
 msgstr "REESTABLECER FILTROS"
@@ -155,13 +155,13 @@ msgid "FIND GAMES"
 msgstr "BUSCAR JUEGOS"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "ENTRADA MANUAL"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "NO SE ENCONTRARON REDES INALAMBRICAS"
 
 msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgstr "BUSCANDO REDES INALAMBRICAS"
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -221,10 +221,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "TITULO CAPTURA DE PANTALLA"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "MIX V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MIX V2"
 
 msgid "BOX 2D"
 msgstr "CAJA 2D"
@@ -377,7 +377,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "SE REQUIERE UN REINICIO PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "BRILLO"
 
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
@@ -663,7 +663,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "MOSTRAR CUBIERTA CAMBIA EL VOLUMEN"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FONDO"
@@ -768,13 +768,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTES EMULADOS"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "CAMBIAR ACOMODO DE PANTALLA"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "PANTALLA COMPLETA"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "LADO A LADO"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCION INTERNA"
@@ -1318,19 +1318,19 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "GENRE"
-msgstr ""
+msgstr "GENERO"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "JUGADORES"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "PUBLICADO POR / DESARROLLADOR"
 
 msgid "RATING"
-msgstr ""
+msgstr "PUNTUACION"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "JUEGO DE NIÑO"
 
 msgid "HASHING GAMES"
 msgstr "VALIDANDO JUEGOS"
