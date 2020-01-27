@@ -775,6 +775,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			for(auto gameIt = files.cbegin(); gameIt != files.cend(); gameIt++)
 			{
 				bool include = includeFileInAutoCollections((*gameIt));
+                std::string systemarcadename;
 				switch(sysDecl.type) {
 					case AUTO_LAST_PLAYED:
 						include = include && (*gameIt)->getMetadata("playcount") > "0";
@@ -787,76 +788,76 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						include = (*gameIt)->getMetadata("favorite") == "true";
 						break;
                     case CPS1_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps1";
+                        systemarcadename = "cps1";
                         break;
                     case CPS2_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps2";
+                        systemarcadename = "cps2";
                         break;
                     case CPS3_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "cps3";
+                        systemarcadename = "cps3";
                         break;
                     case CAVE_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "cave";
+                        systemarcadename = "cave";
                         break;
                     case NEOGEO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "neogeo";
+                        systemarcadename = "neogeo";
                         break;
                     case SEGA_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "sega";
+                        systemarcadename = "sega";
                         break;
                     case IREM_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "irem";
+                        systemarcadename = "irem";
                         break;
                     case MIDWAY_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "midway";
+                        systemarcadename = "midway";
                         break;
                     case CAPCOM_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "capcom";
+                        systemarcadename = "capcom";
                         break;
                     case TECMO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "techmo";
+                        systemarcadename = "techmo";
                         break;
                     case SNK_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "snk";
+                        systemarcadename = "snk";
                         break;
                     case NAMCO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "namco";
+                        systemarcadename = "namco";
                         break;
                     case TAITO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "taito";
+                        systemarcadename = "taito";
                         break;
                     case KONAMI_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "konami";
+                        systemarcadename = "konami";
                         break;
                     case JALECO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "jaleco";
+                        systemarcadename = "jaleco";
                         break;
                     case ATARI_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "atari";
+                        systemarcadename = "atari";
                         break;
                     case NINTENDO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "nintendo";
+                        systemarcadename = "nintendo";
                         break;
                     case SAMMY_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "sammy";
+                        systemarcadename = "sammy";
                         break;
                     case ACCLAIM_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "acclaim";
+                        systemarcadename = "acclaim";
                         break;
                     case PSIKYO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "psikyo";
+                        systemarcadename = "psikyo";
                         break;
                     case KANEKO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "kaneko";
+                        systemarcadename = "kaneko";
                         break;
                     case COLECO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "coleco";
+                        systemarcadename = "coleco";
                         break;
                     case ATLUS_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "atlus";
+                        systemarcadename = "atlus";
                         break;
                     case BANPRESTO_COLLECTION:
-                        include = (*gameIt)->getMetadata("arcadesystemname") == "banpresto";
+                        systemarcadename = "banpresto";
                         break;
 
 					case AUTO_AT2PLAYERS: // batocera
@@ -888,6 +889,19 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						break;
 				}
 
+
+
+                std::vector<PlatformIds::PlatformId> platforms = (*sysIt)->getPlatformIds();
+				
+				if(!systemarcadename.empty())
+                {
+				    include = false;
+                    if(std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end())
+                    {
+                        include = (*gameIt)->getMetadata("arcadesystemname") == systemarcadename;
+                    }
+                }
+				    
 				if (include) {
 					CollectionFileData* newGame = new CollectionFileData(*gameIt, newSys);
 					rootFolder->addChild(newGame);

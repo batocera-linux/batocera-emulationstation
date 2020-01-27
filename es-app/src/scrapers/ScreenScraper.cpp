@@ -449,7 +449,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 		// Players
 		result.mdl.set("players", game.child("joueurs").text().get());
 
-        if(Settings::getInstance()->getBool("ScrapeArcadeSystems") && game.child("systeme").attribute("id"))
+        if(game.child("systeme").attribute("id"))
         {
             int systemId = game.child("systeme").attribute("id").as_int();
 

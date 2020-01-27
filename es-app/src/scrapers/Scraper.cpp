@@ -123,7 +123,7 @@ void ScraperHttpRequest::update()
 	if(status == HttpReq::REQ_SUCCESS)
 	{
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
-		process(mReq, mResults);		
+		process(mReq, mResults);
 		return;
 	}
 
