@@ -131,7 +131,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 				value = Utils::String::toLower(value);
 
 			// Players -> remove "1-"
-			if (type == GAME_METADATA && iter->id == 14 && iter->type == MD_INT && Utils::String::startsWith(value, "1-")) // "players"
+			if (type == GAME_METADATA && iter->id == 12 && iter->type == MD_INT && Utils::String::startsWith(value, "1-")) // "players"
 				value = Utils::String::replace(value, "1-", "");
 			
 			if (iter->id == 0)
@@ -193,7 +193,7 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 		auto id = getId(key);
 		
 		// Players -> remove "1-"
-		if (mType == GAME_METADATA && id == 14 && Utils::String::startsWith(value, "1-")) // "players"
+		if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
 		{
 			mMap[id] = Utils::String::replace(value, "1-", "");
 			return;
