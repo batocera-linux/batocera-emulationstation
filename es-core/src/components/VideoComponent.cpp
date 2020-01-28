@@ -497,3 +497,9 @@ void VideoComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 	if (!video.empty())
 		setVideo(video);
 }
+
+void VideoComponent::setRoundCorners(float value) 
+{ 
+	mRoundCorners = value; 
+	mStaticImage.setRoundCorners(value);
+}
