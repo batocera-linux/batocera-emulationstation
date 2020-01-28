@@ -77,18 +77,6 @@ MenuComponent::MenuComponent(Window* window,
 	mGrid.resetCursor();
 }
 
-void MenuComponent::addGroup(const std::string& label)
-{
-	auto theme = ThemeData::getMenuTheme();
-
-	ComponentListRow row;
-	auto empty = std::make_shared<TextComponent>(mWindow, label, theme->TextSmall.font, theme->TextSmall.color);
-	empty->setLineSpacing(2.5);
-	row.addElement(empty, true, false);
-	row.selectable = false;
-	addRow(row);
-}
-
 void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
 {
 	auto theme = ThemeData::getMenuTheme();
