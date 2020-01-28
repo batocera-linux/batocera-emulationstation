@@ -46,7 +46,7 @@ void ThreadedScraper::search(const ScraperSearchParams& params)
 	std::string idx = std::to_string(mTotal + 1- mSearchQueue.size()) + "/" + std::to_string(mTotal);
 
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING") + "... " + idx);
-	mWndNotification->updateText(formatGameName(params.game), _("Searching")+"...");
+	mWndNotification->updateText(formatGameName(params.game), _("SEARCHING")+"...");
 	mWndNotification->updatePercent(-1);
 }
 
@@ -128,7 +128,7 @@ void ThreadedScraper::run()
 			if (action != mCurrentAction)
 			{
 				mCurrentAction = action;
-				mWndNotification->updateText(formatGameName(mLastSearch.game), "Downloading "+ mCurrentAction);
+				mWndNotification->updateText(formatGameName(mLastSearch.game), _("DOWNLOADING") + " " + mCurrentAction);
 			}
 
 			mWndNotification->updatePercent(mMDResolveHandle->getPercent());
