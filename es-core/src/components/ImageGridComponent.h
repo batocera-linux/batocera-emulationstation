@@ -899,10 +899,10 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 
 			tile->setImage(imagePath, mEntries.at(imgPos).data.virtualFolder);
 		}
-		else if (mEntries.at(imgPos).data.folder && Utils::String::startsWith(name, "."))
-			tile->setImage(mDefaultFolderTexture, true);
+		else if (mEntries.at(imgPos).data.folder)
+			tile->setImage(mDefaultFolderTexture, mDefaultFolderTexture == ":/folder.svg");
 		else
-			tile->setImage(mDefaultGameTexture, true);
+			tile->setImage(mDefaultGameTexture, mDefaultGameTexture == ":/cartridge.svg");
 		
 		// Marquee
 		std::string marqueePath = mEntries.at(imgPos).data.marqueePath;
