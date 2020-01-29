@@ -769,12 +769,16 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	
 	for(auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
 	{
+        std::vector<PlatformIds::PlatformId> platforms = (*sysIt)->getPlatformIds();
+        bool isArcade =  std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
+
 		// we won't iterate all collections
 		if ((*sysIt)->isGameSystem() && !(*sysIt)->isCollection()) {
 			std::vector<FileData*> files = (*sysIt)->getRootFolder()->getFilesRecursive(GAME);
 			for(auto gameIt = files.cbegin(); gameIt != files.cend(); gameIt++)
 			{
 				bool include = includeFileInAutoCollections((*gameIt));
+
                 std::string systemarcadename;
 				switch(sysDecl.type) {
 					case AUTO_LAST_PLAYED:
@@ -896,7 +900,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 				if(!systemarcadename.empty())
                 {
 				    include = false;
-                    if(std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end())
+                    if(isArcade)
                     {
                         include = (*gameIt)->getMetadata("arcadesystemname") == systemarcadename;
                     }
