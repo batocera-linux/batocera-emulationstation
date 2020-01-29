@@ -3,6 +3,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "Settings.h"
+#include "LocaleES.h"
 
 DateTimeComponent::DateTimeComponent(Window* window) : TextComponent(window), mDisplayRelative(false)
 {
@@ -47,10 +48,11 @@ void DateTimeComponent::onTextChanged()
 
 std::string DateTimeComponent::getDisplayString() const
 {
-	if (mDisplayRelative) {
+	if (mDisplayRelative) 
+	{
 		//relative time
 		if(mTime.getTime() == 0)
-			return "never";
+			return _("never");
 
 		Utils::Time::DateTime now(Utils::Time::now());
 		Utils::Time::Duration dur(now.getTime() - mTime.getTime());
@@ -70,7 +72,7 @@ std::string DateTimeComponent::getDisplayString() const
 	}
 
 	if(mTime.getTime() == 0)
-		return "";
+		return _("Unknown");
 
 	return Utils::Time::timeToString(mTime.getTime(), mFormat);
 }

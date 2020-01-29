@@ -1,5 +1,7 @@
 #include "components/ComponentList.h"
+#include "components/TextComponent.h"
 #include "LocaleES.h"
+
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
 ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP)
@@ -24,11 +26,27 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere)
 	updateElementSize(mEntries.back().data);
 	updateElementPosition(mEntries.back().data);
 
+	// Fix group initial cursor position
+	if (mCursor == 0 && mEntries.size() == 2 && !mEntries[0].data.selectable)
+		setCursorHere = true;
+
 	if(setCursorHere)
 	{
 		mCursor = (int)mEntries.size() - 1;
 		onCursorChanged(CURSOR_STOPPED);
 	}
+}
+
+void ComponentList::addGroup(const std::string& label)
+{
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+	auto empty = std::make_shared<TextComponent>(mWindow, label, theme->TextSmall.font, theme->TextSmall.color);
+	empty->setLineSpacing(2.5);
+	row.addElement(empty, true, false);
+	row.selectable = false;
+	addRow(row);
 }
 
 void ComponentList::onSizeChanged()

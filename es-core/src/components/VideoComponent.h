@@ -121,7 +121,7 @@ public:
 	}
 
 	float getRoundCorners() { return mRoundCorners; }
-	void setRoundCorners(float value) { mRoundCorners = value; }
+	void setRoundCorners(float value);
 	
 	bool isFading() {
 		return mIsPlaying && mFadeIn < 1.0;

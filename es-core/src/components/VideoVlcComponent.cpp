@@ -700,7 +700,7 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	}
 
 	if (elem && elem->has("roundCorners"))
-		mRoundCorners = elem->get<float>("roundCorners");
+		setRoundCorners(elem->get<float>("roundCorners"));
 	
 	if (properties & COLOR)
 	{

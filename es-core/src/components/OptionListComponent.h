@@ -29,6 +29,8 @@ private:
 		std::string name;
 		T object;
 		bool selected;
+
+		std::string group;
 	};
 
 	class OptionListPopup : public GuiComponent
@@ -115,6 +117,10 @@ private:
 						});
 					}
 				}
+
+
+				if (!e.group.empty())
+					mMenu.addGroup(e.group);
 
 				// also set cursor to this row if we're not multi-select and this row is selected
 				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected));
@@ -322,12 +328,21 @@ public:
 		e.name = name;
 		e.object = obj;
 		e.selected = selected;
+
+		e.group = mGroup;
+		mGroup = "";
+
                 // batocera
 		if(selected)
 			firstSelected = obj;
 
 		mEntries.push_back(e);
 		onSelectedChanged();
+	}
+
+	void addGroup(const std::string name)
+	{
+		mGroup = name;
 	}
 
 	void remove(const std::string& name)
@@ -482,6 +497,8 @@ private:
 	bool mMultiSelect;
 
 	std::string mName;
+	std::string mGroup;
+
 	T firstSelected; // batocera
 	TextComponent mText;
 	ImageComponent mLeftArrow;

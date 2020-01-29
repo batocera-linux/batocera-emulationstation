@@ -13,6 +13,7 @@ DateTimeEditComponent::DateTimeEditComponent(Window* window, DisplayMode dispMod
 	mColor = menuTheme->Text.color;
 
 	updateTextCache();
+	mAutoSize = true;
 }
 
 void DateTimeEditComponent::setDisplayMode(DisplayMode mode)

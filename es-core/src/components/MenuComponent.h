@@ -29,10 +29,10 @@ public:
 
 	inline void addRow(const ComponentListRow& row, bool setCursorHere = false) { mList->addRow(row, setCursorHere); updateSize(); }
 	inline void clear() { mList->clear(); }
-	
+
 	void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false, bool invert_when_selected = true);
 	void addEntry(const std::string name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false, bool invert_when_selected = true, bool onButtonRelease = false);
-	void addGroup(const std::string& label);
+	void addGroup(const std::string& label) { mList->addGroup(label); updateSize(); }
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
 
