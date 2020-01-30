@@ -718,19 +718,10 @@ bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& f
 
 	LOG(LogDebug) << "ApiSystem::scanNewBluetooth";
 
-	FILE* pipe = popen("batocera-bt-pair-device", "r");
-	if (pipe == NULL)
-		return false;
-	
-	char line[1024];
-	while (fgets(line, 1024, pipe))
-	{
-		strtok(line, "\n");			
-		func(std::string(line));
-	}
-
-	int exitCode = pclose(pipe);
-	return exitCode == 0;
+	std::ostringstream oss;
+	oss << "batocera-bluetooth" << " " << "trust";
+	int exitcode = system(oss.str().c_str());
+	return exitcode == 0;
 }
 
 std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
