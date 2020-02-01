@@ -75,10 +75,10 @@ msgid "LAUNCH"
 msgstr "Uruchom"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "DOSTĘPNE GRY"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "NIEDOSTĘPNE GRY"
 
 msgid "NO GAME FOUND"
 msgstr "NIE ZNALEZIONO GRY"
@@ -156,13 +156,13 @@ msgid "FIND GAMES"
 msgstr "ZNAJDŹ GRY"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "WPROWADZANIE RĘCZNE"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "NIE ZNALEZIONO SIECI WIFI"
 
 msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgstr "WYSZUKIWANIE SIECI WIFI"
 
 msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
@@ -378,7 +378,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJĘ"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "JASNOŚĆ"
 
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
@@ -663,7 +663,7 @@ msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "POKAŻ NAKŁADKĘ PODCZAS ZMIANY GŁOŚNOŚCI"
 
 msgid "FRONTEND MUSIC"
 msgstr "MUZYKA"

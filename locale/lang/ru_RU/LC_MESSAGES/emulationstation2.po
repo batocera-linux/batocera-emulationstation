@@ -77,10 +77,10 @@ msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "ДОСТУПНЫЕ ИГРЫ"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "НЕДОСТУПНЫЕ ИГРЫ"
 
 msgid "NO GAME FOUND"
 msgstr "ИГР НЕ НАЙДЕНО"
@@ -158,13 +158,13 @@ msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "РУЧНОЙ ВВОД"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
 
 msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgstr "ПОИСК СЕТИ WIFI"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -380,7 +380,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "ЯРКОСТЬ"
 
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
@@ -665,7 +665,7 @@ msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ ПРИ ИЗМ. ГРОМКОСТИ"
 
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
