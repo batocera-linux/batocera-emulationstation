@@ -73,10 +73,8 @@ void AsyncNotificationComponent::updateText(const std::string text, const std::s
 {
 	std::unique_lock<std::mutex> lock(mMutex);
 
-	mGameName->setText(text);
-
-	if (mAction != nullptr)
-		mAction->setText(action);
+	mNextGameName = text;
+	mNextAction = action;
 }
 
 void AsyncNotificationComponent::updatePercent(int percent)
@@ -90,7 +88,7 @@ void AsyncNotificationComponent::updateTitle(const std::string text)
 {
 	std::unique_lock<std::mutex> lock(mMutex);
 
-	mTitle->setText(text);
+	mNextTitle = text;
 }
 
 void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
@@ -98,6 +96,15 @@ void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
 	std::unique_lock<std::mutex> lock(mMutex);
 
 	Transform4x4f trans = parentTrans * getTransform();
+
+	if (mGameName != nullptr && mNextGameName != mGameName->getText())
+		mGameName->setText(mNextGameName);
+
+	if (mAction != nullptr && mNextAction != mAction->getText())
+		mAction->setText(mNextAction);
+
+	if (mTitle != nullptr && mNextTitle != mTitle->getText())
+		mTitle->setText(mNextTitle);
 
 	mFrame->render(trans);
 
