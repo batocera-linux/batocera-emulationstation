@@ -100,6 +100,9 @@ void SliderComponent::render(const Transform4x4f& parentTrans)
 
 void SliderComponent::setValue(float value)
 {
+	if (mValue == value)
+		return;
+
 	mValue = value;
 	if(mValue < mMin)
 		mValue = mMin;
@@ -107,6 +110,9 @@ void SliderComponent::setValue(float value)
 		mValue = mMax;
 
 	onValueChanged();
+
+	if (mValueChanged)
+		mValueChanged(mValue);
 }
 
 float SliderComponent::getValue()
@@ -152,8 +158,6 @@ void SliderComponent::onValueChanged()
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
 	mKnob.setPosition(((mValue + mMin) / mMax) * lineLength + mKnob.getSize().x()/2, mSize.y() / 2);
 
-	if (mValueChanged)
-		mValueChanged(mValue);
 }
 
 std::vector<HelpPrompt> SliderComponent::getHelpPrompts()
