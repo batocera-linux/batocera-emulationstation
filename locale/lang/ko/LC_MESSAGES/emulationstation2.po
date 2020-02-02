@@ -50,22 +50,22 @@ msgid "CANCEL"
 msgstr "취소"
 
 msgid "CONNECT TO NETPLAY"
-msgstr ""
+msgstr "넷플레이 연결"
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "넷플레이에 연결할 게임을 선택하세요"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "새로고침"
 
 msgid "CLOSE"
 msgstr "닫기"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "잠시만 기다려주세요"
 
 msgid "FAILED"
-msgstr ""
+msgstr "실패"
 
 msgid "BACK"
 msgstr "뒤로"
@@ -74,13 +74,13 @@ msgid "LAUNCH"
 msgstr "실행"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "실행가능 게임"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "실팽불가 게임"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "게임을 찾지 못했습니다"
 
 msgid "go back"
 msgstr "돌아가기"
@@ -101,7 +101,7 @@ msgid "automatic"
 msgstr "자동"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "커스터마이즈 보기"
 
 msgid "GRID SIZE"
 msgstr "그리드 사이즈"
@@ -116,13 +116,13 @@ msgid "SHOW FOLDERS"
 msgstr "폴더 보여주기"
 
 msgid "always"
-msgstr ""
+msgstr "항상"
 
 msgid "never"
-msgstr ""
+msgstr "전혀"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "멀티 게임을 즐깁니다"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "이 게임 컬렉션에 게임 추가/제거"
@@ -146,7 +146,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "게임 아트워크 수집 중에는 이 기능은 비활성화됩니다"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "로 게임리스트를 필터링합니다"
 
 msgid "RESET ALL FILTERS"
 msgstr "모든 필터 리셋"
@@ -155,13 +155,13 @@ msgid "FIND GAMES"
 msgstr "게임 찾기"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "수동 입력"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "와이파이를 찾지 못했습니다"
 
 msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgstr "와이파이를 검색 중입니다"
 
 msgid "FINISHED"
 msgstr "완료"
@@ -221,10 +221,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "타이틀 스크린샷"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "복합 V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "복합 V2"
 
 msgid "BOX 2D"
 msgstr "박스 2D"
@@ -332,7 +332,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr ""
+msgstr "레트로아크 RGUI 메뉴 사용"
 
 msgid "LOG LEVEL"
 msgstr "로그 레벨"
@@ -377,10 +377,10 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재부팅이 필요합니다."
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "화면밝기"
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "오디오 출력"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
@@ -419,19 +419,19 @@ msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
 
 msgid "LATENCY REDUCTION"
-msgstr ""
+msgstr "입력지연 줄이기"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "프레임 미리 실행"
 
 msgid "AUTO"
 msgstr "자동"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "프레임 미리 실행 사용"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "미리 실행 초 단위 사용"
 
 msgid "ON"
 msgstr "켜짐"
@@ -440,25 +440,25 @@ msgid "OFF"
 msgstr "꺼짐"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "넷플레이 설정"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "넷플레이 허용"
 
 msgid "NICKNAME"
-msgstr ""
+msgstr "닉네임"
 
 msgid "PORT"
-msgstr ""
+msgstr "포트"
 
 msgid "MITM"
-msgstr ""
+msgstr "MITM"
 
 msgid "REINDEX ALL GAMES"
-msgstr ""
+msgstr "모든 게임 재 인덱싱"
 
 msgid "INDEX MISSING GAMES"
-msgstr ""
+msgstr "인덱스 안된 게임"
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
@@ -488,10 +488,10 @@ msgid "CURVATURE"
 msgstr "곡률"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "평면빛"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
@@ -527,7 +527,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
+msgstr "시스템 고급 환경설정"
 
 msgid "MISSING BIOS"
 msgstr "없는 바이오스"
@@ -542,7 +542,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "게임 목록 업데이트"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
+msgstr "게임 해싱이 실행 중입니다. 중지 하시겠습니까?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
@@ -597,7 +597,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "그리드 사이즈 초기화"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "기본"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "사용자 게임리스트 초기화"
@@ -660,7 +660,7 @@ msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "사운드 볼륨 조절 시 화면표기"
 
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
@@ -720,7 +720,7 @@ msgid "MANUAL SCRAPER"
 msgstr "게임 아트워크 수동 수집"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "화면보호기 실행"
 
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
@@ -765,13 +765,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "위모트 에뮬레이트"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "화면 레이아웃 변경"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "큰화면"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "나란히"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "내부 해상도"
@@ -1137,16 +1137,16 @@ msgid "enter last played date"
 msgstr "마지막 플레이한 날짜 입력"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "CRC32 체크섬"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "MD5 체크섬"
 
 msgid "Game time"
-msgstr ""
+msgstr "게임 시간"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "전체 게임 즐긴 시간"
 
 msgid "name"
 msgstr "이름"
@@ -1179,7 +1179,7 @@ msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "게임 아트워크 수집 실패 : 응용 프로그램이 블랙리스트에 포함됨"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
+msgstr "스크랩 실패: 오늘 스크랩 다운로드 용량 초과"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1198,7 +1198,7 @@ msgid "KODI"
 msgstr "KODI"
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "넷플레이"
 
 msgid "RANDOM"
 msgstr "랜덤"
@@ -1213,7 +1213,7 @@ msgid "Times played"
 msgstr "플레이 횟수"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "항목을 찾지 못했습니다"
 
 msgid "OPTIONS"
 msgstr "옵션"
@@ -1222,7 +1222,7 @@ msgid "Favorites"
 msgstr "즐겨 찾기"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgstr "넷플레이 호스트로 게임을 실행합니까?"
 
 msgid "Preloading UI"
 msgstr "UI 사전 로딩중"
@@ -1291,10 +1291,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "시스템, 내림차순"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "파일 생성일, 오름차순"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "파일 생성일, 내림차순"
 
 msgid "DOWNLOADING"
 msgstr "다운로드 중"
@@ -1306,25 +1306,25 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "베젤이 성공적으로 설치됨"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "즐겨찾기"
 
 msgid "GENRE"
-msgstr ""
+msgstr "장르"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "플레이어수"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "퍼블리셔 / 개발사"
 
 msgid "RATING"
-msgstr ""
+msgstr "평점"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "키즈 게임"
 
 msgid "HASHING GAMES"
-msgstr ""
+msgstr "해싱 게임"
 
 msgid "SEARCHING"
 msgstr "탐색 중"
@@ -1348,16 +1348,16 @@ msgid "Done."
 msgstr "완료"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "블루투스를 검색 중입니다."
 
 msgid "Searching controllers..."
-msgstr ""
+msgstr "컨트롤러를 검색 중입니다."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "블루투스 검색이 이미 실행중입니다."
 
 msgid "UPDATE AVAILABLE"
 msgstr "업데이트 가능함"
@@ -1378,7 +1378,7 @@ msgid "4 players"
 msgstr "플레이어 4명"
 
 msgid "never played"
-msgstr ""
+msgstr "미실행 게임"
 
 msgid "collections"
 msgstr "컬렉션"
