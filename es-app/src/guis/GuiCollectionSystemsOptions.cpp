@@ -163,7 +163,7 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 
 	autoOptionList = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT COLLECTIONS"), true);
 
-
+	bool hasGroup = false;
 
 	// add Auto Systems
 	for(std::map<std::string, CollectionSystemData>::iterator it = autoSystems.begin(); it != autoSystems.end() ; it++ )
@@ -173,11 +173,16 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
         else
         {
             if (!it->second.isPopulated)
-            {
                 CollectionSystemManager::get()->populateAutoCollection(&(it->second));
-            }
-            if (it->second.system->getRootFolder()->getChildren().size() == 0)
+
+			if (it->second.system->getRootFolder()->getChildren().size() == 0)
                 continue;
+
+			if (!hasGroup)
+			{
+				autoOptionList->addGroup(_("ARCADE SYSTEMS"));
+				hasGroup = true;
+			}
 
             autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
         }

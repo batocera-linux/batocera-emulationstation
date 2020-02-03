@@ -20,7 +20,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid(window, Vector2i(4, 3)), mBusyAnim(window), 
 	mSearchType(type)
 {
-	mBusyAnim.setText(_("SEARCHING"));
+	mBusyAnim.setText(_("Searching"));
 
 	auto theme = ThemeData::getMenuTheme();
 	addChild(&mGrid);
@@ -418,10 +418,10 @@ void ScraperSearchComponent::update(int deltaTime)
 					mResultThumbnail->setImage(result.mdl.get("image"));
 			}
 
-			mBusyAnim.setText(_("DOWNLOADING") + " " + Utils::String::toUpper(mMDResolveHandle->getCurrentItem()));
+			mBusyAnim.setText(_("Downloading") + " " + Utils::String::toUpper(mMDResolveHandle->getCurrentItem()));
 		}
 		else if (mSearchHandle && mSearchHandle->status() == ASYNC_IN_PROGRESS)
-			mBusyAnim.setText(_("SEARCHING"));
+			mBusyAnim.setText(_("Searching"));
 
 		mBusyAnim.update(deltaTime);
 	}
