@@ -27,7 +27,10 @@ GuiWifi::GuiWifi(Window* window, const std::string title, std::string data, cons
 	ComponentListRow row;
 
 	std::vector<std::string> ssids = ApiSystem::getInstance()->getWifiNetworks();
-	load(ssids);
+	if (ssids.empty())
+		mWindow->postToUiThread([this](Window*) { onRefresh(); });		
+	else
+		load(ssids);
 
 	mMenu.addButton(_("REFRESH"), "refresh", [&] { onRefresh(); });
 	mMenu.addButton(_("MANUAL INPUT"), "manual input", [&] { onManualInput(); });
