@@ -25,6 +25,10 @@ private:
 	std::shared_ptr<TextComponent> mGameName;
 	std::shared_ptr<TextComponent> mAction;
 
+	std::string mNextGameName;
+	std::string mNextTitle;
+	std::string mNextAction;
+
 	ComponentGrid* mGrid;
 	NinePatchComponent* mFrame;
 
