@@ -21,6 +21,7 @@ enum CollectionSystemType
 	AUTO_AT2PLAYERS,
 	AUTO_AT4PLAYERS,
 	AUTO_NEVER_PLAYED,
+	AUTO_ARCADE,
 	CUSTOM_COLLECTION,
     CPS1_COLLECTION,
     CPS2_COLLECTION,
@@ -71,6 +72,9 @@ struct CollectionSystemData
 class CollectionSystemManager
 {
 public:
+	static std::vector<CollectionSystemDecl> getSystemDecls();
+
+
 	CollectionSystemManager(Window* window);
 	~CollectionSystemManager();
 

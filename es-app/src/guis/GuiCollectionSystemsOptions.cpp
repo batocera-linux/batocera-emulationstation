@@ -165,9 +165,13 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 
 	bool hasGroup = false;
 
-	// add Auto Systems
-	for(std::map<std::string, CollectionSystemData>::iterator it = autoSystems.begin(); it != autoSystems.end() ; it++ )
+	// add Auto Systems && preserve order
+	for (auto systemDecl : CollectionSystemManager::getSystemDecls())
 	{
+		auto it = autoSystems.find(systemDecl.name);
+		if (it == autoSystems.cend())
+			continue;
+
         if (it->second.decl.displayIfEmpty)
             autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
         else
