@@ -262,7 +262,7 @@ int VolumeControl::getVolume() const
 	{
 		if (mixerHandle != nullptr)
 			snd_mixer_handle_events(mixerHandle);
-
+		/*
 		int mute_state;
 		if (snd_mixer_selem_has_playback_switch(mixerElem)) 
 		{
@@ -270,7 +270,7 @@ int VolumeControl::getVolume() const
 			if (!mute_state) // system Muted
 				return 0;
 		}
-
+		*/
 		//get volume range
 		long minVolume;
 		long maxVolume;
