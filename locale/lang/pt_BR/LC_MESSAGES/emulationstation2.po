@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -514,6 +514,9 @@ msgstr "IDIOMA ALVO"
 msgid "SERVICE URL"
 msgstr "URL DO SERVIÇO"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
 
@@ -804,6 +807,9 @@ msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
@@ -1159,6 +1165,12 @@ msgstr "Tempo de jogo"
 msgid "how long the game has been played in total (seconds)"
 msgstr "tempo total de jogo (segundos)"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "nome"
 
@@ -1183,14 +1195,17 @@ msgstr "insira o caminho para a marquee"
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Procurando"
+msgid "SEARCHING"
+msgstr "PROCURANDO"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "FALHA NA PESQUISA : A APLICAÇÃO FOI BLOQUEADA"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "FALHA NA PESQUISA : LIMITE DE BUSCA DIÁRIO ATINGIDO"
+
+msgid "DOWNLOADING"
+msgstr "BAIXANDO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1307,9 +1322,6 @@ msgstr "DATA DE CRIAÇÃO DE ARQUIVOS, CRESCENTE"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATA DE CRIAÇÃO DE ARQUIVOS, DECRESCENTE"
 
-msgid "DOWNLOADING"
-msgstr "BAIXANDO"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO COM SUCESSO"
 
@@ -1337,8 +1349,8 @@ msgstr "JOGOS INFANTIL"
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
 
-msgid "SEARCHING"
-msgstr "PROCURANDO"
+msgid "Searching"
+msgstr "Procurando"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PASSAR"
@@ -1348,6 +1360,9 @@ msgstr "OCORREU UM ERRO"
 
 msgid "RETRY"
 msgstr "REPETIR"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -1390,6 +1405,9 @@ msgstr "4 jogadores"
 
 msgid "never played"
 msgstr "nunca joguei"
+
+msgid "arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "coleções"
@@ -1536,6 +1554,9 @@ msgstr "NENHUM CONTROLE DETECTADO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"

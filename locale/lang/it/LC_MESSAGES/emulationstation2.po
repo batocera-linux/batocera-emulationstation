@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "LINGUA TARGET"
 msgid "SERVICE URL"
 msgstr "URL SERVIZIO"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPZIONI RETROACHIEVEMENTS"
 
@@ -804,6 +807,9 @@ msgstr "MOSTRA IL NOME DEL SISTEMA NELLA COLLEZIONE"
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELEZIONA COLLEZIONE"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLEZIONI DI GIOCHI AUTOMATICHE"
@@ -1159,6 +1165,12 @@ msgstr "Tempo di gioco"
 msgid "how long the game has been played in total (seconds)"
 msgstr "Durata totale del gioco giocato (in secondi)"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "nome"
 
@@ -1183,14 +1195,17 @@ msgstr "inserisci percorso dei marquee"
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Cercando"
+msgid "SEARCHING"
+msgstr "RICERCA"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "SCRAPE FALLITO : L'APPLICAZIONE E' STATA MESSA NELLA LISTA NERA"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "SCRAPE FALLITO : LIMITE DI SCRAPE GIORNALIERO RAGGIUNTO"
+
+msgid "DOWNLOADING"
+msgstr "DOWNLOADING"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
@@ -1306,9 +1321,6 @@ msgstr "DATA CREAZIONE FILE, ASCENDENTE"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATA CREAZIONE FILE, DISCENDENTE"
 
-msgid "DOWNLOADING"
-msgstr "DOWNLOADING"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALLATO CON SUCCESSO"
 
@@ -1336,8 +1348,8 @@ msgstr "GIOCO PER RAGAZZI"
 msgid "HASHING GAMES"
 msgstr "GAME HASHING"
 
-msgid "SEARCHING"
-msgstr "RICERCA"
+msgid "Searching"
+msgstr "Cercando"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NESSUN GIOCO TROVATO - SALTA"
@@ -1347,6 +1359,9 @@ msgstr "SI E' VERIFICATO UN ERRORE"
 
 msgid "RETRY"
 msgstr "RIPROVA"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1388,6 +1403,9 @@ msgid "4 players"
 msgstr "4 giocatori"
 
 msgid "never played"
+msgstr ""
+
+msgid "arcade"
 msgstr ""
 
 msgid "collections"
@@ -1537,6 +1555,9 @@ msgstr "NESSUN GAMEPAD RILEVATO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TIENI PREMUTO UN PULSANTE SUL GAMEPAD PER CONFIGURARLO."
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "SPOSTA IL CURSORE"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr "대상 언어"
 msgid "SERVICE URL"
 msgstr "서비스 URL"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전 과제 설정"
 
@@ -799,6 +802,9 @@ msgstr "컬렉션에서 시스템 이름 표시"
 
 msgid "SELECT COLLECTIONS"
 msgstr "컬렉션 선택"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "자동 게임 컬렉션"
@@ -1148,6 +1154,12 @@ msgstr "게임 시간"
 msgid "how long the game has been played in total (seconds)"
 msgstr "전체 게임 즐긴 시간"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "이름"
 
@@ -1172,14 +1184,17 @@ msgstr "마키 경로 입력"
 msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
 
-msgid "Searching"
-msgstr "검색 중"
+msgid "SEARCHING"
+msgstr "탐색 중"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "게임 아트워크 수집 실패 : 응용 프로그램이 블랙리스트에 포함됨"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "스크랩 실패: 오늘 스크랩 다운로드 용량 초과"
+
+msgid "DOWNLOADING"
+msgstr "다운로드 중"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1296,9 +1311,6 @@ msgstr "파일 생성일, 오름차순"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "파일 생성일, 내림차순"
 
-msgid "DOWNLOADING"
-msgstr "다운로드 중"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "테마가 성공적으로 설치됨"
 
@@ -1326,8 +1338,8 @@ msgstr "키즈 게임"
 msgid "HASHING GAMES"
 msgstr "해싱 게임"
 
-msgid "SEARCHING"
-msgstr "탐색 중"
+msgid "Searching"
+msgstr "검색 중"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
@@ -1337,6 +1349,9 @@ msgstr "오류가 발생"
 
 msgid "RETRY"
 msgstr "재시도"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
@@ -1379,6 +1394,9 @@ msgstr "플레이어 4명"
 
 msgid "never played"
 msgstr "미실행 게임"
+
+msgid "arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "컬렉션"
@@ -1522,6 +1540,9 @@ msgstr "발견된 게임 패드 없음"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "커서 이동"

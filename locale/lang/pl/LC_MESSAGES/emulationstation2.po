@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -512,6 +512,9 @@ msgstr "JĘZYK DOCELOWY"
 msgid "SERVICE URL"
 msgstr "URL USŁUGI"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROACHIEVEMENTS"
 
@@ -802,6 +805,9 @@ msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
 
 msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "AUTOMATYCZNE KOLEKCJE GIER"
@@ -1157,6 +1163,12 @@ msgstr "Czas gry"
 msgid "how long the game has been played in total (seconds)"
 msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "nazwa"
 
@@ -1181,8 +1193,8 @@ msgstr "wprowadź ścieżkę do marquee"
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
 
-msgid "Searching"
-msgstr "Wyszukiwanie"
+msgid "SEARCHING"
+msgstr "WYSZUKIWANIE"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
@@ -1190,6 +1202,9 @@ msgstr ""
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: OSIĄGNIĘTO LIMIT DZIENNY"
+
+msgid "DOWNLOADING"
+msgstr "Pobieranie"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
@@ -1306,9 +1321,6 @@ msgstr "DATA UTWORZENIA PLIKU, ROSNĄCO"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATA UTWORZENIA PLIKU, MALEJĄCO"
 
-msgid "DOWNLOADING"
-msgstr "Pobieranie"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "MOTYW ZAINSTALOWANY POMYŚLNIE"
 
@@ -1336,8 +1348,8 @@ msgstr "KIDGAME"
 msgid "HASHING GAMES"
 msgstr "HASZOWANIE GIER"
 
-msgid "SEARCHING"
-msgstr "WYSZUKIWANIE"
+msgid "Searching"
+msgstr "Wyszukiwanie"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
@@ -1347,6 +1359,9 @@ msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
 
 msgid "RETRY"
 msgstr "PONÓW"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
@@ -1389,6 +1404,9 @@ msgstr "4 graczy"
 
 msgid "never played"
 msgstr "nidgy nie grane"
+
+msgid "arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "kolekcje"
@@ -1539,6 +1557,9 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"

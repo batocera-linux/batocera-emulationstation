@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -514,6 +514,9 @@ msgstr "ЯЗЫК ПЕРЕВОДА"
 msgid "SERVICE URL"
 msgstr "СЕРВИС URL"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
@@ -804,6 +807,9 @@ msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "АВТО-КОЛЛЕКЦИИ ИГР"
@@ -1158,6 +1164,12 @@ msgstr "Время игры"
 msgid "how long the game has been played in total (seconds)"
 msgstr "как долго играли в игру (в секундах)"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "название"
 
@@ -1182,14 +1194,17 @@ msgstr "введите путь к банеру"
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Поиск"
+msgid "SEARCHING"
+msgstr "ПОИСК"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ : ПРИЛОЖЕНИЕ В ЧЕРНОМ СПИСКЕ"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ : ДОСТИГНУТ СУТОЧНЫЙ ЛИМИТ"
+
+msgid "DOWNLOADING"
+msgstr "ЗАГРУЗКА"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
@@ -1306,9 +1321,6 @@ msgstr "ДАТА СОЗДАНИЯ ФАЙЛА, ПО ВОЗРАСТАНИЮ"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "ДАТА СОЗДАНИЯ ФАЙЛА, ПО УБЫВАНИЮ"
 
-msgid "DOWNLOADING"
-msgstr "ЗАГРУЗКА"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
 
@@ -1336,8 +1348,8 @@ msgstr "ДЕТСКАЯ ИГРА"
 msgid "HASHING GAMES"
 msgstr "ХЕШИРОВАНИЕ ИГР"
 
-msgid "SEARCHING"
-msgstr "ПОИСК"
+msgid "Searching"
+msgstr "Поиск"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
@@ -1347,6 +1359,9 @@ msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -1389,6 +1404,9 @@ msgstr "4 игрока"
 
 msgid "never played"
 msgstr "не запускался"
+
+msgid "arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "коллекции"
@@ -1539,6 +1557,9 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"

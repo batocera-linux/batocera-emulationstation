@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr ""
 msgid "SERVICE URL"
 msgstr ""
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROUTMERKELSES INNSTILLINGER"
 
@@ -796,6 +799,9 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr ""
 
 msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
 msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
@@ -1140,6 +1146,12 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr ""
 
@@ -1164,13 +1176,16 @@ msgstr ""
 msgid "SCRAPING"
 msgstr ""
 
-msgid "Searching"
+msgid "SEARCHING"
 msgstr ""
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr ""
+
+msgid "DOWNLOADING"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
@@ -1287,9 +1302,6 @@ msgstr ""
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr ""
 
-msgid "DOWNLOADING"
-msgstr ""
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
@@ -1317,7 +1329,7 @@ msgstr ""
 msgid "HASHING GAMES"
 msgstr ""
 
-msgid "SEARCHING"
+msgid "Searching"
 msgstr ""
 
 msgid "NO GAMES FOUND - SKIP"
@@ -1328,6 +1340,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "PRØV IGJEN"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "AKSEPTER RESULTAT"
@@ -1369,6 +1384,9 @@ msgid "4 players"
 msgstr ""
 
 msgid "never played"
+msgstr ""
+
+msgid "arcade"
 msgstr ""
 
 msgid "collections"
@@ -1512,6 +1530,9 @@ msgstr "INGEN KONTROLLERE OPPDAGET"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HOLD EN KNAPP PÅ ENHETEN DIN FOR Å KONFIGUERE DEN."
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "FLYTT MUSEPEKER"

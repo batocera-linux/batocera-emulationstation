@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:32+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -511,6 +511,9 @@ msgstr "LANGUE CHOISIE"
 msgid "SERVICE URL"
 msgstr "URL DU SERVICE"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
 
@@ -802,6 +805,9 @@ msgstr "AFFICHER LE SYSTÈME DANS LES COLLECTIONS"
 
 msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
@@ -1153,6 +1159,12 @@ msgstr "Temps de jeu"
 msgid "how long the game has been played in total (seconds)"
 msgstr "Entrez le temps de jeu"
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "Nom"
 
@@ -1177,8 +1189,8 @@ msgstr "entrer le chemin vers le logo"
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
-msgid "Searching"
-msgstr "Recherche"
+msgid "SEARCHING"
+msgstr "RECHERCHE"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "SCRAPE ÉCHOUÉ : L'APPLICATION A ÉTÉ BLACKLISTÉE"
@@ -1186,8 +1198,13 @@ msgstr "SCRAPE ÉCHOUÉ : L'APPLICATION A ÉTÉ BLACKLISTÉE"
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "SCRAPE ÉCHOUÉ : LIMITE JOURNALIÈRE DE SCRAPE ATTEINTE"
 
+msgid "DOWNLOADING"
+msgstr "TÉLÉCHARGEMENT"
+
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPE TERMINÉ : METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
+msgstr ""
+"SCRAPE TERMINÉ : METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
+"MODIFICATIONS"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
@@ -1300,9 +1317,6 @@ msgstr "DATE D'AJOUT, CROISSANT"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATE D'AJOUT, DÉCROISSANT"
 
-msgid "DOWNLOADING"
-msgstr "TÉLÉCHARGEMENT"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THÈME INSTALLÉ AVEC SUCCES"
 
@@ -1330,8 +1344,8 @@ msgstr "JEU ENFANT"
 msgid "HASHING GAMES"
 msgstr "HACHER LES JEUX"
 
-msgid "SEARCHING"
-msgstr "RECHERCHE"
+msgid "Searching"
+msgstr "Recherche"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU NE CORRESPOND - PASSER"
@@ -1341,6 +1355,9 @@ msgstr "UNE ERREUR S'EST PRODUITE"
 
 msgid "RETRY"
 msgstr "RECOMMENCER"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
@@ -1383,6 +1400,9 @@ msgstr "4 joueurs"
 
 msgid "never played"
 msgstr "jamais joué"
+
+msgid "arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "collections"
@@ -1528,6 +1548,9 @@ msgstr "AUCUNE MANETTE DETECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR CONFIGURER"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "DÉPLACER LE CURSEUR"

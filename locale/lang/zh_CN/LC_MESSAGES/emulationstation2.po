@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 18:30+0100\n"
+"POT-Creation-Date: 2020-02-06 22:03+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr "目标语言"
 msgid "SERVICE URL"
 msgstr "服务URL"
 
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroArch成就设置"
 
@@ -801,6 +804,9 @@ msgstr "在合辑中显示系统名称"
 
 msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "自动归类游戏合辑"
@@ -1149,6 +1155,12 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
+msgid "Arcadesystemname"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "name"
 msgstr "游戏名"
 
@@ -1173,14 +1185,17 @@ msgstr "输入标记路径"
 msgid "SCRAPING"
 msgstr "抓取"
 
-msgid "Searching"
-msgstr "搜索中"
+msgid "SEARCHING"
+msgstr "正在搜索"
 
 msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr "抓取失败 : 抓取请求被列入黑名单"
 
 msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr ""
+
+msgid "DOWNLOADING"
+msgstr "下载中"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "抓取完成。更新游戏列表以应用更改。"
@@ -1295,9 +1310,6 @@ msgstr ""
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr ""
 
-msgid "DOWNLOADING"
-msgstr "下载中"
-
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
 
@@ -1325,8 +1337,8 @@ msgstr ""
 msgid "HASHING GAMES"
 msgstr ""
 
-msgid "SEARCHING"
-msgstr "正在搜索"
+msgid "Searching"
+msgstr "搜索中"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
@@ -1336,6 +1348,9 @@ msgstr "发生了一个错误"
 
 msgid "RETRY"
 msgstr "重试"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
@@ -1377,6 +1392,9 @@ msgid "4 players"
 msgstr "四人游戏"
 
 msgid "never played"
+msgstr ""
+
+msgid "arcade"
 msgstr ""
 
 msgid "collections"
@@ -1520,6 +1538,9 @@ msgstr "未检测到游戏手柄"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"
