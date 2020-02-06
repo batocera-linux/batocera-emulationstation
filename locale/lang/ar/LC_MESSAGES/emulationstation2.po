@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 22:03+0100\n"
+"POT-Creation-Date: 2020-02-06 19:48-0400\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,20 +11,154 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-msgid "UPDATING BATOCERA"
+msgid "CANCEL"
+msgstr "إلغاء"
+
+msgid "Searching"
 msgstr ""
 
-msgid "UPDATE IS READY"
+msgid "Rating"
+msgstr "تصنيف"
+
+msgid "Released"
+msgstr "صُدر"
+
+msgid "Developer"
+msgstr "مطوّر"
+
+msgid "Publisher"
+msgstr "ناشر"
+
+msgid "Genre"
+msgstr "نوع"
+
+msgid "Players"
+msgstr "لاعبين"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "لم يتم العثور على العاب - تخطي"
+
+msgid "AN ERROR HAS OCCURED"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "RETRY"
+msgstr "إعادة محاولة"
+
+msgid "SKIP"
+msgstr "تخطي"
+
+msgid "Downloading"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "قبول التعديلات"
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "never played"
+msgstr ""
+
+msgid "arcade"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "QUIT"
+msgstr "خروج"
+
+msgid "Done."
+msgstr ""
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "AN ERROR OCCURED"
 msgstr "حدث خطأ"
 
-msgid "REALLY UPDATE?"
-msgstr "تحديث، متأكد؟"
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "Preloading UI"
+msgstr ""
+
+msgid "MENU"
+msgstr "قائمة"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "YES"
 msgstr "تعم"
@@ -32,127 +166,302 @@ msgstr "تعم"
 msgid "NO"
 msgstr "لا"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "بحاجة لاتصال شبكي"
+msgid "Last played"
+msgstr "اخر مره تم لعبها"
 
-msgid "OK"
-msgstr "موافق"
+msgid "Times played"
+msgstr "مرات اللعب"
 
-msgid "NO UPDATE AVAILABLE"
-msgstr "لايوجد تحديثات"
-
-msgid "INPUT"
-msgstr "إدخال"
-
-msgid "SEARCH"
-msgstr "بحث"
-
-msgid "CANCEL"
-msgstr "إلغاء"
-
-msgid "CONNECT TO NETPLAY"
+msgid "Game time"
 msgstr ""
 
-msgid "Select the game you want to join"
+msgid "No Entries Found"
 msgstr ""
 
-msgid "REFRESH"
-msgstr ""
+msgid "SYSTEM"
+msgstr "نظام"
 
-msgid "CLOSE"
-msgstr "اغلاق"
-
-msgid "PLEASE WAIT"
-msgstr ""
-
-msgid "FAILED"
-msgstr ""
-
-msgid "BACK"
-msgstr "العودة"
+msgid "CHOOSE"
+msgstr "اختار"
 
 msgid "LAUNCH"
 msgstr "تشغيل"
 
-msgid "AVAILABLE GAMES"
+msgid "BACK"
+msgstr "العودة"
+
+msgid "OPTIONS"
+msgstr "اعدادات"
+
+msgid "NETPLAY"
 msgstr ""
 
-msgid "UNAVAILABLE GAMES"
+msgid "RANDOM"
 msgstr ""
 
-msgid "NO GAME FOUND"
+msgid "Favorites"
 msgstr ""
 
-msgid "go back"
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "هل تريد بدأ برنامج الملتيميديا (KODI)؟"
+
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i لعبة متوفرة"
+msgstr[1] "%i لعبة متوفرة"
+msgstr[2] "%i لعبة متوفرة"
+msgstr[3] "%i لعبة متوفرة"
+msgstr[4] "%i لعبة متوفرة"
+msgstr[5] "%i لعب متوفرة"
+
+msgid "SELECT"
+msgstr "اختار"
+
+msgid "KODI"
 msgstr ""
 
-msgid "JUMP TO..."
+msgid "FILES"
 msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "ترتيب الالعاب حسب"
-
-msgid "OTHER FILTERS"
+msgid "SCRAPING"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "SEARCHING"
 msgstr ""
 
-msgid "automatic"
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
-msgid "VIEW CUSTOMISATION"
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr ""
 
-msgid "GRID SIZE"
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "SHOW FAVORITES ON TOP"
+msgid "Name"
+msgstr "الاسم"
+
+msgid "enter game name"
+msgstr "ادخل اسم اللعبة"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "enter description"
+msgstr "ادخل الوصف"
+
+msgid "Image"
+msgstr "الصورة"
+
+msgid "enter path to image"
+msgstr "ادخل مسار الصورة"
+
+msgid "Path to video"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
+msgid "enter path to thumbnail"
+msgstr "ادخل مسار الصورة المصغرة"
+
+msgid "Path to marquee"
 msgstr ""
 
-msgid "SHOW FOLDERS"
+msgid "Thumbnail"
+msgstr "صورة مصغرة"
+
+msgid "enter rating"
+msgstr "ادخل التصنيف"
+
+msgid "Release date"
+msgstr "تاريخ الاطلاق"
+
+msgid "enter release date"
+msgstr "ادخل تاريخ الاطلاق"
+
+msgid "enter game developer"
+msgstr "ادخل مطور اللعبة"
+
+msgid "enter game publisher"
+msgstr "ادخل ناشر اللعبة"
+
+msgid "enter game genre"
+msgstr "ادخل نوع اللعبة"
+
+msgid "enter number of players"
+msgstr "ادخل عدد اللاعبين"
+
+msgid "Favorite"
+msgstr "المفضلة"
+
+msgid "enter favorite"
+msgstr "ادخل المفضلة"
+
+msgid "Hidden"
+msgstr "مخفي"
+
+msgid "set hidden"
+msgstr "حدد مخفي"
+
+msgid "Kidgame"
 msgstr ""
 
-msgid "always"
+msgid "set kidgame"
 msgstr ""
 
-msgid "never"
-msgstr "ابداً"
+msgid "Play count"
+msgstr "عدد مرات اللعب"
 
-msgid "having multiple games"
+msgid "enter number of times played"
+msgstr "ادخل عدد مرات اللعب"
+
+msgid "enter last played date"
+msgstr "ادخل تاريخ اخر مره تم لعبها"
+
+msgid "Crc32 checksum"
 msgstr ""
 
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgid "Md5 checksum"
 msgstr ""
 
-msgid "FINISH EDITING COLLECTION"
+msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "تعديل بيانات اللعبة (METADATA)"
-
-msgid "ADVANCED GAME OPTIONS"
+msgid "Arcade system"
 msgstr ""
 
-msgid "FILTER GAMES BY TEXT"
+msgid "enter game arcade system"
 msgstr ""
 
-msgid "Loading..."
+msgid "name"
 msgstr ""
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgid "description"
 msgstr ""
 
-msgid "FILTER GAMELIST BY"
+msgid "image"
 msgstr ""
 
-msgid "RESET ALL FILTERS"
+msgid "thumbnail"
 msgstr ""
 
-msgid "FIND GAMES"
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "FILENAME, ASCENDING"
+msgstr "اسم الملف، تصاعدي"
+
+msgid "FILENAME, DESCENDING"
+msgstr "اسم الملف، تنازلي"
+
+msgid "RATING, ASCENDING"
+msgstr "تقييم، تصاعدي"
+
+msgid "RATING, DESCENDING"
+msgstr "تقييم، تنازلي"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "مرات اللعب، تصاعدي"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "مرات اللعب، تنازلي"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "اخر مره لعب، تصاعدي"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "اخر مره لعب، تنازلي"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "لم يتم  العثور على العاب بصيغة البحث المحددة"
+
+msgid "FAVORITES"
+msgstr ""
+
+msgid "GENRE"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
+msgid "UPDATE AVAILABLE"
+msgstr ""
+
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
+msgid "REFRESH"
 msgstr ""
 
 msgid "MANUAL INPUT"
@@ -164,7 +473,40 @@ msgstr ""
 msgid "SEACHING WIFI NETWORKS"
 msgstr ""
 
-msgid "FINISHED"
+msgid "BACKUP USER DATA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "NO DEVICE FOUND"
+msgstr ""
+
+msgid "START"
+msgstr "البدء"
+
+msgid "CLOSE"
+msgstr "اغلاق"
+
+msgid "CONNECT TO NETPLAY"
+msgstr ""
+
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "NO GAME FOUND"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -205,9 +547,6 @@ msgstr "أعدادت النظام"
 
 msgid "INFORMATIONS"
 msgstr ""
-
-msgid "QUIT"
-msgstr "خروج"
 
 msgid "SCRAPE FROM"
 msgstr "بحث من"
@@ -275,12 +614,6 @@ msgstr ""
 msgid "RANDOM VIDEO SETTINGS"
 msgstr ""
 
-msgid "CHOOSE"
-msgstr "اختار"
-
-msgid "SELECT"
-msgstr "اختار"
-
 msgid "INFORMATION"
 msgstr ""
 
@@ -347,6 +680,9 @@ msgstr ""
 msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
+msgid "OK"
+msgstr "موافق"
+
 msgid "FILE GENERATION FAILED"
 msgstr ""
 
@@ -391,9 +727,6 @@ msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "جهاز الخزن"
-
-msgid "BACKUP USER DATA"
-msgstr ""
 
 msgid "KODI SETTINGS"
 msgstr "اعدادات KODI"
@@ -545,9 +878,6 @@ msgstr "الحالة"
 msgid "UPDATE GAMES LISTS"
 msgstr "تحديث قوائم الالعاب"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
-
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "تحديث قوائم الالعاب، متأكد؟"
 
@@ -591,6 +921,15 @@ msgstr ""
 msgid "THEME CONFIGURATION"
 msgstr ""
 
+msgid "VIEW CUSTOMISATION"
+msgstr ""
+
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "automatic"
+msgstr ""
+
 msgid "basic"
 msgstr ""
 
@@ -608,9 +947,6 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "اختيار التنسيق"
-
-msgid "video"
-msgstr ""
 
 msgid "grid"
 msgstr ""
@@ -777,74 +1113,17 @@ msgstr ""
 msgid "INTERNAL RESOLUTION"
 msgstr ""
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
-
-msgid "SELECT THEME FOLDER"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
-
-msgid "New Collection Name"
-msgstr ""
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
-
-msgid "SELECT COLLECTIONS"
-msgstr ""
-
-msgid "ARCADE SYSTEMS"
-msgstr ""
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "NETWORK REQUIRED"
-msgstr ""
-
 msgid "SCRAPING IN PROGRESS"
 msgstr "يتم الأن التجميع"
-
-msgid "SYSTEM"
-msgstr "نظام"
 
 msgid "subtitle text"
 msgstr "ملف ترجمة"
 
+msgid "INPUT"
+msgstr "إدخال"
+
 msgid "search"
 msgstr "بحث"
-
-msgid "SKIP"
-msgstr "تخطي"
 
 msgid "STOP"
 msgstr "إيقاف"
@@ -882,41 +1161,95 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] "%i لعب تم تجاهلها"
 
-msgid "INSTALL BEZELS"
-msgstr ""
-
-msgid "UNINSTALL BEZELS"
-msgstr ""
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "SELECT THEME"
 msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "SWAP VIDEO AFTER (SECS)"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
-
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
+
+msgid "go back"
+msgstr ""
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
+
+msgid "FINISHED"
+msgstr ""
+
+msgid "SEARCH"
+msgstr "بحث"
+
+msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -932,21 +1265,6 @@ msgid "CUSTOM IMAGE DIR RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr ""
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr ""
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
-msgstr ""
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr ""
 
 msgid "SCRAPE THESE GAMES"
@@ -970,9 +1288,6 @@ msgstr "انظمة"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "يقرر المستخدم في حالة التعارض"
 
-msgid "START"
-msgstr "البدء"
-
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -981,19 +1296,42 @@ msgstr ""
 "تحذير: بعض الانظمة التي تم اختيارها لاتملك منصة العاب محددة. قد يؤدي ذلك إلى "
 "نتائج غير دقيقة في البحث! هل تريد المتابعة؟"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "لم يتم  العثور على العاب بصيغة البحث المحددة"
-
-msgid "SELECT SYSTEMS TO DISPLAY"
+msgid "UPDATING BATOCERA"
 msgstr ""
 
-msgid "APPLY"
+msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "REVERT"
+msgid "REBOOT SYSTEM TO APPLY"
 msgstr ""
 
-msgid "VALIDATE"
+msgid "REALLY UPDATE?"
+msgstr "تحديث، متأكد؟"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "بحاجة لاتصال شبكي"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "لايوجد تحديثات"
+
+msgid "EDIT METADATA"
+msgstr "تعديل البيانات"
+
+msgid "SAVE"
+msgstr "حفظ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "حذف"
+
+msgid "SAVE CHANGES?"
+msgstr "حفظ التعديلات؟"
+
+msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr ""
 
 msgid "SCREENSAVER AFTER"
@@ -1022,433 +1360,147 @@ msgstr ""
 msgid "SLIDESHOW SCREENSAVER"
 msgstr ""
 
-msgid "NO DEVICE FOUND"
+msgid "INSTALL BEZELS"
 msgstr ""
 
-msgid "SELECT THEME"
+msgid "UNINSTALL BEZELS"
 msgstr ""
 
-msgid "EDIT METADATA"
-msgstr "تعديل البيانات"
-
-msgid "SAVE"
-msgstr "حفظ"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-
-msgid "DELETE"
-msgstr "حذف"
-
-msgid "SAVE CHANGES?"
-msgstr "حفظ التعديلات؟"
-
-msgid "Name"
-msgstr "الاسم"
-
-msgid "enter game name"
-msgstr "ادخل اسم اللعبة"
-
-msgid "Description"
-msgstr "الوصف"
-
-msgid "enter description"
-msgstr "ادخل الوصف"
-
-msgid "Image"
-msgstr "الصورة"
-
-msgid "enter path to image"
-msgstr "ادخل مسار الصورة"
-
-msgid "Path to video"
-msgstr ""
-
-msgid "enter path to thumbnail"
-msgstr "ادخل مسار الصورة المصغرة"
-
-msgid "Path to marquee"
-msgstr ""
-
-msgid "Thumbnail"
-msgstr "صورة مصغرة"
-
-msgid "Rating"
-msgstr "تصنيف"
-
-msgid "enter rating"
-msgstr "ادخل التصنيف"
-
-msgid "Release date"
-msgstr "تاريخ الاطلاق"
-
-msgid "enter release date"
-msgstr "ادخل تاريخ الاطلاق"
-
-msgid "Developer"
-msgstr "مطوّر"
-
-msgid "enter game developer"
-msgstr "ادخل مطور اللعبة"
-
-msgid "Publisher"
-msgstr "ناشر"
-
-msgid "enter game publisher"
-msgstr "ادخل ناشر اللعبة"
-
-msgid "Genre"
-msgstr "نوع"
-
-msgid "enter game genre"
-msgstr "ادخل نوع اللعبة"
-
-msgid "Players"
-msgstr "لاعبين"
-
-msgid "enter number of players"
-msgstr "ادخل عدد اللاعبين"
-
-msgid "Favorite"
-msgstr "المفضلة"
-
-msgid "enter favorite"
-msgstr "ادخل المفضلة"
-
-msgid "Hidden"
-msgstr "مخفي"
-
-msgid "set hidden"
-msgstr "حدد مخفي"
-
-msgid "Kidgame"
-msgstr ""
-
-msgid "set kidgame"
-msgstr ""
-
-msgid "Play count"
-msgstr "عدد مرات اللعب"
-
-msgid "enter number of times played"
-msgstr "ادخل عدد مرات اللعب"
-
-msgid "Last played"
-msgstr "اخر مره تم لعبها"
-
-msgid "enter last played date"
-msgstr "ادخل تاريخ اخر مره تم لعبها"
-
-msgid "Crc32 checksum"
-msgstr ""
-
-msgid "Md5 checksum"
-msgstr ""
-
-msgid "Game time"
-msgstr ""
-
-msgid "how long the game has been played in total (seconds)"
-msgstr ""
-
-msgid "Arcadesystemname"
-msgstr ""
-
-msgid "enter game arcade system"
-msgstr ""
-
-msgid "name"
-msgstr ""
-
-msgid "description"
-msgstr ""
-
-msgid "image"
-msgstr ""
-
-msgid "thumbnail"
-msgstr ""
-
-msgid "enter path to video"
-msgstr ""
-
-msgid "marquee"
-msgstr ""
-
-msgid "enter path to marquee"
-msgstr ""
-
-msgid "SCRAPING"
-msgstr ""
-
-msgid "SEARCHING"
-msgstr ""
-
-msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
-
-msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
-
-msgid "DOWNLOADING"
-msgstr ""
-
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "هل تريد بدأ برنامج الملتيميديا (KODI)؟"
-
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i لعبة متوفرة"
-msgstr[1] "%i لعبة متوفرة"
-msgstr[2] "%i لعبة متوفرة"
-msgstr[3] "%i لعبة متوفرة"
-msgstr[4] "%i لعبة متوفرة"
-msgstr[5] "%i لعب متوفرة"
-
-msgid "KODI"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr ""
-
-msgid "RANDOM"
-msgstr ""
-
-msgid "FILES"
-msgstr ""
-
-msgid "Released"
-msgstr "صُدر"
-
-msgid "Times played"
-msgstr "مرات اللعب"
-
-msgid "No Entries Found"
-msgstr ""
-
-msgid "OPTIONS"
-msgstr "اعدادات"
-
-msgid "Favorites"
-msgstr ""
-
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
-
-msgid "Preloading UI"
-msgstr ""
-
-msgid "MENU"
-msgstr "قائمة"
-
-msgid "FILENAME, ASCENDING"
-msgstr "اسم الملف، تصاعدي"
-
-msgid "FILENAME, DESCENDING"
-msgstr "اسم الملف، تنازلي"
-
-msgid "RATING, ASCENDING"
-msgstr "تقييم، تصاعدي"
-
-msgid "RATING, DESCENDING"
-msgstr "تقييم، تنازلي"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "مرات اللعب، تصاعدي"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "مرات اللعب، تنازلي"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "اخر مره لعب، تصاعدي"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "اخر مره لعب، تنازلي"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
-
-msgid "RELEASE DATE, ASCENDING"
+msgid "INSTALL THE BEZEL PROJECT"
 msgstr ""
 
-msgid "RELEASE DATE, DESCENDING"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
-msgid "GENRE, ASCENDING"
+msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
-msgid "GENRE, DESCENDING"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr ""
 
-msgid "DEVELOPER, ASCENDING"
+msgid "FILTER GAMELIST BY"
 msgstr ""
 
-msgid "DEVELOPER, DESCENDING"
+msgid "RESET ALL FILTERS"
 msgstr ""
 
-msgid "PUBLISHER, ASCENDING"
+msgid "FIND GAMES"
 msgstr ""
 
-msgid "PUBLISHER, DESCENDING"
+msgid "JUMP TO..."
 msgstr ""
 
-msgid "SYSTEM, ASCENDING"
-msgstr ""
-
-msgid "SYSTEM, DESCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgid "SORT GAMES BY"
+msgstr "ترتيب الالعاب حسب"
 
-msgid "FAVORITES"
+msgid "OTHER FILTERS"
 msgstr ""
 
-msgid "GENRE"
+msgid "GRID SIZE"
 msgstr ""
 
-msgid "PLAYERS"
+msgid "SHOW FAVORITES ON TOP"
 msgstr ""
 
-msgid "PUBLISHER / DEVELOPER"
+msgid "SHOW HIDDEN FILES"
 msgstr ""
 
-msgid "RATING"
+msgid "SHOW FOLDERS"
 msgstr ""
 
-msgid "KIDGAME"
+msgid "always"
 msgstr ""
 
-msgid "HASHING GAMES"
-msgstr ""
+msgid "never"
+msgstr "ابداً"
 
-msgid "Searching"
+msgid "having multiple games"
 msgstr ""
 
-msgid "NO GAMES FOUND - SKIP"
-msgstr "لم يتم العثور على العاب - تخطي"
-
-msgid "AN ERROR HAS OCCURED"
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
-msgid "RETRY"
-msgstr "إعادة محاولة"
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل بيانات اللعبة (METADATA)"
 
-msgid "Downloading"
+msgid "ADVANCED GAME OPTIONS"
 msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "قبول التعديلات"
 
-msgid "Loading system config..."
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
-msgid "Done."
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "SCANNING BLUETOOTH"
+msgid "TARGET ARCHITECTURE"
 msgstr ""
 
-msgid "Searching controllers..."
+msgid "VALIDATION"
 msgstr ""
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgid "YES, I'M SURE"
 msgstr ""
 
-msgid "UPDATE AVAILABLE"
+msgid "INSTALL"
 msgstr ""
 
-msgid "all games"
+msgid "NETWORK REQUIRED"
 msgstr ""
 
-msgid "last played"
+msgid "up/down"
 msgstr ""
 
-msgid "favorites"
-msgstr ""
+msgid "CHANGE"
+msgstr "تغيير"
 
-msgid "2 players"
+msgid "accept"
 msgstr ""
 
-msgid "4 players"
-msgstr ""
+msgid "SELECT ALL"
+msgstr "اختيار الكل"
 
-msgid "never played"
+msgid "select all"
 msgstr ""
 
-msgid "arcade"
-msgstr ""
+msgid "SELECT NONE"
+msgstr "الغاء الاختيار"
 
-msgid "collections"
+msgid "select none"
 msgstr ""
 
 #, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i تم اختياره"
+msgstr[1] "%i تم اختياره"
+msgstr[2] "%i تم اختياره"
+msgstr[3] "%i تم اختياره"
+msgstr[4] "%i تم اختياره"
+msgstr[5] "%i تم اختياره"
+
+msgid "MOVE CURSOR"
+msgstr "تحريك المؤشر"
+
+msgid "STOP EDITING"
+msgstr "ايقاف التعديل"
+
+msgid "EDIT"
+msgstr "تعديل"
+
+msgid "WORKING..."
+msgstr "تشغيل..."
+
+msgid "Unknown"
 msgstr ""
 
-#, c-format
-msgid "Finished editing the '%s' Collection."
+msgid "RESET"
 msgstr ""
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr ""
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr ""
-
-msgid "This collection is empty."
-msgstr ""
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr ""
-
-msgid "Various"
-msgstr ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
-msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgid "DISCARD CHANGES"
+msgstr "الغاء التعديلات"
 
 msgid "UP"
 msgstr "فوق"
@@ -1518,24 +1570,6 @@ msgstr "اضغط اي زر"
 msgid "ALREADY TAKEN"
 msgstr "معرّف مسبقاً"
 
-msgid "SPACE"
-msgstr "مسافة"
-
-msgid "DELETE A CHAR"
-msgstr "حذف حرف"
-
-msgid "RESET"
-msgstr ""
-
-msgid "DISCARD CHANGES"
-msgstr "الغاء التعديلات"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
-
-msgid "SHIFT"
-msgstr "زر الانتقال"
-
 msgid "WELCOME"
 msgstr "اهلاً وسهلاً"
 
@@ -1558,51 +1592,17 @@ msgstr "لم يتم التعرف على ايدي تحكم"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "اضغط زر (A) في يد التحكم ليتم اعدادها"
 
-msgid "Unknown"
-msgstr ""
+msgid "SPACE"
+msgstr "مسافة"
 
-msgid "MOVE CURSOR"
-msgstr "تحريك المؤشر"
+msgid "DELETE A CHAR"
+msgstr "حذف حرف"
 
-msgid "STOP EDITING"
-msgstr "ايقاف التعديل"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ازرار SHIFTS للأعلى، للأسفل، والمميز"
 
-msgid "EDIT"
-msgstr "تعديل"
-
-msgid "accept"
-msgstr ""
-
-msgid "SELECT ALL"
-msgstr "اختيار الكل"
-
-msgid "select all"
-msgstr ""
-
-msgid "SELECT NONE"
-msgstr "الغاء الاختيار"
-
-msgid "select none"
-msgstr ""
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i تم اختياره"
-msgstr[1] "%i تم اختياره"
-msgstr[2] "%i تم اختياره"
-msgstr[3] "%i تم اختياره"
-msgstr[4] "%i تم اختياره"
-msgstr[5] "%i تم اختياره"
-
-msgid "CHANGE"
-msgstr "تغيير"
-
-msgid "WORKING..."
-msgstr "تشغيل..."
-
-msgid "up/down"
-msgstr ""
+msgid "SHIFT"
+msgstr "زر الانتقال"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "تم اقتران يد التحكم"

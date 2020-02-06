@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 22:03+0100\n"
+"POT-Creation-Date: 2020-02-06 19:48-0400\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,20 +11,148 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-msgid "UPDATING BATOCERA"
-msgstr "AKTUALIZUJĘ SYSTEM"
+msgid "CANCEL"
+msgstr "ANULUJ"
 
-msgid "UPDATE IS READY"
-msgstr "AKTUALIZACJA JEST GOTOWA"
+msgid "Searching"
+msgstr "Wyszukiwanie"
 
-msgid "REBOOT SYSTEM TO APPLY"
-msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
+msgid "Rating"
+msgstr "Ocena"
+
+msgid "Released"
+msgstr "Opublikowana"
+
+msgid "Developer"
+msgstr "Producent"
+
+msgid "Publisher"
+msgstr "Wydawca"
+
+msgid "Genre"
+msgstr "Rodzaj"
+
+msgid "Players"
+msgstr "Graczy"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
+
+msgid "RETRY"
+msgstr "PONÓW"
+
+msgid "SKIP"
+msgstr "POMIŃ"
+
+msgid "Downloading"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "AKCEPTUJ WYNIK"
+
+msgid "all games"
+msgstr "wszystkie gry"
+
+msgid "last played"
+msgstr "ostatnio grane"
+
+msgid "favorites"
+msgstr "ulubione"
+
+msgid "2 players"
+msgstr "2 graczy"
+
+msgid "4 players"
+msgstr "4 graczy"
+
+msgid "never played"
+msgstr "nidgy nie grane"
+
+msgid "arcade"
+msgstr ""
+
+msgid "collections"
+msgstr "kolekcje"
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr "Edycja kolekcji '%s'. Dodaj/usuń gry z Y."
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr "Zakończono edycję kolekcji '%s'."
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "Dodano '%s' do '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "Usunięto '%s' z '%s'"
+
+msgid "This collection is empty."
+msgstr "Ta kolekcja jest pusta."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Brak"
+
+msgid "Various"
+msgstr "Rozmaite"
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s."
+msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s."
+msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s."
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s wśród innych tytułów."
+msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s wśród innych tytułów."
+msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s wśród innych tytułów."
+
+msgid "Loading..."
+msgstr "Ładuję..."
+
+msgid "Loading system config..."
+msgstr "Ładuję konfigurację systemową..."
+
+msgid "QUIT"
+msgstr "WYJDŹ"
+
+msgid "Done."
+msgstr "Zrobione."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+
+msgid "DOWNLOADING"
+msgstr "Pobieranie"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "MOTYW ZAINSTALOWANY POMYŚLNIE"
 
 msgid "AN ERROR OCCURED"
 msgstr "WYSTĄPIŁ BŁĄD"
 
-msgid "REALLY UPDATE?"
-msgstr "ZAKTUALIZOWAĆ?"
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
+
+msgid "Preloading UI"
+msgstr "Ładuję wstępnie interfejs"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr "URUCHOMIĆ GRĘ JAKO NETPLAY HOST?"
 
 msgid "YES"
 msgstr "TAK"
@@ -32,128 +160,301 @@ msgstr "TAK"
 msgid "NO"
 msgstr "NIE"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
+msgid "Last played"
+msgstr "Ostatnio rozegrane"
 
-msgid "OK"
-msgstr "OK"
+msgid "Times played"
+msgstr "Rozegrano razy"
 
-msgid "NO UPDATE AVAILABLE"
-msgstr "BRAK NOWYCH AKTUALIZACJI"
+msgid "Game time"
+msgstr "Czas gry"
 
-msgid "INPUT"
-msgstr "WEJŚCIE"
+msgid "No Entries Found"
+msgstr "Nie Znaleziono Wpisów"
 
-msgid "SEARCH"
-msgstr "SZUKAJ"
+msgid "SYSTEM"
+msgstr "SYSTEM"
 
-msgid "CANCEL"
-msgstr "ANULUJ"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "POŁĄCZ Z NETPLAY"
-
-msgid "Select the game you want to join"
-msgstr "Wybierz grę, do której chcesz dołączyć"
-
-msgid "REFRESH"
-msgstr "ODŚWIEŻ"
-
-msgid "CLOSE"
-msgstr "ZAMKNIJ"
-
-msgid "PLEASE WAIT"
-msgstr "PROSZĘ CZEKAĆ"
-
-msgid "FAILED"
-msgstr "NIE POWIODŁO SIĘ"
-
-msgid "BACK"
-msgstr "WSTECZ"
+msgid "CHOOSE"
+msgstr "PRZEJDŹ"
 
 msgid "LAUNCH"
 msgstr "Uruchom"
 
-msgid "AVAILABLE GAMES"
-msgstr "DOSTĘPNE GRY"
+msgid "BACK"
+msgstr "WSTECZ"
 
-msgid "UNAVAILABLE GAMES"
-msgstr "NIEDOSTĘPNE GRY"
+msgid "OPTIONS"
+msgstr "OPCJE"
 
-msgid "NO GAME FOUND"
-msgstr "NIE ZNALEZIONO GRY"
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
-msgid "go back"
-msgstr "wstecz"
+msgid "RANDOM"
+msgstr "LOSOWO"
 
-msgid "JUMP TO..."
-msgstr "PRZESKOCZ DO..."
+msgid "Favorites"
+msgstr "Ulubione"
 
-msgid "SORT GAMES BY"
-msgstr "SORTUJ GRY"
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 
-msgid "OTHER FILTERS"
-msgstr "INNE FILTRY"
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i GRA DOSTĘPNA"
+msgstr[1] "%i GRY DOSTĘPNE"
+msgstr[2] "%i GIER DOSTĘPNYCH"
 
-msgid "GAMELIST VIEW STYLE"
-msgstr "RODZAJ WIDOKU LISTY GIER"
+msgid "SELECT"
+msgstr "WYBIERZ"
 
-msgid "automatic"
-msgstr "automatyczny"
+msgid "KODI"
+msgstr "KODI"
 
-msgid "VIEW CUSTOMISATION"
-msgstr "DOSTOSOWYWANIE WIDOKU"
+msgid "FILES"
+msgstr "PLIKI"
 
-msgid "GRID SIZE"
-msgstr "ROZMIAR SIATKI"
+msgid "SCRAPING"
+msgstr "SCRAPE'OWANIE"
 
-msgid "SHOW FAVORITES ON TOP"
-msgstr "POKAŻ ULUBIONE NA GÓRZE"
+msgid "SEARCHING"
+msgstr "WYSZUKIWANIE"
 
-msgid "SHOW HIDDEN FILES"
-msgstr "POKAŻ UKRYTE PLIKI"
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgstr ""
+"SCRAPE'OWANIE NIE POWIODŁO SIĘ: APLIKACJA ZOSTAŁA WPISANA NA CZARNĄ LISTĘ"
 
-msgid "SHOW FOLDERS"
-msgstr "POKAŻ FOLDERY"
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: OSIĄGNIĘTO LIMIT DZIENNY"
 
-msgid "always"
-msgstr "zawsze"
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
-msgid "never"
-msgstr "nigdy"
+msgid "Name"
+msgstr "Nazwa"
 
-msgid "having multiple games"
-msgstr "z wieloma grami"
+msgid "enter game name"
+msgstr "wprowadź nazwę gry"
 
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
+msgid "Description"
+msgstr "Opis"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "ZAKOŃCZ EDYCJĘ KOLEKCJI"
+msgid "enter description"
+msgstr "wprowadź opis"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDYTUJ METADANE GRY"
+msgid "Image"
+msgstr "Obraz"
 
-msgid "ADVANCED GAME OPTIONS"
-msgstr "ZAAWANSOWANE OPCJE GRY"
+msgid "enter path to image"
+msgstr "wprowadź ścieżkę do obrazu"
 
-msgid "FILTER GAMES BY TEXT"
-msgstr "FILTRUJ GRY WEDŁUG TEKSTU"
+msgid "Path to video"
+msgstr "Ścieżka do wideo"
 
-msgid "Loading..."
-msgstr "Ładuję..."
+msgid "enter path to thumbnail"
+msgstr "wprowadź ścieżkę do miniaturki"
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "FUNKCJA TA JEST WYŁĄCZONA PO URUCHOMIENIU SCRAPE'A"
+msgid "Path to marquee"
+msgstr "Scieżka do marquee"
 
-msgid "FILTER GAMELIST BY"
-msgstr "FILTRUJ LISTĘ GIER PRZEZ"
+msgid "Thumbnail"
+msgstr "Miniaturka"
 
-msgid "RESET ALL FILTERS"
-msgstr "ZRESETUJ WSZYSTKIE FILTRY"
+msgid "enter rating"
+msgstr "wprowadź ocenę"
 
-msgid "FIND GAMES"
-msgstr "ZNAJDŹ GRY"
+msgid "Release date"
+msgstr "Data produkcji"
+
+msgid "enter release date"
+msgstr "wprowadź datę produkcji"
+
+msgid "enter game developer"
+msgstr "wprowadź producenta gry"
+
+msgid "enter game publisher"
+msgstr "wprowadź wydawcę gry"
+
+msgid "enter game genre"
+msgstr "wprowadź gatunek gry"
+
+msgid "enter number of players"
+msgstr "wprowadź liczbę graczy"
+
+msgid "Favorite"
+msgstr "Ulubione"
+
+msgid "enter favorite"
+msgstr "wprowadź ulubioną"
+
+msgid "Hidden"
+msgstr "Ukryta"
+
+msgid "set hidden"
+msgstr "ustaw jako niewidoczna"
+
+msgid "Kidgame"
+msgstr "Kidgame"
+
+msgid "set kidgame"
+msgstr "ustaw jako kidgame"
+
+msgid "Play count"
+msgstr "Liczba gier"
+
+msgid "enter number of times played"
+msgstr "wprowadź liczbę rozegranych gier"
+
+msgid "enter last played date"
+msgstr "wpisz datę ostatniej gry"
+
+msgid "Crc32 checksum"
+msgstr "Crc32 suma kontrolna"
+
+msgid "Md5 checksum"
+msgstr "Md5 suma kontrolna"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
+
+msgid "Arcade system"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
+msgid "name"
+msgstr "nazwa"
+
+msgid "description"
+msgstr "opis"
+
+msgid "image"
+msgstr "obraz"
+
+msgid "thumbnail"
+msgstr "miniaturka"
+
+msgid "video"
+msgstr "wideo"
+
+msgid "enter path to video"
+msgstr "wprowadź ścieżkę do wideo"
+
+msgid "marquee"
+msgstr "marquee"
+
+msgid "enter path to marquee"
+msgstr "wprowadź ścieżkę do marquee"
+
+msgid "FILENAME, ASCENDING"
+msgstr "NAZWA PLIKU, ROSNĄCO"
+
+msgid "FILENAME, DESCENDING"
+msgstr "NAZWA PLIKU, MALEJĄCO"
+
+msgid "RATING, ASCENDING"
+msgstr "OCENA, ROSNĄCO"
+
+msgid "RATING, DESCENDING"
+msgstr "OCENA, MALEJĄCO"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "ROZEGRANO RAZY, ROSNĄCO"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "ROZEGRANO RAZY, MALEJĄCO"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "OSTATNIO GRANE, ROSNĄCO"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "OSTATNIO GRANE, MALEJĄCO"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "LICZBA GRACZY, ROSNĄCO"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "LICZBA GRACZY, MALEJĄCO"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "DATA PREMIERY, ROSNĄCO"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "DATA PREMIERY, MALEJĄCO"
+
+msgid "GENRE, ASCENDING"
+msgstr "RODZAJ, ROSNĄCO"
+
+msgid "GENRE, DESCENDING"
+msgstr "RODZAJ, MALEJĄCO"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "PRODUCENT, ROSNĄCO"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "PRODUCENT, MALEJĄCO"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "WYDAWCA, ROSNĄCO"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "WYDAWCA, MALEJĄCO"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SYSTEM, ROSNĄCO"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SYSTEM, MALEJĄCO"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "DATA UTWORZENIA PLIKU, ROSNĄCO"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "DATA UTWORZENIA PLIKU, MALEJĄCO"
+
+msgid "HASHING GAMES"
+msgstr "HASZOWANIE GIER"
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "HASZOWANIE GIER W TOKU. CZY CHCESZ JE ZATRZYMAĆ?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
+
+msgid "FAVORITES"
+msgstr "ULUBIONE"
+
+msgid "GENRE"
+msgstr "GATUNEK"
+
+msgid "PLAYERS"
+msgstr "GRACZY"
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr "WYDAWCA / PRODUCENT"
+
+msgid "RATING"
+msgstr "OCENA"
+
+msgid "KIDGAME"
+msgstr "KIDGAME"
+
+msgid "UPDATE AVAILABLE"
+msgstr "DOSTĘPNA AKTUALIZACJA"
+
+msgid "SCANNING BLUETOOTH"
+msgstr "SKANOWANIE BLUETOOTH"
+
+msgid "Searching controllers..."
+msgstr "Wyszukiwanie kontrolerów..."
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr "SKANOWANIE BLUETOOTH JEST JUŻ URUCHOMIONE."
+
+msgid "REFRESH"
+msgstr "ODŚWIEŻ"
 
 msgid "MANUAL INPUT"
 msgstr "WPROWADZANIE RĘCZNE"
@@ -164,8 +465,41 @@ msgstr "NIE ZNALEZIONO SIECI WIFI"
 msgid "SEACHING WIFI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
-msgid "FINISHED"
-msgstr "ZAKOŃCZONO"
+msgid "BACKUP USER DATA"
+msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
+
+msgid "TARGET DEVICE"
+msgstr "URZĄDZENIE CELOWE"
+
+msgid "NO DEVICE FOUND"
+msgstr "NIE ZNALEZIONO URZĄDZEŃ"
+
+msgid "START"
+msgstr "URUCHOM"
+
+msgid "CLOSE"
+msgstr "ZAMKNIJ"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "POŁĄCZ Z NETPLAY"
+
+msgid "Select the game you want to join"
+msgstr "Wybierz grę, do której chcesz dołączyć"
+
+msgid "PLEASE WAIT"
+msgstr "PROSZĘ CZEKAĆ"
+
+msgid "FAILED"
+msgstr "NIE POWIODŁO SIĘ"
+
+msgid "AVAILABLE GAMES"
+msgstr "DOSTĘPNE GRY"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "NIEDOSTĘPNE GRY"
+
+msgid "NO GAME FOUND"
+msgstr "NIE ZNALEZIONO GRY"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -205,9 +539,6 @@ msgstr "USTAWIENIA SYSTEMOWE"
 
 msgid "INFORMATIONS"
 msgstr "INFORMACJE"
-
-msgid "QUIT"
-msgstr "WYJDŹ"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
@@ -275,12 +606,6 @@ msgstr "USTAWIENIA POKAZU SLAJDÓW"
 msgid "RANDOM VIDEO SETTINGS"
 msgstr "USTAWIENIA WIDEO LOSOWEGO"
 
-msgid "CHOOSE"
-msgstr "PRZEJDŹ"
-
-msgid "SELECT"
-msgstr "WYBIERZ"
-
 msgid "INFORMATION"
 msgstr "INFORMACJA"
 
@@ -347,6 +672,9 @@ msgstr "UTWÓRZYĆ PLIK POMOCY TECHNICZNEJ?"
 msgid "FILE GENERATED SUCCESSFULLY"
 msgstr "PLIK ZOSTAŁ WYGENEROWANY POMYŚLNIE"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "FILE GENERATION FAILED"
 msgstr "TWORZENIE PLIKU SIĘ NIE POWIODŁO"
 
@@ -391,9 +719,6 @@ msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
 msgid "STORAGE DEVICE"
 msgstr "NOŚNIK DANYCH"
-
-msgid "BACKUP USER DATA"
-msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
 msgid "KODI SETTINGS"
 msgstr "USTAWIENIA KODI"
@@ -545,9 +870,6 @@ msgstr "STATUS"
 msgid "UPDATE GAMES LISTS"
 msgstr "ZAKTUALIZUJ LISTĘ GIER"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "HASZOWANIE GIER W TOKU. CZY CHCESZ JE ZATRZYMAĆ?"
-
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ZAKTUALIZOWAĆ LISTĘ GIER?"
 
@@ -592,6 +914,15 @@ msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
 msgid "THEME CONFIGURATION"
 msgstr "KONFIGURACJA MOTYWU"
 
+msgid "VIEW CUSTOMISATION"
+msgstr "DOSTOSOWYWANIE WIDOKU"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "RODZAJ WIDOKU LISTY GIER"
+
+msgid "automatic"
+msgstr "automatyczny"
+
 msgid "basic"
 msgstr "podstawowy"
 
@@ -609,9 +940,6 @@ msgstr "ZRESETUJ DOSTOSOWYWANIA LISTY GIER"
 
 msgid "THEME SET"
 msgstr "USTAWIENIA MOTYWU"
-
-msgid "video"
-msgstr "wideo"
 
 msgid "grid"
 msgstr "siatka"
@@ -782,74 +1110,17 @@ msgstr "OBOK SIEBIE"
 msgid "INTERNAL RESOLUTION"
 msgstr "WEWNĘTRZNA ROZDZIELCZOŚĆ"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
-
-msgid "SELECT THEME FOLDER"
-msgstr "WYBIERZ FOLDER MOTYWU"
-
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"
-
-msgid "New Collection Name"
-msgstr "Nowa nazwa kolekcji"
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
-
-msgid "SELECT COLLECTIONS"
-msgstr "WYBIERZ KOLEKCJE"
-
-msgid "ARCADE SYSTEMS"
-msgstr ""
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "AUTOMATYCZNE KOLEKCJE GIER"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "WŁASNE KOLEKCJE GIER"
-
-msgid "INSTALL BATOCERA"
-msgstr "ZAINSTALUJ BATOCERA"
-
-msgid "TARGET DEVICE"
-msgstr "URZĄDZENIE CELOWE"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "ARCHITEKTURA CELOWA"
-
-msgid "VALIDATION"
-msgstr "WALIDACJA"
-
-msgid "YES, I'M SURE"
-msgstr "TAK, JESTEM PEWIEN"
-
-msgid "INSTALL"
-msgstr "ZAINSTALUJ"
-
-msgid "NETWORK REQUIRED"
-msgstr "WYMAGANA SIEĆ"
-
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING W TOKU"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
 
 msgid "subtitle text"
 msgstr "tekst napisów"
 
+msgid "INPUT"
+msgstr "WEJŚCIE"
+
 msgid "search"
 msgstr "szukaj"
-
-msgid "SKIP"
-msgstr "POMIŃ"
 
 msgid "STOP"
 msgstr "ZATRZYMAJ"
@@ -884,42 +1155,96 @@ msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA."
 msgstr[1] "%i GRY ZOSTAŁY POMINIĘTE."
 msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH."
 
-msgid "INSTALL BEZELS"
-msgstr "ZAINSTALUJ RAMKI"
-
-msgid "UNINSTALL BEZELS"
-msgstr "ODINSTALUJ RAMKI"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "ZAINSTALUJ PROJEKT RAMEK"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ ZAINSTALOWANE RAMKI"
+msgid "SELECT THEME"
+msgstr "WYBIERZ MOTYW"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' DODANO DO KOLEJKI POBIERANIA"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "ODINSTALUJ PROJEKT RAMEK"
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "PODMIEŃ WIDEO PO (SEKUNDACH)"
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "WYBIERZ SYSTEM, W KTÓRYM ZOSTANĄ USUNIĘTE RAMKI"
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "UŻYJ OMX DLA WYGASZACZA"
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "RAMKI USUNIĘTE POMYŚLNIE"
-
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "PODMIEŃ OBRAZ PO (SEKUNDACH)"
+msgid "VIDEO SCREENSAVER"
+msgstr "WYGASZACZ WIDEO"
 
 msgid "SHOW GAME INFO"
 msgstr "POKAŻ INFORMACJE O GRZE"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "POKAŻ INFORMACJE O GRZE NA WYGASZACZU"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UŻYJ MARQUEE JAKO INFORMACJI O GRZE"
 
 msgid "DECORATIONS"
 msgstr "DEKORACJE"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
+
+msgid "go back"
+msgstr "wstecz"
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr "WYBIERZ SYSTEMY DO WYŚWIETLENIA"
+
+msgid "APPLY"
+msgstr "ZASTOSUJ"
+
+msgid "REVERT"
+msgstr "PRZYWRÓĆ"
+
+msgid "VALIDATE"
+msgstr "SPRAWDŹ"
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
+
+msgid "SELECT THEME FOLDER"
+msgstr "WYBIERZ FOLDER MOTYWU"
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"
+
+msgid "New Collection Name"
+msgstr "Nowa nazwa kolekcji"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr "ZAKOŃCZ EDYCJĘ KOLEKCJI"
+
+msgid "SELECT COLLECTIONS"
+msgstr "WYBIERZ KOLEKCJE"
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "AUTOMATYCZNE KOLEKCJE GIER"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "WŁASNE KOLEKCJE GIER"
+
+msgid "FINISHED"
+msgstr "ZAKOŃCZONO"
+
+msgid "SEARCH"
+msgstr "SZUKAJ"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "PODMIEŃ OBRAZ PO (SEKUNDACH)"
 
 msgid "STRETCH IMAGES"
 msgstr "ROZCIĄGNIJ OBRAZY"
@@ -935,21 +1260,6 @@ msgstr "KATALOG OBRAZÓW NIESTANDARDOWYCH REKURSUJNIE"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTER OBRAZÓW NIESTANDARDOWYCH"
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "PODMIEŃ WIDEO PO (SEKUNDACH)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "UŻYJ OMX DLA WYGASZACZA"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "WYGASZACZ WIDEO"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "POKAŻ INFORMACJE O GRZE NA WYGASZACZU"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE'UJ TE GRY"
@@ -972,9 +1282,6 @@ msgstr "SYSTEMY"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "UŻYTKOWNIK DECYDUJE PRZY KONFLIKTACH"
 
-msgid "START"
-msgstr "URUCHOM"
-
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -984,20 +1291,45 @@ msgstr ""
 "MOGĄ BYĆ NAWET BARDZIEJ NIEDOKŁADNE NIŻ ZAZWYCZAJ!\n"
 "KONTYNUOWAĆ?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
+msgid "UPDATING BATOCERA"
+msgstr "AKTUALIZUJĘ SYSTEM"
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr "WYBIERZ SYSTEMY DO WYŚWIETLENIA"
+msgid "UPDATE IS READY"
+msgstr "AKTUALIZACJA JEST GOTOWA"
 
-msgid "APPLY"
-msgstr "ZASTOSUJ"
+msgid "REBOOT SYSTEM TO APPLY"
+msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
 
-msgid "REVERT"
-msgstr "PRZYWRÓĆ"
+msgid "REALLY UPDATE?"
+msgstr "ZAKTUALIZOWAĆ?"
 
-msgid "VALIDATE"
-msgstr "SPRAWDŹ"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "BRAK NOWYCH AKTUALIZACJI"
+
+msgid "EDIT METADATA"
+msgstr "EDYTUJ META DANE"
+
+msgid "SAVE"
+msgstr "ZAPISZ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
+"JESTEŚ PEWIEN?"
+
+msgid "DELETE"
+msgstr "USUŃ"
+
+msgid "SAVE CHANGES?"
+msgstr "ZAPISAĆ ZMIANY?"
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr "RAMKI USUNIĘTE POMYŚLNIE"
 
 msgid "SCREENSAVER AFTER"
 msgstr "WYGASZACZ PO"
@@ -1030,427 +1362,144 @@ msgstr "STEROWANIE WYGASZACZA"
 msgid "SLIDESHOW SCREENSAVER"
 msgstr "WYGASZACZ ZE SLAJDAMI"
 
-msgid "NO DEVICE FOUND"
-msgstr "NIE ZNALEZIONO URZĄDZEŃ"
+msgid "INSTALL BEZELS"
+msgstr "ZAINSTALUJ RAMKI"
 
-msgid "SELECT THEME"
-msgstr "WYBIERZ MOTYW"
+msgid "UNINSTALL BEZELS"
+msgstr "ODINSTALUJ RAMKI"
 
-msgid "EDIT METADATA"
-msgstr "EDYTUJ META DANE"
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr "ZAINSTALUJ PROJEKT RAMEK"
 
-msgid "SAVE"
-msgstr "ZAPISZ"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ ZAINSTALOWANE RAMKI"
 
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
-"JESTEŚ PEWIEN?"
+msgid "UNINSTALL THE BEZEL PROJECT"
+msgstr "ODINSTALUJ PROJEKT RAMEK"
 
-msgid "DELETE"
-msgstr "USUŃ"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr "WYBIERZ SYSTEM, W KTÓRYM ZOSTANĄ USUNIĘTE RAMKI"
 
-msgid "SAVE CHANGES?"
-msgstr "ZAPISAĆ ZMIANY?"
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRUJ LISTĘ GIER PRZEZ"
 
-msgid "Name"
-msgstr "Nazwa"
+msgid "RESET ALL FILTERS"
+msgstr "ZRESETUJ WSZYSTKIE FILTRY"
 
-msgid "enter game name"
-msgstr "wprowadź nazwę gry"
+msgid "FIND GAMES"
+msgstr "ZNAJDŹ GRY"
 
-msgid "Description"
-msgstr "Opis"
+msgid "JUMP TO..."
+msgstr "PRZESKOCZ DO..."
 
-msgid "enter description"
-msgstr "wprowadź opis"
+msgid "SORT GAMES BY"
+msgstr "SORTUJ GRY"
 
-msgid "Image"
-msgstr "Obraz"
+msgid "OTHER FILTERS"
+msgstr "INNE FILTRY"
 
-msgid "enter path to image"
-msgstr "wprowadź ścieżkę do obrazu"
+msgid "GRID SIZE"
+msgstr "ROZMIAR SIATKI"
 
-msgid "Path to video"
-msgstr "Ścieżka do wideo"
+msgid "SHOW FAVORITES ON TOP"
+msgstr "POKAŻ ULUBIONE NA GÓRZE"
 
-msgid "enter path to thumbnail"
-msgstr "wprowadź ścieżkę do miniaturki"
+msgid "SHOW HIDDEN FILES"
+msgstr "POKAŻ UKRYTE PLIKI"
 
-msgid "Path to marquee"
-msgstr "Scieżka do marquee"
+msgid "SHOW FOLDERS"
+msgstr "POKAŻ FOLDERY"
 
-msgid "Thumbnail"
-msgstr "Miniaturka"
+msgid "always"
+msgstr "zawsze"
 
-msgid "Rating"
-msgstr "Ocena"
+msgid "never"
+msgstr "nigdy"
 
-msgid "enter rating"
-msgstr "wprowadź ocenę"
+msgid "having multiple games"
+msgstr "z wieloma grami"
 
-msgid "Release date"
-msgstr "Data produkcji"
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
 
-msgid "enter release date"
-msgstr "wprowadź datę produkcji"
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDYTUJ METADANE GRY"
 
-msgid "Developer"
-msgstr "Producent"
+msgid "ADVANCED GAME OPTIONS"
+msgstr "ZAAWANSOWANE OPCJE GRY"
 
-msgid "enter game developer"
-msgstr "wprowadź producenta gry"
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTRUJ GRY WEDŁUG TEKSTU"
 
-msgid "Publisher"
-msgstr "Wydawca"
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgstr "FUNKCJA TA JEST WYŁĄCZONA PO URUCHOMIENIU SCRAPE'A"
 
-msgid "enter game publisher"
-msgstr "wprowadź wydawcę gry"
+msgid "INSTALL BATOCERA"
+msgstr "ZAINSTALUJ BATOCERA"
 
-msgid "Genre"
-msgstr "Rodzaj"
+msgid "TARGET ARCHITECTURE"
+msgstr "ARCHITEKTURA CELOWA"
 
-msgid "enter game genre"
-msgstr "wprowadź gatunek gry"
+msgid "VALIDATION"
+msgstr "WALIDACJA"
 
-msgid "Players"
-msgstr "Graczy"
+msgid "YES, I'M SURE"
+msgstr "TAK, JESTEM PEWIEN"
 
-msgid "enter number of players"
-msgstr "wprowadź liczbę graczy"
+msgid "INSTALL"
+msgstr "ZAINSTALUJ"
 
-msgid "Favorite"
-msgstr "Ulubione"
+msgid "NETWORK REQUIRED"
+msgstr "WYMAGANA SIEĆ"
 
-msgid "enter favorite"
-msgstr "wprowadź ulubioną"
+msgid "up/down"
+msgstr "góra/dół"
 
-msgid "Hidden"
-msgstr "Ukryta"
+msgid "CHANGE"
+msgstr "ZMIEŃ"
 
-msgid "set hidden"
-msgstr "ustaw jako niewidoczna"
+msgid "accept"
+msgstr "zaakceptuj"
 
-msgid "Kidgame"
-msgstr "Kidgame"
+msgid "SELECT ALL"
+msgstr "ZAZNACZ WSZYSTKO"
 
-msgid "set kidgame"
-msgstr "ustaw jako kidgame"
+msgid "select all"
+msgstr "zaznacz wszystko"
 
-msgid "Play count"
-msgstr "Liczba gier"
+msgid "SELECT NONE"
+msgstr "ODZNACZ WSZYSTKO"
 
-msgid "enter number of times played"
-msgstr "wprowadź liczbę rozegranych gier"
+msgid "select none"
+msgstr "odznacz wszystko"
 
-msgid "Last played"
-msgstr "Ostatnio rozegrane"
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i WYBRANA"
+msgstr[1] "%i WYBRANE"
+msgstr[2] "%i WYBRANYCH"
 
-msgid "enter last played date"
-msgstr "wpisz datę ostatniej gry"
+msgid "MOVE CURSOR"
+msgstr "PORUSZ KURSOREM"
 
-msgid "Crc32 checksum"
-msgstr "Crc32 suma kontrolna"
+msgid "STOP EDITING"
+msgstr "ZATRZYMAJ EDYTOWANIE"
 
-msgid "Md5 checksum"
-msgstr "Md5 suma kontrolna"
+msgid "EDIT"
+msgstr "EDYTUJ"
 
-msgid "Game time"
-msgstr "Czas gry"
+msgid "WORKING..."
+msgstr "PRACUJĘ.."
 
-msgid "how long the game has been played in total (seconds)"
-msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
-
-msgid "Arcadesystemname"
+msgid "Unknown"
 msgstr ""
 
-msgid "enter game arcade system"
-msgstr ""
-
-msgid "name"
-msgstr "nazwa"
-
-msgid "description"
-msgstr "opis"
-
-msgid "image"
-msgstr "obraz"
-
-msgid "thumbnail"
-msgstr "miniaturka"
-
-msgid "enter path to video"
-msgstr "wprowadź ścieżkę do wideo"
-
-msgid "marquee"
-msgstr "marquee"
-
-msgid "enter path to marquee"
-msgstr "wprowadź ścieżkę do marquee"
-
-msgid "SCRAPING"
-msgstr "SCRAPE'OWANIE"
-
-msgid "SEARCHING"
-msgstr "WYSZUKIWANIE"
-
-msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
-"SCRAPE'OWANIE NIE POWIODŁO SIĘ: APLIKACJA ZOSTAŁA WPISANA NA CZARNĄ LISTĘ"
-
-msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: OSIĄGNIĘTO LIMIT DZIENNY"
-
-msgid "DOWNLOADING"
-msgstr "Pobieranie"
-
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
-
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i GRA DOSTĘPNA"
-msgstr[1] "%i GRY DOSTĘPNE"
-msgstr[2] "%i GIER DOSTĘPNYCH"
-
-msgid "KODI"
-msgstr "KODI"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "RANDOM"
-msgstr "LOSOWO"
-
-msgid "FILES"
-msgstr "PLIKI"
-
-msgid "Released"
-msgstr "Opublikowana"
-
-msgid "Times played"
-msgstr "Rozegrano razy"
-
-msgid "No Entries Found"
-msgstr "Nie Znaleziono Wpisów"
-
-msgid "OPTIONS"
-msgstr "OPCJE"
-
-msgid "Favorites"
-msgstr "Ulubione"
-
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "URUCHOMIĆ GRĘ JAKO NETPLAY HOST?"
-
-msgid "Preloading UI"
-msgstr "Ładuję wstępnie interfejs"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "FILENAME, ASCENDING"
-msgstr "NAZWA PLIKU, ROSNĄCO"
-
-msgid "FILENAME, DESCENDING"
-msgstr "NAZWA PLIKU, MALEJĄCO"
-
-msgid "RATING, ASCENDING"
-msgstr "OCENA, ROSNĄCO"
-
-msgid "RATING, DESCENDING"
-msgstr "OCENA, MALEJĄCO"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "ROZEGRANO RAZY, ROSNĄCO"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "ROZEGRANO RAZY, MALEJĄCO"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "OSTATNIO GRANE, ROSNĄCO"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "OSTATNIO GRANE, MALEJĄCO"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "LICZBA GRACZY, ROSNĄCO"
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "LICZBA GRACZY, MALEJĄCO"
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "DATA PREMIERY, ROSNĄCO"
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "DATA PREMIERY, MALEJĄCO"
-
-msgid "GENRE, ASCENDING"
-msgstr "RODZAJ, ROSNĄCO"
-
-msgid "GENRE, DESCENDING"
-msgstr "RODZAJ, MALEJĄCO"
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "PRODUCENT, ROSNĄCO"
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "PRODUCENT, MALEJĄCO"
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "WYDAWCA, ROSNĄCO"
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "WYDAWCA, MALEJĄCO"
-
-msgid "SYSTEM, ASCENDING"
-msgstr "SYSTEM, ROSNĄCO"
-
-msgid "SYSTEM, DESCENDING"
-msgstr "SYSTEM, MALEJĄCO"
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "DATA UTWORZENIA PLIKU, ROSNĄCO"
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "DATA UTWORZENIA PLIKU, MALEJĄCO"
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "MOTYW ZAINSTALOWANY POMYŚLNIE"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
-
-msgid "FAVORITES"
-msgstr "ULUBIONE"
-
-msgid "GENRE"
-msgstr "GATUNEK"
-
-msgid "PLAYERS"
-msgstr "GRACZY"
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr "WYDAWCA / PRODUCENT"
-
-msgid "RATING"
-msgstr "OCENA"
-
-msgid "KIDGAME"
-msgstr "KIDGAME"
-
-msgid "HASHING GAMES"
-msgstr "HASZOWANIE GIER"
-
-msgid "Searching"
-msgstr "Wyszukiwanie"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
-
-msgid "AN ERROR HAS OCCURED"
-msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
-
-msgid "RETRY"
-msgstr "PONÓW"
-
-msgid "Downloading"
-msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "AKCEPTUJ WYNIK"
-
-msgid "Loading system config..."
-msgstr "Ładuję konfigurację systemową..."
-
-msgid "Done."
-msgstr "Zrobione."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
-
-msgid "SCANNING BLUETOOTH"
-msgstr "SKANOWANIE BLUETOOTH"
-
-msgid "Searching controllers..."
-msgstr "Wyszukiwanie kontrolerów..."
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "SKANOWANIE BLUETOOTH JEST JUŻ URUCHOMIONE."
-
-msgid "UPDATE AVAILABLE"
-msgstr "DOSTĘPNA AKTUALIZACJA"
-
-msgid "all games"
-msgstr "wszystkie gry"
-
-msgid "last played"
-msgstr "ostatnio grane"
-
-msgid "favorites"
-msgstr "ulubione"
-
-msgid "2 players"
-msgstr "2 graczy"
-
-msgid "4 players"
-msgstr "4 graczy"
-
-msgid "never played"
-msgstr "nidgy nie grane"
-
-msgid "arcade"
-msgstr ""
-
-msgid "collections"
-msgstr "kolekcje"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Edycja kolekcji '%s'. Dodaj/usuń gry z Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Zakończono edycję kolekcji '%s'."
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "Dodano '%s' do '%s'"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "Usunięto '%s' z '%s'"
-
-msgid "This collection is empty."
-msgstr "Ta kolekcja jest pusta."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Brak"
-
-msgid "Various"
-msgstr "Rozmaite"
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s."
-msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s."
-msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s."
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
-msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Kolekcja zawiera %1$i grę, w tym %2$s wśród innych tytułów."
-msgstr[1] "Kolekcja zawiera %1$i gry, w tym %2$s wśród innych tytułów."
-msgstr[2] "Kolekcja zawiera %1$i gier, w tym %2$s wśród innych tytułów."
+msgid "RESET"
+msgstr "ZRESETUJ"
+
+msgid "DISCARD CHANGES"
+msgstr "COFNIJ ZMIANY"
 
 msgid "UP"
 msgstr "GÓRA"
@@ -1521,24 +1570,6 @@ msgstr "NACIŚNIJ DOWOLNY PRZYCISK"
 msgid "ALREADY TAKEN"
 msgstr "JUŻ UŻYTE"
 
-msgid "SPACE"
-msgstr "SPACJA"
-
-msgid "DELETE A CHAR"
-msgstr "USUŃ ZNAK"
-
-msgid "RESET"
-msgstr "ZRESETUJ"
-
-msgid "DISCARD CHANGES"
-msgstr "COFNIJ ZMIANY"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
-
-msgid "SHIFT"
-msgstr "SHIFT"
-
 msgid "WELCOME"
 msgstr "WITAJ"
 
@@ -1558,48 +1589,17 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
-msgid "Unknown"
-msgstr ""
+msgid "SPACE"
+msgstr "SPACJA"
 
-msgid "MOVE CURSOR"
-msgstr "PORUSZ KURSOREM"
+msgid "DELETE A CHAR"
+msgstr "USUŃ ZNAK"
 
-msgid "STOP EDITING"
-msgstr "ZATRZYMAJ EDYTOWANIE"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
 
-msgid "EDIT"
-msgstr "EDYTUJ"
-
-msgid "accept"
-msgstr "zaakceptuj"
-
-msgid "SELECT ALL"
-msgstr "ZAZNACZ WSZYSTKO"
-
-msgid "select all"
-msgstr "zaznacz wszystko"
-
-msgid "SELECT NONE"
-msgstr "ODZNACZ WSZYSTKO"
-
-msgid "select none"
-msgstr "odznacz wszystko"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i WYBRANA"
-msgstr[1] "%i WYBRANE"
-msgstr[2] "%i WYBRANYCH"
-
-msgid "CHANGE"
-msgstr "ZMIEŃ"
-
-msgid "WORKING..."
-msgstr "PRACUJĘ.."
-
-msgid "up/down"
-msgstr "góra/dół"
+msgid "SHIFT"
+msgstr "SHIFT"
 
 #~ msgid "MIX"
 #~ msgstr "MIX"
