@@ -5,6 +5,7 @@
 #include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
 #include "Gamelist.h"
+#include "Log.h"
 
 #define GUIICON _U("\uF03E ")
 
@@ -39,15 +40,23 @@ std::string ThreadedScraper::formatGameName(FileData* game)
 
 void ThreadedScraper::search(const ScraperSearchParams& params)
 {
+	LOG(LogDebug) << "ThreadedScraper::formatGameName";
+
+	std::string gameName = formatGameName(params.game);
+
+	LOG(LogInfo) << "ThreadedScraper::search >> " << gameName;
+
 	mCurrentAction = "";
 	mLastSearch = params;
 	mSearchHandle = startScraperSearch(params);
 
-	std::string idx = std::to_string(mTotal + 1- mSearchQueue.size()) + "/" + std::to_string(mTotal);
+	std::string idx = std::to_string(mTotal + 1 - mSearchQueue.size()) + "/" + std::to_string(mTotal);
 
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING") + "... " + idx);
-	mWndNotification->updateText(formatGameName(params.game), _("SEARCHING")+"...");
+	mWndNotification->updateText(gameName, _("SEARCHING")+"...");
 	mWndNotification->updatePercent(-1);
+
+	LOG(LogDebug) << "ThreadedScraper::search <<";
 }
 
 void ThreadedScraper::run()
@@ -69,6 +78,8 @@ void ThreadedScraper::run()
 			auto results = mSearchHandle->getResults();
 			auto statusString = mSearchHandle->getStatusString();
 			auto httpCode = mSearchHandle->getErrorCode();
+
+			LOG(LogDebug) << "ThreadedScraper::SearchResponse : " << httpCode << " " << statusString;
 
 			mSearchHandle.reset();
 
@@ -113,6 +124,8 @@ void ThreadedScraper::run()
 			auto result = mMDResolveHandle->getResult();
 			auto statusString = mMDResolveHandle->getStatusString();
 
+			LOG(LogDebug) << "ThreadedScraper::ResolveResponse : " << statusString;
+
 			mCurrentAction = "";
 			mMDResolveHandle.reset();
 
@@ -138,8 +151,13 @@ void ThreadedScraper::run()
 		{
 			mSearchQueue.pop();
 
-			if (!mSearchQueue.empty())
-				search(mSearchQueue.front());
+			if (mSearchQueue.empty())
+			{
+				LOG(LogDebug) << "ThreadedScraper::finished";
+				break;
+			}
+			
+			search(mSearchQueue.front());
 		}
 		else
 		{
@@ -157,20 +175,29 @@ void ThreadedScraper::run()
 
 void ThreadedScraper::processMedias(ScraperSearchResult result)
 {
-	ScraperSearchParams& search = mSearchQueue.front();
-
-	if (result.hadMedia())
-		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
-
-	search.game->getMetadata().importScrappedMetadata(result.mdl);
-	saveToGamelistRecovery(search.game);
+	LOG(LogDebug) << "ThreadedScraper::processMedias >>";
+	mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
+	LOG(LogDebug) << "ThreadedScraper::processMedias <<";
 }
 
 void ThreadedScraper::acceptResult(const ScraperSearchResult& result)
 {
+	LOG(LogDebug) << "ThreadedScraper::acceptResult >>";
+
 	ScraperSearchParams& search = mSearchQueue.front();
-	search.game->getMetadata().importScrappedMetadata(result.mdl);// = result.mdl;
-	saveToGamelistRecovery(search.game);
+
+	auto game = search.game;
+
+	mWindow->postToUiThread([game, result](Window* w)
+	{
+		LOG(LogDebug) << "ThreadedScraper::importScrappedMetadata";
+		game->getMetadata().importScrappedMetadata(result.mdl);
+
+		LOG(LogDebug) << "ThreadedScraper::saveToGamelistRecovery";
+		saveToGamelistRecovery(game);
+	});
+
+	LOG(LogDebug) << "ThreadedScraper::acceptResult <<";
 }
 
 void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams>& searches)

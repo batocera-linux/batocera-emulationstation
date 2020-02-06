@@ -25,56 +25,60 @@ std::string myCollectionsName = "collections";
  * a CollectionSystemManager Instance */
 CollectionSystemManager* CollectionSystemManager::sInstance = NULL;
 
-CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(window)
+std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 {
 	CollectionSystemDecl systemDecls[] = {
-		//type                name            long name             //default sort					// theme folder            // isCustom   // displayIfEmpty
-	  { AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false,       true },
-	  { AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false,       true },
-	  { AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false,       true },
-	  { AUTO_AT2PLAYERS,      "2players",	  _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, // batocera
-	  { AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, // batocera// batocera
-	  { AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, // batocera
-	  // Arcade systems
-	  { CPS1_COLLECTION,      "zcps1",       "cps1",                  FileSorts::FILENAME_ASCENDING,    "cps1",                    false,       false },
-	  { CPS2_COLLECTION,      "zcps2",       "cps2",                  FileSorts::FILENAME_ASCENDING,    "cps2",                    false,       false },
-	  { CPS3_COLLECTION,      "zcps3",       "cps3",                  FileSorts::FILENAME_ASCENDING,    "cps3",                    false,       false },
-	  { CAVE_COLLECTION,      "zcave",       "cave",                  FileSorts::FILENAME_ASCENDING,    "cave",                    false,       false },
-	  { NEOGEO_COLLECTION,    "zneogeo",     "neogeo",         FileSorts::FILENAME_ASCENDING,    "neogeo",                  false,       false },
-	  { SEGA_COLLECTION,      "zsega",       "sega",           FileSorts::FILENAME_ASCENDING,    "sega",                    false,       false },
-	  { IREM_COLLECTION,      "zirem",       "irem",           FileSorts::FILENAME_ASCENDING,    "irem",                    false,       false },
-	  { MIDWAY_COLLECTION,    "zmidway",     "midway",         FileSorts::FILENAME_ASCENDING,    "midway",                  false,       false },
-	  { CAPCOM_COLLECTION,    "zcapcom",     "capcom",         FileSorts::FILENAME_ASCENDING,    "capcom",                  false,       false },
-	  { TECMO_COLLECTION,     "ztecmo",      "tecmo",          FileSorts::FILENAME_ASCENDING,    "tecmo",                   false,       false },
-	  { SNK_COLLECTION,       "zsnk",        "snk",            FileSorts::FILENAME_ASCENDING,    "snk",                     false,       false },
-	  { NAMCO_COLLECTION,     "znamco",      "namco",          FileSorts::FILENAME_ASCENDING,    "namco",                   false,       false },
-	  { TAITO_COLLECTION,     "ztaito",      "taito",          FileSorts::FILENAME_ASCENDING,    "taito",                   false,       false },
-	  { KONAMI_COLLECTION,    "zkonami",     "konami",         FileSorts::FILENAME_ASCENDING,    "konami",                  false,       false },
-	  { JALECO_COLLECTION,    "zjaleco",     "jaleco",         FileSorts::FILENAME_ASCENDING,    "jaleco",                  false,       false },
-	  { ATARI_COLLECTION,     "zatari",      "atari",          FileSorts::FILENAME_ASCENDING,    "atari",                   false,       false },
-	  { NINTENDO_COLLECTION,  "znintendo",   "nintendo",       FileSorts::FILENAME_ASCENDING,    "nintendo",                false,       false },
-	  { SAMMY_COLLECTION,     "zsammy",      "sammy",          FileSorts::FILENAME_ASCENDING,    "sammy",                   false,       false },
-	  { ACCLAIM_COLLECTION,   "zacclaim",    "acclaim",        FileSorts::FILENAME_ASCENDING,    "acclaim",                 false,       false },
-	  { PSIKYO_COLLECTION,    "zpsiko",      "psiko",          FileSorts::FILENAME_ASCENDING,    "psiko",                   false,       false },
-	  { KANEKO_COLLECTION,    "zkaneko",     "kaneko",         FileSorts::FILENAME_ASCENDING,    "kaneko",                  false,       false },
-	  { COLECO_COLLECTION,    "zcoleco",     "coleco",         FileSorts::FILENAME_ASCENDING,    "coleco",                  false,       false },
-	  { ATLUS_COLLECTION,     "zatlus",      "atlus",          FileSorts::FILENAME_ASCENDING,    "atlus",                   false,       false },
-	  { BANPRESTO_COLLECTION, "zbanpresto",  "banpresto",      FileSorts::FILENAME_ASCENDING,    "banpresto",               false,       false },
-	  // Custom collection
-	  { CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
+		//type                name            long name                 default sort					  theme folder               isCustom     displayIfEmpty
+		{ AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false,       true },
+		{ AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false,       true },
+		{ AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false,       true },
+		{ AUTO_AT2PLAYERS,      "2players",	    _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, // batocera
+		{ AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, // batocera
+		{ AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, // batocera
+
+		// Arcade meta 
+		{ AUTO_ARCADE,           "arcade",      _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
+
+		// Arcade systems
+		{ CPS1_COLLECTION,      "zcps1",       "cps1",                  FileSorts::FILENAME_ASCENDING,    "cps1",                    false,       false },
+		{ CPS2_COLLECTION,      "zcps2",       "cps2",                  FileSorts::FILENAME_ASCENDING,    "cps2",                    false,       false },
+		{ CPS3_COLLECTION,      "zcps3",       "cps3",                  FileSorts::FILENAME_ASCENDING,    "cps3",                    false,       false },
+		{ CAVE_COLLECTION,      "zcave",       "cave",                  FileSorts::FILENAME_ASCENDING,    "cave",                    false,       false },
+		{ NEOGEO_COLLECTION,    "zneogeo",     "neogeo",                FileSorts::FILENAME_ASCENDING,    "neogeo",                  false,       false },
+		{ SEGA_COLLECTION,      "zsega",       "sega",                  FileSorts::FILENAME_ASCENDING,    "sega",                    false,       false },
+		{ IREM_COLLECTION,      "zirem",       "irem",                  FileSorts::FILENAME_ASCENDING,    "irem",                    false,       false },
+		{ MIDWAY_COLLECTION,    "zmidway",     "midway",                FileSorts::FILENAME_ASCENDING,    "midway",                  false,       false },
+		{ CAPCOM_COLLECTION,    "zcapcom",     "capcom",                FileSorts::FILENAME_ASCENDING,    "capcom",                  false,       false },
+		{ TECMO_COLLECTION,     "ztecmo",      "tecmo",                 FileSorts::FILENAME_ASCENDING,    "tecmo",                   false,       false },
+		{ SNK_COLLECTION,       "zsnk",        "snk",                   FileSorts::FILENAME_ASCENDING,    "snk",                     false,       false },
+		{ NAMCO_COLLECTION,     "znamco",      "namco",                 FileSorts::FILENAME_ASCENDING,    "namco",                   false,       false },
+		{ TAITO_COLLECTION,     "ztaito",      "taito",                 FileSorts::FILENAME_ASCENDING,    "taito",                   false,       false },
+		{ KONAMI_COLLECTION,    "zkonami",     "konami",                FileSorts::FILENAME_ASCENDING,    "konami",                  false,       false },
+		{ JALECO_COLLECTION,    "zjaleco",     "jaleco",                FileSorts::FILENAME_ASCENDING,    "jaleco",                  false,       false },
+		{ ATARI_COLLECTION,     "zatari",      "atari",                 FileSorts::FILENAME_ASCENDING,    "atari",                   false,       false },
+		{ NINTENDO_COLLECTION,  "znintendo",   "nintendo",              FileSorts::FILENAME_ASCENDING,    "nintendo",                false,       false },
+		{ SAMMY_COLLECTION,     "zsammy",      "sammy",                 FileSorts::FILENAME_ASCENDING,    "sammy",                   false,       false },
+		{ ACCLAIM_COLLECTION,   "zacclaim",    "acclaim",               FileSorts::FILENAME_ASCENDING,    "acclaim",                 false,       false },
+		{ PSIKYO_COLLECTION,    "zpsiko",      "psiko",                 FileSorts::FILENAME_ASCENDING,    "psiko",                   false,       false },
+		{ KANEKO_COLLECTION,    "zkaneko",     "kaneko",                FileSorts::FILENAME_ASCENDING,    "kaneko",                  false,       false },
+		{ COLECO_COLLECTION,    "zcoleco",     "coleco",                FileSorts::FILENAME_ASCENDING,    "coleco",                  false,       false },
+		{ ATLUS_COLLECTION,     "zatlus",      "atlus",                 FileSorts::FILENAME_ASCENDING,    "atlus",                   false,       false },
+		{ BANPRESTO_COLLECTION, "zbanpresto",  "banpresto",             FileSorts::FILENAME_ASCENDING,    "banpresto",               false,       false },
+
+		// Custom collection
+		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
 	};
 
+	return std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
+}
 
-
-
-
+CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(window)
+{
 	// create a map
-	std::vector<CollectionSystemDecl> tempSystemDecl = std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
+	std::vector<CollectionSystemDecl> tempSystemDecl = getSystemDecls();
 
-	for (std::vector<CollectionSystemDecl>::const_iterator it = tempSystemDecl.cbegin(); it != tempSystemDecl.cend(); ++it )
-	{
+	for (auto it = tempSystemDecl.cbegin(); it != tempSystemDecl.cend(); ++it )
 		mCollectionSystemDeclsIndex[(*it).name] = (*it);
-	}
 
 	// creating standard environment data
 	mCollectionEnvData = new SystemEnvironmentData;
@@ -775,25 +779,30 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
         bool isArcade =  std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
 
 		// we won't iterate all collections
-		if ((*sysIt)->isGameSystem() && !(*sysIt)->isCollection()) {
+		if ((*sysIt)->isGameSystem() && !(*sysIt)->isCollection()) 
+		{
 			std::vector<FileData*> files = (*sysIt)->getRootFolder()->getFilesRecursive(GAME);
 			for(auto gameIt = files.cbegin(); gameIt != files.cend(); gameIt++)
 			{
 				bool include = includeFileInAutoCollections((*gameIt));
 
                 std::string systemarcadename;
-				switch(sysDecl.type) {
+				switch(sysDecl.type) 
+				{
 					case AUTO_LAST_PLAYED:
 						include = include && (*gameIt)->getMetadata("playcount") > "0";
 						break;
 					case AUTO_NEVER_PLAYED:
 						include = include && !((*gameIt)->getMetadata("playcount") > "0");
-						break;
+						break;					
 					case AUTO_FAVORITES:
 						// we may still want to add files we don't want in auto collections in "favorites"
 						include = (*gameIt)->getMetadata("favorite") == "true";
 						break;
-                    case CPS1_COLLECTION:
+					case AUTO_ARCADE:
+						include = include && isArcade;
+						break;
+					case CPS1_COLLECTION:
                         systemarcadename = "cps1";
                         break;
                     case CPS2_COLLECTION:
@@ -894,21 +903,14 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 						}
 						break;
 				}
-
-
-
+				
                 std::vector<PlatformIds::PlatformId> platforms = (*sysIt)->getPlatformIds();
 				
-				if(!systemarcadename.empty())
-                {
-				    include = false;
-                    if(isArcade)
-                    {
-                        include = (*gameIt)->getMetadata("arcadesystemname") == systemarcadename;
-                    }
-                }
+				if (!systemarcadename.empty())
+					include = isArcade && (*gameIt)->getMetadata("arcadesystemname") == systemarcadename;
 				    
-				if (include) {
+				if (include) 
+				{
 					CollectionFileData* newGame = new CollectionFileData(*gameIt, newSys);
 					rootFolder->addChild(newGame);
 					newSys->addToIndex(newGame);

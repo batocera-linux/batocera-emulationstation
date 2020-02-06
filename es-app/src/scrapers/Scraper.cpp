@@ -21,17 +21,15 @@ const std::map<std::string, generate_scraper_requests_func> scraper_request_func
 std::unique_ptr<ScraperSearchHandle> startScraperSearch(const ScraperSearchParams& params)
 {
 	const std::string& name = Settings::getInstance()->getString("Scraper");
+
 	std::unique_ptr<ScraperSearchHandle> handle(new ScraperSearchHandle());
 
 	// Check if the Scraper in the settings still exists as a registered scraping source.
-	if (scraper_request_funcs.find(name) == scraper_request_funcs.end())
-	{
-		LOG(LogWarning) << "Configured scraper (" << name << ") unavailable, scraping aborted.";
-	}
+	auto it = scraper_request_funcs.find(name);
+	if (it != scraper_request_funcs.end())
+		it->second(params, handle->mRequestQueue, handle->mResults);
 	else
-	{
-		scraper_request_funcs.at(name)(params, handle->mRequestQueue, handle->mResults);
-	}
+		LOG(LogWarning) << "Configured scraper (" << name << ") unavailable, scraping aborted.";	
 
 	return handle;
 }

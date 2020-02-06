@@ -249,12 +249,25 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	    // in es, the trick is to minus this value to the value to do as if it started at 0
 	    int initialValue = 0;
 	    Sint16 x;
-	    // SDL_JoystickGetAxisInitialState doesn't work with 8bitdo start+b
-	    // required for several pads like xbox and 8bitdo
-#ifndef WIN32
-	    if(SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x)) {
-	      initialValue = x;
-	    }
+
+#if SDL_VERSION_ATLEAST(2, 0, 9)
+		// SDL_JoystickGetAxisInitialState doesn't work with 8bitdo start+b
+		// required for several pads like xbox and 8bitdo
+
+		auto inputConfig = mInputConfigs.find(ev.jaxis.which);
+		if (inputConfig != mInputConfigs.cend())
+		{
+			std::string guid = std::to_string(ev.jaxis.axis) + "@" + inputConfig->second->getDeviceGUIDString();
+
+			auto it = mJoysticksInitialValues.find(guid);
+			if (it != mJoysticksInitialValues.cend())
+				initialValue = it->second;			
+			else if (SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x))
+			{
+				mJoysticksInitialValues[guid] = x;
+				initialValue = x;
+			}
+		}
 #endif
 
 		//if it switched boundaries
