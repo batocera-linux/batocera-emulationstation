@@ -281,7 +281,7 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "SELECIONAR"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -968,7 +968,7 @@ msgid "USER DECIDES ON CONFLICTS"
 msgstr "USUÁRIO DECIDE CONFLITOS"
 
 msgid "START"
-msgstr "START"
+msgstr "INICIAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
