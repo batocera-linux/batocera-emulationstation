@@ -316,38 +316,77 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 	for (auto& item : doc.GetArray())
 	{
+		if (!item.HasMember("fields"))
+			continue;
+
 		const rapidjson::Value& fields = item["fields"];
-		if (fields["has_password"].GetBool())
+		if (fields.HasMember("has_password") && fields["has_password"].IsBool() && fields["has_password"].GetBool())
 			continue;
 
 		FileData* file = nullptr;
 
-		if (fields["game_crc"] != "00000000")
+		if (fields.HasMember("game_crc") && fields["game_crc"].IsString() && fields["game_crc"] != "00000000")
 			file = getFileData(Utils::String::toUpper(fields["game_crc"].GetString()), true);
 
-		if (file == nullptr)
+		if (file == nullptr && fields.HasMember("game_name") && fields["game_name"].IsString())
 			file = getFileData(fields["game_name"].GetString(), false);
 		
 		LobbyAppEntry game;
 		game.fileData = file;
-		game.username = fields["username"].GetString();
-		game.game_crc = fields["game_crc"].GetString();
-		game.mitm_ip = fields["mitm_ip"].GetString();
-		game.subsystem_name = fields["subsystem_name"].GetString();
-		game.frontend = fields["frontend"].GetString();
-		game.created = fields["created"].GetString();
-		game.ip = fields["ip"].GetString();
-		game.updated = fields["updated"].GetString();
-		game.country = fields["country"].GetString();
-		game.host_method = fields["host_method"].GetInt();
-		game.has_password = fields["has_password"].GetBool();
-		game.game_name = fields["game_name"].GetString();
-		game.has_spectate_password = fields["has_spectate_password"].GetBool();		
-		game.core_name = fields["core_name"].GetString();
-		game.mitm_port = fields["mitm_port"].GetInt();
-		game.fixed = fields["fixed"].GetBool();
-		game.retroarch_version = fields["retroarch_version"].GetString();
-		game.port = fields["port"].GetInt();
+	
+		if (fields.HasMember("username") && fields["username"].IsString())
+			game.username = fields["username"].GetString();
+
+		if (fields.HasMember("game_crc") && fields["game_crc"].IsString())
+			game.game_crc = fields["game_crc"].GetString();
+
+		if (fields.HasMember("mitm_ip") && fields["mitm_ip"].IsString())
+			game.mitm_ip = fields["mitm_ip"].GetString();
+
+		if (fields.HasMember("subsystem_name") && fields["subsystem_name"].IsString())
+			game.subsystem_name = fields["subsystem_name"].GetString();
+
+		if (fields.HasMember("frontend") && fields["frontend"].IsString())
+			game.frontend = fields["frontend"].GetString();
+
+		if (fields.HasMember("created") && fields["created"].IsString())
+			game.created = fields["created"].GetString();
+
+		if (fields.HasMember("ip") && fields["ip"].IsString())
+			game.ip = fields["ip"].GetString();
+
+		if (fields.HasMember("updated") && fields["updated"].IsString())
+			game.updated = fields["updated"].GetString();
+
+		if (fields.HasMember("country") && fields["country"].IsString())
+			game.country = fields["country"].GetString();
+
+		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
+			game.host_method = fields["host_method"].GetInt();
+
+		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
+			game.has_password = fields["has_password"].GetBool();
+
+		if (fields.HasMember("game_name") && fields["game_name"].IsString())
+			game.game_name = fields["game_name"].GetString();
+
+		if (fields.HasMember("has_spectate_password") && fields["has_spectate_password"].IsBool())
+			game.has_spectate_password = fields["has_spectate_password"].GetBool();		
+
+		if (fields.HasMember("core_name") && fields["core_name"].IsString())
+			game.core_name = fields["core_name"].GetString();
+
+		if (fields.HasMember("mitm_port") && fields["mitm_port"].IsInt())
+			game.mitm_port = fields["mitm_port"].GetInt();
+
+		if (fields.HasMember("fixed") && fields["fixed"].IsBool())
+			game.fixed = fields["fixed"].GetBool();
+
+		if (fields.HasMember("retroarch_version") && fields["retroarch_version"].IsString())
+			game.retroarch_version = fields["retroarch_version"].GetString();
+
+		if (fields.HasMember("port") && fields["port"].IsInt())
+			game.port = fields["port"].GetInt();
 
 		entries.push_back(game);
 	}	
