@@ -1085,6 +1085,7 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 		"</game>"
 		"</retroachievements>";
 
+	::Sleep(1000);
 	/*
 	// Retrocompatibility Test 
 	data = "Player TOTO (51 points) is 42287 / 61014 ranked users (Top 70%)\n"

@@ -105,12 +105,16 @@ std::vector<HelpPrompt> GuiWifi::getHelpPrompts()
 void GuiWifi::onRefresh()
 {		
 	Window* window = mWindow;
-	mWindow->pushGui(new GuiLoading(mWindow, _("SEACHING WIFI NETWORKS"), [this, window]
-	{
-		mWaitingLoad = true;
 
-		std::vector<std::string> ssids = ApiSystem::getInstance()->getWifiNetworks(true);
-		window->postToUiThread([this, ssids](Window*) { load(ssids); });
-		return (void*) nullptr;
-	}));	
+	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEACHING WIFI NETWORKS"), 
+		[this, window]
+		{
+			mWaitingLoad = true;
+			return ApiSystem::getInstance()->getWifiNetworks(true);
+		},
+		[this, window](std::vector<std::string> ssids)
+		{
+			mWaitingLoad = false;
+			load(ssids);
+		}));	
 }

@@ -3,30 +3,14 @@
 #include "GuiComponent.h"
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
+#include "GuiSettings.h"
+#include "ApiSystem.h"
 
-
-#include <thread>
-
-class GuiRetroAchievements : public GuiComponent {
+class GuiRetroAchievements : public GuiSettings 
+{
 public:
-    GuiRetroAchievements(Window *window);
+	static void show(Window* window);
 
-    virtual ~GuiRetroAchievements();
-
-    void render(const Transform4x4f &parentTrans) override;
-
-    bool input(InputConfig *config, Input input) override;
-
-    std::vector<HelpPrompt> getHelpPrompts() override;
-    
-    void update(int deltaTime) override;
-
-private:
-    BusyComponent mBusyAnim;
-    bool mLoading;
-    int mState;
-
-    std::thread *mHandle;
-
-    void threadDisplayRetroAchievements();
+protected:
+	GuiRetroAchievements(Window *window, RetroAchievementInfo ra);    
 };
