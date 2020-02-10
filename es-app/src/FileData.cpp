@@ -339,6 +339,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 	else if (options.netPlayMode == SERVER)
 	{
+#if WIN32
 		std::string crc32 = getMetadata("crc32");
 		if (crc32.empty())
 		{
@@ -347,10 +348,9 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 				setMetadata("crc32", crc32);
 		}
 		
-#if WIN32
 		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + (crc32.empty() ? "" : " --hash " + crc32) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 #else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host" + (crc32.empty() ? "" : " -hash " + crc32));
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
 #endif
 	}
 	else
