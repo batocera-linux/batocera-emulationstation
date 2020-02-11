@@ -35,7 +35,7 @@ msgid "Genre"
 msgstr "Género"
 
 msgid "Players"
-msgstr "Jogadores"
+msgstr "Jogador"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
