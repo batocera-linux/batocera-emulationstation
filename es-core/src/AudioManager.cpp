@@ -19,7 +19,7 @@
 AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 
-AudioManager::AudioManager() : mInitialized(false), mCurrentMusic(nullptr)
+AudioManager::AudioManager() : mInitialized(false), mCurrentMusic(nullptr), mMusicVolume(MIX_MAX_VOLUME), mVideoPlaying(false)
 {
 	init();
 }
@@ -387,3 +387,37 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 		playRandomMusic(false);
 }
 
+void AudioManager::setVideoPlaying(bool state)
+{
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+		return;
+	
+	sInstance->mVideoPlaying = state;
+}
+
+void AudioManager::update(int deltaTime)
+{
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+		return;
+
+	float deltaVol = deltaTime / 8.0f;
+
+	#define MINVOL 5
+
+	if (sInstance->mVideoPlaying && sInstance->mMusicVolume > MINVOL)
+	{		
+		sInstance->mMusicVolume -= deltaVol;
+		if (sInstance->mMusicVolume < MINVOL)
+			sInstance->mMusicVolume = MINVOL;
+
+		Mix_VolumeMusic((int) sInstance->mMusicVolume);
+	}
+	else if (!sInstance->mVideoPlaying && sInstance->mMusicVolume < MIX_MAX_VOLUME)
+	{
+		sInstance->mMusicVolume += deltaVol;
+		if (sInstance->mMusicVolume > MIX_MAX_VOLUME)
+			sInstance->mMusicVolume = MIX_MAX_VOLUME;
+
+		Mix_VolumeMusic((int)sInstance->mMusicVolume);
+	}
+}
