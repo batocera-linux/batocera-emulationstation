@@ -47,7 +47,7 @@ msgid "SKIP"
 msgstr "SALTAR"
 
 msgid "Downloading"
-msgstr ""
+msgstr "DESCARGANDO"
 
 msgid "ACCEPT RESULT"
 msgstr "ACEPTAR RESULTADO"
@@ -71,7 +71,7 @@ msgid "never played"
 msgstr "NUNCA JUGADO"
 
 msgid "arcade"
-msgstr ""
+msgstr "ARCADE"
 
 msgid "collections"
 msgstr "COLECCIONES"
@@ -317,10 +317,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "CUANTO TIEMPO HA SIDO JUGADO (SEGUNDOS)"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "SISTEMA ARCADE"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "INGRESA EL JUEGO ARCADE"
 
 msgid "name"
 msgstr "NOMBRE"
@@ -836,7 +836,7 @@ msgid "SERVICE URL"
 msgstr "DIRECCION DEL SERVICIO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "PAUSA EN LA PANTALLA TRADUCIDA"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "CONFIGURACIÓN DE RETROACHIEVEMENTS"
@@ -1227,7 +1227,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "SELECCION DE COLECCIONES"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "SISTEMAS ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLECCIONES DE JUEGOS AUTOMATICAS"
@@ -1491,7 +1491,7 @@ msgid "WORKING..."
 msgstr "EN CURSO..."
 
 msgid "Unknown"
-msgstr ""
+msgstr "DESCONOCIDO"
 
 msgid "RESET"
 msgstr "REESTABLECER"
