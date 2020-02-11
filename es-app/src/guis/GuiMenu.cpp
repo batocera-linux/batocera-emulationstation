@@ -2265,6 +2265,11 @@ void GuiMenu::openSoundSettings()
 	s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
 	s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
 
+	auto videolowermusic = std::make_shared<SwitchComponent>(mWindow);
+	videolowermusic->setState(Settings::getInstance()->getBool("VideoLowersMusic"));
+	s->addWithLabel(_("LOWER MUSIC WHEN PLAYING VIDEO"), videolowermusic);
+	s->addSaveFunc([videolowermusic] { Settings::getInstance()->setBool("VideoLowersMusic", videolowermusic->getState()); });
+
 	mWindow->pushGui(s);
 }
 

@@ -432,6 +432,8 @@ void Window::update(int deltaTime)
 	// update pads // batocera
 	if (mControllerActivity)
 		mControllerActivity->update(deltaTime);
+
+	AudioManager::update(deltaTime);
 }
 
 void Window::render()
