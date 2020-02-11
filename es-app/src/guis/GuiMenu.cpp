@@ -32,7 +32,6 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include <LibretroRatio.h>
-#include "GuiLoading.h"
 #include "guis/GuiAutoScrape.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiInstallStart.h"
@@ -70,7 +69,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 	if (isFullUI &&
 		SystemConf::getInstance()->get("global.retroachievements") == "1" &&
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
-	        addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { mWindow->pushGui(new GuiRetroAchievements(mWindow)); }, "iconRetroachievements");
+		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
 
 	// GAMES SETTINGS
 	if (isFullUI)

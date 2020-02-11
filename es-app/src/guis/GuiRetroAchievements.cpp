@@ -10,118 +10,67 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 #include "LocaleES.h"
+#include "GuiLoading.h"
 
-GuiRetroAchievements::GuiRetroAchievements(Window* window) : GuiComponent(window), mBusyAnim(window)
+void GuiRetroAchievements::show(Window* window)
 {
-	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-        mLoading = true;
-	mState = 1;
-	mBusyAnim.setText(_("PLEASE WAIT"));
-        mBusyAnim.setSize(mSize);
+	window->pushGui(new GuiLoading<RetroAchievementInfo>(window, _("PLEASE WAIT"), 
+		[window]
+		{
+			return ApiSystem::getInstance()->getRetroAchievements();		
+		}, 
+		[window](RetroAchievementInfo ra)
+		{
+			window->pushGui(new GuiRetroAchievements(window, ra));
+		}));
 }
 
-GuiRetroAchievements::~GuiRetroAchievements()
+GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo ra) : GuiSettings(window, _("RETROACHIEVEMENTS").c_str())
 {
-}
-
-bool GuiRetroAchievements::input(InputConfig* config, Input input)
-{
-        return false;
-}
-
-std::vector<HelpPrompt> GuiRetroAchievements::getHelpPrompts()
-{
-	return std::vector<HelpPrompt>();
-}
-
-void GuiRetroAchievements::render(const Transform4x4f& parentTrans)
-{
-        Transform4x4f trans = parentTrans * getTransform();
-
-        renderChildren(trans);
-
-        Renderer::setMatrix(trans);
-        Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), 0x00000011);
-
-        if(mLoading)
-          mBusyAnim.render(trans);
-
-}
-
-void GuiRetroAchievements::update(int deltaTime)
-{
-        GuiComponent::update(deltaTime);
-        mBusyAnim.update(deltaTime);
-        
-        if(mState == 1){
-	  mLoading = true;
-	  mHandle = new std::thread(&GuiRetroAchievements::threadDisplayRetroAchievements, this);
-	  mState = 0;
-        }
-
-        if(mState == -1){
-	  delete this;
-        }
-}
-
-void GuiRetroAchievements::threadDisplayRetroAchievements() 
-{
-	auto ra = ApiSystem::getInstance()->getRetroAchievements();
-
-        Window *window = mWindow;
-
-        auto s = new GuiSettings(mWindow, _("RETROACHIEVEMENTS").c_str());
-
-        if (!ra.error.empty())
+	if (!ra.error.empty())
 	{
-                s->setSubTitle(ra.error);
+		setSubTitle(ra.error);
+		return;
 	}
-        else
-        {
-                if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic))
-                {
-                        auto image = std::make_shared<ImageComponent>(mWindow);
-                        image->setImage(ra.userpic);
-                        s->setTitleImage(image);
-                }
 
-                s->setSubTitle("Player " + ra.username + " (" + ra.totalpoints + " points) is " + ra.rank);
+	if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic))
+	{
+		auto image = std::make_shared<ImageComponent>(mWindow);
+		image->setImage(ra.userpic);
+		setTitleImage(image);
+	}
 
-                for (auto game : ra.games)
-                {               
-                        ComponentListRow row;
+	setSubTitle("Player " + ra.username + " (" + ra.totalpoints + " points) is " + ra.rank);
 
-                        auto itstring = std::make_shared<MultiLineMenuEntry>(window, game.name, game.achievements + " achievements");
+	for (auto game : ra.games)
+	{
+		ComponentListRow row;
 
-			auto badge = std::make_shared<ImageComponent>(mWindow);
+		auto itstring = std::make_shared<MultiLineMenuEntry>(mWindow, game.name, game.achievements + " achievements");
+		auto badge = std::make_shared<ImageComponent>(mWindow);
 
-			if (game.badge.empty())
-				badge->setImage(":/cartridge.svg");
-			else
-				badge->setImage(game.badge);
+		if (game.badge.empty())
+			badge->setImage(":/cartridge.svg");
+		else
+			badge->setImage(game.badge);
 
-			badge->setSize(48, 48);
-			row.addElement(badge,false);
+		badge->setSize(48, 48);
+		row.addElement(badge, false);
 
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
+		auto spacer = std::make_shared<GuiComponent>(mWindow);
+		spacer->setSize(10, 0);
+		row.addElement(spacer, false);
 
-                        if (!game.points.empty())
-                        {
-                                std::string longmsg = game.name + "\n" + game.achievements + " achievements\n" + game.points + " points\nLast played : " + game.lastplayed;
+		if (!game.points.empty())
+		{
+			std::string longmsg = game.name + "\n" + game.achievements + " achievements\n" + game.points + " points\nLast played : " + game.lastplayed;
 
-                                row.makeAcceptInputHandler([this, longmsg] {
-                                        mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
-                                });
-                        }
+			row.makeAcceptInputHandler([this, longmsg] {
+				mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK")));
+			});
+		}
 
-                        row.addElement(itstring, true);
-                        s->addRow(row);
-                        row.elements.clear();
-                }
-
-        }
-	mWindow->pushGui(s);
-	mState = -1;
+		row.addElement(itstring, true);
+		addRow(row);		
+	}
 }
