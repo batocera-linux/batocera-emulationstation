@@ -48,6 +48,9 @@ const std::string FileData::getConfigurationName()
 	std::string gameConf = Utils::FileSystem::getFileName(getPath());
 	gameConf = Utils::String::replace(gameConf, "=", "");
 	gameConf = Utils::String::replace(gameConf, "#", "");
+#ifdef _ENABLEEMUELEC
+	gameConf = Utils::String::replace(gameConf, "'", "'\\''");
+#endif
 	gameConf = getSourceFileData()->getSystem()->getName() + std::string("[\"") + gameConf + std::string("\"]");
 	return gameConf;
 }

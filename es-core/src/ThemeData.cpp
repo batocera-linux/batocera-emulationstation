@@ -1117,7 +1117,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 			if (path[0] == '/')
 			{
-#if WIN32
+#if WIN32 || defined _ENABLEEMUELEC
 				path = Utils::String::replace(path,
 					"/recalbox/share_init/system/.emulationstation/themes",
 					Utils::FileSystem::getEsConfigPath() + "/themes");

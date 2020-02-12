@@ -15,7 +15,47 @@ struct InputConfigStructure
 	const char* dispName;
 	const char* icon;
 };
+#ifdef _ENABLEEMUELEC
+static const int inputCount = 25;
+static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
+{
+	{ "Up",               false, "D-PAD UP",           ":/help/dpad_up.svg" },
+	{ "Down",             false, "D-PAD DOWN",         ":/help/dpad_down.svg" },
+	{ "Left",             false, "D-PAD LEFT",         ":/help/dpad_left.svg" },
+	{ "Right",            false, "D-PAD RIGHT",        ":/help/dpad_right.svg" },
+	{ "Start",            true,  "START",              ":/help/button_start.svg" },
+	{ "Select",           true,  "SELECT",             ":/help/button_select.svg" },
+	{ "A",                false, "BUTTON A / EAST",    ":/help/buttons_east.svg" },
+	{ "B",                true,  "BUTTON B / SOUTH",   ":/help/buttons_south.svg" },
+	{ "X",                true,  "BUTTON X / NORTH",   ":/help/buttons_north.svg" },
+	{ "Y",                true,  "BUTTON Y / WEST",    ":/help/buttons_west.svg" },
+	{ "LeftShoulder",     true,  "LEFT SHOULDER",      ":/help/button_l.svg" },
+	{ "RightShoulder",    true,  "RIGHT SHOULDER",     ":/help/button_r.svg" },
+	{ "LeftTrigger",      true,  "LEFT TRIGGER",       ":/help/button_lt.svg" },
+	{ "RightTrigger",     true,  "RIGHT TRIGGER",      ":/help/button_rt.svg" },
+	{ "LeftThumb",        true,  "LEFT THUMB",         ":/help/analog_thumb.svg" },
+	{ "RightThumb",       true,  "RIGHT THUMB",        ":/help/analog_thumb.svg" },
+	{ "LeftAnalogUp",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
+	{ "LeftAnalogDown",   true,  "LEFT ANALOG DOWN",   ":/help/analog_down.svg" },
+	{ "LeftAnalogLeft",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
+	{ "LeftAnalogRight",  true,  "LEFT ANALOG RIGHT",  ":/help/analog_right.svg" },
+	{ "RightAnalogUp",    true,  "RIGHT ANALOG UP",    ":/help/analog_up.svg" },
+	{ "RightAnalogDown",  true,  "RIGHT ANALOG DOWN",  ":/help/analog_down.svg" },
+	{ "RightAnalogLeft",  true,  "RIGHT ANALOG LEFT",  ":/help/analog_left.svg" },
+	{ "RightAnalogRight", true,  "RIGHT ANALOG RIGHT", ":/help/analog_right.svg" },
+	{ "HotKeyEnable",     true,  "HOTKEY ENABLE",      ":/help/button_hotkey.svg" }
+};
 
+
+//MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
+//If you want, you can manually add them to es_input.cfg.
+
+#define HOLD_TO_SKIP_MS 1000
+
+GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window),
+	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)),
+	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
+#else
 static const int inputCount = 21; // batocera
 static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 {
@@ -79,6 +119,7 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
+#endif
 {
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
@@ -167,10 +208,14 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 				// we're not configuring and they didn't press A to start, so ignore this
 				return false;
 			}
-
+#ifdef _ENABLEEMUELEC
+			// apply filtering for quirks related to trigger mapping
+			if(filterTrigger(input, config, i))
+#else
 
 			// filter for input quirks specific to Sony DualShock 3
 			if(filterTrigger(input, config))
+#endif
 				return false;
 
 			// we are configuring, the button is unpressed or the axis is relaxed
@@ -226,6 +271,24 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("OK"), "ok", [this, okFunction] { // batocera
 		// check if the hotkey enable button is set. if not prompt the user to use select or nothing.
 		Input input;
+#ifdef _ENABLEEMUELEC
+		if (!mTargetConfig->getInputByName("HotKeyEnable", &input)) { // batocera
+			mWindow->pushGui(new GuiMsgBox(mWindow,
+				_("YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."),  // batocera
+				_("YES"), [this, okFunction] { // batocera
+					Input input;
+					mTargetConfig->getInputByName("Select", &input);
+					mTargetConfig->mapInput("HotKeyEnable", input); // batocera
+					okFunction();
+					},
+				_("NO"), [this, okFunction] { // batocera
+					// for a disabled hotkey enable button, set to a key with id 0,
+					// so the input configuration script can be backwards compatible.
+					mTargetConfig->mapInput("HotKeyEnable", Input(DEVICE_KEYBOARD, TYPE_KEY, 0, 1, true)); // batocera
+					okFunction();
+				}
+			));
+#else
 		if (!mTargetConfig->getInputByName("hotkey", &input)) { // batocera
 			mWindow->pushGui(new GuiMsgBox(mWindow,
 				_("YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."),  // batocera
@@ -242,6 +305,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 					okFunction();
 				}
 			));
+#endif
 		} else {
 			okFunction();
 		}
@@ -362,7 +426,7 @@ bool GuiInputConfig::assign(Input input, int inputId)
 
 	// if this input is mapped to something other than "nothing" or the current row, error
 	// (if it's the same as what it was before, allow it)
-	if(mTargetConfig->getMappedTo(input).size() > 0 && !mTargetConfig->isMappedTo(GUI_INPUT_CONFIG_LIST[inputId].name, input) && strcmp(GUI_INPUT_CONFIG_LIST[inputId].name, "hotkey") != 0) // batocera
+	if(mTargetConfig->getMappedTo(input).size() > 0 && !mTargetConfig->isMappedTo(GUI_INPUT_CONFIG_LIST[inputId].name, input) && strcmp(GUI_INPUT_CONFIG_LIST[inputId].name, "HotKeyEnable") != 0) // batocera
 	{
 		error(mMappings.at(inputId), "Already mapped!");
 		return false;
@@ -383,11 +447,15 @@ void GuiInputConfig::clearAssignment(int inputId)
 	mTargetConfig->unmapInput(GUI_INPUT_CONFIG_LIST[inputId].name);
 }
 
+#ifdef _ENABLEEMUELEC
+bool GuiInputConfig::filterTrigger(Input input, InputConfig* config, int inputId)
+{
+#else
 bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
 {
   // batocera
   return false;
-
+#endif
 #if defined(__linux__)
 	// on Linux, some gamepads return both an analog axis and a digital button for the trigger;
 	// we want the analog axis only, so this function removes the button press event
@@ -402,12 +470,42 @@ bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
 	  ) && InputManager::getInstance()->getAxisCountByDevice(config->getDeviceId()) == 6)
 	{
 		// digital triggers are unwanted
+#ifdef _ENABLEEMUELEC
+		if(input.type == TYPE_BUTTON && (input.id == 6 || input.id == 7))
+		{
+			mHoldingInput = false;
+			return true;
+		}
+	}
+
+	// ignore negative pole for axes 2/5 only when triggers are being configured
+	if(input.type == TYPE_AXIS && (input.id == 2 || input.id == 5))
+	{
+		if(strstr(GUI_INPUT_CONFIG_LIST[inputId].name, "Trigger") != NULL)
+		{
+			if(input.value == 1)
+				mSkipAxis = true;
+			else if(input.value == -1)
+				return true;
+		}
+		else if(mSkipAxis)
+		{
+			mSkipAxis = false;
+			return true;
+		}
+	}
+#else
 		if (input.type == TYPE_BUTTON && (input.id == 6 || input.id == 7))
 			return true;
 		// ignore analog values < 0
 		if (input.type == TYPE_AXIS && (input.id == 2 || input.id == 5) && input.value < 0)
 			return true;
 	}
+#endif
+#else
+	(void)input;
+	(void)config;
+	(void)inputId;
 #endif
 
 	return false;

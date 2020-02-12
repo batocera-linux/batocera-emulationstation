@@ -34,6 +34,9 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenHeight" },
 	{ "ScreenOffsetX" },
 	{ "ScreenOffsetY" },
+#ifdef _ENABLEEMUELEC
+	{ "LogPath" },
+#endif
 	{ "ScreenRotate" }
 };
 
@@ -56,7 +59,6 @@ void Settings::setDefaults()
 	mWasChanged = false;
 	mBoolMap.clear();
 	mIntMap.clear();
-
 	mBoolMap["BackgroundJoystickInput"] = false;
 	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
@@ -86,7 +88,11 @@ void Settings::setDefaults()
 		mBoolMap["VSync"] = true;	
 		mStringMap["FolderViewMode"] = "never";
 		
+#ifdef _ENABLEEMUELEC
+    mBoolMap["EnableSounds"] = true;
+#else
     mBoolMap["EnableSounds"] = false; // batocera
+#endif
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
 	mBoolMap["IgnoreGamelist"] = false;
@@ -135,7 +141,11 @@ void Settings::setDefaults()
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
 	// mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/music/slideshow_bg.wav"; // batocera
 	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
+#ifdef _ENABLEEMUELEC
+	mStringMap["SlideshowScreenSaverImageDir"] = "/storage/screenshots"; // emuelec
+#else
 	mStringMap["SlideshowScreenSaverImageDir"] = "/userdata/screenshots"; // batocera
+#endif
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;	
@@ -171,7 +181,7 @@ void Settings::setDefaults()
 	mBoolMap["LocalArt"] = false;
 
 	// Audio out device for volume control
-	#ifdef _RPI_
+	#if defined _RPI_ || defined _ENABLEEMUELEC
 		mStringMap["AudioDevice"] = "PCM";
 	#else
 		mStringMap["AudioDevice"] = "Master";
@@ -213,6 +223,9 @@ void Settings::setDefaults()
 	mStringMap["INPUT P3NAME"] = "DEFAULT";
 	mStringMap["INPUT P4NAME"] = "DEFAULT";
 	mStringMap["INPUT P5NAME"] = "DEFAULT";
+#ifdef _ENABLEEMUELEC
+	mStringMap["LogPath"] = ""; /*emuelec */
+#endif
 
 	// Audio settings
 	mBoolMap["audio.bgmusic"] = true;
@@ -278,11 +291,11 @@ bool Settings::saveFile()
 		auto def = mDefaultStringMap.find(iter->first);
 		if (def == mDefaultStringMap.cend() && iter->second.empty())
 			continue;
-
+#ifndef _ENABLEEMUELEC
 		// Value is know and has default value, don't save it
 		if (def != mDefaultStringMap.cend() && def->second == iter->second)
 			continue;
-
+#endif
 		pugi::xml_node node = config.append_child("string");
 		node.append_attribute("name").set_value(iter->first.c_str());
 		node.append_attribute("value").set_value(iter->second.c_str());

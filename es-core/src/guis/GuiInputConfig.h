@@ -28,8 +28,11 @@ private:
 
 	bool assign(Input input, int inputId);
 	void clearAssignment(int inputId);
+#ifdef _ENABLEEMUELEC
+	bool filterTrigger(Input input, InputConfig* config, int inputId);
+#else
 	bool filterTrigger(Input input, InputConfig* config);
-
+#endif
 	void rowDone();
 
 	NinePatchComponent mBackground;
@@ -50,7 +53,9 @@ private:
 	Input mHeldInput;
 	int mHeldTime;
 	int mHeldInputId;
-
+#ifdef _ENABLEEMUELEC
+	bool mSkipAxis;
+#endif
 	BusyComponent mBusyAnim;	
 };
 

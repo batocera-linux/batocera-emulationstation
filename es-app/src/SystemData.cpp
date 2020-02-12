@@ -142,11 +142,21 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		//add directories that also do not match an extension as folders
 		if(!isGame && fileInfo.directory)
 		{
-			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
-			if (filePath.rfind("downloaded_") != std::string::npos || 
+// Don't loose time looking in downloaded_images, downloaded_videos & media folders
+			if (filePath.rfind("downloaded_") != std::string::npos ||
 				filePath.rfind("media") != std::string::npos || 
-				filePath.rfind("images") != std::string::npos ||
+				filePath.rfind("images") != std::string::npos || 
+#ifdef _ENABLEEMUELEC
+				filePath.rfind("boxart") != std::string::npos ||
+				filePath.rfind("cartart") != std::string::npos ||
+				filePath.rfind("snap") != std::string::npos ||
+				filePath.rfind("flyer") != std::string::npos ||
+				filePath.rfind("marquee") != std::string::npos ||
+				filePath.rfind("bios") != std::string::npos ||
+				filePath.rfind("wheel") != std::string::npos ||
+#endif
 				filePath.rfind("videos") != std::string::npos)
+
 				continue;
 
 			FolderData* newFolder = new FolderData(filePath, this);
@@ -680,8 +690,11 @@ std::string SystemData::getGamelistPath(bool forWrite) const
 		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
 	if(forWrite || Utils::FileSystem::exists(filePath))
 		return filePath;
-
+#ifdef _ENABLEEMUELEC	
+	return "/storage/.emulationstation/gamelists/" + mName + "/gamelist.xml";
+#else
 	return "/etc/emulationstation/gamelists/" + mName + "/gamelist.xml";
+#endif
 }
 
 std::string SystemData::getThemePath() const

@@ -216,14 +216,22 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 			dir[0 ^ idx] = -1;
 		else if(config->isMappedLike("right", input))
 			dir[0 ^ idx] = 1;
+#ifdef _ENABLEEMUELEC
+		else  if (config->isMappedTo("lefttrigger", input))
+#else
 		else  if (config->isMappedTo("pageup", input))
+#endif
 		{
 			if (isVertical())
 				dir[1 ^ idx] = -10;
 			else
 				dir[0 ^ idx] = -10;
 		}
+#ifdef _ENABLEEMUELEC
+		else if (config->isMappedTo("righttrigger", input))
+#else
 		else if (config->isMappedTo("pagedown", input))
+#endif
 		{
 			if (isVertical())
 				dir[1 ^ idx] = 10;
@@ -241,9 +249,16 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 			return true;
 		}
 	}else{
+#ifdef _ENABLEEMUELEC
+		if(config->isMappedLike("up", input) || config->isMappedLike("down", input) || 
+			config->isMappedLike("left", input) || config->isMappedLike("right", input) ||
+			config->isMappedTo("righttrigger", input) || config->isMappedTo("lefttrigger", input))
+#else
 		if(config->isMappedLike("up", input) || config->isMappedLike("down", input) || 
 			config->isMappedLike("left", input) || config->isMappedLike("right", input) ||
 			config->isMappedTo("pagedown", input) || config->isMappedTo("pageup", input))
+
+#endif
 		{
 			stopScrolling();
 		}

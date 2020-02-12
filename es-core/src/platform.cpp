@@ -35,6 +35,8 @@ int runSystemCommand(const std::string& cmd_utf8)
 	std::wstring_convert<convert_type, wchar_t> converter;
 	std::wstring wchar_str = converter.from_bytes(cmd_utf8);
 	return _wsystem(wchar_str.c_str());
+#elif _ENABLEEMUELEC
+	return system((cmd_utf8 + " 2> /storage/.config/emuelec/logs/es_launch_stderr.log | head -300 > //storage/.config/emuelec/logs/es_launch_stdout.log").c_str()); // emuelec
 #else
 	return system((cmd_utf8 + " 2> /userdata/system/logs/es_launch_stderr.log | head -300 > /userdata/system/logs/es_launch_stdout.log").c_str()); // batocera
 #endif
@@ -62,3 +64,24 @@ void touch(const std::string& filename)
 		close(fd);
 #endif
 }
+
+#ifdef _ENABLEEMUELEC
+
+/* < emuelec */
+std::string getShOutput(const std::string& mStr)
+{
+    std::string result, file;
+    FILE* pipe{popen(mStr.c_str(), "r")};
+    char buffer[256];
+
+    while(fgets(buffer, sizeof(buffer), pipe) != NULL)
+    {
+        file = buffer;
+        result += file.substr(0, file.size() - 1);
+    }
+
+    pclose(pipe);
+    return result;
+}
+/* emuelec >*/
+#endif

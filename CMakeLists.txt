@@ -9,6 +9,9 @@ option(CEC "CEC" ON)
 option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem")
 option(DISABLE_KODI "Set to ON to disable kodi in menu")
 
+# emuelec
+option(ENABLE_EMUELEC "Set to ON to enable EmuELEC changes" ${ENABLE_EMUELEC})
+
 project(emulationstation-all)
 
 #-------------------------------------------------------------------------------
@@ -17,6 +20,12 @@ LIST(APPEND CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Utils
     ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Packages
 )
+
+
+# emuelec
+if("${ENABLE_EMUELEC}" STREQUAL "1")
+  add_definitions(-D_ENABLEEMUELEC)
+endif()
 
 # batocera / kodi menu
 # disable kodi

@@ -198,14 +198,22 @@ void GridGameListView::setCursor(FileData* file)
 
 std::string GridGameListView::getQuickSystemSelectRightButton()
 {
+#ifdef _ENABLEEMUELEC
+	return "rightshoulder"; //rightshoulder
+#else
 	return "r2"; //rightshoulder
 	//return "pagedown"; //rightshoulder
+#endif
 }
 
 std::string GridGameListView::getQuickSystemSelectLeftButton()
 {
+#ifdef _ENABLEEMUELEC
+	return "leftshoulder"; //leftshoulder
+#else
 	return "l2"; //leftshoulder
 	//return "pageup"; //leftshoulder
+#endif
 }
 
 bool GridGameListView::input(InputConfig* config, Input input)

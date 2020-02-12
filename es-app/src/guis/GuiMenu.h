@@ -62,6 +62,9 @@ private:
 	void openUISettings();
 	void openUpdatesSettings();
 
+#ifdef _ENABLEEMUELEC
+	void openEmuELECSettings(); /* < emuelec */
+#endif
 	// batocera
 	void openKodiLauncher_batocera();
 	void openSystemSettings_batocera();

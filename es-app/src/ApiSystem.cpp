@@ -94,7 +94,12 @@ std::string ApiSystem::getFreeSpaceInfo()
 {
 	LOG(LogDebug) << "ApiSystem::getFreeSpaceInfo";
 
+	
+#ifdef _ENABLEEMUELEC	
+	std::string sharePart = "/storage/";
+#else
 	std::string sharePart = "/userdata/";
+#endif	
 	if (sharePart.size() > 0) {
 		const char *fnPath = sharePart.c_str();
 #if !defined(WIN32)
@@ -154,7 +159,11 @@ bool ApiSystem::isFreeSpaceLimit()
 {
 	LOG(LogDebug) << "ApiSystem::isFreeSpaceLimit";
 
+#ifdef _ENABLEEMUELEC	
+	std::string sharePart = "/storage/";
+#else
 	std::string sharePart = "/userdata/";
+#endif	
 	if (sharePart.size() > 0) {
 		return getFreeSpaceGB(sharePart) < 2;
 	}
@@ -172,7 +181,11 @@ std::string ApiSystem::getVersion()
 	return PROGRAM_VERSION_STRING;
 #endif
 
+#ifdef _ENABLEEMUELEC	
+	std::string version = "/storage/.config/EE_VERSION";
+#else
 	std::string version = "/usr/share/batocera/batocera.version";
+#endif
 	if (version.size() > 0) {
 		std::ifstream ifs(version);
 
@@ -190,7 +203,11 @@ bool ApiSystem::needToShowVersionMessage()
 	LOG(LogDebug) << "ApiSystem::needToShowVersionMessage";
 
 	createLastVersionFileIfNotExisting();
+#ifdef _ENABLEEMUELEC	
+	std::string versionFile = "/storage/.config/emuelec/logs/update.done";
+#else
 	std::string versionFile = "/userdata/system/update.done";
+#endif
 	if (versionFile.size() > 0) {
 		std::ifstream lvifs(versionFile);
 		if (lvifs.good()) {
@@ -209,8 +226,11 @@ bool ApiSystem::createLastVersionFileIfNotExisting()
 {
 	LOG(LogDebug) << "ApiSystem::createLastVersionFileIfNotExisting";
 
+#ifdef _ENABLEEMUELEC	
+	std::string versionFile = "/storage/.config/emuelec/logs/update.done";
+#else
 	std::string versionFile = "/userdata/system/update.done";
-
+#endif
 	FILE *file;
 	if (file = fopen(versionFile.c_str(), "r")) {
 		fclose(file);
@@ -223,7 +243,11 @@ bool ApiSystem::updateLastVersionFile()
 {
 	LOG(LogDebug) << "ApiSystem::updateLastVersionFile";
 
+#ifdef _ENABLEEMUELEC	
+	std::string versionFile = "/storage/.config/emuelec/logs/update.done";
+#else
 	std::string versionFile = "/userdata/system/update.done";
+#endif
 	std::string currentVersion = getVersion();
 	std::ostringstream oss;
 	oss << "echo " << currentVersion << " > " << versionFile;
@@ -241,6 +265,9 @@ bool ApiSystem::updateLastVersionFile()
 
 bool ApiSystem::setOverscan(bool enable) 
 {
+#ifdef _ENABLEEMUELEC
+return true;
+#endif
 	LOG(LogDebug) << "ApiSystem::setOverscan";
 
 	std::ostringstream oss;
@@ -265,6 +292,9 @@ bool ApiSystem::setOverscan(bool enable)
 
 bool ApiSystem::setOverclock(std::string mode) 
 {
+#ifdef _ENABLEEMUELEC
+return true;
+#endif
 	LOG(LogDebug) << "ApiSystem::setOverclock";
 
 	if (mode != "") {
@@ -307,14 +337,20 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 
 	LOG(LogDebug) << "ApiSystem::updateSystem";
 
+#ifdef _ENABLEEMUELEC	
+	std::string updatecommand = "emuelec-upgrade";
+	std::string updatelog = "/storage/.config/emuelec/logs/emuelec-upgrade.log";
+#else
 	std::string updatecommand = "batocera-upgrade";
+	std::string updatelog = "/userdata/system/logs/batocera-upgrade.log";
+#endif
 
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	if (pipe == nullptr)
 		return std::pair<std::string, int>(std::string("Cannot call update command"), -1);
 
 	char line[1024] = "";
-	FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
+	FILE *flog = fopen(updatelog.c_str(), "w");
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
@@ -399,7 +435,13 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 		return std::pair<std::string, int>(std::string("Cannot call scrape command"), -1);
 	}
 
-	FILE *flog = fopen("/userdata/system/logs/batocera-scraper.log", "w");
+#ifdef _ENABLEEMUELEC	
+	std::string scrapelog = "/storage/.config/emuelec/logs/emuelec-scraper.log";
+#else
+	std::string scrapelog = "/userdata/system/logs/batocera-scraper.log";
+#endif
+
+	FILE *flog = fopen(scrapelog.c_str(), "w");
 	while (fgets(line, 1024, pipe)) {
 		strtok(line, "\n");
 		if (flog != NULL) fprintf(flog, "%s\n", line);

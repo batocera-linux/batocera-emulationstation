@@ -59,9 +59,17 @@ bool DateTimeEditComponent::input(InputConfig* config, Input input)
 		}
 
 		int incDir = 0;
+#ifdef _ENABLEEMUELEC
+		if(config->isMappedLike("up", input) || config->isMappedTo("lefttrigger", input))
+			incDir = 1;
+		else if(config->isMappedLike("down", input) || config->isMappedTo("righttrigger", input))
+
+#else
 		if(config->isMappedLike("up", input) || config->isMappedTo("pageup", input))
 			incDir = 1;
 		else if(config->isMappedLike("down", input) || config->isMappedTo("pagedown", input))
+
+#endif
 			incDir = -1;
 
 		if(incDir != 0)

@@ -16,7 +16,7 @@ namespace pugi { class xml_node; }
 // batocera
 #define MAX_PLAYERS 5
 
-#ifdef WIN32
+#if defined WIN32 || defined _ENABLEEMUELEC
 #define BUTTON_OK	"a"
 #define BUTTON_BACK	"b"
 #else

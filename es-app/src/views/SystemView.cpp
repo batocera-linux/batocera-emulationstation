@@ -308,9 +308,13 @@ void SystemView::populate()
 			Settings::getInstance()->setString("UIMode", "Full");
 			mWindow->pushGui(new GuiMsgBox(mWindow, "The selected UI mode has nothing to show,\n returning to UI mode: FULL", "OK", nullptr));
 		}
-
+#ifdef _ENABLEEMUELEC
+		//batocera - behavior when all systems are hidden (re-enable all)
+		LOG (LogError) << "Error: every system is hidden in emuelec.conf, please put at least one system available like 'nes.hide=0'";
+#else
 		//batocera - behavior when all systems are hidden (re-enable all)
 		LOG (LogError) << "Error: every system is hidden in batocera.conf, please put at least one system available like 'nes.hide=0'";
+#endif
 		for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 			SystemConf::getInstance()->set((*it)->getName()+".hide", "0");
 
@@ -393,7 +397,11 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
+#ifdef _ENABLEEMUELEC
+			if (config->isMappedTo("righttrigger", input))
+#else
 			if (config->isMappedTo("pagedown", input))
+#endif
 			{
 				int cursor = mCursor + 10;
 				if (cursor < 0)
@@ -407,7 +415,11 @@ bool SystemView::input(InputConfig* config, Input input)
 				//listInput(10);
 				return true;
 			}
+#ifdef _ENABLEEMUELEC
+			if (config->isMappedTo("lefttrigger", input))
+#else
 			if (config->isMappedTo("pageup", input))
+#endif
 			{
 				int cursor = mCursor - 10;
 				if (cursor < 0)
@@ -435,7 +447,11 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
+#ifdef _ENABLEEMUELEC
+			if (config->isMappedTo("righttrigger", input) && mEntries.size() > 10)
+#else
 			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
+#endif
 			{
 				int cursor = mCursor + 10;
 				if (cursor < 0)
@@ -449,7 +465,11 @@ bool SystemView::input(InputConfig* config, Input input)
 				//listInput(10);
 				return true;
 			}
+#ifdef _ENABLEEMUELEC
+			if (config->isMappedTo("lefttrigger", input) && mEntries.size() > 10)
+#else
 			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
+#endif
 			{
 				int cursor = mCursor - 10;
 				if (cursor < 0)
@@ -493,8 +513,13 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("right", input) ||
 			config->isMappedLike("up", input) ||
 			config->isMappedLike("down", input) ||
+#ifdef _ENABLEEMUELEC
+			config->isMappedLike("righttrigger", input) ||
+			config->isMappedLike("lefttrigger", input))
+#else
 			config->isMappedLike("pagedown", input) ||
 			config->isMappedLike("pageup", input))
+#endif
 			listInput(0);
 
 #ifdef WIN32

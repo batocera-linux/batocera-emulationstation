@@ -98,13 +98,21 @@ bool ComponentList::input(InputConfig* config, Input input)
 	{
 		return listInput(input.value != 0 ? 1 : 0);
 
+#ifdef _ENABLEEMUELEC
+	}else if(config->isMappedTo("lefttrigger", input))
+	{
+		return listInput(input.value != 0 ? -6 : 0);
+	}else if(config->isMappedTo("righttrigger", input)){
+		return listInput(input.value != 0 ? 6 : 0);
+	}
+#else
 	}else if(config->isMappedTo("pageup", input))
 	{
 		return listInput(input.value != 0 ? -6 : 0);
 	}else if(config->isMappedTo("pagedown", input)){
 		return listInput(input.value != 0 ? 6 : 0);
 	}
-
+#endif
 	return false;
 }
 
