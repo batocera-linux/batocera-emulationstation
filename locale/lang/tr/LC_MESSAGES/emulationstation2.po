@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 19:48-0400\n"
+"POT-Creation-Date: 2020-02-12 18:59+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,146 +10,20 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
-msgid "CANCEL"
-msgstr "ÝPTAL"
-
-msgid "Searching"
+msgid "UPDATING BATOCERA"
 msgstr ""
 
-msgid "Rating"
-msgstr "Puan"
-
-msgid "Released"
-msgstr "Yayýn"
-
-msgid "Developer"
-msgstr "Geliþtirici"
-
-msgid "Publisher"
-msgstr "Yayýncý"
-
-msgid "Genre"
-msgstr "Tür"
-
-msgid "Players"
-msgstr "Oyuncu"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "OYUN BULUNAMADI"
-
-msgid "AN ERROR HAS OCCURED"
+msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "RETRY"
-msgstr "TEKRAR DENE"
-
-msgid "SKIP"
-msgstr "GEÇ"
-
-msgid "Downloading"
+msgid "REBOOT SYSTEM TO APPLY"
 msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "ONAYLA"
-
-msgid "all games"
-msgstr ""
-
-msgid "last played"
-msgstr ""
-
-msgid "favorites"
-msgstr ""
-
-msgid "2 players"
-msgstr ""
-
-msgid "4 players"
-msgstr ""
-
-msgid "never played"
-msgstr ""
-
-msgid "arcade"
-msgstr ""
-
-msgid "collections"
-msgstr ""
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr ""
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "EKLENDÝ '%s' -ye'%s'"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "kaldýrýldý'%s' -den'%s'"
-
-msgid "This collection is empty."
-msgstr ""
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr ""
-
-msgid "Various"
-msgstr ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
-msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Loading..."
-msgstr "yükleniyor"
-
-msgid "Loading system config..."
-msgstr "Sistem yapýlandýrma yükleniyor"
-
-msgid "QUIT"
-msgstr "ÇIKIÞ"
-
-msgid "Done."
-msgstr "tamam"
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
-
-msgid "DOWNLOADING"
-msgstr ""
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMA BAÞARIYLA YÜKLENDÝ"
 
 msgid "AN ERROR OCCURED"
 msgstr "BÝR HATA OLUÞTU"
 
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "Preloading UI"
-msgstr ""
-
-msgid "MENU"
-msgstr "MENÜ"
-
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
+msgid "REALLY UPDATE?"
+msgstr "GÜNCELLE?"
 
 msgid "YES"
 msgstr "EVET"
@@ -157,298 +31,127 @@ msgstr "EVET"
 msgid "NO"
 msgstr "HAYIR"
 
-msgid "Last played"
-msgstr "Son oynanma"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "AÐ BAÐLANTISI GEREKÝYOR"
 
-msgid "Times played"
-msgstr "Kaç kez oynandý"
+msgid "OK"
+msgstr "TAMAM"
 
-msgid "Game time"
+msgid "NO UPDATE AVAILABLE"
+msgstr "YENÝ GÜNCELLEME YOK"
+
+msgid "INPUT"
+msgstr "GÝRDÝ"
+
+msgid "SEARCH"
+msgstr "ARA"
+
+msgid "CANCEL"
+msgstr "ÝPTAL"
+
+msgid "CONNECT TO NETPLAY"
 msgstr ""
 
-msgid "No Entries Found"
+msgid "Select the game you want to join"
 msgstr ""
 
-msgid "SYSTEM"
-msgstr "SÝSTEM"
+msgid "REFRESH"
+msgstr ""
 
-msgid "CHOOSE"
-msgstr "DEÐÝÞTÝR"
+msgid "CLOSE"
+msgstr "KAPAT"
 
-msgid "LAUNCH"
-msgstr "BAÞLAT"
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
 
 msgid "BACK"
 msgstr "GERÝ"
 
-msgid "OPTIONS"
-msgstr "SEÇENEKLER"
+msgid "LAUNCH"
+msgstr "BAÞLAT"
 
-msgid "NETPLAY"
+msgid "AVAILABLE GAMES"
 msgstr ""
 
-msgid "RANDOM"
-msgstr "RASGELE"
-
-msgid "Favorites"
+msgid "UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODI SUNUCUSU BAÞLATILSIN MI?"
-
-#, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i OYUN"
-msgstr[1] "%i OYUN"
-
-msgid "SELECT"
-msgstr "SEÇ"
-
-msgid "KODI"
-msgstr "KODI"
-
-msgid "FILES"
-msgstr "DOSYALAR"
-
-msgid "SCRAPING"
+msgid "NO GAME FOUND"
 msgstr ""
 
-msgid "SEARCHING"
+msgid "go back"
 msgstr ""
 
-msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
+msgid "JUMP TO..."
+msgstr "ATLA"
+
+msgid "SORT GAMES BY"
+msgstr "OYUNA GÖRE SIRALA"
+
+msgid "OTHER FILTERS"
 msgstr ""
 
-msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
+msgid "GAMELIST VIEW STYLE"
+msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
+
+msgid "automatic"
 msgstr ""
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "VIEW CUSTOMISATION"
 msgstr ""
 
-msgid "Name"
-msgstr "Ýsim"
-
-msgid "enter game name"
-msgstr "oyun ismi girin"
-
-msgid "Description"
-msgstr "Açýklama"
-
-msgid "enter description"
-msgstr "açýklama girin"
-
-msgid "Image"
-msgstr "Resim"
-
-msgid "enter path to image"
-msgstr "resim adresini girin"
-
-msgid "Path to video"
-msgstr "Video yolu"
-
-msgid "enter path to thumbnail"
-msgstr "mini-resmin adresini girin"
-
-msgid "Path to marquee"
-msgstr "seçim yolu"
-
-msgid "Thumbnail"
-msgstr "Mini-resim"
-
-msgid "enter rating"
-msgstr "puan girin"
-
-msgid "Release date"
-msgstr "Yayýn tarihi"
-
-msgid "enter release date"
-msgstr "yayýnlanma tarihi girin"
-
-msgid "enter game developer"
-msgstr "geliþtirici ismini girin"
-
-msgid "enter game publisher"
-msgstr "yayýncý ismini girin"
-
-msgid "enter game genre"
-msgstr "oyun türünü girin"
-
-msgid "enter number of players"
-msgstr "oyuncu sayýsýný girin"
-
-msgid "Favorite"
-msgstr "Favori"
-
-msgid "enter favorite"
-msgstr "favori girin"
-
-msgid "Hidden"
-msgstr "Gizli"
-
-msgid "set hidden"
-msgstr "gizle"
-
-msgid "Kidgame"
-msgstr "Çocuk oyunu"
-
-msgid "set kidgame"
-msgstr "Çocuk oyunu ayarla"
-
-msgid "Play count"
-msgstr "Oynama sayýsý"
-
-msgid "enter number of times played"
-msgstr "kaç kez oynandýðýný girin"
-
-msgid "enter last played date"
-msgstr "son oynanma tarihini girin"
-
-msgid "Crc32 checksum"
+msgid "GRID SIZE"
 msgstr ""
 
-msgid "Md5 checksum"
+msgid "SHOW FAVORITES ON TOP"
 msgstr ""
 
-msgid "how long the game has been played in total (seconds)"
+msgid "SHOW HIDDEN FILES"
+msgstr "GÝZLÝ DOSYALARI GÖSTER"
+
+msgid "SHOW FOLDERS"
 msgstr ""
 
-msgid "Arcade system"
+msgid "always"
 msgstr ""
 
-msgid "enter game arcade system"
+msgid "never"
+msgstr "hiç"
+
+msgid "having multiple games"
 msgstr ""
 
-msgid "name"
-msgstr "adý"
-
-msgid "description"
-msgstr "açýklama"
-
-msgid "image"
-msgstr "resim"
-
-msgid "thumbnail"
-msgstr "önizleme"
-
-msgid "video"
-msgstr "video"
-
-msgid "enter path to video"
-msgstr "videonun yolunu girin"
-
-msgid "marquee"
-msgstr "kayan yazý"
-
-msgid "enter path to marquee"
-msgstr "kayan yazý yolunu girin"
-
-msgid "FILENAME, ASCENDING"
-msgstr "DOSYA ADI, ARTAN"
-
-msgid "FILENAME, DESCENDING"
-msgstr "DOSYA ADI, AZALAN"
-
-msgid "RATING, ASCENDING"
-msgstr "PUAN, ARTAN"
-
-msgid "RATING, DESCENDING"
-msgstr "PUAN, AZALAN"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "OYNANMA SAYISI, ARTAN"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "OYNANMA SAYISI, AZALAN"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "SON OYNANMA, ARTAN"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "SON OYNANMA, AZALAN"
-
-msgid "NUMBER PLAYERS, ASCENDING"
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
-msgid "NUMBER PLAYERS, DESCENDING"
+msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
-msgid "RELEASE DATE, ASCENDING"
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "OYUN BÝLGÝLERÝNÝ DÜZENLE"
+
+msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "RELEASE DATE, DESCENDING"
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
-msgid "GENRE, ASCENDING"
+msgid "Loading..."
+msgstr "yükleniyor"
+
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
-msgid "GENRE, DESCENDING"
+msgid "FILTER GAMELIST BY"
 msgstr ""
 
-msgid "DEVELOPER, ASCENDING"
+msgid "RESET ALL FILTERS"
 msgstr ""
 
-msgid "DEVELOPER, DESCENDING"
-msgstr ""
-
-msgid "PUBLISHER, ASCENDING"
-msgstr ""
-
-msgid "PUBLISHER, DESCENDING"
-msgstr ""
-
-msgid "SYSTEM, ASCENDING"
-msgstr ""
-
-msgid "SYSTEM, DESCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
-
-msgid "HASHING GAMES"
-msgstr ""
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
-
-msgid "FAVORITES"
-msgstr ""
-
-msgid "GENRE"
-msgstr "TÜR"
-
-msgid "PLAYERS"
-msgstr ""
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr ""
-
-msgid "KIDGAME"
-msgstr ""
-
-msgid "UPDATE AVAILABLE"
-msgstr "GÜNCELLEME MEVCUT"
-
-msgid "SCANNING BLUETOOTH"
-msgstr ""
-
-msgid "Searching controllers..."
-msgstr ""
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
-
-msgid "REFRESH"
+msgid "FIND GAMES"
 msgstr ""
 
 msgid "MANUAL INPUT"
@@ -460,41 +163,8 @@ msgstr ""
 msgid "SEACHING WIFI NETWORKS"
 msgstr ""
 
-msgid "BACKUP USER DATA"
-msgstr "YEDEKLEME KULLANICI VERÝLERÝ"
-
-msgid "TARGET DEVICE"
-msgstr "HEDEF CÝHAZ"
-
-msgid "NO DEVICE FOUND"
-msgstr ""
-
-msgid "START"
-msgstr "BAÞLAT"
-
-msgid "CLOSE"
-msgstr "KAPAT"
-
-msgid "CONNECT TO NETPLAY"
-msgstr ""
-
-msgid "Select the game you want to join"
-msgstr ""
-
-msgid "PLEASE WAIT"
-msgstr ""
-
-msgid "FAILED"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr ""
-
-msgid "UNAVAILABLE GAMES"
-msgstr ""
-
-msgid "NO GAME FOUND"
-msgstr ""
+msgid "FINISHED"
+msgstr "BÝTTÝ"
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -534,6 +204,9 @@ msgstr "SÝSTEM AYARLARI"
 
 msgid "INFORMATIONS"
 msgstr "BÝLGÝ"
+
+msgid "QUIT"
+msgstr "ÇIKIÞ"
 
 msgid "SCRAPE FROM"
 msgstr "ÞURADAN ÇEK"
@@ -601,6 +274,12 @@ msgstr "SLAYT AYARLARI"
 msgid "RANDOM VIDEO SETTINGS"
 msgstr "RASGELE VÝDEO AYARLARI"
 
+msgid "CHOOSE"
+msgstr "DEÐÝÞTÝR"
+
+msgid "SELECT"
+msgstr "SEÇ"
+
 msgid "INFORMATION"
 msgstr "BÝLGÝ"
 
@@ -667,16 +346,19 @@ msgstr "DESTEK DOSYASI OLUÞTURMAK?"
 msgid "FILE GENERATED SUCCESSFULLY"
 msgstr "DOSYA OLUÞTURMA BAÞARILI"
 
-msgid "OK"
-msgstr "TAMAM"
-
 msgid "FILE GENERATION FAILED"
 msgstr "DOSYA OLUÞTURMA BAÞARISIZ"
+
+msgid "DOWNLOADS"
+msgstr ""
 
 msgid "THEMES"
 msgstr "TEMALAR"
 
 msgid "THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SOFTWARE UPDATES"
 msgstr ""
 
 msgid "AUTO UPDATES"
@@ -691,30 +373,14 @@ msgstr "GÜNCELLE"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
 
+msgid "SYSTEM"
+msgstr "SÝSTEM"
+
 msgid "LANGUAGE"
 msgstr "DÝL"
 
-msgid "VIDEO OUTPUT"
-msgstr "VÝDEO ÇIKIÞI"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"YENÝ YAPILANDIRMANIN UYGULANMASI ÝÇÝN SÝSTEMÝN TEKRAR BAÞLATILMASI GEREKÝR"
-
-msgid "BRIGHTNESS"
-msgstr ""
-
-msgid "AUDIO OUTPUT"
-msgstr ""
-
-msgid "OVERCLOCK"
-msgstr "HIZAÞIMI"
-
 msgid "POWER SAVER MODES"
 msgstr ""
-
-msgid "STORAGE DEVICE"
-msgstr "DEPO CÝHAZI"
 
 msgid "KODI SETTINGS"
 msgstr "KODI AYARLARI"
@@ -728,8 +394,39 @@ msgstr "AÇILIÞTA BAÞLASIN"
 msgid "START KODI WITH X"
 msgstr "X ÝLE BAÞLASIN"
 
+msgid "HARDWARE"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VÝDEO ÇIKIÞI"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"YENÝ YAPILANDIRMANIN UYGULANMASI ÝÇÝN SÝSTEMÝN TEKRAR BAÞLATILMASI GEREKÝR"
+
+msgid "AUDIO OUTPUT"
+msgstr ""
+
+msgid "OVERCLOCK"
+msgstr "HIZAÞIMI"
+
+msgid "STORAGE"
+msgstr ""
+
+msgid "STORAGE DEVICE"
+msgstr "DEPO CÝHAZI"
+
+msgid "BACKUP USER DATA"
+msgstr "YEDEKLEME KULLANICI VERÝLERÝ"
+
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "YENÝ BÝR DÝSKTE BATOCERA KURULUMU"
+
+msgid "ADVANCED"
+msgstr "GELÝÞMÝÞ"
 
 msgid "SECURITY"
 msgstr "GÜVENLÝK"
@@ -780,6 +477,9 @@ msgid "REINDEX ALL GAMES"
 msgstr ""
 
 msgid "INDEX MISSING GAMES"
+msgstr ""
+
+msgid "DEFAULT SETTINGS"
 msgstr ""
 
 msgid "GAME RATIO"
@@ -836,6 +536,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr ""
 
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENT AYARLARI"
 
@@ -851,20 +554,23 @@ msgstr "VERBOSE MODU"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATÝK EKRAN GÖRÜNTÜSÜ"
 
-msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
-
 msgid "MISSING BIOS"
 msgstr "EKSÝK BIOS"
 
 msgid "NO MISSING BIOS"
 msgstr "EKSÝK BIOS YOK"
 
-msgid "STATUS"
-msgstr "DURUM"
+msgid "MISSING"
+msgstr ""
+
+msgid "INVALID"
+msgstr ""
 
 msgid "UPDATE GAMES LISTS"
 msgstr "OYUN LÝSTESÝNÝ GÜNCELLE"
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "OYUN LÝSTESÝ GÜNCELLENSÝN MÝ?"
@@ -909,15 +615,6 @@ msgstr ""
 msgid "THEME CONFIGURATION"
 msgstr ""
 
-msgid "VIEW CUSTOMISATION"
-msgstr ""
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
-
-msgid "automatic"
-msgstr ""
-
 msgid "basic"
 msgstr ""
 
@@ -933,8 +630,14 @@ msgstr ""
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
+msgid "APPEARENCE"
+msgstr ""
+
 msgid "THEME SET"
 msgstr "TEMA AYARI"
+
+msgid "video"
+msgstr "video"
 
 msgid "grid"
 msgstr ""
@@ -951,6 +654,9 @@ msgstr ""
 msgid "Do you want to proceed ?"
 msgstr ""
 
+msgid "STARTUP SETTINGS"
+msgstr ""
+
 msgid "START ON SYSTEM"
 msgstr "SÝSTEMÝ BAÞLAT"
 
@@ -960,8 +666,17 @@ msgstr ""
 msgid "SYSTEMS DISPLAYED"
 msgstr ""
 
+msgid "DISPLAY OPTIONS"
+msgstr ""
+
 msgid "TRANSITION STYLE"
 msgstr "GEÇÝÞ STÝLÝ"
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "HIZLI SÝSTEM SEÇÝMÝ"
 
 msgid "SHOW CLOCK"
 msgstr "SAATÝ GÖSTER"
@@ -969,22 +684,22 @@ msgstr "SAATÝ GÖSTER"
 msgid "ON-SCREEN HELP"
 msgstr "YARDIMI GÖSTER"
 
-msgid "QUICK SYSTEM SELECT"
-msgstr "HIZLI SÝSTEM SEÇÝMÝ"
-
 msgid "ON SCREEN KEYBOARD"
 msgstr "EKRAN KLAVYESÝ"
 
-msgid "CAROUSEL TRANSITIONS"
+msgid "SHOW FILENAMES IN LISTS"
 msgstr ""
 
-msgid "SHOW FILENAMES IN LISTS"
+msgid "VOLUME"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
 msgstr "SÝSTEM SESÝ"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr ""
+
+msgid "MUSIC"
 msgstr ""
 
 msgid "FRONTEND MUSIC"
@@ -1002,6 +717,12 @@ msgstr ""
 msgid "PLAY THEME MUSICS"
 msgstr ""
 
+msgid "LOWER MUSIC WHEN PLAYING VIDEO"
+msgstr ""
+
+msgid "SOUNDS"
+msgstr ""
+
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
@@ -1014,8 +735,14 @@ msgstr "BAÐLI"
 msgid "NOT CONNECTED"
 msgstr "BAÐLI DEÐÝL"
 
+msgid "STATUS"
+msgstr "DURUM"
+
 msgid "IP ADDRESS"
 msgstr "IP ADRESÝ"
+
+msgid "SETTINGS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "SÝSTEM ADI"
@@ -1101,17 +828,71 @@ msgstr ""
 msgid "INTERNAL RESOLUTION"
 msgstr ""
 
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
+
+msgid "INSTALL BATOCERA"
+msgstr "BATOCERA KUR"
+
+msgid "TARGET DEVICE"
+msgstr "HEDEF CÝHAZ"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "HEDEF MÝMARÝ"
+
+msgid "VALIDATION"
+msgstr "DOÐRULA"
+
+msgid "YES, I'M SURE"
+msgstr "EVET EMÝNÝM"
+
+msgid "INSTALL"
+msgstr "KUR"
+
+msgid "NETWORK REQUIRED"
+msgstr "AÐ GEREKLÝ"
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "ÇEKME ÝÞLEMÝ SÜRÜYOR"
 
 msgid "subtitle text"
 msgstr "altyazý metni"
 
-msgid "INPUT"
-msgstr "GÝRDÝ"
-
 msgid "search"
 msgstr "ara"
+
+msgid "SKIP"
+msgstr "GEÇ"
 
 msgid "STOP"
 msgstr "DUR"
@@ -1141,96 +922,42 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i OYUN ATLANDI."
 msgstr[1] "%i OYUN ATLANDI."
 
-msgid "SELECT THEME"
-msgstr "TEMA SEÇÝN"
+msgid "INSTALL BEZELS"
+msgstr ""
+
+msgid "UNINSTALL BEZELS"
+msgstr ""
+
+msgid "INSTALL THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "sonra video deðiþtir"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "EKRAN KORUYUCU ÝÇÝN OMX PLAYER KULLANIN"
-
-msgid "VIDEO SCREENSAVER"
+msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
+
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
+
+msgid "BEZELS DELETED SUCCESSFULLY"
+msgstr ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "sonra resmi deðiþtir"
 
 msgid "SHOW GAME INFO"
 msgstr "OYUN BÝLGÝ GÖSTER"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "EKRAN KORUYUCUDA OYUN BÝLGÝSÝ GÖSTER"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATIONS"
 msgstr ""
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "VÝDEOYU EKRAN KORUYUCUDA GÖSTER"
-
-msgid "go back"
-msgstr ""
-
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
-
-msgid "APPLY"
-msgstr ""
-
-msgid "REVERT"
-msgstr ""
-
-msgid "VALIDATE"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
-
-msgid "SELECT THEME FOLDER"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
-
-msgid "New Collection Name"
-msgstr ""
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
-msgstr ""
-
-msgid "SELECT COLLECTIONS"
-msgstr ""
-
-msgid "ARCADE SYSTEMS"
-msgstr ""
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
-
-msgid "FINISHED"
-msgstr "BÝTTÝ"
-
-msgid "SEARCH"
-msgstr "ARA"
-
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "sonra resmi deðiþtir"
 
 msgid "STRETCH IMAGES"
 msgstr "GÖRÜNTÜLERÝ UZAT"
@@ -1246,6 +973,21 @@ msgstr "ÖZEL GÖRÜNTÜ RESMÝ YOLU"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "ÖZEL GÖRÜNTÜ FÝLTRE"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "sonra video deðiþtir"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "EKRAN KORUYUCU ÝÇÝN OMX PLAYER KULLANIN"
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "EKRAN KORUYUCUDA OYUN BÝLGÝSÝ GÖSTER"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "VÝDEOYU EKRAN KORUYUCUDA GÖSTER"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ÞU OYUNLARI ÇEK"
@@ -1268,6 +1010,9 @@ msgstr "SÝSTEMLER"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "ÇAKIÞMALARDA KULLANICI KARAR VERSÝN"
 
+msgid "START"
+msgstr "BAÞLAT"
+
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -1277,42 +1022,19 @@ msgstr ""
 "SONUÇLARI TUTARSIZ OLABÝLÝR!\n"
 "DEVAM EDÝLSÝN MÝ?"
 
-msgid "UPDATING BATOCERA"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
+
+msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr ""
 
-msgid "UPDATE IS READY"
+msgid "APPLY"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "REVERT"
 msgstr ""
 
-msgid "REALLY UPDATE?"
-msgstr "GÜNCELLE?"
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "AÐ BAÐLANTISI GEREKÝYOR"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "YENÝ GÜNCELLEME YOK"
-
-msgid "EDIT METADATA"
-msgstr "DÜZENLE"
-
-msgid "SAVE"
-msgstr "KAYDET"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-
-msgid "DELETE"
-msgstr "SÝL"
-
-msgid "SAVE CHANGES?"
-msgstr "DEÐÝÞÝKLÝKLERÝ KAYDET?"
-
-msgid "BEZELS DELETED SUCCESSFULLY"
+msgid "VALIDATE"
 msgstr ""
 
 msgid "SCREENSAVER AFTER"
@@ -1346,143 +1068,421 @@ msgstr ""
 msgid "SLIDESHOW SCREENSAVER"
 msgstr ""
 
-msgid "INSTALL BEZELS"
+msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "UNINSTALL BEZELS"
+msgid "SELECT THEME"
+msgstr "TEMA SEÇÝN"
+
+msgid "EDIT METADATA"
+msgstr "DÜZENLE"
+
+msgid "SAVE"
+msgstr "KAYDET"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
 msgstr ""
 
-msgid "INSTALL THE BEZEL PROJECT"
+msgid "DELETE"
+msgstr "SÝL"
+
+msgid "SAVE CHANGES?"
+msgstr "DEÐÝÞÝKLÝKLERÝ KAYDET?"
+
+msgid "Name"
+msgstr "Ýsim"
+
+msgid "enter game name"
+msgstr "oyun ismi girin"
+
+msgid "Description"
+msgstr "Açýklama"
+
+msgid "enter description"
+msgstr "açýklama girin"
+
+msgid "Image"
+msgstr "Resim"
+
+msgid "enter path to image"
+msgstr "resim adresini girin"
+
+msgid "Path to video"
+msgstr "Video yolu"
+
+msgid "enter path to thumbnail"
+msgstr "mini-resmin adresini girin"
+
+msgid "Path to marquee"
+msgstr "seçim yolu"
+
+msgid "Thumbnail"
+msgstr "Mini-resim"
+
+msgid "Rating"
+msgstr "Puan"
+
+msgid "enter rating"
+msgstr "puan girin"
+
+msgid "Release date"
+msgstr "Yayýn tarihi"
+
+msgid "enter release date"
+msgstr "yayýnlanma tarihi girin"
+
+msgid "Developer"
+msgstr "Geliþtirici"
+
+msgid "enter game developer"
+msgstr "geliþtirici ismini girin"
+
+msgid "Publisher"
+msgstr "Yayýncý"
+
+msgid "enter game publisher"
+msgstr "yayýncý ismini girin"
+
+msgid "Genre"
+msgstr "Tür"
+
+msgid "enter game genre"
+msgstr "oyun türünü girin"
+
+msgid "Players"
+msgstr "Oyuncu"
+
+msgid "enter number of players"
+msgstr "oyuncu sayýsýný girin"
+
+msgid "Favorite"
+msgstr "Favori"
+
+msgid "enter favorite"
+msgstr "favori girin"
+
+msgid "Hidden"
+msgstr "Gizli"
+
+msgid "set hidden"
+msgstr "gizle"
+
+msgid "Kidgame"
+msgstr "Çocuk oyunu"
+
+msgid "set kidgame"
+msgstr "Çocuk oyunu ayarla"
+
+msgid "Play count"
+msgstr "Oynama sayýsý"
+
+msgid "enter number of times played"
+msgstr "kaç kez oynandýðýný girin"
+
+msgid "Last played"
+msgstr "Son oynanma"
+
+msgid "enter last played date"
+msgstr "son oynanma tarihini girin"
+
+msgid "Crc32 checksum"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "Md5 checksum"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "Game time"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
-msgid "FILTER GAMELIST BY"
+msgid "Arcade system"
 msgstr ""
 
-msgid "RESET ALL FILTERS"
+msgid "enter game arcade system"
 msgstr ""
 
-msgid "FIND GAMES"
+msgid "name"
+msgstr "adý"
+
+msgid "description"
+msgstr "açýklama"
+
+msgid "image"
+msgstr "resim"
+
+msgid "thumbnail"
+msgstr "önizleme"
+
+msgid "enter path to video"
+msgstr "videonun yolunu girin"
+
+msgid "marquee"
+msgstr "kayan yazý"
+
+msgid "enter path to marquee"
+msgstr "kayan yazý yolunu girin"
+
+msgid "SCRAPING"
 msgstr ""
 
-msgid "JUMP TO..."
-msgstr "ATLA"
-
-msgid "SORT GAMES BY"
-msgstr "OYUNA GÖRE SIRALA"
-
-msgid "OTHER FILTERS"
+msgid "SEARCHING"
 msgstr ""
 
-msgid "GRID SIZE"
+msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
 msgstr ""
 
-msgid "SHOW FAVORITES ON TOP"
+msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
-msgstr "GÝZLÝ DOSYALARI GÖSTER"
-
-msgid "SHOW FOLDERS"
+msgid "DOWNLOADING"
 msgstr ""
 
-msgid "always"
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "never"
-msgstr "hiç"
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "KODI SUNUCUSU BAÞLATILSIN MI?"
 
-msgid "having multiple games"
+#, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i OYUN"
+msgstr[1] "%i OYUN"
+
+msgid "KODI"
+msgstr "KODI"
+
+msgid "NETPLAY"
 msgstr ""
 
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgid "RANDOM"
+msgstr "RASGELE"
+
+msgid "FILES"
+msgstr "DOSYALAR"
+
+msgid "Released"
+msgstr "Yayýn"
+
+msgid "Times played"
+msgstr "Kaç kez oynandý"
+
+msgid "No Entries Found"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "OYUN BÝLGÝLERÝNÝ DÜZENLE"
+msgid "OPTIONS"
+msgstr "SEÇENEKLER"
 
-msgid "ADVANCED GAME OPTIONS"
+msgid "Favorites"
 msgstr ""
 
-msgid "FILTER GAMES BY TEXT"
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr ""
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgid "Preloading UI"
 msgstr ""
 
-msgid "INSTALL BATOCERA"
-msgstr "BATOCERA KUR"
+msgid "MENU"
+msgstr "MENÜ"
 
-msgid "TARGET ARCHITECTURE"
-msgstr "HEDEF MÝMARÝ"
+msgid "FILENAME, ASCENDING"
+msgstr "DOSYA ADI, ARTAN"
 
-msgid "VALIDATION"
-msgstr "DOÐRULA"
+msgid "FILENAME, DESCENDING"
+msgstr "DOSYA ADI, AZALAN"
 
-msgid "YES, I'M SURE"
-msgstr "EVET EMÝNÝM"
+msgid "RATING, ASCENDING"
+msgstr "PUAN, ARTAN"
 
-msgid "INSTALL"
-msgstr "KUR"
+msgid "RATING, DESCENDING"
+msgstr "PUAN, AZALAN"
 
-msgid "NETWORK REQUIRED"
-msgstr "AÐ GEREKLÝ"
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "OYNANMA SAYISI, ARTAN"
 
-msgid "up/down"
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "OYNANMA SAYISI, AZALAN"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "SON OYNANMA, ARTAN"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "SON OYNANMA, AZALAN"
+
+msgid "NUMBER PLAYERS, ASCENDING"
 msgstr ""
 
-msgid "CHANGE"
-msgstr "DEÐÝÞTÝR"
-
-msgid "accept"
+msgid "NUMBER PLAYERS, DESCENDING"
 msgstr ""
 
-msgid "SELECT ALL"
-msgstr "TÜMÜ"
-
-msgid "select all"
+msgid "RELEASE DATE, ASCENDING"
 msgstr ""
 
-msgid "SELECT NONE"
-msgstr "HÝÇBÝRÝ"
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
 
-msgid "select none"
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA BAÞARIYLA YÜKLENDÝ"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr ""
+
+msgid "GENRE"
+msgstr "TÜR"
+
+msgid "PLAYERS"
+msgstr ""
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "OYUN BULUNAMADI"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
+
+msgid "RETRY"
+msgstr "TEKRAR DENE"
+
+msgid "Downloading"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "ONAYLA"
+
+msgid "Loading system config..."
+msgstr "Sistem yapýlandýrma yükleniyor"
+
+msgid "Done."
+msgstr "tamam"
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "SCANNING BLUETOOTH"
+msgstr ""
+
+msgid "Searching controllers..."
+msgstr ""
+
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
+msgid "UPDATE AVAILABLE"
+msgstr "GÜNCELLEME MEVCUT"
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "never played"
+msgstr ""
+
+msgid "arcade"
+msgstr ""
+
+msgid "collections"
 msgstr ""
 
 #, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i SEÇÝLÝ"
-msgstr[1] "%i SEÇÝLÝ"
-
-msgid "MOVE CURSOR"
-msgstr "imleci taþý"
-
-msgid "STOP EDITING"
-msgstr "DÜZENLEMEYÝ BÝTÝR"
-
-msgid "EDIT"
-msgstr "DÜZENLE"
-
-msgid "WORKING..."
-msgstr "DEVAM EDÝYOR..."
-
-msgid "Unknown"
+msgid "Editing the '%s' Collection. Add/remove games with Y."
 msgstr ""
 
-msgid "RESET"
+#, c-format
+msgid "Finished editing the '%s' Collection."
 msgstr ""
 
-msgid "DISCARD CHANGES"
-msgstr "DEÐÝÞÝKLÝKLERÝ KAYDETME"
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "EKLENDÝ '%s' -ye'%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "kaldýrýldý'%s' -den'%s'"
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "YUKARI"
@@ -1551,6 +1551,24 @@ msgstr "HERHANGÝ BÝR TUÞA BASIN"
 msgid "ALREADY TAKEN"
 msgstr "ÖNCEDEN TANIMLANMIÞ"
 
+msgid "SPACE"
+msgstr "BOÞLUK"
+
+msgid "DELETE A CHAR"
+msgstr "CHAR SÝL"
+
+msgid "RESET"
+msgstr ""
+
+msgid "DISCARD CHANGES"
+msgstr "DEÐÝÞÝKLÝKLERÝ KAYDETME"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
+
+msgid "SHIFT"
+msgstr "DEÐÝÞTÝR"
+
 msgid "WELCOME"
 msgstr "HOÞGELDÝN"
 
@@ -1569,17 +1587,47 @@ msgstr "GAMEPAD BULUNAMADI"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "CÝHAZI YAPILANDIRMAK ÝÇÝN BÝR TUÞA BASILI TUT"
 
-msgid "SPACE"
-msgstr "BOÞLUK"
-
-msgid "DELETE A CHAR"
-msgstr "CHAR SÝL"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "Unknown"
 msgstr ""
 
-msgid "SHIFT"
+msgid "MOVE CURSOR"
+msgstr "imleci taþý"
+
+msgid "STOP EDITING"
+msgstr "DÜZENLEMEYÝ BÝTÝR"
+
+msgid "EDIT"
+msgstr "DÜZENLE"
+
+msgid "accept"
+msgstr ""
+
+msgid "SELECT ALL"
+msgstr "TÜMÜ"
+
+msgid "select all"
+msgstr ""
+
+msgid "SELECT NONE"
+msgstr "HÝÇBÝRÝ"
+
+msgid "select none"
+msgstr ""
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SEÇÝLÝ"
+msgstr[1] "%i SEÇÝLÝ"
+
+msgid "CHANGE"
 msgstr "DEÐÝÞTÝR"
+
+msgid "WORKING..."
+msgstr "DEVAM EDÝYOR..."
+
+msgid "up/down"
+msgstr ""
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "KUMANDA EÞLEÞTÝRÝLDÝ"
@@ -1589,9 +1637,6 @@ msgstr "DEÐÝÞTÝR"
 
 #~ msgid "MD5"
 #~ msgstr "MD5"
-
-#~ msgid "ADVANCED"
-#~ msgstr "GELÝÞMÝÞ"
 
 #~ msgid "OUTPUT DEVICE"
 #~ msgstr "ÇIKTI AYGITI"
