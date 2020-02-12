@@ -615,11 +615,15 @@ void GuiMenu::openUpdatesSettings()
 {
 	GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES & DOWNLOADS").c_str());
 
+	updateGui->addGroup(_("DOWNLOADS"));
+
 	// Batocera themes installer/browser
 	updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });
 
 	// Batocera integration with theBezelProject
 	updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
+
+	updateGui->addGroup(_("SOFTWARE UPDATES"));
 
 #if !defined(WIN32) || defined(_DEBUG)
 
@@ -658,11 +662,10 @@ void GuiMenu::openSystemSettings_batocera()
 	auto s = new GuiSettings(mWindow, _("SYSTEM SETTINGS").c_str());
 	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
 
-	// System informations
-	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
+	s->addGroup(_("SYSTEM"));
 
-	// Updates -> Moved one level down
-	// s->addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
+	// System informations
+	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); });
 
 	// language choice
 	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
@@ -698,8 +701,69 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addWithLabel(_("LANGUAGE"), language_choice);
 
 
+	// power saver
+	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
+	std::vector<std::string> modes;
+	modes.push_back("disabled");
+	modes.push_back("default");
+	modes.push_back("enhanced");
+	modes.push_back("instant");
+	for (auto it = modes.cbegin(); it != modes.cend(); it++)
+		power_saver->add(_(it->c_str()), *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
+	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
+	s->addSaveFunc([this, power_saver] {
+		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
+			Settings::getInstance()->setString("TransitionStyle", "instant");
+			Settings::getInstance()->setBool("MoveCarousel", false);
+			Settings::getInstance()->setBool("EnableSounds", false);
+		}
+		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
+		PowerSaver::init();
+	});
+
+#ifdef _ENABLE_KODI_
+	s->addEntry(_("KODI SETTINGS"), true, [this] {
+		GuiSettings *kodiGui = new GuiSettings(mWindow, _("KODI SETTINGS").c_str());
+		auto kodiEnabled = std::make_shared<SwitchComponent>(mWindow);
+		kodiEnabled->setState(SystemConf::getInstance()->get("kodi.enabled") != "0");
+		kodiGui->addWithLabel(_("ENABLE KODI"), kodiEnabled);
+		auto kodiAtStart = std::make_shared<SwitchComponent>(mWindow);
+		kodiAtStart->setState(
+			SystemConf::getInstance()->get("kodi.atstartup") == "1");
+		kodiGui->addWithLabel(_("KODI AT START"), kodiAtStart);
+		auto kodiX = std::make_shared<SwitchComponent>(mWindow);
+		kodiX->setState(SystemConf::getInstance()->get("kodi.xbutton") == "1");
+		kodiGui->addWithLabel(_("START KODI WITH X"), kodiX);
+		kodiGui->addSaveFunc([kodiEnabled, kodiAtStart, kodiX] {
+			SystemConf::getInstance()->set("kodi.enabled",
+				kodiEnabled->getState() ? "1" : "0");
+			SystemConf::getInstance()->set("kodi.atstartup",
+				kodiAtStart->getState() ? "1" : "0");
+			SystemConf::getInstance()->set("kodi.xbutton",
+				kodiX->getState() ? "1" : "0");
+			SystemConf::getInstance()->saveSystemConf();
+		});
+		mWindow->pushGui(kodiGui);
+	});
+#endif
+
+	s->addGroup(_("HARDWARE"));
 
 #if !defined(WIN32) || defined(_DEBUG)
+	// brighness
+	int brighness;
+	if (ApiSystem::getInstance()->getBrighness(brighness))
+	{
+		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
+		brightnessComponent->setValue(brighness);
+		brightnessComponent->setOnValueChanged([](const float &newVal)
+		{
+			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+		});
+
+		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
+	}
+
 	// video device
 	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
 	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
@@ -726,21 +790,7 @@ void GuiMenu::openSystemSettings_batocera()
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		}
 	});
-
-	// brighness
-	int brighness;
-	if (ApiSystem::getInstance()->getBrighness(brighness))
-	{
-		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
-		brightnessComponent->setValue(brighness);
-		brightnessComponent->setOnValueChanged([](const float &newVal) 
-		{ 
-			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal)); 
-		});
-
-		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
-	}
-
+	
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
 
@@ -822,37 +872,29 @@ void GuiMenu::openSystemSettings_batocera()
 			if (isSet)
 				isOneSet = true;
 
+			if (vname == "NONE" || vname == "none")
+				vname = _("NONE");
+
 			overclock_choice->add(vname, tokens.at(0), isSet);
 		}
 	}
 
 	if (isOneSet == false)
-		overclock_choice->add(currentOverclock, currentOverclock, true);
+	{
+		if (currentOverclock == "none")
+			overclock_choice->add(_("NONE"), currentOverclock, true);
+		else
+			overclock_choice->add(currentOverclock, currentOverclock, true);
+	}
 
-#ifndef WIN32
+#if !defined(WIN32) || defined(_DEBUG)
 	// overclocking
 	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 #endif
 
-	// power saver
-	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
-	std::vector<std::string> modes;
-	modes.push_back("disabled");
-	modes.push_back("default");
-	modes.push_back("enhanced");
-	modes.push_back("instant");
-	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(_(it->c_str()), *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
-	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
-	s->addSaveFunc([this, power_saver] {
-		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
-			Settings::getInstance()->setString("TransitionStyle", "instant");
-			Settings::getInstance()->setBool("MoveCarousel", false);
-			Settings::getInstance()->setBool("EnableSounds", false);
-		}
-		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
-		PowerSaver::init();
-	});
+
+	s->addGroup(_("STORAGE"));
+
 
 	// Storage device
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
@@ -891,35 +933,13 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
 #endif
 
-#ifdef _ENABLE_KODI_
-	s->addEntry(_("KODI SETTINGS"), true, [this] {
-		GuiSettings *kodiGui = new GuiSettings(mWindow, _("KODI SETTINGS").c_str());
-		auto kodiEnabled = std::make_shared<SwitchComponent>(mWindow);
-		kodiEnabled->setState(SystemConf::getInstance()->get("kodi.enabled") != "0");
-		kodiGui->addWithLabel(_("ENABLE KODI"), kodiEnabled);
-		auto kodiAtStart = std::make_shared<SwitchComponent>(mWindow);
-		kodiAtStart->setState(
-			SystemConf::getInstance()->get("kodi.atstartup") == "1");
-		kodiGui->addWithLabel(_("KODI AT START"), kodiAtStart);
-		auto kodiX = std::make_shared<SwitchComponent>(mWindow);
-		kodiX->setState(SystemConf::getInstance()->get("kodi.xbutton") == "1");
-		kodiGui->addWithLabel(_("START KODI WITH X"), kodiX);
-		kodiGui->addSaveFunc([kodiEnabled, kodiAtStart, kodiX] {
-			SystemConf::getInstance()->set("kodi.enabled",
-				kodiEnabled->getState() ? "1" : "0");
-			SystemConf::getInstance()->set("kodi.atstartup",
-				kodiAtStart->getState() ? "1" : "0");
-			SystemConf::getInstance()->set("kodi.xbutton",
-				kodiX->getState() ? "1" : "0");
-			SystemConf::getInstance()->saveSystemConf();
-		});
-		mWindow->pushGui(kodiGui);
-	});
-#endif
+
 
 #if !defined(WIN32) || defined(_DEBUG)
 	// Install
 	s->addEntry(_("INSTALL BATOCERA ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
+
+	s->addGroup(_("ADVANCED"));
 
 	// Security
 	s->addEntry(_("SECURITY"), true, [this] {
@@ -1077,6 +1097,8 @@ void GuiMenu::openGamesSettings_batocera()
 	Window* window = mWindow;
 
 	auto s = new GuiSettings(mWindow, _("GAMES SETTINGS").c_str());
+
+	s->addGroup(_("DEFAULT SETTINGS"));
 	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") {
 
 		// Screen ratio choice
@@ -1245,8 +1267,33 @@ void GuiMenu::openGamesSettings_batocera()
 		mWindow->pushGui(ai_service);
 	});
 
+	// Custom config for systems
+	s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
+	{
+		s->save();
+		GuiSettings* configuration = new GuiSettings(window, _("PER SYSTEM ADVANCED CONFIGURATION").c_str());
+
+		// For each activated system
+		std::vector<SystemData *> systems = SystemData::sSystemVector;
+		for (auto system = systems.begin(); system != systems.end(); system++)
+		{
+			if ((*system)->isCollection() || (*system)->isGroupSystem())
+				continue;
+
+			SystemData *systemData = (*system);
+			configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
+				popSystemConfigurationGui(window, systemData, "");
+			});
+		}
+
+		window->pushGui(configuration);
+	});
+
+
 	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
 	{
+		s->addGroup(_("SYSTEM SETTINGS"));
+
 		// Retroachievements
 		s->addEntry(_("RETROACHIEVEMENTS SETTINGS"), true, [this] 
 		{
@@ -1308,69 +1355,109 @@ void GuiMenu::openGamesSettings_batocera()
 		if (SystemData::isNetplayActivated())
 			s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
 
-		// Custom config for systems
-		s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
-		{
-			s->save();
-			GuiSettings* configuration = new GuiSettings(window, _("PER SYSTEM ADVANCED CONFIGURATION").c_str());
-
-			// For each activated system
-			std::vector<SystemData *> systems = SystemData::sSystemVector;
-			for (auto system = systems.begin(); system != systems.end(); system++)
-			{
-				if ((*system)->isCollection() || (*system)->isGroupSystem())
-					continue;
-
-				SystemData *systemData = (*system);
-				configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
-					popSystemConfigurationGui(window, systemData, "");
-				});
-			}
-
-			window->pushGui(configuration);
-		});
-
-
 		// Bios
 		s->addEntry(_("MISSING BIOS"), true, [this, s]
 		{
+			auto menuTheme = ThemeData::getMenuTheme();
+
 			GuiSettings *configuration = new GuiSettings(mWindow, _("MISSING BIOS").c_str());
 			std::vector<BiosSystem> biosInformations = ApiSystem::getInstance()->getBiosInformations();
 
-			if (biosInformations.size() == 0) {
-				configuration->addEntry(_("NO MISSING BIOS"));
-			}
+			if (biosInformations.size() == 0)
+				configuration->addEntry(_("NO MISSING BIOS"));			
 			else 
 			{
 				for (auto systemBios = biosInformations.begin(); systemBios != biosInformations.end(); systemBios++) 
 				{
 					BiosSystem systemBiosData = (*systemBios);
-					configuration->addEntry((*systemBios).name.c_str(), true, [this, systemBiosData]
+
+					int invalidCount = 0;
+					int missingCount = 0;
+
+					for (auto biosFile = systemBiosData.bios.begin(); biosFile != systemBiosData.bios.end(); biosFile++)
+					{
+						if (biosFile->status == "INVALID")
+							invalidCount++;
+
+						if (biosFile->status == "MISSING")
+							missingCount++;
+					}
+					
+					std::string info = "";
+
+					if (missingCount > 0)
+					{
+						if (info.length() > 0)
+							info = info + " - ";
+
+						info = info + _("MISSING") + " : " + std::to_string(missingCount);
+					}
+
+					if (invalidCount > 0)
+					{
+						if (info.length() > 0)
+							info = info + " - ";
+
+						info = info + _("INVALID") + " : " + std::to_string(invalidCount);
+					}
+
+					#define INVALID_ICON _U("\uF071")
+					#define MISSING_ICON _U("\uF127")
+
+					ComponentListRow row;
+
+					auto icon = std::make_shared<TextComponent>(mWindow);
+					icon->setText(invalidCount > 0 ? INVALID_ICON : MISSING_ICON);
+					icon->setColor(menuTheme->Text.color);
+					icon->setFont(menuTheme->Text.font);
+					icon->setSize(menuTheme->Text.font->getLetterHeight() * 1.5f, 0);
+					row.addElement(icon, false);
+
+					auto spacer = std::make_shared<GuiComponent>(mWindow);
+					spacer->setSize(14, 0);
+					row.addElement(spacer, false);
+
+					auto grid = std::make_shared<MultiLineMenuEntry>(mWindow, (*systemBios).name, info);				
+					row.addElement(grid, true);
+
+					row.addElement(makeArrow(mWindow), false);
+
+					auto bracket = std::make_shared<ImageComponent>(mWindow);
+					bracket->setImage(menuTheme->Icons.arrow); // ":/arrow.svg");
+					bracket->setColorShift(menuTheme->Text.color);
+					bracket->setResize(0, round(menuTheme->Text.font->getLetterHeight()));				
+				
+					row.makeAcceptInputHandler([this, systemBiosData]
 					{
 						GuiSettings* configurationInfo = new GuiSettings(mWindow, systemBiosData.name.c_str());
 						for (auto biosFile = systemBiosData.bios.begin(); biosFile != systemBiosData.bios.end(); biosFile++)
 						{
 							auto theme = ThemeData::getMenuTheme();
-
-							auto biosPath = std::make_shared<TextComponent>(mWindow, biosFile->path.c_str(),
-								theme->Text.font,
-								theme->TextSmall.color); // 0x000000FF -> Avoid black on themes with black backgrounds
-							auto biosMd5 = std::make_shared<TextComponent>(mWindow, biosFile->md5.c_str(),
-								theme->TextSmall.font,
-								theme->TextSmall.color);
-							auto biosStatus = std::make_shared<TextComponent>(mWindow, biosFile->status.c_str(),
-								theme->TextSmall.font,
-								theme->TextSmall.color);
-
+						
 							ComponentListRow biosFileRow;
-							biosFileRow.addElement(biosPath, true);
-							configurationInfo->addRow(biosFileRow);
 
-							configurationInfo->addWithLabel("   MD5", biosMd5);
-							configurationInfo->addWithLabel("   " + _("STATUS"), biosStatus);
+							auto icon = std::make_shared<TextComponent>(mWindow);
+							icon->setText(biosFile->status == "INVALID" ? INVALID_ICON : MISSING_ICON);
+							icon->setColor(theme->Text.color);
+							icon->setFont(theme->Text.font);
+							icon->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
+							biosFileRow.addElement(icon, false);
+
+							auto spacer = std::make_shared<GuiComponent>(mWindow);
+							spacer->setSize(14, 0);
+							biosFileRow.addElement(spacer, false);
+
+							std::string status = _(biosFile->status.c_str()) + " - MD5 : " + biosFile->md5;
+
+							auto line = std::make_shared<MultiLineMenuEntry>(mWindow, biosFile->path, status);
+							biosFileRow.addElement(line, true);
+
+							configurationInfo->addRow(biosFileRow);
 						}
 						mWindow->pushGui(configurationInfo);
 					});
+
+					configuration->addRow(row);
 				}
 			}
 			mWindow->pushGui(configuration);
@@ -1423,6 +1510,7 @@ void GuiMenu::openGamesSettings_batocera()
 			}, _("NO"), nullptr));
 		});
 	}
+
 	s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled] 
 	{
 		SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
@@ -1909,8 +1997,10 @@ void GuiMenu::openUISettings()
 	auto themeSets = ThemeData::getThemeSets();
 	auto system = ViewController::get()->getState().getSystem();
 
+	s->addGroup(_("APPEARENCE"));
+
 	if (system != nullptr && !themeSets.empty())
-	{
+	{		
 		auto selectedSet = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
 		if (selectedSet == themeSets.end())
 			selectedSet = themeSets.begin();
@@ -2019,6 +2109,8 @@ void GuiMenu::openUISettings()
 		}
 	});
 	
+	s->addGroup(_("STARTUP SETTINGS"));
+
 	// Optionally start in selected system
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
 	systemfocus_list->add(_("NONE"), "", Settings::getInstance()->getString("StartupSystem") == "");
@@ -2067,6 +2159,10 @@ void GuiMenu::openUISettings()
 		}
 	});
 
+	s->addGroup(_("DISPLAY OPTIONS"));
+
+	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
+
 	// transition style
 	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
 		_("TRANSITION STYLE"),
@@ -2090,7 +2186,28 @@ void GuiMenu::openUISettings()
 		Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());		
 	});
 
-	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
+	// carousel transition option
+	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
+	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
+	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
+	s->addSaveFunc([move_carousel] {
+		if (move_carousel->getState()
+			&& !Settings::getInstance()->getBool("MoveCarousel")
+			&& PowerSaver::getMode() == PowerSaver::INSTANT)
+		{
+			Settings::getInstance()->setString("PowerSaverMode", "default");
+			PowerSaver::init();
+		}
+		Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
+	});
+
+	// quick system select (left/right in game list view)
+	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
+	quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
+	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
+	s->addSaveFunc([quick_sys_select] {
+		Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
+	});
 
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
@@ -2109,36 +2226,13 @@ void GuiMenu::openUISettings()
 			s->setVariable("reloadAll", true);
 	});
 
-	// quick system select (left/right in game list view)
-	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
-	quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
-	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
-	s->addSaveFunc([quick_sys_select] {
-		Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
-	});
-
 	// Enable OSK (On-Screen-Keyboard)
 	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
 	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
 	s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
 	s->addSaveFunc([osk_enable] {
 		Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
-
-	// carousel transition option
-	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
-	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
-	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
-	s->addSaveFunc([move_carousel] {
-		if (move_carousel->getState()
-			&& !Settings::getInstance()->getBool("MoveCarousel")
-			&& PowerSaver::getMode() == PowerSaver::INSTANT)
-		{
-			Settings::getInstance()->setString("PowerSaverMode", "default");
-			PowerSaver::init();
-		}
-		Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
-	});
-
+		
 	// filenames
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
 	hidden_files->setState(Settings::getInstance()->getBool("ShowFilenames"));
@@ -2180,6 +2274,8 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
+	s->addGroup(_("VOLUME"));
+
 	// volume
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
 	volume->setValue((float)VolumeControl::getInstance()->getVolume());
@@ -2195,6 +2291,9 @@ void GuiMenu::openSoundSettings()
 	volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
 	s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
 	s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+
+
+	s->addGroup(_("MUSIC"));
 
 	// disable sounds
 	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -2245,6 +2344,13 @@ void GuiMenu::openSoundSettings()
 			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
 	});
 
+	auto videolowermusic = std::make_shared<SwitchComponent>(mWindow);
+	videolowermusic->setState(Settings::getInstance()->getBool("VideoLowersMusic"));
+	s->addWithLabel(_("LOWER MUSIC WHEN PLAYING VIDEO"), videolowermusic);
+	s->addSaveFunc([videolowermusic] { Settings::getInstance()->setBool("VideoLowersMusic", videolowermusic->getState()); });
+
+	s->addGroup(_("SOUNDS"));
+
 	// disable sounds
 	auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
 	sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
@@ -2265,10 +2371,7 @@ void GuiMenu::openSoundSettings()
 	s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
 	s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
 
-	auto videolowermusic = std::make_shared<SwitchComponent>(mWindow);
-	videolowermusic->setState(Settings::getInstance()->getBool("VideoLowersMusic"));
-	s->addWithLabel(_("LOWER MUSIC WHEN PLAYING VIDEO"), videolowermusic);
-	s->addSaveFunc([videolowermusic] { Settings::getInstance()->setBool("VideoLowersMusic", videolowermusic->getState()); });
+
 
 	mWindow->pushGui(s);
 }
@@ -2287,6 +2390,9 @@ void GuiMenu::openNetworkSettings_batocera()
 	Window *window = mWindow;
 
 	auto s = new GuiSettings(mWindow, _("NETWORK SETTINGS").c_str());
+
+	s->addGroup(_("INFORMATIONS"));
+
 	auto status = std::make_shared<TextComponent>(mWindow,
 		ApiSystem::getInstance()->ping() ? _("CONNECTED")
 		: _("NOT CONNECTED"),
@@ -2295,8 +2401,11 @@ void GuiMenu::openNetworkSettings_batocera()
 	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(),
 		font, color);
 	s->addWithLabel(_("IP ADDRESS"), ip);
+
+	s->addGroup(_("SETTINGS"));
+
 	// Hostname
-	createInputTextRow(s, _("HOSTNAME"), "system.hostname", false);
+	createInputTextRow(s, _("HOSTNAME"), "system.hostname", false);	
 
 	// Wifi enable
 	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);

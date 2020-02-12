@@ -511,6 +511,42 @@ msgstr "ACTIVER LES SUCCÈS RÉTRO"
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
+msgid "DEFAULT SETTINGS"
+msgstr "PARAMÈTRES PAR DÉFAUT"
+
+msgid "APPEARENCE"
+msgstr "APPARENCE"
+
+msgid "STARTUP SETTINGS"
+msgstr "PARAMÈTRES DE DÉMARRAGE"
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPTIONS D'AFFICHAGE"
+
+msgid "MUSIC"
+msgstr "MUSIQUE"
+
+msgid "SOUNDS"
+msgstr "SONS"
+
+msgid "SETTINGS"
+msgstr "PARAMÈTRES"
+
+msgid "DOWNLOADS"
+msgstr "TÉLÉCHARGEMENTS"
+
+msgid "SOFTWARE UPDATES"
+msgstr "MISES À JOUR"
+
+msgid "HARDWARE"
+msgstr "MATÉRIEL"
+
+msgid "STORAGE"
+msgstr "STOCKAGE"
+
+msgid "ADVANCED"
+msgstr "AVANCÉ"
+
 msgid "CONTROLLERS SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES"
 
@@ -858,6 +894,12 @@ msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
 
 msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
+
+msgid "MISSING"
+msgstr "MANQUANT"
+
+msgid "INVALID"
+msgstr "INVALIDE"
 
 msgid "NO MISSING BIOS"
 msgstr "AUCUN BIOS MANQUANT"
@@ -1463,7 +1505,7 @@ msgid "select all"
 msgstr "tout sélectionner"
 
 msgid "SELECT NONE"
-msgstr "TOUT DÉSÉLECTIONNER"
+msgstr "AUCUN"
 
 msgid "select none"
 msgstr "tout déselectionner"

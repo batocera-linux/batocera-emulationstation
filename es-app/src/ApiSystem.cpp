@@ -808,7 +808,7 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 	std::vector<BiosSystem> res;
 	BiosSystem current;
 	bool isCurrent = false;
-
+	/*
 #if WIN32 && _DEBUG
 	LOG(LogDebug) << "ApiSystem::getBiosInformations";
 
@@ -823,7 +823,7 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 	res.push_back(current);
 	return res;
 #endif
-
+*/
 	auto systems = executeEnumerationScript("batocera-systems");
 	for (auto line : systems)
 	{
@@ -1923,6 +1923,26 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 	std::vector<std::string> res;
 
 #if WIN32
+
+	std::string path = Utils::FileSystem::getEsConfigPath() + "/" + Utils::String::replace(command, " ", "_");
+	if (Utils::FileSystem::exists(path))
+	{
+		FILE* file = fopen(path.c_str(), "r");
+		if (file != NULL)
+		{
+			char line[1024];
+			while (fgets(line, 1024, file))
+			{
+				strtok(line, "\n");
+				res.push_back(std::string(line));
+			}
+
+			pclose(file);
+		}
+
+		return res;
+	}
+
 	return res;
 #endif
 

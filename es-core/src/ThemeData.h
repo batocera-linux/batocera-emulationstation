@@ -128,6 +128,18 @@ struct MenuBackground
 	Vector2f cornerSize;	
 };
 
+struct MenuGroupElement
+{
+	unsigned int color;
+	unsigned int backgroundColor;
+	unsigned int separatorColor;
+	float lineSpacing;
+	std::string path;
+	std::shared_ptr<Font> font;
+	int alignment;
+	bool visible;
+};
+
 struct IconElement 
 {
 	std::string button;
@@ -154,6 +166,7 @@ public:
 		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
 		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
 		MenuElement Footer{ 0xC6C6C6FF, 0xC6C6C6FF, 0xC6C6C6FF, 0xFFFFFFFF, 0xC6C6C6FF, true, "", nullptr };
+		MenuGroupElement Group{ 0x777777FF, 0x00000010, 0xC6C7C6FF, 2.0, "", nullptr, 0 /*ALIGN_LEFT*/, false };
 		IconElement Icons{ ":/button.png", ":/button_filled.png", ":/on.svg", ":/off.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
 
 		std::string getMenuIcon(const std::string name)
