@@ -401,15 +401,8 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 			continue;
 
 		if (!groupAvailable)
-		{
-			ComponentListRow row;
-			auto empty = std::make_shared<TextComponent>(mWindow, _("AVAILABLE GAMES"), theme->TextSmall.font, theme->TextSmall.color);
-		//	empty->setHorizontalAlignment(Alignment::ALIGN_CENTER);
-			empty->setLineSpacing(2.5);
-			row.addElement(empty, true, false);
-			row.selectable = false;
-			mList->addRow(row);
-
+		{			
+			mList->addGroup(_("AVAILABLE GAMES"), true);
 			groupAvailable = true;
 		}
 
@@ -431,14 +424,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		if (!groupUnavailable)
 		{
-			ComponentListRow row;
-			auto empty = std::make_shared<TextComponent>(mWindow, _("UNAVAILABLE GAMES"), theme->TextSmall.font, theme->TextSmall.color);			
-		//	empty->setHorizontalAlignment(Alignment::ALIGN_CENTER);
-			empty->setLineSpacing(2.5);
-			row.addElement(empty, true, false);
-			row.selectable = false;
-			mList->addRow(row);
-
+			mList->addGroup(_("UNAVAILABLE GAMES"), true);
 			groupUnavailable = true;
 		}
 
