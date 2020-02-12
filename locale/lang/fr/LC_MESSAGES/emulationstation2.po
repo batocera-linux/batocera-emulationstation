@@ -47,7 +47,7 @@ msgid "SKIP"
 msgstr "PASSER"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Téléchargement"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
@@ -71,7 +71,7 @@ msgid "never played"
 msgstr "jamais joué"
 
 msgid "arcade"
-msgstr ""
+msgstr "arcade"
 
 msgid "collections"
 msgstr "collections"
@@ -314,13 +314,13 @@ msgid "Md5 checksum"
 msgstr "Checksum MD5"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "Entrez le temps de jeu"
+msgstr "entrez le temps de jeu"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Système d'arcade"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "entrez le nom du système d'arcade"
 
 msgid "name"
 msgstr "Nom"
@@ -458,7 +458,7 @@ msgid "MANUAL INPUT"
 msgstr "SAISIE MANUELLE"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr "PAS DE RÉSEAUX WIFI TROUVÉ"
+msgstr "PAS DE RÉSEAUX WIFI TROUVÉS"
 
 msgid "SEACHING WIFI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
@@ -872,7 +872,7 @@ msgid "SERVICE URL"
 msgstr "URL DU SERVICE"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "PAUSE SUR L'ÉCRAN DE TRADUCTION"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
@@ -993,10 +993,10 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"Vous allez basculer dans un mode restreint:\n"
+"Vous allez basculer dans un mode restreint :\n"
 "Cela va masquer la plupart des options pour éviter des changements de "
 "configuration.\n"
-"Pour revenir au mode normal, tapez le code suivant:"
+"Pour revenir au mode normal, entrez le code suivant :"
 
 msgid "Do you want to proceed ?"
 msgstr "Voulez-vous continuer ?"
@@ -1268,7 +1268,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "SYSTEMES D'ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
@@ -1529,7 +1529,7 @@ msgid "WORKING..."
 msgstr "EN COURS..."
 
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 msgid "RESET"
 msgstr "RAZ"
