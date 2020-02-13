@@ -1603,7 +1603,7 @@ void GuiMenu::openControllersSettings_batocera()
 			if (config != NULL && config->isConfigured()) {
 				// create name
 				std::stringstream dispNameSS;
-				dispNameSS << "#" << config->getDeviceId() << " ";
+				dispNameSS << "#" << config->getDeviceIndex() << " ";
 				std::string deviceName = config->getDeviceName();
 				if (deviceName.size() > 25) {
 					dispNameSS << deviceName.substr(0, 16) << "..." <<
