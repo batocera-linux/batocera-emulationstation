@@ -170,13 +170,13 @@ msgid "FINISHED"
 msgstr "CONCLUÍDO"
 
 msgid "fade"
-msgstr ""
+msgstr "escurecer"
 
 msgid "slide"
-msgstr ""
+msgstr "deslizar"
 
 msgid "instant"
-msgstr ""
+msgstr "instante"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -362,7 +362,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ARQUIVO GERADO SEM SUCESSO"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "TRANSFERÊNCIAS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -488,10 +488,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "ÍNDICE DO JOGO"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "VERIFICAR OS ÍNDICES EM FALTA NA INICIALIZAÇÃO"
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDEXAR TODO OS JOGOS"
@@ -648,13 +648,13 @@ msgid "DEFAULT"
 msgstr "PADRÃO"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE TEMAS NA LISTA DE JOGOS"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE TEMA"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "FERRAMENTAS"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
@@ -1302,13 +1302,13 @@ msgid "FILES"
 msgstr "FICHEIROS"
 
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Quiosque"
 
 msgid "Kid"
-msgstr ""
+msgstr "Infantil"
 
 msgid "Released"
 msgstr "LANÇADO"
@@ -1543,16 +1543,16 @@ msgid "RIGHT"
 msgstr "DIREITA"
 
 msgid "LEFT ANALOG UP"
-msgstr "ANALÓG ESQ - CIMA"
+msgstr "ANALÓG ESQUERDA - CIMA"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALÓG ESQ - ESQ"
+msgstr "ANALÓG ESQUERDA - ESQ"
 
 msgid "RIGHT ANALOG UP"
-msgstr "ANALÓG DIR - CIMA"
+msgstr "ANALÓG DIREITA - CIMA"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALÓG DIR - ESQ"
+msgstr "ANALÓG DIREITA - ESQ"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
