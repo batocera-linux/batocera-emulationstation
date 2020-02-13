@@ -170,13 +170,13 @@ msgid "FINISHED"
 msgstr "CONCLUÍDO"
 
 msgid "fade"
-msgstr ""
+msgstr "escurecer"
 
 msgid "slide"
-msgstr ""
+msgstr "deslizar"
 
 msgid "instant"
-msgstr ""
+msgstr "instante"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -209,7 +209,7 @@ msgid "SCRAPE"
 msgstr "SCRAPE"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "ATUALIZAÇÕES & DOWNLOADS"
+msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPÇÕES DE SISTEMA"
@@ -362,7 +362,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "TRANSFERÊNCIAS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -488,10 +488,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "ÍNDICE DO JOGO"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "VERIFICAR OS ÍNDICES FALTANDO NA INICIALIZAÇÃO"
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDEXAR TODO OS JOGOS"
@@ -648,13 +648,13 @@ msgid "DEFAULT"
 msgstr "PADRÃO"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE TEMAS DA LISTA DE JOGOS"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE TEMA"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "FERRAMENTAS"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESTAURAR PERSONALIZAÇÕES GAMELIST"
@@ -1305,16 +1305,16 @@ msgid "FILES"
 msgstr "ARQUIVOS"
 
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Quiosque"
 
 msgid "Kid"
-msgstr ""
+msgstr "Infantil"
 
 msgid "Released"
-msgstr "LANÇADO"
+msgstr "Liberado"
 
 msgid "Times played"
 msgstr "Vezes jogados"
