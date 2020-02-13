@@ -1807,7 +1807,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	Utils::String::stringVector subsetNames = theme->getSubSetNames(viewName);
 
 	// push appliesTo at end of list
-	std::sort(subsetNames.begin(), subsetNames.end(), [themeSubSets](auto a, auto b) -> bool
+	std::sort(subsetNames.begin(), subsetNames.end(), [themeSubSets](const std::string& a, const std::string& b) -> bool
 	{ 
 		auto sa = ThemeData::getSubSet(themeSubSets, a);
 		auto sb = ThemeData::getSubSet(themeSubSets, b);
