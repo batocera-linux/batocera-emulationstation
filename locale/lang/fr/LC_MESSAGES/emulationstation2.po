@@ -1390,7 +1390,13 @@ msgid "KIDGAME"
 msgstr "JEU ENFANT"
 
 msgid "HASHING GAMES"
-msgstr "HACHER LES JEUX"
+msgstr "INDEXATION DES JEUX"
+
+msgid "CHECK MISSING INDEXES AT STARTUP"
+msgstr "INDEXER AUTOMATIQUEMENT AU DÉMARRAGE"
+
+msgid "GAME INDEXES"
+msgstr "INDEXATION DES JEUX"
 
 msgid "Searching"
 msgstr "Recherche"
