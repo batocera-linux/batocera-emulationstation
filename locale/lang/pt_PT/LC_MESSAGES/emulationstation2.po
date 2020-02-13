@@ -362,7 +362,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "PROJETO MOLDURA"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "ATUALIZAÇÕES DO SISTEMA"
 
 msgid "AUTO UPDATES"
 msgstr "ATUALIZAÇÕES AUTOMÁTICAS"
@@ -398,7 +398,7 @@ msgid "START KODI WITH X"
 msgstr "INICIAR KODI PRESSIONANDO X"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
@@ -416,10 +416,10 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "ARMAZENAMENTO"
 
 msgid "STORAGE DEVICE"
-msgstr "ARMAZENAMENTO"
+msgstr "DISPOSITIVO DE ARMAZENAMENTO"
 
 msgid "BACKUP USER DATA"
 msgstr "BACKUP DADOS DO USUÁRIO"
@@ -482,7 +482,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "INDEXAR JOGOS EM FALTA"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES PADRÃO"
 
 msgid "GAME RATIO"
 msgstr "FORMATO DO ECRÃ"
@@ -563,10 +563,10 @@ msgid "NO MISSING BIOS"
 msgstr "SEM BIOS EM FALTA"
 
 msgid "MISSING"
-msgstr ""
+msgstr "EM FALTA"
 
 msgid "INVALID"
-msgstr ""
+msgstr "INVÁLIDO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
@@ -633,7 +633,7 @@ msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "APARÊNCIA"
 
 msgid "THEME SET"
 msgstr "TEMA"
@@ -660,7 +660,7 @@ msgid "Do you want to proceed ?"
 msgstr "DESEJA CONTINUAR?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DE INICIALIZAÇÃO"
 
 msgid "START ON SYSTEM"
 msgstr "INICIAR NO SISTEMA"
@@ -672,7 +672,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMAS EXIBIDOS"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE EXIBIÇÃO"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
@@ -696,7 +696,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
@@ -705,7 +705,7 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "MÚSICA"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FUNDO"
@@ -723,10 +723,10 @@ msgid "PLAY THEME MUSICS"
 msgstr "REPRODUZIR MÚSICAS DO TEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "MÚSICA DE FUNDO AO REPRODUZIR VÍDEO"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "SONS"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ATIVAR SOM DE NAVEGAÇÃO"
@@ -747,7 +747,7 @@ msgid "IP ADDRESS"
 msgstr "ENDEREÇO DE IP"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES"
 
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
