@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-12 18:59+0100\n"
+"POT-Creation-Date: 2020-02-13 19:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,6 +172,15 @@ msgid "SEACHING WIFI NETWORKS"
 msgstr ""
 
 msgid "FINISHED"
+msgstr ""
+
+msgid "fade"
+msgstr ""
+
+msgid "slide"
+msgstr ""
+
+msgid "instant"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -468,6 +477,9 @@ msgstr ""
 msgid "NETPLAY SETTINGS"
 msgstr ""
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr ""
 
@@ -478,6 +490,12 @@ msgid "PORT"
 msgstr ""
 
 msgid "MITM"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr ""
 
 msgid "REINDEX ALL GAMES"
@@ -630,6 +648,15 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
+msgid "GAMELIST THEME OPTIONS"
+msgstr ""
+
+msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
@@ -742,9 +769,6 @@ msgid "STATUS"
 msgstr ""
 
 msgid "IP ADDRESS"
-msgstr ""
-
-msgid "SETTINGS"
 msgstr ""
 
 msgid "HOSTNAME"
@@ -1258,6 +1282,15 @@ msgid "RANDOM"
 msgstr ""
 
 msgid "FILES"
+msgstr ""
+
+msgid "Full"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+msgid "Kid"
 msgstr ""
 
 msgid "Released"

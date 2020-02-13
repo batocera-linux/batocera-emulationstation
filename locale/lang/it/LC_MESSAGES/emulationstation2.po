@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-12 18:59+0100\n"
+"POT-Creation-Date: 2020-02-13 19:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -168,6 +168,15 @@ msgstr "RICERCA RETI WIFI"
 
 msgid "FINISHED"
 msgstr "TERMINATO"
+
+msgid "fade"
+msgstr ""
+
+msgid "slide"
+msgstr ""
+
+msgid "instant"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -464,6 +473,9 @@ msgstr "NO"
 msgid "NETPLAY SETTINGS"
 msgstr "IMPOSTAZIONI NETPLAY"
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
 
@@ -475,6 +487,12 @@ msgstr "PORTA"
 
 msgid "MITM"
 msgstr "MITM"
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "CHECK MISSING INDEXES AT STARTUP"
+msgstr ""
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDICIZZA TUTTI I GIOCHI"
@@ -631,6 +649,15 @@ msgstr "GRANDEZZA DI DEFAULT DELLA GRIGLIA"
 msgid "DEFAULT"
 msgstr "DEFAULT"
 
+msgid "GAMELIST THEME OPTIONS"
+msgstr ""
+
+msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
@@ -747,9 +774,6 @@ msgstr "STATO"
 
 msgid "IP ADDRESS"
 msgstr "INDIRIZZO IP"
-
-msgid "SETTINGS"
-msgstr ""
 
 msgid "HOSTNAME"
 msgstr "NOME HOST"
@@ -1278,6 +1302,15 @@ msgstr "CASUALE"
 
 msgid "FILES"
 msgstr "FILE"
+
+msgid "Full"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+msgid "Kid"
+msgstr ""
 
 msgid "Released"
 msgstr "Rilasciato"

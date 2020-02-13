@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-12 18:59+0100\n"
+"POT-Creation-Date: 2020-02-13 19:47+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,6 +165,15 @@ msgstr "와이파이를 검색 중입니다"
 
 msgid "FINISHED"
 msgstr "완료"
+
+msgid "fade"
+msgstr ""
+
+msgid "slide"
+msgstr ""
+
+msgid "instant"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -460,6 +469,9 @@ msgstr "꺼짐"
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "넷플레이 허용"
 
@@ -471,6 +483,12 @@ msgstr "포트"
 
 msgid "MITM"
 msgstr "MITM"
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "CHECK MISSING INDEXES AT STARTUP"
+msgstr ""
 
 msgid "REINDEX ALL GAMES"
 msgstr "모든 게임 재 인덱싱"
@@ -626,6 +644,15 @@ msgstr "그리드 사이즈 초기화"
 msgid "DEFAULT"
 msgstr "기본"
 
+msgid "GAMELIST THEME OPTIONS"
+msgstr ""
+
+msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "사용자 게임리스트 초기화"
 
@@ -742,9 +769,6 @@ msgstr "상태"
 
 msgid "IP ADDRESS"
 msgstr "IP 주소"
-
-msgid "SETTINGS"
-msgstr ""
 
 msgid "HOSTNAME"
 msgstr "호스트 이름"
@@ -1268,6 +1292,15 @@ msgstr "랜덤"
 
 msgid "FILES"
 msgstr "파일"
+
+msgid "Full"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+msgid "Kid"
+msgstr ""
 
 msgid "Released"
 msgstr "발매일"

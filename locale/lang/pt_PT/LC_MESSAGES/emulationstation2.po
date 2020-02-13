@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-12 18:59+0100\n"
+"POT-Creation-Date: 2020-02-13 19:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -168,6 +168,15 @@ msgstr "PROCURA DE REDES WIFI"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
+
+msgid "fade"
+msgstr ""
+
+msgid "slide"
+msgstr ""
+
+msgid "instant"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -463,6 +472,9 @@ msgstr "DESLIGADO"
 msgid "NETPLAY SETTINGS"
 msgstr "DEFINIÇÕES DE JOGOS EM REDE"
 
+msgid "SETTINGS"
+msgstr "DEFINIÇÕES"
+
 msgid "ENABLE NETPLAY"
 msgstr "LIGAR JOGOS EM REDE"
 
@@ -474,6 +486,12 @@ msgstr "PORTA"
 
 msgid "MITM"
 msgstr "MITM"
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "CHECK MISSING INDEXES AT STARTUP"
+msgstr ""
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDEXAR TODO OS JOGOS"
@@ -629,6 +647,15 @@ msgstr "TAMANHO DA GRID PADRÃO"
 msgid "DEFAULT"
 msgstr "PADRÃO"
 
+msgid "GAMELIST THEME OPTIONS"
+msgstr ""
+
+msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
 
@@ -745,9 +772,6 @@ msgstr "ESTADO DA REDE"
 
 msgid "IP ADDRESS"
 msgstr "ENDEREÇO DE IP"
-
-msgid "SETTINGS"
-msgstr "DEFINIÇÕES"
 
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
@@ -1276,6 +1300,15 @@ msgstr "ALEATÓRIO"
 
 msgid "FILES"
 msgstr "FICHEIROS"
+
+msgid "Full"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+msgid "Kid"
+msgstr ""
 
 msgid "Released"
 msgstr "LANÇADO"
