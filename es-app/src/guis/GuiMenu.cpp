@@ -45,6 +45,10 @@
 #include "ThreadedBluetooth.h"
 #include "views/gamelist/IGameListView.h"
 
+#define fake_gettext_fade _("fade")
+#define fake_gettext_slide _("slide")
+#define fake_gettext_instant _("instant")
+
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
 	// MAIN MENU
@@ -1049,6 +1053,8 @@ void GuiMenu::openNetplaySettings()
 {
 	GuiSettings* settings = new GuiSettings(mWindow, _("NETPLAY SETTINGS").c_str());
 
+	settings->addGroup(_("SETTINGS"));
+
 	// Enable
 	auto enableNetplay = std::make_shared<SwitchComponent>(mWindow);
 	enableNetplay->setState(SystemConf::getInstance()->get("global.netplay") == "1");
@@ -1070,11 +1076,19 @@ void GuiMenu::openNetplaySettings()
 
 	settings->addWithLabel(_("MITM"), mitms);
 
+	settings->addGroup(_("GAME INDEXES"));
+
+	// CheckOnStart
+	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
+	checkOnStart->setState(Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"));
+	settings->addWithLabel(_("CHECK MISSING INDEXES AT STARTUP"), checkOnStart);
+	
 	Window* window = mWindow;
-	settings->addSaveFunc([enableNetplay, mitms, window] 
+	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
 	{
 		std::string mitm = mitms->getSelected();
 		
+		Settings::getInstance()->setBool("NetPlayCheckIndexesAtStart", checkOnStart->getState());
 		SystemConf::getInstance()->set("global.netplay.relay", mitm.empty() ? "" : mitm);		
 
 		if (SystemConf::getInstance()->set("global.netplay", enableNetplay->getState() ? "1" : "0"))
@@ -1086,8 +1100,8 @@ void GuiMenu::openNetplaySettings()
 		}
 	});
 	
-	settings->addSubMenu(_("REINDEX ALL GAMES"), [this] { ThreadedHasher::start(mWindow, true); });
-	settings->addSubMenu(_("INDEX MISSING GAMES"), [this] { ThreadedHasher::start(mWindow); });
+	settings->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, true); });
+	settings->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow); });
 	
 	mWindow->pushGui(settings);
 }
@@ -1720,6 +1734,9 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	// gamelist_style
 	std::shared_ptr<OptionListComponent<std::string>> gamelist_style = nullptr;
 
+	if (systemTheme.empty() || showGridFeatures && system != NULL && theme->hasView("grid"))
+		themeconfig->addGroup("GAMELIST STYLE");
+	
 	if (systemTheme.empty())
 	{
 		gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
@@ -1787,7 +1804,23 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 	std::map<std::string, ThemeConfigOption> options;
 
-	for (std::string subset : theme->getSubSetNames(viewName))
+	Utils::String::stringVector subsetNames = theme->getSubSetNames(viewName);
+
+	// push appliesTo at end of list
+	std::sort(subsetNames.begin(), subsetNames.end(), [themeSubSets](auto a, auto b) -> bool
+	{ 
+		auto sa = ThemeData::getSubSet(themeSubSets, a);
+		auto sb = ThemeData::getSubSet(themeSubSets, b);
+
+		bool aHasApplies = sa.size() > 0 && !sa.cbegin()->appliesTo.empty();
+		bool bHasApplies = sb.size() > 0 && !sb.cbegin()->appliesTo.empty();
+
+		return aHasApplies < bHasApplies;
+	});
+
+	bool hasThemeOptionGroup = false;
+	bool hasApplyToGroup = false;
+	for (std::string subset : subsetNames) // theme->getSubSetNames(viewName)
 	{
 		std::string settingName = "subset." + subset;
 		std::string perSystemSettingName = systemTheme.empty() ? "" : "subset." + systemTheme + "." + subset;
@@ -1841,6 +1874,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
 				if (!displayName.empty())
 				{
+					bool hasApplyToSubset = themeColorSets.cbegin()->appliesTo.size() > 0;
+
 					std::string prefix;
 					if (systemTheme.empty())
 					{
@@ -1858,13 +1893,31 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 						if (!prefix.empty())
 							prefix = " (" + prefix + ")";
+					}
 
+					if (hasApplyToSubset && !hasApplyToGroup)
+					{
+						hasApplyToGroup = true;
+						themeconfig->addGroup(_("GAMELIST THEME OPTIONS"));
+					}
+					else if (!hasApplyToSubset && !hasThemeOptionGroup)
+					{
+						hasThemeOptionGroup = true;
+						themeconfig->addGroup(_("THEME OPTIONS"));
 					}
 
 					themeconfig->addWithLabel(displayName + prefix, item);
 				}
 				else
+				{
+					if (!hasThemeOptionGroup)
+					{
+						hasThemeOptionGroup = true;
+						themeconfig->addGroup(_("THEME OPTIONS"));
+					}
+
 					themeconfig->addWithLabel(_(("THEME " + Utils::String::toUpper(subset)).c_str()), item);
+				}
 			}
 
 			ThemeConfigOption opt;
@@ -1883,6 +1936,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	
 	if (systemTheme.empty())
 	{
+		themeconfig->addGroup(_("TOOLS"));
+
 		themeconfig->addEntry(_("RESET GAMELIST CUSTOMISATIONS"), false, [s, themeconfig, window]
 		{
 			Settings::getInstance()->setString("GamelistViewStyle", "");
