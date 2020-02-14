@@ -11,6 +11,7 @@
 #include <iostream>
 #include <assert.h>
 #include "Settings.h"
+#include <algorithm>
 
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
@@ -611,7 +612,7 @@ std::map<int, int> InputManager::lastKnownPlayersDeviceIndexes() {
 // batocera
 std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
     // 1 recuperer les configurated
-    std::list<InputConfig *> availableConfigured;
+    std::vector<InputConfig *> availableConfigured;
 
     for(auto iter = mJoysticks.begin(); iter != mJoysticks.end(); iter++) {
         InputConfig * config = getInputConfigByDevice(iter->first);
@@ -619,6 +620,8 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
             availableConfigured.push_back(config);
         }
     }
+    // sort available configs
+    std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceIndex() < b->getDeviceIndex();});
 
     //2 pour chaque joueur verifier si il y a un configurated
     // associer le input au joueur
@@ -635,7 +638,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
 		std::string playerConfigName = Settings::getInstance()->getString(confName);
 		std::string playerConfigGuid = Settings::getInstance()->getString(confGuid);
 
-        for (std::list<InputConfig *>::iterator it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
+        for (auto it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
         {
             InputConfig * config = *it1;
 			bool nameFound = playerConfigName.compare(config->getDeviceName()) == 0;
@@ -656,7 +659,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
 
 		std::string playerConfigName = Settings::getInstance()->getString(confName);
 
-		for (std::list<InputConfig *>::iterator it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
+		for (auto it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
 		{
 			InputConfig * config = *it1;
 			bool nameFound = playerConfigName.compare(config->getDeviceName()) == 0;
@@ -672,7 +675,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs() {
     for (int player = 0; player < MAX_PLAYERS; player++) {
         // si aucune config a été trouvé pour le joueur, on essaie de lui filer un libre
         if(playerJoysticks[player] == NULL){
-            for (std::list<InputConfig *>::iterator it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
+            for (auto it1=availableConfigured.begin(); it1!=availableConfigured.end(); ++it1)
             {
                 playerJoysticks[player] = *it1;
                 availableConfigured.erase(it1);

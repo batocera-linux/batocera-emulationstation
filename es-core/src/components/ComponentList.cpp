@@ -37,14 +37,24 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere)
 	}
 }
 
-void ComponentList::addGroup(const std::string& label)
-{
+void ComponentList::addGroup(const std::string& label, bool forceVisible)
+{	
 	auto theme = ThemeData::getMenuTheme();
+	if (!forceVisible && !theme->Group.visible)
+		return;
 
 	ComponentListRow row;
-	auto empty = std::make_shared<TextComponent>(mWindow, label, theme->TextSmall.font, theme->TextSmall.color);
-	empty->setLineSpacing(2.5);
-	row.addElement(empty, true, false);
+
+	auto group = std::make_shared<TextComponent>(mWindow, label, theme->Group.font, theme->Group.color);
+	group->setHorizontalAlignment((Alignment) theme->Group.alignment);
+	group->setBackgroundColor(theme->Group.backgroundColor); // 0x00000010	
+	if (theme->Group.backgroundColor != 0)
+		group->setRenderBackground(true);
+
+	group->setLineSpacing(theme->Group.lineSpacing);
+	group->setPadding(Vector4f(TOTAL_HORIZONTAL_PADDING_PX / 2, 0, TOTAL_HORIZONTAL_PADDING_PX / 2, 0));
+
+	row.addElement(group, true, false);
 	row.selectable = false;
 	addRow(row);
 }
@@ -219,7 +229,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 			if(drawAll || it->invert_when_selected)
 			{
 				if (entry.data.selectable)
-					it->component->setColor(textColor);
+					it->component->setColor(textColor);				
 
 				it->component->render(trans);
 			}
@@ -256,7 +266,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 				element.component->setColor(selectedColor);
 				drawAfterCursor.push_back(element.component.get());
 			}
-		}
+		}		
 
 		for(auto it = drawAfterCursor.cbegin(); it != drawAfterCursor.cend(); it++)
 			(*it)->render(trans);
@@ -267,12 +277,22 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	}
 
 	// draw separators
+
+	bool prevIsGroup = false;
+
 	float y = 0;
 	for(unsigned int i = 0; i < mEntries.size(); i++)
 	{
-		Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
+		if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
+			Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor);
+		else
+			Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
+
 		y += getRowHeight(mEntries.at(i).data);
+
+		prevIsGroup = !mEntries.at(i).data.selectable;
 	}
+
 	Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
 
 	Renderer::popClipRect();
@@ -313,11 +333,11 @@ void ComponentList::updateElementPosition(const ComponentListRow& row)
 	// assumes updateElementSize has already been called
 	float rowHeight = getRowHeight(row);
 
-	float x = TOTAL_HORIZONTAL_PADDING_PX / 2;
+	float x = row.selectable ? TOTAL_HORIZONTAL_PADDING_PX / 2 : 0;
 	for(unsigned int i = 0; i < row.elements.size(); i++)
 	{
 		const auto comp = row.elements.at(i).component;
-
+		
 		// center vertically
 		comp->setPosition(x, (rowHeight - comp->getSize().y()) / 2 + yOffset);
 		x += comp->getSize().x();
@@ -326,7 +346,7 @@ void ComponentList::updateElementPosition(const ComponentListRow& row)
 
 void ComponentList::updateElementSize(const ComponentListRow& row)
 {
-	float width = mSize.x() - TOTAL_HORIZONTAL_PADDING_PX;
+	float width = mSize.x() - (row.selectable ? TOTAL_HORIZONTAL_PADDING_PX : 0);
 	std::vector< std::shared_ptr<GuiComponent> > resizeVec;
 
 	for(auto it = row.elements.cbegin(); it != row.elements.cend(); it++)

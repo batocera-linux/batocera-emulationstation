@@ -248,6 +248,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "color", COLOR } } },
+	{ "menuGroup", {
+		{ "fontPath", PATH },
+		{ "fontSize", FLOAT },		
+		{ "lineSpacing", FLOAT },		
+		{ "alignment", STRING },			
+		{ "backgroundColor", COLOR },
+		{ "separatorColor", COLOR },
+		{ "visible", BOOLEAN },
+		{ "color", COLOR } } },
 	{ "menuBackground", {
 		{ "path", PATH },
 		{ "fadePath", PATH },
@@ -1353,6 +1362,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	Footer.font = Font::get(FONT_SIZE_SMALL);
 	Text.font = Font::get(FONT_SIZE_MEDIUM);
 	TextSmall.font = Font::get(FONT_SIZE_SMALL);
+	Group.font = Font::get(FONT_SIZE_SMALL);
 
 	auto elem = theme->getElement("menu", "menubg", "menuBackground");
 	if (elem)
@@ -1404,12 +1414,21 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 
 	elem = theme->getElement("menu", "menutextsmall", "menuTextSmall");
 	if (elem)
-	{
+	{		
+		Group.visible = true;
+
 		if (elem->has("fontPath") || elem->has("fontSize"))
+		{
 			TextSmall.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+			Group.font = TextSmall.font;
+		}
 
 		if (elem->has("color"))
+		{
 			TextSmall.color = elem->get<unsigned int>("color");
+			Group.color = TextSmall.color;
+		}
+
 		if (elem->has("selectedColor"))
 			Text.selectedColor = elem->get<unsigned int>("selectedColor");
 		if (elem->has("selectorColor"))
@@ -1425,7 +1444,10 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		if (elem->has("color"))
 			Text.color = elem->get<unsigned int>("color");
 		if (elem->has("separatorColor"))
+		{			
 			Text.separatorColor = elem->get<unsigned int>("separatorColor");
+			Group.separatorColor = Text.separatorColor;
+		}
 		if (elem->has("selectedColor"))
 			Text.selectedColor = elem->get<unsigned int>("selectedColor");
 		if (elem->has("selectorColor"))
@@ -1437,6 +1459,37 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Text.selectorGradientColor = elem->get<unsigned int>("selectorColorEnd");
 		if (elem->has("selectorGradientType"))
 			Text.selectorGradientType = (elem->get<std::string>("selectorGradientType").compare("horizontal"));
+	}
+
+
+	elem = theme->getElement("menu", "menugroup", "menuGroup");
+	if (elem)
+	{
+		Group.visible = true;
+
+		if (elem->has("fontPath") || elem->has("fontSize"))
+			Group.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+		if (elem->has("color"))
+			Group.color = elem->get<unsigned int>("color");
+		if (elem->has("backgroundColor"))
+			Group.backgroundColor = elem->get<unsigned int>("backgroundColor");
+		if (elem->has("separatorColor"))
+			Group.separatorColor = elem->get<unsigned int>("separatorColor");
+		if (elem->has("lineSpacing"))
+			Group.lineSpacing = elem->get<float>("lineSpacing");
+		if (elem->has("visible"))
+			Group.visible = elem->get<bool>("visible");
+
+		if (elem->has("alignment"))
+		{
+			std::string str = elem->get<std::string>("alignment");
+			if (str == "left")
+				Group.alignment = ALIGN_LEFT;
+			else if (str == "center")
+				Group.alignment = ALIGN_CENTER;
+			else if (str == "right")
+				Group.alignment = ALIGN_RIGHT;
+		}
 	}
 
 	elem = theme->getElement("menu", "menubutton", "menuButton");

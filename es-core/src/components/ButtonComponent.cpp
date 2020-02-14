@@ -52,8 +52,10 @@ void ButtonComponent::setText(const std::string& text, const std::string& helpTe
 	
 	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(mText, 0, 0, getCurTextColor()));
 
-	float minWidth = mFont->sizeText("DELETE").x() + 12;
-	setSize(Math::max(mTextCache->metrics.size.x() + 12, minWidth), mTextCache->metrics.size.y());
+	float padding = Renderer::isSmallScreen() ? 12 : 24;
+
+	float minWidth = mFont->sizeText("DELETE").x() + padding;
+	setSize(Math::max(mTextCache->metrics.size.x() + padding, minWidth), mTextCache->metrics.size.y());
 
 	updateHelpPrompts();
 }

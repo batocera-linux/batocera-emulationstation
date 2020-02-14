@@ -58,7 +58,7 @@ public:
 	ComponentList(Window* window);
 
 	void addRow(const ComponentListRow& row, bool setCursorHere = false);
-	void addGroup(const std::string& label);
+	void addGroup(const std::string& label, bool forceVisible = false);
 
 	void textInput(const char* text) override;
 	bool input(InputConfig* config, Input input) override;

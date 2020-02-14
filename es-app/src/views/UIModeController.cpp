@@ -5,6 +5,10 @@
 #include "Log.h"
 #include "Window.h"
 
+#define fake_gettext_full _("Full")
+#define fake_gettext_kiosk _("Kiosk")
+#define fake_gettext_kid _("Kid")
+
 UIModeController *  UIModeController::sInstance = NULL;
 
 UIModeController * UIModeController::getInstance()
