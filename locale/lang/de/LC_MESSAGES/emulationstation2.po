@@ -77,10 +77,10 @@ msgid "LAUNCH"
 msgstr "STARTEN"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "VERFÜGBARE SPIELE"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "NICHT VERFÜGBARE SPIELE"
 
 msgid "NO GAME FOUND"
 msgstr "KEIN SPIEL GEFUNDEN"
@@ -104,7 +104,7 @@ msgid "automatic"
 msgstr "automatisch"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "ANPASSUNG ANZEIGEN"
 
 msgid "GRID SIZE"
 msgstr "RASTERGRÖSSE"
@@ -119,13 +119,13 @@ msgid "SHOW FOLDERS"
 msgstr "ZEIGE ORDNER"
 
 msgid "always"
-msgstr ""
+msgstr "immer"
 
 msgid "never"
-msgstr ""
+msgstr "nie"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "es gibt mehrere Spiele"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
@@ -149,7 +149,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DIESE FUNKTION IST DEAKTIVIERT, WENN SCRAPING LÄUFT"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTERE SPIELELISTE MIT"
 
 msgid "RESET ALL FILTERS"
 msgstr "ALLE FILTER ZURÜCKSETZEN"
@@ -158,13 +158,13 @@ msgid "FIND GAMES"
 msgstr "FINDE SPIELE"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "MANUELLE EINGABE"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "KEINE WIFI-NETZWERKE GEFUNDEN"
 
-msgid "SEACHING WIFI NETWORKS"
-msgstr ""
+msgid "SEARCHING WIFI NETWORKS"
+msgstr "SUCHE NACH WIFI-NETZWERKEN"
 
 msgid "FINISHED"
 msgstr "FERTIG"
@@ -209,7 +209,7 @@ msgid "SCRAPE"
 msgstr "SCRAPEN"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr ""
+msgstr "AKTUALISIERUNGEN & DOWNLOADS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMEINSTELLUNGEN"
@@ -233,10 +233,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "TITEL SCREENSHOT"
 
 msgid "MIX V1"
-msgstr ""
+msgstr "MIX V1"
 
 msgid "MIX V2"
-msgstr ""
+msgstr "MIX V2"
 
 msgid "BOX 2D"
 msgstr "BOX 2D"
@@ -362,7 +362,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "DATEI ERSTELLUNG FEHLGESCHLAGEN"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "DOWNLOADS"
 
 msgid "THEMES"
 msgstr "THEMES"
@@ -371,7 +371,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "THE BEZEL PROJECT"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "SOFTWARE UPDATES"
 
 msgid "AUTO UPDATES"
 msgstr "AUTOMATISCHE UPDATES"
@@ -407,10 +407,10 @@ msgid "START KODI WITH X"
 msgstr "KODI MIT X STARTEN"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "HELLIGKEIT"
 
 msgid "VIDEO OUTPUT"
 msgstr "BILD AUSGABE"
@@ -418,7 +418,7 @@ msgstr "BILD AUSGABE"
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DIE NEUE KONFIGURATION "
-"ANZUWENDEN "
+"ANZUWENDEN"
 
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
@@ -427,10 +427,10 @@ msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "SPEICHER"
 
 msgid "STORAGE DEVICE"
-msgstr "SPEICHER"
+msgstr "SPEICHER LAUFWERK"
 
 msgid "BACKUP USER DATA"
 msgstr "BENUTZERDATEN SICHERN"
@@ -475,7 +475,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "EINSTELLUNGEN NETZWERKSPIEL"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "EINSTELLUNGEN"
 
 msgid "ENABLE NETPLAY"
 msgstr "AKTIVERE NETZWERKSPIEL"
@@ -490,10 +490,10 @@ msgid "MITM"
 msgstr ""
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "SPIELE INDEXE"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "FEHLENDE INDEXE BEIM START PRÜFEN"
 
 msgid "REINDEX ALL GAMES"
 msgstr "ALLE SPIELE INDEXIEREN"
@@ -502,7 +502,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "INDEX FEHLENDER SPIELE"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "STANDARDEINSTELLUNGEN"
 
 msgid "GAME RATIO"
 msgstr "BILDFORMAT"
@@ -556,7 +556,7 @@ msgid "SERVICE URL"
 msgstr "UNTERSTÜTZUNG URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "PAUSE AUF ÜBERSETZTEM BILDSCHIRM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ÜBER SYSTEM ERWEITERTE KONFIGURATION"
@@ -583,10 +583,10 @@ msgid "NO MISSING BIOS"
 msgstr "KEINE FEHLENDE BIOS DATEIEN"
 
 msgid "MISSING"
-msgstr ""
+msgstr "FEHLT"
 
 msgid "INVALID"
-msgstr ""
+msgstr "UNGÜLTIG"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "SPIELELISTE AKTUALISIEREN"
@@ -621,7 +621,7 @@ msgid "FORGET BLUETOOTH CONTROLLERS"
 msgstr "BLUETOOTH CONTROLLER VERGESSEN"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT"
+msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT."
 
 #, c-format
 msgid "INPUT P%i"
@@ -649,22 +649,22 @@ msgid "DEFAULT GRID SIZE"
 msgstr "STANDARD RASTERGRÖSSE"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "STANDARD"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "GAMELIST THEMENOPTIONEN"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "THEMENOPTIONEN"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "WERKZEUGE"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "SPIELELISTEN-ANPASSUNGEN ZURÜCKSETZEN"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "AUSSEHEN"
 
 msgid "THEME SET"
 msgstr "THEME SET"
@@ -693,7 +693,7 @@ msgid "Do you want to proceed ?"
 msgstr "Möchten Sie fortfahren ?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "STARTEINSTELLUNGEN"
 
 msgid "START ON SYSTEM"
 msgstr "START MIT SYSTEM"
@@ -705,7 +705,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "ANGEZEIGTE SYSTEME"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "ANZEIGEOPTIONEN"
 
 msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
@@ -729,16 +729,16 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "LAUTSTÄRKE"
 
 msgid "SYSTEM VOLUME"
-msgstr "LAUTSTÄRKE"
+msgstr "LAUTSTÄRKE SYSTEM"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr ""
 
 msgid "MUSIC"
-msgstr ""
+msgstr "MUSIK"
 
 msgid "FRONTEND MUSIC"
 msgstr "FRONTEND MUSIK"
@@ -759,7 +759,7 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr ""
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "GERÄUSCHE"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "NAVIGATION SOUNDS AKTIVIEREN"
@@ -852,13 +852,13 @@ msgid "EMULATED WIIMOTES"
 msgstr "EMULIERTE WIIMOTES"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "BILDSCHIRMLAYOUT ÄNDERN"
 
 msgid "LARGE SCREEN"
-msgstr ""
+msgstr "GROSSER BILDSCHIRM"
 
 msgid "SIDE BY SIDE"
-msgstr ""
+msgstr "SEITE AN SEITE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "INTERNE AUFLÖSUNG"
@@ -888,7 +888,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "SAMMLUNGEN AUSWÄHLEN"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "ARCADE SYSTEME"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "AUTOMATISCHE SPIELE-SAMMLUNGEN"
@@ -952,14 +952,14 @@ msgstr ""
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
 msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i SPIEL ERFOLGREICH GESCRAPED"
-msgstr[1] "%i SPIELE ERFOLGREICH GESCRAPED"
+msgstr[0] "%i SPIEL ERFOLGREICH GESCRAPED!"
+msgstr[1] "%i SPIELE ERFOLGREICH GESCRAPED!"
 
 #, c-format
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i SPIEL ÜBERSPRUNGEN"
-msgstr[1] "%i SPIELE ÜBERSPRUNGEN"
+msgstr[0] "%i SPIEL ÜBERSPRUNGEN."
+msgstr[1] "%i SPIELE ÜBERSPRUNGEN."
 
 msgid "INSTALL BEZELS"
 msgstr "BEZELS INSTALLIEREN"
@@ -1062,7 +1062,7 @@ msgstr ""
 "TROTZDEM FORTFAHREN?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN"
+msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN."
 
 msgid "SELECT SYSTEMS TO DISPLAY"
 msgstr "ANZUZEIGENDE SYSTEME AUSWÄHLEN"
@@ -1202,7 +1202,7 @@ msgid "Favorite"
 msgstr "Favorit"
 
 msgid "enter favorite"
-msgstr "Als Favorit setzen?"
+msgstr "Favorit eingeben"
 
 msgid "Hidden"
 msgstr "Versteckt"
@@ -1235,16 +1235,16 @@ msgid "Md5 checksum"
 msgstr "Md5 Prüfsumme"
 
 msgid "Game time"
-msgstr ""
+msgstr "Spielzeit"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "wie lange wurde das Spiel insgesamt gespielt (Sekunden)"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Arcade System"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "Spiel Arcade System eintragen"
 
 msgid "name"
 msgstr "Name"
@@ -1283,7 +1283,7 @@ msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPING BEENDET. AKTUALISIERE SPIELELISTEN, UM ÄNDERUNGEN ANZUWENDEN"
+msgstr "SCRAPING BEENDET. AKTUALISIERE SPIELELISTEN, UM ÄNDERUNGEN ANZUWENDEN."
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
@@ -1307,13 +1307,13 @@ msgid "FILES"
 msgstr "DATEIEN"
 
 msgid "Full"
-msgstr ""
+msgstr "Voll"
 
 msgid "Kiosk"
 msgstr ""
 
 msgid "Kid"
-msgstr ""
+msgstr "Kind"
 
 msgid "Released"
 msgstr "Veröffentlicht"
@@ -1412,22 +1412,22 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS ERFOLGREICH INSTALLIERT"
 
 msgid "FAVORITES"
-msgstr ""
+msgstr "FAVORITEN"
 
 msgid "GENRE"
-msgstr ""
+msgstr "GATTUNG"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "SPIELER"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr ""
+msgstr "HERAUSGEBER / ENTWICKLER"
 
 msgid "RATING"
-msgstr ""
+msgstr "BEWERTUNG"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "KINDERSPIEL"
 
 msgid "HASHING GAMES"
 msgstr "ERZEUGE HASHCODE DER SPIELE"
@@ -1445,13 +1445,13 @@ msgid "RETRY"
 msgstr "WIEDERHOLEN"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Downloading"
 
 msgid "ACCEPT RESULT"
 msgstr "ERGEBNIS AKZEPTIEREN"
 
 msgid "Loading system config..."
-msgstr "Lade System Konfiguration"
+msgstr "Lade System Konfiguration."
 
 msgid "Done."
 msgstr "Fertig."
@@ -1463,10 +1463,10 @@ msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr "Suche Controller"
+msgstr "Suche Controller."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "BLUETOOTH-SCAN LÄUFT BEREITS"
+msgstr "BLUETOOTH-SCAN LÄUFT BEREITS."
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
@@ -1490,7 +1490,7 @@ msgid "never played"
 msgstr "Noch nie gespielt"
 
 msgid "arcade"
-msgstr ""
+msgstr "arcade"
 
 msgid "collections"
 msgstr "Sammlungen"
@@ -1512,7 +1512,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "'%s' from '%s' entfernt"
 
 msgid "This collection is empty."
-msgstr "Diese Sammlung ist leer"
+msgstr "Diese Sammlung ist leer."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -1577,7 +1577,7 @@ msgid "GAMEPAD %i"
 msgstr "GAMEPAD %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "BELIEBIGE TASTE ZUM ÜBERSPRINGEN FESTHALTEN "
+msgstr "BELIEBIGE TASTE ZUM ÜBERSPRINGEN FESTHALTEN"
 
 msgid "-NOT DEFINED-"
 msgstr "-NICHT DEFINIERT-"
@@ -1596,8 +1596,8 @@ msgstr ""
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "BELIEBIGE TASTE ZUM ÜBERSPRINGEN VON %iS FESTHALTEN "
-msgstr[1] "BELIEBIGE TASTE ZUM ÜBERSPRINGEN VON %iS FESTHALTEN "
+msgstr[0] "BELIEBIGE TASTE ZUM ÜBERSPRINGEN VON %iS FESTHALTEN"
+msgstr[1] "BELIEBIGE TASTE ZUM ÜBERSPRINGEN VON %iS FESTHALTEN"
 
 msgid "PRESS ANYTHING"
 msgstr "DRÜCKE IRGENDWAS"
@@ -1642,7 +1642,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
 
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"

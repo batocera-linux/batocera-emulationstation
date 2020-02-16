@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "UPDATING BATOCERA"
-msgstr "바투세라 업데이트"
+msgstr "바토세라 업데이트"
 
 msgid "UPDATE IS READY"
 msgstr "업데이트가 준비되었습니다"
@@ -167,13 +167,13 @@ msgid "FINISHED"
 msgstr "완료"
 
 msgid "fade"
-msgstr ""
+msgstr "페이드"
 
 msgid "slide"
-msgstr ""
+msgstr "슬라이드"
 
 msgid "instant"
-msgstr ""
+msgstr "인스탄트"
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -275,13 +275,13 @@ msgid "SCRAPE NOW"
 msgstr "게임 아트워크 수집 시작"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "화면보호기 세팅"
+msgstr "화면보호기 설정"
 
 msgid "SLIDESHOW SETTINGS"
-msgstr "슬라이드쇼 세팅"
+msgstr "슬라이드쇼 설정"
 
 msgid "RANDOM VIDEO SETTINGS"
-msgstr "랜덤 비디오 세팅"
+msgstr "랜덤 비디오 설정"
 
 msgid "CHOOSE"
 msgstr "선택"
@@ -359,7 +359,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "파일 생성 실패"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "다운로드"
 
 msgid "THEMES"
 msgstr "테마"
@@ -368,7 +368,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "베젤 프로젝트"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "소프트웨어 업데이트"
 
 msgid "AUTO UPDATES"
 msgstr "자동 업데이트"
@@ -404,7 +404,7 @@ msgid "START KODI WITH X"
 msgstr "X 버튼으로 KODI 실행"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "하드웨어"
 
 msgid "BRIGHTNESS"
 msgstr "화면밝기"
@@ -422,7 +422,7 @@ msgid "OVERCLOCK"
 msgstr "오버클럭"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "저장소"
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
@@ -470,7 +470,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "설정"
 
 msgid "ENABLE NETPLAY"
 msgstr "넷플레이 허용"
@@ -485,10 +485,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "게임 인덱스"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "시작 시, 없는 인덱스 확인"
 
 msgid "REINDEX ALL GAMES"
 msgstr "모든 게임 재 인덱싱"
@@ -497,7 +497,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "인덱스 안된 게임"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "기본설정"
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
@@ -551,7 +551,7 @@ msgid "SERVICE URL"
 msgstr "서비스 URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "번역화면 일시정지"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
@@ -578,10 +578,10 @@ msgid "NO MISSING BIOS"
 msgstr "있는 바이오스 "
 
 msgid "MISSING"
-msgstr ""
+msgstr "잃음"
 
 msgid "INVALID"
-msgstr ""
+msgstr "무효"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "게임 목록 업데이트"
@@ -645,19 +645,19 @@ msgid "DEFAULT"
 msgstr "기본"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "게임리스트 테마 옵션"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "테마 옵션"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "도구"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "사용자 게임리스트 초기화"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "추가항목"
 
 msgid "THEME SET"
 msgstr "테마 선택"
@@ -684,7 +684,7 @@ msgid "Do you want to proceed ?"
 msgstr "계속 진행하시겠습니다?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "시작 설정"
 
 msgid "START ON SYSTEM"
 msgstr "시스템에서 시작하기"
@@ -696,7 +696,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "시스템 진열"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "옵션 표시"
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
@@ -720,7 +720,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "리스트에서 파일명 보여주기"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "음량"
 
 msgid "SYSTEM VOLUME"
 msgstr "시스템 음량"
@@ -729,7 +729,7 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "사운드 볼륨 조절 시 화면표기"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "음악"
 
 msgid "FRONTEND MUSIC"
 msgstr "배경 음악"
@@ -741,16 +741,16 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "노래 제목 표시 시간"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "특정 뮤직 폴더 시스템만 플레이"
+msgstr "특정 음악 폴더 시스템만 플레이"
 
 msgid "PLAY THEME MUSICS"
-msgstr "테마 뮤직 재생"
+msgstr "테마 음악 재생"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "비디오 재생 시, 음악 음량 줄임"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "사운드"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "네비게이션 사운드 활성화"
@@ -879,7 +879,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "컬렉션 선택"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "아케이드 시스템"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "자동 게임 컬렉션"
@@ -1197,10 +1197,10 @@ msgid "set hidden"
 msgstr "숨김 설정"
 
 msgid "Kidgame"
-msgstr "키드게임"
+msgstr "어린이용 게임"
 
 msgid "set kidgame"
-msgstr "키드게임 설정"
+msgstr "어린이용 게임 설정"
 
 msgid "Play count"
 msgstr "플레이 횟수"
@@ -1227,10 +1227,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "전체 게임 즐긴 시간"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "아케이드 시스템"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "아케이드 시스템 게임 진입"
 
 msgid "name"
 msgstr "이름"
@@ -1294,13 +1294,13 @@ msgid "FILES"
 msgstr "파일"
 
 msgid "Full"
-msgstr ""
+msgstr "전체"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "매장용"
 
 msgid "Kid"
-msgstr ""
+msgstr "어린이용"
 
 msgid "Released"
 msgstr "발매일"
@@ -1321,7 +1321,7 @@ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "넷플레이 호스트로 게임을 실행합니까?"
 
 msgid "Preloading UI"
-msgstr "UI 사전 로딩중"
+msgstr "UI 로딩중"
 
 msgid "MENU"
 msgstr "메뉴"
@@ -1408,13 +1408,13 @@ msgid "PLAYERS"
 msgstr "플레이어수"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr "퍼블리셔 / 개발사"
+msgstr "유통사 / 개발사"
 
 msgid "RATING"
 msgstr "평점"
 
 msgid "KIDGAME"
-msgstr "키즈 게임"
+msgstr "어린이게임"
 
 msgid "HASHING GAMES"
 msgstr "해싱 게임"
@@ -1432,7 +1432,7 @@ msgid "RETRY"
 msgstr "재시도"
 
 msgid "Downloading"
-msgstr ""
+msgstr "다운로드 중"
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
@@ -1468,16 +1468,16 @@ msgid "favorites"
 msgstr "즐겨찾기"
 
 msgid "2 players"
-msgstr "플레이어 2명"
+msgstr "2인 플레이"
 
 msgid "4 players"
-msgstr "플레이어 4명"
+msgstr "4인 플레이"
 
 msgid "never played"
 msgstr "미실행 게임"
 
 msgid "arcade"
-msgstr ""
+msgstr "아케이드"
 
 msgid "collections"
 msgstr "컬렉션"
@@ -1623,7 +1623,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
 
 msgid "Unknown"
-msgstr ""
+msgstr "앎수없음"
 
 msgid "MOVE CURSOR"
 msgstr "커서 이동"

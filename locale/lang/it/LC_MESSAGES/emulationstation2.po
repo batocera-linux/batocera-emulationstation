@@ -170,13 +170,13 @@ msgid "FINISHED"
 msgstr "TERMINATO"
 
 msgid "fade"
-msgstr ""
+msgstr "dissolvenza"
 
 msgid "slide"
-msgstr ""
+msgstr "diapositiva"
 
 msgid "instant"
-msgstr ""
+msgstr "istantaneo"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -362,7 +362,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "IMPOSSIBILE GENERARE FILE"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "DOWNLOADS"
 
 msgid "THEMES"
 msgstr "TEMI"
@@ -371,7 +371,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "IL PROGETTO BEZEL"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "AGGIORNAMENTI SOFTWARE"
 
 msgid "AUTO UPDATES"
 msgstr "AGGIORNAMENTI AUTOMATICI"
@@ -407,7 +407,7 @@ msgid "START KODI WITH X"
 msgstr "AVVIA KODI CON X"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITA'"
@@ -489,10 +489,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "INDICI DI GIOCO"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "CONTROLLA GLI INDICI DI GIOCO MANCANTI ALL'AVVIO"
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDICIZZA TUTTI I GIOCHI"
@@ -501,7 +501,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "INDICIZZA GIOCHI MANCANTI"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONE DI DEFAULT"
 
 msgid "GAME RATIO"
 msgstr "FORMATO VIDEO DEL GIOCO"
@@ -555,7 +555,7 @@ msgid "SERVICE URL"
 msgstr "URL SERVIZIO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "PAUSA SULLO SCHERMO TRADOTTO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
@@ -582,10 +582,10 @@ msgid "NO MISSING BIOS"
 msgstr "NESSUN BIOS MANCANTE"
 
 msgid "MISSING"
-msgstr ""
+msgstr "MANCANTE"
 
 msgid "INVALID"
-msgstr ""
+msgstr "NON VALIDO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
@@ -650,19 +650,19 @@ msgid "DEFAULT"
 msgstr "DEFAULT"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPZIONI TEMA DELLA LISTA DEI GIOCHI"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPZIONI TEMA"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "STRUMENTI"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr ASPETTO""
 
 msgid "THEME SET"
 msgstr "TEMA SELEZIONATO"
@@ -689,7 +689,7 @@ msgid "Do you want to proceed ?"
 msgstr "Vuoi procedere?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI DI AVVIO"
 
 msgid "START ON SYSTEM"
 msgstr "SISTEMA DI AVVIO"
@@ -701,7 +701,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMA VISUALIZZATO"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "OPZIONI SCHERMO"
 
 msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
@@ -725,7 +725,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
@@ -734,7 +734,7 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRA GRAFICA DURANTE IL CAMBIO VOLUME"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "MUSICA"
 
 msgid "FRONTEND MUSIC"
 msgstr "MUSICA FRONTEND"
@@ -752,10 +752,10 @@ msgid "PLAY THEME MUSICS"
 msgstr "SUONA MUSICHE A TEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "ABBASSA LA MUSICA MENTRE MOSTRA IL VIDEO"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "SUONI"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ABILITA SUONI DI NAVIGAZIONE"
@@ -1238,10 +1238,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "Durata totale del gioco giocato (in secondi)"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Sistema Arcade"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "inserisci gioco arcade"
 
 msgid "name"
 msgstr "nome"
@@ -1304,13 +1304,13 @@ msgid "FILES"
 msgstr "FILE"
 
 msgid "Full"
-msgstr ""
+msgstr "Pieno"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Kiosk"
 
 msgid "Kid"
-msgstr ""
+msgstr "Kid"
 
 msgid "Released"
 msgstr "Rilasciato"
@@ -1442,7 +1442,7 @@ msgid "RETRY"
 msgstr "RIPROVA"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Scaricamento"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1484,10 +1484,10 @@ msgid "4 players"
 msgstr "4 giocatori"
 
 msgid "never played"
-msgstr ""
+msgstr "mai giocato"
 
 msgid "arcade"
-msgstr ""
+msgstr "arcade"
 
 msgid "collections"
 msgstr "collezione"
@@ -1638,7 +1638,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TIENI PREMUTO UN PULSANTE SUL GAMEPAD PER CONFIGURARLO."
 
 msgid "Unknown"
-msgstr ""
+msgstr "Sconosciuto"
 
 msgid "MOVE CURSOR"
 msgstr "SPOSTA IL CURSORE"
