@@ -106,7 +106,7 @@ void GuiWifi::onRefresh()
 {		
 	Window* window = mWindow;
 
-	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEACHING WIFI NETWORKS"), 
+	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEARCHING WIFI NETWORKS"), 
 		[this, window]
 		{
 			mWaitingLoad = true;
