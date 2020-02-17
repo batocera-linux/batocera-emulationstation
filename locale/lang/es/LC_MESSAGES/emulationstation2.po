@@ -167,13 +167,13 @@ msgid "FINISHED"
 msgstr "TERMINADO"
 
 msgid "fade"
-msgstr ""
+msgstr "DESVANECIDO"
 
 msgid "slide"
-msgstr ""
+msgstr "DESLIZAR"
 
 msgid "instant"
-msgstr ""
+msgstr "INSTANTANEO"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -359,7 +359,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ERROR CREANDO ARCHIVO"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "DESCARGAS"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -368,7 +368,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "PROYECTO BEZEL"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "ACTUALIZACIONES DE SOFTWARE"
 
 msgid "AUTO UPDATES"
 msgstr "ACTUALIZACIÓNES AUTOMÁTICAS"
@@ -404,7 +404,7 @@ msgid "START KODI WITH X"
 msgstr "PULSAR X PARA INICIAR KODI"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
 msgstr "BRILLO"
@@ -422,7 +422,7 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "ALMACENAMIENTO"
 
 msgid "STORAGE DEVICE"
 msgstr "ALMACENAMIENTO"
@@ -470,7 +470,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "CONFIGURACIÓN NETPLAY"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "AJUSTES"
 
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR NETPLAY"
@@ -485,10 +485,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "INDICES DE JUEGOS"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "REVISAR INDICES AL INICIAR"
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDEXAR TODOS LOS JUEGOS"
@@ -497,7 +497,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "INDEXAR JUEGOS FALTANTES"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "CONFIGURACIÓN POR DEFECTO"
 
 msgid "GAME RATIO"
 msgstr "RELACIÓN DE ASPECTO"
@@ -578,10 +578,10 @@ msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
 
 msgid "MISSING"
-msgstr ""
+msgstr "FALTANTE"
 
 msgid "INVALID"
-msgstr ""
+msgstr "INVALIDO"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"
@@ -646,19 +646,19 @@ msgid "DEFAULT"
 msgstr "PREDETERMINADO"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPCIONES DE LISTA DE JUEGOS"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPCIONES DE TEMA"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "HERRAMIENTAS"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "APARIENCIA"
 
 msgid "THEME SET"
 msgstr "JUEGO DE TEMAS"
@@ -687,7 +687,7 @@ msgid "Do you want to proceed ?"
 msgstr "QUIERES CONTINUAR?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE INICIO"
 
 msgid "START ON SYSTEM"
 msgstr "INICIAR EN SISTEMA"
@@ -699,7 +699,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "EMULADORES MOSTRADOS"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "OPCIONES DE PANTALLA"
 
 msgid "TRANSITION STYLE"
 msgstr "TIPO DE TRANSICIÓN"
@@ -723,7 +723,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LISTAS"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "VOLUMEN"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
@@ -732,7 +732,7 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR CUBIERTA CAMBIA EL VOLUMEN"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "MUSICA"
 
 msgid "FRONTEND MUSIC"
 msgstr "MÚSICA DE FONDO"
@@ -750,10 +750,10 @@ msgid "PLAY THEME MUSICS"
 msgstr "REPRODUCIR MUSICA DEL TEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "MUSICA BAJA AL REPRODUCIR VIDEO"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "SONIDOS"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "HABILITAR NAVEGACION DE MUSICA"
@@ -1303,13 +1303,13 @@ msgid "FILES"
 msgstr "ARCHIVOS"
 
 msgid "Full"
-msgstr ""
+msgstr "COMPLETO"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "KIOSKO"
 
 msgid "Kid"
-msgstr ""
+msgstr "NIÑOS"
 
 msgid "Released"
 msgstr "LANZAMIENTO"
