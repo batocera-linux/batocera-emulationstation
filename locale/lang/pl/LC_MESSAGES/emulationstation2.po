@@ -72,7 +72,7 @@ msgid "BACK"
 msgstr "WSTECZ"
 
 msgid "LAUNCH"
-msgstr "Uruchom"
+msgstr "URUCHOM"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -168,13 +168,13 @@ msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
 
 msgid "fade"
-msgstr ""
+msgstr "zanikanie"
 
 msgid "slide"
-msgstr ""
+msgstr "slajd"
 
 msgid "instant"
-msgstr ""
+msgstr "natychmiastowo"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -360,7 +360,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "TWORZENIE PLIKU SIĘ NIE POWIODŁO"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "DO ŚCIĄGNIĘCIA"
 
 msgid "THEMES"
 msgstr "MOTYWY"
@@ -369,10 +369,10 @@ msgid "THE BEZEL PROJECT"
 msgstr "PROJEKT RAMEK"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "AKTUALIZACJE OPROGRAMOWANIA"
 
 msgid "AUTO UPDATES"
-msgstr "AUTOMATYCZNE AKTUALIZACJE"
+msgstr "AKTUALIZACJE AUTOMATYCZNE"
 
 msgid "APPLY UPDATE"
 msgstr "ZASTOSUJ AKTUALIZACJĘ"
@@ -405,7 +405,7 @@ msgid "START KODI WITH X"
 msgstr "URUCHOM KODI Z X"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "SPRZĘT"
 
 msgid "BRIGHTNESS"
 msgstr "JASNOŚĆ"
@@ -423,7 +423,7 @@ msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "PRZECHOWYWANIE DANYCH"
 
 msgid "STORAGE DEVICE"
 msgstr "NOŚNIK DANYCH"
@@ -471,7 +471,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "USTAWIENIA NETPLAY"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA"
 
 msgid "ENABLE NETPLAY"
 msgstr "WŁĄCZ NETPLAY"
@@ -486,10 +486,10 @@ msgid "MITM"
 msgstr "MITM"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "INDEKSY GIER"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "SPRAWDŹ BRAKUJĄCE INDEKSY PODCZAS URUCHAMIANIA"
 
 msgid "REINDEX ALL GAMES"
 msgstr "PRZEINDEKSUJ WSZYSTKIE GRY"
@@ -498,7 +498,7 @@ msgid "INDEX MISSING GAMES"
 msgstr "PRZEINDEKSUJ BRAKUJĄCE GRY"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA DOMYŚLNE"
 
 msgid "GAME RATIO"
 msgstr "PRĘDKOŚĆ GRY"
@@ -552,7 +552,7 @@ msgid "SERVICE URL"
 msgstr "URL USŁUGI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -579,10 +579,10 @@ msgid "NO MISSING BIOS"
 msgstr "BIOS'Y NA MIEJSCU"
 
 msgid "MISSING"
-msgstr ""
+msgstr "BRAKUJĄCY"
 
 msgid "INVALID"
-msgstr ""
+msgstr "NIEPRAWIDŁOWY"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ZAKTUALIZUJ LISTĘ GIER"
@@ -647,22 +647,22 @@ msgid "DEFAULT"
 msgstr "DOMYŚLNY"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPCJE MOTYWU DLA LISTY GIER"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPCJE MOTYWU"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "NARZĘDZIA"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "ZRESETUJ DOSTOSOWYWANIA LISTY GIER"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "WYGLĄD"
 
 msgid "THEME SET"
-msgstr "USTAWIENIA MOTYWU"
+msgstr "WYBRANY MOTYW"
 
 msgid "video"
 msgstr "wideo"
@@ -687,7 +687,7 @@ msgid "Do you want to proceed ?"
 msgstr "Czy chcesz kontynuować?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA URUCHAMIANIA"
 
 msgid "START ON SYSTEM"
 msgstr "URUCHOM Z SYSTEMEM"
@@ -699,7 +699,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "WYŚWIETLANE SYSTEMY"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "OPCJE EKRANU"
 
 msgid "TRANSITION STYLE"
 msgstr "RODZAJ PRZEJŚCIA"
@@ -723,7 +723,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "GŁOŚNOŚĆ"
 
 msgid "SYSTEM VOLUME"
 msgstr "GŁOŚNOŚĆ SYSTEMOWA"
@@ -732,10 +732,10 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "POKAŻ NAKŁADKĘ PODCZAS ZMIANY GŁOŚNOŚCI"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "MUZYKA"
 
 msgid "FRONTEND MUSIC"
-msgstr "MUZYKA"
+msgstr "MUZYKA INTERFEJSU"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "WYŚWIETL TYTUŁY UTWORÓW"
@@ -750,10 +750,10 @@ msgid "PLAY THEME MUSICS"
 msgstr "ODTWÓRZ MUZYKĘ MOTYWU"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "ŚCISZ MUZYKĘ PODCZAS ODTWARZANIA WIDEO"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "DŹWIĘKI"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "WŁĄCZ DŹWIĘKI NAWIGACJI"
@@ -867,7 +867,7 @@ msgid "CREATE NEW CUSTOM COLLECTION"
 msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"
 
 msgid "New Collection Name"
-msgstr "Nowa nazwa kolekcji"
+msgstr "Nazwa nowej kolekcji"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
@@ -882,7 +882,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "SYSTEMY GIER ZRĘCZNOŚCIOWYCH"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "AUTOMATYCZNE KOLEKCJE GIER"
@@ -915,7 +915,7 @@ msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING W TOKU"
 
 msgid "subtitle text"
-msgstr "tekst napisów"
+msgstr "napisy"
 
 msgid "search"
 msgstr "szukaj"
@@ -1206,10 +1206,10 @@ msgid "set hidden"
 msgstr "ustaw jako niewidoczna"
 
 msgid "Kidgame"
-msgstr "Kidgame"
+msgstr "Gra dla dzieci"
 
 msgid "set kidgame"
-msgstr "ustaw jako kidgame"
+msgstr "ustaw jako gra dla dzieci"
 
 msgid "Play count"
 msgstr "Liczba gier"
@@ -1224,10 +1224,10 @@ msgid "enter last played date"
 msgstr "wpisz datę ostatniej gry"
 
 msgid "Crc32 checksum"
-msgstr "Crc32 suma kontrolna"
+msgstr "Suma kontrolna Crc32"
 
 msgid "Md5 checksum"
-msgstr "Md5 suma kontrolna"
+msgstr "Suma kontrolna Md5"
 
 msgid "Game time"
 msgstr "Czas gry"
@@ -1236,10 +1236,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "System gier zręcznościowych"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "wprowadź system gier"
 
 msgid "name"
 msgstr "nazwa"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ: OSIĄGNIĘTO LIMIT DZIENNY"
 
 msgid "DOWNLOADING"
-msgstr "Pobieranie"
+msgstr "POBIERANIE"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
@@ -1304,13 +1304,13 @@ msgid "FILES"
 msgstr "PLIKI"
 
 msgid "Full"
-msgstr ""
+msgstr "Pełny"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Kiosk"
 
 msgid "Kid"
-msgstr ""
+msgstr "Dziecka"
 
 msgid "Released"
 msgstr "Opublikowana"
@@ -1424,7 +1424,7 @@ msgid "RATING"
 msgstr "OCENA"
 
 msgid "KIDGAME"
-msgstr "KIDGAME"
+msgstr "GRA DLA DZIECI"
 
 msgid "HASHING GAMES"
 msgstr "HASZOWANIE GIER"
@@ -1442,7 +1442,7 @@ msgid "RETRY"
 msgstr "PONÓW"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Pobieranie"
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
@@ -1487,7 +1487,7 @@ msgid "never played"
 msgstr "nidgy nie grane"
 
 msgid "arcade"
-msgstr ""
+msgstr "zręcznościowe"
 
 msgid "collections"
 msgstr "kolekcje"
@@ -1640,7 +1640,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
 msgid "Unknown"
-msgstr ""
+msgstr "Nieznany"
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
