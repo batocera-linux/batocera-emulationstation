@@ -27,7 +27,7 @@
 class HttpReq
 {
 public:
-	HttpReq(const std::string& url);
+	HttpReq(const std::string& url, bool useFileStream = true);
 
 	~HttpReq();
 
@@ -41,7 +41,8 @@ public:
 		REQ_404_NOTFOUND,		//HTTP response status code 404 happened
 		REQ_426_BLACKLISTED,		//HTTP response status code 426 happened
 		REQ_429_TOOMANYREQUESTS,	//HTTP response status code 429 happened
-		REQ_INVALID_RESPONSE	//the HTTP response was invalid
+		REQ_INVALID_RESPONSE,	//the HTTP response was invalid
+		REQ_FILESTREAM_ERROR			//some error happened, get it with getErrorMsg()
 	};
 
 	Status status(); //process any received data and return the status afterwards
@@ -62,6 +63,8 @@ public:
 	std::string getUrl() { return mUrl; }
 
 private:
+	void closeStream();
+
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
 	//static int update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow);
 
@@ -76,6 +79,10 @@ private:
 	CURL* mHandle;
 
 	Status mStatus;
+
+	bool mUseFileStream;
+
+	std::stringstream mContent;
 
 	std::string   mStreamPath;
 	std::ofstream mStream;

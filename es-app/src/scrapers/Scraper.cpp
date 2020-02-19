@@ -72,7 +72,7 @@ void ScraperSearchHandle::update()
 		if(status == ASYNC_ERROR)
 		{
 			// propegate error
-			setError(req.getStatusString());
+			setError(req.getErrorCode(), req.getStatusString());
 
 			// empty our queue
 			while(!mRequestQueue.empty())
@@ -111,7 +111,7 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 	: ScraperRequest(resultsWrite)
 {
 	setStatus(ASYNC_IN_PROGRESS);
-	mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
+	mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));
 	mRetryCount = 0;
 }
 
@@ -149,12 +149,17 @@ void ScraperHttpRequest::update()
 	{
 		setError(400, "SCRAP LIMIT REACHED TODAY (400)");
 		return;
-	}
-	
+	}	
 
 	if (status == HttpReq::REQ_426_BLACKLISTED)
 	{
-		setError(246, "THE SOFTWARE HAS BEEN BLACKLISTED (426)");
+		setError(426, "THE SOFTWARE HAS BEEN BLACKLISTED (426)");
+		return;
+	}
+
+	if (status == HttpReq::REQ_FILESTREAM_ERROR)
+	{
+		setError(999, "FILE ERROR (DISK FULL?)");
 		return;
 	}
 
@@ -338,7 +343,7 @@ void MDResolveHandle::update()
 
 	if (pPair->handle->status() == ASYNC_ERROR)
 	{
-		setError(pPair->handle->getStatusString());
+		setError(pPair->handle->getErrorCode(), pPair->handle->getStatusString());
 		for (auto fc : mFuncs)
 			delete fc;
 
@@ -412,7 +417,10 @@ void ImageDownloadHandle::update()
 		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
 		if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")
-			resizeImage(mSavePath, mMaxWidth, mMaxHeight);
+		{
+			try { resizeImage(mSavePath, mMaxWidth, mMaxHeight); }
+			catch(...) { }
+		}
 	}
 
 	setStatus(ASYNC_DONE);

@@ -95,6 +95,16 @@ void ThreadedScraper::run()
 			}
 			else if (status == ASYNC_ERROR)
 			{
+				if (httpCode > 900) // Custom errors
+				{
+					mExit = true;
+					mWindow->postToUiThread([statusString](Window* w)
+					{
+						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED") + " : " + statusString));
+					});
+					break;
+				}
+				else
 				if (httpCode == 426) // Blacklist
 				{
 					mExit = true;
