@@ -74,6 +74,7 @@ struct ScraperSearchResult
 
 
 // a scraper search gathers results from (potentially multiple) ScraperRequests
+
 class ScraperRequest : public AsyncHandle
 {
 public:
@@ -85,7 +86,6 @@ public:
 protected:
 	std::vector<ScraperSearchResult>& mResults;
 };
-
 
 // a single HTTP request that needs to be processed to get the results
 class ScraperHttpRequest : public ScraperRequest
@@ -200,6 +200,8 @@ public:
 
 private:
 	std::unique_ptr<HttpReq> mReq;
+	int	mRetryCount;
+
 	std::string mSavePath;
 	int mMaxWidth;
 	int mMaxHeight;

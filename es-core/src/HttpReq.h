@@ -27,21 +27,31 @@
 class HttpReq
 {
 public:
-	HttpReq(const std::string& url);
+	HttpReq(const std::string& url, bool useBinaryFileStream = true);
 
 	~HttpReq();
 
 	enum Status
 	{
-		REQ_IN_PROGRESS,		//request is in progress
-		REQ_SUCCESS,			//request completed successfully, get it with getContent()
+		REQ_IN_PROGRESS = 0,			//request is in progress
+		REQ_SUCCESS = 2,				//request completed successfully, get it with getContent()
 
-		REQ_IO_ERROR,			//some error happened, get it with getErrorMsg()
-		REQ_400_TOOMANYSCRAPS,	//HTTP response status code 400 happened
-		REQ_404_NOTFOUND,		//HTTP response status code 404 happened
-		REQ_426_BLACKLISTED,		//HTTP response status code 426 happened
-		REQ_429_TOOMANYREQUESTS,	//HTTP response status code 429 happened
-		REQ_INVALID_RESPONSE	//the HTTP response was invalid
+		REQ_IO_ERROR = 3,				
+		REQ_FILESTREAM_ERROR = 4,		
+
+		REQ_400_BADREQUEST = 400,		
+
+		REQ_401_FORBIDDEN = 401,
+		REQ_403_BADLOGIN = 403,
+
+		REQ_404_NOTFOUND = 404,			
+		
+		REQ_426_SERVERMAINTENANCE = 423,
+		REQ_426_BLACKLISTED = 426,		
+		REQ_429_TOOMANYREQUESTS = 429,	
+
+		REQ_430_TOOMANYSCRAPS = 430,	
+		REQ_430_TOOMANYFAILURES = 431
 	};
 
 	Status status(); //process any received data and return the status afterwards
@@ -60,8 +70,9 @@ public:
 	int getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
-
 private:
+	void closeStream();
+
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
 	//static int update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow);
 
@@ -76,6 +87,10 @@ private:
 	CURL* mHandle;
 
 	Status mStatus;
+
+	bool mUseFileStream;
+
+	std::stringstream mContent;
 
 	std::string   mStreamPath;
 	std::ofstream mStream;

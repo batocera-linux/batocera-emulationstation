@@ -72,7 +72,7 @@ void ScraperSearchHandle::update()
 		if(status == ASYNC_ERROR)
 		{
 			// propegate error
-			setError(req.getStatusString());
+			setError(req.getErrorCode(), req.getStatusString());
 
 			// empty our queue
 			while(!mRequestQueue.empty())
@@ -111,13 +111,18 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 	: ScraperRequest(resultsWrite)
 {
 	setStatus(ASYNC_IN_PROGRESS);
-	mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
+	mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));
 	mRetryCount = 0;
 }
 
 void ScraperHttpRequest::update()
 {
 	HttpReq::Status status = mReq->status();
+
+	// not ready yet
+	if (status == HttpReq::REQ_IN_PROGRESS)
+		return;
+
 	if(status == HttpReq::REQ_SUCCESS)
 	{
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
@@ -129,39 +134,39 @@ void ScraperHttpRequest::update()
 	{
 		mRetryCount++;
 		if (mRetryCount > 4)
+		{
+			setStatus(ASYNC_DONE); // Ignore error
 			return;
+		}
 
 		setStatus(ASYNC_IN_PROGRESS);
 
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Wait before Retrying";
+
 		std::string url = mReq->getUrl();
-		std::this_thread::sleep_for(std::chrono::seconds(15));
-		mReq = std::unique_ptr<HttpReq>(new HttpReq(url));		
+		std::this_thread::sleep_for(std::chrono::seconds(mRetryCount < 3 ? 5 : 10));
+		mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));		
+
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying";
+
 		return;
 	}
 
-	if (status == HttpReq::REQ_404_NOTFOUND)
+	// Ignored errors
+	if (status == HttpReq::REQ_404_NOTFOUND || status == HttpReq::REQ_IO_ERROR)
 	{
 		setStatus(ASYNC_DONE);
 		return;
 	}
 
-	if (status == HttpReq::REQ_400_TOOMANYSCRAPS)
-	{
-		setError(400, "SCRAP LIMIT REACHED TODAY (400)");
+	// Blocking errors
+	if (status != HttpReq::REQ_SUCCESS)
+	{		
+		setError(status, mReq->getErrorMsg());
 		return;
-	}
+	}	
 	
 
-	if (status == HttpReq::REQ_426_BLACKLISTED)
-	{
-		setError(246, "THE SOFTWARE HAS BEEN BLACKLISTED (426)");
-		return;
-	}
-
-	// not ready yet
-	if(status == HttpReq::REQ_IN_PROGRESS)
-		return;
-	
 	// everything else is some sort of error
 	LOG(LogError) << "ScraperHttpRequest network error (status: " << status << ") - " << mReq->getErrorMsg();
 	setError(mReq->getErrorMsg());
@@ -338,7 +343,7 @@ void MDResolveHandle::update()
 
 	if (pPair->handle->status() == ASYNC_ERROR)
 	{
-		setError(pPair->handle->getStatusString());
+		setError(pPair->handle->getErrorCode(), pPair->handle->getStatusString());
 		for (auto fc : mFuncs)
 			delete fc;
 
@@ -370,8 +375,9 @@ std::unique_ptr<ImageDownloadHandle> downloadImageAsync(const std::string& url, 
 }
 
 ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight) : 
-	mSavePath(path), mMaxWidth(maxWidth), mMaxHeight(maxHeight), mReq(new HttpReq(url))
+	mSavePath(path), mMaxWidth(maxWidth), mMaxHeight(maxHeight)
 {
+	mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
 }
 
 int ImageDownloadHandle::getPercent()
@@ -384,18 +390,48 @@ int ImageDownloadHandle::getPercent()
 
 void ImageDownloadHandle::update()
 {
-	if(mReq->status() == HttpReq::REQ_IN_PROGRESS)
-		return;
+	HttpReq::Status status = mReq->status();
 
-	if(mReq->status() != HttpReq::REQ_SUCCESS)
+	if (status == HttpReq::REQ_IN_PROGRESS)
+		return;
+	
+	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
-		std::stringstream ss;
-		ss << "Network error: " << mReq->getErrorMsg();
-		setError(ss.str());
+		mRetryCount++;
+		if (mRetryCount > 4)
+		{
+			setStatus(ASYNC_DONE); // Ignore error
+			return;
+		}
+
+		setStatus(ASYNC_IN_PROGRESS);
+
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Wait before Retrying";
+
+		std::string url = mReq->getUrl();
+		std::this_thread::sleep_for(std::chrono::seconds(mRetryCount < 3 ? 5 : 10));
+		mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));
+
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying";
+
 		return;
 	}
 
-	if (mStatus == ASYNC_IN_PROGRESS)
+	// Ignored errors
+	if (status == HttpReq::REQ_404_NOTFOUND || status == HttpReq::REQ_IO_ERROR)
+	{
+		setStatus(ASYNC_DONE);
+		return;
+	}
+
+	// Blocking errors
+	if (status != HttpReq::REQ_SUCCESS)
+	{
+		setError(status, mReq->getErrorMsg());
+		return;
+	}
+
+	if (status == HttpReq::REQ_SUCCESS && mStatus == ASYNC_IN_PROGRESS)
 	{
 		int ret = mReq->saveContent(mSavePath, true);
 		if (ret == 2)
@@ -412,7 +448,10 @@ void ImageDownloadHandle::update()
 		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
 		if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")
-			resizeImage(mSavePath, mMaxWidth, mMaxHeight);
+		{
+			try { resizeImage(mSavePath, mMaxWidth, mMaxHeight); }
+			catch(...) { }
+		}
 	}
 
 	setStatus(ASYNC_DONE);
@@ -450,13 +489,16 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	float width = (float)FreeImage_GetWidth(image);
 	float height = (float)FreeImage_GetHeight(image);
 
-	if(maxWidth == 0)
+	if (width == 0 || height == 0)
 	{
-		maxWidth = (int)((maxHeight / height) * width);
-	}else if(maxHeight == 0)
-	{
-		maxHeight = (int)((maxWidth / width) * height);
+		FreeImage_Unload(image);
+		return true;
 	}
+
+	if(maxWidth == 0)
+		maxWidth = (int)((maxHeight / height) * width);
+	else if(maxHeight == 0)
+		maxHeight = (int)((maxWidth / width) * height);
 	
 	if (width <= maxWidth && height <= maxHeight)
 	{
