@@ -91,10 +91,11 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 }
 #endif
 
-HttpReq::HttpReq(const std::string& url)
+HttpReq::HttpReq(const std::string& url, bool useFileStream)
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL)
 {
 	mUrl = url;
+	mUseFileStream = useFileStream;
 
 	mPosition = -1;
 	mPercent = -1;
@@ -201,39 +202,48 @@ HttpReq::HttpReq(const std::string& url)
 	
 	std::unique_lock<std::mutex> lock(mMutex);
 
-#if defined(WIN32)
-	srand(time(NULL) % getpid());
-	std::string TempPath;
-	char lpTempPathBuffer[MAX_PATH];
-	if (GetTempPathA(MAX_PATH, lpTempPathBuffer))
+	if (mUseFileStream)
 	{
-
-		TCHAR szTempFileName[MAX_PATH];
-
-		if (GetTempFileName(lpTempPathBuffer, TEXT("httpreq"), 0, szTempFileName))
-			mStreamPath = std::string(szTempFileName);
-		else
+#if defined(WIN32)
+		srand(time(NULL) % getpid());
+		std::string TempPath;
+		char lpTempPathBuffer[MAX_PATH];
+		if (GetTempPathA(MAX_PATH, lpTempPathBuffer))
 		{
-			do { mStreamPath = std::string(lpTempPathBuffer) + "httpreq" + std::to_string(rand() % 99999) + ".tmp"; } 
-			while (Utils::FileSystem::exists(mStreamPath));	
+
+			TCHAR szTempFileName[MAX_PATH];
+
+			if (GetTempFileName(lpTempPathBuffer, TEXT("httpreq"), 0, szTempFileName))
+				mStreamPath = std::string(szTempFileName);
+			else
+			{
+				do { mStreamPath = std::string(lpTempPathBuffer) + "httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
+			}
+		}
+
+#if _DEBUG
+		do { mStreamPath = Utils::FileSystem::getEsConfigPath() + "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
+#endif
+#else
+		srand(time(NULL) % getpid() + getppid());
+
+		do { mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
+#endif
+
+		mStream.open(mStreamPath, std::ios_base::out | std::ios_base::binary);
+		if (!mStream.is_open())
+		{
+			mStatus = REQ_IO_ERROR;
+			onError("IO Error (disk is Readonly ?)");
+			return;
 		}
 	}
-	
-#else
-	srand(time(NULL) % getpid() + getppid());
-
-	do { mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; }
-	while (Utils::FileSystem::exists(mStreamPath));
-#endif
-	
-	mStream.open(mStreamPath, std::ios_base::out | std::ios_base::binary);
 
 	//add the handle to our multi
 	CURLMcode merr = curl_multi_add_handle(s_multi_handle, mHandle);
 	if(merr != CURLM_OK)
 	{
-		if (mStream.is_open())
-			mStream.close();
+		closeStream();
 
 		mStatus = REQ_IO_ERROR;
 		onError(curl_multi_strerror(merr));
@@ -243,17 +253,26 @@ HttpReq::HttpReq(const std::string& url)
 	s_requests[mHandle] = this;
 }
 
-HttpReq::~HttpReq()
+void HttpReq::closeStream()
 {
-	std::unique_lock<std::mutex> lock(mMutex);
+	if (!mUseFileStream)
+		return;
 
 	if (mStream.is_open())
 	{
 		mStream.flush();
 		mStream.close();
 	}
+}
 
-	Utils::FileSystem::removeFile(mStreamPath);
+HttpReq::~HttpReq()
+{
+	std::unique_lock<std::mutex> lock(mMutex);
+
+	closeStream();
+	
+	if (mUseFileStream)
+		Utils::FileSystem::removeFile(mStreamPath);
 
 	if(mHandle)
 	{
@@ -278,8 +297,7 @@ HttpReq::Status HttpReq::status()
 		CURLMcode merr = curl_multi_perform(s_multi_handle, &handle_count);
 		if(merr != CURLM_OK && merr != CURLM_CALL_MULTI_PERFORM)
 		{
-			if (mStream.is_open())
-				mStream.close();
+			closeStream();
 
 			mStatus = REQ_IO_ERROR;
 			onError(curl_multi_strerror(merr));
@@ -299,13 +317,14 @@ HttpReq::Status HttpReq::status()
 					continue;
 				}
 
-				if (req->mStream.is_open())
-				{
-					req->mStream.flush();
-					req->mStream.close();
-				}
+				req->closeStream();
 
-				if(msg->data.result == CURLE_OK)
+				if (req->mStatus == REQ_FILESTREAM_ERROR)
+				{
+					std::string err = "File stream error (disk full ?)";
+					req->onError(err.c_str());
+				}
+				else if(msg->data.result == CURLE_OK)
 				{
 					int http_status_code;
 					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);
@@ -343,21 +362,32 @@ std::string HttpReq::getContent()
 {
 	assert(mStatus == REQ_SUCCESS);
 
-	if (mStream.is_open())
+	if (!mUseFileStream)
+		return mContent.str();
+
+	try
 	{
-		mStream.flush();
-		mStream.close();
+		closeStream();
+
+		if (!Utils::FileSystem::exists(mStreamPath))
+			return "";
+
+		std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
+		if (ifs.bad())
+			return "";
+
+		std::stringstream ofs;
+		ofs << ifs.rdbuf();
+		ifs.close();
+
+		return ofs.str();
 	}
-	
-	std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
-	if (ifs.bad())
-		return "";
+	catch (...)
+	{
+		LOG(LogError) << "Error getting Http request content";
+	}
 
-	std::stringstream ofs;
-	ofs << ifs.rdbuf();
-	ifs.close();
-
-	return ofs.str(); 
+	return "";
 }
 
 void HttpReq::onError(const char* msg)
@@ -377,8 +407,42 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 {
 	HttpReq* request = ((HttpReq*)req_ptr);
 		
+	if (!request->mUseFileStream)
+	{
+		((HttpReq*)req_ptr)->mContent.write((char*)buff, size * nmemb);
+		return size * nmemb;
+	}
+
 	std::ofstream& ss = request->mStream;
-	ss.write((char*)buff, size * nmemb);
+
+	try
+	{
+		if (!ss.is_open())
+			return 0;
+
+		ss.write((char*)buff, size * nmemb);
+
+		if (ss.rdstate() != std::ofstream::goodbit)
+		{
+			request->closeStream();
+
+			Utils::FileSystem::removeFile(request->mStreamPath);
+			request->mStreamPath = "";
+			request->mStatus = REQ_FILESTREAM_ERROR;
+
+			return 0;
+		}
+	}
+	catch(...)
+	{
+		request->closeStream();
+
+		Utils::FileSystem::removeFile(request->mStreamPath);
+		request->mStreamPath = "";
+		request->mStatus = REQ_FILESTREAM_ERROR;
+
+		return 0;
+	}
 
 	double cl;
 	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
@@ -399,49 +463,71 @@ int HttpReq::saveContent(const std::string filename, bool checkMedia)
 {
 	assert(mStatus == REQ_SUCCESS);
 
-	if (mStream.is_open())
+	if (!mUseFileStream)
 	{
-		mStream.flush();
-		mStream.close();
+		try
+		{
+			std::ofstream file(filename);
+			if (!file.is_open())
+				return 1;
+
+			file << mContent.str();
+			file.flush();
+			file.close();
+		}
+		catch (...)
+		{
+			return 1;
+		}
+		return 0;
 	}
 
-	if (!Utils::FileSystem::exists(mStreamPath))
-		return false;
-
-	if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 1024)
+	try
 	{
-		auto data = Utils::String::toUpper(getContent());
-		
-		if (data.find("<!DOCTYPE HTML") != std::string::npos)
-			return 2;
-		
-		if (data.find("NOMEDIA") != std::string::npos || data.find("ERREUR") != std::string::npos || data.find("ERROR") != std::string::npos || data.find("PROBL") != std::string::npos)
-			return 2;
+		closeStream();
+
+		if (!Utils::FileSystem::exists(mStreamPath))
+			return false;
+
+		if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 1024)
+		{
+			auto data = Utils::String::toUpper(getContent());
+
+			if (data.find("<!DOCTYPE HTML") != std::string::npos)
+				return 2;
+
+			if (data.find("NOMEDIA") != std::string::npos || data.find("ERREUR") != std::string::npos || data.find("ERROR") != std::string::npos || data.find("PROBL") != std::string::npos)
+				return 2;
+		}
+
+		FILE* infile = fopen(mStreamPath.c_str(), "rb");
+		if (infile == nullptr)
+			return 1;
+
+		FILE* outfile = fopen(filename.c_str(), "wb");
+		if (outfile == nullptr)
+			return 1;
+
+		const int size = 4096;
+		char buffer[size];
+
+		while (!feof(infile))
+		{
+			int n = fread(buffer, 1, size, infile);
+			if (n == 0)
+				break;
+
+			fwrite(buffer, 1, n, outfile);
+		}
+
+		fclose(infile);
+		fflush(outfile);
+		fclose(outfile);
 	}
-	
-	FILE* infile = fopen(mStreamPath.c_str(), "rb");
-	if (infile == nullptr)
-		return 1;
-
-	FILE* outfile = fopen(filename.c_str(), "wb");
-	if (outfile == nullptr)
-		return 1;
-
-	const int size = 4096;
-	char buffer[size];
-
-	while (!feof(infile))
+	catch (...)
 	{
-		int n = fread(buffer, 1, size, infile);
-		if (n == 0)
-			break;
-
-		fwrite(buffer, 1, n, outfile);
+		LOG(LogError) << "Error while saving http request content";
 	}
-
-	fclose(infile);
-	fflush(outfile);
-	fclose(outfile);
 
 	return 0;
 }

@@ -1303,21 +1303,27 @@ void GuiMenu::openNetplaySettings()
 	enableNetplay->setState(SystemConf::getInstance()->get("global.netplay") == "1");
 	settings->addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
 
+	std::string port = SystemConf::getInstance()->get("global.netplay.port");
+	if (port.empty())
+		SystemConf::getInstance()->set("global.netplay.port", "55435");
+			
 	createInputTextRow(settings, _("NICKNAME"), "global.netplay.nickname", false);
 	createInputTextRow(settings, _("PORT"), "global.netplay.port", false);
 
-	// Mitm
+	// RELAY SERVER
 	std::string mitm = SystemConf::getInstance()->get("global.netplay.relay");
 
-	auto mitms = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MITM"), false);
+	auto mitms = std::make_shared<OptionListComponent<std::string> >(mWindow, _("USE RELAY SERVER"), false);
 	mitms->add(_("NONE"), "none", mitm.empty() || mitm == "none");
 	mitms->add("NEW YORK", "nyc", mitm == "nyc");
 	mitms->add("MADRID", "madrid", mitm == "madrid");
+	mitms->add("MONTREAL", "montreal", mitm == "montreal");
+	mitms->add("SAO PAULO", "saopaulo", mitm == "saopaulo");
 
 	if (!mitms->hasSelection())
 		mitms->selectFirstItem();
 
-	settings->addWithLabel(_("MITM"), mitms);
+	settings->addWithLabel(_("USE RELAY SERVER"), mitms);
 
 	settings->addGroup(_("GAME INDEXES"));
 

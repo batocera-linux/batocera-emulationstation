@@ -1745,31 +1745,38 @@ std::string executeCMDInNewProcessAndReadOutput(LPSTR lpCommandLine)
 			si.hStdInput = g_hChildStd_IN_Rd;
 
 			//spawn the child process
-			if (CreateProcess(NULL, lpCommandLine, NULL, NULL, TRUE, CREATE_NEW_CONSOLE,
-				NULL, NULL, &si, &pi))
-			{
+			if (CreateProcess(NULL, lpCommandLine, NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
+			{			
+				
+				
 				unsigned long bread;   //bytes read
 				unsigned long avail;   //bytes available
 				memset(buf, 0, sizeof(buf));
 
 				for (;;)
-				{
+				{	
+					WaitForSingleObject(pi.hProcess, 50);
 					PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
+
 					//check to see if there is any data to read from stdout
 					if (bread != 0)
 					{
 						while (ReadFile(g_hChildStd_OUT_Rd, buf, 1023, &bread, NULL))
 						{						
 							ret += std::string(buf);
+							
 							PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
 							if (bread == 0)
-								break;
+							{
+								if (WaitForSingleObject(pi.hProcess, 1) != WAIT_TIMEOUT)
+									break;
+							}
 						}
 
 						break;
 					}
 				}
-
+				
 				//clean up all handles
 				CloseHandle(pi.hThread);
 				CloseHandle(pi.hProcess);
@@ -1940,23 +1947,54 @@ void ApiSystem::setBrighness(int value)
 #endif
 }
 
+bool frst = true;
+
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
 {
 #if WIN32
-	std::vector<std::string> res;
 	if (scan)
-	{
 		::Sleep(1000);
-		res.push_back("Toto");
-		res.push_back("Tata");
-		res.push_back("Titi");
-	}
-	res.push_back("Fake SSID");
-	return res;
 #endif
 
 	return executeEnumerationScript(scan ? "batocera-wifi scanlist" : "batocera-wifi list");
 }
+
+#if WIN32
+void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
+{
+	std::string c = Utils::String::trim(cmd);
+	size_t exec_end;
+
+	if (c[0] == '\"')
+	{
+		exec_end = c.find_first_of('\"', 1);
+		if (std::string::npos != exec_end)
+		{
+			*executable = c.substr(1, exec_end - 1);
+			*parameters = c.substr(exec_end + 1);
+		}
+		else
+		{
+			*executable = c.substr(1, exec_end);
+			std::string().swap(*parameters);
+		}
+	}
+	else
+	{
+		exec_end = c.find_first_of(' ', 0);
+		if (std::string::npos != exec_end)
+		{
+			*executable = c.substr(0, exec_end);
+			*parameters = c.substr(exec_end + 1);
+		}
+		else
+		{
+			*executable = c.substr(0, exec_end);
+			std::string().swap(*parameters);
+		}
+	}
+}
+#endif
 
 std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string command)
 {
@@ -1965,10 +2003,12 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 	std::vector<std::string> res;
 
 #if WIN32
+	std::string path = Utils::FileSystem::getExePath() + "/" + command;
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getEsConfigPath() + "/" + command;
 
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/" + Utils::String::replace(command, " ", "_");
 	if (Utils::FileSystem::exists(path))
-	{
+	{		
 		FILE* file = fopen(path.c_str(), "r");
 		if (file != NULL)
 		{
@@ -1983,6 +2023,35 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 		}
 
 		return res;
+	}
+	else
+	{
+		std::string executable;
+		std::string parameters;
+		splitCommand(command, &executable, &parameters);
+
+		// Try batch
+		path = Utils::FileSystem::getExePath() + "/" + executable + ".bat";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".bat";
+
+		// Try exe
+		if (!Utils::FileSystem::exists(path))
+		{
+			path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
+
+			if (!Utils::FileSystem::exists(path))
+				path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+		}
+
+		if (Utils::FileSystem::exists(path))
+		{
+			std::string cmd = parameters.empty() ? path : path + " " + parameters;
+
+			std::string output = executeCMDInNewProcessAndReadOutput((char*)cmd.c_str());
+			for (std::string all : Utils::String::splitAny(output, "\r\n"))
+				res.push_back(all);
+		}
 	}
 
 	return res;
