@@ -2442,8 +2442,10 @@ void GuiMenu::openWifiSettings(Window* win, std::string title, std::string data,
 	win->pushGui(new GuiWifi(win, title, data, onsave));
 }
 
-void GuiMenu::openNetworkSettings_batocera()
+void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 {
+	bool baseWifiEnabled = SystemConf::getInstance()->get("wifi.enabled") == "1";
+
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
 	unsigned int color = theme->Text.color;
@@ -2451,16 +2453,12 @@ void GuiMenu::openNetworkSettings_batocera()
 	Window *window = mWindow;
 
 	auto s = new GuiSettings(mWindow, _("NETWORK SETTINGS").c_str());
-
 	s->addGroup(_("INFORMATIONS"));
 
-	auto status = std::make_shared<TextComponent>(mWindow,
-		ApiSystem::getInstance()->ping() ? _("CONNECTED")
-		: _("NOT CONNECTED"),
-		font, color);
+	auto status = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->ping() ? _("CONNECTED") : _("NOT CONNECTED"), font, color);
 	s->addWithLabel(_("STATUS"), status);
-	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(),
-		font, color);
+
+	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(), font, color);
 	s->addWithLabel(_("IP ADDRESS"), ip);
 
 	s->addGroup(_("SETTINGS"));
@@ -2469,42 +2467,58 @@ void GuiMenu::openNetworkSettings_batocera()
 	createInputTextRow(s, _("HOSTNAME"), "system.hostname", false);	
 
 	// Wifi enable
-	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);
-	bool baseEnabled = SystemConf::getInstance()->get("wifi.enabled") == "1";
-	enable_wifi->setState(baseEnabled);
-	s->addWithLabel(_("ENABLE WIFI"), enable_wifi);
+	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);	
+	enable_wifi->setState(baseWifiEnabled);
+	s->addWithLabel(_("ENABLE WIFI"), enable_wifi, selectWifiEnable);
 
 	// window, title, settingstring,
 	const std::string baseSSID = SystemConf::getInstance()->get("wifi.ssid");
-	createInputTextRow(s, _("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
-
 	const std::string baseKEY = SystemConf::getInstance()->get("wifi.key");
-	createInputTextRow(s, _("WIFI KEY"), "wifi.key", true);
 
-	s->addSaveFunc([baseEnabled, baseSSID, baseKEY, enable_wifi, window] {
+	if (baseWifiEnabled)
+	{
+		createInputTextRow(s, _("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+		createInputTextRow(s, _("WIFI KEY"), "wifi.key", true);
+	}
+	
+	s->addSaveFunc([baseWifiEnabled, baseSSID, baseKEY, enable_wifi, window]
+	{
 		bool wifienabled = enable_wifi->getState();
+
 		SystemConf::getInstance()->set("wifi.enabled", wifienabled ? "1" : "0");
-		std::string newSSID = SystemConf::getInstance()->get("wifi.ssid");
-		std::string newKey = SystemConf::getInstance()->get("wifi.key");
-		SystemConf::getInstance()->saveSystemConf();
-		if (wifienabled) {
-			if (baseSSID != newSSID
-				|| baseKEY != newKey
-				|| !baseEnabled) {
-				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey)) {
-					window->pushGui(
-						new GuiMsgBox(window, _("WIFI ENABLED"))
-					);
-				}
-				else {
-					window->pushGui(
-						new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR"))
-					);
-				}
+
+		if (wifienabled) 
+		{
+			std::string newSSID = SystemConf::getInstance()->get("wifi.ssid");
+			std::string newKey = SystemConf::getInstance()->get("wifi.key");
+
+			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
+			{
+				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey)) 
+					window->pushGui(new GuiMsgBox(window, _("WIFI ENABLED")));
+				else 
+					window->pushGui(new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR")));
 			}
 		}
-		else if (baseEnabled) {
+		else if (baseWifiEnabled)
 			ApiSystem::getInstance()->disableWifi();
+	});
+	
+
+	enable_wifi->setOnChangedCallback([this, s, baseWifiEnabled, enable_wifi]()
+	{
+		bool wifienabled = enable_wifi->getState();
+		if (baseWifiEnabled != wifienabled)
+		{
+			SystemConf::getInstance()->set("wifi.enabled", wifienabled ? "1" : "0");
+
+			if (wifienabled)
+				ApiSystem::getInstance()->enableWifi(SystemConf::getInstance()->get("wifi.ssid"), SystemConf::getInstance()->get("wifi.key"));
+			else
+				ApiSystem::getInstance()->disableWifi();
+
+			delete s;
+			openNetworkSettings_batocera(true);
 		}
 	});
 
