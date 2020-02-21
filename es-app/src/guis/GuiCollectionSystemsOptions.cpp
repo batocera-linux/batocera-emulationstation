@@ -96,9 +96,26 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 
 
-	std::string groupNames = SystemData::getAllGroupNames();
-	if (!groupNames.empty())
+	auto groupNames = SystemData::getAllGroupNames();
+	if (groupNames.size() > 0)
 	{
+		auto ungroupedSystems = std::make_shared<OptionListComponent<std::string>>(mWindow, _("ENABLE GROUPED SYSTEMS"), true);
+		for (auto groupName : groupNames)
+			ungroupedSystems->add(groupName, groupName, !Settings::getInstance()->getBool(groupName + ".ungroup"));
+
+		addWithLabel(_("ENABLE GROUPED SYSTEMS"), ungroupedSystems);
+		
+		addSaveFunc([this, ungroupedSystems, groupNames]
+		{
+			std::vector<std::string> checkedItems = ungroupedSystems->getSelectedObjects();
+			for (auto groupName : groupNames)
+			{
+				bool isGroupActive = std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) != checkedItems.cend();
+				if (Settings::getInstance()->setBool(groupName + ".ungroup", !isGroupActive))
+					setVariable("reloadSystems", true);
+			}
+		});
+		/*
 		std::shared_ptr<SwitchComponent> toggleAllowSystemGroups = std::make_shared<SwitchComponent>(mWindow);
 		toggleAllowSystemGroups->setState(Settings::getInstance()->getBool("AllowSystemGrouping"));
 		addWithLabel(_("ENABLE GROUPED SYSTEMS") + " (" + groupNames + ")", toggleAllowSystemGroups);
@@ -106,7 +123,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		{
 			if (Settings::getInstance()->setBool("AllowSystemGrouping", toggleAllowSystemGroups->getState()))
 				setVariable("reloadSystems", true);
-		});
+		});*/
 	}
 
 	if(CollectionSystemManager::get()->isEditing())

@@ -226,16 +226,18 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 
 void SystemData::createGroupedSystems()
 {
-	if (!Settings::getInstance()->getBool("AllowSystemGrouping"))
-		return;
-
 	std::map<std::string, std::vector<SystemData*>> map;
 
 	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
 	{
 		SystemData* sys = *it;
 		if (!sys->isCollection() && !sys->getSystemEnvData()->mGroup.empty())
+		{
+			if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup"))
+				continue;
+
 			map[sys->getSystemEnvData()->mGroup].push_back(sys);
+		}
 	}
 
 	for (auto item : map)
@@ -270,7 +272,7 @@ void SystemData::createGroupedSystems()
 							std::string path = logoElem->get<std::string>("path");
 							folder->setMetadata("image", path);
 							folder->setMetadata("thumbnail", path);
-
+							
 							folder->enableVirtualFolderDisplay(true);
 						}
 					}
@@ -873,13 +875,13 @@ bool SystemData::isNetplayActivated()
 
 bool SystemData::isGroupChildSystem() 
 { 
-	if (!Settings::getInstance()->getBool("AllowSystemGrouping"))
-		return false;
+	if (mEnvData != nullptr && !mEnvData->mGroup.empty())
+		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup");
 
-	return mEnvData != nullptr && !mEnvData->mGroup.empty(); 
+	return false;
 }
 
-std::string SystemData::getAllGroupNames()
+std::unordered_set<std::string> SystemData::getAllGroupNames()
 {
 	std::unordered_set<std::string> names;
 	
@@ -891,17 +893,7 @@ std::string SystemData::getAllGroupNames()
 			names.insert(sys->mEnvData->mGroup);
 	}
 
-	std::string ret;
-
-	for (auto name : names)
-	{
-		if (!ret.empty())
-			ret += ", ";
-
-		ret += name;
-	}
-
-	return ret;
+	return names;
 }
 
 SystemData* SystemData::getParentGroupSystem()

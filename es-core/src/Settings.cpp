@@ -164,8 +164,7 @@ void Settings::setDefaults()
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; // batocera
 	mBoolMap["UseCustomCollectionsSystem"] = true;
-	
-	mBoolMap["AllowSystemGrouping"] = true;
+		
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = true;
 
