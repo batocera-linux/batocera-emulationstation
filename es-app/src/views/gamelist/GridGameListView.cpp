@@ -239,7 +239,7 @@ const std::string GridGameListView::getImagePath(FileData* file)
 
 const bool GridGameListView::isVirtualFolder(FileData* file)
 {
-	return file->getType() == FOLDER && ((FolderData*)file)->isVirtualFolder();
+	return file->getType() == FOLDER && ((FolderData*)file)->isVirtualFolderDisplay();
 }
 
 void GridGameListView::populateList(const std::vector<FileData*>& files)
@@ -254,6 +254,8 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 			std::string imagePath;
 
+			bool displayAsVirtualFolder = true;
+
 			// Find logo image from original system
 			if (mCursorStack.size() == 1 && top->getSystem()->isGroupChildSystem())
 			{
@@ -264,6 +266,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 				{
 					if (child->getPath() == startPath)
 					{
+						displayAsVirtualFolder = parent->getRootFolder()->isVirtualFolderDisplay();
 						imagePath = child->getMetadata("image");
 						break;
 					}
@@ -271,7 +274,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 			}
 			
 			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mGrid.add(". .", imagePath, "", "", false, true, !imagePath.empty(), placeholder);
+			mGrid.add(". .", imagePath, "", "", false, true, displayAsVirtualFolder && !imagePath.empty(), placeholder);
 		}
 
 		std::string systemName = mRoot->getSystem()->getFullName();

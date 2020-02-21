@@ -143,6 +143,7 @@ class FolderData : public FileData
 public:
 	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens=true) : FileData(FOLDER, startpath, system)
 	{
+		mIsDisplayableAsVirtualFolder = false;
 		mOwnsChildrens = ownsChildrens;
 	}
 
@@ -157,7 +158,8 @@ public:
 		mChildren.clear();
 	}
 
-	inline bool isVirtualFolder() { return !mOwnsChildrens; }
+	inline bool isVirtualFolderDisplay() { return mIsDisplayableAsVirtualFolder && !mOwnsChildrens; }
+	void enableVirtualFolderDisplay(bool value) { mIsDisplayableAsVirtualFolder = value; };
 
 	FileData* FindByPath(const std::string& path);
 
@@ -176,6 +178,7 @@ public:
 private:
 	std::vector<FileData*> mChildren;
 	bool	mOwnsChildrens;
+	bool	mIsDisplayableAsVirtualFolder;
 };
 
 #endif // ES_APP_FILE_DATA_H

@@ -696,6 +696,9 @@ namespace Utils
 			if(!_path.length())
 				return _path;
 
+			if (_path.length() == 1 && _path[0] == '.')
+				return getGenericPath(_relativeTo);
+
 			// replace '.' with relativeTo
 			if((_path[0] == '.') && (_path[1] == '/' || _path[1] == '\\'))
 				return getGenericPath(_relativeTo + &(_path[1]));
