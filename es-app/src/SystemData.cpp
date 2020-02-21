@@ -18,6 +18,7 @@
 #include "utils/StringUtil.h"
 #include "views/ViewController.h"
 #include "ThreadedHasher.h"
+#include <unordered_set>
 
 using namespace Utils;
 
@@ -26,6 +27,7 @@ std::vector<SystemData*> SystemData::sSystemVector;
 SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+
 	mIsGroupSystem = groupedSystem;
 	mGameListHash = 0;
 	mGameCount = -1;
@@ -38,12 +40,13 @@ SystemData::SystemData(const std::string& name, const std::string& fullName, Sys
 		mEmulators = *pEmulators; // batocera
 
 	// if it's an actual system, initialize it, if not, just create the data structure
-	if(!CollectionSystem && !mIsGroupSystem)
+	if (!CollectionSystem && !mIsGroupSystem)
 	{
 		mRootFolder = new FolderData(mEnvData->mStartPath, this);
 		mRootFolder->getMetadata().set("name", mFullName);
 
 		std::unordered_map<std::string, FileData*> fileMap;
+		fileMap[mEnvData->mStartPath] = mRootFolder;
 
 		if (!Settings::getInstance()->getBool("ParseGamelistOnly"))
 		{
@@ -223,6 +226,9 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 
 void SystemData::createGroupedSystems()
 {
+	if (!Settings::getInstance()->getBool("AllowSystemGrouping"))
+		return;
+
 	std::map<std::string, std::vector<SystemData*>> map;
 
 	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
@@ -250,17 +256,23 @@ void SystemData::createGroupedSystems()
 			if (children.size() > 0)
 			{
 				auto folder = new FolderData(childSystem->getRootFolder()->getPath(), childSystem, false);
+				folder->setMetadata(childSystem->getRootFolder()->getMetadata());
 				root->addChild(folder);
 
-				auto theme = childSystem->getTheme();
-				if (theme)
+				if (folder->getMetadata("image").empty())
 				{
-					const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
-					if (logoElem && logoElem->has("path"))
+					auto theme = childSystem->getTheme();
+					if (theme)
 					{
-						std::string path = logoElem->get<std::string>("path");
-						folder->setMetadata("image", path);
-						folder->setMetadata("thumbnail", path);
+						const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+						if (logoElem && logoElem->has("path"))
+						{
+							std::string path = logoElem->get<std::string>("path");
+							folder->setMetadata("image", path);
+							folder->setMetadata("thumbnail", path);
+
+							folder->enableVirtualFolderDisplay(true);
+						}
 					}
 				}
 
@@ -857,6 +869,39 @@ bool SystemData::isNetplayActivated()
 			return true;
 
 	return false;	
+}
+
+bool SystemData::isGroupChildSystem() 
+{ 
+	if (!Settings::getInstance()->getBool("AllowSystemGrouping"))
+		return false;
+
+	return mEnvData != nullptr && !mEnvData->mGroup.empty(); 
+}
+
+std::string SystemData::getAllGroupNames()
+{
+	std::unordered_set<std::string> names;
+	
+	for (auto sys : SystemData::sSystemVector)
+	{
+		if (sys->isGroupSystem())
+			names.insert(sys->getName());
+		else if (sys->mEnvData != nullptr && !sys->mEnvData->mGroup.empty())
+			names.insert(sys->mEnvData->mGroup);
+	}
+
+	std::string ret;
+
+	for (auto name : names)
+	{
+		if (!ret.empty())
+			ret += ", ";
+
+		ret += name;
+	}
+
+	return ret;
 }
 
 SystemData* SystemData::getParentGroupSystem()

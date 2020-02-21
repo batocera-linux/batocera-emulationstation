@@ -1183,13 +1183,8 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 				std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(userpic);
 				if (!Utils::FileSystem::exists(localFile))
 				{
-					std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(userpic);
-
-					while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-						std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-					if (httpreq->status() == HttpReq::REQ_SUCCESS)
-						httpreq->saveContent(localFile);
+					HttpReq httpreq(userpic, localFile);
+					httpreq.wait();
 				}
 
 				if (Utils::FileSystem::exists(localFile))
@@ -1227,14 +1222,10 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 						std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(badge);
 						if (!Utils::FileSystem::exists(localFile))
 						{
-							std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(badge);
-
-							while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-								std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-							if (httpreq->status() == HttpReq::REQ_SUCCESS)
-								httpreq->saveContent(localFile);
+							HttpReq httpreq(badge, localFile);
+							httpreq.wait();
 						}
+
 						if (Utils::FileSystem::exists(localFile))
 							rg.badge = localFile;
 					}
@@ -1256,14 +1247,10 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	std::vector<std::string> res;
 
 #if WIN32
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera.org/upgrades/themes.txt");
-
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	HttpReq httpreq("https://batocera.org/upgrades/themes.txt");
+	if (httpreq.wait())
 	{		
-		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		auto lines = Utils::String::split(httpreq.getContent(), '\n');
 		for (auto line : lines)
 		{
 			auto parts = Utils::String::splitAny(line, " \t");
@@ -1406,7 +1393,7 @@ bool unzipFile(const std::string fileName, const std::string dest)
 	return ret;
 }
 
-std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std::string label, const std::function<void(const std::string)>& func)
+bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
 {
 	if (func != nullptr)
 		func("Downloading " + label);
@@ -1416,14 +1403,10 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 	std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
 	if (statUrl != url)
 	{
-		std::shared_ptr<HttpReq> statreq = std::make_shared<HttpReq>(statUrl);
-
-		while (statreq->status() == HttpReq::REQ_IN_PROGRESS)
-			std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-		if (statreq->status() == HttpReq::REQ_SUCCESS)
+		HttpReq statreq(statUrl);
+		if (statreq.wait())
 		{
-			std::string content = statreq->getContent();
+			std::string content = statreq.getContent();
 			auto pos = content.find("\"size\": ");
 			if (pos != std::string::npos)
 			{
@@ -1434,14 +1417,14 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 		}
 	}
 
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(url + "/archive/master.zip");
+	HttpReq httpreq(url + "/archive/master.zip", fileName);
 
 	int curPos = -1;
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
 	{
 		if (downloadSize > 0)
 		{
-			double pos = httpreq->getPosition();
+			double pos = httpreq.getPosition();
 			if (pos > 0 && curPos != pos)
 			{
 				if (func != nullptr)
@@ -1457,10 +1440,10 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 	}
 
-	if (httpreq->status() != HttpReq::REQ_SUCCESS)
-		return nullptr;
+	if (httpreq.status() != HttpReq::REQ_SUCCESS)
+		return false;
 
-	return httpreq;
+	return true;
 }
 #endif
 
@@ -1476,17 +1459,15 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		if (parts[1] == thname)
 		{
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
-			
-			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, thname, func);
-			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
+
+			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+			zipFile = Utils::String::replace(zipFile, "/", "\\");
+
+			if (downloadGitRepository(themeUrl, zipFile, thname, func))
 			{
 				if (func != nullptr)
 					func("Extracting " + thname);
-
-				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
-				zipFile = Utils::String::replace(zipFile, "/", "\\");
-				httpreq->saveContent(zipFile);
 
 				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
 
@@ -1542,14 +1523,10 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	std::vector<std::string> res;
 
 #if WIN32
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera.org/upgrades/bezels.txt");
-	
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	HttpReq request("https://batocera.org/upgrades/bezels.txt");
+	if (request.wait())
 	{
-		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		auto lines = Utils::String::split(request.getContent(), '\n');
 		for (auto line : lines)
 			res.push_back("[A]\t" + line);
 	}
@@ -1592,24 +1569,12 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsys
 		{
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
 
-			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, bezelsystem, func);
-			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
-			{
-				/*
-				if (func != nullptr)
-					func("Extracting " + bezelsystem);
-								
-				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
-				zipFile = Utils::String::replace(zipFile, "/", "\\");
-				httpreq->saveContent(zipFile);
+			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+			zipFile = Utils::String::replace(zipFile, "/", "\\");
 
-				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
-
-				Utils::FileSystem::removeFile(zipFile);
-				*/
+			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
 				return std::pair<std::string, int>(std::string("OK"), 0);
-			}
 
 			break;
 		}
@@ -1701,22 +1666,27 @@ std::string executeCMDInNewProcessAndReadOutput(LPSTR lpCommandLine)
 			si.hStdInput = g_hChildStd_IN_Rd;
 
 			//spawn the child process
-			if (CreateProcess(NULL, lpCommandLine, NULL, NULL, TRUE, CREATE_NEW_CONSOLE,
-				NULL, NULL, &si, &pi))
-			{
+			if (CreateProcess(NULL, lpCommandLine, NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
+			{			
+				
+				
 				unsigned long bread;   //bytes read
 				unsigned long avail;   //bytes available
 				memset(buf, 0, sizeof(buf));
 
 				for (;;)
-				{
+				{	
+					WaitForSingleObject(pi.hProcess, 50);
 					PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
+
 					//check to see if there is any data to read from stdout
 					if (bread != 0)
 					{
 						while (ReadFile(g_hChildStd_OUT_Rd, buf, 1023, &bread, NULL))
 						{						
 							ret += std::string(buf);
+							
+							WaitForSingleObject(pi.hProcess, 50);
 							PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
 							if (bread == 0)
 								break;
@@ -1725,7 +1695,7 @@ std::string executeCMDInNewProcessAndReadOutput(LPSTR lpCommandLine)
 						break;
 					}
 				}
-
+				
 				//clean up all handles
 				CloseHandle(pi.hThread);
 				CloseHandle(pi.hProcess);
@@ -1896,23 +1866,54 @@ void ApiSystem::setBrighness(int value)
 #endif
 }
 
+bool frst = true;
+
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
 {
 #if WIN32
-	std::vector<std::string> res;
 	if (scan)
-	{
 		::Sleep(1000);
-		res.push_back("Toto");
-		res.push_back("Tata");
-		res.push_back("Titi");
-	}
-	res.push_back("Fake SSID");
-	return res;
 #endif
 
 	return executeEnumerationScript(scan ? "batocera-wifi scanlist" : "batocera-wifi list");
 }
+
+#if WIN32
+void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
+{
+	std::string c = Utils::String::trim(cmd);
+	size_t exec_end;
+
+	if (c[0] == '\"')
+	{
+		exec_end = c.find_first_of('\"', 1);
+		if (std::string::npos != exec_end)
+		{
+			*executable = c.substr(1, exec_end - 1);
+			*parameters = c.substr(exec_end + 1);
+		}
+		else
+		{
+			*executable = c.substr(1, exec_end);
+			std::string().swap(*parameters);
+		}
+	}
+	else
+	{
+		exec_end = c.find_first_of(' ', 0);
+		if (std::string::npos != exec_end)
+		{
+			*executable = c.substr(0, exec_end);
+			*parameters = c.substr(exec_end + 1);
+		}
+		else
+		{
+			*executable = c.substr(0, exec_end);
+			std::string().swap(*parameters);
+		}
+	}
+}
+#endif
 
 std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string command)
 {
@@ -1921,10 +1922,12 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 	std::vector<std::string> res;
 
 #if WIN32
+	std::string path = Utils::FileSystem::getExePath() + "/" + command;
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getEsConfigPath() + "/" + command;
 
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/" + Utils::String::replace(command, " ", "_");
 	if (Utils::FileSystem::exists(path))
-	{
+	{		
 		FILE* file = fopen(path.c_str(), "r");
 		if (file != NULL)
 		{
@@ -1939,6 +1942,35 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 		}
 
 		return res;
+	}
+	else
+	{
+		std::string executable;
+		std::string parameters;
+		splitCommand(command, &executable, &parameters);
+
+		// Try batch
+		path = Utils::FileSystem::getExePath() + "/" + executable + ".bat";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".bat";
+
+		// Try exe
+		if (!Utils::FileSystem::exists(path))
+		{
+			path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
+
+			if (!Utils::FileSystem::exists(path))
+				path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+		}
+
+		if (Utils::FileSystem::exists(path))
+		{
+			std::string cmd = parameters.empty() ? path : path + " " + parameters;
+
+			std::string output = executeCMDInNewProcessAndReadOutput((char*)cmd.c_str());
+			for (std::string all : Utils::String::splitAny(output, "\r\n"))
+				res.push_back(all);
+		}
 	}
 
 	return res;

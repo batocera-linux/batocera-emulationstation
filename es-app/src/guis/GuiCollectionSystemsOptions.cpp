@@ -95,6 +95,20 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			setVariable("reloadAll", true);
 	});
 
+
+	std::string groupNames = SystemData::getAllGroupNames();
+	if (!groupNames.empty())
+	{
+		std::shared_ptr<SwitchComponent> toggleAllowSystemGroups = std::make_shared<SwitchComponent>(mWindow);
+		toggleAllowSystemGroups->setState(Settings::getInstance()->getBool("AllowSystemGrouping"));
+		addWithLabel(_("ENABLE GROUPED SYSTEMS") + " (" + groupNames + ")", toggleAllowSystemGroups);
+		addSaveFunc([this, toggleAllowSystemGroups]
+		{
+			if (Settings::getInstance()->setBool("AllowSystemGrouping", toggleAllowSystemGroups->getState()))
+				setVariable("reloadSystems", true);
+		});
+	}
+
 	if(CollectionSystemManager::get()->isEditing())
 		addEntry((_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection())).c_str(), false, std::bind(&GuiCollectionSystemsOptions::exitEditMode, this));
 	
@@ -112,7 +126,31 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	onFinalize([this]
 	{
-		if (getVariable("reloadAll"))
+		if (getVariable("reloadSystems"))
+		{
+			Window* window = mWindow;
+			window->renderLoadingScreen(_("Loading..."));
+
+			ViewController::get()->goToStart();
+			delete ViewController::get();
+			ViewController::init(window);
+			CollectionSystemManager::deinit();
+			CollectionSystemManager::init(window);
+			SystemData::loadConfig(window);
+
+			GuiComponent* gui;
+			while ((gui = window->peekGui()) != NULL) 
+			{
+				window->removeGui(gui);
+				if (gui != this)
+					delete gui;
+			}
+			ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
+			window->endRenderLoadingScreen();
+
+			window->pushGui(ViewController::get());
+		}
+		else if (getVariable("reloadAll"))
 		{			
 			Settings::getInstance()->saveFile();
 

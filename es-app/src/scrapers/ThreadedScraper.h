@@ -36,7 +36,8 @@ private:
 	void search(const ScraperSearchParams& params);
 	void processMedias(ScraperSearchResult result);
 	void acceptResult(const ScraperSearchResult& result);
-	
+	void processError(int status, const std::string statusString);
+
 	std::string formatGameName(FileData* game);
 
 	int mTotal;

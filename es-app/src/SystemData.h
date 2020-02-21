@@ -87,7 +87,7 @@ public:
 	inline bool isGameSystem() { return mIsGameSystem; };
 
 	inline bool isGroupSystem() { return mIsGroupSystem; };	
-	inline bool isGroupChildSystem() { return mEnvData != nullptr && !mEnvData->mGroup.empty(); }
+	bool isGroupChildSystem();
 
 	bool isVisible();
 	
@@ -139,7 +139,9 @@ public:
 	static bool isNetplayActivated();
 
 	SystemData* getParentGroupSystem();
-	
+
+	static std::string getAllGroupNames();
+
 private:
 	static void createGroupedSystems();
 
