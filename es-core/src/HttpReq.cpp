@@ -4,6 +4,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include <assert.h>
+#include <thread>
 
 #include <SDL.h>
 
