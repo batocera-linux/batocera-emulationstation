@@ -10,6 +10,7 @@
 #include <map>
 #include <pugixml/src/pugixml.hpp>
 #include <unordered_map>
+#include <unordered_set>
 #include "FileFilterIndex.h"
 #include "math/Vector2f.h"
 
@@ -140,7 +141,7 @@ public:
 
 	SystemData* getParentGroupSystem();
 
-	static std::string getAllGroupNames();
+	static std::unordered_set<std::string> getAllGroupNames();
 
 private:
 	static void createGroupedSystems();

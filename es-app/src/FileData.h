@@ -159,7 +159,9 @@ public:
 	}
 
 	inline bool isVirtualFolderDisplay() { return mIsDisplayableAsVirtualFolder && !mOwnsChildrens; }
+	
 	void enableVirtualFolderDisplay(bool value) { mIsDisplayableAsVirtualFolder = value; };
+	bool isVirtualFolderDisplayEnabled() { return mIsDisplayableAsVirtualFolder; };
 
 	FileData* FindByPath(const std::string& path);
 
