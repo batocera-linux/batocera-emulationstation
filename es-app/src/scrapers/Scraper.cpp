@@ -111,13 +111,18 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 	: ScraperRequest(resultsWrite)
 {
 	setStatus(ASYNC_IN_PROGRESS);
-	mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));
+	mRequest = new HttpReq(url);
 	mRetryCount = 0;
+}
+
+ScraperHttpRequest::~ScraperHttpRequest()
+{
+	delete mRequest;	
 }
 
 void ScraperHttpRequest::update()
 {
-	HttpReq::Status status = mReq->status();
+	HttpReq::Status status = mRequest->status();
 
 	// not ready yet
 	if (status == HttpReq::REQ_IN_PROGRESS)
@@ -126,7 +131,7 @@ void ScraperHttpRequest::update()
 	if(status == HttpReq::REQ_SUCCESS)
 	{
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
-		process(mReq, mResults);
+		process(mRequest, mResults);
 		return;
 	}
 
@@ -143,9 +148,11 @@ void ScraperHttpRequest::update()
 
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Wait before Retrying";
 
-		std::string url = mReq->getUrl();
+		std::string url = mRequest->getUrl();
 		std::this_thread::sleep_for(std::chrono::seconds(mRetryCount < 3 ? 5 : 10));
-		mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));		
+		
+		delete mRequest;
+		mRequest = new HttpReq(url);
 
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying";
 
@@ -162,14 +169,14 @@ void ScraperHttpRequest::update()
 	// Blocking errors
 	if (status != HttpReq::REQ_SUCCESS)
 	{		
-		setError(status, mReq->getErrorMsg());
+		setError(status, mRequest->getErrorMsg());
 		return;
 	}	
 	
 
 	// everything else is some sort of error
-	LOG(LogError) << "ScraperHttpRequest network error (status: " << status << ") - " << mReq->getErrorMsg();
-	setError(mReq->getErrorMsg());
+	LOG(LogError) << "ScraperHttpRequest network error (status: " << status << ") - " << mRequest->getErrorMsg();
+	setError(mRequest->getErrorMsg());
 }
 
 
@@ -377,20 +384,25 @@ std::unique_ptr<ImageDownloadHandle> downloadImageAsync(const std::string& url, 
 ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight) : 
 	mSavePath(path), mMaxWidth(maxWidth), mMaxHeight(maxHeight)
 {
-	mReq = std::unique_ptr<HttpReq>(new HttpReq(url));
+	mRequest = new HttpReq(url, path);
+}
+
+ImageDownloadHandle::~ImageDownloadHandle()
+{
+	delete mRequest;
 }
 
 int ImageDownloadHandle::getPercent()
 {
-	if (mReq->status() == HttpReq::REQ_IN_PROGRESS)
-		return mReq->getPercent();
+	if (mRequest->status() == HttpReq::REQ_IN_PROGRESS)
+		return mRequest->getPercent();
 
 	return -1;
 }
 
 void ImageDownloadHandle::update()
 {
-	HttpReq::Status status = mReq->status();
+	HttpReq::Status status = mRequest->status();
 
 	if (status == HttpReq::REQ_IN_PROGRESS)
 		return;
@@ -408,9 +420,11 @@ void ImageDownloadHandle::update()
 
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Wait before Retrying";
 
-		std::string url = mReq->getUrl();
+		std::string url = mRequest->getUrl();
 		std::this_thread::sleep_for(std::chrono::seconds(mRetryCount < 3 ? 5 : 10));
-		mReq = std::unique_ptr<HttpReq>(new HttpReq(url, false));
+
+		delete mRequest;
+		mRequest = new HttpReq(url, mSavePath);
 
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying";
 
@@ -427,24 +441,12 @@ void ImageDownloadHandle::update()
 	// Blocking errors
 	if (status != HttpReq::REQ_SUCCESS)
 	{
-		setError(status, mReq->getErrorMsg());
+		setError(status, mRequest->getErrorMsg());
 		return;
 	}
 
 	if (status == HttpReq::REQ_SUCCESS && mStatus == ASYNC_IN_PROGRESS)
 	{
-		int ret = mReq->saveContent(mSavePath, true);
-		if (ret == 2)
-		{
-			setError("Failed to save media : The server response is invalid");
-			return;
-		}
-		else if (ret == 1)
-		{
-			setError("Failed to save image on disk. Disk full?");
-			return;
-		}
-	
 		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
 		if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif")

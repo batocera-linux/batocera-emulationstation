@@ -91,11 +91,11 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 }
 #endif
 
-HttpReq::HttpReq(const std::string& url, bool useBinaryFileStream)
+HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL)
 {
 	mUrl = url;
-	mUseFileStream = useBinaryFileStream;
+	mFilePath = outputFilename;
 
 	mPosition = -1;
 	mPercent = -1;
@@ -202,43 +202,21 @@ HttpReq::HttpReq(const std::string& url, bool useBinaryFileStream)
 	
 	std::unique_lock<std::mutex> lock(mMutex);
 
-	if (mUseFileStream)
+	if (!mFilePath.empty())
 	{
-#if defined(WIN32)
-		srand(time(NULL) % getpid());
-		std::string TempPath;
-		char lpTempPathBuffer[MAX_PATH];
-		if (GetTempPathA(MAX_PATH, lpTempPathBuffer))
-		{
+		mTempStreamPath = outputFilename + ".tmp";
+		
+		Utils::FileSystem::removeFile(mTempStreamPath);
 
-			TCHAR szTempFileName[MAX_PATH];
-
-			if (GetTempFileName(lpTempPathBuffer, TEXT("httpreq"), 0, szTempFileName))
-				mStreamPath = std::string(szTempFileName);
-			else
-			{
-				do { mStreamPath = std::string(lpTempPathBuffer) + "httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
-			}
-		}
-
-/*
-#if _DEBUG
-		do { mStreamPath = Utils::FileSystem::getEsConfigPath() + "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
-#endif
-*/
-#else
-		srand(time(NULL) % getpid() + getppid());
-
-		do { mStreamPath = "/tmp/httpreq" + std::to_string(rand() % 99999) + ".tmp"; } while (Utils::FileSystem::exists(mStreamPath));
-#endif
-
-		mStream.open(mStreamPath, std::ios_base::out | std::ios_base::binary);
+		mStream.open(mTempStreamPath, std::ios_base::out | std::ios_base::binary);
 		if (!mStream.is_open())
 		{
 			mStatus = REQ_IO_ERROR;
 			onError("IO Error (disk is Readonly ?)");
 			return;
 		}
+
+		Utils::FileSystem::removeFile(outputFilename);
 	}
 
 	//add the handle to our multi
@@ -257,7 +235,7 @@ HttpReq::HttpReq(const std::string& url, bool useBinaryFileStream)
 
 void HttpReq::closeStream()
 {
-	if (!mUseFileStream)
+	if (mFilePath.empty())
 		return;
 
 	if (mStream.is_open())
@@ -273,8 +251,8 @@ HttpReq::~HttpReq()
 
 	closeStream();
 	
-	if (mUseFileStream)
-		Utils::FileSystem::removeFile(mStreamPath);
+	if (!mTempStreamPath.empty())
+		Utils::FileSystem::removeFile(mTempStreamPath);
 
 	if(mHandle)
 	{
@@ -293,11 +271,11 @@ HttpReq::Status HttpReq::status()
 {
 	std::unique_lock<std::mutex> lock(mMutex);
 
-	if(mStatus == REQ_IN_PROGRESS)
+	if (mStatus == REQ_IN_PROGRESS)
 	{
 		int handle_count;
 		CURLMcode merr = curl_multi_perform(s_multi_handle, &handle_count);
-		if(merr != CURLM_OK && merr != CURLM_CALL_MULTI_PERFORM)
+		if (merr != CURLM_OK && merr != CURLM_CALL_MULTI_PERFORM)
 		{
 			closeStream();
 
@@ -308,12 +286,12 @@ HttpReq::Status HttpReq::status()
 
 		int msgs_left;
 		CURLMsg* msg;
-		while((msg = curl_multi_info_read(s_multi_handle, &msgs_left)) != nullptr)
+		while ((msg = curl_multi_info_read(s_multi_handle, &msgs_left)) != nullptr)
 		{
-			if(msg->msg == CURLMSG_DONE)
+			if (msg->msg == CURLMSG_DONE)
 			{
-				HttpReq* req = s_requests[msg->easy_handle];				
-				if(req == NULL)
+				HttpReq* req = s_requests[msg->easy_handle];
+				if (req == NULL)
 				{
 					LOG(LogError) << "Cannot find easy handle!";
 					continue;
@@ -326,7 +304,7 @@ HttpReq::Status HttpReq::status()
 					std::string err = "File stream error (disk full ?)";
 					req->onError(err.c_str());
 				}
-				else if(msg->data.result == CURLE_OK)
+				else if (msg->data.result == CURLE_OK)
 				{
 					int http_status_code;
 					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);
@@ -337,21 +315,34 @@ HttpReq::Status HttpReq::status()
 
 						if (http_status_code >= 400 && http_status_code < 499)
 						{
-							if (!req->mUseFileStream)
+							if (mFilePath.empty())
 								err = req->getContent();
 
-							req->mStatus = (Status)http_status_code;							
+							req->mStatus = (Status)http_status_code;
 						}
 						else
 							req->mStatus = REQ_IO_ERROR;
-											
+
 						if (err.empty())
 							err = "HTTP status " + std::to_string(http_status_code);
 
 						req->onError(err.c_str());
 					}
 					else
-						req->mStatus = REQ_SUCCESS;
+					{
+						if (!mFilePath.empty())
+						{
+							if (std::rename(mTempStreamPath.c_str(), mFilePath.c_str()) == 0)
+								req->mStatus = REQ_SUCCESS;
+							else
+							{
+								req->mStatus = REQ_IO_ERROR;
+								req->onError("file rename failed");
+							}
+						}
+						else
+							req->mStatus = REQ_SUCCESS;
+					}
 				}
 				else
 				{
@@ -367,17 +358,17 @@ HttpReq::Status HttpReq::status()
 
 std::string HttpReq::getContent() 
 {
-	if (!mUseFileStream)
+	if (mFilePath.empty())
 		return mContent.str();
 
 	try
 	{
 		closeStream();
 
-		if (!Utils::FileSystem::exists(mStreamPath))
+		if (!Utils::FileSystem::exists(mTempStreamPath))
 			return "";
 
-		std::ifstream ifs(mStreamPath, std::ios_base::in | std::ios_base::binary);
+		std::ifstream ifs(mTempStreamPath, std::ios_base::in | std::ios_base::binary);
 		if (ifs.bad())
 			return "";
 
@@ -413,7 +404,7 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 {
 	HttpReq* request = ((HttpReq*)req_ptr);
 		
-	if (!request->mUseFileStream)
+	if (request->mFilePath.empty())
 	{
 		((HttpReq*)req_ptr)->mContent.write((char*)buff, size * nmemb);
 		return size * nmemb;
@@ -430,10 +421,7 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 
 		if (ss.rdstate() != std::ofstream::goodbit)
 		{
-			request->closeStream();
-
-			Utils::FileSystem::removeFile(request->mStreamPath);
-			request->mStreamPath = "";
+			request->closeStream();			
 			request->mStatus = REQ_FILESTREAM_ERROR;
 			request->mErrorMsg = "IO ERROR (DISK FULL?)";		
 
@@ -442,10 +430,7 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	}
 	catch(...)
 	{
-		request->closeStream();
-
-		Utils::FileSystem::removeFile(request->mStreamPath);
-		request->mStreamPath = "";
+		request->closeStream();		
 		request->mStatus = REQ_FILESTREAM_ERROR;
 		request->mErrorMsg = "IO ERROR (DISK FULL?)";
 
@@ -467,89 +452,10 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	return nmemb;
 }
 
-int HttpReq::saveContent(const std::string filename, bool checkMedia)
+bool HttpReq::wait()
 {
-	assert(mStatus == REQ_SUCCESS);
+	while (status() == HttpReq::REQ_IN_PROGRESS)
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
-	if (!mUseFileStream)
-	{
-		try
-		{
-			std::ofstream file(filename, std::ios::binary | std::ios::out);
-			if (!file.is_open())
-				return 1;
-
-			file << mContent.str();
-			file.flush();
-			file.close();
-		}
-		catch (...)
-		{
-			return 1;
-		}
-		return 0;
-	}
-
-	try
-	{
-		closeStream();
-
-		if (!Utils::FileSystem::exists(mStreamPath))
-			return false;
-
-		if (checkMedia && Utils::FileSystem::getFileSize(mStreamPath) < 1024)
-		{
-			auto data = Utils::String::toUpper(getContent());
-
-			if (data.find("<!DOCTYPE HTML") != std::string::npos)
-				return 2;
-
-			if (data.find("NOMEDIA") != std::string::npos || data.find("ERREUR") != std::string::npos || data.find("ERROR") != std::string::npos || data.find("PROBL") != std::string::npos)
-				return 2;
-		}
-
-		FILE* infile = fopen(mStreamPath.c_str(), "rb");
-		if (infile == nullptr)
-			return 1;
-
-		FILE* outfile = fopen(filename.c_str(), "wb");
-		if (outfile == nullptr)
-			return 1;
-
-		const int size = 4096;
-		char buffer[size];
-
-		while (!feof(infile))
-		{
-			int n = fread(buffer, 1, size, infile);
-			if (n == 0)
-				break;
-
-			fwrite(buffer, 1, n, outfile);
-
-			if (ferror(outfile))
-			{
-				fclose(infile);
-				fclose(outfile);
-				return 1;
-			}
-		}
-
-		fclose(infile);
-		fflush(outfile);
-
-		if (ferror(outfile))
-		{
-			fclose(outfile);
-			return 1;
-		}
-
-		fclose(outfile);
-	}
-	catch (...)
-	{
-		LOG(LogError) << "Error while saving http request content";
-	}
-
-	return 0;
+	return status() == HttpReq::REQ_SUCCESS;
 }

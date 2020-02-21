@@ -284,11 +284,11 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 }
 
 // Process should return false only when we reached a maximum scrap by minute, to retry
-bool ScreenScraperRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
+bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
 {
-	assert(req->status() == HttpReq::REQ_SUCCESS);
+	assert(request->status() == HttpReq::REQ_SUCCESS);
 
-	auto content = req->getContent();
+	auto content = request->getContent();
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result parseResult = doc.load(content.c_str());

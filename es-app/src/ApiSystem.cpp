@@ -1183,13 +1183,8 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 				std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(userpic);
 				if (!Utils::FileSystem::exists(localFile))
 				{
-					std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(userpic);
-
-					while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-						std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-					if (httpreq->status() == HttpReq::REQ_SUCCESS)
-						httpreq->saveContent(localFile);
+					HttpReq httpreq(userpic, localFile);
+					httpreq.wait();
 				}
 
 				if (Utils::FileSystem::exists(localFile))
@@ -1227,14 +1222,10 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 						std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(badge);
 						if (!Utils::FileSystem::exists(localFile))
 						{
-							std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(badge);
-
-							while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-								std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-							if (httpreq->status() == HttpReq::REQ_SUCCESS)
-								httpreq->saveContent(localFile);
+							HttpReq httpreq(badge, localFile);
+							httpreq.wait();
 						}
+
 						if (Utils::FileSystem::exists(localFile))
 							rg.badge = localFile;
 					}
@@ -1256,14 +1247,10 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	std::vector<std::string> res;
 
 #if WIN32
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera.org/upgrades/themes.txt", false);
-
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	HttpReq httpreq("https://batocera.org/upgrades/themes.txt");
+	if (httpreq.wait())
 	{		
-		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		auto lines = Utils::String::split(httpreq.getContent(), '\n');
 		for (auto line : lines)
 		{
 			auto parts = Utils::String::splitAny(line, " \t");
@@ -1406,7 +1393,7 @@ bool unzipFile(const std::string fileName, const std::string dest)
 	return ret;
 }
 
-std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std::string label, const std::function<void(const std::string)>& func)
+bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
 {
 	if (func != nullptr)
 		func("Downloading " + label);
@@ -1416,14 +1403,10 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 	std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
 	if (statUrl != url)
 	{
-		std::shared_ptr<HttpReq> statreq = std::make_shared<HttpReq>(statUrl, false);
-
-		while (statreq->status() == HttpReq::REQ_IN_PROGRESS)
-			std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-		if (statreq->status() == HttpReq::REQ_SUCCESS)
+		HttpReq statreq(statUrl);
+		if (statreq.wait())
 		{
-			std::string content = statreq->getContent();
+			std::string content = statreq.getContent();
 			auto pos = content.find("\"size\": ");
 			if (pos != std::string::npos)
 			{
@@ -1434,14 +1417,14 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 		}
 	}
 
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>(url + "/archive/master.zip");
+	HttpReq httpreq(url + "/archive/master.zip", fileName);
 
 	int curPos = -1;
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
+	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
 	{
 		if (downloadSize > 0)
 		{
-			double pos = httpreq->getPosition();
+			double pos = httpreq.getPosition();
 			if (pos > 0 && curPos != pos)
 			{
 				if (func != nullptr)
@@ -1457,10 +1440,10 @@ std::shared_ptr<HttpReq> downloadGitRepository(const std::string url, const std:
 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 	}
 
-	if (httpreq->status() != HttpReq::REQ_SUCCESS)
-		return nullptr;
+	if (httpreq.status() != HttpReq::REQ_SUCCESS)
+		return false;
 
-	return httpreq;
+	return true;
 }
 #endif
 
@@ -1476,17 +1459,15 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		if (parts[1] == thname)
 		{
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
-			
-			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, thname, func);
-			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
+
+			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+			zipFile = Utils::String::replace(zipFile, "/", "\\");
+
+			if (downloadGitRepository(themeUrl, zipFile, thname, func))
 			{
 				if (func != nullptr)
 					func("Extracting " + thname);
-
-				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/"+ themeFileName +".zip";
-				zipFile = Utils::String::replace(zipFile, "/", "\\");
-				httpreq->saveContent(zipFile);
 
 				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
 
@@ -1542,14 +1523,10 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	std::vector<std::string> res;
 
 #if WIN32
-	std::shared_ptr<HttpReq> httpreq = std::make_shared<HttpReq>("https://batocera.org/upgrades/bezels.txt", false);
-	
-	while (httpreq->status() == HttpReq::REQ_IN_PROGRESS)
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-	if (httpreq->status() == HttpReq::REQ_SUCCESS)
+	HttpReq request("https://batocera.org/upgrades/bezels.txt");
+	if (request.wait())
 	{
-		auto lines = Utils::String::split(httpreq->getContent(), '\n');
+		auto lines = Utils::String::split(request.getContent(), '\n');
 		for (auto line : lines)
 			res.push_back("[A]\t" + line);
 	}
@@ -1592,24 +1569,12 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsys
 		{
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
 
-			std::shared_ptr<HttpReq> httpreq = downloadGitRepository(themeUrl, bezelsystem, func);
-			if (httpreq != nullptr && httpreq->status() == HttpReq::REQ_SUCCESS)
-			{
-				/*
-				if (func != nullptr)
-					func("Extracting " + bezelsystem);
-								
-				std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-				std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
-				zipFile = Utils::String::replace(zipFile, "/", "\\");
-				httpreq->saveContent(zipFile);
+			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
+			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+			zipFile = Utils::String::replace(zipFile, "/", "\\");
 
-				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
-
-				Utils::FileSystem::removeFile(zipFile);
-				*/
+			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
 				return std::pair<std::string, int>(std::string("OK"), 0);
-			}
 
 			break;
 		}
@@ -1721,12 +1686,10 @@ std::string executeCMDInNewProcessAndReadOutput(LPSTR lpCommandLine)
 						{						
 							ret += std::string(buf);
 							
+							WaitForSingleObject(pi.hProcess, 50);
 							PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL);
 							if (bread == 0)
-							{
-								if (WaitForSingleObject(pi.hProcess, 1) != WAIT_TIMEOUT)
-									break;
-							}
+								break;
 						}
 
 						break;

@@ -121,7 +121,7 @@ void GuiNetPlay::startRequest()
 	if (netPlayLobby.empty())
 		netPlayLobby = "http://lobby.libretro.com/list/";
 
-	mLobbyRequest = std::unique_ptr<HttpReq>(new HttpReq(netPlayLobby, false));
+	mLobbyRequest = std::unique_ptr<HttpReq>(new HttpReq(netPlayLobby));
 }
 
 void GuiNetPlay::update(int deltaTime)
