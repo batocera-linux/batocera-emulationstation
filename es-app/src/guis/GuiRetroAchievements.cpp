@@ -12,6 +12,8 @@
 #include "LocaleES.h"
 #include "GuiLoading.h"
 
+#include "components/MultiLineMenuEntry.h"
+
 void GuiRetroAchievements::show(Window* window)
 {
 	window->pushGui(new GuiLoading<RetroAchievementInfo>(window, _("PLEASE WAIT"), 

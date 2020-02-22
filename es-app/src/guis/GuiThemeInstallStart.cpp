@@ -6,6 +6,7 @@
 #include "views/ViewController.h"
 #include "utils/StringUtil.h"
 #include "components/ComponentGrid.h"
+#include "components/MultiLineMenuEntry.h"
 #include "LocaleES.h"
 
 #include "ContentInstaller.h"

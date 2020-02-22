@@ -896,6 +896,17 @@ std::unordered_set<std::string> SystemData::getAllGroupNames()
 	return names;
 }
 
+std::unordered_set<std::string> SystemData::getGroupChildSystemNames(const std::string groupName)
+{
+	std::unordered_set<std::string> names;
+
+	for (auto sys : SystemData::sSystemVector)
+		if (sys->mEnvData != nullptr && sys->mEnvData->mGroup == groupName)
+			names.insert(sys->getFullName());
+		
+	return names;
+}
+
 SystemData* SystemData::getParentGroupSystem()
 {
 	if (!isGroupChildSystem() || isGroupSystem())

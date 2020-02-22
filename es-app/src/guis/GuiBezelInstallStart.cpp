@@ -9,7 +9,9 @@
 #include "GuiBezelUnInstall.h"
 #include "LocaleES.h"
 #include "ContentInstaller.h"
+#include "components/MultiLineMenuEntry.h"
 #include <cstring>
+
 
 // Batocera integration with theBezelProject
 GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
