@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-16 19:09+0100\n"
+"POT-Creation-Date: 2020-02-22 09:19-0400\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,20 +10,145 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "UPDATING BATOCERA"
+msgid "CANCEL"
+msgstr "キャンセル"
+
+msgid "Searching"
 msgstr ""
 
-msgid "UPDATE IS READY"
+msgid "Rating"
+msgstr "評価"
+
+msgid "Released"
+msgstr "発売日"
+
+msgid "Developer"
+msgstr "開発"
+
+msgid "Publisher"
+msgstr "販売"
+
+msgid "Genre"
+msgstr "ジャンル"
+
+msgid "Players"
+msgstr "プレイヤー"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "ゲームが見つかりません - スキップ"
+
+msgid "AN ERROR HAS OCCURED"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "RETRY"
+msgstr "再試行"
+
+msgid "SKIP"
+msgstr "スキップ"
+
+msgid "Downloading"
+msgstr ""
+
+#, fuzzy
+msgid "ACCEPT RESULT"
+msgstr "了解"
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "never played"
+msgstr ""
+
+msgid "arcade"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s."
+msgid_plural "This collection contains %1$i games, including %2$s."
+msgstr[0] ""
+
+#, c-format
+msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid_plural ""
+"This collection contains %1$i games, including %2$s among other titles."
+msgstr[0] ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "QUIT"
+msgstr "終了"
+
+msgid "Done."
+msgstr ""
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "DOWNLOADING"
+msgstr ""
+
+msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "AN ERROR OCCURED"
 msgstr "エラーが発生しました"
 
-msgid "REALLY UPDATE?"
-msgstr "アップデートしますか？"
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "Preloading UI"
+msgstr ""
+
+msgid "MENU"
+msgstr "メニュー"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
 
 msgid "YES"
 msgstr "はい"
@@ -31,128 +156,304 @@ msgstr "はい"
 msgid "NO"
 msgstr "いいえ"
 
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "ネットワーク接続が必要です"
+msgid "Last played"
+msgstr "最後にプレイした日時"
 
-msgid "OK"
-msgstr "OK"
+msgid "Times played"
+msgstr "回プレイ済み"
 
-msgid "NO UPDATE AVAILABLE"
-msgstr "アップデートはありません"
-
-msgid "INPUT"
-msgstr "入力"
-
-msgid "SEARCH"
-msgstr "検索"
-
-msgid "CANCEL"
-msgstr "キャンセル"
-
-msgid "CONNECT TO NETPLAY"
+msgid "Game time"
 msgstr ""
 
-msgid "Select the game you want to join"
+msgid "No Entries Found"
 msgstr ""
 
-msgid "REFRESH"
-msgstr ""
+msgid "SYSTEM"
+msgstr "システム"
 
-msgid "CLOSE"
-msgstr "閉じる"
-
-msgid "PLEASE WAIT"
-msgstr ""
-
-msgid "FAILED"
-msgstr ""
-
-msgid "BACK"
-msgstr "戻る"
+msgid "CHOOSE"
+msgstr "選択"
 
 msgid "LAUNCH"
 msgstr "起動"
 
-msgid "AVAILABLE GAMES"
+msgid "BACK"
+msgstr "戻る"
+
+msgid "OPTIONS"
+msgstr "オプション"
+
+msgid "NETPLAY"
 msgstr ""
 
-msgid "UNAVAILABLE GAMES"
+msgid "RANDOM"
 msgstr ""
 
-msgid "NO GAME FOUND"
+msgid "Favorites"
 msgstr ""
 
-msgid "go back"
+msgid "Full"
 msgstr ""
 
-msgid "JUMP TO..."
+msgid "Kiosk"
 msgstr ""
 
-msgid "SORT GAMES BY"
-msgstr "ゲームのソート"
-
-msgid "OTHER FILTERS"
+msgid "Kid"
 msgstr ""
 
-msgid "GAMELIST VIEW STYLE"
+msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
+msgstr "KODIメディアセンターを開始しますか？"
+
+#, fuzzy, c-format
+msgid "%i GAME AVAILABLE"
+msgid_plural "%i GAMES AVAILABLE"
+msgstr[0] "%i 個のゲームがあります"
+
+msgid "SELECT"
+msgstr "選択"
+
+msgid "KODI"
 msgstr ""
 
-msgid "automatic"
+msgid "FILES"
 msgstr ""
 
-msgid "VIEW CUSTOMISATION"
+msgid "SCRAPING"
 msgstr ""
 
-msgid "GRID SIZE"
+msgid "SCRAPE FAILED"
 msgstr ""
 
-msgid "SHOW FAVORITES ON TOP"
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "SHOW HIDDEN FILES"
+msgid "Name"
+msgstr "名前"
+
+msgid "enter game name"
+msgstr "ゲームの名前を入力"
+
+msgid "Description"
+msgstr "概要"
+
+msgid "enter description"
+msgstr "概要を入力"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "enter path to image"
+msgstr "画像のパスを入力"
+
+msgid "Path to video"
 msgstr ""
 
-msgid "SHOW FOLDERS"
+msgid "enter path to thumbnail"
+msgstr "サムネイル画像のパスを入力"
+
+msgid "Path to marquee"
 msgstr ""
 
-msgid "always"
+msgid "Thumbnail"
+msgstr "サムネイル画像"
+
+#, fuzzy
+msgid "enter rating"
+msgstr "評価を入力"
+
+msgid "Release date"
+msgstr "発売日"
+
+msgid "enter release date"
+msgstr "発売日を入力"
+
+msgid "enter game developer"
+msgstr "開発元を入力"
+
+msgid "enter game publisher"
+msgstr "販売元を入力"
+
+msgid "enter game genre"
+msgstr "ジャンルを入力"
+
+msgid "enter number of players"
+msgstr "プレイヤー人数を入力"
+
+msgid "Favorite"
+msgstr "お気に入り"
+
+msgid "enter favorite"
+msgstr "お気に入りを入力"
+
+#, fuzzy
+msgid "Hidden"
+msgstr "隠す"
+
+#, fuzzy
+msgid "set hidden"
+msgstr "隠す"
+
+msgid "Kidgame"
+msgstr ""
+
+msgid "set kidgame"
+msgstr ""
+
+msgid "Play count"
+msgstr "プレイ回数"
+
+msgid "enter number of times played"
+msgstr "プレイ回数を入力する"
+
+msgid "enter last played date"
+msgstr "最後にプレイした日時を入力"
+
+msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5 checksum"
+msgstr ""
+
+msgid "how long the game has been played in total (seconds)"
+msgstr ""
+
+msgid "Arcade system"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "description"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "enter path to video"
+msgstr ""
+
+msgid "marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr ""
+
+msgid "FILENAME, ASCENDING"
+msgstr "ファイル名, 昇順"
+
+msgid "FILENAME, DESCENDING"
+msgstr "ファイル名, 降順"
+
+msgid "RATING, ASCENDING"
+msgstr "評価, 昇順"
+
+msgid "RATING, DESCENDING"
+msgstr "評価, 降順"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "プレイ回数, 昇順"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "プレイ回数, 降順"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "最終プレイ日時, 昇順"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "最終プレイ日時, 降順"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr ""
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr ""
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr ""
+
+msgid "GENRE, ASCENDING"
+msgstr ""
+
+msgid "GENRE, DESCENDING"
+msgstr ""
+
+msgid "DEVELOPER, ASCENDING"
+msgstr ""
+
+msgid "DEVELOPER, DESCENDING"
+msgstr ""
+
+msgid "PUBLISHER, ASCENDING"
+msgstr ""
+
+msgid "PUBLISHER, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr ""
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr ""
+
+msgid "HASHING GAMES"
+msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 #, fuzzy
-msgid "never"
-msgstr "しない"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "適合する ゲームが 見つかりませんでした。"
 
-msgid "having multiple games"
+msgid "FAVORITES"
 msgstr ""
 
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+msgid "GENRE"
+msgstr "ジャンル"
+
+msgid "PLAYERS"
 msgstr ""
 
-msgid "FINISH EDITING COLLECTION"
+msgid "PUBLISHER / DEVELOPER"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "このゲームのメタ情報を編集"
+msgid "RATING"
+msgstr "評価"
 
-msgid "ADVANCED GAME OPTIONS"
+msgid "KIDGAME"
 msgstr ""
 
-msgid "FILTER GAMES BY TEXT"
+msgid "UPDATE AVAILABLE"
 msgstr ""
 
-msgid "Loading..."
+msgid "SCANNING BLUETOOTH"
 msgstr ""
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgid "Searching controllers..."
 msgstr ""
 
-msgid "FILTER GAMELIST BY"
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
 
-msgid "RESET ALL FILTERS"
-msgstr ""
-
-msgid "FIND GAMES"
+msgid "REFRESH"
 msgstr ""
 
 msgid "MANUAL INPUT"
@@ -164,7 +465,40 @@ msgstr ""
 msgid "SEARCHING WIFI NETWORKS"
 msgstr ""
 
-msgid "FINISHED"
+msgid "BACKUP USER DATA"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr ""
+
+msgid "NO DEVICE FOUND"
+msgstr ""
+
+msgid "START"
+msgstr "開始"
+
+msgid "CLOSE"
+msgstr "閉じる"
+
+msgid "CONNECT TO NETPLAY"
+msgstr ""
+
+msgid "Select the game you want to join"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "NO GAME FOUND"
 msgstr ""
 
 msgid "fade"
@@ -214,9 +548,6 @@ msgstr "システム設定"
 
 msgid "INFORMATIONS"
 msgstr ""
-
-msgid "QUIT"
-msgstr "終了"
 
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
@@ -284,12 +615,6 @@ msgstr ""
 msgid "RANDOM VIDEO SETTINGS"
 msgstr ""
 
-msgid "CHOOSE"
-msgstr "選択"
-
-msgid "SELECT"
-msgstr "選択"
-
 msgid "INFORMATION"
 msgstr ""
 
@@ -356,6 +681,9 @@ msgstr ""
 msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
+msgid "OK"
+msgstr "OK"
+
 msgid "FILE GENERATION FAILED"
 msgstr ""
 
@@ -382,9 +710,6 @@ msgstr "アップデート開始"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
-
-msgid "SYSTEM"
-msgstr "システム"
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -430,9 +755,6 @@ msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "記憶装置"
-
-msgid "BACKUP USER DATA"
-msgstr ""
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr ""
@@ -487,7 +809,7 @@ msgstr ""
 msgid "PORT"
 msgstr ""
 
-msgid "MITM"
+msgid "USE RELAY SERVER"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -593,9 +915,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "ゲームリストを更新"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
-
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ゲームリストを更新しますか？"
 
@@ -642,6 +961,15 @@ msgstr ""
 msgid "THEME CONFIGURATION"
 msgstr ""
 
+msgid "VIEW CUSTOMISATION"
+msgstr ""
+
+msgid "GAMELIST VIEW STYLE"
+msgstr ""
+
+msgid "automatic"
+msgstr ""
+
 msgid "basic"
 msgstr ""
 
@@ -671,9 +999,6 @@ msgstr ""
 
 msgid "THEME SET"
 msgstr "テーマ設定"
-
-msgid "video"
-msgstr ""
 
 msgid "grid"
 msgstr ""
@@ -862,71 +1187,17 @@ msgstr ""
 msgid "INTERNAL RESOLUTION"
 msgstr ""
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
-
-msgid "SELECT THEME FOLDER"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr ""
-
-msgid "New Collection Name"
-msgstr ""
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
-
-msgid "SELECT COLLECTIONS"
-msgstr ""
-
-msgid "ARCADE SYSTEMS"
-msgstr ""
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "NETWORK REQUIRED"
-msgstr ""
-
 msgid "SCRAPING IN PROGRESS"
 msgstr "情報を取得中"
 
 msgid "subtitle text"
 msgstr "字幕テキスト"
 
+msgid "INPUT"
+msgstr "入力"
+
 msgid "search"
 msgstr "検索"
-
-msgid "SKIP"
-msgstr "スキップ"
 
 msgid "STOP"
 msgstr "停止"
@@ -955,41 +1226,98 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 個の ゲームを スキップしました。"
 
-msgid "INSTALL BEZELS"
-msgstr ""
-
-msgid "UNINSTALL BEZELS"
-msgstr ""
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "SELECT THEME"
 msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "SWAP VIDEO AFTER (SECS)"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr ""
-
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "VIDEO SCREENSAVER"
 msgstr ""
 
 msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATIONS"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
+
+msgid "go back"
+msgstr ""
+
+msgid "SELECT SYSTEMS TO DISPLAY"
+msgstr ""
+
+msgid "APPLY"
+msgstr ""
+
+msgid "REVERT"
+msgstr ""
+
+msgid "VALIDATE"
+msgstr ""
+
+msgid "GROUPED SYSTEMS"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
+
+msgid "FINISHED"
+msgstr ""
+
+msgid "SEARCH"
+msgstr "検索"
+
+msgid "SWAP IMAGE AFTER (SECS)"
 msgstr ""
 
 msgid "STRETCH IMAGES"
@@ -1005,21 +1333,6 @@ msgid "CUSTOM IMAGE DIR RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr ""
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr ""
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
-msgstr ""
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr ""
 
 msgid "SCRAPE THESE GAMES"
@@ -1044,9 +1357,6 @@ msgstr "システム"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "ユーザーが競合を判断する"
 
-msgid "START"
-msgstr "開始"
-
 #, fuzzy
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1057,20 +1367,42 @@ msgstr ""
 "確な 結果と ならない場合が あります！ \n"
 "続けますか？"
 
-#, fuzzy
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "適合する ゲームが 見つかりませんでした。"
-
-msgid "SELECT SYSTEMS TO DISPLAY"
+msgid "UPDATING BATOCERA"
 msgstr ""
 
-msgid "APPLY"
+msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "REVERT"
+msgid "REBOOT SYSTEM TO APPLY"
 msgstr ""
 
-msgid "VALIDATE"
+msgid "REALLY UPDATE?"
+msgstr "アップデートしますか？"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "ネットワーク接続が必要です"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "アップデートはありません"
+
+msgid "EDIT METADATA"
+msgstr "メタ情報を編集"
+
+msgid "SAVE"
+msgstr "保存"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+
+msgid "DELETE"
+msgstr "削除"
+
+msgid "SAVE CHANGES?"
+msgstr "変更を保存しますか？"
+
+msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr ""
 
 msgid "SCREENSAVER AFTER"
@@ -1099,431 +1431,144 @@ msgstr ""
 msgid "SLIDESHOW SCREENSAVER"
 msgstr ""
 
-msgid "NO DEVICE FOUND"
+msgid "INSTALL BEZELS"
 msgstr ""
 
-msgid "SELECT THEME"
+msgid "UNINSTALL BEZELS"
 msgstr ""
 
-msgid "EDIT METADATA"
-msgstr "メタ情報を編集"
-
-msgid "SAVE"
-msgstr "保存"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
+msgid "INSTALL THE BEZEL PROJECT"
 msgstr ""
 
-msgid "DELETE"
-msgstr "削除"
-
-msgid "SAVE CHANGES?"
-msgstr "変更を保存しますか？"
-
-msgid "Name"
-msgstr "名前"
-
-msgid "enter game name"
-msgstr "ゲームの名前を入力"
-
-msgid "Description"
-msgstr "概要"
-
-msgid "enter description"
-msgstr "概要を入力"
-
-msgid "Image"
-msgstr "画像"
-
-msgid "enter path to image"
-msgstr "画像のパスを入力"
-
-msgid "Path to video"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
 msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "サムネイル画像のパスを入力"
-
-msgid "Path to marquee"
+msgid "UNINSTALL THE BEZEL PROJECT"
 msgstr ""
 
-msgid "Thumbnail"
-msgstr "サムネイル画像"
+msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgstr ""
 
-msgid "Rating"
-msgstr "評価"
+msgid "FILTER GAMELIST BY"
+msgstr ""
+
+msgid "RESET ALL FILTERS"
+msgstr ""
+
+msgid "FIND GAMES"
+msgstr ""
+
+msgid "JUMP TO..."
+msgstr ""
+
+msgid "SORT GAMES BY"
+msgstr "ゲームのソート"
+
+msgid "OTHER FILTERS"
+msgstr ""
+
+msgid "GRID SIZE"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
+msgid "always"
+msgstr ""
 
 #, fuzzy
-msgid "enter rating"
-msgstr "評価を入力"
+msgid "never"
+msgstr "しない"
 
-msgid "Release date"
-msgstr "発売日"
-
-msgid "enter release date"
-msgstr "発売日を入力"
-
-msgid "Developer"
-msgstr "開発"
-
-msgid "enter game developer"
-msgstr "開発元を入力"
-
-msgid "Publisher"
-msgstr "販売"
-
-msgid "enter game publisher"
-msgstr "販売元を入力"
-
-msgid "Genre"
-msgstr "ジャンル"
-
-msgid "enter game genre"
-msgstr "ジャンルを入力"
-
-msgid "Players"
-msgstr "プレイヤー"
-
-msgid "enter number of players"
-msgstr "プレイヤー人数を入力"
-
-msgid "Favorite"
-msgstr "お気に入り"
-
-msgid "enter favorite"
-msgstr "お気に入りを入力"
-
-#, fuzzy
-msgid "Hidden"
-msgstr "隠す"
-
-#, fuzzy
-msgid "set hidden"
-msgstr "隠す"
-
-msgid "Kidgame"
+msgid "having multiple games"
 msgstr ""
 
-msgid "set kidgame"
+msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
 
-msgid "Play count"
-msgstr "プレイ回数"
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "このゲームのメタ情報を編集"
 
-msgid "enter number of times played"
-msgstr "プレイ回数を入力する"
-
-msgid "Last played"
-msgstr "最後にプレイした日時"
-
-msgid "enter last played date"
-msgstr "最後にプレイした日時を入力"
-
-msgid "Crc32 checksum"
+msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
-msgid "Md5 checksum"
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
-msgid "Game time"
+msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
-msgid "how long the game has been played in total (seconds)"
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "Arcade system"
+msgid "TARGET ARCHITECTURE"
 msgstr ""
 
-msgid "enter game arcade system"
+msgid "VALIDATION"
 msgstr ""
 
-msgid "name"
+msgid "YES, I'M SURE"
 msgstr ""
 
-msgid "description"
+msgid "INSTALL"
 msgstr ""
 
-msgid "image"
+msgid "NETWORK REQUIRED"
 msgstr ""
 
-msgid "thumbnail"
+msgid "up/down"
 msgstr ""
 
-msgid "enter path to video"
+msgid "CHANGE"
+msgstr "変更"
+
+msgid "accept"
 msgstr ""
 
-msgid "marquee"
+msgid "SELECT ALL"
+msgstr "すべて選択"
+
+msgid "select all"
 msgstr ""
 
-msgid "enter path to marquee"
-msgstr ""
+msgid "SELECT NONE"
+msgstr "選択解除"
 
-msgid "SCRAPING"
+msgid "select none"
 msgstr ""
-
-msgid "SEARCHING"
-msgstr ""
-
-msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-msgstr ""
-
-msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-msgstr ""
-
-msgid "DOWNLOADING"
-msgstr ""
-
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-
-msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-msgstr "KODIメディアセンターを開始しますか？"
 
 #, fuzzy, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i 個のゲームがあります"
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i 選択済み"
 
-msgid "KODI"
-msgstr ""
+msgid "MOVE CURSOR"
+msgstr "カーソル移動"
 
-msgid "NETPLAY"
-msgstr ""
+msgid "STOP EDITING"
+msgstr "編集を中止"
 
-msgid "RANDOM"
-msgstr ""
-
-msgid "FILES"
-msgstr ""
-
-msgid "Full"
-msgstr ""
-
-msgid "Kiosk"
-msgstr ""
-
-msgid "Kid"
-msgstr ""
-
-msgid "Released"
-msgstr "発売日"
-
-msgid "Times played"
-msgstr "回プレイ済み"
-
-msgid "No Entries Found"
-msgstr ""
-
-msgid "OPTIONS"
-msgstr "オプション"
-
-msgid "Favorites"
-msgstr ""
-
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr ""
-
-msgid "Preloading UI"
-msgstr ""
-
-msgid "MENU"
-msgstr "メニュー"
-
-msgid "FILENAME, ASCENDING"
-msgstr "ファイル名, 昇順"
-
-msgid "FILENAME, DESCENDING"
-msgstr "ファイル名, 降順"
-
-msgid "RATING, ASCENDING"
-msgstr "評価, 昇順"
-
-msgid "RATING, DESCENDING"
-msgstr "評価, 降順"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "プレイ回数, 昇順"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "プレイ回数, 降順"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "最終プレイ日時, 昇順"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "最終プレイ日時, 降順"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr ""
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr ""
-
-msgid "GENRE, ASCENDING"
-msgstr ""
-
-msgid "GENRE, DESCENDING"
-msgstr ""
-
-msgid "DEVELOPER, ASCENDING"
-msgstr ""
-
-msgid "DEVELOPER, DESCENDING"
-msgstr ""
-
-msgid "PUBLISHER, ASCENDING"
-msgstr ""
-
-msgid "PUBLISHER, DESCENDING"
-msgstr ""
-
-msgid "SYSTEM, ASCENDING"
-msgstr ""
-
-msgid "SYSTEM, DESCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
-
-msgid "FAVORITES"
-msgstr ""
-
-msgid "GENRE"
-msgstr "ジャンル"
-
-msgid "PLAYERS"
-msgstr ""
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr "評価"
-
-msgid "KIDGAME"
-msgstr ""
-
-msgid "HASHING GAMES"
-msgstr ""
-
-msgid "Searching"
-msgstr ""
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "ゲームが見つかりません - スキップ"
-
-msgid "AN ERROR HAS OCCURED"
-msgstr ""
-
-msgid "RETRY"
-msgstr "再試行"
-
-msgid "Downloading"
-msgstr ""
+msgid "EDIT"
+msgstr "編集"
 
 #, fuzzy
-msgid "ACCEPT RESULT"
-msgstr "了解"
+msgid "WORKING..."
+msgstr "処理中..."
 
-msgid "Loading system config..."
+msgid "Unknown"
 msgstr ""
 
-msgid "Done."
+msgid "RESET"
 msgstr ""
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
-
-msgid "SCANNING BLUETOOTH"
-msgstr ""
-
-msgid "Searching controllers..."
-msgstr ""
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
-
-msgid "UPDATE AVAILABLE"
-msgstr ""
-
-msgid "all games"
-msgstr ""
-
-msgid "last played"
-msgstr ""
-
-msgid "favorites"
-msgstr ""
-
-msgid "2 players"
-msgstr ""
-
-msgid "4 players"
-msgstr ""
-
-msgid "never played"
-msgstr ""
-
-msgid "arcade"
-msgstr ""
-
-msgid "collections"
-msgstr ""
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr ""
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr ""
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr ""
-
-msgid "This collection is empty."
-msgstr ""
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr ""
-
-msgid "Various"
-msgstr ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] ""
-
-#, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
-msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] ""
+msgid "DISCARD CHANGES"
+msgstr "変更を破棄する"
 
 msgid "UP"
 msgstr "上"
@@ -1589,25 +1634,6 @@ msgstr "何か押してください"
 msgid "ALREADY TAKEN"
 msgstr "既に設定されています"
 
-#, fuzzy
-msgid "SPACE"
-msgstr "空白"
-
-msgid "DELETE A CHAR"
-msgstr "文字を削除"
-
-msgid "RESET"
-msgstr ""
-
-msgid "DISCARD CHANGES"
-msgstr "変更を破棄する"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "大文字, 小文字, 特殊記号のための SHIFT"
-
-msgid "SHIFT"
-msgstr "SHIFT"
-
 msgid "WELCOME"
 msgstr "ようこそ"
 
@@ -1626,47 +1652,18 @@ msgstr "ゲームパッドが検出されませんでした"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 デバイスの設定をします。"
 
-msgid "Unknown"
-msgstr ""
-
-msgid "MOVE CURSOR"
-msgstr "カーソル移動"
-
-msgid "STOP EDITING"
-msgstr "編集を中止"
-
-msgid "EDIT"
-msgstr "編集"
-
-msgid "accept"
-msgstr ""
-
-msgid "SELECT ALL"
-msgstr "すべて選択"
-
-msgid "select all"
-msgstr ""
-
-msgid "SELECT NONE"
-msgstr "選択解除"
-
-msgid "select none"
-msgstr ""
-
-#, fuzzy, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i 選択済み"
-
-msgid "CHANGE"
-msgstr "変更"
-
 #, fuzzy
-msgid "WORKING..."
-msgstr "処理中..."
+msgid "SPACE"
+msgstr "空白"
 
-msgid "up/down"
-msgstr ""
+msgid "DELETE A CHAR"
+msgstr "文字を削除"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "大文字, 小文字, 特殊記号のための SHIFT"
+
+msgid "SHIFT"
+msgstr "SHIFT"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "コントローラーがペアリングされました"
