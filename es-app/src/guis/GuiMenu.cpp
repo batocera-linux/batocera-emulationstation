@@ -44,6 +44,7 @@
 #include "ThreadedHasher.h"
 #include "ThreadedBluetooth.h"
 #include "views/gamelist/IGameListView.h"
+#include "components/MultiLineMenuEntry.h"
 
 #define fake_gettext_fade _("fade")
 #define fake_gettext_slide _("slide")

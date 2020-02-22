@@ -142,6 +142,7 @@ public:
 	SystemData* getParentGroupSystem();
 
 	static std::unordered_set<std::string> getAllGroupNames();
+	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string groupName);
 
 private:
 	static void createGroupedSystems();
