@@ -443,8 +443,8 @@ bool ApiSystem::ping()
 	return connected;
 #endif
 
-	std::string updateserver = "github.com"; // a pingable web url
-	std::string s("timeout 1 fping -c 1 -t 1000 " + updateserver);
+	std::string updateserver = "google.com"; // a pingable web url
+	std::string s("timeout 1 ping -c 1 -t 1000 " + updateserver);
 	int exitcode = system(s.c_str());
 	return exitcode == 0;
 }
