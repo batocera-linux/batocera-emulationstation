@@ -64,8 +64,10 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 			mList.add(". .", placeholder, true);
 		}
 
-		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
-		bool showFavoriteIcon = (systemName != "favorites");
+		std::string systemShortName = mRoot->getSystem()->getName();
+
+		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst") && systemShortName != "recent";
+		bool showFavoriteIcon = (systemName != "favorites" && systemShortName != "recent");		
 		if (!showFavoriteIcon)
 			favoritesFirst = false;
 
