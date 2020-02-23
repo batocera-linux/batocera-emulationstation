@@ -228,7 +228,7 @@ msgid "SCRAPING"
 msgstr "A PROCURAR"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "FALHA NA PROCURA"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -808,7 +808,7 @@ msgid "PORT"
 msgstr "PORTA"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
 
 msgid "GAME INDEXES"
 msgstr "ÍNDICE DO JOGO"
@@ -1274,7 +1274,7 @@ msgid "VALIDATE"
 msgstr "VALIDAR"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "SISTEMAS EM GRUPO"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA PARA O TEMA"
