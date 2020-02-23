@@ -195,13 +195,13 @@ msgid "Favorites"
 msgstr "Favoris"
 
 msgid "Full"
-msgstr ""
+msgstr "Complet"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Kiosque"
 
 msgid "Kid"
-msgstr ""
+msgstr "Enfant"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
@@ -225,11 +225,11 @@ msgid "SCRAPING"
 msgstr "SCRAPE"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "ECHEC DU SCRAPE"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
-"SCRAPE TERMINÉ : METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
+"SCRAPE TERMINÉ. METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
 "MODIFICATIONS"
 
 msgid "Name"
@@ -419,7 +419,7 @@ msgid "HASHING GAMES"
 msgstr "INDEXATION DES JEUX"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "UN HASH DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
+msgstr "L'INDEXATION DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND"
@@ -503,13 +503,13 @@ msgid "NO GAME FOUND"
 msgstr "PAS DE JEU TROUVÉ"
 
 msgid "fade"
-msgstr ""
+msgstr "fondu"
 
 msgid "slide"
-msgstr ""
+msgstr "glissement"
 
 msgid "instant"
-msgstr ""
+msgstr "instantané"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -806,7 +806,7 @@ msgid "PORT"
 msgstr "PORT"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "UTILISER UN SERVEUR RELAIS"
 
 msgid "GAME INDEXES"
 msgstr "INDEXATION DES JEUX"
@@ -977,13 +977,13 @@ msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "OPTIONS DES LISTES DE JEUX DU THÈME"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPTIONS DU THÈME"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "OUTILS"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RAZ PERSONNALISATION DES LISTES DE JEUX"
@@ -1050,7 +1050,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME GÉNÉRAL"
@@ -1077,7 +1077,7 @@ msgid "PLAY THEME MUSICS"
 msgstr "JOUER LES MUSIQUES DU THÈME"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "BAISSER LA MUSIQUE SI UNE VIDÉO EST EN COURS"
 
 msgid "SOUNDS"
 msgstr "SONS"
@@ -1274,7 +1274,7 @@ msgid "VALIDATE"
 msgstr "VALIDER"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "SYSTÈMES GROUPÉS"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRÉER UNE COLLECTION DEPUIS UN THÈME"
@@ -1490,7 +1490,7 @@ msgid "never"
 msgstr "jamais"
 
 msgid "having multiple games"
-msgstr "avec multiple jeux"
+msgstr "avec jeux multiples"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
