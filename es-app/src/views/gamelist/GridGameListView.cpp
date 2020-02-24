@@ -244,8 +244,22 @@ const bool GridGameListView::isVirtualFolder(FileData* file)
 
 void GridGameListView::populateList(const std::vector<FileData*>& files)
 {
-	mGrid.clear();
-	mHeaderText.setText(mRoot->getSystem()->getFullName());
+	SystemData* system = mCursorStack.size() && mRoot->getSystem()->isGroupSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+
+	auto groupTheme = system->getTheme();
+	if (groupTheme)
+	{
+		const ThemeData::ThemeElement* logoElem = groupTheme->getElement("system", "logo", "image");
+		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
+			mHeaderImage.setImage(logoElem->get<std::string>("path"));
+	}
+
+	mHeaderText.setText(system->getFullName());
+
+	mGrid.resetLastCursor();
+	mGrid.clear(); 
+	mGrid.resetLastCursor();
+
 	if (files.size() > 0)
 	{
 		if (mCursorStack.size())
@@ -283,18 +297,18 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 							break;
 						}
 					}
-				}
+				}				
 			}
-			
+
+
 			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
 			mGrid.add(". .", imagePath, "", "", false, true, displayAsVirtualFolder && !imagePath.empty(), placeholder);
 		}
 
-		std::string systemName = mRoot->getSystem()->getFullName();
-		std::string systemShortName = mRoot->getSystem()->getName();
+		std::string systemName = mRoot->getSystem()->getName();
 
-		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst") && systemShortName != "recent";
-		bool showFavoriteIcon = (systemName != "favorites" && systemShortName != "recent");
+		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
+		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
 		if (!showFavoriteIcon)
 			favoritesFirst = false;
 
@@ -326,6 +340,10 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 			else
 				mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
 		}
+
+		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
+		if (mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)
+			mGrid.setCursorIndex(1);
 	}
 	else
 		addPlaceholder();
