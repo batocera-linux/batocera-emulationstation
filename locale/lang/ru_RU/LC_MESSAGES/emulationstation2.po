@@ -50,7 +50,7 @@ msgid "SKIP"
 msgstr "ПРОПУСТИТЬ"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Загрузка"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -71,10 +71,10 @@ msgid "4 players"
 msgstr "4 игрока"
 
 msgid "never played"
-msgstr "не запускался"
+msgstr "не играл"
 
 msgid "arcade"
-msgstr ""
+msgstr "аркада"
 
 msgid "collections"
 msgstr "коллекции"
@@ -172,7 +172,7 @@ msgid "Game time"
 msgstr "Время игры"
 
 msgid "No Entries Found"
-msgstr "Записей не найдено"
+msgstr "Игр не найдено"
 
 msgid "SYSTEM"
 msgstr "СИСТЕМА"
@@ -199,13 +199,13 @@ msgid "Favorites"
 msgstr "Избранное"
 
 msgid "Full"
-msgstr ""
+msgstr "Полный"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Киоск"
 
 msgid "Kid"
-msgstr ""
+msgstr "Детский"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
@@ -230,7 +230,7 @@ msgid "SCRAPING"
 msgstr "SCRAPING"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
@@ -323,10 +323,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "как долго играли в игру (в секундах)"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Аркадная система"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "войти в игровую систему"
 
 msgid "name"
 msgstr "название"
@@ -506,13 +506,13 @@ msgid "NO GAME FOUND"
 msgstr "ИГР НЕ НАЙДЕНО"
 
 msgid "fade"
-msgstr ""
+msgstr "затухание"
 
 msgid "slide"
-msgstr ""
+msgstr "слайд"
 
 msgid "instant"
-msgstr ""
+msgstr "мгновенно"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -563,13 +563,13 @@ msgid "SCREENSHOT"
 msgstr "СКРИНШОТ"
 
 msgid "TITLE SCREENSHOT"
-msgstr "СКРИНШОТ ГЛ. МЕНЮ"
+msgstr "СКРИНШОТ ГЛАВНОГО МЕНЮ"
 
 msgid "MIX V1"
 msgstr "МИКС V1"
 
 msgid "MIX V2"
-msgstr "MIX V2"
+msgstr "МИКС V2"
 
 msgid "BOX 2D"
 msgstr "ОБЛОЖКИ 2D"
@@ -692,7 +692,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
 
 msgid "DOWNLOADS"
-msgstr ""
+msgstr "ЗАГРУЗКИ"
 
 msgid "THEMES"
 msgstr "ТЕМЫ"
@@ -701,7 +701,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "НАБОР РАМКОК (ОВЕРЛЕЕВ)"
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "ПРОГРАММНОЕ ОБНОВЛЕНИЕ"
 
 msgid "AUTO UPDATES"
 msgstr "АВТООБНОВЛЕНИЯ"
@@ -734,7 +734,7 @@ msgid "START KODI WITH X"
 msgstr "ЗАПУСК KODI КНОПКОЙ X"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
@@ -752,7 +752,7 @@ msgid "OVERCLOCK"
 msgstr "РАЗГОН"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "МЕСТО ХРАНЕНИЯ"
 
 msgid "STORAGE DEVICE"
 msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
@@ -797,7 +797,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "НАСТРОЙКИ NETPLAY"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ"
 
 msgid "ENABLE NETPLAY"
 msgstr "ВКЛЮЧИТЬ NETPLAY"
@@ -809,22 +809,22 @@ msgid "PORT"
 msgstr "ПОРТ"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
 msgid "GAME INDEXES"
-msgstr ""
+msgstr "ИНДЕКСЫ ИГРЫ"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
+msgstr "ПРОВЕРИТЬ ОТСУТ. ИНДЕКСЫ ПРИ СТАРТЕ"
 
 msgid "REINDEX ALL GAMES"
 msgstr "ПЕРЕИНДЕКСАЦИЯ ВСЕХ ИГР"
 
 msgid "INDEX MISSING GAMES"
-msgstr "ИНДЕКСАЦИЯ ПРОПУЩЕННЫХ ИГР"
+msgstr "ИНДЕКСАЦИЯ ОТСУТСТВУЮЩИХ ИГР"
 
 msgid "DEFAULT SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ПО УМОЛЧАНИЮ"
 
 msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
@@ -878,7 +878,7 @@ msgid "SERVICE URL"
 msgstr "СЕРВИС URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -899,16 +899,16 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "MISSING BIOS"
-msgstr "НЕДОСТАЮЩИЙ BIOS"
+msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
 msgid "NO MISSING BIOS"
-msgstr "НЕТ НЕДОСТАЮЩЕГО BIOS"
+msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
 
 msgid "MISSING"
-msgstr ""
+msgstr "ОТСУТСТВУЕТ"
 
 msgid "INVALID"
-msgstr ""
+msgstr "НЕВЕРНЫЙ"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
@@ -979,19 +979,19 @@ msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr ""
+msgstr "НАСТРОЙКИ ТЕМЫ СПИСКА ИГР"
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "НАСТРОЙКИ ТЕМЫ"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "ИНСТРУМЕНТЫ"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "СБРОСИТЬ НАСТРОЙКИ СПИСКА ИГР"
 
 msgid "APPEARENCE"
-msgstr ""
+msgstr "ВНЕШНИЙ ВИД"
 
 msgid "THEME SET"
 msgstr "ТЕМА"
@@ -1016,7 +1016,7 @@ msgid "Do you want to proceed ?"
 msgstr "Вы хотите продолжить?"
 
 msgid "STARTUP SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ЗАПУСКА"
 
 msgid "START ON SYSTEM"
 msgstr "СИСТЕМА ПО УМОЛЧАНИЮ"
@@ -1028,7 +1028,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "ОТОБРАЖЕНИЕ СИСТЕМ"
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
@@ -1052,7 +1052,7 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
 msgid "VOLUME"
-msgstr ""
+msgstr "ГРОМКОСТЬ"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -1061,7 +1061,7 @@ msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ ПРИ ИЗМ. ГРОМКОСТИ"
 
 msgid "MUSIC"
-msgstr ""
+msgstr "МУЗЫКА"
 
 msgid "FRONTEND MUSIC"
 msgstr "МУЗЫКА В МЕНЮ"
@@ -1079,10 +1079,10 @@ msgid "PLAY THEME MUSICS"
 msgstr "МУЗЫКА ИЗ ТЕМЫ"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "УМЕНЬШИТЬ ГР. МУЗЫКИ ПРИ ВОСПР. ВИДЕО"
 
 msgid "SOUNDS"
-msgstr ""
+msgstr "ЗВУКИ"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
@@ -1278,7 +1278,7 @@ msgid "VALIDATE"
 msgstr "ПОДТВЕРДИТЬ"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "СГРУППИРОВАННЫЕ СИСТЕМЫ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
@@ -1308,7 +1308,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "АРКАДНЫЕ СИСТЕМЫ"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "АВТО-КОЛЛЕКЦИИ ИГР"
@@ -1571,7 +1571,7 @@ msgid "WORKING..."
 msgstr "ОБРАБОТКА..."
 
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 msgid "RESET"
 msgstr "СБРОС"
