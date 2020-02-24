@@ -326,7 +326,10 @@ void updateGamelist(SystemData* system)
 			dirtyFiles.push_back(file);
 
 	if (dirtyFiles.size() == 0)
+	{
+		clearTemporaryGamelistRecovery(system);
 		return;
+	}
 
 	int numUpdated = 0;
 
@@ -400,4 +403,6 @@ void updateGamelist(SystemData* system)
 		else
 			clearTemporaryGamelistRecovery(system);
 	}
+	else
+		clearTemporaryGamelistRecovery(system);
 }
