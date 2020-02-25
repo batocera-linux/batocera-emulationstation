@@ -223,7 +223,7 @@ msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "게임 아트워크 수집 실패"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -804,7 +804,7 @@ msgid "PORT"
 msgstr "포트"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "릴레이 서버 사용"
 
 msgid "GAME INDEXES"
 msgstr "게임 인덱스"
@@ -1267,7 +1267,7 @@ msgid "VALIDATE"
 msgstr "승인"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "그룹화된 시스템"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "테마에서 새 커스텀 컬렉션 만들기"
