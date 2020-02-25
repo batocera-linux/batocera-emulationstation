@@ -16,6 +16,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include <fstream>
 #include "Gamelist.h"
+#include "FileSorts.h"
 
 std::string myCollectionsName = "collections";
 
@@ -333,12 +334,29 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 
 		if (name == "recent")
 		{
+			sortLastPlayed(curSys);
 			trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
 			ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
 		}
 		else 
 			ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
 	}
+}
+
+void CollectionSystemManager::sortLastPlayed(SystemData* system)
+{
+	if (system->getName() != "recent")
+		return;
+
+	FolderData* rootFolder = system->getRootFolder();
+	system->setSortId(FileSorts::LASTPLAYED_DESCENDING);
+
+	const FileSorts::SortType& sort = FileSorts::getSortTypes().at(system->getSortId());
+
+	std::vector<FileData*>& childs = (std::vector<FileData*>&) rootFolder->getChildren();
+	std::sort(childs.begin(), childs.end(), sort.comparisonFunction);
+	if (!sort.ascending)
+		std::reverse(childs.begin(), childs.end());
 }
 
 void CollectionSystemManager::trimCollectionCount(FolderData* rootFolder, int limit)
@@ -920,7 +938,10 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	}
 
 	if (sysDecl.type == AUTO_LAST_PLAYED)
+	{
+		sortLastPlayed(newSys);
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
+	}
 
 	sysData->isPopulated = true;
 }

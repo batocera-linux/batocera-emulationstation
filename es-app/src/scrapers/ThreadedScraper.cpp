@@ -53,10 +53,23 @@ void ThreadedScraper::search(const ScraperSearchParams& params)
 	std::string idx = std::to_string(mTotal + 1 - mSearchQueue.size()) + "/" + std::to_string(mTotal);
 
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING") + "... " + idx);
-	mWndNotification->updateText(gameName, _("SEARCHING")+"...");
+	mWndNotification->updateText(gameName, _("Searching")+"...");
 	mWndNotification->updatePercent(-1);
 
 	LOG(LogDebug) << "ThreadedScraper::search <<";
+}
+
+void ThreadedScraper::processError(int status, const std::string statusString)
+{
+	if (status == HttpReq::REQ_430_TOOMANYSCRAPS || status == HttpReq::REQ_430_TOOMANYFAILURES || 
+		status == HttpReq::REQ_426_BLACKLISTED || status == HttpReq::REQ_FILESTREAM_ERROR || status == HttpReq::REQ_426_SERVERMAINTENANCE ||
+		status == HttpReq::REQ_403_BADLOGIN || status == HttpReq::REQ_401_FORBIDDEN)
+	{
+		mExit = true;
+		mWindow->postToUiThread([statusString](Window* w) { w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED") + " : " + statusString)); });
+	}
+	else
+		mErrors.push_back(statusString);
 }
 
 void ThreadedScraper::run()
@@ -94,38 +107,7 @@ void ThreadedScraper::run()
 				}
 			}
 			else if (status == ASYNC_ERROR)
-			{
-				if (httpCode > 900) // Custom errors
-				{
-					mExit = true;
-					mWindow->postToUiThread([statusString](Window* w)
-					{
-						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED") + " : " + statusString));
-					});
-					break;
-				}
-				else
-				if (httpCode == 426) // Blacklist
-				{
-					mExit = true;
-					mWindow->postToUiThread([](Window* w)
-					{
-						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED")));
-					});
-					break;
-				}
-				else if (httpCode == 400) // Too many scraps
-				{
-					mExit = true;
-					mWindow->postToUiThread([](Window* w)
-					{
-						w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED : SCRAP LIMIT REACHED TODAY")));
-					});
-					break;
-				}
-				else
-					mErrors.push_back(statusString);
-			}
+				processError(httpCode, statusString);				
 		}
 
 		if (mMDResolveHandle && mMDResolveHandle->status() != ASYNC_IN_PROGRESS)
@@ -133,6 +115,7 @@ void ThreadedScraper::run()
 			auto status = mMDResolveHandle->status();
 			auto result = mMDResolveHandle->getResult();
 			auto statusString = mMDResolveHandle->getStatusString();
+			auto httpCode = mMDResolveHandle->getErrorCode();
 
 			LOG(LogDebug) << "ThreadedScraper::ResolveResponse : " << statusString;
 
@@ -142,7 +125,7 @@ void ThreadedScraper::run()
 			if (status == ASYNC_DONE)
 				acceptResult(result);
 			else if (status == ASYNC_ERROR)
-				mErrors.push_back(statusString);
+				processError(httpCode, statusString);
 		}
 
 		if (mMDResolveHandle && mMDResolveHandle->status() == ASYNC_IN_PROGRESS)
@@ -151,7 +134,7 @@ void ThreadedScraper::run()
 			if (action != mCurrentAction)
 			{
 				mCurrentAction = action;
-				mWndNotification->updateText(formatGameName(mLastSearch.game), _("DOWNLOADING") + " " + mCurrentAction);
+				mWndNotification->updateText(formatGameName(mLastSearch.game), _("Downloading") + " " + mCurrentAction);
 			}
 
 			mWndNotification->updatePercent(mMDResolveHandle->getPercent());

@@ -106,7 +106,7 @@ public:
 class InputConfig
 {
 public:
-	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbAxes); // batocera
+	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes); // batocera
 
 	void clear();
 	void mapInput(const std::string& name, Input input);
@@ -117,6 +117,8 @@ public:
 	inline int getDeviceIndex() const { return mDeviceIndex; }; // batocera
 	inline const std::string& getDeviceName() { return mDeviceName; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
+	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; // batocera
+	inline int getDeviceNbHats() const { return mDeviceNbHats; }; // batocera
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; // batocera
 
 	//Returns true if Input is mapped to this name, false otherwise.
@@ -141,7 +143,9 @@ private:
 	const int mDeviceIndex; // batocera
 	const std::string mDeviceName;
 	const std::string mDeviceGUID;
-	const int mDeviceNbAxes; // number of axes of the device // batocera
+	const int mDeviceNbButtons; // number of buttons of the device // batocera
+	const int mDeviceNbHats;    // number of hats    of the device // batocera
+	const int mDeviceNbAxes;    // number of axes    of the device // batocera
 };
 
 #endif // ES_CORE_INPUT_CONFIG_H

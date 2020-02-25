@@ -74,6 +74,7 @@ struct ScraperSearchResult
 
 
 // a scraper search gathers results from (potentially multiple) ScraperRequests
+
 class ScraperRequest : public AsyncHandle
 {
 public:
@@ -86,19 +87,20 @@ protected:
 	std::vector<ScraperSearchResult>& mResults;
 };
 
-
 // a single HTTP request that needs to be processed to get the results
 class ScraperHttpRequest : public ScraperRequest
 {
 public:
 	ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url);
+	~ScraperHttpRequest();
+
 	virtual void update() override;
 
 protected:
-	virtual bool process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results) = 0;
+	virtual bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) = 0;
 
 private:
-	std::unique_ptr<HttpReq> mReq;
+	HttpReq* mRequest;
 	int	mRetryCount;
 };
 
@@ -193,13 +195,16 @@ class ImageDownloadHandle : public AsyncHandle
 {
 public:
 	ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight);
+	~ImageDownloadHandle();
 
 	void update() override;
 
 	virtual int getPercent();
 
 private:
-	std::unique_ptr<HttpReq> mReq;
+	HttpReq* mRequest;
+	int	mRetryCount;
+
 	std::string mSavePath;
 	int mMaxWidth;
 	int mMaxHeight;

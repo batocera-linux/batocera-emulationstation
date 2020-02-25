@@ -326,7 +326,10 @@ void updateGamelist(SystemData* system)
 			dirtyFiles.push_back(file);
 
 	if (dirtyFiles.size() == 0)
+	{
+		clearTemporaryGamelistRecovery(system);
 		return;
+	}
 
 	int numUpdated = 0;
 
@@ -338,18 +341,14 @@ void updateGamelist(SystemData* system)
 	{
 		//parse an existing file first
 		pugi::xml_parse_result result = doc.load_file(xmlReadPath.c_str());
-
 		if(!result)
-		{
 			LOG(LogError) << "Error parsing XML file \"" << xmlReadPath << "\"!\n	" << result.description();
-			return;
-		}
 
 		root = doc.child("gameList");
 		if(!root)
 		{
 			LOG(LogError) << "Could not find <gameList> node in gamelist \"" << xmlReadPath << "\"!";
-			return;
+			root = doc.append_child("gameList");
 		}
 	}
 	else //set up an empty gamelist to append to		
@@ -404,4 +403,6 @@ void updateGamelist(SystemData* system)
 		else
 			clearTemporaryGamelistRecovery(system);
 	}
+	else
+		clearTemporaryGamelistRecovery(system);
 }

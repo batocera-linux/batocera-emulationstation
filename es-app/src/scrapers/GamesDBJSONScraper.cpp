@@ -356,12 +356,12 @@ void processGame(const Value& game, const Value& boxart, std::vector<ScraperSear
 } // namespace
 
   // Process should return false only when we reached a maximum scrap by minute, to retry
-bool TheGamesDBJSONRequest::process(const std::unique_ptr<HttpReq>& req, std::vector<ScraperSearchResult>& results)
+bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
 {
-	assert(req->status() == HttpReq::REQ_SUCCESS);
+	assert(request->status() == HttpReq::REQ_SUCCESS);
 
 	Document doc;
-	doc.Parse(req->getContent().c_str());
+	doc.Parse(request->getContent().c_str());
 
 	if (doc.HasParseError())
 	{

@@ -20,6 +20,38 @@ GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window)
 
 void GuiCollectionSystemsOptions::initializeMenu()
 {
+	auto groupNames = SystemData::getAllGroupNames();
+	if (groupNames.size() > 0)
+	{
+		auto ungroupedSystems = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GROUPED SYSTEMS"), true);
+		for (auto groupName : groupNames)
+		{
+			std::string description;
+			for (auto zz : SystemData::getGroupChildSystemNames(groupName))
+			{
+				if (!description.empty())
+					description += ", ";
+
+				description += zz;
+			}
+
+			ungroupedSystems->addEx(groupName, description, groupName, !Settings::getInstance()->getBool(groupName + ".ungroup"));
+		}
+
+		addWithLabel(_("GROUPED SYSTEMS"), ungroupedSystems);
+
+		addSaveFunc([this, ungroupedSystems, groupNames]
+		{
+			std::vector<std::string> checkedItems = ungroupedSystems->getSelectedObjects();
+			for (auto groupName : groupNames)
+			{
+				bool isGroupActive = std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) != checkedItems.cend();
+				if (Settings::getInstance()->setBool(groupName + ".ungroup", !isGroupActive))
+					setVariable("reloadSystems", true);
+			}
+		});
+	}
+
 	// get collections
 	addSystemsToMenu();
 
@@ -95,6 +127,9 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			setVariable("reloadAll", true);
 	});
 
+
+	
+
 	if(CollectionSystemManager::get()->isEditing())
 		addEntry((_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection())).c_str(), false, std::bind(&GuiCollectionSystemsOptions::exitEditMode, this));
 	
@@ -112,7 +147,31 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	onFinalize([this]
 	{
-		if (getVariable("reloadAll"))
+		if (getVariable("reloadSystems"))
+		{
+			Window* window = mWindow;
+			window->renderLoadingScreen(_("Loading..."));
+
+			ViewController::get()->goToStart();
+			delete ViewController::get();
+			ViewController::init(window);
+			CollectionSystemManager::deinit();
+			CollectionSystemManager::init(window);
+			SystemData::loadConfig(window);
+
+			GuiComponent* gui;
+			while ((gui = window->peekGui()) != NULL) 
+			{
+				window->removeGui(gui);
+				if (gui != this)
+					delete gui;
+			}
+			ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
+			window->endRenderLoadingScreen();
+
+			window->pushGui(ViewController::get());
+		}
+		else if (getVariable("reloadAll"))
 		{			
 			Settings::getInstance()->saveFile();
 

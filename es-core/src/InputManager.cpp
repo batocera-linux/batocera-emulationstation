@@ -65,13 +65,13 @@ void InputManager::init()
         this->addAllJoysticks();
 	computeLastKnownPlayersDeviceIndexes();
 
-	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0); // batocera
+	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); // batocera
 	loadInputConfig(mKeyboardInputConfig);
 
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
 	SDL_USER_CECBUTTONUP   = SDL_USER_CECBUTTONDOWN + 1;
 	CECInput::init();
-	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0); // batocera
+	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0, 0, 0); // batocera
 	loadInputConfig(mCECInputConfig);
 }
 
@@ -91,7 +91,7 @@ void InputManager::addJoystickByDeviceIndex(int id)
 	SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 65);
 
 	// create the InputConfig
-	mInputConfigs[joyId] = new InputConfig(joyId, id, SDL_JoystickName(joy), guid, SDL_JoystickNumAxes(joy)); // batocera
+	mInputConfigs[joyId] = new InputConfig(joyId, id, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy)); // batocera
 	if(!loadInputConfig(mInputConfigs[joyId]))
 	{
 		LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << id << ").";
@@ -708,9 +708,17 @@ std::string InputManager::configureEmulators() {
     InputConfig * playerInputConfig = playerJoysticks[player];
     if(playerInputConfig != NULL){
 #ifdef _ENABLEEMUELEC
-      command << "-p" << player+1 << "index " <<  playerInputConfig->getDeviceIndex() << " -p" << player+1 << "guid " << playerInputConfig->getDeviceGUIDString() << " ";
+      command << "-p" << player+1 << "index "      <<  playerInputConfig->getDeviceIndex();
+      command << " -p" << player+1 << "guid "       << playerInputConfig->getDeviceGUIDString();
+      command << " ";
 #else
-      command << "-p" << player+1 << "index " <<  playerInputConfig->getDeviceIndex() << " -p" << player+1 << "guid " << playerInputConfig->getDeviceGUIDString() << " -p" << player+1 << "name \"" <<  playerInputConfig->getDeviceName() << "\" -p" << player+1 << "nbaxes " << playerInputConfig->getDeviceNbAxes() << " ";
+      command <<  "-p" << player+1 << "index "      <<  playerInputConfig->getDeviceIndex();
+      command << " -p" << player+1 << "guid "       << playerInputConfig->getDeviceGUIDString();
+      command << " -p" << player+1 << "name \""     <<  playerInputConfig->getDeviceName() << "\"";
+      command << " -p" << player+1 << "nbbuttons "  << playerInputConfig->getDeviceNbButtons();
+      command << " -p" << player+1 << "nbhats "     << playerInputConfig->getDeviceNbHats();
+      command << " -p" << player+1 << "nbaxes "     << playerInputConfig->getDeviceNbAxes();
+      command << " ";
 #endif
     }
   }

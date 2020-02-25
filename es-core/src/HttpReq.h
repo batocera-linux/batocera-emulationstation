@@ -27,22 +27,27 @@
 class HttpReq
 {
 public:
-	HttpReq(const std::string& url, bool useFileStream = true);
-
+	HttpReq(const std::string& url, const std::string outputFilename = "");
 	~HttpReq();
 
 	enum Status
 	{
-		REQ_IN_PROGRESS,		//request is in progress
-		REQ_SUCCESS,			//request completed successfully, get it with getContent()
+		REQ_IN_PROGRESS = 0,
+		REQ_IO_ERROR	= 3,				
+		REQ_FILESTREAM_ERROR = 4,		
 
-		REQ_IO_ERROR,			//some error happened, get it with getErrorMsg()
-		REQ_400_TOOMANYSCRAPS,	//HTTP response status code 400 happened
-		REQ_404_NOTFOUND,		//HTTP response status code 404 happened
-		REQ_426_BLACKLISTED,		//HTTP response status code 426 happened
-		REQ_429_TOOMANYREQUESTS,	//HTTP response status code 429 happened
-		REQ_INVALID_RESPONSE,	//the HTTP response was invalid
-		REQ_FILESTREAM_ERROR			//some error happened, get it with getErrorMsg()
+		REQ_SUCCESS = 200,
+		REQ_400_BADREQUEST = 400,
+		REQ_401_FORBIDDEN = 401,
+		REQ_403_BADLOGIN = 403,
+		REQ_404_NOTFOUND = 404,
+		
+		REQ_426_SERVERMAINTENANCE = 423,
+		REQ_426_BLACKLISTED = 426,
+		REQ_429_TOOMANYREQUESTS = 429,
+
+		REQ_430_TOOMANYSCRAPS = 430,
+		REQ_430_TOOMANYFAILURES = 431
 	};
 
 	Status status(); //process any received data and return the status afterwards
@@ -51,8 +56,7 @@ public:
 
 	std::string getContent(); // mStatus must be REQ_SUCCESS
 
-
-	int saveContent(const std::string filename, bool checkMedia = false);
+	// int saveContent(const std::string filename, bool checkMedia = false);
 
 	static std::string urlEncode(const std::string &s);
 	static bool isUrl(const std::string& s);
@@ -61,6 +65,7 @@ public:
 	int getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
+	bool wait();
 
 private:
 	void closeStream();
@@ -80,11 +85,12 @@ private:
 
 	Status mStatus;
 
-	bool mUseFileStream;
-
+	// string steam mode
 	std::stringstream mContent;
 
-	std::string   mStreamPath;
+	// file stream mode
+	std::string   mFilePath;
+	std::string   mTempStreamPath;
 	std::ofstream mStream;
 
 	std::string mErrorMsg;

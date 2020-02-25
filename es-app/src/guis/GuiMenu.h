@@ -70,7 +70,7 @@ private:
 	void openSystemSettings_batocera();
 	void openGamesSettings_batocera();
 	void openControllersSettings_batocera();		
-	void openNetworkSettings_batocera();
+	void openNetworkSettings_batocera(bool selectWifiEnable = false);
 	void openScraperSettings_batocera();
 	void openQuitMenu_batocera();
 	void openSystemInformations_batocera();

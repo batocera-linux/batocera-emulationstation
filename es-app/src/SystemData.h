@@ -10,6 +10,7 @@
 #include <map>
 #include <pugixml/src/pugixml.hpp>
 #include <unordered_map>
+#include <unordered_set>
 #include "FileFilterIndex.h"
 #include "math/Vector2f.h"
 
@@ -87,7 +88,7 @@ public:
 	inline bool isGameSystem() { return mIsGameSystem; };
 
 	inline bool isGroupSystem() { return mIsGroupSystem; };	
-	inline bool isGroupChildSystem() { return mEnvData != nullptr && !mEnvData->mGroup.empty(); }
+	bool isGroupChildSystem();
 
 	bool isVisible();
 	
@@ -139,7 +140,10 @@ public:
 	static bool isNetplayActivated();
 
 	SystemData* getParentGroupSystem();
-	
+
+	static std::unordered_set<std::string> getAllGroupNames();
+	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string groupName);
+
 private:
 	static void createGroupedSystems();
 

@@ -92,6 +92,8 @@ public:
 
 	std::shared_ptr<GridTileComponent> getSelectedTile();
 	
+	void resetLastCursor() { mLastCursor = -1; }
+
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;	
 	virtual void onScroll(int /*amt*/) { if (!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
