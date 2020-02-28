@@ -180,6 +180,8 @@ bool Window::init()
 
 	if (mVolumeInfo == nullptr)
 		mVolumeInfo = std::make_shared<VolumeInfoComponent>(this);
+	else
+		mVolumeInfo->reset();
 
 	// update our help because font sizes probably changed
 	if (peekGui())
@@ -514,7 +516,7 @@ void Window::render()
 	for (auto extra : mScreenExtras)
 		extra->render(transform);
 
-	if (mVolumeInfo)
+	if (mVolumeInfo && Settings::getInstance()->getBool("VolumePopup"))
 		mVolumeInfo->render(transform);
 
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
