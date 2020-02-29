@@ -17,6 +17,8 @@ public:
 	void render(const Transform4x4f& parentTrans) override;
 	void update(int deltaTime) override;
 
+	void reset() { mVolume = -1; }
+
 private:
 	NinePatchComponent* mFrame;
 	TextComponent*		mLabel;
