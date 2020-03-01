@@ -627,10 +627,17 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key)
 	Utils::String::replace(ssid, "\"", "\\\"");
 	Utils::String::replace(key, "\"", "\\\"");
 
+#ifdef _ENABLEEMUELEC
 	oss << "batocera-config" << " "
 		<< "wifi" << " "
 		<< "enable" << " \""
 		<< ssid << "\" \"" << key << "\"";
+#else
+	oss << "batocera-wifi" << " "
+		<< "enable" << " \""
+		<< ssid << "\" \"" << key << "\"";
+#endif
+
 	std::string command = oss.str();
 	LOG(LogInfo) << "Launching " << command;
 	if (system(command.c_str()) == 0) {
@@ -646,11 +653,15 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key)
 bool ApiSystem::disableWifi() 
 {
 	LOG(LogDebug) << "ApiSystem::disableWifi";
-
 	std::ostringstream oss;
+#ifdef _ENABLEEMUELEC
 	oss << "batocera-config" << " "
 		<< "wifi" << " "
 		<< "disable";
+#else
+	oss << "batocera-wifi" << " "
+		<< "disable";
+#endif
 	std::string command = oss.str();
 	LOG(LogInfo) << "Launching " << command;
 	if (system(command.c_str()) == 0) {

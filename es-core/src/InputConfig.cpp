@@ -116,6 +116,19 @@ bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversed
 
 bool InputConfig::isMappedLike(const std::string& name, Input input) // batocera
 {
+
+#ifdef _ENABLEEMUELEC
+if(name == "left")
+	{
+		return isMappedTo("left", input) || isMappedTo("leftanalogleft", input) || isMappedTo("rightanalogleft", input);
+	}else if(name == "right"){
+		return isMappedTo("right", input) || isMappedTo("leftanalogright", input) || isMappedTo("rightanalogright", input);
+	}else if(name == "up"){
+		return isMappedTo("up", input) || isMappedTo("leftanalogup", input) || isMappedTo("rightanalogup", input);
+	}else if(name == "down"){
+		return isMappedTo("down", input) || isMappedTo("leftanalogdown", input) || isMappedTo("rightanalogdown", input);
+	}
+#else
 	if(name == "left")
 	{
 	  return isMappedTo("left", input) || isMappedTo("joystick1left", input); // batocera
@@ -126,6 +139,7 @@ bool InputConfig::isMappedLike(const std::string& name, Input input) // batocera
 	}else if(name == "down"){
 	  return isMappedTo("down", input) || isMappedTo("joystick1up", input, true); // batocera
 	}
+#endif
 	return isMappedTo(name, input);
 }
 
