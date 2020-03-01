@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 22:28+0100\n"
+"POT-Creation-Date: 2020-03-01 10:15+0100\n"
 "PO-Revision-Date: 2020-02-26 20:51+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -177,6 +177,27 @@ msgstr "glid"
 
 msgid "instant"
 msgstr "omedelbart"
+
+msgid "System"
+msgstr ""
+
+msgid "Architecture"
+msgstr ""
+
+msgid "Temperature"
+msgstr ""
+
+msgid "Battery"
+msgstr ""
+
+msgid "Cpu model"
+msgstr ""
+
+msgid "Cpu number"
+msgstr ""
+
+msgid "Cpu feature"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"

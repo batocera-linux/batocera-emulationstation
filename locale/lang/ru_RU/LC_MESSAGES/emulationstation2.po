@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 21:43+0100\n"
+"POT-Creation-Date: 2020-03-01 10:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -177,6 +177,27 @@ msgstr "слайд"
 
 msgid "instant"
 msgstr "мгновенно"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Architecture"
+msgstr "Архитектура"
+
+msgid "Temperature"
+msgstr "Температура"
+
+msgid "Battery"
+msgstr "Батарея"
+
+msgid "Cpu model"
+msgstr "Модель CPU"
+
+msgid "Cpu number"
+msgstr "Кол-во ядер"
+
+msgid "Cpu feature"
+msgstr "Функции CPU"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -407,7 +428,7 @@ msgid "START KODI WITH X"
 msgstr "ЗАПУСК KODI КНОПКОЙ X"
 
 msgid "HARDWARE"
-msgstr "HARDWARE"
+msgstr "ЖЕЛЕЗО"
 
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
@@ -452,16 +473,16 @@ msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
 msgid "AUTO"
 msgstr "АВТО"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "ИСП. КДРЫ ОБГОНА (RUN-AHEAD)"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
 
 msgid "ON"
 msgstr "ВКЛ"

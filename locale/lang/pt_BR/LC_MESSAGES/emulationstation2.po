@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 21:43+0100\n"
+"POT-Creation-Date: 2020-03-01 10:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -177,6 +177,27 @@ msgstr "deslizar"
 
 msgid "instant"
 msgstr "instante"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Architecture"
+msgstr "Arquitetura"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "Battery"
+msgstr "Bateria"
+
+msgid "Cpu model"
+msgstr "Modelo de cpu"
+
+msgid "Cpu number"
+msgstr "Número de cpu"
+
+msgid "Cpu feature"
+msgstr "Recurso de cpu"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"

@@ -50,6 +50,15 @@
 #define fake_gettext_slide _("slide")
 #define fake_gettext_instant _("instant")
 
+// batocera-info
+#define fake_gettext_system       _("System")
+#define fake_gettext_architecture _("Architecture")
+#define fake_gettext_temperature  _("Temperature")
+#define fake_gettext_battery      _("Battery")
+#define fake_gettext_cpu_model    _("Cpu model")
+#define fake_gettext_cpu_number   _("Cpu number")
+#define fake_gettext_cpu_feature  _("Cpu feature")
+
 GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
 	// MAIN MENU
@@ -650,14 +659,14 @@ void GuiMenu::openSystemInformations_batocera()
 			std::string vname = "";
 			for (unsigned int i = 1; i < tokens.size(); i++) {
 				if (i > 1) vname += " ";
-				vname += tokens.at(i);
+                                vname += tokens.at(i);
 			}
 
 			auto space = std::make_shared<TextComponent>(window,
-				vname,
+                               vname,
 				font,
 				color);
-			informationsGui->addWithLabel(tokens.at(0), space);
+			informationsGui->addWithLabel(_(tokens.at(0).c_str()), space);
 		}
 	}
 	
