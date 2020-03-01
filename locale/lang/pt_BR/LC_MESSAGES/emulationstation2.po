@@ -179,25 +179,25 @@ msgid "instant"
 msgstr "instante"
 
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitetura"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 msgid "Battery"
-msgstr ""
+msgstr "Bateria"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "Modelo de cpu"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "Número de cpu"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "Recurso de cpu"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
