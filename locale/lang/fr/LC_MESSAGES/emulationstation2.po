@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 21:43+0100\n"
+"POT-Creation-Date: 2020-03-01 10:15+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -175,6 +175,27 @@ msgstr "glissement"
 msgid "instant"
 msgstr "instantané"
 
+msgid "System"
+msgstr "Système"
+
+msgid "Architecture"
+msgstr "Architecture"
+
+msgid "Temperature"
+msgstr "Température"
+
+msgid "Battery"
+msgstr "Batterie"
+
+msgid "Cpu model"
+msgstr "Cpu"
+
+msgid "Cpu number"
+msgstr "Nombre de Cpu"
+
+msgid "Cpu feature"
+msgstr "Options Cpu"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -182,7 +203,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "ACTIVER LES SUCCÈS RÉTRO"
+msgstr "SUCCÈS RÉTRO"
 
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
@@ -1668,6 +1689,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "BATTERY"
+#~ msgstr "BATTERIE"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
