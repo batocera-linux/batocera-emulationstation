@@ -179,25 +179,25 @@ msgid "instant"
 msgstr "мгновенно"
 
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Архитектура"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Температура"
 
 msgid "Battery"
-msgstr ""
+msgstr "Батарея"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "Модель CPU"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "Кол-во ядер"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "Функции CPU"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -428,7 +428,7 @@ msgid "START KODI WITH X"
 msgstr "ЗАПУСК KODI КНОПКОЙ X"
 
 msgid "HARDWARE"
-msgstr "HARDWARE"
+msgstr "ЖЕЛЕЗО"
 
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
@@ -473,16 +473,16 @@ msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
 msgid "AUTO"
 msgstr "АВТО"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "ИСП. КДРЫ ОБГОНА (RUN-AHEAD)"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
 
 msgid "ON"
 msgstr "ВКЛ"
