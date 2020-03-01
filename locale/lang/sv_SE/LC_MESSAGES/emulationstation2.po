@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-01 10:15+0100\n"
-"PO-Revision-Date: 2020-02-26 20:51+0100\n"
+"PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -179,25 +179,25 @@ msgid "instant"
 msgstr "omedelbart"
 
 msgid "System"
-msgstr ""
+msgstr "System"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arkitektur"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatur"
 
 msgid "Battery"
-msgstr ""
+msgstr "Batteri"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "Processormodell"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "Processornummer"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "Processoregenskap"
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
@@ -413,7 +413,7 @@ msgid "LANGUAGE"
 msgstr "SPRÅK"
 
 msgid "POWER SAVER MODES"
-msgstr "ENRGIALTERNATIV"
+msgstr "ENERGISPARLÄGE"
 
 msgid "KODI SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR KODI"
