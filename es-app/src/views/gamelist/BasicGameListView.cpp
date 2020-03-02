@@ -143,7 +143,8 @@ void BasicGameListView::setCursor(FileData* cursor)
 		auto gameIter = std::find(children.cbegin(), children.cend(), cursor);
 		if (gameIter == children.cend())
 		{
-			children = cursor->getParent()->getChildrenListToDisplay();
+			if (cursor->getParent() != nullptr)
+				children = cursor->getParent()->getChildrenListToDisplay();
 
 			// update our cursor stack in case our cursor just got set to some folder we weren't in before
 			if (mCursorStack.empty() || mCursorStack.top() != cursor->getParent())

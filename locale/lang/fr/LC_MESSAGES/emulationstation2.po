@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 10:15+0100\n"
+"POT-Creation-Date: 2020-03-02 21:30+0100\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -736,6 +736,9 @@ msgstr "AFFICHER L'HEURE"
 
 msgid "ON-SCREEN HELP"
 msgstr "AFFICHER L'AIDE"
+
+msgid "SHOW BATTERY STATUS"
+msgstr "AFFICHER L'ÉTAT DE LA BATTERIE"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"

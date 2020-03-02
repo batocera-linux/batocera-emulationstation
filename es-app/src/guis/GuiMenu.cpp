@@ -45,6 +45,7 @@
 #include "ThreadedBluetooth.h"
 #include "views/gamelist/IGameListView.h"
 #include "components/MultiLineMenuEntry.h"
+#include "components/BatteryIndicatorComponent.h"
 
 #define fake_gettext_fade _("fade")
 #define fake_gettext_slide _("slide")
@@ -2571,13 +2572,22 @@ void GuiMenu::openUISettings()
 			s->setVariable("reloadAll", true);
 	});
 
+	// Battery indicator
+	if (mWindow->getBatteryIndicator() && mWindow->getBatteryIndicator()->hasBattery())
+	{
+		auto batteryStatus = std::make_shared<SwitchComponent>(mWindow);
+		batteryStatus->setState(Settings::getInstance()->getBool("ShowBatteryIndicator"));
+		s->addWithLabel(_("SHOW BATTERY STATUS"), batteryStatus);
+		s->addSaveFunc([batteryStatus] { Settings::getInstance()->setBool("ShowBatteryIndicator", batteryStatus->getState()); });
+	}
+
 	// Enable OSK (On-Screen-Keyboard)
 	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
 	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
 	s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
 	s->addSaveFunc([osk_enable] {
 		Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
-		
+
 	// filenames
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
 	hidden_files->setState(Settings::getInstance()->getBool("ShowFilenames"));
@@ -3608,9 +3618,9 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 				info.name = folder.substr(paths[i].size() + 1);
 				info.path = folder;
 
-				if (system != nullptr && info.name == "default")
+				if (system != nullptr && Utils::String::startsWith(info.name, "default"))
 				{
-					std::string systemImg = paths[i] + "/default/systems/" + system->getName() + ".png";
+					std::string systemImg = paths[i] + "/"+ info.name +"/systems/" + system->getName() + ".png";
 					if (Utils::FileSystem::exists(systemImg))
 						info.imageUrl = systemImg;
 				}

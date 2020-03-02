@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 10:15+0100\n"
+"POT-Creation-Date: 2020-03-02 21:30+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -733,6 +733,9 @@ msgstr "시간 보기"
 
 msgid "ON-SCREEN HELP"
 msgstr "도움말 표시"
+
+msgid "SHOW BATTERY STATUS"
+msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"

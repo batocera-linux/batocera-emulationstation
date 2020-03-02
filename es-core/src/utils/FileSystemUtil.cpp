@@ -25,6 +25,9 @@
 #include <mutex>
 #endif // _WIN32
 
+#include <fstream>
+#include <sstream>
+
 namespace Utils
 {
 	namespace FileSystem
@@ -1048,6 +1051,14 @@ namespace Utils
 				return Utils::Time::DateTime(info.st_ctime);
 
 			return Utils::Time::DateTime();
+		}
+
+		std::string	readAllText(const std::string fileName)
+		{
+			std::ifstream t(fileName);
+			std::stringstream buffer;
+			buffer << t.rdbuf();
+			return buffer.str();
 		}
 	} // FileSystem::
 
