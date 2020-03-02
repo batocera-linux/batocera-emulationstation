@@ -94,6 +94,7 @@ void Settings::setDefaults()
 	mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
 	mBoolMap["SaveGamelistsOnExit"] = true;
+	mBoolMap["ShowBatteryIndicator"] = true;	
 
 	mBoolMap["Debug"] = false;
 	mBoolMap["DebugGrid"] = false;

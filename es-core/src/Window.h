@@ -25,6 +25,7 @@ class ThemeData;
 class TextComponent;
 class ControllerActivityComponent;
 class VolumeInfoComponent;
+class BatteryIndicatorComponent;
 
 class Window
 {
@@ -88,6 +89,8 @@ public:
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 
+	std::shared_ptr<BatteryIndicatorComponent>	getBatteryIndicator() { return mBatteryIndicator; }
+
 private:
 	void processPostedFunctions();
 
@@ -132,6 +135,7 @@ private:
 	std::shared_ptr<TextComponent>	mClock;
 	std::shared_ptr<ControllerActivityComponent>	mControllerActivity;
 	std::shared_ptr<VolumeInfoComponent> mVolumeInfo;
+	std::shared_ptr<BatteryIndicatorComponent>	mBatteryIndicator;	
 
 	bool mNormalizeNextUpdate;
 
