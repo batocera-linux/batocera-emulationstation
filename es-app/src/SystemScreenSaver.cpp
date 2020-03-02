@@ -19,6 +19,7 @@
 #include <time.h>
 #include "AudioManager.h"
 #include "math/Vector2i.h"
+#include "SystemConf.h"
 
 #define FADE_TIME 			500
 
@@ -568,12 +569,33 @@ void GameScreenSaverBase::setGame(FileData* game)
 
 		if (decos == "systems")
 		{
-			for (int i = 0; i < sets.size(); i++)
+			std::string bezel = SystemConf::getInstance()->get("global.bezel");
+
+			bool found = false;
+
+			if (bezel != "default" && Utils::String::startsWith(bezel, "default"))
 			{
-				if (sets[i].name == "default")
+				for (int i = 0; i < sets.size(); i++)
 				{
-					setId = i;
-					break;
+					if (sets[i].name == bezel && Utils::FileSystem::exists(sets[i].path + "/systems") && !sets[i].imageUrl.empty())
+					{
+						found = true;
+						setId = i;
+						break;
+					}
+				}
+			}
+
+			if (!found)
+			{
+				for (int i = 0; i < sets.size(); i++)
+				{
+					if (sets[i].name == "default")
+					{
+						found = true;
+						setId = i;
+						break;
+					}
 				}
 			}
 		}

@@ -3130,9 +3130,9 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 				info.name = folder.substr(paths[i].size() + 1);
 				info.path = folder;
 
-				if (system != nullptr && info.name == "default")
+				if (system != nullptr && Utils::String::startsWith(info.name, "default"))
 				{
-					std::string systemImg = paths[i] + "/default/systems/" + system->getName() + ".png";
+					std::string systemImg = paths[i] + "/"+ info.name +"/systems/" + system->getName() + ".png";
 					if (Utils::FileSystem::exists(systemImg))
 						info.imageUrl = systemImg;
 				}
