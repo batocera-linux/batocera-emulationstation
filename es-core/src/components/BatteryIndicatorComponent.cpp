@@ -236,7 +236,7 @@ void BatteryIndicatorComponent::updateBatteryInfo()
 	else 
 	{	
 		mHasBattery = true;
-		mIsCharging = (Utils::FileSystem::readAllText(batteryStatusPath) != "Discharging");
+		mIsCharging = (Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "") != "Discharging");
 		mBatteryLevel = atoi(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
 	}
 }
