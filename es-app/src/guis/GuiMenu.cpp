@@ -2629,13 +2629,13 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
+#ifndef _ENABLEEMUELEC
 	s->addGroup(_("VOLUME"));
 
 	// volume
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
 	volume->setValue((float)VolumeControl::getInstance()->getVolume());
 	volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
-#ifndef _ENABLEEMUELEC
 	s->addWithLabel(_("SYSTEM VOLUME"), volume);
 	s->addSaveFunc([this, volume] 
 	{
@@ -2647,7 +2647,6 @@ void GuiMenu::openSoundSettings()
 	volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
 	s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
 	s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
-
 #endif
 
 	s->addGroup(_("MUSIC"));
