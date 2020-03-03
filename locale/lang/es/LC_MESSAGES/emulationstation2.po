@@ -1,3 +1,4 @@
+
 msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
@@ -738,7 +739,7 @@ msgid "ON-SCREEN HELP"
 msgstr "AYUDA EN PANTALLA"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "MOSTRAR ESTADO DE BATERIA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLADO EN PANTALLA"
