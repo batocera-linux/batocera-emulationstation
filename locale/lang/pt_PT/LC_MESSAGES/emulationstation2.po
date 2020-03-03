@@ -738,7 +738,7 @@ msgid "ON-SCREEN HELP"
 msgstr "AJUDA NO ECRÃ"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "MOSTRAR ESTADO DA BATERIA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLADO NO ECRÃ"
