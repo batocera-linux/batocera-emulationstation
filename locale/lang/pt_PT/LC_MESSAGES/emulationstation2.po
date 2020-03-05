@@ -642,7 +642,7 @@ msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "CONTROLE P%i"
+msgstr "COMANDO P%i"
 
 msgid "default"
 msgstr "PADRÃO"
