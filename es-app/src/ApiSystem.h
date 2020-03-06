@@ -41,68 +41,72 @@ struct RetroAchievementInfo
 class ApiSystem 
 {
 public:
+	enum ScriptId : unsigned int
+	{
+		WIFI = 0,
+		RETROACHIVEMENTS = 1,
+		BLUETOOTH = 2,
+		RESOLUTION = 3,
+		BIOSINFORMATION = 4,
+		NETPLAY = 5,
+		KODI = 6
+	};
 
-    static ApiSystem *getInstance();
+	virtual bool isScriptingSupported(ScriptId script);
+
+    static ApiSystem* getInstance();
 
     const static Uint32 SDL_FAST_QUIT = 0x800F;
     const static Uint32 SDL_SYS_SHUTDOWN = 0X4000;
     const static Uint32 SDL_SYS_REBOOT = 0x2000;
 
-    unsigned long getFreeSpaceGB(std::string mountpoint);
+    virtual unsigned long getFreeSpaceGB(std::string mountpoint);
 
-    std::string getFreeSpaceInfo();
+    virtual std::string getFreeSpaceInfo();
 
     bool isFreeSpaceLimit();
 
-    std::string getVersion();
+    virtual std::string getVersion();
     std::string getRootPassword();
 
     bool setOverscan(bool enable);
 
     bool setOverclock(std::string mode);
 
-    bool createLastVersionFileIfNotExisting();
+    virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr);
 
-    bool updateLastVersionFile();
-
-    bool needToShowVersionMessage();
-
-    std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr);
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
     std::pair<std::string, int> installSystem(BusyComponent* ui, std::string device, std::string architecture);
     std::pair<std::string, int> scrape(BusyComponent* ui);
 
-    bool ping();
+    virtual bool ping();
+    virtual bool canUpdate(std::vector<std::string>& output);
 
-    bool canUpdate(std::vector<std::string>& output);
-
-    bool launchKodi(Window *window);
+    virtual bool launchKodi(Window *window);
     bool launchFileManager(Window *window);
 
     bool enableWifi(std::string ssid, std::string key);
-
     bool disableWifi();
 
-    bool reboot();
+	bool reboot() { return halt(true, false); }
+	bool fastReboot() { return halt(true, true); }
+	bool shutdown() { return halt(false, false); }
+	bool fastShutdown() { return halt(false, true); }
 
-    bool shutdown();
-
-    bool fastReboot();
-
-    bool fastShutdown();
-
-    std::string getIpAdress();
+    virtual std::string getIpAdress();
 
     bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
 
-    std::vector<std::string> getAvailableStorageDevices();
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getAvailableInstallDevices();
     std::vector<std::string> getAvailableInstallArchitectures();
     std::vector<std::string> getAvailableOverclocking();
-    std::vector<std::string> getSystemInformations();
     std::vector<BiosSystem> getBiosInformations();
     std::vector<std::string> getVideoModes();
+
+	virtual std::vector<std::string> getAvailableStorageDevices();
+	virtual std::vector<std::string> getSystemInformations();
+
     bool generateSupportFile();
 
     std::string getCurrentStorage();
@@ -121,28 +125,31 @@ public:
 
     // Batocera
 	RetroAchievementInfo getRetroAchievements();
-    std::vector<std::string> getBatoceraThemesList();
-    std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
-    std::vector<std::string> getBatoceraBezelsList();
-    std::pair<std::string,int> installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
-    std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
 
-	std::string getCRC32(const std::string fileName, bool fromZipContents = true);
+	// Themes
+	virtual std::vector<std::string> getBatoceraThemesList();
+	virtual std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
+
+    virtual std::vector<std::string> getBatoceraBezelsList();
+	virtual std::pair<std::string,int> installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
+	virtual std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
+
+	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
 
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
-private:
-	std::vector<std::string> executeEnumerationScript(const std::string command);
+protected:
+	ApiSystem();
 
-    static ApiSystem *instance;
+	virtual bool executeScript(const std::string command);	
+	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
 
-    ApiSystem();
+    static ApiSystem* instance;
 
     bool halt(bool reboot, bool fast);
-
     
     void launchExternalWindow_before(Window *window);
     void launchExternalWindow_after(Window *window);

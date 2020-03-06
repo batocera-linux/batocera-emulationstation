@@ -15,8 +15,8 @@ std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
 SystemConf::SystemConf() 
 {
 #if WIN32
-	systemConfFile = Utils::FileSystem::getHomePath() + "/batocera.conf";
-	systemConfFileTmp = Utils::FileSystem::getHomePath() + "/batocera.conf.tmp";
+	systemConfFile = Utils::FileSystem::getEsConfigPath() + "/batocera.conf";
+	systemConfFileTmp = Utils::FileSystem::getEsConfigPath() + "/batocera.conf.tmp";
 #endif
 
     loadSystemConf();

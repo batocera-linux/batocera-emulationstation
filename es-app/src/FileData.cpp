@@ -279,11 +279,14 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 
-	//ThreadedScraper::pause();
+	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
+#if !WIN32
+	hideWindow = false;
+#endif
+	window->deinit(hideWindow);
 
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
-	window->deinit();
-
+	
 	std::string systemName = getSourceFileData()->getSystem()->getName();
 	std::string command = getSystemEnvData()->mLaunchCommand;
 
@@ -356,14 +359,12 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	else
 		command = Utils::String::replace(command, "%NETPLAY%", "");
 
-
-
 	Scripting::fireEvent("game-start", rom, basename);
 
 	time_t tstart = time(NULL);
 
 	LOG(LogInfo) << "	" << command;
-	int exitCode = runSystemCommand(command);
+	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 
 	if (exitCode != 0)
 	{
@@ -372,7 +373,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	Scripting::fireEvent("game-end");
 
-	window->init();
+	window->init(hideWindow);
 	VolumeControl::getInstance()->init();
 
 	// mSystem can be NULL
@@ -380,36 +381,35 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
-	//update number of times the game has been launched
-
 	FileData* gameToUpdate = getSourceFileData();
-	SystemData* system = gameToUpdate->getSystem();
+	
+	//update number of times the game has been launched
+	if (exitCode == 0)
+	{
+		int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
+		gameToUpdate->setMetadata("playcount", std::to_string(static_cast<long long>(timesPlayed)));
 
-	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
-	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
+		// you might have experienced a loading problem)
+		time_t tend = time(NULL);
+		long elapsedSeconds = difftime(tend, tstart);
+		long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+		if (elapsedSeconds >= 10)
+			gameToUpdate->setMetadata("gametime", std::to_string(static_cast<long>(gameTime)));
 
-	// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
-	// you might have experienced a loading problem)
-	time_t tend = time(NULL);
-	long elapsedSeconds = difftime(tend, tstart);
-	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
-	if (elapsedSeconds >= 10)
-		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
-
-	//update last played time
-	gameToUpdate->getMetadata().set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
-	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
-	saveToGamelistRecovery(gameToUpdate);
+		//update last played time
+		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
+		saveToGamelistRecovery(gameToUpdate);
+	}
 
 	window->reactivateGui();
 
-	// batocera
+	SystemData* system = gameToUpdate->getSystem();
 	if (system != nullptr && system->getTheme() != nullptr)
 		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
 	else
 		AudioManager::getInstance()->playRandomMusic();
-
-	// ThreadedScraper::resume();
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
@@ -417,7 +417,6 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 {
 	mSourceFileData = file->getSourceFileData();
 	mParent = NULL;
-	// metadata = mSourceFileData->metadata;	
 	mDirty = true;
 }
 

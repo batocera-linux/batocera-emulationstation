@@ -379,7 +379,7 @@ bool SystemData::loadConfig(Window* window)
 			std::string fullname = system.child("fullname").text().get();
 
 			if (window != NULL)
-				window->renderLoadingScreen(fullname, systemCount == 0 ? 0 : (float)currentSystem / (float)(systemCount + 1));
+				window->renderSplashScreen(fullname, systemCount == 0 ? 0 : (float)currentSystem / (float)(systemCount + 1));
 
 			std::string nm = system.child("name").text().get();
 
@@ -399,7 +399,7 @@ bool SystemData::loadConfig(Window* window)
 			{
 				int px = processedSystem - 1;
 				if (px >= 0 && px < systemsNames.size())
-					window->renderLoadingScreen(systemsNames.at(px), (float)px / (float)(systemCount + 1));
+					window->renderSplashScreen(systemsNames.at(px), (float)px / (float)(systemCount + 1));
 			}, 10);
 		}
 		else
@@ -418,7 +418,7 @@ bool SystemData::loadConfig(Window* window)
 		
 
 		if (window != NULL)
-			window->renderLoadingScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
+			window->renderSplashScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		// updateSystemsList can't be run async, systems have to be created before
 		createGroupedSystems();
@@ -427,7 +427,7 @@ bool SystemData::loadConfig(Window* window)
 	else
 	{
 		if (window != NULL)
-			window->renderLoadingScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
+			window->renderSplashScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		createGroupedSystems();
 		CollectionSystemManager::get()->loadCollectionSystems();
@@ -652,12 +652,20 @@ bool SystemData::isVisible()
 	if (isGroupChildSystem())
 		return false;
 
-	if (SystemConf::getInstance()->get(getName() + ".hide") == "1") // batocera (hide systems)
-	    return false; // batocera (hide systems)
+	if ((getDisplayedGameCount() > 0 ||
+		(UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||
+		(mIsCollectionSystem && mName == "favorites")))
+	{
+		if (!mIsCollectionSystem)
+		{
+			auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+			return std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) == hiddenSystems.cend();
+		}
 
-	return (getDisplayedGameCount() > 0 || 
-           (UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||
-           (mIsCollectionSystem && mName == "favorites"));
+		return true;
+	}
+
+	return false;
 }
 
 SystemData* SystemData::getNext() const

@@ -34,7 +34,8 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenHeight" },
 	{ "ScreenOffsetX" },
 	{ "ScreenOffsetY" },
-	{ "ScreenRotate" }
+	{ "ScreenRotate" },
+	{ "MonitorID" },
 };
 
 Settings::Settings()
@@ -61,13 +62,22 @@ void Settings::setDefaults()
 	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["DrawFramerate"] = false;
-	mBoolMap["ShowExit"] = true;
-	mBoolMap["FullscreenBorderless"] = false;
+	mBoolMap["ShowExit"] = true;	
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "";
+
+#if WIN32
+	mBoolMap["ShowOnlyExit"] = true;
+	mBoolMap["FullscreenBorderless"] = true;
+#else
+	mBoolMap["ShowOnlyExit"] = false;
+	mBoolMap["FullscreenBorderless"] = false;
+#endif
+
+	mIntMap["MonitorID"] = -1;
 
         // batocera
         mBoolMap["UseOSK"] = true; // on screen keyboard
@@ -85,7 +95,8 @@ void Settings::setDefaults()
 
 		mBoolMap["VSync"] = true;	
 		mStringMap["FolderViewMode"] = "never";
-		
+		mStringMap["HiddenSystems"] = "";
+
     mBoolMap["EnableSounds"] = false; // batocera
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
@@ -201,6 +212,12 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowFilenames"] = false;
 	
+#if defined(_WIN32)
+	mBoolMap["HideWindow"] = false;
+#else
+	mBoolMap["HideWindow"] = true;
+#endif
+
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;
 	mIntMap["ScreenWidth"]   = 0;

@@ -31,6 +31,8 @@ namespace Utils
 		std::vector<std::string> split  (const std::string& s, char seperator);
 		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator);
 
+		std::string join(const std::vector<std::string>& items, std::string separator);
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);
 		const std::wstring convertToWideString(const std::string string);

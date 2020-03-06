@@ -289,7 +289,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			CollectionSystemManager::deinit();
 			CollectionSystemManager::init(window);
 			SystemData::loadConfig(window);
-			window->endRenderLoadingScreen();
+			window->closeSplashScreen();
 			GuiComponent *gui;
 			while ((gui = window->peekGui()) != NULL) {
 				window->removeGui(gui);
@@ -428,9 +428,9 @@ GuiGamelistOptions::~GuiGamelistOptions()
 
 	if (mReloadAll)
 	{
-		mWindow->renderLoadingScreen(_("Loading..."));
+		mWindow->renderSplashScreen(_("Loading..."));
 		ViewController::get()->reloadAll(mWindow);
-		mWindow->endRenderLoadingScreen();
+		mWindow->closeSplashScreen();
 	}
 	else if (mFiltersChanged || viewModeChanged)
 	{
