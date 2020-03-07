@@ -6,6 +6,8 @@
 template<typename T>
 class OptionListComponent;
 
+class SwitchComponent;
+
 class GuiInstallStart : public GuiComponent
 {
 public:
@@ -20,5 +22,5 @@ private:
 	MenuComponent mMenu;
 	std::shared_ptr< OptionListComponent<std::string> >moptionsStorage;
 	std::shared_ptr< OptionListComponent<std::string> >moptionsArchitecture;
-	std::shared_ptr< OptionListComponent<std::string> >moptionsValidation;
+	std::shared_ptr<SwitchComponent> moptionsValidation;
 };
