@@ -6,6 +6,8 @@
 #include "views/ViewController.h"
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "guis/GuiMsgBox.h"
+#include "components/SwitchComponent.h"
 
 GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
 mMenu(window, _("INSTALL BATOCERA").c_str())
@@ -14,15 +16,15 @@ mMenu(window, _("INSTALL BATOCERA").c_str())
 
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableInstallDevices();
 	std::vector<std::string> availableArchitecture = ApiSystem::getInstance()->getAvailableInstallArchitectures();
-	bool installationPossible = true;
-	if (availableArchitecture.size() == 0) {
-		installationPossible = false;
-	}
+
+	bool installationPossible = (availableArchitecture.size() != 0);
 
 	// available install storage
 	if (installationPossible) 
 	{
 		moptionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET DEVICE"), false);
+		moptionsStorage->add(_("SELECT"), "", true);
+
 		for (auto it = availableStorage.begin(); it != availableStorage.end(); it++) 
 		{
 			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
@@ -37,44 +39,26 @@ mMenu(window, _("INSTALL BATOCERA").c_str())
 				moptionsStorage->add(vname, tokens.at(0), false);
 			}
 		}
+		
 		mMenu.addWithLabel(_("TARGET DEVICE"), moptionsStorage);
-	}
-
-	// available install architecture
-	if (installationPossible) 
-	{
+	
+		// available install architecture
 		moptionsArchitecture = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET ARCHITECTURE"), false);
-		for (auto it = availableArchitecture.begin(); it != availableArchitecture.end(); it++) {
+		moptionsArchitecture->add(_("SELECT"), "", true);
+
+		for (auto it = availableArchitecture.begin(); it != availableArchitecture.end(); it++)
 			moptionsArchitecture->add((*it), (*it), false);
-		}
+		
 		mMenu.addWithLabel(_("TARGET ARCHITECTURE"), moptionsArchitecture);
-	}
 
-	// validation
-	if (installationPossible) {
-		moptionsValidation = std::make_shared<OptionListComponent<std::string> >(window, _("VALIDATION"),
-			false);
-		for (int i = 0; i < 6; i++) {
-			if (i == 4) {
-				moptionsValidation->add(_("YES, I'M SURE"), _("YES, I'M SURE"), false);
-			}
-			else {
-				moptionsValidation->add("", "", false);
-			}
-		}
-		mMenu.addWithLabel(_("VALIDATION"), moptionsValidation);
-	}
-
-	if (installationPossible) {
+		moptionsValidation = std::make_shared<SwitchComponent>(mWindow);
+		mMenu.addWithLabel(_("ARE YOU SURE ?"), moptionsValidation);
+		
 		mMenu.addButton(_("INSTALL"), "install", std::bind(&GuiInstallStart::start, this));
-	}
-
-	if (installationPossible) {
 		mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 	}
-	else {
-		mMenu.addButton(_("NETWORK REQUIRED"), "back", [&] { delete this; });
-	}
+	else
+		mMenu.addButton(_("NETWORK REQUIRED"), "back", [&] { delete this; });	
 
 	if (Renderer::isSmallScreen())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
@@ -84,10 +68,15 @@ mMenu(window, _("INSTALL BATOCERA").c_str())
 
 void GuiInstallStart::start()
 {
-  if(moptionsStorage->getSelected() != "" && moptionsArchitecture->getSelected() != "" && moptionsValidation->getSelected() != "") {
-    mWindow->pushGui(new GuiInstall(mWindow, moptionsStorage->getSelected(), moptionsArchitecture->getSelected()));
-    delete this;
-  }
+	if (moptionsStorage->hasSelection() && moptionsStorage->getSelected() != "" &&
+		moptionsArchitecture->hasSelection() && moptionsArchitecture->getSelected() != "" &&
+		moptionsValidation->getState())
+	{
+		mWindow->pushGui(new GuiInstall(mWindow, moptionsStorage->getSelected(), moptionsArchitecture->getSelected()));
+		delete this;
+	}
+	else
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("INVALID PARAMETERS")));
 }
 
 bool GuiInstallStart::input(InputConfig* config, Input input)

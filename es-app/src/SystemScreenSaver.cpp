@@ -20,6 +20,7 @@
 #include "AudioManager.h"
 #include "math/Vector2i.h"
 #include "SystemConf.h"
+#include "ImageIO.h"
 
 #define FADE_TIME 			500
 
@@ -621,15 +622,20 @@ void GameScreenSaverBase::setGame(FileData* game)
 							auto height = doc["height"].GetInt();
 							if (width > 0 && height > 0)
 							{
-								float px = Renderer::getScreenWidth() / (float)width;
-								float py = Renderer::getScreenHeight() / (float)height;
+								Vector2i sz = ImageIO::adjustPictureSize(Vector2i(width, height), Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
+
+								float px = (float) sz.x() / (float)width;
+								float py = (float) sz.y() / (float)height;
+
+								float dx = (Renderer::getScreenWidth() - sz.x()) / 2.0;
+								float dy = (Renderer::getScreenHeight() - sz.y()) / 2.0;
 
 								auto top = doc["top"].GetInt();
 								auto left = doc["left"].GetInt();
 								auto bottom = doc["bottom"].GetInt();
 								auto right = doc["right"].GetInt();
 
-								mViewport = Renderer::Rect(left * px, top * py, (width - right - left) * px, (height - bottom - top) * py);
+								mViewport = Renderer::Rect(dx + left * px, dy + top * py, (width - right - left) * px, (height - bottom - top) * py);
 							}
 						}
 					}
@@ -801,6 +807,7 @@ void VideoScreenSaver::setVideo(const std::string path)
 #endif
 		mVideo = new VideoVlcComponent(mWindow);
 
+		mVideo->setRoundCorners(0);
 		mVideo->topWindow(true);
 		mVideo->setOrigin(0.5f, 0.5f);
 		
