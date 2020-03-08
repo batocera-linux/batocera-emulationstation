@@ -99,7 +99,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
 
 msgid "automatic"
-msgstr "automatyczny"
+msgstr "automatycznie"
 
 msgid "VIEW CUSTOMISATION"
 msgstr "DOSTOSOWYWANIE WIDOKU"
@@ -138,7 +138,7 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE GRY"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "FILTRUJ GRY WEDŁUG TEKSTU"
+msgstr "FILTRUJ GRY TEKSTEM"
 
 msgid "Loading..."
 msgstr "Ładuję..."
@@ -543,7 +543,7 @@ msgid "RETRO"
 msgstr "RETRO"
 
 msgid "ENHANCED"
-msgstr "ROZSZERZONE"
+msgstr "ROZSZERZONY"
 
 msgid "CURVATURE"
 msgstr "KRZYWIZNA"
@@ -644,7 +644,7 @@ msgid "INPUT P%i"
 msgstr "WEJŚCIE P%i"
 
 msgid "default"
-msgstr "domyślny"
+msgstr "domyślnie"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "POKAŻ DZIAŁANIE KONTROLERA"
@@ -665,7 +665,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "DOMYŚLNY ROZMIAR SIATKI"
 
 msgid "DEFAULT"
-msgstr "DOMYŚLNY"
+msgstr "DOMYŚLNIE"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr "OPCJE MOTYWU DLA LISTY GIER"
@@ -738,7 +738,7 @@ msgid "ON-SCREEN HELP"
 msgstr "POMOC NA EKRANIE"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "POKAŻ STAN BATERII"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "KLAWIATURA EKRANOWA"
@@ -768,7 +768,7 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "ILE SEKUND NA TYTUŁY PIOSENEK"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "ODTWARZAJ FOLDER MUZYCZNY SPECYFICZNY DLA DANEGO SYSTEMU"
+msgstr "ODTWARZAJ MUZYKĘ Z FOLDERU DLA SYSTEMU"
 
 msgid "PLAY THEME MUSICS"
 msgstr "ODTWÓRZ MUZYKĘ MOTYWU"
@@ -1420,10 +1420,10 @@ msgid "SYSTEM, DESCENDING"
 msgstr "SYSTEM, MALEJĄCO"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr "DATA UTWORZENIA PLIKU, ROSNĄCO"
+msgstr "DATA UTWORZENIA, ROSNĄCO"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr "DATA UTWORZENIA PLIKU, MALEJĄCO"
+msgstr "DATA UTWORZENIA, MALEJĄCO"
 
 msgid "DOWNLOADING"
 msgstr "POBIERANIE"

@@ -179,25 +179,25 @@ msgid "instant"
 msgstr "istantaneo"
 
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architettura"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 msgid "Battery"
-msgstr ""
+msgstr "Batteria"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "Modello CPU"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "Numero CPU"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "Caratteristiche CPU"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -447,7 +447,7 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "STORAGE"
-msgstr ""
+msgstr "ARCHIVIO"
 
 msgid "STORAGE DEVICE"
 msgstr "UNITA’ DI ARCHIVIAZIONE"
@@ -495,7 +495,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "IMPOSTAZIONI NETPLAY"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI"
 
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
@@ -507,7 +507,7 @@ msgid "PORT"
 msgstr "PORTA"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "USA RELAY SERVER"
 
 msgid "GAME INDEXES"
 msgstr "INDICI DI GIOCO"
@@ -740,7 +740,7 @@ msgid "ON-SCREEN HELP"
 msgstr "MOSTRA AIUTO SULLO SCHERMO"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "MOSTRA STATO DELLA BATTERIA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "MOSTRA TASTIERA SULLO SCHERMO"
@@ -1298,7 +1298,7 @@ msgid "Searching"
 msgstr "Cercando"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "SCRAPE FALLITO"
 
 msgid "Downloading"
 msgstr "Scaricamento"

@@ -740,7 +740,7 @@ msgid "ON-SCREEN HELP"
 msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "ПОКАЗАТЬ СОСТОЯНИЕ БАТАРЕИ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
