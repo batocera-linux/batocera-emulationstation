@@ -702,6 +702,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("DEUTSCH", "de_DE", language == "de_DE");
 	language_choice->add("ENGLISH", "en_US", language == "en_US");
 	language_choice->add("ESPAÑOL", "es_ES", language == "es_ES");
+	language_choice->add("ESPAÑOL MEXICANO", "es_MX", language == "es_MX");
 	language_choice->add("FRANÇAIS", "fr_FR", language == "fr_FR");
 	language_choice->add("ITALIANO", "it_IT", language == "it_IT");
 	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
