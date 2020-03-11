@@ -176,25 +176,25 @@ msgid "instant"
 msgstr "인스탄트"
 
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 msgid "Architecture"
-msgstr ""
+msgstr "아키텍쳐"
 
 msgid "Temperature"
-msgstr ""
+msgstr "온도"
 
 msgid "Battery"
-msgstr ""
+msgstr "배터리"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "CPU 모델"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "CPU 코어 개수"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "CPU 사양"
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -251,10 +251,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "타이틀 스크린샷"
 
 msgid "MIX V1"
-msgstr "복합 V1"
+msgstr "병합 V1"
 
 msgid "MIX V2"
-msgstr "복합 V2"
+msgstr "병합 V2"
 
 msgid "BOX 2D"
 msgstr "박스 2D"
@@ -263,7 +263,7 @@ msgid "BOX 3D"
 msgstr "박스 3D"
 
 msgid "BOX SOURCE"
-msgstr "박스 소스"
+msgstr "박스 출처"
 
 msgid "NONE"
 msgstr "없음 "
@@ -581,7 +581,7 @@ msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전 과제 설정"
 
 msgid "HARDCORE MODE"
-msgstr "어려움 모드"
+msgstr "하드코어 모드"
 
 msgid "LEADERBOARDS"
 msgstr "순위표"
@@ -735,7 +735,7 @@ msgid "ON-SCREEN HELP"
 msgstr "도움말 표시"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "배터리 상태 보기"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"
@@ -1194,10 +1194,10 @@ msgid "enter game developer"
 msgstr "개발사 입력"
 
 msgid "Publisher"
-msgstr "퍼블리셔"
+msgstr "공급사"
 
 msgid "enter game publisher"
-msgstr "퍼블리셔 입력"
+msgstr "공급사 입력"
 
 msgid "Genre"
 msgstr "장르"

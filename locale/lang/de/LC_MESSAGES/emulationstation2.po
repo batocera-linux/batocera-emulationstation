@@ -170,34 +170,34 @@ msgid "FINISHED"
 msgstr "FERTIG"
 
 msgid "fade"
-msgstr ""
+msgstr "überblenden"
 
 msgid "slide"
-msgstr ""
+msgstr "gleiten"
 
 msgid "instant"
-msgstr ""
+msgstr "sofortig"
 
 msgid "System"
-msgstr ""
+msgstr "System"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architektur"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatur"
 
 msgid "Battery"
-msgstr ""
+msgstr "Batterie"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "CPU Modell"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "CPU Kerne"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "CPU Eigenschaft"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -278,7 +278,7 @@ msgid "WHEEL"
 msgstr "WHEEL"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "LAUFSCHRIFT"
 
 msgid "SCRAPE RATINGS"
 msgstr "BEWERTUNGEN SCRAPEN"
@@ -475,16 +475,16 @@ msgid "LATENCY REDUCTION"
 msgstr "LATENZREDUZIERUNG"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "RUN-AHEAD FRAMES"
 
 msgid "AUTO"
 msgstr "AUTO"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr ""
+msgstr "USE RUN-AHEAD FRAMES"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
+msgstr "RUN-AHEAD USE SECOND INSTANCE"
 
 msgid "ON"
 msgstr "EIN"
@@ -508,7 +508,7 @@ msgid "PORT"
 msgstr "ANSCHLUSS"
 
 msgid "USE RELAY SERVER"
-msgstr ""
+msgstr "USE RELAY SERVER"
 
 msgid "GAME INDEXES"
 msgstr "SPIELE INDEXE"
@@ -553,10 +553,10 @@ msgid "CURVATURE"
 msgstr "WÖLBUNG"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PERFECT)"
@@ -744,7 +744,7 @@ msgid "ON-SCREEN HELP"
 msgstr "BILDSCHIRMHILFE"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
+msgstr "ZEIGE AKKU-STATUS"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "BILDSCHIRMTASTATUR"
@@ -759,7 +759,7 @@ msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE SYSTEM"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr ""
+msgstr "OVERLAY ANZEIGEN WENN SICH DIE LAUTSTÄRKE ÄNDERT"
 
 msgid "MUSIC"
 msgstr "MUSIK"
@@ -780,7 +780,7 @@ msgid "PLAY THEME MUSICS"
 msgstr "SPIELE THEME-MUSIK"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "MUSIKLAUTSTÄRKE VERRINGERN BEIM ABSPIELEN VON VIDEOS"
 
 msgid "SOUNDS"
 msgstr "GERÄUSCHE"
@@ -888,7 +888,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "INTERNE AUFLÖSUNG"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "GRUPPIERTE SYSTEME"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "NEUE BENUTZERDEFINIERTE SAMMLUNG AUS THEME ERSTELLEN"
@@ -1020,7 +1020,7 @@ msgid "SHOW GAME INFO"
 msgstr "SPIEL INFORMATION ANZEIGEN"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "LAUFSCHRIFT ALS SPIEL INFORMATION VERWENDEN"
+msgstr "LAUFSCHRIFT ALS SPIELINFO VERWENDEN"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONEN"
@@ -1301,7 +1301,7 @@ msgid "Searching"
 msgstr "Suche"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "SCRAPE FEHLGESCHLAGEN"
 
 msgid "Downloading"
 msgstr "Downloading"
@@ -1334,7 +1334,7 @@ msgid "Full"
 msgstr "Voll"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Kiosk"
 
 msgid "Kid"
 msgstr "Kind"
@@ -1738,7 +1738,7 @@ msgstr "hoch/runter"
 #~ msgstr "BEVORZUGTE THUMBNAIL QUELLE"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "SCRAPE MARQUEE"
+#~ msgstr "SCRAPE LAUFSCHRIFT"
 
 #~ msgid "UPDATES"
 #~ msgstr "UPDATES"
