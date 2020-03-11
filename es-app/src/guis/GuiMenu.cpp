@@ -1407,6 +1407,12 @@ void GuiMenu::openGamesSettings_batocera()
 	bezel_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.bezel") == "1");
 	bezel_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.bezel") == "0");
 	s->addWithLabel(_("ENABLE RA BEZELS"), bezel_enabled);
+	
+	//maxperf
+	auto maxperf_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("ENABLE MAX PERFORMANCE"));
+	maxperf_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.maxperf") == "1");
+	maxperf_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.maxperf") == "0");
+	s->addWithLabel(_("ENABLE MAX PERFORMANCE"), maxperf_enabled);
 #endif
 
 	// rewind
@@ -1810,7 +1816,7 @@ void GuiMenu::openGamesSettings_batocera()
 		});
 	}
 #ifdef _ENABLEEMUELEC
-	s->addSaveFunc([smoothing_enabled, bezel_enabled, rewind_enabled, shaders_choices, autosave_enabled] 
+	s->addSaveFunc([smoothing_enabled, bezel_enabled, rewind_enabled, shaders_choices, autosave_enabled, maxperf_enabled] 
 #else
 	s->addSaveFunc([smoothing_enabled, rewind_enabled, shaders_choices, autosave_enabled] 
 #endif
@@ -1818,6 +1824,7 @@ void GuiMenu::openGamesSettings_batocera()
 		SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
 #ifdef _ENABLEEMUELEC
 		SystemConf::getInstance()->set("global.bezel", bezel_enabled->getSelected());
+		SystemConf::getInstance()->set("global.maxperf", maxperf_enabled->getSelected());
 #endif
 		SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
 		SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected());
@@ -3431,7 +3438,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// Screen ratio choice
 	auto ratio_choice = createRatioOptionList(mWindow, configName);
 	systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
-
 	
 	// bezel
 	auto bezel_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("BEZEL"));
@@ -3439,6 +3445,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	bezel_enabled->add(_("YES"), "1", getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".bezel'") == "1");
 	bezel_enabled->add(_("NO"), "0", getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".bezel'") == "0");
 	systemConfiguration->addWithLabel(_("BEZEL"), bezel_enabled);
+
+	// maxperf
+	auto maxperf_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("ENABLE MAX PERFORMANCE"));
+	maxperf_enabled->add(_("AUTO"), "auto", getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".maxperf'") != "0" && getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".maxperf'") != "1");
+	maxperf_enabled->add(_("YES"), "1", getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".maxperf'") == "1");
+	maxperf_enabled->add(_("NO"), "0", getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + configName + ".maxperf'") == "0");
+	systemConfiguration->addWithLabel(_("ENABLE MAX PERFORMANCE"), maxperf_enabled);
 	
 	// smoothing
 	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
@@ -3632,12 +3645,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 #endif
 
 #ifdef _ENABLEEMUELEC
-	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, bezel_enabled, rewind_enabled, ratio_choice, autosave_enabled, shaders_choices, colorizations_choices, emulator_choice]
+	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, bezel_enabled, rewind_enabled, ratio_choice, autosave_enabled, shaders_choices, colorizations_choices, emulator_choice, maxperf_enabled]
 	{
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".ratio' " + ratio_choice->getSelected());		
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".rewind' " + rewind_enabled->getSelected());		
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".smooth' " + smoothing_enabled->getSelected());
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".bezel' " + bezel_enabled->getSelected());
+		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".maxperf' " + maxperf_enabled->getSelected());
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".autosave' " + autosave_enabled->getSelected());
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + ".shaderset' " + shaders_choices->getSelected());
 		getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + configName + "-renderer.colorization' " + colorizations_choices->getSelected());
