@@ -26,6 +26,7 @@ class TextComponent;
 class ControllerActivityComponent;
 class VolumeInfoComponent;
 class BatteryIndicatorComponent;
+class Splash;
 
 class Window
 {
@@ -123,7 +124,7 @@ private:
 	std::vector<NotificationMessage> mNotificationMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
-	std::shared_ptr<TextureResource> mSplash;
+	std::shared_ptr<Splash> mSplash;
 
 	int mFrameTimeElapsed;
 	int mFrameCountElapsed;

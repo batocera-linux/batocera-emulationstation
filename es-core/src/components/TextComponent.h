@@ -45,6 +45,7 @@ public:
 
 	void setGlowColor(unsigned int color) { mGlowColor = color; };
 	void setGlowSize(unsigned int size) { mGlowSize = size; };
+	void setGlowOffset(float x, float y) { mGlowOffset = Vector2f(x,y); };
 
 	void setPadding(const Vector4f padding) { mPadding = padding; }
 
