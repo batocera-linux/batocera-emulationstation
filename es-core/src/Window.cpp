@@ -557,62 +557,107 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
+class Splash
+{
+public:
+	Splash(Window* window, const std::string image = ":/logo.png", bool fullScreenBackGround = true) : //":/logo.jpg") :
+		mBackground(window),
+		mText(window)
+	{
+		mTexture = TextureResource::get(image, false, true, true, false, false);
+		
+		mBackground.setImage(mTexture);
+
+		if (fullScreenBackGround)
+		{
+			mBackground.setOrigin(0.5, 0.5);
+			mBackground.setPosition(Renderer::getScreenWidth() / 2, Renderer::getScreenHeight() / 2);
+			mBackground.setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		}
+		else
+		{
+			mBackground.setResize(Renderer::getScreenWidth() * 0.51f, 0.0f);
+			mBackground.setPosition((Renderer::getScreenWidth() - mBackground.getSize().x()) / 2, (Renderer::getScreenHeight() - mBackground.getSize().y()) / 2 * 0.6f);
+		}
+		
+		auto font = Font::get(FONT_SIZE_MEDIUM);
+		mText.setHorizontalAlignment(ALIGN_CENTER);
+		mText.setFont(font);
+		mText.setGlowColor(0x00000020);
+		mText.setGlowSize(2);
+		mText.setGlowOffset(1, 1);
+		mText.setPosition(0, Renderer::getScreenHeight() * 0.78f);
+		mText.setSize(Renderer::getScreenWidth(), font->getLetterHeight());		
+	}
+
+	void render(std::string text, float percent, unsigned char opacity)
+	{
+		if (opacity == 0)
+			return;
+
+		mText.setText(text);
+		mText.setColor(0xFFFFFF00 | opacity);
+
+		Transform4x4f trans = Transform4x4f::Identity();
+		Renderer::setMatrix(trans);		
+		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x00000FF);
+
+		mBackground.render(trans);
+
+		if (percent >= 0)
+		{
+			float baseHeight = 0.036f;
+
+			float w = Renderer::getScreenWidth() / 2.0f;
+			float h = Renderer::getScreenHeight() * baseHeight;
+
+			float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
+			float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
+
+			float corner = Renderer::getScreenHeight() / 105.0;
+
+			Renderer::setMatrix(trans);
+			
+			if (corner > 1)
+				Renderer::enableRoundCornerStencil(x, y, w, h, corner);
+
+			Renderer::drawRect(x, y, w, h, 0x90909000 | (opacity / 2));
+			Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0x4F000000 | opacity, true);
+
+			if (corner > 1)
+				Renderer::disableStencil();
+		}
+
+		if (!text.empty())
+			mText.render(trans);
+
+		Renderer::swapBuffers();
+
+#if defined(_WIN32)
+		// Avoid Window Freezing on Windows
+		SDL_Event event;
+		while (SDL_PollEvent(&event));
+#endif
+	}
+
+private:
+	ImageComponent mBackground;
+	TextComponent  mText;	
+
+	std::shared_ptr<TextureResource> mTexture;
+};
+
 void Window::endRenderLoadingScreen()
 {
-	mSplash = nullptr;	
+	mSplash = nullptr;
 }
 
 void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
 {
 	if (mSplash == NULL)
-		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, true, false, false);
+		mSplash = std::make_shared<Splash>(this);
 
-	Transform4x4f trans = Transform4x4f::Identity();
-	Renderer::setMatrix(trans);
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity, 0xEFEFEF00 | opacity, true); // batocera
-
-	if (percent >= 0)
-	{
-		float baseHeight = 0.04f;
-
-		float w = Renderer::getScreenWidth() / 2.0f;
-		float h = Renderer::getScreenHeight() * baseHeight;
-
-		float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
-		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
-
-		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
-		Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0xAF000000 | opacity, true);
-	}
-
-	ImageComponent splash(this, true);
-	splash.setResize(Renderer::getScreenWidth() * 0.51f, 0.0f);
-
-	if (mSplash != NULL)
-		splash.setImage(mSplash);
-	else
-		splash.setImage(":/splash_batocera.svg"); // batocera
-
-	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
-	splash.render(trans);
-
-	auto& font = mDefaultFonts.at(1);
-	TextCache* cache = font->buildTextCache(text, 0, 0, 0x65656500 | opacity);
-
-	float x = Math::round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f);
-	float y = Math::round(Renderer::getScreenHeight() * 0.78f);// * 0.835f
-	trans = trans.translate(Vector3f(x, y, 0.0f));
-	Renderer::setMatrix(trans);
-	font->renderTextCache(cache);
-	delete cache;
-
-	Renderer::swapBuffers();
-
-#if defined(_WIN32)
-	// Avoid Window Freezing on Windows
-	SDL_Event event;
-	while (SDL_PollEvent(&event));
-#endif
+	mSplash->render(text, percent, opacity);	
 }
 
 void Window::renderHelpPromptsEarly()
