@@ -13,10 +13,17 @@
 #include <algorithm>
 #include "LocaleES.h"
 
-std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" } };
+std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
+
+	{ "splash", {		
+		{ "backgroundColor", COLOR } } },
+
+	{ "progressbar", {
+		{ "backgroundColor", COLOR } } },
+
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },

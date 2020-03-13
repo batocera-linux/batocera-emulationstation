@@ -568,15 +568,46 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
+#include "ThemeData.h"
+
 class Splash
 {
 public:
 	Splash(Window* window, const std::string image = ":/logo.png", bool fullScreenBackGround = true) : //":/logo.jpg") :
 		mBackground(window),
-		mText(window)
+		mText(window),
+		mInactiveProgressbar(window),
+		mActiveProgressbar(window)
 	{
+		mBackgroundColor = 0x000000FF;
+
+		auto theme = std::make_shared<ThemeData>();
+
+		std::string themeFilePath = fullScreenBackGround ? ":/splash.xml" : ":/gamesplash.xml";
+
+		std::map<std::string, ThemeSet> themeSets = ThemeData::getThemeSets();
+		auto themeset = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+		if (themeset != themeSets.cend())
+		{
+			std::string path = themeset->second.path + (fullScreenBackGround ? "/splash.xml" : "/gamesplash.xml");
+			if (Utils::FileSystem::exists(path))
+				themeFilePath = path;
+		}
+
+		if (Utils::FileSystem::exists(themeFilePath))
+		{
+			std::map<std::string, std::string> sysData;
+			theme->loadFile("splash", sysData, themeFilePath);
+		}
+
+		std::string imagePath = image;
+
+		auto backGroundImageTheme = theme->getElement("splash", "background", "image");
+		if (backGroundImageTheme && backGroundImageTheme->has("path") && Utils::FileSystem::exists(backGroundImageTheme->get<std::string>("path")))
+			imagePath = backGroundImageTheme->get<std::string>("path");		
+
 		mPercent = -1;
-		mTexture = TextureResource::get(image, false, true, true, false, false);
+		mTexture = TextureResource::get(imagePath, false, true, true, false, false);
 		ResourceManager::getInstance()->removeReloadable(mTexture);
 		
 		mBackground.setImage(mTexture);
@@ -596,24 +627,77 @@ public:
 		}
 		
 		auto font = Font::get(FONT_SIZE_MEDIUM);
+		mText.setColor(0xFFFFFFFF);
 		mText.setHorizontalAlignment(ALIGN_CENTER);
-		mText.setFont(font);
-
-		if (fullScreenBackGround)
-		{
-			mText.setGlowColor(0x00000020);
-			mText.setGlowSize(2);
-			mText.setGlowOffset(1, 1);
-		}
+		mText.setFont(font);		
 
 		if (fullScreenBackGround)
 			mText.setPosition(0, Renderer::getScreenHeight() * 0.78f);
 		else
 			mText.setPosition(0, Renderer::getScreenHeight() * 0.835f);
 
-		mText.setSize(Renderer::getScreenWidth(), font->getLetterHeight());				
-	}
+		mText.setSize(Renderer::getScreenWidth(), font->getLetterHeight());			
 
+		Vector2f mProgressPosition;
+		Vector2f mProgressSize;
+
+		if (backGroundImageTheme)
+			mBackground.applyTheme(theme, "splash", "background", ThemeFlags::ALL ^ (ThemeFlags::PATH));
+
+		if (theme->getElement("splash", "label", "text"))
+			mText.applyTheme(theme, "splash", "label", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
+		else if(fullScreenBackGround)
+		{
+			mText.setGlowColor(0x00000020);
+			mText.setGlowSize(2);
+			mText.setGlowOffset(1, 1);
+		}
+
+		// Splash background
+		auto elem = theme->getElement("splash", "splash", "splash");
+		if (elem && elem->has("backgroundColor"))
+			mBackgroundColor = elem->get<unsigned int>("backgroundColor");
+
+		// Progressbar
+		float baseHeight = 0.036f;
+
+		float w = Renderer::getScreenWidth() / 2.0f;
+		float h = Renderer::getScreenHeight() * baseHeight;
+		float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
+		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
+
+		auto blankTexture = TextureResource::get("", false, true, true, false, false);
+
+		mInactiveProgressbar.setImage(blankTexture);
+		mInactiveProgressbar.setRoundCorners(0.01);
+		mActiveProgressbar.setImage(blankTexture);
+		mActiveProgressbar.setRoundCorners(0.01);
+
+		mInactiveProgressbar.setPosition(x, y);
+		mInactiveProgressbar.setSize(w, h);
+		mActiveProgressbar.setPosition(x, y);
+		mActiveProgressbar.setSize(w, h);
+
+		mInactiveProgressbar.setColorShift(0x606060FF);
+		mInactiveProgressbar.setColorShiftEnd(0x909090FF);
+		mInactiveProgressbar.setColorGradientHorizontal(true);
+
+		elem = theme->getElement("splash", "progressbar", "image");
+		if (elem)
+		{
+			mInactiveProgressbar.applyTheme(theme, "splash", "progressbar", ThemeFlags::ALL);
+			mActiveProgressbar.applyTheme(theme, "splash", "progressbar", ThemeFlags::ALL);		
+		}
+
+		mActiveProgressbar.setColorShift(0xDF1010FF);
+		mActiveProgressbar.setColorShiftEnd(0x4F0000FF);
+		mActiveProgressbar.setColorGradientHorizontal(true);
+
+		elem = theme->getElement("splash", "progressbar:active", "image");
+		if (elem)
+			mActiveProgressbar.applyTheme(theme, "splash", "progressbar:active", ThemeFlags::ALL);
+	}
+	
 	void update(std::string text, float percent = -1)
 	{
 		mText.setText(text);
@@ -626,39 +710,28 @@ public:
 			return;
 	
 		unsigned char alpha = (unsigned char) (opacity * 255);
-
-		mText.setColor(0xFFFFFF00 | alpha);
+		
+		mText.setOpacity(alpha);
 
 		Transform4x4f trans = Transform4x4f::Identity();
 		Renderer::setMatrix(trans);		
-		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x0000000 | alpha);
-
-		mBackground.setColorShift(0xFFFFFF00 | alpha);
+		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), (mBackgroundColor & 0xFFFFFF00) | alpha);
+		
+		mBackground.setOpacity(alpha);
 		mBackground.render(trans);
 
 		if (mPercent >= 0)
 		{
-			float baseHeight = 0.036f;
-
-			float w = Renderer::getScreenWidth() / 2.0f;
-			float h = Renderer::getScreenHeight() * baseHeight;
-
-			float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
-			float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
-
-			float corner = Renderer::getScreenHeight() / 105.0;
-
 			Renderer::setMatrix(trans);
-			
-			if (corner > 1)
-				Renderer::enableRoundCornerStencil(x, y, w, h, corner);
+						
+			mInactiveProgressbar.setOpacity(alpha);
+			mActiveProgressbar.setOpacity(alpha);
 
-			//Renderer::drawRect(x, y, w, h, 0x90909000 | (alpha / 2));
-			Renderer::drawRect(x, y, w, h, 0x60606000 | (alpha / 2), 0x90909000 | (alpha / 2), true);
-			Renderer::drawRect(x, y, (w * mPercent), h, 0xDF101000 | alpha, 0x4F000000 | alpha, true);
+			mInactiveProgressbar.render(trans);
 
-			if (corner > 1)
-				Renderer::disableStencil();
+			auto sz = mInactiveProgressbar.getSize();
+			mActiveProgressbar.setSize(sz.x()  * mPercent, sz.y());
+			mActiveProgressbar.render(trans);
 		}
 
 		if (!mText.getText().empty())
@@ -681,9 +754,14 @@ public:
 	}
 
 private:
-	ImageComponent mBackground;
-	TextComponent  mText;	
-	float	mPercent;
+	ImageComponent  mBackground;
+	TextComponent   mText;	
+	float			mPercent;
+
+	ImageComponent  mInactiveProgressbar;
+	ImageComponent  mActiveProgressbar;
+
+	unsigned int	mBackgroundColor;
 
 	std::shared_ptr<TextureResource> mTexture;
 };
