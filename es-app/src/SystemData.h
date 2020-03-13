@@ -25,12 +25,16 @@ struct CoreData
 
 	std::string name;
 	bool netplay;
+
+	std::string customCommandLine;
 };
 
 struct EmulatorData
 {
-	std::string name;
+	std::string name;	
 	std::vector<CoreData> cores;
+
+	std::string customCommandLine;
 };
 
 struct SystemEnvironmentData
@@ -50,7 +54,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
+    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
@@ -123,7 +127,7 @@ public:
 		if (mFilterIndex != nullptr) mFilterIndex->setUIModeFilters();
 	}
 
-	std::map<std::string, EmulatorData> getEmulators() { return mEmulators; }
+	std::vector<EmulatorData> getEmulators() { return mEmulators; }
 
 	unsigned int getSortId() const { return mSortId; };
 	void setSortId(const unsigned int sortId = 0);
@@ -143,6 +147,11 @@ public:
 
 	static std::unordered_set<std::string> getAllGroupNames();
 	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string groupName);
+
+	std::string getDefaultEmulator();
+	std::string getDefaultCore(const std::string emulatorName);
+	std::string getLaunchCommand(const std::string emulatorName, const std::string coreName);
+	std::vector<std::string> getCoreNames(std::string emulatorName);
 
 private:
 	static void createGroupedSystems();
@@ -169,7 +178,7 @@ private:
 
 	FolderData* mRootFolder;
 
-	std::map<std::string, EmulatorData> mEmulators;
+	std::vector<EmulatorData> mEmulators;
 	
 	unsigned int mSortId;
 	std::string mViewMode;

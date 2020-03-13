@@ -106,7 +106,7 @@ GuiMenu::GuiMenu(Window *window) : GuiComponent(window), mMenu(window, _("MAIN M
 				
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || system->getEmulators().size() == 0 || (system->getEmulators().size() == 1 && system->getEmulators().begin()->second.cores.size() <= 1))
+			if (system->isCollection() || system->getEmulators().size() == 0 || (system->getEmulators().size() == 1 && system->getEmulators().begin()->cores.size() <= 1))
 				continue;
 
 			addEntry(_("EMULATOR SETTINGS"), true, [this] { openEmulatorSettings(); }, "iconGames");
@@ -1604,17 +1604,17 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 	auto core_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("CORE"), false);
 
 	std::string currentEmul = Settings::getInstance()->getString(system->getName() + ".emulator");
-	std::string defaultEmul = (system->getEmulators().size() == 0 ? "" : system->getEmulators().begin()->first);
+	std::string defaultEmul = system->getDefaultEmulator();
 
 	emul_choice->add(_("AUTO"), "", false);
 
 	bool found = false;
 	for (auto emul : system->getEmulators())
 	{
-		if (emul.first == currentEmul)
+		if (emul.name == currentEmul)
 			found = true;
 
-		emul_choice->add(emul.first, emul.first, emul.first == currentEmul);
+		emul_choice->add(emul.name, emul.name, emul.name == currentEmul);
 	}
 
 	if (!found)
@@ -1629,19 +1629,7 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 	emul_choice->setSelectedChangedCallback([this, system, core_choice](std::string emulatorName)
 	{
 		std::string currentCore = Settings::getInstance()->getString(system->getName() + ".core");
-		std::string defaultCore;
-
-		for (auto& emulator : system->getEmulators())
-		{
-			if (emulatorName == emulator.first)
-			{
-				for (auto core : emulator.second.cores)
-				{
-					defaultCore = core.name;
-					break;
-				}
-			}
-		}
+		std::string defaultCore = system->getDefaultCore(emulatorName);
 
 		core_choice->clear();	
 		core_choice->add(_("AUTO"), "", false);
@@ -1650,10 +1638,10 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 
 		for (auto& emulator : system->getEmulators())
 		{
-			if (emulatorName != emulator.first)
+			if (emulatorName != emulator.name)
 				continue;
 			
-			for (auto core : emulator.second.cores)
+			for (auto core : emulator.cores)
 			{
 				core_choice->add(core.name, core.name, currentCore == core.name);
 				if (currentCore == core.name)
@@ -1700,7 +1688,7 @@ void GuiMenu::openEmulatorSettings()
 		if (system->getEmulators().size() == 0)
 			continue;
 
-		if (system->getEmulators().size() == 1 && system->getEmulators().cbegin()->second.cores.size() <= 1)
+		if (system->getEmulators().size() == 1 && system->getEmulators().cbegin()->cores.size() <= 1)
 			continue;
 
 		configuration->addEntry(system->getFullName(), true, [this, system] { openSystemEmulatorSettings(system); });
@@ -2940,7 +2928,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	for (auto emulator : systemData->getEmulators()) 
 	{
 		bool found;
-		std::string curEmulatorName = emulator.first;
+		std::string curEmulatorName = emulator.name;
 		if (!previouslySelectedEmulator.empty())			
 			found = previouslySelectedEmulator == curEmulatorName; // We just changed the emulator
 		else
@@ -2967,10 +2955,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 	for (auto emulator : systemData->getEmulators()) 
 	{
-		if (selectedEmulator != emulator.first)
+		if (selectedEmulator != emulator.name)
 			continue;
 		
-		for (auto core : emulator.second.cores)
+		for (auto core : emulator.cores)
 		{
 			if ((SystemConf::getInstance()->get(configName + ".core") == core.name)) 
 			{
@@ -2989,10 +2977,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// list
 	for (auto emulator : systemData->getEmulators())
 	{
-		if (selectedEmulator != emulator.first)
+		if (selectedEmulator != emulator.name)
 			continue;
 		
-		for (auto core : emulator.second.cores)
+		for (auto core : emulator.cores)
 		{
 			bool found = (SystemConf::getInstance()->get(configName + ".core") == core.name);
 			core_choice->add(core.name, core.name, found || !onefound); // select the first one if none is selected

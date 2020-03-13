@@ -24,7 +24,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::map<std::string, EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
+SystemData::SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
 	mName(name), mFullName(fullName), mEnvData(envData), mThemeFolder(themeFolder), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 
@@ -517,7 +517,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	// batocera
 // emulators and cores
 
-	std::map<std::string, EmulatorData> systemEmulators;
+	std::vector<EmulatorData> systemEmulators;
 	
 	pugi::xml_node emulatorsNode = system.child("emulators");
 	if (emulatorsNode != nullptr)
@@ -526,6 +526,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 		{
 			EmulatorData emulatorData;
 			emulatorData.name = emuNode.attribute("name").value();
+			emulatorData.customCommandLine = emuNode.attribute("command").value();
 
 			pugi::xml_node coresNode = emuNode.child("cores");
 			if (coresNode != nullptr)
@@ -535,12 +536,13 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 					CoreData core;
 					core.name = coreNode.text().as_string();
 					core.netplay = coreNode.attribute("netplay") && coreNode.attribute("netplay").value() == "true";
+					emulatorData.customCommandLine = coreNode.attribute("command").value();
 
 					emulatorData.cores.push_back(core);
 				}
 			}
 
-			systemEmulators[emulatorData.name] = emulatorData;			
+			systemEmulators.push_back(emulatorData);
 		}
 	}
 
@@ -865,7 +867,7 @@ bool SystemData::isNetplaySupported()
 		return false;	
 
 	for (auto emul : mEmulators)
-		for (auto core : emul.second.cores)
+		for (auto core : emul.cores)
 			if (core.netplay)
 				return true;
 
@@ -925,4 +927,85 @@ SystemData* SystemData::getParentGroupSystem()
 			return sys;
 
 	return this;
+}
+
+std::string SystemData::getDefaultEmulator()
+{
+#if WIN32 && !_DEBUG
+	std::string emulator = Settings::getInstance()->getString(getName() + ".emulator");
+#else
+	std::string emulator = SystemConf::getInstance()->get(getName() + ".emulator");
+#endif
+
+	for (auto emul : mEmulators)
+		if (emul.name == emulator)
+			return emulator;
+
+	if (emulator.empty())
+	{
+		auto emulators = getEmulators();
+		if (emulators.size() > 0)
+			return emulators.begin()->name;
+	}
+
+	return "";
+}
+
+std::string SystemData::getDefaultCore(const std::string emulatorName)
+{
+#if WIN32 && !_DEBUG
+	std::string core = Settings::getInstance()->getString(getName() + ".core");
+#else
+	std::string core = SystemConf::getInstance()->get(getName() + ".core");
+#endif
+
+	if (!core.empty())
+		return core;
+	
+	std::string emul = emulatorName;
+
+	if (emul.empty())
+		emul = getDefaultEmulator();
+
+	if (!emul.empty())
+	{
+		auto emulators = getEmulators();
+
+		for (auto it : emulators)
+			if (it.name == emul)
+				if (it.cores.size() > 0)
+					return it.cores.begin()->name;
+	}
+
+	return "";
+}
+
+std::string SystemData::getLaunchCommand(const std::string emulatorName, const std::string coreName)
+{
+	for (auto emulator : mEmulators)
+	{
+		if (emulator.name == emulatorName)
+		{
+			for (auto& core : emulator.cores)
+				if (coreName == core.name && !core.customCommandLine.empty())
+					return core.customCommandLine;
+
+			if (!emulator.customCommandLine.empty())
+				return emulator.customCommandLine;
+		}
+	}
+
+	return getSystemEnvData()->mLaunchCommand;
+}
+
+std::vector<std::string> SystemData::getCoreNames(std::string emulatorName)
+{
+	std::vector<std::string> list;
+
+	for (auto& emulator : mEmulators)
+		if (emulatorName == emulator.name)
+			for(auto& core : emulator.cores)
+				list.push_back(core.name);
+
+	return list;
 }

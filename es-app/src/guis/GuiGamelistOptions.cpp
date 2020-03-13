@@ -261,50 +261,15 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && !fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
 			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 
+#if !defined(WIN32) || defined(_DEBUG)
 		// batocera
 		if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
 			mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] {
 			GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getFileName()), file->getConfigurationName(), file->getSourceFileData()->getSystem(), "");
 		});
+#endif
 	}
-	/*
-	// Game List Update
-	mMenu.addEntry(_("UPDATE GAMES LISTS"), false, [this, window]
-	{
-		if (ThreadedScraper::isRunning())
-		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING")));
-			return;
-		}
-		window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [this, window]
-		{
-			std::string systemName = mSystem->getName();
-			
-			mSystem = nullptr;
-
-			ViewController::get()->goToStart(true);
-
-			delete ViewController::get();
-			ViewController::init(window);
-			CollectionSystemManager::deinit();
-			CollectionSystemManager::init(window);
-			SystemData::loadConfig(window);
-			window->closeSplashScreen();
-			GuiComponent *gui;
-			while ((gui = window->peekGui()) != NULL) {
-				window->removeGui(gui);
-				delete gui;
-			}
-			ViewController::get()->reloadAll();
-			window->pushGui(ViewController::get());
-
-			if (!ViewController::get()->goToGameList(systemName, true))
-				ViewController::get()->goToStart(true);			
-			
-		}, _("NO"), nullptr));
-	});
-	*/
-
+	
 	mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -509,7 +474,7 @@ void GuiGamelistOptions::openMetaDataEd()
 	}
 
 	mWindow->pushGui(new GuiMetaDataEd(mWindow, &file->getMetadata(), file->getMetadata().getMDD(), p, Utils::FileSystem::getFileName(file->getPath()),
-		std::bind(&IGameListView::onFileChanged, ViewController::get()->getGameListView(system).get(), file, FILE_METADATA_CHANGED), deleteBtnFunc));
+		std::bind(&IGameListView::onFileChanged, ViewController::get()->getGameListView(system).get(), file, FILE_METADATA_CHANGED), deleteBtnFunc, file));
 }
 
 void GuiGamelistOptions::jumpToLetter()

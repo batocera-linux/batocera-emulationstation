@@ -276,6 +276,14 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
 
+	FileData* gameToUpdate = getSourceFileData();
+	if (gameToUpdate == nullptr)
+		return;
+
+	SystemData* system = gameToUpdate->getSystem();
+	if (system == nullptr)
+		return;
+
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 
@@ -287,8 +295,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	
-	std::string systemName = getSourceFileData()->getSystem()->getName();
-	std::string command = getSystemEnvData()->mLaunchCommand;
+	std::string systemName = system->getName();
+	std::string emulator = getEmulator();
+	std::string core = getCore();
+	std::string command = system->getLaunchCommand(emulator, core);
 
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
@@ -299,32 +309,6 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
-
-	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
-	if (emulator.empty())
-		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");
-
-	if (emulator.empty())
-	{
-		auto emulators = mSystem->getEmulators();
-		if (emulators.size() > 0)
-			emulator = emulators.begin()->first;
-	}
-
-	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");
-	if (core.empty())
-		core = SystemConf::getInstance()->get(mSystem->getName() + ".core");
-
-	if (core.empty() && !emulator.empty())
-	{
-		auto emulators = mSystem->getEmulators();
-
-		auto it = emulators.find(emulator);
-		if (it != emulators.cend())
-			if (it->second.cores.size() > 0)
-				core = it->second.cores.begin()->name;
-	}
-
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
@@ -335,26 +319,20 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (options.netPlayMode == CLIENT)
 	{
 #if WIN32
-		command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
-#else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
+			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+		else
 #endif
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
 	}
 	else if (options.netPlayMode == SERVER)
 	{
 #if WIN32
-		std::string crc32 = getMetadata("crc32");
-		if (crc32.empty())
-		{
-			crc32 = ApiSystem::getInstance()->getCRC32(getPath(), !isArcadeAsset());
-			if (!crc32.empty())
-				setMetadata("crc32", crc32);
-		}
-		
-		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + (crc32.empty() ? "" : " --hash " + crc32) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
-#else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
+		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
+			command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+		else
 #endif
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
 	}
 	else
 		command = Utils::String::replace(command, "%NETPLAY%", "");
@@ -364,12 +342,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	time_t tstart = time(NULL);
 
 	LOG(LogInfo) << "	" << command;
-	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 
+	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
-	{
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
-	}
 
 	Scripting::fireEvent("game-end");
 
@@ -381,8 +357,6 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
-	FileData* gameToUpdate = getSourceFileData();
-	
 	//update number of times the game has been launched
 	if (exitCode == 0)
 	{
@@ -405,7 +379,6 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	window->reactivateGui();
 
-	SystemData* system = gameToUpdate->getSystem();
 	if (system != nullptr && system->getTheme() != nullptr)
 		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
 	else
@@ -663,4 +636,32 @@ void FolderData::createChildrenByFilenameMap(std::unordered_map<std::string, Fil
 		else 
 			map[(*it)->getKey()] = (*it);
 	}	
+}
+
+const std::string FileData::getCore(bool resolveDefault)
+{
+#if WIN32 && !_DEBUG
+	std::string core = getMetadata().get("core");
+#else
+	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
+#endif
+
+	if (resolveDefault && core.empty())
+		core = getSourceFileData()->getSystem()->getDefaultCore(getEmulator());
+
+	return core;
+}
+
+const std::string FileData::getEmulator(bool resolveDefault)
+{
+#if WIN32 && !_DEBUG
+	std::string emulator = getMetadata().get("emulator");
+#else
+	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
+#endif
+
+	if (resolveDefault && emulator.empty())
+		emulator = getSourceFileData()->getSystem()->getDefaultEmulator();
+
+	return emulator;
 }
