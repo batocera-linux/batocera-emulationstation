@@ -441,19 +441,16 @@ int main(int argc, char* argv[])
 
 // batocera
 #ifdef _ENABLE_KODI_
-	if(systemConf->get("kodi.enabled") != "0" && systemConf->get("kodi.atstartup") == "1"){
+	if (systemConf->getBool("kodi.enabled", true) && systemConf->getBool("kodi.atstartup"))
 		ApiSystem::getInstance()->launchKodi(&window);
-	}
 #endif
 
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
-#if WIN32
-	if (Settings::getInstance()->getBool("updates.enabled"))
-#else
-	if (systemConf->get("updates.enabled") == "1")
-#endif
-		NetworkThread * nthread = new NetworkThread(&window);
+	if (systemConf->getBool("updates.enabled")) 
+	{ 
+		NetworkThread* nthread = new NetworkThread(&window); 
+	}
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)

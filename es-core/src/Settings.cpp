@@ -85,7 +85,7 @@ void Settings::setDefaults()
 		mBoolMap["ShowControllerActivity"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
-        mStringMap["Lang"] = "en_US";
+        mStringMap["Language"] = "en_US";
         mStringMap["INPUT P1"] = "DEFAULT";
         mStringMap["INPUT P2"] = "DEFAULT";
         mStringMap["INPUT P3"] = "DEFAULT";
@@ -239,8 +239,20 @@ void Settings::setDefaults()
 	mBoolMap["audio.thememusics"] = true;	
 	mIntMap["audio.display_titles_time"] = 10;
 	
+	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
+
 #if WIN32
 	mBoolMap["updates.enabled"] = true;
+	mBoolMap["global.retroachievements"] = false;
+	mBoolMap["global.retroachievements.hardcore"] = false;
+	mBoolMap["global.retroachievements.leaderboards"] = false;
+	mBoolMap["global.retroachievements.verbose"] = false;
+	mBoolMap["global.retroachievements.screenshot"] = false;
+	mBoolMap["global.netplay"] = false;
+	mBoolMap["kodi.enabled"] = false;
+	mBoolMap["kodi.atstartup"] = false;
+	mBoolMap["kodi.xbutton"] = false;	
+	mBoolMap["wifi.enabled"] = false;
 #endif
 
 	mDefaultBoolMap = mBoolMap;

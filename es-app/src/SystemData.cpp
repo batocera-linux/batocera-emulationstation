@@ -439,7 +439,7 @@ bool SystemData::loadConfig(Window* window)
 		ViewController::get()->onThemeChanged(theme);		
 	}
 
-	if (window != nullptr && SystemConf::getInstance()->get("global.netplay") == "1" && !ThreadedHasher::isRunning())
+	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
 	{
 		if (Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
 			ThreadedHasher::start(window, false, true);

@@ -36,7 +36,7 @@ struct DecorationSetInfo
 class GuiMenu : public GuiComponent
 {
 public:
-	GuiMenu(Window* window);
+	GuiMenu(Window* window, bool animate = true);
 	~GuiMenu();
 
 	bool input(InputConfig* config, Input input) override;
