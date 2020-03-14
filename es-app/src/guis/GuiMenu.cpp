@@ -664,7 +664,7 @@ void GuiMenu::openUpdatesSettings()
 	updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
 #endif
 	
-	updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
+	updateGui->addWithLabel(_("CHECK FOR UPDATES"), updates_enabled);
 	updateGui->addSaveFunc([updates_enabled]
 	{
 #if WIN32
@@ -672,6 +672,33 @@ void GuiMenu::openUpdatesSettings()
 #else
 		SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
 #endif
+	});
+
+	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
+	
+#if WIN32
+	std::string updatesType = Settings::getInstance()->getString("updates.type");
+#else
+	std::string updatesType = SystemConf::getInstance()->get("updates.type");
+#endif
+	
+	if (updatesType.empty() || updatesType != "beta" || updatesType != "stable")
+		updatesType = "stable";
+	
+	updatesTypeList->add("stable", "stable", updatesType == "stable");
+	updatesTypeList->add("beta", "beta", updatesType != "stable");
+
+	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
+	updateGui->addSaveFunc([updatesTypeList]
+	{
+		if (updatesTypeList->getSelected() == "stable")
+		{
+#if WIN32
+			Settings::getInstance()->setString("updates.type", updatesTypeList->getSelected());
+#else
+			SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
+#endif
+		}
 	});
 
 	// Start update

@@ -16,8 +16,17 @@
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
 #pragma comment(lib, "ws2_32.lib")
 
-#define VERSIONURL "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-master/version.info"
-#define UPDATEURL  "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-master/EmulationStation-Win32.zip"
+#define VERSIONURL "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-stable/version.info"
+#define UPDATEURL  "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-stable/EmulationStation-Win32.zip"
+
+std::string getUrlFromUpdateType(std::string url)
+{
+	std::string updatesType = Settings::getInstance()->getString("updates.type");
+	if (updatesType == "beta")
+		return Utils::String::replace(url, "continuous-stable", "continuous-master");
+
+	return url;
+}
 
 bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 {
@@ -650,7 +659,7 @@ bool Win32ApiSystem::ping()
 
 std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
 {
-	std::string url = UPDATEURL;
+	std::string url = getUrlFromUpdateType(UPDATEURL);
 
 	std::string fileName = Utils::FileSystem::getFileName(url);
 	std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/update";
@@ -718,7 +727,7 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
 	}
 
-	HttpReq httpreq(VERSIONURL);
+	HttpReq httpreq(getUrlFromUpdateType(VERSIONURL));
 	if (httpreq.wait())
 	{
 		std::string serverVersion = httpreq.getContent();
