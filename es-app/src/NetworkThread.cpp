@@ -38,7 +38,11 @@ void NetworkThread::run()
 		else
 			std::this_thread::sleep_for(std::chrono::hours(1));		
 
+#if WIN32
+		if (Settings::getInstance()->getBool("updates.enabled"))
+#else
 		if (SystemConf::getInstance()->get("updates.enabled") == "1") 
+#endif
 		{
 			LOG(LogDebug) << "NetworkThread : Checking for updates";
 

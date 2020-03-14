@@ -1116,3 +1116,22 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	return true;
 }
 
+bool ApiSystem::downloadFile(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
+{
+	if (func != nullptr)
+		func("Downloading " + label);
+
+	HttpReq httpreq(url, fileName);
+	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
+	{
+		if (func != nullptr)
+			func(std::string("Downloading " + label + " >>> " + std::to_string(httpreq.getPercent()) + " %"));
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+	}
+
+	if (httpreq.status() != HttpReq::REQ_SUCCESS)
+		return false;
+
+	return true;
+}

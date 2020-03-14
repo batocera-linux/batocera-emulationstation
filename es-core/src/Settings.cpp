@@ -239,6 +239,10 @@ void Settings::setDefaults()
 	mBoolMap["audio.thememusics"] = true;	
 	mIntMap["audio.display_titles_time"] = 10;
 	
+#if WIN32
+	mBoolMap["updates.enabled"] = true;
+#endif
+
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;
 	mDefaultFloatMap = mFloatMap;

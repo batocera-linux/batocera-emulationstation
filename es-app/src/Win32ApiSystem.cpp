@@ -16,6 +16,9 @@
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
 #pragma comment(lib, "ws2_32.lib")
 
+#define VERSIONURL "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-master/version.info"
+#define UPDATEURL  "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-master/EmulationStation-Win32.zip"
+
 bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 {
 	if (script == ApiSystem::NETPLAY)
@@ -291,7 +294,6 @@ bool Win32ApiSystem::executeScript(const std::string command)
 	return executeCMD((char*)command.c_str(), output);
 }
 
-
 std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::string command)
 {
 	LOG(LogDebug) << "ApiSystem::executeEnumerationScript -> " << command;
@@ -320,7 +322,6 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 
 	return res;
 }
-
 
 std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
@@ -649,26 +650,87 @@ bool Win32ApiSystem::ping()
 
 std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
 {
-	for (int i = 0; i < 100; i += 2)
+	std::string url = UPDATEURL;
+
+	std::string fileName = Utils::FileSystem::getFileName(url);
+	std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/update";
+
+	if (Utils::FileSystem::exists(path))
+		Utils::FileSystem::deleteDirectoryFiles(path);
+
+	Utils::FileSystem::createDirectory(path);
+
+	std::string zipFile = path + "/" + fileName;
+
+	if (downloadFile(url, zipFile, "update", func))
 	{
 		if (func != nullptr)
-			func(std::string("Downloading >>> " + std::to_string(i) + " %"));
+			func(std::string("Extracting update"));
 
-		::Sleep(200);
+		unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(path));
+		Utils::FileSystem::removeFile(zipFile);
+
+		auto files = Utils::FileSystem::getDirContent(path, true, true);
+		for (auto file : files)
+		{
+			std::string relative = Utils::FileSystem::createRelativePath(file, path, false);
+			if (Utils::String::startsWith(relative, "./"))
+				relative = relative.substr(2);
+
+			std::string localPath = Utils::FileSystem::getExePath() + "/" + relative;
+
+			if (Utils::FileSystem::isDirectory(file))
+			{
+				if (!Utils::FileSystem::exists(localPath))
+					Utils::FileSystem::createDirectory(localPath);
+			}
+			else
+			{
+				if (Utils::FileSystem::exists(localPath))
+				{
+					Utils::FileSystem::removeFile(localPath + ".old");
+					rename(localPath.c_str(), (localPath + ".old").c_str());
+				}
+
+				if (Utils::FileSystem::copyFile(file, localPath))
+				{
+					Utils::FileSystem::removeFile(localPath + ".old");
+					Utils::FileSystem::removeFile(file);
+				}
+			}
+		}
+
+		Utils::FileSystem::deleteDirectoryFiles(path);
+
+		return std::pair<std::string, int>("done.", 0);
 	}
-
-	if (func != nullptr)
-		func(std::string("Extracting files"));
-
-	::Sleep(750);
 
 	return std::pair<std::string, int>("done.", 0);
 }
 
 bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 {
-	output.push_back("TODO");
-	return true;
+	std::string localVersion;
+	std::string localVersionFile = Utils::FileSystem::getExePath() + "/version.info";
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		localVersion = Utils::FileSystem::readAllText(localVersionFile);
+		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
+	}
+
+	HttpReq httpreq(VERSIONURL);
+	if (httpreq.wait())
+	{
+		std::string serverVersion = httpreq.getContent();
+		serverVersion = Utils::String::replace(Utils::String::replace(serverVersion, "\r", ""), "\n", "");
+		if (!serverVersion.empty() && serverVersion != localVersion)
+		{
+			output.push_back(serverVersion);
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool Win32ApiSystem::launchKodi(Window *window)

@@ -18,6 +18,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.h
@@ -107,6 +108,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Scripting.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.cpp

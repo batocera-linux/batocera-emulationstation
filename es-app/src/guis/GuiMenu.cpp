@@ -657,11 +657,21 @@ void GuiMenu::openUpdatesSettings()
 
 	// Enable updates
 	auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
+
+#if WIN32
+	updates_enabled->setState(Settings::getInstance()->getBool("updates.enabled"));
+#else
 	updates_enabled->setState(SystemConf::getInstance()->get("updates.enabled") == "1");
+#endif
+	
 	updateGui->addWithLabel(_("AUTO UPDATES"), updates_enabled);
 	updateGui->addSaveFunc([updates_enabled]
 	{
+#if WIN32
+		Settings::getInstance()->setBool("updates.enabled", updates_enabled->getState());
+#else
 		SystemConf::getInstance()->set("updates.enabled", updates_enabled->getState() ? "1" : "0");
+#endif
 	});
 
 	// Start update

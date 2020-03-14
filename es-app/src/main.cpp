@@ -448,12 +448,12 @@ int main(int argc, char* argv[])
 
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
-#ifndef WIN32
-	// batocera
-	// UPDATE CHECK THREAD
-	if(systemConf->get("updates.enabled") == "1")
-		NetworkThread * nthread = new NetworkThread(&window);
+#if WIN32
+	if (Settings::getInstance()->getBool("updates.enabled"))
+#else
+	if (systemConf->get("updates.enabled") == "1")
 #endif
+		NetworkThread * nthread = new NetworkThread(&window);
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)

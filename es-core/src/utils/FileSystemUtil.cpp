@@ -205,7 +205,7 @@ namespace Utils
 
 	// Methods
 
-		stringList getDirContent(const std::string& _path, const bool _recursive)
+		stringList getDirContent(const std::string& _path, const bool _recursive, const bool includeHidden)
 		{
 			std::string path = getGenericPath(_path);
 			stringList  contentList;
@@ -232,16 +232,19 @@ namespace Utils
 						std::string name = Utils::String::convertFromWideString(findData.cFileName);
 
 						// ignore "." and ".."
-						if((name != ".") && (name != ".."))
-						{
-							std::string fullName(getGenericPath(path + "/" + name));
-							contentList.push_back(fullName);
+						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && name == "." || name == "..")
+							continue;
 
-							FileCache::add(fullName, FileCache((DWORD)findData.dwFileAttributes));
+						std::string fullName(getGenericPath(path + "/" + name));
+						FileCache::add(fullName, FileCache((DWORD)findData.dwFileAttributes));
 
-							if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
-								contentList.merge(getDirContent(fullName, true));
-						}
+						if (!includeHidden && (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN)
+							continue;
+
+						contentList.push_back(fullName);						
+
+						if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
+							contentList.merge(getDirContent(fullName, true, includeHidden));
 					}
 					while(FindNextFileW(hFind, &findData));
 
@@ -263,9 +266,13 @@ namespace Utils
 						if((name != ".") && (name != ".."))
 						{
 							std::string fullName(getGenericPath(path + "/" + name));
-							contentList.push_back(fullName);
 
 							FileCache::add(fullName, FileCache(fullName, entry));
+
+							if (!includeHidden && Utils::FileSystem::isHidden(fullName))
+								continue;
+
+							contentList.push_back(fullName);
 
 							if(_recursive && isDirectory(fullName))
 								contentList.merge(getDirContent(fullName, true));
@@ -1059,6 +1066,59 @@ namespace Utils
 			std::stringstream buffer;
 			buffer << t.rdbuf();
 			return buffer.str();
+		}
+
+		void writeAllText(const std::string fileName, const std::string text)
+		{
+			std::fstream fs;
+			fs.open(fileName.c_str(), std::fstream::out);
+			fs << text;
+			fs.close();
+		}
+
+		bool copyFile(const std::string src, const std::string dst)
+		{
+			std::string path = getGenericPath(src);
+			std::string pathD = getGenericPath(dst);
+
+			// don't remove if it doesn't exists
+			if (!exists(path))
+				return true;
+
+			char buf[512];
+			size_t size;
+
+			FILE* source = fopen(path.c_str(), "rb");
+			if (source == nullptr)
+				return false;
+
+			FILE* dest = fopen(pathD.c_str(), "wb");
+			if (dest == nullptr)
+			{
+				fclose(source);
+				return false;
+			}
+
+			while (size = fread(buf, 1, 512, source))
+				fwrite(buf, 1, size, dest);
+
+			fclose(dest);
+			fclose(source);
+
+			return true;
+		} // removeFile
+
+		void deleteDirectoryFiles(const std::string path)
+		{
+			auto files = Utils::FileSystem::getDirContent(path, true, true);
+			std::reverse(std::begin(files), std::end(files));
+			for (auto file : files)
+			{
+				if (Utils::FileSystem::isDirectory(file))
+					rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
+				else
+					Utils::FileSystem::removeFile(file);
+			}
 		}
 	} // FileSystem::
 
