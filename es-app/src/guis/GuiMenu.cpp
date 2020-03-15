@@ -1630,8 +1630,8 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 
 	GuiSettings* s = new GuiSettings(mWindow, system->getFullName().c_str());
 
-	auto emul_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATOR"), false);
-	auto core_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("CORE"), false);
+	auto emul_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Emulator"), false);
+	auto core_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Core"), false);
 
 	std::string currentEmul = Settings::getInstance()->getString(system->getName() + ".emulator");
 	std::string defaultEmul = system->getDefaultEmulator();
@@ -1651,7 +1651,7 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 		emul_choice->selectFirstItem();
 
 	ComponentListRow row;
-	row.addElement(std::make_shared<TextComponent>(mWindow, _("EMULATOR"), theme->Text.font, theme->Text.color), true);
+	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Emulator")), theme->Text.font, theme->Text.color), true);
 	row.addElement(emul_choice, false);
 
 	s->addRow(row);
@@ -1686,7 +1686,7 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 	});
 
 	row.elements.clear();
-	row.addElement(std::make_shared<TextComponent>(mWindow, "CORE", theme->Text.font, theme->Text.color), true);
+	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Core")), theme->Text.font, theme->Text.color), true);
 	row.addElement(core_choice, false);
 	s->addRow(row);
 
