@@ -171,11 +171,15 @@ void Splash::render(float opacity, bool swapBuffers)
 	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), (mBackgroundColor & 0xFFFFFF00) | alpha);
 
 	for (auto extra : mExtras)
-		if (extra->getZIndex() < 10)
+		if (extra->getZIndex() < 5)
 			extra->render(trans);
 
 	mBackground.setOpacity(alpha);
 	mBackground.render(trans);
+
+	for (auto extra : mExtras)
+		if (extra->getZIndex() >= 5 && extra->getZIndex() < 10)
+			extra->render(trans);
 
 	if (mPercent >= 0)
 	{

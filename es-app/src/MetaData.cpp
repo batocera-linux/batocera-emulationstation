@@ -91,8 +91,8 @@ void MetaDataList::initMetadata()
 		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
 		maxID++;
 
-		if (mDefaultGameMap != nullptr) delete mDefaultGameMap;
-		if (mGameTypeMap != nullptr) delete mGameTypeMap;
+		if (mDefaultGameMap != nullptr) delete[] mDefaultGameMap;
+		if (mGameTypeMap != nullptr) delete[] mGameTypeMap;
 
 		mDefaultGameMap = new std::string[maxID];
 		mGameTypeMap = new MetaDataType[maxID];
@@ -115,8 +115,8 @@ void MetaDataList::initMetadata()
 		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
 		maxID++;
 
-		if (mDefaultFolderMap != nullptr) delete mDefaultFolderMap;
-		if (mFolderTypeMap != nullptr) delete mFolderTypeMap;
+		if (mDefaultFolderMap != nullptr) delete[] mDefaultFolderMap;
+		if (mFolderTypeMap != nullptr) delete[] mFolderTypeMap;
 
 		mDefaultFolderMap = new std::string[maxID];
 		mFolderTypeMap = new MetaDataType[maxID];

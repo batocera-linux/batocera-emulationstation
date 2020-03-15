@@ -1002,8 +1002,6 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
 #endif
 
-
-
 #if !defined(WIN32) || defined(_DEBUG)
 	// Install
 	s->addEntry(_("INSTALL BATOCERA ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
@@ -1043,28 +1041,36 @@ void GuiMenu::openSystemSettings_batocera()
 		s->addGroup(_("ADVANCED"));
 #endif
 
-	s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage, s] {
+	s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage, s] 
+	{
 		bool reboot = false;
-		if (optionsStorage->changed()) {
+		if (optionsStorage->changed()) 
+		{
 			ApiSystem::getInstance()->setStorage(optionsStorage->getSelected());
 			reboot = true;
 		}
 
-		if (overclock_choice->changed()) {
+		if (overclock_choice->changed()) 
+		{
 			Settings::getInstance()->setString("Overclock", overclock_choice->getSelected());
 			ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
 			reboot = true;
 		}
+
 		if (language_choice->changed()) 
-		{
-			FileSorts::reset();
+		{	
 			if (SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
 			{
+				FileSorts::reset();
+				MetaDataList::initMetadata();
+
 				s->setVariable("reloadGuiMenu", true);
-				SystemConf::getInstance()->saveSystemConf();
-			}
-			reboot = true;
+#ifdef HAVE_INTL
+				reboot = true;
+#endif
+			}			
 		}
+
 		if (reboot)
 			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 
