@@ -640,6 +640,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			mReflectOnBorders = elem->get<bool>("reflexionOnFrame");
 		else
 			mReflectOnBorders = false;
+
+		if (elem->has("opacity"))
+			setOpacity((unsigned char) (elem->get<float>("opacity") * 255.0));		
 	}	
 
 	if(properties & ThemeFlags::ROTATION) 

@@ -40,6 +40,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "horizontalAlignment", STRING },		
 		{ "verticalAlignment", STRING },
 		{ "roundCorners", FLOAT },
+		{ "opacity", FLOAT },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
