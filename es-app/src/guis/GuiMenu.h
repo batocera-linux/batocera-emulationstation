@@ -36,7 +36,7 @@ struct DecorationSetInfo
 class GuiMenu : public GuiComponent
 {
 public:
-	GuiMenu(Window* window);
+	GuiMenu(Window* window, bool animate = true);
 	~GuiMenu();
 
 	bool input(InputConfig* config, Input input) override;
@@ -48,6 +48,8 @@ public:
 	static void popGameConfigurationGui(Window* mWindow, std::string title, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
 
 	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
+
+	static void updateGameLists(Window* window);
 
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
@@ -73,6 +75,12 @@ private:
 	void openSystemInformations_batocera();
 	void openDeveloperSettings();
 	void openNetplaySettings(); 
+	void openRetroachievementsSettings();
+	void openMissingBiosSettings();
+
+	// windows
+	void openEmulatorSettings();
+	void openSystemEmulatorSettings(SystemData* system);
 
 	static void openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave);
 

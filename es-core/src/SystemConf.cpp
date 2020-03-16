@@ -3,11 +3,30 @@
 #include <fstream>
 #include "Log.h"
 #include "utils/StringUtil.h"
-#include  "utils/FileSystemUtil.h"
+#include "utils/FileSystemUtil.h"
+
 #include <regex>
+#include <string>
+#include <iostream>
+#include <SDL_timer.h>
+
+
+#if WIN32 & !_DEBUG
+	// NOBATOCERACONF routes all SystemConf to es_settings for Windows Release version
+
+	#include "Settings.h"
+	#define NOBATOCERACONF
+
+	std::string mapSettingsName(const std::string name)
+	{
+		if (name == "system.language")
+			return "Language";
+
+		return name;
+	}
+#endif
 
 SystemConf *SystemConf::sInstance = NULL;
-
 
 std::string systemConfFile = "/userdata/system/batocera.conf";
 std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
@@ -15,26 +34,27 @@ std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
 SystemConf::SystemConf() 
 {
 #if WIN32
-	systemConfFile = Utils::FileSystem::getHomePath() + "/batocera.conf";
-	systemConfFileTmp = Utils::FileSystem::getHomePath() + "/batocera.conf.tmp";
+	systemConfFile = Utils::FileSystem::getEsConfigPath() + "/batocera.conf";
+	systemConfFileTmp = Utils::FileSystem::getEsConfigPath() + "/batocera.conf.tmp";
 #endif
 
     loadSystemConf();
 }
 
-SystemConf *SystemConf::getInstance() {
+SystemConf *SystemConf::getInstance() 
+{
     if (sInstance == NULL)
         sInstance = new SystemConf();
 
     return sInstance;
 }
 
-#include <regex>
-#include <string>
-#include <iostream>
-
 bool SystemConf::loadSystemConf() 
 {
+#ifdef NOBATOCERACONF
+	return true;
+#endif
+
 	mWasChanged = false;
 
     std::string line;
@@ -60,10 +80,12 @@ bool SystemConf::loadSystemConf()
     return true;
 }
 
-#include <SDL_timer.h>
-
 bool SystemConf::saveSystemConf()
 {
+#ifdef NOBATOCERACONF
+	return Settings::getInstance()->saveFile();	
+#endif
+
 	if (!mWasChanged)
 		return false;
 
@@ -161,22 +183,22 @@ bool SystemConf::saveSystemConf()
 
 std::string SystemConf::get(const std::string &name) 
 {
+#ifdef NOBATOCERACONF
+	return Settings::getInstance()->getString(mapSettingsName(name));
+#endif
+	
     if (confMap.count(name))
         return confMap[name];
     
     return "";
 }
 
-std::string SystemConf::get(const std::string &name, const std::string &defaut) 
-{
-    if (confMap.count(name))
-        return confMap[name];
-    
-    return defaut;
-}
-
 bool SystemConf::set(const std::string &name, const std::string &value) 
 {
+#ifdef NOBATOCERACONF
+	return Settings::getInstance()->setString(mapSettingsName(name), value);
+#endif
+
 	if (confMap.count(name) == 0 || confMap[name] != value)
 	{
 		confMap[name] = value;
@@ -185,4 +207,25 @@ bool SystemConf::set(const std::string &name, const std::string &value)
 	}
 
 	return false;
+}
+
+bool SystemConf::getBool(const std::string &name, bool defaultValue)
+{
+#ifdef NOBATOCERACONF
+	return Settings::getInstance()->getBool(mapSettingsName(name));
+#endif
+
+	if (defaultValue)
+		return get(name) != "0";
+
+	return get(name) == "1";
+}
+
+bool SystemConf::setBool(const std::string &name, bool value)
+{
+#ifdef NOBATOCERACONF	
+	return Settings::getInstance()->setBool(mapSettingsName(name), value);
+#endif
+
+	return set(name, value  ? "1" : "0");
 }

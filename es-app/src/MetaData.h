@@ -93,7 +93,7 @@ public:
 	
 	void set(const std::string& key, const std::string& value);
 
-	const std::string get(const std::string& key) const;
+	const std::string get(const std::string& key, bool resolveRelativePaths = true) const;
 	int getInt(const std::string& key) const;
 	float getFloat(const std::string& key) const;
 

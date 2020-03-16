@@ -22,6 +22,7 @@
 #include "components/BatteryIndicatorComponent.h"
 #include "guis/GuiMsgBox.h"
 #include "components/VolumeInfoComponent.h"
+#include "Splash.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
@@ -142,13 +143,20 @@ GuiComponent* Window::peekGui()
 	return mGuiStack.back();
 }
 
-bool Window::init()
+bool Window::init(bool initRenderer)
 {
-	if(!Renderer::init())
+	LOG(LogInfo) << "Window::init";
+
+	if (initRenderer)
 	{
-		LOG(LogError) << "Renderer failed to initialize!";
-		return false;
+		if (!Renderer::init())
+		{
+			LOG(LogError) << "Renderer failed to initialize!";
+			return false;
+		}
 	}
+	else 
+		Renderer::activateWindow();
 
 	InputManager::getInstance()->init();
 
@@ -206,7 +214,7 @@ void Window::reactivateGui()
 		peekGui()->updateHelpPrompts();
 }
 
-void Window::deinit()
+void Window::deinit(bool deinitRenderer)
 {
 	for (auto extra : mScreenExtras)
 		extra->onHide();
@@ -215,10 +223,14 @@ void Window::deinit()
 	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 		(*i)->onHide();
 
-	InputManager::getInstance()->deinit();
+	if (deinitRenderer)
+		InputManager::getInstance()->deinit();
+
 	TextureResource::clearQueue();
 	ResourceManager::getInstance()->unloadAll();
-	Renderer::deinit();
+
+	if (deinitRenderer)
+		Renderer::deinit();
 }
 
 void Window::textInput(const char* text)
@@ -557,107 +569,36 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
-class Splash
+void Window::setCustomSplashScreen(std::string imagePath, std::string customText)
 {
-public:
-	Splash(Window* window, const std::string image = ":/logo.png", bool fullScreenBackGround = true) : //":/logo.jpg") :
-		mBackground(window),
-		mText(window)
-	{
-		mTexture = TextureResource::get(image, false, true, true, false, false);
-		
-		mBackground.setImage(mTexture);
+	if (!Utils::FileSystem::exists(imagePath))
+		return;
 
-		if (fullScreenBackGround)
-		{
-			mBackground.setOrigin(0.5, 0.5);
-			mBackground.setPosition(Renderer::getScreenWidth() / 2, Renderer::getScreenHeight() / 2);
-			mBackground.setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
-		}
-		else
-		{
-			mBackground.setResize(Renderer::getScreenWidth() * 0.51f, 0.0f);
-			mBackground.setPosition((Renderer::getScreenWidth() - mBackground.getSize().x()) / 2, (Renderer::getScreenHeight() - mBackground.getSize().y()) / 2 * 0.6f);
-		}
-		
-		auto font = Font::get(FONT_SIZE_MEDIUM);
-		mText.setHorizontalAlignment(ALIGN_CENTER);
-		mText.setFont(font);
-		mText.setGlowColor(0x00000020);
-		mText.setGlowSize(2);
-		mText.setGlowOffset(1, 1);
-		mText.setPosition(0, Renderer::getScreenHeight() * 0.78f);
-		mText.setSize(Renderer::getScreenWidth(), font->getLetterHeight());		
-	}
+	if (Settings::getInstance()->getBool("HideWindow"))
+		return;
 
-	void render(std::string text, float percent, unsigned char opacity)
-	{
-		if (opacity == 0)
-			return;
-
-		mText.setText(text);
-		mText.setColor(0xFFFFFF00 | opacity);
-
-		Transform4x4f trans = Transform4x4f::Identity();
-		Renderer::setMatrix(trans);		
-		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x00000FF);
-
-		mBackground.render(trans);
-
-		if (percent >= 0)
-		{
-			float baseHeight = 0.036f;
-
-			float w = Renderer::getScreenWidth() / 2.0f;
-			float h = Renderer::getScreenHeight() * baseHeight;
-
-			float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
-			float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
-
-			float corner = Renderer::getScreenHeight() / 105.0;
-
-			Renderer::setMatrix(trans);
-			
-			if (corner > 1)
-				Renderer::enableRoundCornerStencil(x, y, w, h, corner);
-
-			Renderer::drawRect(x, y, w, h, 0x90909000 | (opacity / 2));
-			Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0x4F000000 | opacity, true);
-
-			if (corner > 1)
-				Renderer::disableStencil();
-		}
-
-		if (!text.empty())
-			mText.render(trans);
-
-		Renderer::swapBuffers();
-
-#if defined(_WIN32)
-		// Avoid Window Freezing on Windows
-		SDL_Event event;
-		while (SDL_PollEvent(&event));
-#endif
-	}
-
-private:
-	ImageComponent mBackground;
-	TextComponent  mText;	
-
-	std::shared_ptr<TextureResource> mTexture;
-};
-
-void Window::endRenderLoadingScreen()
-{
-	mSplash = nullptr;
+	mSplash = std::make_shared<Splash>(this, imagePath, false);
+	mSplash->update(customText);
 }
 
-void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
+void Window::renderSplashScreen(std::string text, float percent, float opacity)
 {
 	if (mSplash == NULL)
 		mSplash = std::make_shared<Splash>(this);
 
-	mSplash->render(text, percent, opacity);	
+	mSplash->update(text, percent);
+	mSplash->render(opacity);	
+}
+
+void Window::renderSplashScreen(float opacity, bool swapBuffers)
+{
+	if (mSplash != nullptr)
+		mSplash->render(opacity, swapBuffers);
+}
+
+void Window::closeSplashScreen()
+{
+	mSplash = nullptr;
 }
 
 void Window::renderHelpPromptsEarly()

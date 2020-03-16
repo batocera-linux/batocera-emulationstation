@@ -10,7 +10,7 @@
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
 #include "Window.h"
-
+#include "GuiMenu.h"
 
 GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window) 
 	: GuiSettings(window, _("GAME COLLECTION SETTINGS").c_str())
@@ -127,8 +127,9 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			setVariable("reloadAll", true);
 	});
 
-
-	
+#if defined(WIN32) && !defined(_DEBUG)		
+	addEntry(_("UPDATE GAMES LISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
+#endif		
 
 	if(CollectionSystemManager::get()->isEditing())
 		addEntry((_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection())).c_str(), false, std::bind(&GuiCollectionSystemsOptions::exitEditMode, this));
@@ -150,7 +151,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (getVariable("reloadSystems"))
 		{
 			Window* window = mWindow;
-			window->renderLoadingScreen(_("Loading..."));
+			window->renderSplashScreen(_("Loading..."));
 
 			ViewController::get()->goToStart();
 			delete ViewController::get();
@@ -167,7 +168,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 					delete gui;
 			}
 			ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
-			window->endRenderLoadingScreen();
+			window->closeSplashScreen();
 
 			window->pushGui(ViewController::get());
 		}
@@ -179,7 +180,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			CollectionSystemManager::get()->updateSystemsList();
 			ViewController::get()->goToStart();
 			ViewController::get()->reloadAll(mWindow);
-			mWindow->endRenderLoadingScreen();
+			mWindow->closeSplashScreen();
 		}
 	});
 }

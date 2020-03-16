@@ -357,6 +357,8 @@ void ImageComponent::updateVertices()
 		for(int i = 0; i < 4; ++i)
 			mVertices[i].tex[1] = py - mVertices[i].tex[1];
 	}
+
+	updateColors();
 }
 
 void ImageComponent::updateColors()
@@ -365,7 +367,7 @@ void ImageComponent::updateColors()
 
 	const unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
 	const unsigned int colorEnd = Renderer::convertColor(mColorShiftEnd & 0xFFFFFF00 | (unsigned char)((mColorShiftEnd & 0xFF) * opacity));
-
+	
 	mVertices[0].col = color;
 	mVertices[1].col = mColorGradientHorizontal ? colorEnd : color;
 	mVertices[2].col = mColorGradientHorizontal ? color : colorEnd;
@@ -638,6 +640,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			mReflectOnBorders = elem->get<bool>("reflexionOnFrame");
 		else
 			mReflectOnBorders = false;
+
+		if (elem->has("opacity"))
+			setOpacity((unsigned char) (elem->get<float>("opacity") * 255.0));		
 	}	
 
 	if(properties & ThemeFlags::ROTATION) 

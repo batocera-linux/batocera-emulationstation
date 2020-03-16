@@ -276,16 +276,29 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
 
+	FileData* gameToUpdate = getSourceFileData();
+	if (gameToUpdate == nullptr)
+		return;
+
+	SystemData* system = gameToUpdate->getSystem();
+	if (system == nullptr)
+		return;
+
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 
-	//ThreadedScraper::pause();
+	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
+#if !WIN32
+	hideWindow = false;
+#endif
+	window->deinit(hideWindow);
 
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
-	window->deinit();
-
-	std::string systemName = getSourceFileData()->getSystem()->getName();
-	std::string command = getSystemEnvData()->mLaunchCommand;
+	
+	std::string systemName = system->getName();
+	std::string emulator = getEmulator();
+	std::string core = getCore();
+	std::string command = system->getLaunchCommand(emulator, core);
 
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
@@ -296,32 +309,6 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
-
-	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
-	if (emulator.empty())
-		emulator = SystemConf::getInstance()->get(mSystem->getName() + ".emulator");
-
-	if (emulator.empty())
-	{
-		auto emulators = mSystem->getEmulators();
-		if (emulators.size() > 0)
-			emulator = emulators.begin()->first;
-	}
-
-	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");
-	if (core.empty())
-		core = SystemConf::getInstance()->get(mSystem->getName() + ".core");
-
-	if (core.empty() && !emulator.empty())
-	{
-		auto emulators = mSystem->getEmulators();
-
-		auto it = emulators.find(emulator);
-		if (it != emulators.cend())
-			if (it->second.cores.size() > 0)
-				core = it->second.cores.begin()->name;
-	}
-
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
@@ -332,47 +319,37 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (options.netPlayMode == CLIENT)
 	{
 #if WIN32
-		command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
-#else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
+			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+		else
 #endif
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
 	}
 	else if (options.netPlayMode == SERVER)
 	{
 #if WIN32
-		std::string crc32 = getMetadata("crc32");
-		if (crc32.empty())
-		{
-			crc32 = ApiSystem::getInstance()->getCRC32(getPath(), !isArcadeAsset());
-			if (!crc32.empty())
-				setMetadata("crc32", crc32);
-		}
-		
-		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + (crc32.empty() ? "" : " --hash " + crc32) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
-#else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
+		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
+			command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+		else
 #endif
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
 	}
 	else
 		command = Utils::String::replace(command, "%NETPLAY%", "");
-
-
 
 	Scripting::fireEvent("game-start", rom, basename);
 
 	time_t tstart = time(NULL);
 
 	LOG(LogInfo) << "	" << command;
-	int exitCode = runSystemCommand(command);
 
+	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
-	{
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
-	}
 
 	Scripting::fireEvent("game-end");
 
-	window->init();
+	window->init(hideWindow);
 	VolumeControl::getInstance()->init();
 
 	// mSystem can be NULL
@@ -381,35 +358,31 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched
+	if (exitCode == 0)
+	{
+		int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
+		gameToUpdate->setMetadata("playcount", std::to_string(static_cast<long long>(timesPlayed)));
 
-	FileData* gameToUpdate = getSourceFileData();
-	SystemData* system = gameToUpdate->getSystem();
+		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
+		// you might have experienced a loading problem)
+		time_t tend = time(NULL);
+		long elapsedSeconds = difftime(tend, tstart);
+		long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+		if (elapsedSeconds >= 10)
+			gameToUpdate->setMetadata("gametime", std::to_string(static_cast<long>(gameTime)));
 
-	int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
-	gameToUpdate->getMetadata().set("playcount", std::to_string(static_cast<long long>(timesPlayed)));
-
-	// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
-	// you might have experienced a loading problem)
-	time_t tend = time(NULL);
-	long elapsedSeconds = difftime(tend, tstart);
-	long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
-	if (elapsedSeconds >= 10)
-		gameToUpdate->getMetadata().set("gametime", std::to_string(static_cast<long>(gameTime)));
-
-	//update last played time
-	gameToUpdate->getMetadata().set("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
-	CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
-	saveToGamelistRecovery(gameToUpdate);
+		//update last played time
+		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
+		saveToGamelistRecovery(gameToUpdate);
+	}
 
 	window->reactivateGui();
 
-	// batocera
 	if (system != nullptr && system->getTheme() != nullptr)
 		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
 	else
 		AudioManager::getInstance()->playRandomMusic();
-
-	// ThreadedScraper::resume();
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
@@ -417,7 +390,6 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 {
 	mSourceFileData = file->getSourceFileData();
 	mParent = NULL;
-	// metadata = mSourceFileData->metadata;	
 	mDirty = true;
 }
 
@@ -579,20 +551,34 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 {
 	std::vector<FileData*> out;
 
+	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
+	bool filterKidGame = UIModeController::getInstance()->isUIModeKid();
+
 	FileFilterIndex* idx = (system != nullptr ? system : mSystem)->getIndex(false);
 
-	for (auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
+	for (auto it : mChildren)
 	{
-		if ((*it)->getType() & typeMask)
+		if (it->getType() & typeMask)
 		{
-			if (!displayedOnly || idx == nullptr || !idx->isFiltered() || idx->showFile(*it))
-				out.push_back(*it);
+			if (!displayedOnly || idx == nullptr || !idx->isFiltered() || idx->showFile(it))
+			{
+				if (displayedOnly)
+				{
+					if (!showHiddenFiles && it->getHidden())
+						continue;
+
+					if (filterKidGame && it->getKidGame())
+						continue;
+				}
+
+				out.push_back(it);
+			}
 		}
 
-		if ((*it)->getType() != FOLDER)
+		if (it->getType() != FOLDER)
 			continue;
 
-		FolderData* folder = (FolderData*)(*it);
+		FolderData* folder = (FolderData*) it;
 		if (folder->getChildren().size() > 0)
 		{
 			std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);
@@ -664,4 +650,32 @@ void FolderData::createChildrenByFilenameMap(std::unordered_map<std::string, Fil
 		else 
 			map[(*it)->getKey()] = (*it);
 	}	
+}
+
+const std::string FileData::getCore(bool resolveDefault)
+{
+#if WIN32 && !_DEBUG
+	std::string core = getMetadata().get("core");
+#else
+	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
+#endif
+
+	if (resolveDefault && core.empty())
+		core = getSourceFileData()->getSystem()->getDefaultCore(getEmulator());
+
+	return core;
+}
+
+const std::string FileData::getEmulator(bool resolveDefault)
+{
+#if WIN32 && !_DEBUG
+	std::string emulator = getMetadata().get("emulator");
+#else
+	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
+#endif
+
+	if (resolveDefault && emulator.empty())
+		emulator = getSourceFileData()->getSystem()->getDefaultEmulator();
+
+	return emulator;
 }

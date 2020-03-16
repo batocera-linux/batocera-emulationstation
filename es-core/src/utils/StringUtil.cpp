@@ -543,6 +543,21 @@ namespace Utils
 			return output;
 		}
 
+		std::string join(const std::vector<std::string>& items, std::string separator)
+		{
+			std::string data;
+
+			for (auto line : items)
+			{
+				if (!data.empty())
+					data += separator;
+
+				data += line;
+			}
+
+			return data;
+		}
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
 		{

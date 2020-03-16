@@ -28,7 +28,7 @@ namespace Scripting
                 // append folder to path
                 std::string script = *it + " \"" + arg1 + "\" \"" + arg2 + "\"";
                 LOG(LogDebug) << "  executing: " << script;
-                runSystemCommand(script);
+                runSystemCommand(script, "", nullptr);
             }
         }
 	}

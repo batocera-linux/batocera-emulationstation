@@ -11,59 +11,92 @@
 static std::vector<MetaDataDecl> gameMDD;
 static std::vector<MetaDataDecl> folderMDD;
 
-static std::string mDefaultGameMap[22];
-static std::string mDefaultFolderMap[14];
+static std::string* mDefaultGameMap = nullptr;
+static MetaDataType* mGameTypeMap = nullptr;
 
-static MetaDataType mGameTypeMap[22];
-static MetaDataType mFolderTypeMap[14];
+static std::string* mDefaultFolderMap = nullptr;
+static MetaDataType* mFolderTypeMap = nullptr;
 
 static std::map<std::string, unsigned char> mGameIdMap;
 static std::map<std::string, unsigned char> mFolderIdMap;
 
 void MetaDataList::initMetadata()
 {
-	//								id,   key,         type,                   default,            statistic,          name in GuiMetaDataEd,          prompt in GuiMetaDataEd
-	gameMDD.push_back(MetaDataDecl(0, "name", MD_STRING, "", false, _("Name"), _("enter game name")));
-	//  gameMDD.push_back(MetaDataDecl(1, "sortname",		MD_STRING,		"", false, _("Sort name"), _("enter game sort name")));
-	gameMDD.push_back(MetaDataDecl(2, "desc", MD_MULTILINE_STRING, "", false, _("Description"), _("enter description")));
-	gameMDD.push_back(MetaDataDecl(3, "image", MD_PATH, "", false, _("Image"), _("enter path to image")));
-	gameMDD.push_back(MetaDataDecl(4, "video", MD_PATH, "", false, _("Path to video"), _("enter path to thumbnail")));
-	gameMDD.push_back(MetaDataDecl(5, "marquee", MD_PATH, "", false, _("Path to marquee"), _("enter path to thumbnail")));
-	gameMDD.push_back(MetaDataDecl(6, "thumbnail", MD_PATH, "", false, _("Thumbnail"), _("enter path to thumbnail")));
-	gameMDD.push_back(MetaDataDecl(7, "rating", MD_RATING, "0.000000", false, _("Rating"), _("enter rating")));
-	gameMDD.push_back(MetaDataDecl(8, "releasedate", MD_DATE, "not-a-date-time", false, _("Release date"), _("enter release date")));
-	gameMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "", false, _("Developer"), _("enter game developer")));
-	gameMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "", false, _("Publisher"), _("enter game publisher")));
-	gameMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "", false, _("Genre"), _("enter game genre")));
-	gameMDD.push_back(MetaDataDecl(12, "players", MD_INT, "1", false, _("Players"), _("enter number of players")));
-	gameMDD.push_back(MetaDataDecl(13, "favorite", MD_BOOL, "false", false, _("Favorite"), _("enter favorite")));
-	gameMDD.push_back(MetaDataDecl(14, "hidden", MD_BOOL, "false", false, _("Hidden"), _("set hidden")));
-	gameMDD.push_back(MetaDataDecl(15, "kidgame", MD_BOOL, "false", false, _("Kidgame"), _("set kidgame")));
-	gameMDD.push_back(MetaDataDecl(16, "playcount", MD_INT, "0", true, _("Play count"), _("enter number of times played")));
-	gameMDD.push_back(MetaDataDecl(17, "lastplayed", MD_TIME, "0", true, _("Last played"), _("enter last played date")));
-	gameMDD.push_back(MetaDataDecl(18, "crc32", MD_STRING, "", false, "Crc32", _("Crc32 checksum")));
-	gameMDD.push_back(MetaDataDecl(19, "md5", MD_STRING, "", false, "Md5", _("Md5 checksum")));
-	gameMDD.push_back(MetaDataDecl(20, "gametime", MD_INT, "0", true, _("Game time"), _("how long the game has been played in total (seconds)")));
-    gameMDD.push_back(MetaDataDecl(21, "arcadesystemname", MD_STRING, "", false, _("Arcade system"), _("enter game arcade system")));
+	MetaDataDecl gameDecls[] = {
+		// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
+		{ 0,  "name",        MD_STRING,              "",                 false,      _("Name"),                 _("enter game name") },
+	//	{ 1,  "sortname",    MD_STRING,              "",                 false,      _("sortname"),             _("enter game sort name") },
+		{ 2,  "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("enter description") },
 
-	folderMDD.push_back(MetaDataDecl(0, "name", MD_STRING, "", false, _("name"), _("enter game name")));
-	//  folderMDD.push_back(MetaDataDecl(1, "sortname",	MD_STRING,		"", 		false, _("sortname"),    _("enter game sort name")));
-	folderMDD.push_back(MetaDataDecl(2, "desc", MD_MULTILINE_STRING, "", false, _("description"), _("enter description")));
-	folderMDD.push_back(MetaDataDecl(3, "image", MD_PATH, "", false, _("image"), _("enter path to image")));
-	folderMDD.push_back(MetaDataDecl(4, "thumbnail", MD_PATH, "", false, _("thumbnail"), _("enter path to thumbnail")));
-	folderMDD.push_back(MetaDataDecl(5, "video", MD_PATH, "", false, _("video"), _("enter path to video")));
-	folderMDD.push_back(MetaDataDecl(6, "marquee", MD_PATH, "", false, _("marquee"), _("enter path to marquee")));
-	folderMDD.push_back(MetaDataDecl(7, "rating", MD_RATING, "0.000000", false, _("Rating"), _("enter rating")));
-	folderMDD.push_back(MetaDataDecl(8, "releasedate", MD_DATE, "not-a-date-time", false, _("Release date"), _("enter release date")));
-	folderMDD.push_back(MetaDataDecl(9, "developer", MD_STRING, "", false, _("Developer"), _("enter game developer")));
-	folderMDD.push_back(MetaDataDecl(10, "publisher", MD_STRING, "", false, _("Publisher"), _("enter game publisher")));
-	folderMDD.push_back(MetaDataDecl(11, "genre", MD_STRING, "", false, _("Genre"), _("enter game genre")));
-	folderMDD.push_back(MetaDataDecl(12, "players", MD_INT, "1", false, _("Players"), _("enter number of players")));
-	folderMDD.push_back(MetaDataDecl(13, "hidden", MD_BOOL, "false", false, _("Hidden"), _("set hidden")));
+#if WIN32 && !_DEBUG
+		{ 3,  "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator") },
+		{ 4,  "core",	      MD_LIST,				 "",                 false,       _("Core"),				 _("core") },
+#else
+		// Windows & recalbox gamelist.xml compatiblity -> Set as statistic to hide it from metadata editor
+		{ 3,  "emulator",    MD_LIST,				 "",                 true,        _("Emulator"),			 _("emulator") },
+		{ 4,  "core",	     MD_LIST,				 "",                 true,        _("Core"),				 _("core") },
+#endif
+
+		{ 5,  "image",       MD_PATH,                "",                 false,      _("Image"),                _("enter path to image") },
+		{ 6,  "video",       MD_PATH,                "",                 false,      _("Video"),                _("enter path to video") },
+		{ 7,  "marquee",     MD_PATH,                "",                 false,      _("Marquee"),              _("enter path to marquee") },
+		{ 8,  "thumbnail",   MD_PATH,                "",                 false,      _("Thumbnail"),            _("enter path to thumbnail") },
+		{ 9,  "rating",      MD_RATING,              "0.000000",         false,      _("Rating"),               _("enter rating") },
+		{ 10, "releasedate", MD_DATE,                "not-a-date-time",  false,      _("Release date"),         _("enter release date") },
+		{ 11, "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("enter game developer") },
+		{ 12, "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("enter game publisher") },
+		{ 13, "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre") },
+
+		{ 14, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system") },
+
+		{ 15, "players",     MD_INT,                 "1",                false,      _("Players"),              _("enter number of players") },
+		{ 16, "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite") },
+		{ 17, "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden") },
+		{ 18, "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame") },
+		{ 19, "playcount",   MD_INT,                 "0",                true,       _("Play count"),           _("enter number of times played") },
+		{ 20, "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date") },
+
+		{ 21, "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum") },
+		{ 22, "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum") },
+
+		{ 23, "gametime",    MD_INT,                 "0",                true,       _("Game time"),           _("how long the game has been played in total (seconds)") }				
+
+	};
+	
+	MetaDataDecl folderDecls[] = {
+		{ 0,  "name",        MD_STRING,              "",                 false,       _("Name"),                 _("enter game name") },
+	//	{ 1,  "sortname",    MD_STRING,              "",                 false,       _("sortname"),             _("enter game sort name") },
+		{ 2,  "desc",        MD_MULTILINE_STRING,    "",                 false,       _("Description"),          _("enter description") },
+		{ 3,  "image",       MD_PATH,                "",                 false,       _("Image"),                _("enter path to image") },
+		{ 4,  "thumbnail",   MD_PATH,                "",                 false,       _("Thumbnail"),            _("enter path to thumbnail") },
+		{ 5,  "video",       MD_PATH,                "",                 false,       _("Video"),                _("enter path to video") },
+		{ 6,  "marquee",     MD_PATH,                "",                 false,       _("Marquee"),              _("enter path to marquee") },
+		{ 7,  "rating",      MD_RATING,              "0.000000",         false,       _("Rating"),               _("enter rating") },
+		{ 8,  "releasedate", MD_DATE,                "not-a-date-time",  false,       _("Release date"),         _("enter release date") },
+		{ 9,  "developer",   MD_STRING,              "",                 false,       _("Developer"),            _("enter game developer") },
+		{ 10, "publisher",   MD_STRING,              "",                 false,       _("Publisher"),            _("enter game publisher") },
+		{ 11, "genre",       MD_STRING,              "",                 false,       _("Genre"),                _("enter game genre") },
+		{ 12, "players",     MD_INT,                 "1",                false,       _("Players"),              _("enter number of players") },
+		{ 13, "hidden",      MD_BOOL,                "false",            false,       _("Hidden"),               _("enter hidden") },
+		{ 14, "favorite",    MD_BOOL,                "false",            false,       _("favorite"),             _("enter favorite") },
+	};
 
 	// Build Game maps
+	gameMDD = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
+
 	{
 		const std::vector<MetaDataDecl>& mdd = getMDDByType(GAME_METADATA);
+
+		int maxID = 0;
+		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
+		maxID++;
+
+		if (mDefaultGameMap != nullptr) delete[] mDefaultGameMap;
+		if (mGameTypeMap != nullptr) delete[] mGameTypeMap;
+
+		mDefaultGameMap = new std::string[maxID];
+		mGameTypeMap = new MetaDataType[maxID];
+		
 		for (auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 		{
 			mDefaultGameMap[iter->id] = iter->defaultValue;
@@ -73,8 +106,21 @@ void MetaDataList::initMetadata()
 	}
 
 	// Build Folder maps
+	folderMDD = std::vector<MetaDataDecl>(folderDecls, folderDecls + sizeof(folderDecls) / sizeof(folderDecls[0]));
+
 	{
 		const std::vector<MetaDataDecl>& mdd = getMDDByType(FOLDER_METADATA);
+		
+		int maxID = 0;
+		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
+		maxID++;
+
+		if (mDefaultFolderMap != nullptr) delete[] mDefaultFolderMap;
+		if (mFolderTypeMap != nullptr) delete[] mFolderTypeMap;
+
+		mDefaultFolderMap = new std::string[maxID];
+		mFolderTypeMap = new MetaDataType[maxID];
+
 		for (auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 		{
 			mDefaultFolderMap[iter->id] = iter->defaultValue;
@@ -204,13 +250,16 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 		if (prev != mMap.cend() && prev->second == value)
 			return;
 
-		mMap[id] = value;
+		if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
+			mMap[id] = Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+		else
+			mMap[id] = value;
 	}
 
 	mWasChanged = true;
 }
 
-const std::string MetaDataList::get(const std::string& key) const
+const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
 {
 	if (key == "name")
 		return mName;
@@ -220,7 +269,7 @@ const std::string MetaDataList::get(const std::string& key) const
 	auto it = mMap.find(id);
 	if (it != mMap.end())
 	{
-		if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
+		if (resolveRelativePaths && getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
 			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
 
 		return it->second;

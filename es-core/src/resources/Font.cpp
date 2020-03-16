@@ -258,6 +258,8 @@ std::vector<std::string> getFallbackFontPaths()
 
 	const char* fontNames[] = {
 		":/fontawesome-webfont.ttf",
+		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
+		":/NanumMyeongjo.ttf", // korean font
 		"arial.ttf",   // latin
 		"meiryo.ttc", // japanese
 		"simhei.ttf" // chinese				

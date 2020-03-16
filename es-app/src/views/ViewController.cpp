@@ -80,10 +80,10 @@ void ViewController::goToStart(bool forceImmediate)
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderLoadingScreen(_("Loading..."));
+	mWindow->renderSplashScreen(_("Loading..."));
 	ViewController::get()->reloadAll();
 	ViewController::get()->goToStart(true);
-	mWindow->endRenderLoadingScreen();
+	mWindow->closeSplashScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
@@ -259,6 +259,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	mWindow->stopInfoPopup(); // make sure we disable any existing info popup
 	mLockInput = true;
 		
+	mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
+
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
 	if(transition_style == "auto")
 		transition_style = "slide";
@@ -276,7 +278,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this, game, fadeFunc, options]
 		{
 			game->launchGame(mWindow, options);
-			setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; }, true);
+			setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
 	} else if (transition_style == "slide"){
@@ -285,7 +287,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{
 			game->launchGame(mWindow, options);
 			mCamera = origCamera;
-			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; }, true);
+			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
 	} else { // instant
@@ -293,7 +295,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{
 			game->launchGame(mWindow, options);
 			mCamera = origCamera;
-			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; }, true);
+			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
 	}
@@ -486,7 +488,7 @@ bool ViewController::input(InputConfig* config, Input input)
 #if WIN32
 			EsLocale::reset();
 #endif
-			mWindow->endRenderLoadingScreen();
+			mWindow->closeSplashScreen();
 			return true;
 		}
 
@@ -559,11 +561,16 @@ void ViewController::render(const Transform4x4f& parentTrans)
 		mWindow->renderHelpPromptsEarly();
 
 	// fade out
-	if(mFadeOpacity)
+	if (mFadeOpacity)
 	{
-		unsigned int fadeColor = 0x00000000 | (unsigned char)(mFadeOpacity * 255);
-		Renderer::setMatrix(parentTrans);
-		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), fadeColor, fadeColor);
+		if (Settings::getInstance()->getBool("HideWindow"))
+		{
+			unsigned int fadeColor = 0x00000000 | (unsigned char)(mFadeOpacity * 255);
+			Renderer::setMatrix(parentTrans);
+			Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), fadeColor, fadeColor);
+		}
+		else
+			mWindow->renderSplashScreen(mFadeOpacity, false);
 	}
 }
 
@@ -585,7 +592,7 @@ void ViewController::preload()
 		if (splash)
 		{
 			i++;
-			mWindow->renderLoadingScreen(_("Preloading UI"), (float)i / (float)max);
+			mWindow->renderSplashScreen(_("Preloading UI"), (float)i / (float)max);
 		}
 
 		(*it)->resetFilters();
@@ -685,7 +692,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 		idx++;
 
 		if (window)
-			window->renderLoadingScreen(_("Loading..."), (float)idx / (float)cursorMap.size());
+			window->renderSplashScreen(_("Loading..."), (float)idx / (float)cursorMap.size());
 	}
 
 	if (SystemData::sSystemVector.size() > 0)
