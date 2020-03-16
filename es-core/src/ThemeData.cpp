@@ -428,8 +428,11 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseVariables(root);
 	parseTheme(root);
 	
-	mMenuTheme = nullptr;
-	mDefaultTheme = this;
+	if (system != "splash")
+	{
+		mMenuTheme = nullptr;
+		mDefaultTheme = this;
+	}
 }
 
 const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()

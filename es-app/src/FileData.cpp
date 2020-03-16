@@ -551,20 +551,34 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 {
 	std::vector<FileData*> out;
 
+	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
+	bool filterKidGame = UIModeController::getInstance()->isUIModeKid();
+
 	FileFilterIndex* idx = (system != nullptr ? system : mSystem)->getIndex(false);
 
-	for (auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
+	for (auto it : mChildren)
 	{
-		if ((*it)->getType() & typeMask)
+		if (it->getType() & typeMask)
 		{
-			if (!displayedOnly || idx == nullptr || !idx->isFiltered() || idx->showFile(*it))
-				out.push_back(*it);
+			if (!displayedOnly || idx == nullptr || !idx->isFiltered() || idx->showFile(it))
+			{
+				if (displayedOnly)
+				{
+					if (!showHiddenFiles && it->getHidden())
+						continue;
+
+					if (filterKidGame && it->getKidGame())
+						continue;
+				}
+
+				out.push_back(it);
+			}
 		}
 
-		if ((*it)->getType() != FOLDER)
+		if (it->getType() != FOLDER)
 			continue;
 
-		FolderData* folder = (FolderData*)(*it);
+		FolderData* folder = (FolderData*) it;
 		if (folder->getChildren().size() > 0)
 		{
 			std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);

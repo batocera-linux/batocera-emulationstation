@@ -44,7 +44,9 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 		imagePath = backGroundImageTheme->get<std::string>("path");
 
 	mTexture = TextureResource::get(imagePath, false, true, true, false, false);
-	ResourceManager::getInstance()->removeReloadable(mTexture);
+	
+	if (!fullScreenBackGround)
+		ResourceManager::getInstance()->removeReloadable(mTexture);
 
 	mBackground.setImage(mTexture);
 
@@ -140,6 +142,14 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	mActiveProgressbar.setRoundCorners(0);
 
 	mExtras = ThemeData::makeExtras(theme, "splash", window, true);
+
+	if (!fullScreenBackGround)
+	{
+		for (auto im : mExtras)
+			if (im->isKindOf<ImageComponent>())
+				ResourceManager::getInstance()->removeReloadable(((ImageComponent*)im)->getTexture());
+	}
+
 	std::stable_sort(mExtras.begin(), mExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 }
 
@@ -169,6 +179,9 @@ void Splash::render(float opacity, bool swapBuffers)
 	Transform4x4f trans = Transform4x4f::Identity();
 	Renderer::setMatrix(trans);
 	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), (mBackgroundColor & 0xFFFFFF00) | alpha);
+
+	for (auto extra : mExtras)
+		extra->setOpacity(alpha);
 
 	for (auto extra : mExtras)
 		if (extra->getZIndex() < 5)
