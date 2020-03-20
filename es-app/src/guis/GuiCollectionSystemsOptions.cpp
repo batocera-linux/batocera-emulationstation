@@ -11,6 +11,7 @@
 #include "CollectionSystemManager.h"
 #include "Window.h"
 #include "GuiMenu.h"
+#include "ApiSystem.h"
 
 GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window) 
 	: GuiSettings(window, _("GAME COLLECTION SETTINGS").c_str())
@@ -128,7 +129,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 
 #if defined(WIN32) && !defined(_DEBUG)		
-	addEntry(_("UPDATE GAMES LISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
+	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+		addEntry(_("UPDATE GAMES LISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
 #endif		
 
 	if(CollectionSystemManager::get()->isEditing())

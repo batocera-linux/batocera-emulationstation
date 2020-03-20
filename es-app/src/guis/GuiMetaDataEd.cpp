@@ -22,6 +22,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "Gamelist.h"
 #include "components/OptionListComponent.h"
+#include "ApiSystem.h"
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
 	const std::string& /*header*/, std::function<void()> saveCallback, std::function<void()> deleteFunc, FileData* file) : GuiComponent(window),
@@ -76,6 +77,9 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 		if (iter->key == "emulator")
 		{
+			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+				continue;
+
 			std::string defaultEmul = system->getDefaultEmulator();
 			std::string currentEmul = file->getEmulator(false);
 
@@ -131,6 +135,9 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 		if (iter->key == "core")
 		{
+			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+				continue;
+
 			core_choice->setTag(iter->key);
 
 			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Core")), theme->Text.font, theme->Text.color), true);

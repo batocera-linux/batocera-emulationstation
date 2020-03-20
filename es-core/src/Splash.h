@@ -7,10 +7,18 @@
 class Window;
 class TextureResource;
 
+#if WIN32
+#define DEFAULT_SPLASH_IMAGE ":/splash.svg"
+#define OLD_SPLASH_LAYOUT true
+#else
+#define DEFAULT_SPLASH_IMAGE ":/logo.png"
+#define OLD_SPLASH_LAYOUT false
+#endif
+
 class Splash
 {
 public:
-	Splash(Window* window, const std::string image = ":/logo.png", bool fullScreenBackGround = true);
+	Splash(Window* window, const std::string image = DEFAULT_SPLASH_IMAGE, bool fullScreenBackGround = true);
 	~Splash();
 
 	void update(std::string text, float percent = -1);

@@ -16,6 +16,8 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	mRoundCorners = 0.01;
 	mPercent = -1;
 
+	bool useOldSplashLayout = OLD_SPLASH_LAYOUT;
+
 	// Theme
 	auto theme = std::make_shared<ThemeData>();
 
@@ -34,6 +36,7 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	{
 		std::map<std::string, std::string> sysData;
 		theme->loadFile("splash", sysData, themeFilePath);
+		useOldSplashLayout = false;
 	}
 
 	// Background image
@@ -48,9 +51,9 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	if (!fullScreenBackGround)
 		ResourceManager::getInstance()->removeReloadable(mTexture);
 
-	mBackground.setImage(mTexture);
+	mBackground.setImage(mTexture); 
 
-	if (fullScreenBackGround)
+	if (fullScreenBackGround && !useOldSplashLayout)
 	{
 		mBackground.setOrigin(0.5, 0.5);
 		mBackground.setPosition(Renderer::getScreenWidth() / 2, Renderer::getScreenHeight() / 2);
@@ -60,13 +63,24 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	{
 		mBackground.setOrigin(0.5, 0.5);
 		mBackground.setPosition(Renderer::getScreenWidth() * 0.5f, Renderer::getScreenHeight()  * 0.42f);
-		mBackground.setMaxSize(Renderer::getScreenWidth() * 0.71f, Renderer::getScreenHeight() * 0.55f);
-		mBackground.setRoundCorners(0.02);
+
+		if (useOldSplashLayout)
+			mBackground.setMaxSize(Renderer::getScreenWidth() * 0.80f, Renderer::getScreenHeight() * 0.60f);
+		else
+		{
+			mBackground.setMaxSize(Renderer::getScreenWidth() * 0.71f, Renderer::getScreenHeight() * 0.55f);
+			mBackground.setRoundCorners(0.02);
+		}
 	}
 
 	// Label
 	auto font = Font::get(FONT_SIZE_MEDIUM);
-	mText.setColor(0xFFFFFFFF);
+
+	if (useOldSplashLayout)
+		mText.setColor(0xFFFFFFD0);
+	else
+		mText.setColor(0xFFFFFFFF);
+
 	mText.setHorizontalAlignment(ALIGN_CENTER);
 	mText.setFont(font);
 
@@ -130,8 +144,17 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 		mRoundCorners = mInactiveProgressbar.getRoundCorners();
 	}
 
-	mActiveProgressbar.setColorShift(0xDF1010FF);
-	mActiveProgressbar.setColorShiftEnd(0x4F0000FF);
+	if (useOldSplashLayout)
+	{
+		mActiveProgressbar.setColorShift(0x006C9EFF);
+		mActiveProgressbar.setColorShiftEnd(0x003E5CFF);
+	}
+	else
+	{
+		mActiveProgressbar.setColorShift(0xDF1010FF);
+		mActiveProgressbar.setColorShiftEnd(0x4F0000FF);
+	}
+
 	mActiveProgressbar.setColorGradientHorizontal(true);
 
 	elem = theme->getElement("splash", "progressbar:active", "image");
