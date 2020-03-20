@@ -32,10 +32,15 @@ public:
 
 	bool ping() override;
 
-	bool launchKodi(Window *window) override;
+	bool launchKodi(Window *window) override;	
+
+	static std::string getEmulatorLauncherPath(const std::string variable);
 
 protected:
 	bool executeScript(const std::string command) override;
 	std::vector<std::string> executeEnumerationScript(const std::string command) override;
 };
+
+
+
 #endif

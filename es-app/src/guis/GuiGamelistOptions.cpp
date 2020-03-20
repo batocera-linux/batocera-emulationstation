@@ -19,6 +19,7 @@
 #include "scrapers/ThreadedScraper.h"
 #include "ThreadedHasher.h"
 #include "guis/GuiMenu.h"
+#include "ApiSystem.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -261,13 +262,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && !fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
 			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 
-#if !defined(WIN32) || defined(_DEBUG)
-		// batocera
-		if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
-			mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system] {
-			GuiMenu::popGameConfigurationGui(mWindow, Utils::FileSystem::getFileName(file->getFileName()), file->getConfigurationName(), file->getSourceFileData()->getSystem(), "");
-		});
-#endif
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+		{
+			if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
+			{
+				mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system]
+				{
+					GuiMenu::popGameConfigurationGui(mWindow, file);
+				});
+			}
+		}
 	}
 	
 	mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);

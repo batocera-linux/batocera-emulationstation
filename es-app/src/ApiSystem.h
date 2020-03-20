@@ -49,7 +49,10 @@ public:
 		RESOLUTION = 3,
 		BIOSINFORMATION = 4,
 		NETPLAY = 5,
-		KODI = 6
+		KODI = 6,
+		GAMESETTINGS = 7,
+		DECORATIONS = 8,
+		SHADERS = 9
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);

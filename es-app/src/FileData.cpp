@@ -679,3 +679,23 @@ const std::string FileData::getEmulator(bool resolveDefault)
 
 	return emulator;
 }
+
+void FileData::setCore(const std::string value)
+{
+#if WIN32 && !_DEBUG
+	setMetadata("core", value == "auto" ? "" : value);
+#else
+	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
+#endif
+
+	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
+}
+
+void FileData::setEmulator(const std::string value)
+{
+#if WIN32 && !_DEBUG
+	setMetadata("emulator", value == "auto" ? "" : value);
+#else
+	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
+#endif
+}

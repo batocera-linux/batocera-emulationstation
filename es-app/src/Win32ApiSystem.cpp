@@ -31,47 +31,66 @@ std::string getUrlFromUpdateType(std::string url)
 bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 {
 	if (script == ApiSystem::NETPLAY)
-		return (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||
+	{
+		if (!(Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||
 			Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe") ||
 			Utils::FileSystem::exists("c:\\Program Files (x86)\\7-Zip\\7za.exe") ||
-			Utils::FileSystem::exists("c:\\src\\7za.exe"));
+			Utils::FileSystem::exists("c:\\src\\7za.exe")))
+			return false;
+	}
 
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
 
-	std::string executable;
+	if (script == ApiSystem::DECORATIONS && !Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
+		return false;
+
+	if (script == ApiSystem::SHADERS && !Utils::FileSystem::exists(getEmulatorLauncherPath("shaders")))
+		return false;
+	
+	std::vector<std::string> executables;
 
 	switch (script)
 	{
 	case ApiSystem::WIFI:
-		executable = "batocera-wifi";
+		executables.push_back("batocera-wifi");
 		break;
 	case ApiSystem::RETROACHIVEMENTS:
-		executable = "batocera-retroachievements-info";
+		executables.push_back("batocera-retroachievements-info");
+		executables.push_back("emulatorLauncher");
 		break;
 	case ApiSystem::BLUETOOTH:
-		executable = "batocera-bluetooth";
+		executables.push_back("batocera-bluetooth");
 		break;
 	case ApiSystem::RESOLUTION:
-		executable = "batocera-resolution";
+		executables.push_back("batocera-resolution");
 		break;
 	case ApiSystem::BIOSINFORMATION:
-		executable = "batocera-systems";
+		executables.push_back("batocera-systems");
+		break;
+	case ApiSystem::NETPLAY:
+	case ApiSystem::GAMESETTINGS:
+	case ApiSystem::DECORATIONS:
+	case ApiSystem::SHADERS:
+		executables.push_back("emulatorLauncher");
 		break;
 	}
 
-	if (!executable.empty())
+	if (executables.size() == 0)
+		return false;
+
+	for (auto executable : executables)	
 	{
 		std::string path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
-		if (Utils::FileSystem::exists(path))
-			return true;
-
-		path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
-		if (Utils::FileSystem::exists(path))
-			return true;
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			return false;
 	}
 
-	return false;
+	return true;
 }
 
 bool executeCMD(LPSTR lpCommandLine, std::string& output)
@@ -316,6 +335,8 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	std::string path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
 	if (!Utils::FileSystem::exists(path))
 		path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
 
 	if (Utils::FileSystem::exists(path))
 	{
@@ -800,6 +821,42 @@ std::string Win32ApiSystem::getIpAdress()
 		return "NOT CONNECTED";
 
 	return std::string(szLocalIP); // "127.0.0.1"
+}
+
+std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
+{
+	std::string path = Utils::FileSystem::getExePath() + "/emulatorLauncher.cfg";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getEsConfigPath() + "/emulatorLauncher.cfg";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/emulatorLauncher.cfg";
+
+	if (!Utils::FileSystem::exists(path))
+		return "";
+
+	std::string line;
+	std::ifstream systemConf(path);
+	if (systemConf && systemConf.is_open())
+	{
+		while (std::getline(systemConf, line))
+		{
+			int idx = line.find("=");
+			if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
+				continue;
+
+			std::string key = line.substr(0, idx);
+			if (key == variable)
+			{
+				systemConf.close();
+
+				std::string relativeTo = Utils::FileSystem::getParent(path);
+				return Utils::FileSystem::getAbsolutePath(line.substr(idx + 1), relativeTo);
+			}
+		}
+		systemConf.close();
+	}
+
+	return "";
 }
 
 #endif
