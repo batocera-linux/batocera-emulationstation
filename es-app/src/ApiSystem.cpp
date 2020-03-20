@@ -602,7 +602,7 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 	return res;
 #endif
 
-	return executeEnumerationScript("batocera-config lsaudio");
+	return executeEnumerationScript("batocera-audio list");
 }
 
 std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
@@ -619,7 +619,7 @@ std::string ApiSystem::getCurrentAudioOutputDevice()
 	LOG(LogDebug) << "ApiSystem::getCurrentAudioOutputDevice";
 
 	std::ostringstream oss;
-	oss << "batocera-config getaudio";
+	oss << "batocera-audio get";
 	FILE *pipe = popen(oss.str().c_str(), "r");
 	char line[1024];
 
@@ -645,7 +645,7 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 	AudioManager::getInstance()->deinit();
 	VolumeControl::getInstance()->deinit();
 
-	oss << "batocera-config audio" << " '" << selected << "'";
+	oss << "batocera-audio set" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
 	VolumeControl::getInstance()->init();
