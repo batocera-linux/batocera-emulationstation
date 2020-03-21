@@ -697,10 +697,7 @@ void GuiMenu::openUpdatesSettings()
 	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
 	updateGui->addSaveFunc([updatesTypeList]
 	{
-		if (updatesTypeList->getSelected() == "stable")
-		{
-			SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
-		}
+		SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
 	});
 
 	// Start update
