@@ -44,7 +44,7 @@ private:
     void clearJoystick();
     void addAllJoysticks();
 
-	bool findInputConfigNode(std::string path, InputConfig* config, pugi::xml_node& node);
+	bool tryLoadInputConfig(std::string path, InputConfig* config, bool allowApproximate = true);
 
 public:
 	virtual ~InputManager();
