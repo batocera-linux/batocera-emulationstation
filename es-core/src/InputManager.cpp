@@ -348,8 +348,10 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	return false;
 }
 
-bool InputManager::findInputConfigNode(std::string path, InputConfig* config, pugi::xml_node& node)
+bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, bool allowApproximate)
 {
+	pugi::xml_node configNode(NULL);
+
 	if (!Utils::FileSystem::exists(path))
 		return false;
 
@@ -368,7 +370,7 @@ bool InputManager::findInputConfigNode(std::string path, InputConfig* config, pu
 
 	// batocera
 	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
-	pugi::xml_node configNode(NULL);
+
 
 	bool found_guid = false;
 	bool found_exact = false;
@@ -399,11 +401,15 @@ bool InputManager::findInputConfigNode(std::string path, InputConfig* config, pu
 		return false;
 
 	// batocera
-	if (found_exact == false) {
+	if (found_exact == false)
+	{
 		LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
+
+		if (!allowApproximate)
+			return false;
 	}
 
-	node = configNode;
+	config->loadFromXML(configNode);
 	return true;
 }
 
@@ -411,18 +417,30 @@ bool InputManager::loadInputConfig(InputConfig* config)
 {
 	std::string path = getConfigPath();
 
-	pugi::xml_node configNode(NULL);
-	if (!findInputConfigNode(path, config, configNode))
-		return false;
+#if WIN32
+	// Find exact device
+	if (tryLoadInputConfig(path, config, true))
+		return true;
+#else
+	// Find exact device
+	if (tryLoadInputConfig(path, config, false))
+		return true;
 
-#if !WIN32
-	path = Utils::FileSystem::getSharedConfigPath() + "/es_input.xml";
-	if (!findInputConfigNode(path, config, configNode))
-		return false;
+	// Find system exact device
+	std::string sharedPath = Utils::FileSystem::getSharedConfigPath() + "/es_input.xml";
+	if (tryLoadInputConfig(sharedPath, config, false))
+		return true;
+
+	// Find user Approximative device
+	if (tryLoadInputConfig(path, config, true))
+		return true;
+
+	// Find system Approximative device
+	if (tryLoadInputConfig(sharedPath, config, true))
+		return true;
 #endif
 
-	config->loadFromXML(configNode);
-	return true;
+	return false;
 }
 
 //used in an "emergency" where no keyboard config could be loaded from the inputmanager config file

@@ -452,6 +452,16 @@ bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& f
 	return executeScript("batocera-bluetooth trust");
 }
 
+std::vector<std::string> ApiSystem::getBluetoothDeviceList()
+{
+	return executeEnumerationScript("batocera-bluetooth list");
+}
+
+bool ApiSystem::removeBluetoothDevice(const std::string deviceName)
+{
+	return executeScript("batocera-bluetooth remove "+ deviceName);
+}
+
 std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
 {
 	return executeEnumerationScript("batocera-config storage list");

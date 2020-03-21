@@ -196,7 +196,7 @@ std::string SystemConf::get(const std::string &name)
 bool SystemConf::set(const std::string &name, const std::string &value) 
 {
 #ifdef NOBATOCERACONF
-	return Settings::getInstance()->setString(mapSettingsName(name), value);
+	return Settings::getInstance()->setString(mapSettingsName(name), value == "auto" ? "" : value);
 #endif
 
 	if (confMap.count(name) == 0 || confMap[name] != value)

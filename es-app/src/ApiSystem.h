@@ -99,6 +99,8 @@ public:
     virtual std::string getIpAdress();
 
     bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
+	std::vector<std::string> getBluetoothDeviceList();
+	bool removeBluetoothDevice(const std::string deviceName);
 
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getAvailableInstallDevices();
