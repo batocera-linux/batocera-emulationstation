@@ -308,20 +308,15 @@ void SystemView::populate()
 			Settings::getInstance()->setString("UIMode", "Full");
 			mWindow->pushGui(new GuiMsgBox(mWindow, "The selected UI mode has nothing to show,\n returning to UI mode: FULL", "OK", nullptr));
 		}
-#ifdef _ENABLEEMUELEC
-		//batocera - behavior when all systems are hidden (re-enable all)
-		LOG (LogError) << "Error: every system is hidden in emuelec.conf, please put at least one system available like 'nes.hide=0'";
-#else
-		//batocera - behavior when all systems are hidden (re-enable all)
-		LOG (LogError) << "Error: every system is hidden in batocera.conf, please put at least one system available like 'nes.hide=0'";
-#endif
-		for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-			SystemConf::getInstance()->set((*it)->getName()+".hide", "0");
 
-		SystemConf::getInstance()->saveSystemConf();
-		// refresh GUI
-		populate();
-		mWindow->pushGui(new GuiMsgBox(mWindow, "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW", "OK", nullptr));
+		if (Settings::getInstance()->setString("HiddenSystems", ""))
+		{
+			Settings::getInstance()->saveFile();
+
+			// refresh GUI
+			populate();
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"), _("OK"), nullptr));
+		}
 	}
 }
 
@@ -338,10 +333,10 @@ bool SystemView::input(InputConfig* config, Input input)
 	if(input.value != 0)
 	{
 		bool kodi = false;
-		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->get("global.netplay") == "1";
+		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
 
 #ifdef _ENABLE_KODI_
-		kodi = SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid();
+		kodi = SystemConf::getInstance()->getBool("kodi.enabled", true) && SystemConf::getInstance()->getBool("kodi.xbutton") && !UIModeController::getInstance()->isUIModeKid();
 #endif
 		
 		if (netPlay && config->isMappedTo(kodi ? "y" : "x", input))
@@ -369,8 +364,9 @@ bool SystemView::input(InputConfig* config, Input input)
 #endif
 // batocera
 #ifdef _ENABLE_KODI_
-            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) {
-                Window * window = mWindow;
+            if(config->isMappedTo("x", input) && input.value && !launchKodi && SystemConf::getInstance()->getBool("kodi.enabled", true) && SystemConf::getInstance()->getBool("kodi.xbutton") && !UIModeController::getInstance()->isUIModeKid())
+			{
+                Window* window = mWindow;
                 mWindow->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO START KODI MEDIA CENTER ?"), _("YES"),
 			       [window,this] { 
                                     if( ! ApiSystem::getInstance()->launchKodi(window)) {
@@ -774,14 +770,14 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	bool kodi = false;
 
 #ifdef _ENABLE_KODI_
-	if (SystemConf::getInstance()->get("kodi.enabled") != "0" && SystemConf::getInstance()->get("kodi.xbutton") == "1" && !UIModeController::getInstance()->isUIModeKid()) 
+	if (SystemConf::getInstance()->getBool("kodi.enabled", true) && SystemConf::getInstance()->getBool("kodi.xbutton") && !UIModeController::getInstance()->isUIModeKid())
 	{
 		kodi = true;
 		prompts.push_back(HelpPrompt("x", _("KODI"))); // batocera
 	}	
 #endif
 
-	if (SystemData::isNetplayActivated() && SystemConf::getInstance()->get("global.netplay") == "1")
+	if (SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay"))
 		prompts.push_back(HelpPrompt(kodi ? "y" : "x", _("NETPLAY")));
 	else
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera

@@ -36,7 +36,7 @@ struct DecorationSetInfo
 class GuiMenu : public GuiComponent
 {
 public:
-	GuiMenu(Window* window);
+	GuiMenu(Window* window, bool animate = true);
 	~GuiMenu();
 
 	bool input(InputConfig* config, Input input) override;
@@ -44,10 +44,12 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts() override;	
 	static void openQuitMenu_batocera_static(Window *window, bool forceWin32Menu=false); // batocera
 
-	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator);
-	static void popGameConfigurationGui(Window* mWindow, std::string title, std::string romFilename, SystemData *systemData, std::string previouslySelectedEmulator);
+	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator = "");
+	static void popGameConfigurationGui(Window* mWindow, FileData* fileData, std::string previouslySelectedEmulator = "");
 
 	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
+
+	static void updateGameLists(Window* window);
 
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
@@ -76,6 +78,12 @@ private:
 	void openSystemInformations_batocera();
 	void openDeveloperSettings();
 	void openNetplaySettings(); 
+	void openRetroachievementsSettings();
+	void openMissingBiosSettings();
+
+	// windows
+	void openEmulatorSettings();
+	void openSystemEmulatorSettings(SystemData* system);
 
 	static void openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave);
 
@@ -85,7 +93,7 @@ private:
 
 	static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
 	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname);
-	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, std::string previouslySelectedEmulator);
+	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, std::string previouslySelectedEmulator);
 
 	static void openLatencyReductionConfiguration(Window* mWindow, std::string configName);
 

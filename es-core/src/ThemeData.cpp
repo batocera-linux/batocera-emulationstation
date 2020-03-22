@@ -13,10 +13,13 @@
 #include <algorithm>
 #include "LocaleES.h"
 
-std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" } };
+std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
+
+	{ "splash", {		
+		{ "backgroundColor", COLOR } } },
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -37,6 +40,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "horizontalAlignment", STRING },		
 		{ "verticalAlignment", STRING },
 		{ "roundCorners", FLOAT },
+		{ "opacity", FLOAT },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
@@ -424,8 +428,11 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseVariables(root);
 	parseTheme(root);
 	
-	mMenuTheme = nullptr;
-	mDefaultTheme = this;
+	if (system != "splash")
+	{
+		mMenuTheme = nullptr;
+		mDefaultTheme = this;
+	}
 }
 
 const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
@@ -1277,7 +1284,7 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 	return theme;
 }
 
-std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window)
+std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad)
 {
 	std::vector<GuiComponent*> comps;
 
@@ -1294,7 +1301,7 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 
 			const std::string& t = elem.type;
 			if(t == "image")
-				comp = new ImageComponent(window);
+				comp = new ImageComponent(window, forceLoad);
 			else if(t == "text")
 				comp = new TextComponent(window);
 			else if (t == "ninepatch")

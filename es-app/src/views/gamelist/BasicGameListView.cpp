@@ -235,7 +235,7 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
-	if (SystemConf::getInstance()->get("global.netplay") == "1")
+	if (SystemConf::getInstance()->getBool("global.netplay"))
 	{
 		if (mRoot->getSystem()->isNetplaySupported())
 			prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera

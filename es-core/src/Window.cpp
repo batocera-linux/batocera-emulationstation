@@ -22,6 +22,7 @@
 #include "components/BatteryIndicatorComponent.h"
 #include "guis/GuiMsgBox.h"
 #include "components/VolumeInfoComponent.h"
+#include "Splash.h"
 #ifdef _ENABLEEMUELEC
 #include "utils/FileSystemUtil.h"
 #endif
@@ -145,13 +146,20 @@ GuiComponent* Window::peekGui()
 	return mGuiStack.back();
 }
 
-bool Window::init()
+bool Window::init(bool initRenderer)
 {
-	if(!Renderer::init())
+	LOG(LogInfo) << "Window::init";
+
+	if (initRenderer)
 	{
-		LOG(LogError) << "Renderer failed to initialize!";
-		return false;
+		if (!Renderer::init())
+		{
+			LOG(LogError) << "Renderer failed to initialize!";
+			return false;
+		}
 	}
+	else 
+		Renderer::activateWindow();
 
 	InputManager::getInstance()->init();
 
@@ -218,7 +226,7 @@ void Window::reactivateGui()
 		peekGui()->updateHelpPrompts();
 }
 
-void Window::deinit()
+void Window::deinit(bool deinitRenderer)
 {
 	for (auto extra : mScreenExtras)
 		extra->onHide();
@@ -227,10 +235,14 @@ void Window::deinit()
 	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 		(*i)->onHide();
 
-	InputManager::getInstance()->deinit();
+	if (deinitRenderer)
+		InputManager::getInstance()->deinit();
+
 	TextureResource::clearQueue();
 	ResourceManager::getInstance()->unloadAll();
-	Renderer::deinit();
+
+	if (deinitRenderer)
+		Renderer::deinit();
 }
 
 void Window::textInput(const char* text)
@@ -569,82 +581,36 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
-void Window::endRenderLoadingScreen()
+void Window::setCustomSplashScreen(std::string imagePath, std::string customText)
 {
-	mSplash = nullptr;	
+	if (!Utils::FileSystem::exists(imagePath))
+		return;
+
+	if (Settings::getInstance()->getBool("HideWindow"))
+		return;
+
+	mSplash = std::make_shared<Splash>(this, imagePath, false);
+	mSplash->update(customText);
 }
 
-void Window::renderLoadingScreen(std::string text, float percent, unsigned char opacity)
+void Window::renderSplashScreen(std::string text, float percent, float opacity)
 {
 	if (mSplash == NULL)
-#ifdef _ENABLEEMUELEC
-		mSplash = TextureResource::get(":/splash_emuelec.svg", false, true, true, false, false);
-#else
-		mSplash = TextureResource::get(":/splash_batocera.svg", false, true, true, false, false);
-#endif
+		mSplash = std::make_shared<Splash>(this);
 
-	Transform4x4f trans = Transform4x4f::Identity();
-	Renderer::setMatrix(trans);
-#ifdef _ENABLEEMUELEC
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity, 0x84848500 | opacity, true); //emuelec gradient
-#else
-	Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0xFFFFFF00 | opacity, 0xEFEFEF00 | opacity, true); // batocera
-#endif
+	mSplash->update(text, percent);
+	mSplash->render(opacity);	
+}
 
-	if (percent >= 0)
-	{
-		float baseHeight = 0.04f;
+void Window::renderSplashScreen(float opacity, bool swapBuffers)
+{
+	if (mSplash != nullptr)
+		mSplash->render(opacity, swapBuffers);
+}
 
-		float w = Renderer::getScreenWidth() / 2.0f;
-		float h = Renderer::getScreenHeight() * baseHeight;
-
-		float x = Renderer::getScreenWidth() / 2.0f - w / 2.0f;
-		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
-
-		Renderer::drawRect(x, y, w, h, 0xA0A0A000 | opacity);
-#ifdef _ENABLEEMUELEC
-		Renderer::drawRect(x, y, (w*percent), h, 0xA8A2D000 | opacity, 0x51468700 | opacity, true); // loading bar
-#else
-		Renderer::drawRect(x, y, (w*percent), h, 0xDF101000 | opacity, 0xAF000000 | opacity, true);
-#endif
-	}
-
-	ImageComponent splash(this, true);
-	splash.setResize(Renderer::getScreenWidth() * 0.51f, 0.0f);
-
-	if (mSplash != NULL)
-		splash.setImage(mSplash);
-	else
-#ifdef _ENABLEEMUELEC	
-		splash.setImage(":/splash_emuelec.svg"); // emuelec
-#else
-		splash.setImage(":/splash_batocera.svg"); // batocera
-#endif
-
-	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
-	splash.render(trans);
-
-	auto& font = mDefaultFonts.at(1);
-#ifdef _ENABLEEMUELEC		
-	TextCache* cache = font->buildTextCache(text, 0, 0, 0x51468700 | opacity); // text color
-#else
-	TextCache* cache = font->buildTextCache(text, 0, 0, 0x65656500 | opacity);
-#endif
-
-	float x = Math::round((Renderer::getScreenWidth() - cache->metrics.size.x()) / 2.0f);
-	float y = Math::round(Renderer::getScreenHeight() * 0.78f);// * 0.835f
-	trans = trans.translate(Vector3f(x, y, 0.0f));
-	Renderer::setMatrix(trans);
-	font->renderTextCache(cache);
-	delete cache;
-
-	Renderer::swapBuffers();
-
-#if defined(_WIN32)
-	// Avoid Window Freezing on Windows
-	SDL_Event event;
-	while (SDL_PollEvent(&event));
-#endif
+void Window::closeSplashScreen()
+{
+	mSplash = nullptr;
 }
 
 void Window::renderHelpPromptsEarly()

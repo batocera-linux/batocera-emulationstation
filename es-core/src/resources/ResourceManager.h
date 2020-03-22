@@ -30,6 +30,7 @@ public:
 	static std::shared_ptr<ResourceManager>& getInstance();
 
 	void addReloadable(std::weak_ptr<IReloadable> reloadable);
+	void removeReloadable(std::weak_ptr<IReloadable> reloadable);
 
 	void unloadAll();
 	void reloadAll();
@@ -50,6 +51,7 @@ private:
 	public:
 		std::weak_ptr<IReloadable> data;
 		bool reload;
+		bool locked;
 	};
 
 	std::list<std::shared_ptr<ReloadableInfo>> mReloadables;

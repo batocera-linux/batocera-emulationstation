@@ -34,10 +34,11 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenHeight" },
 	{ "ScreenOffsetX" },
 	{ "ScreenOffsetY" },
+	{ "ScreenRotate" },
+	{ "MonitorID" },
 #ifdef _ENABLEEMUELEC
 	{ "LogPath" },
 #endif
-	{ "ScreenRotate" }
 };
 
 Settings::Settings()
@@ -63,13 +64,22 @@ void Settings::setDefaults()
 	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["DrawFramerate"] = false;
-	mBoolMap["ShowExit"] = true;
-	mBoolMap["FullscreenBorderless"] = false;
+	mBoolMap["ShowExit"] = true;	
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "";
+
+#if WIN32
+	mBoolMap["ShowOnlyExit"] = true;
+	mBoolMap["FullscreenBorderless"] = true;
+#else
+	mBoolMap["ShowOnlyExit"] = false;
+	mBoolMap["FullscreenBorderless"] = false;
+#endif
+
+	mIntMap["MonitorID"] = -1;
 
         // batocera
         mBoolMap["UseOSK"] = true; // on screen keyboard
@@ -77,7 +87,7 @@ void Settings::setDefaults()
 		mBoolMap["ShowControllerActivity"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
-        mStringMap["Lang"] = "en_US";
+        mStringMap["Language"] = "en_US";
         mStringMap["INPUT P1"] = "DEFAULT";
         mStringMap["INPUT P2"] = "DEFAULT";
         mStringMap["INPUT P3"] = "DEFAULT";
@@ -87,7 +97,8 @@ void Settings::setDefaults()
 
 		mBoolMap["VSync"] = true;	
 		mStringMap["FolderViewMode"] = "never";
-		
+		mStringMap["HiddenSystems"] = "";
+
 #ifdef _ENABLEEMUELEC
     mBoolMap["EnableSounds"] = true;
 #else
@@ -211,6 +222,12 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowFilenames"] = false;
 	
+#if defined(_WIN32)
+	mBoolMap["HideWindow"] = false;
+#else
+	mBoolMap["HideWindow"] = true;
+#endif
+
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;
 	mIntMap["ScreenWidth"]   = 0;
@@ -235,6 +252,22 @@ void Settings::setDefaults()
 	mBoolMap["audio.thememusics"] = true;	
 	mIntMap["audio.display_titles_time"] = 10;
 	
+	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
+
+#if WIN32
+	mBoolMap["updates.enabled"] = true;
+	mBoolMap["global.retroachievements"] = false;
+	mBoolMap["global.retroachievements.hardcore"] = false;
+	mBoolMap["global.retroachievements.leaderboards"] = false;
+	mBoolMap["global.retroachievements.verbose"] = false;
+	mBoolMap["global.retroachievements.screenshot"] = false;
+	mBoolMap["global.netplay"] = false;
+	mBoolMap["kodi.enabled"] = false;
+	mBoolMap["kodi.atstartup"] = false;
+	mBoolMap["kodi.xbutton"] = false;	
+	mBoolMap["wifi.enabled"] = false;
+#endif
+
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;
 	mDefaultFloatMap = mFloatMap;

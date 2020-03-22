@@ -38,7 +38,7 @@ void NetworkThread::run()
 		else
 			std::this_thread::sleep_for(std::chrono::hours(1));		
 
-		if (SystemConf::getInstance()->get("updates.enabled") == "1") 
+		if (SystemConf::getInstance()->getBool("updates.enabled"))
 		{
 			LOG(LogDebug) << "NetworkThread : Checking for updates";
 

@@ -357,64 +357,99 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	return false;
 }
 
-bool InputManager::loadInputConfig(InputConfig* config)
+bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, bool allowApproximate)
 {
-	std::string path = getConfigPath();
-	if(!Utils::FileSystem::exists(path))
+	pugi::xml_node configNode(NULL);
+
+	if (!Utils::FileSystem::exists(path))
 		return false;
-	
+
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = doc.load_file(path.c_str());
 
-	if(!res)
+	if (!res)
 	{
 		LOG(LogError) << "Error parsing input config: " << res.description();
 		return false;
 	}
 
 	pugi::xml_node root = doc.child("inputList");
-	if(!root)
+	if (!root)
 		return false;
 
-        // batocera
+	// batocera
 	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
-	pugi::xml_node configNode(NULL);
+
 
 	bool found_guid = false;
 	bool found_exact = false;
 	for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) {
-	  // check the guid
-	  if(strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0) {
-	    // found a correct guid
-	    found_guid = true; // no more need to check the name only
-	    configNode = item;
-	    
-	    if(strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
-	      // found the exact device
-	      found_exact = true;
-	      configNode = item;
-	      break;
-	    }
-	  }
+		// check the guid
+		if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0) {
+			// found a correct guid
+			found_guid = true; // no more need to check the name only
+			configNode = item;
 
-	  // check for a name if no guid is found
-	  if(found_guid == false) {
-	    if(strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
-	      configNode = item;
-	    }
-	  }
+			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
+				// found the exact device
+				found_exact = true;
+				configNode = item;
+				break;
+			}
+		}
+
+		// check for a name if no guid is found
+		if (found_guid == false) {
+			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
+				configNode = item;
+			}
+		}
 	}
-	    
-	if(!configNode)
+
+	if (!configNode)
 		return false;
 
-        // batocera
-	if(found_exact == false) {
-	  LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
+	// batocera
+	if (found_exact == false)
+	{
+		LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
+
+		if (!allowApproximate)
+			return false;
 	}
-	  
+
 	config->loadFromXML(configNode);
 	return true;
+}
+
+bool InputManager::loadInputConfig(InputConfig* config)
+{
+	std::string path = getConfigPath();
+
+#if WIN32
+	// Find exact device
+	if (tryLoadInputConfig(path, config, true))
+		return true;
+#else
+	// Find exact device
+	if (tryLoadInputConfig(path, config, false))
+		return true;
+
+	// Find system exact device
+	std::string sharedPath = Utils::FileSystem::getSharedConfigPath() + "/es_input.xml";
+	if (tryLoadInputConfig(sharedPath, config, false))
+		return true;
+
+	// Find user Approximative device
+	if (tryLoadInputConfig(path, config, true))
+		return true;
+
+	// Find system Approximative device
+	if (tryLoadInputConfig(sharedPath, config, true))
+		return true;
+#endif
+
+	return false;
 }
 
 //used in an "emergency" where no keyboard config could be loaded from the inputmanager config file
@@ -530,7 +565,7 @@ void InputManager::doOnFinish()
 
 						LOG(LogInfo) << "	" << tocall;
 						std::cout << "==============================================\ninput config finish command:\n";
-						int exitCode = runSystemCommand(tocall);
+						int exitCode = runSystemCommand(tocall, "", nullptr);
 						std::cout << "==============================================\n";
 
 						if(exitCode != 0)

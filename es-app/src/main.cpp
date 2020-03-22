@@ -62,7 +62,19 @@ bool parseArgs(int argc, char* argv[])
 
 	for(int i = 1; i < argc; i++)
 	{
-		if(strcmp(argv[i], "--resolution") == 0)
+		if (strcmp(argv[i], "--monitor") == 0)
+		{
+			if (i >= argc - 1)
+			{
+				std::cerr << "Invalid monitor supplied.";
+				return false;
+			}
+
+			int monitorId = atoi(argv[i + 1]);
+			i++; // skip the argument value
+			Settings::getInstance()->setInt("MonitorID", monitorId);
+		}
+		else if(strcmp(argv[i], "--resolution") == 0)
 		{
 			if(i >= argc - 2)
 			{
@@ -75,6 +87,7 @@ bool parseArgs(int argc, char* argv[])
 			i += 2; // skip the argument value
 			Settings::getInstance()->setInt("WindowWidth", width);
 			Settings::getInstance()->setInt("WindowHeight", height);
+			Settings::getInstance()->setBool("FullscreenBorderless", false);
 		}else if(strcmp(argv[i], "--screensize") == 0)
 		{
 			if(i >= argc - 2)
@@ -135,10 +148,16 @@ bool parseArgs(int argc, char* argv[])
 			Settings::getInstance()->setBool("Debug", true);
 			Settings::getInstance()->setBool("HideConsole", false);
 			// Log::setReportingLevel(LogDebug);
-		}else if(strcmp(argv[i], "--fullscreen-borderless") == 0)
+		}
+		else if (strcmp(argv[i], "--fullscreen-borderless") == 0)
 		{
 			Settings::getInstance()->setBool("FullscreenBorderless", true);
-		}else if(strcmp(argv[i], "--windowed") == 0)
+		}
+		else if (strcmp(argv[i], "--fullscreen") == 0)
+		{
+		Settings::getInstance()->setBool("FullscreenBorderless", false);
+		}
+		else if(strcmp(argv[i], "--windowed") == 0)
 		{
 			Settings::getInstance()->setBool("Windowed", true);
 		}else if(strcmp(argv[i], "--vsync") == 0)
@@ -207,6 +226,7 @@ bool parseArgs(int argc, char* argv[])
 				"--log-path [path]		Directory to use for log\n"
 #endif
 				"--help, -h			summon a sentient, angry tuba\n\n"
+				"--monitor [index]			monitor index\n\n"				
 				"More information available in README.md.\n";
 			return false; //exit after printing help
 		}
@@ -395,12 +415,13 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 
-		if(splashScreen)
+		if (splashScreen)
 		{
-		  std::string progressText = _("Loading..."); // batocera
+			std::string progressText = _("Loading..."); // batocera
 			if (splashScreenProgress)
-			  progressText = _("Loading system config..."); // batocera
-			window.renderLoadingScreen(progressText);
+				progressText = _("Loading system config..."); // batocera
+
+			window.renderSplashScreen(progressText);
 		}
 	}
 
@@ -430,19 +451,16 @@ int main(int argc, char* argv[])
 
 // batocera
 #ifdef _ENABLE_KODI_
-	if(systemConf->get("kodi.enabled") != "0" && systemConf->get("kodi.atstartup") == "1"){
+	if (systemConf->getBool("kodi.enabled", true) && systemConf->getBool("kodi.atstartup"))
 		ApiSystem::getInstance()->launchKodi(&window);
-	}
 #endif
 
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 
-#ifndef WIN32
-	// batocera
-	// UPDATE CHECK THREAD
-	if(systemConf->get("updates.enabled") == "1")
-		NetworkThread * nthread = new NetworkThread(&window);
-#endif
+	if (systemConf->getBool("updates.enabled")) 
+	{ 
+		NetworkThread* nthread = new NetworkThread(&window); 
+	}
 
 	//run the command line scraper then quit
 	if(scrape_cmdline)
@@ -458,7 +476,7 @@ int main(int argc, char* argv[])
 	ViewController::get()->preload();
 
 	if(splashScreen && splashScreenProgress)
-	  window.renderLoadingScreen(_("Done.")); // batocera
+		window.renderSplashScreen(_("Done.")); // batocera
 
 
 	//choose which GUI to open depending on if an input configuration already exists
@@ -475,7 +493,7 @@ int main(int argc, char* argv[])
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
 
-	window.endRenderLoadingScreen();
+	window.closeSplashScreen();
 
 	// batocera
 	// Create a flag in  temporary directory to signal READY state
@@ -582,7 +600,7 @@ int main(int argc, char* argv[])
 		delete window.peekGui();
 
 	if (SystemData::hasDirtySystems())
-		window.renderLoadingScreen(_("SAVING METADATAS. PLEASE WAIT..."));
+		window.renderSplashScreen(_("SAVING METADATAS. PLEASE WAIT..."));
 
 	ImageIO::saveImageCache();
 	MameNames::deinit();

@@ -26,6 +26,7 @@ class TextComponent;
 class ControllerActivityComponent;
 class VolumeInfoComponent;
 class BatteryIndicatorComponent;
+class Splash;
 
 class Window
 {
@@ -58,17 +59,20 @@ public:
 	void update(int deltaTime);
 	void render();
 
-	bool init();
-	void deinit();
+	bool init(bool initRenderer = true);
+	void deinit(bool deinitRenderer = true);
 
 	void normalizeNextUpdate();
 
 	inline bool isSleeping() const { return mSleeping; }
 	bool getAllowSleep();
 	void setAllowSleep(bool sleep);
-
-	void renderLoadingScreen(std::string text, float percent = -1, unsigned char opacity = 255);
-	void endRenderLoadingScreen();
+	
+	// Splash screen
+	void setCustomSplashScreen(std::string imagePath, std::string customText);
+	void renderSplashScreen(std::string text, float percent = -1, float opacity = 1);
+	void renderSplashScreen(float opacity = 1, bool swapBuffers = true);
+	void closeSplashScreen();
 
 	void renderHelpPromptsEarly(); // used to render HelpPrompts before a fade
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
@@ -123,7 +127,7 @@ private:
 	std::vector<NotificationMessage> mNotificationMessages; // batocera
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
-	std::shared_ptr<TextureResource> mSplash;
+	std::shared_ptr<Splash> mSplash;
 
 	int mFrameTimeElapsed;
 	int mFrameCountElapsed;

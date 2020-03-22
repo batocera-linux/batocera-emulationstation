@@ -178,7 +178,13 @@ void EsLocale::checkLocalisationLoaded()
 	std::string xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/" + mCurrentLanguage + "/emulationstation2.po");
 	if (!Utils::FileSystem::exists(xmlpath))
 		xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/" + mCurrentLanguage + "/LC_MESSAGES/emulationstation2.po");
-	
+
+	if (!Utils::FileSystem::exists(xmlpath))
+		xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/lang/" + mCurrentLanguage + "/emulationstation2.po");
+
+	if (!Utils::FileSystem::exists(xmlpath))
+		xmlpath = ResourceManager::getInstance()->getResourcePath(":/locale/lang/" + mCurrentLanguage + "/LC_MESSAGES/emulationstation2.po");
+
 	if (!Utils::FileSystem::exists(xmlpath))
 	{
 		auto shortNameDivider = mCurrentLanguage.find("_");

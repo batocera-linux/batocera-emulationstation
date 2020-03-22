@@ -187,7 +187,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 		}else if (config->isMappedTo("x", input))
 		{
-			if (SystemConf::getInstance()->get("global.netplay") == "1") //  && mRoot->getSystem()->isNetplaySupported()
+			if (SystemConf::getInstance()->getBool("global.netplay")) //  && mRoot->getSystem()->isNetplaySupported()
 			{
 				FileData* cursor = getCursor();
 				if(cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())

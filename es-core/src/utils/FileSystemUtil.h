@@ -12,7 +12,7 @@ namespace Utils
 	{
 		typedef std::list<std::string> stringList;
 
-		stringList  getDirContent      (const std::string& _path, const bool _recursive = false);
+		stringList  getDirContent      (const std::string& _path, const bool _recursive = false, const bool includeHidden = false);
 		stringList  getPathList        (const std::string& _path);
 		std::string getHomePath        ();
 		std::string getCWDPath         ();
@@ -59,8 +59,13 @@ namespace Utils
 		fileList	getDirectoryFiles(const std::string& _path);
 		std::string combine(const std::string& _path, const std::string& filename);
 		size_t		getFileSize(const std::string& _path);
+
 		Utils::Time::DateTime getFileCreationDate(const std::string& _path);
+
 		std::string	readAllText(const std::string fileName);
+		void		writeAllText(const std::string fileName, const std::string text);
+		bool		copyFile(const std::string src, const std::string dst);
+		void		deleteDirectoryFiles(const std::string path);
 
 		class FileSystemCacheActivator
 		{

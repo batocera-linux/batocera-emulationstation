@@ -230,6 +230,8 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 			{
 				if (entry.data.selectable)
 					it->component->setColor(textColor);				
+				else 
+					it->component->setColor(menuTheme->Group.color);
 
 				it->component->render(trans);
 			}
