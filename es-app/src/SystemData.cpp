@@ -113,6 +113,10 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 	bool isGame;
 	bool showHidden = Settings::getInstance()->getBool("ShowHiddenFiles");
 
+	auto shv = Settings::getInstance()->getString(getName() + ".ShowHiddenFiles");
+	if (shv == "1") showHidden = true;
+	else if (shv == "0") showHidden = false;
+
 	Utils::FileSystem::fileList dirContent = Utils::FileSystem::getDirectoryFiles(folderPath);
 	for (auto fileInfo : dirContent)
 	{
@@ -959,7 +963,7 @@ std::string SystemData::getDefaultCore(const std::string emulatorName)
 	std::string core = SystemConf::getInstance()->get(getName() + ".core");
 #endif
 
-	if (!core.empty())
+	if (!core.empty() && core != "auto")
 		return core;
 	
 	std::string emul = emulatorName;

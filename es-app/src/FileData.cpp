@@ -451,8 +451,15 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
 
-
+	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
+	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
+	
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
+
+	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
+	if (shv == "1") showHiddenFiles = true;
+	else if (shv == "0") showHiddenFiles = false;
+
 	bool filterKidGame = false;
 
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
@@ -552,6 +559,11 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 	std::vector<FileData*> out;
 
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
+
+	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
+	if (shv == "1") showHiddenFiles = true;
+	else if (shv == "0") showHiddenFiles = false;
+
 	bool filterKidGame = UIModeController::getInstance()->isUIModeKid();
 
 	FileFilterIndex* idx = (system != nullptr ? system : mSystem)->getIndex(false);
@@ -660,6 +672,40 @@ const std::string FileData::getCore(bool resolveDefault)
 	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
 #endif
 
+	if (core == "auto")
+		core = "";
+
+	if (!core.empty())
+	{
+		// Check core exists 
+		std::string emulator = getEmulator();
+		if (!emulator.empty())
+		{
+			bool exists = false;
+
+			for (auto emul : getSourceFileData()->getSystem()->getEmulators())
+			{
+				if (emul.name == emulator)
+				{
+					for (auto cr : emul.cores)
+					{
+						if (cr.name == core)
+						{
+							exists = true;
+							break;
+						}
+					}
+
+					if (exists)
+						break;
+				}
+			}
+
+			if (!exists)
+				core = "";
+		}
+	}
+
 	if (resolveDefault && core.empty())
 		core = getSourceFileData()->getSystem()->getDefaultCore(getEmulator());
 
@@ -673,6 +719,21 @@ const std::string FileData::getEmulator(bool resolveDefault)
 #else
 	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
 #endif
+
+	if (emulator == "auto")
+		emulator = "";
+
+	if (!emulator.empty())
+	{
+		// Check emulator exists 
+		bool exists = false;
+
+		for (auto emul : getSourceFileData()->getSystem()->getEmulators())
+			if (emul.name == emulator) { exists = true; break; }
+
+		if (!exists)
+			emulator = "";
+	}
 
 	if (resolveDefault && emulator.empty())
 		emulator = getSourceFileData()->getSystem()->getDefaultEmulator();
