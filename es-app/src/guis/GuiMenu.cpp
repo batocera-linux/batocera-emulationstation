@@ -1940,6 +1940,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	if (systemTheme.empty() || showGridFeatures && system != NULL && theme->hasView("grid"))
 		themeconfig->addGroup("GAMELIST STYLE");
 	
+
+
 	if (systemTheme.empty())
 	{
 		gamelist_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAMELIST VIEW STYLE"), false);
@@ -2005,6 +2007,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		themeconfig->addWithLabel(_("DEFAULT GRID SIZE"), mGridSize);
 	}
 
+
+
 	std::map<std::string, ThemeConfigOption> options;
 
 	Utils::String::stringVector subsetNames = theme->getSubSetNames(viewName);
@@ -2052,6 +2056,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
 			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
 
+			std::string defaultName;
 			for (auto it = themeColorSets.begin(); it != themeColorSets.end(); it++)
 			{
 				std::string displayName = it->displayName;
@@ -2063,7 +2068,10 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 						defaultValue = system->getTheme()->getDefaultSubSetValue(subset);
 
 					if (it->name == defaultValue)
-						displayName = displayName + " (" + _("DEFAULT") + ")";
+					{
+						defaultName = Utils::String::toUpper(displayName);
+						// displayName = displayName + " (" + _("DEFAULT") + ")";
+					}
 				}
 
 				item->add(displayName, it->name, it == selectedColorSet);
@@ -2080,6 +2088,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 					bool hasApplyToSubset = themeColorSets.cbegin()->appliesTo.size() > 0;
 
 					std::string prefix;
+
 					if (systemTheme.empty())
 					{
 						for (auto subsetName : themeColorSets.cbegin()->appliesTo)
@@ -2094,8 +2103,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 							}
 						}
 
-						if (!prefix.empty())
-							prefix = " (" + prefix + ")";
+						prefix = Utils::String::toUpper(prefix);
 					}
 
 					if (hasApplyToSubset && !hasApplyToGroup)
@@ -2109,7 +2117,12 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 						themeconfig->addGroup(_("THEME OPTIONS"));
 					}
 
-					themeconfig->addWithLabel(displayName + prefix, item);
+					if (!prefix.empty())
+						themeconfig->addWithDescription(displayName, prefix, item);
+					else if (!defaultName.empty())
+						themeconfig->addWithDescription(displayName, _("DEFAULT VALUE") + " : " + defaultName, item);
+					else 
+						themeconfig->addWithLabel(displayName + prefix, item);
 				}
 				else
 				{
@@ -2137,6 +2150,57 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		}
 	}
 	
+
+	if (!systemTheme.empty())
+	{
+		themeconfig->addGroup(_("GAMELIST OPTIONS"));
+
+		// Show favorites first in gamelists
+		auto fav = Settings::getInstance()->getString(system->getName() + ".FavoritesFirst");
+		auto favoritesFirst = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FAVORITES ON TOP"), false);
+		std::string defFav = Settings::getInstance()->getBool("FavoritesFirst") ? _("YES") : _("NO");
+		favoritesFirst->add(_("AUTO"), "", fav == "" || fav == "auto");
+		favoritesFirst->add(_("YES"), "1", fav == "1");
+		favoritesFirst->add(_("NO"), "0", fav == "0");
+		themeconfig->addWithDescription(_("SHOW FAVORITES ON TOP"), _("DEFAULT VALUE") + " : " + defFav, favoritesFirst);
+		themeconfig->addSaveFunc([themeconfig, favoritesFirst, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".FavoritesFirst", favoritesFirst->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
+		// Show favorites first in gamelists
+		auto defHid = Settings::getInstance()->getBool("ShowHiddenFiles") ? _("YES") : _("NO");
+		auto curhid = Settings::getInstance()->getString(system->getName() + ".ShowHiddenFiles");
+		auto hiddenFiles = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW HIDDEN FILES"), false);
+		hiddenFiles->add(_("AUTO"), "", curhid == "" || curhid == "auto");
+		hiddenFiles->add(_("YES"), "1", curhid == "1");
+		hiddenFiles->add(_("NO"), "0", curhid == "0");
+		themeconfig->addWithDescription(_("SHOW HIDDEN FILES"), _("DEFAULT VALUE") + " : " + defHid, hiddenFiles);
+		themeconfig->addSaveFunc([themeconfig, hiddenFiles, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowHiddenFiles", hiddenFiles->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
+		// Folder View Mode
+		auto defFol = Utils::String::toUpper(_(Settings::getInstance()->getString("FolderViewMode")));
+		auto curFol = Settings::getInstance()->getString(system->getName() + ".FolderViewMode");
+
+		auto foldersBehavior = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FOLDERS"), false);
+		foldersBehavior->add(_("AUTO"), "", curFol == "" || curFol == "auto"); //  + " (" + defFol + ")"
+		foldersBehavior->add(_("always"), "always", curFol == "always");
+		foldersBehavior->add(_("never"), "never", curFol == "never");
+		foldersBehavior->add(_("having multiple games"), "having multiple games", curFol == "having multiple games");
+
+		themeconfig->addWithDescription(_("SHOW FOLDERS"), _("DEFAULT VALUE") + " : " + defFol, foldersBehavior);
+		themeconfig->addSaveFunc([themeconfig, foldersBehavior, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".FolderViewMode", foldersBehavior->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+	}
+
 	if (systemTheme.empty())
 	{
 		themeconfig->addGroup(_("TOOLS"));
@@ -2146,9 +2210,15 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			Settings::getInstance()->setString("GamelistViewStyle", "");
 			Settings::getInstance()->setString("DefaultGridSize", "");
 
-			for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
-				(*sysIt)->setSystemViewMode("automatic", Vector2f(0, 0));
+			for (auto system : SystemData::sSystemVector)
+			{
+				system->setSystemViewMode("automatic", Vector2f(0, 0));
 
+				Settings::getInstance()->setString(system->getName() + ".FavoritesFirst", "");
+				Settings::getInstance()->setString(system->getName() + ".ShowHiddenFiles", "");
+				Settings::getInstance()->setString(system->getName() + ".FolderViewMode", "");
+			}
+			
 			themeconfig->setVariable("reloadAll", true);
 			themeconfig->close();
 		});
@@ -2508,20 +2578,6 @@ void GuiMenu::openUISettings()
 	s->addSaveFunc([osk_enable] {
 		Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
 
-	// filenames
-	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-	hidden_files->setState(Settings::getInstance()->getBool("ShowFilenames"));
-	s->addWithLabel(_("SHOW FILENAMES IN LISTS"), hidden_files);
-	s->addSaveFunc([hidden_files, s] 
-	{ 
-		if (Settings::getInstance()->setBool("ShowFilenames", hidden_files->getState()))
-		{
-			FileData::resetSettings();
-			s->setVariable("reloadCollections", true);
-			s->setVariable("reloadAll", true);
-		}
-	});
-	
 
 #if defined(_WIN32)
 	// Hide EmulationStation Window when running a game ( windows only )
@@ -2530,6 +2586,61 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("HIDE WHEN RUNNING A GAME"), hideWindowScreen);
 	s->addSaveFunc([hideWindowScreen] { Settings::getInstance()->setBool("HideWindow", hideWindowScreen->getState()); });
 #endif
+
+	s->addGroup(_("GAMELIST OPTIONS"));
+
+	// Show favorites first in gamelists
+	auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
+	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
+	s->addWithLabel(_("SHOW FAVORITES ON TOP"), favoritesFirstSwitch);
+	s->addSaveFunc([s, favoritesFirstSwitch]
+	{
+		if (Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// hidden files
+	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
+	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
+	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
+	s->addSaveFunc([s, hidden_files]
+	{
+		if (Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Folder View Mode
+	auto foldersBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW FOLDERS"), false);
+
+	foldersBehavior->add(_("always"), "always", Settings::getInstance()->getString("FolderViewMode") == "always");
+	foldersBehavior->add(_("never"), "never", Settings::getInstance()->getString("FolderViewMode") == "never");
+	foldersBehavior->add(_("having multiple games"), "having multiple games", Settings::getInstance()->getString("FolderViewMode") == "having multiple games");
+
+	s->addWithLabel(_("SHOW FOLDERS"), foldersBehavior);
+	s->addSaveFunc([s, foldersBehavior]
+	{
+		if (Settings::getInstance()->setString("FolderViewMode", foldersBehavior->getSelected()))
+			s->setVariable("reloadAll", true);
+	});
+
+
+
+
+
+	// filenames
+	auto showFilesnames = std::make_shared<SwitchComponent>(mWindow);
+	showFilesnames->setState(Settings::getInstance()->getBool("ShowFilenames"));
+	s->addWithLabel(_("SHOW FILENAMES IN LISTS"), showFilesnames);
+	s->addSaveFunc([showFilesnames, s]
+	{ 
+		if (Settings::getInstance()->setBool("ShowFilenames", showFilesnames->getState()))
+		{
+			FileData::resetSettings();
+			s->setVariable("reloadCollections", true);
+			s->setVariable("reloadAll", true);
+		}
+	});
+	
 
 	s->onFinalize([s, pthis, window]
 	{

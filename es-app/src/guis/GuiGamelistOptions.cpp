@@ -84,6 +84,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	addChild(&mMenu);
 
+	mMenu.addGroup(_("NAVIGATION"));
+
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
 		addTextFilterToMenu();
 
@@ -181,77 +183,23 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	if (UIModeController::getInstance()->isUIModeFull())
 	{
+		mMenu.addGroup(_("VIEW OPTIONS"));
+
 		mMenu.addWithLabel(_("GAMELIST VIEW STYLE"), mViewMode);
-
-		// Grid size override
-		auto subsetNames = system->getTheme()->getSubSetNames(viewName);
-		if (subsetNames.size() > 0)
+		mMenu.addEntry(_("VIEW CUSTOMISATION"), true, [this, system]() 
 		{
-			mMenu.addEntry(_("VIEW CUSTOMISATION"), true, [this, system]() { GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder()); });
-		}
-		else if (showGridFeatures)
-		{
-			auto gridOverride = system->getGridSizeOverride();
-			auto ovv = std::to_string((int)gridOverride.x()) + "x" + std::to_string((int)gridOverride.y());
-
-			mGridSize = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GRID SIZE"), false);
-
-			found = false;
-			for (auto it = gridSizes.cbegin(); it != gridSizes.cend(); it++)
-			{
-				bool sel = (gridOverride == Vector2f(0, 0) && *it == "automatic") || ovv == *it;
-				if (sel)
-					found = true;
-
-				mGridSize->add(_(it->c_str()), *it, sel);
-			}
-
-			if (!found)
-				mGridSize->selectFirstItem();
-
-			mMenu.addWithLabel(_("GRID SIZE"), mGridSize);
-		}
-
-
-		// Show favorites first in gamelists
-		auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
-		favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
-		mMenu.addWithLabel(_("SHOW FAVORITES ON TOP"), favoritesFirstSwitch);
-		addSaveFunc([favoritesFirstSwitch, this]
-		{
-			if (Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState()))
-				mReloadAll = true;
-		});
-
-		// hidden files
-		auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-		hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
-		mMenu.addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
-		addSaveFunc([hidden_files, this]
-		{
-			if (Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()))
-				mReloadAll = true;
-		});
-
-		// Folder View Mode
-		auto foldersBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW FOLDERS"), false);
-
-		foldersBehavior->add(_("always"), "always", Settings::getInstance()->getString("FolderViewMode") == "always");
-		foldersBehavior->add(_("never"), "never", Settings::getInstance()->getString("FolderViewMode") == "never");
-		foldersBehavior->add(_("having multiple games"), "having multiple games", Settings::getInstance()->getString("FolderViewMode") == "having multiple games");
-
-		mMenu.addWithLabel(_("SHOW FOLDERS"), foldersBehavior);
-		addSaveFunc([this, foldersBehavior]
-		{
-			if (Settings::getInstance()->setString("FolderViewMode", foldersBehavior->getSelected()))
-				mReloadAll = true;
+			GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder()); 
 		});
 
 		std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 
-		if (UIModeController::getInstance()->isUIModeFull() &&
+		if (CollectionSystemManager::get()->isEditing() ||
 			((customCollections.find(system->getName()) != customCollections.cend() && CollectionSystemManager::get()->getEditingCollection() != system->getName()) ||
 				CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName()))
+			mMenu.addGroup(_("COLLECTION MANAGEMENT"));
+
+		if ((customCollections.find(system->getName()) != customCollections.cend() && CollectionSystemManager::get()->getEditingCollection() != system->getName()) ||		
+			CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName())
 		{
 			mMenu.addEntry(_("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), false, std::bind(&GuiGamelistOptions::startEditMode, this));
 		}
@@ -259,18 +207,22 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 			mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
 
-		if (UIModeController::getInstance()->isUIModeFull() && !fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
-			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
-
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+		if (!fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
 		{
-			if (UIModeController::getInstance()->isUIModeFull() && !(mSystem->isCollection() && file->getType() == FOLDER))
+			mMenu.addGroup(_("GAME OPTIONS"));
+
+			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 			{
-				mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file, system]
+				if (!(mSystem->isCollection() && file->getType() == FOLDER))
 				{
-					GuiMenu::popGameConfigurationGui(mWindow, file);
-				});
+					if (!mSystem->isGroupSystem())
+						mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
+
+					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
+				}
 			}
+
+			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 		}
 	}
 	
