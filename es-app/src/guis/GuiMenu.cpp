@@ -2184,7 +2184,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		});
 
 		// Folder View Mode
-		auto defFol = Utils::String::toUpper(_(Settings::getInstance()->getString("FolderViewMode")));
+		auto folderView = Settings::getInstance()->getString("FolderViewMode");
+		auto defFol = folderView.empty() ? "" : Utils::String::toUpper(_(folderView.c_str()));
 		auto curFol = Settings::getInstance()->getString(system->getName() + ".FolderViewMode");
 
 		auto foldersBehavior = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FOLDERS"), false);
