@@ -1,6 +1,6 @@
 #include "components/MenuComponent.h"
-
 #include "components/ButtonComponent.h"
+#include "components/MultiLineMenuEntry.h"
 
 #define BUTTON_GRID_VERT_PADDING  (Renderer::getScreenHeight()*0.0296296)
 #define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)
@@ -111,6 +111,43 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	addRow(row, setCursorHere);
 }
 
+void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+{
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+
+	if (!iconName.empty())
+	{
+		std::string iconPath = theme->getMenuIcon(iconName);
+		if (!iconPath.empty())
+		{
+			// icon
+			auto icon = std::make_shared<ImageComponent>(mWindow, true);
+			icon->setImage(iconPath);
+			icon->setColorShift(theme->Text.color);
+			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+			row.addElement(icon, false);
+
+			// spacer between icon and text
+			auto spacer = std::make_shared<GuiComponent>(mWindow);
+			spacer->setSize(10, 0);
+			row.addElement(spacer, false);
+		}
+	}
+
+	if (!description.empty())
+		row.addElement(std::make_shared<MultiLineMenuEntry>(mWindow, Utils::String::toUpper(label), description), true);
+	else	
+		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
+
+	row.addElement(comp, false, invert_when_selected);
+
+	if (func != nullptr)
+		row.makeAcceptInputHandler(func);
+
+	addRow(row, setCursorHere);
+}
 void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool onButtonRelease)
 {
 	auto theme = ThemeData::getMenuTheme();

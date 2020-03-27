@@ -402,4 +402,30 @@ bool Settings::setMethodName(const std::string& name, type value) \
 SETTINGS_GETSET(bool, mBoolMap, getBool, setBool, false);
 SETTINGS_GETSET(int, mIntMap, getInt, setInt, 0);
 SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat, 0.0f);
-SETTINGS_GETSET(const std::string&, mStringMap, getString, setString, mEmptyString);
+//SETTINGS_GETSET(const std::string&, mStringMap, getString, setString, mEmptyString);
+
+std::string Settings::getString(const std::string& name)
+{ 
+	if (mStringMap.find(name) == mStringMap.cend())
+		return mEmptyString;
+
+	return mStringMap[name];
+}
+
+bool Settings::setString(const std::string& name, const std::string& value)
+{ 
+	if (mStringMap.count(name) == 0 || mStringMap[name] != value)
+	{
+		if (value == "" && mStringMap.count(name) == 0)
+			return false;
+
+		mStringMap[name] = value;
+		
+		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend()) 
+			mWasChanged = true; 
+			
+		return true; 
+	} 
+
+	return false; 
+}

@@ -261,7 +261,6 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	FILE* pipe = popen("batocera-scraper", "r");
 	if (pipe == nullptr)
 		return std::pair<std::string, int>(std::string("Cannot call scrape command"), -1);
-
 	char line[1024] = "";
 #ifdef _ENABLEEMUELEC
 	FILE* flog = fopen("/storage/.config/emuelec/logs/emuelec-scraper.log", "w");
@@ -396,24 +395,20 @@ bool ApiSystem::launchFileManager(Window *window)
 
 bool ApiSystem::enableWifi(std::string ssid, std::string key) 
 {
-
 #ifdef _ENABLEEMUELEC
 	return executeScript("batocera-config wifi enable \"" + ssid + "\" \"" + key + "\"");
 #else
 	return executeScript("batocera-wifi enable \"" + ssid + "\" \"" + key + "\"");
 #endif
-
 }
 
 bool ApiSystem::disableWifi() 
 {
-
 #ifdef _ENABLEEMUELEC
 	return executeScript("batocera-config wifi disable");
 #else
 	return executeScript("batocera-wifi disable");
 #endif
-
 }
 
 bool ApiSystem::halt(bool reboot, bool fast) 

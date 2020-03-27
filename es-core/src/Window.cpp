@@ -583,13 +583,14 @@ void Window::setAllowSleep(bool sleep)
 
 void Window::setCustomSplashScreen(std::string imagePath, std::string customText)
 {
-	if (!Utils::FileSystem::exists(imagePath))
-		return;
-
 	if (Settings::getInstance()->getBool("HideWindow"))
 		return;
+		
+	if (!Utils::FileSystem::exists(imagePath))
+		mSplash = std::make_shared<Splash>(this, DEFAULT_SPLASH_IMAGE, false);
+	else
+		mSplash = std::make_shared<Splash>(this, imagePath, false);
 
-	mSplash = std::make_shared<Splash>(this, imagePath, false);
 	mSplash->update(customText);
 }
 

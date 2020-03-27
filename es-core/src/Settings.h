@@ -17,7 +17,7 @@ public:
 	bool getBool(const std::string& name);
 	int getInt(const std::string& name);
 	float getFloat(const std::string& name);
-	const std::string& getString(const std::string& name);
+	std::string getString(const std::string& name);
 
 	bool setBool(const std::string& name, bool value);
 	bool setInt(const std::string& name, int value);
