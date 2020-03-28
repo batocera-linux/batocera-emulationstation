@@ -16,7 +16,7 @@
 #include "components/VideoComponent.h"
 #include "components/VideoVlcComponent.h"
 #include "guis/GuiNetPlay.h"
-#include <random>
+#include "Playlists.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -71,101 +71,6 @@ void SystemView::clearEntries()
 
 	mEntries.clear();
 }
-
-class SystemRandomPlaylist : public IPlaylist
-{
-public:
-	enum PlaylistType
-	{
-		IMAGE,
-		THUMBNAIL,
-		MARQUEE,
-		VIDEO
-	};
-
-	SystemRandomPlaylist(SystemData* system, PlaylistType type) : mMt19937(mRandomDevice())
-	{
-		mFirstRun = true;
-		mSystem = system;
-		mType = type;
-	}
-		
-	std::string getNextItem()
-	{
-		if (mFirstRun)
-		{
-			std::vector<FileData*> files = mSystem->getRootFolder()->getFilesRecursive(GAME, false);
-
-			for (auto file : files)
-			{
-				switch (mType)
-				{
-				case IMAGE:
-					if (!file->getImagePath().empty())
-						mPaths.push_back(file->getImagePath());
-					break;
-
-				case THUMBNAIL:
-					if (!file->getThumbnailPath().empty())
-						mPaths.push_back(file->getThumbnailPath());
-					break;
-
-				case MARQUEE:
-					if (!file->getMarqueePath().empty())
-						mPaths.push_back(file->getMarqueePath());
-					break;
-
-				case VIDEO:
-					if (!file->getVideoPath().empty())
-						mPaths.push_back(file->getVideoPath());
-					break;
-				}
-			}
-
-			if (mPaths.size() > 0)
-				mUniformDistribution = std::uniform_int_distribution<int>(0, mPaths.size() - 1);
-
-			mFirstRun = false;
-		}
-
-		if (mPaths.size() > 0)
-		{
-			int idx = mUniformDistribution(mMt19937);
-			if (idx >= 0 && idx < mPaths.size() && Utils::FileSystem::exists(mPaths[idx]))						
-				return mPaths[idx];
-
-			// File not found ? Try the next file...
-			int stopidx = idx;
-
-			idx++;
-			if (idx >= mPaths.size())
-				idx = 0;
-
-			while (idx != stopidx && idx < mPaths.size() && !Utils::FileSystem::exists(mPaths[idx]))
-			{			
-				idx++;
-				if (idx >= mPaths.size())
-					idx = 0;
-			}
-
-			if (idx >= 0 && idx < mPaths.size() && Utils::FileSystem::exists(mPaths[idx]))
-				return mPaths[idx];
-		}
-
-		return "";
-	}
-	
-private:
-	SystemData*		mSystem;
-	bool			mFirstRun;
-	PlaylistType	mType;
-
-	std::vector<std::string> mPaths;
-
-	std::random_device	mRandomDevice;
-	std::mt19937		mMt19937;
-	std::uniform_int_distribution<int> mUniformDistribution;
-};
 
 void SystemView::populate()
 {
@@ -272,6 +177,8 @@ void SystemView::populate()
 					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "video");
 					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
 						((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
+					else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+						((VideoComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));					
 				}
 				else if (extra->isKindOf<ImageComponent>())
 				{
@@ -289,6 +196,9 @@ void SystemView::populate()
 
 						((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
 					}
+					else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+						((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
+
 				}
 			}
 

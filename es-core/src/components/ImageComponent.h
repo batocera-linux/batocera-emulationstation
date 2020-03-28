@@ -15,6 +15,8 @@ class IPlaylist
 {
 public:
 	virtual std::string getNextItem() = 0;
+	virtual int getDelay() { return 10000; }
+	virtual bool getRotateOnShow() { return false; }
 };
 
 class ImageComponent : public GuiComponent
