@@ -288,9 +288,6 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	VolumeControl::getInstance()->deinit();
 
 	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
-#if !WIN32
-	hideWindow = false;
-#endif
 	window->deinit(hideWindow);
 
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
