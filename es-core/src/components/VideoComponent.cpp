@@ -451,7 +451,7 @@ void VideoComponent::manageState()
 
 void VideoComponent::onShow()
 {
-	if (!mShowing && mPlaylist != nullptr && !mVideoPath.empty())
+	if (!mShowing && mPlaylist != nullptr && !mVideoPath.empty() && mPlaylist->getRotateOnShow())
 	{
 		auto video = mPlaylist->getNextItem();
 		if (!video.empty())

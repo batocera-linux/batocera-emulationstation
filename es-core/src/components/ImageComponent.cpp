@@ -718,7 +718,7 @@ void ImageComponent::onShow()
 {
 	GuiComponent::onShow();
 
-	if (!mShowing && mPlaylist != nullptr && !mPath.empty())
+	if (!mShowing && mPlaylist != nullptr && !mPath.empty() && mPlaylist->getRotateOnShow())
 	{
 		auto item = mPlaylist->getNextItem();
 		if (!item.empty())
@@ -743,7 +743,7 @@ void ImageComponent::update(int deltaTime)
 	{
 		mPlaylistTimer += deltaTime;
 
-		if (mPlaylistTimer >= 10000)
+		if (mPlaylistTimer >= mPlaylist->getDelay())
 		{
 			auto item = mPlaylist->getNextItem();
 			if (!item.empty())

@@ -550,7 +550,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 					CoreData core;
 					core.name = coreNode.text().as_string();
 					core.netplay = coreNode.attribute("netplay") && coreNode.attribute("netplay").value() == "true";
-					emulatorData.customCommandLine = coreNode.attribute("command").value();
+					core.customCommandLine = coreNode.attribute("command").value();
 
 					emulatorData.cores.push_back(core);
 				}
