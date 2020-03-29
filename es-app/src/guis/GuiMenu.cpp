@@ -1049,7 +1049,7 @@ void GuiMenu::openSystemSettings_batocera()
 #endif
 
 
-#if !defined(WIN32) || defined(_DEBUG)
+#if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	s->addGroup(_("HARDWARE"));
 
 	// brighness
@@ -1202,7 +1202,7 @@ void GuiMenu::openSystemSettings_batocera()
 			overclock_choice->add(currentOverclock, currentOverclock, true);
 	}
 
-#if !defined(WIN32) || defined(_DEBUG)
+#if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	// overclocking
 	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 	s->addGroup(_("STORAGE"));
