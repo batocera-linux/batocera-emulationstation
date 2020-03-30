@@ -287,10 +287,11 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
 
+	// batocera / must really;-) be done before window->deinit while it closes joysticks
+	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
+
 	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
 	window->deinit(hideWindow);
-
-	const std::string controllersConfig = InputManager::getInstance()->configureEmulators(); // batocera / must be done before window->deinit while it closes joysticks
 	
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
