@@ -294,6 +294,9 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
 	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
+#if !WIN32
+	hideWindow = false;
+#endif
 	window->deinit(hideWindow);
 	
 	std::string systemName = system->getName();
