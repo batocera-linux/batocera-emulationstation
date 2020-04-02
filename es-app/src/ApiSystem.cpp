@@ -147,7 +147,7 @@ bool ApiSystem::setOverscan(bool enable)
 bool ApiSystem::setOverclock(std::string mode) 
 {
 #ifdef _ENABLEEMUELEC
-return true;
+	return true;
 #endif
 	if (mode.empty())
 		return false;
@@ -520,7 +520,11 @@ std::vector<std::string> ApiSystem::getAvailableInstallArchitectures()
 
 std::vector<std::string> ApiSystem::getAvailableOverclocking() 
 {
+#ifdef _ENABLEEMUELEC
+	return executeEnumerationScript("echo no");
+#else
 	return executeEnumerationScript("batocera-overclock list");
+#endif
 }
 
 std::vector<std::string> ApiSystem::getSystemInformations() 
