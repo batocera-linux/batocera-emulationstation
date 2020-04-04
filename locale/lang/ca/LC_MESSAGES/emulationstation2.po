@@ -11,13 +11,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATING BATOCERA"
-msgstr ""
+msgstr "ACTUALITZANT BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr ""
+msgstr "LA ACTUALITZACIÓ ESTÀ LLESTA"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr ""
+msgstr "REINICII EL SISTEMA PER A APLICAR ELS CANVIS"
 
 msgid "AN ERROR OCCURED"
 msgstr "S'HA PRODUÏT UN ERROR"
@@ -53,16 +53,16 @@ msgid "CONNECT TO NETPLAY"
 msgstr ""
 
 msgid "Select the game you want to join"
-msgstr ""
+msgstr "Seleccioni el joc al que vol unir-se"
 
 msgid "REFRESH"
-msgstr ""
+msgstr "RECARREGA"
 
 msgid "CLOSE"
 msgstr "TANCA"
 
 msgid "PLEASE WAIT"
-msgstr ""
+msgstr "SI US PLAU ESPERI"
 
 msgid "FAILED"
 msgstr ""
@@ -74,34 +74,34 @@ msgid "LAUNCH"
 msgstr "EXECUTA"
 
 msgid "AVAILABLE GAMES"
-msgstr ""
+msgstr "JOCS DISPONIBLES"
 
 msgid "UNAVAILABLE GAMES"
-msgstr ""
+msgstr "JOCS NO DISPONIBLES"
 
 msgid "NO GAME FOUND"
-msgstr ""
+msgstr "NO S'HA TROBAT EL JOC"
 
 msgid "go back"
-msgstr ""
+msgstr "anar enrera"
 
 msgid "JUMP TO..."
-msgstr ""
+msgstr "ANAR A..."
 
 msgid "SORT GAMES BY"
 msgstr "ORDENA ELS JOCS PER"
 
 msgid "OTHER FILTERS"
-msgstr ""
+msgstr "ALTRES FILTRES"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "VISTA ESTIL LLISTAT DE JOCS"
 
 msgid "automatic"
-msgstr ""
+msgstr "automàtic"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "VEURE PERSONALITZACIÓ"
 
 msgid "GRID SIZE"
 msgstr ""
