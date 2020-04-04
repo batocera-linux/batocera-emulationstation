@@ -317,7 +317,23 @@ void GuiMenu::addVersionInfo()
 	mVersion.setLineSpacing(0);
 
 	if (!ApiSystem::getInstance()->getVersion().empty())
+	{
+#if WIN32
+		std::string aboutInfo;
+
+		std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+		if (Utils::FileSystem::exists(localVersionFile))
+		{
+			aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+			aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+		}
+
+		if (!aboutInfo.empty())
+			mVersion.setText(aboutInfo + buildDate);
+		else
+#endif
 		mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
+	}
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
 	mVersion.setVerticalAlignment(ALIGN_CENTER);
