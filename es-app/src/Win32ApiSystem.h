@@ -17,6 +17,9 @@ public:
 	std::string getFreeSpaceInfo() override;
 	std::string getIpAdress() override;
 
+	void setReadyFlag(bool ready = true) override;
+	bool isReadyFlagSet() override;
+
 	// Themes
 	std::vector<std::string> getBatoceraThemesList() override;
 	std::pair<std::string, int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func) override;

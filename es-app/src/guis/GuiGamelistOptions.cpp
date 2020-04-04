@@ -207,13 +207,13 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 			mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
 
-		if (!fromPlaceholder && !(mSystem->isCollection() && file->getType() == FOLDER))
+		if (!fromPlaceholder && !mSystem->isCollection() && file->getType() == GAME)
 		{
 			mMenu.addGroup(_("GAME OPTIONS"));
 
 			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 			{
-				if (!(mSystem->isCollection() && file->getType() == FOLDER))
+				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 				{
 					if (!mSystem->isGroupSystem())
 						mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });

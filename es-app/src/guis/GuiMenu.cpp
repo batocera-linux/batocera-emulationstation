@@ -317,7 +317,23 @@ void GuiMenu::addVersionInfo()
 	mVersion.setLineSpacing(0);
 
 	if (!ApiSystem::getInstance()->getVersion().empty())
+	{
+#if WIN32
+		std::string aboutInfo;
+
+		std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+		if (Utils::FileSystem::exists(localVersionFile))
+		{
+			aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+			aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+		}
+
+		if (!aboutInfo.empty())
+			mVersion.setText(aboutInfo + buildDate);
+		else
+#endif
 		mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
+	}
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
 	mVersion.setVerticalAlignment(ALIGN_CENTER);
@@ -1437,14 +1453,16 @@ void GuiMenu::openGamesSettings_batocera()
 
 		// For each activated system
 		std::vector<SystemData *> systems = SystemData::sSystemVector;
-		for (auto system = systems.begin(); system != systems.end(); system++)
+		for (auto system : systems)
 		{
-			if ((*system)->isCollection() || (*system)->isGroupSystem())
+			if (system->isCollection() || system->isGroupSystem())
 				continue;
 
-			SystemData *systemData = (*system);
-			configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
-				popSystemConfigurationGui(window, systemData, "");
+			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+				continue;
+
+			configuration->addEntry(system->getFullName(), true, [this, system, window] {
+				popSystemConfigurationGui(window, system, "");
 			});
 		}
 

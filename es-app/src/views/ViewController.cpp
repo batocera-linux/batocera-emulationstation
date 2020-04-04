@@ -259,10 +259,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	mWindow->stopInfoPopup(); // make sure we disable any existing info popup
 	mLockInput = true;
 		
-#if WIN32
 	if (!Settings::getInstance()->getBool("HideWindow"))
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
-#endif
 
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
 	if(transition_style == "auto")
