@@ -1437,14 +1437,16 @@ void GuiMenu::openGamesSettings_batocera()
 
 		// For each activated system
 		std::vector<SystemData *> systems = SystemData::sSystemVector;
-		for (auto system = systems.begin(); system != systems.end(); system++)
+		for (auto system : systems)
 		{
-			if ((*system)->isCollection() || (*system)->isGroupSystem())
+			if (system->isCollection() || system->isGroupSystem())
 				continue;
 
-			SystemData *systemData = (*system);
-			configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
-				popSystemConfigurationGui(window, systemData, "");
+			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+				continue;
+
+			configuration->addEntry(system->getFullName(), true, [this, system, window] {
+				popSystemConfigurationGui(window, system, "");
 			});
 		}
 
