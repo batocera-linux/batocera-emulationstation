@@ -3422,7 +3422,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
 	internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
 	internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-	if (systemData->getName() == "psp") // only for psp
+	if (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube") // only for psp, wii, gamecube
 		systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 
 	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, changescreen_layout, internalresolution, fileData] 
