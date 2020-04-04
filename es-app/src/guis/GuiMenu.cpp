@@ -1535,7 +1535,7 @@ void GuiMenu::openGamesSettings_batocera()
 	
 	//maxperf
 	auto maxperf_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("ENABLE MAX PERFORMANCE"));
-	maxperf_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.maxperf") == "1");
+	maxperf_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.maxperf") == "1" || SystemConf::getInstance()->get("global.maxperf") != "0");
 	maxperf_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.maxperf") == "0");
 	s->addWithLabel(_("ENABLE MAX PERFORMANCE"), maxperf_enabled);
 #endif
@@ -1734,6 +1734,12 @@ void GuiMenu::openGamesSettings_batocera()
 		// Game List Update
 		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
 	}
+#ifdef _ENABLEEMUELEC
+	s->addSaveFunc([maxperf_enabled]
+	{
+		SystemConf::getInstance()->set("global.maxperf", maxperf_enabled->getSelected());
+	});
+#endif
 
 	s->addSaveFunc([smoothing_enabled, rewind_enabled, autosave_enabled] 
 	{
