@@ -84,6 +84,8 @@ public:
 
     virtual bool ping();
     virtual bool canUpdate(std::vector<std::string>& output);
+	virtual void setReadyFlag(bool ready = true);
+	virtual bool isReadyFlagSet();
 
     virtual bool launchKodi(Window *window);
     bool launchFileManager(Window *window);

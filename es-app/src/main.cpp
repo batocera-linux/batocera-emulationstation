@@ -30,6 +30,8 @@
 #include "ThreadedHasher.h"
 #include <FreeImage.h>
 #include "ImageIO.h"
+#include "components/VideoVlcComponent.h"
+#include <csignal>
 
 #ifdef WIN32
 #include <Windows.h>
@@ -37,7 +39,9 @@
 #define PATH_MAX MAX_PATH
 #endif
 
-bool scrape_cmdline = false;
+static bool scrape_cmdline = false;
+static std::string gPlayVideo;
+static int gPlayVideoDuration = 0;
 
 bool parseArgs(int argc, char* argv[])
 {
@@ -62,7 +66,17 @@ bool parseArgs(int argc, char* argv[])
 
 	for(int i = 1; i < argc; i++)
 	{
-		if (strcmp(argv[i], "--monitor") == 0)
+		if (strcmp(argv[i], "--videoduration") == 0)
+		{
+			gPlayVideoDuration = atoi(argv[i + 1]);
+			i++; // skip the argument value
+		}
+		else if (strcmp(argv[i], "--video") == 0)
+		{
+			gPlayVideo = argv[i + 1];
+			i++; // skip the argument value
+		}
+		else if (strcmp(argv[i], "--monitor") == 0)
 		{
 			if (i >= argc - 1)
 			{
@@ -297,7 +311,6 @@ int setLocale(char * argv1)
 	return 0;
 }
 
-#include <csignal>
 
 void signalHandler(int signum) 
 {
@@ -312,6 +325,79 @@ void signalHandler(int signum)
 
 	// cleanup and close up stuff here  
 	exit(signum);
+}
+
+void playVideo()
+{
+	ApiSystem::getInstance()->setReadyFlag(false);
+	Settings::getInstance()->setBool("AlwaysOnTop", true);
+
+	Window window;
+	if (!window.init(true))
+	{
+		LOG(LogError) << "Window failed to initialize!";
+		return;
+	}
+
+	Settings::getInstance()->setBool("VideoAudio", true);
+
+	bool exitLoop = false;
+
+	VideoVlcComponent vid(&window);
+	vid.setVideo(gPlayVideo);
+	vid.setOrigin(0.5f, 0.5f);
+	vid.setPosition(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f);
+	vid.setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
+	vid.setOnVideoEnded([&exitLoop]()
+	{
+		exitLoop = true;
+		return false;
+	});
+
+	window.pushGui(&vid);
+
+	vid.onShow();
+	vid.topWindow(true);
+
+	int lastTime = SDL_GetTicks();
+	int totalTime = 0;
+
+	while (!exitLoop)
+	{
+		SDL_Event event;
+
+		if (SDL_PollEvent(&event))
+		{
+			do
+			{
+				if (event.type == SDL_QUIT)
+					return;
+			} while (SDL_PollEvent(&event));
+		}
+
+		int curTime = SDL_GetTicks();
+		int deltaTime = curTime - lastTime;
+
+		if (vid.isPlaying())
+		{
+			totalTime += deltaTime;
+
+			if (gPlayVideoDuration > 0 && totalTime > gPlayVideoDuration * 100)
+				break;
+		}
+
+		Transform4x4f transform = Transform4x4f::Identity();
+		vid.update(deltaTime);
+		vid.render(transform);
+
+		Renderer::swapBuffers();
+
+		if (ApiSystem::getInstance()->isReadyFlagSet())
+			break;
+	}
+
+	window.deinit(true);
 }
 
 int main(int argc, char* argv[])
@@ -487,8 +573,7 @@ int main(int argc, char* argv[])
 
 	// batocera
 	// Create a flag in  temporary directory to signal READY state
-	FILE* fd = fopen("/tmp/emulationstation.ready", "w");
-	if (fd != NULL) { fclose(fd); }
+	ApiSystem::getInstance()->setReadyFlag();
 
 	// batocera, play music
 	AudioManager::getInstance()->init();
@@ -620,3 +705,4 @@ int main(int argc, char* argv[])
 	
 	return 0;
 }
+
