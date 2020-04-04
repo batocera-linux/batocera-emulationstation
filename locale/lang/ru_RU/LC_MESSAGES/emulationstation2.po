@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau, viroot\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -52,6 +52,24 @@ msgstr "ПОИСК"
 msgid "CANCEL"
 msgstr "ОТМЕНА"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "НАЗАД"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr "ПОДОЖДИТЕ"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 
@@ -64,14 +82,8 @@ msgstr "ОБНОВИТЬ"
 msgid "CLOSE"
 msgstr "ЗАКРЫТЬ"
 
-msgid "PLEASE WAIT"
-msgstr "ПОДОЖДИТЕ"
-
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
-
-msgid "BACK"
-msgstr "НАЗАД"
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
@@ -88,6 +100,9 @@ msgstr "ИГР НЕ НАЙДЕНО"
 msgid "go back"
 msgstr "назад"
 
+msgid "NAVIGATION"
+msgstr ""
+
 msgid "JUMP TO..."
 msgstr "ПЕРЕЙТИ К..."
 
@@ -103,29 +118,14 @@ msgstr "ВИД СПИСКА ИГР"
 msgid "automatic"
 msgstr "автоматически"
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr "ПОСМОТРЕТЬ НАСТРОЙКИ"
 
-msgid "GRID SIZE"
-msgstr "РАЗМЕР СЕТКИ"
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr "ИЗБРАННОЕ ВВЕРХУ СПИСКА"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "ОТОБРАЖАТЬ СКРЫТЫЕ ФАЙЛЫ"
-
-msgid "SHOW FOLDERS"
-msgstr "ПОКАЗАТЬ ПАПКИ"
-
-msgid "always"
-msgstr "всегда"
-
-msgid "never"
-msgstr "никогда"
-
-msgid "having multiple games"
-msgstr "несколько игр"
+msgid "COLLECTION MANAGEMENT"
+msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
@@ -133,11 +133,17 @@ msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
 msgid "FINISH EDITING COLLECTION"
 msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОИСК"
@@ -226,6 +232,12 @@ msgstr "НАСТРОЙКИ ЗВУКА"
 msgid "NETWORK SETTINGS"
 msgstr "НАСТРОЙКИ СЕТИ"
 
+msgid "CONFIGURE INPUT"
+msgstr "НАСТРОЙКА ВВОДА"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
@@ -298,6 +310,9 @@ msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКА ЗАСТАВКИ"
 
@@ -364,6 +379,9 @@ msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
@@ -394,8 +412,11 @@ msgstr "НАБОР РАМКОК (ОВЕРЛЕЕВ)"
 msgid "SOFTWARE UPDATES"
 msgstr "ПРОГРАММНОЕ ОБНОВЛЕНИЕ"
 
-msgid "AUTO UPDATES"
-msgstr "АВТООБНОВЛЕНИЯ"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "ПРИМЕНИТЬ ОБНОВЛЕНИЕ"
@@ -441,6 +462,15 @@ msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕ
 
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
+
+msgid "NETPLAY SETTINGS"
+msgstr "НАСТРОЙКИ NETPLAY"
+
+msgid "MISSING BIOS"
+msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
@@ -490,8 +520,17 @@ msgstr "ВКЛ"
 msgid "OFF"
 msgstr "ВЫКЛ"
 
-msgid "NETPLAY SETTINGS"
-msgstr "НАСТРОЙКИ NETPLAY"
+msgid "HARDCORE MODE"
+msgstr "ХАРДКОР РЕЖИМ"
+
+msgid "LEADERBOARDS"
+msgstr "ДОСКА ЛИДЕРОВ"
+
+msgid "VERBOSE MODE"
+msgstr "ПОДРОБНЫЙ РЕЖИМ"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "SETTINGS"
 msgstr "НАСТРОЙКИ"
@@ -580,23 +619,8 @@ msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
-
-msgid "HARDCORE MODE"
-msgstr "ХАРДКОР РЕЖИМ"
-
-msgid "LEADERBOARDS"
-msgstr "ДОСКА ЛИДЕРОВ"
-
-msgid "VERBOSE MODE"
-msgstr "ПОДРОБНЫЙ РЕЖИМ"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
-
-msgid "MISSING BIOS"
-msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
 msgid "NO MISSING BIOS"
 msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
@@ -607,14 +631,17 @@ msgstr "ОТСУТСТВУЕТ"
 msgid "INVALID"
 msgstr "НЕВЕРНЫЙ"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ЗАПУЩЕНО ХЕШИРОВАНИЕ ИГР. ОСТАНОВИТЬ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+
+msgid "Emulator"
+msgstr "Эмулятор"
+
+msgid "Core"
+msgstr "Ядро"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
@@ -634,12 +661,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
 
 #, c-format
 msgid "INPUT P%i"
@@ -666,14 +687,35 @@ msgstr "подробно"
 msgid "DEFAULT GRID SIZE"
 msgstr "РАЗМЕР СЕТКИ ПО УМОЛЧАНИЮ"
 
-msgid "DEFAULT"
-msgstr "ПО УМОЛЧАНИЮ"
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr "НАСТРОЙКИ ТЕМЫ СПИСКА ИГР"
 
 msgid "THEME OPTIONS"
 msgstr "НАСТРОЙКИ ТЕМЫ"
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "ИЗБРАННОЕ ВВЕРХУ СПИСКА"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ОТОБРАЖАТЬ СКРЫТЫЕ ФАЙЛЫ"
+
+msgid "SHOW FOLDERS"
+msgstr "ПОКАЗАТЬ ПАПКИ"
+
+msgid "always"
+msgstr "всегда"
+
+msgid "never"
+msgstr "никогда"
+
+msgid "having multiple games"
+msgstr "несколько игр"
 
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
@@ -744,6 +786,9 @@ msgstr "ПОКАЗАТЬ СОСТОЯНИЕ БАТАРЕИ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
@@ -853,12 +898,6 @@ msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
 msgid "REALLY QUIT?"
 msgstr "ВЫЙТИ СЕЙЧАС?"
 
-msgid "Emulator"
-msgstr "Эмулятор"
-
-msgid "Core"
-msgstr "Ядро"
-
 msgid "VIDEO MODE"
 msgstr "ВИДЕО РЕЖИМ"
 
@@ -928,17 +967,17 @@ msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
 msgid "TARGET ARCHITECTURE"
 msgstr "ЦЕЛЕВАЯ АРХИТЕКТУРА"
 
-msgid "VALIDATION"
-msgstr "ПРОВЕРКА"
-
-msgid "YES, I'M SURE"
-msgstr "ДА, Я УВЕРЕН"
+msgid "ARE YOU SURE ?"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "УСТАНОВИТЬ"
 
 msgid "NETWORK REQUIRED"
 msgstr "ТРЕБУЕТСЯ СЕТЬ"
+
+msgid "INVALID PARAMETERS"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЕТ ЗАГРУЗКА ДАННЫХ"
@@ -1088,18 +1127,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr "ВЫБОР СИСТЕМЫ ДЛЯ ОТОБРАЖЕНИЯ"
-
-msgid "APPLY"
-msgstr "ПРИМЕНИТЬ"
-
-msgid "REVERT"
-msgstr "ВЕРНУТЬ"
-
-msgid "VALIDATE"
-msgstr "ПОДТВЕРДИТЬ"
-
 msgid "SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
@@ -1167,23 +1194,35 @@ msgstr "Описание"
 msgid "enter description"
 msgstr "введите описание"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "Изображение"
 
 msgid "enter path to image"
 msgstr "введите путь к изображению"
 
-msgid "Path to video"
-msgstr "Путь к видео"
+msgid "Video"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "введите путь к эскизу"
+msgid "enter path to video"
+msgstr "введите путь к видео"
 
-msgid "Path to marquee"
-msgstr "Путь к банеру"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr "введите путь к банеру"
 
 msgid "Thumbnail"
 msgstr "Эскиз"
+
+msgid "enter path to thumbnail"
+msgstr "введите путь к эскизу"
 
 msgid "Rating"
 msgstr "Рейтинг"
@@ -1215,6 +1254,12 @@ msgstr "Жанр"
 msgid "enter game genre"
 msgstr "введите жанр игры"
 
+msgid "Arcade system"
+msgstr "Аркадная система"
+
+msgid "enter game arcade system"
+msgstr "войти в игровую систему"
+
 msgid "Players"
 msgstr "Игроки"
 
@@ -1230,14 +1275,14 @@ msgstr "введите избранное"
 msgid "Hidden"
 msgstr "Скрыть"
 
-msgid "set hidden"
-msgstr "сделать скрытым"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr "Детская игра"
 
-msgid "set kidgame"
-msgstr "установить детскую игру"
+msgid "enter kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Сыграно раз"
@@ -1251,8 +1296,14 @@ msgstr "Последний запуск"
 msgid "enter last played date"
 msgstr "введите дату последнего запуска"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
 msgstr "Контрольная сумма CRC32"
+
+msgid "Md5"
+msgstr ""
 
 msgid "Md5 checksum"
 msgstr "Контрольная сумма MD5"
@@ -1263,32 +1314,8 @@ msgstr "Время игры"
 msgid "how long the game has been played in total (seconds)"
 msgstr "как долго играли в игру (в секундах)"
 
-msgid "Arcade system"
-msgstr "Аркадная система"
-
-msgid "enter game arcade system"
-msgstr "войти в игровую систему"
-
-msgid "name"
-msgstr "название"
-
-msgid "description"
-msgstr "описание"
-
-msgid "image"
-msgstr "изображение"
-
-msgid "thumbnail"
-msgstr "эскиз"
-
-msgid "enter path to video"
-msgstr "введите путь к видео"
-
-msgid "marquee"
-msgstr "банер"
-
-msgid "enter path to marquee"
-msgstr "введите путь к банеру"
+msgid "favorite"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -1304,6 +1331,9 @@ msgstr "Загрузка"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
@@ -1644,9 +1674,6 @@ msgstr "SHIFT"
 msgid "WELCOME"
 msgstr "ДОБРО ПОЖАЛОВАТЬ"
 
-msgid "CONFIGURE INPUT"
-msgstr "НАСТРОЙКА ВВОДА"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1702,6 +1729,63 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "GRID SIZE"
+#~ msgstr "РАЗМЕР СЕТКИ"
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "АВТООБНОВЛЕНИЯ"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
+
+#~ msgid "DEFAULT"
+#~ msgstr "ПО УМОЛЧАНИЮ"
+
+#~ msgid "VALIDATION"
+#~ msgstr "ПРОВЕРКА"
+
+#~ msgid "YES, I'M SURE"
+#~ msgstr "ДА, Я УВЕРЕН"
+
+#~ msgid "SELECT SYSTEMS TO DISPLAY"
+#~ msgstr "ВЫБОР СИСТЕМЫ ДЛЯ ОТОБРАЖЕНИЯ"
+
+#~ msgid "APPLY"
+#~ msgstr "ПРИМЕНИТЬ"
+
+#~ msgid "REVERT"
+#~ msgstr "ВЕРНУТЬ"
+
+#~ msgid "VALIDATE"
+#~ msgstr "ПОДТВЕРДИТЬ"
+
+#~ msgid "Path to video"
+#~ msgstr "Путь к видео"
+
+#~ msgid "Path to marquee"
+#~ msgstr "Путь к банеру"
+
+#~ msgid "set hidden"
+#~ msgstr "сделать скрытым"
+
+#~ msgid "set kidgame"
+#~ msgstr "установить детскую игру"
+
+#~ msgid "name"
+#~ msgstr "название"
+
+#~ msgid "description"
+#~ msgstr "описание"
+
+#~ msgid "image"
+#~ msgstr "изображение"
+
+#~ msgid "thumbnail"
+#~ msgstr "эскиз"
+
+#~ msgid "marquee"
+#~ msgstr "банер"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,24 @@ msgstr "검색"
 msgid "CANCEL"
 msgstr "취소"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "뒤로"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr "잠시만 기다려주세요"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "컨트롤러와의 연결이 삭제되었습니다."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이 연결"
 
@@ -61,14 +79,8 @@ msgstr "새로고침"
 msgid "CLOSE"
 msgstr "닫기"
 
-msgid "PLEASE WAIT"
-msgstr "잠시만 기다려주세요"
-
 msgid "FAILED"
 msgstr "실패"
-
-msgid "BACK"
-msgstr "뒤로"
 
 msgid "LAUNCH"
 msgstr "실행"
@@ -85,6 +97,9 @@ msgstr "게임을 찾지 못했습니다"
 msgid "go back"
 msgstr "돌아가기"
 
+msgid "NAVIGATION"
+msgstr ""
+
 msgid "JUMP TO..."
 msgstr "이동하기"
 
@@ -100,29 +115,14 @@ msgstr "게임리스트 정렬방법"
 msgid "automatic"
 msgstr "자동"
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr "커스터마이즈 보기"
 
-msgid "GRID SIZE"
-msgstr "그리드 사이즈"
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr "최상단에 즐겨찾기 보여주기"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "숨겨진 파일 보여주기"
-
-msgid "SHOW FOLDERS"
-msgstr "폴더 보여주기"
-
-msgid "always"
-msgstr "항상"
-
-msgid "never"
-msgstr "전혀"
-
-msgid "having multiple games"
-msgstr "멀티 게임을 즐깁니다"
+msgid "COLLECTION MANAGEMENT"
+msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "이 게임 컬렉션에 게임 추가/제거"
@@ -130,11 +130,17 @@ msgstr "이 게임 컬렉션에 게임 추가/제거"
 msgid "FINISH EDITING COLLECTION"
 msgstr "컬렉션 편집 끝내기"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임 정보 편집"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "고급 게임 옵션"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "게임 정보 편집"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "텍스트로 게임 필터"
@@ -223,6 +229,12 @@ msgstr "사운드 설정"
 msgid "NETWORK SETTINGS"
 msgstr "네트워크 설정"
 
+msgid "CONFIGURE INPUT"
+msgstr "입력 구성"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "게임 아트워크 수집"
 
@@ -295,6 +307,9 @@ msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?
 msgid "SCRAPE NOW"
 msgstr "게임 아트워크 수집 시작"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr "화면보호기 설정"
 
@@ -361,6 +376,9 @@ msgstr "오직 게임리스트만 분석"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr "레트로아크 RGUI 메뉴 사용"
 
@@ -391,8 +409,11 @@ msgstr "베젤 프로젝트"
 msgid "SOFTWARE UPDATES"
 msgstr "소프트웨어 업데이트"
 
-msgid "AUTO UPDATES"
-msgstr "자동 업데이트"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "업데이트 적용"
@@ -438,6 +459,15 @@ msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재부팅�
 
 msgid "AUDIO OUTPUT"
 msgstr "오디오 출력"
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "레트로 도전 과제 설정"
+
+msgid "NETPLAY SETTINGS"
+msgstr "넷플레이 설정"
+
+msgid "MISSING BIOS"
+msgstr "없는 바이오스"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
@@ -487,8 +517,17 @@ msgstr "켜짐"
 msgid "OFF"
 msgstr "꺼짐"
 
-msgid "NETPLAY SETTINGS"
-msgstr "넷플레이 설정"
+msgid "HARDCORE MODE"
+msgstr "하드코어 모드"
+
+msgid "LEADERBOARDS"
+msgstr "순위표"
+
+msgid "VERBOSE MODE"
+msgstr "상세 모드"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "자동 스크린샷"
 
 msgid "SETTINGS"
 msgstr "설정"
@@ -577,23 +616,8 @@ msgstr "번역화면 일시정지"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "레트로 도전 과제 설정"
-
-msgid "HARDCORE MODE"
-msgstr "하드코어 모드"
-
-msgid "LEADERBOARDS"
-msgstr "순위표"
-
-msgid "VERBOSE MODE"
-msgstr "상세 모드"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "자동 스크린샷"
-
-msgid "MISSING BIOS"
-msgstr "없는 바이오스"
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
 
 msgid "NO MISSING BIOS"
 msgstr "있는 바이오스 "
@@ -604,14 +628,17 @@ msgstr "잃음"
 msgid "INVALID"
 msgstr "무효"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "게임 해싱이 실행 중입니다. 중지 하시겠습니까?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
+
+msgid "Emulator"
+msgstr "에뮬레이터"
+
+msgid "Core"
+msgstr "코어"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "컨트롤러 설정"
@@ -630,12 +657,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "블루투스 컨트롤러 페어링"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "블루투스 컨트롤러 삭제"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
 #, c-format
 msgid "INPUT P%i"
@@ -662,14 +683,35 @@ msgstr "상세"
 msgid "DEFAULT GRID SIZE"
 msgstr "그리드 사이즈 초기화"
 
-msgid "DEFAULT"
-msgstr "기본"
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr "게임리스트 테마 옵션"
 
 msgid "THEME OPTIONS"
 msgstr "테마 옵션"
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "최상단에 즐겨찾기 보여주기"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "숨겨진 파일 보여주기"
+
+msgid "SHOW FOLDERS"
+msgstr "폴더 보여주기"
+
+msgid "always"
+msgstr "항상"
+
+msgid "never"
+msgstr "전혀"
+
+msgid "having multiple games"
+msgstr "멀티 게임을 즐깁니다"
 
 msgid "TOOLS"
 msgstr "도구"
@@ -739,6 +781,9 @@ msgstr "배터리 상태 보기"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "리스트에서 파일명 보여주기"
@@ -848,12 +893,6 @@ msgstr "에뮬레이션스테이션 나가기"
 msgid "REALLY QUIT?"
 msgstr "정말로 나가시겠습니까?"
 
-msgid "Emulator"
-msgstr "에뮬레이터"
-
-msgid "Core"
-msgstr "코어"
-
 msgid "VIDEO MODE"
 msgstr "비디오 모드"
 
@@ -923,17 +962,17 @@ msgstr "설치 장비"
 msgid "TARGET ARCHITECTURE"
 msgstr "설치 아카텍처"
 
-msgid "VALIDATION"
-msgstr "검증"
-
-msgid "YES, I'M SURE"
-msgstr "예, 확실합니다."
+msgid "ARE YOU SURE ?"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "설치"
 
 msgid "NETWORK REQUIRED"
 msgstr "네트워크 요구됨"
+
+msgid "INVALID PARAMETERS"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "게임 아트워크 수집 진행 중"
@@ -1079,18 +1118,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr "시스템 진열 선택"
-
-msgid "APPLY"
-msgstr "지원"
-
-msgid "REVERT"
-msgstr "복귀"
-
-msgid "VALIDATE"
-msgstr "승인"
-
 msgid "SCREENSAVER AFTER"
 msgstr "화면 보호기 작동"
 
@@ -1157,23 +1184,35 @@ msgstr "설명"
 msgid "enter description"
 msgstr "설명 입력"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "이미지"
 
 msgid "enter path to image"
 msgstr "이미지 경로 입력"
 
-msgid "Path to video"
-msgstr "비디오 경로"
+msgid "Video"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "축소판 그림 경로 입력"
+msgid "enter path to video"
+msgstr "비디오 경로 입력"
 
-msgid "Path to marquee"
-msgstr "움직이는 텍스트 경로"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr "마키 경로 입력"
 
 msgid "Thumbnail"
 msgstr "축소판 그림"
+
+msgid "enter path to thumbnail"
+msgstr "축소판 그림 경로 입력"
 
 msgid "Rating"
 msgstr "평점"
@@ -1205,6 +1244,12 @@ msgstr "장르"
 msgid "enter game genre"
 msgstr "장르 입력"
 
+msgid "Arcade system"
+msgstr "아케이드 시스템"
+
+msgid "enter game arcade system"
+msgstr "아케이드 시스템 게임 진입"
+
 msgid "Players"
 msgstr "플레이어 수"
 
@@ -1220,14 +1265,14 @@ msgstr "즐겨찾기 입력"
 msgid "Hidden"
 msgstr "숨김"
 
-msgid "set hidden"
-msgstr "숨김 설정"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr "어린이용 게임"
 
-msgid "set kidgame"
-msgstr "어린이용 게임 설정"
+msgid "enter kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "플레이 횟수"
@@ -1241,8 +1286,14 @@ msgstr "마지막 플레이"
 msgid "enter last played date"
 msgstr "마지막 플레이한 날짜 입력"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
 msgstr "CRC32 체크섬"
+
+msgid "Md5"
+msgstr ""
 
 msgid "Md5 checksum"
 msgstr "MD5 체크섬"
@@ -1253,32 +1304,8 @@ msgstr "게임 시간"
 msgid "how long the game has been played in total (seconds)"
 msgstr "전체 게임 즐긴 시간"
 
-msgid "Arcade system"
-msgstr "아케이드 시스템"
-
-msgid "enter game arcade system"
-msgstr "아케이드 시스템 게임 진입"
-
-msgid "name"
-msgstr "이름"
-
-msgid "description"
-msgstr "설명"
-
-msgid "image"
-msgstr "이미지"
-
-msgid "thumbnail"
-msgstr "썸네일"
-
-msgid "enter path to video"
-msgstr "비디오 경로 입력"
-
-msgid "marquee"
-msgstr "마키"
-
-msgid "enter path to marquee"
-msgstr "마키 경로 입력"
+msgid "favorite"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
@@ -1296,6 +1323,9 @@ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "게임 아트워크 수집이 완료됨. 변경사항을 적용하려면 게임리스트 업데이트를 다"
 "시 하세요."
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODI 미디어 센터를 실행하시겠습니까?"
@@ -1629,9 +1659,6 @@ msgstr "쉬프트"
 msgid "WELCOME"
 msgstr "환영합니다."
 
-msgid "CONFIGURE INPUT"
-msgstr "입력 구성"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1683,6 +1710,63 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "GRID SIZE"
+#~ msgstr "그리드 사이즈"
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "자동 업데이트"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "블루투스 컨트롤러 삭제"
+
+#~ msgid "DEFAULT"
+#~ msgstr "기본"
+
+#~ msgid "VALIDATION"
+#~ msgstr "검증"
+
+#~ msgid "YES, I'M SURE"
+#~ msgstr "예, 확실합니다."
+
+#~ msgid "SELECT SYSTEMS TO DISPLAY"
+#~ msgstr "시스템 진열 선택"
+
+#~ msgid "APPLY"
+#~ msgstr "지원"
+
+#~ msgid "REVERT"
+#~ msgstr "복귀"
+
+#~ msgid "VALIDATE"
+#~ msgstr "승인"
+
+#~ msgid "Path to video"
+#~ msgstr "비디오 경로"
+
+#~ msgid "Path to marquee"
+#~ msgstr "움직이는 텍스트 경로"
+
+#~ msgid "set hidden"
+#~ msgstr "숨김 설정"
+
+#~ msgid "set kidgame"
+#~ msgstr "어린이용 게임 설정"
+
+#~ msgid "name"
+#~ msgstr "이름"
+
+#~ msgid "description"
+#~ msgstr "설명"
+
+#~ msgid "image"
+#~ msgstr "이미지"
+
+#~ msgid "thumbnail"
+#~ msgstr "썸네일"
+
+#~ msgid "marquee"
+#~ msgstr "마키"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
