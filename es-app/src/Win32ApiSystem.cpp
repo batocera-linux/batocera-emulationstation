@@ -859,4 +859,28 @@ std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
 	return "";
 }
 
+void Win32ApiSystem::setReadyFlag(bool ready)
+{
+	if (!ready && !isReadyFlagSet())
+		return;
+
+	std::string dir = Utils::FileSystem::getEsConfigPath() + "/tmp";
+	if (!Utils::FileSystem::exists(dir))
+		Utils::FileSystem::createDirectory(dir);
+
+	std::string file = dir + "/emulationstation.ready";
+
+	if (!ready)
+	{
+		Utils::FileSystem::removeFile(file);
+		return;
+	}
+
+	Utils::FileSystem::writeAllText(file, "ok");
+}
+
+bool Win32ApiSystem::isReadyFlagSet()
+{
+	return Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "/tmp/emulationstation.ready");
+}
 #endif

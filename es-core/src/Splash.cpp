@@ -65,7 +65,10 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 		mBackground.setPosition(Renderer::getScreenWidth() * 0.5f, Renderer::getScreenHeight()  * 0.42f);
 
 		if (useOldSplashLayout)
+		{
 			mBackground.setMaxSize(Renderer::getScreenWidth() * 0.80f, Renderer::getScreenHeight() * 0.60f);
+			mBackground.setRoundCorners(0.02);
+		}
 		else
 		{
 			mBackground.setMaxSize(Renderer::getScreenWidth() * 0.71f, Renderer::getScreenHeight() * 0.55f);

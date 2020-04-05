@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,6 +50,24 @@ msgstr "بحث"
 msgid "CANCEL"
 msgstr "إلغاء"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "العودة"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
+
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
@@ -62,14 +80,8 @@ msgstr ""
 msgid "CLOSE"
 msgstr "اغلاق"
 
-msgid "PLEASE WAIT"
-msgstr ""
-
 msgid "FAILED"
 msgstr ""
-
-msgid "BACK"
-msgstr "العودة"
 
 msgid "LAUNCH"
 msgstr "تشغيل"
@@ -84,6 +96,9 @@ msgid "NO GAME FOUND"
 msgstr ""
 
 msgid "go back"
+msgstr ""
+
+msgid "NAVIGATION"
 msgstr ""
 
 msgid "JUMP TO..."
@@ -101,28 +116,13 @@ msgstr ""
 msgid "automatic"
 msgstr ""
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr ""
 
-msgid "GRID SIZE"
-msgstr ""
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr ""
-
-msgid "SHOW HIDDEN FILES"
-msgstr ""
-
-msgid "SHOW FOLDERS"
-msgstr ""
-
-msgid "always"
-msgstr ""
-
-msgid "never"
-msgstr "ابداً"
-
-msgid "having multiple games"
+msgid "COLLECTION MANAGEMENT"
 msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
@@ -131,11 +131,17 @@ msgstr ""
 msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "تعديل بيانات اللعبة (METADATA)"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل بيانات اللعبة (METADATA)"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr ""
@@ -224,6 +230,12 @@ msgstr "أعدادت الصوت"
 msgid "NETWORK SETTINGS"
 msgstr "أعدادت الشبكة"
 
+msgid "CONFIGURE INPUT"
+msgstr "إعداد الادخال"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "بحث بيانات"
 
@@ -296,6 +308,9 @@ msgstr ""
 msgid "SCRAPE NOW"
 msgstr "بحث الأن"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
@@ -362,6 +377,9 @@ msgstr ""
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr ""
 
@@ -392,8 +410,11 @@ msgstr ""
 msgid "SOFTWARE UPDATES"
 msgstr ""
 
-msgid "AUTO UPDATES"
-msgstr "تحديث تلقائي"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr ""
@@ -438,6 +459,15 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "AUDIO OUTPUT"
+msgstr ""
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "اعدادت RETROACHIEVEMENTS"
+
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "MISSING BIOS"
 msgstr ""
 
 msgid "OVERCLOCK"
@@ -488,7 +518,16 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-msgid "NETPLAY SETTINGS"
+msgid "HARDCORE MODE"
+msgstr "الطور الصعب"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
 msgid "SETTINGS"
@@ -578,23 +617,8 @@ msgstr ""
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "اعدادت RETROACHIEVEMENTS"
-
-msgid "HARDCORE MODE"
-msgstr "الطور الصعب"
-
-msgid "LEADERBOARDS"
-msgstr ""
-
-msgid "VERBOSE MODE"
-msgstr ""
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
-
-msgid "MISSING BIOS"
-msgstr ""
+msgid "UPDATE GAMES LISTS"
+msgstr "تحديث قوائم الالعاب"
 
 msgid "NO MISSING BIOS"
 msgstr ""
@@ -605,14 +629,17 @@ msgstr ""
 msgid "INVALID"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "تحديث قوائم الالعاب"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "تحديث قوائم الالعاب، متأكد؟"
+
+msgid "Emulator"
+msgstr "مُحاكي"
+
+msgid "Core"
+msgstr "النواه"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "إعداد يد التحكم"
@@ -631,12 +658,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "اقتران يد تحكم بالبلوتوث"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "تم حذف جميع ايدي التحكم المقترنة بالبلوتوث"
 
 #, c-format
 msgid "INPUT P%i"
@@ -663,13 +684,34 @@ msgstr ""
 msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr ""
 
 msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr ""
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr "ابداً"
+
+msgid "having multiple games"
 msgstr ""
 
 msgid "TOOLS"
@@ -737,6 +779,9 @@ msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "لوحة المفاتيح المرئية"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr ""
@@ -846,12 +891,6 @@ msgstr ""
 msgid "REALLY QUIT?"
 msgstr ""
 
-msgid "Emulator"
-msgstr "مُحاكي"
-
-msgid "Core"
-msgstr "النواه"
-
 msgid "VIDEO MODE"
 msgstr ""
 
@@ -921,16 +960,16 @@ msgstr ""
 msgid "TARGET ARCHITECTURE"
 msgstr ""
 
-msgid "VALIDATION"
-msgstr ""
-
-msgid "YES, I'M SURE"
+msgid "ARE YOU SURE ?"
 msgstr ""
 
 msgid "INSTALL"
 msgstr ""
 
 msgid "NETWORK REQUIRED"
+msgstr ""
+
+msgid "INVALID PARAMETERS"
 msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
@@ -1083,18 +1122,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "لم يتم  العثور على العاب بصيغة البحث المحددة"
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
-
-msgid "APPLY"
-msgstr ""
-
-msgid "REVERT"
-msgstr ""
-
-msgid "VALIDATE"
-msgstr ""
-
 msgid "SCREENSAVER AFTER"
 msgstr "اظهار شاشة التوقف بعد"
 
@@ -1156,23 +1183,35 @@ msgstr "الوصف"
 msgid "enter description"
 msgstr "ادخل الوصف"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "الصورة"
 
 msgid "enter path to image"
 msgstr "ادخل مسار الصورة"
 
-msgid "Path to video"
+msgid "Video"
 msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "ادخل مسار الصورة المصغرة"
+msgid "enter path to video"
+msgstr ""
 
-msgid "Path to marquee"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
 msgstr ""
 
 msgid "Thumbnail"
 msgstr "صورة مصغرة"
+
+msgid "enter path to thumbnail"
+msgstr "ادخل مسار الصورة المصغرة"
 
 msgid "Rating"
 msgstr "تصنيف"
@@ -1204,6 +1243,12 @@ msgstr "نوع"
 msgid "enter game genre"
 msgstr "ادخل نوع اللعبة"
 
+msgid "Arcade system"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "Players"
 msgstr "لاعبين"
 
@@ -1219,13 +1264,13 @@ msgstr "ادخل المفضلة"
 msgid "Hidden"
 msgstr "مخفي"
 
-msgid "set hidden"
-msgstr "حدد مخفي"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr ""
 
-msgid "set kidgame"
+msgid "enter kidgame"
 msgstr ""
 
 msgid "Play count"
@@ -1240,7 +1285,13 @@ msgstr "اخر مره تم لعبها"
 msgid "enter last played date"
 msgstr "ادخل تاريخ اخر مره تم لعبها"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1252,31 +1303,7 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
-msgid "Arcade system"
-msgstr ""
-
-msgid "enter game arcade system"
-msgstr ""
-
-msgid "name"
-msgstr ""
-
-msgid "description"
-msgstr ""
-
-msgid "image"
-msgstr ""
-
-msgid "thumbnail"
-msgstr ""
-
-msgid "enter path to video"
-msgstr ""
-
-msgid "marquee"
-msgstr ""
-
-msgid "enter path to marquee"
+msgid "favorite"
 msgstr ""
 
 msgid "SCRAPING"
@@ -1292,6 +1319,9 @@ msgid "Downloading"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
@@ -1641,9 +1671,6 @@ msgstr "زر الانتقال"
 msgid "WELCOME"
 msgstr "اهلاً وسهلاً"
 
-msgid "CONFIGURE INPUT"
-msgstr "إعداد الادخال"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1705,6 +1732,15 @@ msgstr "تشغيل..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "تحديث تلقائي"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "حذف جميع ايدي التحكم المقترنة بالبلوتوث"
+
+#~ msgid "set hidden"
+#~ msgstr "حدد مخفي"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "تم اقتران يد التحكم"

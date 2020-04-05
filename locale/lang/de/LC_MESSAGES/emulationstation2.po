@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,6 +52,24 @@ msgstr "SUCHE"
 msgid "CANCEL"
 msgstr "ABBRECHEN"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "ZURÜCK"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr "BITTE WARTEN"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBINDE MIT NETZWERKSPIEL"
 
@@ -64,14 +82,8 @@ msgstr "AKTUALISIEREN"
 msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
-msgid "PLEASE WAIT"
-msgstr "BITTE WARTEN"
-
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
-
-msgid "BACK"
-msgstr "ZURÜCK"
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -88,6 +100,9 @@ msgstr "KEIN SPIEL GEFUNDEN"
 msgid "go back"
 msgstr "zurück"
 
+msgid "NAVIGATION"
+msgstr ""
+
 msgid "JUMP TO..."
 msgstr "SPRINGE ZU..."
 
@@ -103,29 +118,14 @@ msgstr "SPIELELISTE ANSICHTSSTIL"
 msgid "automatic"
 msgstr "automatisch"
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr "ANPASSUNG ANZEIGEN"
 
-msgid "GRID SIZE"
-msgstr "RASTERGRÖSSE"
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr "ZEIGE FAVORITEN AN ERSTER STELLE"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "ZEIGE VERSTECKTE DATEIEN"
-
-msgid "SHOW FOLDERS"
-msgstr "ZEIGE ORDNER"
-
-msgid "always"
-msgstr "immer"
-
-msgid "never"
-msgstr "nie"
-
-msgid "having multiple games"
-msgstr "es gibt mehrere Spiele"
+msgid "COLLECTION MANAGEMENT"
+msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
@@ -133,11 +133,17 @@ msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
 msgid "FINISH EDITING COLLECTION"
 msgstr "BEARBEITUNG DER SAMMLUNG BEENDEN"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "METADATEN BEARBEITEN"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ERWEITERTE SPIELE-OPTIONEN"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "METADATEN BEARBEITEN"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "SPIELE NACH TEXT FILTERN"
@@ -226,6 +232,12 @@ msgstr "SOUNDEINSTELLUNGEN"
 msgid "NETWORK SETTINGS"
 msgstr "NETZWERKEINSTELLUNGEN"
 
+msgid "CONFIGURE INPUT"
+msgstr "EINGABE KONFIGURIEREN"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "SCRAPEN"
 
@@ -298,6 +310,9 @@ msgstr "SCRAPING LÄUFT GERADE. WILLST DU ES STOPPEN?"
 msgid "SCRAPE NOW"
 msgstr "SCRAPER STARTEN"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr "BILDSCHIRMSCHONER EINSTELLUNGEN"
 
@@ -364,6 +379,9 @@ msgstr "NUR SPIELELISTEN PARSEN"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SUCHE NACH LOKALER KUNST"
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
 
@@ -394,8 +412,11 @@ msgstr "THE BEZEL PROJECT"
 msgid "SOFTWARE UPDATES"
 msgstr "SOFTWARE UPDATES"
 
-msgid "AUTO UPDATES"
-msgstr "AUTOMATISCHE UPDATES"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "UPDATE ANWENDEN"
@@ -443,6 +464,15 @@ msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
+
+msgid "NETPLAY SETTINGS"
+msgstr "EINSTELLUNGEN NETZWERKSPIEL"
+
+msgid "MISSING BIOS"
+msgstr "FEHLENDE BIOS DATEIEN"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
@@ -492,8 +522,17 @@ msgstr "EIN"
 msgid "OFF"
 msgstr "AUS"
 
-msgid "NETPLAY SETTINGS"
-msgstr "EINSTELLUNGEN NETZWERKSPIEL"
+msgid "HARDCORE MODE"
+msgstr "HARDCORE MODUS"
+
+msgid "LEADERBOARDS"
+msgstr "LEADERBOARDS"
+
+msgid "VERBOSE MODE"
+msgstr "VERBOSE MODE"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "AUTOMATISCHER SCREENSHOT"
 
 msgid "SETTINGS"
 msgstr "EINSTELLUNGEN"
@@ -582,23 +621,8 @@ msgstr "PAUSE AUF ÜBERSETZTEM BILDSCHIRM"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ÜBER SYSTEM ERWEITERTE KONFIGURATION"
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
-
-msgid "HARDCORE MODE"
-msgstr "HARDCORE MODUS"
-
-msgid "LEADERBOARDS"
-msgstr "LEADERBOARDS"
-
-msgid "VERBOSE MODE"
-msgstr "VERBOSE MODE"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "AUTOMATISCHER SCREENSHOT"
-
-msgid "MISSING BIOS"
-msgstr "FEHLENDE BIOS DATEIEN"
+msgid "UPDATE GAMES LISTS"
+msgstr "SPIELELISTE AKTUALISIEREN"
 
 msgid "NO MISSING BIOS"
 msgstr "KEINE FEHLENDE BIOS DATEIEN"
@@ -609,14 +633,17 @@ msgstr "FEHLT"
 msgid "INVALID"
 msgstr "UNGÜLTIG"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "SPIELELISTE AKTUALISIEREN"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SPIELE HASHING LÄUFT. MÖCHTEN SIE ES ANHALTEN ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "SPIELELISTE WIRKLICH AKTUALISIEREN?"
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "Core"
+msgstr "Core"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONTROLLER KONFIGURIEREN"
@@ -637,12 +664,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "EINEN BLUETOOTH CONTROLLER VERBINDEN"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "BLUETOOTH CONTROLLER VERGESSEN"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "CONTROLLER VERBINDUNG WURDE GELÖSCHT."
 
 #, c-format
 msgid "INPUT P%i"
@@ -669,14 +690,35 @@ msgstr "detailliert"
 msgid "DEFAULT GRID SIZE"
 msgstr "STANDARD RASTERGRÖSSE"
 
-msgid "DEFAULT"
-msgstr "STANDARD"
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr "GAMELIST THEMENOPTIONEN"
 
 msgid "THEME OPTIONS"
 msgstr "THEMENOPTIONEN"
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "ZEIGE FAVORITEN AN ERSTER STELLE"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ZEIGE VERSTECKTE DATEIEN"
+
+msgid "SHOW FOLDERS"
+msgstr "ZEIGE ORDNER"
+
+msgid "always"
+msgstr "immer"
+
+msgid "never"
+msgstr "nie"
+
+msgid "having multiple games"
+msgstr "es gibt mehrere Spiele"
 
 msgid "TOOLS"
 msgstr "WERKZEUGE"
@@ -748,6 +790,9 @@ msgstr "ZEIGE AKKU-STATUS"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "BILDSCHIRMTASTATUR"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
@@ -857,12 +902,6 @@ msgstr "EMULATIONSTATION BEENDEN"
 msgid "REALLY QUIT?"
 msgstr "WIRKLICH BEENDEN?"
 
-msgid "Emulator"
-msgstr "Emulator"
-
-msgid "Core"
-msgstr "Core"
-
 msgid "VIDEO MODE"
 msgstr "VIDEO MODUS"
 
@@ -932,17 +971,17 @@ msgstr "ZIELGERÄT"
 msgid "TARGET ARCHITECTURE"
 msgstr "ZIELARCHITEKTUR"
 
-msgid "VALIDATION"
-msgstr "VALIDIERUNG"
-
-msgid "YES, I'M SURE"
-msgstr "JA, ICH BIN SICHER"
+msgid "ARE YOU SURE ?"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "INSTALLIERE"
 
 msgid "NETWORK REQUIRED"
 msgstr "NETZWERK BENÖTIGT"
+
+msgid "INVALID PARAMETERS"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPER LÄUFT"
@@ -1091,18 +1130,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN."
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr "ANZUZEIGENDE SYSTEME AUSWÄHLEN"
-
-msgid "APPLY"
-msgstr "ANWENDEN"
-
-msgid "REVERT"
-msgstr "ZURÜCKSETZEN"
-
-msgid "VALIDATE"
-msgstr "VALIDIEREN"
-
 msgid "SCREENSAVER AFTER"
 msgstr "BILDSCHIRMSCHONER NACH"
 
@@ -1171,23 +1198,35 @@ msgstr "Beschreibung"
 msgid "enter description"
 msgstr "Beschreibung eingeben"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "Bild"
 
 msgid "enter path to image"
 msgstr "Bildpfad angeben"
 
-msgid "Path to video"
-msgstr "Pfad zum Video"
+msgid "Video"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "Pfad zum Vorschaubild angeben"
+msgid "enter path to video"
+msgstr "Pfad zum Video eingeben"
 
-msgid "Path to marquee"
-msgstr "Pfad zur Laufschrift"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr "Pfad zur Laufschrift eingeben"
 
 msgid "Thumbnail"
 msgstr "Vorschaubild"
+
+msgid "enter path to thumbnail"
+msgstr "Pfad zum Vorschaubild angeben"
 
 msgid "Rating"
 msgstr "Bewertung"
@@ -1219,6 +1258,12 @@ msgstr "Genre"
 msgid "enter game genre"
 msgstr "Genre eingeben"
 
+msgid "Arcade system"
+msgstr "Arcade System"
+
+msgid "enter game arcade system"
+msgstr "Spiel Arcade System eintragen"
+
 msgid "Players"
 msgstr "Spieler"
 
@@ -1234,14 +1279,14 @@ msgstr "Favorit eingeben"
 msgid "Hidden"
 msgstr "Versteckt"
 
-msgid "set hidden"
-msgstr "Verstecken"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr "Kinderspiel"
 
-msgid "set kidgame"
-msgstr "Kinderspiel einstellen"
+msgid "enter kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Anzahl gespielt"
@@ -1255,8 +1300,14 @@ msgstr "Zuletzt gespielt"
 msgid "enter last played date"
 msgstr "Datum Zuletzt gespielt eingeben"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
 msgstr "Crc32 Prüfsumme"
+
+msgid "Md5"
+msgstr ""
 
 msgid "Md5 checksum"
 msgstr "Md5 Prüfsumme"
@@ -1267,32 +1318,8 @@ msgstr "Spielzeit"
 msgid "how long the game has been played in total (seconds)"
 msgstr "wie lange wurde das Spiel insgesamt gespielt (Sekunden)"
 
-msgid "Arcade system"
-msgstr "Arcade System"
-
-msgid "enter game arcade system"
-msgstr "Spiel Arcade System eintragen"
-
-msgid "name"
-msgstr "Name"
-
-msgid "description"
-msgstr "Beschreibung"
-
-msgid "image"
-msgstr "Bild"
-
-msgid "thumbnail"
-msgstr "Miniaturansicht"
-
-msgid "enter path to video"
-msgstr "Pfad zum Video eingeben"
-
-msgid "marquee"
-msgstr "Laufschrift"
-
-msgid "enter path to marquee"
-msgstr "Pfad zur Laufschrift eingeben"
+msgid "favorite"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -1308,6 +1335,9 @@ msgstr "Downloading"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING BEENDET. AKTUALISIERE SPIELELISTEN, UM ÄNDERUNGEN ANZUWENDEN."
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
@@ -1647,9 +1677,6 @@ msgstr "SHIFT"
 msgid "WELCOME"
 msgstr "WILLKOMMEN"
 
-msgid "CONFIGURE INPUT"
-msgstr "EINGABE KONFIGURIEREN"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1703,6 +1730,63 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "GRID SIZE"
+#~ msgstr "RASTERGRÖSSE"
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "AUTOMATISCHE UPDATES"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "BLUETOOTH CONTROLLER VERGESSEN"
+
+#~ msgid "DEFAULT"
+#~ msgstr "STANDARD"
+
+#~ msgid "VALIDATION"
+#~ msgstr "VALIDIERUNG"
+
+#~ msgid "YES, I'M SURE"
+#~ msgstr "JA, ICH BIN SICHER"
+
+#~ msgid "SELECT SYSTEMS TO DISPLAY"
+#~ msgstr "ANZUZEIGENDE SYSTEME AUSWÄHLEN"
+
+#~ msgid "APPLY"
+#~ msgstr "ANWENDEN"
+
+#~ msgid "REVERT"
+#~ msgstr "ZURÜCKSETZEN"
+
+#~ msgid "VALIDATE"
+#~ msgstr "VALIDIEREN"
+
+#~ msgid "Path to video"
+#~ msgstr "Pfad zum Video"
+
+#~ msgid "Path to marquee"
+#~ msgstr "Pfad zur Laufschrift"
+
+#~ msgid "set hidden"
+#~ msgstr "Verstecken"
+
+#~ msgid "set kidgame"
+#~ msgstr "Kinderspiel einstellen"
+
+#~ msgid "name"
+#~ msgstr "Name"
+
+#~ msgid "description"
+#~ msgstr "Beschreibung"
+
+#~ msgid "image"
+#~ msgstr "Bild"
+
+#~ msgid "thumbnail"
+#~ msgstr "Miniaturansicht"
+
+#~ msgid "marquee"
+#~ msgstr "Laufschrift"
 
 #~ msgid "SEARCHING"
 #~ msgstr "SUCHE"

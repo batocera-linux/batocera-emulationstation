@@ -1180,3 +1180,21 @@ bool ApiSystem::downloadFile(const std::string url, const std::string fileName, 
 
 	return true;
 }
+
+void ApiSystem::setReadyFlag(bool ready)
+{
+	if (!ready)
+	{
+		Utils::FileSystem::removeFile("/tmp/emulationstation.ready");
+		return;
+	}
+
+	FILE* fd = fopen("/tmp/emulationstation.ready", "w");
+	if (fd != NULL) 
+		fclose(fd);
+}
+
+bool ApiSystem::isReadyFlagSet()
+{
+	return Utils::FileSystem::exists("/tmp/emulationstation.ready");
+}

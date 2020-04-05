@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,24 @@ msgstr "搜索"
 msgid "CANCEL"
 msgstr "取消"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "返回"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "控制器链接已被删除。"
+
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
@@ -61,14 +79,8 @@ msgstr ""
 msgid "CLOSE"
 msgstr "关闭"
 
-msgid "PLEASE WAIT"
-msgstr ""
-
 msgid "FAILED"
 msgstr ""
-
-msgid "BACK"
-msgstr "返回"
 
 msgid "LAUNCH"
 msgstr "启动"
@@ -85,6 +97,9 @@ msgstr ""
 msgid "go back"
 msgstr "返回"
 
+msgid "NAVIGATION"
+msgstr ""
+
 msgid "JUMP TO..."
 msgstr "跳转到..."
 
@@ -100,28 +115,13 @@ msgstr "游戏列表样式"
 msgid "automatic"
 msgstr "自动"
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr ""
 
-msgid "GRID SIZE"
-msgstr "网格大小"
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr "在顶部显示收藏夹"
-
-msgid "SHOW HIDDEN FILES"
-msgstr "显示隐藏文件"
-
-msgid "SHOW FOLDERS"
-msgstr "显示文件夹"
-
-msgid "always"
-msgstr ""
-
-msgid "never"
-msgstr "从未"
-
-msgid "having multiple games"
+msgid "COLLECTION MANAGEMENT"
 msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
@@ -130,11 +130,17 @@ msgstr "向游戏合辑中 添加/删除 游戏"
 msgid "FINISH EDITING COLLECTION"
 msgstr "完成游戏合辑编辑"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "编辑此游戏的元数据"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏选项"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "编辑此游戏的元数据"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
@@ -223,6 +229,12 @@ msgstr "声音设置"
 msgid "NETWORK SETTINGS"
 msgstr "网络设置"
 
+msgid "CONFIGURE INPUT"
+msgstr "配置控制器"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "抓取元数据"
 
@@ -295,6 +307,9 @@ msgstr "抓取进行中"
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr "屏保设置"
 
@@ -361,6 +376,9 @@ msgstr "仅分析游戏列表"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr ""
 
@@ -391,8 +409,11 @@ msgstr "框架项目"
 msgid "SOFTWARE UPDATES"
 msgstr ""
 
-msgid "AUTO UPDATES"
-msgstr "自动更新"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "确认更新"
@@ -438,6 +459,15 @@ msgstr "需要重新启动系统才能应用新配置"
 
 msgid "AUDIO OUTPUT"
 msgstr ""
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RetroArch成就设置"
+
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "MISSING BIOS"
+msgstr "缺失的BIOS"
 
 msgid "OVERCLOCK"
 msgstr "超频"
@@ -487,8 +517,17 @@ msgstr "开"
 msgid "OFF"
 msgstr "关"
 
-msgid "NETPLAY SETTINGS"
-msgstr ""
+msgid "HARDCORE MODE"
+msgstr "专家模式"
+
+msgid "LEADERBOARDS"
+msgstr "排行榜"
+
+msgid "VERBOSE MODE"
+msgstr "详细模式"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "自动截图"
 
 msgid "SETTINGS"
 msgstr ""
@@ -577,23 +616,8 @@ msgstr ""
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RetroArch成就设置"
-
-msgid "HARDCORE MODE"
-msgstr "专家模式"
-
-msgid "LEADERBOARDS"
-msgstr "排行榜"
-
-msgid "VERBOSE MODE"
-msgstr "详细模式"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "自动截图"
-
-msgid "MISSING BIOS"
-msgstr "缺失的BIOS"
+msgid "UPDATE GAMES LISTS"
+msgstr "更新游戏列表"
 
 msgid "NO MISSING BIOS"
 msgstr "未缺失的BIOS"
@@ -604,14 +628,17 @@ msgstr ""
 msgid "INVALID"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "更新游戏列表"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "是否更新游戏列表?"
+
+msgid "Emulator"
+msgstr "模拟器"
+
+msgid "Core"
+msgstr "核心"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "配置控制器"
@@ -632,12 +659,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "配对蓝牙控制器"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "删除蓝牙控制器"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "控制器链接已被删除。"
 
 #, c-format
 msgid "INPUT P%i"
@@ -664,13 +685,34 @@ msgstr "详细列表"
 msgid "DEFAULT GRID SIZE"
 msgstr "默认网格大小"
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr ""
 
 msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "在顶部显示收藏夹"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "显示隐藏文件"
+
+msgid "SHOW FOLDERS"
+msgstr "显示文件夹"
+
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr "从未"
+
+msgid "having multiple games"
 msgstr ""
 
 msgid "TOOLS"
@@ -741,6 +783,9 @@ msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "虚拟键盘"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "在列表中显示文件名"
@@ -850,12 +895,6 @@ msgstr "退出EmulationStation"
 msgid "REALLY QUIT?"
 msgstr "确定退出?"
 
-msgid "Emulator"
-msgstr "模拟器"
-
-msgid "Core"
-msgstr "核心"
-
 msgid "VIDEO MODE"
 msgstr "视频模式"
 
@@ -925,17 +964,17 @@ msgstr "目标设备"
 msgid "TARGET ARCHITECTURE"
 msgstr "目标架构"
 
-msgid "VALIDATION"
-msgstr "确认验证"
-
-msgid "YES, I'M SURE"
-msgstr "本人已确认"
+msgid "ARE YOU SURE ?"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "安装"
 
 msgid "NETWORK REQUIRED"
 msgstr "需要联网"
+
+msgid "INVALID PARAMETERS"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "正在抓取元数据"
@@ -1080,18 +1119,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr "选择显示的游戏平台"
-
-msgid "APPLY"
-msgstr "应用"
-
-msgid "REVERT"
-msgstr "撤销"
-
-msgid "VALIDATE"
-msgstr "有效"
-
 msgid "SCREENSAVER AFTER"
 msgstr "屏保等待时间"
 
@@ -1158,23 +1185,35 @@ msgstr "游戏描述"
 msgid "enter description"
 msgstr "输入游戏描述"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "游戏图"
 
 msgid "enter path to image"
 msgstr "输入游戏图路径"
 
-msgid "Path to video"
-msgstr "视频路径"
+msgid "Video"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "输入缩略图路径"
+msgid "enter path to video"
+msgstr "输入视频路径"
 
-msgid "Path to marquee"
-msgstr "标记路径"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr "输入标记路径"
 
 msgid "Thumbnail"
 msgstr "缩略图"
+
+msgid "enter path to thumbnail"
+msgstr "输入缩略图路径"
 
 msgid "Rating"
 msgstr "评分"
@@ -1206,6 +1245,12 @@ msgstr "游戏类型"
 msgid "enter game genre"
 msgstr "输入游戏类型"
 
+msgid "Arcade system"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "Players"
 msgstr "游玩人数"
 
@@ -1221,14 +1266,14 @@ msgstr "加入收藏"
 msgid "Hidden"
 msgstr "隐藏"
 
-msgid "set hidden"
-msgstr "设为隐藏"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr "儿童游戏"
 
-msgid "set kidgame"
-msgstr "设为儿童游戏"
+msgid "enter kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "游玩次数"
@@ -1242,7 +1287,13 @@ msgstr "最后游玩时间"
 msgid "enter last played date"
 msgstr "输入最后游玩时间"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1254,32 +1305,8 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
-msgid "Arcade system"
+msgid "favorite"
 msgstr ""
-
-msgid "enter game arcade system"
-msgstr ""
-
-msgid "name"
-msgstr "游戏名"
-
-msgid "description"
-msgstr "游戏描述"
-
-msgid "image"
-msgstr "游戏图"
-
-msgid "thumbnail"
-msgstr "缩略图"
-
-msgid "enter path to video"
-msgstr "输入视频路径"
-
-msgid "marquee"
-msgstr "标记"
-
-msgid "enter path to marquee"
-msgstr "输入标记路径"
 
 msgid "SCRAPING"
 msgstr "抓取"
@@ -1295,6 +1322,9 @@ msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "抓取完成。更新游戏列表以应用更改。"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "是否启动 KODI 媒体中心?"
@@ -1627,9 +1657,6 @@ msgstr "SHIFT"
 msgid "WELCOME"
 msgstr "欢迎"
 
-msgid "CONFIGURE INPUT"
-msgstr "配置控制器"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1681,6 +1708,60 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "GRID SIZE"
+#~ msgstr "网格大小"
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "自动更新"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "删除蓝牙控制器"
+
+#~ msgid "VALIDATION"
+#~ msgstr "确认验证"
+
+#~ msgid "YES, I'M SURE"
+#~ msgstr "本人已确认"
+
+#~ msgid "SELECT SYSTEMS TO DISPLAY"
+#~ msgstr "选择显示的游戏平台"
+
+#~ msgid "APPLY"
+#~ msgstr "应用"
+
+#~ msgid "REVERT"
+#~ msgstr "撤销"
+
+#~ msgid "VALIDATE"
+#~ msgstr "有效"
+
+#~ msgid "Path to video"
+#~ msgstr "视频路径"
+
+#~ msgid "Path to marquee"
+#~ msgstr "标记路径"
+
+#~ msgid "set hidden"
+#~ msgstr "设为隐藏"
+
+#~ msgid "set kidgame"
+#~ msgstr "设为儿童游戏"
+
+#~ msgid "name"
+#~ msgstr "游戏名"
+
+#~ msgid "description"
+#~ msgstr "游戏描述"
+
+#~ msgid "image"
+#~ msgstr "游戏图"
+
+#~ msgid "thumbnail"
+#~ msgstr "缩略图"
+
+#~ msgid "marquee"
+#~ msgstr "标记"
 
 #~ msgid "SEARCHING"
 #~ msgstr "正在搜索"

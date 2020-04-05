@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:30+0100\n"
+"POT-Creation-Date: 2020-04-04 18:35+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,24 @@ msgstr "ARA"
 msgid "CANCEL"
 msgstr "ÝPTAL"
 
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "BACK"
+msgstr "GERÝ"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "KUMANDA BAÐLANTILARI SÝLÝNDÝ."
+
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
@@ -61,14 +79,8 @@ msgstr ""
 msgid "CLOSE"
 msgstr "KAPAT"
 
-msgid "PLEASE WAIT"
-msgstr ""
-
 msgid "FAILED"
 msgstr ""
-
-msgid "BACK"
-msgstr "GERÝ"
 
 msgid "LAUNCH"
 msgstr "BAÞLAT"
@@ -83,6 +95,9 @@ msgid "NO GAME FOUND"
 msgstr ""
 
 msgid "go back"
+msgstr ""
+
+msgid "NAVIGATION"
 msgstr ""
 
 msgid "JUMP TO..."
@@ -100,28 +115,13 @@ msgstr "OYUN LÝSTESÝ GÖRÜNÜMÜ"
 msgid "automatic"
 msgstr ""
 
+msgid "VIEW OPTIONS"
+msgstr ""
+
 msgid "VIEW CUSTOMISATION"
 msgstr ""
 
-msgid "GRID SIZE"
-msgstr ""
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr ""
-
-msgid "SHOW HIDDEN FILES"
-msgstr "GÝZLÝ DOSYALARI GÖSTER"
-
-msgid "SHOW FOLDERS"
-msgstr ""
-
-msgid "always"
-msgstr ""
-
-msgid "never"
-msgstr "hiç"
-
-msgid "having multiple games"
+msgid "COLLECTION MANAGEMENT"
 msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
@@ -130,11 +130,17 @@ msgstr ""
 msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "OYUN BÝLGÝLERÝNÝ DÜZENLE"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "OYUN BÝLGÝLERÝNÝ DÜZENLE"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr ""
@@ -223,6 +229,12 @@ msgstr "SES AYARLARI"
 msgid "NETWORK SETTINGS"
 msgstr "AÐ AYARLARI"
 
+msgid "CONFIGURE INPUT"
+msgstr "GÝRDÝ YAPILANDIR"
+
+msgid "EMULATOR SETTINGS"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "ÇEK"
 
@@ -295,6 +307,9 @@ msgstr ""
 msgid "SCRAPE NOW"
 msgstr "ÞÝMDÝ ÇEK"
 
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgstr ""
+
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
@@ -361,6 +376,9 @@ msgstr "oyun listesini ayrýþtýr"
 msgid "SEARCH FOR LOCAL ART"
 msgstr "yerel resimleri ara"
 
+msgid "COMPLETE QUIT MENU"
+msgstr ""
+
 msgid "USE RETROARCH RGUI MENU"
 msgstr ""
 
@@ -391,8 +409,11 @@ msgstr ""
 msgid "SOFTWARE UPDATES"
 msgstr ""
 
-msgid "AUTO UPDATES"
-msgstr "OTOMATÝK GÜNCELLEME"
+msgid "CHECK FOR UPDATES"
+msgstr ""
+
+msgid "UPDATE TYPE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr ""
@@ -439,6 +460,15 @@ msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr ""
+
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENT AYARLARI"
+
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "MISSING BIOS"
+msgstr "EKSÝK BIOS"
 
 msgid "OVERCLOCK"
 msgstr "HIZAÞIMI"
@@ -488,8 +518,17 @@ msgstr "AÇIK"
 msgid "OFF"
 msgstr "KAPALI"
 
-msgid "NETPLAY SETTINGS"
-msgstr ""
+msgid "HARDCORE MODE"
+msgstr "DONANIM MODU"
+
+msgid "LEADERBOARDS"
+msgstr "SKOR"
+
+msgid "VERBOSE MODE"
+msgstr "VERBOSE MODU"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "OTOMATÝK EKRAN GÖRÜNTÜSÜ"
 
 msgid "SETTINGS"
 msgstr ""
@@ -578,23 +617,8 @@ msgstr ""
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RETROACHIEVEMENT AYARLARI"
-
-msgid "HARDCORE MODE"
-msgstr "DONANIM MODU"
-
-msgid "LEADERBOARDS"
-msgstr "SKOR"
-
-msgid "VERBOSE MODE"
-msgstr "VERBOSE MODU"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "OTOMATÝK EKRAN GÖRÜNTÜSÜ"
-
-msgid "MISSING BIOS"
-msgstr "EKSÝK BIOS"
+msgid "UPDATE GAMES LISTS"
+msgstr "OYUN LÝSTESÝNÝ GÜNCELLE"
 
 msgid "NO MISSING BIOS"
 msgstr "EKSÝK BIOS YOK"
@@ -605,14 +629,17 @@ msgstr ""
 msgid "INVALID"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
-msgstr "OYUN LÝSTESÝNÝ GÜNCELLE"
-
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "OYUN LÝSTESÝ GÜNCELLENSÝN MÝ?"
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "Core"
+msgstr "Core"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "KUMANDA YAPILANDIR"
@@ -631,12 +658,6 @@ msgstr ""
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH KUMANDA EÞLEÞTÝR"
-
-msgid "FORGET BLUETOOTH CONTROLLERS"
-msgstr "BLUETOOTH KUMANDA AYARLARINI UNUT"
-
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KUMANDA BAÐLANTILARI SÝLÝNDÝ."
 
 #, c-format
 msgid "INPUT P%i"
@@ -663,13 +684,34 @@ msgstr ""
 msgid "DEFAULT GRID SIZE"
 msgstr ""
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "GAMELIST THEME OPTIONS"
 msgstr ""
 
 msgid "THEME OPTIONS"
+msgstr ""
+
+msgid "DEFAULT VALUE"
+msgstr ""
+
+msgid "GAMELIST OPTIONS"
+msgstr ""
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr ""
+
+msgid "SHOW HIDDEN FILES"
+msgstr "GÝZLÝ DOSYALARI GÖSTER"
+
+msgid "SHOW FOLDERS"
+msgstr ""
+
+msgid "always"
+msgstr ""
+
+msgid "never"
+msgstr "hiç"
+
+msgid "having multiple games"
 msgstr ""
 
 msgid "TOOLS"
@@ -737,6 +779,9 @@ msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "EKRAN KLAVYESÝ"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr ""
@@ -846,12 +891,6 @@ msgstr ""
 msgid "REALLY QUIT?"
 msgstr ""
 
-msgid "Emulator"
-msgstr "Emulator"
-
-msgid "Core"
-msgstr "Core"
-
 msgid "VIDEO MODE"
 msgstr "VÝDEO MODU"
 
@@ -921,17 +960,17 @@ msgstr "HEDEF CÝHAZ"
 msgid "TARGET ARCHITECTURE"
 msgstr "HEDEF MÝMARÝ"
 
-msgid "VALIDATION"
-msgstr "DOÐRULA"
-
-msgid "YES, I'M SURE"
-msgstr "EVET EMÝNÝM"
+msgid "ARE YOU SURE ?"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "KUR"
 
 msgid "NETWORK REQUIRED"
 msgstr "AÐ GEREKLÝ"
+
+msgid "INVALID PARAMETERS"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ÇEKME ÝÞLEMÝ SÜRÜYOR"
@@ -1076,18 +1115,6 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
 
-msgid "SELECT SYSTEMS TO DISPLAY"
-msgstr ""
-
-msgid "APPLY"
-msgstr ""
-
-msgid "REVERT"
-msgstr ""
-
-msgid "VALIDATE"
-msgstr ""
-
 msgid "SCREENSAVER AFTER"
 msgstr "EKRAN KORUYUCU"
 
@@ -1154,23 +1181,35 @@ msgstr "Açýklama"
 msgid "enter description"
 msgstr "açýklama girin"
 
+msgid "emulator"
+msgstr ""
+
+msgid "core"
+msgstr ""
+
 msgid "Image"
 msgstr "Resim"
 
 msgid "enter path to image"
 msgstr "resim adresini girin"
 
-msgid "Path to video"
-msgstr "Video yolu"
+msgid "Video"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "mini-resmin adresini girin"
+msgid "enter path to video"
+msgstr "videonun yolunu girin"
 
-msgid "Path to marquee"
-msgstr "seçim yolu"
+msgid "Marquee"
+msgstr ""
+
+msgid "enter path to marquee"
+msgstr "kayan yazý yolunu girin"
 
 msgid "Thumbnail"
 msgstr "Mini-resim"
+
+msgid "enter path to thumbnail"
+msgstr "mini-resmin adresini girin"
 
 msgid "Rating"
 msgstr "Puan"
@@ -1202,6 +1241,12 @@ msgstr "Tür"
 msgid "enter game genre"
 msgstr "oyun türünü girin"
 
+msgid "Arcade system"
+msgstr ""
+
+msgid "enter game arcade system"
+msgstr ""
+
 msgid "Players"
 msgstr "Oyuncu"
 
@@ -1217,14 +1262,14 @@ msgstr "favori girin"
 msgid "Hidden"
 msgstr "Gizli"
 
-msgid "set hidden"
-msgstr "gizle"
+msgid "enter hidden"
+msgstr ""
 
 msgid "Kidgame"
 msgstr "Çocuk oyunu"
 
-msgid "set kidgame"
-msgstr "Çocuk oyunu ayarla"
+msgid "enter kidgame"
+msgstr ""
 
 msgid "Play count"
 msgstr "Oynama sayýsý"
@@ -1238,7 +1283,13 @@ msgstr "Son oynanma"
 msgid "enter last played date"
 msgstr "son oynanma tarihini girin"
 
+msgid "Crc32"
+msgstr ""
+
 msgid "Crc32 checksum"
+msgstr ""
+
+msgid "Md5"
 msgstr ""
 
 msgid "Md5 checksum"
@@ -1250,32 +1301,8 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
-msgid "Arcade system"
+msgid "favorite"
 msgstr ""
-
-msgid "enter game arcade system"
-msgstr ""
-
-msgid "name"
-msgstr "adý"
-
-msgid "description"
-msgstr "açýklama"
-
-msgid "image"
-msgstr "resim"
-
-msgid "thumbnail"
-msgstr "önizleme"
-
-msgid "enter path to video"
-msgstr "videonun yolunu girin"
-
-msgid "marquee"
-msgstr "kayan yazý"
-
-msgid "enter path to marquee"
-msgstr "kayan yazý yolunu girin"
 
 msgid "SCRAPING"
 msgstr ""
@@ -1290,6 +1317,9 @@ msgid "Downloading"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
@@ -1626,9 +1656,6 @@ msgstr "DEÐÝÞTÝR"
 msgid "WELCOME"
 msgstr "HOÞGELDÝN"
 
-msgid "CONFIGURE INPUT"
-msgstr "GÝRDÝ YAPILANDIR"
-
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
@@ -1682,6 +1709,45 @@ msgstr "DEVAM EDÝYOR..."
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "AUTO UPDATES"
+#~ msgstr "OTOMATÝK GÜNCELLEME"
+
+#~ msgid "FORGET BLUETOOTH CONTROLLERS"
+#~ msgstr "BLUETOOTH KUMANDA AYARLARINI UNUT"
+
+#~ msgid "VALIDATION"
+#~ msgstr "DOÐRULA"
+
+#~ msgid "YES, I'M SURE"
+#~ msgstr "EVET EMÝNÝM"
+
+#~ msgid "Path to video"
+#~ msgstr "Video yolu"
+
+#~ msgid "Path to marquee"
+#~ msgstr "seçim yolu"
+
+#~ msgid "set hidden"
+#~ msgstr "gizle"
+
+#~ msgid "set kidgame"
+#~ msgstr "Çocuk oyunu ayarla"
+
+#~ msgid "name"
+#~ msgstr "adý"
+
+#~ msgid "description"
+#~ msgstr "açýklama"
+
+#~ msgid "image"
+#~ msgstr "resim"
+
+#~ msgid "thumbnail"
+#~ msgstr "önizleme"
+
+#~ msgid "marquee"
+#~ msgstr "kayan yazý"
 
 #~ msgid "CONTROLLER PAIRED"
 #~ msgstr "KUMANDA EÞLEÞTÝRÝLDÝ"

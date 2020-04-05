@@ -529,11 +529,27 @@ void GuiMenu::addVersionInfo()
 	mVersion.setLineSpacing(0);
 
 	if (!ApiSystem::getInstance()->getVersion().empty())
+	{
+#if WIN32
+		std::string aboutInfo;
+
+		std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+		if (Utils::FileSystem::exists(localVersionFile))
+		{
+			aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+		}
+			aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+
+		if (!aboutInfo.empty())
+			mVersion.setText(aboutInfo + buildDate);
+		else
+#endif
 #ifdef _ENABLEEMUELEC	
 		mVersion.setText("EMUELEC ES V" + ApiSystem::getInstance()->getVersion() + buildDate + " IP:" + getShOutput(R"(/storage/.emulationstation/scripts/ip.sh)"));
 #else
 		mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
 #endif
+	}
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
 	mVersion.setVerticalAlignment(ALIGN_CENTER);
 	addChild(&mVersion);
@@ -1701,14 +1717,16 @@ void GuiMenu::openGamesSettings_batocera()
 
 		// For each activated system
 		std::vector<SystemData *> systems = SystemData::sSystemVector;
-		for (auto system = systems.begin(); system != systems.end(); system++)
+		for (auto system : systems)
 		{
-			if ((*system)->isCollection() || (*system)->isGroupSystem())
+			if (system->isCollection() || system->isGroupSystem())
 				continue;
 
-			SystemData *systemData = (*system);
-			configuration->addEntry((*system)->getFullName(), true, [this, systemData, window] {
-				popSystemConfigurationGui(window, systemData, "");
+			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+				continue;
+
+			configuration->addEntry(system->getFullName(), true, [this, system, window] {
+				popSystemConfigurationGui(window, system, "");
 			});
 		}
 
@@ -3733,7 +3751,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
 	internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
 	internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-	if (systemData->getName() == "psp") // only for psp
+	if (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube") // only for psp, wii, gamecube
 		systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 
 	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, changescreen_layout, internalresolution, fileData] 
