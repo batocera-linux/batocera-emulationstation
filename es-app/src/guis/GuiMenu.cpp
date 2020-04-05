@@ -704,7 +704,7 @@ void GuiMenu::openUpdatesSettings()
 	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 	
 	std::string updatesType = SystemConf::getInstance()->get("updates.type");
-	if (updatesType.empty() || updatesType != "beta" || updatesType != "stable")
+	if (updatesType.empty() || updatesType != "beta")
 		updatesType = "stable";
 	
 	updatesTypeList->add("stable", "stable", updatesType == "stable");
