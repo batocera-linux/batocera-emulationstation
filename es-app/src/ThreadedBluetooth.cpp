@@ -43,15 +43,10 @@ void ThreadedBluetooth::run()
 	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
 #endif
 
-	bool success = ApiSystem::getInstance()->scanNewBluetooth([this](const std::string info)
+	ApiSystem::getInstance()->scanNewBluetooth([this](const std::string info)
 	{
 		updateNotificationComponentContent(info);
 	});
-
-	//if (success)
-	//	mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("CONTROLLER PAIRED"))); });
-	//else
-	//	mWindow->postToUiThread([](Window* w) { w->pushGui(new GuiMsgBox(w, _("UNABLE TO PAIR CONTROLLER"), "OK", nullptr, ICON_ERROR)); });
 
 	delete this;
 	ThreadedBluetooth::mInstance = nullptr;
@@ -66,4 +61,66 @@ void ThreadedBluetooth::start(Window* window)
 	}
 	
 	ThreadedBluetooth::mInstance = new ThreadedBluetooth(window);
+}
+
+
+// Formatter
+
+ThreadedFormatter* ThreadedFormatter::mInstance = nullptr;
+
+ThreadedFormatter::ThreadedFormatter(Window* window, const std::string disk, const std::string fileSystem)
+	: mWindow(window)
+{
+	mDisk = disk;
+	mFileSystem = fileSystem;
+
+	mWndNotification = new AsyncNotificationComponent(window, false);
+	mWindow->registerNotificationComponent(mWndNotification);
+	mWndNotification->updateTitle(ICONINDEX + _("FORMATING DEVICE"));
+	mWndNotification->updateText(_("Formating") + " " + disk);
+
+	mHandle = new std::thread(&ThreadedFormatter::run, this);
+}
+
+ThreadedFormatter::~ThreadedFormatter()
+{
+	mWindow->unRegisterNotificationComponent(mWndNotification);
+	delete mWndNotification;
+
+	ThreadedFormatter::mInstance = nullptr;
+}
+
+void ThreadedFormatter::updateNotificationComponentContent(const std::string info)
+{
+	if (info.empty())
+		return;
+
+	mWndNotification->updatePercent(-1);
+	mWndNotification->updateText(info);
+}
+
+void ThreadedFormatter::run()
+{
+#if WIN32
+	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+#endif
+
+	ApiSystem::getInstance()->formatDisk(mDisk, mFileSystem, [this](const std::string info)
+	{
+		updateNotificationComponentContent(info);
+	});
+
+	delete this;
+	ThreadedFormatter::mInstance = nullptr;
+}
+
+void ThreadedFormatter::start(Window* window, const std::string disk, const std::string fileSystem)
+{
+	if (ThreadedFormatter::mInstance != nullptr)
+	{
+		window->pushGui(new GuiMsgBox(window, _("DRIVE FORMAT IS ALREADY RUNNING.")));
+		return;
+	}
+
+	ThreadedFormatter::mInstance = new ThreadedFormatter(window, disk, fileSystem);
 }

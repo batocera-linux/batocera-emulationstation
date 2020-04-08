@@ -32,6 +32,11 @@ std::string getUrlFromUpdateType(std::string url)
 
 bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 {
+#if _DEBUG
+	if (script == ApiSystem::DISKFORMAT)
+		return true;
+#endif
+
 	if (script == ApiSystem::NETPLAY)
 	{
 		if (!(Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||

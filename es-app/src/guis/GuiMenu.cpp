@@ -650,6 +650,9 @@ void GuiMenu::openDeveloperSettings()
 	});
 #endif
 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
+		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
+
 #ifdef _RPI_
 	// Video Player - VideoOmxPlayer
 	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
@@ -3592,4 +3595,67 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 	sets.erase(std::unique(sets.begin(), sets.end(), nameEquals), sets.end());
 
 	return sets;
+}
+
+
+void GuiMenu::openFormatDriveSettings()
+{
+	Window *window = mWindow;
+
+	auto s = new GuiSettings(mWindow, _("FORMAT DEVICE").c_str());
+
+	// Drive
+	auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("DEVICE TO FORMAT"), false);
+
+	std::vector<std::string> disks = ApiSystem::getInstance()->getFormatDiskList();
+	if (disks.size() == 0)
+		optionsStorage->add(_("NONE"), "", false);
+	else 
+	{
+		for (auto disk : disks)
+		{
+			auto idx = disk.find(" ");
+			if (idx != std::string::npos)
+				optionsStorage->add(disk.substr(idx + 1), disk.substr(0, idx), false);
+		}
+	}
+
+	optionsStorage->selectFirstItem();
+	s->addWithLabel(_("DEVICE TO FORMAT"), optionsStorage);
+
+	// File system
+	auto fileSystem = std::make_shared<OptionListComponent<std::string> >(window, _("FILE SYSTEM"), false);
+
+	std::vector<std::string> fileSystems = ApiSystem::getInstance()->getFormatFileSystems();
+	if (fileSystems.size() == 0)
+		fileSystem->add(_("NONE"), "", false);
+	else
+	{
+		for (auto fs : fileSystems)
+			fileSystem->add(fs, fs, false);
+	}
+
+	fileSystem->selectFirstItem();
+	s->addWithLabel(_("FILE SYSTEM"), fileSystem);
+
+	s->addEntry(_("FORMAT NOW"), false, [s, optionsStorage, fileSystem, window]
+		{
+			std::string disk = optionsStorage->getSelected();
+			std::string fs = fileSystem->getSelected();
+
+			if (disk.empty() || fs.empty())
+			{
+				window->pushGui(new GuiMsgBox(window, _("SELECTED OPTIONS ARE INVALID")));
+				return;
+			}
+
+			window->pushGui(new GuiMsgBox(window, _("ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"), _("YES"), [s, window, disk, fs]
+			{
+				ThreadedFormatter::start(window, disk, fs);
+				s->close();
+			}, _("NO"), nullptr));
+			
+		});
+
+	mWindow->pushGui(s);
 }

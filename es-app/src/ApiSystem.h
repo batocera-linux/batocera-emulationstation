@@ -52,7 +52,8 @@ public:
 		KODI = 6,
 		GAMESETTINGS = 7,
 		DECORATIONS = 8,
-		SHADERS = 9
+		SHADERS = 9,
+		DISKFORMAT = 10
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -150,10 +151,16 @@ public:
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
 
+	// Formating
+	std::vector<std::string> getFormatDiskList();
+	std::vector<std::string> getFormatFileSystems();
+	bool formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
+
 protected:
 	ApiSystem();
 
 	virtual bool executeScript(const std::string command);	
+	virtual std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func);
 	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
 
     static ApiSystem* instance;

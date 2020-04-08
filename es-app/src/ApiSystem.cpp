@@ -449,7 +449,7 @@ std::string ApiSystem::getIpAdress()
 
 bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-bluetooth trust");
+	return executeScript("batocera-bluetooth trust", func).second == 0;
 }
 
 std::vector<std::string> ApiSystem::getBluetoothDeviceList()
@@ -854,27 +854,7 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
 {
-	LOG(LogInfo) << "ApiSystem::installBatoceraTheme " << thname;
-
-	std::string command = "batocera-es-theme install " + thname;
-
-	FILE *pipe = popen(command.c_str(), "r");
-	char line[1024] = "";
-	if (pipe == NULL)
-		return std::pair<std::string, int>(std::string("Error starting `batocera-es-theme` command."), -1);	
-
-	while (fgets(line, 1024, pipe)) 
-	{
-		strtok(line, "\n");	
-		if (strlen(line) > 48)
-			line[47] = '\0';
-
-		if (func != nullptr)
-			func(std::string(line));		
-	}
-
-	int exitCode = pclose(pipe);
-	return std::pair<std::string, int>(std::string(line), exitCode);
+	return executeScript("batocera-es-theme install " + thname, func);
 }
 
 std::vector<std::string> ApiSystem::getBatoceraBezelsList() 
@@ -905,31 +885,7 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 
 std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
-	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
-
-	std::string updatecommand = std::string("batocera-es-thebezelproject install ") + bezelsystem;
-	LOG(LogWarning) << "Installing bezels for " << bezelsystem;
-	FILE *pipe = popen(updatecommand.c_str(), "r");
-	if (pipe == NULL)
-		return std::pair<std::string, int>(std::string("Error starting `batocera-es-thebezelproject install` command."), -1);
-
-	char line[1024] = "";
-
-	while (fgets(line, 1024, pipe)) 
-	{
-		strtok(line, "\n");
-		// Long theme names/URL can crash the GUI MsgBox
-		// "48" found by trials and errors. Ideally should be fixed
-		// in es-core MsgBox -- FIXME
-		if (strlen(line) > 48)
-			line[47] = '\0';
-
-		if (func != nullptr)
-			func(std::string(line));			
-	}
-
-	int exitCode = pclose(pipe);
-	return std::pair<std::string, int>(std::string(line), exitCode);
+	return executeScript("batocera-es-thebezelproject install " + bezelsystem, func);
 }
 
 std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
@@ -1110,6 +1066,36 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 	return res;
 }
 
+std::pair<std::string, int> ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
+{
+	LOG(LogInfo) << "ApiSystem::executeScript -> " << command;
+
+	FILE *pipe = popen(command.c_str(), "r");
+	if (pipe == NULL)
+	{
+		LOG(LogError) << "Error executing " << command;
+		return std::pair<std::string, int>("Error starting command : " + command, -1);
+	}
+
+	char line[1024];
+	while (fgets(line, 1024, pipe))
+	{
+		strtok(line, "\n");
+
+		// Long theme names/URL can crash the GUI MsgBox
+		// "48" found by trials and errors. Ideally should be fixed
+		// in es-core MsgBox -- FIXME
+		if (strlen(line) > 48)
+			line[47] = '\0';
+
+		if (func != nullptr)
+			func(std::string(line));
+	}
+
+	int exitCode = pclose(pipe);
+	return std::pair<std::string, int>(line, exitCode);
+}
+
 bool ApiSystem::executeScript(const std::string command)
 {	
 	LOG(LogInfo) << "Running " << command;
@@ -1162,4 +1148,31 @@ void ApiSystem::setReadyFlag(bool ready)
 bool ApiSystem::isReadyFlagSet()
 {
 	return Utils::FileSystem::exists("/tmp/emulationstation.ready");
+}
+
+std::vector<std::string> ApiSystem::getFormatDiskList()
+{
+#if WIN32 && _DEBUG
+	std::vector<std::string> ret;
+	ret.push_back("d:\ DRIVE D:");
+	ret.push_back("e:\ DRIVE Z:");
+	return ret;
+#endif
+	return executeEnumerationScript("batocera-format listDisks");
+}
+
+std::vector<std::string> ApiSystem::getFormatFileSystems()
+{
+#if WIN32 && _DEBUG
+	std::vector<std::string> ret;
+	ret.push_back("exfat");	
+	ret.push_back("brfs");
+	return ret;
+#endif
+	return executeEnumerationScript("batocera-format listFstypes");
+}
+
+bool ApiSystem::formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func)
+{
+	return executeScript("batocera-format " + disk + " " + format, func).second == 0;
 }
