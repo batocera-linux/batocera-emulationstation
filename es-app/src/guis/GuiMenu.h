@@ -77,6 +77,7 @@ private:
 	void openNetplaySettings(); 
 	void openRetroachievementsSettings();
 	void openMissingBiosSettings();
+	void openFormatDriveSettings();
 
 	// windows
 	void openEmulatorSettings();
