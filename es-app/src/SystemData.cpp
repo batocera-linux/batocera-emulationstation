@@ -295,6 +295,208 @@ void SystemData::createGroupedSystems()
 	}
 }
 
+inline EmulatorFeatures::Features operator|(EmulatorFeatures::Features a, EmulatorFeatures::Features b)
+{
+	return static_cast<EmulatorFeatures::Features>(static_cast<int>(a) | static_cast<int>(b));
+}
+
+inline EmulatorFeatures::Features operator&(EmulatorFeatures::Features a, EmulatorFeatures::Features b)
+{
+	return static_cast<EmulatorFeatures::Features>(static_cast<int>(a) & static_cast<int>(b));
+}
+
+EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string features)
+{
+	EmulatorFeatures::Features ret = EmulatorFeatures::Features::none;
+
+	for (auto name : Utils::String::split(features, ','))
+	{
+		std::string trim = Utils::String::trim(name);
+
+		if (trim == "ratio") ret = ret | EmulatorFeatures::Features::ratio;
+		if (trim == "rewind") ret = ret | EmulatorFeatures::Features::rewind;
+		if (trim == "smooth") ret = ret | EmulatorFeatures::Features::smooth;
+		if (trim == "shaders") ret = ret | EmulatorFeatures::Features::shaders;
+		if (trim == "pixel_perfect") ret = ret | EmulatorFeatures::Features::pixel_perfect;
+		if (trim == "decoration") ret = ret | EmulatorFeatures::Features::decoration;
+		if (trim == "latency_reduction") ret = ret | EmulatorFeatures::Features::latency_reduction;
+		if (trim == "game_translation") ret = ret | EmulatorFeatures::Features::game_translation;
+		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
+		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
+		if (trim == "fullboot") ret = ret | EmulatorFeatures::Features::fullboot;
+		if (trim == "emulated_wiimotes") ret = ret | EmulatorFeatures::Features::emulated_wiimotes;
+		if (trim == "screen_layout") ret = ret | EmulatorFeatures::Features::screen_layout;
+		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
+		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
+		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
+	}
+
+	return ret;
+}
+
+bool SystemData::es_features_loaded = false;
+
+bool SystemData::loadFeatures()
+{
+	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
+	if (!Utils::FileSystem::exists(path))
+		return false;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(path.c_str());
+
+	if (!res)
+	{
+		LOG(LogError) << "Could not parse es_features.cfg file!";
+		LOG(LogError) << res.description();
+		return false;
+	}
+
+	//actually read the file
+	pugi::xml_node systemList = doc.child("features");
+	if (!systemList)
+	{
+		LOG(LogError) << "es_features.cfg is missing the <features> tag!";
+		return false;
+	}
+
+	es_features_loaded = true;
+
+	for (auto sys : SystemData::sSystemVector)
+	{
+		for (auto& emul : sys->mEmulators)
+		{
+			emul.features = EmulatorFeatures::Features::none;
+			for (auto& core : emul.cores)
+				core.features = EmulatorFeatures::Features::none;
+		}
+	}
+
+	for (pugi::xml_node emulator = systemList.child("emulator"); emulator; emulator = emulator.next_sibling("emulator"))
+	{		
+		if (!emulator.attribute("name"))
+			continue;
+
+		std::string emulatorName = emulator.attribute("name").value();
+
+		EmulatorFeatures::Features emulatorFeatures = EmulatorFeatures::Features::none;
+
+		if (emulator.attribute("features"))
+		{
+			emulatorFeatures = EmulatorFeatures::parseFeatures(emulator.attribute("features").value());
+
+			for (auto sys : SystemData::sSystemVector)
+				for (auto& emul : sys->mEmulators)
+					if (emul.name == emulatorName || (emulatorName == "libretro" && Utils::String::startsWith(emul.name, "lr-")))
+					{
+						emul.features = emulatorFeatures;
+						for (auto& core : emul.cores)
+							core.features = EmulatorFeatures::Features::none;
+					}
+		}
+
+		for (pugi::xml_node coreNode = emulator.child("core"); coreNode; coreNode = coreNode.next_sibling("core"))
+		{
+			if (!coreNode.attribute("name") || !coreNode.attribute("features"))
+				continue;
+
+			std::string coreName = coreNode.attribute("name").value();
+			EmulatorFeatures::Features coreFeatures = EmulatorFeatures::parseFeatures(coreNode.attribute("features").value());
+
+			bool coreFound = false;
+
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (sys->mEmulators.size() == 0)
+				{
+					// Try to handle systems without emulators defined
+					std::string command = sys->getLaunchCommand(emulatorName, coreName);
+					if (command.find(" " + coreName + " ") != std::string::npos || command.find(coreName + "_libretro") != std::string::npos)
+					{
+						EmulatorData emul;
+						emul.name = emulatorName;
+						emul.features = emulatorFeatures;
+
+						CoreData core;
+						core.name = coreName;
+						core.features = coreFeatures;
+						emul.cores.push_back(core);
+
+						sys->mEmulators.push_back(emul);
+					}
+				}
+				else
+				{
+					for (auto& emul : sys->mEmulators)
+					{
+						if (emul.name == emulatorName || (emulatorName == "libretro" && Utils::String::startsWith(emul.name, "lr-")))
+						{
+							for (auto& core : emul.cores)
+							{
+								if (core.name == coreName)
+								{
+									coreFound = true;
+									core.features = coreFeatures;
+									core.netplay = coreFeatures & EmulatorFeatures::Features::netplay;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
+bool SystemData::isCurrentFeatureSupported(EmulatorFeatures::Features feature)
+{
+	std::string emul = getDefaultEmulator();
+	std::string core = getDefaultCore(emul);
+
+	return isFeatureSupported(emul, core, feature);
+}
+
+bool SystemData::hasFeatures()
+{
+	for (auto emulator : mEmulators)
+	{
+		for (auto& core : emulator.cores)
+			if (core.features != EmulatorFeatures::Features::none)
+				return true;
+
+		if (emulator.features != EmulatorFeatures::Features::none)
+			return true;
+	}
+
+	return !es_features_loaded;
+}
+
+bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature)
+{
+	if (emulatorName.empty() || emulatorName == "auto")
+		emulatorName = getDefaultEmulator();
+
+	if (coreName.empty() || coreName == "auto")
+		coreName = getDefaultCore(emulatorName);
+
+	for (auto emulator : mEmulators)
+	{
+		if (emulator.name == emulatorName)
+		{
+			for (auto& core : emulator.cores)
+				if (coreName == core.name)
+					if ((core.features & feature) == feature)
+						return true;
+			
+			return (emulator.features & feature) == feature;
+		}
+	}
+
+	return !es_features_loaded;
+}
+
 //creates systems from information located in a config file
 bool SystemData::loadConfig(Window* window)
 {
@@ -443,6 +645,8 @@ bool SystemData::loadConfig(Window* window)
 		ViewController::get()->onThemeChanged(theme);		
 	}
 
+	loadFeatures();
+
 	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
 	{
 		if (Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
@@ -531,6 +735,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 			EmulatorData emulatorData;
 			emulatorData.name = emuNode.attribute("name").value();
 			emulatorData.customCommandLine = emuNode.attribute("command").value();
+			emulatorData.features = EmulatorFeatures::Features::all;
 
 			pugi::xml_node coresNode = emuNode.child("cores");
 			if (coresNode != nullptr)
@@ -540,6 +745,8 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 					CoreData core;
 					core.name = coreNode.text().as_string();
 					core.netplay = coreNode.attribute("netplay") && coreNode.attribute("netplay").value() == "true";
+					core.isDefault = coreNode.attribute("default") && coreNode.attribute("default").value() == "true";
+					core.features = EmulatorFeatures::Features::all;
 					core.customCommandLine = coreNode.attribute("command").value();
 
 					emulatorData.cores.push_back(core);
@@ -945,8 +1152,14 @@ std::string SystemData::getDefaultEmulator()
 		if (emul.name == emulator)
 			return emulator;
 
-	if (emulator.empty())
+	if (emulator.empty() || emulator == "auto")
 	{
+		// Seeking default="true" attribute
+		for (auto emul : mEmulators)
+			for (auto core : emul.cores)
+				if (core.isDefault)
+					return emul.name;
+		
 		auto emulators = getEmulators();
 		if (emulators.size() > 0)
 			return emulators.begin()->name;
@@ -966,9 +1179,15 @@ std::string SystemData::getDefaultCore(const std::string emulatorName)
 	if (!core.empty() && core != "auto")
 		return core;
 	
+	// Seeking default="true" attribute
+	for (auto memul : mEmulators)
+		for (auto mcore : memul.cores)
+			if (mcore.isDefault)
+				return mcore.name;
+
 	std::string emul = emulatorName;
 
-	if (emul.empty())
+	if (emul.empty() || emul == "auto")
 		emul = getDefaultEmulator();
 
 	if (!emul.empty())

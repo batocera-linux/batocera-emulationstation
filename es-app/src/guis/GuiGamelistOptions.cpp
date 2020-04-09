@@ -212,15 +212,13 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			mMenu.addGroup(_("GAME OPTIONS"));
 
 			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+			if (mSystem->hasFeatures() || mSystem->getEmulators().size() > 0)
 			{
-				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-				{
-					if (!mSystem->isGroupSystem())
-						mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
+				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !mSystem->isGroupSystem())
+					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
 
-					if (file->getType() != FOLDER)
-						mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
-				}
+				if (file->getType() != FOLDER)
+					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
 			}
 
 			if (file->getType() == FOLDER)

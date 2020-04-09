@@ -1463,8 +1463,11 @@ void GuiMenu::openGamesSettings_batocera()
 			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 				continue;
 
+			if (!system->hasFeatures() && system->getEmulators().size() == 0)
+				continue;
+
 			configuration->addEntry(system->getFullName(), true, [this, system, window] {
-				popSystemConfigurationGui(window, system, "");
+				popSystemConfigurationGui(window, system);
 			});
 		}
 
@@ -3077,27 +3080,25 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 	}
 }
 
-void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData* systemData, std::string previouslySelectedEmulator) 
+void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData* systemData) 
 {  
 	popSpecificConfigurationGui(mWindow, 
 		systemData->getFullName(), 
 		systemData->getName(), 
 		systemData, 
-		nullptr, 
-		previouslySelectedEmulator);
+		nullptr);
 }
 
-void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData, std::string previouslySelectedEmulator)
+void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData)
 {
 	popSpecificConfigurationGui(mWindow,
 		Utils::FileSystem::getFileName(fileData->getFileName()),
 		fileData->getConfigurationName(),
 		fileData->getSourceFileData()->getSystem(),
-		fileData,
-		previouslySelectedEmulator);
+		fileData);
 }
 
-void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, std::string previouslySelectedEmulator) 
+void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine) 
 {
 	// The system configuration
 	GuiSettings* systemConfiguration = new GuiSettings(mWindow, title.c_str());
@@ -3111,14 +3112,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	
 	for (auto emulator : systemData->getEmulators()) 
 	{
-		bool found;
-
 		std::string curEmulatorName = emulator.name;
-		if (!previouslySelectedEmulator.empty())			
-			found = (previouslySelectedEmulator == curEmulatorName); // We just changed the emulator
-		else
-			found = (currentEmulator == curEmulatorName);
 
+		bool found = (currentEmulator == curEmulatorName);
 		if (found)
 			selectedEmulator = curEmulatorName;
 		
@@ -3126,9 +3122,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		emu_choice->add(curEmulatorName, curEmulatorName, found);
 	}
 	emu_choice->add(_("AUTO"), "auto", !selected);
-	emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData, fileData](std::string s)
+	emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData, fileData, emu_choice](std::string s)
 	{
-		popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData, s);
+		if (fileData != nullptr)
+			fileData->setEmulator(s);
+		else
+			SystemConf::getInstance()->set(configName + ".emulator", s);
+
+		popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData);
 		delete systemConfiguration;
 	});
 	systemConfiguration->addWithLabel(_("Emulator"), emu_choice);
@@ -3167,65 +3168,103 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			core_choice->add(core.name, core.name, currentCore == core.name); // select the first one if none is selected
 	}
 
-	systemConfiguration->addWithLabel(_("Core"), core_choice);
+	core_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData, fileData, core_choice](std::string s)
+	{
+		if (fileData != nullptr)
+			fileData->setCore(core_choice->getSelected());
+		else
+			SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
 
-	// Screen ratio choice
-	auto ratio_choice = createRatioOptionList(mWindow, configName);
-	systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
-	// video resolution mode
-	auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
-	systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
-	// smoothing
-	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
-	smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".smooth") != "0" && SystemConf::getInstance()->get(configName + ".smooth") != "1");
-	smoothing_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".smooth") == "1");
-	smoothing_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".smooth") == "0");
-	systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
-	// rewind
-	auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
-	rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
-	rewind_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".rewind") == "1");
-	rewind_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".rewind") == "0");
-	systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
-	// autosave
-	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-	autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
-	autosave_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".autosave") == "1");
-	autosave_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".autosave") == "0");
-	systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
-
-	// Shaders preset
-	auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"),
-		false);
-	std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
-	if (currentShader.empty()) {
-		currentShader = std::string("auto");
-	}
-
-	shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
-	shaders_choices->add(_("NONE"), "none", currentShader == "none");
-	shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
-	shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
-	shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
-	shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
-	shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
-	shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
-	systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
-
-	// Integer scale
-	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
-	integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
-	integerscale_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".integerscale") == "1");
-	integerscale_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".integerscale") == "0");
-	systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
-	systemConfiguration->addSaveFunc([integerscale_enabled, configName] {
-		if (integerscale_enabled->changed()) {
-			SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected());
-			SystemConf::getInstance()->saveSystemConf();
-		}
+		popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData, true);
+		delete systemConfiguration;
 	});
 
+	systemConfiguration->addWithLabel(_("Core"), core_choice, selectCoreLine);
+
+	// Screen ratio choice
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::ratio))
+	{
+		auto ratio_choice = createRatioOptionList(mWindow, configName);
+		systemConfiguration->addWithLabel(_("GAME RATIO"), ratio_choice);
+		systemConfiguration->addSaveFunc([configName, ratio_choice] { SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected()); });
+	}
+
+	// video resolution mode
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::videomode))
+	{
+		auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
+		systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
+		systemConfiguration->addSaveFunc([configName, videoResolutionMode_choice] { SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected()); });
+	}
+
+	// smoothing
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::smooth))
+	{
+		auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
+		smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".smooth") != "0" && SystemConf::getInstance()->get(configName + ".smooth") != "1");
+		smoothing_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".smooth") == "1");
+		smoothing_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".smooth") == "0");
+		systemConfiguration->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
+		systemConfiguration->addSaveFunc([configName, smoothing_enabled] { SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected()); });
+	}
+
+	// rewind
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::rewind))
+	{
+		auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+		rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
+		rewind_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".rewind") == "1");
+		rewind_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".rewind") == "0");
+		systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
+		systemConfiguration->addSaveFunc([configName, rewind_enabled] { SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected()); });
+	}
+
+	// autosave
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
+	{
+		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+		autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
+		autosave_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".autosave") == "1");
+		autosave_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".autosave") == "0");
+		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
+	}
+
+	// Shaders preset
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
+		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
+	{
+		auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"), false);
+		std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
+		if (currentShader.empty())
+			currentShader = std::string("auto");
+
+		shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
+		shaders_choices->add(_("NONE"), "none", currentShader == "none");
+		shaders_choices->add(_("SCANLINES"), "scanlines", currentShader == "scanlines");
+		shaders_choices->add(_("RETRO"), "retro", currentShader == "retro");
+		shaders_choices->add(_("ENHANCED"), "enhanced", currentShader == "enhanced"); // batocera 5.23
+		shaders_choices->add(_("CURVATURE"), "curvature", currentShader == "curvature"); // batocera 5.24
+		shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
+		shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
+		systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
+		systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaders", shaders_choices->getSelected()); });
+	}
+
+	// Integer scale
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::pixel_perfect))
+	{
+		auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+		integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".integerscale") != "0" && SystemConf::getInstance()->get(configName + ".integerscale") != "1");
+		integerscale_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".integerscale") == "1");
+		integerscale_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".integerscale") == "0");
+		systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected()); });
+	}
+
 	// decorations
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::decoration))
 	{
 		Window* window = mWindow;
 		auto sets = GuiMenu::getDecorationsSets(systemData);
@@ -3238,7 +3277,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		std::vector<std::string> decorations_item;
 		decorations_item.push_back(_("AUTO"));
 		decorations_item.push_back(_("NONE"));
-
 
 		for (auto set : sets)
 			decorations_item.push_back(set.name);
@@ -3253,241 +3291,247 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			);
 		}
 		systemConfiguration->addWithLabel(_("DECORATION"), decorations);
-		systemConfiguration->addSaveFunc([decorations, configName] {
-			if (decorations->changed()) {
-				SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-				SystemConf::getInstance()->saveSystemConf();
-			}
+		systemConfiguration->addSaveFunc([decorations, configName] 
+		{
+			SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
 		});
 	}
 
-	systemConfiguration->addEntry(_("LATENCY REDUCTION"), true, [mWindow, configName] { openLatencyReductionConfiguration(mWindow, configName); });
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::latency_reduction))	
+		systemConfiguration->addEntry(_("LATENCY REDUCTION"), true, [mWindow, configName] { openLatencyReductionConfiguration(mWindow, configName); });
 
-	// gameboy colorize
-	auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
-	std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
-	if (currentColorization.empty()) {
-		currentColorization = std::string("auto");
-	}
-	colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
-	colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::colorization))
+	{
+		// gameboy colorize
+		auto colorizations_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("COLORIZATION"), false);
+		std::string currentColorization = SystemConf::getInstance()->get(configName + "-renderer.colorization");
+		if (currentColorization.empty())
+			currentColorization = std::string("auto");
+		
+		colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
+		colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
 
-	const char* all_gambate_gc_colors_modes[] = { "GB - DMG",
-							 "GB - Light",
-							 "GB - Pocket",
-							 "GBC - Blue",
-							 "GBC - Brown",
-							 "GBC - Dark Blue",
-							 "GBC - Dark Brown",
-							 "GBC - Dark Green",
-							 "GBC - Grayscale",
-							 "GBC - Green",
-							 "GBC - Inverted",
-							 "GBC - Orange",
-							 "GBC - Pastel Mix",
-							 "GBC - Red",
-							 "GBC - Yellow",
-							 "SGB - 1A",
-							 "SGB - 1B",
-							 "SGB - 1C",
-							 "SGB - 1D",
-							 "SGB - 1E",
-							 "SGB - 1F",
-							 "SGB - 1G",
-							 "SGB - 1H",
-							 "SGB - 2A",
-							 "SGB - 2B",
-							 "SGB - 2C",
-							 "SGB - 2D",
-							 "SGB - 2E",
-							 "SGB - 2F",
-							 "SGB - 2G",
-							 "SGB - 2H",
-							 "SGB - 3A",
-							 "SGB - 3B",
-							 "SGB - 3C",
-							 "SGB - 3D",
-							 "SGB - 3E",
-							 "SGB - 3F",
-							 "SGB - 3G",
-							 "SGB - 3H",
-							 "SGB - 4A",
-							 "SGB - 4B",
-							 "SGB - 4C",
-							 "SGB - 4D",
-							 "SGB - 4E",
-							 "SGB - 4F",
-							 "SGB - 4G",
-							 "SGB - 4H",
-							 "Special 1",
-							 "Special 2",
-							 "Special 3",
-							 "TWB01 - 756 Production",
-							 "TWB02 - AKB48 Pink",
-							 "TWB03 - Angry Volcano",
-							 "TWB04 - Anime Expo",
-							 "TWB05 - Aqours Blue",
-							 "TWB06 - Aquatic Iro",
-							 "TWB07 - Bandai Namco",
-							 "TWB08 - Blossom Pink",
-							 "TWB09 - Bubbles Blue",
-							 "TWB10 - Builder Yellow",
-							 "TWB11 - Buttercup Green",
-							 "TWB12 - Camouflage",
-							 "TWB13 - Cardcaptor Pink",
-							 "TWB14 - Christmas",
-							 "TWB15 - Crunchyroll Orange",
-							 "TWB16 - Digivice",
-							 "TWB17 - Do The Dew",
-							 "TWB18 - Eevee Brown",
-							 "TWB19 - Fruity Orange",
-							 "TWB20 - Game.com",
-							 "TWB21 - Game Grump Orange",
-							 "TWB22 - GameKing",
-							 "TWB23 - Game Master",
-							 "TWB24 - Ghostly Aoi",
-							 "TWB25 - Golden Wild",
-							 "TWB26 - Green Banana",
-							 "TWB27 - Greenscale",
-							 "TWB28 - Halloween",
-							 "TWB29 - Hero Yellow",
-							 "TWB30 - Hokage Orange",
-							 "TWB31 - Labo Fawn",
-							 "TWB32 - Legendary Super Saiyan",
-							 "TWB33 - Lemon Lime Green",
-							 "TWB34 - Lime Midori",
-							 "TWB35 - Mania Plus Green",
-							 "TWB36 - Microvision",
-							 "TWB37 - Million Live Gold",
-							 "TWB38 - Miraitowa Blue",
-							 "TWB39 - NASCAR",
-							 "TWB40 - Neo Geo Pocket",
-							 "TWB41 - Neon Blue",
-							 "TWB42 - Neon Green",
-							 "TWB43 - Neon Pink",
-							 "TWB44 - Neon Red",
-							 "TWB45 - Neon Yellow",
-							 "TWB46 - Nick Orange",
-							 "TWB47 - Nijigasaki Orange",
-							 "TWB48 - Odyssey Gold",
-							 "TWB49 - Patrick Star Pink",
-							 "TWB50 - Pikachu Yellow",
-							 "TWB51 - Pocket Tales",
-							 "TWB52 - Pokemon mini",
-							 "TWB53 - Pretty Guardian Gold",
-							 "TWB54 - S.E.E.S. Blue",
-							 "TWB55 - Saint Snow Red",
-							 "TWB56 - Scooby-Doo Mystery",
-							 "TWB57 - Shiny Sky Blue",
-							 "TWB58 - Sidem Green",
-							 "TWB59 - Slime Blue",
-							 "TWB60 - Spongebob Yellow",
-							 "TWB61 - Stone Orange",
-							 "TWB62 - Straw Hat Red",
-							 "TWB63 - Superball Ivory",
-							 "TWB64 - Super Saiyan Blue",
-							 "TWB65 - Super Saiyan Rose",
-							 "TWB66 - Supervision",
-							 "TWB67 - Survey Corps Brown",
-							 "TWB68 - Tea Midori",
-							 "TWB69 - TI-83",
-							 "TWB70 - Tokyo Midtown",
-							 "TWB71 - Travel Wood",
-							 "TWB72 - Virtual Boy",
-							 "TWB73 - VMU",
-							 "TWB74 - Wisteria Murasaki",
-							 "TWB75 - WonderSwan",
-							 "TWB76 - Yellow Banana" };
-	int n_all_gambate_gc_colors_modes = 126;
-	for (int i = 0; i < n_all_gambate_gc_colors_modes; i++) {
-		colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
+		const char* all_gambate_gc_colors_modes[] = { "GB - DMG",
+								 "GB - Light",
+								 "GB - Pocket",
+								 "GBC - Blue",
+								 "GBC - Brown",
+								 "GBC - Dark Blue",
+								 "GBC - Dark Brown",
+								 "GBC - Dark Green",
+								 "GBC - Grayscale",
+								 "GBC - Green",
+								 "GBC - Inverted",
+								 "GBC - Orange",
+								 "GBC - Pastel Mix",
+								 "GBC - Red",
+								 "GBC - Yellow",
+								 "SGB - 1A",
+								 "SGB - 1B",
+								 "SGB - 1C",
+								 "SGB - 1D",
+								 "SGB - 1E",
+								 "SGB - 1F",
+								 "SGB - 1G",
+								 "SGB - 1H",
+								 "SGB - 2A",
+								 "SGB - 2B",
+								 "SGB - 2C",
+								 "SGB - 2D",
+								 "SGB - 2E",
+								 "SGB - 2F",
+								 "SGB - 2G",
+								 "SGB - 2H",
+								 "SGB - 3A",
+								 "SGB - 3B",
+								 "SGB - 3C",
+								 "SGB - 3D",
+								 "SGB - 3E",
+								 "SGB - 3F",
+								 "SGB - 3G",
+								 "SGB - 3H",
+								 "SGB - 4A",
+								 "SGB - 4B",
+								 "SGB - 4C",
+								 "SGB - 4D",
+								 "SGB - 4E",
+								 "SGB - 4F",
+								 "SGB - 4G",
+								 "SGB - 4H",
+								 "Special 1",
+								 "Special 2",
+								 "Special 3",
+								 "TWB01 - 756 Production",
+								 "TWB02 - AKB48 Pink",
+								 "TWB03 - Angry Volcano",
+								 "TWB04 - Anime Expo",
+								 "TWB05 - Aqours Blue",
+								 "TWB06 - Aquatic Iro",
+								 "TWB07 - Bandai Namco",
+								 "TWB08 - Blossom Pink",
+								 "TWB09 - Bubbles Blue",
+								 "TWB10 - Builder Yellow",
+								 "TWB11 - Buttercup Green",
+								 "TWB12 - Camouflage",
+								 "TWB13 - Cardcaptor Pink",
+								 "TWB14 - Christmas",
+								 "TWB15 - Crunchyroll Orange",
+								 "TWB16 - Digivice",
+								 "TWB17 - Do The Dew",
+								 "TWB18 - Eevee Brown",
+								 "TWB19 - Fruity Orange",
+								 "TWB20 - Game.com",
+								 "TWB21 - Game Grump Orange",
+								 "TWB22 - GameKing",
+								 "TWB23 - Game Master",
+								 "TWB24 - Ghostly Aoi",
+								 "TWB25 - Golden Wild",
+								 "TWB26 - Green Banana",
+								 "TWB27 - Greenscale",
+								 "TWB28 - Halloween",
+								 "TWB29 - Hero Yellow",
+								 "TWB30 - Hokage Orange",
+								 "TWB31 - Labo Fawn",
+								 "TWB32 - Legendary Super Saiyan",
+								 "TWB33 - Lemon Lime Green",
+								 "TWB34 - Lime Midori",
+								 "TWB35 - Mania Plus Green",
+								 "TWB36 - Microvision",
+								 "TWB37 - Million Live Gold",
+								 "TWB38 - Miraitowa Blue",
+								 "TWB39 - NASCAR",
+								 "TWB40 - Neo Geo Pocket",
+								 "TWB41 - Neon Blue",
+								 "TWB42 - Neon Green",
+								 "TWB43 - Neon Pink",
+								 "TWB44 - Neon Red",
+								 "TWB45 - Neon Yellow",
+								 "TWB46 - Nick Orange",
+								 "TWB47 - Nijigasaki Orange",
+								 "TWB48 - Odyssey Gold",
+								 "TWB49 - Patrick Star Pink",
+								 "TWB50 - Pikachu Yellow",
+								 "TWB51 - Pocket Tales",
+								 "TWB52 - Pokemon mini",
+								 "TWB53 - Pretty Guardian Gold",
+								 "TWB54 - S.E.E.S. Blue",
+								 "TWB55 - Saint Snow Red",
+								 "TWB56 - Scooby-Doo Mystery",
+								 "TWB57 - Shiny Sky Blue",
+								 "TWB58 - Sidem Green",
+								 "TWB59 - Slime Blue",
+								 "TWB60 - Spongebob Yellow",
+								 "TWB61 - Stone Orange",
+								 "TWB62 - Straw Hat Red",
+								 "TWB63 - Superball Ivory",
+								 "TWB64 - Super Saiyan Blue",
+								 "TWB65 - Super Saiyan Rose",
+								 "TWB66 - Supervision",
+								 "TWB67 - Survey Corps Brown",
+								 "TWB68 - Tea Midori",
+								 "TWB69 - TI-83",
+								 "TWB70 - Tokyo Midtown",
+								 "TWB71 - Travel Wood",
+								 "TWB72 - Virtual Boy",
+								 "TWB73 - VMU",
+								 "TWB74 - Wisteria Murasaki",
+								 "TWB75 - WonderSwan",
+								 "TWB76 - Yellow Banana" };
+
+		int n_all_gambate_gc_colors_modes = 126;
+		for (int i = 0; i < n_all_gambate_gc_colors_modes; i++)
+			colorizations_choices->add(all_gambate_gc_colors_modes[i], all_gambate_gc_colors_modes[i], currentColorization == std::string(all_gambate_gc_colors_modes[i]));
+		
+		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && (systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players")))  // only for gb, gbc and gb2players
+		{
+			systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
+			systemConfiguration->addSaveFunc([colorizations_choices, configName] { SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected()); });
+		}		
 	}
-	if (systemData->getName() == "gb" || systemData->getName() == "gbc" || systemData->getName() == "gb2players" || systemData->getName() == "gbc2players") // only for gb, gbc and gb2players
-		systemConfiguration->addWithLabel(_("COLORIZATION"), colorizations_choices);
 
 	// ps2 full boot
-	auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
-	fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
-	fullboot_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".fullboot") == "1");
-	fullboot_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".fullboot") == "0");
-	if (systemData->getName() == "ps2") // only for ps2
-		systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::fullboot))
+	{
+		auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
+		fullboot_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".fullboot") != "0" && SystemConf::getInstance()->get(configName + ".fullboot") != "1");
+		fullboot_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".fullboot") == "1");
+		fullboot_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".fullboot") == "0");
+
+		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && systemData->getName() == "ps2")) // only for ps2			
+		{
+			systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
+			systemConfiguration->addSaveFunc([fullboot_enabled, configName] { SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected()); });
+		}
+	}
 
 	// wii emulated wiimotes
-	auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
-	emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
-	emulatedwiimotes_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
-	emulatedwiimotes_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
-	if (systemData->getName() == "wii") // only for wii
-		systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::emulated_wiimotes))
+	{
+		auto emulatedwiimotes_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("EMULATED WIIMOTES"));
+		emulatedwiimotes_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "0" && SystemConf::getInstance()->get(configName + ".emulatedwiimotes") != "1");
+		emulatedwiimotes_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "1");
+		emulatedwiimotes_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".emulatedwiimotes") == "0");
+
+		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && systemData->getName() == "wii"))  // only for wii
+		{
+			systemConfiguration->addWithLabel(_("EMULATED WIIMOTES"), emulatedwiimotes_enabled);
+			systemConfiguration->addSaveFunc([emulatedwiimotes_enabled, configName] { SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected()); });
+		}
+	}
 
 	// citra change screen layout
-	auto changescreen_layout = std::make_shared<OptionListComponent<std::string>>(mWindow, _("CHANGE SCREEN LAYOUT"));
-	changescreen_layout->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".layout_option") != "2" && SystemConf::getInstance()->get(configName + ".layout_option") != "3");
-	changescreen_layout->add(_("LARGE SCREEN"), "2", SystemConf::getInstance()->get(configName + ".layout_option") == "2");
-	changescreen_layout->add(_("SIDE BY SIDE"), "3", SystemConf::getInstance()->get(configName + ".layout_option") == "3");
-	if (systemData->getName() == "3ds") // only for 3ds
-		systemConfiguration->addWithLabel(_("CHANGE SCREEN LAYOUT"), changescreen_layout);
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::screen_layout))
+	{
+		auto changescreen_layout = std::make_shared<OptionListComponent<std::string>>(mWindow, _("CHANGE SCREEN LAYOUT"));
+		changescreen_layout->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".layout_option") != "2" && SystemConf::getInstance()->get(configName + ".layout_option") != "3");
+		changescreen_layout->add(_("LARGE SCREEN"), "2", SystemConf::getInstance()->get(configName + ".layout_option") == "2");
+		changescreen_layout->add(_("SIDE BY SIDE"), "3", SystemConf::getInstance()->get(configName + ".layout_option") == "3");
+
+		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && systemData->getName() == "3ds"))  // only for 3ds
+		{
+			systemConfiguration->addWithLabel(_("CHANGE SCREEN LAYOUT"), changescreen_layout);
+			systemConfiguration->addSaveFunc([changescreen_layout, configName] { SystemConf::getInstance()->set(configName + ".layout_option", changescreen_layout->getSelected()); });
+		}
+	}
 
 	// psp internal resolution
-	auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
-	internalresolution->add(_("AUTO"), "auto",
-		SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
-		SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
-		SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
-		SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
-		SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
-	internalresolution->add("1", "1", SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
-	internalresolution->add("2", "2", SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
-	internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
-	internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
-	internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-	if (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube") // only for psp, wii, gamecube
-		systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
-
-	systemConfiguration->addSaveFunc([configName, systemData, smoothing_enabled, rewind_enabled, ratio_choice, videoResolutionMode_choice, emu_choice, core_choice, autosave_enabled, shaders_choices, colorizations_choices, fullboot_enabled, emulatedwiimotes_enabled, changescreen_layout, internalresolution, fileData] 
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::internal_resolution))
 	{
-		SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected());		
-		SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected());		
-		SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected());		
-		SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected());
-		SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected());
-		SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected());
-		SystemConf::getInstance()->set(configName + "-renderer.colorization", colorizations_choices->getSelected());
-		SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected());		
-		SystemConf::getInstance()->set(configName + ".emulatedwiimotes", emulatedwiimotes_enabled->getSelected());
-		SystemConf::getInstance()->set(configName + ".layout_option", changescreen_layout->getSelected());
-		SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected());
-
-		if (fileData != nullptr)
-		{	
-			fileData->setEmulator(emu_choice->getSelected());
-			fileData->setCore(core_choice->getSelected());
-		}
-		else
+		auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
+		internalresolution->add(_("AUTO"), "auto",
+			SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
+			SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
+			SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
+			SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
+			SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
+		internalresolution->add("1", "1", SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
+		internalresolution->add("2", "2", SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
+		internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
+		internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
+		internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
+			
+		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube"))) // only for psp, wii, gamecube
 		{
-			SystemConf::getInstance()->set(configName + ".emulator", emu_choice->getSelected());
-			SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
+			systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
+			systemConfiguration->addSaveFunc([internalresolution, configName] { SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected()); });
 		}
-	});
+	}
 
 	mWindow->pushGui(systemConfiguration);
 }
 
-std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList(Window *window,
-                                                                                 std::string configname) {
-  auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(window, _("GAME RATIO"), false);
-  std::string currentRatio = SystemConf::getInstance()->get(configname + ".ratio");
-  if (currentRatio.empty()) {
-    currentRatio = std::string("auto");
-  }
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList(Window *window, std::string configname)
+{
+	auto ratio_choice = std::make_shared<OptionListComponent<std::string> >(window, _("GAME RATIO"), false);
+	std::string currentRatio = SystemConf::getInstance()->get(configname + ".ratio");
+	if (currentRatio.empty())
+		currentRatio = std::string("auto");
 
-  std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
-  for (auto ratio = ratioMap->begin(); ratio != ratioMap->end(); ratio++) {
-    ratio_choice->add(_(ratio->first.c_str()), ratio->second, currentRatio == ratio->second);
-  }
+	std::map<std::string, std::string> *ratioMap = LibretroRatio::getInstance()->getRatio();
+	for (auto ratio = ratioMap->begin(); ratio != ratioMap->end(); ratio++)
+		ratio_choice->add(_(ratio->first.c_str()), ratio->second, currentRatio == ratio->second);	
 
-  return ratio_choice;
+	return ratio_choice;
 }
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname) 
