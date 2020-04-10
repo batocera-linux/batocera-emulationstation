@@ -202,7 +202,9 @@ public:
 
 	bool isCurrentFeatureSupported(EmulatorFeatures::Features feature);
 	bool isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature);
+	
 	bool hasFeatures();
+	bool hasEmulatorSelection();
 
 private:
 	static void createGroupedSystems();

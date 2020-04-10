@@ -1232,3 +1232,18 @@ std::vector<std::string> SystemData::getCoreNames(std::string emulatorName)
 
 	return list;
 }
+
+bool SystemData::hasEmulatorSelection()
+{
+	int ec = 0;
+	int cc = 0;
+
+	for (auto& emulator : mEmulators)
+	{
+		ec++;
+		for (auto& core : emulator.cores)
+			cc++;
+	}
+
+	return ec > 1 || cc > 1;
+}
