@@ -19,22 +19,66 @@ class FolderData;
 class ThemeData;
 class Window;
 
+class EmulatorFeatures
+{
+public:
+	enum Features
+	{
+		none = 0,
+		ratio = 1,
+		rewind = 2,
+		smooth = 4,
+		shaders = 8,
+		pixel_perfect = 16,
+		decoration = 32,
+		latency_reduction = 64,
+		game_translation = 128,
+		autosave = 256,
+		netplay = 512,
+		fullboot = 1024,
+		emulated_wiimotes = 2048,
+		screen_layout = 4096,
+		internal_resolution = 8192,
+		videomode = 16384,
+		colorization = 32768,
+
+		all = 0x0FFFFFFF
+	};
+
+	static Features parseFeatures(const std::string features);
+};
+
 struct CoreData
 {
-	CoreData() { netplay = false; }
+	CoreData() 
+	{ 
+		netplay = false; 
+		isDefault = false;
+		features = EmulatorFeatures::Features::none;
+	}
 
 	std::string name;
 	bool netplay;
+	bool isDefault;
 
 	std::string customCommandLine;
+
+	EmulatorFeatures::Features features;
 };
 
 struct EmulatorData
 {
+	EmulatorData()
+	{
+		features = EmulatorFeatures::Features::none;
+	}
+
 	std::string name;	
 	std::vector<CoreData> cores;
 
 	std::string customCommandLine;
+
+	EmulatorFeatures::Features features;
 };
 
 struct SystemEnvironmentData
@@ -56,6 +100,8 @@ class SystemData
 public:
     SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
+
+	static bool es_features_loaded;
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
 	inline const std::string& getName() const { return mName; }
@@ -83,6 +129,7 @@ public:
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.
 	static void writeExampleConfig(const std::string& path);
 	static std::string getConfigPath(bool forWrite); // if forWrite, will only return ~/.emulationstation/es_systems.cfg, never /etc/emulationstation/es_systems.cfg
+	static bool loadFeatures();
 
 	static std::vector<SystemData*> sSystemVector;
 
@@ -152,6 +199,12 @@ public:
 	std::string getDefaultCore(const std::string emulatorName);
 	std::string getLaunchCommand(const std::string emulatorName, const std::string coreName);
 	std::vector<std::string> getCoreNames(std::string emulatorName);
+
+	bool isCurrentFeatureSupported(EmulatorFeatures::Features feature);
+	bool isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature);
+	
+	bool hasFeatures();
+	bool hasEmulatorSelection();
 
 private:
 	static void createGroupedSystems();

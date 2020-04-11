@@ -44,8 +44,8 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts() override;	
 	static void openQuitMenu_batocera_static(Window *window, bool forceWin32Menu=false); // batocera
 
-	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData, std::string previouslySelectedEmulator = "");
-	static void popGameConfigurationGui(Window* mWindow, FileData* fileData, std::string previouslySelectedEmulator = "");
+	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData);
+	static void popGameConfigurationGui(Window* mWindow, FileData* fileData);
 
 	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
 
@@ -91,7 +91,7 @@ private:
 
 	static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
 	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname);
-	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, std::string previouslySelectedEmulator);
+	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine = false);
 
 	static void openLatencyReductionConfiguration(Window* mWindow, std::string configName);
 
