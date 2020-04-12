@@ -207,18 +207,26 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 			mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
 
-		if (!fromPlaceholder && !mSystem->isCollection())
+		if (file->getType() == FOLDER && ((FolderData*) file)->isVirtualStorage())
+			fromPlaceholder = true;
+		
+		if (!fromPlaceholder)
 		{
 			mMenu.addGroup(_("GAME OPTIONS"));
 
 			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
-			if (mSystem->hasFeatures() || mSystem->hasEmulatorSelection())
 			{
-				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !mSystem->isGroupSystem())
-					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
+				auto srcSystem = file->getSourceFileData()->getSystem();
+				auto sysOptions = mSystem->isGroupSystem() ? srcSystem : mSystem;
+
+				if (sysOptions->hasFeatures() || sysOptions->hasEmulatorSelection())
+					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
 
 				if (file->getType() != FOLDER)
-					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
+				{
+					if (srcSystem->hasFeatures() || srcSystem->hasEmulatorSelection())
+						mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
+				}
 			}
 
 			if (file->getType() == FOLDER)

@@ -39,6 +39,8 @@ struct LaunchGameOptions
 	int netPlayMode;
 	std::string ip;
 	int port;
+
+	std::string core;
 };
 
 class FolderData;
@@ -70,6 +72,8 @@ public:
 
 	virtual const std::string getCore(bool resolveDefault = true);
 	virtual const std::string getEmulator(bool resolveDefault = true);
+
+	virtual bool isNetplaySupported();
 
 	void setCore(const std::string value);
 	void setEmulator(const std::string value);
@@ -163,6 +167,8 @@ public:
 
 		mChildren.clear();
 	}
+
+	inline bool isVirtualStorage() { return !mOwnsChildrens; }
 
 	inline bool isVirtualFolderDisplay() { return mIsDisplayableAsVirtualFolder && !mOwnsChildrens; }
 	

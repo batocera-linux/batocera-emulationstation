@@ -233,27 +233,18 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 
 	if(Settings::getInstance()->getBool("QuickSystemSelect"))
-	  prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+		prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+
 	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
-	if (SystemConf::getInstance()->getBool("global.netplay"))
-	{
-		if (mRoot->getSystem()->isNetplaySupported())
-			prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
-		else
-		{
-			FileData* cursor = getCursor();
-			if (cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())
-				prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
-			else if (mRoot->getSystem()->isGameSystem())
-				prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
-		}
-	}
-	else if(mRoot->getSystem()->isGameSystem())
+	FileData* cursor = getCursor();
+	if (cursor != nullptr && cursor->isNetplaySupported())
+		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+	else
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
 
 	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())

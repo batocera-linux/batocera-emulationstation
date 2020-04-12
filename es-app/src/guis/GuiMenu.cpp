@@ -3103,85 +3103,70 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// The system configuration
 	GuiSettings* systemConfiguration = new GuiSettings(mWindow, title.c_str());
 
+	if (fileData != nullptr)
+		systemConfiguration->setSubTitle(systemData->getFullName());
+
 	std::string currentEmulator = fileData != nullptr ? fileData->getEmulator(false) : SystemConf::getInstance()->get(configName + ".emulator");
 	std::string currentCore = fileData != nullptr ? fileData->getCore(false) : SystemConf::getInstance()->get(configName + ".core");
 
 	if (systemData->hasEmulatorSelection())
 	{
-		//Emulator choice
-		std::string selectedEmulator;
+		std::string defaultCore = currentCore;
+		if (defaultCore.empty() || defaultCore == "auto")
+			defaultCore = systemData->getDefaultCore(currentEmulator);
 
-		auto emu_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, "emulator", false);
-		bool selected = false;
-
-		for (auto emulator : systemData->getEmulators())
+		auto emulChoice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Emulator"), false);
+		emulChoice->add(_("AUTO"), "", false);
+		for (auto& emul : systemData->getEmulators())
 		{
-			std::string curEmulatorName = emulator.name;
-
-			bool found = (currentEmulator == curEmulatorName);
-			if (found)
-				selectedEmulator = curEmulatorName;
-
-			selected = selected || found;
-			emu_choice->add(curEmulatorName, curEmulatorName, found);
-		}
-		emu_choice->add(_("AUTO"), "auto", !selected);
-		emu_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData, fileData, emu_choice](std::string s)
-		{
-			if (fileData != nullptr)
-				fileData->setEmulator(s);
+			if (emul.cores.size() == 0)
+				emulChoice->add(emul.name, emul.name, emul.name == currentEmulator);
 			else
-				SystemConf::getInstance()->set(configName + ".emulator", s);
-
-			popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData);
-			delete systemConfiguration;
-		});
-		systemConfiguration->addWithLabel(_("Emulator"), emu_choice);
-
-		// Core choice
-		auto core_choice = std::make_shared<OptionListComponent<std::string> >(mWindow, _("Core"), false);
-		
-		// search if one will be selected
-		bool onefound = false;
-
-		for (auto emulator : systemData->getEmulators())
-		{
-			if (selectedEmulator != emulator.name)
-				continue;
-
-			for (auto core : emulator.cores)
 			{
-				if (currentCore == core.name)
+				for (auto& core : emul.cores)
 				{
-					onefound = true;
-					break;
+					bool selected = (emul.name == currentEmulator && core.name == defaultCore);
+
+					if (emul.name == core.name)
+						emulChoice->add(emul.name, emul.name + "/" + core.name, selected);
+					else
+						emulChoice->add(emul.name + " / " + Utils::String::replace(core.name, "_", " "), emul.name + "/" + core.name, selected);
 				}
 			}
 		}
 
-		core_choice->add(_("AUTO"), "auto", !onefound);
+		if (!emulChoice->hasSelection())
+			emulChoice->selectFirstItem();
 
-		for (auto emulator : systemData->getEmulators())
+		emulChoice->setSelectedChangedCallback([mWindow, title, systemConfiguration, systemData, fileData, configName, emulChoice](std::string s)
 		{
-			if (selectedEmulator != emulator.name)
-				continue;
+			std::string newEmul;
+			std::string newCore;
 
-			for (auto core : emulator.cores)
-				core_choice->add(core.name, core.name, currentCore == core.name); // select the first one if none is selected
-		}
+			auto values = Utils::String::split(emulChoice->getSelected(), '/');
+			if (values.size() == 2)
+			{
+				newEmul = values[0];
+				newCore = values[1];
+			}
 
-		core_choice->setSelectedChangedCallback([mWindow, title, configName, systemConfiguration, systemData, fileData, core_choice](std::string s)
-		{
 			if (fileData != nullptr)
-				fileData->setCore(core_choice->getSelected());
+			{
+				fileData->setEmulator(newEmul);
+				fileData->setCore(newCore);
+			}
 			else
-				SystemConf::getInstance()->set(configName + ".core", core_choice->getSelected());
+			{
+				SystemConf::getInstance()->set(configName + ".emulator", newEmul);
+				SystemConf::getInstance()->set(configName + ".core", newCore);
+			}
 
-			popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData, true);
+			popSpecificConfigurationGui(mWindow, title, configName, systemData, fileData);
 			delete systemConfiguration;
+
 		});
 
-		systemConfiguration->addWithLabel(_("Core"), core_choice, selectCoreLine);
+		systemConfiguration->addWithLabel(_("Emulator"), emulChoice);
 	}
 
 	// Screen ratio choice

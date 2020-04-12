@@ -16,6 +16,7 @@ public:
 	unsigned long getFreeSpaceGB(std::string mountpoint) override;
 	std::string getFreeSpaceInfo() override;
 	std::string getIpAdress() override;
+	std::vector<std::string> getVideoModes() override;
 
 	void setReadyFlag(bool ready = true) override;
 	bool isReadyFlagSet() override;
