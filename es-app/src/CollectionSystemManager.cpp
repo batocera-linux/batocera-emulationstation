@@ -1255,7 +1255,10 @@ bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)
 	// we exclude non-game files from collections (i.e. "kodi", entries from non-game systems)
 	// if/when there are more in the future, maybe this can be a more complex method, with a proper list
 	// but for now a simple string comparison is more performant
-	return file->getName() != "kodi" && file->getSystem()->isGameSystem();
+	if (file->getName() != "kodi" && file->getSystem()->isGameSystem() && !file->getSystem()->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+		return true;
+
+	return false;
 }
 
 std::string getCustomCollectionConfigPath(std::string collectionName)
