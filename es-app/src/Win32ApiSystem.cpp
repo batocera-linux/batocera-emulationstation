@@ -11,6 +11,8 @@
 #include <ShlDisp.h>
 #include <comutil.h> // #include for _bstr_t
 #include <thread>
+#include <direct.h>
+#include "LocaleES.h"
 
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
@@ -30,6 +32,11 @@ std::string getUrlFromUpdateType(std::string url)
 
 bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 {
+#if _DEBUG
+	if (script == ApiSystem::DISKFORMAT)
+		return true;
+#endif
+
 	if (script == ApiSystem::NETPLAY)
 	{
 		if (!(Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||
@@ -444,7 +451,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thn
 			if (downloadGitRepository(themeUrl, zipFile, thname, func))
 			{
 				if (func != nullptr)
-					func("Extracting " + thname);
+					func(_("Extracting") + " " + thname);
 
 				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
 
@@ -578,7 +585,17 @@ std::vector<std::string> Win32ApiSystem::getBatoceraBezelsList()
 	{
 		auto lines = Utils::String::split(request.getContent(), '\n');
 		for (auto line : lines)
-			res.push_back("[A]\t" + line);
+		{
+			auto parts = Utils::String::splitAny(line, " \t");
+			if (parts.size() < 2)
+				continue;
+
+			std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + parts[0];
+			if (Utils::FileSystem::exists(theBezelProject))
+				res.push_back("[I]\t" + line);
+			else
+				res.push_back("[A]\t" + line);
+		}
 	}
 
 	return res;
@@ -599,11 +616,43 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
 
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/decorations/" + themeFileName + ".zip";
+			std::string zipFile = getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip";
 			zipFile = Utils::String::replace(zipFile, "/", "\\");
 
 			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
+			{
+				std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/"+ bezelsystem;
+				Utils::FileSystem::createDirectory(theBezelProject);
+
+				std::string tmp = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem + "/tmp";
+				Utils::FileSystem::createDirectory(tmp);
+
+				if (func != nullptr)
+					func(_("Extracting") + " " + bezelsystem+ " bezels");
+
+				unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(tmp));
+				Utils::FileSystem::removeFile(zipFile);
+
+				auto files = Utils::FileSystem::getDirContent(tmp, true, true);
+				for (auto file : files)
+				{
+					std::string ext = Utils::FileSystem::getExtension(file);
+					if (ext != ".cfg" && ext != ".png")
+						continue;
+
+					if (file.find("/overlay/GameBezels/") == std::string::npos)
+						continue;
+					
+					std::string dest;
+					dest = Utils::FileSystem::getPreferredPath(theBezelProject + "/" + Utils::FileSystem::getFileName(file));
+					rename(Utils::FileSystem::getPreferredPath(file).c_str(), dest.c_str());					
+				}
+
+				Utils::FileSystem::deleteDirectoryFiles(tmp);
+				rmdir(Utils::FileSystem::getPreferredPath(tmp).c_str());
+
 				return std::pair<std::string, int>(std::string("OK"), 0);
+			}
 
 			break;
 		}
@@ -614,7 +663,11 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 
 std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem)
 {
-	return std::pair<std::string, int>("", 1);
+	std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem;
+	Utils::FileSystem::deleteDirectoryFiles(theBezelProject);
+	rmdir(theBezelProject.c_str());
+
+	return std::pair<std::string, int>("OK", 0);
 }
 
 std::string Win32ApiSystem::getFreeSpaceInfo()

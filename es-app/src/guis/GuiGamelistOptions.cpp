@@ -207,22 +207,24 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
 			mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
 
-		if (!fromPlaceholder && !mSystem->isCollection() && file->getType() == GAME)
+		if (!fromPlaceholder && !mSystem->isCollection())
 		{
 			mMenu.addGroup(_("GAME OPTIONS"));
 
 			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+			if (mSystem->hasFeatures() || mSystem->hasEmulatorSelection())
 			{
-				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-				{
-					if (!mSystem->isGroupSystem())
-						mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
+				if (!mSystem->isCollection() && !mSystem->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !mSystem->isGroupSystem())
+					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, system] { GuiMenu::popSystemConfigurationGui(mWindow, system); });
 
+				if (file->getType() != FOLDER)
 					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, file] { GuiMenu::popGameConfigurationGui(mWindow, file); });
-				}
 			}
 
-			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
+			if (file->getType() == FOLDER)
+				mMenu.addEntry(_("EDIT FOLDER METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
+			else
+				mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 		}
 	}
 	
