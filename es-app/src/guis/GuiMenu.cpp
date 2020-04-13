@@ -3485,19 +3485,22 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// psp internal resolution
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::internal_resolution))
 	{
+		std::string curResol = SystemConf::getInstance()->get(configName + ".internalresolution");
+
 		auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
-		internalresolution->add(_("AUTO"), "auto",
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
-		internalresolution->add("1", "1", SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
-		internalresolution->add("2", "2", SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
-		internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
-		internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
-		internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-			
+		internalresolution->add(_("AUTO"), "auto", curResol.empty() || curResol == "auto");
+		internalresolution->add("1:1", "0", curResol == "0");
+		internalresolution->add("x1", "1", curResol == "1");
+		internalresolution->add("x2", "2", curResol == "2");
+		internalresolution->add("x3", "3", curResol == "3");
+		internalresolution->add("x4", "4", curResol == "4");
+		internalresolution->add("x5", "5", curResol == "5");
+		internalresolution->add("x8", "8", curResol == "8");
+		internalresolution->add("x10", "10", curResol == "10");
+
+		if (!internalresolution->hasSelection())
+			internalresolution->selectFirstItem();
+
 		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube"))) // only for psp, wii, gamecube
 		{
 			systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
