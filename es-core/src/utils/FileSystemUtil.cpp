@@ -1111,15 +1111,20 @@ namespace Utils
 
 		void deleteDirectoryFiles(const std::string path)
 		{
+			std::vector<std::string> directories;
+
 			auto files = Utils::FileSystem::getDirContent(path, true, true);
 			std::reverse(std::begin(files), std::end(files));
 			for (auto file : files)
 			{
 				if (Utils::FileSystem::isDirectory(file))
-					rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
+					directories.push_back(file);
 				else
 					Utils::FileSystem::removeFile(file);
 			}
+
+			for (auto file : directories)
+				rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
 		}
 	} // FileSystem::
 
