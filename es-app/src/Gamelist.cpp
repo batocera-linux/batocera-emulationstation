@@ -240,7 +240,11 @@ bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* t
 
 	// there's something useful in there so we'll keep the node, add the path
 	// try and make the path relative if we can so things still work if we change the rom folder location in the future
-	newNode.prepend_child("path").text().set(Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str());
+	std::string path = Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str();
+	if (path.empty() && file->getType() == FOLDER)
+		path = ".";
+
+	newNode.prepend_child("path").text().set(path.c_str());
 	return true;	
 }
 

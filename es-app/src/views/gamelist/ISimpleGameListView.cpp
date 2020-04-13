@@ -177,34 +177,28 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 		}else if (config->isMappedTo("x", input))
 		{
-			if (SystemConf::getInstance()->getBool("global.netplay")) //  && mRoot->getSystem()->isNetplaySupported()
+			FileData* cursor = getCursor();
+			if(cursor != nullptr && cursor->isNetplaySupported())
 			{
-				FileData* cursor = getCursor();
-				if(cursor != nullptr && cursor->getType() == GAME && cursor->getSourceFileData()->getSystem() != nullptr && cursor->getSourceFileData()->getSystem()->isNetplaySupported())
+				Window* window = mWindow;
+
+				window->pushGui(new GuiMsgBox(mWindow, _("LAUNCH THE GAME AS NETPLAY HOST ?"), _("YES"), [this, window, cursor]
 				{
-					Window* window = mWindow;
+					LaunchGameOptions options;
+					options.netPlayMode = SERVER;
+					ViewController::get()->launch(cursor, options);
 
-					window->pushGui(new GuiMsgBox(mWindow, _("LAUNCH THE GAME AS NETPLAY HOST ?"), _("YES"), [this, window, cursor]
-					{
-						LaunchGameOptions options;
-						options.netPlayMode = SERVER;
-						ViewController::get()->launch(cursor, options);
-
-					}, _("NO"), nullptr));
-
-					return true;
-				}				
-			}
-			
-			if (mRoot->getSystem()->isGameSystem())
-			{		
-				// go to random system game
-				FileData* randomGame = getCursor()->getSystem()->getRandomGame();
-				if (randomGame)
-					setCursor(randomGame);
+				}, _("NO"), nullptr));
 
 				return true;
-			}
+			}				
+			
+			// go to random system game
+			FileData* randomGame = getRandomGame();
+			if (randomGame)
+				setCursor(randomGame);
+
+			return true;
 		}
 		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid())
 		{
@@ -214,6 +208,21 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		}
 	}
 	return IGameListView::input(config, input);
+}
+
+FileData* ISimpleGameListView::getRandomGame()
+{
+	auto list = getFileDataEntries();
+
+	unsigned int total = (int)list.size();
+	if (total == 0)
+		return nullptr;
+
+	int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
+	if (target >= 0 && target < total)
+		return list.at(target);
+
+	return nullptr;
 }
 
 std::vector<std::string> ISimpleGameListView::getEntriesLetters()

@@ -46,7 +46,11 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	if (backGroundImageTheme && backGroundImageTheme->has("path") && Utils::FileSystem::exists(backGroundImageTheme->get<std::string>("path")))
 		imagePath = backGroundImageTheme->get<std::string>("path");
 
-	mTexture = TextureResource::get(imagePath, false, true, true, false, false);
+	bool linearSmooth = false;
+	if (backGroundImageTheme && backGroundImageTheme->has("linearSmooth"))
+		linearSmooth = backGroundImageTheme->get<bool>("linearSmooth");
+	
+	mTexture = TextureResource::get(imagePath, false, linearSmooth, true, false, false);
 	
 	if (!fullScreenBackGround)
 		ResourceManager::getInstance()->removeReloadable(mTexture);
@@ -246,7 +250,12 @@ void Splash::render(float opacity, bool swapBuffers)
 	if (!mText.getText().empty())
 	{
 		// Ensure font is loaded
-		Font::get(FONT_SIZE_MEDIUM)->reload();
+		auto font = mText.getFont();
+		if (font != nullptr)
+			font->reload();
+		else
+			Font::get(FONT_SIZE_MEDIUM)->reload();
+
 		mText.render(trans);
 	}
 

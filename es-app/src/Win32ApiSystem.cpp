@@ -936,4 +936,45 @@ bool Win32ApiSystem::isReadyFlagSet()
 {
 	return Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "/tmp/emulationstation.ready");
 }
+
+std::vector<std::string> Win32ApiSystem::getVideoModes()
+{
+	std::vector<std::string> ret;
+
+	DEVMODE vDevMode;
+
+	int i = 0;
+	while (EnumDisplaySettings(nullptr, i, &vDevMode))
+	{
+		if (vDevMode.dmDisplayFixedOutput == 0)
+		{			
+			if (vDevMode.dmBitsPerPel == 32)
+				ret.push_back(
+					std::to_string(vDevMode.dmPelsWidth)+"x"+
+					std::to_string(vDevMode.dmPelsHeight)+"x"+
+					std::to_string(vDevMode.dmBitsPerPel)+"x"+
+					std::to_string(vDevMode.dmDisplayFrequency) + ":" +
+					std::to_string(vDevMode.dmPelsWidth) + "x" +
+					std::to_string(vDevMode.dmPelsHeight) + " " +
+					std::to_string(vDevMode.dmDisplayFrequency) + "Hz");
+			else
+			{
+				ret.push_back(
+					std::to_string(vDevMode.dmPelsWidth) + "x" +
+					std::to_string(vDevMode.dmPelsHeight) + "x" +
+					std::to_string(vDevMode.dmBitsPerPel) + "x" +
+					std::to_string(vDevMode.dmDisplayFrequency) + ":" +
+					std::to_string(vDevMode.dmPelsWidth) + "x" +
+					std::to_string(vDevMode.dmPelsHeight) + "x" +
+					std::to_string(vDevMode.dmBitsPerPel) + " " +
+					std::to_string(vDevMode.dmDisplayFrequency) + "Hz");
+			}				
+		}
+
+		i++;
+	}
+
+	return ret;
+}
+
 #endif

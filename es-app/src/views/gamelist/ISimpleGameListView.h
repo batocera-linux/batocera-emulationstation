@@ -33,6 +33,8 @@ public:
 	virtual std::vector<std::string> getEntriesLetters() override;
 
 protected:
+	FileData* getRandomGame();
+
 	virtual std::vector<FileData*> getFileDataEntries() = 0;
 	virtual std::string getQuickSystemSelectRightButton() = 0;
 	virtual std::string getQuickSystemSelectLeftButton() = 0;
