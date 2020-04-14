@@ -571,10 +571,11 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 				}
 			}
 		}
+
+		if (elem->has("scrollSound"))
+			mScrollSound = elem->get<std::string>("scrollSound");
 	}
 
-	if (elem->has("scrollSound"))
-		mScrollSound = elem->get<std::string>("scrollSound");
 
 	// We still need to manually get the grid tile size here,
 	// so we can recalculate the new grid dimension, and THEN (re)build the tiles
