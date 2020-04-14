@@ -290,7 +290,7 @@ msgid "WHEEL"
 msgstr "RODA"
 
 msgid "MARQUEE"
-msgstr "LETREIRO"
+msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE DAS AVALIAÇÕES"
@@ -1055,7 +1055,7 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
+msgstr "USAR MARQUEE COMO INFORMAÇÃO DO JOGO"
 
 msgid "DECORATIONS"
 msgstr "DECORAÇÕES"
@@ -1214,10 +1214,10 @@ msgid "enter path to video"
 msgstr "insira o caminho para o vídeo"
 
 msgid "Marquee"
-msgstr "Letreiro"
+msgstr "Marquee"
 
 msgid "enter path to marquee"
-msgstr "insira o caminho para a letreiro"
+msgstr "insira o caminho para a marquee"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
@@ -1765,7 +1765,7 @@ msgstr "cima/baixo"
 #~ msgstr "Caminho para o vídeo"
 
 #~ msgid "Path to marquee"
-#~ msgstr "Caminho para a letreiro"
+#~ msgstr "Caminho para a marquee"
 
 #~ msgid "set hidden"
 #~ msgstr "ocultar rom"
@@ -1786,7 +1786,7 @@ msgstr "cima/baixo"
 #~ msgstr "miniatura"
 
 #~ msgid "marquee"
-#~ msgstr "letreiro"
+#~ msgstr "marquee"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
@@ -1825,7 +1825,7 @@ msgstr "cima/baixo"
 #~ msgstr "FONTE DE MINIATURA PREFERIDA"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "SCRAPE LETREIRO"
+#~ msgstr "SCRAPE MARQUEE"
 
 #~ msgid "UPDATES"
 #~ msgstr "ATUALIZAÇÕES"
