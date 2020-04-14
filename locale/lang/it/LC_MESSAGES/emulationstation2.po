@@ -1340,10 +1340,16 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VUOI ESEGUIRE KODI MEDIA CENTER?"
 
 #, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i GIOCO DISPONIBILE"
-msgstr[1] "%i GIOCHI DISPONIBILI"
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i GIOCO"
+msgstr[1] "%i GIOCHI"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i ELEMENTO"
+msgstr[1] "%i ELEMENTI"
 
 msgid "KODI"
 msgstr "KODI"
