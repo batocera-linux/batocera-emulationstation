@@ -468,6 +468,12 @@ int main(int argc, char* argv[])
 	if(!verifyHomeFolderExists())
 		return 1;
 
+	if (!gPlayVideo.empty())
+	{
+		playVideo();
+		return 0;
+	}
+
 	//start the logger
 	Log::setupReportingLevel();
 	Log::init();	

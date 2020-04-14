@@ -296,7 +296,7 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 				config->isMappedTo("righttrigger", input) || config->isMappedTo("lefttrigger", input))
 #else
 			if(config->isMappedLike("down", input) || config->isMappedLike("up", input) || 
-				config->isMappedTo("pagedown", input) || config->isMappedTo("pageup", input))
+				config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
 #endif
 			{
 				stopScrolling();

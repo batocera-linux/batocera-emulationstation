@@ -28,6 +28,51 @@
 
 SystemConf *SystemConf::sInstance = NULL;
 
+static std::vector<std::string> dontRemoveAutoValue
+{
+	{ "audio.device" }
+};
+
+static std::map<std::string, std::string> defaults =
+{
+	{ "kodi.enabled", "1" },
+	{ "kodi.atstartup", "0" },
+	{ "kodi.xbutton", "1" },
+	{ "audio.bgmusic", "1" },
+	{ "wifi.enabled", "0" },
+	{ "system.hostname", "BATOCERA" },
+	{ "global.retroachievements", "0" },
+	{ "global.retroachievements.hardcore", "0" },
+	{ "global.retroachievements.leaderboards", "0" },
+	{ "global.retroachievements.verbose", "0" },
+	{ "global.retroachievements.screenshot", "0" },
+	{ "global.retroachievements.username", "" },
+	{ "global.retroachievements.password", "" },
+	{ "global.ai_service_enabled", "0" },
+};
+
+/*
+kodi.enabled=1
+kodi.atstartup=0
+kodi.xbutton=1
+audio.bgmusic=1
+system.language=en_US
+controllers.bluetooth.enabled=1
+controllers.ps3.enabled=1
+controllers.ps3.driver=bluez
+controllers.xboxdrv.enabled=0
+controllers.xboxdrv.nbcontrols=2
+controllers.gpio.enabled=0
+controllers.gpio.args=map=1,2
+controllers.db9.enabled=0
+controllers.db9.args=map=1
+controllers.gamecon.enabled=0
+controllers.gamecon.args=map=1
+controllers.xarcade.enabled=1
+wifi.enabled=0
+system.hostname=BATOCERA
+global.retroachievements.*
+*/
 #ifdef _ENABLEEMUELEC
 std::string systemConfFile = "/storage/.config/emuelec/configs/emuelec.conf";
 std::string systemConfFileTmp = "/storage/.config/emuelec/configs/emuelec.conf.tmp";
@@ -116,6 +161,8 @@ bool SystemConf::saveSystemConf()
 		filein.close();
 	}
 
+	static std::string removeID = "$^�(p$^mpv$�rpver$^vper$vper$^vper$vper$vper$^vperv^pervncvizn";
+
 	int lastTime = SDL_GetTicks();
 
 	/* Save new value if exists */
@@ -142,10 +189,16 @@ bool SystemConf::saveSystemConf()
 			if (idx == 0 || (idx == 1 && (fc == ';' || fc == '#')))
 			{
 				std::string val = it.second;
-				if (!val.empty() && val != "auto")
-					currentLine = key + val;
-				else
-					currentLine = "#" + key + it.second;
+				if ((!val.empty() && val != "auto") || std::find(dontRemoveAutoValue.cbegin(), dontRemoveAutoValue.cend(), it.first) != dontRemoveAutoValue.cend())
+				{
+					auto defaultValue = defaults.find(key);
+					if (defaultValue != defaults.cend() && defaultValue->second == val)
+						currentLine = removeID;
+					else
+						currentLine = key + val;
+				}
+				else 
+					currentLine = removeID;
 
 				lineFound = true;
 			}
@@ -169,8 +222,10 @@ bool SystemConf::saveSystemConf()
 		LOG(LogError) << "Unable to open for saving :  " << systemConfFileTmp << "\n";
 		return false;
 	}
-	for (int i = 0; i < fileLines.size(); i++) {
-		fileout << fileLines[i] << "\n";
+	for (int i = 0; i < fileLines.size(); i++) 
+	{
+		if (fileLines[i] != removeID)
+			fileout << fileLines[i] << "\n";
 	}
 
 	fileout.close();

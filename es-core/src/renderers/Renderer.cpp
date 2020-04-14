@@ -165,8 +165,9 @@ namespace Renderer
 
 	void activateWindow()
 	{
+		SDL_RestoreWindow(sdlWindow);
 		SDL_RaiseWindow(sdlWindow);
-		SDL_SetWindowInputFocus(sdlWindow);
+		SDL_SetWindowInputFocus(sdlWindow);		
 	}
 
 	bool init()

@@ -302,7 +302,39 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
 	std::string core = getCore();
+
+	bool forceCore = false;
+
+	if (options.netPlayMode == CLIENT && !options.core.empty() && core != options.core)
+	{
+		for (auto& em : system->getEmulators())
+		{
+			for (auto& cr : em.cores)
+			{
+				if (cr.name == options.core)
+				{
+					emulator = em.name;
+					core = cr.name;
+					forceCore = true;
+					break;
+				}
+			}
+
+			if (forceCore)
+				break;
+		}
+	}
+
 	std::string command = system->getLaunchCommand(emulator, core);
+
+	if (forceCore)
+	{
+		if (command.find("%EMULATOR%") == std::string::npos && command.find("-emulator") == std::string::npos)
+			command = command + " -emulator %EMULATOR%";
+
+		if (command.find("%CORE%") == std::string::npos && command.find("-core") == std::string::npos)
+			command = command + " -core %CORE%";
+	}
 
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
@@ -317,7 +349,7 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
 
-	if (options.netPlayMode != DISABLED && mSystem->isNetplaySupported() && command.find("%NETPLAY%") == std::string::npos)
+	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
 
 	if (options.netPlayMode == CLIENT)
@@ -340,6 +372,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 	else
 		command = Utils::String::replace(command, "%NETPLAY%", "");
+
+	int monitorId = Settings::getInstance()->getInt("MonitorID");
+	if (monitorId >= 0 && command.find(" -system ") != std::string::npos)
+		command = command + " -monitor " + std::to_string(monitorId);
 
 	Scripting::fireEvent("game-start", rom, basename);
 
@@ -763,4 +799,36 @@ void FileData::setEmulator(const std::string value)
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
 #endif
+}
+
+bool FileData::isNetplaySupported()
+{
+	if (!SystemConf::getInstance()->getBool("global.netplay"))
+		return false;
+
+	auto file = getSourceFileData();
+	if (file->getType() != GAME)
+		return false;
+
+	auto system = file->getSystem();
+	if (system == nullptr)
+		return false;
+	
+	std::string emulName = getEmulator();
+	std::string coreName = getCore();
+
+	if (!SystemData::es_features_loaded)
+	{
+		std::string command = system->getLaunchCommand(emulName, coreName);
+		if (command.find("%NETPLAY%") != std::string::npos)
+			return true;
+	}
+	
+	for (auto emul : system->getEmulators())
+		if (emulName == emul.name)
+			for (auto core : emul.cores)
+				if (coreName == core.name)
+					return core.netplay;
+					
+	return false;
 }

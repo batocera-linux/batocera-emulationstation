@@ -208,6 +208,8 @@ public:
 		else
 			mImage->setImage(entry.fileData->getImagePath());		
 
+		mImage->setRoundCorners(0.25);
+
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata("name") + " [" + entry.fileData->getSystemName() + "]";
 
 		mText = std::make_shared<TextComponent>(mWindow, name.c_str(), theme->Text.font, theme->Text.color);
@@ -221,6 +223,9 @@ public:
 
 		std::string subInfo = _U("\uf11B  ") + entry.core_name + " (" + entry.retroarch_version + ")";
 
+		if (entry.fileData != nullptr && !entry.coreExists)
+			subInfo = subInfo + " " + _U("\uf071  ") + _("UNAVAILABLE CORE");
+		
 		mDetails = std::make_shared<TextComponent>(mWindow, subInfo.c_str(), theme->TextSmall.font, theme->Text.color);
 		mDetails->setOpacity(192);
 		
@@ -388,6 +393,8 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("port") && fields["port"].IsInt())
 			game.port = fields["port"].GetInt();
 
+		game.coreExists = coreExists(file, game.core_name);
+
 		entries.push_back(game);
 	}	
 
@@ -457,6 +464,40 @@ void GuiNetPlay::render(const Transform4x4f &parentTrans)
 		mBusyAnim.render(parentTrans);
 }
 
+static std::map<std::string, std::string> coreList =
+{
+#if WIN32
+	{ "Genesis Plus GX", "genesis_plus_gx" },
+	{ "MAME 2003-Plus", "mame2003_plus" },
+	{ "MAME 2010", "mame2010" },
+#else
+	{ "Genesis Plus GX", "genesisplusgx" },
+	{ "MAME 2003-Plus", "mame078plus" },
+	{ "MAME 2010", "mame0139" },
+#endif
+	{ "FinalBurn Neo", "fbneo" },
+	{ "FB Alpha", "fbalpha" },
+	{ "MAME 2003 (0.78)", "mame2003" },
+	{ "FB Alpha 2012", "fbalpha2012" },
+	{ "FB Alpha 2012 Neo Geo", "fbalpha2012_neogeo" },
+	{ "Snes9x 2010", "fbalpha2012" },
+	{ "EightyOne", "81" },
+	{ "VICE x64", "vice" },
+	{ "Beetle VB", "vb" },
+	{ "DOSBox-SVN", "dosbox" },
+	{ "Game & Watch", "gw" },
+	{ "MAME 2000", "imame4all" },
+	{ "MAME 2014", "mame2014" },
+	{ "Beetle NeoPop", "mednafen_ngp" },
+	{ "Beetle SuperGrafx", "mednafen_supergrafx" },
+	{ "Beetle WonderSwan", "mednafen_wswan" },
+	{ "Beetle PCE Fast", "pce" },
+	{ "PCSX-ReARMed", "pcsx_rearmed" },
+	{ "Snes9x 2002", "pocketsnes" },
+	{ "Snes9x 2010", "snes9x_next" },
+	{ "tgbdual", "TGB Dual" }
+};
+
 void GuiNetPlay::launchGame(LobbyAppEntry entry)
 {
 	LaunchGameOptions options;
@@ -473,6 +514,36 @@ void GuiNetPlay::launchGame(LobbyAppEntry entry)
 		options.port = entry.port;
 	}
 	
+	auto coreInfo = coreList.find(entry.core_name);
+	if (coreInfo != coreList.cend())
+		options.core = coreInfo->second;
+	else 	
+		options.core = Utils::String::toLower(Utils::String::replace(entry.core_name, " ", "_"));
+	
 	ViewController::get()->launch(entry.fileData, options);
 	delete this;
+}
+
+bool GuiNetPlay::coreExists(FileData* file, std::string core_name)
+{
+	if (file == nullptr)
+		return false;
+
+	if (core_name.empty())
+		return false;
+
+	std::string coreName;
+
+	auto coreInfo = coreList.find(core_name);
+	if (coreInfo != coreList.cend())
+		coreName = coreInfo->second;
+	else
+		coreName = Utils::String::toLower(Utils::String::replace(core_name, " ", "_"));
+
+	for (auto& emul : file->getSourceFileData()->getSystem()->getEmulators())
+		for (auto& core : emul.cores)
+			if (core.name == coreName)
+				return true;
+
+	return false;
 }

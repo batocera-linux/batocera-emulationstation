@@ -34,6 +34,8 @@ struct LobbyAppEntry
 	bool		fixed;
 	std::string retroarch_version;
 	int         port;
+
+	bool		coreExists;
 };
 
 
@@ -54,6 +56,7 @@ private:
 	void launchGame(LobbyAppEntry entry);
 
 	FileData* getFileData(const std::string gameInfo, bool crc = true);
+	bool coreExists(FileData* file, std::string core_name);
 
 	NinePatchComponent				mBackground;
 	ComponentGrid					mGrid;
