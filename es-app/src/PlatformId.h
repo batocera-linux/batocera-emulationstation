@@ -85,6 +85,7 @@ namespace PlatformIds
 		GX4000,
 		LUTRO,
 		MOONLIGHT,
+		MRBOOM,
 		NAOMI,
 		NEOGEO_CD,
 		PCFX,
