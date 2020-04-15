@@ -100,6 +100,7 @@ namespace PlatformIds
 		{ "sg1000",					SEGA_SG1000 },
 		{ "odyssey2",				VIDEOPAC_ODYSSEY2 },
 		{ "oricatmos",				ORICATMOS },
+		{ "tyrquake",				QUAKE },
 
 		// windows specific systems & names
 		{ "windows",				MOONLIGHT },
