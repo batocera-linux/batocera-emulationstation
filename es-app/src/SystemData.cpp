@@ -393,6 +393,9 @@ bool SystemData::loadFeatures()
 {
 	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
 	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getSharedConfigPath() + "/es_features.cfg";
+
+	if (!Utils::FileSystem::exists(path))
 		return false;
 
 	pugi::xml_document doc;
