@@ -400,7 +400,8 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 
 	bool splittedRendering = (mAnimateSelection && mAutoLayout.x() != 0);
 
-	Renderer::pushClipRect(pos, size);
+	if (mPadding != Vector4f::Zero() || mMargin != Vector2f::Zero())
+		Renderer::pushClipRect(pos, size);
 
 	// Render the selected image background on bottom of the others if needed
 	std::shared_ptr<GridTileComponent> selectedTile = NULL;
@@ -434,7 +435,8 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 			selectedTile->render(tileTrans);
 	}
 
-	Renderer::popClipRect();
+	if (mPadding != Vector4f::Zero() || mMargin != Vector2f::Zero())
+		Renderer::popClipRect();
 
 	listRenderTitleOverlay(trans);
 	GuiComponent::renderChildren(trans);

@@ -30,6 +30,28 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 {
 	setTag("grid");
 
+	mLblRating.setVisible(false);
+	mLblReleaseDate.setVisible(false);
+	mLblDeveloper.setVisible(false);
+	mLblPublisher.setVisible(false);
+	mLblGenre.setVisible(false);
+	mLblPlayers.setVisible(false);
+	mLblLastPlayed.setVisible(false);
+	mLblPlayCount.setVisible(false);		
+	mName.setVisible(false);
+	mPlayCount.setVisible(false);
+	mLastPlayed.setVisible(false);
+	mPlayers.setVisible(false);
+	mGenre.setVisible(false);
+	mPublisher.setVisible(false);
+	mDeveloper.setVisible(false);
+	mReleaseDate.setVisible(false);
+	mRating.setVisible(false);
+
+	mLblGameTime.setVisible(false);
+	mGameTime.setVisible(false);
+	mDescContainer.setVisible(false);
+
 	const float padding = 0.01f;
 
 	mGrid.setGridSizeOverride(gridSize);
@@ -420,10 +442,7 @@ void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	};
 
 	for(unsigned int i = 0; i < labels.size(); i++)
-	{
 		labels[i]->applyTheme(theme, getName(), lblElements[i], ALL);
-	}
-
 
 	initMDValues();
 	std::vector<GuiComponent*> values = getMDValues();
@@ -434,13 +453,8 @@ void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	};
 
 	for(unsigned int i = 0; i < values.size(); i++)
-	{
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
-	}
-
-	mLblGameTime.setVisible(theme->getElement(getName(), "md_lbl_gametime", "text") != nullptr);
-	mGameTime.setVisible(theme->getElement(getName(), "md_gametime", "text") != nullptr);
-
+	
 	if (theme->getElement(getName(), "md_description", "text"))
 	{
 		mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX);
