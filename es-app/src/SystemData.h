@@ -19,6 +19,19 @@ class FolderData;
 class ThemeData;
 class Window;
 
+struct CustomFeatureChoice
+{
+	std::string name;
+	std::string value;
+};
+
+struct CustomFeature
+{
+	std::string name;
+	std::string value;
+	std::vector<CustomFeatureChoice> choices;
+};
+
 class EmulatorFeatures
 {
 public:
@@ -62,6 +75,7 @@ struct CoreData
 	bool isDefault;
 
 	std::string customCommandLine;
+	std::vector<CustomFeature> customFeatures;
 
 	EmulatorFeatures::Features features;
 };
@@ -77,6 +91,7 @@ struct EmulatorData
 	std::vector<CoreData> cores;
 
 	std::string customCommandLine;
+	std::vector<CustomFeature> customFeatures;
 
 	EmulatorFeatures::Features features;
 };
@@ -129,7 +144,9 @@ public:
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.
 	static void writeExampleConfig(const std::string& path);
 	static std::string getConfigPath(bool forWrite); // if forWrite, will only return ~/.emulationstation/es_systems.cfg, never /etc/emulationstation/es_systems.cfg
+
 	static bool loadFeatures();
+	static std::vector<CustomFeature> loadCustomFeatures(pugi::xml_node node);
 
 	static std::vector<SystemData*> sSystemVector;
 
@@ -202,6 +219,7 @@ public:
 
 	bool isCurrentFeatureSupported(EmulatorFeatures::Features feature);
 	bool isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature);
+	std::vector<CustomFeature> getCustomFeatures(std::string emulatorName, std::string coreName);
 	
 	bool hasFeatures();
 	bool hasEmulatorSelection();

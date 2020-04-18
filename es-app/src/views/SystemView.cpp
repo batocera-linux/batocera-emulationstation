@@ -489,8 +489,12 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			ss << "CONFIGURATION";
 		else 
 		{
-		  snprintf(strbuf, 256, ngettext("%i GAME AVAILABLE", "%i GAMES AVAILABLE", gameCount), gameCount);
-		  ss << strbuf;
+			if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+				snprintf(strbuf, 256, ngettext("%i ITEM", "%i ITEMS", gameCount), gameCount);
+			else
+				snprintf(strbuf, 256, ngettext("%i GAME", "%i GAMES", gameCount), gameCount);
+
+			ss << strbuf;
 		}
 
 		mSystemInfo.setText(ss.str());

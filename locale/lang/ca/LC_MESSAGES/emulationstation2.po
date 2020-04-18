@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 18:35+0200\n"
+"POT-Creation-Date: 2020-04-17 07:17+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,6 +85,9 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "EXECUTA"
 
+msgid "UNAVAILABLE CORE"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr ""
 
@@ -137,6 +140,9 @@ msgid "ADVANCED SYSTEM OPTIONS"
 msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
+msgstr ""
+
+msgid "EDIT FOLDER METADATA"
 msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
@@ -395,6 +401,9 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
 msgid "FILE GENERATION FAILED"
+msgstr ""
+
+msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DOWNLOADS"
@@ -916,6 +925,24 @@ msgstr ""
 msgid "INTERNAL RESOLUTION"
 msgstr ""
 
+msgid "FORMAT DEVICE"
+msgstr ""
+
+msgid "DEVICE TO FORMAT"
+msgstr ""
+
+msgid "FILE SYSTEM"
+msgstr ""
+
+msgid "FORMAT NOW"
+msgstr ""
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr ""
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr ""
 
@@ -1322,10 +1349,16 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOLEU INICIAR EL CENTRE MULTIMÈDIA DEL KODI?"
 
 #, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "HI HA %i JOC DISPONIBLE"
-msgstr[1] "HI HA %i JOCS DISPONIBLES"
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "KODI"
 msgstr ""
@@ -1468,6 +1501,9 @@ msgstr ""
 msgid "HASHING GAMES"
 msgstr ""
 
+msgid "Extracting"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
@@ -1496,6 +1532,15 @@ msgid "Searching controllers..."
 msgstr ""
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr ""
+
+msgid "FORMATING DEVICE"
+msgstr ""
+
+msgid "Formating"
+msgstr ""
+
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr ""
 
 msgid "UPDATE AVAILABLE"
@@ -1702,6 +1747,11 @@ msgstr "S'ESTÀ TREBALLANT…"
 
 msgid "up/down"
 msgstr ""
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "HI HA %i JOC DISPONIBLE"
+#~ msgstr[1] "HI HA %i JOCS DISPONIBLES"
 
 #~ msgid "AUTO UPDATES"
 #~ msgstr "ACTUALITZACIONS AUTOMÀTIQUES"
