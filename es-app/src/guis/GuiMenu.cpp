@@ -3144,11 +3144,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			std::string newCore;
 
 			auto values = Utils::String::split(emulChoice->getSelected(), '/');
-			if (values.size() == 2)
-			{
+			if (values.size() > 0)
 				newEmul = values[0];
+
+			if (values.size() > 1)
 				newCore = values[1];
-			}
 
 			if (fileData != nullptr)
 			{
@@ -3485,24 +3485,49 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// psp internal resolution
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::internal_resolution))
 	{
+		std::string curResol = SystemConf::getInstance()->get(configName + ".internalresolution");
+
 		auto internalresolution = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTERNAL RESOLUTION"));
-		internalresolution->add(_("AUTO"), "auto",
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "1" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "2" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "4" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "8" &&
-			SystemConf::getInstance()->get(configName + ".internalresolution") != "10");
-		internalresolution->add("1", "1", SystemConf::getInstance()->get(configName + ".internalresolution") == "1");
-		internalresolution->add("2", "2", SystemConf::getInstance()->get(configName + ".internalresolution") == "2");
-		internalresolution->add("4", "4", SystemConf::getInstance()->get(configName + ".internalresolution") == "4");
-		internalresolution->add("8", "8", SystemConf::getInstance()->get(configName + ".internalresolution") == "8");
-		internalresolution->add("10", "10", SystemConf::getInstance()->get(configName + ".internalresolution") == "10");
-			
+		internalresolution->add(_("AUTO"), "auto", curResol.empty() || curResol == "auto");
+		internalresolution->add("1:1", "0", curResol == "0");
+		internalresolution->add("x1", "1", curResol == "1");
+		internalresolution->add("x2", "2", curResol == "2");
+		internalresolution->add("x3", "3", curResol == "3");
+		internalresolution->add("x4", "4", curResol == "4");
+		internalresolution->add("x5", "5", curResol == "5");
+		internalresolution->add("x8", "8", curResol == "8");
+		internalresolution->add("x10", "10", curResol == "10");
+
+		if (!internalresolution->hasSelection())
+			internalresolution->selectFirstItem();
+
 		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && (systemData->getName() == "psp" || systemData->getName() == "wii" || systemData->getName() == "gamecube"))) // only for psp, wii, gamecube
 		{
 			systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 			systemConfiguration->addSaveFunc([internalresolution, configName] { SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected()); });
 		}
+	}
+	
+	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
+	for (auto feat : customFeatures)
+	{
+		std::string storageName = configName + "." + feat.value;
+		std::string storedValue = SystemConf::getInstance()->get(storageName);
+
+		auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+		cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
+
+		for(auto fval : feat.choices)
+			cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+
+		if (!cf->hasSelection())
+			cf->selectFirstItem();
+
+		systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+		systemConfiguration->addSaveFunc([cf, storageName] 
+		{			
+			SystemConf::getInstance()->set(storageName, cf->getSelected());
+		});
 	}
 
 	mWindow->pushGui(systemConfiguration);

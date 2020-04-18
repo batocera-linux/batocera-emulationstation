@@ -4,6 +4,7 @@ option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
 option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
 option(RPI "Set to ON to enable the Raspberry PI video player (omxplayer)" ${RPI})
 option(CEC "CEC" ON)
+option(BCM "BCM host" OFF)
 
 # batocera
 option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem")
@@ -37,6 +38,10 @@ if(CEC)
   MESSAGE("CEC enabled")
 else()
   MESSAGE("CEC disabled")
+endif()
+
+if(BCM)
+    set(BCMHOST found)
 endif()
 
 #-------------------------------------------------------------------------------

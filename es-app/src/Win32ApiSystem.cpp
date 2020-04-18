@@ -613,7 +613,8 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 
 		if (parts[1] == bezelsystem)
 		{
-			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+			std::string themeUrl = parts.size() > 1 ? parts[2] : "";
+			std::string subFolder = parts.size() > 2 ? parts[3] : "";
 
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
 			std::string zipFile = getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip";
@@ -640,7 +641,9 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 					if (ext != ".cfg" && ext != ".png")
 						continue;
 
-					if (file.find("/overlay/GameBezels/") == std::string::npos)
+					if (!subFolder.empty() && Utils::FileSystem::getGenericPath(file).find(subFolder.c_str()) == std::string::npos)
+						continue;
+					else if (subFolder.empty() && file.find("/overlay/GameBezels/") == std::string::npos)
 						continue;
 					
 					std::string dest;

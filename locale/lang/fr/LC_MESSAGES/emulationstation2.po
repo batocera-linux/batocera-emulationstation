@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 18:35+0200\n"
+"POT-Creation-Date: 2020-04-17 07:17+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -85,6 +85,9 @@ msgstr "ÉCHEC"
 msgid "LAUNCH"
 msgstr "LANCER"
 
+msgid "UNAVAILABLE CORE"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
 
@@ -138,6 +141,9 @@ msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
+
+msgid "EDIT FOLDER METADATA"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES METADONNÉES DU JEU"
@@ -396,6 +402,9 @@ msgstr "FICHIER GÉNÉRÉ AVEC SUCCÈS"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ÉCHEC DE LA GÉNÉRATION DU FICHIER"
+
+msgid "FORMAT A DISK"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "TÉLÉCHARGEMENTS"
@@ -920,6 +929,24 @@ msgstr "COTE À COTE"
 msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
 
+msgid "FORMAT DEVICE"
+msgstr ""
+
+msgid "DEVICE TO FORMAT"
+msgstr ""
+
+msgid "FILE SYSTEM"
+msgstr ""
+
+msgid "FORMAT NOW"
+msgstr ""
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr ""
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "SYSTÈMES GROUPÉS"
 
@@ -1336,10 +1363,16 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 
 #, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i JEU DISPONIBLE"
-msgstr[1] "%i JEUX DISPONIBLES"
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i ELEMENT"
+msgstr[1] "%i ELEMENTS"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i JEU"
+msgstr[1] "%i JEUX"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1482,6 +1515,9 @@ msgstr "JEU ENFANT"
 msgid "HASHING GAMES"
 msgstr "INDEXATION DES JEUX"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU NE CORRESPOND - PASSER"
 
@@ -1511,6 +1547,15 @@ msgstr "Recherche de manettes..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS"
+
+msgid "FORMATING DEVICE"
+msgstr ""
+
+msgid "Formating"
+msgstr ""
+
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"

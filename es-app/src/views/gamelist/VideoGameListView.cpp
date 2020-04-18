@@ -31,6 +31,9 @@ VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 {
 	const float padding = 0.01f;
 
+	mLblGameTime.setVisible(false);
+	mGameTime.setVisible(false);
+
 	// Create the correct type of video window
 #ifdef _RPI_
 	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
@@ -180,10 +183,7 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	};
 
 	for(unsigned int i = 0; i < labels.size(); i++)
-	{
 		labels[i]->applyTheme(theme, getName(), lblElements[i], ALL);
-	}
-
 
 	initMDValues();
 	std::vector<GuiComponent*> values = getMDValues();
@@ -194,12 +194,7 @@ void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	};
 
 	for(unsigned int i = 0; i < values.size(); i++)
-	{
 		values[i]->applyTheme(theme, getName(), valElements[i], ALL ^ ThemeFlags::TEXT);
-	}
-
-	mLblGameTime.setVisible(theme->getElement(getName(), "md_lbl_gametime", "text") != nullptr);
-	mGameTime.setVisible(theme->getElement(getName(), "md_gametime", "text") != nullptr);
 
 	mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
 	mDescription.setSize(mDescContainer.getSize().x(), 0);

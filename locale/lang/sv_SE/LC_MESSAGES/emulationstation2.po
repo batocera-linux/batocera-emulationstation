@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 18:35+0200\n"
+"POT-Creation-Date: 2020-04-17 07:17+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -88,6 +88,9 @@ msgstr "MISSLYCKADES"
 msgid "LAUNCH"
 msgstr "STARTA"
 
+msgid "UNAVAILABLE CORE"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "TILLGÄNGLIGA SPEL"
 
@@ -141,6 +144,9 @@ msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "AVANCERADE SPELINSTÄLLNINGAR"
+
+msgid "EDIT FOLDER METADATA"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "REDIGERA DET HÄR SPELETS METADATA"
@@ -399,6 +405,9 @@ msgstr "FIL SKAPAD"
 
 msgid "FILE GENERATION FAILED"
 msgstr "MISSLYCKADES MED ATT SKAPA FIL"
+
+msgid "FORMAT A DISK"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "NERLADDNINGAR"
@@ -923,6 +932,24 @@ msgstr "SIDA VID SIDA"
 msgid "INTERNAL RESOLUTION"
 msgstr "INTERN UPPLÖSNING"
 
+msgid "FORMAT DEVICE"
+msgstr ""
+
+msgid "DEVICE TO FORMAT"
+msgstr ""
+
+msgid "FILE SYSTEM"
+msgstr ""
+
+msgid "FORMAT NOW"
+msgstr ""
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr ""
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "GRUPPERADE SYSTEM"
 
@@ -1339,10 +1366,16 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VILL DU STARTA KODI MEDIA CENTER?"
 
 #, c-format
-msgid "%i GAME AVAILABLE"
-msgid_plural "%i GAMES AVAILABLE"
-msgstr[0] "%i SPEL TILLGÄNGLIGA"
-msgstr[1] "%i SPEL TILLGÄNGLIGA"
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "KODI"
 msgstr "KODI"
@@ -1485,6 +1518,9 @@ msgstr "BARNSPEL"
 msgid "HASHING GAMES"
 msgstr "HASHAR SPEL"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
 
@@ -1514,6 +1550,15 @@ msgstr "Söker efter spelkontroller..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "BLUETOOTH-SCANNING PÅGÅR REDAN."
+
+msgid "FORMATING DEVICE"
+msgstr ""
+
+msgid "Formating"
+msgstr ""
+
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPPDATERING TILLGÄNGLIG"
@@ -1722,6 +1767,11 @@ msgstr "ARBETAR..."
 
 msgid "up/down"
 msgstr "upp/ner"
+
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i SPEL TILLGÄNGLIGA"
+#~ msgstr[1] "%i SPEL TILLGÄNGLIGA"
 
 #~ msgid "GRID SIZE"
 #~ msgstr "STORLEK PÅ RUTNÄTET"

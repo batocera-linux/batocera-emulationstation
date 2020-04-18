@@ -98,6 +98,9 @@ std::shared_ptr<TextureData> TextureDataManager::get(const TextureResource* key,
 	{
 		tex = *(*it).second;
 
+		if (!enableLoading)
+			return tex;
+
 		if (mTextures.cbegin() != (*it).second)
 		{
 			// Remove the list entry

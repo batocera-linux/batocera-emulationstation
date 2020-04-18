@@ -198,8 +198,13 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 			std::shared_ptr<TextureResource> rc = foundTexture->second.lock();
 
 			if (maxSize != nullptr && !maxSize->empty() && Settings::getInstance()->getBool("OptimizeVRAM"))
-			{
-				auto dt = sTextureDataManager.get(rc.get());
+			{				
+				std::shared_ptr<TextureData> dt;
+				if (rc->mTextureData != nullptr)
+					dt = rc->mTextureData;
+				else
+					dt = sTextureDataManager.get(rc.get(), false);
+
 				if (dt != nullptr)
 				{
 					dt->setMaxSize(*maxSize);

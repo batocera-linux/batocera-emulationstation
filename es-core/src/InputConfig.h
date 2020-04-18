@@ -14,7 +14,7 @@ namespace pugi { class xml_node; }
 #define DEVICE_KEYBOARD -1
 #define DEVICE_CEC      -2
 // batocera
-#define MAX_PLAYERS 5
+#define MAX_PLAYERS 8
 
 #ifdef WIN32
 #define BUTTON_OK	"a"

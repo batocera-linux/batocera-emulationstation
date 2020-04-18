@@ -345,9 +345,56 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 
 bool SystemData::es_features_loaded = false;
 
+std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
+{
+	std::vector<CustomFeature> ret;
+
+	pugi::xml_node customFeatures = node.child("features");
+	if (customFeatures == nullptr)
+		customFeatures = node;
+
+	for (pugi::xml_node featureNode = customFeatures.child("feature"); featureNode; featureNode = featureNode.next_sibling("feature"))
+	{
+		if (!featureNode.attribute("name"))
+			continue;
+
+		CustomFeature feat;
+		feat.name = featureNode.attribute("name").value();
+
+		if (featureNode.attribute("value"))
+			feat.value = featureNode.attribute("value").value();
+		else 
+			feat.value = Utils::String::replace(feat.name, " ", "_");
+
+		for (pugi::xml_node value = featureNode.child("choice"); value; value = value.next_sibling("choice"))
+		{
+			if (!value.attribute("name"))
+				continue;
+
+			CustomFeatureChoice cv;
+			cv.name = value.attribute("name").value();
+
+			if (value.attribute("value"))
+				cv.value = value.attribute("value").value();
+			else
+				cv.value = Utils::String::replace(cv.name, " ", "_");
+
+			feat.choices.push_back(cv);
+		}
+
+		if (feat.choices.size() > 0)
+			ret.push_back(feat);
+	}
+
+	return ret;
+}
+
 bool SystemData::loadFeatures()
 {
 	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getSharedConfigPath() + "/es_features.cfg";
+
 	if (!Utils::FileSystem::exists(path))
 		return false;
 
@@ -390,6 +437,8 @@ bool SystemData::loadFeatures()
 
 		EmulatorFeatures::Features emulatorFeatures = EmulatorFeatures::Features::none;
 
+		auto customEmulatorFeatures = loadCustomFeatures(emulator);
+
 		if (emulator.attribute("features"))
 		{
 			emulatorFeatures = EmulatorFeatures::parseFeatures(emulator.attribute("features").value());
@@ -400,9 +449,8 @@ bool SystemData::loadFeatures()
 				{
 					if (emul.name == emulatorName || (emulatorName == "libretro" && Utils::String::startsWith(emul.name, "lr-")))
 					{
-						emul.features = emulatorFeatures;
-						for (auto& core : emul.cores)
-							core.features = EmulatorFeatures::Features::none;
+						emul.features = emulatorFeatures;				
+						emul.customFeatures = customEmulatorFeatures;
 					}
 				}
 			}
@@ -420,6 +468,8 @@ bool SystemData::loadFeatures()
 			std::string coreName = coreNode.attribute("name").value();
 			EmulatorFeatures::Features coreFeatures = EmulatorFeatures::parseFeatures(coreNode.attribute("features").value());
 
+			auto customCoreFeatures = loadCustomFeatures(coreNode);
+
 			bool coreFound = false;
 
 			for (auto sys : SystemData::sSystemVector)
@@ -433,10 +483,12 @@ bool SystemData::loadFeatures()
 						EmulatorData emul;
 						emul.name = emulatorName;
 						emul.features = emulatorFeatures;
+						emul.customFeatures = customEmulatorFeatures;
 
 						CoreData core;
 						core.name = coreName;
 						core.features = coreFeatures;
+						core.customFeatures = customCoreFeatures;
 						emul.cores.push_back(core);
 
 						sys->mEmulators.push_back(emul);
@@ -454,6 +506,7 @@ bool SystemData::loadFeatures()
 								{
 									coreFound = true;
 									core.features = coreFeatures;
+									core.customFeatures = customCoreFeatures;
 									core.netplay = coreFeatures & EmulatorFeatures::Features::netplay;
 								}
 							}
@@ -473,17 +526,20 @@ bool SystemData::loadFeatures()
 
 				std::string systemName = systemNode.attribute("name").value();
 				EmulatorFeatures::Features systemFeatures = EmulatorFeatures::parseFeatures(systemNode.attribute("features").value());
+				auto customSystemFeatures = loadCustomFeatures(systemNode);
 
 				for (auto sys : SystemData::sSystemVector)
 					if (sys->getName() == systemName)
 						for (auto& emul : sys->mEmulators)
 							for (auto& core : emul.cores)
-								if (core.name == coreName)
+								if (core.name == coreName) {
 									core.features = core.features | systemFeatures;
+									for (auto ft : customSystemFeatures) core.customFeatures.push_back(ft);
+								}
 			}
 		}
 
-		if (emulatorFeatures != EmulatorFeatures::Features::none)
+		if (emulatorFeatures != EmulatorFeatures::Features::none || customEmulatorFeatures.size() > 0)
 		{
 			for (auto sys : SystemData::sSystemVector)
 			{
@@ -492,6 +548,7 @@ bool SystemData::loadFeatures()
 					EmulatorData emul;
 					emul.name = emulatorName;
 					emul.features = emulatorFeatures;
+					emul.customFeatures = customEmulatorFeatures;
 					sys->mEmulators.push_back(emul);
 				}
 			}
@@ -509,10 +566,15 @@ bool SystemData::loadFeatures()
 			std::string systemName = systemNode.attribute("name").value();
 			EmulatorFeatures::Features systemFeatures = EmulatorFeatures::parseFeatures(systemNode.attribute("features").value());
 
+			auto customSystemFeatures = loadCustomFeatures(systemNode);
+
 			for (auto sys : SystemData::sSystemVector)
 				if (sys->getName() == systemName)
-					for (auto& emul : sys->mEmulators)
+					for (auto& emul : sys->mEmulators) {
 						emul.features = emul.features | systemFeatures;
+						for (auto ft : customSystemFeatures)							
+							emul.customFeatures.push_back(ft);
+					}
 		}		
 	}
 
@@ -544,6 +606,36 @@ bool SystemData::hasFeatures()
 
 	return !es_features_loaded;
 }
+
+std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorName, std::string coreName)
+{
+	std::vector<CustomFeature> ret;
+
+	if (emulatorName.empty() || emulatorName == "auto")
+		emulatorName = getDefaultEmulator();
+
+	if (coreName.empty() || coreName == "auto")
+		coreName = getDefaultCore(emulatorName);
+
+	for (auto emulator : mEmulators)
+	{
+		if (emulator.name == emulatorName)
+		{
+			for (auto ft : emulator.customFeatures)
+				ret.push_back(ft);
+
+			for (auto& core : emulator.cores)
+				if (coreName == core.name)
+					for (auto ft : core.customFeatures)
+						ret.push_back(ft);
+
+			break;
+		}
+	}
+
+	return ret;
+}
+
 
 bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature)
 {
