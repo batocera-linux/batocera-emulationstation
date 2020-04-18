@@ -293,7 +293,7 @@ void AudioManager::setSongName(std::string song)
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(song));
 	// chiptunes mod song titles parsing
 	if (ext == ".mod" || ext == ".s3m" || ext == ".stm" || ext == ".669"
-			  || ext == ".mtm" || ext ==  ".far" || ext ==  ".xm" || ext == ".it" )
+			  || ext == ".mtm" || ext == ".far" || ext == ".xm" || ext == ".it" )
 	{
 		int title_offset;
 		int title_break;
@@ -329,6 +329,7 @@ void AudioManager::setSongName(std::string song)
 				break;
 			default:
 				LOG(LogError) << "Error AudioManager unexpected case while loading mofile " << song;
+				mCurrentSong = Utils::FileSystem::getStem(song.c_str());
 				return;
 		}
 
