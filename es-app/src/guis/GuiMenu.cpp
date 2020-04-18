@@ -3455,11 +3455,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			std::string newCore;
 
 			auto values = Utils::String::split(emulChoice->getSelected(), '/');
-			if (values.size() == 2)
-			{
+			if (values.size() > 0)
 				newEmul = values[0];
+
+			if (values.size() > 1)
 				newCore = values[1];
-			}
 
 			if (fileData != nullptr)
 			{
@@ -3817,6 +3817,28 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			systemConfiguration->addWithLabel(_("INTERNAL RESOLUTION"), internalresolution);
 			systemConfiguration->addSaveFunc([internalresolution, configName] { SystemConf::getInstance()->set(configName + ".internalresolution", internalresolution->getSelected()); });
 		}
+	}
+	
+	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
+	for (auto feat : customFeatures)
+	{
+		std::string storageName = configName + "." + feat.value;
+		std::string storedValue = SystemConf::getInstance()->get(storageName);
+
+		auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+		cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
+
+		for(auto fval : feat.choices)
+			cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+
+		if (!cf->hasSelection())
+			cf->selectFirstItem();
+
+		systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+		systemConfiguration->addSaveFunc([cf, storageName] 
+		{			
+			SystemConf::getInstance()->set(storageName, cf->getSelected());
+		});
 	}
 #else
   std::string a;

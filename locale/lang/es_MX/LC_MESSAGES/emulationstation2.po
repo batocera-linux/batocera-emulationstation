@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 18:35+0200\n"
+"POT-Creation-Date: 2020-04-17 07:17+0200\n"
 "Last-Translator: Ramses\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -85,6 +85,9 @@ msgstr "FALLÓ"
 msgid "LAUNCH"
 msgstr "LANZAR"
 
+msgid "UNAVAILABLE CORE"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "JUEGOS DISPONIBLES"
 
@@ -138,6 +141,9 @@ msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONES AVANZADAS DEL JUEGO"
+
+msgid "EDIT FOLDER METADATA"
+msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
@@ -396,6 +402,9 @@ msgstr "ARCHIVO GENERADO SATISFACTORIAMENTE"
 
 msgid "FILE GENERATION FAILED"
 msgstr "LA GENERACIÓN DEL ARCHIVO FALLÓ"
+
+msgid "FORMAT A DISK"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "DESCARGAS"
@@ -922,6 +931,24 @@ msgstr "LADO A LADO"
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCIÓN INTERNA"
 
+msgid "FORMAT DEVICE"
+msgstr ""
+
+msgid "DEVICE TO FORMAT"
+msgstr ""
+
+msgid "FILE SYSTEM"
+msgstr ""
+
+msgid "FORMAT NOW"
+msgstr ""
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr ""
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "EMULADORES AGRUPADOS"
 
@@ -1342,16 +1369,16 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
 #, c-format
-msgid "%i GAME"
-msgid_plural "%i GAMES"
-msgstr[0] "%i JUEGO"
-msgstr[1] "%i JUEGOS"
-
-#, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
 msgstr[0] "%i ELEMENTO"
 msgstr[1] "%i ELEMENTOS"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i JUEGO"
+msgstr[1] "%i JUEGOS"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1494,6 +1521,9 @@ msgstr "JUEGO PARA NIÑO"
 msgid "HASHING GAMES"
 msgstr "VALIDANDO JUEGOS"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
 
@@ -1523,6 +1553,15 @@ msgstr "BUSCANDO CONTROLES..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "ESCANEO DE BLUETOOTH YA ESTÁ EJECUTANDOSE"
+
+msgid "FORMATING DEVICE"
+msgstr ""
+
+msgid "Formating"
+msgstr ""
+
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr ""
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACIÓN DISPONIBLE"
