@@ -87,7 +87,7 @@ std::string FileData::getCleanName() const
 
 const std::string FileData::getThumbnailPath()
 {
-	std::string thumbnail = getMetadata().get("thumbnail");
+	std::string thumbnail = getMetadata(MetaDataId::Thumbnail);
 
 	// no thumbnail, try image
 	if(thumbnail.empty())
@@ -111,7 +111,7 @@ const std::string FileData::getThumbnailPath()
 		}
 
 		if (thumbnail.empty())
-			thumbnail = getMetadata().get("image");
+			thumbnail = getMetadata(MetaDataId::Image);
 
 		// no image, try to use local image
 		if (thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -137,17 +137,17 @@ const std::string FileData::getThumbnailPath()
 
 const bool FileData::getFavorite()
 {
-	return getMetadata().get("favorite") == "true";
+	return getMetadata(MetaDataId::Favorite) == "true";
 }
 
 const bool FileData::getHidden()
 {
-	return getMetadata().get("hidden") == "true";
+	return getMetadata(MetaDataId::Hidden) == "true";
 }
 
 const bool FileData::getKidGame()
 {
-	return getMetadata().get("kidgame") != "false";
+	return getMetadata(MetaDataId::KidGame) != "false";
 }
 
 static std::shared_ptr<bool> showFilenames;
@@ -176,7 +176,7 @@ const std::string FileData::getName()
 
 const std::string FileData::getVideoPath()
 {
-	std::string video = getMetadata().get("video");
+	std::string video = getMetadata(MetaDataId::Video);
 	
 	// no video, try to use local video
 	if(video.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -194,7 +194,7 @@ const std::string FileData::getVideoPath()
 
 const std::string FileData::getMarqueePath()
 {
-	std::string marquee = getMetadata().get("marquee");
+	std::string marquee = getMetadata(MetaDataId::Marquee);
 
 	// no marquee, try to use local marquee
 	if (marquee.empty() && Settings::getInstance()->getBool("LocalArt"))
@@ -219,7 +219,7 @@ const std::string FileData::getMarqueePath()
 
 const std::string FileData::getImagePath()
 {
-	std::string image = getMetadata().get("image");
+	std::string image = getMetadata(MetaDataId::Image);
 
 	// no image, try to use local image
 	if(image.empty())
@@ -468,7 +468,7 @@ void CollectionFileData::refreshMetadata()
 const std::string CollectionFileData::getName()
 {
 	if (mDirty) {
-		mCollectionFileName = Utils::String::removeParenthesis(mSourceFileData->getMetadata().get("name"));
+		mCollectionFileName = Utils::String::removeParenthesis(mSourceFileData->getMetadata(MetaDataId::Name));
 		mCollectionFileName += " [" + Utils::String::toUpper(mSourceFileData->getSystem()->getName()) + "]";
 		mDirty = false;
 	}
@@ -476,7 +476,7 @@ const std::string CollectionFileData::getName()
 	if (Settings::getInstance()->getBool("CollectionShowSystemInfo"))
 		return mCollectionFileName;
 		
-	return Utils::String::removeParenthesis(mSourceFileData->getMetadata().get("name"));
+	return Utils::String::removeParenthesis(mSourceFileData->getMetadata(MetaDataId::Name));
 }
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
@@ -701,7 +701,7 @@ void FolderData::createChildrenByFilenameMap(std::unordered_map<std::string, Fil
 const std::string FileData::getCore(bool resolveDefault)
 {
 #if WIN32 && !_DEBUG
-	std::string core = getMetadata().get("core");
+	std::string core = getMetadata(MetaDataId::Core);
 #else
 	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
 #endif
@@ -749,7 +749,7 @@ const std::string FileData::getCore(bool resolveDefault)
 const std::string FileData::getEmulator(bool resolveDefault)
 {
 #if WIN32 && !_DEBUG
-	std::string emulator = getMetadata().get("emulator");
+	std::string emulator = getMetadata(MetaDataId::Emulator);
 #else
 	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
 #endif

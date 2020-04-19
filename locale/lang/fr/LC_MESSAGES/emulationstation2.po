@@ -1531,6 +1531,9 @@ msgstr "JOUEURS"
 msgid "PUBLISHER / DEVELOPER"
 msgstr "ÉDITEUR / DÉVELOPPEUR"
 
+msgid "ALREADY PLAYED"
+msgstr "DÉJA JOUÉ"
+
 msgid "RATING"
 msgstr "NOTATION"
 

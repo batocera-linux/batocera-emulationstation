@@ -12,7 +12,7 @@ GuiGamelistFilter::GuiGamelistFilter(Window* window, SystemData* system) : GuiCo
 	initializeMenu();
 }
 
-GuiGamelistFilter::GuiGamelistFilter(Window* window, FileFilterIndex* filterIndex) : GuiComponent(window), mMenu(window, _("EDIT COLLECTION FILTERS")), mSystem(nullptr)
+GuiGamelistFilter::GuiGamelistFilter(Window* window, FileFilterIndex* filterIndex) : GuiComponent(window), mMenu(window, _("EDIT DYNAMIC COLLECTION FILTERS")), mSystem(nullptr)
 {
 	mFilterIndex = filterIndex;
 	initializeMenu();
@@ -118,8 +118,15 @@ void GuiGamelistFilter::addFiltersToMenu()
 
 		// add genres
 		optionList = std::make_shared< OptionListComponent<std::string> >(mWindow, menuLabel, true);
-		for(auto it: *allKeys)
-			optionList->add(_(it.first.c_str()), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+		for (auto it : *allKeys)
+		{
+			if (it.first == "TRUE")
+				optionList->add(_("YES"), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+			else if (it.first == "FALSE")
+				optionList->add(_("NO"), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+			else
+				optionList->add(_(it.first.c_str()), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+		}
 
 		if (allKeys->size() > 0)
 			mMenu.addWithLabel(menuLabel, optionList);

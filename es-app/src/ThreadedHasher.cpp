@@ -113,7 +113,7 @@ void ThreadedHasher::start(Window* window, bool forceAllGames, bool silent)
 			continue;
 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
-			if (forceAllGames || file->getMetadata("crc32").empty())
+			if (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty())
 				searchQueue.push(file);
 	}
 

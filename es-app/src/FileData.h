@@ -110,7 +110,8 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
 	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
 private:

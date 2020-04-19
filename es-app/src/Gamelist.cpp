@@ -165,11 +165,11 @@ void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unord
 		}
 		else if (!file->isArcadeAsset())
 		{
-			std::string defaultName = file->getMetadata().get("name");
+			std::string defaultName = file->getMetadata(MetaDataId::Name);
 			file->setMetadata(MetaDataList::createFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system));
 
 			//make sure name gets set if one didn't exist
-			if (file->getMetadata().get("name").empty())
+			if (file->getMetadata(MetaDataId::Name).empty())
 				file->setMetadata("name", defaultName);
 
 			if (!file->getHidden() && Utils::FileSystem::isHidden(path))

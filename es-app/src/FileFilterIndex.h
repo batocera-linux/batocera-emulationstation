@@ -11,14 +11,15 @@ class SystemData;
 
 enum FilterIndexType
 {
-	NONE,
-	GENRE_FILTER,
-	PLAYER_FILTER,
-	PUBDEV_FILTER,
-	RATINGS_FILTER,
-	FAVORITES_FILTER,
-	HIDDEN_FILTER,
-	KIDGAME_FILTER
+	NONE = 0,
+	GENRE_FILTER = 1,
+	PLAYER_FILTER = 2,
+	PUBDEV_FILTER = 3,
+	RATINGS_FILTER = 4,
+	FAVORITES_FILTER = 5,
+	KIDGAME_FILTER = 6,
+	HIDDEN_FILTER = 7,
+	PLAYED_FILTER = 8
 };
 
 struct FilterDataDecl
@@ -26,7 +27,7 @@ struct FilterDataDecl
 	FilterIndexType type; // type of filter
 	std::map<std::string, int>* allIndexKeys; // all possible filters for this type
 	bool* filteredByRef; // is it filtered by this type
-	std::vector<std::string>* currentFilteredKeys; // current keys being filtered for
+	std::unordered_set<std::string>* currentFilteredKeys; // current keys being filtered for
 	std::string primaryKey; // primary key in metadata
 	bool hasSecondaryKey; // has secondary key for comparison
 	std::string secondaryKey; // what's the secondary key
@@ -45,13 +46,12 @@ public:
 	void removeFromIndex(FileData* game);
 	void setFilter(FilterIndexType type, std::vector<std::string>* values);
 	void clearAllFilters();
-	void debugPrintIndexes();
 	
 	virtual bool showFile(FileData* game);
-	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByHidden || filterByKidGame); };
+	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
-	std::vector<FilterDataDecl>& getFilterDataDecls();
+	std::vector<FilterDataDecl> getFilterDataDecls();
 
 	void importIndex(FileFilterIndex* indexToImport);
 	void resetIndex();
@@ -62,17 +62,15 @@ public:
 	inline const std::string getTextFilter() { return mTextFilter; }
 
 protected:
-	std::vector<FilterDataDecl> filterDataDecl;
+	//std::vector<FilterDataDecl> filterDataDecl;
+	std::map<int, FilterDataDecl> mFilterDecl;
+
 	std::string getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary);
 
 	void manageGenreEntryInIndex(FileData* game, bool remove = false);
 	void managePlayerEntryInIndex(FileData* game, bool remove = false);
 	void managePubDevEntryInIndex(FileData* game, bool remove = false);
-	void manageRatingsEntryInIndex(FileData* game, bool remove = false);
-	void manageFavoritesEntryInIndex(FileData* game, bool remove = false);
-	//void manageHiddenEntryInIndex(FileData* game, bool remove = false);
-	void manageKidGameEntryInIndex(FileData* game, bool remove = false);
-
+	void manageRatingsEntryInIndex(FileData* game, bool remove = false);	
 	void manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove);
 
 	void clearIndex(std::map<std::string, int> indexMap);
@@ -82,8 +80,9 @@ protected:
 	bool filterByPubDev;
 	bool filterByRatings;
 	bool filterByFavorites;
-	bool filterByHidden;
+//	bool filterByHidden;
 	bool filterByKidGame;
+	bool filterByPlayed;
 
 	std::map<std::string, int> genreIndexAllKeys;
 	std::map<std::string, int> playersIndexAllKeys;
@@ -92,14 +91,16 @@ protected:
 	std::map<std::string, int> favoritesIndexAllKeys;
 	//std::map<std::string, int> hiddenIndexAllKeys;
 	std::map<std::string, int> kidGameIndexAllKeys;
+	std::map<std::string, int> playedIndexAllKeys;
 
-	std::vector<std::string> genreIndexFilteredKeys;
-	std::vector<std::string> playersIndexFilteredKeys;
-	std::vector<std::string> pubDevIndexFilteredKeys;
-	std::vector<std::string> ratingsIndexFilteredKeys;
-	std::vector<std::string> favoritesIndexFilteredKeys;
-	//std::vector<std::string> hiddenIndexFilteredKeys;
-	std::vector<std::string> kidGameIndexFilteredKeys;
+	std::unordered_set<std::string> genreIndexFilteredKeys;
+	std::unordered_set<std::string> playersIndexFilteredKeys;
+	std::unordered_set<std::string> pubDevIndexFilteredKeys;
+	std::unordered_set<std::string> ratingsIndexFilteredKeys;
+	std::unordered_set<std::string> favoritesIndexFilteredKeys;
+	//std::unordered_set<std::string> hiddenIndexFilteredKeys;
+	std::unordered_set<std::string> kidGameIndexFilteredKeys;
+	std::unordered_set<std::string> playedIndexFilteredKeys;
 
 	FileData* mRootFolder;
 

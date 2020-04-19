@@ -227,6 +227,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		
 		if (file->getType() == FOLDER && ((FolderData*) file)->isVirtualStorage())
 			fromPlaceholder = true;
+		else if (file->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+			fromPlaceholder = true;
 		
 		if (!fromPlaceholder)
 		{
