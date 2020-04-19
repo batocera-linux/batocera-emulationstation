@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-19 13:20+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -50,22 +50,22 @@ msgid "CANCEL"
 msgstr "ANNULER"
 
 msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr ""
+msgstr "SUPPRIMER UNE MANETTE BLUETOOTH"
 
 msgid "REMOVE ALL"
-msgstr ""
+msgstr "TOUT SUPPRIMER"
 
 msgid "BACK"
 msgstr "RETOUR"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr ""
+msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 
 msgid "PLEASE WAIT"
 msgstr "VEUILLEZ PATIENTER"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LES ASSOCIATIONS DE MANETTES ONT ÉTÉ SUPPRIMÉS"
+msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "REJOINDRE UNE PARTIE EN RÉSEAU"
@@ -101,7 +101,7 @@ msgid "go back"
 msgstr "aller en arrière"
 
 msgid "NAVIGATION"
-msgstr ""
+msgstr "NAVIGATION"
 
 msgid "JUMP TO..."
 msgstr "ALLER À..."
@@ -200,13 +200,13 @@ msgid "Battery"
 msgstr "Batterie"
 
 msgid "Cpu model"
-msgstr "Cpu"
+msgstr "Processeur"
 
 msgid "Cpu number"
-msgstr "Nombre de Cpu"
+msgstr "Nombre de processeurs"
 
 msgid "Cpu feature"
-msgstr "Options Cpu"
+msgstr "Caractéristiques processeur"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -314,7 +314,7 @@ msgid "SCRAPE NOW"
 msgstr "LANCER LE SCRAPE"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "VOULEZ-VOUS VRAIMENT CONFIGURER UNE MANETTE ?"
+msgstr "VOUS ALLEZ CONFIGURER UNE MANETTE. ETES-VOUS SUR(E) ?"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES DE L'ÉCRAN DE VEILLE"
@@ -993,7 +993,7 @@ msgid "TARGET ARCHITECTURE"
 msgstr "ARCHITECTURE CIBLE"
 
 msgid "ARE YOU SURE ?"
-msgstr ""
+msgstr "ETES-VOUS SUR(E) ?"
 
 msgid "INSTALL"
 msgstr "INSTALLER"
@@ -1002,7 +1002,7 @@ msgid "NETWORK REQUIRED"
 msgstr "CONNEXION RÉSEAU NÉCESSAIRE"
 
 msgid "INVALID PARAMETERS"
-msgstr ""
+msgstr "PARAMÈTRES INVALIDES"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPE EN COURS"
@@ -1217,10 +1217,10 @@ msgid "enter description"
 msgstr "entrer la description"
 
 msgid "emulator"
-msgstr ""
+msgstr "émulateur"
 
 msgid "core"
-msgstr ""
+msgstr "coeur"
 
 msgid "Image"
 msgstr "Chemin vers l'image"
@@ -1229,13 +1229,13 @@ msgid "enter path to image"
 msgstr "entrer le chemin vers l'image"
 
 msgid "Video"
-msgstr ""
+msgstr "Chemin vers la vidéo"
 
 msgid "enter path to video"
 msgstr "entrer le chemin vers la vidéo"
 
 msgid "Marquee"
-msgstr ""
+msgstr "Chemin vers le logo"
 
 msgid "enter path to marquee"
 msgstr "entrer le chemin vers le logo"
@@ -1298,13 +1298,13 @@ msgid "Hidden"
 msgstr "Caché"
 
 msgid "enter hidden"
-msgstr ""
+msgstr "entrer le jeu caché"
 
 msgid "Kidgame"
 msgstr "Jeu enfant"
 
 msgid "enter kidgame"
-msgstr ""
+msgstr "entrer le jeu enfant"
 
 msgid "Play count"
 msgstr "Nombre de parties"
@@ -1319,13 +1319,13 @@ msgid "enter last played date"
 msgstr "entrer la date de la dernière partie"
 
 msgid "Crc32"
-msgstr ""
+msgstr "Crc32"
 
 msgid "Crc32 checksum"
 msgstr "Checksum CRC32"
 
 msgid "Md5"
-msgstr ""
+msgstr "Md5"
 
 msgid "Md5 checksum"
 msgstr "Checksum MD5"
@@ -1337,7 +1337,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "entrez le temps de jeu"
 
 msgid "favorite"
-msgstr ""
+msgstr "Favoris"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -1358,6 +1358,7 @@ msgstr ""
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
+"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉAFFICHAGE DE TOUS DÈS MAINTENANT"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
@@ -1365,14 +1366,14 @@ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "%i ELEMENT"
-msgstr[1] "%i ELEMENTS"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "%i JEU"
-msgstr[1] "%i JEUX"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "KODI"
 msgstr "KODI"
@@ -1765,80 +1766,7 @@ msgstr "EN COURS..."
 msgid "up/down"
 msgstr "haut/bas"
 
-#~ msgid "GRID SIZE"
-#~ msgstr "TAILLE DE LA GRILLE"
-
-#~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "OUBLIER LES MANETTES BLUETOOTH"
-
-#~ msgid "DEFAULT"
-#~ msgstr "PAR DÉFAUT"
-
-#~ msgid "VALIDATION"
-#~ msgstr "VALIDATION"
-
-#~ msgid "YES, I'M SURE"
-#~ msgstr "OUI, JE SUIS SUR(E)"
-
-#~ msgid "SELECT SYSTEMS TO DISPLAY"
-#~ msgstr "CHOISISSEZ LES SYSTÈMES À AFFICHER"
-
-#~ msgid "APPLY"
-#~ msgstr "APPLIQUER"
-
-#~ msgid "REVERT"
-#~ msgstr "ANNULER"
-
-#~ msgid "VALIDATE"
-#~ msgstr "VALIDER"
-
-#~ msgid "Path to video"
-#~ msgstr "Chemin vers la vidéo"
-
-#~ msgid "Path to marquee"
-#~ msgstr "Chemin vers le logo"
-
-#~ msgid "set hidden"
-#~ msgstr "Mettre en caché"
-
-#~ msgid "set kidgame"
-#~ msgstr "Mettre en jeu enfant"
-
-#~ msgid "name"
-#~ msgstr "Nom"
-
-#~ msgid "description"
-#~ msgstr "description"
-
-#~ msgid "image"
-#~ msgstr "image"
-
-#~ msgid "thumbnail"
-#~ msgstr "boite"
-
-#~ msgid "marquee"
-#~ msgstr "logo"
-
-#~ msgid "BATTERY"
-#~ msgstr "BATTERIE"
-
-#~ msgid "MITM"
-#~ msgstr "MITM"
-
-#~ msgid "SEARCHING"
-#~ msgstr "RECHERCHE"
-
-#~ msgid "SCRAPE FAILED : THE APPLICATION HAS BEEN BLACKLISTED"
-#~ msgstr "SCRAPE ÉCHOUÉ : L'APPLICATION A ÉTÉ BLACKLISTÉE"
-
-#~ msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
-#~ msgstr "SCRAPE ÉCHOUÉ : LIMITE JOURNALIÈRE DE SCRAPE ATTEINTE"
-
-#~ msgid "MIX"
-#~ msgstr "MÉLANGE D'IMAGES"
-
-#~ msgid "CONTROLLER PAIRED"
-#~ msgstr "MANETTE ASSOCIÉE"
-
-#~ msgid "UNABLE TO PAIR CONTROLLER"
-#~ msgstr "IMPOSSIBLE D'ASSOCIER LA MANETTE"
+#~ msgid "%i GAME AVAILABLE"
+#~ msgid_plural "%i GAMES AVAILABLE"
+#~ msgstr[0] "%i JEU DISPONIBLE"
+#~ msgstr[1] "%i JEUX DISPONIBLES"
