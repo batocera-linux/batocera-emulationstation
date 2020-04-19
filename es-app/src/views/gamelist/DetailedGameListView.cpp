@@ -379,22 +379,22 @@ void DetailedGameListView::updateInfoPanel()
 		if (mMarquee != nullptr)
 			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
 		
-		mDescription.setText(file->getMetadata("desc"));
+		mDescription.setText(file->getMetadata(MetaDataId::Desc));
 		mDescContainer.reset();
 
-		mRating.setValue(file->getMetadata("rating"));
-		mReleaseDate.setValue(file->getMetadata("releasedate"));
-		mDeveloper.setValue(file->getMetadata("developer"));
-		mPublisher.setValue(file->getMetadata("publisher"));
-		mGenre.setValue(file->getMetadata("genre"));
-		mPlayers.setValue(file->getMetadata("players"));
-		mName.setValue(file->getMetadata("name"));
+		mRating.setValue(file->getMetadata(MetaDataId::Rating));
+		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
+		mDeveloper.setValue(file->getMetadata(MetaDataId::Developer));
+		mPublisher.setValue(file->getMetadata(MetaDataId::Publisher));
+		mGenre.setValue(file->getMetadata(MetaDataId::Genre));
+		mPlayers.setValue(file->getMetadata(MetaDataId::Players));
+		mName.setValue(file->getMetadata(MetaDataId::Name));
 
 		if(file->getType() == GAME)
 		{
-			mLastPlayed.setValue(file->getMetadata("lastplayed"));
-			mPlayCount.setValue(file->getMetadata("playcount"));
-			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata("gametime").c_str())));
+			mLastPlayed.setValue(file->getMetadata(MetaDataId::LastPlayed));
+			mPlayCount.setValue(file->getMetadata(MetaDataId::PlayCount));
+			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata(MetaDataId::GameTime).c_str())));
 		}
 		
 		fadingOut = false;

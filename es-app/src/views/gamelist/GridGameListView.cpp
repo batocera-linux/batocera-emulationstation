@@ -292,6 +292,11 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 	if (files.size() > 0)
 	{
+		bool showParentFolder = Settings::getInstance()->getBool("ShowParentFolder");
+		auto spf = Settings::getInstance()->getString(mRoot->getSystem()->getName() + ".ShowParentFolder");
+		if (spf == "1") showParentFolder = true;
+		else if (spf == "0") showParentFolder = false;
+
 		if (mCursorStack.size())
 		{
 			auto top = mCursorStack.top();
@@ -323,16 +328,18 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 							if (child->getType() == FOLDER)
 								displayAsVirtualFolder = ((FolderData*)child)->isVirtualFolderDisplayEnabled();
 
-							imagePath = child->getMetadata("image");
+							imagePath = child->getMetadata(MetaDataId::Image);
 							break;
 						}
 					}
 				}				
 			}
 
-
-			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mGrid.add(". .", imagePath, "", "", false, true, displayAsVirtualFolder && !imagePath.empty(), placeholder);
+			if (showParentFolder)
+			{
+				FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
+				mGrid.add(". .", imagePath, "", "", false, true, displayAsVirtualFolder && !imagePath.empty(), placeholder);
+			}
 		}
 
 		std::string systemName = mRoot->getSystem()->getName();
@@ -377,7 +384,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
-		if (mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)
+		if (showParentFolder && mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)
 			mGrid.setCursorIndex(1);
 	}
 	else
@@ -645,22 +652,22 @@ void GridGameListView::updateInfoPanel()
 		if (mMarquee != nullptr)
 			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
 
-		mDescription.setText(file->getMetadata().get("desc"));
+		mDescription.setText(file->getMetadata(MetaDataId::Desc));
 		mDescContainer.reset();
 
-		mRating.setValue(file->getMetadata().get("rating"));
-		mReleaseDate.setValue(file->getMetadata().get("releasedate"));
-		mDeveloper.setValue(file->getMetadata().get("developer"));
-		mPublisher.setValue(file->getMetadata().get("publisher"));
-		mGenre.setValue(file->getMetadata().get("genre"));
-		mPlayers.setValue(file->getMetadata().get("players"));
-		mName.setValue(file->getMetadata().get("name"));
+		mRating.setValue(file->getMetadata(MetaDataId::Rating));
+		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
+		mDeveloper.setValue(file->getMetadata(MetaDataId::Developer));
+		mPublisher.setValue(file->getMetadata(MetaDataId::Publisher));
+		mGenre.setValue(file->getMetadata(MetaDataId::Genre));
+		mPlayers.setValue(file->getMetadata(MetaDataId::Players));
+		mName.setValue(file->getMetadata(MetaDataId::Name));
 
 		if(file->getType() == GAME)
 		{
-			mLastPlayed.setValue(file->getMetadata().get("lastplayed"));
-			mPlayCount.setValue(file->getMetadata().get("playcount"));
-			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata("gametime").c_str())));
+			mLastPlayed.setValue(file->getMetadata(MetaDataId::LastPlayed));
+			mPlayCount.setValue(file->getMetadata(MetaDataId::PlayCount));
+			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata(MetaDataId::GameTime).c_str())));
 		}
 
 		fadingOut = false;

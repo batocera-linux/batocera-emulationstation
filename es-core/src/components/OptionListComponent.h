@@ -129,7 +129,7 @@ private:
 					mMenu.addGroup(e.group);
 
 				// also set cursor to this row if we're not multi-select and this row is selected
-				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected));
+				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected), false);
 			}
 
 			mMenu.addButton(_("BACK"), _("accept"), [this] { delete this; }); // batocera
@@ -429,6 +429,12 @@ public:
 		return false;
 	}
 
+	int size()
+	{
+		return (int)mEntries.size();
+	}
+
+	//size_type
 	void selectFirstItem()
 	{
 		for (unsigned int i = 0; i < mEntries.size(); i++)

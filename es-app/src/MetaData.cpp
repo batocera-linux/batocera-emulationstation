@@ -17,85 +17,91 @@ static MetaDataType* mGameTypeMap = nullptr;
 static std::string* mDefaultFolderMap = nullptr;
 static MetaDataType* mFolderTypeMap = nullptr;
 
-static std::map<std::string, unsigned char> mGameIdMap;
-static std::map<std::string, unsigned char> mFolderIdMap;
+static std::map<std::string, MetaDataId> mGameIdMap;
+static std::map<std::string, MetaDataId> mFolderIdMap;
 
 void MetaDataList::initMetadata()
 {
-	MetaDataDecl gameDecls[] = {
-		// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
-		{ 0,  "name",        MD_STRING,              "",                 false,      _("Name"),                 _("enter game name") },
-	//	{ 1,  "sortname",    MD_STRING,              "",                 false,      _("sortname"),             _("enter game sort name") },
-		{ 2,  "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("enter description") },
+	MetaDataDecl gameDecls[] = 
+	{
+		// key,             type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
+		{ Name,             "name",        MD_STRING,              "",                 false,      _("Name"),                 _("enter game name") },
+	//	{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("sortname"),             _("enter game sort name") },
+		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("enter description") },
 
 #if WIN32 && !_DEBUG
-		{ 3,  "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator") },
-		{ 4,  "core",	      MD_LIST,				 "",                 false,       _("Core"),				 _("core") },
+		{ Emulator,         "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator") },
+		{ Core,             "core",	      MD_LIST,				 "",                 false,       _("Core"),				 _("core") },
 #else
 		// Windows & recalbox gamelist.xml compatiblity -> Set as statistic to hide it from metadata editor
-		{ 3,  "emulator",    MD_LIST,				 "",                 true,        _("Emulator"),			 _("emulator") },
-		{ 4,  "core",	     MD_LIST,				 "",                 true,        _("Core"),				 _("core") },
+		{ Emulator,         "emulator",    MD_LIST,				 "",                 true,        _("Emulator"),			 _("emulator") },
+		{ Core,             "core",	     MD_LIST,				 "",                 true,        _("Core"),				 _("core") },
 #endif
 
-		{ 5,  "image",       MD_PATH,                "",                 false,      _("Image"),                _("enter path to image") },
-		{ 6,  "video",       MD_PATH,                "",                 false,      _("Video"),                _("enter path to video") },
-		{ 7,  "marquee",     MD_PATH,                "",                 false,      _("Marquee"),              _("enter path to marquee") },
-		{ 8,  "thumbnail",   MD_PATH,                "",                 false,      _("Thumbnail"),            _("enter path to thumbnail") },
-		{ 9,  "rating",      MD_RATING,              "0.000000",         false,      _("Rating"),               _("enter rating") },
-		{ 10, "releasedate", MD_DATE,                "not-a-date-time",  false,      _("Release date"),         _("enter release date") },
-		{ 11, "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("enter game developer") },
-		{ 12, "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("enter game publisher") },
-		{ 13, "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre") },
+		{ Image,            "image",       MD_PATH,                "",                 false,      _("Image"),                _("enter path to image") },
+		{ Video,            "video",       MD_PATH,                "",                 false,      _("Video"),                _("enter path to video") },
+		{ Marquee,          "marquee",     MD_PATH,                "",                 false,      _("Marquee"),              _("enter path to marquee") },
+		{ Thumbnail,        "thumbnail",   MD_PATH,                "",                 false,      _("Thumbnail"),            _("enter path to thumbnail") },
+		{ Rating,           "rating",      MD_RATING,              "0.000000",         false,      _("Rating"),               _("enter rating") },
+		{ ReleaseDate,      "releasedate", MD_DATE,                "not-a-date-time",  false,      _("Release date"),         _("enter release date") },
+		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("enter game developer") },
+		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("enter game publisher") },
+		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre") },
 
-		{ 14, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system") },
+		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system") },
 
-		{ 15, "players",     MD_INT,                 "1",                false,      _("Players"),              _("enter number of players") },
-		{ 16, "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite") },
-		{ 17, "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden") },
-		{ 18, "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame") },
-		{ 19, "playcount",   MD_INT,                 "0",                true,       _("Play count"),           _("enter number of times played") },
-		{ 20, "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date") },
+		{ Players,          "players",     MD_INT,                 "1",                false,      _("Players"),              _("enter number of players") },
+		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite") },
+		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden") },
+		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame") },
+		{ PlayCount,        "playcount",   MD_INT,                 "0",                true,       _("Play count"),           _("enter number of times played") },
+		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date") },
 
-		{ 21, "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum") },
-		{ 22, "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum") },
+		{ Crc32,            "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum") },
+		{ Md5,              "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum") },
 
-		{ 23, "gametime",    MD_INT,                 "0",                true,       _("Game time"),           _("how long the game has been played in total (seconds)") }				
-
+		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),           _("how long the game has been played in total (seconds)") }				
 	};
 	
-	MetaDataDecl folderDecls[] = {
-		{ 0,  "name",        MD_STRING,              "",                 false,       _("Name"),                 _("enter game name") },
-	//	{ 1,  "sortname",    MD_STRING,              "",                 false,       _("sortname"),             _("enter game sort name") },
-		{ 2,  "desc",        MD_MULTILINE_STRING,    "",                 false,       _("Description"),          _("enter description") },
-		{ 3,  "image",       MD_PATH,                "",                 false,       _("Image"),                _("enter path to image") },
-		{ 4,  "thumbnail",   MD_PATH,                "",                 false,       _("Thumbnail"),            _("enter path to thumbnail") },
-		{ 5,  "video",       MD_PATH,                "",                 false,       _("Video"),                _("enter path to video") },
-		{ 6,  "marquee",     MD_PATH,                "",                 false,       _("Marquee"),              _("enter path to marquee") },
-		{ 7,  "rating",      MD_RATING,              "0.000000",         false,       _("Rating"),               _("enter rating") },
-		{ 8,  "releasedate", MD_DATE,                "not-a-date-time",  false,       _("Release date"),         _("enter release date") },
-		{ 9,  "developer",   MD_STRING,              "",                 false,       _("Developer"),            _("enter game developer") },
-		{ 10, "publisher",   MD_STRING,              "",                 false,       _("Publisher"),            _("enter game publisher") },
-		{ 11, "genre",       MD_STRING,              "",                 false,       _("Genre"),                _("enter game genre") },
-		{ 12, "players",     MD_INT,                 "1",                false,       _("Players"),              _("enter number of players") },
-		{ 13, "hidden",      MD_BOOL,                "false",            false,       _("Hidden"),               _("enter hidden") },
-		{ 14, "favorite",    MD_BOOL,                "false",            false,       _("favorite"),             _("enter favorite") },
+	MetaDataDecl folderDecls[] = 
+	{
+		{ Name,             "name",        MD_STRING,              "",                 false,       _("Name"),                 _("enter game name") },
+	//	{ SortName,         "sortname",    MD_STRING,              "",                 false,       _("sortname"),             _("enter game sort name") },
+		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,       _("Description"),          _("enter description") },
+		{ Image,            "image",       MD_PATH,                "",                 false,       _("Image"),                _("enter path to image") },
+		{ Thumbnail,        "thumbnail",   MD_PATH,                "",                 false,       _("Thumbnail"),            _("enter path to thumbnail") },
+		{ Video,            "video",       MD_PATH,                "",                 false,       _("Video"),                _("enter path to video") },
+		{ Marquee,          "marquee",     MD_PATH,                "",                 false,       _("Marquee"),              _("enter path to marquee") },
+		{ Rating,           "rating",      MD_RATING,              "0.000000",         false,       _("Rating"),               _("enter rating") },
+		{ ReleaseDate,      "releasedate", MD_DATE,                "not-a-date-time",  false,       _("Release date"),         _("enter release date") },
+		{ Developer,        "developer",   MD_STRING,              "",                 false,       _("Developer"),            _("enter game developer") },
+		{ Publisher,        "publisher",   MD_STRING,              "",                 false,       _("Publisher"),            _("enter game publisher") },
+		{ Genre,            "genre",       MD_STRING,              "",                 false,       _("Genre"),                _("enter game genre") },
+		{ Players,          "players",     MD_INT,                 "1",                false,       _("Players"),              _("enter number of players") },
+		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,       _("Hidden"),               _("enter hidden") },
+		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,       _("favorite"),             _("enter favorite") },
+		// Some games are folders ( dosbox )
+		{ PlayCount,        "playcount",   MD_INT,                 "0",                true,       _("Play count"),            _("enter number of times played") },
+		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),           _("enter last played date") },
+		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),             _("how long the game has been played in total (seconds)") }
 	};
 
 	// Build Game maps
 	gameMDD = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
 
+	int maxID = 40; // Maximum ids of metadata
+
 	{
 		const std::vector<MetaDataDecl>& mdd = getMDDByType(GAME_METADATA);
-
-		int maxID = 0;
-		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
-		maxID++;
 
 		if (mDefaultGameMap != nullptr) delete[] mDefaultGameMap;
 		if (mGameTypeMap != nullptr) delete[] mGameTypeMap;
 
 		mDefaultGameMap = new std::string[maxID];
 		mGameTypeMap = new MetaDataType[maxID];
+
+		for (int i = 0; i < maxID; i++)
+			mGameTypeMap[i] = MD_STRING;
 		
 		for (auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 		{
@@ -111,15 +117,14 @@ void MetaDataList::initMetadata()
 	{
 		const std::vector<MetaDataDecl>& mdd = getMDDByType(FOLDER_METADATA);
 		
-		int maxID = 0;
-		for (auto it : mdd) if (it.id > maxID) maxID = it.id;
-		maxID++;
-
 		if (mDefaultFolderMap != nullptr) delete[] mDefaultFolderMap;
 		if (mFolderTypeMap != nullptr) delete[] mFolderTypeMap;
 
 		mDefaultFolderMap = new std::string[maxID];
 		mFolderTypeMap = new MetaDataType[maxID];
+
+		for (int i = 0; i < maxID; i++)
+			mFolderTypeMap[i] = MD_STRING;
 
 		for (auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
 		{
@@ -130,12 +135,12 @@ void MetaDataList::initMetadata()
 	}
 }
 
-MetaDataType MetaDataList::getType(unsigned char id) const
+MetaDataType MetaDataList::getType(MetaDataId id) const
 {
 	return mType == GAME_METADATA ? mGameTypeMap[id] : mFolderTypeMap[id];
 }
 
-unsigned char MetaDataList::getId(const std::string& key) const
+MetaDataId MetaDataList::getId(const std::string& key) const
 {
 	return mType == GAME_METADATA ? mGameIdMap[key] : mFolderIdMap[key];
 }
@@ -253,18 +258,16 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 		if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
 			mMap[id] = Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
 		else
-			mMap[id] = value;
+			mMap[id] = Utils::String::trim(value);
 	}
 
 	mWasChanged = true;
 }
 
-const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
+const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) const
 {
-	if (key == "name")
+	if (id == MetaDataId::Name)
 		return mName;
-
-	auto id = getId(key);
 
 	auto it = mMap.find(id);
 	if (it != mMap.end())
@@ -279,6 +282,11 @@ const std::string MetaDataList::get(const std::string& key, bool resolveRelative
 		return mDefaultGameMap[id];
 
 	return mDefaultFolderMap[id];
+}
+
+const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
+{
+	return get(getId(key), resolveRelativePaths);
 }
 
 int MetaDataList::getInt(const std::string& key) const

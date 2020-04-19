@@ -213,7 +213,7 @@ void SystemData::indexAllGameFilters(const FolderData* folder)
 {
 	const std::vector<FileData*>& children = folder->getChildren();
 
-	for(std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it)
+	for(auto it = children.cbegin(); it != children.cend(); ++it)
 	{
 		switch((*it)->getType())
 		{
@@ -280,7 +280,7 @@ void SystemData::createGroupedSystems()
 				folder->setMetadata(childSystem->getRootFolder()->getMetadata());
 				root->addChild(folder);
 
-				if (folder->getMetadata("image").empty())
+				if (folder->getMetadata(MetaDataId::Image).empty())
 				{
 					auto theme = childSystem->getTheme();
 					if (theme)
@@ -798,7 +798,7 @@ bool SystemData::loadConfig(Window* window)
 		
 
 		if (window != NULL)
-			window->renderSplashScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
+			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		// updateSystemsList can't be run async, systems have to be created before
 		createGroupedSystems();
@@ -807,7 +807,7 @@ bool SystemData::loadConfig(Window* window)
 	else
 	{
 		if (window != NULL)
-			window->renderSplashScreen(_("Favorites"), systemCount == 0 ? 0 : currentSystem / systemCount);
+			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		createGroupedSystems();
 		CollectionSystemManager::get()->loadCollectionSystems();

@@ -2494,6 +2494,20 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			if (Settings::getInstance()->setString(system->getName() + ".FolderViewMode", foldersBehavior->getSelected()))
 				themeconfig->setVariable("reloadAll", true);
 		});
+		
+		// Show parent folder in gamelists
+		auto defPf = Settings::getInstance()->getBool("ShowParentFolder") ? _("YES") : _("NO");
+		auto curPf = Settings::getInstance()->getString(system->getName() + ".ShowParentFolder");
+		auto parentFolder = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW '..' PARENT FOLDER"), false);
+		parentFolder->add(_("AUTO"), "", curPf == "" || curPf == "auto");
+		parentFolder->add(_("YES"), "1", curPf == "1");
+		parentFolder->add(_("NO"), "0", curPf == "0");
+		themeconfig->addWithDescription(_("SHOW '..' PARENT FOLDER"), _("DEFAULT VALUE") + " : " + defPf, parentFolder);
+		themeconfig->addSaveFunc([themeconfig, parentFolder, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowParentFolder", parentFolder->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
 	}
 
 	if (systemTheme.empty())
@@ -2918,9 +2932,14 @@ void GuiMenu::openUISettings()
 			s->setVariable("reloadAll", true);
 	});
 
-
-
-
+	// Show parent folder
+	auto parentFolder = std::make_shared<SwitchComponent>(mWindow);
+	parentFolder->setState(Settings::getInstance()->getBool("ShowParentFolder"));
+	s->addWithLabel(_("SHOW '..' PARENT FOLDER"), parentFolder);
+	s->addSaveFunc([s, parentFolder]
+	{
+		Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState());
+	});
 
 	// filenames
 	auto showFilesnames = std::make_shared<SwitchComponent>(mWindow);

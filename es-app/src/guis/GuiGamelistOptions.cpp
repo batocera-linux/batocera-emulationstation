@@ -80,6 +80,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 {
 	mGridSize = nullptr;
 
+	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
+	auto customCollection = customCollections.find(getCustomCollectionName());
+
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
@@ -87,7 +90,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	mMenu.addGroup(_("NAVIGATION"));
 
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-		addTextFilterToMenu();
+		if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
+			addTextFilterToMenu();
 
 	// check it's not a placeholder folder - if it is, only show "Filter Options"
 	FileData* file = getGamelist()->getCursor();
@@ -147,7 +151,21 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	// Show filtered menu
 	if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-		mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+	{
+		if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
+			mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+	}
+	if (customCollection != customCollections.cend() && customCollection->second.filteredIndex != nullptr)
+	{
+		mMenu.addGroup(_("COLLECTION"));
+		mMenu.addEntry(_("EDIT DYNAMIC COLLECTION FILTERS"), false, std::bind(&GuiGamelistOptions::editCollectionFilters, this));
+		mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGamelistOptions::deleteCollection, this));
+	}
+	else if ((!mSystem->isCollection() || mSystem->getName() == "all") && mSystem->getIndex(false) != nullptr)
+	{
+		mMenu.addGroup(_("COLLECTION"));
+		mMenu.addEntry(_("CREATE NEW DYNAMIC COLLECTION"), false, std::bind(&GuiGamelistOptions::createNewCollectionFilter, this));
+	}	
 
 	auto glv = ViewController::get()->getGameListView(system);
 	std::string viewName = glv->getName();
@@ -191,23 +209,25 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder()); 
 		});
 
-		std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
-
-		if (CollectionSystemManager::get()->isEditing() ||
-			((customCollections.find(system->getName()) != customCollections.cend() && CollectionSystemManager::get()->getEditingCollection() != system->getName()) ||
-				CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName()))
+		if ((customCollection != customCollections.cend() && customCollection->second.filteredIndex == nullptr) || CollectionSystemManager::get()->isEditing())
+		{
 			mMenu.addGroup(_("COLLECTION MANAGEMENT"));
 
-		if ((customCollections.find(system->getName()) != customCollections.cend() && CollectionSystemManager::get()->getEditingCollection() != system->getName()) ||		
-			CollectionSystemManager::get()->getCustomCollectionsBundle()->getName() == system->getName())
-		{
-			mMenu.addEntry(_("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), false, std::bind(&GuiGamelistOptions::startEditMode, this));
+			if (customCollection != customCollections.cend())
+			{
+				mMenu.addEntry(_("ADD/REMOVE GAMES TO THIS GAME COLLECTION"), false, std::bind(&GuiGamelistOptions::startEditMode, this));
+
+				if (mSystem->getName() != CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+					mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGamelistOptions::deleteCollection, this));
+			}
+
+			if (CollectionSystemManager::get()->isEditing())
+				mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), false, std::bind(&GuiGamelistOptions::exitEditMode, this));
 		}
-
-		if (UIModeController::getInstance()->isUIModeFull() && CollectionSystemManager::get()->isEditing())
-			mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), true, std::bind(&GuiGamelistOptions::exitEditMode, this));
-
+		
 		if (file->getType() == FOLDER && ((FolderData*) file)->isVirtualStorage())
+			fromPlaceholder = true;
+		else if (file->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 			fromPlaceholder = true;
 		
 		if (!fromPlaceholder)
@@ -369,7 +389,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		// as we need to re-display the remaining elements for whatever new
 		// game is selected
 		mSystem->loadTheme();		
-		ViewController::get()->reloadGameListView(mSystem);
+		ViewController::get()->reloadGameListView(mSystem, false, mFiltersChanged && mSystem->isCollection());
 	}
 }
 
@@ -381,25 +401,27 @@ void GuiGamelistOptions::openGamelistFilter()
 	mWindow->pushGui(ggf);
 }
 
-void GuiGamelistOptions::startEditMode()
+std::string GuiGamelistOptions::getCustomCollectionName()
 {
 	std::string editingSystem = mSystem->getName();
+
 	// need to check if we're editing the collections bundle, as we will want to edit the selected collection within
-	if(editingSystem == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+	if (editingSystem == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 	{
 		FileData* file = getGamelist()->getCursor();
 		// do we have the cursor on a specific collection?
 		if (file->getType() == FOLDER)
-		{
-			editingSystem = file->getName();
-		}
-		else
-		{
-			// we are inside a specific collection. We want to edit that one.
-			editingSystem = file->getSystem()->getName();
-		}
+			return file->getName();
+
+		return file->getSystem()->getName();
 	}
-	CollectionSystemManager::get()->setEditMode(editingSystem);
+
+	return editingSystem;
+}
+
+void GuiGamelistOptions::startEditMode()
+{
+	CollectionSystemManager::get()->setEditMode(getCustomCollectionName());
 	delete this;
 }
 
@@ -519,4 +541,96 @@ std::vector<HelpPrompt> GuiGamelistOptions::getHelpPrompts()
 IGameListView* GuiGamelistOptions::getGamelist()
 {
 	return ViewController::get()->getGameListView(mSystem).get();
+}
+
+void GuiGamelistOptions::editCollectionFilters()
+{
+	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
+	auto customCollection = customCollections.find(getCustomCollectionName());
+	if (customCollection == customCollections.cend())
+		return;
+
+	if (customCollection->second.filteredIndex == nullptr)
+		return;
+
+	mReloadAll = false;
+	mFiltersChanged = true;
+	GuiGamelistFilter* ggf = new GuiGamelistFilter(mWindow, customCollection->second.filteredIndex);
+	mWindow->pushGui(ggf);
+}
+
+void GuiGamelistOptions::createNewCollectionFilter()
+{
+	std::string defName = Utils::String::toLower(mSystem->getIndex(false)->getTextFilter());
+
+	if (Settings::getInstance()->getBool("UseOSK"))
+		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), defName, [this](std::string val) { createCollection(val); }, false));
+	else
+		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), defName, [this](std::string val) { createCollection(val); }, false));
+
+}
+
+void GuiGamelistOptions::createCollection(std::string inName)
+{
+	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
+
+	std::string setting = Settings::getInstance()->getString("CollectionSystemsCustom");
+	setting = setting.empty() ? name : setting + "," + name;
+	Settings::getInstance()->setString("CollectionSystemsCustom", setting);
+
+	CollectionFilter cf;
+	cf.createFromSystem(name, mSystem);
+	cf.save();
+
+	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
+
+	mReloadAll = false;
+	mFiltersChanged = false;
+
+	Window* window = mWindow;
+
+	window->renderSplashScreen();
+
+	GuiComponent* topGui = window->peekGui();
+	window->removeGui(topGui);
+
+	while (window->peekGui() && window->peekGui() != ViewController::get())
+		delete window->peekGui();
+
+	CollectionSystemManager::get()->loadEnabledListFromSettings();
+	CollectionSystemManager::get()->updateSystemsList();
+	ViewController::get()->goToStart();
+	ViewController::get()->reloadAll();
+
+	ViewController::get()->goToSystemView(newSys);
+
+	window->closeSplashScreen();
+}
+
+void GuiGamelistOptions::deleteCollection()
+{
+	if (getCustomCollectionName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+		return;
+
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE ?"), _("YES"),
+		[this]
+		{
+			std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
+			auto customCollection = customCollections.find(getCustomCollectionName());
+			if (customCollection == customCollections.cend())
+				return;
+
+			if (CollectionSystemManager::get()->deleteCustomCollection(&customCollection->second))
+			{
+				mWindow->renderSplashScreen();
+		
+				CollectionSystemManager::get()->loadEnabledListFromSettings();
+				CollectionSystemManager::get()->updateSystemsList();
+				ViewController::get()->goToStart();
+				ViewController::get()->reloadAll();
+
+				mWindow->closeSplashScreen();
+				delete this;
+			}
+		}, _("NO"), nullptr));
 }

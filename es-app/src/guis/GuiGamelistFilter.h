@@ -14,6 +14,8 @@ class GuiGamelistFilter : public GuiComponent
 {
 public:
 	GuiGamelistFilter(Window* window, SystemData* system);
+	GuiGamelistFilter(Window* window, FileFilterIndex* filterIndex);
+
 	~GuiGamelistFilter();
 	bool input(InputConfig* config, Input input) override;
 
@@ -25,6 +27,7 @@ private:
 	void resetAllFilters();
 	void addFiltersToMenu();
 	void addTextFilterToMenu();
+	void addSystemFilterToMenu();
 
 	std::map<FilterIndexType, std::shared_ptr< OptionListComponent<std::string> >> mFilterOptions;
 
@@ -32,6 +35,7 @@ private:
 	SystemData* mSystem;
 	FileFilterIndex* mFilterIndex;
 
+	std::shared_ptr<OptionListComponent<SystemData*>> mSystemFilter;
 	std::shared_ptr<GuiComponent> mTextFilter;
 };
 

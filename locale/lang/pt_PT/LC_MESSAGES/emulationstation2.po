@@ -89,7 +89,7 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNAVAILABLE CORE"
-msgstr ""
+msgstr "CORE INDISPONÍVEIL"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -146,7 +146,7 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "EDIT FOLDER METADATA"
-msgstr ""
+msgstr "EDITAR PASTA METADATA"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -407,7 +407,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ARQUIVO GERADO SEM SUCESSO"
 
 msgid "FORMAT A DISK"
-msgstr ""
+msgstr "FORMATAR UM DISCO"
 
 msgid "DOWNLOADS"
 msgstr "TRANSFERÊNCIAS"
@@ -930,22 +930,22 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
 msgid "FORMAT DEVICE"
-msgstr ""
+msgstr "FORMATAR DISPOSITIVO"
 
 msgid "DEVICE TO FORMAT"
-msgstr ""
+msgstr "DISPOSITIVO A FORMATAR"
 
 msgid "FILE SYSTEM"
-msgstr ""
+msgstr "SISTEMA DE ARQUIVO"
 
 msgid "FORMAT NOW"
-msgstr ""
+msgstr "FORMATAR AGORA"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr ""
+msgstr "AS OPÇÕES SELECIONADAS SÃO INVÁLIDAS"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
-msgstr ""
+msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTA UNIDADE?"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMAS EM GRUPO"
@@ -1518,7 +1518,7 @@ msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
 
 msgid "Extracting"
-msgstr ""
+msgstr "A extrair"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
@@ -1551,13 +1551,13 @@ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "A PROCURA DO BLUETOOTH ESTÁ EM CURSO"
 
 msgid "FORMATING DEVICE"
-msgstr ""
+msgstr "FORMATAR DISPOSITIVO"
 
 msgid "Formating"
-msgstr ""
+msgstr "A FORMATAR"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
+msgstr "O FORMATO DA UNIDADE JA ESTÁ EM EXECUÇÃO"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
