@@ -31,6 +31,12 @@ private:
 	void startEditMode();
 	void exitEditMode();
 	void jumpToLetter();
+	void editCollectionFilters();
+	void createNewCollectionFilter();
+	void createCollection(std::string inName);
+	void deleteCollection();
+
+	std::string getCustomCollectionName();
 
 	MenuComponent mMenu;
 

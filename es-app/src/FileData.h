@@ -110,7 +110,8 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
 	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
 private:
@@ -159,13 +160,7 @@ public:
 
 	~FolderData()
 	{
-		if (mOwnsChildrens)
-		{
-			for (int i = mChildren.size() - 1; i >= 0; i--)
-				delete mChildren.at(i);
-		}
-
-		mChildren.clear();
+		clear();
 	}
 
 	inline bool isVirtualStorage() { return !mOwnsChildrens; }
@@ -188,6 +183,17 @@ public:
 	void createChildrenByFilenameMap(std::unordered_map<std::string, FileData*>& map);
 
 	FileData* findUniqueGameForFolder();
+
+	void clear()
+	{
+		if (mOwnsChildrens)
+		{
+			for (int i = mChildren.size() - 1; i >= 0; i--)
+				delete mChildren.at(i);
+		}
+
+		mChildren.clear();
+	}	
 
 private:
 	std::vector<FileData*> mChildren;

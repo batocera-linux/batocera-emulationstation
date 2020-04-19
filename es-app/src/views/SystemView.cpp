@@ -489,7 +489,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			ss << "CONFIGURATION";
 		else 
 		{
-			if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+			if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !getSelected()->isCollection())
 				snprintf(strbuf, 256, ngettext("%i ITEM", "%i ITEMS", gameCount), gameCount);
 			else
 				snprintf(strbuf, 256, ngettext("%i GAME", "%i GAMES", gameCount), gameCount);

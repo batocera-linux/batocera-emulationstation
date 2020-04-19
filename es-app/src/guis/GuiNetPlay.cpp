@@ -176,7 +176,7 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc)
 		{
 			if (crc)
 			{
-				if (file->getMetadata("crc32") == gameInfo)
+				if (file->getMetadata(MetaDataId::Crc32) == gameInfo)
 					return file;
 
 				continue;
@@ -210,7 +210,7 @@ public:
 
 		mImage->setRoundCorners(0.25);
 
-		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata("name") + " [" + entry.fileData->getSystemName() + "]";
+		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 
 		mText = std::make_shared<TextComponent>(mWindow, name.c_str(), theme->Text.font, theme->Text.color);
 		mText->setLineSpacing(1.5);

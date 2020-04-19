@@ -100,7 +100,8 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 	float padding = mSpacing;
 
-	float szW = (mSize.x() - (padding * (MAX_PLAYERS-1))) / MAX_PLAYERS;
+	//float szW = (mSize.x() - (padding * (MAX_PLAYERS-1))) / MAX_PLAYERS;
+	float szW = (mSize.x() - (padding * 6)) / 5;
 	float szH = mSize.y();
 	float x = 0;
 
@@ -125,6 +126,11 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	indexes.push_back(0);
 	indexes.push_back(1);
 	indexes.push_back(2);
+	indexes.push_back(3);
+	indexes.push_back(4);
+	indexes.push_back(5);
+	indexes.push_back(6);
+	indexes.push_back(7);
 
 	mPads[1].keyState = 1;
 	mPads[1].timeOut = PLAYER_PAD_TIME_MS;

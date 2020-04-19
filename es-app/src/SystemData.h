@@ -224,6 +224,8 @@ public:
 	bool hasFeatures();
 	bool hasEmulatorSelection();
 
+	FileFilterIndex* getFilterIndex() { return mFilterIndex; }
+
 private:
 	static void createGroupedSystems();
 

@@ -11,6 +11,7 @@ class FileData;
 class FolderData;
 class SystemData;
 class Window;
+class CollectionFilter;
 struct SystemEnvironmentData;
 
 enum CollectionSystemType
@@ -56,7 +57,7 @@ struct CollectionSystemDecl
 	std::string longName;
 	int			defaultSortId;
 	std::string themeFolder;
-	bool isCustom;
+	bool isCustom;	
     bool displayIfEmpty;
 };
 
@@ -64,6 +65,8 @@ struct CollectionSystemData
 {
 	SystemData* system;
 	CollectionSystemDecl decl;
+
+	CollectionFilter* filteredIndex;
 	bool isEnabled;
 	bool isPopulated;
 	bool needsSave;
@@ -110,7 +113,9 @@ public:
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
 
+	void reloadCustomCollection(SystemData* sys);
     void populateAutoCollection(CollectionSystemData* sysData);
+	bool deleteCustomCollection(CollectionSystemData* data);
 
 private:
 	static CollectionSystemManager* sInstance;
@@ -150,6 +155,7 @@ private:
 };
 
 std::string getCustomCollectionConfigPath(std::string collectionName);
+std::string getFilteredCollectionPath(std::string collectionName);
 std::string getCollectionsFolder();
 bool systemSort(SystemData* sys1, SystemData* sys2);
 

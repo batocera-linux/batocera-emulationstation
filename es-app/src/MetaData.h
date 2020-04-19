@@ -27,6 +27,34 @@ enum MetaDataType
         MD_LIST // batocera
 };
 
+enum MetaDataId
+{
+	Name = 0,
+	SortName = 1,
+	Desc = 2,
+	Emulator = 3,
+	Core = 4,
+	Image = 5,
+	Video = 6,
+	Marquee = 7,
+	Thumbnail = 8,
+	Rating = 9,
+	ReleaseDate = 10,
+	Developer = 11,
+	Publisher = 12,
+	Genre = 13,
+	ArcadeSystemName = 14,
+	Players = 15,
+	Favorite = 16,
+	Hidden = 17,
+	KidGame = 18,
+	PlayCount = 19,
+	LastPlayed = 20,
+	Crc32 = 21,
+	Md5 = 22,
+	GameTime = 23
+};
+
 namespace MetaDataImportType
 {
 	enum Types : int
@@ -41,17 +69,16 @@ namespace MetaDataImportType
 
 struct MetaDataDecl
 {
-	unsigned char id;
-
-	std::string key;
+	MetaDataId   id;
+	std::string  key;
 	MetaDataType type;
-	std::string defaultValue;
-	bool isStatistic; //if true, ignore scraper values for this metadata
-	std::string displayName; // displayed as this in editors
-	std::string displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
+	std::string  defaultValue;
+	bool         isStatistic; //if true, ignore scraper values for this metadata
+	std::string  displayName; // displayed as this in editors
+	std::string  displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
 
   // batocera
-	MetaDataDecl(unsigned char id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt) 
+	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt)
 	{
 		this->id = id;
 		this->key = key;
@@ -63,7 +90,7 @@ struct MetaDataDecl
 	}
 
 	// batocera 
-	MetaDataDecl(unsigned char id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic) 
+	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic)
 	{
 		this->id = id;
 		this->key = key;
@@ -93,7 +120,9 @@ public:
 	
 	void set(const std::string& key, const std::string& value);
 
+	const std::string get(MetaDataId id, bool resolveRelativePaths = true) const;
 	const std::string get(const std::string& key, bool resolveRelativePaths = true) const;
+
 	int getInt(const std::string& key) const;
 	float getFloat(const std::string& key) const;
 
@@ -114,12 +143,12 @@ public:
 private:
 	std::string		mName;
 	MetaDataListType mType;
-	std::map<unsigned char, std::string> mMap;
+	std::map<MetaDataId, std::string> mMap;
 	bool mWasChanged;
 	SystemData*		mRelativeTo;
 
-	inline MetaDataType getType(unsigned char id) const;
-	inline unsigned char getId(const std::string& key) const;
+	inline MetaDataType getType(MetaDataId id) const;
+	inline MetaDataId getId(const std::string& key) const;
 };
 
 #endif // ES_APP_META_DATA_H

@@ -27,7 +27,7 @@ public:
 
 	void onSizeChanged() override;
 
-	inline void addRow(const ComponentListRow& row, bool setCursorHere = false) { mList->addRow(row, setCursorHere); updateSize(); }
+	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool doUpdateSize = true) { mList->addRow(row, setCursorHere); if (doUpdateSize) updateSize(); }
 	inline void clear() { mList->clear(); }
 
 	void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false, bool invert_when_selected = true);

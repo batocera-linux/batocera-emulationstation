@@ -7,25 +7,36 @@
 #include "Settings.h"
 #include "LocaleES.h"
 
+#include <pugixml/src/pugixml.hpp>
+
+#include "SystemData.h"
+#include "FileData.h"
+#include "CollectionSystemManager.h"
+
 #define UNKNOWN_LABEL "UNKNOWN"
 #define INCLUDE_UNKNOWN false;
 
 FileFilterIndex::FileFilterIndex()
-	: filterByFavorites(false), filterByGenre(false), filterByHidden(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false)
+	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false)
 {
 	clearAllFilters();
-	FilterDataDecl filterDecls[] = {
+	FilterDataDecl filterDecls[] = 
+	{
 		//type 				//allKeys 				//filteredBy 		//filteredKeys 				//primaryKey 	//hasSecondaryKey 	//secondaryKey 	//menuLabel
 		{ FAVORITES_FILTER, &favoritesIndexAllKeys, &filterByFavorites,	&favoritesIndexFilteredKeys,"favorite",		false,				"",				_("FAVORITES")	},
 		{ GENRE_FILTER, 	&genreIndexAllKeys, 	&filterByGenre,		&genreIndexFilteredKeys, 	"genre",		true,				"genre",		_("GENRE")	},
 		{ PLAYER_FILTER, 	&playersIndexAllKeys, 	&filterByPlayers,	&playersIndexFilteredKeys, 	"players",		false,				"",				_("PLAYERS")	},
 		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER / DEVELOPER")	},
 		{ RATINGS_FILTER, 	&ratingsIndexAllKeys, 	&filterByRatings,	&ratingsIndexFilteredKeys, 	"rating",		false,				"",				_("RATING")	},
-		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") }
-		//{ HIDDEN_FILTER, 	&hiddenIndexAllKeys, 	&filterByHidden,	&hiddenIndexFilteredKeys, 	"hidden",		false,				"",				"HIDDEN" }
+		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") },
+		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") }
 	};
 
-	filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
+	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
+	for (auto decl : filterDataDecl)
+		mFilterDecl[(int) decl.type] = decl;
+
+	resetIndex();
 }
 
 FileFilterIndex::~FileFilterIndex()
@@ -33,9 +44,12 @@ FileFilterIndex::~FileFilterIndex()
 	resetIndex();
 }
 
-std::vector<FilterDataDecl>& FileFilterIndex::getFilterDataDecls()
+std::vector<FilterDataDecl> FileFilterIndex::getFilterDataDecls()
 {
-	return filterDataDecl;
+	std::vector<FilterDataDecl> ret;
+	for (auto it : mFilterDecl)
+		ret.push_back(it.second);
+	return ret;
 }
 
 void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
@@ -54,6 +68,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &favoritesIndexAllKeys, &(indexToImport->favoritesIndexAllKeys) },
 //		{ &hiddenIndexAllKeys, &(indexToImport->hiddenIndexAllKeys) },
 		{ &kidGameIndexAllKeys, &(indexToImport->kidGameIndexAllKeys) },
+		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -74,8 +89,10 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		}
 	}
 }
+
 void FileFilterIndex::resetIndex()
 {
+	mTextFilter = "";
 	clearAllFilters();
 	clearIndex(genreIndexAllKeys);
 	clearIndex(playersIndexAllKeys);
@@ -84,29 +101,34 @@ void FileFilterIndex::resetIndex()
 	clearIndex(favoritesIndexAllKeys);
 	//clearIndex(hiddenIndexAllKeys);
 	clearIndex(kidGameIndexAllKeys);
+	clearIndex(playedIndexAllKeys);
+
+	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&kidGameIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&kidGameIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&playedIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&playedIndexAllKeys, "TRUE", false);
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
 {
-	std::string key = "";
+	std::string key;
 	switch(type)
 	{
 		case GENRE_FILTER:
 		{
-			key = Utils::String::toUpper(game->getMetadata().get("genre"));
-			key = Utils::String::trim(key);
-			if (getSecondary && !key.empty()) {
-				std::istringstream f(key);
-				std::string newKey;
-				getline(f, newKey, '/');
-				if (!newKey.empty() && newKey != key)
-				{
-					key = newKey;
-				}
+			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Genre));
+			
+			if (getSecondary && !key.empty()) 
+			{
+				auto idx = key.find('/');
+				if (idx != std::string::npos)
+					key = Utils::String::trim(key.substr(0, idx));
 				else
-				{
-					key = std::string();
-				}
+					key = "";
 			}
 			break;
 		}
@@ -115,18 +137,16 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			if (getSecondary)
 				break;
 
-			key = game->getMetadata().get("players");
+			key = game->getMetadata(MetaDataId::Players);
 			break;
 		}
 		case PUBDEV_FILTER:
 		{
-			key = Utils::String::toUpper(game->getMetadata().get("publisher"));
-			key = Utils::String::trim(key);
+			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Publisher));
 
 			if ((getSecondary && !key.empty()) || (!getSecondary && key.empty()))
-				key = Utils::String::toUpper(game->getMetadata().get("developer"));
-			else
-				key = Utils::String::toUpper(game->getMetadata().get("publisher"));
+				key = Utils::String::toUpper(game->getMetadata(MetaDataId::Developer));
+		
 			break;
 		}
 		case RATINGS_FILTER:
@@ -134,9 +154,11 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			int ratingNumber = 0;
 			if (!getSecondary)
 			{
-				std::string ratingString = game->getMetadata().get("rating");
-				if (!ratingString.empty()) {
-					try {
+				std::string ratingString = game->getMetadata(MetaDataId::Rating);
+				if (!ratingString.empty()) 
+				{
+					try 
+					{
 						ratingNumber = (int)((std::stod(ratingString)*5)+0.5);
 						if (ratingNumber < 0)
 							ratingNumber = 0;
@@ -155,28 +177,26 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->getMetadata().get("favorite"));
-			break;
-		}
-		case HIDDEN_FILTER:
-		{
-			if (game->getType() != GAME)
-				return "FALSE";
-			key = Utils::String::toUpper(game->getMetadata().get("hidden"));
+			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Favorite));
 			break;
 		}
 		case KIDGAME_FILTER:
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->getMetadata().get("kidgame"));
+			key = Utils::String::toUpper(game->getMetadata(MetaDataId::KidGame));
+			break;
+		}
+		case PLAYED_FILTER:
+		{
+			key = atoi(game->getMetadata(MetaDataId::PlayCount).c_str()) == 0 ? "FALSE" : "TRUE";
 			break;
 		}
 	}
-	key = Utils::String::trim(key);
-	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) {
-		key = UNKNOWN_LABEL;
-	}
+		
+	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) 
+		return UNKNOWN_LABEL;
+	
 	return key;
 }
 
@@ -186,9 +206,6 @@ void FileFilterIndex::addToIndex(FileData* game)
 	managePlayerEntryInIndex(game);
 	managePubDevEntryInIndex(game);
 	manageRatingsEntryInIndex(game);
-	manageFavoritesEntryInIndex(game);
-	// manageHiddenEntryInIndex(game);
-	manageKidGameEntryInIndex(game);
 }
 
 void FileFilterIndex::removeFromIndex(FileData* game)
@@ -197,9 +214,6 @@ void FileFilterIndex::removeFromIndex(FileData* game)
 	managePlayerEntryInIndex(game, true);
 	managePubDevEntryInIndex(game, true);
 	manageRatingsEntryInIndex(game, true);
-	manageFavoritesEntryInIndex(game, true);
-	// manageHiddenEntryInIndex(game, true);
-	manageKidGameEntryInIndex(game, true);
 }
 
 void FileFilterIndex::setFilter(FilterIndexType type, std::vector<std::string>* values)
@@ -208,32 +222,30 @@ void FileFilterIndex::setFilter(FilterIndexType type, std::vector<std::string>* 
 	if(type == NONE)
 	{
 		clearAllFilters();
+		return;
 	}
-	else
-	{
-		for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it ) {
-			if ((*it).type == type)
-			{
-				FilterDataDecl filterData = (*it);
-				*(filterData.filteredByRef) = values->size() > 0;
-				filterData.currentFilteredKeys->clear();
-				for (std::vector<std::string>::const_iterator vit = values->cbegin(); vit != values->cend(); ++vit ) {
-					// check if exists
-					if (filterData.allIndexKeys->find(*vit) != filterData.allIndexKeys->cend()) {
-						filterData.currentFilteredKeys->push_back(std::string(*vit));
-					}
-				}
-			}
-		}
-	}
-	return;
+
+	auto it = mFilterDecl.find(type);
+	if (it == mFilterDecl.cend())
+		return;
+	
+	FilterDataDecl& filterData = it->second;
+	*(filterData.filteredByRef) = values != nullptr && values->size() > 0;
+	filterData.currentFilteredKeys->clear();
+
+	if (values == nullptr)
+		return;
+
+	for(auto value : *values)
+		if (filterData.allIndexKeys->find(value) != filterData.allIndexKeys->cend()) // check if exists
+			filterData.currentFilteredKeys->insert(value);	
 }
 
 void FileFilterIndex::clearAllFilters()
 {
-	for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it )
+	for (auto& it : mFilterDecl)
 	{
-		FilterDataDecl filterData = (*it);
+		FilterDataDecl& filterData = it.second;
 		*(filterData.filteredByRef) = false;
 		filterData.currentFilteredKeys->clear();
 	}
@@ -243,58 +255,20 @@ void FileFilterIndex::clearAllFilters()
 void FileFilterIndex::resetFilters()
 {
 	clearAllFilters();
-
-	// batocera
-	// apply filterByHidden by default
-	//filterByHidden = true;
-	//std::vector<std::string> val = { "FALSE" };
-	//setFilter(HIDDEN_FILTER, &val);
-
 	setUIModeFilters();
 }
 
 void FileFilterIndex::setUIModeFilters()
 {
-	if(!Settings::getInstance()->getBool("ForceDisableFilters")){
-		if (UIModeController::getInstance()->isUIModeKiosk())
-		{
-			filterByHidden = true;
-			std::vector<std::string> val = { "FALSE" };
-			setFilter(HIDDEN_FILTER, &val);
-		}
-		if (UIModeController::getInstance()->isUIModeKid())
-		{
-			filterByKidGame = true;
-			std::vector<std::string> val = { "TRUE" };
-			setFilter(KIDGAME_FILTER, &val);
-		}
-	}
-}
-
-void FileFilterIndex::debugPrintIndexes()
-{
-	LOG(LogInfo) << "Printing Indexes...";
-	for (auto x: playersIndexAllKeys) {
-		LOG(LogInfo) << "Multiplayer Index: " << x.first << ": " << x.second;
-	}
-	for (auto x: genreIndexAllKeys) {
-		LOG(LogInfo) << "Genre Index: " << x.first << ": " << x.second;
-	}
-	for (auto x: ratingsIndexAllKeys) {
-		LOG(LogInfo) << "Ratings Index: " << x.first << ": " << x.second;
-	}
-	for (auto x: pubDevIndexAllKeys) {
-		LOG(LogInfo) << "PubDev Index: " << x.first << ": " << x.second;
-	}
-	for (auto x: favoritesIndexAllKeys) {
-		LOG(LogInfo) << "Favorites Index: " << x.first << ": " << x.second;
+	if (Settings::getInstance()->getBool("ForceDisableFilters"))
+		return;
+	
+	if (UIModeController::getInstance()->isUIModeKid())
+	{
+		filterByKidGame = true;
+		std::vector<std::string> val = { "TRUE" };
+		setFilter(KIDGAME_FILTER, &val);
 	}	
-//	for (auto x : hiddenIndexAllKeys) {
-//		LOG(LogInfo) << "Hidden Index: " << x.first << ": " << x.second;
-//	}	
-	for (auto x : kidGameIndexAllKeys) {
-		LOG(LogInfo) << "KidGames Index: " << x.first << ": " << x.second;
-	}
 }
 
 void FileFilterIndex::setTextFilter(const std::string text) 
@@ -327,82 +301,68 @@ bool FileFilterIndex::showFile(FileData* game)
 	if (!mTextFilter.empty() && Utils::String::toUpper(game->getName()).find(mTextFilter) != std::string::npos)
 		keepGoing = true;
 
-	for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it ) {
-		FilterDataDecl filterData = (*it);
-		if(*(filterData.filteredByRef))
-		{
-			// try to find a match
-			std::string key = getIndexableKey(game, filterData.type, false);
-			keepGoing = isKeyBeingFilteredBy(key, filterData.type);
+	bool hasFilter = false;
 
-			// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
-			if (!keepGoing)
-			{
-				if (!filterData.hasSecondaryKey)
-				{
-					return false;
-				}
-				std::string secKey = getIndexableKey(game, filterData.type, true);
-				if (secKey != UNKNOWN_LABEL)
-				{
-					keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
-				}
-			}
-			// if still nothing, then it's not a match
-			if (!keepGoing)
+	for (auto& it : mFilterDecl)
+	{
+		FilterDataDecl& filterData = it.second;
+		if (!(*(filterData.filteredByRef)))
+			continue;
+		
+		hasFilter = true;
+
+		// try to find a match
+		std::string key = getIndexableKey(game, filterData.type, false);
+		keepGoing = isKeyBeingFilteredBy(key, filterData.type);
+
+		// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
+		if (!keepGoing)
+		{
+			if (!filterData.hasSecondaryKey)
 				return false;
 
+			std::string secKey = getIndexableKey(game, filterData.type, true);
+			if (secKey != UNKNOWN_LABEL)
+				keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
 		}
 
+		// if still nothing, then it's not a match
+		if (!keepGoing)
+			return false;		
 	}
+
+	if (mTextFilter.empty() && !hasFilter)
+		return true;
 
 	return keepGoing;
 }
 
 bool FileFilterIndex::isKeyBeingFilteredBy(std::string key, FilterIndexType type)
 {
-	const FilterIndexType filterTypes[6] = { FAVORITES_FILTER, GENRE_FILTER, PLAYER_FILTER, PUBDEV_FILTER, RATINGS_FILTER, KIDGAME_FILTER }; // ,HIDDEN_FILTER
-	std::vector<std::string> filterKeysList[6] = { favoritesIndexFilteredKeys, genreIndexFilteredKeys, playersIndexFilteredKeys, pubDevIndexFilteredKeys, ratingsIndexFilteredKeys, kidGameIndexFilteredKeys }; // hiddenIndexFilteredKeys, 
+	auto it = mFilterDecl.find(type);
+	if (it == mFilterDecl.cend())
+		return false;
 
-	for (int i = 0; i < 6; i++)
-	{
-		if (filterTypes[i] == type)
-		{
-			for (std::vector<std::string>::const_iterator it = filterKeysList[i].cbegin(); it != filterKeysList[i].cend(); ++it )
-			{
-				if (key == (*it))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-
-	return false;
+	auto keys = it->second.currentFilteredKeys;
+	return keys->find(key) != keys->cend();
 }
 
 void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 {
-
 	std::string key = getIndexableKey(game, GENRE_FILTER, false);
 
 	// flag for including unknowns
 	bool includeUnknown = INCLUDE_UNKNOWN;
 
 	// only add unknown in pubdev IF both dev and pub are empty
-	if (!includeUnknown && (key == UNKNOWN_LABEL || key == "BIOS")) {
-		// no valid genre info found
-		return;
-	}
+	if (!includeUnknown && (key == UNKNOWN_LABEL || key == "BIOS"))		
+		return;	 // no valid genre info found
 
 	manageIndexEntry(&genreIndexAllKeys, key, remove);
 
 	key = getIndexableKey(game, GENRE_FILTER, true);
 	if (!includeUnknown && key == UNKNOWN_LABEL)
-	{
 		manageIndexEntry(&genreIndexAllKeys, key, remove);
-	}
 }
 
 void FileFilterIndex::managePlayerEntryInIndex(FileData* game, bool remove)
@@ -430,12 +390,11 @@ void FileFilterIndex::managePubDevEntryInIndex(FileData* game, bool remove)
 	bool unknownPub = false;
 	bool unknownDev = false;
 
-	if (pub == UNKNOWN_LABEL) {
+	if (pub == UNKNOWN_LABEL)
 		unknownPub = true;
-	}
-	if (dev == UNKNOWN_LABEL) {
+
+	if (dev == UNKNOWN_LABEL)
 		unknownDev = true;
-	}
 
 	if (!includeUnknown && unknownDev && unknownPub) {
 		// no valid rating info found
@@ -474,50 +433,14 @@ void FileFilterIndex::manageRatingsEntryInIndex(FileData* game, bool remove)
 	manageIndexEntry(&ratingsIndexAllKeys, key, remove);
 }
 
-void FileFilterIndex::manageFavoritesEntryInIndex(FileData* game, bool remove)
+void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove) 
 {
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-	std::string key = getIndexableKey(game, FAVORITES_FILTER, false);
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid favorites info found
-		return;
-	}
-
-	manageIndexEntry(&favoritesIndexAllKeys, key, remove);
-}
-/*
-void FileFilterIndex::manageHiddenEntryInIndex(FileData* game, bool remove)
-{
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-	std::string key = getIndexableKey(game, HIDDEN_FILTER, false);
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid hidden info found
-		return;
-	}
-
-	manageIndexEntry(&hiddenIndexAllKeys, key, remove);
-}
-*/
-void FileFilterIndex::manageKidGameEntryInIndex(FileData* game, bool remove)
-{
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-	std::string key = getIndexableKey(game, KIDGAME_FILTER, false);
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid kidgame info found
-		return;
-	}
-
-	manageIndexEntry(&kidGameIndexAllKeys, key, remove);
-}
-
-void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove) {
 	bool includeUnknown = INCLUDE_UNKNOWN;
 	if (!includeUnknown && key == UNKNOWN_LABEL)
 		return;
-	if (remove) {
+
+	if (remove) 
+	{
 		// removing entry
 		if (index->find(key) == index->cend())
 		{
@@ -527,26 +450,208 @@ void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::s
 		else
 		{
 			(index->at(key))--;
-			if(index->at(key) <= 0) {
-				index->erase(key);
-			}
+			if(index->at(key) <= 0)
+				index->erase(key);			
 		}
+
+		return;
 	}
+
+	// adding entry
+	if (index->find(key) == index->cend())
+		(*index)[key] = 1;
 	else
-	{
-		// adding entry
-		if (index->find(key) == index->cend())
-		{
-			(*index)[key] = 1;
-		}
-		else
-		{
-			(index->at(key))++;
-		}
-	}
+		(index->at(key))++;
 }
 
 void FileFilterIndex::clearIndex(std::map<std::string, int> indexMap)
 {
 	indexMap.clear();
+}
+
+bool CollectionFilter::create(const std::string name)
+{
+	mName = name;
+	mPath = getCollectionsFolder() + "/" + mName + ".xcc";
+	return save();
+}
+
+bool CollectionFilter::createFromSystem(const std::string name, SystemData* system)
+{
+	FileFilterIndex* filter = system->getFilterIndex();
+	if (filter == nullptr)
+		return false;
+
+	mSystemFilter.clear();
+
+	if (system != nullptr && !system->isCollection() && !system->isGroupSystem() && system->getName() != "all")
+		mSystemFilter.insert(system->getName());
+
+	resetIndex();
+
+	mTextFilter = filter->mTextFilter;	
+	importIndex(filter);
+
+	for (auto& it : mFilterDecl)
+	{
+		FilterDataDecl& filterData = it.second;
+		*(filterData.filteredByRef) = (filterData.currentFilteredKeys->size() > 0);
+	}
+
+	mName = name;
+	mPath = getCollectionsFolder() + "/" + mName + ".xcc";
+	
+	return save();
+}
+
+bool CollectionFilter::load(const std::string file)
+{
+	if (!Utils::FileSystem::exists(file))
+		return false;
+
+	clearAllFilters();
+
+	mPath = file;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(file.c_str());
+
+	if (!res)
+	{
+		LOG(LogError) << "Could not parse filter collection !";
+		LOG(LogError) << res.description();
+		return false;
+	}
+
+	//actually read the file
+	pugi::xml_node root = doc.child("filter");
+	if (!root)
+	{
+		LOG(LogError) << "filter collection is missing the <filter> tag!";
+		return false;
+	}
+
+	if (root.attribute("name"))
+		mName = root.attribute("name").value();
+	else
+		mName = Utils::FileSystem::getStem(file);
+	
+	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+	{
+		std::string name = node.name();
+
+		if (name == "system")
+			mSystemFilter.insert(node.text().as_string());
+		else if (name == "text")
+			mTextFilter = node.text().as_string();
+		else if (name == "genre")
+			genreIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "ratings")
+			ratingsIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "players")
+			playersIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "pubDev")
+			pubDevIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "favorites")
+			favoritesIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "kidGame")
+			kidGameIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "played")
+			playedIndexFilteredKeys.insert(node.text().as_string());
+	}
+
+	for (auto& it : mFilterDecl)
+	{
+		FilterDataDecl& filterData = it.second;
+		*(filterData.filteredByRef) = (filterData.currentFilteredKeys->size() > 0);
+	}
+
+	return true;
+}
+
+bool CollectionFilter::save()
+{
+	pugi::xml_document doc;
+	pugi::xml_node root = doc.append_child("filter");
+	root.append_attribute("name").set_value(mName.c_str());
+
+	for (auto key : mSystemFilter)
+		root.append_child("system").text().set(key.c_str());
+
+	if (!mTextFilter.empty())
+		root.append_child("text").text().set(mTextFilter.c_str());
+
+	for (auto key : genreIndexFilteredKeys)
+		root.append_child("genre").text().set(key.c_str());
+
+	for (auto key : playersIndexFilteredKeys)
+		root.append_child("players").text().set(key.c_str());
+
+	for (auto key : pubDevIndexFilteredKeys)
+		root.append_child("pubDev").text().set(key.c_str());
+
+	for (auto key : ratingsIndexFilteredKeys)
+		root.append_child("ratings").text().set(key.c_str());
+
+	for (auto key : favoritesIndexFilteredKeys)
+		root.append_child("favorites").text().set(key.c_str());
+
+	for (auto key : kidGameIndexFilteredKeys)
+		root.append_child("kidGame").text().set(key.c_str());
+
+	for (auto key : playedIndexFilteredKeys)
+		root.append_child("played").text().set(key.c_str());
+
+	if (!doc.save_file(mPath.c_str()))
+	{
+		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";
+		return false;
+	}
+
+	return true;
+}
+
+bool CollectionFilter::isFiltered()
+{
+	return mSystemFilter.size() > 0 || FileFilterIndex::isFiltered();
+}
+
+bool CollectionFilter::showFile(FileData* game)
+{
+	if (game == nullptr)
+		return false;
+
+	if (mSystemFilter.size() > 0 && game->getSourceFileData() != nullptr && game->getSourceFileData()->getSystem() != nullptr)
+	{
+		std::string system = game->getSourceFileData()->getSystem()->getName();
+		if (!isSystemSelected(system))
+			return false;
+	}
+	
+	return FileFilterIndex::showFile(game);
+}
+
+bool CollectionFilter::isSystemSelected(const std::string name)
+{
+	if (mSystemFilter.size() == 0)
+		return true;
+
+	return mSystemFilter.find(name) != mSystemFilter.cend();
+}
+
+void CollectionFilter::setSystemSelected(const std::string name, bool value)
+{
+	auto sys = mSystemFilter.find(name);
+	if (sys == mSystemFilter.cend())
+	{
+		if (value)
+			mSystemFilter.insert(name);
+	}
+	else if (!value)			
+		mSystemFilter.erase(sys);	
+}
+
+void CollectionFilter::resetSystemFilter()
+{
+	mSystemFilter.clear();
 }
