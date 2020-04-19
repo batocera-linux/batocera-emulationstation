@@ -4,8 +4,10 @@
 
 #include <map>
 #include <vector>
+#include <unordered_set>
 
 class FileData;
+class SystemData;
 
 enum FilterIndexType
 {
@@ -33,16 +35,21 @@ struct FilterDataDecl
 
 class FileFilterIndex
 {
+	friend class CollectionFilter;
+
 public:
 	FileFilterIndex();
 	~FileFilterIndex();
+
 	void addToIndex(FileData* game);
 	void removeFromIndex(FileData* game);
 	void setFilter(FilterIndexType type, std::vector<std::string>* values);
 	void clearAllFilters();
 	void debugPrintIndexes();
-	bool showFile(FileData* game);
-	bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByHidden || filterByKidGame); };
+	
+	virtual bool showFile(FileData* game);
+	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByRatings || filterByFavorites || filterByHidden || filterByKidGame); };
+
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl>& getFilterDataDecls();
 
@@ -54,7 +61,7 @@ public:
 	void setTextFilter(const std::string text);
 	inline const std::string getTextFilter() { return mTextFilter; }
 
-private:
+protected:
 	std::vector<FilterDataDecl> filterDataDecl;
 	std::string getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary);
 
@@ -97,7 +104,28 @@ private:
 	FileData* mRootFolder;
 
 	std::string mTextFilter;
+};
 
+class CollectionFilter : public FileFilterIndex
+{
+public:	
+	bool create(const std::string name);
+	bool createFromSystem(const std::string name, SystemData* system);
+
+	bool load(const std::string file);
+	bool save();
+
+	bool showFile(FileData* game) override;
+	bool isFiltered() override;
+
+	bool isSystemSelected(const std::string name);
+	void setSystemSelected(const std::string name, bool value);
+	void resetSystemFilter();
+
+protected:
+	std::string mName;
+	std::string mPath;
+	std::unordered_set<std::string> mSystemFilter;
 };
 
 #endif // ES_APP_FILE_FILTER_INDEX_H

@@ -7,6 +7,12 @@
 #include "Settings.h"
 #include "LocaleES.h"
 
+#include <pugixml/src/pugixml.hpp>
+
+#include "SystemData.h"
+#include "FileData.h"
+#include "CollectionSystemManager.h"
+
 #define UNKNOWN_LABEL "UNKNOWN"
 #define INCLUDE_UNKNOWN false;
 
@@ -76,6 +82,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 }
 void FileFilterIndex::resetIndex()
 {
+	mTextFilter = "";
 	clearAllFilters();
 	clearIndex(genreIndexAllKeys);
 	clearIndex(playersIndexAllKeys);
@@ -327,10 +334,14 @@ bool FileFilterIndex::showFile(FileData* game)
 	if (!mTextFilter.empty() && Utils::String::toUpper(game->getName()).find(mTextFilter) != std::string::npos)
 		keepGoing = true;
 
-	for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it ) {
+	bool hasFilter = false;
+	for (std::vector<FilterDataDecl>::const_iterator it = filterDataDecl.cbegin(); it != filterDataDecl.cend(); ++it ) 
+	{
 		FilterDataDecl filterData = (*it);
 		if(*(filterData.filteredByRef))
 		{
+			hasFilter = true;
+
 			// try to find a match
 			std::string key = getIndexableKey(game, filterData.type, false);
 			keepGoing = isKeyBeingFilteredBy(key, filterData.type);
@@ -351,10 +362,11 @@ bool FileFilterIndex::showFile(FileData* game)
 			// if still nothing, then it's not a match
 			if (!keepGoing)
 				return false;
-
 		}
-
 	}
+
+	if (mTextFilter.empty() && !hasFilter)
+		return true;
 
 	return keepGoing;
 }
@@ -549,4 +561,197 @@ void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::s
 void FileFilterIndex::clearIndex(std::map<std::string, int> indexMap)
 {
 	indexMap.clear();
+}
+
+bool CollectionFilter::create(const std::string name)
+{
+	mName = name;
+	mPath = getCollectionsFolder() + "/" + mName + ".xcc";
+	return save();
+}
+
+bool CollectionFilter::createFromSystem(const std::string name, SystemData* system)
+{
+	FileFilterIndex* filter = system->getFilterIndex();
+	if (filter == nullptr)
+		return false;
+
+	mSystemFilter.clear();
+
+	if (system != nullptr && !system->isCollection() && !system->isGroupSystem() && system->getName() != "all")
+		mSystemFilter.insert(system->getName());
+
+	resetIndex();
+
+	mTextFilter = filter->mTextFilter;
+
+	for(auto key : filter->genreIndexFilteredKeys)
+		genreIndexFilteredKeys.push_back(key);
+
+	for (auto key : filter->ratingsIndexFilteredKeys)
+		ratingsIndexFilteredKeys.push_back(key);
+
+	for (auto key : filter->playersIndexFilteredKeys)
+		playersIndexFilteredKeys.push_back(key);
+
+	for (auto key : filter->pubDevIndexFilteredKeys)
+		pubDevIndexFilteredKeys.push_back(key);
+
+	for (auto key : filter->favoritesIndexFilteredKeys)
+		favoritesIndexFilteredKeys.push_back(key);
+
+	for (auto key : filter->kidGameIndexFilteredKeys)
+		kidGameIndexFilteredKeys.push_back(key);
+
+	for (auto& it : filterDataDecl)
+		*(it.filteredByRef) = (it.currentFilteredKeys->size() > 0);
+
+	mName = name;
+	mPath = getCollectionsFolder() + "/" + mName + ".xcc";
+	
+	return save();
+}
+
+bool CollectionFilter::load(const std::string file)
+{
+	if (!Utils::FileSystem::exists(file))
+		return false;
+
+	clearAllFilters();
+
+	mPath = file;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(file.c_str());
+
+	if (!res)
+	{
+		LOG(LogError) << "Could not parse filter collection !";
+		LOG(LogError) << res.description();
+		return false;
+	}
+
+	//actually read the file
+	pugi::xml_node root = doc.child("filter");
+	if (!root)
+	{
+		LOG(LogError) << "filter collection is missing the <filter> tag!";
+		return false;
+	}
+
+	if (root.attribute("name"))
+		mName = root.attribute("name").value();
+	else
+		mName = Utils::FileSystem::getStem(file);
+	
+	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+	{
+		std::string name = node.name();
+
+		if (name == "system")
+			mSystemFilter.insert(node.text().as_string());
+		else if (name == "text")
+			mTextFilter = node.text().as_string();
+		else if (name == "genre")
+			genreIndexFilteredKeys.push_back(node.text().as_string());
+		else if (name == "ratings")
+			ratingsIndexFilteredKeys.push_back(node.text().as_string());
+		else if (name == "players")
+			playersIndexFilteredKeys.push_back(node.text().as_string());
+		else if (name == "pubDev")
+			pubDevIndexFilteredKeys.push_back(node.text().as_string());
+		else if (name == "favorites")
+			favoritesIndexFilteredKeys.push_back(node.text().as_string());
+		else if (name == "kidGame")
+			kidGameIndexFilteredKeys.push_back(node.text().as_string());
+	}
+
+	for (auto& it : filterDataDecl)
+		*(it.filteredByRef) = (it.currentFilteredKeys->size() > 0);
+
+	return true;
+}
+
+bool CollectionFilter::save()
+{
+	pugi::xml_document doc;
+	pugi::xml_node root = doc.append_child("filter");
+	root.append_attribute("name").set_value(mName.c_str());
+
+	for (auto key : mSystemFilter)
+		root.append_child("system").text().set(key.c_str());
+
+	if (!mTextFilter.empty())
+		root.append_child("text").text().set(mTextFilter.c_str());
+
+	for (auto key : genreIndexFilteredKeys)
+		root.append_child("genre").text().set(key.c_str());
+
+	for (auto key : playersIndexFilteredKeys)
+		root.append_child("players").text().set(key.c_str());
+
+	for (auto key : pubDevIndexFilteredKeys)
+		root.append_child("pubDev").text().set(key.c_str());
+
+	for (auto key : ratingsIndexFilteredKeys)
+		root.append_child("ratings").text().set(key.c_str());
+
+	for (auto key : favoritesIndexFilteredKeys)
+		root.append_child("favorites").text().set(key.c_str());
+
+	for (auto key : kidGameIndexFilteredKeys)
+		root.append_child("kidGame").text().set(key.c_str());
+
+	if (!doc.save_file(mPath.c_str()))
+	{
+		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";
+		return false;
+	}
+
+	return true;
+}
+
+bool CollectionFilter::isFiltered()
+{
+	return mSystemFilter.size() > 0 || FileFilterIndex::isFiltered();
+}
+
+bool CollectionFilter::showFile(FileData* game)
+{
+	if (game == nullptr)
+		return false;
+
+	if (mSystemFilter.size() > 0 && game->getSourceFileData() != nullptr && game->getSourceFileData()->getSystem() != nullptr)
+	{
+		std::string system = game->getSourceFileData()->getSystem()->getName();
+		if (!isSystemSelected(system))
+			return false;
+	}
+	
+	return FileFilterIndex::showFile(game);
+}
+
+bool CollectionFilter::isSystemSelected(const std::string name)
+{
+	if (mSystemFilter.size() == 0)
+		return true;
+
+	return mSystemFilter.find(name) != mSystemFilter.cend();
+}
+
+void CollectionFilter::setSystemSelected(const std::string name, bool value)
+{
+	auto sys = mSystemFilter.find(name);
+	if (sys == mSystemFilter.cend())
+	{
+		if (value)
+			mSystemFilter.insert(name);
+	}
+	else if (!value)			
+		mSystemFilter.erase(sys);	
+}
+
+void CollectionFilter::resetSystemFilter()
+{
+	mSystemFilter.clear();
 }

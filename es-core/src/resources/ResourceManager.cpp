@@ -31,28 +31,7 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 	std::string test = Utils::FileSystem::getEsConfigPath() + "/resources/" + &path[2];
 	if(Utils::FileSystem::exists(test))
 		return test;
-
-	
-#if WIN32 && _DEBUG
-	// Windows DEBUG -> Avoid resource & locale copy -> Look in project directories
-	
-	test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/resources/" + &path[2];
-	if (Utils::FileSystem::exists(test))
-		return test;
-
-	if (path.find(":/locale/") != std::string::npos)
-	{
-		test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/" + &path[2];
-		if (Utils::FileSystem::exists(test))
-			return test;
-
-		test = Utils::String::replace(Utils::FileSystem::getSharedConfigPath(), "/Debug", "") + "/" + Utils::String::replace(path, ":/locale/", "locale/lang/");
-		if (Utils::FileSystem::exists(test))
-			return test;
-	}
-
-#endif
-
+		
 	// check in exepath
 	test = Utils::FileSystem::getSharedConfigPath() + "/resources/" + &path[2];
 	if(Utils::FileSystem::exists(test))
@@ -62,6 +41,15 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 	test = Utils::FileSystem::getCWDPath() + "/resources/" + &path[2];
 	if(Utils::FileSystem::exists(test))
 		return test;
+
+#if WIN32
+	if (Utils::String::startsWith(path, ":/locale/"))
+	{
+		test = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getExePath() + "/" + &path[2]);
+		if (Utils::FileSystem::exists(test))
+			return test;
+	}
+#endif
 
 	// not a resource, return unmodified path
 	return path;

@@ -109,10 +109,11 @@ CollectionSystemManager::~CollectionSystemManager()
 	// iterate the map
 	for(std::map<std::string, CollectionSystemData>::const_iterator it = mCustomCollectionSystemsData.cbegin() ; it != mCustomCollectionSystemsData.cend() ; it++ )
 	{
-		if (it->second.isPopulated)
-		{
+		if (it->second.filteredIndex != nullptr)
+			delete it->second.filteredIndex;
+		else if (it->second.isPopulated)
 			saveCustomCollection(it->second.system);
-		}
+
 		delete it->second.system;
 	}
 	sInstance = NULL;
@@ -133,9 +134,7 @@ void CollectionSystemManager::init(Window* window)
 void CollectionSystemManager::deinit()
 {
 	if (sInstance)
-	{
 		delete sInstance;
-	}
 }
 
 void CollectionSystemManager::saveCustomCollection(SystemData* sys)
@@ -675,6 +674,9 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		for (auto iter = games.cbegin(); iter != games.cend(); ++iter)
 		{
 			games_counter++;
+			if (games_counter == 4)
+				break;
+
 			FileData* file = *iter;
 
 			std::string new_rating = file->getMetadata("rating");
@@ -701,13 +703,20 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			}
 		}
 
-		if(games_counter <= 3) {
-		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s.",
-						   "This collection contains %1$i games, including %2$s.", games_counter), games_counter, games_list.c_str());
-		} else {
-		  snprintf(trstring, 512, ngettext("This collection contains %1$i game, including %2$s among other titles.",
-						   "This collection contains %1$i games, including %2$s among other titles.", games_counter), games_counter, games_list.c_str());
+		games_counter = games.size();
+		if (games_counter <= 3)
+		{
+			snprintf(trstring, 512, ngettext(
+				"This collection contains %i game, including %s.",
+				"This collection contains %i games, including %s.", games_counter), games_counter, games_list.c_str());
+		}	
+		else
+		{
+			snprintf(trstring, 512, ngettext(
+				"This collection contains %i game, including %s among other titles.",
+				"This collection contains %i games, including %s among other titles.", games_counter), games_counter, games_list.c_str());
 		}
+
 		desc = trstring;
 
 		FileData* randomGame = sys->getRandomGame();
@@ -731,20 +740,16 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 
 void CollectionSystemManager::initCustomCollectionSystems()
 {
-	std::vector<std::string> systems = getCollectionsFromConfigFolder();
-	for (auto nameIt = systems.cbegin(); nameIt != systems.cend(); nameIt++)
-	{
-		addNewCustomCollection(*nameIt);
-	}
+	for (auto name : getCollectionsFromConfigFolder())
+		addNewCustomCollection(name);
 }
 
 SystemData* CollectionSystemManager::getAllGamesCollection()
 {
 	CollectionSystemData* allSysData = &mAutoCollectionSystemsData["all"];
 	if (!allSysData->isPopulated)
-	{
 		populateAutoCollection(allSysData);
-	}
+
 	return allSysData->system;
 }
 
@@ -768,6 +773,7 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 	newCollectionData.isEnabled = false;
 	newCollectionData.isPopulated = false;
 	newCollectionData.needsSave = false;
+	newCollectionData.filteredIndex = nullptr;
 
 	if (index)
 	{
@@ -777,6 +783,10 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 		}
 		else
 		{
+			std::string indexPath = getFilteredCollectionPath(name);
+			if (Utils::FileSystem::exists(indexPath))
+				newCollectionData.filteredIndex = new CollectionFilter();
+
 			mCustomCollectionSystemsData[name] = newCollectionData;
 		}
 	}
@@ -952,6 +962,37 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 	SystemData* newSys = sysData->system;
 	sysData->isPopulated = true;
 	CollectionSystemDecl sysDecl = sysData->decl;
+
+	if (sysData->filteredIndex != nullptr)
+	{
+		sysData->filteredIndex->resetIndex();
+
+		FolderData* rootFolder = newSys->getRootFolder();
+		rootFolder->clear();
+
+		std::string indexPath = getFilteredCollectionPath(newSys->getName());
+		if (sysData->filteredIndex->load(indexPath))
+		{
+			FolderData* folder = getAllGamesCollection()->getRootFolder();
+
+			std::vector<FileData*> games = folder->getFilesRecursive(GAME);
+			for (auto game : games)
+			{
+				if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
+					sysData->filteredIndex->addToIndex(game);
+
+				if (sysData->filteredIndex->showFile(game))
+				{
+					CollectionFileData* newGame = new CollectionFileData(game, newSys);
+					rootFolder->addChild(newGame);
+				}
+			}
+		}
+
+		updateCollectionFolderMetadata(newSys);
+		return;
+	}
+
 	std::string path = getCustomCollectionConfigPath(newSys->getName());
 
 	if(!Utils::FileSystem::exists(path))
@@ -1207,10 +1248,13 @@ std::vector<std::string> CollectionSystemManager::getCollectionsFromConfigFolder
 					filename = filename.substr(7, filename.size()-11);
 					systems.push_back(filename);
 				}
-				else
+				else if (Utils::FileSystem::getExtension(filename) ==  ".xcc")
 				{
-					LOG(LogInfo) << "Found non-collection config file in collections folder: " << filename;
+					filename = Utils::FileSystem::getStem(filename);
+					systems.push_back(filename);
 				}
+				else
+					LOG(LogInfo) << "Found non-collection config file in collections folder: " << filename;				
 			}
 		}
 	}
@@ -1261,6 +1305,11 @@ bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)
 	return false;
 }
 
+std::string getFilteredCollectionPath(std::string collectionName)
+{
+	return getCollectionsFolder() + "/" + collectionName + ".xcc";
+}
+
 std::string getCustomCollectionConfigPath(std::string collectionName)
 {
 	return getCollectionsFolder() + "/custom-" + collectionName + ".cfg";
@@ -1276,4 +1325,59 @@ bool systemSort(SystemData* sys1, SystemData* sys2)
 	std::string name1 = Utils::String::toUpper(sys1->getName());
 	std::string name2 = Utils::String::toUpper(sys2->getName());
 	return name1.compare(name2) < 0;
+}
+
+void CollectionSystemManager::reloadCustomCollection(SystemData* sys)
+{
+	if (sys->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+	{
+		for (auto cc : mCustomCollectionSystemsData)
+		{
+			if (cc.second.filteredIndex != nullptr)
+			{
+				cc.second.isPopulated = false;
+				populateCustomCollection(&cc.second);
+			}
+		}
+
+		return;
+	}
+
+	auto data = mCustomCollectionSystemsData.find(sys->getName());
+	if (data == mCustomCollectionSystemsData.cend())
+		return;
+
+	if (data->second.filteredIndex == nullptr)
+		return;
+
+	data->second.isPopulated = false;	
+	populateCustomCollection(&data->second);
+}
+
+bool CollectionSystemManager::deleteCustomCollection(CollectionSystemData* data)
+{
+	std::string name = data->system->getName();
+
+	std::string path = getCollectionsFolder() + "/" + name + ".xcc";
+	if (!Utils::FileSystem::exists(path))
+		path = getCollectionsFolder() + "/custom-" + name + ".cfg";
+
+	if (!Utils::FileSystem::exists(path))
+		return false;
+
+	std::vector<std::string> customSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsCustom"));
+
+	auto idx = std::find(customSelected.begin(), customSelected.end(), name);
+	if (idx != customSelected.cend())
+	{
+		customSelected.erase(idx);
+		Settings::getInstance()->setString("CollectionSystemsCustom", Utils::String::vectorToCommaString(customSelected));
+	}
+
+	auto sys = mCustomCollectionSystemsData.find(name);
+	if (sys != mCustomCollectionSystemsData.cend())
+		mCustomCollectionSystemsData.erase(sys);
+
+	Utils::FileSystem::removeFile(path);
+	return true;
 }

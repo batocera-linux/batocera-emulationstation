@@ -20,6 +20,7 @@
 #include "SystemConf.h"
 #include "AudioManager.h"
 #include "FileSorts.h"
+#include "CollectionSystemManager.h"
 
 ViewController* ViewController::sInstance = NULL;
 
@@ -601,7 +602,7 @@ void ViewController::preload()
 	}
 }
 
-void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
+void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme, bool reloadCollection)
 {
 	if (reloadTheme)
 		ThemeData::setDefaultTheme(nullptr);
@@ -619,12 +620,16 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 				system->loadTheme();
 
 			system->setUIModeFilters();
+
+			if (system->isCollection() && reloadCollection)
+				CollectionSystemManager::get()->reloadCustomCollection(system);
+
 			system->updateDisplayedGameCount();
 
 			std::shared_ptr<IGameListView> newView = getGameListView(system);
 			
 			// to counter having come from a placeholder
-			if (cursor != nullptr && !cursor->isPlaceHolder() && system->getName() != "recent")
+			if (system->getName() != "recent" && cursor != nullptr && !cursor->isPlaceHolder())
 				newView->setCursor(cursor);
 			
 			if(isCurrent)

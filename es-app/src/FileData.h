@@ -159,13 +159,7 @@ public:
 
 	~FolderData()
 	{
-		if (mOwnsChildrens)
-		{
-			for (int i = mChildren.size() - 1; i >= 0; i--)
-				delete mChildren.at(i);
-		}
-
-		mChildren.clear();
+		clear();
 	}
 
 	inline bool isVirtualStorage() { return !mOwnsChildrens; }
@@ -188,6 +182,17 @@ public:
 	void createChildrenByFilenameMap(std::unordered_map<std::string, FileData*>& map);
 
 	FileData* findUniqueGameForFolder();
+
+	void clear()
+	{
+		if (mOwnsChildrens)
+		{
+			for (int i = mChildren.size() - 1; i >= 0; i--)
+				delete mChildren.at(i);
+		}
+
+		mChildren.clear();
+	}	
 
 private:
 	std::vector<FileData*> mChildren;
