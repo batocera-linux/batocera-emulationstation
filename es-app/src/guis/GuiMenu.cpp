@@ -864,10 +864,10 @@ void GuiMenu::openDeveloperSettings()
 		}, _("NO"), nullptr));
 	});
 #endif
-
+#ifndef _ENABLEEMUELEC
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
-
+#endif
 #ifdef _RPI_
 	// Video Player - VideoOmxPlayer
 	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
