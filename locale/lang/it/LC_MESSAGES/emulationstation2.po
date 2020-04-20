@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-20 12:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -115,6 +115,18 @@ msgstr "ORDINA I GIOCHI PER"
 msgid "OTHER FILTERS"
 msgstr "ALTRI FILTRI"
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 
@@ -160,6 +172,12 @@ msgstr "Caricamento..."
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "QUESTA FUNZIONE E' DISABILITATA QUANDO LO SCRAPE E' IN ESECUZIONE"
 
+msgid "New Collection Name"
+msgstr "Nuovo nome della collezione"
+
+msgid "ARE YOU SURE ?"
+msgstr "SEI SICURO?"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRA LA LISTA GIOCHI PER"
 
@@ -168,6 +186,9 @@ msgstr "CANCELLA TUTTI I FILTRI"
 
 msgid "FIND GAMES"
 msgstr "CERCA GIOCHI"
+
+msgid "SYSTEMS"
+msgstr "SISTEMI"
 
 msgid "MANUAL INPUT"
 msgstr "INSERIMENTO MANUALE"
@@ -727,6 +748,9 @@ msgstr "mai"
 msgid "having multiple games"
 msgstr "avere più giochi"
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "STRUMENTI"
 
@@ -949,8 +973,14 @@ msgstr "LE OPZIONI SELEZIONATE NON SONO VALIDE"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "SEI SICURO DI VOLER FORMATTARE QUESTO DISPOSITIVO?"
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMI RAGGRUPPATI"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CREA UNA COLLEZIONE PERSONALE DA UN TEMA"
@@ -958,11 +988,11 @@ msgstr "CREA UNA COLLEZIONE PERSONALE DA UN TEMA"
 msgid "SELECT THEME FOLDER"
 msgstr "SELEZIONA CARTELLA A TEMA"
 
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr "CREA NUOVA COLLEZIONE PERSONALIZZATA"
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr ""
 
-msgid "New Collection Name"
-msgstr "Nuovo nome della collezione"
+msgid "OPTIONS"
+msgstr "OPZIONI"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
@@ -982,6 +1012,12 @@ msgstr "SISTEMI ARCADE"
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLEZIONI DI GIOCHI AUTOMATICHE"
 
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLLEZIONI DI GIOCHI PERSONALIZZATE"
 
@@ -993,9 +1029,6 @@ msgstr "IDENTIFICA UNITA' TARGET"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "IDENTIFICA ARCHITETTURA TARGET"
-
-msgid "ARE YOU SURE ?"
-msgstr "SEI SICURO?"
 
 msgid "INSTALL"
 msgstr "INSTALLA"
@@ -1131,9 +1164,6 @@ msgstr "FILTRO"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "RECUPERA INFORMAZIONI SU QUESTI SISTEMI"
-
-msgid "SYSTEMS"
-msgstr "SISTEMI"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "L'UTENTE GESTISCE I CONFLITTI"
@@ -1408,9 +1438,6 @@ msgstr "Numero partite"
 msgid "No Entries Found"
 msgstr "Nessun Elemento Trovato"
 
-msgid "OPTIONS"
-msgstr "OPZIONI"
-
 msgid "Favorites"
 msgstr "Preferiti"
 
@@ -1516,8 +1543,14 @@ msgstr "VOTO"
 msgid "KIDGAME"
 msgstr "GIOCO PER RAGAZZI"
 
+msgid "ALREADY PLAYED"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "GAME HASHING"
+
+msgid "Collections"
+msgstr ""
 
 msgid "Extracting"
 msgstr "Estrazione"
@@ -1615,19 +1648,17 @@ msgid "Various"
 msgstr "Vari"
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s."
-msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
+"This collection contains %i games, including %s among other titles."
 msgstr[0] ""
-"Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
 msgstr[1] ""
-"Questa collezione contiene %1$i giochi, incluso %2$s tra gli altri titoli."
 
 msgid "UP"
 msgstr "SU"
@@ -1771,6 +1802,23 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr "su/giù"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION"
+#~ msgstr "CREA NUOVA COLLEZIONE PERSONALIZZATA"
+
+#~ msgid "This collection contains %1$i game, including %2$s."
+#~ msgid_plural "This collection contains %1$i games, including %2$s."
+#~ msgstr[0] "Questa collezione contiene %1$i gioco, incluso %2$s."
+#~ msgstr[1] "Questa collezione contiene %1$i giochi, incluso %2$s."
+
+#~ msgid ""
+#~ "This collection contains %1$i game, including %2$s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %1$i games, including %2$s among other titles."
+#~ msgstr[0] ""
+#~ "Questa collezione contiene %1$i gioco, incluso %2$s tra gli altri titoli."
+#~ msgstr[1] ""
+#~ "Questa collezione contiene %1$i giochi, incluso %2$s tra gli altri titoli."
 
 #~ msgid "GRID SIZE"
 #~ msgstr "GRANDEZZA DELLA GRIGLIA"

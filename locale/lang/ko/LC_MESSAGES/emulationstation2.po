@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-20 12:58+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -112,6 +112,18 @@ msgstr "다음으로 게임 정렬"
 msgid "OTHER FILTERS"
 msgstr "다른 필터"
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임리스트 정렬방법"
 
@@ -157,6 +169,12 @@ msgstr "로딩"
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "게임 아트워크 수집 중에는 이 기능은 비활성화됩니다"
 
+msgid "New Collection Name"
+msgstr "새 컬렉션 이름"
+
+msgid "ARE YOU SURE ?"
+msgstr ""
+
 msgid "FILTER GAMELIST BY"
 msgstr "로 게임리스트를 필터링합니다"
 
@@ -165,6 +183,9 @@ msgstr "모든 필터 리셋"
 
 msgid "FIND GAMES"
 msgstr "게임 찾기"
+
+msgid "SYSTEMS"
+msgstr "시스템"
 
 msgid "MANUAL INPUT"
 msgstr "수동 입력"
@@ -722,6 +743,9 @@ msgstr "전혀"
 msgid "having multiple games"
 msgstr "멀티 게임을 즐깁니다"
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "도구"
 
@@ -944,8 +968,14 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "그룹화된 시스템"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "테마에서 새 커스텀 컬렉션 만들기"
@@ -953,11 +983,11 @@ msgstr "테마에서 새 커스텀 컬렉션 만들기"
 msgid "SELECT THEME FOLDER"
 msgstr "테마 폴더 선택"
 
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr "새 커스텀 컬렉션 만들기"
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr ""
 
-msgid "New Collection Name"
-msgstr "새 컬렉션 이름"
+msgid "OPTIONS"
+msgstr "옵션"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "테마가 없는 커스텀 컬렉션을 그룹"
@@ -977,6 +1007,12 @@ msgstr "아케이드 시스템"
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "자동 게임 컬렉션"
 
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "커스텀 게임 컬렉션"
 
@@ -988,9 +1024,6 @@ msgstr "설치 장비"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "설치 아카텍처"
-
-msgid "ARE YOU SURE ?"
-msgstr ""
 
 msgid "INSTALL"
 msgstr "설치"
@@ -1123,9 +1156,6 @@ msgstr "필터"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "이 시스템들을 수집"
-
-msgid "SYSTEMS"
-msgstr "시스템"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "직접 선택"
@@ -1397,9 +1427,6 @@ msgstr "플레이 횟수"
 msgid "No Entries Found"
 msgstr "항목을 찾지 못했습니다"
 
-msgid "OPTIONS"
-msgstr "옵션"
-
 msgid "Favorites"
 msgstr "즐겨 찾기"
 
@@ -1505,8 +1532,14 @@ msgstr "평점"
 msgid "KIDGAME"
 msgstr "어린이게임"
 
+msgid "ALREADY PLAYED"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "해싱 게임"
+
+msgid "Collections"
+msgstr ""
 
 msgid "Extracting"
 msgstr ""
@@ -1604,17 +1637,15 @@ msgid "Various"
 msgstr "다수"
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] "이 컬렉션에는 %2$s을(를) 포함한 %1$i 게임이 포함되어 있습니다."
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
+msgstr[0] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
+"This collection contains %i games, including %s among other titles."
 msgstr[0] ""
-"이 컬렉션에는 다른 타이틀 중 % 2 $ s을 (를) 포함한 % 1 $ i 게임이 포함되어 있"
-"습니다."
 
 msgid "UP"
 msgstr "위"
@@ -1754,6 +1785,21 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION"
+#~ msgstr "새 커스텀 컬렉션 만들기"
+
+#~ msgid "This collection contains %1$i game, including %2$s."
+#~ msgid_plural "This collection contains %1$i games, including %2$s."
+#~ msgstr[0] "이 컬렉션에는 %2$s을(를) 포함한 %1$i 게임이 포함되어 있습니다."
+
+#~ msgid ""
+#~ "This collection contains %1$i game, including %2$s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %1$i games, including %2$s among other titles."
+#~ msgstr[0] ""
+#~ "이 컬렉션에는 다른 타이틀 중 % 2 $ s을 (를) 포함한 % 1 $ i 게임이 포함되"
+#~ "어 있습니다."
 
 #~ msgid "%i GAME AVAILABLE"
 #~ msgid_plural "%i GAMES AVAILABLE"

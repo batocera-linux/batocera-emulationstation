@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-20 12:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,18 @@ msgstr ""
 msgid "OTHER FILTERS"
 msgstr ""
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
@@ -165,6 +177,12 @@ msgstr ""
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
+msgid "New Collection Name"
+msgstr ""
+
+msgid "ARE YOU SURE ?"
+msgstr ""
+
 msgid "FILTER GAMELIST BY"
 msgstr ""
 
@@ -172,6 +190,9 @@ msgid "RESET ALL FILTERS"
 msgstr ""
 
 msgid "FIND GAMES"
+msgstr ""
+
+msgid "SYSTEMS"
 msgstr ""
 
 msgid "MANUAL INPUT"
@@ -726,6 +747,9 @@ msgstr ""
 msgid "having multiple games"
 msgstr ""
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr ""
 
@@ -945,7 +969,13 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
+msgstr ""
+
+msgid "CREATE CUSTOM COLLECTION"
 msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
@@ -954,10 +984,10 @@ msgstr ""
 msgid "SELECT THEME FOLDER"
 msgstr ""
 
-msgid "CREATE NEW CUSTOM COLLECTION"
+msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr ""
 
-msgid "New Collection Name"
+msgid "OPTIONS"
 msgstr ""
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
@@ -978,6 +1008,12 @@ msgstr ""
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr ""
 
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr ""
 
@@ -988,9 +1024,6 @@ msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "ARE YOU SURE ?"
 msgstr ""
 
 msgid "INSTALL"
@@ -1122,9 +1155,6 @@ msgid "FILTER"
 msgstr ""
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr ""
-
-msgid "SYSTEMS"
 msgstr ""
 
 msgid "USER DECIDES ON CONFLICTS"
@@ -1389,9 +1419,6 @@ msgstr ""
 msgid "No Entries Found"
 msgstr ""
 
-msgid "OPTIONS"
-msgstr ""
-
 msgid "Favorites"
 msgstr ""
 
@@ -1497,7 +1524,13 @@ msgstr ""
 msgid "KIDGAME"
 msgstr ""
 
+msgid "ALREADY PLAYED"
+msgstr ""
+
 msgid "HASHING GAMES"
+msgstr ""
+
+msgid "Collections"
 msgstr ""
 
 msgid "Extracting"
@@ -1596,15 +1629,15 @@ msgid "Various"
 msgstr ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
 msgstr[0] ""
 msgstr[1] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
+"This collection contains %i games, including %s among other titles."
 msgstr[0] ""
 msgstr[1] ""
 
