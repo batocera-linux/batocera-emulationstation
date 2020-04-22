@@ -116,16 +116,16 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "EDITAR FILTROS DA COLEÇÃO DINÂMICA"
 
 msgid "DELETE COLLECTION"
-msgstr ""
+msgstr "ELIMINAR COLEÇÃO"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr ""
+msgstr "CRIAR UMA NOVA COLEÇÃO DINÂMICA"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
@@ -747,7 +747,7 @@ msgid "having multiple games"
 msgstr "tendo vários jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "MOSTRAR '..' PASTA RAIZ"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -972,13 +972,13 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTA UNIDADE?"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
+msgstr "COLEÇÕES A MOSTRAR"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMAS EM GRUPO"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "CRIAR COLEÇÃO PERSONALIZADA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA PARA O TEMA"
@@ -987,7 +987,7 @@ msgid "SELECT THEME FOLDER"
 msgstr "SELECIONE A PASTA DO TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "CRIAR UMA NOVA COLEÇÃO PERSONALIZADA"
 
 msgid "OPTIONS"
 msgstr "OPÇÕES"
@@ -999,7 +999,7 @@ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLEÇÕES MODIFICADAS E SISTEMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "MOSTRAR NOME DO SISTEMA NAS COLECÇÕES"
+msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
@@ -1011,10 +1011,10 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES PERSONALIZADAS"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES DINÂMICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLEÇÕES PERSONALIZADAS"
@@ -1542,13 +1542,13 @@ msgid "KIDGAME"
 msgstr "JOGO INFANTIL"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "JÁ JOGOU"
 
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
 
 msgid "Collections"
-msgstr ""
+msgstr "Coleções"
 
 msgid "Extracting"
 msgstr "A extrair"
@@ -1648,15 +1648,15 @@ msgstr "Vários"
 #, c-format
 msgid "This collection contains %i game, including %s."
 msgid_plural "This collection contains %i games, including %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %i jogo, incluindo %s."
+msgstr[1] "Esta coleção contém %i jogos, incluindo %s."
 
 #, c-format
 msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
 "This collection contains %i games, including %s among other titles."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %i jogo, incluindo %s entre outro título."
+msgstr[1] "Esta coleção contém %i jogos, incluindo %s entre outro títulos."
 
 msgid "UP"
 msgstr "CIMA"
