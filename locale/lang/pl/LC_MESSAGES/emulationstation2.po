@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-22 22:35+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,16 +51,16 @@ msgid "CANCEL"
 msgstr "ANULUJ"
 
 msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr ""
+msgstr "USUŃ KONTROLER BLUETOOTH"
 
 msgid "REMOVE ALL"
-msgstr ""
+msgstr "USUŃ WSZYSTKO"
 
 msgid "BACK"
 msgstr "WSTECZ"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr ""
+msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "PLEASE WAIT"
 msgstr "PROSZĘ CZEKAĆ"
@@ -87,7 +87,7 @@ msgid "LAUNCH"
 msgstr "URUCHOM"
 
 msgid "UNAVAILABLE CORE"
-msgstr ""
+msgstr "NIEDOSTĘPNY CORE"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -102,7 +102,7 @@ msgid "go back"
 msgstr "wstecz"
 
 msgid "NAVIGATION"
-msgstr ""
+msgstr "NAWIGACJA"
 
 msgid "JUMP TO..."
 msgstr "PRZESKOCZ DO..."
@@ -132,13 +132,13 @@ msgid "automatic"
 msgstr "automatycznie"
 
 msgid "VIEW OPTIONS"
-msgstr ""
+msgstr "OPCJE WIDOKU"
 
 msgid "VIEW CUSTOMISATION"
 msgstr "DOSTOSOWYWANIE WIDOKU"
 
 msgid "COLLECTION MANAGEMENT"
-msgstr ""
+msgstr "ZARZĄDZANIE KOLEKCJĄ"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "DODAJ/USUŃ GRY DO TEJ KOLEKCJI GIER"
@@ -147,16 +147,16 @@ msgid "FINISH EDITING COLLECTION"
 msgstr "ZAKOŃCZ EDYCJĘ KOLEKCJI"
 
 msgid "GAME OPTIONS"
-msgstr ""
+msgstr "OPCJE GRY"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr ""
+msgstr "ZAAWANSOWANE OPCJE SYSTEMOWE"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE GRY"
 
 msgid "EDIT FOLDER METADATA"
-msgstr ""
+msgstr "EDYTOWANIE METADANYCH FOLDERU"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
@@ -174,7 +174,7 @@ msgid "New Collection Name"
 msgstr "Nazwa nowej kolekcji"
 
 msgid "ARE YOU SURE ?"
-msgstr ""
+msgstr "CZY NA PEWNO?"
 
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRUJ LISTĘ GIER PRZEZ"
@@ -261,7 +261,7 @@ msgid "CONFIGURE INPUT"
 msgstr "SKONFIGURUJ WEJŚCIA"
 
 msgid "EMULATOR SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA EMULATORA"
 
 msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
@@ -336,7 +336,7 @@ msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr ""
+msgstr "CZY NA PEWNO CHCESZ SKONFIGUROWAĆ WEJŚCIA?"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA"
@@ -405,7 +405,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
 
 msgid "COMPLETE QUIT MENU"
-msgstr ""
+msgstr "ZAKOŃCZ WYJŚCIE Z MENU"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "UŻYJ RETROARCH RGUI MENU"
@@ -426,7 +426,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "TWORZENIE PLIKU SIĘ NIE POWIODŁO"
 
 msgid "FORMAT A DISK"
-msgstr ""
+msgstr "SFORMATUJ DYSK"
 
 msgid "DOWNLOADS"
 msgstr "DO ŚCIĄGNIĘCIA"
@@ -441,10 +441,10 @@ msgid "SOFTWARE UPDATES"
 msgstr "AKTUALIZACJE OPROGRAMOWANIA"
 
 msgid "CHECK FOR UPDATES"
-msgstr ""
+msgstr "SPRAWDŹ AKTUALIZACJE"
 
 msgid "UPDATE TYPE"
-msgstr ""
+msgstr "TYP AKTUALIZACJI"
 
 msgid "APPLY UPDATE"
 msgstr "ZASTOSUJ AKTUALIZACJĘ"
@@ -722,10 +722,10 @@ msgid "THEME OPTIONS"
 msgstr "OPCJE MOTYWU"
 
 msgid "DEFAULT VALUE"
-msgstr ""
+msgstr "WARTOŚĆ DOMYŚLNA"
 
 msgid "GAMELIST OPTIONS"
-msgstr ""
+msgstr "OPCJE LISTY GIER"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "POKAŻ ULUBIONE NA GÓRZE"
@@ -819,7 +819,7 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "KLAWIATURA EKRANOWA"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr ""
+msgstr "UKRYJ PODCZAS URUCHAMIANIA GRY"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
@@ -954,22 +954,22 @@ msgid "INTERNAL RESOLUTION"
 msgstr "WEWNĘTRZNA ROZDZIELCZOŚĆ"
 
 msgid "FORMAT DEVICE"
-msgstr ""
+msgstr "SFORMATUJ URZĄDZENIE"
 
 msgid "DEVICE TO FORMAT"
-msgstr ""
+msgstr "URZĄDZENIE DO SFORMATOWANIA"
 
 msgid "FILE SYSTEM"
-msgstr ""
+msgstr "SYSTEM PLIKÓW"
 
 msgid "FORMAT NOW"
-msgstr ""
+msgstr "FORMATUJ TERAZ"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr ""
+msgstr "WYBRANE OPCJE SĄ NIEPRAWIDŁOWE"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
-msgstr ""
+msgstr "CZY NA PEWNO CHCESZ SFORMATOWAĆ TEN DYSK?"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr ""
@@ -1035,7 +1035,7 @@ msgid "NETWORK REQUIRED"
 msgstr "WYMAGANA SIEĆ"
 
 msgid "INVALID PARAMETERS"
-msgstr ""
+msgstr "NIEPRAWIDŁOWE PARAMETRY"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPING W TOKU"
@@ -1214,7 +1214,7 @@ msgid "SLIDESHOW SCREENSAVER"
 msgstr "WYGASZACZ ZE SLAJDAMI"
 
 msgid "NO DEVICE FOUND"
-msgstr "NIE ZNALEZIONO URZĄDZEŃ"
+msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "SELECT THEME"
 msgstr "WYBIERZ MOTYW"
@@ -1251,10 +1251,10 @@ msgid "enter description"
 msgstr "wprowadź opis"
 
 msgid "emulator"
-msgstr ""
+msgstr "emulator"
 
 msgid "core"
-msgstr ""
+msgstr "core"
 
 msgid "Image"
 msgstr "Obraz"
@@ -1263,13 +1263,13 @@ msgid "enter path to image"
 msgstr "wprowadź ścieżkę do obrazu"
 
 msgid "Video"
-msgstr ""
+msgstr "Wideo"
 
 msgid "enter path to video"
 msgstr "wprowadź ścieżkę do wideo"
 
 msgid "Marquee"
-msgstr ""
+msgstr "Marguee"
 
 msgid "enter path to marquee"
 msgstr "wprowadź ścieżkę do marquee"
@@ -1314,7 +1314,7 @@ msgid "Arcade system"
 msgstr "System gier zręcznościowych"
 
 msgid "enter game arcade system"
-msgstr "wprowadź system gier"
+msgstr "wprowadź system gry"
 
 msgid "Players"
 msgstr "Graczy"
@@ -1323,22 +1323,22 @@ msgid "enter number of players"
 msgstr "wprowadź liczbę graczy"
 
 msgid "Favorite"
-msgstr "Ulubione"
+msgstr "Ulubiona"
 
 msgid "enter favorite"
-msgstr "wprowadź ulubioną"
+msgstr "ustaw jako ulubioną"
 
 msgid "Hidden"
 msgstr "Ukryta"
 
 msgid "enter hidden"
-msgstr ""
+msgstr "wprowadź jako ukrytą"
 
 msgid "Kidgame"
 msgstr "Gra dla dzieci"
 
 msgid "enter kidgame"
-msgstr ""
+msgstr "wprowadź jako dla dzieci"
 
 msgid "Play count"
 msgstr "Liczba gier"
@@ -1371,7 +1371,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
 
 msgid "favorite"
-msgstr ""
+msgstr "ulubiona"
 
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
@@ -1389,7 +1389,7 @@ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr ""
+msgstr "BŁĄD: WSZYSTKIE SYSTEMY SĄ UKRYTE, WSZYSTKIE SĄ TERAZ WYŚWIETLANE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
@@ -1397,16 +1397,16 @@ msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i ELEMENT"
+msgstr[1] "%i ELEMENTY"
+msgstr[2] "%i ELEMENTÓW"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i GRA"
+msgstr[1] "%i GRY"
+msgstr[2] "%i GIER"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1553,7 +1553,7 @@ msgid "Collections"
 msgstr ""
 
 msgid "Extracting"
-msgstr ""
+msgstr "Rozpakowywanie"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
@@ -1586,13 +1586,13 @@ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "SKANOWANIE BLUETOOTH JEST JUŻ URUCHOMIONE."
 
 msgid "FORMATING DEVICE"
-msgstr ""
+msgstr "FORMATOWANIE URZĄDZENIA"
 
 msgid "Formating"
-msgstr ""
+msgstr "Formatowanie"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
+msgstr "FORMATOWANIE DYSKU JEST JUŻ URUCHOMIONE."
 
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
