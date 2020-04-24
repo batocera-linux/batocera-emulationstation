@@ -293,12 +293,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		{
 		case VERTICAL:
 		case VERTICAL_WHEEL:
-			if (config->isMappedLike("up", input))
+			if (config->isMappedLike("up", input) || config->isMappedLike("r2", input))
 			{
 				listInput(-1);
 				return true;
 			}
-			if (config->isMappedLike("down", input))
+			if (config->isMappedLike("down", input) || config->isMappedLike("l2", input))
 			{
 				listInput(1);
 				return true;
@@ -335,12 +335,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		case HORIZONTAL:
 		case HORIZONTAL_WHEEL:
 		default:
-			if (config->isMappedLike("left", input))
+			if (config->isMappedLike("left", input) || config->isMappedLike("l2", input))
 			{
 				listInput(-1);
 				return true;
 			}
-			if (config->isMappedLike("right", input))
+			if (config->isMappedLike("right", input) || config->isMappedLike("r2", input))
 			{
 				listInput(1);
 				return true;
@@ -404,7 +404,9 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("up", input) ||
 			config->isMappedLike("down", input) ||
 			config->isMappedLike("pagedown", input) ||
-			config->isMappedLike("pageup", input))
+			config->isMappedLike("pageup", input) ||
+			config->isMappedLike("l2", input) ||
+			config->isMappedLike("r2", input))
 			listInput(0);
 
 #ifdef WIN32
