@@ -30,6 +30,7 @@ namespace Utils
 
 		std::vector<std::string> split  (const std::string& s, char seperator);
 		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator);
+		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter);
 
 		std::string join(const std::vector<std::string>& items, std::string separator);
 

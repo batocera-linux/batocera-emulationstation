@@ -52,7 +52,9 @@ enum MetaDataId
 	LastPlayed = 20,
 	Crc32 = 21,
 	Md5 = 22,
-	GameTime = 23
+	GameTime = 23,
+	Language = 24,
+	Region = 25
 };
 
 namespace MetaDataImportType

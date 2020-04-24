@@ -46,6 +46,7 @@
 #include "views/gamelist/IGameListView.h"
 #include "components/MultiLineMenuEntry.h"
 #include "components/BatteryIndicatorComponent.h"
+#include "GuiLoading.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -591,6 +592,24 @@ void GuiMenu::openDeveloperSettings()
 	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
+
+	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this] 
+	{ 
+		Window* window = mWindow;
+		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
+		{
+			for (auto system : SystemData::sSystemVector)
+			{
+				if (system->isCollection() || system->isGroupSystem())
+					continue;
+
+				for (auto game : system->getRootFolder()->getFilesRecursive(GAME))
+					game->detectLanguageAndRegion(true);
+			}
+
+			return 0;
+		}));
+	});
 
 #if defined(WIN32) && !defined(_DEBUG)
 	// full exit
@@ -1972,9 +1991,14 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		std::vector<std::pair<std::string, std::string>> styles;
 		styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
 
+		bool showViewStyle = true;
+
 		if (system != NULL)
 		{
 			auto mViews = theme->getViewsOfTheme();
+
+			showViewStyle = mViews.size() > 1;
+
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 			{
 				if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
@@ -1999,7 +2023,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		if (!gamelist_style->hasSelection())
 			gamelist_style->selectFirstItem();
 
-		themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
+		if (showViewStyle)
+			themeconfig->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
 	}
 
 	// Default grid size

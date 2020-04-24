@@ -1,0 +1,552 @@
+#include "DetailedContainer.h"
+
+#include "animations/LambdaAnimation.h"
+#include "views/ViewController.h"
+#include "FileData.h"
+#include "SystemData.h"
+#include "LocaleES.h"
+#include "LangParser.h"
+
+#ifdef _RPI_
+#include "Settings.h"
+#include "components/VideoPlayerComponent.h"
+#endif
+#include "components/VideoVlcComponent.h"
+
+DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainerType viewType) :
+	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
+	mDescContainer(window), mDescription(window),
+	mImage(nullptr), mMarquee(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
+	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr),
+
+	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
+	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
+
+	mRating(window), mReleaseDate(window), mDeveloper(window), mPublisher(window),
+	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window),
+	mName(window), mGameTime(window), mTextFavorite(window)	
+{
+	const float padding = 0.01f;
+	auto mSize = mParent->getSize();
+
+	if (mViewType == DetailedContainerType::GridView)
+	{
+		mLblRating.setVisible(false);
+		mLblReleaseDate.setVisible(false);
+		mLblDeveloper.setVisible(false);
+		mLblPublisher.setVisible(false);
+		mLblGenre.setVisible(false);
+		mLblPlayers.setVisible(false);
+		mLblLastPlayed.setVisible(false);
+		mLblPlayCount.setVisible(false);
+		mName.setVisible(false);
+		mPlayCount.setVisible(false);
+		mLastPlayed.setVisible(false);
+		mPlayers.setVisible(false);
+		mGenre.setVisible(false);
+		mPublisher.setVisible(false);
+		mDeveloper.setVisible(false);
+		mReleaseDate.setVisible(false);
+		mRating.setVisible(false);
+		mLblGameTime.setVisible(false);
+		mGameTime.setVisible(false);
+		mDescContainer.setVisible(false);
+	}
+
+	// image
+	if (mViewType == DetailedContainerType::DetailedView)
+		createImageComponent(&mImage);
+
+	// metadata labels + values
+	mLblGameTime.setVisible(false);
+	mGameTime.setVisible(false);	
+	mLblFavorite.setVisible(false);
+	mTextFavorite.setVisible(false);
+
+	mLblRating.setText(_("Rating") + ": ");
+	addChild(&mLblRating);
+	addChild(&mRating);
+	mLblReleaseDate.setText(_("Released") + ": ");
+	addChild(&mLblReleaseDate);
+	addChild(&mReleaseDate);
+	mLblDeveloper.setText(_("Developer") + ": ");
+	addChild(&mLblDeveloper);
+	addChild(&mDeveloper);
+	mLblPublisher.setText(_("Publisher") + ": ");
+	addChild(&mLblPublisher);
+	addChild(&mPublisher);
+	mLblGenre.setText(_("Genre") + ": ");
+	addChild(&mLblGenre);
+	addChild(&mGenre);
+	mLblPlayers.setText(_("Players") + ": ");
+	addChild(&mLblPlayers);
+	addChild(&mPlayers);
+	mLblLastPlayed.setText(_("Last played") + ": ");
+	addChild(&mLblLastPlayed);
+	mLastPlayed.setDisplayRelative(true);
+	addChild(&mLastPlayed);
+	mLblPlayCount.setText(_("Times played") + ": ");
+	addChild(&mLblPlayCount);
+	addChild(&mPlayCount);
+	mLblGameTime.setText(_("Game time") + ": ");
+	addChild(&mLblGameTime);
+	addChild(&mGameTime);
+	mLblFavorite.setText(_("Favorite") + ": ");
+	addChild(&mLblFavorite);
+	addChild(&mTextFavorite);
+
+	mName.setPosition(mSize.x(), mSize.y());
+	mName.setDefaultZIndex(40);
+	mName.setColor(0xAAAAAAFF);
+	mName.setFont(Font::get(FONT_SIZE_MEDIUM));
+	mName.setHorizontalAlignment(ALIGN_CENTER);
+	addChild(&mName);
+
+	mDescContainer.setPosition(mSize.x() * padding, mSize.y() * 0.65f);
+	mDescContainer.setSize(mSize.x() * (0.50f - 2 * padding), mSize.y() - mDescContainer.getPosition().y());
+	mDescContainer.setAutoScroll(true);
+	mDescContainer.setDefaultZIndex(40);
+	addChild(&mDescContainer);
+
+	mDescription.setFont(Font::get(FONT_SIZE_SMALL));
+	mDescription.setSize(mDescContainer.getSize().x(), 0);
+	mDescContainer.addChild(&mDescription);
+
+	initMDLabels();
+	initMDValues();
+}
+
+DetailedContainer::~DetailedContainer()
+{
+	if (mThumbnail != nullptr)
+		delete mThumbnail;
+
+	if (mImage != nullptr)
+		delete mImage;
+
+	if (mMarquee != nullptr)
+		delete mMarquee;
+
+	if (mVideo != nullptr)
+		delete mVideo;
+
+	if (mFlag != nullptr)
+		delete mFlag;
+
+	if (mKidGame != nullptr)
+		delete mKidGame;
+
+	if (mFavorite != nullptr)
+		delete mFavorite;
+
+	if (mHidden != nullptr)
+		delete mHidden;
+}
+
+std::vector<std::pair<std::string, TextComponent*>> DetailedContainer::getMDLabels()
+{
+	std::vector<std::pair<std::string, TextComponent*>> mdl =
+	{
+		{ "md_lbl_rating", &mLblRating },
+		{ "md_lbl_releasedate", &mLblReleaseDate },
+		{ "md_lbl_developer", &mLblDeveloper },
+		{ "md_lbl_publisher", &mLblPublisher },
+		{ "md_lbl_genre", &mLblGenre },
+		{ "md_lbl_players", &mLblPlayers },
+		{ "md_lbl_lastplayed", &mLblLastPlayed },
+		{ "md_lbl_playcount", &mLblPlayCount },
+		{ "md_lbl_gametime", &mLblGameTime },
+		{ "md_lbl_favorite", &mLblFavorite }				
+	};
+
+	return mdl;
+}
+
+std::vector<std::pair<std::string, GuiComponent*>> DetailedContainer::getMDValues()
+{
+	std::vector<std::pair<std::string, GuiComponent*>> mdl =
+	{
+		{ "md_rating", &mRating },
+		{ "md_releasedate", &mReleaseDate },
+		{ "md_developer", &mDeveloper },
+		{ "md_publisher", &mPublisher },
+		{ "md_genre", &mGenre },
+		{ "md_players", &mPlayers },
+		{ "md_lastplayed", &mLastPlayed },
+		{ "md_playcount", &mPlayCount },
+		{ "md_gametime", &mGameTime },
+		{ "md_favorite", &mTextFavorite }		
+	};
+	return mdl;	
+}
+
+void DetailedContainer::createImageComponent(ImageComponent** pImage)
+{
+	if (*pImage != nullptr)
+		return;
+
+	const float padding = 0.01f;
+	auto mSize = mParent->getSize();
+
+	// Image	
+	auto image = new ImageComponent(mWindow);
+	image->setAllowFading(false);
+	image->setOrigin(0.5f, 0.5f);
+	image->setPosition(mSize.x() * 0.25f, mList->getPosition().y() + mSize.y() * 0.2125f);
+	image->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
+	image->setDefaultZIndex(30);
+	mParent->addChild(image);
+
+	*pImage = image;
+}
+
+void DetailedContainer::createVideo()
+{
+	if (mVideo != nullptr)
+		return;
+
+	const float padding = 0.01f;
+	auto mSize = mParent->getSize();
+
+	// video
+	// Create the correct type of video window
+#ifdef _RPI_
+	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
+		mVideo = new VideoPlayerComponent(mWindow, "");
+	else
+#endif
+		mVideo = new VideoVlcComponent(mWindow, "");
+
+	// Default is IMAGE in Recalbox themes -> video view does not exist
+	mVideo->setSnapshotSource(IMAGE);
+
+	mVideo->setOrigin(0.5f, 0.5f);
+	mVideo->setPosition(mSize.x() * 0.25f, mSize.y() * 0.4f);
+	mVideo->setSize(mSize.x() * (0.5f - 2 * padding), mSize.y() * 0.4f);
+	mVideo->setStartDelay(2000);
+	mVideo->setDefaultZIndex(31);
+	mParent->addChild(mVideo);
+}
+
+void DetailedContainer::initMDLabels()
+{
+	auto mSize = mParent->getSize();
+	
+	auto components = getMDLabels();
+
+	const unsigned int colCount = 2;
+	const unsigned int rowCount = (int)(components.size() / 2);
+
+	Vector3f start(mSize.x() * 0.01f, mSize.y() * 0.625f, 0.0f);
+
+	const float colSize = (mSize.x() * 0.48f) / colCount;
+	const float rowPadding = 0.01f * mSize.y();
+
+	int i = 0;	
+	for (unsigned int i = 0; i < components.size(); i++)
+	{
+		const unsigned int row = i % rowCount;
+		Vector3f pos(0.0f, 0.0f, 0.0f);
+		if (row == 0)
+		{
+			pos = start + Vector3f(colSize * (i / rowCount), 0, 0);
+		}
+		else {
+			// work from the last component
+			GuiComponent* lc = components[i - 1].second;
+			pos = lc->getPosition() + Vector3f(0, lc->getSize().y() + rowPadding, 0);
+		}
+
+		components[i].second->setFont(Font::get(FONT_SIZE_SMALL));
+		components[i].second->setPosition(pos);
+		components[i].second->setDefaultZIndex(40);
+	}
+}
+
+void DetailedContainer::initMDValues()
+{
+	auto mSize = mParent->getSize();
+
+	auto labels = getMDLabels();
+	auto values = getMDValues();
+
+	std::shared_ptr<Font> defaultFont = Font::get(FONT_SIZE_SMALL);
+	mRating.setSize(defaultFont->getHeight() * 5.0f, (float)defaultFont->getHeight());
+	mReleaseDate.setFont(defaultFont);
+	mDeveloper.setFont(defaultFont);
+	mPublisher.setFont(defaultFont);
+	mGenre.setFont(defaultFont);
+	mPlayers.setFont(defaultFont);
+	mLastPlayed.setFont(defaultFont);
+	mPlayCount.setFont(defaultFont);
+	mGameTime.setFont(defaultFont);
+
+	float bottom = 0.0f;
+
+	const float colSize = (mSize.x() * 0.48f) / 2;
+	for (unsigned int i = 0; i < labels.size(); i++)
+	{
+		const float heightDiff = (labels[i].second->getSize().y() - values[i].second->getSize().y()) / 2;
+		values[i].second->setPosition(labels[i].second->getPosition() + Vector3f(labels[i].second->getSize().x(), heightDiff, 0));
+		values[i].second->setSize(colSize - labels[i].second->getSize().x(), values[i].second->getSize().y());
+		values[i].second->setDefaultZIndex(40);
+
+		float testBot = values[i].second->getPosition().y() + values[i].second->getSize().y();
+		if (testBot > bottom)
+			bottom = testBot;
+	}
+
+	mDescContainer.setPosition(mDescContainer.getPosition().x(), bottom + mSize.y() * 0.01f);
+	mDescContainer.setSize(mDescContainer.getSize().x(), mSize.y() - mDescContainer.getPosition().y());
+}
+
+void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_ptr<ThemeData>& theme, const std::string& element, bool forceLoad, bool loadPath)
+{
+	using namespace ThemeFlags;
+
+	if (forceLoad || theme->getElement(getName(), element, "image"))
+	{
+		createImageComponent(pImage);
+		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
+	}
+	else if ((*pImage) != nullptr)
+	{
+		removeChild(*pImage);
+		delete (*pImage);
+		(*pImage) = nullptr;
+	}
+}
+
+void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
+{
+	using namespace ThemeFlags;
+
+	mName.applyTheme(theme, getName(), "md_name", ALL);	
+
+	if (theme->getElement(getName(), "md_video", "video"))
+	{
+		createVideo();
+		mVideo->applyTheme(theme, getName(), "md_video", ALL ^ (PATH));
+	}
+	else if (mVideo != nullptr)
+	{
+		removeChild(mVideo);
+		delete mVideo;
+		mVideo = nullptr;
+	}
+
+	loadIfThemed(&mImage, theme, "md_image", (mVideo == nullptr && mViewType == DetailedContainerType::DetailedView));
+	loadIfThemed(&mThumbnail, theme, "md_thumbnail");
+	loadIfThemed(&mMarquee, theme, "md_marquee");
+	loadIfThemed(&mFlag, theme, "md_flag");
+
+	loadIfThemed(&mKidGame, theme, "md_kidgame", false, true);
+	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
+	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
+
+	initMDLabels();
+	for(auto lbl : getMDLabels())
+		lbl.second->applyTheme(theme, getName(), lbl.first, ALL);
+
+	initMDValues();
+	for (auto val : getMDValues())
+		val.second->applyTheme(theme, getName(), val.first, ALL);
+
+	if (theme->getElement(getName(), "md_description", "text"))
+	{
+		mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
+		mDescription.setSize(mDescContainer.getSize().x(), 0);
+		mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
+
+		if (!isChild(&mDescContainer))
+			addChild(&mDescContainer);
+	}
+	else if (mViewType == DetailedContainerType::GridView)
+		removeChild(&mDescContainer);
+
+	mParent->sortChildren();
+}
+
+Vector3f DetailedContainer::getLaunchTarget()
+{
+	Vector3f target(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0);
+
+	if (mVideo != nullptr)
+		target = Vector3f(mVideo->getCenter().x(), mVideo->getCenter().y(), 0);
+	else if (mImage != nullptr && mImage->hasImage())
+		target = Vector3f(mImage->getCenter().x(), mImage->getCenter().y(), 0);
+	else if (mThumbnail != nullptr && mThumbnail->hasImage())
+		target = Vector3f(mThumbnail->getCenter().x(), mThumbnail->getCenter().y(), 0);
+
+	return target;
+}
+
+void DetailedContainer::updateControls(FileData* file, bool isClearing)
+{
+	bool fadingOut;
+	if (file == NULL)
+	{
+		if (mVideo != nullptr)
+		{
+			mVideo->setVideo("");
+			mVideo->setImage("");
+		}
+
+		if (mImage != nullptr && mViewType == DetailedContainerType::GridView)
+			mImage->setImage("");
+
+		if (mKidGame != nullptr) mKidGame->setVisible(false);
+		if (mFavorite != nullptr) mFavorite->setVisible(false);
+		if (mHidden != nullptr) mHidden->setVisible(false);
+
+		fadingOut = true;
+	}
+	else
+	{
+		std::string imagePath = file->getImagePath().empty() ? file->getThumbnailPath() : file->getImagePath();
+
+		if (mVideo != nullptr)
+		{
+			if (!mVideo->setVideo(file->getVideoPath()))
+				mVideo->setDefaultVideo();
+
+			std::string snapShot = imagePath;
+
+			auto src = mVideo->getSnapshotSource();
+			if (src == MARQUEE && !file->getMarqueePath().empty())
+				snapShot = file->getMarqueePath();
+			if (src == THUMBNAIL && !file->getThumbnailPath().empty())
+				snapShot = file->getThumbnailPath();			
+			if (src == IMAGE && !file->getImagePath().empty())
+				snapShot = file->getImagePath();
+
+			mVideo->setImage(snapShot);
+		}
+
+		if (mThumbnail != nullptr)
+		{
+			if (mViewType == DetailedContainerType::VideoView && mImage != nullptr)
+				mImage->setImage(file->getImagePath(), false, mImage->getMaxSizeInfo());
+
+			mThumbnail->setImage(file->getThumbnailPath());
+		}
+		
+		if (mImage != nullptr)
+		{
+			if (mViewType == DetailedContainerType::VideoView && mThumbnail == nullptr)
+				mImage->setImage(file->getThumbnailPath(), false, mImage->getMaxSizeInfo());
+			else if (mViewType != DetailedContainerType::VideoView)
+				mImage->setImage(imagePath);
+		}
+
+		if (mMarquee != nullptr)
+			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
+
+		if (mFlag != nullptr)
+		{
+			if (file->getType() == GAME)
+			{
+				file->detectLanguageAndRegion(false);
+				mFlag->setImage(":/flags/" + LangInfo::getFlag(file->getMetadata(MetaDataId::Language), file->getMetadata(MetaDataId::Region)) + ".png"
+					, false, mFlag->getMaxSizeInfo());
+			}
+			else
+				mFlag->setImage(":/folder.svg");
+		}
+
+		if (mKidGame != nullptr)
+			mKidGame->setVisible(file->getKidGame());
+
+		if (mFavorite != nullptr)
+			mFavorite->setVisible(file->getFavorite());
+
+		if (mHidden != nullptr)
+			mHidden->setVisible(file->getHidden());
+
+		mDescription.setText(file->getMetadata(MetaDataId::Desc));
+		mDescContainer.reset();
+
+		mRating.setValue(file->getMetadata(MetaDataId::Rating));
+		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
+		mDeveloper.setValue(file->getMetadata(MetaDataId::Developer));
+		mPublisher.setValue(file->getMetadata(MetaDataId::Publisher));
+		mGenre.setValue(file->getMetadata(MetaDataId::Genre));
+		mPlayers.setValue(file->getMetadata(MetaDataId::Players));
+		mName.setValue(file->getMetadata(MetaDataId::Name));
+		mTextFavorite.setText(file->getFavorite()?_("YES"):_("NO"));
+
+		if (file->getType() == GAME)
+		{
+			mLastPlayed.setValue(file->getMetadata(MetaDataId::LastPlayed));
+			mPlayCount.setValue(file->getMetadata(MetaDataId::PlayCount));
+			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata(MetaDataId::GameTime).c_str())));
+		}
+
+		fadingOut = false;
+	}
+
+	// We're clearing / populating : don't setup fade animations
+	if (file == nullptr && isClearing) //mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0)
+		return;
+
+	std::vector<GuiComponent*> comps;
+
+	for (auto lbl : getMDValues())
+		comps.push_back(lbl.second);
+
+	if (mVideo != nullptr) comps.push_back(mVideo);
+	if (mImage != nullptr) comps.push_back(mImage);
+	if (mThumbnail != nullptr) comps.push_back(mThumbnail);
+	if (mMarquee != nullptr) comps.push_back(mMarquee);
+	if (mFlag != nullptr) comps.push_back(mFlag);
+	if (mKidGame != nullptr) comps.push_back(mKidGame);
+	if (mFavorite != nullptr) comps.push_back(mFavorite);
+	if (mHidden != nullptr) comps.push_back(mHidden);
+
+	comps.push_back(&mDescription);
+	comps.push_back(&mName);
+
+	for (auto lbl : getMDLabels())
+		comps.push_back(lbl.second);
+
+	for (auto it = comps.cbegin(); it != comps.cend(); it++)
+	{
+		GuiComponent* comp = *it;
+		// an animation is playing
+		//   then animate if reverse != fadingOut
+		// an animation is not playing
+		//   then animate if opacity != our target opacity
+		if ((comp->isAnimationPlaying(0) && comp->isAnimationReversed(0) != fadingOut) ||
+			(!comp->isAnimationPlaying(0) && comp->getOpacity() != (fadingOut ? 0 : 255)))
+		{
+			auto func = [comp](float t)
+			{
+				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t) * 255));
+			};
+
+			bool isFadeOut = fadingOut;
+			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut, file]
+			{
+				if (isFadeOut)
+				{
+					if (mVideo != nullptr) mVideo->setImage("");
+					if (mImage != nullptr) mImage->setImage("");
+					if (mThumbnail != nullptr) mThumbnail->setImage("");
+					if (mMarquee != nullptr) mMarquee->setImage("");
+					if (mFlag != nullptr) mFlag->setImage("");
+					if (mKidGame != nullptr) mKidGame->setVisible(false);
+					if (mFavorite != nullptr) mFavorite->setVisible(false);
+					if (mHidden != nullptr) mHidden->setVisible(false);
+				}
+			}, fadingOut);
+		}
+	}
+
+	Utils::FileSystem::removeFile(getTitlePath());
+}
+
+void DetailedContainer::update(int deltaTime)
+{
+	if (mVideo != nullptr)
+		mVideo->update(deltaTime);
+}

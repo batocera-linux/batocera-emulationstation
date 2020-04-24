@@ -134,6 +134,8 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		addPlaceholder();
 	}
+
+	updateFolderPath();
 }
 
 FileData* BasicGameListView::getCursor()

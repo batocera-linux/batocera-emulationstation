@@ -8,6 +8,7 @@
 #include "components/ImageGridComponent.h"
 #include "views/gamelist/ISimpleGameListView.h"
 #include "views/gamelist/BasicGameListView.h"
+#include "DetailedContainer.h"
 
 class VideoComponent;
 
@@ -15,7 +16,6 @@ class GridGameListView : public ISimpleGameListView
 {
 public:
 	GridGameListView(Window* window, FolderData* root, const std::shared_ptr<ThemeData>& theme, std::string customThemeName = "", Vector2f gridSize = Vector2f(0,0));
-	~GridGameListView();
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;
 
@@ -52,14 +52,17 @@ protected:
 	ImageGridComponent<FileData*> mGrid;
 
 private:
+	DetailedContainer mDetails;
+
 	void updateInfoPanel();
 	const std::string getImagePath(FileData* file);
 	const bool isVirtualFolder(FileData* file);
-
+	/*
 	void createMarquee();
 	void createImage();
 	void createThumbnail();
 	void createVideo();
+	void createFlag();
 
 	void initMDLabels();
 	void initMDValues();
@@ -80,13 +83,14 @@ private:
 	ImageComponent* mImage;
 	ImageComponent* mThumbnail;
 	ImageComponent* mMarquee;
+	ImageComponent* mFlag;
 	VideoComponent* mVideo;
 
 	std::vector<TextComponent*> getMDLabels();
 	std::vector<GuiComponent*> getMDValues();
 
 	ScrollableContainer mDescContainer;
-	TextComponent mDescription;	
+	TextComponent mDescription;	*/
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_GRID_GAME_LIST_VIEW_H

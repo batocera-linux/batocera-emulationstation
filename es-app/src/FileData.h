@@ -62,6 +62,7 @@ public:
 	inline SystemData* getSystem() const { return mSystem; }
 
 	virtual const std::string getPath() const;
+	const std::string getBreadCrumbPath();
 
 	virtual SystemEnvironmentData* getSystemEnvData() const;
 
@@ -114,6 +115,8 @@ public:
 	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
 	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
+	void detectLanguageAndRegion(bool overWrite);
+
 private:
 	MetaDataList mMetadata;
 
@@ -151,6 +154,8 @@ private:
 
 class FolderData : public FileData
 {
+	friend class FileData;
+
 public:
 	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens=true) : FileData(FOLDER, startpath, system)
 	{
