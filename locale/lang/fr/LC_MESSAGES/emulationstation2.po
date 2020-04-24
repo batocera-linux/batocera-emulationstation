@@ -1798,6 +1798,19 @@ msgstr "EN COURS..."
 msgid "up/down"
 msgstr "haut/bas"
 
+msgid "REDETECT GAMES LANG/REGION"
+msgstr "REDETECTER LA LANGUE DES JEUX"
+
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i JEU"
+msgstr[1] "%i JEUX"
+
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i ELEMENT"
+msgstr[1] "%i ELEMENTS"
+
 #~ msgid "This collection contains %1$i game, including %2$s."
 #~ msgid_plural "This collection contains %1$i games, including %2$s."
 #~ msgstr[0] "Cette collection contient %1$i jeu, dont %2$s"
@@ -1812,7 +1825,3 @@ msgstr "haut/bas"
 #~ msgstr[1] ""
 #~ "Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres"
 
-#~ msgid "%i GAME AVAILABLE"
-#~ msgid_plural "%i GAMES AVAILABLE"
-#~ msgstr[0] "%i JEU DISPONIBLE"
-#~ msgstr[1] "%i JEUX DISPONIBLES"
