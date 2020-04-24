@@ -176,6 +176,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	styles.push_back(std::pair<std::string, std::string>("automatic", _("automatic")));
 
 	auto mViews = system->getTheme()->getViewsOfTheme();
+
+	bool showViewStyle = mViews.size() > 2;
+
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 	{
 		if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
@@ -203,7 +206,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 	{
 		mMenu.addGroup(_("VIEW OPTIONS"));
 
-		mMenu.addWithLabel(_("GAMELIST VIEW STYLE"), mViewMode);
+		if (showViewStyle)
+			mMenu.addWithLabel(_("GAMELIST VIEW STYLE"), mViewMode);
+
 		mMenu.addEntry(_("VIEW CUSTOMISATION"), true, [this, system]() 
 		{
 			GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder()); 
