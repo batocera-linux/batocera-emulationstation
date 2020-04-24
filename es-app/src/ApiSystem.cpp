@@ -1174,5 +1174,5 @@ std::vector<std::string> ApiSystem::getFormatFileSystems()
 
 bool ApiSystem::formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-format " + disk + " " + format, func).second == 0;
+	return executeScript("batocera-format format " + disk + " " + format, func).second == 0;
 }
