@@ -22,7 +22,7 @@
 #include "Gamelist.h" 
 #include "ApiSystem.h"
 #include <time.h>
-
+#include <algorithm>
 #include "LangParser.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
@@ -535,6 +535,11 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 	auto sys = CollectionSystemManager::get()->getSystemToView(mSystem);
 
+	std::vector<std::string> hiddenExts;
+	if (!mSystem->isGroupSystem() && !mSystem->isCollection())
+		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))
+			hiddenExts.push_back("." + Utils::String::toLower(ext));
+
 	FileFilterIndex* idx = sys->getIndex(false);
 	if (idx != nullptr && !idx->isFiltered())
 		idx = nullptr;
@@ -561,6 +566,13 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (filterKidGame && !(*it)->getKidGame())
 			continue;
 		
+		if (hiddenExts.size() > 0)
+		{
+			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName()));
+			if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
+				continue;
+		}
+
 		if ((*it)->getType() == FOLDER && refactorUniqueGameFolders)
 		{
 			FolderData* pFolder = (FolderData*)(*it);

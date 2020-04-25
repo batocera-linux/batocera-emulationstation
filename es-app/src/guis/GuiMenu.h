@@ -79,6 +79,8 @@ private:
 	void openMissingBiosSettings();
 	void openFormatDriveSettings();
 
+	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+
 	// windows
 	void openEmulatorSettings();
 	void openSystemEmulatorSettings(SystemData* system);

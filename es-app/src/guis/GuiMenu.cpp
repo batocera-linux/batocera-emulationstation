@@ -593,6 +593,15 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
+	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
+	{
+		for (auto system : SystemData::sSystemVector)
+			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
+
+		Settings::getInstance()->saveFile();
+		reloadAllGames(mWindow, false);		
+	});
+
 	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this] 
 	{ 
 		Window* window = mWindow;
@@ -1652,26 +1661,7 @@ void GuiMenu::updateGameLists(Window* window)
 	
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [window]
 		{
-			window->renderSplashScreen(_("Loading..."));
-
-			ViewController::get()->goToStart();
-			delete ViewController::get();
-			ViewController::init(window);
-			CollectionSystemManager::deinit();
-			CollectionSystemManager::init(window);
-			SystemData::loadConfig(window);
-
-			GuiComponent *gui;
-			while ((gui = window->peekGui()) != NULL) 
-			{
-				window->removeGui(gui);
-				delete gui;
-			}
-
-			ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
-			window->closeSplashScreen();
-
-			window->pushGui(ViewController::get());
+			reloadAllGames(window, true);
 		}, 
 		_("NO"), nullptr));
 }
@@ -2262,6 +2252,48 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			if (Settings::getInstance()->setString(system->getName() + ".ShowParentFolder", parentFolder->getSelected()))
 				themeconfig->setVariable("reloadAll", true);
 		});
+
+		// File extensions
+		if (!system->isCollection() && !system->isGroupSystem())
+		{
+			auto hiddenExts = Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';');
+
+			auto hiddenCtrl = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FILE EXTENSIONS"), true);
+
+			for (auto ext : system->getExtensions())
+			{
+				std::string extid = Utils::String::toLower(Utils::String::replace(ext, ".", ""));
+				hiddenCtrl->add(ext, extid, std::find(hiddenExts.cbegin(), hiddenExts.cend(), extid) == hiddenExts.cend());
+			}
+
+			themeconfig->addWithLabel(_("FILE EXTENSIONS"), hiddenCtrl);
+			themeconfig->addSaveFunc([themeconfig, system, hiddenCtrl]
+			{
+				std::string hiddenSystems;
+
+				std::vector<std::string> sel = hiddenCtrl->getSelectedObjects();
+
+				for (auto ext : system->getExtensions())
+				{
+					std::string extid = Utils::String::toLower(Utils::String::replace(ext, ".", ""));
+					if (std::find(sel.cbegin(), sel.cend(), extid) == sel.cend())
+					{
+						if (hiddenSystems.empty())
+							hiddenSystems = extid;
+						else
+							hiddenSystems = hiddenSystems + ";" + extid;
+					}
+				}
+
+				if (Settings::getInstance()->setString(system->getName() + ".HiddenExt", hiddenSystems))
+				{
+					Settings::getInstance()->saveFile();
+
+					themeconfig->setVariable("reloadAll", true);
+					themeconfig->setVariable("forceReloadGames", true);
+				}
+			});
+		}
 	}
 
 	if (systemTheme.empty())
@@ -2352,8 +2384,12 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 		if (reloadAll || themeconfig->getVariable("reloadAll"))
 		{
-			if (systemTheme.empty())
+			if (themeconfig->getVariable("forceReloadGames"))
 			{
+				reloadAllGames(window, false);
+			}
+			else if (systemTheme.empty())
+			{				
 				CollectionSystemManager::get()->updateSystemsList();
 				ViewController::get()->reloadAll(window);
 				window->closeSplashScreen();
@@ -2374,6 +2410,38 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	});
 
 	mWindow->pushGui(themeconfig);
+}
+
+void GuiMenu::reloadAllGames(Window* window, bool deleteCurrentGui)
+{
+	window->renderSplashScreen(_("Loading..."));
+
+	ViewController::get()->goToStart();
+
+	if (!deleteCurrentGui)
+	{
+		GuiComponent* topGui = window->peekGui();
+		window->removeGui(topGui);
+	}
+
+	delete ViewController::get();
+
+	ViewController::init(window);
+	CollectionSystemManager::deinit();
+	CollectionSystemManager::init(window);
+	SystemData::loadConfig(window);
+	
+	GuiComponent *gui;
+	while ((gui = window->peekGui()) != NULL)
+	{
+		window->removeGui(gui);
+		delete gui;
+	}
+
+	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
+	window->closeSplashScreen();
+
+	window->pushGui(ViewController::get());
 }
 
 void GuiMenu::openUISettings() 
