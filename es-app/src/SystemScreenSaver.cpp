@@ -75,7 +75,7 @@ void SystemScreenSaver::startScreenSaver()
 	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 	if (screensaver_behavior == "random video")
 	{
-		if (!loadingNext && Settings::getInstance()->getBool("VideoAudio"))
+		if (!loadingNext && (Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute")))
 			AudioManager::getInstance()->deinit();
 
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout");
@@ -184,7 +184,7 @@ void SystemScreenSaver::stopScreenSaver()
 	PowerSaver::runningScreenSaver(false);
 
 	// Exiting video screen saver -> Restore sound
-	if (isExitingScreenSaver && isVideoScreenSaver && Settings::getInstance()->getBool("VideoAudio"))
+	if (isExitingScreenSaver && isVideoScreenSaver && Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute"))
 	{
 		AudioManager::getInstance()->init();
 

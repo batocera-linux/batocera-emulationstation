@@ -512,7 +512,7 @@ void VideoVlcComponent::handleLooping()
 				}
 			}
 
-			if (!Settings::getInstance()->getBool("VideoAudio"))
+			if (!Settings::getInstance()->getBool("VideoAudio") || (Settings::getInstance()->getBool("ScreenSaverVideoMute") && mScreensaverMode))
 			{
 				libvlc_audio_set_mute(mMediaPlayer, 1);
 			}
