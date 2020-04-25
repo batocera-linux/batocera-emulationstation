@@ -185,6 +185,7 @@ void ThreadedScraper::acceptResult(const ScraperSearchResult& result)
 	{
 		LOG(LogDebug) << "ThreadedScraper::importScrappedMetadata";
 		game->getMetadata().importScrappedMetadata(result.mdl);
+		game->detectLanguageAndRegion(true);
 
 		LOG(LogDebug) << "ThreadedScraper::saveToGamelistRecovery";
 		saveToGamelistRecovery(game);

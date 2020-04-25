@@ -121,8 +121,9 @@ void GuiScraperMulti::doNextSearch()
 void GuiScraperMulti::acceptResult(const ScraperSearchResult& result)
 {
 	ScraperSearchParams& search = mSearchQueue.front();
-
+	
 	search.game->getMetadata().importScrappedMetadata(result.mdl);
+	search.game->detectLanguageAndRegion(true);
 	saveToGamelistRecovery(search.game);
 	// updateGamelist(search.system);
 

@@ -127,8 +127,8 @@ void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
 		float percent = mPercent / 100.0;
 		if (percent < 0)
 			percent = 0;
-		if (percent > 100)
-			percent = 100;
+		else if (percent > 1)
+			percent = 1;
 
 		auto theme = ThemeData::getMenuTheme();
 		auto color = theme->Text.color & 0xFFFFFF00 | (unsigned char)((theme->Text.color & 0xFF) * (mOpacity / 255.0));

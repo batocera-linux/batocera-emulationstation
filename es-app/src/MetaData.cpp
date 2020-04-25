@@ -60,7 +60,10 @@ void MetaDataList::initMetadata()
 		{ Crc32,            "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum") },
 		{ Md5,              "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum") },
 
-		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),           _("how long the game has been played in total (seconds)") }				
+		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)") },
+
+		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages") },
+		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region") }
 	};
 	
 	MetaDataDecl folderDecls[] = 
@@ -83,7 +86,9 @@ void MetaDataList::initMetadata()
 		// Some games are folders ( dosbox )
 		{ PlayCount,        "playcount",   MD_INT,                 "0",                true,       _("Play count"),            _("enter number of times played") },
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),           _("enter last played date") },
-		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),             _("how long the game has been played in total (seconds)") }
+		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),             _("how long the game has been played in total (seconds)") },
+		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),             _("Languages") },
+		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),                _("Region") }
 	};
 
 	// Build Game maps

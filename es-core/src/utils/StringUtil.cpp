@@ -557,6 +557,31 @@ namespace Utils
 			return data;
 		}
 
+		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter)
+		{
+			std::vector<std::string> ret;
+
+			size_t pos = 0;
+			while (pos != std::string::npos)
+			{
+				pos = _string.find(startDelimiter, pos);
+				if (pos == std::string::npos)
+					break;
+
+				auto end = _string.find(endDelimiter, pos);
+				if (end == std::string::npos)
+					break;
+
+				std::string value = _string.substr(pos + 1, end - pos - 1);
+				if (!value.empty())
+					ret.push_back(value);
+
+				pos = end + 1;
+			}
+
+			return ret;
+		}
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
 		{

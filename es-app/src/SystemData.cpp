@@ -19,6 +19,7 @@
 #include "views/ViewController.h"
 #include "ThreadedHasher.h"
 #include <unordered_set>
+#include <algorithm>
 
 using namespace Utils;
 
@@ -247,9 +248,7 @@ void SystemData::createGroupedSystems()
 	}
 
 	for (auto item : map)
-	{
-	
-
+	{	
 		SystemEnvironmentData* envData = new SystemEnvironmentData;
 		envData->mStartPath = "";		
 		envData->mLaunchCommand = "";				
@@ -829,7 +828,13 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 	path = system.child("path").text().get();
 
 	// convert extensions list from a string into a vector of strings
-	std::vector<std::string> extensions = readList(system.child("extension").text().get());
+	std::vector<std::string> extensions;
+	for (auto ext : readList(system.child("extension").text().get()))
+	{
+		std::string extlow = Utils::String::toLower(ext);
+		if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+			extensions.push_back(extlow);
+	}
 
 	cmd = system.child("command").text().get();
 
@@ -1416,3 +1421,4 @@ bool SystemData::hasEmulatorSelection()
 
 	return ec > 1 || cc > 1;
 }
+
