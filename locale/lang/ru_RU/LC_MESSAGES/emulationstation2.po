@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-20 12:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -115,6 +115,18 @@ msgstr "СОРТИРОВКА ПО"
 msgid "OTHER FILTERS"
 msgstr "ОСТАЛЬНЫЕ ФИЛЬТРЫ"
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
 
@@ -160,6 +172,12 @@ msgstr "Загрузка..."
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТСКЛЮЧЕНА"
 
+msgid "New Collection Name"
+msgstr "Название новой коллекции"
+
+msgid "ARE YOU SURE ?"
+msgstr "ВЫ УВЕРЕНЫ?"
+
 msgid "FILTER GAMELIST BY"
 msgstr "ФИЛЬТР СПИСКА ИГР ПО"
 
@@ -168,6 +186,9 @@ msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
 
 msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
+
+msgid "SYSTEMS"
+msgstr "СИСТЕМЫ"
 
 msgid "MANUAL INPUT"
 msgstr "РУЧНОЙ ВВОД"
@@ -726,6 +747,9 @@ msgstr "никогда"
 msgid "having multiple games"
 msgstr "несколько игр"
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
 
@@ -949,8 +973,14 @@ msgstr "ВЫБРАННЫЕ НАСТРОЙКИ НЕДЕЙСТВИТЕЛЬНЫ"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ОТФОРМАТИРОВАТЬ УСТРОЙСТВО?"
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr "СГРУППИРОВАННЫЕ СИСТЕМЫ"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
@@ -958,11 +988,11 @@ msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
 msgid "SELECT THEME FOLDER"
 msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
 
-msgid "CREATE NEW CUSTOM COLLECTION"
-msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr ""
 
-msgid "New Collection Name"
-msgstr "Название новой коллекции"
+msgid "OPTIONS"
+msgstr "ПАРАМЕТРЫ"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
@@ -982,6 +1012,12 @@ msgstr "АРКАДНЫЕ СИСТЕМЫ"
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "АВТО-КОЛЛЕКЦИИ ИГР"
 
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "КОЛЛЕКЦИИ ИГР"
 
@@ -993,9 +1029,6 @@ msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ЦЕЛЕВАЯ АРХИТЕКТУРА"
-
-msgid "ARE YOU SURE ?"
-msgstr "ВЫ УВЕРЕНЫ?"
 
 msgid "INSTALL"
 msgstr "УСТАНОВИТЬ"
@@ -1132,9 +1165,6 @@ msgstr "ФИЛЬТР"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ВЫБРАННЫХ СИСТЕМ"
-
-msgid "SYSTEMS"
-msgstr "СИСТЕМЫ"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "КОНФЛИКТЫ РАЗРЕШАЕТ ПОЛЬЗОВАТЕЛЬ"
@@ -1409,9 +1439,6 @@ msgstr "Сыграно раз"
 msgid "No Entries Found"
 msgstr "Игр не найдено"
 
-msgid "OPTIONS"
-msgstr "ПАРАМЕТРЫ"
-
 msgid "Favorites"
 msgstr "Избранное"
 
@@ -1517,8 +1544,14 @@ msgstr "РЕЙТИНГ"
 msgid "KIDGAME"
 msgstr "ДЕТСКАЯ ИГРА"
 
+msgid "ALREADY PLAYED"
+msgstr ""
+
 msgid "HASHING GAMES"
 msgstr "ХЕШИРОВАНИЕ ИГР"
+
+msgid "Collections"
+msgstr ""
 
 msgid "Extracting"
 msgstr "Распакова"
@@ -1616,19 +1649,19 @@ msgid "Various"
 msgstr "Различные"
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] "Коллекция содержит %1$i игру, включая %2$s."
-msgstr[1] "Коллекция содержит %1$i игры, включая %2$s."
-msgstr[2] "Коллекция содержит %1$i игр, включая %2$s."
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Коллекция содержит %1$i игру, включая %2$s и другие"
-msgstr[1] "Коллекция содержит %1$i игры, включая %2$s и другие"
-msgstr[2] "Коллекция содержит %1$i игр, включая %2$s и другие"
+"This collection contains %i games, including %s among other titles."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1775,6 +1808,23 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION"
+#~ msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
+
+#~ msgid "This collection contains %1$i game, including %2$s."
+#~ msgid_plural "This collection contains %1$i games, including %2$s."
+#~ msgstr[0] "Коллекция содержит %1$i игру, включая %2$s."
+#~ msgstr[1] "Коллекция содержит %1$i игры, включая %2$s."
+#~ msgstr[2] "Коллекция содержит %1$i игр, включая %2$s."
+
+#~ msgid ""
+#~ "This collection contains %1$i game, including %2$s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %1$i games, including %2$s among other titles."
+#~ msgstr[0] "Коллекция содержит %1$i игру, включая %2$s и другие"
+#~ msgstr[1] "Коллекция содержит %1$i игры, включая %2$s и другие"
+#~ msgstr[2] "Коллекция содержит %1$i игр, включая %2$s и другие"
 
 #~ msgid "%i GAME AVAILABLE"
 #~ msgid_plural "%i GAMES AVAILABLE"

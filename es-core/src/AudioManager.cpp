@@ -156,7 +156,10 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 		else
 		{
 			std::string extension = Utils::String::toLower(Utils::FileSystem::getExtension(*it));
-			if (extension == ".mp3" || extension == ".ogg")
+			if (extension == ".mp3" || extension == ".ogg" || extension == ".flac"
+				|| extension == ".wav" || extension == ".mod" || extension == ".xm"
+				|| extension == ".stm" || extension == ".s3m" || extension == ".far"
+				|| extension == ".it" || extension == ".669" || extension == ".mtm")
 				all_matching_files.push_back(*it);
 		}
 	}
@@ -276,6 +279,13 @@ void AudioManager::stopMusic(bool fadeOut)
 	mCurrentMusic = NULL;
 }
 
+// Fast string hash in order to use strings in switch/case
+// How does this work? Look for Dan Bernstein hash on the internet
+constexpr unsigned int sthash(const char *s, int off = 0)
+{
+	return !s[off] ? 5381 : (sthash(s, off+1)*33) ^ s[off];
+}
+
 // batocera
 void AudioManager::setSongName(std::string song)
 {
@@ -289,6 +299,69 @@ void AudioManager::setSongName(std::string song)
 		return;
 
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(song));
+	// chiptunes mod song titles parsing
+	if (ext == ".mod" || ext == ".s3m" || ext == ".stm" || ext == ".669"
+			  || ext == ".mtm" || ext == ".far" || ext == ".xm" || ext == ".it" )
+	{
+		int title_offset;
+		int title_break;
+		struct {
+			char title[108] = "";
+		} info;
+		switch (sthash(ext.c_str())) {
+			case sthash(".mod"):
+			case sthash(".stm"):
+				title_offset = 0;
+				title_break = 20;
+				break;
+			case sthash(".s3m"):
+				title_offset = 0;
+				title_break = 28;
+				break;
+			case sthash(".669"):
+				title_offset = 0;
+				title_break = 108;
+				break;
+			case sthash(".mtm"):
+			case sthash(".it"):
+				title_offset = 4;
+				title_break = 20;
+				break;
+			case sthash(".far"):
+				title_offset = 4;
+				title_break = 40;
+				break;
+			case sthash(".xm"):
+				title_offset = 17;
+				title_break = 20;
+				break;
+			default:
+				LOG(LogError) << "Error AudioManager unexpected case while loading mofile " << song;
+				mCurrentSong = Utils::FileSystem::getStem(song.c_str());
+				return;
+		}
+
+		FILE* file = fopen(song.c_str(), "r");
+		if (file != NULL)
+		{
+			if (fseek(file, title_offset, SEEK_SET) < 0)
+				LOG(LogError) << "Error AudioManager seeking " << song;
+			else if (fread(&info, sizeof(info), 1, file) != 1)
+				LOG(LogError) << "Error AudioManager reading " << song;
+			else  {
+				info.title[title_break] = '\0';
+				mCurrentSong = info.title;
+				fclose(file);
+				return;
+			}
+
+			fclose(file);
+		}
+		else
+			LOG(LogError) << "Error AudioManager opening modfile " << song;
+	}
+
+	// now only mp3 will be parsed for ID3: .ogg, .wav and .flac will display file name
 	if (ext != ".mp3")
 	{
 		mCurrentSong = Utils::FileSystem::getStem(song.c_str());
@@ -324,7 +397,7 @@ void AudioManager::setSongName(std::string song)
 		fclose(file);
 	}
 	else
-		LOG(LogError) << "Error AudioManager opening " << song;
+		LOG(LogError) << "Error AudioManager opening mp3 file " << song;
 
 	// Then let's try with an ID3 v2 tag
 #define MAX_STR_SIZE 255 // Empiric max size of a MP3 title

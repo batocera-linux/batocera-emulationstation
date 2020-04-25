@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-19 13:20+0200\n"
+"POT-Creation-Date: 2020-04-20 12:58+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -112,6 +112,18 @@ msgstr "TRIER LES JEUX PAR"
 msgid "OTHER FILTERS"
 msgstr "AUTRES FILTRES"
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "EDITER LES FILTRES DE LA COLLECTION"
+
+msgid "DELETE COLLECTION"
+msgstr "SUPPRIMER LA COLLECTION"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "NOUVELLE COLLECTION DYNAMIQUE"
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "STYLE DE LISTE DE JEUX"
 
@@ -142,11 +154,11 @@ msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "ÉDITER LES METADONNÉES DU JEU"
-
 msgid "EDIT FOLDER METADATA"
 msgstr "ÉDITER LES METADONNÉES DU DOSSIER"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "ÉDITER LES METADONNÉES DU JEU"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRER LES JEUX PAR NOM"
@@ -157,6 +169,12 @@ msgstr "Chargement..."
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN SCRAPE EST EN COURS"
 
+msgid "New Collection Name"
+msgstr "Nom de la collection"
+
+msgid "ARE YOU SURE ?"
+msgstr "ETES-VOUS SUR(E) ?"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRER LES LISTES DE JEUX PAR"
 
@@ -165,6 +183,9 @@ msgstr "RAZ DE TOUS LES FILTRES"
 
 msgid "FIND GAMES"
 msgstr "RECHERCHER DES JEUX"
+
+msgid "SYSTEMS"
+msgstr "SYSTÈMES"
 
 msgid "MANUAL INPUT"
 msgstr "SAISIE MANUELLE"
@@ -724,6 +745,9 @@ msgstr "jamais"
 msgid "having multiple games"
 msgstr "avec jeux multiples"
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "OUTILS"
 
@@ -947,8 +971,14 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "COLLECTIONS A AFFICHER"
+
 msgid "GROUPED SYSTEMS"
 msgstr "SYSTÈMES GROUPÉS"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "CREER UNE COLLECTION PERSONNALISÉE"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRÉER UNE COLLECTION DEPUIS UN THÈME"
@@ -959,8 +989,8 @@ msgstr "CHOISIR LE DOSSIER DU THÈME"
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "NOUVELLE COLLECTION EDITABLE"
 
-msgid "New Collection Name"
-msgstr "Nom de la collection"
+msgid "OPTIONS"
+msgstr "OPTIONS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GROUPER LES COLLECTIONS SANS THÈME"
@@ -980,29 +1010,14 @@ msgstr "SYSTEMES D'ARCADE"
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
 
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "COLLECTIONS PERSONNALISÉES"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "EDITER LES FILTRES DE LA COLLECTION"
-
-msgid "DELETE COLLECTION"
-msgstr "SUPPRIMER LA COLLECTION"
-
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "COLLECTIONS A AFFICHER"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "CREER UNE COLLECTION PERSONNALISÉE"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "NOUVELLE COLLECTION DYNAMIQUE"
-
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLLECTIONS EDITABLES"
 
 msgid "DYNAMIC COLLECTIONS"
 msgstr "COLLECTIONS DYNAMIQUES"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "COLLECTIONS PERSONNALISÉES"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLER BATOCERA"
@@ -1012,9 +1027,6 @@ msgstr "PÉRIPHÉRIQUE CIBLE"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARCHITECTURE CIBLE"
-
-msgid "ARE YOU SURE ?"
-msgstr "ETES-VOUS SUR(E) ?"
 
 msgid "INSTALL"
 msgstr "INSTALLER"
@@ -1149,9 +1161,6 @@ msgstr "FILTRE"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "SCRAPER CES SYSTÈMES"
-
-msgid "SYSTEMS"
-msgstr "SYSTÈMES"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "CHOISIR SI CONFLIT"
@@ -1426,9 +1435,6 @@ msgstr "Nombre de parties"
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
 
-msgid "OPTIONS"
-msgstr "OPTIONS"
-
 msgid "Favorites"
 msgstr "Favoris"
 
@@ -1528,17 +1534,20 @@ msgstr "JOUEURS"
 msgid "PUBLISHER / DEVELOPER"
 msgstr "ÉDITEUR / DÉVELOPPEUR"
 
-msgid "ALREADY PLAYED"
-msgstr "DÉJA JOUÉ"
-
 msgid "RATING"
 msgstr "NOTATION"
 
 msgid "KIDGAME"
 msgstr "JEU ENFANT"
 
+msgid "ALREADY PLAYED"
+msgstr "DÉJA JOUÉ"
+
 msgid "HASHING GAMES"
 msgstr "INDEXATION DES JEUX"
+
+msgid "Collections"
+msgstr ""
 
 msgid "Extracting"
 msgstr ""
@@ -1636,18 +1645,17 @@ msgid "Various"
 msgstr "Plusieurs"
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
-msgstr[0] "Cette collection contient %1$i jeu, dont %2$s"
-msgstr[1] "Cette collection contient %1$i jeux, dont %2$s"
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
-msgstr[0] "Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres"
+"This collection contains %i games, including %s among other titles."
+msgstr[0] ""
 msgstr[1] ""
-"Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres"
 
 msgid "UP"
 msgstr "HAUT"
@@ -1789,6 +1797,20 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "This collection contains %1$i game, including %2$s."
+#~ msgid_plural "This collection contains %1$i games, including %2$s."
+#~ msgstr[0] "Cette collection contient %1$i jeu, dont %2$s"
+#~ msgstr[1] "Cette collection contient %1$i jeux, dont %2$s"
+
+#~ msgid ""
+#~ "This collection contains %1$i game, including %2$s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %1$i games, including %2$s among other titles."
+#~ msgstr[0] ""
+#~ "Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres"
+#~ msgstr[1] ""
+#~ "Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres"
 
 #~ msgid "%i GAME AVAILABLE"
 #~ msgid_plural "%i GAMES AVAILABLE"

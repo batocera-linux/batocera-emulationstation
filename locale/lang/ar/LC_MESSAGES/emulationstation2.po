@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 07:17+0200\n"
+"POT-Creation-Date: 2020-04-20 12:54+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,6 +113,18 @@ msgstr "ترتيب الالعاب حسب"
 msgid "OTHER FILTERS"
 msgstr ""
 
+msgid "COLLECTION"
+msgstr ""
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
 msgid "GAMELIST VIEW STYLE"
 msgstr ""
 
@@ -158,6 +170,12 @@ msgstr ""
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
+msgid "New Collection Name"
+msgstr ""
+
+msgid "ARE YOU SURE ?"
+msgstr ""
+
 msgid "FILTER GAMELIST BY"
 msgstr ""
 
@@ -166,6 +184,9 @@ msgstr ""
 
 msgid "FIND GAMES"
 msgstr ""
+
+msgid "SYSTEMS"
+msgstr "انظمة"
 
 msgid "MANUAL INPUT"
 msgstr ""
@@ -723,6 +744,9 @@ msgstr "ابداً"
 msgid "having multiple games"
 msgstr ""
 
+msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
 msgid "TOOLS"
 msgstr ""
 
@@ -942,7 +966,13 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
+msgstr ""
+
+msgid "CREATE CUSTOM COLLECTION"
 msgstr ""
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
@@ -951,11 +981,11 @@ msgstr ""
 msgid "SELECT THEME FOLDER"
 msgstr ""
 
-msgid "CREATE NEW CUSTOM COLLECTION"
+msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr ""
 
-msgid "New Collection Name"
-msgstr ""
+msgid "OPTIONS"
+msgstr "اعدادات"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
@@ -975,6 +1005,12 @@ msgstr ""
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr ""
 
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr ""
 
@@ -985,9 +1021,6 @@ msgid "TARGET DEVICE"
 msgstr ""
 
 msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "ARE YOU SURE ?"
 msgstr ""
 
 msgid "INSTALL"
@@ -1128,9 +1161,6 @@ msgstr "فلتر"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "تجميع لهذه الانظمة"
-
-msgid "SYSTEMS"
-msgstr "انظمة"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "يقرر المستخدم في حالة التعارض"
@@ -1404,9 +1434,6 @@ msgstr "مرات اللعب"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "OPTIONS"
-msgstr "اعدادات"
-
 msgid "Favorites"
 msgstr ""
 
@@ -1512,7 +1539,13 @@ msgstr ""
 msgid "KIDGAME"
 msgstr ""
 
+msgid "ALREADY PLAYED"
+msgstr ""
+
 msgid "HASHING GAMES"
+msgstr ""
+
+msgid "Collections"
 msgstr ""
 
 msgid "Extracting"
@@ -1611,8 +1644,8 @@ msgid "Various"
 msgstr ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s."
-msgid_plural "This collection contains %1$i games, including %2$s."
+msgid "This collection contains %i game, including %s."
+msgid_plural "This collection contains %i games, including %s."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -1621,9 +1654,9 @@ msgstr[4] ""
 msgstr[5] ""
 
 #, c-format
-msgid "This collection contains %1$i game, including %2$s among other titles."
+msgid "This collection contains %i game, including %s among other titles."
 msgid_plural ""
-"This collection contains %1$i games, including %2$s among other titles."
+"This collection contains %i games, including %s among other titles."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
