@@ -822,57 +822,28 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 }
 
 void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass)
-{
-	bool found = false;
-
-	// Import original view properties
-	for (pugi::xml_node nodec = root.child("view"); nodec; nodec = nodec.next_sibling("view"))
-	{
-		if (!nodec.attribute("name"))
-			continue;
-
-		const char* delim = " \t\r\n,";
-		const std::string nameAttr = nodec.attribute("name").as_string();
-
-		size_t prevOff = nameAttr.find_first_not_of(delim, 0);
-		size_t off = nameAttr.find_first_of(delim, prevOff);
-		std::string viewKey;
-		while (off != std::string::npos || prevOff != std::string::npos)
-		{
-			viewKey = nameAttr.substr(prevOff, off - prevOff);
-			prevOff = nameAttr.find_first_not_of(delim, off);
-			off = nameAttr.find_first_of(delim, prevOff);
-
-			if (viewKey == baseClass)
-			{
-				found = true;
-				parseView(nodec, view);
-			}
-		}
-	}
-
-	if (found)
+{	
+	auto baseviewit = mViews.find(baseClass);
+	if (baseviewit == mViews.cend())
+		return;
+	
+	// Avoid recursion
+	if (std::find(view.baseTypes.cbegin(), view.baseTypes.cend(), baseClass) != view.baseTypes.cend())
 		return;
 
-	// base class is a customview ?
-	for (pugi::xml_node nodec = root.child("customView"); nodec; nodec = nodec.next_sibling("customView"))
+	view.baseType = baseClass;
+	view.baseTypes.push_back(baseClass);
+
+	ThemeView& baseView = baseviewit->second;
+	if (!baseView.baseType.empty())
+		parseCustomViewBaseClass(root, view, baseView.baseType);
+
+	for (auto element : baseView.elements)
 	{
-		const std::string nameAttr = nodec.attribute("name").as_string();
-
-		if (!nameAttr.empty() && nameAttr == baseClass)
-		{
-			std::string inherits = nodec.attribute("inherits").as_string();
-			if (!inherits.empty() && inherits != baseClass)
-			{
-				view.baseType = inherits;
-				view.baseTypes.push_back(inherits);
-
-				parseCustomViewBaseClass(root, view, inherits);
-			}
-
-			parseView(nodec, view);
-		}
-	}
+		view.elements.insert_or_assign(element.first, element.second);
+		if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), element.first) == view.orderedKeys.cend())
+			view.orderedKeys.push_back(element.first);
+	}	
 }
 
 void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node& root)
@@ -915,11 +886,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 	view.isCustomView = true;
 
 	if (!inherits.empty())
-	{
-		view.baseType = inherits;
-		view.baseTypes.push_back(inherits);
 		parseCustomViewBaseClass(root, view, inherits);
-	}
 
 	parseView(node, view);
 }

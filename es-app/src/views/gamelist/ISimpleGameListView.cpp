@@ -13,7 +13,7 @@
 #include <set>
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGameListView(window, root),
-	mHeaderText(window), mHeaderImage(window), mBackground(window)
+	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window)
 {
 	mHeaderText.setText("Logo Text");
 	mHeaderText.setSize(mSize.x(), 0);
@@ -29,8 +29,13 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGa
 	mBackground.setResize(mSize.x(), mSize.y());
 	mBackground.setDefaultZIndex(0);
 
+	mFolderPath.setHorizontalAlignment(ALIGN_CENTER);
+	mFolderPath.setDefaultZIndex(55);
+	mFolderPath.setVisible(false);
+
 	addChild(&mHeaderText);
 	addChild(&mBackground);
+	addChild(&mFolderPath);
 }
 
 void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
@@ -39,6 +44,7 @@ void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme
 	mBackground.applyTheme(theme, getName(), "background", ALL);
 	mHeaderImage.applyTheme(theme, getName(), "logo", ALL);
 	mHeaderText.applyTheme(theme, getName(), "logoText", ALL);
+	mFolderPath.applyTheme(theme, getName(), "folderpath", ALL);
 
 	// Remove old theme extras
 	for (auto extra : mThemeExtras)
@@ -51,15 +57,15 @@ void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme
 	// Add new theme extras
 	mThemeExtras = ThemeData::makeExtras(theme, getName(), mWindow);
 	for (auto extra : mThemeExtras)
-	{
 		addChild(extra);
-	}
 
 	if(mHeaderImage.hasImage())
 	{
 		removeChild(&mHeaderText);
 		addChild(&mHeaderImage);
-	}else{
+	}
+	else
+	{
 		addChild(&mHeaderText);
 		removeChild(&mHeaderImage);
 	}
@@ -70,7 +76,8 @@ void ISimpleGameListView::onFileChanged(FileData* /*file*/, FileChangeType /*cha
 	// we could be tricky here to be efficient;
 	// but this shouldn't happen very often so we'll just always repopulate
 	FileData* cursor = getCursor();
-	if (!cursor->isPlaceHolder()) {
+	if (!cursor->isPlaceHolder()) 
+	{
 		populateList(cursor->getParent()->getChildrenListToDisplay());
 		setCursor(cursor);
 	}
@@ -252,7 +259,16 @@ std::vector<std::string> ISimpleGameListView::getEntriesLetters()
 	return letters;
 }
 
-
+void ISimpleGameListView::updateFolderPath()
+{
+	if (mCursorStack.size())
+	{
+		auto top = mCursorStack.top();
+		mFolderPath.setText(top->getBreadCrumbPath());
+	}
+	else 
+		mFolderPath.setText("");
+}
 
 
 

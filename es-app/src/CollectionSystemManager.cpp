@@ -67,7 +67,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ BANPRESTO_COLLECTION, "zbanpresto",  "banpresto",             FileSorts::FILENAME_ASCENDING,    "banpresto",               false,       false },
 
 		// Custom collection
-		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true }
+		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
 	};
 
 	return std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
@@ -802,112 +802,40 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	CollectionSystemDecl sysDecl = sysData->decl;
 	FolderData* rootFolder = newSys->getRootFolder(); 
 	
-	for(auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+	for(auto& system : SystemData::sSystemVector)
 	{
-        std::vector<PlatformIds::PlatformId> platforms = (*sysIt)->getPlatformIds();
+        std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
         bool isArcade =  std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
 
 		// we won't iterate all collections
-		if ((*sysIt)->isGameSystem() && !(*sysIt)->isCollection()) 
+		if (system->isGameSystem() && !system->isCollection())
 		{
-			std::vector<FileData*> files = (*sysIt)->getRootFolder()->getFilesRecursive(GAME);
-			for(auto gameIt = files.cbegin(); gameIt != files.cend(); gameIt++)
+			std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
+			for(auto& game : files)
 			{
-				bool include = includeFileInAutoCollections((*gameIt));
+				bool include = includeFileInAutoCollections(game);
 
-                std::string systemarcadename;
 				switch(sysDecl.type) 
 				{
+					case AUTO_ALL_GAMES:
+						break;
 					case AUTO_LAST_PLAYED:
-						include = include && (*gameIt)->getMetadata(MetaDataId::PlayCount) > "0";
+						include = include && game->getMetadata(MetaDataId::PlayCount) > "0";
 						break;
 					case AUTO_NEVER_PLAYED:
-						include = include && !((*gameIt)->getMetadata(MetaDataId::PlayCount) > "0");
+						include = include && !(game->getMetadata(MetaDataId::PlayCount) > "0");
 						break;					
 					case AUTO_FAVORITES:
 						// we may still want to add files we don't want in auto collections in "favorites"
-						include = (*gameIt)->getFavorite();
+						include = game->getFavorite();
 						break;
 					case AUTO_ARCADE:
 						include = include && isArcade;
 						break;
-					case CPS1_COLLECTION:
-                        systemarcadename = "cps1";
-                        break;
-                    case CPS2_COLLECTION:
-                        systemarcadename = "cps2";
-                        break;
-                    case CPS3_COLLECTION:
-                        systemarcadename = "cps3";
-                        break;
-                    case CAVE_COLLECTION:
-                        systemarcadename = "cave";
-                        break;
-                    case NEOGEO_COLLECTION:
-                        systemarcadename = "neogeo";
-                        break;
-                    case SEGA_COLLECTION:
-                        systemarcadename = "sega";
-                        break;
-                    case IREM_COLLECTION:
-                        systemarcadename = "irem";
-                        break;
-                    case MIDWAY_COLLECTION:
-                        systemarcadename = "midway";
-                        break;
-                    case CAPCOM_COLLECTION:
-                        systemarcadename = "capcom";
-                        break;
-                    case TECMO_COLLECTION:
-                        systemarcadename = "techmo";
-                        break;
-                    case SNK_COLLECTION:
-                        systemarcadename = "snk";
-                        break;
-                    case NAMCO_COLLECTION:
-                        systemarcadename = "namco";
-                        break;
-                    case TAITO_COLLECTION:
-                        systemarcadename = "taito";
-                        break;
-                    case KONAMI_COLLECTION:
-                        systemarcadename = "konami";
-                        break;
-                    case JALECO_COLLECTION:
-                        systemarcadename = "jaleco";
-                        break;
-                    case ATARI_COLLECTION:
-                        systemarcadename = "atari";
-                        break;
-                    case NINTENDO_COLLECTION:
-                        systemarcadename = "nintendo";
-                        break;
-                    case SAMMY_COLLECTION:
-                        systemarcadename = "sammy";
-                        break;
-                    case ACCLAIM_COLLECTION:
-                        systemarcadename = "acclaim";
-                        break;
-                    case PSIKYO_COLLECTION:
-                        systemarcadename = "psikyo";
-                        break;
-                    case KANEKO_COLLECTION:
-                        systemarcadename = "kaneko";
-                        break;
-                    case COLECO_COLLECTION:
-                        systemarcadename = "coleco";
-                        break;
-                    case ATLUS_COLLECTION:
-                        systemarcadename = "atlus";
-                        break;
-                    case BANPRESTO_COLLECTION:
-                        systemarcadename = "banpresto";
-                        break;
-
 					case AUTO_AT2PLAYERS: // batocera
 					case AUTO_AT4PLAYERS:
 						{
-							std::string players = (*gameIt)->getMetadata(MetaDataId::Players);
+							std::string players = game->getMetadata(MetaDataId::Players);
 							if (players.empty())
 								include = false;
 							else
@@ -931,16 +859,16 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 							}
 						}
 						break;
+					default:
+						if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
+							include = include && isArcade && game->getMetadata(MetaDataId::ArcadeSystemName) == sysDecl.longName;
+
+						break;				
 				}
-				
-                std::vector<PlatformIds::PlatformId> platforms = (*sysIt)->getPlatformIds();
-				
-				if (!systemarcadename.empty())
-					include = isArcade && (*gameIt)->getMetadata(MetaDataId::ArcadeSystemName) == systemarcadename;
-				    
+							    
 				if (include) 
 				{
-					CollectionFileData* newGame = new CollectionFileData(*gameIt, newSys);
+					CollectionFileData* newGame = new CollectionFileData(game, newSys);
 					rootFolder->addChild(newGame);
 					newSys->addToIndex(newGame);
 				}
