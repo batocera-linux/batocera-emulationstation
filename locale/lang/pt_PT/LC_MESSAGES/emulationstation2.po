@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -186,6 +186,9 @@ msgstr "REINICIAR TODOS OS FILTROS"
 
 msgid "FIND GAMES"
 msgstr "PROCURAR JOGOS"
+
+msgid "Unknown"
+msgstr "Desconhecido"
 
 msgid "SYSTEMS"
 msgstr "SISTEMAS"
@@ -405,6 +408,12 @@ msgstr "ANALIZAR APENAS AS GAMELISTS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
@@ -748,6 +757,9 @@ msgstr "tendo vários jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' PASTA RAIZ"
+
+msgid "FILE EXTENSIONS"
+msgstr ""
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -1369,6 +1381,12 @@ msgstr "Tempo de jogo"
 msgid "how long the game has been played in total (seconds)"
 msgstr "tempo total de jogo (segundos)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr "Região"
+
 msgid "favorite"
 msgstr "favorito"
 
@@ -1427,12 +1445,6 @@ msgstr "Quiosque"
 msgid "Kid"
 msgstr "Infantil"
 
-msgid "Released"
-msgstr "LANÇADO"
-
-msgid "Times played"
-msgstr "Vezes jogadas"
-
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
@@ -1441,6 +1453,12 @@ msgstr "Favoritos"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "INICIAR JOGO COMO HOST EM REDE ?"
+
+msgid "Released"
+msgstr "LANÇADO"
+
+msgid "Times played"
+msgstr "Vezes jogadas"
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
@@ -1537,6 +1555,9 @@ msgstr "EDITORA / DESENVOLVEDOR"
 
 msgid "RATING"
 msgstr "Classificação"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "JOGO INFANTIL"
@@ -1756,9 +1777,6 @@ msgstr "NENHUM COMANDO DETECTADO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
-
-msgid "Unknown"
-msgstr "Desconhecido"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
@@ -2032,9 +2050,6 @@ msgstr "cima/baixo"
 
 #~ msgid "enter ratio"
 #~ msgstr "digite a taxa"
-
-#~ msgid "Region"
-#~ msgstr "Região"
 
 #~ msgid "enter region"
 #~ msgstr "digite a região"

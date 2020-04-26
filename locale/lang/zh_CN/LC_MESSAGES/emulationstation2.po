@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,6 +183,9 @@ msgstr "重置所有筛选器"
 
 msgid "FIND GAMES"
 msgstr "搜索游戏"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "SYSTEMS"
 msgstr "游戏平台"
@@ -402,6 +405,12 @@ msgstr "仅分析游戏列表"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr ""
@@ -746,6 +755,9 @@ msgid "having multiple games"
 msgstr ""
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1362,6 +1374,12 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr "区域"
+
 msgid "favorite"
 msgstr ""
 
@@ -1417,12 +1435,6 @@ msgstr ""
 msgid "Kid"
 msgstr ""
 
-msgid "Released"
-msgstr "发行日期"
-
-msgid "Times played"
-msgstr "游玩次数"
-
 msgid "No Entries Found"
 msgstr ""
 
@@ -1431,6 +1443,12 @@ msgstr "收藏夹"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr ""
+
+msgid "Released"
+msgstr "发行日期"
+
+msgid "Times played"
+msgstr "游玩次数"
 
 msgid "Preloading UI"
 msgstr "预加载 UI"
@@ -1527,6 +1545,9 @@ msgstr ""
 
 msgid "RATING"
 msgstr "评分"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr ""
@@ -1744,9 +1765,6 @@ msgstr "未检测到游戏手柄"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
-
-msgid "Unknown"
-msgstr ""
 
 msgid "MOVE CURSOR"
 msgstr "移动鼠标"
@@ -1979,9 +1997,6 @@ msgstr "上/下"
 
 #~ msgid "enter ratio"
 #~ msgstr "输入比率"
-
-#~ msgid "Region"
-#~ msgstr "区域"
 
 #~ msgid "enter region"
 #~ msgstr "输入区域"

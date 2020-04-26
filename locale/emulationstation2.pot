@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,6 +190,9 @@ msgid "RESET ALL FILTERS"
 msgstr ""
 
 msgid "FIND GAMES"
+msgstr ""
+
+msgid "Unknown"
 msgstr ""
 
 msgid "SYSTEMS"
@@ -409,6 +412,12 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -748,6 +757,9 @@ msgid "having multiple games"
 msgstr ""
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1353,6 +1365,12 @@ msgstr ""
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr ""
 
@@ -1410,12 +1428,6 @@ msgstr ""
 msgid "Kid"
 msgstr ""
 
-msgid "Released"
-msgstr ""
-
-msgid "Times played"
-msgstr ""
-
 msgid "No Entries Found"
 msgstr ""
 
@@ -1423,6 +1435,12 @@ msgid "Favorites"
 msgstr ""
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr ""
+
+msgid "Released"
+msgstr ""
+
+msgid "Times played"
 msgstr ""
 
 msgid "Preloading UI"
@@ -1519,6 +1537,9 @@ msgid "PUBLISHER / DEVELOPER"
 msgstr ""
 
 msgid "RATING"
+msgstr ""
+
+msgid "REGION"
 msgstr ""
 
 msgid "KIDGAME"
@@ -1736,9 +1757,6 @@ msgid "NO GAMEPADS DETECTED"
 msgstr ""
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
-
-msgid "Unknown"
 msgstr ""
 
 msgid "MOVE CURSOR"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:54+0200\n"
+"POT-Creation-Date: 2020-04-26 15:43+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -186,6 +186,9 @@ msgstr "ALLE FILTER ZURÜCKSETZEN"
 
 msgid "FIND GAMES"
 msgstr "FINDE SPIELE"
+
+msgid "Unknown"
+msgstr "Unbekannt"
 
 msgid "SYSTEMS"
 msgstr "SYSTEME"
@@ -405,6 +408,12 @@ msgstr "NUR SPIELELISTEN PARSEN"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SUCHE NACH LOKALER KUNST"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr ""
@@ -751,6 +760,9 @@ msgid "having multiple games"
 msgstr "es gibt mehrere Spiele"
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1375,6 +1387,12 @@ msgstr "Spielzeit"
 msgid "how long the game has been played in total (seconds)"
 msgstr "wie lange wurde das Spiel insgesamt gespielt (Sekunden)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr ""
 
@@ -1432,12 +1450,6 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Kind"
 
-msgid "Released"
-msgstr "Veröffentlicht"
-
-msgid "Times played"
-msgstr "Anzahl gespielt"
-
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
 
@@ -1446,6 +1458,12 @@ msgstr "Favoriten"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "DAS SPIEL ALS NETPLAY-HOST STARTEN?"
+
+msgid "Released"
+msgstr "Veröffentlicht"
+
+msgid "Times played"
+msgstr "Anzahl gespielt"
 
 msgid "Preloading UI"
 msgstr "Vorladen des UI"
@@ -1542,6 +1560,9 @@ msgstr "HERAUSGEBER / ENTWICKLER"
 
 msgid "RATING"
 msgstr "BEWERTUNG"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "KINDERSPIEL"
@@ -1764,9 +1785,6 @@ msgstr "KEIN GAMEPAD ERKANNT"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
-
-msgid "Unknown"
-msgstr "Unbekannt"
 
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"
