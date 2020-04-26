@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:54+0200\n"
+"POT-Creation-Date: 2020-04-26 15:43+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -183,6 +183,9 @@ msgstr "RESTABLECER FILTROS"
 
 msgid "FIND GAMES"
 msgstr "BUSCAR JUEGOS"
+
+msgid "Unknown"
+msgstr "DESCONOCIDO"
 
 msgid "SYSTEMS"
 msgstr "SISTEMAS"
@@ -402,6 +405,12 @@ msgstr "CONVERTIR UNICAMENTE LISTAS DE JUEGOS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "SALIR AL MENÚ"
@@ -748,6 +757,9 @@ msgstr "TIENE MULTIPLES JUEGOS"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PADRE"
+
+msgid "FILE EXTENSIONS"
+msgstr ""
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
@@ -1373,6 +1385,12 @@ msgstr "TIEMPO JUGADO"
 msgid "how long the game has been played in total (seconds)"
 msgstr "CUANTO TIEMPO HA SIDO JUGADO (SEGUNDOS)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr "FAVORITO"
 
@@ -1393,7 +1411,7 @@ msgstr ""
 "SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "ERROR: TODOS LOS SISTEMAS ESTAN OCULTOS, MOSTRANDO TODOS NUEVAMENTE" 
+msgstr "ERROR: TODOS LOS SISTEMAS ESTAN OCULTOS, MOSTRANDO TODOS NUEVAMENTE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
@@ -1431,12 +1449,6 @@ msgstr "KIOSKO"
 msgid "Kid"
 msgstr "NIÑOS"
 
-msgid "Released"
-msgstr "LANZAMIENTO"
-
-msgid "Times played"
-msgstr "VECES JUGADO"
-
 msgid "No Entries Found"
 msgstr "NO SE ENCONTRARON ENTRADAS"
 
@@ -1445,6 +1457,12 @@ msgstr "FAVORITOS"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "LANZAR EL JUEGO COMO SERVIDOR DE NETPLAY?"
+
+msgid "Released"
+msgstr "LANZAMIENTO"
+
+msgid "Times played"
+msgstr "VECES JUGADO"
 
 msgid "Preloading UI"
 msgstr "PRECARGAR INTERFAZ"
@@ -1541,6 +1559,9 @@ msgstr "PUBLICADO POR / DESARROLLADOR"
 
 msgid "RATING"
 msgstr "PUNTUACIÓN"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "JUEGO PARA NIÑO"
@@ -1761,9 +1782,6 @@ msgstr "NO SE DETECTO NINGUN CONTROL"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PRESIONADO UN BOTÓN DEL CONTROL PARA CONFIGURARLO"
-
-msgid "Unknown"
-msgstr "DESCONOCIDO"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"

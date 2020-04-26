@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -186,6 +186,9 @@ msgstr "СБРОСИТЬ ВСЕ ФИЛЬТРЫ"
 
 msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
+
+msgid "Unknown"
+msgstr "Неизвестно"
 
 msgid "SYSTEMS"
 msgstr "СИСТЕМЫ"
@@ -405,6 +408,12 @@ msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "ПОЛНОЕ МЕНЮ ВЫХОДА"
@@ -748,6 +757,9 @@ msgid "having multiple games"
 msgstr "несколько игр"
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1371,6 +1383,12 @@ msgstr "Время игры"
 msgid "how long the game has been played in total (seconds)"
 msgstr "как долго играли в игру (в секундах)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr "избранное"
 
@@ -1430,12 +1448,6 @@ msgstr "Киоск"
 msgid "Kid"
 msgstr "Детский"
 
-msgid "Released"
-msgstr "Релиз"
-
-msgid "Times played"
-msgstr "Сыграно раз"
-
 msgid "No Entries Found"
 msgstr "Игр не найдено"
 
@@ -1444,6 +1456,12 @@ msgstr "Избранное"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "ЗАПУСТИТЬ ИГРУ В РЕЖИМЕ ХОСТА NETPLAY?"
+
+msgid "Released"
+msgstr "Релиз"
+
+msgid "Times played"
+msgstr "Сыграно раз"
 
 msgid "Preloading UI"
 msgstr "Предзагрузка интерфейса"
@@ -1540,6 +1558,9 @@ msgstr "ИЗДАТЕЛЬ / РАЗРАБОТЧИК"
 
 msgid "RATING"
 msgstr "РЕЙТИНГ"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "ДЕТСКАЯ ИГРА"
@@ -1765,9 +1786,6 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
-
-msgid "Unknown"
-msgstr "Неизвестно"
 
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"

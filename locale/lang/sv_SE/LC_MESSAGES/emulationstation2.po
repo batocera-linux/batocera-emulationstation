@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -186,6 +186,9 @@ msgstr "ÅTERSTÄLL ALLA FILTER"
 
 msgid "FIND GAMES"
 msgstr "HITTA SPEL"
+
+msgid "Unknown"
+msgstr "Okänt"
 
 msgid "SYSTEMS"
 msgstr "SYSTEM"
@@ -405,6 +408,12 @@ msgstr "TOLKA ENBART SPELLISTOR"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SÖK EFTER LOKAL KONST"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr ""
@@ -749,6 +758,9 @@ msgid "having multiple games"
 msgstr "innehåller flera system"
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1369,6 +1381,12 @@ msgstr "Speltid"
 msgid "how long the game has been played in total (seconds)"
 msgstr "hur lång tid spelet har spelats totalt (sekunder)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr ""
 
@@ -1428,12 +1446,6 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Barn"
 
-msgid "Released"
-msgstr "Publicerat"
-
-msgid "Times played"
-msgstr "Spelat antal gånger"
-
 msgid "No Entries Found"
 msgstr "Hittade ingenting"
 
@@ -1442,6 +1454,12 @@ msgstr "Favoriter"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "STARTA SPELET SOM NETPLAY-HOST?"
+
+msgid "Released"
+msgstr "Publicerat"
+
+msgid "Times played"
+msgstr "Spelat antal gånger"
 
 msgid "Preloading UI"
 msgstr "Förhandsladdar UI"
@@ -1538,6 +1556,9 @@ msgstr "UTGIVARE / UTVECKLARE"
 
 msgid "RATING"
 msgstr "BETYG"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "BARNSPEL"
@@ -1758,9 +1779,6 @@ msgstr "INGA SPELKONTROLLER HITTADE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HÅLL NERE A-KNAPPEN PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
-
-msgid "Unknown"
-msgstr "Okänt"
 
 msgid "MOVE CURSOR"
 msgstr "FLYTTA PEKARE"

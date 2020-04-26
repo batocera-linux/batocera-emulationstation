@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 12:58+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,6 +183,9 @@ msgstr "모든 필터 리셋"
 
 msgid "FIND GAMES"
 msgstr "게임 찾기"
+
+msgid "Unknown"
+msgstr "앎수없음"
 
 msgid "SYSTEMS"
 msgstr "시스템"
@@ -402,6 +405,12 @@ msgstr "오직 게임리스트만 분석"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "로컬 아트 서치"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr ""
@@ -744,6 +753,9 @@ msgid "having multiple games"
 msgstr "멀티 게임을 즐깁니다"
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1361,6 +1373,12 @@ msgstr "게임 시간"
 msgid "how long the game has been played in total (seconds)"
 msgstr "전체 게임 즐긴 시간"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr ""
 
@@ -1418,12 +1436,6 @@ msgstr "매장용"
 msgid "Kid"
 msgstr "어린이용"
 
-msgid "Released"
-msgstr "발매일"
-
-msgid "Times played"
-msgstr "플레이 횟수"
-
 msgid "No Entries Found"
 msgstr "항목을 찾지 못했습니다"
 
@@ -1432,6 +1444,12 @@ msgstr "즐겨 찾기"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "넷플레이 호스트로 게임을 실행합니까?"
+
+msgid "Released"
+msgstr "발매일"
+
+msgid "Times played"
+msgstr "플레이 횟수"
 
 msgid "Preloading UI"
 msgstr "UI 로딩중"
@@ -1528,6 +1546,9 @@ msgstr "유통사 / 개발사"
 
 msgid "RATING"
 msgstr "평점"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "어린이게임"
@@ -1744,9 +1765,6 @@ msgstr "발견된 게임 패드 없음"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
-
-msgid "Unknown"
-msgstr "앎수없음"
 
 msgid "MOVE CURSOR"
 msgstr "커서 이동"

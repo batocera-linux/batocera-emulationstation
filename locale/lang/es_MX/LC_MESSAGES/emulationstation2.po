@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 22:35+0200\n"
+"POT-Creation-Date: 2020-04-26 15:43+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ramses\n"
 "Language-Team: \n"
@@ -186,6 +186,9 @@ msgstr "RESTABLECER FILTROS"
 
 msgid "FIND GAMES"
 msgstr "BUSCAR JUEGOS"
+
+msgid "Unknown"
+msgstr "DESCONOCIDO"
 
 msgid "SYSTEMS"
 msgstr "SISTEMAS"
@@ -405,6 +408,12 @@ msgstr "CONVERTIR UNICAMENTE LISTAS DE JUEGOS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÚ COMPLETO PARA SALIR"
@@ -751,6 +760,9 @@ msgstr "TIENE MULTIPLES JUEGOS"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PRINCIPAL"
+
+msgid "FILE EXTENSIONS"
+msgstr ""
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
@@ -1376,6 +1388,12 @@ msgstr "TIEMPO JUGADO"
 msgid "how long the game has been played in total (seconds)"
 msgstr "CUÁNTO TIEMPO SE HA JUGADO EL JUEGO EN TOTAL (SEGS)."
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
 msgid "favorite"
 msgstr "FAVORITO"
 
@@ -1435,12 +1453,6 @@ msgstr "KIOSKO"
 msgid "Kid"
 msgstr "NIÑOS"
 
-msgid "Released"
-msgstr "LANZAMIENTO"
-
-msgid "Times played"
-msgstr "VECES JUGADO"
-
 msgid "No Entries Found"
 msgstr "NO SE ENCONTRARON ENTRADAS"
 
@@ -1449,6 +1461,12 @@ msgstr "FAVORITOS"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "¿DESEA LANZAR EL JUEGO COMO SERVIDOR DE NETPLAY?"
+
+msgid "Released"
+msgstr "LANZAMIENTO"
+
+msgid "Times played"
+msgstr "VECES JUGADO"
 
 msgid "Preloading UI"
 msgstr "PRECARGAR INTERFAZ"
@@ -1545,6 +1563,9 @@ msgstr "PUBLICADO POR / DESARROLLADOR"
 
 msgid "RATING"
 msgstr "PUNTUACIÓN"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "JUEGO PARA NIÑO"
@@ -1767,9 +1788,6 @@ msgstr "NO SE DETECTÓ NINGUN CONTROL"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PRESIONADO UN BOTÓN DEL CONTROL PARA CONFIGURARLO."
-
-msgid "Unknown"
-msgstr "DESCONOCIDO"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"

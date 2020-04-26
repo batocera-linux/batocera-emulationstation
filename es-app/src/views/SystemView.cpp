@@ -421,7 +421,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("down", input) ||
 #ifdef _ENABLEEMUELEC
 			config->isMappedLike("righttrigger", input) ||
-			config->isMappedLike("lefttrigger", input)) ||
+			config->isMappedLike("lefttrigger", input) ||
 #else
 			config->isMappedLike("pagedown", input) ||
 			config->isMappedLike("pageup", input) ||

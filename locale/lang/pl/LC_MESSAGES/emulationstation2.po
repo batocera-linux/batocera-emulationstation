@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 22:35+0200\n"
+"POT-Creation-Date: 2020-04-26 15:54+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -184,6 +184,9 @@ msgstr "ZRESETUJ WSZYSTKIE FILTRY"
 
 msgid "FIND GAMES"
 msgstr "ZNAJDŹ GRY"
+
+msgid "Unknown"
+msgstr "Nieznany"
 
 msgid "SYSTEMS"
 msgstr "SYSTEMY"
@@ -403,6 +406,12 @@ msgstr "ANALIZUJ TYLKO LISTY GIER"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "ZAKOŃCZ WYJŚCIE Z MENU"
@@ -746,6 +755,9 @@ msgid "having multiple games"
 msgstr "z wieloma grami"
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "FILE EXTENSIONS"
 msgstr ""
 
 msgid "TOOLS"
@@ -1370,6 +1382,12 @@ msgstr "Czas gry"
 msgid "how long the game has been played in total (seconds)"
 msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
 
+msgid "Languages"
+msgstr ""
+
+msgid "Region"
+msgstr "Region"
+
 msgid "favorite"
 msgstr "ulubiona"
 
@@ -1429,12 +1447,6 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Dziecka"
 
-msgid "Released"
-msgstr "Opublikowana"
-
-msgid "Times played"
-msgstr "Rozegrano razy"
-
 msgid "No Entries Found"
 msgstr "Nie Znaleziono Wpisów"
 
@@ -1443,6 +1455,12 @@ msgstr "Ulubione"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "URUCHOMIĆ GRĘ JAKO NETPLAY HOST?"
+
+msgid "Released"
+msgstr "Opublikowana"
+
+msgid "Times played"
+msgstr "Rozegrano razy"
 
 msgid "Preloading UI"
 msgstr "Ładuję wstępnie interfejs"
@@ -1539,6 +1557,9 @@ msgstr "WYDAWCA / DEWELOPER"
 
 msgid "RATING"
 msgstr "OCENA"
+
+msgid "REGION"
+msgstr ""
 
 msgid "KIDGAME"
 msgstr "GRA DLA DZIECI"
@@ -1764,9 +1785,6 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
-
-msgid "Unknown"
-msgstr "Nieznany"
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
@@ -2019,9 +2037,6 @@ msgstr "góra/dół"
 
 #~ msgid "enter core"
 #~ msgstr "wprowadź core"
-
-#~ msgid "Region"
-#~ msgstr "Region"
 
 #~ msgid "enter region"
 #~ msgstr "wprowadź region"
