@@ -10,61 +10,26 @@
 #include "Window.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include "Log.h"
+#include "Scripting.h"
 
 int runShutdownCommand()
 {
 #ifdef WIN32 // windows
 	return system("shutdown -s -t 0");
-#else // osx / linux
-	return system("poweroff"); // batocera
+#else // osx / linux	
+	return system("shutdown -h now");
 #endif
 }
 
 int runRestartCommand()
 {
-#ifdef WIN32 // windows
+#ifdef WIN32 // windows	
 	return system("shutdown -r -t 0");
-#else // osx / linux
-	return system("reboot"); // batocera
+#else // osx / linux	
+	return system("shutdown -r now");
 #endif
 }
-
-#ifdef WIN32
-void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
-{
-	std::string c = Utils::String::trim(cmd);
-	size_t exec_end;
-
-	if (c[0] == '\"')
-	{
-		exec_end = c.find_first_of('\"', 1);
-		if (std::string::npos != exec_end)
-		{
-			*executable = c.substr(1, exec_end - 1);
-			*parameters = c.substr(exec_end + 1);
-		}
-		else
-		{
-			*executable = c.substr(1, exec_end);
-			std::string().swap(*parameters);
-		}
-	}
-	else
-	{
-		exec_end = c.find_first_of(' ', 0);
-		if (std::string::npos != exec_end)
-		{
-			*executable = c.substr(0, exec_end);
-			*parameters = c.substr(exec_end + 1);
-		}
-		else
-		{
-			*executable = c.substr(0, exec_end);
-			std::string().swap(*parameters);
-		}
-	}
-}
-#endif
 
 int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window)
 {
@@ -89,7 +54,7 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 	std::string exe;
 	std::string args;
 
-	splitCommand(command, &exe, &args);
+	Utils::FileSystem::splitCommand(command, &exe, &args);
 	exe = Utils::FileSystem::getPreferredPath(exe);
 
 	SHELLEXECUTEINFO lpExecInfo;
@@ -139,10 +104,32 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 #endif
 }
 
-int quitES(const std::string& filename)
+QuitMode quitMode = QuitMode::QUIT;
+
+int quitES(QuitMode mode)
 {
-	if (!filename.empty())
-		touch(filename);
+	quitMode = mode;
+
+	switch (quitMode)
+	{
+		case QuitMode::QUIT:
+			Scripting::fireEvent("quit");
+			break;
+
+		case QuitMode::REBOOT:
+		case QuitMode::FAST_REBOOT:
+			Scripting::fireEvent("quit", "reboot");
+			Scripting::fireEvent("reboot");
+			break;
+
+		case QuitMode::SHUTDOWN:
+		case QuitMode::FAST_SHUTDOWN:
+			Scripting::fireEvent("quit", "shutdown");
+			Scripting::fireEvent("shutdown");
+			break;
+	}
+
+
 	SDL_Event* quit = new SDL_Event();
 	quit->type = SDL_QUIT;
 	SDL_PushEvent(quit);
@@ -151,13 +138,40 @@ int quitES(const std::string& filename)
 
 void touch(const std::string& filename)
 {
-#ifdef WIN32
-	FILE* fp = fopen(filename.c_str(), "ab+");
-	if (fp != NULL)
-		fclose(fp);
-#else
-	int fd = open(filename.c_str(), O_CREAT|O_WRONLY, 0644);
+#ifndef WIN32
+	int fd = open(filename.c_str(), O_CREAT | O_WRONLY, 0644);
 	if (fd >= 0)
 		close(fd);
-#endif
+
+	// system(("touch " + filename).c_str());
+#endif	
 }
+
+void processQuitMode()
+{
+
+	switch (quitMode)
+	{
+	case QuitMode::RESTART:
+		LOG(LogInfo) << "Restarting EmulationStation";
+		touch("/tmp/restart.please");
+		break;
+	case QuitMode::REBOOT:
+	case QuitMode::FAST_REBOOT:
+		LOG(LogInfo) << "Rebooting system";
+		touch("/tmp/reboot.please");
+		runRestartCommand();
+		break;
+	case QuitMode::SHUTDOWN:
+	case QuitMode::FAST_SHUTDOWN:
+		LOG(LogInfo) << "Shutting system down";
+		touch("/tmp/shutdown.please");
+		runShutdownCommand();
+		break;
+	}
+}
+bool isFastShutdown()
+{
+	return quitMode == QuitMode::FAST_REBOOT || QuitMode::FAST_REBOOT;
+}
+

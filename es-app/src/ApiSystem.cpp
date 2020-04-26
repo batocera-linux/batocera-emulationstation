@@ -45,6 +45,7 @@
 #endif
 
 #include <pugixml/src/pugixml.hpp>
+#include "platform.h"
 
 ApiSystem::ApiSystem() 
 {
@@ -349,13 +350,12 @@ bool ApiSystem::launchKodi(Window *window)
 	switch (exitCode) 
 	{
 	case 10: // reboot code
-		reboot();
+		quitES(QuitMode::REBOOT);		
 		return true;
-		break;
+		
 	case 11: // shutdown code
-		shutdown();
+		quitES(QuitMode::SHUTDOWN);		
 		return true;
-		break;
 	}
 
 	return exitCode == 0;
@@ -386,17 +386,6 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key)
 bool ApiSystem::disableWifi() 
 {
 	return executeScript("batocera-wifi disable");
-}
-
-bool ApiSystem::halt(bool reboot, bool fast) 
-{
-	LOG(LogDebug) << "ApiSystem::halt";
-
-	SDL_Event *quit = new SDL_Event();
-	quit->type = (fast ? SDL_FAST_QUIT : SDL_QUIT) | (reboot ? SDL_SYS_REBOOT : SDL_SYS_SHUTDOWN);
-	SDL_PushEvent(quit);
-
-	return 0;
 }
 
 std::string ApiSystem::getIpAdress() 
