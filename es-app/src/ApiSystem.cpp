@@ -79,7 +79,15 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 	return free;
 }
 
-std::string ApiSystem::getFreeSpaceInfo() 
+std::string ApiSystem::getFreeSpaceUserInfo() {
+  return getFreeSpaceInfo("/userdata");
+}
+
+std::string ApiSystem::getFreeSpaceSystemInfo() {
+  return getFreeSpaceInfo("/boot");
+}
+
+std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 {
 	LOG(LogDebug) << "ApiSystem::getFreeSpaceInfo";
 
@@ -87,7 +95,7 @@ std::string ApiSystem::getFreeSpaceInfo()
 
 #if !WIN32
 	struct statvfs fiData;
-	if ((statvfs("/userdata/", &fiData)) < 0)
+	if ((statvfs(mountpoint.c_str(), &fiData)) < 0)
 		return "";
 		
 	unsigned long total = (fiData.f_blocks * (fiData.f_bsize / 1024)) / (1024L * 1024L);

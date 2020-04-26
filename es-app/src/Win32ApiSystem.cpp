@@ -673,13 +673,20 @@ std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(BusyComponent
 	return std::pair<std::string, int>("OK", 0);
 }
 
-std::string Win32ApiSystem::getFreeSpaceInfo()
+
+std::string Win32ApiSystem::getFreeSpaceUserInfo() {
+  return getFreeSpaceInfo(Utils::FileSystem::getHomePath()[0] + std::string(":"));
+}
+
+std::string Win32ApiSystem::getFreeSpaceSystemInfo() {
+  return getFreeSpaceInfo("c:");
+}
+
+std::string Win32ApiSystem::getFreeSpaceInfo(const std::string drive)
 {
 	LOG(LogDebug) << "ApiSystem::getFreeSpaceInfo";
 
 	unsigned __int64 i64FreeBytesToCaller, i64TotalBytes, i64FreeBytes;
-
-	std::string drive = Utils::FileSystem::getHomePath()[0] + std::string(":");
 
 	BOOL  fResult = GetDiskFreeSpaceExA(drive.c_str(),
 		(PULARGE_INTEGER)&i64FreeBytesToCaller,
