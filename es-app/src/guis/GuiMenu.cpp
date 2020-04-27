@@ -3335,7 +3335,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
 		shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
 		systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
-		systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaders", shaders_choices->getSelected()); });
+		systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected()); });
 	}
 
 	// Integer scale
