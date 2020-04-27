@@ -613,7 +613,12 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme, b
 		{
 			bool isCurrent = (mCurrentView == it->second);
 			SystemData* system = it->first;
+			
+			std::string cursorPath;
 			FileData* cursor = view->getCursor();
+			if (cursor != nullptr && !cursor->isPlaceHolder())
+				cursorPath = cursor->getPath();
+
 			mGameListViews.erase(it);
 
 			if(reloadTheme)
@@ -628,10 +633,22 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme, b
 
 			std::shared_ptr<IGameListView> newView = getGameListView(system);
 			
-			// to counter having come from a placeholder
-			if (system->getName() != "recent" && cursor != nullptr && !cursor->isPlaceHolder())
-				newView->setCursor(cursor);
-			
+			if (!cursorPath.empty())
+			{
+				ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(newView.get());
+				if (view != nullptr)
+				{					
+					for (auto file : view->getFileDataEntries())
+					{
+						if (file->getPath() == cursorPath)
+						{
+							newView->setCursor(file);
+							break;
+						}
+					}
+				}
+			}
+
 			if(isCurrent)
 				mCurrentView = newView;
 
