@@ -67,20 +67,6 @@ public:
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::hours(12));
-
-			/*
-			mWindow->postToUiThread([](Window* window)
-			{
-				window->pushGui(new GuiMsgBox(window, _("THE UPDATE IS READY. DO YOU WANT TO REBOOT THE SYSTEM NOW ?"), _("YES"), []
-				{
-#if defined(WIN32) && defined(_DEBUG)
-					quitES("");
-#else
-					if (runRestartCommand() != 0)
-						LOG(LogWarning) << "Reboot terminated with non-zero result!";
-#endif
-				}, _("LATER"), nullptr));
-			});*/
 		}
 		else
 		{

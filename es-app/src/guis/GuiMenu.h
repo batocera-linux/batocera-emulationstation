@@ -64,8 +64,7 @@ private:
 	void openUISettings();
 	void openUpdatesSettings();
 
-	// batocera
-	void openKodiLauncher_batocera();
+	// batocera	
 	void openSystemSettings_batocera();
 	void openGamesSettings_batocera();
 	void openControllersSettings_batocera();		

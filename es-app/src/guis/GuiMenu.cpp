@@ -83,7 +83,14 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	// KODI
 #ifdef _ENABLE_KODI_
 	if (SystemConf::getInstance()->getBool("kodi.enabled", true) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::KODI))
-		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] { openKodiLauncher_batocera(); }, "iconKodi");	
+		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] 
+	{ 
+		Window *window = mWindow;
+		delete this;
+		if (!ApiSystem::getInstance()->launchKodi(window))
+			LOG(LogWarning) << "Shutdown terminated with non-zero result!";
+
+	}, "iconKodi");	
 #endif
 
 	if (isFullUI &&
@@ -440,14 +447,6 @@ std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
 	return prompts;
 }
 
-void GuiMenu::openKodiLauncher_batocera()
-{
-  Window *window = mWindow;
-  if (!ApiSystem::getInstance()->launchKodi(window)) {
-    LOG(LogWarning) << "Shutdown terminated with non-zero result!";
-  }
-}
-
 void GuiMenu::openSystemInformations_batocera()
 {
 	auto theme = ThemeData::getMenuTheme();
@@ -756,10 +755,7 @@ void GuiMenu::openUpdatesSettings()
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 	{
 		if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
-		{
-			if (runRestartCommand() != 0)
-				LOG(LogWarning) << "Reboot terminated with non-zero result!";
-		}
+			quitES(QuitMode::RESTART);
 		else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
 			mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATE IS ALREADY RUNNING")));
 		else
@@ -3030,8 +3026,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 #ifdef WIN32
 	if (!forceWin32Menu && Settings::getInstance()->getBool("ShowOnlyExit"))
 	{
-		Scripting::fireEvent("quit");
-		quitES("");
+		quitES(QuitMode::QUIT);
 		return;
 	}
 #endif
@@ -3055,45 +3050,31 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	}
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->reboot() != 0) {
-				LOG(LogWarning) <<
-					"Restart terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 
+			_("YES"), [] { quitES(QuitMode::REBOOT); }, 
+			_("NO"), nullptr));
 	}, "iconRestart");
 
+
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->shutdown() != 0) {
-				LOG(LogWarning) <<
-					"Shutdown terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 
+			_("YES"), [] { quitES(QuitMode::SHUTDOWN); }, 
+			_("NO"), nullptr));
 	}, "iconShutdown");
 
 	s->addEntry(_("FAST SHUTDOWN SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATAS?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->fastShutdown() != 0) {
-				LOG(LogWarning) <<
-					"Shutdown terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATAS?"), 
+			_("YES"), [] { quitES(QuitMode::FAST_SHUTDOWN); },
+			_("NO"), nullptr));
 	}, "iconFastShutdown");
 
 #ifdef WIN32
 	if (Settings::getInstance()->getBool("ShowExit"))
 	{
 		s->addEntry(_("QUIT EMULATIONSTATION"), false, [window] {
-			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), _("YES"),
-				[] 
-			{
-				Scripting::fireEvent("quit");
-				quitES("");
-			}, _("NO"), nullptr));
+			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), 
+				_("YES"), [] { quitES(QuitMode::QUIT); }, 
+				_("NO"), nullptr));
 		}, "iconQuit");
 	}
 #endif

@@ -252,7 +252,7 @@ bool saveToGamelistRecovery(FileData* file)
 {
 	if (!Settings::getInstance()->getBool("SaveGamelistsOnExit"))
 		return false;
-	
+
 	pugi::xml_document doc;
 	pugi::xml_node root = doc.append_child("gameList");
 

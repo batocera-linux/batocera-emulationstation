@@ -1126,6 +1126,45 @@ namespace Utils
 			for (auto file : directories)
 				rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
 		}
+
+
+#ifdef WIN32
+		void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
+		{
+			std::string c = Utils::String::trim(cmd);
+			size_t exec_end;
+
+			if (c[0] == '\"')
+			{
+				exec_end = c.find_first_of('\"', 1);
+				if (std::string::npos != exec_end)
+				{
+					*executable = c.substr(1, exec_end - 1);
+					*parameters = c.substr(exec_end + 1);
+				}
+				else
+				{
+					*executable = c.substr(1, exec_end);
+					std::string().swap(*parameters);
+				}
+			}
+			else
+			{
+				exec_end = c.find_first_of(' ', 0);
+				if (std::string::npos != exec_end)
+				{
+					*executable = c.substr(0, exec_end);
+					*parameters = c.substr(exec_end + 1);
+				}
+				else
+				{
+					*executable = c.substr(0, exec_end);
+					std::string().swap(*parameters);
+				}
+			}
+		}
+#endif
+
 	} // FileSystem::
 
 } // Utils::

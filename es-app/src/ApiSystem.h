@@ -60,9 +60,11 @@ public:
 
     static ApiSystem* getInstance();
 
+	/*
     const static Uint32 SDL_FAST_QUIT = 0x800F;
     const static Uint32 SDL_SYS_SHUTDOWN = 0X4000;
     const static Uint32 SDL_SYS_REBOOT = 0x2000;
+	*/
 
     virtual unsigned long getFreeSpaceGB(std::string mountpoint);
 
@@ -96,12 +98,7 @@ public:
     bool enableWifi(std::string ssid, std::string key);
     bool disableWifi();
 
-	bool reboot() { return halt(true, false); }
-	bool fastReboot() { return halt(true, true); }
-	bool shutdown() { return halt(false, false); }
-	bool fastShutdown() { return halt(false, true); }
-
-    virtual std::string getIpAdress();
+	virtual std::string getIpAdress();
 
     bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
 	std::vector<std::string> getBluetoothDeviceList();
@@ -167,8 +164,6 @@ protected:
 
     static ApiSystem* instance;
 
-    bool halt(bool reboot, bool fast);
-    
     void launchExternalWindow_before(Window *window);
     void launchExternalWindow_after(Window *window);
 };

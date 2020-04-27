@@ -125,7 +125,7 @@ const std::string GridGameListView::getImagePath(FileData* file)
 
 	if (src == ImageSource::IMAGE)
 		return file->getImagePath();
-	else if (src == ImageSource::MARQUEE)
+	else if (src == ImageSource::MARQUEE || src == ImageSource::MARQUEEORTEXT)
 		return file->getMarqueePath();
 
 	return file->getThumbnailPath();
