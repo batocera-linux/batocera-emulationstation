@@ -7,6 +7,17 @@
 
 class VideoComponent;
 
+struct MdComponent
+{
+	std::string expectedType;
+
+	std::string id;
+	GuiComponent* component;
+
+	std::string labelid;
+	TextComponent* label;
+};
+
 class DetailedContainer
 {
 public:	
@@ -25,14 +36,14 @@ public:
 
 	void updateControls(FileData* file, bool isClearing);
 
-	std::vector<std::pair<std::string, TextComponent*>> getMDLabels();
-	std::vector<std::pair<std::string, GuiComponent*>>  getMDValues();
 
 	void update(int deltaTime);
 
 protected:
 	void	initMDLabels();
 	void	initMDValues();
+
+	std::vector<MdComponent>  getMetaComponents();
 
 	const char* getName() { return mParent->getName(); }
 	void addChild(GuiComponent* cmp) { mParent->addChild(cmp); }

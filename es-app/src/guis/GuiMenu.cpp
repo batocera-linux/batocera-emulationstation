@@ -83,7 +83,14 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	// KODI
 #ifdef _ENABLE_KODI_
 	if (SystemConf::getInstance()->getBool("kodi.enabled", true) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::KODI))
-		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] { openKodiLauncher_batocera(); }, "iconKodi");	
+		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] 
+	{ 
+		Window *window = mWindow;
+		delete this;
+		if (!ApiSystem::getInstance()->launchKodi(window))
+			LOG(LogWarning) << "Shutdown terminated with non-zero result!";
+
+	}, "iconKodi");	
 #endif
 
 	if (isFullUI &&
@@ -438,14 +445,6 @@ std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT"))); // batocera
 	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
 	return prompts;
-}
-
-void GuiMenu::openKodiLauncher_batocera()
-{
-  Window *window = mWindow;
-  if (!ApiSystem::getInstance()->launchKodi(window)) {
-    LOG(LogWarning) << "Shutdown terminated with non-zero result!";
-  }
 }
 
 void GuiMenu::openSystemInformations_batocera()

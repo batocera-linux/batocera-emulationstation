@@ -170,8 +170,9 @@ void processQuitMode()
 		break;
 	}
 }
+
 bool isFastShutdown()
 {
-	return quitMode == QuitMode::FAST_REBOOT || QuitMode::FAST_REBOOT;
+	return quitMode == QuitMode::FAST_REBOOT || quitMode == QuitMode::FAST_SHUTDOWN;
 }
 
