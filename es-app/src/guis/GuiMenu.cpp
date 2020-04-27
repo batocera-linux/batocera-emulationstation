@@ -463,11 +463,17 @@ void GuiMenu::openSystemInformations_batocera()
 	informationsGui->addWithLabel(_("VERSION"), version);
 
 	bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
-	auto space = std::make_shared<TextComponent>(window,
-		ApiSystem::getInstance()->getFreeSpaceInfo(),
+	auto userspace = std::make_shared<TextComponent>(window,
+		ApiSystem::getInstance()->getFreeSpaceUserInfo(),
 		font,
 		warning ? 0xFF0000FF : color);
-	informationsGui->addWithLabel(_("DISK USAGE"), space);
+	informationsGui->addWithLabel(_("USER DISK USAGE"), userspace);
+
+	auto systemspace = std::make_shared<TextComponent>(window,
+		ApiSystem::getInstance()->getFreeSpaceSystemInfo(),
+		font,
+		color);
+	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
 
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();

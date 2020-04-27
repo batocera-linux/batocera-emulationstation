@@ -66,7 +66,9 @@ public:
 
     virtual unsigned long getFreeSpaceGB(std::string mountpoint);
 
-    virtual std::string getFreeSpaceInfo();
+    virtual std::string getFreeSpaceUserInfo();
+    virtual std::string getFreeSpaceSystemInfo();
+    std::string getFreeSpaceInfo(const std::string mountpoint);
 
     bool isFreeSpaceLimit();
 
