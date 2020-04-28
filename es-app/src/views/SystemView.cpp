@@ -17,6 +17,7 @@
 #include "components/VideoVlcComponent.h"
 #include "guis/GuiNetPlay.h"
 #include "Playlists.h"
+#include "CollectionSystemManager.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -197,7 +198,10 @@ void SystemView::populate()
 						((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
 					}
 					else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+					{
+						((ImageComponent*)extra)->setAllowFading(false);
 						((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
+					}
 
 				}
 			}
@@ -491,7 +495,9 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			ss << "CONFIGURATION";
 		else 
 		{
-			if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !getSelected()->isCollection())
+			if (getSelected() == CollectionSystemManager::get()->getCustomCollectionsBundle())
+				snprintf(strbuf, 256, ngettext("%i COLLECTION", "%i COLLECTIONS", gameCount), gameCount);
+			else if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !getSelected()->isCollection())
 				snprintf(strbuf, 256, ngettext("%i ITEM", "%i ITEMS", gameCount), gameCount);
 			else
 				snprintf(strbuf, 256, ngettext("%i GAME", "%i GAMES", gameCount), gameCount);

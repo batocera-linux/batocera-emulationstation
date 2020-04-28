@@ -1174,7 +1174,12 @@ FileData* SystemData::getRandomGame()
 int SystemData::getDisplayedGameCount()
 {
 	if (mGameCount < 0)
-		mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+	{
+		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+			mGameCount = mRootFolder->getChildren().size();
+		else
+			mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+	}
 
 	return mGameCount;
 }

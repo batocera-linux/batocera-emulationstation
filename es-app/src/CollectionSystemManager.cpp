@@ -17,6 +17,7 @@
 #include <fstream>
 #include "Gamelist.h"
 #include "FileSorts.h"
+#include "views/gamelist/ISimpleGameListView.h"
 
 std::string myCollectionsName = "collections";
 
@@ -675,7 +676,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		for (auto iter = games.cbegin(); iter != games.cend(); ++iter)
 		{
 			games_counter++;
-			if (games_counter == 4)
+			if (games_counter == 5)
 				break;
 
 			FileData* file = *iter;
@@ -697,26 +698,20 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			{
 			case 2:
 			case 3:
-				games_list += ", ";
+			case 4:
+				games_list += "\n";
 			case 1:
-				games_list += "'" + file->getName() + "'";
+				games_list += "- " + file->getName();
 				break;
-			}
+			}			
 		}
 
+		games_list = "\n" + games_list;
 		games_counter = games.size();
-		if (games_counter <= 3)
-		{
-			snprintf(trstring, 512, ngettext(
-				"This collection contains %i game, including %s.",
-				"This collection contains %i games, including %s.", games_counter), games_counter, games_list.c_str());
-		}	
-		else
-		{
-			snprintf(trstring, 512, ngettext(
-				"This collection contains %i game, including %s among other titles.",
-				"This collection contains %i games, including %s among other titles.", games_counter), games_counter, games_list.c_str());
-		}
+
+		snprintf(trstring, 512, ngettext(
+			"This collection contains %i game, including :%s",
+			"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
 
 		desc = trstring;
 
@@ -737,6 +732,9 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	rootFolder->setMetadata("video", video);
 	rootFolder->setMetadata("thumbnail", thumbnail);
 	rootFolder->setMetadata("image", image);
+	rootFolder->setMetadata("kidgame", "false");
+	rootFolder->setMetadata("hidden", "false");
+	rootFolder->setMetadata("favorite", "false");
 }
 
 void CollectionSystemManager::initCustomCollectionSystems()
@@ -1256,31 +1254,44 @@ bool systemSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-void CollectionSystemManager::reloadCustomCollection(SystemData* sys)
+void CollectionSystemManager::reloadCustomCollection(const std::string collectionName, bool repopulateGamelist)
 {
-	if (sys->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
-	{
-		for (auto cc : mCustomCollectionSystemsData)
-		{
-			if (cc.second.filteredIndex != nullptr)
-			{
-				cc.second.isPopulated = false;
-				populateCustomCollection(&cc.second);
-			}
-		}
-
-		return;
-	}
-
-	auto data = mCustomCollectionSystemsData.find(sys->getName());
+	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
 		return;
 
 	if (data->second.filteredIndex == nullptr)
 		return;
 
-	data->second.isPopulated = false;	
+	data->second.isPopulated = false;
 	populateCustomCollection(&data->second);
+
+	if (!repopulateGamelist)
+		return;
+
+	auto bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
+	for (auto ff : bundle->getRootFolder()->getChildren())
+	{
+		if (ff->getType() == FOLDER && ff->getName() == collectionName)
+		{			
+			ViewController::get()->reloadGameListView(bundle);
+
+			ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(ViewController::get()->getGameListView(bundle).get());
+			if (view != nullptr)
+				view->moveToFolder((FolderData*)ff);
+
+			return;
+		}
+	}
+
+	for (auto system : SystemData::sSystemVector)
+	{
+		if (system->isCollection() && system->getName() == collectionName)
+		{
+			ViewController::get()->getGameListView(system)->repopulate();
+			return;
+		}
+	}
 }
 
 bool CollectionSystemManager::deleteCustomCollection(CollectionSystemData* data)

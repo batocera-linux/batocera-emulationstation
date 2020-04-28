@@ -113,7 +113,7 @@ public:
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
 
-	void reloadCustomCollection(SystemData* sys);
+	void reloadCustomCollection(const std::string collectionName, bool repopulateGamelist = true);
     void populateAutoCollection(CollectionSystemData* sysData);
 	bool deleteCustomCollection(CollectionSystemData* data);
 

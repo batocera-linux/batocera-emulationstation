@@ -84,6 +84,7 @@ void MetaDataList::initMetadata()
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,       _("Hidden"),               _("enter hidden") },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,       _("favorite"),             _("enter favorite") },
 		// Some games are folders ( dosbox )
+		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame") },
 		{ PlayCount,        "playcount",   MD_INT,                 "0",                true,       _("Play count"),            _("enter number of times played") },
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),           _("enter last played date") },
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),             _("how long the game has been played in total (seconds)") },

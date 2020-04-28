@@ -45,6 +45,8 @@ public:
 
 	virtual std::vector<std::string> getEntriesLetters() = 0;
 
+	virtual void repopulate() = 0;
+
 protected:
 	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;

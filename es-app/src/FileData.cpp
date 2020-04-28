@@ -175,7 +175,8 @@ const bool FileData::getHidden()
 
 const bool FileData::getKidGame()
 {
-	return getMetadata(MetaDataId::KidGame) != "false";
+	auto data = getMetadata(MetaDataId::KidGame);
+	return data != "false" && !data.empty();
 }
 
 static std::shared_ptr<bool> showFilenames;
@@ -537,9 +538,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 	std::vector<std::string> hiddenExts;
 	if (!mSystem->isGroupSystem() && !mSystem->isCollection())
-		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))
+		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))	
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
-
+	
 	FileFilterIndex* idx = sys->getIndex(false);
 	if (idx != nullptr && !idx->isFiltered())
 		idx = nullptr;
@@ -566,7 +567,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (filterKidGame && !(*it)->getKidGame())
 			continue;
 		
-		if (hiddenExts.size() > 0)
+		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)
 		{
 			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName()));
 			if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
