@@ -410,10 +410,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "REINICIAR EXTENSÕES DO ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "RE-DETECTAR O IDIOMA DOS JOGOS"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
@@ -759,7 +759,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' PASTA RAIZ"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSÕES DO ARQUIVO"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -1382,7 +1382,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "tempo total de jogo (segundos)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Region"
 msgstr "Região"
