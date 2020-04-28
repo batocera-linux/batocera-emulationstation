@@ -88,6 +88,8 @@ private:
 	int mMarqueeOffset2;
 	int mMarqueeTime;
 
+	int mLineCount;
+
 	Alignment mAlignment;
 	float mHorizontalMargin;
 
@@ -113,6 +115,7 @@ template <typename T>
 TextListComponent<T>::TextListComponent(Window* window) : 
 	IList<TextListData, T>(window), mSelectorImage(window)
 {
+	mLineCount = -1;
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
 	mMarqueeTime = 0;
@@ -146,7 +149,9 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
-	const float entrySize = Math::max(font->getHeight(1.0), (float)font->getSize()) * mLineSpacing;
+	float entrySize = Math::max(font->getHeight(1.0), (float)font->getSize()) * mLineSpacing;
+	if (mLineCount > 0)
+		entrySize = mSize.y() / mLineCount;
 
 	int startEntry = 0;
 
@@ -203,6 +208,9 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		entry.data.textCache->setColor(color);
 
 		Vector3f offset(0, y, 0);
+
+		if (mLineCount > 0) // Vertical center
+			offset[1] += (int)((entrySize - entry.data.textCache->metrics.size.y()) / 2);
 
 		switch(mAlignment)
 		{
@@ -410,10 +418,9 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 			else
 				LOG(LogError) << "Unknown TextListComponent alignment \"" << str << "\"!";
 		}
+
 		if(elem->has("horizontalMargin"))
-		{
 			mHorizontalMargin = elem->get<float>("horizontalMargin") * (this->mParent ? this->mParent->getSize().x() : (float)Renderer::getScreenWidth());
-		}
 	}
 
 	if(properties & FORCE_UPPERCASE && elem->has("forceUppercase"))
@@ -421,19 +428,28 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 
 	if(properties & LINE_SPACING)
 	{
+		if (elem->has("lines"))
+		{
+			mLineCount = (int)elem->get<float>("lines");
+			if (mLineCount > 0)
+				setSelectorHeight(mSize.y() / mLineCount);				
+		}
+		else
+			mLineCount = -1;
+
 		if(elem->has("lineSpacing"))
 			setLineSpacing(elem->get<float>("lineSpacing"));
+
 		if(elem->has("selectorHeight"))
-		{
 			setSelectorHeight(elem->get<float>("selectorHeight") * Renderer::getScreenHeight());
-		}
+
 		if(elem->has("selectorOffsetY"))
 		{
 			float scale = this->mParent ? this->mParent->getSize().y() : (float)Renderer::getScreenHeight();
 			setSelectorOffsetY(elem->get<float>("selectorOffsetY") * scale);
-		} else {
-			setSelectorOffsetY(0.0);
-		}
+		} 
+		else
+			setSelectorOffsetY(0.0);		
 	}
 
 	if (elem->has("selectorImagePath"))
