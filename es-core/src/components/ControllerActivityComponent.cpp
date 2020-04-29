@@ -101,7 +101,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	float padding = mSpacing;
 
 	//float szW = (mSize.x() - (padding * (MAX_PLAYERS-1))) / MAX_PLAYERS;
-	float szW = (mSize.x() - (padding * 6)) / 5;
+	float szW = (mSize.x() - (padding * 4)) / 5;
 	float szH = mSize.y();
 	float x = 0;
 

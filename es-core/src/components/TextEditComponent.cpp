@@ -3,6 +3,7 @@
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "Window.h"
 
 #define TEXT_PADDING_HORIZ 10
 #define TEXT_PADDING_VERT 2
@@ -33,12 +34,16 @@ void TextEditComponent::onFocusGained()
 {
 	mFocused = true;
 	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch_active);	
+
+	mWindow->postToUiThread([this](Window* w) { startEditing(); });
 }
 
 void TextEditComponent::onFocusLost()
 {
 	mFocused = false;
 	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch);
+	
+	mWindow->postToUiThread([this](Window* w) { stopEditing(); });
 }
 
 void TextEditComponent::onSizeChanged()
@@ -83,6 +88,9 @@ void TextEditComponent::textInput(const char* text)
 
 void TextEditComponent::startEditing()
 {
+	if (mEditing)
+		return;
+
 	SDL_StartTextInput();
 	mEditing = true;
 	updateHelpPrompts();
@@ -90,6 +98,9 @@ void TextEditComponent::startEditing()
 
 void TextEditComponent::stopEditing()
 {
+	if (!mEditing)
+		return;
+
 	SDL_StopTextInput();
 	mEditing = false;
 	updateHelpPrompts();
@@ -110,6 +121,19 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 		return false;
 	}
 
+	bool const cursor_up = (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("up", input)) ||
+		(config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_UP);
+	bool const cursor_down = (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("down", input)) ||
+		(config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_DOWN);
+
+	if (cursor_up || cursor_down)
+	{
+		if (mEditing)
+			stopEditing();
+
+		return false;
+	}
+
 	if((config->isMappedTo(BUTTON_OK, input) || (config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_RETURN)) && mFocused && !mEditing)
 	{
 		startEditing();
@@ -123,31 +147,29 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 			if(isMultiline())
 			{
 				textInput("\n");
-			}else{
+			}
+			else
+			{
 				stopEditing();
+				return false;
 			}
 
 			return true;
 		}
 
-		if((config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_ESCAPE) || (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedTo(BUTTON_BACK, input)))
+		if((config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_ESCAPE)) // || (config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedTo(BUTTON_BACK, input)))
 		{
 			stopEditing();
-			return true;
+			return false;
 		}
 
-		if(config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("up", input))
-		{
-			// TODO
-		}else if(config->getDeviceId() != DEVICE_KEYBOARD && config->isMappedLike("down", input))
-		{
-			// TODO
-		}else if(cursor_left || cursor_right)
+		if(cursor_left || cursor_right)
 		{
 			mBlinkTime = 0;
 			mCursorRepeatDir = cursor_left ? -1 : 1;
 			mCursorRepeatTimer = -(CURSOR_REPEAT_START_DELAY - CURSOR_REPEAT_SPEED);
 			moveCursor(mCursorRepeatDir);
+			return true;
 		} 
 		else if(config->getDeviceId() == DEVICE_KEYBOARD)
 		{
@@ -155,11 +177,11 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 			{
 				case SDLK_HOME:
 					setCursor(0);
-					break;
+					return true;
 
 				case SDLK_END:
 					setCursor(std::string::npos);
-					break;
+					return true;
 
 				case SDLK_DELETE:
 					if(mCursor < mText.length())
@@ -168,12 +190,12 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 						moveCursor(1);
 						textInput("\b");
 					}
-					break;
+					return true;
 			}
-		}
 
-		//consume all input when editing text
-		return true;
+			// All input on keyboard
+			return true;
+		}
 	}
 
 	return false;
@@ -326,7 +348,7 @@ std::vector<HelpPrompt> TextEditComponent::getHelpPrompts()
 	if(mEditing)
 	{
 		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE CURSOR"))); // batocera
-		prompts.push_back(HelpPrompt(BUTTON_BACK, _("STOP EDITING")));
+		//prompts.push_back(HelpPrompt(BUTTON_BACK, _("STOP EDITING")));
 	}else{
 		prompts.push_back(HelpPrompt(BUTTON_OK, _("EDIT")));
 	}

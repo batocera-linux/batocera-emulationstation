@@ -569,6 +569,7 @@ int main(int argc, char* argv[])
 
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
+	SDL_StopTextInput();
 
 	window.closeSplashScreen();
 
