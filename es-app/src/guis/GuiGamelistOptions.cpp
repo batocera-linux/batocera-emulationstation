@@ -394,7 +394,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 			mSystem->loadTheme();
 
 		if (!viewModeChanged && mSystem->isCollection())
-			CollectionSystemManager::get()->reloadCollection(getCustomCollectionName(), false);
+			CollectionSystemManager::get()->reloadCollection(getCustomCollectionName());
 		else
 			ViewController::get()->reloadGameListView(mSystem, false);
 	}
