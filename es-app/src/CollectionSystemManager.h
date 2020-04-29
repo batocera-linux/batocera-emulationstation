@@ -113,9 +113,11 @@ public:
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
 
-	void reloadCustomCollection(const std::string collectionName, bool repopulateGamelist = true);
+	void reloadCollection(const std::string collectionName, bool repopulateGamelist = true);
     void populateAutoCollection(CollectionSystemData* sysData);
 	bool deleteCustomCollection(CollectionSystemData* data);
+
+	bool isCustomCollection(const std::string collectionName);
 
 private:
 	static CollectionSystemManager* sInstance;

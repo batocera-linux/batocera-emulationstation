@@ -263,7 +263,7 @@ void GuiCollectionSystemsOptions::createFilterCollection(std::string inName)
 	{
 		window->renderSplashScreen();
 
-		CollectionSystemManager::get()->reloadCustomCollection(name, false);						
+		CollectionSystemManager::get()->reloadCollection(name, false);						
 		ViewController::get()->goToGameList(newSys, true);
 
 		window->closeSplashScreen();

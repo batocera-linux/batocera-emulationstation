@@ -388,21 +388,15 @@ GuiGamelistOptions::~GuiGamelistOptions()
 		ViewController::get()->reloadAll(mWindow);
 		mWindow->closeSplashScreen();
 	}
-	else if (!viewModeChanged && mFiltersChanged && mSystem->isCollection())
-	{
-		CollectionSystemManager::get()->reloadCustomCollection(getCustomCollectionName());
-	}
 	else if (mFiltersChanged || viewModeChanged)
 	{
-		// only reload full view if we came from a placeholder
-		// as we need to re-display the remaining elements for whatever new
-		// game is selected
+		if (viewModeChanged)
+			mSystem->loadTheme();
 
-		if (mFiltersChanged && mSystem->isCollection())
-			CollectionSystemManager::get()->reloadCustomCollection(getCustomCollectionName(), false);
-
-		mSystem->loadTheme();
-		ViewController::get()->reloadGameListView(mSystem, false);
+		if (!viewModeChanged && mSystem->isCollection())
+			CollectionSystemManager::get()->reloadCollection(getCustomCollectionName(), false);
+		else
+			ViewController::get()->reloadGameListView(mSystem, false);
 	}
 }
 

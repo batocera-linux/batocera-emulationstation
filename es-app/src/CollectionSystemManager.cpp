@@ -806,13 +806,25 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
         bool isArcade =  std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
 
 		// we won't iterate all collections
-		if (system->isGameSystem() && !system->isCollection())
+		if (system->isGameSystem() && !system->isCollection() && !system->isGroupSystem())
 		{
+			std::vector<std::string> hiddenExts;
+			for (auto ext : Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';'))
+				hiddenExts.push_back("." + Utils::String::toLower(ext));
+
 			std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
 			for(auto& game : files)
 			{
 				bool include = includeFileInAutoCollections(game);
 
+				if (hiddenExts.size() > 0 && game->getType() == GAME)
+				{
+					std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension(game->getFileName()));
+					if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
+						include = false;
+				}
+
+				if (include)
 				switch(sysDecl.type) 
 				{
 					case AUTO_ALL_GAMES:
@@ -1254,8 +1266,28 @@ bool systemSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-void CollectionSystemManager::reloadCustomCollection(const std::string collectionName, bool repopulateGamelist)
+bool CollectionSystemManager::isCustomCollection(const std::string collectionName)
 {
+	auto data = mCustomCollectionSystemsData.find(collectionName);
+	if (data == mCustomCollectionSystemsData.cend())
+		return false;
+
+	return data->second.decl.isCustom;
+}
+
+void CollectionSystemManager::reloadCollection(const std::string collectionName, bool repopulateGamelist)
+{
+	auto autoc = mAutoCollectionSystemsData.find(collectionName);
+	if (autoc != mAutoCollectionSystemsData.cend())
+	{
+		if (repopulateGamelist)
+			for (auto system : SystemData::sSystemVector)
+				if (system->isCollection() && system->getName() == collectionName)
+					ViewController::get()->getGameListView(system)->repopulate();
+
+		return;
+	}
+	
 	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
 		return;
