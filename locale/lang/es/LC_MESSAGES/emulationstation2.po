@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 15:43+0200\n"
+"POT-Creation-Date: 2020-05-01 21:02+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -361,8 +361,11 @@ msgstr "INFORMACIÓN"
 msgid "VERSION"
 msgstr "VERSIÓN"
 
-msgid "DISK USAGE"
-msgstr "USO DE DISCO"
+msgid "USER DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM DISK USAGE"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -1162,6 +1165,9 @@ msgstr "MOSTRAR INFORMACIÓN DEL JUEGO"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "AJUSTAR VIDEO EN SALVAPANTALLAS"
 
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTENER DATOS DE ESTOS JUEGOS"
 
@@ -1415,6 +1421,12 @@ msgstr "ERROR: TODOS LOS SISTEMAS ESTAN OCULTOS, MOSTRANDO TODOS NUEVAMENTE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%i ITEM"
@@ -1671,17 +1683,10 @@ msgid "Various"
 msgstr "VARIOS"
 
 #, c-format
-msgid "This collection contains %i game, including %s."
-msgid_plural "This collection contains %i games, including %s."
-msgstr[0] "ESTA COLECCION CONTIENE %i JUEGO, INCLUIDO %s."
-msgstr[1] "ESTA COLECCION CONTIENE %i JUEGOS, INCLUIDOS %s."
-
-#, c-format
-msgid "This collection contains %i game, including %s among other titles."
-msgid_plural ""
-"This collection contains %i games, including %s among other titles."
-msgstr[0] "ESTA COLECCION CONTIENE %i JUEGO, INCLUIDO %s ENTRE OTRO TITULO"
-msgstr[1] "ESTA COLECCION CONTIENE %i JUEGOS, INCLUIDOS %s ENTRE OTRO TITULOS"
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "UP"
 msgstr "ARRIBA"
@@ -1783,11 +1788,50 @@ msgstr "NO SE DETECTO NINGUN CONTROL"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PRESIONADO UN BOTÓN DEL CONTROL PARA CONFIGURARLO"
 
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
-
-msgid "STOP EDITING"
-msgstr "TERMINAR EDICIÓN"
 
 msgid "EDIT"
 msgstr "EDITAR"
@@ -1821,6 +1865,24 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "This collection contains %i game, including %s."
+#~ msgid_plural "This collection contains %i games, including %s."
+#~ msgstr[0] "ESTA COLECCION CONTIENE %i JUEGO, INCLUIDO %s."
+#~ msgstr[1] "ESTA COLECCION CONTIENE %i JUEGOS, INCLUIDOS %s."
+
+#~ msgid "This collection contains %i game, including %s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %i games, including %s among other titles."
+#~ msgstr[0] "ESTA COLECCION CONTIENE %i JUEGO, INCLUIDO %s ENTRE OTRO TITULO"
+#~ msgstr[1] ""
+#~ "ESTA COLECCION CONTIENE %i JUEGOS, INCLUIDOS %s ENTRE OTRO TITULOS"
+
+#~ msgid "STOP EDITING"
+#~ msgstr "TERMINAR EDICIÓN"
+
+#~ msgid "DISK USAGE"
+#~ msgstr "USO DE DISCO"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION"
 #~ msgstr "CREAR NUEVA COLECCIÓN PERSONAL"

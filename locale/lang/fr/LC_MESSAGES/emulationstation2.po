@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 23:12+0200\n"
+"POT-Creation-Date: 2020-05-01 21:02+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1418,6 +1418,12 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 
 #, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
 msgstr[0] "%i ELEMENT"
@@ -1672,15 +1678,8 @@ msgid "Various"
 msgstr "Plusieurs"
 
 #, c-format
-msgid "This collection contains %i game, including %s."
-msgid_plural "This collection contains %i games, including %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "This collection contains %i game, including %s among other titles."
-msgid_plural ""
-"This collection contains %i games, including %s among other titles."
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1828,9 +1827,6 @@ msgstr[1] ""
 msgid "MOVE CURSOR"
 msgstr "DÉPLACER LE CURSEUR"
 
-msgid "STOP EDITING"
-msgstr "ARRETER L'ÉDITION"
-
 msgid "EDIT"
 msgstr "EDITER"
 
@@ -1863,6 +1859,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "STOP EDITING"
+#~ msgstr "ARRETER L'ÉDITION"
 
 #~ msgid "DISK USAGE"
 #~ msgstr "UTILISATION DISQUE"
