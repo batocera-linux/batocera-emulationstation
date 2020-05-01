@@ -39,13 +39,15 @@ void LangInfo::extractLang(std::string val)
 		{ { "w", "wor", "world" }, "en", "wr" },
 		{ { "uk" }, "en", "eu" },
 		{ { "es", "spain", "s" }, "es", "eu" },
-		{ { "fr", "france", "canada", "f", "ca", "c", "fc" }, "fr", "eu" },
+		{ { "fr", "france", "f" }, "fr", "eu" },
 		{ { "de", "germany", "d" }, "de", "eu" },
 		{ { "it", "italy", "i" }, "it", "eu" },
 		{ { "nl", "netherlands" }, "nl", "eu" },
 		{ { "gr", "greece" }, "gr", "eu" },
 		{ { "no" }, "no", "eu" },
 		{ { "sw", "sweden", "se" }, "sw", "eu" },
+
+		{ { "canada", "ca", "c", "fc" }, "fr", "wr" },
 
 		{ { "jp", "japan", "ja", "j" }, "jp", "jp" },
 

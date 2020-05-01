@@ -155,6 +155,7 @@ private:
 class FolderData : public FileData
 {
 	friend class FileData;
+	friend class SystemData;
 
 public:
 	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens=true) : FileData(FOLDER, startpath, system)
@@ -199,6 +200,8 @@ public:
 
 		mChildren.clear();
 	}	
+
+	void removeVirtualFolders();
 
 private:
 	std::vector<FileData*> mChildren;

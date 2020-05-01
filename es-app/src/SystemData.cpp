@@ -235,31 +235,52 @@ void SystemData::createGroupedSystems()
 {
 	std::map<std::string, std::vector<SystemData*>> map;
 
-	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
+	for (auto sys : sSystemVector)
 	{
-		SystemData* sys = *it;
-		if (!sys->isCollection() && !sys->getSystemEnvData()->mGroup.empty())
-		{
-			if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup"))
-				continue;
+		if (sys->isCollection() || sys->getSystemEnvData()->mGroup.empty())
+			continue;
+		
+		if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup"))
+			continue;
 
-			map[sys->getSystemEnvData()->mGroup].push_back(sys);
+		if (sys->getName() == sys->getSystemEnvData()->mGroup)
+		{
+			sys->getSystemEnvData()->mGroup = "";
+			continue;
 		}
+
+		map[sys->getSystemEnvData()->mGroup].push_back(sys);		
 	}
 
 	for (auto item : map)
 	{	
-		SystemEnvironmentData* envData = new SystemEnvironmentData;
-		envData->mStartPath = "";		
-		envData->mLaunchCommand = "";				
+		SystemData* system = nullptr;
+		bool existingSystem = false;
 
-		SystemData* system = new SystemData(item.first, item.first, envData, item.first, nullptr, false, true);
-		system->mIsGroupSystem = true;
-		system->mIsGameSystem = false;
+		for (auto sys : sSystemVector)
+		{
+			if (sys->getName() == item.first)
+			{
+				existingSystem = true;
+				system = sys;
+				system->mIsGroupSystem = true;
+				break;
+			}
+		}
+
+		if (system == nullptr)
+		{
+			SystemEnvironmentData* envData = new SystemEnvironmentData;
+			envData->mStartPath = "";
+			envData->mLaunchCommand = "";
+
+			system = new SystemData(item.first, item.first, envData, item.first, nullptr, false, true);
+			system->mIsGroupSystem = true;
+			system->mIsGameSystem = false;
+		}
 
 		FolderData* root = system->getRootFolder();
 		
-
 		for (auto childSystem : item.second)
 		{			
 			auto children = childSystem->getRootFolder()->getChildren();
@@ -293,7 +314,7 @@ void SystemData::createGroupedSystems()
 			}
 		}
 
-		if (root->getChildren().size() > 0)
+		if (root->getChildren().size() > 0 && !existingSystem)
 		{
 			system->loadTheme();
 			sSystemVector.push_back(system);
@@ -1009,6 +1030,7 @@ void SystemData::deleteSystems()
 	for (unsigned int i = 0; i < sSystemVector.size(); i++)
 	{
 		SystemData* pData = sSystemVector.at(i);
+		pData->getRootFolder()->removeVirtualFolders();
 
 		if (saveOnExit && !pData->mIsCollectionSystem)
 			updateGamelist(pData);
@@ -1174,7 +1196,12 @@ FileData* SystemData::getRandomGame()
 int SystemData::getDisplayedGameCount()
 {
 	if (mGameCount < 0)
-		mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+	{
+		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+			mGameCount = mRootFolder->getChildren().size();
+		else
+			mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+	}
 
 	return mGameCount;
 }
