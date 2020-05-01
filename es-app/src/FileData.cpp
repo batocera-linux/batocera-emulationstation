@@ -882,3 +882,22 @@ void FileData::detectLanguageAndRegion(bool overWrite)
 	if (!info.region.empty())
 		mMetadata.set("region", info.region);
 }
+
+void FolderData::removeVirtualFolders()
+{
+	if (!mOwnsChildrens)
+		return;
+
+	for (int i = mChildren.size() - 1; i >= 0; i--)
+	{
+		auto file = mChildren.at(i);
+		if (file->getType() != FOLDER)
+			continue;
+
+		if (((FolderData*)file)->mOwnsChildrens)
+			continue;
+
+		removeChild(file);
+		delete file;
+	}
+}
