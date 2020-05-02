@@ -292,6 +292,8 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 
 	bool hasGroup = false;
 
+	auto arcadeGames = CollectionSystemManager::get()->getArcadeCollection()->getRootFolder()->getFilesRecursive(GAME);
+
 	// add Auto Systems && preserve order
 	for (auto systemDecl : CollectionSystemManager::getSystemDecls())
 	{
@@ -303,11 +305,24 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
             autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
         else
         {
-            if (!it->second.isPopulated)
-                CollectionSystemManager::get()->populateAutoCollection(&(it->second));
+			bool hasGames = false;
 
-			if (it->second.system->getRootFolder()->getChildren().size() == 0)
-                continue;
+			if (it->second.isPopulated)
+				hasGames = it->second.system->getRootFolder()->getChildren().size() > 0;
+			else
+			{
+				for (auto file : arcadeGames)
+				{
+					if (file->getMetadata(MetaDataId::ArcadeSystemName) == systemDecl.themeFolder)
+					{
+						hasGames = true;
+						break;
+					}
+				}
+			}
+
+			if (!hasGames)
+				continue;
 
 			if (!hasGroup)
 			{
