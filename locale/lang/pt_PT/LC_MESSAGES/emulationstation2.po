@@ -365,10 +365,10 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO DO UTILIZADOR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -1164,7 +1164,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "MUTE AUDIO DO VIDEO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
@@ -1421,8 +1421,8 @@ msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLEÇÃO"
+msgstr[1] "%i COLEÇÕES"
 
 #, c-format
 msgid "%i ITEM"
@@ -1681,8 +1681,8 @@ msgstr "Vários"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %i jogo, incluindo :%s"
+msgstr[1] "Estas coleções contém %i jogos, incluindo :%s"
 
 msgid "UP"
 msgstr "CIMA"
@@ -1786,44 +1786,44 @@ msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora"
+msgstr[1] "%d horas"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d dia atrás"
+msgstr[1] "%d dias atrás"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora atrás"
+msgstr[1] "%d horas atrás"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto atrás"
+msgstr[1] "%d minutos atrás"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d segundo atrás"
+msgstr[1] "%d segundos atrás"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
