@@ -459,9 +459,10 @@ bool SystemData::loadFeatures()
 
 		auto customEmulatorFeatures = loadCustomFeatures(emulator);
 
-		if (emulator.attribute("features"))
+		if (emulator.attribute("features") || customEmulatorFeatures.size() > 0)
 		{
-			emulatorFeatures = EmulatorFeatures::parseFeatures(emulator.attribute("features").value());
+			if (emulator.attribute("features"))
+				emulatorFeatures = EmulatorFeatures::parseFeatures(emulator.attribute("features").value());
 
 			for (auto sys : SystemData::sSystemVector)
 			{
@@ -617,10 +618,10 @@ bool SystemData::hasFeatures()
 	for (auto emulator : mEmulators)
 	{
 		for (auto& core : emulator.cores)
-			if (core.features != EmulatorFeatures::Features::none)
+			if (core.features != EmulatorFeatures::Features::none || core.customFeatures.size() > 0)
 				return true;
 
-		if (emulator.features != EmulatorFeatures::Features::none)
+		if (emulator.features != EmulatorFeatures::Features::none || emulator.customFeatures.size() > 0)
 			return true;
 	}
 
