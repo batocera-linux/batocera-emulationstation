@@ -153,7 +153,7 @@ public:
 	// Formating
 	std::vector<std::string> getFormatDiskList();
 	std::vector<std::string> getFormatFileSystems();
-	bool formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
+	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
 protected:
 	ApiSystem();
