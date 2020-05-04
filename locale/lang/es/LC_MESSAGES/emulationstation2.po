@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 21:02+0200\n"
+"POT-Creation-Date: 2020-05-04 21:21+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1625,6 +1625,9 @@ msgstr "FORMATEANDO DISPOSITIVO"
 
 msgid "Formating"
 msgstr "FORMATEANDO"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "YA SE ESTA EJECUTANDO, EL FORMATEO DE DISCO"

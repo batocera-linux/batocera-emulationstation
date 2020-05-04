@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 21:02+0200\n"
+"POT-Creation-Date: 2020-05-04 21:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1603,6 +1603,9 @@ msgid "FORMATING DEVICE"
 msgstr ""
 
 msgid "Formating"
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 21:02+0200\n"
+"POT-Creation-Date: 2020-05-04 21:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -20,7 +20,7 @@ msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
 msgid "REBOOT SYSTEM TO APPLY"
-msgstr "ПЕРЕЗАГРУЗКА СИСТЕМЫ ДЛЯ ПРИМЕНЕНИЯ"
+msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "AN ERROR OCCURED"
 msgstr "ПРОИЗОШЛА ОШИБКА"
@@ -113,7 +113,7 @@ msgid "SORT GAMES BY"
 msgstr "СОРТИРОВКА ПО"
 
 msgid "OTHER FILTERS"
-msgstr "ОСТАЛЬНЫЕ ФИЛЬТРЫ"
+msgstr "ДРУГИЕ ФИЛЬТРЫ"
 
 msgid "COLLECTION"
 msgstr "КОЛЛЕКЦИЯ"
@@ -137,13 +137,13 @@ msgid "VIEW OPTIONS"
 msgstr "НАСТРОЙКИ"
 
 msgid "VIEW CUSTOMISATION"
-msgstr "ПОКАЗАТЬ НАСТРОЙКИ"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ"
 
 msgid "COLLECTION MANAGEMENT"
-msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЯМИ"
+msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ К КОЛЛЕКЦИИ"
+msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ В КОЛЛЕКЦИИ"
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
@@ -170,7 +170,7 @@ msgid "Loading..."
 msgstr "Загрузка..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТСКЛЮЧЕНА"
+msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТКЛЮЧЕНА"
 
 msgid "New Collection Name"
 msgstr "Название новой коллекции"
@@ -1429,9 +1429,9 @@ msgstr[2] ""
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "ИГРА"
-msgstr[1] "ИГРЫ"
-msgstr[2] "ИГР"
+msgstr[0] "ОБЪЕКТ"
+msgstr[1] "ОБЪЕКТА"
+msgstr[2] "ОБЪЕКТОВ"
 
 #, c-format
 msgid "%i GAME"
@@ -1625,6 +1625,9 @@ msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
 
 msgid "Formating"
 msgstr "ФОРМАТИРОВАНИЕ"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА УЖЕ ЗАПУЩЕНО"
@@ -1878,6 +1881,9 @@ msgstr "ОБРАБОТКА..."
 msgid "up/down"
 msgstr "вверх/вниз"
 
+#~ msgid "DISK USAGE"
+#~ msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
+
 #~ msgid "This collection contains %i game, including %s."
 #~ msgid_plural "This collection contains %i games, including %s."
 #~ msgstr[0] "Коллекция содержит %i игру, включая %s."
@@ -1893,9 +1899,6 @@ msgstr "вверх/вниз"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ"
-
-#~ msgid "DISK USAGE"
-#~ msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION"
 #~ msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
