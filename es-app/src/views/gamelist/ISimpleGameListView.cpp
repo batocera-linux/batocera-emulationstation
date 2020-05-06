@@ -88,6 +88,31 @@ void ISimpleGameListView::onFileChanged(FileData* /*file*/, FileChangeType /*cha
 	}
 }
 
+void ISimpleGameListView::moveToFolder(FolderData* folder)
+{
+	if (folder == nullptr || folder->getChildren().size() == 0)
+		return;
+	
+	mCursorStack.push(folder);
+	populateList(folder->getChildrenListToDisplay());
+	
+	FileData* cursor = getCursor();
+	if (cursor != nullptr)
+		setCursor(cursor);	
+}
+
+FolderData*		ISimpleGameListView::getCurrentFolder()
+{
+	if (mCursorStack.size())
+	{
+		auto top = mCursorStack.top();
+		if (top->getType() == FOLDER)
+			return (FolderData*)top;
+	}
+
+	return nullptr;
+}
+
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
 	if(input.value != 0)
@@ -124,15 +149,11 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 					launch(cursor);
 				}
-				else {
+				else 
+				{
 					// it's a folder
-					if (folder != nullptr && folder->getChildren().size() > 0)
-					{
-						mCursorStack.push(cursor);
-						populateList(folder->getChildrenListToDisplay());
-						FileData* cursor = getCursor();
-						setCursor(cursor);
-					}
+					if (folder != nullptr)
+						moveToFolder(folder);
 				}
 			}
 			return true;
@@ -270,7 +291,19 @@ void ISimpleGameListView::updateFolderPath()
 		mFolderPath.setText("");
 }
 
+void ISimpleGameListView::repopulate()
+{
+	FolderData* folder = mRoot;
 
+	if (mCursorStack.size())
+	{
+		auto top = mCursorStack.top();
+		if (top->getType() == FOLDER)
+			folder = (FolderData*)top;
+	}
+
+	populateList(folder->getChildrenListToDisplay());
+}
 
 
 

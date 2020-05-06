@@ -86,6 +86,11 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 	stretch_screensaver->setState(Settings::getInstance()->getBool("StretchVideoOnScreenSaver"));
 	addWithLabel(_("STRETCH VIDEO ON SCREENSAVER"), stretch_screensaver);
 	addSaveFunc([stretch_screensaver] { Settings::getInstance()->setBool("StretchVideoOnScreenSaver", stretch_screensaver->getState()); });
+
+	auto ss_video_mute = std::make_shared<SwitchComponent>(mWindow);
+	ss_video_mute->setState(Settings::getInstance()->getBool("ScreenSaverVideoMute"));
+	addWithLabel(_("MUTE VIDEO AUDIO"), ss_video_mute);
+	addSaveFunc([ss_video_mute] { Settings::getInstance()->setBool("ScreenSaverVideoMute", ss_video_mute->getState()); });
 }
 
 GuiVideoScreensaverOptions::~GuiVideoScreensaverOptions()

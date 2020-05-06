@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 15:54+0200\n"
+"POT-Creation-Date: 2020-05-04 21:21+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgid "LAUNCH"
 msgstr "LANCER"
 
 msgid "UNAVAILABLE CORE"
-msgstr ""
+msgstr "COEUR NON DISPONIBLE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -113,7 +113,7 @@ msgid "OTHER FILTERS"
 msgstr "AUTRES FILTRES"
 
 msgid "COLLECTION"
-msgstr ""
+msgstr "COLLECTION"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "EDITER LES FILTRES DE LA COLLECTION"
@@ -317,7 +317,7 @@ msgid "WHEEL"
 msgstr "LOGO"
 
 msgid "MARQUEE"
-msgstr "BANDEAU"
+msgstr "BANNIÈRE"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPER LES NOTATIONS"
@@ -361,8 +361,11 @@ msgstr "INFORMATIONS"
 msgid "VERSION"
 msgstr "VERSION"
 
-msgid "DISK USAGE"
-msgstr "UTILISATION DISQUE"
+msgid "USER DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM DISK USAGE"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -407,7 +410,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES VISUELS COMPLÉMENTAIRES"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "RÉINITIALISER LES EXTENSIONS DE FICHIERS"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDETECTER LA LANGUE DES JEUX"
@@ -434,7 +437,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "ÉCHEC DE LA GÉNÉRATION DU FICHIER"
 
 msgid "FORMAT A DISK"
-msgstr ""
+msgstr "FORMATER UN DISQUE"
 
 msgid "DOWNLOADS"
 msgstr "TÉLÉCHARGEMENTS"
@@ -755,10 +758,10 @@ msgid "having multiple games"
 msgstr "avec jeux multiples"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "AFFICHER LE DOSSIER PARENT"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSIONS DE FICHIERS"
 
 msgid "TOOLS"
 msgstr "OUTILS"
@@ -966,22 +969,22 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
 
 msgid "FORMAT DEVICE"
-msgstr ""
+msgstr "FORMATER UN PÉRIPHÉRIQUE"
 
 msgid "DEVICE TO FORMAT"
-msgstr ""
+msgstr "PÉRIPHÉRIQUE À FORMATER"
 
 msgid "FILE SYSTEM"
-msgstr ""
+msgstr "SYSTÈME DE FICHIER"
 
 msgid "FORMAT NOW"
-msgstr ""
+msgstr "FORMATER MAINTENANT"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr ""
+msgstr "LES OPTIONS SÉLECTIONNÉES SONT INVALIDES"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
-msgstr ""
+msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLLECTIONS A AFFICHER"
@@ -1158,6 +1161,9 @@ msgstr "AFFICHER LES INFORMATIONS DU JEU"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPER CES JEUX"
@@ -1379,10 +1385,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "entrez le temps de jeu"
 
 msgid "Languages"
-msgstr ""
+msgstr "langue"
 
 msgid "Region"
-msgstr ""
+msgstr "région"
 
 msgid "favorite"
 msgstr "Favoris"
@@ -1410,6 +1416,12 @@ msgstr ""
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%i ITEM"
@@ -1556,7 +1568,7 @@ msgid "RATING"
 msgstr "NOTATION"
 
 msgid "REGION"
-msgstr ""
+msgstr "RÉGION"
 
 msgid "KIDGAME"
 msgstr "JEU ENFANT"
@@ -1568,10 +1580,10 @@ msgid "HASHING GAMES"
 msgstr "INDEXATION DES JEUX"
 
 msgid "Collections"
-msgstr ""
+msgstr "Collections"
 
 msgid "Extracting"
-msgstr ""
+msgstr "Extration"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "AUCUN JEU NE CORRESPOND - PASSER"
@@ -1604,13 +1616,16 @@ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS"
 
 msgid "FORMATING DEVICE"
-msgstr ""
+msgstr "FORMATAGE DU PÉRIPHÉRIQUE"
 
 msgid "Formating"
+msgstr "Formatage"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
+msgstr "LE FORMATAGE D'UN DISQUE EST DÉJÀ EN COURS"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -1666,15 +1681,8 @@ msgid "Various"
 msgstr "Plusieurs"
 
 #, c-format
-msgid "This collection contains %i game, including %s."
-msgid_plural "This collection contains %i games, including %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "This collection contains %i game, including %s among other titles."
-msgid_plural ""
-"This collection contains %i games, including %s among other titles."
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1777,11 +1785,50 @@ msgstr "AUCUNE MANETTE DETECTÉE"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR CONFIGURER"
 
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "MOVE CURSOR"
 msgstr "DÉPLACER LE CURSEUR"
-
-msgid "STOP EDITING"
-msgstr "ARRETER L'ÉDITION"
 
 msgid "EDIT"
 msgstr "EDITER"
@@ -1815,6 +1862,12 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "STOP EDITING"
+#~ msgstr "ARRETER L'ÉDITION"
+
+#~ msgid "DISK USAGE"
+#~ msgstr "UTILISATION DISQUE"
 
 #~ msgid "This collection contains %1$i game, including %2$s."
 #~ msgid_plural "This collection contains %1$i games, including %2$s."

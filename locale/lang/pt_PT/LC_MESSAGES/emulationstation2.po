@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 15:54+0200\n"
+"POT-Creation-Date: 2020-05-04 21:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -364,8 +364,11 @@ msgstr "INFORMAÇÃO"
 msgid "VERSION"
 msgstr "VERSÃO"
 
-msgid "DISK USAGE"
-msgstr "ESPAÇO DISPONÍVEL"
+msgid "USER DISK USAGE"
+msgstr "USO DO DISCO DO UTILIZADOR"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -410,10 +413,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "REINICIAR EXTENSÕES DO ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "RE-DETECTAR O IDIOMA DOS JOGOS"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
@@ -759,7 +762,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' PASTA RAIZ"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSÕES DO ARQUIVO"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -1160,6 +1163,9 @@ msgstr "MOSTRAR A INFO DO JOGO NO ECRÃ"
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
 
+msgid "MUTE VIDEO AUDIO"
+msgstr "MUTE AUDIO DO VIDEO"
+
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
 
@@ -1382,7 +1388,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "tempo total de jogo (segundos)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Region"
 msgstr "Região"
@@ -1411,6 +1417,12 @@ msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, RE-MOSTRAR TODOS AGORA"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i COLEÇÃO"
+msgstr[1] "%i COLEÇÕES"
 
 #, c-format
 msgid "%i ITEM"
@@ -1610,6 +1622,9 @@ msgstr "FORMATAR DISPOSITIVO"
 msgid "Formating"
 msgstr "A FORMATAR"
 
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA FINALIZAR A OPERAÇÃO"
+
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "O FORMATO DA UNIDADE JA ESTÁ EM EXECUÇÃO"
 
@@ -1667,17 +1682,10 @@ msgid "Various"
 msgstr "Vários"
 
 #, c-format
-msgid "This collection contains %i game, including %s."
-msgid_plural "This collection contains %i games, including %s."
-msgstr[0] "Esta coleção contém %i jogo, incluindo %s."
-msgstr[1] "Esta coleção contém %i jogos, incluindo %s."
-
-#, c-format
-msgid "This collection contains %i game, including %s among other titles."
-msgid_plural ""
-"This collection contains %i games, including %s among other titles."
-msgstr[0] "Esta coleção contém %i jogo, incluindo %s entre outro título."
-msgstr[1] "Esta coleção contém %i jogos, incluindo %s entre outro títulos."
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
+msgstr[0] "Esta coleção contém %i jogo, incluindo :%s"
+msgstr[1] "Estas coleções contém %i jogos, incluindo :%s"
 
 msgid "UP"
 msgstr "CIMA"
@@ -1778,11 +1786,50 @@ msgstr "NENHUM COMANDO DETECTADO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
 
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d hora"
+msgstr[1] "%d horas"
+
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dia atrás"
+msgstr[1] "%d dias atrás"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d hora atrás"
+msgstr[1] "%d horas atrás"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d minuto atrás"
+msgstr[1] "%d minutos atrás"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d segundo atrás"
+msgstr[1] "%d segundos atrás"
+
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
-
-msgid "STOP EDITING"
-msgstr "PARAR EDIÇÃO"
 
 msgid "EDIT"
 msgstr "EDITAR"
@@ -1816,6 +1863,23 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "This collection contains %i game, including %s."
+#~ msgid_plural "This collection contains %i games, including %s."
+#~ msgstr[0] "Esta coleção contém %i jogo, incluindo %s."
+#~ msgstr[1] "Esta coleção contém %i jogos, incluindo %s."
+
+#~ msgid "This collection contains %i game, including %s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %i games, including %s among other titles."
+#~ msgstr[0] "Esta coleção contém %i jogo, incluindo %s entre outro título."
+#~ msgstr[1] "Esta coleção contém %i jogos, incluindo %s entre outro títulos."
+
+#~ msgid "STOP EDITING"
+#~ msgstr "PARAR EDIÇÃO"
+
+#~ msgid "DISK USAGE"
+#~ msgstr "ESPAÇO DISPONÍVEL"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION"
 #~ msgstr "CRIAR UMA NOVA COLEÇÃO"

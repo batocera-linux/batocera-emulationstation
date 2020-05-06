@@ -105,10 +105,13 @@ void ThreadedFormatter::run()
 	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
 #endif
 
-	ApiSystem::getInstance()->formatDisk(mDisk, mFileSystem, [this](const std::string info)
+	int ret = ApiSystem::getInstance()->formatDisk(mDisk, mFileSystem, [this](const std::string info)
 	{
 		updateNotificationComponentContent(info);
 	});
+
+	if (ret == 69)
+		mWindow->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"));
 
 	delete this;
 	ThreadedFormatter::mInstance = nullptr;

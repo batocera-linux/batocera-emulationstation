@@ -133,7 +133,7 @@ const std::string GridGameListView::getImagePath(FileData* file)
 
 	if (src == ImageSource::IMAGE)
 		return file->getImagePath();
-	else if (src == ImageSource::MARQUEE)
+	else if (src == ImageSource::MARQUEE || src == ImageSource::MARQUEEORTEXT)
 		return file->getMarqueePath();
 
 	return file->getThumbnailPath();
@@ -250,7 +250,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 			}
 
 			if (file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file)))
-				mGrid.add(_U("\uF114 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
+				mGrid.add(_U("\uF07C ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
 			else
 				mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
 		}

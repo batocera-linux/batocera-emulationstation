@@ -83,7 +83,14 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	// KODI
 #ifdef _ENABLE_KODI_
 	if (SystemConf::getInstance()->getBool("kodi.enabled", true) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::KODI))
-		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] { openKodiLauncher_batocera(); }, "iconKodi");	
+		addEntry(_("KODI MEDIA CENTER").c_str(), false, [this] 
+	{ 
+		Window *window = mWindow;
+		delete this;
+		if (!ApiSystem::getInstance()->launchKodi(window))
+			LOG(LogWarning) << "Shutdown terminated with non-zero result!";
+
+	}, "iconKodi");	
 #endif
 
 #ifdef _ENABLEEMUELEC
@@ -655,14 +662,6 @@ std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
 	return prompts;
 }
 
-void GuiMenu::openKodiLauncher_batocera()
-{
-  Window *window = mWindow;
-  if (!ApiSystem::getInstance()->launchKodi(window)) {
-    LOG(LogWarning) << "Shutdown terminated with non-zero result!";
-  }
-}
-
 void GuiMenu::openSystemInformations_batocera()
 {
 	auto theme = ThemeData::getMenuTheme();
@@ -678,11 +677,17 @@ void GuiMenu::openSystemInformations_batocera()
 	informationsGui->addWithLabel(_("VERSION"), version);
 
 	bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
-	auto space = std::make_shared<TextComponent>(window,
-		ApiSystem::getInstance()->getFreeSpaceInfo(),
+	auto userspace = std::make_shared<TextComponent>(window,
+		ApiSystem::getInstance()->getFreeSpaceUserInfo(),
 		font,
 		warning ? 0xFF0000FF : color);
-	informationsGui->addWithLabel(_("DISK USAGE"), space);
+	informationsGui->addWithLabel(_("USER DISK USAGE"), userspace);
+
+	auto systemspace = std::make_shared<TextComponent>(window,
+		ApiSystem::getInstance()->getFreeSpaceSystemInfo(),
+		font,
+		color);
+	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
 
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
@@ -966,10 +971,7 @@ void GuiMenu::openUpdatesSettings()
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 	{
 		if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
-		{
-			if (runRestartCommand() != 0)
-				LOG(LogWarning) << "Reboot terminated with non-zero result!";
-		}
+			quitES(QuitMode::RESTART);
 		else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
 			mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATE IS ALREADY RUNNING")));
 		else
@@ -3298,8 +3300,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 #ifdef WIN32
 	if (!forceWin32Menu && Settings::getInstance()->getBool("ShowOnlyExit"))
 	{
-		Scripting::fireEvent("quit");
-		quitES("");
+		quitES(QuitMode::QUIT);
 		return;
 	}
 #endif
@@ -3328,7 +3329,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 			[] {
     		   /*runSystemCommand("systemctl restart emustation.service", "", nullptr);*/
     		   Scripting::fireEvent("quit", "restart");
-			   quitES("");
+			   quitES(QuitMode::QUIT);
 		}, _("NO"), nullptr));
 	}, "iconRestart");
 
@@ -3339,7 +3340,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
             runSystemCommand("touch /var/lock/start.retro", "", nullptr);
 			runSystemCommand("systemctl start retroarch.service", "", nullptr);
 			Scripting::fireEvent("quit", "retroarch");
-			quitES("");
+			quitES(QuitMode::QUIT);
 		}, _("NO"), nullptr));
 	}, "iconControllers");
 	
@@ -3350,41 +3351,30 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 			runSystemCommand("rebootfromnand", "", nullptr);
 			runSystemCommand("sync", "", nullptr);
 			runSystemCommand("systemctl reboot", "", nullptr);
-			quitES("");
+			quitES(QuitMode::QUIT);
 		}, _("NO"), nullptr));
 	}, "iconAdvanced");
 
 #endif
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->reboot() != 0) {
-				LOG(LogWarning) <<
-					"Restart terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 
+			_("YES"), [] { quitES(QuitMode::REBOOT); }, 
+			_("NO"), nullptr));
 	}, "iconRestart");
 
+
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->shutdown() != 0) {
-				LOG(LogWarning) <<
-					"Shutdown terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 
+			_("YES"), [] { quitES(QuitMode::SHUTDOWN); }, 
+			_("NO"), nullptr));
 	}, "iconShutdown");
 
 #ifndef _ENABLEEMUELEC
 	s->addEntry(_("FAST SHUTDOWN SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATAS?"), _("YES"),
-			[] {
-			if (ApiSystem::getInstance()->fastShutdown() != 0) {
-				LOG(LogWarning) <<
-					"Shutdown terminated with non-zero result!";
-			}
-		}, _("NO"), nullptr));
+		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATAS?"), 
+			_("YES"), [] { quitES(QuitMode::FAST_SHUTDOWN); },
+			_("NO"), nullptr));
 	}, "iconFastShutdown");
 #endif
 
@@ -3392,12 +3382,9 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	if (Settings::getInstance()->getBool("ShowExit"))
 	{
 		s->addEntry(_("QUIT EMULATIONSTATION"), false, [window] {
-			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), _("YES"),
-				[] 
-			{
-				Scripting::fireEvent("quit");
-				quitES("");
-			}, _("NO"), nullptr));
+			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), 
+				_("YES"), [] { quitES(QuitMode::QUIT); }, 
+				_("NO"), nullptr));
 		}, "iconQuit");
 	}
 #endif
@@ -3659,7 +3646,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		shaders_choices->add(_("ZFAST"), "zfast", currentShader == "zfast"); // batocera 5.25
 		shaders_choices->add(_("FLATTEN-GLOW"), "flatten-glow", currentShader == "flatten-glow"); // batocera 5.25
 		systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
-		systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaders", shaders_choices->getSelected()); });
+		systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected()); });
 	}
 
 	// Integer scale

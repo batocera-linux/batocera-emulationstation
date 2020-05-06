@@ -12,6 +12,8 @@
 #include "Window.h"
 #include "GuiMenu.h"
 #include "ApiSystem.h"
+#include "GuiGamelistFilter.h"
+#include "views/gamelist/IGameListView.h"
 
 GuiCollectionSystemsOptions::GuiCollectionSystemsOptions(Window* window) 
 	: GuiSettings(window, _("GAME COLLECTION SETTINGS").c_str())
@@ -104,15 +106,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), "", createCustomCollection, false));		
 	});
 
-	auto createDynCollection = [this](const std::string& newVal) 
-	{
-		std::string name = newVal;
-		// we need to store the first Gui and remove it, as it'll be deleted by the actual Gui
-		Window* window = mWindow;
-		GuiComponent* topGui = window->peekGui();
-		window->removeGui(topGui);
-		createFilterCollection(name);
-	};
+	auto createDynCollection = [this](const std::string& newVal) { createFilterCollection(newVal); };
+
 	addEntry(_("CREATE NEW DYNAMIC COLLECTION").c_str(), true, [this, createDynCollection]
 	{
 		if (Settings::getInstance()->getBool("UseOSK"))
@@ -235,37 +230,46 @@ void GuiCollectionSystemsOptions::createFilterCollection(std::string inName)
 
 	CollectionFilter cf;
 	cf.create(name);
-
-//	GuiGamelistFilter* ggf = new GuiGamelistFilter(mWindow, customCollection->second.filteredIndex);
-//	mWindow->pushGui(ggf);
-
+	
 	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
-	CollectionSystemManager::get()->reloadCustomCollection(newSys);
 
-	customOptionList->add(name, name, true);
+	std::string setting = Settings::getInstance()->getString("CollectionSystemsCustom");
+	setting = setting.empty() ? name : setting + "," + name;
+	if (Settings::getInstance()->setString("CollectionSystemsCustom", setting))
+		Settings::getInstance()->saveFile();
+		
+	CollectionSystemManager::get()->loadEnabledListFromSettings();
+	CollectionSystemManager::get()->updateSystemsList();
+	ViewController::get()->reloadAll(nullptr, false);
+	ViewController::get()->goToStart();
 
-	std::string outAuto = Utils::String::vectorToCommaString(autoOptionList->getSelectedObjects());
-	std::string outCustom = Utils::String::vectorToCommaString(customOptionList->getSelectedObjects());
-	updateSettings(outAuto, outCustom);
+	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
+	auto customCollection = customCollections.find(name);
+	if (customCollection == customCollections.cend())
+		return;
 
 	Window* window = mWindow;
 
-	window->renderSplashScreen();
-
 	GuiComponent* topGui = window->peekGui();
-	window->removeGui(topGui);
+	if (topGui != nullptr)
+		window->removeGui(topGui);
 
 	while (window->peekGui() && window->peekGui() != ViewController::get())
 		delete window->peekGui();
 
-	CollectionSystemManager::get()->loadEnabledListFromSettings();
-	CollectionSystemManager::get()->updateSystemsList();
-	ViewController::get()->goToStart();
-	ViewController::get()->reloadAll();
+	GuiGamelistFilter* ggf = new GuiGamelistFilter(window, customCollection->second.filteredIndex);
+	
+	ggf->onFinalize([name, newSys, window]()
+	{
+		window->renderSplashScreen();
 
-	ViewController::get()->goToSystemView(newSys);
+		CollectionSystemManager::get()->reloadCollection(name, false);						
+		ViewController::get()->goToGameList(newSys, true);
 
-	window->closeSplashScreen();
+		window->closeSplashScreen();
+	});
+	
+	window->pushGui(ggf);
 }
 
 void GuiCollectionSystemsOptions::exitEditMode()
@@ -288,6 +292,8 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 
 	bool hasGroup = false;
 
+	auto arcadeGames = CollectionSystemManager::get()->getArcadeCollection()->getRootFolder()->getFilesRecursive(GAME);
+
 	// add Auto Systems && preserve order
 	for (auto systemDecl : CollectionSystemManager::getSystemDecls())
 	{
@@ -299,11 +305,24 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
             autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
         else
         {
-            if (!it->second.isPopulated)
-                CollectionSystemManager::get()->populateAutoCollection(&(it->second));
+			bool hasGames = false;
 
-			if (it->second.system->getRootFolder()->getChildren().size() == 0)
-                continue;
+			if (it->second.isPopulated)
+				hasGames = it->second.system->getRootFolder()->getChildren().size() > 0;
+			else
+			{
+				for (auto file : arcadeGames)
+				{
+					if (file->getMetadata(MetaDataId::ArcadeSystemName) == systemDecl.themeFolder)
+					{
+						hasGames = true;
+						break;
+					}
+				}
+			}
+
+			if (!hasGames)
+				continue;
 
 			if (!hasGroup)
 			{
@@ -344,8 +363,8 @@ void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, st
 	{
 		Settings::getInstance()->saveFile();
 		CollectionSystemManager::get()->loadEnabledListFromSettings();
-		CollectionSystemManager::get()->updateSystemsList();
-		ViewController::get()->goToStart();
+		CollectionSystemManager::get()->updateSystemsList();		
 		ViewController::get()->reloadAll();
+		ViewController::get()->goToStart();
 	}
 }

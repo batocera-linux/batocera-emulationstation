@@ -3,6 +3,7 @@
 #define ES_APP_PLATFORM_ID_H
 
 #include <string>
+#include <map>
 
 namespace PlatformIds
 {
@@ -118,6 +119,8 @@ namespace PlatformIds
 
 	PlatformId		getPlatformId(const char* str);
 	std::string		getPlatformName(PlatformId id);
+
+	extern std::map<unsigned short, std::pair<std::string, std::string>> ArcadeSystems;
 }
 
 #endif // ES_APP_PLATFORM_ID_H

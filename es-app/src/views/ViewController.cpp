@@ -99,6 +99,24 @@ int ViewController::getSystemId(SystemData* system)
 
 void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 {
+	SystemData* dest = system;
+
+	if (system->isCollection())
+	{
+		SystemData* bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
+		if (bundle != nullptr)
+		{
+			for (auto child : bundle->getRootFolder()->getChildren())
+			{
+				if (child->getType() == FOLDER && child->getName() == system->getName())
+				{
+					dest = bundle;
+					break;
+				}
+			}
+		}
+	}
+
 	// Tell any current view it's about to be hidden
 	if (mCurrentView)
 	{
@@ -106,12 +124,12 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	}
 
 	mState.viewing = SYSTEM_SELECT;
-	mState.system = system;
+	mState.system = dest;
 
 	auto systemList = getSystemListView();
-	systemList->setPosition(getSystemId(system) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
+	systemList->setPosition(getSystemId(dest) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
+	systemList->goToSystem(dest, false);
 
-	systemList->goToSystem(system, false);
 	mCurrentView = systemList;
 	mCurrentView->onShow();
 
@@ -153,24 +171,54 @@ bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
 
 void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 {
+	if (system == nullptr)
+		return;
+
+	SystemData* moveToBundle = nullptr;
+	FolderData* collectionFolder = nullptr;
+
+	if (system->isCollection())
+	{
+		SystemData* bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
+		if (bundle != nullptr)
+		{
+			for (auto child : bundle->getRootFolder()->getChildren())
+			{
+				if (child->getType() == FOLDER && child->getName() == system->getName())
+				{
+					collectionFolder = (FolderData*)child;
+					moveToBundle = bundle;
+					break;
+				}
+			}
+		}
+	}
+
 	if(mState.viewing == SYSTEM_SELECT)
 	{
 		// move system list
 		auto sysList = getSystemListView();
 		float offX = sysList->getPosition().x();
-		int sysId = getSystemId(system);
+		int sysId = getSystemId(moveToBundle == nullptr ? system : moveToBundle);
 		sysList->setPosition(sysId * (float)Renderer::getScreenWidth(), sysList->getPosition().y());
 		offX = sysList->getPosition().x() - offX;
 		mCamera.translation().x() -= offX;
 	}
 
 	mState.viewing = GAME_LIST;
-	mState.system = system;
+	mState.system = moveToBundle == nullptr ? system : moveToBundle;
 
 	if (mCurrentView)
 		mCurrentView->onHide();
 
-	mCurrentView = getGameListView(system);
+	mCurrentView = getGameListView(moveToBundle == nullptr ? system : moveToBundle);
+	
+	if (collectionFolder != nullptr)
+	{
+		ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(mCurrentView.get());
+		if (view != nullptr)
+			view->moveToFolder(collectionFolder);
+	}
 	
 	if (mCurrentView)
 		mCurrentView->onShow();	
@@ -192,7 +240,7 @@ void ViewController::playViewTransition(bool forceImmediate)
 		return;
 
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
-	if(!forceImmediate && transition_style == "fade")
+	if(transition_style == "fade")
 	{
 		// fade
 		// stop whatever's currently playing, leaving mFadeOpacity wherever it is
@@ -221,18 +269,20 @@ void ViewController::playViewTransition(bool forceImmediate)
 		else
 			advanceAnimation(0, (int)(mFadeOpacity * FADE_DURATION));		
 	} 
-	else if (!forceImmediate && (transition_style == "slide" || transition_style == "auto"))
+	else if (transition_style == "slide" || transition_style == "auto")
 	{
 		// slide or simple slide
 		setAnimation(new MoveCameraAnimation(mCamera, target));
 		updateHelpPrompts(); // update help prompts immediately
-	} else {
+	} 
+	else
+	{		
 		// instant
-		setAnimation(new LambdaAnimation(
-			[this, target](float /*t*/)
+		setAnimation(new LambdaAnimation([this, target](float)
 		{
 			this->mCamera.translation() = -target;
 		}, 1));
+
 		updateHelpPrompts();
 	}
 }
@@ -617,41 +667,55 @@ void ViewController::preload()
 	}
 }
 
-void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme, bool reloadCollection)
+void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 {
 	if (reloadTheme)
 		ThemeData::setDefaultTheme(nullptr);
 
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
 	{
-		if(it->second.get() == view)
-		{
-			bool isCurrent = (mCurrentView == it->second);
-			SystemData* system = it->first;
-			FileData* cursor = view->getCursor();
-			mGameListViews.erase(it);
-
-			if(reloadTheme)
-				system->loadTheme();
-
-			system->setUIModeFilters();
-
-			if (system->isCollection() && reloadCollection)
-				CollectionSystemManager::get()->reloadCustomCollection(system);
-
-			system->updateDisplayedGameCount();
-
-			std::shared_ptr<IGameListView> newView = getGameListView(system);
+		if (it->second.get() != view)
+			continue;
+		
+		bool isCurrent = (mCurrentView == it->second);
+		SystemData* system = it->first;
 			
-			// to counter having come from a placeholder
-			if (system->getName() != "recent" && cursor != nullptr && !cursor->isPlaceHolder())
-				newView->setCursor(cursor);
-			
-			if(isCurrent)
-				mCurrentView = newView;
+		std::string cursorPath;
+		FileData* cursor = view->getCursor();
+		if (cursor != nullptr && !cursor->isPlaceHolder())
+			cursorPath = cursor->getPath();
 
-			break;
-		}
+		mGameListViews.erase(it);
+
+		if(reloadTheme)
+			system->loadTheme();
+
+		system->setUIModeFilters();
+		system->updateDisplayedGameCount();
+
+		std::shared_ptr<IGameListView> newView = getGameListView(system);		
+		if (isCurrent)
+		{		
+			mCurrentView = newView;
+
+			ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(newView.get());
+			if (view != nullptr)
+			{
+				if (!cursorPath.empty())
+				{
+					for (auto file : view->getFileDataEntries())
+					{
+						if (file->getPath() == cursorPath)
+						{
+							newView->setCursor(file);
+							break;
+						}
+					}
+				}
+			}
+		}		
+
+		break;		
 	}
 	
 	if (SystemData::sSystemVector.size() > 0 && reloadTheme)
@@ -685,17 +749,14 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
-	{
 		cursorMap[it->first] = it->second->getCursor();
-	}
+
 	mGameListViews.clear();
 	
 	// If preloaded is disabled
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-	{
 		if (cursorMap.find((*it)) == cursorMap.end())
 			cursorMap[(*it)] = NULL;
-	}
 
 	float idx = 0;
 	// load themes, create gamelistviews and reset filters

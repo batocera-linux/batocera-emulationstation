@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 15:54+0200\n"
+"POT-Creation-Date: 2020-05-04 21:21+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -114,16 +114,16 @@ msgid "OTHER FILTERS"
 msgstr "INNE FILTRY"
 
 msgid "COLLECTION"
-msgstr ""
+msgstr "KOLEKCJA"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "EDYCJA FILTRÓW KOLEKCJI DYNAMICZNYCH"
 
 msgid "DELETE COLLECTION"
-msgstr ""
+msgstr "USUŃ KOLEKCJĘ"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr ""
+msgstr "STWÓRZ NOWĄ KOLEKCJĘ DYNAMICZNĄ"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
@@ -362,8 +362,11 @@ msgstr "INFORMACJA"
 msgid "VERSION"
 msgstr "WERSJA"
 
-msgid "DISK USAGE"
-msgstr "UŻYCIE DYSKU"
+msgid "USER DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM DISK USAGE"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -408,10 +411,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "WYKRYJ JĘZYK/REGION GIER"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "ZAKOŃCZ WYJŚCIE Z MENU"
@@ -755,10 +758,10 @@ msgid "having multiple games"
 msgstr "z wieloma grami"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "POKAŻ '..' FOLDER NADRZĘDNY"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "ROZSZERZENIA PLIKÓW"
 
 msgid "TOOLS"
 msgstr "NARZĘDZIA"
@@ -984,13 +987,13 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "CZY NA PEWNO CHCESZ SFORMATOWAĆ TEN DYSK?"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
+msgstr "KOLEKCJE DO WYŚWIETLENIA"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SYSTEMY ZGRUPOWANE"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "STWÓRZ KOLEKCJĘ NIESTANDARDOWĄ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
@@ -999,7 +1002,7 @@ msgid "SELECT THEME FOLDER"
 msgstr "WYBIERZ FOLDER MOTYWU"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "STWÓRZ NOWĄ KOLEKCJĘ DO EDYCJI"
 
 msgid "OPTIONS"
 msgstr "OPCJE"
@@ -1023,10 +1026,10 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "AUTOMATYCZNE KOLEKCJE GIER"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr ""
+msgstr "KOLEKCJE EDYTOWALNE"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr ""
+msgstr "KOLEKCJE DYNAMICZNE"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "WŁASNE KOLEKCJE GIER"
@@ -1160,6 +1163,9 @@ msgstr "POKAŻ INFORMACJE O GRZE NA WYGASZACZU"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE'UJ TE GRY"
@@ -1383,7 +1389,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Języki"
 
 msgid "Region"
 msgstr "Region"
@@ -1411,6 +1417,13 @@ msgstr "BŁĄD: WSZYSTKIE SYSTEMY SĄ UKRYTE, WSZYSTKIE SĄ TERAZ WYŚWIETLANE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, c-format
 msgid "%i ITEM"
@@ -1559,19 +1572,19 @@ msgid "RATING"
 msgstr "OCENA"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGION"
 
 msgid "KIDGAME"
 msgstr "GRA DLA DZIECI"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "JUŻ GRANE"
 
 msgid "HASHING GAMES"
 msgstr "HASZOWANIE GIER"
 
 msgid "Collections"
-msgstr ""
+msgstr "Kolekcje"
 
 msgid "Extracting"
 msgstr "Rozpakowywanie"
@@ -1611,6 +1624,9 @@ msgstr "FORMATOWANIE URZĄDZENIA"
 
 msgid "Formating"
 msgstr "Formatowanie"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "FORMATOWANIE DYSKU JEST JUŻ URUCHOMIONE."
@@ -1669,16 +1685,8 @@ msgid "Various"
 msgstr "Rozmaite"
 
 #, c-format
-msgid "This collection contains %i game, including %s."
-msgid_plural "This collection contains %i games, including %s."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, c-format
-msgid "This collection contains %i game, including %s among other titles."
-msgid_plural ""
-"This collection contains %i games, including %s among other titles."
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -1786,11 +1794,57 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"
-
-msgid "STOP EDITING"
-msgstr "ZATRZYMAJ EDYTOWANIE"
 
 msgid "EDIT"
 msgstr "EDYTUJ"
@@ -1825,6 +1879,25 @@ msgstr "PRACUJĘ.."
 
 msgid "up/down"
 msgstr "góra/dół"
+
+#~ msgid "This collection contains %i game, including %s."
+#~ msgid_plural "This collection contains %i games, including %s."
+#~ msgstr[0] "Kolekcja zawiera %i grę, w tym %s."
+#~ msgstr[1] "Kolekcja zawiera %i gry, w tym %s."
+#~ msgstr[2] "Kolekcja zawiera %i gier, w tym %s."
+
+#~ msgid "This collection contains %i game, including %s among other titles."
+#~ msgid_plural ""
+#~ "This collection contains %i games, including %s among other titles."
+#~ msgstr[0] "Kolekcja zawiera %i grę, w tym %s wśród innych tytułów."
+#~ msgstr[1] "Kolekcja zawiera %i gry, w tym %s wśród innych tytułów."
+#~ msgstr[2] "Kolekcja zawiera %i gier, w tym %s wśród innych tytułów."
+
+#~ msgid "STOP EDITING"
+#~ msgstr "ZATRZYMAJ EDYTOWANIE"
+
+#~ msgid "DISK USAGE"
+#~ msgstr "UŻYCIE DYSKU"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION"
 #~ msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ"

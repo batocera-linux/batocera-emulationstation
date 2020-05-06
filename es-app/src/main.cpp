@@ -383,7 +383,8 @@ void playVideo()
 			{
 				if (event.type == SDL_QUIT)
 					return;
-			} while (SDL_PollEvent(&event));
+			} 
+			while (SDL_PollEvent(&event));
 		}
 
 		int curTime = SDL_GetTicks();
@@ -530,13 +531,7 @@ int main(int argc, char* argv[])
 		}
 
 		// we can't handle es_systems.cfg file problems inside ES itself, so display the error message then quit
-		window.pushGui(new GuiMsgBox(&window,
-			errorMsg,
-			_("QUIT"), [] { // batocera
-				SDL_Event* quit = new SDL_Event();
-				quit->type = SDL_QUIT;
-				SDL_PushEvent(quit);
-			}));
+		window.pushGui(new GuiMsgBox(&window, errorMsg, _("QUIT"), [] { quitES(); }));
 	}
 
 	SystemConf* systemConf = SystemConf::getInstance(); // batocera
@@ -584,6 +579,7 @@ int main(int argc, char* argv[])
 
 	//generate joystick events since we're done loading
 	SDL_JoystickEventState(SDL_ENABLE);
+	SDL_StopTextInput();
 
 	window.closeSplashScreen();
 
@@ -603,8 +599,6 @@ int main(int argc, char* argv[])
 	int ps_time = SDL_GetTicks();
 
 	bool running = true;
-	bool doReboot = false;
-	bool doShutdown = false;
 
 	while(running)
 	{
@@ -621,30 +615,10 @@ int main(int argc, char* argv[])
 			{
 				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
 
-				switch(event.type) {
-				case SDL_QUIT:
-				  running = false;
-				  break;
-				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_SYS_REBOOT:
-				  running = false;
-				  doReboot = true;
-				  Settings::getInstance()->setBool("IgnoreGamelist", true);
-				  break;
-				case ApiSystem::SDL_FAST_QUIT | ApiSystem::SDL_SYS_SHUTDOWN:
-				  running = false;
-				  doShutdown = true;
-				  Settings::getInstance()->setBool("IgnoreGamelist", true);
-				  break;
-				case SDL_QUIT | ApiSystem::SDL_SYS_REBOOT:
-				  running = false;
-				  doReboot = true;
-				  break;
-				case SDL_QUIT | ApiSystem::SDL_SYS_SHUTDOWN:
-				  running = false;
-				  doShutdown = true;
-				  break;
-				}
-			} while(SDL_PollEvent(&event));
+				if (event.type == SDL_QUIT)
+					running = false;
+			} 
+			while(SDL_PollEvent(&event));
 
 			// triggered if exiting from SDL_WaitEvent due to event
 			if (ps_standby)
@@ -684,6 +658,9 @@ int main(int argc, char* argv[])
 		Log::flush();
 	}
 
+	if (isFastShutdown())
+		Settings::getInstance()->setBool("IgnoreGamelist", true);
+
 	ThreadedHasher::stop();
 	ThreadedScraper::stop();
 
@@ -705,20 +682,9 @@ int main(int argc, char* argv[])
 
 	window.deinit();
 
+	processQuitMode();
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 
-	// batocera
-	int ret; // necessary to eliminate ugly compile warning
-	if (doReboot) {
-		LOG(LogInfo) << "Rebooting system";
-		ret = system("touch /tmp/reboot.please");
-		ret = system("shutdown -r now");
-	} else if (doShutdown) {
-		LOG(LogInfo) << "Shutting system down";
-		ret = system("touch /tmp/shutdown.please");
-		ret = system("shutdown -h now");
-	}
-	
 	return 0;
 }
 

@@ -162,6 +162,48 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		textHeight *= 6;
 	mText->setSize(0, textHeight);
 
+	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool 
+	{		
+		if (config->isMappedLike("down", input)) 
+		{
+			mGrid.setCursorTo(mText);
+			return true;
+		}
+		else if (config->isMappedLike("up", input)) 
+		{
+			mGrid.moveCursor(Vector2i(0, 5));
+			return true;
+		}
+		else if (config->isMappedLike("left", input))
+		{		
+			if (mGrid.getSelectedComponent() == mKeyboardGrid)
+			{
+				mKeyboardGrid->moveCursor(Vector2i(11, 0));
+				return true;
+			}
+			else if (mGrid.getSelectedComponent() == mButtons)
+			{
+				mButtons->moveCursor(Vector2i(4, 0));
+				return true;
+			}
+		}
+		else if (config->isMappedLike("right", input))
+		{
+			if (mGrid.getSelectedComponent() == mKeyboardGrid)
+			{
+				mKeyboardGrid->moveCursor(Vector2i(-11, 0));
+				return true;
+			}
+			else if (mGrid.getSelectedComponent() == mButtons)
+			{
+				mButtons->moveCursor(Vector2i(-4, 0));
+				return true;
+			}
+		}
+
+		return false;
+	});
+
 	// If multiline, set all diminsions back to default, else draw size for keyboard.
 	if (mMultiLine) 
 	{
@@ -180,7 +222,12 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 			setSize(Renderer::getScreenWidth() * 0.95f, mTitle->getFont()->getHeight() + textHeight + 40 + (Renderer::getScreenHeight() * 0.085f) * 6);
 
 		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
-	}
+	}	
+	/*
+	mWindow->postToUiThread([this](Window* w)
+	{
+		mText->startEditing();
+	});*/
 }
 
 
@@ -218,6 +265,22 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 	if (GuiComponent::input(config, input))
 		return true;
 
+	// pressing start
+	if (config->isMappedTo("start", input) && input.value)
+	{
+		if (mOkCallback)
+			mOkCallback(mText->getValue());
+
+		delete this;
+		return true;
+	}
+
+	if ((config->getDeviceId() == DEVICE_KEYBOARD && input.id == SDLK_ESCAPE))
+	{
+		delete this;
+		return true;
+	}
+
 	// pressing back when not text editing closes us
 	if (config->isMappedTo(BUTTON_BACK, input) && input.value)
 	{
@@ -242,15 +305,27 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 
 	// For deleting a chara (Left Top Button)
 	if (config->isMappedTo("pageup", input) && input.value) {
-		mText->startEditing();
+		bool editing = mText->isEditing();
+		if (!editing)
+			mText->startEditing();
+
 		mText->textInput("\b");
-		mText->stopEditing();
+
+		if (!editing)
+			mText->stopEditing();
 	}
 
 	// For Adding a space (Right Top Button)
-	if (config->isMappedTo("pagedown", input) && input.value) {
-		mText->startEditing();
+	if (config->isMappedTo("pagedown", input) && input.value) 
+	{
+		bool editing = mText->isEditing();
+		if (!editing)
+			mText->startEditing();
+
 		mText->textInput(" ");
+
+		if (!editing)
+			mText->stopEditing();
 	}
 #endif 
 	// For Shifting (Y)
@@ -297,6 +372,7 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 		prompts.push_back(HelpPrompt("x", _("RESET")));
 
 	prompts.push_back(HelpPrompt("y", _("SHIFT")));
+	prompts.push_back(HelpPrompt("start", _("OK")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("r", _("SPACE")));
 	prompts.push_back(HelpPrompt("l", _("DELETE")));

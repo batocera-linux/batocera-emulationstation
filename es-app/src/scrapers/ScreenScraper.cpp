@@ -12,6 +12,7 @@
 #include "SystemConf.h"
 #include "md5.h"
 #include <thread>
+#include "LangParser.h"
 
 using namespace PlatformIds;
 
@@ -22,9 +23,8 @@ std::string ScreenScraperRequest::ensureUrl(const std::string url)
 		"#screenscraperserveur#", "https://www.screenscraper.fr/");
 }
 
-
 /**
-	List of systems and their IDs from
+	List of systems and thein IDs from
 	https://www.screenscraper.fr/api/systemesListe.php?devid=xxx&devpassword=yyy&softname=zzz&output=XML
 **/
 const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
@@ -127,39 +127,10 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ SPECTRAVIDEO, 218 },
 	{ PALMOS, 219 },
 	{ DAPHNEE, 49 },
-	{ SOLARUS, 223 }
-	
+	{ SOLARUS, 223 }	
 };
 
-const std::map<unsigned short, std::string> screenscraper_arcadesystemid_map{
-        { 6, "cps1" },
-        { 7, "cps2" },
-        { 8, "cps3" },
-        { 47, "cave" },
-        { 68, "neogeo" },
-        { 142, "neogeo" },
-        { 147, "sega" },
-        { 148, "irem" },
-        { 150, "midway" },
-        { 151, "capcom" },
-        { 153, "tecmo" },
-        { 154, "snk" },
-        { 155, "namco" },
-        { 156, "namco" },
-        { 157, "taito" },
-        { 158, "konami" },
-        { 159, "jaleco" },
-        { 160, "atari" },
-        { 161, "nintendo" },
-        { 162, "dataeast" },
-        { 164, "sammy" },
-        { 166, "acclaim" },
-        { 167, "psikyo" },
-        { 174, "kaneko" },
-        { 183, "coleco" },
-        { 185, "atlus" },
-        { 186, "banpresto" }
-};
+
 
 // Helper XML parsing method, finding a node-by-name recursively.
 pugi::xml_node find_node_by_name_re(const pugi::xml_node& node, const std::vector<std::string> node_names) {
@@ -266,7 +237,7 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 		}else{
 			LOG(LogWarning) << "ScreenScraper: no support for platform " << getPlatformName(*platformIt);
 			// Add the scrape request without a platform/system ID
-			requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path)));
+			requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName())));
 		}
 	}
 
@@ -279,7 +250,7 @@ void screenscraper_generate_scraper_requests(const ScraperSearchParams& params,
 	{
 		path += "&systemeid=";
 		path += HttpReq::urlEncode(std::to_string(*platform));
-		requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path)));
+		requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName())));
 	}
 }
 
@@ -338,7 +309,7 @@ pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::s
 		return art;
 
 	// Region fallback: WOR(LD), US, CUS(TOM?), JP, EU
-	for (auto _region : std::vector<std::string>{ region, "wor", "us", "cus", "jp", "eu", "" })
+	for (auto _region : std::vector<std::string>{ region, "wor", "us", "eu", "jp", "cus", "" })
 	{
 		if (art)
 			break;
@@ -395,6 +366,11 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		std::string region = Utils::String::toLower(ssConfig.region);
 
+		// Detect ROM region
+		auto info = LangInfo::parse(mFileName, nullptr);
+		if (!info.region.empty())
+			region = info.region;
+
 		std::string language = SystemConf::getInstance()->get("system.language");
 		if (language.empty())
 			language = "en";
@@ -403,8 +379,21 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			auto shortNameDivider = language.find("_");
 			if (shortNameDivider != std::string::npos)
 			{
-				region = Utils::String::toLower(language.substr(shortNameDivider + 1));
+				if (info.region.empty())
+					region = Utils::String::toLower(language.substr(shortNameDivider + 1));
+
 				language = Utils::String::toLower(language.substr(0, shortNameDivider));
+			}
+
+			// Region fix
+			if (info.region.empty() && (shortNameDivider != std::string::npos || region == "US"))
+			{
+				if (language == "es" && region == "mx")
+					region = "mx";
+				else if (language == "pt" && region == "br")
+					region = "br";
+				else if (language == "fr" || language == "es" || language == "ca" || language == "el" || language == "hu" || language == "it" || language == "sv" || language == "uk" || language == "gr" || language == "no" || language == "sw" || language == "nl" || language == "de")
+					region = "eu";
 			}
 		}
 
@@ -424,7 +413,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		// Get the date proper. The API returns multiple 'date' children nodes to the 'dates' main child of 'jeu'.
 		// Date fallback: WOR(LD), US, SS, JP, EU
-		std::string _date = find_child_by_attribute_list(game.child("dates"), "date", "region", { region, "wor", "us", "ss", "jp", "eu" }).text().get();
+		std::string _date = find_child_by_attribute_list(game.child("dates"), "date", "region", { region, "wor", "us", "ss", "eu", "jp" }).text().get();
 		//LOG(LogDebug) << "Release Date (unparsed): " << _date;
 
 		// Date can be YYYY-MM-DD or just YYYY.
@@ -454,15 +443,11 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
         if(game.child("systeme").attribute("id"))
         {
             int systemId = game.child("systeme").attribute("id").as_int();
-
-            if(screenscraper_arcadesystemid_map.find(systemId) != screenscraper_arcadesystemid_map.cend())
-            {
-                std::string systemName = screenscraper_arcadesystemid_map.at(game.child("systeme").attribute("id").as_int(0));
-                result.mdl.set("arcadesystemname", systemName);
-            }
-            //else
-            //    LOG(LogDebug) << "System " << systemId << " not found";
-        }
+			
+			auto arcadeSystem = ArcadeSystems.find(systemId);
+            if(arcadeSystem != ArcadeSystems.cend())
+                result.mdl.set("arcadesystemname", arcadeSystem->second.first);
+		}
 
         // TODO: Validate rating
 		if (Settings::getInstance()->getBool("ScrapeRatings") && game.child("note"))
@@ -551,42 +536,8 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 	LOG(LogDebug) << "ScreenScraperRequest::processGame <<";
 }
 
-// Currently not used in this module
-void ScreenScraperRequest::processList(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results)
-{
-	assert(mRequestQueue != nullptr);
-
-	LOG(LogDebug) << "Processing a list of results";
-
-	pugi::xml_node data = xmldoc.child("Data");
-	pugi::xml_node game = data.child("jeu");
-
-	if (!game)
-		LOG(LogDebug) << "Found nothing";
-
-	ScreenScraperRequest::ScreenScraperConfig ssConfig;
-
-	// limit the number of results per platform, not in total.
-	// otherwise if the first platform returns >= 7 games
-	// but the second platform contains the relevant game,
-	// the relevant result would not be shown.
-	for (int i = 0; game && i < MAX_SCRAPER_RESULTS; i++)
-	{
-		std::string id = game.child("id").text().get();
-		std::string name = game.child("nom").text().get();
-		std::string platformId = game.child("systemeid").text().get();
-		std::string path = ssConfig.getGameSearchUrl(name) + "&systemeid=" + platformId + "&gameid=" + id;
-
-		mRequestQueue->push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(results, path)));
-
-		game = game.next_sibling("jeu");
-	}
-}
-
 std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName, bool jeuRecherche) const
-{
-	
-
+{	
 	std::string ret =  API_URL_BASE
 		+ "/jeuInfos.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
 		+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)

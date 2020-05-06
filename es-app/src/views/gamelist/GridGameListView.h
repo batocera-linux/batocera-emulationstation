@@ -40,9 +40,9 @@ public:
 
 	virtual void setThemeName(std::string name);
 	virtual void onShow();
+	virtual std::vector<FileData*> getFileDataEntries() override;
 
 protected:
-	virtual std::vector<FileData*> getFileDataEntries() override;
 	virtual std::string getQuickSystemSelectRightButton() override;
 	virtual std::string getQuickSystemSelectLeftButton() override;
 	virtual void populateList(const std::vector<FileData*>& files) override;

@@ -48,20 +48,18 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 		mDeveloper.setVisible(false);
 		mReleaseDate.setVisible(false);
 		mRating.setVisible(false);
-		mLblGameTime.setVisible(false);
-		mGameTime.setVisible(false);
 		mDescContainer.setVisible(false);
 	}
+
+	// metadata labels + values
+	mLblGameTime.setVisible(false);
+	mGameTime.setVisible(false);
+	mLblFavorite.setVisible(false);
+	mTextFavorite.setVisible(false);
 
 	// image
 	if (mViewType == DetailedContainerType::DetailedView)
 		createImageComponent(&mImage);
-
-	// metadata labels + values
-	mLblGameTime.setVisible(false);
-	mGameTime.setVisible(false);	
-	mLblFavorite.setVisible(false);
-	mTextFavorite.setVisible(false);
 
 	mLblRating.setText(_("Rating") + ": ");
 	addChild(&mLblRating);
@@ -143,39 +141,20 @@ DetailedContainer::~DetailedContainer()
 		delete mHidden;
 }
 
-std::vector<std::pair<std::string, TextComponent*>> DetailedContainer::getMDLabels()
+std::vector<MdComponent> DetailedContainer::getMetaComponents()
 {
-	std::vector<std::pair<std::string, TextComponent*>> mdl =
+	std::vector<MdComponent> mdl =
 	{
-		{ "md_lbl_rating", &mLblRating },
-		{ "md_lbl_releasedate", &mLblReleaseDate },
-		{ "md_lbl_developer", &mLblDeveloper },
-		{ "md_lbl_publisher", &mLblPublisher },
-		{ "md_lbl_genre", &mLblGenre },
-		{ "md_lbl_players", &mLblPlayers },
-		{ "md_lbl_lastplayed", &mLblLastPlayed },
-		{ "md_lbl_playcount", &mLblPlayCount },
-		{ "md_lbl_gametime", &mLblGameTime },
-		{ "md_lbl_favorite", &mLblFavorite }				
-	};
-
-	return mdl;
-}
-
-std::vector<std::pair<std::string, GuiComponent*>> DetailedContainer::getMDValues()
-{
-	std::vector<std::pair<std::string, GuiComponent*>> mdl =
-	{
-		{ "md_rating", &mRating },
-		{ "md_releasedate", &mReleaseDate },
-		{ "md_developer", &mDeveloper },
-		{ "md_publisher", &mPublisher },
-		{ "md_genre", &mGenre },
-		{ "md_players", &mPlayers },
-		{ "md_lastplayed", &mLastPlayed },
-		{ "md_playcount", &mPlayCount },
-		{ "md_gametime", &mGameTime },
-		{ "md_favorite", &mTextFavorite }		
+		{ "rating",   "md_rating",      &mRating,       "md_lbl_rating",      &mLblRating },
+		{ "datetime", "md_releasedate", &mReleaseDate,  "md_lbl_releasedate", &mLblReleaseDate },
+		{ "text",     "md_developer",   &mDeveloper,    "md_lbl_developer",   &mLblDeveloper },
+		{ "text",     "md_publisher",   &mPublisher,    "md_lbl_publisher",   &mLblPublisher },
+		{ "text",     "md_genre",       &mGenre,        "md_lbl_genre",       &mLblGenre },
+		{ "text",     "md_players",     &mPlayers,      "md_lbl_players",     &mLblPlayers },
+		{ "datetime", "md_lastplayed",  &mLastPlayed,   "md_lbl_lastplayed",  &mLblLastPlayed },
+		{ "text",     "md_playcount",   &mPlayCount,    "md_lbl_playcount",   &mLblPlayCount },
+		{ "text",     "md_gametime",    &mGameTime,     "md_lbl_gametime",    &mLblGameTime },
+		{ "text",     "md_favorite",    &mTextFavorite, "md_lbl_favorite",    &mLblFavorite }
 	};
 	return mdl;	
 }
@@ -231,8 +210,9 @@ void DetailedContainer::createVideo()
 void DetailedContainer::initMDLabels()
 {
 	auto mSize = mParent->getSize();
-	
-	auto components = getMDLabels();
+	std::shared_ptr<Font> defaultFont = Font::get(FONT_SIZE_SMALL);
+
+	auto components = getMetaComponents();
 
 	const unsigned int colCount = 2;
 	const unsigned int rowCount = (int)(components.size() / 2);
@@ -245,21 +225,23 @@ void DetailedContainer::initMDLabels()
 	int i = 0;	
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
+		if (components[i].labelid.empty() || components[i].label == nullptr)
+			continue;
+
 		const unsigned int row = i % rowCount;
 		Vector3f pos(0.0f, 0.0f, 0.0f);
 		if (row == 0)
-		{
 			pos = start + Vector3f(colSize * (i / rowCount), 0, 0);
-		}
-		else {
+		else 
+		{
 			// work from the last component
-			GuiComponent* lc = components[i - 1].second;
+			GuiComponent* lc = components[i - 1].label;
 			pos = lc->getPosition() + Vector3f(0, lc->getSize().y() + rowPadding, 0);
 		}
 
-		components[i].second->setFont(Font::get(FONT_SIZE_SMALL));
-		components[i].second->setPosition(pos);
-		components[i].second->setDefaultZIndex(40);
+		components[i].label->setFont(defaultFont);
+		components[i].label->setPosition(pos);
+		components[i].label->setDefaultZIndex(40);
 	}
 }
 
@@ -267,31 +249,29 @@ void DetailedContainer::initMDValues()
 {
 	auto mSize = mParent->getSize();
 
-	auto labels = getMDLabels();
-	auto values = getMDValues();
+	auto components = getMetaComponents();
 
 	std::shared_ptr<Font> defaultFont = Font::get(FONT_SIZE_SMALL);
 	mRating.setSize(defaultFont->getHeight() * 5.0f, (float)defaultFont->getHeight());
-	mReleaseDate.setFont(defaultFont);
-	mDeveloper.setFont(defaultFont);
-	mPublisher.setFont(defaultFont);
-	mGenre.setFont(defaultFont);
-	mPlayers.setFont(defaultFont);
-	mLastPlayed.setFont(defaultFont);
-	mPlayCount.setFont(defaultFont);
-	mGameTime.setFont(defaultFont);
 
 	float bottom = 0.0f;
 
 	const float colSize = (mSize.x() * 0.48f) / 2;
-	for (unsigned int i = 0; i < labels.size(); i++)
+	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		const float heightDiff = (labels[i].second->getSize().y() - values[i].second->getSize().y()) / 2;
-		values[i].second->setPosition(labels[i].second->getPosition() + Vector3f(labels[i].second->getSize().x(), heightDiff, 0));
-		values[i].second->setSize(colSize - labels[i].second->getSize().x(), values[i].second->getSize().y());
-		values[i].second->setDefaultZIndex(40);
+		TextComponent* text = dynamic_cast<TextComponent*>(components[i].component);
+		if (text != nullptr)
+			text->setFont(defaultFont);
+		
+		if (components[i].labelid.empty() || components[i].label == nullptr)
+			continue;
 
-		float testBot = values[i].second->getPosition().y() + values[i].second->getSize().y();
+		const float heightDiff = (components[i].label->getSize().y() - components[i].label->getSize().y()) / 2;
+		components[i].component->setPosition(components[i].label->getPosition() + Vector3f(components[i].label->getSize().x(), heightDiff, 0));
+		components[i].component->setSize(colSize - components[i].label->getSize().x(), components[i].label->getSize().y());
+		components[i].component->setDefaultZIndex(40);
+
+		float testBot = components[i].component->getPosition().y() + components[i].component->getSize().y();
 		if (testBot > bottom)
 			bottom = testBot;
 	}
@@ -345,12 +325,16 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
 
 	initMDLabels();
-	for(auto lbl : getMDLabels())
-		lbl.second->applyTheme(theme, getName(), lbl.first, ALL);
+
+	for (auto ctrl : getMetaComponents())
+		if (ctrl.label != nullptr && theme->getElement(getName(), ctrl.labelid, "text"))
+			ctrl.label->applyTheme(theme, getName(), ctrl.labelid, ALL);
 
 	initMDValues();
-	for (auto val : getMDValues())
-		val.second->applyTheme(theme, getName(), val.first, ALL);
+
+	for (auto ctrl : getMetaComponents())
+		if (ctrl.component != nullptr && theme->getElement(getName(), ctrl.id, ctrl.expectedType))
+			ctrl.component->applyTheme(theme, getName(), ctrl.id, ALL);
 
 	if (theme->getElement(getName(), "md_description", "text"))
 	{
@@ -466,12 +450,14 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		mDescription.setText(file->getMetadata(MetaDataId::Desc));
 		mDescContainer.reset();
 
+		auto valueOrUnknown = [](const std::string value) { return value.empty() ? _("Unknown") : value; };
+
 		mRating.setValue(file->getMetadata(MetaDataId::Rating));
 		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
-		mDeveloper.setValue(file->getMetadata(MetaDataId::Developer));
-		mPublisher.setValue(file->getMetadata(MetaDataId::Publisher));
-		mGenre.setValue(file->getMetadata(MetaDataId::Genre));
-		mPlayers.setValue(file->getMetadata(MetaDataId::Players));
+		mDeveloper.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Developer)));
+		mPublisher.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Publisher)));
+		mGenre.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Genre)));
+		mPlayers.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Players)));
 		mName.setValue(file->getMetadata(MetaDataId::Name));
 		mTextFavorite.setText(file->getFavorite()?_("YES"):_("NO"));
 
@@ -491,8 +477,9 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 
 	std::vector<GuiComponent*> comps;
 
-	for (auto lbl : getMDValues())
-		comps.push_back(lbl.second);
+	for (auto lbl : getMetaComponents())
+		if (lbl.component != nullptr)
+			comps.push_back(lbl.component);
 
 	if (mVideo != nullptr) comps.push_back(mVideo);
 	if (mImage != nullptr) comps.push_back(mImage);
@@ -506,8 +493,9 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	comps.push_back(&mDescription);
 	comps.push_back(&mName);
 
-	for (auto lbl : getMDLabels())
-		comps.push_back(lbl.second);
+	for (auto lbl : getMetaComponents())
+		if (lbl.label != nullptr)
+			comps.push_back(lbl.label);
 
 	for (auto it = comps.cbegin(); it != comps.cend(); it++)
 	{

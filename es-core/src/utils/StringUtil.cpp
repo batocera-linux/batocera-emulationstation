@@ -505,8 +505,11 @@ namespace Utils
 		} // scramble
 
 		std::vector<std::string> split(const std::string& s, char seperator)
-		{
+		{			
 			std::vector<std::string> output;
+
+			if (s.empty())
+				return output;
 
 			std::string::size_type prev_pos = 0, pos = 0;
 			while ((pos = s.find(seperator, pos)) != std::string::npos)

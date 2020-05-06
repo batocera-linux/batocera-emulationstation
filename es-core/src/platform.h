@@ -13,15 +13,20 @@
 
 class Window;
 
-int runShutdownCommand(); // shut down the system (returns 0 if successful)
-int runRestartCommand(); // restart the system (returns 0 if successful)
-int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window); // run a utf-8 encoded in the shell (requires wstring conversion on Windows)
-int quitES(const std::string& filename);
-void touch(const std::string& filename);
+enum QuitMode
+{
+	QUIT = 0,
+	RESTART = 1,
+	SHUTDOWN = 2,
+	REBOOT = 3,
+	FAST_SHUTDOWN = 4,
+	FAST_REBOOT = 5
+};
 
-#ifdef WIN32
-void splitCommand(std::string cmd, std::string* executable, std::string* parameters);
-#endif
+int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window); // run a utf-8 encoded in the shell (requires wstring conversion on Windows)
+int quitES(QuitMode mode = QuitMode::QUIT);
+bool isFastShutdown();
+void processQuitMode();
 
 #ifdef _ENABLEEMUELEC
 std::string getShOutput(const std::string& mStr); /* < emuelec */

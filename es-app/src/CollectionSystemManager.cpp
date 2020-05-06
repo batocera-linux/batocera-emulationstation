@@ -17,6 +17,8 @@
 #include <fstream>
 #include "Gamelist.h"
 #include "FileSorts.h"
+#include "views/gamelist/ISimpleGameListView.h"
+#include "PlatformId.h"
 
 std::string myCollectionsName = "collections";
 
@@ -39,38 +41,28 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 
 		// Arcade meta 
 		{ AUTO_ARCADE,           "arcade",      _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
-
-		// Arcade systems
-		{ CPS1_COLLECTION,      "zcps1",       "cps1",                  FileSorts::FILENAME_ASCENDING,    "cps1",                    false,       false },
-		{ CPS2_COLLECTION,      "zcps2",       "cps2",                  FileSorts::FILENAME_ASCENDING,    "cps2",                    false,       false },
-		{ CPS3_COLLECTION,      "zcps3",       "cps3",                  FileSorts::FILENAME_ASCENDING,    "cps3",                    false,       false },
-		{ CAVE_COLLECTION,      "zcave",       "cave",                  FileSorts::FILENAME_ASCENDING,    "cave",                    false,       false },
-		{ NEOGEO_COLLECTION,    "zneogeo",     "neogeo",                FileSorts::FILENAME_ASCENDING,    "neogeo",                  false,       false },
-		{ SEGA_COLLECTION,      "zsega",       "sega",                  FileSorts::FILENAME_ASCENDING,    "sega",                    false,       false },
-		{ IREM_COLLECTION,      "zirem",       "irem",                  FileSorts::FILENAME_ASCENDING,    "irem",                    false,       false },
-		{ MIDWAY_COLLECTION,    "zmidway",     "midway",                FileSorts::FILENAME_ASCENDING,    "midway",                  false,       false },
-		{ CAPCOM_COLLECTION,    "zcapcom",     "capcom",                FileSorts::FILENAME_ASCENDING,    "capcom",                  false,       false },
-		{ TECMO_COLLECTION,     "ztecmo",      "tecmo",                 FileSorts::FILENAME_ASCENDING,    "tecmo",                   false,       false },
-		{ SNK_COLLECTION,       "zsnk",        "snk",                   FileSorts::FILENAME_ASCENDING,    "snk",                     false,       false },
-		{ NAMCO_COLLECTION,     "znamco",      "namco",                 FileSorts::FILENAME_ASCENDING,    "namco",                   false,       false },
-		{ TAITO_COLLECTION,     "ztaito",      "taito",                 FileSorts::FILENAME_ASCENDING,    "taito",                   false,       false },
-		{ KONAMI_COLLECTION,    "zkonami",     "konami",                FileSorts::FILENAME_ASCENDING,    "konami",                  false,       false },
-		{ JALECO_COLLECTION,    "zjaleco",     "jaleco",                FileSorts::FILENAME_ASCENDING,    "jaleco",                  false,       false },
-		{ ATARI_COLLECTION,     "zatari",      "atari",                 FileSorts::FILENAME_ASCENDING,    "atari",                   false,       false },
-		{ NINTENDO_COLLECTION,  "znintendo",   "nintendo",              FileSorts::FILENAME_ASCENDING,    "nintendo",                false,       false },
-		{ SAMMY_COLLECTION,     "zsammy",      "sammy",                 FileSorts::FILENAME_ASCENDING,    "sammy",                   false,       false },
-		{ ACCLAIM_COLLECTION,   "zacclaim",    "acclaim",               FileSorts::FILENAME_ASCENDING,    "acclaim",                 false,       false },
-		{ PSIKYO_COLLECTION,    "zpsiko",      "psiko",                 FileSorts::FILENAME_ASCENDING,    "psiko",                   false,       false },
-		{ KANEKO_COLLECTION,    "zkaneko",     "kaneko",                FileSorts::FILENAME_ASCENDING,    "kaneko",                  false,       false },
-		{ COLECO_COLLECTION,    "zcoleco",     "coleco",                FileSorts::FILENAME_ASCENDING,    "coleco",                  false,       false },
-		{ ATLUS_COLLECTION,     "zatlus",      "atlus",                 FileSorts::FILENAME_ASCENDING,    "atlus",                   false,       false },
-		{ BANPRESTO_COLLECTION, "zbanpresto",  "banpresto",             FileSorts::FILENAME_ASCENDING,    "banpresto",               false,       false },
-
+	
 		// Custom collection
 		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
 	};
 
-	return std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
+	auto ret = std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
+
+	// Arcade systems
+	for (auto arcade : PlatformIds::ArcadeSystems)
+	{
+		CollectionSystemDecl decl;
+		decl.type = (CollectionSystemType) (1000 + arcade.first);
+		decl.name = "z" + arcade.second.first;
+		decl.longName = arcade.second.second;
+		decl.defaultSortId = FileSorts::FILENAME_ASCENDING;
+		decl.themeFolder = arcade.second.first;
+		decl.isCustom = false;
+		decl.displayIfEmpty = false;
+		ret.push_back(decl);
+	}
+
+	return ret;
 }
 
 CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(window)
@@ -675,7 +667,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		for (auto iter = games.cbegin(); iter != games.cend(); ++iter)
 		{
 			games_counter++;
-			if (games_counter == 4)
+			if (games_counter == 5)
 				break;
 
 			FileData* file = *iter;
@@ -697,26 +689,20 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			{
 			case 2:
 			case 3:
-				games_list += ", ";
+			case 4:
+				games_list += "\n";
 			case 1:
-				games_list += "'" + file->getName() + "'";
+				games_list += "- " + file->getName();
 				break;
-			}
+			}			
 		}
 
+		games_list = "\n" + games_list;
 		games_counter = games.size();
-		if (games_counter <= 3)
-		{
-			snprintf(trstring, 512, ngettext(
-				"This collection contains %i game, including %s.",
-				"This collection contains %i games, including %s.", games_counter), games_counter, games_list.c_str());
-		}	
-		else
-		{
-			snprintf(trstring, 512, ngettext(
-				"This collection contains %i game, including %s among other titles.",
-				"This collection contains %i games, including %s among other titles.", games_counter), games_counter, games_list.c_str());
-		}
+
+		snprintf(trstring, 512, ngettext(
+			"This collection contains %i game, including :%s",
+			"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
 
 		desc = trstring;
 
@@ -737,12 +723,24 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	rootFolder->setMetadata("video", video);
 	rootFolder->setMetadata("thumbnail", thumbnail);
 	rootFolder->setMetadata("image", image);
+	rootFolder->setMetadata("kidgame", "false");
+	rootFolder->setMetadata("hidden", "false");
+	rootFolder->setMetadata("favorite", "false");
 }
 
 void CollectionSystemManager::initCustomCollectionSystems()
 {
 	for (auto name : getCollectionsFromConfigFolder())
 		addNewCustomCollection(name);
+}
+
+SystemData* CollectionSystemManager::getArcadeCollection()
+{
+	CollectionSystemData* allSysData = &mAutoCollectionSystemsData["arcade"];
+	if (!allSysData->isPopulated)
+		populateAutoCollection(allSysData);
+
+	return allSysData->system;
 }
 
 SystemData* CollectionSystemManager::getAllGamesCollection()
@@ -804,75 +802,88 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	
 	for(auto& system : SystemData::sSystemVector)
 	{
-        std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
-        bool isArcade =  std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
-
 		// we won't iterate all collections
-		if (system->isGameSystem() && !system->isCollection())
+		if (!system->isGameSystem() || system->isCollection() || system->isGroupSystem())
+			continue;
+		
+		std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
+		bool isArcade = std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
+
+		std::vector<std::string> hiddenExts;
+		for (auto ext : Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';'))
+			hiddenExts.push_back("." + Utils::String::toLower(ext));
+
+		std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
+		for(auto& game : files)
 		{
-			std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
-			for(auto& game : files)
+			bool include = includeFileInAutoCollections(game);
+			if (!include)
+				continue;
+
+			if (hiddenExts.size() > 0 && game->getType() == GAME)
 			{
-				bool include = includeFileInAutoCollections(game);
-
-				switch(sysDecl.type) 
-				{
-					case AUTO_ALL_GAMES:
-						break;
-					case AUTO_LAST_PLAYED:
-						include = include && game->getMetadata(MetaDataId::PlayCount) > "0";
-						break;
-					case AUTO_NEVER_PLAYED:
-						include = include && !(game->getMetadata(MetaDataId::PlayCount) > "0");
-						break;					
-					case AUTO_FAVORITES:
-						// we may still want to add files we don't want in auto collections in "favorites"
-						include = game->getFavorite();
-						break;
-					case AUTO_ARCADE:
-						include = include && isArcade;
-						break;
-					case AUTO_AT2PLAYERS: // batocera
-					case AUTO_AT4PLAYERS:
-						{
-							std::string players = game->getMetadata(MetaDataId::Players);
-							if (players.empty())
-								include = false;
-							else
-							{
-								int min = -1;
-
-								auto split = players.rfind("+");
-								if (split != std::string::npos)
-									players = Utils::String::replace(players, "+", "-999");
-
-								split = players.rfind("-");
-								if (split != std::string::npos)
-								{
-									min = atoi(players.substr(0, split).c_str());
-									players = players.substr(split + 1);
-								}
-
-								int max = atoi(players.c_str());
-								int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
-								include = min <= 0 ? (val == max) : (min <= val && val <= max);
-							}
-						}
-						break;
-					default:
-						if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
-							include = include && isArcade && game->getMetadata(MetaDataId::ArcadeSystemName) == sysDecl.longName;
-
-						break;				
-				}
-							    
-				if (include) 
-				{
-					CollectionFileData* newGame = new CollectionFileData(game, newSys);
-					rootFolder->addChild(newGame);
-					newSys->addToIndex(newGame);
-				}
+				std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension(game->getFileName()));
+				if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
+					continue;
 			}
+
+			switch(sysDecl.type) 
+			{
+				case AUTO_ALL_GAMES:
+					break;
+				case AUTO_LAST_PLAYED:
+					include = game->getMetadata(MetaDataId::PlayCount) > "0";
+					break;
+				case AUTO_NEVER_PLAYED:
+					include = !(game->getMetadata(MetaDataId::PlayCount) > "0");
+					break;					
+				case AUTO_FAVORITES:
+					// we may still want to add files we don't want in auto collections in "favorites"
+					include = game->getFavorite();
+					break;
+				case AUTO_ARCADE:
+					include = isArcade;
+					break;
+				case AUTO_AT2PLAYERS: // batocera
+				case AUTO_AT4PLAYERS:
+					{
+						std::string players = game->getMetadata(MetaDataId::Players);
+						if (players.empty())
+							include = false;
+						else
+						{
+							int min = -1;
+
+							auto split = players.rfind("+");
+							if (split != std::string::npos)
+								players = Utils::String::replace(players, "+", "-999");
+
+							split = players.rfind("-");
+							if (split != std::string::npos)
+							{
+								min = atoi(players.substr(0, split).c_str());
+								players = players.substr(split + 1);
+							}
+
+							int max = atoi(players.c_str());
+							int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
+							include = min <= 0 ? (val == max) : (min <= val && val <= max);
+						}
+					}
+					break;
+				default:
+					if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
+						include = isArcade && game->getMetadata(MetaDataId::ArcadeSystemName) == sysDecl.themeFolder;
+
+					break;				
+			}
+							    
+			if (include) 
+			{
+				CollectionFileData* newGame = new CollectionFileData(game, newSys);
+				rootFolder->addChild(newGame);
+				newSys->addToIndex(newGame);
+			}			
 		}
 	}
 
@@ -1256,31 +1267,64 @@ bool systemSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-void CollectionSystemManager::reloadCustomCollection(SystemData* sys)
+bool CollectionSystemManager::isCustomCollection(const std::string collectionName)
 {
-	if (sys->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+	auto data = mCustomCollectionSystemsData.find(collectionName);
+	if (data == mCustomCollectionSystemsData.cend())
+		return false;
+
+	return data->second.decl.isCustom;
+}
+
+void CollectionSystemManager::reloadCollection(const std::string collectionName, bool repopulateGamelist)
+{
+	auto autoc = mAutoCollectionSystemsData.find(collectionName);
+	if (autoc != mAutoCollectionSystemsData.cend())
 	{
-		for (auto cc : mCustomCollectionSystemsData)
-		{
-			if (cc.second.filteredIndex != nullptr)
-			{
-				cc.second.isPopulated = false;
-				populateCustomCollection(&cc.second);
-			}
-		}
+		if (repopulateGamelist)
+			for (auto system : SystemData::sSystemVector)
+				if (system->isCollection() && system->getName() == collectionName)
+					ViewController::get()->getGameListView(system)->repopulate();
 
 		return;
 	}
-
-	auto data = mCustomCollectionSystemsData.find(sys->getName());
+	
+	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
 		return;
 
 	if (data->second.filteredIndex == nullptr)
 		return;
 
-	data->second.isPopulated = false;	
+	data->second.isPopulated = false;
 	populateCustomCollection(&data->second);
+
+	if (!repopulateGamelist)
+		return;
+
+	auto bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
+	for (auto ff : bundle->getRootFolder()->getChildren())
+	{
+		if (ff->getType() == FOLDER && ff->getName() == collectionName)
+		{			
+			ViewController::get()->reloadGameListView(bundle);
+
+			ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(ViewController::get()->getGameListView(bundle).get());
+			if (view != nullptr)
+				view->moveToFolder((FolderData*)ff);
+
+			return;
+		}
+	}
+
+	for (auto system : SystemData::sSystemVector)
+	{
+		if (system->isCollection() && system->getName() == collectionName)
+		{
+			ViewController::get()->getGameListView(system)->repopulate();
+			return;
+		}
+	}
 }
 
 bool CollectionSystemManager::deleteCustomCollection(CollectionSystemData* data)

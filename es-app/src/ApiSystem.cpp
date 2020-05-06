@@ -45,6 +45,7 @@
 #endif
 
 #include <pugixml/src/pugixml.hpp>
+#include "platform.h"
 
 ApiSystem::ApiSystem() 
 {
@@ -79,7 +80,23 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 	return free;
 }
 
-std::string ApiSystem::getFreeSpaceInfo() 
+std::string ApiSystem::getFreeSpaceUserInfo() {
+#ifdef _ENABLEEMUELEC
+  return getFreeSpaceInfo("/storage");
+#else
+  return getFreeSpaceInfo("/userdata");
+#endif
+}
+
+std::string ApiSystem::getFreeSpaceSystemInfo() {
+#ifdef _ENABLEEMUELEC
+  return getFreeSpaceInfo("/");
+#else
+  return getFreeSpaceInfo("/boot");
+#endif
+}
+
+std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 {
 	LOG(LogDebug) << "ApiSystem::getFreeSpaceInfo";
 
@@ -87,13 +104,9 @@ std::string ApiSystem::getFreeSpaceInfo()
 
 #if !WIN32
 	struct statvfs fiData;
-#ifdef _ENABLEEMUELEC
-	if ((statvfs("/storage/", &fiData)) < 0)
+	if ((statvfs(mountpoint.c_str(), &fiData)) < 0)
 		return "";
-#else
-	if ((statvfs("/userdata/", &fiData)) < 0)
-		return "";
-#endif		
+
 	unsigned long total = (fiData.f_blocks * (fiData.f_bsize / 1024)) / (1024L * 1024L);
 	unsigned long free = (fiData.f_bfree * (fiData.f_bsize / 1024)) / (1024L * 1024L);
 	unsigned long used = total - free;
@@ -364,13 +377,12 @@ bool ApiSystem::launchKodi(Window *window)
 	switch (exitCode) 
 	{
 	case 10: // reboot code
-		reboot();
+		quitES(QuitMode::REBOOT);		
 		return true;
-		break;
+		
 	case 11: // shutdown code
-		shutdown();
+		quitES(QuitMode::SHUTDOWN);		
 		return true;
-		break;
 	}
 
 	return exitCode == 0;
@@ -409,17 +421,6 @@ bool ApiSystem::disableWifi()
 #else
 	return executeScript("batocera-wifi disable");
 #endif
-}
-
-bool ApiSystem::halt(bool reboot, bool fast) 
-{
-	LOG(LogDebug) << "ApiSystem::halt";
-
-	SDL_Event *quit = new SDL_Event();
-	quit->type = (fast ? SDL_FAST_QUIT : SDL_QUIT) | (reboot ? SDL_SYS_REBOOT : SDL_SYS_SHUTDOWN);
-	SDL_PushEvent(quit);
-
-	return 0;
 }
 
 std::string ApiSystem::getIpAdress() 
@@ -1207,7 +1208,7 @@ std::vector<std::string> ApiSystem::getFormatFileSystems()
 	return executeEnumerationScript("batocera-format listFstypes");
 }
 
-bool ApiSystem::formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func)
+int ApiSystem::formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-format format " + disk + " " + format, func).second == 0;
+	return executeScript("batocera-format format " + disk + " " + format, func).second;
 }

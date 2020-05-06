@@ -15,12 +15,14 @@ class ScreenScraperRequest : public ScraperHttpRequest
 {
 public:
 	// ctor for a GetGameList request
-	ScreenScraperRequest(std::queue< std::unique_ptr<ScraperRequest> >& requestsWrite, std::vector<ScraperSearchResult>& resultsWrite, const std::string& url) : ScraperHttpRequest(resultsWrite, url), mRequestQueue(&requestsWrite) {}
-	// ctor for a GetGame request
-	ScreenScraperRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url) : ScraperHttpRequest(resultsWrite, url), mRequestQueue(nullptr) {}
+	ScreenScraperRequest(std::queue< std::unique_ptr<ScraperRequest> >& requestsWrite, std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, const std::string& fileName) : ScraperHttpRequest(resultsWrite, url), mRequestQueue(&requestsWrite) 
+	{
+		mFileName = fileName;
+	}
 
 	// Settings for the scraper
-	static const struct ScreenScraperConfig {
+	static const struct ScreenScraperConfig 
+	{
 		std::string getGameSearchUrl(const std::string gameName, bool jeuRecherche=false) const;
 
 		// Access to the API
@@ -59,8 +61,7 @@ public:
 protected:
 	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
 	std::string ensureUrl(const std::string url);
-
-	void processList(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);
+	
 	void processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);
 	bool isGameRequest() { return !mRequestQueue; }
 
@@ -70,6 +71,8 @@ private:
 	std::vector<std::string>	getRipList(std::string imageSource);
 	pugi::xml_node				findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region);
 	pugi::xml_node				findMedia(pugi::xml_node media_list, std::string mediaName, std::string region);
+
+	std::string mFileName;
 };
 
 

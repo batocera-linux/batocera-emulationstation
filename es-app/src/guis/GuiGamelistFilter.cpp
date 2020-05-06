@@ -212,5 +212,10 @@ void GuiGamelistFilter::applyFilters()
 	if (collectionFilter != nullptr)
 		collectionFilter->save();
 
+	auto finalize = mOnFinalizeFunc;
+
 	delete this;
+
+	if (finalize != nullptr)
+		finalize();
 }

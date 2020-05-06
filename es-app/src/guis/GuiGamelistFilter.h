@@ -5,6 +5,7 @@
 #include "components/MenuComponent.h"
 #include "FileFilterIndex.h"
 #include "GuiComponent.h"
+#include <functional>
 
 template<typename T>
 class OptionListComponent;
@@ -21,7 +22,11 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	inline void onFinalize(const std::function<void()>& func) { mOnFinalizeFunc = func; };
+
 private:
+	std::function<void()> mOnFinalizeFunc;
+
 	void initializeMenu();
 	void applyFilters();
 	void resetAllFilters();
