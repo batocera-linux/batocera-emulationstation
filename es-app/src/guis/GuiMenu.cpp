@@ -115,7 +115,12 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 			addEntry(_("GAMES SETTINGS").c_str(), true, [this] { openGamesSettings_batocera(); }, "iconGames");
 
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
-		addEntry(_("CONFIGURE INPUT"), true, [this] { openConfigInput(); }, "iconControllers");
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))		
+			addEntry(_("CONTROLLERS SETTINGS").c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
+		else
+			addEntry(_("CONFIGURE INPUT"), true, [this] { openConfigInput(); }, "iconControllers");
+
 		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
 		addEntry(_("GAME COLLECTION SETTINGS").c_str(), true, [this] { openCollectionSystemSettings(); }, "iconAdvanced");
 
@@ -631,16 +636,29 @@ void GuiMenu::openDeveloperSettings()
 	fullExitMenu->setState(!Settings::getInstance()->getBool("ShowOnlyExit"));
 	s->addWithLabel(_("COMPLETE QUIT MENU"), fullExitMenu);
 	s->addSaveFunc([fullExitMenu] { Settings::getInstance()->setBool("ShowOnlyExit", !fullExitMenu->getState()); });
-#else
-	// retroarch.menu_driver = rgui
-	auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
-	retroarchRgui->setState(SystemConf::getInstance()->get("global.retroarch.menu_driver") == "rgui");
-	s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
-	s->addSaveFunc([retroarchRgui]
-	{ 
-		SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
-	});
 #endif
+
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+	{
+		// retroarch.menu_driver = rgui
+		auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
+		retroarchRgui->setState(SystemConf::getInstance()->get("global.retroarch.menu_driver") == "rgui");
+		s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
+		s->addSaveFunc([retroarchRgui]
+		{
+			SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
+		});
+
+#if defined(WIN32)
+		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
+		autoControllers->setState(SystemConf::getInstance()->get("global.disableautocontrollers") != "1");
+		s->addWithLabel(_("AUTOCONFIGURE EMULATORS CONTROLLERS"), autoControllers);
+		s->addSaveFunc([autoControllers]
+		{
+			SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1");
+		});
+#endif
+	}
 
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);

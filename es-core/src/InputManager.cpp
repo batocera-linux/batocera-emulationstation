@@ -380,21 +380,24 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 			// found a correct guid
 			found_guid = true; // no more need to check the name only
 			configNode = item;
-
+#if !WIN32
 			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
 				// found the exact device
 				found_exact = true;
 				configNode = item;
 				break;
 			}
+#endif
 		}
 
+#if !WIN32
 		// check for a name if no guid is found
 		if (found_guid == false) {
 			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
 				configNode = item;
 			}
 		}
+#endif
 	}
 
 	if (!configNode)
@@ -472,11 +475,11 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 
 	pugi::xml_document doc;
 
-	if(Utils::FileSystem::exists(path))
+	if (Utils::FileSystem::exists(path))
 	{
 		// merge files
 		pugi::xml_parse_result result = doc.load_file(path.c_str());
-		if(!result)
+		if (!result)
 		{
 			LOG(LogError) << "Error parsing input config: " << result.description();
 		}
@@ -484,19 +487,24 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 		{
 			// successfully loaded, delete the old entry if it exists
 			pugi::xml_node root = doc.child("inputList");
-			if(root)
+			if (root)
 			{
-			  // batocera
-			  pugi::xml_node oldEntry(NULL);
-			  for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) {
-			    if(strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0 &&
-			       strcmp(config->getDeviceName().c_str(),       item.attribute("deviceName").value()) == 0) {
-			      oldEntry = item;
-			      break;
-			    }
-			  }
-			  if(oldEntry)
-			    root.remove_child(oldEntry);
+				// batocera
+				pugi::xml_node oldEntry(NULL);
+				for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) 
+				{
+					if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0
+#if !WIN32
+						&& strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0
+#endif
+						) 
+					{
+						oldEntry = item;
+						break;
+					}
+				}
+				if (oldEntry)
+					root.remove_child(oldEntry);
 			}
 		}
 	}
