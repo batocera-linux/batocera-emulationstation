@@ -69,6 +69,9 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 {
 	// MAIN MENU
 	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+#ifdef _ENABLEEMUELEC
+	bool isKidUI = UIModeController::getInstance()->isUIModeKid();
+#endif
 
 	// KODI >
 	// GAMES SETTINGS >
@@ -147,7 +150,13 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #ifdef WIN32
 	addEntry(_("QUIT").c_str(), !Settings::getInstance()->getBool("ShowOnlyExit"), [this] {openQuitMenu_batocera(); }, "iconQuit");
 #else
+#ifdef _ENABLEEMUELEC
+if (!isKidUI) {
 	addEntry(_("QUIT").c_str(), true, [this] { openQuitMenu_batocera(); }, "iconQuit");
+}
+#else
+	addEntry(_("QUIT").c_str(), true, [this] { openQuitMenu_batocera(); }, "iconQuit");
+#endif
 #endif
 	
 	addChild(&mMenu);
