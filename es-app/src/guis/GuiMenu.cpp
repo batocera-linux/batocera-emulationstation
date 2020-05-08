@@ -2436,27 +2436,23 @@ void GuiMenu::reloadAllGames(Window* window, bool deleteCurrentGui)
 {
 	window->renderSplashScreen(_("Loading..."));
 
-	ViewController::get()->goToStart();
-
 	if (!deleteCurrentGui)
 	{
 		GuiComponent* topGui = window->peekGui();
 		window->removeGui(topGui);
 	}
 
-	delete ViewController::get();
-
-	ViewController::init(window);
-	CollectionSystemManager::deinit();
-	CollectionSystemManager::init(window);
-	SystemData::loadConfig(window);
-	
 	GuiComponent *gui;
 	while ((gui = window->peekGui()) != NULL)
 	{
 		window->removeGui(gui);
 		delete gui;
 	}
+
+	ViewController::init(window);
+	CollectionSystemManager::deinit();
+	CollectionSystemManager::init(window);
+	SystemData::loadConfig(window);
 
 	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
 	window->closeSplashScreen();
