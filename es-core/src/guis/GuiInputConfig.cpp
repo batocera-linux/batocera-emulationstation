@@ -45,18 +45,13 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 	{ "RightAnalogRight", true,  "RIGHT ANALOG RIGHT", ":/help/analog_right.svg" },
 	{ "HotKeyEnable",     true,  "HOTKEY ENABLE",      ":/help/button_hotkey.svg" }
 };
-
-
-//MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
-//If you want, you can manually add them to es_input.cfg.
-
-#define HOLD_TO_SKIP_MS 1000
-
-GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window),
-	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)),
-	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
 #else
+#if !WIN32
 static const int inputCount = 21; // batocera
+#else
+static const int inputCount = 19; // windows
+#endif
+
 static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 {
   // batocera
@@ -66,8 +61,13 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
   { "right",            false, "RIGHT",        ":/help/dpad_right.svg" },
   { "start",            true,  "START",              ":/help/button_start.svg" },
   { "select",           true,  "SELECT",             ":/help/button_select.svg" },
+#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
+  { "a",                false, "A",    ":/help/buttons_south.svg" },
+  { "b",                true,  "B",   ":/help/buttons_east.svg" },
+#else
   { "a",                false, "A",    ":/help/buttons_east.svg" },
   { "b",                true,  "B",   ":/help/buttons_south.svg" },
+#endif
   { "x",                true,  "X",   ":/help/buttons_north.svg" },
   { "y",                true,  "Y",    ":/help/buttons_west.svg" },
   //{ "LeftShoulder",     true,  "LEFT SHOULDER",      ":/help/button_l.svg" },
@@ -94,10 +94,13 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
   { "pagedown",        true,  "R1",     ":/help/button_r.svg" },
   { "l2",              true,  "L2",       ":/help/button_lt.svg" },
   { "r2",              true,  "R2",      ":/help/button_rt.svg" },
+#if !WIN32
   { "l3",              true,  "L3",       ":/help/button_lt.svg" },
   { "r3",              true,  "R3",      ":/help/button_rt.svg" },
+#endif
   { "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
 };
+#endif
 
 #define fake_gettext_up _("UP")
 #define fake_gettext_down _("DOWN")
@@ -119,7 +122,7 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
-#endif
+
 {
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
