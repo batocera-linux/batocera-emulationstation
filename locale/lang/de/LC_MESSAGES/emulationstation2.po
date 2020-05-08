@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 21:21+0200\n"
+"POT-Creation-Date: 2020-05-08 23:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -423,6 +423,9 @@ msgstr "VOLLSTÄNDIGES EXIT-MENÜ ANZEIGEN"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "LOG LEVEL"
