@@ -38,7 +38,7 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 		return NULL;
 	}
 
-	Utils::FileSystem::stringList pathList = Utils::FileSystem::getPathList(relative);
+	auto pathList = Utils::FileSystem::getPathList(relative);
 	auto path_it = pathList.begin();
 	FolderData* treeNode = root;
 
