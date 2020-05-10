@@ -401,6 +401,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 
 	bool splittedRendering = (mAnimateSelection && mAutoLayout.x() != 0);
 
+	if (mAutoLayout == Vector2f::Zero() && mLastRowPartial) // If the last row is partial in Retropie, extend clip to show the entire last row 
+		size.y() = (mTileSize + mMargin).y() * (mGridDimension.y() - 2 * EXTRAITEMS);
+
 	Renderer::pushClipRect(pos, size);
 
 	// Render the selected image background on bottom of the others if needed
@@ -1044,7 +1047,7 @@ void ImageGridComponent<T>::calcGridDimension()
 		gridDimension = mAutoLayout;
 
 	mLastRowPartial = Math::floorf(gridDimension.y()) != gridDimension.y();
-	mGridDimension = Vector2i((int) gridDimension.x(), (int) gridDimension.y());
+	mGridDimension = Vector2i((int) gridDimension.x(), Math::ceilf(gridDimension.y()));
 
 	// Grid dimension validation
 	if (mGridDimension.x() < 1)
