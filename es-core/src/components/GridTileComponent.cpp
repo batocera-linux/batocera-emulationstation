@@ -952,7 +952,10 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 	mSelected = selected;
 
 	if (!mSelected)
+	{
+		mBackground.setAnimateTiming(0);
 		stopVideo();
+	}
 
 	if (selected)
 	{
