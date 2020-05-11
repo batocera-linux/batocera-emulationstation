@@ -365,10 +365,10 @@ msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "BENUTZERDATEN-VERBRAUCH"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "SYSTEMDATEN-VERBRAUCH"
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -425,7 +425,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
 
 msgid "LOG LEVEL"
 msgstr "LOG LEVEL"
@@ -1173,7 +1173,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "VIDEO BEI BILDSCHIRMSCHONER STRECKEN"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "VIDEO-TON STUMMSCHALTEN"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "DIESE SPIELE SCRAPEN"
@@ -1429,8 +1429,8 @@ msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i SAMLLUNG"
+msgstr[1] "%i SAMMLUNGEN"
 
 #, c-format
 msgid "%i ITEM"
@@ -1631,7 +1631,7 @@ msgid "Formating"
 msgstr "Formatiere"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DEN VORGANG ABZUSCHLIESSEN"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "LAUFWERKS-FORMATIERUNG LÄUFT BEREITS"
@@ -1692,8 +1692,8 @@ msgstr "Verschiedene"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Diese Sammlung beinhaltet %i Spiel, inklusive %s."
+msgstr[1] "Diese Sammlung beinhaltet %i Spiele, inklusive %s."
 
 msgid "UP"
 msgstr "HOCH"
@@ -1800,44 +1800,44 @@ msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Stunde"
+msgstr[1] "%d Stunden"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Minute"
+msgstr[1] "%d Minuten"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Sekunde"
+msgstr[1] "%d Sekunden"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Tag her"
+msgstr[1] "%d Tage her"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Stunde her"
+msgstr[1] "%d Stunden her"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Minute her"
+msgstr[1] "%d Minuten her"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Sekunde her"
+msgstr[1] "%d Sekunden her"
 
 msgid "MOVE CURSOR"
 msgstr "CURSOR BEWEGEN"
