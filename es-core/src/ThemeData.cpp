@@ -1030,6 +1030,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			// Exception for menuIcons that can be extended
 			if (element.type == "menuIcons")
 				type = PATH;
+			else if (std::string(node.name()) == "animate" && std::string(root.name()) == "imagegrid")
+				node.set_name("animateSelection");
 			else
 			{
 				LOG(LogWarning) << "Unknown property type \"" << node.name() << "\" (for element of type " << root.name() << ").";

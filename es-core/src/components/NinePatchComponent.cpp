@@ -141,7 +141,8 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
-	if (mCornerSize.x() <= 1 && mCornerSize.y() <= 1 && mCornerSize.x() == mCornerSize.y())
+	// Apply cornersize < 0 only with default ":/frame.png" image, not with customized ones
+	if (mCornerSize.x() <= 1 && mCornerSize.y() <= 1 && mCornerSize.x() == mCornerSize.y() && mPath == ":/frame.png")
 	{
 		float opacity = mOpacity / 255.0;
 

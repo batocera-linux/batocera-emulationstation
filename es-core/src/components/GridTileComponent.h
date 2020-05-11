@@ -6,6 +6,7 @@
 #include "ImageComponent.h"
 #include "TextComponent.h"
 #include "ThemeData.h"
+#include "resources/TextureResource.h"
 
 class VideoComponent;
 
@@ -132,9 +133,14 @@ public:
 		cornerSize = Vector2f(16, 16);
 		path = ":/frame.png";
 		animateTime = 0;
+		mTexture = TextureResource::get(path, false, true);
 	}
 
-
+	void setImagePath(const std::string _path)
+	{
+		path = _path;
+		mTexture = TextureResource::get(path, false, true);
+	}
 
 	bool applyTheme(const ThemeData::ThemeElement* elem);
 
@@ -151,8 +157,6 @@ public:
 		ctl->setImagePath(path);
 	}
 
-
-
 	bool Loaded;
 	bool Visible;
 
@@ -163,6 +167,9 @@ public:
 
 	unsigned int animateColor;
 	float animateTime;
+
+	// Store texture to avoid unloading & flickering
+	std::shared_ptr<TextureResource> mTexture;
 };
 
 struct GridTileProperties
