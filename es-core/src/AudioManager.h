@@ -52,6 +52,7 @@ public:
 	
 	inline const std::string getSongName() const { return mCurrentSong; }
 	void setSongName(std::string song); 
+	inline bool isSongPlaying() { return (mCurrentMusic != NULL); }
 
 	void changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force = false);
 

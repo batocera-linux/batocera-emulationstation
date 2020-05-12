@@ -2818,7 +2818,12 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
-	s->addGroup(_("VOLUME"));
+	s->addGroup(_("CONTROLS"));
+	// Don't like one of the songs? Press next
+	if (AudioManager::getInstance()->isSongPlaying())
+		s->addEntry(_("SKIP TO NEXT SONG"), false, [this] {
+			AudioManager::getInstance()->playRandomMusic(false);
+		});
 
 	// volume
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
