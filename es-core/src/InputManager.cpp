@@ -400,7 +400,10 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 			// found a correct guid
 			found_guid = true; // no more need to check the name only
 			configNode = item;
-#if !WIN32
+#if WIN32
+			found_exact = true;
+			break;
+#else
 			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
 				// found the exact device
 				found_exact = true;
@@ -442,7 +445,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 
 #if WIN32
 	// Find exact device
-	if (tryLoadInputConfig(path, config, true))
+	if (tryLoadInputConfig(path, config, false))
 		return true;
 #else
 	// Find exact device

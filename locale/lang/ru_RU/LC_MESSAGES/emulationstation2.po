@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 21:24+0200\n"
+"POT-Creation-Date: 2020-05-08 23:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -365,10 +365,10 @@ msgid "VERSION"
 msgstr "ВЕРСИЯ"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -423,6 +423,9 @@ msgstr "ПОЛНОЕ МЕНЮ ВЫХОДА"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "ИСП. МЕНЮ RETROARCH RGUI"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -1167,7 +1170,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "ОТКЛЮЧИТЬ ЗВУК ВИДЕО"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ИГР"
@@ -1422,23 +1425,23 @@ msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i КОЛЛЕКЦИЯ"
+msgstr[1] "%i КОЛЛЕКЦИИ"
+msgstr[2] "%i КОЛЛЕКЦИЙ"
 
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "ОБЪЕКТ"
-msgstr[1] "ОБЪЕКТА"
-msgstr[2] "ОБЪЕКТОВ"
+msgstr[0] "%i ОБЪЕКТ"
+msgstr[1] "%i ОБЪЕКТА"
+msgstr[2] "%i ОБЪЕКТОВ"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "ИГРА"
-msgstr[1] "ИГРЫ"
-msgstr[2] "ИГР"
+msgstr[0] "%i ИГРА"
+msgstr[1] "%i ИГРЫ"
+msgstr[2] "%i ИГР"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1627,7 +1630,7 @@ msgid "Formating"
 msgstr "ФОРМАТИРОВАНИЕ"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "ТРЕБУЕТСЯ ПЕРЕЗАГРУЗКА СИСТЕМЫ ДЛЯ ЗАВЕРШЕНИЯ ОПЕРАЦИИ"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА УЖЕ ЗАПУЩЕНО"
@@ -1688,9 +1691,9 @@ msgstr "Различные"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Коллеция содержит %i игру, включая :%s"
+msgstr[1] "Коллеция содержит %i игры, включая :%s"
+msgstr[2] "Коллеция содержит %i игр, включая :%s"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1798,51 +1801,51 @@ msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ Н�
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d час"
+msgstr[1] "%d часа"
+msgstr[2] "%d часов"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d минуту"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d секунду"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d день назад"
+msgstr[1] "%d дня назад"
+msgstr[2] "%d дней назад"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d час назад"
+msgstr[1] "%d часа назад"
+msgstr[2] "%d часов назад"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d минуту назад"
+msgstr[1] "%d минуты назад"
+msgstr[2] "%d минут назад"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d секунду назад"
+msgstr[1] "%d секунды назад"
+msgstr[2] "%d секунд назад"
 
 msgid "MOVE CURSOR"
 msgstr "ПЕРЕДВИНУТЬ КУРСОР"

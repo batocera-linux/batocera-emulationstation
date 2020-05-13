@@ -703,7 +703,7 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 			{
 				if (!cursorPath.empty())
 				{
-					for (auto file : view->getFileDataEntries())
+					for (auto file : system->getRootFolder()->getFilesRecursive(GAME, true))
 					{
 						if (file->getPath() == cursorPath)
 						{

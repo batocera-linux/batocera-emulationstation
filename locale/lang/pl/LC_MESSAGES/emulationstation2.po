@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 21:21+0200\n"
+"POT-Creation-Date: 2020-05-08 23:23+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -363,10 +363,10 @@ msgid "VERSION"
 msgstr "WERSJA"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "UŻYCIE DYSKU UŻYTKOWNIKA"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "UŻYCIE DYSKU SYSTEMOWEGO"
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -421,6 +421,9 @@ msgstr "ZAKOŃCZ WYJŚCIE Z MENU"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "UŻYJ RETROARCH RGUI MENU"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "POZIOM LOGOWANIA"
@@ -498,7 +501,8 @@ msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "WYMAGANY JEST RESTART SYSTEMU ABY ZASTOSOWAĆ NOWĄ KONFIGURACJĘ"
+msgstr ""
+"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
@@ -1165,7 +1169,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ROZCIĄGNIJ WIDEO NA WYGASZACZU"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "WYCISZ DŹWIĘK WIDEO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE'UJ TE GRY"
@@ -1421,9 +1425,9 @@ msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i KOLEKCJA"
+msgstr[1] "%i KOLEKCJE"
+msgstr[2] "%i KOLEKCJI"
 
 #, c-format
 msgid "%i ITEM"
@@ -1626,7 +1630,7 @@ msgid "Formating"
 msgstr "Formatowanie"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "DO UKOŃCZENIA OPERACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "FORMATOWANIE DYSKU JEST JUŻ URUCHOMIONE."
@@ -1687,9 +1691,9 @@ msgstr "Rozmaite"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Kolekcja zawiera %i grę, w tym: %s"
+msgstr[1] "Kolekcja zawiera %i gry, w tym: %s"
+msgstr[2] "Kolekcja zawiera %i gier, w tym: %s"
 
 msgid "UP"
 msgstr "GÓRA"
@@ -1797,51 +1801,51 @@ msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d godzina"
+msgstr[1] "%d godziny"
+msgstr[2] "%d godzin"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d minuta"
+msgstr[1] "%d minuty"
+msgstr[2] "%d minut"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekundy"
+msgstr[2] "%d sekund"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d dzień temu"
+msgstr[1] "%d dni temu"
+msgstr[2] "%d dni temu"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d godzinę temu"
+msgstr[1] "%d godziny temu"
+msgstr[2] "%d godzin temu"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d minutę temu"
+msgstr[1] "%d minuty temu"
+msgstr[2] "%d minut temu"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d sekundę temu"
+msgstr[1] "%d sekundy temu"
+msgstr[2] "%d sekund temu"
 
 msgid "MOVE CURSOR"
 msgstr "PORUSZ KURSOREM"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 21:21+0200\n"
+"POT-Creation-Date: 2020-05-08 23:23+0200\n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -362,10 +362,10 @@ msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "UTILISATION DISQUE DES DONNÉES UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "UTILISATION DISQUE DU SYSTÈME"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -410,16 +410,19 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES VISUELS COMPLÉMENTAIRES"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "RÉINITIALISER LES EXTENSIONS DE FICHIERS"
+msgstr "RÉINITIALISER LES EXTENSIONS DE FICHIER"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr "REDETECTER LA LANGUE DES JEUX"
+msgstr "REDÉTECTER LA LANGUE/RÉGION DES JEUX"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "AFFICHER LE MENU QUITTER COMPLET"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "UTILISER LE MENU RETROARCH RGUI"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "NIVEAU DE LOG"
@@ -521,7 +524,7 @@ msgid "STORAGE DEVICE"
 msgstr "PÉRIPHÉRIQUE DE STOCKAGE"
 
 msgid "BACKUP USER DATA"
-msgstr "SAUVEGARDE DES DONNÉES"
+msgstr "SAUVEGARDE DES DONNÉES UTILISATEUR"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALLER BATOCERA SUR UN NOUVEAU DISQUE"
@@ -1163,7 +1166,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "COUPER LE SON DES VIDÉOS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPER CES JEUX"
@@ -1622,7 +1625,7 @@ msgid "Formating"
 msgstr "Formatage"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LES MODIFICATIONS"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "LE FORMATAGE D'UN DISQUE EST DÉJÀ EN COURS"
@@ -1862,23 +1865,3 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
-
-#~ msgid "STOP EDITING"
-#~ msgstr "ARRETER L'ÉDITION"
-
-#~ msgid "DISK USAGE"
-#~ msgstr "UTILISATION DISQUE"
-
-#~ msgid "This collection contains %1$i game, including %2$s."
-#~ msgid_plural "This collection contains %1$i games, including %2$s."
-#~ msgstr[0] "Cette collection contient %1$i jeu, dont %2$s"
-#~ msgstr[1] "Cette collection contient %1$i jeux, dont %2$s"
-
-#~ msgid ""
-#~ "This collection contains %1$i game, including %2$s among other titles."
-#~ msgid_plural ""
-#~ "This collection contains %1$i games, including %2$s among other titles."
-#~ msgstr[0] ""
-#~ "Cette collection contient %1$i jeu, dont %2$s parmi d'autres titres"
-#~ msgstr[1] ""
-#~ "Cette collection contient %1$i jeux, dont %2$s parmi d'autres titres"

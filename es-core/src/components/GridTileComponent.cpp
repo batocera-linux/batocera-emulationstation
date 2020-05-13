@@ -446,7 +446,7 @@ void GridTileComponent::applyThemeToProperties(const ThemeData::ThemeElement* el
 
 	// Retrocompatibility for Background properties
 	if (elem->has("backgroundImage"))
-		properties.Background.path = elem->get<std::string>("backgroundImage");
+		properties.Background.setImagePath(elem->get<std::string>("backgroundImage"));
 
 	if (elem->has("backgroundCornerSize"))
 		properties.Background.cornerSize = elem->get<Vector2f>("backgroundCornerSize");
@@ -952,7 +952,10 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 	mSelected = selected;
 
 	if (!mSelected)
+	{
+		mBackground.setAnimateTiming(0);
 		stopVideo();
+	}
 
 	if (selected)
 	{

@@ -1027,50 +1027,32 @@ void GuiMenu::openSystemSettings_batocera()
 	if (language.empty()) 
 		language = "en_US";
 
-	language_choice->add("BASQUE", "eu_ES", language == "eu_ES");
-	language_choice->add("正體中文", "zh_TW", language == "zh_TW");
-	language_choice->add("简体中文", "zh_CN", language == "zh_CN");
-	language_choice->add("DEUTSCH", "de_DE", language == "de_DE");
-	language_choice->add("ENGLISH", "en_US", language == "en_US" || language == "en");
-	language_choice->add("ESPAÑOL", "es_ES", language == "es_ES" || language == "es");
-	language_choice->add("ESPAÑOL MEXICANO", "es_MX", language == "es_MX");
-	language_choice->add("FRANÇAIS", "fr_FR", language == "fr_FR" || language == "fr");
-	language_choice->add("ITALIANO", "it_IT", language == "it_IT");
+	language_choice->add("ARABIC",               "ar_YE", language == "ar_YE");
+	language_choice->add("CATALÀ",               "ca_ES", language == "ca_ES");
+	language_choice->add("DEUTSCH", 	     "de_DE", language == "de_DE");
+	language_choice->add("GREEK",                "el_GR", language == "el_GR");
+	language_choice->add("ENGLISH", 	     "en_US", language == "en_US" || language == "en");
+	language_choice->add("ESPAÑOL", 	     "es_ES", language == "es_ES" || language == "es");
+	language_choice->add("ESPAÑOL MEXICANO",     "es_MX", language == "es_MX");
+	language_choice->add("BASQUE",               "eu_ES", language == "eu_ES");
+	language_choice->add("FRANÇAIS",             "fr_FR", language == "fr_FR" || language == "fr");
+	language_choice->add("HUNGARIAN",            "hu_HU", language == "hu_HU");
+	language_choice->add("ITALIANO",             "it_IT", language == "it_IT");
+	language_choice->add("JAPANESE", 	     "ja_JP", language == "ja_JP");
+	language_choice->add("KOREAN",   	     "ko_KR", language == "ko_KR" || language == "ko");
+	language_choice->add("NORWEGIAN BOKMAL",     "nb_NO", language == "nb_NO");
+	language_choice->add("DUTCH",                "nl_NL", language == "nl_NL");
+	language_choice->add("NORWEGIAN",            "nn_NO", language == "nn_NO");
+	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
 	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
-	language_choice->add("PORTUGUES PORTUGAL", "pt_PT", language == "pt_PT");
-	language_choice->add("SVENSKA", "sv_SE", language == "sv_SE");
-	language_choice->add("TÜRKÇE", "tr_TR", language == "tr_TR");
-	language_choice->add("CATALÀ", "ca_ES", language == "ca_ES");
-	language_choice->add("ARABIC", "ar_YE", language == "ar_YE");
-	language_choice->add("DUTCH", "nl_NL", language == "nl_NL");
-	language_choice->add("GREEK", "el_GR", language == "el_GR");
-	language_choice->add("KOREAN", "ko_KR", language == "ko_KR" || language == "ko");
-	language_choice->add("NORWEGIAN", "nn_NO", language == "nn_NO");
-	language_choice->add("NORWEGIAN BOKMAL", "nb_NO", language == "nb_NO");
-	language_choice->add("POLISH", "pl_PL", language == "pl_PL");
-	language_choice->add("JAPANESE", "ja_JP", language == "ja_JP");
-	language_choice->add("RUSSIAN", "ru_RU", language == "ru_RU");
-	language_choice->add("HUNGARIAN", "hu_HU", language == "hu_HU");
-
+	language_choice->add("PORTUGUES PORTUGAL",   "pt_PT", language == "pt_PT");
+	language_choice->add("RUSSIAN",              "ru_RU", language == "ru_RU");
+	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
+	language_choice->add("TÜRKÇE",  	     "tr_TR", language == "tr_TR");
+	language_choice->add("Українська",           "uk_UK", language == "uk_UK");
+	language_choice->add("简体中文", 	     "zh_CN", language == "zh_CN");
+	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
 	s->addWithLabel(_("LANGUAGE"), language_choice);
-#ifdef _ENABLEEMUELEC
-	s->addSaveFunc([language_choice, window] {
-			if (language_choice->changed()) {
-			std::string selectedLanguage = language_choice->getSelected();
-			std::string msg = _("You are about to set EmuELEC Language to:") +"\n" +  selectedLanguage + "\n";
-			msg += _("Emulationstation will restart")+"\n";
-			msg += _("Do you want to proceed ?");
-			window->pushGui(new GuiMsgBox(window, msg,
-				"YES", [selectedLanguage] {
-			SystemConf::getInstance()->set("system.language",
-				selectedLanguage);
-			SystemConf::getInstance()->saveSystemConf();
-					runSystemCommand("systemctl restart emustation", "", nullptr); 
-			}, "NO",nullptr));
- 		}
-
-		});
-#endif
 
 	// power saver
 	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
@@ -1377,6 +1359,17 @@ void GuiMenu::openSystemSettings_batocera()
 
 		if (language_choice->changed()) 
 		{	
+#ifdef _ENABLEEMUELEC
+			std::string selectedLanguage = language_choice->getSelected();
+			std::string msg = _("You are about to set EmuELEC Language to:") +"\n" +  selectedLanguage + "\n";
+			msg += _("Emulationstation will restart")+"\n";
+			msg += _("Do you want to proceed ?");
+			window->pushGui(new GuiMsgBox(window, msg, _("YES"), [selectedLanguage] {
+			SystemConf::getInstance()->set("system.language", selectedLanguage);
+			SystemConf::getInstance()->saveSystemConf();
+					runSystemCommand("systemctl restart emustation", "", nullptr); 
+			}, "NO",nullptr));
+#else
 			if (SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
 			{
 				FileSorts::reset();
@@ -1387,6 +1380,7 @@ void GuiMenu::openSystemSettings_batocera()
 				reboot = true;
 #endif
 			}			
+#endif
 		}
 
 		if (reboot)

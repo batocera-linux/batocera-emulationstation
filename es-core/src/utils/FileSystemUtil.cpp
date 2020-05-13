@@ -375,9 +375,9 @@ namespace Utils
 
 		} // getDirectoryFiles
 
-		stringList getPathList(const std::string& _path)
+		std::vector<std::string> getPathList(const std::string& _path)
 		{
-			stringList  pathList;
+			std::vector<std::string>  pathList;
 			std::string path  = getGenericPath(_path);
 			size_t      start = 0;
 			size_t      end   = 0;
@@ -571,12 +571,12 @@ namespace Utils
 			bool scan = true;
 			while(scan)
 			{
-				stringList pathList = getPathList(path);
+				auto pathList = getPathList(path);
 
 				path.clear();
 				scan = false;
 
-				for(stringList::const_iterator it = pathList.cbegin(); it != pathList.cend(); ++it)
+				for(auto it = pathList.cbegin(); it != pathList.cend(); ++it)
 				{
 					// ignore empty
 					if((*it).empty())
@@ -742,13 +742,49 @@ namespace Utils
 
 			if(_allowHome)
 			{
-				path = removeCommonPath(_path, getHomePath(), contains);
+#if WIN32
+				auto from_dirs = getPathList(getHomePath());
+				auto to_dirs = getPathList(_path);
 
+				if (from_dirs.size() == 0 || to_dirs.size() == 0 || from_dirs[0] != to_dirs[0])
+					return path;
+
+				std::string output;
+				output.reserve(_path.size());
+				output = "~/";
+
+				std::vector<std::string>::const_iterator to_it = to_dirs.begin(), to_end = to_dirs.end(), from_it = from_dirs.begin(), from_end = from_dirs.end();
+
+				while ((to_it != to_end) && (from_it != from_end) && *to_it == *from_it)
+				{
+					++to_it;
+					++from_it;
+				}
+
+				while (from_it != from_end)
+				{
+					output += "../";
+					++from_it;
+				}
+
+				while (to_it != to_end)
+				{
+					output += *to_it;
+					++to_it;
+
+					if (to_it != to_end)
+						output += "/";
+				}
+
+				return output;
+#else				
+				path = removeCommonPath(_path, getHomePath(), contains);
 				if(contains)
 				{
 					// success
 					return ("~/" + path);
 				}
+#endif
 			}
 
 			// nothing to resolve
@@ -1004,16 +1040,15 @@ namespace Utils
 				if (count > 0)
 				{
 					auto list = getPathList(gp);
-					std::vector<std::string> p(list.begin(), list.end());
 
 					std::string result;
 
-					for (int i = 0; i < p.size() - count; i++)
+					for (int i = 0; i < list.size() - count; i++)
 					{
 						if (result.empty())
-							result = p.at(i);
+							result = list.at(i);
 						else
-							result = result + "/" + p.at(i);
+							result = result + "/" + list.at(i);
 					}
 
 					std::vector<std::string> fn(f.begin(), f.end());

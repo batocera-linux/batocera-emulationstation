@@ -4,6 +4,7 @@
 
 #include <list>
 #include <string>
+#include <vector>
 #include "utils/TimeUtil.h"
 
 namespace Utils
@@ -11,9 +12,9 @@ namespace Utils
 	namespace FileSystem
 	{
 		typedef std::list<std::string> stringList;
-
+		
 		stringList  getDirContent      (const std::string& _path, const bool _recursive = false, const bool includeHidden = false);
-		stringList  getPathList        (const std::string& _path);
+		std::vector<std::string>  getPathList        (const std::string& _path);
 		std::string getHomePath        ();
 		std::string getCWDPath         ();
 		std::string getExePath         ();
