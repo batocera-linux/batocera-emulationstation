@@ -2818,12 +2818,7 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
-	s->addGroup(_("CONTROLS"));
-	// Don't like one of the songs? Press next
-	if (AudioManager::getInstance()->isSongPlaying())
-		s->addEntry(_("SKIP TO NEXT SONG"), false, [this] {
-			AudioManager::getInstance()->playRandomMusic(false);
-		});
+	s->addGroup(_("VOLUME"));
 
 	// volume
 	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
@@ -3051,6 +3046,12 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 
 	auto s = new GuiSettings(window, _("QUIT").c_str());
 	
+	// Don't like one of the songs? Press next
+	if (AudioManager::getInstance()->isSongPlaying())
+		s->addEntry(_("SKIP TO NEXT SONG"), false, [window] {
+			AudioManager::getInstance()->playRandomMusic(false);
+		});
+
 	if (forceWin32Menu)
 	{
 		s->setCloseButton("select");
