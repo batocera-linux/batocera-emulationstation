@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 23:23+0200\n"
+"POT-Creation-Date: 2020-05-15 22:51+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -921,6 +921,9 @@ msgstr "ЗАГРУЗИТЬ ДАННЫЕ?"
 
 msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
+
+msgid "SKIP TO NEXT SONG"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"

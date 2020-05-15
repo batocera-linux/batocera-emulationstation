@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 23:23+0200\n"
+"POT-Creation-Date: 2020-05-15 22:51+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -922,6 +922,9 @@ msgstr "VERKLIGEN SKRAPA?"
 
 msgid "MANUAL SCRAPER"
 msgstr "MANUELL SKRAPARE"
+
+msgid "SKIP TO NEXT SONG"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
