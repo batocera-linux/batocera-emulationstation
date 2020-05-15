@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 23:23+0200\n"
+"POT-Creation-Date: 2020-05-14 17:31+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,7 +89,7 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNAVAILABLE CORE"
-msgstr ""
+msgstr "NÚCLEO INDISPONÍVEL"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -116,16 +116,16 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "EDITAR FILTROS DE COLEÇÃO DINAMICA"
 
 msgid "DELETE COLLECTION"
-msgstr ""
+msgstr "APAGAR COLEÇÃO"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr ""
+msgstr "CRIAR NOVA COLEÇÃO DINAMICA"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "MODO DE VISUALIZAÇÃO DA LISTA DE JOGOS"
@@ -158,7 +158,7 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "EDIT FOLDER METADATA"
-msgstr ""
+msgstr "EDITAR PASTA DE METADADOS"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
@@ -317,10 +317,10 @@ msgid "LOGO SOURCE"
 msgstr "FONTE DO LOGOTIPO"
 
 msgid "WHEEL"
-msgstr "RODA"
+msgstr "LOGOTIPO"
 
 msgid "MARQUEE"
-msgstr "MARQUEE"
+msgstr "LETREIRO"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE DAS AVALIAÇÕES"
@@ -365,10 +365,10 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO DO USUÁRIO"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -413,10 +413,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PESQUISA DE ARTE LOCAL"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
@@ -425,7 +425,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "USAR RETROARCH RGUI MENU"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DE LOG"
@@ -443,7 +443,7 @@ msgid "FILE GENERATION FAILED"
 msgstr "FALHA AO GERAR O ARQUIVO"
 
 msgid "FORMAT A DISK"
-msgstr ""
+msgstr "FORMATAR O DISCO"
 
 msgid "DOWNLOADS"
 msgstr "TRANSFERÊNCIAS"
@@ -762,10 +762,10 @@ msgid "having multiple games"
 msgstr "tendo vários jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "MOSTRAR '..' PASTA PRINCIPAL"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSÕES DE ARQUIVO"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -974,31 +974,31 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
 msgid "FORMAT DEVICE"
-msgstr ""
+msgstr "FORMATO DISPOSITIVO"
 
 msgid "DEVICE TO FORMAT"
-msgstr ""
+msgstr "DISPOSITIVO PARA FORMATAR"
 
 msgid "FILE SYSTEM"
-msgstr ""
+msgstr "ARQUIVO DE SISTEMA"
 
 msgid "FORMAT NOW"
-msgstr ""
+msgstr "FORMATAR AGORA"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr ""
+msgstr "OPÇÕES SELECIONADAS SÃO INVÁLIDAS"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
-msgstr ""
+msgstr "TEM CERTEZA QUE DESEJA FORMATAR ESTE DISCO?"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
+msgstr "COLEÇÕES A EXIBIR"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMAS EM GRUPO"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "CRIAR COLEÇÃO PERSONALIZADA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA DO TEMA"
@@ -1007,7 +1007,7 @@ msgid "SELECT THEME FOLDER"
 msgstr "SELECIONAR PASTA TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "CRIAR NOVA COLEÇÃO EDITÁVEL"
 
 msgid "OPTIONS"
 msgstr "OPÇÕES"
@@ -1031,10 +1031,10 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES EDITÁVEIS"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES DINÂMICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLEÇÕES DE JOGO PERSONALIZADOS"
@@ -1169,7 +1169,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NA PROTEÇÃO DE TELA"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "SILENCIAR VIDEO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE DESSES JOGOS"
@@ -1292,10 +1292,10 @@ msgid "enter path to video"
 msgstr "insira o caminho para o vídeo"
 
 msgid "Marquee"
-msgstr "Marquee"
+msgstr "Letreiro"
 
 msgid "enter path to marquee"
-msgstr "insira o caminho para a marquee"
+msgstr "insira o caminho para o letreiro"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
@@ -1394,7 +1394,7 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "tempo total de jogo (segundos)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Region"
 msgstr "Região"
@@ -1575,22 +1575,22 @@ msgid "RATING"
 msgstr "Classificação"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGIÃO"
 
 msgid "KIDGAME"
 msgstr "JOGOS INFANTIL"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "JÁ JOGADO"
 
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
 
 msgid "Collections"
-msgstr ""
+msgstr "Coleções"
 
 msgid "Extracting"
-msgstr ""
+msgstr "Extraindo"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PASSAR"
@@ -1623,16 +1623,16 @@ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "O ESCANEAMENTO DE BLUETOOTH ESTÁ EM EXECUÇÃO"
 
 msgid "FORMATING DEVICE"
-msgstr ""
+msgstr "FORMATANDO DISPOSITIVO"
 
 msgid "Formating"
-msgstr ""
+msgstr "Formatando"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA CONCLUIR A OPERAÇÃO"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
+msgstr "A FORMATAÇÃO DA UNIDADE JÁ ESTÁ EM EXECUÇÃO."
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -1690,8 +1690,8 @@ msgstr "Várias"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta coleção contém %i jogo, incluindo :%s"
+msgstr[1] "Esta coleção contém %i jogos, incluindo :%s"
 
 msgid "UP"
 msgstr "CIMA"
@@ -1795,44 +1795,44 @@ msgstr "SEGURE UM BOTÃO NO CONTROLE PARA INICIAR A CONFIGURAÇÃO"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora"
+msgstr[1] "%d horas"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d dia atrás"
+msgstr[1] "%d dias atrás"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora atrás"
+msgstr[1] "%d horas atrás"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto atrás"
+msgstr[1] "%d minutos atrás"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d segundo atrás"
+msgstr[1] "%d segundos atrás"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
