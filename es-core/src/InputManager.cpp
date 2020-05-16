@@ -318,23 +318,12 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		//}
 
 #ifdef _ENABLEEMUELEC
-    static int delayP = -1;
-
-        /* Use the POWER KEY (double tap) to turn off EmuELEC, specially useful for GTKING-PRO and Odroid Go Advance*/
-    if(ev.key.keysym.sym == SDLK_POWER) 
-		{
-            int delay = SDL_GetTicks();
-
-    if (delayP > 0 && delay - delayP < 500) 
-		{ 
-	/* TODO: if possible call a script to either shutdown or enter sleep depening on configuration */
-	// LOG(LogInfo) << "double click power button delay is: " << std::to_string(delay - delayP);
-            SDL_Event *quit = new SDL_Event();
-            quit->type = SDL_QUIT | 0X4000;
-            SDL_PushEvent(quit);
-            return false;
-		}
-    delayP = delay;
+		/* use the POWER KEY to turn off EmuELEC, specially useful for GTKING-PRO and Odroid Go Advance*/
+        if(ev.key.keysym.sym == SDLK_POWER) {
+			Scripting::fireEvent("quit", "shutdown");
+			quitES(QuitMode::SHUTDOWN);
+			/*LOG(LogError) << "no quit?";*/
+			return false;
 		}
 #endif
 		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, ev.key.keysym.sym, 1, false));
