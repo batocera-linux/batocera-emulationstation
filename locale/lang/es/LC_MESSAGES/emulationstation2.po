@@ -362,10 +362,10 @@ msgid "VERSION"
 msgstr "VERSIÓN"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "USO DE DISCO DEL USUARIO"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "USO DE DISCO DEL SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -410,10 +410,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "RESTABLECER EXTENSION DE ARCHIVOS"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "REDETECTAR LENGUAJE/REGION DE LOS JUEGOS"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "SALIR AL MENÚ"
@@ -422,7 +422,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "USAR INTERFAZ DE RETROARCH"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR LOS CONTROLES EN EMULADORES"
 
 msgid "LOG LEVEL"
 msgstr "DETALLE DEL LOG"
@@ -765,7 +765,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PADRE"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSIONES DE ARCHIVOS"
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
@@ -923,7 +923,7 @@ msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "BRINCAR A LA SIGUIENTE CANCIÓN"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -1172,7 +1172,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "AJUSTAR VIDEO EN SALVAPANTALLAS"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "DESACTIVAR SONIDO DE VIDEOS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTENER DATOS DE ESTOS JUEGOS"
@@ -1398,10 +1398,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "CUANTO TIEMPO HA SIDO JUGADO (SEGUNDOS)"
 
 msgid "Languages"
-msgstr ""
+msgstr "LENGUAJES"
 
 msgid "Region"
-msgstr ""
+msgstr "REGION"
 
 msgid "favorite"
 msgstr "FAVORITO"
@@ -1431,8 +1431,8 @@ msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLECCIÓN"
+msgstr[1] "%i COLECCIÓNES"
 
 #, c-format
 msgid "%i ITEM"
@@ -1579,7 +1579,7 @@ msgid "RATING"
 msgstr "PUNTUACIÓN"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGION"
 
 msgid "KIDGAME"
 msgstr "JUEGO PARA NIÑO"
@@ -1633,7 +1633,7 @@ msgid "Formating"
 msgstr "FORMATEANDO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "ES NECESARIO UN REINICIO PARA COMPLETAR LA OPERACION"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "YA SE ESTA EJECUTANDO, EL FORMATEO DE DISCO"
@@ -1694,8 +1694,8 @@ msgstr "VARIOS"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ESTA COLECCIÓN CONTIENE %i JUEGO, INCLUYENDO :%s"
+msgstr[1] "ESTA COLECCIÓN CONTIENE %i JUEGOS, INCLUYENDO :%s"
 
 msgid "UP"
 msgstr "ARRIBA"
@@ -1800,44 +1800,44 @@ msgstr "MANTÉN PRESIONADO UN BOTÓN DEL CONTROL PARA CONFIGURARLO"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d HORA"
+msgstr[1] "%d HORAS"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d MINUTO"
+msgstr[1] "%d MINUTOS"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d SEGUNDO"
+msgstr[1] "%d SEGUNDOS"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d DIA ATRAS"
+msgstr[1] "%d DIAS ATRAS"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d HORA ATRAS"
+msgstr[1] "%d HORAS ATRAS"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d MINUTO ATRAS"
+msgstr[1] "%d MINUTOS ATRAS"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d SEGUNDO ATRAS"
+msgstr[1] "%d SEGUNDOS ATRAS"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
