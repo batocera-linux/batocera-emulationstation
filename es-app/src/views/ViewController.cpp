@@ -567,6 +567,15 @@ bool ViewController::input(InputConfig* config, Input input)
 		return true;
 	}
 
+#ifdef _ENABLEEMUELEC
+	// Emuelec next song
+	if(config->isMappedTo("leftthumb", input) && input.value != 0) // emuelec
+	{
+		// next song
+		AudioManager::getInstance()->playRandomMusic(false);
+		return true;
+	}
+#else
 	// Batocera next song
 	if(config->isMappedTo("l3", input) && input.value != 0) // batocera
 	{
@@ -574,6 +583,7 @@ bool ViewController::input(InputConfig* config, Input input)
 		AudioManager::getInstance()->playRandomMusic(false);
 		return true;
 	}
+#endif
 
 	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
 	{
