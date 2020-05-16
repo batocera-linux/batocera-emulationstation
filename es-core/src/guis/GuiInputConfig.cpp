@@ -60,8 +60,8 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
   { "pagedown",        true,  "R1",     ":/help/button_r.svg" },
   { "l2",              true,  "L2",       ":/help/button_lt.svg" },
   { "r2",              true,  "R2",      ":/help/button_rt.svg" },
-  { "l3",              true,  "L3",       ":/help/button_lt.svg" },
-  { "r3",              true,  "R3",      ":/help/button_rt.svg" },
+  { "l3",              true,  "L3",       ":/help/analog_thumb.svg" },
+  { "r3",              true,  "R3",      ":/help/analog_thumb.svg" },
   { "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
 };
 
