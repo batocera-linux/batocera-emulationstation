@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 23:23+0200\n"
+"POT-Creation-Date: 2020-05-15 22:51+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -920,6 +920,9 @@ msgstr "SCRAPE'OWAĆ?"
 
 msgid "MANUAL SCRAPER"
 msgstr "SCRAPER RĘCZNY"
+
+msgid "SKIP TO NEXT SONG"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ EKRANU"

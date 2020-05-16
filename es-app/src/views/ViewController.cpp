@@ -567,6 +567,14 @@ bool ViewController::input(InputConfig* config, Input input)
 		return true;
 	}
 
+	// Batocera next song
+	if(config->isMappedTo("l3", input) && input.value != 0) // batocera
+	{
+		// next song
+		AudioManager::getInstance()->playRandomMusic(false);
+		return true;
+	}
+
 	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
 	{
 		return true;
