@@ -412,7 +412,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			if (mViewType == DetailedContainerType::VideoView && mImage != nullptr)
 				mImage->setImage(file->getImagePath(), false, mImage->getMaxSizeInfo());
 
-			mThumbnail->setImage(file->getThumbnailPath());
+			mThumbnail->setImage(file->getThumbnailPath(), false, mImage->getMaxSizeInfo());
 		}
 		
 		if (mImage != nullptr)
@@ -420,7 +420,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			if (mViewType == DetailedContainerType::VideoView && mThumbnail == nullptr)
 				mImage->setImage(file->getThumbnailPath(), false, mImage->getMaxSizeInfo());
 			else if (mViewType != DetailedContainerType::VideoView)
-				mImage->setImage(imagePath);
+				mImage->setImage(imagePath, false, mImage->getMaxSizeInfo());
 		}
 
 		if (mMarquee != nullptr)
