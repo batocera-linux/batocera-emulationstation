@@ -172,7 +172,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 			func(std::string(line));		
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 
 	if (flog != NULL)
 	{
@@ -208,7 +208,7 @@ std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::stri
 	if (flog != NULL) 
 		fclose(flog);
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -231,7 +231,7 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 		ui->setText(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 
 	if (flog != NULL)
 	{
@@ -267,7 +267,7 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	if (flog != nullptr)
 		fclose(flog);
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -908,7 +908,7 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 		ui->setText(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -1089,7 +1089,7 @@ std::pair<std::string, int> ApiSystem::executeScript(const std::string command, 
 			func(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(line, exitCode);
 }
 
