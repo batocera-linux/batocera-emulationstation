@@ -824,7 +824,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("RUSSIAN",              "ru_RU", language == "ru_RU");
 	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
 	language_choice->add("TÜRKÇE",  	     "tr_TR", language == "tr_TR");
-	language_choice->add("Українська",           "uk_UK", language == "uk_UK");
+	language_choice->add("Українська",           "uk_UA", language == "uk_UA");
 	language_choice->add("简体中文", 	     "zh_CN", language == "zh_CN");
 	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
 	s->addWithLabel(_("LANGUAGE"), language_choice);
