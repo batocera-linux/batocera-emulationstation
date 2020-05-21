@@ -45,11 +45,15 @@ class VolumeControl
 	VolumeControl(const VolumeControl & right);
     VolumeControl & operator=(const VolumeControl & right);
 
+	
+
 public:
 	static std::shared_ptr<VolumeControl> & getInstance();
 
 	void init();
 	void deinit();
+
+	bool isAvailable();
 
 	int getVolume() const;
 	void setVolume(int volume);
