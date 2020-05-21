@@ -97,6 +97,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	if (isFullUI &&
 		ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
+		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
 		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
 	
@@ -174,14 +175,39 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 }
 
 void GuiMenu::openScraperSettings()
-{
-	auto s = new GuiSettings(mWindow, "SCRAPER");
+{	
+	// scrape now
+	ComponentListRow row;
+	auto openScrapeNow = [this]
+	{
+		if (ThreadedScraper::isRunning())
+		{
+			Window* window = mWindow;
+
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
+			{
+				ThreadedScraper::stop();
+			}, _("NO"), nullptr));
+
+			return;
+		}
+
+		mWindow->pushGui(new GuiScraperStart(mWindow));
+	};
+
+	auto s = new GuiSettings(mWindow, 
+		_("SCRAPER"), 
+		_("SCRAPE NOW"), [openScrapeNow](GuiSettings* settings)
+	{
+		settings->save();
+		openScrapeNow();
+	});
 
 	std::string scraper = Settings::getInstance()->getString("Scraper");
 
 	// scrape from
 	auto scraper_list = std::make_shared< OptionListComponent< std::string > >(mWindow, "SCRAPE FROM", false);
-	std::vector<std::string> scrapers = getScraperList();
+	std::vector<std::string> scrapers = Scraper::getScraperList();
 
 	// Select either the first entry of the one read from the settings, just in case the scraper from settings has vanished.
 	for(auto it = scrapers.cbegin(); it != scrapers.cend(); it++)
@@ -203,6 +229,7 @@ void GuiMenu::openScraperSettings()
 		imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
 		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
 		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
+		imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
 
 		if (!imageSource->hasSelection())
 			imageSource->selectFirstItem();
@@ -260,6 +287,37 @@ void GuiMenu::openScraperSettings()
 		scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
 		s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
 		s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+		
+		// SCRAPE FANART
+		auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
+		scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
+		s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
+		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
+		
+		// SCRAPE TITLESHOT
+		auto scrape_titleshot = std::make_shared<SwitchComponent>(mWindow);
+		scrape_titleshot->setState(Settings::getInstance()->getBool("ScrapeTitleShot"));
+		s->addWithLabel(_("SCRAPE TITLESHOT"), scrape_titleshot);
+		s->addSaveFunc([scrape_titleshot] { Settings::getInstance()->setBool("ScrapeTitleShot", scrape_titleshot->getState()); });
+		/*
+		// SCRAPE MAP
+		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
+		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
+		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
+		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
+
+		// SCRAPE CARTRIDGE
+		auto scrape_cartridge = std::make_shared<SwitchComponent>(mWindow);
+		scrape_cartridge->setState(Settings::getInstance()->getBool("ScrapeCartridge"));
+		s->addWithLabel(_("SCRAPE CARTRIDGE"), scrape_cartridge);
+		s->addSaveFunc([scrape_cartridge] { Settings::getInstance()->setBool("ScrapeCartridge", scrape_cartridge->getState()); });
+
+		// SCRAPE MANUAL
+		auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
+		scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
+		s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
+		s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
+		*/
 
 		// Account
 		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
@@ -274,28 +332,11 @@ void GuiMenu::openScraperSettings()
 		s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
 	}
 
-	// scrape now
-	ComponentListRow row;
-	auto openScrapeNow = [this] 
-	{ 
-		if (ThreadedScraper::isRunning())
-		{
-			Window* window = mWindow;
-
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
-			{
-				ThreadedScraper::stop();
-			}, _("NO"), nullptr));
-
-			return;
-		}
-
-		mWindow->pushGui(new GuiScraperStart(mWindow)); 
-	};
-
+	/*
 	std::function<void()> openAndSave = openScrapeNow;
 	openAndSave = [s, openAndSave] { s->save(); openAndSave(); };
 	s->addEntry(_("SCRAPE NOW"), false, openAndSave, "iconScraper");
+	*/
 		
 	scraper_list->setSelectedChangedCallback([this, s, scraper, scraper_list](std::string value)
 	{		
@@ -1220,40 +1261,42 @@ void GuiMenu::openRetroachievementsSettings()
 	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements"));
 	retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
+	retroachievements->addSaveFunc([retroachievements_enabled] { SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState()); });
 
 	// retroachievements_hardcore_mode
 	auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_hardcore_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.hardcore"));
 	retroachievements->addWithLabel(_("HARDCORE MODE"), retroachievements_hardcore_enabled);
+	retroachievements->addSaveFunc([retroachievements_hardcore_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.hardcore", retroachievements_hardcore_enabled->getState()); });
 
 	// retroachievements_leaderboards
 	auto retroachievements_leaderboards_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_leaderboards_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.leaderboards"));
 	retroachievements->addWithLabel(_("LEADERBOARDS"), retroachievements_leaderboards_enabled);
+	retroachievements->addSaveFunc([retroachievements_leaderboards_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.leaderboards", retroachievements_leaderboards_enabled->getState()); });
 
 	// retroachievements_verbose_mode
 	auto retroachievements_verbose_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_verbose_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.verbose"));
 	retroachievements->addWithLabel(_("VERBOSE MODE"), retroachievements_verbose_enabled);
+	retroachievements->addSaveFunc([retroachievements_verbose_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.verbose", retroachievements_verbose_enabled->getState()); });
 
 	// retroachievements_automatic_screenshot
 	auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.screenshot"));
 	retroachievements->addWithLabel(_("AUTOMATIC SCREENSHOT"), retroachievements_screenshot_enabled);
+	retroachievements->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.screenshot", retroachievements_screenshot_enabled->getState()); });
 
 	// retroachievements, username, password
 	createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username", false);
 	createInputTextRow(retroachievements, _("PASSWORD"), "global.retroachievements.password", true);
 
-	retroachievements->addSaveFunc([retroachievements_enabled, retroachievements_hardcore_enabled, retroachievements_leaderboards_enabled,
-		retroachievements_verbose_enabled, retroachievements_screenshot_enabled] {
-		SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState());
-		SystemConf::getInstance()->setBool("global.retroachievements.hardcore", retroachievements_hardcore_enabled->getState());
-		SystemConf::getInstance()->setBool("global.retroachievements.leaderboards", retroachievements_leaderboards_enabled->getState());
-		SystemConf::getInstance()->setBool("global.retroachievements.verbose", retroachievements_verbose_enabled->getState());
-		SystemConf::getInstance()->setBool("global.retroachievements.screenshot", retroachievements_screenshot_enabled->getState());
-		SystemConf::getInstance()->saveSystemConf();
-	});
+	// retroachievements_hardcore_mode
+	auto retroachievements_menuitem = std::make_shared<SwitchComponent>(mWindow);
+	retroachievements_menuitem->setState(Settings::getInstance()->getBool("RetroachievementsMenuitem"));
+	retroachievements->addWithLabel(_("SHOW IN MAIN MENU"), retroachievements_menuitem);
+	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
+
 
 	mWindow->pushGui(retroachievements);
 }
@@ -1528,7 +1571,14 @@ void GuiMenu::openGamesSettings_batocera()
 
 		// Retroachievements
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
-			s->addEntry(_("RETROACHIEVEMENTS SETTINGS"), true, [this] { openRetroachievementsSettings(); });		
+		{
+			if (SystemConf::getInstance()->getBool("global.retroachievements") &&
+				!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
+				SystemConf::getInstance()->get("global.retroachievements.username") != "")
+				addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
+
+			s->addEntry(_("RETROACHIEVEMENTS SETTINGS"), true, [this] { openRetroachievementsSettings(); });
+		}
 
 		// Netplay
 		if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
@@ -2434,6 +2484,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 void GuiMenu::reloadAllGames(Window* window, bool deleteCurrentGui)
 {
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	auto viewMode = ViewController::get()->getViewMode();
+	auto systemName = ViewController::get()->getSelectedSystem()->getName();	
+
 	window->renderSplashScreen(_("Loading..."));
 
 	if (!deleteCurrentGui)
@@ -2454,6 +2509,7 @@ void GuiMenu::reloadAllGames(Window* window, bool deleteCurrentGui)
 	CollectionSystemManager::init(window);
 	SystemData::loadConfig(window);
 
+	ViewController::get()->goToSystemView(systemName, true, viewMode);
 	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
 	window->closeSplashScreen();
 

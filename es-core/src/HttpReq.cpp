@@ -270,10 +270,10 @@ HttpReq::~HttpReq()
 
 HttpReq::Status HttpReq::status()
 {
-	std::unique_lock<std::mutex> lock(mMutex);
-
 	if (mStatus == REQ_IN_PROGRESS)
 	{
+		std::unique_lock<std::mutex> lock(mMutex);
+
 		int handle_count;
 		CURLMcode merr = curl_multi_perform(s_multi_handle, &handle_count);
 		if (merr != CURLM_OK && merr != CURLM_CALL_MULTI_PERFORM)
@@ -316,7 +316,7 @@ HttpReq::Status HttpReq::status()
 
 						if (http_status_code >= 400 && http_status_code < 499)
 						{
-							if (mFilePath.empty())
+							if (req->mFilePath.empty())
 								err = req->getContent();
 
 							req->mStatus = (Status)http_status_code;
@@ -331,9 +331,9 @@ HttpReq::Status HttpReq::status()
 					}
 					else
 					{
-						if (!mFilePath.empty())
+						if (!req->mFilePath.empty())
 						{
-							if (std::rename(mTempStreamPath.c_str(), mFilePath.c_str()) == 0)
+							if (std::rename(req->mTempStreamPath.c_str(), req->mFilePath.c_str()) == 0)
 								req->mStatus = REQ_SUCCESS;
 							else
 							{

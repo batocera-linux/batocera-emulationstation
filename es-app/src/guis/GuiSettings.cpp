@@ -7,11 +7,18 @@
 #include "LocaleES.h"
 #include "SystemConf.h"
 
-GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(window), mMenu(window, title)
+GuiSettings::GuiSettings(Window* window, 
+	const std::string title,
+	const std::string customButton,
+	const std::function<void(GuiSettings*)>& func) : GuiComponent(window), mMenu(window, title)
 {
 	addChild(&mMenu);
 
 	mCloseButton = "start";
+
+	if (!customButton.empty() && func != nullptr)
+		mMenu.addButton(customButton, customButton, [this, func] { func(this); });
+
 	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());

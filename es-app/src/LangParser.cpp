@@ -46,6 +46,9 @@ void LangInfo::extractLang(std::string val)
 		{ { "gr", "greece" }, "gr", "eu" },
 		{ { "no" }, "no", "eu" },
 		{ { "sw", "sweden", "se" }, "sw", "eu" },
+		{ { "pt", "portugal" }, "pt", "eu" },
+
+		{ { "en" }, "en", "" },
 
 		{ { "canada", "ca", "c", "fc" }, "fr", "wr" },
 

@@ -345,21 +345,22 @@ std::string ThemeData::resolvePlaceholders(const char* in)
 	if (in == nullptr || in[0] == 0)
 		return in;
 
+	auto begin = strstr(in, "${");
+	if (begin == nullptr)
+		return in;
+
+	auto end = strstr(begin, "}");
+	if (end == nullptr)
+		return in;
+
 	std::string inStr(in);
-//	if(inStr.empty())
-//		return inStr;
 
-	const size_t variableBegin = inStr.find("${");
-	if (variableBegin == std::string::npos)
-		return inStr;
-
-	const size_t variableEnd   = inStr.find("}", variableBegin);
-	if(variableEnd == std::string::npos)
-		return inStr;
+	const size_t variableBegin = begin - in;
+	const size_t variableEnd = end - in;
 
 	std::string prefix  = inStr.substr(0, variableBegin);
 	std::string replace = inStr.substr(variableBegin + 2, variableEnd - (variableBegin + 2));
-	std::string suffix  = resolvePlaceholders(inStr.substr(variableEnd + 1).c_str());
+	std::string suffix = resolvePlaceholders(end + 1);
 
 	return prefix + mVariables[replace] + suffix;
 }
@@ -591,6 +592,9 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 		return;
 
 	std::string relPath = resolvePlaceholders(node.text().as_string());
+	if (relPath.empty())
+		return;
+
 	std::string path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
 	path = resolveSystemVariable(mSystemThemeFolder, path);
 
@@ -1092,6 +1096,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		case PATH:
 		{
+			if (str.empty())
+				break;
+
 			std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
 			
 			if (Utils::String::startsWith(path, "{random"))

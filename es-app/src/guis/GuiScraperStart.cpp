@@ -22,29 +22,45 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	mFilters->add(_("All Games"), // batocera
 		[](SystemData*, FileData*) -> bool { return true; }, false);
 
-	mFilters->add(_("Only missing medias"), [this](SystemData*, FileData* g) -> bool 
+	auto scraper = Settings::getInstance()->getString("Scraper");
+
+	mFilters->add(_("Only missing medias"), [this, scraper](SystemData*, FileData* g) -> bool
 	{ 
 		mOverwriteMedias = false;
 
-		if (Settings::getInstance()->getString("Scraper") == "ScreenScraper")
+		if (scraper == "ScreenScraper")
 		{
-			if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("image")))
+			if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Image)))
 				return true;
 
-			if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("thumbnail")))
+			if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Thumbnail)))
 				return true;
 
-			if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(g->getMetadata().get("marquee")))
+			if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Marquee)))
 				return true;
 
-			if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(g->getMetadata().get("video")))
+			if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Video)))
+				return true;
+
+			if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::FanArt)))
+				return true;
+
+			if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::TitleShot)))
+				return true;
+
+			if (Settings::getInstance()->getBool("ScrapeMap") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Map)))
+				return true;
+
+			if (Settings::getInstance()->getBool("ScrapeManual") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Manual)))
+				return true;
+
+			if (Settings::getInstance()->getBool("ScrapeCartridge") && !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Cartridge)))
 				return true;
 
 			return false;
 		}
-		else
-			return !Utils::FileSystem::exists(g->getMetadata().get("image"));
-
+		
+		return !Utils::FileSystem::exists(g->getMetadata(MetaDataId::Image));
 	}, true);
 
 	mMenu.addWithLabel(_("FILTER"), mFilters); // batocera

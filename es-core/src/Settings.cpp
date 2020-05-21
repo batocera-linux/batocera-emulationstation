@@ -114,7 +114,7 @@ void Settings::setDefaults()
 	mBoolMap["DebugImage"] = false;
 
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
-	mIntMap["ScraperResizeWidth"] = 400;
+	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
 #if defined(_WIN32)
@@ -144,6 +144,7 @@ void Settings::setDefaults()
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
 	mStringMap["PowerSaverMode"] = "default"; // batocera
 
+	mBoolMap["RetroachievementsMenuitem"] = true;
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
 	// mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/music/slideshow_bg.wav"; // batocera

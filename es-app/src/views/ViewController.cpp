@@ -93,6 +93,22 @@ int ViewController::getSystemId(SystemData* system)
 	return (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
 }
 
+void ViewController::goToSystemView(std::string& systemName, bool forceImmediate, ViewController::ViewMode mode)
+{
+	for (auto system : SystemData::sSystemVector)
+	{
+		if (system->getName() == systemName)
+		{
+			if (mode == ViewController::ViewMode::GAME_LIST)
+				goToGameList(system, forceImmediate);
+			else
+				goToSystemView(system, forceImmediate);
+
+			break;
+		}
+	}
+}
+
 void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 {
 	SystemData* dest = system;
@@ -719,6 +735,23 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 		mCurrentView->onShow();
 }
 
+SystemData* ViewController::getSelectedSystem()
+{
+	if (mState.viewing == SYSTEM_SELECT)
+	{
+		int idx = mSystemListView->getCursorIndex();
+		if (idx >= 0 && idx < mSystemListView->getObjects().size())
+			return mSystemListView->getObjects()[mSystemListView->getCursorIndex()];
+	}
+
+	return mState.getSystem();
+}
+
+ViewController::ViewMode ViewController::getViewMode()
+{
+	return mState.viewing;
+}
+
 void ViewController::reloadAll(Window* window, bool reloadTheme)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
@@ -731,13 +764,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	SystemData* system = nullptr;
 
 	if (mState.viewing == SYSTEM_SELECT)
-	{
-		int idx = mSystemListView->getCursorIndex();
-		if (idx >= 0 && idx < SystemData::sSystemVector.size())
-			system = SystemData::sSystemVector[mSystemListView->getCursorIndex()];
-		else
-			system = mState.getSystem();
-	}
+		system = getSelectedSystem();
 
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;

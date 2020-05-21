@@ -18,6 +18,22 @@ struct MdComponent
 	TextComponent* label;
 };
 
+struct MdImage
+{
+	MdImage(const std::string id, std::vector<MetaDataId> metaids)
+	{
+		this->id = id;
+		metaDataIds = metaids;
+		component = nullptr;
+	}
+
+	std::string id;
+	
+	std::vector<MetaDataId> metaDataIds;
+
+	ImageComponent* component;
+};
+
 class DetailedContainer
 {
 public:	
@@ -65,7 +81,6 @@ protected:
 
 	ImageComponent* mImage;
 	ImageComponent* mThumbnail;
-	ImageComponent* mMarquee;
 	VideoComponent* mVideo;
 
 	ImageComponent* mFlag;
@@ -79,4 +94,6 @@ protected:
 
 	RatingComponent mRating;
 	DateTimeComponent mReleaseDate, mLastPlayed;
+
+	std::vector<MdImage> mdImages;
 };

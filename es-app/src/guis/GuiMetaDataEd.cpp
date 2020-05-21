@@ -71,6 +71,9 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		if(iter->isStatistic)
 			continue;
 
+		if (file->getType() != GAME && !iter->visibleForFolder)
+			continue;
+
 		// create ed and add it (and any related components) to mMenu
 		// ed's value will be set below
 		ComponentListRow row;
