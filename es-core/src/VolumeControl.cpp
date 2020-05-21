@@ -406,3 +406,14 @@ void VolumeControl::setVolume(int volume)
 	}
 #endif
 }
+
+bool VolumeControl::isAvailable()
+{
+#if defined (__APPLE__)
+	return false;
+#elif defined(__linux__)
+	return mixerHandle != nullptr && mixerElem != nullptr;
+#elif defined(WIN32) || defined(_WIN32)
+	return mixerHandle != nullptr || endpointVolume != nullptr;
+#endif
+}

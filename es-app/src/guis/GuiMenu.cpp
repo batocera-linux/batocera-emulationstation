@@ -2818,26 +2818,28 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
-	s->addGroup(_("VOLUME"));
-
-	// volume
-	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
-	volume->setValue((float)VolumeControl::getInstance()->getVolume());
-	volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
-	s->addWithLabel(_("SYSTEM VOLUME"), volume);
-	s->addSaveFunc([this, volume] 
+	if (VolumeControl::getInstance()->isAvailable())
 	{
-		VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue()));
+		s->addGroup(_("VOLUME"));
+
+		// volume
+		auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
+		volume->setValue((float)VolumeControl::getInstance()->getVolume());
+		volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
+		s->addWithLabel(_("SYSTEM VOLUME"), volume);
+		s->addSaveFunc([this, volume]
+		{
+			VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue()));
 #if !WIN32
-		SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
+			SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
 #endif
-	});
+		});
 
-	auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
-	volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
-	s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
-	s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
-
+		auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
+		volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
+		s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
+		s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+	}
 
 	s->addGroup(_("MUSIC"));
 
