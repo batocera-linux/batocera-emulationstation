@@ -700,14 +700,15 @@ std::string Win32ApiSystem::getFreeSpaceInfo(const std::string drive)
 
 	if (fResult)
 	{
-		unsigned long total = i64TotalBytes / (1024L * 1024L);
-		unsigned long free = i64FreeBytes / (1024L * 1024L);
-		unsigned long used = total - free;
+		unsigned long long total = i64TotalBytes;
+		unsigned long long free = i64FreeBytes;
+		unsigned long long used = total - free;
 		unsigned long percent = 0;
 		std::ostringstream oss;
-		if (total != 0) {  //for small SD card ;) with share < 1GB
+		if (total != 0) 
+		{  //for small SD card ;) with share < 1GB
 			percent = used * 100 / total;
-			oss << used << "GB/" << total << "GB (" << percent << "%)";
+			oss << Utils::FileSystem::megaBytesToString(used / (1024L * 1024L)) << "/" << Utils::FileSystem::megaBytesToString(total / (1024L * 1024L)) << " (" << percent << "%)";
 		}
 		else
 			oss << "N/A";

@@ -1162,6 +1162,26 @@ namespace Utils
 				rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
 		}
 
+		std::string megaBytesToString(unsigned long size)
+		{
+			static const char *SIZES[] = { "MB", "GB", "TB" };
+			int div = 0;
+			unsigned long rem = 0;
+
+			while (size >= 1024 && div < (sizeof SIZES / sizeof *SIZES))
+			{
+				rem = (size % 1024);
+				div++;
+				size /= 1024;
+			}
+
+			double size_d = (float)size + (float)rem / 1024.0;
+
+			std::ostringstream out;
+			out.precision(2);
+			out << std::fixed << size_d << " " << SIZES[div];
+			return out.str();
+		}
 
 #ifdef WIN32
 		void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
