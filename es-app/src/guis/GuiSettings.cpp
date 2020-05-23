@@ -101,7 +101,17 @@ void GuiSettings::addSubMenu(const std::string& label, const std::function<void(
 	auto theme = ThemeData::getMenuTheme();
 
 	auto entryMenu = std::make_shared<TextComponent>(mWindow, label, theme->Text.font, theme->Text.color);
+	if (EsLocale::isRTL())
+		entryMenu->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
 	row.addElement(entryMenu, true);
-	row.addElement(makeArrow(mWindow), false);
+
+	auto arrow = makeArrow(mWindow);
+
+	if (EsLocale::isRTL())
+		arrow->setFlipX(true);
+
+	row.addElement(arrow, false);
+
 	mMenu.addRow(row);
 };

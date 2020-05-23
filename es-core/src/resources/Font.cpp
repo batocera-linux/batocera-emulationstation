@@ -5,6 +5,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "math/Misc.h"
+#include "LocaleES.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -257,12 +258,10 @@ std::vector<std::string> getFallbackFontPaths()
 	fontDir += "\\Fonts\\";
 
 	const char* fontNames[] = {
-		":/fontawesome-webfont.ttf",
 		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
-		":/NanumMyeongjo.ttf", // korean font
-		"arial.ttf",   // latin
-		"meiryo.ttc", // japanese
-		"simhei.ttf" // chinese				
+		":/fontawesome-webfont.ttf",
+		":/NanumMyeongjo.ttf", // korean font		
+		":/Cairo.ttf" // arabic
 	};
 
 	//prepend to font file names
@@ -286,8 +285,8 @@ std::vector<std::string> getFallbackFontPaths()
 	const char* paths[] = {
 		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
 		":/fontawesome_webfont.ttf",
-		":/fontawesome-webfont.ttf",
 		":/NanumMyeongjo.ttf", // korean font
+		":/Cairo.ttf" // arabic
 	};
 
 	std::vector<std::string> fontPaths;
@@ -511,6 +510,65 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 	}
 }
 
+std::string tryFastBidi(const std::string& text)
+{
+	std::string ret = "";
+
+	size_t lastCursor = 0;
+	size_t i = 0;
+	while (i < text.length())
+	{
+		const char&  c = text[i];
+		
+		if ((c & 0xE0) == 0xC0)
+		{
+			if ((c & 0x10) == 0x10)
+			{
+				ret.insert(lastCursor, text.substr(i + 1, 1));
+				ret.insert(lastCursor, text.substr(i, 1));
+				i += 2;
+			}
+			else
+			{
+				ret += text[i++];
+				ret += text[i++];
+				lastCursor = i;
+			}
+		}
+		else if ((c & 0xF0) == 0xE0)
+		{
+			ret += text[i++];
+			ret += text[i++];
+			ret += text[i++];
+			lastCursor = i;
+		}
+		else if ((c & 0xF8) == 0xF0)
+		{
+			ret += text[i++];
+			ret += text[i++];
+			ret += text[i++];
+			ret += text[i++];
+			lastCursor = i;
+		}
+		else
+		{
+			if (c == 32 && 
+				i + 1 < text.length() && (text[i+1] & 0xE0) == 0xC0 && (text[i + 1] & 0x10) == 0x10 && 
+				i > 0 && (text[i - 1] & 0xE0) != 0xC0 && (text[i -1 ] & 0x10) != 0x10)
+			{
+				ret.insert(lastCursor, text.substr(i, 1));
+				i++;
+			}
+			else
+			{
+				ret += text[i++];
+				lastCursor = i;
+			}
+		}
+	}
+
+	return ret;
+}
 
 Vector2f Font::sizeText(std::string text, float lineSpacing)
 {
@@ -671,9 +729,9 @@ float Font::getNewlineStartOffset(const std::string& text, const unsigned int& c
 	}
 }
 
-TextCache* Font::buildTextCache(const std::string& text, Vector2f offset, unsigned int color, float xLen, Alignment alignment, float lineSpacing)
+TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsigned int color, float xLen, Alignment alignment, float lineSpacing)
 {
-	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, 0, xLen, alignment) : 0);
+	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
 	
 	float yTop = getGlyph('S')->bearing.y();
 	float yBot = getHeight(lineSpacing);
@@ -681,6 +739,8 @@ TextCache* Font::buildTextCache(const std::string& text, Vector2f offset, unsign
 
 	// vertices by texture
 	std::map< FontTexture*, std::vector<Renderer::Vertex> > vertMap;
+
+	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
 	size_t cursor = 0;
 	while(cursor < text.length())
