@@ -224,7 +224,7 @@ msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr ""
+msgstr "Memória disponível"
 
 msgid "Battery"
 msgstr "Bateria"
