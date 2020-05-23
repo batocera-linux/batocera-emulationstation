@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-21 08:02+0200\n"
+"POT-Creation-Date: 2020-05-23 08:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -222,6 +222,9 @@ msgstr "Architecture"
 
 msgid "Temperature"
 msgstr "Température"
+
+msgid "Available memory"
+msgstr "Mémoire disponible"
 
 msgid "Battery"
 msgstr "Batterie"

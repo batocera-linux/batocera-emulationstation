@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 22:51+0200\n"
+"POT-Creation-Date: 2020-05-23 08:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ramses\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 
 msgid "UPDATING BATOCERA"
 msgstr "ACTUALIZANDO BATOCERA"
@@ -53,7 +53,7 @@ msgid "CANCEL"
 msgstr "CANCELAR"
 
 msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "OLVIDAR CONTROL BLUETOOTH"
+msgstr "DESVINCULAR CONTROLES BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "REMOVER TODOS"
@@ -68,7 +68,7 @@ msgid "PLEASE WAIT"
 msgstr "POR FAVOR ESPERA"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LOS EMPAREJAMIENTOS HAN SIDO BORRADOS."
+msgstr "TODOS LOS CONTROLES HAN SIDO DESVINCULADOS"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTAR A NETPLAY"
@@ -170,7 +170,7 @@ msgid "Loading..."
 msgstr "CARGANDO..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "FUNCIÓN DESHABILITADA CUANDO EL SCRAPEO ESTÁ EJECUTANDOSE"
+msgstr "FUNCIÓN DESHABILITADA CUANDO EL SCRAPEO SE ESTÁ EJECUTANDO"
 
 msgid "New Collection Name"
 msgstr "NOMBRE DE LA COLECCIÓN"
@@ -222,6 +222,9 @@ msgstr "ARQUITECTURA"
 
 msgid "Temperature"
 msgstr "TEMPERATURA"
+
+msgid "Available memory"
+msgstr ""
 
 msgid "Battery"
 msgstr "BATERÍA"
@@ -335,7 +338,7 @@ msgid "PASSWORD"
 msgstr "CONTRASEÑA"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "SCRAPEO CORRIENDO, QUIERES DETENERLO?"
+msgstr "SE ESTÁ EJECUTANDO EL SCRAPEO, QUIERES DETENERLO?"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
@@ -365,10 +368,10 @@ msgid "VERSION"
 msgstr "VERSIÓN"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "USO DE DISCO DEL USUARIO"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "USO DE DISCO DEL SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -413,10 +416,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "RESTABLECER EXTENSIONES DE ARCHIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "REDETECTAR JUEGOS POR IDIOMA/REGIÓN"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÚ COMPLETO PARA SALIR"
@@ -425,7 +428,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "USAR INTERFAZ DE RETROARCH"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR CONTROLES DE EMULADORES"
 
 msgid "LOG LEVEL"
 msgstr "DETALLE DEL ARCHIVO LOG"
@@ -503,7 +506,7 @@ msgid "VIDEO OUTPUT"
 msgstr "SALIDA DE VIDEO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "SE REQUIERE UN REINICIO PARA APLICAR LA NUEVA CONFIGURACIÓN"
+msgstr "SE REQUIERE REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
@@ -677,7 +680,7 @@ msgid "INVALID"
 msgstr "INVALIDO"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "LA COMPROBACIÓN DE JUEGOS ESTÁ CORRIENDO, ¿QUIERES DETENERLA?"
+msgstr "SE ESTÁ EJECUTANDO LA COMPROBACIÓN DE JUEGOS, ¿QUIERES DETENERLA?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "¿QUIERES ACTUALIZAR LAS LISTAS DE JUEGOS?"
@@ -707,7 +710,7 @@ msgstr ""
 "NINTENDO."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "EMPAREJAR UN CONTROL BLUETOOTH"
+msgstr "VINCULAR UN CONTROL BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -768,7 +771,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PRINCIPAL"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "EXTENSIONES DE ARCHIVO"
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
@@ -842,7 +845,7 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "MOSTRAR TECLADO EN PANTALLA"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr "OCULTAR CUANDO CORRE UN JUEGO"
+msgstr "OCULTAR CUANDO SE EJECUTA UN JUEGO"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
@@ -869,7 +872,7 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "DURACIÓN DEL TÍTULO DE CANCIONES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "SOLO REPRODUCIR MÚSICA ESPECIFICA DEL SISTEMA"
+msgstr "REPRODUCIR MÚSICA PROPIA PARA CADA SISTEMA"
 
 msgid "PLAY THEME MUSICS"
 msgstr "REPRODUCIR MÚSICA DEL TEMA ACTUAL"
@@ -926,7 +929,7 @@ msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -1175,7 +1178,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "AJUSTAR VIDEO EN SALVAPANTALLAS"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "SILENCIAR AUDIO EN LOS VIDEOS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTENER DATOS DE ESTOS JUEGOS"
@@ -1208,7 +1211,7 @@ msgstr ""
 "¿EJECUTAR DE CUALQUIER MANERA?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO."
+msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
 
 msgid "SCREENSAVER AFTER"
 msgstr "SALVAPANTALLAS A LOS"
@@ -1401,10 +1404,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "CUÁNTO TIEMPO SE HA JUGADO EL JUEGO EN TOTAL (SEGS)."
 
 msgid "Languages"
-msgstr ""
+msgstr "IDIOMAS"
 
 msgid "Region"
-msgstr ""
+msgstr "REGIÓN"
 
 msgid "favorite"
 msgstr "FAVORITO"
@@ -1423,7 +1426,7 @@ msgstr "DESCARGANDO"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
-"SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS."
+"SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
@@ -1435,8 +1438,8 @@ msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLECCIÓN"
+msgstr[1] "%i COLECCIONES"
 
 #, c-format
 msgid "%i ITEM"
@@ -1583,7 +1586,7 @@ msgid "RATING"
 msgstr "PUNTUACIÓN"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGIÓN"
 
 msgid "KIDGAME"
 msgstr "JUEGO PARA NIÑO"
@@ -1616,7 +1619,7 @@ msgid "Loading system config..."
 msgstr "CARGANDO CONFIGURACIÓN DEL SISTEMA..."
 
 msgid "Done."
-msgstr "LISTO."
+msgstr "LISTO"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
@@ -1628,7 +1631,7 @@ msgid "Searching controllers..."
 msgstr "BUSCANDO CONTROLES..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "ESCANEO DE BLUETOOTH YA ESTÁ EJECUTANDOSE."
+msgstr "YA SE ESTÁ EJECUTANDO EL ESCANEO DE BLUETOOTH "
 
 msgid "FORMATING DEVICE"
 msgstr "FORMATEANDO DISPOSITIVO"
@@ -1637,10 +1640,10 @@ msgid "Formating"
 msgstr "FORMATEANDO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "ES NECESARIO REINICIAR EL SISTEMA PARA COMPLETAR LA OPERACIÓN"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "EL FORMATEO DE LA UNIDAD YA ESTÁ FUNCIONANDO."
+msgstr "YA SE ESTÁ EJECUTANDO EL FORMATEO DE LA UNIDAD"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACIÓN DISPONIBLE"
@@ -1671,11 +1674,11 @@ msgstr "COLECCIONES"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "EDITANDO COLECCIÓN '%s'. AGREGAR/QUITAR JUEGOS CON Y."
+msgstr "EDITANDO COLECCIÓN '%s'. AGREGAR/QUITAR JUEGOS CON Y"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr "EDICIÓN DE COLECCIÓN '%s' FINALIZADA."
+msgstr "EDICIÓN DE COLECCIÓN '%s' FINALIZADA"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -1686,7 +1689,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "ELIMINADO '%s' DE '%s'"
 
 msgid "This collection is empty."
-msgstr "LA COLECCIÓN ESTÁ VACIA."
+msgstr "LA COLECCIÓN ESTÁ VACIA"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -1698,8 +1701,8 @@ msgstr "VARIOS"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ESTA COLECCIÓN CONTIENE %i JUEGO, INCLUIDO: %s"
+msgstr[1] "ESTA COLECCIÓN CONTIENE %i JUEGOS, INCLUIDOS: %s"
 
 msgid "UP"
 msgstr "ARRIBA"
@@ -1804,44 +1807,44 @@ msgstr "MANTÉN PRESIONADO UN BOTÓN DEL CONTROL PARA CONFIGURARLO."
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d HORA"
+msgstr[1] "%d HORAS"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d MINUTO"
+msgstr[1] "%d MINUTOS"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d SEGUNDO"
+msgstr[1] "%d SEGUNDOS"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HACE %d DÍA"
+msgstr[1] "HACE %d DÍAS"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HACE %d HORA"
+msgstr[1] "HACE %d HORAS"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HACE %d MINUTO"
+msgstr[1] "HACE %d MINUTOS"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HACE %d SEGUNDO"
+msgstr[1] "HACE %d SEGUNDOS"
 
 msgid "MOVE CURSOR"
 msgstr "MOVER CURSOR"
