@@ -99,8 +99,8 @@ std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 	if ((statvfs(mountpoint.c_str(), &fiData)) < 0)
 		return "";
 		
-	unsigned long long total = ((unsigned long long) fiData.f_blocks * (unsigned long long) (fiData.f_bsize / 1024));
-	unsigned long long free = ((unsigned long long) fiData.f_bfree * (unsigned long long) (fiData.f_bsize / 1024));
+	unsigned long long total = (unsigned long long) fiData.f_blocks * (unsigned long long) (fiData.f_bsize);
+	unsigned long long free = (unsigned long long) fiData.f_bfree * (unsigned long long) (fiData.f_bsize);
 	unsigned long long used = total - free;
 	unsigned long percent = 0;
 	
