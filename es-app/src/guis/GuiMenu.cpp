@@ -1451,30 +1451,32 @@ void GuiMenu::openGamesSettings_batocera()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
 	{		
 		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
-
-		auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
-		decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+		if (sets.size() > 0)
 		{
-			createDecorationItemTemplate(window, sets, data, row);		
-		});
-		
-		std::vector<std::string> decorations_item;
-		decorations_item.push_back(_("AUTO"));
-		decorations_item.push_back(_("NONE"));			
-		for(auto set : sets)		
-			decorations_item.push_back(set.name);		
+			auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+			decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+			{
+				createDecorationItemTemplate(window, sets, data, row);
+			});
 
-		for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) 
-			decorations->add(*it, *it,
+			std::vector<std::string> decorations_item;
+			decorations_item.push_back(_("AUTO"));
+			decorations_item.push_back(_("NONE"));
+			for (auto set : sets)
+				decorations_item.push_back(set.name);
+
+			for (auto it = decorations_item.begin(); it != decorations_item.end(); it++)
+				decorations->add(*it, *it,
 				(SystemConf::getInstance()->get("global.bezel") == *it) ||
-				(SystemConf::getInstance()->get("global.bezel") == "none" && *it == _("NONE")) ||
-				(SystemConf::getInstance()->get("global.bezel") == "" && *it == _("AUTO")));
+					(SystemConf::getInstance()->get("global.bezel") == "none" && *it == _("NONE")) ||
+					(SystemConf::getInstance()->get("global.bezel") == "" && *it == _("AUTO")));
 
-		s->addWithLabel(_("DECORATION"), decorations);
-		s->addSaveFunc([decorations] 
-		{
-			SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-		});
+			s->addWithLabel(_("DECORATION"), decorations);
+			s->addSaveFunc([decorations]
+			{
+				SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+			});
+		}
 	}
 	
 	// latency reduction
@@ -3449,33 +3451,36 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	{
 		Window* window = mWindow;
 		auto sets = GuiMenu::getDecorationsSets(systemData);
-		auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
-		decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+		if (sets.size() > 0)
 		{
-			createDecorationItemTemplate(window, sets, data, row);
-		});
+			auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION"), false);
+			decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+			{
+				createDecorationItemTemplate(window, sets, data, row);
+			});
 
-		std::vector<std::string> decorations_item;
-		decorations_item.push_back(_("AUTO"));
-		decorations_item.push_back(_("NONE"));
+			std::vector<std::string> decorations_item;
+			decorations_item.push_back(_("AUTO"));
+			decorations_item.push_back(_("NONE"));
 
-		for (auto set : sets)
-			decorations_item.push_back(set.name);
+			for (auto set : sets)
+				decorations_item.push_back(set.name);
 
-		for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
-			decorations->add(*it, *it,
-				(SystemConf::getInstance()->get(configName + ".bezel") == *it)
-				||
-				(SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
-				||
-				(SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
-			);
+			for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
+				decorations->add(*it, *it,
+					(SystemConf::getInstance()->get(configName + ".bezel") == *it)
+					||
+					(SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
+					||
+					(SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
+				);
+			}
+			systemConfiguration->addWithLabel(_("DECORATION"), decorations);
+			systemConfiguration->addSaveFunc([decorations, configName]
+			{
+				SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+			});
 		}
-		systemConfiguration->addWithLabel(_("DECORATION"), decorations);
-		systemConfiguration->addSaveFunc([decorations, configName] 
-		{
-			SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-		});
 	}
 
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::latency_reduction))	
@@ -3787,27 +3792,38 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 
 	static const size_t pathCount = 3;
 
-	std::string paths[pathCount] = {
-	  "/usr/share/batocera/datainit/decorations",
-	  "/userdata/decorations",
-	  Utils::FileSystem::getEsConfigPath() + "/decorations" // for win32 testings
+	
+#if WIN32
+	std::vector<std::string> paths = 
+	{
+		Utils::FileSystem::getEsConfigPath() + "/decorations" // for win32 testings
 	};
 
-#if WIN32
-	std::string win32path = Win32ApiSystem::getEmulatorLauncherPath("decorations");
+	std::string win32path = Win32ApiSystem::getEmulatorLauncherPath("system.decorations");
 	if (!win32path.empty())
-		paths[2] = win32path;
+		paths[0] = win32path; 
+	
+	win32path = Win32ApiSystem::getEmulatorLauncherPath("decorations");
+	if (!win32path.empty())
+		paths.push_back(win32path);
+
+
+#else
+	std::vector<std::string> paths = {
+		"/usr/share/batocera/datainit/decorations",
+		"/userdata/decorations"
+	};
 #endif
 
 	Utils::FileSystem::stringList dirContent;
 	std::string folder;
 
-	for (size_t i = 0; i < pathCount; i++)
+	for (auto path : paths)
 	{
-		if (!Utils::FileSystem::isDirectory(paths[i]))
+		if (!Utils::FileSystem::isDirectory(path))
 			continue;
 
-		dirContent = Utils::FileSystem::getDirContent(paths[i]);
+		dirContent = Utils::FileSystem::getDirContent(path);
 		for (Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
 		{
 			if (Utils::FileSystem::isDirectory(*it))
@@ -3815,12 +3831,12 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 				folder = *it;
 
 				DecorationSetInfo info;
-				info.name = folder.substr(paths[i].size() + 1);
+				info.name = folder.substr(path.size() + 1);
 				info.path = folder;
 
 				if (system != nullptr && Utils::String::startsWith(info.name, "default"))
 				{
-					std::string systemImg = paths[i] + "/"+ info.name +"/systems/" + system->getName() + ".png";
+					std::string systemImg = path + "/"+ info.name +"/systems/" + system->getName() + ".png";
 					if (Utils::FileSystem::exists(systemImg))
 						info.imageUrl = systemImg;
 				}

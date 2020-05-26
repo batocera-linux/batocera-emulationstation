@@ -49,8 +49,19 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
 
-	if (script == ApiSystem::DECORATIONS && !Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
+	if (script == ApiSystem::DECORATIONS)
+	{
+		if (Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
+			return true;
+
+		if (Utils::FileSystem::exists(getEmulatorLauncherPath("system.decorations")))
+			return true;
+
+		if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "/decorations"))
+			return true;
+
 		return false;
+	}
 
 	if (script == ApiSystem::SHADERS && !Utils::FileSystem::exists(getEmulatorLauncherPath("shaders")))
 		return false;
