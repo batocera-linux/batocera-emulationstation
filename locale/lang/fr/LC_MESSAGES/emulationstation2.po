@@ -2,13 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 22:51+0200\n"
+"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.3.1\n"
 
 msgid "UPDATING BATOCERA"
 msgstr "MISE À JOUR DE BATOCERA"
@@ -50,7 +53,7 @@ msgid "CANCEL"
 msgstr "ANNULER"
 
 msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "SUPPRIMER UNE MANETTE BLUETOOTH"
+msgstr "OUBLIER UNE MANETTE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
@@ -155,10 +158,10 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
 
 msgid "EDIT FOLDER METADATA"
-msgstr "ÉDITER LES METADONNÉES DU DOSSIER"
+msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "ÉDITER LES METADONNÉES DU JEU"
+msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRER LES JEUX PAR NOM"
@@ -220,11 +223,14 @@ msgstr "Architecture"
 msgid "Temperature"
 msgstr "Température"
 
+msgid "Available memory"
+msgstr "Mémoire disponible"
+
 msgid "Battery"
 msgstr "Batterie"
 
 msgid "Cpu model"
-msgstr "Processeur"
+msgstr "Type de processeur"
 
 msgid "Cpu number"
 msgstr "Nombre de processeurs"
@@ -356,16 +362,16 @@ msgid "SELECT"
 msgstr "SÉLECTIONNER"
 
 msgid "INFORMATION"
-msgstr "INFORMATIONS"
+msgstr "INFORMATION"
 
 msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr "UTILISATION DISQUE DES DONNÉES UTILISATEUR"
+msgstr "DISQUE DES DONNÉES UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "UTILISATION DISQUE DU SYSTÈME"
+msgstr "DISQUE SYSTÈME"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -401,7 +407,7 @@ msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "SAUVEGARDER LES METADONNÉES EN QUITTANT"
+msgstr "SAUVEGARDER LES MÉTADONNÉES EN QUITTANT"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
@@ -422,7 +428,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "UTILISER LE MENU RETROARCH RGUI"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
 
 msgid "LOG LEVEL"
 msgstr "NIVEAU DE LOG"
@@ -650,7 +656,7 @@ msgid "ENABLE AI SERVICE"
 msgstr "ACTIVER LE SERVICE IA"
 
 msgid "TARGET LANGUAGE"
-msgstr "LANGUE CHOISIE"
+msgstr "LANGUE CIBLE"
 
 msgid "SERVICE URL"
 msgstr "URL DU SERVICE"
@@ -700,7 +706,7 @@ msgstr ""
 "JOYSTICKS EN RESTANT APPUYÉ SUR UN BOUTON. SI VOUS N'AVEZ PAS DE BOUTON "
 "SPECIAL POUR HOTKEY, UTILISEZ SELECT. IGNOREZ UN BOUTON QUE VOTRE MANETTE "
 "N'A PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. LES NOMS DES BOUTONS "
-"SONT BASÉS SUR LA SUPER NINTENDO"
+"SONT BASÉS SUR LA SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
@@ -761,7 +767,7 @@ msgid "having multiple games"
 msgstr "avec jeux multiples"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "AFFICHER LE DOSSIER PARENT"
+msgstr "AFFICHER LE DOSSIER PARENT ‘..’"
 
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONS DE FICHIERS"
@@ -849,7 +855,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUME GÉNÉRAL"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "NOTIFIER LE CHANGEMENT DE VOLUME"
+msgstr "NOTIFIER LE CHANGEMENT DU VOLUME"
 
 msgid "MUSIC"
 msgstr "MUSIQUE"
@@ -921,7 +927,7 @@ msgid "MANUAL SCRAPER"
 msgstr "SCRAPE MANUEL"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "PASSER A LA MUSIQUE SUIVANTE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
@@ -1087,7 +1093,7 @@ msgid ""
 msgstr ""
 "AUCUN SYSTÈME TROUVÉ !\n"
 "VÉRIFIEZ QUE VOS CHEMINS SONT CORRECTS DANS LA CONFIGURATION SYSTÈME, ET QUE "
-"VOTRE DOSSIER JEUX CONTIENT AU MOINS UN JEU AVEC L'EXTENSION CORRECTE"
+"VOTRE DOSSIER JEUX CONTIENT AU MOINS UN JEU AVEC L'EXTENSION CORRECTE."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -1242,7 +1248,7 @@ msgid "SELECT THEME"
 msgstr "SÉLECTIONNER UN THÈME"
 
 msgid "EDIT METADATA"
-msgstr "ÉDITER LES METADONNÉES"
+msgstr "ÉDITER LES MÉTADONNÉES"
 
 msgid "SAVE"
 msgstr "SAUVEGARDER"
@@ -1391,13 +1397,13 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "entrez le temps de jeu"
 
 msgid "Languages"
-msgstr "langue"
+msgstr "Langue"
 
 msgid "Region"
-msgstr "région"
+msgstr "Région"
 
 msgid "favorite"
-msgstr "Favoris"
+msgstr "favori"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -1414,7 +1420,7 @@ msgstr "Téléchargement"
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "SCRAPE TERMINÉ. METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
-"MODIFICATIONS"
+"MODIFICATIONS."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
@@ -1426,8 +1432,8 @@ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLLECTION"
+msgstr[1] "%i COLLECTIONS"
 
 #, c-format
 msgid "%i ITEM"
@@ -1610,7 +1616,7 @@ msgid "Done."
 msgstr "Terminé"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SAUVEGARDE DES METADONNÉES. VEUILLEZ PATIENTEZ..."
+msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
 msgid "SCANNING BLUETOOTH"
 msgstr "ANALYSE BLUETOOTH"
@@ -1662,7 +1668,7 @@ msgstr "collections"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Edition de la collection '%s'. Ajout/Suppression de jeux avec Y"
+msgstr "Edition de la collection '%s'. Ajout/Suppression de jeux avec Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
@@ -1674,7 +1680,7 @@ msgstr "'%s' ajouté à '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "Supprimé %s' de '%s'"
+msgstr "%s' supprimé de '%s'"
 
 msgid "This collection is empty."
 msgstr "Cette collection est vide"
@@ -1684,13 +1690,13 @@ msgid "None"
 msgstr "Aucun"
 
 msgid "Various"
-msgstr "Plusieurs"
+msgstr "Divers"
 
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cette collection contient %i jeu, incluant : %s"
+msgstr[1] "Cette collection contient %i jeux, incluant : %s"
 
 msgid "UP"
 msgstr "HAUT"
@@ -1733,7 +1739,7 @@ msgid "GAMEPAD %i"
 msgstr "MANETTE %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "RESTER APPUYÉ SUR UN BOUTON POUR PASSER"
+msgstr "RESTEZ APPUYÉ SUR UN BOUTON POUR PASSER"
 
 msgid "-NOT DEFINED-"
 msgstr "-NON CONFIGURÉ-"
@@ -1744,7 +1750,9 @@ msgid ""
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 "VOUS N'AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR "
-"QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ?"
+"QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ? "
+"RÉPONDEZ OUI POUR UTILISER LE BOUTON SELECT OU NON POUR ACTIVER UN BOUTON "
+"HOTKEY."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -1753,7 +1761,7 @@ msgstr[0] "APPUYEZ PENDANT %iS POUR PASSER"
 msgstr[1] "APPUYEZ PENDANT %iS POUR PASSER"
 
 msgid "PRESS ANYTHING"
-msgstr "APPUYER SUR UN BOUTON"
+msgstr "APPUYEZ SUR UN BOUTON"
 
 msgid "ALREADY TAKEN"
 msgstr "DÉJA UTILISÉ"
@@ -1782,56 +1790,56 @@ msgstr "BIENVENUE"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i MANETTE DETECTÉE"
-msgstr[1] "%i MANETTES DETECTÉES"
+msgstr[0] "%i MANETTE DÉTECTÉE"
+msgstr[1] "%i MANETTES DÉTECTÉES"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr "AUCUNE MANETTE DETECTÉE"
+msgstr "AUCUNE MANETTE DÉTECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR CONFIGURER"
+msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR LA CONFIGURER"
 
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d heure"
+msgstr[1] "%d heures"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minute"
+msgstr[1] "%d minutes"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d seconde"
+msgstr[1] "%d secondes"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "il y a %d jour"
+msgstr[1] "il y a %d jours"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "il y a %d heure"
+msgstr[1] "il y a %d heures"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "il y a %d minute"
+msgstr[1] "il y a %d minutes"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "il y a %d seconde"
+msgstr[1] "il y a %d secondes"
 
 msgid "MOVE CURSOR"
 msgstr "DÉPLACER LE CURSEUR"
@@ -1852,7 +1860,7 @@ msgid "SELECT NONE"
 msgstr "AUCUN"
 
 msgid "select none"
-msgstr "tout déselectionner"
+msgstr "aucun"
 
 #, c-format
 msgid "%i SELECTED"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 22:51+0200\n"
+"POT-Creation-Date: 2020-05-23 08:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -223,6 +223,9 @@ msgstr "Архитектура"
 msgid "Temperature"
 msgstr "Температура"
 
+msgid "Available memory"
+msgstr "Доступно памяти"
+
 msgid "Battery"
 msgstr "Батарея"
 
@@ -425,7 +428,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "АВТОНАСТРОЙКАА КОНТРОЛЛЕРОВ"
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -923,7 +926,7 @@ msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"

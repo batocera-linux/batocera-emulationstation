@@ -60,6 +60,7 @@
 #define fake_gettext_system       _("System")
 #define fake_gettext_architecture _("Architecture")
 #define fake_gettext_temperature  _("Temperature")
+#define fake_gettext_avail_memory _("Available memory")
 #define fake_gettext_battery      _("Battery")
 #define fake_gettext_cpu_model    _("Cpu model")
 #define fake_gettext_cpu_number   _("Cpu number")
@@ -1049,7 +1050,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("RUSSIAN",              "ru_RU", language == "ru_RU");
 	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
 	language_choice->add("TÜRKÇE",  	     "tr_TR", language == "tr_TR");
-	language_choice->add("Українська",           "uk_UK", language == "uk_UK");
+	language_choice->add("Українська",           "uk_UA", language == "uk_UA");
 	language_choice->add("简体中文", 	     "zh_CN", language == "zh_CN");
 	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
 	s->addWithLabel(_("LANGUAGE"), language_choice);
@@ -3093,27 +3094,28 @@ void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
-#ifndef _ENABLEEMUELEC
-	s->addGroup(_("VOLUME"));
-
-	// volume
-	auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
-	volume->setValue((float)VolumeControl::getInstance()->getVolume());
-	volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
-	s->addWithLabel(_("SYSTEM VOLUME"), volume);
-	s->addSaveFunc([this, volume] 
+	if (VolumeControl::getInstance()->isAvailable())
 	{
-		VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue()));
-#if !WIN32
-		SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
-#endif
-	});
+		s->addGroup(_("VOLUME"));
 
-	auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
-	volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
-	s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
-	s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+		// volume
+		auto volume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
+		volume->setValue((float)VolumeControl::getInstance()->getVolume());
+		volume->setOnValueChanged([](const float &newVal) { VolumeControl::getInstance()->setVolume((int)Math::round(newVal)); });
+		s->addWithLabel(_("SYSTEM VOLUME"), volume);
+		s->addSaveFunc([this, volume]
+		{
+			VolumeControl::getInstance()->setVolume((int)Math::round(volume->getValue()));
+#if !WIN32
+			SystemConf::getInstance()->set("audio.volume", std::to_string((int)round(volume->getValue())));
 #endif
+		});
+
+		auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
+		volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
+		s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
+		s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+	}
 
 	s->addGroup(_("MUSIC"));
 

@@ -68,6 +68,8 @@ namespace Utils
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path);
 
+		std::string megaBytesToString(unsigned long size);
+
 #ifdef WIN32
 		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);
 #endif

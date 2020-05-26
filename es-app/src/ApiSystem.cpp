@@ -106,16 +106,16 @@ std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 	struct statvfs fiData;
 	if ((statvfs(mountpoint.c_str(), &fiData)) < 0)
 		return "";
-
-	unsigned long total = (fiData.f_blocks * (fiData.f_bsize / 1024)) / (1024L * 1024L);
-	unsigned long free = (fiData.f_bfree * (fiData.f_bsize / 1024)) / (1024L * 1024L);
-	unsigned long used = total - free;
+		
+	unsigned long long total = (unsigned long long) fiData.f_blocks * (unsigned long long) (fiData.f_bsize);
+	unsigned long long free = (unsigned long long) fiData.f_bfree * (unsigned long long) (fiData.f_bsize);
+	unsigned long long used = total - free;
 	unsigned long percent = 0;
 	
 	if (total != 0) 
 	{  //for small SD card ;) with share < 1GB
 		percent = used * 100 / total;
-		oss << used << "GB/" << total << "GB (" << percent << "%)";
+		oss << Utils::FileSystem::megaBytesToString(used / (1024L * 1024L)) << "/" << Utils::FileSystem::megaBytesToString(total / (1024L * 1024L)) << " (" << percent << "%)";
 	}
 	else
 		oss << "N/A";	
@@ -197,7 +197,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 			func(std::string(line));		
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 
 	if (flog != NULL)
 	{
@@ -233,7 +233,7 @@ std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::stri
 	if (flog != NULL) 
 		fclose(flog);
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -256,7 +256,7 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 		ui->setText(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 
 	if (flog != NULL)
 	{
@@ -294,7 +294,7 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	if (flog != nullptr)
 		fclose(flog);
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -947,7 +947,7 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 		ui->setText(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
@@ -1128,7 +1128,7 @@ std::pair<std::string, int> ApiSystem::executeScript(const std::string command, 
 			func(std::string(line));
 	}
 
-	int exitCode = pclose(pipe);
+	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(line, exitCode);
 }
 

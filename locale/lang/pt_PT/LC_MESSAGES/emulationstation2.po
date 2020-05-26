@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 22:51+0200\n"
+"POT-Creation-Date: 2020-05-23 08:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,7 +89,7 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNAVAILABLE CORE"
-msgstr "CORE INDISPONÍVEIL"
+msgstr "CORE INDISPONÍVEL"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -223,6 +223,9 @@ msgstr "Arquitetura"
 msgid "Temperature"
 msgstr "Temperatura"
 
+msgid "Available memory"
+msgstr "Memória disponível"
+
 msgid "Battery"
 msgstr "Bateria"
 
@@ -320,7 +323,7 @@ msgid "WHEEL"
 msgstr "RODA"
 
 msgid "MARQUEE"
-msgstr "MARQUEE"
+msgstr "LETREIRO"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTER CLASSIFICAÇÕES"
@@ -365,10 +368,10 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "USER DISK USAGE"
-msgstr "USO DO DISCO DO UTILIZADOR"
+msgstr "DISCO DE DADOS DO UTILIZADOR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "USO DO DISCO DO SISTEMA"
+msgstr "DISCO DO SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -416,16 +419,16 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DO ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr "RE-DETECTAR O IDIOMA DOS JOGOS"
+msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "USE RETROARCH RGUI MENU"
-msgstr "USAR RETROARCH RGUI MENU"
+msgstr "USAR O MENU RETROARCH RGUI"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DO LOG"
@@ -762,7 +765,7 @@ msgid "having multiple games"
 msgstr "tendo vários jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "MOSTRAR '..' PASTA RAIZ"
+msgstr "MOSTRAR '..' PASTA PRINCIPAL"
 
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
@@ -921,7 +924,7 @@ msgid "MANUAL SCRAPER"
 msgstr "PROCURAR CAPAS MANUALMENTE"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
@@ -981,7 +984,7 @@ msgid "DEVICE TO FORMAT"
 msgstr "DISPOSITIVO A FORMATAR"
 
 msgid "FILE SYSTEM"
-msgstr "SISTEMA DE ARQUIVO"
+msgstr "ARQUIVO DO SISTEMA"
 
 msgid "FORMAT NOW"
 msgstr "FORMATAR AGORA"
@@ -990,7 +993,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "AS OPÇÕES SELECIONADAS SÃO INVÁLIDAS"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
-msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTA UNIDADE?"
+msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTE DISCO?"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLEÇÕES A MOSTRAR"
@@ -1134,7 +1137,7 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USAR MARQUEE COM INFORMAÇÃO DO JOGO"
+msgstr "USAR LETREIRO COM INFORMAÇÃO DO JOGO"
 
 msgid "DECORATIONS"
 msgstr "DECORAÇÕES"
@@ -1170,7 +1173,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ESTICAR VÍDEO NO PROTETOR DE ECRÃ"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "MUTE AUDIO DO VIDEO"
+msgstr "SILENCIAR O SOM DOS VIDEOS"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTER DADOS DOS JOGOS"
@@ -1292,10 +1295,10 @@ msgid "enter path to video"
 msgstr "insire o caminho para o vídeo"
 
 msgid "Marquee"
-msgstr "Marquee"
+msgstr "Letreiro"
 
 msgid "enter path to marquee"
-msgstr "insira o caminho para a marquee"
+msgstr "insira o caminho para o letreiro"
 
 msgid "Thumbnail"
 msgstr "Miniatura"
@@ -1419,7 +1422,7 @@ msgstr ""
 "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, RE-MOSTRAR TODOS AGORA"
+msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIAR TODOS AGORA"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
@@ -1581,7 +1584,7 @@ msgid "KIDGAME"
 msgstr "JOGO INFANTIL"
 
 msgid "ALREADY PLAYED"
-msgstr "JÁ JOGOU"
+msgstr "JÁ JOGADO"
 
 msgid "HASHING GAMES"
 msgstr "HASHING DOS JOGOS"
