@@ -1578,7 +1578,7 @@ msgid "RATING"
 msgstr "Classificação"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGIÃO"
 
 msgid "KIDGAME"
 msgstr "JOGO INFANTIL"
