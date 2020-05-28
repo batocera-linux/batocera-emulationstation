@@ -504,7 +504,7 @@ namespace Utils
 
 		} // scramble
 
-		std::vector<std::string> split(const std::string& s, char seperator)
+		std::vector<std::string> split(const std::string& s, char seperator, bool removeEmptyEntries)
 		{			
 			std::vector<std::string> output;
 
@@ -516,12 +516,15 @@ namespace Utils
 			{
 				std::string substring(s.substr(prev_pos, pos - prev_pos));
 
-				output.push_back(substring);
+				if (!removeEmptyEntries || !substring.empty())
+					output.push_back(substring);
 
 				prev_pos = ++pos;
 			}
 
-			output.push_back(s.substr(prev_pos, pos - prev_pos)); // Last word
+			std::string lastLine = s.substr(prev_pos, pos - prev_pos);
+			if (!removeEmptyEntries || !lastLine.empty())
+				output.push_back(lastLine); // Last word
 
 			return output;
 		}

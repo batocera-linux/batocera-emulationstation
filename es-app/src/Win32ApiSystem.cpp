@@ -383,11 +383,31 @@ std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	else if (Utils::FileSystem::exists("c:\\src\\7za.exe"))
 		cmd = Utils::String::replace(cmd, "7zr ", "c:\\src\\7za.exe ");
 
+	bool useUnzip = false;
+
+	if (fromZipContents && ext == ".zip" && Utils::FileSystem::exists("c:\\src\\unzip.exe"))
+	{
+		useUnzip = true;
+		cmd = "c:\\src\\unzip.exe -l -v \"" + fileName + "\"";
+	}
+
 	std::string output;
 	if (executeCMD((char*)cmd.c_str(), output))
 	{
 		for (std::string all : Utils::String::splitAny(output, "\r\n"))
 		{
+			if (useUnzip)
+			{
+				if (!Utils::String::startsWith(all, "Archive"))
+				{
+					auto split = Utils::String::split(all, ' ', true);
+					if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
+						return Utils::String::toUpper(split[6]);
+				}
+
+				continue;
+			}
+
 			int idx = all.find("CRC = ");
 			if (idx != std::string::npos)
 				crc = all.substr(idx + 6);
