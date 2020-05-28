@@ -607,16 +607,6 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setDefaultImage(elem->get<std::string>("default"));
 	}
 
-	if (properties & PATH && elem->has("path"))
-	{
-		auto path = elem->get<std::string>("path");
-		if (ResourceManager::getInstance()->fileExists(path))
-		{
-			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-			setImage(path, tile);
-		}
-	}
-
 	if (properties & COLOR)
 	{
 		if (elem->has("color"))
@@ -694,6 +684,22 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	if (properties & PATH && elem->has("path"))
+	{
+		auto path = elem->get<std::string>("path");
+		if (ResourceManager::getInstance()->fileExists(path))
+		{
+			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
+			if(tile)
+				setImage(path, true);
+			else
+			{
+				auto sz = getMaxSizeInfo();
+				setImage(path, tile, sz);
+			}
+		}
+	}
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()

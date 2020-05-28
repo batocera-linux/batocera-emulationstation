@@ -7,7 +7,6 @@
 #include "Log.h"
 #include <nanosvg/nanosvg.h>
 #include <nanosvg/nanosvgrast.h>
-#include <assert.h>
 #include <string.h>
 #include "Settings.h"
 
@@ -45,7 +44,9 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 
 	// nsvgParse excepts a modifiable, null-terminated string
 	char* copy = (char*)malloc(length + 1);
-	assert(copy != NULL);
+	if (copy == NULL)
+		return false;
+	
 	memcpy(copy, fileData, length);
 	copy[length] = '\0';
 
