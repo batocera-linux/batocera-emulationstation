@@ -571,7 +571,7 @@ namespace Utils
 				if (pos == std::string::npos)
 					break;
 
-				auto end = _string.find(endDelimiter, pos);
+				auto end = _string.find(endDelimiter, pos+1);
 				if (end == std::string::npos)
 					break;
 
@@ -579,7 +579,7 @@ namespace Utils
 				if (!value.empty())
 					ret.push_back(value);
 
-				pos = end + 1;
+				pos = end;
 			}
 
 			return ret;
