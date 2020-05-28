@@ -914,11 +914,22 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
+	bool useUnzip = false;
+
 	std::string cmd = "7zr h \"" + fileName + "\"";
 	
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
-		cmd = "7zr l -slt \"" + fileName + "\"";
+
+	if (fromZipContents)
+	{
+		if (ext == ".7z")
+			cmd = "7zr l -slt \"" + fileName + "\"";
+		else
+		{
+			useUnzip = true;
+			cmd = "unzip -l -v \"" + fileName + "\"";
+		}
+	}
 
 	std::string crc;
 	std::string fn = Utils::FileSystem::getFileName(fileName);
@@ -931,13 +942,31 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
+
+		if (!crc.empty())
+			continue;
+
 		std::string all = line;
 
+		if (useUnzip)
+		{
+			// Parse unzip results
+			if (!Utils::String::startsWith(all, "Archive"))
+			{
+				auto split = Utils::String::split(all, ' ', true);
+				if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
+					crc = Utils::String::toUpper(split[6]);
+			}
+
+			continue;
+		}
+
+		// Parse 7zr results
 		int idx = all.find("CRC = ");
 		if (idx != std::string::npos)
 			crc = all.substr(idx + 6);
 		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-			crc = all.substr(0, 8);
+			crc = all.substr(0, 8);		
 	}
 	
 	pclose(pipe);
