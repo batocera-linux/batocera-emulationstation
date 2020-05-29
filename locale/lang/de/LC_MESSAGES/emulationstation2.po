@@ -224,7 +224,7 @@ msgid "Temperature"
 msgstr "Temperatur"
 
 msgid "Available memory"
-msgstr ""
+msgstr "Verfügbarer Speicher"
 
 msgid "Battery"
 msgstr "Batterie"
@@ -1700,7 +1700,7 @@ msgstr "Verschiedene"
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Diese Sammlung beinhaltet %i Spiel, inklusive %s"
-msgstr[1] "Diese Sammlung beinhaltet %i Spiele, inklusive %s."
+msgstr[1] "Diese Sammlung beinhaltet %i Spiele, inklusive %s"
 
 msgid "UP"
 msgstr "HOCH"
