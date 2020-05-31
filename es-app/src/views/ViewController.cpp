@@ -251,7 +251,13 @@ void ViewController::playViewTransition(bool forceImmediate)
 	if(target == -mCamera.translation() && !isAnimationPlaying(0))
 		return;
 
-	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	std::string transition_style = Settings::getInstance()->getString("GameTransitionStyle");
+	if (transition_style.empty() || transition_style == "auto")
+		transition_style = Settings::getInstance()->getString("TransitionStyle");
+
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
+
 	if(transition_style == "fade")
 	{
 		// fade
@@ -356,6 +362,9 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	// Workaround, the grid scale has problems when sliding giving bad effects
 	if(transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
 		transition_style = "fade";
+
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
 
 	if(transition_style == "fade")
 	{

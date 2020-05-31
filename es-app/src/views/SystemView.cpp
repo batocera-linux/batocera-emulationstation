@@ -532,6 +532,9 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	Animation* anim;
 	bool move_carousel = Settings::getInstance()->getBool("MoveCarousel");
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		move_carousel = false;
+
 	if(transition_style == "fade")
 	{
 		float startExtrasFade = mExtrasFadeOpacity;

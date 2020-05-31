@@ -891,9 +891,8 @@ void GuiMenu::openSystemSettings_batocera()
 		power_saver->add(_(it->c_str()), *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
 	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
 	s->addSaveFunc([this, power_saver] {
-		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") {
-			Settings::getInstance()->setString("TransitionStyle", "instant");
-			Settings::getInstance()->setBool("MoveCarousel", false);
+		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") 
+		{						
 			Settings::getInstance()->setBool("EnableSounds", false);
 		}
 		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
@@ -2746,25 +2745,25 @@ void GuiMenu::openUISettings()
 		transition_style->selectFirstItem();
 
 	s->addWithLabel(_("TRANSITION STYLE"), transition_style);
-	s->addSaveFunc([transition_style] 
-	{
-		Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected());		
-	});
+	s->addSaveFunc([transition_style] { Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected()); });
 
+	// game transition style
+	auto transitionOfGames_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAME LAUNCH TRANSITION"), false);
+
+	for (auto it = transitions.begin(); it != transitions.end(); it++)
+		transitionOfGames_style->add(_(it->c_str()), *it, Settings::getInstance()->getString("GameTransitionStyle") == *it);
+
+	if (!transitionOfGames_style->hasSelection())
+		transitionOfGames_style->selectFirstItem();
+
+	s->addWithLabel(_("GAME LAUNCH TRANSITION"), transitionOfGames_style);
+	s->addSaveFunc([transitionOfGames_style] { Settings::getInstance()->setString("GameTransitionStyle", transitionOfGames_style->getSelected()); });
+	
 	// carousel transition option
 	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
 	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
 	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
-	s->addSaveFunc([move_carousel] {
-		if (move_carousel->getState()
-			&& !Settings::getInstance()->getBool("MoveCarousel")
-			&& PowerSaver::getMode() == PowerSaver::INSTANT)
-		{
-			Settings::getInstance()->setString("PowerSaverMode", "default");
-			PowerSaver::init();
-		}
-		Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState());
-	});
+	s->addSaveFunc([move_carousel] { Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState()); });
 
 	// quick system select (left/right in game list view)
 	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
