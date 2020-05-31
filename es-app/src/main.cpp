@@ -46,7 +46,7 @@ static int gPlayVideoDuration = 0;
 bool parseArgs(int argc, char* argv[])
 {
 	Utils::FileSystem::setExePath(argv[0]);
-	
+
 	// We need to process --home before any call to Settings::getInstance(), because settings are loaded from homepath
 	for (int i = 1; i < argc; i++)
 	{
@@ -401,6 +401,7 @@ void playVideo()
 	window.deinit(true);
 }
 
+
 int main(int argc, char* argv[])
 {	
 	// signal(SIGABRT, signalHandler);
@@ -416,6 +417,8 @@ int main(int argc, char* argv[])
 
 	if(!parseArgs(argc, argv))
 		return 0;
+
+	// auto vec = ApiSystem::getInstance()->extractPdfImages("h://Addams Family, The-manual.pdf");
 
 	// only show the console on Windows if HideConsole is false
 #ifdef WIN32

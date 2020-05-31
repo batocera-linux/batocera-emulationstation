@@ -1043,51 +1043,57 @@ void GuiMenu::openSystemSettings_batocera()
 	}
 #endif
 
+	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
+
 	// Overclock choice
-	auto overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"), false);
-
-	std::string currentOverclock = Settings::getInstance()->getString("Overclock");
-	if (currentOverclock == "")
-		currentOverclock = "none";
-
-	std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
-
-	// Overclocking device
-	bool isOneSet = false;
-	for (auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++)
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))
 	{
-		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-		if (tokens.size() >= 2)
+		overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"), false);
+
+		std::string currentOverclock = Settings::getInstance()->getString("Overclock");
+		if (currentOverclock == "")
+			currentOverclock = "none";
+
+		std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
+
+		// Overclocking device
+		bool isOneSet = false;
+		for (auto it = availableOverclocking.begin(); it != availableOverclocking.end(); it++)
 		{
-			// concatenat the ending words
-			std::string vname;
-			for (unsigned int i = 1; i < tokens.size(); i++)
+			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+			if (tokens.size() >= 2)
 			{
-				if (i > 1) vname += " ";
-				vname += tokens.at(i);
+				// concatenat the ending words
+				std::string vname;
+				for (unsigned int i = 1; i < tokens.size(); i++)
+				{
+					if (i > 1) vname += " ";
+					vname += tokens.at(i);
+				}
+				bool isSet = currentOverclock == std::string(tokens.at(0));
+				if (isSet)
+					isOneSet = true;
+
+				if (vname == "NONE" || vname == "none")
+					vname = _("NONE");
+
+				overclock_choice->add(vname, tokens.at(0), isSet);
 			}
-			bool isSet = currentOverclock == std::string(tokens.at(0));
-			if (isSet)
-				isOneSet = true;
-
-			if (vname == "NONE" || vname == "none")
-				vname = _("NONE");
-
-			overclock_choice->add(vname, tokens.at(0), isSet);
 		}
-	}
 
-	if (isOneSet == false)
-	{
-		if (currentOverclock == "none")
-			overclock_choice->add(_("NONE"), currentOverclock, true);
-		else
-			overclock_choice->add(currentOverclock, currentOverclock, true);
+		if (isOneSet == false)
+		{
+			if (currentOverclock == "none")
+				overclock_choice->add(_("NONE"), currentOverclock, true);
+			else
+				overclock_choice->add(currentOverclock, currentOverclock, true);
+		}
+
+		// overclocking
+		s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 	}
 
 #if !defined(WIN32) || defined(_DEBUG)
-	// overclocking
-	s->addWithLabel(_("OVERCLOCK"), overclock_choice);
 	s->addGroup(_("STORAGE"));
 #endif
 
@@ -1176,9 +1182,8 @@ void GuiMenu::openSystemSettings_batocera()
 			reboot = true;
 		}
 
-		if (overclock_choice->changed()) 
+		if (overclock_choice && overclock_choice->changed() && Settings::getInstance()->setString("Overclock", overclock_choice->getSelected()))
 		{
-			Settings::getInstance()->setString("Overclock", overclock_choice->getSelected());
 			ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
 			reboot = true;
 		}

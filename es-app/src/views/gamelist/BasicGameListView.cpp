@@ -123,7 +123,7 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 			if (file->getType() == FOLDER)
 				mList.add(_U("\uF07C ") + file->getName(), file, true);
 			else
-				mList.add(file->getName(), file, false);
+				mList.add(file->getName(), file, false); //  + _U(" \uF05A")
 		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder

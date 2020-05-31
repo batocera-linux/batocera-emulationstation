@@ -17,7 +17,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
 	mDescContainer(window), mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
-	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr),
+	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -148,6 +148,9 @@ DetailedContainer::~DetailedContainer()
 
 	if (mFlag != nullptr)
 		delete mFlag;
+
+	if (mManual != nullptr)
+		delete mManual;
 
 	if (mKidGame != nullptr)
 		delete mKidGame;
@@ -346,6 +349,7 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	loadIfThemed(&mKidGame, theme, "md_kidgame", false, true);
 	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
 	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
+	loadIfThemed(&mManual, theme, "md_manual", false, true);
 
 	initMDLabels();
 
@@ -406,6 +410,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			if (md.component != nullptr)
 				md.component->setImage("");
 
+		if (mManual != nullptr) mManual->setVisible(false);
 		if (mKidGame != nullptr) mKidGame->setVisible(false);
 		if (mFavorite != nullptr) mFavorite->setVisible(false);
 		if (mHidden != nullptr) mHidden->setVisible(false);
@@ -496,6 +501,9 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 				mFlag->setImage(":/folder.svg");
 		}
 
+		if (mManual != nullptr)
+			mManual->setVisible(Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)));
+
 		if (mKidGame != nullptr)
 			mKidGame->setVisible(file->getKidGame());
 
@@ -543,6 +551,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mImage != nullptr) comps.push_back(mImage);
 	if (mThumbnail != nullptr) comps.push_back(mThumbnail);
 	if (mFlag != nullptr) comps.push_back(mFlag);
+	if (mManual != nullptr) comps.push_back(mManual);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
 	if (mHidden != nullptr) comps.push_back(mHidden);
@@ -582,6 +591,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mImage != nullptr) mImage->setImage("");
 					if (mThumbnail != nullptr) mThumbnail->setImage("");
 					if (mFlag != nullptr) mFlag->setImage("");
+					if (mManual != nullptr) mManual->setVisible(false);
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
 					if (mFavorite != nullptr) mFavorite->setVisible(false);
 					if (mHidden != nullptr) mHidden->setVisible(false);

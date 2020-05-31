@@ -313,7 +313,7 @@ ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::stri
 {
 	mOverQuotaPendingTime = 0;
 
-	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos))
+	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos) && url.find("media=map") == std::string::npos)
 	{
 		if (maxWidth > 0 && maxHeight > 0)
 			mRequest = new HttpReq(url + "&maxwidth=" + std::to_string(maxWidth), path);
@@ -400,7 +400,7 @@ void ImageDownloadHandle::update()
 	{
 		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
-		if (mSavePath.find("fanart") == std::string::npos && (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif"))
+		if (mSavePath.find("-fanart") == std::string::npos && mSavePath.find("-map") == std::string::npos && (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif"))
 		{
 			try { resizeImage(mSavePath, mMaxWidth, mMaxHeight); }
 			catch(...) { }

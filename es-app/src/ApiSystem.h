@@ -53,7 +53,9 @@ public:
 		GAMESETTINGS = 7,
 		DECORATIONS = 8,
 		SHADERS = 9,
-		DISKFORMAT = 10
+		DISKFORMAT = 10,
+		OVERCLOCK = 11,
+		PDFEXTRACTION = 12
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -142,6 +144,9 @@ public:
 	virtual std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
 
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
+
+	virtual int getPdfPageCount(const std::string fileName);
+	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);

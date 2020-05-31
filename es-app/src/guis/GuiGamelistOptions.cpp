@@ -20,6 +20,7 @@
 #include "ThreadedHasher.h"
 #include "guis/GuiMenu.h"
 #include "ApiSystem.h"
+#include "guis/GuiImageViewer.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic",
@@ -80,12 +81,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 {
 	mGridSize = nullptr;
 
+	addChild(&mMenu);
+
+	// check it's not a placeholder folder - if it is, only show "Filter Options"
+	FileData* file = getGamelist()->getCursor();
+	fromPlaceholder = file->isPlaceHolder();
+
 	std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
 	auto customCollection = customCollections.find(getCustomCollectionName());
 
 	auto theme = ThemeData::getMenuTheme();
-
-	addChild(&mMenu);
 
 	mMenu.addGroup(_("NAVIGATION"));
 
@@ -93,9 +98,6 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
 			addTextFilterToMenu();
 
-	// check it's not a placeholder folder - if it is, only show "Filter Options"
-	FileData* file = getGamelist()->getCursor();
-	fromPlaceholder = file->isPlaceHolder();
 	ComponentListRow row;
 
 	if (!fromPlaceholder)
@@ -155,6 +157,38 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 		if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
 			mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 	}
+
+
+	// Game medias
+	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual));
+	bool hasMap = Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map));
+
+	if (hasManual || hasMap)
+	{
+		mMenu.addGroup(_("GAME MEDIAS"));
+
+		if (hasManual)
+		{
+			mMenu.addEntry(_("VIEW GAME MANUAL"), false, [window, file, this]
+			{
+				GuiImageViewer::showPdf(window, file->getMetadata(MetaDataId::Manual));
+				delete this;
+			});
+		}
+
+		if (hasMap)
+		{
+			mMenu.addEntry(_("VIEW GAME MAP"), false, [window, file, this]
+			{
+				GuiImageViewer::showImage(window, file->getMetadata(MetaDataId::Map));
+				delete this;
+			});
+		}
+	}
+
+
+
+
 	if (customCollection != customCollections.cend() && customCollection->second.filteredIndex != nullptr)
 	{
 		mMenu.addGroup(_("COLLECTION"));
@@ -229,7 +263,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 			if (CollectionSystemManager::get()->isEditing())
 				mMenu.addEntry(_("FINISH EDITING COLLECTION") + " : " + Utils::String::toUpper(CollectionSystemManager::get()->getEditingCollection()), false, std::bind(&GuiGamelistOptions::exitEditMode, this));
 		}
-		
+
 		if (file->getType() == FOLDER && ((FolderData*) file)->isVirtualStorage())
 			fromPlaceholder = true;
 		else if (file->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())

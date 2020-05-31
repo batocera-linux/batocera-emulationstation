@@ -94,6 +94,10 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::SHADERS:
 		executables.push_back("emulatorLauncher");
 		break;
+	case ApiSystem::PDFEXTRACTION:
+		executables.push_back("pdftoppm");
+		executables.push_back("pdfinfo");		
+		break;
 	}
 
 	if (executables.size() == 0)

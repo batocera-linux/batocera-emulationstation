@@ -293,6 +293,15 @@ void ImageIO::saveImageCache()
 
 static std::mutex sizeCacheLock;
 
+void ImageIO::removeImageCache(const std::string fn)
+{
+	std::unique_lock<std::mutex> lock(sizeCacheLock);
+
+	auto it = sizeCache.find(fn);
+	if (it != sizeCache.cend())
+		sizeCache.erase(fn);
+}
+
 void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
 {
 	std::unique_lock<std::mutex> lock(sizeCacheLock);

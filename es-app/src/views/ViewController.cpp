@@ -306,11 +306,31 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 }
 
+#include "guis/GuiImageViewer.h"
+#include "ApiSystem.h"
+
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center)
 {
 	if(game->getType() != GAME)
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";
+		return;
+	}
+
+	if (game->getSourceFileData()->getSystem()->getName() == "imageviewer")
+	{
+		auto gameImage = game->getImagePath();
+		if (Utils::FileSystem::exists(gameImage))
+		{
+		//	GuiImageViewer::showPdf(mWindow, "H:/[Emulz]/roms/n64/manuals/V-Rally Edition 99 (USA)-manual.pdf");		
+			auto imgViewer = new GuiImageViewer(mWindow);			
+
+			for (auto sibling : game->getParent()->getChildrenListToDisplay())
+				imgViewer->add(sibling->getImagePath());
+
+			imgViewer->setCursor(gameImage);
+			mWindow->pushGui(imgViewer);	
+		}
 		return;
 	}
 

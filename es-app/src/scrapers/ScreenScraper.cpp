@@ -523,6 +523,32 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				}
 			}
 
+			if (Settings::getInstance()->getBool("ScrapeManual"))
+			{
+				ripList = getRipList("manuel");
+				if (!ripList.empty())
+				{
+					pugi::xml_node art = findMedia(media_list, ripList, region);
+					if (art)
+						result.urls[MetaDataId::Manual] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
+					else
+						LOG(LogDebug) << "Failed to find media XML node for video";
+				}
+			}
+
+			if (Settings::getInstance()->getBool("ScrapeMap"))
+			{
+				ripList = getRipList("maps");
+				if (!ripList.empty())
+				{
+					pugi::xml_node art = findMedia(media_list, ripList, region);
+					if (art)
+						result.urls[MetaDataId::Map] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
+					else
+						LOG(LogDebug) << "Failed to find media XML node for video";
+				}
+			}
+
 			if (Settings::getInstance()->getBool("ScrapeTitleShot"))
 			{
 				ripList = getRipList("sstitle");
