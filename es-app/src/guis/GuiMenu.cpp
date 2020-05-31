@@ -295,29 +295,30 @@ void GuiMenu::openScraperSettings()
 		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
 		
 		// SCRAPE TITLESHOT
+		/*
 		auto scrape_titleshot = std::make_shared<SwitchComponent>(mWindow);
 		scrape_titleshot->setState(Settings::getInstance()->getBool("ScrapeTitleShot"));
 		s->addWithLabel(_("SCRAPE TITLESHOT"), scrape_titleshot);
 		s->addSaveFunc([scrape_titleshot] { Settings::getInstance()->setBool("ScrapeTitleShot", scrape_titleshot->getState()); });
-		/*
-		// SCRAPE MAP
+		
+		// SCRAPE MAP		
 		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
 		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
 		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
 		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
-
+		
 		// SCRAPE CARTRIDGE
 		auto scrape_cartridge = std::make_shared<SwitchComponent>(mWindow);
 		scrape_cartridge->setState(Settings::getInstance()->getBool("ScrapeCartridge"));
 		s->addWithLabel(_("SCRAPE CARTRIDGE"), scrape_cartridge);
 		s->addSaveFunc([scrape_cartridge] { Settings::getInstance()->setBool("ScrapeCartridge", scrape_cartridge->getState()); });
-
+		*/
 		// SCRAPE MANUAL
 		auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
 		scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
 		s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
 		s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
-		*/
+		
 
 		// Account
 		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
@@ -2547,8 +2548,18 @@ void GuiMenu::openUISettings()
 			selectedSet = themeSets.begin();
 
 		auto theme_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME SET"), false);
+
+		std::vector<std::string> themeList;
 		for (auto it = themeSets.begin(); it != themeSets.end(); it++)
-			theme_set->add(it->first, it->first, it == selectedSet);
+			themeList.push_back(it->first);
+
+		std::sort(themeList.begin(), themeList.end(), [](const std::string& a, const std::string& b) -> bool { return Utils::String::toLower(a).compare(Utils::String::toLower(b)) < 0; });
+
+		for (auto themeName : themeList)
+			theme_set->add(themeName, themeName, themeName == selectedSet->first);
+
+		//for (auto it = themeSets.begin(); it != themeSets.end(); it++)
+		//	theme_set->add(it->first, it->first, it == selectedSet);
 
 		s->addWithLabel(_("THEME SET"), theme_set);
 		s->addSaveFunc([s, theme_set, pthis, window]
