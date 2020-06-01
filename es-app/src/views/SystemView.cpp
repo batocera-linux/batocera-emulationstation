@@ -92,7 +92,7 @@ void SystemView::populate()
 
 			// make logo
 			const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
-			if(logoElem && logoElem->has("path"))
+			if(logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
 			{
 				std::string path = logoElem->get<std::string>("path");
 				std::string defaultPath = logoElem->has("default") ? logoElem->get<std::string>("default") : "";

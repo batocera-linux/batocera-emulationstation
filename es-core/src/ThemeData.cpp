@@ -600,8 +600,27 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 
 	if (!ResourceManager::getInstance()->fileExists(path))
 	{
-		LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
-		return;
+		if (relPath.find("$") != std::string::npos && relPath.find("${") == std::string::npos)
+		{
+			path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
+			path = resolveSystemVariable("default", path);
+
+			if (ResourceManager::getInstance()->fileExists(path))
+			{
+				if (mPaths.size() == 1)
+					mSystemThemeFolder = "default";
+			}
+			else
+			{
+				LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+				return;
+			}
+		}
+		else
+		{
+			LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+			return;
+		}
 	}
 
 	mPaths.push_back(path);
