@@ -250,6 +250,8 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 	assert(request->status() == HttpReq::REQ_SUCCESS);
 
 	auto content = request->getContent();
+	if (content.empty())
+		return false;
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result parseResult = doc.load(content.c_str());

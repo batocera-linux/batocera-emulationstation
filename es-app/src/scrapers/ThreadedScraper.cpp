@@ -79,6 +79,9 @@ ScraperThread::ScraperThread(int threadId)
 
 void ScraperThread::run(const ScraperSearchParams& params)
 {
+	mResult = ScraperSearchResult();
+	mErrorStatus = 0;
+	mStatusString = "";
 	mStatus = ASYNC_IN_PROGRESS;
 	mSearch = params;
 	mMDResolveHandle.reset();
