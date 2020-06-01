@@ -461,6 +461,39 @@ std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolde
 
 	std::string result = path;
 	result.replace(start_pos, 7, systemThemeFolder);
+
+	if (!Utils::FileSystem::exists(result))
+	{
+		std::string compatibleFolder = systemThemeFolder;
+
+		if (compatibleFolder == "sg-1000")
+			compatibleFolder = "sg1000";
+		else if (compatibleFolder == "msx")
+			compatibleFolder = "msx1";
+		else if (compatibleFolder == "atarilynx")
+			compatibleFolder = "lynx";
+		else if (compatibleFolder == "atarijaguar")
+			compatibleFolder = "jaguar";
+		else if (compatibleFolder == "gameandwatch")
+			compatibleFolder = "gw";
+		else if (compatibleFolder == "amiga")
+			compatibleFolder = "amiga600";
+		else if (compatibleFolder == "amiga500")
+			compatibleFolder = "amiga600";
+		else if (compatibleFolder == "auto-favorites")
+			compatibleFolder = "favorites";
+		else if (compatibleFolder == "thomson")
+			compatibleFolder = "to8";
+		else if (compatibleFolder == "prboom")
+			compatibleFolder = "doom"; 
+
+		if (compatibleFolder != systemThemeFolder)
+		{
+			result = path;
+			result.replace(start_pos, 7, compatibleFolder);
+		}
+	}
+
 	return result;
 }
 
