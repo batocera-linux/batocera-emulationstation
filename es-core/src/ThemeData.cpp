@@ -313,8 +313,6 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 // helper
 unsigned int getHexColor(const char* str)
 {
-
-
 //	ThemeException error;
 	if (!str)
 	{
@@ -770,7 +768,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 
 	if (!parseLanguage(node))
 		return false;
-
+	
 	if (node.attribute("tinyScreen"))
 	{
 		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();

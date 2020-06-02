@@ -180,6 +180,7 @@ void Settings::setDefaults()
 	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; // batocera
+	mStringMap["SortSystems"] = "manufacturer";	
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 		
 	mBoolMap["CollectionShowSystemInfo"] = true;

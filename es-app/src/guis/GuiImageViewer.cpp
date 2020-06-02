@@ -12,7 +12,7 @@
 #include <unistd.h>
 #endif
 
-GuiImageViewer::GuiImageViewer(Window* window) :
+GuiImageViewer::GuiImageViewer(Window* window, bool linearSmooth) :
 	GuiComponent(window), mGrid(window)
 {
 	setPosition(0, 0);
@@ -53,6 +53,9 @@ GuiImageViewer::GuiImageViewer(Window* window) :
 		"</image>"
 		"</view>"
 		"</theme>";
+
+	if (!linearSmooth)
+		xml = Utils::String::replace(xml, "<linearSmooth>true</linearSmooth>", "<linearSmooth>false</linearSmooth>");
 
 	mTheme = std::shared_ptr<ThemeData>(new ThemeData());
 	std::map<std::string, std::string> emptyMap;
@@ -107,7 +110,7 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath)
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
 
-	auto imgViewer = new GuiImageViewer(window);
+	auto imgViewer = new GuiImageViewer(window, false);
 	imgViewer->add(imagePath);
 	imgViewer->setCursor(imagePath);
 	window->pushGui(imgViewer);
@@ -125,7 +128,7 @@ void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 			if (fileList.size() == 0)
 				return;
 
-			auto imgViewer = new GuiImageViewer(window);
+			auto imgViewer = new GuiImageViewer(window, true);
 
 			for (auto file : fileList)
 				imgViewer->add(file);

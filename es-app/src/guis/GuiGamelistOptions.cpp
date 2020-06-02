@@ -1,5 +1,4 @@
 #include "GuiGamelistOptions.h"
-
 #include "guis/GuiGamelistFilter.h"
 #include "scrapers/Scraper.h"
 #include "views/gamelist/IGameListView.h"
@@ -23,57 +22,13 @@
 #include "guis/GuiImageViewer.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
-	"automatic",
-
-	"1x1",
-
-	"2x1",
-	"2x2",
-	"2x3",
-	"2x4",
-	"2x5",
-	"2x6",
-	"2x7",
-
-	"3x1",
-	"3x2",
-	"3x3",
-	"3x4",
-	"3x5",
-	"3x6",
-	"3x7",
-
-	"4x1",
-	"4x2",
-	"4x3",
-	"4x4",
-	"4x5",
-	"4x6",
-	"4x7",
-
-	"5x1",
-	"5x2",
-	"5x3",
-	"5x4",
-	"5x5",
-	"5x6",
-	"5x7",
-
-	"6x1",
-	"6x2",
-	"6x3",
-	"6x4",
-	"6x5",
-	"6x6",
-	"6x7",
-
-	"7x1",
-	"7x2",
-	"7x3",
-	"7x4",
-	"7x5",
-	"7x6",
-	"7x7"
+	"automatic", "1x1",
+	"2x1", "2x2", "2x3", "2x4", "2x5", "2x6", "2x7",
+	"3x1", "3x2", "3x3", "3x4", "3x5", "3x6", "3x7",
+	"4x1", "4x2", "4x3", "4x4", "4x5", "4x6", "4x7",
+	"5x1", "5x2", "5x3", "5x4", "5x5", "5x6", "5x7",
+	"6x1", "6x2", "6x3", "6x4", "6x5", "6x6", "6x7",
+	"7x1", "7x2", "7x3", "7x4", "7x5", "7x6", "7x7"
 };
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool showGridFeatures) : GuiComponent(window),
@@ -307,14 +262,25 @@ void GuiGamelistOptions::addTextFilterToMenu()
 	std::shared_ptr<Font> font = theme->Text.font;
 	unsigned int color = theme->Text.color;
 
-	ComponentListRow row;
+	auto idx = mSystem->getIndex(false);
 
+	if (idx != nullptr && idx->isFiltered())
+	{
+		mMenu.addEntry(_("RESET FILTERS"), false, [this]
+		{
+			mSystem->deleteIndex();
+			mFiltersChanged = true;
+			delete this;
+		});
+	}
+
+	ComponentListRow row;
+	
 	auto lbl = std::make_shared<TextComponent>(mWindow, _("FILTER GAMES BY TEXT"), font, color);
 	row.addElement(lbl, true); // label
 
 	std::string searchText;
 	
-	auto idx = mSystem->getIndex(false);
 	if (idx != nullptr)
 		searchText = idx->getTextFilter();
 

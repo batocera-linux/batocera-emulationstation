@@ -2691,9 +2691,30 @@ void GuiMenu::openUISettings()
 
 	auto displayedSystems = std::make_shared<OptionListComponent<SystemData*>>(mWindow, _("SYSTEMS DISPLAYED"), true);
 
-	for (auto system : SystemData::sSystemVector)
-		if (!system->isCollection() && !system->isGroupChildSystem())
-			displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());	
+
+	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+	{
+		std::string man;
+		for (auto system : SystemData::sSystemVector)
+		{
+			if (system->isCollection() || system->isGroupChildSystem())
+				continue;
+
+			if (man != system->getSystemMetadata().manufacturer)
+			{
+				displayedSystems->addGroup(system->getSystemMetadata().manufacturer);
+				man = system->getSystemMetadata().manufacturer;
+			}
+
+			displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
+		}
+	}
+	else
+	{
+		for (auto system : SystemData::sSystemVector)
+			if (!system->isCollection() && !system->isGroupChildSystem())
+				displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
+	}
 
 	s->addWithLabel(_("SYSTEMS DISPLAYED"), displayedSystems);
 	s->addSaveFunc([s, displayedSystems]

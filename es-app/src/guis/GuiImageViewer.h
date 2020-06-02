@@ -12,7 +12,7 @@ public:
 	static void showPdf(Window* window, const std::string imagePath);
 	static void showImage(Window* window, const std::string imagePath);
 
-	GuiImageViewer(Window* window);
+	GuiImageViewer(Window* window, bool linearSmooth = false);
 	~GuiImageViewer();
 
 	bool input(InputConfig* config, Input input) override;
