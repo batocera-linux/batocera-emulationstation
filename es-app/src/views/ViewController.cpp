@@ -251,10 +251,7 @@ void ViewController::playViewTransition(bool forceImmediate)
 	if(target == -mCamera.translation() && !isAnimationPlaying(0))
 		return;
 
-	std::string transition_style = Settings::getInstance()->getString("GameTransitionStyle");
-	if (transition_style.empty() || transition_style == "auto")
-		transition_style = Settings::getInstance()->getString("TransitionStyle");
-
+	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		transition_style = "instant";
 
@@ -355,7 +352,13 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if (!Settings::getInstance()->getBool("HideWindow"))
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
 
-	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	std::string transition_style = Settings::getInstance()->getString("GameTransitionStyle");
+	if (transition_style.empty() || transition_style == "auto")
+		transition_style = Settings::getInstance()->getString("TransitionStyle");
+	
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
+
 	if(transition_style == "auto")
 		transition_style = "slide";
 
