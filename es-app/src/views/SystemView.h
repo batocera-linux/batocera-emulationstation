@@ -79,6 +79,8 @@ private:
 	void	 updateExtras(const std::function<void(GuiComponent*)>& func);
 	void	 clearEntries();
 
+	int		 moveCursorFast(bool forward = true);
+
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;
 	virtual void topWindow(bool isTop) override;

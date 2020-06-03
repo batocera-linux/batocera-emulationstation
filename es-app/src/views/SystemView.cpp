@@ -242,7 +242,7 @@ void SystemView::goToSystem(SystemData* system, bool animate)
 		finishAnimation(0);
 }
 
-static void _add(int& value, int count, int sz)
+static void _moveCursorInRange(int& value, int count, int sz)
 {
 	if (count >= sz)
 		return;
@@ -250,6 +250,37 @@ static void _add(int& value, int count, int sz)
 	value += count;
 	if (value < 0) value += sz;
 	if (value >= sz) value -= sz;	
+}
+
+int SystemView::moveCursorFast(bool forward)
+{
+	int cursor = mCursor;
+
+	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer" && mCursor >= 0 && mCursor < mEntries.size())
+	{
+		std::string man = mEntries[mCursor].object->getSystemMetadata().manufacturer;
+
+		int direction = forward ? 1 : -1;
+
+		_moveCursorInRange(cursor, direction, mEntries.size());
+
+		while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
+			_moveCursorInRange(cursor, direction, mEntries.size());
+
+		if (!forward && cursor != mCursor)
+		{
+			// Find first item
+			man = mEntries[cursor].object->getSystemMetadata().manufacturer;
+			while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
+				_moveCursorInRange(cursor, -1, mEntries.size());
+
+			_moveCursorInRange(cursor, 1, mEntries.size());
+		}
+	}
+	else
+		_moveCursorInRange(cursor, forward ? 10 : -10, mEntries.size());
+
+	return cursor;
 }
 
 bool SystemView::input(InputConfig* config, Input input)
@@ -319,29 +350,14 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input))
 			{
-				int cursor = mCursor + 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(10);
+				int cursor = moveCursorFast(true);
+				listInput(cursor - mCursor);				
 				return true;
 			}
 			if (config->isMappedTo("pageup", input))
 			{
-				int cursor = mCursor - 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(-10);
+				int cursor = moveCursorFast(false);
+				listInput(cursor - mCursor);
 				return true;
 			}
 
@@ -361,48 +377,13 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
 			{
-				int cursor = mCursor;
-				if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
-				{
-					std::string man = mEntries[mCursor].object->getSystemMetadata().manufacturer;
-
-					cursor = mCursor;
-					_add(cursor, 1, mEntries.size());
-
-					while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
-						_add(cursor, 1, mEntries.size());
-				}
-				else 
-					_add(cursor, 10, mEntries.size());
-
-			//	 auto sd = mEntries.at(cursor).object;
-			//	 ViewController::get()->goToSystemView(sd, true);
+				int cursor = moveCursorFast(true);
 				listInput(cursor - mCursor);
 				return true;
 			}
 			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
 			{
-				int cursor = mCursor;
-				if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
-				{
-					std::string man = mEntries[mCursor].object->getSystemMetadata().manufacturer;
-
-					_add(cursor, -1, mEntries.size());
-
-					while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
-						_add(cursor, -1, mEntries.size());
-
-					man = mEntries[cursor].object->getSystemMetadata().manufacturer;
-					while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
-						_add(cursor, -1, mEntries.size());
-
-					_add(cursor, 1, mEntries.size());
-				}
-				else 
-					_add(cursor, -10, mEntries.size());
-				
-				// auto sd = mEntries.at(cursor).object;
-				// ViewController::get()->goToSystemView(sd, true);
+				int cursor = moveCursorFast(false);
 				listInput(cursor - mCursor);
 				return true;
 			}
