@@ -56,7 +56,7 @@ void LangInfo::extractLang(std::string val)
 		{ { "kr", "korea", "k" }, "kr", "kr" },
 		{ { "cn", "china", "hong", "kong", "ch", "hk", "as", "tw" }, "cn", "cn" },
 
-		{ { "in", "ìndia" }, "in", "in" },
+		{ { "in", "Ã¬ndia" }, "in", "in" },
 	};
 
 	for (auto s : Utils::String::splitAny(val, "_, "))
@@ -105,7 +105,7 @@ LangInfo LangInfo::parse(std::string rom, SystemData* system)
 
 	if (system != nullptr)
 	{
-		static std::string japanDefaults = "pc98|pcenginecd|pcfx|satellaview|sg1000|sufami|wswan|wswanc|x68000";
+		static std::string japanDefaults = "pc88|pc98|pcenginecd|pcfx|satellaview|sg1000|sufami|wswan|wswanc|x68000";
 
 		if (info.region.empty())
 		{
