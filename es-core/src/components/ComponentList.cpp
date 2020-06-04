@@ -46,7 +46,12 @@ void ComponentList::addGroup(const std::string& label, bool forceVisible)
 	ComponentListRow row;
 
 	auto group = std::make_shared<TextComponent>(mWindow, label, theme->Group.font, theme->Group.color);
-	group->setHorizontalAlignment((Alignment) theme->Group.alignment);
+
+	if (EsLocale::isRTL() && ((Alignment)theme->Group.alignment) == Alignment::ALIGN_LEFT)
+		group->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+	else
+		group->setHorizontalAlignment((Alignment) theme->Group.alignment);
+
 	group->setBackgroundColor(theme->Group.backgroundColor); // 0x00000010	
 	if (theme->Group.backgroundColor != 0)
 		group->setRenderBackground(true);
@@ -95,8 +100,16 @@ bool ComponentList::input(InputConfig* config, Input input)
 		auto& row = mEntries.at(mCursor).data;
 		if(row.elements.size())
 		{
-			if(row.elements.back().component->input(config, input))
-				return true;
+			if (EsLocale::isRTL())
+			{
+				if (row.elements.front().component->input(config, input))
+					return true;
+			}
+			else
+			{
+				if (row.elements.back().component->input(config, input))
+					return true;
+			}
 		}
 	}
 

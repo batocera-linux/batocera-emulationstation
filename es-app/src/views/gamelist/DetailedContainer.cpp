@@ -16,8 +16,8 @@
 DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainerType viewType) :
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
 	mDescContainer(window), mDescription(window),
-	mImage(nullptr), mMarquee(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
-	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr),
+	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
+	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -26,6 +26,21 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window),
 	mName(window), mGameTime(window), mTextFavorite(window)	
 {
+	std::vector<MdImage> mdl = 
+	{ 
+		{ "md_marquee", { MetaDataId::Marquee, MetaDataId::Wheel } },
+		{ "md_fanart", { MetaDataId::FanArt, MetaDataId::TitleShot, MetaDataId::Image } },
+		{ "md_titleshot", { MetaDataId::TitleShot, MetaDataId::Image } },
+		{ "md_boxart", { MetaDataId::BoxArt, MetaDataId::Thumbnail } },
+		{ "md_wheel",{ MetaDataId::Wheel, MetaDataId::Marquee } },
+		{ "md_cartridge",{ MetaDataId::Cartridge } },
+		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } },
+		{ "md_map", { MetaDataId::Map } }
+	};
+
+	for (auto md : mdl)
+		mdImages.push_back(md);
+
 	const float padding = 0.01f;
 	auto mSize = mParent->getSize();
 
@@ -122,14 +137,20 @@ DetailedContainer::~DetailedContainer()
 	if (mImage != nullptr)
 		delete mImage;
 
-	if (mMarquee != nullptr)
-		delete mMarquee;
+	for (auto& md : mdImages)
+		if (md.component != nullptr)
+			delete md.component;
+
+	mdImages.clear();
 
 	if (mVideo != nullptr)
 		delete mVideo;
 
 	if (mFlag != nullptr)
 		delete mFlag;
+
+	if (mManual != nullptr)
+		delete mManual;
 
 	if (mKidGame != nullptr)
 		delete mKidGame;
@@ -140,6 +161,8 @@ DetailedContainer::~DetailedContainer()
 	if (mHidden != nullptr)
 		delete mHidden;
 }
+
+
 
 std::vector<MdComponent> DetailedContainer::getMetaComponents()
 {
@@ -158,6 +181,7 @@ std::vector<MdComponent> DetailedContainer::getMetaComponents()
 	};
 	return mdl;	
 }
+
 
 void DetailedContainer::createImageComponent(ImageComponent** pImage)
 {
@@ -317,12 +341,15 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	loadIfThemed(&mImage, theme, "md_image", (mVideo == nullptr && mViewType == DetailedContainerType::DetailedView));
 	loadIfThemed(&mThumbnail, theme, "md_thumbnail");
-	loadIfThemed(&mMarquee, theme, "md_marquee");
 	loadIfThemed(&mFlag, theme, "md_flag");
+
+	for (auto& md : mdImages)
+		loadIfThemed(&md.component, theme, md.id);
 
 	loadIfThemed(&mKidGame, theme, "md_kidgame", false, true);
 	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
 	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
+	loadIfThemed(&mManual, theme, "md_manual", false, true);
 
 	initMDLabels();
 
@@ -379,6 +406,11 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mImage != nullptr && mViewType == DetailedContainerType::GridView)
 			mImage->setImage("");
 
+		for (auto& md : mdImages)
+			if (md.component != nullptr)
+				md.component->setImage("");
+
+		if (mManual != nullptr) mManual->setVisible(false);
 		if (mKidGame != nullptr) mKidGame->setVisible(false);
 		if (mFavorite != nullptr) mFavorite->setVisible(false);
 		if (mHidden != nullptr) mHidden->setVisible(false);
@@ -423,8 +455,39 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 				mImage->setImage(imagePath, false, mImage->getMaxSizeInfo());
 		}
 
-		if (mMarquee != nullptr)
-			mMarquee->setImage(file->getMarqueePath(), false, mMarquee->getMaxSizeInfo());
+		for (auto& md : mdImages)
+		{
+			if (md.component != nullptr)
+			{
+				std::string image;
+
+				for (auto& id : md.metaDataIds)
+				{
+					if (id == MetaDataId::Marquee)
+					{
+						if (Utils::FileSystem::exists(file->getMarqueePath()))
+						{
+							image = file->getMarqueePath();
+							break;
+						}
+
+						continue;
+					}
+
+					std::string path = file->getMetadata(id);
+					if (Utils::FileSystem::exists(path)) 
+					{
+						image = path;
+						break;
+					}
+				}
+
+				if (!image.empty())
+					md.component->setImage(image, false, md.component->getMaxSizeInfo());
+				else
+					md.component->setImage("");
+			}
+		}
 
 		if (mFlag != nullptr)
 		{
@@ -437,6 +500,9 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			else
 				mFlag->setImage(":/folder.svg");
 		}
+
+		if (mManual != nullptr)
+			mManual->setVisible(Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)));
 
 		if (mKidGame != nullptr)
 			mKidGame->setVisible(file->getKidGame());
@@ -484,11 +550,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mVideo != nullptr) comps.push_back(mVideo);
 	if (mImage != nullptr) comps.push_back(mImage);
 	if (mThumbnail != nullptr) comps.push_back(mThumbnail);
-	if (mMarquee != nullptr) comps.push_back(mMarquee);
 	if (mFlag != nullptr) comps.push_back(mFlag);
+	if (mManual != nullptr) comps.push_back(mManual);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
 	if (mHidden != nullptr) comps.push_back(mHidden);
+
+	for (auto& md : mdImages)
+		if (md.component != nullptr)
+			comps.push_back(md.component);
 
 	comps.push_back(&mDescription);
 	comps.push_back(&mName);
@@ -520,11 +590,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mVideo != nullptr) mVideo->setImage("");
 					if (mImage != nullptr) mImage->setImage("");
 					if (mThumbnail != nullptr) mThumbnail->setImage("");
-					if (mMarquee != nullptr) mMarquee->setImage("");
 					if (mFlag != nullptr) mFlag->setImage("");
+					if (mManual != nullptr) mManual->setVisible(false);
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
 					if (mFavorite != nullptr) mFavorite->setVisible(false);
 					if (mHidden != nullptr) mHidden->setVisible(false);
+
+					for (auto& md : mdImages)
+						if (md.component != nullptr)
+							md.component->setImage("");
 				}
 			}, fadingOut);
 		}

@@ -96,6 +96,16 @@ struct EmulatorData
 	EmulatorFeatures::Features features;
 };
 
+struct SystemMetadata
+{
+	std::string name;
+	std::string fullName;
+	std::string themeFolder;
+	std::string manufacturer;
+	int releaseYear;
+	std::string hardwareType;
+};
+
 struct SystemEnvironmentData
 {
 	std::string mStartPath;
@@ -113,20 +123,23 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-    SystemData(const std::string& name, const std::string& fullName, SystemEnvironmentData* envData, const std::string& themeFolder, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
+    SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
+
+	static SystemData* getSystem(const std::string name);
 
 	static bool es_features_loaded;
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
-	inline const std::string& getName() const { return mName; }
-	inline const std::string& getFullName() const { return mFullName; }
+	inline const std::string& getName() const { return mMetadata.name; }
+	inline const std::string& getFullName() const { return mMetadata.fullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
 	inline const std::vector<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
-	inline const std::string& getThemeFolder() const { return mThemeFolder; }
+	inline const std::string& getThemeFolder() const { return mMetadata.themeFolder; }
 	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
 	inline const std::vector<PlatformIds::PlatformId>& getPlatformIds() const { return mEnvData->mPlatformIds; }
 	inline bool hasPlatformId(PlatformIds::PlatformId id) { if (!mEnvData) return false; return std::find(mEnvData->mPlatformIds.cbegin(), mEnvData->mPlatformIds.cend(), id) != mEnvData->mPlatformIds.cend(); }
+	inline const SystemMetadata& getSystemMetadata() const { return mMetadata; }
 
 	inline const std::shared_ptr<ThemeData>& getTheme() const { return mTheme; }
 
@@ -139,6 +152,7 @@ public:
 	int getDisplayedGameCount();
 	void updateDisplayedGameCount();
 
+	static bool isManufacturerSupported();
 	static bool hasDirtySystems();
 	static void deleteSystems();
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.
@@ -235,12 +249,19 @@ private:
 	bool mIsGameSystem;
 	bool mIsGroupSystem;
 
-	std::string mName;
-	std::string mFullName;
+	SystemMetadata mMetadata;
+
 	SystemEnvironmentData* mEnvData;
-	std::string mThemeFolder;
 	std::shared_ptr<ThemeData> mTheme;
 
+	/*
+	std::string mName;
+	std::string mFullName;
+	std::string mThemeFolder;
+	std::string mManufacturer;
+	std::string mReleaseYear;
+	std::string mHardwareType;
+	*/
 	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
 	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();

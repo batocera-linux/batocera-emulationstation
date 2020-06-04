@@ -8,7 +8,10 @@
 class GuiSettings : public GuiComponent
 {
 public:
-	GuiSettings(Window* window, const char* title);
+	GuiSettings(Window* window, 
+		const std::string title,
+		const std::string customButton = "",
+		const std::function<void(GuiSettings*)>& func = nullptr);
 	virtual ~GuiSettings(); // just calls save();
 
 	void close();

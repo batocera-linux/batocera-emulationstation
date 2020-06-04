@@ -105,6 +105,9 @@ namespace Renderer
 		unsigned int texture;
 
 		glGenTextures(1, &texture);
+		if (glGetError() != GL_NO_ERROR)
+			return 0;
+
 		bindTexture(texture);
 
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE);
@@ -117,6 +120,12 @@ namespace Renderer
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
+
+		if (glGetError() != GL_NO_ERROR)
+		{
+			glDeleteTextures(1, &texture);
+			return 0;
+		}
 
 		return texture;
 

@@ -226,7 +226,7 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 	updateInfoPane();
 
 	mLastSearch = params;
-	mSearchHandle = startScraperSearch(params);
+	mSearchHandle = Scraper::getScraper()->search(params);
 }
 
 void ScraperSearchComponent::stop()
@@ -250,7 +250,7 @@ void ScraperSearchComponent::onSearchDone(const std::vector<ScraperSearchResult>
 	if(results.empty())
 	{
 		// Check if the scraper used is still valid
-		if (!isValidConfiguredScraper())
+		if (!Scraper::isValidConfiguredScraper())
 		{
 			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::toUpper("Configured scraper is no longer available.\nPlease change the scraping source in the settings."),
 				"FINISH", mSkipCallback));
@@ -330,11 +330,19 @@ void ScraperSearchComponent::updateInfoPane()
 		if (mSearchType != ALWAYS_ACCEPT_FIRST_RESULT)
 		{
 			// Don't ask for thumbs in automatic mode to boost scraping -> mResultThumbnail is assigned after downloading first image 
-			const std::string& thumb = res.thumbnailUrl.empty() ? res.imageUrl : res.thumbnailUrl;
-			if (!thumb.empty())
-				mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(thumb));
+			auto url = res.urls.find(MetaDataId::Thumbnail);
+			if (url == res.urls.cend() && !url->second.url.empty())
+				url = res.urls.find(MetaDataId::Image);
+
+			if (url != res.urls.cend() && !url->second.url.empty())
+			{
+				if (Settings::getInstance()->getString("Scraper") == "ScreenScraper")
+					mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(url->second.url + "&maxheight=250"));
+				else 
+					mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(url->second.url));
+			}
 			else
-				mThumbnailReq.reset();			
+				mThumbnailReq.reset();
 		}
 
 		// metadata
@@ -391,9 +399,9 @@ void ScraperSearchComponent::returnResult(ScraperSearchResult result)
 	mBlockAccept = true;
 
 	// resolve metadata image before returning
-	if(result.hadMedia())
+	if(result.hasMedia())
 	{
-		mMDResolveHandle = resolveMetaDataAssets(result, mLastSearch);
+		mMDResolveHandle = result.resolveMetaDataAssets(mLastSearch);
 		return;
 	}
 
@@ -412,10 +420,10 @@ void ScraperSearchComponent::update(int deltaTime)
 			{
 				ScraperSearchResult result = mMDResolveHandle->getResult();
 
-				if (!result.mdl.get("thumbnail").empty())
-					mResultThumbnail->setImage(result.mdl.get("thumbnail"));
-				else if (!result.mdl.get("image").empty())
-					mResultThumbnail->setImage(result.mdl.get("image"));
+				if (!result.mdl.get(MetaDataId::Thumbnail).empty())
+					mResultThumbnail->setImage(result.mdl.get(MetaDataId::Thumbnail));
+				else if (!result.mdl.get(MetaDataId::Image).empty())
+					mResultThumbnail->setImage(result.mdl.get(MetaDataId::Image));
 			}
 
 			mBusyAnim.setText(_("Downloading") + " " + Utils::String::toUpper(mMDResolveHandle->getCurrentItem()));
@@ -442,7 +450,7 @@ void ScraperSearchComponent::update(int deltaTime)
 		{
 			// ScreenScraper in UI mode -> jeuInfo has no result, try with jeuRecherche
 			mLastSearch.nameOverride = mLastSearch.game->getName();
-			mSearchHandle = startScraperSearch(mLastSearch);
+			mSearchHandle = Scraper::getScraper()->search(mLastSearch);
 		}
 		else
 		{

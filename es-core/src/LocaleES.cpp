@@ -1,9 +1,11 @@
 #include "LocaleES.h"
-
 #include <iostream>
+
 #define PACKAGE_LANG "emulationstation2"
 
 #if !defined(WIN32)
+
+#include "SystemConf.h"
 
 #ifndef HAVE_INTL
 char* ngettext(char* msgid, char* msgid_plural, unsigned long int n)
@@ -72,6 +74,12 @@ std::string EsLocale::init(std::string locale, std::string path) {
 
 #endif
 	return "";
+}
+
+const bool EsLocale::isRTL()
+{
+	std::string language = SystemConf::getInstance()->get("system.language");
+	return language.find("ar") == 0 || language.find("he") == 0;
 }
 
 #else
@@ -153,6 +161,10 @@ const std::string EsLocale::nGetText(const std::string msgid, const std::string 
 	return msgid_plural;
 }
 
+const bool EsLocale::isRTL()
+{
+	return mCurrentLanguage.find("ar") == 0 || mCurrentLanguage.find("he") == 0;
+}
 
 void EsLocale::checkLocalisationLoaded()
 {

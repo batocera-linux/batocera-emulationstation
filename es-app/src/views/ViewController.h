@@ -16,6 +16,14 @@ class Window;
 class ViewController : public GuiComponent
 {
 public:
+	enum ViewMode
+	{
+		NOTHING,
+		START_SCREEN,
+		SYSTEM_SELECT,
+		GAME_LIST
+	};
+
 	static void init(Window* window);
 	static ViewController* get();
 
@@ -37,6 +45,7 @@ public:
 	void goToGameList(SystemData* system, bool forceImmediate = false);
 	bool goToGameList(std::string& systemName, bool forceImmediate = false);
 	void goToSystemView(SystemData* system, bool forceImmediate = false);
+	void goToSystemView(std::string& systemName, bool forceImmediate = false, ViewMode mode = SYSTEM_SELECT);
 	void goToStart(bool forceImmediate = false);
 	void ReloadAndGoToStart();
 
@@ -50,14 +59,6 @@ public:
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;
-
-	enum ViewMode
-	{
-		NOTHING,
-		START_SCREEN,
-		SYSTEM_SELECT,
-		GAME_LIST
-	};
 
 	enum GameListViewType
 	{
@@ -93,6 +94,9 @@ public:
 	virtual void onShow() override;
 	virtual void onScreenSaverActivate();
 	virtual void onScreenSaverDeactivate();
+
+	SystemData* getSelectedSystem();
+	ViewMode getViewMode();
 
 private:
 	ViewController(Window* window);

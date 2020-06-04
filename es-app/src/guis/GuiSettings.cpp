@@ -7,11 +7,18 @@
 #include "LocaleES.h"
 #include "SystemConf.h"
 
-GuiSettings::GuiSettings(Window* window, const char* title) : GuiComponent(window), mMenu(window, title)
+GuiSettings::GuiSettings(Window* window, 
+	const std::string title,
+	const std::string customButton,
+	const std::function<void(GuiSettings*)>& func) : GuiComponent(window), mMenu(window, title)
 {
 	addChild(&mMenu);
 
 	mCloseButton = "start";
+
+	if (!customButton.empty() && func != nullptr)
+		mMenu.addButton(customButton, customButton, [this, func] { func(this); });
+
 	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -94,7 +101,17 @@ void GuiSettings::addSubMenu(const std::string& label, const std::function<void(
 	auto theme = ThemeData::getMenuTheme();
 
 	auto entryMenu = std::make_shared<TextComponent>(mWindow, label, theme->Text.font, theme->Text.color);
+	if (EsLocale::isRTL())
+		entryMenu->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
 	row.addElement(entryMenu, true);
-	row.addElement(makeArrow(mWindow), false);
+
+	auto arrow = makeArrow(mWindow);
+
+	if (EsLocale::isRTL())
+		arrow->setFlipX(true);
+
+	row.addElement(arrow, false);
+
 	mMenu.addRow(row);
 };

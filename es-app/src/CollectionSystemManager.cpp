@@ -111,6 +111,32 @@ CollectionSystemManager::~CollectionSystemManager()
 	sInstance = NULL;
 }
 
+
+bool systemSort(SystemData* sys1, SystemData* sys2)
+{
+	std::string name1 = Utils::String::toUpper(sys1->getName());
+	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
+bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
+{
+	std::string mf1 = Utils::String::toUpper(sys1->getSystemMetadata().manufacturer);
+	std::string mf2 = Utils::String::toUpper(sys2->getSystemMetadata().manufacturer);
+
+	if (mf1 != mf2)
+		return mf1.compare(mf2) < 0;
+
+	if (sys1->getSystemMetadata().releaseYear < sys2->getSystemMetadata().releaseYear)
+		return true;
+	else if (sys1->getSystemMetadata().releaseYear > sys2->getSystemMetadata().releaseYear)
+		return false;
+
+	std::string name1 = Utils::String::toUpper(sys1->getName());
+	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
 CollectionSystemManager* CollectionSystemManager::get()
 {
 	assert(sInstance);
@@ -212,10 +238,14 @@ void CollectionSystemManager::updateSystemsList()
 	// add custom enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
-	if(Settings::getInstance()->getBool("SortAllSystems"))
+	auto sortMode = Settings::getInstance()->getString("SortSystems");
+	if (!sortMode.empty())
 	{
 		// sort custom individual systems with other systems
-		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemSort);
+		if (SystemData::isManufacturerSupported() && sortMode == "manufacturer")
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByManufacurerSort);
+		else 
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemSort);
 
 		// move RetroPie system to end, before auto collections
 		for(auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); )
@@ -764,7 +794,15 @@ SystemData* CollectionSystemManager::addNewCustomCollection(std::string name)
 // creates a new, empty Collection system, based on the name and declaration
 SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, CollectionSystemDecl sysDecl, bool index)
 {
-	SystemData* newSys = new SystemData(name, sysDecl.longName, mCollectionEnvData, sysDecl.themeFolder, NULL, true); // batocera
+	SystemMetadata md;
+	md.name = name;
+	md.fullName = sysDecl.longName;
+	md.themeFolder = sysDecl.themeFolder;
+	md.manufacturer = "Collections";
+	md.hardwareType = "system";
+	md.releaseYear = 0;
+	
+	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true); // batocera
 
 	CollectionSystemData newCollectionData;
 	newCollectionData.system = newSys;
@@ -1258,13 +1296,6 @@ std::string getCustomCollectionConfigPath(std::string collectionName)
 std::string getCollectionsFolder()
 {
 	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/collections");
-}
-
-bool systemSort(SystemData* sys1, SystemData* sys2)
-{
-	std::string name1 = Utils::String::toUpper(sys1->getName());
-	std::string name2 = Utils::String::toUpper(sys2->getName());
-	return name1.compare(name2) < 0;
 }
 
 bool CollectionSystemManager::isCustomCollection(const std::string collectionName)

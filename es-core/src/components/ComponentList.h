@@ -3,6 +3,7 @@
 #define ES_CORE_COMPONENTS_COMPONENT_LIST_H
 
 #include "IList.h"
+#include "LocaleES.h"
 
 struct ComponentListElement
 {
@@ -32,7 +33,10 @@ struct ComponentListRow
 	
 	inline void addElement(const std::shared_ptr<GuiComponent>& component, bool resize_width, bool invert_when_selected = true)
 	{
-		elements.push_back(ComponentListElement(component, resize_width, invert_when_selected));
+		if (EsLocale::isRTL())
+			elements.insert(elements.begin(), ComponentListElement(component, resize_width, invert_when_selected));
+		else
+			elements.push_back(ComponentListElement(component, resize_width, invert_when_selected));
 	}
 
 	// Utility method for making an input handler for "when the users presses A on this, do func."

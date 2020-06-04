@@ -92,7 +92,7 @@ void SystemView::populate()
 
 			// make logo
 			const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
-			if(logoElem && logoElem->has("path"))
+			if(logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
 			{
 				std::string path = logoElem->get<std::string>("path");
 				std::string defaultPath = logoElem->has("default") ? logoElem->get<std::string>("default") : "";
@@ -242,6 +242,47 @@ void SystemView::goToSystem(SystemData* system, bool animate)
 		finishAnimation(0);
 }
 
+static void _moveCursorInRange(int& value, int count, int sz)
+{
+	if (count >= sz)
+		return;
+
+	value += count;
+	if (value < 0) value += sz;
+	if (value >= sz) value -= sz;	
+}
+
+int SystemView::moveCursorFast(bool forward)
+{
+	int cursor = mCursor;
+
+	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer" && mCursor >= 0 && mCursor < mEntries.size())
+	{
+		std::string man = mEntries[mCursor].object->getSystemMetadata().manufacturer;
+
+		int direction = forward ? 1 : -1;
+
+		_moveCursorInRange(cursor, direction, mEntries.size());
+
+		while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
+			_moveCursorInRange(cursor, direction, mEntries.size());
+
+		if (!forward && cursor != mCursor)
+		{
+			// Find first item
+			man = mEntries[cursor].object->getSystemMetadata().manufacturer;
+			while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().manufacturer == man)
+				_moveCursorInRange(cursor, -1, mEntries.size());
+
+			_moveCursorInRange(cursor, 1, mEntries.size());
+		}
+	}
+	else
+		_moveCursorInRange(cursor, forward ? 10 : -10, mEntries.size());
+
+	return cursor;
+}
+
 bool SystemView::input(InputConfig* config, Input input)
 {
 	if(input.value != 0)
@@ -309,29 +350,14 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input))
 			{
-				int cursor = mCursor + 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(10);
+				int cursor = moveCursorFast(true);
+				listInput(cursor - mCursor);				
 				return true;
 			}
 			if (config->isMappedTo("pageup", input))
 			{
-				int cursor = mCursor - 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(-10);
+				int cursor = moveCursorFast(false);
+				listInput(cursor - mCursor);
 				return true;
 			}
 
@@ -351,29 +377,14 @@ bool SystemView::input(InputConfig* config, Input input)
 			}
 			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
 			{
-				int cursor = mCursor + 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(10);
+				int cursor = moveCursorFast(true);
+				listInput(cursor - mCursor);
 				return true;
 			}
 			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
 			{
-				int cursor = mCursor - 10;
-				if (cursor < 0)
-					cursor += (int)mEntries.size();
-				if (cursor >= (int)mEntries.size())
-					cursor -= (int)mEntries.size();
-
-				auto sd = mEntries.at(cursor).object;
-				ViewController::get()->goToSystemView(sd, true);
-				//listInput(-10);
+				int cursor = moveCursorFast(false);
+				listInput(cursor - mCursor);
 				return true;
 			}
 
@@ -532,6 +543,9 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	Animation* anim;
 	bool move_carousel = Settings::getInstance()->getBool("MoveCarousel");
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		move_carousel = false;
+
 	if(transition_style == "fade")
 	{
 		float startExtrasFade = mExtrasFadeOpacity;
@@ -834,7 +848,7 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	int logoCount = Math::min(mCarousel.maxLogoCount, (int)mEntries.size());
 
 	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferIndex = getScrollingVelocity() + 1;
+	int bufferIndex = Math::max(Math::min(getScrollingVelocity() + 1, 3), 0);
 	int bufferLeft = logoBuffersLeft[bufferIndex];
 	int bufferRight = logoBuffersRight[bufferIndex];
 	if (logoCount == 1 && mCamOffset == 0)
@@ -889,7 +903,28 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 	int extrasCenter = (int)mExtrasCamOffset;
 
 	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferIndex = getScrollingVelocity() + 1;
+	int bufferIndex = Math::max(Math::min(getScrollingVelocity() + 1, 3), 0);
+	
+	// Ensure texture loaded, query them if necessary ( & put it in the top order )
+	for (int i = extrasCenter + logoBuffersLeft[bufferIndex]; i <= extrasCenter + logoBuffersRight[bufferIndex]; i++)
+	{
+		int index = i;
+		while (index < 0)
+			index += (int)mEntries.size();
+		while (index >= (int)mEntries.size())
+			index -= (int)mEntries.size();
+
+		for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
+		{
+			if (extra->isKindOf<ImageComponent>())
+			{
+				auto tex = ((ImageComponent*)extra)->getTexture();
+				if (tex != nullptr)
+					tex->reload();
+			}
+		}
+	}
+
 
 	Renderer::pushClipRect(Vector2i::Zero(), Vector2i((int)mSize.x(), (int)mSize.y()));
 	
@@ -964,6 +999,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		Renderer::popClipRect();
 	}
 
+	bufferIndex = 1;
 	for (int i = extrasCenter + logoBuffersLeft[bufferIndex]; i <= extrasCenter + logoBuffersRight[bufferIndex]; i++)
 	{
 		int index = i;
@@ -1011,7 +1047,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		{
 			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 				continue;
-								
+
+			updateExtraBindings(index);
+
 			// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
 			if (mExtrasFadeOpacity && !extra->isStaticExtra())
 			{
@@ -1219,6 +1257,7 @@ void SystemView::onShow()
 {
 	GuiComponent::onShow();	
 	mShowing = true;
+
 	activateExtras(mCursor);
 
 	if (mStaticVideoBackground)
@@ -1275,6 +1314,60 @@ void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)
 	}
 }
 
+void SystemView::updateExtraBindings(int cursor)
+{
+	if (cursor < 0 || cursor >= mEntries.size())
+		return;
+
+	SystemData* sys = mEntries.at(cursor).object;
+	if (sys->getTheme() == nullptr)
+		return;
+
+	bool bindingEnabled = SystemData::isManufacturerSupported();
+
+	SystemViewData data = mEntries.at(cursor).data;
+	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
+	{
+		GuiComponent *extra = data.backgroundExtras[j];
+		if (!extra->isKindOf<TextComponent>())
+			continue;
+		
+		TextComponent* tx = (TextComponent*)extra;
+
+		auto elem = sys->getTheme()->getElement("system", tx->getTag(), "text");
+		if (elem && elem->has("text"))
+		{
+			std::string label = elem->get<std::string>("text");
+			auto xt = Utils::String::extractStrings(label, "{", "}");
+			for (auto ss : xt)
+			{
+				if (ss == "fullName")
+					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().fullName);
+				else if (ss == "name")
+					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().name);
+				else if (ss == "manufacturer")
+					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().manufacturer);
+				else if (ss == "release")
+				{
+					if (sys->getSystemMetadata().releaseYear > 0)
+						label = Utils::String::replace(label, "{release}", std::to_string(sys->getSystemMetadata().releaseYear));
+					else 
+						label = Utils::String::replace(label, "{release}", _("Unknown"));
+				}
+				else if (ss == "hardware")
+					label = Utils::String::replace(label, "{hardware}", sys->getSystemMetadata().hardwareType);
+				else
+					label = Utils::String::replace(label, "{" + ss + "}", "");
+			}
+
+			if (bindingEnabled)
+				tx->setText(label);
+			else
+				tx->setText("");
+		}
+	}
+}
+
 void SystemView::activateExtras(int cursor, bool activate)
 {
 	if (cursor < 0 || cursor >= mEntries.size())
@@ -1286,6 +1379,7 @@ void SystemView::activateExtras(int cursor, bool activate)
 	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
 	{
 		GuiComponent *extra = data.backgroundExtras[j];
+
 		if (show && activate)
 			extra->onShow();
 		else

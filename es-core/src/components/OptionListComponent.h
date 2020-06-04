@@ -89,7 +89,13 @@ private:
 					if (!it->description.empty())
 						row.addElement(std::make_shared<MultiLineMenuEntry>(mWindow, Utils::String::toUpper(it->name), it->description), true);
 					else
-						row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(it->name), font, color), true);
+					{
+						auto text = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(it->name), font, color);
+						if (EsLocale::isRTL())
+							text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
+						row.addElement(text, true);
+					}
 
 					if (mParent->mMultiSelect)
 					{
@@ -193,6 +199,7 @@ public:
 		mText.setFont(theme->Text.font);
 		mText.setColor(theme->Text.color);
 		mText.setHorizontalAlignment(ALIGN_CENTER);
+
 		addChild(&mText);
 
 		mLeftArrow.setResize(0, mText.getFont()->getLetterHeight());
@@ -200,9 +207,19 @@ public:
 
 		if(mMultiSelect)
 		{
-			mRightArrow.setImage(ThemeData::getMenuTheme()->Icons.arrow);
-			mRightArrow.setColorShift(theme->Text.color);
-			addChild(&mRightArrow);
+			if (EsLocale::isRTL())
+			{
+				mLeftArrow.setImage(ThemeData::getMenuTheme()->Icons.arrow);
+				mLeftArrow.setColorShift(theme->Text.color);
+				mLeftArrow.setFlipX(true);
+				addChild(&mLeftArrow);
+			}
+			else
+			{
+				mRightArrow.setImage(ThemeData::getMenuTheme()->Icons.arrow);
+				mRightArrow.setColorShift(theme->Text.color);
+				addChild(&mRightArrow);
+			}
 		}
 		else
 		{

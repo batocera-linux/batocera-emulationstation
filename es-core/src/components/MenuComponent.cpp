@@ -102,7 +102,12 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 		}
 	}
 
-	row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
+	auto text = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color);
+	row.addElement(text, true);
+
+	if (EsLocale::isRTL())
+		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
 	row.addElement(comp, false, invert_when_selected);
 
 	if (func != nullptr)
@@ -148,6 +153,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 
 	addRow(row, setCursorHere);
 }
+
 void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool onButtonRelease)
 {
 	auto theme = ThemeData::getMenuTheme();
@@ -176,10 +182,21 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 		}
 	}
 
-	row.addElement(std::make_shared<TextComponent>(mWindow, name, font, color), true, invert_when_selected);
+	auto text = std::make_shared<TextComponent>(mWindow, name, font, color);
+	row.addElement(text, true, invert_when_selected);
+
+	if (EsLocale::isRTL())
+		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
 
 	if (add_arrow)
-		row.addElement(makeArrow(mWindow), false);
+	{
+		auto arrow = makeArrow(mWindow);
+
+		if (EsLocale::isRTL())
+			arrow->setFlipX(true);
+
+		row.addElement(arrow, false);
+	}
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func, onButtonRelease);

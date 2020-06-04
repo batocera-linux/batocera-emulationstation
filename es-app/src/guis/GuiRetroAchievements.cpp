@@ -27,7 +27,7 @@ void GuiRetroAchievements::show(Window* window)
 		}));
 }
 
-GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo ra) : GuiSettings(window, _("RETROACHIEVEMENTS").c_str())
+GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo ra) : GuiSettings(window, _("RETROACHIEVEMENTS").c_str(), "", nullptr)
 {
 	if (!ra.error.empty())
 	{

@@ -54,7 +54,15 @@ enum MetaDataId
 	Md5 = 22,
 	GameTime = 23,
 	Language = 24,
-	Region = 25
+	Region = 25,
+	FanArt = 26,
+	TitleShot = 27,
+	Cartridge = 28,
+	Map = 29,
+	Manual = 30,
+	BoxArt = 31,
+	Wheel = 32,
+	Mix = 33
 };
 
 namespace MetaDataImportType
@@ -65,7 +73,13 @@ namespace MetaDataImportType
 		THUMB = 2,
 		VIDEO = 4,
 		MARQUEE = 8,
-		ALL = IMAGE | THUMB | VIDEO | MARQUEE
+		FANART = 16,
+		MANUAL = 32,		
+		MAP = 64,
+		CARTRIDGE = 128,
+		TITLESHOT = 256,
+
+		ALL = IMAGE | THUMB | VIDEO | MARQUEE | FANART | MANUAL | MAP | CARTRIDGE | TITLESHOT
 	};
 }
 
@@ -78,9 +92,9 @@ struct MetaDataDecl
 	bool         isStatistic; //if true, ignore scraper values for this metadata
 	std::string  displayName; // displayed as this in editors
 	std::string  displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
+	bool		 visibleForFolder;
 
-  // batocera
-	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt)
+	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt, bool folderMetadata)
 	{
 		this->id = id;
 		this->key = key;
@@ -89,16 +103,7 @@ struct MetaDataDecl
 		this->isStatistic = isStatistic;
 		this->displayName = displayName;
 		this->displayPrompt = displayPrompt;
-	}
-
-	// batocera 
-	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic)
-	{
-		this->id = id;
-		this->key = key;
-		this->type = type;
-		this->defaultValue = defaultValue;
-		this->isStatistic = isStatistic;
+		this->visibleForFolder = folderMetadata;
 	}
 };
 
@@ -107,8 +112,6 @@ enum MetaDataListType
 	GAME_METADATA,
 	FOLDER_METADATA
 };
-
-const std::vector<MetaDataDecl>& getMDDByType(MetaDataListType type);
 
 class MetaDataList
 {
@@ -120,6 +123,7 @@ public:
 
 	MetaDataList(MetaDataListType type);
 	
+	void set(MetaDataId id, const std::string& value);
 	void set(const std::string& key, const std::string& value);
 
 	const std::string get(MetaDataId id, bool resolveRelativePaths = true) const;
@@ -136,10 +140,10 @@ public:
 	}
 
 	inline MetaDataListType getType() const { return mType; }
-	inline const std::vector<MetaDataDecl>& getMDD() const { return getMDDByType(getType()); }
+	inline const std::vector<MetaDataDecl>& getMDD() const { return mMetaDataDecls; }
 
 	const std::string& getName() const;
-
+	
 	void importScrappedMetadata(const MetaDataList& source);
 
 private:
@@ -151,6 +155,9 @@ private:
 
 	inline MetaDataType getType(MetaDataId id) const;
 	inline MetaDataId getId(const std::string& key) const;
+
+	static std::vector<MetaDataDecl> mMetaDataDecls;
+
 };
 
 #endif // ES_APP_META_DATA_H

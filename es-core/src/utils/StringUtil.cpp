@@ -206,6 +206,9 @@ namespace Utils
 			}
 			else if((c & 0xE0) == 0xC0) // 110xxxxx, two byte character
 			{
+				// 0001xxxx
+				
+
 				// 110xxxxx 10xxxxxx
 				result = ((_string[_cursor++] & 0x1F) <<  6) |
 						 ((_string[_cursor++] & 0x3F)      );

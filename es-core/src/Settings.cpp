@@ -114,7 +114,7 @@ void Settings::setDefaults()
 	mBoolMap["DebugImage"] = false;
 
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
-	mIntMap["ScraperResizeWidth"] = 400;
+	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
 #if defined(_WIN32)
@@ -127,7 +127,9 @@ void Settings::setDefaults()
 	#endif
 #endif
 
-	mStringMap["TransitionStyle"] = "auto"; // batocera
+	mStringMap["TransitionStyle"] = "auto";
+	mStringMap["GameTransitionStyle"] = "auto";
+
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
 	mStringMap["GamelistViewStyle"] = "automatic";
@@ -144,6 +146,7 @@ void Settings::setDefaults()
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
 	mStringMap["PowerSaverMode"] = "default"; // batocera
 
+	mBoolMap["RetroachievementsMenuitem"] = true;
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
 	// mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/music/slideshow_bg.wav"; // batocera
@@ -177,6 +180,7 @@ void Settings::setDefaults()
 	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; // batocera
+	mStringMap["SortSystems"] = "manufacturer";	
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 		
 	mBoolMap["CollectionShowSystemInfo"] = true;
