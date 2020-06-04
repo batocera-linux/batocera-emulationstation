@@ -23,7 +23,7 @@ Scraper* Scraper::getScraper()
 {
 	auto name = Settings::getInstance()->getString("Scraper");
 
-	auto& it = Scraper::scrapers.find(name);
+	auto it = Scraper::scrapers.find(name);
 	if (it != Scraper::scrapers.end())
 		return it->second;
 

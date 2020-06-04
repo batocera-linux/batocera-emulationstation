@@ -126,6 +126,8 @@ public:
     SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
 	~SystemData();
 
+	static SystemData* getSystem(const std::string name);
+
 	static bool es_features_loaded;
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };

@@ -1498,3 +1498,11 @@ bool SystemData::hasEmulatorSelection()
 	return ec > 1 || cc > 1;
 }
 
+SystemData* SystemData::getSystem(const std::string name)
+{
+	for (auto sys : SystemData::sSystemVector)
+		if (sys->getName() == name)
+			return sys;
+
+	return nullptr;
+}

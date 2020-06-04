@@ -1383,6 +1383,21 @@ void GuiMenu::openGamesSettings_batocera()
 
 	auto s = new GuiSettings(mWindow, _("GAMES SETTINGS").c_str());
 
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	{
+		s->addGroup(_("TOOLS"));
+
+		// Game List Update
+		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
+
+		if (SystemConf::getInstance()->getBool("global.retroachievements") &&
+			!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
+			SystemConf::getInstance()->get("global.retroachievements.username") != "")
+		{
+			s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }/*, "iconRetroachievements"*/);
+		}
+	}
+
 	s->addGroup(_("DEFAULT SETTINGS"));
 
 	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") {
@@ -1587,11 +1602,12 @@ void GuiMenu::openGamesSettings_batocera()
 		// Retroachievements
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
 		{
+			/*
 			if (SystemConf::getInstance()->getBool("global.retroachievements") &&
 				!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
 				SystemConf::getInstance()->get("global.retroachievements.username") != "")
-				addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
-
+				s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
+				*/
 			s->addEntry(_("RETROACHIEVEMENTS SETTINGS"), true, [this] { openRetroachievementsSettings(); });
 		}
 
@@ -1604,7 +1620,7 @@ void GuiMenu::openGamesSettings_batocera()
 			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
 
 		// Game List Update
-		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
+		// s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
 	}
 
 	s->addSaveFunc([smoothing_enabled, rewind_enabled, autosave_enabled] 
@@ -1724,7 +1740,7 @@ void GuiMenu::openMissingBiosSettings()
 	mWindow->pushGui(configuration);
 }
 
-void GuiMenu::updateGameLists(Window* window)
+void GuiMenu::updateGameLists(Window* window, bool confirm)
 {
 	if (ThreadedScraper::isRunning())
 	{
@@ -1744,6 +1760,12 @@ void GuiMenu::updateGameLists(Window* window)
 		return;
 	}
 	
+	if (!confirm)
+	{
+		reloadAllGames(window, true);
+		return;
+	}
+
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [window]
 		{
 			reloadAllGames(window, true);

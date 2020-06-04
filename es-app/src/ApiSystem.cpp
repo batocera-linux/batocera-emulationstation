@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
+#include <algorithm>
 
 #if !defined(WIN32)
 #include <ifaddrs.h>
@@ -1318,7 +1319,7 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName,
 	std::string prefix = "extract";
 	if (pageIndex >= 0)
 	{
-		char buffer[9];
+		char buffer[12];
 		sprintf(buffer, "%08d", (uint32_t)pageIndex);
 
 		prefix = "page-" + std::string(buffer)+"-pdf";

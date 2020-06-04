@@ -57,16 +57,15 @@ void ViewController::goToStart(bool forceImmediate)
 	auto requestedSystem = Settings::getInstance()->getString("StartupSystem");
 	if("" != requestedSystem && "retropie" != requestedSystem)
 	{
-		for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++){
-			if ((*it)->getName() == requestedSystem && !(*it)->isGroupChildSystem())
-			{
-				if (startOnGamelist)
-					goToGameList(*it, forceImmediate);
-				else
-					goToSystemView(*it, forceImmediate);
+		auto system = SystemData::getSystem(requestedSystem);
+		if (system != nullptr && !system->isGroupChildSystem())
+		{
+			if (startOnGamelist)
+				goToGameList(system, forceImmediate);
+			else
+				goToSystemView(system, forceImmediate);
 
-				return;
-			}
+			return;
 		}
 
 		// Requested system doesn't exist
@@ -95,17 +94,13 @@ int ViewController::getSystemId(SystemData* system)
 
 void ViewController::goToSystemView(std::string& systemName, bool forceImmediate, ViewController::ViewMode mode)
 {
-	for (auto system : SystemData::sSystemVector)
+	auto system = SystemData::getSystem(systemName);
+	if (system != nullptr)
 	{
-		if (system->getName() == systemName)
-		{
-			if (mode == ViewController::ViewMode::GAME_LIST)
-				goToGameList(system, forceImmediate);
-			else
-				goToSystemView(system, forceImmediate);
-
-			break;
-		}
+		if (mode == ViewController::ViewMode::GAME_LIST)
+			goToGameList(system, forceImmediate);
+		else
+			goToSystemView(system, forceImmediate);
 	}
 }
 
@@ -169,13 +164,11 @@ void ViewController::goToPrevGameList()
 
 bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
 {
-	for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+	auto system = SystemData::getSystem(systemName);
+	if (system != nullptr && !system->isGroupChildSystem())
 	{
-		if ((*sysIt)->getName() == systemName && !(*sysIt)->isGroupChildSystem())
-		{
-			goToGameList(*sysIt, forceImmediate);
-			return true;
-		}
+		goToGameList(system, forceImmediate);
+		return true;
 	}
 
 	return false;

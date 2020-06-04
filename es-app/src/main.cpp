@@ -1,6 +1,7 @@
 //EmulationStation, a graphical front-end for ROM browsing. Created by Alec "Aloshi" Lofquist.
 //http://www.aloshi.com
 
+#include "services/HttpServerThread.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
 #include "utils/FileSystemUtil.h"
@@ -32,6 +33,7 @@
 #include "ImageIO.h"
 #include "components/VideoVlcComponent.h"
 #include <csignal>
+
 
 #ifdef WIN32
 #include <Windows.h>
@@ -558,6 +560,7 @@ int main(int argc, char* argv[])
 	if(splashScreen && splashScreenProgress)
 		window.renderSplashScreen(_("Done.")); // batocera
 
+	HttpServerThread httpServer(&window);
 
 	//choose which GUI to open depending on if an input configuration already exists
 	if(errorMsg == NULL)

@@ -19,6 +19,8 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Playlists.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LangParser.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/services/httplib.h
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -107,6 +109,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Playlists.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LangParser.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.cpp	
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
