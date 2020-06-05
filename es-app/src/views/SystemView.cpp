@@ -19,10 +19,6 @@
 #include "Playlists.h"
 #include "CollectionSystemManager.h"
 
-// buffer values for scrolling velocity (left, stopped, right)
-const int logoBuffersLeft[] = { -5, -2, -1 };
-const int logoBuffersRight[] = { 1, 2, 5 };
-
 SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP),
 										 mViewNeedsReload(true),
 										 mSystemInfo(window, "SYSTEM INFO", Font::get(FONT_SIZE_SMALL), 0x33333300, ALIGN_CENTER)
@@ -848,9 +844,8 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	int logoCount = Math::min(mCarousel.maxLogoCount, (int)mEntries.size());
 
 	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferIndex = Math::max(Math::min(getScrollingVelocity() + 1, 3), 0);
-	int bufferLeft = logoBuffersLeft[bufferIndex];
-	int bufferRight = logoBuffersRight[bufferIndex];
+	int bufferLeft = -1;
+	int bufferRight = 1;
 	if (logoCount == 1 && mCamOffset == 0)
 	{
 		bufferLeft = 0;
@@ -902,11 +897,8 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 {
 	int extrasCenter = (int)mExtrasCamOffset;
 
-	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferIndex = Math::max(Math::min(getScrollingVelocity() + 1, 3), 0);
-	
 	// Ensure texture loaded, query them if necessary ( & put it in the top order )
-	for (int i = extrasCenter + logoBuffersLeft[bufferIndex]; i <= extrasCenter + logoBuffersRight[bufferIndex]; i++)
+	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
 	{
 		int index = i;
 		while (index < 0)
@@ -924,7 +916,6 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			}
 		}
 	}
-
 
 	Renderer::pushClipRect(Vector2i::Zero(), Vector2i((int)mSize.x(), (int)mSize.y()));
 	
@@ -999,8 +990,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		Renderer::popClipRect();
 	}
 
-	bufferIndex = 1;
-	for (int i = extrasCenter + logoBuffersLeft[bufferIndex]; i <= extrasCenter + logoBuffersRight[bufferIndex]; i++)
+	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
 	{
 		int index = i;
 		while (index < 0)

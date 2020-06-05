@@ -68,12 +68,12 @@ void HttpServerThread::run()
 
 			"function quitES() {\r\n"
 			"var xhr = new XMLHttpRequest();\r\n"			
-			"xhr.open('GET', 'http://localhost:1234/quit');\r\n"
+			"xhr.open('GET', '/quit');\r\n"
 			"xhr.send(); }\r\n"
 
 			"function reloadGamelists() {\r\n"
 			"var xhr = new XMLHttpRequest();\r\n"
-			"xhr.open('GET', 'http://localhost:1234/reloadgames');\r\n"
+			"xhr.open('GET', '/reloadgames');\r\n"
 			"xhr.send(); }\r\n"
 
 			"</script>\r\n"
@@ -197,10 +197,83 @@ void HttpServerThread::run()
 
 		res.set_content("OK", "text/html");
 	});
+	
+	mHttpServer->Post(R"(/removegames/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (req.body.empty())
+		{
+			res.set_content("400 bad request - body is missing", "text/html");
+			res.status = 400;
+			return;
+		}
+
+		auto systemName = req.matches[1];
+
+		SystemData* system = SystemData::getSystem(systemName);
+		if (system == nullptr)
+		{
+			res.set_content("404 not found", "text/html");
+			res.status = 404;
+			return;
+		}
+
+		std::unordered_map<std::string, FileData*> fileMap;
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+			fileMap[file->getPath()] = file;
+
+		auto fileList = loadGamelistFile(req.body, system, fileMap, SIZE_MAX, false);
+		if (fileList.size() == 0)
+		{
+			res.set_content("204 No game removed", "text/html");
+			res.status = 204;
+			return;
+		}
+
+		std::vector<SystemData*> systems;
+		systems.push_back(system);
+
+		for (auto file : fileList)
+		{
+			removeFromGamelistRecovery(file);
+
+			auto filePath = file->getPath();
+			if (Utils::FileSystem::exists(filePath))
+				Utils::FileSystem::removeFile(filePath);
+
+			file->getParent()->removeChild(file);						
+
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (!sys->isCollection())
+					continue;
+
+				auto copy = sys->getRootFolder()->FindByPath(filePath);
+				if (copy != nullptr)
+				{
+					copy->getParent()->removeChild(file);
+					systems.push_back(sys);
+				}
+			}
+
+			// delete file; intentionnal mem leak
+		}
+
+		mWindow->postToUiThread([systems](Window* w)
+		{
+			for (auto changedSystem : systems)
+				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
+		});
+
+		res.set_content("OK", "text/html");
+	});
 
 	try
 	{
-		mHttpServer->listen("localhost", 1234);
+#if WIN32
+		mHttpServer->listen("127.0.0.0", 1234);
+#else
+		mHttpServer->listen("0.0.0.0", 1234);
+#endif
 	}
 	catch (...)
 	{

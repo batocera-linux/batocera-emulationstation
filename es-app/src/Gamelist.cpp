@@ -293,6 +293,25 @@ bool saveToGamelistRecovery(FileData* file)
 	return false;
 }
 
+bool removeFromGamelistRecovery(FileData* file)
+{
+	SystemData* system = file->getSourceFileData()->getSystem();
+	if (system == nullptr)
+		return false;
+
+	std::string fp = file->getFullPath();
+	fp = Utils::FileSystem::createRelativePath(file->getFullPath(), system->getRootFolder()->getFullPath(), true);
+	fp = Utils::FileSystem::getParent(fp) + "/" + Utils::FileSystem::getStem(fp) + ".xml";
+
+	std::string path = Utils::FileSystem::getAbsolutePath(fp, getGamelistRecoveryPath(system));
+	path = Utils::FileSystem::getCanonicalPath(path);
+
+	if (Utils::FileSystem::exists(path))
+		return Utils::FileSystem::removeFile(path);
+
+	return false;
+}
+
 bool hasDirtyFile(SystemData* system)
 {
 	if (system == nullptr || !system->isGameSystem() || system->getName() == "imageviewer")
