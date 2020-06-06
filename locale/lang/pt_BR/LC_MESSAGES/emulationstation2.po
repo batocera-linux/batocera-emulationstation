@@ -1479,7 +1479,7 @@ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr "INICIAR O JOGO COMO HOST DO JOGO EM REDE"
 
 msgid "Released"
-msgstr "Liberado"
+msgstr "Lançado"
 
 msgid "Times played"
 msgstr "Vezes jogados"
