@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -70,6 +70,12 @@ msgstr "BITTE WARTEN"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "CONTROLLER-VERBINDUNGEN WURDEN GELÖSCHT."
 
+msgid "CLOSE"
+msgstr "SCHLIESSEN"
+
+msgid "Loading..."
+msgstr "Lade..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBINDE MIT NETZWERKSPIEL"
 
@@ -78,9 +84,6 @@ msgstr "Wählen Sie das Spiel aus, an dem Sie teilnehmen möchten"
 
 msgid "REFRESH"
 msgstr "AKTUALISIEREN"
-
-msgid "CLOSE"
-msgstr "SCHLIESSEN"
 
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
@@ -114,6 +117,15 @@ msgstr "SPIELE SORTIEREN NACH"
 
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTER"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "SAMMLUNG"
@@ -163,11 +175,11 @@ msgstr "ORDNER-METADATEN BEARBEITEN"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN DIESES SPIELS BEARBEITEN"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "SPIELE NACH TEXT FILTERN"
-
-msgid "Loading..."
-msgstr "Lade..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DIESE FUNKTION IST DEAKTIVIERT, WENN SCRAPING LÄUFT"
@@ -286,6 +298,15 @@ msgstr "INFORMATIONEN"
 msgid "QUIT"
 msgstr "BEENDEN"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "SCRAPING LÄUFT GERADE. WILLST DU ES STOPPEN?"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "SCRAPER STARTEN"
+
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VON"
 
@@ -310,6 +331,9 @@ msgstr "BOX 2D"
 msgid "BOX 3D"
 msgstr "BOX 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "BOX QUELLE"
 
@@ -331,17 +355,17 @@ msgstr "BEWERTUNGEN SCRAPEN"
 msgid "SCRAPE VIDEOS"
 msgstr "VIDEOS SCRAPEN"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "BENUTZERNAME"
 
 msgid "PASSWORD"
 msgstr "PASSWORT"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "SCRAPING LÄUFT GERADE. WILLST DU ES STOPPEN?"
-
-msgid "SCRAPE NOW"
-msgstr "SCRAPER STARTEN"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "BIST DU SICHER, DASS DU DIE EINGABE KONFIGURIEREN MÖCHTEST?"
@@ -582,6 +606,9 @@ msgstr "VERBOSE MODE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "EINSTELLUNGEN"
 
@@ -608,6 +635,12 @@ msgstr "ALLE SPIELE INDEXIEREN"
 
 msgid "INDEX MISSING GAMES"
 msgstr "INDEX FEHLENDER SPIELE"
+
+msgid "TOOLS"
+msgstr "WERKZEUGE"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "SPIELELISTE AKTUALISIEREN"
 
 msgid "DEFAULT SETTINGS"
 msgstr "STANDARDEINSTELLUNGEN"
@@ -668,9 +701,6 @@ msgstr "PAUSE AUF ÜBERSETZTEM BILDSCHIRM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "SPIELELISTE AKTUALISIEREN"
 
 msgid "NO MISSING BIOS"
 msgstr "KEINE FEHLENDEN BIOS-DATEIEN"
@@ -774,9 +804,6 @@ msgstr "ZEIGE  '..' ÜBERGEORDNETEN ORDNER"
 msgid "FILE EXTENSIONS"
 msgstr "DATEI-ERWEITERUNGEN"
 
-msgid "TOOLS"
-msgstr "WERKZEUGE"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "SPIELELISTEN-ANPASSUNGEN ZURÜCKSETZEN"
 
@@ -826,6 +853,9 @@ msgstr "ANZEIGEOPTIONEN"
 
 msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSSEL ÜBERGÄNGE"
@@ -1025,8 +1055,17 @@ msgstr "OPTIONEN"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "UNTHEMATISIERTE BENUTZERDEFINIERTE SAMMLUNGEN GRUPPIEREN"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "BENUTZERDEFINIERTE SAMMLUNGEN UND SYSTEME SORTIEREN"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "SYSTEMNAME IN SAMMLUNGEN ANZEIGEN"
@@ -1300,17 +1339,65 @@ msgstr "Video"
 msgid "enter path to video"
 msgstr "Pfad zum Video eingeben"
 
-msgid "Marquee"
-msgstr "Banner"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "Pfad zum Banner eingeben"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Vorschaubild"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "Pfad zum Vorschaubild angeben"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Bewertung"
@@ -1408,20 +1495,11 @@ msgstr "Sprachen"
 msgid "Region"
 msgstr "Region"
 
-msgid "favorite"
-msgstr "Favorit"
-
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Suche"
-
 msgid "SCRAPE FAILED"
 msgstr "SCRAPE FEHLGESCHLAGEN"
-
-msgid "Downloading"
-msgstr "Downloading"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING BEENDET. AKTUALISIERE SPIELELISTEN, UM ÄNDERUNGEN ANZUWENDEN."
@@ -1600,6 +1678,9 @@ msgstr "Sammlungen"
 msgid "Extracting"
 msgstr "Extrahiere"
 
+msgid "Searching"
+msgstr "Suche"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "KEINE SPIELE GEFUNDEN - ÜBERSPRINGEN"
 
@@ -1608,6 +1689,9 @@ msgstr "EIN FEHLER IST AUFGETRETEN"
 
 msgid "RETRY"
 msgstr "WIEDERHOLEN"
+
+msgid "Downloading"
+msgstr "Downloading"
 
 msgid "ACCEPT RESULT"
 msgstr "ERGEBNIS AKZEPTIEREN"
@@ -1881,6 +1965,24 @@ msgstr "ARBEITET..."
 
 msgid "up/down"
 msgstr "hoch/runter"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "BENUTZERDEFINIERTE SAMMLUNGEN UND SYSTEME SORTIEREN"
+
+#~ msgid "Marquee"
+#~ msgstr "Banner"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "Pfad zum Banner eingeben"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Vorschaubild"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "Pfad zum Vorschaubild angeben"
+
+#~ msgid "favorite"
+#~ msgstr "Favorit"
 
 #~ msgid "This collection contains %i game, including %s."
 #~ msgid_plural "This collection contains %i games, including %s."

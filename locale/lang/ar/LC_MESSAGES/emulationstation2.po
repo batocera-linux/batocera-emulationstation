@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -74,6 +74,12 @@ msgstr "الرجاء الإنتظار"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "تم حذف روابط وحدات التحكم"
 
+msgid "CLOSE"
+msgstr "إغلاق"
+
+msgid "Loading..."
+msgstr "جارِ التحميل..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "الإتصال بـ NETPLAY"
 
@@ -82,9 +88,6 @@ msgstr "اختر اللعبة التي تريد الإنضمام إليها"
 
 msgid "REFRESH"
 msgstr "تحديث"
-
-msgid "CLOSE"
-msgstr "إغلاق"
 
 msgid "FAILED"
 msgstr "فشل"
@@ -118,6 +121,15 @@ msgstr "ترتيب الألعاب حسب "
 
 msgid "OTHER FILTERS"
 msgstr "تصفيات أخرى"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "مجموعة"
@@ -167,11 +179,11 @@ msgstr "تعديل مجلد البيانات الوصفية"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل البيانات الوصفية لهذه اللعبة"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "فرز الألعاب حسب"
-
-msgid "Loading..."
-msgstr "جارِ التحميل..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "تم تعطيل هذه الوظيفة عندما يتم إجراء عملية الكشط"
@@ -290,6 +302,15 @@ msgstr "المعلومات"
 msgid "QUIT"
 msgstr "خروج"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "اكشط الآن"
+
 msgid "SCRAPE FROM"
 msgstr "كشط من "
 
@@ -314,6 +335,9 @@ msgstr "صندوق ثنائي البعد"
 msgid "BOX 3D"
 msgstr "صندوق ثلاثي البعد"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "مصدر الصندوق"
 
@@ -335,17 +359,17 @@ msgstr "كشط عن التقييم"
 msgid "SCRAPE VIDEOS"
 msgstr "كشط عن فيديو"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "اسم المستخدم"
 
 msgid "PASSWORD"
 msgstr "كلمة المرور"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
-
-msgid "SCRAPE NOW"
-msgstr "اكشط الآن"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "هل أنت متأكد من انك تريد تكوين الإدخال ؟"
@@ -584,6 +608,9 @@ msgstr "وضع مفصل"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "إعدادات"
 
@@ -610,6 +637,12 @@ msgstr "أعد فهرسة جميع الألعاب"
 
 msgid "INDEX MISSING GAMES"
 msgstr "فهرس الألعاب المفقودة"
+
+msgid "TOOLS"
+msgstr "الأدوات"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "تحديث قوائم الألعاب"
 
 msgid "DEFAULT SETTINGS"
 msgstr "الإعدادات الإفتراضية"
@@ -670,9 +703,6 @@ msgstr "إيقاف مؤقت للشاشة المترجمة"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "تكوين متقدم لكل نظام"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "تحديث قوائم الألعاب"
 
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
@@ -776,9 +806,6 @@ msgstr "اعرض ‘..’ لمجلد الوالدين"
 msgid "FILE EXTENSIONS"
 msgstr "امتدادات الملفات"
 
-msgid "TOOLS"
-msgstr "الأدوات"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "أعد تعيين قائمة الألعاب المخصصة"
 
@@ -827,6 +854,9 @@ msgstr "خيارات العرض"
 
 msgid "TRANSITION STYLE"
 msgstr "نمط التنقل"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "تنقل دائري"
@@ -1026,8 +1056,17 @@ msgstr "خيارات"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "جمع المجموعات المخصصه الغير موسومه"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "فرز مخصص للمجموعات والأنظمه"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "قم بعرض اسم النظام في المجموعة"
@@ -1308,17 +1347,65 @@ msgstr "الفيديو"
 msgid "enter path to video"
 msgstr "ادخل المسار للفيديو"
 
-msgid "Marquee"
-msgstr "شاشة أسمية"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "ادخل المسار للشاشة الأسمية"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "صوره مصغرة"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "ادخل مسار الصورة المصغرة"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "التقييم"
@@ -1416,20 +1503,11 @@ msgstr "اللغات"
 msgid "Region"
 msgstr "المنطقة"
 
-msgid "favorite"
-msgstr "المفضلة"
-
 msgid "SCRAPING"
 msgstr "الكشط"
 
-msgid "Searching"
-msgstr "يبحث"
-
 msgid "SCRAPE FAILED"
 msgstr "الكشط فشل"
-
-msgid "Downloading"
-msgstr "جارِ التنزيل"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "تم انتهاء الكشط. قم بتحديث قائمة الألعاب لتطبيق التغييرات."
@@ -1620,6 +1698,9 @@ msgstr "مجموعة"
 msgid "Extracting"
 msgstr "استخراج"
 
+msgid "Searching"
+msgstr "يبحث"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "لا يوجد ألعاب - تخطي"
 
@@ -1628,6 +1709,9 @@ msgstr "حدث خطأ ما"
 
 msgid "RETRY"
 msgstr "حاول مرة اخرى"
+
+msgid "Downloading"
+msgstr "جارِ التنزيل"
 
 msgid "ACCEPT RESULT"
 msgstr "قبول النتيجة"
@@ -1942,3 +2026,21 @@ msgstr "يعمل حالياً..."
 
 msgid "up/down"
 msgstr "أعلى/أسفل"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "فرز مخصص للمجموعات والأنظمه"
+
+#~ msgid "Marquee"
+#~ msgstr "شاشة أسمية"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "ادخل المسار للشاشة الأسمية"
+
+#~ msgid "Thumbnail"
+#~ msgstr "صوره مصغرة"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "ادخل مسار الصورة المصغرة"
+
+#~ msgid "favorite"
+#~ msgstr "المفضلة"

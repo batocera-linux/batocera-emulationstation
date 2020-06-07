@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,6 +67,12 @@ msgstr ""
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 
+msgid "CLOSE"
+msgstr "TANCA"
+
+msgid "Loading..."
+msgstr ""
+
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
@@ -75,9 +81,6 @@ msgstr ""
 
 msgid "REFRESH"
 msgstr ""
-
-msgid "CLOSE"
-msgstr "TANCA"
 
 msgid "FAILED"
 msgstr ""
@@ -110,6 +113,15 @@ msgid "SORT GAMES BY"
 msgstr "ORDENA ELS JOCS PER"
 
 msgid "OTHER FILTERS"
+msgstr ""
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
 msgstr ""
 
 msgid "COLLECTION"
@@ -160,10 +172,10 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITA LES METADADES D'AQUEST JOC"
 
-msgid "FILTER GAMES BY TEXT"
+msgid "RESET FILTERS"
 msgstr ""
 
-msgid "Loading..."
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
@@ -283,6 +295,15 @@ msgstr ""
 msgid "QUIT"
 msgstr "SURT"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
+msgid "SCRAPE NOW"
+msgstr "OBTÉ LES DADES ARA"
+
 msgid "SCRAPE FROM"
 msgstr "OBTÉ DADES DE"
 
@@ -307,6 +328,9 @@ msgstr ""
 msgid "BOX 3D"
 msgstr ""
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr ""
 
@@ -328,17 +352,17 @@ msgstr "OBTÉ DADES DE VALORACIÓ"
 msgid "SCRAPE VIDEOS"
 msgstr ""
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "USUARI"
 
 msgid "PASSWORD"
 msgstr "CONTRASENYA"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr "OBTÉ LES DADES ARA"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
@@ -577,6 +601,9 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr ""
 
@@ -603,6 +630,12 @@ msgstr ""
 
 msgid "INDEX MISSING GAMES"
 msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALITZA LES LLISTES DELS JOCS"
 
 msgid "DEFAULT SETTINGS"
 msgstr ""
@@ -663,9 +696,6 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
-
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALITZA LES LLISTES DELS JOCS"
 
 msgid "NO MISSING BIOS"
 msgstr ""
@@ -769,9 +799,6 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "TOOLS"
-msgstr ""
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
@@ -816,6 +843,9 @@ msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "ESTIL DE LES TRANSICIONS"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr ""
@@ -1015,7 +1045,16 @@ msgstr "OPCIONS"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -1279,17 +1318,65 @@ msgstr ""
 msgid "enter path to video"
 msgstr ""
 
-msgid "Marquee"
+msgid "Logo"
 msgstr ""
 
-msgid "enter path to marquee"
+msgid "enter path to logo"
 msgstr ""
 
-msgid "Thumbnail"
-msgstr "Miniatura"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "introduïu el camí a la miniatura"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Valoració"
@@ -1387,19 +1474,10 @@ msgstr ""
 msgid "Region"
 msgstr "Regió"
 
-msgid "favorite"
-msgstr ""
-
 msgid "SCRAPING"
 msgstr ""
 
-msgid "Searching"
-msgstr ""
-
 msgid "SCRAPE FAILED"
-msgstr ""
-
-msgid "Downloading"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
@@ -1579,6 +1657,9 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
+msgid "Searching"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
@@ -1587,6 +1668,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTA EL RESULTAT"
@@ -1855,6 +1939,12 @@ msgstr "S'ESTÀ TREBALLANT…"
 msgid "up/down"
 msgstr ""
 
+#~ msgid "Thumbnail"
+#~ msgstr "Miniatura"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "introduïu el camí a la miniatura"
+
 #~ msgid "STOP EDITING"
 #~ msgstr "ATURA L'EDICIÓ"
 
@@ -2035,9 +2125,6 @@ msgstr ""
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "NO S'HA TROBAT CAP COMANDAMENT"
-
-#~ msgid "SCRAPER"
-#~ msgstr "SCRAPER"
 
 #~ msgid "NONE (700Mhz)"
 #~ msgstr "NORMAL (700Mhz)"

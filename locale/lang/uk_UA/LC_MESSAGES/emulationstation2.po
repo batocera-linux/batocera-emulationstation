@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -71,6 +71,12 @@ msgstr "ЗАЧЕКАЙТЕ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
 
+msgid "CLOSE"
+msgstr "ЗАКРИТИ"
+
+msgid "Loading..."
+msgstr "Завантаження..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
 
@@ -79,9 +85,6 @@ msgstr "Виберіть гру до якої під'єднатись"
 
 msgid "REFRESH"
 msgstr "ОНОВИТИ"
-
-msgid "CLOSE"
-msgstr "ЗАКРИТИ"
 
 msgid "FAILED"
 msgstr "ПОМИЛКА"
@@ -115,6 +118,15 @@ msgstr "СОРТУВАННЯ ЗА"
 
 msgid "OTHER FILTERS"
 msgstr "ІНШІ ФІЛЬТРИ"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЕКЦІЯ"
@@ -164,11 +176,11 @@ msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАГУВАТИ МЕТАДАННІ"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОШУК"
-
-msgid "Loading..."
-msgstr "Завантаження..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ПІД ЧАС ЗАВАНТАЖЕННЯ ЦЯ ФУНКЦІЯ ВІДКЛЮЧЕНА"
@@ -287,6 +299,15 @@ msgstr "ДАННІ"
 msgid "QUIT"
 msgstr "ВИХІД"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "ЗАВАНТАЖИТИ ДАНІ"
+
 msgid "SCRAPE FROM"
 msgstr "ЗАВАНТАЖЕННЯ З"
 
@@ -311,6 +332,9 @@ msgstr "ОБЛОЖКИ 2D"
 msgid "BOX 3D"
 msgstr "ОБЛОЖКИ 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "СТИЛЬ ОБЛОЖКИ"
 
@@ -332,17 +356,17 @@ msgstr "ЗАВАНТАЖЕННЯ РЕЙТИНГІВ"
 msgid "SCRAPE VIDEOS"
 msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ІМ'Я КОРИСТУВАЧА"
 
 msgid "PASSWORD"
 msgstr "ПАРОЛЬ"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
-
-msgid "SCRAPE NOW"
-msgstr "ЗАВАНТАЖИТИ ДАНІ"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ НАЛАШТУВАТИ КЕРУВАННЯ?"
@@ -581,6 +605,9 @@ msgstr "ДОКЛАДНИЙ РЕЖИМ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr ""
 
@@ -607,6 +634,12 @@ msgstr ""
 
 msgid "INDEX MISSING GAMES"
 msgstr ""
+
+msgid "TOOLS"
+msgstr "ІНСТРУМЕНТИ"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ОНОВИТИ СПИСКИ ІГР"
 
 msgid "DEFAULT SETTINGS"
 msgstr ""
@@ -667,9 +700,6 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "ОНОВИТИ СПИСКИ ІГР"
 
 msgid "NO MISSING BIOS"
 msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
@@ -772,9 +802,6 @@ msgstr "ПОКАЗАТИ '..' ВЕРХНЬОЇ ПАПКИ"
 msgid "FILE EXTENSIONS"
 msgstr "РОЗШИРЕННЯ ФАЙЛУ"
 
-msgid "TOOLS"
-msgstr "ІНСТРУМЕНТИ"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "СКИНУТИ НАЛАШТУВАННЯ СПИСКУ ІГР"
 
@@ -822,6 +849,9 @@ msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДІВ"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦІЯ КАРУСЕЛІ"
@@ -1021,8 +1051,17 @@ msgstr "ПАРАМЕТРИ"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "ГРУПУВАТИ ВЛАСНІ КОЛЕКЦІЇ"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "СОРТУВАТИ КОЛЕКЦІЇ І СИСТЕМИ"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ПОКАЗУВАТИ СИСТЕМУ В НАЗВІ"
@@ -1297,17 +1336,65 @@ msgstr ""
 msgid "enter path to video"
 msgstr "введіть шлях до відео"
 
-msgid "Marquee"
+msgid "Logo"
 msgstr ""
 
-msgid "enter path to marquee"
-msgstr "введіть шлях до банера"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Ескіз"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "введіть шлях до ескізу"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Рейтинг"
@@ -1405,19 +1492,10 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
-msgid "favorite"
-msgstr ""
-
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Пошук"
-
 msgid "SCRAPE FAILED"
-msgstr ""
-
-msgid "Downloading"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
@@ -1600,6 +1678,9 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
+msgid "Searching"
+msgstr "Пошук"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ІГРИ НЕ ЗНАЙДЕНО — ПРОПУСТИТИ"
 
@@ -1608,6 +1689,9 @@ msgstr "ВІДБУЛАСЬ ПОМИЛКА"
 
 msgid "RETRY"
 msgstr "ПОВТОРИТИ"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИЙНЯТИ РЕЗУЛЬТАТ"
@@ -1890,6 +1974,18 @@ msgstr "ОБРОБКА..."
 
 msgid "up/down"
 msgstr "вгору/вниз"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "СОРТУВАТИ КОЛЕКЦІЇ І СИСТЕМИ"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "введіть шлях до банера"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Ескіз"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "введіть шлях до ескізу"
 
 #~ msgid "GRID SIZE"
 #~ msgstr "РОЗМІР СІТКИ"

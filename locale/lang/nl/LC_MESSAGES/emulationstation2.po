@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -70,6 +70,12 @@ msgstr "EEN MOMENT GEDULD"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "GEKOPPELDE CONTROLLERS ZIJN GEWIST."
 
+msgid "CLOSE"
+msgstr "SLUITEN"
+
+msgid "Loading..."
+msgstr "Laden..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBIND MET NETPLAY"
 
@@ -78,9 +84,6 @@ msgstr "Selecteer het spel dat je wilt betreden"
 
 msgid "REFRESH"
 msgstr "VERVERS"
-
-msgid "CLOSE"
-msgstr "SLUITEN"
 
 msgid "FAILED"
 msgstr "MISLUKT"
@@ -114,6 +117,15 @@ msgstr "SORTEER OP"
 
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTERS"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "VERZAMELINGEN"
@@ -163,11 +175,11 @@ msgstr "BEWERK METADATA VAN MAP"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "BEWERK METADATA VAN DIT SPEL"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTER SPELLEN OP TEKST"
-
-msgid "Loading..."
-msgstr "Laden..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DEZE FUNCTIE IS UITGESCHAKELD WANNEER ER GESCRAPED WORDT"
@@ -224,7 +236,7 @@ msgid "Temperature"
 msgstr "Temperatuur"
 
 msgid "Available memory"
-msgstr ""
+msgstr "Beschikbaar Geheugen"
 
 msgid "Battery"
 msgstr "Accu"
@@ -286,6 +298,15 @@ msgstr "ALGEMENE INFORMATIE"
 msgid "QUIT"
 msgstr "STOPPEN"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "HET SCRAPEN IS BEZIG. WIL JE HET STOPPEN ?"
+
+msgid "SCRAPER"
+msgstr "Scraper"
+
+msgid "SCRAPE NOW"
+msgstr "NU SCRAPEN"
+
 msgid "SCRAPE FROM"
 msgstr "SCRAPE VANAF"
 
@@ -310,6 +331,9 @@ msgstr "DOOSJE 2D"
 msgid "BOX 3D"
 msgstr "DOOSJE 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "BRON VAN DOOSJE"
 
@@ -331,17 +355,17 @@ msgstr "SCRAPE BEOORDELINGEN"
 msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE VIDEO'S"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "GEBRUIKERSNAAM"
 
 msgid "PASSWORD"
 msgstr "WACHTWOORD"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "HET SCRAPEN IS BEZIG. WIL JE HET STOPPEN ?"
-
-msgid "SCRAPE NOW"
-msgstr "NU SCRAPEN"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "WEET JE ZEKER DAT JE DE INVOER WILT CONFIGUREREN?"
@@ -581,6 +605,9 @@ msgstr "VERBOSE MODUS"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCHERMAFDRUK"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "INSTELLINGEN"
 
@@ -607,6 +634,12 @@ msgstr "HERINDEXEER ALLE SPELLEN"
 
 msgid "INDEX MISSING GAMES"
 msgstr "INDEXEER ONTBREKENDE SPELLEN"
+
+msgid "TOOLS"
+msgstr "HULPMIDDELEN"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "VERVERS SPELLIJST"
 
 msgid "DEFAULT SETTINGS"
 msgstr "STANDAARDINSTELLINGEN"
@@ -667,9 +700,6 @@ msgstr "PAUZEER BIJ VERTAALD SCHERM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "GEAVANCEERDE CONFIGURATIE PER SYSTEEM"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "VERVERS SPELLIJST"
 
 msgid "NO MISSING BIOS"
 msgstr "GEEN ONTBREKENDE BIOS"
@@ -772,9 +802,6 @@ msgstr "TOON '..' BOVENLIGGENDE MAP"
 msgid "FILE EXTENSIONS"
 msgstr "BESTANDSEXTENSIES"
 
-msgid "TOOLS"
-msgstr "HULPMIDDELEN"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "HERSTEL SPELLIJST AANPASSINGEN"
 
@@ -823,6 +850,9 @@ msgstr "WEERGAVEOPTIES"
 
 msgid "TRANSITION STYLE"
 msgstr "TRANSITIE STIJL"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "DRAAIMOLEN OVERGANGEN"
@@ -1022,8 +1052,17 @@ msgstr "OPTIES"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GROEPEER AANGEPASTE VERZAMELINGEN ZONDER THEMA"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "SORTEER AANGEPASTE VERZAMELINGEN EN SYSTEMEN"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "TOON SYSTEEMNAAM IN VERZAMELINGEN"
@@ -1296,17 +1335,65 @@ msgstr "Video"
 msgid "enter path to video"
 msgstr "voer pad naar video in"
 
-msgid "Marquee"
-msgstr "Bannier"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "voer pad naar bannier in"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Thumbnail"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "voer pad naar beeld in"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Beoordeling"
@@ -1404,20 +1491,11 @@ msgstr "Talen"
 msgid "Region"
 msgstr "Regio"
 
-msgid "favorite"
-msgstr "favoriet"
-
 msgid "SCRAPING"
 msgstr "SCRAPEN"
 
-msgid "Searching"
-msgstr "Zoeken"
-
 msgid "SCRAPE FAILED"
 msgstr "SCRAPEN MISLUKT"
-
-msgid "Downloading"
-msgstr "Bezig met downloaden"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPEN VOLTOOID. VERVERS SPELLIJST OM WIJZIGINGEN TOE TE PASSEN."
@@ -1596,6 +1674,9 @@ msgstr "Verzamelingen"
 msgid "Extracting"
 msgstr "Uitpakken"
 
+msgid "Searching"
+msgstr "Zoeken"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "GEEN SPELLEN GEVONDEN - OVERSLAAN"
 
@@ -1604,6 +1685,9 @@ msgstr "EEN FOUT IS OPGETREDEN"
 
 msgid "RETRY"
 msgstr "OPNIEUW"
+
+msgid "Downloading"
+msgstr "Bezig met downloaden"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTEER RESULTAAT"
@@ -1876,6 +1960,24 @@ msgstr "BEZIG..."
 msgid "up/down"
 msgstr "omhoog/omlaag"
 
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "SORTEER AANGEPASTE VERZAMELINGEN EN SYSTEMEN"
+
+#~ msgid "Marquee"
+#~ msgstr "Bannier"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "voer pad naar bannier in"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Thumbnail"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "voer pad naar beeld in"
+
+#~ msgid "favorite"
+#~ msgstr "favoriet"
+
 #~ msgid "DISK USAGE"
 #~ msgstr "Gebruikt verbruik"
 
@@ -2065,9 +2167,6 @@ msgstr "omhoog/omlaag"
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "Geen controllers gevonden"
-
-#~ msgid "SCRAPER"
-#~ msgstr "Scraper"
 
 #~ msgid "NONE (700Mhz)"
 #~ msgstr "Geen (700MHz)"

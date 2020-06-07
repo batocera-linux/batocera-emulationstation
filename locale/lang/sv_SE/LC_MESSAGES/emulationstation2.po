@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -70,6 +70,12 @@ msgstr "VÄNLIGEN VÄNTA"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
 
+msgid "CLOSE"
+msgstr "STÄNG"
+
+msgid "Loading..."
+msgstr "Laddar..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "KOPPLA UPP MOT NETPLAY"
 
@@ -78,9 +84,6 @@ msgstr "Välj det spel du vill gå med i"
 
 msgid "REFRESH"
 msgstr "UPPDATERA"
-
-msgid "CLOSE"
-msgstr "STÄNG"
 
 msgid "FAILED"
 msgstr "MISSLYCKADES"
@@ -114,6 +117,15 @@ msgstr "SORTERA SPEL EFTER"
 
 msgid "OTHER FILTERS"
 msgstr "ANDRA FILTER"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr ""
@@ -163,11 +175,11 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "REDIGERA DET HÄR SPELETS METADATA"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRERA SPEL PÅ TEXT"
-
-msgid "Loading..."
-msgstr "Laddar..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DENNA FUNKTION ÄR DEAKTIVERAD MEDAN SKRAPNING PÅGÅR"
@@ -286,6 +298,15 @@ msgstr "INFORMATION"
 msgid "QUIT"
 msgstr "AVSLUTA"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "SKRAPNING PÅGÅR. VILL DU AVBRYTA?"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "SKRAPA NU"
+
 msgid "SCRAPE FROM"
 msgstr "SKRAPA FRÅN"
 
@@ -310,6 +331,9 @@ msgstr "2D-BOX"
 msgid "BOX 3D"
 msgstr "3D-BOX"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "BOXKÄLLA"
 
@@ -331,17 +355,17 @@ msgstr "SKRAPA BETYG"
 msgid "SCRAPE VIDEOS"
 msgstr "SKRAPA VIDEOR"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
 msgid "PASSWORD"
 msgstr "LÖSENORD"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "SKRAPNING PÅGÅR. VILL DU AVBRYTA?"
-
-msgid "SCRAPE NOW"
-msgstr "SKRAPA NU"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
@@ -581,6 +605,9 @@ msgstr "DETALJERAT LÄGE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISKA SKÄRMDUMPAR"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "INSTÄLLNINGAR"
 
@@ -607,6 +634,12 @@ msgstr "OMINDEXERA ALLA SPEL"
 
 msgid "INDEX MISSING GAMES"
 msgstr "INDEXERA SAKNADE SPEL"
+
+msgid "TOOLS"
+msgstr "VERKTYG"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "UPPDATERA SPELLISTA"
 
 msgid "DEFAULT SETTINGS"
 msgstr "STANDARDINSTÄLLNINGAR"
@@ -667,9 +700,6 @@ msgstr "PAUSA PÅ ÖVERATT SKÄRM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERADE INSTÄLLNINGAR PER SPEL"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "UPPDATERA SPELLISTA"
 
 msgid "NO MISSING BIOS"
 msgstr "INGA SAKNADE BIOS"
@@ -772,9 +802,6 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "TOOLS"
-msgstr "VERKTYG"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "ÅTERSTÄLL ANPASSNINGAR AV SPELLISTAN"
 
@@ -823,6 +850,9 @@ msgstr "VISNINGSALTERNATIV"
 
 msgid "TRANSITION STYLE"
 msgstr "ÖVERGÅNGS-STIL"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSELLÖVERGÅNGAR"
@@ -1022,8 +1052,17 @@ msgstr "INSTÄLLNINGAR"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPERA ICKE-TEMATISKA SAMLINGAR"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "SORTERA SAMLINGAR OCH SYSTEM"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "VISA SYSTEMNAMN I SAMLINGAR"
@@ -1294,17 +1333,65 @@ msgstr ""
 msgid "enter path to video"
 msgstr "ange filsökväg till video"
 
-msgid "Marquee"
+msgid "Logo"
 msgstr ""
 
-msgid "enter path to marquee"
-msgstr "ange filsökväg till marquee"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Miniatyrbild"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "skriv in filsökväg till miniatyrbild"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Betyg"
@@ -1402,20 +1489,11 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
-msgid "favorite"
-msgstr ""
-
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Söker"
-
 msgid "SCRAPE FAILED"
 msgstr "SKRAPNING MISSLYCKADES"
-
-msgid "Downloading"
-msgstr "Laddar ner"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1596,6 +1674,9 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
+msgid "Searching"
+msgstr "Söker"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
 
@@ -1604,6 +1685,9 @@ msgstr "ETT FEL HAR UPPSTÅTT"
 
 msgid "RETRY"
 msgstr "FÖRSÖK IGEN"
+
+msgid "Downloading"
+msgstr "Laddar ner"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
@@ -1874,6 +1958,18 @@ msgstr "ARBETAR..."
 
 msgid "up/down"
 msgstr "upp/ner"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "SORTERA SAMLINGAR OCH SYSTEM"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "ange filsökväg till marquee"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Miniatyrbild"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "skriv in filsökväg till miniatyrbild"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "SLUTA REDIGERA"

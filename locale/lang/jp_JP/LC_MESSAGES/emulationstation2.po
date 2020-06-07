@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,6 +67,12 @@ msgstr ""
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
+msgid "CLOSE"
+msgstr "閉じる"
+
+msgid "Loading..."
+msgstr ""
+
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
@@ -75,9 +81,6 @@ msgstr ""
 
 msgid "REFRESH"
 msgstr ""
-
-msgid "CLOSE"
-msgstr "閉じる"
 
 msgid "FAILED"
 msgstr ""
@@ -110,6 +113,15 @@ msgid "SORT GAMES BY"
 msgstr "ゲームのソート"
 
 msgid "OTHER FILTERS"
+msgstr ""
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
 msgstr ""
 
 msgid "COLLECTION"
@@ -160,10 +172,10 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
-msgid "FILTER GAMES BY TEXT"
+msgid "RESET FILTERS"
 msgstr ""
 
-msgid "Loading..."
+msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
@@ -284,6 +296,16 @@ msgstr ""
 msgid "QUIT"
 msgstr "終了"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr ""
+
+#, fuzzy
+msgid "SCRAPER"
+msgstr "スクレイパー"
+
+msgid "SCRAPE NOW"
+msgstr "今すぐスクレイプする"
+
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
 
@@ -308,6 +330,9 @@ msgstr ""
 msgid "BOX 3D"
 msgstr ""
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr ""
 
@@ -329,17 +354,17 @@ msgstr "スクレイプ評価"
 msgid "SCRAPE VIDEOS"
 msgstr ""
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ユーザー名"
 
 msgid "PASSWORD"
 msgstr "パスワード"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr "今すぐスクレイプする"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
@@ -583,6 +608,9 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr ""
 
@@ -609,6 +637,12 @@ msgstr ""
 
 msgid "INDEX MISSING GAMES"
 msgstr ""
+
+msgid "TOOLS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ゲームリストを更新"
 
 msgid "DEFAULT SETTINGS"
 msgstr ""
@@ -670,9 +704,6 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
-
-msgid "UPDATE GAMES LISTS"
-msgstr "ゲームリストを更新"
 
 msgid "NO MISSING BIOS"
 msgstr ""
@@ -777,9 +808,6 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "TOOLS"
-msgstr ""
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr ""
 
@@ -824,6 +852,9 @@ msgstr ""
 
 msgid "TRANSITION STYLE"
 msgstr "画面遷移スタイル"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr ""
@@ -1024,7 +1055,16 @@ msgstr "オプション"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -1290,17 +1330,65 @@ msgstr ""
 msgid "enter path to video"
 msgstr ""
 
-msgid "Marquee"
+msgid "Logo"
 msgstr ""
 
-msgid "enter path to marquee"
+msgid "enter path to logo"
 msgstr ""
 
-msgid "Thumbnail"
-msgstr "サムネイル画像"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "サムネイル画像のパスを入力"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "評価"
@@ -1400,19 +1488,10 @@ msgstr ""
 msgid "Region"
 msgstr "地域"
 
-msgid "favorite"
-msgstr ""
-
 msgid "SCRAPING"
 msgstr ""
 
-msgid "Searching"
-msgstr ""
-
 msgid "SCRAPE FAILED"
-msgstr ""
-
-msgid "Downloading"
 msgstr ""
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
@@ -1589,6 +1668,9 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
+msgid "Searching"
+msgstr ""
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ゲームが見つかりません - スキップ"
 
@@ -1597,6 +1679,9 @@ msgstr ""
 
 msgid "RETRY"
 msgstr "再試行"
+
+msgid "Downloading"
+msgstr ""
 
 #, fuzzy
 msgid "ACCEPT RESULT"
@@ -1858,6 +1943,12 @@ msgstr "処理中..."
 msgid "up/down"
 msgstr ""
 
+#~ msgid "Thumbnail"
+#~ msgstr "サムネイル画像"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "サムネイル画像のパスを入力"
+
 #~ msgid "STOP EDITING"
 #~ msgstr "編集を中止"
 
@@ -2054,10 +2145,6 @@ msgstr ""
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "コントローラーが見つかりません"
-
-#, fuzzy
-#~ msgid "SCRAPER"
-#~ msgstr "スクレイパー"
 
 #~ msgid "NONE (700Mhz)"
 #~ msgstr "無し (700Mhz)"
