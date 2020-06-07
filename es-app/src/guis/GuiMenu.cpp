@@ -348,6 +348,17 @@ void GuiMenu::openEmuELECSettings()
 		SystemConf::getInstance()->saveSystemConf();
 	});
 	
+	auto enable_advmamegp = std::make_shared<SwitchComponent>(mWindow);
+	bool advgpEnabled = SystemConf::getInstance()->get("advmame_auto_gamepad") == "1";
+	enable_advmamegp->setState(advgpEnabled);
+	s->addWithLabel(_("AUTO CONFIG ADVANCEMAME GAMEPAD"), enable_advmamegp);
+	
+	s->addSaveFunc([enable_advmamegp, window] {
+		bool advmamegpenabled = enable_advmamegp->getState();
+		SystemConf::getInstance()->set("advmame_auto_gamepad", advmamegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+	
 	if (UIModeController::getInstance()->isUIModeFull())
 	{
 	
