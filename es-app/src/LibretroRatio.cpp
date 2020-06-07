@@ -12,7 +12,7 @@ LibretroRatio *LibretroRatio::sInstance = NULL;
 LibretroRatio::LibretroRatio() {
     ratioMap = new std::map<std::string, std::string>
             {
-                    {"Auto",          "auto"},
+                    {"AUTO",          "auto"},
                     {"4/3",           "4/3"},
                     {"16/9",          "16/9"},
                     {"16/10",         "16/10"},

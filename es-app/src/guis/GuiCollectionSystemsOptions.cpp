@@ -126,6 +126,28 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState()))
 			setVariable("reloadAll", true);
 	});
+	
+	std::string sortMode = Settings::getInstance()->getString("SortSystems");
+
+	auto sortType = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SORT COLLECTIONS AND SYSTEMS"), false);
+	sortType->add(_("NO"), "", sortMode.empty());
+	sortType->add(_("ALPHABETICALLY"), "alpha", sortMode == "alpha");
+
+	if (SystemData::isManufacturerSupported())
+		sortType->add(_("BY MANUFACTURER"), "manufacturer", sortMode == "manufacturer");
+
+	if (!sortType->hasSelection())
+		sortType->selectFirstItem();
+	
+	addWithLabel(_("SORT SYSTEMS"), sortType);
+	addSaveFunc([this, sortType]
+	{
+		if (Settings::getInstance()->setString("SortSystems", sortType->getSelected()))
+			setVariable("reloadAll", true);
+	});
+
+	/*
+
 
 	std::shared_ptr<SwitchComponent> sortAllSystemsSwitch = std::make_shared<SwitchComponent>(mWindow);
 	sortAllSystemsSwitch->setState(Settings::getInstance()->getBool("SortAllSystems"));
@@ -135,7 +157,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (Settings::getInstance()->setBool("SortAllSystems", sortAllSystemsSwitch->getState()))
 			setVariable("reloadAll", true);
 	});
-	
+	*/
 	std::shared_ptr<SwitchComponent> toggleSystemNameInCollections = std::make_shared<SwitchComponent>(mWindow);
 	toggleSystemNameInCollections->setState(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
 	addWithLabel(_("SHOW SYSTEM NAME IN COLLECTIONS"), toggleSystemNameInCollections);

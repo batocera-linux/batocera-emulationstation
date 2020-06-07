@@ -313,8 +313,6 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 // helper
 unsigned int getHexColor(const char* str)
 {
-
-
 //	ThemeException error;
 	if (!str)
 	{
@@ -345,21 +343,22 @@ std::string ThemeData::resolvePlaceholders(const char* in)
 	if (in == nullptr || in[0] == 0)
 		return in;
 
+	auto begin = strstr(in, "${");
+	if (begin == nullptr)
+		return in;
+
+	auto end = strstr(begin, "}");
+	if (end == nullptr)
+		return in;
+
 	std::string inStr(in);
-//	if(inStr.empty())
-//		return inStr;
 
-	const size_t variableBegin = inStr.find("${");
-	if (variableBegin == std::string::npos)
-		return inStr;
-
-	const size_t variableEnd   = inStr.find("}", variableBegin);
-	if(variableEnd == std::string::npos)
-		return inStr;
+	const size_t variableBegin = begin - in;
+	const size_t variableEnd = end - in;
 
 	std::string prefix  = inStr.substr(0, variableBegin);
 	std::string replace = inStr.substr(variableBegin + 2, variableEnd - (variableBegin + 2));
-	std::string suffix  = resolvePlaceholders(inStr.substr(variableEnd + 1).c_str());
+	std::string suffix = resolvePlaceholders(end + 1);
 
 	return prefix + mVariables[replace] + suffix;
 }
@@ -390,14 +389,14 @@ ThemeData::ThemeData()
 	mVersion = 0;
 }
 
-void ThemeData::loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path)
+void ThemeData::loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path, bool fromFile)
 {
 	mPaths.push_back(path);
 
 	ThemeException error;
 	error.setFiles(mPaths);
 
-	if (!Utils::FileSystem::exists(path))
+	if (fromFile && !Utils::FileSystem::exists(path))
 		throw error << "File does not exist!";
 	
 	mVersion = 0;
@@ -410,7 +409,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	mVariables["lang"] = mLanguage;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = fromFile ? doc.load_file(path.c_str()) : doc.load(path.c_str());
 	if(!res)
 		throw error << "XML parsing error: \n    " << res.description();
 
@@ -429,7 +428,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseVariables(root);
 	parseTheme(root);
 	
-	if (system != "splash")
+	if (system != "splash" && system != "imageviewer")
 	{
 		mMenuTheme = nullptr;
 		mDefaultTheme = this;
@@ -460,6 +459,39 @@ std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolde
 
 	std::string result = path;
 	result.replace(start_pos, 7, systemThemeFolder);
+
+	if (!Utils::FileSystem::exists(result))
+	{
+		std::string compatibleFolder = systemThemeFolder;
+
+		if (compatibleFolder == "sg-1000")
+			compatibleFolder = "sg1000";
+		else if (compatibleFolder == "msx")
+			compatibleFolder = "msx1";
+		else if (compatibleFolder == "atarilynx")
+			compatibleFolder = "lynx";
+		else if (compatibleFolder == "atarijaguar")
+			compatibleFolder = "jaguar";
+		else if (compatibleFolder == "gameandwatch")
+			compatibleFolder = "gw";
+		else if (compatibleFolder == "amiga")
+			compatibleFolder = "amiga600";
+		else if (compatibleFolder == "amiga500")
+			compatibleFolder = "amiga600";
+		else if (compatibleFolder == "auto-favorites")
+			compatibleFolder = "favorites";
+		else if (compatibleFolder == "thomson")
+			compatibleFolder = "to8";
+		else if (compatibleFolder == "prboom")
+			compatibleFolder = "doom"; 
+
+		if (compatibleFolder != systemThemeFolder)
+		{
+			result = path;
+			result.replace(start_pos, 7, compatibleFolder);
+		}
+	}
+
 	return result;
 }
 
@@ -591,13 +623,35 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 		return;
 
 	std::string relPath = resolvePlaceholders(node.text().as_string());
+	if (relPath.empty())
+		return;
+
 	std::string path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
 	path = resolveSystemVariable(mSystemThemeFolder, path);
 
 	if (!ResourceManager::getInstance()->fileExists(path))
 	{
-		LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
-		return;
+		if (relPath.find("$") != std::string::npos && relPath.find("${") == std::string::npos)
+		{
+			path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
+			path = resolveSystemVariable("default", path);
+
+			if (ResourceManager::getInstance()->fileExists(path))
+			{
+				if (mPaths.size() == 1)
+					mSystemThemeFolder = "default";
+			}
+			else
+			{
+				LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+				return;
+			}
+		}
+		else
+		{
+			LOG(LogWarning) << "Included file \"" << relPath << "\" not found! (resolved to \"" << path << "\")";
+			return;
+		}
 	}
 
 	mPaths.push_back(path);
@@ -714,7 +768,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 
 	if (!parseLanguage(node))
 		return false;
-
+	
 	if (node.attribute("tinyScreen"))
 	{
 		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
@@ -1092,6 +1146,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		case PATH:
 		{
+			if (str.empty())
+				break;
+
 			std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
 			
 			if (Utils::String::startsWith(path, "{random"))

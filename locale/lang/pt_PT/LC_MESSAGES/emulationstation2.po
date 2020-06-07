@@ -332,10 +332,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER VÍDEOS"
 
 msgid "USERNAME"
-msgstr "USUÁRIO"
+msgstr "NOME DE UTILIZADOR"
 
 msgid "PASSWORD"
-msgstr "SENHA"
+msgstr "PASSWORD"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "A PROCURA ESTÁ EM CURSO. DESEJA PARAR ?"
@@ -368,7 +368,7 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "USER DISK USAGE"
-msgstr "DISCO DE DADOS DO UTILIZADOR"
+msgstr "DISCO DO UTILIZADOR"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
@@ -530,7 +530,7 @@ msgid "STORAGE DEVICE"
 msgstr "DISPOSITIVO DE ARMAZENAMENTO"
 
 msgid "BACKUP USER DATA"
-msgstr "BACKUP DADOS DO USUÁRIO"
+msgstr "BACKUP DADOS DO UTILIZADOR"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALAR BATOCERA EM UM NOVO DISCO"
@@ -545,7 +545,7 @@ msgid "ENFORCE SECURITY"
 msgstr "REFORÇAR A SEGURANÇA"
 
 msgid "ROOT PASSWORD"
-msgstr "SENHA ROOT"
+msgstr "PASSWORD ROOT"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
@@ -732,7 +732,7 @@ msgid "detailed"
 msgstr "detalhado"
 
 msgid "DEFAULT GRID SIZE"
-msgstr "TAMANHO DA GRID PADRÃO"
+msgstr "TAMANHO PADRÃO DA GRADE"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr "OPÇÕES DE TEMAS NA LISTA DE JOGOS"
@@ -786,7 +786,7 @@ msgid "video"
 msgstr "vídeo"
 
 msgid "grid"
-msgstr "grid"
+msgstr "grade"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -1578,7 +1578,7 @@ msgid "RATING"
 msgstr "Classificação"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGIÃO"
 
 msgid "KIDGAME"
 msgstr "JOGO INFANTIL"
@@ -1908,7 +1908,7 @@ msgstr "cima/baixo"
 #~ "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
 
 #~ msgid "GRID SIZE"
-#~ msgstr "TAMANHO DA GRID"
+#~ msgstr "TAMANHO DA GRADE"
 
 #~ msgid "AUTO UPDATES"
 #~ msgstr "ATUALIZAÇÕES AUTOMÁTICAS"

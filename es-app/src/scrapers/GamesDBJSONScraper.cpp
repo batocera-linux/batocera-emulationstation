@@ -116,7 +116,8 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ MOONLIGHT, "1" }, // "PC"
 };
 
-void thegamesdb_generate_json_scraper_requests(const ScraperSearchParams& params,
+
+void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {
 	resources.prepare();
@@ -312,42 +313,33 @@ void processGame(const Value& game, const Value& boxart, std::vector<ScraperSear
 	ScraperSearchResult result;
 
 	result.mdl.set("name", getStringOrThrow(game, "game_title"));
+
 	if (game.HasMember("overview") && game["overview"].IsString())
-	{
 		result.mdl.set("desc", game["overview"].GetString());
-	}
+
 	if (game.HasMember("release_date") && game["release_date"].IsString())
-	{
-		result.mdl.set(
-			"releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(game["release_date"].GetString(), "%Y-%m-%d")));
-	}
+		result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(game["release_date"].GetString(), "%Y-%m-%d")));
+
 	if (game.HasMember("developers") && game["developers"].IsArray())
-	{
 		result.mdl.set("developer", getDeveloperString(game["developers"]));
-	}
+
 	if (game.HasMember("publishers") && game["publishers"].IsArray())
-	{
 		result.mdl.set("publisher", getPublisherString(game["publishers"]));
-	}
+
 	if (game.HasMember("genres") && game["genres"].IsArray())
-	{
-
 		result.mdl.set("genre", getGenreString(game["genres"]));
-	}
+
 	if (game.HasMember("players") && game["players"].IsInt())
-	{
 		result.mdl.set("players", std::to_string(game["players"].GetInt()));
-	}
-
-
+	
 	if (boxart.HasMember("data") && boxart["data"].IsObject())
 	{
 		std::string id = std::to_string(getIntOrThrow(game, "id"));
 		if (boxart["data"].HasMember(id.c_str()))
 		{
 		    std::string image = getBoxartImage(boxart["data"][id.c_str()]);
-		    result.thumbnailUrl = baseImageUrlThumb + "/" + image;
-		    result.imageUrl = baseImageUrlLarge + "/" + image;
+			result.urls[MetaDataId::Image] = ScraperSearchItem(baseImageUrlLarge + "/" + image);
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(baseImageUrlThumb + "/" + image);
 		}
 	}
 

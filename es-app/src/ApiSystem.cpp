@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
+#include <algorithm>
 
 #if !defined(WIN32)
 #include <ifaddrs.h>
@@ -34,6 +35,7 @@
 #include <fstream>
 #include <SDL.h>
 #include <Sound.h>
+#include "utils/ThreadPool.h"
 
 #if WIN32
 #include <Windows.h>
@@ -953,11 +955,22 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui,
 
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
+	bool useUnzip = false;
+
 	std::string cmd = "7zr h \"" + fileName + "\"";
 	
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
-		cmd = "7zr l -slt \"" + fileName + "\"";
+
+	if (fromZipContents)
+	{
+		if (ext == ".7z")
+			cmd = "7zr l -slt \"" + fileName + "\"";
+		else
+		{
+			useUnzip = true;
+			cmd = "unzip -l -v \"" + fileName + "\"";
+		}
+	}
 
 	std::string crc;
 	std::string fn = Utils::FileSystem::getFileName(fileName);
@@ -970,13 +983,31 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
+
+		if (!crc.empty())
+			continue;
+
 		std::string all = line;
 
+		if (useUnzip)
+		{
+			// Parse unzip results
+			if (!Utils::String::startsWith(all, "Archive"))
+			{
+				auto split = Utils::String::split(all, ' ', true);
+				if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
+					crc = Utils::String::toUpper(split[6]);
+			}
+
+			continue;
+		}
+
+		// Parse 7zr results
 		int idx = all.find("CRC = ");
 		if (idx != std::string::npos)
 			crc = all.substr(idx + 6);
 		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-			crc = all.substr(0, 8);
+			crc = all.substr(0, 8);		
 	}
 	
 	pclose(pipe);
@@ -1145,6 +1176,56 @@ bool ApiSystem::executeScript(const std::string command)
 
 bool ApiSystem::isScriptingSupported(ScriptId script)
 {
+	std::vector<std::string> executables;
+
+	switch (script)
+	{
+	case ApiSystem::KODI:
+		executables.push_back("kodi");
+		break;
+	case ApiSystem::RETROACHIVEMENTS:
+		executables.push_back("batocera-retroachievements-info");
+		break;
+	case ApiSystem::WIFI:
+		executables.push_back("batocera-wifi");
+		break;
+	case ApiSystem::BLUETOOTH:
+		executables.push_back("batocera-bluetooth");
+		break;
+	case ApiSystem::RESOLUTION:
+		executables.push_back("batocera-resolution");
+		break;
+	case ApiSystem::BIOSINFORMATION:
+		executables.push_back("batocera-systems");
+		break;
+	case ApiSystem::DISKFORMAT:
+		executables.push_back("batocera-format");
+		break;
+	case ApiSystem::OVERCLOCK:
+		executables.push_back("batocera-overclock");
+		break;
+	case ApiSystem::NETPLAY:
+		executables.push_back("7zr");
+		executables.push_back("unzip");
+		break;
+	case ApiSystem::PDFEXTRACTION:
+		executables.push_back("pdftoppm");
+		executables.push_back("pdfinfo");
+		break;
+	}
+
+	if (executables.size() == 0)
+		return true;
+
+	for (auto executable : executables)
+#ifdef _ENABLEEMUELEC
+		if (!Utils::FileSystem::exists("/emuelec/scripts/batocera/" + executable))
+			return false;
+#else
+		if (!Utils::FileSystem::exists("/usr/bin/" + executable))
+			return false;
+
+#endif
 	return true;
 }
 
@@ -1211,4 +1292,106 @@ std::vector<std::string> ApiSystem::getFormatFileSystems()
 int ApiSystem::formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func)
 {
 	return executeScript("batocera-format format " + disk + " " + format, func).second;
+}
+
+int ApiSystem::getPdfPageCount(const std::string fileName)
+{
+	auto lines = executeEnumerationScript("pdfinfo \"" + fileName + "\"");
+	for (auto line : lines)
+	{
+		auto splits = Utils::String::split(line, ':', true);
+		if (splits.size() == 2 && splits[0] == "Pages")
+			return atoi(Utils::String::trim(splits[1]).c_str());
+	}
+
+	return 0;
+}
+
+std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount)
+{
+	auto pdfFolder = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+	Utils::FileSystem::createDirectory(pdfFolder);
+
+	std::vector<std::string> ret;
+
+	if (pageIndex < 0)
+	{
+		Utils::FileSystem::deleteDirectoryFiles(pdfFolder);
+
+		int hardWareCoreCount = std::thread::hardware_concurrency();
+		if (hardWareCoreCount > 1)
+		{
+			int lastTime = SDL_GetTicks();
+
+			int numberOfPagesToProcess = 1;
+			if (hardWareCoreCount < 8)
+				numberOfPagesToProcess = 2;
+
+			int pc = getPdfPageCount(fileName);
+			if (pc > 0)
+			{
+				Utils::ThreadPool pool(1);
+
+				for (int i = 0; i < pc; i += numberOfPagesToProcess)
+					pool.queueWorkItem([this, fileName, i, numberOfPagesToProcess] { extractPdfImages(fileName, i + 1, numberOfPagesToProcess); });
+
+				pool.wait();
+
+				int time = SDL_GetTicks() - lastTime;
+				std::string timeText = std::to_string(time) + "ms";
+
+				for (auto file : Utils::FileSystem::getDirContent(pdfFolder, false))
+				{
+					auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file));
+					if (ext != ".jpg" && ext != ".png" && ext != ".ppm")
+						continue;
+
+					ret.push_back(file);
+				}
+
+				std::sort(ret.begin(), ret.end());
+			}
+
+			return ret;
+		}
+	}
+
+	int lastTime = SDL_GetTicks();
+
+	std::string page;
+
+	std::string prefix = "extract";
+	if (pageIndex >= 0)
+	{
+		char buffer[12];
+		sprintf(buffer, "%08d", (uint32_t)pageIndex);
+
+		prefix = "page-" + std::string(buffer)+"-pdf";
+		page = " -f " + std::to_string(pageIndex) + " -l " + std::to_string(pageIndex + pageCount - 1);
+	}
+
+
+#if WIN32
+	executeEnumerationScript("pdftoppm -r 150"+ page +" \"" + fileName + "\" \""+ pdfFolder +"/" + prefix +"\"");
+#else
+	executeEnumerationScript("pdftoppm -jpeg -r 150 -cropbox" + page + " \"" + fileName + "\" \"" + pdfFolder + "/" + prefix + "\"");
+#endif
+
+	int time = SDL_GetTicks() - lastTime;
+	std::string text = std::to_string(time);
+
+	for (auto file : Utils::FileSystem::getDirContent(pdfFolder, false))
+	{
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file));
+		if (ext != ".jpg" && ext != ".png" && ext != ".ppm")
+			continue;
+
+		if (pageIndex >= 0 && !Utils::String::startsWith(Utils::FileSystem::getFileName(file), prefix))
+			continue;
+
+		ret.push_back(file);
+	}
+
+	std::sort(ret.begin(), ret.end());
+	return ret;
 }

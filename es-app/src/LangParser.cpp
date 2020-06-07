@@ -39,13 +39,16 @@ void LangInfo::extractLang(std::string val)
 		{ { "w", "wor", "world" }, "en", "wr" },
 		{ { "uk" }, "en", "eu" },
 		{ { "es", "spain", "s" }, "es", "eu" },
-		{ { "fr", "france", "f" }, "fr", "eu" },
+		{ { "fr", "france", "fre", "french", "f" }, "fr", "eu" },
 		{ { "de", "germany", "d" }, "de", "eu" },
 		{ { "it", "italy", "i" }, "it", "eu" },
 		{ { "nl", "netherlands" }, "nl", "eu" },
 		{ { "gr", "greece" }, "gr", "eu" },
 		{ { "no" }, "no", "eu" },
 		{ { "sw", "sweden", "se" }, "sw", "eu" },
+		{ { "pt", "portugal" }, "pt", "eu" },
+
+		{ { "en" }, "en", "" },
 
 		{ { "canada", "ca", "c", "fc" }, "fr", "wr" },
 
@@ -56,21 +59,28 @@ void LangInfo::extractLang(std::string val)
 		{ { "kr", "korea", "k" }, "kr", "kr" },
 		{ { "cn", "china", "hong", "kong", "ch", "hk", "as", "tw" }, "cn", "cn" },
 
-		{ { "in", "ìndia" }, "in", "in" },
+		{ { "in", "Ã¬ndia" }, "in", "in" },
 	};
 
-	for (auto s : Utils::String::splitAny(val, ", "))
+	for (auto s : Utils::String::splitAny(val, "_, "))
 	{
+		bool clearLang = s.find("t-") != std::string::npos;
+
 		s = Utils::String::replace(s, "_", "");
-		s = Utils::String::replace(s, "T+", "");
-		s = Utils::String::replace(s, "T-", "");
+		s = Utils::String::replace(s, "t+", "");
+		s = Utils::String::replace(s, "t-", "");
 
 		for (auto langData : langDatas)
 		{
 			if (std::find(langData.value.cbegin(), langData.value.cend(), s) != langData.value.cend())
 			{
 				if (!langData.lang.empty())
+				{
+					if (clearLang)
+						languages.clear();
+
 					languages.insert(langData.lang);
+				}
 
 				if (!langData.region.empty())
 					region = langData.region;
@@ -93,9 +103,12 @@ LangInfo LangInfo::parse(std::string rom, SystemData* system)
 	for (auto s : Utils::String::extractStrings(fileName, "[", "]"))
 		info.extractLang(s);
 
+	for (auto s : Utils::String::extractStrings(fileName, "_", "_"))
+		info.extractLang(s);
+
 	if (system != nullptr)
 	{
-		static std::string japanDefaults = "pc98|pcenginecd|pcfx|satellaview|sg1000|sufami|wswan|wswanc|x68000";
+		static std::string japanDefaults = "pc88|pc98|pcenginecd|pcfx|satellaview|sg1000|sufami|wswan|wswanc|x68000";
 
 		if (info.region.empty())
 		{
@@ -106,7 +119,7 @@ LangInfo LangInfo::parse(std::string rom, SystemData* system)
 				if (fileName.find("j.zip") != std::string::npos)
 					info.region = "jp";
 				else
-					info.region = "usa";
+					info.region = "us";
 			}
 			else if (system->getName() == "thomson")
 				info.region = "eu";

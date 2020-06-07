@@ -153,7 +153,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		const ThemeData::ThemeElement* logoElem = groupTheme->getElement(getName(), "logo", "image");
 		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
-			mHeaderImage.setImage(logoElem->get<std::string>("path"));
+			mHeaderImage.setImage(logoElem->get<std::string>("path"), false, mHeaderImage.getMaxSizeInfo());
 	}
 
 	mHeaderText.setText(system->getFullName());

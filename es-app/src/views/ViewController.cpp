@@ -61,16 +61,15 @@ void ViewController::goToStart(bool forceImmediate)
 	auto requestedSystem = Settings::getInstance()->getString("StartupSystem");
 	if("" != requestedSystem && "retropie" != requestedSystem)
 	{
-		for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++){
-			if ((*it)->getName() == requestedSystem && !(*it)->isGroupChildSystem())
-			{
-				if (startOnGamelist)
-					goToGameList(*it, forceImmediate);
-				else
-					goToSystemView(*it, forceImmediate);
+		auto system = SystemData::getSystem(requestedSystem);
+		if (system != nullptr && !system->isGroupChildSystem())
+		{
+			if (startOnGamelist)
+				goToGameList(system, forceImmediate);
+			else
+				goToSystemView(system, forceImmediate);
 
-				return;
-			}
+			return;
 		}
 
 		// Requested system doesn't exist
@@ -95,6 +94,18 @@ int ViewController::getSystemId(SystemData* system)
 {
 	std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
 	return (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
+}
+
+void ViewController::goToSystemView(std::string& systemName, bool forceImmediate, ViewController::ViewMode mode)
+{
+	auto system = SystemData::getSystem(systemName);
+	if (system != nullptr)
+	{
+		if (mode == ViewController::ViewMode::GAME_LIST)
+			goToGameList(system, forceImmediate);
+		else
+			goToSystemView(system, forceImmediate);
+	}
 }
 
 void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
@@ -157,13 +168,11 @@ void ViewController::goToPrevGameList()
 
 bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
 {
-	for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
+	auto system = SystemData::getSystem(systemName);
+	if (system != nullptr && !system->isGroupChildSystem())
 	{
-		if ((*sysIt)->getName() == systemName && !(*sysIt)->isGroupChildSystem())
-		{
-			goToGameList(*sysIt, forceImmediate);
-			return true;
-		}
+		goToGameList(system, forceImmediate);
+		return true;
 	}
 
 	return false;
@@ -240,6 +249,9 @@ void ViewController::playViewTransition(bool forceImmediate)
 		return;
 
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
+
 	if(transition_style == "fade")
 	{
 		// fade
@@ -294,11 +306,31 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 }
 
+#include "guis/GuiImageViewer.h"
+#include "ApiSystem.h"
+
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center)
 {
 	if(game->getType() != GAME)
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";
+		return;
+	}
+
+	if (game->getSourceFileData()->getSystem()->getName() == "imageviewer")
+	{
+		auto gameImage = game->getImagePath();
+		if (Utils::FileSystem::exists(gameImage))
+		{
+		//	GuiImageViewer::showPdf(mWindow, "H:/[Emulz]/roms/n64/manuals/V-Rally Edition 99 (USA)-manual.pdf");		
+			auto imgViewer = new GuiImageViewer(mWindow);			
+
+			for (auto sibling : game->getParent()->getChildrenListToDisplay())
+				imgViewer->add(sibling->getImagePath());
+
+			imgViewer->setCursor(gameImage);
+			mWindow->pushGui(imgViewer);	
+		}
 		return;
 	}
 
@@ -317,13 +349,22 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if (!Settings::getInstance()->getBool("HideWindow"))
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
 
-	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	std::string transition_style = Settings::getInstance()->getString("GameTransitionStyle");
+	if (transition_style.empty() || transition_style == "auto")
+		transition_style = Settings::getInstance()->getString("TransitionStyle");
+	
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
+
 	if(transition_style == "auto")
 		transition_style = "slide";
 
 	// Workaround, the grid scale has problems when sliding giving bad effects
 	if(transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
 		transition_style = "fade";
+
+	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+		transition_style = "instant";
 
 	if(transition_style == "fade")
 	{
@@ -746,6 +787,23 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 		mCurrentView->onShow();
 }
 
+SystemData* ViewController::getSelectedSystem()
+{
+	if (mState.viewing == SYSTEM_SELECT)
+	{
+		int idx = mSystemListView->getCursorIndex();
+		if (idx >= 0 && idx < mSystemListView->getObjects().size())
+			return mSystemListView->getObjects()[mSystemListView->getCursorIndex()];
+	}
+
+	return mState.getSystem();
+}
+
+ViewController::ViewMode ViewController::getViewMode()
+{
+	return mState.viewing;
+}
+
 void ViewController::reloadAll(Window* window, bool reloadTheme)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
@@ -758,13 +816,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	SystemData* system = nullptr;
 
 	if (mState.viewing == SYSTEM_SELECT)
-	{
-		int idx = mSystemListView->getCursorIndex();
-		if (idx >= 0 && idx < SystemData::sSystemVector.size())
-			system = SystemData::sSystemVector[mSystemListView->getCursorIndex()];
-		else
-			system = mState.getSystem();
-	}
+		system = getSelectedSystem();
 
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;

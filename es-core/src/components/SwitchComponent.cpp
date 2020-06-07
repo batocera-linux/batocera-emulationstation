@@ -13,6 +13,9 @@ SwitchComponent::SwitchComponent(Window* window, bool state) : GuiComponent(wind
 	mImage.setResize(0, height);
 	mImage.setColorShift(menuTheme->Text.color);
 
+	if (EsLocale::isRTL())
+		mImage.setFlipX(true);
+
 	mSize = mImage.getSize();
 }
 

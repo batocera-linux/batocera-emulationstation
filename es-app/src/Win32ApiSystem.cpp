@@ -49,8 +49,19 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
 
-	if (script == ApiSystem::DECORATIONS && !Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
+	if (script == ApiSystem::DECORATIONS)
+	{
+		if (Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
+			return true;
+
+		if (Utils::FileSystem::exists(getEmulatorLauncherPath("system.decorations")))
+			return true;
+
+		if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "/decorations"))
+			return true;
+
 		return false;
+	}
 
 	if (script == ApiSystem::SHADERS && !Utils::FileSystem::exists(getEmulatorLauncherPath("shaders")))
 		return false;
@@ -82,6 +93,10 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::DECORATIONS:
 	case ApiSystem::SHADERS:
 		executables.push_back("emulatorLauncher");
+		break;
+	case ApiSystem::PDFEXTRACTION:
+		executables.push_back("pdftoppm");
+		executables.push_back("pdfinfo");		
 		break;
 	}
 
@@ -383,11 +398,31 @@ std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	else if (Utils::FileSystem::exists("c:\\src\\7za.exe"))
 		cmd = Utils::String::replace(cmd, "7zr ", "c:\\src\\7za.exe ");
 
+	bool useUnzip = false;
+
+	if (fromZipContents && ext == ".zip" && Utils::FileSystem::exists("c:\\src\\unzip.exe"))
+	{
+		useUnzip = true;
+		cmd = "c:\\src\\unzip.exe -l -v \"" + fileName + "\"";
+	}
+
 	std::string output;
 	if (executeCMD((char*)cmd.c_str(), output))
 	{
 		for (std::string all : Utils::String::splitAny(output, "\r\n"))
 		{
+			if (useUnzip)
+			{
+				if (!Utils::String::startsWith(all, "Archive"))
+				{
+					auto split = Utils::String::split(all, ' ', true);
+					if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
+						return Utils::String::toUpper(split[6]);
+				}
+
+				continue;
+			}
+
 			int idx = all.find("CRC = ");
 			if (idx != std::string::npos)
 				crc = all.substr(idx + 6);

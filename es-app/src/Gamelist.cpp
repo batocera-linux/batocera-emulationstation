@@ -104,26 +104,28 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 	return NULL;
 }
 
-void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unordered_map<std::string, FileData*>& fileMap, size_t checkSize = SIZE_MAX)
+std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* system, std::unordered_map<std::string, FileData*>& fileMap, size_t checkSize, bool fromFile)
 {	
+	std::vector<FileData*> ret;
+
 	bool trustGamelist = Settings::getInstance()->getBool("ParseGamelistOnly");
 
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(xmlpath.c_str());
+	pugi::xml_parse_result result = fromFile ? doc.load_file(xmlpath.c_str()) : doc.load(xmlpath.c_str());
 
 	if (!result)
 	{
 		LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
-		return;
+		return ret;
 	}
 
 	pugi::xml_node root = doc.child("gameList");
 	if (!root)
 	{
 		LOG(LogError) << "Could not find <gameList> node in gamelist \"" << xmlpath << "\"!";
-		return;
+		return ret;
 	}
 
 	if (checkSize != SIZE_MAX)
@@ -132,10 +134,10 @@ void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unord
 		if (parentSize != checkSize)
 		{
 			LOG(LogWarning) << "gamelist size don't match !";
-			return;
+			return ret;
 		}
 	}
-	
+
 	std::string relativeTo = system->getStartPath();
 
 	for (pugi::xml_node fileNode : root.children())
@@ -179,8 +181,12 @@ void loadGamelistFile (const std::string xmlpath, SystemData* system, std::unord
 				file->getMetadata().setDirty();
 			else
 				file->getMetadata().resetChangedFlag();
+
+			ret.push_back(file);
 		}
 	}
+
+	return ret;
 }
 
 void clearTemporaryGamelistRecovery(SystemData* system)
@@ -210,11 +216,11 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 
 	auto size = Utils::FileSystem::getFileSize(xmlpath);
 	if (size != 0)
-		loadGamelistFile(xmlpath, system, fileMap);
+		loadGamelistFile(xmlpath, system, fileMap, SIZE_MAX, true);
 
 	auto files = Utils::FileSystem::getDirContent(getGamelistRecoveryPath(system), true);
 	for (auto file : files)
-		loadGamelistFile(file, system, fileMap, size);
+		loadGamelistFile(file, system, fileMap, size, true);
 
 	if (size != SIZE_MAX)
 		system->setGamelistHash(size);
@@ -283,6 +289,25 @@ bool saveToGamelistRecovery(FileData* file)
 
 		return true;
 	}
+
+	return false;
+}
+
+bool removeFromGamelistRecovery(FileData* file)
+{
+	SystemData* system = file->getSourceFileData()->getSystem();
+	if (system == nullptr)
+		return false;
+
+	std::string fp = file->getFullPath();
+	fp = Utils::FileSystem::createRelativePath(file->getFullPath(), system->getRootFolder()->getFullPath(), true);
+	fp = Utils::FileSystem::getParent(fp) + "/" + Utils::FileSystem::getStem(fp) + ".xml";
+
+	std::string path = Utils::FileSystem::getAbsolutePath(fp, getGamelistRecoveryPath(system));
+	path = Utils::FileSystem::getCanonicalPath(path);
+
+	if (Utils::FileSystem::exists(path))
+		return Utils::FileSystem::removeFile(path);
 
 	return false;
 }

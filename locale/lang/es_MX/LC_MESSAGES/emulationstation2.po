@@ -56,7 +56,7 @@ msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "DESVINCULAR CONTROLES BLUETOOTH"
 
 msgid "REMOVE ALL"
-msgstr "REMOVER TODOS"
+msgstr "DESVINCULAR TODOS"
 
 msgid "BACK"
 msgstr "VOLVER"
@@ -224,7 +224,7 @@ msgid "Temperature"
 msgstr "TEMPERATURA"
 
 msgid "Available memory"
-msgstr ""
+msgstr "MEMORIA RAM DISPONIBLE"
 
 msgid "Battery"
 msgstr "BATERÍA"

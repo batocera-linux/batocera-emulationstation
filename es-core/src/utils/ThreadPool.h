@@ -14,7 +14,7 @@ namespace Utils
 	public:
 		typedef std::function<void(void)> work_function;
 
-		ThreadPool();
+		ThreadPool(int threadByCore = 2);
 		~ThreadPool();
 
 		void queueWorkItem(work_function work);

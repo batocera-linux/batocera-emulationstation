@@ -206,6 +206,9 @@ namespace Utils
 			}
 			else if((c & 0xE0) == 0xC0) // 110xxxxx, two byte character
 			{
+				// 0001xxxx
+				
+
 				// 110xxxxx 10xxxxxx
 				result = ((_string[_cursor++] & 0x1F) <<  6) |
 						 ((_string[_cursor++] & 0x3F)      );
@@ -504,7 +507,7 @@ namespace Utils
 
 		} // scramble
 
-		std::vector<std::string> split(const std::string& s, char seperator)
+		std::vector<std::string> split(const std::string& s, char seperator, bool removeEmptyEntries)
 		{			
 			std::vector<std::string> output;
 
@@ -516,12 +519,15 @@ namespace Utils
 			{
 				std::string substring(s.substr(prev_pos, pos - prev_pos));
 
-				output.push_back(substring);
+				if (!removeEmptyEntries || !substring.empty())
+					output.push_back(substring);
 
 				prev_pos = ++pos;
 			}
 
-			output.push_back(s.substr(prev_pos, pos - prev_pos)); // Last word
+			std::string lastLine = s.substr(prev_pos, pos - prev_pos);
+			if (!removeEmptyEntries || !lastLine.empty())
+				output.push_back(lastLine); // Last word
 
 			return output;
 		}
@@ -571,7 +577,7 @@ namespace Utils
 				if (pos == std::string::npos)
 					break;
 
-				auto end = _string.find(endDelimiter, pos);
+				auto end = _string.find(endDelimiter, pos+1);
 				if (end == std::string::npos)
 					break;
 
@@ -579,7 +585,7 @@ namespace Utils
 				if (!value.empty())
 					ret.push_back(value);
 
-				pos = end + 1;
+				pos = end;
 			}
 
 			return ret;

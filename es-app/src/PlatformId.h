@@ -49,6 +49,7 @@ namespace PlatformIds
 		NINTENDO_VIRTUAL_BOY,
 		NINTENDO_GAME_AND_WATCH,
 		PC,
+		PC_88,
 		PC_98,
 		SEGA_32X,
 		SEGA_CD,

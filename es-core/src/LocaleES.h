@@ -25,6 +25,8 @@ class EsLocale
 public:
 	static std::string init(std::string locale, std::string path);
 	static std::string changeLocale(const std::string& locale);
+
+	static const bool isRTL();
 private:
 	static std::string default_LANGUAGE;
 };
@@ -52,6 +54,8 @@ public:
 	static const std::string nGetText(const std::string msgid, const std::string msgid_plural, int n);
 
 	static const std::string getLanguage() { return mCurrentLanguage; }
+
+	static const bool isRTL();
 
 	static const void reset() { mCurrentLanguageLoaded = false; }
 
