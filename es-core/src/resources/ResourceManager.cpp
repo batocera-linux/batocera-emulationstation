@@ -3,6 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include <fstream>
+#include "Log.h"
 
 auto array_deleter = [](unsigned char* p) { delete[] p; };
 auto nop_deleter = [](unsigned char* /*p*/) { };
@@ -50,6 +51,8 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 			return test;
 	}
 #endif
+
+	LOG(LogError) << "Resource path not found: " << path;
 
 	// not a resource, return unmodified path
 	return path;

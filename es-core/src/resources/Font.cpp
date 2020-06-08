@@ -247,59 +247,22 @@ void Font::getTextureForNewGlyph(const Vector2i& glyphSize, FontTexture*& tex_ou
 
 std::vector<std::string> getFallbackFontPaths()
 {
-#ifdef WIN32
-	// Windows
-
-	// get this system's equivalent of "C:\Windows" (might be on a different drive or in a different folder)
-	// so we can check the Fonts subdirectory for fallback fonts
-	TCHAR winDir[MAX_PATH];
-	GetWindowsDirectory(winDir, MAX_PATH);
-	std::string fontDir = winDir;
-	fontDir += "\\Fonts\\";
-
-	const char* fontNames[] = {
-		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
+	std::vector<std::string> fallbackFonts = 
+	{
 		":/fontawesome-webfont.ttf",
+		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
 		":/NanumMyeongjo.ttf", // korean font		
 		":/Cairo.ttf" // arabic
 	};
 
-	//prepend to font file names
-	std::vector<std::string> fontPaths;
-	fontPaths.reserve(sizeof(fontNames) / sizeof(fontNames[0]));
+	std::vector<std::string> paths;
 
-	for(unsigned int i = 0; i < sizeof(fontNames) / sizeof(fontNames[0]); i++)
-	{
-		std::string path = Utils::String::startsWith(fontNames[i], ":/") ? fontNames[i] : fontDir + fontNames[i];
-		if(ResourceManager::getInstance()->fileExists(path))
-			fontPaths.push_back(path);
-	}
+	for (auto font : fallbackFonts)
+		if (ResourceManager::getInstance()->fileExists(font))
+			paths.push_back(font);
 
-	fontPaths.shrink_to_fit();
-	return fontPaths;
-
-#else
-	// Linux
-
-	// batocera
-	const char* paths[] = {
-		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
-		":/fontawesome_webfont.ttf",
-		":/NanumMyeongjo.ttf", // korean font
-		":/Cairo.ttf" // arabic
-	};
-
-	std::vector<std::string> fontPaths;
-	for(unsigned int i = 0; i < sizeof(paths) / sizeof(paths[0]); i++)
-	{
-		if(ResourceManager::getInstance()->fileExists(paths[i]))
-			fontPaths.push_back(paths[i]);
-	}
-
-	fontPaths.shrink_to_fit();
-	return fontPaths;
-
-#endif
+	paths.shrink_to_fit();
+	return paths;
 }
 
 FT_Face Font::getFaceForChar(unsigned int id)
