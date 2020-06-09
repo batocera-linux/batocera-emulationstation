@@ -754,7 +754,9 @@ const std::string FileData::getCore(bool resolveDefault)
 	{
 		// Check core exists 
 		std::string emulator = getEmulator();
-		if (!emulator.empty())
+		if (emulator.empty())
+			core = "";
+		else
 		{
 			bool exists = false;
 
@@ -823,8 +825,6 @@ void FileData::setCore(const std::string value)
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
 #endif
-
-	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
 }
 
 void FileData::setEmulator(const std::string value)

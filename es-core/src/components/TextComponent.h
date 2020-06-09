@@ -56,11 +56,14 @@ public:
 
 	unsigned int getColor() { return mColor; }
 
+	std::string getOriginalThemeText() { return mSourceText; }
+
 protected:
 	virtual void onTextChanged();
 
 	std::string mText;
 	std::shared_ptr<Font> mFont;
+	std::string mSourceText;
 
 private:
 	void calculateExtent();

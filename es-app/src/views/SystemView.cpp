@@ -900,11 +900,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 	// Ensure texture loaded, query them if necessary ( & put it in the top order )
 	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
 	{
-		int index = i;
-		while (index < 0)
+		int index = i % (int)mEntries.size();
+		if (index < 0)
 			index += (int)mEntries.size();
-		while (index >= (int)mEntries.size())
-			index -= (int)mEntries.size();
 
 		for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
 		{
@@ -992,11 +990,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 
 	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
 	{
-		int index = i;
-		while (index < 0)
+		int index = i % (int)mEntries.size();
+		if (index < 0)
 			index += (int)mEntries.size();
-		while (index >= (int)mEntries.size())
-			index -= (int)mEntries.size();
 
 		if (mExtrasFadeOpacity && (index == mExtrasFadeOldCursor || index != mCursor))
 			continue;
@@ -1321,37 +1317,39 @@ void SystemView::updateExtraBindings(int cursor)
 		GuiComponent *extra = data.backgroundExtras[j];
 		if (!extra->isKindOf<TextComponent>())
 			continue;
-		
+
 		TextComponent* tx = (TextComponent*)extra;
 
-		auto elem = sys->getTheme()->getElement("system", tx->getTag(), "text");
-		if (elem && elem->has("text"))
-		{
-			std::string label = elem->get<std::string>("text");
-			auto xt = Utils::String::extractStrings(label, "{", "}");
-			for (auto ss : xt)
-			{
-				if (ss == "fullName")
-					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().fullName);
-				else if (ss == "name")
-					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().name);
-				else if (ss == "manufacturer")
-					label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().manufacturer);
-				else if (ss == "release")
-				{
-					if (sys->getSystemMetadata().releaseYear > 0)
-						label = Utils::String::replace(label, "{release}", std::to_string(sys->getSystemMetadata().releaseYear));
-					else 
-						label = Utils::String::replace(label, "{release}", _("Unknown"));
-				}
-				else if (ss == "hardware")
-					label = Utils::String::replace(label, "{hardware}", sys->getSystemMetadata().hardwareType);
-				else
-					label = Utils::String::replace(label, "{" + ss + "}", "");
-			}
+		std::string label = tx->getOriginalThemeText();
 
+		auto xt = Utils::String::extractStrings(label, "{", "}");
+		if (xt.size() > 0)
+		{
 			if (bindingEnabled)
+			{
+				for (auto ss : xt)
+				{
+					if (ss == "fullName")
+						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().fullName);
+					else if (ss == "name")
+						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().name);
+					else if (ss == "manufacturer")
+						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().manufacturer);
+					else if (ss == "release")
+					{
+						if (sys->getSystemMetadata().releaseYear > 0)
+							label = Utils::String::replace(label, "{release}", std::to_string(sys->getSystemMetadata().releaseYear));
+						else
+							label = Utils::String::replace(label, "{release}", _("Unknown"));
+					}
+					else if (ss == "hardware")
+						label = Utils::String::replace(label, "{hardware}", sys->getSystemMetadata().hardwareType);
+					else
+						label = Utils::String::replace(label, "{" + ss + "}", "");
+				}
+
 				tx->setText(label);
+			}
 			else
 				tx->setText("");
 		}
