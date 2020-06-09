@@ -696,8 +696,13 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			else
 			{
 				auto sz = getMaxSizeInfo();
-				if (!sz.empty()) mPath = "";
-				setImage(path, tile, sz);
+				if (sz.x() > 32 && sz.y() > 32)
+				{
+					mPath = "";
+					setImage(path, tile, sz);
+				}
+				else 
+					setImage(path, false);
 			}
 		}
 	}
