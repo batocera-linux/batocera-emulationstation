@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,6 +67,12 @@ msgstr "잠시만 기다려주세요"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
+msgid "CLOSE"
+msgstr "닫기"
+
+msgid "Loading..."
+msgstr "로딩"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이 연결"
 
@@ -75,9 +81,6 @@ msgstr "넷플레이에 연결할 게임을 선택하세요"
 
 msgid "REFRESH"
 msgstr "새로고침"
-
-msgid "CLOSE"
-msgstr "닫기"
 
 msgid "FAILED"
 msgstr "실패"
@@ -111,6 +114,15 @@ msgstr "다음으로 게임 정렬"
 
 msgid "OTHER FILTERS"
 msgstr "다른 필터"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "컬렉션"
@@ -160,11 +172,11 @@ msgstr "폴더 메타데이터 편집"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "텍스트로 게임 필터"
-
-msgid "Loading..."
-msgstr "로딩"
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "게임 아트워크 수집 중에는 이 기능은 비활성화됩니다"
@@ -283,6 +295,15 @@ msgstr "인포메이션"
 msgid "QUIT"
 msgstr "종료"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "게임 아트워크 수집 시작"
+
 msgid "SCRAPE FROM"
 msgstr "게임 아트워크 수집 출처"
 
@@ -307,6 +328,9 @@ msgstr "박스 2D"
 msgid "BOX 3D"
 msgstr "박스 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "박스 출처"
 
@@ -328,17 +352,17 @@ msgstr "평점 수집"
 msgid "SCRAPE VIDEOS"
 msgstr "비디오 수집"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "사용자 이름"
 
 msgid "PASSWORD"
 msgstr "비밀번호"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?"
-
-msgid "SCRAPE NOW"
-msgstr "게임 아트워크 수집 시작"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "입력 구성을 정말로 원합니까?"
@@ -577,6 +601,9 @@ msgstr "상세 모드"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "설정"
 
@@ -603,6 +630,12 @@ msgstr "모든 게임 재 인덱싱"
 
 msgid "INDEX MISSING GAMES"
 msgstr "인덱스 안된 게임"
+
+msgid "TOOLS"
+msgstr "도구"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
 
 msgid "DEFAULT SETTINGS"
 msgstr "기본설정"
@@ -663,9 +696,6 @@ msgstr "번역화면 일시정지"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
 
 msgid "NO MISSING BIOS"
 msgstr "있는 바이오스 "
@@ -767,9 +797,6 @@ msgstr "'..' 상위 폴더 보여주기"
 msgid "FILE EXTENSIONS"
 msgstr "파일 확장자"
 
-msgid "TOOLS"
-msgstr "도구"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "사용자 게임리스트 초기화"
 
@@ -817,6 +844,9 @@ msgstr "옵션 표시"
 
 msgid "TRANSITION STYLE"
 msgstr "화면 전환 형식"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "회전목마형 화면 전환"
@@ -1016,8 +1046,17 @@ msgstr "옵션"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "테마가 없는 커스텀 컬렉션을 그룹"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "커스텀 컬렉션과 시스템을 분류"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "컬렉션에서 시스템 이름 표시"
@@ -1286,17 +1325,65 @@ msgstr "비디오"
 msgid "enter path to video"
 msgstr "비디오 경로 입력"
 
-msgid "Marquee"
-msgstr "마키"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "마키 경로 입력"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "썸네일"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "썸네일 경로 입력"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "평점"
@@ -1394,20 +1481,11 @@ msgstr "언어"
 msgid "Region"
 msgstr "지역"
 
-msgid "favorite"
-msgstr "즐겨찾기"
-
 msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
 
-msgid "Searching"
-msgstr "검색 중"
-
 msgid "SCRAPE FAILED"
 msgstr "게임 아트워크 수집 실패"
-
-msgid "Downloading"
-msgstr "다운로드 중"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
@@ -1585,6 +1663,9 @@ msgstr "컬렉션"
 msgid "Extracting"
 msgstr "추출 중"
 
+msgid "Searching"
+msgstr "검색 중"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
 
@@ -1593,6 +1674,9 @@ msgstr "오류가 발생"
 
 msgid "RETRY"
 msgstr "재시도"
+
+msgid "Downloading"
+msgstr "다운로드 중"
 
 msgid "ACCEPT RESULT"
 msgstr "결과 동의"
@@ -1852,6 +1936,24 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "커스텀 컬렉션과 시스템을 분류"
+
+#~ msgid "Marquee"
+#~ msgstr "마키"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "마키 경로 입력"
+
+#~ msgid "Thumbnail"
+#~ msgstr "썸네일"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "썸네일 경로 입력"
+
+#~ msgid "favorite"
+#~ msgstr "즐겨찾기"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "편집 중단"

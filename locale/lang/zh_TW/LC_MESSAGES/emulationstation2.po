@@ -2,16 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 20:51+0200\n"
-"Language: zh-TW\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "UPDATING BATOCERA"
-msgstr "BATOCERA 更新"
+msgstr "更新 BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "已準備更新"
@@ -38,7 +41,7 @@ msgid "OK"
 msgstr "確定"
 
 msgid "NO UPDATE AVAILABLE"
-msgstr "沒有可用的更新"
+msgstr "沒有可使用的更新"
 
 msgid "INPUT"
 msgstr "輸入名稱"
@@ -59,13 +62,19 @@ msgid "BACK"
 msgstr "退回"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "沒有找到藍牙裝置"
+msgstr "沒有發現藍牙裝置"
 
 msgid "PLEASE WAIT"
 msgstr "請耐心等待"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "控制器已經刪除"
+msgstr "遊戲控制器已經刪除."
+
+msgid "CLOSE"
+msgstr "關閉"
+
+msgid "Loading..."
+msgstr "讀取中..."
 
 msgid "CONNECT TO NETPLAY"
 msgstr "連線到網絡遊戲"
@@ -75,9 +84,6 @@ msgstr "選擇您要加入的遊戲"
 
 msgid "REFRESH"
 msgstr "更新"
-
-msgid "CLOSE"
-msgstr "關閉"
 
 msgid "FAILED"
 msgstr "失敗"
@@ -101,16 +107,25 @@ msgid "go back"
 msgstr "退回"
 
 msgid "NAVIGATION"
-msgstr "搜尋"
+msgstr "導覽"
 
 msgid "JUMP TO..."
-msgstr "跳到"
+msgstr "跳到..."
 
 msgid "SORT GAMES BY"
 msgstr "遊戲排列方式"
 
 msgid "OTHER FILTERS"
-msgstr "其他過濾器"
+msgstr "過濾器進階設定"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "搜尋"
@@ -146,13 +161,13 @@ msgid "FINISH EDITING COLLECTION"
 msgstr "完成遊戲合輯編輯"
 
 msgid "GAME OPTIONS"
-msgstr "遊戲選項"
+msgstr "遊戲設定"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "系統選項"
+msgstr "系統設定"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "高級遊戲選項"
+msgstr "高級遊戲設定"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "編輯文件夾資料"
@@ -160,11 +175,11 @@ msgstr "編輯文件夾資料"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "編輯此遊戲的簡介資料"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "用檔案選擇遊戲"
-
-msgid "Loading..."
-msgstr "讀取"
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "這項功能在搜尋中被禁止使用"
@@ -176,7 +191,7 @@ msgid "ARE YOU SURE ?"
 msgstr "您確定嘛？"
 
 msgid "FILTER GAMELIST BY"
-msgstr "遊戲製作公司"
+msgstr "設定"
 
 msgid "RESET ALL FILTERS"
 msgstr "重新設定"
@@ -203,13 +218,13 @@ msgid "FINISHED"
 msgstr "完成"
 
 msgid "fade"
-msgstr ""
+msgstr "淡化"
 
 msgid "slide"
-msgstr ""
+msgstr "滑動"
 
 msgid "instant"
-msgstr ""
+msgstr "瞬間"
 
 msgid "System"
 msgstr "系統"
@@ -230,7 +245,7 @@ msgid "Cpu model"
 msgstr "CPU 版本"
 
 msgid "Cpu number"
-msgstr "CPU 型號"
+msgstr "CPU 核心"
 
 msgid "Cpu feature"
 msgstr "CPU 架構"
@@ -283,6 +298,15 @@ msgstr "訊息"
 msgid "QUIT"
 msgstr "離開"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "進行搜刮器？"
+
+msgid "SCRAPER"
+msgstr "資料搜刮"
+
+msgid "SCRAPE NOW"
+msgstr "開始搜刮器"
+
 msgid "SCRAPE FROM"
 msgstr "遊戲搜刮器來源"
 
@@ -307,6 +331,9 @@ msgstr "2D 盒子"
 msgid "BOX 3D"
 msgstr "3D 盒子"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "封面資料"
 
@@ -328,17 +355,17 @@ msgstr "搜刮遊戲評分"
 msgid "SCRAPE VIDEOS"
 msgstr "搜刮遊戲影片"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "使用者名稱"
 
 msgid "PASSWORD"
 msgstr "使用者密碼"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "進行搜刮器中"
-
-msgid "SCRAPE NOW"
-msgstr "開始搜刮器"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "您確定要設定輸入嘛？"
@@ -350,7 +377,7 @@ msgid "SLIDESHOW SETTINGS"
 msgstr "幻燈片設定"
 
 msgid "RANDOM VIDEO SETTINGS"
-msgstr "隨機影片參數"
+msgstr "隨機影片選項"
 
 msgid "CHOOSE"
 msgstr "瀏覽"
@@ -359,7 +386,7 @@ msgid "SELECT"
 msgstr "選擇"
 
 msgid "INFORMATION"
-msgstr "系統訊息"
+msgstr "系統資訊"
 
 msgid "VERSION"
 msgstr "版本"
@@ -377,13 +404,13 @@ msgid "VRAM LIMIT"
 msgstr "限制 VRAM"
 
 msgid "SHOW FRAMERATE"
-msgstr "顯示 FPS 速度"
+msgstr "顯示 FPS 幀率"
 
 msgid "VSYNC"
 msgstr "垂直同步"
 
 msgid "OVERSCAN"
-msgstr "過掃描"
+msgstr "過掃描填滿效果"
 
 msgid "PRELOAD UI"
 msgstr "預先加入UI"
@@ -407,13 +434,13 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "退出時保存資料"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr "僅分析遊戲檔案"
+msgstr "分析遊戲檔案"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在硬碟中尋找圖片"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "重新設定文件名稱"
+msgstr "重新修改文件名稱"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "發現新的遊戲 語言＆地區"
@@ -425,7 +452,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "使用 RGUI 目錄"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "自動設定模擬器把手"
+msgstr "自動設定模擬器控制器"
 
 msgid "LOG LEVEL"
 msgstr "日誌等級"
@@ -434,10 +461,10 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "新建文件檔案"
 
 msgid "CREATE A SUPPORT FILE ?"
-msgstr "確定新建文件檔案？"
+msgstr "是否新建文件檔案？"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "新增文件檔案成功"
+msgstr "成功新增文件檔案"
 
 msgid "FILE GENERATION FAILED"
 msgstr "新增文件檔案失敗"
@@ -455,7 +482,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "邊框選項"
 
 msgid "SOFTWARE UPDATES"
-msgstr "更新軟體"
+msgstr "框架項目"
 
 msgid "CHECK FOR UPDATES"
 msgstr "檢查更新"
@@ -473,7 +500,7 @@ msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
 msgid "SYSTEM"
-msgstr "系統"
+msgstr "遊戲平台"
 
 msgid "LANGUAGE"
 msgstr "語言"
@@ -488,7 +515,7 @@ msgid "ENABLE KODI"
 msgstr "啟用 KODI 媒體播放中心"
 
 msgid "KODI AT START"
-msgstr "開機自動啟動 KODI "
+msgstr "開機自動啟動 KODI"
 
 msgid "START KODI WITH X"
 msgstr "按 X 鍵啟動 KODI"
@@ -503,7 +530,7 @@ msgid "VIDEO OUTPUT"
 msgstr "影像輸出"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要從重啟動才可以保存新的設定！"
+msgstr "需要從重啟動才可以保存新的設定"
 
 msgid "AUDIO OUTPUT"
 msgstr "聲音輸出"
@@ -530,7 +557,7 @@ msgid "BACKUP USER DATA"
 msgstr "備份使用者資料"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "安裝 BATOCERA 到新硬碟"
+msgstr "安裝 BATOCERA 到新的硬碟"
 
 msgid "ADVANCED"
 msgstr "進階設定"
@@ -542,7 +569,7 @@ msgid "ENFORCE SECURITY"
 msgstr "啟用安全防護"
 
 msgid "ROOT PASSWORD"
-msgstr "管理員 密碼"
+msgstr "ROOT 密碼"
 
 msgid "LATENCY REDUCTION"
 msgstr "減少延遲"
@@ -577,6 +604,9 @@ msgstr "詳細模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動擷取圖片"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "設定"
 
@@ -602,7 +632,13 @@ msgid "REINDEX ALL GAMES"
 msgstr "重新索引所有遊戲"
 
 msgid "INDEX MISSING GAMES"
-msgstr "索引缺失遊戲"
+msgstr "索引缺少的遊戲"
+
+msgid "TOOLS"
+msgstr "工具"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "更新遊戲目錄"
 
 msgid "DEFAULT SETTINGS"
 msgstr "預設值"
@@ -614,13 +650,13 @@ msgid "SMOOTH GAMES"
 msgstr "平滑遊戲畫面"
 
 msgid "REWIND"
-msgstr "倒退功能"
+msgstr "倒帶功能"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自動儲存＆讀取"
+msgstr "自動儲存/讀取"
 
 msgid "SHADERS SET"
-msgstr "濾鏡設定"
+msgstr "濾鏡著色器設定"
 
 msgid "SCANLINES"
 msgstr "掃描線"
@@ -635,7 +671,7 @@ msgid "CURVATURE"
 msgstr "彎曲"
 
 msgid "ZFAST"
-msgstr ""
+msgstr "快速"
 
 msgid "FLATTEN-GLOW"
 msgstr ""
@@ -653,25 +689,22 @@ msgid "ENABLE AI SERVICE"
 msgstr "啟動 AI 遊戲翻譯"
 
 msgid "TARGET LANGUAGE"
-msgstr "使用者語言"
+msgstr "使用語言"
 
 msgid "SERVICE URL"
 msgstr "伺服器網址"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "在翻譯時畫面暫停"
+msgstr "在翻譯畫面上暫停"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr "每個系統的高級設定"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "更新遊戲目錄"
+msgstr "模擬器進階設定"
 
 msgid "NO MISSING BIOS"
-msgstr "未遺失的BIOS"
+msgstr "缺少的BIOS"
 
 msgid "MISSING"
-msgstr "遺失"
+msgstr "缺少"
 
 msgid "INVALID"
 msgstr "無效"
@@ -702,14 +735,14 @@ msgstr ""
 "請依畫面指示設定遊戲控制器方向鍵及按鍵\n"
 "按住A鍵可以略過不需要的按鍵設定\n"
 "若無足夠按鍵設定「熱鍵」請直接按SELECT鍵\n"
-"預設按鍵名稱定義來自超任手把"
+"預設按鍵名稱定義來自超任手把."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "藍牙遊戲控制器配對"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "輸入 P%i 玩家"
+msgstr "輸入 P%i"
 
 msgid "default"
 msgstr "預設值"
@@ -742,7 +775,7 @@ msgid "DEFAULT VALUE"
 msgstr "預設值"
 
 msgid "GAMELIST OPTIONS"
-msgstr "遊戲清單選項"
+msgstr "遊戲清單設定"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "在頂部顯示收藏夾"
@@ -766,13 +799,10 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "顯示 '..' 文件夾"
 
 msgid "FILE EXTENSIONS"
-msgstr "增加文件名稱"
-
-msgid "TOOLS"
-msgstr "工具"
+msgstr "新增文件夾"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "重置自定遊戲清單"
+msgstr "重置自定主題設定"
 
 msgid "APPEARENCE"
 msgstr "外觀"
@@ -794,9 +824,9 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"您即將使用受限模式:\n"
-"此模式為防止系統遭修改，將隱藏部分選項和菜單。\n"
-"如果需要返回完整模式，請依照順序輸入以下按鍵："
+"\"您即將使用受限模式:\n"
+"\"此模式為防止系統遭修改，將隱藏部分選項和菜單。\n"
+"\"如果需要返回完整模式，請依照順序輸入以下按鍵："
 
 msgid "Do you want to proceed ?"
 msgstr "是否繼續？"
@@ -817,10 +847,13 @@ msgid "DISPLAY OPTIONS"
 msgstr "顯示設定"
 
 msgid "TRANSITION STYLE"
-msgstr "畫面轉場效果"
+msgstr "轉場效果"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "畫面循環轉場效果"
+msgstr "循環轉場效果"
 
 msgid "QUICK SYSTEM SELECT"
 msgstr "快速遊戲平台選擇(左右鍵)"
@@ -835,7 +868,7 @@ msgid "SHOW BATTERY STATUS"
 msgstr "顯示電池狀態"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr "開啟虛擬按鍵"
+msgstr "開啟虛擬鍵盤"
 
 msgid "HIDE WHEN RUNNING A GAME"
 msgstr "執行遊戲時隱藏"
@@ -850,7 +883,7 @@ msgid "SYSTEM VOLUME"
 msgstr "系統音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "音量變化時顯示增加"
+msgstr "音量變化時螢幕顯示"
 
 msgid "MUSIC"
 msgstr "音樂"
@@ -859,7 +892,7 @@ msgid "FRONTEND MUSIC"
 msgstr "系統背景音樂"
 
 msgid "DISPLAY SONG TITLES"
-msgstr "顯示歌曲名稱"
+msgstr "顯示音樂名稱"
 
 msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "音樂的時間"
@@ -916,7 +949,7 @@ msgid "AUTOMATIC SCRAPER"
 msgstr "自動執行搜刮器"
 
 msgid "REALLY SCRAPE?"
-msgstr "確定執行搜刮器"
+msgstr "確定執行搜刮器？"
 
 msgid "MANUAL SCRAPER"
 msgstr "手動執行搜刮器"
@@ -955,7 +988,7 @@ msgid "VIDEO MODE"
 msgstr "影像模式"
 
 msgid "COLORIZATION"
-msgstr "著色器"
+msgstr "著色"
 
 msgid "FULL BOOT"
 msgstr "完全開機"
@@ -1000,16 +1033,16 @@ msgid "GROUPED SYSTEMS"
 msgstr "系統編輯"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "新建自行的定義"
+msgstr "建立新的自行的定義"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "從主題建立新的自定合輯"
+msgstr "從主題建立新的合輯"
 
 msgid "SELECT THEME FOLDER"
 msgstr "選擇主題資料夾"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "新建新的合輯編輯"
+msgstr "建立新的合輯編輯"
 
 msgid "OPTIONS"
 msgstr "選項"
@@ -1017,14 +1050,23 @@ msgstr "選項"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "對沒有主題的自定合輯進行分組"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "對自定合輯和系統進行排列"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合輯中顯示系統名稱"
 
 msgid "SELECT COLLECTIONS"
-msgstr "選擇合輯"
+msgstr "選擇主題資料夾"
 
 msgid "ARCADE SYSTEMS"
 msgstr "大型電玩系統"
@@ -1075,7 +1117,7 @@ msgid "STOP"
 msgstr "停止"
 
 msgid "stop (progress saved)"
-msgstr "停止 (將會保存進度)"
+msgstr "停止 (會保存進度)"
 
 #, c-format
 msgid "GAME %i OF %i"
@@ -1086,7 +1128,7 @@ msgid ""
 "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
 "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
 msgstr ""
-"未找到任何遊戲平台\n"
+"未找到任何遊戲平台！\n"
 "請檢查系統設定文件中的路徑是否正確，並確保遊戲目錄下的ROM具有正確的檔案。"
 
 #, c-format
@@ -1116,7 +1158,7 @@ msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "將 '%s' 添加到下載隊列"
 
 msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "移除邊框項目"
+msgstr "移除邊框選項"
 
 msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
 msgstr "選擇移除邊框的遊戲平台"
@@ -1125,7 +1167,7 @@ msgid "BEZELS DELETED SUCCESSFULLY"
 msgstr "刪除邊框控制"
 
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "更換圖片 (SECS) "
+msgstr "更換圖片 (SECS)"
 
 msgid "SHOW GAME INFO"
 msgstr "顯示遊戲訊息"
@@ -1146,7 +1188,7 @@ msgid "CUSTOM IMAGE DIR"
 msgstr "自定圖片的目錄"
 
 msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr "遞迴自定圖片的目錄"
+msgstr "退回自定圖片的目錄"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "自定圖片選擇"
@@ -1182,7 +1224,7 @@ msgid "FILTER"
 msgstr "過濾"
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr "選擇要刮缺的遊戲平台"
+msgstr "搜刮這些遊戲平台"
 
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "資料有衝突時由使用者來處理"
@@ -1196,7 +1238,7 @@ msgid ""
 "CONTINUE ANYWAY?"
 msgstr ""
 "警告：你選擇的遊戲平台並沒有找到資料。\n"
-"結果可能比原來的更不準確！是否繼續？"
+"結果可能比原來的更加不準確！是否繼續？"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "沒有符合的遊戲。"
@@ -1214,9 +1256,9 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
-"螢幕保護 \"隨機影片\" 將顯示遊戲列表中的影片。\n"
-"如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\"黑屏\"。\n"
-"更多選項可以到 \"UI 設置 -> 螢幕保護-隨機影片設定\" 進行設定。"
+"螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
+"如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"
+"更多選項可以到 \\\"UI 設置 -> 螢幕保護-隨機影片設定\\\" 進行設定."
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "隨機螢幕保護程式設定"
@@ -1225,10 +1267,10 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "幻燈片螢幕保護程式設定"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr "螢幕保護程式控制設定"
+msgstr "螢幕保護程式控制器"
 
 msgid "SLIDESHOW SCREENSAVER"
-msgstr "螢幕保護程式-幻燈片"
+msgstr "幻燈片螢幕保護"
 
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到設備"
@@ -1247,25 +1289,25 @@ msgid ""
 "ARE YOU SURE?"
 msgstr ""
 "即將刪除遊戲檔案！\n"
-"確定刪除嘛？"
+"確定？"
 
 msgid "DELETE"
 msgstr "刪除"
 
 msgid "SAVE CHANGES?"
-msgstr "是否保存更改?"
+msgstr "儲存本次修改嗎？"
 
 msgid "Name"
-msgstr "遊戲名稱"
+msgstr "名稱"
 
 msgid "enter game name"
 msgstr "輸入遊戲名稱"
 
 msgid "Description"
-msgstr "遊戲簡介"
+msgstr "簡介"
 
 msgid "enter description"
-msgstr "輸入遊戲簡介"
+msgstr "輸入簡介"
 
 msgid "emulator"
 msgstr "模擬器"
@@ -1283,19 +1325,67 @@ msgid "Video"
 msgstr "影片"
 
 msgid "enter path to video"
-msgstr "輸入影片路徑"
+msgstr "輸入影片的路徑"
 
-msgid "Marquee"
-msgstr "邊框"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "輸入邊框路徑"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "縮圖"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "輸入縮圖的路徑"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "評分"
@@ -1322,7 +1412,7 @@ msgid "enter game publisher"
 msgstr "輸入遊戲發行商"
 
 msgid "Genre"
-msgstr "遊戲類型"
+msgstr "類型"
 
 msgid "enter game genre"
 msgstr "輸入遊戲類型"
@@ -1334,16 +1424,16 @@ msgid "enter game arcade system"
 msgstr "輸入遊戲系統"
 
 msgid "Players"
-msgstr "玩家人數"
+msgstr "遊戲人數"
 
 msgid "enter number of players"
-msgstr "輸入遊戲玩家人數"
+msgstr "輸入遊戲人數"
 
 msgid "Favorite"
 msgstr "收藏"
 
 msgid "enter favorite"
-msgstr "加入收藏"
+msgstr "作為收藏"
 
 msgid "Hidden"
 msgstr "隱藏"
@@ -1358,16 +1448,16 @@ msgid "enter kidgame"
 msgstr "進入兒童遊戲"
 
 msgid "Play count"
-msgstr "遊戲遊玩次數"
+msgstr "遊戲執行次數"
 
 msgid "enter number of times played"
-msgstr "輸入遊戲遊玩次數"
+msgstr "輸入遊戲執行次數"
 
 msgid "Last played"
-msgstr "最後遊戲遊玩日期"
+msgstr "最後遊戲執行日期"
 
 msgid "enter last played date"
-msgstr "輸入最後遊戲遊玩日期"
+msgstr "輸入最後遊戲執行日期"
 
 msgid "Crc32"
 msgstr ""
@@ -1385,7 +1475,7 @@ msgid "Game time"
 msgstr "遊戲時間"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "遊戲遊玩時間"
+msgstr "遊戲玩過的時間"
 
 msgid "Languages"
 msgstr "語言"
@@ -1393,23 +1483,14 @@ msgstr "語言"
 msgid "Region"
 msgstr "地區"
 
-msgid "favorite"
-msgstr "我的最愛"
-
 msgid "SCRAPING"
 msgstr "搜尋"
-
-msgid "Searching"
-msgstr "搜尋中"
 
 msgid "SCRAPE FAILED"
 msgstr "搜尋失敗"
 
-msgid "Downloading"
-msgstr "下載中"
-
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "搜尋完成，更新遊戲目錄已應用更改！"
+msgstr "搜尋完成，更新遊戲目錄已應用更改."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "錯誤：每個系統都被隱藏，現在重新顯示所有系統"
@@ -1420,17 +1501,17 @@ msgstr "你想啟動 KODI 媒體播放中心嗎?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
+msgstr[0] "%i 合輯"
 
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] ""
+msgstr[0] "%i 時間"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] ""
+msgstr[0] "%i 遊戲"
 
 msgid "KODI"
 msgstr "KODI"
@@ -1448,13 +1529,13 @@ msgid "Full"
 msgstr "全部"
 
 msgid "Kiosk"
-msgstr ""
+msgstr "遊戲大廳"
 
 msgid "Kid"
 msgstr "兒童"
 
 msgid "No Entries Found"
-msgstr "找不到項目"
+msgstr "找不到選項"
 
 msgid "Favorites"
 msgstr "書籤"
@@ -1571,7 +1652,7 @@ msgid "KIDGAME"
 msgstr "兒童遊戲"
 
 msgid "ALREADY PLAYED"
-msgstr "已經遊玩遊戲"
+msgstr "已經玩過的遊戲"
 
 msgid "HASHING GAMES"
 msgstr "隨機遊戲"
@@ -1582,6 +1663,9 @@ msgstr "收藏"
 msgid "Extracting"
 msgstr "尋找中"
 
+msgid "Searching"
+msgstr "搜尋中"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "搜尋不到資料 - 按B鍵快速略過"
 
@@ -1591,6 +1675,9 @@ msgstr "發生了一個錯誤"
 msgid "RETRY"
 msgstr "重試"
 
+msgid "Downloading"
+msgstr "下載中"
+
 msgid "ACCEPT RESULT"
 msgstr "確認"
 
@@ -1598,7 +1685,7 @@ msgid "Loading system config..."
 msgstr "正在載入系統設定..."
 
 msgid "Done."
-msgstr "完成"
+msgstr "完成."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "儲存搜刮器資料，請稍後..."
@@ -1607,10 +1694,10 @@ msgid "SCANNING BLUETOOTH"
 msgstr "搜尋藍牙裝置"
 
 msgid "Searching controllers..."
-msgstr "搜尋遊戲控制器"
+msgstr "搜尋遊戲控制器."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "搜尋藍牙裝置正在進行中"
+msgstr "搜尋藍牙裝置正在進行中."
 
 msgid "FORMATING DEVICE"
 msgstr "格式化裝置"
@@ -1622,7 +1709,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "需要重新啟動系統才能完成操作"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "格式化裝置正在進行中"
+msgstr "格式化裝置正在進行中."
 
 msgid "UPDATE AVAILABLE"
 msgstr "有可用的更新"
@@ -1631,10 +1718,10 @@ msgid "all games"
 msgstr "所有遊戲"
 
 msgid "last played"
-msgstr "最由遊玩遊戲"
+msgstr "最後遊玩遊戲"
 
 msgid "favorites"
-msgstr "書籤"
+msgstr "我的最愛"
 
 msgid "2 players"
 msgstr "雙人遊戲"
@@ -1657,11 +1744,11 @@ msgstr "編輯 '%s' 合輯。按Y鍵添加/刪除遊戲。"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr "'%s' 合輯編輯完成。"
+msgstr "%s' 合輯編輯完成。"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "添加 '%s' 到 '%s'"
+msgstr "添加 '%s' 到 '%s"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
@@ -1680,7 +1767,7 @@ msgstr "多間開發廠商"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
+msgstr[0] "收藏夾包含％i個遊戲，包括：%s"
 
 msgid "UP"
 msgstr "上"
@@ -1734,20 +1821,20 @@ msgid ""
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 "你沒有為 '熱鍵' 設定按鍵。這是控制器退出遊戲所必須的按鍵。\n"
-"你是否要將 \"選擇\" 按鈕的按鍵同時作為 \"熱鍵\" 按鈕的按鍵？\n"
-"請選擇 \"是\" 同意將 \"選擇\" 按鈕同時作為 \"熱鍵\" 按鈕，或選擇 \"否\" 不啟"
-"用 \"熱鍵\" 按鈕。"
+"你是否要將 \\\"選擇\\\" 按鈕的按鍵同時作為 \\\"熱鍵\\\" 按鈕的按鍵？\n"
+"請選擇 \\\"是\\\" 同意將 \\\"選擇\\\" 按鈕同時作為 \\\"熱鍵\\\" 按鈕，或選擇 "
+"\\\"否\\\" 不啟用 \\\"熱鍵\\\" 按鈕。"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "按住 %iS鍵 跳過"
+msgstr[0] "按住跳過  %i"
 
 msgid "PRESS ANYTHING"
 msgstr "按下對應按鍵"
 
 msgid "ALREADY TAKEN"
-msgstr "已經用過了"
+msgstr "已經使用過了"
 
 msgid "SPACE"
 msgstr "空格"
@@ -1756,7 +1843,7 @@ msgid "DELETE A CHAR"
 msgstr "刪除一個文字"
 
 msgid "RESET"
-msgstr ""
+msgstr "重置"
 
 msgid "DISCARD CHANGES"
 msgstr "放棄本次修改"
@@ -1773,7 +1860,7 @@ msgstr "歡迎"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "檢測到 %i支遊戲手把"
+msgstr[0] "檢測到 %i 支手把"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "沒有檢測到遊戲手把"
@@ -1784,37 +1871,37 @@ msgstr "請按住您要設定的控制器上的任一個按鈕。"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
+msgstr[0] "%d 小時"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
+msgstr[0] "%d 分鐘"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
+msgstr[0] "%d 幾秒"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
+msgstr[0] "%d 天前"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
+msgstr[0] "%d 小時前"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
+msgstr[0] "%d 分鐘前"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
+msgstr[0] "%d 幾秒前"
 
 msgid "MOVE CURSOR"
 msgstr "移動滑鼠"
@@ -1829,7 +1916,7 @@ msgid "SELECT ALL"
 msgstr "選擇全部"
 
 msgid "select all"
-msgstr "選擇全部"
+msgstr "全部選擇"
 
 msgid "SELECT NONE"
 msgstr "取消選擇"
@@ -1849,7 +1936,25 @@ msgid "WORKING..."
 msgstr "更新中..."
 
 msgid "up/down"
-msgstr "上/下"
+msgstr "上＆下"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "對自定合輯和系統進行排列"
+
+#~ msgid "Marquee"
+#~ msgstr "邊框"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "輸入邊框的路徑"
+
+#~ msgid "Thumbnail"
+#~ msgstr "縮圖"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "輸入縮圖的路徑"
+
+#~ msgid "favorite"
+#~ msgstr "書籤"
 
 #~ msgid "DISK USAGE"
 #~ msgstr "硬碟使用情況"
@@ -1947,7 +2052,7 @@ msgstr "上/下"
 #~ "ARE YOU SURE?"
 #~ msgstr ""
 #~ "此操作將刪除檔案!\n"
-#~ "確定刪除？"
+#~ "是否確定？"
 
 #~ msgid "enter emulator"
 #~ msgstr "輸入模擬器"
@@ -1965,10 +2070,10 @@ msgstr "上/下"
 #~ msgstr "輸入區域"
 
 #~ msgid "Romtype"
-#~ msgstr "Rom檔類型"
+#~ msgstr "Rom類型"
 
 #~ msgid "enter romtype"
-#~ msgstr "輸入Rom檔類型"
+#~ msgstr "輸入Rom類型"
 
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"
@@ -2031,9 +2136,6 @@ msgstr "上/下"
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "沒有找到藍牙控制器"
-
-#~ msgid "SCRAPER"
-#~ msgstr "資料搜刮"
 
 #~ msgid "HDMI"
 #~ msgstr "HDMI輸出"

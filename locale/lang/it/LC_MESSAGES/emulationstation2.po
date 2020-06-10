@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -70,6 +70,12 @@ msgstr "ATTENDERE PREGO"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "I COLLEGAMENTI AI CONTROLLER SONO STATI CANCELLATI."
 
+msgid "CLOSE"
+msgstr "CHIUDI"
+
+msgid "Loading..."
+msgstr "Caricamento..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "COLLEGATI SU NETPLAY"
 
@@ -78,9 +84,6 @@ msgstr "Scegli il gioco"
 
 msgid "REFRESH"
 msgstr "AGGIORNA"
-
-msgid "CLOSE"
-msgstr "CHIUDI"
 
 msgid "FAILED"
 msgstr "FALLITO"
@@ -115,17 +118,26 @@ msgstr "ORDINA I GIOCHI PER"
 msgid "OTHER FILTERS"
 msgstr "ALTRI FILTRI"
 
-msgid "COLLECTION"
+msgid "GAME MEDIAS"
 msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
+
+msgid "COLLECTION"
+msgstr "COLLEZIONEE"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "MODIFICA I FILTRI DELLE COLLEZIONI DINAMICHE"
 
 msgid "DELETE COLLECTION"
-msgstr ""
+msgstr "CANCELLA COLLEZIONE"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr ""
+msgstr "CREA UNA NUOVA COLLEZIONE DINAMICA"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
@@ -163,11 +175,11 @@ msgstr "MODIFICA CARTELLA METADATI"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRA GIOCHI PER NOME"
-
-msgid "Loading..."
-msgstr "Caricamento..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "QUESTA FUNZIONE E' DISABILITATA QUANDO LO SCRAPE E' IN ESECUZIONE"
@@ -224,7 +236,7 @@ msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr ""
+msgstr "Memoria disponibile"
 
 msgid "Battery"
 msgstr "Batteria"
@@ -286,6 +298,15 @@ msgstr "INFORMAZIONI"
 msgid "QUIT"
 msgstr "ESCI"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "SCRAPE IN ESECUZIONE. VUOI FERMARLO?"
+
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
+msgid "SCRAPE NOW"
+msgstr "RACCOGLI INFORMAZIONI ORA"
+
 msgid "SCRAPE FROM"
 msgstr "RACCOGLI INFORMAZIONI DA"
 
@@ -310,6 +331,9 @@ msgstr "BOX 2D"
 msgid "BOX 3D"
 msgstr "BOX 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "SORGENTE BOX"
 
@@ -331,17 +355,17 @@ msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
 msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE VIDEO"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "NOME UTENTE"
 
 msgid "PASSWORD"
 msgstr "PASSWORD"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "SCRAPE IN ESECUZIONE. VUOI FERMARLO?"
-
-msgid "SCRAPE NOW"
-msgstr "RACCOGLI INFORMAZIONI ORA"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "SEI SICURO DI CONFIGURARE L'INPUT?"
@@ -368,10 +392,10 @@ msgid "VERSION"
 msgstr "VERSIONE"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "UTILIZZO DISCO UTENTE"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "UTILIZZO DISCO DI SISTEMA"
 
 msgid "DEVELOPER"
 msgstr "SVILUPPATORE"
@@ -416,10 +440,10 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "RICERCA IMMAGINI IN LOCALE"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr ""
+msgstr "RESETTA ESTENSIONI FILE"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "RILEVA LINGUA/REGIONE DEI GIOCHI"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "ESCI DEFINITIVAMENTE DAL MENU"
@@ -428,7 +452,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "USA RGUI MENU DI RETROARCH"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr " CONFIGURA AUTOMATICAMENTE I CONTROLLER DEGLI EMULATORI"
 
 msgid "LOG LEVEL"
 msgstr "LIVELLO DI LOG"
@@ -581,6 +605,9 @@ msgstr "MODALITÀ VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "IMPOSTAZIONI"
 
@@ -607,6 +634,12 @@ msgstr "REINDICIZZA TUTTI I GIOCHI"
 
 msgid "INDEX MISSING GAMES"
 msgstr "INDICIZZA GIOCHI MANCANTI"
+
+msgid "TOOLS"
+msgstr "STRUMENTI"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
 msgid "DEFAULT SETTINGS"
 msgstr "IMPOSTAZIONE DI DEFAULT"
@@ -667,9 +700,6 @@ msgstr "PAUSA SULLO SCHERMO TRADOTTO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
 msgid "NO MISSING BIOS"
 msgstr "NESSUN BIOS MANCANTE"
@@ -767,13 +797,10 @@ msgid "having multiple games"
 msgstr "avere più giochi"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "MOSTRA '..' CARTELLA PRINCIPALE"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
-
-msgid "TOOLS"
-msgstr "STRUMENTI"
+msgstr "ESTENSIONI FILE"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
@@ -822,6 +849,9 @@ msgstr "OPZIONI SCHERMO"
 
 msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "MODALITA' DI TRANSIZIONE CAROUSEL"
@@ -926,7 +956,7 @@ msgid "MANUAL SCRAPER"
 msgstr "RACCOLTA INFORMAZIONI MANUALE"
 
 msgid "SKIP TO NEXT SONG"
-msgstr ""
+msgstr "SALTA AL BRANO SUCCESSIVO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
@@ -998,13 +1028,13 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "SEI SICURO DI VOLER FORMATTARE QUESTO DISPOSITIVO?"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
+msgstr "COLLEZIONI DA MOSTRARE"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMI RAGGRUPPATI"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "CREA COLLEZIONE PERSONALIZZATA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CREA UNA COLLEZIONE PERSONALE DA UN TEMA"
@@ -1013,7 +1043,7 @@ msgid "SELECT THEME FOLDER"
 msgstr "SELEZIONA CARTELLA A TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "CREA UNA NUOVA COLLEZIONE DA MODIFICARE"
 
 msgid "OPTIONS"
 msgstr "OPZIONI"
@@ -1021,8 +1051,17 @@ msgstr "OPZIONI"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "ORDINA LE COLLEZIONI E I SISTEMI PERSONALI"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRA IL NOME DEL SISTEMA NELLA COLLEZIONE"
@@ -1037,10 +1076,10 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLEZIONI DI GIOCHI AUTOMATICHE"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr ""
+msgstr "COLLEZIONI MODIFICABILI"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr ""
+msgstr "COLLEZIONI DINAMICHE"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLLEZIONI DI GIOCHI PERSONALIZZATE"
@@ -1175,7 +1214,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ADATTA VIDEO NEL SALVASCHERMO"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr ""
+msgstr "MUTA AUDIO DEL VIDEO"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "INFORMAZIONI SU QUESTI GIOCHI"
@@ -1297,17 +1336,65 @@ msgstr "Video"
 msgid "enter path to video"
 msgstr "inserisci percorso dei video"
 
-msgid "Marquee"
-msgstr "Banner"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "inserisci percorso dei marquee"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Miniatura"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "inserisci percorso miniatura"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Voto"
@@ -1400,25 +1487,16 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "Durata totale del gioco giocato (in secondi)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Lingue"
 
 msgid "Region"
 msgstr "Regione"
 
-msgid "favorite"
-msgstr "preferito"
-
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Cercando"
-
 msgid "SCRAPE FAILED"
 msgstr "SCRAPE FALLITO"
-
-msgid "Downloading"
-msgstr "Scaricamento"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
@@ -1580,22 +1658,25 @@ msgid "RATING"
 msgstr "VOTO"
 
 msgid "REGION"
-msgstr ""
+msgstr "REGIONE"
 
 msgid "KIDGAME"
 msgstr "GIOCO PER RAGAZZI"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "GIA' GIOCATO"
 
 msgid "HASHING GAMES"
 msgstr "GAME HASHING"
 
 msgid "Collections"
-msgstr ""
+msgstr "Collezioni"
 
 msgid "Extracting"
 msgstr "Estrazione"
+
+msgid "Searching"
+msgstr "Cercando"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NESSUN GIOCO TROVATO - SALTA"
@@ -1605,6 +1686,9 @@ msgstr "SI E' VERIFICATO UN ERRORE"
 
 msgid "RETRY"
 msgstr "RIPROVA"
+
+msgid "Downloading"
+msgstr "Scaricamento"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
@@ -1634,7 +1718,7 @@ msgid "Formating"
 msgstr "Formattazione"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "E' NECESSARIO RIAVVIARE IL SISTEMA PER COMPLETARE L'OPERAZIONE"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "FORMATTAZIONE DEL DISPOSITIVO GIA' AVVIATA"
@@ -1802,44 +1886,44 @@ msgstr "TIENI PREMUTO UN PULSANTE SUL GAMEPAD PER CONFIGURARLO."
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ora"
+msgstr[1] "%d ore"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto"
+msgstr[1] "%d minuti"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d secondo"
+msgstr[1] "%d secondi"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d giorno fa"
+msgstr[1] "%d giorni fa"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ora fa"
+msgstr[1] "%d ore fa"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto fa"
+msgstr[1] "%d minuti fa"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d secondo fa"
+msgstr[1] "%d secondi fa"
 
 msgid "MOVE CURSOR"
 msgstr "SPOSTA IL CURSORE"
@@ -1876,6 +1960,24 @@ msgstr "ATTENDERE..."
 
 msgid "up/down"
 msgstr "su/giù"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "ORDINA LE COLLEZIONI E I SISTEMI PERSONALI"
+
+#~ msgid "Marquee"
+#~ msgstr "Banner"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "inserisci percorso dei marquee"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Miniatura"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "inserisci percorso miniatura"
+
+#~ msgid "favorite"
+#~ msgstr "preferito"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "TERMINA INSERIMENTO"
@@ -2192,9 +2294,6 @@ msgstr "su/giù"
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "NESSUN CONTROLLER TROVATO"
-
-#~ msgid "SCRAPER"
-#~ msgstr "SCRAPER"
 
 #~ msgid "NONE (700Mhz)"
 #~ msgstr "NESSUNO (700Mhz)"

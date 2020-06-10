@@ -199,7 +199,7 @@ namespace PlatformIds
 		{ 182, { "alphadenshi", "Alpha Denshi Co." } },
 		{ 183, { "coleco", "Coleco" } },
 		{ 184, { "playchoice", "PlayChoice" } },
-		{ 185, { "atlus", "Altus" } },
+		{ 185, { "atlus", "Atlus" } },
 		{ 186, { "banpresto", "Banpresto" } },		
 		{ 187, { "semicom", "SemiCom" } },
 		{ 188, { "universal", "Universal" } },

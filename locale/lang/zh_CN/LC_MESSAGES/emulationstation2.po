@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,6 +67,12 @@ msgstr "请稍后"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "控制器链接已被删除。"
 
+msgid "CLOSE"
+msgstr "关闭"
+
+msgid "Loading..."
+msgstr "载入中..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "联网游戏"
 
@@ -75,9 +81,6 @@ msgstr "选择参加一个游戏"
 
 msgid "REFRESH"
 msgstr "刷新"
-
-msgid "CLOSE"
-msgstr "关闭"
 
 msgid "FAILED"
 msgstr "失败"
@@ -111,6 +114,15 @@ msgstr "游戏排序方式"
 
 msgid "OTHER FILTERS"
 msgstr "其他筛选器"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "集合"
@@ -160,11 +172,11 @@ msgstr "编辑文件夹的信息"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的信息"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
-
-msgid "Loading..."
-msgstr "载入中..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "这项功能在抓取进行时禁用"
@@ -283,6 +295,15 @@ msgstr "信息"
 msgid "QUIT"
 msgstr "退出"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "抓取进行中"
+
+msgid "SCRAPER"
+msgstr "抓取元数据"
+
+msgid "SCRAPE NOW"
+msgstr "开始抓取"
+
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源"
 
@@ -307,6 +328,9 @@ msgstr "2D 盒子"
 msgid "BOX 3D"
 msgstr "3D 盒子"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "封面数据"
 
@@ -328,17 +352,17 @@ msgstr "抓取游戏评分"
 msgid "SCRAPE VIDEOS"
 msgstr "抓取视频"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "用户名"
 
 msgid "PASSWORD"
 msgstr "密码"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "抓取进行中"
-
-msgid "SCRAPE NOW"
-msgstr "开始抓取"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "你确定需要设置控制器吗"
@@ -577,6 +601,9 @@ msgstr "详细模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr ""
 
@@ -603,6 +630,12 @@ msgstr "重新索引所有游戏"
 
 msgid "INDEX MISSING GAMES"
 msgstr "索引缺失的游戏"
+
+msgid "TOOLS"
+msgstr "工具"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "更新游戏列表"
 
 msgid "DEFAULT SETTINGS"
 msgstr "默认设置"
@@ -663,9 +696,6 @@ msgstr "翻译时暂停"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "按系统配置"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "更新游戏列表"
 
 msgid "NO MISSING BIOS"
 msgstr "未缺失的BIOS"
@@ -769,9 +799,6 @@ msgstr "显示 '..' 父文件夹"
 msgid "FILE EXTENSIONS"
 msgstr "文件扩展名"
 
-msgid "TOOLS"
-msgstr "工具"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "重置自定游戏列表"
 
@@ -819,6 +846,9 @@ msgstr "视图画面选项"
 
 msgid "TRANSITION STYLE"
 msgstr "画面转场样式"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1018,8 +1048,17 @@ msgstr "选项"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "对无主题的自定合辑进行分组"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "对自定合辑和系统进行排序"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
@@ -1287,17 +1326,65 @@ msgstr "视频"
 msgid "enter path to video"
 msgstr "输入视频路径"
 
-msgid "Marquee"
-msgstr "外框"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "输入标记路径"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "缩略图"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "输入缩略图路径"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "评分"
@@ -1395,20 +1482,11 @@ msgstr "语言"
 msgid "Region"
 msgstr "区域"
 
-msgid "favorite"
-msgstr "收藏"
-
 msgid "SCRAPING"
 msgstr "抓取"
 
-msgid "Searching"
-msgstr "搜索中"
-
 msgid "SCRAPE FAILED"
 msgstr "抓取失败"
-
-msgid "Downloading"
-msgstr "下载中"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "抓取完成。更新游戏列表以应用更改。"
@@ -1584,6 +1662,9 @@ msgstr "所有游戏"
 msgid "Extracting"
 msgstr "提取中"
 
+msgid "Searching"
+msgstr "搜索中"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
 
@@ -1592,6 +1673,9 @@ msgstr "发生了一个错误"
 
 msgid "RETRY"
 msgstr "重试"
+
+msgid "Downloading"
+msgstr "下载中"
 
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
@@ -1852,6 +1936,24 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "对自定合辑和系统进行排序"
+
+#~ msgid "Marquee"
+#~ msgstr "外框"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "输入标记路径"
+
+#~ msgid "Thumbnail"
+#~ msgstr "缩略图"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "输入缩略图路径"
+
+#~ msgid "favorite"
+#~ msgstr "收藏"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "停止编辑"
@@ -2153,9 +2255,6 @@ msgstr "上/下"
 
 #~ msgid "NO CONTROLLERS FOUND"
 #~ msgstr "未找到控制器"
-
-#~ msgid "SCRAPER"
-#~ msgstr "抓取元数据"
 
 #~ msgid "NONE (700Mhz)"
 #~ msgstr "无 (700Mhz)"

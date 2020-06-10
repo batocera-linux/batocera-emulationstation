@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 08:55+0200\n"
+"POT-Creation-Date: 2020-06-07 14:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -70,6 +70,12 @@ msgstr "ПОДОЖДИТЕ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
 
+msgid "CLOSE"
+msgstr "ЗАКРЫТЬ"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
 msgid "CONNECT TO NETPLAY"
 msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 
@@ -78,9 +84,6 @@ msgstr "Выберите игру, в которую хотите присоед
 
 msgid "REFRESH"
 msgstr "ОБНОВИТЬ"
-
-msgid "CLOSE"
-msgstr "ЗАКРЫТЬ"
 
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
@@ -114,6 +117,15 @@ msgstr "СОРТИРОВКА ПО"
 
 msgid "OTHER FILTERS"
 msgstr "ДРУГИЕ ФИЛЬТРЫ"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЛЕКЦИЯ"
@@ -163,11 +175,11 @@ msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ ПАПКИ"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОИСК"
-
-msgid "Loading..."
-msgstr "Загрузка..."
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "ВО ВРЕМЯ ЗАГРУЗКИ ЭТА ФУНКЦИЯ ОТКЛЮЧЕНА"
@@ -286,6 +298,15 @@ msgstr "ДАННЫЕ"
 msgid "QUIT"
 msgstr "ВЫХОД"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
+
+msgid "SCRAPER"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
@@ -310,6 +331,9 @@ msgstr "ОБЛОЖКИ 2D"
 msgid "BOX 3D"
 msgstr "ОБЛОЖКИ 3D"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "СТИЛЬ ОБЛОЖКИ"
 
@@ -331,17 +355,17 @@ msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 msgid "SCRAPE VIDEOS"
 msgstr "ЗАГРУЗКА ВИДЕО"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
 
 msgid "PASSWORD"
 msgstr "ПАРОЛЬ"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
-
-msgid "SCRAPE NOW"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛЕНИЕ?"
@@ -580,6 +604,9 @@ msgstr "ПОДРОБНЫЙ РЕЖИМ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
+msgid "SHOW IN MAIN MENU"
+msgstr ""
+
 msgid "SETTINGS"
 msgstr "НАСТРОЙКИ"
 
@@ -606,6 +633,12 @@ msgstr "ПЕРЕИНДЕКСАЦИЯ ВСЕХ ИГР"
 
 msgid "INDEX MISSING GAMES"
 msgstr "ИНДЕКСАЦИЯ ОТСУТСТВУЮЩИХ ИГР"
+
+msgid "TOOLS"
+msgstr "ИНСТРУМЕНТЫ"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
 msgid "DEFAULT SETTINGS"
 msgstr "НАСТРОЙКИ ПО УМОЛЧАНИЮ"
@@ -666,9 +699,6 @@ msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
 msgid "NO MISSING BIOS"
 msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
@@ -771,9 +801,6 @@ msgstr "ПОКАЗАТЬ '..' РОДИТЕЛЬСКОЙ ПАПКИ"
 msgid "FILE EXTENSIONS"
 msgstr "РАСШИРЕНИЕ ФАЙЛА"
 
-msgid "TOOLS"
-msgstr "ИНСТРУМЕНТЫ"
-
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "СБРОСИТЬ НАСТРОЙКИ СПИСКА ИГР"
 
@@ -822,6 +849,9 @@ msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
@@ -935,13 +965,13 @@ msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "REALLY RESTART?"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЧАС?"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЙЧАС?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЧАС?"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЙЧАС?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
@@ -1021,8 +1051,17 @@ msgstr "ПАРАМЕТРЫ"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИИ И СИСТЕМЫ"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
@@ -1296,17 +1335,65 @@ msgstr "Видео"
 msgid "enter path to video"
 msgstr "введите путь к видео"
 
-msgid "Marquee"
-msgstr "Банер"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "введите путь к банеру"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "Эскиз"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "введите путь к эскизу"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "Рейтинг"
@@ -1404,20 +1491,11 @@ msgstr "Язык"
 msgid "Region"
 msgstr "Регион"
 
-msgid "favorite"
-msgstr "избранное"
-
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
-msgid "Searching"
-msgstr "Поиск"
-
 msgid "SCRAPE FAILED"
 msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ"
-
-msgid "Downloading"
-msgstr "Загрузка"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
@@ -1599,6 +1677,9 @@ msgstr "Коллекции"
 msgid "Extracting"
 msgstr "Распакова"
 
+msgid "Searching"
+msgstr "Поиск"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
 
@@ -1607,6 +1688,9 @@ msgstr "ПРОИЗОШЛА ОШИБКА"
 
 msgid "RETRY"
 msgstr "ПОВТОРИТЬ"
+
+msgid "Downloading"
+msgstr "Загрузка"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -1889,6 +1973,24 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "СОРТИРОВАТЬ КОЛЛЕКЦИИ И СИСТЕМЫ"
+
+#~ msgid "Marquee"
+#~ msgstr "Банер"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "введите путь к банеру"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Эскиз"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "введите путь к эскизу"
+
+#~ msgid "favorite"
+#~ msgstr "избранное"
 
 #~ msgid "DISK USAGE"
 #~ msgstr "ИСПОЛЬЗОВАНИЕ ДИСКА"
