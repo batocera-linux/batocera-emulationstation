@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 14:27+0200\n"
+"POT-Creation-Date: 2020-06-10 03:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "MÍDIAS DE JOGOS"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "VER MANUAL DO JOGO"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "VER MAPA DO JOGO"
 
 msgid "COLLECTION"
 msgstr "COLEÇÃO"
@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "APAGAR FILTROS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JOGOS POR TEXTO"
@@ -332,7 +332,7 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA CAIXA"
@@ -356,10 +356,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "SCRAPE FANART"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "SCRAPE MANUAL"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -605,7 +605,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRAR NO MENU PRINCIPAL"
 
 msgid "SETTINGS"
 msgstr "CONFIGURAÇÕES"
@@ -851,7 +851,7 @@ msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "TRANSIÇÃO DO CARREGAMENTO DO JOGO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
@@ -1052,16 +1052,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPO COLEÇÕES CUSTOMIZADO"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORDENAR COLEÇÕES E SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABETICAMENTE"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "PELO FABRICANTE"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ORDENAR POR SISTEMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -1337,64 +1337,64 @@ msgid "enter path to video"
 msgstr "insira o caminho para o vídeo"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "insira o caminho para o logo"
 
 msgid "Box"
-msgstr ""
+msgstr "Caixa"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "insira o caminho para a caixa"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "insira o caminho para o fanart"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Tela de captura"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "insira o caminho da tela de captura"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "insira o caminho para o manual"
 
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "insira o caminho para o mapa"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "insira o caminho paa o cartucho"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Caixa Alternativa"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "insira o caminho da caixa alternativa"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Logotipo"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "insira o caminho do logotipo"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "insira o caminho para o mix"
 
 msgid "Rating"
 msgstr "AVALIAÇÃO"
@@ -1412,13 +1412,13 @@ msgid "Developer"
 msgstr "Desenvolvedor"
 
 msgid "enter game developer"
-msgstr "digite o nome da produtora"
+msgstr "digite o nome do desenvolvedor"
 
 msgid "Publisher"
-msgstr "Distribuidor"
+msgstr "Desenvolvedor"
 
 msgid "enter game publisher"
-msgstr "digite o nome da publicadora"
+msgstr "digite o nome do publicador"
 
 msgid "Genre"
 msgstr "Gênero"
@@ -1511,8 +1511,8 @@ msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLEÇÃO"
+msgstr[1] "%i COLEÇÕES"
 
 #, c-format
 msgid "%i ITEM"
@@ -1647,7 +1647,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "GENRE"
-msgstr "Gênero"
+msgstr "GÊNERO"
 
 msgid "PLAYERS"
 msgstr "JOGADORES"
@@ -1656,7 +1656,7 @@ msgid "PUBLISHER / DEVELOPER"
 msgstr "PUBLICADO / DESENVOLVEDOR"
 
 msgid "RATING"
-msgstr "Classificação"
+msgstr "CLASSIFICAÇÃO"
 
 msgid "REGION"
 msgstr "REGIÃO"
