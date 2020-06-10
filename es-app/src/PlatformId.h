@@ -111,7 +111,7 @@ namespace PlatformIds
 		APPLE2GS,
 		SPECTRAVIDEO,
 		PALMOS,
-		DAPHNEE,
+		DAPHNE,
 		SOLARUS,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
