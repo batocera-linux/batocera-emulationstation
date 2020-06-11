@@ -234,9 +234,11 @@ void ThreadedScraper::acceptResult(ScraperThread& thread)
 {
 	LOG(LogDebug) << "ThreadedScraper::acceptResult >>";
 
-	ScraperSearchParams& search = thread.getSearchParams();
 	ScraperSearchResult& result = thread.getResult();
+	if (result.mdl.getName().empty())
+		return;
 
+	ScraperSearchParams& search = thread.getSearchParams();
 	auto game = search.game;
 
 	mWindow->postToUiThread([game, result](Window* w)

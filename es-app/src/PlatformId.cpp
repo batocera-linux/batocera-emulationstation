@@ -120,7 +120,7 @@ namespace PlatformIds
 		{ "apple2gs",				APPLE2GS },
 		{ "spectravideo",			SPECTRAVIDEO },
 		{ "palm",					PALMOS },
-		{ "daphne",					DAPHNEE },
+		{ "daphne",					DAPHNE },
 		{ "solarus",				SOLARUS },
 
 		{ "ignore",					PLATFORM_IGNORE },
@@ -155,11 +155,11 @@ namespace PlatformIds
 		{ 8,   { "cps3", "CPS-3" } },
 		{ 35,  { "aae", "Another Arcade Emulator" } },
 		{ 47,  { "cave", "Cave" } },
-		{ 49,  { "daphnee", "Daphnee" } },		
+		{ 49,  { "daphne", "Daphnee" } },		
 		{ 53,  { "atomiswave", "Atomiswave" } },
 		{ 54,  { "model2", "Sega Model 2" } },
 		{ 55,  { "model3", "Sega Model 3" } },
-		{ 56,  { "daphnee", "Daphnee" } },
+		{ 56,  { "naomi", "Naomi" } },
 		{ 68,  { "neogeomvs", "Neo-Geo MVS" } }, // MVS
 		{ 69,  { "segastv", "Sega ST-V" } },
 		{ 112, { "taitox", "Taito Type X" } },

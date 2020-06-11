@@ -38,6 +38,7 @@ GuiImageViewer::GuiImageViewer(Window* window, bool linearSmooth) :
 		"  <animateSelection>false</animateSelection>"
 		"  <centerSelection>true</centerSelection>"
 		"  <scrollLoop>true</scrollLoop>"
+		"  <showVideoAtDelay>10</showVideoAtDelay>"
 		"</imagegrid>"
 		"<gridtile name=\"default\">"
 		"  <backgroundColor>FFFFFF00</backgroundColor>"		
@@ -96,13 +97,23 @@ void GuiImageViewer::add(const std::string imagePath)
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
 
-	mGrid.add(imagePath, imagePath, "", "", false, false, false, imagePath);
+	std::string img;
+	std::string vid;
+
+	auto ext = Utils::FileSystem::getExtension(imagePath);
+	if (ext == ".mp4")
+		vid = imagePath;
+	else
+		img = imagePath;
+	
+	mGrid.add("", img, vid, "", false, false, false, imagePath);
 }
 
 void GuiImageViewer::setCursor(const std::string imagePath)
 {
 	mGrid.resetLastCursor();
 	mGrid.setCursor(imagePath);
+	mGrid.onShow();
 }
 
 void GuiImageViewer::showImage(Window* window, const std::string imagePath)
