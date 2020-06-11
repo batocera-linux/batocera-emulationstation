@@ -1406,7 +1406,11 @@ std::string SystemData::getDefaultEmulator()
 #if WIN32 && !_DEBUG
 	std::string emulator = Settings::getInstance()->getString(getName() + ".emulator");
 #else
+#ifndef _ENABLEEMUELEC
 	std::string emulator = SystemConf::getInstance()->get(getName() + ".emulator");
+#else
+	std::string emulator = getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + getName() + ".emulator' ");
+#endif
 #endif
 
 	for (auto emul : mEmulators)
@@ -1434,7 +1438,11 @@ std::string SystemData::getDefaultCore(const std::string emulatorName)
 #if WIN32 && !_DEBUG
 	std::string core = Settings::getInstance()->getString(getName() + ".core");
 #else
+#ifndef _ENABLEEMUELEC
 	std::string core = SystemConf::getInstance()->get(getName() + ".core");
+#else
+	std::string core = getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + getName() + ".core' ");
+#endif
 #endif
 
 	if (!core.empty() && core != "auto")

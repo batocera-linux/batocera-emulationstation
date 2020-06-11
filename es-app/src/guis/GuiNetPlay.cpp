@@ -466,7 +466,7 @@ void GuiNetPlay::render(const Transform4x4f &parentTrans)
 
 static std::map<std::string, std::string> coreList =
 {
-#if WIN32
+#if WIN32 || _ENABLEEMUELEC
 	{ "2048", "2048"},
 	{ "81", "81"},
 	{ "Atari800", "atari800"},

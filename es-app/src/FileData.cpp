@@ -388,7 +388,11 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 		else
 #endif
+#ifdef _ENABLEEMUELEC
+		command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+#else
 		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+#endif
 	}
 	else if (options.netPlayMode == SERVER)
 	{
@@ -397,7 +401,11 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 			command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 		else
 #endif
+#ifdef _ENABLEEMUELEC
+		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
+#else
 		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
+#endif
 	}
 	else
 		command = Utils::String::replace(command, "%NETPLAY%", "");
@@ -750,7 +758,11 @@ const std::string FileData::getCore(bool resolveDefault)
 #if WIN32 && !_DEBUG
 	std::string core = getMetadata(MetaDataId::Core);
 #else
-	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
+#ifndef _ENABLEEMUELEC	
+	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core"); 
+#else
+	std::string core = getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + getConfigurationName() + ".core'");
+#endif
 #endif
 
 	if (core == "auto")
@@ -800,7 +812,11 @@ const std::string FileData::getEmulator(bool resolveDefault)
 #if WIN32 && !_DEBUG
 	std::string emulator = getMetadata(MetaDataId::Emulator);
 #else
+#ifndef _ENABLEEMUELEC	
 	std::string emulator = SystemConf::getInstance()->get(getConfigurationName() + ".emulator");
+#else
+	std::string emulator = getShOutput(R"(/emuelec/scripts/setemu.sh get ')" + getConfigurationName() + ".emulator'");
+#endif
 #endif
 
 	if (emulator == "auto")
@@ -829,7 +845,11 @@ void FileData::setCore(const std::string value)
 #if WIN32 && !_DEBUG
 	setMetadata("core", value == "auto" ? "" : value);
 #else
+#ifndef _ENABLEEMUELEC	
 	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
+#else
+	getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + getConfigurationName() + ".core' " + value);
+#endif
 #endif
 }
 
@@ -838,7 +858,11 @@ void FileData::setEmulator(const std::string value)
 #if WIN32 && !_DEBUG
 	setMetadata("emulator", value == "auto" ? "" : value);
 #else
+#ifndef _ENABLEEMUELEC
 	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
+#else
+	getShOutput(R"(/emuelec/scripts/setemu.sh set ')" + getConfigurationName() + ".emulator' " + value);
+#endif
 #endif
 }
 
