@@ -276,7 +276,7 @@ namespace Utils
 			if (seconds == 0)
 				return _("never");
 
-			char buf[64];
+			char buf[256];
 
 			int h = 0, m = 0, s = 0;
 			h = (seconds / 3600) % 24;

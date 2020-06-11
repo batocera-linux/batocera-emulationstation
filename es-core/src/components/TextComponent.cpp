@@ -487,8 +487,16 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 			mPadding = Vector4f::Zero();
 	}
 
-	if(properties & TEXT && elem->has("text"))
-		setText(elem->get<std::string>("text"));
+	if (properties & TEXT)
+	{
+		if (elem->has("text"))
+		{
+			mSourceText = elem->get<std::string>("text");
+			setText(mSourceText);
+		}
+		else
+			mSourceText = "";
+	}
 
 	if(properties & FORCE_UPPERCASE && elem->has("forceUppercase"))
 		setUppercase(elem->get<bool>("forceUppercase"));

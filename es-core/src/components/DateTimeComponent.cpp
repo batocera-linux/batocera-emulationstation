@@ -57,7 +57,7 @@ std::string DateTimeComponent::getDisplayString() const
 		Utils::Time::DateTime now(Utils::Time::now());
 		Utils::Time::Duration dur(now.getTime() - mTime.getTime());
 
-		char buf[64];
+		char buf[256];
 
 		if(dur.getDays() > 0)
 			snprintf(buf, 256, ngettext("%d day ago", "%d days ago", dur.getDays()), dur.getDays());

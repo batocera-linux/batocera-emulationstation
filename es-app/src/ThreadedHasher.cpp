@@ -54,7 +54,7 @@ void ThreadedHasher::hashFile(FileData* fileData)
 	bool unpackZip = 
 		!system->hasPlatformId(PlatformIds::ARCADE) && 
 		!system->hasPlatformId(PlatformIds::NEOGEO) &&
-		!system->hasPlatformId(PlatformIds::DAPHNEE) &&
+		!system->hasPlatformId(PlatformIds::DAPHNE) &&
 		!system->hasPlatformId(PlatformIds::LUTRO) &&
 		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
 		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
