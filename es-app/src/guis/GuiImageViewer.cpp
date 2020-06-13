@@ -142,7 +142,10 @@ void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 			auto imgViewer = new GuiImageViewer(window, true);
 
 			for (auto file : fileList)
+			{
+				ImageIO::removeImageCache(file);
 				imgViewer->add(file);
+			}
 
 			imgViewer->setCursor(fileList[0]);
 			window->pushGui(imgViewer);
