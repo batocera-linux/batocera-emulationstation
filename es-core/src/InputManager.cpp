@@ -433,7 +433,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 		return true;
 
 	// Find system exact device
-	std::string sharedPath = Utils::FileSystem::getSharedConfigPath() + "/es_input.xml";
+	std::string sharedPath = Utils::FileSystem::getSharedConfigPath() + "/es_input.cfg";
 	if (tryLoadInputConfig(sharedPath, config, false))
 		return true;
 

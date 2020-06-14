@@ -895,9 +895,15 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		std::string name = mEntries.at(imgPos).name;
 
 		if (!mEntries.at(imgPos).data.favorite || tile->hasFavoriteMedia())
-			tile->setLabel(name);
+		{			
+			// Remove favorite text glyph
+			if (Utils::String::startsWith(name, _U("\uF006 ")))
+				tile->setLabel(name.substr(4));
+			else 
+				tile->setLabel(name);
+		}
 		else
-			tile->setLabel(_U("\uF006 ") + name);
+			tile->setLabel(name);
 
 		std::string imagePath = mEntries.at(imgPos).data.texturePath;
 
