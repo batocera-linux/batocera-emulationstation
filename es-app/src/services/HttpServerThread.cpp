@@ -270,7 +270,7 @@ void HttpServerThread::run()
 	try
 	{
 #if WIN32
-		mHttpServer->listen("127.0.0.0", 1234);
+		mHttpServer->listen("localhost", 1234);
 #else
 		mHttpServer->listen("0.0.0.0", 1234);
 #endif
