@@ -80,6 +80,7 @@ private:
 	void	 clearEntries();
 
 	int		 moveCursorFast(bool forward = true);
+	void	 showManufacturerBar();
 
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;

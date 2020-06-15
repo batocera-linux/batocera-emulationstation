@@ -543,7 +543,7 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 				mScale = pct * scale;
 
 			float x = (x1 + mSize.x() / 2 - (mSize.x() / 2 * mScale)) * (1 - pct) + (x2 + mSize.x() / 2 - (mSize.x() / 2 * mScale)) * pct;
-			float y = (y1 + mSize.x() / 2 - (mSize.y() / 2 * mScale)) * (1 - pct) + (y2 + mSize.y() / 2 - (mSize.y() / 2 * mScale)) * pct;
+			float y = (y1 + mSize.y() / 2 - (mSize.y() / 2 * mScale)) * (1 - pct) + (y2 + mSize.y() / 2 - (mSize.y() / 2 * mScale)) * pct;
 
 			if (mScale != 0.0f)
 				setPosition(x, y);

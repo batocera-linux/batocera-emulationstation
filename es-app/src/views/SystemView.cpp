@@ -371,13 +371,13 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
-			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
+			if (config->isMappedTo("pagedown", input))
 			{
 				int cursor = moveCursorFast(true);
 				listInput(cursor - mCursor);
 				return true;
 			}
-			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
+			if (config->isMappedTo("pageup", input))
 			{
 				int cursor = moveCursorFast(false);
 				listInput(cursor - mCursor);
@@ -393,6 +393,13 @@ bool SystemView::input(InputConfig* config, Input input)
 			ViewController::get()->goToGameList(getSelected());
 			return true;
 		}
+
+		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+		{
+			showManufacturerBar();
+			return true;
+		}
+
 		if (config->isMappedTo("x", input))
 		{
 			// get random system
@@ -432,6 +439,54 @@ bool SystemView::input(InputConfig* config, Input input)
 	}
 
 	return GuiComponent::input(config, input);
+}
+
+void SystemView::showManufacturerBar()
+{
+	stopScrolling();
+
+	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO MANUFACTURER"), "-----"); // , "", nullptr, true);
+
+	int idx = 0;
+
+	std::string man = "*-*";
+	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
+	{
+		auto system = SystemData::sSystemVector[i];
+		if (!system->isVisible())
+			continue;
+
+		std::string sel = getSelected()->getSystemMetadata().manufacturer;
+		auto mf = system->getSystemMetadata().manufacturer;
+		if (man != mf)
+		{
+			std::vector<std::string> names;
+			for (auto sy : SystemData::sSystemVector)
+				if (sy->isVisible() && sy->getSystemMetadata().manufacturer == mf)
+					names.push_back(sy->getFullName());
+
+			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
+			{
+				listInput(idx - mCursor);
+				listInput(0);
+
+				delete gs;
+			}, "", sel == mf);
+
+			man = mf;
+		}
+
+		idx++;
+	}
+
+	int w = Renderer::getScreenWidth() / 3;
+	gs->getMenu().setSize(w, Renderer::getScreenHeight());
+
+	gs->getMenu().animateTo(
+		Vector2f(-w, 0),
+		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+
+	mWindow->pushGui(gs);
 }
 
 void SystemView::update(int deltaTime)

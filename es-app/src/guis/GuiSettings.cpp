@@ -10,23 +10,37 @@
 GuiSettings::GuiSettings(Window* window, 
 	const std::string title,
 	const std::string customButton,
-	const std::function<void(GuiSettings*)>& func) : GuiComponent(window), mMenu(window, title)
+	const std::function<void(GuiSettings*)>& func,
+	bool animate) : GuiComponent(window), mMenu(window, title)
 {
 	addChild(&mMenu);
 
 	mCloseButton = "start";
 
-	if (!customButton.empty() && func != nullptr)
+	if (!customButton.empty() && func != nullptr && customButton != "-----")
 		mMenu.addButton(customButton, customButton, [this, func] { func(this); });
 
-	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
+	if (customButton != "-----")
+		mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	
+	if (animate)
+	{
+		if (Renderer::isSmallScreen())
+			animateTo((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+		else
+			animateTo(
+				Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.9),
+				Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
+	}
 	else
-		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	{
+		if (Renderer::isSmallScreen())
+			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+		else
+			mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	}
 }
 
 GuiSettings::~GuiSettings()
