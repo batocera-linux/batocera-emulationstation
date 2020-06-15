@@ -146,7 +146,8 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	else	
 		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 
-	row.addElement(comp, false, invert_when_selected);
+	if (comp != nullptr)
+		row.addElement(comp, false, invert_when_selected);
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
