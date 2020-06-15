@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "MÍDIAS DE JOGOS"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "VER MANUAL DO JOGO"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "VER MAPA DO JOGO"
 
 msgid "COLLECTION"
 msgstr "COLEÇÃO"
@@ -158,7 +158,7 @@ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr "EDIÇÃO DE COLEÇÃO TERMINADA"
+msgstr "FINALIZAR EDIÇÃO DE COLEÇÃO"
 
 msgid "GAME OPTIONS"
 msgstr "OPÇÕES DE JOGO"
@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "REPOR FILTROS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JOGOS POR TEXTO"
@@ -194,7 +194,7 @@ msgid "FILTER GAMELIST BY"
 msgstr "FILTRAR LISTA DE JOGOS POR"
 
 msgid "RESET ALL FILTERS"
-msgstr "REINICIAR TODOS OS FILTROS"
+msgstr "REPOR TODOS OS FILTROS"
 
 msgid "FIND GAMES"
 msgstr "PROCURAR JOGOS"
@@ -332,7 +332,7 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA CAIXA"
@@ -344,7 +344,7 @@ msgid "LOGO SOURCE"
 msgstr "FONTE DO LOGOTIPO"
 
 msgid "WHEEL"
-msgstr "RODA"
+msgstr "LOGOTIPO"
 
 msgid "MARQUEE"
 msgstr "LETREIRO"
@@ -356,10 +356,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "OBTER FANART"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "PROCURA MANUAL"
 
 msgid "USERNAME"
 msgstr "NOME DE UTILIZADOR"
@@ -398,7 +398,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDOR"
+msgstr "PRODUTORA"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
@@ -440,7 +440,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "REINICIAR EXTENSÕES DO ARQUIVO"
+msgstr "REPOR EXTENSÕES DO ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
@@ -605,7 +605,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRAR NO MENU PRINCIPAL"
 
 msgid "SETTINGS"
 msgstr "DEFINIÇÕES"
@@ -801,7 +801,7 @@ msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "REINICIAR A LISTA DE JOGOS PERSONALIZADA"
+msgstr "REPOR A LISTA DE JOGOS PERSONALIZADA"
 
 msgid "APPEARENCE"
 msgstr "APARÊNCIA"
@@ -849,7 +849,7 @@ msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "TRANSIÇÃO DE CARREGAMENTO DO JOGO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
@@ -1050,16 +1050,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLEÇÕES SEM TEMAS"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORDENAR COLEÇÕES E SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABETICAMENTE"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "PELO FABRICANTE"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ORDENAR POR SISTEMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -1334,64 +1334,64 @@ msgid "enter path to video"
 msgstr "insire o caminho para o vídeo"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "insira o caminho para o logo"
 
 msgid "Box"
-msgstr ""
+msgstr "caixa"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "insira o caminho para a caixa"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "insira o caminho para o fanart"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Captura de ecrã"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "insira o caminho para a captura de ecrã"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "insira o caminho para o manual"
 
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "insira o caminho para o mapa"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "insira o caminho para o cartucho"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Caixa Alternativa"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "insira o caminho da caixa alternativa"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Logotipo"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "insira o caminho do logotipo"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "insira o caminho para o mix"
 
 msgid "Rating"
 msgstr "AVALIAÇÃO"
@@ -1406,7 +1406,7 @@ msgid "enter release date"
 msgstr "digite a data de lançamento"
 
 msgid "Developer"
-msgstr "Desenvolvedor"
+msgstr "Produtora"
 
 msgid "enter game developer"
 msgstr "digite o nome da produtora"
@@ -1608,10 +1608,10 @@ msgid "GENRE, DESCENDING"
 msgstr "GÉNERO, DECRESCENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr "DESENVOLVEDOR, CRESCENTE"
+msgstr "PRODUTORA, CRESCENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr "DESENVOLVEDOR, DECRESCENTE"
+msgstr "PRODUTORA, DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
 msgstr "EDITORA, CRESCENTE"
@@ -1650,10 +1650,10 @@ msgid "PLAYERS"
 msgstr "JOGADORES"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr "EDITORA / DESENVOLVEDOR"
+msgstr "EDITORA / PRODUTORA"
 
 msgid "RATING"
-msgstr "Classificação"
+msgstr "CLASSIFICAÇÃO"
 
 msgid "REGION"
 msgstr "REGIÃO"
