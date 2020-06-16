@@ -334,12 +334,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		{
 		case VERTICAL:
 		case VERTICAL_WHEEL:
-			if (config->isMappedLike("up", input) || config->isMappedLike("r2", input))
+			if (config->isMappedLike("up", input) || config->isMappedLike("l2", input))
 			{
 				listInput(-1);
 				return true;
 			}
-			if (config->isMappedLike("down", input) || config->isMappedLike("l2", input))
+			if (config->isMappedLike("down", input) || config->isMappedLike("r2", input))
 			{
 				listInput(1);
 				return true;
@@ -1089,8 +1089,6 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 				continue;
 
-			updateExtraBindings(index);
-
 			// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
 			if (mExtrasFadeOpacity && !extra->isStaticExtra())
 			{
@@ -1351,62 +1349,6 @@ void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)
 		{
 			GuiComponent* extra = data.backgroundExtras[j];
 			func(extra);
-		}
-	}
-}
-
-void SystemView::updateExtraBindings(int cursor)
-{
-	if (cursor < 0 || cursor >= mEntries.size())
-		return;
-
-	SystemData* sys = mEntries.at(cursor).object;
-	if (sys->getTheme() == nullptr)
-		return;
-
-	bool bindingEnabled = SystemData::isManufacturerSupported();
-
-	SystemViewData data = mEntries.at(cursor).data;
-	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
-	{
-		GuiComponent *extra = data.backgroundExtras[j];
-		if (!extra->isKindOf<TextComponent>())
-			continue;
-
-		TextComponent* tx = (TextComponent*)extra;
-
-		std::string label = tx->getOriginalThemeText();
-
-		auto xt = Utils::String::extractStrings(label, "{", "}");
-		if (xt.size() > 0)
-		{
-			if (bindingEnabled)
-			{
-				for (auto ss : xt)
-				{
-					if (ss == "fullName")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().fullName);
-					else if (ss == "name")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().name);
-					else if (ss == "manufacturer")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().manufacturer);
-					else if (ss == "release")
-					{
-						if (sys->getSystemMetadata().releaseYear > 0)
-							label = Utils::String::replace(label, "{release}", std::to_string(sys->getSystemMetadata().releaseYear));
-						else
-							label = Utils::String::replace(label, "{release}", _("Unknown"));
-					}
-					else if (ss == "hardware")
-						label = Utils::String::replace(label, "{hardware}", sys->getSystemMetadata().hardwareType);
-					else
-						label = Utils::String::replace(label, "{" + ss + "}", "");
-				}
-
-				tx->setText(label);
-			}
-			else
-				tx->setText("");
 		}
 	}
 }

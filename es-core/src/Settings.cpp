@@ -174,6 +174,8 @@ void Settings::setDefaults()
 	mBoolMap["ScreenSaverVideoMute"] = false;
 	mBoolMap["VideoLowersMusic"] = true;	
 	mBoolMap["VolumePopup"] = true;
+
+	mIntMap["MusicVolume"] = 128;
 	
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";

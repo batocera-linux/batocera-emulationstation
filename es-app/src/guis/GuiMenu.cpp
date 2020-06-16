@@ -2960,6 +2960,14 @@ void GuiMenu::openSoundSettings()
 #endif
 		});
 
+		
+		// Music Volume
+		auto musicVolume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
+		musicVolume->setValue(Settings::getInstance()->getInt("MusicVolume"));		
+		musicVolume->setOnValueChanged([](const float &newVal) { Settings::getInstance()->setInt("MusicVolume", (int)round(newVal)); });
+		s->addWithLabel(_("MUSIC VOLUME"), musicVolume);
+		//s->addSaveFunc([this, musicVolume] { Settings::getInstance()->setInt("MusicVolume", (int)round(musicVolume->getValue())); });
+		
 		auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
 		volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
 		s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
