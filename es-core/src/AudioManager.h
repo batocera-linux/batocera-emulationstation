@@ -63,6 +63,8 @@ public:
 
 	static void setVideoPlaying(bool state);
 	static void update(int deltaTime);
+
+	static int getMaxMusicVolume();
 };
 
 #endif // ES_CORE_AUDIO_MANAGER_H
