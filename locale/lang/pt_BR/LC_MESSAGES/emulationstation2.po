@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-15 02:47+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1415,7 +1415,7 @@ msgid "enter game developer"
 msgstr "digite o nome do desenvolvedor"
 
 msgid "Publisher"
-msgstr "Desenvolvedor"
+msgstr "Publicador"
 
 msgid "enter game publisher"
 msgstr "digite o nome do publicador"
@@ -1509,7 +1509,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "IR AO FABRICANTE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1620,10 +1620,10 @@ msgid "DEVELOPER, DESCENDING"
 msgstr "DESENVOLVEDOR, NA ORDEM DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr "EDITORA, NA ORDEM CRESCENTE"
+msgstr "PUBLICADOR, NA ORDEM CRESCENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr "EDITORA, NA ORDEM DECRESCENTE"
+msgstr "PUBLICADOR, NA ORDEM DECRESCENTE"
 
 msgid "SYSTEM, ASCENDING"
 msgstr "SISTEMA, NA ORDEM CRESCENTE"
@@ -1656,7 +1656,7 @@ msgid "PLAYERS"
 msgstr "JOGADORES"
 
 msgid "PUBLISHER / DEVELOPER"
-msgstr "PUBLICADO / DESENVOLVEDOR"
+msgstr "PUBLICADOR / DESENVOLVEDOR"
 
 msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
