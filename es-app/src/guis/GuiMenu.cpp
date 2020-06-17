@@ -759,11 +759,13 @@ void GuiMenu::openSystemInformations_batocera()
 		warning ? 0xFF0000FF : color);
 	informationsGui->addWithLabel(_("USER DISK USAGE"), userspace);
 
+#ifndef _ENABLEEMUELEC
 	auto systemspace = std::make_shared<TextComponent>(window,
 		ApiSystem::getInstance()->getFreeSpaceSystemInfo(),
 		font,
 		color);
 	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
+#endif
 
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
