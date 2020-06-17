@@ -1290,7 +1290,15 @@ void SystemData::loadTheme()
 		sysData.insert(std::pair<std::string, std::string>("system.name", getName()));
 		sysData.insert(std::pair<std::string, std::string>("system.theme", getThemeFolder()));
 		sysData.insert(std::pair<std::string, std::string>("system.fullName", getFullName()));
-		
+
+		sysData.insert(std::pair<std::string, std::string>("system.manufacturer", getSystemMetadata().manufacturer));
+		sysData.insert(std::pair<std::string, std::string>("system.hardwareType", getSystemMetadata().hardwareType));
+
+		if (getSystemMetadata().releaseYear > 0)
+			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", std::to_string(getSystemMetadata().releaseYear)));
+		else
+			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", _("Unknown")));
+
 		mTheme->loadFile(getThemeFolder(), sysData, path);
 	} catch(ThemeException& e)
 	{

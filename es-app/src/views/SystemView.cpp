@@ -334,12 +334,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		{
 		case VERTICAL:
 		case VERTICAL_WHEEL:
-			if (config->isMappedLike("up", input) || config->isMappedLike("r2", input))
+			if (config->isMappedLike("up", input) || config->isMappedLike("l2", input))
 			{
 				listInput(-1);
 				return true;
 			}
-			if (config->isMappedLike("down", input) || config->isMappedLike("l2", input))
+			if (config->isMappedLike("down", input) || config->isMappedLike("r2", input))
 			{
 				listInput(1);
 				return true;
@@ -380,9 +380,9 @@ bool SystemView::input(InputConfig* config, Input input)
 				return true;
 			}
 #ifdef _ENABLEEMUELEC
-			if (config->isMappedTo("righttrigger", input) && mEntries.size() > 10)
+			if (config->isMappedTo("righttrigger", input))
 #else
-			if (config->isMappedTo("pagedown", input) && mEntries.size() > 10)
+			if (config->isMappedTo("pagedown", input))
 #endif
 			{
 				int cursor = moveCursorFast(true);
@@ -390,9 +390,9 @@ bool SystemView::input(InputConfig* config, Input input)
 				return true;
 			}
 #ifdef _ENABLEEMUELEC
-			if (config->isMappedTo("lefttrigger", input) && mEntries.size() > 10)
+			if (config->isMappedTo("lefttrigger", input))
 #else
-			if (config->isMappedTo("pageup", input) && mEntries.size() > 10)
+			if (config->isMappedTo("pageup", input))
 #endif
 			{
 				int cursor = moveCursorFast(false);
@@ -409,6 +409,13 @@ bool SystemView::input(InputConfig* config, Input input)
 			ViewController::get()->goToGameList(getSelected());
 			return true;
 		}
+
+		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+		{
+			showManufacturerBar();
+			return true;
+		}
+
 		if (config->isMappedTo("x", input))
 		{
 			// get random system
@@ -454,6 +461,54 @@ bool SystemView::input(InputConfig* config, Input input)
 	}
 
 	return GuiComponent::input(config, input);
+}
+
+void SystemView::showManufacturerBar()
+{
+	stopScrolling();
+
+	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO MANUFACTURER"), "-----"); // , "", nullptr, true);
+
+	int idx = 0;
+
+	std::string man = "*-*";
+	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
+	{
+		auto system = SystemData::sSystemVector[i];
+		if (!system->isVisible())
+			continue;
+
+		std::string sel = getSelected()->getSystemMetadata().manufacturer;
+		auto mf = system->getSystemMetadata().manufacturer;
+		if (man != mf)
+		{
+			std::vector<std::string> names;
+			for (auto sy : SystemData::sSystemVector)
+				if (sy->isVisible() && sy->getSystemMetadata().manufacturer == mf)
+					names.push_back(sy->getFullName());
+
+			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
+			{
+				listInput(idx - mCursor);
+				listInput(0);
+
+				delete gs;
+			}, "", sel == mf);
+
+			man = mf;
+		}
+
+		idx++;
+	}
+
+	int w = Renderer::getScreenWidth() / 3;
+	gs->getMenu().setSize(w, Renderer::getScreenHeight());
+
+	gs->getMenu().animateTo(
+		Vector2f(-w, 0),
+		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+
+	mWindow->pushGui(gs);
 }
 
 void SystemView::update(int deltaTime)
@@ -1056,8 +1111,6 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			if (extra->getZIndex() < lower || extra->getZIndex() >= upper)
 				continue;
 
-			updateExtraBindings(index);
-
 			// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
 			if (mExtrasFadeOpacity && !extra->isStaticExtra())
 			{
@@ -1318,62 +1371,6 @@ void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)
 		{
 			GuiComponent* extra = data.backgroundExtras[j];
 			func(extra);
-		}
-	}
-}
-
-void SystemView::updateExtraBindings(int cursor)
-{
-	if (cursor < 0 || cursor >= mEntries.size())
-		return;
-
-	SystemData* sys = mEntries.at(cursor).object;
-	if (sys->getTheme() == nullptr)
-		return;
-
-	bool bindingEnabled = SystemData::isManufacturerSupported();
-
-	SystemViewData data = mEntries.at(cursor).data;
-	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
-	{
-		GuiComponent *extra = data.backgroundExtras[j];
-		if (!extra->isKindOf<TextComponent>())
-			continue;
-
-		TextComponent* tx = (TextComponent*)extra;
-
-		std::string label = tx->getOriginalThemeText();
-
-		auto xt = Utils::String::extractStrings(label, "{", "}");
-		if (xt.size() > 0)
-		{
-			if (bindingEnabled)
-			{
-				for (auto ss : xt)
-				{
-					if (ss == "fullName")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().fullName);
-					else if (ss == "name")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().name);
-					else if (ss == "manufacturer")
-						label = Utils::String::replace(label, "{manufacturer}", sys->getSystemMetadata().manufacturer);
-					else if (ss == "release")
-					{
-						if (sys->getSystemMetadata().releaseYear > 0)
-							label = Utils::String::replace(label, "{release}", std::to_string(sys->getSystemMetadata().releaseYear));
-						else
-							label = Utils::String::replace(label, "{release}", _("Unknown"));
-					}
-					else if (ss == "hardware")
-						label = Utils::String::replace(label, "{hardware}", sys->getSystemMetadata().hardwareType);
-					else
-						label = Utils::String::replace(label, "{" + ss + "}", "");
-				}
-
-				tx->setText(label);
-			}
-			else
-				tx->setText("");
 		}
 	}
 }

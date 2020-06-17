@@ -14,7 +14,7 @@
 #include "LocaleES.h"
 
 std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" }, { "splash" } };
-std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" } };
+std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
 
@@ -626,16 +626,13 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 	if (relPath.empty())
 		return;
 
-	std::string path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
-	path = resolveSystemVariable(mSystemThemeFolder, path);
+	std::string path = Utils::FileSystem::resolveRelativePath(resolveSystemVariable(mSystemThemeFolder, relPath), Utils::FileSystem::getParent(mPaths.back()), true);
 
 	if (!ResourceManager::getInstance()->fileExists(path))
 	{
 		if (relPath.find("$") != std::string::npos && relPath.find("${") == std::string::npos)
 		{
-			path = Utils::FileSystem::resolveRelativePath(relPath, Utils::FileSystem::getParent(mPaths.back()), true);
-			path = resolveSystemVariable("default", path);
-
+			path = Utils::FileSystem::resolveRelativePath(resolveSystemVariable("default", relPath), Utils::FileSystem::getParent(mPaths.back()), true);
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
 				if (mPaths.size() == 1)
@@ -689,6 +686,13 @@ void ThemeData::parseFeature(const pugi::xml_node& node)
 		return;
 
 	const std::string supportedAttr = node.attribute("supported").as_string();
+
+	if (supportedAttr == "manufacturer")
+	{
+		auto it = mVariables.find("system.manufacturer");
+		if (it == mVariables.cend() || (*it).second.empty())
+			return;
+	}
 
 	if (std::find(sSupportedFeatures.cbegin(), sSupportedFeatures.cend(), supportedAttr) != sSupportedFeatures.cend())
 		parseViews(node);
@@ -798,7 +802,7 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 	if (root.attribute("defaultView"))
 		mDefaultView = root.attribute("defaultView").as_string();
 
-	if (mVersion <= 4)
+	if (mVersion <= 6)
 	{
 		// Unfortunately, recalbox does not do things in order, features have to be loaded after
 		for (pugi::xml_node node = root.child("include"); node; node = node.next_sibling("include"))
@@ -809,6 +813,10 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 
 		for (pugi::xml_node node = root.child("customView"); node; node = node.next_sibling("customView"))
 			parseCustomView(node, root);
+
+		// Unfortunately, recalbox & retropie don't process elements in order, features have to be loaded last
+		for (pugi::xml_node node = root.child("feature"); node; node = node.next_sibling("feature"))
+			parseFeature(node);
 	}
 	else
 	{
@@ -827,12 +835,10 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 				parseCustomView(node, root);
 			else if (name == "subset")
 				parseSubsetElement(node);
+			else if (name == "feature")
+				parseFeature(node);
 		}
 	}
-
-	// Unfortunately, recalbox does not do things in order, features have to be loaded after
-	for (pugi::xml_node node = root.child("feature"); node; node = node.next_sibling("feature"))
-		parseFeature(node);
 }
 
 void ThemeData::parseSubsetElement(const pugi::xml_node& root)
