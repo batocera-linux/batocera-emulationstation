@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ramses\n"
 "Language-Team: \n"
@@ -544,6 +544,18 @@ msgstr "AJUSTES DE NETPLAY"
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANTES"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr "ENCENDIDO"
+
+msgid "OFF"
+msgstr "APAGADO"
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -577,20 +589,11 @@ msgstr "REDUCCIÓN DE LATENCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "FRAMES ANTICIPADOS"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "USAR FRAMES ANTICIPADOS"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
-
-msgid "ON"
-msgstr "ENCENDIDO"
-
-msgid "OFF"
-msgstr "APAGADO"
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -885,6 +888,9 @@ msgstr "VOLUMEN"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
+
+msgid "MUSIC VOLUME"
+msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR BARRA DE SONIDO AL CAMBIAR VOLUMEN"

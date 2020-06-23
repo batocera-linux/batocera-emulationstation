@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -544,6 +544,18 @@ msgstr "PARAMÈTRES DES PARTIES RÉSEAUX"
 msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr "OUI"
+
+msgid "OFF"
+msgstr "NON"
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -577,20 +589,11 @@ msgstr "RÉDUCTION DE LA LATENCE"
 msgid "RUN-AHEAD FRAMES"
 msgstr "NOMBRE D'IMAGES EN AVANCE"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
-
-msgid "ON"
-msgstr "OUI"
-
-msgid "OFF"
-msgstr "NON"
 
 msgid "HARDCORE MODE"
 msgstr "MODE DIFFICILE"
@@ -883,6 +886,9 @@ msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME GÉNÉRAL"
+
+msgid "MUSIC VOLUME"
+msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "NOTIFIER LE CHANGEMENT DU VOLUME"
