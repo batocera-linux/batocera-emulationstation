@@ -1044,6 +1044,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
 
+#ifdef ODROIDGOA
 	// multimedia keys
 	auto multimediakeys_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("MULTIMEDIA KEYS"));
 	multimediakeys_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("system.multimediakeys.enabled") != "0" && SystemConf::getInstance()->get("system.multimediakeys.enabled") != "1");
@@ -1057,6 +1058,7 @@ void GuiMenu::openSystemSettings_batocera()
 	    this->mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	  }
 	});
+#endif
 
 	// Overclock choice
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))
