@@ -869,7 +869,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("NORWEGIAN BOKMAL",     "nb_NO", language == "nb_NO");
 	language_choice->add("DUTCH",                "nl_NL", language == "nl_NL");
 	language_choice->add("NORWEGIAN",            "nn_NO", language == "nn_NO");
-	language_choice->add("OCCITAN",              "oc",    language == "oc");
+	language_choice->add("OCCITAN",              "oc_FR", language == "oc_FR");
 	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
 	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
 	language_choice->add("PORTUGUES PORTUGAL",   "pt_PT", language == "pt_PT");
