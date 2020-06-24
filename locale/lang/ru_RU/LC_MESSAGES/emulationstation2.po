@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -544,6 +544,18 @@ msgstr "НАСТРОЙКИ NETPLAY"
 msgid "MISSING BIOS"
 msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "ON"
+msgstr "ВКЛ"
+
+msgid "OFF"
+msgstr "ВЫКЛ"
+
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
 
@@ -577,20 +589,11 @@ msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
-msgid "AUTO"
-msgstr "АВТО"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "ИСП. КДРЫ ОБГОНА (RUN-AHEAD)"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
-
-msgid "ON"
-msgstr "ВКЛ"
-
-msgid "OFF"
-msgstr "ВЫКЛ"
 
 msgid "HARDCORE MODE"
 msgstr "ХАРДКОР РЕЖИМ"
@@ -882,6 +885,9 @@ msgstr "ГРОМКОСТЬ"
 
 msgid "SYSTEM VOLUME"
 msgstr "ГРОМКОСТЬ"
+
+msgid "MUSIC VOLUME"
+msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ ПРИ ИЗМ. ГРОМКОСТИ"
