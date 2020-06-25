@@ -47,3 +47,6 @@ CPackSourceConfig.cmake
 *.po~
 /.vs/
 *.sqlite
+
+# VS Code
+.vscode/
