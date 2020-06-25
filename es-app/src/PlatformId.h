@@ -88,6 +88,7 @@ namespace PlatformIds
 		LUTRO,
 		MOONLIGHT,
 		MRBOOM,
+		CANNONBALL,
 		NAOMI,
 		NEOGEO_CD,
 		PCFX,
