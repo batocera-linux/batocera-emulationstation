@@ -103,6 +103,7 @@ namespace PlatformIds
 		{ "oricatmos",				ORICATMOS },
 		{ "tyrquake",				QUAKE },
 		{ "mrboom",					MRBOOM },
+		{ "cannonball",					CANNONBALL },
 
 		// windows specific systems & names
 		{ "windows",				MOONLIGHT },
