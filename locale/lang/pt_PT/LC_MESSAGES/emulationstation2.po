@@ -545,7 +545,7 @@ msgid "MISSING BIOS"
 msgstr "BIOS EM FALTA"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "TECLAS MULTIMÉDIA"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -885,7 +885,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUME DA MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
