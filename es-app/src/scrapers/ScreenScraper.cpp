@@ -104,7 +104,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ GX4000, 87 },
 	{ LUTRO, 206 },
 	{ NAOMI, 56 },
-	{ NEOGEO_CD, 142 },
+	{ NEOGEO_CD, 70 },
 	{ PCFX, 72 },
 	{ POKEMINI, 211 },
 	{ PRBOOM, 135 },
