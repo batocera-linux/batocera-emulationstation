@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -549,6 +549,18 @@ msgstr ""
 msgid "MISSING BIOS"
 msgstr ""
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr ""
+
+msgid "ON"
+msgstr ""
+
+msgid "OFF"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr ""
 
@@ -582,19 +594,10 @@ msgstr ""
 msgid "RUN-AHEAD FRAMES"
 msgstr ""
 
-msgid "AUTO"
-msgstr ""
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr ""
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr ""
-
-msgid "ON"
-msgstr ""
-
-msgid "OFF"
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -877,6 +880,9 @@ msgid "VOLUME"
 msgstr ""
 
 msgid "SYSTEM VOLUME"
+msgstr ""
+
+msgid "MUSIC VOLUME"
 msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"

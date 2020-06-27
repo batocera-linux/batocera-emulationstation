@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -544,6 +544,18 @@ msgstr "網路遊戲設定"
 msgid "MISSING BIOS"
 msgstr "缺少的BIOS"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "ON"
+msgstr "開"
+
+msgid "OFF"
+msgstr "關"
+
 msgid "OVERCLOCK"
 msgstr "超頻"
 
@@ -577,20 +589,11 @@ msgstr "減少延遲"
 msgid "RUN-AHEAD FRAMES"
 msgstr "提前執行"
 
-msgid "AUTO"
-msgstr "自動"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "使用預設的邊框"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "預先使用物件導向"
-
-msgid "ON"
-msgstr "開"
-
-msgid "OFF"
-msgstr "關"
 
 msgid "HARDCORE MODE"
 msgstr "專家模式"
@@ -881,6 +884,9 @@ msgstr "音量"
 
 msgid "SYSTEM VOLUME"
 msgstr "系統音量"
+
+msgid "MUSIC VOLUME"
+msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "音量變化時螢幕顯示"

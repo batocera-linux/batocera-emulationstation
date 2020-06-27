@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 02:47+0200\n"
+"POT-Creation-Date: 2020-06-25 17:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -544,6 +544,18 @@ msgstr "CONFIGURAÇÕES DE JOGOS EM REDE"
 msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
 
+msgid "MULTIMEDIA KEYS"
+msgstr "TECLAS MULTIMÍDIA"
+
+msgid "AUTO"
+msgstr "AUTOMÁTICO"
+
+msgid "ON"
+msgstr "LIGADO"
+
+msgid "OFF"
+msgstr "DESLIGADO"
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -577,20 +589,11 @@ msgstr "REDUÇÃO DE LATÊNCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR QUADROS"
 
-msgid "AUTO"
-msgstr "AUTOMÁTICO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "USAR SALTO DE QUADROS"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
-
-msgid "ON"
-msgstr "LIGADO"
-
-msgid "OFF"
-msgstr "DESLIGADO"
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -883,6 +886,9 @@ msgstr "VOLUME"
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
+msgid "MUSIC VOLUME"
+msgstr ""
+
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
 
@@ -1055,7 +1061,7 @@ msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ORDENAR COLEÇÕES E SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr "ALFABETICAMENTE"
+msgstr "POR ORDEM ALFABÉTICA"
 
 msgid "BY MANUFACTURER"
 msgstr "PELO FABRICANTE"

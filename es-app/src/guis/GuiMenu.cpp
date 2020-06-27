@@ -1107,6 +1107,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("NORWEGIAN BOKMAL",     "nb_NO", language == "nb_NO");
 	language_choice->add("DUTCH",                "nl_NL", language == "nl_NL");
 	language_choice->add("NORWEGIAN",            "nn_NO", language == "nn_NO");
+	language_choice->add("OCCITAN",              "oc_FR", language == "oc_FR");
 	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
 	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
 	language_choice->add("PORTUGUES PORTUGAL",   "pt_PT", language == "pt_PT");
@@ -1281,6 +1282,22 @@ void GuiMenu::openSystemSettings_batocera()
 #endif
 
 	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
+
+#ifdef ODROIDGOA
+	// multimedia keys
+	auto multimediakeys_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("MULTIMEDIA KEYS"));
+	multimediakeys_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("system.multimediakeys.enabled") != "0" && SystemConf::getInstance()->get("system.multimediakeys.enabled") != "1");
+	multimediakeys_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("system.multimediakeys.enabled") == "1");
+	multimediakeys_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("system.multimediakeys.enabled") == "0");
+	s->addWithLabel(_("MULTIMEDIA KEYS"), multimediakeys_enabled);
+	s->addSaveFunc([this, multimediakeys_enabled]
+	{
+	  if (multimediakeys_enabled->changed()) {
+	    SystemConf::getInstance()->set("system.multimediakeys.enabled", multimediakeys_enabled->getSelected());
+	    this->mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	  }
+	});
+#endif
 
 	// Overclock choice
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))

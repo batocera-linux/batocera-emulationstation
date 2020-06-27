@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -544,6 +544,18 @@ msgstr "DEFINIÇÕES DE JOGOS EM REDE"
 msgid "MISSING BIOS"
 msgstr "BIOS EM FALTA"
 
+msgid "MULTIMEDIA KEYS"
+msgstr "TECLAS MULTIMÉDIA"
+
+msgid "AUTO"
+msgstr "AUTOMÁTICO"
+
+msgid "ON"
+msgstr "LIGADO"
+
+msgid "OFF"
+msgstr "DESLIGADO"
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -577,20 +589,11 @@ msgstr "REDUÇÃO DE LATÊNCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR FRAMES"
 
-msgid "AUTO"
-msgstr "AUTOMÁTICO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "USAR SALTO DE FRAMES"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USAR SALTO EM SEGUNDO CASO"
-
-msgid "ON"
-msgstr "LIGADO"
-
-msgid "OFF"
-msgstr "DESLIGADO"
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -881,6 +884,9 @@ msgstr "VOLUME"
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
+msgid "MUSIC VOLUME"
+msgstr "VOLUME DA MÚSICA"
+
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
 
@@ -1053,7 +1059,7 @@ msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ORDENAR COLEÇÕES E SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr "ALFABETICAMENTE"
+msgstr "POR ORDEM ALFABÉTICA"
 
 msgid "BY MANUFACTURER"
 msgstr "PELO FABRICANTE"
@@ -1506,7 +1512,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "IR PARA FABRICANTE"
 
 #, c-format
 msgid "%i COLLECTION"

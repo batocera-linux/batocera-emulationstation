@@ -35,7 +35,7 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		return;
 	}
 
-	if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic))
+	if (!ra.userpic.empty() && Utils::FileSystem::exists(ra.userpic) && !Renderer::isSmallScreen())
 	{
 		auto image = std::make_shared<ImageComponent>(mWindow);
 		image->setImage(ra.userpic);

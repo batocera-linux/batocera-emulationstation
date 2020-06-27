@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-06-23 19:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -545,6 +545,18 @@ msgstr "NETPLAY INSTELLINGEN"
 msgid "MISSING BIOS"
 msgstr "ONTBREKENDE BIOS"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr "AAN"
+
+msgid "OFF"
+msgstr "UIT"
+
 msgid "OVERCLOCK"
 msgstr "OVERKLOK"
 
@@ -578,20 +590,11 @@ msgstr "VERTRAGINGSREDUCTIE"
 msgid "RUN-AHEAD FRAMES"
 msgstr "FRAMES VOORUIT BEREKENEN"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "GEBRUIK FRAMES VOORUIT BEREKENEN"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "GEBRUIK SECUNDAIR PROCES"
-
-msgid "ON"
-msgstr "AAN"
-
-msgid "OFF"
-msgstr "UIT"
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
@@ -883,6 +886,9 @@ msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "SYSTEEM VOLUME"
+
+msgid "MUSIC VOLUME"
+msgstr ""
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "TOON OVERLAY BIJ AANPASSEN VOLUME"
