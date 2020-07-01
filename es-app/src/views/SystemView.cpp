@@ -19,6 +19,10 @@
 #include "Playlists.h"
 #include "CollectionSystemManager.h"
 
+// buffer values for scrolling velocity (left, stopped, right)
+const int logoBuffersLeft[] = { -5, -2, -1 };
+const int logoBuffersRight[] = { 1, 2, 5 };
+
 SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP),
 										 mViewNeedsReload(true),
 										 mSystemInfo(window, "SYSTEM INFO", Font::get(FONT_SIZE_SMALL), 0x33333300, ALIGN_CENTER)
@@ -96,7 +100,7 @@ void SystemView::populate()
 				   || (!defaultPath.empty() && ResourceManager::getInstance()->fileExists(defaultPath)))
 				{
 					// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
-					ImageComponent* logo = new ImageComponent(mWindow, false, Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
+					ImageComponent* logo = new ImageComponent(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
 					logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
 					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 
@@ -899,8 +903,12 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	int logoCount = Math::min(mCarousel.maxLogoCount, (int)mEntries.size());
 
 	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferLeft = -1;
-	int bufferRight = 1;
+	int bufferIndex = getScrollingVelocity() + 1;
+	bufferIndex = Math::max(0, Math::min(2, bufferIndex));
+
+	int bufferLeft = logoBuffersLeft[bufferIndex];
+	int bufferRight = logoBuffersRight[bufferIndex];
+
 	if (logoCount == 1 && mCamOffset == 0)
 	{
 		bufferLeft = 0;
@@ -909,12 +917,10 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 
 	for (int i = center - logoCount / 2 + bufferLeft; i <= center + logoCount / 2 + bufferRight; i++)
 	{
-		int index = i;
-		while (index < 0)
+		int index = i % (int)mEntries.size();
+		if (index < 0)
 			index += (int)mEntries.size();
-		while (index >= (int)mEntries.size())
-			index -= (int)mEntries.size();
-
+		
 		Transform4x4f logoTrans = carouselTrans;
 		logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
 
@@ -932,6 +938,17 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			comp->setRotationDegrees(mCarousel.logoRotation * distance);
 			comp->setRotationOrigin(mCarousel.logoRotationOrigin);
 		}
+
+		// Ensure texture loaded, query it if necessary
+		/*
+		auto ctrl = comp.get();
+		if (ctrl->isKindOf<ImageComponent>())
+		{
+			auto tex = ((ImageComponent*)ctrl)->getTexture();
+			if (tex != nullptr)
+				tex->reload();
+		}*/
+
 		comp->setScale(scale);
 		comp->setOpacity((unsigned char)opacity);
 		comp->render(logoTrans);
@@ -952,8 +969,14 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 {
 	int extrasCenter = (int)mExtrasCamOffset;
 
+	int bufferIndex = getScrollingVelocity() + 1;
+	bufferIndex = Math::max(0, Math::min(2, bufferIndex));
+
+	int bufferLeft = logoBuffersLeft[bufferIndex];
+	int bufferRight = logoBuffersRight[bufferIndex];
+
 	// Ensure texture loaded, query them if necessary ( & put it in the top order )
-	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
+	for (int i = extrasCenter + bufferLeft; i <= extrasCenter + bufferRight; i++)
 	{
 		int index = i % (int)mEntries.size();
 		if (index < 0)
