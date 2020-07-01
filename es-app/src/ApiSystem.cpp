@@ -49,13 +49,13 @@
 #include <pugixml/src/pugixml.hpp>
 #include "platform.h"
 
-ApiSystem::ApiSystem() 
+ApiSystem::ApiSystem()
 {
 }
 
 ApiSystem* ApiSystem::instance = NULL;
 
-ApiSystem *ApiSystem::getInstance() 
+ApiSystem *ApiSystem::getInstance()
 {
 	if (ApiSystem::instance == NULL)
 #if WIN32
@@ -67,7 +67,7 @@ ApiSystem *ApiSystem::getInstance()
 	return ApiSystem::instance;
 }
 
-unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint) 
+unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 {
 	LOG(LogDebug) << "ApiSystem::getFreeSpaceGB";
 
@@ -100,35 +100,35 @@ std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 	struct statvfs fiData;
 	if ((statvfs(mountpoint.c_str(), &fiData)) < 0)
 		return "";
-		
+
 	unsigned long long total = (unsigned long long) fiData.f_blocks * (unsigned long long) (fiData.f_bsize);
 	unsigned long long free = (unsigned long long) fiData.f_bfree * (unsigned long long) (fiData.f_bsize);
 	unsigned long long used = total - free;
 	unsigned long percent = 0;
-	
-	if (total != 0) 
+
+	if (total != 0)
 	{  //for small SD card ;) with share < 1GB
 		percent = used * 100 / total;
 		oss << Utils::FileSystem::megaBytesToString(used / (1024L * 1024L)) << "/" << Utils::FileSystem::megaBytesToString(total / (1024L * 1024L)) << " (" << percent << "%)";
 	}
 	else
-		oss << "N/A";	
+		oss << "N/A";
 #endif
 
 	return oss.str();
 }
 
-bool ApiSystem::isFreeSpaceLimit() 
+bool ApiSystem::isFreeSpaceLimit()
 {
 	return getFreeSpaceGB("/userdata/") < 2;
 }
 
-std::string ApiSystem::getVersion() 
+std::string ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 
 	std::ifstream ifs("/usr/share/batocera/batocera.version");
-	if (ifs.good()) 
+	if (ifs.good())
 	{
 		std::string contents;
 		std::getline(ifs, contents);
@@ -138,12 +138,12 @@ std::string ApiSystem::getVersion()
 	return "";
 }
 
-bool ApiSystem::setOverscan(bool enable) 
+bool ApiSystem::setOverscan(bool enable)
 {
 	return executeScript("batocera-config overscan " + std::string(enable ? "enable" : "disable"));
 }
 
-bool ApiSystem::setOverclock(std::string mode) 
+bool ApiSystem::setOverclock(std::string mode)
 {
 	if (mode.empty())
 		return false;
@@ -164,14 +164,14 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 
 	char line[1024] = "";
 	FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
-		if (flog != nullptr) 
+		if (flog != nullptr)
 			fprintf(flog, "%s\n", line);
 
 		if (func != nullptr)
-			func(std::string(line));		
+			func(std::string(line));
 	}
 
 	int exitCode = WEXITSTATUS(pclose(pipe));
@@ -185,7 +185,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::string device) 
+std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::string device)
 {
 	LOG(LogDebug) << "ApiSystem::backupSystem";
 
@@ -197,24 +197,24 @@ std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::stri
 	char line[1024] = "";
 
 	FILE* flog = fopen("/userdata/system/logs/batocera-sync.log", "w");
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 
-		if (flog != NULL) 
+		if (flog != NULL)
 			fprintf(flog, "%s\n", line);
 
 		ui->setText(std::string(line));
 	}
 
-	if (flog != NULL) 
+	if (flog != NULL)
 		fclose(flog);
 
 	int exitCode = WEXITSTATUS(pclose(pipe));
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture) 
+std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::string device, std::string architecture)
 {
 	LOG(LogDebug) << "ApiSystem::installSystem";
 
@@ -226,7 +226,7 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 	char line[1024] = "";
 
 	FILE *flog = fopen("/userdata/system/logs/batocera-install.log", "w");
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		if (flog != NULL) fprintf(flog, "%s\n", line);
@@ -244,7 +244,7 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui) 
+std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 {
 	LOG(LogDebug) << "ApiSystem::scrape";
 
@@ -255,15 +255,15 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	char line[1024] = "";
 
 	FILE* flog = fopen("/userdata/system/logs/batocera-scraper.log", "w");
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 
-		if (flog != NULL) 
+		if (flog != NULL)
 			fprintf(flog, "%s\n", line);
 
 		if (ui != nullptr && Utils::String::startsWith(line, "GAME: "))
-			ui->setText(std::string(line));	
+			ui->setText(std::string(line));
 	}
 
 	if (flog != nullptr)
@@ -273,12 +273,12 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	return std::pair<std::string, int>(std::string(line), exitCode);
 }
 
-bool ApiSystem::ping() 
+bool ApiSystem::ping()
 {
 	return executeScript("timeout 1 ping -c 1 -t 1000 google.com");
 }
 
-bool ApiSystem::canUpdate(std::vector<std::string>& output) 
+bool ApiSystem::canUpdate(std::vector<std::string>& output)
 {
 	LOG(LogDebug) << "ApiSystem::canUpdate";
 
@@ -287,14 +287,14 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output)
 		return false;
 
 	char line[1024];
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		output.push_back(std::string(line));
 	}
 
 	int res = WEXITSTATUS(pclose(pipe));
-	if (res == 0) 
+	if (res == 0)
 	{
 		LOG(LogInfo) << "Can update ";
 		return true;
@@ -304,7 +304,7 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output)
 	return false;
 }
 
-void ApiSystem::launchExternalWindow_before(Window *window) 
+void ApiSystem::launchExternalWindow_before(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_before";
 
@@ -315,7 +315,7 @@ void ApiSystem::launchExternalWindow_before(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_before OK";
 }
 
-void ApiSystem::launchExternalWindow_after(Window *window) 
+void ApiSystem::launchExternalWindow_after(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
 
@@ -330,7 +330,7 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after OK";
 }
 
-bool ApiSystem::launchKodi(Window *window) 
+bool ApiSystem::launchKodi(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchKodi";
 
@@ -349,21 +349,21 @@ bool ApiSystem::launchKodi(Window *window)
 	ApiSystem::launchExternalWindow_after(window);
 
 	// handle end of kodi
-	switch (exitCode) 
+	switch (exitCode)
 	{
 	case 10: // reboot code
-		quitES(QuitMode::REBOOT);		
+		quitES(QuitMode::REBOOT);
 		return true;
-		
+
 	case 11: // shutdown code
-		quitES(QuitMode::SHUTDOWN);		
+		quitES(QuitMode::SHUTDOWN);
 		return true;
 	}
 
 	return exitCode == 0;
 }
 
-bool ApiSystem::launchFileManager(Window *window) 
+bool ApiSystem::launchFileManager(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchFileManager";
 
@@ -380,17 +380,17 @@ bool ApiSystem::launchFileManager(Window *window)
 	return exitCode == 0;
 }
 
-bool ApiSystem::enableWifi(std::string ssid, std::string key) 
+bool ApiSystem::enableWifi(std::string ssid, std::string key)
 {
 	return executeScript("batocera-wifi enable \"" + ssid + "\" \"" + key + "\"");
 }
 
-bool ApiSystem::disableWifi() 
+bool ApiSystem::disableWifi()
 {
 	return executeScript("batocera-wifi disable");
 }
 
-std::string ApiSystem::getIpAdress() 
+std::string ApiSystem::getIpAdress()
 {
 	LOG(LogDebug) << "ApiSystem::getIpAdress";
 
@@ -400,7 +400,7 @@ std::string ApiSystem::getIpAdress()
 	struct ifaddrs *ifAddrStruct = NULL;
 	struct ifaddrs *ifa = NULL;
 	void *tmpAddrPtr = NULL;
-	
+
 	getifaddrs(&ifAddrStruct);
 
 	for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) {
@@ -438,7 +438,7 @@ std::string ApiSystem::getIpAdress()
 			}
 		}
 	}
-	if (ifAddrStruct != NULL) 
+	if (ifAddrStruct != NULL)
 		freeifaddrs(ifAddrStruct);
 #endif
 
@@ -461,42 +461,42 @@ bool ApiSystem::removeBluetoothDevice(const std::string deviceName)
 	return executeScript("batocera-bluetooth remove "+ deviceName);
 }
 
-std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
+std::vector<std::string> ApiSystem::getAvailableStorageDevices()
 {
 	return executeEnumerationScript("batocera-config storage list");
 }
 
-std::vector<std::string> ApiSystem::getVideoModes() 
+std::vector<std::string> ApiSystem::getVideoModes()
 {
 	return executeEnumerationScript("batocera-resolution listModes");
 }
 
-std::vector<std::string> ApiSystem::getAvailableBackupDevices() 
+std::vector<std::string> ApiSystem::getAvailableBackupDevices()
 {
 	return executeEnumerationScript("batocera-sync list");
 }
 
-std::vector<std::string> ApiSystem::getAvailableInstallDevices() 
+std::vector<std::string> ApiSystem::getAvailableInstallDevices()
 {
 	return executeEnumerationScript("batocera-install listDisks");
 }
 
-std::vector<std::string> ApiSystem::getAvailableInstallArchitectures() 
+std::vector<std::string> ApiSystem::getAvailableInstallArchitectures()
 {
 	return executeEnumerationScript("batocera-install listArchs");
 }
 
-std::vector<std::string> ApiSystem::getAvailableOverclocking() 
+std::vector<std::string> ApiSystem::getAvailableOverclocking()
 {
 	return executeEnumerationScript("batocera-overclock list");
 }
 
-std::vector<std::string> ApiSystem::getSystemInformations() 
+std::vector<std::string> ApiSystem::getSystemInformations()
 {
 	return executeEnumerationScript("batocera-info");
 }
 
-std::vector<BiosSystem> ApiSystem::getBiosInformations() 
+std::vector<BiosSystem> ApiSystem::getBiosInformations()
 {
 	std::vector<BiosSystem> res;
 	BiosSystem current;
@@ -505,7 +505,7 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 	auto systems = executeEnumerationScript("batocera-systems");
 	for (auto line : systems)
 	{
-		if (Utils::String::startsWith(line, "> ")) 
+		if (Utils::String::startsWith(line, "> "))
 		{
 			if (isCurrent)
 				res.push_back(current);
@@ -514,18 +514,18 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 			current.name = std::string(std::string(line).substr(2));
 			current.bios.clear();
 		}
-		else 
+		else
 		{
 			BiosFile biosFile;
 			std::vector<std::string> tokens = Utils::String::split(line, ' ');
-			if (tokens.size() >= 3) 
+			if (tokens.size() >= 3)
 			{
 				biosFile.status = tokens.at(0);
 				biosFile.md5 = tokens.at(1);
 
 				// concatenat the ending words
 				std::string vname = "";
-				for (unsigned int i = 2; i < tokens.size(); i++) 
+				for (unsigned int i = 2; i < tokens.size(); i++)
 				{
 					if (i > 2) vname += " ";
 					vname += tokens.at(i);
@@ -543,12 +543,12 @@ std::vector<BiosSystem> ApiSystem::getBiosInformations()
 	return res;
 }
 
-bool ApiSystem::generateSupportFile() 
+bool ApiSystem::generateSupportFile()
 {
 	return executeScript("batocera-support");
 }
 
-std::string ApiSystem::getCurrentStorage() 
+std::string ApiSystem::getCurrentStorage()
 {
 	LOG(LogDebug) << "ApiSystem::getCurrentStorage";
 
@@ -562,7 +562,7 @@ std::string ApiSystem::getCurrentStorage()
 	char line[1024];
 
 	if (pipe == NULL)
-		return "";	
+		return "";
 
 	if (fgets(line, 1024, pipe)) {
 		strtok(line, "\n");
@@ -572,17 +572,17 @@ std::string ApiSystem::getCurrentStorage()
 	return "INTERNAL";
 }
 
-bool ApiSystem::setStorage(std::string selected) 
+bool ApiSystem::setStorage(std::string selected)
 {
 	return executeScript("batocera-config storage " + selected);
 }
 
-bool ApiSystem::forgetBluetoothControllers() 
+bool ApiSystem::forgetBluetoothControllers()
 {
 	return executeScript("batocera-config forgetBT");
 }
 
-std::string ApiSystem::getRootPassword() 
+std::string ApiSystem::getRootPassword()
 {
 	LOG(LogDebug) << "ApiSystem::getRootPassword";
 
@@ -603,7 +603,7 @@ std::string ApiSystem::getRootPassword()
 	return oss.str().c_str();
 }
 
-std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() 
+std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 {
 #if WIN32
 	std::vector<std::string> res;
@@ -614,12 +614,12 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 	return executeEnumerationScript("batocera-audio list");
 }
 
-std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
+std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices()
 {
 	return executeEnumerationScript("batocera-config lsoutputs");
 }
 
-std::string ApiSystem::getCurrentAudioOutputDevice() 
+std::string ApiSystem::getCurrentAudioOutputDevice()
 {
 #if WIN32
 	return "auto";
@@ -633,9 +633,9 @@ std::string ApiSystem::getCurrentAudioOutputDevice()
 	char line[1024];
 
 	if (pipe == NULL)
-		return "";	
+		return "";
 
-	if (fgets(line, 1024, pipe)) 
+	if (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		pclose(pipe);
@@ -645,20 +645,20 @@ std::string ApiSystem::getCurrentAudioOutputDevice()
 	return "";
 }
 
-bool ApiSystem::setAudioOutputDevice(std::string selected) 
+bool ApiSystem::setAudioOutputDevice(std::string selected)
 {
 	LOG(LogDebug) << "ApiSystem::setAudioOutputDevice";
 
 	std::ostringstream oss;
 
-	AudioManager::getInstance()->deinit();
-	VolumeControl::getInstance()->deinit();
+	// AudioManager::getInstance()->deinit();
+	// VolumeControl::getInstance()->deinit();
 
 	oss << "batocera-audio set" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
-	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->init();
+	// VolumeControl::getInstance()->init();
+	// AudioManager::getInstance()->init();
 	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
 
 	return exitcode == 0;
@@ -670,7 +670,7 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 	RetroAchievementInfo info;
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievements";
-	
+
 	auto res = executeEnumerationScript("batocera-retroachievements-info " + SystemConf::getInstance()->get("global.retroachievements.username"));
 	std::string data = Utils::String::join(res, "\n");
 	if (data.empty())
@@ -699,7 +699,7 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 				continue;
 
 			if (tokens.size() == 1)
-			{					
+			{
 				if (info.username.empty())
 				{
 					auto userParse = Utils::String::split(line, ' ');
@@ -723,7 +723,7 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 
 			if (tokens.size() >= 4)
 			{
-				rg.points = Utils::String::replace(tokens[2], " points", ""); 
+				rg.points = Utils::String::replace(tokens[2], " points", "");
 				rg.lastplayed = Utils::String::replace(tokens[3], "Last played ", "");
 			}
 
@@ -825,7 +825,7 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 	return info;
 }
 
-std::vector<std::string> ApiSystem::getBatoceraThemesList() 
+std::vector<std::string> ApiSystem::getBatoceraThemesList()
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
 
@@ -839,7 +839,7 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 	char line[1024];
 	char *pch;
 
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		// provide only themes that are [A]vailable or [I]nstalled as a result
@@ -856,7 +856,7 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 	return executeScript("batocera-es-theme install " + thname, func);
 }
 
-std::vector<std::string> ApiSystem::getBatoceraBezelsList() 
+std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 {
 	LOG(LogInfo) << "ApiSystem::getBatoceraBezelsList";
 
@@ -870,7 +870,7 @@ std::vector<std::string> ApiSystem::getBatoceraBezelsList()
 	char line[1024];
 	char *pch;
 
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		// provide only themes that are [A]vailable or [I]nstalled as a result
@@ -887,19 +887,19 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsys
 	return executeScript("batocera-es-thebezelproject install " + bezelsystem, func);
 }
 
-std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
+std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem)
 {
 	LOG(LogInfo) << "ApiSystem::uninstallBatoceraBezel " << bezelsystem;
 
 	std::string updatecommand = "batocera-es-thebezelproject remove " + bezelsystem;
-	
+
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	if (pipe == NULL)
 		return std::pair<std::string, int>(std::string("Error starting 'batocera-es-thebezelproject remove' command."), -1);
 
 	char line[1024] = "";
 
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 		// Long theme names/URL can crash the GUI MsgBox
@@ -919,7 +919,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	bool useUnzip = false;
 
 	std::string cmd = "7zr h \"" + fileName + "\"";
-	
+
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
 
 	if (fromZipContents)
@@ -941,7 +941,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 		return "";
 
 	char line[1024];
-	while (fgets(line, 1024, pipe)) 
+	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
 
@@ -968,9 +968,9 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 		if (idx != std::string::npos)
 			crc = all.substr(idx + 6);
 		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-			crc = all.substr(0, 8);		
+			crc = all.substr(0, 8);
 	}
-	
+
 	pclose(pipe);
 
 	return crc;
@@ -988,7 +988,7 @@ bool ApiSystem::getBrighness(int& value)
 	value = 0;
 
 	int fd;
-	int max = 255;	
+	int max = 255;
 	char buffer[BACKLIGHT_BUFFER_SIZE + 1];
 	ssize_t count;
 
@@ -1004,7 +1004,7 @@ bool ApiSystem::getBrighness(int& value)
 
 	close(fd);
 
-	if (max == 0) 
+	if (max == 0)
 		return 0;
 
 	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_RDONLY);
@@ -1026,7 +1026,7 @@ bool ApiSystem::getBrighness(int& value)
 
 void ApiSystem::setBrighness(int value)
 {
-#if !WIN32	
+#if !WIN32
 	if (value < 5)
 		value = 5;
 
@@ -1050,13 +1050,13 @@ void ApiSystem::setBrighness(int value)
 
 	close(fd);
 
-	if (max == 0) 
+	if (max == 0)
 		return;
 
 	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_WRONLY);
 	if (fd < 0)
 		return;
-	
+
 	float percent = value / 100.0f * (float)max;
 	sprintf(buffer, "%d\n", (uint32_t)percent);
 
@@ -1125,12 +1125,12 @@ std::pair<std::string, int> ApiSystem::executeScript(const std::string command, 
 }
 
 bool ApiSystem::executeScript(const std::string command)
-{	
+{
 	LOG(LogInfo) << "Running " << command;
 
 	if (system(command.c_str()) == 0)
 		return true;
-	
+
 	LOG(LogError) << "Error executing " << command;
 	return false;
 }
@@ -1214,7 +1214,7 @@ void ApiSystem::setReadyFlag(bool ready)
 	}
 
 	FILE* fd = fopen("/tmp/emulationstation.ready", "w");
-	if (fd != NULL) 
+	if (fd != NULL)
 		fclose(fd);
 }
 
@@ -1238,7 +1238,7 @@ std::vector<std::string> ApiSystem::getFormatFileSystems()
 {
 #if WIN32 && _DEBUG
 	std::vector<std::string> ret;
-	ret.push_back("exfat");	
+	ret.push_back("exfat");
 	ret.push_back("brfs");
 	return ret;
 #endif
