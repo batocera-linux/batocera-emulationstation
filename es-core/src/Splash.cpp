@@ -22,6 +22,7 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	auto theme = std::make_shared<ThemeData>();
 
 	std::string themeFilePath = fullScreenBackGround ? ":/splash.xml" : ":/gamesplash.xml";
+	themeFilePath = ResourceManager::getInstance()->getResourcePath(themeFilePath);
 
 	std::map<std::string, ThemeSet> themeSets = ThemeData::getThemeSets();
 	auto themeset = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
