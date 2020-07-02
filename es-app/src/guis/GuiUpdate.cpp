@@ -19,8 +19,11 @@ public:
 		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
 
 		mWndNotification = new AsyncNotificationComponent(window, false);
+#ifdef _ENABLEEMUELEC
+		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING EMUELEC"));
+#else
 		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
-
+#endif
 		mWindow->registerNotificationComponent(mWndNotification);
 		mHandle = new std::thread(&ThreadedUpdater::threadUpdate, this);
 	}

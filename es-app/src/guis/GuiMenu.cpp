@@ -1032,7 +1032,6 @@ void GuiMenu::openUpdatesSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
 		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
 
-#ifndef _ENABLEEMUELEC
 	updateGui->addGroup(_("SOFTWARE UPDATES"));
 
 	// Enable updates
@@ -1044,7 +1043,7 @@ void GuiMenu::openUpdatesSettings()
 	{
 		SystemConf::getInstance()->setBool("updates.enabled", updates_enabled->getState());
 	});
-
+#ifndef _ENABLEEMUELEC
 	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 	
 	std::string updatesType = SystemConf::getInstance()->get("updates.type");
@@ -1059,7 +1058,7 @@ void GuiMenu::openUpdatesSettings()
 	{
 		SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
 	});
-
+#endif
 	// Start update
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 	{
@@ -1070,7 +1069,6 @@ void GuiMenu::openUpdatesSettings()
 		else
 			mWindow->pushGui(new GuiUpdate(mWindow));
 	});
-#endif
 	mWindow->pushGui(updateGui);
 }
 
