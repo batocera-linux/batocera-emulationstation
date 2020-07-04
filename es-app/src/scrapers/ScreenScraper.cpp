@@ -78,6 +78,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ SEGA_MEGA_DRIVE, 1 },
 	{ SEGA_SATURN, 22 },
 	{ SEGA_SG1000, 109 },
+	{ SHARP_X1, 220 },
 	{ SHARP_X6800, 79},
 	{ PLAYSTATION, 57 },
 	{ PLAYSTATION_2, 58 },
