@@ -67,6 +67,7 @@ namespace PlatformIds
 		{ "psp",					PLAYSTATION_PORTABLE },
 		{ "snes",					SUPER_NINTENDO },
 		{ "scummvm",				SCUMMVM },
+		{ "x1",						SHARP_X1 },
 		{ "x68000",					SHARP_X6800 },
 		{ "pcengine",				TURBOGRAFX_16 }, // (aka PC Engine) HuCards onlyy
 		{ "pcenginecd",				TURBOGRAFX_CD }, // (aka PC Engine) CD-ROMs onlynly

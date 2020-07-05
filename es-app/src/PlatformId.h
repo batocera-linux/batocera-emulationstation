@@ -69,6 +69,7 @@ namespace PlatformIds
 		QUAKE,
 		SUPER_NINTENDO,
 		SCUMMVM,
+		SHARP_X1,
 		SHARP_X6800,
 		TURBOGRAFX_16, // (aka PC Engine) HuCards only
 		TURBOGRAFX_CD, // (aka PC Engine) CD-ROMs only
