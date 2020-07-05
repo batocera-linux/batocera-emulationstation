@@ -372,6 +372,7 @@ void GuiMenu::openEmuELECSettings()
 	Window* window = mWindow;
 	ComponentListRow row;
 	GuiSettings *danger_zone = new GuiSettings(mWindow, _("DANGER ZONE!").c_str());
+	// backup configs
 	row.makeAcceptInputHandler([window] {
 		window->pushGui(new GuiMsgBox(window, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/downloads/ee_backup_config.zip TO SOME PLACE SAFE OR IT WILL BE DELETED ON NEXT REBOOT!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
 				[] { 
@@ -381,6 +382,7 @@ void GuiMenu::openEmuELECSettings()
 	row.addElement(std::make_shared<TextComponent>(window, _("BACKUP EMUELEC CONFIGS"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 	danger_zone->addRow(row);
 	row.elements.clear();
+	// emus config
 	row.makeAcceptInputHandler([window] {
 		window->pushGui(new GuiMsgBox(window, _("WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\nUPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nRESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"), _("YES"),
 				[] { 
@@ -390,6 +392,18 @@ void GuiMenu::openEmuELECSettings()
 	row.addElement(std::make_shared<TextComponent>(window, _("RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 	danger_zone->addRow(row);
 	row.elements.clear();
+	// retroarch config
+	row.makeAcceptInputHandler([window] {
+		window->pushGui(new GuiMsgBox(window, _("WARNING: RETROARCH CONFIG WILL RESET TO DEFAULT\n\nPER-CORE CONFIGURATIONS WILL NOT BE AFFECTED BUT NO BACKUP WILL BE CREATED!\n\nRESET RETROARCH CONFIG TO DEFAULT?"), _("YES"),
+				[] { 
+				runSystemCommand("rm -f /storage/.config/retroarch/retroarch.cfg", "", nullptr);
+				runSystemCommand("cp -rf /usr/config/retroarch/retroarch.cfg /storage/.config/retroarch/retroarch.cfg", "", nullptr);
+				}, _("NO"), nullptr));
+	});
+	row.addElement(std::make_shared<TextComponent>(window, _("RESET RETROARCH CONFIG TO DEFAULT"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
+	danger_zone->addRow(row);
+	row.elements.clear();
+	// all configs
 	row.makeAcceptInputHandler([window] {
 		window->pushGui(new GuiMsgBox(window, _("WARNING: ALL CONFIGURATIONS WILL BE RESET AND NO BACKUP WILL BE CREATED!\n\nIF YOU WANT TO KEEP YOUR SETTINGS MAKE A BACKUP AND SAVE IT ON AN EXTERNAL DRIVE BEFORE RUNING THIS OPTION!\n\nRESET SYSTEM TO DEFAULT CONFIG AND RESTART?"), _("YES"),
 				[] { 
