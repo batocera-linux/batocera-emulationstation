@@ -94,6 +94,7 @@ namespace PlatformIds
 		{ "satellaview",			SATELLAVIEW },
 		{ "sufami",					SUFAMITURBO },
 		{ "zx81",					ZX81 },
+		{ "tic80",					TIC80 },
 
 		// batocera specific names
 		{ "gb2players",				GAME_BOY },

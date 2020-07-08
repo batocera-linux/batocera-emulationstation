@@ -98,6 +98,7 @@ namespace PlatformIds
 		SATELLAVIEW,
 		SUFAMITURBO,
 		ZX81,
+		TIC80,
 
 		// Windows Specific
 		VISUALPINBALL,
