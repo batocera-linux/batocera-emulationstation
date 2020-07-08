@@ -98,6 +98,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("pdftoppm");
 		executables.push_back("pdfinfo");		
 		break;
+	case ApiSystem::BATOCERASTORE:
+		executables.push_back("batocera-store");
+		break;
 	}
 
 	if (executables.size() == 0)

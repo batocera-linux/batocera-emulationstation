@@ -1173,6 +1173,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("pdftoppm");
 		executables.push_back("pdfinfo");
 		break;
+	case ApiSystem::BATOCERASTORE:
+		executables.push_back("batocera-store");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1350,4 +1353,85 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName,
 
 	std::sort(ret.begin(), ret.end());
 	return ret;
+}
+
+
+std::vector<PacmanPackage> ApiSystem::getBatoceraStorePackages()
+{
+	std::vector<PacmanPackage> packages;
+
+	LOG(LogDebug) << "ApiSystem::getBatoceraStorePackages";
+
+	auto res = executeEnumerationScript("batocera-store list");
+	std::string data = Utils::String::join(res, "\n");
+	if (data.empty())
+	{
+		LOG(LogError) << "Package list is empty";
+		return packages;
+	}
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load(data.c_str());
+	if (!result)
+	{
+		LOG(LogError) << "Unable to parse packages";
+		return packages;
+	}
+
+	pugi::xml_node root = doc.child("packages");
+	if (!root)
+	{
+		LOG(LogError) << "Could not find <packages> node";
+		return packages;
+	}
+
+	for (pugi::xml_node pkgNode = root.child("package"); pkgNode; pkgNode = pkgNode.next_sibling("package"))
+	{
+		PacmanPackage package;
+
+		for (pugi::xml_node node = pkgNode.first_child(); node; node = node.next_sibling())
+		{
+			std::string tag = node.name();
+			if (tag == "name")
+				package.name = node.text().get();
+			if (tag == "repository")
+				package.repository = node.text().get();
+			if (tag == "available_version")
+				package.available_version = node.text().get();
+			if (tag == "description")
+				package.description = node.text().get();
+			if (tag == "group")
+				package.group = node.text().get(); // groups.push_back(
+			if (tag == "license")
+				package.licenses.push_back(node.text().get());
+			if (tag == "packager")
+				package.packager = node.text().get();
+			if (tag == "status")
+				package.status = node.text().get();
+			if (tag == "repository")
+				package.repository = node.text().get();
+			if (tag == "url")
+				package.url = node.text().get();			
+
+			if (tag == "download_size")
+				package.download_size = node.text().as_llong();
+			if (tag == "installed_size")
+				package.installed_size = node.text().as_llong();
+		}
+
+		if (!package.name.empty())
+			packages.push_back(package);		
+	}
+
+	return packages;
+}
+
+std::pair<std::string, int> ApiSystem::installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func)
+{
+	return executeScript("batocera-store install " + name, func);
+}
+
+std::pair<std::string, int> ApiSystem::uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func)
+{
+	return executeScript("batocera-store remove " + name, func);
 }

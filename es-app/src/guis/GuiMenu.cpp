@@ -12,6 +12,7 @@
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiThemeInstallStart.h" //batocera
 #include "guis/GuiBezelInstallStart.h" //batocera
+#include "guis/GuiBatoceraStore.h" //batocera
 #include "guis/GuiSettings.h"
 #include "guis/GuiRetroAchievements.h" //batocera
 #include "guis/GuiGamelistOptions.h"
@@ -785,6 +786,10 @@ void GuiMenu::openUpdatesSettings()
 	GuiSettings *updateGui = new GuiSettings(mWindow, _("UPDATES & DOWNLOADS").c_str());
 
 	updateGui->addGroup(_("DOWNLOADS"));
+
+	// Batocera integration with Batocera Store
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE))
+		updateGui->addEntry(_("CONTENT DOWNLOADER"), true, [this] { mWindow->pushGui(new GuiBatoceraStore(mWindow)); });
 
 	// Batocera themes installer/browser
 	updateGui->addEntry(_("THEMES"), true, [this] { mWindow->pushGui(new GuiThemeInstallStart(mWindow)); });

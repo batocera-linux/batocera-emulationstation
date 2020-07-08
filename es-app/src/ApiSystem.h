@@ -38,6 +38,37 @@ struct RetroAchievementInfo
 	std::vector<RetroAchievementGame> games;
 };
 
+struct PacmanPackage
+{
+	PacmanPackage()
+	{
+		download_size = 0;
+		installed_size = 0;
+	}
+
+	std::string name;
+	std::string repository;
+	std::string available_version;
+	std::string description;
+	std::string url;
+
+	std::string packager;
+	std::string status;
+
+	size_t download_size;
+	size_t installed_size;
+
+	std::string group;
+	//std::vector<std::string> groups;
+	std::vector<std::string> licenses;	
+
+	bool isInstalled()
+	{
+		return installed_size > 0;
+	}
+};
+
+
 class ApiSystem 
 {
 public:
@@ -55,7 +86,8 @@ public:
 		SHADERS = 9,
 		DISKFORMAT = 10,
 		OVERCLOCK = 11,
-		PDFEXTRACTION = 12
+		PDFEXTRACTION = 12,
+		BATOCERASTORE = 13
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -147,6 +179,10 @@ public:
 
 	virtual int getPdfPageCount(const std::string fileName);
 	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
+
+	std::vector<PacmanPackage> getBatoceraStorePackages();
+	std::pair<std::string, int> ApiSystem::installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
+	std::pair<std::string, int> ApiSystem::uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);

@@ -16,10 +16,13 @@ public:
 	enum ContentType : int
 	{
 		CONTENT_THEME = 0,
-		CONTENT_BEZEL = 1
+		CONTENT_BEZEL = 1,
+		CONTENT_STORE_INSTALL = 2,
+		CONTENT_STORE_UNINSTALL = 3
 	};
 
 	static void Enqueue(Window* window, ContentType type, const std::string contentName);
+	static bool IsInQueue(ContentType type, const std::string contentName);
 
 private: // Methods
 	ContentInstaller(Window* window);

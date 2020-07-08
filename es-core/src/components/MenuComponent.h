@@ -43,6 +43,7 @@ public:
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
 	inline void setCursorToButtons() { assert(mButtonGrid); mGrid.setCursorTo(mButtonGrid); }
+	inline int getCursorIndex() const { return mList->getCursorIndex(); }
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
