@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -474,6 +474,9 @@ msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "NERLADDNINGAR"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "TEMAN"
@@ -1152,30 +1155,34 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SPEL HOPPADES ÖVER."
 msgstr[1] "%i SPEL HOPPADES ÖVER."
 
-msgid "INSTALL BEZELS"
-msgstr "INSTALLERA RAMAR"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "AVINSTALLERA RAMAR"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "INSTALLARA BEZEL-PROJEKTET"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "VÄLJ VILKET SYSTEM RAMAR SKA (OM)INSTALLERAS FÖR"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' HAR LAGTS TILL I NERLADDNINGSKÖN"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "AVINSTALLERA BEZEL-PROJEKTET"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "VÄLJ VILKET SYSTEM RAMARNA SKA TAS BORT FRÅN"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "RAMAR BORTTAGNA"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "BYT BILD EFTER (SEKUNDER)"
@@ -1650,6 +1657,12 @@ msgstr "TEMA INSTALLERAT"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "RAMAR INSTALLERADE"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "FAVORITER"
 
@@ -1967,6 +1980,27 @@ msgstr "ARBETAR..."
 
 msgid "up/down"
 msgstr "upp/ner"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "INSTALLERA RAMAR"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "AVINSTALLERA RAMAR"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "INSTALLARA BEZEL-PROJEKTET"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "VÄLJ VILKET SYSTEM RAMAR SKA (OM)INSTALLERAS FÖR"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "AVINSTALLERA BEZEL-PROJEKTET"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "VÄLJ VILKET SYSTEM RAMARNA SKA TAS BORT FRÅN"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "RAMAR BORTTAGNA"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "SORTERA SAMLINGAR OCH SYSTEM"

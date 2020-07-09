@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -471,6 +471,9 @@ msgstr "디스크를 포맷합니다"
 
 msgid "DOWNLOADS"
 msgstr "다운로드"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "테마"
@@ -1144,30 +1147,34 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
 
-msgid "INSTALL BEZELS"
-msgstr "베젤 설치"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "베젤 제거"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "베젤 프로젝트 설치"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "베젤이 있는 시스템을 선택하면 (재)설치될 것입니다."
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "다운로드 대기에 '%개'가 추가됨"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "베젤 프로젝트 제거"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "베젤을 제거 할 시스템 선택"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 삭제됨"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "(몇 초) 후 이미지 필터 교체"
@@ -1639,6 +1646,12 @@ msgstr "테마가 성공적으로 설치됨"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "베젤이 성공적으로 설치됨"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "즐겨찾기"
 
@@ -1945,6 +1958,27 @@ msgstr "작업 중..."
 
 msgid "up/down"
 msgstr "위/아래"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "베젤 설치"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "베젤 제거"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "베젤 프로젝트 설치"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "베젤이 있는 시스템을 선택하면 (재)설치될 것입니다."
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "베젤 프로젝트 제거"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "베젤을 제거 할 시스템 선택"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "베젤이 성공적으로 삭제됨"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "커스텀 컬렉션과 시스템을 분류"

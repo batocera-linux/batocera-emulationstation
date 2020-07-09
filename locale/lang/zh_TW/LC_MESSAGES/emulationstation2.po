@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -474,6 +474,9 @@ msgstr "格式化硬碟"
 
 msgid "DOWNLOADS"
 msgstr "下載"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "主題"
@@ -1147,30 +1150,34 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "略過了 %i 個遊戲。"
 
-msgid "INSTALL BEZELS"
-msgstr "安裝邊框"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "移除邊框"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "安裝邊框項目"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "選擇安裝或重新安裝邊框的系統"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "將 '%s' 添加到下載隊列"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "移除邊框選項"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "選擇移除邊框的遊戲平台"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "刪除邊框控制"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "更換圖片 (SECS)"
@@ -1639,6 +1646,12 @@ msgstr "主題安裝成功"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "框架安裝成功"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "我的最愛"
 
@@ -1946,6 +1959,27 @@ msgstr "更新中..."
 
 msgid "up/down"
 msgstr "上＆下"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "安裝邊框"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "移除邊框"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "安裝邊框項目"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "選擇安裝或重新安裝邊框的系統"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "移除邊框選項"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "選擇移除邊框的遊戲平台"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "刪除邊框控制"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "對自定合輯和系統進行排列"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -474,6 +474,9 @@ msgstr "FORMATER UN DISQUE"
 
 msgid "DOWNLOADS"
 msgstr "TÉLÉCHARGEMENTS"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "THÈMES"
@@ -1152,30 +1155,34 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JEU PASSÉ"
 msgstr[1] "%i JEUX PASSÉS"
 
-msgid "INSTALL BEZELS"
-msgstr "INSTALLER DES DÉCORATIONS"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "DÉSINSTALLER DES DÉCORATIONS"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "INSTALLER LE BEZEL PROJECT"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES DÉCORATIONS"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AJOUTÉ DANS LA LISTE DE TÉLÉCHARGEMENT"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "DÉSINSTALLER LE BEZEL PROJECT"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CHANGER L'IMAGE APRÈS"
@@ -1651,6 +1658,12 @@ msgstr "THÈME INSTALLÉ AVEC SUCCES"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCES"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "FAVORIS"
 
@@ -1969,3 +1982,24 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "INSTALLER DES DÉCORATIONS"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "DÉSINSTALLER DES DÉCORATIONS"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "INSTALLER LE BEZEL PROJECT"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES DÉCORATIONS"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "DÉSINSTALLER LE BEZEL PROJECT"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"

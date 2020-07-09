@@ -86,7 +86,7 @@ void GuiBatoceraStore::loadPackages()
 					if (package.group.empty())
 						mMenu.addGroup(_("MISC"));
 					else
-						mMenu.addGroup(_(Utils::String::toUpper(package.group)));
+					  mMenu.addGroup(_(Utils::String::toUpper(package.group).c_str()));
 
 					i++;
 				}
