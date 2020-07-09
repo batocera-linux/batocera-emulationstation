@@ -32,6 +32,21 @@ void ContentInstaller::Enqueue(Window* window, ContentType type, const std::stri
 	mInstance->updateNotificationComponentTitle(true);
 }
 
+bool ContentInstaller::IsInQueue(ContentType type, const std::string contentName)
+{
+	std::unique_lock<std::mutex> lock(mLock);
+
+	for (auto item : mProcessingQueue)
+		if (item.first == type && item.second == contentName)
+			return true;
+
+	for (auto item : mQueue)
+		if (item.first == type && item.second == contentName)
+			return true;
+
+	return false;
+}
+
 ContentInstaller::ContentInstaller(Window* window)
 {
 	mInstance = this;
@@ -127,7 +142,7 @@ void ContentInstaller::threadUpdate()
 			}
 
 		}
-		else if (data.first == ContentType::CONTENT_BEZEL)
+		else if (data.first == ContentType::CONTENT_BEZEL_INSTALL)
 		{
 			updateStatus = ApiSystem::getInstance()->installBatoceraBezel(data.second, [this](const std::string info)
 			{
@@ -136,6 +151,51 @@ void ContentInstaller::threadUpdate()
 
 			if (updateStatus.second == 0)
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS INSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(ICONINDEX + error);
+			}
+		}
+		else if (data.first == ContentType::CONTENT_BEZEL_UNINSTALL)
+		{
+			updateStatus = ApiSystem::getInstance()->uninstallBatoceraBezel(data.second, [this](const std::string info)
+			{
+				updateNotificationComponentContent(info);
+			});
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS UNINSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(ICONINDEX + error);
+			}
+		}
+		else if (data.first == ContentType::CONTENT_STORE_INSTALL)
+		{
+			updateStatus = ApiSystem::getInstance()->installBatoceraStorePackage(data.second, [this](const std::string info)
+			{
+				updateNotificationComponentContent(info);
+			});
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE INSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(ICONINDEX + error);
+			}
+		}
+		else if (data.first == ContentType::CONTENT_STORE_UNINSTALL)
+		{
+			updateStatus = ApiSystem::getInstance()->uninstallBatoceraStorePackage(data.second, [this](const std::string info)
+			{
+				updateNotificationComponentContent(info);
+			});
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE REMOVED SUCCESSFULLY"));
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;

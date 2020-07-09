@@ -112,6 +112,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ SATELLAVIEW, 107 },
 	{ SUFAMITURBO, 108 },
 	{ ZX81, 77 },
+	{ TIC80, 222 },
 	{ MOONLIGHT, 138 }, // "PC Windows"
 
 	// Windows
