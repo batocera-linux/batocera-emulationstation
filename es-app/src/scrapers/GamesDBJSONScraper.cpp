@@ -99,39 +99,38 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ TANDY, "4941" },	
 	{ SUPERGRAFX, "34" }, // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
 
-	{ AMIGACD32, 130 },
-	{ AMIGACDTV, 129 },
-	{ ATOMISWAVE, 53 },
+	{ AMIGACD32, "130" },
+	{ AMIGACDTV, "129" },
+	{ ATOMISWAVE, "53" },
 	{ CAVESTORY, "135" },
-	{ GX4000, 87 },
-	{ LUTRO, 206 },
-	{ NAOMI, 56 },
+	{ GX4000, "87" },
+	{ LUTRO, "206" },
+	{ NAOMI, "56" },
 	{ NEOGEO_CD, "70" },
 	{ PCFX, "4930" },
 	{ POKEMINI, "4957" },
 	{ PRBOOM, "1" },
 	{ SATELLAVIEW, "6" },
 	{ SUFAMITURBO, "6" },
-	{ ZX81, 77 },
+	{ ZX81, "77" },
 	{ MOONLIGHT, "138" }, // "PC"
 	
 	// Windows
-	{ VISUALPINBALL, 198 },
-	{ FUTUREPINBALL, 199 },
+	{ VISUALPINBALL, "198" },
+	{ FUTUREPINBALL, "199" },
 
 	// Misc
-	{ ORICATMOS, 131 },
-	{ CHANNELF, 80 },
-	{ THOMSON_TO_MO, 141 },
-	{ SAMCOUPE, 213 },
-	{ OPENBOR, 214 },
-	{ UZEBOX, 216 },
-	{ APPLE2GS, 217 },
-	{ SPECTRAVIDEO, 218 },
-	{ PALMOS, 219 },
-	{ DAPHNE, 49 },
-	{ SOLARUS, 223 }	
-};
+	{ ORICATMOS, "131" },
+	{ CHANNELF, "80" },
+	{ THOMSON_TO_MO, "141" },
+	{ SAMCOUPE, "213" },
+	{ OPENBOR, "214" },
+	{ UZEBOX, "216" },
+	{ APPLE2GS, "217" },
+	{ SPECTRAVIDEO, "218" },
+	{ PALMOS, "219" },
+	{ DAPHNE, "49" },
+	{ SOLARUS, "223" }
 };
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:39+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -478,6 +478,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DOWNLOADS"
+msgstr ""
+
+msgid "CONTENT DOWNLOADER"
 msgstr ""
 
 msgid "THEMES"
@@ -1144,29 +1147,33 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "INSTALL BEZELS"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr ""
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "UPDATE"
 msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "REMOVE"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
@@ -1630,6 +1637,12 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr ""
 
 msgid "FAVORITES"

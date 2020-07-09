@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: 2020-07-08 22:38+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3.1\n"
-"Last-Translator: Quentin PAGÈS\n"
-"Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -481,6 +481,9 @@ msgstr ""
 msgid "DOWNLOADS"
 msgstr ""
 
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
 msgid "THEMES"
 msgstr ""
 
@@ -550,6 +553,18 @@ msgstr "PARAMÈTRES NETPLAY"
 msgid "MISSING BIOS"
 msgstr ""
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr "ACTIVAT"
+
+msgid "OFF"
+msgstr "DESACTIVAT"
+
 msgid "OVERCLOCK"
 msgstr ""
 
@@ -583,20 +598,11 @@ msgstr ""
 msgid "RUN-AHEAD FRAMES"
 msgstr ""
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr ""
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr ""
-
-msgid "ON"
-msgstr "ACTIVAT"
-
-msgid "OFF"
-msgstr "DESACTIVAT"
 
 msgid "HARDCORE MODE"
 msgstr "MÒDE DIFICIL DIFICIL"
@@ -880,6 +886,9 @@ msgstr "VOLUM"
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM SISTÈMA"
 
+msgid "MUSIC VOLUME"
+msgstr ""
+
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr ""
 
@@ -1139,29 +1148,33 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JÒC SAUTAT."
 msgstr[1] "%i JÒCS SAUTATS."
 
-msgid "INSTALL BEZELS"
-msgstr "INSTALLAR BEZELS"
-
-msgid "UNINSTALL BEZELS"
-msgstr "DESINSTALLAR BEZELS"
-
-msgid "INSTALL THE BEZEL PROJECT"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "UPDATE"
 msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "REMOVE"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
@@ -1627,6 +1640,12 @@ msgstr ""
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr ""
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "FAVORITS"
 
@@ -1941,3 +1960,9 @@ msgstr "TRACTAMENT..."
 
 msgid "up/down"
 msgstr "naut/bas"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "INSTALLAR BEZELS"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "DESINSTALLAR BEZELS"
