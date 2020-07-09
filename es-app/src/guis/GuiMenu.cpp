@@ -796,7 +796,7 @@ void GuiMenu::openUpdatesSettings()
 
 	// Batocera integration with theBezelProject
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
-		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallMenu(mWindow)); });
+		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this] { mWindow->pushGui(new GuiBezelInstallStart(mWindow)); });
 
 	updateGui->addGroup(_("SOFTWARE UPDATES"));
 

@@ -142,7 +142,7 @@ void ContentInstaller::threadUpdate()
 			}
 
 		}
-		else if (data.first == ContentType::CONTENT_BEZEL)
+		else if (data.first == ContentType::CONTENT_BEZEL_INSTALL)
 		{
 			updateStatus = ApiSystem::getInstance()->installBatoceraBezel(data.second, [this](const std::string info)
 			{
@@ -151,6 +151,21 @@ void ContentInstaller::threadUpdate()
 
 			if (updateStatus.second == 0)
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS INSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(ICONINDEX + error);
+			}
+		}
+		else if (data.first == ContentType::CONTENT_BEZEL_UNINSTALL)
+		{
+			updateStatus = ApiSystem::getInstance()->uninstallBatoceraBezel(data.second, [this](const std::string info)
+			{
+				updateNotificationComponentContent(info);
+			});
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS UNINSTALLED SUCCESSFULLY"));
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;

@@ -614,11 +614,11 @@ std::vector<std::string> Win32ApiSystem::getAvailableStorageDevices()
 	return res;
 }
 
-std::vector<std::string> Win32ApiSystem::getBatoceraBezelsList()
+std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraBezelsList";
 
-	std::vector<std::string> res;
+	std::vector<BatoceraBezel> res;
 
 	HttpReq request("https://batocera.org/upgrades/bezels.txt");
 	if (request.wait())
@@ -630,11 +630,16 @@ std::vector<std::string> Win32ApiSystem::getBatoceraBezelsList()
 			if (parts.size() < 2)
 				continue;
 
+			BatoceraBezel bz;
+			bz.name = parts[0];
+			bz.url = parts[1];
+			bz.folderPath = parts.size() < 3 ? "" : parts[2];
+
 			std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + parts[0];
-			if (Utils::FileSystem::exists(theBezelProject))
-				res.push_back("[I]\t" + line);
-			else
-				res.push_back("[A]\t" + line);
+			bz.isInstalled = Utils::FileSystem::exists(theBezelProject);
+
+			if (bz.name != "?")
+				res.push_back(bz);
 		}
 	}
 
@@ -646,15 +651,11 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
 
 	for (auto bezel : getBatoceraBezelsList())
-	{
-		auto parts = Utils::String::splitAny(bezel, " \t");
-		if (parts.size() < 2)
-			continue;
-
-		if (parts[1] == bezelsystem)
+	{		
+		if (bezel.name == bezelsystem)
 		{
-			std::string themeUrl = parts.size() > 1 ? parts[2] : "";
-			std::string subFolder = parts.size() > 2 ? parts[3] : "";
+			std::string themeUrl = bezel.url;
+			std::string subFolder = bezel.folderPath;
 
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
 			std::string zipFile = getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip";
@@ -704,7 +705,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 	return std::pair<std::string, int>("", 1);
 }
 
-std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem)
+std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem;
 	Utils::FileSystem::deleteDirectoryFiles(theBezelProject);

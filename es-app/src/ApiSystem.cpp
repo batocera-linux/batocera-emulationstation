@@ -856,29 +856,32 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 	return executeScript("batocera-es-theme install " + thname, func);
 }
 
-std::vector<std::string> ApiSystem::getBatoceraBezelsList() 
+std::vector<BatoceraBezel> ApiSystem::getBatoceraBezelsList()
 {
 	LOG(LogInfo) << "ApiSystem::getBatoceraBezelsList";
 
-	std::vector<std::string> res;
+	std::vector<BatoceraBezel> res;
 
-	std::string command = "batocera-es-thebezelproject list";
-	FILE *pipe = popen(command.c_str(), "r");
-	if (pipe == NULL)
-		return res;
-
-	char line[1024];
-	char *pch;
-
-	while (fgets(line, 1024, pipe)) 
+	auto lines = executeEnumerationScript("batocera-es-thebezelproject list");
+	for (auto line : lines)
 	{
-		strtok(line, "\n");
-		// provide only themes that are [A]vailable or [I]nstalled as a result
-		// (Eliminate [?] and other non-installable lines of text)
-		if ((strncmp(line, "[A]", 3) == 0) || (strncmp(line, "[I]", 3) == 0))
-			res.push_back(std::string(line));
+		auto parts = Utils::String::splitAny(line, " \t");
+		if (parts.size() < 2)
+			continue;
+
+		if (!Utils::String::startsWith(parts[0], "[I]") && !Utils::String::startsWith(parts[0], "[A]"))
+			continue;
+
+		BatoceraBezel bz;
+		bz.isInstalled = (Utils::String::startsWith(parts[0], "[I]"));
+		bz.name = parts[1];
+		bz.url = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+		bz.folderPath = parts.size() < 4 ? "" : parts[3];
+
+		if (bz.name != "?")
+			res.push_back(bz);
 	}
-	pclose(pipe);
+
 	return res;
 }
 
@@ -887,31 +890,9 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsys
 	return executeScript("batocera-es-thebezelproject install " + bezelsystem, func);
 }
 
-std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem) 
+std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
-	LOG(LogInfo) << "ApiSystem::uninstallBatoceraBezel " << bezelsystem;
-
-	std::string updatecommand = "batocera-es-thebezelproject remove " + bezelsystem;
-	
-	FILE *pipe = popen(updatecommand.c_str(), "r");
-	if (pipe == NULL)
-		return std::pair<std::string, int>(std::string("Error starting 'batocera-es-thebezelproject remove' command."), -1);
-
-	char line[1024] = "";
-
-	while (fgets(line, 1024, pipe)) 
-	{
-		strtok(line, "\n");
-		// Long theme names/URL can crash the GUI MsgBox
-		// "48" found by trials and errors. Ideally should be fixed
-		// in es-core MsgBox -- FIXME
-		if (strlen(line) > 48)
-			line[47] = '\0';
-		ui->setText(std::string(line));
-	}
-
-	int exitCode = WEXITSTATUS(pclose(pipe));
-	return std::pair<std::string, int>(std::string(line), exitCode);
+	return executeScript("batocera-es-thebezelproject remove " + bezelsystem, func);
 }
 
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)

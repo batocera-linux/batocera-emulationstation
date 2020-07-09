@@ -38,6 +38,14 @@ struct RetroAchievementInfo
 	std::vector<RetroAchievementGame> games;
 };
 
+struct BatoceraBezel
+{
+	std::string name;
+	std::string url;
+	std::string folderPath;
+	bool isInstalled;
+};
+
 struct PacmanPackage
 {
 	PacmanPackage()
@@ -171,9 +179,9 @@ public:
 	virtual std::vector<std::string> getBatoceraThemesList();
 	virtual std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
 
-    virtual std::vector<std::string> getBatoceraBezelsList();
+    virtual std::vector<BatoceraBezel> getBatoceraBezelsList();
 	virtual std::pair<std::string,int> installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
-	virtual std::pair<std::string,int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
+	virtual std::pair<std::string,int> uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
 
