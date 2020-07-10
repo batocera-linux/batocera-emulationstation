@@ -131,7 +131,10 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
 			msgBox->close();
-			loadPackages();
+
+			auto pThis = this;
+			msgBox->close();
+			pThis->loadPackages();
 		});
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, package]
@@ -139,8 +142,10 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_UNINSTALL, package.name);			
+			
+			auto pThis = this;
 			msgBox->close();
-			loadPackages();
+			pThis->loadPackages();
 		});
 	}
 	else
@@ -152,8 +157,10 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
+			
+			auto pThis = this;
 			msgBox->close();
-			loadPackages();
+			pThis->loadPackages();
 		});
 	}
 
