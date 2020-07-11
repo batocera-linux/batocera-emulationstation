@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -472,6 +472,9 @@ msgstr "SFORMATUJ DYSK"
 
 msgid "DOWNLOADS"
 msgstr "DO ŚCIĄGNIĘCIA"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "MOTYWY"
@@ -1152,30 +1155,34 @@ msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA."
 msgstr[1] "%i GRY ZOSTAŁY POMINIĘTE."
 msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH."
 
-msgid "INSTALL BEZELS"
-msgstr "ZAINSTALUJ RAMKI"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "ODINSTALUJ RAMKI"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "ZAINSTALUJ PROJEKT RAMEK"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ ZAINSTALOWANE RAMKI"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' DODANO DO KOLEJKI POBIERANIA"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "ODINSTALUJ PROJEKT RAMEK"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "WYBIERZ SYSTEM, W KTÓRYM ZOSTANĄ USUNIĘTE RAMKI"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "RAMKI USUNIĘTE POMYŚLNIE"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "PODMIEŃ OBRAZ PO (SEKUNDACH)"
@@ -1653,6 +1660,12 @@ msgstr "MOTYW ZAINSTALOWANY POMYŚLNIE"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "RAMKI ZAINSTALOWANE POMYŚLNIE"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "ULUBIONE"
 
@@ -1982,6 +1995,27 @@ msgstr "PRACUJĘ.."
 
 msgid "up/down"
 msgstr "góra/dół"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "ZAINSTALUJ RAMKI"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "ODINSTALUJ RAMKI"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "ZAINSTALUJ PROJEKT RAMEK"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "WYBIERZ SYSTEM, W KTÓRYM BĘDĄ ZAINSTALOWANE RAMKI"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "ODINSTALUJ PROJEKT RAMEK"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "WYBIERZ SYSTEM, W KTÓRYM ZOSTANĄ USUNIĘTE RAMKI"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "RAMKI USUNIĘTE POMYŚLNIE"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "SORTUJ KOLEKCJE I SYSTEMY NIESTANDARDOWE"

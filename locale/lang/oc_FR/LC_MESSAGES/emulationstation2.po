@@ -1,21 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
+# Translation in general Occitan, lengadocian.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Quentin PAGÈS, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 22:47+0200\n"
-"PO-Revision-Date: 2020-06-21 14:28+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"PO-Revision-Date: 2020-07-08 22:38+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3.1\n"
-"Last-Translator: Quentin PAGÈS\n"
-"Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -71,7 +71,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "CAP DE PERIFERIC BLUETOOTH PAS TROBAT"
 
 msgid "PLEASE WAIT"
-msgstr "ESPERATZ..."
+msgstr "ESPERATZ"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "LIGAMS MANETA SUPRIMIT."
@@ -98,19 +98,19 @@ msgid "LAUNCH"
 msgstr "LANÇAR"
 
 msgid "UNAVAILABLE CORE"
-msgstr ""
+msgstr "CÒS PAS DISPONIBLE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JÒCS DISPONIBLES"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "jÒCS PAS DISPONIBLES"
+msgstr "JÒCS PAS DISPONIBLES"
 
 msgid "NO GAME FOUND"
 msgstr "CAP DE JÒC PAS TROBAT"
 
 msgid "go back"
-msgstr "Precedent"
+msgstr "precedent"
 
 msgid "NAVIGATION"
 msgstr "NAVEGACION"
@@ -128,25 +128,25 @@ msgid "GAME MEDIAS"
 msgstr "MÈDIAS JÒC"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "VEIRE MANUAL DEL JÒC"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "VEIRE LA MAPA DEL JÒC"
 
 msgid "COLLECTION"
 msgstr "COLLECCION"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "MODIFICAR LOS FILTRES DE LA COLLECCION"
 
 msgid "DELETE COLLECTION"
-msgstr ""
+msgstr "SUPRIMIR COLLECCION"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr ""
+msgstr "COLLECCION DINAMICA NOVÈLA"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "ESTIL DE LISTA DE JÒCS"
 
 msgid "automatic"
 msgstr "automatic"
@@ -155,10 +155,10 @@ msgid "VIEW OPTIONS"
 msgstr "VEIRE OPCIONS"
 
 msgid "VIEW CUSTOMISATION"
-msgstr ""
+msgstr "VEIRE PERSONALIZACION"
 
 msgid "COLLECTION MANAGEMENT"
-msgstr ""
+msgstr "GESTION DE COLLECCION"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr ""
@@ -167,7 +167,7 @@ msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "GAME OPTIONS"
-msgstr ""
+msgstr "OPCIONS DE JÒCS"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr ""
@@ -212,7 +212,7 @@ msgid "SYSTEMS"
 msgstr "SISTÈMAS"
 
 msgid "MANUAL INPUT"
-msgstr ""
+msgstr "ENTRADA MANUALA"
 
 msgid "NO WIFI NETWORKS FOUND"
 msgstr ""
@@ -236,25 +236,25 @@ msgid "System"
 msgstr "Sistèma"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitectura"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr ""
+msgstr "Memòria disponibla"
 
 msgid "Battery"
 msgstr "Batariá"
 
 msgid "Cpu model"
-msgstr ""
+msgstr "Modèl processor"
 
 msgid "Cpu number"
-msgstr ""
+msgstr "Nombre de processor"
 
 msgid "Cpu feature"
-msgstr ""
+msgstr "Foncionalitat processor"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -275,7 +275,7 @@ msgid "UI SETTINGS"
 msgstr "PARAMÈTRES INTERFÀCIA"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES DE LAS COLLECCIONS DE JÒCS"
 
 msgid "SOUND SETTINGS"
 msgstr "PARAMÈTRES DE SON"
@@ -290,7 +290,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES EMULATOR"
 
 msgid "SCRAPE"
-msgstr ""
+msgstr "RECUPERAR INFO"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "MESAS A JORN E TELECARGAMENTS"
@@ -308,19 +308,19 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "SEGADOIRA d’INFO"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "RECUPERAR ARA"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "RECUPERAR DE"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "FONT IMATGE"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "CAPTURA D'ECRAN"
 
 msgid "TITLE SCREENSHOT"
 msgstr ""
@@ -481,6 +481,9 @@ msgstr ""
 msgid "DOWNLOADS"
 msgstr ""
 
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
 msgid "THEMES"
 msgstr ""
 
@@ -527,40 +530,52 @@ msgid "START KODI WITH X"
 msgstr "AVIAR KODI AMB X"
 
 msgid "HARDWARE"
-msgstr ""
+msgstr "MATERIAL"
 
 msgid "BRIGHTNESS"
-msgstr ""
+msgstr "LUMINOSITAT"
 
 msgid "VIDEO OUTPUT"
-msgstr ""
+msgstr "SORTIDA VIDÈO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "AUDIO OUTPUT"
-msgstr ""
+msgstr "SORTIDA ÀUDIO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES NETPLAY"
 
 msgid "MISSING BIOS"
 msgstr ""
+
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "ON"
+msgstr "ACTIVAT"
+
+msgid "OFF"
+msgstr "DESACTIVAT"
 
 msgid "OVERCLOCK"
 msgstr ""
 
 msgid "STORAGE"
-msgstr ""
+msgstr "EMMAGAZINATGE"
 
 msgid "STORAGE DEVICE"
 msgstr "PERIFERIC D’ESTOCATGE"
 
 msgid "BACKUP USER DATA"
-msgstr ""
+msgstr "SALVAGARDAR DONADAS UTILIZAIRE"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr ""
@@ -583,20 +598,11 @@ msgstr ""
 msgid "RUN-AHEAD FRAMES"
 msgstr ""
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr ""
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr ""
-
-msgid "ON"
-msgstr ""
-
-msgid "OFF"
-msgstr "DESACTIVAT"
 
 msgid "HARDCORE MODE"
 msgstr "MÒDE DIFICIL DIFICIL"
@@ -608,16 +614,16 @@ msgid "VERBOSE MODE"
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
-msgstr ""
+msgstr "CAPTURA D'ECRAN AUTOMATICA"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRAR AL MENÚ PRINCIPAL"
 
 msgid "SETTINGS"
 msgstr "PARAMÈTRES"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "ACTIVAR NETPLAY"
 
 msgid "NICKNAME"
 msgstr "ESCAIS"
@@ -641,7 +647,7 @@ msgid "INDEX MISSING GAMES"
 msgstr ""
 
 msgid "TOOLS"
-msgstr ""
+msgstr "AISINAS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LA LISTA DE JÒCS"
@@ -880,15 +886,17 @@ msgstr "VOLUM"
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM SISTÈMA"
 
+msgid "MUSIC VOLUME"
+msgstr ""
+
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr ""
 
 msgid "MUSIC"
 msgstr "MUSICA"
 
-#, fuzzy
 msgid "FRONTEND MUSIC"
-msgstr "MUSICA"
+msgstr "MUSICA D'AMBIENT"
 
 msgid "DISPLAY SONG TITLES"
 msgstr ""
@@ -900,7 +908,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr ""
 
 msgid "PLAY THEME MUSICS"
-msgstr ""
+msgstr "JOGAR LAS MUSICAS DE TÈMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr ""
@@ -957,7 +965,7 @@ msgid "SKIP TO NEXT SONG"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
-msgstr ""
+msgstr "AVIAR L'ESTALVIADOR D'ECRAN"
 
 msgid "RESTART SYSTEM"
 msgstr "REAVIAR LO SISTÈMA"
@@ -987,7 +995,7 @@ msgid "VIDEO MODE"
 msgstr "MÒDE VIDÈO"
 
 msgid "COLORIZATION"
-msgstr ""
+msgstr "COLORIZACION"
 
 msgid "FULL BOOT"
 msgstr ""
@@ -1044,7 +1052,7 @@ msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr ""
 
 msgid "OPTIONS"
-msgstr ""
+msgstr "OPCIONS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
@@ -1107,10 +1115,10 @@ msgid "subtitle text"
 msgstr "tèxte sostítol"
 
 msgid "search"
-msgstr ""
+msgstr "cercar"
 
 msgid "SKIP"
-msgstr ""
+msgstr "IGNORAR"
 
 msgid "STOP"
 msgstr "ARRESTAR"
@@ -1137,32 +1145,36 @@ msgstr[1] ""
 #, c-format
 msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JÒC SAUTAT"
-msgstr[1] "%i JÒCS SAUTATS"
+msgstr[0] "%i JÒC SAUTAT."
+msgstr[1] "%i JÒCS SAUTATS."
 
-msgid "INSTALL BEZELS"
-msgstr "INSTALLAR BEZELS"
-
-msgid "UNINSTALL BEZELS"
-msgstr "DESINSTALLAR BEZELS"
-
-msgid "INSTALL THE BEZEL PROJECT"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+msgid "UPDATE"
 msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "UNINSTALL THE BEZEL PROJECT"
+msgid "REMOVE"
 msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
@@ -1293,19 +1305,19 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "enter game name"
-msgstr "Dintratz lo nom del jòc"
+msgstr "dintratz lo nom del jòc"
 
 msgid "Description"
-msgstr "descripcion"
+msgstr "Descripcion"
 
 msgid "enter description"
-msgstr "Dintratz la descripcion"
+msgstr "dintratz la descripcion"
 
 msgid "emulator"
-msgstr ""
+msgstr "emulator"
 
 msgid "core"
-msgstr ""
+msgstr "còs"
 
 msgid "Image"
 msgstr "Imatge"
@@ -1317,13 +1329,13 @@ msgid "Video"
 msgstr "Vidèo"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "dintrar lo camin d’accès a la vidèo"
 
 msgid "Logo"
 msgstr "Lògo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "dintrar lo camin d’accès al lògo"
 
 msgid "Box"
 msgstr ""
@@ -1353,7 +1365,7 @@ msgid "Map"
 msgstr "Mapa"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "dintrar lo camin d’accès a la mapa"
 
 msgid "Cartridge"
 msgstr ""
@@ -1383,7 +1395,7 @@ msgid "Rating"
 msgstr "Valoracion"
 
 msgid "enter rating"
-msgstr "Dintratz lo racio"
+msgstr "dintratz lo racio"
 
 msgid "Release date"
 msgstr "Data de sortida"
@@ -1440,7 +1452,7 @@ msgid "enter kidgame"
 msgstr ""
 
 msgid "Play count"
-msgstr "comptador partidas"
+msgstr "Comptador partidas"
 
 msgid "enter number of times played"
 msgstr "dintrar lo nombre de partidas"
@@ -1455,16 +1467,16 @@ msgid "Crc32"
 msgstr "CRC32"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "Soma de contraròtle Crc32"
 
 msgid "Md5"
 msgstr "MD5"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "Soma de contraròtle MD5"
 
 msgid "Game time"
-msgstr ""
+msgstr "Durada de jòc"
 
 msgid "how long the game has been played in total (seconds)"
 msgstr ""
@@ -1518,7 +1530,7 @@ msgid "NETPLAY"
 msgstr "NETPLAY"
 
 msgid "RANDOM"
-msgstr ""
+msgstr "ALEATÒRI"
 
 msgid "FILES"
 msgstr "FICHIÈRS"
@@ -1536,7 +1548,7 @@ msgid "No Entries Found"
 msgstr ""
 
 msgid "Favorites"
-msgstr "Marcapaginas"
+msgstr "Favorits"
 
 msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr ""
@@ -1548,7 +1560,7 @@ msgid "Times played"
 msgstr "Temps jogat"
 
 msgid "Preloading UI"
-msgstr ""
+msgstr "UI de precargament"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -1628,6 +1640,12 @@ msgstr ""
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr ""
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "FAVORITS"
 
@@ -1662,7 +1680,7 @@ msgid "Extracting"
 msgstr ""
 
 msgid "Searching"
-msgstr "En cors de recèrca"
+msgstr "Recèrca"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "CAP DE JÒC PAS TROBAT - PASSAR"
@@ -1716,7 +1734,7 @@ msgid "all games"
 msgstr "totes los jòcs"
 
 msgid "last played"
-msgstr ""
+msgstr "darrièra partida"
 
 msgid "favorites"
 msgstr "favorits"
@@ -1734,7 +1752,7 @@ msgid "arcade"
 msgstr ""
 
 msgid "collections"
-msgstr ""
+msgstr "colleccions"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
@@ -1863,7 +1881,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr ""
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "QUICHATZ UN BOTON DE LA MANETA PER LA CONFIGURAR"
+msgstr "QUICHATZ UN BOTON DE LA MANETA PER LA CONFIGURAR."
 
 #, c-format
 msgid "%d hour"
@@ -1942,3 +1960,9 @@ msgstr "TRACTAMENT..."
 
 msgid "up/down"
 msgstr "naut/bas"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "INSTALLAR BEZELS"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "DESINSTALLAR BEZELS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -478,6 +478,9 @@ msgstr "تهيئة القرص"
 
 msgid "DOWNLOADS"
 msgstr "تنزيل"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "سِمات"
@@ -1164,30 +1167,34 @@ msgstr[3] "%i ألعاب تم تخطيهم"
 msgstr[4] "%i لعبة تم تخطيها"
 msgstr[5] "%i لعبة تم تخطيها"
 
-msgid "INSTALL BEZELS"
-msgstr "تثبيت البراويز"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "إلغاء تثبيت البراويز"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "تثبيت مشروع البرواز"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "حدد النظام الذي سيتم فيه تثبيت البرواز"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' تم اضافته لمسار التنزيلات"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "إلغاء تثبيت مشروع البرواز"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "حدد النظام الذي سيتم فيه إزالة البرواز"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "تم حذف البراويز بنجاح"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "قم بتبديل الصورة بعد (ثوانِ)"
@@ -1674,6 +1681,12 @@ msgstr "تم تثبيت السمة بنجاح"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "تم تثبيت البرواز بنجاح"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "المفضلة"
 
@@ -2035,6 +2048,27 @@ msgstr "يعمل حالياً..."
 
 msgid "up/down"
 msgstr "أعلى/أسفل"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "تثبيت البراويز"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "إلغاء تثبيت البراويز"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "تثبيت مشروع البرواز"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "حدد النظام الذي سيتم فيه تثبيت البرواز"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "إلغاء تثبيت مشروع البرواز"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "حدد النظام الذي سيتم فيه إزالة البرواز"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "تم حذف البراويز بنجاح"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "فرز مخصص للمجموعات والأنظمه"

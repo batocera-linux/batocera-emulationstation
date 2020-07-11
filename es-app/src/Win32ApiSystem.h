@@ -28,9 +28,9 @@ public:
 	std::pair<std::string, int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func) override;
 
 	// Bezels
-	virtual std::vector<std::string> getBatoceraBezelsList();
+	virtual std::vector<BatoceraBezel> getBatoceraBezelsList();
 	virtual std::pair<std::string, int> installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
-	virtual std::pair<std::string, int> uninstallBatoceraBezel(BusyComponent* ui, std::string bezelsystem);
+	virtual std::pair<std::string, int> uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
 	// Updates
 	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func) override;

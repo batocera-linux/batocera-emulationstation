@@ -6,178 +6,135 @@
 #include "views/ViewController.h"
 #include "components/ComponentGrid.h"
 #include "SystemData.h"
-#include "GuiBezelUnInstall.h"
 #include "LocaleES.h"
 #include "ContentInstaller.h"
 #include "components/MultiLineMenuEntry.h"
 #include <cstring>
 
+#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
 
-// Batocera integration with theBezelProject
-GuiBezelInstallMenu::GuiBezelInstallMenu(Window* window)
-        :GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str())
-{
-	auto theme = ThemeData::getMenuTheme();
-
-	addChild(&mMenu);
-	ComponentListRow row;
-      {
-        auto openBezelInstallNow = [this] { mWindow->pushGui(new GuiBezelInstallStart(mWindow)); };
-        row.makeAcceptInputHandler(openBezelInstallNow);
-        auto BezelInstallSettings = std::make_shared<TextComponent>(mWindow, _("INSTALL BEZELS"),
-			theme->Text.font, theme->Text.color);
-        auto bracket = makeArrow(mWindow);
-        row.addElement(BezelInstallSettings, true);
-        row.addElement(bracket, false);
-	mMenu.addRow(row);
-	row.elements.clear();
-      }
-      { // Also add the ability to remove bezels installed previously 
-        auto openBezelUninstallNow = [this] { mWindow->pushGui(new GuiBezelUninstallStart(mWindow)); };
-        row.makeAcceptInputHandler(openBezelUninstallNow);
-        auto BezelUninstallSettings = std::make_shared<TextComponent>(mWindow, _("UNINSTALL BEZELS"),
-			theme->Text.font, theme->Text.color);
-        auto bracket = makeArrow(mWindow);
-        row.addElement(BezelUninstallSettings, true);
-        row.addElement(bracket, false);
-	mMenu.addRow(row);
-	row.elements.clear();
-      }
-
-        mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
-}
-
-bool GuiBezelInstallMenu::input(InputConfig* config, Input input)
-{
-	bool consumed = GuiComponent::input(config, input);
-	if(consumed)
-		return true;
-	
-	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
-	{
-		delete this;
-		return true;
-	}
-	if(config->isMappedTo("start", input) && input.value != 0)
-	{
-		// close everything
-		Window* window = mWindow;
-		while(window->peekGui() && window->peekGui() != ViewController::get())
-			delete window->peekGui();
-	}
-	return false;
-}
-
-std::vector<HelpPrompt> GuiBezelInstallMenu::getHelpPrompts()
-{
-        std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-        prompts.push_back(HelpPrompt("start", _("CLOSE")));
-        return prompts;
-}
-
-// Batocera install theBezelProject
 GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
-	:GuiComponent(window), mMenu(window, _("INSTALL THE BEZEL PROJECT").c_str())
+	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str())
 {
 	auto theme = ThemeData::getMenuTheme();
 
 	addChild(&mMenu);
-	mMenu.setSubTitle(_("SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"));
+	mMenu.setSubTitle(_("SELECT BEZELS TO INSTALL / REMOVE"));
+    mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	ComponentListRow row;
-	
-	//list all bezels available from TheBezelProject
-	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();
-
-        for (auto it = availableBezels.begin(); it != availableBezels.end(); it++)
-        {
-                auto parts = Utils::String::splitAny(*it, " \t");
-                if (parts.size() < 2)
-                        continue;
-
-                // Get bezel install status (from string '[I] Bezel_name http://url_of_this_Bezel')
-                bool isInstalled = (Utils::String::startsWith(parts[0],"[I]"));
-                std::string bezelName = parts[1];
-                std::string bezelUrl = parts.size() < 3 ? "" : (parts[2]=="-" ? parts[3] : parts[2]);
-
-				if (bezelName == "?")
-					continue;
-
-                ComponentListRow row;
-
-				/*
-				// icon
-				auto icon = std::make_shared<ImageComponent>(mWindow);
-				icon->setImage(isInstalled ? ":/star_filled.svg" : ":/star_unfilled.svg");
-				icon->setColorShift(theme->Text.color);
-				icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-				*/
-
-				auto icon = std::make_shared<TextComponent>(mWindow);
-				icon->setColor(theme->Text.color);
-
-				if (isInstalled)
-					icon->setOpacity(192);
-
-				icon->setFont(theme->Text.font);
-				icon->setText(isInstalled ? _U("\uF021") : _U("\uF019"));
-				icon->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
-				row.addElement(icon, false);
-				
-                // spacer between icon and text
-                auto spacer = std::make_shared<GuiComponent>(mWindow);
-                spacer->setSize(10, 0);
-                row.addElement(spacer, false);
-
-                auto grid = std::make_shared<MultiLineMenuEntry>(window, bezelName, bezelUrl);
-                row.addElement(grid, true);
-                row.makeAcceptInputHandler([this, bezelName] { this->start(bezelName); });
-                mMenu.addRow(row);
-        }
-
-        mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-
-		if (Renderer::isSmallScreen())
-			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-		else
-			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	loadBezels();	
 }
 
-void GuiBezelInstallStart::start(std::string SelectedBezel)
+void GuiBezelInstallStart::loadBezels()
 {
-	if (SelectedBezel.empty())
+	int idx = mMenu.getCursorIndex();
+	mMenu.clear();
+
+	int i = 0;
+	auto bezels = ApiSystem::getInstance()->getBatoceraBezelsList();
+	for (auto bezel : bezels)
+	{
+		ComponentListRow row;
+
+		auto grid = std::make_shared<GuiBatoceraBezelEntry>(mWindow, bezel);
+		row.addElement(grid, true);
+
+		if (!grid->isInstallPending())
+			row.makeAcceptInputHandler([this, bezel] { processBezel(bezel); });
+
+		mMenu.addRow(row, i == idx);
+		i++;
+	}
+
+	centerWindow();
+}
+
+void GuiBezelInstallStart::centerWindow()
+{
+	if (Renderer::isSmallScreen())
+		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	else
+		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.883f);
+
+	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+}
+
+void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
+{
+	if (bezel.name.empty())
 		return;
 
-	char trstring[256];
-	snprintf(trstring, 256, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), SelectedBezel.c_str()); // batocera
-	mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
+	GuiSettings* msgBox = new GuiSettings(mWindow, bezel.name);
+	msgBox->setSubTitle(bezel.url);
+	msgBox->setTag("popup");
 
-	ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL, SelectedBezel);
-	delete this;	
+	if (bezel.isInstalled)
+	{
+		msgBox->addEntry(_U("\uF019 ") + _("UPDATE"), false, [this, msgBox, bezel]
+		{
+			char trstring[1024];
+			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str()); // batocera
+			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
+
+			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+
+			auto pThis = this;
+			msgBox->close();
+			pThis->loadBezels();
+		});
+
+		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, bezel]
+		{
+			auto updateStatus = ApiSystem::getInstance()->uninstallBatoceraBezel(bezel.name);
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(_U("\uF019 ") + bezel.name + " : " + _("BEZELS UNINSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(_U("\uF019 ") + error);
+			}
+
+			auto pThis = this;
+			msgBox->close();
+			pThis->loadBezels();
+		});
+	}
+	else
+	{
+		msgBox->addEntry(_U("\uF019 ") + _("INSTALL"), false, [this, msgBox, bezel]
+		{			
+			char trstring[1024];
+			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str()); // batocera
+			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
+
+			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+
+			auto pThis = this;
+			msgBox->close();
+			pThis->loadBezels();
+		});
+	}
+
+	mWindow->pushGui(msgBox);
 }
 
 bool GuiBezelInstallStart::input(InputConfig* config, Input input)
 {
-	bool consumed = GuiComponent::input(config, input);
-	if(consumed)
+	if (GuiComponent::input(config, input))
 		return true;
-	
-	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
+
+	if (input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{
 		delete this;
 		return true;
 	}
-	if(config->isMappedTo("start", input) && input.value != 0)
+
+	if (config->isMappedTo("start", input) && input.value != 0)
 	{
 		// close everything
 		Window* window = mWindow;
-		while(window->peekGui() && window->peekGui() != ViewController::get())
+		while (window->peekGui() && window->peekGui() != ViewController::get())
 			delete window->peekGui();
 	}
 	return false;
@@ -191,97 +148,79 @@ std::vector<HelpPrompt> GuiBezelInstallStart::getHelpPrompts()
 	return prompts;
 }
 
-// And now uninstall them
-GuiBezelUninstallStart::GuiBezelUninstallStart(Window* window)
-	:GuiComponent(window), mMenu(window, _("UNINSTALL THE BEZEL PROJECT").c_str())
+
+//////////////////////////////////////////////////////////////
+// GuiBatoceraStoreEntry
+//////////////////////////////////////////////////////////////
+
+GuiBatoceraBezelEntry::GuiBatoceraBezelEntry(Window* window, BatoceraBezel& entry) :
+	ComponentGrid(window, Vector2i(4, 3))
 {
+	mEntry = entry;
+
 	auto theme = ThemeData::getMenuTheme();
 
-	addChild(&mMenu);
-	mMenu.setSubTitle(_("SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"));
+	bool isInstalled = entry.isInstalled;
 
-	ComponentListRow row;	
+	mIsPending = 
+		ContentInstaller::IsInQueue(ContentInstaller::CONTENT_BEZEL_INSTALL, entry.name) || 
+		ContentInstaller::IsInQueue(ContentInstaller::CONTENT_BEZEL_UNINSTALL, entry.name);
 
-	//list all bezels available from TheBezelProject
-	std::vector<std::string> availableBezels = ApiSystem::getInstance()->getBatoceraBezelsList();
+	mImage = std::make_shared<TextComponent>(mWindow);
+	mImage->setColor(theme->Text.color);
+	if (!isInstalled)
+		mImage->setOpacity(192);
 
-        for (auto it = availableBezels.begin(); it != availableBezels.end(); it++){
+	mImage->setHorizontalAlignment(Alignment::ALIGN_CENTER);
+	mImage->setVerticalAlignment(Alignment::ALIGN_TOP);
+	mImage->setFont(theme->Text.font);
+	mImage->setText(isInstalled ? _U("\uF058") : _U("\uF019"));
+	mImage->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
 
-                auto itstring = std::make_shared<TextComponent>(mWindow,
-                                (*it).c_str(), theme->Text.font, theme->Text.color);
-                char *tmp=new char [(*it).length()+1];
-                std::strcpy (tmp, (*it).c_str());
-                // Get Bezel_System name (from string '[I] Bezel_name http://url_of_this_Bezel')
-		// as bezel_cli (short system name, long names will be fetched below)
-                char *bezel_cli = strtok (tmp, " \t");
-                bezel_cli = strtok (NULL, " \t");
+	mText = std::make_shared<TextComponent>(mWindow, entry.name, theme->Text.font, theme->Text.color);
+	mText->setLineSpacing(1.5);
+	mText->setVerticalAlignment(ALIGN_TOP);
 
-		// Only show [I]nstalled bezels not the others
-		if (strcmp (tmp, "[I]"))
-			continue;
+	std::string details = entry.url;
 
-		std::vector<SystemData*>::const_iterator itSystem;
-		for (itSystem = SystemData::sSystemVector.cbegin(); itSystem != SystemData::sSystemVector.cend(); itSystem++)
-		{
-			// Let's put the pretty name of the system
-			if (! strcmp ((*itSystem)->getName().c_str(), bezel_cli))
-				itstring = std::make_shared<TextComponent>(mWindow,
-						(*itSystem)->getFullName(), theme->Text.font, theme->Text.color);
-		}
-
-		// Names longer than this will crash GuiMsgBox downstream
-		// "48" found by trials and errors. Ideally should be fixed
-		// in es-core MsgBox -- FIXME (might be fixed with the recent refactoring!)
-		if (strlen(bezel_cli) > 48)
-			bezel_cli[47]='\0';
-		row.makeAcceptInputHandler([this, bezel_cli] { this->start(bezel_cli); });
-		row.addElement(itstring, true);
-		mMenu.addRow(row);
-		row.elements.clear();
-        }
-
-        mMenu.addButton(_("BACK"), "back", [&] { delete this; });
-
-	if (Renderer::isSmallScreen())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
-}
-
-void GuiBezelUninstallStart::start(char *bezel)
-{
-  if (strcmp(bezel,"")) {
-    mWindow->pushGui(new GuiBezelUninstall(mWindow, bezel));
-    delete this;
-  }
-}
-
-bool GuiBezelUninstallStart::input(InputConfig* config, Input input)
-{
-	bool consumed = GuiComponent::input(config, input);
-	if(consumed)
-		return true;
-	
-	if(input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
+	if (mIsPending)
 	{
-		delete this;
-		return true;
+		char trstring[1024];
+		snprintf(trstring, 1024, _("CURRENTLY IN DOWNLOAD QUEUE").c_str(), entry.name.c_str());
+		details = trstring;
 	}
-	if(config->isMappedTo("start", input) && input.value != 0)
+
+	mSubstring = std::make_shared<TextComponent>(mWindow, details, theme->TextSmall.font, theme->Text.color);
+	mSubstring->setOpacity(192);
+
+	setEntry(mImage, Vector2i(0, 0), false, true, Vector2i(1, 3));
+	setEntry(mText, Vector2i(2, 0), false, true);
+	setEntry(mSubstring, Vector2i(2, 1), false, true);
+
+	float h = mText->getSize().y() * 1.1f + mSubstring->getSize().y()/* + mDetails->getSize().y()*/;
+	float sw = WINDOW_WIDTH;
+
+	setColWidthPerc(0, 50.0f / sw, false);
+	setColWidthPerc(1, 0.015f, false);
+	setColWidthPerc(3, 0.002f, false);
+
+	setRowHeightPerc(0, mText->getSize().y() / h, false);
+	setRowHeightPerc(1, mSubstring->getSize().y() / h, false);
+
+	if (mIsPending)
 	{
-		// close everything
-		Window* window = mWindow;
-		while(window->peekGui() && window->peekGui() != ViewController::get())
-			delete window->peekGui();
+		mImage->setText(_U("\uF04B"));
+		mImage->setOpacity(120);
+		mText->setOpacity(150);
+		mSubstring->setOpacity(120);
 	}
-	return false;
+
+	setSize(Vector2f(0, h));
 }
 
-std::vector<HelpPrompt> GuiBezelUninstallStart::getHelpPrompts()
+void GuiBatoceraBezelEntry::setColor(unsigned int color)
 {
-        std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-        prompts.push_back(HelpPrompt("start", _("CLOSE")));
-	return prompts;
+	mImage->setColor(color);
+	mText->setColor(color);
+	mSubstring->setColor(color);
 }
-

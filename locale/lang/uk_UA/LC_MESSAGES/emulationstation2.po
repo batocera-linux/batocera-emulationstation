@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -474,6 +474,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DOWNLOADS"
+msgstr ""
+
+msgid "CONTENT DOWNLOADER"
 msgstr ""
 
 msgid "THEMES"
@@ -1153,30 +1156,34 @@ msgstr[0] "%i ГРА ПРОПУЩЕНА."
 msgstr[1] "%i ГРИ ПРОПУЩЕНІ."
 msgstr[2] "%i ІГР ПРОПУЩЕНО."
 
-msgid "INSTALL BEZELS"
-msgstr "ВСТАНОВИТИ РАМКИ (ОВЕРЛЕЇ)"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "ВИДАЛИТИ РАМКИ (ОВЕРЛЕЇ)"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "ВСТАНОВИТИ НАБІР РАМОК"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "В ЯКІЙ СИСТЕМІ ПЕРЕВСТАНОВИТИ РАМКИ?"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ДОДАНО В ЧЕРГУ ЗАВАНТАЖЕННЯ"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "ВИДАЛИТИ НАБІР РАМОК"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "З ЯКОЇ СИСТЕМИ ВИДАЛИТИ РАМКИ?"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "РАМКИ УСПІШНО ВИДАЛЕНО"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "ЗМІНА ЗОБРАЖЕННЯ ПІСЛЯ (СЕК)"
@@ -1654,6 +1661,12 @@ msgstr "ТЕМУ УСПІШНО ВСТАНОВЛЕНО"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПІШНО ВСТАНОВЛЕНІ"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr ""
 
@@ -1983,6 +1996,27 @@ msgstr "ОБРОБКА..."
 
 msgid "up/down"
 msgstr "вгору/вниз"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "ВСТАНОВИТИ РАМКИ (ОВЕРЛЕЇ)"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "ВИДАЛИТИ РАМКИ (ОВЕРЛЕЇ)"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "ВСТАНОВИТИ НАБІР РАМОК"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "В ЯКІЙ СИСТЕМІ ПЕРЕВСТАНОВИТИ РАМКИ?"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "ВИДАЛИТИ НАБІР РАМОК"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "З ЯКОЇ СИСТЕМИ ВИДАЛИТИ РАМКИ?"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "РАМКИ УСПІШНО ВИДАЛЕНО"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "СОРТУВАТИ КОЛЕКЦІЇ І СИСТЕМИ"

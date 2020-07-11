@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 19:07+0200\n"
+"POT-Creation-Date: 2020-07-09 21:20+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -471,6 +471,9 @@ msgstr "格式化磁盘"
 
 msgid "DOWNLOADS"
 msgstr "资料下载"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
 
 msgid "THEMES"
 msgstr "主题"
@@ -1145,30 +1148,34 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "跳过了 %i 个游戏。"
 
-msgid "INSTALL BEZELS"
-msgstr "安装框架"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "卸载框架"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "安装框架项目"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "选择安装或重新安装边框的系统"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "将 '%s' 添加到下载队列"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "卸载框架项目"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "选择移除框架的游戏平台"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "框架删除程控"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "图像替换 (SECS)"
@@ -1638,6 +1645,12 @@ msgstr "主题安装成功"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "框架安装成功"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "收藏"
 
@@ -1945,6 +1958,27 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "安装框架"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "卸载框架"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "安装框架项目"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "选择安装或重新安装边框的系统"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "卸载框架项目"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "选择移除框架的游戏平台"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "框架删除程控"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "对自定合辑和系统进行排序"
