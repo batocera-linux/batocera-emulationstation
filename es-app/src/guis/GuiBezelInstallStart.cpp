@@ -77,8 +77,10 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+
+			auto pThis = this;
 			msgBox->close();
-			loadBezels();
+			pThis->loadBezels();
 		});
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, bezel]
@@ -93,23 +95,24 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 				mWindow->displayNotificationMessage(_U("\uF019 ") + error);
 			}
 
-//			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
-//			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_UNINSTALL, bezel.name);
+			auto pThis = this;
 			msgBox->close();
-			loadBezels();
+			pThis->loadBezels();
 		});
 	}
 	else
 	{
 		msgBox->addEntry(_U("\uF019 ") + _("INSTALL"), false, [this, msgBox, bezel]
-		{
+		{			
 			char trstring[1024];
 			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str()); // batocera
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+
+			auto pThis = this;
 			msgBox->close();
-			loadBezels();
+			pThis->loadBezels();
 		});
 	}
 
