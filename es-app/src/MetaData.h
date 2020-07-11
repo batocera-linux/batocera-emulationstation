@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <functional>
+#include <string>
 
 class SystemData;
 
