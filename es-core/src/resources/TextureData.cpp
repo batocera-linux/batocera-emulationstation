@@ -19,6 +19,7 @@ TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear),
 									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
 	mIsExternalDataRGBA = false;
+	mRequired = false;
 }
 
 TextureData::~TextureData()

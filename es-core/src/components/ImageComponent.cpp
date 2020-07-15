@@ -39,6 +39,8 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 
 ImageComponent::~ImageComponent()
 {
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
 }
 
 void ImageComponent::resize()
@@ -156,6 +158,9 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	
 	mPath = canonicalPath;
 
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	// If the previous image is in the async queue, remove it
 	TextureResource::cancelAsync(mLoadingTexture);
 	TextureResource::cancelAsync(mTexture);
@@ -178,12 +183,18 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 			mTexture = texture;
 	}
 
+	if (mShowing && mTexture != nullptr)
+		mTexture->setRequired(true);
+
 	if (mLoadingTexture == nullptr)
 		resize();
 }
 
 void ImageComponent::setImage(const char* path, size_t length, bool tile)
 {
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	mTexture.reset();
 
 	mTexture = TextureResource::get("", tile);
@@ -194,7 +205,14 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 
 void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 {
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	mTexture = texture;
+
+	if (mShowing && mTexture != nullptr)
+		mTexture->setRequired(true);
+
 	resize();
 }
 
@@ -381,7 +399,14 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
 	{
+		if (mTexture != nullptr)
+			mTexture->setRequired(false);
+
 		mTexture = mLoadingTexture;
+
+		if (mShowing && mTexture != nullptr)
+			mTexture->setRequired(true);
+
 		mLoadingTexture.reset();
 		resize();
 		updateColors();
@@ -532,7 +557,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 			// The texture is loaded and we need to fade it in. The fade is based on the frame rate
 			// and is 1/4 second if running at 60 frames per second although the actual value is not
 			// that important
-			int opacity = mFadeOpacity + 255 / 15;
+			int opacity = mFadeOpacity + 255 / 10;
 			// See if we've finished fading
 			if (opacity >= 255)
 			{
@@ -543,6 +568,7 @@ void ImageComponent::fadeIn(bool textureLoaded)
 			{
 				mFadeOpacity = (unsigned char)opacity;
 			}
+
 			// Apply the combination of the target opacity and current fade			
 			updateColors();
 		}
@@ -696,12 +722,12 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			else
 			{
 				auto sz = getMaxSizeInfo();
-				if (sz.x() > 32 && sz.y() > 32)
+				if (!mLinear && sz.x() > 32 && sz.y() > 32)
 				{
 					mPath = "";
 					setImage(path, tile, sz);
 				}
-				else 
+				else
 					setImage(path, false);
 			}
 		}
@@ -730,6 +756,9 @@ void ImageComponent::onShow()
 {
 	GuiComponent::onShow();
 
+	if (mTexture != nullptr)
+		mTexture->setRequired(true);
+
 	if (!mShowing && mPlaylist != nullptr && !mPath.empty() && mPlaylist->getRotateOnShow())
 	{
 		auto item = mPlaylist->getNextItem();
@@ -743,9 +772,12 @@ void ImageComponent::onShow()
 void ImageComponent::onHide()
 {
 	GuiComponent::onHide();
+
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	mShowing = false;
 }
-
 
 void ImageComponent::update(int deltaTime)
 {

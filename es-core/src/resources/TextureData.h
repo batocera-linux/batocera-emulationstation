@@ -61,7 +61,12 @@ public:
 
 	bool initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
 
+	bool isRequired() { return mRequired; };
+	void setRequired(bool value) { mRequired = value; };
+
 private:
+	bool			mRequired;
+
 	std::mutex		mMutex;
 	bool			mTile;
 	bool			mLinear;
