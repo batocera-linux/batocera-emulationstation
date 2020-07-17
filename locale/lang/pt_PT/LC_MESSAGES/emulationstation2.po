@@ -1154,7 +1154,7 @@ msgstr[0] "%i JOGO IGNORADO."
 msgstr[1] "%i JOGOS IGNORADOS."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONE AS MOLDURAS A INSTALAR / REMOVER"
 
 msgid "UPDATE"
 msgstr "ATUALIZAR"
