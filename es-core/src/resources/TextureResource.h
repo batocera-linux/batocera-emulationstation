@@ -33,6 +33,8 @@ public:
 
 	bool isLoaded() const;
 	bool isTiled() const;
+	void prioritize() const;
+	void setRequired(bool value) const;
 
 	const Vector2i getSize() const;
 	bool bind();

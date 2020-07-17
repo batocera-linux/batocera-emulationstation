@@ -74,6 +74,9 @@ protected:
 	void onCursorChanged(const CursorState& state) override;
 
 private:
+	void	 preloadExtraNeighbours(int cursor);
+	void	 setExtraRequired(int cursor, bool required);
+
 	void	 activateExtras(int cursor, bool activate = true);	
 	void	 updateExtras(const std::function<void(GuiComponent*)>& func);
 	void	 clearEntries();

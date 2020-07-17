@@ -13,6 +13,7 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	mAnimateTiming = 0;
 	mAnimateColor = 0xFFFFFFFF;
 
+	mShowing = false;
 	mPreviousSize = Vector2f(0, 0);
 	setImagePath(path);
 }
@@ -28,6 +29,9 @@ void NinePatchComponent::setOpacity(unsigned char opacity)
 
 NinePatchComponent::~NinePatchComponent()
 {
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	if (mVertices != NULL)
 		delete[] mVertices;
 }
@@ -240,7 +244,15 @@ void NinePatchComponent::setImagePath(const std::string& path)
 		return;
 
 	mPath = path;
+
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
 	mTexture = TextureResource::get(mPath, false, true);
+
+	if (mShowing && mTexture != nullptr)
+		mTexture->setRequired(true);
+
 	buildVertices();
 }
 
@@ -298,4 +310,24 @@ void NinePatchComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 
 	if (elem->has("animateColorTime"))
 		setAnimateTiming(elem->get<float>("animateColorTime"));
+}
+
+void NinePatchComponent::onShow()
+{
+	GuiComponent::onShow();
+
+	if (mTexture != nullptr)
+		mTexture->setRequired(true);
+
+	mShowing = true;
+}
+
+void NinePatchComponent::onHide()
+{
+	GuiComponent::onHide();
+
+	if (mTexture != nullptr)
+		mTexture->setRequired(false);
+
+	mShowing = false;
 }
