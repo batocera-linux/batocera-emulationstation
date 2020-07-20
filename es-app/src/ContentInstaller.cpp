@@ -126,7 +126,7 @@ void ContentInstaller::threadUpdate()
 
 		std::pair<std::string, int> updateStatus;
 
-		if (data.first == ContentType::CONTENT_THEME)
+		if (data.first == ContentType::CONTENT_THEME_INSTALL)
 		{
 			updateStatus = ApiSystem::getInstance()->installBatoceraTheme(data.second, [this](const std::string info)
 			{
@@ -135,6 +135,22 @@ void ContentInstaller::threadUpdate()
 
 			if (updateStatus.second == 0)
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("THEME INSTALLED SUCCESSFULLY"));
+			else
+			{
+				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				mWindow->displayNotificationMessage(ICONINDEX + error);
+			}
+
+		}
+		else if (data.first == ContentType::CONTENT_THEME_UNINSTALL)
+		{
+			updateStatus = ApiSystem::getInstance()->uninstallBatoceraTheme(data.second, [this](const std::string info)
+			{
+				updateNotificationComponentContent(info);
+			});
+
+			if (updateStatus.second == 0)
+				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("THEME UNINSTALLED SUCCESSFULLY"));
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;

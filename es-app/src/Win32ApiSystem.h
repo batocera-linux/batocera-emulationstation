@@ -24,8 +24,9 @@ public:
 	bool isReadyFlagSet() override;
 
 	// Themes
-	std::vector<std::string> getBatoceraThemesList() override;
+	std::vector<BatoceraTheme> getBatoceraThemesList() override;
 	std::pair<std::string, int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func) override;
+	std::pair<std::string, int> uninstallBatoceraTheme(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr) override;
 
 	// Bezels
 	virtual std::vector<BatoceraBezel> getBatoceraBezelsList();

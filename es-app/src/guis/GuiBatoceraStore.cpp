@@ -37,7 +37,7 @@ void GuiBatoceraStore::centerWindow()
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
-		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.883f);
+		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }

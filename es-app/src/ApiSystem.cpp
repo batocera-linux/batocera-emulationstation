@@ -825,11 +825,11 @@ RetroAchievementInfo ApiSystem::getRetroAchievements()
 	return info;
 }
 
-std::vector<std::string> ApiSystem::getBatoceraThemesList() 
+std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
 
-	std::vector<std::string> res;
+	std::vector<BatoceraTheme> res;
 
 	std::string command = "batocera-es-theme list";
 	FILE *pipe = popen(command.c_str(), "r");
@@ -845,7 +845,18 @@ std::vector<std::string> ApiSystem::getBatoceraThemesList()
 		// provide only themes that are [A]vailable or [I]nstalled as a result
 		// (Eliminate [?] and other non-installable lines of text)
 		if ((strncmp(line, "[A]", 3) == 0) || (strncmp(line, "[I]", 3) == 0))
-			res.push_back(std::string(line));
+		{
+			auto parts = Utils::String::splitAny(line, " \t");
+			if (parts.size() < 2)
+				continue;
+
+			BatoceraTheme bt;
+			bt.isInstalled = (Utils::String::startsWith(parts[0], "[I]"));
+			bt.name = parts[1];
+			bt.url = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+
+			res.push_back(bt);
+		}
 	}
 	pclose(pipe);
 	return res;
@@ -855,6 +866,12 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 {
 	return executeScript("batocera-es-theme install " + thname, func);
 }
+
+std::pair<std::string, int> ApiSystem::uninstallBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
+{
+	return executeScript("batocera-es-theme remove " + thname, func);
+}
+
 
 std::vector<BatoceraBezel> ApiSystem::getBatoceraBezelsList()
 {
