@@ -15,11 +15,12 @@ class ContentInstaller
 public:
 	enum ContentType : int
 	{
-		CONTENT_THEME = 0,
-		CONTENT_BEZEL_INSTALL = 1,
-		CONTENT_BEZEL_UNINSTALL = 2,
-		CONTENT_STORE_INSTALL = 3,
-		CONTENT_STORE_UNINSTALL = 4,
+		CONTENT_THEME_INSTALL = 0,
+		CONTENT_THEME_UNINSTALL = 1,
+		CONTENT_BEZEL_INSTALL = 2,
+		CONTENT_BEZEL_UNINSTALL = 3,
+		CONTENT_STORE_INSTALL = 4,
+		CONTENT_STORE_UNINSTALL = 5,
 	};
 
 	static void Enqueue(Window* window, ContentType type, const std::string contentName);

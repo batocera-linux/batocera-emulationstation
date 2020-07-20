@@ -476,47 +476,66 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thn
 {
 	for (auto theme : getBatoceraThemesList())
 	{
-		auto parts = Utils::String::splitAny(theme, " \t");
-		if (parts.size() < 2)
+		if (theme.name != thname)
 			continue;
+		
+		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
+		std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
+		zipFile = Utils::String::replace(zipFile, "/", "\\");
 
-		if (parts[1] == thname)
+		if (downloadGitRepository(theme.url, zipFile, thname, func))
 		{
-			std::string themeUrl = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
+			if (func != nullptr)
+				func(_("Extracting") + " " + thname);
 
-			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-			std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
-			zipFile = Utils::String::replace(zipFile, "/", "\\");
+			unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
 
-			if (downloadGitRepository(themeUrl, zipFile, thname, func))
-			{
-				if (func != nullptr)
-					func(_("Extracting") + " " + thname);
+			std::string folderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + "-master";
+			std::string finalfolderName = Utils::String::replace(folderName, "-master", "");
 
-				unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
+			rename(folderName.c_str(), finalfolderName.c_str());
 
-				std::string folderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + "-master";
-				std::string finalfolderName = Utils::String::replace(folderName, "-master", "");
+			Utils::FileSystem::removeFile(zipFile);
 
-				rename(folderName.c_str(), finalfolderName.c_str());
-
-				Utils::FileSystem::removeFile(zipFile);
-
-				return std::pair<std::string, int>(std::string("OK"), 0);
-			}
-
-			break;
+			return std::pair<std::string, int>(std::string("OK"), 0);
 		}
 	}
 
 	return std::pair<std::string, int>(std::string(""), 1);
 }
 
-std::vector<std::string> Win32ApiSystem::getBatoceraThemesList()
+std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
+{
+	for (auto theme : getBatoceraThemesList())
+	{
+		if (!theme.isInstalled || theme.name != thname)
+			continue;
+		
+		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
+		std::string folderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + "-master";
+			
+		if (!Utils::FileSystem::exists(folderName))
+			folderName = Utils::String::replace(folderName, "-master", "");
+
+		if (Utils::FileSystem::exists(folderName))
+		{
+			Utils::FileSystem::deleteDirectoryFiles(folderName);
+			rmdir(folderName.c_str());
+
+			return std::pair<std::string, int>("OK", 0);
+		}
+
+		break;
+	}
+
+	return std::pair<std::string, int>(std::string(""), 1);
+}
+
+std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
 {
 	LOG(LogDebug) << "Win32ApiSystem::getBatoceraThemesList";
 
-	std::vector<std::string> res;
+	std::vector<BatoceraTheme> res;
 
 	HttpReq httpreq("https://batocera.org/upgrades/themes.txt");
 	if (httpreq.wait())
@@ -557,10 +576,15 @@ std::vector<std::string> Win32ApiSystem::getBatoceraThemesList()
 					}
 				}
 
-				if (themeExists)
-					res.push_back("[I]\t" + line);
-				else
-					res.push_back("[A]\t" + line);
+				auto parts = Utils::String::splitAny(line, " \t");
+				if (parts.size() < 2)
+					continue;
+
+				BatoceraTheme bt;
+				bt.isInstalled = themeExists;
+				bt.name = themeName;
+				bt.url = parts[1];
+				res.push_back(bt);
 			}
 		}
 	}
