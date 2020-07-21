@@ -1433,3 +1433,8 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraStorePackage(std::string
 {
 	return executeScript("batocera-store remove " + name, func);
 }
+
+void ApiSystem::updateBatoceraStorePackageList()
+{
+	executeScript("batocera-store update");
+}

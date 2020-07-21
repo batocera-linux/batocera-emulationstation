@@ -38,7 +38,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
-	void loadPackages();
+	void loadPackages(bool updatePackageList = false);	
 	void processPackage(PacmanPackage package);
 	void centerWindow();
 

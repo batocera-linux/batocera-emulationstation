@@ -199,6 +199,7 @@ public:
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	std::pair<std::string, int> uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
+	void updateBatoceraStorePackageList();
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
