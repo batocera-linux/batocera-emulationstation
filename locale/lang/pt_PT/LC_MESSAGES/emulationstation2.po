@@ -248,10 +248,10 @@ msgid "Cpu number"
 msgstr "Número de núcleos"
 
 msgid "Cpu max frequence"
-msgstr ""
+msgstr "Frequência máxima do Cpu"
 
 msgid "Cpu feature"
-msgstr "Características do cpu"
+msgstr "Características do Cpu"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1298,17 +1298,17 @@ msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "TRANSFERÊNCIA DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONAR TEMAS A INSTALAR / REMOVER"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TEMA DESINSTALADO COM SUCESSO"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "TEMA ATUAL"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
