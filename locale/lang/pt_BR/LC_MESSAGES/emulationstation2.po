@@ -248,7 +248,7 @@ msgid "Cpu number"
 msgstr "Número de cpu"
 
 msgid "Cpu max frequence"
-msgstr ""
+msgstr "Frequencia máx do cpu"
 
 msgid "Cpu feature"
 msgstr "Recurso de cpu"
@@ -893,7 +893,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUME DO SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUME DA MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
@@ -1159,7 +1159,7 @@ msgstr[0] "%i SCRAPE IGNORADO."
 msgstr[1] "%i SCRAPES IGNORADOS."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONAR MOLDURAS PARA INSTALAR / REMOVER"
 
 msgid "UPDATE"
 msgstr "ATUALIZAR"
@@ -1301,17 +1301,17 @@ msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "GERENCIADOR DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONAR TEMAS PARA INSTALAR / REMOVER"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TEMA DESINSTALADO COM SUCESSO"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "TEMA ATUAL"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -1525,8 +1525,7 @@ msgid "SCRAPE FAILED"
 msgstr "SCRAPE FALHOU"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-"SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIANDO TODOS ELES AGORA"
@@ -1742,7 +1741,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "ESCANEANDO BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr "Procurando controladores..."
+msgstr "Procurando controles..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "O ESCANEAMENTO DE BLUETOOTH ESTÁ EM EXECUÇÃO"
@@ -2048,10 +2047,8 @@ msgstr "cima/baixo"
 
 #~ msgid "This collection contains %1$i game, including %2$s."
 #~ msgid_plural "This collection contains %1$i games, including %2$s."
-#~ msgstr[0] ""
-#~ "Esta coleção contém %1$i jogo, incluindo %2$s entre outros títulos."
-#~ msgstr[1] ""
-#~ "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
+#~ msgstr[0] "Esta coleção contém %1$i jogo, incluindo %2$s entre outros títulos."
+#~ msgstr[1] "Esta coleção contém %1$i jogos, incluindo %2$s entre outros títulos."
 
 #~ msgid ""
 #~ "This collection contains %1$i game, including %2$s among other titles."
@@ -2156,7 +2153,7 @@ msgstr "cima/baixo"
 #~ msgstr "FONTE DE MINIATURA PREFERIDA"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "SCRAPE MARQUEE"
+#~ msgstr "SCRAPE LETREIRO"
 
 #~ msgid "UPDATES"
 #~ msgstr "ATUALIZAÇÕES"
@@ -2234,8 +2231,7 @@ msgstr "cima/baixo"
 #~ msgstr "O SISTEMA SERÁ REINICIADO"
 
 #~ msgid "YOU NEED TO REBOOT THE SYSTEM TO COMPLETLY APPLY THIS OPTION."
-#~ msgstr ""
-#~ "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
+#~ msgstr "VOCÊ PRECISA REINICIAR O SISTEMA PARA APLICAR COMPLETAMENTE ESTA OPÇÃO."
 
 #~ msgid "PRESS F4 TO QUIT AT ANY TIME."
 #~ msgstr "APERTE F4 PARA SAIR A QUALQUER MOMENTO"
