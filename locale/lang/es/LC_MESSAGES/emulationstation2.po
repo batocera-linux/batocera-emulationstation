@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:05+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1298,8 +1298,18 @@ msgstr "SALVAPANTALLAS DE PRESENTACIÓN"
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
 
-msgid "SELECT THEME"
-msgstr "SELECCIONAR TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
@@ -1983,6 +1993,9 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SELECCIONAR TEMA"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALAR BISELES"

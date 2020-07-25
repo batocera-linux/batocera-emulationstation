@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-12 16:07+0200\n"
+"POT-Creation-Date: 2020-07-25 10:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1297,8 +1297,18 @@ msgstr "SLIDESHOW COMO PROTETOR DE TELA"
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
-msgid "SELECT THEME"
-msgstr "SELECIONAR TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -1981,6 +1991,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SELECIONAR TEMA"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALAR MOLDURAS"

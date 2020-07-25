@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2020-07-25 10:06+0200\n"
 "PO-Revision-Date: 2020-07-09 21:00+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: \n"
@@ -70,6 +70,12 @@ msgstr "お待ちください"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
+msgid "CLOSE"
+msgstr "閉じる"
+
+msgid "Loading..."
+msgstr "読み込み中…"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイのために接続する"
 
@@ -78,9 +84,6 @@ msgstr "参加したいゲームを選択"
 
 msgid "REFRESH"
 msgstr "リフレッシュ"
-
-msgid "CLOSE"
-msgstr "閉じる"
 
 msgid "FAILED"
 msgstr "失敗"
@@ -114,6 +117,15 @@ msgstr "ゲームのソート"
 
 msgid "OTHER FILTERS"
 msgstr "その他のフィルタ"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "コレクション"
@@ -163,11 +175,11 @@ msgstr "フォルダのメタ情報を編集"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
+msgid "RESET FILTERS"
+msgstr ""
+
 msgid "FILTER GAMES BY TEXT"
 msgstr "文字でのゲームフィルタ"
-
-msgid "Loading..."
-msgstr "読み込み中…"
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "この機能は、スクレイプの実行中は無効になります"
@@ -286,6 +298,15 @@ msgstr "情報"
 msgid "QUIT"
 msgstr "終了"
 
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgstr "スクレイプが実行されています。中止しますか?"
+
+msgid "SCRAPER"
+msgstr "スクレイプ"
+
+msgid "SCRAPE NOW"
+msgstr "今すぐスクレイプする"
+
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
 
@@ -310,6 +331,9 @@ msgstr "2D ボックス"
 msgid "BOX 3D"
 msgstr "3D ボックス"
 
+msgid "FAN ART"
+msgstr ""
+
 msgid "BOX SOURCE"
 msgstr "ボックス ソース元"
 
@@ -331,20 +355,17 @@ msgstr "スクレイプ評価"
 msgid "SCRAPE VIDEOS"
 msgstr "ビデオをスクレイプ"
 
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ユーザー名"
 
 msgid "PASSWORD"
 msgstr "パスワード"
-
-msgid "SHOW IN MAIN MENU"
-msgstr "メインメニューに表示"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "スクレイプが実行されています。中止しますか?"
-
-msgid "SCRAPE NOW"
-msgstr "今すぐスクレイプする"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "本当に入力設定を行っていいですか？"
@@ -454,6 +475,9 @@ msgstr "ディスクをフォーマット"
 msgid "DOWNLOADS"
 msgstr "ダウンロード"
 
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
 msgid "THEMES"
 msgstr "テーマ"
 
@@ -523,6 +547,18 @@ msgstr "ネットプレイ設定"
 msgid "MISSING BIOS"
 msgstr "不足BIOSの表示"
 
+msgid "MULTIMEDIA KEYS"
+msgstr ""
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "ON"
+msgstr "オン"
+
+msgid "OFF"
+msgstr "オフ"
+
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
 
@@ -556,20 +592,11 @@ msgstr "ちらつき軽減"
 msgid "RUN-AHEAD FRAMES"
 msgstr "先行フレーム"
 
-msgid "AUTO"
-msgstr "自動"
-
 msgid "USE RUN-AHEAD FRAMES"
 msgstr "先行フレームの使用"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "先行実行の2番目のインスタンス"
-
-msgid "ON"
-msgstr "オン"
-
-msgid "OFF"
-msgstr "オフ"
 
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
@@ -582,6 +609,9 @@ msgstr "詳細な処理モード"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
+
+msgid "SHOW IN MAIN MENU"
+msgstr "メインメニューに表示"
 
 msgid "SETTINGS"
 msgstr "設定"
@@ -609,6 +639,12 @@ msgstr "すべてのゲームを再インデックス"
 
 msgid "INDEX MISSING GAMES"
 msgstr "プレイ不可ゲームのインデックス"
+
+msgid "TOOLS"
+msgstr "ツール"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ゲームリストを更新"
 
 msgid "DEFAULT SETTINGS"
 msgstr "既定の設定"
@@ -670,9 +706,6 @@ msgstr "翻訳画面で一時停止"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システムごとの詳細な設定"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "ゲームリストを更新"
-
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
 
@@ -720,12 +753,6 @@ msgstr "コントローラー P%i"
 msgid "default"
 msgstr "標準"
 
-msgid "disabled"
-msgstr "無効"
-
-msgid "enhanced"
-msgstr "エンハンス"
-
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
 
@@ -747,29 +774,8 @@ msgstr "グリッドサイズ(既定)"
 msgid "GAMELIST THEME OPTIONS"
 msgstr "ゲームリストテーマオプション"
 
-msgid "GAMELIST STYLE"
-msgstr "ゲームリストスタイル"
-
 msgid "THEME OPTIONS"
 msgstr "テーマオプション"
-
-msgid "THEME SYSTEMVIEW"
-msgstr "システム選択表示位置"
-
-msgid "WHEEL LEFT"
-msgstr "左位置（回転）"
-
-msgid "Wheel Right"
-msgstr "右（回転）"
-
-msgid "VERTICAL LEFT"
-msgstr "左位置（縦選択）"
-
-msgid "vertical right"
-msgstr "右位置（縦選択）"
-
-msgid "HORIZONTAL"
-msgstr "横選択"
 
 msgid "DEFAULT VALUE"
 msgstr "デフォルト値"
@@ -800,9 +806,6 @@ msgstr "親フォルダ'..'を表示"
 
 msgid "FILE EXTENSIONS"
 msgstr "ファイル拡張子"
-
-msgid "TOOLS"
-msgstr "ツール"
 
 msgid "RESET GAMELIST CUSTOMISATIONS"
 msgstr "ゲームリストカスタマイズをリセット"
@@ -1056,8 +1059,8 @@ msgstr "オプション"
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "マイコレクションをグループ化"
 
-msgid "SORT SYSTEMS"
-msgstr "各システムをソートする"
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
 
 msgid "ALPHABETICALLY"
 msgstr "アルファベット順"
@@ -1065,8 +1068,8 @@ msgstr "アルファベット順"
 msgid "BY MANUFACTURER"
 msgstr "メーカーごと"
 
-msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
-msgstr "マイコレクションとシステムを並べ替え"
+msgid "SORT SYSTEMS"
+msgstr "各システムをソートする"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
@@ -1148,30 +1151,34 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 個 のゲームを スキップしました。"
 
-msgid "INSTALL BEZELS"
-msgstr "ベゼルのインストール"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
-msgid "UNINSTALL BEZELS"
-msgstr "ベゼルのアンインストール"
-
-msgid "INSTALL THE BEZEL PROJECT"
-msgstr "ベゼルプロジェクトのインストール"
-
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-msgstr "ベゼルを（再）インストールするシステムを選択する"
+msgid "UPDATE"
+msgstr ""
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' がダウンロード キューに追加されました"
 
-msgid "UNINSTALL THE BEZEL PROJECT"
-msgstr "ベゼルプロジェクトのアンインストール"
+msgid "REMOVE"
+msgstr ""
 
-msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-msgstr "ベゼルを削除するシステムを選択する"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr ""
 
-msgid "BEZELS DELETED SUCCESSFULLY"
-msgstr "ベゼルが正常に削除されました"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "(秒)後にイメージを変更"
@@ -1286,8 +1293,18 @@ msgstr "スライドショーセーバー"
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
 
-msgid "SELECT THEME"
-msgstr "テーマの選択"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
@@ -1338,17 +1355,65 @@ msgstr "ビデオ"
 msgid "enter path to video"
 msgstr "ビデオのパスを入力"
 
-msgid "Marquee"
-msgstr "マーキー"
+msgid "Logo"
+msgstr ""
 
-msgid "enter path to marquee"
-msgstr "マーキーのパスを入力"
+msgid "enter path to logo"
+msgstr ""
 
-msgid "Thumbnail"
-msgstr "サムネイル画像"
+msgid "Box"
+msgstr ""
 
-msgid "enter path to thumbnail"
-msgstr "サムネイル画像のパスを入力"
+msgid "enter path to box"
+msgstr ""
+
+msgid "Fan art"
+msgstr ""
+
+msgid "enter path to fanart"
+msgstr ""
+
+msgid "Title shot"
+msgstr ""
+
+msgid "enter path to title shot"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "enter path to manual"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "enter path to map"
+msgstr ""
+
+msgid "Cartridge"
+msgstr ""
+
+msgid "enter path to cartridge"
+msgstr ""
+
+msgid "Alt BoxArt"
+msgstr ""
+
+msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Wheel"
+msgstr ""
+
+msgid "enter path to wheel"
+msgstr ""
+
+msgid "Mix"
+msgstr ""
+
+msgid "enter path to mix"
+msgstr ""
 
 msgid "Rating"
 msgstr "評価"
@@ -1446,20 +1511,11 @@ msgstr "使用言語"
 msgid "Region"
 msgstr "リージョン"
 
-msgid "favorite"
-msgstr "お気に入り"
-
 msgid "SCRAPING"
 msgstr "情報を取得中"
 
-msgid "Searching"
-msgstr "検索中"
-
 msgid "SCRAPE FAILED"
 msgstr "スクレイプ失敗"
-
-msgid "Downloading"
-msgstr "ダウンロード中"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "スクレイプが終了しました。 ゲームリストを更新して変更を適用します。"
@@ -1469,6 +1525,9 @@ msgstr "エラー：すべてのシステムが非表示になり、すべてが
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODIメディアセンターを起動しますか？"
+
+msgid "GO TO MANUFACTURER"
+msgstr ""
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1602,6 +1661,12 @@ msgstr "テーマが正常にインストールされました"
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "ベゼルが正常にインストールされました"
 
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "お気に入り"
 
@@ -1635,6 +1700,9 @@ msgstr "コレクション"
 msgid "Extracting"
 msgstr "抽出"
 
+msgid "Searching"
+msgstr "検索中"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ゲームが見つかりません - スキップ"
 
@@ -1643,6 +1711,9 @@ msgstr "エラーが発生しました"
 
 msgid "RETRY"
 msgstr "再試行"
+
+msgid "Downloading"
+msgstr "ダウンロード中"
 
 msgid "ACCEPT RESULT"
 msgstr "了解"
@@ -1903,11 +1974,80 @@ msgstr "処理中..."
 msgid "up/down"
 msgstr "上 / 下"
 
-msgid "custom"
-msgstr "カスタム"
+#~ msgid "disabled"
+#~ msgstr "無効"
 
-msgid "Retrieving data download..."
-msgstr "データを取得しています..."
+#~ msgid "enhanced"
+#~ msgstr "エンハンス"
+
+#~ msgid "GAMELIST STYLE"
+#~ msgstr "ゲームリストスタイル"
+
+#~ msgid "THEME SYSTEMVIEW"
+#~ msgstr "システム選択表示位置"
+
+#~ msgid "WHEEL LEFT"
+#~ msgstr "左位置（回転）"
+
+#~ msgid "Wheel Right"
+#~ msgstr "右（回転）"
+
+#~ msgid "VERTICAL LEFT"
+#~ msgstr "左位置（縦選択）"
+
+#~ msgid "vertical right"
+#~ msgstr "右位置（縦選択）"
+
+#~ msgid "HORIZONTAL"
+#~ msgstr "横選択"
+
+#~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
+#~ msgstr "マイコレクションとシステムを並べ替え"
+
+#~ msgid "INSTALL BEZELS"
+#~ msgstr "ベゼルのインストール"
+
+#~ msgid "UNINSTALL BEZELS"
+#~ msgstr "ベゼルのアンインストール"
+
+#~ msgid "INSTALL THE BEZEL PROJECT"
+#~ msgstr "ベゼルプロジェクトのインストール"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
+#~ msgstr "ベゼルを（再）インストールするシステムを選択する"
+
+#~ msgid "UNINSTALL THE BEZEL PROJECT"
+#~ msgstr "ベゼルプロジェクトのアンインストール"
+
+#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
+#~ msgstr "ベゼルを削除するシステムを選択する"
+
+#~ msgid "BEZELS DELETED SUCCESSFULLY"
+#~ msgstr "ベゼルが正常に削除されました"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "テーマの選択"
+
+#~ msgid "Marquee"
+#~ msgstr "マーキー"
+
+#~ msgid "enter path to marquee"
+#~ msgstr "マーキーのパスを入力"
+
+#~ msgid "Thumbnail"
+#~ msgstr "サムネイル画像"
+
+#~ msgid "enter path to thumbnail"
+#~ msgstr "サムネイル画像のパスを入力"
+
+#~ msgid "favorite"
+#~ msgstr "お気に入り"
+
+#~ msgid "custom"
+#~ msgstr "カスタム"
+
+#~ msgid "Retrieving data download..."
+#~ msgstr "データを取得しています..."
 
 #~ msgid ""
 #~ "This collection contains %1$i game, including %2$s among other titles."
@@ -1947,9 +2087,6 @@ msgstr "データを取得しています..."
 
 #~ msgid "4 STARS"
 #~ msgstr "☆４"
-
-#~ msgid "SCRAPER"
-#~ msgstr "スクレイプ"
 
 #~ msgid "scraper"
 #~ msgstr "スクレイプ"
