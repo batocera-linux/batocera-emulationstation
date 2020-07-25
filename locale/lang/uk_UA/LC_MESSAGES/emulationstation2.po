@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-25 10:06+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -247,6 +247,9 @@ msgstr "Модель CPU"
 
 msgid "Cpu number"
 msgstr "Кількість ядер"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "Функції CPU"

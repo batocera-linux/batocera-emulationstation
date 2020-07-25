@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-25 10:06+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: 2020-07-08 22:38+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -252,6 +252,9 @@ msgstr "Modèl processor"
 
 msgid "Cpu number"
 msgstr "Nombre de processor"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "Foncionalitat processor"

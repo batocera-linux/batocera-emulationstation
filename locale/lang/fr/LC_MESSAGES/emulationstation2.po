@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-25 10:05+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -246,6 +246,9 @@ msgstr "Type de processeur"
 
 msgid "Cpu number"
 msgstr "Nombre de processeurs"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"

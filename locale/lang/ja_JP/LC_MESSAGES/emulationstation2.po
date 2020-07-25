@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-25 10:06+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: 2020-07-09 21:00+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: \n"
@@ -246,6 +246,9 @@ msgstr "CPU モデル"
 
 msgid "Cpu number"
 msgstr "CPU ナンバー"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "CPU 機能"
