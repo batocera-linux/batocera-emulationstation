@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -247,8 +247,11 @@ msgstr "Processador"
 msgid "Cpu number"
 msgstr "Número de núcleos"
 
+msgid "Cpu max frequence"
+msgstr "Frequência máxima do Cpu"
+
 msgid "Cpu feature"
-msgstr "Características do cpu"
+msgstr "Características do Cpu"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -476,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "TRANSFERÊNCIAS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "GERENCIADOR DE CONTEÚDO"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -1154,33 +1157,33 @@ msgstr[0] "%i JOGO IGNORADO."
 msgstr[1] "%i JOGOS IGNORADOS."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONE AS MOLDURAS A INSTALAR / REMOVER"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "ATUALIZAR"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ADICIONADO À LISTA DE TRANSFERÊNCIAS"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "REMOVER"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "MOLDURAS DESINSTALADAS COM SUCESSO"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "EM LISTA DE TRANSFERÊNCIAS"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
 
 msgid "MISC"
-msgstr ""
+msgstr "DIVERSOS"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "EM LISTA PARA DESINSTALAR"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -1294,8 +1297,18 @@ msgstr "SLIDESHOW NO PROTETOR DE ECRÃ"
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
-msgid "SELECT THEME"
-msgstr "SELECIONAR TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr "TRANSFERÊNCIA DE TEMAS"
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "SELECIONAR TEMAS A INSTALAR / REMOVER"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "TEMA DESINSTALADO COM SUCESSO"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr "TEMA ATUAL"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -1657,10 +1670,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "MOLDURAS INSTALADAS COM SUCESSO"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PACOTE INSTALADO COM SUCESSO"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PACOTE REMOVIDO COM SUCESSO"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -1978,6 +1991,9 @@ msgstr "EM PROGRESSO..."
 
 msgid "up/down"
 msgstr "cima/baixo"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SELECIONAR TEMA"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALAR MOLDURAS"

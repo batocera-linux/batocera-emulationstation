@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -23,7 +23,7 @@ msgid "REBOOT SYSTEM TO APPLY"
 msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "AN ERROR OCCURED"
-msgstr "ПРОИЗОШЛА ОШИБКА"
+msgstr "ОШИБКА"
 
 msgid "REALLY UPDATE?"
 msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ?"
@@ -35,13 +35,13 @@ msgid "NO"
 msgstr "НЕТ"
 
 msgid "NETWORK CONNECTION NEEDED"
-msgstr "НЕОБХОДИМО СЕТЕВОЕ СОЕДИНЕНИЕ"
+msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
 
 msgid "OK"
 msgstr "ОК"
 
 msgid "NO UPDATE AVAILABLE"
-msgstr "НЕТ ДОСТУПНЫХ ОБНОВЛЕНИЙ"
+msgstr "ОБНОВЛЕНИЙ НЕТ"
 
 msgid "INPUT"
 msgstr "ВВОД"
@@ -62,7 +62,7 @@ msgid "BACK"
 msgstr "НАЗАД"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "НЕ НАЙДЕНО BLUETOOTH КОНТРОЛЛЕРОВ"
+msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
 msgid "PLEASE WAIT"
 msgstr "ПОДОЖДИТЕ"
@@ -80,7 +80,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 
 msgid "Select the game you want to join"
-msgstr "Выберите игру, в которую хотите присоедениться"
+msgstr "Выберите игру, к которой хотите присоединиться"
 
 msgid "REFRESH"
 msgstr "ОБНОВИТЬ"
@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "ДРУГИЕ ФИЛЬТРЫ"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "МЕДИА ИГРЫ"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "ПОСМОТРЕТЬ РУКОВОДСТВО"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "ПОСМОТРЕТЬ КАРТУ"
 
 msgid "COLLECTION"
 msgstr "КОЛЛЕКЦИЯ"
@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "СБРОСИТЬ ФИЛЬТРЫ"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОИСК"
@@ -200,7 +200,7 @@ msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
 
 msgid "Unknown"
-msgstr "Неизвестно"
+msgstr " "
 
 msgid "SYSTEMS"
 msgstr "СИСТЕМЫ"
@@ -212,7 +212,7 @@ msgid "NO WIFI NETWORKS FOUND"
 msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
 
 msgid "SEARCHING WIFI NETWORKS"
-msgstr "ПОИСК СЕТИ WIFI"
+msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -247,6 +247,9 @@ msgstr "Модель CPU"
 msgid "Cpu number"
 msgstr "Кол-во ядер"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "Функции CPU"
 
@@ -278,7 +281,7 @@ msgid "NETWORK SETTINGS"
 msgstr "НАСТРОЙКИ СЕТИ"
 
 msgid "CONFIGURE INPUT"
-msgstr "НАСТРОЙКА ВВОДА"
+msgstr "НАСТРОЙКИ УПРАВЛЕНИЯ"
 
 msgid "EMULATOR SETTINGS"
 msgstr "НАСТРОЙКИ ЭМУЛЯТОРА"
@@ -287,7 +290,7 @@ msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "ОБНОВЛЕНИЕ & ЗАГРУЗКА"
+msgstr "ОБНОВЛЕНИЯ И ЗАГРУЗКИ"
 
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
@@ -302,7 +305,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "СКРАПЕР"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -332,7 +335,7 @@ msgid "BOX 3D"
 msgstr "ОБЛОЖКИ 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "ФАН-АРТ"
 
 msgid "BOX SOURCE"
 msgstr "СТИЛЬ ОБЛОЖКИ"
@@ -341,7 +344,7 @@ msgid "NONE"
 msgstr "НЕТ"
 
 msgid "LOGO SOURCE"
-msgstr "СТИЛЬ ЛОГО"
+msgstr "СТИЛЬ ЛОГОТИПА"
 
 msgid "WHEEL"
 msgstr "КОЛЕСО"
@@ -356,10 +359,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "ЗАГРУЗКА ВИДЕО"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "ЗАГРУЗКА ФАН-АРТА"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "ЗАГРУЗКА РУКОВОДСТВА"
 
 msgid "USERNAME"
 msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
@@ -386,7 +389,7 @@ msgid "SELECT"
 msgstr "ВЫБОР"
 
 msgid "INFORMATION"
-msgstr "ИНФОРМАЦИЯ"
+msgstr "ДАННЫЕ"
 
 msgid "VERSION"
 msgstr "ВЕРСИЯ"
@@ -404,7 +407,7 @@ msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
 
 msgid "SHOW FRAMERATE"
-msgstr "ОТОБРАЖАТЬ ЧАСТОТУ КАДРОВ"
+msgstr "ПОКАЗАТЬ ЧАСТОТУ КАДРОВ"
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -416,10 +419,10 @@ msgid "PRELOAD UI"
 msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
 
 msgid "THREADED LOADING"
-msgstr "THREADED ЗАГРУЗКА"
+msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
 
 msgid "ASYNC IMAGES LOADING"
-msgstr "ЗАГРУЗКА ИЗОБРАЖЕНИЙ ASYNC"
+msgstr "АСИНХРОННАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ДЛЯ VRAM"
@@ -446,13 +449,13 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
 
 msgid "COMPLETE QUIT MENU"
-msgstr "ПОЛНОЕ МЕНЮ ВЫХОДА"
+msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "АВТОНАСТРОЙКАА КОНТРОЛЛЕРОВ"
+msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -476,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "ЗАГРУЗКИ"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "ЗАГРУЗКА КОНТЕНТА"
 
 msgid "THEMES"
 msgstr "ТЕМЫ"
@@ -488,7 +491,7 @@ msgid "SOFTWARE UPDATES"
 msgstr "ПРОГРАММНОЕ ОБНОВЛЕНИЕ"
 
 msgid "CHECK FOR UPDATES"
-msgstr "ПРОВЕРИТЬ ОБНОВЛЕНИЕ"
+msgstr "ПРОВЕРИТЬ ОБНОВЛЕНИЯ"
 
 msgid "UPDATE TYPE"
 msgstr "ВЕТКА ОБНОВЛЕНИЯ"
@@ -500,7 +503,7 @@ msgid "START UPDATE"
 msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУШЕНО"
+msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
 
 msgid "SYSTEM"
 msgstr "СИСТЕМА"
@@ -548,7 +551,7 @@ msgid "MISSING BIOS"
 msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "МУЛЬТИМЕДИЙНЫЕ КНОПКИ"
 
 msgid "AUTO"
 msgstr "АВТО"
@@ -593,13 +596,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr "ИСП. КДРЫ ОБГОНА (RUN-AHEAD)"
+msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
 
 msgid "HARDCORE MODE"
-msgstr "ХАРДКОР РЕЖИМ"
+msgstr "РЕЖИМ ХАРДКОРА"
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
@@ -611,7 +614,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "ПОКАЗАТЬ В ГЛАВНОМ МЕНЮ"
 
 msgid "SETTINGS"
 msgstr "НАСТРОЙКИ"
@@ -698,7 +701,7 @@ msgid "TARGET LANGUAGE"
 msgstr "ЯЗЫК ПЕРЕВОДА"
 
 msgid "SERVICE URL"
-msgstr "СЕРВИС URL"
+msgstr "URL СЕРВИСА"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
@@ -748,7 +751,7 @@ msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
 
 #, c-format
 msgid "INPUT P%i"
-msgstr "ВВОД P%i"
+msgstr "УПРАВЛЕНИЕ P%i"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -778,16 +781,16 @@ msgid "THEME OPTIONS"
 msgstr "НАСТРОЙКИ ТЕМЫ"
 
 msgid "DEFAULT VALUE"
-msgstr "СТАНДАРТНОЕ ЗНАЧЕНИЕ"
+msgstr "ЗНАЧЕНИЕ ПО УМОЛЧАНИЮ"
 
 msgid "GAMELIST OPTIONS"
 msgstr "НАСТРОЙКА СПИСКА ИГР"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr "ИЗБРАННОЕ ВВЕРХУ СПИСКА"
+msgstr "ИЗБРАННЫЕ ВВЕРХУ СПИСКА"
 
 msgid "SHOW HIDDEN FILES"
-msgstr "ОТОБРАЖАТЬ СКРЫТЫЕ ФАЙЛЫ"
+msgstr "ПОКАЗАТЬ СКРЫТЫЕ ФАЙЛЫ"
 
 msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
@@ -857,7 +860,7 @@ msgid "TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
@@ -887,10 +890,10 @@ msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
 
 msgid "SYSTEM VOLUME"
-msgstr "ГРОМКОСТЬ"
+msgstr "ГРОМКОСТЬ СИСТЕМЫ"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "ГРОМКОСТЬ МУЗЫКИ"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ ПРИ ИЗМ. ГРОМКОСТИ"
@@ -899,7 +902,7 @@ msgid "MUSIC"
 msgstr "МУЗЫКА"
 
 msgid "FRONTEND MUSIC"
-msgstr "МУЗЫКА В МЕНЮ"
+msgstr "ФОНОВАЯ МУЗЫКА"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "ПОКАЗАТЬ НАЗВАНИЕ ПЕСНИ"
@@ -908,7 +911,7 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "ДЛИТЕЛЬНОСТЬ НАЗВАНИЯ ПЕСНИ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "МУЗЫКА ИЗ ПАПКИ СИСТЕМ"
+msgstr "МУЗЫКА ТОЛЬКО ИЗ СИСТЕМНОЙ ПАПКИ"
 
 msgid "PLAY THEME MUSICS"
 msgstr "МУЗЫКА ИЗ ТЕМЫ"
@@ -935,7 +938,7 @@ msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
 msgid "IP ADDRESS"
-msgstr "IP-АДРЕС"
+msgstr "IP АДРЕС"
 
 msgid "HOSTNAME"
 msgstr "ИМЯ ХОСТА"
@@ -953,7 +956,7 @@ msgid "WIFI ENABLED"
 msgstr "WI-FI ВКЛЮЧЕН"
 
 msgid "WIFI CONFIGURATION ERROR"
-msgstr "ОШИБКА КОНФИГУРАЦИИ WI-FI"
+msgstr "ОШИБКА WI-FI КОНФИГУРАЦИИ"
 
 msgid "AUTOMATIC SCRAPER"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАГРУЗКА"
@@ -974,16 +977,16 @@ msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "REALLY RESTART?"
-msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ СЕЙЧАС?"
+msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
-msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ СЕЙЧАС?"
+msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ?"
 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "БЫСТРО ВЫКЛЮЧИТЬ СИСТЕМУ"
+msgstr "БЫСТРОЕ ВЫКЛЮЧЕНИЕ СИСТЕМЫ"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
@@ -992,19 +995,19 @@ msgid "QUIT EMULATIONSTATION"
 msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr "ВЫЙТИ СЕЙЧАС?"
+msgstr "ВЫЙТИ?"
 
 msgid "VIDEO MODE"
-msgstr "ВИДЕО РЕЖИМ"
+msgstr "РЕЖИМ ВИДЕО"
 
 msgid "COLORIZATION"
-msgstr "РАСКРАШИВАНИЕ"
+msgstr "КОЛОРИЗАЦИЯ"
 
 msgid "FULL BOOT"
 msgstr "ПОЛНАЯ ЗАГРУЗКА"
 
 msgid "EMULATED WIIMOTES"
-msgstr "ЭМУЛИРОВАТЬ ВИМОУТЫ"
+msgstr "ЭМУЛИРОВАТЬ WIIMOTE"
 
 msgid "CHANGE SCREEN LAYOUT"
 msgstr "ИЗМЕНИТЬ РАСПОЛОЖЕНИЕ ЭКРАНА"
@@ -1016,7 +1019,7 @@ msgid "SIDE BY SIDE"
 msgstr "БОК О БОК"
 
 msgid "INTERNAL RESOLUTION"
-msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
+msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
 
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТИРОВАТЬ"
@@ -1028,7 +1031,7 @@ msgid "FILE SYSTEM"
 msgstr "ФАЙЛОВАЯ СИСТЕМА"
 
 msgid "FORMAT NOW"
-msgstr "ФОРМАТИРОВАТЬ СЕЙЧАС"
+msgstr "НАЧАТЬ ФОРМАТИРОВАНИЕ"
 
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "ВЫБРАННЫЕ НАСТРОЙКИ НЕДЕЙСТВИТЕЛЬНЫ"
@@ -1055,22 +1058,22 @@ msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "СОЗДАТЬ НОВУЮ ИЗМЕНЯЕМУЮ КОЛЛЕКЦИЮ"
 
 msgid "OPTIONS"
-msgstr "ПАРАМЕТРЫ"
+msgstr "НАСТРОЙКИ"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "СОРТИРОВКА КОЛЛЕКЦИЙ И СИСТЕМ"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ПО АЛФАВИТУ"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "ПО ПРОИЗВОДИТЕЛЮ"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "СОРТИРОВКА СИСТЕМ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
@@ -1088,7 +1091,7 @@ msgid "EDITABLE COLLECTIONS"
 msgstr "ИЗМЕНЯЕМЫЕ КОЛЛЕКЦИИ"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr "ДИНАМИЧЕСКИИ КОЛЛЕКЦИИ"
+msgstr "ДИНАМИЧЕСКИЕ КОЛЛЕКЦИИ"
 
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "КОЛЛЕКЦИИ ИГР"
@@ -1112,7 +1115,7 @@ msgid "INVALID PARAMETERS"
 msgstr "НЕВЕРНЫЕ ПАРАМЕТРЫ"
 
 msgid "SCRAPING IN PROGRESS"
-msgstr "ИДЕТ ЗАГРУЗКА ДАННЫХ"
+msgstr "ИДЁТ ЗАГРУЗКА ДАННЫХ"
 
 msgid "subtitle text"
 msgstr "текст cубтитров"
@@ -1157,33 +1160,33 @@ msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "УСТАНОВКА / УДАЛЕНИЕ РАМОК (ОВЕРЛЕЕВ)"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "ОБНОВИТЬ"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ДОБАВЛЕНА В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "УДАЛИТЬ"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "РАМКИ УСПЕШНО УДАЛЕНЫ"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "В ОЧЕРЕДИ ЗАГРУЗКИ"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "УСТАНОВКА / УДАЛЕНИЕ КОНТЕНТА"
 
 msgid "MISC"
-msgstr ""
+msgstr "РАЗНОЕ"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "УДАЛЕНИЕ ДОБАВЛЕНО В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "СМЕНА ИЗОБРАЖЕНИЯ ПОСЛЕ (СЕК)"
@@ -1228,7 +1231,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "ОТКЛЮЧИТЬ ЗВУК ВИДЕО"
+msgstr "ОТКЛЮЧИТЬ ЗВУК В ВИДЕО"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ ИГР"
@@ -1276,7 +1279,7 @@ msgid ""
 "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
 "MENU."
 msgstr ""
-"\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ОТОБРАЖАЕТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
+"\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ВОСПРОИЗВОДИТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
 "ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО ПОСЛЕ "
 "НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK\".\n"
 "БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" МЕНЮ."
@@ -1296,8 +1299,18 @@ msgstr "СЛАЙДШОУ ЗАСТАВКА"
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
-msgid "SELECT THEME"
-msgstr "ВЫБРАТЬ ТЕМУ"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
@@ -1349,64 +1362,64 @@ msgid "enter path to video"
 msgstr "введите путь к видео"
 
 msgid "Logo"
-msgstr ""
+msgstr "Логотип"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "введите путь к логотипу"
 
 msgid "Box"
-msgstr ""
+msgstr "Обложка"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "введите путь к обложке"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Фан-арт"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "введите путь к фан-арту"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Снимок гл. меню"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "введите путь к снимку гл. меню"
 
 msgid "Manual"
-msgstr ""
+msgstr "Руководство"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "введите путь к руководству"
 
 msgid "Map"
-msgstr ""
+msgstr "Карта"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "введите путь к карте"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Картридж"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "введите путь к картриджу"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Альтернативная обложка"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "введите путь к альтернативной обложке"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Колесо"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "введите путь к колесу"
 
 msgid "Mix"
-msgstr ""
+msgstr "Микс"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "введите путь к миксу"
 
 msgid "Rating"
 msgstr "Рейтинг"
@@ -1415,10 +1428,10 @@ msgid "enter rating"
 msgstr "введите рейтинг"
 
 msgid "Release date"
-msgstr "Дата выхода"
+msgstr "Дата релиза"
 
 msgid "enter release date"
-msgstr "введите дату выхода"
+msgstr "введите дату релиза"
 
 msgid "Developer"
 msgstr "Разработчик"
@@ -1442,7 +1455,7 @@ msgid "Arcade system"
 msgstr "Аркадная система"
 
 msgid "enter game arcade system"
-msgstr "войти в игровую систему"
+msgstr "введите аркадную систему"
 
 msgid "Players"
 msgstr "Игроки"
@@ -1505,7 +1518,7 @@ msgid "Region"
 msgstr "Регион"
 
 msgid "SCRAPING"
-msgstr "SCRAPING"
+msgstr "ЗАГРУЗКА"
 
 msgid "SCRAPE FAILED"
 msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ"
@@ -1514,13 +1527,13 @@ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "ОШИБКА: ВСЕ СИСТЕМЫ СКРЫТЫ, "
+msgstr "ОШИБКА: ВСЕ СИСТЕМЫ СКРЫТЫ, ВКЛЮЧЕНИЕ ПОВТОРНОГО ОТОБРАЖЕНИЯ"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "ПЕРЕЙТИ К ПРОИЗВОДИТЕЛЮ"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1616,10 +1629,10 @@ msgid "NUMBER PLAYERS, DESCENDING"
 msgstr "КОЛ-ВО ИГРОКОВ, ПО УБЫВАНИЮ"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "ДАТА ВЫХОДА, ПО ВОЗРАСТАНИЮ"
+msgstr "ДАТА РЕЛИЗА, ПО ВОЗРАСТАНИЮ"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "ДАТА ВЫХОДА, ПО УБЫВАНИЮ"
+msgstr "ДАТА РЕЛИЗА, ПО УБЫВАНИЮ"
 
 msgid "GENRE, ASCENDING"
 msgstr "ЖАНР, ПО ВОЗРАСТАНИЮ"
@@ -1661,10 +1674,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "РАМКИ УСПЕШНО УСТАНОВЛЕНЫ"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "ПАКЕТ УСПЕШНО УСТАНОВЛЕН"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "ПАКЕТ УСПЕШНО УДАЛЁН"
 
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
@@ -1697,13 +1710,13 @@ msgid "Collections"
 msgstr "Коллекции"
 
 msgid "Extracting"
-msgstr "Распакова"
+msgstr "Распаковка"
 
 msgid "Searching"
 msgstr "Поиск"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "ИГРЫ НЕ НАЙДЕНЫ — ПРОПУСТИТЬ"
+msgstr "ИГРЫ НЕ НАЙДЕНЫ - ПРОПУСТИТЬ"
 
 msgid "AN ERROR HAS OCCURED"
 msgstr "ПРОИЗОШЛА ОШИБКА"
@@ -1721,7 +1734,7 @@ msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
 
 msgid "Done."
-msgstr "Готово."
+msgstr "Готово"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
@@ -1739,7 +1752,7 @@ msgid "FORMATING DEVICE"
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
 
 msgid "Formating"
-msgstr "ФОРМАТИРОВАНИЕ"
+msgstr "Форматирование"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "ТРЕБУЕТСЯ ПЕРЕЗАГРУЗКА СИСТЕМЫ ДЛЯ ЗАВЕРШЕНИЯ ОПЕРАЦИИ"
@@ -1803,9 +1816,9 @@ msgstr "Различные"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "Коллеция содержит %i игру, включая :%s"
-msgstr[1] "Коллеция содержит %i игры, включая :%s"
-msgstr[2] "Коллеция содержит %i игр, включая :%s"
+msgstr[0] "Коллекция содержит %i игру, включая :%s"
+msgstr[1] "Коллекция содержит %i игры, включая :%s"
+msgstr[2] "Коллекция содержит %i игр, включая :%s"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1820,19 +1833,19 @@ msgid "RIGHT"
 msgstr "ВПРАВО"
 
 msgid "LEFT ANALOG UP"
-msgstr "ЛЕВЫЙ АНАЛОГ ВВЕРХ"
+msgstr "ЛЕВЫЙ СТИК ВВЕРХ"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "ЛЕВЫЙ АНАЛОГ ВЛЕВО"
+msgstr "ЛЕВЫЙ СТИК ВЛЕВО"
 
 msgid "RIGHT ANALOG UP"
-msgstr "ПРВАВЫЙ АНАЛОГ ВВЕРХ"
+msgstr "ПРАВЫЙ СТИК ВВЕРХ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
+msgstr "ПРАВЫЙ СТИК ВЛЕВО"
 
 msgid "HOTKEY"
-msgstr "\"ГОРЯЧАЯ\" КНОПКА"
+msgstr "ГОРЯЧАЯ КНОПКА"
 
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
@@ -1901,8 +1914,8 @@ msgstr "ДОБРО ПОЖАЛОВАТЬ"
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
 msgstr[0] "ОБНАРУЖЕН %i КОНТРОЛЛЕР"
-msgstr[1] "ОБНАРУЖЕН %i КОНТРОЛЛЕРА"
-msgstr[2] "ОБНАРУЖЕН %i КОНТРОЛЛЕРОВ"
+msgstr[1] "ОБНАРУЖЕНО %i КОНТРОЛЛЕРА"
+msgstr[2] "ОБНАРУЖЕНО %i КОНТРОЛЛЕРОВ"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
@@ -1969,10 +1982,10 @@ msgid "accept"
 msgstr "принять"
 
 msgid "SELECT ALL"
-msgstr "ВЫБРАТЬ ВСЕ"
+msgstr "ВЫБРАТЬ ВСЁ"
 
 msgid "select all"
-msgstr "выбрать все"
+msgstr "выбрать всё"
 
 msgid "SELECT NONE"
 msgstr "СНЯТЬ ВЫБОР"
@@ -1995,6 +2008,9 @@ msgstr "ОБРАБОТКА..."
 
 msgid "up/down"
 msgstr "вверх/вниз"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "ВЫБЕРИТЕ ТЕМУ"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "УСТАНОВИТЬ РАМКИ (ОВЕРЛЕИ)"

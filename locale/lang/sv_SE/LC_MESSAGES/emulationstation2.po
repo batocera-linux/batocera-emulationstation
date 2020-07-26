@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -246,6 +246,9 @@ msgstr "Processormodell"
 
 msgid "Cpu number"
 msgstr "Processornummer"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "Processoregenskap"
@@ -1296,8 +1299,18 @@ msgstr "BILDSPEL-SKÄRMSLÄCKAREN"
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHET HITTADES"
 
-msgid "SELECT THEME"
-msgstr "VÄLJ TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "REDIGERA METADATA"
@@ -1980,6 +1993,9 @@ msgstr "ARBETAR..."
 
 msgid "up/down"
 msgstr "upp/ner"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "VÄLJ TEMA"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALLERA RAMAR"

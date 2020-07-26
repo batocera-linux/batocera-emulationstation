@@ -26,6 +26,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	mMenu.setSubTitle(_("SELECT CONTENT TO INSTALL / REMOVE"));
 	
 	addChild(&mMenu);
+
+	mMenu.addButton(_("REFRESH"), "refresh", [&] { loadPackages(true); });
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 	centerWindow();
 	
@@ -37,7 +39,7 @@ void GuiBatoceraStore::centerWindow()
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
-		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.883f);
+		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }
@@ -49,21 +51,24 @@ static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 	return name1.compare(name2) < 0;
 }
 
-void GuiBatoceraStore::loadPackages()
+void GuiBatoceraStore::loadPackages(bool updatePackageList)
 {
 	mWaitingLoad = true;
 
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<PacmanPackage>>(mWindow, _("PLEASE WAIT"),
-		[this, window]
+		[this, window, updatePackageList]
 		{	
+			if (updatePackageList)
+				ApiSystem::getInstance()->updateBatoceraStorePackageList();
+
 			auto packs = ApiSystem::getInstance()->getBatoceraStorePackages();
 			return packs;
 		},
-		[this, window](std::vector<PacmanPackage> packages)
+		[this, window, updatePackageList](std::vector<PacmanPackage> packages)
 		{		
-			int idx = mMenu.getCursorIndex();
+			int idx = updatePackageList ? -1 : mMenu.getCursorIndex();			
 			mMenu.clear();
 
 			std::unordered_set<std::string> groups;
@@ -222,7 +227,7 @@ GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entr
 	mImage->setHorizontalAlignment(Alignment::ALIGN_CENTER);
 	mImage->setVerticalAlignment(Alignment::ALIGN_TOP);
 	mImage->setFont(theme->Text.font);
-	mImage->setText(isInstalled ? _U("\uF058") : _U("\uF019"));
+	mImage->setText(isInstalled ? _U("\uF058") : _U("\uF019"));	
 	mImage->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
 
 	std::string label = entry.description;

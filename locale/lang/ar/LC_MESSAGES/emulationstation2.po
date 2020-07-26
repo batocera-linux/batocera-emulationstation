@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -250,6 +250,9 @@ msgstr "نوع المعالج"
 
 msgid "Cpu number"
 msgstr "عدد المعالجة"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "ميزة المعالج"
@@ -1308,8 +1311,18 @@ msgstr "شاشة توقف عرض الشرائح"
 msgid "NO DEVICE FOUND"
 msgstr "لا يمكن العثور على جهاز"
 
-msgid "SELECT THEME"
-msgstr "اختيار السمة"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات الوصفية"
@@ -2048,6 +2061,9 @@ msgstr "يعمل حالياً..."
 
 msgid "up/down"
 msgstr "أعلى/أسفل"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "اختيار السمة"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "تثبيت البراويز"

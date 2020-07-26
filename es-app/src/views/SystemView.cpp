@@ -18,6 +18,7 @@
 #include "guis/GuiNetPlay.h"
 #include "Playlists.h"
 #include "CollectionSystemManager.h"
+#include "resources/TextureDataManager.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -64,6 +65,8 @@ void SystemView::clearEntries()
 {
 	for (int i = 0; i < mEntries.size(); i++)
 	{
+		setExtraRequired(i, false);
+
 		for (auto extra : mEntries[i].data.backgroundExtras)
 			delete extra;
 
@@ -75,6 +78,8 @@ void SystemView::clearEntries()
 
 void SystemView::populate()
 {
+	TextureLoader::paused = true;
+
 	clearEntries();
 
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
@@ -214,6 +219,9 @@ void SystemView::populate()
 			this->add(e);
 		}
 	}
+
+	TextureLoader::paused = false;
+
 	if (mEntries.size() == 0)
 	{
 		// Something is wrong, there is not a single system to show, check if UI mode is not full
@@ -925,9 +933,7 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	int logoCount = Math::min(mCarousel.maxLogoCount, (int)mEntries.size());
 
 	// Adding texture loading buffers depending on scrolling speed and status
-	int bufferIndex = getScrollingVelocity() + 1;
-	bufferIndex = Math::max(0, Math::min(2, bufferIndex));
-
+	int bufferIndex = Math::max(0, Math::min(2, getScrollingVelocity() + 1));
 	int bufferLeft = logoBuffersLeft[bufferIndex];
 	int bufferRight = logoBuffersRight[bufferIndex];
 
@@ -986,34 +992,69 @@ void SystemView::renderInfoBar(const Transform4x4f& trans)
 
 #include <unordered_set>
 
-// Draw background extras
-void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upper)
+void SystemView::setExtraRequired(int cursor, bool required)
 {
-	int extrasCenter = (int)mExtrasCamOffset;
-
-	int bufferIndex = getScrollingVelocity() + 1;
-	bufferIndex = Math::max(0, Math::min(2, bufferIndex));
-
-	int bufferLeft = logoBuffersLeft[bufferIndex];
-	int bufferRight = logoBuffersRight[bufferIndex];
-
-	// Ensure texture loaded, query them if necessary ( & put it in the top order )
-	for (int i = extrasCenter + bufferLeft; i <= extrasCenter + bufferRight; i++)
+	auto setTexture = [](GuiComponent* extra, const std::function<void(std::shared_ptr<TextureResource>)>& func)
 	{
+		if (extra->isKindOf<ImageComponent>())
+		{
+			auto tex = ((ImageComponent*)extra)->getTexture();
+			if (tex != nullptr)
+				func(tex);
+		}
+	};
+
+	// Disable unloading for textures that will have to display 
+	for (GuiComponent* extra : mEntries.at(cursor).data.backgroundExtras)
+		setTexture(extra, [required](std::shared_ptr<TextureResource> x) { x->setRequired(required); });
+}
+
+void SystemView::preloadExtraNeighbours(int cursor)
+{
+	auto setTexture = [](GuiComponent* extra, const std::function<void(std::shared_ptr<TextureResource>)>& func)
+	{
+		if (extra->isKindOf<ImageComponent>())
+		{
+			auto tex = ((ImageComponent*)extra)->getTexture();
+			if (tex != nullptr)
+				func(tex);
+		}
+	};
+
+	// Make sure near textures are in at top position & will be released last if VRAM is required
+	int distancesStatic[] = { -2, 2, -1, 1, 0 };
+	int distancesRight[] = { 3, -1, 2, 1, 0 };
+	int distancesLeft[] = { -3, 1, -2, -1, 0 };
+
+	int* distances = &distancesStatic[0];
+	
+	if (getScrollingVelocity() > 0)
+		distances = &distancesRight[0];
+	else if (getScrollingVelocity() < 0)
+		distances = &distancesLeft[0];
+		
+	for (int dx = 0; dx < 5; dx++)
+	{
+		int i = cursor + distances[dx];
 		int index = i % (int)mEntries.size();
 		if (index < 0)
 			index += (int)mEntries.size();
 
 		for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
-		{
-			if (extra->isKindOf<ImageComponent>())
-			{
-				auto tex = ((ImageComponent*)extra)->getTexture();
-				if (tex != nullptr)
-					tex->reload();
-			}
-		}
+			if (dx > 1)
+				setTexture(extra, [](std::shared_ptr<TextureResource> x) { x->reload(); });
+			else
+				setTexture(extra, [](std::shared_ptr<TextureResource> x) { x->prioritize(); });
 	}
+}
+
+// Draw background extras
+void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upper)
+{
+	int min = (int)mExtrasCamOffset;
+	int max = (int)(mExtrasCamOffset + 0.99999f);
+
+	int extrasCenter = (int)mExtrasCamOffset;
 
 	Renderer::pushClipRect(Vector2i::Zero(), Vector2i((int)mSize.x(), (int)mSize.y()));
 	
@@ -1088,7 +1129,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		Renderer::popClipRect();
 	}
 
-	for (int i = extrasCenter - 1; i <= extrasCenter + 1; i++)
+	for (int i = min ; i <= max; i++)
 	{
 		int index = i % (int)mEntries.size();
 		if (index < 0)
@@ -1415,4 +1456,9 @@ void SystemView::activateExtras(int cursor, bool activate)
 		else
 			extra->onHide();
 	}
+
+	setExtraRequired(cursor, activate);
+
+	if (activate)
+		preloadExtraNeighbours(cursor);
 }

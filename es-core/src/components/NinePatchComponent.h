@@ -46,6 +46,9 @@ public:
 	void setAnimateColor(unsigned int color) { mAnimateColor = color; };
 	void setAnimateTiming(float timing) { mAnimateTiming = timing; };
 
+	virtual void onShow() override;
+	virtual void onHide() override;
+
 private:
 	void buildVertices();
 	void updateColors();
@@ -64,6 +67,7 @@ private:
 	float mTimer;
 	float mAnimateTiming;
 	unsigned int mAnimateColor;
+	bool mShowing;
 };
 
 #endif // ES_CORE_COMPONENTS_NINE_PATCH_COMPONENT_H

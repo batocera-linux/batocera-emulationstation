@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <unordered_set>
+#include <string>
 
 class FileData;
 class SystemData;

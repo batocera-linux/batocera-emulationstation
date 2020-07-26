@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -247,6 +247,9 @@ msgstr "Type de processeur"
 msgid "Cpu number"
 msgstr "Nombre de processeurs"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
 
@@ -284,7 +287,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES DES EMULATEURS"
 
 msgid "SCRAPE"
-msgstr "SCRAPER"
+msgstr "SCRAPER LES JEUX"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "MISES À JOUR ET TÉLÉCHARGEMENTS"
@@ -302,7 +305,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "SCRAPER"
-msgstr "SCRAPEUR"
+msgstr "PARAMÈTRES DU SCRAPEUR"
 
 msgid "SCRAPE NOW"
 msgstr "LANCER LE SCRAPE"
@@ -392,7 +395,7 @@ msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr "DISQUE DES DONNÉES UTILISATEUR"
+msgstr "DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
@@ -476,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "TÉLÉCHARGEMENTS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
 msgid "THEMES"
 msgstr "THÈMES"
@@ -782,7 +785,7 @@ msgid "DEFAULT VALUE"
 msgstr "VALEUR PAR DÉFAUT"
 
 msgid "GAMELIST OPTIONS"
-msgstr "OPTIONS DE LA LISTE DE JEUX"
+msgstr "OPTIONS DES LISTES DE JEUX"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "AFFICHER LES FAVORIS EN HAUT"
@@ -1156,33 +1159,33 @@ msgstr[0] "%i JEU PASSÉ"
 msgstr[1] "%i JEUX PASSÉS"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SÉLECTIONNEZ LES BEZELS À INSTALLER / SUPPRIMER"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "METTRE À JOUR"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AJOUTÉ DANS LA LISTE DE TÉLÉCHARGEMENT"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "SUPPRIMER"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS DÉSINSTALLÉS AVEC SUCCÈS"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "ACTUELLEMENT EN FILE D’ATTENTE DE TÉLÉCHARGEMENT "
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SÉLECTIONNEZ LE CONTENU À INSTALLER / SUPPRIMER"
 
 msgid "MISC"
-msgstr ""
+msgstr "AUTRE"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "SUPPRESSION AJOUTÉE A LA FILE D’ATTENTE"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CHANGER L'IMAGE APRÈS"
@@ -1296,8 +1299,18 @@ msgstr "ÉCRAN DE VEILLE DIAPORAMA"
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
-msgid "SELECT THEME"
-msgstr "SÉLECTIONNER UN THÈME"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -1656,13 +1669,13 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THÈME INSTALLÉ AVEC SUCCES"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCES"
+msgstr "BEZELS INSTALLÉS AVEC SUCCES"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PACKAGE INSTALLÉ AVEC SUCCÈS"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PACKAGE SUPPRIMÉ AVEC SUCCÈS"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
@@ -1982,6 +1995,9 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SÉLECTIONNER UN THÈME"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALLER DES DÉCORATIONS"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: 2020-07-08 22:38+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -253,6 +253,9 @@ msgstr "Modèl processor"
 msgid "Cpu number"
 msgstr "Nombre de processor"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "Foncionalitat processor"
 
@@ -482,31 +485,31 @@ msgid "DOWNLOADS"
 msgstr ""
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "TELECARGADOR DE CONTENGUT"
 
 msgid "THEMES"
-msgstr ""
+msgstr "TÈMAS"
 
 msgid "THE BEZEL PROJECT"
 msgstr ""
 
 msgid "SOFTWARE UPDATES"
-msgstr ""
+msgstr "MESAS A JORN LOGICIALAS"
 
 msgid "CHECK FOR UPDATES"
-msgstr ""
+msgstr "VERIFICAR MESAS A JORN"
 
 msgid "UPDATE TYPE"
 msgstr "TIPE DE MESA A JORN"
 
 msgid "APPLY UPDATE"
-msgstr ""
+msgstr "APLICAR MESA A JORN"
 
 msgid "START UPDATE"
 msgstr "LANÇAR MESA A JORN"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
+msgstr "LA MESA A JORN ES JA EN CORS"
 
 msgid "SYSTEM"
 msgstr "SISTÈMA"
@@ -515,7 +518,7 @@ msgid "LANGUAGE"
 msgstr "LENGA"
 
 msgid "POWER SAVER MODES"
-msgstr ""
+msgstr "MÒDES ESTALVIADOR D'ENERGIA"
 
 msgid "KODI SETTINGS"
 msgstr "PARAMÈTRES KODI"
@@ -887,7 +890,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUM SISTÈMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUM MUSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr ""
@@ -1281,7 +1284,17 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "SELECT THEME"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"

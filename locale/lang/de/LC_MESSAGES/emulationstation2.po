@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "ANDERE FILTER"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "SPIELE MEDIEN"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "PIEL-ANLEITUNG ANSEHEN"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "SPIELE-KARTE ANSEHEN"
 
 msgid "COLLECTION"
 msgstr "SAMMLUNG"
@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN DIESES SPIELS BEARBEITEN"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "FILTER ZURÜCKSETZEN"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "SPIELE NACH TEXT FILTERN"
@@ -247,6 +247,9 @@ msgstr "CPU Modell"
 msgid "Cpu number"
 msgstr "CPU Kerne"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "CPU Eigenschaft"
 
@@ -302,7 +305,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SCRAPING LÄUFT GERADE. WILLST DU ES STOPPEN?"
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "SCRAPER"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER STARTEN"
@@ -332,7 +335,7 @@ msgid "BOX 3D"
 msgstr "BOX 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
 msgstr "BOX QUELLE"
@@ -356,10 +359,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "VIDEOS SCRAPEN"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "FANART SCRAPEN"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "ANLEITUNG SCRAPEN"
 
 msgid "USERNAME"
 msgstr "BENUTZERNAME"
@@ -613,7 +616,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "IM HAUPTMENÜ ZEIGEN"
 
 msgid "SETTINGS"
 msgstr "EINSTELLUNGEN"
@@ -775,10 +778,10 @@ msgid "DEFAULT GRID SIZE"
 msgstr "STANDARD RASTERGRÖSSE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "GAMELIST THEMENOPTIONEN"
+msgstr "SPIELELISTEN-THEME OPTIONEN"
 
 msgid "THEME OPTIONS"
-msgstr "THEMENOPTIONEN"
+msgstr "THEME OPTIONEN"
 
 msgid "DEFAULT VALUE"
 msgstr "STANDARD-WERT"
@@ -861,7 +864,7 @@ msgid "TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "SPIEL-STARTÜBERGANG"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSSEL ÜBERGÄNGE"
@@ -1047,10 +1050,10 @@ msgid "GROUPED SYSTEMS"
 msgstr "GRUPPIERTE SYSTEME"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "ERSTELLE BENUTZERDEFINIERTE-SAMMLUNG"
+msgstr "ERSTELLE BENUTZERDEF. SAMMLUNG"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "NEUE BENUTZERDEFINIERTE SAMMLUNG AUS THEME ERSTELLEN"
+msgstr "NEUE BENUTZERDEF. SAMMLUNG AUS THEME ERSTELLEN"
 
 msgid "SELECT THEME FOLDER"
 msgstr "THEME-ORDNER AUSWÄHLEN"
@@ -1062,19 +1065,19 @@ msgid "OPTIONS"
 msgstr "OPTIONEN"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "UNTHEMATISIERTE BENUTZERDEFINIERTE SAMMLUNGEN GRUPPIEREN"
+msgstr "UNTHEMED BENUTZERDEF. SAMMLUNGEN GRUPPIEREN"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "SAMMLUNGEN UND SYSTEME SORTIEREN"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALPHABETISCH"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "NACH HERSTELLER"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "SYSTEME SORTIEREN"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "SYSTEMNAME IN SAMMLUNGEN ANZEIGEN"
@@ -1086,7 +1089,7 @@ msgid "ARCADE SYSTEMS"
 msgstr "ARCADE SYSTEME"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "AUTOMATISCHE SPIELE-SAMMLUNGEN"
+msgstr "AUTOM. SPIELE-SAMMLUNGEN"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "KONFIGURIERBARE SAMMLUNGEN"
@@ -1095,7 +1098,7 @@ msgid "DYNAMIC COLLECTIONS"
 msgstr "DYNAMISCHE SAMMLUNGEN"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "BENUTZERDEFINIERTE SPIELE-SAMMLUNGEN"
+msgstr "BENUTZERDEF. SPIELE-SAMMLUNGEN"
 
 msgid "INSTALL BATOCERA"
 msgstr "INSTALLIERE BATOCERA"
@@ -1300,8 +1303,18 @@ msgstr "DIASHOW-BILDSCHIRMSCHONER"
 msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"
 
-msgid "SELECT THEME"
-msgstr "THEME AUSWÄHLEN"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
@@ -1353,64 +1366,64 @@ msgid "enter path to video"
 msgstr "Pfad zum Video eingeben"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "Pfad zum Logo eingeben"
 
 msgid "Box"
-msgstr ""
+msgstr "Box"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "Pfad zur Box eingeben"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "Pfad zum fanart eingeben"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Title shot"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "Pfad zum Title shot eingeben"
 
 msgid "Manual"
-msgstr ""
+msgstr "Anleitung"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "Pfad zur Anleitung eingeben"
 
 msgid "Map"
-msgstr ""
+msgstr "Karte"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "Pfad zur Karte eingeben"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartridge"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "Pfad zum Cartridge eingeben"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Alternative BoxArt"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "Pfad zum Boxart eingeben"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Wheel"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "Pfad zum Wheel eingeben"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "Pfad zum Mix eingeben"
 
 msgid "Rating"
 msgstr "Bewertung"
@@ -1821,16 +1834,16 @@ msgid "RIGHT"
 msgstr "RECHTS"
 
 msgid "LEFT ANALOG UP"
-msgstr "LINKER ANALOGSTICK NACH OBEN"
+msgstr "LINKER ANALOG HOCH"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "LINKER ANALOGSTICK NACH LINKS"
+msgstr "LINKER ANALOG LINKS"
 
 msgid "RIGHT ANALOG UP"
-msgstr "RECHTER ANALOGSTICK NACH OBEN"
+msgstr "RECHTER ANALOG HOCH"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "RECHTER ANALOGSTICK NACH LINKS"
+msgstr "RECHTER ANALOG LINKS"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -2009,6 +2022,9 @@ msgstr "hoch/runter"
 #~ msgid "BEZELS DELETED SUCCESSFULLY"
 #~ msgstr "BEZELS ERFOLGREICH GELÖSCHT"
 
+#~ msgid "SELECT THEME"
+#~ msgstr "THEME AUSWÄHLEN"
+
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "BENUTZERDEFINIERTE SAMMLUNGEN UND SYSTEME SORTIEREN"
 
@@ -2179,7 +2195,7 @@ msgstr "hoch/runter"
 #~ msgstr "THEME SYSTEMANSICHT"
 
 #~ msgid "THEME GAMELISTVIEW"
-#~ msgstr "TEHEM SPIELELISTEN-ANSICHT"
+#~ msgstr "THEME SPIELELISTEN-ANSICHT"
 
 #~ msgid "THEME REGION"
 #~ msgstr "THEME REGION"

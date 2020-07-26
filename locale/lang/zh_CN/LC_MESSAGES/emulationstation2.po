@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,6 +243,9 @@ msgstr "CPU 型号"
 
 msgid "Cpu number"
 msgstr "CPU 序列号"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "CPU 特征"
@@ -1287,8 +1290,18 @@ msgstr "屏保-幻灯片"
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
 
-msgid "SELECT THEME"
-msgstr "选择主题"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
@@ -1958,6 +1971,9 @@ msgstr "进行中..."
 
 msgid "up/down"
 msgstr "上/下"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "选择主题"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "安装框架"

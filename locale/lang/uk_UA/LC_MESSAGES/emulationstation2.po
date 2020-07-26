@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -247,6 +247,9 @@ msgstr "Модель CPU"
 
 msgid "Cpu number"
 msgstr "Кількість ядер"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "Функції CPU"
@@ -1297,8 +1300,18 @@ msgstr "СЛАЙДШОУ ЗАСТАВКА"
 msgid "NO DEVICE FOUND"
 msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
 
-msgid "SELECT THEME"
-msgstr "ВИБРАТИ ТЕМУ"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "РЕДАГУВАТИ МЕТАДАННІ"
@@ -1996,6 +2009,9 @@ msgstr "ОБРОБКА..."
 
 msgid "up/down"
 msgstr "вгору/вниз"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "ВИБРАТИ ТЕМУ"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "ВСТАНОВИТИ РАМКИ (ОВЕРЛЕЇ)"

@@ -115,6 +115,7 @@ void Window::pushGui(GuiComponent* gui)
 		}*/
 	}
 
+	gui->onShow();
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
 }
@@ -125,6 +126,7 @@ void Window::removeGui(GuiComponent* gui)
 	{
 		if(*i == gui)
 		{						
+			gui->onHide();
 			i = mGuiStack.erase(i);
 
 			if(i == mGuiStack.cend() && mGuiStack.size()) // we just popped the stack and the stack is not empty

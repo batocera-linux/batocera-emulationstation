@@ -9,6 +9,7 @@
 #include <fstream>
 #include <map>
 #include <mutex>
+#include "renderers/Renderer.h"
 
 unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
 {
@@ -56,6 +57,10 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 					if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
 					{
 						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+
+						if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
+							sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
+						
 						if (sz.x() != width || sz.y() != height)
 						{
 							LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();

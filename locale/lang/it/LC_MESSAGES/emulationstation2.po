@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "ALTRI FILTRI"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "MEDIA DEI GIOCHI"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "MOSTRA MANUALE DI GIOCO"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "MOSTRA MAPPA DI GIOCO"
 
 msgid "COLLECTION"
 msgstr "COLLEZIONEE"
@@ -247,6 +247,9 @@ msgstr "Modello CPU"
 msgid "Cpu number"
 msgstr "Numero CPU"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "Caratteristiche CPU"
 
@@ -332,7 +335,7 @@ msgid "BOX 3D"
 msgstr "BOX 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
 msgstr "SORGENTE BOX"
@@ -549,7 +552,7 @@ msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "TASTI MULTIMEDIALI"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -612,7 +615,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRA NEL MENU PRINCIPALE"
 
 msgid "SETTINGS"
 msgstr "IMPOSTAZIONI"
@@ -800,7 +803,7 @@ msgid "never"
 msgstr "mai"
 
 msgid "having multiple games"
-msgstr "avere più giochi"
+msgstr "giochi multipli"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRA '..' CARTELLA PRINCIPALE"
@@ -857,7 +860,7 @@ msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "TRANSIZIONE AL LANCIO DEL GIOCO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "MODALITA' DI TRANSIZIONE CAROUSEL"
@@ -890,7 +893,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUME DI SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUME MUSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRA GRAFICA DURANTE IL CAMBIO VOLUME"
@@ -1297,8 +1300,18 @@ msgstr "PRESENTAZIONE SALVASCHERMO"
 msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
 
-msgid "SELECT THEME"
-msgstr "SELEZIONA TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "MODIFICA I METADATI"
@@ -1350,64 +1363,64 @@ msgid "enter path to video"
 msgstr "inserisci percorso dei video"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "Inserisci percorso logo"
 
 msgid "Box"
-msgstr ""
+msgstr "Scatola"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "Inserisci percorso scatola"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "Inserisci percorso fan art"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Schermata titolo"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "Inserisci percorso della schermata titolo"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manuale"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "Inserisci percorso del manuale"
 
 msgid "Map"
-msgstr ""
+msgstr "Mappa"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "Inserisci percorso della mappa"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartuccia"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "Inserisci percorso della cartuccia"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Scatola alternativa"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "Inserisci percorso della scatola alternativa"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Ruota"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "Inserisci percorso della ruota"
 
 msgid "Mix"
-msgstr ""
+msgstr "Misto"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "Inserisci percorso delle grafiche miste"
 
 msgid "Rating"
 msgstr "Voto"
@@ -1801,8 +1814,8 @@ msgstr "Vari"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Questa collezione contiene %i gioco, incluso :%s"
+msgstr[1] "Questa collezione contiene %i giochi, inclusi :%s"
 
 msgid "UP"
 msgstr "SU"
@@ -2003,6 +2016,9 @@ msgstr "su/giù"
 
 #~ msgid "BEZELS DELETED SUCCESSFULLY"
 #~ msgstr "BEZELS CANCELLATE CON SUCCESSO"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SELEZIONA TEMA"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "ORDINA LE COLLEZIONI E I SISTEMI PERSONALI"

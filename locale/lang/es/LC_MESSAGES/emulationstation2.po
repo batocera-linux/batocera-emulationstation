@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -116,13 +116,13 @@ msgid "OTHER FILTERS"
 msgstr "OTROS FILTROS"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "PORTADAS"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "VER MANUAL DEL JUEGO"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "VER MAPA DEL JUEGO"
 
 msgid "COLLECTION"
 msgstr "COLECCIÓN"
@@ -173,7 +173,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "RESTABLECER FILTROS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JUEGOS POR TEXTO"
@@ -244,6 +244,9 @@ msgstr "PROCESADOR"
 msgid "Cpu number"
 msgstr "NÚCLEOS DEL PROCESADOR"
 
+msgid "Cpu max frequence"
+msgstr ""
+
 msgid "Cpu feature"
 msgstr "CARACTERÍSTICA DEL PROCESADOR"
 
@@ -299,7 +302,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SCRAPEO CORRIENDO, QUIERES DETENERLO?"
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "SCRAPER"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
@@ -329,7 +332,7 @@ msgid "BOX 3D"
 msgstr "CAJA 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "ARTE"
 
 msgid "BOX SOURCE"
 msgstr "ORIGEN DE CAJA"
@@ -353,10 +356,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTENER VIDEOS"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "SCRAPEAR ARTE"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "SCRAPEO MANUAL"
 
 msgid "USERNAME"
 msgstr "USUARIO"
@@ -473,7 +476,7 @@ msgid "DOWNLOADS"
 msgstr "DESCARGAS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "DESCARGAR CONTENIDO"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -545,7 +548,7 @@ msgid "MISSING BIOS"
 msgstr "BIOS FALTANTES"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "LLAVES MULTIMEDIA"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -608,7 +611,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRAR EN MENÚ PRINCIPAL"
 
 msgid "SETTINGS"
 msgstr "AJUSTES"
@@ -857,7 +860,7 @@ msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSICIÓN"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "TRANSICIÓN AL LANZAR JUEGO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSICIONES DE CARRUSEL"
@@ -890,7 +893,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUMEN DE MUSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR BARRA DE SONIDO AL CAMBIAR VOLUMEN"
@@ -1061,16 +1064,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLECCIÓNES PERSONALES SIN TEMA"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORGANIZAR COLECCIÓNES Y SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABETICAMENTE"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "POR EMPRESA"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ORGANIZAR SISTEMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DE SISTEMA EN COLECCIÓNES"
@@ -1156,33 +1159,33 @@ msgstr[0] "%i JUEGO IGNORADO"
 msgstr[1] "%i JUEGOS IGNORADOS"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONA LOS BISELES A INSTALAR / REMOVER"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "ACTUALIZAR"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AGREGADO A LA COLA DE DESCARGA"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "QUITAR"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BISELES DESINSTALADOS SATISFACTORIAMENTE"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "ACTUALMENTE EN LA COLA DE DESCARGAS"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONAR CONTENIDO A INSTALAR / REMOVER"
 
 msgid "MISC"
-msgstr ""
+msgstr "MISCELANEOS"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "DESINSTALACION AGREGADA A LA COLA"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIAR IMÁGENES DESPUES DE (SEGS)"
@@ -1298,8 +1301,18 @@ msgstr "SALVAPANTALLAS DE PRESENTACIÓN"
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
 
-msgid "SELECT THEME"
-msgstr "SELECCIONAR TEMA"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
@@ -1351,64 +1364,64 @@ msgid "enter path to video"
 msgstr "INTRODUCE RUTA DEL VIDEO"
 
 msgid "Logo"
-msgstr ""
+msgstr "LOGOTIPO"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL LOGOTIPO"
 
 msgid "Box"
-msgstr ""
+msgstr "CAJA"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "INGRESA LA RUTA DE LA CAJA"
 
 msgid "Fan art"
-msgstr ""
+msgstr "ARTE"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL ARTE"
 
 msgid "Title shot"
-msgstr ""
+msgstr "TITULO"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL TITULO"
 
 msgid "Manual"
-msgstr ""
+msgstr "MANUAL"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL MANUAL"
 
 msgid "Map"
-msgstr ""
+msgstr "MAPA"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL MAPA"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "CARTUCHO"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL CARTUCHO"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "CAJA ALTERNATIVA"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "INGRESA LA RUTA DE LA CAJA ALTERNATIVA"
 
 msgid "Wheel"
-msgstr ""
+msgstr "RUEDA"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "INGRESA LA RUTA DE LA RUEDA"
 
 msgid "Mix"
-msgstr ""
+msgstr "MIX"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "INGRESA LA RUTA DEL MIX"
 
 msgid "Rating"
 msgstr "CALIFICACIÓN"
@@ -1523,7 +1536,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "IR A EMPRESA"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1661,10 +1674,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BISELES INSTALADOS SATISFACTORIAMENTE"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUETE INSTALADO SATISFACTORIAMENTE"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUETE DESINSTALADO SATISFACTORIAMENTE"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -1983,6 +1996,9 @@ msgstr "EN CURSO..."
 
 msgid "up/down"
 msgstr "ARRIBA/ABAJO"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "SELECCIONAR TEMA"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "INSTALAR BISELES"

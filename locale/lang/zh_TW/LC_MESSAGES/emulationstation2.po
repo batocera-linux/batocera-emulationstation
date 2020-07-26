@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -246,6 +246,9 @@ msgstr "CPU 版本"
 
 msgid "Cpu number"
 msgstr "CPU 核心"
+
+msgid "Cpu max frequence"
+msgstr ""
 
 msgid "Cpu feature"
 msgstr "CPU 架構"
@@ -1288,8 +1291,18 @@ msgstr "幻燈片螢幕保護"
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到設備"
 
-msgid "SELECT THEME"
-msgstr "選擇主題"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "編輯簡介"
@@ -1959,6 +1972,9 @@ msgstr "更新中..."
 
 msgid "up/down"
 msgstr "上＆下"
+
+#~ msgid "SELECT THEME"
+#~ msgstr "選擇主題"
 
 #~ msgid "INSTALL BEZELS"
 #~ msgstr "安裝邊框"

@@ -123,14 +123,18 @@ void Settings::setDefaults()
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2)
+	// Boards > 1Gb RAM
 	mIntMap["MaxVRAM"] = 256;
-#else
-	#ifdef _RPI_
-		mIntMap["MaxVRAM"] = 80;
-	#else
-		mIntMap["MaxVRAM"] = 100;
-	#endif
+#elif defined(ODROIDGOA) || defined(RPI2) || defined(RPI3) || defined(RPI4) || defined(ROCKPRO64)
+	// Boards with 1Gb RAM
+	mIntMap["MaxVRAM"] = 128;
+#elif defined(_RPI_) 
+	// Rpi 0, 1
+	mIntMap["MaxVRAM"] = 80;
+#else 
+	// Other boards
+	mIntMap["MaxVRAM"] = 100;
 #endif
 
 	mStringMap["TransitionStyle"] = "auto";

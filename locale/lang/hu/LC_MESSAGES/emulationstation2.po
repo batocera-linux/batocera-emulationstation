@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 21:20+0200\n"
+"POT-Creation-Date: 2020-07-25 10:20+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,6 +242,9 @@ msgid "Cpu model"
 msgstr ""
 
 msgid "Cpu number"
+msgstr ""
+
+msgid "Cpu max frequence"
 msgstr ""
 
 msgid "Cpu feature"
@@ -1280,7 +1283,17 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "SELECT THEME"
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
 msgstr ""
 
 msgid "EDIT METADATA"
