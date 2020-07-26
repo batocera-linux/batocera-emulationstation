@@ -452,6 +452,10 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
 		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 		saveToGamelistRecovery(gameToUpdate);
+	} else {
+		// show error message
+		LOG(LogWarning) << "...Show Error message! exit code " << exitCode << "!";
+		ApiSystem::getInstance()->launchErrorWindow(window);
 	}
 
 	window->reactivateGui();

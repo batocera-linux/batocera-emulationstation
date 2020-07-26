@@ -100,7 +100,7 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 
 	return 1;
 #elif _ENABLEEMUELEC
-	return system((cmd_utf8 + " 2> /storage/.config/emuelec/logs/es_launch_stderr.log | head -300 > //storage/.config/emuelec/logs/es_launch_stdout.log").c_str()); // emuelec
+	return system((cmd_utf8 + " 2> /storage/.config/emuelec/logs/es_launch_stderr.log > /storage/.config/emuelec/logs/es_launch_stdout.log").c_str()); // emuelec
 #else
 	return system((cmd_utf8 + " 2> /userdata/system/logs/es_launch_stderr.log | head -300 > /userdata/system/logs/es_launch_stdout.log").c_str()); // batocera
 #endif

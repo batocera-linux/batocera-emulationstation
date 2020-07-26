@@ -407,6 +407,23 @@ bool ApiSystem::launchFileManager(Window *window)
 	return exitCode == 0;
 }
 
+bool ApiSystem::launchErrorWindow(Window *window) 
+{
+	LOG(LogDebug) << "ApiSystem::launchErrorWindow";
+
+	std::string command = "errormessagelauncher";
+
+	ApiSystem::launchExternalWindow_before(window);
+
+	int exitCode = system(command.c_str());
+	if (WIFEXITED(exitCode))
+		exitCode = WEXITSTATUS(exitCode);
+
+	ApiSystem::launchExternalWindow_after(window);
+
+	return exitCode == 0;
+}
+
 bool ApiSystem::enableWifi(std::string ssid, std::string key) 
 {
 #ifdef _ENABLEEMUELEC
