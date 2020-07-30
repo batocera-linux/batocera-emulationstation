@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4\n"
 
 msgid "UPDATING BATOCERA"
 msgstr "MISE À JOUR DE BATOCERA"
@@ -248,7 +248,7 @@ msgid "Cpu number"
 msgstr "Nombre de processeurs"
 
 msgid "Cpu max frequence"
-msgstr ""
+msgstr "Fréquence max processeur"
 
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
@@ -1176,7 +1176,7 @@ msgstr "BEZELS DÉSINSTALLÉS AVEC SUCCÈS"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "ACTUELLEMENT EN FILE D’ATTENTE DE TÉLÉCHARGEMENT "
+msgstr "ACTUELLEMENT EN FILE D’ATTENTE DE TÉLÉCHARGEMENT"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SÉLECTIONNEZ LE CONTENU À INSTALLER / SUPPRIMER"
@@ -1300,17 +1300,17 @@ msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "TÉLÉCHARGEMENT DE THÈMES"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SÉLECTIONNEZ LES THÈMES À INSTALLER / SUPPRIMER"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "THÈME DÉSINSTALLÉ AVEC SUCCÈS"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "THÈME ACTUEL"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -1402,7 +1402,7 @@ msgid "enter path to cartridge"
 msgstr "entrer le chemin vers la cartouche"
 
 msgid "Alt BoxArt"
-msgstr "boite (Alt)"
+msgstr "Boite (Alt)"
 
 msgid "enter path to alt boxart"
 msgstr "entrer le chemin vers la boite (Alt)"
@@ -1666,10 +1666,10 @@ msgid "DOWNLOADING"
 msgstr "TÉLÉCHARGEMENT"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "THÈME INSTALLÉ AVEC SUCCES"
+msgstr "THÈME INSTALLÉ AVEC SUCCÈS"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZELS INSTALLÉS AVEC SUCCES"
+msgstr "BEZELS INSTALLÉS AVEC SUCCÈS"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PACKAGE INSTALLÉ AVEC SUCCÈS"
@@ -1995,27 +1995,3 @@ msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
-
-#~ msgid "SELECT THEME"
-#~ msgstr "SÉLECTIONNER UN THÈME"
-
-#~ msgid "INSTALL BEZELS"
-#~ msgstr "INSTALLER DES DÉCORATIONS"
-
-#~ msgid "UNINSTALL BEZELS"
-#~ msgstr "DÉSINSTALLER DES DÉCORATIONS"
-
-#~ msgid "INSTALL THE BEZEL PROJECT"
-#~ msgstr "INSTALLER LE BEZEL PROJECT"
-
-#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-#~ msgstr "CHOISIR LES SYSTÈMES POUR LESQUELS (RE)INSTALLER LES DÉCORATIONS"
-
-#~ msgid "UNINSTALL THE BEZEL PROJECT"
-#~ msgstr "DÉSINSTALLER LE BEZEL PROJECT"
-
-#~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-#~ msgstr "CHOISIR LES DÉCORATIONS À DÉSINSTALLER"
-
-#~ msgid "BEZELS DELETED SUCCESSFULLY"
-#~ msgstr "DÉCORATIONS SUPPRIMÉES AVEC SUCCÈS"
