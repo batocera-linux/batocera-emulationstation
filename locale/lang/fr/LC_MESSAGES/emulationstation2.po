@@ -247,7 +247,7 @@ msgstr "Type de processeur"
 msgid "Cpu number"
 msgstr "Nombre de processeurs"
 
-msgid "Cpu max frequence"
+msgid "Cpu max frequency"
 msgstr "Fréquence max processeur"
 
 msgid "Cpu feature"

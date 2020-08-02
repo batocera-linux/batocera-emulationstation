@@ -247,8 +247,8 @@ msgstr "CPU Modell"
 msgid "Cpu number"
 msgstr "CPU Kerne"
 
-msgid "Cpu max frequence"
-msgstr ""
+msgid "Cpu max frequency"
+msgstr "CPU max Frequenz"
 
 msgid "Cpu feature"
 msgstr "CPU Eigenschaft"
@@ -479,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "INHALTS-DOWNLOADER"
 
 msgid "THEMES"
 msgstr "THEMES"
@@ -553,7 +553,7 @@ msgid "MISSING BIOS"
 msgstr "FEHLENDE BIOS-DATEIEN"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "MULTIMEDIA TASTEN"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -897,7 +897,7 @@ msgid "SYSTEM VOLUME"
 msgstr "LAUTSTÄRKE SYSTEM"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "MUSIK-LAUTSTÄRKE"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "OVERLAY ANZEIGEN, WENN SICH DIE LAUTSTÄRKE ÄNDERT"
@@ -1163,33 +1163,33 @@ msgstr[0] "%i SPIEL ÜBERSPRUNGEN."
 msgstr[1] "%i SPIELE ÜBERSPRUNGEN."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "WÄHLE BEZELS ZUM INSTALLIEREN / ENTFERNEN"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "AKTUALISIEREN"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ZUR DOWNLOAD-LISTE HINZUGEFÜGT"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "ENTFERNEN"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS ERFOLGREICH DEINSTALLIERT"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "AKTUELL IN DOWNLOAD-WARTESCHLANGE"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "WÄHLE INHALT ZUM INSTALLIEREN / ENTFERNEN"
 
 msgid "MISC"
-msgstr ""
+msgstr "VERSCHIEDENE"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "DEINSTALLATION ZUR WARTESCHLANGE HINZUGEFÜGT"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "BILDWECHSEL NACH (SEK)"
@@ -1304,17 +1304,17 @@ msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "THEMES DOWNLOADER"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "WÄHLE THEMES ZUM INSTALLIEREN / ENTFERNEN"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "THEME ERFOLGREICH DEINSTALLIERT"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "AKTUELLER THEME"
 
 msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
@@ -1537,7 +1537,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "GEHE ZUM HERSTELLER"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1675,10 +1675,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS ERFOLGREICH INSTALLIERT"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PAKET ERFOLGREICH INSTALLIERT"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PAKET ERFOLGREICH DEINSTALLIERT"
 
 msgid "FAVORITES"
 msgstr "FAVORITEN"
@@ -1921,7 +1921,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "KEIN GAMEPAD ERKANNT"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "BELIEBIGE TASTE AM CONTROLLER FESTHALTEN, UM IHN ZU KONFIGURIEREN."
+msgstr "BELIEBIGE TASTE AM CONTROLLER GEDRÜCKT HALTEN, UM IHN ZU KONFIGURIEREN."
 
 #, c-format
 msgid "%d hour"
