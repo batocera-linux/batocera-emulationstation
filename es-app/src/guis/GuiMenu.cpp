@@ -285,6 +285,26 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 		
+       auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
+		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
+		bluetoothd_enabled->setState(btbaseEnabled);
+		s->addWithLabel(_("ENABLE BLUETOOTH"), bluetoothd_enabled);
+		s->addSaveFunc([bluetoothd_enabled] {
+			if (bluetoothd_enabled->changed()) {
+			if (bluetoothd_enabled->getState() == false) {
+				runSystemCommand("systemctl stop bluetooth", "", nullptr); 
+				runSystemCommand("rm /storage/.cache/services/bluez.conf", "", nullptr); 
+			} else { 
+				runSystemCommand("mkdir -p /storage/.cache/services/", "", nullptr);
+				runSystemCommand("touch /storage/.cache/services/bluez.conf", "", nullptr);
+				runSystemCommand("systemctl start bluetooth", "", nullptr);
+			}
+                bool bluetoothenabled = bluetoothd_enabled->getState();
+                SystemConf::getInstance()->set("ee_bluetooth.enabled", bluetoothenabled ? "1" : "0");
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+
        auto sshd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool baseEnabled = SystemConf::getInstance()->get("ee_ssh.enabled") == "1";
 		sshd_enabled->setState(baseEnabled);
