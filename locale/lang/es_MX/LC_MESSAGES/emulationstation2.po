@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4\n"
 
 msgid "UPDATING BATOCERA"
 msgstr "ACTUALIZANDO BATOCERA"
@@ -86,7 +86,7 @@ msgid "REFRESH"
 msgstr "ACTUALIZAR"
 
 msgid "FAILED"
-msgstr "FALLÓ"
+msgstr "HA FALLADO"
 
 msgid "LAUNCH"
 msgstr "LANZAR"
@@ -119,13 +119,13 @@ msgid "OTHER FILTERS"
 msgstr "OTROS FILTROS"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "IMÁGENES DE LOS JUEGOS"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "VER MANUAL DEL JUEGO"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "VER MAPA DEL JUEGO"
 
 msgid "COLLECTION"
 msgstr "COLECCIÓN"
@@ -155,7 +155,7 @@ msgid "COLLECTION MANAGEMENT"
 msgstr "ADMINISTRACIÓN DE COLECCIONES"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "AGREGAR / REMOVER JUEGOS A ESTA COLECCIÓN"
+msgstr "AGREGAR / QUITAR JUEGOS A ESTA COLECCIÓN"
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "EDICIÓN DE COLECCIÓN FINALIZADA"
@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "RESTABLECER FILTROS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JUEGOS POR TEXTO"
@@ -247,8 +247,8 @@ msgstr "PROCESADOR"
 msgid "Cpu number"
 msgstr "NÚCLEOS DEL PROCESADOR"
 
-msgid "Cpu max frequence"
-msgstr ""
+msgid "Cpu max frequency"
+msgstr "FRECUENCIA MÁXIMA DEL PROCESADOR"
 
 msgid "Cpu feature"
 msgstr "CARACTERÍSTICA DEL PROCESADOR"
@@ -305,7 +305,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SE ESTÁ EJECUTANDO EL SCRAPEO, QUIERES DETENERLO?"
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "ESCRAPEO"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER CARÁTULAS AHORA"
@@ -335,7 +335,7 @@ msgid "BOX 3D"
 msgstr "CAJA 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "ARTE DE FAN"
 
 msgid "BOX SOURCE"
 msgstr "ORIGEN DE CAJA"
@@ -344,7 +344,7 @@ msgid "NONE"
 msgstr "NINGUNO"
 
 msgid "LOGO SOURCE"
-msgstr "ORIGEN DE LOGO"
+msgstr "ORIGEN DEL LOGOTIPO"
 
 msgid "WHEEL"
 msgstr "RUEDA"
@@ -359,10 +359,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTENER VIDEOS"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "OBTENER ARTE DE FAN"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "OBTENER MANUALES DE JUEGOS"
 
 msgid "USERNAME"
 msgstr "USUARIO"
@@ -446,7 +446,7 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABLECER EXTENSIONES DE ARCHIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr "REDETECTAR JUEGOS POR IDIOMA/REGIÓN"
+msgstr "REDETECTAR JUEGOS POR IDIOMA / REGIÓN"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÚ COMPLETO PARA SALIR"
@@ -470,7 +470,7 @@ msgid "FILE GENERATED SUCCESSFULLY"
 msgstr "ARCHIVO GENERADO SATISFACTORIAMENTE"
 
 msgid "FILE GENERATION FAILED"
-msgstr "LA GENERACIÓN DEL ARCHIVO FALLÓ"
+msgstr "LA GENERACIÓN DEL ARCHIVO HA FALLADO"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATEAR UN DISCO"
@@ -479,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "DESCARGAS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "DESCARGADOR DE CONTENIDO"
 
 msgid "THEMES"
 msgstr "TEMAS"
@@ -551,7 +551,7 @@ msgid "MISSING BIOS"
 msgstr "BIOS FALTANTES"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "TECLAS MULTIMEDIA"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -614,7 +614,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRAR EN MENÚ PRINCIPAL"
 
 msgid "SETTINGS"
 msgstr "AJUSTES"
@@ -635,7 +635,7 @@ msgid "GAME INDEXES"
 msgstr "INDICES DE JUEGOS"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr "REVISAR INDICES AL INICIAR"
+msgstr "REVISAR INDICES FALTANTES AL INICIAR"
 
 msgid "REINDEX ALL GAMES"
 msgstr "REINDEXAR TODOS LOS JUEGOS"
@@ -662,7 +662,7 @@ msgid "REWIND"
 msgstr "REBOBINAR"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "GUARDAR/CARGAR AUTOMÁTICAMENTE"
+msgstr "GUARDAR / CARGAR AUTOMÁTICAMENTE"
 
 msgid "SHADERS SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
@@ -683,7 +683,7 @@ msgid "ZFAST"
 msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr "PLANO/BRILLO"
+msgstr "PLANO / BRILLO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXELES PERFECTOS)"
@@ -716,7 +716,7 @@ msgid "MISSING"
 msgstr "FALTANTE"
 
 msgid "INVALID"
-msgstr "INVALIDO"
+msgstr "NO VÁLIDA"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SE ESTÁ EJECUTANDO LA COMPROBACIÓN DE JUEGOS, ¿QUIERES DETENERLA?"
@@ -745,8 +745,7 @@ msgstr ""
 "JOYSTICKS MANTENIENDO PRESIONADO UN BOTÓN. \n"
 " SI NO TIENES UN BOTÓN ESPECIAL PARA USARLO COMO HOTKEY, UTILIZA SELECT. "
 "IGNORA LOS BOTONES QUE NO EXISTAN EN TU CONTROL MANTENIENDO PRESIONADO UN "
-"BOTÓN. LOS NOMBRES DE LOS BOTONES SE BASAN EN EL CONTROL DE LA SUPER "
-"NINTENDO."
+"BOTÓN. LOS NOMBRES DE LOS BOTONES SE BASAN EN EL CONTROL DE SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "VINCULAR UN CONTROL BLUETOOTH"
@@ -863,7 +862,7 @@ msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSICIÓN"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "TRANSICIÓN AL LANZAR JUEGO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSICIONES DE CARRUSEL"
@@ -893,10 +892,10 @@ msgid "VOLUME"
 msgstr "VOLUMEN"
 
 msgid "SYSTEM VOLUME"
-msgstr "VOLUMEN DEL SISTEMA"
+msgstr "VOLUMEN DE SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "VOLUMEN DE MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR BARRA DE SONIDO AL CAMBIAR VOLUMEN"
@@ -1037,7 +1036,7 @@ msgid "FORMAT NOW"
 msgstr "FORMATEAR AHORA"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr "LAS OPCIONES SELECCIONADAS SON INVÁLIDAS"
+msgstr "LAS OPCIONES SELECCIONADAS NO SON VÁLIDAS"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "¿ESTÁS SEGURO DE QUERER FORMATEAR ESTA UNIDAD?"
@@ -1067,16 +1066,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLECCIONES PERSONALES SIN TEMA"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORDENAR COLECCIONES Y SISTEMAS"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABÉTICAMENTE"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "POR FABRICANTE"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ORDENAR SISTEMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DE SISTEMA EN COLECCIONES"
@@ -1115,7 +1114,7 @@ msgid "NETWORK REQUIRED"
 msgstr "REQUIERE INTERNET"
 
 msgid "INVALID PARAMETERS"
-msgstr "PARÁMETROS INVÁLIDOS"
+msgstr "PARÁMETROS NO VÁLIDOS"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "OBTENCIÓN DE CARÁTULAS EN CURSO"
@@ -1146,8 +1145,8 @@ msgid ""
 msgstr ""
 "NO SE HA PODIDO ENCONTRAR NINGÚN SISTEMA!\n"
 "REVISA QUE LAS RUTAS SEAN CORRECTAS EN EL FICHERO DE CONFIGURACIÓN, Y QUE LA "
-"CARPETA DE TUS JUEGOS CONTENGA POR LO MENOS 1 ROM DE JUEGO CON LA EXTENSIÓN "
-"CORRECTA."
+"CARPETA DE TUS JUEGOS CONTENGA POR LO MENOS UNA ROM DE JUEGO CON LA "
+"EXTENSIÓN CORRECTA."
 
 #, c-format
 msgid "%i GAME SUCCESSFULLY SCRAPED!"
@@ -1162,33 +1161,33 @@ msgstr[0] "%i JUEGO IGNORADO."
 msgstr[1] "%i JUEGOS IGNORADOS."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONE BISELES PARA INSTALAR / QUITAR"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "ACTUALIZAR"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AGREGADO A LA COLA DE DESCARGA"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "ELIMINAR"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BISELES DESINSTALADOS SATISFACTORIAMENTE"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "ACTUALMENTE EN COLA DE DESCARGA"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONE CONTENIDO PARA INSTALAR / QUITAR"
 
 msgid "MISC"
-msgstr ""
+msgstr "MISCELÁNEA"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "DESINSTALAR AGREGADO A LA COLA"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIAR IMÁGENES DESPUES DE (SEGS)"
@@ -1269,7 +1268,7 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
 
 msgid "SCREENSAVER AFTER"
-msgstr "SALVAPANTALLAS A LOS"
+msgstr "SALVAPANTALLAS DESPUÉS DE"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTAMIENTO DEL SALVAPANTALLAS"
@@ -1305,17 +1304,17 @@ msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "DESCARGADOR DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONAR TEMAS PARA INSTALAR / QUITAR"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TEMA DESINSTALADO SATISFACTORIAMENTE"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "TEMA ACTUAL"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
@@ -1367,64 +1366,64 @@ msgid "enter path to video"
 msgstr "INTRODUCIR RUTA DEL VIDEO"
 
 msgid "Logo"
-msgstr ""
+msgstr "LOGOTIPO"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL LOGOTIPO"
 
 msgid "Box"
-msgstr ""
+msgstr "CAJA"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "INTRODUCIR RUTA DE LA CAJA"
 
 msgid "Fan art"
-msgstr ""
+msgstr "ARTE DE FAN"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL ARTE DE FAN"
 
 msgid "Title shot"
-msgstr ""
+msgstr "TÍTULAR"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL TÍTULAR"
 
 msgid "Manual"
-msgstr ""
+msgstr "MANUAL DE JUEGO"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL MANUAL"
 
 msgid "Map"
-msgstr ""
+msgstr "MAPA"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL MAPA"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "CARTUCHO"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL CARTUCHO"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "CAJA ALTERNATIVA"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "INTRODUCIR RUTA DE LA CAJA ALTERNATIVA"
 
 msgid "Wheel"
-msgstr ""
+msgstr "RUEDA"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "INTRODUCIR RUTA DE LA RUEDA"
 
 msgid "Mix"
-msgstr ""
+msgstr "MIX"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "INTRODUCIR RUTA DEL MIX"
 
 msgid "Rating"
 msgstr "CALIFICACIÓN"
@@ -1540,7 +1539,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "IR AL FABRICANTE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1675,13 +1674,13 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALADO SATISFACTORIAMENTE"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BISEL INSTALADO SATISFACTORIAMENTE"
+msgstr "BISELES INSTALADOS SATISFACTORIAMENTE"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUETE INSTALADO SATISFACTORIAMENTE"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUETE ELIMINADO SATISFACTORIAMENTE"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -1762,7 +1761,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "ES NECESARIO REINICIAR EL SISTEMA PARA COMPLETAR LA OPERACIÓN"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "YA SE ESTÁ EJECUTANDO EL FORMATEO DE LA UNIDAD"
+msgstr "YA SE ESTÁ EJECUTANDO EL FORMATEO DE UNIDAD"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALIZACIÓN DISPONIBLE"
@@ -1793,7 +1792,7 @@ msgstr "COLECCIONES"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "EDITANDO COLECCIÓN '%s'. AGREGAR/QUITAR JUEGOS CON Y"
+msgstr "EDITANDO COLECCIÓN '%s'. AGREGAR / QUITAR JUEGOS CON Y"
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
@@ -1999,7 +1998,7 @@ msgid "WORKING..."
 msgstr "EN CURSO..."
 
 msgid "up/down"
-msgstr "ARRIBA/ABAJO"
+msgstr "ARRIBA / ABAJO"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "SELECCIONAR TEMA"

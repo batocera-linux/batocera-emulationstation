@@ -65,7 +65,7 @@
 #define fake_gettext_battery      _("Battery")
 #define fake_gettext_cpu_model    _("Cpu model")
 #define fake_gettext_cpu_number   _("Cpu number")
-#define fake_gettext_cpu_number   _("Cpu max frequence")
+#define fake_gettext_cpu_frequency _("Cpu max frequency")
 #define fake_gettext_cpu_feature  _("Cpu feature")
 
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)

@@ -176,7 +176,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "RESETTA FILTRI"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRA GIOCHI PER NOME"
@@ -247,8 +247,8 @@ msgstr "Modello CPU"
 msgid "Cpu number"
 msgstr "Numero CPU"
 
-msgid "Cpu max frequence"
-msgstr ""
+msgid "Cpu max frequency"
+msgstr "Frequenza max CPU"
 
 msgid "Cpu feature"
 msgstr "Caratteristiche CPU"
@@ -353,16 +353,16 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
-msgstr "RACCOGLI INFORMAZIONI DEI VOTI"
+msgstr "SCARICA INFORMAZIONI DEI VOTI"
 
 msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE VIDEO"
+msgstr "SCARICA VIDEO"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "SCARICA FANART"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "SCARICA MANUALE"
 
 msgid "USERNAME"
 msgstr "NOME UTENTE"
@@ -479,7 +479,7 @@ msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "DOWNLOADER DEI CONTENUTI"
 
 msgid "THEMES"
 msgstr "TEMI"
@@ -1064,16 +1064,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ORDINA COLLEZIONI E SISTEMI"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "IN ORDINE ALFABETICO"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "PER PRODUTTORE"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ORDINA SISTEMI"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRA IL NOME DEL SISTEMA NELLA COLLEZIONE"
@@ -1159,33 +1159,33 @@ msgstr[0] "%i GIOCO SALTATO."
 msgstr[1] "%i GIOCHI SALTATI."
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SCEGLI LE CORNICI DA INSTALLARE / RIMUOVERE"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "AGGIORNA"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "%s' AGGIUNTO ALLA CODA DEI DOWNLOAD"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "RIMUOVI"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "CORNICI DISINSTALLATE CON SUCCESSO"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "NELLA CODA DI DOWNLOAD"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SCEGLI IL CONTENUTO DA INSTALLARE/ RIMUOVERE"
 
 msgid "MISC"
-msgstr ""
+msgstr "VARIE"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "DISINSTALLAZIONE AGGIUNTA ALLA CODA"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIA IMMAGINE DOPO (SECONDI)"
@@ -1301,17 +1301,17 @@ msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "DOWNLOADER DEI TEMI"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SCEGLI TEMI DA INSTALLARE / RIMUOVERE"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TEMA DISINSTALLATO CON SUCCESSO"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "TEMA CORRENTE"
 
 msgid "EDIT METADATA"
 msgstr "MODIFICA I METADATI"
@@ -1539,8 +1539,8 @@ msgstr ""
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i COLLEZIONE"
+msgstr[1] "%i COLLEZIONI"
 
 #, c-format
 msgid "%i ITEM"
@@ -1672,10 +1672,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "BEZELS INSTALLATE CON SUCCESSO"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PACCHETTO INSTALLATO CON SUCCESSO"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PACCHETTO RIMOSSO CON SUCCESSO"
 
 msgid "FAVORITES"
 msgstr "PREFERITI"

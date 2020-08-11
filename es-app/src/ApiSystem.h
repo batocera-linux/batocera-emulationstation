@@ -79,7 +79,7 @@ struct PacmanPackage
 
 	bool isInstalled()
 	{
-		return installed_size > 0;
+		return status == "installed";
 	}
 };
 

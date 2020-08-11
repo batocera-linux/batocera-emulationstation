@@ -61,6 +61,8 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(SYSTEM_DESCENDING, &compareSystem, false, _("SYSTEM, DESCENDING"), _U("\uF15e ")));
 		mSortTypes.push_back(SortType(FILECREATION_DATE_ASCENDING, &compareFileCreationDate, true, _("FILE CREATION DATE, ASCENDING"), _U("\uF160 ")));
 		mSortTypes.push_back(SortType(FILECREATION_DATE_DESCENDING, &compareFileCreationDate, false, _("FILE CREATION DATE, DESCENDING"), _U("\uF161 ")));
+		mSortTypes.push_back(SortType(GAMETIME_ASCENDING, &compareGameTime, true, _("GAME TIME, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(SortType(GAMETIME_DESCENDING, &compareGameTime, false, _("GAME TIME, DESCENDING"), _U("\uF161 ")));
 	}
 
 	//returns if file1 should come before file2
@@ -102,6 +104,15 @@ namespace FileSorts
 		{
 			return (file1)->getMetadata().getInt("playcount") < (file2)->getMetadata().getInt("playcount");
 		}
+
+		return false;
+	}
+
+	bool compareGameTime(const FileData* file1, const FileData* file2)
+	{
+		//only games have playcount metadata
+		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
+			return (file1)->getMetadata().getInt("gametime") < (file2)->getMetadata().getInt("gametime");
 
 		return false;
 	}
