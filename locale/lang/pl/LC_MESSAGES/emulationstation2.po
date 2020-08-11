@@ -246,7 +246,7 @@ msgid "Cpu number"
 msgstr "Liczba rdzeni"
 
 msgid "Cpu max frequency"
-msgstr ""
+msgstr "Maks. częstotliwość procesora"
 
 msgid "Cpu feature"
 msgstr "Funkcje procesora"
@@ -351,16 +351,16 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE RATINGS"
-msgstr "OCENY SCRAPE'A"
+msgstr "SCRAPE'UJ OCENY"
 
 msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE'UJ WIDEO"
 
 msgid "SCRAPE FANART"
-msgstr "FANART SCRAPE'A"
+msgstr "SCRAPE'UJ FAN ART"
 
 msgid "SCRAPE MANUAL"
-msgstr "INSTRUKCJA SCRAPE'A"
+msgstr "SCRAPE'UJ INSTRUKCJE"
 
 msgid "USERNAME"
 msgstr "NAZWA UŻYTKOWNIKA"
@@ -1300,17 +1300,17 @@ msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "POBIERACZ MOTYWÓW"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "WYBIERZ MOTYWY DO INSTALACJI / USUNIĘCIA"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "MOTYW ODINSTALOWANO POMYŚLNIE"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "AKTUALNY MOTYW"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
@@ -1887,7 +1887,7 @@ msgid "PRESS ANYTHING"
 msgstr "NACIŚNIJ DOWOLNY PRZYCISK"
 
 msgid "ALREADY TAKEN"
-msgstr "JUŻ UŻYTE"
+msgstr "JUŻ W UŻYCIU"
 
 msgid "SPACE"
 msgstr "SPACJA"
@@ -1899,7 +1899,7 @@ msgid "RESET"
 msgstr "ZRESETUJ"
 
 msgid "DISCARD CHANGES"
-msgstr "COFNIJ ZMIANY"
+msgstr "PORZUĆ ZMIANY"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
