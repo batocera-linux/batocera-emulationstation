@@ -394,7 +394,7 @@ bool ApiSystem::launchFileManager(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchFileManager";
 
-	std::string command = "filemanagerlauncher";
+	std::string command = "/emuelec/scripts/emuelec-utils filemanager";
 
 	ApiSystem::launchExternalWindow_before(window);
 
@@ -411,7 +411,7 @@ bool ApiSystem::launchErrorWindow(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchErrorWindow";
 
-	std::string command = "errormessagelauncher";
+	std::string command = "/emuelec/scripts/emuelec-utils error";
 
 	ApiSystem::launchExternalWindow_before(window);
 

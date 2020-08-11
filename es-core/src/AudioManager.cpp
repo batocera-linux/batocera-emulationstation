@@ -10,6 +10,10 @@
 #include "id3v2lib/include/id3v2lib.h"
 #include "ThemeData.h"
 
+#ifdef _ENABLEEMUELEC
+#include "platform.h"
+#endif
+
 #ifdef WIN32
 #include <time.h>
 #else
@@ -93,6 +97,11 @@ void AudioManager::deinit()
 
 	Mix_HookMusicFinished(nullptr);
 	Mix_HaltMusic();
+
+#ifdef _ENABLEEMUELEC	
+	LOG(LogInfo) << "Attempting to close SDL AUDIO";
+	runSystemCommand("/emuelec/scripts/emuelec-utils audio alsa", "", nullptr); 
+#endif
 
 	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
 	Mix_CloseAudio();
