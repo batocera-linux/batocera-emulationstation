@@ -16,6 +16,7 @@
 #include "guis/GuiSettings.h"
 #include "guis/GuiRetroAchievements.h" //batocera
 #include "guis/GuiGamelistOptions.h"
+#include "guis/GuiImageViewer.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -3225,6 +3226,16 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 
 		}, "iconScraper", true);
 	}
+
+	#define BATOCERA_MANUAL_FILE "/usr/share/batocera/doc/notice.pdf"
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(BATOCERA_MANUAL_FILE))
+	  {
+	    s->addEntry(_("VIEW BATOCERA MANUAL"), false, [s, window]
+							 {
+							   GuiImageViewer::showPdf(window, BATOCERA_MANUAL_FILE);
+							   delete s;
+							 });
+	  }
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 
