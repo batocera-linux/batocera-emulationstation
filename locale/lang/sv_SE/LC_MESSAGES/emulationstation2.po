@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 08:40+0200\n"
+"POT-Creation-Date: 2020-08-12 22:19+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -13,6 +13,305 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.3\n"
 
+msgid "Loading..."
+msgstr "Laddar..."
+
+msgid "Loading system config..."
+msgstr "Laddar systeminställningar..."
+
+msgid "QUIT"
+msgstr "AVSLUTA"
+
+msgid "Done."
+msgstr "Färdig."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "SPARAR METADATA. VÄNTA..."
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "SPELSAMLINGS-INSTÄLLNINGAR"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
+msgid "GROUPED SYSTEMS"
+msgstr "GRUPPERADE SYSTEM"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr "SKAPA NY SAMLING FRÅN TEMA"
+
+msgid "SELECT THEME FOLDER"
+msgstr "VÄLJ TEMA-MAPP"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr "Namn på ny Samling"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
+msgid "OPTIONS"
+msgstr "INSTÄLLNINGAR"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "GRUPPERA ICKE-TEMATISKA SAMLINGAR"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "NO"
+msgstr "NEJ"
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "VISA SYSTEMNAMN I SAMLINGAR"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "UPPDATERA SPELLISTA"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr "AVSLUTA REDIGERING AV SAMLING"
+
+msgid "SELECT COLLECTIONS"
+msgstr "VÄLJ SAMLINGAR"
+
+msgid "ARCADE SYSTEMS"
+msgstr "ARKADSPEL"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "AUTOMATISKA SPELSAMLINGAR"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "EGNA SPELSAMLINGAR"
+
+msgid "REFRESH"
+msgstr "UPPDATERA"
+
+msgid "MANUAL INPUT"
+msgstr "MANUELL INPUT"
+
+msgid "BACK"
+msgstr "TILLBAKA"
+
+msgid "NO WIFI NETWORKS FOUND"
+msgstr "INGA TRÅDLÖSA NÄTVERK HITTADE"
+
+msgid "SEARCHING WIFI NETWORKS"
+msgstr "LETAR TRÅDLÖSA NÄTVERK"
+
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' HAR LAGTS TILL I NERLADDNINGSKÖN"
+
+msgid "REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "ETT FEL UPPSTOD"
+
+msgid "INSTALL"
+msgstr "INSTALLERA"
+
+msgid "CLOSE"
+msgstr "STÄNG"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "BYT BILD EFTER (SEKUNDER)"
+
+msgid "SHOW GAME INFO"
+msgstr "VISA SPELINFO"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "ANVÄND MARQUEE SOM SPELINFO"
+
+msgid "DECORATIONS"
+msgstr "DEKORATIONER"
+
+msgid "STRETCH IMAGES"
+msgstr "STRÄCK UT BILDER"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "ANVÄND EGNA BILDER"
+
+msgid "CUSTOM IMAGE DIR"
+msgstr "FILSÖKVÄG FÖR EGNA BILDER"
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr "FILSÖKVÄG FÖR EGNA BILDER REKURSIVT"
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr "EGNA BILDER FILTER"
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr "VÄNLIGEN VÄNTA"
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "FINISHED"
+msgstr "FÄRDIG"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "BYT VIDEO EFTER (SEKUNDER)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "ANVÄND OMX PLAYER FÖR SKÄRMSLÄCKARE"
+
+msgid "VIDEO SCREENSAVER"
+msgstr "VIDEOSKÄRMSLÄCKARE"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "VISA SPELINFO PÅ SKÄRMSLÄCKARE"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "STRÄCK UT VIDEO FÖR SKÄRMSLÄCKAREN"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "SKRAPNING PÅGÅR"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "subtitle text"
+msgstr "undertext"
+
+msgid "INPUT"
+msgstr "INPUT"
+
+msgid "search"
+msgstr "sök"
+
+msgid "SKIP"
+msgstr "HOPPA ÖVER"
+
+msgid "STOP"
+msgstr "STOPPA"
+
+msgid "stop (progress saved)"
+msgstr "stoppa (det som redan uppnåtts har sparats)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "SPEL %i AV %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+"INGA SYSTEM FUNNA!\n"
+"UNDERSÖK DINA FILSÖKVÄGAR I SYSTEMETS KONFIGURATIONSFIL, OCH SÄKERSTÄLL ATT "
+"DIN SPELMAPP HAR MINST ETT SPEL MED RÄTT FILÄNDELSE."
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
+msgstr[1] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i SPEL HOPPADES ÖVER."
+msgstr[1] "%i SPEL HOPPADES ÖVER."
+
+msgid "SCREENSAVER AFTER"
+msgstr "SKÄRMSLÄCKARE EFTER"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "SKÄRMSLÄCKARBETEENDE"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+"\"SLUMPAD VIDEO\"-SKÄRMSLÄCKAREN VISAR VIDEOR FRÅN DIN SPELLISTA.\n"
+"OM DU INTE HAR NÅGRA VIDEOR, ELLER OM INGEN AV DEM KAN SPELAS EFTER ETT PAR "
+"FÖRSÖK, KOMMER SKÄRMSLÄCKAREN ISTÄLLET VARA \"SVART\".\n"
+"FLER INSTÄLLNINGAR FINNS UNDER \"UI-INSTÄLLNINGAR\" -> \"INSTÄLLNINGAR FÖR "
+"SLUMPAD VIDEO-SKÄRMSLÄCKAREN\"."
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR BILDSPEL-SKÄRMSLÄCKAREN"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "SKÄRMSLÄCKARKONTROLLER"
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr "BILDSPEL-SKÄRMSLÄCKAREN"
+
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
+
 msgid "UPDATING BATOCERA"
 msgstr "UPPDATERAR BATOCERA"
 
@@ -22,29 +321,17 @@ msgstr "UPPDATERING ÄR REDO"
 msgid "REBOOT SYSTEM TO APPLY"
 msgstr "STARTA OM ENHETEN FÖR ATT GENOMFÖRA"
 
-msgid "AN ERROR OCCURED"
-msgstr "ETT FEL UPPSTOD"
-
 msgid "REALLY UPDATE?"
 msgstr "SÄKER PÅ ATT DU VILL UPPDATERA?"
 
 msgid "YES"
 msgstr "JA"
 
-msgid "NO"
-msgstr "NEJ"
-
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NÄTVERKSANSLUTNING BEHÖVS"
 
-msgid "OK"
-msgstr "OK"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "INGEN UPPDATERING TILLGÄNGLIG"
-
-msgid "INPUT"
-msgstr "INPUT"
 
 msgid "SEARCH"
 msgstr "SÖK"
@@ -52,59 +339,35 @@ msgstr "SÖK"
 msgid "CANCEL"
 msgstr "AVBRYT"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRERA SPELLISTA PÅ"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr ""
+msgid "RESET ALL FILTERS"
+msgstr "ÅTERSTÄLL ALLA FILTER"
 
-msgid "BACK"
-msgstr "TILLBAKA"
+msgid "FIND GAMES"
+msgstr "HITTA SPEL"
 
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr ""
+msgid "Unknown"
+msgstr "Okänt"
 
-msgid "PLEASE WAIT"
-msgstr "VÄNLIGEN VÄNTA"
+msgid "SYSTEMS"
+msgstr "SYSTEM"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
+msgid "BACKUP USER DATA"
+msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
-msgid "CLOSE"
-msgstr "STÄNG"
+msgid "TARGET DEVICE"
+msgstr "MÅLENHET"
 
-msgid "Loading..."
-msgstr "Laddar..."
+msgid "NO DEVICE FOUND"
+msgstr "INGEN ENHET HITTADES"
 
-msgid "CONNECT TO NETPLAY"
-msgstr "KOPPLA UPP MOT NETPLAY"
-
-msgid "Select the game you want to join"
-msgstr "Välj det spel du vill gå med i"
-
-msgid "REFRESH"
-msgstr "UPPDATERA"
-
-msgid "FAILED"
-msgstr "MISSLYCKADES"
-
-msgid "LAUNCH"
+msgid "START"
 msgstr "STARTA"
-
-msgid "UNAVAILABLE CORE"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr "TILLGÄNGLIGA SPEL"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "OTILLGÄNGLIGA SPEL"
-
-msgid "NO GAME FOUND"
-msgstr "INGET SPEL HITTADES"
-
-msgid "go back"
-msgstr "gå tillbaka"
 
 msgid "NAVIGATION"
 msgstr ""
@@ -130,13 +393,7 @@ msgstr ""
 msgid "COLLECTION"
 msgstr ""
 
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
-
 msgid "DELETE COLLECTION"
-msgstr ""
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -156,9 +413,6 @@ msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "LÄGG TILL/TA BORT SPEL FRÅN DEN HÄR SAMLINGEN"
-
-msgid "FINISH EDITING COLLECTION"
-msgstr "AVSLUTA REDIGERING AV SAMLING"
 
 msgid "GAME OPTIONS"
 msgstr ""
@@ -184,38 +438,8 @@ msgstr "FILTRERA SPEL PÅ TEXT"
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "DENNA FUNKTION ÄR DEAKTIVERAD MEDAN SKRAPNING PÅGÅR"
 
-msgid "New Collection Name"
-msgstr "Namn på ny Samling"
-
 msgid "ARE YOU SURE ?"
 msgstr ""
-
-msgid "FILTER GAMELIST BY"
-msgstr "FILTRERA SPELLISTA PÅ"
-
-msgid "RESET ALL FILTERS"
-msgstr "ÅTERSTÄLL ALLA FILTER"
-
-msgid "FIND GAMES"
-msgstr "HITTA SPEL"
-
-msgid "Unknown"
-msgstr "Okänt"
-
-msgid "SYSTEMS"
-msgstr "SYSTEM"
-
-msgid "MANUAL INPUT"
-msgstr "MANUELL INPUT"
-
-msgid "NO WIFI NETWORKS FOUND"
-msgstr "INGA TRÅDLÖSA NÄTVERK HITTADE"
-
-msgid "SEARCHING WIFI NETWORKS"
-msgstr "LETAR TRÅDLÖSA NÄTVERK"
-
-msgid "FINISHED"
-msgstr "FÄRDIG"
 
 msgid "fade"
 msgstr "tona"
@@ -271,9 +495,6 @@ msgstr "KONTROLLINSTÄLLNINGAR"
 msgid "UI SETTINGS"
 msgstr "UI-INSTÄLLNINGAR"
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr "SPELSAMLINGS-INSTÄLLNINGAR"
-
 msgid "SOUND SETTINGS"
 msgstr "LJUDINSTÄLLNINGAR"
 
@@ -297,9 +518,6 @@ msgstr "SYSTEMINSTÄLLNINGAR"
 
 msgid "INFORMATIONS"
 msgstr "INFORMATION"
-
-msgid "QUIT"
-msgstr "AVSLUTA"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SKRAPNING PÅGÅR. VILL DU AVBRYTA?"
@@ -478,9 +696,6 @@ msgstr ""
 msgid "DOWNLOADS"
 msgstr "NERLADDNINGAR"
 
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
 msgid "THEMES"
 msgstr "TEMAN"
 
@@ -504,9 +719,6 @@ msgstr "PÅBÖRJA UPPDATERING"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPPDATERING KÖRS REDAN"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"
@@ -571,9 +783,6 @@ msgstr "LAGRING"
 
 msgid "STORAGE DEVICE"
 msgstr "LAGRINGSENHET"
-
-msgid "BACKUP USER DATA"
-msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALLERA BATOCERA PÅ NY ENHET"
@@ -646,9 +855,6 @@ msgstr "INDEXERA SAKNADE SPEL"
 
 msgid "TOOLS"
 msgstr "VERKTYG"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "UPPDATERA SPELLISTA"
 
 msgid "DEFAULT SETTINGS"
 msgstr "STANDARDINSTÄLLNINGAR"
@@ -974,6 +1180,9 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
 
+msgid "VIEW BATOCERA MANUAL"
+msgstr ""
+
 msgid "RESTART SYSTEM"
 msgstr "STARTA OM ENHETEN"
 
@@ -1040,198 +1249,6 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
-msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
-
-msgid "GROUPED SYSTEMS"
-msgstr "GRUPPERADE SYSTEM"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "SKAPA NY SAMLING FRÅN TEMA"
-
-msgid "SELECT THEME FOLDER"
-msgstr "VÄLJ TEMA-MAPP"
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
-
-msgid "OPTIONS"
-msgstr "INSTÄLLNINGAR"
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPPERA ICKE-TEMATISKA SAMLINGAR"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "ALPHABETICALLY"
-msgstr ""
-
-msgid "BY MANUFACTURER"
-msgstr ""
-
-msgid "SORT SYSTEMS"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "VISA SYSTEMNAMN I SAMLINGAR"
-
-msgid "SELECT COLLECTIONS"
-msgstr "VÄLJ SAMLINGAR"
-
-msgid "ARCADE SYSTEMS"
-msgstr "ARKADSPEL"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "AUTOMATISKA SPELSAMLINGAR"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr ""
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr ""
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "EGNA SPELSAMLINGAR"
-
-msgid "INSTALL BATOCERA"
-msgstr "INSTALLERA BATOCERA"
-
-msgid "TARGET DEVICE"
-msgstr "MÅLENHET"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "MÅLARKITEKTUR"
-
-msgid "INSTALL"
-msgstr "INSTALLERA"
-
-msgid "NETWORK REQUIRED"
-msgstr "NÄTVERKSUPPKOPPLING KRÄVS"
-
-msgid "INVALID PARAMETERS"
-msgstr ""
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "SKRAPNING PÅGÅR"
-
-msgid "subtitle text"
-msgstr "undertext"
-
-msgid "search"
-msgstr "sök"
-
-msgid "SKIP"
-msgstr "HOPPA ÖVER"
-
-msgid "STOP"
-msgstr "STOPPA"
-
-msgid "stop (progress saved)"
-msgstr "stoppa (det som redan uppnåtts har sparats)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "SPEL %i AV %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"INGA SYSTEM FUNNA!\n"
-"UNDERSÖK DINA FILSÖKVÄGAR I SYSTEMETS KONFIGURATIONSFIL, OCH SÄKERSTÄLL ATT "
-"DIN SPELMAPP HAR MINST ETT SPEL MED RÄTT FILÄNDELSE."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
-msgstr[1] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i SPEL HOPPADES ÖVER."
-msgstr[1] "%i SPEL HOPPADES ÖVER."
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' HAR LAGTS TILL I NERLADDNINGSKÖN"
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "BYT BILD EFTER (SEKUNDER)"
-
-msgid "SHOW GAME INFO"
-msgstr "VISA SPELINFO"
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "ANVÄND MARQUEE SOM SPELINFO"
-
-msgid "DECORATIONS"
-msgstr "DEKORATIONER"
-
-msgid "STRETCH IMAGES"
-msgstr "STRÄCK UT BILDER"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "ANVÄND EGNA BILDER"
-
-msgid "CUSTOM IMAGE DIR"
-msgstr "FILSÖKVÄG FÖR EGNA BILDER"
-
-msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr "FILSÖKVÄG FÖR EGNA BILDER REKURSIVT"
-
-msgid "CUSTOM IMAGE FILTER"
-msgstr "EGNA BILDER FILTER"
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "BYT VIDEO EFTER (SEKUNDER)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "ANVÄND OMX PLAYER FÖR SKÄRMSLÄCKARE"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "VIDEOSKÄRMSLÄCKARE"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "VISA SPELINFO PÅ SKÄRMSLÄCKARE"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "STRÄCK UT VIDEO FÖR SKÄRMSLÄCKAREN"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr ""
-
 msgid "SCRAPE THESE GAMES"
 msgstr "SKRAPA DESSA SPEL"
 
@@ -1250,9 +1267,6 @@ msgstr "SKRAPA DESSA SYSTEM"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "ANVÄNDAREN BESTÄMMER VID KONFLIKT"
 
-msgid "START"
-msgstr "STARTA"
-
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -1265,52 +1279,47 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
 
-msgid "SCREENSAVER AFTER"
-msgstr "SKÄRMSLÄCKARE EFTER"
+msgid "INSTALL BATOCERA"
+msgstr "INSTALLERA BATOCERA"
 
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "SKÄRMSLÄCKARBETEENDE"
+msgid "TARGET ARCHITECTURE"
+msgstr "MÅLARKITEKTUR"
 
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"\"SLUMPAD VIDEO\"-SKÄRMSLÄCKAREN VISAR VIDEOR FRÅN DIN SPELLISTA.\n"
-"OM DU INTE HAR NÅGRA VIDEOR, ELLER OM INGEN AV DEM KAN SPELAS EFTER ETT PAR "
-"FÖRSÖK, KOMMER SKÄRMSLÄCKAREN ISTÄLLET VARA \"SVART\".\n"
-"FLER INSTÄLLNINGAR FINNS UNDER \"UI-INSTÄLLNINGAR\" -> \"INSTÄLLNINGAR FÖR "
-"SLUMPAD VIDEO-SKÄRMSLÄCKAREN\"."
+msgid "NETWORK REQUIRED"
+msgstr "NÄTVERKSUPPKOPPLING KRÄVS"
 
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR BILDSPEL-SKÄRMSLÄCKAREN"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "SKÄRMSLÄCKARKONTROLLER"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "BILDSPEL-SKÄRMSLÄCKAREN"
-
-msgid "NO DEVICE FOUND"
-msgstr "INGEN ENHET HITTADES"
-
-msgid "THEMES DOWNLOADER"
+msgid "INVALID PARAMETERS"
 msgstr ""
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
-msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
-#, c-format
-msgid "CURRENT THEME"
+msgid "CONNECT TO NETPLAY"
+msgstr "KOPPLA UPP MOT NETPLAY"
+
+msgid "Select the game you want to join"
+msgstr "Välj det spel du vill gå med i"
+
+msgid "FAILED"
+msgstr "MISSLYCKADES"
+
+msgid "LAUNCH"
+msgstr "STARTA"
+
+msgid "UNAVAILABLE CORE"
 msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr "TILLGÄNGLIGA SPEL"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "OTILLGÄNGLIGA SPEL"
+
+msgid "NO GAME FOUND"
+msgstr "INGET SPEL HITTADES"
 
 msgid "EDIT METADATA"
 msgstr "REDIGERA METADATA"
@@ -1328,6 +1337,68 @@ msgstr "RADERA"
 
 msgid "SAVE CHANGES?"
 msgstr "SPARA ÄNDRINGAR?"
+
+msgid "go back"
+msgstr "gå tillbaka"
+
+msgid "Extracting"
+msgstr ""
+
+msgid "all games"
+msgstr "alla spel"
+
+msgid "last played"
+msgstr "senast spelade"
+
+msgid "favorites"
+msgstr "favoriter"
+
+msgid "2 players"
+msgstr "2 spelare"
+
+msgid "4 players"
+msgstr "4 spelare"
+
+msgid "never played"
+msgstr "aldrig spelat"
+
+msgid "arcade"
+msgstr "arkad"
+
+msgid "collections"
+msgstr "samlingar"
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr "Redigerar samlingen '%s'. Lägg till/ta bort spel med Y."
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr "Samlingen '%s' färdigredigerad."
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "Lade till '%s' i '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "Tog bort '%s' från '%s'"
+
+msgid "This collection is empty."
+msgstr "Den här samlingen är tom."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Inget"
+
+msgid "Various"
+msgstr "Diverse"
+
+#, c-format
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Name"
 msgstr "Namn"
@@ -1515,16 +1586,50 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
-msgid "SCRAPING"
-msgstr "SCRAPING"
+msgid "FAVORITES"
+msgstr "FAVORITER"
 
-msgid "SCRAPE FAILED"
-msgstr "SKRAPNING MISSLYCKADES"
+msgid "GENRE"
+msgstr "GENRE"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "PLAYERS"
+msgstr "SPELARE"
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr "UTGIVARE / UTVECKLARE"
+
+msgid "RATING"
+msgstr "BETYG"
+
+msgid "REGION"
 msgstr ""
-"SKRAPNING FÄRDIG. UPPDATERA LISTAN MED SPEL FÖR ATT DE NYA ÄNDRINGARNA SKA "
-"SLÅ IGENOM."
+
+msgid "KIDGAME"
+msgstr "BARNSPEL"
+
+msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "Released"
+msgstr "Publicerat"
+
+msgid "Times played"
+msgstr "Spelat antal gånger"
+
+msgid "No Entries Found"
+msgstr "Hittade ingenting"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "RANDOM"
+msgstr "SLUMPA"
+
+msgid "Favorites"
+msgstr "Favoriter"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr "STARTA SPELET SOM NETPLAY-HOST?"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
@@ -1556,14 +1661,14 @@ msgstr[1] ""
 msgid "KODI"
 msgstr "KODI"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "RANDOM"
-msgstr "SLUMPA"
-
 msgid "FILES"
 msgstr "FILER"
+
+msgid "Preloading UI"
+msgstr "Förhandsladdar UI"
+
+msgid "MENU"
+msgstr "MENY"
 
 msgid "Full"
 msgstr "Full"
@@ -1574,26 +1679,55 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Barn"
 
-msgid "No Entries Found"
-msgstr "Hittade ingenting"
+msgid "SCANNING BLUETOOTH"
+msgstr "SCANNAR BLUETOOTH"
 
-msgid "Favorites"
-msgstr "Favoriter"
+msgid "Searching controllers..."
+msgstr "Söker efter spelkontroller..."
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "STARTA SPELET SOM NETPLAY-HOST?"
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr "BLUETOOTH-SCANNING PÅGÅR REDAN."
 
-msgid "Released"
-msgstr "Publicerat"
+msgid "FORMATING DEVICE"
+msgstr ""
 
-msgid "Times played"
-msgstr "Spelat antal gånger"
+msgid "Formating"
+msgstr ""
 
-msgid "Preloading UI"
-msgstr "Förhandsladdar UI"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
 
-msgid "MENU"
-msgstr "MENY"
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr ""
+
+msgid "Searching"
+msgstr "Söker"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr "ETT FEL HAR UPPSTÅTT"
+
+msgid "RETRY"
+msgstr "FÖRSÖK IGEN"
+
+msgid "Downloading"
+msgstr "Laddar ner"
+
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTERA RESULTAT"
+
+msgid "SCRAPING"
+msgstr "SCRAPING"
+
+msgid "SCRAPE FAILED"
+msgstr "SKRAPNING MISSLYCKADES"
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+"SKRAPNING FÄRDIG. UPPDATERA LISTAN MED SPEL FÖR ATT DE NYA ÄNDRINGARNA SKA "
+"SLÅ IGENOM."
 
 msgid "FILENAME, ASCENDING"
 msgstr "FILNAMN, STIGANDE"
@@ -1661,6 +1795,15 @@ msgstr "FILSKAPELSEDATUM, STIGANDE"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "FILSKAPELSEDATUM, FALLANDE"
 
+msgid "GAME TIME, ASCENDING"
+msgstr ""
+
+msgid "GAME TIME, DESCENDING"
+msgstr ""
+
+msgid "UPDATE AVAILABLE"
+msgstr "UPPDATERING TILLGÄNGLIG"
+
 msgid "DOWNLOADING"
 msgstr "LADDAR NER"
 
@@ -1676,145 +1819,44 @@ msgstr ""
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr ""
 
-msgid "FAVORITES"
-msgstr "FAVORITER"
-
-msgid "GENRE"
-msgstr "GENRE"
-
-msgid "PLAYERS"
-msgstr "SPELARE"
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr "UTGIVARE / UTVECKLARE"
-
-msgid "RATING"
-msgstr "BETYG"
-
-msgid "REGION"
-msgstr ""
-
-msgid "KIDGAME"
-msgstr "BARNSPEL"
-
-msgid "ALREADY PLAYED"
-msgstr ""
-
 msgid "HASHING GAMES"
 msgstr "HASHAR SPEL"
 
 msgid "Collections"
 msgstr ""
 
-msgid "Extracting"
-msgstr ""
+msgid "SPACE"
+msgstr "MELLANSLAG"
 
-msgid "Searching"
-msgstr "Söker"
+msgid "DELETE A CHAR"
+msgstr "TA BORT ETT TECKEN"
 
-msgid "NO GAMES FOUND - SKIP"
-msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
+msgid "RESET"
+msgstr "ÅTERSTÄLL"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "ETT FEL HAR UPPSTÅTT"
+msgid "DISCARD CHANGES"
+msgstr "AVBRYT ÄNDRINGAR"
 
-msgid "RETRY"
-msgstr "FÖRSÖK IGEN"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ANGER STORA OCH SMÅ BOKSTÄVER SAMT SPECIALTECKEN"
 
-msgid "Downloading"
-msgstr "Laddar ner"
+msgid "SHIFT"
+msgstr "SHIFT"
 
-msgid "ACCEPT RESULT"
-msgstr "ACCEPTERA RESULTAT"
-
-msgid "Loading system config..."
-msgstr "Laddar systeminställningar..."
-
-msgid "Done."
-msgstr "Färdig."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SPARAR METADATA. VÄNTA..."
-
-msgid "SCANNING BLUETOOTH"
-msgstr "SCANNAR BLUETOOTH"
-
-msgid "Searching controllers..."
-msgstr "Söker efter spelkontroller..."
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "BLUETOOTH-SCANNING PÅGÅR REDAN."
-
-msgid "FORMATING DEVICE"
-msgstr ""
-
-msgid "Formating"
-msgstr ""
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
-
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
-
-msgid "UPDATE AVAILABLE"
-msgstr "UPPDATERING TILLGÄNGLIG"
-
-msgid "all games"
-msgstr "alla spel"
-
-msgid "last played"
-msgstr "senast spelade"
-
-msgid "favorites"
-msgstr "favoriter"
-
-msgid "2 players"
-msgstr "2 spelare"
-
-msgid "4 players"
-msgstr "4 spelare"
-
-msgid "never played"
-msgstr "aldrig spelat"
-
-msgid "arcade"
-msgstr "arkad"
-
-msgid "collections"
-msgstr "samlingar"
+msgid "WELCOME"
+msgstr "VÄLKOMMEN"
 
 #, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Redigerar samlingen '%s'. Lägg till/ta bort spel med Y."
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i SPELKONTROLL HITTAD"
+msgstr[1] "%i SPELKONTROLLER HITTADE"
 
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Samlingen '%s' färdigredigerad."
+msgid "NO GAMEPADS DETECTED"
+msgstr "INGA SPELKONTROLLER HITTADE"
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "Lade till '%s' i '%s'"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "Tog bort '%s' från '%s'"
-
-msgid "This collection is empty."
-msgstr "Den här samlingen är tom."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Inget"
-
-msgid "Various"
-msgstr "Diverse"
-
-#, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "HÅLL NERE A-KNAPPEN PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
 
 msgid "UP"
 msgstr "UPP"
@@ -1883,39 +1925,6 @@ msgstr "TRYCK PÅ NÅGONTING"
 msgid "ALREADY TAKEN"
 msgstr "REDAN ANVÄND"
 
-msgid "SPACE"
-msgstr "MELLANSLAG"
-
-msgid "DELETE A CHAR"
-msgstr "TA BORT ETT TECKEN"
-
-msgid "RESET"
-msgstr "ÅTERSTÄLL"
-
-msgid "DISCARD CHANGES"
-msgstr "AVBRYT ÄNDRINGAR"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ANGER STORA OCH SMÅ BOKSTÄVER SAMT SPECIALTECKEN"
-
-msgid "SHIFT"
-msgstr "SHIFT"
-
-msgid "WELCOME"
-msgstr "VÄLKOMMEN"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i SPELKONTROLL HITTAD"
-msgstr[1] "%i SPELKONTROLLER HITTADE"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "INGA SPELKONTROLLER HITTADE"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "HÅLL NERE A-KNAPPEN PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
-
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -1933,36 +1942,6 @@ msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "MOVE CURSOR"
-msgstr "FLYTTA PEKARE"
-
-msgid "EDIT"
-msgstr "REDIGERA"
 
 msgid "accept"
 msgstr "acceptera"
@@ -1988,8 +1967,38 @@ msgstr[1] "%i VALDA"
 msgid "CHANGE"
 msgstr "ÄNDRA"
 
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "WORKING..."
 msgstr "ARBETAR..."
+
+msgid "MOVE CURSOR"
+msgstr "FLYTTA PEKARE"
+
+msgid "EDIT"
+msgstr "REDIGERA"
 
 msgid "up/down"
 msgstr "upp/ner"
