@@ -133,6 +133,8 @@ public:
 	int getInt(const std::string& key) const;
 	float getFloat(const std::string& key) const;
 
+	MetaDataType getType(MetaDataId id) const;
+
 	bool wasChanged() const;
 	void resetChangedFlag();
 	const void setDirty() 
@@ -154,7 +156,7 @@ private:
 	bool mWasChanged;
 	SystemData*		mRelativeTo;
 
-	inline MetaDataType getType(MetaDataId id) const;
+
 	inline MetaDataId getId(const std::string& key) const;
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;

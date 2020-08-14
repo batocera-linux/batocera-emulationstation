@@ -3194,7 +3194,7 @@ void GuiMenu::openQuitMenu_batocera()
 }
 
 void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
-{	
+{
 #ifdef WIN32
 	if (!forceWin32Menu && Settings::getInstance()->getBool("ShowOnlyExit"))
 	{
@@ -3203,19 +3203,18 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	}
 #endif
 
-	auto s = new GuiSettings(window, _("QUIT").c_str());
-	
-	// Don't like one of the songs? Press next
-	if (AudioManager::getInstance()->isSongPlaying())
-		s->addEntry(_("SKIP TO NEXT SONG"), false, [window] {
-			AudioManager::getInstance()->playRandomMusic(false);
-		});
+	auto s = new GuiSettings(window, _("QUICK ACCESS").c_str());
+	s->setCloseButton("select");
 
 	if (forceWin32Menu)
 	{
-		s->setCloseButton("select");
+		s->addGroup(_("QUICK ACCESS"));
 
-		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window] 
+		// Don't like one of the songs? Press next
+		if (AudioManager::getInstance()->isSongPlaying())
+			s->addEntry(_("SKIP TO NEXT SONG"), false, [window] { AudioManager::getInstance()->playRandomMusic(false); });
+
+		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 		{
 			window->postToUiThread([](Window* w)
 			{
@@ -3225,17 +3224,24 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 			delete s;
 
 		}, "iconScraper", true);
+		
+#if WIN32	
+#define BATOCERA_MANUAL_FILE Utils::FileSystem::getEsConfigPath() + "/notice.pdf"
+#else
+#define BATOCERA_MANUAL_FILE "/usr/share/batocera/doc/notice.pdf"
+#endif
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(BATOCERA_MANUAL_FILE))
+		{
+			s->addEntry(_("VIEW BATOCERA MANUAL"), false, [s, window]
+			{
+				GuiImageViewer::showPdf(window, BATOCERA_MANUAL_FILE);
+				delete s;
+			}, "iconManual");
+		}
 	}
 
-	#define BATOCERA_MANUAL_FILE "/usr/share/batocera/doc/notice.pdf"
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(BATOCERA_MANUAL_FILE))
-	  {
-	    s->addEntry(_("VIEW BATOCERA MANUAL"), false, [s, window]
-							 {
-							   GuiImageViewer::showPdf(window, BATOCERA_MANUAL_FILE);
-							   delete s;
-							 });
-	  }
+	s->addGroup(_("QUIT"));
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 

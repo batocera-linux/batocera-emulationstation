@@ -783,7 +783,7 @@ void Window::renderRegisteredNotificationComponents(const Transform4x4f& trans)
 }
 
 void Window::postToUiThread(const std::function<void(Window*)>& func)
-{
+{	
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
 	mFunctions.push_back(func);	
