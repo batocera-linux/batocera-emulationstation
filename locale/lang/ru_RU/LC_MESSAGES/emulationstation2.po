@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-14 11:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -119,10 +119,10 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "ЗАГРУЗКА ТЕМ"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "КАКУЮ ТЕМУ УСТАНОВИТЬ / УДАЛИТЬ"
 
 msgid "UPDATE"
 msgstr "ОБНОВИТЬ"
@@ -135,7 +135,7 @@ msgid "REMOVE"
 msgstr "УДАЛИТЬ"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "ТЕМА УДАЛЕНА"
 
 msgid "AN ERROR OCCURED"
 msgstr "ОШИБКА"
@@ -148,7 +148,7 @@ msgstr "ЗАКРЫТЬ"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "ТЕКУЩАЯ ТЕМА"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
@@ -473,7 +473,7 @@ msgid "Cpu number"
 msgstr "Кол-во ядер"
 
 msgid "Cpu max frequency"
-msgstr ""
+msgstr "Макс. частота CPU"
 
 msgid "Cpu feature"
 msgstr "Функции CPU"
