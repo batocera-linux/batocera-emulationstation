@@ -164,7 +164,14 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	addSaveFunc([this, toggleSystemNameInCollections]
 	{
 		if (Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState()))
+		{
+			for (auto sys : SystemData::sSystemVector)
+				for (auto file : sys->getRootFolder()->getFilesRecursive(GAME, false))
+					file->refreshMetadata();
+
+			FileData::resetSettings();
 			setVariable("reloadAll", true);
+		}
 	});
 
 #if defined(WIN32) && !defined(_DEBUG)		

@@ -276,7 +276,7 @@ void ImageIO::saveImageCache()
 		if (it.second.size < 0)
 			continue;
 
-		if (it.first.find("/themes/") != std::string::npos)
+		if (it.first.find("/themes/") != std::string::npos || it.first.find("/tmp/") != std::string::npos || it.first.find("/pdftmp/") != std::string::npos)
 			continue;
 
 		std::string path = Utils::FileSystem::createRelativePath(it.first, "_path_", true);
@@ -322,7 +322,7 @@ void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
 			item.y = y;
 			item.size = sz;
 
-			if (sz > 0 && x > 0 && fn.find("/themes/") == std::string::npos)
+			if (sz > 0 && x > 0 && fn.find("/themes/") == std::string::npos && fn.find("/tmp/") == std::string::npos && fn.find("/pdftmp/") == std::string::npos)
 				sizeCacheDirty = true;
 		}
 	}
@@ -330,7 +330,7 @@ void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
 	{
 		sizeCache[fn] = CachedFileInfo(sz, x, y);
 
-		if (sz > 0 && x > 0 && fn.find("/themes/") == std::string::npos)
+		if (sz > 0 && x > 0 && fn.find("/themes/") == std::string::npos && fn.find("/tmp/") == std::string::npos && fn.find("/pdftmp/") == std::string::npos)
 			sizeCacheDirty = true;
 	}
 }
@@ -364,7 +364,12 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 
 	auto size = Utils::FileSystem::getFileSize(fn);
 
+#if WIN32
+	FILE *f = _fsopen(fn, "rb", _SH_DENYNO);
+#else
 	FILE *f = fopen(fn, "rb");
+#endif
+
 	if (f == 0)
 	{
 		LOG(LogWarning) << "ImageIO::loadImageSize\tUnable to open file";

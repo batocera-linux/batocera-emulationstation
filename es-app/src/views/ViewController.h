@@ -112,7 +112,7 @@ private:
 	Transform4x4f mCamera;
 	float mFadeOpacity;
 	bool mLockInput;
-
+	bool	mDeferPlayViewTransition;
 	State mState;
 };
 
