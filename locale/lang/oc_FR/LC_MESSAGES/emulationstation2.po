@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-12 22:19+0200\n"
-"PO-Revision-Date: 2020-07-08 22:38+0200\n"
+"PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -38,25 +38,25 @@ msgid "GAME COLLECTION SETTINGS"
 msgstr "PARAMÈTRES DE LAS COLLECCIONS DE JÒCS"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
+msgstr "COLLECCIONS A MOSTRAR"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "SISTÈMAS GROPATS"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "CREAR UNA COLLECCION PERSONALIZADA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
+msgstr "CREAR UNA COLLECCION D'UN TÈMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr ""
+msgstr "CAUSIR LO DOSSIÈR DEL TÈMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "COLLECCION NOVÈLA MODIFICABLA"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Nom de la colleccion novèla"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "COLLECCION DINAMICA NOVÈLA"
@@ -65,49 +65,49 @@ msgid "OPTIONS"
 msgstr "OPCIONS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GROPAR LAS COLLECCIONS E LOS SISTÈMAS"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "TRIAR LAS COLLECCIONS E LOS SISTÈMAS"
 
 msgid "NO"
 msgstr "NON"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABETICAMENT"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "PER FABRICANT"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "TRIAR LOS SISTÈMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
+msgstr "MOSTRAR LO NOM DEL SISTÈMA DINS LAS COLLECCIONS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LA LISTA DE JÒCS"
 
 msgid "FINISH EDITING COLLECTION"
-msgstr ""
+msgstr "FINIR L'EDICION DE LA COLLECCION"
 
 msgid "SELECT COLLECTIONS"
-msgstr ""
+msgstr "CAUSIR LAS COLLECCIONS"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
+msgstr "SISTÈMA D'ARCADA"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
+msgstr "COLLECCIONS AUTOMATICAS"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr ""
+msgstr "COLLECCIONS MODIFICABLAS"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr ""
+msgstr "COLLECCIONS DINAMICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "COLLECCIONS PERSONALIZADAS"
 
 msgid "REFRESH"
 msgstr "ACTUALIZAR"
@@ -119,29 +119,29 @@ msgid "BACK"
 msgstr "TORNAR"
 
 msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
+msgstr "CAP DE RET WIFI PAS TROBAT"
 
 msgid "SEARCHING WIFI NETWORKS"
-msgstr ""
+msgstr "RECÈRCA DE RET WIFI"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "TELECARGAMENT DE TÈMAS"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "CAUSISSÈTZ TÈMAS D'INSTALLAR / SUPRIMIR"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "ACTUALIZAR"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
+msgstr "« %s » AJUSTAT A LA FILA DE TELECARGAMENT"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "SUPRIMIR"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TÈMA SUPRIMIT CORRÈCTAMENT"
 
 msgid "AN ERROR OCCURED"
 msgstr "UNA ERROR S’ES PRODUCHA"
@@ -154,23 +154,23 @@ msgstr "TAMPAR"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "TÈMA ACTUALA"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "ACTUALAMENT DINS LA FILA DE TELECARGAMENT"
 
 msgid "SWAP IMAGE AFTER (SECS)"
-msgstr ""
+msgstr "CAMBIAR L'IMATGE APRÈP"
 
 msgid "SHOW GAME INFO"
-msgstr ""
+msgstr "MOSTRAR LAS INFO DEL JÒC"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DECORACIONS"
 
 msgid "STRETCH IMAGES"
 msgstr ""
@@ -437,7 +437,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
 msgid "ARE YOU SURE ?"
-msgstr ""
+msgstr "PER DE BON ?"
 
 msgid "fade"
 msgstr ""
@@ -581,10 +581,10 @@ msgid "SCRAPE MANUAL"
 msgstr ""
 
 msgid "USERNAME"
-msgstr ""
+msgstr "NOM UTILIZAIRE"
 
 msgid "PASSWORD"
-msgstr ""
+msgstr "SENHAL"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
@@ -893,7 +893,7 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
 
 msgid "DECORATION"
-msgstr ""
+msgstr "DECORACION"
 
 msgid "AI GAME TRANSLATION"
 msgstr ""
@@ -902,10 +902,10 @@ msgid "ENABLE AI SERVICE"
 msgstr ""
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "LENGA CIBLA"
 
 msgid "SERVICE URL"
-msgstr ""
+msgstr "URL SERVICI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr ""
@@ -917,10 +917,10 @@ msgid "NO MISSING BIOS"
 msgstr ""
 
 msgid "MISSING"
-msgstr ""
+msgstr "ABSENT"
 
 msgid "INVALID"
-msgstr ""
+msgstr "INVALID"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
@@ -977,10 +977,10 @@ msgid "GAMELIST THEME OPTIONS"
 msgstr ""
 
 msgid "THEME OPTIONS"
-msgstr ""
+msgstr "OPCIONS TÈMA"
 
 msgid "DEFAULT VALUE"
-msgstr ""
+msgstr "VALOR PER DEFAUT"
 
 msgid "GAMELIST OPTIONS"
 msgstr ""
@@ -1064,7 +1064,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr ""
 
 msgid "SHOW CLOCK"
-msgstr ""
+msgstr "MOSTRAR LO RELÒTGE"
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA SUS L’ECRAN"
@@ -1327,7 +1327,7 @@ msgid "go back"
 msgstr "precedent"
 
 msgid "Extracting"
-msgstr ""
+msgstr "Extraccion"
 
 msgid "all games"
 msgstr "totes los jòcs"
@@ -1704,7 +1704,7 @@ msgid "ACCEPT RESULT"
 msgstr "ACCEPTAR RESULTAT"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "RECUPERACION EN CORS"
 
 msgid "SCRAPE FAILED"
 msgstr ""
@@ -1950,8 +1950,8 @@ msgstr "MODIFICAR"
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] "fa %d jorn"
-msgstr[1] "fa %d jorns"
+msgstr[0] "Fa %d jorn"
+msgstr[1] "Fa %d jorns"
 
 #, c-format
 msgid "%d hour ago"
@@ -1968,8 +1968,8 @@ msgstr[1] "Fa %d minutas"
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] "%d segonda"
-msgstr[1] "%d segonda"
+msgstr[0] "Fa %d segonda"
+msgstr[1] "Fa %d segondas"
 
 msgid "WORKING..."
 msgstr "TRACTAMENT..."
