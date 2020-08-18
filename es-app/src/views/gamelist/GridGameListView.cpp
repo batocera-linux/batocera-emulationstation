@@ -300,32 +300,24 @@ void GridGameListView::launch(FileData* game)
 	ViewController::get()->launch(game);
 }
 
-void GridGameListView::remove(FileData *game, bool deleteFile)
+void GridGameListView::remove(FileData *game)
 {
-	if (deleteFile)
-		Utils::FileSystem::removeFile(game->getPath());  // actually delete the file on the filesystem
-
 	FolderData* parent = game->getParent();
 	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{
-		std::vector<FileData*> siblings = parent->getChildrenListToDisplay();
-		auto gameIter = std::find(siblings.cbegin(), siblings.cend(), game);
-		int gamePos = (int)std::distance(siblings.cbegin(), gameIter);
-		if (gameIter != siblings.cend())
-		{
-			if ((gamePos + 1) < (int)siblings.size())
-			{
-				setCursor(siblings.at(gamePos + 1));
-			} else if ((gamePos - 1) > 0) {
-				setCursor(siblings.at(gamePos - 1));
-			}
-		}
+	{		
+		std::vector<FileData*> siblings = mGrid.getObjects();
+
+		int gamePos = getCursorIndex();
+		if ((gamePos + 1) < (int)siblings.size())
+			setCursor(siblings.at(gamePos + 1));
+		else if ((gamePos - 1) > 0)
+			setCursor(siblings.at(gamePos - 1));			
 	}
+
 	mGrid.remove(game);
 	if(mGrid.size() == 0)
-	{
 		addPlaceholder();
-	}
+
 	delete game;                                 // remove before repopulating (removes from parent)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }

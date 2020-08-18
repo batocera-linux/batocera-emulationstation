@@ -45,6 +45,7 @@ ViewController::ViewController(Window* window)
 {
 	mSystemListView = nullptr;
 	mState.viewing = NOTHING;
+	mDeferPlayViewTransition = false;
 }
 
 ViewController::~ViewController()
@@ -235,7 +236,13 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(system->getTheme());
 
-	playViewTransition(forceImmediate);
+	if (forceImmediate)
+		playViewTransition(forceImmediate);
+	else
+	{
+		cancelAnimation(0);
+		mDeferPlayViewTransition = true;
+	}
 }
 
 void ViewController::playViewTransition(bool forceImmediate)
@@ -641,12 +648,16 @@ bool ViewController::input(InputConfig* config, Input input)
 
 void ViewController::update(int deltaTime)
 {
-	if(mCurrentView)
-	{
+	if (mCurrentView)
 		mCurrentView->update(deltaTime);
-	}
 
 	updateSelf(deltaTime);
+
+	if (mDeferPlayViewTransition)
+	{
+		mDeferPlayViewTransition = false;
+		mWindow->postToUiThread([this](Window* w) { playViewTransition(false); });
+	}
 }
 
 void ViewController::render(const Transform4x4f& parentTrans)
@@ -730,6 +741,9 @@ void ViewController::preload()
 
 void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 {
+	if (view == nullptr)
+		return;
+
 	if (reloadTheme)
 		ThemeData::setDefaultTheme(nullptr);
 

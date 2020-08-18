@@ -31,8 +31,8 @@ FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	mPath = Utils::FileSystem::createRelativePath(path, getSystemEnvData()->mStartPath, false);
 	
 	// metadata needs at least a name field (since that's what getName() will return)
-	if (mMetadata.get("name").empty())
-		mMetadata.set("name", getDisplayName());
+	if (mMetadata.get(MetaDataId::Name).empty())
+		mMetadata.set(MetaDataId::Name, getDisplayName());
 	
 	mMetadata.resetChangedFlag();
 
@@ -183,10 +183,12 @@ const bool FileData::getKidGame()
 }
 
 static std::shared_ptr<bool> showFilenames;
+static std::shared_ptr<bool> collectionShowSystemInfo;
 
 void FileData::resetSettings() 
 {
 	showFilenames = nullptr;
+	collectionShowSystemInfo = nullptr;
 }
 
 const std::string FileData::getName()
@@ -203,7 +205,7 @@ const std::string FileData::getName()
 			return getDisplayName();
 	}
 
-	return getMetadata().getName();
+	return mMetadata.getName();
 }
 
 const std::string FileData::getVideoPath()
@@ -468,6 +470,19 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 		AudioManager::getInstance()->playRandomMusic();
 }
 
+void FileData::deleteGameFiles()
+{
+	for (auto mdd : mMetadata.getMDD())
+	{
+		if (mMetadata.getType(mdd.id) != MetaDataType::MD_PATH)
+			continue;
+
+		Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
+	}
+
+	Utils::FileSystem::removeFile(getPath());
+}
+
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 	: FileData(file->getSourceFileData()->getType(), "", system)
 {
@@ -499,7 +514,8 @@ CollectionFileData::~CollectionFileData()
 	mParent = NULL;
 }
 
-std::string CollectionFileData::getKey() {
+std::string CollectionFileData::getKey() 
+{
 	return getFullPath();
 }
 
@@ -510,22 +526,25 @@ FileData* CollectionFileData::getSourceFileData()
 
 void CollectionFileData::refreshMetadata()
 {
-	// metadata = mSourceFileData->metadata;
 	mDirty = true;
 }
 
 const std::string CollectionFileData::getName()
 {
-	if (mDirty) {
-		mCollectionFileName = Utils::String::removeParenthesis(mSourceFileData->getMetadata(MetaDataId::Name));
-		mCollectionFileName += " [" + Utils::String::toUpper(mSourceFileData->getSystem()->getName()) + "]";
+	if (mDirty)
+	{
+		mCollectionFileName = mSourceFileData->getMetadata(MetaDataId::Name); // Utils::String::removeParenthesis()
+
+		if (collectionShowSystemInfo == nullptr)
+			collectionShowSystemInfo = std::make_shared<bool>(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
+
+		if (*collectionShowSystemInfo)
+			mCollectionFileName += " [" + mSourceFileData->getSystemName() + "]";
+
 		mDirty = false;
 	}
 
-	if (Settings::getInstance()->getBool("CollectionShowSystemInfo"))
-		return mCollectionFileName;
-		
-	return Utils::String::removeParenthesis(mSourceFileData->getMetadata(MetaDataId::Name));
+	return mCollectionFileName;
 }
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 
@@ -698,7 +717,9 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 
 void FolderData::addChild(FileData* file, bool assignParent)
 {
+#if DEBUG
 	assert(file->getParent() == nullptr || !assignParent);
+#endif
 
 	mChildren.push_back(file);
 
@@ -708,8 +729,10 @@ void FolderData::addChild(FileData* file, bool assignParent)
 
 void FolderData::removeChild(FileData* file)
 {
+#if DEBUG
 	assert(mType == FOLDER);
 	assert(file->getParent() == this);
+#endif
 
 	for (auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
 	{
@@ -722,8 +745,9 @@ void FolderData::removeChild(FileData* file)
 	}
 
 	// File somehow wasn't in our children.
+#if DEBUG
 	assert(false);
-
+#endif
 }
 
 FileData* FolderData::FindByPath(const std::string& path)

@@ -2,13 +2,304 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 08:40+0200\n"
+"POT-Creation-Date: 2020-08-12 22:19+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading system config..."
+msgstr ""
+
+msgid "QUIT"
+msgstr "SURT"
+
+msgid "Done."
+msgstr ""
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr ""
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr ""
+
+msgid "GROUPED SYSTEMS"
+msgstr ""
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr ""
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr ""
+
+msgid "SELECT THEME FOLDER"
+msgstr ""
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr ""
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr ""
+
+msgid "OPTIONS"
+msgstr "OPCIONS"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr ""
+
+msgid "NO"
+msgstr "NO"
+
+msgid "ALPHABETICALLY"
+msgstr ""
+
+msgid "BY MANUFACTURER"
+msgstr ""
+
+msgid "SORT SYSTEMS"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS"
+msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
+msgstr ""
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr ""
+
+msgid "EDITABLE COLLECTIONS"
+msgstr ""
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr ""
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr ""
+
+msgid "REFRESH"
+msgstr ""
+
+msgid "MANUAL INPUT"
+msgstr ""
+
+msgid "BACK"
+msgstr "ENRERE"
+
+msgid "NO WIFI NETWORKS FOUND"
+msgstr ""
+
+msgid "SEARCHING WIFI NETWORKS"
+msgstr ""
+
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "REMOVE"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "S'HA PRODUÏT UN ERROR"
+
+msgid "INSTALL"
+msgstr ""
+
+msgid "CLOSE"
+msgstr "TANCA"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr ""
+
+msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr ""
+
+msgid "DECORATIONS"
+msgstr ""
+
+msgid "STRETCH IMAGES"
+msgstr ""
+
+msgid "USE CUSTOM IMAGES"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR"
+msgstr ""
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "PLEASE WAIT"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "FINISHED"
+msgstr ""
+
+msgid "OK"
+msgstr "ACCEPTA"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr ""
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr ""
+
+msgid "VIDEO SCREENSAVER"
+msgstr ""
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr ""
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "S'ESTÀ OBTENINT DADES"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "subtitle text"
+msgstr "text del subtítol"
+
+msgid "INPUT"
+msgstr "ENTRADA"
+
+msgid "search"
+msgstr "cerca"
+
+msgid "SKIP"
+msgstr "OMET"
+
+msgid "STOP"
+msgstr "ATURA"
+
+msgid "stop (progress saved)"
+msgstr "atura (progrés desat)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "JOC %i DE %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
+msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "S'HA OMÈS %i JOC."
+msgstr[1] "S'HA OMÈS %i JOCS."
+
+msgid "SCREENSAVER AFTER"
+msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr ""
+
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr ""
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr ""
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 
 msgid "UPDATING BATOCERA"
 msgstr ""
@@ -19,29 +310,17 @@ msgstr ""
 msgid "REBOOT SYSTEM TO APPLY"
 msgstr ""
 
-msgid "AN ERROR OCCURED"
-msgstr "S'HA PRODUÏT UN ERROR"
-
 msgid "REALLY UPDATE?"
 msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
 
 msgid "YES"
 msgstr "SÍ"
 
-msgid "NO"
-msgstr "NO"
-
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
 
-msgid "OK"
-msgstr "ACCEPTA"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
-
-msgid "INPUT"
-msgstr "ENTRADA"
 
 msgid "SEARCH"
 msgstr "CERCA"
@@ -49,59 +328,35 @@ msgstr "CERCA"
 msgid "CANCEL"
 msgstr "CANCEL·LA"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FILTER GAMELIST BY"
 msgstr ""
 
-msgid "REMOVE ALL"
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr ""
 
-msgid "BACK"
-msgstr "ENRERE"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
+msgid "RESET ALL FILTERS"
 msgstr ""
 
-msgid "PLEASE WAIT"
+msgid "FIND GAMES"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
-
-msgid "CLOSE"
-msgstr "TANCA"
-
-msgid "Loading..."
+msgid "Unknown"
 msgstr ""
 
-msgid "CONNECT TO NETPLAY"
+msgid "SYSTEMS"
+msgstr "SISTEMES"
+
+msgid "BACKUP USER DATA"
 msgstr ""
 
-msgid "Select the game you want to join"
+msgid "TARGET DEVICE"
 msgstr ""
 
-msgid "REFRESH"
+msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "FAILED"
-msgstr ""
-
-msgid "LAUNCH"
-msgstr "EXECUTA"
-
-msgid "UNAVAILABLE CORE"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr ""
-
-msgid "UNAVAILABLE GAMES"
-msgstr ""
-
-msgid "NO GAME FOUND"
-msgstr ""
-
-msgid "go back"
-msgstr ""
+msgid "START"
+msgstr "COMENÇA"
 
 msgid "NAVIGATION"
 msgstr ""
@@ -127,13 +382,7 @@ msgstr ""
 msgid "COLLECTION"
 msgstr ""
 
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
-
 msgid "DELETE COLLECTION"
-msgstr ""
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -152,9 +401,6 @@ msgid "COLLECTION MANAGEMENT"
 msgstr ""
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr ""
-
-msgid "FINISH EDITING COLLECTION"
 msgstr ""
 
 msgid "GAME OPTIONS"
@@ -181,37 +427,7 @@ msgstr ""
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr ""
 
-msgid "New Collection Name"
-msgstr ""
-
 msgid "ARE YOU SURE ?"
-msgstr ""
-
-msgid "FILTER GAMELIST BY"
-msgstr ""
-
-msgid "RESET ALL FILTERS"
-msgstr ""
-
-msgid "FIND GAMES"
-msgstr ""
-
-msgid "Unknown"
-msgstr ""
-
-msgid "SYSTEMS"
-msgstr "SISTEMES"
-
-msgid "MANUAL INPUT"
-msgstr ""
-
-msgid "NO WIFI NETWORKS FOUND"
-msgstr ""
-
-msgid "SEARCHING WIFI NETWORKS"
-msgstr ""
-
-msgid "FINISHED"
 msgstr ""
 
 msgid "fade"
@@ -268,9 +484,6 @@ msgstr "PARÀMETRES DELS COMANDAMENTS"
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr ""
-
 msgid "SOUND SETTINGS"
 msgstr "PARÀMETRES DEL SO"
 
@@ -294,9 +507,6 @@ msgstr "PARÀMETRES DEL SISTEMA"
 
 msgid "INFORMATIONS"
 msgstr ""
-
-msgid "QUIT"
-msgstr "SURT"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
@@ -475,9 +685,6 @@ msgstr ""
 msgid "DOWNLOADS"
 msgstr ""
 
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
 msgid "THEMES"
 msgstr ""
 
@@ -501,9 +708,6 @@ msgstr "INICIA L'ACTUALITZACIÓ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -567,9 +771,6 @@ msgstr ""
 
 msgid "STORAGE DEVICE"
 msgstr "DISPOSITIU D'EMMAGATZEMATGE"
-
-msgid "BACKUP USER DATA"
-msgstr ""
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr ""
@@ -642,9 +843,6 @@ msgstr ""
 
 msgid "TOOLS"
 msgstr ""
-
-msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALITZA LES LLISTES DELS JOCS"
 
 msgid "DEFAULT SETTINGS"
 msgstr ""
@@ -967,6 +1165,9 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 
+msgid "VIEW BATOCERA MANUAL"
+msgstr ""
+
 msgid "RESTART SYSTEM"
 msgstr "REINICIA EL SISTEMA"
 
@@ -1033,195 +1234,6 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr ""
 
-msgid "COLLECTIONS TO DISPLAY"
-msgstr ""
-
-msgid "GROUPED SYSTEMS"
-msgstr ""
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
-
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr ""
-
-msgid "SELECT THEME FOLDER"
-msgstr ""
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
-
-msgid "OPTIONS"
-msgstr "OPCIONS"
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
-
-msgid "ALPHABETICALLY"
-msgstr ""
-
-msgid "BY MANUFACTURER"
-msgstr ""
-
-msgid "SORT SYSTEMS"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr ""
-
-msgid "SELECT COLLECTIONS"
-msgstr ""
-
-msgid "ARCADE SYSTEMS"
-msgstr ""
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr ""
-
-msgid "EDITABLE COLLECTIONS"
-msgstr ""
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr ""
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
-
-msgid "INSTALL BATOCERA"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr ""
-
-msgid "TARGET ARCHITECTURE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-msgid "NETWORK REQUIRED"
-msgstr ""
-
-msgid "INVALID PARAMETERS"
-msgstr ""
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "S'ESTÀ OBTENINT DADES"
-
-msgid "subtitle text"
-msgstr "text del subtítol"
-
-msgid "search"
-msgstr "cerca"
-
-msgid "SKIP"
-msgstr "OMET"
-
-msgid "STOP"
-msgstr "ATURA"
-
-msgid "stop (progress saved)"
-msgstr "atura (progrés desat)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "JOC %i DE %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
-msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "S'HA OMÈS %i JOC."
-msgstr[1] "S'HA OMÈS %i JOCS."
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr ""
-
-msgid "SHOW GAME INFO"
-msgstr ""
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr ""
-
-msgid "DECORATIONS"
-msgstr ""
-
-msgid "STRETCH IMAGES"
-msgstr ""
-
-msgid "USE CUSTOM IMAGES"
-msgstr ""
-
-msgid "CUSTOM IMAGE DIR"
-msgstr ""
-
-msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM IMAGE FILTER"
-msgstr ""
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr ""
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
-msgstr ""
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr ""
-
-msgid "MUTE VIDEO AUDIO"
-msgstr ""
-
 msgid "SCRAPE THESE GAMES"
 msgstr "OBTÉ DADES D'AQUESTS JOCS"
 
@@ -1240,9 +1252,6 @@ msgstr "OBTÉ DADES D'AQUESTS SISTEMES"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "L'USUARI DECIDEIX DAVANT CONFLICTES"
 
-msgid "START"
-msgstr "COMENÇA"
-
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -1255,46 +1264,46 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 
-msgid "SCREENSAVER AFTER"
-msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
+msgid "INSTALL BATOCERA"
 msgstr ""
 
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgid "TARGET ARCHITECTURE"
 msgstr ""
 
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgid "NETWORK REQUIRED"
 msgstr ""
 
-msgid "SCREENSAVER CONTROLS"
+msgid "INVALID PARAMETERS"
 msgstr ""
 
-msgid "SLIDESHOW SCREENSAVER"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
-msgid "NO DEVICE FOUND"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
-msgid "THEMES DOWNLOADER"
+msgid "CONNECT TO NETPLAY"
 msgstr ""
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgid "Select the game you want to join"
 msgstr ""
 
-msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgid "FAILED"
 msgstr ""
 
-#, c-format
-msgid "CURRENT THEME"
+msgid "LAUNCH"
+msgstr "EXECUTA"
+
+msgid "UNAVAILABLE CORE"
+msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "NO GAME FOUND"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -1313,6 +1322,68 @@ msgstr "ESBORRA"
 
 msgid "SAVE CHANGES?"
 msgstr "VOLEU DESAR ELS CANVIS?"
+
+msgid "go back"
+msgstr ""
+
+msgid "Extracting"
+msgstr ""
+
+msgid "all games"
+msgstr ""
+
+msgid "last played"
+msgstr ""
+
+msgid "favorites"
+msgstr ""
+
+msgid "2 players"
+msgstr ""
+
+msgid "4 players"
+msgstr ""
+
+msgid "never played"
+msgstr ""
+
+msgid "arcade"
+msgstr ""
+
+msgid "collections"
+msgstr ""
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr ""
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr ""
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr ""
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr ""
+
+msgid "This collection is empty."
+msgstr ""
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr ""
+
+msgid "Various"
+msgstr ""
+
+#, c-format
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Name"
 msgstr "Nom"
@@ -1500,13 +1571,49 @@ msgstr ""
 msgid "Region"
 msgstr "Regió"
 
-msgid "SCRAPING"
+msgid "FAVORITES"
 msgstr ""
 
-msgid "SCRAPE FAILED"
+msgid "GENRE"
+msgstr "GÈNERE"
+
+msgid "PLAYERS"
 msgstr ""
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "PUBLISHER / DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "VALORACIÓ"
+
+msgid "REGION"
+msgstr ""
+
+msgid "KIDGAME"
+msgstr ""
+
+msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "Released"
+msgstr "Publicat"
+
+msgid "Times played"
+msgstr "Nombre de vegades que s'ha jugat"
+
+msgid "No Entries Found"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr ""
+
+msgid "RANDOM"
+msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 msgstr ""
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
@@ -1539,14 +1646,14 @@ msgstr[1] ""
 msgid "KODI"
 msgstr ""
 
-msgid "NETPLAY"
-msgstr ""
-
-msgid "RANDOM"
-msgstr ""
-
 msgid "FILES"
 msgstr ""
+
+msgid "Preloading UI"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENÚ"
 
 msgid "Full"
 msgstr ""
@@ -1557,26 +1664,53 @@ msgstr ""
 msgid "Kid"
 msgstr ""
 
-msgid "No Entries Found"
+msgid "SCANNING BLUETOOTH"
 msgstr ""
 
-msgid "Favorites"
+msgid "Searching controllers..."
 msgstr ""
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr ""
 
-msgid "Released"
-msgstr "Publicat"
-
-msgid "Times played"
-msgstr "Nombre de vegades que s'ha jugat"
-
-msgid "Preloading UI"
+msgid "FORMATING DEVICE"
 msgstr ""
 
-msgid "MENU"
-msgstr "MENÚ"
+msgid "Formating"
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
+
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NO S'HA TROBAT CAP JOC - OMET"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr ""
+
+msgid "RETRY"
+msgstr "TORNA-HO A INTENTAR"
+
+msgid "Downloading"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTA EL RESULTAT"
+
+msgid "SCRAPING"
+msgstr ""
+
+msgid "SCRAPE FAILED"
+msgstr ""
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
 
 msgid "FILENAME, ASCENDING"
 msgstr "NOM DEL FITXER, ASCENDENT"
@@ -1644,6 +1778,15 @@ msgstr ""
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr ""
 
+msgid "GAME TIME, ASCENDING"
+msgstr ""
+
+msgid "GAME TIME, DESCENDING"
+msgstr ""
+
+msgid "UPDATE AVAILABLE"
+msgstr ""
+
 msgid "DOWNLOADING"
 msgstr ""
 
@@ -1659,145 +1802,44 @@ msgstr ""
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr ""
 
-msgid "FAVORITES"
-msgstr ""
-
-msgid "GENRE"
-msgstr "GÈNERE"
-
-msgid "PLAYERS"
-msgstr ""
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr "VALORACIÓ"
-
-msgid "REGION"
-msgstr ""
-
-msgid "KIDGAME"
-msgstr ""
-
-msgid "ALREADY PLAYED"
-msgstr ""
-
 msgid "HASHING GAMES"
 msgstr ""
 
 msgid "Collections"
 msgstr ""
 
-msgid "Extracting"
+msgid "SPACE"
+msgstr "ESPAI"
+
+msgid "DELETE A CHAR"
+msgstr "ESBORRA UN CARÀCTER"
+
+msgid "RESET"
 msgstr ""
 
-msgid "Searching"
+msgid "DISCARD CHANGES"
+msgstr "DESCARTA ELS CANVIS"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NO S'HA TROBAT CAP JOC - OMET"
+msgid "SHIFT"
+msgstr "MAJÚSCULES"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr ""
-
-msgid "RETRY"
-msgstr "TORNA-HO A INTENTAR"
-
-msgid "Downloading"
-msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "ACCEPTA EL RESULTAT"
-
-msgid "Loading system config..."
-msgstr ""
-
-msgid "Done."
-msgstr ""
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
-
-msgid "SCANNING BLUETOOTH"
-msgstr ""
-
-msgid "Searching controllers..."
-msgstr ""
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
-
-msgid "FORMATING DEVICE"
-msgstr ""
-
-msgid "Formating"
-msgstr ""
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
-
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
-
-msgid "UPDATE AVAILABLE"
-msgstr ""
-
-msgid "all games"
-msgstr ""
-
-msgid "last played"
-msgstr ""
-
-msgid "favorites"
-msgstr ""
-
-msgid "2 players"
-msgstr ""
-
-msgid "4 players"
-msgstr ""
-
-msgid "never played"
-msgstr ""
-
-msgid "arcade"
-msgstr ""
-
-msgid "collections"
-msgstr ""
+msgid "WELCOME"
+msgstr "BENVINGUT"
 
 #, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr ""
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "S'HA DETECTAT %i CONTROLADOR"
+msgstr[1] "S'HA DETECTAT %i CONTROLADORS"
 
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr ""
+msgid "NO GAMEPADS DETECTED"
+msgstr "NO S'HA DETECTAT CAP CONTROLADOR"
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr ""
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr ""
-
-msgid "This collection is empty."
-msgstr ""
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr ""
-
-msgid "Various"
-msgstr ""
-
-#, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "PREMEU UN BOTÓ DEL VOSTRE DISPOSITIU PER CONFIGURAR-LO."
 
 msgid "UP"
 msgstr "AMUNT"
@@ -1863,39 +1905,6 @@ msgstr "PREMEU QUALSEVOL COSA"
 msgid "ALREADY TAKEN"
 msgstr "JA ESTÀ AGAFAT"
 
-msgid "SPACE"
-msgstr "ESPAI"
-
-msgid "DELETE A CHAR"
-msgstr "ESBORRA UN CARÀCTER"
-
-msgid "RESET"
-msgstr ""
-
-msgid "DISCARD CHANGES"
-msgstr "DESCARTA ELS CANVIS"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
-msgid "SHIFT"
-msgstr "MAJÚSCULES"
-
-msgid "WELCOME"
-msgstr "BENVINGUT"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "S'HA DETECTAT %i CONTROLADOR"
-msgstr[1] "S'HA DETECTAT %i CONTROLADORS"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "NO S'HA DETECTAT CAP CONTROLADOR"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "PREMEU UN BOTÓ DEL VOSTRE DISPOSITIU PER CONFIGURAR-LO."
-
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -1913,36 +1922,6 @@ msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "MOVE CURSOR"
-msgstr "MOVEU EL CURSOR"
-
-msgid "EDIT"
-msgstr "EDITA"
 
 msgid "accept"
 msgstr ""
@@ -1968,8 +1947,38 @@ msgstr[1] "%i SELECCIONATS"
 msgid "CHANGE"
 msgstr "CANVIA"
 
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
+
+msgid "MOVE CURSOR"
+msgstr "MOVEU EL CURSOR"
+
+msgid "EDIT"
+msgstr "EDITA"
 
 msgid "up/down"
 msgstr ""

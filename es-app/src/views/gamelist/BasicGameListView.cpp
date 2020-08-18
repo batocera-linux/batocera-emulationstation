@@ -206,31 +206,24 @@ void BasicGameListView::launch(FileData* game)
 	ViewController::get()->launch(game);
 }
 
-void BasicGameListView::remove(FileData *game, bool deleteFile)
+void BasicGameListView::remove(FileData *game)
 {
-	if (deleteFile)
-		Utils::FileSystem::removeFile(game->getPath());  // actually delete the file on the filesystem
 	FolderData* parent = game->getParent();
 	if (getCursor() == game)                     // Select next element in list, or prev if none
 	{
-		std::vector<FileData*> siblings = parent->getChildrenListToDisplay();
-		auto gameIter = std::find(siblings.cbegin(), siblings.cend(), game);
-		unsigned int gamePos = (int)std::distance(siblings.cbegin(), gameIter);
-		if (gameIter != siblings.cend())
-		{
-			if ((gamePos + 1) < siblings.size())
-			{
-				setCursor(siblings.at(gamePos + 1));
-			} else if (gamePos > 1) {
-				setCursor(siblings.at(gamePos - 1));
-			}
-		}
+		std::vector<FileData*> siblings = mList.getObjects();
+
+		int gamePos = getCursorIndex();
+		if ((gamePos + 1) < (int)siblings.size())
+			setCursor(siblings.at(gamePos + 1));
+		else if ((gamePos - 1) > 0)
+			setCursor(siblings.at(gamePos - 1));
 	}
+
 	mList.remove(game);
 	if(mList.size() == 0)
-	{
 		addPlaceholder();
-	}
+
 	delete game;                                 // remove before repopulating (removes from parent)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }

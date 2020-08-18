@@ -328,13 +328,18 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 			curSys->removeFromIndex(collectionEntry);
 			collectionEntry->refreshMetadata();
 			// found and we are removing
-			if (name == "favorites" && file->getMetadata(MetaDataId::Favorite) == "false") {
+			if (name == "favorites" && file->getMetadata(MetaDataId::Favorite) == "false") 
+			{
 				// need to check if still marked as favorite, if not remove
-				ViewController::get()->getGameListView(curSys).get()->remove(collectionEntry, false);
+				auto view = ViewController::get()->getGameListView(curSys, false);
+				if (view != nullptr)
+					view.get()->remove(collectionEntry);
 
 				// Send an event when removing from favorites
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-				ViewController::get()->getGameListView(curSys)->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
+
+				if (view != nullptr)
+					view->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 			}
 			else
 			{
@@ -353,7 +358,10 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 				rootFolder->addChild(newGame);
 				curSys->addToIndex(newGame);
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-				ViewController::get()->getGameListView(curSys)->onFileChanged(newGame, FILE_METADATA_CHANGED);
+
+				auto view = ViewController::get()->getGameListView(curSys, false);
+				if (view != nullptr)
+					view->onFileChanged(newGame, FILE_METADATA_CHANGED);
 			}
 		}
 
@@ -398,7 +406,7 @@ void CollectionSystemManager::trimCollectionCount(FolderData* rootFolder, int li
 		if (listView == nullptr)
 			delete gameToRemove;
 		else
-			listView.get()->remove(gameToRemove, false);
+			listView.get()->remove(gameToRemove);
 	}
 }
 
@@ -407,24 +415,30 @@ void CollectionSystemManager::deleteCollectionFiles(FileData* file)
 {
 	// collection files use the full path as key, to avoid clashes
 	std::string key = file->getFullPath();
+
 	// find games in collection systems
 	std::map<std::string, CollectionSystemData> allCollections;
 	allCollections.insert(mAutoCollectionSystemsData.cbegin(), mAutoCollectionSystemsData.cend());
 	allCollections.insert(mCustomCollectionSystemsData.cbegin(), mCustomCollectionSystemsData.cend());
 
-	for(auto sysDataIt = allCollections.begin(); sysDataIt != allCollections.end(); sysDataIt++)
+	for (auto sysDataIt = allCollections.begin(); sysDataIt != allCollections.end(); sysDataIt++)
 	{
-		if (sysDataIt->second.isPopulated)
-		{
-			FileData* collectionEntry = (sysDataIt->second.system)->getRootFolder()->FindByPath(key);
-			if (collectionEntry != nullptr)
-			{
-				sysDataIt->second.needsSave = true;
-				
-				SystemData* systemViewToUpdate = getSystemToView(sysDataIt->second.system);
-				ViewController::get()->getGameListView(systemViewToUpdate).get()->remove(collectionEntry, false);
-			}
-		}
+		if (!sysDataIt->second.isPopulated)
+			continue;
+
+		FileData* collectionEntry = (sysDataIt->second.system)->getRootFolder()->FindByPath(key);
+		if (collectionEntry == nullptr)
+			continue;
+		
+		sysDataIt->second.needsSave = true;
+
+		SystemData* systemViewToUpdate = getSystemToView(sysDataIt->second.system);
+		if (systemViewToUpdate == nullptr)
+			continue;
+
+		auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
+		if (view != nullptr)
+			view.get()->remove(collectionEntry);		
 	}
 }
 
@@ -540,15 +554,15 @@ void CollectionSystemManager::setEditMode(std::string collectionName)
 	// if it's bundled, this needs to be the bundle system
 	mEditingCollectionSystemData = sysData;
 
-	char strbuf[512];
-	snprintf(strbuf, 512, _("Editing the '%s' Collection. Add/remove games with Y.").c_str(), Utils::String::toUpper(collectionName).c_str());
+	char strbuf[1024];
+	snprintf(strbuf, 1024, _("Editing the '%s' Collection. Add/remove games with Y.").c_str(), Utils::String::toUpper(collectionName).c_str());
 	mWindow->displayNotificationMessage(strbuf, 10000);
 }
 
 void CollectionSystemManager::exitEditMode()
 {
-	char strbuf[512];
-	snprintf(strbuf, 512, _("Finished editing the '%s' Collection.").c_str(), mEditingCollection.c_str());
+	char strbuf[1024];
+	snprintf(strbuf, 1024, _("Finished editing the '%s' Collection.").c_str(), mEditingCollection.c_str());
 	mWindow->displayNotificationMessage(strbuf, 4000);
 
 	mIsEditingCustom = false;
@@ -558,7 +572,6 @@ void CollectionSystemManager::exitEditMode()
 // adds or removes a game from a specific collection
 bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 {
-	char trstring[256];
 	if (file->getType() == GAME)
 	{	
 		bool adding = true;
@@ -578,16 +591,18 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 			std::string name = sysData->getName();
 
 			SystemData* systemViewToUpdate = getSystemToView(sysData);
-			if (collectionEntry != nullptr) {
+			if (collectionEntry != nullptr) 
+			{
 				adding = false;
 				// remove from index
 				sysData->removeFromIndex(collectionEntry);
 				// remove from bundle index as well, if needed
 				if (systemViewToUpdate != sysData)
-				{
 					systemViewToUpdate->removeFromIndex(collectionEntry);
-				}
-				ViewController::get()->getGameListView(systemViewToUpdate).get()->remove(collectionEntry, false);
+
+				auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
+				if (view != nullptr)
+					view.get()->remove(collectionEntry);
 			}
 			else
 			{
@@ -595,13 +610,16 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				CollectionFileData* newGame = new CollectionFileData(file, sysData);
 				rootFolder->addChild(newGame);
 				sysData->addToIndex(newGame);
-				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(newGame, FILE_METADATA_CHANGED);
+
+				auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
+				if (view != nullptr)
+					view->onFileChanged(newGame, FILE_METADATA_CHANGED);
+
 				ViewController::get()->onFileChanged(systemViewToUpdate->getRootFolder(), FILE_SORTED);
+
 				// add to bundle index as well, if needed
 				if (systemViewToUpdate != sysData)
-				{
 					systemViewToUpdate->addToIndex(newGame);
-				}
 			}
 			updateCollectionFolderMetadata(sysData);
 		}
@@ -632,14 +650,19 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 			{
 				// Notify the current gamelist
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-				ViewController::get()->getGameListView(systemViewToUpdate)->onFileChanged(file, FILE_METADATA_CHANGED);
+
+				auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
+				if (view != nullptr)
+					view->onFileChanged(file, FILE_METADATA_CHANGED);
 			}		
 		}
 
+		char trstring[1024];
+
 		if (adding)
-			snprintf(trstring, 256, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
+			snprintf(trstring, 1024, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera
 		else
-			snprintf(trstring, 256, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera		  
+			snprintf(trstring, 1024, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(sysName).c_str()); // batocera		  
 
 		mWindow->displayNotificationMessage(trstring, 4000);
 		return true;
@@ -693,7 +716,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	std::string image = "";
 
 	auto games = rootFolder->getChildren();
-	char trstring[512];
+	char trstring[1024];
 
 	if (games.size() > 0)
 	{
@@ -735,7 +758,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		games_list = "\n" + games_list;
 		games_counter = games.size();
 
-		snprintf(trstring, 512, ngettext(
+		snprintf(trstring, 1024, ngettext(
 			"This collection contains %i game, including :%s",
 			"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
 
@@ -1318,9 +1341,17 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 	if (autoc != mAutoCollectionSystemsData.cend())
 	{
 		if (repopulateGamelist)
+		{
 			for (auto system : SystemData::sSystemVector)
+			{
 				if (system->isCollection() && system->getName() == collectionName)
-					ViewController::get()->getGameListView(system)->repopulate();
+				{
+					auto view = ViewController::get()->getGameListView(system, false);
+					if (view != nullptr)
+						view->repopulate();
+				}
+			}
+		}
 
 		return;
 	}
@@ -1343,11 +1374,15 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 	{
 		if (ff->getType() == FOLDER && ff->getName() == collectionName)
 		{			
-			ViewController::get()->reloadGameListView(bundle);
-
-			ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(ViewController::get()->getGameListView(bundle).get());
+			auto view = ViewController::get()->getGameListView(bundle, false);
 			if (view != nullptr)
-				view->moveToFolder((FolderData*)ff);
+			{
+				ViewController::get()->reloadGameListView(bundle);
+
+				ISimpleGameListView* sgview = dynamic_cast<ISimpleGameListView*>(view.get());
+				if (sgview != nullptr)
+					sgview->moveToFolder((FolderData*)ff);
+			}
 
 			return;
 		}
@@ -1357,7 +1392,10 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 	{
 		if (system->isCollection() && system->getName() == collectionName)
 		{
-			ViewController::get()->getGameListView(system)->repopulate();
+			auto view = ViewController::get()->getGameListView(system, false);					
+			if (view != nullptr)
+				view->repopulate();
+
 			return;
 		}
 	}

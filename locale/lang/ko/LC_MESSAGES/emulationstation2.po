@@ -2,13 +2,308 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 08:40+0200\n"
+"POT-Creation-Date: 2020-08-12 22:19+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Loading..."
+msgstr "로딩"
+
+msgid "Loading system config..."
+msgstr "로딩 시스템 설정"
+
+msgid "QUIT"
+msgstr "종료"
+
+msgid "Done."
+msgstr "완료"
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "게임 컬렉션 설정"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "디스플레이용 컬렉션"
+
+msgid "GROUPED SYSTEMS"
+msgstr "그룹화된 시스템"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "사용자 컬렉션 만들기"
+
+msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgstr "테마에서 새 커스텀 컬렉션 만들기"
+
+msgid "SELECT THEME FOLDER"
+msgstr "테마 폴더 선택"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "새 편집가능 컬렉션 만들기"
+
+msgid "New Collection Name"
+msgstr "새 컬렉션 이름"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "새 다이나믹 컬렉션 만들기"
+
+msgid "OPTIONS"
+msgstr "옵션"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "테마가 없는 커스텀 컬렉션을 그룹"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "컬렉션 및 시스템 정렬"
+
+msgid "NO"
+msgstr "아니요"
+
+msgid "ALPHABETICALLY"
+msgstr "사전(알파벳) 순"
+
+msgid "BY MANUFACTURER"
+msgstr "제조업체 순"
+
+msgid "SORT SYSTEMS"
+msgstr "시스템 정렬"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "컬렉션에서 시스템 이름 표시"
+
+msgid "UPDATE GAMES LISTS"
+msgstr "게임 목록 업데이트"
+
+msgid "FINISH EDITING COLLECTION"
+msgstr "컬렉션 편집 끝내기"
+
+msgid "SELECT COLLECTIONS"
+msgstr "컬렉션 선택"
+
+msgid "ARCADE SYSTEMS"
+msgstr "아케이드 시스템"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "자동 게임 컬렉션"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "편집가능한 컬렉션"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "다이나믹 컬렉션"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "커스텀 게임 컬렉션"
+
+msgid "REFRESH"
+msgstr "새로고침"
+
+msgid "MANUAL INPUT"
+msgstr "수동 입력"
+
+msgid "BACK"
+msgstr "뒤로"
+
+msgid "NO WIFI NETWORKS FOUND"
+msgstr "와이파이를 찾지 못했습니다"
+
+msgid "SEARCHING WIFI NETWORKS"
+msgstr "와이파이를 검색 중입니다"
+
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE"
+msgstr "업데이트"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "다운로드 대기열에 '%개'가 추가됨"
+
+msgid "REMOVE"
+msgstr "제거"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr ""
+
+msgid "AN ERROR OCCURED"
+msgstr "오류가 발생되었습니다"
+
+msgid "INSTALL"
+msgstr "설치"
+
+msgid "CLOSE"
+msgstr "닫기"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "현재 다운로드 대기열"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "(몇 초) 후 이미지 필터 교체"
+
+msgid "SHOW GAME INFO"
+msgstr "게임 정보 보여주기"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "게임 정보로 마키 사용"
+
+msgid "DECORATIONS"
+msgstr "데코레이션"
+
+msgid "STRETCH IMAGES"
+msgstr "이미지 늘리기"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "커스텀 이미지 사용"
+
+msgid "CUSTOM IMAGE DIR"
+msgstr "커스텀 이미지 디렉터리"
+
+msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgstr "커스텀 이미지 되부름의 디렉터리"
+
+msgid "CUSTOM IMAGE FILTER"
+msgstr "커스텀 이미지 필터"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "컨텐츠 다운로더"
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr "설치/제거할 컨텐츠을 선택하세요"
+
+msgid "PLEASE WAIT"
+msgstr "잠시만 기다려주세요"
+
+msgid "MISC"
+msgstr "기타"
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr "제거 작업이 대기열에 추가됨"
+
+msgid "FINISHED"
+msgstr "완료되었습니다"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "(몇초 후) 후 비디오 필터 교체 "
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "화면보호기를 위해 OMX 플레이어 사용"
+
+msgid "VIDEO SCREENSAVER"
+msgstr "비디오 화면보호기"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "화면보호기에 게임 정보 보여주기"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "화면보호기에 비디오 늘이기"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "비디오 오디오 음소거"
+
+msgid "SCRAPING IN PROGRESS"
+msgstr "게임 아트워크 수집 진행 중"
+
+msgid "SYSTEM"
+msgstr "시스템"
+
+msgid "subtitle text"
+msgstr "자막"
+
+msgid "INPUT"
+msgstr "입력"
+
+msgid "search"
+msgstr "검색"
+
+msgid "SKIP"
+msgstr "건너뛰기"
+
+msgid "STOP"
+msgstr "중단"
+
+msgid "stop (progress saved)"
+msgstr "중단 (진행 저장됨)"
+
+#, c-format
+msgid "GAME %i OF %i"
+msgstr "게임 %i / %i"
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgstr ""
+"시스템을 찾을수 없습니다!\n"
+"설정 파일에서 시스템 경로가 맞는지 확인하시고, 게임 디렉토리에는 확장자가 정"
+"확한 게임이 한 개 이상이 있는지 확인하세요."
+
+#, c-format
+msgid "%i GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "%i 개의 게임 아트워크를 수집했습니다."
+
+#, c-format
+msgid "%i GAME SKIPPED."
+msgid_plural "%i GAMES SKIPPED."
+msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
+
+msgid "SCREENSAVER AFTER"
+msgstr "화면 보호기 작동"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "화면 보호기 행동"
+
+msgid ""
+"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
+"MENU."
+msgstr ""
+"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
+"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
+"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "랜덤 비디오 화면보호기 셋팅"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "슬라이스쇼 화면보호기 셋팅"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "스크린세이버 컨트롤"
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr "슬라이드쇼 스크린세이버"
+
+msgid "FORGET A BLUETOOTH CONTROLLER"
+msgstr "블루투스 컨트롤러 삭제"
+
+msgid "REMOVE ALL"
+msgstr "모두 제거"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "발견된 블루투스 장치가 없습니다"
+
+msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
 msgid "UPDATING BATOCERA"
 msgstr "바토세라 업데이트 중"
@@ -19,29 +314,17 @@ msgstr "업데이트가 준비되었습니다"
 msgid "REBOOT SYSTEM TO APPLY"
 msgstr "적용하려면 시스템을 재시작하세요"
 
-msgid "AN ERROR OCCURED"
-msgstr "오류가 발생되었습니다"
-
 msgid "REALLY UPDATE?"
 msgstr "정말로 업데이트 하시겠습니까?"
 
 msgid "YES"
 msgstr "예"
 
-msgid "NO"
-msgstr "아니요"
-
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
 
-msgid "OK"
-msgstr "확인"
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트가 없습니다"
-
-msgid "INPUT"
-msgstr "입력"
 
 msgid "SEARCH"
 msgstr "검색"
@@ -49,59 +332,35 @@ msgstr "검색"
 msgid "CANCEL"
 msgstr "취소"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "블루투스 컨트롤러 삭제"
+msgid "FILTER GAMELIST BY"
+msgstr "로 게임리스트를 필터링합니다"
 
-msgid "REMOVE ALL"
-msgstr "모두 제거"
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "다이나믹 컬렉션 필터 편집"
 
-msgid "BACK"
-msgstr "뒤로"
+msgid "RESET ALL FILTERS"
+msgstr "모든 필터 초기화"
 
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "발견된 블루투스 장치가 없습니다"
+msgid "FIND GAMES"
+msgstr "게임 찾기"
 
-msgid "PLEASE WAIT"
-msgstr "잠시만 기다려주세요"
+msgid "Unknown"
+msgstr "알 수 없음"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "컨트롤러와의 연결이 삭제되었습니다."
+msgid "SYSTEMS"
+msgstr "시스템"
 
-msgid "CLOSE"
-msgstr "닫기"
+msgid "BACKUP USER DATA"
+msgstr "사용자 데이터 백업"
 
-msgid "Loading..."
-msgstr "로딩"
+msgid "TARGET DEVICE"
+msgstr "대상 장치"
 
-msgid "CONNECT TO NETPLAY"
-msgstr "넷플레이에 연결"
+msgid "NO DEVICE FOUND"
+msgstr "장치 찾기 없음"
 
-msgid "Select the game you want to join"
-msgstr "넷플레이에 연결할 게임을 선택하세요"
-
-msgid "REFRESH"
-msgstr "새로고침"
-
-msgid "FAILED"
-msgstr "실패"
-
-msgid "LAUNCH"
-msgstr "실행"
-
-msgid "UNAVAILABLE CORE"
-msgstr "사용할 수 없는 코어"
-
-msgid "AVAILABLE GAMES"
-msgstr "실행 가능한 게임"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "실행할 수 없는 게임"
-
-msgid "NO GAME FOUND"
-msgstr "게임을 찾지 못했습니다"
-
-msgid "go back"
-msgstr "돌아가기"
+msgid "START"
+msgstr "시작"
 
 msgid "NAVIGATION"
 msgstr "네비게이션"
@@ -127,14 +386,8 @@ msgstr "게임 맵 보기"
 msgid "COLLECTION"
 msgstr "컬렉션"
 
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "다이나믹 컬렉션 필터 편집"
-
 msgid "DELETE COLLECTION"
 msgstr "컬렉션 삭제"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "새 다이나믹 컬렉션 만들기"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임리스트 정렬방법"
@@ -153,9 +406,6 @@ msgstr "컬렉션 관리"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 msgstr "이 게임 컬렉션에 게임 추가/제거"
-
-msgid "FINISH EDITING COLLECTION"
-msgstr "컬렉션 편집 끝내기"
 
 msgid "GAME OPTIONS"
 msgstr "게임 옵션"
@@ -181,38 +431,8 @@ msgstr "텍스트로 게임 필터"
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "게임 아트워크 수집 중에는 이 기능은 비활성화됩니다"
 
-msgid "New Collection Name"
-msgstr "새 컬렉션 이름"
-
 msgid "ARE YOU SURE ?"
 msgstr "확실합니까?"
-
-msgid "FILTER GAMELIST BY"
-msgstr "로 게임리스트를 필터링합니다"
-
-msgid "RESET ALL FILTERS"
-msgstr "모든 필터 초기화"
-
-msgid "FIND GAMES"
-msgstr "게임 찾기"
-
-msgid "Unknown"
-msgstr "알 수 없음"
-
-msgid "SYSTEMS"
-msgstr "시스템"
-
-msgid "MANUAL INPUT"
-msgstr "수동 입력"
-
-msgid "NO WIFI NETWORKS FOUND"
-msgstr "와이파이를 찾지 못했습니다"
-
-msgid "SEARCHING WIFI NETWORKS"
-msgstr "와이파이를 검색 중입니다"
-
-msgid "FINISHED"
-msgstr "완료되었습니다"
 
 msgid "fade"
 msgstr "페이드"
@@ -268,9 +488,6 @@ msgstr "컨트롤러 설정"
 msgid "UI SETTINGS"
 msgstr "사용자 인터페이스 설정"
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr "게임 컬렉션 설정"
-
 msgid "SOUND SETTINGS"
 msgstr "사운드 설정"
 
@@ -294,9 +511,6 @@ msgstr "시스템 설정"
 
 msgid "INFORMATIONS"
 msgstr "정보"
-
-msgid "QUIT"
-msgstr "종료"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?"
@@ -475,9 +689,6 @@ msgstr "디스크를 포맷합니다"
 msgid "DOWNLOADS"
 msgstr "다운로드"
 
-msgid "CONTENT DOWNLOADER"
-msgstr "컨텐츠 다운로더"
-
 msgid "THEMES"
 msgstr "테마"
 
@@ -501,9 +712,6 @@ msgstr "업데이트 시작"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중입니다"
-
-msgid "SYSTEM"
-msgstr "시스템"
 
 msgid "LANGUAGE"
 msgstr "언어"
@@ -567,9 +775,6 @@ msgstr "저장소"
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
-
-msgid "BACKUP USER DATA"
-msgstr "사용자 데이터 백업"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "새로운 디스크에 바토세라 설치"
@@ -642,9 +847,6 @@ msgstr "색인 안 된 게임"
 
 msgid "TOOLS"
 msgstr "도구"
-
-msgid "UPDATE GAMES LISTS"
-msgstr "게임 목록 업데이트"
 
 msgid "DEFAULT SETTINGS"
 msgstr "기본 설정"
@@ -968,6 +1170,9 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면보호기 실행"
 
+msgid "VIEW BATOCERA MANUAL"
+msgstr ""
+
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
 
@@ -1034,196 +1239,6 @@ msgstr "선택한 옵션들은 유요하지 않습니다"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "이 드라이브를 포맷하는 것을 정말로 원합니까?"
 
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "디스플레이용 컬렉션"
-
-msgid "GROUPED SYSTEMS"
-msgstr "그룹화된 시스템"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "사용자 컬렉션 만들기"
-
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "테마에서 새 커스텀 컬렉션 만들기"
-
-msgid "SELECT THEME FOLDER"
-msgstr "테마 폴더 선택"
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "새 편집가능 컬렉션 만들기"
-
-msgid "OPTIONS"
-msgstr "옵션"
-
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "테마가 없는 커스텀 컬렉션을 그룹"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "컬렉션 및 시스템 정렬"
-
-msgid "ALPHABETICALLY"
-msgstr "사전(알파벳) 순"
-
-msgid "BY MANUFACTURER"
-msgstr "제조업체 순"
-
-msgid "SORT SYSTEMS"
-msgstr "시스템 정렬"
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "컬렉션에서 시스템 이름 표시"
-
-msgid "SELECT COLLECTIONS"
-msgstr "컬렉션 선택"
-
-msgid "ARCADE SYSTEMS"
-msgstr "아케이드 시스템"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "자동 게임 컬렉션"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr "편집가능한 컬렉션"
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr "다이나믹 컬렉션"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "커스텀 게임 컬렉션"
-
-msgid "INSTALL BATOCERA"
-msgstr "바토세라 설치"
-
-msgid "TARGET DEVICE"
-msgstr "대상 장치"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "설치 아카텍처"
-
-msgid "INSTALL"
-msgstr "설치"
-
-msgid "NETWORK REQUIRED"
-msgstr "네트워크가 필요합니다"
-
-msgid "INVALID PARAMETERS"
-msgstr "매개변수가 잘못되었습니다"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "게임 아트워크 수집 진행 중"
-
-msgid "subtitle text"
-msgstr "자막"
-
-msgid "search"
-msgstr "검색"
-
-msgid "SKIP"
-msgstr "건너뛰기"
-
-msgid "STOP"
-msgstr "중단"
-
-msgid "stop (progress saved)"
-msgstr "중단 (진행 저장됨)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "게임 %i / %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"시스템을 찾을수 없습니다!\n"
-"설정 파일에서 시스템 경로가 맞는지 확인하시고, 게임 디렉토리에는 확장자가 정"
-"확한 게임이 한 개 이상이 있는지 확인하세요."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 개의 게임 아트워크를 수집했습니다."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "설치/제거할 베젤을 선택하세요"
-
-msgid "UPDATE"
-msgstr "업데이트"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "다운로드 대기열에 '%개'가 추가됨"
-
-msgid "REMOVE"
-msgstr "제거"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 제거되었습니다."
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "현재 다운로드 대기열"
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "설치/제거할 컨텐츠을 선택하세요"
-
-msgid "MISC"
-msgstr "기타"
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "제거 작업이 대기열에 추가됨"
-
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "(몇 초) 후 이미지 필터 교체"
-
-msgid "SHOW GAME INFO"
-msgstr "게임 정보 보여주기"
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "게임 정보로 마키 사용"
-
-msgid "DECORATIONS"
-msgstr "데코레이션"
-
-msgid "STRETCH IMAGES"
-msgstr "이미지 늘리기"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "커스텀 이미지 사용"
-
-msgid "CUSTOM IMAGE DIR"
-msgstr "커스텀 이미지 디렉터리"
-
-msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr "커스텀 이미지 되부름의 디렉터리"
-
-msgid "CUSTOM IMAGE FILTER"
-msgstr "커스텀 이미지 필터"
-
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "(몇초 후) 후 비디오 필터 교체 "
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "화면보호기를 위해 OMX 플레이어 사용"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "비디오 화면보호기"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "화면보호기에 게임 정보 보여주기"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "화면보호기에 비디오 늘이기"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "비디오 오디오 음소거"
-
 msgid "SCRAPE THESE GAMES"
 msgstr "이 게임들의 아트워크를 스크랩"
 
@@ -1242,9 +1257,6 @@ msgstr "이 시스템들을 수집"
 msgid "USER DECIDES ON CONFLICTS"
 msgstr "직접 선택"
 
-msgid "START"
-msgstr "시작"
-
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
@@ -1257,50 +1269,47 @@ msgstr ""
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
 
-msgid "SCREENSAVER AFTER"
-msgstr "화면 보호기 작동"
+msgid "INSTALL BATOCERA"
+msgstr "바토세라 설치"
 
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "화면 보호기 행동"
+msgid "TARGET ARCHITECTURE"
+msgstr "설치 아카텍처"
 
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
-"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
-"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
+msgid "NETWORK REQUIRED"
+msgstr "네트워크가 필요합니다"
 
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "랜덤 비디오 화면보호기 셋팅"
+msgid "INVALID PARAMETERS"
+msgstr "매개변수가 잘못되었습니다"
 
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "슬라이스쇼 화면보호기 셋팅"
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "설치/제거할 베젤을 선택하세요"
 
-msgid "SCREENSAVER CONTROLS"
-msgstr "스크린세이버 컨트롤"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "베젤이 성공적으로 제거되었습니다."
 
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "슬라이드쇼 스크린세이버"
+msgid "CONNECT TO NETPLAY"
+msgstr "넷플레이에 연결"
 
-msgid "NO DEVICE FOUND"
-msgstr "장치 찾기 없음"
+msgid "Select the game you want to join"
+msgstr "넷플레이에 연결할 게임을 선택하세요"
 
-msgid "THEMES DOWNLOADER"
-msgstr ""
+msgid "FAILED"
+msgstr "실패"
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgid "LAUNCH"
+msgstr "실행"
 
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgid "UNAVAILABLE CORE"
+msgstr "사용할 수 없는 코어"
 
-#, c-format
-msgid "CURRENT THEME"
-msgstr ""
+msgid "AVAILABLE GAMES"
+msgstr "실행 가능한 게임"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "실행할 수 없는 게임"
+
+msgid "NO GAME FOUND"
+msgstr "게임을 찾지 못했습니다"
 
 msgid "EDIT METADATA"
 msgstr "게임 정보 편집"
@@ -1320,6 +1329,67 @@ msgstr "삭제"
 
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
+
+msgid "go back"
+msgstr "돌아가기"
+
+msgid "Extracting"
+msgstr "추출 중"
+
+msgid "all games"
+msgstr "모든 게임"
+
+msgid "last played"
+msgstr "마지막 플레이"
+
+msgid "favorites"
+msgstr "즐겨찾기"
+
+msgid "2 players"
+msgstr "2인 플레이"
+
+msgid "4 players"
+msgstr "4인 플레이"
+
+msgid "never played"
+msgstr "미실행 게임"
+
+msgid "arcade"
+msgstr "아케이드"
+
+msgid "collections"
+msgstr "컬렉션"
+
+#, c-format
+msgid "Editing the '%s' Collection. Add/remove games with Y."
+msgstr "'%s' 컬렉션을 편집하기. Y 버튼으로 게임을 추가/삭제 합니다."
+
+#, c-format
+msgid "Finished editing the '%s' Collection."
+msgstr "'%s' 컬렉션 편집을 끝내기"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s'를 '%s'에 추가함"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s'에서 '%s'를 제거함"
+
+msgid "This collection is empty."
+msgstr "이 컬렉션은 비어 있습니다."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "없음"
+
+msgid "Various"
+msgstr "다수"
+
+#, c-format
+msgid "This collection contains %i game, including :%s"
+msgid_plural "This collection contains %i games, including :%s"
+msgstr[0] "이 컬렉션은  %s 포함하여, %i 게임이 들어 있습니다."
 
 msgid "Name"
 msgstr "이름"
@@ -1507,16 +1577,50 @@ msgstr "언어"
 msgid "Region"
 msgstr "지역"
 
-msgid "SCRAPING"
-msgstr "게임 아트워크 수집 중"
+msgid "FAVORITES"
+msgstr "즐겨찾기"
 
-msgid "SCRAPE FAILED"
-msgstr "게임 아트워크 수집 실패"
+msgid "GENRE"
+msgstr "장르"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
-"게임 아트워크 수집이 완료됨. 변경사항을 적용하려면 게임리스트 업데이트를 다"
-"시 하세요."
+msgid "PLAYERS"
+msgstr "플레이어수"
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr "유통사 / 개발사"
+
+msgid "RATING"
+msgstr "평점"
+
+msgid "REGION"
+msgstr "지역"
+
+msgid "KIDGAME"
+msgstr "어린이게임"
+
+msgid "ALREADY PLAYED"
+msgstr "이미 플레이하였음"
+
+msgid "Released"
+msgstr "발매일"
+
+msgid "Times played"
+msgstr "플레이 횟수"
+
+msgid "No Entries Found"
+msgstr "항목을 찾지 못했습니다"
+
+msgid "NETPLAY"
+msgstr "넷플레이"
+
+msgid "RANDOM"
+msgstr "랜덤"
+
+msgid "Favorites"
+msgstr "즐겨 찾기"
+
+msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgstr "넷플레이 호스트로 게임을 실행합니까?"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "모든 시스템이 숨겨져 있어, 지금 모든 시스템을 다시 표시합니다."
@@ -1545,14 +1649,14 @@ msgstr[0] "%i 게임"
 msgid "KODI"
 msgstr "KODI"
 
-msgid "NETPLAY"
-msgstr "넷플레이"
-
-msgid "RANDOM"
-msgstr "랜덤"
-
 msgid "FILES"
 msgstr "파일"
+
+msgid "Preloading UI"
+msgstr "UI 로딩중"
+
+msgid "MENU"
+msgstr "메뉴"
 
 msgid "Full"
 msgstr "전체"
@@ -1563,26 +1667,55 @@ msgstr "키오스크"
 msgid "Kid"
 msgstr "어린이용"
 
-msgid "No Entries Found"
-msgstr "항목을 찾지 못했습니다"
+msgid "SCANNING BLUETOOTH"
+msgstr "블루투스를 검색 중입니다."
 
-msgid "Favorites"
-msgstr "즐겨 찾기"
+msgid "Searching controllers..."
+msgstr "컨트롤러를 검색 중입니다."
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "넷플레이 호스트로 게임을 실행합니까?"
+msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgstr "블루투스 검색이 이미 실행중입니다."
 
-msgid "Released"
-msgstr "발매일"
+msgid "FORMATING DEVICE"
+msgstr "장치 포맷 중"
 
-msgid "Times played"
-msgstr "플레이 횟수"
+msgid "Formating"
+msgstr "포맷 중"
 
-msgid "Preloading UI"
-msgstr "UI 로딩중"
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "작업을 완료하려면 시스템 재시작이 필요합니다"
 
-msgid "MENU"
-msgstr "메뉴"
+msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgstr "드라이브 포맷이 이미 진행 중입니다."
+
+msgid "Searching"
+msgstr "검색 중"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "발견된 게임 없음 - 건너뛰기"
+
+msgid "AN ERROR HAS OCCURED"
+msgstr "오류가 발생"
+
+msgid "RETRY"
+msgstr "재시도"
+
+msgid "Downloading"
+msgstr "다운로드 중"
+
+msgid "ACCEPT RESULT"
+msgstr "결과 동의"
+
+msgid "SCRAPING"
+msgstr "게임 아트워크 수집 중"
+
+msgid "SCRAPE FAILED"
+msgstr "게임 아트워크 수집 실패"
+
+msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+"게임 아트워크 수집이 완료됨. 변경사항을 적용하려면 게임리스트 업데이트를 다"
+"시 하세요."
 
 msgid "FILENAME, ASCENDING"
 msgstr "파일명, 오름차순"
@@ -1650,6 +1783,15 @@ msgstr "파일 생성일, 오름차순"
 msgid "FILE CREATION DATE, DESCENDING"
 msgstr "파일 생성일, 내림차순"
 
+msgid "GAME TIME, ASCENDING"
+msgstr ""
+
+msgid "GAME TIME, DESCENDING"
+msgstr ""
+
+msgid "UPDATE AVAILABLE"
+msgstr "업데이트 가능함"
+
 msgid "DOWNLOADING"
 msgstr "다운로드 중"
 
@@ -1665,144 +1807,43 @@ msgstr "패키지가 성공적으로 설치됨"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "패키지가 성공적으로 제거됨"
 
-msgid "FAVORITES"
-msgstr "즐겨찾기"
-
-msgid "GENRE"
-msgstr "장르"
-
-msgid "PLAYERS"
-msgstr "플레이어수"
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr "유통사 / 개발사"
-
-msgid "RATING"
-msgstr "평점"
-
-msgid "REGION"
-msgstr "지역"
-
-msgid "KIDGAME"
-msgstr "어린이게임"
-
-msgid "ALREADY PLAYED"
-msgstr "이미 플레이하였음"
-
 msgid "HASHING GAMES"
 msgstr "해싱 게임"
 
 msgid "Collections"
 msgstr "컬렉션"
 
-msgid "Extracting"
-msgstr "추출 중"
+msgid "SPACE"
+msgstr "스페이스"
 
-msgid "Searching"
-msgstr "검색 중"
+msgid "DELETE A CHAR"
+msgstr "문자 삭제"
 
-msgid "NO GAMES FOUND - SKIP"
-msgstr "발견된 게임 없음 - 건너뛰기"
+msgid "RESET"
+msgstr "리셋"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "오류가 발생"
+msgid "DISCARD CHANGES"
+msgstr "변경 취소"
 
-msgid "RETRY"
-msgstr "재시도"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
 
-msgid "Downloading"
-msgstr "다운로드 중"
+msgid "SHIFT"
+msgstr "쉬프트"
 
-msgid "ACCEPT RESULT"
-msgstr "결과 동의"
-
-msgid "Loading system config..."
-msgstr "로딩 시스템 설정"
-
-msgid "Done."
-msgstr "완료"
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
-
-msgid "SCANNING BLUETOOTH"
-msgstr "블루투스를 검색 중입니다."
-
-msgid "Searching controllers..."
-msgstr "컨트롤러를 검색 중입니다."
-
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "블루투스 검색이 이미 실행중입니다."
-
-msgid "FORMATING DEVICE"
-msgstr "장치 포맷 중"
-
-msgid "Formating"
-msgstr "포맷 중"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "작업을 완료하려면 시스템 재시작이 필요합니다"
-
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "드라이브 포맷이 이미 진행 중입니다."
-
-msgid "UPDATE AVAILABLE"
-msgstr "업데이트 가능함"
-
-msgid "all games"
-msgstr "모든 게임"
-
-msgid "last played"
-msgstr "마지막 플레이"
-
-msgid "favorites"
-msgstr "즐겨찾기"
-
-msgid "2 players"
-msgstr "2인 플레이"
-
-msgid "4 players"
-msgstr "4인 플레이"
-
-msgid "never played"
-msgstr "미실행 게임"
-
-msgid "arcade"
-msgstr "아케이드"
-
-msgid "collections"
-msgstr "컬렉션"
+msgid "WELCOME"
+msgstr "환영합니다."
 
 #, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "'%s' 컬렉션을 편집하기. Y 버튼으로 게임을 추가/삭제 합니다."
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i 개의 게임 패드 발견됨"
 
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "'%s' 컬렉션 편집을 끝내기"
+msgid "NO GAMEPADS DETECTED"
+msgstr "발견된 게임 패드 없음"
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "'%s'를 '%s'에 추가함"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "'%s'에서 '%s'를 제거함"
-
-msgid "This collection is empty."
-msgstr "이 컬렉션은 비어 있습니다."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "없음"
-
-msgid "Various"
-msgstr "다수"
-
-#, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "이 컬렉션은  %s 포함하여, %i 게임이 들어 있습니다."
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
 
 msgid "UP"
 msgstr "위"
@@ -1870,38 +1911,6 @@ msgstr "아무 버튼이나 누르세요."
 msgid "ALREADY TAKEN"
 msgstr "이미 설정되었습니다."
 
-msgid "SPACE"
-msgstr "스페이스"
-
-msgid "DELETE A CHAR"
-msgstr "문자 삭제"
-
-msgid "RESET"
-msgstr "리셋"
-
-msgid "DISCARD CHANGES"
-msgstr "변경 취소"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 쉬프트"
-
-msgid "SHIFT"
-msgstr "쉬프트"
-
-msgid "WELCOME"
-msgstr "환영합니다."
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i 개의 게임 패드 발견됨"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "발견된 게임 패드 없음"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "장치를 구성하려면 게임 패드의 A 버튼을 누르고 있으세요."
-
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -1916,32 +1925,6 @@ msgstr[0] "%d 분"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 초"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 일 전"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d 시간 전"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d 분 전"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d 초 전"
-
-msgid "MOVE CURSOR"
-msgstr "커서 이동"
-
-msgid "EDIT"
-msgstr "편집"
 
 msgid "accept"
 msgstr "동의"
@@ -1966,8 +1949,34 @@ msgstr[0] "%i 개 선택됨"
 msgid "CHANGE"
 msgstr "변경"
 
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 일 전"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d 시간 전"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d 분 전"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d 초 전"
+
 msgid "WORKING..."
 msgstr "작업 중..."
+
+msgid "MOVE CURSOR"
+msgstr "커서 이동"
+
+msgid "EDIT"
+msgstr "편집"
 
 msgid "up/down"
 msgstr "위/아래"

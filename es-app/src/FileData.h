@@ -87,7 +87,7 @@ public:
 
 	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };
 
-	virtual inline void refreshMetadata() { return; };
+	virtual inline void refreshMetadata() { };
 
 	virtual std::string getKey();
 	const bool isArcadeAsset();
@@ -116,6 +116,8 @@ public:
 	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);
+
+	void deleteGameFiles();
 
 private:
 	MetaDataList mMetadata;

@@ -201,7 +201,7 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	if (prev != mMap.cend() && prev->second == value)
 		return;
 
-	if (getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
+	if (mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
 		mMap[id] = Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
 	else
 		mMap[id] = Utils::String::trim(value);
@@ -222,7 +222,7 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	auto it = mMap.find(id);
 	if (it != mMap.end())
 	{
-		if (resolveRelativePaths && getType(id) == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
+		if (resolveRelativePaths && mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
 			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
 
 		return it->second;
