@@ -210,21 +210,25 @@ void GuiMenu::openEmuELECSettings()
 		videomode.push_back("1080i50hz");
 		videomode.push_back("576cvbs");
 		videomode.push_back("Custom");
+		videomode.push_back("-- AUTO-DETECTED RESOLUTIONS --");
    for(std::stringstream ss(getShOutput(R"(/emuelec/scripts/emuelec-utils resolutions)")); getline(ss, a, ','); ) {
         videomode.push_back(a);
 	}
 		for (auto it = videomode.cbegin(); it != videomode.cend(); it++) {
 		emuelec_video_mode->add(*it, *it, SystemConf::getInstance()->get("ee_videomode") == *it); }
 		s->addWithLabel(_("VIDEO MODE"), emuelec_video_mode);
-	   	s->addSaveFunc([emuelec_video_mode, window] {
-			if (emuelec_video_mode->changed()) {
+	   	
+		s->addSaveFunc([this, emuelec_video_mode, window] {
+		
+		//bool v_need_reboot = false;
+	
+		if (emuelec_video_mode->changed()) {
 			std::string selectedVideoMode = emuelec_video_mode->getSelected();
+		if (emuelec_video_mode->getSelected() != "-- AUTO-DETECTED RESOLUTIONS --") { 
 			if (emuelec_video_mode->getSelected() != "Custom") {
 			std::string msg = _("You are about to set EmuELEC resolution to:") +"\n" + selectedVideoMode + "\n";
-			if(Utils::FileSystem::exists("/ee_s905")) {
-			msg += _("Emulationstation will restart") + ".\n";
-		}
 			msg += _("Do you want to proceed ?");
+		
 			window->pushGui(new GuiMsgBox(window, msg,
 				_("YES"), [selectedVideoMode] {
 					runSystemCommand("echo "+selectedVideoMode+" > /sys/class/display/mode", "", nullptr);
@@ -232,22 +236,23 @@ void GuiMenu::openEmuELECSettings()
 					LOG(LogInfo) << "Setting video to " << selectedVideoMode;
 					runSystemCommand("/storage/.config/emuelec/scripts/setres.sh", "", nullptr);
 					SystemConf::getInstance()->saveSystemConf();
-				if(Utils::FileSystem::exists("/ee_s905")) {
-					runSystemCommand("systemctl restart emustation", "", nullptr); 
-				}
-			}, _("NO"),nullptr));
+				//	v_need_reboot = true;
+				}, _("NO"),nullptr));
+		
 		} else { 
 			if(Utils::FileSystem::exists("/storage/.config/EE_VIDEO_MODE")) {
 				runSystemCommand("echo $(cat /storage/.config/EE_VIDEO_MODE) > /sys/class/display/mode", "", nullptr);
 				LOG(LogInfo) << "Setting custom video mode from /storage/.config/EE_VIDEO_MODE to " << runSystemCommand("cat /storage/.config/EE_VIDEO_MODE", "", nullptr);
 				SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 				SystemConf::getInstance()->saveSystemConf();
+				//v_need_reboot = true;
 			} else { 
 				if(Utils::FileSystem::exists("/flash/EE_VIDEO_MODE")) {
 				runSystemCommand("echo $(cat /flash/EE_VIDEO_MODE) > /sys/class/display/mode", "", nullptr);
 				LOG(LogInfo) << "Setting custom video mode from /flash/EE_VIDEO_MODE to " << runSystemCommand("cat /flash/EE_VIDEO_MODE", "", nullptr);
 				SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 				SystemConf::getInstance()->saveSystemConf();
+				//v_need_reboot = true;
 					} else {
 					runSystemCommand("echo " + SystemConf::getInstance()->get("ee_videomode")+ " > /sys/class/display/mode", "", nullptr);
 					std::string msg = "/storage/.config/EE_VIDEO_MODE or /flash/EE_VIDEO_MODE not found";
@@ -258,6 +263,9 @@ void GuiMenu::openEmuELECSettings()
 					}
 				}
 			}
+		   }	
+			//if (v_need_reboot)
+		 	mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		 }
 		});
 		
