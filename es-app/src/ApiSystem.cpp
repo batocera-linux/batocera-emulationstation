@@ -337,16 +337,22 @@ void ApiSystem::launchExternalWindow_before(Window *window)
 
 	AudioManager::getInstance()->deinit();
 	VolumeControl::getInstance()->deinit();
+#ifdef _ENABLEEMUELEC	
+	window->deinit(false);
+#else
 	window->deinit();
-
+#endif
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_before OK";
 }
 
 void ApiSystem::launchExternalWindow_after(Window *window) 
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
-
+#ifdef _ENABLEEMUELEC
+	window->init(false);
+#else
 	window->init();
+#endif
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
 	window->normalizeNextUpdate();
