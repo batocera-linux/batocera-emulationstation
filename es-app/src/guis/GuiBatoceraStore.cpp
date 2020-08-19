@@ -135,7 +135,6 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
-			msgBox->close();
 
 			auto pThis = this;
 			msgBox->close();
