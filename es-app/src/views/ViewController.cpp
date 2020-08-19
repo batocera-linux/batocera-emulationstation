@@ -346,7 +346,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 	center += mCurrentView->getPosition();
 	stopAnimation(1); // make sure the fade in isn't still playing
-	mWindow->stopInfoPopup(); // make sure we disable any existing info popup
+	mWindow->stopNotificationPopups(); // make sure we disable any existing info popup
 	mLockInput = true;
 		
 	if (!Settings::getInstance()->getBool("HideWindow"))

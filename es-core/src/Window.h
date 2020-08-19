@@ -79,7 +79,7 @@ public:
 
 	void setScreenSaver(ScreenSaver* screenSaver) { mScreenSaver = screenSaver; }
 
-	void stopInfoPopup();
+	void stopNotificationPopups();
 
 	void startScreenSaver();
 	bool cancelScreenSaver();
@@ -104,6 +104,8 @@ private:
 
 	std::vector<std::function<void(Window*)>> mFunctions;
 
+	void updateNotificationPopups(int deltaTime);
+	void layoutNotificationPopups();
 
 	void processNotificationMessages();
 	void processSongTitleNotifications();
@@ -116,10 +118,11 @@ private:
 
 	HelpComponent*	mHelp;
 	ImageComponent* mBackgroundOverlay;
-	ScreenSaver*	mScreenSaver;
-	GuiInfoPopup*	mInfoPopup;
+	ScreenSaver*	mScreenSaver;	
 	bool			mRenderScreenSaver;
 	
+	std::vector<GuiInfoPopup*> mNotificationPopups;
+
 	std::vector<GuiComponent*> mScreenExtras;
 	std::vector<GuiComponent*> mGuiStack;
 
