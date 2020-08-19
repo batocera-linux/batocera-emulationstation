@@ -162,6 +162,11 @@ void Settings::setDefaults()
 	mStringMap["ScreenSaverDecorations"] = "systems";
 	
 
+	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
+	mStringMap["SlideshowScreenSaverVideoDir"] = "/userdata/screenshots"; // batocera
+	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
+	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
+
 	// This setting only applies to raspberry pi but set it for all platforms so
 	// we don't get a warning if we encounter it on a different platform
 	mBoolMap["VideoOmxPlayer"] = false;

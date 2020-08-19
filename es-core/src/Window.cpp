@@ -249,23 +249,20 @@ void Window::input(InputConfig* config, Input input)
 			((Settings::getInstance()->getString("ScreenSaverBehavior") == "slideshow") || 			
 			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video")))
 		{
-			if (mScreenSaver->getCurrentGame() != nullptr && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
 			{
-				if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
-				{
-					if (input.value != 0) // handle screensaver control
-						mScreenSaver->nextVideo();
+				if (input.value != 0) // handle screensaver control
+					mScreenSaver->nextVideo();
 					
-					return;
-				}
-				else if (config->isMappedTo("start", input) && input.value != 0)
-				{
-					// launch game!
-					cancelScreenSaver();
-					mScreenSaver->launchGame();
-					// to force handling the wake up process
-					mSleeping = true;
-				}
+				return;
+			}
+			else if (config->isMappedTo("start", input) && input.value != 0 && mScreenSaver->getCurrentGame() != nullptr)
+			{
+				// launch game!
+				cancelScreenSaver();
+				mScreenSaver->launchGame();
+				// to force handling the wake up process
+				mSleeping = true;
 			}
 		}
 	}
