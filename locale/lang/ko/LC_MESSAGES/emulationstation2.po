@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-19 23:07+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1163,6 +1163,9 @@ msgstr "게임 아트워크를 수집 할까요?"
 
 msgid "MANUAL SCRAPER"
 msgstr "게임 아트워크 수동 수집"
+
+msgid "QUICK ACCESS"
+msgstr ""
 
 msgid "SKIP TO NEXT SONG"
 msgstr ""

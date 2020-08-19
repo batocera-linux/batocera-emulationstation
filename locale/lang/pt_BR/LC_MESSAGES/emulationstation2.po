@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-19 23:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1174,6 +1174,9 @@ msgstr "REALIZAR SCRAPE?"
 msgid "MANUAL SCRAPER"
 msgstr "SCRAPER MANUAL"
 
+msgid "QUICK ACCESS"
+msgstr ""
+
 msgid "SKIP TO NEXT SONG"
 msgstr "PULE PARA PRÓXIMA MÚSICA"
 
@@ -1728,7 +1731,8 @@ msgid "SCRAPE FAILED"
 msgstr "SCRAPE FALHOU"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
+msgstr ""
+"SCRAPING FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "FILENAME, ASCENDING"
 msgstr "NOME DO ARQUIVO, CRESCENTE"

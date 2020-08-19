@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-19 23:07+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1164,6 +1164,9 @@ msgstr "是否开始抓取?"
 
 msgid "MANUAL SCRAPER"
 msgstr "手动抓取游戏数据"
+
+msgid "QUICK ACCESS"
+msgstr ""
 
 msgid "SKIP TO NEXT SONG"
 msgstr "切换到下一首"
