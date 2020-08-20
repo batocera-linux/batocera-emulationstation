@@ -244,7 +244,8 @@ void Window::textInput(const char* text)
 
 void Window::input(InputConfig* config, Input input)
 {
-	if (mScreenSaver) {
+	if (mScreenSaver) 
+	{
 		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
 			((Settings::getInstance()->getString("ScreenSaverBehavior") == "slideshow") || 			
 			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video")))
@@ -254,6 +255,7 @@ void Window::input(InputConfig* config, Input input)
 				if (input.value != 0) // handle screensaver control
 					mScreenSaver->nextVideo();
 					
+				mTimeSinceLastInput = 0;
 				return;
 			}
 			else if (config->isMappedTo("start", input) && input.value != 0 && mScreenSaver->getCurrentGame() != nullptr)
