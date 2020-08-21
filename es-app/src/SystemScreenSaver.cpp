@@ -93,14 +93,24 @@ void SystemScreenSaver::startScreenSaver()
 		else
 			mOpacity = 0.0f;
 			
-		// Load a random video
-		std::string path = pickRandomVideo();
-
-		int retry = 10;
-		while (retry > 0 && !Utils::FileSystem::exists(path))
+		std::string path;
+		if (Settings::getInstance()->getBool("SlideshowScreenSaverCustomVideoSource"))
 		{
-			retry--;
-			path = pickRandomVideo();
+			path = pickRandomCustomImage(true);
+			// Custom images are not tied to the game list
+			mCurrentGame = NULL;
+		}
+		else
+		{
+			// Load a random video
+			std::string path = pickRandomVideo();
+
+			int retry = 10;
+			while (retry > 0 && !Utils::FileSystem::exists(path))
+			{
+				retry--;
+				path = pickRandomVideo();
+			}
 		}
 
 		if (!path.empty() && Utils::FileSystem::exists(path))
@@ -368,16 +378,16 @@ std::string SystemScreenSaver::pickRandomGameListImage()
 	return pickGameListNode(image, "image");
 }
 
-std::string SystemScreenSaver::pickRandomCustomImage()
+std::string SystemScreenSaver::pickRandomCustomImage(bool video)
 {
 	std::string path;
 
-	std::string imageDir = Settings::getInstance()->getString("SlideshowScreenSaverImageDir");
+	std::string imageDir = Settings::getInstance()->getString(video ? "SlideshowScreenSaverVideoDir" : "SlideshowScreenSaverImageDir");
 	if ((imageDir != "") && (Utils::FileSystem::exists(imageDir)))
 	{
-		std::string                   imageFilter = Settings::getInstance()->getString("SlideshowScreenSaverImageFilter");
+		std::string                   imageFilter = Settings::getInstance()->getString(video ? "SlideshowScreenSaverVideoFilter" : "SlideshowScreenSaverImageFilter");
 		std::vector<std::string>      matchingFiles;
-		Utils::FileSystem::stringList dirContent  = Utils::FileSystem::getDirContent(imageDir, Settings::getInstance()->getBool("SlideshowScreenSaverRecurse"));
+		Utils::FileSystem::stringList dirContent  = Utils::FileSystem::getDirContent(imageDir, Settings::getInstance()->getBool(video ? "SlideshowScreenSaverVideoRecurse" : "SlideshowScreenSaverRecurse"));
 
 		for(Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
 		{

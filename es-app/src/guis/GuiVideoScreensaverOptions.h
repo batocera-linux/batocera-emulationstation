@@ -11,6 +11,9 @@ public:
 	virtual ~GuiVideoScreensaverOptions();
 
 	void save() override;
+
+private:
+	void addEditableTextComponent(const std::string label, std::shared_ptr<GuiComponent> ed, std::string value);
 };
 
 #endif // ES_APP_GUIS_GUI_VIDEO_SCREENSAVER_OPTIONS_H
