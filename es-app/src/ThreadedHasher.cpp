@@ -27,8 +27,7 @@ ThreadedHasher::ThreadedHasher(Window* window, std::queue<FileData*> searchQueue
 	mSearchQueue = searchQueue;
 	mTotal = mSearchQueue.size();
 
-	mWndNotification = new AsyncNotificationComponent(window, false);
-	mWindow->registerNotificationComponent(mWndNotification);
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("HASHING GAMES"));
 
 	mHandle = new std::thread(&ThreadedHasher::run, this);
@@ -36,8 +35,8 @@ ThreadedHasher::ThreadedHasher(Window* window, std::queue<FileData*> searchQueue
 
 ThreadedHasher::~ThreadedHasher()
 {
-	mWindow->unRegisterNotificationComponent(mWndNotification);
-	delete mWndNotification;
+	mWndNotification->close();
+	mWndNotification = nullptr;
 
 	ThreadedHasher::mInstance = nullptr;
 }

@@ -6,6 +6,7 @@
 #include <map>
 #include <sstream>
 #include <fstream>
+#include <stdio.h>
 
 /* Usage:
  * HttpReq myRequest("www.google.com", "/index.html");
@@ -90,8 +91,8 @@ private:
 
 	// file stream mode
 	std::string   mFilePath;
-	std::string   mTempStreamPath;
-	std::ofstream mStream;
+	std::string   mTempStreamPath;	
+	FILE*		  mFile;
 
 	std::string mErrorMsg;
 	std::string mUrl;

@@ -22,9 +22,8 @@ ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchP
 	if (threadCount <= 0)
 		threadCount = 1;
 
-	mWndNotification = new AsyncNotificationComponent(window, false);
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING"));
-	mWindow->registerNotificationComponent(mWndNotification);
 
 	for (int i = 0; i < threadCount; i++)
 	{
@@ -54,8 +53,8 @@ void ThreadedScraper::ProcessNextGame(ScraperThread* thread)
 
 ThreadedScraper::~ThreadedScraper()
 {
-	mWindow->unRegisterNotificationComponent(mWndNotification);
-	delete mWndNotification;
+	mWndNotification->close();
+	mWndNotification = nullptr;
 
 	for (auto scraperThread : mScraperThreads)
 		delete scraperThread;

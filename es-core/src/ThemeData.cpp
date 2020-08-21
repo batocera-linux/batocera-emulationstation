@@ -453,42 +453,55 @@ const std::shared_ptr<ThemeData::ThemeMenu>& ThemeData::getMenuTheme()
 
 std::string ThemeData::resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path)
 {
-	size_t start_pos = path.find("$system");
+	size_t start_pos = path.find("$");
 	if (start_pos == std::string::npos)
 		return path;
 
 	std::string result = path;
-	result.replace(start_pos, 7, systemThemeFolder);
 
-	if (!Utils::FileSystem::exists(result))
+	start_pos = result.find("$country");
+	if (start_pos != std::string::npos)
+		result.replace(start_pos, 8, mRegion);
+
+	start_pos = result.find("$language");
+	if (start_pos != std::string::npos)
+		result.replace(start_pos, 9, mLanguage);
+
+	start_pos = result.find("$system");
+	if (start_pos != std::string::npos)
 	{
-		std::string compatibleFolder = systemThemeFolder;
+		result.replace(start_pos, 7, systemThemeFolder);
 
-		if (compatibleFolder == "sg-1000")
-			compatibleFolder = "sg1000";
-		else if (compatibleFolder == "msx")
-			compatibleFolder = "msx1";
-		else if (compatibleFolder == "atarilynx")
-			compatibleFolder = "lynx";
-		else if (compatibleFolder == "atarijaguar")
-			compatibleFolder = "jaguar";
-		else if (compatibleFolder == "gameandwatch")
-			compatibleFolder = "gw";
-		else if (compatibleFolder == "amiga")
-			compatibleFolder = "amiga600";
-		else if (compatibleFolder == "amiga500")
-			compatibleFolder = "amiga600";
-		else if (compatibleFolder == "auto-favorites")
-			compatibleFolder = "favorites";
-		else if (compatibleFolder == "thomson")
-			compatibleFolder = "to8";
-		else if (compatibleFolder == "prboom")
-			compatibleFolder = "doom"; 
-
-		if (compatibleFolder != systemThemeFolder)
+		if (!Utils::FileSystem::exists(result))
 		{
-			result = path;
-			result.replace(start_pos, 7, compatibleFolder);
+			std::string compatibleFolder = systemThemeFolder;
+
+			if (compatibleFolder == "sg-1000")
+				compatibleFolder = "sg1000";
+			else if (compatibleFolder == "msx")
+				compatibleFolder = "msx1";
+			else if (compatibleFolder == "atarilynx")
+				compatibleFolder = "lynx";
+			else if (compatibleFolder == "atarijaguar")
+				compatibleFolder = "jaguar";
+			else if (compatibleFolder == "gameandwatch")
+				compatibleFolder = "gw";
+			else if (compatibleFolder == "amiga")
+				compatibleFolder = "amiga600";
+			else if (compatibleFolder == "amiga500")
+				compatibleFolder = "amiga600";
+			else if (compatibleFolder == "auto-favorites")
+				compatibleFolder = "favorites";
+			else if (compatibleFolder == "thomson")
+				compatibleFolder = "to8";
+			else if (compatibleFolder == "prboom")
+				compatibleFolder = "doom";
+
+			if (compatibleFolder != systemThemeFolder)
+			{
+				result = path;
+				result.replace(start_pos, 7, compatibleFolder);
+			}
 		}
 	}
 

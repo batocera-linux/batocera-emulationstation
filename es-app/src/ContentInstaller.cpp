@@ -56,17 +56,16 @@ ContentInstaller::ContentInstaller(Window* window)
 
 	mWindow = window;
 
-	mWndNotification = new AsyncNotificationComponent(window, false);	
-	mWindow->registerNotificationComponent(mWndNotification);
-	
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mHandle = new std::thread(&ContentInstaller::threadUpdate, this);
 }
 
 ContentInstaller::~ContentInstaller()
 {
 	mHandle = nullptr;
-	mWindow->unRegisterNotificationComponent(mWndNotification);
-	delete mWndNotification;
+
+	mWndNotification->close();
+	mWndNotification = nullptr;
 }
 
 void ContentInstaller::updateNotificationComponentTitle(bool incQueueSize)
