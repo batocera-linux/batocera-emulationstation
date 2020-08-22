@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-19 23:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ramses\n"
 "Language-Team: \n"
@@ -1177,6 +1177,9 @@ msgstr "¿OBTENER CARÁTULAS?"
 
 msgid "MANUAL SCRAPER"
 msgstr "OBTENER CARÁTULAS MANUALMENTE"
+
+msgid "QUICK ACCESS"
+msgstr ""
 
 msgid "SKIP TO NEXT SONG"
 msgstr "SALTAR A LA SIGUIENTE CANCIÓN"

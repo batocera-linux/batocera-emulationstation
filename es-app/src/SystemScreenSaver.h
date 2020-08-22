@@ -92,7 +92,7 @@ private:
 	std::string pickGameListNode(unsigned long index, const char *nodeName);
 	std::string pickRandomVideo();
 	std::string pickRandomGameListImage();
-	std::string pickRandomCustomImage();
+	std::string pickRandomCustomImage(bool video = false);
 
 	enum STATE {
 		STATE_INACTIVE,

@@ -4,10 +4,9 @@
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
 #include <SDL_timer.h>
-#include "PowerSaver.h"
 
 GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
-	GuiComponent(window), mMessage(message), mDuration(duration), running(true)
+	GuiComponent(window), mMessage(message), mDuration(duration), mRunning(true), mFadeOut(0)
 {
 	auto theme = ThemeData::getMenuTheme();
 	mBackColor = theme->Background.color;
@@ -62,74 +61,46 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	mGrid->setSize(mSize);
 	mGrid->setEntry(s, Vector2i(0, 1), false, true);
 	addChild(mGrid);
-
-	PowerSaver::pause();
-}
-
-GuiInfoPopup::~GuiInfoPopup()
-{
-	if (running)
-	{
-		// if SDL reset
-		running = false;
-		PowerSaver::resume();
-	}
 }
 
 void GuiInfoPopup::render(const Transform4x4f& /*parentTrans*/)
 {
+	if (!mRunning)
+		return;
+
 	// we use identity as we want to render on a specific window position, not on the view
 	Transform4x4f trans = getTransform() * Transform4x4f::Identity();
-	if(running && updateState())
-	{
-		// if we're still supposed to be rendering it
-		Renderer::setMatrix(trans);
-		renderChildren(trans);
-	}
+
+	Renderer::setMatrix(trans);
+	renderChildren(trans);	
 }
 
-bool GuiInfoPopup::updateState()
+void GuiInfoPopup::update(int deltaTime)
 {
+	GuiComponent::update(deltaTime);
+
 	int curTime = SDL_GetTicks();
 
 	// we only init the actual time when we first start to render
-	if(mStartTime == 0)
-	{
+	if (mStartTime == 0)
 		mStartTime = curTime;
+	else if (curTime - mStartTime > mDuration || curTime < mStartTime)
+	{
+		// If we're past the popup duration, no need to render or if SDL reset : Stop
+		mRunning = false;
+		mFadeOut = 1.0;
+		return;
 	}
 
 	// compute fade in effect
-	if (curTime - mStartTime > mDuration)
-	{
-		if (running)
-		{
-			// we're past the popup duration, no need to render
-			running = false;
-			PowerSaver::resume();
-		}
+	int alpha = 255;
 
-		return false;
-	}
-	else if (curTime < mStartTime) 
-	{
-		if (running)
-		{
-			// if SDL reset
-			running = false;
-			PowerSaver::resume();
-		}
-		return false;
-	}
-	else if (curTime - mStartTime <= 500) {
+	if (curTime - mStartTime <= 500)
 		alpha = ((curTime - mStartTime)*255/500);
-	}
-	else if (curTime - mStartTime < mDuration - 500)
+	else if (curTime - mStartTime >= mDuration - 500)
 	{
-		alpha = 255;
-	}
-	else
-	{
-		alpha = ((-(curTime - mStartTime - mDuration)*255)/500);
+		alpha = ((-(curTime - mStartTime - mDuration) * 255) / 500);
+		mFadeOut = (float) (255 - alpha) / 255.0;
 	}
 
 	if (alpha > mBackColor & 0xff)
@@ -140,6 +111,4 @@ bool GuiInfoPopup::updateState()
 	// apply fade in effect to popup frame
 	mFrame->setEdgeColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
 	mFrame->setCenterColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
-
-	return true;
 }

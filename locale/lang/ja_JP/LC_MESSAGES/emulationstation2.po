@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 22:19+0200\n"
+"POT-Creation-Date: 2020-08-19 23:07+0200\n"
 "PO-Revision-Date: 2020-07-09 21:00+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: \n"
@@ -1170,6 +1170,9 @@ msgstr "スクレイプしますか?"
 
 msgid "MANUAL SCRAPER"
 msgstr "手動スクレイプ"
+
+msgid "QUICK ACCESS"
+msgstr ""
 
 msgid "SKIP TO NEXT SONG"
 msgstr "次の曲にスキップ"

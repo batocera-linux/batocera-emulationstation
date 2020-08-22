@@ -8,6 +8,9 @@
 #include "LocaleES.h"
 #include "ApiSystem.h"
 
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
+
 GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const char* title) : GuiScreensaverOptions(window, title)
 {
 	// timeout to swap videos
@@ -91,7 +94,80 @@ GuiVideoScreensaverOptions::GuiVideoScreensaverOptions(Window* window, const cha
 	ss_video_mute->setState(Settings::getInstance()->getBool("ScreenSaverVideoMute"));
 	addWithLabel(_("MUTE VIDEO AUDIO"), ss_video_mute);
 	addSaveFunc([ss_video_mute] { Settings::getInstance()->setBool("ScreenSaverVideoMute", ss_video_mute->getState()); });
+
+
+
+
+
+
+
+	auto theme = ThemeData::getMenuTheme();
+
+	// video source
+	auto sss_custom_source = std::make_shared<SwitchComponent>(mWindow);
+	sss_custom_source->setState(Settings::getInstance()->getBool("SlideshowScreenSaverCustomVideoSource"));
+	addWithLabel(_("USE CUSTOM VIDEOS"), sss_custom_source);
+	addSaveFunc([sss_custom_source] { Settings::getInstance()->setBool("SlideshowScreenSaverCustomVideoSource", sss_custom_source->getState()); });
+
+	// custom video directory
+	auto sss_image_dir = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color);
+	addEditableTextComponent( _("CUSTOM VIDEO DIR"), sss_image_dir, Settings::getInstance()->getString("SlideshowScreenSaverVideoDir"));
+	addSaveFunc([sss_image_dir] {
+		Settings::getInstance()->setString("SlideshowScreenSaverVideoDir", sss_image_dir->getValue());
+	});
+
+	// recurse custom video directory
+	auto sss_recurse = std::make_shared<SwitchComponent>(mWindow);
+	sss_recurse->setState(Settings::getInstance()->getBool("SlideshowScreenSaverVideoRecurse"));
+	addWithLabel(_("CUSTOM VIDEO DIR RECURSIVE"), sss_recurse);
+	addSaveFunc([sss_recurse] {
+		Settings::getInstance()->setBool("SlideshowScreenSaverVideoRecurse", sss_recurse->getState());
+	});
+
+	// custom video filter
+	auto sss_image_filter = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color);
+	addEditableTextComponent(_("CUSTOM VIDEO FILTER"), sss_image_filter, Settings::getInstance()->getString("SlideshowScreenSaverVideoFilter"));
+	addSaveFunc([sss_image_filter] {
+		Settings::getInstance()->setString("SlideshowScreenSaverVideoFilter", sss_image_filter->getValue());
+	});
+
 }
+
+void GuiVideoScreensaverOptions::addEditableTextComponent(const std::string label, std::shared_ptr<GuiComponent> ed, std::string value)
+{
+	ComponentListRow row;
+	auto theme = ThemeData::getMenuTheme();
+	row.elements.clear();
+
+	auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color);
+	row.addElement(lbl, true); // label
+
+	row.addElement(ed, true);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+	bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+	row.addElement(bracket, false);
+
+	auto updateVal = [ed](const std::string& newVal) { ed->setValue(newVal); }; // ok callback (apply new value to ed)
+	row.makeAcceptInputHandler([this, label, ed, updateVal] {
+		if (Settings::getInstance()->getBool("UseOSK")) {
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, label, ed->getValue(), updateVal, false));
+		}
+		else {
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, label, ed->getValue(), updateVal, false));
+		}
+	});
+
+	assert(ed);
+	addRow(row);
+	ed->setValue(value);
+}
+
 
 GuiVideoScreensaverOptions::~GuiVideoScreensaverOptions()
 {

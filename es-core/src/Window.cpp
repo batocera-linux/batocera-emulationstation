@@ -23,12 +23,13 @@
 #include "guis/GuiMsgBox.h"
 #include "components/VolumeInfoComponent.h"
 #include "Splash.h"
+#include "PowerSaver.h"
 #ifdef _ENABLEEMUELEC
 #include "utils/FileSystemUtil.h"
 #endif
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mInfoPopup(NULL), mClockElapsed(0) // batocera
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) // batocera
 {	
 	mTransiting = nullptr;
 	mTransitionOffset = 0;
@@ -255,28 +256,27 @@ void Window::textInput(const char* text)
 
 void Window::input(InputConfig* config, Input input)
 {
-	if (mScreenSaver) {
+	if (mScreenSaver) 
+	{
 		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&
 			((Settings::getInstance()->getString("ScreenSaverBehavior") == "slideshow") || 			
 			(Settings::getInstance()->getString("ScreenSaverBehavior") == "random video")))
 		{
-			if (mScreenSaver->getCurrentGame() != nullptr && (config->isMappedLike("right", input) || config->isMappedTo("start", input) || config->isMappedTo("select", input)))
+			if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
 			{
-				if (config->isMappedLike("right", input) || config->isMappedTo("select", input))
-				{
-					if (input.value != 0) // handle screensaver control
-						mScreenSaver->nextVideo();
+				if (input.value != 0) // handle screensaver control
+					mScreenSaver->nextVideo();
 					
-					return;
-				}
-				else if (config->isMappedTo("start", input) && input.value != 0)
-				{
-					// launch game!
-					cancelScreenSaver();
-					mScreenSaver->launchGame();
-					// to force handling the wake up process
-					mSleeping = true;
-				}
+				mTimeSinceLastInput = 0;
+				return;
+			}
+			else if (config->isMappedTo("start", input) && input.value != 0 && mScreenSaver->getCurrentGame() != nullptr)
+			{
+				// launch game!
+				cancelScreenSaver();
+				mScreenSaver->launchGame();
+				// to force handling the wake up process
+				mSleeping = true;
 			}
 		}
 	}
@@ -342,14 +342,6 @@ void Window::displayNotificationMessage(std::string message, int duration)
 	mNotificationMessages.push_back(msg);
 }
 
-void Window::stopInfoPopup() 
-{
-	if (mInfoPopup == nullptr)
-		return;
-	
-	delete mInfoPopup; 
-	mInfoPopup = nullptr;
-}
 
 void Window::processNotificationMessages()
 {
@@ -362,11 +354,79 @@ void Window::processNotificationMessages()
 	mNotificationMessages.pop_back();
 
 	LOG(LogDebug) << "Notification message :" << msg.first.c_str();
-
-	if (mInfoPopup) 
-		delete mInfoPopup; 
 	
-	mInfoPopup = new GuiInfoPopup(this, msg.first, msg.second);
+	if (mNotificationPopups.size() == 0)
+		PowerSaver::pause();
+
+	auto infoPopup = new GuiInfoPopup(this, msg.first, msg.second);
+	mNotificationPopups.push_back(infoPopup);
+
+	layoutNotificationPopups();
+}
+
+void Window::stopNotificationPopups()
+{
+	if (mNotificationPopups.size() == 0)
+		return;
+
+	for (auto ip : mNotificationPopups)
+		delete ip;
+
+	mNotificationPopups.clear();
+	PowerSaver::resume();
+}
+
+void Window::updateNotificationPopups(int deltaTime)
+{
+	bool changed = false;
+
+	for (int i = mNotificationPopups.size() - 1 ; i >= 0 ; i--)
+	{
+		mNotificationPopups[i]->update(deltaTime);
+
+		if (!mNotificationPopups[i]->isRunning())
+		{
+			delete mNotificationPopups[i];
+
+			auto it = mNotificationPopups.begin();
+			std::advance(it, i);
+			mNotificationPopups.erase(it);
+
+			changed = true;
+		}
+		else if (mNotificationPopups[i]->getFadeOut() != 0)
+			changed = true;
+	}
+
+	if (changed)
+	{
+		if (mNotificationPopups.size() == 0)
+			PowerSaver::resume();
+		else
+			layoutNotificationPopups();
+	}
+}
+
+void Window::layoutNotificationPopups()
+{
+	float posY = Renderer::getScreenHeight() * 0.02f;
+	int paddingY = (int)posY;
+
+	for (auto popup : mNotificationPopups)
+	{
+		float fadingOut = popup->getFadeOut();
+		if (fadingOut != 0)
+		{
+			// cubic ease in
+			fadingOut = fadingOut - 1;
+			fadingOut = Math::lerp(0, 1, fadingOut*fadingOut*fadingOut + 1);
+
+			posY -= (popup->getSize().y() + paddingY) * fadingOut;
+		}
+
+		popup->setPosition(popup->getPosition().x(), posY, 0);
+		posY += popup->getSize().y() + paddingY;
+	}
 }
 
 void Window::processSongTitleNotifications()
@@ -468,6 +528,8 @@ void Window::update(int deltaTime)
 	if (mBatteryIndicator)
 		mBatteryIndicator->update(deltaTime);
 
+	updateNotificationPopups(deltaTime);
+
 	AudioManager::update(deltaTime);
 }
 
@@ -537,11 +599,12 @@ void Window::render()
 	Renderer::setMatrix(Transform4x4f::Identity());
 
 	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
-	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
+	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 		startScreenSaver();
 
-	if(!mRenderScreenSaver && mInfoPopup)
-		mInfoPopup->render(transform);
+	if (!mRenderScreenSaver)
+		for (auto popup : mNotificationPopups)
+			popup->render(transform);
 
 	renderRegisteredNotificationComponents(transform);
 	
