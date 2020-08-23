@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 23:07+0200\n"
+"POT-Creation-Date: 2020-08-23 21:15+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -219,6 +219,18 @@ msgstr "РАСТЯНУТЬ ВИДЕО НА ЗАСТАВКЕ"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "ОТКЛЮЧИТЬ ЗВУК В ВИДЕО"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЁТ ЗАГРУЗКА ДАННЫХ"
@@ -1175,7 +1187,7 @@ msgid "MANUAL SCRAPER"
 msgstr "РУЧНАЯ ЗАГРУЗКА"
 
 msgid "QUICK ACCESS"
-msgstr ""
+msgstr "БЫСТРЫЙ ДОСТУП"
 
 msgid "SKIP TO NEXT SONG"
 msgstr "ПРОПУСТИТЬ ПЕСНЮ"
@@ -1184,7 +1196,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr ""
+msgstr "РУКОВОДСТВО ПО BATOCERA"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -1803,10 +1815,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "ДАТА СОЗДАНИЯ ФАЙЛА, ПО УБЫВАНИЮ"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "ВРЕМЯ ИГРЫ, ПО ВОЗРАСТАНИЮ"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "ВРЕМЯ ИГРЫ, ПО УБЫВАНИЮ"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"

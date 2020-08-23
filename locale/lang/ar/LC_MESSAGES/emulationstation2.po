@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 23:07+0200\n"
+"POT-Creation-Date: 2020-08-23 21:15+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -223,6 +223,18 @@ msgstr "مدد الفيديو في شاشة التوقف"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "صوت الفيديو صامت"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "الكشط يعمل حالياً"
