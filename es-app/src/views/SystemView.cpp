@@ -920,12 +920,12 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 		bufferRight = 0;
 	}
 
-	for (int i = center - logoCount / 2 + bufferLeft; i <= center + logoCount / 2 + bufferRight; i++)
+	auto renderLogo = [this, carouselTrans, logoSpacing, xOff, yOff](int i)
 	{
 		int index = i % (int)mEntries.size();
 		if (index < 0)
 			index += (int)mEntries.size();
-		
+
 		Transform4x4f logoTrans = carouselTrans;
 		logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
 
@@ -936,7 +936,7 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 		scale /= mCarousel.logoScale;
 
 		int opacity = (int)Math::round(0x80 + ((0xFF - 0x80) * (1.0f - fabs(distance))));
-		opacity = Math::max((int) 0x80, opacity);
+		opacity = Math::max((int)0x80, opacity);
 
 		const std::shared_ptr<GuiComponent> &comp = mEntries.at(index).data.logo;
 		if (mCarousel.type == VERTICAL_WHEEL || mCarousel.type == HORIZONTAL_WHEEL) {
@@ -944,20 +944,27 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			comp->setRotationOrigin(mCarousel.logoRotationOrigin);
 		}
 
-		// Ensure texture loaded, query it if necessary
-		/*
-		auto ctrl = comp.get();
-		if (ctrl->isKindOf<ImageComponent>())
-		{
-			auto tex = ((ImageComponent*)ctrl)->getTexture();
-			if (tex != nullptr)
-				tex->reload();
-		}*/
-
 		comp->setScale(scale);
 		comp->setOpacity((unsigned char)opacity);
 		comp->render(logoTrans);
+	};
+
+	int activePos = mCursor;
+	
+	for (int i = center - logoCount / 2 + bufferLeft; i <= center + logoCount / 2 + bufferRight; i++)
+	{
+		int index = i % (int)mEntries.size();
+		if (index < 0)
+			index += (int)mEntries.size();
+	
+		if (index == mCursor)
+			activePos = i;
+		else
+			renderLogo(i);
 	}
+	
+	renderLogo(activePos);
+
 	Renderer::popClipRect();
 }
 

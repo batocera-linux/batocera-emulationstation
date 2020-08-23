@@ -425,6 +425,22 @@ void Window::processSongTitleNotifications()
 	std::string songName = AudioManager::getInstance()->getSongName();
 	if (!songName.empty())
 	{
+		std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+		for (int i = mNotificationPopups.size() - 1; i >= 0; i--)
+		{
+			if (mNotificationPopups[i]->getMessage().find(_U("\uF028")) != std::string::npos)
+			{
+				delete mNotificationPopups[i];
+
+				auto it = mNotificationPopups.begin();
+				std::advance(it, i);
+				mNotificationPopups.erase(it);
+			}
+		}
+		
+		lock.unlock();
+
 		displayNotificationMessage(_U("\uF028  ") + songName); // _("Now playing: ") + 
 		AudioManager::getInstance()->setSongName("");
 	}	
@@ -516,6 +532,7 @@ void Window::update(int deltaTime)
 	if (mBatteryIndicator)
 		mBatteryIndicator->update(deltaTime);
 
+	updateAsyncNotifications(deltaTime);
 	updateNotificationPopups(deltaTime);
 
 	AudioManager::update(deltaTime);
@@ -590,11 +607,14 @@ void Window::render()
 	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 		startScreenSaver();
 
+	// Render notifications
 	if (!mRenderScreenSaver)
+	{
 		for (auto popup : mNotificationPopups)
 			popup->render(transform);
 
-	renderRegisteredNotificationComponents(transform);
+		renderAsyncNotifications(transform);
+	}
 	
 	// Always call the screensaver render function regardless of whether the screensaver is active
 	// or not because it may perform a fade on transition
@@ -807,26 +827,20 @@ void Window::renderScreenSaver()
 		mScreenSaver->renderScreenSaver();
 }
 
-void Window::registerNotificationComponent(AsyncNotificationComponent* pc)
+AsyncNotificationComponent* Window::createAsyncNotificationComponent(bool actionLine)
 {
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	if (std::find(mAsyncNotificationComponent.cbegin(), mAsyncNotificationComponent.cend(), pc) != mAsyncNotificationComponent.cend())
-		return;
-
+	AsyncNotificationComponent* pc = new AsyncNotificationComponent(this, actionLine);
 	mAsyncNotificationComponent.push_back(pc);
+	
+	if (mAsyncNotificationComponent.size() == 1)
+		PowerSaver::pause();
+
+	return pc;
 }
 
-void Window::unRegisterNotificationComponent(AsyncNotificationComponent* pc)
-{
-	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
-
-	auto it = std::find(mAsyncNotificationComponent.cbegin(), mAsyncNotificationComponent.cend(), pc);
-	if (it != mAsyncNotificationComponent.cend())
-		mAsyncNotificationComponent.erase(it);
-}
-
-void Window::renderRegisteredNotificationComponents(const Transform4x4f& trans)
+void Window::renderAsyncNotifications(const Transform4x4f& trans)
 {
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
@@ -834,15 +848,73 @@ void Window::renderRegisteredNotificationComponents(const Transform4x4f& trans)
 
 	float posY = Renderer::getScreenHeight() * 0.02f;
 
+	bool first = true;
 	for (auto child : mAsyncNotificationComponent)
 	{		
 		float posX = Renderer::getScreenWidth()*0.99f - child->getSize().x();
 
-		child->setPosition(posX, posY, 0);
+		float offset = child->getSize().y() + PADDING_H;
+
+		float fadingOut = child->getFading();
+		if (fadingOut != 0)
+		{
+			// cubic ease in
+			fadingOut = fadingOut - 1;
+			fadingOut = Math::lerp(0, 1, fadingOut*fadingOut*fadingOut + 1);
+						
+			if (child->isClosing())
+			{
+				child->setPosition(posX, posY - (offset * fadingOut), 0);
+				offset = offset - (offset * fadingOut);
+
+				auto sz = child->getSize();
+				Renderer::pushClipRect(Vector2i(
+					(int)trans.translation()[0] + posX - PADDING_H, 
+					(int)trans.translation()[1] + (first ? 0 : posY)), 
+					Vector2i(
+					(int)sz.x() + 2 * PADDING_H, 
+					(int)sz.y() + (first ? posY : 0)));
+			}
+			else 
+				child->setPosition(posX + (child->getSize().x() * (1.0 - fadingOut)), posY, 0);
+		}
+		else 
+			child->setPosition(posX, posY, 0);
+
 		child->render(trans);
 
-		posY += child->getSize().y() + PADDING_H;
+		if (fadingOut != 0 && child->isClosing())
+			Renderer::popClipRect();
+
+		posY += offset;
+		first = false;
 	}
+}
+
+void Window::updateAsyncNotifications(int deltaTime)
+{
+	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+	bool changed = false;
+
+	for (int i = mAsyncNotificationComponent.size() - 1; i >= 0; i--)
+	{
+		mAsyncNotificationComponent[i]->update(deltaTime);
+
+		if (!mAsyncNotificationComponent[i]->isRunning())
+		{
+			delete mAsyncNotificationComponent[i];
+
+			auto it = mAsyncNotificationComponent.begin();
+			std::advance(it, i);
+			mAsyncNotificationComponent.erase(it);
+
+			changed = true;
+		}
+	}
+
+	if (changed && mAsyncNotificationComponent.size() == 0)
+		PowerSaver::resume();
 }
 
 void Window::postToUiThread(const std::function<void(Window*)>& func)

@@ -93,7 +93,7 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 #endif
 
 HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
-	: mStatus(REQ_IN_PROGRESS), mHandle(NULL)
+	: mStatus(REQ_IN_PROGRESS), mHandle(NULL), mFile(NULL)
 {
 	mUrl = url;
 	mFilePath = outputFilename;
@@ -209,14 +209,15 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 		
 		Utils::FileSystem::removeFile(mTempStreamPath);
 
-		mStream.open(mTempStreamPath, std::ios_base::out | std::ios_base::binary);
-		if (!mStream.is_open())
+		mFile = fopen(mTempStreamPath.c_str(), "wb");		
+		if (mFile == nullptr)
 		{
 			mStatus = REQ_IO_ERROR;
-			onError("IO Error (disk is Readonly ?)");
+			onError("IO Error (disk is Readonly ?)");			
 			return;
 		}
 
+		mPosition = 0;
 		Utils::FileSystem::removeFile(outputFilename);
 	}
 
@@ -236,13 +237,11 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 
 void HttpReq::closeStream()
 {
-	if (mFilePath.empty())
-		return;
-
-	if (mStream.is_open())
+	if (mFile)
 	{
-		mStream.flush();
-		mStream.close();
+		fflush(mFile);
+		fclose(mFile);
+		mFile = nullptr;
 	}
 }
 
@@ -333,7 +332,16 @@ HttpReq::Status HttpReq::status()
 					{
 						if (!req->mFilePath.empty())
 						{
-							if (std::rename(req->mTempStreamPath.c_str(), req->mFilePath.c_str()) == 0)
+							int err = std::rename(req->mTempStreamPath.c_str(), req->mFilePath.c_str());
+							if (err != 0)
+							{
+								// Strange behaviour on Windows : sometimes std::rename fails if it's done too early after closing stream
+								// Copy file instead & try to delete it
+								if (Utils::FileSystem::copyFile(req->mTempStreamPath, req->mFilePath))
+									err = 0;
+							}
+
+							if (err == 0)
 								req->mStatus = REQ_SUCCESS;
 							else
 							{
@@ -411,29 +419,17 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 		return size * nmemb;
 	}
 
-	std::ofstream& ss = request->mStream;
+	FILE* file = request->mFile;
+	if (file == nullptr)
+		return 0;
 
-	try
+	size_t rs = size * nmemb;
+	fwrite(buff, 1, rs, file) != rs;	
+	if (ferror(file))
 	{
-		if (!ss.is_open())
-			return 0;
-
-		ss.write((char*)buff, size * nmemb);
-
-		if (ss.rdstate() != std::ofstream::goodbit)
-		{
-			request->closeStream();			
-			request->mStatus = REQ_FILESTREAM_ERROR;
-			request->mErrorMsg = "IO ERROR (DISK FULL?)";		
-
-			return 0;
-		}
-	}
-	catch(...)
-	{
-		request->closeStream();		
+		request->closeStream();			
 		request->mStatus = REQ_FILESTREAM_ERROR;
-		request->mErrorMsg = "IO ERROR (DISK FULL?)";
+		request->mErrorMsg = "IO ERROR (DISK FULL?)";		
 
 		return 0;
 	}
@@ -441,13 +437,12 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 	double cl;
 	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
 	{		
-		double position = (double)ss.tellp();
-		request->mPosition = position;
+		request->mPosition += rs;
 
 		if (cl <= 0)
 			request->mPercent = -1;
 		else
-			request->mPercent = (int) (position * 100.0 / cl);
+			request->mPercent = (int) (request->mPosition * 100.0 / cl);
 	}
 
 	return nmemb;

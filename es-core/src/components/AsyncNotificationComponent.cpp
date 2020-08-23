@@ -1,17 +1,22 @@
 #include "AsyncNotificationComponent.h"
 #include "ThemeData.h"
-#include "PowerSaver.h"
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
 #include "LocaleES.h"
+#include "Window.h"
+#include <SDL_timer.h>
 
 #define PADDING_PX  (Renderer::getScreenWidth()*0.01)
 
 AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool actionLine)
 	: GuiComponent(window)
 {
+	mRunning = true;
+	mFadeTime = 0;
+	mFadeOut = 0;
 	mPercent = -1;
+	mClosing = false;
 
 	auto theme = ThemeData::getMenuTheme();
 
@@ -28,6 +33,7 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 	Vector2f gridSize(width, mTitle->getSize().y() + mGameName->getSize().y() + (mAction == nullptr ? 0 : mAction->getSize().y()));
 
 	setSize(fullSize);
+	mFullSize = fullSize;
 
 	mFrame = new NinePatchComponent(window);
 	mFrame->setImagePath(theme->Background.path);
@@ -57,16 +63,18 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 
 	setPosition(posX, posY, 0);
 	setOpacity(200);
+}
 
-	PowerSaver::pause();
+void AsyncNotificationComponent::close()
+{
+	mClosing = true;	
+	mFadeTime = -1;
 }
 
 AsyncNotificationComponent::~AsyncNotificationComponent()
 {
 	delete mFrame;
-	delete mGrid;
-
-	PowerSaver::resume();
+	delete mGrid;	
 }
 
 void AsyncNotificationComponent::updateText(const std::string text, const std::string action)
@@ -136,4 +144,51 @@ void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
 	}
 
 	mGrid->render(trans);
+}
+
+void AsyncNotificationComponent::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	// compute fade effects
+
+	if (mClosing && mFadeTime == -1)
+	{
+		mFadeOutOpacity = getOpacity();
+		mFadeTime = 0;
+		return;
+	}
+	else if (mFadeTime < 500000)
+		mFadeTime += deltaTime;
+
+	int alpha = 200;
+	int duration = 500;
+
+	if (mClosing)
+	{
+		if (mFadeTime <= duration)
+		{
+			alpha = ((duration - mFadeTime) * 255 / duration);
+			mFadeOut = (float)(255 - alpha) / 255.0;
+			alpha = (alpha * mFadeOutOpacity) / 255;
+		}
+		else
+		{
+			mRunning = false;
+			mFadeOut = 0;
+		}
+	}
+	else
+	{
+		if (mFadeTime <= duration)
+		{
+			int dt = ((duration - mFadeTime) * 255 / duration);
+			mFadeOut = (float)(255 - dt) / 255.0;
+			alpha = (mFadeTime * alpha / duration);
+		}
+		else
+			mFadeOut = 0;
+	}
+
+	setOpacity((unsigned char)alpha);
 }

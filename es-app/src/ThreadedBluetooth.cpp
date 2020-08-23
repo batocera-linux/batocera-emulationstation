@@ -12,8 +12,7 @@ ThreadedBluetooth* ThreadedBluetooth::mInstance = nullptr;
 ThreadedBluetooth::ThreadedBluetooth(Window* window)
 	: mWindow(window)
 {
-	mWndNotification = new AsyncNotificationComponent(window, false);
-	mWindow->registerNotificationComponent(mWndNotification);
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("SCANNING BLUETOOTH"));	
 	mWndNotification->updateText(_("Searching controllers..."));
 
@@ -22,8 +21,8 @@ ThreadedBluetooth::ThreadedBluetooth(Window* window)
 
 ThreadedBluetooth::~ThreadedBluetooth()
 {
-	mWindow->unRegisterNotificationComponent(mWndNotification);
-	delete mWndNotification;
+	mWndNotification->close();
+	mWndNotification = nullptr;
 
 	ThreadedBluetooth::mInstance = nullptr;
 }
@@ -74,8 +73,7 @@ ThreadedFormatter::ThreadedFormatter(Window* window, const std::string disk, con
 	mDisk = disk;
 	mFileSystem = fileSystem;
 
-	mWndNotification = new AsyncNotificationComponent(window, false);
-	mWindow->registerNotificationComponent(mWndNotification);
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("FORMATING DEVICE"));
 	mWndNotification->updateText(_("Formating") + " " + disk);
 
@@ -84,8 +82,8 @@ ThreadedFormatter::ThreadedFormatter(Window* window, const std::string disk, con
 
 ThreadedFormatter::~ThreadedFormatter()
 {
-	mWindow->unRegisterNotificationComponent(mWndNotification);
-	delete mWndNotification;
+	mWndNotification->close();
+	mWndNotification = nullptr;
 
 	ThreadedFormatter::mInstance = nullptr;
 }

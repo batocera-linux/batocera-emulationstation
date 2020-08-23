@@ -19,6 +19,8 @@ public:
 	float getFadeOut() { return mFadeOut; }
 	bool isRunning() { return mRunning; };
 
+	std::string         getMessage() { return mMessage; }
+
 private:
 	std::string         mMessage;
 
