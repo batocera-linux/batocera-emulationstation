@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 23:07+0200\n"
+"POT-Creation-Date: 2020-08-23 21:15+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -219,6 +219,18 @@ msgstr "VIDEO BEI BILDSCHIRMSCHONER STRECKEN"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "VIDEO-TON STUMMSCHALTEN"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPER LÄUFT"
@@ -1188,7 +1200,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr ""
+msgstr "BATOCERA HANDBUCH ANZEIGEN"
 
 msgid "RESTART SYSTEM"
 msgstr "SYSTEM NEUSTARTEN"
@@ -1804,10 +1816,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATEIERSTELLUNGSDATUM, ABSTEIGEND"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "SPIELZEIT, AUFSTEIGEND"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "SPIELZEIT, ABSTEIGEND"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"

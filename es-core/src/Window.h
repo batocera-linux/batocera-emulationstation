@@ -85,9 +85,6 @@ public:
 	bool cancelScreenSaver();
 	void renderScreenSaver();
 
-	void registerNotificationComponent(AsyncNotificationComponent* pc);
-	void unRegisterNotificationComponent(AsyncNotificationComponent* pc);
-
 	void postToUiThread(const std::function<void(Window*)>& func);
 	void reactivateGui();
 
@@ -95,15 +92,18 @@ public:
 
 	std::shared_ptr<BatteryIndicatorComponent>	getBatteryIndicator() { return mBatteryIndicator; }
 
+	AsyncNotificationComponent* createAsyncNotificationComponent(bool actionLine = false);
+
 private:
 	void processPostedFunctions();
 
-	void renderRegisteredNotificationComponents(const Transform4x4f& trans);
 	std::vector<AsyncNotificationComponent*> mAsyncNotificationComponent;
-
-
+	void updateAsyncNotifications(int deltaTime);
+	void renderAsyncNotifications(const Transform4x4f& trans);
+	
 	std::vector<std::function<void(Window*)>> mFunctions;
 
+	std::vector<GuiInfoPopup*> mNotificationPopups;
 	void updateNotificationPopups(int deltaTime);
 	void layoutNotificationPopups();
 
@@ -120,8 +120,6 @@ private:
 	ImageComponent* mBackgroundOverlay;
 	ScreenSaver*	mScreenSaver;	
 	bool			mRenderScreenSaver;
-	
-	std::vector<GuiInfoPopup*> mNotificationPopups;
 
 	std::vector<GuiComponent*> mScreenExtras;
 	std::vector<GuiComponent*> mGuiStack;

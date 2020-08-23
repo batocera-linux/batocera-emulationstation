@@ -120,9 +120,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	return true;
 }
 
-bool executeCMD(LPSTR lpCommandLine, std::string& output)
+int executeCMD(LPSTR lpCommandLine, std::string& output)
 {
-	bool ret = false;
+	int ret = -1;
 	output = "";
 
 	STARTUPINFO si;
@@ -185,9 +185,9 @@ bool executeCMD(LPSTR lpCommandLine, std::string& output)
 
 				DWORD exit_code = 0;
 				if (GetExitCodeProcess(pi.hProcess, &exit_code))
-					ret = (exit_code == 0);
+					ret = exit_code;
 				else
-					ret = true;
+					ret = 0;
 
 				//clean up all handles
 				CloseHandle(pi.hThread);
@@ -204,14 +204,14 @@ bool executeCMD(LPSTR lpCommandLine, std::string& output)
 				CloseHandle(g_hChildStd_OUT_Wr);
 				CloseHandle(g_hChildStd_OUT_Rd);
 				CloseHandle(g_hChildStd_IN_Wr);
-				ret = false;
+				ret = -1;
 			}
 		}
 		else
 		{
 			CloseHandle(g_hChildStd_IN_Rd);
 			CloseHandle(g_hChildStd_IN_Wr);
-			ret = false;
+			ret = -1;
 		}
 	}
 
@@ -346,7 +346,31 @@ bool Win32ApiSystem::executeScript(const std::string command)
 	LOG(LogInfo) << "Running " << command;
 
 	std::string output;
-	return executeCMD((char*)command.c_str(), output);
+	return executeCMD((char*)command.c_str(), output) == 0;
+}
+
+std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
+{
+	std::string executable;
+	std::string parameters;
+	Utils::FileSystem::splitCommand(command, &executable, &parameters);
+
+	std::string path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+
+	if (Utils::FileSystem::exists(path))
+	{
+		std::string cmd = parameters.empty() ? path : path + " " + parameters;
+
+		std::string output;
+		auto ret = executeCMD((char*)cmd.c_str(), output);
+		return std::pair<std::string, int>(output, ret);
+	}
+
+	return std::pair<std::string, int>("", -1);
 }
 
 std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::string command)
@@ -370,7 +394,7 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
 
 		std::string output;
-		if (executeCMD((char*)cmd.c_str(), output))
+		if (executeCMD((char*)cmd.c_str(), output) == 0)
 		{
 			for (std::string all : Utils::String::splitAny(output, "\r\n"))
 				res.push_back(all);
@@ -410,7 +434,7 @@ std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	}
 
 	std::string output;
-	if (executeCMD((char*)cmd.c_str(), output))
+	if (executeCMD((char*)cmd.c_str(), output) == 0)
 	{
 		for (std::string all : Utils::String::splitAny(output, "\r\n"))
 		{
@@ -482,6 +506,8 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thn
 		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
 		std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
 		zipFile = Utils::String::replace(zipFile, "/", "\\");
+
+		Utils::FileSystem::removeFile(zipFile);
 
 		if (downloadGitRepository(theme.url, zipFile, thname, func))
 		{

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 23:07+0200\n"
+"POT-Creation-Date: 2020-08-23 21:15+0200\n"
 "PO-Revision-Date: 2020-07-09 21:00+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: \n"
@@ -219,6 +219,18 @@ msgstr "スクリーンセーバー実行時ビデオを拡大"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "ビデオ音声をミュート"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "情報を取得中"

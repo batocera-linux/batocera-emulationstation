@@ -236,7 +236,7 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(system->getTheme());
 
-	if (forceImmediate)
+	if (forceImmediate || Settings::getInstance()->getString("TransitionStyle") == "fade")
 		playViewTransition(forceImmediate);
 	else
 	{
@@ -702,14 +702,14 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	// fade out
 	if (mFadeOpacity)
 	{
-		if (Settings::getInstance()->getBool("HideWindow"))
+		if (!Settings::getInstance()->getBool("HideWindow") && mLockInput) // We're launching a game
+			mWindow->renderSplashScreen(mFadeOpacity, false);
+		else
 		{
 			unsigned int fadeColor = 0x00000000 | (unsigned char)(mFadeOpacity * 255);
 			Renderer::setMatrix(parentTrans);
 			Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), fadeColor, fadeColor);
 		}
-		else
-			mWindow->renderSplashScreen(mFadeOpacity, false);
 	}
 }
 

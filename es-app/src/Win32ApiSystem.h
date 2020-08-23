@@ -45,6 +45,7 @@ public:
 
 protected:
 	bool executeScript(const std::string command) override;
+	std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func) override;
 	std::vector<std::string> executeEnumerationScript(const std::string command) override;
 };
 
