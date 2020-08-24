@@ -132,6 +132,9 @@ void Settings::setDefaults()
 #elif defined(_RPI_) 
 	// Rpi 0, 1
 	mIntMap["MaxVRAM"] = 80;
+#elif defined(_ENABLEEMUELEC)
+	// EmuELEC
+	mIntMap["MaxVRAM"] = 180;
 #else 
 	// Other boards
 	mIntMap["MaxVRAM"] = 100;
@@ -173,7 +176,11 @@ void Settings::setDefaults()
 	
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
+#ifdef _ENABLEEMUELEC
+	mStringMap["SlideshowScreenSaverVideoDir"] = "/storage/roms/mplayer"; // emuelec
+#else
 	mStringMap["SlideshowScreenSaverVideoDir"] = "/userdata/screenshots"; // batocera
+#endif
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
 
