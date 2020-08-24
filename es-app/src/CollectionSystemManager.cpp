@@ -896,6 +896,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			switch(sysDecl.type) 
 			{
 				case AUTO_ALL_GAMES:
+#ifdef _ENABLEEMUELEC
+				include = !(game->getSystemName() == "setup") && !(game->getSystemName() == "mediaplayer");
+#endif
 					break;
 				case AUTO_LAST_PLAYED:
 					include = game->getMetadata(MetaDataId::PlayCount) > "0";
