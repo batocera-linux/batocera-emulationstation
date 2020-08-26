@@ -178,11 +178,13 @@ void Settings::setDefaults()
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 #ifdef _ENABLEEMUELEC
 	mStringMap["SlideshowScreenSaverVideoDir"] = "/storage/roms/mplayer"; // emuelec
+    mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi,.mkv,.flv,.mpg,.mov";
+	mBoolMap["SlideshowScreenSaverVideoRecurse"] = true;
 #else
 	mStringMap["SlideshowScreenSaverVideoDir"] = "/userdata/screenshots"; // batocera
-#endif
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
+#endif
 
 	// This setting only applies to raspberry pi but set it for all platforms so
 	// we don't get a warning if we encounter it on a different platform
