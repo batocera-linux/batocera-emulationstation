@@ -54,6 +54,7 @@ public:
 		internal_resolution = 8192,
 		videomode = 16384,
 		colorization = 32768,
+        vertical = 65536,
 
 		all = 0x0FFFFFFF
 	};

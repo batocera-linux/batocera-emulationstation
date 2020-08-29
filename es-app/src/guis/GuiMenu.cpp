@@ -4356,6 +4356,16 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { getShOutput(R"(/emuelec/scripts/emuelec-utils setemu set ')" + configName + ".integerscale' " + integerscale_enabled->getSelected()); });
 	}
 
+	// Vertical Game
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::vertical))
+	{
+		auto vertical_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("ENABLE VERTICAL"));
+		vertical_enabled->add(_("OFF"), "auto", getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".vertical'") != "1");
+		vertical_enabled->add(_("ON"), "1", getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".vertical'") == "1");
+		systemConfiguration->addWithLabel(_("ENABLE VERTICAL"), vertical_enabled);
+		systemConfiguration->addSaveFunc([vertical_enabled, configName] { getShOutput(R"(/emuelec/scripts/emuelec-utils setemu set ')" + configName + ".vertical' " + vertical_enabled->getSelected()); });
+	}
+
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::latency_reduction))	
 		systemConfiguration->addEntry(_("LATENCY REDUCTION"), true, [mWindow, configName] { openLatencyReductionConfiguration(mWindow, configName); });
 		
