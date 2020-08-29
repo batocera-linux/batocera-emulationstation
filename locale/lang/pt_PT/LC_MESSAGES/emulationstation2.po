@@ -1158,7 +1158,7 @@ msgid "IP ADDRESS"
 msgstr "ENDEREÇO DE IP"
 
 msgid "HOSTNAME"
-msgstr "HOSTNAME"
+msgstr "NOME DA REDE"
 
 msgid "ENABLE WIFI"
 msgstr "ATIVAR WIFI"
