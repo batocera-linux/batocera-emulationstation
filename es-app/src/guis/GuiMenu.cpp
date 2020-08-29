@@ -348,7 +348,17 @@ void GuiMenu::openEmuELECSettings()
 				SystemConf::getInstance()->saveSystemConf();
 			}
 		});
-       
+
+       auto fps_enabled = std::make_shared<SwitchComponent>(mWindow);
+		bool fpsEnabled = SystemConf::getInstance()->get("global.showFPS") == "1";
+		fps_enabled->setState(fpsEnabled);
+		s->addWithLabel(_("SHOW RETROARCH FPS"), fps_enabled);
+		s->addSaveFunc([fps_enabled] {
+			bool fpsenabled = fps_enabled->getState();
+                SystemConf::getInstance()->set("global.showFPS", fpsenabled ? "1" : "0");
+				SystemConf::getInstance()->saveSystemConf();
+			});       
+
        auto bezels_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool bezelsEnabled = SystemConf::getInstance()->get("global.bezel") == "1";
 		bezels_enabled->setState(bezelsEnabled);
