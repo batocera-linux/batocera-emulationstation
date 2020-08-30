@@ -240,3 +240,24 @@ void InputConfig::writeToXML(pugi::xml_node& parent)
 		input.append_attribute("value").set_value(iterator->second.value);
 	}
 }
+
+static char* ABUTTON = "a";
+static char* BBUTTON = "b";
+
+char* BUTTON_OK = ABUTTON;
+char* BUTTON_BACK = BBUTTON;
+
+#include "Settings.h"
+
+void InputConfig::AssignActionButtons()
+{
+	bool invertButtons = Settings::getInstance()->getBool("InvertButtons");
+
+#ifdef WIN32
+	BUTTON_OK = invertButtons ? BBUTTON : ABUTTON;
+	BUTTON_BACK = invertButtons ? ABUTTON : BBUTTON;
+#else
+	BUTTON_OK = invertButtons ? ABUTTON : BBUTTON;
+	BUTTON_BACK = invertButtons ? BBUTTON : ABUTTON;
+#endif
+}

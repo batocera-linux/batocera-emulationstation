@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 21:15+0200\n"
+"POT-Creation-Date: 2020-08-24 16:57+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -206,7 +206,7 @@ msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "TROCAR VÍDEO APÓS (SEG)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "USE O OMX PLAYER PARA A PROTEÇÃO DE TELA"
+msgstr "USAR O OMX PLAYER PARA A PROTEÇÃO DE TELA"
 
 msgid "VIDEO SCREENSAVER"
 msgstr "VÍDEO COMO PROTEÇÃO DE TELA"
@@ -221,19 +221,19 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "SILENCIAR VIDEO"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr ""
+msgstr "USAR VÍDEOS PERSONALIZADOS"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr ""
+msgstr "DIRETÓRIO DE VÍDEO PERSONALIZADO"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
+msgstr "REPETIR DIRETÓRIO DE VÍDEO PERSONALIZADO"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgstr "FILTRAR VÍDEO PERSONALIZADO"
 
 msgid "SCRAPING IN PROGRESS"
-msgstr "SCRAPING EM PROGRESSO"
+msgstr "BUSCANDO SCRAPES"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -605,7 +605,7 @@ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "TEM CERTEZA DE QUE DESEJA CONFIGURAR O CONTROLE?"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "DEFINIÇÕES DA PROTEÇÃO DE TELA"
+msgstr "CONFIGURAÇÕES DA PROTEÇÃO DE TELA"
 
 msgid "SLIDESHOW SETTINGS"
 msgstr "CONFIGURAÇÕES DO SLIDESHOW"

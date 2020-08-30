@@ -993,6 +993,18 @@ void GuiMenu::openDeveloperSettings()
 			SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
 		});
 
+		auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
+		invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
+		s->addWithLabel(_("SWITCH A/B BUTTONS IN EMULATIONSTATION"), invertJoy);
+		s->addSaveFunc([this, invertJoy]
+		{
+			if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
+			{
+				InputConfig::AssignActionButtons();
+				ViewController::get()->reloadAll(mWindow);
+			}
+		});
+
 #if defined(WIN32)
 		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
 		autoControllers->setState(SystemConf::getInstance()->get("global.disableautocontrollers") != "1");

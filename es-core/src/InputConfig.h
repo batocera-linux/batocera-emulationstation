@@ -17,11 +17,11 @@ namespace pugi { class xml_node; }
 #define MAX_PLAYERS 8
 
 #if defined WIN32 || defined _ENABLEEMUELEC
-#define BUTTON_OK	"a"
-#define BUTTON_BACK	"b"
+extern char* BUTTON_OK;
+extern char* BUTTON_BACK;
 #else
-#define BUTTON_OK	"b"
-#define BUTTON_BACK	"a"
+extern char* BUTTON_OK;
+extern char* BUTTON_BACK;
 #endif
 
 enum InputType
@@ -146,6 +146,9 @@ private:
 	const int mDeviceNbButtons; // number of buttons of the device // batocera
 	const int mDeviceNbHats;    // number of hats    of the device // batocera
 	const int mDeviceNbAxes;    // number of axes    of the device // batocera
+
+public:
+	static void AssignActionButtons();
 };
 
 #endif // ES_CORE_INPUT_CONFIG_H

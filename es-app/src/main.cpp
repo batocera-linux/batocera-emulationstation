@@ -33,7 +33,7 @@
 #include "ImageIO.h"
 #include "components/VideoVlcComponent.h"
 #include <csignal>
-
+#include "InputConfig.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -546,6 +546,8 @@ int main(int argc, char* argv[])
 	if (systemConf->getBool("kodi.enabled", true) && systemConf->getBool("kodi.atstartup"))
 		ApiSystem::getInstance()->launchKodi(&window);
 #endif
+
+	InputConfig::AssignActionButtons();
 
 	ApiSystem::getInstance()->getIpAdress(); // batocera
 

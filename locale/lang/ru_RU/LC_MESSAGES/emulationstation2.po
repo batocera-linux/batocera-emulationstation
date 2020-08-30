@@ -221,16 +221,16 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "ОТКЛЮЧИТЬ ЗВУК В ВИДЕО"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ ПОЛЬЗ. ВИДЕО"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr ""
+msgstr "ПАПКА ПОЛЬЗ. ВИДЕО"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
+msgstr "ПАПКА ПОЛЬЗ. ВИДЕО РЕКУРСИВНО"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgstr "ФИЛЬР ПОЛЬЗ. ВИДЕО"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЁТ ЗАГРУЗКА ДАННЫХ"
