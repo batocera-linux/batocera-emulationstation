@@ -240,9 +240,13 @@ void InputConfig::writeToXML(pugi::xml_node& parent)
 		input.append_attribute("value").set_value(iterator->second.value);
 	}
 }
-
+#ifdef _ENABLEEMUELEC
+static char* ABUTTON = "b";
+static char* BBUTTON = "a";
+#else
 static char* ABUTTON = "a";
 static char* BBUTTON = "b";
+#endif
 
 char* BUTTON_OK = ABUTTON;
 char* BUTTON_BACK = BBUTTON;
