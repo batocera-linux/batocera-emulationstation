@@ -3205,20 +3205,20 @@ void GuiMenu::openQuitMenu_batocera()
   GuiMenu::openQuitMenu_batocera_static(mWindow);
 }
 
-void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
+void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 {
 #ifdef WIN32
-	if (!forceWin32Menu && Settings::getInstance()->getBool("ShowOnlyExit"))
+	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit"))
 	{
 		quitES(QuitMode::QUIT);
 		return;
 	}
 #endif
 
-	auto s = new GuiSettings(window, _("QUICK ACCESS").c_str());
+	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUIT") : _("QUICK ACCESS")).c_str());
 	s->setCloseButton("select");
 
-	if (forceWin32Menu)
+	if (quickAccessMenu)
 	{
 		s->addGroup(_("QUICK ACCESS"));
 
@@ -3253,7 +3253,8 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 		}
 	}
 
-	s->addGroup(_("QUIT"));
+	if (quickAccessMenu)
+		s->addGroup(_("QUIT"));
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 
@@ -3285,7 +3286,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool forceWin32Menu)
 	}
 #endif
 
-	if (forceWin32Menu)
+	if (quickAccessMenu)
 		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2));
 
 	window->pushGui(s);
