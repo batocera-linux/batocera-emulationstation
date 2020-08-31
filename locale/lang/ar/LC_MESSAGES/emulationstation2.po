@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 21:15+0200\n"
+"POT-Creation-Date: 2020-08-31 22:34+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -695,6 +695,9 @@ msgstr "أكمل واخرج من القائمة"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "استخدم قائمة RGUI لـ RETROARCH"
+
+msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgstr ""
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "تكوين تلقائي لوحدات تحكم المحاكي"

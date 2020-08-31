@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 21:15+0200\n"
+"POT-Creation-Date: 2020-08-31 22:34+0200\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,6 +671,9 @@ msgid "COMPLETE QUIT MENU"
 msgstr ""
 
 msgid "USE RETROARCH RGUI MENU"
+msgstr ""
+
+msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 21:15+0200\n"
+"POT-Creation-Date: 2020-08-31 22:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -686,6 +686,9 @@ msgstr ""
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "ВИКОРИСТАТИ МЕНЮ RETROARCH RGUI"
+
+msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgstr ""
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
