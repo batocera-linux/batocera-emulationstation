@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 
 msgid "Loading..."
 msgstr "Chargement..."
@@ -685,7 +685,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "UTILISER LE MENU RETROARCH RGUI"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
@@ -1815,10 +1815,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATE D'AJOUT, DÉCROISSANT"
 
 msgid "GAME TIME, ASCENDING"
-msgstr "DURÉE DE JEU, CROISSANT"
+msgstr "TEMPS DE JEU, CROISSANT"
 
 msgid "GAME TIME, DESCENDING"
-msgstr "DURÉE DE JEU, DÉCROISSANT"
+msgstr "TEMPS DE JEU, DÉCROISSANT"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
