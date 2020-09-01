@@ -8,6 +8,7 @@
 #include "Log.h"
 #include "Sound.h"
 #include <memory>
+#include "components/ScrollbarComponent.h"
 
 class TextCache;
 
@@ -109,11 +110,15 @@ private:
 	unsigned int mColors[COLOR_ID_COUNT];
 
 	ImageComponent mSelectorImage;
+
+	bool			   mScrollbarEnabled;
+	ScrollbarComponent mScrollbar;
+
 };
 
 template <typename T>
-TextListComponent<T>::TextListComponent(Window* window) : 
-	IList<TextListData, T>(window), mSelectorImage(window)
+TextListComponent<T>::TextListComponent(Window* window) :
+	IList<TextListData, T>(window), mSelectorImage(window), mScrollbar(window), mScrollbarEnabled(false)
 {
 	mLineCount = -1;
 	mMarqueeOffset = 0;
@@ -176,11 +181,14 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	// draw selector bar
 	if(startEntry < listCutoff)
 	{
-		if (mSelectorImage.hasImage()) {
+		if (mSelectorImage.hasImage()) 
+		{
 			mSelectorImage.setPosition(0.f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, 0.f);
 			mSelectorImage.render(trans);
-		} else {
-			Renderer::setMatrix(trans);
+		} 
+		else 
+		{
+			Renderer::setMatrix(trans);			
 			Renderer::drawRect(0.0f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, mSize.x(),
 					mSelectorHeight, mSelectorColor, mSelectorColorEnd, mSelectorColorGradientHorizontal);
 		}
@@ -260,6 +268,14 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	listRenderTitleOverlay(trans);
 
 	GuiComponent::renderChildren(trans);
+
+	if (mScrollbarEnabled)
+	{
+		mScrollbar.setContainerBounds(getPosition(), getSize());
+		mScrollbar.setRange(0, entrySize * mEntries.size(), mSize.y());
+		mScrollbar.setScrollPosition(startEntry * entrySize);
+		mScrollbar.render(parentTrans);
+	}
 }
 
 template <typename T>
@@ -306,6 +322,9 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 template <typename T>
 void TextListComponent<T>::update(int deltaTime)
 {
+	if (mScrollbarEnabled)
+		mScrollbar.update(deltaTime);
+
 	listUpdate(deltaTime);
 
 	if(!isScrolling() && size() > 0)
@@ -364,6 +383,9 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 	mMarqueeOffset2 = 0;
 	mMarqueeTime = 0;
 
+	if (mScrollbarEnabled)
+		mScrollbar.onCursorChanged();
+
 	if(mCursorChangedCallback)
 		mCursorChangedCallback(state);
 }
@@ -395,6 +417,18 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 			setColor(0, elem->get<unsigned int>("primaryColor"));
 		if(elem->has("secondaryColor"))
 			setColor(1, elem->get<unsigned int>("secondaryColor"));
+		
+		if (elem->has("scrollbarColor"))
+		{
+			mScrollbarEnabled = true;
+			mScrollbar.setColor(elem->get<unsigned int>("scrollbarColor"));
+		}
+
+		if (elem->has("scrollbarSize"))
+			mScrollbar.setScrollSize(elem->get<float>("scrollbarSize"));
+
+		if (elem->has("scrollbarCorner"))
+			mScrollbar.setCornerSize(elem->get<float>("scrollbarCorner"));
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
