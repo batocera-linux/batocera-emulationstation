@@ -467,7 +467,12 @@ void GuiGamelistOptions::openMetaDataEd()
 
 			CollectionSystemManager::get()->deleteCollectionFiles(file);
 			file->deleteGameFiles();
-			ViewController::get()->getGameListView(system).get()->remove(file);
+
+			auto view = ViewController::get()->getGameListView(system, false);
+			if (view != nullptr)
+				view.get()->remove(file);
+			else
+				delete file;
 
 			delete pThis;
 		};
