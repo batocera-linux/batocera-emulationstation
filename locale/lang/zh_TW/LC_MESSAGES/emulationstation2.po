@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 21:15+0200\n"
+"POT-Creation-Date: 2020-08-31 22:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Loading..."
@@ -62,19 +62,19 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "對沒有主題的自定合輯進行分組"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "依系統合輯順序"
 
 msgid "NO"
 msgstr "否"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "依照字母順序"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "依照製作廠商"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "系統順序"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合輯中顯示系統名稱"
@@ -119,23 +119,23 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "搜尋 WIFI"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "佈景主題下載器"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "選擇佈景主題更新或刪除"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "更新"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "將 '%s' 添加到下載隊列"
+msgstr "將 '%s' 添加到下載隊列中"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "刪除"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "佈景主題未安裝成功"
 
 msgid "AN ERROR OCCURED"
 msgstr "發生錯誤"
@@ -148,11 +148,11 @@ msgstr "關閉"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "目前的佈景主題"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "目前在下載順序中"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "更換圖片 (SECS)"
@@ -161,7 +161,7 @@ msgid "SHOW GAME INFO"
 msgstr "顯示遊戲訊息"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "使用懸浮圖片作為遊戲信息"
+msgstr "使用懸浮圖片作為遊戲訊息"
 
 msgid "DECORATIONS"
 msgstr "裝飾框"
@@ -182,19 +182,19 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "自定圖片選擇"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "內容下載器"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "選擇要安裝的內容或刪除"
 
 msgid "PLEASE WAIT"
 msgstr "請耐心等待"
 
 msgid "MISC"
-msgstr ""
+msgstr "雜項"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "移除下載順序中"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -218,7 +218,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "螢幕保護比例縮放"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "影片聲音靜音"
+msgstr "關閉影片聲音"
 
 msgid "USE CUSTOM VIDEOS"
 msgstr ""
@@ -389,13 +389,13 @@ msgid "OTHER FILTERS"
 msgstr "過濾器進階設定"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "遊戲資料庫"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "觀看遊戲使用手冊"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "觀看遊戲圖片"
 
 msgid "COLLECTION"
 msgstr "搜尋"
@@ -437,7 +437,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "編輯此遊戲的簡介資料"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "重置過濾器"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "用檔案選擇遊戲"
@@ -479,7 +479,7 @@ msgid "Cpu number"
 msgstr "CPU 核心"
 
 msgid "Cpu max frequency"
-msgstr ""
+msgstr "COU 最高頻率"
 
 msgid "Cpu feature"
 msgstr "CPU 架構"
@@ -488,7 +488,7 @@ msgid "MAIN MENU"
 msgstr "主選單"
 
 msgid "KODI MEDIA CENTER"
-msgstr "KODI 媒體播放中心"
+msgstr "KODI 多媒體播放中心"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroArch 成就"
@@ -518,7 +518,7 @@ msgid "SCRAPE"
 msgstr "資料搜刮器"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "更新檔案＆下載檔案"
+msgstr "更新＆下載"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
@@ -560,7 +560,7 @@ msgid "BOX 3D"
 msgstr "3D 盒子"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "粉絲圖片"
 
 msgid "BOX SOURCE"
 msgstr "封面資料"
@@ -584,10 +584,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "搜刮遊戲影片"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "搜刮粉絲圖片"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "搜刮使用者手冊"
 
 msgid "USERNAME"
 msgstr "使用者名稱"
@@ -678,6 +678,9 @@ msgstr "完成後退出選單"
 
 msgid "USE RETROARCH RGUI MENU"
 msgstr "使用 RGUI 目錄"
+
+msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgstr ""
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自動設定模擬器控制器"
@@ -770,7 +773,7 @@ msgid "MISSING BIOS"
 msgstr "缺少的BIOS"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "多媒體按鍵"
 
 msgid "AUTO"
 msgstr "自動"
@@ -830,7 +833,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動擷取圖片"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "在主選單顯示"
 
 msgid "SETTINGS"
 msgstr "設定"
@@ -896,7 +899,7 @@ msgid "ZFAST"
 msgstr "快速"
 
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "平滑"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整體縮放（像素完美顯示）"
@@ -923,10 +926,10 @@ msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "模擬器進階設定"
 
 msgid "NO MISSING BIOS"
-msgstr "缺少的BIOS"
+msgstr "擁有的BIOS"
 
 msgid "MISSING"
-msgstr "缺少"
+msgstr "遺失"
 
 msgid "INVALID"
 msgstr "無效"
@@ -1105,10 +1108,10 @@ msgid "SYSTEM VOLUME"
 msgstr "系統音量"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "音樂音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "音量變化時螢幕顯示"
+msgstr "音量變化時在螢幕顯示"
 
 msgid "MUSIC"
 msgstr "音樂"
@@ -1180,7 +1183,7 @@ msgid "MANUAL SCRAPER"
 msgstr "手動執行搜刮器"
 
 msgid "QUICK ACCESS"
-msgstr ""
+msgstr "快速訪問"
 
 msgid "SKIP TO NEXT SONG"
 msgstr "跳到下一首歌"
@@ -1189,7 +1192,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr ""
+msgstr "觀看Batocera使用者手冊"
 
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
@@ -1207,7 +1210,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速關機"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "確定不儲存資料直接關機嗎?"
+msgstr "確定不儲存資料就直接關機嗎?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "退出模擬器"
@@ -1299,10 +1302,10 @@ msgid "INVALID PARAMETERS"
 msgstr "無效的參數"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "選擇安裝或刪除邊框"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "未完全安裝邊框"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "連線到網絡遊戲"
@@ -1439,40 +1442,40 @@ msgid "enter path to video"
 msgstr "輸入影片的路徑"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "輸入Logo路徑"
 
 msgid "Box"
-msgstr ""
+msgstr "盒子"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "輸入盒子路徑"
 
 msgid "Fan art"
-msgstr ""
+msgstr "粉絲圖片"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "輸入粉絲圖片路徑"
 
 msgid "Title shot"
-msgstr ""
+msgstr "截圖"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "輸入截圖路徑"
 
 msgid "Manual"
-msgstr ""
+msgstr "使用手冊"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "輸入使用手冊路徑"
 
 msgid "Map"
-msgstr ""
+msgstr "地圖"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "輸入地圖路徑"
 
 msgid "Cartridge"
 msgstr ""
@@ -1646,7 +1649,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "你想啟動 KODI 媒體播放中心嗎?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "跳到製作廠商"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1799,10 +1802,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "遊戲建立日期 (降序)"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "遊戲時間升序"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "遊戲時間將序"
 
 msgid "UPDATE AVAILABLE"
 msgstr "有可用的更新"
@@ -1817,7 +1820,7 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "框架安裝成功"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "更新檔案安裝成功"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr ""
@@ -1894,7 +1897,7 @@ msgid "KEYBOARD"
 msgstr "鍵盤"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
