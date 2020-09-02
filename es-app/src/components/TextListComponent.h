@@ -110,15 +110,14 @@ private:
 	unsigned int mColors[COLOR_ID_COUNT];
 
 	ImageComponent mSelectorImage;
-
-	bool			   mScrollbarEnabled;
+	
 	ScrollbarComponent mScrollbar;
 
 };
 
 template <typename T>
 TextListComponent<T>::TextListComponent(Window* window) :
-	IList<TextListData, T>(window), mSelectorImage(window), mScrollbar(window), mScrollbarEnabled(false)
+	IList<TextListData, T>(window), mSelectorImage(window), mScrollbar(window)
 {
 	mLineCount = -1;
 	mMarqueeOffset = 0;
@@ -269,7 +268,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 
 	GuiComponent::renderChildren(trans);
 
-	if (mScrollbarEnabled)
+	if (mScrollbar.isEnabled())
 	{
 		mScrollbar.setContainerBounds(getPosition(), getSize());
 		mScrollbar.setRange(0, entrySize * mEntries.size(), mSize.y());
@@ -322,8 +321,7 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 template <typename T>
 void TextListComponent<T>::update(int deltaTime)
 {
-	if (mScrollbarEnabled)
-		mScrollbar.update(deltaTime);
+	mScrollbar.update(deltaTime);
 
 	listUpdate(deltaTime);
 
@@ -383,10 +381,9 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 	mMarqueeOffset2 = 0;
 	mMarqueeTime = 0;
 
-	if (mScrollbarEnabled)
-		mScrollbar.onCursorChanged();
+	mScrollbar.onCursorChanged();
 
-	if(mCursorChangedCallback)
+	if (mCursorChangedCallback)
 		mCursorChangedCallback(state);
 }
 
@@ -398,6 +395,8 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "textlist");
 	if(!elem)
 		return;
+
+	mScrollbar.fromTheme(theme, view, element, "textlist");
 
 	using namespace ThemeFlags;
 	if(properties & COLOR)
@@ -417,18 +416,6 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 			setColor(0, elem->get<unsigned int>("primaryColor"));
 		if(elem->has("secondaryColor"))
 			setColor(1, elem->get<unsigned int>("secondaryColor"));
-		
-		if (elem->has("scrollbarColor"))
-		{
-			mScrollbarEnabled = true;
-			mScrollbar.setColor(elem->get<unsigned int>("scrollbarColor"));
-		}
-
-		if (elem->has("scrollbarSize"))
-			mScrollbar.setScrollSize(elem->get<float>("scrollbarSize"));
-
-		if (elem->has("scrollbarCorner"))
-			mScrollbar.setCornerSize(elem->get<float>("scrollbarCorner"));
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));

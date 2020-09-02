@@ -147,15 +147,14 @@ private:
 
 	ScrollDirection mScrollDirection;
 	ImageSource		mImageSource;
-
-	bool			   mScrollbarEnabled;
+	
 	ScrollbarComponent mScrollbar;
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
 };
 
 template<typename T>
-ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData, T>(window), mScrollbar(window), mScrollbarEnabled(false)
+ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData, T>(window), mScrollbar(window)
 {
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -264,8 +263,7 @@ void ImageGridComponent<T>::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if (mScrollbarEnabled)
-		mScrollbar.update(deltaTime);
+	mScrollbar.update(deltaTime);
 
 	listUpdate(deltaTime);
 	
@@ -451,7 +449,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	listRenderTitleOverlay(trans);
 	GuiComponent::renderChildren(trans);
 	
-	if (mScrollbarEnabled && !mScrollLoop)
+	if (mScrollbar.isEnabled() && !mScrollLoop)
 	{
 		float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
 		float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
@@ -492,6 +490,8 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 	GuiComponent::applyTheme(theme, view, element, properties ^ ThemeFlags::SIZE);
 
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	mScrollbar.fromTheme(theme, view, element, "imagegrid");
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "imagegrid");
 	if (elem)
@@ -550,18 +550,6 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 				mScrollDirection = SCROLL_VERTICALLY;
 			}
 		}
-
-		if (elem->has("scrollbarColor"))
-		{
-			mScrollbarEnabled = true;
-			mScrollbar.setColor(elem->get<unsigned int>("scrollbarColor"));
-		}
-
-		if (elem->has("scrollbarSize"))
-			mScrollbar.setScrollSize(elem->get<float>("scrollbarSize"));
-
-		if (elem->has("scrollbarCorner"))
-			mScrollbar.setCornerSize(elem->get<float>("scrollbarCorner"));
 
 		if (elem->has("showVideoAtDelay"))
 		{
@@ -673,8 +661,7 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 		return;
 	}	
 
-	if (mScrollbarEnabled)
-		mScrollbar.onCursorChanged();
+	mScrollbar.onCursorChanged();
 
 	bool direction = mCursor >= mLastCursor;
 

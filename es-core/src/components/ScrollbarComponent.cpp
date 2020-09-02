@@ -1,10 +1,11 @@
 #include "components/ScrollbarComponent.h"
+#include "ThemeData.h"
 
 #define VISIBLE_TIME 1500
 #define FADEOUT_TIME 350
 
-ScrollbarComponent::ScrollbarComponent(Window* window) : GuiComponent(window),
-	mMin(0), mMax(0), mPage(1), mPosition(0), mVisibleTime(0), mFadeOutTime(0), mCornerSize(0.01), mScrollSize(0.008), mColor(0), mVertical(true)
+ScrollbarComponent::ScrollbarComponent(Window* window) : GuiComponent(window), mAlignment(SB_ALIGN_NORMAL),
+	mMin(0), mMax(0), mPage(1), mPosition(0), mVisibleTime(0), mFadeOutTime(0), mCornerSize(0.01), mScrollSize(0.008), mColor(0), mVertical(true), mEnabled(false)
 {
 	
 }
@@ -14,10 +15,27 @@ void ScrollbarComponent::setContainerBounds(Vector3f position, Vector2f size, bo
 	mVertical = vertical;
 
 	if (mVertical)
-	{
+	{		
 		int width = Renderer::getScreenWidth() * mScrollSize;
-		setPosition(position.x() + size.x() - width, position.y());
-		setSize(width, size.y());
+
+		if ((mAlignment & SB_ALIGN_REVERSED)== SB_ALIGN_REVERSED)
+		{
+			if ((mAlignment & SB_ALIGN_OUTER) == SB_ALIGN_OUTER)
+				setPosition(position.x() - width - 2, position.y());
+			else
+				setPosition(position.x(), position.y());
+
+			setSize(width, size.y());
+		}
+		else
+		{
+			if ((mAlignment & SB_ALIGN_OUTER) == SB_ALIGN_OUTER)
+				setPosition(position.x() + size.x() + 2, position.y());
+			else
+				setPosition(position.x() + size.x() - width, position.y());
+
+			setSize(width, size.y());
+		}
 	}
 	else
 	{
@@ -30,6 +48,9 @@ void ScrollbarComponent::setContainerBounds(Vector3f position, Vector2f size, bo
 
 void ScrollbarComponent::onCursorChanged()
 {
+	if (!mEnabled)
+		return;
+
 	mVisible = true;	
 	mVisibleTime = VISIBLE_TIME;
 	mFadeOutTime = 0;
@@ -47,6 +68,9 @@ void ScrollbarComponent::setScrollPosition(float position)
 void ScrollbarComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	if (!mEnabled)
+		return;
 
 	if (mFadeOutTime > 0)
 	{
@@ -72,7 +96,7 @@ void ScrollbarComponent::update(int deltaTime)
 
 void ScrollbarComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!mVisible || mMin == mMax || mColor == 0)
+	if (!mEnabled || !mVisible || mMin == mMax || mColor == 0)
 		return;
 
 	if (mPage >= mMax)
@@ -122,6 +146,38 @@ void ScrollbarComponent::render(const Transform4x4f& parentTrans)
 			Renderer::drawRect(top, 0, bottom - top, mSize.y(), color);
 		else
 			Renderer::drawRoundRect(top, 0, bottom - top, mSize.y(), radius, color);
+	}
+}
+
+void ScrollbarComponent::fromTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, const std::string& containerType)
+{
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, containerType);
+	if (!elem)
+		return;
+	
+	if (elem->has("scrollbarColor"))
+	{
+		mEnabled = true;
+		setColor(elem->get<unsigned int>("scrollbarColor"));
+	}
+
+	if (elem->has("scrollbarSize"))
+		setScrollSize(elem->get<float>("scrollbarSize"));
+
+	if (elem->has("scrollbarCorner"))
+		setCornerSize(elem->get<float>("scrollbarCorner"));
+
+	mAlignment = SB_ALIGN_NORMAL;
+
+	if (elem->has("scrollbarAlignment"))
+	{
+		const std::string& str = elem->get<std::string>("scrollbarAlignment");
+
+		if (str.find("left") != std::string::npos || str.find("top") != std::string::npos || str.find("reversed") != std::string::npos)
+			mAlignment = SB_ALIGN_REVERSED;
+		
+		if (str.find("outer") != std::string::npos)
+			mAlignment = mAlignment | SB_ALIGN_OUTER;
 	}
 
 }

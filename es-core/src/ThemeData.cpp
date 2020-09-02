@@ -64,6 +64,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
+		{ "scrollbarImagePath", PATH },
 
 		{ "centerSelection", STRING },
 		{ "scrollLoop", BOOLEAN } } },
@@ -130,6 +131,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
+		{ "scrollbarAlignment", STRING },		
 
 		{ "zIndex", FLOAT } } },
 	{ "container", {
