@@ -85,7 +85,7 @@ void ScraperSearchHandle::update()
 		if (status == ASYNC_DONE)
 		{
 			// If we have results, exit, else process the next request
-			if (getResults().size() > 0)
+			if (mResults.size() > 0)
 			{
 				while (!mRequestQueue.empty())
 					mRequestQueue.pop();
