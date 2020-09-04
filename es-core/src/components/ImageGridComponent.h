@@ -459,8 +459,8 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 		int col = (mStartPosition / dimOpposite);
 		int totalCols = ((Math::max(0, mEntries.size() - 1)) / dimOpposite);
 
-		auto pos = getPosition();
-		auto sz = getSize();
+		Vector3f pos = GuiComponent::getPosition();
+		Vector2f sz = GuiComponent::getSize();
 
 		if (isVertical())
 		{
