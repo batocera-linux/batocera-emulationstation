@@ -270,7 +270,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 
 	if (mScrollbar.isEnabled())
 	{
-		mScrollbar.setContainerBounds(getPosition(), getSize());
+		mScrollbar.setContainerBounds(GuiComponent::getPosition(), GuiComponent::getSize());
 		mScrollbar.setRange(0, entrySize * mEntries.size(), mSize.y());
 		mScrollbar.setScrollPosition(startEntry * entrySize);
 		mScrollbar.render(parentTrans);
