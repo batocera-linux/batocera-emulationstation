@@ -32,7 +32,7 @@ msgid "COLLECTIONS TO DISPLAY"
 msgstr "要显示的合辑"
 
 msgid "GROUPED SYSTEMS"
-msgstr ""
+msgstr "系统分组"
 
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "创建自定合辑"
@@ -218,16 +218,16 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "视频静音"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr ""
+msgstr "使用自定视频"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr ""
+msgstr "自定视频路径"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
+msgstr "自定义视频目录递归"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgstr "自定义视频过滤器"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "正在抓取元数据"
@@ -386,16 +386,16 @@ msgid "OTHER FILTERS"
 msgstr "其他筛选器"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "游戏媒体"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "阅读游戏手册"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "阅读游戏地图"
 
 msgid "COLLECTION"
-msgstr "集合"
+msgstr "合辑"
 
 msgid "DELETE COLLECTION"
 msgstr "删除合辑"
@@ -434,7 +434,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的信息"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "重置筛选"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
@@ -443,7 +443,7 @@ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 msgstr "这项功能在抓取进行时禁用"
 
 msgid "ARE YOU SURE ?"
-msgstr "确定吗"
+msgstr "确定吗？"
 
 msgid "fade"
 msgstr "淡出"
@@ -476,7 +476,7 @@ msgid "Cpu number"
 msgstr "CPU 序列号"
 
 msgid "Cpu max frequency"
-msgstr ""
+msgstr "CPU最大频率"
 
 msgid "Cpu feature"
 msgstr "CPU 特征"
@@ -557,7 +557,7 @@ msgid "BOX 3D"
 msgstr "3D 盒子"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "同人作品"
 
 msgid "BOX SOURCE"
 msgstr "封面数据"
@@ -581,10 +581,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "抓取视频"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "抓取同人作品"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "抓取手册"
 
 msgid "USERNAME"
 msgstr "用户名"
@@ -677,7 +677,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "使用 RETROARCH 的用户界面菜单"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "在EMULATIONSTATION中切换 A/B 按键"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自动配置模拟的控制设备"
@@ -770,7 +770,7 @@ msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "多媒体功能键"
 
 msgid "AUTO"
 msgstr "自动"
@@ -830,10 +830,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "在主菜单中显示"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "设置"
 
 msgid "ENABLE NETPLAY"
 msgstr "启用联网游戏"
@@ -1073,7 +1073,7 @@ msgid "TRANSITION STYLE"
 msgstr "画面转场样式"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "游戏启动过程"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1106,7 +1106,7 @@ msgid "SYSTEM VOLUME"
 msgstr "系统音量"
 
 msgid "MUSIC VOLUME"
-msgstr ""
+msgstr "音乐音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "音量变化时屏幕提示"
@@ -1181,7 +1181,7 @@ msgid "MANUAL SCRAPER"
 msgstr "手动抓取游戏数据"
 
 msgid "QUICK ACCESS"
-msgstr ""
+msgstr "快速进入"
 
 msgid "SKIP TO NEXT SONG"
 msgstr "切换到下一首"
@@ -1190,7 +1190,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr ""
+msgstr "查看BATOCERA手册"
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -1301,10 +1301,10 @@ msgid "INVALID PARAMETERS"
 msgstr "参数无效"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "选择BEZELS安装 / 卸载"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS卸载成功"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "联网游戏"
@@ -1444,19 +1444,19 @@ msgid "Logo"
 msgstr ""
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "输入LOGO路径"
 
 msgid "Box"
-msgstr ""
+msgstr "盒子"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "输入盒子路径"
 
 msgid "Fan art"
-msgstr ""
+msgstr "同人作品"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "输入同人作品路径"
 
 msgid "Title shot"
 msgstr ""
@@ -1465,16 +1465,16 @@ msgid "enter path to title shot"
 msgstr ""
 
 msgid "Manual"
-msgstr ""
+msgstr "手册"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "输入手册路径"
 
 msgid "Map"
-msgstr ""
+msgstr "地图"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "输入地图路径"
 
 msgid "Cartridge"
 msgstr ""
@@ -1648,7 +1648,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "是否启动 KODI 媒体中心?"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "访问制造商"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1801,10 +1801,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "文件创建日期，降序"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "游戏时间，升序"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "游戏时间，降序"
 
 msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
@@ -1819,10 +1819,10 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "框架安装成功"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "包安装成功"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "包卸载成功"
 
 msgid "HASHING GAMES"
 msgstr "校验游戏"
