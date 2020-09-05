@@ -686,7 +686,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
