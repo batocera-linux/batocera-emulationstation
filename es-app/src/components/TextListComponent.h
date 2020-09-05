@@ -8,6 +8,7 @@
 #include "Log.h"
 #include "Sound.h"
 #include <memory>
+#include "components/ScrollbarComponent.h"
 
 class TextCache;
 
@@ -109,11 +110,14 @@ private:
 	unsigned int mColors[COLOR_ID_COUNT];
 
 	ImageComponent mSelectorImage;
+	
+	ScrollbarComponent mScrollbar;
+
 };
 
 template <typename T>
-TextListComponent<T>::TextListComponent(Window* window) : 
-	IList<TextListData, T>(window), mSelectorImage(window)
+TextListComponent<T>::TextListComponent(Window* window) :
+	IList<TextListData, T>(window), mSelectorImage(window), mScrollbar(window)
 {
 	mLineCount = -1;
 	mMarqueeOffset = 0;
@@ -176,11 +180,14 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	// draw selector bar
 	if(startEntry < listCutoff)
 	{
-		if (mSelectorImage.hasImage()) {
+		if (mSelectorImage.hasImage()) 
+		{
 			mSelectorImage.setPosition(0.f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, 0.f);
 			mSelectorImage.render(trans);
-		} else {
-			Renderer::setMatrix(trans);
+		} 
+		else 
+		{
+			Renderer::setMatrix(trans);			
 			Renderer::drawRect(0.0f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, mSize.x(),
 					mSelectorHeight, mSelectorColor, mSelectorColorEnd, mSelectorColorGradientHorizontal);
 		}
@@ -260,6 +267,14 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	listRenderTitleOverlay(trans);
 
 	GuiComponent::renderChildren(trans);
+
+	if (mScrollbar.isEnabled())
+	{
+		mScrollbar.setContainerBounds(GuiComponent::getPosition(), GuiComponent::getSize());
+		mScrollbar.setRange(0, entrySize * mEntries.size(), mSize.y());
+		mScrollbar.setScrollPosition(startEntry * entrySize);
+		mScrollbar.render(parentTrans);
+	}
 }
 
 template <typename T>
@@ -318,6 +333,8 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 template <typename T>
 void TextListComponent<T>::update(int deltaTime)
 {
+	mScrollbar.update(deltaTime);
+
 	listUpdate(deltaTime);
 
 	if(!isScrolling() && size() > 0)
@@ -376,7 +393,9 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 	mMarqueeOffset2 = 0;
 	mMarqueeTime = 0;
 
-	if(mCursorChangedCallback)
+	mScrollbar.onCursorChanged();
+
+	if (mCursorChangedCallback)
 		mCursorChangedCallback(state);
 }
 
@@ -388,6 +407,8 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "textlist");
 	if(!elem)
 		return;
+
+	mScrollbar.fromTheme(theme, view, element, "textlist");
 
 	using namespace ThemeFlags;
 	if(properties & COLOR)

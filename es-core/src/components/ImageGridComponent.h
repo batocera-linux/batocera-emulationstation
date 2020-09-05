@@ -11,6 +11,7 @@
 #include "Sound.h"
 #include <algorithm>
 #include "LocaleES.h"
+#include "components/ScrollbarComponent.h"
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::getInstance()->getString("TransitionStyle") != "instant")
@@ -146,12 +147,14 @@ private:
 
 	ScrollDirection mScrollDirection;
 	ImageSource		mImageSource;
+	
+	ScrollbarComponent mScrollbar;
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
 };
 
 template<typename T>
-ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData, T>(window)
+ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData, T>(window), mScrollbar(window)
 {
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -274,6 +277,9 @@ template<typename T>
 void ImageGridComponent<T>::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	mScrollbar.update(deltaTime);
+
 	listUpdate(deltaTime);
 	
 	for(auto it = mTiles.begin(); it != mTiles.end(); it++)
@@ -457,6 +463,36 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 
 	listRenderTitleOverlay(trans);
 	GuiComponent::renderChildren(trans);
+	
+	if (mScrollbar.isEnabled() && !mScrollLoop)
+	{
+		float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
+		float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
+		if (dimOpposite == 0)
+			dimOpposite = 1;
+
+		int col = (mStartPosition / dimOpposite);
+		int totalCols = ((Math::max(0, mEntries.size() - 1)) / dimOpposite);
+
+		Vector3f pos = GuiComponent::getPosition();
+		Vector2f sz = GuiComponent::getSize();
+
+		if (isVertical())
+		{
+			pos.y() += mPadding.y();
+			sz.y() -= mPadding.y() + mPadding.w();
+		}
+		else
+		{
+			pos.x() += mPadding.x();
+			sz.x() -= mPadding.x() + mPadding.z();
+		}
+
+		mScrollbar.setContainerBounds(pos, sz, isVertical());
+		mScrollbar.setRange(0, totalCols, dimScrollable);
+		mScrollbar.setScrollPosition(col);
+		mScrollbar.render(parentTrans);		
+	}
 }
 
 template<typename T>
@@ -469,6 +505,8 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 	GuiComponent::applyTheme(theme, view, element, properties ^ ThemeFlags::SIZE);
 
 	Vector2f screen = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	mScrollbar.fromTheme(theme, view, element, "imagegrid");
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "imagegrid");
 	if (elem)
@@ -637,7 +675,9 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 
 		return;
 	}	
-		
+
+	mScrollbar.onCursorChanged();
+
 	bool direction = mCursor >= mLastCursor;
 
 	int diff = direction ? mCursor - mLastCursor : mLastCursor - mCursor;

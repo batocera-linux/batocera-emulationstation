@@ -327,13 +327,16 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 			// remove from index, so we can re-index metadata after refreshing
 			curSys->removeFromIndex(collectionEntry);
 			collectionEntry->refreshMetadata();
+			
 			// found and we are removing
-			if (name == "favorites" && file->getMetadata(MetaDataId::Favorite) == "false") 
+			if (name == "favorites" && !file->getFavorite()) 
 			{
 				// need to check if still marked as favorite, if not remove
 				auto view = ViewController::get()->getGameListView(curSys, false);
 				if (view != nullptr)
 					view.get()->remove(collectionEntry);
+				else
+					delete collectionEntry;
 
 				// Send an event when removing from favorites
 				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
@@ -403,10 +406,10 @@ void CollectionSystemManager::trimCollectionCount(FolderData* rootFolder, int li
 	while ((int)childs.size() > limit)
 	{
 		CollectionFileData* gameToRemove = (CollectionFileData*)childs.back();
-		if (listView == nullptr)
-			delete gameToRemove;
-		else
+		if (listView != nullptr)
 			listView.get()->remove(gameToRemove);
+		else
+			delete gameToRemove;
 	}
 }
 
@@ -439,6 +442,8 @@ void CollectionSystemManager::deleteCollectionFiles(FileData* file)
 		auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
 		if (view != nullptr)
 			view.get()->remove(collectionEntry);		
+		else
+			delete collectionEntry;		
 	}
 }
 
@@ -603,6 +608,8 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 				auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
 				if (view != nullptr)
 					view.get()->remove(collectionEntry);
+				else
+					delete collectionEntry;
 			}
 			else
 			{
@@ -627,13 +634,12 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 		{
 			SystemData* sysData = file->getSourceFileData()->getSystem();
 			sysData->removeFromIndex(file);
-
+			
 			MetaDataList* md = &file->getSourceFileData()->getMetadata();
-			std::string value = md->get("favorite");
-			if (value == "false")
-			{
+			
+			std::string value = md->get(MetaDataId::Favorite);
+			if (value != "true")
 				md->set("favorite", "true");
-			}
 			else
 			{
 				adding = false;
