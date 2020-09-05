@@ -35,7 +35,7 @@ msgid "GROUPED SYSTEMS"
 msgstr ""
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr ""
+msgstr "创建自定合辑"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "从主题创建新的自定合辑"
@@ -59,19 +59,19 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "对无主题的自定合辑进行分组"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "合辑和系统分类"
 
 msgid "NO"
 msgstr "否"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "按字母排序"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "由生产商提供"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "系统分类"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
@@ -116,23 +116,23 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "正在查询WIFI网络"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "主题下载"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "选择主题安装 / 卸载"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "更新"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "将 '%s' 添加到下载队列"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "卸载"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "主题卸载成功"
 
 msgid "AN ERROR OCCURED"
 msgstr "出现错误"
@@ -145,11 +145,11 @@ msgstr "关闭"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "当前主题"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "当前下载排队"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "图像替换 (SECS)"
@@ -179,19 +179,19 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "自定图像筛选"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "下载内容"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "选择内容以便安装 / 卸载"
 
 msgid "PLEASE WAIT"
 msgstr "请稍后"
 
 msgid "MISC"
-msgstr ""
+msgstr "杂项"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "添加卸载到队伍"
 
 msgid "FINISHED"
 msgstr "完成"
