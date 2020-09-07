@@ -57,64 +57,64 @@ msgid "enter path to video"
 msgstr "ادخل المسار للفيديو"
 
 msgid "Logo"
-msgstr ""
+msgstr "الشعار"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "ادخل المسار للشعار"
 
 msgid "Box"
-msgstr ""
+msgstr "غلاف"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "ادخل المسار للغلاف"
 
 msgid "Fan art"
-msgstr ""
+msgstr "الغلاف"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "ادخل المسار للغلاف"
 
 msgid "Title shot"
-msgstr ""
+msgstr "لقطة العنوان"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "ادخل المسار للقطة العنوان"
 
 msgid "Manual"
-msgstr ""
+msgstr "دليل الاستخدام"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "ادخل المسار لدليل الاستخدام"
 
 msgid "Map"
-msgstr ""
+msgstr "خريطة"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "ادخل المسار للخريطة"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "كاتردج"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "ادخل المسار للكاتردج"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "غلاف احتياطي"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "ادخل المسار للغلاف الاحتياطي"
 
 msgid "Wheel"
-msgstr ""
+msgstr "عجلة"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "ادخل المسار للعجلة"
 
 msgid "Mix"
-msgstr ""
+msgstr "دمج"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "ادخل المسار للدمج"
 
 msgid "Rating"
 msgstr "التقييم"
@@ -303,19 +303,19 @@ msgid "AN ERROR OCCURED"
 msgstr "حدث خطأ ما"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "تم حذف السمة بنجاح"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "تم تثبيت البرواز بنجاح"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "تم حذف البرواز بنجاح"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "تم تثبيت الحزمة بنجاح"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "تم حذف الحزمة بنجاح"
 
 msgid "FILTER GAMELIST BY"
 msgstr "فرز قائمة الألعاب حسب"
@@ -378,16 +378,16 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "جمع المجموعات المخصصه الغير موسومه"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "ترتيب المجموعات والانظمة"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "أبجدياً"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "حسب المطور"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "ترتيب الانظمة"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "قم بعرض اسم النظام في المجموعة"
@@ -444,13 +444,13 @@ msgid "OTHER FILTERS"
 msgstr "تصفيات أخرى"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "وسائط اللعبة"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "مشاهدة دليل اللعب"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "مشاهدة خريطة اللعبة"
 
 msgid "COLLECTION"
 msgstr "مجموعة"
@@ -492,7 +492,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل البيانات الوصفية لهذه اللعبة"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "الغاء التصنيفات"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "فرز الألعاب حسب"
@@ -572,17 +572,17 @@ msgstr "قم بالتثبيت"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "حالياً في انتظار التحميل"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "محمل السمات"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "اختر السمات التي تريد تثبيتها / حذفها"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "السمة الحالية"
 
 msgid "go back"
 msgstr "الرجوع"
@@ -627,16 +627,16 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "فرز الصور المخصصة"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "محمل المحتوى"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "اختر محتوى لتثبيته / حذفه"
 
 msgid "MISC"
-msgstr ""
+msgstr "متفرقات"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "الغاء التثبيت تمت اضافته الى الانتظار"
 
 msgid "SCREENSAVER AFTER"
 msgstr "شاشة التوقف بعد"
@@ -817,16 +817,16 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "صوت الفيديو صامت"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr ""
+msgstr "استخدام فيديوهات مخصصة"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr ""
+msgstr "مكان الفيديوهات المخصصة"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
+msgstr "مكان الفيديوهات المخصصة المكرر"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgstr "تصفية الفيديوهات المخصصة"
 
 msgid "fade"
 msgstr "تلاشي"
@@ -847,7 +847,7 @@ msgid "Temperature"
 msgstr "الحرارة"
 
 msgid "Available memory"
-msgstr ""
+msgstr "الذاكرة المتوفرة"
 
 msgid "Battery"
 msgstr "البطارية"
@@ -859,7 +859,7 @@ msgid "Cpu number"
 msgstr "عدد المعالجة"
 
 msgid "Cpu max frequency"
-msgstr ""
+msgstr "تردد المعالج الأقصى"
 
 msgid "Cpu feature"
 msgstr "ميزة المعالج"
@@ -907,7 +907,7 @@ msgid "QUIT"
 msgstr "خروج"
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "الكاشط"
 
 msgid "SCRAPE FROM"
 msgstr "كشط من "
@@ -934,7 +934,7 @@ msgid "BOX 3D"
 msgstr "صندوق ثلاثي البعد"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "غلاف الجماهير"
 
 msgid "BOX SOURCE"
 msgstr "مصدر الصندوق"
@@ -958,10 +958,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "كشط عن فيديو"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "كشط غلاف الجماهير"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "الكشط اليدوي"
 
 msgid "USERNAME"
 msgstr "اسم المستخدم"
@@ -1141,7 +1141,7 @@ msgid "MISSING BIOS"
 msgstr "الـ BIOS المفقودة"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "ازرار الوسائط المتعددة"
 
 msgid "AUTO"
 msgstr "تلقائي"
@@ -1204,7 +1204,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 
 msgid "SHOW IN MAIN MENU"
-msgstr ""
+msgstr "الاظهار في الواجهة الرئيسية"
 
 msgid "SETTINGS"
 msgstr "إعدادات"
@@ -1258,7 +1258,7 @@ msgid "SCANLINES"
 msgstr "خطوط المسح"
 
 msgid "RETRO"
-msgstr "المرجعية"
+msgstr "قديم"
 
 msgid "ENHANCED"
 msgstr "تحسين"
@@ -1550,7 +1550,7 @@ msgid "MANUAL SCRAPER"
 msgstr "كشط يدوي"
 
 msgid "QUICK ACCESS"
-msgstr ""
+msgstr "الوصول السريع"
 
 msgid "SKIP TO NEXT SONG"
 msgstr "انتقل إلى الأغنية التالية"
@@ -1559,7 +1559,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr ""
+msgstr "اظهار دليل استخدام Batocera"
 
 msgid "RESTART SYSTEM"
 msgstr "إعادة تشغيل النظام"
@@ -1656,7 +1656,7 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "هل تريد بدء مشغل الوسائط KODI ؟"
 
 msgid "GO TO MANUFACTURER"
-msgstr ""
+msgstr "إذهب الى المصنّع"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1827,10 +1827,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "تاريخ انشاء الملف, تنازلي"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "وقت اللعب , تصاعدي"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "وقت اللعب , تنازلي"
 
 msgid "Extracting"
 msgstr "استخراج"
