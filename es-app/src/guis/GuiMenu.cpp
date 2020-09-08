@@ -3215,7 +3215,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 	}
 #endif
 
-	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUIT") : _("QUICK ACCESS")).c_str());
+	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
 	if (quickAccessMenu)
