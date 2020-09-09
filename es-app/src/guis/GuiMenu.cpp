@@ -832,7 +832,8 @@ void GuiMenu::openUpdatesSettings()
 	
 	updatesTypeList->add("stable", "stable", updatesType == "stable");
 	updatesTypeList->add("beta", "beta", updatesType != "stable");
-
+	
+	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
 	updatesTypeList->setSelectedChangedCallback([](std::string name)
 	{
 		if (SystemConf::getInstance()->set("updates.type", name))
