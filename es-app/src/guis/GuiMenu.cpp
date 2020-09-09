@@ -833,11 +833,11 @@ void GuiMenu::openUpdatesSettings()
 	updatesTypeList->add("stable", "stable", updatesType == "stable");
 	updatesTypeList->add("beta", "beta", updatesType != "stable");
 
-	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
-	updateGui->addSaveFunc([updatesTypeList]
+	updatesTypeList->setSelectedChangedCallback([](std::string name)
 	{
-		SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
-	});
+		if (SystemConf::getInstance()->set("updates.type", name))
+			SystemConf::getInstance()->saveSystemConf();
+	});	
 
 	// Start update
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
