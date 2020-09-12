@@ -8,7 +8,7 @@
 #endif
 
 #if defined(__linux__)
-#if defined(_RPI_) || defined(_VERO4K_)
+#if defined(_RPI_) || defined(_VERO4K_) || defined(_ENABLEEMUELEC)
 		std::string VolumeControl::mixerName = "PCM";
 #else
 		std::string VolumeControl::mixerName = "Master";
