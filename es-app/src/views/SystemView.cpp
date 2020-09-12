@@ -971,8 +971,8 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 		comp->render(logoTrans);
 	};
 
-	int activePos = mCursor;
-	
+
+	std::vector<int> activePositions;
 	for (int i = center - logoCount / 2 + bufferLeft; i <= center + logoCount / 2 + bufferRight; i++)
 	{
 		int index = i % (int)mEntries.size();
@@ -980,12 +980,13 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			index += (int)mEntries.size();
 	
 		if (index == mCursor)
-			activePos = i;
+			activePositions.push_back(i);
 		else
 			renderLogo(i);
 	}
 	
-	renderLogo(activePos);
+	for (auto activePos : activePositions)
+		renderLogo(activePos);
 
 	Renderer::popClipRect();
 }

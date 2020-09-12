@@ -1122,12 +1122,13 @@ void GuiMenu::openUpdatesSettings()
 	
 	updatesTypeList->add("stable", "stable", updatesType == "stable");
 	updatesTypeList->add("beta", "beta", updatesType != "stable");
-
+	
 	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
-	updateGui->addSaveFunc([updatesTypeList]
+	updatesTypeList->setSelectedChangedCallback([](std::string name)
 	{
-		SystemConf::getInstance()->set("updates.type", updatesTypeList->getSelected());
-	});
+		if (SystemConf::getInstance()->set("updates.type", name))
+			SystemConf::getInstance()->saveSystemConf();
+	});	
 #endif
 	// Start update
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
@@ -3573,7 +3574,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 	}
 #endif
 
-	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUIT") : _("QUICK ACCESS")).c_str());
+	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
 	if (quickAccessMenu)

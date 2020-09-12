@@ -8,12 +8,12 @@
 #endif
 
 #if defined(__linux__)
-    #if defined(_RPI_) || defined(_VERO4K_)
-        const char * VolumeControl::mixerName = "PCM";
-    #else
-    	const char * VolumeControl::mixerName = "Master";
-    #endif
-    const char * VolumeControl::mixerCard = "default";
+#if defined(_RPI_) || defined(_VERO4K_)
+		std::string VolumeControl::mixerName = "PCM";
+#else
+		std::string VolumeControl::mixerName = "Master";
+#endif
+	std::string VolumeControl::mixerCard = "default";
 #endif
 
 std::weak_ptr<VolumeControl> VolumeControl::sInstance;
@@ -89,22 +89,22 @@ void VolumeControl::init()
 		// Allow users to override the AudioCard and MixerName in es_settings.cfg
 		auto audioCard = Settings::getInstance()->getString("AudioCard");
 		if (!audioCard.empty())
-		  mixerCard = audioCard.c_str();
+			mixerCard = audioCard;
 
 		auto audioDevice = Settings::getInstance()->getString("AudioDevice");
 		if (!audioDevice.empty())
-		  mixerName = audioDevice.c_str();
+			mixerName = audioDevice;
 
 		snd_mixer_selem_id_alloca(&mixerSelemId);
 		//sets simple-mixer index and name
 		snd_mixer_selem_id_set_index(mixerSelemId, mixerIndex);
-		snd_mixer_selem_id_set_name(mixerSelemId, mixerName);
+		snd_mixer_selem_id_set_name(mixerSelemId, mixerName.c_str());
 		//open mixer
 		if (snd_mixer_open(&mixerHandle, 0) >= 0)
 		{
 			LOG(LogDebug) << "VolumeControl::init() - Opened ALSA mixer";
 			//ok. attach to defualt card
-			if (snd_mixer_attach(mixerHandle, mixerCard) >= 0)
+			if (snd_mixer_attach(mixerHandle, mixerCard.c_str()) >= 0)
 			{
 				LOG(LogDebug) << "VolumeControl::init() - Attached to default card";
 				//ok. register simple element class
@@ -124,9 +124,39 @@ void VolumeControl::init()
 						}
 						else
 						{
-							LOG(LogError) << "VolumeControl::init() - Failed to find mixer elements!";
-							snd_mixer_close(mixerHandle);
-							mixerHandle = nullptr;
+							LOG(LogInfo) << "VolumeControl::init() - Unable to find mixer " << mixerName << " -> Search for alternative mixer";
+
+							snd_mixer_selem_id_t *mxid = nullptr;
+							snd_mixer_selem_id_alloca(&mxid);
+
+							for (snd_mixer_elem_t* mxe = snd_mixer_first_elem(mixerHandle); mxe != nullptr; mxe = snd_mixer_elem_next(mxe))
+							{
+								if (snd_mixer_selem_has_playback_volume(mxe) != 0 && snd_mixer_selem_is_active(mxe) != 0)
+								{
+									snd_mixer_selem_get_id(mxe, mxid);
+									mixerName = snd_mixer_selem_id_get_name(mxid);
+
+									LOG(LogInfo) << "mixername : " << mixerName;
+
+									snd_mixer_selem_id_set_name(mixerSelemId, mixerName.c_str());
+									mixerElem = snd_mixer_find_selem(mixerHandle, mixerSelemId);
+									if (mixerElem != nullptr)
+									{
+										//wohoo. good to go...
+										LOG(LogDebug) << "VolumeControl::init() - Mixer initialized";
+										break;
+									}
+									else
+										LOG(LogDebug) << "VolumeControl::init() - Mixer not initialized";
+								}
+							}
+
+							if (mixerElem == nullptr)
+							{
+								LOG(LogError) << "VolumeControl::init() - Failed to find mixer elements!";
+								snd_mixer_close(mixerHandle);
+								mixerHandle = nullptr;
+							}
 						}
 					}
 					else
@@ -237,7 +267,7 @@ void VolumeControl::deinit()
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	if (mixerHandle != nullptr) {
-		snd_mixer_detach(mixerHandle, mixerCard);
+		snd_mixer_detach(mixerHandle, mixerCard.c_str());
 		snd_mixer_free(mixerHandle);
 		snd_mixer_close(mixerHandle);
 		mixerHandle = nullptr;
