@@ -393,6 +393,7 @@
 <device>m68705p3</device>
 <device>m68705p5</device>
 <device>m68705r3</device>
+<device>m68705u</device>
 <device>m68705u3</device>
 <device>mach64</device>
 <device>mach64isa</device>
@@ -436,6 +437,8 @@
 <device>namco53</device>
 <device>namco54</device>
 <device>namco62</device>
+<device>namcoc65</device>
+<device>namcoc68</device>
 <device>namcoc69</device>
 <device>namcoc70</device>
 <device>namcoc74</device>
@@ -499,6 +502,7 @@
 <device>premier_fdc</device>
 <device>psx_cd</device>
 <device>psxgboost</device>
+<device>px320a</device>
 <device>ql_cumanafdi</device>
 <device>ql_gold</device>
 <device>ql_kdi</device>
@@ -520,6 +524,7 @@
 <device>ql_trump512</device>
 <device>ql_trump768</device>
 <device>qsound</device>
+<device>qsound_hle</device>
 <device>racedriv_board</device>
 <device>racedrivb1_board</device>
 <device>racedrivc_board</device>
@@ -554,6 +559,7 @@
 <device>sed1200db</device>
 <device>sed1200fa</device>
 <device>sed1200fb</device>
+<device>segabill</device>
 <device>segadimm</device>
 <device>seganetw</device>
 <device>serbox</device>
