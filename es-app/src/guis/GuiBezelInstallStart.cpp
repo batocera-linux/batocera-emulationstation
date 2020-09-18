@@ -9,28 +9,74 @@
 #include "LocaleES.h"
 #include "ContentInstaller.h"
 #include "components/MultiLineMenuEntry.h"
+#include "GuiLoading.h"
 #include <cstring>
+#include "SystemConf.h"
 
 #define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
 
 GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
-	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str())
+	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
 	mMenu.setSubTitle(_("SELECT BEZELS TO INSTALL / REMOVE"));
     mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	loadBezels();	
+	centerWindow();
+
+	ContentInstaller::RegisterNotify(this);
 }
 
-void GuiBezelInstallStart::loadBezels()
+GuiBezelInstallStart::~GuiBezelInstallStart()
+{
+	ContentInstaller::UnregisterNotify(this);
+}
+
+void GuiBezelInstallStart::OnContentInstalled(int contentType, std::string contentName, bool success)
+{
+	if (contentType == ContentInstaller::CONTENT_BEZEL_INSTALL && success)
+	{
+		// When installed, set thebezelproject as default decorations for the system
+		auto current = SystemConf::getInstance()->get(contentName + ".bezel");
+		if (current == "" || current == "AUTO")
+			SystemConf::getInstance()->set(contentName + ".bezel", "thebezelproject");
+	}
+	else if (contentType == ContentInstaller::CONTENT_BEZEL_UNINSTALL && success)
+	{
+		// When uninstalled, set "auto" as default decorations for the system, if it was thebezelproject before
+		auto current = SystemConf::getInstance()->get(contentName + ".bezel");
+		if (current == "thebezelproject")
+			SystemConf::getInstance()->set(contentName + ".bezel", "");
+	}
+
+	if (contentType == ContentInstaller::CONTENT_BEZEL_INSTALL || contentType == ContentInstaller::CONTENT_BEZEL_UNINSTALL)
+		mReloadList = 2;
+}
+
+void GuiBezelInstallStart::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mReloadList != 0)
+	{
+		bool silent = (mReloadList == 2);
+
+		mReloadList = 0;
+
+		if (silent)
+			loadList();
+		else
+			loadBezelsAsync();
+	}
+}
+
+void GuiBezelInstallStart::loadList()
 {
 	int idx = mMenu.getCursorIndex();
 	mMenu.clear();
 
 	int i = 0;
-	auto bezels = ApiSystem::getInstance()->getBatoceraBezelsList();
-	for (auto bezel : bezels)
+	for (auto bezel : mBezels)
 	{
 		ComponentListRow row;
 
@@ -45,6 +91,24 @@ void GuiBezelInstallStart::loadBezels()
 	}
 
 	centerWindow();
+	mReloadList = 0;
+}
+
+void GuiBezelInstallStart::loadBezelsAsync()
+{
+	Window* window = mWindow;
+
+	mWindow->pushGui(new GuiLoading<std::vector<BatoceraBezel>>(mWindow, _("PLEASE WAIT"),
+		[this]
+	{
+		return ApiSystem::getInstance()->getBatoceraBezelsList();
+	},
+		[this](std::vector<BatoceraBezel> bezels)
+	{
+		mBezels = bezels;
+		loadList();
+	}
+	));
 }
 
 void GuiBezelInstallStart::centerWindow()
@@ -75,10 +139,9 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+			mReloadList = 2;
 
-			auto pThis = this;
 			msgBox->close();
-			pThis->loadBezels();
 		});
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, bezel]
@@ -93,9 +156,8 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 				mWindow->displayNotificationMessage(_U("\uF019 ") + error);
 			}
 
-			auto pThis = this;
+			mReloadList = 2;
 			msgBox->close();
-			pThis->loadBezels();
 		});
 	}
 	else
@@ -107,10 +169,9 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
+			mReloadList = 2;
 
-			auto pThis = this;
 			msgBox->close();
-			pThis->loadBezels();
 		});
 	}
 
@@ -140,12 +201,11 @@ bool GuiBezelInstallStart::input(InputConfig* config, Input input)
 
 std::vector<HelpPrompt> GuiBezelInstallStart::getHelpPrompts()
 {
-        std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
-        prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-        prompts.push_back(HelpPrompt("start", _("CLOSE")));
+	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt("start", _("CLOSE")));
 	return prompts;
 }
-
 
 //////////////////////////////////////////////////////////////
 // GuiBatoceraStoreEntry

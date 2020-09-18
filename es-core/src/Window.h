@@ -150,7 +150,6 @@ private:
 
 	bool mRenderedHelpPrompts;
 
-	GuiComponent* mTransiting;
 	int mTransitionOffset;
 };
 

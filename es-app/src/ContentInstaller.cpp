@@ -11,6 +11,7 @@ ContentInstaller*						ContentInstaller::mInstance = nullptr;
 std::mutex								ContentInstaller::mLock;
 std::list<std::pair<int, std::string>>	ContentInstaller::mQueue;
 std::list<std::pair<int, std::string>>	ContentInstaller::mProcessingQueue;
+std::list<IContentInstalledNotify*>		ContentInstaller::mNotification;
 
 void ContentInstaller::Enqueue(Window* window, ContentType type, const std::string contentName)
 {
@@ -106,11 +107,11 @@ void ContentInstaller::threadUpdate()
 {
 	mCurrent = 0;
 
+	// Wait for an event to say there is something in the queue
+	std::unique_lock<std::mutex> lock(mLock);
+
 	while (true)
 	{
-		// Wait for an event to say there is something in the queue
-		std::unique_lock<std::mutex> lock(mLock);
-
 		if (mQueue.empty())
 			break;
 
@@ -124,6 +125,7 @@ void ContentInstaller::threadUpdate()
 		lock.unlock();
 
 		std::pair<std::string, int> updateStatus;
+		bool success = false;
 
 		if (data.first == ContentType::CONTENT_THEME_INSTALL)
 		{
@@ -133,7 +135,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("THEME INSTALLED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -149,7 +154,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("THEME UNINSTALLED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -165,7 +173,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS INSTALLED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -180,7 +191,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("BEZELS UNINSTALLED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -195,7 +209,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE INSTALLED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -210,7 +227,10 @@ void ContentInstaller::threadUpdate()
 			});
 
 			if (updateStatus.second == 0)
+			{
+				success = true;
 				mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE REMOVED SUCCESSFULLY"));
+			}
 			else
 			{
 				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
@@ -218,12 +238,40 @@ void ContentInstaller::threadUpdate()
 			}
 		}
 
+		OnContentInstalled(data.first, data.second, success);
+
 		lock.lock();
 		mProcessingQueue.remove(data);
 	}
 
-	std::unique_lock<std::mutex> lock(mLock);
-
 	delete this;
 	mInstance = nullptr;
+}
+
+void ContentInstaller::OnContentInstalled(int contentType, std::string contentName, bool success)
+{
+	std::unique_lock<std::mutex> lock(mLock);
+
+	for (IContentInstalledNotify* n : mNotification)
+		n->OnContentInstalled(contentType, contentName, success);
+}
+
+void ContentInstaller::RegisterNotify(IContentInstalledNotify* instance)
+{
+	std::unique_lock<std::mutex> lock(mLock);
+	mNotification.push_back(instance);
+}
+
+void ContentInstaller::UnregisterNotify(IContentInstalledNotify* instance)
+{
+	std::unique_lock<std::mutex> lock(mLock);
+
+	for (auto it = mNotification.cbegin(); it != mNotification.cend(); it++)
+	{
+		if ((*it) == instance)
+		{
+			mNotification.erase(it);
+			return;
+		}
+	}
 }

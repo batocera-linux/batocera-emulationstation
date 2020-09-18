@@ -6,7 +6,7 @@
 #include "Window.h"
 #include "LocaleES.h"
 
-GuiScreensaverOptions::GuiScreensaverOptions(Window* window, const char* title) : GuiComponent(window), mMenu(window, title)
+GuiScreensaverOptions::GuiScreensaverOptions(Window* window, const std::string title) : GuiComponent(window), mMenu(window, title)
 {
 	addChild(&mMenu);
 

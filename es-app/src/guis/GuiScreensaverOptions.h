@@ -8,12 +8,12 @@
 class GuiScreensaverOptions : public GuiComponent
 {
 public:
-	GuiScreensaverOptions(Window* window, const char* title);
+	GuiScreensaverOptions(Window* window, const std::string title);
 	virtual ~GuiScreensaverOptions(); // just calls save();
 
 	virtual void save();
 	inline void addRow(const ComponentListRow& row) { mMenu.addRow(row); };
-	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp) { mMenu.addWithLabel(label, comp); };
+	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorhere = false) { mMenu.addWithLabel(label, comp, nullptr, "", setCursorhere); };
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
 
 	bool input(InputConfig* config, Input input) override;

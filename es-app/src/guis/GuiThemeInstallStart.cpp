@@ -9,30 +9,58 @@
 #include "components/MultiLineMenuEntry.h"
 #include "LocaleES.h"
 #include "ContentInstaller.h"
+#include "GuiLoading.h"
 
 #define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
-	: GuiComponent(window), mMenu(window, _("THEMES DOWNLOADER").c_str())
+	: GuiComponent(window), mMenu(window, _("THEMES DOWNLOADER").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
 	
 	mMenu.setSubTitle(_("SELECT THEMES TO INSTALL / REMOVE")); 
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	loadThemes();
+	centerWindow();
+
+	ContentInstaller::RegisterNotify(this);
 }
 
-void GuiThemeInstallStart::loadThemes()
+GuiThemeInstallStart::~GuiThemeInstallStart()
 {
-	auto theme = ThemeData::getMenuTheme();
+	ContentInstaller::UnregisterNotify(this);
+}
 
+void GuiThemeInstallStart::OnContentInstalled(int contentType, std::string contentName, bool success)
+{
+	if (contentType == ContentInstaller::CONTENT_THEME_INSTALL || contentType == ContentInstaller::CONTENT_THEME_UNINSTALL)
+		mReloadList = 2;
+}
+
+void GuiThemeInstallStart::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mReloadList != 0)
+	{
+		bool silent = (mReloadList == 2);
+
+		mReloadList = 0;
+
+		if (silent)
+			loadList();
+		else
+			loadThemesAsync();
+	}
+}
+
+void GuiThemeInstallStart::loadList()
+{
 	int idx = mMenu.getCursorIndex();
 	mMenu.clear();
 
 	int i = 0;
-	auto themes = ApiSystem::getInstance()->getBatoceraThemesList();
-	for (auto theme : themes)
+	for (auto theme : mThemes)
 	{
 		ComponentListRow row;
 
@@ -47,6 +75,24 @@ void GuiThemeInstallStart::loadThemes()
 	}
 
 	centerWindow();
+	mReloadList = 0;
+}
+
+void GuiThemeInstallStart::loadThemesAsync()
+{
+	Window* window = mWindow;
+
+	mWindow->pushGui(new GuiLoading<std::vector<BatoceraTheme>>(mWindow, _("PLEASE WAIT"),
+		[this, window]
+	{
+		return ApiSystem::getInstance()->getBatoceraThemesList();		
+	},
+		[this, window](std::vector<BatoceraTheme> themes)
+	{
+		mThemes = themes;
+		loadList();
+	}
+	));
 }
 
 void GuiThemeInstallStart::centerWindow()
@@ -77,10 +123,9 @@ void GuiThemeInstallStart::processTheme(BatoceraTheme theme)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME_INSTALL, theme.name);
-
-			auto pThis = this;
+			
+			mReloadList = 2;			
 			msgBox->close();
-			pThis->loadThemes();
 		});
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, theme]
@@ -95,9 +140,8 @@ void GuiThemeInstallStart::processTheme(BatoceraTheme theme)
 				mWindow->displayNotificationMessage(_U("\uF019 ") + error);
 			}
 
-			auto pThis = this;
+			mReloadList = 2;
 			msgBox->close();
-			pThis->loadThemes();
 		});
 	}
 	else
@@ -110,9 +154,8 @@ void GuiThemeInstallStart::processTheme(BatoceraTheme theme)
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_THEME_INSTALL, theme.name);
 
-			auto pThis = this;
-			msgBox->close();
-			pThis->loadThemes();
+			mReloadList = 2;
+			msgBox->close();			
 		});
 	}
 

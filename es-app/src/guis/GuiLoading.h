@@ -13,6 +13,7 @@
 #include <string>
 #include <thread>
 #include "Settings.h"
+#include "animations/LambdaAnimation.h"
 
 template<typename T>
 class GuiLoading : public GuiComponent
@@ -22,13 +23,16 @@ public:
 		: GuiComponent(window), mBusyAnim(window), mFunc(func), mFunc2(func2)
 	{
 		setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
-		setTag("popup");
-
+		setTag("GuiLoading");
+	
 		mRunning = true;
 		mHandle = new std::thread(&GuiLoading::threadLoading, this);
 		mBusyAnim.setText(title);
 		mBusyAnim.setSize(mSize);
+
+		mBusyAnim.setOpacity(0);
+		auto fadeFunc = [this](float t) { mBusyAnim.setOpacity(Math::easeOutCubic(t) * 255.0); };
+		setAnimation(new LambdaAnimation(fadeFunc, 450), 0, [this] { mBusyAnim.setOpacity(255); });
 	}
 	
 	~GuiLoading()
@@ -39,25 +43,19 @@ public:
 
 	void render(const Transform4x4f &parentTrans) override
 	{
-		Transform4x4f trans = parentTrans * getTransform();
+		if (!mRunning || !mVisible)
+			return;
 
+		Transform4x4f trans = parentTrans * getTransform();
 		renderChildren(trans);
 
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), 0x00000011);
-
-		if (mRunning)
-			mBusyAnim.render(trans);
+		mBusyAnim.render(trans);
 	}
 
 	bool input(InputConfig *config, Input input) override
 	{
 		return false;	
-	}
-
-	std::vector<HelpPrompt> getHelpPrompts() override
-	{
-		return std::vector<HelpPrompt>();
 	}
 
 	void update(int deltaTime) override
@@ -75,7 +73,7 @@ public:
 
 				delete this;
 
-				window->postToUiThread([func, ret](Window* win) { func(ret); });
+				func(ret);
 			}
 			else
 				delete this;

@@ -96,9 +96,7 @@ private:
 	void renderCarousel(const Transform4x4f& parentTrans);
 	void renderExtras(const Transform4x4f& parentTrans, float lower, float upper);
 	void renderInfoBar(const Transform4x4f& trans);
-	void renderFade(const Transform4x4f& trans);
-
-
+	
 	SystemViewCarousel mCarousel;
 	TextComponent mSystemInfo;
 	ImageComponent*		mStaticBackground;
@@ -108,6 +106,7 @@ private:
 	float mCamOffset;
 	float mExtrasCamOffset;
 	float mExtrasFadeOpacity;
+	float mExtrasFadeMove;
 	int	  mExtrasFadeOldCursor;
 
 	bool mViewNeedsReload;

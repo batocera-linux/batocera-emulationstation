@@ -38,6 +38,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 
 	addChild(&mMenu);
 
+	mMenu.addButton(_("BACK"), _("go back"), [this] { delete this; });
+
 	// check it's not a placeholder folder - if it is, only show "Filter Options"
 	FileData* file = getGamelist()->getCursor();
 	fromPlaceholder = file->isPlaceHolder();

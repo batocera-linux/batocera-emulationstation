@@ -4,15 +4,18 @@
 
 #include "GuiScreensaverOptions.h"
 
+class TextComponent;
+
 class GuiGeneralScreensaverOptions : public GuiScreensaverOptions
 {
 public:
-	GuiGeneralScreensaverOptions(Window* window, const char* title);
-	virtual ~GuiGeneralScreensaverOptions();
+	GuiGeneralScreensaverOptions(Window* window, int selectItem = -1);
 
 private:
-	void openVideoScreensaverOptions();
-	void openSlideshowScreensaverOptions();
+	void addVideoScreensaverOptions(int selectItem);
+	void addSlideShowScreensaverOptions(int selectItem);	
+
+	std::shared_ptr<TextComponent> addEditableTextComponent(const std::string label, std::string value);
 };
 
 #endif // ES_APP_GUIS_GUI_GENERAL_SCREENSAVER_OPTIONS_H
