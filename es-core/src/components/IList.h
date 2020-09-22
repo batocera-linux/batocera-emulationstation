@@ -180,7 +180,7 @@ public:
 
 	typename std::vector<Entry>::iterator findEntry(const UserData& obj)
 	{
-		for (std::vector<Entry>::iterator it = mEntries.begin(); it != mEntries.end(); it++)
+		for (auto it = mEntries.begin(); it != mEntries.end(); it++)
 			if ((*it).object == obj)
 				return it;
 
