@@ -977,17 +977,17 @@ void GuiMenu::openSystemSettings_batocera()
 	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
 
 	bool vfound = false;
-	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
+	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) 
+	{
 		optionsVideo->add((*it), (*it), currentDevice == (*it));
-		if (currentDevice == (*it)) {
+		if (currentDevice == (*it))
 			vfound = true;
-		}
 	}
-	if (vfound == false) {
-		optionsVideo->add(currentDevice, currentDevice, true);
-	}
-	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 
+	if (!vfound)
+		optionsVideo->add(currentDevice, currentDevice, true);
+
+	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 	s->addSaveFunc([this, optionsVideo, currentDevice] {
 		if (optionsVideo->changed()) {
 			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
@@ -996,6 +996,18 @@ void GuiMenu::openSystemSettings_batocera()
 		}
 	});
 	
+	// video resolution mode
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	{
+		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
+		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
+		s->addSaveFunc([this, videoModeOptionList]
+		{
+			if (SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()))
+				mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		});
+	}
+
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
 
