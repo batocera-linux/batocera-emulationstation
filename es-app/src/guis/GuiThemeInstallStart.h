@@ -6,6 +6,7 @@
 #include "components/ComponentGrid.h"
 #include "components/TextComponent.h"
 #include "ApiSystem.h"
+#include "ContentInstaller.h"
 
 template<typename T>
 class OptionListComponent;
@@ -30,18 +31,28 @@ private:
 
 
 // Batocera
-class GuiThemeInstallStart : public GuiComponent
+class GuiThemeInstallStart : public GuiComponent, IContentInstalledNotify
 {
 public:
 	GuiThemeInstallStart(Window* window);
+	~GuiThemeInstallStart();
+
 	bool input(InputConfig* config, Input input) override;
+	void update(int deltaTime) override;
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
+
 private:
-	void loadThemes();
+	void loadThemesAsync();
+	void loadList();
+
 	void centerWindow();
 	void processTheme(BatoceraTheme theme);
 
+	int				mReloadList;
 	MenuComponent	mMenu;
+
+	std::vector<BatoceraTheme> mThemes;
 };

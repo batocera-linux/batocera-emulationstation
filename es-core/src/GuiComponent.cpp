@@ -455,7 +455,7 @@ void GuiComponent::updateHelpPrompts()
 
 	std::vector<HelpPrompt> prompts = getHelpPrompts();
 
-	if(mWindow->peekGui() == this)
+	if(mWindow->peekGui() == this && getTag() != "GuiLoading")
 		mWindow->setHelpPrompts(prompts, getHelpStyle());
 }
 

@@ -39,6 +39,12 @@ BusyComponent::BusyComponent(Window* window) : GuiComponent(window),
 	PowerSaver::pause();
 }
 
+void BusyComponent::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);	
+	// mAnimation->setRotation(mAnimation->getRotation() - (deltaTime / 333.3));
+}
+
 // batocera
 BusyComponent::~BusyComponent() 
 {

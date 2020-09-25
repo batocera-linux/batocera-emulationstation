@@ -21,18 +21,46 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	: GuiComponent(window), mMenu(window, _("CONTENT DOWNLOADER").c_str())
 {
 	auto theme = ThemeData::getMenuTheme();
-	mWaitingLoad = false;
+	mReloadList = 1;
 
 	mMenu.setSubTitle(_("SELECT CONTENT TO INSTALL / REMOVE"));
 	
 	addChild(&mMenu);
 
-	mMenu.addButton(_("REFRESH"), "refresh", [&] { loadPackages(true); });
+	mMenu.addButton(_("REFRESH"), "refresh", [&] { loadPackagesAsync(true); });
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 	centerWindow();
-	
-	mWindow->postToUiThread([this](Window* w) { loadPackages(); });
+
+	ContentInstaller::RegisterNotify(this);
 }
+
+GuiBatoceraStore::~GuiBatoceraStore()
+{
+	ContentInstaller::UnregisterNotify(this);
+}
+
+void GuiBatoceraStore::OnContentInstalled(int contentType, std::string contentName, bool success)
+{
+	if (contentType == ContentInstaller::CONTENT_STORE_INSTALL || contentType == ContentInstaller::CONTENT_STORE_UNINSTALL)
+		mReloadList = 2;
+}
+
+void GuiBatoceraStore::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (mReloadList != 0)
+	{
+		bool silent = (mReloadList == 2);
+		mReloadList = 0;
+
+		if (silent)
+			loadList(false);
+		else 
+			loadPackagesAsync(false);
+	}
+}
+
 
 void GuiBatoceraStore::centerWindow()
 {
@@ -51,70 +79,74 @@ static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 	return name1.compare(name2) < 0;
 }
 
-void GuiBatoceraStore::loadPackages(bool updatePackageList)
+void GuiBatoceraStore::loadList(bool updatePackageList)
 {
-	mWaitingLoad = true;
+	int idx = updatePackageList ? -1 : mMenu.getCursorIndex();
+	mMenu.clear();
 
+	std::unordered_set<std::string> groups;
+	for (auto package : mPackages)
+		if (groups.find(package.group) == groups.cend())
+			groups.insert(package.group);
+
+	bool hasGroups = (groups.size() > 1);
+
+	if (hasGroups)
+		std::sort(mPackages.begin(), mPackages.end(), sortPackagesByGroup);
+
+	std::string lastGroup = "-1**ce-fakegroup-c";
+
+	int i = 0;
+	for (auto package : mPackages)
+	{
+		if (hasGroups && lastGroup != package.group)
+		{
+			if (package.group.empty())
+				mMenu.addGroup(_("MISC"));
+			else
+				mMenu.addGroup(_(Utils::String::toUpper(package.group).c_str()));
+
+			i++;
+		}
+
+		lastGroup = package.group;
+
+		ComponentListRow row;
+
+		auto grid = std::make_shared<GuiBatoceraStoreEntry>(mWindow, package);
+		row.addElement(grid, true);
+
+		if (!grid->isInstallPending())
+			row.makeAcceptInputHandler([this, package] { processPackage(package); });
+
+		mMenu.addRow(row, i == idx);
+		i++;
+	}
+
+	centerWindow();
+
+	mReloadList = 0;
+}
+
+void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
+{
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<PacmanPackage>>(mWindow, _("PLEASE WAIT"),
-		[this, window, updatePackageList]
+		[this,  updatePackageList]
 		{	
 			if (updatePackageList)
 				ApiSystem::getInstance()->updateBatoceraStorePackageList();
 
-			auto packs = ApiSystem::getInstance()->getBatoceraStorePackages();
-			return packs;
+			auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
+			return packages;
 		},
-		[this, window, updatePackageList](std::vector<PacmanPackage> packages)
+		[this, updatePackageList](std::vector<PacmanPackage> packages)
 		{		
-			int idx = updatePackageList ? -1 : mMenu.getCursorIndex();			
-			mMenu.clear();
-
-			std::unordered_set<std::string> groups;
-			for (auto package : packages)
-				if (groups.find(package.group) == groups.cend())
-					groups.insert(package.group);
-
-			bool hasGroups = (groups.size() > 1);
-
-			if (hasGroups)
-				std::sort(packages.begin(), packages.end(), sortPackagesByGroup);
-
-			std::string lastGroup = "-1**ce-fakegroup-c";
-
-			int i = 0;
-			for (auto package : packages)
-			{
-				if (hasGroups && lastGroup != package.group)
-				{
-					if (package.group.empty())
-						mMenu.addGroup(_("MISC"));
-					else
-					  mMenu.addGroup(_(Utils::String::toUpper(package.group).c_str()));
-
-					i++;
-				}
-
-				lastGroup = package.group;
-
-				ComponentListRow row;
-
-				auto grid = std::make_shared<GuiBatoceraStoreEntry>(mWindow, package);
-				row.addElement(grid, true);
-
-				if (!grid->isInstallPending())
-					row.makeAcceptInputHandler([this, package] { processPackage(package); });
-
-				mMenu.addRow(row, i == idx);
-				i++;
-			}
-
-			centerWindow();
-
-			mWaitingLoad = false;
+			mPackages = packages;
+			loadList(updatePackageList);
 		}
-	));
+		));
 }
 
 void GuiBatoceraStore::processPackage(PacmanPackage package)
@@ -135,10 +167,9 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
+			mReloadList = 2;
 
-			auto pThis = this;
 			msgBox->close();
-			pThis->loadPackages();
 		});
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, package]
@@ -146,10 +177,9 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_UNINSTALL, package.name);			
-			
-			auto pThis = this;
+			mReloadList = 2;
+
 			msgBox->close();
-			pThis->loadPackages();
 		});
 	}
 	else
@@ -161,10 +191,9 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
-			
-			auto pThis = this;
+			mReloadList = 2;
+
 			msgBox->close();
-			pThis->loadPackages();
 		});
 	}
 
@@ -173,9 +202,6 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 
 bool GuiBatoceraStore::input(InputConfig* config, Input input)
 {
-	if (mWaitingLoad)
-		return true;
-
 	if(GuiComponent::input(config, input))
 		return true;
 	
