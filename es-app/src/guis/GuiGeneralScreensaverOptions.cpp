@@ -84,7 +84,7 @@ void GuiGeneralScreensaverOptions::addVideoScreensaverOptions(int selectItem)
 	ss_omx->setState(Settings::getInstance()->getBool("ScreenSaverOmxPlayer"));
 	addWithLabel(_("USE OMX PLAYER FOR SCREENSAVER"), ss_omx, selectItem == 4);
 	addSaveFunc([ss_omx, this] { Settings::getInstance()->setBool("ScreenSaverOmxPlayer", ss_omx->getState()); });
-	ss_omx->setOnChangedCallback([this, ss_omx, window]()
+	ss_omx->setOnChangedCallback([this, ss_omx]()
 	{
 		if (Settings::getInstance()->setBool("ScreenSaverOmxPlayer", ss_omx->getState()))
 		{
