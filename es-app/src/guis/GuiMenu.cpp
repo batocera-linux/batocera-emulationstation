@@ -995,18 +995,6 @@ void GuiMenu::openSystemSettings_batocera()
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		}
 	});
-	
-	// video resolution mode
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
-	{
-		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
-		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
-		s->addSaveFunc([this, videoModeOptionList]
-		{
-			if (SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()))
-				mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		});
-	}
 
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
@@ -1461,6 +1449,17 @@ void GuiMenu::openGamesSettings_batocera()
 			}
 		});
 	}
+	// video resolution mode
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	{
+		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
+		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
+		s->addSaveFunc([this, videoModeOptionList]
+		{
+		  SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected());
+		});
+	}
+
 	// smoothing
 	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
 	smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.smooth") != "0" && SystemConf::getInstance()->get("global.smooth") != "1");
