@@ -57,9 +57,7 @@ private:
 	void openCollectionSystemSettings();
 	void openConfigInput();	
 	void openScraperSettings();
-	void openScreensaverOptions();
-	void openSlideshowScreensaverOptions();
-	void openVideoScreensaverOptions();
+	void openScreensaverOptions();	
 	void openSoundSettings();
 	void openUISettings();
 	void openUpdatesSettings();

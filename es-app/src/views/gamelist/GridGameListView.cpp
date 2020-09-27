@@ -338,7 +338,7 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-	if(Settings::getInstance()->getBool("QuickSystemSelect"))
+//	if(Settings::getInstance()->getBool("QuickSystemSelect"))
 		prompts.push_back(HelpPrompt("lr", _("SYSTEM"))); // batocera
 
 	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera

@@ -6,8 +6,6 @@
 #include "guis/GuiCollectionSystemsOptions.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiGeneralScreensaverOptions.h"
-#include "guis/GuiSlideshowScreensaverOptions.h"
-#include "guis/GuiVideoScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiThemeInstallStart.h" //batocera
@@ -49,6 +47,7 @@
 #include "components/MultiLineMenuEntry.h"
 #include "components/BatteryIndicatorComponent.h"
 #include "GuiLoading.h"
+#include "guis/GuiBios.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -57,6 +56,7 @@
 #define fake_gettext_fade _("fade")
 #define fake_gettext_slide _("slide")
 #define fake_gettext_instant _("instant")
+#define fake_gettext_fadeslide _("fade & slide")
 
 // batocera-info
 #define fake_gettext_system       _("System")
@@ -689,21 +689,8 @@ void GuiMenu::addVersionInfo()
 
 void GuiMenu::openScreensaverOptions() 
 {
-	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow, _("SCREENSAVER SETTINGS").c_str()));
+	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow));
 }
-
-// new screensaver options for Batocera
-void GuiMenu::openSlideshowScreensaverOptions() 
-{
-	mWindow->pushGui(new GuiSlideshowScreensaverOptions(mWindow, _("SLIDESHOW SETTINGS").c_str()));
-}
-
-// new screensaver options for Batocera
-void GuiMenu::openVideoScreensaverOptions() {
-	mWindow->pushGui(new GuiVideoScreensaverOptions(mWindow, _("RANDOM VIDEO SETTINGS").c_str()));
-}
-
-
 void GuiMenu::openCollectionSystemSettings() 
 {
 	if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning())
@@ -853,6 +840,8 @@ void GuiMenu::openDeveloperSettings()
 
 	auto s = new GuiSettings(mWindow, _("DEVELOPER").c_str());
 	
+	s->addGroup(_("VIDEO OPTIONS"));
+
 	// maximum vram
 	auto max_vram = std::make_shared<SliderComponent>(mWindow, 40.f, 1000.f, 10.f, "Mb");
 	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
@@ -863,18 +852,13 @@ void GuiMenu::openDeveloperSettings()
 	auto framerate = std::make_shared<SwitchComponent>(mWindow);
 	framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
 	s->addWithLabel(_("SHOW FRAMERATE"), framerate);
-	s->addSaveFunc(
-		[framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
+	s->addSaveFunc([framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
 	
 	// vsync
 	auto vsync = std::make_shared<SwitchComponent>(mWindow);
 	vsync->setState(Settings::getInstance()->getBool("VSync"));
 	s->addWithLabel(_("VSYNC"), vsync);
-	s->addSaveFunc([vsync]
-	{
-		if (Settings::getInstance()->setBool("VSync", vsync->getState()))
-			Renderer::setSwapInterval();
-	});
+	s->addSaveFunc([vsync] { if (Settings::getInstance()->setBool("VSync", vsync->getState())) Renderer::setSwapInterval(); });
 
 #if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	// overscan
@@ -889,36 +873,75 @@ void GuiMenu::openDeveloperSettings()
 	});
 #endif
 
-	// preload UI
-	auto preloadUI = std::make_shared<SwitchComponent>(mWindow);
-	preloadUI->setState(Settings::getInstance()->getBool("PreloadUI"));
-	s->addWithLabel(_("PRELOAD UI"), preloadUI);
-	s->addSaveFunc([preloadUI] { Settings::getInstance()->setBool("PreloadUI", preloadUI->getState()); });
+#ifdef _RPI_
+	// Video Player - VideoOmxPlayer
+	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
+	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
+	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
+	s->addSaveFunc([omx_player, window]
+	{
+		// need to reload all views to re-create the right video components
+		bool needReload = false;
+		if (Settings::getInstance()->getBool("VideoOmxPlayer") != omx_player->getState())
+			needReload = true;
 
-	// threaded loading
-	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
-	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
-	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
-	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
+		Settings::getInstance()->setBool("VideoOmxPlayer", omx_player->getState());
 
-	// threaded loading
-	auto asyncImages = std::make_shared<SwitchComponent>(mWindow);
-	asyncImages->setState(Settings::getInstance()->getBool("AsyncImages"));
-	s->addWithLabel(_("ASYNC IMAGES LOADING"), asyncImages);
-	s->addSaveFunc([asyncImages] { Settings::getInstance()->setBool("AsyncImages", asyncImages->getState()); });
-	
-	// optimizeVram
-	auto optimizeVram = std::make_shared<SwitchComponent>(mWindow);
-	optimizeVram->setState(Settings::getInstance()->getBool("OptimizeVRAM"));
-	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
-	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
-	
-	// optimizeVideo
-	auto optimizeVideo = std::make_shared<SwitchComponent>(mWindow);
-	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
-	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
-	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
+		if (needReload)
+		{
+			ViewController::get()->reloadAll(window);
+			window->closeSplashScreen();
+		}
+	});
+#endif
 
+	s->addGroup(_("TOOLS"));
+
+	// log level
+	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
+	std::vector<std::string> modes;
+	modes.push_back("default");
+	modes.push_back("disabled");
+	modes.push_back("warning");
+	modes.push_back("error");
+	modes.push_back("debug");
+
+	auto level = Settings::getInstance()->getString("LogLevel");
+	if (level.empty())
+		level = "default";
+
+	for (auto it = modes.cbegin(); it != modes.cend(); it++)
+		logLevel->add(_(it->c_str()), *it, level == *it);
+
+	s->addWithLabel(_("LOG LEVEL"), logLevel);
+	s->addSaveFunc([this, logLevel]
+	{
+		if (Settings::getInstance()->setString("LogLevel", logLevel->getSelected() == "default" ? "" : logLevel->getSelected()))
+		{
+			Log::setupReportingLevel();
+			Log::init();
+		}
+	});
+
+#if !defined(WIN32) || defined(_DEBUG)
+	// support
+	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
+		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+			[window] {
+			if (ApiSystem::getInstance()->generateSupportFile()) {
+				window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
+			}
+			else {
+				window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
+			}
+		}, _("NO"), nullptr));
+	});
+#endif
+
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
+		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
+
+	s->addGroup(_("DATA MANAGEMENT"));
 
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
@@ -953,11 +976,11 @@ void GuiMenu::openDeveloperSettings()
 			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
 
 		Settings::getInstance()->saveFile();
-		reloadAllGames(mWindow, false);		
+		reloadAllGames(mWindow, false);
 	});
 
-	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this] 
-	{ 
+	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this]
+	{
 		Window* window = mWindow;
 		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
 		{
@@ -974,6 +997,28 @@ void GuiMenu::openDeveloperSettings()
 		}));
 	});
 
+	s->addGroup(_("UI"));
+
+	// carousel transition option
+	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
+	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
+	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
+	s->addSaveFunc([move_carousel] { Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState()); });
+
+	// Enable OSK (On-Screen-Keyboard)
+	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
+	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
+	s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
+	s->addSaveFunc([osk_enable] { Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
+	
+#if defined(_WIN32)
+	// Hide EmulationStation Window when running a game ( windows only )
+	auto hideWindowScreen = std::make_shared<SwitchComponent>(mWindow);
+	hideWindowScreen->setState(Settings::getInstance()->getBool("HideWindow"));
+	s->addWithLabel(_("HIDE WHEN RUNNING A GAME"), hideWindowScreen);
+	s->addSaveFunc([hideWindowScreen] { Settings::getInstance()->setBool("HideWindow", hideWindowScreen->getState()); });
+#endif
+	
 #if defined(WIN32) && !defined(_DEBUG)
 	// full exit
 	auto fullExitMenu = std::make_shared<SwitchComponent>(mWindow);
@@ -1016,71 +1061,39 @@ void GuiMenu::openDeveloperSettings()
 #endif
 	}
 
-	// log level
-	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
-	std::vector<std::string> modes;
-	modes.push_back("default");
-	modes.push_back("disabled");
-	modes.push_back("warning");
-	modes.push_back("error");
-	modes.push_back("debug");
+	s->addGroup(_("OPTIMIZATIONS"));
 
-	auto level = Settings::getInstance()->getString("LogLevel");
-	if (level.empty())
-		level = "default";
+	// preload UI
+	auto preloadUI = std::make_shared<SwitchComponent>(mWindow);
+	preloadUI->setState(Settings::getInstance()->getBool("PreloadUI"));
+	s->addWithLabel(_("PRELOAD UI"), preloadUI);
+	s->addSaveFunc([preloadUI] { Settings::getInstance()->setBool("PreloadUI", preloadUI->getState()); });
 
-	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		logLevel->add(_(it->c_str()), *it, level == *it);
+	// threaded loading
+	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
+	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
+	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
+	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
 
-	s->addWithLabel(_("LOG LEVEL"), logLevel);
-	s->addSaveFunc([this, logLevel] 
-	{		
-		if (Settings::getInstance()->setString("LogLevel", logLevel->getSelected() == "default" ? "" : logLevel->getSelected()))
-		{
-			Log::setupReportingLevel();
-			Log::init();			
-		}
-	});
+	// threaded loading
+	auto asyncImages = std::make_shared<SwitchComponent>(mWindow);
+	asyncImages->setState(Settings::getInstance()->getBool("AsyncImages"));
+	s->addWithLabel(_("ASYNC IMAGES LOADING"), asyncImages);
+	s->addSaveFunc([asyncImages] { Settings::getInstance()->setBool("AsyncImages", asyncImages->getState()); });
 
-#if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
-	// support
-	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
-		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
-			[window] {
-			if (ApiSystem::getInstance()->generateSupportFile()) {
-				window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
-			}
-			else {
-				window->pushGui(new GuiMsgBox(window, _("FILE GENERATION FAILED"), _("OK")));
-			}
-		}, _("NO"), nullptr));
-	});
-#endif
-#ifndef _ENABLEEMUELEC
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
-		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
-#endif
-#ifdef _RPI_
-	// Video Player - VideoOmxPlayer
-	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
-	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
-	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
-	s->addSaveFunc([omx_player, window]
-	{
-		// need to reload all views to re-create the right video components
-		bool needReload = false;
-		if (Settings::getInstance()->getBool("VideoOmxPlayer") != omx_player->getState())
-			needReload = true;
+	// optimizeVram
+	auto optimizeVram = std::make_shared<SwitchComponent>(mWindow);
+	optimizeVram->setState(Settings::getInstance()->getBool("OptimizeVRAM"));
+	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
+	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
 
-		Settings::getInstance()->setBool("VideoOmxPlayer", omx_player->getState());
+	// optimizeVideo
+	auto optimizeVideo = std::make_shared<SwitchComponent>(mWindow);
+	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
+	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
+	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 
-		if (needReload)
-		{
-			ViewController::get()->reloadAll(window);
-			window->closeSplashScreen();
-		}
-	});
-#endif
+
 
 	mWindow->pushGui(s);
 }
@@ -1226,6 +1239,31 @@ void GuiMenu::openSystemSettings_batocera()
 		PowerSaver::init();
 	});
 
+	// UI RESTRICTIONS
+	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
+	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
+	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
+		UImodeSelection->add(_(it->c_str()), *it, Settings::getInstance()->getString("UIMode") == *it);
+
+	s->addWithLabel(_("UI MODE"), UImodeSelection);
+	s->addSaveFunc([UImodeSelection, window]
+	{
+		std::string selectedMode = UImodeSelection->getSelected();
+		if (selectedMode != "Full")
+		{
+			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
+			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
+			msg += _("Do you want to proceed ?");
+			window->pushGui(new GuiMsgBox(window, msg,
+				_("YES"), [selectedMode] {
+				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
+				Settings::getInstance()->setString("UIMode", selectedMode);
+				Settings::getInstance()->saveFile();
+			}, _("NO"), nullptr));
+		}
+	});
+
+	// KODI SETTINGS
 #ifdef _ENABLE_KODI_
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::KODI))
 	{
@@ -1257,7 +1295,6 @@ void GuiMenu::openSystemSettings_batocera()
 	}
 #endif
 
-
 #if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	s->addGroup(_("HARDWARE"));
 
@@ -1283,17 +1320,17 @@ void GuiMenu::openSystemSettings_batocera()
 	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
 
 	bool vfound = false;
-	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) {
+	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) 
+	{
 		optionsVideo->add((*it), (*it), currentDevice == (*it));
-		if (currentDevice == (*it)) {
+		if (currentDevice == (*it))
 			vfound = true;
-		}
 	}
-	if (vfound == false) {
-		optionsVideo->add(currentDevice, currentDevice, true);
-	}
-	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 
+	if (!vfound)
+		optionsVideo->add(currentDevice, currentDevice, true);
+
+	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
 	s->addSaveFunc([this, optionsVideo, currentDevice] {
 		if (optionsVideo->changed()) {
 			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
@@ -1302,6 +1339,18 @@ void GuiMenu::openSystemSettings_batocera()
 		}
 	});
 	
+	// video resolution mode
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	{
+		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
+		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
+		s->addSaveFunc([this, videoModeOptionList]
+		{
+			if (SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()))
+				mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		});
+	}
+
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
 
@@ -1882,6 +1931,20 @@ void GuiMenu::openGamesSettings_batocera()
 			{
 				SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
 			});
+#if !defined(WIN32) || defined(_DEBUG)
+			// stretch bezels
+			auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
+			bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel_stretch") != "0" && SystemConf::getInstance()->get("global.bezel_stretch") != "1");
+			bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.bezel_stretch") == "1");
+			bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.bezel_stretch") == "0");
+			s->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
+			s->addSaveFunc([bezel_stretch_enabled] {
+					if (bezel_stretch_enabled->changed()) {
+					SystemConf::getInstance()->set("global.bezel_stretch", bezel_stretch_enabled->getSelected());
+					SystemConf::getInstance()->saveSystemConf();
+					}
+					});
+#endif
 		}
 	}
 #endif	
@@ -2027,109 +2090,7 @@ void GuiMenu::openGamesSettings_batocera()
 
 void GuiMenu::openMissingBiosSettings()
 {
-	auto menuTheme = ThemeData::getMenuTheme();
-
-	GuiSettings *configuration = new GuiSettings(mWindow, _("MISSING BIOS").c_str());
-	std::vector<BiosSystem> biosInformations = ApiSystem::getInstance()->getBiosInformations();
-
-	if (biosInformations.size() == 0)
-		configuration->addEntry(_("NO MISSING BIOS"));
-	else
-	{
-		for (auto systemBios = biosInformations.begin(); systemBios != biosInformations.end(); systemBios++)
-		{
-			BiosSystem systemBiosData = (*systemBios);
-
-			int invalidCount = 0;
-			int missingCount = 0;
-
-			for (auto biosFile = systemBiosData.bios.begin(); biosFile != systemBiosData.bios.end(); biosFile++)
-			{
-				if (biosFile->status == "INVALID")
-					invalidCount++;
-
-				if (biosFile->status == "MISSING")
-					missingCount++;
-			}
-
-			std::string info = "";
-
-			if (missingCount > 0)
-			{
-				if (info.length() > 0)
-					info = info + " - ";
-
-				info = info + _("MISSING") + " : " + std::to_string(missingCount);
-			}
-
-			if (invalidCount > 0)
-			{
-				if (info.length() > 0)
-					info = info + " - ";
-
-				info = info + _("INVALID") + " : " + std::to_string(invalidCount);
-			}
-
-#define INVALID_ICON _U("\uF071")
-#define MISSING_ICON _U("\uF127")
-
-			ComponentListRow row;
-
-			auto icon = std::make_shared<TextComponent>(mWindow);
-			icon->setText(invalidCount > 0 ? INVALID_ICON : MISSING_ICON);
-			icon->setColor(menuTheme->Text.color);
-			icon->setFont(menuTheme->Text.font);
-			icon->setSize(menuTheme->Text.font->getLetterHeight() * 1.5f, 0);
-			row.addElement(icon, false);
-
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(14, 0);
-			row.addElement(spacer, false);
-
-			auto grid = std::make_shared<MultiLineMenuEntry>(mWindow, (*systemBios).name, info);
-			row.addElement(grid, true);
-
-			row.addElement(makeArrow(mWindow), false);
-
-			auto bracket = std::make_shared<ImageComponent>(mWindow);
-			bracket->setImage(menuTheme->Icons.arrow); // ":/arrow.svg");
-			bracket->setColorShift(menuTheme->Text.color);
-			bracket->setResize(0, round(menuTheme->Text.font->getLetterHeight()));
-
-			row.makeAcceptInputHandler([this, systemBiosData]
-			{
-				GuiSettings* configurationInfo = new GuiSettings(mWindow, systemBiosData.name.c_str());
-				for (auto biosFile = systemBiosData.bios.begin(); biosFile != systemBiosData.bios.end(); biosFile++)
-				{
-					auto theme = ThemeData::getMenuTheme();
-
-					ComponentListRow biosFileRow;
-
-					auto icon = std::make_shared<TextComponent>(mWindow);
-					icon->setText(biosFile->status == "INVALID" ? INVALID_ICON : MISSING_ICON);
-					icon->setColor(theme->Text.color);
-					icon->setFont(theme->Text.font);
-					icon->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
-					biosFileRow.addElement(icon, false);
-
-					auto spacer = std::make_shared<GuiComponent>(mWindow);
-					spacer->setSize(14, 0);
-					biosFileRow.addElement(spacer, false);
-
-					std::string status = _(biosFile->status.c_str()) + " - MD5 : " + biosFile->md5;
-
-					auto line = std::make_shared<MultiLineMenuEntry>(mWindow, biosFile->path, status);
-					biosFileRow.addElement(line, true);
-
-					configurationInfo->addRow(biosFileRow);
-				}
-				mWindow->pushGui(configurationInfo);
-			});
-
-			configuration->addRow(row);
-		}
-	}
-	mWindow->pushGui(configuration);
+	GuiBios::show(mWindow);
 }
 
 void GuiMenu::updateGameLists(Window* window, bool confirm)
@@ -3057,38 +3018,39 @@ void GuiMenu::openUISettings()
 		}		
 	}
 
-	//UI mode
-	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
-	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
-	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
-		UImodeSelection->add(_(it->c_str()), *it, Settings::getInstance()->getString("UIMode") == *it);
-	s->addWithLabel(_("UI MODE"), UImodeSelection);
-	s->addSaveFunc([UImodeSelection, window]
-	{
-		std::string selectedMode = UImodeSelection->getSelected();
-		if (selectedMode != "Full")
-		{
-			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
-			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-			msg += _("Do you want to proceed ?");
-			window->pushGui(new GuiMsgBox(window, msg,
-				_("YES"), [selectedMode] {
-				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
-				Settings::getInstance()->setString("UIMode", selectedMode);
-				Settings::getInstance()->saveFile();
-			}, _("NO"), nullptr));
-		}
-	});
-	
+
+	/*
 	s->addGroup(_("STARTUP SETTINGS"));
 
 	// Optionally start in selected system
-	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
-	systemfocus_list->add(_("NONE"), "", Settings::getInstance()->getString("StartupSystem") == "");
+	std::string startupSystem = Settings::getInstance()->getString("StartupSystem");
 
-	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		if ("retropie" != (*it)->getName() && (*it)->isVisible())
-			systemfocus_list->add((*it)->getName(), (*it)->getName(), Settings::getInstance()->getString("StartupSystem") == (*it)->getName());
+	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
+	systemfocus_list->add(_("NONE"), "", startupSystem == "");
+
+	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+	{
+		std::string man;
+		for (auto system : SystemData::sSystemVector)
+		{
+			if (!system->isVisible())
+				continue;
+
+			if (man != system->getSystemMetadata().manufacturer)
+			{
+				systemfocus_list->addGroup(system->getSystemMetadata().manufacturer);
+				man = system->getSystemMetadata().manufacturer;
+			}
+
+			systemfocus_list->add(system->getName(), system->getName(), startupSystem == system->getName());
+		}
+	}
+	else
+	{
+		for (auto system : SystemData::sSystemVector)
+			if (system->isVisible())
+				systemfocus_list->add(system->getName(), system->getName(), startupSystem == system->getName());
+	}
 
 	s->addWithLabel(_("START ON SYSTEM"), systemfocus_list);
 	s->addSaveFunc([systemfocus_list] {
@@ -3100,7 +3062,7 @@ void GuiMenu::openUISettings()
 	startOnGamelist->setState(Settings::getInstance()->getBool("StartupOnGameList"));
 	s->addWithLabel(_("START ON GAMELIST"), startOnGamelist);
 	s->addSaveFunc([startOnGamelist] { Settings::getInstance()->setBool("StartupOnGameList", startOnGamelist->getState()); });
-
+	
 	// Select systems to hide
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 
@@ -3158,56 +3120,22 @@ void GuiMenu::openUISettings()
 			s->setVariable("reloadAll", true);
 		}
 	});
-
+	*/
 	s->addGroup(_("DISPLAY OPTIONS"));
 
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
 
 	// transition style
-	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow,
-		_("TRANSITION STYLE"),
-		false);
-
-	std::vector<std::string> transitions;
-	transitions.push_back("auto");
-	transitions.push_back("fade");
-	transitions.push_back("slide");
-	transitions.push_back("instant");
-
-	for (auto it = transitions.begin(); it != transitions.end(); it++)
-		transition_style->add(_(it->c_str()), *it, Settings::getInstance()->getString("TransitionStyle") == *it);
-
-	if (!transition_style->hasSelection())
-		transition_style->selectFirstItem();
-
+	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TRANSITION STYLE"), false);
+	transition_style->addRange({ "auto", "fade", "slide", "fade & slide", "instant" }, Settings::getInstance()->getString("TransitionStyle"));
 	s->addWithLabel(_("TRANSITION STYLE"), transition_style);
 	s->addSaveFunc([transition_style] { Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected()); });
 
 	// game transition style
 	auto transitionOfGames_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAME LAUNCH TRANSITION"), false);
-
-	for (auto it = transitions.begin(); it != transitions.end(); it++)
-		transitionOfGames_style->add(_(it->c_str()), *it, Settings::getInstance()->getString("GameTransitionStyle") == *it);
-
-	if (!transitionOfGames_style->hasSelection())
-		transitionOfGames_style->selectFirstItem();
-
+	transitionOfGames_style->addRange({ "auto", "fade", "slide", "instant" }, Settings::getInstance()->getString("GameTransitionStyle"));
 	s->addWithLabel(_("GAME LAUNCH TRANSITION"), transitionOfGames_style);
 	s->addSaveFunc([transitionOfGames_style] { Settings::getInstance()->setString("GameTransitionStyle", transitionOfGames_style->getSelected()); });
-	
-	// carousel transition option
-	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
-	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
-	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
-	s->addSaveFunc([move_carousel] { Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState()); });
-
-	// quick system select (left/right in game list view)
-	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
-	quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
-	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
-	s->addSaveFunc([quick_sys_select] {
-		Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
-	});
 
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
@@ -3234,22 +3162,6 @@ void GuiMenu::openUISettings()
 		s->addWithLabel(_("SHOW BATTERY STATUS"), batteryStatus);
 		s->addSaveFunc([batteryStatus] { Settings::getInstance()->setBool("ShowBatteryIndicator", batteryStatus->getState()); });
 	}
-
-	// Enable OSK (On-Screen-Keyboard)
-	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
-	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
-	s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
-	s->addSaveFunc([osk_enable] {
-		Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
-
-
-#if defined(_WIN32)
-	// Hide EmulationStation Window when running a game ( windows only )
-	auto hideWindowScreen = std::make_shared<SwitchComponent>(mWindow);
-	hideWindowScreen->setState(Settings::getInstance()->getBool("HideWindow"));
-	s->addWithLabel(_("HIDE WHEN RUNNING A GAME"), hideWindowScreen);
-	s->addSaveFunc([hideWindowScreen] { Settings::getInstance()->setBool("HideWindow", hideWindowScreen->getState()); });
-#endif
 
 	s->addGroup(_("GAMELIST OPTIONS"));
 
@@ -3995,6 +3907,20 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			{
 				SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
 			});
+#if !defined(WIN32) || defined(_DEBUG)
+			// stretch bezels
+			auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
+			bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".bezel_stretch") != "0" && SystemConf::getInstance()->get(configName + ".bezel_stretch") != "1");
+			bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "1");
+			bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "0");
+			systemConfiguration->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
+			systemConfiguration->addSaveFunc([bezel_stretch_enabled, configName] {
+					if (bezel_stretch_enabled->changed()) {
+					SystemConf::getInstance()->set(configName + ".bezel_stretch", bezel_stretch_enabled->getSelected());
+					SystemConf::getInstance()->saveSystemConf();
+					}
+					});
+#endif
 		}
 	}
 

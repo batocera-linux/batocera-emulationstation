@@ -9,6 +9,7 @@
 #include "SystemData.h"
 #include "scrapers/ThreadedScraper.h"
 #include "LocaleES.h"
+#include "GuiLoading.h"
 
 GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
   mMenu(window, _("SCRAPE NOW").c_str()) // batocera
@@ -121,37 +122,37 @@ void GuiScraperStart::pressedStart()
 
 void GuiScraperStart::start()
 {
-	std::queue<ScraperSearchParams> searches = getSearches(mSystems->getSelectedObjects(), mFilters->getSelected());
-
-	if(searches.empty())
+	if (ThreadedScraper::isRunning())
 	{
-		mWindow->pushGui(new GuiMsgBox(mWindow,
-					       _("NO GAMES FIT THAT CRITERIA."))); // batocera
-	}
-	else
-	{
-		if (ThreadedScraper::isRunning())
+		Window* window = mWindow;
+
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
 		{
-			Window* window = mWindow;
+			ThreadedScraper::stop();
+		}, _("NO"), nullptr));
 
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this, window]
-			{
-				ThreadedScraper::stop();
-			}, _("NO"), nullptr));
-
-			return;
-		}
-
-		if (mApproveResults->getState())
-		{
-			GuiScraperMulti* gsm = new GuiScraperMulti(mWindow, searches, mApproveResults->getState());
-			mWindow->pushGui(gsm);
-		}
-		else
-			ThreadedScraper::start(mWindow, searches);
-
-		delete this;
+		return;
 	}
+
+	mWindow->pushGui(new GuiLoading<std::queue<ScraperSearchParams>>(mWindow, _("PLEASE WAIT"),
+		[this]
+		{
+			return getSearches(mSystems->getSelectedObjects(), mFilters->getSelected());
+		},
+		[this](std::queue<ScraperSearchParams> searches)
+		{
+			if (searches.empty())
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("NO GAMES FIT THAT CRITERIA."))); // batocera
+			else
+			{			
+				if (mApproveResults->getState())
+					mWindow->pushGui(new GuiScraperMulti(mWindow, searches, mApproveResults->getState()));
+				else
+					ThreadedScraper::start(mWindow, searches);
+
+				delete this;
+			}
+		}));	
 }
 
 std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemData*> systems, GameFilterFunc selector)

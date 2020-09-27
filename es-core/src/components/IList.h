@@ -7,6 +7,7 @@
 #include "resources/Font.h"
 #include "PowerSaver.h"
 #include "ThemeData.h"
+#include <vector>
 
 enum CursorState
 {
@@ -176,7 +177,21 @@ public:
 
 		return false;
 	}
-	
+
+	typename std::vector<Entry>::iterator findEntry(const UserData& obj)
+	{
+		for (auto it = mEntries.begin(); it != mEntries.end(); it++)
+			if ((*it).object == obj)
+				return it;
+
+		return mEntries.end();
+	}
+
+	typename std::vector<Entry>::iterator end()
+	{
+		return mEntries.end();
+	}
+
 	// entry management
 	void add(const Entry& e)
 	{

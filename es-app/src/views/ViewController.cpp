@@ -259,6 +259,9 @@ void ViewController::playViewTransition(bool forceImmediate)
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		transition_style = "instant";
 
+	if (transition_style == "fade & slide")
+		transition_style = "slide";
+
 	if(transition_style == "fade")
 	{
 		// fade
@@ -372,6 +375,9 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		transition_style = "instant";
+
+	if (transition_style == "fade & slide")
+		transition_style = "slide";
 
 	if(transition_style == "fade")
 	{

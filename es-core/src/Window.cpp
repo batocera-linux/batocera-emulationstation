@@ -30,8 +30,7 @@
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) // batocera
-{	
-	mTransiting = nullptr;
+{		
 	mTransitionOffset = 0;
 
 	mHelp = new HelpComponent(this);
@@ -54,66 +53,13 @@ Window::~Window()
 
 	delete mHelp;
 }
-/*
-#include "animations/LambdaAnimation.h"
-#include "animations/AnimationController.h"
-#include <SDL_main.h>
-#include <SDL_timer.h>
-*/
+
 void Window::pushGui(GuiComponent* gui)
 {
-	mTransiting = nullptr;
-
 	if (mGuiStack.size() > 0)
 	{
 		auto& top = mGuiStack.back();
-		top->topWindow(false);
-		/*
-		if (top->getValue() != "GuiMsgBox" && mGuiStack.size() >= 2)
-		{	
-			GuiComponent* showing = gui;
-			GuiComponent* hiding = top;
-
-			mTransiting = hiding;
-			mTransitionOffset = 0;
-
-			showing->setOpacity(0);
-			mGuiStack.push_back(showing);
-
-			int duration = 250;
-			int lastTime = SDL_GetTicks();
-			int curTime = lastTime;
-			int deltaTime = 0.00001;
-
-			AnimationController animController(new LambdaAnimation([this, showing](float t)
-			{
-				float value = Math::lerp(0.0f, 1.0f, t);
-				mTransitionOffset = Renderer::getScreenWidth() * value;
-				mTransiting->setOpacity(255 - (255 * value));
-				showing->setOpacity(255 * value);
-			}, duration));
-		
-			do
-			{
-				curTime = SDL_GetTicks();
-				deltaTime = curTime - lastTime;
-				lastTime = curTime;
-
-				this->update(deltaTime);
-				this->render();
-
-				Renderer::swapBuffers();
-			} 
-			while (!animController.update(deltaTime));
-
-			showing->setOpacity(255);
-			mTransiting->setOpacity(255);
-			mTransitionOffset = 0;
-			mTransiting = nullptr;
-
-			gui->updateHelpPrompts();
-			return;
-		}*/
+		top->topWindow(false);		
 	}
 
 	gui->onShow();
@@ -527,9 +473,6 @@ void Window::update(int deltaTime)
 
 	mTimeSinceLastInput += deltaTime;
 
-	if (mTransiting != nullptr)
-		mTransiting->update(deltaTime);
-
 	if (peekGui())
 		peekGui()->update(deltaTime);
 
@@ -565,31 +508,28 @@ void Window::render()
 		bottom->render(transform);
 		if(bottom != top)
 		{
-			if (mTransiting == nullptr && (top->isKindOf<GuiMsgBox>() || top->getTag() == "popup") && mGuiStack.size() > 2)
+			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{
-				auto& middle = mGuiStack.at(mGuiStack.size()-2);
+				mBackgroundOverlay->render(transform);
+
+				auto& middle = mGuiStack.at(mGuiStack.size() - 2);
 				if (middle != bottom)
 					middle->render(transform);
+
+				top->render(transform);
 			}
-
-			mBackgroundOverlay->render(transform);
-
-			Transform4x4f topTransform = transform;
-
-			if (mTransiting != nullptr)
+			else
 			{
-				Vector3f target(mTransitionOffset, 0, 0);
+				if ((top->isKindOf<GuiMsgBox>() || top->getTag() == "popup") && mGuiStack.size() > 2)
+				{
+					auto& middle = mGuiStack.at(mGuiStack.size() - 2);
+					if (middle != bottom)
+						middle->render(transform);
+				}
 
-				Transform4x4f cam = Transform4x4f::Identity();
-				cam.translation() = -target;
-
-				mTransiting->render(cam);
-
-				target = Vector3f(Renderer::getScreenWidth() - mTransitionOffset, 0, 0);
-				topTransform.translation() = target;
+				mBackgroundOverlay->render(transform);
+				top->render(transform);
 			}
-
-			top->render(topTransform);
 		}
 	}
 	

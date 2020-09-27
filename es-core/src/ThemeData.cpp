@@ -440,6 +440,22 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	parseVariables(root);
 	parseTheme(root);
 	
+	std::string themeName = Utils::String::toLower(Settings::getInstance()->getString("ThemeSet"));
+	if (themeName.find("next-pixel") != std::string::npos || themeName.find("alekfull") != std::string::npos)
+	{
+		auto systemView = mViews.find("system");
+		if (systemView != mViews.cend())
+		{
+			auto systemcarousel = systemView->second.elements.find("systemcarousel");
+			if (systemcarousel != systemView->second.elements.cend())
+			{
+				auto defaultTransition = systemcarousel->second.properties.find("defaultTransition");
+				if (defaultTransition == systemcarousel->second.properties.cend() || defaultTransition->second.s == "instant")
+					systemcarousel->second.properties["defaultTransition"] = std::string("fade & slide");
+			}
+		}
+	}
+
 	if (system != "splash" && system != "imageviewer")
 	{
 		mMenuTheme = nullptr;

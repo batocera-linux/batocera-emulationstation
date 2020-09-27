@@ -24,6 +24,10 @@ namespace Math
 	float smoothStep  (const float _left, const float _right, const float _x);
 	float smootherStep(const float _left, const float _right, const float _x);
 
+	float easeOutCubic(const float _t);
+	float easeOutQuint(const float _t);
+	float easeOutExpo (const float _t);
+
 	namespace Scroll
 	{
 		float bounce(const float _delayTime, const float _scrollTime, const float _currentTime, const float _scrollLength);

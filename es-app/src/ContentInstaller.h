@@ -9,6 +9,11 @@
 class Window;
 class AsyncNotificationComponent;
 
+class IContentInstalledNotify
+{
+public:
+	virtual void OnContentInstalled(int contentType, std::string contentName, bool success) = 0;
+};
 
 class ContentInstaller
 {
@@ -48,4 +53,12 @@ private:
 	static std::mutex							  mLock;
 	static std::list<std::pair<int, std::string>> mQueue;
 	static std::list<std::pair<int, std::string>> mProcessingQueue;
+
+	static std::list<IContentInstalledNotify*>	  mNotification;
+
+	static void OnContentInstalled(int contentType, std::string contentName, bool success);
+
+public:
+	static void RegisterNotify(IContentInstalledNotify* instance);
+	static void UnregisterNotify(IContentInstalledNotify* instance);
 };

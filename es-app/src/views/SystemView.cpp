@@ -31,6 +31,7 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mCamOffset = 0;
 	mExtrasCamOffset = 0;
 	mExtrasFadeOpacity = 0.0f;
+	mExtrasFadeMove = 0.0f;
 	launchKodi = false; // batocera
 	mScreensaverActive = false;
 	mDisable = false;	
@@ -562,7 +563,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
 	if (transition_style == "auto")
 	{
-		if (mCarousel.defaultTransition == "instant" || mCarousel.defaultTransition == "fade" || mCarousel.defaultTransition == "slide")
+		if (mCarousel.defaultTransition == "instant" || mCarousel.defaultTransition == "fade" || mCarousel.defaultTransition == "slide" || mCarousel.defaultTransition == "fade & slide")
 			transition_style = mCarousel.defaultTransition;
 		else
 			transition_style = "slide";
@@ -630,72 +631,52 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		move_carousel = false;
 
-	if(transition_style == "fade")
+	if (transition_style == "fade" || transition_style == "fade & slide")
 	{
-		float startExtrasFade = mExtrasFadeOpacity;
-		anim = new LambdaAnimation(
-			[this, startExtrasFade, startPos, endPos, posMax, move_carousel, oldCursor](float t)
+		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel, oldCursor, transition_style](float t)
 		{
 			mExtrasFadeOldCursor = oldCursor;
 
-			t -= 1;
-			float f = Math::lerp(startPos, endPos, t*t*t + 1);
-			if(f < 0)
-				f += posMax;
-			if(f >= posMax)
-				f -= posMax;
+			float f = Math::lerp(startPos, endPos, Math::easeOutQuint(t));
+
+			if (f < 0) f += posMax;
+			if (f >= posMax) f -= posMax;
 
 			this->mCamOffset = move_carousel ? f : endPos;
 
-			t += 1;
-			/*
-			if(t < 0.3f)
-				this->mExtrasFadeOpacity = Math::lerp(0.0f, 1.0f, t / 0.3f + startExtrasFade);
-			else if(t < 0.7f)
-				this->mExtrasFadeOpacity = 1.0f;
-			else
-				this->mExtrasFadeOpacity = Math::lerp(1.0f, 0.0f, (t - 0.7f) / 0.3f);
-				*/
+			this->mExtrasFadeOpacity = Math::lerp(1, 0, Math::easeOutQuint(t));
 
-			if (t < 0.3f)
-				this->mExtrasFadeOpacity = 1.0f;
-			else if (t >= 0.7f)
-				this->mExtrasFadeOpacity = 0.0f;
-			else
-				this->mExtrasFadeOpacity = Math::lerp(1.0f, 0.0f, (t - 0.3f) / 0.4f);
+			if (transition_style == "fade & slide")
+				this->mExtrasFadeMove = Math::lerp(1, 0, Math::easeOutCubic(t));
 
 			this->mExtrasCamOffset = endPos;
 
 		}, 500);
-	} else if (transition_style == "slide") {
-		// slide
-		anim = new LambdaAnimation(
-			[this, startPos, endPos, posMax, move_carousel](float t)
-		{
-			t -= 1;
-			float f = Math::lerp(startPos, endPos, t*t*t + 1);
-			if(f < 0)
-				f += posMax;
-			if(f >= posMax)
-				f -= posMax;
+	} 
+	else if (transition_style == "slide") 
+	{
+		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel](float t)
+		{			
+			float f = Math::lerp(startPos, endPos, Math::easeOutQuint(t));
+			if (f < 0) f += posMax;
+			if (f >= posMax) f -= posMax;
 
 			this->mCamOffset = move_carousel ? f : endPos;
 			this->mExtrasCamOffset = f;
+
 		}, 500);
-	} else {
-		// instant
-		anim = new LambdaAnimation(
-			[this, startPos, endPos, posMax, move_carousel ](float t)
+	} 
+	else // instant
+	{		
+		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel ](float t)
 		{
-			t -= 1;
-			float f = Math::lerp(startPos, endPos, t*t*t + 1);
-			if(f < 0)
-				f += posMax;
-			if(f >= posMax)
-				f -= posMax;
+			float f = Math::lerp(startPos, endPos, Math::easeOutQuint(t));
+			if (f < 0) f += posMax; 
+			if (f >= posMax) f -= posMax;
 
 			this->mCamOffset = move_carousel ? f : endPos;
 			this->mExtrasCamOffset = endPos;
+
 		}, move_carousel ? 500 : 1);
 	}
 
@@ -707,6 +688,8 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	setAnimation(anim, 0, [this]
 	{
+		mExtrasFadeOpacity = 0.0f;
+		mExtrasFadeMove = 0.0f;
 		mExtrasFadeOldCursor = -1;
 
 		for (int i = 0; i < mEntries.size(); i++)
@@ -730,7 +713,6 @@ void SystemView::render(const Transform4x4f& parentTrans)
 	auto minMax = std::minmax(mCarousel.zIndex, systemInfoZIndex);
 
 	renderExtras(trans, INT16_MIN, minMax.first);
-	renderFade(trans);
 
 	if (mStaticBackground != nullptr)
 		mStaticBackground->render(trans);
@@ -1085,7 +1067,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 					continue;
 
 				std::string value = extra->getValue();
-				if (extra->isKindOf<ImageComponent>())
+				if (extra->isKindOf<VideoComponent>())
+					paths.insert(value);
+				else if (extra->isKindOf<ImageComponent>())
 					paths.insert(value);
 				else if (extra->isKindOf<TextComponent>())
 					values.insert(value);
@@ -1103,7 +1087,9 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 					continue;
 
 				std::string value = extra->getValue();
-				if (extra->isKindOf<ImageComponent>())
+				if (extra->isKindOf<VideoComponent>())
+					paths.erase(value);
+				else if (extra->isKindOf<ImageComponent>())
 					paths.erase(value);
 				else if (extra->isKindOf<TextComponent>())
 					values.erase(value);
@@ -1122,15 +1108,31 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 				continue;
 
 			std::string value = extra->getValue();
-			if (extra->isKindOf<ImageComponent>())
+			if (extra->isKindOf<ImageComponent>() || extra->isKindOf<VideoComponent>())
 			{
 				if (allPaths.find(value) == allPaths.cend())
-					extra->render(trans);
-				else if (((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
+				{					
+					if (extra->getTag() == "background" || extra->getTag().find("bg-") == 0 || extra->getTag().find("bg_") == 0)
+						extra->render(trans);
+					else
+					{
+						auto opa = extra->getOpacity();
+						extra->setOpacity(mExtrasFadeOpacity * opa);
+						extra->render(trans);
+						extra->setOpacity(opa);
+					}
+				}
+				else if (extra->isKindOf<ImageComponent>() && ((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))					
 					extra->render(trans);
 			}
 			else if (extra->isKindOf<TextComponent>() && allValues.find(value) == allValues.cend())
+			{
+				auto opa = extra->getOpacity();
+				extra->setOpacity(mExtrasFadeOpacity * opa);
 				extra->render(trans);
+				extra->setOpacity(opa);
+				//extra->render(trans);
+			}				
 		}
 
 		Renderer::popClipRect();
@@ -1184,19 +1186,44 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 
 			// ExtrasFadeOpacity : Apply opacity only on elements that are not common with the original view
 			if (mExtrasFadeOpacity && !extra->isStaticExtra())
-			{
+			{			
+				auto xt = extrasTrans;
+
+				// Fade Animation
+				if (mExtrasFadeMove)
+				{
+					float mvs = 48.0f;
+
+					if (mCarousel.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL)
+					{
+						if ((mExtrasFadeOldCursor < mCursor && !(mExtrasFadeOldCursor == 0 && mCursor == mEntries.size() - 1)) ||
+							(mCursor == 0 && mExtrasFadeOldCursor == mEntries.size() - 1))
+							xt.translate(Vector3f((mExtrasFadeMove / mvs) * mSize.x(), 0, 0));
+						else
+							xt.translate(Vector3f(-(mExtrasFadeMove / mvs) * mSize.x(), 0, 0));
+					}
+					else
+					{
+						if ((mExtrasFadeOldCursor < mCursor && !(mExtrasFadeOldCursor == 0 && mCursor == mEntries.size() - 1)) ||
+							(mCursor == 0 && mExtrasFadeOldCursor == mEntries.size() - 1))
+							xt.translate(Vector3f(0, (mExtrasFadeMove / mvs) * mSize.y(), 0));
+						else
+							xt.translate(Vector3f(0, -(mExtrasFadeMove / mvs) * mSize.y(), 0));
+					}
+				}
+
 				std::string value = extra->getValue();
-				if (extra->isKindOf<ImageComponent>())
+				if (extra->isKindOf<ImageComponent>() || extra->isKindOf<VideoComponent>())
 				{
 					if (paths.find(value) != paths.cend())
 					{							
 						auto opa = extra->getOpacity();
-						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
-						extra->render(extra->isStaticExtra() ? trans : extrasTrans);
+						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);						
+						extra->render(extra->isStaticExtra() ? trans : xt);
 						extra->setOpacity(opa);
 						continue;
 					}								
-					else if (((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
+					else if (extra->isKindOf<ImageComponent>() && ((ImageComponent*)extra)->isTiled() && extra->getPosition() == Vector3f::Zero() && extra->getSize() == Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()))
 					{
 						auto opa = extra->getOpacity();
 						extra->setOpacity((1.0f - mExtrasFadeOpacity) * opa);
@@ -1255,17 +1282,6 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 	}
 
 	Renderer::popClipRect();
-}
-
-void SystemView::renderFade(const Transform4x4f& trans)
-{
-	// fade extras if necessary
-	if (mExtrasFadeOpacity)
-	{
-		unsigned int fadeColor = 0x00000000 | (unsigned char)(mExtrasFadeOpacity * 255);
-		Renderer::setMatrix(trans);
-		//Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), fadeColor, fadeColor);
-	}
 }
 
 // Populate the system carousel with the legacy values

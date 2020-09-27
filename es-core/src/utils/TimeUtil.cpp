@@ -285,18 +285,18 @@ namespace Utils
 			
 			if (h > 0)
 			{
-				snprintf(buf, 256, ngettext("%d hour", "%d hours", h), h);
+				snprintf(buf, 256, _("%d h").c_str(), h);
 				if (m > 0)
 				{
 					std::string hours(buf);
-					snprintf(buf, 256, ngettext("%d minute", "%d minutes", m), m);
+					snprintf(buf, 256, _("%d m").c_str(), m);
 					return hours + " " + std::string(buf);
 				}
 			}
 			else if (m > 0)
-				snprintf(buf, 256, ngettext("%d minute", "%d minutes", m), m);
+				snprintf(buf, 256, _("%d m").c_str(), m);
 			else 
-				snprintf(buf, 256, ngettext("%d second", "%d seconds", s), s);
+				snprintf(buf, 256, _("%d s").c_str(), s);
 
 			return std::string(buf);	
 		}

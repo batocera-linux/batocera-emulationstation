@@ -20,7 +20,10 @@ public:
 	void setText(std::string txt); // batocera
 
 	void reset(); // reset to frame 0
-	virtual void render(const Transform4x4f& parentTrans); // batocera
+	
+	void render(const Transform4x4f& parentTrans) override;
+	void update(int deltaTime) override;
+
 private:
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;

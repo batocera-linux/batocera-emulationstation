@@ -4,6 +4,7 @@
 #include "GuiThemeInstallStart.h"
 #include "components/MenuComponent.h"
 #include "ApiSystem.h"
+#include "ContentInstaller.h"
 
 template<typename T>
 class OptionListComponent;
@@ -28,17 +29,28 @@ private:
 
 
 // Batocera
-class GuiBezelInstallStart : public GuiComponent
+class GuiBezelInstallStart : public GuiComponent, IContentInstalledNotify
 {
 public:
 	GuiBezelInstallStart(Window* window);
+	~GuiBezelInstallStart();
+
 	bool input(InputConfig* config, Input input) override;
+	void update(int deltaTime) override;
+
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
 private:
 	void processBezel(BatoceraBezel name);
-	void loadBezels();
+	
+	void loadBezelsAsync();
+	void loadList();
+
 	void centerWindow();
 
+	int			  mReloadList;
 	MenuComponent mMenu;	
+
+	std::vector<BatoceraBezel> mBezels;
 };

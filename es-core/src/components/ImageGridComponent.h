@@ -71,6 +71,8 @@ public:
 	ImageGridComponent(Window* window);
 
 	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj);
+	
+	void setImage(const std::string& imagePath, const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -205,6 +207,19 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 	mEntriesDirty = true;
 }
+
+template<typename T>
+void ImageGridComponent<T>::setImage(const std::string& imagePath, const T& obj)
+{
+	IList<ImageGridData, T>* list = static_cast<IList< ImageGridData, T >*>(this);
+	auto entry = list->findEntry(obj);
+	if (entry != list->end())
+	{
+		(*entry)->data.texturePath = imagePath;
+		mEntriesDirty = true;
+	}
+}
+
 
 template<typename T>
 bool ImageGridComponent<T>::input(InputConfig* config, Input input)
