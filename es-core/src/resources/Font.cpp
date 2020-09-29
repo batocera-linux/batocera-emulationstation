@@ -45,9 +45,8 @@ void Font::initLibrary()
 size_t Font::getMemUsage() const
 {
 	size_t memUsage = 0;
-	
-	for(auto tex : mTextures)
-		memUsage += (tex->textureId != 0 ? tex->textureSize.x() * tex->textureSize.y() * 4 : 0);
+	for(auto it = mTextures.cbegin(); it != mTextures.cend(); it++)
+		memUsage += it->textureSize.x() * it->textureSize.y() * 4;
 
 	for(auto it = mFaceCache.cbegin(); it != mFaceCache.cend(); it++)
 		memUsage += it->second->data.length;
@@ -78,6 +77,7 @@ size_t Font::getTotalMemUsage()
 Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 {
 	mSize = size;
+	if(mSize > 160) mSize = 160; // maximize the font size while it is causing issues on linux
 
 	// GPI
 	if (Renderer::isSmallScreen())
@@ -109,30 +109,26 @@ Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 
 Font::~Font()
 {
+	for (auto it = mGlyphMap.cbegin(); it != mGlyphMap.cend(); it++)
+		delete it->second;
+
 	unload();
-
-	for (auto tex : mTextures)
-		delete tex;
-
-	mTextures.clear();
 }
 
 void Font::reload()
 {
 	if (mLoaded)
 		return;
-	
+
 	rebuildTextures();
 	mLoaded = true;
 }
 
-bool Font::unload()
+bool  Font::unload()
 {
 	if (mLoaded)
-	{		
-		for (auto tex : mTextures)
-			tex->deinitTexture();
-
+	{
+		unloadTextures();
 		mLoaded = false;
 		return true;
 	}
@@ -158,11 +154,18 @@ std::shared_ptr<Font> Font::get(int size, const std::string& path)
 	return font;
 }
 
+void Font::unloadTextures()
+{
+	for(auto it = mTextures.begin(); it != mTextures.end(); it++)
+	{
+		it->deinitTexture();
+	}
+}
+
 Font::FontTexture::FontTexture()
 {
 	textureId = 0;
 	textureSize = Vector2i(2048, 512);
-	//textureSize = Vector2i(1024, 256);
 	writePos = Vector2i::Zero();
 	rowHeight = 0;
 }
@@ -177,7 +180,8 @@ bool Font::FontTexture::findEmpty(const Vector2i& size, Vector2i& cursor_out)
 	if(size.x() >= textureSize.x() || size.y() >= textureSize.y())
 		return false;
 
-	if(writePos.x() + size.x() >= textureSize.x() && writePos.y() + rowHeight + size.y() + 1 < textureSize.y())
+	if(writePos.x() + size.x() >= textureSize.x() &&
+		writePos.y() + rowHeight + size.y() + 1 < textureSize.y())
 	{
 		// row full, but it should fit on the next row
 		// move cursor to next row
@@ -185,7 +189,8 @@ bool Font::FontTexture::findEmpty(const Vector2i& size, Vector2i& cursor_out)
 		rowHeight = 0;
 	}
 
-	if(writePos.x() + size.x() >= textureSize.x() || writePos.y() + size.y() >= textureSize.y())
+	if(writePos.x() + size.x() >= textureSize.x() ||
+		writePos.y() + size.y() >= textureSize.y())
 	{
 		// nope, still won't fit
 		return false;
@@ -220,29 +225,23 @@ void Font::getTextureForNewGlyph(const Vector2i& glyphSize, FontTexture*& tex_ou
 	if(mTextures.size())
 	{
 		// check if the most recent texture has space
-		tex_out = mTextures.back();
+		tex_out = &mTextures.back();
 
 		// will this one work?
 		if(tex_out->findEmpty(glyphSize, cursor_out))
 			return; // yes
-
-		LOG(LogDebug) << "Glyph texture cache full, creating a new texture cache for " << Utils::FileSystem::getFileName(mPath) << " " << mSize << "pt";
 	}
 
 	// current textures are full,
 	// make a new one
-	FontTexture* tex = new FontTexture();
-	tex->textureSize = Vector2i(mSize * 64, Math::max(glyphSize.y() + 2, mSize + 2));
-	tex->initTexture();
-	tex_out = tex;
-
-	mTextures.push_back(tex);
+	mTextures.push_back(FontTexture());
+	tex_out = &mTextures.back();
+	tex_out->initTexture();
 	
 	bool ok = tex_out->findEmpty(glyphSize, cursor_out);
 	if(!ok)
 	{
 		LOG(LogError) << "Glyph too big to fit on a new texture (glyph size > " << tex_out->textureSize.x() << ", " << tex_out->textureSize.y() << ")!";
-		delete tex;
 		tex_out = NULL;
 	}
 }
@@ -355,9 +354,6 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 
 	pGlyph->advance = Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
 	pGlyph->bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);
-	
-	pGlyph->cursor = cursor;
-	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
 	Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
@@ -379,8 +375,10 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 void Font::rebuildTextures()
 {
 	// recreate OpenGL textures
-	for(auto tex : mTextures)
-		tex->initTexture();
+	for(auto it = mTextures.begin(); it != mTextures.end(); it++)
+	{
+		it->initTexture();
+	}
 
 	// reupload the texture data
 	for(auto it = mGlyphMap.cbegin(); it != mGlyphMap.cend(); it++)
@@ -394,13 +392,11 @@ void Font::rebuildTextures()
 		FontTexture* tex = it->second->texture;
 		
 		// find the position/size
-//		Vector2i cursor((int)(it->second->texPos.x() * tex->textureSize.x()), (int)(it->second->texPos.y() * tex->textureSize.y()));
-	//	Vector2i glyphSize((int)(it->second->texSize.x() * tex->textureSize.x()), (int)(it->second->texSize.y() * tex->textureSize.y()));
+		Vector2i cursor((int)(it->second->texPos.x() * tex->textureSize.x()), (int)(it->second->texPos.y() * tex->textureSize.y()));
+		Vector2i glyphSize((int)(it->second->texSize.x() * tex->textureSize.x()), (int)(it->second->texSize.y() * tex->textureSize.y()));
 		
 		// upload to texture
-		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, 
-			it->second->cursor.x(), it->second->cursor.y(),
-			it->second->glyphSize.x(), it->second->glyphSize.y(), glyphSlot->bitmap.buffer);
+		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), glyphSlot->bitmap.buffer);
 	}
 }
 
@@ -419,9 +415,8 @@ void Font::renderTextCache(TextCache* cache)
 		
 		Renderer::bindTexture(*it->textureIdPtr);
 		Renderer::drawTriangleStrips(&it->verts[0], it->verts.size());
+		Renderer::bindTexture(0);		
 	}
-
-	Renderer::bindTexture(0);
 }
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)

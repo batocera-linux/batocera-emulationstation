@@ -79,9 +79,8 @@ private:
 
 	Font(int size, const std::string& path);
 
-	class FontTexture
+	struct FontTexture
 	{
-	public:
 		unsigned int textureId;
 		Vector2i textureSize;
 
@@ -107,8 +106,9 @@ private:
 	};
 
 	void rebuildTextures();
+	void unloadTextures();
 
-	std::vector<FontTexture*> mTextures;
+	std::vector<FontTexture> mTextures;
 
 	void getTextureForNewGlyph(const Vector2i& glyphSize, FontTexture*& tex_out, Vector2i& cursor_out);
 
@@ -125,9 +125,6 @@ private:
 
 		Vector2f advance;
 		Vector2f bearing;
-
-		Vector2i cursor;
-		Vector2i glyphSize;
 	};
 
 	Glyph* mGlyphCacheArray[255]; // used to cache 255 first chars
