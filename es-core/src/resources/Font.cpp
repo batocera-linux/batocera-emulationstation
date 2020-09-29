@@ -165,7 +165,8 @@ void Font::unloadTextures()
 Font::FontTexture::FontTexture()
 {
 	textureId = 0;
-	textureSize = Vector2i(2500, 512);
+	if (Renderer::getScreenHeight() > 1080) textureSize = Vector2i(2500, 512);
+	else textureSize = Vector2i(2048, 512);
 	writePos = Vector2i::Zero();
 	rowHeight = 0;
 }
