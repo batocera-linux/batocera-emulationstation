@@ -493,7 +493,7 @@ std::vector<std::string> ApiSystem::getAvailableOverclocking()
 
 std::vector<std::string> ApiSystem::getSystemInformations() 
 {
-	return executeEnumerationScript("batocera-info");
+	return executeEnumerationScript("batocera-info --full");
 }
 
 std::vector<BiosSystem> ApiSystem::getBiosInformations() 
