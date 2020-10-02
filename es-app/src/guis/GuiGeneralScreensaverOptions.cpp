@@ -15,9 +15,9 @@
 #define fake_gettext_randomvideo	_("random video")
 #define fake_gettext_slideshow		_("slideshow")
 
-#define fake_gettext_slideshow		_("always")
+#define fake_gettext_always			_("always")
 #define fake_gettext_start_end		_("start & end")
-#define fake_gettext_slideshow		_("never")
+#define fake_gettext_never			_("never")
 
 #define fake_gettext_none			_("none")
 #define fake_gettext_systems		_("systems")

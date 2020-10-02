@@ -20,6 +20,7 @@
 #include "guis/GuiMenu.h"
 #include "ApiSystem.h"
 #include "guis/GuiImageViewer.h"
+#include "views/SystemView.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic", "1x1",
@@ -393,12 +394,15 @@ GuiGamelistOptions::~GuiGamelistOptions()
 	else if (mFiltersChanged || viewModeChanged)
 	{
 		if (viewModeChanged)
+		{
 			mSystem->loadTheme();
+			ViewController::get()->reloadSystemListViewTheme(mSystem);
+		}
 
 		if (!viewModeChanged && mSystem->isCollection())
 			CollectionSystemManager::get()->reloadCollection(getCustomCollectionName());
 		else
-			ViewController::get()->reloadGameListView(mSystem, false);
+			ViewController::get()->reloadGameListView(mSystem);
 	}
 }
 

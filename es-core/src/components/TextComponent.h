@@ -58,6 +58,9 @@ public:
 
 	std::string getOriginalThemeText() { return mSourceText; }
 
+	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
+	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
+
 protected:
 	virtual void onTextChanged();
 

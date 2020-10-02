@@ -164,9 +164,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 		if (Renderer::isSmallScreen())
 			animateTo((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 		else
-			animateTo(
-				Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.9),
-				Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f));
+			animateTo(Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f));
 	}
 	else
 	{
@@ -1032,18 +1030,6 @@ void GuiMenu::openSystemSettings_batocera()
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		}
 	});
-	
-	// video resolution mode
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
-	{
-		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
-		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
-		s->addSaveFunc([this, videoModeOptionList]
-		{
-			if (SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()))
-				mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
-		});
-	}
 
 	// audio device
 	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
@@ -1486,39 +1472,40 @@ void GuiMenu::openGamesSettings_batocera()
 
 	s->addGroup(_("DEFAULT SETTINGS"));
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") {
-
-		// Screen ratio choice
+	// Screen ratio choice
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
+	{
 		auto ratio_choice = createRatioOptionList(mWindow, "global");
 		s->addWithLabel(_("GAME RATIO"), ratio_choice);
-		s->addSaveFunc([ratio_choice] {
-			if (ratio_choice->changed()) {
-				SystemConf::getInstance()->set("global.ratio", ratio_choice->getSelected());
-				SystemConf::getInstance()->saveSystemConf();
-			}
-		});
+		s->addSaveFunc([ratio_choice] { SystemConf::getInstance()->set("global.ratio", ratio_choice->getSelected()); });
 	}
+
+	// video resolution mode
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	{
+		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
+		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
+		s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()); });
+	}
+
 	// smoothing
 	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
-	smoothing_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.smooth") != "0" && SystemConf::getInstance()->get("global.smooth") != "1");
-	smoothing_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.smooth") == "1");
-	smoothing_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.smooth") == "0");
+	smoothing_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.smooth"));
 	s->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
+	s->addSaveFunc([smoothing_enabled] { SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected()); });
 
 	// rewind
 	auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
-	rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.rewind") != "0" && SystemConf::getInstance()->get("global.rewind") != "1");
-	rewind_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.rewind") == "1");
-	rewind_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.rewind") == "0");
+	rewind_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rewind"));
 	s->addWithLabel(_("REWIND"), rewind_enabled);
+	s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
 
 	// autosave/load
 	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-	autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.autosave") != "0" && SystemConf::getInstance()->get("global.autosave") != "1");
-	autosave_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.autosave") == "1");
-	autosave_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.autosave") == "0");
+	autosave_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.autosave"));
 	s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
-
+	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); });
+	
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS))
 	{
@@ -1542,16 +1529,9 @@ void GuiMenu::openGamesSettings_batocera()
 
 	// Integer scale
 	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
-	integerscale_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.integerscale") != "0" && SystemConf::getInstance()->get("global.integerscale") != "1");
-	integerscale_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.integerscale") == "1");
-	integerscale_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.integerscale") == "0");
+	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
 	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
-	s->addSaveFunc([integerscale_enabled] {
-		if (integerscale_enabled->changed()) {
-			SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected());
-			SystemConf::getInstance()->saveSystemConf();
-		}
-	});
+	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
@@ -1722,13 +1702,6 @@ void GuiMenu::openGamesSettings_batocera()
 		// Game List Update
 		// s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
 	}
-
-	s->addSaveFunc([smoothing_enabled, rewind_enabled, autosave_enabled] 
-	{
-		SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected());
-		SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected());
-		SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected());
-	});
 
 	mWindow->pushGui(s);
 }
@@ -2509,6 +2482,8 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			{
 				system->loadTheme();
 				system->resetFilters();
+
+				ViewController::get()->reloadSystemListViewTheme(system);
 				ViewController::get()->reloadGameListView(system);
 			}
 		}

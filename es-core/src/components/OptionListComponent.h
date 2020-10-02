@@ -393,6 +393,15 @@ public:
 			selectFirstItem();
 	}
 
+	void addRange(const std::vector<std::pair<std::string, T>> values, const T selectedValue)
+	{
+		for (auto value : values)
+			add(value.first.c_str(), value.second, selectedValue == value.second);
+
+		if (!hasSelection())
+			selectFirstItem();
+	}
+
 	void addGroup(const std::string name)
 	{
 		mGroup = name;

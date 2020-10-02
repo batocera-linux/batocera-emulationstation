@@ -8,11 +8,13 @@
 #include "Window.h"
 #include <algorithm>
 #include "animations/LambdaAnimation.h"
+#include "anim/StoryboardAnimator.h"
+#include "components/ScrollableContainer.h"
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
-	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5),
-	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true),
-	mStaticExtra(false)
+	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
+	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true), mShowing(false),
+	mStaticExtra(false), mStoryboardAnimator(nullptr)
 {
 	for(unsigned char i = 0; i < MAX_ANIMATIONS; i++)
 		mAnimationMap[i] = NULL;
@@ -23,6 +25,12 @@ GuiComponent::~GuiComponent()
 	mWindow->removeGui(this);
 
 	cancelAllAnimations();
+
+	if (mStoryboardAnimator != nullptr)
+	{
+		delete mStoryboardAnimator;
+		mStoryboardAnimator = nullptr;
+	}
 
 	if(mParent)
 		mParent->removeChild(this);
@@ -43,6 +51,9 @@ void GuiComponent::updateSelf(int deltaTime)
 {
 	for(unsigned char i = 0; i < MAX_ANIMATIONS; i++)
 		advanceAnimation(i, deltaTime);
+
+	if (mStoryboardAnimator != nullptr)
+		mStoryboardAnimator->update(deltaTime);
 }
 
 void GuiComponent::updateChildren(int deltaTime)
@@ -137,6 +148,16 @@ float GuiComponent::getScale() const
 void GuiComponent::setScale(float scale)
 {
 	mScale = scale;
+}
+
+Vector2f GuiComponent::getScaleOrigin() const
+{
+	return mScaleOrigin;
+}
+
+void GuiComponent::setScaleOrigin(const Vector2f& scaleOrigin)
+{
+	mScaleOrigin = scaleOrigin;
 }
 
 float GuiComponent::getZIndex() const
@@ -260,10 +281,21 @@ const Transform4x4f& GuiComponent::getTransform()
 {
 	mTransform = Transform4x4f::Identity();
 	mTransform.translate(mPosition);
+
 	if (mScale != 1.0)
 	{
+		float xOff = mSize.x() * mScaleOrigin.x();
+		float yOff = mSize.y() * mScaleOrigin.y();
+
+		if (mScaleOrigin != Vector2f::Zero())
+			mTransform.translate(Vector3f(xOff, yOff, 0.0f));
+
 		mTransform.scale(mScale);
+		
+		if (mScaleOrigin != Vector2f::Zero())
+			mTransform.translate(Vector3f(-xOff, -yOff, 0.0f));
 	}
+
 	if (mRotation != 0.0)
 	{
 		// Calculate offset as difference between origin and rotation origin
@@ -405,6 +437,79 @@ int GuiComponent::getAnimationTime(unsigned char slot) const
 	return mAnimationMap[slot]->getTime();
 }
 
+bool GuiComponent::hasStoryBoard(const std::string& name) 
+{ 
+	if (!name.empty())
+		return mStoryboardAnimator != nullptr && mStoryboardAnimator->getName() == name;
+	
+	return mStoryboardAnimator != nullptr; 
+}
+
+bool GuiComponent::isStoryBoardRunning(const std::string& name)
+{
+	if (!name.empty())
+		return mStoryboardAnimator != nullptr && mStoryboardAnimator->getName() == name && mStoryboardAnimator->isRunning();
+
+	return mStoryboardAnimator != nullptr && mStoryboardAnimator->isRunning();
+}
+
+bool GuiComponent::selectStoryboard(const std::string& name)
+{
+	if (mStoryboardAnimator != nullptr && mStoryboardAnimator->getName() == name)
+		return true;
+
+	auto sb = mStoryBoards.find(name);
+	if (sb != mStoryBoards.cend())
+	{
+		if (mStoryboardAnimator != nullptr)
+		{
+			mStoryboardAnimator->reset();
+			delete mStoryboardAnimator;
+			mStoryboardAnimator = nullptr;
+		}
+
+		mStoryboardAnimator = new StoryboardAnimator(this, sb->second);
+		return true;
+	}
+
+	return false;
+}
+
+bool GuiComponent::applyStoryboard(const ThemeData::ThemeElement* elem, const std::string name)
+{
+	if (mStoryboardAnimator != nullptr)
+	{
+		mStoryboardAnimator->reset();
+		delete mStoryboardAnimator;
+		mStoryboardAnimator = nullptr;
+	}
+
+	mStoryBoards = elem->mStoryBoards;
+	return selectStoryboard(name);
+}
+
+void GuiComponent::startStoryboard()
+{
+	if (mStoryboardAnimator)
+		mStoryboardAnimator->reset();
+}
+
+void GuiComponent::pauseStoryboard() 
+{ 
+	if (mStoryboardAnimator) 
+		mStoryboardAnimator->pause(); 
+}
+
+void GuiComponent::deselectStoryboard()
+{
+	if (mStoryboardAnimator != nullptr)
+	{
+		mStoryboardAnimator->reset();
+		delete mStoryboardAnimator;
+		mStoryboardAnimator = nullptr;
+	}
+}
+
 void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -414,24 +519,57 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 		return;
 
 	using namespace ThemeFlags;
+
 	if(properties & POSITION && elem->has("pos"))
 	{
 		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
 		setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
 	}
 
+	if (properties & POSITION && elem->has("x"))
+	{
+		float denormalized = elem->get<float>("x") * scale.x();
+		setPosition(Vector3f(denormalized, mPosition.y(), 0));
+	}
+
+	if (properties & POSITION && elem->has("y"))
+	{
+		float denormalized = elem->get<float>("y") * scale.y();
+		setPosition(Vector3f(mPosition.x(), denormalized, 0));
+	}
+
 	if(properties & ThemeFlags::SIZE && elem->has("size"))
 		setSize(elem->get<Vector2f>("size") * scale);
+
+	if (properties & SIZE && elem->has("w"))
+	{
+		float denormalized = elem->get<float>("w") * scale.x();
+		setSize(Vector2f(denormalized, mSize.y()));
+	}
+
+	if (properties & SIZE && elem->has("h"))
+	{
+		float denormalized = elem->get<float>("h") * scale.y();
+		setSize(Vector2f(mSize.x(), denormalized));
+	}
 
 	// position + size also implies origin
 	if((properties & ORIGIN || (properties & POSITION && properties & ThemeFlags::SIZE)) && elem->has("origin"))
 		setOrigin(elem->get<Vector2f>("origin"));
 
-	if(properties & ThemeFlags::ROTATION) {
+	if(properties & ThemeFlags::ROTATION) 
+	{
 		if(elem->has("rotation"))
 			setRotationDegrees(elem->get<float>("rotation"));
+		
 		if(elem->has("rotationOrigin"))
 			setRotationOrigin(elem->get<Vector2f>("rotationOrigin"));
+
+		if (elem->has("scale"))
+			setScale(elem->get<float>("scale"));
+
+		if (elem->has("scaleOrigin"))
+			setScaleOrigin(elem->get<Vector2f>("scaleOrigin"));
 	}
 
 	if(properties & ThemeFlags::Z_INDEX && elem->has("zIndex"))
@@ -443,6 +581,8 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	applyStoryboard(elem);
 }
 
 void GuiComponent::updateHelpPrompts()
@@ -479,12 +619,22 @@ bool GuiComponent::isProcessing() const
 
 void GuiComponent::onShow()
 {
+	mShowing = true;
+
+	if (mStoryboardAnimator != nullptr)
+		mStoryboardAnimator->reset();
+
 	for(unsigned int i = 0; i < getChildCount(); i++)
 		getChild(i)->onShow();
 }
 
 void GuiComponent::onHide()
 {
+	mShowing = false;
+
+	if (mStoryboardAnimator != nullptr)
+		mStoryboardAnimator->pause();
+
 	for(unsigned int i = 0; i < getChildCount(); i++)
 		getChild(i)->onHide();
 }
@@ -509,6 +659,8 @@ void GuiComponent::topWindow(bool isTop)
 
 void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, int delay)
 {
+	mScaleOrigin = Vector2f::Zero();
+
 	if ((flags & AnimateFlags::POSITION)==0)
 		from = to;
 
@@ -572,4 +724,109 @@ bool GuiComponent::isChild(GuiComponent* cmp)
 			return true;
 
 	return false;
+}
+
+ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string name)
+{
+	if (getParent() != nullptr && getParent()->isKindOf<ScrollableContainer>())
+	{
+		if (name == "pos" || name == "x" || name =="y" || name=="size" || name == "w" || name == "h")
+			return getParent()->getProperty(name);
+	}
+
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "pos")
+		return Vector2f(mPosition.x(), mPosition.y()) / scale;
+
+	if (name == "x")
+		return mPosition.x() / scale.x();
+
+	if (name == "y")
+		return mPosition.y() / scale.y();
+	
+	if (name == "size")
+		return mSize / scale;
+
+	if (name == "w")
+		return mSize.x() / scale.x();
+
+	if (name == "h")
+		return mSize.y() / scale.y();
+
+	if (name == "origin")
+		return getOrigin();
+
+	if (name == "rotation")
+		return getRotation();
+
+	if (name == "rotationOrigin")
+		return getRotationOrigin();
+
+	if (name == "opacity")
+		return getOpacity() / 255.0f;
+
+	if (name == "zIndex")
+		return getZIndex();
+
+	if (name == "scale")
+		return getScale();
+
+	if (name == "scaleOrigin")
+		return getScaleOrigin();
+
+	return "";
+}
+
+void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (getParent() != nullptr && getParent()->isKindOf<ScrollableContainer>())
+	{
+		if (name == "pos" || name == "x" || name == "y" || name == "size" || name == "w" || name == "h")
+		{
+			getParent()->setProperty(name, value);
+			return;
+		}
+	}
+
+	if (name == "pos" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setPosition(Vector3f(value.v.x() * scale.x(), value.v.y() * scale.y(), 0));
+
+	if (name == "x" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setPosition(Vector3f(value.f * scale.x(), mPosition.y(), 0));
+
+	if (name == "y" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setPosition(Vector3f(mPosition.x(), value.f * scale.y(), 0));
+
+	if (name == "size" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setSize(Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y()));
+
+	if (name == "w" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setSize(Vector2f(value.f * scale.x(), mSize.y()));
+
+	if (name == "h" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setSize(Vector2f(mSize.x(), value.f * scale.y()));
+
+	if (name == "origin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setOrigin(Vector2f(value.v.x(), value.v.y()));
+
+	if (name == "rotation" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setRotationDegrees(value.f);
+
+	if (name == "rotationOrigin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setRotationOrigin(Vector2f(value.v.x(), value.v.y()));
+
+	if (name == "zIndex" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setZIndex(value.f);
+
+	if (name == "opacity" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setOpacity(value.f * 255.0f);
+
+	if (name == "scale" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setScale(value.f);
+
+	if (name == "scaleOrigin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setScaleOrigin(Vector2f(value.v.x(), value.v.y()));
 }

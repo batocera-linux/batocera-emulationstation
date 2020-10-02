@@ -90,6 +90,8 @@ public:
 	virtual void onScreenSaverActivate();
 	virtual void onScreenSaverDeactivate();
 
+	virtual void setOpacity(unsigned char opacity);
+
 	ImageSource		getImageSource() { return mImageSource; };
 
 	void setGridSizeOverride(Vector2f size);
@@ -299,6 +301,15 @@ void ImageGridComponent<T>::topWindow(bool isTop)
 }
 
 template<typename T>
+void ImageGridComponent<T>::setOpacity(unsigned char opacity)
+{
+	GuiComponent::setOpacity(opacity);
+
+	for (auto tile : mTiles)
+		tile->setOpacity(opacity);
+}
+
+template<typename T>
 void ImageGridComponent<T>::onShow()
 {
 	if (mEntriesDirty)
@@ -309,11 +320,17 @@ void ImageGridComponent<T>::onShow()
 
 	GuiComponent::onShow();
 
-	for (int ti = 0; ti < (int)mTiles.size(); ti++)
-	{
-		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
+	for (auto tile : mTiles)
 		tile->onShow();
-	}
+}
+
+template<typename T>
+void ImageGridComponent<T>::onHide()
+{
+	GuiComponent::onHide();
+	
+	for (auto tile : mTiles)
+		tile->onHide();	
 }
 
 template<typename T>
@@ -361,18 +378,6 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::getSelectedTile()
 }
 
 template<typename T>
-void ImageGridComponent<T>::onHide()
-{
-	GuiComponent::onHide();
-
-	for (int ti = 0; ti < (int)mTiles.size(); ti++)
-	{
-		std::shared_ptr<GridTileComponent> tile = mTiles.at(ti);
-		tile->onHide();
-	}
-}
-
-template<typename T>
 void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = getTransform() * parentTrans;
@@ -412,7 +417,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 		{
 			std::shared_ptr<GridTileComponent> tile = (*it);
 
-			auto tt = tile->getTransform() * trans;
+			auto tt = trans * tile->getTransform();
 			Renderer::setMatrix(tt);
 			Renderer::drawRect(0.0, 0.0, tile->getSize().x(), tile->getSize().y(), 0x00FF0033);
 		}
@@ -442,7 +447,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 			break;
 		}
 	}
-
+	
 	for (auto it = mTiles.begin(); it != mTiles.end(); it++)
 	{
 		std::shared_ptr<GridTileComponent> tile = (*it);

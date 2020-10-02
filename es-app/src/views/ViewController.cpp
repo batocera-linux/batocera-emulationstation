@@ -139,8 +139,8 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	systemList->goToSystem(dest, false);
 
 	mCurrentView = systemList;
-	mCurrentView->onShow();
 
+	// mCurrentView->onShow();
 //	PowerSaver::pause();
 //	PowerSaver::resume();
 
@@ -226,9 +226,6 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 			view->moveToFolder(collectionFolder);
 	}
 	
-	if (mCurrentView)
-		mCurrentView->onShow();	
-
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(system->getTheme());
 
@@ -243,6 +240,9 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 
 void ViewController::playViewTransition(bool forceImmediate)
 {
+	if (mCurrentView)
+		mCurrentView->onShow();
+
 	Vector3f target(Vector3f::Zero());
 	if(mCurrentView)
 		target = mCurrentView->getPosition();
@@ -365,15 +365,15 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if(transition_style == "auto")
 		transition_style = "slide";
 
-	// Workaround, the grid scale has problems when sliding giving bad effects
-	if(transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
-		transition_style = "fade";
-
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		transition_style = "instant";
 
 	if (transition_style == "fade & slide")
 		transition_style = "slide";
+
+	// Workaround, the grid scale has problems when sliding giving bad effects
+	if (transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
+		transition_style = "fade";
 
 	if(transition_style == "fade")
 	{
@@ -718,13 +718,18 @@ void ViewController::preload()
 	}
 }
 
-void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
+void ViewController::reloadSystemListViewTheme(SystemData* system)
+{
+	if (mSystemListView == nullptr)
+		return;
+
+	mSystemListView->reloadTheme(system);
+}
+
+void ViewController::reloadGameListView(IGameListView* view)
 {
 	if (view == nullptr)
 		return;
-
-	if (reloadTheme)
-		ThemeData::setDefaultTheme(nullptr);
 
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
 	{
@@ -740,9 +745,6 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 			cursorPath = cursor->getPath();
 
 		mGameListViews.erase(it);
-
-		if(reloadTheme)
-			system->loadTheme();
 
 		system->setUIModeFilters();
 		system->updateDisplayedGameCount();
@@ -772,9 +774,6 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 		break;		
 	}
 	
-	if (SystemData::sSystemVector.size() > 0 && reloadTheme)
-		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());
-
 	// Redisplay the current view
 	if (mCurrentView)
 		mCurrentView->onShow();
