@@ -78,7 +78,7 @@ size_t Font::getTotalMemUsage()
 Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 {
 	mSize = size;
-	if(mSize > 160) mSize = 160; // maximize the font size while it is causing issues on linux
+	//if(mSize > 160) mSize = 160; // maximize the font size while it is causing issues on linux
 
 	// GPI
 	if (Renderer::isSmallScreen())
