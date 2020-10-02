@@ -12,8 +12,7 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	mTimer = 0;
 	mAnimateTiming = 0;
 	mAnimateColor = 0xFFFFFFFF;
-
-	mShowing = false;
+	
 	mPreviousSize = Vector2f(0, 0);
 	setImagePath(path);
 }
@@ -250,7 +249,7 @@ void NinePatchComponent::setImagePath(const std::string& path)
 
 	mTexture = TextureResource::get(mPath, false, true);
 
-	if (mShowing && mTexture != nullptr)
+	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
 
 	buildVertices();
@@ -317,9 +316,7 @@ void NinePatchComponent::onShow()
 	GuiComponent::onShow();
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(true);
-
-	mShowing = true;
+		mTexture->setRequired(true);	
 }
 
 void NinePatchComponent::onHide()
@@ -327,7 +324,44 @@ void NinePatchComponent::onHide()
 	GuiComponent::onHide();
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false);	
+}
 
-	mShowing = false;
+ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "color")
+		return mCenterColor;
+	else if (name == "centerColor")
+		return mCenterColor;
+	else if (name == "edgeColor")
+		return mEdgeColor;
+	else if (name == "cornerSize")
+		return mCornerSize;
+	else if (name == "animateColor")
+		return mAnimateColor;
+
+	return GuiComponent::getProperty(name);
+}
+
+void NinePatchComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+	{
+		setCenterColor(value.i);
+		setEdgeColor(value.i);
+	}
+	else if (name == "centerColor" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setCenterColor(value.i);
+	else if (name == "edgeColor" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setEdgeColor(value.i);
+	else if (name == "animateColor" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setAnimateColor(value.i);
+	else if (name == "cornerSize" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setCornerSize(value.v);
+	else
+		GuiComponent::setProperty(name, value);
 }

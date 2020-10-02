@@ -555,3 +555,50 @@ void TextComponent::setAutoScroll(bool value)
 	mAutoScroll = value;
 	onTextChanged();
 }
+
+
+ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string name)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "size" || name == "maxSize" || name == "minSize")
+		return mSize / scale;
+	else if (name == "color")
+		return mColor;
+	else if (name == "backgroundColor")
+		return mBgColor;
+	else if (name == "glowColor")
+		return mGlowColor;
+	else if (name == "glowSize")
+		return mGlowSize;
+	else if (name == "glowOffset")
+		return mGlowOffset;
+	else if (name == "reflexion")
+		return mReflection;
+	else if (name == "lineSpacing")
+		return mLineSpacing;
+
+	return GuiComponent::getProperty(name);
+}
+
+void TextComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setColor(value.i);
+	else if (name == "backgroundColor" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setBackgroundColor(value.i);
+	else if (name == "glowColor" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setGlowColor(value.i);
+	else if (name == "glowSize" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setGlowSize(value.f);
+	else if (name == "glowOffset" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		setGlowOffset(value.v.x(), value.v.y());
+	else if (name == "reflexion" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		mReflection = value.v;
+	else if (name == "lineSpacing" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setLineSpacing(value.f);
+	else
+		GuiComponent::setProperty(name, value);
+}

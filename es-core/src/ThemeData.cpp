@@ -12,6 +12,7 @@
 #include "SystemConf.h"
 #include <algorithm>
 #include "LocaleES.h"
+#include "anim/ThemeStoryboard.h"
 
 std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
@@ -23,6 +24,14 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+		
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+
 		{ "maxSize", NORMALIZED_PAIR },
 		{ "minSize", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
@@ -48,6 +57,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+
 		{ "margin", NORMALIZED_PAIR },
 		{ "padding", NORMALIZED_RECT },
 		{ "autoLayout", NORMALIZED_PAIR },
@@ -83,6 +101,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "text", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
@@ -108,6 +135,18 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "textlist", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+		{ "rotation", FLOAT },
+		{ "rotationOrigin", NORMALIZED_PAIR },
+
 		{ "origin", NORMALIZED_PAIR },
 		{ "selectorHeight", FLOAT },
 		{ "selectorOffsetY", FLOAT },
@@ -143,6 +182,17 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "ninepatch", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+		{ "rotation", FLOAT },
+		{ "rotationOrigin", NORMALIZED_PAIR },
+
 		{ "path", PATH },
 	 	{ "visible", BOOLEAN },
 		{ "color", COLOR },
@@ -173,6 +223,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "rating", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
@@ -226,21 +285,30 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "iconStart", PATH },
 		{ "iconSelect", PATH } } },
 	{ "video", {
+		// Common properties
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
-		{ "maxSize", NORMALIZED_PAIR },
-		{ "minSize", NORMALIZED_PAIR },
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
+		{ "visible", BOOLEAN },
+		{ "zIndex", FLOAT },
+		// video properties
+		{ "maxSize", NORMALIZED_PAIR },
+		{ "minSize", NORMALIZED_PAIR },
 		{ "default", PATH },
 		{ "path", PATH },
 		{ "delay", FLOAT },
 		{ "effect", STRING },
-	 	{ "visible", BOOLEAN },
 		{ "roundCorners", FLOAT },
 		{ "color", COLOR },
-	 	{ "zIndex", FLOAT },		
 		{ "snapshotSource", STRING }, // image, thumbnail, marquee
 		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
 		{ "showSnapshotNoVideo", BOOLEAN },
@@ -589,7 +657,6 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 			mSubsets.push_back(subSet);
 		}
 	}
-
 	
 	if (subsetAttr == "colorset")
 	{
@@ -835,6 +902,61 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 			return false;
 	}
 
+	if (node.attribute("ifSubset"))
+	{
+		const std::string ifSubset = node.attribute("ifSubset").as_string();
+		for (auto subset : Utils::String::split(ifSubset, ',' , true))
+		{
+			auto splits = Utils::String::split(Utils::String::trim(subset), ':', true);
+			if (splits.size() == 2)
+			{
+				const std::string subsetToFind = Utils::String::trim(splits[0]);
+				const std::string subsetValue = Utils::String::trim(splits[1]);
+
+				std::string selectedSubset = Settings::getInstance()->getString("subset." + mSystemThemeFolder + "." + subsetToFind);
+				if (selectedSubset.empty())
+				{
+					selectedSubset = Settings::getInstance()->getString("subset." + subsetToFind);
+
+					if (subsetToFind == "systemview")
+						selectedSubset = mSystemview;
+					else if (subsetToFind == "gamelistview")
+						selectedSubset = mGamelistview;
+					else if (subsetToFind == "iconset")
+						selectedSubset = mIconset;
+					else if (subsetToFind == "colorset")
+						selectedSubset = mColorset;
+				}
+
+				if (selectedSubset.empty())
+				{
+					for (const auto& it : mSubsets)
+					{
+						if (it.subset == subsetToFind)
+						{
+							selectedSubset = it.name;
+							break;
+						}
+					}
+				}
+
+				if (selectedSubset.empty())
+					return true;
+
+				bool hasValue = false;
+
+				auto values = Utils::String::split(Utils::String::trim(subsetValue), '|', true);
+				for (auto value : values)
+					if (selectedSubset == value)
+						hasValue = true;;
+
+				if (!hasValue)
+					return false;
+			}
+		}
+
+	}
+
 	return true;
 }
 
@@ -939,7 +1061,7 @@ void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& 
 	if (!baseView.baseType.empty())
 		parseCustomViewBaseClass(root, view, baseView.baseType);
 
-	for (auto element : baseView.elements)
+	for (auto& element : baseView.elements)
 	{
 		view.elements.erase(element.first);			
 		view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
@@ -1127,6 +1249,28 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		auto typeIt = typeMap.find(node.name());
 		if(typeIt == typeMap.cend())
 		{
+			if (std::string(node.name()) == "storyboard")
+			{
+				auto storyBoard = new ThemeStoryboard();
+				if (!storyBoard->fromXmlNode(node, typeMap))
+				{
+					LOG(LogWarning) << "Storyboard \"" << node.name() << "\" has no <animation> items !";
+					delete storyBoard;
+				}
+				else
+				{
+					auto sb = element.mStoryBoards.find(storyBoard->eventName);
+					if (sb != element.mStoryBoards.cend())
+						delete sb->second;
+
+					element.mStoryBoards[storyBoard->eventName] = storyBoard;
+
+					LOG(LogInfo) << "Storyboard \"" << node.name() << "\"!";
+				}
+
+				continue;
+			}
+
 			// Exception for menuIcons that can be extended
 			if (element.type == "menuIcons")
 				type = PATH;
@@ -1708,4 +1852,22 @@ std::string	ThemeData::getDefaultSubSetValue(const std::string subsetname)
 bool ThemeData::ThemeView::isOfType(const std::string type)
 {
 	return baseType == type || std::find(baseTypes.cbegin(), baseTypes.cend(), type) != baseTypes.cend();
-};
+}
+
+ThemeData::ThemeElement::ThemeElement(const ThemeElement& src)
+{
+	extra = src.extra;
+	type = src.type;
+	properties = src.properties;
+
+	for (auto sb : src.mStoryBoards)
+		mStoryBoards[sb.first] = new ThemeStoryboard(*sb.second);
+}
+
+ThemeData::ThemeElement::~ThemeElement()
+{
+	for (auto sb : mStoryBoards)
+		delete sb.second;
+
+	mStoryBoards.clear();
+}

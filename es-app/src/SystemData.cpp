@@ -1275,13 +1275,20 @@ void SystemData::loadTheme()
 		std::map<std::string, std::string> sysData;
 		sysData.insert(std::pair<std::string, std::string>("system.name", getName()));
 		sysData.insert(std::pair<std::string, std::string>("system.theme", getThemeFolder()));
-		sysData.insert(std::pair<std::string, std::string>("system.fullName", getFullName()));
+		
+		if (getFullName().size() > 1)
+			sysData.insert(std::pair<std::string, std::string>("system.fullName", Utils::String::toUpper(getFullName().substr(0, 1)) + getFullName().substr(1)));
+		else 
+			sysData.insert(std::pair<std::string, std::string>("system.fullName", getFullName()));
 
 		sysData.insert(std::pair<std::string, std::string>("system.manufacturer", getSystemMetadata().manufacturer));
 		sysData.insert(std::pair<std::string, std::string>("system.hardwareType", getSystemMetadata().hardwareType));
 
 		if (getSystemMetadata().releaseYear > 0)
+		{
+			sysData.insert(std::pair<std::string, std::string>("system.releaseYearOrNull", std::to_string(getSystemMetadata().releaseYear)));
 			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", std::to_string(getSystemMetadata().releaseYear)));
+		}
 		else
 			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", _("Unknown")));
 

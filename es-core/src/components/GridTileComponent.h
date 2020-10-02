@@ -214,8 +214,7 @@ public:
 	void setFavorite(bool favorite);
 	bool hasFavoriteMedia() { return mFavorite != nullptr; }
 
-	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false);
-	void setVisible(bool visible);
+	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false);	
 
 	void forceSize(Vector2f size, float selectedZoom = 1.0);
 
@@ -267,8 +266,7 @@ private:
 	void setSelectedZoom(float percent);
 
 	float mSelectedZoomPercent;
-	bool mSelected;
-	bool mVisible;
+	bool mSelected;	
 
 	bool mIsDefaultImage;
 
@@ -280,8 +278,7 @@ private:
 	ImageComponent* mFavorite;
 	ImageComponent* mImageOverlay;
 
-	bool mVideoPlaying;
-	bool mShown;
+	bool mVideoPlaying;	
 };
 
 #endif // ES_CORE_COMPONENTS_GRID_TILE_COMPONENT_H

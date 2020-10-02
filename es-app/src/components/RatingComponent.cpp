@@ -42,6 +42,7 @@ void RatingComponent::setOpacity(unsigned char opacity)
 {
 	mOpacity = opacity;
 	mColorShift = (mColorShift >> 8 << 8) | mOpacity;
+	mUnfilledColor = (mUnfilledColor >> 8 << 8) | mOpacity;
 	updateColors();
 }
 

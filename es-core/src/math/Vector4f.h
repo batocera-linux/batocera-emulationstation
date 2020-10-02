@@ -4,6 +4,7 @@
 
 #include "math/Misc.h"
 #include <assert.h>
+#include <string>
 
 class Vector2f;
 class Vector3f;
@@ -75,6 +76,8 @@ public:
 	static const Vector4f UnitY() { return { 0, 1, 0, 0 }; }
 	static const Vector4f UnitZ() { return { 0, 0, 1, 0 }; }
 	static const Vector4f UnitW() { return { 0, 0, 0, 1 }; }
+
+	static const Vector4f parseString(const std::string& _input);
 
 private:
 
