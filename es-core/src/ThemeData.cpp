@@ -205,6 +205,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "datetime", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "opacity", FLOAT },
+
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },

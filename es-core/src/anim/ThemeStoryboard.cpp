@@ -2,6 +2,24 @@
 #include "Log.h"
 #include "utils/StringUtil.h"
 
+ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
+{
+	eventName = src.eventName;
+	repeat = src.repeat;
+
+	for (auto anim : src.animations)
+	{
+		if (dynamic_cast<ThemeFloatAnimation*>(anim) != nullptr)
+			animations.push_back(new ThemeFloatAnimation((const ThemeFloatAnimation&)(*anim)));
+		else if (dynamic_cast<ThemeColorAnimation*>(anim) != nullptr)
+			animations.push_back(new ThemeColorAnimation((const ThemeColorAnimation&)(*anim)));
+		else if (dynamic_cast<ThemeVector2Animation*>(anim) != nullptr)
+			animations.push_back(new ThemeVector2Animation((const ThemeVector2Animation&)(*anim)));
+		else if (dynamic_cast<ThemeVector4Animation*>(anim) != nullptr)
+			animations.push_back(new ThemeVector4Animation((const ThemeVector4Animation&)(*anim)));
+	}
+}
+
 ThemeStoryboard::~ThemeStoryboard()
 {
 	for (auto anim : animations)
