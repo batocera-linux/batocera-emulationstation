@@ -12,6 +12,8 @@ public:
 		repeat = 1;
 	}
 
+	ThemeStoryboard(const ThemeStoryboard& src);
+
 	~ThemeStoryboard();
 
 	std::string eventName;
