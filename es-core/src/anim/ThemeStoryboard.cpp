@@ -17,6 +17,10 @@ ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 			animations.push_back(new ThemeVector2Animation((const ThemeVector2Animation&)(*anim)));
 		else if (dynamic_cast<ThemeVector4Animation*>(anim) != nullptr)
 			animations.push_back(new ThemeVector4Animation((const ThemeVector4Animation&)(*anim)));
+		else if (dynamic_cast<ThemeStringAnimation*>(anim) != nullptr)
+			animations.push_back(new ThemeStringAnimation((const ThemeStringAnimation&)(*anim)));
+		else if (dynamic_cast<ThemePathAnimation*>(anim) != nullptr)
+			animations.push_back(new ThemePathAnimation((const ThemePathAnimation&)(*anim)));
 	}
 }
 
@@ -83,6 +87,18 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 			anim = new ThemeFloatAnimation();
 			if (node.attribute("from")) anim->from = (float)atof(node.attribute("from").as_string());	
 			if (node.attribute("to")) anim->to = (float)atof(node.attribute("to").as_string());
+			break;
+
+		case ThemeData::ElementPropertyType::PATH:
+			anim = new ThemePathAnimation();
+			if (node.attribute("from")) anim->from = node.attribute("from").as_string();
+			if (node.attribute("to")) anim->to = node.attribute("to").as_string();
+			break;
+
+		case ThemeData::ElementPropertyType::STRING:
+			anim = new ThemeStringAnimation();
+			if (node.attribute("from")) anim->from = node.attribute("from").as_string();
+			if (node.attribute("to")) anim->to = node.attribute("to").as_string();
 			break;
 
 		default:

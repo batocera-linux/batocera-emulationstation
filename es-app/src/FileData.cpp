@@ -24,6 +24,7 @@
 #include <time.h>
 #include <algorithm>
 #include "LangParser.h"
+#include "resources/ResourceManager.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -413,8 +414,17 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
 
 	Scripting::fireEvent("game-end");
+	
+	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
+	{
+		ResourceManager::getInstance()->reloadAll();
+		window->deinit();
+		window->init();
+		window->setCustomSplashScreen(gameToUpdate->getImagePath(), gameToUpdate->getName());
+	}
+	else
+		window->init(hideWindow);
 
-	window->init(hideWindow);
 	VolumeControl::getInstance()->init();
 
 	// mSystem can be NULL
