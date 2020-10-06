@@ -378,14 +378,20 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
 
-	if (options.netPlayMode == CLIENT)
+	if (options.netPlayMode == CLIENT || options.netPlayMode == SPECTATOR)
 	{
+		std::string mode = (options.netPlayMode == SPECTATOR ? "spectator" : "client");
+		std::string pass;
+		
+		if (!options.netplayClientPassword.empty())
+			pass = " -netplaypass " + options.netplayClientPassword;
+
 #if WIN32
 		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
 			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 		else
 #endif
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode " + mode + " -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip + pass);
 	}
 	else if (options.netPlayMode == SERVER)
 	{

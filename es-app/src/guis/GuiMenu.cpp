@@ -1408,7 +1408,7 @@ void GuiMenu::openNetplaySettings()
 	std::string mitm = SystemConf::getInstance()->get("global.netplay.relay");
 
 	auto mitms = std::make_shared<OptionListComponent<std::string> >(mWindow, _("USE RELAY SERVER"), false);
-	mitms->add(_("NONE"), "none", mitm.empty() || mitm == "none");
+	mitms->add(_("NONE"), "", mitm.empty() || mitm == "none");
 	mitms->add("NEW YORK", "nyc", mitm == "nyc");
 	mitms->add("MADRID", "madrid", mitm == "madrid");
 	mitms->add("MONTREAL", "montreal", mitm == "montreal");
@@ -1429,10 +1429,8 @@ void GuiMenu::openNetplaySettings()
 	Window* window = mWindow;
 	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
 	{
-		std::string mitm = mitms->getSelected();
-		
 		Settings::getInstance()->setBool("NetPlayCheckIndexesAtStart", checkOnStart->getState());
-		SystemConf::getInstance()->set("global.netplay.relay", mitm.empty() ? "" : mitm);		
+		SystemConf::getInstance()->set("global.netplay.relay", mitms->getSelected());
 
 		if (SystemConf::getInstance()->setBool("global.netplay", enableNetplay->getState()))
 		{

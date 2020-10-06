@@ -14,13 +14,134 @@
 #include "components/MenuComponent.h"
 #include "components/ButtonComponent.h"
 #include "views/ViewController.h"
+#include "guis/GuiSettings.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
 
+#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
+
 // http://lobby.libretro.com/list/
 // Core list :
 // FCEUmm, FB Alpha, MAME 2000, MAME 2003, MAME 2010
+
+static std::map<std::string, std::string> coreList =
+{
+#if WIN32
+	{ "2048", "2048" },
+	{ "81", "81" },
+	{ "Atari800", "atari800" },
+	{ "blueMSX", "bluemsx" },
+	{ "Cannonball", "cannonball" },
+	{ "Caprice32", "cap32" },
+	{ "CrocoDS", "crocods" },
+	{ "Daphne", "daphne" },
+	{ "Dinothawr", "dinothawr" },
+	{ "DOSBox-SVN", "dosbox_svn" },
+	{ "EasyRPG Player", "easyrpg" },
+	{ "FB Alpha 2012 Neo Geo", "fbalpha2012_neogeo" },
+	{ "FB Alpha 2012", "fbalpha2012" },
+	{ "FB Alpha", "fbalpha" },
+	{ "FinalBurn Neo", "fbneo" },
+	{ "FCEUmm", "fceumm" },
+	{ "Flycast", "flycast" },
+	{ "FreeIntv", "freeintv" },
+	{ "Fuse", "fuse" },
+	{ "Gambatte", "gambatte" },
+	{ "Gearboy", "gearboy" },
+	{ "Gearsystem", "gearsystem" },
+	{ "Genesis Plus GX", "genesis_plus_gx" },
+	{ "Game Music Emu", "gme" },
+	{ "gpSP", "gpsp" },
+	{ "GW", "gw" },
+	{ "Handy", "handy" },
+	{ "Hatari", "hatari" },
+	{ "MAME 2003 (0.78)", "mame2003" },
+	{ "MAME 2003-Plus", "mame2003_plus" },
+	{ "MAME 2010 (0.139)", "mame2010" },
+	{ "MAME 2016 (0.174)", "mame2016" },
+	{ "Beetle Lynx", "mednafen_lynx" },
+	{ "Beetle NeoPop", "mednafen_ngp" },
+	{ "Beetle PCE Fast", "mednafen_pce_fast" },
+	{ "Beetle PC-FX", "mednafen_pcfx" },
+	{ "Beetle SuperGrafx", "mednafen_supergrafx" },
+	{ "Beetle VB", "mednafen_vb" },
+	{ "Beetle WonderSwan", "mednafen_wswan" },
+	{ "Mesen-S", "mesen-s" },
+	{ "mGBA", "mgba" },
+	{ "Mr.Boom", "mrboom" },
+	{ "Mupen64Plus-Next", "mupen64plus_next" },
+	{ "Neko Project II", "nekop2" },
+	{ "NeoCD", "neocd" },
+	{ "NestopiaCV", "nestopiaCV" },
+	{ "Nestopia", "nestopia" },
+	{ "Neko Project II", "np2kai" },
+	{ "NXEngine", "nxengine" },
+	{ "O2EM", "o2em" },
+	{ "Opera", "opera" },
+	{ "ParaLLEl N64", "parallel_n64" },
+	{ "PCSX-ReARMed", "pcsx_rearmed" },
+	{ "PicoDrive", "picodrive" },
+	{ "PokeMini", "pokemini" },
+	{ "PPSSPP", "ppsspp" },
+	{ "PrBoom", "prboom" },
+	{ "ProSystem", "prosystem" },
+	{ "PUAE", "puae" },
+	{ "PX68k", "px68k" },
+	{ "QUASI88", "quasi88" },
+	{ "QuickNES", "quicknes" },
+	{ "REminiscence", "reminiscence" },
+	{ "SameBoy", "sameboy" },
+	{ "ScummVM", "scummvm" },
+	{ "Snes9x 2002", "snes9x2002" },
+	{ "Snes9x 2005 Plus", "snes9x2005_plus" },
+	{ "Snes9x 2010", "snes9x2010" },
+	{ "Snes9x", "snes9x" },
+	{ "Stella", "stella" },
+	{ "TGB Dual", "tgbdual" },
+	{ "TyrQuake", "tyrquake" },
+	{ "UAE4ARM", "uae4arm" },
+	{ "uzem", "uzem" },
+	{ "VBA-M", "vbam" },
+	{ "VBA Next", "vba_next" },
+	{ "vecx", "vecx" },
+	{ "VICE", "vice_x128" },
+	{ "VICE", "vice_x64" },
+	{ "VICE", "vice_xplus4" },
+	{ "VICE", "vice_xvic" },
+	{ "Virtual Jaguar", "virtualjaguar" },
+	{ "x1", "x1" },
+	{ "XRick", "xrick" },
+	{ "YabaSanshiro", "yabasanshiro" },
+	{ "Yabause", "yabause" },
+#else
+	{ "Beetle NeoPop", "mednafen_ngp" },
+	{ "Beetle PCE Fast", "pce" },
+	{ "Beetle SuperGrafx", "mednafen_supergrafx" },
+	{ "Beetle VB", "vb" },
+	{ "Beetle WonderSwan", "mednafen_wswan" },
+	{ "DOSBox-SVN", "dosbox" },
+	{ "EightyOne", "81" },
+	{ "FB Alpha 2012 Neo Geo", "fbalpha2012_neogeo" },
+	{ "FB Alpha 2012", "fbalpha2012" },
+	{ "FB Alpha", "fbalpha" },
+	{ "FinalBurn Neo", "fbneo" },
+	{ "Game & Watch", "gw" },
+	{ "Genesis Plus GX", "genesisplusgx" },
+	{ "MAME 2000", "imame4all" },
+	{ "MAME 2003 (0.78)", "mame2003" },
+	{ "MAME 2003-Plus", "mame078plus" },
+	{ "MAME 2010", "mame0139" },
+	{ "MAME 2014", "mame2014" },
+	{ "PCSX-ReARMed", "pcsx_rearmed" },
+	{ "Snes9x 2002", "pocketsnes" },
+	{ "Snes9x 2010", "snes9x_next" },
+	{ "TGB Dual", "tgbdual", },
+	{ "VICE x64", "vice" }
+#endif
+};
 
 GuiNetPlay::GuiNetPlay(Window* window) 
 	: GuiComponent(window), 
@@ -82,10 +203,10 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	if (Renderer::isSmallScreen())
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
-		setSize(width, Renderer::getScreenHeight() * 0.85f);
+		setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.90f);
 
 	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
-	
+
 	// Loading
     mBusyAnim.setSize(Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
 	mBusyAnim.setText(_("PLEASE WAIT"));
@@ -165,12 +286,34 @@ std::vector<HelpPrompt> GuiNetPlay::getHelpPrompts()
 }
 
 
-FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc)
+FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string coreName)
 {
+	std::string lowCore;
+
+	auto coreInfo = coreList.find(coreName);
+	if (coreInfo != coreList.cend())
+		lowCore = Utils::String::toLower(coreInfo->second);
+	else
+		lowCore = Utils::String::toLower(Utils::String::replace(coreName, " ", "_"));
+	
+	std::string low = Utils::String::toLower(gameInfo);
 	for (auto sys : SystemData::sSystemVector)
 	{
 		if (!sys->isNetplaySupported())
 			continue;
+
+		if (!crc)
+		{
+			bool coreExists = false;
+
+			for (auto& emul : sys->getEmulators())
+				for (auto& core : emul.cores)
+					if (Utils::String::toLower(core.name) == lowCore)
+						coreExists = true;
+
+			if (!coreExists)
+				continue;
+		}
 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
@@ -181,10 +324,25 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc)
 
 				continue;
 			}
-			
-			std::string stem = Utils::FileSystem::getStem(file->getPath());
-			if (stem == gameInfo)
-				return file;			
+			else
+			{
+				std::string stem = Utils::String::toLower(Utils::FileSystem::getStem(file->getPath()));
+				if (stem == low)
+					return file;
+
+				stem = Utils::String::toLower(file->getName());
+				if (stem == low)
+					return file;
+
+				stem = Utils::String::replace(stem, ".", "");
+				stem = Utils::String::replace(stem, "'", "");
+				if (stem == low)
+					return file;
+
+				stem = Utils::String::replace(stem, " ", "");
+				if (stem == low)
+					return file;
+			}
 		}
 	}
 
@@ -202,13 +360,14 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<ImageComponent>(mWindow);
+		mImage->setIsLinear(true);
 
 		if (entry.fileData == nullptr)
 			mImage->setImage(":/cartridge.svg");
 		else
 			mImage->setImage(entry.fileData->getImagePath());		
 
-		mImage->setRoundCorners(0.25);
+		mImage->setRoundCorners(0.27);
 
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 
@@ -223,8 +382,21 @@ public:
 
 		std::string subInfo = _U("\uf11B  ") + entry.core_name + " (" + entry.retroarch_version + ")";
 
+		if (entry.fileData != nullptr)
+		{
+			if (!entry.isCrcValid)
+			{
+				if (entry.game_crc == "00000000")
+					subInfo = subInfo + "   " + _U("\uf059  ") + _("UNKNOWN ROM VERSION");
+				else
+					subInfo = subInfo + "   " + _U("\uf05E  ") + _("DIFFERENT ROM");
+			}
+			else
+				subInfo = subInfo + "  " + _U("\uf058  ") + _("SAME ROM");
+		}
+
 		if (entry.fileData != nullptr && !entry.coreExists)
-			subInfo = subInfo + " " + _U("\uf071  ") + _("UNAVAILABLE CORE");
+			subInfo = subInfo + "   " + _U("\uf071  ") + _("UNAVAILABLE CORE");
 		
 		mDetails = std::make_shared<TextComponent>(mWindow, subInfo.c_str(), theme->TextSmall.font, theme->Text.color);
 		mDetails->setOpacity(192);
@@ -325,25 +497,37 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 			continue;
 
 		const rapidjson::Value& fields = item["fields"];
-		if (fields.HasMember("has_password") && fields["has_password"].IsBool() && fields["has_password"].GetBool())
-			continue;
+		//if (fields.HasMember("has_password") && fields["has_password"].IsBool() && fields["has_password"].GetBool())
+	//		continue;
+
+		LobbyAppEntry game;	
+		game.isCrcValid = false;
+
+		if (fields.HasMember("core_name") && fields["core_name"].IsString())
+			game.core_name = fields["core_name"].GetString();
 
 		FileData* file = nullptr;
 
 		if (fields.HasMember("game_crc") && fields["game_crc"].IsString() && fields["game_crc"] != "00000000")
-			file = getFileData(Utils::String::toUpper(fields["game_crc"].GetString()), true);
+			file = getFileData(Utils::String::toUpper(fields["game_crc"].GetString()), true, game.core_name);
 
 		if (file == nullptr && fields.HasMember("game_name") && fields["game_name"].IsString())
-			file = getFileData(fields["game_name"].GetString(), false);
-		
-		LobbyAppEntry game;
+			file = getFileData(fields["game_name"].GetString(), false, game.core_name);
+
 		game.fileData = file;
-	
+
 		if (fields.HasMember("username") && fields["username"].IsString())
 			game.username = fields["username"].GetString();
 
 		if (fields.HasMember("game_crc") && fields["game_crc"].IsString())
 			game.game_crc = fields["game_crc"].GetString();
+
+		if (file != nullptr)
+		{
+			std::string fileCRC = file->getMetadata(MetaDataId::Crc32);
+			if (game.game_crc == fileCRC)
+				game.isCrcValid = true;
+		}
 
 		if (fields.HasMember("mitm_ip") && fields["mitm_ip"].IsString())
 			game.mitm_ip = fields["mitm_ip"].GetString();
@@ -378,9 +562,6 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("has_spectate_password") && fields["has_spectate_password"].IsBool())
 			game.has_spectate_password = fields["has_spectate_password"].GetBool();		
 
-		if (fields.HasMember("core_name") && fields["core_name"].IsString())
-			game.core_name = fields["core_name"].GetString();
-
 		if (fields.HasMember("mitm_port") && fields["mitm_port"].IsInt())
 			game.mitm_port = fields["mitm_port"].GetInt();
 
@@ -402,6 +583,16 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 	bool groupAvailable = false;
 
+	struct { bool operator()(LobbyAppEntry& a, LobbyAppEntry& b) const 
+	{ 
+		if (a.isCrcValid == b.isCrcValid)
+			return a.coreExists && !b.coreExists;
+
+		return a.isCrcValid && !b.isCrcValid;
+	} } sortByValidCrc;
+
+	std::sort(entries.begin(), entries.end(), sortByValidCrc);
+	
 	for (auto game : entries)
 	{
 		if (game.fileData == nullptr)
@@ -464,121 +655,6 @@ void GuiNetPlay::render(const Transform4x4f &parentTrans)
 		mBusyAnim.render(parentTrans);
 }
 
-static std::map<std::string, std::string> coreList =
-{
-#if WIN32
-	{ "2048", "2048"},
-	{ "81", "81"},
-	{ "Atari800", "atari800"},
-	{ "blueMSX", "bluemsx"},
-	{ "Cannonball", "cannonball"},
-	{ "Caprice32", "cap32"},
-	{ "CrocoDS", "crocods"},
-	{ "Daphne", "daphne"},
-	{ "Dinothawr", "dinothawr"},
-	{ "DOSBox-SVN", "dosbox_svn"},
-	{ "EasyRPG Player", "easyrpg"},
-	{ "FB Alpha 2012 Neo Geo", "fbalpha2012_neogeo" },
-	{ "FB Alpha 2012", "fbalpha2012" },
-	{ "FB Alpha", "fbalpha" },
-	{ "FinalBurn Neo", "fbneo"},
-	{ "FCEUmm", "fceumm"},
-	{ "Flycast", "flycast"},
-	{ "FreeIntv", "freeintv"},
-	{ "Fuse", "fuse"},
-	{ "Gambatte", "gambatte"},
-	{ "Gearboy", "gearboy"},
-	{ "Gearsystem", "gearsystem"},
-	{ "Genesis Plus GX", "genesis_plus_gx"},
-	{ "Game Music Emu", "gme"},
-	{ "gpSP", "gpsp"},
-	{ "GW", "gw"},
-	{ "Handy", "handy"},
-	{ "Hatari", "hatari"},
-	{ "MAME 2003-Plus", "mame2003_plus"},
-	{ "MAME 2010 (0.139)", "mame2010"},
-	{ "MAME 2016 (0.174)", "mame2016"},
-	{ "Beetle Lynx", "mednafen_lynx"},
-	{ "Beetle NeoPop", "mednafen_ngp"},
-	{ "Beetle PCE Fast", "mednafen_pce_fast"},
-	{ "Beetle PC-FX", "mednafen_pcfx"},
-	{ "Beetle SuperGrafx", "mednafen_supergrafx"},
-	{ "Beetle VB", "mednafen_vb"},
-	{ "Beetle WonderSwan", "mednafen_wswan"},
-	{ "Mesen-S", "mesen-s"},
-	{ "mGBA", "mgba"},
-	{ "Mr.Boom", "mrboom"},
-	{ "Mupen64Plus-Next", "mupen64plus_next"},
-	{ "Neko Project II", "nekop2"},
-	{ "NeoCD", "neocd"},
-	{ "NestopiaCV", "nestopiaCV"},
-	{ "Nestopia", "nestopia"},
-	{ "Neko Project II", "np2kai"},
-	{ "NXEngine", "nxengine"},
-	{ "O2EM", "o2em"},
-	{ "Opera", "opera"},
-	{ "ParaLLEl N64", "parallel_n64"},
-	{ "PCSX-ReARMed", "pcsx_rearmed"},
-	{ "PicoDrive", "picodrive"},
-	{ "PokeMini", "pokemini"},
-	{ "PPSSPP", "ppsspp"},
-	{ "PrBoom", "prboom"},
-	{ "ProSystem", "prosystem"},
-	{ "PUAE", "puae"},
-	{ "PX68k", "px68k"},
-	{ "QUASI88", "quasi88"},
-	{ "QuickNES", "quicknes"},
-	{ "REminiscence", "reminiscence"},
-	{ "SameBoy", "sameboy"},
-	{ "ScummVM", "scummvm"},
-	{ "Snes9x 2002", "snes9x2002"},
-	{ "Snes9x 2005 Plus", "snes9x2005_plus"},
-	{ "Snes9x 2010", "snes9x2010"},
-	{ "Snes9x", "snes9x"},
-	{ "Stella", "stella"},
-	{ "TGB Dual", "tgbdual"},
-	{ "TyrQuake", "tyrquake"},
-	{ "UAE4ARM", "uae4arm"},
-	{ "uzem", "uzem"},
-	{ "VBA-M", "vbam"},
-	{ "VBA Next", "vba_next"},
-	{ "vecx", "vecx"},
-	{ "VICE", "vice_x128"},
-	{ "VICE", "vice_x64"},
-	{ "VICE", "vice_xplus4"},
-	{ "VICE", "vice_xvic"},
-	{ "Virtual Jaguar", "virtualjaguar"},
-	{ "x1", "x1"},
-	{ "XRick", "xrick"},
-	{ "YabaSanshiro", "yabasanshiro"},
-	{ "Yabause", "yabause"},
-#else
-	{ "Beetle NeoPop", "mednafen_ngp" },
-	{ "Beetle PCE Fast", "pce" },
-	{ "Beetle SuperGrafx", "mednafen_supergrafx" },
-	{ "Beetle VB", "vb" },
-	{ "Beetle WonderSwan", "mednafen_wswan" },
-	{ "DOSBox-SVN", "dosbox" },
-	{ "EightyOne", "81" },
-	{ "FB Alpha 2012 Neo Geo", "fbalpha2012_neogeo" },
-	{ "FB Alpha 2012", "fbalpha2012" },
-	{ "FB Alpha", "fbalpha" },
-	{ "FinalBurn Neo", "fbneo" },
-	{ "Game & Watch", "gw" },
-	{ "Genesis Plus GX", "genesisplusgx" },
-	{ "MAME 2000", "imame4all" },
-	{ "MAME 2003 (0.78)", "mame2003" },
-	{ "MAME 2003-Plus", "mame078plus" },
-	{ "MAME 2010", "mame0139" },
-	{ "MAME 2014", "mame2014" },
-	{ "PCSX-ReARMed", "pcsx_rearmed" },
-	{ "Snes9x 2002", "pocketsnes" },
-	{ "Snes9x 2010", "snes9x_next" },
-	{ "TGB Dual", "tgbdual",},
-	{ "VICE x64", "vice" }
-#endif
-};
-
 void GuiNetPlay::launchGame(LobbyAppEntry entry)
 {
 	LaunchGameOptions options;
@@ -601,8 +677,38 @@ void GuiNetPlay::launchGame(LobbyAppEntry entry)
 	else 	
 		options.core = Utils::String::toLower(Utils::String::replace(entry.core_name, " ", "_"));
 	
-	ViewController::get()->launch(entry.fileData, options);
-	delete this;
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	GuiSettings* msgBox = new GuiSettings(mWindow, _("CONNECT TO NETPLAY"));
+	msgBox->setSubTitle(entry.game_name);
+	msgBox->setTag("popup");
+	
+	std::shared_ptr<TextComponent> ed = nullptr;
+
+	msgBox->addEntry(_U("\uF144 ") + _("JOIN GAME"), false, [this, msgBox, entry, options, ed]
+	{		
+		LaunchGameOptions opts = options;
+		ViewController::get()->launch(entry.fileData, opts);
+
+		auto pthis = this;
+		msgBox->close();
+		delete pthis;
+	});
+
+	msgBox->addEntry(_U("\uF06E ") + _("WATCH GAME"), false, [this, msgBox, entry, options, ed]
+	{
+		LaunchGameOptions opts = options;
+		opts.netPlayMode = NetPlayMode::SPECTATOR;
+		ViewController::get()->launch(entry.fileData, opts);
+
+		auto pthis = this;
+		msgBox->close();
+		delete pthis;
+	});
+	
+	mWindow->pushGui(msgBox);
 }
 
 bool GuiNetPlay::coreExists(FileData* file, std::string core_name)
