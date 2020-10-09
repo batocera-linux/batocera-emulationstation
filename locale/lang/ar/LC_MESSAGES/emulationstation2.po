@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -350,6 +350,9 @@ msgstr "إعدادات مجموعة اللعب"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "مجموعة للعرض"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "أنظمة معروضة"
+
 msgid "GROUPED SYSTEMS"
 msgstr "أنظمة مجمّعة"
 
@@ -374,9 +377,6 @@ msgstr "إنشاء مجموعة ديناميكية جديدة"
 msgid "OPTIONS"
 msgstr "خيارات"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "جمع المجموعات المخصصه الغير موسومه"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ترتيب المجموعات والانظمة"
 
@@ -388,6 +388,18 @@ msgstr "حسب المطور"
 
 msgid "SORT SYSTEMS"
 msgstr "ترتيب الانظمة"
+
+msgid "START ON SYSTEM"
+msgstr "بدء مع النظام"
+
+msgid "NONE"
+msgstr "لاشيء"
+
+msgid "START ON GAMELIST"
+msgstr "بدء مع قائمة الألعاب"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "جمع المجموعات المخصصه الغير موسومه"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "قم بعرض اسم النظام في المجموعة"
@@ -403,6 +415,9 @@ msgstr "جارِ التحميل..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "اختيار المجموعات"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "نظام الأركيد"
@@ -430,6 +445,9 @@ msgstr "موافق"
 
 msgid "FINISHED"
 msgstr "تم الانتهاء"
+
+msgid "go back"
+msgstr "الرجوع"
 
 msgid "NAVIGATION"
 msgstr "تنقل "
@@ -530,6 +548,15 @@ msgstr "فشل"
 msgid "LAUNCH"
 msgstr "بدء"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "CORE غير متوفر"
 
@@ -541,6 +568,12 @@ msgstr "ألعاب غير متوفرة"
 
 msgid "NO GAME FOUND"
 msgstr "لم يتم إيجاد أي لعبة"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "إدخال يدوي"
@@ -584,9 +617,6 @@ msgstr "اختر السمات التي تريد تثبيتها / حذفها"
 msgid "CURRENT THEME"
 msgstr "السمة الحالية"
 
-msgid "go back"
-msgstr "الرجوع"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "نسيان وحدة تحكم البلوتوث"
 
@@ -599,17 +629,110 @@ msgstr "لم يتم إيجاد أجهزة بلوتوث"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "تم حذف روابط وحدات التحكم"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "قم بتبديل الصورة بعد (ثوانِ)"
+msgid "CONTENT DOWNLOADER"
+msgstr "محمل المحتوى"
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr "اختر محتوى لتثبيته / حذفه"
+
+msgid "MISC"
+msgstr "متفرقات"
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr "الغاء التثبيت تمت اضافته الى الانتظار"
+
+msgid "NO MISSING BIOS"
+msgstr "لا يوجد BIOS مفقود"
+
+msgid "MISSING BIOS"
+msgstr "الـ BIOS المفقودة"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "دائماً"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "أبدا"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة التوقف"
+
+msgid "SCREENSAVER AFTER"
+msgstr "شاشة التوقف بعد"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "سلوك شاشة التوقف"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة توقف الفيديو العشوائي"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "تبديل الفيديو بعد (ثوانِ)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "استخدم مشغل OMX لشاشة التوقف"
 
 msgid "SHOW GAME INFO"
 msgstr "عرض معلومات اللعبة"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "عرض معلومات اللعبة على شاشة التوقف"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "استخدم الشاشة الأسمية  كمعلومات للعبة"
 
 msgid "DECORATIONS"
 msgstr "الديكور"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "مدد الفيديو في شاشة التوقف"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "صوت الفيديو صامت"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "التحكم بشاشة التوقف"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "استخدام فيديوهات مخصصة"
+
+msgid "CUSTOM VIDEO DIR"
+msgstr "مكان الفيديوهات المخصصة"
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr "مكان الفيديوهات المخصصة المكرر"
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr "تصفية الفيديوهات المخصصة"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة توقف عرض الشرائح"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "قم بتبديل الصورة بعد (ثوانِ)"
 
 msgid "STRETCH IMAGES"
 msgstr "تمدد الصور"
@@ -625,52 +748,6 @@ msgstr "دليل الصور المخصصة المكررة"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "فرز الصور المخصصة"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "محمل المحتوى"
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "اختر محتوى لتثبيته / حذفه"
-
-msgid "MISC"
-msgstr "متفرقات"
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "الغاء التثبيت تمت اضافته الى الانتظار"
-
-msgid "SCREENSAVER AFTER"
-msgstr "شاشة التوقف بعد"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "سلوك شاشة التوقف"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"تعرض شاشة \"فيديو عشوائي\" مقطع فيديو من قائمة الألعاب الخاصة بك.\n"
-"إذا لم يكن لديك مقاطع فيديو ، أو إذا كان لا يمكن تشغيل أي منها بعد محاولات "
-"قليلة ، فسوف تتحول الشاشة افتراضياً إلى \"الأسود\".\n"
-"المزيد من الخيارات في قائمة \"إعدادات واجهة المستخدم\" -> \"إعدادات شاشة "
-"توقف الفيديو العشوائي\"."
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة توقف الفيديو العشوائي"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة توقف عرض الشرائح"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "التحكم بشاشة التوقف"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "شاشة توقف مرئية"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "شاشة توقف عرض الشرائح"
 
 msgid "UPDATING BATOCERA"
 msgstr "تحديث باتوسيرا"
@@ -795,38 +872,11 @@ msgstr ""
 "دقيقة أكثر من المعتاد!\n"
 "هل تريد المتابعة على أي حال؟"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "لا توجد ألعاب تناسب هذه المعايير."
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "تبديل الفيديو بعد (ثوانِ)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "استخدم مشغل OMX لشاشة التوقف"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "عرض معلومات اللعبة على شاشة التوقف"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "مدد الفيديو في شاشة التوقف"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "صوت الفيديو صامت"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "استخدام فيديوهات مخصصة"
-
-msgid "CUSTOM VIDEO DIR"
-msgstr "مكان الفيديوهات المخصصة"
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr "مكان الفيديوهات المخصصة المكرر"
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr "تصفية الفيديوهات المخصصة"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "لا توجد ألعاب تناسب هذه المعايير."
 
 msgid "fade"
 msgstr "تلاشي"
@@ -836,6 +886,9 @@ msgstr "شريحة"
 
 msgid "instant"
 msgstr "فوري"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "النظام"
@@ -939,9 +992,6 @@ msgstr "غلاف الجماهير"
 msgid "BOX SOURCE"
 msgstr "مصدر الصندوق"
 
-msgid "NONE"
-msgstr "لاشيء"
-
 msgid "LOGO SOURCE"
 msgstr "مصدر الشعار"
 
@@ -972,15 +1022,6 @@ msgstr "كلمة المرور"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "هل أنت متأكد من انك تريد تكوين الإدخال ؟"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة التوقف"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "إعدادات عرض الشرائح"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "إعدادات الفيديو العشوائي"
-
 msgid "CHOOSE"
 msgstr "اختار"
 
@@ -999,6 +1040,9 @@ msgstr "استخدام تخزين النظام"
 msgid "DEVELOPER"
 msgstr "مطورون"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "حد الـ VRAM"
 
@@ -1011,20 +1055,29 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "فائض"
 
-msgid "PRELOAD UI"
-msgstr "تحميل واجهة المستخدم"
+msgid "TOOLS"
+msgstr "الأدوات"
 
-msgid "THREADED LOADING"
-msgstr "تحميل مترابط"
+msgid "LOG LEVEL"
+msgstr "مستوى السجل"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "تحميل صور غير متزامنة"
+msgid "CREATE A SUPPORT FILE"
+msgstr "أنشئ ملف دعم"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "تحسين الصور باستخدام VRAM"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "هل تريد إنشاء ملف دعم ؟"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "تحسين الفيديو باستخدام VRAM"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "تم إنشاء الملف بنجاح"
+
+msgid "FILE GENERATION FAILED"
+msgstr "إنشاء الملف فشل"
+
+msgid "FORMAT A DISK"
+msgstr "تهيئة القرص"
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "تفعيل التصنيفات"
@@ -1044,6 +1097,18 @@ msgstr "اعادة تعيين امتدادات الملف"
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "إعادة اكتشاف لغة و منطقة الإلعاب"
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "تنقل دائري"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "لوحة مفاتيح على الشاشة"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr "إخفاء عند تشغيل اللعبة"
+
 msgid "COMPLETE QUIT MENU"
 msgstr "أكمل واخرج من القائمة"
 
@@ -1056,23 +1121,23 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
 
-msgid "LOG LEVEL"
-msgstr "مستوى السجل"
+msgid "OPTIMIZATIONS"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "أنشئ ملف دعم"
+msgid "PRELOAD UI"
+msgstr "تحميل واجهة المستخدم"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "هل تريد إنشاء ملف دعم ؟"
+msgid "THREADED LOADING"
+msgstr "تحميل مترابط"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "تم إنشاء الملف بنجاح"
+msgid "ASYNC IMAGES LOADING"
+msgstr "تحميل صور غير متزامنة"
 
-msgid "FILE GENERATION FAILED"
-msgstr "إنشاء الملف فشل"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "تحسين الصور باستخدام VRAM"
 
-msgid "FORMAT A DISK"
-msgstr "تهيئة القرص"
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "تحسين الفيديو باستخدام VRAM"
 
 msgid "DOWNLOADS"
 msgstr "تنزيل"
@@ -1103,6 +1168,22 @@ msgstr "اللغة"
 
 msgid "POWER SAVER MODES"
 msgstr "أوضاع حفظ الطاقة"
+
+msgid "UI MODE"
+msgstr "وضع واجهة المستخدم"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"سوف تقوم بتغيير واجهة المستخدم الى الوضع المقيّد:\n"
+"وهذا سوف يؤدي الى إخفاء أغلب خيارات القائمة لحماية النظام من التغيير.\n"
+"للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة "
+"التحكم:"
+
+msgid "Do you want to proceed ?"
+msgstr "هل تريد المتابعة ؟"
 
 msgid "KODI SETTINGS"
 msgstr "إعدادات KODI"
@@ -1136,9 +1217,6 @@ msgstr "إعدادات الامتيازات"
 
 msgid "NETPLAY SETTINGS"
 msgstr "إعدادات  NETPLAY"
-
-msgid "MISSING BIOS"
-msgstr "الـ BIOS المفقودة"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "ازرار الوسائط المتعددة"
@@ -1233,14 +1311,14 @@ msgstr "أعد فهرسة جميع الألعاب"
 msgid "INDEX MISSING GAMES"
 msgstr "فهرس الألعاب المفقودة"
 
-msgid "TOOLS"
-msgstr "الأدوات"
-
 msgid "DEFAULT SETTINGS"
 msgstr "الإعدادات الإفتراضية"
 
 msgid "GAME RATIO"
 msgstr "تقييم اللعبة"
+
+msgid "VIDEO MODE"
+msgstr "وضع الفيديو"
 
 msgid "SMOOTH GAMES"
 msgstr "ألعاب سلسه"
@@ -1278,6 +1356,9 @@ msgstr "مقياس العدد الصحيح (بيكسل رائع)"
 msgid "DECORATION"
 msgstr "زخرفة"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "مترجم اللعبة بالذكاء الصناعي"
 
@@ -1295,15 +1376,6 @@ msgstr "إيقاف مؤقت للشاشة المترجمة"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "تكوين متقدم لكل نظام"
-
-msgid "NO MISSING BIOS"
-msgstr "لا يوجد BIOS مفقود"
-
-msgid "MISSING"
-msgstr "مفقود"
-
-msgid "INVALID"
-msgstr "غير صالح"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقافها ؟"
@@ -1377,12 +1449,6 @@ msgstr "اعرض الملفات المخفية"
 msgid "SHOW FOLDERS"
 msgstr "اعرض المجلدات"
 
-msgid "always"
-msgstr "دائماً"
-
-msgid "never"
-msgstr "أبدا"
-
 msgid "having multiple games"
 msgstr "تمتلك عدة ألعاب"
 
@@ -1407,34 +1473,6 @@ msgstr "الفيديو"
 msgid "grid"
 msgstr "الشبكة"
 
-msgid "UI MODE"
-msgstr "وضع واجهة المستخدم"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"سوف تقوم بتغيير واجهة المستخدم الى الوضع المقيّد:\n"
-"وهذا سوف يؤدي الى إخفاء أغلب خيارات القائمة لحماية النظام من التغيير.\n"
-"للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة "
-"التحكم:"
-
-msgid "Do you want to proceed ?"
-msgstr "هل تريد المتابعة ؟"
-
-msgid "STARTUP SETTINGS"
-msgstr "إعدادات بدء التشغيل"
-
-msgid "START ON SYSTEM"
-msgstr "بدء مع النظام"
-
-msgid "START ON GAMELIST"
-msgstr "بدء مع قائمة الألعاب"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "أنظمة معروضة"
-
 msgid "DISPLAY OPTIONS"
 msgstr "خيارات العرض"
 
@@ -1444,12 +1482,6 @@ msgstr "نمط التنقل"
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "تنقل دائري"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "تحديد نظام سريع"
-
 msgid "SHOW CLOCK"
 msgstr "عرض الساعة"
 
@@ -1458,12 +1490,6 @@ msgstr "مساعدة على الشاشة"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "عرض حالة البطارية"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "لوحة مفاتيح على الشاشة"
-
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "إخفاء عند تشغيل اللعبة"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "عرض اسم الملف في القائمة"
@@ -1584,9 +1610,6 @@ msgstr "خروج من المحاكي"
 
 msgid "REALLY QUIT?"
 msgstr "هل فعلا تريد الخروج؟"
-
-msgid "VIDEO MODE"
-msgstr "وضع الفيديو"
 
 msgid "COLORIZATION"
 msgstr "تلوين"
@@ -1727,8 +1750,20 @@ msgstr "لم يتم العثور على مدخلات"
 msgid "Favorites"
 msgstr "المفضلات"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "هل تريد بدء اللعبة كمضيف NETPLAY ؟"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "يبحث"
@@ -2060,34 +2095,83 @@ msgid "WORKING..."
 msgstr "يعمل حالياً..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d ساعة"
-msgstr[1] "%d ساعة"
-msgstr[2] "%d ساعتين"
-msgstr[3] "%d ساعات"
-msgstr[4] "%d ساعة"
-msgstr[5] "%d ساعة"
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d دقيقة"
-msgstr[1] "%d دقيقة"
-msgstr[2] "%d دقيقتين"
-msgstr[3] "%d دقائق"
-msgstr[4] "%d دقيقة"
-msgstr[5] "%d دقيقة"
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d ثانية"
-msgstr[1] "%d ثانية"
-msgstr[2] "%d ثانيتين"
-msgstr[3] "%d ثوانٍ"
-msgstr[4] "%d ثانية"
-msgstr[5] ""
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "تعرض شاشة \"فيديو عشوائي\" مقطع فيديو من قائمة الألعاب الخاصة بك.\n"
+#~ "إذا لم يكن لديك مقاطع فيديو ، أو إذا كان لا يمكن تشغيل أي منها بعد "
+#~ "محاولات قليلة ، فسوف تتحول الشاشة افتراضياً إلى \"الأسود\".\n"
+#~ "المزيد من الخيارات في قائمة \"إعدادات واجهة المستخدم\" -> \"إعدادات شاشة "
+#~ "توقف الفيديو العشوائي\"."
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "شاشة توقف مرئية"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "شاشة توقف عرض الشرائح"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "إعدادات عرض الشرائح"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "إعدادات الفيديو العشوائي"
+
+#~ msgid "MISSING"
+#~ msgstr "مفقود"
+
+#~ msgid "INVALID"
+#~ msgstr "غير صالح"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "إعدادات بدء التشغيل"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "تحديد نظام سريع"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "هل تريد بدء اللعبة كمضيف NETPLAY ؟"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d ساعة"
+#~ msgstr[1] "%d ساعة"
+#~ msgstr[2] "%d ساعتين"
+#~ msgstr[3] "%d ساعات"
+#~ msgstr[4] "%d ساعة"
+#~ msgstr[5] "%d ساعة"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d دقيقة"
+#~ msgstr[1] "%d دقيقة"
+#~ msgstr[2] "%d دقيقتين"
+#~ msgstr[3] "%d دقائق"
+#~ msgstr[4] "%d دقيقة"
+#~ msgstr[5] "%d دقيقة"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d ثانية"
+#~ msgstr[1] "%d ثانية"
+#~ msgstr[2] "%d ثانيتين"
+#~ msgstr[3] "%d ثوانٍ"
+#~ msgstr[4] "%d ثانية"
+#~ msgstr[5] ""
 
 #~ msgid "SELECT THEME"
 #~ msgstr "اختيار السمة"

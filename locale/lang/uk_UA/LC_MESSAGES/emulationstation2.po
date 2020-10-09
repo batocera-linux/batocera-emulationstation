@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -344,6 +344,9 @@ msgstr "НАЛАШТУВАННЯ КОЛЕКЦІЇ ІГОР"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "ПОКАЗУВАТИ КОЛЕКЦІЇ"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "ВІДОБРАЖЕННЯ СИСТЕМ"
+
 msgid "GROUPED SYSTEMS"
 msgstr "ЗГРУПОВАНІ СИСТЕМИ"
 
@@ -368,9 +371,6 @@ msgstr "СТВОРИТИ ДИНАМІЧНУ КОЛЕКЦІЮ"
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРИ"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "ГРУПУВАТИ ВЛАСНІ КОЛЕКЦІЇ"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr ""
 
@@ -382,6 +382,18 @@ msgstr ""
 
 msgid "SORT SYSTEMS"
 msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr "СИСТЕМА ЗА ЗАМОВЧУВАННЯМ"
+
+msgid "NONE"
+msgstr "НІЧОГО"
+
+msgid "START ON GAMELIST"
+msgstr "ПОЧАТИ З СПИСКУ ІГР"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "ГРУПУВАТИ ВЛАСНІ КОЛЕКЦІЇ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ПОКАЗУВАТИ СИСТЕМУ В НАЗВІ"
@@ -397,6 +409,9 @@ msgstr "Завантаження..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "ВИБІР КОЛЕКЦІЇ"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr ""
@@ -424,6 +439,9 @@ msgstr "ОК"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
+
+msgid "go back"
+msgstr "назад"
 
 msgid "NAVIGATION"
 msgstr "НАВІГАЦІЯ"
@@ -524,6 +542,15 @@ msgstr "ПОМИЛКА"
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНЕ ЯДРО"
 
@@ -535,6 +562,12 @@ msgstr "НЕДОСТУПНІ ІГРИ"
 
 msgid "NO GAME FOUND"
 msgstr "ІГРИ НЕ ЗНАЙДЕНО"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "РУЧНИЙ ВВІД"
@@ -578,9 +611,6 @@ msgstr ""
 msgid "CURRENT THEME"
 msgstr ""
 
-msgid "go back"
-msgstr "назад"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "ВІДВ'ЯЗАТИ BLUETOOTH КОНТРОЛЛЕР"
 
@@ -593,17 +623,110 @@ msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "ЗМІНА ЗОБРАЖЕННЯ ПІСЛЯ (СЕК)"
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
+
+msgid "MISSING BIOS"
+msgstr "ВІДСУТНІ БІОСИ"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "завжди"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "ніколи"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
+
+msgid "SCREENSAVER AFTER"
+msgstr "ЗАСТАВКА ЧЕРЕЗ"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "ПОВЕДІНКА ЗАСТАВКИ"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "ЗМІНА ВІДЕО ПІСЛЯ (СЕК)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "ВИКОРИСТАТИ OMX ПЛЕЄР ДЛЯ ЗАСТАВКИ"
 
 msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТИ ІНФОРМАЦІЮ ПРО ГРУ"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "ІНФ. ПРО ГРУ НА ЗАСТАВЦІ"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ВИКОРИСТАТИ БАНЕР ЯК ІНФОРМАЦІЮ ПРО ГРУ"
 
 msgid "DECORATIONS"
 msgstr "РАМКИ (ОВЕРЛЕЇ)"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "РОЗТЯГНУТИ ВІДЕО НА ЗАСТАВЦІ"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "КЕРУВАННЯ ЗАСТАВКОЮ"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "НАЛАШТУВАННЯ СЛАЙДШОУ ЗАСТАВКИ"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "ЗМІНА ЗОБРАЖЕННЯ ПІСЛЯ (СЕК)"
 
 msgid "STRETCH IMAGES"
 msgstr "РОЗТЯГНУТИ ЗОБРАЖЕННЯ"
@@ -619,52 +742,6 @@ msgstr "ПАПКА КОРИС. ЗОБРАЖЕНЬ РЕКУРСИВНО"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "ФІЛЬТР КОРИС. ЗОБР."
-
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SCREENSAVER AFTER"
-msgstr "ЗАСТАВКА ЧЕРЕЗ"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "ПОВЕДІНКА ЗАСТАВКИ"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"\"ВИПАДКОВЕ ВІДЕО\" ЗАСТАВКА ПОКАЗУЄ ВІДЕО З ВАШОГО СПИСКУ ІГР.\n"
-"ЯКЩО У ВАС НЕМАЄ ВІДЕО, АБО ЖОДНЕ З НИХ НЕ БУДЕ УВІМКНУТЕ ПІСЛЯ ДЕКІЛЬКОХ "
-"СПРОБ, ЗА ЗАМОВЧУВАННЯМ БУДЕ ВИКОРИСТАНО ЗНАЧЕННЯ \"BLACK\".\n"
-"БІЛЬШЕ ОПЦІЙ В \"НАЛАШТУВАННЯ ІНТЕРФЕЙСУ\"-> \"НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ\" "
-"МЕНЮ."
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "НАЛАШТУВАННЯ СЛАЙДШОУ ЗАСТАВКИ"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "КЕРУВАННЯ ЗАСТАВКОЮ"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "ВІДЕО ЗАСТАВКА"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "СЛАЙДШОУ ЗАСТАВКА"
 
 msgid "UPDATING BATOCERA"
 msgstr "ОНОВЛЕННЯ BATOCERA"
@@ -783,38 +860,11 @@ msgstr ""
 "МОЖЕ БУТИ НЕ ТОЧНИМ!\n"
 "ПРОДОВЖИТИ В БУДЬ-ЯКОМУ ВИПАДКУ?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "НЕМАЄ ПІДХОДЯЩИХ ІГР."
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "ЗМІНА ВІДЕО ПІСЛЯ (СЕК)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "ВИКОРИСТАТИ OMX ПЛЕЄР ДЛЯ ЗАСТАВКИ"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "ІНФ. ПРО ГРУ НА ЗАСТАВЦІ"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "РОЗТЯГНУТИ ВІДЕО НА ЗАСТАВЦІ"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr ""
-
-msgid "USE CUSTOM VIDEOS"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "НЕМАЄ ПІДХОДЯЩИХ ІГР."
 
 msgid "fade"
 msgstr "затухання"
@@ -824,6 +874,9 @@ msgstr "слайд"
 
 msgid "instant"
 msgstr "миттєво"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "Система"
@@ -927,9 +980,6 @@ msgstr ""
 msgid "BOX SOURCE"
 msgstr "СТИЛЬ ОБЛОЖКИ"
 
-msgid "NONE"
-msgstr "НІЧОГО"
-
 msgid "LOGO SOURCE"
 msgstr "СТИЛЬ ЛОГО"
 
@@ -960,15 +1010,6 @@ msgstr "ПАРОЛЬ"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ НАЛАШТУВАТИ КЕРУВАННЯ?"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "НАЛАШТУВАННЯ СЛАЙДШОУ"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
-
 msgid "CHOOSE"
 msgstr "ВИБЕРІТЬ"
 
@@ -987,6 +1028,9 @@ msgstr ""
 msgid "DEVELOPER"
 msgstr "РОЗРОБНИК"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "ЛІМІТ VRAM"
 
@@ -999,20 +1043,29 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "РОЗГОРТКА"
 
-msgid "PRELOAD UI"
-msgstr "ПРЕДЗАВАНТАЖЕННЯ ІНТЕРФЕЙСУ"
+msgid "TOOLS"
+msgstr "ІНСТРУМЕНТИ"
 
-msgid "THREADED LOADING"
-msgstr "THREADED ЗАВАНТАЖЕННЯ"
+msgid "LOG LEVEL"
+msgstr "РІВЕНЬ ЖУРНАЛУ"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "ЗАВАНТАЖЕННЯ ЗОБРАЖЕНЬ ASYNC"
+msgid "CREATE A SUPPORT FILE"
+msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "ОПТИМІЗАЦІЯ ЗОБРАЖЕНЬ ДЛЯ VRAM"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "ОПТИМІЗАЦІЯ ВІДЕО ДЛЯ VRAM"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "ФАЙЛ УСПІШНО ЗГЕНЕРОВАНО"
+
+msgid "FILE GENERATION FAILED"
+msgstr "ГЕНЕРАЦІЯ ФАЙЛУ НЕ ВДАЛАСЬ"
+
+msgid "FORMAT A DISK"
+msgstr ""
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "ВМИКНУТИ ФІЛЬТРИ"
@@ -1032,6 +1085,18 @@ msgstr ""
 msgid "REDETECT GAMES LANG/REGION"
 msgstr ""
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "АНИМАЦІЯ КАРУСЕЛІ"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "ЕКРАННА КЛАВІАТУРА"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
+
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
@@ -1044,23 +1109,23 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
-msgid "LOG LEVEL"
-msgstr "РІВЕНЬ ЖУРНАЛУ"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ"
-
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ?"
-
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ФАЙЛ УСПІШНО ЗГЕНЕРОВАНО"
-
-msgid "FILE GENERATION FAILED"
-msgstr "ГЕНЕРАЦІЯ ФАЙЛУ НЕ ВДАЛАСЬ"
-
-msgid "FORMAT A DISK"
+msgid "OPTIMIZATIONS"
 msgstr ""
+
+msgid "PRELOAD UI"
+msgstr "ПРЕДЗАВАНТАЖЕННЯ ІНТЕРФЕЙСУ"
+
+msgid "THREADED LOADING"
+msgstr "THREADED ЗАВАНТАЖЕННЯ"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr "ЗАВАНТАЖЕННЯ ЗОБРАЖЕНЬ ASYNC"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "ОПТИМІЗАЦІЯ ЗОБРАЖЕНЬ ДЛЯ VRAM"
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "ОПТИМІЗАЦІЯ ВІДЕО ДЛЯ VRAM"
 
 msgid "DOWNLOADS"
 msgstr ""
@@ -1091,6 +1156,21 @@ msgstr "МОВА"
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЕНЕРГОЗБЕРЕЖЕННЯ"
+
+msgid "UI MODE"
+msgstr "РЕЖИМ ІНТЕРФЕЙСУ"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Ви переводите інтерфейс в обмежений режим:\n"
+"Це приховає більшість пунктів меню, щоб запобігти зміни в системі.\n"
+"Щоб розблокувати і повернутись до повного інтерфейсу, введіть цей код:"
+
+msgid "Do you want to proceed ?"
+msgstr "Ви хочете продовжити?"
 
 msgid "KODI SETTINGS"
 msgstr "НАЛАШТУВАННЯ KODI"
@@ -1124,9 +1204,6 @@ msgstr "НАЛАШТУВАННЯ РЕТРОДОСЯГНЕНЬ"
 
 msgid "NETPLAY SETTINGS"
 msgstr "НАЛАШТУВАННЯ NETPLAY"
-
-msgid "MISSING BIOS"
-msgstr "ВІДСУТНІ БІОСИ"
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1221,14 +1298,14 @@ msgstr ""
 msgid "INDEX MISSING GAMES"
 msgstr ""
 
-msgid "TOOLS"
-msgstr "ІНСТРУМЕНТИ"
-
 msgid "DEFAULT SETTINGS"
 msgstr ""
 
 msgid "GAME RATIO"
 msgstr "СПІВВІДНОШЕННЯ СТОРІН"
+
+msgid "VIDEO MODE"
+msgstr "ВІДЕО РЕЖИМ"
 
 msgid "SMOOTH GAMES"
 msgstr "ЗГЛАДЖУВАННЯ ЗОБРАЖЕННЯ"
@@ -1266,6 +1343,9 @@ msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
 msgid "DECORATION"
 msgstr "РАМКИ (ОВЕРЛЕЇ)"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "АВТОМАТИЧНИЙ ПЕРЕКЛАД ГРИ"
 
@@ -1283,15 +1363,6 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
-
-msgid "NO MISSING BIOS"
-msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
-
-msgid "MISSING"
-msgstr ""
-
-msgid "INVALID"
-msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ХЕШУВАННЯ ЗАПУЩЕНО. ХОЧЕТЕ ЗУПИНИТИ?"
@@ -1364,12 +1435,6 @@ msgstr "ПОКАЗАТИ ПРИХОВАНІ ФАЙЛИ"
 msgid "SHOW FOLDERS"
 msgstr "ПОКАЗАТЬ ПАПКИ"
 
-msgid "always"
-msgstr "завжди"
-
-msgid "never"
-msgstr "ніколи"
-
 msgid "having multiple games"
 msgstr "декілька ігр"
 
@@ -1394,33 +1459,6 @@ msgstr "відео"
 msgid "grid"
 msgstr "сітка"
 
-msgid "UI MODE"
-msgstr "РЕЖИМ ІНТЕРФЕЙСУ"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"Ви переводите інтерфейс в обмежений режим:\n"
-"Це приховає більшість пунктів меню, щоб запобігти зміни в системі.\n"
-"Щоб розблокувати і повернутись до повного інтерфейсу, введіть цей код:"
-
-msgid "Do you want to proceed ?"
-msgstr "Ви хочете продовжити?"
-
-msgid "STARTUP SETTINGS"
-msgstr ""
-
-msgid "START ON SYSTEM"
-msgstr "СИСТЕМА ЗА ЗАМОВЧУВАННЯМ"
-
-msgid "START ON GAMELIST"
-msgstr "ПОЧАТИ З СПИСКУ ІГР"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "ВІДОБРАЖЕННЯ СИСТЕМ"
-
 msgid "DISPLAY OPTIONS"
 msgstr ""
 
@@ -1430,12 +1468,6 @@ msgstr "СТИЛЬ ПЕРЕХОДІВ"
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "АНИМАЦІЯ КАРУСЕЛІ"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
-
 msgid "SHOW CLOCK"
 msgstr "ПОКАЗАТИ ГОДИННИК"
 
@@ -1443,12 +1475,6 @@ msgid "ON-SCREEN HELP"
 msgstr "ЕКРАННІ ПІДКАЗКИ"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "ЕКРАННА КЛАВІАТУРА"
-
-msgid "HIDE WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -1570,9 +1596,6 @@ msgstr "ВИЙТИ З EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "ВИЙТИ ЗАРАЗ?"
-
-msgid "VIDEO MODE"
-msgstr "ВІДЕО РЕЖИМ"
 
 msgid "COLORIZATION"
 msgstr "РОЗФАРБУВАННЯ"
@@ -1704,7 +1727,19 @@ msgstr "Записів не знайдено"
 msgid "Favorites"
 msgstr "Вибране"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
 msgstr ""
 
 msgid "Searching"
@@ -2017,25 +2052,44 @@ msgid "WORKING..."
 msgstr "ОБРОБКА..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "\"ВИПАДКОВЕ ВІДЕО\" ЗАСТАВКА ПОКАЗУЄ ВІДЕО З ВАШОГО СПИСКУ ІГР.\n"
+#~ "ЯКЩО У ВАС НЕМАЄ ВІДЕО, АБО ЖОДНЕ З НИХ НЕ БУДЕ УВІМКНУТЕ ПІСЛЯ ДЕКІЛЬКОХ "
+#~ "СПРОБ, ЗА ЗАМОВЧУВАННЯМ БУДЕ ВИКОРИСТАНО ЗНАЧЕННЯ \"BLACK\".\n"
+#~ "БІЛЬШЕ ОПЦІЙ В \"НАЛАШТУВАННЯ ІНТЕРФЕЙСУ\"-> \"НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
+#~ "\" МЕНЮ."
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "ВІДЕО ЗАСТАВКА"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "СЛАЙДШОУ ЗАСТАВКА"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "НАЛАШТУВАННЯ СЛАЙДШОУ"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "ВИБРАТИ ТЕМУ"

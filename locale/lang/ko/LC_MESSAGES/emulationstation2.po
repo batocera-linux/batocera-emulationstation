@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -338,6 +338,9 @@ msgstr "게임 컬렉션 설정"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "디스플레이용 컬렉션"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "시스템이 표시됨"
+
 msgid "GROUPED SYSTEMS"
 msgstr "그룹화된 시스템"
 
@@ -362,9 +365,6 @@ msgstr "새 다이나믹 컬렉션 만들기"
 msgid "OPTIONS"
 msgstr "옵션"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "테마가 없는 커스텀 컬렉션을 그룹"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "컬렉션 및 시스템 정렬"
 
@@ -376,6 +376,18 @@ msgstr "제조업체 순"
 
 msgid "SORT SYSTEMS"
 msgstr "시스템 정렬"
+
+msgid "START ON SYSTEM"
+msgstr "시스템에서 시작하기"
+
+msgid "NONE"
+msgstr "없음 "
+
+msgid "START ON GAMELIST"
+msgstr "게임리스트로 시작하기"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "테마가 없는 커스텀 컬렉션을 그룹"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "컬렉션에서 시스템 이름 표시"
@@ -391,6 +403,9 @@ msgstr "로딩"
 
 msgid "SELECT COLLECTIONS"
 msgstr "컬렉션 선택"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "아케이드 시스템"
@@ -418,6 +433,9 @@ msgstr "확인"
 
 msgid "FINISHED"
 msgstr "완료되었습니다"
+
+msgid "go back"
+msgstr "돌아가기"
 
 msgid "NAVIGATION"
 msgstr "네비게이션"
@@ -518,6 +536,15 @@ msgstr "실패"
 msgid "LAUNCH"
 msgstr "실행"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "사용할 수 없는 코어"
 
@@ -529,6 +556,12 @@ msgstr "실행할 수 없는 게임"
 
 msgid "NO GAME FOUND"
 msgstr "게임을 찾지 못했습니다"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "수동 입력"
@@ -572,9 +605,6 @@ msgstr ""
 msgid "CURRENT THEME"
 msgstr ""
 
-msgid "go back"
-msgstr "돌아가기"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "블루투스 컨트롤러 삭제"
 
@@ -587,17 +617,110 @@ msgstr "발견된 블루투스 장치가 없습니다"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "컨트롤러와의 연결이 삭제되었습니다."
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "(몇 초) 후 이미지 필터 교체"
+msgid "CONTENT DOWNLOADER"
+msgstr "컨텐츠 다운로더"
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr "설치/제거할 컨텐츠을 선택하세요"
+
+msgid "MISC"
+msgstr "기타"
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr "제거 작업이 대기열에 추가됨"
+
+msgid "NO MISSING BIOS"
+msgstr "바이오스가 모두 구성됨"
+
+msgid "MISSING BIOS"
+msgstr "바이오스 누락됨"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "항상"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "전혀"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "화면보호기 설정"
+
+msgid "SCREENSAVER AFTER"
+msgstr "화면 보호기 작동"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "화면 보호기 행동"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "랜덤 비디오 화면보호기 셋팅"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "(몇초 후) 후 비디오 필터 교체 "
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "화면보호기를 위해 OMX 플레이어 사용"
 
 msgid "SHOW GAME INFO"
 msgstr "게임 정보 보여주기"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "화면보호기에 게임 정보 보여주기"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "게임 정보로 마키 사용"
 
 msgid "DECORATIONS"
 msgstr "데코레이션"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "화면보호기에 비디오 늘이기"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "비디오 오디오 음소거"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "스크린세이버 컨트롤"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "슬라이스쇼 화면보호기 셋팅"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "(몇 초) 후 이미지 필터 교체"
 
 msgid "STRETCH IMAGES"
 msgstr "이미지 늘리기"
@@ -613,50 +736,6 @@ msgstr "커스텀 이미지 되부름의 디렉터리"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "커스텀 이미지 필터"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "컨텐츠 다운로더"
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "설치/제거할 컨텐츠을 선택하세요"
-
-msgid "MISC"
-msgstr "기타"
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "제거 작업이 대기열에 추가됨"
-
-msgid "SCREENSAVER AFTER"
-msgstr "화면 보호기 작동"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "화면 보호기 행동"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만약 "
-"비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환할 것"
-"입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "랜덤 비디오 화면보호기 셋팅"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "슬라이스쇼 화면보호기 셋팅"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "스크린세이버 컨트롤"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "비디오 화면보호기"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "슬라이드쇼 스크린세이버"
 
 msgid "UPDATING BATOCERA"
 msgstr "바토세라 업데이트 중"
@@ -771,38 +850,11 @@ msgstr ""
 "부정확할 수 있다!\n"
 "계속 하시겠습니까?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "조건에 맞는 게임이 없습니다."
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "(몇초 후) 후 비디오 필터 교체 "
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "화면보호기를 위해 OMX 플레이어 사용"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "화면보호기에 게임 정보 보여주기"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "화면보호기에 비디오 늘이기"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "비디오 오디오 음소거"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "조건에 맞는 게임이 없습니다."
 
 msgid "fade"
 msgstr "페이드"
@@ -812,6 +864,9 @@ msgstr "슬라이드"
 
 msgid "instant"
 msgstr "인스턴트"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "시스템"
@@ -915,9 +970,6 @@ msgstr "팬 아트"
 msgid "BOX SOURCE"
 msgstr "박스 출처"
 
-msgid "NONE"
-msgstr "없음 "
-
 msgid "LOGO SOURCE"
 msgstr "로고 출처"
 
@@ -948,15 +1000,6 @@ msgstr "비밀번호"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "정말로 입력을 설정하시겠습니까?"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "화면보호기 설정"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "슬라이드쇼 설정"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "랜덤 비디오 설정"
-
 msgid "CHOOSE"
 msgstr "고르기"
 
@@ -975,6 +1018,9 @@ msgstr "시스템 디스크 사용량"
 msgid "DEVELOPER"
 msgstr "개발자"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "VRAM 제한"
 
@@ -987,20 +1033,29 @@ msgstr "수직 동기화"
 msgid "OVERSCAN"
 msgstr "오버스캔"
 
-msgid "PRELOAD UI"
-msgstr "UI 사전 로드"
+msgid "TOOLS"
+msgstr "도구"
 
-msgid "THREADED LOADING"
-msgstr "쓰레드 로드 중"
+msgid "LOG LEVEL"
+msgstr "로그 레벨"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "비동기 이미지 로드 중"
+msgid "CREATE A SUPPORT FILE"
+msgstr "지원용 파일 생성"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "이미지의 VRAM 사용에 최적화"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "지원용 파일을 만드시겠습니까?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "비디오의 VRAM 사용에 최적화"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "파일 생성 완료"
+
+msgid "FILE GENERATION FAILED"
+msgstr "파일 생성 실패"
+
+msgid "FORMAT A DISK"
+msgstr "디스크를 포맷합니다"
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "필터 활성화"
@@ -1020,6 +1075,18 @@ msgstr "파일 확장자 초기화"
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "게임 언어/지역 재감지"
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "회전 목마형 화면 전환"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "화상 키보드"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr "게임이 실행 중인 때에는 숨김"
+
 msgid "COMPLETE QUIT MENU"
 msgstr "종료 메뉴"
 
@@ -1032,23 +1099,23 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "에뮬레이터 컨트롤러 자동 설정"
 
-msgid "LOG LEVEL"
-msgstr "로그 레벨"
+msgid "OPTIMIZATIONS"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "지원용 파일 생성"
+msgid "PRELOAD UI"
+msgstr "UI 사전 로드"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "지원용 파일을 만드시겠습니까?"
+msgid "THREADED LOADING"
+msgstr "쓰레드 로드 중"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "파일 생성 완료"
+msgid "ASYNC IMAGES LOADING"
+msgstr "비동기 이미지 로드 중"
 
-msgid "FILE GENERATION FAILED"
-msgstr "파일 생성 실패"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "이미지의 VRAM 사용에 최적화"
 
-msgid "FORMAT A DISK"
-msgstr "디스크를 포맷합니다"
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "비디오의 VRAM 사용에 최적화"
 
 msgid "DOWNLOADS"
 msgstr "다운로드"
@@ -1079,6 +1146,21 @@ msgstr "언어"
 
 msgid "POWER SAVER MODES"
 msgstr "절전 모드"
+
+msgid "UI MODE"
+msgstr "UI 모드"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"UI를 제한된 모드로 바꾸고 있습니다.:\n"
+"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
+"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
+
+msgid "Do you want to proceed ?"
+msgstr "계속 진행하시겠습니까?"
 
 msgid "KODI SETTINGS"
 msgstr "KODI 설정"
@@ -1112,9 +1194,6 @@ msgstr "레트로 도전 과제 설정"
 
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
-
-msgid "MISSING BIOS"
-msgstr "바이오스 누락됨"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "멀티미디어 키"
@@ -1209,14 +1288,14 @@ msgstr "모든 게임 다시 색인"
 msgid "INDEX MISSING GAMES"
 msgstr "색인 안 된 게임"
 
-msgid "TOOLS"
-msgstr "도구"
-
 msgid "DEFAULT SETTINGS"
 msgstr "기본 설정"
 
 msgid "GAME RATIO"
 msgstr "화면 비율"
+
+msgid "VIDEO MODE"
+msgstr "비디오 모드"
 
 msgid "SMOOTH GAMES"
 msgstr "부드러운 게임"
@@ -1254,6 +1333,9 @@ msgstr "원본 게임 해상도(픽셀 일치)"
 msgid "DECORATION"
 msgstr "장식"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "AI 게임 번역"
 
@@ -1271,15 +1353,6 @@ msgstr "번역화면 일시정지"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
-
-msgid "NO MISSING BIOS"
-msgstr "바이오스가 모두 구성됨"
-
-msgid "MISSING"
-msgstr "누락됨"
-
-msgid "INVALID"
-msgstr "무효"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
@@ -1351,12 +1424,6 @@ msgstr "숨겨진 파일 보여주기"
 msgid "SHOW FOLDERS"
 msgstr "폴더 보여주기"
 
-msgid "always"
-msgstr "항상"
-
-msgid "never"
-msgstr "전혀"
-
 msgid "having multiple games"
 msgstr "다수의 게임이 있을 경우"
 
@@ -1381,33 +1448,6 @@ msgstr "비디오"
 msgid "grid"
 msgstr "그리드"
 
-msgid "UI MODE"
-msgstr "UI 모드"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"UI를 제한된 모드로 바꾸고 있습니다.:\n"
-"시스템으로 바뀌는 걸 막기위해 대부분의 메뉴 옵션을 숨길 것입니다.\n"
-"해제하고 full UI로 되돌아가기 위해 이 코드를 입력하십시오:"
-
-msgid "Do you want to proceed ?"
-msgstr "계속 진행하시겠습니까?"
-
-msgid "STARTUP SETTINGS"
-msgstr "시작 설정"
-
-msgid "START ON SYSTEM"
-msgstr "시스템에서 시작하기"
-
-msgid "START ON GAMELIST"
-msgstr "게임리스트로 시작하기"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "시스템이 표시됨"
-
 msgid "DISPLAY OPTIONS"
 msgstr "옵션 표시"
 
@@ -1417,12 +1457,6 @@ msgstr "화면 전환 형식"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "게임 실행 전환"
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "회전 목마형 화면 전환"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "빠른 시스템 선택"
-
 msgid "SHOW CLOCK"
 msgstr "시간 보기"
 
@@ -1431,12 +1465,6 @@ msgstr "도움말 표시"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "배터리 상태 보기"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "화상 키보드"
-
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "게임이 실행 중인 때에는 숨김"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "리스트에서 파일명 보여주기"
@@ -1557,9 +1585,6 @@ msgstr "에뮬레이션스테이션 나가기"
 
 msgid "REALLY QUIT?"
 msgstr "정말로 나가시겠습니까?"
-
-msgid "VIDEO MODE"
-msgstr "비디오 모드"
 
 msgid "COLORIZATION"
 msgstr "채색"
@@ -1685,8 +1710,20 @@ msgstr "항목을 찾지 못했습니다"
 msgid "Favorites"
 msgstr "즐겨 찾기"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "넷플레이 호스트로 게임을 실행합니까?"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "검색 중"
@@ -1985,19 +2022,66 @@ msgid "WORKING..."
 msgstr "작업 중..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d 시간"
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d 분"
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d 초"
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "‘랜덤 비디오‘ 화면보호기는 당신의 게임리스트에 있는 비디오를 보여줍니다.만"
+#~ "약 비디오를 가지고 있지 않거나 몇 번의 시도후 실패한다면 ‘검정색’으로 변환"
+#~ "할 것입니다.UI 셋팅에서 좀 더 많은 옵션” ->랜덤 비디오 화면보호기 셋팅"
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "비디오 화면보호기"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "슬라이드쇼 스크린세이버"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "슬라이드쇼 설정"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "랜덤 비디오 설정"
+
+#~ msgid "MISSING"
+#~ msgstr "누락됨"
+
+#~ msgid "INVALID"
+#~ msgstr "무효"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "시작 설정"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "빠른 시스템 선택"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "넷플레이 호스트로 게임을 실행합니까?"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d 시간"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d 분"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d 초"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "테마 선택"

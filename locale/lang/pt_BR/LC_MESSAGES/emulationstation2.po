@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -342,6 +342,9 @@ msgstr "OPÇÃO DE COLEÇÃO DE JOGOS"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLEÇÕES A EXIBIR"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "SISTEMAS EXIBIDOS"
+
 msgid "GROUPED SYSTEMS"
 msgstr "SISTEMAS EM GRUPO"
 
@@ -366,9 +369,6 @@ msgstr "CRIAR NOVA COLEÇÃO DINAMICA"
 msgid "OPTIONS"
 msgstr "OPÇÕES"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPO COLEÇÕES CUSTOMIZADO"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ORDENAR COLEÇÕES E SISTEMAS"
 
@@ -380,6 +380,18 @@ msgstr "PELO FABRICANTE"
 
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
+
+msgid "START ON SYSTEM"
+msgstr "INICIAR NO SISTEMA"
+
+msgid "NONE"
+msgstr "NENHUM"
+
+msgid "START ON GAMELIST"
+msgstr "INICIAR NA LISTA DE JOGOS"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "GRUPO COLEÇÕES CUSTOMIZADO"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -395,6 +407,9 @@ msgstr "Carregando..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -422,6 +437,9 @@ msgstr "OK"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
+
+msgid "go back"
+msgstr "voltar"
 
 msgid "NAVIGATION"
 msgstr "NAVEGAÇÃO"
@@ -522,6 +540,15 @@ msgstr "FALHOU"
 msgid "LAUNCH"
 msgstr "EXECUTAR"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
@@ -533,6 +560,12 @@ msgstr "JOGOS INDISPONÍVEIS"
 
 msgid "NO GAME FOUND"
 msgstr "NENHUM JOGO ENCONTRADO"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "ENTRADA MANUAL"
@@ -576,9 +609,6 @@ msgstr "SELECIONAR TEMAS PARA INSTALAR / REMOVER"
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
 
-msgid "go back"
-msgstr "voltar"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "REMOVER CONTROLE BLUETOOTH"
 
@@ -591,17 +621,110 @@ msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "TROCAR IMAGEM APÓS (SEG)"
+msgid "CONTENT DOWNLOADER"
+msgstr "GERENCIADOR DE CONTEÚDO"
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
+
+msgid "MISC"
+msgstr "DIVERSOS"
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr "ADICIONADO NA FILA PARA DESINSTALAR"
+
+msgid "NO MISSING BIOS"
+msgstr "SEM BIOS FALTANDO"
+
+msgid "MISSING BIOS"
+msgstr "BIOS FALTANDO"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "sempre"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "nunca"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "CONFIGURAÇÕES DA PROTEÇÃO DE TELA"
+
+msgid "SCREENSAVER AFTER"
+msgstr "ATIVAR PROTEÇÃO DE TELA"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "TIPO DA PROTEÇÃO DE TELA"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIOS"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "TROCAR VÍDEO APÓS (SEG)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "USAR O OMX PLAYER PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "MOSTRAR INFORMAÇÃO DO JOGO EM PROTEÇÃO DE TELA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
 
 msgid "DECORATIONS"
 msgstr "DECORAÇÕES"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "ESTICAR VÍDEO NA PROTEÇÃO DE TELA"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "SILENCIAR VIDEO"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "CONTROLES DE PROTEÇÃO DE TELA"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "USAR VÍDEOS PERSONALIZADOS"
+
+msgid "CUSTOM VIDEO DIR"
+msgstr "DIRETÓRIO DE VÍDEO PERSONALIZADO"
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr "REPETIR DIRETÓRIO DE VÍDEO PERSONALIZADO"
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr "FILTRAR VÍDEO PERSONALIZADO"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "CONFIGURAÇÕES DO SLIDESHOW"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "TROCAR IMAGEM APÓS (SEG)"
 
 msgid "STRETCH IMAGES"
 msgstr "ESTICAR IMAGEM"
@@ -617,52 +740,6 @@ msgstr "DIRETÓRIO RECURSIVO DE IMAGEM"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRO DE IMAGEM"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "GERENCIADOR DE CONTEÚDO"
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
-
-msgid "MISC"
-msgstr "DIVERSOS"
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "ADICIONADO NA FILA PARA DESINSTALAR"
-
-msgid "SCREENSAVER AFTER"
-msgstr "ATIVAR PROTEÇÃO DE TELA"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "TIPO DA PROTEÇÃO DE TELA"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"A PROTEÇÃO DE TELA \"VÍDEO ALEATÓRIO\" MOSTRA VÍDEOS DA SUA LISTA DE JOGOS.\n"
-"SE VOCÊ NÃO TEM VÍDEOS, OU SE NENHUM DELES PODE SER EXECUTADO APÓS ALGUMAS "
-"TENTATIVAS, POR PADRÃO FICARÁ \"PRETO\".\n"
-"MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NA PROTEÇÃO "
-"DE TELA DE VÍDEO ALEATÓRIOS\""
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIOS"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DO SLIDESHOW"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "CONTROLES DE PROTEÇÃO DE TELA"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "VÍDEO COMO PROTEÇÃO DE TELA"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "SLIDESHOW COMO PROTETOR DE TELA"
 
 msgid "UPDATING BATOCERA"
 msgstr "ATUALIZANDO O SISTEMA BATOCERA"
@@ -781,38 +858,11 @@ msgstr ""
 "NORMAL!\n"
 "CONTINUAR MESMO ASSIM?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO"
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "O SCRAPER ESTÁ EM EXECUÇÃO. DESEJA ENCERRAR ?"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "TROCAR VÍDEO APÓS (SEG)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "USAR O OMX PLAYER PARA A PROTEÇÃO DE TELA"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "MOSTRAR INFORMAÇÃO DO JOGO EM PROTEÇÃO DE TELA"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "ESTICAR VÍDEO NA PROTEÇÃO DE TELA"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "SILENCIAR VIDEO"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "USAR VÍDEOS PERSONALIZADOS"
-
-msgid "CUSTOM VIDEO DIR"
-msgstr "DIRETÓRIO DE VÍDEO PERSONALIZADO"
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr "REPETIR DIRETÓRIO DE VÍDEO PERSONALIZADO"
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr "FILTRAR VÍDEO PERSONALIZADO"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO"
 
 msgid "fade"
 msgstr "escurecer"
@@ -822,6 +872,9 @@ msgstr "deslizar"
 
 msgid "instant"
 msgstr "instante"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "Sistema"
@@ -925,9 +978,6 @@ msgstr "FAN ART"
 msgid "BOX SOURCE"
 msgstr "FONTE DA CAIXA"
 
-msgid "NONE"
-msgstr "NENHUM"
-
 msgid "LOGO SOURCE"
 msgstr "FONTE DO LOGOTIPO"
 
@@ -958,15 +1008,6 @@ msgstr "SENHA"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "TEM CERTEZA DE QUE DESEJA CONFIGURAR O CONTROLE?"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DA PROTEÇÃO DE TELA"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "CONFIGURAÇÕES DO SLIDESHOW"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "CONFIGURAÇÕES DE VÍDEOS ALEATÓRIOS"
-
 msgid "CHOOSE"
 msgstr "ESCOLHER"
 
@@ -985,6 +1026,9 @@ msgstr "USO DO DISCO DO SISTEMA"
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "LIMITE DE VRAM"
 
@@ -997,20 +1041,29 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "PRELOAD UI"
-msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
+msgid "TOOLS"
+msgstr "FERRAMENTAS"
 
-msgid "THREADED LOADING"
-msgstr "CARREGANDO EM PARALELO"
+msgid "LOG LEVEL"
+msgstr "NÍVEL DE LOG"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
+msgid "CREATE A SUPPORT FILE"
+msgstr "CRIAR UM ARQUIVO DE SUPORTE"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OTIMIZAR O USO DAS IMAGENS NA VRAM"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "ARQUIVO GERADO COM SUCESSO"
+
+msgid "FILE GENERATION FAILED"
+msgstr "FALHA AO GERAR O ARQUIVO"
+
+msgid "FORMAT A DISK"
+msgstr "FORMATAR O DISCO"
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1030,6 +1083,18 @@ msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "TRANSIÇÃO CARROSSEL"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "TECLADO NA TELA"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr "OCULTAR AO EXECUTAR UM JOGO"
+
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
@@ -1042,23 +1107,23 @@ msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
 
-msgid "LOG LEVEL"
-msgstr "NÍVEL DE LOG"
+msgid "OPTIMIZATIONS"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "CRIAR UM ARQUIVO DE SUPORTE"
+msgid "PRELOAD UI"
+msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
+msgid "THREADED LOADING"
+msgstr "CARREGANDO EM PARALELO"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ARQUIVO GERADO COM SUCESSO"
+msgid "ASYNC IMAGES LOADING"
+msgstr "CARREGAMENTO DAS IMAGENS ASSÍNCRONAS"
 
-msgid "FILE GENERATION FAILED"
-msgstr "FALHA AO GERAR O ARQUIVO"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OTIMIZAR O USO DAS IMAGENS NA VRAM"
 
-msgid "FORMAT A DISK"
-msgstr "FORMATAR O DISCO"
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
 msgid "DOWNLOADS"
 msgstr "TRANSFERÊNCIAS"
@@ -1089,6 +1154,23 @@ msgstr "IDIOMA"
 
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
+
+msgid "UI MODE"
+msgstr "MODO DA INTERFACE"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Você está mudando a interface do usuário para um modo restrito: \n"
+"Isso ocultará a maioria das opções do menu para evitar alterações no "
+"sistema. \n"
+"Para desbloquear e retornar à interface do usuário completa, insira este "
+"código:"
+
+msgid "Do you want to proceed ?"
+msgstr "Você quer prosseguir?"
 
 msgid "KODI SETTINGS"
 msgstr "OPÇÕES DO KODI"
@@ -1122,9 +1204,6 @@ msgstr "OPÇÕES DE RETROACHIEVEMENTS"
 
 msgid "NETPLAY SETTINGS"
 msgstr "CONFIGURAÇÕES DE JOGOS EM REDE"
-
-msgid "MISSING BIOS"
-msgstr "BIOS FALTANDO"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLAS MULTIMÍDIA"
@@ -1219,14 +1298,14 @@ msgstr "REINDEXAR TODO OS JOGOS"
 msgid "INDEX MISSING GAMES"
 msgstr "INDEXAR JOGOS FALTANDO"
 
-msgid "TOOLS"
-msgstr "FERRAMENTAS"
-
 msgid "DEFAULT SETTINGS"
 msgstr "CONFIGURAÇÕES PADRÃO"
 
 msgid "GAME RATIO"
 msgstr "FORMATO DE TELA"
+
+msgid "VIDEO MODE"
+msgstr "MODO VÍDEO"
 
 msgid "SMOOTH GAMES"
 msgstr "SUAVIZAR IMAGEM"
@@ -1264,6 +1343,9 @@ msgstr "ESCALA INTEIRO (PIXEL PERFEITO)"
 msgid "DECORATION"
 msgstr "DECORAÇÃO"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO JOGO POR IA"
 
@@ -1281,15 +1363,6 @@ msgstr "PAUSA NA TELA TRADUZIDA"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
-
-msgid "NO MISSING BIOS"
-msgstr "SEM BIOS FALTANDO"
-
-msgid "MISSING"
-msgstr "QUE FALTA"
-
-msgid "INVALID"
-msgstr "INVÁLIDO"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "HASHING DO JOGO ESTÁ EXECUTANDO. DESEJA ENCERRAR?"
@@ -1361,12 +1434,6 @@ msgstr "MOSTRAR ARQUIVOS OCULTOS"
 msgid "SHOW FOLDERS"
 msgstr "MOSTRAR PASTAS"
 
-msgid "always"
-msgstr "sempre"
-
-msgid "never"
-msgstr "nunca"
-
 msgid "having multiple games"
 msgstr "tendo vários jogos"
 
@@ -1391,35 +1458,6 @@ msgstr "vídeo"
 msgid "grid"
 msgstr "grade"
 
-msgid "UI MODE"
-msgstr "MODO DA INTERFACE"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"Você está mudando a interface do usuário para um modo restrito: \n"
-"Isso ocultará a maioria das opções do menu para evitar alterações no "
-"sistema. \n"
-"Para desbloquear e retornar à interface do usuário completa, insira este "
-"código:"
-
-msgid "Do you want to proceed ?"
-msgstr "Você quer prosseguir?"
-
-msgid "STARTUP SETTINGS"
-msgstr "CONFIGURAÇÕES DE INICIALIZAÇÃO"
-
-msgid "START ON SYSTEM"
-msgstr "INICIAR NO SISTEMA"
-
-msgid "START ON GAMELIST"
-msgstr "INICIAR NA LISTA DE JOGOS"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "SISTEMAS EXIBIDOS"
-
 msgid "DISPLAY OPTIONS"
 msgstr "OPÇÕES DE EXIBIÇÃO"
 
@@ -1429,12 +1467,6 @@ msgstr "ESTILO DE TRANSIÇÃO"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIÇÃO DO CARREGAMENTO DO JOGO"
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "TRANSIÇÃO CARROSSEL"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "SELEÇÃO RÁPIDA DE SISTEMA"
-
 msgid "SHOW CLOCK"
 msgstr "MOSTRAR RELÓGIO"
 
@@ -1443,12 +1475,6 @@ msgstr "AJUDA NA TELA"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "MOSTRAR ESTADO DA BATERIA"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "TECLADO NA TELA"
-
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "OCULTAR AO EXECUTAR UM JOGO"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
@@ -1569,9 +1595,6 @@ msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DESEJA REALMENTE SAIR?"
-
-msgid "VIDEO MODE"
-msgstr "MODO VÍDEO"
 
 msgid "COLORIZATION"
 msgstr "COLORIZAÇÃO"
@@ -1700,8 +1723,20 @@ msgstr "Nenhuma Entrada Encontrada"
 msgid "Favorites"
 msgstr "Favoritos"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "INICIAR O JOGO COMO HOST DO JOGO EM REDE"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "Procurando"
@@ -2005,22 +2040,72 @@ msgid "WORKING..."
 msgstr "EM PROGRESSO..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d hora"
-msgstr[1] "%d horas"
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d minuto"
-msgstr[1] "%d minutos"
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d segundo"
-msgstr[1] "%d segundos"
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "A PROTEÇÃO DE TELA \"VÍDEO ALEATÓRIO\" MOSTRA VÍDEOS DA SUA LISTA DE "
+#~ "JOGOS.\n"
+#~ "SE VOCÊ NÃO TEM VÍDEOS, OU SE NENHUM DELES PODE SER EXECUTADO APÓS "
+#~ "ALGUMAS TENTATIVAS, POR PADRÃO FICARÁ \"PRETO\".\n"
+#~ "MAIS CONFIGURAÇÕES EM \"OPÇÕES DA INTERFACE\" -> \"CONFIGURAÇÕES NA "
+#~ "PROTEÇÃO DE TELA DE VÍDEO ALEATÓRIOS\""
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "VÍDEO COMO PROTEÇÃO DE TELA"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "SLIDESHOW COMO PROTETOR DE TELA"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "CONFIGURAÇÕES DO SLIDESHOW"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "CONFIGURAÇÕES DE VÍDEOS ALEATÓRIOS"
+
+#~ msgid "MISSING"
+#~ msgstr "QUE FALTA"
+
+#~ msgid "INVALID"
+#~ msgstr "INVÁLIDO"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "CONFIGURAÇÕES DE INICIALIZAÇÃO"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "SELEÇÃO RÁPIDA DE SISTEMA"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "INICIAR O JOGO COMO HOST DO JOGO EM REDE"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d hora"
+#~ msgstr[1] "%d horas"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d minuto"
+#~ msgstr[1] "%d minutos"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d segundo"
+#~ msgstr[1] "%d segundos"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "SELECIONAR TEMA"

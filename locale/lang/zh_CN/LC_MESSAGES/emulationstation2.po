@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 21:10+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -338,6 +338,9 @@ msgstr "游戏合辑设置"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "要显示的合辑"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "显示的游戏平台"
+
 msgid "GROUPED SYSTEMS"
 msgstr "系统分组"
 
@@ -362,9 +365,6 @@ msgstr "新建合辑"
 msgid "OPTIONS"
 msgstr "选项"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "对无主题的自定合辑进行分组"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "合辑和系统分类"
 
@@ -376,6 +376,18 @@ msgstr "由生产商提供"
 
 msgid "SORT SYSTEMS"
 msgstr "系统分类"
+
+msgid "START ON SYSTEM"
+msgstr "启动到系统"
+
+msgid "NONE"
+msgstr "无"
+
+msgid "START ON GAMELIST"
+msgstr "启动到游戏列表"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "对无主题的自定合辑进行分组"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
@@ -391,6 +403,9 @@ msgstr "载入中..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "游戏系统"
@@ -418,6 +433,9 @@ msgstr "确定"
 
 msgid "FINISHED"
 msgstr "完成"
+
+msgid "go back"
+msgstr "返回"
 
 msgid "NAVIGATION"
 msgstr "导航"
@@ -518,6 +536,15 @@ msgstr "失败"
 msgid "LAUNCH"
 msgstr "启动"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "核心无效"
 
@@ -529,6 +556,12 @@ msgstr "无法运行的游戏"
 
 msgid "NO GAME FOUND"
 msgstr "未发现游戏"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "手动输入"
@@ -572,9 +605,6 @@ msgstr "选择主题安装 / 卸载"
 msgid "CURRENT THEME"
 msgstr "当前主题"
 
-msgid "go back"
-msgstr "返回"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "清除一个蓝牙控制器"
 
@@ -587,17 +617,110 @@ msgstr "未发现蓝牙设备"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "控制器链接已被删除。"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "图像替换 (SECS)"
+msgid "CONTENT DOWNLOADER"
+msgstr "下载内容"
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr "选择内容以便安装 / 卸载"
+
+msgid "MISC"
+msgstr "杂项"
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr "添加卸载到队伍"
+
+msgid "NO MISSING BIOS"
+msgstr "未缺失的BIOS"
+
+msgid "MISSING BIOS"
+msgstr "缺失的BIOS"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "总是"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "从未"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "屏保设置"
+
+msgid "SCREENSAVER AFTER"
+msgstr "屏保等待时间"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "屏保样式"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "屏保-随机视频设置"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "视频替换 (SECS)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "屏保使用 OMX 播放器"
 
 msgid "SHOW GAME INFO"
 msgstr "显示游戏信息"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "屏保显示游戏信息"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用悬浮蒙版图片作为游戏信息"
 
 msgid "DECORATIONS"
 msgstr "装饰框"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "屏保拉伸显示"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "视频静音"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "屏保控制选项"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "使用自定视频"
+
+msgid "CUSTOM VIDEO DIR"
+msgstr "自定视频路径"
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr "自定义视频目录递归"
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr "自定义视频过滤器"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "屏保-幻灯片设置"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "图像替换 (SECS)"
 
 msgid "STRETCH IMAGES"
 msgstr "拉伸图像"
@@ -613,50 +736,6 @@ msgstr "递归自定图像目录"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "自定图像筛选"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "下载内容"
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "选择内容以便安装 / 卸载"
-
-msgid "MISC"
-msgstr "杂项"
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "添加卸载到队伍"
-
-msgid "SCREENSAVER AFTER"
-msgstr "屏保等待时间"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "屏保样式"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
-"如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"
-"更多选项可以到 \"UI 设置 -> 屏保-随机视频设置\" 进行设置。"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "屏保-随机视频设置"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "屏保-幻灯片设置"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "屏保控制选项"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "视频屏保"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "屏保-幻灯片"
 
 msgid "UPDATING BATOCERA"
 msgstr "更新 BATOCERA"
@@ -770,38 +849,11 @@ msgstr ""
 " 抓取结果可能不准确! \n"
 "是否继续抓取?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "没有匹配的游戏。"
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "抓取进行中"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "视频替换 (SECS)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "屏保使用 OMX 播放器"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "屏保显示游戏信息"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "屏保拉伸显示"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "视频静音"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "使用自定视频"
-
-msgid "CUSTOM VIDEO DIR"
-msgstr "自定视频路径"
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr "自定义视频目录递归"
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr "自定义视频过滤器"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "没有匹配的游戏。"
 
 msgid "fade"
 msgstr "淡出"
@@ -811,6 +863,9 @@ msgstr "滑动"
 
 msgid "instant"
 msgstr "闪现"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "系统"
@@ -914,9 +969,6 @@ msgstr "同人作品"
 msgid "BOX SOURCE"
 msgstr "封面数据"
 
-msgid "NONE"
-msgstr "无"
-
 msgid "LOGO SOURCE"
 msgstr "LOGO数据"
 
@@ -947,15 +999,6 @@ msgstr "密码"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "你确定需要设置控制器吗"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "屏保设置"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "幻灯片设置"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "随机视频参数"
-
 msgid "CHOOSE"
 msgstr "浏览"
 
@@ -974,6 +1017,9 @@ msgstr "系统磁盘使用"
 msgid "DEVELOPER"
 msgstr "开发者选项"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "限制 VRAM"
 
@@ -986,20 +1032,29 @@ msgstr "垂直同步"
 msgid "OVERSCAN"
 msgstr "过扫描"
 
-msgid "PRELOAD UI"
-msgstr "预加载UI"
+msgid "TOOLS"
+msgstr "工具"
 
-msgid "THREADED LOADING"
-msgstr "线程载入中"
+msgid "LOG LEVEL"
+msgstr "日志级别"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "异步图像载入中"
+msgid "CREATE A SUPPORT FILE"
+msgstr "创建支持文件"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "优化图像VRAM使用"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "是否创建支持文件?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "优化视频VRAM的使用"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "文件生成成功"
+
+msgid "FILE GENERATION FAILED"
+msgstr "文件生成失败"
+
+msgid "FORMAT A DISK"
+msgstr "格式化磁盘"
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"
@@ -1019,6 +1074,18 @@ msgstr "重置文件扩展"
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "重新查询游戏的 语言/区域"
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "循环画面转场"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "虚拟键盘"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr "运行游戏时隐藏"
+
 msgid "COMPLETE QUIT MENU"
 msgstr "完成并推出"
 
@@ -1031,23 +1098,23 @@ msgstr "在EMULATIONSTATION中切换 A/B 按键"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自动配置模拟的控制设备"
 
-msgid "LOG LEVEL"
-msgstr "日志级别"
+msgid "OPTIMIZATIONS"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "创建支持文件"
+msgid "PRELOAD UI"
+msgstr "预加载UI"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "是否创建支持文件?"
+msgid "THREADED LOADING"
+msgstr "线程载入中"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "文件生成成功"
+msgid "ASYNC IMAGES LOADING"
+msgstr "异步图像载入中"
 
-msgid "FILE GENERATION FAILED"
-msgstr "文件生成失败"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "优化图像VRAM使用"
 
-msgid "FORMAT A DISK"
-msgstr "格式化磁盘"
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "优化视频VRAM的使用"
 
 msgid "DOWNLOADS"
 msgstr "资料下载"
@@ -1078,6 +1145,21 @@ msgstr "语言"
 
 msgid "POWER SAVER MODES"
 msgstr "省电模式"
+
+msgid "UI MODE"
+msgstr "UI模式"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"您即将使用受限模式:\n"
+"此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
+"如果需要返回完整模式，请按顺序输入以下按键："
+
+msgid "Do you want to proceed ?"
+msgstr "是否继续?"
 
 msgid "KODI SETTINGS"
 msgstr "KODI 设置"
@@ -1111,9 +1193,6 @@ msgstr "RetroArch成就设置"
 
 msgid "NETPLAY SETTINGS"
 msgstr "联网游戏设置"
-
-msgid "MISSING BIOS"
-msgstr "缺失的BIOS"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "多媒体功能键"
@@ -1208,14 +1287,14 @@ msgstr "重新索引所有游戏"
 msgid "INDEX MISSING GAMES"
 msgstr "索引缺失的游戏"
 
-msgid "TOOLS"
-msgstr "工具"
-
 msgid "DEFAULT SETTINGS"
 msgstr "默认设置"
 
 msgid "GAME RATIO"
 msgstr "游戏显示比例"
+
+msgid "VIDEO MODE"
+msgstr "视频模式"
 
 msgid "SMOOTH GAMES"
 msgstr "图像平滑处理"
@@ -1253,6 +1332,9 @@ msgstr "整数缩放 (像素完美显示)"
 msgid "DECORATION"
 msgstr "装饰框"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "AI游戏翻译"
 
@@ -1270,15 +1352,6 @@ msgstr "翻译时暂停"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "按系统配置"
-
-msgid "NO MISSING BIOS"
-msgstr "未缺失的BIOS"
-
-msgid "MISSING"
-msgstr "缺失"
-
-msgid "INVALID"
-msgstr "无效"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "正在效验游戏.你想停止吗?"
@@ -1352,12 +1425,6 @@ msgstr "显示隐藏文件"
 msgid "SHOW FOLDERS"
 msgstr "显示文件夹"
 
-msgid "always"
-msgstr "总是"
-
-msgid "never"
-msgstr "从未"
-
 msgid "having multiple games"
 msgstr "有多个游戏"
 
@@ -1382,33 +1449,6 @@ msgstr "游戏视频"
 msgid "grid"
 msgstr "网格列表"
 
-msgid "UI MODE"
-msgstr "UI模式"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"您即将使用受限模式:\n"
-"此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
-"如果需要返回完整模式，请按顺序输入以下按键："
-
-msgid "Do you want to proceed ?"
-msgstr "是否继续?"
-
-msgid "STARTUP SETTINGS"
-msgstr "启动项设置"
-
-msgid "START ON SYSTEM"
-msgstr "启动到系统"
-
-msgid "START ON GAMELIST"
-msgstr "启动到游戏列表"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "显示的游戏平台"
-
 msgid "DISPLAY OPTIONS"
 msgstr "视图画面选项"
 
@@ -1418,12 +1458,6 @@ msgstr "画面转场样式"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "游戏启动过程"
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "循环画面转场"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "快速系统选择"
-
 msgid "SHOW CLOCK"
 msgstr "显示时钟"
 
@@ -1432,12 +1466,6 @@ msgstr "显示帮助"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "显示电池状态"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "虚拟键盘"
-
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "运行游戏时隐藏"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "在列表中显示文件名"
@@ -1558,9 +1586,6 @@ msgstr "退出EmulationStation"
 
 msgid "REALLY QUIT?"
 msgstr "确定退出?"
-
-msgid "VIDEO MODE"
-msgstr "视频模式"
 
 msgid "COLORIZATION"
 msgstr "彩色化"
@@ -1686,8 +1711,20 @@ msgstr "找不到条目"
 msgid "Favorites"
 msgstr "收藏夹"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "启动游戏作为网络游戏主机？"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "搜索中"
@@ -1985,19 +2022,66 @@ msgid "WORKING..."
 msgstr "进行中..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d 小时"
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d 分钟"
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d 秒"
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
+#~ "如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"
+#~ "更多选项可以到 \"UI 设置 -> 屏保-随机视频设置\" 进行设置。"
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "视频屏保"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "屏保-幻灯片"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "幻灯片设置"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "随机视频参数"
+
+#~ msgid "MISSING"
+#~ msgstr "缺失"
+
+#~ msgid "INVALID"
+#~ msgstr "无效"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "启动项设置"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "快速系统选择"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "启动游戏作为网络游戏主机？"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d 小时"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d 分钟"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d 秒"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "选择主题"
