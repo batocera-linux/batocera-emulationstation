@@ -93,3 +93,25 @@ class ThemeVector4Animation : public ThemeAnimation
 			from.r.w() * (1.0f - value) + to.r.w() * value);
 	}
 };
+
+class ThemeStringAnimation : public ThemeAnimation
+{
+	ThemeData::ThemeElement::Property computeValue(float value) override
+	{
+		if (value >= 0.9999)
+			return to.s;
+
+		return from.s;
+	}
+};
+
+class ThemePathAnimation : public ThemeAnimation
+{
+	ThemeData::ThemeElement::Property computeValue(float value) override
+	{
+		if (value >= 0.9999)
+			return to.s;
+
+		return from.s;
+	}
+};

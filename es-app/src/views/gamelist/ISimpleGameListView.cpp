@@ -10,7 +10,9 @@
 #include "guis/GuiMsgBox.h"
 #include "Window.h"
 #include "LocaleES.h"
+#include "guis/GuiSettings.h"
 #include <set>
+#include "components/SwitchComponent.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window)
@@ -209,7 +211,32 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			if(cursor != nullptr && cursor->isNetplaySupported())
 			{
 				Window* window = mWindow;
+				
+				GuiSettings* msgBox = new GuiSettings(mWindow, _("NETPLAY"), "", nullptr, true);
+				msgBox->setSubTitle(cursor->getName());
+				msgBox->setTag("popup");				
+				msgBox->addGroup(_("START GAME"));
 
+				msgBox->addEntry(_U("\uF144 ") + _("START NETPLAY HOST"), false, [this, msgBox, cursor]
+				{
+					LaunchGameOptions options;
+					options.netPlayMode = SERVER;
+					ViewController::get()->launch(cursor, options);
+					msgBox->close();					
+				});
+			
+				msgBox->addGroup(_("OPTIONS"));
+
+				auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
+				retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.netplay.spectator"));
+				msgBox->addWithLabel(_("ALLOW SPECTATOR MODE"), retroachievements_screenshot_enabled);
+				msgBox->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.netplay.spectator", retroachievements_screenshot_enabled->getState()); });
+				
+				msgBox->addInputTextRow(_("SET PLAYER PASSWORD"), "global.netplay.password", false);
+				msgBox->addInputTextRow(_("SET VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
+				
+				mWindow->pushGui(msgBox);
+				/*
 				window->pushGui(new GuiMsgBox(mWindow, _("LAUNCH THE GAME AS NETPLAY HOST ?"), _("YES"), [this, window, cursor]
 				{
 					LaunchGameOptions options;
@@ -217,7 +244,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 					ViewController::get()->launch(cursor, options);
 
 				}, _("NO"), nullptr));
-
+				*/
 				return true;
 			}				
 			

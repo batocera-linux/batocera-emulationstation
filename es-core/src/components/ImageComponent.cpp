@@ -852,6 +852,9 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 	if (name == "roundCorners")
 		return mRoundCorners;
 
+	if (name == "path")
+		return mPath;
+
 	return GuiComponent::getProperty(name);
 }
 
@@ -880,6 +883,12 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		mReflection = value.v;
 	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
 		mRoundCorners = value.f;	
-	else 
+	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+	{
+		mForceLoad = true;
+		mDynamic = false;
+		setImage(value.s, false);
+	}
+	else
 		GuiComponent::setProperty(name, value);
 }

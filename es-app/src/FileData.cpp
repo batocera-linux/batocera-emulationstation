@@ -24,6 +24,7 @@
 #include <time.h>
 #include <algorithm>
 #include "LangParser.h"
+#include "resources/ResourceManager.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -377,14 +378,20 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
 
-	if (options.netPlayMode == CLIENT)
+	if (options.netPlayMode == CLIENT || options.netPlayMode == SPECTATOR)
 	{
+		std::string mode = (options.netPlayMode == SPECTATOR ? "spectator" : "client");
+		std::string pass;
+		
+		if (!options.netplayClientPassword.empty())
+			pass = " -netplaypass " + options.netplayClientPassword;
+
 #if WIN32
 		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
 			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 		else
 #endif
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode client -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip);
+		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode " + mode + " -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip + pass);
 	}
 	else if (options.netPlayMode == SERVER)
 	{
@@ -413,8 +420,17 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
 
 	Scripting::fireEvent("game-end");
+	
+	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
+	{
+		ResourceManager::getInstance()->reloadAll();
+		window->deinit();
+		window->init();
+		window->setCustomSplashScreen(gameToUpdate->getImagePath(), gameToUpdate->getName());
+	}
+	else
+		window->init(hideWindow);
 
-	window->init(hideWindow);
 	VolumeControl::getInstance()->init();
 
 	// mSystem can be NULL

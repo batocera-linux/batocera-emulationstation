@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "LocaleES.h"
 #include "SystemConf.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 GuiSettings::GuiSettings(Window* window, 
 	const std::string title,
@@ -31,7 +33,7 @@ GuiSettings::GuiSettings(Window* window,
 			animateTo((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 		else
 			animateTo(
-				Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.9),
+				Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.5),
 				Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f));
 	}
 	else
@@ -129,3 +131,69 @@ void GuiSettings::addSubMenu(const std::string& label, const std::function<void(
 
 	mMenu.addRow(row);
 };
+
+void GuiSettings::addInputTextRow(std::string title, const char *settingsID, bool password, bool storeInSettings
+	, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor)
+{
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	// LABEL
+	Window *window = mWindow;
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(window, title, font, color);
+	if (EsLocale::isRTL())
+		lbl->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
+	row.addElement(lbl, true); // label
+
+	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, ((password && value != "") ? "*********" : value), font, color, ALIGN_RIGHT);
+	if (EsLocale::isRTL())
+		ed->setHorizontalAlignment(Alignment::ALIGN_LEFT);
+
+	row.addElement(ed, true);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+	bracket->setImage(theme->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+
+	if (EsLocale::isRTL())
+		bracket->setFlipX(true);
+
+	row.addElement(bracket, false);
+
+	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal)
+	{
+		if (!password)
+			ed->setValue(newVal);
+		else
+			ed->setValue("*********");
+
+		if (storeInSettings)
+			Settings::getInstance()->setString(settingsID, newVal);
+		else
+			SystemConf::getInstance()->set(settingsID, newVal);
+	}; // ok callback (apply new value to ed)
+
+	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings, customEditor]
+	{
+		std::string data = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+		if (customEditor != nullptr)
+			customEditor(mWindow, title, data, updateVal);
+		else if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, data, updateVal, false));
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, title, data, updateVal, false));
+	});
+
+	addRow(row);
+}
