@@ -236,7 +236,8 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 		char trstring[1024];
 		snprintf(trstring, 1024, _("CURRENT THEME").c_str(), entry.name.c_str());
 		details = trstring;
-		mIsPending = true;
+//		mIsPending = true; // EmuELEC
+
 	}
 	else if (mIsPending)
 	{
