@@ -98,9 +98,10 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		LOG(LogWarning) << "Error - folder with path \"" << folderPath << "\" is not a directory!";
 		return;
 	}
-
-	//make sure that this isn't a symlink to a thing we already have
-	if(Utils::FileSystem::isSymlink(folderPath))
+	/*
+	// [Obsolete] make sure that this isn't a symlink to a thing we already have
+	// Deactivated because it's slow & useless : users should to be carefull not to make recursive simlinks
+	if (Utils::FileSystem::isSymlink(folderPath))
 	{
 		//if this symlink resolves to somewhere that's at the beginning of our path, it's gonna recurse
 		if(folderPath.find(Utils::FileSystem::getCanonicalPath(folderPath)) == 0)
@@ -109,7 +110,7 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 			return;
 		}
 	}
-
+	*/
 	std::string filePath;
 	std::string extension;
 	bool isGame;
@@ -1092,9 +1093,21 @@ void SystemData::deleteSystems()
 
 std::string SystemData::getConfigPath(bool forWrite)
 {
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_systems.cfg"; // batocera
-	if(forWrite || Utils::FileSystem::exists(path))
-		return path;
+#if WIN32
+	std::string customPath = Utils::FileSystem::getSharedConfigPath() + "/es_systems_custom.cfg"; // /usr/share/emulationstation/es_systems.cfg
+	if (Utils::FileSystem::exists(customPath))
+		return customPath;
+#endif
+
+	std::string userdataPath = Utils::FileSystem::getEsConfigPath() + "/es_systems.cfg"; // /userdata/system/configs/emulationstation/es_systems.cfg
+	if(forWrite || Utils::FileSystem::exists(userdataPath))
+		return userdataPath;
+
+#if !WIN32
+	std::string customPath = Utils::FileSystem::getSharedConfigPath() + "/es_systems.cfg"; // /usr/share/emulationstation/es_systems.cfg
+	if (Utils::FileSystem::exists(customPath))
+		return customPath;
+#endif
 
 	return "/etc/emulationstation/es_systems.cfg";
 }
@@ -1275,14 +1288,15 @@ void SystemData::loadTheme()
 		std::map<std::string, std::string> sysData;
 		sysData.insert(std::pair<std::string, std::string>("system.name", getName()));
 		sysData.insert(std::pair<std::string, std::string>("system.theme", getThemeFolder()));
-		
-		if (getFullName().size() > 1)
-			sysData.insert(std::pair<std::string, std::string>("system.fullName", Utils::String::toUpper(getFullName().substr(0, 1)) + getFullName().substr(1)));
-		else 
-			sysData.insert(std::pair<std::string, std::string>("system.fullName", getFullName()));
+		sysData.insert(std::pair<std::string, std::string>("system.fullName", Utils::String::proper(getFullName())));
 
 		sysData.insert(std::pair<std::string, std::string>("system.manufacturer", getSystemMetadata().manufacturer));
-		sysData.insert(std::pair<std::string, std::string>("system.hardwareType", getSystemMetadata().hardwareType));
+		sysData.insert(std::pair<std::string, std::string>("system.hardwareType", Utils::String::proper(getSystemMetadata().hardwareType)));
+
+		if (Settings::getInstance()->getString("SortSystems") == "hardware")
+			sysData.insert(std::pair<std::string, std::string>("system.sortedBy", Utils::String::proper(getSystemMetadata().hardwareType)));
+		else
+			sysData.insert(std::pair<std::string, std::string>("system.sortedBy", getSystemMetadata().manufacturer));
 
 		if (getSystemMetadata().releaseYear > 0)
 		{

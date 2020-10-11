@@ -13,6 +13,7 @@
 #include "guis/GuiSettings.h"
 #include <set>
 #include "components/SwitchComponent.h"
+#include "ApiSystem.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window)
@@ -219,6 +220,12 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 				msgBox->addEntry(_U("\uF144 ") + _("START NETPLAY HOST"), false, [this, msgBox, cursor]
 				{
+					if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+					{
+						mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
+						return;
+					}
+				
 					LaunchGameOptions options;
 					options.netPlayMode = SERVER;
 					ViewController::get()->launch(cursor, options);

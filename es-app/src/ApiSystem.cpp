@@ -1438,3 +1438,30 @@ void ApiSystem::updateBatoceraStorePackageList()
 {
 	executeScript("batocera-store update");
 }
+
+std::vector<std::string> ApiSystem::getShaderList()
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	std::vector<std::string> ret;
+
+	std::vector<std::string> folderList = { "/usr/share/batocera/shaders/configs", "/userdata/shaders/configs" };
+	for (auto folder : folderList)
+	{
+		for (auto file : Utils::FileSystem::getDirContent(folder, true))
+		{
+			if (Utils::FileSystem::getFileName(file) == "rendering-defaults.yml")
+			{
+				auto parent = Utils::FileSystem::getFileName(Utils::FileSystem::getParent(file));
+				if (parent == "configs")
+					continue;
+
+				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
+					ret.push_back(Utils::FileSystem::getParent(file));
+			}
+		}
+	}
+
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}

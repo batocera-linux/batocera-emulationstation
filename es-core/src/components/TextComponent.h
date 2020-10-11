@@ -7,6 +7,7 @@
 
 class ThemeData;
 
+
 // Used to display text.
 // TextComponent::setSize(x, y) works a little differently than most components:
 //  * (0, 0)                     - will automatically calculate a size that fits the text on one line (expand horizontally)
@@ -51,8 +52,16 @@ public:
 
 	virtual void update(int deltaTime);
 
-	bool getAutoScroll() { return mAutoScroll; }
-	void setAutoScroll(bool value);
+	enum AutoScrollType : unsigned int
+	{
+		NONE = 0,
+		HORIZONTAL = 1,
+		VERTICAL = 2
+	};
+
+	AutoScrollType getAutoScroll() { return mAutoScroll; }
+	void setAutoScroll(AutoScrollType value);
+	void setAutoScroll(bool scroll);
 
 	unsigned int getColor() { return mColor; }
 
@@ -60,6 +69,8 @@ public:
 
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
+
+	virtual void onShow() override;
 
 protected:
 	virtual void onTextChanged();
@@ -99,7 +110,7 @@ private:
 	int mMarqueeOffset2;
 	int mMarqueeTime;
 
-	bool mAutoScroll;
+	AutoScrollType mAutoScroll;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H

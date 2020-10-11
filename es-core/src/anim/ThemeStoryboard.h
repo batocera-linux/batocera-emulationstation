@@ -9,6 +9,7 @@ class ThemeStoryboard
 public:
 	ThemeStoryboard()
 	{
+		repeatAt = 0;
 		repeat = 1;
 	}
 
@@ -18,6 +19,7 @@ public:
 
 	std::string eventName;
 	int repeat; // 0 = forever
+	int repeatAt;
 
 	std::vector<ThemeAnimation*> animations;
 

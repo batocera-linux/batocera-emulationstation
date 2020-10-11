@@ -87,6 +87,7 @@ private:
 
 	int		 moveCursorFast(bool forward = true);
 	void	 showManufacturerBar();
+	void	 showHardwareBar();
 
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;

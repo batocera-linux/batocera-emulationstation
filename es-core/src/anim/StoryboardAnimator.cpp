@@ -33,7 +33,7 @@ void StoryboardAnimator::clearStories()
 	_currentStories.clear();
 }
 
-void StoryboardAnimator::reset()
+void StoryboardAnimator::reset(int atTime)
 {
 	if (mPaused)
 	{
@@ -41,19 +41,30 @@ void StoryboardAnimator::reset()
 		mPaused = false;
 	}
 
-	mCurrentTime = 0;
+	mCurrentTime = atTime;
 
 	clearStories();
 
-	if (mHasInitialProperties)
+	if (atTime > 0)
 	{
-		for (auto prop : mInitialProperties)
-			mComponent->setProperty(prop.first, prop.second);
+		for (auto anim : mStoryBoard->animations)
+			if (anim->begin + anim->duration <= atTime)
+				_finishedStories.push_back(new StoryAnimation(anim));
+
+		addNewAnimations();
 	}
-	
-	for (auto anim : mStoryBoard->animations)
-		if (anim->begin == 0)
-			_currentStories.push_back(new StoryAnimation(anim));	
+	else
+	{
+		if (mHasInitialProperties)
+		{
+			for (auto prop : mInitialProperties)
+				mComponent->setProperty(prop.first, prop.second);
+		}
+
+		for (auto anim : mStoryBoard->animations)
+			if (anim->begin == 0)
+				_currentStories.push_back(new StoryAnimation(anim));
+	}
 }
 
 void StoryboardAnimator::stop()
@@ -167,14 +178,9 @@ bool StoryboardAnimator::update(int elapsed)
 				pause();
 				return false;
 			}
-			else
-			{
-				reset();
-				return true;
-			}
 		}
 
-		reset();
+		reset(mStoryBoard->repeatAt);
 		return true;
 	}
 
