@@ -158,7 +158,7 @@ namespace PlatformIds
 		{ 8,   { "cps3", "CPS-3" } },
 		{ 35,  { "aae", "Another Arcade Emulator" } },
 		{ 47,  { "cave", "Cave" } },
-		{ 49,  { "daphne", "Daphnee" } },		
+		{ 49,  { "daphne", "Daphne" } },		
 		{ 53,  { "atomiswave", "Atomiswave" } },
 		{ 54,  { "model2", "Sega Model 2" } },
 		{ 55,  { "model3", "Sega Model 3" } },
