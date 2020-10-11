@@ -26,13 +26,15 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
+	mScaleOrigin = Vector2f::Zero();
+
 	mLinear = false;
 	mHorizontalAlignment = ALIGN_CENTER;
 	mVerticalAlignment = ALIGN_CENTER;
 	mReflectOnBorders = false;
 	mAllowFading = true;
 	mRoundCorners = 0.0f;
-	mShowing = false;
+	
 	mPlaylistTimer = 0;
 	updateColors();
 }
@@ -183,7 +185,7 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 			mTexture = texture;
 	}
 
-	if (mShowing && mTexture != nullptr)
+	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
 
 	if (mLoadingTexture == nullptr)
@@ -210,7 +212,7 @@ void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 
 	mTexture = texture;
 
-	if (mShowing && mTexture != nullptr)
+	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
 
 	resize();
@@ -261,25 +263,25 @@ void ImageComponent::setRotateByTargetSize(bool rotate)
 
 void ImageComponent::cropLeft(float percent)
 {
-	assert(percent >= 0.0f && percent <= 1.0f);
+	if (percent < 0.0f) percent = 0.0f; else if (percent > 1.0f) percent = 1.0f;
 	mTopLeftCrop.x() = percent;
 }
 
 void ImageComponent::cropTop(float percent)
 {
-	assert(percent >= 0.0f && percent <= 1.0f);
+	if (percent < 0.0f) percent = 0.0f; else if (percent > 1.0f) percent = 1.0f;
 	mTopLeftCrop.y() = percent;
 }
 
 void ImageComponent::cropRight(float percent)
 {
-	assert(percent >= 0.0f && percent <= 1.0f);
+	if (percent < 0.0f) percent = 0.0f; else if (percent > 1.0f) percent = 1.0f;
 	mBottomRightCrop.x() = 1.0f - percent;
 }
 
 void ImageComponent::cropBot(float percent)
 {
-	assert(percent >= 0.0f && percent <= 1.0f);
+	if (percent < 0.0f) percent = 0.0f; else if (percent > 1.0f) percent = 1.0f;
 	mBottomRightCrop.y() = 1.0f - percent;
 }
 
@@ -404,7 +406,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 		mTexture = mLoadingTexture;
 
-		if (mShowing && mTexture != nullptr)
+		if (isShowing() && mTexture != nullptr)
 			mTexture->setRequired(true);
 
 		mLoadingTexture.reset();
@@ -586,9 +588,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "image");
 	if (!elem)
-	{
 		return;
-	}
 
 	if (elem->has("linearSmooth"))
 		mLinear = elem->get<bool>("linearSmooth");
@@ -599,6 +599,18 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	{
 		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
 		setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
+	}
+
+	if (properties & POSITION && elem->has("x"))
+	{
+		float denormalized = elem->get<float>("x") * scale.x();
+		setPosition(Vector3f(denormalized, mPosition.y(), 0));
+	}
+	
+	if (properties & POSITION && elem->has("y"))
+	{
+		float denormalized = elem->get<float>("y") * scale.y();
+		setPosition(Vector3f(mPosition.x(), denormalized, 0));
 	}
 
 	if (properties & ThemeFlags::SIZE)
@@ -623,6 +635,18 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
 		else if (elem->has("minSize"))
 			setMinSize(elem->get<Vector2f>("minSize") * scale);
+	}
+
+	if (properties & SIZE && elem->has("w"))
+	{
+		mTargetSize = Vector2f(elem->get<float>("w") * scale.x(), mTargetSize.y());
+		resize();
+	}
+
+	if (properties & SIZE && elem->has("h"))
+	{
+		mTargetSize = Vector2f(mTargetSize.x(), elem->get<float>("h") * scale.y());
+		resize();
 	}
 
 	// position + size also implies origin
@@ -674,6 +698,12 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 		if (elem->has("flipY"))
 			setFlipY(elem->get<bool>("flipY"));
+
+		if (elem->has("scale"))
+			setScale(elem->get<float>("scale"));
+
+		if (elem->has("scaleOrigin"))
+			setScaleOrigin(elem->get<Vector2f>("scaleOrigin"));
 	}
 
 	if (properties & ALIGNMENT && elem->has("horizontalAlignment"))
@@ -732,6 +762,8 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			}
 		}
 	}
+
+	applyStoryboard(elem);
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
@@ -754,19 +786,19 @@ void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 
 void ImageComponent::onShow()
 {
-	GuiComponent::onShow();
+	mPlaylistTimer = 0;
 
-	if (mTexture != nullptr)
-		mTexture->setRequired(true);
-
-	if (!mShowing && mPlaylist != nullptr && !mPath.empty() && mPlaylist->getRotateOnShow())
+	if (!isShowing() && mPlaylist != nullptr && !mPath.empty() && mPlaylist->getRotateOnShow())
 	{
 		auto item = mPlaylist->getNextItem();
 		if (!item.empty())
 			setImage(item, false, getMaxSizeInfo());
 	}
 
-	mShowing = true;
+	GuiComponent::onShow();	
+
+	if (mTexture != nullptr)
+		mTexture->setRequired(true);
 }
 
 void ImageComponent::onHide()
@@ -774,16 +806,14 @@ void ImageComponent::onHide()
 	GuiComponent::onHide();
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
-
-	mShowing = false;
+		mTexture->setRequired(false);	
 }
 
 void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if (mPlaylist != nullptr && mShowing)
+	if (mPlaylist != nullptr && isShowing())
 	{
 		mPlaylistTimer += deltaTime;
 
@@ -801,4 +831,64 @@ void ImageComponent::update(int deltaTime)
 bool ImageComponent::isTiled()
 { 
 	return mTexture != nullptr && mTexture->isTiled(); 
+}
+
+ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string name)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "size" || name == "maxSize" || name == "minSize")
+		return mSize / scale;
+
+	if (name == "color")
+		return mColorShift;
+
+	if (name == "colorEnd")
+		return mColorShiftEnd;
+
+	if (name == "reflexion")
+		return mReflection;
+
+	if (name == "roundCorners")
+		return mRoundCorners;
+
+	if (name == "path")
+		return mPath;
+
+	return GuiComponent::getProperty(name);
+}
+
+void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{	
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if ((name == "maxSize" || name == "minSize") && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+	{
+		mTargetSize = Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y());
+		resize();
+	}
+	else if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+	{
+		if (mColorShift == mColorShiftEnd)
+			setColorShift(value.i);
+		else
+		{
+			mColorShift = value.i;			
+			updateColors();
+		}
+	}
+	else if (name == "colorEnd" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setColorShiftEnd(value.i);
+	else if (name == "reflexion" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		mReflection = value.v;
+	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		mRoundCorners = value.f;	
+	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+	{
+		mForceLoad = true;
+		mDynamic = false;
+		setImage(value.s, false);
+	}
+	else
+		GuiComponent::setProperty(name, value);
 }

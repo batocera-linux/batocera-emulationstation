@@ -34,8 +34,7 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mExtrasFadeMove = 0.0f;
 	launchKodi = false; // batocera
 	mScreensaverActive = false;
-	mDisable = false;	
-	mShowing = false;
+	mDisable = false;		
 	mLastCursor = 0;
 	mStaticBackground = nullptr;
 	mStaticVideoBackground = nullptr;
@@ -75,6 +74,80 @@ void SystemView::clearEntries()
 	}
 
 	mEntries.clear();
+}
+
+void SystemView::reloadTheme(SystemData* system)
+{
+	const std::shared_ptr<ThemeData>& theme = system->getTheme();
+	getViewElements(theme);
+
+	for (auto& e : mEntries)
+	{
+		if (e.object != system)
+			continue;
+		
+		if (e.data.logo != nullptr)
+		{
+			if (e.data.logo->isKindOf<TextComponent>())
+				e.data.logo->applyTheme(theme, "system", "logoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
+			else
+				e.data.logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE);
+		}
+
+		loadExtras(system, e);
+	}
+}
+
+void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e)
+{
+	// delete any existing extras
+	for (auto extra : e.data.backgroundExtras)
+		delete extra;
+
+	e.data.backgroundExtras.clear();
+
+	// make background extras
+	e.data.backgroundExtras = ThemeData::makeExtras(system->getTheme(), "system", mWindow);
+
+	for (auto extra : e.data.backgroundExtras)
+	{
+		if (extra->isKindOf<VideoComponent>())
+		{
+			auto elem = system->getTheme()->getElement("system", extra->getTag(), "video");
+			if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
+				((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(system, SystemRandomPlaylist::VIDEO));
+			else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+				((VideoComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
+		}
+		else if (extra->isKindOf<ImageComponent>())
+		{
+			auto elem = system->getTheme()->getElement("system", extra->getTag(), "image");
+			if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
+			{
+				std::string src = elem->get<std::string>("path");
+
+				SystemRandomPlaylist::PlaylistType type = SystemRandomPlaylist::IMAGE;
+
+				if (src == "{random:thumbnail}")
+					type = SystemRandomPlaylist::THUMBNAIL;
+				else if (src == "{random:marquee}")
+					type = SystemRandomPlaylist::MARQUEE;
+
+				((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(system, type));
+			}
+			else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+			{
+				((ImageComponent*)extra)->setAllowFading(false);
+				((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
+			}
+
+		}
+	}
+
+	// sort the extras by z-index
+	std::stable_sort(e.data.backgroundExtras.begin(), e.data.backgroundExtras.end(), [](GuiComponent* a, GuiComponent* b) {
+		return b->getZIndex() > a->getZIndex();
+	});
 }
 
 void SystemView::populate()
@@ -169,54 +242,11 @@ void SystemView::populate()
 
 			Vector2f denormalized = mCarousel.logoSize * e.data.logo->getOrigin();
 			e.data.logo->setPosition(denormalized.x(), denormalized.y(), 0.0);
-			// delete any existing extras
-			for (auto extra : e.data.backgroundExtras)
-				delete extra;
-			e.data.backgroundExtras.clear();
+			
+			if (!e.data.logo->selectStoryboard("deactivate") && !e.data.logo->selectStoryboard())
+				e.data.logo->deselectStoryboard();
 
-			// make background extras
-			e.data.backgroundExtras = ThemeData::makeExtras((*it)->getTheme(), "system", mWindow);
-
-			for (auto extra : e.data.backgroundExtras)
-			{
-				if (extra->isKindOf<VideoComponent>())
-				{
-					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "video");
-					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
-						((VideoComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, SystemRandomPlaylist::VIDEO));
-					else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
-						((VideoComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));					
-				}
-				else if (extra->isKindOf<ImageComponent>())
-				{
-					auto elem = (*it)->getTheme()->getElement("system", extra->getTag(), "image");
-					if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
-					{
-						std::string src = elem->get<std::string>("path");
-
-						SystemRandomPlaylist::PlaylistType type = SystemRandomPlaylist::IMAGE;
-
-						if (src == "{random:thumbnail}")
-							type = SystemRandomPlaylist::THUMBNAIL;
-						else if (src == "{random:marquee}")
-							type = SystemRandomPlaylist::MARQUEE;
-
-						((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(*it, type));
-					}
-					else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
-					{
-						((ImageComponent*)extra)->setAllowFading(false);
-						((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
-					}
-
-				}
-			}
-
-			// sort the extras by z-index
-			std::stable_sort(e.data.backgroundExtras.begin(), e.data.backgroundExtras.end(),  [](GuiComponent* a, GuiComponent* b) {
-				return b->getZIndex() > a->getZIndex();
-			});
-
+			loadExtras(*it, e);
 			this->add(e);
 		}
 	}
@@ -286,6 +316,27 @@ int SystemView::moveCursorFast(bool forward)
 			_moveCursorInRange(cursor, 1, mEntries.size());
 		}
 	}
+	else if(SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware" && mCursor >= 0 && mCursor < mEntries.size())
+	{
+		std::string hwt = mEntries[mCursor].object->getSystemMetadata().hardwareType;
+
+		int direction = forward ? 1 : -1;
+
+		_moveCursorInRange(cursor, direction, mEntries.size());
+
+		while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().hardwareType == hwt)
+			_moveCursorInRange(cursor, direction, mEntries.size());
+
+		if (!forward && cursor != mCursor)
+		{
+			// Find first item
+			hwt = mEntries[cursor].object->getSystemMetadata().hardwareType;
+			while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().hardwareType == hwt)
+				_moveCursorInRange(cursor, -1, mEntries.size());
+
+			_moveCursorInRange(cursor, 1, mEntries.size());
+		}
+	}
 	else
 		_moveCursorInRange(cursor, forward ? 10 : -10, mEntries.size());
 
@@ -305,7 +356,11 @@ bool SystemView::input(InputConfig* config, Input input)
 		
 		if (netPlay && config->isMappedTo(kodi ? "y" : "x", input))
 		{
-			mWindow->pushGui(new GuiNetPlay(mWindow));
+			if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
+			else 
+				mWindow->pushGui(new GuiNetPlay(mWindow));
+
 			return true;
 		}
 
@@ -427,7 +482,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		{
 			showManufacturerBar();
 			return true;
+		} else if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware")
+		{
+			showHardwareBar();
+			return true;
 		}
+
 
 		if (config->isMappedTo("x", input))
 		{
@@ -504,7 +564,67 @@ void SystemView::showManufacturerBar()
 				listInput(idx - mCursor);
 				listInput(0);
 
+				auto pthis = this;
+
 				delete gs;
+
+				pthis->mLastCursor = -1;
+				pthis->onCursorChanged(CURSOR_STOPPED);
+				
+			}, "", sel == mf);
+
+			man = mf;
+		}
+
+		idx++;
+	}
+
+	int w = Renderer::getScreenWidth() / 3;
+	gs->getMenu().setSize(w, Renderer::getScreenHeight());
+
+	gs->getMenu().animateTo(
+		Vector2f(-w, 0),
+		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+
+	mWindow->pushGui(gs);
+}
+
+void SystemView::showHardwareBar()
+{
+	stopScrolling();
+
+	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO HARDWARE"), "-----"); // , "", nullptr, true);
+
+	int idx = 0;
+
+	std::string man = "*-*";
+	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
+	{
+		auto system = SystemData::sSystemVector[i];
+		if (!system->isVisible())
+			continue;
+
+		std::string sel = getSelected()->getSystemMetadata().hardwareType;
+		auto mf = system->getSystemMetadata().hardwareType;
+		if (man != mf)
+		{
+			std::vector<std::string> names;
+			for (auto sy : SystemData::sSystemVector)
+				if (sy->isVisible() && sy->getSystemMetadata().hardwareType == mf)
+					names.push_back(sy->getFullName());
+
+			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
+			{
+				listInput(idx - mCursor);
+				listInput(0);
+
+				auto pthis = this;
+
+				delete gs;
+
+				pthis->mLastCursor = -1;
+				pthis->onCursorChanged(CURSOR_STOPPED);
+
 			}, "", sel == mf);
 
 			man = mf;
@@ -524,8 +644,22 @@ void SystemView::showManufacturerBar()
 }
 
 void SystemView::update(int deltaTime)
-{
+{		
+	if (mStaticBackground != nullptr)
+		mStaticBackground->update(deltaTime);
+
+	if (mStaticVideoBackground != nullptr)
+		mStaticVideoBackground->update(deltaTime);
+	
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		const std::shared_ptr<GuiComponent> &comp = mEntries.at(i).data.logo;
+		if (comp != nullptr)
+			comp->update(deltaTime);
+	}
+	
 	listUpdate(deltaTime);
+	mSystemInfo.update(deltaTime);
 	updateExtras([this, deltaTime](GuiComponent* p) { p->update(deltaTime); });
 	GuiComponent::update(deltaTime);
 }
@@ -602,16 +736,20 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 		}
 
 		mSystemInfo.setText(ss.str());
+		mSystemInfo.onShow();
 	}, false, 1);
 
-	Animation* infoFadeIn = new LambdaAnimation(
-		[this](float t)
+	if (!mSystemInfo.hasStoryBoard())
 	{
-		mSystemInfo.setOpacity((unsigned char)(Math::lerp(0.f, 1.f, t) * 255));
-	}, goFast ? 10 : 300);
+		Animation* infoFadeIn = new LambdaAnimation(
+			[this](float t)
+		{
+			mSystemInfo.setOpacity((unsigned char)(Math::lerp(0.f, 1.f, t) * 255));
+		}, goFast ? 10 : 300);
 
-	// wait 600ms to fade in
-	setAnimation(infoFadeIn, goFast ? 0 : systemInfoDelay, nullptr, false, 2);
+		// wait 600ms to fade in
+		setAnimation(infoFadeIn, goFast ? 0 : systemInfoDelay, nullptr, false, 2);
+	}
 
 	// no need to animate transition, we're not going anywhere (probably mEntries.size() == 1)
 	if(endPos == mCamOffset && endPos == mExtrasCamOffset)
@@ -625,6 +763,32 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	int oldCursor = mLastCursor;
 	mLastCursor = mCursor;
+
+	// TODO
+
+	if (oldCursor >= 0 && oldCursor < mEntries.size())
+	{
+		auto logo = mEntries.at(oldCursor).data.logo;				
+		if (logo)
+		{
+			if (logo->selectStoryboard("deactivate"))
+				logo->startStoryboard();
+			else if (!logo->selectStoryboard())
+				logo->deselectStoryboard();
+		}
+	}
+
+	if (mCursor >= 0 && mCursor < mEntries.size())
+	{
+		auto logo = mEntries.at(mCursor).data.logo;
+		if (logo)
+		{
+			if (logo->selectStoryboard("activate"))
+				logo->startStoryboard();
+			else if (!logo->selectStoryboard())
+				logo->deselectStoryboard();
+		}
+	}
 
 	Animation* anim;
 	bool move_carousel = Settings::getInstance()->getBool("MoveCarousel");
@@ -948,8 +1112,12 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			comp->setRotationOrigin(mCarousel.logoRotationOrigin);
 		}
 
-		comp->setScale(scale);
-		comp->setOpacity((unsigned char)opacity);
+		if (!comp->hasStoryBoard())
+		{
+			comp->setScale(scale);
+			comp->setOpacity((unsigned char)opacity);
+		}
+
 		comp->render(logoTrans);
 	};
 
@@ -1148,7 +1316,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 			continue;
 
 		//Only render selected system when not showing
-		if (!mShowing && index != mCursor)
+		if (!isShowing() && index != mCursor)
 			continue;
 
 		Entry& entry = mEntries.at(index);
@@ -1403,10 +1571,24 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 
 void SystemView::onShow()
 {
-	GuiComponent::onShow();	
-	mShowing = true;
+	GuiComponent::onShow();		
+
+	if (mCursor >= 0 && mCursor < mEntries.size())
+	{
+		auto logo = mEntries.at(mCursor).data.logo;
+		if (logo)
+		{
+			if (logo->selectStoryboard("activate"))
+				logo->startStoryboard();
+			else if (!logo->selectStoryboard())
+				logo->deselectStoryboard();
+		}
+	}
 
 	activateExtras(mCursor);
+
+	if (mStaticBackground)
+		mStaticBackground->onShow();
 
 	if (mStaticVideoBackground)
 		mStaticVideoBackground->onShow();
@@ -1414,8 +1596,7 @@ void SystemView::onShow()
 
 void SystemView::onHide()
 {
-	GuiComponent::onHide();
-	mShowing = false;
+	GuiComponent::onHide();	
 	updateExtras([this](GuiComponent* p) { p->onHide(); });
 
 	if (mStaticVideoBackground)
@@ -1467,7 +1648,7 @@ void SystemView::activateExtras(int cursor, bool activate)
 	if (cursor < 0 || cursor >= mEntries.size())
 		return;
 
-	bool show = activate && mShowing && !mScreensaverActive && !mDisable;
+	bool show = activate && isShowing() && !mScreensaverActive && !mDisable;
 
 	SystemViewData data = mEntries.at(cursor).data;
 	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)

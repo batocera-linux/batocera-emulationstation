@@ -19,7 +19,7 @@
 
 #define VIDEODELAY	100
 
-GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false), mShown(false)
+GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false)
 {
 	mSelectedZoomPercent = 1.0f;
 	mAnimPosition = Vector3f(0, 0);
@@ -298,19 +298,23 @@ void GridTileComponent::update(int deltaTime)
 
 void GridTileComponent::renderBackground(const Transform4x4f& parentTrans)
 {
-	if (!mVisible)
+	if (!isVisible())
 		return;
 
-	Transform4x4f trans = getTransform() * parentTrans;
+	Transform4x4f trans = parentTrans * getTransform();
 	mBackground.render(trans);
 }
 
 void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 {
-	if (!mVisible)
+	if (!isVisible())
 		return;
 
-	Transform4x4f trans = getTransform() * parentTrans;
+	Transform4x4f trans = parentTrans * getTransform();
+
+	Transform4x4f trans2 = getTransform() * parentTrans;
+	Renderer::setMatrix(trans);
+	Renderer::setMatrix(trans2);
 
 	Vector2f clipPos(trans.translation().x(), trans.translation().y());
 	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x(), mSize.y()))
@@ -370,7 +374,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 
 void GridTileComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!mVisible)
+	if (!isVisible())
 		return;
 
 	renderBackground(parentTrans);
@@ -905,15 +909,13 @@ void GridTileComponent::setVideo(const std::string& path, float defaultDelay)
 
 void GridTileComponent::onShow()
 {
-	GuiComponent::onShow();
-	mShown = true;
+	GuiComponent::onShow();	
 	resize();
 }
 
 void GridTileComponent::onHide()
 {
-	GuiComponent::onHide();
-	mShown = false;
+	GuiComponent::onHide();	
 }
 
 void GridTileComponent::startVideo()
@@ -938,7 +940,7 @@ void GridTileComponent::stopVideo()
 
 void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f* pPosition, bool force)
 {
-	if (!mShown || !ALLOWANIMATIONS)
+	if (!isShowing() || !ALLOWANIMATIONS)
 		allowAnimation = false;
 
 	if (mSelected == selected && !force)
@@ -1028,11 +1030,6 @@ void GridTileComponent::setSelectedZoom(float percent)
 
 	mSelectedZoomPercent = percent;
 	resize();
-}
-
-void GridTileComponent::setVisible(bool visible)
-{
-	mVisible = visible;
 }
 
 Vector3f GridTileComponent::getBackgroundPosition()

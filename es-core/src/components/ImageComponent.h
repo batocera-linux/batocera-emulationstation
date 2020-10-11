@@ -123,6 +123,9 @@ public:
 	bool isLinear() { return mLinear; }
 	void setIsLinear(bool value) { mLinear = value; }
 
+	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
+	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
+
 private:
 	Vector2f mTargetSize;
 
@@ -168,7 +171,7 @@ private:
 	Alignment mVerticalAlignment;
 
 	float			mRoundCorners;
-	bool			mShowing;
+	
 	std::shared_ptr<IPlaylist> mPlaylist;
 	float mPlaylistTimer;
 

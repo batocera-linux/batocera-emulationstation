@@ -185,6 +185,20 @@ namespace Renderer
 
 	} // drawLines
 
+	void setGrayscale()
+	{
+		glMatrixMode(GL_COLOR);
+
+		GLfloat grayScale[16] =
+		{
+			.3f, .3f, .3f, 0.0f,
+			.59f, .59f, .59f, 0.0f,
+			.11f, .11f, .11f, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f
+		};
+		glLoadMatrixf(grayScale);
+	} // setGrayscale
+
 	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "PO-Revision-Date: 2020-07-09 21:00+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: \n"
@@ -341,6 +341,9 @@ msgstr "ゲームコレクション設定"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "表示するコレクション"
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "表示するシステム"
+
 msgid "GROUPED SYSTEMS"
 msgstr "システムのグループ化"
 
@@ -365,9 +368,6 @@ msgstr "新しいダイナミックコレクションを作成"
 msgid "OPTIONS"
 msgstr "オプション"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "マイコレクションをグループ化"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr ""
 
@@ -379,6 +379,18 @@ msgstr "メーカーごと"
 
 msgid "SORT SYSTEMS"
 msgstr "各システムをソートする"
+
+msgid "START ON SYSTEM"
+msgstr "最初に起動するシステム"
+
+msgid "NONE"
+msgstr "無し"
+
+msgid "START ON GAMELIST"
+msgstr "ゲームリストで起動"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "マイコレクションをグループ化"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
@@ -394,6 +406,9 @@ msgstr "読み込み中…"
 
 msgid "SELECT COLLECTIONS"
 msgstr "コレクションを選択"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "アーケードシステム"
@@ -421,6 +436,9 @@ msgstr "OK"
 
 msgid "FINISHED"
 msgstr "完了"
+
+msgid "go back"
+msgstr "戻る"
 
 msgid "NAVIGATION"
 msgstr "ナビゲーション"
@@ -521,6 +539,15 @@ msgstr "失敗"
 msgid "LAUNCH"
 msgstr "起動"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
@@ -532,6 +559,12 @@ msgstr "起動できないゲーム"
 
 msgid "NO GAME FOUND"
 msgstr "ゲームが見つかりません"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "手動　入力"
@@ -575,9 +608,6 @@ msgstr ""
 msgid "CURRENT THEME"
 msgstr ""
 
-msgid "go back"
-msgstr "戻る"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH コントローラーを解除"
 
@@ -590,17 +620,110 @@ msgstr "BT コントローラーが見つかりません"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "(秒)後にイメージを変更"
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "BIOSは全てあります"
+
+msgid "MISSING BIOS"
+msgstr "不足BIOSの表示"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "全て"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "未プレイ"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "スクリーンセーバー設定"
+
+msgid "SCREENSAVER AFTER"
+msgstr "スクリーンセーバー 時間"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "スクリーンセーバー動作"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "ランダムビデオスクリーンセーバー設定"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "(秒)後にビデオを変更"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "スクリーンセーバーにOMX PLAYERを使用"
 
 msgid "SHOW GAME INFO"
 msgstr "ゲーム情報を表示"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "スクリーンセーバー実行時ゲーム情報表示"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ゲーム情報としてマーキーを使用"
 
 msgid "DECORATIONS"
 msgstr "デコレーション装飾"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "スクリーンセーバー実行時ビデオを拡大"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "ビデオ音声をミュート"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "スクリーンセーバー操作"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "スライドショーセーバー設定"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "(秒)後にイメージを変更"
 
 msgid "STRETCH IMAGES"
 msgstr "イメージを拡大"
@@ -616,53 +739,6 @@ msgstr "マイ画像を含めたディレクトリを参照"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "マイ画像フィルタ"
-
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SCREENSAVER AFTER"
-msgstr "スクリーンセーバー 時間"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "スクリーンセーバー動作"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"「ランダムビデオ」スクリーンセーバーは、 あなたのゲームリストからビデオを表示"
-"します。\n"
-"ビデオがない場合、または何回か試しても ビデオを再生できない場合は、既定で"
-"「黒」に なります。\n"
-"メインメニューの [UI設定]->[スクリーンセーバー設定]-> [ランダムビデオスクリー"
-"ンセーバー設定]に その他の設定があります。"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "ランダムビデオスクリーンセーバー設定"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "スライドショーセーバー設定"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "スクリーンセーバー操作"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "ランダムビデオスクリーンセーバー"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "スライドショーセーバー"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERAアップデート"
@@ -777,38 +853,11 @@ msgstr ""
 "確な 結果と ならない場合が あります！ \n"
 "続けますか？"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "適合する ゲームが 見つかりませんでした。"
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "スクレイプが実行されています。中止しますか?"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "(秒)後にビデオを変更"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "スクリーンセーバーにOMX PLAYERを使用"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "スクリーンセーバー実行時ゲーム情報表示"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "スクリーンセーバー実行時ビデオを拡大"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "ビデオ音声をミュート"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "適合する ゲームが 見つかりませんでした。"
 
 msgid "fade"
 msgstr "フェード"
@@ -818,6 +867,9 @@ msgstr "横"
 
 msgid "instant"
 msgstr "簡易"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "システム"
@@ -921,9 +973,6 @@ msgstr ""
 msgid "BOX SOURCE"
 msgstr "ボックス ソース元"
 
-msgid "NONE"
-msgstr "無し"
-
 msgid "LOGO SOURCE"
 msgstr "ロゴ ソース元"
 
@@ -954,15 +1003,6 @@ msgstr "パスワード"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "本当に入力設定を行っていいですか？"
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "スクリーンセーバー設定"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "スライドショー設定"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "ランダムビデオ設定"
-
 msgid "CHOOSE"
 msgstr "移動選択"
 
@@ -981,6 +1021,9 @@ msgstr "システムデータ使用量/容量"
 msgid "DEVELOPER"
 msgstr "その他の設定"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "VRAM上限"
 
@@ -993,20 +1036,29 @@ msgstr "VSYNC(垂直同期)有効"
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
-msgid "PRELOAD UI"
-msgstr "プレロード式 UI"
+msgid "TOOLS"
+msgstr "ツール"
 
-msgid "THREADED LOADING"
-msgstr "スレッド読み込み"
+msgid "LOG LEVEL"
+msgstr "ログレベル"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "イメージの非同期読み込み"
+msgid "CREATE A SUPPORT FILE"
+msgstr "サポートファイルを作成"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "画像表示にVRAMを使用"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "サポートファイルを作成しますか ?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "ビデオ再生にVRAMを使用"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "ファイルは正常に生成されました"
+
+msgid "FILE GENERATION FAILED"
+msgstr "ファイル生成に失敗しました"
+
+msgid "FORMAT A DISK"
+msgstr "ディスクをフォーマット"
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1026,6 +1078,18 @@ msgstr "ファイル拡張子をリセット"
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "ゲームの言語/地域を再検出"
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "メニュー回転(カルーセル)効果"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "スクリーンキーボード"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr "ゲームの実行中は非表示にする"
+
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
 
@@ -1038,23 +1102,23 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラーの自動設定"
 
-msgid "LOG LEVEL"
-msgstr "ログレベル"
+msgid "OPTIMIZATIONS"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "サポートファイルを作成"
+msgid "PRELOAD UI"
+msgstr "プレロード式 UI"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "サポートファイルを作成しますか ?"
+msgid "THREADED LOADING"
+msgstr "スレッド読み込み"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ファイルは正常に生成されました"
+msgid "ASYNC IMAGES LOADING"
+msgstr "イメージの非同期読み込み"
 
-msgid "FILE GENERATION FAILED"
-msgstr "ファイル生成に失敗しました"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "画像表示にVRAMを使用"
 
-msgid "FORMAT A DISK"
-msgstr "ディスクをフォーマット"
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "ビデオ再生にVRAMを使用"
 
 msgid "DOWNLOADS"
 msgstr "ダウンロード"
@@ -1085,6 +1149,21 @@ msgstr "言語"
 
 msgid "POWER SAVER MODES"
 msgstr "パワーセーブモード"
+
+msgid "UI MODE"
+msgstr "UI モード"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"UIを制限モードに変更します：\n"
+"ほとんどの設定メニューが 非表示になり、システム変更を 防止します。\n"
+"ロックを解除し完全なUIに戻るには、 次のコードを入力します:"
+
+msgid "Do you want to proceed ?"
+msgstr "続行しますか？"
 
 msgid "KODI SETTINGS"
 msgstr "KODI 設定"
@@ -1118,9 +1197,6 @@ msgstr "RetroAchievements 設定"
 
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
-
-msgid "MISSING BIOS"
-msgstr "不足BIOSの表示"
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1215,14 +1291,14 @@ msgstr "すべてのゲームを再インデックス"
 msgid "INDEX MISSING GAMES"
 msgstr "プレイ不可ゲームのインデックス"
 
-msgid "TOOLS"
-msgstr "ツール"
-
 msgid "DEFAULT SETTINGS"
 msgstr "既定の設定"
 
 msgid "GAME RATIO"
 msgstr "ゲーム比率"
+
+msgid "VIDEO MODE"
+msgstr "ビデオモード"
 
 msgid "SMOOTH GAMES"
 msgstr "スムージング"
@@ -1260,6 +1336,9 @@ msgstr "整数スケール (ピクセルを正方形表示)"
 msgid "DECORATION"
 msgstr "アートワーク(ゲーム画面外背景表示)"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
 
@@ -1277,15 +1356,6 @@ msgstr "翻訳画面で一時停止"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システムごとの詳細な設定"
-
-msgid "NO MISSING BIOS"
-msgstr "BIOSは全てあります"
-
-msgid "MISSING"
-msgstr "不足"
-
-msgid "INVALID"
-msgstr "無効"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
@@ -1358,12 +1428,6 @@ msgstr "隠しファイルを表示"
 msgid "SHOW FOLDERS"
 msgstr "フォルダを表示"
 
-msgid "always"
-msgstr "全て"
-
-msgid "never"
-msgstr "未プレイ"
-
 msgid "having multiple games"
 msgstr "複数のゲームがある"
 
@@ -1388,33 +1452,6 @@ msgstr "ビデオ"
 msgid "grid"
 msgstr "グリッド"
 
-msgid "UI MODE"
-msgstr "UI モード"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"UIを制限モードに変更します：\n"
-"ほとんどの設定メニューが 非表示になり、システム変更を 防止します。\n"
-"ロックを解除し完全なUIに戻るには、 次のコードを入力します:"
-
-msgid "Do you want to proceed ?"
-msgstr "続行しますか？"
-
-msgid "STARTUP SETTINGS"
-msgstr "スタートアップ設定"
-
-msgid "START ON SYSTEM"
-msgstr "最初に起動するシステム"
-
-msgid "START ON GAMELIST"
-msgstr "ゲームリストで起動"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "表示するシステム"
-
 msgid "DISPLAY OPTIONS"
 msgstr "表示オプション"
 
@@ -1424,12 +1461,6 @@ msgstr "画面遷移スタイル"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始時の画面遷移"
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "メニュー回転(カルーセル)効果"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "クイックシステム選択"
-
 msgid "SHOW CLOCK"
 msgstr "時間を表示"
 
@@ -1438,12 +1469,6 @@ msgstr "オンスクリーン ヘルプ"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "バッテリー状態を表示"
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "スクリーンキーボード"
-
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "ゲームの実行中は非表示にする"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
@@ -1564,9 +1589,6 @@ msgstr "EMULATIONSTATION を終了"
 
 msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
-
-msgid "VIDEO MODE"
-msgstr "ビデオモード"
 
 msgid "COLORIZATION"
 msgstr "表示色"
@@ -1692,8 +1714,20 @@ msgstr "エントリが見つかりません"
 msgid "Favorites"
 msgstr "お気に入り"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "ホスト(ネットプレイ)としてゲームを起動しますか？"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "検索中"
@@ -1990,19 +2024,69 @@ msgid "WORKING..."
 msgstr "処理中..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d 時間"
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d 分"
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d 秒"
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "「ランダムビデオ」スクリーンセーバーは、 あなたのゲームリストからビデオを"
+#~ "表示します。\n"
+#~ "ビデオがない場合、または何回か試しても ビデオを再生できない場合は、既定で"
+#~ "「黒」に なります。\n"
+#~ "メインメニューの [UI設定]->[スクリーンセーバー設定]-> [ランダムビデオスク"
+#~ "リーンセーバー設定]に その他の設定があります。"
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "ランダムビデオスクリーンセーバー"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "スライドショーセーバー"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "スライドショー設定"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "ランダムビデオ設定"
+
+#~ msgid "MISSING"
+#~ msgstr "不足"
+
+#~ msgid "INVALID"
+#~ msgstr "無効"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "スタートアップ設定"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "クイックシステム選択"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "ホスト(ネットプレイ)としてゲームを起動しますか？"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d 時間"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d 分"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d 秒"
 
 #~ msgid "disabled"
 #~ msgstr "無効"

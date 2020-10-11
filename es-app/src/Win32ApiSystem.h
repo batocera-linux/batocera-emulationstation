@@ -43,6 +43,8 @@ public:
 
 	static std::string getEmulatorLauncherPath(const std::string variable);
 
+	std::vector<std::string> getShaderList() override;
+
 protected:
 	bool executeScript(const std::string command) override;
 	std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func) override;

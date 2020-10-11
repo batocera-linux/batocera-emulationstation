@@ -214,6 +214,8 @@ public:
 	std::vector<std::string> getFormatFileSystems();
 	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
+	virtual std::vector<std::string> getShaderList();
+
 protected:
 	ApiSystem();
 

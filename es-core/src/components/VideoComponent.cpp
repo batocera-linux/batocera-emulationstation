@@ -59,15 +59,17 @@ VideoComponent::VideoComponent(Window* window) :
 	mVideoHeight(0),
 	mVideoWidth(0),
 	mStartDelayed(false),
-	mIsPlaying(false),
-	mShowing(false),
+	mIsPlaying(false),	
 	mScreensaverActive(false),
 	mDisable(false),
 	mScreensaverMode(false),
 	mTargetIsMax(false),
 	mTargetIsMin(false),
-	mTargetSize(0, 0)
+	mTargetSize(0, 0),
+	mPlayAudio(true)
 {
+	mScaleOrigin = Vector2f::Zero();
+
 	mVideoEnded = nullptr;
 	mRoundCorners = 0.0f;
 	mFadeIn = 0.0f;
@@ -153,9 +155,21 @@ void VideoComponent::setDefaultVideo()
 
 void VideoComponent::setOpacity(unsigned char opacity)
 {
-	mOpacity = opacity;
-	// Update the embeded static image
-	mStaticImage.setOpacity(opacity);
+	if (mOpacity == opacity)
+		return;
+
+	mOpacity = opacity;	
+
+	if (!hasStoryBoard() && !mStaticImage.hasStoryBoard("snapshot"))
+		mStaticImage.setOpacity(opacity);
+}
+
+void VideoComponent::setScale(float scale)
+{
+	GuiComponent::setScale(scale);
+
+	if (!hasStoryBoard() && !mStaticImage.hasStoryBoard("snapshot"))
+		mStaticImage.setScale(scale);
 }
 
 void VideoComponent::render(const Transform4x4f& parentTrans)
@@ -197,14 +211,25 @@ void VideoComponent::renderSnapshot(const Transform4x4f& parentTrans)
 		float t = 1.0 - mFadeIn;
 		t -= 1; // cubic ease out
 		t = Math::lerp(0, 1, t*t*t + 1);
-		t = (t * (float)mOpacity);
+
+		if (hasStoryBoard())
+			t = (t * 255.0f);
+		else
+			t = (t * (float)mOpacity);
 
 		if (t == 0.0)
 			return;
 
-		mStaticImage.setOpacity((unsigned char)t);
+		if (!mStaticImage.isStoryBoardRunning())
+			mStaticImage.setOpacity((unsigned char)t);
+
 		mStaticImage.render(parentTrans);
 	}
+}
+
+void VideoComponent::onPositionChanged()
+{
+	mStaticImage.setPosition(mPosition);
 }
 
 void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
@@ -213,9 +238,7 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
 	if(!elem)
-	{
 		return;
-	}
 
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
@@ -223,7 +246,18 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	{
 		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
 		setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
-		mStaticImage.setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
+	}
+
+	if (properties & POSITION && elem->has("x"))
+	{
+		float denormalized = elem->get<float>("x") * scale.x();
+		setPosition(Vector3f(denormalized, mPosition.y(), 0));
+	}
+
+	if (properties & POSITION && elem->has("y"))
+	{
+		float denormalized = elem->get<float>("y") * scale.y();
+		setPosition(Vector3f(mPosition.x(), denormalized, 0));
 	}
 
 	if(properties & ThemeFlags::SIZE)
@@ -263,7 +297,8 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			mConfig.snapshotSource = THUMBNAIL;
 	}
 
-	if(properties & ThemeFlags::ROTATION) {
+	if(properties & ThemeFlags::ROTATION) 
+	{
 		if(elem->has("rotation"))
 			setRotationDegrees(elem->get<float>("rotation"));
 		if(elem->has("rotationOrigin"))
@@ -279,6 +314,11 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	if (properties & ThemeFlags::VISIBLE && elem->has("audio"))
+		setPlayAudio(elem->get<bool>("audio"));
+	else
+		setPlayAudio(true);
 
 	if (elem->has("path"))
 	{
@@ -412,7 +452,7 @@ void VideoComponent::manageState()
 
 	// We will only show if the component is on display and the screensaver
 	// is not active
-	bool show = mShowing && !mScreensaverActive && !mDisable;
+	bool show = isShowing() && !mScreensaverActive && !mDisable;
 	if (!show)
 		mStartDelayed = false;
 
@@ -451,20 +491,20 @@ void VideoComponent::manageState()
 
 void VideoComponent::onShow()
 {
-	if (!mShowing && mPlaylist != nullptr && !mVideoPath.empty() && mPlaylist->getRotateOnShow())
+	if (!isShowing() && mPlaylist != nullptr && !mVideoPath.empty() && mPlaylist->getRotateOnShow())
 	{
 		auto video = mPlaylist->getNextItem();
 		if (!video.empty())
 			mVideoPath = video;
 	}
 
-	mShowing = true;
+	GuiComponent::onShow();
 	manageState();
 }
 
 void VideoComponent::onHide()
 {
-	mShowing = false;
+	GuiComponent::onHide();	
 	manageState();
 }
 

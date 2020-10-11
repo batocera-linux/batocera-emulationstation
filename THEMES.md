@@ -59,7 +59,7 @@ Here is a very simple theme that changes the description text's color:
 
 ```xml
 <theme>
-	<formatVersion>4</formatVersion>
+	<formatVersion>7</formatVersion>
 	<view name="detailed">
 		<text name="description">
 			<color>00FF00</color>
@@ -80,7 +80,9 @@ How it works
 Everything must be inside a `<theme>` tag.
 
 **The `<formatVersion>` tag *must* be specified**.  This is the version of the theming system the theme was designed for.  
-The current version is 4.
+The current version is 7 for batocera-emulationstation.  
+
+Version 4 themes are Retropie & Recalbox themes - see their documentations for version 4 themes.
 
 
 A *view* can be thought of as a particular "display" within EmulationStation.  Views are defined like this:
@@ -403,13 +405,29 @@ or to specify only a portion of the value of a theme property:
 
 System attributes allow filtering elements and adapt display under conditions :
 
-* `tinyScreen` - type : BOOL
-  * Allow elements to be active only with small screens like GPI Case (if true), or disable element with normal screens ( if false )
-* `ifHelpPrompts`- type : BOOL
-  * Allow elements to be active only if help is visible/invisible in ES menus.
+These attributes apply to every XML element in the theme.
+
+* `tinyScreen` - type : BOOLEAN
+  
+* Allow elements to be active only with small screens like GPI Case (if true), or disable element with normal screens ( if false )
+  
+* `ifHelpPrompts`- type : BOOLEAN
+  
+* Allow elements to be active only if help is visible/invisible in ES menus.
+  
 * `lang` - type : STRING
   * Allow elements to be used only if the lang is the current language in EmulationStation.
   * lang is 2 lower characters. ( fr, br, en, ru, pt.... )
+  
+* `ifSubset` - type : STRING
+  
+* BATOCERA 29 : Allow filtering elements in a xml file  when subsets are active.   
+  
+    ```xml <image ifSubset="systemview:horizontal|transparent|legacy, iconview=standard">```
+  
+  * name of the subset followed with  `:`  and the name value in the subset. To test multiple values, split with a comma `|` 
+  
+  * To test multiple subsets, split with a comma `,` 
 
 #### Usage in themes
 
@@ -702,48 +720,75 @@ Can be created as an extra.
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
+	
 	- If only one axis is specified (and the other is zero), the other will be automatically calculated in accordance with the image's aspect ratio.
 * `maxSize` - type: NORMALIZED_PAIR.
+	
 	- The image will be resized as large as possible so that it fits within this size and maintains its aspect ratio.  Use this instead of `size` when you don't know what kind of image you're using so it doesn't get grossly oversized on one axis (e.g. with a game's image metadata).
 * `origin` - type: NORMALIZED_PAIR.
+	
 	- Where on the image `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the image exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
 * `rotation` - type: FLOAT.
+	
 	- angle in degrees that the image should be rotated.  Positive values will rotate clockwise, negative values will rotate counterclockwise.
 * `rotationOrigin` - type: NORMALIZED_PAIR.
+	
 	- Point around which the image will be rotated. Defaults to `0.5 0.5`.
 * `path` - type: PATH.
+	
 	- Path to the image file.  Most common extensions are supported (including .jpg, .png, and unanimated .gif).
 * `default` - type: PATH.
+	
 	- Path to default image file.  Default image will be displayed when selected game does not have an image.
 * `tile` - type: BOOLEAN.
+	
 	- If true, the image will be tiled instead of stretched to fit its size.  Useful for backgrounds.
 * `color` - type: COLOR.
+	
 	- Multiply each pixel's color by this color. For example, an all-white image with `<color>FF0000</color>` would become completely red.  You can also control the transparency of an image with `<color>FFFFFFAA</color>` - keeping all the pixels their normal color and only affecting the alpha channel.
 * `visible` - type: BOOLEAN.
+  
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
+	
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
 * `reflexion` - type: NORMALIZED_PAIR.
+	
 	- BATOCERA 5.24 : table reflexion effect. First item is top position alpha, second is bottom alpha.
 * `reflexionOnFrame` ` - type: BOOLEAN
+  
     - BATOCERA 5.24 : When the image is scaled maxSize, tells if the table reflexion effect alignment is done on the bottom of the physical image, or on the bottom of the frame ( according to pos/size  )
 * `minSize` - type: NORMALIZED_PAIR.
+  
     - BATOCERA 5.24 : The image will be resized so that it fits the entire rectangle and maintains its aspect ratio.  Some parts of the image may be hidden. Used for tiles.
 * `colorEnd` - type: COLOR.
+  
     - BATOCERA 5.24 : End color for drawing the image with a gradient.
 * `gradientType` - type: STRING.
+  
     - BATOCERA 5.24 : Direction of the gradient. Values can be 'horizontal' or 'vertical'. Default is 'vertical'
 * `horizontalAlignment` - type: STRING.
+  
     - BATOCERA 5.24 : If the image is scaled maxSize, tells the image horizontal alignment. Values can be left, right, and center. Default is center.
 * `verticalAlignment` - type: STRING.
+  
     - BATOCERA 5.24 : If the image is scaled maxSize, tells the image vertical alignment. Values can be top, bottom, and center. Default is center.
 * `flipX` - type: BOOLEAN.
+  
     - BATOCERA 5.24 : If true, the image will be flipped horizontally.
 * `flipY` - type: BOOLEAN.
+  
     - BATOCERA 5.24 : If true, the image will be flipped vertically.
-* `visible` - type: BOOLEAN.
-    - BATOCERA 5.24 : Tells if the element is visible or hidden.
-
+* `visible` - type: BOOLEAN.    
+    - BATOCERA 5.24 : Tells if the element is visible or hidden.   
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
 
 #### imagegrid
 
@@ -778,6 +823,9 @@ Can be created as an extra.
     - BATOCERA 5.24: If true the grid will loop thoughs elements. If false, when the grid has no more elements, it displays no more items.
 * `animateSelection` - type: BOOL.
     - BATOCERA 5.24: If true the selection under the image will be moved in an animation.
+* `x`, 'y', 'w', 'h' - type: FLOAT.   
+    - BATOCERA 29 : Tells the x, y position, width or height of  the element.
+
 #### gridtile
 
 * `size` - type: NORMALIZED_PAIR.
@@ -832,11 +880,19 @@ Can be created as an extra.
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
 * `path` - type: PATH.
 	- BATOCERA 5.24 : Path to video file if video is an extra.
-	
 * `visible` - type: BOOLEAN.
     - BATOCERA 5.24 : Tells if the element is visible or hidden.
 * `snapshotSource` - type: STRING.
     - BATOCERA 5.24 : Defines which image to show during delay. Values can be  image, thumbnail, and marquee.
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
+
 #### text
 
 Can be created as an extra.
@@ -882,45 +938,76 @@ Can be created as an extra.
     - BATOCERA 5.24 : Padding for displaying text. 
 * `visible` - type: BOOLEAN.
     - BATOCERA 5.24 : Tells if the element is visible or hidden.
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
 
 #### textlist
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
 * `origin` - type: NORMALIZED_PAIR.
+	
 	- Where on the component `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the component exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
 * `selectorColor` - type: COLOR.
+	
 	- Color of the "selector bar."
 * `selectorImagePath` - type: PATH.
+	
 	- Path to image to render in place of "selector bar."
 * `selectorImageTile` - type: BOOLEAN.
+	
 	- If true, the selector image will be tiled instead of stretched to fit its size.
 * `selectorHeight` - type: FLOAT.
+	
 	- Height of the "selector bar".
 * `selectorOffsetY` - type: FLOAT.
+	
 	- Allows moving of the "selector bar" up or down from its computed position.  Useful for fine tuning the position of the "selector bar" relative to the text.
 * `selectedColor` - type: COLOR.
+	
 	- Color of the highlighted entry text.
 * `primaryColor` - type: COLOR.
+	
 	- Primary color; what this means depends on the text list.  For example, for game lists, it is the color of a game.
 * `secondaryColor` - type: COLOR.
+	
 	- Secondary color; what this means depends on the text list.  For example, for game lists, it is the color of a folder.
 * `fontPath` - type: PATH.
 * `fontSize` - type: FLOAT.
 * `scrollSound` - type: PATH.
+	
 	- Sound that is played when the list is scrolled.
 * `alignment` - type: STRING.
+	
 	- Valid values are "left", "center", or "right".  Controls alignment on the X axis.
 * `horizontalMargin` - type: FLOAT.
+	
 	- Horizontal offset for text from the alignment point.  If `alignment` is "left", offsets the text to the right.  If `alignment` is "right", offsets text to the left.  No effect if `alignment` is "center".  Given as a percentage of the element's parent's width (same unit as `size`'s X value).
 * `forceUppercase` - type: BOOLEAN.  Draw text in uppercase.
 * `lineSpacing` - type: FLOAT.  Controls the space between lines (as a multiple of font height).  Default is 1.5.
 * `zIndex` - type: FLOAT.
+	
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
 * `selectorColorEnd` - type: NORMALIZED_PAIR. 
+  
     - BATOCERA 5.24 : Bottom color for the gradient of the "selector bar."
 * `selectorGradientType` - type: STRING. 
+  
     - BATOCERA 5.24 : Type of gradient to apply : horizontal or vertical. Default is vertical
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
 
 #### ninepatch
 
@@ -941,6 +1028,14 @@ Can be created as an extra.
     - BATOCERA 5.24 : Color of the edge.
 * `cornerSize` - type: NORMALIZED_PAIR.
     - BATOCERA 5.24 : Size of the corners. Default is 32 32.
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
 
 EmulationStation borrows the concept of "nine patches" from Android (or "9-Slices"). Currently the implementation is very simple and hard-coded to only use 48x48px images (16x16px for each "patch"). Check the `data/resources` directory for some examples (button.png, frame.png).
 
@@ -948,25 +1043,45 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
+	
 	- Only one value is actually used. The other value should be zero.  (e.g. specify width OR height, but not both.  This is done to maintain the aspect ratio.)
 * `origin` - type: NORMALIZED_PAIR.
+	
 	- Where on the component `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the component exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
 * `rotation` - type: FLOAT.
+	
 	- angle in degrees that the rating should be rotated.  Positive values will rotate clockwise, negative values will rotate counterclockwise.
 * `rotationOrigin` - type: NORMALIZED_PAIR.
+	
 	- Point around which the rating will be rotated. Defaults to `0.5 0.5`.
 * `filledPath` - type: PATH.
+	
 	- Path to the "filled star" image.  Image must be square (width equals height).
 * `unfilledPath` - type: PATH.
+	
 	- Path to the "unfilled star" image.  Image must be square (width equals height).
 * `color` - type: COLOR.
+	
 	- Multiply each pixel's color by this color. For example, an all-white image with `<color>FF0000</color>` would become completely red.  You can also control the transparency of an image with `<color>FFFFFFAA</color>` - keeping all the pixels their normal color and only affecting the alpha channel.
 * `visible` - type: BOOLEAN.
+  
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
+	
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.	
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
 
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed
+
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
+          
 #### datetime
+
 * `pos` - type: NORMALIZED_PAIR.
 * `size` - type: NORMALIZED_PAIR.
 	- Possible combinations:
@@ -974,24 +1089,32 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 	- `w 0` - automatically wrap text so it doesn't go beyond `w` (expanding vertically).
 	- `w h` - works like a "text box."  If `h` is non-zero and `h` <= `fontSize` (implying it should be a single line of text), text that goes beyond `w` will be truncated with an elipses (...).
 * `origin` - type: NORMALIZED_PAIR.
+	
 	- Where on the component `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the component exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
 * `rotation` - type: FLOAT.
+	
 	- angle in degrees that the text should be rotated.  Positive values will rotate clockwise, negative values will rotate counterclockwise.
 * `rotationOrigin` - type: NORMALIZED_PAIR.
+	
 	- Point around which the text will be rotated. Defaults to `0.5 0.5`.
 * `color` - type: COLOR.
 * `backgroundColor` - type: COLOR;
 * `fontPath` - type: PATH.
+	
 	- Path to a truetype font (.ttf).
 * `fontSize` - type: FLOAT.
+	
 	- Size of the font as a percentage of screen height (e.g. for a value of `0.1`, the text's height would be 10% of the screen height).
 * `alignment` - type: STRING.
+	
 	- Valid values are "left", "center", or "right".  Controls alignment on the X axis.  "center" will also align vertically.
 * `forceUppercase` - type: BOOLEAN.  Draw text in uppercase.
 * `lineSpacing` - type: FLOAT.  Controls the space between lines (as a multiple of font height).  Default is 1.5.
 * `visible` - type: BOOLEAN.
+  
     - If true, component will be rendered, otherwise rendering will be skipped.  Can be used to hide elements from a particular view.
 * `zIndex` - type: FLOAT.
+	
 	- z-index value for component.  Components will be rendered in order of z-index value from low to high.
 * `displayRelative` - type: BOOLEAN.  Renders the datetime as a a relative string (ex: 'x days ago')
 * `format` - type: STRING. Specifies format for rendering datetime.
@@ -1001,6 +1124,14 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 	- %H: The hour (24-hour clock) [00,23]
 	- %M: The minute [00,59]
 	- %S: The second [00,59]
+* `x`, 'y', 'w', 'h' - type: FLOAT.    
+    - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
+* `scale' - type: FLOAT.
+    - BATOCERA 29 : Scale of the element. 0 to 1. Default is 1.
+* `scaleOrigin` - type: NORMALIZED_PAIR.	
+    - BATOCERA 29 : Point around which the image scale will be applyed.
+* `storyboard' - type: STORYBOARD.    
+    - BATOCERA 29 : See storyboard documentation.
 
 #### sound
 
@@ -1057,9 +1188,9 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
   - BATOCERA 5.24 : Sets the gradient direction. Accepted values are "horizontal" and "vertical".
 * `logoPos` - type: NORMALIZED_PAIR.  
 	- BATOCERA 5.24 : Set the logo position if it is not centered.
-	
 * `systemInfoDelay` - type: FLOAT.
   - BATOCERA 5.24 : Sets the amount of time before displaying game count information. Default is 1500
+
 #### menuText & menuTextSmall
 
 BATOCERA 5.24
@@ -1158,12 +1289,118 @@ BATOCERA 5.24 - controllerActivity element must be defined in screen view
 
   
 
-  
 
-  
+Animating elements using Storyboards
+=========
 
-  
+** Batocera 29
 
-  
+You can now create animations using storyboards on every extra element & some built-in elements.
 
+Storyboard example
+--------------
+
+Here is a very simple example of an animation that animates an image position, scale & opacity :
+
+```xml
+<theme>
+	<formatVersion>7</formatVersion>
+	<view name="detailed">
+		<image name="my_image" extra="true">
+			<pos>0.5 0.5</pos>
+			<origin>0.5 0.5</origin>
+			<size>0.8 0.8</size>
+			<path>./my_art/my_awesome_image.jpg</path>            
+            <storyboard>
+        		<animation property="y" from="0.05" begin="0" duration="350" mode="easeOut"/>
+        		<animation property="opacity" from="0" to="1" duration="350" mode="linear"/>
+        		<animation property="scale" from="0" to="1" duration="350" mode="easeOut"/>
+			</storyboard>
+		</image>
+	</view>
+</theme>
+```
+
+The 'storyboard' element
+------------
+
+A storyboard is a set of animated properties. This element should contain child "animation" elements.
+
+This element can be added to any common elements : image, video, text, datetime, rating, ninepatch, textlist, imagegrid. 
+
+Only exceptions are : sound, menu, carousel, helpsystem and splash elements.
+
+#### Attributes
+
+* `event` -  type: STRING
+
+  - Optional. Name of the event the storyboard applies to. 
+
+    This value can be used in systemview's <image name="logo"> & <text name="logoText"> elements. In this case, value can be :
+
+    - "activate"  : animation applies when a logo becomes active only
+    - "deactivate" : animation applies when the active logo deactivates.
+    - If the value is empty or if the attribute is missing, the storyboard applies to all logos.
+    
+    This value can be used in video elements : In this case, value can be :
+    
+    - "staticImage" : animation applies only to the static image behind the video
+    - If the value is empty or if the attribute is missing, the storyboard applies to the video when it starts.
+    
+    In those case, multiple storyboards, each one with a different event is possible.
+
+* `repeat` -  type: STRING or INTEGER
   
+  - Optional. Tells if the storyboard repeats itself. If the value is empty or 1, there is no repeat. Value can also be "forever" or an integer value ( number of times the storyboard is repeated). This value is ignored if any of the animation elements has a repeat="forever" attribute.
+
+The 'animation' element
+------------
+
+animation element must be a child of a storyboard.
+
+This element is designed to set a list of properties to transform, given a timing, an acceleration curve, and a repeat information.
+
+#### Attributes
+
+* `property` -  type: STRING
+
+  - Required : Name of the property to animate. 
+
+    Value is one of the property in the object (pos, size, x, y, w, h, scale, scaleOrigin, color, opacity, rotation, rotationOrigin, zIndex...)
+
+    Note : It's not possible to animate STRING and BOOLEAN properties. Only FLOAT, NORMALIZED_PAIR, NORMALIZED_RECT and COLOR elements can be animated.
+
+* `from`-  type: DYNAMIC (uses the same type as the source property )
+  
+  * Optional. Tells the start value of the animation. If omitted, the value is taken in the control when the animation starts.
+* `to`-  type: DYNAMIC (uses the same type as the source property )
+  
+  * Optional. Tells the end value of the animation. If omitted, the value is taken in the control when the animation starts.
+* `begin`-  type: INTEGER
+  
+  * Optional. Tells when the animation should begin. This information is given in milliseconds. Default is 0 ( immediate ).
+* `duration`-  type: INTEGER
+  
+  * Optional. Duration of the animation in millisecond. If the value is 0, the To value will be set at "begin" of this animation. Default is 0. 
+* `repeat` -  type: STRING or INTEGER
+  
+  - Optional. Tells if the animation repeats itself. If the value is empty or 1, the animation won't be repeated. Value can also be "forever" to loop infinitely or an integer value which will be the number of times the storyboard is repeated. Default is 1. 
+* `autoReverse`-  type: BOOLEAN
+  
+  * Optional. Determines whether the animation plays in reverse after it completes a forward iteration. Default is false.
+* `mode`-  type: STRING
+
+  - Optional. Defines the acceleration curve to apply. Default is "Linear".
+
+    Value is one of :
+
+    		Linear
+    		EaseIn
+    		EaseInCubic
+    		EaseInQuint
+    		EaseOut
+    		EaseOutCubic
+    		EaseOutQuint
+    		EaseInOut
+    		Bump
+

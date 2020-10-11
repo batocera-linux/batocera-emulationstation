@@ -70,10 +70,14 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual HelpStyle getHelpStyle() override;
 
+	void reloadTheme(SystemData* system);
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
 private:
+	void	loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
+
 	void	 preloadExtraNeighbours(int cursor);
 	void	 setExtraRequired(int cursor, bool required);
 
@@ -83,6 +87,7 @@ private:
 
 	int		 moveCursorFast(bool forward = true);
 	void	 showManufacturerBar();
+	void	 showHardwareBar();
 
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;
@@ -109,8 +114,7 @@ private:
 	float mExtrasFadeMove;
 	int	  mExtrasFadeOldCursor;
 
-	bool mViewNeedsReload;
-	bool mShowing;
+	bool mViewNeedsReload;	
 	bool launchKodi;
 
 	bool mDisable;

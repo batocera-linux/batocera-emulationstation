@@ -256,6 +256,8 @@ void Settings::setDefaults()
 	mBoolMap["HideWindow"] = true;
 #endif
 
+	mBoolMap["HideWindowFullReinit"] = false;
+
 	mIntMap["WindowWidth"]   = 0;
 	mIntMap["WindowHeight"]  = 0;
 	mIntMap["ScreenWidth"]   = 0;

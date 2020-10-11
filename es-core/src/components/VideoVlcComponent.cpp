@@ -197,10 +197,7 @@ void VideoVlcComponent::setColorShift(unsigned int color)
 
 void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!mShowing)
-		return;
-
-	if (!isVisible())
+	if (!isShowing() || !isVisible())
 		return;
 
 	VideoComponent::render(parentTrans);
@@ -228,8 +225,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 	if (t == 0.0)
 		return;
-
-	
+		
 	Transform4x4f trans = parentTrans * getTransform();
 	
 	if (mRotation == 0 && !mTargetIsMin && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
@@ -270,11 +266,15 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		return;
 		
 	float opacity = (mOpacity / 255.0f) * t;
+
+	if (hasStoryBoard())
+		opacity = (mOpacity / 255.0f);
+
 	unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
 
 	Renderer::Vertex   vertices[4];
 	
-	if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
 	{
 		float t = 1.0 - mFadeIn;
 		t -= 1; // cubic ease in
@@ -287,7 +287,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		vertices[3] = { { mSize.x(), mSize.y() }, { t + 1.0f, 1.0f }, color };
 	}
 	else
-	if (mEffect == VideoVlcFlags::VideoVlcEffect::SIZE && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	if (mEffect == VideoVlcFlags::VideoVlcEffect::SIZE && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
 	{		
 		float t = 1.0 - mFadeIn;
 		t -= 1; // cubic ease in
@@ -307,7 +307,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		vertices[2] = { { bottomRight.x()	, topLeft.y()     }, { 1.0f, 0.0f }, color };
 		vertices[3] = { { bottomRight.x()	, bottomRight.y() }, { 1.0f, 1.0f }, color };
 	}
-	else if (mEffect == VideoVlcFlags::VideoVlcEffect::BUMP && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0)
+	else if (mEffect == VideoVlcFlags::VideoVlcEffect::BUMP && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
 	{
 		// Bump Effect
 		float bump = sin((MATHPI / 2.0) * mFadeIn) + sin(MATHPI * mFadeIn) / 2.0;
@@ -512,10 +512,9 @@ void VideoVlcComponent::handleLooping()
 				}
 			}
 
-			if (!Settings::getInstance()->getBool("VideoAudio") || (Settings::getInstance()->getBool("ScreenSaverVideoMute") && mScreensaverMode))
-			{
+			if (!getPlayAudio() || !Settings::getInstance()->getBool("VideoAudio") || (Settings::getInstance()->getBool("ScreenSaverVideoMute") && mScreensaverMode))
 				libvlc_audio_set_mute(mMediaPlayer, 1);
-			}
+
 			//libvlc_media_player_set_position(mMediaPlayer, 0.0f);
 			if (mMedia)
 				libvlc_media_player_set_media(mMediaPlayer, mMedia);
@@ -529,6 +528,9 @@ void VideoVlcComponent::startVideo()
 {
 	if (mIsPlaying)
 		return;
+
+	if (hasStoryBoard() && mConfig.startDelay > 0)
+		startStoryboard();
 
 	mCurrentLoop = 0;
 	mVideoWidth = 0;
@@ -623,7 +625,7 @@ void VideoVlcComponent::startVideo()
 			
 				if (hasAudioTrack)
 				{
-					if (!Settings::getInstance()->getBool("VideoAudio"))
+					if (!getPlayAudio() || !Settings::getInstance()->getBool("VideoAudio") || (Settings::getInstance()->getBool("ScreenSaverVideoMute") && mScreensaverMode))
 						libvlc_audio_set_mute(mMediaPlayer, 1);
 					else
 						AudioManager::setVideoPlaying(true);
@@ -700,6 +702,7 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	using namespace ThemeFlags;
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
+
 	if (elem && elem->has("effect"))
 	{
 		if (!(elem->get<std::string>("effect").compare("slideRight")))
@@ -719,22 +722,65 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	{
 		if (elem && elem->has("color"))
 			setColorShift(elem->get<unsigned int>("color"));
+		
+		if (elem->has("opacity"))
+			setOpacity((unsigned char)(elem->get<float>("opacity") * 255.0));
 	}
 
 	if (elem && elem->has("loops"))
 		mLoops = (int)elem->get<float>("loops");
 	else
 		mLoops = -1;
+
+	applyStoryboard(elem);
+	mStaticImage.applyStoryboard(elem, "snapshot");
 }
 
 void VideoVlcComponent::update(int deltaTime)
 {
 	mElapsed += deltaTime;
+	mStaticImage.update(deltaTime);
 	VideoComponent::update(deltaTime);	
 }
 
-void VideoVlcComponent::onHide()
+void VideoVlcComponent::onShow()
 {
-	VideoComponent::onHide();
-//	mTexture = nullptr;
+	VideoComponent::onShow();
+	mStaticImage.onShow();
+
+	if (hasStoryBoard() && mConfig.startDelay > 0)
+		pauseStoryboard();
+}
+
+ThemeData::ThemeElement::Property VideoVlcComponent::getProperty(const std::string name)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if (name == "size" || name == "maxSize" || name == "minSize")
+		return mSize / scale;
+
+	if (name == "color")
+		return mColorShift;
+
+	if (name == "roundCorners")
+		return mRoundCorners;
+
+	return VideoComponent::getProperty(name);
+}
+
+void VideoVlcComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+	if ((name == "maxSize" || name == "minSize") && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+	{
+		mTargetSize = Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y());
+		resize();
+	}
+	else if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+		setColorShift(value.i);
+	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setRoundCorners(value.f);
+	else
+		VideoComponent::setProperty(name, value);
 }

@@ -21,6 +21,8 @@
 #include "AudioManager.h"
 #include "FileSorts.h"
 #include "CollectionSystemManager.h"
+#include "guis/GuiImageViewer.h"
+#include "ApiSystem.h"
 
 #ifdef _ENABLEEMUELEC
 #include "ApiSystem.h"
@@ -44,8 +46,7 @@ ViewController::ViewController(Window* window)
 	: GuiComponent(window), mCurrentView(nullptr), mCamera(Transform4x4f::Identity()), mFadeOpacity(0), mLockInput(false)
 {
 	mSystemListView = nullptr;
-	mState.viewing = NOTHING;
-	mDeferPlayViewTransition = false;
+	mState.viewing = NOTHING;	
 }
 
 ViewController::~ViewController()
@@ -143,8 +144,8 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	systemList->goToSystem(dest, false);
 
 	mCurrentView = systemList;
-	mCurrentView->onShow();
 
+	// mCurrentView->onShow();
 //	PowerSaver::pause();
 //	PowerSaver::resume();
 
@@ -218,35 +219,40 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	mState.viewing = GAME_LIST;
 	mState.system = moveToBundle == nullptr ? system : moveToBundle;
 
-	if (mCurrentView)
-		mCurrentView->onHide();
-
-	mCurrentView = getGameListView(moveToBundle == nullptr ? system : moveToBundle);
+	std::shared_ptr<IGameListView> view = getGameListView(moveToBundle == nullptr ? system : moveToBundle);
 	
 	if (collectionFolder != nullptr)
 	{
-		ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(mCurrentView.get());
-		if (view != nullptr)
-			view->moveToFolder(collectionFolder);
-	}
-	
-	if (mCurrentView)
-		mCurrentView->onShow();	
+		ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(view.get());
+		if (simpleView != nullptr)
+			simpleView->moveToFolder(collectionFolder);
+	}	
 
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(system->getTheme());
 
+	mDeferPlayViewTransitionTo = nullptr;
+
 	if (forceImmediate || Settings::getInstance()->getString("TransitionStyle") == "fade")
+	{
+		if (mCurrentView)
+			mCurrentView->onHide();
+
+		mCurrentView = view;
 		playViewTransition(forceImmediate);
+	}
 	else
 	{
 		cancelAnimation(0);
-		mDeferPlayViewTransition = true;
+		mDeferPlayViewTransitionTo = view;
 	}
 }
 
 void ViewController::playViewTransition(bool forceImmediate)
 {
+	if (mCurrentView)
+		mCurrentView->onShow();
+
 	Vector3f target(Vector3f::Zero());
 	if(mCurrentView)
 		target = mCurrentView->getPosition();
@@ -316,9 +322,6 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 }
 
-#include "guis/GuiImageViewer.h"
-#include "ApiSystem.h"
-
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center)
 {
 	if(game->getType() != GAME)
@@ -343,11 +346,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		}
 		return;
 	}
-
-	// Hide the current view
-	if (mCurrentView)
-		mCurrentView->onHide();
-
+	
 	Transform4x4f origCamera = mCamera;
 	origCamera.translation() = -mCurrentView->getPosition();
 
@@ -369,40 +368,49 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if(transition_style == "auto")
 		transition_style = "slide";
 
-	// Workaround, the grid scale has problems when sliding giving bad effects
-	if(transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
-		transition_style = "fade";
-
 	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
 		transition_style = "instant";
 
 	if (transition_style == "fade & slide")
 		transition_style = "slide";
 
+	// Workaround, the grid scale has problems when sliding giving bad effects
+	if (transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
+		transition_style = "fade";
+
 	if(transition_style == "fade")
 	{
 		// fade out, launch game, fade back in
-		auto fadeFunc = [this](float t) {
-			mFadeOpacity = Math::lerp(0.0f, 1.0f, t);
-		};
+		auto fadeFunc = [this](float t) { mFadeOpacity = Math::lerp(0.0f, 1.0f, t); };
+
 		setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this, game, fadeFunc, options]
 		{
+			if (mCurrentView) mCurrentView->onHide();
+
 			game->launchGame(mWindow, options);
 			setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
-	} else if (transition_style == "slide"){
+	} 
+	else if (transition_style == "slide")
+	{
 		// move camera to zoom in on center + fade out, launch game, come back in
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game, options]
 		{
+			if (mCurrentView) mCurrentView->onHide();
+
 			game->launchGame(mWindow, options);
 			mCamera = origCamera;
 			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
-	} else { // instant
+	} 
+	else // instant
+	{ 		
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this, origCamera, center, game, options]
 		{
+			if (mCurrentView) mCurrentView->onHide();
+
 			game->launchGame(mWindow, options);
 			mCamera = origCamera;
 			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
@@ -659,10 +667,19 @@ void ViewController::update(int deltaTime)
 
 	updateSelf(deltaTime);
 
-	if (mDeferPlayViewTransition)
+	if (mDeferPlayViewTransitionTo != nullptr)
 	{
-		mDeferPlayViewTransition = false;
-		mWindow->postToUiThread([this](Window* w) { playViewTransition(false); });
+		auto destView = mDeferPlayViewTransitionTo;
+		mDeferPlayViewTransitionTo.reset();
+		
+		mWindow->postToUiThread([this, destView](Window* w) 
+		{ 
+			if (mCurrentView)
+				mCurrentView->onHide();
+
+			mCurrentView = destView;
+			playViewTransition(false); 
+		});
 	}
 }
 
@@ -745,13 +762,18 @@ void ViewController::preload()
 	}
 }
 
-void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
+void ViewController::reloadSystemListViewTheme(SystemData* system)
+{
+	if (mSystemListView == nullptr)
+		return;
+
+	mSystemListView->reloadTheme(system);
+}
+
+void ViewController::reloadGameListView(IGameListView* view)
 {
 	if (view == nullptr)
 		return;
-
-	if (reloadTheme)
-		ThemeData::setDefaultTheme(nullptr);
 
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
 	{
@@ -767,9 +789,6 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 			cursorPath = cursor->getPath();
 
 		mGameListViews.erase(it);
-
-		if(reloadTheme)
-			system->loadTheme();
 
 		system->setUIModeFilters();
 		system->updateDisplayedGameCount();
@@ -799,9 +818,6 @@ void ViewController::reloadGameListView(IGameListView* view, bool reloadTheme)
 		break;		
 	}
 	
-	if (SystemData::sSystemVector.size() > 0 && reloadTheme)
-		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());
-
 	// Redisplay the current view
 	if (mCurrentView)
 		mCurrentView->onShow();

@@ -35,8 +35,10 @@ public:
 
 	// If a basic view detected a metadata change, it can request to recreate
 	// the current gamelist view (as it may change to be detailed).
-	void reloadGameListView(IGameListView* gamelist, bool reloadTheme = false);
-	inline void reloadGameListView(SystemData* system, bool reloadTheme = false) { reloadGameListView(getGameListView(system).get(), reloadTheme); }
+	void reloadGameListView(IGameListView* gamelist);
+	inline void reloadGameListView(SystemData* system) { reloadGameListView(getGameListView(system).get()); }
+	void reloadSystemListViewTheme(SystemData* system);
+
 	void reloadAll(Window* window = nullptr, bool reloadTheme = true); // Reload everything with a theme.  Used when the "ThemeSet" setting changes.
 
 	// Navigation.
@@ -112,7 +114,7 @@ private:
 	Transform4x4f mCamera;
 	float mFadeOpacity;
 	bool mLockInput;
-	bool	mDeferPlayViewTransition;
+	std::shared_ptr<GuiComponent>	mDeferPlayViewTransitionTo;
 	State mState;
 };
 

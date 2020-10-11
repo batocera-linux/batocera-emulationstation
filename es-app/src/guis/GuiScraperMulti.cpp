@@ -82,7 +82,7 @@ GuiScraperMulti::~GuiScraperMulti()
 {
 	// view type probably changed (basic -> detailed)
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		ViewController::get()->reloadGameListView(*it, false);
+		ViewController::get()->reloadGameListView(*it);
 }
 
 void GuiScraperMulti::onSizeChanged()

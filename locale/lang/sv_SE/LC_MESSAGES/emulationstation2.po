@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -342,6 +342,9 @@ msgstr "SPELSAMLINGS-INSTÄLLNINGAR"
 msgid "COLLECTIONS TO DISPLAY"
 msgstr ""
 
+msgid "SYSTEMS DISPLAYED"
+msgstr "SYSTEM SOM VISAS"
+
 msgid "GROUPED SYSTEMS"
 msgstr "GRUPPERADE SYSTEM"
 
@@ -366,9 +369,6 @@ msgstr ""
 msgid "OPTIONS"
 msgstr "INSTÄLLNINGAR"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPPERA ICKE-TEMATISKA SAMLINGAR"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr ""
 
@@ -380,6 +380,18 @@ msgstr ""
 
 msgid "SORT SYSTEMS"
 msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr "GÅ DIREKT TILL SYSTEM"
+
+msgid "NONE"
+msgstr "INGEN"
+
+msgid "START ON GAMELIST"
+msgstr "GÅ DIREKT TILL SPELLISTA"
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgstr "GRUPPERA ICKE-TEMATISKA SAMLINGAR"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "VISA SYSTEMNAMN I SAMLINGAR"
@@ -395,6 +407,9 @@ msgstr "Laddar..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "VÄLJ SAMLINGAR"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARKADSPEL"
@@ -422,6 +437,9 @@ msgstr "OK"
 
 msgid "FINISHED"
 msgstr "FÄRDIG"
+
+msgid "go back"
+msgstr "gå tillbaka"
 
 msgid "NAVIGATION"
 msgstr ""
@@ -522,6 +540,15 @@ msgstr "MISSLYCKADES"
 msgid "LAUNCH"
 msgstr "STARTA"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
@@ -533,6 +560,12 @@ msgstr "OTILLGÄNGLIGA SPEL"
 
 msgid "NO GAME FOUND"
 msgstr "INGET SPEL HITTADES"
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
+msgstr ""
 
 msgid "MANUAL INPUT"
 msgstr "MANUELL INPUT"
@@ -576,9 +609,6 @@ msgstr ""
 msgid "CURRENT THEME"
 msgstr ""
 
-msgid "go back"
-msgstr "gå tillbaka"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr ""
 
@@ -591,17 +621,110 @@ msgstr ""
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "BYT BILD EFTER (SEKUNDER)"
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "INGA SAKNADE BIOS"
+
+msgid "MISSING BIOS"
+msgstr "SAKNADE BIOS"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr "alltid"
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "aldrig"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
+
+msgid "SCREENSAVER AFTER"
+msgstr "SKÄRMSLÄCKARE EFTER"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "SKÄRMSLÄCKARBETEENDE"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "BYT VIDEO EFTER (SEKUNDER)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "ANVÄND OMX PLAYER FÖR SKÄRMSLÄCKARE"
 
 msgid "SHOW GAME INFO"
 msgstr "VISA SPELINFO"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "VISA SPELINFO PÅ SKÄRMSLÄCKARE"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ANVÄND MARQUEE SOM SPELINFO"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONER"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "STRÄCK UT VIDEO FÖR SKÄRMSLÄCKAREN"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "SKÄRMSLÄCKARKONTROLLER"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR BILDSPEL-SKÄRMSLÄCKAREN"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "BYT BILD EFTER (SEKUNDER)"
 
 msgid "STRETCH IMAGES"
 msgstr "STRÄCK UT BILDER"
@@ -617,52 +740,6 @@ msgstr "FILSÖKVÄG FÖR EGNA BILDER REKURSIVT"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "EGNA BILDER FILTER"
-
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SCREENSAVER AFTER"
-msgstr "SKÄRMSLÄCKARE EFTER"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "SKÄRMSLÄCKARBETEENDE"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"\"SLUMPAD VIDEO\"-SKÄRMSLÄCKAREN VISAR VIDEOR FRÅN DIN SPELLISTA.\n"
-"OM DU INTE HAR NÅGRA VIDEOR, ELLER OM INGEN AV DEM KAN SPELAS EFTER ETT PAR "
-"FÖRSÖK, KOMMER SKÄRMSLÄCKAREN ISTÄLLET VARA \"SVART\".\n"
-"FLER INSTÄLLNINGAR FINNS UNDER \"UI-INSTÄLLNINGAR\" -> \"INSTÄLLNINGAR FÖR "
-"SLUMPAD VIDEO-SKÄRMSLÄCKAREN\"."
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR BILDSPEL-SKÄRMSLÄCKAREN"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "SKÄRMSLÄCKARKONTROLLER"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "VIDEOSKÄRMSLÄCKARE"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "BILDSPEL-SKÄRMSLÄCKAREN"
 
 msgid "UPDATING BATOCERA"
 msgstr "UPPDATERAR BATOCERA"
@@ -779,38 +856,11 @@ msgstr ""
 "RESULTATEN LÖPER ÄNNU STÖRRE RISK ÄN VANLIGT ATT VARA FELAKTIGA!\n"
 "FORTSÄTT ÄNDÅ?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SKRAPNING PÅGÅR. VILL DU AVBRYTA?"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "BYT VIDEO EFTER (SEKUNDER)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "ANVÄND OMX PLAYER FÖR SKÄRMSLÄCKARE"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "VISA SPELINFO PÅ SKÄRMSLÄCKARE"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "STRÄCK UT VIDEO FÖR SKÄRMSLÄCKAREN"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr ""
-
-msgid "USE CUSTOM VIDEOS"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
 
 msgid "fade"
 msgstr "tona"
@@ -820,6 +870,9 @@ msgstr "glid"
 
 msgid "instant"
 msgstr "omedelbart"
+
+msgid "fade & slide"
+msgstr ""
 
 msgid "System"
 msgstr "System"
@@ -923,9 +976,6 @@ msgstr ""
 msgid "BOX SOURCE"
 msgstr "BOXKÄLLA"
 
-msgid "NONE"
-msgstr "INGEN"
-
 msgid "LOGO SOURCE"
 msgstr "LOGOTYPKÄLLA"
 
@@ -956,15 +1006,6 @@ msgstr "LÖSENORD"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
 
-msgid "SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR BILDSPEL"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR SLUMPADE VIDEOR"
-
 msgid "CHOOSE"
 msgstr "VÄLJ"
 
@@ -983,6 +1024,9 @@ msgstr ""
 msgid "DEVELOPER"
 msgstr "UTVECKLARE"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "VRAM-BEGRÄNSNING"
 
@@ -995,20 +1039,29 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "PRELOAD UI"
-msgstr "LADDA IN UI PÅ FÖRHAND"
+msgid "TOOLS"
+msgstr "VERKTYG"
 
-msgid "THREADED LOADING"
-msgstr "TRÅDAD LADDNING"
+msgid "LOG LEVEL"
+msgstr "LOGGNINGSNIVÅ"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "ASYNKRON BILDLADDNING"
+msgid "CREATE A SUPPORT FILE"
+msgstr "SKAPA EN SUPPORTFIL"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OPTIMERA BILDER VRAM-ANVÄNDNING"
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "SKAPA EN SUPPORTFIL?"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "OPTIMERA VIDEOR VRAM-ANVÄNDNING"
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "FIL SKAPAD"
+
+msgid "FILE GENERATION FAILED"
+msgstr "MISSLYCKADES MED ATT SKAPA FIL"
+
+msgid "FORMAT A DISK"
+msgstr ""
+
+msgid "DATA MANAGEMENT"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "AKTIVERA FILTER"
@@ -1028,6 +1081,18 @@ msgstr ""
 msgid "REDETECT GAMES LANG/REGION"
 msgstr ""
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "KARUSELLÖVERGÅNGAR"
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "SKÄRMTANGENTBORD"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
+
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
@@ -1040,23 +1105,23 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
-msgid "LOG LEVEL"
-msgstr "LOGGNINGSNIVÅ"
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "SKAPA EN SUPPORTFIL"
-
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "SKAPA EN SUPPORTFIL?"
-
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "FIL SKAPAD"
-
-msgid "FILE GENERATION FAILED"
-msgstr "MISSLYCKADES MED ATT SKAPA FIL"
-
-msgid "FORMAT A DISK"
+msgid "OPTIMIZATIONS"
 msgstr ""
+
+msgid "PRELOAD UI"
+msgstr "LADDA IN UI PÅ FÖRHAND"
+
+msgid "THREADED LOADING"
+msgstr "TRÅDAD LADDNING"
+
+msgid "ASYNC IMAGES LOADING"
+msgstr "ASYNKRON BILDLADDNING"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OPTIMERA BILDER VRAM-ANVÄNDNING"
+
+msgid "OPTIMIZE VIDEO VRAM USE"
+msgstr "OPTIMERA VIDEOR VRAM-ANVÄNDNING"
 
 msgid "DOWNLOADS"
 msgstr "NERLADDNINGAR"
@@ -1087,6 +1152,22 @@ msgstr "SPRÅK"
 
 msgid "POWER SAVER MODES"
 msgstr "ENERGISPARLÄGE"
+
+msgid "UI MODE"
+msgstr "UI-LÄGE"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+"Du är på väg att ändra UI:t till ett begränsat läge:\n"
+"Detta kommer att gömma de flesta menyvalen för att förhindra ändringar i "
+"systemet.\n"
+"För att låsa upp och återgå till fullständigt UI, skriv in denna kod:"
+
+msgid "Do you want to proceed ?"
+msgstr "Vill du fortsätta?"
 
 msgid "KODI SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR KODI"
@@ -1121,9 +1202,6 @@ msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENTS"
 
 msgid "NETPLAY SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR NETPLAY"
-
-msgid "MISSING BIOS"
-msgstr "SAKNADE BIOS"
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1218,14 +1296,14 @@ msgstr "OMINDEXERA ALLA SPEL"
 msgid "INDEX MISSING GAMES"
 msgstr "INDEXERA SAKNADE SPEL"
 
-msgid "TOOLS"
-msgstr "VERKTYG"
-
 msgid "DEFAULT SETTINGS"
 msgstr "STANDARDINSTÄLLNINGAR"
 
 msgid "GAME RATIO"
 msgstr "SPELPROPORTIONER"
+
+msgid "VIDEO MODE"
+msgstr "VIDEOLÄGE"
 
 msgid "SMOOTH GAMES"
 msgstr "JÄMNA UT SPELGRAFIK"
@@ -1263,6 +1341,9 @@ msgstr "INTEGERSKALNING (PIXEL-PERFEKT)"
 msgid "DECORATION"
 msgstr "DEKORATION"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
 
@@ -1280,15 +1361,6 @@ msgstr "PAUSA PÅ ÖVERATT SKÄRM"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERADE INSTÄLLNINGAR PER SPEL"
-
-msgid "NO MISSING BIOS"
-msgstr "INGA SAKNADE BIOS"
-
-msgid "MISSING"
-msgstr "SAKNADE"
-
-msgid "INVALID"
-msgstr "OGILTIG"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SPELHASHNING PÅGÅR, VILL DU AVBRYTA?"
@@ -1361,12 +1433,6 @@ msgstr "VISA DOLDA FILER"
 msgid "SHOW FOLDERS"
 msgstr "VISA MAPPAR"
 
-msgid "always"
-msgstr "alltid"
-
-msgid "never"
-msgstr "aldrig"
-
 msgid "having multiple games"
 msgstr "innehåller flera system"
 
@@ -1391,34 +1457,6 @@ msgstr "video"
 msgid "grid"
 msgstr "rutnät"
 
-msgid "UI MODE"
-msgstr "UI-LÄGE"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-"Du är på väg att ändra UI:t till ett begränsat läge:\n"
-"Detta kommer att gömma de flesta menyvalen för att förhindra ändringar i "
-"systemet.\n"
-"För att låsa upp och återgå till fullständigt UI, skriv in denna kod:"
-
-msgid "Do you want to proceed ?"
-msgstr "Vill du fortsätta?"
-
-msgid "STARTUP SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR UPPSTART"
-
-msgid "START ON SYSTEM"
-msgstr "GÅ DIREKT TILL SYSTEM"
-
-msgid "START ON GAMELIST"
-msgstr "GÅ DIREKT TILL SPELLISTA"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "SYSTEM SOM VISAS"
-
 msgid "DISPLAY OPTIONS"
 msgstr "VISNINGSALTERNATIV"
 
@@ -1428,12 +1466,6 @@ msgstr "ÖVERGÅNGS-STIL"
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr "KARUSELLÖVERGÅNGAR"
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "SNABBT SYSTEMVAL"
-
 msgid "SHOW CLOCK"
 msgstr "VISA TID"
 
@@ -1441,12 +1473,6 @@ msgid "ON-SCREEN HELP"
 msgstr "ON-SCREEN-HJÄLP"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "SKÄRMTANGENTBORD"
-
-msgid "HIDE WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -1568,9 +1594,6 @@ msgstr "AVSLUTA EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "SÄKER PÅ ATT DU VILL AVSLUTA?"
-
-msgid "VIDEO MODE"
-msgstr "VIDEOLÄGE"
 
 msgid "COLORIZATION"
 msgstr "FÄRGNING"
@@ -1697,8 +1720,20 @@ msgstr "Hittade ingenting"
 msgid "Favorites"
 msgstr "Favoriter"
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-msgstr "STARTA SPELET SOM NETPLAY-HOST?"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
 msgid "Searching"
 msgstr "Söker"
@@ -2004,22 +2039,56 @@ msgid "WORKING..."
 msgstr "ARBETAR..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "\"SLUMPAD VIDEO\"-SKÄRMSLÄCKAREN VISAR VIDEOR FRÅN DIN SPELLISTA.\n"
+#~ "OM DU INTE HAR NÅGRA VIDEOR, ELLER OM INGEN AV DEM KAN SPELAS EFTER ETT "
+#~ "PAR FÖRSÖK, KOMMER SKÄRMSLÄCKAREN ISTÄLLET VARA \"SVART\".\n"
+#~ "FLER INSTÄLLNINGAR FINNS UNDER \"UI-INSTÄLLNINGAR\" -> \"INSTÄLLNINGAR "
+#~ "FÖR SLUMPAD VIDEO-SKÄRMSLÄCKAREN\"."
+
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "VIDEOSKÄRMSLÄCKARE"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "BILDSPEL-SKÄRMSLÄCKAREN"
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "INSTÄLLNINGAR FÖR BILDSPEL"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "INSTÄLLNINGAR FÖR SLUMPADE VIDEOR"
+
+#~ msgid "MISSING"
+#~ msgstr "SAKNADE"
+
+#~ msgid "INVALID"
+#~ msgstr "OGILTIG"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "INSTÄLLNINGAR FÖR UPPSTART"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "SNABBT SYSTEMVAL"
+
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "STARTA SPELET SOM NETPLAY-HOST?"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "VÄLJ TEMA"

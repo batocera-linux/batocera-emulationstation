@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 17:56+0200\n"
+"POT-Creation-Date: 2020-10-09 20:59+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,6 +339,9 @@ msgstr ""
 msgid "COLLECTIONS TO DISPLAY"
 msgstr ""
 
+msgid "SYSTEMS DISPLAYED"
+msgstr ""
+
 msgid "GROUPED SYSTEMS"
 msgstr ""
 
@@ -363,9 +366,6 @@ msgstr ""
 msgid "OPTIONS"
 msgstr "SEÇENEKLER"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr ""
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr ""
 
@@ -376,6 +376,18 @@ msgid "BY MANUFACTURER"
 msgstr ""
 
 msgid "SORT SYSTEMS"
+msgstr ""
+
+msgid "START ON SYSTEM"
+msgstr "SÝSTEMÝ BAÞLAT"
+
+msgid "NONE"
+msgstr "YOK"
+
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -391,6 +403,9 @@ msgid "Loading..."
 msgstr "yükleniyor"
 
 msgid "SELECT COLLECTIONS"
+msgstr ""
+
+msgid "AUTOMATIC COLLECTIONS"
 msgstr ""
 
 msgid "ARCADE SYSTEMS"
@@ -419,6 +434,9 @@ msgstr "TAMAM"
 
 msgid "FINISHED"
 msgstr "BÝTTÝ"
+
+msgid "go back"
+msgstr ""
 
 msgid "NAVIGATION"
 msgstr ""
@@ -519,6 +537,15 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "BAÞLAT"
 
+msgid "UNKNOWN ROM VERSION"
+msgstr ""
+
+msgid "DIFFERENT ROM"
+msgstr ""
+
+msgid "SAME ROM"
+msgstr ""
+
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
@@ -529,6 +556,12 @@ msgid "UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "NO GAME FOUND"
+msgstr ""
+
+msgid "JOIN GAME"
+msgstr ""
+
+msgid "WATCH GAME"
 msgstr ""
 
 msgid "MANUAL INPUT"
@@ -573,9 +606,6 @@ msgstr ""
 msgid "CURRENT THEME"
 msgstr ""
 
-msgid "go back"
-msgstr ""
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr ""
 
@@ -588,17 +618,110 @@ msgstr ""
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "KUMANDA BAÐLANTILARI SÝLÝNDÝ."
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "sonra resmi deðiþtir"
+msgid "CONTENT DOWNLOADER"
+msgstr ""
+
+msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "MISC"
+msgstr ""
+
+msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "EKSÝK BIOS YOK"
+
+msgid "MISSING BIOS"
+msgstr "EKSÝK BIOS"
+
+msgid "dim"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "random video"
+msgstr ""
+
+msgid "slideshow"
+msgstr ""
+
+msgid "always"
+msgstr ""
+
+msgid "start & end"
+msgstr ""
+
+msgid "never"
+msgstr "hiç"
+
+msgid "none"
+msgstr ""
+
+msgid "systems"
+msgstr ""
+
+msgid "random"
+msgstr ""
+
+msgid "SCREENSAVER SETTINGS"
+msgstr ""
+
+msgid "SCREENSAVER AFTER"
+msgstr "EKRAN KORUYUCU"
+
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "EKRAN KORUYUCU DAVRANIÞI"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "RASGELE VÝDEO EKRAN KORUYUCU AYARLARI"
+
+msgid "SWAP VIDEO AFTER (SECS)"
+msgstr "sonra video deðiþtir"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "EKRAN KORUYUCU ÝÇÝN OMX PLAYER KULLANIN"
 
 msgid "SHOW GAME INFO"
 msgstr "OYUN BÝLGÝ GÖSTER"
+
+msgid "SHOW GAME INFO ON SCREENSAVER"
+msgstr "EKRAN KORUYUCUDA OYUN BÝLGÝSÝ GÖSTER"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATIONS"
 msgstr ""
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "VÝDEOYU EKRAN KORUYUCUDA GÖSTER"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr ""
+
+msgid "SCREENSAVER CONTROLS"
+msgstr ""
+
+msgid "USE CUSTOM VIDEOS"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR"
+msgstr ""
+
+msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgstr ""
+
+msgid "CUSTOM VIDEO FILTER"
+msgstr ""
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "EKRAN KORUYUCU AYARLARI"
+
+msgid "SWAP IMAGE AFTER (SECS)"
+msgstr "sonra resmi deðiþtir"
 
 msgid "STRETCH IMAGES"
 msgstr "GÖRÜNTÜLERÝ UZAT"
@@ -614,52 +737,6 @@ msgstr "ÖZEL GÖRÜNTÜ RESMÝ YOLU"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "ÖZEL GÖRÜNTÜ FÝLTRE"
-
-msgid "CONTENT DOWNLOADER"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "MISC"
-msgstr ""
-
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
-
-msgid "SCREENSAVER AFTER"
-msgstr "EKRAN KORUYUCU"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "EKRAN KORUYUCU DAVRANIÞI"
-
-msgid ""
-"THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-"IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-"ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-"MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS\" "
-"MENU."
-msgstr ""
-"THE \"RASGELE VIDEO \" EKRAN KORUYUCU VÝDEOLARI OYUN LÝSTESÝNDEN GÖSTERÝR.\n"
-"VÝDEO YOKSA, VEYA BÝR SONRA VÝDEO OYNATILAMAZSADENEMELER, VARSAYILAN OLACAK "
-"\"SÝYAH\".\n"
-"DAHA FAZLA SEÇENEK\"ARAYÜZ AYARLARI\" -> \"RASGELE VIDEO EKRAN KORUYUCU "
-"AYARLARI\" MENU."
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "RASGELE VÝDEO EKRAN KORUYUCU AYARLARI"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "EKRAN KORUYUCU AYARLARI"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr ""
-
-msgid "VIDEO SCREENSAVER"
-msgstr ""
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr ""
@@ -773,38 +850,11 @@ msgstr ""
 "SONUÇLARI TUTARSIZ OLABÝLÝR!\n"
 "DEVAM EDÝLSÝN MÝ?"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
-
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "sonra video deðiþtir"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "EKRAN KORUYUCU ÝÇÝN OMX PLAYER KULLANIN"
-
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "EKRAN KORUYUCUDA OYUN BÝLGÝSÝ GÖSTER"
-
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "VÝDEOYU EKRAN KORUYUCUDA GÖSTER"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr ""
-
-msgid "USE CUSTOM VIDEOS"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR"
-msgstr ""
-
-msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "BU KRÝTERE UYAN OYUN BULUNAMADI."
 
 msgid "fade"
 msgstr ""
@@ -813,6 +863,9 @@ msgid "slide"
 msgstr ""
 
 msgid "instant"
+msgstr ""
+
+msgid "fade & slide"
 msgstr ""
 
 msgid "System"
@@ -917,9 +970,6 @@ msgstr ""
 msgid "BOX SOURCE"
 msgstr ""
 
-msgid "NONE"
-msgstr "YOK"
-
 msgid "LOGO SOURCE"
 msgstr ""
 
@@ -950,15 +1000,6 @@ msgstr "PAROLA"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
 
-msgid "SCREENSAVER SETTINGS"
-msgstr ""
-
-msgid "SLIDESHOW SETTINGS"
-msgstr "SLAYT AYARLARI"
-
-msgid "RANDOM VIDEO SETTINGS"
-msgstr "RASGELE VÝDEO AYARLARI"
-
 msgid "CHOOSE"
 msgstr "DEÐÝÞTÝR"
 
@@ -977,6 +1018,9 @@ msgstr ""
 msgid "DEVELOPER"
 msgstr "GELÝÞTÝRÝCÝ"
 
+msgid "VIDEO OPTIONS"
+msgstr ""
+
 msgid "VRAM LIMIT"
 msgstr "VÝDEO RAM LÝMÝTÝ"
 
@@ -989,19 +1033,28 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "PRELOAD UI"
+msgid "TOOLS"
 msgstr ""
 
-msgid "THREADED LOADING"
+msgid "LOG LEVEL"
 msgstr ""
 
-msgid "ASYNC IMAGES LOADING"
+msgid "CREATE A SUPPORT FILE"
+msgstr "DESTEK DOSYASI OLUÞTURMAK"
+
+msgid "CREATE A SUPPORT FILE ?"
+msgstr "DESTEK DOSYASI OLUÞTURMAK?"
+
+msgid "FILE GENERATED SUCCESSFULLY"
+msgstr "DOSYA OLUÞTURMA BAÞARILI"
+
+msgid "FILE GENERATION FAILED"
+msgstr "DOSYA OLUÞTURMA BAÞARISIZ"
+
+msgid "FORMAT A DISK"
 msgstr ""
 
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr ""
-
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "DATA MANAGEMENT"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1022,6 +1075,18 @@ msgstr ""
 msgid "REDETECT GAMES LANG/REGION"
 msgstr ""
 
+msgid "UI"
+msgstr ""
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "ON SCREEN KEYBOARD"
+msgstr "EKRAN KLAVYESÝ"
+
+msgid "HIDE WHEN RUNNING A GAME"
+msgstr ""
+
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
@@ -1034,22 +1099,22 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
-msgid "LOG LEVEL"
+msgid "OPTIMIZATIONS"
 msgstr ""
 
-msgid "CREATE A SUPPORT FILE"
-msgstr "DESTEK DOSYASI OLUÞTURMAK"
+msgid "PRELOAD UI"
+msgstr ""
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "DESTEK DOSYASI OLUÞTURMAK?"
+msgid "THREADED LOADING"
+msgstr ""
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "DOSYA OLUÞTURMA BAÞARILI"
+msgid "ASYNC IMAGES LOADING"
+msgstr ""
 
-msgid "FILE GENERATION FAILED"
-msgstr "DOSYA OLUÞTURMA BAÞARISIZ"
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr ""
 
-msgid "FORMAT A DISK"
+msgid "OPTIMIZE VIDEO VRAM USE"
 msgstr ""
 
 msgid "DOWNLOADS"
@@ -1080,6 +1145,18 @@ msgid "LANGUAGE"
 msgstr "DÝL"
 
 msgid "POWER SAVER MODES"
+msgstr ""
+
+msgid "UI MODE"
+msgstr "KULLANICI ARAYÜZÜ"
+
+msgid ""
+"You are changing the UI to a restricted mode:\n"
+"This will hide most menu-options to prevent changes to the system.\n"
+"To unlock and return to the full UI, enter this code:"
+msgstr ""
+
+msgid "Do you want to proceed ?"
 msgstr ""
 
 msgid "KODI SETTINGS"
@@ -1115,9 +1192,6 @@ msgstr "RETROACHIEVEMENT AYARLARI"
 
 msgid "NETPLAY SETTINGS"
 msgstr ""
-
-msgid "MISSING BIOS"
-msgstr "EKSÝK BIOS"
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1212,14 +1286,14 @@ msgstr ""
 msgid "INDEX MISSING GAMES"
 msgstr ""
 
-msgid "TOOLS"
-msgstr ""
-
 msgid "DEFAULT SETTINGS"
 msgstr ""
 
 msgid "GAME RATIO"
 msgstr "GÖRÜNTÜ ORANI"
+
+msgid "VIDEO MODE"
+msgstr "VÝDEO MODU"
 
 msgid "SMOOTH GAMES"
 msgstr "OYUNLARI SMOOTH GÖSTER"
@@ -1257,6 +1331,9 @@ msgstr "ENTEGER ÖLÇEÐÝ (PÝKSEL MÜKEMMEL)"
 msgid "DECORATION"
 msgstr "DEKORASYON"
 
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr ""
 
@@ -1273,15 +1350,6 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr ""
-
-msgid "NO MISSING BIOS"
-msgstr "EKSÝK BIOS YOK"
-
-msgid "MISSING"
-msgstr ""
-
-msgid "INVALID"
 msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
@@ -1354,12 +1422,6 @@ msgstr "GÝZLÝ DOSYALARI GÖSTER"
 msgid "SHOW FOLDERS"
 msgstr ""
 
-msgid "always"
-msgstr ""
-
-msgid "never"
-msgstr "hiç"
-
 msgid "having multiple games"
 msgstr ""
 
@@ -1384,30 +1446,6 @@ msgstr "video"
 msgid "grid"
 msgstr ""
 
-msgid "UI MODE"
-msgstr "KULLANICI ARAYÜZÜ"
-
-msgid ""
-"You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
-msgstr ""
-
-msgid "Do you want to proceed ?"
-msgstr ""
-
-msgid "STARTUP SETTINGS"
-msgstr ""
-
-msgid "START ON SYSTEM"
-msgstr "SÝSTEMÝ BAÞLAT"
-
-msgid "START ON GAMELIST"
-msgstr ""
-
-msgid "SYSTEMS DISPLAYED"
-msgstr ""
-
 msgid "DISPLAY OPTIONS"
 msgstr ""
 
@@ -1417,12 +1455,6 @@ msgstr "GEÇÝÞ STÝLÝ"
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
 
-msgid "CAROUSEL TRANSITIONS"
-msgstr ""
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "HIZLI SÝSTEM SEÇÝMÝ"
-
 msgid "SHOW CLOCK"
 msgstr "SAATÝ GÖSTER"
 
@@ -1430,12 +1462,6 @@ msgid "ON-SCREEN HELP"
 msgstr "YARDIMI GÖSTER"
 
 msgid "SHOW BATTERY STATUS"
-msgstr ""
-
-msgid "ON SCREEN KEYBOARD"
-msgstr "EKRAN KLAVYESÝ"
-
-msgid "HIDE WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -1557,9 +1583,6 @@ msgstr ""
 
 msgid "REALLY QUIT?"
 msgstr ""
-
-msgid "VIDEO MODE"
-msgstr "VÝDEO MODU"
 
 msgid "COLORIZATION"
 msgstr ""
@@ -1686,7 +1709,19 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+msgid "START GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "ALLOW SPECTATOR MODE"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
 msgstr ""
 
 msgid "Searching"
@@ -1991,22 +2026,39 @@ msgid "WORKING..."
 msgstr "DEVAM EDÝYOR..."
 
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d h"
+msgstr ""
 
 #, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d m"
+msgstr ""
 
 #, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d s"
+msgstr ""
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "THE \"RASGELE VIDEO \" EKRAN KORUYUCU VÝDEOLARI OYUN LÝSTESÝNDEN "
+#~ "GÖSTERÝR.\n"
+#~ "VÝDEO YOKSA, VEYA BÝR SONRA VÝDEO OYNATILAMAZSADENEMELER, VARSAYILAN "
+#~ "OLACAK \"SÝYAH\".\n"
+#~ "DAHA FAZLA SEÇENEK\"ARAYÜZ AYARLARI\" -> \"RASGELE VIDEO EKRAN KORUYUCU "
+#~ "AYARLARI\" MENU."
+
+#~ msgid "SLIDESHOW SETTINGS"
+#~ msgstr "SLAYT AYARLARI"
+
+#~ msgid "RANDOM VIDEO SETTINGS"
+#~ msgstr "RASGELE VÝDEO AYARLARI"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "HIZLI SÝSTEM SEÇÝMÝ"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "TEMA SEÇÝN"

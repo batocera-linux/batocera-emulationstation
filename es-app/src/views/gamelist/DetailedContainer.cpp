@@ -562,6 +562,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 
 	comps.push_back(&mDescription);
 	comps.push_back(&mName);
+	comps.push_back(&mRating);
 
 	for (auto lbl : getMetaComponents())
 		if (lbl.label != nullptr)
@@ -595,7 +596,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
 					if (mFavorite != nullptr) mFavorite->setVisible(false);
 					if (mHidden != nullptr) mHidden->setVisible(false);
-
+					
 					for (auto& md : mdImages)
 						if (md.component != nullptr)
 							md.component->setImage("");

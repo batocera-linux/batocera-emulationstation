@@ -30,6 +30,7 @@ enum NetPlayMode
 	DISABLED,
 	CLIENT,
 	SERVER,	
+	SPECTATOR
 };
 
 struct LaunchGameOptions
@@ -41,6 +42,7 @@ struct LaunchGameOptions
 	int port;
 
 	std::string core;
+	std::string netplayClientPassword;
 };
 
 class FolderData;
