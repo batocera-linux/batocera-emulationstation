@@ -33,6 +33,8 @@ namespace Utils
 		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter);
 
 		std::string join(const std::vector<std::string>& items, std::string separator);
+		int			compareIgnoreCase(const std::string& name1, const std::string& name2);
+		std::string proper(const std::string& _string);
 
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);

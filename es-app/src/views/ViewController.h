@@ -114,7 +114,7 @@ private:
 	Transform4x4f mCamera;
 	float mFadeOpacity;
 	bool mLockInput;
-	bool	mDeferPlayViewTransition;
+	std::shared_ptr<GuiComponent>	mDeferPlayViewTransitionTo;
 	State mState;
 };
 

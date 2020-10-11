@@ -129,13 +129,13 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },
 		{ "singleLineScroll", BOOLEAN },
+		{ "autoScroll", STRING },
 		{ "padding", NORMALIZED_RECT },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "textlist", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
-
 
 		{ "x", FLOAT },
 		{ "y", FLOAT },
@@ -320,6 +320,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "color", COLOR },
 		{ "snapshotSource", STRING }, // image, thumbnail, marquee
 		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
+		{ "audio", BOOLEAN },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {

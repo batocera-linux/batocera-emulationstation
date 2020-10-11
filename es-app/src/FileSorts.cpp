@@ -74,22 +74,7 @@ namespace FileSorts
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order		
 		std::string name1 = ((FileData*)file1)->getName();
 		std::string name2 = ((FileData*)file2)->getName();
-
-		for (auto ap = name1.c_str(), bp = name2.c_str(); ; ap++, bp++)
-		{			
-			if (*ap == 0 & *bp != 0)
-				return true;
-
-			if (*ap == 0 || *bp == 0)
-				return false;
-
-			auto c1 = toupper(*ap);
-			auto c2 = toupper(*bp);
-			if (c1 != c2)
-				return c1 < c2;			
-		}
-
-		return false;
+		return Utils::String::compareIgnoreCase(name1, name2) < 0;
 	}
 
 	bool compareRating(const FileData* file1, const FileData* file2)
@@ -101,9 +86,7 @@ namespace FileSorts
 	{
 		//only games have playcount metadata
 		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
-		{
 			return (file1)->getMetadata().getInt("playcount") < (file2)->getMetadata().getInt("playcount");
-		}
 
 		return false;
 	}
@@ -146,29 +129,29 @@ namespace FileSorts
 
 	bool compareGenre(const FileData* file1, const FileData* file2)
 	{
-		std::string genre1 = Utils::String::toUpper(file1->getMetadata().get(MetaDataId::Genre));
-		std::string genre2 = Utils::String::toUpper(file2->getMetadata().get(MetaDataId::Genre));
-		return genre1.compare(genre2) < 0;
+		std::string genre1 = file1->getMetadata().get(MetaDataId::Genre);
+		std::string genre2 = file2->getMetadata().get(MetaDataId::Genre);
+		return Utils::String::compareIgnoreCase(genre1, genre2) < 0;
 	}
 
 	bool compareDeveloper(const FileData* file1, const FileData* file2)
 	{
-		std::string developer1 = Utils::String::toUpper(file1->getMetadata().get(MetaDataId::Developer));
-		std::string developer2 = Utils::String::toUpper(file2->getMetadata().get(MetaDataId::Developer));
-		return developer1.compare(developer2) < 0;
+		std::string developer1 = file1->getMetadata().get(MetaDataId::Developer);
+		std::string developer2 = file2->getMetadata().get(MetaDataId::Developer);
+		return Utils::String::compareIgnoreCase(developer1, developer2) < 0;
 	}
 
 	bool comparePublisher(const FileData* file1, const FileData* file2)
 	{
-		std::string publisher1 = Utils::String::toUpper(file1->getMetadata().get(MetaDataId::Publisher));
-		std::string publisher2 = Utils::String::toUpper(file2->getMetadata().get(MetaDataId::Publisher));
-		return publisher1.compare(publisher2) < 0;
+		std::string publisher1 = file1->getMetadata().get(MetaDataId::Publisher);
+		std::string publisher2 = file2->getMetadata().get(MetaDataId::Publisher);
+		return Utils::String::compareIgnoreCase(publisher1, publisher2) < 0;
 	}
 
 	bool compareSystem(const FileData* file1, const FileData* file2)
 	{
-		std::string system1 = Utils::String::toUpper(file1->getSystemName());
-		std::string system2 = Utils::String::toUpper(file2->getSystemName());
-		return system1.compare(system2) < 0;
+		std::string system1 = file1->getSystemName();
+		std::string system2 = file2->getSystemName();
+		return Utils::String::compareIgnoreCase(system1, system2) < 0;		
 	}
 };

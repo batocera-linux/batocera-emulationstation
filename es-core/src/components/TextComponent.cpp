@@ -4,18 +4,20 @@
 #include "Log.h"
 #include "Settings.h"
 
+#define AUTO_SCROLL_RESET_DELAY 6000 // ms to reset to top after we reach the bottom
+#define AUTO_SCROLL_DELAY 6000 // ms to wait before we start to scroll
+#define AUTO_SCROLL_SPEED 150 // ms between scrolls
+
+
 TextComponent::TextComponent(Window* window) : GuiComponent(window), 
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE)
 {	
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
-	mMarqueeTime = 0;
-
-	mAutoScroll = false;
-
+	mMarqueeTime = 0;	
 }
 
 TextComponent::TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
@@ -23,7 +25,7 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(align), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE)
 {
 	setFont(font);
 	setColor(color);
@@ -34,9 +36,7 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
-	mMarqueeTime = 0;
-
-	mAutoScroll = false;
+	mMarqueeTime = 0;	
 }
 
 void TextComponent::onSizeChanged()
@@ -173,7 +173,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor, bgColor);
 	}
 
-	if (mAutoScroll)
+	if (mAutoScroll != AutoScrollType::NONE)
 		Renderer::pushClipRect(Vector2i(trans.translation().x(), trans.translation().y()), Vector2i(mSize.x(), mSize.y()));
 
 	if (mTextCache && mFont)
@@ -203,14 +203,23 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 		if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
 		{
-			renderGlow(parentTrans, yOff, -mMarqueeOffset);
+			if (mAutoScroll == AutoScrollType::VERTICAL)
+				renderGlow(parentTrans, yOff - mMarqueeOffset, 0);
+			else
+				renderGlow(parentTrans, yOff, -mMarqueeOffset);
+
 			onColorChanged();
 		}
 
 		Transform4x4f drawTrans = trans;
 
 		if (mMarqueeOffset != 0.0)
-			trans.translate(off - Vector3f((float)mMarqueeOffset, 0, 0));
+		{
+			if (mAutoScroll == AutoScrollType::VERTICAL)
+				trans.translate(off - Vector3f(0, (float)mMarqueeOffset, 0));
+			else
+				trans.translate(off - Vector3f((float)mMarqueeOffset, 0, 0));
+		}
 		else
 			trans.translate(off);
 
@@ -239,7 +248,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		// render currently selected item text again if
 		// marquee is scrolled far enough for it to repeat
 		
-		if (mMarqueeOffset2 != 0.0)
+		if (mMarqueeOffset2 != 0.0 && mAutoScroll != AutoScrollType::VERTICAL)
 		{
 			trans = drawTrans;
 			trans.translate(off - Vector3f((float)mMarqueeOffset2, 0, 0));
@@ -281,22 +290,17 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 			mFont->renderGradientTextCache(mTextCache.get(), colorB, colorT);
 		}
 
-		if (mAutoScroll)
+		if (mAutoScroll != AutoScrollType::NONE)
 			Renderer::popClipRect();
 	}
 }
 
 void TextComponent::calculateExtent()
 {
-	if(mAutoCalcExtent.x())
-	{
+	if (mAutoCalcExtent.x())
 		mSize = mFont->sizeText(mUppercase ? Utils::String::toUpper(mText) : mText, mLineSpacing);
-	}else{
-		if(mAutoCalcExtent.y())
-		{
-			mSize[1] = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y();
-		}
-	}
+	else if(mAutoCalcExtent.y())
+		mSize[1] = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y();
 }
 
 void TextComponent::onTextChanged()
@@ -315,7 +319,7 @@ void TextComponent::onTextChanged()
 	std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 	std::shared_ptr<Font> f = mFont;
-	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > f->getHeight(mLineSpacing)*1.8f);
+	const bool isMultiline = (mAutoScroll != AutoScrollType::HORIZONTAL) && (mSize.y() == 0 || sy > f->getHeight(mLineSpacing)*1.8f);
 
 	bool addAbbrev = false;
 	if(!isMultiline)
@@ -330,7 +334,7 @@ void TextComponent::onTextChanged()
 	Vector2f size = f->sizeText(text);
 	if (!isMultiline)
 	{
-		if (sx && text.size() && (size.x() > sx || addAbbrev) && !mAutoScroll)
+		if (sx && text.size() && (size.x() > sx || addAbbrev) && (mAutoScroll != AutoScrollType::HORIZONTAL))
 		{
 			// abbreviate text
 			const std::string abbrev = "...";
@@ -357,9 +361,9 @@ void TextComponent::update(int deltaTime)
 	GuiComponent::update(deltaTime);
 
 	int sy = mSize.y() - mPadding.y() - mPadding.w();
-	const bool isMultiline = !mAutoScroll && (mSize.y() == 0 || sy > mFont->getHeight()*1.95f);
+	const bool isMultiline = mAutoScroll != AutoScrollType::HORIZONTAL && (mSize.y() == 0 || sy > mFont->getHeight()*1.95f);
 
-	if (mAutoScroll && !isMultiline && mSize.x() > 0)
+	if (mAutoScroll == AutoScrollType::HORIZONTAL && !isMultiline && mSize.x() > 0)
 	{
 		// always reset the marquee offsets
 		mMarqueeOffset = 0;
@@ -393,12 +397,58 @@ void TextComponent::update(int deltaTime)
 				mMarqueeOffset2 = (int)(mMarqueeOffset - (scrollLength + returnLength));
 		}
 	}
+	else if(mAutoScroll == AutoScrollType::VERTICAL && mSize.y() > 0)
+	{
+		std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
+
+		// if we're not scrolling and this object's text goes outside our size, marquee it!
+		int textLength = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y();
+		int limit = mSize.y() - mPadding.y() - mPadding.y();
+
+		if (textLength > limit)
+		{
+			mMarqueeTime += deltaTime;
+
+			while (mMarqueeTime >= AUTO_SCROLL_SPEED)
+			{
+				mMarqueeOffset += 1;
+				mMarqueeTime -= AUTO_SCROLL_SPEED;
+			}
+			
+			if (textLength < limit)
+				mMarqueeOffset = 0;
+			else if (mMarqueeOffset + limit >= textLength)
+			{
+				mMarqueeOffset = textLength - limit;
+				mMarqueeOffset2 += deltaTime;
+				if (mMarqueeOffset2 >= AUTO_SCROLL_RESET_DELAY)
+				{
+					mMarqueeOffset = 0;
+					mMarqueeOffset2 = 0;
+					mMarqueeTime = -AUTO_SCROLL_DELAY + AUTO_SCROLL_SPEED;
+				}
+			}
+		}
+	}
 	else
 	{
 		mMarqueeTime = 0;
 		mMarqueeOffset = 0;
 		mMarqueeOffset2 = 0;
 	}
+}
+
+void TextComponent::onShow()
+{
+	GuiComponent::onShow();
+	
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+
+	if (mAutoScroll == AutoScrollType::VERTICAL)
+		mMarqueeTime = -AUTO_SCROLL_DELAY + AUTO_SCROLL_SPEED;
+	else
+		mMarqueeTime = 0;
 }
 
 void TextComponent::onColorChanged()
@@ -539,23 +589,38 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 			mReflectOnBorders = false;
 
 		if (elem->has("singleLineScroll"))
-			mAutoScroll = elem->get<bool>("singleLineScroll");
-		else
-			mAutoScroll = false;
+			setAutoScroll(elem->get<bool>("singleLineScroll"));
+		else if (elem->has("autoScroll"))
+		{
+			auto autoScroll = elem->get<std::string>("autoScroll");
+			if (autoScroll == "horizontal")
+				setAutoScroll(AutoScrollType::HORIZONTAL);
+			else if (autoScroll == "vertical")
+				setAutoScroll(AutoScrollType::VERTICAL);
+			else
+				setAutoScroll(AutoScrollType::NONE);
+		}
+		else 
+			setAutoScroll(AutoScrollType::NONE);
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
 }
 
-void TextComponent::setAutoScroll(bool value)
+void TextComponent::setAutoScroll(bool scroll) 
+{ 
+	setAutoScroll(scroll ? AutoScrollType::VERTICAL : AutoScrollType::NONE); 
+}
+
+void TextComponent::setAutoScroll(AutoScrollType value)
 {
 	if (mAutoScroll == value)
 		return;
 
 	mAutoScroll = value;
-	onTextChanged();
+	onSizeChanged();
+	// onTextChanged();
 }
-
 
 ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string name)
 {
@@ -577,6 +642,10 @@ ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string n
 		return mReflection;
 	else if (name == "lineSpacing")
 		return mLineSpacing;
+	else if (name == "text")
+		return mText;
+	else if (name == "value")
+		return mText;
 
 	return GuiComponent::getProperty(name);
 }
@@ -599,6 +668,10 @@ void TextComponent::setProperty(const std::string name, const ThemeData::ThemeEl
 		mReflection = value.v;
 	else if (name == "lineSpacing" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
 		setLineSpacing(value.f);
+	else if (name == "text" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		setText(value.s);	
+	else if (name == "value" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		setValue(value.s);
 	else
 		GuiComponent::setProperty(name, value);
 }

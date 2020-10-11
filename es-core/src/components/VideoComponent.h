@@ -147,6 +147,9 @@ public:
 	void setPlaylist(std::shared_ptr<IPlaylist> playList);
 	void onPositionChanged() override;
 
+	bool getPlayAudio() { return mPlayAudio; }
+	void setPlayAudio(bool value) { mPlayAudio = value; }
+
 protected:
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;
@@ -177,6 +180,7 @@ protected:
 	float							mFadeIn;
 	std::string						mStaticImagePath;
 	ImageComponent					mStaticImage;
+	bool							mPlayAudio;
 
 	std::string						mVideoPath;
 	std::string						mPlayingVideoPath;

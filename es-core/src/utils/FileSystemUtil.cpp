@@ -600,8 +600,8 @@ namespace Utils
 					// append folder to path
 					path += ("/" + (*it));
 
-
-					// resolve symlink
+					/* 
+					// resolve symlink - Disabled : slow & useless
 					if(isSymlink(path))
 					{
 						std::string resolved = resolveSymlink(path);
@@ -619,7 +619,7 @@ namespace Utils
 
 						scan = true;
 						break;
-					}
+					}*/
 #endif // _WIN32
 				}
 			}

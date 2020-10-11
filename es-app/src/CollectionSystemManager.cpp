@@ -154,6 +154,24 @@ bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
+bool systemByHardwareSort(SystemData* sys1, SystemData* sys2)
+{
+	// Move collection at End
+	if (sys1->isCollection() != sys2->isCollection())
+		return sys2->isCollection();
+
+	// Order by hardware
+	std::string mf1 = Utils::String::toUpper(sys1->getSystemMetadata().hardwareType);
+	std::string mf2 = Utils::String::toUpper(sys2->getSystemMetadata().hardwareType);
+	if (mf1 != mf2)
+		return mf1.compare(mf2) < 0;
+
+	// Then by name
+	std::string name1 = Utils::String::toUpper(sys1->getName());
+	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
 CollectionSystemManager* CollectionSystemManager::get()
 {
 	assert(sInstance);
@@ -248,6 +266,7 @@ void CollectionSystemManager::updateSystemsList()
 {
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
 	bool sortByManufacturer = SystemData::isManufacturerSupported() && sortMode == "manufacturer";
+	bool sortByHardware = SystemData::isManufacturerSupported() && sortMode == "hardware";
 
 	// remove all Collection Systems
 	removeCollectionsFromDisplayedSystems();
@@ -258,7 +277,7 @@ void CollectionSystemManager::updateSystemsList()
 	// add custom enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
-	if (!sortMode.empty() && !sortByManufacturer)
+	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware)
 		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemSort);
 
 	if(mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
@@ -271,6 +290,8 @@ void CollectionSystemManager::updateSystemsList()
 	{
 		if (sortByManufacturer)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByManufacurerSort);
+		else if (sortByHardware)
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByHardwareSort);
 
 		// Move RetroPie / Retrobat system to end
 		for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); )

@@ -316,6 +316,27 @@ int SystemView::moveCursorFast(bool forward)
 			_moveCursorInRange(cursor, 1, mEntries.size());
 		}
 	}
+	else if(SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware" && mCursor >= 0 && mCursor < mEntries.size())
+	{
+		std::string hwt = mEntries[mCursor].object->getSystemMetadata().hardwareType;
+
+		int direction = forward ? 1 : -1;
+
+		_moveCursorInRange(cursor, direction, mEntries.size());
+
+		while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().hardwareType == hwt)
+			_moveCursorInRange(cursor, direction, mEntries.size());
+
+		if (!forward && cursor != mCursor)
+		{
+			// Find first item
+			hwt = mEntries[cursor].object->getSystemMetadata().hardwareType;
+			while (cursor != mCursor && mEntries[cursor].object->getSystemMetadata().hardwareType == hwt)
+				_moveCursorInRange(cursor, -1, mEntries.size());
+
+			_moveCursorInRange(cursor, 1, mEntries.size());
+		}
+	}
 	else
 		_moveCursorInRange(cursor, forward ? 10 : -10, mEntries.size());
 
@@ -335,7 +356,11 @@ bool SystemView::input(InputConfig* config, Input input)
 		
 		if (netPlay && config->isMappedTo(kodi ? "y" : "x", input))
 		{
-			mWindow->pushGui(new GuiNetPlay(mWindow));
+			if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
+			else 
+				mWindow->pushGui(new GuiNetPlay(mWindow));
+
 			return true;
 		}
 
@@ -441,7 +466,12 @@ bool SystemView::input(InputConfig* config, Input input)
 		{
 			showManufacturerBar();
 			return true;
+		} else if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware")
+		{
+			showHardwareBar();
+			return true;
 		}
+
 
 		if (config->isMappedTo("x", input))
 		{
@@ -512,11 +542,67 @@ void SystemView::showManufacturerBar()
 				listInput(idx - mCursor);
 				listInput(0);
 
+				auto pthis = this;
+
 				delete gs;
 
-				mLastCursor = -1;
-				onCursorChanged(CURSOR_STOPPED);
+				pthis->mLastCursor = -1;
+				pthis->onCursorChanged(CURSOR_STOPPED);
 				
+			}, "", sel == mf);
+
+			man = mf;
+		}
+
+		idx++;
+	}
+
+	int w = Renderer::getScreenWidth() / 3;
+	gs->getMenu().setSize(w, Renderer::getScreenHeight());
+
+	gs->getMenu().animateTo(
+		Vector2f(-w, 0),
+		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+
+	mWindow->pushGui(gs);
+}
+
+void SystemView::showHardwareBar()
+{
+	stopScrolling();
+
+	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO HARDWARE"), "-----"); // , "", nullptr, true);
+
+	int idx = 0;
+
+	std::string man = "*-*";
+	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
+	{
+		auto system = SystemData::sSystemVector[i];
+		if (!system->isVisible())
+			continue;
+
+		std::string sel = getSelected()->getSystemMetadata().hardwareType;
+		auto mf = system->getSystemMetadata().hardwareType;
+		if (man != mf)
+		{
+			std::vector<std::string> names;
+			for (auto sy : SystemData::sSystemVector)
+				if (sy->isVisible() && sy->getSystemMetadata().hardwareType == mf)
+					names.push_back(sy->getFullName());
+
+			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
+			{
+				listInput(idx - mCursor);
+				listInput(0);
+
+				auto pthis = this;
+
+				delete gs;
+
+				pthis->mLastCursor = -1;
+				pthis->onCursorChanged(CURSOR_STOPPED);
+
 			}, "", sel == mf);
 
 			man = mf;

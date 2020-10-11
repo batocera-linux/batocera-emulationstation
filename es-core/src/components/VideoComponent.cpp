@@ -65,7 +65,8 @@ VideoComponent::VideoComponent(Window* window) :
 	mScreensaverMode(false),
 	mTargetIsMax(false),
 	mTargetIsMin(false),
-	mTargetSize(0, 0)
+	mTargetSize(0, 0),
+	mPlayAudio(true)
 {
 	mScaleOrigin = Vector2f::Zero();
 
@@ -313,6 +314,11 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	if (properties & ThemeFlags::VISIBLE && elem->has("audio"))
+		setPlayAudio(elem->get<bool>("audio"));
+	else
+		setPlayAudio(true);
 
 	if (elem->has("path"))
 	{

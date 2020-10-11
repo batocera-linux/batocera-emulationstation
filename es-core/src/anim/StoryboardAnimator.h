@@ -158,7 +158,7 @@ public:
 	StoryboardAnimator(GuiComponent* comp, ThemeStoryboard* storyboard);
 	~StoryboardAnimator();
 
-	void reset();
+	void reset(int atTime = 0);
 	void stop();
 	bool update(int elapsed);
 	void pause();

@@ -46,6 +46,15 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 	else if (!sbrepeat.empty() && sbrepeat != "none")
 		this->repeat = atoi(sbrepeat.c_str());
 
+	sbrepeat = root.attribute("repeatAt").as_string();
+	if (!sbrepeat.empty())
+	{
+		if (this->repeat = 1)
+			this->repeat = 0;
+
+		this->repeatAt = atoi(sbrepeat.c_str());
+	}
+
 	for (pugi::xml_node node = root.child("animation"); node; node = node.next_sibling("animation"))
 	{
 		std::string prop = node.attribute("property").as_string();
