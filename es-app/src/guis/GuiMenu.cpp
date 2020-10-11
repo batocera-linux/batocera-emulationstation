@@ -3137,6 +3137,14 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("GAME LAUNCH TRANSITION"), transitionOfGames_style);
 	s->addSaveFunc([transitionOfGames_style] { Settings::getInstance()->setString("GameTransitionStyle", transitionOfGames_style->getSelected()); });
 
+// quick system select (left/right in game list view)
+	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
+    quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
+	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
+	s->addSaveFunc([quick_sys_select] {
+		Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
+	});
+
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
 	clock->setState(Settings::getInstance()->getBool("DrawClock"));
