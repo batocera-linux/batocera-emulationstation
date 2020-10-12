@@ -36,8 +36,6 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mScreensaverActive = false;
 	mDisable = false;		
 	mLastCursor = 0;
-	mStaticBackground = nullptr;
-	mStaticVideoBackground = nullptr;
 	mExtrasFadeOldCursor = -1;
 	
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -46,17 +44,11 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 
 SystemView::~SystemView()
 {
-	if (mStaticVideoBackground != nullptr)
-	{
-		delete mStaticVideoBackground;
-		mStaticVideoBackground = nullptr;
-	}
+	for (auto sb : mStaticVideoBackgrounds) delete sb;
+	mStaticVideoBackgrounds.clear();
 
-	if (mStaticBackground != nullptr)
-	{
-		delete mStaticBackground;
-		mStaticBackground = nullptr;
-	}
+	for(auto sb : mStaticBackgrounds) delete sb;
+	mStaticBackgrounds.clear();
 
 	clearEntries();
 }
@@ -623,11 +615,11 @@ void SystemView::showHardwareBar()
 
 void SystemView::update(int deltaTime)
 {		
-	if (mStaticBackground != nullptr)
-		mStaticBackground->update(deltaTime);
+	for(auto sb : mStaticBackgrounds)
+		sb->update(deltaTime);
 
-	if (mStaticVideoBackground != nullptr)
-		mStaticVideoBackground->update(deltaTime);
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->update(deltaTime);
 	
 	for (int i = 0; i < mEntries.size(); i++)
 	{
@@ -856,11 +848,11 @@ void SystemView::render(const Transform4x4f& parentTrans)
 
 	renderExtras(trans, INT16_MIN, minMax.first);
 
-	if (mStaticBackground != nullptr)
-		mStaticBackground->render(trans);
+	for (auto sb : mStaticBackgrounds)
+		sb->render(trans);
 
-	if (mStaticVideoBackground != nullptr)
-		mStaticVideoBackground->render(trans);
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->render(trans);
 
 	if (mCarousel.zIndex > mSystemInfo.getZIndex()) {
 		renderInfoBar(trans);
@@ -949,35 +941,32 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 		mSystemInfo.applyTheme(theme, "system", "systemInfo", ThemeFlags::ALL);
 		mSystemInfo.setOpacity(0);
 	}
+		
+	for (auto sb : mStaticBackgrounds) delete sb;
+	mStaticBackgrounds.clear();
 
-	const ThemeData::ThemeElement* fixedBackgroundElem = theme->getElement("system", "staticBackground", "image");
-	if (fixedBackgroundElem)
+	for (auto name : theme->getElementNames("system", "image"))
 	{
-		if (mStaticBackground == nullptr)
-			mStaticBackground = new ImageComponent(mWindow, false);
-
-		mStaticBackground->applyTheme(theme, "system", "staticBackground", ThemeFlags::ALL);
-	}
-	else if (mStaticBackground != nullptr)
-	{
-		delete mStaticBackground;
-		mStaticBackground = nullptr;
+		if (Utils::String::startsWith(name, "staticBackground"))
+		{
+			ImageComponent* staticBackground = new ImageComponent(mWindow, false);
+			staticBackground->applyTheme(theme, "system", name, ThemeFlags::ALL);
+			mStaticBackgrounds.push_back(staticBackground);		
+		}
 	}
 
-	const ThemeData::ThemeElement* fixedVideoBackgroundElem = theme->getElement("system", "staticBackgroundVideo", "video");
-	if (fixedVideoBackgroundElem && (!fixedVideoBackgroundElem->has("visible") || fixedVideoBackgroundElem->get<bool>("visible")))
-	{		
-		if (mStaticVideoBackground == nullptr)
-			mStaticVideoBackground = new VideoVlcComponent(mWindow);
-
-		mStaticVideoBackground->applyTheme(theme, "system", "staticBackgroundVideo", ThemeFlags::ALL);
-	}
-	else if (mStaticBackground != nullptr)
-	{
-		delete mStaticVideoBackground;
-		mStaticVideoBackground = nullptr;
-	}
+	for (auto sb : mStaticVideoBackgrounds) delete sb;
+	mStaticVideoBackgrounds.clear();
 	
+	for (auto name : theme->getElementNames("system", "video"))
+	{
+		if (Utils::String::startsWith(name, "staticBackground"))
+		{
+			VideoVlcComponent* sv = new VideoVlcComponent(mWindow);
+			sv->applyTheme(theme, "system", name, ThemeFlags::ALL);
+			mStaticVideoBackgrounds.push_back(sv);
+		}
+	}
 
 	mViewNeedsReload = false;
 }
@@ -1468,17 +1457,11 @@ void  SystemView::getDefaultElements(void)
 	mSystemInfo.setZIndex(50);
 	mSystemInfo.setDefaultZIndex(50);
 
-	if (mStaticBackground != nullptr)
-	{
-		delete mStaticBackground;
-		mStaticBackground = nullptr;
-	}
+	for (auto sb : mStaticBackgrounds) delete sb;
+	mStaticBackgrounds.clear();
 
-	if (mStaticVideoBackground != nullptr)
-	{
-		delete mStaticVideoBackground;
-		mStaticVideoBackground = nullptr;
-	}
+	for (auto sb : mStaticVideoBackgrounds) delete sb;
+	mStaticVideoBackgrounds.clear();
 }
 
 void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
@@ -1565,11 +1548,11 @@ void SystemView::onShow()
 
 	activateExtras(mCursor);
 
-	if (mStaticBackground)
-		mStaticBackground->onShow();
+	for (auto sb : mStaticBackgrounds)
+		sb->onShow();
 
-	if (mStaticVideoBackground)
-		mStaticVideoBackground->onShow();
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->onShow();
 }
 
 void SystemView::onHide()
@@ -1577,8 +1560,11 @@ void SystemView::onHide()
 	GuiComponent::onHide();	
 	updateExtras([this](GuiComponent* p) { p->onHide(); });
 
-	if (mStaticVideoBackground)
-		mStaticVideoBackground->onHide();
+	for (auto sb : mStaticBackgrounds)
+		sb->onHide();
+
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->onHide();
 }
 
 void SystemView::onScreenSaverActivate()
@@ -1586,8 +1572,8 @@ void SystemView::onScreenSaverActivate()
 	mScreensaverActive = true;
 	updateExtras([this](GuiComponent* p) { p->onScreenSaverActivate(); });
 
-	if (mStaticVideoBackground)
-		mStaticVideoBackground->onScreenSaverActivate();
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->onScreenSaverActivate();
 }
 
 void SystemView::onScreenSaverDeactivate()
@@ -1595,8 +1581,8 @@ void SystemView::onScreenSaverDeactivate()
 	mScreensaverActive = false;
 	updateExtras([this](GuiComponent* p) { p->onScreenSaverDeactivate(); });
 
-	if (mStaticVideoBackground)
-		mStaticVideoBackground->onScreenSaverDeactivate();
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->onScreenSaverDeactivate();
 }
 
 void SystemView::topWindow(bool isTop)
@@ -1604,8 +1590,8 @@ void SystemView::topWindow(bool isTop)
 	mDisable = !isTop;
 	updateExtras([this, isTop](GuiComponent* p) { p->topWindow(isTop); });
 
-	if (mStaticVideoBackground)
-		mStaticVideoBackground->topWindow(isTop);
+	for (auto sb : mStaticVideoBackgrounds)
+		sb->topWindow(isTop);
 }
 
 void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)

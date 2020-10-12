@@ -2448,9 +2448,9 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	}
 
 	//  theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region,
-	themeconfig->addSaveFunc([systemTheme, system, themeconfig, theme_set, options, gamelist_style, mGridSize, window]
+	themeconfig->addSaveFunc([systemTheme, system, themeconfig, options, gamelist_style, mGridSize, window]
 	{
-		bool reloadAll = systemTheme.empty() ? Settings::getInstance()->setString("ThemeSet", theme_set == nullptr ? "" : theme_set->getSelected()) : false;
+		bool reloadAll = false;
 
 		for (auto option : options)
 		{
@@ -2521,12 +2521,6 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				CollectionSystemManager::get()->updateSystemsList();
 				ViewController::get()->reloadAll(window);
 				window->closeSplashScreen();
-
-				if (theme_set != nullptr)
-				{
-					std::string oldTheme = Settings::getInstance()->getString("ThemeSet");
-					Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
-				}
 			}
 			else
 			{
@@ -2611,11 +2605,13 @@ void GuiMenu::openUISettings()
 		//	theme_set->add(it->first, it->first, it == selectedSet);
 
 		s->addWithLabel(_("THEME SET"), theme_set);
-		s->addSaveFunc([s, theme_set, pthis, window]
+		s->addSaveFunc([s, theme_set, pthis, window, system]
 		{
 			std::string oldTheme = Settings::getInstance()->getString("ThemeSet");
 			if (oldTheme != theme_set->getSelected())
-			{
+			{			
+				saveSubsetSettings();
+
 				Settings::getInstance()->setString("ThemeSet", theme_set->getSelected());
 
 				// theme changed without setting options, forcing options to avoid crash/blank theme
@@ -2634,6 +2630,8 @@ void GuiMenu::openUISettings()
 
 				for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); sysIt++)
 					(*sysIt)->setSystemViewMode("automatic", Vector2f(0,0));
+
+				loadSubsetSettings(theme_set->getSelected());
 
 				s->setVariable("reloadCollections", true);
 				s->setVariable("reloadAll", true);
@@ -3998,4 +3996,122 @@ void GuiMenu::openFormatDriveSettings()
 		});
 
 	mWindow->pushGui(s);
+}
+
+
+
+void GuiMenu::saveSubsetSettings()
+{
+	auto system = ViewController::get()->getState().getSystem();
+	if (system == nullptr || system->getTheme() == nullptr)
+		return;
+
+	std::string fileData;
+
+	auto subsets = system->getTheme()->getSubSetNames();
+	for (auto subset : subsets)
+	{
+		std::string name = subset;
+		std::string value;
+
+		if (name == "colorset")
+			value = Settings::getInstance()->getString("ThemeColorSet");
+		else if (name == "iconset")
+			value = Settings::getInstance()->getString("ThemeIconSet");
+		else if (name == "menu")
+			value = Settings::getInstance()->getString("ThemeMenu");
+		else if (name == "systemview")
+			value = Settings::getInstance()->getString("ThemeSystemView");
+		else if (name == "gamelistview")
+			value = Settings::getInstance()->getString("ThemeGamelistView");
+		else if (name == "region")
+			value = Settings::getInstance()->getString("ThemeRegionName");
+		else
+		{
+			value = Settings::getInstance()->getString("subset." + name);
+			name = "subset." + name;
+		}
+
+		if (!value.empty())
+			fileData += name + "=" + value + "\r";
+
+		for (auto system : SystemData::sSystemVector)
+		{
+			value = Settings::getInstance()->getString("subset." + system->getThemeFolder() + "." + name);
+			if (!value.empty())
+				fileData += "subset." + system->getThemeFolder() + "." + name + "=" + value + "\r";
+		}
+	}
+
+	if (!Settings::getInstance()->getString("GamelistViewStyle").empty() && Settings::getInstance()->getString("GamelistViewStyle") != "automatic")
+		fileData += "GamelistViewStyle=" + Settings::getInstance()->getString("GamelistViewStyle") + "\r";
+
+	if (!Settings::getInstance()->getString("DefaultGridSize").empty())
+		fileData += "DefaultGridSize=" + Settings::getInstance()->getString("DefaultGridSize") + "\r";
+
+	std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings";
+	if (!Utils::FileSystem::exists(path))
+		Utils::FileSystem::createDirectory(path);
+
+	std::string themeSet = Settings::getInstance()->getString("ThemeSet");
+	std::string fileName = path + "/" + themeSet + ".cfg";
+
+	if (fileData.empty())
+	{
+		if (Utils::FileSystem::exists(fileName))
+			Utils::FileSystem::removeFile(fileName);
+	}
+	else
+		Utils::FileSystem::writeAllText(fileName, fileData);
+
+}
+
+void GuiMenu::loadSubsetSettings(const std::string themeName)
+{
+	std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings";
+	if (!Utils::FileSystem::exists(path))
+		Utils::FileSystem::createDirectory(path);
+
+	std::string fileName = path + "/" + themeName + ".cfg";
+	if (!Utils::FileSystem::exists(fileName))
+		return;
+
+	std::string line;
+	std::ifstream systemConf(fileName);
+	if (systemConf && systemConf.is_open())
+	{
+		while (std::getline(systemConf, line, '\r'))
+		{
+			int idx = line.find("=");
+			if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
+				continue;
+
+			std::string name = line.substr(0, idx);
+			std::string value = line.substr(idx + 1);
+			if (!name.empty() && !value.empty())
+			{
+				if (name == "colorset")
+					Settings::getInstance()->setString("ThemeColorSet", value);
+				else if (name == "iconset")
+					Settings::getInstance()->setString("ThemeIconSet", value);
+				else if (name == "menu")
+					Settings::getInstance()->setString("ThemeMenu", value);
+				else if (name == "systemview")
+					Settings::getInstance()->setString("ThemeSystemView", value);
+				else if (name == "gamelistview")
+					Settings::getInstance()->setString("ThemeGamelistView", value);
+				else if (name == "region")
+					Settings::getInstance()->setString("ThemeRegionName", value);
+				else if (name == "GamelistViewStyle")
+					Settings::getInstance()->setString("GamelistViewStyle", value);
+				else if (name == "DefaultGridSize")
+					Settings::getInstance()->setString("DefaultGridSize", value);
+				else if (Utils::String::startsWith(name, "subset."))
+					Settings::getInstance()->setString(name, value);
+			}
+		}
+		systemConf.close();
+	}
+	else
+		LOG(LogError) << "Unable to open " << fileName;
 }

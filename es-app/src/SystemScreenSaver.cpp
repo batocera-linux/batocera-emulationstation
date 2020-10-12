@@ -72,12 +72,12 @@ void SystemScreenSaver::startScreenSaver()
 
 	stopScreenSaver();
 
+	if (!loadingNext && Settings::getInstance()->getBool("StopMusicOnScreenSaver")) //(Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute")))
+		AudioManager::getInstance()->deinit();
+
 	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 	if (screensaver_behavior == "random video")
 	{
-		if (!loadingNext && (Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute")))
-			AudioManager::getInstance()->deinit();
-
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout");
 
 		// Configure to fade out the windows, Skip Fading if Instant mode
@@ -193,15 +193,18 @@ void SystemScreenSaver::stopScreenSaver()
 	mState = STATE_INACTIVE;
 	PowerSaver::runningScreenSaver(false);
 
-	// Exiting video screen saver -> Restore sound
-	if (isExitingScreenSaver && isVideoScreenSaver && Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute"))
+	// Exiting screen saver -> Restore sound
+	if (isExitingScreenSaver && Settings::getInstance()->getBool("StopMusicOnScreenSaver")) //isVideoScreenSaver && Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute"))
 	{
 		AudioManager::getInstance()->init();
 
-		if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
-			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
-		else
-			AudioManager::getInstance()->playRandomMusic();
+		if (Settings::getInstance()->getBool("audio.bgmusic"))
+		{
+			if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
+				AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
+			else
+				AudioManager::getInstance()->playRandomMusic();
+		}
 	}
 }
 

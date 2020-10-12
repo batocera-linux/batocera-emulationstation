@@ -47,6 +47,9 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 		this->repeat = atoi(sbrepeat.c_str());
 
 	sbrepeat = root.attribute("repeatAt").as_string();
+	if (sbrepeat.empty())
+		sbrepeat = root.attribute("repeatat").as_string();
+
 	if (!sbrepeat.empty())
 	{
 		if (this->repeat = 1)
@@ -131,6 +134,11 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 			if (node.attribute("autoreverse"))
 			{
 				std::string areverse = node.attribute("autoreverse").as_string();
+				anim->autoReverse = (areverse == "true" || areverse == "1");
+			}
+			else if (node.attribute("autoReverse"))
+			{
+				std::string areverse = node.attribute("autoReverse").as_string();
 				anim->autoReverse = (areverse == "true" || areverse == "1");
 			}
 

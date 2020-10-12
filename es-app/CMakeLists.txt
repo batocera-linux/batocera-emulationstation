@@ -32,8 +32,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameScraper.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScreensaverOptions.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.h 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.h
@@ -119,8 +118,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameScraper.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScreensaverOptions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.cpp

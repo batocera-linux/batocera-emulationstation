@@ -126,11 +126,13 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 	int ret = -1;
 	output = "";
 
+#define BUFSIZE		32768
+
 	STARTUPINFO si;
 	SECURITY_ATTRIBUTES sa;
 	PROCESS_INFORMATION pi;
 	HANDLE g_hChildStd_IN_Rd, g_hChildStd_OUT_Wr, g_hChildStd_OUT_Rd, g_hChildStd_IN_Wr;  //pipe handles
-	char buf[1024];           //i/o buffer
+	char buf[BUFSIZE];           //i/o buffer
 
 	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
 	sa.bInheritHandle = TRUE;
@@ -162,12 +164,12 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 
 				for (;;)
 				{
-					if (!PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL))
+					if (!PeekNamedPipe(g_hChildStd_OUT_Rd, buf, BUFSIZE-1, &bread, &avail, NULL))
 						break;
 
 					if (bread > 0)
 					{
-						if (!ReadFile(g_hChildStd_OUT_Rd, buf, 1023, &bread, NULL))
+						if (!ReadFile(g_hChildStd_OUT_Rd, buf, BUFSIZE - 1, &bread, NULL))
 							break;
 
 						buf[bread] = 0;
@@ -176,7 +178,7 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 
 					if (WaitForSingleObject(pi.hProcess, 10) == WAIT_OBJECT_0)
 					{
-						if (!PeekNamedPipe(g_hChildStd_OUT_Rd, buf, 1023, &bread, &avail, NULL))
+						if (!PeekNamedPipe(g_hChildStd_OUT_Rd, buf, BUFSIZE - 1, &bread, &avail, NULL))
 							break;
 
 						if (bread == 0)
