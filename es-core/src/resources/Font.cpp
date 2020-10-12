@@ -125,6 +125,8 @@ void Font::reload()
 		return;
 	
 	rebuildTextures();
+	clearFaceCache();
+
 	mLoaded = true;
 }
 
@@ -134,6 +136,8 @@ bool Font::unload()
 	{		
 		for (auto tex : mTextures)
 			tex->deinitTexture();
+
+		clearFaceCache();
 
 		mLoaded = false;
 		return true;
@@ -386,9 +390,6 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 // completely recreate the texture data for all textures based on mGlyphs information
 void Font::rebuildTextures()
 {
-	for (unsigned int i = 0; i < 255; i++)
-		mGlyphCacheArray[i] = NULL;
-
 	// recreate OpenGL textures
 	for(auto tex : mTextures)
 		tex->initTexture();
