@@ -1569,7 +1569,7 @@ void GuiMenu::openGamesSettings_batocera()
 			shaders_choices->add(_("NONE"), "none", currentShader == "none");
 
 			for (auto shader : installedShaders)
-				shaders_choices->add(_(Utils::String::toUpper(shader)), shader, currentShader == shader);
+				shaders_choices->add(_(Utils::String::toUpper(shader).c_str()), shader, currentShader == shader);
 			
 			if (!shaders_choices->hasSelection())
 				shaders_choices->selectFirstItem();
@@ -3484,7 +3484,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			shaders_choices->add(_("NONE"), "none", currentShader == "none");
 
 			for (auto shader : installedShaders)
-				shaders_choices->add(_(Utils::String::toUpper(shader)), shader, currentShader == shader);
+				shaders_choices->add(_(Utils::String::toUpper(shader).c_str()), shader, currentShader == shader);
 
 			if (!shaders_choices->hasSelection())
 				shaders_choices->selectFirstItem();
