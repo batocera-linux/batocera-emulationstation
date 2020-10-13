@@ -233,25 +233,11 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				});
 			
 				msgBox->addGroup(_("OPTIONS"));
-
-				auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
-				retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.netplay.spectator"));
-				msgBox->addWithLabel(_("ALLOW SPECTATOR MODE"), retroachievements_screenshot_enabled);
-				msgBox->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.netplay.spectator", retroachievements_screenshot_enabled->getState()); });
-				
 				msgBox->addInputTextRow(_("SET PLAYER PASSWORD"), "global.netplay.password", false);
 				msgBox->addInputTextRow(_("SET VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 				
 				mWindow->pushGui(msgBox);
-				/*
-				window->pushGui(new GuiMsgBox(mWindow, _("LAUNCH THE GAME AS NETPLAY HOST ?"), _("YES"), [this, window, cursor]
-				{
-					LaunchGameOptions options;
-					options.netPlayMode = SERVER;
-					ViewController::get()->launch(cursor, options);
 
-				}, _("NO"), nullptr));
-				*/
 				return true;
 			}				
 			

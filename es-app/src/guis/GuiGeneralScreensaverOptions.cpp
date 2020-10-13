@@ -23,26 +23,27 @@
 #define fake_gettext_systems		_("systems")
 #define fake_gettext_random			_("random")
 
-GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int selectItem) : GuiScreensaverOptions(window, _("SCREENSAVER SETTINGS"))
+GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int selectItem) : GuiSettings(window, _("SCREENSAVER SETTINGS"))
 {
-	auto theme = ThemeData::getMenuTheme();
+	std::string ssBehavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 
-	// screensaver time
-	auto screensaver_time = std::make_shared<SliderComponent>(mWindow, 0.f, 120.0f, 1.f, "m");
-	screensaver_time->setValue((float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
-	addWithLabel(_("SCREENSAVER AFTER"), screensaver_time);
-	addSaveFunc([screensaver_time] {
-	    Settings::getInstance()->setInt("ScreenSaverTime", (int)Math::round(screensaver_time->getValue()) * (1000 * 60));
+	mMenu.addGroup(_("SETTINGS"));
+
+	// Screensaver time
+	auto ctlTime = std::make_shared<SliderComponent>(mWindow, 0.f, 120.0f, 1.f, "m");
+	ctlTime->setValue((float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
+	addWithLabel(_("SCREENSAVER AFTER"), ctlTime);
+	addSaveFunc([ctlTime]
+	{
+	    Settings::getInstance()->setInt("ScreenSaverTime", (int)Math::round(ctlTime->getValue()) * (1000 * 60));
 	    PowerSaver::updateTimeouts();
 	});
-
-	std::string ssBehavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 	
-	// screensaver behavior
-	auto screensaver_behavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREENSAVER BEHAVIOR"), false);
-	screensaver_behavior->addRange({ "dim", "black", "random video", "slideshow" }, ssBehavior);
-	addWithLabel(_("SCREENSAVER BEHAVIOR"), screensaver_behavior, selectItem == 1);
-	screensaver_behavior->setSelectedChangedCallback([this](const std::string& name)
+	// Screensaver behavior
+	auto ctlBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREENSAVER BEHAVIOR"), false);
+	ctlBehavior->addRange({ "dim", "black", "random video", "slideshow" }, ssBehavior);
+	addWithLabel(_("SCREENSAVER BEHAVIOR"), ctlBehavior, selectItem == 1);
+	ctlBehavior->setSelectedChangedCallback([this](const std::string& name)
 	{
 		if (Settings::getInstance()->setString("ScreenSaverBehavior", name))
 		{
@@ -54,10 +55,18 @@ GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int s
 		}
 	});
 
+	// Screensaver stops music 
+	if (Settings::getInstance()->getBool("audio.bgmusic"))
+	{
+		auto ctlStopMusic = std::make_shared<SwitchComponent>(mWindow);
+		ctlStopMusic->setState(Settings::getInstance()->getBool("StopMusicOnScreenSaver"));
+		addWithLabel(_("STOP MUSIC ON SCREENSAVER"), ctlStopMusic);
+		addSaveFunc([ctlStopMusic] { Settings::getInstance()->setBool("StopMusicOnScreenSaver", ctlStopMusic->getState()); });
+	}
+
 	if (ssBehavior == "random video")
 		addVideoScreensaverOptions(selectItem);
-
-	if (ssBehavior == "slideshow")
+	else if (ssBehavior == "slideshow")
 		addSlideShowScreensaverOptions(selectItem);
 }
 

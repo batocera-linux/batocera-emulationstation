@@ -104,8 +104,8 @@ private:
 	
 	SystemViewCarousel mCarousel;
 	TextComponent mSystemInfo;
-	ImageComponent*		mStaticBackground;
-	VideoVlcComponent*	mStaticVideoBackground;
+	std::vector<ImageComponent*>		mStaticBackgrounds;
+	std::vector<VideoVlcComponent*>		mStaticVideoBackgrounds;
 
 	// unit is list index
 	float mCamOffset;

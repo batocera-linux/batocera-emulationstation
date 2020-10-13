@@ -76,6 +76,10 @@ static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 {
 	std::string name1 = Utils::String::toUpper(sys1.group);
 	std::string name2 = Utils::String::toUpper(sys2.group);
+
+	if (name1 == name2)
+		return Utils::String::toUpper(sys1.description).compare(Utils::String::toUpper(sys2.description)) < 0;
+
 	return name1.compare(name2) < 0;
 }
 
@@ -85,9 +89,14 @@ void GuiBatoceraStore::loadList(bool updatePackageList)
 	mMenu.clear();
 
 	std::unordered_set<std::string> groups;
-	for (auto package : mPackages)
+	for (auto& package : mPackages)
+	{
+		if (package.group.empty())
+			package.group = package.repository;
+
 		if (groups.find(package.group) == groups.cend())
 			groups.insert(package.group);
+	}
 
 	bool hasGroups = (groups.size() > 1);
 
@@ -102,9 +111,9 @@ void GuiBatoceraStore::loadList(bool updatePackageList)
 		if (hasGroups && lastGroup != package.group)
 		{
 			if (package.group.empty())
-				mMenu.addGroup(_("MISC"));
+				mMenu.addGroup(_("MISC"), false, false);
 			else
-				mMenu.addGroup(_(Utils::String::toUpper(package.group).c_str()));
+				mMenu.addGroup(_(Utils::String::toUpper(package.group).c_str()), false, false);
 
 			i++;
 		}
@@ -119,7 +128,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList)
 		if (!grid->isInstallPending())
 			row.makeAcceptInputHandler([this, package] { processPackage(package); });
 
-		mMenu.addRow(row, i == idx);
+		mMenu.addRow(row, i == idx, false);
 		i++;
 	}
 

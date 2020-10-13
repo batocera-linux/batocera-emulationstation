@@ -368,11 +368,11 @@ namespace Utils
 
 		std::string trim(const std::string& _string)
 		{
-			const size_t strBegin = _string.find_first_not_of(" \t");
+			const size_t strBegin = _string.find_first_not_of(" \t\r\n");
 			if(strBegin == std::string::npos)
 				return "";
 
-			const size_t strEnd = _string.find_last_not_of(" \t");
+			const size_t strEnd = _string.find_last_not_of(" \t\r\n");			
 			return _string.substr(strBegin, strEnd - strBegin + 1);
 
 		} // trim
