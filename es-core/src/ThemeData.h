@@ -299,6 +299,7 @@ public:
 
 	// If expectedType is an empty string, will do no type checking.
 	const ThemeElement* getElement(const std::string& view, const std::string& element, const std::string& expectedType) const;
+	const std::vector<std::string> getElementNames(const std::string& view, const std::string& expectedType) const;
 
 	static std::vector<GuiComponent*> makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad = false);
 

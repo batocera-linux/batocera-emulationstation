@@ -1488,6 +1488,21 @@ const ThemeData::ThemeElement* ThemeData::getElement(const std::string& view, co
 	return &elemIt->second;
 }
 
+const std::vector<std::string> ThemeData::getElementNames(const std::string& view, const std::string& expectedType) const
+{
+	std::vector<std::string> ret;
+
+	auto viewIt = mViews.find(view);
+	if (viewIt != mViews.cend())
+	{
+		for (auto& element : viewIt->second.elements)
+			if (element.second.type == expectedType)
+				ret.push_back(element.first);
+	}
+
+	return ret;
+}
+
 const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 {
 	static std::shared_ptr<ThemeData> theme = nullptr;

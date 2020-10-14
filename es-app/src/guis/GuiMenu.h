@@ -103,6 +103,9 @@ private:
 
 	bool checkNetwork();
 
+	static void saveSubsetSettings();
+	static void loadSubsetSettings(const std::string themeName);
+
 public:
 	static std::vector<DecorationSetInfo> getDecorationsSets(SystemData* system = nullptr);
 };
