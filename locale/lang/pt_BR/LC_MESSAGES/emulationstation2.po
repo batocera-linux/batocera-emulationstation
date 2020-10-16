@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-16 11:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -409,13 +409,13 @@ msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "COLEÇÕES AUTOMÁTICAS"
+msgstr "COLEÇÕES DE JOGOS AUTOMÁTICOS"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLEÇÕES EDITÁVEIS"
@@ -541,13 +541,13 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "ROM DESCONHECIDO"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ROM DIFERENTE"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
@@ -562,10 +562,10 @@ msgid "NO GAME FOUND"
 msgstr "NENHUM JOGO ENCONTRADO"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "ENTRAR NO JOGO"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "ASSISTIR O JOGO"
 
 msgid "MANUAL INPUT"
 msgstr "ENTRADA MANUAL"
@@ -640,34 +640,34 @@ msgid "MISSING BIOS"
 msgstr "BIOS FALTANDO"
 
 msgid "dim"
-msgstr ""
+msgstr "dim"
 
 msgid "black"
-msgstr ""
+msgstr "escuro"
 
 msgid "random video"
-msgstr ""
+msgstr "vídeo aleatório"
 
 msgid "slideshow"
-msgstr ""
+msgstr "apresentação de slides"
 
 msgid "always"
 msgstr "sempre"
 
 msgid "start & end"
-msgstr ""
+msgstr "início & fim"
 
 msgid "never"
 msgstr "nunca"
 
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 msgid "systems"
-msgstr ""
+msgstr "sistemas"
 
 msgid "random"
-msgstr ""
+msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DA PROTEÇÃO DE TELA"
@@ -874,7 +874,7 @@ msgid "instant"
 msgstr "instante"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "escurecer & slide"
 
 msgid "System"
 msgstr "Sistema"
@@ -1027,7 +1027,7 @@ msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE VÍDEO"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DE VRAM"
@@ -1063,7 +1063,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR O DISCO"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "GERENCIAMENTO DE DADOS"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1084,7 +1084,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "UI"
-msgstr ""
+msgstr "UI (INTERFACE DO USUÁRIO)"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
@@ -1108,7 +1108,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
@@ -1344,13 +1344,13 @@ msgid "DECORATION"
 msgstr "DECORAÇÃO"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ESTICAR BEZELS (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO JOGO POR IA"
 
 msgid "ENABLE AI SERVICE"
-msgstr "ATIVAR O SERVIÇO IA"
+msgstr "ATIVAR O SERVIÇO DE IA"
 
 msgid "TARGET LANGUAGE"
 msgstr "IDIOMA ALVO"
@@ -1724,19 +1724,19 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "START GAME"
-msgstr ""
+msgstr "INICIAR JOGO"
 
 msgid "START NETPLAY HOST"
-msgstr ""
+msgstr "INICIAR NETPLAY HOST"
 
 msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "PERMITIR O MODO ESPECTADOR"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "DEFINIR SENHA DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "DEFINIR SENHA DE VISUALIZADOR"
 
 msgid "Searching"
 msgstr "Procurando"
@@ -2041,15 +2041,15 @@ msgstr "EM PROGRESSO..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d s"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
