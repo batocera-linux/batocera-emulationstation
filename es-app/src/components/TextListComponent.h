@@ -80,6 +80,11 @@ public:
 	inline void setColor(unsigned int id, unsigned int color) { mColors[id] = color; }
 	inline void setLineSpacing(float lineSpacing) { mLineSpacing = lineSpacing; }
 
+	virtual void onShow() override;
+
+	void resetLastCursor() { mLastCursor = -1; }
+	int getLastCursor() { return mLastCursor; }
+
 protected:
 	virtual void onScroll(int /*amt*/) { if(!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
 	virtual void onCursorChanged(const CursorState& state);
@@ -90,6 +95,9 @@ private:
 	int mMarqueeTime;
 
 	int mLineCount;
+
+	int mLastCursor;
+	CursorState mLastCursorState;
 
 	Alignment mAlignment;
 	float mHorizontalMargin;
@@ -123,6 +131,8 @@ TextListComponent<T>::TextListComponent(Window* window) :
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
 	mMarqueeTime = 0;
+	mLastCursor = -1;
+	mLastCursorState = CursorState::CURSOR_STOPPED;
 
 	mHorizontalMargin = 0;
 	mAlignment = ALIGN_CENTER;
@@ -383,8 +393,28 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 
 	mScrollbar.onCursorChanged();
 
-	if (mCursorChangedCallback)
-		mCursorChangedCallback(state);
+	LOG(LogDebug) << "mCursor \"" << mCursor << "\ state  \"" << state << "\"";
+
+	if (mLastCursor != mCursor || mLastCursorState != state)
+	{
+		if (mCursorChangedCallback)
+			mCursorChangedCallback(state);
+
+		mLastCursor = mCursor;
+		mLastCursorState = state;
+	}
+}
+
+template<typename T>
+void TextListComponent<T>::onShow()
+{	
+	GuiComponent::onShow();
+
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+	mMarqueeTime = 0;
+
+	mScrollbar.onCursorChanged();
 }
 
 template <typename T>

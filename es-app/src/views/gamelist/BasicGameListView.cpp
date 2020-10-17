@@ -54,7 +54,7 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 	SystemData* system = mCursorStack.size() && mRoot->getSystem()->isGroupSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
 
 	auto groupTheme = system->getTheme();
-	if (groupTheme)
+	if (groupTheme && mHeaderImage.hasImage())
 	{
 		const ThemeData::ThemeElement* logoElem = groupTheme->getElement(getName(), "logo", "image");
 		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
@@ -136,6 +136,9 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 	}
 
 	updateFolderPath();
+
+	if (mShowing)
+		onShow();
 }
 
 FileData* BasicGameListView::getCursor()

@@ -622,10 +622,8 @@ bool ViewController::input(InputConfig* config, Input input)
 		return true;
 	}
 
-	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
-	{
-		return true;
-	}
+//	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
+//		return true;
 
 	if(mCurrentView)
 		return mCurrentView->input(config, input);

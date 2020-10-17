@@ -120,6 +120,7 @@ public:
 	void detectLanguageAndRegion(bool overWrite);
 
 	void deleteGameFiles();
+	void checkCrc32(bool force = false);
 
 private:
 	MetaDataList mMetadata;

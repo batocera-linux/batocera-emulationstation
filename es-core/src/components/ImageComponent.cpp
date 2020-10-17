@@ -335,6 +335,15 @@ void ImageComponent::setOpacity(unsigned char opacity)
 	updateColors();
 }
 
+void ImageComponent::setPadding(const Vector4f padding) 
+{ 
+	if (mPadding == padding)
+		return;
+
+	mPadding = padding; 
+	updateVertices(); 
+}
+
 void ImageComponent::updateVertices()
 {
 	if(!mTexture)
@@ -649,6 +658,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		resize();
 	}
 
+	if (properties & SIZE && elem->has("padding"))
+		setPadding(elem->get<Vector4f>("padding"));
+
 	// position + size also implies origin
 	if ((properties & ORIGIN || (properties & POSITION && properties & ThemeFlags::SIZE)) && elem->has("origin"))
 		setOrigin(elem->get<Vector2f>("origin"));
@@ -746,6 +758,8 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		auto path = elem->get<std::string>("path");
 		if (ResourceManager::getInstance()->fileExists(path))
 		{
+			mPath = "";
+
 			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
 			if(tile)
 				setImage(path, true);
@@ -753,10 +767,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			{
 				auto sz = getMaxSizeInfo();
 				if (!mLinear && sz.x() > 32 && sz.y() > 32)
-				{
-					mPath = "";
 					setImage(path, tile, sz);
-				}
 				else
 					setImage(path, false);
 			}
@@ -839,21 +850,18 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 
 	if (name == "size" || name == "maxSize" || name == "minSize")
 		return mSize / scale;
-
-	if (name == "color")
+	else if (name == "color")
 		return mColorShift;
-
-	if (name == "colorEnd")
+	else if (name == "colorEnd")
 		return mColorShiftEnd;
-
-	if (name == "reflexion")
+	else if (name == "reflexion")
 		return mReflection;
-
-	if (name == "roundCorners")
+	else if (name == "roundCorners")
 		return mRoundCorners;
-
-	if (name == "path")
+	else if (name == "path")
 		return mPath;
+	else if (name == "padding")
+		return mPadding;
 
 	return GuiComponent::getProperty(name);
 }
@@ -883,6 +891,8 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		mReflection = value.v;
 	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
 		mRoundCorners = value.f;	
+	else if (name == "padding" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
+		setPadding(value.r);
 	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
 	{
 		mForceLoad = true;

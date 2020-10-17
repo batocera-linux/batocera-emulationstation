@@ -1457,7 +1457,7 @@ std::vector<std::string> ApiSystem::getShaderList()
 					continue;
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
-					ret.push_back(Utils::FileSystem::getParent(file));
+					ret.push_back(parent);
 			}
 		}
 	}
