@@ -17,7 +17,7 @@
 #define INCLUDE_UNKNOWN false;
 
 FileFilterIndex::FileFilterIndex()
-	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false)
+	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -28,6 +28,7 @@ FileFilterIndex::FileFilterIndex()
 		{ PLAYER_FILTER, 	&playersIndexAllKeys, 	&filterByPlayers,	&playersIndexFilteredKeys, 	"players",		false,				"",				_("PLAYERS")	},
 		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER / DEVELOPER")	},
 		{ RATINGS_FILTER, 	&ratingsIndexAllKeys, 	&filterByRatings,	&ratingsIndexFilteredKeys, 	"rating",		false,				"",				_("RATING")	},
+		{ YEAR_FILTER, 		&yearIndexAllKeys, 		&filterByYear,		&yearIndexFilteredKeys, 	"year",			false,				"",				_("YEAR") },
 		{ LANG_FILTER, 	    &langIndexAllKeys,      &filterByLang,	    &langIndexFilteredKeys, 	"lang",		    false,				"",				_("LANGUAGE") },
 		{ REGION_FILTER, 	&regionIndexAllKeys,    &filterByRegion,	&regionIndexFilteredKeys, 	"region",		false,				"",				_("REGION") },
 		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") },
@@ -68,7 +69,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &pubDevIndexAllKeys, &(indexToImport->pubDevIndexAllKeys) },
 		{ &ratingsIndexAllKeys, &(indexToImport->ratingsIndexAllKeys) },
 		{ &favoritesIndexAllKeys, &(indexToImport->favoritesIndexAllKeys) },
-//		{ &hiddenIndexAllKeys, &(indexToImport->hiddenIndexAllKeys) },
+		{ &yearIndexAllKeys, &(indexToImport->yearIndexAllKeys) },
 		{ &kidGameIndexAllKeys, &(indexToImport->kidGameIndexAllKeys) },
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
 	};
@@ -101,7 +102,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(pubDevIndexAllKeys);
 	clearIndex(ratingsIndexAllKeys);
 	clearIndex(favoritesIndexAllKeys);
-	//clearIndex(hiddenIndexAllKeys);
+	clearIndex(yearIndexAllKeys);
 	clearIndex(kidGameIndexAllKeys);
 	clearIndex(playedIndexAllKeys);
 
@@ -215,6 +216,12 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			key = atoi(game->getMetadata(MetaDataId::PlayCount).c_str()) == 0 ? "FALSE" : "TRUE";
 			break;
 		}
+		case YEAR_FILTER:
+		{
+			key = game->getMetadata(MetaDataId::ReleaseDate);
+			key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
+			break;
+		}
 	}
 		
 	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) 
@@ -231,6 +238,7 @@ void FileFilterIndex::addToIndex(FileData* game)
 	managePlayerEntryInIndex(game);
 	managePubDevEntryInIndex(game);
 	manageRatingsEntryInIndex(game);
+	manageYearEntryInIndex(game);
 	manageLangEntryInIndex(game);
 	manageRegionEntryInIndex(game);	
 }
@@ -241,6 +249,7 @@ void FileFilterIndex::removeFromIndex(FileData* game)
 	managePlayerEntryInIndex(game, true);
 	managePubDevEntryInIndex(game, true);
 	manageRatingsEntryInIndex(game, true);
+	manageYearEntryInIndex(game, true);
 	manageLangEntryInIndex(game, true);
 	manageRegionEntryInIndex(game, true);
 }
@@ -489,6 +498,19 @@ void FileFilterIndex::manageRatingsEntryInIndex(FileData* game, bool remove)
 	manageIndexEntry(&ratingsIndexAllKeys, key, remove);
 }
 
+void FileFilterIndex::manageYearEntryInIndex(FileData* game, bool remove)
+{
+	std::string key = getIndexableKey(game, YEAR_FILTER, false);
+
+	// flag for including unknowns
+	bool includeUnknown = INCLUDE_UNKNOWN;
+
+	if (!includeUnknown && key == UNKNOWN_LABEL)
+		return;
+
+	manageIndexEntry(&yearIndexAllKeys, key, remove);
+}
+
 void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove, bool forceUnknown)
 {
 	bool includeUnknown = INCLUDE_UNKNOWN;
@@ -604,6 +626,8 @@ bool CollectionFilter::load(const std::string file)
 			genreIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "ratings")
 			ratingsIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "year")
+			yearIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "players")
 			playersIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "pubDev")
@@ -652,6 +676,9 @@ bool CollectionFilter::save()
 
 	for (auto key : ratingsIndexFilteredKeys)
 		root.append_child("ratings").text().set(key.c_str());
+
+	for (auto key : yearIndexFilteredKeys)
+		root.append_child("year").text().set(key.c_str());
 
 	for (auto key : favoritesIndexFilteredKeys)
 		root.append_child("favorites").text().set(key.c_str());
