@@ -103,7 +103,8 @@ public:
 		return MaxSizeInfo(mTargetSize, mTargetIsMax);
 	};
 
-	void setPadding(const Vector4f padding) { mPadding = padding; updateVertices(); }
+	Vector4f getPadding() { return mPadding; }
+	void setPadding(const Vector4f padding);
 
 	void setHorizontalAlignment(Alignment align) { mHorizontalAlignment = align; }
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }

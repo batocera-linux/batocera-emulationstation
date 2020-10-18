@@ -75,6 +75,7 @@ private:
 	void openRetroachievementsSettings();
 	void openMissingBiosSettings();
 	void openFormatDriveSettings();
+	void exitKidMode();
 
 	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
 

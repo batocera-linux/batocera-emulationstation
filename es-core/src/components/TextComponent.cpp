@@ -609,7 +609,7 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 
 void TextComponent::setAutoScroll(bool scroll) 
 { 
-	setAutoScroll(scroll ? AutoScrollType::VERTICAL : AutoScrollType::NONE); 
+	setAutoScroll(scroll ? AutoScrollType::HORIZONTAL : AutoScrollType::NONE); 
 }
 
 void TextComponent::setAutoScroll(AutoScrollType value)

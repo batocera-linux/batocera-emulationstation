@@ -338,6 +338,7 @@ void TextureData::setSourceSize(float width, float height)
 			mSourceHeight = height;
 			releaseVRAM();
 			releaseRAM();
+			load();
 		}
 	}
 }

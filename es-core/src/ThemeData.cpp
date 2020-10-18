@@ -31,6 +31,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "w", FLOAT },
 		{ "scale", FLOAT },
 		{ "scaleOrigin", NORMALIZED_PAIR },
+		
+		{ "padding", NORMALIZED_RECT },
 
 		{ "maxSize", NORMALIZED_PAIR },
 		{ "minSize", NORMALIZED_PAIR },
@@ -75,6 +77,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "zIndex", FLOAT },
 		{ "gameImage", PATH },
 		{ "folderImage", PATH },
+		{ "logoBackgroundImage", PATH },
 		{ "showVideoAtDelay", FLOAT },
 		{ "scrollDirection", STRING },
 		{ "scrollSound", PATH },
@@ -192,6 +195,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "opacity", FLOAT },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
+		
+		{ "padding", NORMALIZED_RECT },
 
 		{ "path", PATH },
 	 	{ "visible", BOOLEAN },

@@ -21,6 +21,7 @@
 
 GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false)
 {
+	mHasStandardMarquee = false;
 	mSelectedZoomPercent = 1.0f;
 	mAnimPosition = Vector3f(0, 0);
 	mVideo = nullptr;
@@ -305,6 +306,17 @@ void GridTileComponent::renderBackground(const Transform4x4f& parentTrans)
 	mBackground.render(trans);
 }
 
+bool GridTileComponent::hasMarquee()
+{
+	return mHasStandardMarquee;
+}
+
+bool GridTileComponent::isMinSizeTile()
+{
+	auto currentProperties = getCurrentProperties(false);
+	return (currentProperties.Image.sizeMode == "minSize");
+}
+
 void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 {
 	if (!isVisible())
@@ -568,6 +580,9 @@ bool GridTextProperties::applyTheme(const ThemeData::ThemeElement* elem)
 	if (elem && elem->has("fontPath"))
 		fontPath = elem->get<std::string>("fontPath");
 
+	if (elem && elem->has("padding"))
+		padding = elem->get<Vector4f>("padding");
+
 	if (elem->has("singleLineScroll"))
 		autoScroll = elem->get<bool>("singleLineScroll");
 
@@ -614,6 +629,9 @@ bool GridNinePatchProperties::applyTheme(const ThemeData::ThemeElement* elem)
 
 	if (elem && elem->has("animateColorTime"))
 		animateTime = elem->get<float>("animateColorTime");
+
+	if (elem && elem->has("padding"))
+		padding = elem->get<Vector4f>("padding");
 
 	return true;
 }
@@ -676,6 +694,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	elem = theme->getElement(view, "gridtile.marquee", "image");
 	if (elem)
 	{
+		mHasStandardMarquee = true;
 		createMarquee();
 		mMarquee->applyTheme(theme, view, "gridtile.marquee", ThemeFlags::ALL ^ (ThemeFlags::PATH));
 
@@ -689,6 +708,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	}
 	else if (mMarquee != nullptr)
 	{
+		mHasStandardMarquee = false;
 		removeChild(mMarquee);
 		delete mMarquee;
 		mMarquee = nullptr;
@@ -1117,6 +1137,7 @@ void GridTextProperties::mixProperties(GridTextProperties& def, GridTextProperti
 	glowColor = mixColors(def.glowColor, sel.glowColor, percent);
 	glowSize = mixFloat(def.glowSize, sel.glowSize, percent);
 	fontSize = mixFloat(def.fontSize, sel.fontSize, percent);
+	padding = mixVectors(def.padding, sel.padding, percent);
 }
 
 GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
@@ -1175,4 +1196,45 @@ void GridTileComponent::onScreenSaverDeactivate()
 
 	if (mVideo)
 		mVideo->onScreenSaverDeactivate();
+}
+
+void GridTileComponent::forceMarquee(const std::string& path)
+{
+	if (mHasStandardMarquee)
+	{
+		setMarquee(path);
+		return;
+	}
+
+	bool isMarqueeForced = !path.empty();
+
+	if (isMarqueeForced)
+	{
+		if (mMarquee == nullptr)
+		{
+			createMarquee();
+
+			mMarquee->setOrigin(0.5, 0.5);
+			mMarquee->setPosition(0.5, 0.5);
+			mMarquee->setSize(0.5, 0.5);
+			mMarquee->setIsLinear(true);
+
+			mDefaultProperties.Marquee = GridImageProperties();
+			mDefaultProperties.Marquee.size = Vector2f(0.55f, 0.55f);
+			mDefaultProperties.Marquee.Visible = true;
+			mDefaultProperties.Marquee.Loaded = true;
+			mSelectedProperties.Marquee = mDefaultProperties.Marquee;
+			mSelectedProperties.Marquee.size = Vector2f(0.65f, 0.65f);
+		}
+
+		setMarquee(path);
+	}
+	else if (mMarquee != nullptr)
+	{
+		removeChild(mMarquee);
+		delete mMarquee;
+		mMarquee = nullptr;
+
+		mCurrentMarquee = "";
+	}	
 }

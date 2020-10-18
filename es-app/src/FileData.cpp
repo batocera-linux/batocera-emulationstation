@@ -941,3 +941,33 @@ void FolderData::removeVirtualFolders()
 		delete file;
 	}
 }
+
+void FileData::checkCrc32(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkCrc32(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::Crc32).empty())
+		return;
+
+	SystemData* system = getSystem();
+
+	bool unpackZip =
+		!system->hasPlatformId(PlatformIds::ARCADE) &&
+		!system->hasPlatformId(PlatformIds::NEOGEO) &&
+		!system->hasPlatformId(PlatformIds::DAPHNE) &&
+		!system->hasPlatformId(PlatformIds::LUTRO) &&
+		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
+		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
+		!system->hasPlatformId(PlatformIds::NAOMI);
+
+	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), unpackZip);
+	if (!crc.empty())
+	{
+		getMetadata().set(MetaDataId::Crc32, Utils::String::toUpper(crc));
+		saveToGamelistRecovery(this);
+	}
+}

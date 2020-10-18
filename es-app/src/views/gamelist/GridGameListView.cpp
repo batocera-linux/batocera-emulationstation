@@ -141,7 +141,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	SystemData* system = mCursorStack.size() && mRoot->getSystem()->isGroupSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
 
 	auto groupTheme = system->getTheme();
-	if (groupTheme)
+	if (groupTheme && mHeaderImage.hasImage())
 	{
 		const ThemeData::ThemeElement* logoElem = groupTheme->getElement(getName(), "logo", "image");
 		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
@@ -255,6 +255,9 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		addPlaceholder();
 
 	updateFolderPath();
+
+	if (mShowing)
+		onShow();
 }
 
 void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)

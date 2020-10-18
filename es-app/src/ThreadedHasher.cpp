@@ -48,32 +48,13 @@ std::string ThreadedHasher::formatGameName(FileData* game)
 
 void ThreadedHasher::hashFile(FileData* fileData)
 {
-	SystemData* system = fileData->getSourceFileData()->getSystem();
-
-	bool unpackZip = 
-		!system->hasPlatformId(PlatformIds::ARCADE) && 
-		!system->hasPlatformId(PlatformIds::NEOGEO) &&
-		!system->hasPlatformId(PlatformIds::DAPHNE) &&
-		!system->hasPlatformId(PlatformIds::LUTRO) &&
-		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
-		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
-		!system->hasPlatformId(PlatformIds::NAOMI);
-
 	std::string idx = std::to_string(mTotal + 1 - mSearchQueue.size()) + "/" + std::to_string(mTotal);
 	int percent = 100 - (mSearchQueue.size() * 100 / mTotal);
 		
 	mWndNotification->updateText(formatGameName(fileData));
 	mWndNotification->updatePercent(percent);
 
-	auto crc = ApiSystem::getInstance()->getCRC32(fileData->getPath(), unpackZip);
-	if (!crc.empty())
-	{
-		fileData->setMetadata("crc32", Utils::String::toUpper(crc));
-
-#ifndef _DEBUG
-		saveToGamelistRecovery(fileData);
-#endif
-	}
+	fileData->checkCrc32(true);
 }
 
 void ThreadedHasher::run()
