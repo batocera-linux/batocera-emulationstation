@@ -409,7 +409,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "COLLECTIONS AUTOMATIQUES"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMES D'ARCADE"
@@ -541,13 +541,13 @@ msgid "LAUNCH"
 msgstr "LANCER"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "VERSION DE ROM INCONNUE"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ROM DIFFÉRENTE"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "ROM IDENTIQUE"
 
 msgid "UNAVAILABLE CORE"
 msgstr "COEUR NON DISPONIBLE"
@@ -562,10 +562,10 @@ msgid "NO GAME FOUND"
 msgstr "PAS DE JEU TROUVÉ"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "REJOINDRE LE JEU"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "REGARDER LE JEU"
 
 msgid "MANUAL INPUT"
 msgstr "SAISIE MANUELLE"
@@ -640,34 +640,34 @@ msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
 msgid "dim"
-msgstr ""
+msgstr "assombri"
 
 msgid "black"
-msgstr ""
+msgstr "noir"
 
 msgid "random video"
-msgstr ""
+msgstr "vidéo"
 
 msgid "slideshow"
-msgstr ""
+msgstr "diaporama"
 
 msgid "always"
 msgstr "toujours"
 
 msgid "start & end"
-msgstr ""
+msgstr "début & fin"
 
 msgid "never"
 msgstr "jamais"
 
 msgid "none"
-msgstr ""
+msgstr "aucun"
 
 msgid "systems"
-msgstr ""
+msgstr "systèmes"
 
 msgid "random"
-msgstr ""
+msgstr "aléatoire"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES DE L'ÉCRAN DE VEILLE"
@@ -700,7 +700,7 @@ msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "ÉTIRER LA VIDÉO DE L'ÉCRAN DE VEILLE"
+msgstr "ÉTIRER LES VIDÉOS"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "COUPER LE SON DES VIDÉOS"
@@ -872,7 +872,7 @@ msgid "instant"
 msgstr "instantané"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "fondu & glissement"
 
 msgid "System"
 msgstr "Système"
@@ -929,7 +929,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES DES EMULATEURS"
 
 msgid "SCRAPE"
-msgstr "SCRAPER LES JEUX"
+msgstr "SCRAPER"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "MISES À JOUR ET TÉLÉCHARGEMENTS"
@@ -953,10 +953,10 @@ msgid "IMAGE SOURCE"
 msgstr "IMAGE SOURCE"
 
 msgid "SCREENSHOT"
-msgstr "IMAGE"
+msgstr "IMAGE EN JEU"
 
 msgid "TITLE SCREENSHOT"
-msgstr "IMAGE AVEC TITRE"
+msgstr "IMAGE TITRE"
 
 msgid "MIX V1"
 msgstr "MIX D'IMAGES V1"
@@ -1010,7 +1010,7 @@ msgid "CHOOSE"
 msgstr "CHOISIR"
 
 msgid "INFORMATION"
-msgstr "INFORMATION"
+msgstr "INFORMATIONS"
 
 msgid "VERSION"
 msgstr "VERSION"
@@ -1025,7 +1025,7 @@ msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "OPTIONS VIDÉO"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE MÉMOIRE VIDÉO"
@@ -1061,7 +1061,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATER UN DISQUE"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "GESTION DES DONNÉES"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1082,7 +1082,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDÉTECTER LA LANGUE/RÉGION DES JEUX"
 
 msgid "UI"
-msgstr ""
+msgstr "INTERFACE UTILISATEUR"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSITION DU CARROUSEL"
@@ -1106,7 +1106,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "OPTIMISATIONS"
 
 msgid "PRELOAD UI"
 msgstr "PRÉCHARGEMENT DE L'INTERFACE"
@@ -1341,7 +1341,7 @@ msgid "DECORATION"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ETIRER LES BEZELS (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION DES JEUX"
@@ -1722,19 +1722,19 @@ msgid "Favorites"
 msgstr "Favoris"
 
 msgid "START GAME"
-msgstr ""
+msgstr "DÉMARRER LE JEU"
 
 msgid "START NETPLAY HOST"
-msgstr ""
+msgstr "DÉMARRER L’HÔTE NET PLAY"
 
 msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "AUTORISER LE MODE SPECTATEUR"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "DÉFINIR MOT DE PASSE JOUEUR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "DÉFINIR MOT DE PASSE SPECTATEUR"
 
 msgid "Searching"
 msgstr "Recherche"
@@ -2042,67 +2042,12 @@ msgstr "EN COURS..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
-
-#~ msgid ""
-#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
-#~ msgstr ""
-#~ "L'ÉCRAN DE VEILLE \"VIDÉO ALÉATOIRE\" AFFICHE LES VIDÉOS DE VOS LISTES DE "
-#~ "JEUX.\n"
-#~ "SI VOUS N'AVEZ PAS DE VIDÉOS OU SI AUCUNE NE PEUT ÊTRE LUE CELA AFFICHERA "
-#~ "UN ÉCRAN \"NOIR\".\n"
-#~ "PLUS D'OPTIONS DANS LE MENU \"PARAMÈTRES ÉCRAN DE VEILLE VIDÉO\"."
-
-#~ msgid "VIDEO SCREENSAVER"
-#~ msgstr "ÉCRAN DE VEILLE VIDÉO"
-
-#~ msgid "SLIDESHOW SCREENSAVER"
-#~ msgstr "ÉCRAN DE VEILLE DIAPORAMA"
-
-#~ msgid "SLIDESHOW SETTINGS"
-#~ msgstr "PARAMÈTRES DIAPORAMA"
-
-#~ msgid "RANDOM VIDEO SETTINGS"
-#~ msgstr "PARAMÈTRES VIDÉO ALÉATOIRE"
-
-#~ msgid "MISSING"
-#~ msgstr "MANQUANT"
-
-#~ msgid "INVALID"
-#~ msgstr "INVALIDE"
-
-#~ msgid "STARTUP SETTINGS"
-#~ msgstr "PARAMÈTRES DE DÉMARRAGE"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "SÉLECTION RAPIDE DU SYSTÈME"
-
-#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-#~ msgstr "DÉMARRER LA PARTIE EN TANT QUE SERVEUR ?"
-
-#~ msgid "%d hour"
-#~ msgid_plural "%d hours"
-#~ msgstr[0] "%d heure"
-#~ msgstr[1] "%d heures"
-
-#~ msgid "%d minute"
-#~ msgid_plural "%d minutes"
-#~ msgstr[0] "%d minute"
-#~ msgstr[1] "%d minutes"
-
-#~ msgid "%d second"
-#~ msgid_plural "%d seconds"
-#~ msgstr[0] "%d seconde"
-#~ msgstr[1] "%d secondes"
+msgstr "%d s"
