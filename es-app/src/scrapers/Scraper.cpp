@@ -72,7 +72,7 @@ void ScraperSearchHandle::update()
 		if(status == ASYNC_ERROR)
 		{
 			// propagate error
-			setError(req.getErrorCode(), req.getStatusString());
+			setError(req.getErrorCode(), Utils::String::removeHtmlTags(req.getStatusString()));
 
 			// empty our queue
 			while(!mRequestQueue.empty())
@@ -176,13 +176,13 @@ void ScraperHttpRequest::update()
 	// Blocking errors
 	if (status != HttpReq::REQ_SUCCESS)
 	{		
-		setError(status, mRequest->getErrorMsg());
+		setError(status, Utils::String::removeHtmlTags(mRequest->getErrorMsg()));
 		return;
 	}	
 
 	// everything else is some sort of error
 	LOG(LogError) << "ScraperHttpRequest network error (status: " << status << ") - " << mRequest->getErrorMsg();
-	setError(mRequest->getErrorMsg());
+	setError(Utils::String::removeHtmlTags(mRequest->getErrorMsg()));
 }
 
 std::unique_ptr<MDResolveHandle> ScraperSearchResult::resolveMetaDataAssets(const ScraperSearchParams& search)
@@ -392,7 +392,7 @@ void ImageDownloadHandle::update()
 	// Blocking errors
 	if (status != HttpReq::REQ_SUCCESS)
 	{
-		setError(status, mRequest->getErrorMsg());
+		setError(status, Utils::String::removeHtmlTags(mRequest->getErrorMsg()));
 		return;
 	}
 
