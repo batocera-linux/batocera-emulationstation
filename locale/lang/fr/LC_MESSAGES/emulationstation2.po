@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -378,6 +378,9 @@ msgstr "ALPHABÉTIQUEMENT"
 msgid "BY MANUFACTURER"
 msgstr "PAR CONSTRUCTEUR"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "TRIER LES SYSTÈMES"
 
@@ -672,11 +675,17 @@ msgstr "aléatoire"
 msgid "SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES DE L'ÉCRAN DE VEILLE"
 
+msgid "SETTINGS"
+msgstr "PARAMÈTRES"
+
 msgid "SCREENSAVER AFTER"
 msgstr "ÉCRAN DE VEILLE APRÈS"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTEMENT DE L'ÉCRAN DE VEILLE"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES ÉCRAN DE VEILLE VIDÉO"
@@ -901,6 +910,24 @@ msgstr "Fréquence max processeur"
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
 
+msgid "SCANLINES"
+msgstr "BALAYAGE"
+
+msgid "RETRO"
+msgstr "GROS PIXELS"
+
+msgid "ENHANCED"
+msgstr "LISSAGE AMÉLIORÉ"
+
+msgid "CURVATURE"
+msgstr "BALAYAGE COURBÉ"
+
+msgid "ZFAST"
+msgstr "NID D'ABEILLE"
+
+msgid "FLATTEN-GLOW"
+msgstr "APPLATI ET BRILLANT"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -939,6 +966,9 @@ msgstr "PARAMÈTRES SYSTÈME"
 
 msgid "INFORMATIONS"
 msgstr "INFORMATIONS"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -1008,6 +1038,12 @@ msgstr "VOUS ALLEZ CONFIGURER UNE MANETTE. ETES-VOUS SUR(E) ?"
 
 msgid "CHOOSE"
 msgstr "CHOISIR"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -1147,6 +1183,9 @@ msgstr "LANCER LA MISE À JOUR"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "LANGUE"
 
@@ -1268,9 +1307,6 @@ msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 msgid "SHOW IN MAIN MENU"
 msgstr "AFFICHER DANS LE MENU PRINCIPAL"
 
-msgid "SETTINGS"
-msgstr "PARAMÈTRES"
-
 msgid "ENABLE NETPLAY"
 msgstr "ACTIVER LE JEU EN RÉSEAU"
 
@@ -1315,24 +1351,6 @@ msgstr "SAUV./CHARG. AUTOMATIQUE"
 
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
-
-msgid "SCANLINES"
-msgstr "BALAYAGE"
-
-msgid "RETRO"
-msgstr "GROS PIXELS"
-
-msgid "ENHANCED"
-msgstr "LISSAGE AMÉLIORÉ"
-
-msgid "CURVATURE"
-msgstr "BALAYAGE COURBÉ"
-
-msgid "ZFAST"
-msgstr "NID D'ABEILLE"
-
-msgid "FLATTEN-GLOW"
-msgstr "APPLATI ET BRILLANT"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "RESOLUTION EN  ÉCHELLE ENTIÈRE"
@@ -1402,6 +1420,9 @@ msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D'ÉDITER LA CONFIGURATION"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "basique"
@@ -1664,6 +1685,9 @@ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 msgid "GO TO MANUFACTURER"
 msgstr "ALLER AU CONSTRUCTEUR"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1726,9 +1750,6 @@ msgstr "DÉMARRER LE JEU"
 
 msgid "START NETPLAY HOST"
 msgstr "DÉMARRER L’HÔTE NET PLAY"
-
-msgid "ALLOW SPECTATOR MODE"
-msgstr "AUTORISER LE MODE SPECTATEUR"
 
 msgid "SET PLAYER PASSWORD"
 msgstr "DÉFINIR MOT DE PASSE JOUEUR"
@@ -2051,3 +2072,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "ALLOW SPECTATOR MODE"
+#~ msgstr "AUTORISER LE MODE SPECTATEUR"

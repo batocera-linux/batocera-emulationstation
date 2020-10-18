@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -378,6 +378,9 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -672,11 +675,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
 
+msgid "SETTINGS"
+msgstr "INSTÄLLNINGAR"
+
 msgid "SCREENSAVER AFTER"
 msgstr "SKÄRMSLÄCKARE EFTER"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SKÄRMSLÄCKARBETEENDE"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
@@ -901,6 +910,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Processoregenskap"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "FÖRSTÄRKT"
+
+msgid "CURVATURE"
+msgstr "KURVOR"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "PLATTA TILL-GLÖD"
+
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
 
@@ -939,6 +966,9 @@ msgstr "SYSTEMINSTÄLLNINGAR"
 
 msgid "INFORMATIONS"
 msgstr "INFORMATION"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "AVSLUTA"
@@ -1008,6 +1038,12 @@ msgstr ""
 
 msgid "CHOOSE"
 msgstr "VÄLJ"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATION"
@@ -1147,6 +1183,9 @@ msgstr "PÅBÖRJA UPPDATERING"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPPDATERING KÖRS REDAN"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "SPRÅK"
 
@@ -1269,9 +1308,6 @@ msgstr "AUTOMATISKA SKÄRMDUMPAR"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr "INSTÄLLNINGAR"
-
 msgid "ENABLE NETPLAY"
 msgstr "AKTIVERA NETPLAY"
 
@@ -1316,24 +1352,6 @@ msgstr "AUTOSPARA/LADDA"
 
 msgid "SHADERS SET"
 msgstr "SHADERS"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "FÖRSTÄRKT"
-
-msgid "CURVATURE"
-msgstr "KURVOR"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "PLATTA TILL-GLÖD"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGERSKALNING (PIXEL-PERFEKT)"
@@ -1402,6 +1420,9 @@ msgstr "DU MÅSTE APPLICERA TEMAT INNAN DU REDIGERAR INSTÄLLNINGARNA"
 
 msgid "THEME CONFIGURATION"
 msgstr "TEMA-INSTÄLLNINGAR"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "grundläggande"
@@ -1663,6 +1684,9 @@ msgstr "VILL DU STARTA KODI MEDIA CENTER?"
 msgid "GO TO MANUFACTURER"
 msgstr ""
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1724,9 +1748,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

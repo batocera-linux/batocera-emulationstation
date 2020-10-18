@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es.5.27\n"
+"Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
-"PO-Revision-Date: 2020-07-09 21:00+0900\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
+"PO-Revision-Date: 2020-10-16 19:35+0900\n"
 "Last-Translator: mikakunin\n"
-"Language-Team: \n"
+"Language-Team: mikakunin\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,64 +53,64 @@ msgid "enter path to video"
 msgstr "ビデオのパスを入力"
 
 msgid "Logo"
-msgstr ""
+msgstr "ロゴ"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "ロゴのパスを入力"
 
 msgid "Box"
-msgstr ""
+msgstr "ボックス"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "ボックスのパスを入力"
 
 msgid "Fan art"
-msgstr ""
+msgstr "ファンアート"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "ファンアートのパスを入力"
 
 msgid "Title shot"
-msgstr ""
+msgstr "タイトルショット"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "タイトルショットのパスを入力"
 
 msgid "Manual"
-msgstr ""
+msgstr "説明書"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "説明書のパスを入力"
 
 msgid "Map"
-msgstr ""
+msgstr "マップ"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "マップのパスを入力"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "カートリッジ画"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "カートリッジ画のパスを入力"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "代替ボックスアート画像"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "代替ボックスアート画像のパスを入力"
 
 msgid "Wheel"
-msgstr ""
+msgstr "ホイール"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "ホイールのパスを入力"
 
 msgid "Mix"
-msgstr ""
+msgstr "ミクス"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "ミクスのパスを入力"
 
 msgid "Rating"
 msgstr "評価"
@@ -303,10 +303,10 @@ msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr ""
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "パッケージが正常にインストールされました"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "パッケージが正常に削除されました"
 
 msgid "FILTER GAMELIST BY"
 msgstr "ゲームリストのフィルタ"
@@ -376,6 +376,9 @@ msgstr "アルファベット順"
 
 msgid "BY MANUFACTURER"
 msgstr "メーカーごと"
+
+msgid "BY HARDWARE TYPE"
+msgstr ""
 
 msgid "SORT SYSTEMS"
 msgstr "各システムをソートする"
@@ -453,13 +456,13 @@ msgid "OTHER FILTERS"
 msgstr "その他のフィルタ"
 
 msgid "GAME MEDIAS"
-msgstr ""
+msgstr "ゲームメディア"
 
 msgid "VIEW GAME MANUAL"
-msgstr ""
+msgstr "ゲームマニュアルを表示"
 
 msgid "VIEW GAME MAP"
-msgstr ""
+msgstr "ゲームマップを表示"
 
 msgid "COLLECTION"
 msgstr "コレクション"
@@ -579,30 +582,30 @@ msgid "THE BEZEL PROJECT"
 msgstr "ベゼルプロジェクト"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
+msgstr "インストール/削除するベゼルを選択"
 
 msgid "UPDATE"
-msgstr ""
+msgstr "アップデート"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' がダウンロード キューに追加されました"
 
 msgid "REMOVE"
-msgstr ""
+msgstr "削除"
 
 msgid "INSTALL"
 msgstr "インストール"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "現在ダウンロードキューにあります"
 
 msgid "THEMES DOWNLOADER"
-msgstr ""
+msgstr "テーマダウンローダー"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
+msgstr "インストール/削除するテーマを選択"
 
 #, c-format
 msgid "CURRENT THEME"
@@ -621,16 +624,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "コンテンツダウンローダー"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "インストール/削除するコンテンツを選択"
 
 msgid "MISC"
-msgstr ""
+msgstr "その他"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "追加されたキューをアンインストール"
 
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
@@ -671,11 +674,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "スクリーンセーバー設定"
 
+msgid "SETTINGS"
+msgstr "設定"
+
 msgid "SCREENSAVER AFTER"
 msgstr "スクリーンセーバー 時間"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "スクリーンセーバー動作"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "スクリーンセーバー実行時音楽を停止"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "ランダムビデオスクリーンセーバー設定"
@@ -771,7 +780,7 @@ msgid "TARGET ARCHITECTURE"
 msgstr "対象アーキテクチャ"
 
 msgid "NETWORK REQUIRED"
-msgstr "必要なネットワーク"
+msgstr "ネットワーク接続が必要です"
 
 msgid "INVALID PARAMETERS"
 msgstr "無効なパラメーター"
@@ -869,7 +878,7 @@ msgid "instant"
 msgstr "簡易"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "フェード & 横"
 
 msgid "System"
 msgstr "システム"
@@ -890,13 +899,31 @@ msgid "Cpu model"
 msgstr "CPU モデル"
 
 msgid "Cpu number"
-msgstr "CPU ナンバー"
+msgstr "CPU コア数"
 
 msgid "Cpu max frequency"
 msgstr ""
 
 msgid "Cpu feature"
 msgstr "CPU 機能"
+
+msgid "SCANLINES"
+msgstr "スキャンライン"
+
+msgid "RETRO"
+msgstr "レトロ"
+
+msgid "ENHANCED"
+msgstr "拡張"
+
+msgid "CURVATURE"
+msgstr "曲率"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -937,6 +964,9 @@ msgstr "システム設定"
 msgid "INFORMATIONS"
 msgstr "情報"
 
+msgid "UNLOCK UI MODE"
+msgstr ""
+
 msgid "QUIT"
 msgstr "終了"
 
@@ -968,7 +998,7 @@ msgid "BOX 3D"
 msgstr "3D ボックス"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "ファンアート"
 
 msgid "BOX SOURCE"
 msgstr "ボックス ソース元"
@@ -989,10 +1019,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "ビデオをスクレイプ"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "ファンアートをスクレイプ"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "説明書をスクレイプ"
 
 msgid "USERNAME"
 msgstr "ユーザー名"
@@ -1005,6 +1035,12 @@ msgstr "本当に入力設定を行っていいですか？"
 
 msgid "CHOOSE"
 msgstr "移動選択"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "情報"
@@ -1022,7 +1058,7 @@ msgid "DEVELOPER"
 msgstr "その他の設定"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "ビデオ設定"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM上限"
@@ -1058,7 +1094,7 @@ msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "データ管理"
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1097,13 +1133,13 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "RETROARCH RGUIメニューを使用"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "ESメニューの A/B ボタンを入れ替える"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラーの自動設定"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "最適化"
 
 msgid "PRELOAD UI"
 msgstr "プレロード式 UI"
@@ -1143,6 +1179,9 @@ msgstr "アップデート開始"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "アップデートは既に実行中です"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -1199,7 +1238,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
+msgstr "マルチメディアキー"
 
 msgid "AUTO"
 msgstr "自動"
@@ -1264,9 +1303,6 @@ msgstr "自動スクリーンショット"
 msgid "SHOW IN MAIN MENU"
 msgstr "メインメニューに表示"
 
-msgid "SETTINGS"
-msgstr "設定"
-
 msgid "ENABLE NETPLAY"
 msgstr "ネットプレイを有効"
 
@@ -1312,24 +1348,6 @@ msgstr "自動セーブ/ロード"
 msgid "SHADERS SET"
 msgstr "シェーダー設定"
 
-msgid "SCANLINES"
-msgstr "スキャンライン"
-
-msgid "RETRO"
-msgstr "レトロ"
-
-msgid "ENHANCED"
-msgstr "拡張"
-
-msgid "CURVATURE"
-msgstr "曲率"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
-
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
@@ -1337,7 +1355,7 @@ msgid "DECORATION"
 msgstr "アートワーク(ゲーム画面外背景表示)"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ベゼルを合わせる(4K＆ウルトラワイド)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
@@ -1397,6 +1415,9 @@ msgstr "設定を編集する前にテーマを適用する必要があります
 
 msgid "THEME CONFIGURATION"
 msgstr "テーマ設定"
+
+msgid "GAMELIST STYLE"
+msgstr "ゲームリストスタイル"
 
 msgid "basic"
 msgstr "基本"
@@ -1477,13 +1498,13 @@ msgid "VOLUME"
 msgstr "音量"
 
 msgid "SYSTEM VOLUME"
-msgstr "システム音量"
+msgstr "システムBGM音量"
 
 msgid "MUSIC VOLUME"
-msgstr "メニューBGM音量"
+msgstr "ゲーム音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "ボリュームが変化したときにオーバーレイを表示"
+msgstr "ボリューム変化時にボリューム画像を表示"
 
 msgid "MUSIC"
 msgstr "音楽"
@@ -1658,6 +1679,9 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "KODIメディアセンターを起動しますか？"
 
 msgid "GO TO MANUFACTURER"
+msgstr "メーカーごと"
+
+msgid "GO TO HARDWARE"
 msgstr ""
 
 #, c-format
@@ -1718,9 +1742,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -2035,25 +2056,8 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
-#~ msgid ""
-#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
-#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
-#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
-#~ msgstr ""
-#~ "「ランダムビデオ」スクリーンセーバーは、 あなたのゲームリストからビデオを"
-#~ "表示します。\n"
-#~ "ビデオがない場合、または何回か試しても ビデオを再生できない場合は、既定で"
-#~ "「黒」に なります。\n"
-#~ "メインメニューの [UI設定]->[スクリーンセーバー設定]-> [ランダムビデオスク"
-#~ "リーンセーバー設定]に その他の設定があります。"
-
-#~ msgid "VIDEO SCREENSAVER"
-#~ msgstr "ランダムビデオスクリーンセーバー"
-
-#~ msgid "SLIDESHOW SCREENSAVER"
-#~ msgstr "スライドショーセーバー"
+#~ msgid "RESETFILTERS"
+#~ msgstr "フィルタをリセット"
 
 #~ msgid "SLIDESHOW SETTINGS"
 #~ msgstr "スライドショー設定"
@@ -2067,35 +2071,11 @@ msgstr ""
 #~ msgid "INVALID"
 #~ msgstr "無効"
 
-#~ msgid "STARTUP SETTINGS"
-#~ msgstr "スタートアップ設定"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "クイックシステム選択"
-
-#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
-#~ msgstr "ホスト(ネットプレイ)としてゲームを起動しますか？"
-
-#~ msgid "%d hour"
-#~ msgid_plural "%d hours"
-#~ msgstr[0] "%d 時間"
-
-#~ msgid "%d minute"
-#~ msgid_plural "%d minutes"
-#~ msgstr[0] "%d 分"
-
-#~ msgid "%d second"
-#~ msgid_plural "%d seconds"
-#~ msgstr[0] "%d 秒"
-
 #~ msgid "disabled"
 #~ msgstr "無効"
 
 #~ msgid "enhanced"
 #~ msgstr "エンハンス"
-
-#~ msgid "GAMELIST STYLE"
-#~ msgstr "ゲームリストスタイル"
 
 #~ msgid "THEME SYSTEMVIEW"
 #~ msgstr "システム選択表示位置"
@@ -2114,6 +2094,12 @@ msgstr ""
 
 #~ msgid "HORIZONTAL"
 #~ msgstr "横選択"
+
+#~ msgid "STARTUP SETTINGS"
+#~ msgstr "スタートアップ設定"
+
+#~ msgid "QUICK SYSTEM SELECT"
+#~ msgstr "クイックシステム選択"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "マイコレクションとシステムを並べ替え"
@@ -2139,6 +2125,26 @@ msgstr ""
 #~ msgid "BEZELS DELETED SUCCESSFULLY"
 #~ msgstr "ベゼルが正常に削除されました"
 
+#~ msgid "VIDEO SCREENSAVER"
+#~ msgstr "ランダムビデオスクリーンセーバー"
+
+#~ msgid ""
+#~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
+#~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
+#~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
+#~ msgstr ""
+#~ "「ランダムビデオ」スクリーンセーバーは、 あなたのゲームリストからビデオを"
+#~ "表示します。\n"
+#~ "ビデオがない場合、または何回か試しても ビデオを再生できない場合は、既定で"
+#~ "「黒」に なります。\n"
+#~ "メインメニューの [UI設定]->[スクリーンセーバー設定]-> [ランダムビデオスク"
+#~ "リーンセーバー設定]に その他の設定があります。"
+
+#~ msgid "SLIDESHOW SCREENSAVER"
+#~ msgstr "スライドショーセーバー"
+
 #~ msgid "SELECT THEME"
 #~ msgstr "テーマの選択"
 
@@ -2157,11 +2163,29 @@ msgstr ""
 #~ msgid "favorite"
 #~ msgstr "お気に入り"
 
+#~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
+#~ msgstr "ホスト(ネットプレイ)としてゲームを起動しますか？"
+
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d 時間"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d 分"
+
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d 秒"
+
 #~ msgid "custom"
 #~ msgstr "カスタム"
 
 #~ msgid "Retrieving data download..."
 #~ msgstr "データを取得しています..."
+
+#~ msgid "extracting files"
+#~ msgstr "ファイルの抽出"
 
 #~ msgid ""
 #~ "This collection contains %1$i game, including %2$s among other titles."
@@ -2183,9 +2207,6 @@ msgstr ""
 
 #~ msgid "Path to marquee"
 #~ msgstr "マーキーのパス"
-
-#~ msgid "name"
-#~ msgstr "名前"
 
 #~ msgid "description"
 #~ msgstr "説明"

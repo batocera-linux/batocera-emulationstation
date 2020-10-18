@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 21:10+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -377,6 +377,9 @@ msgstr "依照字母順序"
 msgid "BY MANUFACTURER"
 msgstr "依照製作廠商"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "系統順序"
 
@@ -671,11 +674,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "螢幕保護設定"
 
+msgid "SETTINGS"
+msgstr "設定"
+
 msgid "SCREENSAVER AFTER"
 msgstr "螢幕保護時間"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "螢幕保護效果"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "隨機螢幕保護程式設定"
@@ -896,6 +905,24 @@ msgstr "COU 最高頻率"
 msgid "Cpu feature"
 msgstr "CPU 架構"
 
+msgid "SCANLINES"
+msgstr "掃描線"
+
+msgid "RETRO"
+msgstr "復古"
+
+msgid "ENHANCED"
+msgstr "加強"
+
+msgid "CURVATURE"
+msgstr "彎曲"
+
+msgid "ZFAST"
+msgstr "快速"
+
+msgid "FLATTEN-GLOW"
+msgstr "平滑"
+
 msgid "MAIN MENU"
 msgstr "主選單"
 
@@ -934,6 +961,9 @@ msgstr "系統設定"
 
 msgid "INFORMATIONS"
 msgstr "訊息"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "離開"
@@ -1003,6 +1033,12 @@ msgstr "您確定要設定輸入嘛？"
 
 msgid "CHOOSE"
 msgstr "瀏覽"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "系統資訊"
@@ -1142,6 +1178,9 @@ msgstr "開始更新"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "語言"
 
@@ -1262,9 +1301,6 @@ msgstr "自動擷取圖片"
 msgid "SHOW IN MAIN MENU"
 msgstr "在主選單顯示"
 
-msgid "SETTINGS"
-msgstr "設定"
-
 msgid "ENABLE NETPLAY"
 msgstr "開啟網路遊戲"
 
@@ -1309,24 +1345,6 @@ msgstr "自動儲存/讀取"
 
 msgid "SHADERS SET"
 msgstr "濾鏡著色器設定"
-
-msgid "SCANLINES"
-msgstr "掃描線"
-
-msgid "RETRO"
-msgstr "復古"
-
-msgid "ENHANCED"
-msgstr "加強"
-
-msgid "CURVATURE"
-msgstr "彎曲"
-
-msgid "ZFAST"
-msgstr "快速"
-
-msgid "FLATTEN-GLOW"
-msgstr "平滑"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整體縮放（像素完美顯示）"
@@ -1395,6 +1413,9 @@ msgstr "在編輯設定之前必須執行主題"
 
 msgid "THEME CONFIGURATION"
 msgstr "主題設定"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "基本樣式"
@@ -1658,6 +1679,9 @@ msgstr "你想啟動 KODI 媒體播放中心嗎?"
 msgid "GO TO MANUFACTURER"
 msgstr "跳到製作廠商"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1716,9 +1740,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

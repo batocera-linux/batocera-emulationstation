@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -378,6 +378,9 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -672,11 +675,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "SCREENSAVERINSTELLINGEN"
 
+msgid "SETTINGS"
+msgstr "INSTELLINGEN"
+
 msgid "SCREENSAVER AFTER"
 msgstr "SCHERMBEVEILIGING NA"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SCHERMBEVEILIGING GEDRAG"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN"
@@ -901,6 +910,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Cpu kenmerken"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "VERBETERD"
+
+msgid "CURVATURE"
+msgstr "KROMMING"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "AFVLAKKEN-GLOEIEN"
+
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
 
@@ -939,6 +966,9 @@ msgstr "SYSTEEMINSTELLINGEN"
 
 msgid "INFORMATIONS"
 msgstr "ALGEMENE INFORMATIE"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "STOPPEN"
@@ -1008,6 +1038,12 @@ msgstr "WEET JE ZEKER DAT JE DE INVOER WILT CONFIGUREREN?"
 
 msgid "CHOOSE"
 msgstr "KIES"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATIE"
@@ -1147,6 +1183,9 @@ msgstr "NU UPDATEN"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE REEDS GESTART"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "TAAL"
 
@@ -1269,9 +1308,6 @@ msgstr "AUTOMATISCHE SCHERMAFDRUK"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr "INSTELLINGEN"
-
 msgid "ENABLE NETPLAY"
 msgstr "SCHAKEL NETPLAY IN"
 
@@ -1316,24 +1352,6 @@ msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "VERBETERD"
-
-msgid "CURVATURE"
-msgstr "KROMMING"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "AFVLAKKEN-GLOEIEN"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
@@ -1402,6 +1420,9 @@ msgstr "JE MOET HET THEMA TOEPASSEN VOORDAT JE DE CONFIGURATIE VERLAAT"
 
 msgid "THEME CONFIGURATION"
 msgstr "THEMACONFIGURATIE"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "eenvoudig"
@@ -1665,6 +1686,9 @@ msgstr "WIL JE KODI MEDIA CENTER STARTEN?"
 msgid "GO TO MANUFACTURER"
 msgstr ""
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1726,9 +1750,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

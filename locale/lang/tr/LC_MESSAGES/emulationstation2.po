@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,6 +375,9 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -669,11 +672,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "SCREENSAVER AFTER"
 msgstr "EKRAN KORUYUCU"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "EKRAN KORUYUCU DAVRANIÞI"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "RASGELE VÝDEO EKRAN KORUYUCU AYARLARI"
@@ -895,6 +904,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr ""
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr ""
+
+msgid "CURVATURE"
+msgstr ""
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
 
@@ -933,6 +960,9 @@ msgstr "SÝSTEM AYARLARI"
 
 msgid "INFORMATIONS"
 msgstr "BÝLGÝ"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ÇIKIÞ"
@@ -1002,6 +1032,12 @@ msgstr ""
 
 msgid "CHOOSE"
 msgstr "DEÐÝÞTÝR"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "BÝLGÝ"
@@ -1141,6 +1177,9 @@ msgstr "GÜNCELLE"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "DÝL"
 
@@ -1259,9 +1298,6 @@ msgstr "OTOMATÝK EKRAN GÖRÜNTÜSÜ"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr ""
-
 msgid "ENABLE NETPLAY"
 msgstr ""
 
@@ -1306,24 +1342,6 @@ msgstr "OTOMATÝK KAYDET/YÜKLE"
 
 msgid "SHADERS SET"
 msgstr "SHADER ayarla"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr ""
-
-msgid "CURVATURE"
-msgstr ""
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
-msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ENTEGER ÖLÇEÐÝ (PÝKSEL MÜKEMMEL)"
@@ -1390,6 +1408,9 @@ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "GAMELIST STYLE"
 msgstr ""
 
 msgid "basic"
@@ -1652,6 +1673,9 @@ msgstr "KODI SUNUCUSU BAÞLATILSIN MI?"
 msgid "GO TO MANUFACTURER"
 msgstr ""
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1713,9 +1737,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

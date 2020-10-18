@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 21:10+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -374,6 +374,9 @@ msgstr "按字母排序"
 msgid "BY MANUFACTURER"
 msgstr "由生产商提供"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "系统分类"
 
@@ -668,11 +671,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "屏保设置"
 
+msgid "SETTINGS"
+msgstr "设置"
+
 msgid "SCREENSAVER AFTER"
 msgstr "屏保等待时间"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "屏保样式"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "屏保-随机视频设置"
@@ -894,6 +903,24 @@ msgstr "CPU最大频率"
 msgid "Cpu feature"
 msgstr "CPU 特征"
 
+msgid "SCANLINES"
+msgstr "扫描线"
+
+msgid "RETRO"
+msgstr "复古"
+
+msgid "ENHANCED"
+msgstr "增强"
+
+msgid "CURVATURE"
+msgstr "弯曲"
+
+msgid "ZFAST"
+msgstr "ZFAST(贼快) 开发框架"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW 着色器集"
+
 msgid "MAIN MENU"
 msgstr "主菜单"
 
@@ -932,6 +959,9 @@ msgstr "系统设置"
 
 msgid "INFORMATIONS"
 msgstr "信息"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "退出"
@@ -1001,6 +1031,12 @@ msgstr "你确定需要设置控制器吗"
 
 msgid "CHOOSE"
 msgstr "浏览"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "系统信息"
@@ -1140,6 +1176,9 @@ msgstr "开始更新"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "语言"
 
@@ -1260,9 +1299,6 @@ msgstr "自动截图"
 msgid "SHOW IN MAIN MENU"
 msgstr "在主菜单中显示"
 
-msgid "SETTINGS"
-msgstr "设置"
-
 msgid "ENABLE NETPLAY"
 msgstr "启用联网游戏"
 
@@ -1307,24 +1343,6 @@ msgstr "自动保存/加载"
 
 msgid "SHADERS SET"
 msgstr "着色器设置"
-
-msgid "SCANLINES"
-msgstr "扫描线"
-
-msgid "RETRO"
-msgstr "复古"
-
-msgid "ENHANCED"
-msgstr "增强"
-
-msgid "CURVATURE"
-msgstr "弯曲"
-
-msgid "ZFAST"
-msgstr "ZFAST(贼快) 开发框架"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW 着色器集"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
@@ -1394,6 +1412,9 @@ msgstr "在编辑配置之前必须应用主题"
 
 msgid "THEME CONFIGURATION"
 msgstr "主题配置"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "基本列表"
@@ -1657,6 +1678,9 @@ msgstr "是否启动 KODI 媒体中心?"
 msgid "GO TO MANUFACTURER"
 msgstr "访问制造商"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1715,9 +1739,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -374,6 +374,9 @@ msgstr "사전(알파벳) 순"
 msgid "BY MANUFACTURER"
 msgstr "제조업체 순"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "시스템 정렬"
 
@@ -668,11 +671,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "화면보호기 설정"
 
+msgid "SETTINGS"
+msgstr "설정"
+
 msgid "SCREENSAVER AFTER"
 msgstr "화면 보호기 작동"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "화면 보호기 행동"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "랜덤 비디오 화면보호기 셋팅"
@@ -895,6 +904,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "CPU 사양"
 
+msgid "SCANLINES"
+msgstr "스캔라인"
+
+msgid "RETRO"
+msgstr "레트로"
+
+msgid "ENHANCED"
+msgstr "향상됨"
+
+msgid "CURVATURE"
+msgstr "곡률"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "평면빛"
+
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
 
@@ -933,6 +960,9 @@ msgstr "시스템 설정"
 
 msgid "INFORMATIONS"
 msgstr "정보"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "종료"
@@ -1002,6 +1032,12 @@ msgstr "정말로 입력을 설정하시겠습니까?"
 
 msgid "CHOOSE"
 msgstr "고르기"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "정보"
@@ -1141,6 +1177,9 @@ msgstr "업데이트 시작"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중입니다"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "언어"
 
@@ -1261,9 +1300,6 @@ msgstr "자동 스크린샷"
 msgid "SHOW IN MAIN MENU"
 msgstr "메인 메뉴에 보이기"
 
-msgid "SETTINGS"
-msgstr "설정"
-
 msgid "ENABLE NETPLAY"
 msgstr "넷플레이 허용"
 
@@ -1308,24 +1344,6 @@ msgstr "자동 저장/불러오기"
 
 msgid "SHADERS SET"
 msgstr "셰이더 선택"
-
-msgid "SCANLINES"
-msgstr "스캔라인"
-
-msgid "RETRO"
-msgstr "레트로"
-
-msgid "ENHANCED"
-msgstr "향상됨"
-
-msgid "CURVATURE"
-msgstr "곡률"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "평면빛"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
@@ -1393,6 +1411,9 @@ msgstr "테마 구성을 편집하기 전에 테마를 적용해야 합니다"
 
 msgid "THEME CONFIGURATION"
 msgstr "테마 구성"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "기초"
@@ -1656,6 +1677,9 @@ msgstr "KODI 미디어 센터를 실행하시겠습니까?"
 msgid "GO TO MANUFACTURER"
 msgstr "제조업체로 이동"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1714,9 +1738,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

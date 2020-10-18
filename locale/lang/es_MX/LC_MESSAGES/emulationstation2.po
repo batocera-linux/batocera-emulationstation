@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ramses\n"
 "Language-Team: \n"
@@ -378,6 +378,9 @@ msgstr "ALFABÉTICAMENTE"
 msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR SISTEMAS"
 
@@ -672,11 +675,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "CONFIGURACIÓN DE SALVAPANTALLAS"
 
+msgid "SETTINGS"
+msgstr "AJUSTES"
+
 msgid "SCREENSAVER AFTER"
 msgstr "SALVAPANTALLAS DESPUÉS DE"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTAMIENTO DEL SALVAPANTALLAS"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "CONFIGURAR SALVAPANTALLAS DE VIDEO ALEATORIO"
@@ -902,6 +911,24 @@ msgstr "FRECUENCIA MÁXIMA DEL PROCESADOR"
 msgid "Cpu feature"
 msgstr "CARACTERÍSTICA DEL PROCESADOR"
 
+msgid "SCANLINES"
+msgstr "LÍNEAS DE ESCANEO"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "MEJORADO"
+
+msgid "CURVATURE"
+msgstr "CURVATURA"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "PLANO / BRILLO"
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -940,6 +967,9 @@ msgstr "CONFIGURACIÓN DEL SISTEMA"
 
 msgid "INFORMATIONS"
 msgstr "INFORMACIÓN"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "SALIR"
@@ -1009,6 +1039,12 @@ msgstr "¿ESTÁS SEGURO DE QUERER CONFIGURAR LA ENTRADA?"
 
 msgid "CHOOSE"
 msgstr "ELEGIR"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMACIÓN"
@@ -1148,6 +1184,9 @@ msgstr "INICIAR ACTUALIZACIÓN"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ACTUALIZACIÓN EN PROCESO"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
@@ -1270,9 +1309,6 @@ msgstr "CAPTURA DE PANTALLA AUTOMÁTICO"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR EN MENÚ PRINCIPAL"
 
-msgid "SETTINGS"
-msgstr "AJUSTES"
-
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR NETPLAY"
 
@@ -1317,24 +1353,6 @@ msgstr "GUARDAR / CARGAR AUTOMÁTICAMENTE"
 
 msgid "SHADERS SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
-
-msgid "SCANLINES"
-msgstr "LÍNEAS DE ESCANEO"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "MEJORADO"
-
-msgid "CURVATURE"
-msgstr "CURVATURA"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "PLANO / BRILLO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PIXELES PERFECTOS)"
@@ -1404,6 +1422,9 @@ msgstr "DEBES APLICAR EL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓN DEL TEMA"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "BÁSICO"
@@ -1668,6 +1689,9 @@ msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 msgid "GO TO MANUFACTURER"
 msgstr "IR AL FABRICANTE"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1729,9 +1753,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

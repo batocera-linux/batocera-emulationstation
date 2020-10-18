@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -377,6 +377,9 @@ msgstr "ALFABETYCZNIE"
 msgid "BY MANUFACTURER"
 msgstr "PRZEZ PRODUCENTA"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "SORTUJ SYSTEMY"
 
@@ -408,7 +411,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "KOLEKCJE AUTOMATYCZNE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMY GIER ZRĘCZNOŚCIOWYCH"
@@ -540,13 +543,13 @@ msgid "LAUNCH"
 msgstr "URUCHOM"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "NIEZNANA WERSJA ROM"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "INNY ROM"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "TEN SAM ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNY CORE"
@@ -561,10 +564,10 @@ msgid "NO GAME FOUND"
 msgstr "NIE ZNALEZIONO GRY"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "DOŁĄCZ DO GRY"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "OGLĄDAJ GRĘ"
 
 msgid "MANUAL INPUT"
 msgstr "WPROWADZANIE RĘCZNE"
@@ -639,43 +642,49 @@ msgid "MISSING BIOS"
 msgstr "BRAKUJĄCY BIOS"
 
 msgid "dim"
-msgstr ""
+msgstr "przyciemniony"
 
 msgid "black"
-msgstr ""
+msgstr "czarny"
 
 msgid "random video"
-msgstr ""
+msgstr "losowe wideo"
 
 msgid "slideshow"
-msgstr ""
+msgstr "pokaz slajdów"
 
 msgid "always"
 msgstr "zawsze"
 
 msgid "start & end"
-msgstr ""
+msgstr "początek i koniec"
 
 msgid "never"
 msgstr "nigdy"
 
 msgid "none"
-msgstr ""
+msgstr "brak"
 
 msgid "systems"
-msgstr ""
+msgstr "systemy"
 
 msgid "random"
-msgstr ""
+msgstr "losowy"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA"
+
+msgid "SETTINGS"
+msgstr "USTAWIENIA"
 
 msgid "SCREENSAVER AFTER"
 msgstr "WYGASZACZ PO"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ZACHOWANIE WYGASZACZA"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA LOSOWEGO"
@@ -867,13 +876,13 @@ msgid "fade"
 msgstr "zanikanie"
 
 msgid "slide"
-msgstr "slajd"
+msgstr "przesunięcie"
 
 msgid "instant"
 msgstr "natychmiastowo"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "zanikanie i przesunięcie"
 
 msgid "System"
 msgstr "System"
@@ -901,6 +910,24 @@ msgstr "Maks. częstotliwość procesora"
 
 msgid "Cpu feature"
 msgstr "Funkcje procesora"
+
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "ROZSZERZONY"
+
+msgid "CURVATURE"
+msgstr "KRZYWIZNA"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -940,6 +967,9 @@ msgstr "USTAWIENIA SYSTEMOWE"
 
 msgid "INFORMATIONS"
 msgstr "INFORMACJE"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "WYJDŹ"
@@ -1010,6 +1040,12 @@ msgstr "CZY NA PEWNO CHCESZ SKONFIGUROWAĆ WEJŚCIA?"
 msgid "CHOOSE"
 msgstr "PRZEJDŹ"
 
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
+
 msgid "INFORMATION"
 msgstr "INFORMACJA"
 
@@ -1026,7 +1062,7 @@ msgid "DEVELOPER"
 msgstr "DEWELOPER"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "OPCJE WIDEO"
 
 msgid "VRAM LIMIT"
 msgstr "LIMIT VRAM"
@@ -1062,7 +1098,7 @@ msgid "FORMAT A DISK"
 msgstr "SFORMATUJ DYSK"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "ZARZĄDZANIE DANYMI"
 
 msgid "ENABLE FILTERS"
 msgstr "WŁĄCZ FILTRY"
@@ -1083,7 +1119,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "WYKRYJ JĘZYK/REGION GIER"
 
 msgid "UI"
-msgstr ""
+msgstr "INTERFEJS"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "PRZEJŚCIA KARUZELI"
@@ -1107,7 +1143,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOKONFIGURUJ KONTROLERY EMULATORÓW"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "OPTYMALIZACJE"
 
 msgid "PRELOAD UI"
 msgstr "ZAŁADUJ WSTĘPNIE INTERFEJS"
@@ -1147,6 +1183,9 @@ msgstr "ROZPOCZNIJ AKTUALIZACJĘ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "AKTUALIZACJA ZOSTAŁA JUŻ URUCHOMIONA"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "JĘZYK"
@@ -1270,9 +1309,6 @@ msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 msgid "SHOW IN MAIN MENU"
 msgstr "POKAŻ W MENU GŁÓWNYM"
 
-msgid "SETTINGS"
-msgstr "USTAWIENIA"
-
 msgid "ENABLE NETPLAY"
 msgstr "WŁĄCZ NETPLAY"
 
@@ -1318,24 +1354,6 @@ msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
 msgid "SHADERS SET"
 msgstr "ZESTAW SHADERÓW"
 
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "ROZSZERZONY"
-
-msgid "CURVATURE"
-msgstr "KRZYWIZNA"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
-
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
 
@@ -1343,7 +1361,7 @@ msgid "DECORATION"
 msgstr "DEKORACJA"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ROZCIĄGNIJ RAMKI (4K + ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TŁUMACZENIE GRY Z AI"
@@ -1403,6 +1421,9 @@ msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
 
 msgid "THEME CONFIGURATION"
 msgstr "KONFIGURACJA MOTYWU"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "podstawowy"
@@ -1666,6 +1687,9 @@ msgstr "CZY CHCESZ URUCHOMIĆ KODI?"
 msgid "GO TO MANUFACTURER"
 msgstr "PRZEJDŹ DO PRODUCENTA"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1727,19 +1751,16 @@ msgid "Favorites"
 msgstr "Ulubione"
 
 msgid "START GAME"
-msgstr ""
+msgstr "ROZPOCZNIJ GRĘ"
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "URUCHOM HOSTA NETPLAY"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "USTAW HASŁO GRACZA"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "USTAW HASŁO WIDZA"
 
 msgid "Searching"
 msgstr "Wyszukiwanie"
@@ -2052,15 +2073,18 @@ msgstr "PRACUJĘ.."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d s"
+
+#~ msgid "ALLOW SPECTATOR MODE"
+#~ msgstr "ZEZWÓL NA TRYB WIDZA"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"

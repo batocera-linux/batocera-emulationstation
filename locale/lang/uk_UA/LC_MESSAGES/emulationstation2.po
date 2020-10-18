@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -380,6 +380,9 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -674,11 +677,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДІНКА ЗАСТАВКИ"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
@@ -905,6 +914,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Функції CPU"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "РЕТРО"
+
+msgid "ENHANCED"
+msgstr "РАЗГОРНУТИЙ"
+
+msgid "CURVATURE"
+msgstr "КРИВИЗНА"
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
 
@@ -943,6 +970,9 @@ msgstr "НАЛАШТУВАННЯ СИСТЕМИ"
 
 msgid "INFORMATIONS"
 msgstr "ДАННІ"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ВИХІД"
@@ -1012,6 +1042,12 @@ msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ НАЛАШТУВАТИ КЕРУ
 
 msgid "CHOOSE"
 msgstr "ВИБЕРІТЬ"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "ІНФОРМАЦІЯ"
@@ -1151,6 +1187,9 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОНОВЛЕННЯ ВЖЕ ЗАПУЩЕНО"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "МОВА"
 
@@ -1271,9 +1310,6 @@ msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr ""
-
 msgid "ENABLE NETPLAY"
 msgstr "УВІМКНУТИ NETPLAY"
 
@@ -1318,24 +1354,6 @@ msgstr "АВТО ЗБЕРЕЖЕННЯ/ЗАВАНТАЖЕННЯ"
 
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРИ"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "РЕТРО"
-
-msgid "ENHANCED"
-msgstr "РАЗГОРНУТИЙ"
-
-msgid "CURVATURE"
-msgstr "КРИВИЗНА"
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
-msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
@@ -1404,6 +1422,9 @@ msgstr "ВИ МАЄТЕ ЗАСТОСУВАТИ ТЕМУ ПЕРЕД ЗМІНОЮ 
 
 msgid "THEME CONFIGURATION"
 msgstr "НАЛАШТУВАННЯ ТЕМИ"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "базовий"
@@ -1667,6 +1688,9 @@ msgstr "ХОЧЕТЕ ЗАПУСТИТИ МЕДІА-ЦЕНТР KODI?"
 msgid "GO TO MANUFACTURER"
 msgstr ""
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1731,9 +1755,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

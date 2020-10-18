@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-18 09:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -378,6 +378,9 @@ msgstr "POR ORDEM ALFABÉTICA"
 msgid "BY MANUFACTURER"
 msgstr "PELO FABRICANTE"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
 
@@ -672,11 +675,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DO PROTETOR DE ECRÃ"
 
+msgid "SETTINGS"
+msgstr "DEFINIÇÕES"
+
 msgid "SCREENSAVER AFTER"
 msgstr "PROTEÇÃO DE ECRÃ APÓS"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DE ECRÃ"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DE VÍDEO NO PROTETOR DE ECRÃ"
@@ -902,6 +911,24 @@ msgstr "Frequência máxima do Cpu"
 msgid "Cpu feature"
 msgstr "Características do Cpu"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "MELHORADO"
+
+msgid "CURVATURE"
+msgstr "CURVATURA"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -940,6 +967,9 @@ msgstr "DEFINIÇÕES DO SISTEMA"
 
 msgid "INFORMATIONS"
 msgstr "INFORMAÇÕES"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -1009,6 +1039,12 @@ msgstr "TEM A CERTEZA DE QUE DESEJA CONFIGURAR O COMANDO?"
 
 msgid "CHOOSE"
 msgstr "ESCOLHER"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -1148,6 +1184,9 @@ msgstr "INICIAR ATUALIZAÇÃO"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO ESTÁ EM CURSO"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
@@ -1268,9 +1307,6 @@ msgstr "SCREENSHOT AUTOMÁTICO"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR NO MENU PRINCIPAL"
 
-msgid "SETTINGS"
-msgstr "DEFINIÇÕES"
-
 msgid "ENABLE NETPLAY"
 msgstr "LIGAR JOGOS EM REDE"
 
@@ -1315,24 +1351,6 @@ msgstr "SAVE AUTOMÁTICO/LOADING"
 
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "MELHORADO"
-
-msgid "CURVATURE"
-msgstr "CURVATURA"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
@@ -1400,6 +1418,9 @@ msgstr "DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "básico"
@@ -1663,6 +1684,9 @@ msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 msgid "GO TO MANUFACTURER"
 msgstr "IR PARA FABRICANTE"
 
+msgid "GO TO HARDWARE"
+msgstr ""
+
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
@@ -1724,9 +1748,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
