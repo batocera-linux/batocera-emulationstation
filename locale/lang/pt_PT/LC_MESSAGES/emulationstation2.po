@@ -379,7 +379,7 @@ msgid "BY MANUFACTURER"
 msgstr "PELO FABRICANTE"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "TIPO DE HARDWARE"
 
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
@@ -412,13 +412,13 @@ msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "COLEÇÕES AUTOMÁTICAS"
+msgstr "COLEÇÕES DE JOGOS AUTOMÁTICAS"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLEÇÕES PERSONALIZADAS"
@@ -430,7 +430,7 @@ msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLEÇÕES PERSONALIZADAS"
 
 msgid "PLEASE WAIT"
-msgstr "POR FAVOR AGUARDE"
+msgstr "POR FAVOR, AGUARDE"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
@@ -544,13 +544,13 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "ROM DESCONHECIDO"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ROM DIFERENTE"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
@@ -565,10 +565,10 @@ msgid "NO GAME FOUND"
 msgstr "NENHUM JOGO ENCONTRADO"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "ENTRAR NO JOGO"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "ASSISTIR O JOGO"
 
 msgid "MANUAL INPUT"
 msgstr "ENTRADA MANUAL"
@@ -643,34 +643,34 @@ msgid "MISSING BIOS"
 msgstr "BIOS EM FALTA"
 
 msgid "dim"
-msgstr ""
+msgstr "dim"
 
 msgid "black"
-msgstr ""
+msgstr "preto"
 
 msgid "random video"
-msgstr ""
+msgstr "vídeo aleatório"
 
 msgid "slideshow"
-msgstr ""
+msgstr "apresentação de slides"
 
 msgid "always"
 msgstr "sempre"
 
 msgid "start & end"
-msgstr ""
+msgstr "início & fim"
 
 msgid "never"
 msgstr "nunca"
 
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 msgid "systems"
-msgstr ""
+msgstr "sistemas"
 
 msgid "random"
-msgstr ""
+msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DO PROTETOR DE ECRÃ"
@@ -685,7 +685,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DE ECRÃ"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr ""
+msgstr "PARAR MÚSICA DO PROTETOR DE ECRÃ"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DE VÍDEO NO PROTETOR DE ECRÃ"
@@ -730,7 +730,7 @@ msgid "CUSTOM VIDEO FILTER"
 msgstr "FILTRAR VÍDEO PERSONALIZADO"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "PROTEÇÃO DE ECRÃ SLIDESHOW"
+msgstr "PROTEÇÃO DE ECRÃ EM SLIDES"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -882,7 +882,7 @@ msgid "instant"
 msgstr "instante"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "escurecer & slide"
 
 msgid "System"
 msgstr "Sistema"
@@ -969,7 +969,7 @@ msgid "INFORMATIONS"
 msgstr "INFORMAÇÕES"
 
 msgid "UNLOCK UI MODE"
-msgstr ""
+msgstr "DESBLOQUEAR MODO DE INTERFACE"
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -1041,10 +1041,10 @@ msgid "CHOOSE"
 msgstr "ESCOLHER"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "O MODO DE INTERFACE ESTÁ AGORA DESBLOQUEADO"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "POR FAVOR, DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -1062,7 +1062,7 @@ msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "DEFINIÇÕES DE VÍDEO"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
@@ -1098,7 +1098,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR UM DISCO"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "GESTÃO DE DADOS"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1119,7 +1119,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "UI"
-msgstr ""
+msgstr "INTERFACE DO UTILIZADOR"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
@@ -1143,7 +1143,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
@@ -1185,7 +1185,7 @@ msgid "UPDATE IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO ESTÁ EM CURSO"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
+msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1359,7 +1359,7 @@ msgid "DECORATION"
 msgstr "DECORAÇÃO"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO JOGO POR IA"
@@ -1420,7 +1420,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "GAMELIST STYLE"
-msgstr ""
+msgstr "ESTILO NA LISTA DE JOGOS"
 
 msgid "basic"
 msgstr "básico"
@@ -1685,7 +1685,7 @@ msgid "GO TO MANUFACTURER"
 msgstr "IR PARA FABRICANTE"
 
 msgid "GO TO HARDWARE"
-msgstr ""
+msgstr "IR PARA HARDWARE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1745,16 +1745,16 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "START GAME"
-msgstr ""
+msgstr "INICIAR JOGO"
 
 msgid "START NETPLAY HOST"
-msgstr ""
+msgstr "INICIAR NETPLAY HOST"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "DEFINIR PASSWORD DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "DEFINIR PASSWORD DO ESPECTADOR"
 
 msgid "Searching"
 msgstr "Em andamento"
@@ -2059,15 +2059,15 @@ msgstr "EM PROGRESSO..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d s"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
@@ -2087,10 +2087,10 @@ msgstr ""
 #~ msgstr "VÍDEO NO PROTETOR DE ECRÃ"
 
 #~ msgid "SLIDESHOW SCREENSAVER"
-#~ msgstr "SLIDESHOW NO PROTETOR DE ECRÃ"
+#~ msgstr "SLIDES COMO PROTETOR DE ECRÃ"
 
 #~ msgid "SLIDESHOW SETTINGS"
-#~ msgstr "DEFINIÇÕES DO SLIDESHOW"
+#~ msgstr "DEFINIÇÕES DOS SLIDES"
 
 #~ msgid "RANDOM VIDEO SETTINGS"
 #~ msgstr "DEFINIÇÕES DE VÍDEO"
