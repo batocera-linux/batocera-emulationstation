@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-18 09:53+0200\n"
+"POT-Creation-Date: 2020-10-19 21:06+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1868,6 +1868,9 @@ msgstr "유통사 / 개발사"
 
 msgid "RATING"
 msgstr "평점"
+
+msgid "YEAR"
+msgstr ""
 
 msgid "REGION"
 msgstr "지역"

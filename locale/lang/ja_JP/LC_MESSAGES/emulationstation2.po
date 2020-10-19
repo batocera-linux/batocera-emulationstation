@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-18 09:53+0200\n"
+"POT-Creation-Date: 2020-10-19 21:06+0200\n"
 "PO-Revision-Date: 2020-10-16 19:35+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1872,6 +1872,9 @@ msgstr "開発元 / 発売元"
 
 msgid "RATING"
 msgstr "評価"
+
+msgid "YEAR"
+msgstr ""
 
 msgid "REGION"
 msgstr "リージョン"

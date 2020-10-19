@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-18 09:53+0200\n"
+"POT-Creation-Date: 2020-10-19 21:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1884,6 +1884,9 @@ msgid "PUBLISHER / DEVELOPER"
 msgstr ""
 
 msgid "RATING"
+msgstr ""
+
+msgid "YEAR"
 msgstr ""
 
 msgid "REGION"

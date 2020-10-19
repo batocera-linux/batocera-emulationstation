@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-18 09:53+0200\n"
+"POT-Creation-Date: 2020-10-19 21:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -380,7 +380,7 @@ msgid "BY MANUFACTURER"
 msgstr "NACH HERSTELLER"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "NACH HARDWARE-TYP"
 
 msgid "SORT SYSTEMS"
 msgstr "SYSTEME SORTIEREN"
@@ -686,7 +686,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "BILDSCHIRMSCHONER EINSTELLEN"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr ""
+msgstr "MUSIK BEI BILDSCHIRMSCHONER STOPPEN"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "ZUFALLSVIDEO BILDSCHIRMSCHONER EINSTELLUNGEN"
@@ -970,7 +970,7 @@ msgid "INFORMATIONS"
 msgstr "INFORMATIONEN"
 
 msgid "UNLOCK UI MODE"
-msgstr ""
+msgstr "UI-MODUS ENTSPERREN"
 
 msgid "QUIT"
 msgstr "BEENDEN"
@@ -1042,10 +1042,10 @@ msgid "CHOOSE"
 msgstr "WÄHLEN"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "UI-MODUS IST JETZT ENTSPERRT"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "BITTE CODE EINGEBEN, UM DEN AKTUELLEN UI-MODUS ZU ENTSPERREN"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONEN"
@@ -1186,7 +1186,7 @@ msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE LÄUFT BEREITS"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
+msgstr "KEINE VERBINDUNG ZU EINEM NETZWERK"
 
 msgid "LANGUAGE"
 msgstr "SPRACHE"
@@ -1427,7 +1427,7 @@ msgid "THEME CONFIGURATION"
 msgstr "THEME KONFIGURATION"
 
 msgid "GAMELIST STYLE"
-msgstr ""
+msgstr "SPIELELISTEN-STIL"
 
 msgid "basic"
 msgstr "grundsätzlich"
@@ -1689,10 +1689,10 @@ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "MÖCHTEN SIE KODI MEDIA CENTER STARTEN ?"
 
 msgid "GO TO MANUFACTURER"
-msgstr "GEHE ZUM HERSTELLER"
+msgstr "GEHE ZU HERSTELLER"
 
 msgid "GO TO HARDWARE"
-msgstr ""
+msgstr "GEHE ZU HARDWARE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1885,6 +1885,9 @@ msgstr "HERAUSGEBER / ENTWICKLER"
 
 msgid "RATING"
 msgstr "BEWERTUNG"
+
+msgid "YEAR"
+msgstr ""
 
 msgid "REGION"
 msgstr "REGION"
