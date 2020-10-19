@@ -1224,7 +1224,7 @@ msgid "START KODI WITH X"
 msgstr "INICIAR KODI PRESSIONANDO X"
 
 msgid "HARDWARE"
-msgstr "EQUIPAMENTO"
+msgstr "HARDWARE"
 
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
@@ -1883,7 +1883,7 @@ msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
 
 msgid "YEAR"
-msgstr ""
+msgstr "ANO"
 
 msgid "REGION"
 msgstr "REGIÃO"
