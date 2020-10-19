@@ -51,16 +51,22 @@ const std::string FileData::getBreadCrumbPath()
 {
 	std::vector<std::string> paths;
 
+	FileData* root = getSystem()->getParentGroupSystem() != nullptr ? getSystem()->getParentGroupSystem()->getRootFolder() : getSystem()->getRootFolder();
+
 	FileData* parent = (getType() == GAME ? getParent() : this);
+	parent = (getType() == GAME ? getParent() : this);
 	while (parent != nullptr)
 	{
-		if (parent == parent->getSystem()->getRootFolder() && !parent->getSystem()->isCollection())
+		if (parent == root->getSystem()->getRootFolder() && !parent->getSystem()->isCollection())
 			break;
 		
 		if (parent->getSystem()->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 			break;
 
-		if (parent->getSystem()->isGroupChildSystem() && parent->getSystem()->getParentGroupSystem() != nullptr && parent->getParent() == parent->getSystem()->getParentGroupSystem()->getRootFolder())
+		if (parent->getSystem()->isGroupChildSystem() && 
+			parent->getSystem()->getParentGroupSystem() != nullptr && 
+			parent->getParent() == parent->getSystem()->getParentGroupSystem()->getRootFolder() && 			
+			parent->getSystem()->getName() != "windows_installers")
 			break;
 
 		paths.push_back(parent->getName());
@@ -304,17 +310,17 @@ FileData* FileData::getSourceFileData()
 }
 
 
-void FileData::launchGame(Window* window, LaunchGameOptions options)
+bool FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
 
 	FileData* gameToUpdate = getSourceFileData();
 	if (gameToUpdate == nullptr)
-		return;
+		return false;
 
 	SystemData* system = gameToUpdate->getSystem();
 	if (system == nullptr)
-		return;
+		return false;
 
 	AudioManager::getInstance()->deinit(); // batocera
 	VolumeControl::getInstance()->deinit();
@@ -464,6 +470,8 @@ void FileData::launchGame(Window* window, LaunchGameOptions options)
 		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
 	else
 		AudioManager::getInstance()->playRandomMusic();
+
+	return exitCode == 0;
 }
 
 void FileData::deleteGameFiles()
@@ -552,6 +560,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
 	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
 	
+	if (getSystem()->getName() == "windows_installers")
+		showFoldersMode = "always";
+
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
 
 	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
@@ -612,6 +623,15 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if ((*it)->getType() == FOLDER && refactorUniqueGameFolders)
 		{
 			FolderData* pFolder = (FolderData*)(*it);
+			if (pFolder->getChildren().size() == 0)
+				continue;
+
+			if (pFolder->isVirtualStorage() && pFolder->getSourceFileData()->getSystem()->isGroupChildSystem() && pFolder->getSourceFileData()->getSystem()->getName() == "windows_installers")
+			{
+				ret.push_back(*it);
+				continue;
+			}
+
 			auto fd = pFolder->findUniqueGameForFolder();
 			if (fd != nullptr)
 			{
@@ -699,12 +719,17 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 
 		if (it->getType() != FOLDER)
 			continue;
-
-		FolderData* folder = (FolderData*) it;
+				
+		FolderData* folder = (FolderData*)it;		
 		if (folder->getChildren().size() > 0)
 		{
-			std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);
-			out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+			if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
+				out.push_back(it);
+			else
+			{
+				std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);
+				out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+			}
 		}
 	}
 

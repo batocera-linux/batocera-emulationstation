@@ -723,7 +723,7 @@ void GuiMenu::openDeveloperSettings()
 			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
 
 		Settings::getInstance()->saveFile();
-		reloadAllGames(mWindow, false);
+		ViewController::reloadAllGames(mWindow, false);
 	});
 
 	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this]
@@ -1816,13 +1816,13 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	
 	if (!confirm)
 	{
-		reloadAllGames(window, true);
+		ViewController::reloadAllGames(window, true);
 		return;
 	}
 
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [window]
 		{
-			reloadAllGames(window, true);
+		ViewController::reloadAllGames(window, true);
 		}, 
 		_("NO"), nullptr));
 }
@@ -2545,7 +2545,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		{
 			if (themeconfig->getVariable("forceReloadGames"))
 			{
-				reloadAllGames(window, false);
+				ViewController::reloadAllGames(window, false);
 			}
 			else if (systemTheme.empty())
 			{				
@@ -2565,40 +2565,6 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 	});
 
 	mWindow->pushGui(themeconfig);
-}
-
-void GuiMenu::reloadAllGames(Window* window, bool deleteCurrentGui)
-{
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
-	auto viewMode = ViewController::get()->getViewMode();
-	auto systemName = ViewController::get()->getSelectedSystem()->getName();	
-
-	window->renderSplashScreen(_("Loading..."));
-
-	if (!deleteCurrentGui)
-	{
-		GuiComponent* topGui = window->peekGui();
-		window->removeGui(topGui);
-	}
-
-	GuiComponent *gui;
-	while ((gui = window->peekGui()) != NULL)
-	{
-		window->removeGui(gui);
-		delete gui;
-	}
-
-	ViewController::init(window);
-	CollectionSystemManager::deinit();
-	CollectionSystemManager::init(window);
-	SystemData::loadConfig(window);
-
-	ViewController::get()->goToSystemView(systemName, true, viewMode);
-	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
-	window->closeSplashScreen();
-
-	window->pushGui(ViewController::get());
 }
 
 void GuiMenu::openUISettings() 

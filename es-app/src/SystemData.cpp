@@ -314,7 +314,6 @@ void SystemData::createGroupedSystems()
 							std::string path = logoElem->get<std::string>("path");
 							folder->setMetadata("image", path);
 							folder->setMetadata("thumbnail", path);
-							
 							folder->enableVirtualFolderDisplay(true);
 						}
 					}

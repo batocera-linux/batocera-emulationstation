@@ -77,8 +77,6 @@ private:
 	void openFormatDriveSettings();
 	void exitKidMode();
 
-	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
-
 	// windows
 	void openEmulatorSettings();
 	void openSystemEmulatorSettings(SystemData* system);

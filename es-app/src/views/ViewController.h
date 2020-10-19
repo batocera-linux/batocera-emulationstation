@@ -100,11 +100,14 @@ public:
 	SystemData* getSelectedSystem();
 	ViewMode getViewMode();
 
+	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+
 private:
 	ViewController(Window* window);
 	static ViewController* sInstance;
 
 	void playViewTransition(bool forceImmediate);
+	bool doLaunchGame(FileData* game, LaunchGameOptions options);
 	int getSystemId(SystemData* system);
 	
 	std::shared_ptr<GuiComponent> mCurrentView;
