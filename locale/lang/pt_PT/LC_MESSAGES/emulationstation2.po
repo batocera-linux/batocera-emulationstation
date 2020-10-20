@@ -1880,7 +1880,7 @@ msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
 
 msgid "YEAR"
-msgstr ""
+msgstr "ANO"
 
 msgid "REGION"
 msgstr "REGIÃO"
