@@ -537,13 +537,13 @@ msgid "LAUNCH"
 msgstr "启动"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "未知的ROM版本"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "不同的ROM"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "相同的ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "核心无效"
@@ -558,10 +558,10 @@ msgid "NO GAME FOUND"
 msgstr "未发现游戏"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "加入游戏"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "观看游戏"
 
 msgid "MANUAL INPUT"
 msgstr "手动输入"
@@ -636,16 +636,16 @@ msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
 
 msgid "dim"
-msgstr ""
+msgstr "变暗"
 
 msgid "black"
-msgstr ""
+msgstr "黑屏"
 
 msgid "random video"
-msgstr ""
+msgstr "随机视频"
 
 msgid "slideshow"
-msgstr ""
+msgstr "幻灯片"
 
 msgid "always"
 msgstr "总是"
@@ -663,7 +663,7 @@ msgid "systems"
 msgstr ""
 
 msgid "random"
-msgstr ""
+msgstr "随机"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "屏保设置"
@@ -865,7 +865,7 @@ msgid "instant"
 msgstr "闪现"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "淡出 + 滑动"
 
 msgid "System"
 msgstr "系统"
@@ -1018,7 +1018,7 @@ msgid "DEVELOPER"
 msgstr "开发者选项"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "视频选项"
 
 msgid "VRAM LIMIT"
 msgstr "限制 VRAM"
@@ -1054,7 +1054,7 @@ msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "数据管理"
 
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"
@@ -1075,7 +1075,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "重新查询游戏的 语言/区域"
 
 msgid "UI"
-msgstr ""
+msgstr "用户界面"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1099,7 +1099,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自动配置模拟的控制设备"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "优化"
 
 msgid "PRELOAD UI"
 msgstr "预加载UI"
@@ -1712,19 +1712,19 @@ msgid "Favorites"
 msgstr "收藏夹"
 
 msgid "START GAME"
-msgstr ""
+msgstr "开始游戏"
 
 msgid "START NETPLAY HOST"
-msgstr ""
+msgstr "开始做网络主机"
 
 msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "允许观看"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "设置玩家密码"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "设置观看者密码"
 
 msgid "Searching"
 msgstr "搜索中"
@@ -1900,11 +1900,23 @@ msgstr "右"
 msgid "LEFT ANALOG UP"
 msgstr "左侧类比摇杆 上"
 
+msgid "LEFT ANALOG RIGHT"
+msgstr "左侧类比摇杆 右"
+
+msgid "LEFT ANALOG DOWN"
+msgstr "左侧类比摇杆 下"
+
 msgid "LEFT ANALOG LEFT"
 msgstr "左侧类比摇杆 左"
 
 msgid "RIGHT ANALOG UP"
 msgstr "右侧类比摇杆 上"
+
+msgid "RIGHT ANALOG DOWN"
+msgstr "右侧类比摇杆 下"
+
+msgid "RIGHT ANALOG RIGHT"
+msgstr "右侧类比摇杆 右"
 
 msgid "RIGHT ANALOG LEFT"
 msgstr "右侧类比摇杆 左"
@@ -2023,15 +2035,90 @@ msgstr "进行中..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d 时"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d 分"
 
 #, c-format
 msgid "%d s"
+msgstr "%d 秒"
+
+msgid "DANGER ZONE!"
+msgstr "危险设置区域！"
+
+msgid "You are about to set EmuELEC resolution to"
+msgstr "你即将设置 EmuELEC 分辨率为"
+
+msgid "Emulationstation will restart"
+msgstr "Emulationstation 即将重启"
+
+msgid "AUDIO DEVICE"
+msgstr "音频设备"
+
+msgid "ENABLE SSH"
+msgstr "启用 SSH"
+
+msgid "START AT BOOT"
+msgstr "开机自动启动"
+
+msgid "ENABLE RA BEZELS"
+msgstr "启用 RA 边框"
+
+msgid "ENABLE RA SPLASH"
+msgstr "启用 RA 启动画面"
+
+msgid "ALWAYS SHOW BOOT VIDEO"
+msgstr "总是显示开机视频"
+
+msgid ""
+"WARNING THIS WILL RESTART EMULATIONSTATION!\n\n"
+"AFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/downloads/ee_backup_config.zip TO SOME PLACE SAFE OR IT WILL BE DELETED ON NEXT REBOOT!\n\n"
+"BACKUP CURRENT CONFIG AND RESTART?"
 msgstr ""
+
+msgid "BACKUP EMUELEC CONFIGS"
+msgstr "备份 EmuELEC 设置"
+
+msgid ""
+"WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\n"
+"UPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\n"
+"RESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"
+msgstr ""
+
+msgid "RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"
+msgstr "重置 EmuELEC 脚本和系统文件到初始状态"
+
+msgid ""
+"WARNING: ALL CONFIGURATIONS WILL BE RESET AND NO BACKUP WILL BE CREATED!\n\n"
+"IF YOU WANT TO KEEP YOUR SETTINGS MAKE A BACKUP AND SAVE IT ON AN EXTERNAL DRIVE BEFORE RUNING THIS OPTION!\n\n"
+"RESET SYSTEM TO DEFAULT CONFIG AND RESTART?"
+msgstr ""
+
+msgid "RESET SYSTEM TO DEFAULT CONFIG"
+msgstr "重置系统到默认设置"
+
+msgid "You are about to set EmuELEC Language to:"
+msgstr "你即将设置 EmuELEC 语言为："
+
+msgid "RESTART EMULATIONSTATION"
+msgstr "重启 Emulationstation"
+
+msgid "REALLY RESTART EMULATIONSTATION?"
+msgstr "确定重启 Emulationstation 吗？"
+
+msgid "REALLY START RETROARCH?"
+msgstr "确定重启 RetroArch 吗？"
+
+msgid "START RETROARCH"
+msgstr "重启 RetroArch"
+
+msgid "REALLY REBOOT FROM NAND?"
+msgstr "确定重启到 NAND 吗？"
+
+msgid "REBOOT FROM NAND"
+msgstr "重启到 NAND"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
