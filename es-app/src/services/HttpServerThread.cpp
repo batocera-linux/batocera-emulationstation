@@ -164,14 +164,22 @@ void HttpServerThread::run()
 			return;
 		}
 
-		auto systemName = req.matches[1];
+		std::string systemName = req.matches[1];
 
-		SystemData* system = SystemData::getSystem(systemName);
+		bool deleteSystem = false;
+
+		SystemData* system = SystemData::getSystem(systemName);		
 		if (system == nullptr)
 		{
-			res.set_content("404 not found", "text/html");
-			res.status = 404;
-			return;
+			system = SystemData::loadSystem(systemName, false);
+			if (system == nullptr)
+			{
+				res.set_content("404 System not found", "text/html");
+				res.status = 404;
+				return;
+			}
+
+			deleteSystem = true;
 		}
 			
 		std::unordered_map<std::string, FileData*> fileMap;
@@ -183,17 +191,38 @@ void HttpServerThread::run()
 		{
 			res.set_content("204 No game added / updated", "text/html");
 			res.status = 204;
+
+			if (deleteSystem)
+				delete system;
+
 			return;
 		}
+	
+		if (deleteSystem)
+		{			
+			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+				if (fileMap.find(file->getPath()) != fileMap.cend())
+					file->getMetadata().setDirty();
 
-		for (auto file : fileList)
-			if (file->getMetadata().wasChanged())
-				saveToGamelistRecovery(file);
+			updateGamelist(system);
+			delete system;
 
-		mWindow->postToUiThread([system](Window* w)
+			res.set_content("201 Game added. System not updated", "text/html");
+			res.status = 201;
+
+			mWindow->postToUiThread([](Window* w) { GuiMenu::updateGameLists(w, false); });
+		}
+		else
 		{
-			ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
-		});
+			for (auto file : fileList)
+				if (file->getMetadata().wasChanged())
+					saveToGamelistRecovery(file);
+
+			mWindow->postToUiThread([system](Window* w)
+			{
+				ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
+			});
+		}
 
 		res.set_content("OK", "text/html");
 	});

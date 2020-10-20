@@ -61,7 +61,7 @@ class ComponentList : public IList<ComponentListRow, void*>
 public:
 	ComponentList(Window* window);
 
-	void addRow(const ComponentListRow& row, bool setCursorHere = false);
+	void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateSize = true);
 	void addGroup(const std::string& label, bool forceVisible = false);
 
 	void textInput(const char* text) override;
@@ -103,7 +103,7 @@ private:
 	bool mFocused;
 
 	void updateCameraOffset();
-	void updateElementPosition(const ComponentListRow& row);
+	void updateElementPosition(const ComponentListRow& row, float yOffset = -1.0);
 	void updateElementSize(const ComponentListRow& row);
 	
 	float getRowHeight(const ComponentListRow& row) const;

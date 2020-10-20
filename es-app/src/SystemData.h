@@ -123,7 +123,7 @@ struct SystemEnvironmentData
 class SystemData
 {
 public:
-    SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false); // batocera
+    SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true); // batocera
 	~SystemData();
 
 	static SystemData* getSystem(const std::string name);
@@ -240,6 +240,8 @@ public:
 
 	FileFilterIndex* getFilterIndex() { return mFilterIndex; }
 
+	static SystemData* loadSystem(std::string systemName, bool fullMode = true);
+
 private:
 	static void createGroupedSystems();
 
@@ -266,7 +268,8 @@ private:
 	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
 	
-	static SystemData* loadSystem(pugi::xml_node system);
+	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
+	
 
 	FileFilterIndex* mFilterIndex;
 
