@@ -25,7 +25,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
+SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mIsGroupSystem = groupedSystem;
@@ -71,7 +71,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	setSystemViewMode(defaultView, gridSizeOverride, false);
 
 	setIsGameSystemStatus();
-	loadTheme();
+
+	if (withTheme)
+		loadTheme();
 }
 
 SystemData::~SystemData()
@@ -871,7 +873,33 @@ bool SystemData::loadConfig(Window* window)
 	return true;
 }
 
-SystemData* SystemData::loadSystem(pugi::xml_node system)
+SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
+{
+	std::string path = getConfigPath(false);
+	if (!Utils::FileSystem::exists(path))
+		return false;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	if (!res)
+		return false;
+
+	//actually read the file
+	pugi::xml_node systemList = doc.child("systemList");
+	if (!systemList)
+		return false;
+
+	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+	{
+		std::string name = system.child("name").text().get();
+		if (name == systemName)
+			return loadSystem(system, fullMode);
+	}
+
+	return nullptr;
+}
+
+SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 {
 	std::string path, cmd; // , name, fullname, themeFolder;
 
@@ -982,13 +1010,17 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 		}
 	}
 
-	SystemData* newSys = new SystemData(md, envData, &systemEmulators); // batocera
+	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode); // batocera
+
+	if (!fullMode)
+		return newSys;
+	
 	if (newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << md.name << "\" has no games! Ignoring it.";
 		delete newSys;
 		return nullptr;
-	}
+	}	
 
 	return newSys;
 }

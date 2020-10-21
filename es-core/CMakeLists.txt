@@ -63,6 +63,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/VolumeInfoComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/MultiLineMenuEntry.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollbarComponent.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.h
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.h
@@ -152,6 +153,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/VideoVlcComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/VolumeInfoComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollbarComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.cpp
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.cpp

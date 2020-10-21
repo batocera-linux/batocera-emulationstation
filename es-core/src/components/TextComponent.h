@@ -48,7 +48,7 @@ public:
 	void setGlowSize(unsigned int size) { mGlowSize = size; };
 	void setGlowOffset(float x, float y) { mGlowOffset = Vector2f(x,y); };
 
-	void setPadding(const Vector4f padding) { mPadding = padding; }
+	void setPadding(const Vector4f padding);
 
 	virtual void update(int deltaTime);
 
@@ -73,14 +73,14 @@ public:
 	virtual void onShow() override;
 
 protected:
+	void buildTextCache();
 	virtual void onTextChanged();
 
 	std::string mText;
 	std::shared_ptr<Font> mFont;
 	std::string mSourceText;
 
-private:
-	void calculateExtent();
+private:	
 	void renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y);
 	void renderGlow(const Transform4x4f& parentTrans, float yOff, float xOff);
 
