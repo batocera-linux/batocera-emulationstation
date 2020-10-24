@@ -1014,14 +1014,16 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			std::vector<FileData*> games = folder->getFilesRecursive(GAME);
 			for (auto game : games)
 			{
-				if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
-					sysData->filteredIndex->addToIndex(game);
+                if (game->getSystemName() != "mplayer") { //emuelec
+                    if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
+                        sysData->filteredIndex->addToIndex(game);
 
-				if (sysData->filteredIndex->showFile(game))
-				{
-					CollectionFileData* newGame = new CollectionFileData(game, newSys);
-					rootFolder->addChild(newGame);
-				}
+                    if (sysData->filteredIndex->showFile(game))
+                    {
+                        CollectionFileData* newGame = new CollectionFileData(game, newSys);
+                        rootFolder->addChild(newGame);
+                    }
+                } //emuelec
 			}
 		}
 
