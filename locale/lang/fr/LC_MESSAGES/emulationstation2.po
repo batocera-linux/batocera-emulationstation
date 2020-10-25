@@ -379,7 +379,7 @@ msgid "BY MANUFACTURER"
 msgstr "PAR CONSTRUCTEUR"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "PAR TYPE DE MATÉRIEL"
 
 msgid "SORT SYSTEMS"
 msgstr "TRIER LES SYSTÈMES"
@@ -472,7 +472,7 @@ msgid "DELETE COLLECTION"
 msgstr "SUPPRIMER LA COLLECTION"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr "STYLE DE LISTE DE JEUX"
+msgstr "STYLE DE VUE DES LISTES DE JEUX"
 
 msgid "automatic"
 msgstr "automatique"
@@ -685,7 +685,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPORTEMENT DE L'ÉCRAN DE VEILLE"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr ""
+msgstr "STOPPER LA MUSIQUE D’AMBIANCE"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES ÉCRAN DE VEILLE VIDÉO"
@@ -712,7 +712,7 @@ msgid "STRETCH VIDEO ON SCREENSAVER"
 msgstr "ÉTIRER LES VIDÉOS"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "COUPER LE SON DES VIDÉOS"
+msgstr "STOPPER LE SON DES VIDÉOS"
 
 msgid "SCREENSAVER CONTROLS"
 msgstr "CONTRÔLES DE L'ÉCRAN DE VEILLE"
@@ -968,7 +968,7 @@ msgid "INFORMATIONS"
 msgstr "INFORMATIONS"
 
 msgid "UNLOCK UI MODE"
-msgstr ""
+msgstr "DÉVERROUILLER LE MODE D’AFFICHAGE"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -1040,10 +1040,10 @@ msgid "CHOOSE"
 msgstr "CHOISIR"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "LE MODE D’AFFICHAGE EST MAINTENANT DÉVERROUILLÉ"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "VEUILLEZ ENTRER LE CODE POUR DÉVERROUILLER LE MODE D’AFFICHAGE"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -1184,7 +1184,7 @@ msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
+msgstr "VOUS N’ETES CONNECTÉ À AUCUN RÉSEAU"
 
 msgid "LANGUAGE"
 msgstr "LANGUE"
@@ -1353,7 +1353,7 @@ msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "RESOLUTION EN  ÉCHELLE ENTIÈRE"
+msgstr "AFFICHAGE EN ÉCHELLE ENTIÈRE"
 
 msgid "DECORATION"
 msgstr "DÉCORATIONS"
@@ -1422,7 +1422,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURATION DU THÈME"
 
 msgid "GAMELIST STYLE"
-msgstr ""
+msgstr "STYLE DES LISTES DE JEUX"
 
 msgid "basic"
 msgstr "basique"
@@ -1686,7 +1686,7 @@ msgid "GO TO MANUFACTURER"
 msgstr "ALLER AU CONSTRUCTEUR"
 
 msgid "GO TO HARDWARE"
-msgstr ""
+msgstr "ALLER AU MATÉRIEL"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1881,7 +1881,7 @@ msgid "RATING"
 msgstr "NOTATION"
 
 msgid "YEAR"
-msgstr ""
+msgstr "ANNÉE"
 
 msgid "REGION"
 msgstr "RÉGION"
