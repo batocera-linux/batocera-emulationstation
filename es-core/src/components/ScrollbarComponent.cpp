@@ -181,3 +181,34 @@ void ScrollbarComponent::fromTheme(const std::shared_ptr<ThemeData>& theme, cons
 	}
 
 }
+
+void ScrollbarComponent::loadFromMenuTheme()
+{ 
+	auto theme = ThemeData::getMenuTheme();
+	if (theme == nullptr || theme->Background.scrollbarColor == 0)
+	{
+		mEnabled = false;
+		return;
+	}
+	
+	if (theme->Background.scrollbarColor == 1) // Auto
+		setColor((theme->Text.color & 0xFFFFFF00) | 0x00000050);
+	else
+		setColor(theme->Background.scrollbarColor);
+
+	mScrollSize = theme->Background.scrollbarSize;
+	mCornerSize = theme->Background.scrollbarCorner;
+
+	const std::string& str = theme->Background.scrollbarAlignment;
+
+	mAlignment = SB_ALIGN_NORMAL;
+
+	if (str.find("left") != std::string::npos || str.find("top") != std::string::npos || str.find("reversed") != std::string::npos)
+		mAlignment = SB_ALIGN_REVERSED;
+
+	if (str.find("outer") != std::string::npos)
+		mAlignment = mAlignment | SB_ALIGN_OUTER;
+	
+	mEnabled = true; 
+	mVisible = true;
+}

@@ -85,7 +85,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
-		{ "scrollbarImagePath", PATH },
+		{ "scrollbarAlignment", STRING },
 
 		{ "centerSelection", STRING },
 		{ "scrollLoop", BOOLEAN } } },
@@ -260,24 +260,55 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "controllerActivity", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		// Common
 		{ "itemSpacing", FLOAT },
 		{ "horizontalAlignment", STRING },
-		{ "imagePath", PATH },
+
+		// Controllers
+		{ "imagePath", PATH },		
 		{ "color", COLOR },
 		{ "activityColor", COLOR },
 		{ "hotkeyColor", COLOR },
-		{ "visible", BOOLEAN },
-		{ "zIndex", FLOAT } } },
-	{ "batteryIndicator", {
-		{ "pos", NORMALIZED_PAIR },
-		{ "size", NORMALIZED_PAIR },		
+		
+		// Wifi
+		{ "networkIcon", PATH },
+
+		// Battery
 		{ "incharge", PATH },
 		{ "full", PATH },
 		{ "at75", PATH },
 		{ "at50", PATH },
 		{ "at25", PATH },
 		{ "empty", PATH },
+
+		{ "visible", BOOLEAN },
+		{ "zIndex", FLOAT } } },
+	{ "batteryIndicator", {
+		{ "pos", NORMALIZED_PAIR },
+		{ "size", NORMALIZED_PAIR },	
+
+		// Common
+		{ "itemSpacing", FLOAT },
+		{ "horizontalAlignment", STRING },
+
+		// Controllers
+		{ "imagePath", PATH },
 		{ "color", COLOR },
+		{ "activityColor", COLOR },
+		{ "hotkeyColor", COLOR },
+
+		// Wifi
+		{ "networkIcon", PATH },
+
+		// Battery
+		{ "incharge", PATH },
+		{ "full", PATH },
+		{ "at75", PATH },
+		{ "at50", PATH },
+		{ "at25", PATH },
+		{ "empty", PATH },
+
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "helpsystem", {
@@ -374,7 +405,11 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fadePath", PATH },
 		{ "color", COLOR },
 		{ "centerColor", COLOR },
-		{ "cornerSize", NORMALIZED_PAIR } } },
+		{ "cornerSize", NORMALIZED_PAIR },
+		{ "scrollbarColor", COLOR },
+		{ "scrollbarSize", FLOAT },
+		{ "scrollbarCorner", FLOAT },
+		{ "scrollbarAlignment", STRING } } },
 	{ "menuIcons", { 		
 		{ "iconSystem", PATH },
 		{ "iconUpdates", PATH },
@@ -1390,23 +1425,28 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 #endif
 			}
 
-			if (!ResourceManager::getInstance()->fileExists(path))
-			{
-				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
-				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
-					path = rootPath;
-			}
-
-			if(!ResourceManager::getInstance()->fileExists(path))
-			{
-				std::stringstream ss;
-				ss << "Warning : could not find file \"" << node.text().get() << "\" ";
-				if(node.text().get() != path)
-					ss << "(which resolved to \"" << path << "\") ";
-				LOG(LogWarning) << ss.str();
-			}
+			if (path == "none")
+				element.properties[node.name()] = "";
 			else
-				element.properties[node.name()] = path;
+			{
+				if (!ResourceManager::getInstance()->fileExists(path))
+				{
+					std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
+					if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
+						path = rootPath;
+				}
+
+				if (!ResourceManager::getInstance()->fileExists(path))
+				{
+					std::stringstream ss;
+					ss << "Warning : could not find file \"" << node.text().get() << "\" ";
+					if (node.text().get() != path)
+						ss << "(which resolved to \"" << path << "\") ";
+					LOG(LogWarning) << ss.str();
+				}
+				else
+					element.properties[node.name()] = path;
+			}
 
 			break;
 		}
@@ -1656,6 +1696,18 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 
 		if (elem->has("cornerSize"))
 			Background.cornerSize = elem->get<Vector2f>("cornerSize");
+
+		if (elem->has("scrollbarColor"))
+			Background.scrollbarColor = elem->get<unsigned int>("scrollbarColor");
+
+		if (elem->has("scrollbarSize"))
+			Background.scrollbarSize = elem->get<float>("scrollbarSize");
+
+		if (elem->has("scrollbarCorner"))
+			Background.scrollbarCorner = elem->get<float>("scrollbarCorner");		
+
+		if (elem->has("scrollbarAlignment"))
+			Background.scrollbarAlignment = elem->get<float>("scrollbarAlignment");
 	}
 
 	elem = theme->getElement("menu", "menutitle", "menuText");
@@ -1791,6 +1843,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	if (elem && elem->has("path") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("path")))
 		Icons.knob = elem->get<std::string>("path");
 
+	
 	elem = theme->getElement("menu", "menuicons", "menuIcons");
 	if (elem)
 	{

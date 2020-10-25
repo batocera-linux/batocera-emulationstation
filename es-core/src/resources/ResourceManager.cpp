@@ -100,8 +100,8 @@ bool ResourceManager::fileExists(const std::string& path) const
 	//if it exists as a resource file, return true
 	if(getResourcePath(path) != path)
 		return true;
-
-	return Utils::FileSystem::exists(path);
+		
+	return Utils::FileSystem::exists(Utils::FileSystem::getCanonicalPath(path));
 }
 
 void ResourceManager::unloadAll()

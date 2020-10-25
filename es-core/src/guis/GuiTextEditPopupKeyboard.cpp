@@ -44,6 +44,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
 	: GuiComponent(window), mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), mMultiLine(multiLine)
 {
+	setTag("popup");
+
 	mOkCallback = okCallback;
 
 	auto theme = ThemeData::getMenuTheme();
