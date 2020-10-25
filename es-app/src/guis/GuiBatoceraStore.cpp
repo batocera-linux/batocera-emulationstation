@@ -13,6 +13,9 @@
 #include "guis/GuiMsgBox.h"
 #include "ContentInstaller.h"
 #include "GuiLoading.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
+
 #include <unordered_set>
 #include <algorithm>
 
@@ -53,6 +56,7 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SEARCH"), _("SEARCH"), [this] {  showSearch(); }));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] {  loadPackagesAsync(true); }));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("BACK"), _("BACK"), [this] { delete this; }));
 
@@ -192,14 +196,15 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 		if (!mTabFilter.empty() && package.repository != mTabFilter)				
 			continue;		
 
+		if (!mTextFilter.empty() && !Utils::String::containsIgnoreCase(package.name, mTextFilter))
+			continue;
+
 		if (lastGroup != package.group)
 		{
 			if (package.group.empty())
 				mList->addGroup(_("MISC"), false);
 			else
 				mList->addGroup(_(Utils::String::toUpper(package.group).c_str()), false);
-
-			i++;
 		}
 
 		lastGroup = package.group;
@@ -214,6 +219,16 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 
 		mList->addRow(row, i == idx, false);
 		i++;
+	}
+
+	if (i == 0)
+	{
+		auto theme = ThemeData::getMenuTheme();
+		ComponentListRow row;
+		row.selectable = false;
+		auto text = std::make_shared<TextComponent>(mWindow, _("There are no items in this view"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+		row.addElement(text, true, false);
+		mList->addRow(row, false, false);
 	}
 
 	centerWindow();
@@ -318,16 +333,37 @@ bool GuiBatoceraStore::input(InputConfig* config, Input input)
 			delete window->peekGui();
 	}
 
+	if (config->isMappedTo("y", input) && input.value != 0)
+	{
+		showSearch();
+		return true;
+	}
+
 	if (mTabs->input(config, input))
 		return true;
 
 	return false;
 }
 
+void GuiBatoceraStore::showSearch()
+{
+	auto updateVal = [this](const std::string& newVal)
+	{
+		mTextFilter = newVal;
+		mReloadList = 3;
+	};
+
+	if (Settings::getInstance()->getBool("UseOSK"))
+		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("SEARCH"), mTextFilter, updateVal, false));
+	else
+		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("SEARCH"), mTextFilter, updateVal, false));
+}
+
 std::vector<HelpPrompt> GuiBatoceraStore::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mList->getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH")));
 	return prompts;
 }
 

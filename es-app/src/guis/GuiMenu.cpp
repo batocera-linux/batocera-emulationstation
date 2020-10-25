@@ -801,12 +801,17 @@ void GuiMenu::openDeveloperSettings()
 		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
 		autoControllers->setState(SystemConf::getInstance()->get("global.disableautocontrollers") != "1");
 		s->addWithLabel(_("AUTOCONFIGURE EMULATORS CONTROLLERS"), autoControllers);
-		s->addSaveFunc([autoControllers]
-		{
-			SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1");
-		});
+		s->addSaveFunc([autoControllers] { SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1"); });
 #endif
 	}
+
+#if defined(WIN32)
+	// Network Indicator
+	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);
+	networkIndicator->setState(Settings::getInstance()->getBool("ShowNetworkIndicator"));
+	s->addWithLabel(_("SHOW NETWORK INDICATOR"), networkIndicator);
+	s->addSaveFunc([networkIndicator] { Settings::getInstance()->setBool("ShowNetworkIndicator", networkIndicator->getState()); });
+#endif
 
 	s->addGroup(_("OPTIMIZATIONS"));
 
@@ -2682,109 +2687,6 @@ void GuiMenu::openUISettings()
 		}		
 	}
 
-
-	/*
-	s->addGroup(_("STARTUP SETTINGS"));
-
-	// Optionally start in selected system
-	std::string startupSystem = Settings::getInstance()->getString("StartupSystem");
-
-	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
-	systemfocus_list->add(_("NONE"), "", startupSystem == "");
-
-	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
-	{
-		std::string man;
-		for (auto system : SystemData::sSystemVector)
-		{
-			if (!system->isVisible())
-				continue;
-
-			if (man != system->getSystemMetadata().manufacturer)
-			{
-				systemfocus_list->addGroup(system->getSystemMetadata().manufacturer);
-				man = system->getSystemMetadata().manufacturer;
-			}
-
-			systemfocus_list->add(system->getName(), system->getName(), startupSystem == system->getName());
-		}
-	}
-	else
-	{
-		for (auto system : SystemData::sSystemVector)
-			if (system->isVisible())
-				systemfocus_list->add(system->getName(), system->getName(), startupSystem == system->getName());
-	}
-
-	s->addWithLabel(_("START ON SYSTEM"), systemfocus_list);
-	s->addSaveFunc([systemfocus_list] {
-		Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected());
-	});
-
-	// Open gamelist at start
-	auto startOnGamelist = std::make_shared<SwitchComponent>(mWindow);
-	startOnGamelist->setState(Settings::getInstance()->getBool("StartupOnGameList"));
-	s->addWithLabel(_("START ON GAMELIST"), startOnGamelist);
-	s->addSaveFunc([startOnGamelist] { Settings::getInstance()->setBool("StartupOnGameList", startOnGamelist->getState()); });
-	
-	// Select systems to hide
-	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
-
-	auto displayedSystems = std::make_shared<OptionListComponent<SystemData*>>(mWindow, _("SYSTEMS DISPLAYED"), true);
-
-
-	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
-	{
-		std::string man;
-		for (auto system : SystemData::sSystemVector)
-		{
-			if (system->isCollection() || system->isGroupChildSystem())
-				continue;
-
-			if (man != system->getSystemMetadata().manufacturer)
-			{
-				displayedSystems->addGroup(system->getSystemMetadata().manufacturer);
-				man = system->getSystemMetadata().manufacturer;
-			}
-
-			displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
-		}
-	}
-	else
-	{
-		for (auto system : SystemData::sSystemVector)
-			if (!system->isCollection() && !system->isGroupChildSystem())
-				displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
-	}
-
-	s->addWithLabel(_("SYSTEMS DISPLAYED"), displayedSystems);
-	s->addSaveFunc([s, displayedSystems]
-	{
-		std::string hiddenSystems;
-
-		std::vector<SystemData*> sys = displayedSystems->getSelectedObjects();
-
-		for (auto system : SystemData::sSystemVector)
-		{
-			if (system->isCollection() || system->isGroupChildSystem())
-				continue;
-
-			if (std::find(sys.cbegin(), sys.cend(), system) == sys.cend())
-			{
-				if (hiddenSystems.empty())
-					hiddenSystems = system->getName();
-				else
-					hiddenSystems = hiddenSystems + ";" + system->getName();
-			}
-		}
-
-		if (Settings::getInstance()->setString("HiddenSystems", hiddenSystems))
-		{
-			Settings::getInstance()->saveFile();
-			s->setVariable("reloadAll", true);
-		}
-	});
-	*/
 	s->addGroup(_("DISPLAY OPTIONS"));
 
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
@@ -3049,6 +2951,12 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 
 	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(), font, color);
 	s->addWithLabel(_("IP ADDRESS"), ip);
+
+	// Network Indicator
+	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);
+	networkIndicator->setState(Settings::getInstance()->getBool("ShowNetworkIndicator"));
+	s->addWithLabel(_("SHOW NETWORK INDICATOR"), networkIndicator);
+	s->addSaveFunc([networkIndicator] { Settings::getInstance()->setBool("ShowNetworkIndicator", networkIndicator->getState()); });
 
 	s->addGroup(_("SETTINGS"));
 

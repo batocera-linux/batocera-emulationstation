@@ -393,7 +393,7 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 
 	mScrollbar.onCursorChanged();
 
-	LOG(LogDebug) << "mCursor \"" << mCursor << "\ state  \"" << state << "\"";
+	LOG(LogDebug) << "mCursor \"" << mCursor << "\" state  \"" << state << "\"";
 
 	if (mLastCursor != mCursor || mLastCursorState != state)
 	{

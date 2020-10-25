@@ -37,6 +37,7 @@ public:
 	void setCornerSize(float corner) { mCornerSize = corner; }
 	void setScrollSize(float size) { mScrollSize = size; }
 
+	void loadFromMenuTheme();
 	void fromTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, const std::string& containerType);
 
 private:

@@ -4,6 +4,7 @@
 
 #include "IList.h"
 #include "LocaleES.h"
+#include "components/ScrollbarComponent.h"
 
 struct ComponentListElement
 {
@@ -112,6 +113,8 @@ private:
 	float mCameraOffset;
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
+
+	ScrollbarComponent mScrollbar;
 };
 
 #endif // ES_CORE_COMPONENTS_COMPONENT_LIST_H

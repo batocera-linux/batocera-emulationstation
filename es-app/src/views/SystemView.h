@@ -86,8 +86,7 @@ private:
 	void	 clearEntries();
 
 	int		 moveCursorFast(bool forward = true);
-	void	 showManufacturerBar();
-	void	 showHardwareBar();
+	void	 showNavigationBar(const std::string& title, const std::function<std::string(SystemData* system)>& selector);
 
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;

@@ -396,8 +396,7 @@ namespace Utils
 
 		bool startsWith(const std::string& _string, const std::string& _start)
 		{
-			return (_string.find(_start) == 0);
-
+			return (strncmp(_string.c_str(), _start.c_str(), _start.size()) == 0);
 		} // startsWith
 
 		bool endsWith(const std::string& _string, const std::string& _end)
@@ -618,6 +617,17 @@ namespace Utils
 				if (u1)
 					return u1;
 			}
+		}
+
+		bool containsIgnoreCase(const std::string & _string, const std::string & _what)
+		{
+			auto it = std::search(
+				_string.begin(), _string.end(),
+				_what.begin(), _what.end(),
+				[](char ch1, char ch2) { return toupper(ch1) == toupper(ch2); }
+			);
+
+			return (it != _string.end());
 		}
 
 		std::string proper(const std::string& _string)

@@ -122,11 +122,16 @@ struct MenuElement
 
 struct MenuBackground
 {
-	unsigned int color;
-	unsigned int centerColor;
-	std::string path;
-	std::string fadePath;	
-	Vector2f cornerSize;	
+	unsigned int	color;
+	unsigned int	centerColor;
+	std::string		path;
+	std::string		fadePath;	
+	Vector2f		cornerSize;	
+
+	unsigned int	scrollbarColor;
+	float			scrollbarSize;
+	float			scrollbarCorner;
+	std::string		scrollbarAlignment;
 };
 
 struct MenuGroupElement
@@ -162,7 +167,7 @@ public:
 	public:
 		ThemeMenu(ThemeData* theme);
 
-		MenuBackground Background{ 0xFFFFFFFF, 0xFFFFFFFF, ":/frame.png", ":/scroll_gradient.png", Vector2f(16, 16) };
+		MenuBackground Background{ 0xFFFFFFFF, 0xFFFFFFFF, ":/frame.png", ":/scroll_gradient.png", Vector2f(16, 16), 0, 0.0025f, 0.01f, "innerright" };
 		MenuElement Title{ 0x555555FF, 0x555555FF, 0x555555FF, 0xFFFFFFFF, 0x555555FF, true, "", nullptr };
 		MenuElement Text{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
 		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };

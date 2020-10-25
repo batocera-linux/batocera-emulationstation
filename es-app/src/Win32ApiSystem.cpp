@@ -566,7 +566,7 @@ std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
 
 	std::vector<BatoceraTheme> res;
 
-	HttpReq httpreq("https://batocera.org/upgrades/themes.txt");
+	HttpReq httpreq(getUpdateUrl() + "/themes.txt");
 	if (httpreq.wait())
 	{
 		auto lines = Utils::String::split(httpreq.getContent(), '\n');
@@ -617,6 +617,8 @@ std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
 			}
 		}
 	}
+
+	getBatoceraThemesImages(res);
 
 	return res;
 }
@@ -673,7 +675,7 @@ std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 
 	std::vector<BatoceraBezel> res;
 
-	HttpReq request("https://batocera.org/upgrades/bezels.txt");
+	HttpReq request(getUpdateUrl()+"/bezels.txt");
 	if (request.wait())
 	{
 		auto lines = Utils::String::split(request.getContent(), '\n');
@@ -954,34 +956,6 @@ bool Win32ApiSystem::launchKodi(Window *window)
 	ApiSystem::launchExternalWindow_after(window);
 
 	return ret;
-}
-
-std::string Win32ApiSystem::getIpAdress()
-{	
-	// Init WinSock
-	WSADATA wsa_Data;
-	int wsa_ReturnCode = WSAStartup(0x101, &wsa_Data);
-	if (wsa_ReturnCode != 0)
-		return "NOT CONNECTED";
-
-	char* szLocalIP = nullptr;
-
-	// Get the local hostname
-	char szHostName[255];
-	if (gethostname(szHostName, 255) == 0)
-	{
-		struct hostent *host_entry;
-		host_entry = gethostbyname(szHostName);
-		if (host_entry != nullptr)
-			szLocalIP = inet_ntoa(*(struct in_addr *)*host_entry->h_addr_list);
-	}
-
-	WSACleanup();
-
-	if (szLocalIP == nullptr)
-		return "NOT CONNECTED";
-
-	return std::string(szLocalIP); // "127.0.0.1"
 }
 
 std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)

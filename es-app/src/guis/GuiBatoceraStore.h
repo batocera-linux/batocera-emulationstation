@@ -50,7 +50,8 @@ private:
 	void loadList(bool updatePackageList, bool restoreIndex = true);
 	void processPackage(PacmanPackage package);
 	void centerWindow();
-	
+	void showSearch();
+
 	int				mReloadList;
 	std::vector<PacmanPackage> mPackages;
 	
@@ -69,4 +70,5 @@ private:
 	std::shared_ptr<ComponentTab>	mTabs;
 
 	std::string						mTabFilter;
+	std::string						mTextFilter;
 };

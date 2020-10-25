@@ -108,6 +108,12 @@ void Settings::setDefaults()
 	mBoolMap["SaveGamelistsOnExit"] = true;
 	mBoolMap["ShowBatteryIndicator"] = true;	
 
+#if WIN32
+	mBoolMap["ShowNetworkIndicator"] = false;
+#else
+	mBoolMap["ShowNetworkIndicator"] = true;
+#endif
+
 	mBoolMap["Debug"] = false;
 	mBoolMap["DebugGrid"] = false;
 	mBoolMap["DebugText"] = false;

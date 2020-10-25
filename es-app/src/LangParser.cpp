@@ -157,7 +157,7 @@ std::string LangInfo::getFlag(const std::string lang, const std::string region)
 	}
 
 	auto langs = Utils::String::split(lang, ',');
-	if (std::find(langs.cbegin(), langs.cend(), locale) != langs.cend())
+	if (locale != "en" && std::find(langs.cbegin(), langs.cend(), locale) != langs.cend())
 		return locale;
 
 	if (langs.size() >= 1 && region.empty() && langs[0] == "en")

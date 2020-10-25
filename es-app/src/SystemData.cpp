@@ -95,12 +95,14 @@ void SystemData::setIsGameSystemStatus()
 void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	const std::string& folderPath = folder->getPath();
+
+	/*
 	if(!Utils::FileSystem::isDirectory(folderPath))
 	{
 		LOG(LogWarning) << "Error - folder with path \"" << folderPath << "\" is not a directory!";
 		return;
 	}
-	/*
+	
 	// [Obsolete] make sure that this isn't a symlink to a thing we already have
 	// Deactivated because it's slow & useless : users should to be carefull not to make recursive simlinks
 	if (Utils::FileSystem::isSymlink(folderPath))
@@ -155,11 +157,14 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		//add directories that also do not match an extension as folders
 		if(!isGame && fileInfo.directory)
 		{
+			std::string fn = Utils::String::toLower(Utils::FileSystem::getFileName(filePath));
+
 			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
-			if (filePath.rfind("downloaded_") != std::string::npos || 
-				filePath.rfind("media") != std::string::npos || 
-				filePath.rfind("images") != std::string::npos ||
-				filePath.rfind("videos") != std::string::npos)
+			if (fn == "media" || fn == "medias" || fn == "images" || fn == "manuals" || fn == "videos" || fn == "assets" || Utils::String::startsWith(fn, "downloaded_") || Utils::String::startsWith(fn, "."))
+				continue;
+
+			// Hardcoded optimisation : WiiU has so many files in content & meta directories
+			if (mMetadata.name == "wiiu" && (fn == "content" || fn == "meta"))
 				continue;
 
 			FolderData* newFolder = new FolderData(filePath, this);
@@ -823,7 +828,7 @@ bool SystemData::loadConfig(Window* window)
 				int px = processedSystem - 1;
 				if (px >= 0 && px < systemsNames.size())
 					window->renderSplashScreen(systemsNames.at(px), (float)px / (float)(systemCount + 1));
-			}, 10);
+			}, 50);
 		}
 		else
 			pThreadPool->wait();
@@ -877,17 +882,17 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 {
 	std::string path = getConfigPath(false);
 	if (!Utils::FileSystem::exists(path))
-		return false;
+		return nullptr;
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = doc.load_file(path.c_str());
 	if (!res)
-		return false;
+		return nullptr;
 
 	//actually read the file
 	pugi::xml_node systemList = doc.child("systemList");
 	if (!systemList)
-		return false;
+		return nullptr;
 
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
@@ -1217,13 +1222,13 @@ std::string SystemData::getThemePath() const
 	// 3. default system theme from currently selected theme set [CURRENT_THEME_PATH]/theme.xml
 
 	// first, check game folder
+	/*
 	std::string localThemePath = mRootFolder->getPath() + "/theme.xml";
 	if(Utils::FileSystem::exists(localThemePath))
 		return localThemePath;
-
+		*/
 	// not in game folder, try system theme in theme sets
-	localThemePath = ThemeData::getThemeFromCurrentSet(mMetadata.themeFolder);
-
+	std::string localThemePath = ThemeData::getThemeFromCurrentSet(mMetadata.themeFolder);
 	if (Utils::FileSystem::exists(localThemePath))
 		return localThemePath;
 
