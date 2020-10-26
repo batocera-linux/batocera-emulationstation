@@ -270,14 +270,14 @@ void CollectionSystemManager::loadEnabledListFromSettings()
 	std::vector<std::string> autoSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsAuto"));
 
 	// iterate the map
-	for(auto item : mAutoCollectionSystemsData)
+	for(auto& item : mAutoCollectionSystemsData)
 		item.second.isEnabled = (std::find(autoSelected.cbegin(), autoSelected.cend(), item.first) != autoSelected.cend());
 
 	// we parse the custom collection settings list
 	std::vector<std::string> customSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsCustom"));
 
 	// iterate the map
-	for (auto item : mCustomCollectionSystemsData)
+	for (auto& item : mCustomCollectionSystemsData)
 		item.second.isEnabled = (std::find(customSelected.cbegin(), customSelected.cend(), item.first) != customSelected.cend());
 }
 
@@ -1335,7 +1335,7 @@ std::vector<std::string> CollectionSystemManager::getUserCollectionThemeFolders(
 {
 	std::vector<std::string> systems;
 
-	for(auto item : mCustomCollectionSystemsData)
+	for(auto& item : mCustomCollectionSystemsData)
 		systems.push_back(item.second.decl.themeFolder);
 
 	return systems;
