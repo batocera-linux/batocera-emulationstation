@@ -221,10 +221,10 @@ msgid "Region"
 msgstr "Região"
 
 msgid "HASHING GAMES"
-msgstr "HASHING DOS JOGOS"
+msgstr "VALIDAÇÃO DOS JOGOS"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "HASHING DO JOGO ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
+msgstr "A VALIDAÇÃO DOS JOGOS ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
 
 msgid "YES"
 msgstr "SIM"
