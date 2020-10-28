@@ -255,6 +255,12 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 	if (content.empty())
 		return false;
 
+	if (content.find("<html") == 0)
+	{
+		setError(Utils::String::removeHtmlTags(content));
+		return false;
+	}
+
 	pugi::xml_document doc;
 	pugi::xml_parse_result parseResult = doc.load(content.c_str());
 

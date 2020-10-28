@@ -2946,11 +2946,11 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 	auto s = new GuiSettings(mWindow, _("NETWORK SETTINGS").c_str());
 	s->addGroup(_("INFORMATIONS"));
 
-	auto status = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->ping() ? _("CONNECTED") : _("NOT CONNECTED"), font, color);
-	s->addWithLabel(_("STATUS"), status);
-
 	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(), font, color);
 	s->addWithLabel(_("IP ADDRESS"), ip);
+
+	auto status = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->ping() ? _("CONNECTED") : _("NOT CONNECTED"), font, color);
+	s->addWithLabel(_("INTERNET STATUS"), status);
 
 	// Network Indicator
 	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);

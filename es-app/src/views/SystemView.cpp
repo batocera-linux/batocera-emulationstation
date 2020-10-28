@@ -19,6 +19,8 @@
 #include "Playlists.h"
 #include "CollectionSystemManager.h"
 #include "resources/TextureDataManager.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -352,6 +354,31 @@ bool SystemView::input(InputConfig* config, Input input)
 				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 			else 
 				mWindow->pushGui(new GuiNetPlay(mWindow));
+
+			return true;
+		}
+
+		if (!kodi && config->isMappedTo("y", input))
+		{	
+			SystemData* all = SystemData::getSystem("all");
+			if (all != nullptr)
+			{
+				auto updateVal = [this, all](const std::string& newVal)
+				{
+					auto index = all->getIndex(true);
+
+					index->resetFilters();
+					index->setTextFilter(newVal);
+
+					ViewController::get()->reloadGameListView(all);
+					ViewController::get()->goToGameList(all, true);
+				};
+
+				if (Settings::getInstance()->getBool("UseOSK"))
+					mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("QUICK SEARCH"), "", updateVal, false));
+				else
+					mWindow->pushGui(new GuiTextEditPopup(mWindow, _("QUICK SEARCH"), "", updateVal, false));			
+			}
 
 			return true;
 		}
@@ -856,6 +883,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 		prompts.push_back(HelpPrompt(kodi ? "y" : "x", _("NETPLAY")));
 	else
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
+	if (!kodi && SystemData::getSystem("all") != nullptr)
+		prompts.push_back(HelpPrompt("y", _("QUICK SEARCH"))); // batocera
 
 	// batocera
 #ifdef _ENABLE_FILEMANAGER_
