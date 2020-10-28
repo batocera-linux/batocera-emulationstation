@@ -665,6 +665,7 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 		from = to;
 
 	float scale = mScale;
+	float opacity = mOpacity;
 
 	float x1 = from.x();
 	float x2 = to.x();
@@ -683,13 +684,13 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 		if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
 			mScale = 0.0f;
 
-		auto fadeFunc = [this, x1, x2, y1, y2, flags, scale](float t) {
+		auto fadeFunc = [this, x1, x2, y1, y2, flags, scale, opacity](float t) {
 
 			t -= 1; // cubic ease out
 			float pct = Math::lerp(0, 1, t*t*t + 1);
 			
 			if ((flags & AnimateFlags::OPACITY) == AnimateFlags::OPACITY)
-				setOpacity(pct*255.0);
+				setOpacity(pct * opacity);
 
 			if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
 				mScale = pct * scale;
@@ -701,13 +702,13 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 				setPosition(x, y);
 		};
 
-		setAnimation(new LambdaAnimation(fadeFunc, delay), 0, [this, fadeFunc, x2, y2, flags, scale]
+		setAnimation(new LambdaAnimation(fadeFunc, delay), 0, [this, fadeFunc, x2, y2, flags, scale, opacity]
 		{			
 			if ((flags & AnimateFlags::SCALE) == AnimateFlags::SCALE)
 				mScale = scale;
 
 			if ((flags & AnimateFlags::OPACITY) == AnimateFlags::OPACITY)
-				setOpacity(255);
+				setOpacity(opacity);
 
 			float x = x2 + mSize.x() / 2 - (mSize.x() / 2 * mScale);
 			float y = y2 + mSize.y() / 2 - (mSize.y() / 2 * mScale);

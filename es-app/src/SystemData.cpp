@@ -1205,13 +1205,14 @@ std::string SystemData::getGamelistPath(bool forWrite) const
 	if(Utils::FileSystem::exists(filePath))
 		return filePath;
 
-	//filePath = "/userdata/system/configs/emulationstation/gamelists/" + mName + "/gamelist.xml"; // batocera
-	if(forWrite) // make sure the directory exists if we're going to write to it, or crashes will happen
-		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
-	if(forWrite || Utils::FileSystem::exists(filePath))
-		return filePath;
+	std::string localPath = Utils::FileSystem::getEsConfigPath() + "/gamelists/" + mMetadata.name + "/gamelist.xml";
+	if (Utils::FileSystem::exists(localPath))
+		return localPath;
 
-	return "/etc/emulationstation/gamelists/" + mMetadata.name + "/gamelist.xml";
+	if (forWrite)
+		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
+	
+	return filePath;
 }
 
 std::string SystemData::getThemePath() const
@@ -1222,11 +1223,14 @@ std::string SystemData::getThemePath() const
 	// 3. default system theme from currently selected theme set [CURRENT_THEME_PATH]/theme.xml
 
 	// first, check game folder
-	/*
-	std::string localThemePath = mRootFolder->getPath() + "/theme.xml";
-	if(Utils::FileSystem::exists(localThemePath))
-		return localThemePath;
-		*/
+	
+	if (!mEnvData->mStartPath.empty())
+	{
+		std::string rootThemePath = mRootFolder->getPath() + "/theme.xml";
+		if (Utils::FileSystem::exists(rootThemePath))
+			return rootThemePath;
+	}
+
 	// not in game folder, try system theme in theme sets
 	std::string localThemePath = ThemeData::getThemeFromCurrentSet(mMetadata.themeFolder);
 	if (Utils::FileSystem::exists(localThemePath))

@@ -164,7 +164,7 @@ void ViewController::goToPrevGameList()
 	goToGameList(system->getPrev());
 }
 
-bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
+bool ViewController::goToGameList(const std::string& systemName, bool forceImmediate)
 {
 	auto system = SystemData::getSystem(systemName);
 	if (system != nullptr && !system->isGroupChildSystem())

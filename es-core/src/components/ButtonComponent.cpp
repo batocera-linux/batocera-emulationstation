@@ -7,7 +7,8 @@
 ButtonComponent::ButtonComponent(Window* window, const std::string& text, const std::string& helpText, const std::function<void()>& func, bool upperCase) : GuiComponent(window),
 	mBox(window, ThemeData::getMenuTheme()->Icons.button),	
 	mFocused(false), 
-	mEnabled(true)	
+	mEnabled(true),
+	mPadding(Vector4f(0, 0, 0, 0))
 {
 	auto menuTheme = ThemeData::getMenuTheme();
 
@@ -29,7 +30,11 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 void ButtonComponent::onSizeChanged()
 {
 	auto sz = mBox.getCornerSize();
-	mBox.fitTo(mSize, Vector3f::Zero(), Vector2f(-sz.x() * 2, -sz.y() * 2));
+
+	mBox.fitTo(
+		Vector2f(mSize.x() - mPadding.x() - mPadding.z(), mSize.y() - mPadding.y() - mPadding.w()), 
+		Vector3f(mPadding.x(), mPadding.y()), 
+		Vector2f(-sz.x() * 2, -sz.y() * 2));
 }
 
 void ButtonComponent::setPressedFunc(std::function<void()> f)
@@ -112,6 +117,11 @@ void ButtonComponent::render(const Transform4x4f& parentTrans)
 
 	if (mRenderNonFocusedBackground || mFocused)
 		mBox.render(trans);
+	else
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(mPadding.x(), mPadding.y(), mSize.x() - mPadding.x() - mPadding.z(), mSize.y() - mPadding.y() - mPadding.w(), 0x60606025);
+	}
 
 	if(mTextCache)
 	{
@@ -148,4 +158,14 @@ std::vector<HelpPrompt> ButtonComponent::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	prompts.push_back(HelpPrompt(BUTTON_OK, mHelpText.empty() ? mText.c_str() : mHelpText.c_str())); // batocera
 	return prompts;
+}
+
+
+void ButtonComponent::setPadding(const Vector4f padding)
+{
+	if (mPadding == padding)
+		return;
+
+	mPadding = padding;
+	onSizeChanged();
 }

@@ -59,8 +59,15 @@ void ControllerActivityComponent::setColorShift(unsigned int color)
 	mColorShift = color;
 }
 
+void ControllerActivityComponent::onPositionChanged()
+{
+	mBatteryText = nullptr;
+}
+
 void ControllerActivityComponent::onSizeChanged()
 {	
+	mBatteryText = nullptr;
+
 	if (mSize.y() > 0 && mPadTexture)
 	{
 		size_t heightPx = (size_t)Math::round(mSize.y());
@@ -201,8 +208,8 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
 		if (mBatteryFont == nullptr)
-			mBatteryFont = Font::get(szH * 0.66f, ThemeData::getMenuTheme()->TextSmall.font->getPath());
-
+			mBatteryFont = Font::get(szH * (Renderer::isSmallScreen() ? 0.55f : 0.70f), FONT_PATH_REGULAR);
+		
 		auto sz = mBatteryFont->sizeText(batteryText, 1.0);
 		itemsWidth += sz.x() + mSpacing;
 
