@@ -5,6 +5,7 @@
 #include "components/MenuComponent.h"
 #include "components/ComponentGrid.h"
 #include "components/TextComponent.h"
+#include "components/ImageComponent.h"
 #include "ApiSystem.h"
 #include "ContentInstaller.h"
 
@@ -24,6 +25,8 @@ private:
 	std::shared_ptr<TextComponent>  mImage;
 	std::shared_ptr<TextComponent>  mText;
 	std::shared_ptr<TextComponent>  mSubstring;
+
+	std::shared_ptr<ImageComponent>  mPreviewImage;
 
 	BatoceraTheme mEntry;
 	bool mIsPending;

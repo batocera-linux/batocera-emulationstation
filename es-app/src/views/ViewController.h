@@ -45,7 +45,7 @@ public:
 	void goToNextGameList();
 	void goToPrevGameList();
 	void goToGameList(SystemData* system, bool forceImmediate = false);
-	bool goToGameList(std::string& systemName, bool forceImmediate = false);
+	bool goToGameList(const std::string& systemName, bool forceImmediate = false);
 	void goToSystemView(SystemData* system, bool forceImmediate = false);
 	void goToSystemView(std::string& systemName, bool forceImmediate = false, ViewMode mode = SYSTEM_SELECT);
 	void goToStart(bool forceImmediate = false);
@@ -100,11 +100,14 @@ public:
 	SystemData* getSelectedSystem();
 	ViewMode getViewMode();
 
+	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+
 private:
 	ViewController(Window* window);
 	static ViewController* sInstance;
 
 	void playViewTransition(bool forceImmediate);
+	bool doLaunchGame(FileData* game, LaunchGameOptions options);
 	int getSystemId(SystemData* system);
 	
 	std::shared_ptr<GuiComponent> mCurrentView;

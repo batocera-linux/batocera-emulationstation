@@ -197,7 +197,7 @@ std::vector<HelpPrompt> GuiThemeInstallStart::getHelpPrompts()
 //////////////////////////////////////////////////////////////
 
 GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entry) :
-	ComponentGrid(window, Vector2i(4, 3))
+	ComponentGrid(window, Vector2i(5, 4))
 {
 	mEntry = entry;
 
@@ -215,7 +215,7 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 		mImage->setOpacity(192);
 
 	mImage->setHorizontalAlignment(Alignment::ALIGN_CENTER);
-	mImage->setVerticalAlignment(Alignment::ALIGN_TOP);
+	mImage->setVerticalAlignment(Alignment::ALIGN_CENTER); // ALIGN_TOP
 	mImage->setFont(theme->Text.font);
 	mImage->setText(isInstalled ? _U("\uF058") : _U("\uF019"));
 	mImage->setSize(theme->Text.font->getLetterHeight() * 1.5f, 0);
@@ -249,19 +249,28 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 	mSubstring = std::make_shared<TextComponent>(mWindow, details, theme->TextSmall.font, theme->Text.color);
 	mSubstring->setOpacity(192);
 
-	setEntry(mImage, Vector2i(0, 0), false, true, Vector2i(1, 3));
-	setEntry(mText, Vector2i(2, 0), false, true);
-	setEntry(mSubstring, Vector2i(2, 1), false, true);
+	setEntry(mImage, Vector2i(0, 0), false, true, Vector2i(1, 4));
+	setEntry(mText, Vector2i(2, 1), false, true);
+	setEntry(mSubstring, Vector2i(2, 2), false, true);
+
+	float refHeight = 0.16f;
+	float refImageWidth = 0.12f;
+
+//	refHeight = 0.18f;
+//	refImageWidth = 0.13f;
 
 	float h = mText->getSize().y() * 1.1f + mSubstring->getSize().y()/* + mDetails->getSize().y()*/;
+	h = Renderer::getScreenHeight() * refHeight;
 	float sw = WINDOW_WIDTH;
 
 	setColWidthPerc(0, 50.0f / sw, false);
 	setColWidthPerc(1, 0.015f, false);
 	setColWidthPerc(3, 0.002f, false);
 
-	setRowHeightPerc(0, mText->getSize().y() / h, false);
-	setRowHeightPerc(1, mSubstring->getSize().y() / h, false);
+	setRowHeightPerc(0, (h - mText->getSize().y() - mSubstring->getSize().y()) / h / 2.0f, false);
+
+	setRowHeightPerc(1, mText->getSize().y() / h, false);
+	setRowHeightPerc(2, mSubstring->getSize().y() / h, false);
 
 	if (mIsPending)
 	{
@@ -274,6 +283,25 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 		mText->setOpacity(150);
 		mSubstring->setOpacity(120);
 	}
+
+	
+	// image
+	if (!mEntry.image.empty())
+	{
+		setColWidthPerc(4, refImageWidth, false);
+
+		Vector2f maxSize(Renderer::getScreenWidth() * refImageWidth * 1.2f, Renderer::getScreenHeight() * (refHeight - 0.02f));
+
+		mPreviewImage = std::make_shared<ImageComponent>(window);
+		mPreviewImage->setImage(mEntry.image, false, maxSize);
+		mPreviewImage->setMaxSize(maxSize);		
+		mPreviewImage->setRoundCorners(0.02f);
+
+		setEntry(mPreviewImage, Vector2i(3, 0), false, false, Vector2i(1, 4));
+	}
+	else
+		setColWidthPerc(4, 0.0001f, false);
+
 
 	setSize(Vector2f(0, h));
 }

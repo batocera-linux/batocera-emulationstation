@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -378,6 +378,12 @@ msgstr "POR ORDEM ALFABÉTICA"
 msgid "BY MANUFACTURER"
 msgstr "PELO FABRICANTE"
 
+msgid "BY HARDWARE TYPE"
+msgstr "TIPO DE HARDWARE"
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
 
@@ -409,13 +415,13 @@ msgid "SELECT COLLECTIONS"
 msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "COLEÇÕES AUTOMÁTICAS"
+msgstr "COLEÇÕES DE JOGOS AUTOMÁTICAS"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLEÇÕES PERSONALIZADAS"
@@ -427,7 +433,7 @@ msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLEÇÕES PERSONALIZADAS"
 
 msgid "PLEASE WAIT"
-msgstr "POR FAVOR AGUARDE"
+msgstr "POR FAVOR, AGUARDE"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
@@ -541,13 +547,13 @@ msgid "LAUNCH"
 msgstr "EXECUTAR"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "ROM DESCONHECIDO"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ROM DIFERENTE"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
@@ -562,10 +568,10 @@ msgid "NO GAME FOUND"
 msgstr "NENHUM JOGO ENCONTRADO"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "ENTRAR NO JOGO"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "ASSISTIR O JOGO"
 
 msgid "MANUAL INPUT"
 msgstr "ENTRADA MANUAL"
@@ -630,6 +636,9 @@ msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
 msgid "MISC"
 msgstr "DIVERSOS"
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "EM LISTA PARA DESINSTALAR"
 
@@ -640,43 +649,49 @@ msgid "MISSING BIOS"
 msgstr "BIOS EM FALTA"
 
 msgid "dim"
-msgstr ""
+msgstr "dim"
 
 msgid "black"
-msgstr ""
+msgstr "preto"
 
 msgid "random video"
-msgstr ""
+msgstr "vídeo aleatório"
 
 msgid "slideshow"
-msgstr ""
+msgstr "apresentação de slides"
 
 msgid "always"
 msgstr "sempre"
 
 msgid "start & end"
-msgstr ""
+msgstr "início & fim"
 
 msgid "never"
 msgstr "nunca"
 
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 msgid "systems"
-msgstr ""
+msgstr "sistemas"
 
 msgid "random"
-msgstr ""
+msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DO PROTETOR DE ECRÃ"
+
+msgid "SETTINGS"
+msgstr "DEFINIÇÕES"
 
 msgid "SCREENSAVER AFTER"
 msgstr "PROTEÇÃO DE ECRÃ APÓS"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "TIPO DE PROTEÇÃO DE ECRÃ"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "PARAR MÚSICA DO PROTETOR DE ECRÃ"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DE VÍDEO NO PROTETOR DE ECRÃ"
@@ -721,7 +736,7 @@ msgid "CUSTOM VIDEO FILTER"
 msgstr "FILTRAR VÍDEO PERSONALIZADO"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "PROTEÇÃO DE ECRÃ SLIDESHOW"
+msgstr "PROTEÇÃO DE ECRÃ EM SLIDES"
 
 msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -873,7 +888,7 @@ msgid "instant"
 msgstr "instante"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "escurecer & slide"
 
 msgid "System"
 msgstr "Sistema"
@@ -901,6 +916,24 @@ msgstr "Frequência máxima do Cpu"
 
 msgid "Cpu feature"
 msgstr "Características do Cpu"
+
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "MELHORADO"
+
+msgid "CURVATURE"
+msgstr "CURVATURA"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -940,6 +973,9 @@ msgstr "DEFINIÇÕES DO SISTEMA"
 
 msgid "INFORMATIONS"
 msgstr "INFORMAÇÕES"
+
+msgid "UNLOCK UI MODE"
+msgstr "DESBLOQUEAR MODO DE INTERFACE"
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -1010,6 +1046,12 @@ msgstr "TEM A CERTEZA DE QUE DESEJA CONFIGURAR O COMANDO?"
 msgid "CHOOSE"
 msgstr "ESCOLHER"
 
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr "O MODO DE INTERFACE ESTÁ AGORA DESBLOQUEADO"
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr "POR FAVOR, DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
+
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
 
@@ -1026,7 +1068,7 @@ msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "DEFINIÇÕES DE VÍDEO"
 
 msgid "VRAM LIMIT"
 msgstr "LIMITE DA VRAM"
@@ -1062,7 +1104,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR UM DISCO"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "GESTÃO DE DADOS"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1083,7 +1125,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "UI"
-msgstr ""
+msgstr "INTERFACE DO UTILIZADOR"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
@@ -1106,8 +1148,11 @@ msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
-msgid "OPTIMIZATIONS"
+msgid "SHOW NETWORK INDICATOR"
 msgstr ""
+
+msgid "OPTIMIZATIONS"
+msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
@@ -1147,6 +1192,9 @@ msgstr "INICIAR ATUALIZAÇÃO"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO ESTÁ EM CURSO"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1268,9 +1316,6 @@ msgstr "SCREENSHOT AUTOMÁTICO"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR NO MENU PRINCIPAL"
 
-msgid "SETTINGS"
-msgstr "DEFINIÇÕES"
-
 msgid "ENABLE NETPLAY"
 msgstr "LIGAR JOGOS EM REDE"
 
@@ -1316,24 +1361,6 @@ msgstr "SAVE AUTOMÁTICO/LOADING"
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
 
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "MELHORADO"
-
-msgid "CURVATURE"
-msgstr "CURVATURA"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
-
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "AJUSTE DOS PIXELS"
 
@@ -1341,7 +1368,7 @@ msgid "DECORATION"
 msgstr "DECORAÇÃO"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO JOGO POR IA"
@@ -1362,7 +1389,7 @@ msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "HASHING DO JOGO ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
+msgstr "A VALIDAÇÃO DOS JOGOS ESTÁ EM EXECUÇÃO. DESEJA PARAR ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "DESEJA ATUALIZAR AS LISTAS DE JOGOS?"
@@ -1400,6 +1427,9 @@ msgstr "DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
+
+msgid "GAMELIST STYLE"
+msgstr "ESTILO NA LISTA DE JOGOS"
 
 msgid "basic"
 msgstr "básico"
@@ -1518,17 +1548,17 @@ msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
 
+msgid "IP ADDRESS"
+msgstr "ENDEREÇO DE IP"
+
 msgid "CONNECTED"
 msgstr "CONECTADO"
 
 msgid "NOT CONNECTED"
 msgstr "DESCONECTADO"
 
-msgid "STATUS"
-msgstr "ESTADO DA REDE"
-
-msgid "IP ADDRESS"
-msgstr "ENDEREÇO DE IP"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "NOME DA REDE"
@@ -1657,11 +1687,26 @@ msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIAR TODOS AGORA"
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
 msgstr "IR PARA FABRICANTE"
+
+msgid "GO TO HARDWARE"
+msgstr "IR PARA HARDWARE"
+
+msgid "GO TO DECADE"
+msgstr ""
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1721,19 +1766,16 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "START GAME"
-msgstr ""
+msgstr "INICIAR JOGO"
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "INICIAR NETPLAY HOST"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "DEFINIR PASSWORD DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "DEFINIR PASSWORD DO ESPECTADOR"
 
 msgid "Searching"
 msgstr "Em andamento"
@@ -1841,7 +1883,7 @@ msgid "Extracting"
 msgstr "A extrair"
 
 msgid "HASHING GAMES"
-msgstr "HASHING DOS JOGOS"
+msgstr "VALIDAÇÃO DOS JOGOS"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -1857,6 +1899,9 @@ msgstr "EDITORA / PRODUTORA"
 
 msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
+
+msgid "YEAR"
+msgstr "ANO"
 
 msgid "REGION"
 msgstr "REGIÃO"
@@ -1877,23 +1922,20 @@ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
-msgid "SPACE"
-msgstr "ESPAÇO"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
 
-msgid "DELETE A CHAR"
-msgstr "ELIMINAR CARACTERES"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "REINICIAR"
 
-msgid "DISCARD CHANGES"
-msgstr "ANULAR MODIFICAÇÕES"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
-
 msgid "SHIFT"
 msgstr "MUDANÇA"
+
+msgid "SPACE"
+msgstr "ESPAÇO"
 
 msgid "UP"
 msgstr "CIMA"
@@ -1976,6 +2018,12 @@ msgstr "NENHUM COMANDO DETECTADO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO"
 
+msgid "DISCARD CHANGES"
+msgstr "ANULAR MODIFICAÇÕES"
+
+msgid "up/down"
+msgstr "cima/baixo"
+
 msgid "accept"
 msgstr "aceitar"
 
@@ -2006,9 +2054,6 @@ msgstr "MOVER CURSOR"
 msgid "EDIT"
 msgstr "EDITAR"
 
-msgid "up/down"
-msgstr "cima/baixo"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2038,15 +2083,21 @@ msgstr "EM PROGRESSO..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d s"
+
+#~ msgid "STATUS"
+#~ msgstr "ESTADO DA REDE"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "ELIMINAR CARACTERES"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
@@ -2066,10 +2117,10 @@ msgstr ""
 #~ msgstr "VÍDEO NO PROTETOR DE ECRÃ"
 
 #~ msgid "SLIDESHOW SCREENSAVER"
-#~ msgstr "SLIDESHOW NO PROTETOR DE ECRÃ"
+#~ msgstr "SLIDES COMO PROTETOR DE ECRÃ"
 
 #~ msgid "SLIDESHOW SETTINGS"
-#~ msgstr "DEFINIÇÕES DO SLIDESHOW"
+#~ msgstr "DEFINIÇÕES DOS SLIDES"
 
 #~ msgid "RANDOM VIDEO SETTINGS"
 #~ msgstr "DEFINIÇÕES DE VÍDEO"

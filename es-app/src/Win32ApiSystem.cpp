@@ -22,6 +22,9 @@
 #define VERSIONURL "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-stable/version.info"
 #define UPDATEURL  "https://github.com/fabricecaruso/batocera-emulationstation/releases/download/continuous-stable/EmulationStation-Win32.zip"
 
+#define LAUNCHERURL "https://github.com/fabricecaruso/batocera-ports/releases/download/continuous/batocera-ports.zip"
+
+
 std::string getUrlFromUpdateType(std::string url)
 {
 	std::string updatesType = Settings::getInstance()->getString("updates.type");
@@ -566,7 +569,7 @@ std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
 
 	std::vector<BatoceraTheme> res;
 
-	HttpReq httpreq("https://batocera.org/upgrades/themes.txt");
+	HttpReq httpreq(getUpdateUrl() + "/themes.txt");
 	if (httpreq.wait())
 	{
 		auto lines = Utils::String::split(httpreq.getContent(), '\n');
@@ -617,6 +620,8 @@ std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
 			}
 		}
 	}
+
+	getBatoceraThemesImages(res);
 
 	return res;
 }
@@ -673,7 +678,7 @@ std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 
 	std::vector<BatoceraBezel> res;
 
-	HttpReq request("https://batocera.org/upgrades/bezels.txt");
+	HttpReq request(getUpdateUrl()+"/bezels.txt");
 	if (request.wait())
 	{
 		auto lines = Utils::String::split(request.getContent(), '\n');
@@ -893,10 +898,83 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 
 		Utils::FileSystem::deleteDirectoryFiles(path);
 
+		updateEmulatorLauncher(func);
+
 		return std::pair<std::string, int>("done.", 0);
 	}
 
 	return std::pair<std::string, int>("done.", 0);
+}
+
+void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::string)>& func)
+{
+	std::string updatesType = Settings::getInstance()->getString("updates.type");
+	if (updatesType != "beta")
+		return;
+
+	// Check emulatorLauncher exists
+	std::string emulatorLauncherPath = Utils::FileSystem::getExePath() + "/emulatorLauncher.exe";
+	if (!Utils::FileSystem::exists(emulatorLauncherPath))
+		emulatorLauncherPath = Utils::FileSystem::getEsConfigPath() + "/emulatorLauncher.exe";
+	if (!Utils::FileSystem::exists(emulatorLauncherPath))
+		emulatorLauncherPath = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/emulatorLauncher.exe";
+	
+	if (!Utils::FileSystem::exists(emulatorLauncherPath))
+		return;
+
+	emulatorLauncherPath = Utils::FileSystem::getParent(emulatorLauncherPath);
+
+	std::string url = LAUNCHERURL;
+	std::string fileName = Utils::FileSystem::getFileName(url);
+	std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/update";
+
+	if (Utils::FileSystem::exists(path))
+		Utils::FileSystem::deleteDirectoryFiles(path);
+
+	Utils::FileSystem::createDirectory(path);
+
+	std::string zipFile = path + "/" + fileName;
+
+	if (downloadFile(url, zipFile, "batocera-ports", func))
+	{
+		if (func != nullptr)
+			func(std::string("Extracting batocera-ports"));
+
+		unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(path));
+		Utils::FileSystem::removeFile(zipFile);
+
+		auto files = Utils::FileSystem::getDirContent(path, true, true);
+		for (auto file : files)
+		{
+			std::string relative = Utils::FileSystem::createRelativePath(file, path, false);
+			if (Utils::String::startsWith(relative, "./"))
+				relative = relative.substr(2);
+
+			std::string localPath = emulatorLauncherPath + "/" + relative;
+
+			if (Utils::FileSystem::isDirectory(file))
+			{
+				if (!Utils::FileSystem::exists(localPath))
+					Utils::FileSystem::createDirectory(localPath);
+			}
+			else
+			{
+				if (Utils::FileSystem::exists(localPath))
+				{
+					Utils::FileSystem::removeFile(localPath + ".old");
+					rename(localPath.c_str(), (localPath + ".old").c_str());
+				}
+
+				if (Utils::FileSystem::copyFile(file, localPath))
+				{
+					Utils::FileSystem::removeFile(localPath + ".old");
+					Utils::FileSystem::removeFile(file);
+				}
+			}
+		}
+
+		Utils::FileSystem::deleteDirectoryFiles(path);
+	}
 }
 
 bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
@@ -954,34 +1032,6 @@ bool Win32ApiSystem::launchKodi(Window *window)
 	ApiSystem::launchExternalWindow_after(window);
 
 	return ret;
-}
-
-std::string Win32ApiSystem::getIpAdress()
-{	
-	// Init WinSock
-	WSADATA wsa_Data;
-	int wsa_ReturnCode = WSAStartup(0x101, &wsa_Data);
-	if (wsa_ReturnCode != 0)
-		return "NOT CONNECTED";
-
-	char* szLocalIP = nullptr;
-
-	// Get the local hostname
-	char szHostName[255];
-	if (gethostname(szHostName, 255) == 0)
-	{
-		struct hostent *host_entry;
-		host_entry = gethostbyname(szHostName);
-		if (host_entry != nullptr)
-			szLocalIP = inet_ntoa(*(struct in_addr *)*host_entry->h_addr_list);
-	}
-
-	WSACleanup();
-
-	if (szLocalIP == nullptr)
-		return "NOT CONNECTED";
-
-	return std::string(szLocalIP); // "127.0.0.1"
 }
 
 std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)

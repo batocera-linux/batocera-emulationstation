@@ -302,7 +302,10 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 
 bool ApiSystem::ping() 
 {
-	return executeScript("timeout 1 ping -c 1 -t 1000 google.com");
+	if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.8.8")) // ping Google DNS
+		return executeScript("timeout 2 ping -c 1 -t 2000 8.8.4.4"); // ping Google secondary DNS & give 2 seconds
+
+	return true;
 }
 
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 
@@ -451,57 +454,12 @@ bool ApiSystem::disableWifi()
 std::string ApiSystem::getIpAdress() 
 {
 	LOG(LogDebug) << "ApiSystem::getIpAdress";
-
-	std::string result = "NOT CONNECTED";
-
-#if !WIN32
-	struct ifaddrs *ifAddrStruct = NULL;
-	struct ifaddrs *ifa = NULL;
-	void *tmpAddrPtr = NULL;
 	
-	getifaddrs(&ifAddrStruct);
-
-	for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) {
-		if (!ifa->ifa_addr) {
-			continue;
-		}
-		if (ifa->ifa_addr->sa_family == AF_INET) { // check it is IP4
-			// is a valid IP4 Address
-			tmpAddrPtr = &((struct sockaddr_in *) ifa->ifa_addr)->sin_addr;
-			char addressBuffer[INET_ADDRSTRLEN];
-			inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
-			printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
-			if (std::string(ifa->ifa_name).find("eth") != std::string::npos ||
-				std::string(ifa->ifa_name).find("wlan") != std::string::npos) {
-				result = std::string(addressBuffer);
-			}
-		}
-	}
-	// Seeking for ipv6 if no IPV4
-	if (result.compare("NOT CONNECTED") == 0) {
-		for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) {
-			if (!ifa->ifa_addr) {
-				continue;
-			}
-			if (ifa->ifa_addr->sa_family == AF_INET6) { // check it is IP6
-				// is a valid IP6 Address
-				tmpAddrPtr = &((struct sockaddr_in6 *) ifa->ifa_addr)->sin6_addr;
-				char addressBuffer[INET6_ADDRSTRLEN];
-				inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
-				printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
-				if (std::string(ifa->ifa_name).find("eth") != std::string::npos ||
-					std::string(ifa->ifa_name).find("wlan") != std::string::npos) {
-					return std::string(addressBuffer);
-				}
-			}
-		}
-	}
-	if (ifAddrStruct != NULL) 
-		freeifaddrs(ifAddrStruct);
-#endif
+	std::string result = queryIPAdress(); // platform.h
+	if (result.empty())
+		return "NOT CONNECTED";
 
 	return result;
-
 }
 
 bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
@@ -921,7 +879,72 @@ std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
 		}
 	}
 	pclose(pipe);
+
+	getBatoceraThemesImages(res);
 	return res;
+}
+
+std::string ApiSystem::getUpdateUrl()
+{
+	auto systemsetting = SystemConf::getInstance()->get("global.updates.url");
+	if (!systemsetting.empty())
+		return systemsetting;
+
+	return "https://updates.batocera.org";
+}
+
+void ApiSystem::getBatoceraThemesImages(std::vector<BatoceraTheme>& items)
+{
+
+	std::vector<std::pair<std::vector<BatoceraTheme>::iterator, HttpReq*>> requests;
+
+	for (auto it = items.begin(); it != items.end(); ++it)
+	{
+		std::string distantFile = getUpdateUrl() + "/themes/" + it->name + ".jpg";
+
+		std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+		if (!Utils::FileSystem::exists(localPath))
+			Utils::FileSystem::createDirectory(localPath);
+
+		std::string localFile = localPath + "/" + it->name + ".jpg";
+		if (Utils::FileSystem::exists(localFile))
+			it->image = localFile;
+		else
+		{
+			HttpReq* httpreq = new HttpReq(distantFile, localFile);
+
+			auto pair = std::pair<std::vector<BatoceraTheme>::iterator, HttpReq*>(it, httpreq);
+			requests.push_back(pair);
+		}
+	}
+	
+	bool running = true;
+
+	while (running && requests.size() > 0)
+	{
+		running = false;
+
+		for (auto it = requests.begin(); it != requests.end(); ++it)
+		{
+			if (it->second->status() == HttpReq::REQ_IN_PROGRESS)
+			{
+				running = true;
+				continue;
+			}
+
+			if (it->second->status() == HttpReq::REQ_SUCCESS)
+			{
+				auto filePath = it->second->getFilePath();
+				if (Utils::FileSystem::exists(filePath))
+					it->first->image = filePath;
+			}
+
+			delete it->second;
+			requests.erase(it);
+			running = true;
+			break;
+		}
+	}
 }
 
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
@@ -1140,6 +1163,7 @@ std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string c
 	std::vector<std::string> res;
 
 	FILE *pipe = popen(command.c_str(), "r");
+
 	if (pipe == NULL)
 		return res;
 
@@ -1524,7 +1548,7 @@ std::vector<std::string> ApiSystem::getShaderList()
 					continue;
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
-					ret.push_back(Utils::FileSystem::getParent(file));
+					ret.push_back(parent);
 			}
 		}
 	}

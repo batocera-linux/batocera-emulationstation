@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -380,6 +380,12 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -632,6 +638,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -674,11 +683,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДІНКА ЗАСТАВКИ"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
@@ -905,6 +920,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Функції CPU"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "РЕТРО"
+
+msgid "ENHANCED"
+msgstr "РАЗГОРНУТИЙ"
+
+msgid "CURVATURE"
+msgstr "КРИВИЗНА"
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
 
@@ -943,6 +976,9 @@ msgstr "НАЛАШТУВАННЯ СИСТЕМИ"
 
 msgid "INFORMATIONS"
 msgstr "ДАННІ"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ВИХІД"
@@ -1012,6 +1048,12 @@ msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ НАЛАШТУВАТИ КЕРУ
 
 msgid "CHOOSE"
 msgstr "ВИБЕРІТЬ"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "ІНФОРМАЦІЯ"
@@ -1109,6 +1151,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1150,6 +1195,9 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОНОВЛЕННЯ ВЖЕ ЗАПУЩЕНО"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "МОВА"
@@ -1271,9 +1319,6 @@ msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr ""
-
 msgid "ENABLE NETPLAY"
 msgstr "УВІМКНУТИ NETPLAY"
 
@@ -1318,24 +1363,6 @@ msgstr "АВТО ЗБЕРЕЖЕННЯ/ЗАВАНТАЖЕННЯ"
 
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРИ"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "РЕТРО"
-
-msgid "ENHANCED"
-msgstr "РАЗГОРНУТИЙ"
-
-msgid "CURVATURE"
-msgstr "КРИВИЗНА"
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
-msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
@@ -1404,6 +1431,9 @@ msgstr "ВИ МАЄТЕ ЗАСТОСУВАТИ ТЕМУ ПЕРЕД ЗМІНОЮ 
 
 msgid "THEME CONFIGURATION"
 msgstr "НАЛАШТУВАННЯ ТЕМИ"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "базовий"
@@ -1522,17 +1552,17 @@ msgstr "УВІМКНУТИ ЗВУКИ НАВИГАЦІЇ"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "УВІМКНУТИ ЗВУК В ВІДЕО"
 
+msgid "IP ADDRESS"
+msgstr "IP-АДРЕСА"
+
 msgid "CONNECTED"
 msgstr "ПІДКЛЮЧЕНО"
 
 msgid "NOT CONNECTED"
 msgstr "НЕ ПІДКЛЮЧЕНО"
 
-msgid "STATUS"
-msgstr "СТАН"
-
-msgid "IP ADDRESS"
-msgstr "IP-АДРЕСА"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "ІМ'Я ХОСТУ"
@@ -1661,10 +1691,25 @@ msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ХОЧЕТЕ ЗАПУСТИТИ МЕДІА-ЦЕНТР KODI?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1731,9 +1776,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1865,6 +1907,9 @@ msgstr ""
 msgid "RATING"
 msgstr ""
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr ""
 
@@ -1883,23 +1928,20 @@ msgstr ""
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАВАНТАЖЕННЯ ЗАВЕРШЕНО. ОНОВІТЬ СПИСОК ІГР, ЩОБ ЗАСТОСУВАТИ ЗМІНИ."
 
-msgid "SPACE"
-msgstr "ПРОБІЛ"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
 
-msgid "DELETE A CHAR"
-msgstr "ВИДАЛІТЬ СИМВОЛ"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "СКИДАННЯ"
 
-msgid "DISCARD CHANGES"
-msgstr "ВІДМІНІТЬ ЗНІНИ"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
-
 msgid "SHIFT"
 msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "ПРОБІЛ"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1986,6 +2028,12 @@ msgstr "КОНТРОЛЕРИ НЕ ЗНАЙДЕНІ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УТРИМУЙТЕ КНОПКУ НА ПРИСТРОЇ ДЛЯ НАЛАШТУВАННЯ."
 
+msgid "DISCARD CHANGES"
+msgstr "ВІДМІНІТЬ ЗНІНИ"
+
+msgid "up/down"
+msgstr "вгору/вниз"
+
 msgid "accept"
 msgstr "прийняти"
 
@@ -2016,9 +2064,6 @@ msgstr "ПЕРЕСУНУТИ КУРСОР"
 
 msgid "EDIT"
 msgstr "РЕДАГУВАТИ"
-
-msgid "up/down"
-msgstr "вгору/вниз"
 
 #, c-format
 msgid "%d day ago"
@@ -2062,6 +2107,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "СТАН"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "ВИДАЛІТЬ СИМВОЛ"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"

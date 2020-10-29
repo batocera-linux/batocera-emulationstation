@@ -28,17 +28,18 @@
 #include "ApiSystem.h"
 #endif
 
-ViewController* ViewController::sInstance = NULL;
+ViewController* ViewController::sInstance = nullptr;
 
 ViewController* ViewController::get()
 {
-	assert(sInstance);
 	return sInstance;
 }
 
 void ViewController::init(Window* window)
 {
-	assert(!sInstance);
+	if (sInstance != nullptr)
+		delete sInstance;
+
 	sInstance = new ViewController(window);
 }
 
@@ -51,8 +52,7 @@ ViewController::ViewController(Window* window)
 
 ViewController::~ViewController()
 {
-	assert(sInstance == this);
-	sInstance = NULL;
+	sInstance = nullptr;
 }
 
 void ViewController::goToStart(bool forceImmediate)
@@ -168,7 +168,7 @@ void ViewController::goToPrevGameList()
 	goToGameList(system->getPrev());
 }
 
-bool ViewController::goToGameList(std::string& systemName, bool forceImmediate)
+bool ViewController::goToGameList(const std::string& systemName, bool forceImmediate)
 {
 	auto system = SystemData::getSystem(systemName);
 	if (system != nullptr && !system->isGroupChildSystem())
@@ -322,6 +322,17 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 }
 
+bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
+{
+	if (mCurrentView) mCurrentView->onHide();
+
+	if (game->launchGame(mWindow, options))
+		if (game->getSourceFileData()->getSystemName() == "windows_installers")
+			return true;
+
+	return false;
+}
+
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center)
 {
 	if(game->getType() != GAME)
@@ -385,11 +396,13 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 		setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this, game, fadeFunc, options]
 		{
-			if (mCurrentView) mCurrentView->onHide();
-
-			game->launchGame(mWindow, options);
-			setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
-			this->onFileChanged(game, FILE_METADATA_CHANGED);
+			if (doLaunchGame(game, options))
+				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			else
+			{
+				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				this->onFileChanged(game, FILE_METADATA_CHANGED);
+			}
 		});
 	} 
 	else if (transition_style == "slide")
@@ -397,24 +410,28 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		// move camera to zoom in on center + fade out, launch game, come back in
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game, options]
 		{
-			if (mCurrentView) mCurrentView->onHide();
-
-			game->launchGame(mWindow, options);
-			mCamera = origCamera;
-			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
-			this->onFileChanged(game, FILE_METADATA_CHANGED);
+			if (doLaunchGame(game, options))
+				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			else
+			{
+				mCamera = origCamera;
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				this->onFileChanged(game, FILE_METADATA_CHANGED);
+			}
 		});
 	} 
 	else // instant
 	{ 		
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this, origCamera, center, game, options]
-		{
-			if (mCurrentView) mCurrentView->onHide();
-
-			game->launchGame(mWindow, options);
-			mCamera = origCamera;
-			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
-			this->onFileChanged(game, FILE_METADATA_CHANGED);
+		{			
+			if (doLaunchGame(game, options))
+				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			else
+			{
+				mCamera = origCamera;
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				this->onFileChanged(game, FILE_METADATA_CHANGED);
+			}
 		});
 	}
 }
@@ -649,10 +666,8 @@ bool ViewController::input(InputConfig* config, Input input)
 	}
 #endif
 
-	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
-	{
-		return true;
-	}
+//	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
+//		return true;
 
 	if(mCurrentView)
 		return mCurrentView->input(config, input);
@@ -961,4 +976,41 @@ void ViewController::onScreenSaverDeactivate()
 
 	if (mCurrentView)
 		mCurrentView->onScreenSaverDeactivate();
+}
+
+void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	auto viewMode = ViewController::get()->getViewMode();
+	auto systemName = ViewController::get()->getSelectedSystem()->getName();
+
+	window->closeSplashScreen();
+	window->renderSplashScreen(_("Loading..."));
+
+	if (!deleteCurrentGui)
+	{
+		GuiComponent* topGui = window->peekGui();
+		window->removeGui(topGui);
+	}
+
+	GuiComponent *gui;
+	while ((gui = window->peekGui()) != NULL)
+	{
+		window->removeGui(gui);
+		delete gui;
+	}
+
+	ViewController::init(window);
+
+	CollectionSystemManager::deinit();
+	CollectionSystemManager::init(window);
+
+	SystemData::loadConfig(window);
+
+	ViewController::get()->goToSystemView(systemName, true, viewMode);
+	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
+
+	window->closeSplashScreen();
+	window->pushGui(ViewController::get());
 }

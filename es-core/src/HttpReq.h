@@ -66,6 +66,8 @@ public:
 	int getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
+	std::string getFilePath() { return mFilePath; }
+
 	bool wait();
 
 private:

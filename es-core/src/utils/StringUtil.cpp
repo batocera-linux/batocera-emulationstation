@@ -396,8 +396,7 @@ namespace Utils
 
 		bool startsWith(const std::string& _string, const std::string& _start)
 		{
-			return (_string.find(_start) == 0);
-
+			return (strncmp(_string.c_str(), _start.c_str(), _start.size()) == 0);
 		} // startsWith
 
 		bool endsWith(const std::string& _string, const std::string& _end)
@@ -620,12 +619,47 @@ namespace Utils
 			}
 		}
 
+		bool containsIgnoreCase(const std::string & _string, const std::string & _what)
+		{
+			auto it = std::search(
+				_string.begin(), _string.end(),
+				_what.begin(), _what.end(),
+				[](char ch1, char ch2) { return toupper(ch1) == toupper(ch2); }
+			);
+
+			return (it != _string.end());
+		}
+
 		std::string proper(const std::string& _string)
 		{
 			if (_string.length() <= 1)
 				return Utils::String::toUpper(_string);
 
 			return Utils::String::toUpper(_string.substr(0, 1)) + _string.substr(1);
+		}
+
+		std::string removeHtmlTags(const std::string& html)
+		{
+			if (html.empty())
+				return html;
+			
+			std::string text = html;
+
+			size_t start = 0, ss = 0;
+			while ((start = text.find("<", (ss = start))) != std::string::npos)
+			{
+				int end = text.find(">", start);
+				if (end != std::string::npos && end >= start)
+					text = text.erase(start, end - start + 1);
+				else
+				{
+					start++;
+					if (start >= text.size())
+						break;
+				}
+			}
+			
+			return trim(text);
 		}
 
 #if defined(_WIN32)

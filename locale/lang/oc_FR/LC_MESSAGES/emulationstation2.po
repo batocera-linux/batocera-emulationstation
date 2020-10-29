@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -384,6 +384,12 @@ msgstr "ALFABETICAMENT"
 msgid "BY MANUFACTURER"
 msgstr "PER FABRICANT"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "TRIAR LOS SISTÈMAS"
 
@@ -636,6 +642,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -678,11 +687,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
+msgid "SETTINGS"
+msgstr "PARAMÈTRES"
+
 msgid "SCREENSAVER AFTER"
 msgstr "ESTALVIADOR D’ECRAN APRÈP"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "COMPÒRTAMENT ESTALVIADOR"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr ""
@@ -901,6 +916,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Foncionalitat processor"
 
+msgid "SCANLINES"
+msgstr ""
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr ""
+
+msgid "CURVATURE"
+msgstr ""
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -939,6 +972,9 @@ msgstr "PARAMÈTRE SISTÈMA"
 
 msgid "INFORMATIONS"
 msgstr "INFORMACIONS"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "QUITAR"
@@ -1008,6 +1044,12 @@ msgstr ""
 
 msgid "CHOOSE"
 msgstr "CAUSIR"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATION"
@@ -1105,6 +1147,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1146,6 +1191,9 @@ msgstr "LANÇAR MESA A JORN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA MESA A JORN ES JA EN CORS"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "LENGA"
@@ -1264,9 +1312,6 @@ msgstr "CAPTURA D'ECRAN AUTOMATICA"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR AL MENÚ PRINCIPAL"
 
-msgid "SETTINGS"
-msgstr "PARAMÈTRES"
-
 msgid "ENABLE NETPLAY"
 msgstr "ACTIVAR NETPLAY"
 
@@ -1310,24 +1355,6 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SALVAGARDA/CARGAMENT AUTO"
 
 msgid "SHADERS SET"
-msgstr ""
-
-msgid "SCANLINES"
-msgstr ""
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr ""
-
-msgid "CURVATURE"
-msgstr ""
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
 msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
@@ -1392,6 +1419,9 @@ msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACION TÈMA"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr ""
@@ -1510,17 +1540,17 @@ msgstr ""
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
+msgid "IP ADDRESS"
+msgstr "ADREÇA IP"
+
 msgid "CONNECTED"
 msgstr "CONNECTAT"
 
 msgid "NOT CONNECTED"
 msgstr "PAS CONNECTAT"
 
-msgid "STATUS"
-msgstr "ESTAT"
-
-msgid "IP ADDRESS"
-msgstr "ADREÇA IP"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "NOM D’ÒSTE"
@@ -1647,10 +1677,25 @@ msgstr ""
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr ""
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1714,9 +1759,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1848,6 +1890,9 @@ msgstr "EDITOR / DESVOLOPAIRE"
 msgid "RATING"
 msgstr "VALORACION"
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr "REGION"
 
@@ -1866,23 +1911,20 @@ msgstr ""
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "SPACE"
-msgstr "ESPACI"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr ""
 
-msgid "DELETE A CHAR"
-msgstr "SUPRIMIR CARACTÈR"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "REÏNICIALIZAR"
 
-msgid "DISCARD CHANGES"
-msgstr "IGNORAR MODIFICACIONS"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SHIFT"
 msgstr ""
+
+msgid "SPACE"
+msgstr "ESPACI"
 
 msgid "UP"
 msgstr "AMONT"
@@ -1963,6 +2005,12 @@ msgstr ""
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "QUICHATZ UN BOTON DE LA MANETA PER LA CONFIGURAR."
 
+msgid "DISCARD CHANGES"
+msgstr "IGNORAR MODIFICACIONS"
+
+msgid "up/down"
+msgstr "naut/bas"
+
 msgid "accept"
 msgstr "acceptar"
 
@@ -1992,9 +2040,6 @@ msgstr "BOLEGAR POINTAIRE"
 
 msgid "EDIT"
 msgstr "MODIFICAR"
-
-msgid "up/down"
-msgstr "naut/bas"
 
 #, c-format
 msgid "%d day ago"
@@ -2034,6 +2079,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "ESTAT"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "SUPRIMIR CARACTÈR"
 
 #~ msgid "MISSING"
 #~ msgstr "ABSENT"

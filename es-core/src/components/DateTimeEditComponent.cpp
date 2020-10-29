@@ -9,7 +9,7 @@ DateTimeEditComponent::DateTimeEditComponent(Window* window, DisplayMode dispMod
 {
 	auto menuTheme = ThemeData::getMenuTheme();
 
-	mFont = menuTheme->TextSmall.font;
+	mFont = menuTheme->Text.font;
 	mColor = menuTheme->Text.color;
 
 	updateTextCache();

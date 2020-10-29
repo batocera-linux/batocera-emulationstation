@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -379,6 +379,12 @@ msgstr "ПО АЛФАВИТУ"
 msgid "BY MANUFACTURER"
 msgstr "ПО ПРОИЗВОДИТЕЛЮ"
 
+msgid "BY HARDWARE TYPE"
+msgstr "ПО ЖЕЛЕЗУ"
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "СОРТИРОВКА СИСТЕМ"
 
@@ -410,7 +416,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "ВЫБОР КОЛЛЕКЦИИ"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "АВТО-КОЛЛЕКЦИИ"
 
 msgid "ARCADE SYSTEMS"
 msgstr "АРКАДНЫЕ СИСТЕМЫ"
@@ -542,13 +548,13 @@ msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "НЕИЗВЕСТНАЯ ROM ВЕРСИЯ"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ДРУГОЙ ROM"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "ОДИНАКОВЫЙ ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
@@ -563,10 +569,10 @@ msgid "NO GAME FOUND"
 msgstr "ИГР НЕ НАЙДЕНО"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "ПРИСОЕДИНИТЬСЯ К ИГРЕ"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "СМОТРЕТЬ ИГРУ"
 
 msgid "MANUAL INPUT"
 msgstr "РУЧНОЙ ВВОД"
@@ -631,6 +637,9 @@ msgstr "УСТАНОВКА / УДАЛЕНИЕ КОНТЕНТА"
 msgid "MISC"
 msgstr "РАЗНОЕ"
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "УДАЛЕНИЕ ДОБАВЛЕНО В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
@@ -641,43 +650,49 @@ msgid "MISSING BIOS"
 msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
 msgid "dim"
-msgstr ""
+msgstr "затемнение"
 
 msgid "black"
-msgstr ""
+msgstr "чёрный"
 
 msgid "random video"
-msgstr ""
+msgstr "случайное видео"
 
 msgid "slideshow"
-msgstr ""
+msgstr "слайдшоу"
 
 msgid "always"
 msgstr "всегда"
 
 msgid "start & end"
-msgstr ""
+msgstr "начало и конец"
 
 msgid "never"
 msgstr "никогда"
 
 msgid "none"
-msgstr ""
+msgstr "нет"
 
 msgid "systems"
-msgstr ""
+msgstr "системы"
 
 msgid "random"
-msgstr ""
+msgstr "случайно"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКА ЗАСТАВКИ"
+
+msgid "SETTINGS"
+msgstr "НАСТРОЙКИ"
 
 msgid "SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "ОТКЛЮЧИТЬ МУЗЫКУ НА ЗАСТАВКЕ"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
@@ -875,7 +890,7 @@ msgid "instant"
 msgstr "мгновенно"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "затухание и слайд"
 
 msgid "System"
 msgstr "Система"
@@ -903,6 +918,24 @@ msgstr "Макс. частота CPU"
 
 msgid "Cpu feature"
 msgstr "Функции CPU"
+
+msgid "SCANLINES"
+msgstr "ЧЕРЕССТРОЧНОСТЬ"
+
+msgid "RETRO"
+msgstr "РЕТРО"
+
+msgid "ENHANCED"
+msgstr "РАСШИРЕННЫЙ"
+
+msgid "CURVATURE"
+msgstr "КРИВИЗНА"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "FLATTEN-GLOW"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -942,6 +975,9 @@ msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "INFORMATIONS"
 msgstr "ДАННЫЕ"
+
+msgid "UNLOCK UI MODE"
+msgstr "РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -1012,6 +1048,12 @@ msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛ
 msgid "CHOOSE"
 msgstr "ВЫБЕРИТЕ"
 
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr "ИНТЕРФЕЙС ЗАБЛОКИРОВАН"
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr "ПОЖАЛУЙСТА, ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
+
 msgid "INFORMATION"
 msgstr "ДАННЫЕ"
 
@@ -1028,7 +1070,7 @@ msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "НАСТРОЙКИ ВИДЕО"
 
 msgid "VRAM LIMIT"
 msgstr "ЛИМИТ VRAM"
@@ -1064,7 +1106,7 @@ msgid "FORMAT A DISK"
 msgstr "ФОРМАТИРОВАТЬ"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
 
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
@@ -1085,7 +1127,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
 
 msgid "UI"
-msgstr ""
+msgstr "ИНТЕРФЕЙС"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
@@ -1108,8 +1150,11 @@ msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
-msgid "OPTIMIZATIONS"
+msgid "SHOW NETWORK INDICATOR"
 msgstr ""
+
+msgid "OPTIMIZATIONS"
+msgstr "ОПТИМИЗАЦИЯ"
 
 msgid "PRELOAD UI"
 msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
@@ -1149,6 +1194,9 @@ msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
 
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
@@ -1271,9 +1319,6 @@ msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 msgid "SHOW IN MAIN MENU"
 msgstr "ПОКАЗАТЬ В ГЛАВНОМ МЕНЮ"
 
-msgid "SETTINGS"
-msgstr "НАСТРОЙКИ"
-
 msgid "ENABLE NETPLAY"
 msgstr "ВКЛЮЧИТЬ NETPLAY"
 
@@ -1319,24 +1364,6 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
 
-msgid "SCANLINES"
-msgstr "ЧЕРЕССТРОЧНОСТЬ"
-
-msgid "RETRO"
-msgstr "РЕТРО"
-
-msgid "ENHANCED"
-msgstr "РАСШИРЕННЫЙ"
-
-msgid "CURVATURE"
-msgstr "КРИВИЗНА"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
-
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
@@ -1344,7 +1371,7 @@ msgid "DECORATION"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "РАСТЯНУТЬ РАМКИ (4K и ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "ИИ ПЕРЕВОД ИГРЫ"
@@ -1404,6 +1431,9 @@ msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕН�
 
 msgid "THEME CONFIGURATION"
 msgstr "НАСТРОЙКА ТЕМЫ"
+
+msgid "GAMELIST STYLE"
+msgstr "СТИЛЬ СПИСКА ИГР"
 
 msgid "basic"
 msgstr "базовый"
@@ -1522,17 +1552,17 @@ msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
 
+msgid "IP ADDRESS"
+msgstr "IP АДРЕС"
+
 msgid "CONNECTED"
 msgstr "ПОДКЛЮЧЕНО"
 
 msgid "NOT CONNECTED"
 msgstr "НЕ ПОДКЛЮЧЕНО"
 
-msgid "STATUS"
-msgstr "СОСТОЯНИЕ"
-
-msgid "IP ADDRESS"
-msgstr "IP АДРЕС"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "ИМЯ ХОСТА"
@@ -1661,11 +1691,26 @@ msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ОШИБКА: ВСЕ СИСТЕМЫ СКРЫТЫ, ВКЛЮЧЕНИЕ ПОВТОРНОГО ОТОБРАЖЕНИЯ"
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "ВЫ ХОТИТЕ ЗАПУСТИТЬ МЕДИА-ЦЕНТР KODI?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
 msgstr "ПЕРЕЙТИ К ПРОИЗВОДИТЕЛЮ"
+
+msgid "GO TO HARDWARE"
+msgstr "ПЕРЕЙТИ К ЖЕЛЕЗУ"
+
+msgid "GO TO DECADE"
+msgstr ""
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1728,19 +1773,16 @@ msgid "Favorites"
 msgstr "Избранное"
 
 msgid "START GAME"
-msgstr ""
+msgstr "НАЧАТЬ ИГРУ"
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
-msgstr ""
+msgstr "ЗАПУСТИТЬ NETPLAY ХОСТ"
 
 msgid "SET PLAYER PASSWORD"
-msgstr ""
+msgstr "УСТАНОВИТЬ ПАРОЛЬ ИГРОКА"
 
 msgid "SET VIEWER PASSWORD"
-msgstr ""
+msgstr "УСТАНОВИТЬ ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "Searching"
 msgstr "Поиск"
@@ -1865,6 +1907,9 @@ msgstr "ИЗДАТЕЛЬ / РАЗРАБОТЧИК"
 msgid "RATING"
 msgstr "РЕЙТИНГ"
 
+msgid "YEAR"
+msgstr "ГОД"
+
 msgid "REGION"
 msgstr "РЕГИОН"
 
@@ -1883,23 +1928,20 @@ msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ"
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА. ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
-msgid "SPACE"
-msgstr "ПРОБЕЛ"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
-msgid "DELETE A CHAR"
-msgstr "УДАЛИТЬ СИМВОЛ"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "СБРОС"
 
-msgid "DISCARD CHANGES"
-msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
-
 msgid "SHIFT"
 msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "ПРОБЕЛ"
 
 msgid "UP"
 msgstr "ВВЕРХ"
@@ -1986,6 +2028,12 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
 
+msgid "DISCARD CHANGES"
+msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
+
+msgid "up/down"
+msgstr "вверх/вниз"
+
 msgid "accept"
 msgstr "принять"
 
@@ -2016,9 +2064,6 @@ msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 
 msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
-
-msgid "up/down"
-msgstr "вверх/вниз"
 
 #, c-format
 msgid "%d day ago"
@@ -2053,15 +2098,24 @@ msgstr "ОБРАБОТКА..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d ч"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d м"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d с"
+
+#~ msgid "STATUS"
+#~ msgstr "СОСТОЯНИЕ"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "УДАЛИТЬ СИМВОЛ"
+
+#~ msgid "ALLOW SPECTATOR MODE"
+#~ msgstr "РАЗРЕШИТЬ РЕЖИМ ЗРИТЕЛЯ"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"

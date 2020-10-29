@@ -98,7 +98,7 @@ public:
 
 	std::shared_ptr<GridTileComponent> getSelectedTile();
 	
-	void resetLastCursor() { mLastCursor = -1; }
+	void resetLastCursor() { mLastCursor = -1; mLastCursorState = CursorState::CURSOR_STOPPED; }
 
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;	
@@ -114,9 +114,13 @@ private:
 	bool isVertical() { return mScrollDirection == SCROLL_VERTICALLY; };
 
 	bool mEntriesDirty;
+	
 	int mLastCursor;
+	CursorState mLastCursorState;
+
 	std::string mDefaultGameTexture;
 	std::string mDefaultFolderTexture;
+	std::string mDefaultLogoBackgroundTexture;
 
 	// TILES
 	bool mLastRowPartial;
@@ -174,9 +178,13 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 	mName = "grid";
 	mStartPosition = 0;	
 	mEntriesDirty = true;
-	mLastCursor = 0;
+	
+	mLastCursor = -1;
+	mLastCursorState = CursorState::CURSOR_STOPPED;
+
 	mDefaultGameTexture = ":/cartridge.svg";
 	mDefaultFolderTexture = ":/folder.svg";
+	mDefaultLogoBackgroundTexture = "";
 
 	mAnimateSelection = true;
 	mSize = screen * 0.80f;
@@ -651,6 +659,25 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 			}
 		}
 
+		if (elem->has("logoBackgroundImage"))
+		{
+			std::string path = elem->get<std::string>("logoBackgroundImage");
+
+			if (!ResourceManager::getInstance()->fileExists(path))
+				LOG(LogWarning) << "Could not replace default folder image, check path: " << path;
+			else
+			{
+				std::string oldDefaultFolderTexture = mDefaultLogoBackgroundTexture;
+				mDefaultLogoBackgroundTexture = path;
+
+				// mEntries are already loaded at this point,
+				// so we need to update them with new folder image texture
+				for (auto it = mEntries.begin(); it != mEntries.end(); it++)
+					if ((*it).data.texturePath == oldDefaultFolderTexture)
+						(*it).data.texturePath = mDefaultLogoBackgroundTexture;
+			}
+		}
+
 		if (elem->has("scrollSound"))
 			mScrollSound = elem->get<std::string>("scrollSound");
 	}
@@ -688,6 +715,11 @@ void ImageGridComponent<T>::onSizeChanged()
 template<typename T>
 void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 {
+	if (mCursor == mLastCursor && state == mLastCursorState)
+		return;
+
+	mLastCursorState = state;
+
 	if (mLastCursor == mCursor)
 	{
 		if (state == CURSOR_STOPPED && mCursorChangedCallback)
@@ -968,7 +1000,10 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		tile->setVisible(true);
 
 		std::string name = mEntries.at(imgPos).name;
+		std::string imagePath = mEntries.at(imgPos).data.texturePath;
+		std::string marqueePath = mEntries.at(imgPos).data.marqueePath;
 
+		// Label
 		if (!mEntries.at(imgPos).data.favorite || tile->hasFavoriteMedia())
 		{			
 			// Remove favorite text glyph
@@ -978,16 +1013,28 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 				tile->setLabel(name);
 		}
 		else
-			tile->setLabel(name);
+			tile->setLabel(name);		
 
-		std::string imagePath = mEntries.at(imgPos).data.texturePath;
+		bool setMarquee = true;
 
+		// Image
 		if (ResourceManager::getInstance()->fileExists(imagePath))
 		{
 			if (mEntries.at(imgPos).data.virtualFolder)
-				tile->setLabel(""); // _U("\uF114"));
+			{
+				tile->setLabel("");
 
-			tile->setImage(imagePath, mEntries.at(imgPos).data.virtualFolder);
+				if (!mDefaultLogoBackgroundTexture.empty() && tile->isMinSizeTile())
+				{
+					tile->setImage(mDefaultLogoBackgroundTexture);
+					tile->forceMarquee(imagePath);
+					setMarquee = false;
+				}
+				else
+					tile->setImage(imagePath, true);				
+			}
+			else
+				tile->setImage(imagePath, false);
 
 			if (mImageSource == MARQUEEORTEXT)
 				tile->setLabel("");
@@ -997,15 +1044,27 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		else if (mEntries.at(imgPos).data.folder)
 			tile->setImage(mDefaultFolderTexture, mDefaultFolderTexture == ":/folder.svg");
 		else
-			tile->setImage(mDefaultGameTexture, mDefaultGameTexture == ":/cartridge.svg");
-		
-		// Marquee
-		std::string marqueePath = mEntries.at(imgPos).data.marqueePath;
+		{
+			if (!mDefaultLogoBackgroundTexture.empty() && tile->hasMarquee() && !marqueePath.empty() && ResourceManager::getInstance()->fileExists(marqueePath))
+				tile->setImage(mDefaultLogoBackgroundTexture);
+			else
+				tile->setImage(mDefaultGameTexture, mDefaultGameTexture == ":/cartridge.svg");
+		}
+				
+		if (setMarquee)
+		{
+			if (!mDefaultLogoBackgroundTexture.empty() && tile->isMinSizeTile())
+				tile->forceMarquee("");
 
-		if (!marqueePath.empty() && ResourceManager::getInstance()->fileExists(marqueePath))
-			tile->setMarquee(marqueePath);
-		else
-			tile->setMarquee("");
+			// Marquee		
+			if (tile->hasMarquee())
+			{
+				if (!marqueePath.empty() && ResourceManager::getInstance()->fileExists(marqueePath))
+					tile->setMarquee(marqueePath);
+				else
+					tile->setMarquee("");
+			}
+		}
 
 		tile->setFavorite(mEntries.at(imgPos).data.favorite);
 
@@ -1113,6 +1172,7 @@ void ImageGridComponent<T>::buildTiles()
 	}
 
 	mLastCursor = -1;
+	mLastCursorState = CursorState::CURSOR_STOPPED;
 	onCursorChanged(CURSOR_STOPPED);
 }
 

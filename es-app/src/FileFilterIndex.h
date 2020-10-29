@@ -17,13 +17,13 @@ enum FilterIndexType
 	PLAYER_FILTER = 2,
 	PUBDEV_FILTER = 3,
 	RATINGS_FILTER = 4,
-	FAVORITES_FILTER = 5,
+	YEAR_FILTER = 5,
 	KIDGAME_FILTER = 6,
 	HIDDEN_FILTER = 7,
 	PLAYED_FILTER = 8,
-
 	LANG_FILTER = 9,
-	REGION_FILTER = 10
+	REGION_FILTER = 10,
+	FAVORITES_FILTER = 11
 };
 
 struct FilterDataDecl
@@ -76,6 +76,7 @@ protected:
 	void managePlayerEntryInIndex(FileData* game, bool remove = false);
 	void managePubDevEntryInIndex(FileData* game, bool remove = false);
 	void manageRatingsEntryInIndex(FileData* game, bool remove = false);	
+	void manageYearEntryInIndex(FileData* game, bool remove = false);
 	void manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove, bool forceUnknown = false);
 
 	void manageLangEntryInIndex(FileData* game, bool remove = false);
@@ -88,7 +89,7 @@ protected:
 	bool filterByPubDev;
 	bool filterByRatings;
 	bool filterByFavorites;
-//	bool filterByHidden;
+	bool filterByYear;
 	bool filterByKidGame;
 	bool filterByPlayed;
 	bool filterByLang;
@@ -99,7 +100,7 @@ protected:
 	std::map<std::string, int> pubDevIndexAllKeys;
 	std::map<std::string, int> ratingsIndexAllKeys;
 	std::map<std::string, int> favoritesIndexAllKeys;
-	//std::map<std::string, int> hiddenIndexAllKeys;
+	std::map<std::string, int> yearIndexAllKeys;
 	std::map<std::string, int> kidGameIndexAllKeys;
 	std::map<std::string, int> playedIndexAllKeys;
 	std::map<std::string, int> langIndexAllKeys;
@@ -110,7 +111,7 @@ protected:
 	std::unordered_set<std::string> pubDevIndexFilteredKeys;
 	std::unordered_set<std::string> ratingsIndexFilteredKeys;
 	std::unordered_set<std::string> favoritesIndexFilteredKeys;
-	//std::unordered_set<std::string> hiddenIndexFilteredKeys;
+	std::unordered_set<std::string> yearIndexFilteredKeys;
 	std::unordered_set<std::string> kidGameIndexFilteredKeys;
 	std::unordered_set<std::string> playedIndexFilteredKeys;
 	std::unordered_set<std::string> langIndexFilteredKeys;

@@ -111,11 +111,17 @@ CollectionSystemManager::~CollectionSystemManager()
 	sInstance = NULL;
 }
 
-
 bool systemSort(SystemData* sys1, SystemData* sys2)
 {
 	std::string name1 = Utils::String::toUpper(sys1->getName());
 	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
+bool systemByAlphaSort(SystemData* sys1, SystemData* sys2)
+{
+	std::string name1 = Utils::String::toUpper(sys1->getFullName());
+	std::string name2 = Utils::String::toUpper(sys2->getFullName());
 	return name1.compare(name2) < 0;
 }
 
@@ -147,6 +153,24 @@ bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
 		return true;
 	else if (sys1->getSystemMetadata().releaseYear > sys2->getSystemMetadata().releaseYear)
 		return false;
+
+	// Then by name
+	std::string name1 = Utils::String::toUpper(sys1->getName());
+	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
+bool systemByReleaseDate(SystemData* sys1, SystemData* sys2)
+{
+	// Order by hardware
+	int mf1 = sys1->getSystemMetadata().releaseYear;
+	int mf2 = sys2->getSystemMetadata().releaseYear;
+	if (mf1 != mf2)
+		return mf1 < mf2;
+
+	// Move collection at Begin
+	if (sys1->isCollection() != sys2->isCollection())
+		return !sys2->isCollection();
 
 	// Then by name
 	std::string name1 = Utils::String::toUpper(sys1->getName());
@@ -246,19 +270,15 @@ void CollectionSystemManager::loadEnabledListFromSettings()
 	std::vector<std::string> autoSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsAuto"));
 
 	// iterate the map
-	for(std::map<std::string, CollectionSystemData>::iterator it = mAutoCollectionSystemsData.begin() ; it != mAutoCollectionSystemsData.end() ; it++ )
-	{
-		it->second.isEnabled = (std::find(autoSelected.cbegin(), autoSelected.cend(), it->first) != autoSelected.cend());
-	}
+	for(auto& item : mAutoCollectionSystemsData)
+		item.second.isEnabled = (std::find(autoSelected.cbegin(), autoSelected.cend(), item.first) != autoSelected.cend());
 
 	// we parse the custom collection settings list
 	std::vector<std::string> customSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsCustom"));
 
 	// iterate the map
-	for(std::map<std::string, CollectionSystemData>::iterator it = mCustomCollectionSystemsData.begin() ; it != mCustomCollectionSystemsData.end() ; it++ )
-	{
-		it->second.isEnabled = (std::find(customSelected.cbegin(), customSelected.cend(), it->first) != customSelected.cend());
-	}
+	for (auto& item : mCustomCollectionSystemsData)
+		item.second.isEnabled = (std::find(customSelected.cbegin(), customSelected.cend(), item.first) != customSelected.cend());
 }
 
 // updates enabled system list in System View
@@ -267,6 +287,7 @@ void CollectionSystemManager::updateSystemsList()
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
 	bool sortByManufacturer = SystemData::isManufacturerSupported() && sortMode == "manufacturer";
 	bool sortByHardware = SystemData::isManufacturerSupported() && sortMode == "hardware";
+	bool sortByReleaseDate = SystemData::isManufacturerSupported() && sortMode == "releaseDate";
 
 	// remove all Collection Systems
 	removeCollectionsFromDisplayedSystems();
@@ -277,21 +298,23 @@ void CollectionSystemManager::updateSystemsList()
 	// add custom enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
-	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware)
-		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemSort);
+	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByReleaseDate)
+		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByAlphaSort);
 
-	if(mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
+	if (mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
 		SystemData::sSystemVector.push_back(mCustomCollectionsBundle);
 
 	// add auto enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mAutoCollectionSystemsData, &map);
-	
+
 	if (!sortMode.empty())
 	{
 		if (sortByManufacturer)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByManufacurerSort);
 		else if (sortByHardware)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByHardwareSort);
+		else if (sortByReleaseDate)
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByReleaseDate);
 
 		// Move RetroPie / Retrobat system to end
 		for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); )
@@ -309,7 +332,7 @@ void CollectionSystemManager::updateSystemsList()
 	}
 
 	// if we were editing a custom collection, and it's no longer enabled, exit edit mode
-	if(mIsEditingCustom && !mEditingCollectionSystemData->isEnabled)
+	if (mIsEditingCustom && !mEditingCollectionSystemData->isEnabled)
 		exitEditMode();
 }
 
@@ -324,82 +347,80 @@ void CollectionSystemManager::refreshCollectionSystems(FileData* file)
 	allCollections.insert(mAutoCollectionSystemsData.cbegin(), mAutoCollectionSystemsData.cend());
 	allCollections.insert(mCustomCollectionSystemsData.cbegin(), mCustomCollectionSystemsData.cend());
 
-	for(auto sysDataIt = allCollections.cbegin(); sysDataIt != allCollections.cend(); sysDataIt++)
-	{
+	for (auto sysDataIt = allCollections.cbegin(); sysDataIt != allCollections.cend(); sysDataIt++)
 		updateCollectionSystem(file, sysDataIt->second);
-	}
 }
 
 void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionSystemData sysData)
 {
-	if (sysData.isPopulated)
+	if (!sysData.isPopulated)
+		return;
+
+	// collection files use the full path as key, to avoid clashes
+	std::string key = file->getFullPath();
+
+	SystemData* curSys = sysData.system;
+	FileData* collectionEntry = curSys->getRootFolder()->FindByPath(key);
+	FolderData* rootFolder = curSys->getRootFolder();
+
+	std::string name = curSys->getName();
+
+	if (collectionEntry != nullptr)
 	{
-		// collection files use the full path as key, to avoid clashes
-		std::string key = file->getFullPath();
+		// remove from index, so we can re-index metadata after refreshing
+		curSys->removeFromIndex(collectionEntry);
+		collectionEntry->refreshMetadata();
 
-		SystemData* curSys = sysData.system;
-		FileData* collectionEntry = curSys->getRootFolder()->FindByPath(key);
-		FolderData* rootFolder = curSys->getRootFolder();
-
-		std::string name = curSys->getName();
-
-		if (collectionEntry != nullptr) 
-		{		
-			// remove from index, so we can re-index metadata after refreshing
-			curSys->removeFromIndex(collectionEntry);
-			collectionEntry->refreshMetadata();
-			
-			// found and we are removing
-			if (name == "favorites" && !file->getFavorite()) 
-			{
-				// need to check if still marked as favorite, if not remove
-				auto view = ViewController::get()->getGameListView(curSys, false);
-				if (view != nullptr)
-					view.get()->remove(collectionEntry);
-				else
-					delete collectionEntry;
-
-				// Send an event when removing from favorites
-				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-
-				if (view != nullptr)
-					view->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
-			}
+		// found and we are removing
+		if (name == "favorites" && !file->getFavorite())
+		{
+			// need to check if still marked as favorite, if not remove
+			auto view = ViewController::get()->getGameListView(curSys, false);
+			if (view != nullptr)
+				view.get()->remove(collectionEntry);
 			else
-			{
-				// re-index with new metadata
-				curSys->addToIndex(collectionEntry);
-				ViewController::get()->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
-			}
+				delete collectionEntry;
+
+			// Send an event when removing from favorites
+			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
+
+			if (view != nullptr)
+				view->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 		}
 		else
 		{
-			// we didn't find it here - we need to check if we should add it
-			if (name == "recent" && file->getMetadata(MetaDataId::PlayCount) > "0" && includeFileInAutoCollections(file) ||
-				name == "favorites" && file->getFavorite()) 
-			{
-				CollectionFileData* newGame = new CollectionFileData(file, curSys);
-				rootFolder->addChild(newGame);
-				curSys->addToIndex(newGame);
-				ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-
-				auto view = ViewController::get()->getGameListView(curSys, false);
-				if (view != nullptr)
-					view->onFileChanged(newGame, FILE_METADATA_CHANGED);
-			}
+			// re-index with new metadata
+			curSys->addToIndex(collectionEntry);
+			ViewController::get()->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 		}
-
-		curSys->updateDisplayedGameCount();
-
-		if (name == "recent")
-		{
-			sortLastPlayed(curSys);
-			trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
-			ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
-		}
-		else 
-			ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
 	}
+	else
+	{
+		// we didn't find it here - we need to check if we should add it
+		if (name == "recent" && file->getMetadata(MetaDataId::PlayCount) > "0" && includeFileInAutoCollections(file) ||
+			name == "favorites" && file->getFavorite())
+		{
+			CollectionFileData* newGame = new CollectionFileData(file, curSys);
+			rootFolder->addChild(newGame);
+			curSys->addToIndex(newGame);
+			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
+
+			auto view = ViewController::get()->getGameListView(curSys, false);
+			if (view != nullptr)
+				view->onFileChanged(newGame, FILE_METADATA_CHANGED);
+		}
+	}
+
+	curSys->updateDisplayedGameCount();
+
+	if (name == "recent")
+	{
+		sortLastPlayed(curSys);
+		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
+		ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
+	}
+	else
+		ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
 }
 
 void CollectionSystemManager::sortLastPlayed(SystemData* system)
@@ -1318,10 +1339,10 @@ std::vector<std::string> CollectionSystemManager::getCollectionThemeFolders(bool
 std::vector<std::string> CollectionSystemManager::getUserCollectionThemeFolders()
 {
 	std::vector<std::string> systems;
-	for(std::map<std::string, CollectionSystemData>::const_iterator it = mCustomCollectionSystemsData.cbegin() ; it != mCustomCollectionSystemsData.cend() ; it++ )
-	{
-		systems.push_back(it->second.decl.themeFolder);
-	}
+
+	for(auto& item : mCustomCollectionSystemsData)
+		systems.push_back(item.second.decl.themeFolder);
+
 	return systems;
 }
 

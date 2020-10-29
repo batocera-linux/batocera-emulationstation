@@ -20,6 +20,7 @@ namespace Utils
 		void queueWorkItem(work_function work);
 		void wait();
 		void wait(work_function work, int delay = 50);
+		void cancel() { mRunning = false; }
 
 	private:
 		bool mRunning;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -378,6 +378,12 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -630,6 +636,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -672,11 +681,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
 
+msgid "SETTINGS"
+msgstr "INSTÄLLNINGAR"
+
 msgid "SCREENSAVER AFTER"
 msgstr "SKÄRMSLÄCKARE EFTER"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SKÄRMSLÄCKARBETEENDE"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "INSTÄLLNINGAR SLUMPAD VIDEO-SKÄRMSLÄCKAREN"
@@ -901,6 +916,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Processoregenskap"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "FÖRSTÄRKT"
+
+msgid "CURVATURE"
+msgstr "KURVOR"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "PLATTA TILL-GLÖD"
+
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
 
@@ -939,6 +972,9 @@ msgstr "SYSTEMINSTÄLLNINGAR"
 
 msgid "INFORMATIONS"
 msgstr "INFORMATION"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "AVSLUTA"
@@ -1008,6 +1044,12 @@ msgstr ""
 
 msgid "CHOOSE"
 msgstr "VÄLJ"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATION"
@@ -1105,6 +1147,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1146,6 +1191,9 @@ msgstr "PÅBÖRJA UPPDATERING"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPPDATERING KÖRS REDAN"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"
@@ -1269,9 +1317,6 @@ msgstr "AUTOMATISKA SKÄRMDUMPAR"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr "INSTÄLLNINGAR"
-
 msgid "ENABLE NETPLAY"
 msgstr "AKTIVERA NETPLAY"
 
@@ -1316,24 +1361,6 @@ msgstr "AUTOSPARA/LADDA"
 
 msgid "SHADERS SET"
 msgstr "SHADERS"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "FÖRSTÄRKT"
-
-msgid "CURVATURE"
-msgstr "KURVOR"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "PLATTA TILL-GLÖD"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGERSKALNING (PIXEL-PERFEKT)"
@@ -1402,6 +1429,9 @@ msgstr "DU MÅSTE APPLICERA TEMAT INNAN DU REDIGERAR INSTÄLLNINGARNA"
 
 msgid "THEME CONFIGURATION"
 msgstr "TEMA-INSTÄLLNINGAR"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "grundläggande"
@@ -1520,17 +1550,17 @@ msgstr "AKTIVERA NAVIGATIONSLJUD"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "AKTIVERA VIDEOLJUD"
 
+msgid "IP ADDRESS"
+msgstr "IP-ADRESS"
+
 msgid "CONNECTED"
 msgstr "ANSLUTEN"
 
 msgid "NOT CONNECTED"
 msgstr "INTE ANSLUTEN"
 
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "IP ADDRESS"
-msgstr "IP-ADRESS"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "DATORNAMN"
@@ -1657,10 +1687,25 @@ msgstr "INGEN ENHET HITTADES"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VILL DU STARTA KODI MEDIA CENTER?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1724,9 +1769,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1858,6 +1900,9 @@ msgstr "UTGIVARE / UTVECKLARE"
 msgid "RATING"
 msgstr "BETYG"
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr ""
 
@@ -1878,23 +1923,20 @@ msgstr ""
 "SKRAPNING FÄRDIG. UPPDATERA LISTAN MED SPEL FÖR ATT DE NYA ÄNDRINGARNA SKA "
 "SLÅ IGENOM."
 
-msgid "SPACE"
-msgstr "MELLANSLAG"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "ANGER STORA OCH SMÅ BOKSTÄVER SAMT SPECIALTECKEN"
 
-msgid "DELETE A CHAR"
-msgstr "TA BORT ETT TECKEN"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "ÅTERSTÄLL"
 
-msgid "DISCARD CHANGES"
-msgstr "AVBRYT ÄNDRINGAR"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ANGER STORA OCH SMÅ BOKSTÄVER SAMT SPECIALTECKEN"
-
 msgid "SHIFT"
 msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "MELLANSLAG"
 
 msgid "UP"
 msgstr "UPP"
@@ -1978,6 +2020,12 @@ msgstr "INGA SPELKONTROLLER HITTADE"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HÅLL NERE A-KNAPPEN PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
 
+msgid "DISCARD CHANGES"
+msgstr "AVBRYT ÄNDRINGAR"
+
+msgid "up/down"
+msgstr "upp/ner"
+
 msgid "accept"
 msgstr "acceptera"
 
@@ -2007,9 +2055,6 @@ msgstr "FLYTTA PEKARE"
 
 msgid "EDIT"
 msgstr "REDIGERA"
-
-msgid "up/down"
-msgstr "upp/ner"
 
 #, c-format
 msgid "%d day ago"
@@ -2049,6 +2094,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "STATUS"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "TA BORT ETT TECKEN"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"

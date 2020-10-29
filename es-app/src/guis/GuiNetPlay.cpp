@@ -288,6 +288,15 @@ std::vector<HelpPrompt> GuiNetPlay::getHelpPrompts()
 
 FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string coreName)
 {
+	auto normalizeName = [](const std::string name)
+	{
+		auto ret = Utils::String::toLower(name);
+		ret = Utils::String::replace(ret, "_", " ");
+		ret = Utils::String::replace(ret, ".", "");
+		ret = Utils::String::replace(ret, "'", "");
+		return Utils::String::removeParenthesis(ret);
+	};
+
 	std::string lowCore;
 
 	auto coreInfo = coreList.find(coreName);
@@ -296,7 +305,7 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string co
 	else
 		lowCore = Utils::String::toLower(Utils::String::replace(coreName, " ", "_"));
 	
-	std::string low = Utils::String::toLower(gameInfo);
+	std::string normalizedName = normalizeName(gameInfo);
 	for (auto sys : SystemData::sSystemVector)
 	{
 		if (!sys->isNetplaySupported())
@@ -326,21 +335,16 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string co
 			}
 			else
 			{
-				std::string stem = Utils::String::toLower(Utils::FileSystem::getStem(file->getPath()));
-				if (stem == low)
+				std::string stem = normalizeName(file->getName());
+				if (stem == normalizedName)
 					return file;
 
-				stem = Utils::String::toLower(file->getName());
-				if (stem == low)
+				stem = normalizeName(Utils::FileSystem::getStem(file->getPath()));
+				if (stem == normalizedName)
 					return file;
 
-				stem = Utils::String::replace(stem, ".", "");
-				stem = Utils::String::replace(stem, "'", "");
-				if (stem == low)
-					return file;
-
-				stem = Utils::String::replace(stem, " ", "");
-				if (stem == low)
+				stem = Utils::String::replace(normalizeName(file->getName()), " ", "");
+				if (stem == Utils::String::replace(normalizedName, " ", ""))
 					return file;
 			}
 		}
@@ -512,7 +516,11 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 			file = getFileData(Utils::String::toUpper(fields["game_crc"].GetString()), true, game.core_name);
 
 		if (file == nullptr && fields.HasMember("game_name") && fields["game_name"].IsString())
+		{
 			file = getFileData(fields["game_name"].GetString(), false, game.core_name);
+			if (file != nullptr)
+				file->checkCrc32();
+		}
 
 		game.fileData = file;
 

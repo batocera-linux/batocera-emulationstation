@@ -185,6 +185,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	{
 		sortType->add(_("BY MANUFACTURER"), "manufacturer", sortMode == "manufacturer");
 		sortType->add(_("BY HARDWARE TYPE"), "hardware", sortMode == "hardware");
+		sortType->add(_("BY RELEASE YEAR"), "releaseDate", sortMode == "releaseDate");
 	}
 
 	if (!sortType->hasSelection())

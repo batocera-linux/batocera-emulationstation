@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,6 +375,12 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -627,6 +633,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -669,11 +678,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "SCREENSAVER AFTER"
 msgstr "SKJERMSPARER ETTER"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SKJERMSPARER OPPFØRSEL"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr ""
@@ -895,6 +910,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr ""
 
+msgid "SCANLINES"
+msgstr "LINJESKAN"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr ""
+
+msgid "CURVATURE"
+msgstr ""
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HOVED MENY"
 
@@ -932,6 +965,9 @@ msgid "SYSTEM SETTINGS"
 msgstr "SYSTEM INSTILLINGER"
 
 msgid "INFORMATIONS"
+msgstr ""
+
+msgid "UNLOCK UI MODE"
 msgstr ""
 
 msgid "QUIT"
@@ -1002,6 +1038,12 @@ msgstr ""
 
 msgid "CHOOSE"
 msgstr "VELG"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr ""
@@ -1099,6 +1141,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1139,6 +1184,9 @@ msgid "START UPDATE"
 msgstr "START OPPDATERING"
 
 msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr ""
 
 msgid "LANGUAGE"
@@ -1258,9 +1306,6 @@ msgstr ""
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr ""
-
 msgid "ENABLE NETPLAY"
 msgstr ""
 
@@ -1305,24 +1350,6 @@ msgstr "AUTO LAGRE/LASTE"
 
 msgid "SHADERS SET"
 msgstr "SKYGGELEGGER SETT"
-
-msgid "SCANLINES"
-msgstr "LINJESKAN"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr ""
-
-msgid "CURVATURE"
-msgstr ""
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
-msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr ""
@@ -1390,6 +1417,9 @@ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "GAMELIST STYLE"
 msgstr ""
 
 msgid "basic"
@@ -1509,17 +1539,17 @@ msgstr ""
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
+msgid "IP ADDRESS"
+msgstr "IP ADRESSE"
+
 msgid "CONNECTED"
 msgstr "TILKOBLET"
 
 msgid "NOT CONNECTED"
 msgstr "FRAKOBLET"
 
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "IP ADDRESS"
-msgstr "IP ADRESSE"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "ENHETSNAVN"
@@ -1646,10 +1676,25 @@ msgstr ""
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VIL DU STARTE KODI?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1713,9 +1758,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1847,6 +1889,9 @@ msgstr ""
 msgid "RATING"
 msgstr "RANGERING"
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr ""
 
@@ -1865,23 +1910,20 @@ msgstr ""
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "SPACE"
-msgstr "Mellomrom"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SKIFT TEGN"
 
-msgid "DELETE A CHAR"
-msgstr "SLETT ET TEGN"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr ""
 
-msgid "DISCARD CHANGES"
-msgstr "FORKAST ENDRINGER"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SKIFT TEGN"
-
 msgid "SHIFT"
 msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "Mellomrom"
 
 msgid "UP"
 msgstr "OPP"
@@ -1962,6 +2004,12 @@ msgstr "INGEN KONTROLLERE OPPDAGET"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HOLD EN KNAPP PÅ ENHETEN DIN FOR Å KONFIGUERE DEN."
 
+msgid "DISCARD CHANGES"
+msgstr "FORKAST ENDRINGER"
+
+msgid "up/down"
+msgstr ""
+
 msgid "accept"
 msgstr ""
 
@@ -1991,9 +2039,6 @@ msgstr "FLYTT MUSEPEKER"
 
 msgid "EDIT"
 msgstr "ENDRE"
-
-msgid "up/down"
-msgstr ""
 
 #, c-format
 msgid "%d day ago"
@@ -2033,6 +2078,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "STATUS"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "SLETT ET TEGN"
 
 #~ msgid "QUICK SYSTEM SELECT"
 #~ msgstr "RASKT PLATTFORM VALG"

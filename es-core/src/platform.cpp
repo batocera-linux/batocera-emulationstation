@@ -13,6 +13,16 @@
 #include "Log.h"
 #include "Scripting.h"
 
+#if !defined(WIN32)
+#include <ifaddrs.h>
+#include <netinet/in.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <arpa/inet.h>
+#endif
+
+// #define DEVTEST
+
 int runShutdownCommand()
 {
 #ifdef WIN32 // windows
@@ -178,7 +188,170 @@ bool isFastShutdown()
 	return quitMode == QuitMode::FAST_REBOOT || quitMode == QuitMode::FAST_SHUTDOWN;
 }
 
+std::string queryIPAdress()
+{
+	std::string result;
 
+#if WIN32
+	// Init WinSock
+	WSADATA wsa_Data;
+	int wsa_ReturnCode = WSAStartup(0x101, &wsa_Data);
+	if (wsa_ReturnCode != 0)
+		return "";
+
+	char* szLocalIP = nullptr;
+
+	// Get the local hostname
+	char szHostName[255];
+	if (gethostname(szHostName, 255) == 0)
+	{
+		struct hostent *host_entry;
+		host_entry = gethostbyname(szHostName);
+		if (host_entry != nullptr)
+			szLocalIP = inet_ntoa(*(struct in_addr *)*host_entry->h_addr_list);
+	}
+
+	WSACleanup();
+
+	if (szLocalIP == nullptr)
+		return "";
+
+	return std::string(szLocalIP); // "127.0.0.1"
+#else
+	struct ifaddrs *ifAddrStruct = NULL;
+	struct ifaddrs *ifa = NULL;
+	void *tmpAddrPtr = NULL;
+
+	getifaddrs(&ifAddrStruct);
+
+	for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) 
+	{
+		if (!ifa->ifa_addr)
+			continue;
+		
+		// check it is IP4 is a valid IP4 Address
+		if (ifa->ifa_addr->sa_family == AF_INET)
+		{ 			
+			tmpAddrPtr = &((struct sockaddr_in *) ifa->ifa_addr)->sin_addr;
+			char addressBuffer[INET_ADDRSTRLEN];
+			inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
+			
+			if (std::string(ifa->ifa_name).find("eth") != std::string::npos || std::string(ifa->ifa_name).find("wlan") != std::string::npos) 
+			{
+				result = std::string(addressBuffer);
+				break;
+			}
+		}
+	}
+	// Seeking for ipv6 if no IPV4
+	if (result.empty()) 
+	{
+		for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) 
+		{
+			if (!ifa->ifa_addr)
+				continue;
+			
+			// check it is IP6 is a valid IP6 Address
+			if (ifa->ifa_addr->sa_family == AF_INET6) 
+			{ 				
+				tmpAddrPtr = &((struct sockaddr_in6 *) ifa->ifa_addr)->sin6_addr;
+				char addressBuffer[INET6_ADDRSTRLEN];
+				inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
+				printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
+
+				if (std::string(ifa->ifa_name).find("eth") != std::string::npos || std::string(ifa->ifa_name).find("wlan") != std::string::npos)
+				{
+					result = std::string(addressBuffer);
+					break;
+				}
+			}
+		}
+	}
+
+	if (ifAddrStruct != NULL)
+		freeifaddrs(ifAddrStruct);
+#endif
+
+	return result;
+
+}
+
+BatteryInformation queryBatteryInformation()
+{
+	BatteryInformation ret; 
+	ret.hasBattery = false;
+	ret.isCharging = false;
+	ret.level = 0;
+
+#ifdef WIN32
+	SYSTEM_POWER_STATUS systemPowerStatus;
+	if (GetSystemPowerStatus(&systemPowerStatus))
+	{
+		if ((systemPowerStatus.BatteryFlag & 128) == 128)
+			ret.hasBattery = false;
+		else
+		{
+			ret.hasBattery = true;
+			ret.isCharging = (systemPowerStatus.BatteryFlag & 8) == 8;
+			ret.level = systemPowerStatus.BatteryLifePercent;
+		}
+	}
+	else
+		ret.hasBattery = false;
+
+
+#ifdef DEVTEST
+	ret.hasBattery = true;
+	ret.isCharging = false;
+	ret.level = 33;
+#endif
+
+	return ret;
+
+#endif
+
+	static std::string batteryStatusPath;
+	static std::string batteryCapacityPath;
+
+	// Find battery path - only at the first call
+	if (batteryStatusPath.empty())
+	{
+		std::string batteryRootPath;
+
+		auto files = Utils::FileSystem::getDirContent("/sys/class/power_supply");
+		for (auto file : files)
+		{
+			if (Utils::String::toLower(file).find("/bat") != std::string::npos)
+			{
+				batteryRootPath = file;
+				break;
+			}
+		}
+
+		if (batteryRootPath.empty())
+			batteryStatusPath = ".";
+		else
+		{
+			batteryStatusPath = batteryRootPath + "/status";
+			batteryCapacityPath = batteryRootPath + "/capacity";
+		}
+	}
+
+	if (batteryStatusPath.length() <= 1)
+	{
+		ret.hasBattery = false;
+		ret.isCharging = false;
+		ret.level = 0;
+	}
+	else
+	{
+		ret.hasBattery = true;
+		ret.isCharging = (Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "") != "Discharging");
+		ret.level = atoi(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
+	}
+
+	return ret;
+}
 #ifdef _ENABLEEMUELEC
 
 /* < emuelec */

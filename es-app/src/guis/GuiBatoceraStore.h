@@ -7,6 +7,7 @@
 #include "components/TextComponent.h"
 #include "ApiSystem.h"
 #include "ContentInstaller.h"
+#include "components/ComponentTab.h"
 
 template<typename T>
 class OptionListComponent;
@@ -40,17 +41,34 @@ public:
 	void update(int deltaTime) override;
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+	virtual void onSizeChanged() override;
 
 	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
 
 private:
 	void loadPackagesAsync(bool updatePackageList = false);
-	void loadList(bool updatePackageList);
+	void loadList(bool updatePackageList, bool restoreIndex = true);
 	void processPackage(PacmanPackage package);
 	void centerWindow();
+	void showSearch();
 
-	MenuComponent	mMenu;
 	int				mReloadList;
 	std::vector<PacmanPackage> mPackages;
 	
+
+	NinePatchComponent				mBackground;
+	ComponentGrid					mGrid;
+
+	std::shared_ptr<TextComponent>	mTitle;
+	std::shared_ptr<TextComponent>	mSubtitle;
+
+	std::shared_ptr<ComponentList>	mList;
+
+	std::shared_ptr<ComponentGrid>	mHeaderGrid;
+	std::shared_ptr<ComponentGrid>	mButtonGrid;
+
+	std::shared_ptr<ComponentTab>	mTabs;
+
+	std::string						mTabFilter;
+	std::string						mTextFilter;
 };

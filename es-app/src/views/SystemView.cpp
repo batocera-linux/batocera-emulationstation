@@ -19,6 +19,8 @@
 #include "Playlists.h"
 #include "CollectionSystemManager.h"
 #include "resources/TextureDataManager.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -356,6 +358,31 @@ bool SystemView::input(InputConfig* config, Input input)
 			return true;
 		}
 
+		if (!kodi && config->isMappedTo("y", input))
+		{	
+			SystemData* all = SystemData::getSystem("all");
+			if (all != nullptr)
+			{
+				auto updateVal = [this, all](const std::string& newVal)
+				{
+					auto index = all->getIndex(true);
+
+					index->resetFilters();
+					index->setTextFilter(newVal);
+
+					ViewController::get()->reloadGameListView(all);
+					ViewController::get()->goToGameList(all, true);
+				};
+
+				if (Settings::getInstance()->getBool("UseOSK"))
+					mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("QUICK SEARCH"), "", updateVal, false));
+				else
+					mWindow->pushGui(new GuiTextEditPopup(mWindow, _("QUICK SEARCH"), "", updateVal, false));			
+			}
+
+			return true;
+		}
+
 		if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_r && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 		{
 			LOG(LogInfo) << " Reloading all";
@@ -470,16 +497,30 @@ bool SystemView::input(InputConfig* config, Input input)
 			return true;
 		}
 
-		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported())
 		{
-			showManufacturerBar();
-			return true;
-		} else if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware")
-		{
-			showHardwareBar();
-			return true;
+			auto sortMode = Settings::getInstance()->getString("SortSystems");
+			if (sortMode == "alpha")
+			{
+				showNavigationBar(_("GO TO LETTER"), [](SystemData* meta) { if (meta->isCollection()) return _("COLLECTIONS"); return Utils::String::toUpper(meta->getSystemMetadata().fullName.substr(0, 1)); });
+				return true;
+			}
+			else if (sortMode == "manufacturer")
+			{
+				showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
+				return true;
+			}
+			else if (sortMode == "hardware")
+			{
+				showNavigationBar(_("GO TO HARDWARE"), [](SystemData* meta) { return meta->getSystemMetadata().hardwareType; });
+				return true;
+			}
+			else if (sortMode == "releaseDate")
+			{
+				showNavigationBar(_("GO TO DECADE"), [](SystemData* meta) { if (meta->getSystemMetadata().releaseYear == 0) return _("Unknown"); return std::to_string((meta->getSystemMetadata().releaseYear / 10) * 10) + "'s"; });
+				return true;
+			}
 		}
-
 
 		if (config->isMappedTo("x", input))
 		{
@@ -527,13 +568,14 @@ bool SystemView::input(InputConfig* config, Input input)
 	return GuiComponent::input(config, input);
 }
 
-void SystemView::showManufacturerBar()
+void SystemView::showNavigationBar(const std::string& title, const std::function<std::string(SystemData* system)>& selector)
 {
 	stopScrolling();
-
-	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO MANUFACTURER"), "-----"); // , "", nullptr, true);
+	
+	GuiSettings* gs = new GuiSettings(mWindow, title, "-----"); // , "", nullptr, true);
 
 	int idx = 0;
+	std::string sel = selector(getSelected());
 
 	std::string man = "*-*";
 	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
@@ -541,68 +583,13 @@ void SystemView::showManufacturerBar()
 		auto system = SystemData::sSystemVector[i];
 		if (!system->isVisible())
 			continue;
-
-		std::string sel = getSelected()->getSystemMetadata().manufacturer;
-		auto mf = system->getSystemMetadata().manufacturer;
+		
+		auto mf = selector(system);
 		if (man != mf)
 		{
 			std::vector<std::string> names;
 			for (auto sy : SystemData::sSystemVector)
-				if (sy->isVisible() && sy->getSystemMetadata().manufacturer == mf)
-					names.push_back(sy->getFullName());
-
-			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
-			{
-				listInput(idx - mCursor);
-				listInput(0);
-
-				auto pthis = this;
-
-				delete gs;
-
-				pthis->mLastCursor = -1;
-				pthis->onCursorChanged(CURSOR_STOPPED);
-				
-			}, "", sel == mf);
-
-			man = mf;
-		}
-
-		idx++;
-	}
-
-	int w = Renderer::getScreenWidth() / 3;
-	gs->getMenu().setSize(w, Renderer::getScreenHeight());
-
-	gs->getMenu().animateTo(
-		Vector2f(-w, 0),
-		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
-
-	mWindow->pushGui(gs);
-}
-
-void SystemView::showHardwareBar()
-{
-	stopScrolling();
-
-	GuiSettings* gs = new GuiSettings(mWindow, _("GO TO HARDWARE"), "-----"); // , "", nullptr, true);
-
-	int idx = 0;
-
-	std::string man = "*-*";
-	for (int i = 0; i < SystemData::sSystemVector.size(); i++)
-	{
-		auto system = SystemData::sSystemVector[i];
-		if (!system->isVisible())
-			continue;
-
-		std::string sel = getSelected()->getSystemMetadata().hardwareType;
-		auto mf = system->getSystemMetadata().hardwareType;
-		if (man != mf)
-		{
-			std::vector<std::string> names;
-			for (auto sy : SystemData::sSystemVector)
-				if (sy->isVisible() && sy->getSystemMetadata().hardwareType == mf)
+				if (sy->isVisible() && selector(sy) == mf)
 					names.push_back(sy->getFullName());
 
 			gs->getMenu().addWithDescription(mf, Utils::String::join(names, ", "), nullptr, [this, gs, system, idx]
@@ -918,6 +905,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 		prompts.push_back(HelpPrompt(kodi ? "y" : "x", _("NETPLAY")));
 	else
 		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+
+	if (!kodi && SystemData::getSystem("all") != nullptr)
+		prompts.push_back(HelpPrompt("y", _("QUICK SEARCH"))); // batocera
 
 	// batocera
 #ifdef _ENABLE_FILEMANAGER_

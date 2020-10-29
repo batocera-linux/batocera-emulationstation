@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -378,6 +378,12 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -630,6 +636,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -672,11 +681,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "SCREENSAVERINSTELLINGEN"
 
+msgid "SETTINGS"
+msgstr "INSTELLINGEN"
+
 msgid "SCREENSAVER AFTER"
 msgstr "SCHERMBEVEILIGING NA"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "SCHERMBEVEILIGING GEDRAG"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "WILLEKEURIGE VIDEO SCREENSAVER INSTELLINGEN"
@@ -901,6 +916,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr "Cpu kenmerken"
 
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgid "RETRO"
+msgstr "RETRO"
+
+msgid "ENHANCED"
+msgstr "VERBETERD"
+
+msgid "CURVATURE"
+msgstr "KROMMING"
+
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgid "FLATTEN-GLOW"
+msgstr "AFVLAKKEN-GLOEIEN"
+
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
 
@@ -939,6 +972,9 @@ msgstr "SYSTEEMINSTELLINGEN"
 
 msgid "INFORMATIONS"
 msgstr "ALGEMENE INFORMATIE"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "STOPPEN"
@@ -1008,6 +1044,12 @@ msgstr "WEET JE ZEKER DAT JE DE INVOER WILT CONFIGUREREN?"
 
 msgid "CHOOSE"
 msgstr "KIES"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "INFORMATIE"
@@ -1105,6 +1147,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "CONFIGUREER CONTROLLERS VOOR EMULATORS AUTOMATISCH"
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1146,6 +1191,9 @@ msgstr "NU UPDATEN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE REEDS GESTART"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "TAAL"
@@ -1269,9 +1317,6 @@ msgstr "AUTOMATISCHE SCHERMAFDRUK"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr "INSTELLINGEN"
-
 msgid "ENABLE NETPLAY"
 msgstr "SCHAKEL NETPLAY IN"
 
@@ -1316,24 +1361,6 @@ msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
-
-msgid "SCANLINES"
-msgstr "SCANLINES"
-
-msgid "RETRO"
-msgstr "RETRO"
-
-msgid "ENHANCED"
-msgstr "VERBETERD"
-
-msgid "CURVATURE"
-msgstr "KROMMING"
-
-msgid "ZFAST"
-msgstr "ZFAST"
-
-msgid "FLATTEN-GLOW"
-msgstr "AFVLAKKEN-GLOEIEN"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
@@ -1402,6 +1429,9 @@ msgstr "JE MOET HET THEMA TOEPASSEN VOORDAT JE DE CONFIGURATIE VERLAAT"
 
 msgid "THEME CONFIGURATION"
 msgstr "THEMACONFIGURATIE"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "eenvoudig"
@@ -1520,17 +1550,17 @@ msgstr "SCHAKEL NAVIGATIEGELUIDEN IN"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "SCHAKEL GELUID BIJ VIDEO IN"
 
+msgid "IP ADDRESS"
+msgstr "IP ADRES"
+
 msgid "CONNECTED"
 msgstr "VERBONDEN"
 
 msgid "NOT CONNECTED"
 msgstr "NIET VERBONDEN"
 
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "IP ADDRESS"
-msgstr "IP ADRES"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "HOSTNAAM"
@@ -1659,10 +1689,25 @@ msgstr "GEEN APPARAAT GEVONDEN"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "FOUT: ALLE SYSTEMEN ZIJN VERBORGEN, ALLE SYSTEMEN WORDEN NU GETOOND"
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "WIL JE KODI MEDIA CENTER STARTEN?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1726,9 +1771,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1860,6 +1902,9 @@ msgstr "UITGEVER / ONTWIKKELAAR"
 msgid "RATING"
 msgstr "WAARDERING"
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr "REGIO"
 
@@ -1878,23 +1923,20 @@ msgstr "SCRAPEN MISLUKT"
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPEN VOLTOOID. VERVERS SPELLIJST OM WIJZIGINGEN TOE TE PASSEN."
 
-msgid "SPACE"
-msgstr "SPATIE"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "WISSELT NORMAAL, HOOFDLETTER EN SPECIAAL"
 
-msgid "DELETE A CHAR"
-msgstr "VERWIJDER EEN KARAKTER"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "HERSTEL"
 
-msgid "DISCARD CHANGES"
-msgstr "VERWIJDER WIJZIGINGEN"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "WISSELT NORMAAL, HOOFDLETTER EN SPECIAAL"
-
 msgid "SHIFT"
 msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "SPATIE"
 
 msgid "UP"
 msgstr "OMHOOG"
@@ -1979,6 +2021,12 @@ msgstr "GEEN CONTROLLERS GEVONDEN"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HOUDT A KNOP INGEDRUKT OP JE APPARAAT OM TE CONFIGUREREN."
 
+msgid "DISCARD CHANGES"
+msgstr "VERWIJDER WIJZIGINGEN"
+
+msgid "up/down"
+msgstr "omhoog/omlaag"
+
 msgid "accept"
 msgstr "accepteer"
 
@@ -2008,9 +2056,6 @@ msgstr "VERPLAATS CURSOR"
 
 msgid "EDIT"
 msgstr "BEWERK"
-
-msgid "up/down"
-msgstr "omhoog/omlaag"
 
 #, c-format
 msgid "%d day ago"
@@ -2050,6 +2095,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "STATUS"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "VERWIJDER EEN KARAKTER"
 
 #~ msgid ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"

@@ -305,7 +305,7 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 	Renderer::popClipRect();
 
 	// draw cursor
-	if(mEditing)
+	//if(mEditing)
 	{
 		Vector2f cursorPos;
 		if(isMultiline())
@@ -318,10 +318,14 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 			cursorPos[1] = 0;
 		}
 
-		if (mBlinkTime < BLINKTIME / 2)
+		if (!mEditing || mBlinkTime < BLINKTIME / 2)
 		{
 			float cursorHeight = mFont->getHeight() * 0.8f;
+
 			auto cursorColor = (ThemeData::getMenuTheme()->Text.color & 0xFFFFFF00) | getOpacity();
+			if (!mEditing)
+				cursorColor = (ThemeData::getMenuTheme()->Text.color & 0xFFFFFF00) | (unsigned char) (getOpacity() * 0.25f);
+
 			Renderer::drawRect(cursorPos.x(), cursorPos.y() + (mFont->getHeight() - cursorHeight) / 2, 2.0f, cursorHeight, cursorColor, cursorColor); // 0x000000FF
 		}
 	}

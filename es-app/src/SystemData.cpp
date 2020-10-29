@@ -25,7 +25,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem) : // batocera
+SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mIsGroupSystem = groupedSystem;
@@ -71,7 +71,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	setSystemViewMode(defaultView, gridSizeOverride, false);
 
 	setIsGameSystemStatus();
-	loadTheme();
+
+	if (withTheme)
+		loadTheme();
 }
 
 SystemData::~SystemData()
@@ -93,12 +95,14 @@ void SystemData::setIsGameSystemStatus()
 void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	const std::string& folderPath = folder->getPath();
+
+	/*
 	if(!Utils::FileSystem::isDirectory(folderPath))
 	{
 		LOG(LogWarning) << "Error - folder with path \"" << folderPath << "\" is not a directory!";
 		return;
 	}
-	/*
+	
 	// [Obsolete] make sure that this isn't a symlink to a thing we already have
 	// Deactivated because it's slow & useless : users should to be carefull not to make recursive simlinks
 	if (Utils::FileSystem::isSymlink(folderPath))
@@ -153,21 +157,14 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		//add directories that also do not match an extension as folders
 		if(!isGame && fileInfo.directory)
 		{
-// Don't loose time looking in downloaded_images, downloaded_videos & media folders
-			if (filePath.rfind("downloaded_") != std::string::npos ||
-				filePath.rfind("media") != std::string::npos || 
-				filePath.rfind("images") != std::string::npos || 
-#ifdef _ENABLEEMUELEC
-				filePath.rfind("boxart") != std::string::npos ||
-				filePath.rfind("cartart") != std::string::npos ||
-				filePath.rfind("snap") != std::string::npos ||
-				filePath.rfind("flyer") != std::string::npos ||
-				filePath.rfind("marquee") != std::string::npos ||
-				filePath.rfind("bios") != std::string::npos ||
-				filePath.rfind("wheel") != std::string::npos ||
-#endif
-				filePath.rfind("videos") != std::string::npos)
+			std::string fn = Utils::String::toLower(Utils::FileSystem::getFileName(filePath));
 
+			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
+			if (fn == "media" || fn == "medias" || fn == "images" || fn == "manuals" || fn == "videos" || fn == "assets" || Utils::String::startsWith(fn, "downloaded_") || Utils::String::startsWith(fn, "."))
+				continue;
+
+			// Hardcoded optimisation : WiiU has so many files in content & meta directories
+			if (mMetadata.name == "wiiu" && (fn == "content" || fn == "meta"))
 				continue;
 
 			FolderData* newFolder = new FolderData(filePath, this);
@@ -324,7 +321,6 @@ void SystemData::createGroupedSystems()
 							std::string path = logoElem->get<std::string>("path");
 							folder->setMetadata("image", path);
 							folder->setMetadata("thumbnail", path);
-							
 							folder->enableVirtualFolderDisplay(true);
 						}
 					}
@@ -833,7 +829,7 @@ bool SystemData::loadConfig(Window* window)
 				int px = processedSystem - 1;
 				if (px >= 0 && px < systemsNames.size())
 					window->renderSplashScreen(systemsNames.at(px), (float)px / (float)(systemCount + 1));
-			}, 10);
+			}, 50);
 		}
 		else
 			pThreadPool->wait();
@@ -883,7 +879,33 @@ bool SystemData::loadConfig(Window* window)
 	return true;
 }
 
-SystemData* SystemData::loadSystem(pugi::xml_node system)
+SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
+{
+	std::string path = getConfigPath(false);
+	if (!Utils::FileSystem::exists(path))
+		return nullptr;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	if (!res)
+		return nullptr;
+
+	//actually read the file
+	pugi::xml_node systemList = doc.child("systemList");
+	if (!systemList)
+		return nullptr;
+
+	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+	{
+		std::string name = system.child("name").text().get();
+		if (name == systemName)
+			return loadSystem(system, fullMode);
+	}
+
+	return nullptr;
+}
+
+SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 {
 	std::string path, cmd; // , name, fullname, themeFolder;
 
@@ -994,13 +1016,17 @@ SystemData* SystemData::loadSystem(pugi::xml_node system)
 		}
 	}
 
-	SystemData* newSys = new SystemData(md, envData, &systemEmulators); // batocera
+	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode); // batocera
+
+	if (!fullMode)
+		return newSys;
+	
 	if (newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << md.name << "\" has no games! Ignoring it.";
 		delete newSys;
 		return nullptr;
-	}
+	}	
 
 	return newSys;
 }
@@ -1180,17 +1206,14 @@ std::string SystemData::getGamelistPath(bool forWrite) const
 	if(Utils::FileSystem::exists(filePath))
 		return filePath;
 
-	//filePath = "/userdata/system/configs/emulationstation/gamelists/" + mName + "/gamelist.xml"; // batocera
-	if(forWrite) // make sure the directory exists if we're going to write to it, or crashes will happen
-		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
-	if(forWrite || Utils::FileSystem::exists(filePath))
-		return filePath;
+	std::string localPath = Utils::FileSystem::getEsConfigPath() + "/gamelists/" + mMetadata.name + "/gamelist.xml";
+	if (Utils::FileSystem::exists(localPath))
+		return localPath;
 
-#ifdef _ENABLEEMUELEC	
-	return "/storage/.emulationstation/gamelists/" + mMetadata.name + "/gamelist.xml";
-#else
-	return "/etc/emulationstation/gamelists/" + mMetadata.name + "/gamelist.xml";
-#endif
+	if (forWrite)
+		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(filePath));
+	
+	return filePath;
 }
 
 std::string SystemData::getThemePath() const
@@ -1201,13 +1224,16 @@ std::string SystemData::getThemePath() const
 	// 3. default system theme from currently selected theme set [CURRENT_THEME_PATH]/theme.xml
 
 	// first, check game folder
-	std::string localThemePath = mRootFolder->getPath() + "/theme.xml";
-	if(Utils::FileSystem::exists(localThemePath))
-		return localThemePath;
+	
+	if (!mEnvData->mStartPath.empty())
+	{
+		std::string rootThemePath = mRootFolder->getPath() + "/theme.xml";
+		if (Utils::FileSystem::exists(rootThemePath))
+			return rootThemePath;
+	}
 
 	// not in game folder, try system theme in theme sets
-	localThemePath = ThemeData::getThemeFromCurrentSet(mMetadata.themeFolder);
-
+	std::string localThemePath = ThemeData::getThemeFromCurrentSet(mMetadata.themeFolder);
 	if (Utils::FileSystem::exists(localThemePath))
 		return localThemePath;
 

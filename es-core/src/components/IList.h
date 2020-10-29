@@ -240,17 +240,24 @@ protected:
 	{
 		PowerSaver::lock(velocity == 0);
 
+		bool sendCursorChanged = false;
+
 		// generate an onCursorChanged event in the stopped state when the user lets go of the key
-		if(velocity == 0 && mScrollVelocity != 0)
-			onCursorChanged(CURSOR_STOPPED);
+		if (velocity == 0 && mScrollVelocity != 0)
+			sendCursorChanged = true; // onCursorChanged(CURSOR_STOPPED);
 
 		mScrollVelocity = velocity;
 		mScrollTier = 0;
 		mScrollTierAccumulator = 0;
 		mScrollCursorAccumulator = 0;
-
+		
 		int prevCursor = mCursor;
-		scroll(mScrollVelocity);
+
+		if (sendCursorChanged)
+			onCursorChanged(CURSOR_STOPPED);
+		else
+			scroll(mScrollVelocity);
+
 		return (prevCursor != mCursor);
 	}
 

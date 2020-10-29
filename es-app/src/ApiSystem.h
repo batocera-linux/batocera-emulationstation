@@ -51,6 +51,8 @@ struct BatoceraTheme
 	std::string name;
 	std::string url;
 	bool isInstalled;
+
+	std::string image;
 };
 
 struct PacmanPackage
@@ -222,7 +224,9 @@ protected:
 	virtual bool executeScript(const std::string command);	
 	virtual std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func);
 	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
-
+	
+	void getBatoceraThemesImages(std::vector<BatoceraTheme>& items);
+	std::string getUpdateUrl();
     static ApiSystem* instance;
 
     void launchExternalWindow_before(Window *window);

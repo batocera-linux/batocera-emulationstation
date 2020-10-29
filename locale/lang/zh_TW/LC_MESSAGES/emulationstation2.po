@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 21:10+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -377,6 +377,12 @@ msgstr "依照字母順序"
 msgid "BY MANUFACTURER"
 msgstr "依照製作廠商"
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr "系統順序"
 
@@ -629,6 +635,9 @@ msgstr "選擇要安裝的內容或刪除"
 msgid "MISC"
 msgstr "雜項"
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "移除下載順序中"
 
@@ -671,11 +680,17 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr "螢幕保護設定"
 
+msgid "SETTINGS"
+msgstr "設定"
+
 msgid "SCREENSAVER AFTER"
 msgstr "螢幕保護時間"
 
 msgid "SCREENSAVER BEHAVIOR"
 msgstr "螢幕保護效果"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "隨機螢幕保護程式設定"
@@ -896,6 +911,24 @@ msgstr "COU 最高頻率"
 msgid "Cpu feature"
 msgstr "CPU 架構"
 
+msgid "SCANLINES"
+msgstr "掃描線"
+
+msgid "RETRO"
+msgstr "復古"
+
+msgid "ENHANCED"
+msgstr "加強"
+
+msgid "CURVATURE"
+msgstr "彎曲"
+
+msgid "ZFAST"
+msgstr "快速"
+
+msgid "FLATTEN-GLOW"
+msgstr "平滑"
+
 msgid "MAIN MENU"
 msgstr "主選單"
 
@@ -934,6 +967,9 @@ msgstr "系統設定"
 
 msgid "INFORMATIONS"
 msgstr "訊息"
+
+msgid "UNLOCK UI MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "離開"
@@ -1003,6 +1039,12 @@ msgstr "您確定要設定輸入嘛？"
 
 msgid "CHOOSE"
 msgstr "瀏覽"
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "INFORMATION"
 msgstr "系統資訊"
@@ -1100,6 +1142,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自動設定模擬器控制器"
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1141,6 +1186,9 @@ msgstr "開始更新"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "語言"
@@ -1262,9 +1310,6 @@ msgstr "自動擷取圖片"
 msgid "SHOW IN MAIN MENU"
 msgstr "在主選單顯示"
 
-msgid "SETTINGS"
-msgstr "設定"
-
 msgid "ENABLE NETPLAY"
 msgstr "開啟網路遊戲"
 
@@ -1309,24 +1354,6 @@ msgstr "自動儲存/讀取"
 
 msgid "SHADERS SET"
 msgstr "濾鏡著色器設定"
-
-msgid "SCANLINES"
-msgstr "掃描線"
-
-msgid "RETRO"
-msgstr "復古"
-
-msgid "ENHANCED"
-msgstr "加強"
-
-msgid "CURVATURE"
-msgstr "彎曲"
-
-msgid "ZFAST"
-msgstr "快速"
-
-msgid "FLATTEN-GLOW"
-msgstr "平滑"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整體縮放（像素完美顯示）"
@@ -1395,6 +1422,9 @@ msgstr "在編輯設定之前必須執行主題"
 
 msgid "THEME CONFIGURATION"
 msgstr "主題設定"
+
+msgid "GAMELIST STYLE"
+msgstr ""
 
 msgid "basic"
 msgstr "基本樣式"
@@ -1513,17 +1543,17 @@ msgstr "啟動導航聲音"
 msgid "ENABLE VIDEO AUDIO"
 msgstr "啟動影片音樂"
 
+msgid "IP ADDRESS"
+msgstr "IP 位址"
+
 msgid "CONNECTED"
 msgstr "已連接"
 
 msgid "NOT CONNECTED"
 msgstr "沒有連接"
 
-msgid "STATUS"
-msgstr "目前狀態"
-
-msgid "IP ADDRESS"
-msgstr "IP 位址"
+msgid "INTERNET STATUS"
+msgstr ""
 
 msgid "HOSTNAME"
 msgstr "主機名稱"
@@ -1652,11 +1682,26 @@ msgstr "沒有找到設備"
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "錯誤：每個系統都被隱藏，現在重新顯示所有系統"
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "你想啟動 KODI 媒體播放中心嗎?"
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
 msgstr "跳到製作廠商"
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
+msgstr ""
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1716,9 +1761,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1850,6 +1892,9 @@ msgstr "發行廠商＆製作廠商"
 msgid "RATING"
 msgstr "評分"
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr "地區"
 
@@ -1868,23 +1913,20 @@ msgstr "搜尋失敗"
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "搜尋完成，更新遊戲目錄已應用更改."
 
-msgid "SPACE"
-msgstr "空格"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT鍵可切換大小寫或特殊符號"
 
-msgid "DELETE A CHAR"
-msgstr "刪除一個文字"
+msgid "ALT GR"
+msgstr ""
 
 msgid "RESET"
 msgstr "重置"
 
-msgid "DISCARD CHANGES"
-msgstr "放棄本次修改"
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT鍵可切換大小寫或特殊符號"
-
 msgid "SHIFT"
 msgstr ""
+
+msgid "SPACE"
+msgstr "空格"
 
 msgid "UP"
 msgstr "上"
@@ -1967,6 +2009,12 @@ msgstr "沒有檢測到遊戲手把"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "請按住您要設定的控制器上的任一個按鈕。"
 
+msgid "DISCARD CHANGES"
+msgstr "放棄本次修改"
+
+msgid "up/down"
+msgstr "上＆下"
+
 msgid "accept"
 msgstr "確定"
 
@@ -1995,9 +2043,6 @@ msgstr "移動滑鼠"
 
 msgid "EDIT"
 msgstr "編輯"
-
-msgid "up/down"
-msgstr "上＆下"
 
 #, c-format
 msgid "%d day ago"
@@ -2033,6 +2078,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "STATUS"
+#~ msgstr "目前狀態"
+
+#~ msgid "DELETE A CHAR"
+#~ msgstr "刪除一個文字"
 
 #~ msgid "VIDEO SCREENSAVER"
 #~ msgstr "螢幕保護程式"

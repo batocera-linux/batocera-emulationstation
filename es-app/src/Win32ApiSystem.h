@@ -16,8 +16,7 @@ public:
 	unsigned long getFreeSpaceGB(std::string mountpoint) override;
 	std::string getFreeSpaceInfo(const std::string dir);
 	std::string getFreeSpaceUserInfo() override;
-	std::string getFreeSpaceSystemInfo() override;
-	std::string getIpAdress() override;
+	std::string getFreeSpaceSystemInfo() override;	
 	std::vector<std::string> getVideoModes() override;
 
 	void setReadyFlag(bool ready = true) override;
@@ -49,6 +48,9 @@ protected:
 	bool executeScript(const std::string command) override;
 	std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func) override;
 	std::vector<std::string> executeEnumerationScript(const std::string command) override;
+
+private:
+	void updateEmulatorLauncher(const std::function<void(const std::string)>& func);
 };
 
 

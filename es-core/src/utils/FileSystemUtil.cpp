@@ -167,6 +167,7 @@ namespace Utils
 			}
 
 			static void setEnabled(bool value) { mEnabled = value; }
+			static bool isEnabled() { return mEnabled; }
 
 		private:
 			static std::map<std::string, FileCache> mFileCache;
@@ -222,7 +223,7 @@ namespace Utils
 				std::string      wildcard = path + "/*";
 
 				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
-					FINDEX_INFO_LEVELS::FindExInfoStandard, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
+					FINDEX_INFO_LEVELS::FindExInfoBasic, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
 					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
 				if(hFind != INVALID_HANDLE_VALUE)
@@ -299,18 +300,18 @@ namespace Utils
 			std::string path = getGenericPath(_path);
 			fileList  contentList;
 
-			// only parse the directory, if it's a directory
-			if (isDirectory(path))
-			{
-				// tell filecache we enumerated the folder
-				FileCache::add(path + "/*", FileCache(true, true));
+			// tell filecache we enumerated the folder
+			FileCache::add(path + "/*", FileCache(true, true));
 
+			// only parse the directory, if it's a directory
+			// if (isDirectory(path))
+			{			
 #if defined(_WIN32)
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
 				
 				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
-					FINDEX_INFO_LEVELS::FindExInfoStandard, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
+					FINDEX_INFO_LEVELS::FindExInfoBasic, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
 					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
 				if (hFind != INVALID_HANDLE_VALUE)
@@ -892,7 +893,7 @@ namespace Utils
 			if (it != nullptr)
 				return it->exists;
 
-#ifdef WIN32			
+#ifdef WIN32		
 			DWORD dwAttr = GetFileAttributes(_path.c_str());
 			FileCache::add(_path, FileCache(dwAttr));
 			if (0xFFFFFFFF == dwAttr)

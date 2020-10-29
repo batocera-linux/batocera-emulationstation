@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 20:59+0200\n"
+"POT-Creation-Date: 2020-10-28 22:24+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,6 +375,12 @@ msgstr ""
 msgid "BY MANUFACTURER"
 msgstr ""
 
+msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr ""
+
 msgid "SORT SYSTEMS"
 msgstr ""
 
@@ -627,6 +633,9 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "There are no items in this view"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
 
@@ -669,10 +678,16 @@ msgstr ""
 msgid "SCREENSAVER SETTINGS"
 msgstr ""
 
+msgid "SETTINGS"
+msgstr ""
+
 msgid "SCREENSAVER AFTER"
 msgstr ""
 
 msgid "SCREENSAVER BEHAVIOR"
+msgstr ""
+
+msgid "STOP MUSIC ON SCREENSAVER"
 msgstr ""
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
@@ -892,6 +907,24 @@ msgstr ""
 msgid "Cpu feature"
 msgstr ""
 
+msgid "SCANLINES"
+msgstr ""
+
+msgid "RETRO"
+msgstr ""
+
+msgid "ENHANCED"
+msgstr ""
+
+msgid "CURVATURE"
+msgstr ""
+
+msgid "ZFAST"
+msgstr ""
+
+msgid "FLATTEN-GLOW"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr ""
 
@@ -929,6 +962,9 @@ msgid "SYSTEM SETTINGS"
 msgstr ""
 
 msgid "INFORMATIONS"
+msgstr ""
+
+msgid "UNLOCK UI MODE"
 msgstr ""
 
 msgid "QUIT"
@@ -998,6 +1034,12 @@ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr ""
 
 msgid "CHOOSE"
+msgstr ""
+
+msgid "UI MODE IS NOW UNLOCKED"
+msgstr ""
+
+msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
 
 msgid "INFORMATION"
@@ -1096,6 +1138,9 @@ msgstr ""
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
+msgid "SHOW NETWORK INDICATOR"
+msgstr ""
+
 msgid "OPTIMIZATIONS"
 msgstr ""
 
@@ -1136,6 +1181,9 @@ msgid "START UPDATE"
 msgstr ""
 
 msgid "UPDATE IS ALREADY RUNNING"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr ""
 
 msgid "LANGUAGE"
@@ -1255,9 +1303,6 @@ msgstr ""
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
-msgid "SETTINGS"
-msgstr ""
-
 msgid "ENABLE NETPLAY"
 msgstr ""
 
@@ -1301,24 +1346,6 @@ msgid "AUTO SAVE/LOAD"
 msgstr ""
 
 msgid "SHADERS SET"
-msgstr ""
-
-msgid "SCANLINES"
-msgstr ""
-
-msgid "RETRO"
-msgstr ""
-
-msgid "ENHANCED"
-msgstr ""
-
-msgid "CURVATURE"
-msgstr ""
-
-msgid "ZFAST"
-msgstr ""
-
-msgid "FLATTEN-GLOW"
 msgstr ""
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
@@ -1382,6 +1409,9 @@ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
+msgstr ""
+
+msgid "GAMELIST STYLE"
 msgstr ""
 
 msgid "basic"
@@ -1501,16 +1531,16 @@ msgstr ""
 msgid "ENABLE VIDEO AUDIO"
 msgstr ""
 
+msgid "IP ADDRESS"
+msgstr ""
+
 msgid "CONNECTED"
 msgstr ""
 
 msgid "NOT CONNECTED"
 msgstr ""
 
-msgid "STATUS"
-msgstr ""
-
-msgid "IP ADDRESS"
+msgid "INTERNET STATUS"
 msgstr ""
 
 msgid "HOSTNAME"
@@ -1638,10 +1668,25 @@ msgstr ""
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
 
+msgid "QUICK SEARCH"
+msgstr ""
+
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr ""
 
+msgid "GO TO LETTER"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
 msgid "GO TO MANUFACTURER"
+msgstr ""
+
+msgid "GO TO HARDWARE"
+msgstr ""
+
+msgid "GO TO DECADE"
 msgstr ""
 
 #, c-format
@@ -1705,9 +1750,6 @@ msgid "START GAME"
 msgstr ""
 
 msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "ALLOW SPECTATOR MODE"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"
@@ -1839,6 +1881,9 @@ msgstr ""
 msgid "RATING"
 msgstr ""
 
+msgid "YEAR"
+msgstr ""
+
 msgid "REGION"
 msgstr ""
 
@@ -1857,22 +1902,19 @@ msgstr ""
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr ""
 
-msgid "SPACE"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
-msgid "DELETE A CHAR"
+msgid "ALT GR"
 msgstr ""
 
 msgid "RESET"
 msgstr ""
 
-msgid "DISCARD CHANGES"
-msgstr ""
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr ""
-
 msgid "SHIFT"
+msgstr ""
+
+msgid "SPACE"
 msgstr ""
 
 msgid "UP"
@@ -1954,6 +1996,12 @@ msgstr ""
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr ""
 
+msgid "DISCARD CHANGES"
+msgstr ""
+
+msgid "up/down"
+msgstr ""
+
 msgid "accept"
 msgstr ""
 
@@ -1982,9 +2030,6 @@ msgid "MOVE CURSOR"
 msgstr ""
 
 msgid "EDIT"
-msgstr ""
-
-msgid "up/down"
 msgstr ""
 
 #, c-format

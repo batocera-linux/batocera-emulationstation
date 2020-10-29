@@ -4,14 +4,16 @@
 
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
-ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP)
+ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP), mScrollbar(window)
 {
 	mSelectorBarOffset = 0;
 	mCameraOffset = 0;
 	mFocused = false;
+
+	mScrollbar.loadFromMenuTheme();	
 }
 
-void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere)
+void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize)
 {
 	IList<ComponentListRow, void*>::Entry e;
 	e.name = "";
@@ -20,11 +22,16 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere)
 
 	this->add(e);
 
-	for(auto it = mEntries.back().data.elements.cbegin(); it != mEntries.back().data.elements.cend(); it++)
+	ComponentListRow& data = mEntries.back().data;
+
+	for(auto it = data.elements.cbegin(); it != data.elements.cend(); it++)
 		addChild(it->component.get());
 
-	updateElementSize(mEntries.back().data);
-	updateElementPosition(mEntries.back().data);
+	if (updateSize)
+	{
+		updateElementSize(data);
+		updateElementPosition(data);
+	}
 
 	// Fix group initial cursor position
 	if (mCursor == 0 && mEntries.size() == 2 && !mEntries[0].data.selectable)
@@ -66,10 +73,12 @@ void ComponentList::addGroup(const std::string& label, bool forceVisible)
 
 void ComponentList::onSizeChanged()
 {
+	float yOffset = 0;
 	for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 	{
 		updateElementSize(it->data);
-		updateElementPosition(it->data);
+		updateElementPosition(it->data, yOffset);
+		yOffset += getRowHeight(it->data);
 	}
 
 	updateCameraOffset();
@@ -141,6 +150,8 @@ bool ComponentList::input(InputConfig* config, Input input)
 
 void ComponentList::update(int deltaTime)
 {
+	mScrollbar.update(deltaTime);
+
 	listUpdate(deltaTime);
 
 	if(size())
@@ -153,6 +164,8 @@ void ComponentList::update(int deltaTime)
 
 void ComponentList::onCursorChanged(const CursorState& state)
 {
+	mScrollbar.onCursorChanged();
+
 	// update the selector bar position
 	// in the future this might be animated
 	mSelectorBarOffset = 0;
@@ -199,9 +212,9 @@ void ComponentList::updateCameraOffset()
 			mCameraOffset = 0;
 		else if(mCameraOffset + mSize.y() > totalHeight)
 			mCameraOffset = totalHeight - mSize.y();
-	}else{
-		mCameraOffset = 0;
 	}
+	else
+		mCameraOffset = 0;
 }
 
 void ComponentList::render(const Transform4x4f& parentTrans)
@@ -311,16 +324,32 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
 
 	Renderer::popClipRect();
+
+	if (mScrollbar.isEnabled() && mEntries.size() > 0)
+	{
+		mScrollbar.setContainerBounds(getPosition(), getSize());
+		mScrollbar.setRange(0, getTotalRowHeight(), mSize.y());
+		mScrollbar.setScrollPosition(mCameraOffset);
+		mScrollbar.render(parentTrans);
+	}
 }
 
 float ComponentList::getRowHeight(const ComponentListRow& row) const
 {
+	int sz = row.elements.size();
+	if (sz == 0)
+		return 0;
+	else if (sz == 1)
+		return row.elements[0].component->getSize().y();
+
 	// returns the highest component height found in the row
 	float height = 0;
-	for(unsigned int i = 0; i < row.elements.size(); i++)
+
+	for(auto& elem : row.elements)
 	{
-		if(row.elements.at(i).component->getSize().y() > height)
-			height = row.elements.at(i).component->getSize().y();
+		float h = elem.component->getSize().y();
+		if (h > height)
+			height = h;
 	}
 
 	return height;
@@ -330,19 +359,18 @@ float ComponentList::getTotalRowHeight() const
 {
 	float height = 0;
 	for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
-	{
 		height += getRowHeight(it->data);
-	}
 
 	return height;
 }
 
-void ComponentList::updateElementPosition(const ComponentListRow& row)
+void ComponentList::updateElementPosition(const ComponentListRow& row, float yOffset)
 {
-	float yOffset = 0;
-	for(auto it = mEntries.cbegin(); it != mEntries.cend() && &it->data != &row; it++)
+	if (yOffset < 0)
 	{
-		yOffset += getRowHeight(it->data);
+		yOffset = 0;
+		for (auto it = mEntries.cbegin(); it != mEntries.cend() && &it->data != &row; it++)
+			yOffset += getRowHeight(it->data);
 	}
 
 	// assumes updateElementSize has already been called
