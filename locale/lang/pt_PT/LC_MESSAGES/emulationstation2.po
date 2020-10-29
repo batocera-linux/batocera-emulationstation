@@ -382,7 +382,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "TIPO DE HARDWARE"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "POR ANO DE LANÇAMENTO"
 
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
@@ -637,7 +637,7 @@ msgid "MISC"
 msgstr "DIVERSOS"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "Não há itens nesta visualização"
 
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "EM LISTA PARA DESINSTALAR"
@@ -1149,7 +1149,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "MOSTRAR INDICADOR DE REDE"
 
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
@@ -1558,7 +1558,7 @@ msgid "NOT CONNECTED"
 msgstr "DESCONECTADO"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "ESTADO DA INTERNET"
 
 msgid "HOSTNAME"
 msgstr "NOME DA REDE"
@@ -1688,16 +1688,16 @@ msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIAR TODOS AGORA"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "PESQUISA RÁPIDA"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "IR PARA A LETRA"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES"
 
 msgid "GO TO MANUFACTURER"
 msgstr "IR PARA FABRICANTE"
@@ -1706,7 +1706,7 @@ msgid "GO TO HARDWARE"
 msgstr "IR PARA HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "IR PARA DÉCADA"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1926,7 +1926,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "RESET"
 msgstr "REINICIAR"
