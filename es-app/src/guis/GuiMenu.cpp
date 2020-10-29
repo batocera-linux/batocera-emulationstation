@@ -901,13 +901,21 @@ void GuiMenu::openDeveloperSettings()
 	});
 #endif
 
+#ifdef _ENABLEEMUELEC 
+	s->addGroup(_("LOGGING"));
+#else
 	s->addGroup(_("TOOLS"));
+#endif
 
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
 	std::vector<std::string> modes;
 	modes.push_back("default");
+#ifdef _ENABLEEMUELEC 
+	modes.push_back("minimal");
+#else
 	modes.push_back("disabled");
+#endif
 	modes.push_back("warning");
 	modes.push_back("error");
 	modes.push_back("debug");
@@ -929,7 +937,7 @@ void GuiMenu::openDeveloperSettings()
 		}
 	});
 
-#if !defined(WIN32) || defined(_DEBUG)
+#if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
 		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
