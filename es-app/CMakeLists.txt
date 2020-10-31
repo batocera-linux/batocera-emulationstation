@@ -19,6 +19,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Playlists.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LangParser.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/httplib.h
 
@@ -59,6 +60,8 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiImageViewer.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.h # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.h # batocera	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.h	
 	
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -107,6 +110,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Playlists.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LangParser.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.cpp	
 
     # GuiComponents
@@ -141,6 +145,8 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiImageViewer.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.cpp # batocera	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.cpp
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp

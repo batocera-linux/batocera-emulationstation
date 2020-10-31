@@ -458,6 +458,9 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			result.mdl.set("rating", ss.str());
 		}
 
+		if (/*Settings::getInstance()->getBool("ScrapeRatings") && */game.child("sp2kcfg"))
+			result.p2k = game.child("sp2kcfg").text().get();
+
 		// Media super-node
 		pugi::xml_node media_list = game.child("medias");
 

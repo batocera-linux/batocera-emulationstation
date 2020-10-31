@@ -48,6 +48,7 @@
 #include "components/BatteryIndicatorComponent.h"
 #include "GuiLoading.h"
 #include "guis/GuiBios.h"
+#include "guis/GuiKeyMappingEditor.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -3683,6 +3684,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}
 	}
 	
+	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
+	{
+		if (systemData->hasKeyboardMapping())
+			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+		else
+			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+	}
+	
 	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 	for (auto feat : customFeatures)
 	{
@@ -4019,4 +4028,9 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 	}
 	else
 		LOG(LogError) << "Unable to open " << fileName;
+}
+
+void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping)
+{
+	window->pushGui(new GuiKeyMappingEditor(window, mapping));
 }

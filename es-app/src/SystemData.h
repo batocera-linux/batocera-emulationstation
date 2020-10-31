@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include "FileFilterIndex.h"
+#include "KeyboardMapping.h"
 #include "math/Vector2f.h"
 
 class FileData;
@@ -54,6 +55,7 @@ public:
 		internal_resolution = 8192,
 		videomode = 16384,
 		colorization = 32768,
+		padTokeyboard = 65536,
 
 		all = 0x0FFFFFFF
 	};
@@ -120,7 +122,7 @@ struct SystemEnvironmentData
 	}
 };
 
-class SystemData
+class SystemData : public IKeyboardMapContainer
 {
 public:
     SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true); // batocera
@@ -242,7 +244,12 @@ public:
 
 	static SystemData* loadSystem(std::string systemName, bool fullMode = true);
 
+
+	bool hasKeyboardMapping();
+	KeyMappingFile getKeyboardMapping();
+
 private:
+	std::string getKeyboardMappingFilePath();
 	static void createGroupedSystems();
 
 	size_t mGameListHash;

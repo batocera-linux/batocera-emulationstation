@@ -347,6 +347,7 @@ void GuiMetaDataEd::save()
 
 	// enter game in index
 	mScraperParams.system->addToIndex(mScraperParams.game);
+	mScraperParams.game->importP2k(mScrappedPk2);
 
 	if(mSavedCallback)
 		mSavedCallback();
@@ -379,6 +380,8 @@ void GuiMetaDataEd::fetchDone(const ScraperSearchResult& result)
 
 		mEditors.at(i)->setValue(result.mdl.get(key));
 	}
+
+	mScrappedPk2 = result.p2k;
 }
 
 void GuiMetaDataEd::close(bool closeAllWindows)

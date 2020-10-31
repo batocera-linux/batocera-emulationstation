@@ -1,8 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="64" height="64" version="1.1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
- <circle id="outline_east" cx="50" cy="32" r="10" fill="none" stroke="#fff" stroke-width="2"/>
- <circle id="outline_south" cx="32" cy="50" r="10" fill="none" stroke="#fff" stroke-width="2"/>
- <circle id="outline_north" cx="32" cy="14" r="10" fill="none" stroke="#fff" stroke-width="2"/>
- <circle id="outline_west" cx="14" cy="32" r="10" fill="none" stroke="#fff" stroke-width="2"/>
- <path id="button_west" d="m14 22a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10 10 10 0 0 0-10-10zm-4.0429688 4.289062h2.8593748l1.195313 3.539063c0.385416-1.130208 0.78125-2.309896 1.1875-3.539063h2.84375l-2.695313 6.8125v4.609376h-2.703125v-4.53125l-2.6874998-6.890626z" fill="#fff"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg7"
+   viewBox="0 0 64 64"
+   version="1.1"
+   height="64"
+   width="64">
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs11" />
+  <circle
+     stroke-width="2"
+     stroke="#fff"
+     fill="none"
+     r="10"
+     cy="32"
+     cx="50"
+     id="outline_east" />
+  <circle
+     stroke-width="2"
+     stroke="#fff"
+     fill="none"
+     r="10"
+     cy="50"
+     cx="32"
+     id="outline_south" />
+  <circle
+     stroke-width="2"
+     stroke="#fff"
+     fill="none"
+     r="10"
+     cy="14"
+     cx="32"
+     id="outline_north" />
+  <circle
+     stroke-width="2"
+     stroke="#fff"
+     fill="none"
+     r="10"
+     cy="32"
+     cx="14"
+     id="outline_west" />
+  <path
+     style="fill:#ffffff"
+     d="M 14,22 C 8.4771525,22 4,26.477153 4,32 4,37.522847 8.4771525,42 14,42 19.522847,42 24,37.522847 24,32 24,26.477153 19.522847,22 14,22 Z"
+     id="button_west" />
 </svg>

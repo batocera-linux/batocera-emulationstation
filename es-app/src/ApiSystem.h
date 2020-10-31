@@ -104,7 +104,8 @@ public:
 		DISKFORMAT = 10,
 		OVERCLOCK = 11,
 		PDFEXTRACTION = 12,
-		BATOCERASTORE = 13
+		BATOCERASTORE = 13,
+		EVMAPY = 14
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);

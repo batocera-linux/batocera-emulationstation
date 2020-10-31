@@ -377,6 +377,8 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
 		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
 		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
+		if (trim == "padTokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
+		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
 	}
 
 	return ret;
@@ -1574,4 +1576,34 @@ SystemData* SystemData::getSystem(const std::string name)
 			return sys;
 
 	return nullptr;
+}
+
+/*# ${rom}.keys
+    # /userdata/system/config/evmapy/${system}.${emulator}.${core}.keys
+    # /userdata/system/config/evmapy/${system}.${emulator}.keys
+    # /userdata/system/config/evmapy/${system}.keys
+    # /usr/share/evmapy/${system}.${emulator}.${core}.keys
+    # /usr/share/evmapy/${system}.${emulator}.keys
+    # /usr/share/evmapy/${system}.keys*/
+
+std::string SystemData::getKeyboardMappingFilePath()
+{		
+#if WIN32
+	return Utils::FileSystem::getEsConfigPath() + "/" + getName() + ".keys";
+#else	
+	return "/userdata/system/config/evmapy/" + getName() + ".keys";
+#endif
+}
+
+bool SystemData::hasKeyboardMapping()
+{
+	if (isCollection() || isGroupSystem())
+		return false;
+
+	return Utils::FileSystem::exists(getKeyboardMappingFilePath());
+}
+
+KeyMappingFile SystemData::getKeyboardMapping()
+{
+	return KeyMappingFile::load(getKeyboardMappingFilePath());
 }

@@ -5,8 +5,9 @@
 #include "utils/FileSystemUtil.h"
 #include "MetaData.h"
 #include <unordered_map>
+#include "KeyboardMapping.h"
+#include "SystemData.h"
 
-class SystemData;
 class Window;
 struct SystemEnvironmentData;
 
@@ -48,7 +49,7 @@ struct LaunchGameOptions
 class FolderData;
 
 // A tree node that holds information for a file.
-class FileData
+class FileData : public IKeyboardMapContainer
 {
 public:
 	FileData(FileType type, const std::string& path, SystemData* system);
@@ -122,7 +123,15 @@ public:
 	void deleteGameFiles();
 	void checkCrc32(bool force = false);
 
+	void importP2k(const std::string& p2k);
+	void convertP2kFile();
+
+	bool hasKeyboardMapping();
+	KeyMappingFile getKeyboardMapping();
+	bool isFeatureSupported(EmulatorFeatures::Features feature);
+
 private:
+	std::string getKeyboardMappingFilePath();
 	MetaDataList mMetadata;
 
 protected:	

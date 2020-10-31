@@ -239,7 +239,7 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowFilenames"] = false;
 	
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(X86) || defined(X86_X64)
 	mBoolMap["HideWindow"] = false;
 #else
 	mBoolMap["HideWindow"] = true;
