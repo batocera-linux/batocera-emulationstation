@@ -48,6 +48,7 @@
 #include "components/BatteryIndicatorComponent.h"
 #include "GuiLoading.h"
 #include "guis/GuiBios.h"
+#include "guis/GuiKeyMappingEditor.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -330,8 +331,13 @@ void GuiMenu::openScraperSettings()
 		scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
 		s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
 		s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
-		
 
+		// SCRAPE PAD TO KEYBOARD
+		auto scrapePadToKey = std::make_shared<SwitchComponent>(mWindow);
+		scrapePadToKey->setState(Settings::getInstance()->getBool("ScrapePadToKey"));
+		s->addWithLabel(_("SCRAPE PADTOKEY SETTINGS"), scrapePadToKey);
+		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
+		
 		// Account
 		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
 		createInputTextRow(s, _("PASSWORD"), "ScreenScraperPass", true, true);
@@ -689,6 +695,14 @@ void GuiMenu::openDeveloperSettings()
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
 
 	s->addGroup(_("DATA MANAGEMENT"));
+
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
+	{
+		auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
+		checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
+		s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+		s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
+	}
 
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
@@ -3683,6 +3697,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}
 	}
 	
+	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
+	{
+		if (systemData->hasKeyboardMapping())
+			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+		else
+			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+	}
+	
 	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 	for (auto feat : customFeatures)
 	{
@@ -4019,4 +4041,9 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 	}
 	else
 		LOG(LogError) << "Unable to open " << fileName;
+}
+
+void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping)
+{
+	window->pushGui(new GuiKeyMappingEditor(window, mapping));
 }

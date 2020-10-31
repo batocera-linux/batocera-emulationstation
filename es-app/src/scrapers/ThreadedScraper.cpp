@@ -243,6 +243,7 @@ void ThreadedScraper::acceptResult(ScraperThread& thread)
 	mWindow->postToUiThread([game, result](Window* w)
 	{
 		LOG(LogDebug) << "ThreadedScraper::importScrappedMetadata";
+		game->importP2k(result.p2k);
 		game->getMetadata().importScrappedMetadata(result.mdl);
 		game->detectLanguageAndRegion(true);
 

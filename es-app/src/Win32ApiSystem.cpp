@@ -105,6 +105,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BATOCERASTORE:
 		executables.push_back("batocera-store");
 		break;
+	case ApiSystem::EVMAPY:
+		executables.push_back("emulatorLauncher");
+		break;
 	}
 
 	if (executables.size() == 0)

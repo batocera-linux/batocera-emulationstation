@@ -55,7 +55,7 @@ public:
 
 	// Plays a nice launch effect and launches the game at the end of it.
 	// Once the game terminates, plays a return effect.
-	void launch(FileData* game, LaunchGameOptions options, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0));
+	void launch(FileData* game, LaunchGameOptions options, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0), bool allowCheckLaunchOptions = true);
 	void launch(FileData* game, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0)) { launch(game, LaunchGameOptions(), centerCameraOn); }
 
 	bool input(InputConfig* config, Input input) override;
@@ -108,6 +108,7 @@ private:
 
 	void playViewTransition(bool forceImmediate);
 	bool doLaunchGame(FileData* game, LaunchGameOptions options);
+	bool checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center);
 	int getSystemId(SystemData* system);
 	
 	std::shared_ptr<GuiComponent> mCurrentView;

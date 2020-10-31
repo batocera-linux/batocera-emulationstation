@@ -377,6 +377,8 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
 		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
 		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
+		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
+		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
 	}
 
 	return ret;
@@ -995,6 +997,16 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 			emulatorData.customCommandLine = emuNode.attribute("command").value();
 			emulatorData.features = EmulatorFeatures::Features::all;
 
+			if (emuNode.attribute("incompatible_extensions"))
+			{
+				for (auto ext : readList(emuNode.attribute("incompatible_extensions").value()))
+				{
+					std::string extlow = Utils::String::toLower(ext);
+					if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+						emulatorData.incompatibleExtensions.push_back(extlow);
+				}
+			}
+
 			pugi::xml_node coresNode = emuNode.child("cores");
 			if (coresNode != nullptr)
 			{
@@ -1004,6 +1016,17 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 					core.name = coreNode.text().as_string();
 					core.netplay = coreNode.attribute("netplay") && strcmp(coreNode.attribute("netplay").value(), "true") == 0;
 					core.isDefault = coreNode.attribute("default") && strcmp(coreNode.attribute("default").value(), "true") == 0;
+					
+					if (coreNode.attribute("incompatible_extensions"))
+					{
+						for (auto ext : readList(coreNode.attribute("incompatible_extensions").value()))
+						{
+							std::string extlow = Utils::String::toLower(ext);
+							if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+								core.incompatibleExtensions.push_back(extlow);
+						}
+					}
+
 					core.features = EmulatorFeatures::Features::all;
 					core.customCommandLine = coreNode.attribute("command").value();
 
@@ -1574,4 +1597,34 @@ SystemData* SystemData::getSystem(const std::string name)
 			return sys;
 
 	return nullptr;
+}
+
+/*# ${rom}.keys
+    # /userdata/system/config/evmapy/${system}.${emulator}.${core}.keys
+    # /userdata/system/config/evmapy/${system}.${emulator}.keys
+    # /userdata/system/config/evmapy/${system}.keys
+    # /usr/share/evmapy/${system}.${emulator}.${core}.keys
+    # /usr/share/evmapy/${system}.${emulator}.keys
+    # /usr/share/evmapy/${system}.keys*/
+
+std::string SystemData::getKeyboardMappingFilePath()
+{		
+#if WIN32
+	return Utils::FileSystem::getEsConfigPath() + "/" + getName() + ".keys";
+#else	
+	return "/userdata/system/config/evmapy/" + getName() + ".keys";
+#endif
+}
+
+bool SystemData::hasKeyboardMapping()
+{
+	if (isCollection() || isGroupSystem())
+		return false;
+
+	return Utils::FileSystem::exists(getKeyboardMappingFilePath());
+}
+
+KeyMappingFile SystemData::getKeyboardMapping()
+{
+	return KeyMappingFile::load(getKeyboardMappingFilePath());
 }

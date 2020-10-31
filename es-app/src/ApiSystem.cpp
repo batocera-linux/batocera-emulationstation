@@ -1198,6 +1198,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BATOCERASTORE:
 		executables.push_back("batocera-store");
 		break;
+	case ApiSystem::EVMAPY:
+		executables.push_back("evmapy");
+		break;		
 	}
 
 	if (executables.size() == 0)

@@ -421,6 +421,8 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	LOG(LogInfo) << "	" << command;
 
+	convertP2kFile();
+
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
@@ -1009,4 +1011,85 @@ void FileData::checkCrc32(bool force)
 		getMetadata().set(MetaDataId::Crc32, Utils::String::toUpper(crc));
 		saveToGamelistRecovery(this);
 	}
+}
+
+std::string FileData::getKeyboardMappingFilePath()
+{
+	return Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".keys";
+}
+
+void FileData::importP2k(const std::string& p2k)
+{
+	if (p2k.empty())
+		return;
+
+	std::string p2kPath = Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".p2k.cfg";
+	Utils::FileSystem::writeAllText(p2kPath, p2k);
+
+	std::string keysPath = getKeyboardMappingFilePath();
+	if (Utils::FileSystem::exists(keysPath))
+		Utils::FileSystem::removeFile(keysPath);
+
+	convertP2kFile();	
+}
+
+void FileData::convertP2kFile()
+{
+	std::string p2kPath = Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".p2k.cfg";
+	if (!Utils::FileSystem::exists(p2kPath))
+		return;
+
+	std::string keysPath = getKeyboardMappingFilePath();
+	if (Utils::FileSystem::exists(keysPath))
+		return;
+
+	auto map = KeyMappingFile::fromP2k(p2kPath);
+	if (map.isValid())
+		map.save(keysPath);
+}
+
+bool FileData::hasKeyboardMapping()
+{
+	return Utils::FileSystem::exists(getKeyboardMappingFilePath());
+}
+
+KeyMappingFile FileData::getKeyboardMapping()
+{
+	return KeyMappingFile::load(getKeyboardMappingFilePath());
+}
+
+bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
+{
+	auto system = getSourceFileData()->getSystem();
+	return system->isFeatureSupported(getEmulator(), getCore(), feature);
+}
+
+
+bool FileData::isExtensionCompatible()
+{
+	auto game = getSourceFileData();
+	auto extension = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
+
+	auto system = game->getSystem();
+	auto emulName = game->getEmulator();
+	auto coreName = game->getCore();
+
+	for (auto emul : system->getEmulators())
+	{
+		if (emulName == emul.name)
+		{
+			if (std::find(emul.incompatibleExtensions.cbegin(), emul.incompatibleExtensions.cend(), extension) != emul.incompatibleExtensions.cend())
+				return false;
+
+			for (auto core : emul.cores)
+			{
+				if (coreName == core.name)
+					return std::find(core.incompatibleExtensions.cbegin(), core.incompatibleExtensions.cend(), extension) == core.incompatibleExtensions.cend();
+			}
+
+			break;
+		}
+	}
+
+	return true;
 }

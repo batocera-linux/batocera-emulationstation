@@ -7,6 +7,7 @@
 #include "guis/GuiSettings.h"
 #include "components/OptionListComponent.h"
 #include <SystemData.h>
+#include "KeyboardMapping.h"
 
 class StrInputConfig
 {
@@ -50,6 +51,7 @@ public:
 	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
 
 	static void updateGameLists(Window* window, bool confirm = true);
+	static void editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping);
 
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");

@@ -347,6 +347,7 @@ void GuiMetaDataEd::save()
 
 	// enter game in index
 	mScraperParams.system->addToIndex(mScraperParams.game);
+	mScraperParams.game->importP2k(mScrappedPk2);
 
 	if(mSavedCallback)
 		mSavedCallback();
@@ -379,6 +380,8 @@ void GuiMetaDataEd::fetchDone(const ScraperSearchResult& result)
 
 		mEditors.at(i)->setValue(result.mdl.get(key));
 	}
+
+	mScrappedPk2 = result.p2k;
 }
 
 void GuiMetaDataEd::close(bool closeAllWindows)
@@ -397,7 +400,17 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 			value = list->getSelected();
 		}
 
-		if(mMetaData->get(key, false) != value)
+		std::string mdv = mMetaData->get(key, false);
+
+		if (key == "rating")
+		{
+			mdv = std::to_string(atof(mdv.c_str()));
+			value = std::to_string(atof(value.c_str()));
+		}
+		else
+			mdv = Utils::String::replace(mdv, "not-a-date-time", "19700101T010000");
+		
+		if (mdv != value)
 		{
 			dirty = true;
 			break;
