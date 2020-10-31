@@ -22,7 +22,10 @@ void GuiBios::show(Window* window)
 		[window](std::vector<BiosSystem> ra) 
 	{ 
 		if (ra.size() == 0)
+		{
+			Settings::getInstance()->setBool("CheckBiosesAtLaunch", false);
 			window->pushGui(new GuiMsgBox(window, _("NO MISSING BIOS"), _("OK")));
+		}
 		else
 			window->pushGui(new GuiBios(window, ra)); 
 	}));
@@ -59,6 +62,7 @@ void GuiBios::loadList()
 
 	if (mBios.size() == 0)
 	{
+		Settings::getInstance()->setBool("CheckBiosesAtLaunch", false);
 		mMenu.addEntry(_("NO MISSING BIOS"));
 		centerWindow();
 	}

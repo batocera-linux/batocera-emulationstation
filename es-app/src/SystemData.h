@@ -75,9 +75,10 @@ struct CoreData
 	std::string name;
 	bool netplay;
 	bool isDefault;
-
+	
 	std::string customCommandLine;
 	std::vector<CustomFeature> customFeatures;
+	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
 };
@@ -94,6 +95,7 @@ struct EmulatorData
 
 	std::string customCommandLine;
 	std::vector<CustomFeature> customFeatures;
+	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
 };

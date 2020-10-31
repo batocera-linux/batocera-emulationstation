@@ -231,8 +231,11 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		row.addElement(grid, true);
 		row.makeAcceptInputHandler([this, km, mappingName, accept]
 		{  			
-			std::set<std::string> tgs = km.targets;
-			mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
+			if (GuiKeyboardLayout::isEnabled())
+			{
+				std::set<std::string> tgs = km.targets;
+				mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
+			}
 		});
 
 		mList->addRow(row, i == idx, false);

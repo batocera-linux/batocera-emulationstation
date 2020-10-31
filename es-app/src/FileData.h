@@ -129,6 +129,7 @@ public:
 	bool hasKeyboardMapping();
 	KeyMappingFile getKeyboardMapping();
 	bool isFeatureSupported(EmulatorFeatures::Features feature);
+	bool isExtensionCompatible();
 
 private:
 	std::string getKeyboardMappingFilePath();

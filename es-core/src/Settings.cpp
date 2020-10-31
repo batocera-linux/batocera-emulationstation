@@ -108,7 +108,8 @@ void Settings::setDefaults()
 	mBoolMap["MoveCarousel"] = true;
 	mBoolMap["SaveGamelistsOnExit"] = true;
 	mBoolMap["ShowBatteryIndicator"] = true;	
-
+	mBoolMap["CheckBiosesAtLaunch"] = true;
+	
 #if WIN32
 	mBoolMap["ShowNetworkIndicator"] = false;
 #else

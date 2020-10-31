@@ -997,6 +997,16 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 			emulatorData.customCommandLine = emuNode.attribute("command").value();
 			emulatorData.features = EmulatorFeatures::Features::all;
 
+			if (emuNode.attribute("incompatible_extensions"))
+			{
+				for (auto ext : readList(emuNode.attribute("incompatible_extensions").value()))
+				{
+					std::string extlow = Utils::String::toLower(ext);
+					if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+						emulatorData.incompatibleExtensions.push_back(extlow);
+				}
+			}
+
 			pugi::xml_node coresNode = emuNode.child("cores");
 			if (coresNode != nullptr)
 			{
@@ -1006,6 +1016,17 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 					core.name = coreNode.text().as_string();
 					core.netplay = coreNode.attribute("netplay") && strcmp(coreNode.attribute("netplay").value(), "true") == 0;
 					core.isDefault = coreNode.attribute("default") && strcmp(coreNode.attribute("default").value(), "true") == 0;
+					
+					if (coreNode.attribute("incompatible_extensions"))
+					{
+						for (auto ext : readList(coreNode.attribute("incompatible_extensions").value()))
+						{
+							std::string extlow = Utils::String::toLower(ext);
+							if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+								core.incompatibleExtensions.push_back(extlow);
+						}
+					}
+
 					core.features = EmulatorFeatures::Features::all;
 					core.customCommandLine = coreNode.attribute("command").value();
 

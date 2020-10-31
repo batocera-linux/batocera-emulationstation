@@ -1063,3 +1063,33 @@ bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
 	auto system = getSourceFileData()->getSystem();
 	return system->isFeatureSupported(getEmulator(), getCore(), feature);
 }
+
+
+bool FileData::isExtensionCompatible()
+{
+	auto game = getSourceFileData();
+	auto extension = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
+
+	auto system = game->getSystem();
+	auto emulName = game->getEmulator();
+	auto coreName = game->getCore();
+
+	for (auto emul : system->getEmulators())
+	{
+		if (emulName == emul.name)
+		{
+			if (std::find(emul.incompatibleExtensions.cbegin(), emul.incompatibleExtensions.cend(), extension) != emul.incompatibleExtensions.cend())
+				return false;
+
+			for (auto core : emul.cores)
+			{
+				if (coreName == core.name)
+					return std::find(core.incompatibleExtensions.cbegin(), core.incompatibleExtensions.cend(), extension) == core.incompatibleExtensions.cend();
+			}
+
+			break;
+		}
+	}
+
+	return true;
+}
