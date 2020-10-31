@@ -382,7 +382,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "PAR TYPE DE MATÉRIEL"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "PAR ANNÉE DE SORTIE"
 
 msgid "SORT SYSTEMS"
 msgstr "TRIER LES SYSTÈMES"
@@ -637,7 +637,7 @@ msgid "MISC"
 msgstr "AUTRE"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "Il n’y a pas d’éléments dans cette vue"
 
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "SUPPRESSION AJOUTÉE A LA FILE D’ATTENTE"
@@ -1049,7 +1049,7 @@ msgid "UI MODE IS NOW UNLOCKED"
 msgstr "LE MODE D’AFFICHAGE EST MAINTENANT DÉVERROUILLÉ"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "VEUILLEZ ENTRER LE CODE POUR DÉVERROUILLER LE MODE D’AFFICHAGE"
+msgstr "VEUILLEZ ENTRER LE CODE DE DÉVERROUILLAGE"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -1148,7 +1148,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "AFFICHER L’INDICATEUR RÉSEAU"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMISATIONS"
@@ -1560,7 +1560,7 @@ msgid "NOT CONNECTED"
 msgstr "DÉCONNECTÉ"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "STATUT INTERNET"
 
 msgid "HOSTNAME"
 msgstr "NOM SUR LE RÉSEAU"
@@ -1689,16 +1689,16 @@ msgstr ""
 "ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉAFFICHAGE DE TOUS DÈS MAINTENANT"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "RECHERCHE RAPIDE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "ALLER À LA LETTRE"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "COLLECTIONS"
 
 msgid "GO TO MANUFACTURER"
 msgstr "ALLER AU CONSTRUCTEUR"
@@ -1707,7 +1707,7 @@ msgid "GO TO HARDWARE"
 msgstr "ALLER AU MATÉRIEL"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "ALLER À LA DÉCENNIE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1928,7 +1928,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "RESET"
 msgstr "RAZ"
