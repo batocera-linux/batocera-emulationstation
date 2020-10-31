@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -507,6 +507,12 @@ msgstr ""
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr ""
 
@@ -632,6 +638,12 @@ msgstr "CAP DE PERIFERIC BLUETOOTH PAS TROBAT"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "LIGAMS MANETA SUPRIMIT."
+
+msgid "RESET"
+msgstr "REÏNICIALIZAR"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "TELECARGADOR DE CONTENGUT"
@@ -761,6 +773,30 @@ msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr ""
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "SAVE"
+
+msgid "DELETE"
+msgstr "SUPRIMIR"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "SALVAR LAS MODIFICACIONS ?"
 
 msgid "UPDATING BATOCERA"
 msgstr "ACTUALIZACION DE BATOCERA"
@@ -1033,6 +1069,9 @@ msgstr ""
 msgid "SCRAPE MANUAL"
 msgstr ""
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "NOM UTILIZAIRE"
 
@@ -1103,6 +1142,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1657,19 +1699,10 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr "MODIFICAR METADONADAS"
 
-msgid "SAVE"
-msgstr "SAVE"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-
-msgid "DELETE"
-msgstr "SUPRIMIR"
-
-msgid "SAVE CHANGES?"
-msgstr "SALVAR LAS MODIFICACIONS ?"
 
 msgid "NO DEVICE FOUND"
 msgstr ""
@@ -1727,6 +1760,16 @@ msgstr "ALEATÒRI"
 
 msgid "FILES"
 msgstr "FICHIÈRS"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "UI de precargament"
@@ -1916,9 +1959,6 @@ msgstr ""
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "REÏNICIALIZAR"
 
 msgid "SHIFT"
 msgstr ""

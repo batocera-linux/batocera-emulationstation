@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -501,6 +501,12 @@ msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 
@@ -626,6 +632,12 @@ msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
+
+msgid "RESET"
+msgstr "RAZ"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
@@ -755,6 +767,30 @@ msgstr "RECHERCHE RÉCURSIVE DANS LE RÉPERTOIRE"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRE SUR LES IMAGES"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "SAUVEGARDER"
+
+msgid "DELETE"
+msgstr "SUPPRIMER"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "UPDATING BATOCERA"
 msgstr "MISE À JOUR DE BATOCERA"
@@ -1033,6 +1069,9 @@ msgstr "SCRAPER LES FANARTS"
 msgid "SCRAPE MANUAL"
 msgstr "SCAPER LES MANUELS"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "NOM D'UTILISATEUR"
 
@@ -1104,6 +1143,9 @@ msgstr "FORMATER UN DISQUE"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1667,19 +1709,10 @@ msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
-msgid "SAVE"
-msgstr "SAUVEGARDER"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
-
-msgid "DELETE"
-msgstr "SUPPRIMER"
-
-msgid "SAVE CHANGES?"
-msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
@@ -1738,6 +1771,16 @@ msgstr "ALÉATOIRE"
 
 msgid "FILES"
 msgstr "FICHIERS"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Préchargement de l'interface"
@@ -1929,9 +1972,6 @@ msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "RAZ"
 
 msgid "SHIFT"
 msgstr "MAJ"

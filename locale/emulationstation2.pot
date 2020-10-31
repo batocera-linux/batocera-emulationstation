@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -506,6 +506,12 @@ msgstr ""
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr ""
 
@@ -630,6 +636,12 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr ""
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgstr ""
+
+msgid "RESET"
+msgstr ""
+
+msgid "ADD COMBINATION KEY"
 msgstr ""
 
 msgid "CONTENT DOWNLOADER"
@@ -759,6 +771,30 @@ msgid "CUSTOM IMAGE DIR RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
+msgstr ""
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr ""
+
+msgid "DELETE"
+msgstr ""
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
 msgstr ""
 
 msgid "UPDATING BATOCERA"
@@ -1032,6 +1068,9 @@ msgstr ""
 msgid "SCRAPE MANUAL"
 msgstr ""
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr ""
 
@@ -1102,6 +1141,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1656,18 +1698,9 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr ""
 
-msgid "SAVE"
-msgstr ""
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr ""
-
-msgid "DELETE"
-msgstr ""
-
-msgid "SAVE CHANGES?"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
@@ -1725,6 +1758,16 @@ msgid "RANDOM"
 msgstr ""
 
 msgid "FILES"
+msgstr ""
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -1914,9 +1957,6 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"
-msgstr ""
-
-msgid "RESET"
 msgstr ""
 
 msgid "SHIFT"

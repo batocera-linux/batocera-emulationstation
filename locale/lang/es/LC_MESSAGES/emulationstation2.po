@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -498,6 +498,12 @@ msgstr "CONFIGURACIÓNES AVANZADAS DEL SISTEMA"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURACIÓNES AVANZADAS DEL JUEGO"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR LA CARPETA DE METADATOS"
 
@@ -623,6 +629,12 @@ msgstr "NO SE ENCONTRARON DISPOSITIVOS BLUETOOTH"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "LOS CONTROLES HAN SIDO DESVINCULADOS"
+
+msgid "RESET"
+msgstr "REESTABLECER"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "GESTOR DE CONTENIDO"
@@ -752,6 +764,30 @@ msgstr "RECURSIVIDAD DE LA CARPETA DE IMÁGENES PERSONALIZADAS"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRO DE IMÁGENES PERSONALIZADAS"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "GUARDAR"
+
+msgid "DELETE"
+msgstr "BORRAR"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "¿GUARDAR LOS CAMBIOS?"
 
 msgid "UPDATING BATOCERA"
 msgstr "ACTUALIZANDO BATOCERA"
@@ -1031,6 +1067,9 @@ msgstr "DESCARGAR ARTE DE FAN"
 msgid "SCRAPE MANUAL"
 msgstr "DESCARGAR DEL MANUAL DEL JUEGO"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "USUARIO"
 
@@ -1102,6 +1141,9 @@ msgstr "FORMATEAR DISCO"
 
 msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTROS"
@@ -1667,21 +1709,12 @@ msgstr "ESTAS SEGURO DE FORMATEAR ESTE DISPOSITIVO?"
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
 
-msgid "SAVE"
-msgstr "GUARDAR"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
 "¿ESTAS SEGURO?"
-
-msgid "DELETE"
-msgstr "BORRAR"
-
-msgid "SAVE CHANGES?"
-msgstr "¿GUARDAR LOS CAMBIOS?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
@@ -1739,6 +1772,16 @@ msgstr "ALEATORIO"
 
 msgid "FILES"
 msgstr "ARCHIVOS"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "PRECARGAR INTERFAZ"
@@ -1929,9 +1972,6 @@ msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "REESTABLECER"
 
 msgid "SHIFT"
 msgstr "SHIFT"

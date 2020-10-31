@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -502,6 +502,12 @@ msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ ПАПКИ"
 
@@ -627,6 +633,12 @@ msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
+
+msgid "RESET"
+msgstr "СБРОС"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "ЗАГРУЗКА КОНТЕНТА"
@@ -756,6 +768,30 @@ msgstr "ПАПКА ПОЛЬЗ. ИЗОБРАЖЕНИЙ РЕКУРСИВНО"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "ФИЛЬТР ПОЛЬЗ. ИЗОБР."
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "СОХРАНИТЬ"
+
+msgid "DELETE"
+msgstr "УДАЛИТЬ"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 
 msgid "UPDATING BATOCERA"
 msgstr "ОБНОВЛЕНИЕ BATOCERA"
@@ -1036,6 +1072,9 @@ msgstr "ЗАГРУЗКА ФАН-АРТА"
 msgid "SCRAPE MANUAL"
 msgstr "ЗАГРУЗКА РУКОВОДСТВА"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
 
@@ -1107,6 +1146,9 @@ msgstr "ФОРМАТИРОВАТЬ"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
@@ -1669,21 +1711,12 @@ msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ОТФОРМАТИРОВАТЬ 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
-msgid "SAVE"
-msgstr "СОХРАНИТЬ"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "УДАЛЕНИЕ ФАЙЛОВ ИГРЫ!\n"
 "ВЫ УВЕРЕНЫ?"
-
-msgid "DELETE"
-msgstr "УДАЛИТЬ"
-
-msgid "SAVE CHANGES?"
-msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -1744,6 +1777,16 @@ msgstr "СЛУЧАЙНО"
 
 msgid "FILES"
 msgstr "ФАЙЛЫ"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Предзагрузка интерфейса"
@@ -1933,9 +1976,6 @@ msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "СБРОС"
 
 msgid "SHIFT"
 msgstr "SHIFT"

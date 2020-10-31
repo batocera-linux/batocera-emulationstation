@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: 2020-10-16 19:35+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -500,6 +500,12 @@ msgstr "システム詳細オプション"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ゲーム詳細オプション"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "フォルダのメタ情報を編集"
 
@@ -625,6 +631,12 @@ msgstr "BT コントローラーが見つかりません"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
+
+msgid "RESET"
+msgstr "リセット"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "コンテンツダウンローダー"
@@ -754,6 +766,30 @@ msgstr "マイ画像を含めたディレクトリを参照"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "マイ画像フィルタ"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "保存"
+
+msgid "DELETE"
+msgstr "削除"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "変更を保存しますか？"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERAアップデート"
@@ -1030,6 +1066,9 @@ msgstr "ファンアートをスクレイプ"
 msgid "SCRAPE MANUAL"
 msgstr "説明書をスクレイプ"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ユーザー名"
 
@@ -1101,6 +1140,9 @@ msgstr "ディスクをフォーマット"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1662,21 +1704,12 @@ msgstr "このドライブをフォーマットしますか？"
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
 
-msgid "SAVE"
-msgstr "保存"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "この操作はゲームファイルを削除します！\n"
 "実行しますか？"
-
-msgid "DELETE"
-msgstr "削除"
-
-msgid "SAVE CHANGES?"
-msgstr "変更を保存しますか？"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -1731,6 +1764,16 @@ msgstr "ランダム"
 
 msgid "FILES"
 msgstr "ファイル"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "プレロード式 UI"
@@ -1920,9 +1963,6 @@ msgstr "大文字,小文字,特殊記号用の SHIFT"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "リセット"
 
 msgid "SHIFT"
 msgstr "SHIFT(文字変更)"

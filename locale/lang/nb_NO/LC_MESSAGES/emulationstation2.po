@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -498,6 +498,12 @@ msgstr ""
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr ""
 
@@ -623,6 +629,12 @@ msgstr ""
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
+
+msgid "RESET"
+msgstr ""
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr ""
@@ -752,6 +764,30 @@ msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr ""
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "LAGRE"
+
+msgid "DELETE"
+msgstr "SLETT"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "LAGRE ENDRINGER?"
 
 msgid "UPDATING BATOCERA"
 msgstr ""
@@ -1027,6 +1063,9 @@ msgstr ""
 msgid "SCRAPE MANUAL"
 msgstr ""
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "BRUKERNAVN"
 
@@ -1097,6 +1136,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1656,19 +1698,10 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr "ENDRE METADATA"
 
-msgid "SAVE"
-msgstr "LAGRE"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-
-msgid "DELETE"
-msgstr "SLETT"
-
-msgid "SAVE CHANGES?"
-msgstr "LAGRE ENDRINGER?"
 
 msgid "NO DEVICE FOUND"
 msgstr ""
@@ -1725,6 +1758,16 @@ msgid "RANDOM"
 msgstr ""
 
 msgid "FILES"
+msgstr ""
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -1914,9 +1957,6 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SKIFT TEGN"
 
 msgid "ALT GR"
-msgstr ""
-
-msgid "RESET"
 msgstr ""
 
 msgid "SHIFT"

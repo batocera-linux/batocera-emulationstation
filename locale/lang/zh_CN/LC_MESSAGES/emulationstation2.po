@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -497,6 +497,12 @@ msgstr "高级系统选项"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏选项"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "编辑文件夹的信息"
 
@@ -622,6 +628,12 @@ msgstr "未发现蓝牙设备"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "控制器链接已被删除。"
+
+msgid "RESET"
+msgstr "重置"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "下载内容"
@@ -751,6 +763,30 @@ msgstr "递归自定图像目录"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "自定图像筛选"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "保存"
+
+msgid "DELETE"
+msgstr "删除"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "是否保存更改?"
 
 msgid "UPDATING BATOCERA"
 msgstr "更新 BATOCERA"
@@ -1026,6 +1062,9 @@ msgstr "抓取同人作品"
 msgid "SCRAPE MANUAL"
 msgstr "抓取手册"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "用户名"
 
@@ -1096,6 +1135,9 @@ msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1659,21 +1701,12 @@ msgstr "您确定要格式化此驱动器吗？"
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
 
-msgid "SAVE"
-msgstr "保存"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "这将删除实际的游戏文件!\n"
 "确定执行吗?"
-
-msgid "DELETE"
-msgstr "删除"
-
-msgid "SAVE CHANGES?"
-msgstr "是否保存更改?"
 
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
@@ -1728,6 +1761,16 @@ msgstr "随机"
 
 msgid "FILES"
 msgstr "文件"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "预加载 UI"
@@ -1917,9 +1960,6 @@ msgstr "SHIFT键可切换大小写或特殊字符"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "重置"
 
 msgid "SHIFT"
 msgstr "SHIFT"
