@@ -331,8 +331,13 @@ void GuiMenu::openScraperSettings()
 		scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
 		s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
 		s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
-		
 
+		// SCRAPE PAD TO KEYBOARD
+		auto scrapePadToKey = std::make_shared<SwitchComponent>(mWindow);
+		scrapePadToKey->setState(Settings::getInstance()->getBool("ScrapePadToKey"));
+		s->addWithLabel(_("SCRAPE PADTOKEY SETTINGS"), scrapePadToKey);
+		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
+		
 		// Account
 		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
 		createInputTextRow(s, _("PASSWORD"), "ScreenScraperPass", true, true);
