@@ -486,7 +486,10 @@ void GuiGamelistOptions::openMetaDataEd()
 			if (view != nullptr)
 				view.get()->remove(file);
 			else
+			{
+				system->getRootFolder()->removeFromVirtualFolders(file);
 				delete file;
+			}
 
 			delete pThis;
 		};

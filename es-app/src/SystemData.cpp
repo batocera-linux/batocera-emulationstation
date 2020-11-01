@@ -651,7 +651,7 @@ bool SystemData::isCurrentFeatureSupported(EmulatorFeatures::Features feature)
 
 bool SystemData::hasFeatures()
 {
-	if (isGroupSystem() || isCollection() || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+	if (isCollection() || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 		return false;
 
 	for (auto emulator : mEmulators)
@@ -1103,7 +1103,7 @@ bool SystemData::isManufacturerSupported()
 {
 	for (auto sys : sSystemVector)
 	{
-		if (!sys->isGameSystem() || sys->isGroupSystem() || sys->isCollection())
+		if (!sys->isGameSystem() || sys->isCollection())
 			continue;
 
 		if (!sys->getSystemMetadata().manufacturer.empty())
@@ -1410,13 +1410,13 @@ Vector2f SystemData::getGridSizeOverride()
 
 bool SystemData::isNetplaySupported()
 {
-	if (isGroupSystem())
-		return false;	
-
 	for (auto emul : mEmulators)
 		for (auto core : emul.cores)
 			if (core.netplay)
 				return true;
+
+	if (isGroupSystem())
+		return false;
 
 	if (!SystemData::es_features_loaded)
 		return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
@@ -1574,7 +1574,7 @@ std::vector<std::string> SystemData::getCoreNames(std::string emulatorName)
 
 bool SystemData::hasEmulatorSelection()
 {
-	if (isGroupSystem() || isCollection() || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+	if (isCollection() || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 		return false;
 
 	int ec = 0;
@@ -1618,7 +1618,7 @@ std::string SystemData::getKeyboardMappingFilePath()
 
 bool SystemData::hasKeyboardMapping()
 {
-	if (isCollection() || isGroupSystem())
+	if (isCollection())
 		return false;
 
 	return Utils::FileSystem::exists(getKeyboardMappingFilePath());

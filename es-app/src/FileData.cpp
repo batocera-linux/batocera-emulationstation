@@ -1102,3 +1102,21 @@ bool FileData::isExtensionCompatible()
 
 	return true;
 }
+
+void FolderData::removeFromVirtualFolders(FileData* game)
+{
+	for (auto it = mChildren.begin(); it != mChildren.end(); ++it) 
+	{		
+		if ((*it)->getType() == FOLDER)
+		{
+			((FolderData*)(*it))->removeFromVirtualFolders(game);
+			continue;
+		}
+
+		if ((*it) == game)
+		{
+			mChildren.erase(it);
+			return;
+		}
+	}
+}

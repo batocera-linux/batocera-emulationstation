@@ -217,6 +217,7 @@ public:
 	}	
 
 	void removeVirtualFolders();
+	void removeFromVirtualFolders(FileData* game);
 
 private:
 	std::vector<FileData*> mChildren;
