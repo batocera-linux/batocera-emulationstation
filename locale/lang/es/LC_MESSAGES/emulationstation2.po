@@ -379,7 +379,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "POR HARDWARE"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "POR AÑO"
 
 msgid "SORT SYSTEMS"
 msgstr "ORGANIZAR EMULADORES"
@@ -634,7 +634,7 @@ msgid "RESET"
 msgstr "REESTABLECER"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "AÑADIR CONVINACIÓN DE TECLAS"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "GESTOR DE CONTENIDO"
@@ -646,7 +646,7 @@ msgid "MISC"
 msgstr "MISCELANEOS"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "No hay mas elementos en esta vista"
 
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "DESINSTALACION AGREGADA A LA FILA"
@@ -769,7 +769,7 @@ msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr ""
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "SELECCIONE ACCIONES QUE CAMBIAR"
 
 msgid "SAVE"
 msgstr "GUARDAR"
@@ -778,13 +778,13 @@ msgid "DELETE"
 msgstr "BORRAR"
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "JUGADOR 1"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "JUGADOR 2"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "COMBINACIONES"
 
 msgid "SAVE CHANGES?"
 msgstr "¿GUARDAR LOS CAMBIOS?"
@@ -1143,7 +1143,7 @@ msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "VERIFICAR BIOS ANTES DE EJECUTAR UN JUEGO"
 
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTROS"
@@ -1188,7 +1188,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR LOS CONTROLES EN EMULADORES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "MOSTRAR INDICADOR DE RED"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZACIONES"
@@ -1602,7 +1602,7 @@ msgid "NOT CONNECTED"
 msgstr "DESCONECTADO"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "ESTADO DE LA RED"
 
 msgid "HOSTNAME"
 msgstr "NOMBRE DE EQUIPO"
@@ -1723,16 +1723,16 @@ msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERROR: TODOS LOS SISTEMAS ESTAN OCULTOS, MOSTRANDO TODOS NUEVAMENTE"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "BÚSQUEDA RÁPIDA"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "¿QUIERES INICIAR EL CENTRO MULTIMEDIA KODI?"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "IR A LETRA"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "COLECCIONES"
 
 msgid "GO TO MANUFACTURER"
 msgstr "IR A EMPRESA"
@@ -1741,7 +1741,7 @@ msgid "GO TO HARDWARE"
 msgstr "IR A HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "IR A DÉCADA"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1971,7 +1971,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "SHIFT"
