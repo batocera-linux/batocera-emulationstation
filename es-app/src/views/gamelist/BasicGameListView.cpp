@@ -227,6 +227,7 @@ void BasicGameListView::remove(FileData *game)
 	if(mList.size() == 0)
 		addPlaceholder();
 
+	mRoot->removeFromVirtualFolders(game);
 	delete game;                                 // remove before repopulating (removes from parent)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }
