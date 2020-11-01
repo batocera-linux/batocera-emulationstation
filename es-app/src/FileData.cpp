@@ -1015,7 +1015,7 @@ void FileData::checkCrc32(bool force)
 
 std::string FileData::getKeyboardMappingFilePath()
 {
-	return Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".keys";
+	return getSourceFileData()->getPath() + ".keys";
 }
 
 void FileData::importP2k(const std::string& p2k)
@@ -1023,7 +1023,7 @@ void FileData::importP2k(const std::string& p2k)
 	if (p2k.empty())
 		return;
 
-	std::string p2kPath = Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".p2k.cfg";
+	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
 	Utils::FileSystem::writeAllText(p2kPath, p2k);
 
 	std::string keysPath = getKeyboardMappingFilePath();
@@ -1035,7 +1035,7 @@ void FileData::importP2k(const std::string& p2k)
 
 void FileData::convertP2kFile()
 {
-	std::string p2kPath = Utils::FileSystem::getParent(getSourceFileData()->getPath()) + "/" + Utils::FileSystem::getStem(getSourceFileData()->getPath()) + ".p2k.cfg";
+	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
 	if (!Utils::FileSystem::exists(p2kPath))
 		return;
 

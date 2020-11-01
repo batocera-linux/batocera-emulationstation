@@ -160,7 +160,7 @@ public:
     std::vector<std::string> getAvailableInstallDevices();
     std::vector<std::string> getAvailableInstallArchitectures();
     std::vector<std::string> getAvailableOverclocking();
-    std::vector<BiosSystem> getBiosInformations();
+    std::vector<BiosSystem> getBiosInformations(const std::string system = "");
     virtual std::vector<std::string> getVideoModes();
 
 	virtual std::vector<std::string> getAvailableStorageDevices();

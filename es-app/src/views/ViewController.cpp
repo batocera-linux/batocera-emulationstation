@@ -344,10 +344,8 @@ bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions option
 
 	if (Settings::getInstance()->getBool("CheckBiosesAtLaunch") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
 	{
-		auto bios = ApiSystem::getInstance()->getBiosInformations();
-		if (bios.size() == 0)
-			Settings::getInstance()->setBool("CheckBiosesAtLaunch", false);
-		else
+		auto bios = ApiSystem::getInstance()->getBiosInformations(game->getSourceFileData()->getSystem()->getName());
+		if (bios.size() != 0)
 		{
 			auto systemName = game->getSystem()->getName();
 			auto it = std::find_if(bios.cbegin(), bios.cend(), [&systemName](const BiosSystem& x) { return x.name == systemName; });

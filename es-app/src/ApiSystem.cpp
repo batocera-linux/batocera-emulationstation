@@ -454,13 +454,17 @@ std::vector<std::string> ApiSystem::getSystemInformations()
 	return executeEnumerationScript("batocera-info --full");
 }
 
-std::vector<BiosSystem> ApiSystem::getBiosInformations() 
+std::vector<BiosSystem> ApiSystem::getBiosInformations(const std::string system) 
 {
 	std::vector<BiosSystem> res;
 	BiosSystem current;
 	bool isCurrent = false;
 
-	auto systems = executeEnumerationScript("batocera-systems");
+	std::string cmd = "batocera-systems";
+	if (!system.empty())
+		cmd += " --filter " + system;
+
+	auto systems = executeEnumerationScript(cmd);
 	for (auto line : systems)
 	{
 		if (Utils::String::startsWith(line, "> ")) 
