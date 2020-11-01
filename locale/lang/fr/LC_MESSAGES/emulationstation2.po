@@ -502,10 +502,10 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "EDITER LA CONFIGURATION PADTOKEY"
 
 msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "CRÉER UNE CONFIGURATION PADTOKEY"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
@@ -637,7 +637,7 @@ msgid "RESET"
 msgstr "RAZ"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "AJOUTER UNE COMBINAISON DE TOUCHES"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
@@ -769,10 +769,10 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRE SUR LES IMAGES"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURATION DE PADTOKEY"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "SÉLECTIONNEZ LES ACTIONS À CHANGER"
 
 msgid "SAVE"
 msgstr "SAUVEGARDER"
@@ -781,13 +781,13 @@ msgid "DELETE"
 msgstr "SUPPRIMER"
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "JOUEUR 1"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "JOUEUR 2"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "COMBINAISONS"
 
 msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER LES CHANGEMENTS ?"
@@ -1070,7 +1070,7 @@ msgid "SCRAPE MANUAL"
 msgstr "SCAPER LES MANUELS"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
+msgstr "SCRAPER LES RÉGLAGES PADTOKEY"
 
 msgid "USERNAME"
 msgstr "NOM D'UTILISATEUR"
@@ -1145,7 +1145,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "VÉRIFIER LES BIOS AVANT DE LANCER UN JEU"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1187,7 +1187,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
+msgstr "AUTOCONFIGURATION ÉMULATEURS/MANETTES"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AFFICHER L’INDICATEUR RÉSEAU"
@@ -1251,10 +1251,10 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"Vous allez basculer dans un mode restreint :\n"
-"Cela va masquer la plupart des options pour éviter des changements de "
-"configuration.\n"
-"Pour revenir au mode normal, entrez le code suivant :"
+"Vous allez restreindre le mode d’affichage :\n"
+"Cela va masquer la plupart des options de menus afin d’éviter des "
+"changements système.\n"
+"Pour déverrouiller le mode d’affichage, entrez le code suivant :"
 
 msgid "Do you want to proceed ?"
 msgstr "Voulez-vous continuer ?"
@@ -1281,7 +1281,7 @@ msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LES MODIFICATIONS"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
@@ -1776,11 +1776,17 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"ATTENTION : LE FORMAT DE FICHIER DE CE JEU N’EST PAS SUPPORTÉ PAR "
+"L’ÉMULATEUR/COEUR.\n"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
 msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"ATTENTION : LE SYSTÈME A UN BIOS MANQUANT ET LE JEU PEUT NE PAS FONCTIONNER "
+"CORRECTEMENT.\n"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
 msgid "Preloading UI"
 msgstr "Préchargement de l'interface"
@@ -2136,12 +2142,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "STATUS"
-#~ msgstr "STATUT"
-
-#~ msgid "DELETE A CHAR"
-#~ msgstr "SUPPRIMER UN CARACTÈRE"
-
-#~ msgid "ALLOW SPECTATOR MODE"
-#~ msgstr "AUTORISER LE MODE SPECTATEUR"
