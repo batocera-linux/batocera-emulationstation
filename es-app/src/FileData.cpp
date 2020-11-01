@@ -671,13 +671,38 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 FileData* FolderData::findUniqueGameForFolder()
 {
 	auto games = this->getFilesRecursive(GAME);
-	if (games.size() == 1)
+
+	FileData* found = nullptr;
+
+	int count = 0;
+	for (auto game : games)
 	{
+		if (game->getHidden())
+		{
+			bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
+
+			auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
+			if (shv == "1") showHiddenFiles = true;
+			else if (shv == "0") showHiddenFiles = false;
+
+			if (!showHiddenFiles)
+				continue;
+		}
+
+		found = game;
+		count++;
+		if (count > 1)
+			break;
+	}
+	
+	if (count == 1)
+		return found;
+	/*{
 		auto it = games.cbegin();
 		if ((*it)->getType() == GAME)
 			return (*it);
 	}
-
+	*/
 	return nullptr;
 }
 
