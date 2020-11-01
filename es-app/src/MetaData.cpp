@@ -295,6 +295,15 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (mdd.isStatistic)
 			continue;
 
+		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet
+			continue;
+
+		if (mdd.id == MetaDataId::Region || mdd.id == MetaDataId::Language) // Not scrapped
+			continue;
+
+		if (mdd.id == MetaDataId::Favorite || mdd.id == MetaDataId::Hidden || mdd.id == MetaDataId::Emulator || mdd.id == MetaDataId::Core)
+			continue;
+
 		if (mdd.id == MetaDataId::Image && (type & MetaDataImportType::Types::IMAGE) != MetaDataImportType::Types::IMAGE)
 			continue;
 

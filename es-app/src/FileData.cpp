@@ -1015,6 +1015,9 @@ void FileData::checkCrc32(bool force)
 
 std::string FileData::getKeyboardMappingFilePath()
 {
+	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
+		return getSourceFileData()->getPath() + "/padto.keys";
+
 	return getSourceFileData()->getPath() + ".keys";
 }
 
@@ -1024,6 +1027,9 @@ void FileData::importP2k(const std::string& p2k)
 		return;
 
 	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
+	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
+		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
+
 	Utils::FileSystem::writeAllText(p2kPath, p2k);
 
 	std::string keysPath = getKeyboardMappingFilePath();
@@ -1036,6 +1042,9 @@ void FileData::importP2k(const std::string& p2k)
 void FileData::convertP2kFile()
 {
 	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
+	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
+		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
+
 	if (!Utils::FileSystem::exists(p2kPath))
 		return;
 
