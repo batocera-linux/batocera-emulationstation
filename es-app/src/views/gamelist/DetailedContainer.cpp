@@ -292,7 +292,7 @@ void DetailedContainer::initMDValues()
 
 		const float heightDiff = (components[i].label->getSize().y() - components[i].label->getSize().y()) / 2;
 		components[i].component->setPosition(components[i].label->getPosition() + Vector3f(components[i].label->getSize().x(), heightDiff, 0));
-		components[i].component->setSize(colSize - components[i].label->getSize().x(), components[i].label->getSize().y());
+		components[i].component->setSize(colSize - components[i].label->getSize().x(), components[i].component->getSize().y());
 		components[i].component->setDefaultZIndex(40);
 
 		float testBot = components[i].component->getPosition().y() + components[i].component->getSize().y();
