@@ -1946,16 +1946,19 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); });
 	
 	// Shaders preset
+#ifndef _ENABLEEMUELEC	
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS))
 	{
 		auto installedShaders = ApiSystem::getInstance()->getShaderList();
 		if (installedShaders.size() > 0)
 		{
+#endif
 			std::string currentShader = SystemConf::getInstance()->get("global.shaderset");
 
 			auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"), false);			
 			shaders_choices->add(_("AUTO"), "auto", currentShader.empty() || currentShader == "auto");
 			shaders_choices->add(_("NONE"), "none", currentShader == "none");
+
 #ifdef _ENABLEEMUELEC	
 	std::string a;
 	for(std::stringstream ss(getShOutput(R"(/emuelec/scripts/emuelec-utils getshaders)")); getline(ss, a, ','); )
@@ -1970,8 +1973,10 @@ void GuiMenu::openGamesSettings_batocera()
 #endif
 			s->addWithLabel(_("SHADERS SET"), shaders_choices);
 			s->addSaveFunc([shaders_choices] { SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected()); });
-		}
+#ifndef _ENABLEEMUELEC			
+        }
 	}
+#endif
 
 	// Integer scale
 	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
