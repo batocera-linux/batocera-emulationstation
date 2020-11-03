@@ -3079,7 +3079,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 
 		// Don't like one of the songs? Press next
 		if (AudioManager::getInstance()->isSongPlaying())
-			s->addEntry(_("SKIP TO NEXT SONG"), false, [window] { AudioManager::getInstance()->playRandomMusic(false); }, "iconSound");
+			s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + AudioManager::getInstance()->getSongName(), nullptr, [window] { AudioManager::getInstance()->playRandomMusic(false); }, "iconSound");
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 		{

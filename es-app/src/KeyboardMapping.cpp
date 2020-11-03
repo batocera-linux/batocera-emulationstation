@@ -110,7 +110,11 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 	{ "KEY_DELETE" },
 	{ "KEY_PAUSE" },
 	{ "KEY_PRINT" },
-	{ "KEY_MENU" }
+	{ "KEY_MENU" },
+
+	{ "BTN_LEFT" },
+	{ "BTN_RIGHT" },
+	{ "BTN_MIDDLE" },
 };
 
 
@@ -160,8 +164,11 @@ KeyMappingFile::KeyName::KeyName(const std::string& k, const std::string& p2k, c
 	}
 }
 
-bool KeyMappingFile::checkTriggerExists(const std::string& target)
+bool KeyMappingFile::checkTriggerExists(const std::string& target, const std::string& type)
 {
+	if (type == "mouse")
+		return (target == "joystick1" || target == "joystick2");
+
 	for (auto map : triggerNames)
 		if (map.key == target)
 			return true;
@@ -242,13 +249,13 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 					{
 						for (auto& target : action["trigger"].GetArray())
 						{
-							if (checkTriggerExists(target.GetString()))
+							if (checkTriggerExists(target.GetString(), map.type))
 								map.triggers.insert(target.GetString());
 						}
 					}
 					else
 					{
-						if (checkTriggerExists(action["trigger"].GetString()))
+						if (checkTriggerExists(action["trigger"].GetString(), map.type))
 							map.triggers.insert(action["trigger"].GetString());
 					}
 				}
@@ -270,7 +277,7 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 					}				
 				}
 
-				if (map.targets.size() > 0 && map.triggers.size() > 0)
+				if ((map.targets.size() > 0 || map.type == "mouse") && map.triggers.size() > 0)
 					pm.mappings.push_back(map);
 			}
 
@@ -324,7 +331,7 @@ void KeyMappingFile::save(const std::string& fileName)
 		{
 			auto mapping = player.mappings[m];
 
-			if (mapping.triggers.size() == 0 || mapping.targets.size() == 0)
+			if (mapping.triggers.size() == 0 || (mapping.targets.size() == 0 && mapping.type != "mouse"))
 				continue;
 
 			writer.StartObject();
@@ -354,17 +361,20 @@ void KeyMappingFile::save(const std::string& fileName)
 				writer.String(mapping.type.c_str());
 			}
 
-			writer.Key("target");
-
-			if (mapping.targets.size() == 1)
-				writer.String((*mapping.targets.begin()).c_str());
-			else
+			if (mapping.targets.size() > 0)
 			{
-				writer.StartArray();
-				for (auto v : mapping.targets)
-					writer.String(v.c_str());
+				writer.Key("target");
 
-				writer.EndArray();
+				if (mapping.targets.size() == 1)
+					writer.String((*mapping.targets.begin()).c_str());
+				else
+				{
+					writer.StartArray();
+					for (auto v : mapping.targets)
+						writer.String(v.c_str());
+
+					writer.EndArray();
+				}
 			}
 
 			writer.EndObject();
@@ -491,11 +501,17 @@ std::string KeyMappingFile::KeyMapping::toTargetString()
 		if (!data.empty())
 			data += " + ";
 
-		auto pos = target.find("_");
+		auto pos = target.find("KEY_");
 		if (pos != std::string::npos)
-			data += target.substr(pos + 1);
-		else 
-			data += target;
+			data += target.substr(pos + 4);
+		else
+		{
+			pos = target.find("BTN_");
+			if (pos != std::string::npos)
+				data += "MOUSE " + target.substr(pos + 4);
+			else
+				data += target;
+		}
 	}
 
 	if (type != "key" && !type.empty())
@@ -551,5 +567,89 @@ bool KeyMappingFile::updateMapping(int player, const std::string& trigger, const
 	km.type = "key";
 	km.targets = targets;
 	pm.mappings.push_back(km);
+	return true;
+}
+
+std::string KeyMappingFile::getMouseMapping(int player)
+{
+	if (player >= players.size())
+		return "";
+
+	PlayerMapping& pm = players[player];
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->type == "mouse" && it->triggers.size() > 0)
+			return *(it->triggers.begin());
+
+	return "";
+}
+
+void KeyMappingFile::clearAnalogJoysticksMappings(int player)
+{
+	if (player >= players.size())
+		return;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); )
+	{
+		if (it->type == "key")
+		{
+			it->triggers.erase("joystick1up");
+			it->triggers.erase("joystick1left");
+			it->triggers.erase("joystick1down");
+			it->triggers.erase("joystick1right");
+			it->triggers.erase("joystick2up");
+			it->triggers.erase("joystick2left");
+			it->triggers.erase("joystick2down");
+			it->triggers.erase("joystick2right");
+
+			if (it->triggers.size() == 0)
+			{
+				pm.mappings.erase(it);
+				continue;
+			}
+		}
+
+		it++;
+	}
+}
+
+bool KeyMappingFile::setMouseMapping(int player, const std::string& trigger)
+{
+	while (player >= players.size())
+		players.push_back(PlayerMapping());
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->type == "mouse")
+		{
+			if (trigger.empty())
+			{
+				pm.mappings.erase(it);
+				return true;
+			}
+
+			it->triggers.clear();
+			it->triggers.insert(trigger);
+			it->targets.clear();
+
+			clearAnalogJoysticksMappings(player);
+
+			return true;
+		}
+	}
+
+	if (trigger.empty())
+		return false;
+
+	KeyMapping km;
+	km.triggers.insert(trigger);	
+	km.type = "mouse";
+	pm.mappings.push_back(km);
+
+	clearAnalogJoysticksMappings(player);
+
 	return true;
 }

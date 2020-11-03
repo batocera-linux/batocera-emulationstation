@@ -192,13 +192,22 @@ static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 void GuiKeyMappingEditor::loadList(bool restoreIndex)
 {
 	int idx = !restoreIndex ? -1 : mList->getCursorIndex();
+	bool last = (idx == mList->size() - 1);
 	mList->clear();
-
-	bool gp = false;
-
+	
 	int i = 0;
+	bool gp = false;
+	std::string mouseMapping = mMapping.getMouseMapping(mPlayer);
+
+
+//	mList->addGroup(_("JOYSTICK MAPPING"));
+//	i++;
+	
 	for (auto mappingName : mappingNames)
 	{		
+		if (!mouseMapping.empty() && Utils::String::startsWith(mappingName.name, "joystick"))
+			continue;
+
 		ComponentListRow row;
 
 		KeyMappingFile::PlayerMapping pm;
@@ -210,7 +219,6 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 			if (mapping.triggerEquals(mappingName.name))
 				km = mapping;
 		
-
 		if (!gp && mappingName.name.find("+") != std::string::npos)
 		{
 			mList->addGroup(_("COMBINATIONS"));
@@ -241,6 +249,39 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		mList->addRow(row, i == idx, false);
 		i++;
 	}
+
+
+	mList->addGroup(_("MOUSE CURSOR"));
+	i++;
+
+	ComponentListRow mouseRow;
+
+	auto theme = ThemeData::getMenuTheme();
+
+	auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
+	mouseRow.addElement(text, true);
+
+	auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"), false);
+	imageSource->add(_("NO"), "", false);
+	imageSource->add(_("LEFT ANALOG"), "joystick1", mouseMapping == "joystick1");
+	imageSource->add(_("RIGHT ANALOG"), "joystick2", mouseMapping == "joystick2");
+
+	mouseRow.addElement(imageSource, false, true);
+
+	if (!imageSource->hasSelection())
+		imageSource->selectFirstItem();
+
+	mList->addRow(mouseRow, idx > 0 && last);
+
+	imageSource->setSelectedChangedCallback([this](const std::string& name)
+	{
+		if (mMapping.setMouseMapping(mPlayer, name))
+		{
+			mDirty = true;
+			loadList(true);
+		}
+	});
+	i++;
 
 	centerWindow();
 }
@@ -355,14 +396,14 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 	}
 
 	float h = mText->getSize().y();
-	mImage->setMaxSize(h, h * 0.85f);
+	mImage->setMaxSize(h, h * 0.80f);
 	mImage->setPadding(Vector4f(8, 8, 8, 8));
 
 	setColWidthPerc(0, h * 1.15f / WINDOW_WIDTH, false);	
 
 	if (mImageCombi != nullptr)
 	{
-		mImageCombi->setMaxSize(h, h * 0.85f);
+		mImageCombi->setMaxSize(h, h * 0.80f);
 		mImageCombi->setPadding(Vector4f(8, 8, 8, 8));
 
 		setColWidthPerc(1, h * 1.15f / WINDOW_WIDTH, false);
@@ -372,7 +413,7 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 		setColWidthPerc(1, 0.015f, false);	
 
 
-	setSize(0, mText->getSize().y() * 1.1f);
+	setSize(0, mText->getSize().y() * 1.0f);
 }
 
 void GuiKeyMappingEditorEntry::setColor(unsigned int color)
