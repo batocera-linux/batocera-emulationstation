@@ -125,6 +125,7 @@ public:
 
 	void importP2k(const std::string& p2k);
 	void convertP2kFile();
+	bool hasP2kFile();
 
 	bool hasKeyboardMapping();
 	KeyMappingFile getKeyboardMapping();
