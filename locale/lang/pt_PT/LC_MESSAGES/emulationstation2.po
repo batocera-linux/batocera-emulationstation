@@ -502,10 +502,10 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "EDITAR A CONFIGURAÇÃO PADTOKEY"
 
 msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "CRIAR UMA CONFIGURAÇÃO PADTOKEY"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR PASTA METADATA"
@@ -637,7 +637,7 @@ msgid "RESET"
 msgstr "REINICIAR"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "ADICIONAR UMA COMBINAÇÃO DE TECLAS"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "GERENCIADOR DE CONTEÚDO"
@@ -769,10 +769,10 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRO DE IMAGEM"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAÇÃO DO PADTOKEY"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "SELECIONE AS AÇÕES A ALTERAR"
 
 msgid "SAVE"
 msgstr "SAVE"
@@ -781,13 +781,13 @@ msgid "DELETE"
 msgstr "EXCLUIR"
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "JOGADOR 1"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "JOGADOR 2"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "COMBINAÇÕES"
 
 msgid "SAVE CHANGES?"
 msgstr "SALVAR MODIFICAÇÕES?"
@@ -1071,7 +1071,7 @@ msgid "SCRAPE MANUAL"
 msgstr "PROCURA MANUAL"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
+msgstr "OBTER AS DEFINIÇÕES PADTOKEY"
 
 msgid "USERNAME"
 msgstr "NOME DE UTILIZADOR"
@@ -1146,7 +1146,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "VERIFICAR AS BIOS ANTES DE INICIAR O JOGO"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1775,11 +1775,16 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"AVISO : O FORMATO DO JOGO NÃO É SUPORTADO PELO EMULADOR/CORE ATUAL.\n"
+"DESEJA INICIAR MESMO ASSIM ?"
 
 msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"AVISO : O SISTEMA ESTÁ COM BIOS EM FALTA E O JOGO PODERÁ NÃO FUNCIONAR "
+"CORRETAMENTE.\n"
+"DESEJA INICIAR MESMO ASSIM ?"
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
@@ -1972,7 +1977,7 @@ msgid "ALT GR"
 msgstr "ALT GR"
 
 msgid "SHIFT"
-msgstr "MUDANÇA"
+msgstr "SHIFT"
 
 msgid "SPACE"
 msgstr "ESPAÇO"
@@ -2305,7 +2310,7 @@ msgstr "%d s"
 #~ msgstr "CAMINHO PARA O VÍDEO"
 
 #~ msgid "Path to marquee"
-#~ msgstr "Caminho para a marquee"
+#~ msgstr "Caminho para o letreiro"
 
 #~ msgid "set hidden"
 #~ msgstr "ocultar rom"
@@ -2326,7 +2331,7 @@ msgstr "%d s"
 #~ msgstr "miniatura"
 
 #~ msgid "marquee"
-#~ msgstr "marquee"
+#~ msgstr "letreiro"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
@@ -2347,7 +2352,7 @@ msgstr "%d s"
 #~ msgstr "COMANDO EMPARELHADO"
 
 #~ msgid "UNABLE TO PAIR CONTROLLER"
-#~ msgstr "NAO FOI POSSÍVEL EMPARELHAR O COMANDO"
+#~ msgstr "NÃO FOI POSSÍVEL EMPARELHAR O COMANDO"
 
 #~ msgid "MD5"
 #~ msgstr "EXAMINADOR MD5"
@@ -2365,7 +2370,7 @@ msgstr "%d s"
 #~ msgstr "FONTE DE MINIATURA PREFERIDA"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "OBTER MARQUEE"
+#~ msgstr "OBTER LETREIRO"
 
 #~ msgid "UPDATES"
 #~ msgstr "ATUALIZAÇÕES"
