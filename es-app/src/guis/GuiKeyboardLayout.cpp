@@ -24,29 +24,27 @@ GuiKeyboardLayout::GuiKeyboardLayout(Window* window, const std::function<void(co
 	mX = 0;
 	mY = 0;
 
+	std::string sel = "KEY_ENTER";
+
 	if (activeKeys != nullptr)
 	{
 		mActiveKeys = *activeKeys;
-
 		if (mActiveKeys.size() > 0)
-		{
-			std::string sel = *mActiveKeys.begin();
+			sel = *mActiveKeys.begin();
+	}
 
-			for (int y = 0; y < kbLayout.size(); y++)
+	for (int y = 0; y < kbLayout.size(); y++)
+	{
+		for (int x = 0; x < kbLayout[y].size(); x++)
+		{
+			if (kbLayout[y][x] == sel)
 			{
-				for (int x = 0; x < kbLayout[y].size(); x++)
-				{
-					if (kbLayout[y][x] == sel)
-					{
-						mX = x;
-						mY = y;
-						break;
-					}
-				}
+				mX = x;
+				mY = y;
+				break;
 			}
 		}
 	}
-
 
 	setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
