@@ -1046,6 +1046,15 @@ std::string FileData::getKeyboardMappingFilePath()
 	return getSourceFileData()->getPath() + ".keys";
 }
 
+bool FileData::hasP2kFile()
+{
+	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
+	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
+		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
+
+	return Utils::FileSystem::exists(p2kPath);
+}
+
 void FileData::importP2k(const std::string& p2k)
 {
 	if (p2k.empty())
@@ -1084,12 +1093,26 @@ void FileData::convertP2kFile()
 
 bool FileData::hasKeyboardMapping()
 {
-	return Utils::FileSystem::exists(getKeyboardMappingFilePath());
+	if (!Utils::FileSystem::exists(getKeyboardMappingFilePath()))
+		return hasP2kFile();
+
+	return true;
 }
 
 KeyMappingFile FileData::getKeyboardMapping()
 {
-	return KeyMappingFile::load(getKeyboardMappingFilePath());
+	auto path = getKeyboardMappingFilePath();
+
+	if (!Utils::FileSystem::exists(path) && hasP2kFile())
+	{
+		convertP2kFile();
+
+		KeyMappingFile ret = KeyMappingFile::load(path);
+		Utils::FileSystem::removeFile(path);
+		return ret;
+	}
+
+	return KeyMappingFile::load(path);
 }
 
 bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)

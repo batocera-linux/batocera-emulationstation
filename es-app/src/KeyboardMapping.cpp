@@ -243,6 +243,9 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 				if (action.HasMember("mode"))
 					map.mode = action["mode"].GetString();
 
+				if (action.HasMember("description"))
+					map.description = action["description"].GetString();
+
 				if (action.HasMember("trigger"))
 				{
 					if (action["trigger"].IsArray())
@@ -377,6 +380,12 @@ void KeyMappingFile::save(const std::string& fileName)
 				}
 			}
 
+			if (!mapping.description.empty())
+			{
+				writer.Key("description");
+				writer.String(mapping.description.c_str());
+			}
+
 			writer.EndObject();
 		}
 
@@ -416,16 +425,27 @@ KeyMappingFile KeyMappingFile::fromP2k(const std::string& fileName)
 			if (!Utils::String::startsWith(line, pidx))
 				continue;
 
+			std::string description;
+
 			line = line.substr(2);
 			auto comment = line.find(";");
 			if (comment != std::string::npos)
+			{
+				description = line.substr(comment + 1);
+				if (Utils::String::startsWith(description, ";")) // Descriptions need two ;;
+					description = Utils::String::trim(description.substr(1));
+				else
+					description = description = "";
+
 				line = Utils::String::trim(line.substr(0, comment));
+			}
 			
 			auto values = Utils::String::split(line, '=', true);
 			if (values.size() == 2)
 			{
 				KeyMapping map;
 				map.type = "key";
+				map.description = description;
 
 				std::string p2k = getTargetFromP2k(Utils::String::trim(Utils::String::toLower(values[1])));
 				if (p2k.empty())
@@ -652,4 +672,89 @@ bool KeyMappingFile::setMouseMapping(int player, const std::string& trigger)
 	clearAnalogJoysticksMappings(player);
 
 	return true;
+}
+
+bool KeyMappingFile::removeMapping(int player, const std::string& trigger)
+{
+	if (trigger.empty())
+		return false;
+
+	if (player >= players.size())
+		return false;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->triggerEquals(trigger))
+		{
+			pm.mappings.erase(it);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+KeyMappingFile::KeyMapping KeyMappingFile::getKeyMapping(int player, const std::string& trigger)
+{
+	KeyMappingFile::KeyMapping empty;
+	if (trigger.empty())
+		return empty;
+
+	if (player >= players.size())
+		return empty;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->triggerEquals(trigger))
+			return (*it);
+
+	return empty;
+}
+
+
+
+std::string KeyMappingFile::getMappingDescription(int player, const std::string& trigger)
+{
+	if (trigger.empty())
+		return "";
+
+	if (player >= players.size())
+		return "";
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->triggerEquals(trigger))
+			return it->description;
+
+	return "";
+}
+
+bool KeyMappingFile::updateMappingDescription(int player, const std::string& trigger, const std::string& description)
+{
+	if (trigger.empty())
+		return false;
+
+	if (player >= players.size())
+		return false;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->triggerEquals(trigger))
+		{
+			if (it->description != description)
+			{
+				it->description = description;
+				return true;
+			}
+			
+		}
+	}
+
+	return false;
 }

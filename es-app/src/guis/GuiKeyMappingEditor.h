@@ -32,6 +32,7 @@ private:
 	std::shared_ptr<ImageComponent>  mImageCombi;
 	std::shared_ptr<TextComponent>  mText;
 	std::shared_ptr<TextComponent>  mTargetText;
+	std::shared_ptr<TextComponent>  mDescription;
 
 	MappingInfo mMappingInfo;
 	KeyMappingFile::KeyMapping mTarget;
@@ -52,6 +53,7 @@ public:
 	virtual void onSizeChanged() override;
 
 private:
+	void updateHelpPrompts();
 	void loadList(bool restoreIndex = true);
 	void centerWindow();	
 

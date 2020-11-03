@@ -18,6 +18,10 @@ public:
 
 	bool updateMapping(int player, const std::string& trigger, const std::set<std::string>& targets);
 
+	bool removeMapping(int player, const std::string& trigger);
+	bool updateMappingDescription(int player, const std::string& trigger, const std::string& description);
+	std::string getMappingDescription(int player, const std::string& trigger);
+
 	std::string getMouseMapping(int player);
 	bool setMouseMapping(int player, const std::string& trigger);
 
@@ -34,6 +38,8 @@ public:
 		std::string			  type;
 		std::string			  mode;
 		std::set<std::string> targets;		
+
+		std::string			  description;
 	};
 
 	struct PlayerMapping
@@ -54,6 +60,8 @@ public:
 		std::string p2kname;
 		std::string p2knameAlt;
 	};
+
+	KeyMapping getKeyMapping(int player, const std::string& trigger);
 
 	static std::vector<KeyName> keyMap;
 	static std::vector<KeyName> triggerNames;
