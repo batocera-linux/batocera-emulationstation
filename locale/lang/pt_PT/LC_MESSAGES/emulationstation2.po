@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -382,7 +382,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "TIPO DE HARDWARE"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "POR ANO DE LANÇAMENTO"
 
 msgid "SORT SYSTEMS"
 msgstr "ORDENAR POR SISTEMAS"
@@ -500,6 +500,12 @@ msgstr "OPÇÕES AVANÇADAS DO SISTEMA"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
 
 msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR PASTA METADATA"
@@ -627,6 +633,12 @@ msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 
+msgid "RESET"
+msgstr "REINICIAR"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
+
 msgid "CONTENT DOWNLOADER"
 msgstr "GERENCIADOR DE CONTEÚDO"
 
@@ -637,7 +649,7 @@ msgid "MISC"
 msgstr "DIVERSOS"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "Não há itens nesta visualização"
 
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "EM LISTA PARA DESINSTALAR"
@@ -755,6 +767,30 @@ msgstr "DIRETÓRIO RECURSIVO DE IMAGEM"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRO DE IMAGEM"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "SAVE"
+
+msgid "DELETE"
+msgstr "EXCLUIR"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "SALVAR MODIFICAÇÕES?"
 
 msgid "UPDATING BATOCERA"
 msgstr "A ATUALIZAR O BATOCERA"
@@ -1034,6 +1070,9 @@ msgstr "OBTER FANART"
 msgid "SCRAPE MANUAL"
 msgstr "PROCURA MANUAL"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "NOME DE UTILIZADOR"
 
@@ -1106,6 +1145,9 @@ msgstr "FORMATAR UM DISCO"
 msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
 
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
+
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
 
@@ -1149,7 +1191,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "MOSTRAR INDICADOR DE REDE"
 
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
@@ -1558,7 +1600,7 @@ msgid "NOT CONNECTED"
 msgstr "DESCONECTADO"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "ESTADO DA INTERNET"
 
 msgid "HOSTNAME"
 msgstr "NOME DA REDE"
@@ -1665,21 +1707,12 @@ msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTE DISCO?"
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
-msgid "SAVE"
-msgstr "SAVE"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
 "TEM A CERTEZA?"
-
-msgid "DELETE"
-msgstr "EXCLUIR"
-
-msgid "SAVE CHANGES?"
-msgstr "SALVAR MODIFICAÇÕES?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -1688,16 +1721,16 @@ msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIAR TODOS AGORA"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "PESQUISA RÁPIDA"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "IR PARA A LETRA"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES"
 
 msgid "GO TO MANUFACTURER"
 msgstr "IR PARA FABRICANTE"
@@ -1706,7 +1739,7 @@ msgid "GO TO HARDWARE"
 msgstr "IR PARA HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "IR PARA DÉCADA"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1737,6 +1770,16 @@ msgstr "ALEATÓRIO"
 
 msgid "FILES"
 msgstr "FICHEIROS"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
@@ -1926,10 +1969,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
 
 msgid "ALT GR"
-msgstr ""
-
-msgid "RESET"
-msgstr "REINICIAR"
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "MUDANÇA"

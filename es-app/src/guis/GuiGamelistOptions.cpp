@@ -246,6 +246,14 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system, bool 
 				}
 			}
 
+			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && file->isFeatureSupported(EmulatorFeatures::Features::padTokeyboard) && file->getType() != FOLDER)
+			{
+				if (file->hasKeyboardMapping())
+					mMenu.addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [this, file] { GuiMenu::editKeyboardMappings(mWindow, file); });
+				else
+					mMenu.addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [this, file] { GuiMenu::editKeyboardMappings(mWindow, file); });
+			}
+
 			if (file->getType() == FOLDER)
 				mMenu.addEntry(_("EDIT FOLDER METADATA"), true, std::bind(&GuiGamelistOptions::openMetaDataEd, this));
 			else
@@ -478,7 +486,10 @@ void GuiGamelistOptions::openMetaDataEd()
 			if (view != nullptr)
 				view.get()->remove(file);
 			else
+			{
+				system->getRootFolder()->removeFromVirtualFolders(file);
 				delete file;
+			}
 
 			delete pThis;
 		};

@@ -51,6 +51,7 @@ struct ScraperSearchResult
 
 	MetaDataList mdl;
 	std::map<MetaDataId, ScraperSearchItem> urls;
+	std::string p2k;
 
 	bool hasMedia()
 	{

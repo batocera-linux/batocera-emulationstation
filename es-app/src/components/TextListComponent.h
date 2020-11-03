@@ -9,6 +9,7 @@
 #include "Sound.h"
 #include <memory>
 #include "components/ScrollbarComponent.h"
+#include "Settings.h"
 
 class TextCache;
 
@@ -257,6 +258,17 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			drawTrans.translate(offset);
 
 		Renderer::setMatrix(drawTrans);
+
+		if (Settings::getInstance()->getBool("DebugText"))
+		{
+			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
+
+			Renderer::popClipRect();
+			Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033, 0xFF000033);
+			Renderer::pushClipRect(Vector2i((int)(trans.translation().x() + mHorizontalMargin), (int)trans.translation().y()),
+				Vector2i((int)(dim.x() - mHorizontalMargin * 2), (int)dim.y()));
+		}
+
 		font->renderTextCache(entry.data.textCache.get());
 
 		// render currently selected item text again if
@@ -353,8 +365,12 @@ void TextListComponent<T>::update(int deltaTime)
 		mMarqueeOffset  = 0;
 		mMarqueeOffset2 = 0;
 
+		std::string name = mEntries.at((unsigned int)mCursor).name;
+		if (mUppercase)
+			name = Utils::String::toUpper(name);
+
 		// if we're not scrolling and this object's text goes outside our size, marquee it!
-		const float textLength = mFont->sizeText(mEntries.at((unsigned int)mCursor).name).x();
+		const float textLength = mFont->sizeText(name).x();
 		const float limit      = mSize.x() - mHorizontalMargin * 2;
 
 		if(textLength > limit)

@@ -104,7 +104,8 @@ public:
 		DISKFORMAT = 10,
 		OVERCLOCK = 11,
 		PDFEXTRACTION = 12,
-		BATOCERASTORE = 13
+		BATOCERASTORE = 13,
+		EVMAPY = 14
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -160,7 +161,7 @@ public:
     std::vector<std::string> getAvailableInstallDevices();
     std::vector<std::string> getAvailableInstallArchitectures();
     std::vector<std::string> getAvailableOverclocking();
-    std::vector<BiosSystem> getBiosInformations();
+    std::vector<BiosSystem> getBiosInformations(const std::string system = "");
     virtual std::vector<std::string> getVideoModes();
 
 	virtual std::vector<std::string> getAvailableStorageDevices();

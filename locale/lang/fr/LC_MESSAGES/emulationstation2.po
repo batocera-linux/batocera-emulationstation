@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -382,7 +382,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "PAR TYPE DE MATÉRIEL"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "PAR ANNÉE DE SORTIE"
 
 msgid "SORT SYSTEMS"
 msgstr "TRIER LES SYSTÈMES"
@@ -500,6 +500,12 @@ msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr "EDITER LA CONFIGURATION PADTOKEY"
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr "CRÉER UNE CONFIGURATION PADTOKEY"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
@@ -627,6 +633,12 @@ msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
 
+msgid "RESET"
+msgstr "RAZ"
+
+msgid "ADD COMBINATION KEY"
+msgstr "AJOUTER UNE COMBINAISON DE TOUCHES"
+
 msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
@@ -637,7 +649,7 @@ msgid "MISC"
 msgstr "AUTRE"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "Il n’y a pas d’éléments dans cette vue"
 
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "SUPPRESSION AJOUTÉE A LA FILE D’ATTENTE"
@@ -755,6 +767,30 @@ msgstr "RECHERCHE RÉCURSIVE DANS LE RÉPERTOIRE"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRE SUR LES IMAGES"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "CONFIGURATION DE PADTOKEY"
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "SÉLECTIONNEZ LES ACTIONS À CHANGER"
+
+msgid "SAVE"
+msgstr "SAUVEGARDER"
+
+msgid "DELETE"
+msgstr "SUPPRIMER"
+
+msgid "PLAYER 1"
+msgstr "JOUEUR 1"
+
+msgid "PLAYER 2"
+msgstr "JOUEUR 2"
+
+msgid "COMBINATIONS"
+msgstr "COMBINAISONS"
+
+msgid "SAVE CHANGES?"
+msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "UPDATING BATOCERA"
 msgstr "MISE À JOUR DE BATOCERA"
@@ -1033,6 +1069,9 @@ msgstr "SCRAPER LES FANARTS"
 msgid "SCRAPE MANUAL"
 msgstr "SCAPER LES MANUELS"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "SCRAPER LES RÉGLAGES PADTOKEY"
+
 msgid "USERNAME"
 msgstr "NOM D'UTILISATEUR"
 
@@ -1049,7 +1088,7 @@ msgid "UI MODE IS NOW UNLOCKED"
 msgstr "LE MODE D’AFFICHAGE EST MAINTENANT DÉVERROUILLÉ"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "VEUILLEZ ENTRER LE CODE POUR DÉVERROUILLER LE MODE D’AFFICHAGE"
+msgstr "VEUILLEZ ENTRER LE CODE DE DÉVERROUILLAGE"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -1105,6 +1144,9 @@ msgstr "FORMATER UN DISQUE"
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
 
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr "VÉRIFIER LES BIOS AVANT DE LANCER UN JEU"
+
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
 
@@ -1145,10 +1187,10 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOCONFIGURATION EMULATEURS/MANETTES"
+msgstr "AUTOCONFIGURATION ÉMULATEURS/MANETTES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "AFFICHER L’INDICATEUR RÉSEAU"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMISATIONS"
@@ -1209,10 +1251,10 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"Vous allez basculer dans un mode restreint :\n"
-"Cela va masquer la plupart des options pour éviter des changements de "
-"configuration.\n"
-"Pour revenir au mode normal, entrez le code suivant :"
+"Vous allez restreindre le mode d’affichage :\n"
+"Cela va masquer la plupart des options de menus afin d’éviter des "
+"changements système.\n"
+"Pour déverrouiller le mode d’affichage, entrez le code suivant :"
 
 msgid "Do you want to proceed ?"
 msgstr "Voulez-vous continuer ?"
@@ -1239,7 +1281,7 @@ msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LES MODIFICATIONS"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
@@ -1560,7 +1602,7 @@ msgid "NOT CONNECTED"
 msgstr "DÉCONNECTÉ"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "STATUT INTERNET"
 
 msgid "HOSTNAME"
 msgstr "NOM SUR LE RÉSEAU"
@@ -1667,19 +1709,10 @@ msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
-msgid "SAVE"
-msgstr "SAUVEGARDER"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
-
-msgid "DELETE"
-msgstr "SUPPRIMER"
-
-msgid "SAVE CHANGES?"
-msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
@@ -1689,16 +1722,16 @@ msgstr ""
 "ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉAFFICHAGE DE TOUS DÈS MAINTENANT"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "RECHERCHE RAPIDE"
 
 msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "ALLER À LA LETTRE"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "COLLECTIONS"
 
 msgid "GO TO MANUFACTURER"
 msgstr "ALLER AU CONSTRUCTEUR"
@@ -1707,7 +1740,7 @@ msgid "GO TO HARDWARE"
 msgstr "ALLER AU MATÉRIEL"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "ALLER À LA DÉCENNIE"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1738,6 +1771,22 @@ msgstr "ALÉATOIRE"
 
 msgid "FILES"
 msgstr "FICHIERS"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+"ATTENTION : LE FORMAT DE FICHIER DE CE JEU N’EST PAS SUPPORTÉ PAR "
+"L’ÉMULATEUR/COEUR.\n"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+"ATTENTION : LE SYSTÈME A UN BIOS MANQUANT ET LE JEU PEUT NE PAS FONCTIONNER "
+"CORRECTEMENT.\n"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
 msgid "Preloading UI"
 msgstr "Préchargement de l'interface"
@@ -1928,10 +1977,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
 
 msgid "ALT GR"
-msgstr ""
-
-msgid "RESET"
-msgstr "RAZ"
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "MAJ"
@@ -2096,12 +2142,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "STATUS"
-#~ msgstr "STATUT"
-
-#~ msgid "DELETE A CHAR"
-#~ msgstr "SUPPRIMER UN CARACTÈRE"
-
-#~ msgid "ALLOW SPECTATOR MODE"
-#~ msgstr "AUTORISER LE MODE SPECTATEUR"

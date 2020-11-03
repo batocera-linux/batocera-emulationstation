@@ -430,8 +430,6 @@ int main(int argc, char* argv[])
 	if(!parseArgs(argc, argv))
 		return 0;
 
-	// auto vec = ApiSystem::getInstance()->extractPdfImages("h://Addams Family, The-manual.pdf");
-
 	// only show the console on Windows if HideConsole is false
 #ifdef WIN32
 	// MSVC has a "SubSystem" option, with two primary options: "WINDOWS" and "CONSOLE".

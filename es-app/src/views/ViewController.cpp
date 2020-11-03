@@ -23,6 +23,7 @@
 #include "CollectionSystemManager.h"
 #include "guis/GuiImageViewer.h"
 #include "ApiSystem.h"
+#include "guis/GuiMsgBox.h"
 
 #ifdef _ENABLEEMUELEC
 #include "ApiSystem.h"
@@ -333,8 +334,49 @@ bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
 	return false;
 }
 
-void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center)
+bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center)
+{	
+	if (!game->isExtensionCompatible())
+	{
+		auto gui = new GuiMsgBox(mWindow, _("WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\nDO YOU WANT TO LAUNCH IT ANYWAY ?"),
+			_("YES"), [this, game, options, center] { launch(game, options, center, false); },
+			_("NO"), nullptr, ICON_ERROR);
+
+		mWindow->pushGui(gui);
+		return false;
+	}
+
+	if (Settings::getInstance()->getBool("CheckBiosesAtLaunch") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
+	{
+		auto bios = ApiSystem::getInstance()->getBiosInformations(game->getSourceFileData()->getSystem()->getName());
+		if (bios.size() != 0)
+		{
+			auto systemName = game->getSystem()->getName();
+			auto it = std::find_if(bios.cbegin(), bios.cend(), [&systemName](const BiosSystem& x) { return x.name == systemName; });
+			if (it != bios.cend() && it->bios.size() > 0)
+			{
+				bool hasMissing = std::find_if(it->bios.cbegin(), it->bios.cend(), [&systemName](const BiosFile& x) { return x.status == "MISSING"; }) != it->bios.cend();
+				if (hasMissing)
+				{
+					auto gui = new GuiMsgBox(mWindow, _("WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY ?"),
+						_("YES"), [this, game, options, center] { launch(game, options, center, false); },
+						_("NO"), nullptr, ICON_ERROR);
+
+					mWindow->pushGui(gui);
+					return false;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
+void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, bool allowCheckLaunchOptions)
 {
+	if (allowCheckLaunchOptions && !checkLaunchOptions(game, options, center))
+		return;
+
 	if(game->getType() != GAME)
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";

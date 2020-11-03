@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -509,6 +509,12 @@ msgstr "خيارات النظام المتقدمة"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "خيارات اللعبة المتقدمة"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "تعديل مجلد البيانات الوصفية"
 
@@ -634,6 +640,12 @@ msgstr "لم يتم إيجاد أجهزة بلوتوث"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "تم حذف روابط وحدات التحكم"
+
+msgid "RESET"
+msgstr "إعادة تعيين"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr "محمل المحتوى"
@@ -763,6 +775,30 @@ msgstr "دليل الصور المخصصة المكررة"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "فرز الصور المخصصة"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "حفظ"
+
+msgid "DELETE"
+msgstr "حذف"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "حفظ التغييرات؟"
 
 msgid "UPDATING BATOCERA"
 msgstr "تحديث باتوسيرا"
@@ -1049,6 +1085,9 @@ msgstr "كشط غلاف الجماهير"
 msgid "SCRAPE MANUAL"
 msgstr "الكشط اليدوي"
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "اسم المستخدم"
 
@@ -1119,6 +1158,9 @@ msgid "FORMAT A DISK"
 msgstr "تهيئة القرص"
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1683,21 +1725,12 @@ msgstr "هل انت متأكد بالقيام بتهيئة هذا القرص؟"
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات الوصفية"
 
-msgid "SAVE"
-msgstr "حفظ"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
 "هل أنت متأكد؟"
-
-msgid "DELETE"
-msgstr "حذف"
-
-msgid "SAVE CHANGES?"
-msgstr "حفظ التغييرات؟"
 
 msgid "NO DEVICE FOUND"
 msgstr "لا يمكن العثور على جهاز"
@@ -1767,6 +1800,16 @@ msgstr "عشوائي"
 
 msgid "FILES"
 msgstr "ملفات"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "تحضير واجهة المستخدم"
@@ -1956,9 +1999,6 @@ msgstr "تبديل لـ عالي,منخفض و خاص"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "إعادة تعيين"
 
 msgid "SHIFT"
 msgstr "تبديل"

@@ -46,6 +46,8 @@ private:
 	MetaDataList* mMetaData;
 	std::function<void()> mSavedCallback;
 	std::function<void()> mDeleteFunc;
+
+	std::string mScrappedPk2;
 };
 
 #endif // ES_APP_GUIS_GUI_META_DATA_ED_H

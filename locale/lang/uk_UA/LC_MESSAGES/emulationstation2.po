@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 22:24+0100\n"
+"POT-Creation-Date: 2020-10-31 18:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -503,6 +503,12 @@ msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
 
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
 msgid "EDIT FOLDER METADATA"
 msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
 
@@ -628,6 +634,12 @@ msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
 
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
+
+msgid "RESET"
+msgstr "СКИДАННЯ"
+
+msgid "ADD COMBINATION KEY"
+msgstr ""
 
 msgid "CONTENT DOWNLOADER"
 msgstr ""
@@ -757,6 +769,30 @@ msgstr "ПАПКА КОРИС. ЗОБРАЖЕНЬ РЕКУРСИВНО"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "ФІЛЬТР КОРИС. ЗОБР."
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr ""
+
+msgid "SAVE"
+msgstr "ЗБЕРЕГТИ"
+
+msgid "DELETE"
+msgstr "ВИДАЛИТИ"
+
+msgid "PLAYER 1"
+msgstr ""
+
+msgid "PLAYER 2"
+msgstr ""
+
+msgid "COMBINATIONS"
+msgstr ""
+
+msgid "SAVE CHANGES?"
+msgstr "ЗБЕРЕГТИ ЗМІНИ?"
 
 msgid "UPDATING BATOCERA"
 msgstr "ОНОВЛЕННЯ BATOCERA"
@@ -1037,6 +1073,9 @@ msgstr ""
 msgid "SCRAPE MANUAL"
 msgstr ""
 
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
 msgid "USERNAME"
 msgstr "ІМ'Я КОРИСТУВАЧА"
 
@@ -1107,6 +1146,9 @@ msgid "FORMAT A DISK"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1669,21 +1711,12 @@ msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ ВІДФОРМАТУВАТИ П
 msgid "EDIT METADATA"
 msgstr "РЕДАГУВАТИ МЕТАДАННІ"
 
-msgid "SAVE"
-msgstr "ЗБЕРЕГТИ"
-
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
 "ВИДАЛЕННЯ ФАЙЛІВ ГРИ!\n"
 "ВИ ВПЕВНЕНІ?"
-
-msgid "DELETE"
-msgstr "ВИДАЛИТИ"
-
-msgid "SAVE CHANGES?"
-msgstr "ЗБЕРЕГТИ ЗМІНИ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
@@ -1744,6 +1777,16 @@ msgstr "ВИПАДКОВО"
 
 msgid "FILES"
 msgstr "ФАЙЛИ"
+
+msgid ""
+"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
+
+msgid ""
+"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+msgstr ""
 
 msgid "Preloading UI"
 msgstr "Предзавантаження інтерфейсу"
@@ -1933,9 +1976,6 @@ msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
 
 msgid "ALT GR"
 msgstr ""
-
-msgid "RESET"
-msgstr "СКИДАННЯ"
 
 msgid "SHIFT"
 msgstr "SHIFT"

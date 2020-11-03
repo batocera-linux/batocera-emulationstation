@@ -103,9 +103,13 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 #define fake_gettext_start _("START")
 #define fake_gettext_select _("SELECT")
 #define fake_gettext_left_a_up _("LEFT ANALOG UP")
+#define fake_gettext_left_a_down _("LEFT ANALOG DOWN")
 #define fake_gettext_left_a_left _("LEFT ANALOG LEFT")
+#define fake_gettext_left_a_right _("LEFT ANALOG RIGHT")
 #define fake_gettext_right_a_up _("RIGHT ANALOG UP")
+#define fake_gettext_right_a_down _("RIGHT ANALOG DOWN")
 #define fake_gettext_right_a_left _("RIGHT ANALOG LEFT")
+#define fake_gettext_right_a_right _("RIGHT ANALOG RIGHT")
 #define fake_gettext_hotkey _("HOTKEY")
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
