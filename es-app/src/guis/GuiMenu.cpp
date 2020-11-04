@@ -1067,15 +1067,10 @@ void GuiMenu::openSystemSettings_batocera()
 			kodiAtStart->setState(SystemConf::getInstance()->getBool("kodi.atstartup"));
 			kodiGui->addWithLabel(_("KODI AT START"), kodiAtStart);
 
-			auto kodiX = std::make_shared<SwitchComponent>(mWindow);
-			kodiX->setState(SystemConf::getInstance()->getBool("kodi.xbutton"));
-			kodiGui->addWithLabel(_("START KODI WITH X"), kodiX);
-
-			kodiGui->addSaveFunc([kodiEnabled, kodiAtStart, kodiX] 
+			kodiGui->addSaveFunc([kodiEnabled, kodiAtStart]
 			{
 				SystemConf::getInstance()->setBool("kodi.enabled", kodiEnabled->getState());
-				SystemConf::getInstance()->setBool("kodi.atstartup", kodiAtStart->getState());
-				SystemConf::getInstance()->setBool("kodi.xbutton", kodiX->getState());				
+				SystemConf::getInstance()->setBool("kodi.atstartup", kodiAtStart->getState());		
 			});
 
 			mWindow->pushGui(kodiGui);
@@ -3100,7 +3095,11 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(BATOCERA_MANUAL_FILE))
 		{
+#if defined(WIN32)
+			s->addEntry(_("VIEW USER'S MANUAL"), false, [s, window]
+#else
 			s->addEntry(_("VIEW BATOCERA MANUAL"), false, [s, window]
+#endif
 			{
 				GuiImageViewer::showPdf(window, BATOCERA_MANUAL_FILE);
 				delete s;

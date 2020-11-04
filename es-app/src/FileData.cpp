@@ -1101,18 +1101,26 @@ bool FileData::hasKeyboardMapping()
 
 KeyMappingFile FileData::getKeyboardMapping()
 {
+	KeyMappingFile ret;
 	auto path = getKeyboardMappingFilePath();
 
+	// If pk2.cfg file but no .keys file, then convert & load
 	if (!Utils::FileSystem::exists(path) && hasP2kFile())
 	{
 		convertP2kFile();
 
-		KeyMappingFile ret = KeyMappingFile::load(path);
+		ret = KeyMappingFile::load(path);
 		Utils::FileSystem::removeFile(path);
 		return ret;
 	}
+		
+	if (Utils::FileSystem::exists(path))
+		ret = KeyMappingFile::load(path);
+	else
+		ret = getSystem()->getKeyboardMapping(); // if .keys file does not exist, take system config as predefined mapping
 
-	return KeyMappingFile::load(path);
+	ret.path = path;
+	return ret;
 }
 
 bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
@@ -1120,7 +1128,6 @@ bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
 	auto system = getSourceFileData()->getSystem();
 	return system->isFeatureSupported(getEmulator(), getCore(), feature);
 }
-
 
 bool FileData::isExtensionCompatible()
 {

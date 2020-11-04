@@ -375,6 +375,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
 		{ "systemInfoDelay", FLOAT },	
+		{ "systemInfoCountOnly", BOOLEAN },		
 		{ "defaultTransition", STRING },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },

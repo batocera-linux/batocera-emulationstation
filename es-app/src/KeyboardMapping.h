@@ -68,7 +68,7 @@ public:
 
 private:
 	static std::string joinStrings(const std::set<std::string>& items);
-	void clearAnalogJoysticksMappings(int player);
+	void clearAnalogJoysticksMappings(int player, const std::string& trigger);
 };
 
 class IKeyboardMapContainer

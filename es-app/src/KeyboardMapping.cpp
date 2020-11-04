@@ -397,6 +397,9 @@ void KeyMappingFile::save(const std::string& fileName)
 	
 	std::string data = s.GetString();
 
+	if (!Utils::FileSystem::isDirectory(Utils::FileSystem::getParent(path)))
+		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(path));
+
 	if (fileName.empty())
 	{
 		if (!path.empty())
@@ -603,7 +606,7 @@ std::string KeyMappingFile::getMouseMapping(int player)
 	return "";
 }
 
-void KeyMappingFile::clearAnalogJoysticksMappings(int player)
+void KeyMappingFile::clearAnalogJoysticksMappings(int player, const std::string& trigger)
 {
 	if (player >= players.size())
 		return;
@@ -614,14 +617,20 @@ void KeyMappingFile::clearAnalogJoysticksMappings(int player)
 	{
 		if (it->type == "key")
 		{
-			it->triggers.erase("joystick1up");
-			it->triggers.erase("joystick1left");
-			it->triggers.erase("joystick1down");
-			it->triggers.erase("joystick1right");
-			it->triggers.erase("joystick2up");
-			it->triggers.erase("joystick2left");
-			it->triggers.erase("joystick2down");
-			it->triggers.erase("joystick2right");
+			if (trigger == "joystick2")
+			{
+				it->triggers.erase("joystick2up");
+				it->triggers.erase("joystick2left");
+				it->triggers.erase("joystick2down");
+				it->triggers.erase("joystick2right");
+			}
+			else
+			{
+				it->triggers.erase("joystick1up");
+				it->triggers.erase("joystick1left");
+				it->triggers.erase("joystick1down");
+				it->triggers.erase("joystick1right");
+			}
 
 			if (it->triggers.size() == 0)
 			{
@@ -655,7 +664,7 @@ bool KeyMappingFile::setMouseMapping(int player, const std::string& trigger)
 			it->triggers.insert(trigger);
 			it->targets.clear();
 
-			clearAnalogJoysticksMappings(player);
+			clearAnalogJoysticksMappings(player, trigger);
 
 			return true;
 		}
@@ -669,7 +678,7 @@ bool KeyMappingFile::setMouseMapping(int player, const std::string& trigger)
 	km.type = "mouse";
 	pm.mappings.push_back(km);
 
-	clearAnalogJoysticksMappings(player);
+	clearAnalogJoysticksMappings(player, trigger);
 
 	return true;
 }
