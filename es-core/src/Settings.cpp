@@ -282,7 +282,6 @@ void Settings::setDefaults()
 	mBoolMap["global.netplay"] = false;
 	mBoolMap["kodi.enabled"] = false;
 	mBoolMap["kodi.atstartup"] = false;
-	mBoolMap["kodi.xbutton"] = false;	
 	mBoolMap["wifi.enabled"] = false;
 #endif
 

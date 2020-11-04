@@ -212,7 +212,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 
 	for (auto mappingName : mappingNames)
 	{
-		if (!mouseMapping.empty() && Utils::String::startsWith(mappingName.name, "joystick"))
+		if (!mouseMapping.empty() && Utils::String::startsWith(mappingName.name, mouseMapping))
 			continue;
 
 		ComponentListRow row;

@@ -45,6 +45,7 @@ struct SystemViewCarousel
 	Vector2f logoPos;
 	float zIndex;
 	float systemInfoDelay;
+	bool  systemInfoCountOnly;
 
 	std::string		defaultTransition;
 	std::string		scrollSound;
@@ -113,8 +114,7 @@ private:
 	float mExtrasFadeMove;
 	int	  mExtrasFadeOldCursor;
 
-	bool mViewNeedsReload;	
-	bool launchKodi;
+	bool mViewNeedsReload;		
 
 	bool mDisable;
 	bool mScreensaverActive;

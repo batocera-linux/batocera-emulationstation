@@ -1610,7 +1610,7 @@ SystemData* SystemData::getSystem(const std::string name)
 std::string SystemData::getKeyboardMappingFilePath()
 {		
 #if WIN32
-	return Utils::FileSystem::getEsConfigPath() + "/" + getName() + ".keys";
+	return Utils::FileSystem::getEsConfigPath() + "/padtokey/" + getName() + ".keys";
 #else	
 	return "/userdata/system/config/evmapy/" + getName() + ".keys";
 #endif
@@ -1626,5 +1626,15 @@ bool SystemData::hasKeyboardMapping()
 
 KeyMappingFile SystemData::getKeyboardMapping()
 {
-	return KeyMappingFile::load(getKeyboardMappingFilePath());
+	KeyMappingFile ret;
+
+	if (Utils::FileSystem::exists(getKeyboardMappingFilePath()))
+		ret = KeyMappingFile::load(getKeyboardMappingFilePath());
+#if !WIN32
+	else if (Utils::FileSystem::exists("/usr/share/evmapy/" + getName() + ".keys")) // Load existing predefined settings
+		ret = KeyMappingFile::load("/usr/share/evmapy/" + getName() + ".keys");
+#endif
+
+	ret.path = getKeyboardMappingFilePath();
+	return ret;
 }
