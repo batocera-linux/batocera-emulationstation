@@ -6,6 +6,7 @@
 #include <rapidjson/pointer.h>
 #include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
+#include <algorithm>
 
 std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 {
@@ -37,7 +38,7 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 	{ "KEY_LEFTBRACE", "s04", "[" },
 	{ "KEY_RIGHTBRACE", "s05", "]" },
 	{ "KEY_ENTER" },
-	{ "KEY_LEFTCTL" },
+	{ "KEY_LEFTCTRL" },
 	{ "KEY_A" },
 	{ "KEY_S" },
 	{ "KEY_D" },
@@ -112,6 +113,9 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 	{ "KEY_PRINT" },
 	{ "KEY_MENU" },
 
+	{ "KEY_LEFTMETA" },
+	{ "KEY_RIGHTMETA" },
+
 	{ "BTN_LEFT" },
 	{ "BTN_RIGHT" },
 	{ "BTN_MIDDLE" },
@@ -147,6 +151,13 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::triggerNames =
 	{ "joystick1right", "j1right" },
 	{ "joystick2down", "j2down" },
 	{ "joystick2right", "j2right" }
+};
+
+
+std::vector<std::string> targetOrders =
+{
+	"KEY_LEFTCTRL", "KEY_LEFTMETA", "KEY_LEFTSHIFT", "KEY_LEFTALT",
+	"KEY_RIGHTCTRL", "KEY_RIGHTMETA", "KEY_RIGHTSHIFT", "KEY_RIGHTALT", 
 };
 
 KeyMappingFile::KeyName::KeyName(const std::string& k, const std::string& p2k, const std::string& p2kAlt)
@@ -373,8 +384,14 @@ void KeyMappingFile::save(const std::string& fileName)
 				else
 				{
 					writer.StartArray();
+
+					for (auto modifier : targetOrders)
+						if (mapping.targets.find(modifier) != mapping.targets.cend())
+							writer.String(modifier.c_str());
+
 					for (auto v : mapping.targets)
-						writer.String(v.c_str());
+						if (std::find(targetOrders.cbegin(), targetOrders.cend(), v) == targetOrders.cend())
+							writer.String(v.c_str());
 
 					writer.EndArray();
 				}
@@ -518,11 +535,34 @@ bool KeyMappingFile::KeyMapping::triggerEquals(const std::string& names)
 std::string KeyMappingFile::KeyMapping::toTargetString()
 {
 	std::string data;
+	
+	for (auto modifier : targetOrders)
+	{
+		if (targets.find(modifier) == targets.cend())
+			continue;
 
+		if (!data.empty())
+			data += "+";
+
+		auto pos = modifier.find("KEY_LEFT");
+		if (pos != std::string::npos)
+		{
+			data += modifier.substr(pos + 8);
+			continue;
+		}
+
+		pos = modifier.find("KEY_");
+		if (pos != std::string::npos)
+			data += modifier.substr(pos + 4);
+	}
+	
 	for (auto target : targets)
 	{
+		if (std::find(targetOrders.cbegin(), targetOrders.cend(), target) != targetOrders.cend())
+			continue;
+
 		if (!data.empty())
-			data += " + ";
+			data += "+";
 
 		auto pos = target.find("KEY_");
 		if (pos != std::string::npos)
