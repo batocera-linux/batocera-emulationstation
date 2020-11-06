@@ -1390,41 +1390,17 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 {
 	GuiSettings* guiLatency = new GuiSettings(mWindow, _("LATENCY REDUCTION").c_str());
 
-	auto runaheadValue = SystemConf::getInstance()->get(configName + ".runahead");
-
 	// run-ahead
 	auto runahead_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD FRAMES"));
-	runahead_enabled->add(_("AUTO"), "auto", runaheadValue < "1");
-	runahead_enabled->add("1", "1", runaheadValue == "1");
-	runahead_enabled->add("2", "2", runaheadValue == "2");
-	runahead_enabled->add("3", "3", runaheadValue == "3");
-	runahead_enabled->add("4", "4", runaheadValue == "4");
-	runahead_enabled->add("5", "5", runaheadValue == "5");
-	runahead_enabled->add("6", "6", runaheadValue == "6");
-
-	if (!runahead_enabled->hasSelection())
-		runahead_enabled->selectFirstItem();
-
+	runahead_enabled->addRange({ { _("AUTO"), "" }, { _("NONE"), "0" }, { "1", "1" }, { "2", "2" }, { "3", "3" }, { "4", "4" }, { "5", "5" }, { "6", "6" } }, SystemConf::getInstance()->get(configName + ".runahead"));
 	guiLatency->addWithLabel(_("USE RUN-AHEAD FRAMES"), runahead_enabled);
+	guiLatency->addSaveFunc([configName, runahead_enabled] { SystemConf::getInstance()->set(configName + ".runahead", runahead_enabled->getSelected()); });
 
 	// second instance
-	auto secondinstanceValue = SystemConf::getInstance()->get(configName + ".secondinstance");
-
-	auto secondinstance_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD USE SECOND INSTANCE"));
-	secondinstance_enabled->add(_("AUTO"), "auto", secondinstanceValue != "0" && secondinstanceValue != "1");
-	secondinstance_enabled->add(_("ON"), "1", secondinstanceValue == "1");
-	secondinstance_enabled->add(_("OFF"), "0", secondinstanceValue == "0");
-
-	if (!secondinstance_enabled->hasSelection())
-		secondinstance_enabled->selectFirstItem();
-
-	guiLatency->addWithLabel(_("RUN-AHEAD USE SECOND INSTANCE"), secondinstance_enabled);
-
-	guiLatency->addSaveFunc([configName, runahead_enabled, secondinstance_enabled]
-	{
-		SystemConf::getInstance()->set(configName + ".runahead", runahead_enabled->getSelected());
-		SystemConf::getInstance()->set(configName + ".secondinstance", secondinstance_enabled->getSelected());
-	});
+	auto secondinstance = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RUN-AHEAD USE SECOND INSTANCE"));
+	secondinstance->addRange({ { _("AUTO"), "" }, { _("ON"), "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".secondinstance"));
+	guiLatency->addWithLabel(_("RUN-AHEAD USE SECOND INSTANCE"), secondinstance);
+	guiLatency->addSaveFunc([configName, secondinstance] { SystemConf::getInstance()->set(configName + ".secondinstance", secondinstance->getSelected()); });
 	
 	mWindow->pushGui(guiLatency);
 }
@@ -3074,7 +3050,11 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 
 		// Don't like one of the songs? Press next
 		if (AudioManager::getInstance()->isSongPlaying())
-			s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + AudioManager::getInstance()->getSongName(), nullptr, [window] { AudioManager::getInstance()->playRandomMusic(false); }, "iconSound");
+		{
+			auto sname = AudioManager::getInstance()->getSongName();
+			if (!sname.empty())
+				s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + sname, nullptr, [window] { AudioManager::getInstance()->playRandomMusic(false); }, "iconSound");
+		}
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 		{
