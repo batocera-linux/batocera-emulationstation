@@ -22,6 +22,7 @@ void ControllerActivityComponent::init()
 {
 	mBatteryFont = nullptr;
 	mBatteryText = nullptr;
+	mBatteryTextX = -999;
 
 	mView = CONTROLLERS;
 	
@@ -248,9 +249,12 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 		if (mBatteryFont != nullptr)
 		{
-			if (mBatteryText == nullptr)
+			if (mBatteryText == nullptr || mBatteryTextX != x)
+			{
+				mBatteryTextX = x;
 				mBatteryText = std::unique_ptr<TextCache>(mBatteryFont->buildTextCache(batteryText, Vector2f(x, batteryTextOffset), mColorShift, mSize.x(), Alignment::ALIGN_LEFT, 1.0f));
-						
+			}
+
 			mBatteryFont->renderTextCache(mBatteryText.get());
 		}
 	}

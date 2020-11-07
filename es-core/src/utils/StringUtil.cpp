@@ -531,7 +531,7 @@ namespace Utils
 			return output;
 		}
 
-		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator)
+		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator, bool removeEmptyEntries)
 		{
 			std::vector<std::string> output;
 
@@ -541,7 +541,9 @@ namespace Utils
 			char* pch = strtok(str, seperator.c_str());
 			while (pch != NULL)
 			{
-				output.push_back(pch);
+				if (!removeEmptyEntries || pch[0] != 0)
+					output.push_back(pch);
+
 				pch = strtok(NULL, seperator.c_str());
 			}
 

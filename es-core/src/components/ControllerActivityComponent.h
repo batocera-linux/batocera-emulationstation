@@ -81,6 +81,7 @@ protected:
 protected:
 	// Battery info
 	int mBatteryCheckTime;
+	int mBatteryTextX;
 
 	BatteryInformation mBatteryInfo;
 

@@ -29,7 +29,7 @@ namespace Utils
 		std::string  scramble           (const std::string& _input, const std::string& key);
 
 		std::vector<std::string> split  (const std::string& s, char seperator, bool removeEmptyEntries = false);
-		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator);
+		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator, bool removeEmptyEntries = false);
 		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter);
 
 		std::string join(const std::vector<std::string>& items, std::string separator);

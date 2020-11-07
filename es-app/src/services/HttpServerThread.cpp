@@ -198,13 +198,17 @@ void HttpServerThread::run()
 			return;
 		}
 	
-		if (deleteSystem)
-		{			
-			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
-				if (fileMap.find(file->getPath()) != fileMap.cend())
-					file->getMetadata().setDirty();
+		for (auto file : fileList)
+			file->getMetadata().setDirty();
 
-			updateGamelist(system);
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+			if (fileMap.find(file->getPath()) != fileMap.cend())
+				file->getMetadata().setDirty();
+
+		updateGamelist(system);
+
+		if (deleteSystem)
+		{		
 			delete system;
 
 			res.set_content("201 Game added. System not updated", "text/html");
@@ -214,10 +218,6 @@ void HttpServerThread::run()
 		}
 		else
 		{
-			for (auto file : fileList)
-				if (file->getMetadata().wasChanged())
-					saveToGamelistRecovery(file);
-
 			mWindow->postToUiThread([system](Window* w)
 			{
 				ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
