@@ -269,8 +269,6 @@ void HttpServerThread::run()
 			if (Utils::FileSystem::exists(filePath))
 				Utils::FileSystem::removeFile(filePath);
 
-			file->getParent()->removeChild(file);						
-
 			for (auto sys : SystemData::sSystemVector)
 			{
 				if (!sys->isCollection())
@@ -279,18 +277,19 @@ void HttpServerThread::run()
 				auto copy = sys->getRootFolder()->FindByPath(filePath);
 				if (copy != nullptr)
 				{
-					copy->getParent()->removeChild(file);
+					sys->getRootFolder()->removeFromVirtualFolders(file);
 					systems.push_back(sys);
 				}
 			}
 
+			system->getRootFolder()->removeFromVirtualFolders(file);
 			// delete file; intentionnal mem leak
 		}
 
 		mWindow->postToUiThread([systems](Window* w)
 		{
 			for (auto changedSystem : systems)
-				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
+				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
 		});
 
 		res.set_content("OK", "text/html");
