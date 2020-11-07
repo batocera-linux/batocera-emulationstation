@@ -351,8 +351,13 @@ void updateGamelist(SystemData* system)
 	std::vector<FileData*> dirtyFiles;
 	std::vector<FileData*> files = rootFolder->getFilesRecursive(GAME | FOLDER);
 	for (auto file : files)
-		if (file->getMetadata().wasChanged())
+	{
+		if (file->getType() == FOLDER && ((FolderData*)file)->isVirtualStorage())
+			continue;
+
+		if (file->getSystem() == system && file->getMetadata().wasChanged())
 			dirtyFiles.push_back(file);
+	}
 
 	if (dirtyFiles.size() == 0)
 	{
