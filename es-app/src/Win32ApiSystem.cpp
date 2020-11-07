@@ -1070,6 +1070,21 @@ std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
 		systemConf.close();
 	}
 
+	if (Utils::String::startsWith(variable, "system."))
+	{
+		auto name = variable.substr(7);
+
+		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../system/" + name);
+		if (Utils::FileSystem::isDirectory(dir))
+			return dir;
+	}
+	else
+	{
+		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../" + variable);
+		if (Utils::FileSystem::isDirectory(dir))
+			return dir;
+	}
+
 	return "";
 }
 

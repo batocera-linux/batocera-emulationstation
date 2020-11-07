@@ -421,11 +421,14 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	LOG(LogInfo) << "	" << command;
 
-	convertP2kFile();
+	auto p2kConv = convertP2kFile();
 
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
+
+	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
+		Utils::FileSystem::removeFile(p2kConv);
 
 	Scripting::fireEvent("game-end");
 	
@@ -1069,26 +1072,29 @@ void FileData::importP2k(const std::string& p2k)
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
 		Utils::FileSystem::removeFile(keysPath);
-
-	convertP2kFile();	
 }
 
-void FileData::convertP2kFile()
+std::string FileData::convertP2kFile()
 {
 	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
 	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
 		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
 
 	if (!Utils::FileSystem::exists(p2kPath))
-		return;
+		return "";
 
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
-		return;
+		return "";
 
 	auto map = KeyMappingFile::fromP2k(p2kPath);
 	if (map.isValid())
+	{
 		map.save(keysPath);
+		return keysPath;
+	}
+
+	return "";
 }
 
 bool FileData::hasKeyboardMapping()

@@ -49,7 +49,7 @@ protected:
 
 protected:
 	Vector2f	getTextureSize(std::shared_ptr<TextureResource> texture);
-	int			renderTexture(float x, std::shared_ptr<TextureResource> texture, unsigned int color);
+	int			renderTexture(float x, float w, std::shared_ptr<TextureResource> texture, unsigned int color);
 
 	float mSpacing;
 	Alignment mHorizontalAlignment;

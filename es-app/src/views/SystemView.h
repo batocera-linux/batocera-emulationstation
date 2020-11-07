@@ -73,6 +73,8 @@ public:
 
 	void reloadTheme(SystemData* system);
 
+	SystemData* getActiveSystem();
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
