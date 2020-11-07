@@ -45,6 +45,7 @@ struct SystemViewCarousel
 	Vector2f logoPos;
 	float zIndex;
 	float systemInfoDelay;
+	bool  systemInfoCountOnly;
 
 	std::string		defaultTransition;
 	std::string		scrollSound;
@@ -71,6 +72,8 @@ public:
 	virtual HelpStyle getHelpStyle() override;
 
 	void reloadTheme(SystemData* system);
+
+	SystemData* getActiveSystem();
 
 protected:
 	void onCursorChanged(const CursorState& state) override;
@@ -113,8 +116,7 @@ private:
 	float mExtrasFadeMove;
 	int	  mExtrasFadeOldCursor;
 
-	bool mViewNeedsReload;	
-	bool launchKodi;
+	bool mViewNeedsReload;		
 
 	bool mDisable;
 	bool mScreensaverActive;

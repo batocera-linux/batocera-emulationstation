@@ -198,13 +198,17 @@ void HttpServerThread::run()
 			return;
 		}
 	
-		if (deleteSystem)
-		{			
-			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
-				if (fileMap.find(file->getPath()) != fileMap.cend())
-					file->getMetadata().setDirty();
+		for (auto file : fileList)
+			file->getMetadata().setDirty();
 
-			updateGamelist(system);
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+			if (fileMap.find(file->getPath()) != fileMap.cend())
+				file->getMetadata().setDirty();
+
+		updateGamelist(system);
+
+		if (deleteSystem)
+		{		
 			delete system;
 
 			res.set_content("201 Game added. System not updated", "text/html");
@@ -214,10 +218,6 @@ void HttpServerThread::run()
 		}
 		else
 		{
-			for (auto file : fileList)
-				if (file->getMetadata().wasChanged())
-					saveToGamelistRecovery(file);
-
 			mWindow->postToUiThread([system](Window* w)
 			{
 				ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
@@ -269,8 +269,6 @@ void HttpServerThread::run()
 			if (Utils::FileSystem::exists(filePath))
 				Utils::FileSystem::removeFile(filePath);
 
-			file->getParent()->removeChild(file);						
-
 			for (auto sys : SystemData::sSystemVector)
 			{
 				if (!sys->isCollection())
@@ -279,18 +277,19 @@ void HttpServerThread::run()
 				auto copy = sys->getRootFolder()->FindByPath(filePath);
 				if (copy != nullptr)
 				{
-					copy->getParent()->removeChild(file);
+					sys->getRootFolder()->removeFromVirtualFolders(file);
 					systems.push_back(sys);
 				}
 			}
 
+			system->getRootFolder()->removeFromVirtualFolders(file);
 			// delete file; intentionnal mem leak
 		}
 
 		mWindow->postToUiThread([systems](Window* w)
 		{
 			for (auto changedSystem : systems)
-				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
+				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
 		});
 
 		res.set_content("OK", "text/html");

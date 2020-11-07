@@ -55,6 +55,7 @@ void AudioManager::init()
 	if (mInitialized)
 		return;
 	
+	mSongNameChanged = false;
 	mMusicVolume = 0;
 	mPlayingSystemThemeSong = "none";
 
@@ -223,7 +224,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 		return;
 
 	playMusic(musics.at(randomIndex));
-	setSongName(musics.at(randomIndex));
+	playSong(musics.at(randomIndex));
 	mPlayingSystemThemeSong = "";
 }
 
@@ -296,22 +297,31 @@ constexpr unsigned int sthash(const char *s, int off = 0)
 	return !s[off] ? 5381 : (sthash(s, off+1)*33) ^ s[off];
 }
 
-// batocera
-void AudioManager::setSongName(std::string song)
+void AudioManager::setSongName(const std::string& song)
 {
+	if (song == mCurrentSong)
+		return;
+
+	mCurrentSong = song;
+	mSongNameChanged = true;
+}
+
+// batocera
+void AudioManager::playSong(const std::string& song)
+{
+	if (song == mCurrentSong)
+		return;
+
 	if (song.empty())
 	{
+		mSongNameChanged = true;
 		mCurrentSong = "";
 		return;
 	}
 
-	if (song == mCurrentSong)
-		return;
-
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(song));
 	// chiptunes mod song titles parsing
-	if (ext == ".mod" || ext == ".s3m" || ext == ".stm" || ext == ".669"
-			  || ext == ".mtm" || ext == ".far" || ext == ".xm" || ext == ".it" )
+	if (ext == ".mod" || ext == ".s3m" || ext == ".stm" || ext == ".669" || ext == ".mtm" || ext == ".far" || ext == ".xm" || ext == ".it" )
 	{
 		int title_offset;
 		int title_break;
@@ -347,7 +357,7 @@ void AudioManager::setSongName(std::string song)
 				break;
 			default:
 				LOG(LogError) << "Error AudioManager unexpected case while loading mofile " << song;
-				mCurrentSong = Utils::FileSystem::getStem(song.c_str());
+				setSongName(Utils::FileSystem::getStem(song.c_str()));				
 				return;
 		}
 
@@ -360,7 +370,7 @@ void AudioManager::setSongName(std::string song)
 				LOG(LogError) << "Error AudioManager reading " << song;
 			else  {
 				info.title[title_break] = '\0';
-				mCurrentSong = info.title;
+				setSongName(mCurrentSong);				
 				fclose(file);
 				return;
 			}
@@ -374,7 +384,7 @@ void AudioManager::setSongName(std::string song)
 	// now only mp3 will be parsed for ID3: .ogg, .wav and .flac will display file name
 	if (ext != ".mp3")
 	{
-		mCurrentSong = Utils::FileSystem::getStem(song.c_str());
+		setSongName(Utils::FileSystem::getStem(song.c_str()));
 		return;
 	}
 
@@ -399,7 +409,7 @@ void AudioManager::setSongName(std::string song)
 		else if (fread(&info, sizeof(info), 1, file) != 1)
 			LOG(LogError) << "Error AudioManager reading " << song;
 		else if (strncmp(info.tag, "TAG", 3) == 0) {
-			mCurrentSong = info.title;
+			setSongName(info.title);
 			fclose(file);
 			return;
 		}
@@ -426,14 +436,14 @@ void AudioManager::setSongName(std::string song)
 
 				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
 				{
-					mCurrentSong = title_content->data;
+					setSongName(mCurrentSong = title_content->data);
 					return;
 				}
 			}
 		}
 	}
 
-	mCurrentSong = Utils::FileSystem::getStem(song.c_str());
+	setSongName(Utils::FileSystem::getStem(song.c_str()));
 }
 
 void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force)
@@ -468,8 +478,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 		if (!bgSound.empty())
 		{
 			mPlayingSystemThemeSong = bgSound;
-			playMusic(bgSound);
-			// setSongName(bgSound); ???
+			playMusic(bgSound);			
 			return;
 		}
 	}

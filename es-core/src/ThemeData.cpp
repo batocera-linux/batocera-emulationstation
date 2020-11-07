@@ -375,6 +375,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
 		{ "systemInfoDelay", FLOAT },	
+		{ "systemInfoCountOnly", BOOLEAN },		
 		{ "defaultTransition", STRING },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
@@ -702,7 +703,7 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 
 			std::string appliesToAttr = resolvePlaceholders(node.attribute("appliesTo").as_string());
 			if (!appliesToAttr.empty())
-				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ",");
+				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ", ", true);
 
 			mSubsets.push_back(subSet);
 		}

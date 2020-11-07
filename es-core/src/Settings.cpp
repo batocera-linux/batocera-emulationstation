@@ -70,7 +70,7 @@ void Settings::setDefaults()
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
-	mStringMap["StartupSystem"] = "";
+	mStringMap["StartupSystem"] = "lastsystem";
 
 #if WIN32
 	mBoolMap["ShowOnlyExit"] = true;
@@ -304,7 +304,6 @@ void Settings::setDefaults()
 	mBoolMap["global.netplay"] = false;
 	mBoolMap["kodi.enabled"] = false;
 	mBoolMap["kodi.atstartup"] = false;
-	mBoolMap["kodi.xbutton"] = false;	
 	mBoolMap["wifi.enabled"] = false;
 #endif
 

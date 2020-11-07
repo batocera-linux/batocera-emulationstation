@@ -92,12 +92,16 @@ void GuiBatoceraStore::update(int deltaTime)
 
 	if (mReloadList != 0)
 	{
+		bool refreshPackages = mReloadList == 2;
 		bool silent = (mReloadList == 2 || mReloadList == 3);
 		bool restoreIndex = (mReloadList != 3);		
 		mReloadList = 0;
 
 		if (silent)
 		{
+			if (refreshPackages)
+				mPackages = queryPackages();
+
 			if (!restoreIndex)
 				mWindow->postToUiThread([this](Window* w) { loadList(false, false); });
 			else 
@@ -236,6 +240,18 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 	mReloadList = 0;
 }
 
+std::vector<PacmanPackage> GuiBatoceraStore::queryPackages()
+{
+	auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
+
+	for (auto& package : packages)
+		if (package.group.empty())
+			package.group = package.repository;
+
+	std::sort(packages.begin(), packages.end(), sortPackagesByGroup);
+	return packages;
+}
+
 void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
 {
 	Window* window = mWindow;
@@ -246,14 +262,7 @@ void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
 			if (updatePackageList)
 				ApiSystem::getInstance()->updateBatoceraStorePackageList();
 
-			auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
-
-			for (auto& package : packages)
-				if (package.group.empty())
-					package.group = package.repository;
-
-			std::sort(packages.begin(), packages.end(), sortPackagesByGroup);
-			return packages;
+			return queryPackages();
 		},
 		[this, updatePackageList](std::vector<PacmanPackage> packages)
 		{		

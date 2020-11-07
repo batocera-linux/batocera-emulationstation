@@ -678,6 +678,7 @@ int main(int argc, char* argv[])
 
 	ImageIO::saveImageCache();
 	MameNames::deinit();
+	ViewController::saveState();
 	CollectionSystemManager::deinit();
 	SystemData::deleteSystems();
 

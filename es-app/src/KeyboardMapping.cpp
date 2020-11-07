@@ -6,6 +6,7 @@
 #include <rapidjson/pointer.h>
 #include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
+#include <algorithm>
 
 std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 {
@@ -37,7 +38,7 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 	{ "KEY_LEFTBRACE", "s04", "[" },
 	{ "KEY_RIGHTBRACE", "s05", "]" },
 	{ "KEY_ENTER" },
-	{ "KEY_LEFTCTL" },
+	{ "KEY_LEFTCTRL" },
 	{ "KEY_A" },
 	{ "KEY_S" },
 	{ "KEY_D" },
@@ -110,7 +111,14 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::keyMap =
 	{ "KEY_DELETE" },
 	{ "KEY_PAUSE" },
 	{ "KEY_PRINT" },
-	{ "KEY_MENU" }
+	{ "KEY_MENU" },
+
+	{ "KEY_LEFTMETA" },
+	{ "KEY_RIGHTMETA" },
+
+	{ "BTN_LEFT" },
+	{ "BTN_RIGHT" },
+	{ "BTN_MIDDLE" },
 };
 
 
@@ -145,6 +153,13 @@ std::vector<KeyMappingFile::KeyName> KeyMappingFile::triggerNames =
 	{ "joystick2right", "j2right" }
 };
 
+
+std::vector<std::string> targetOrders =
+{
+	"KEY_LEFTCTRL", "KEY_LEFTMETA", "KEY_LEFTSHIFT", "KEY_LEFTALT",
+	"KEY_RIGHTCTRL", "KEY_RIGHTMETA", "KEY_RIGHTSHIFT", "KEY_RIGHTALT", 
+};
+
 KeyMappingFile::KeyName::KeyName(const std::string& k, const std::string& p2k, const std::string& p2kAlt)
 {
 	key = k;
@@ -160,8 +175,11 @@ KeyMappingFile::KeyName::KeyName(const std::string& k, const std::string& p2k, c
 	}
 }
 
-bool KeyMappingFile::checkTriggerExists(const std::string& target)
+bool KeyMappingFile::checkTriggerExists(const std::string& target, const std::string& type)
 {
+	if (type == "mouse")
+		return (target == "joystick1" || target == "joystick2");
+
 	for (auto map : triggerNames)
 		if (map.key == target)
 			return true;
@@ -236,19 +254,22 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 				if (action.HasMember("mode"))
 					map.mode = action["mode"].GetString();
 
+				if (action.HasMember("description"))
+					map.description = action["description"].GetString();
+
 				if (action.HasMember("trigger"))
 				{
 					if (action["trigger"].IsArray())
 					{
 						for (auto& target : action["trigger"].GetArray())
 						{
-							if (checkTriggerExists(target.GetString()))
+							if (checkTriggerExists(target.GetString(), map.type))
 								map.triggers.insert(target.GetString());
 						}
 					}
 					else
 					{
-						if (checkTriggerExists(action["trigger"].GetString()))
+						if (checkTriggerExists(action["trigger"].GetString(), map.type))
 							map.triggers.insert(action["trigger"].GetString());
 					}
 				}
@@ -270,7 +291,7 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 					}				
 				}
 
-				if (map.targets.size() > 0 && map.triggers.size() > 0)
+				if ((map.targets.size() > 0 || map.type == "mouse") && map.triggers.size() > 0)
 					pm.mappings.push_back(map);
 			}
 
@@ -324,7 +345,7 @@ void KeyMappingFile::save(const std::string& fileName)
 		{
 			auto mapping = player.mappings[m];
 
-			if (mapping.triggers.size() == 0 || mapping.targets.size() == 0)
+			if (mapping.triggers.size() == 0 || (mapping.targets.size() == 0 && mapping.type != "mouse"))
 				continue;
 
 			writer.StartObject();
@@ -354,17 +375,32 @@ void KeyMappingFile::save(const std::string& fileName)
 				writer.String(mapping.type.c_str());
 			}
 
-			writer.Key("target");
-
-			if (mapping.targets.size() == 1)
-				writer.String((*mapping.targets.begin()).c_str());
-			else
+			if (mapping.targets.size() > 0)
 			{
-				writer.StartArray();
-				for (auto v : mapping.targets)
-					writer.String(v.c_str());
+				writer.Key("target");
 
-				writer.EndArray();
+				if (mapping.targets.size() == 1)
+					writer.String((*mapping.targets.begin()).c_str());
+				else
+				{
+					writer.StartArray();
+
+					for (auto modifier : targetOrders)
+						if (mapping.targets.find(modifier) != mapping.targets.cend())
+							writer.String(modifier.c_str());
+
+					for (auto v : mapping.targets)
+						if (std::find(targetOrders.cbegin(), targetOrders.cend(), v) == targetOrders.cend())
+							writer.String(v.c_str());
+
+					writer.EndArray();
+				}
+			}
+
+			if (!mapping.description.empty())
+			{
+				writer.Key("description");
+				writer.String(mapping.description.c_str());
 			}
 
 			writer.EndObject();
@@ -377,6 +413,9 @@ void KeyMappingFile::save(const std::string& fileName)
 	writer.EndObject();
 	
 	std::string data = s.GetString();
+
+	if (!Utils::FileSystem::isDirectory(Utils::FileSystem::getParent(path)))
+		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(path));
 
 	if (fileName.empty())
 	{
@@ -406,16 +445,27 @@ KeyMappingFile KeyMappingFile::fromP2k(const std::string& fileName)
 			if (!Utils::String::startsWith(line, pidx))
 				continue;
 
+			std::string description;
+
 			line = line.substr(2);
 			auto comment = line.find(";");
 			if (comment != std::string::npos)
+			{
+				description = line.substr(comment + 1);
+				if (Utils::String::startsWith(description, ";")) // Descriptions need two ;;
+					description = Utils::String::trim(description.substr(1));
+				else
+					description = description = "";
+
 				line = Utils::String::trim(line.substr(0, comment));
+			}
 			
 			auto values = Utils::String::split(line, '=', true);
 			if (values.size() == 2)
 			{
 				KeyMapping map;
 				map.type = "key";
+				map.description = description;
 
 				std::string p2k = getTargetFromP2k(Utils::String::trim(Utils::String::toLower(values[1])));
 				if (p2k.empty())
@@ -485,17 +535,46 @@ bool KeyMappingFile::KeyMapping::triggerEquals(const std::string& names)
 std::string KeyMappingFile::KeyMapping::toTargetString()
 {
 	std::string data;
+	
+	for (auto modifier : targetOrders)
+	{
+		if (targets.find(modifier) == targets.cend())
+			continue;
 
+		if (!data.empty())
+			data += "+";
+
+		auto pos = modifier.find("KEY_LEFT");
+		if (pos != std::string::npos)
+		{
+			data += modifier.substr(pos + 8);
+			continue;
+		}
+
+		pos = modifier.find("KEY_");
+		if (pos != std::string::npos)
+			data += modifier.substr(pos + 4);
+	}
+	
 	for (auto target : targets)
 	{
-		if (!data.empty())
-			data += " + ";
+		if (std::find(targetOrders.cbegin(), targetOrders.cend(), target) != targetOrders.cend())
+			continue;
 
-		auto pos = target.find("_");
+		if (!data.empty())
+			data += "+";
+
+		auto pos = target.find("KEY_");
 		if (pos != std::string::npos)
-			data += target.substr(pos + 1);
-		else 
-			data += target;
+			data += target.substr(pos + 4);
+		else
+		{
+			pos = target.find("BTN_");
+			if (pos != std::string::npos)
+				data += "MOUSE " + target.substr(pos + 4);
+			else
+				data += target;
+		}
 	}
 
 	if (type != "key" && !type.empty())
@@ -552,4 +631,179 @@ bool KeyMappingFile::updateMapping(int player, const std::string& trigger, const
 	km.targets = targets;
 	pm.mappings.push_back(km);
 	return true;
+}
+
+std::string KeyMappingFile::getMouseMapping(int player)
+{
+	if (player >= players.size())
+		return "";
+
+	PlayerMapping& pm = players[player];
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->type == "mouse" && it->triggers.size() > 0)
+			return *(it->triggers.begin());
+
+	return "";
+}
+
+void KeyMappingFile::clearAnalogJoysticksMappings(int player, const std::string& trigger)
+{
+	if (player >= players.size())
+		return;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); )
+	{
+		if (it->type == "key")
+		{
+			if (trigger == "joystick2")
+			{
+				it->triggers.erase("joystick2up");
+				it->triggers.erase("joystick2left");
+				it->triggers.erase("joystick2down");
+				it->triggers.erase("joystick2right");
+			}
+			else
+			{
+				it->triggers.erase("joystick1up");
+				it->triggers.erase("joystick1left");
+				it->triggers.erase("joystick1down");
+				it->triggers.erase("joystick1right");
+			}
+
+			if (it->triggers.size() == 0)
+			{
+				pm.mappings.erase(it);
+				continue;
+			}
+		}
+
+		it++;
+	}
+}
+
+bool KeyMappingFile::setMouseMapping(int player, const std::string& trigger)
+{
+	while (player >= players.size())
+		players.push_back(PlayerMapping());
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->type == "mouse")
+		{
+			if (trigger.empty())
+			{
+				pm.mappings.erase(it);
+				return true;
+			}
+
+			it->triggers.clear();
+			it->triggers.insert(trigger);
+			it->targets.clear();
+
+			clearAnalogJoysticksMappings(player, trigger);
+
+			return true;
+		}
+	}
+
+	if (trigger.empty())
+		return false;
+
+	KeyMapping km;
+	km.triggers.insert(trigger);	
+	km.type = "mouse";
+	pm.mappings.push_back(km);
+
+	clearAnalogJoysticksMappings(player, trigger);
+
+	return true;
+}
+
+bool KeyMappingFile::removeMapping(int player, const std::string& trigger)
+{
+	if (trigger.empty())
+		return false;
+
+	if (player >= players.size())
+		return false;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->triggerEquals(trigger))
+		{
+			pm.mappings.erase(it);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+KeyMappingFile::KeyMapping KeyMappingFile::getKeyMapping(int player, const std::string& trigger)
+{
+	KeyMappingFile::KeyMapping empty;
+	if (trigger.empty())
+		return empty;
+
+	if (player >= players.size())
+		return empty;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->triggerEquals(trigger))
+			return (*it);
+
+	return empty;
+}
+
+
+
+std::string KeyMappingFile::getMappingDescription(int player, const std::string& trigger)
+{
+	if (trigger.empty())
+		return "";
+
+	if (player >= players.size())
+		return "";
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+		if (it->triggerEquals(trigger))
+			return it->description;
+
+	return "";
+}
+
+bool KeyMappingFile::updateMappingDescription(int player, const std::string& trigger, const std::string& description)
+{
+	if (trigger.empty())
+		return false;
+
+	if (player >= players.size())
+		return false;
+
+	PlayerMapping& pm = players[player];
+
+	for (auto it = pm.mappings.begin(); it != pm.mappings.end(); ++it)
+	{
+		if (it->triggerEquals(trigger))
+		{
+			if (it->description != description)
+			{
+				it->description = description;
+				return true;
+			}
+			
+		}
+	}
+
+	return false;
 }

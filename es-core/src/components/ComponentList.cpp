@@ -4,7 +4,7 @@
 
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
-ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP), mScrollbar(window)
+ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::string>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP), mScrollbar(window)
 {
 	mSelectorBarOffset = 0;
 	mCameraOffset = 0;
@@ -13,11 +13,11 @@ ComponentList::ComponentList(Window* window) : IList<ComponentListRow, void*>(wi
 	mScrollbar.loadFromMenuTheme();	
 }
 
-void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize)
+void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize, const std::string userData)
 {
-	IList<ComponentListRow, void*>::Entry e;
+	IList<ComponentListRow, std::string>::Entry e;
 	e.name = "";
-	e.object = NULL;
+	e.object = userData;
 	e.data = row;
 
 	this->add(e);

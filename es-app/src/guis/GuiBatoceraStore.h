@@ -46,6 +46,7 @@ public:
 	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
 
 private:
+	static std::vector<PacmanPackage> queryPackages();
 	void loadPackagesAsync(bool updatePackageList = false);
 	void loadList(bool updatePackageList, bool restoreIndex = true);
 	void processPackage(PacmanPackage package);

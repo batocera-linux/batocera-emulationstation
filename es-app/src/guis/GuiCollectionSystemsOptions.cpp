@@ -203,6 +203,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	auto systemfocus_list = std::make_shared< OptionListComponent<std::string> >(mWindow, _("START ON SYSTEM"), false);
 	systemfocus_list->add(_("NONE"), "", startupSystem == "");
+	systemfocus_list->add(_("RESTORE LAST SELECTED"), "lastsystem", startupSystem == "lastsystem");
 
 	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
 	{
@@ -229,7 +230,11 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	}
 
 	addWithLabel(_("START ON SYSTEM"), systemfocus_list);
-	addSaveFunc([systemfocus_list] { Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected()); });
+	addSaveFunc([systemfocus_list] 
+	{ 
+		Settings::getInstance()->setString("StartupSystem", systemfocus_list->getSelected()); 
+		Settings::getInstance()->setString("LastSystem", "");
+	});
 
 	// START ON GAMELIST
 	auto startOnGamelist = std::make_shared<SwitchComponent>(mWindow);

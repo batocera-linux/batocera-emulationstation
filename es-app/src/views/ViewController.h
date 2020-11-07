@@ -25,6 +25,8 @@ public:
 	};
 
 	static void init(Window* window);
+	static void saveState();
+
 	static ViewController* get();
 
 	virtual ~ViewController();

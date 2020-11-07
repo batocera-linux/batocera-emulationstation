@@ -37,7 +37,6 @@ static std::map<std::string, std::string> defaults =
 {
 	{ "kodi.enabled", "1" },
 	{ "kodi.atstartup", "0" },
-	{ "kodi.xbutton", "1" },
 	{ "audio.bgmusic", "1" },
 	{ "wifi.enabled", "0" },
 	{ "system.hostname", "BATOCERA" },
@@ -51,28 +50,6 @@ static std::map<std::string, std::string> defaults =
 	{ "global.ai_service_enabled", "0" },
 };
 
-/*
-kodi.enabled=1
-kodi.atstartup=0
-kodi.xbutton=1
-audio.bgmusic=1
-system.language=en_US
-controllers.bluetooth.enabled=1
-controllers.ps3.enabled=1
-controllers.ps3.driver=bluez
-controllers.xboxdrv.enabled=0
-controllers.xboxdrv.nbcontrols=2
-controllers.gpio.enabled=0
-controllers.gpio.args=map=1,2
-controllers.db9.enabled=0
-controllers.db9.args=map=1
-controllers.gamecon.enabled=0
-controllers.gamecon.args=map=1
-controllers.xarcade.enabled=1
-wifi.enabled=0
-system.hostname=BATOCERA
-global.retroachievements.*
-*/
 #ifdef _ENABLEEMUELEC
 std::string systemConfFile = "/storage/.config/emuelec/configs/emuelec.conf";
 std::string systemConfFileTmp = "/storage/.config/emuelec/configs/emuelec.conf.tmp";

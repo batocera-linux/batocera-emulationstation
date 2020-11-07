@@ -435,11 +435,14 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	LOG(LogInfo) << "	" << command;
 
-	convertP2kFile();
+	auto p2kConv = convertP2kFile();
 
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
+
+	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
+		Utils::FileSystem::removeFile(p2kConv);
 
 	Scripting::fireEvent("game-end");
 	
@@ -1080,6 +1083,15 @@ std::string FileData::getKeyboardMappingFilePath()
 	return getSourceFileData()->getPath() + ".keys";
 }
 
+bool FileData::hasP2kFile()
+{
+	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
+	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
+		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
+
+	return Utils::FileSystem::exists(p2kPath);
+}
+
 void FileData::importP2k(const std::string& p2k)
 {
 	if (p2k.empty())
@@ -1094,36 +1106,61 @@ void FileData::importP2k(const std::string& p2k)
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
 		Utils::FileSystem::removeFile(keysPath);
-
-	convertP2kFile();	
 }
 
-void FileData::convertP2kFile()
+std::string FileData::convertP2kFile()
 {
 	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
 	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
 		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
 
 	if (!Utils::FileSystem::exists(p2kPath))
-		return;
+		return "";
 
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
-		return;
+		return "";
 
 	auto map = KeyMappingFile::fromP2k(p2kPath);
 	if (map.isValid())
+	{
 		map.save(keysPath);
+		return keysPath;
+	}
+
+	return "";
 }
 
 bool FileData::hasKeyboardMapping()
 {
-	return Utils::FileSystem::exists(getKeyboardMappingFilePath());
+	if (!Utils::FileSystem::exists(getKeyboardMappingFilePath()))
+		return hasP2kFile();
+
+	return true;
 }
 
 KeyMappingFile FileData::getKeyboardMapping()
 {
-	return KeyMappingFile::load(getKeyboardMappingFilePath());
+	KeyMappingFile ret;
+	auto path = getKeyboardMappingFilePath();
+
+	// If pk2.cfg file but no .keys file, then convert & load
+	if (!Utils::FileSystem::exists(path) && hasP2kFile())
+	{
+		convertP2kFile();
+
+		ret = KeyMappingFile::load(path);
+		Utils::FileSystem::removeFile(path);
+		return ret;
+	}
+		
+	if (Utils::FileSystem::exists(path))
+		ret = KeyMappingFile::load(path);
+	else
+		ret = getSystem()->getKeyboardMapping(); // if .keys file does not exist, take system config as predefined mapping
+
+	ret.path = path;
+	return ret;
 }
 
 bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
@@ -1131,7 +1168,6 @@ bool FileData::isFeatureSupported(EmulatorFeatures::Features feature)
 	auto system = getSourceFileData()->getSystem();
 	return system->isFeatureSupported(getEmulator(), getCore(), feature);
 }
-
 
 bool FileData::isExtensionCompatible()
 {

@@ -7,12 +7,12 @@
 
 std::vector<std::vector<std::string>> kbLayout =
 {
-	{ "KEY_ESC", "", "KEY_F1", "KEY_F2", "KEY_F3", "KEY_F4", "KEY_F5", "KEY_F6", "KEY_F7", "KEY_F8", "KEY_F9", "KEY_F10", "KEY_F11", "KEY_F12", "KEY_PRINT", "KEY_SCROLLLOCK", "KEY_PAUSE", "KEY_NONE" },
-	{ "KEY_GRAVE", "KEY_1", "KEY_2", "KEY_3", "KEY_4", "KEY_5", "KEY_6", "KEY_7", "KEY_8", "KEY_9", "KEY_0", "KEY_MINUS", "KEY_EQUAL", "KEY_BACKSPACE", "KEY_INSERT", "KEY_HOME", "KEY_PAGEUP", "KEY_NUMLOCK", "KEY_KPSLASH", "KEY_KPASTERISK", "KEY_KPMINUS" },
-	{ "KEY_TAB", "KEY_Q", "KEY_W", "KEY_E", "KEY_R", "KEY_T", "KEY_Y", "KEY_U", "KEY_I", "KEY_O", "KEY_P", "KEY_LEFTBRACE", "KEY_RIGHTBRACE", "KEY_BACKSLASH", "KEY_DELETE", "KEY_END", "KEY_PAGEDOWN", "KEY_KP7", "KEY_KP8", "KEY_KP9", "KEY_KPPLUS" },
-	{ "KEY_CAPSLOCK", "KEY_A", "KEY_S", "KEY_D", "KEY_F", "KEY_G", "KEY_H", "KEY_J", "KEY_K", "KEY_L", "KEY_SEMICOLON", "KEY_APOSTROPHE", "KEY_ENTER", "", "", "", "", "KEY_KP4", "KEY_KP5", "KEY_KP6", "" },
-	{ "KEY_LEFTSHIFT", "KEY_Z", "KEY_X", "KEY_C", "KEY_V", "KEY_B", "KEY_N", "KEY_M", "KEY_COMMA", "KEY_DOT", "KEY_SLASH", "KEY_RIGHTSHIFT", "", "", "", "KEY_UP", "", "KEY_KP1", "KEY_KP2", "KEY_KP3", "KEY_KPENTER" },
-	{ "KEY_LEFTCTL", "KEY_LEFTALT", "", "KEY_SPACE", "", "", "", "", "", "", "KEY_RIGHTALT", "", "KEY_MENU", "KEY_RIGHTCTRL", "KEY_LEFT", "KEY_DOWN", "KEY_RIGHT", "KEY_KP0", "", "KEY_KPDOT", "KEY_KPENTER" }
+	{ "KEY_ESC", "",	"KEY_F1", "KEY_F2", "KEY_F3", "KEY_F4", "KEY_F5", "KEY_F6", "KEY_F7", "KEY_F8", "KEY_F9", "KEY_F10", "KEY_F11", "KEY_F12", "KEY_PRINT", "KEY_SCROLLLOCK", "KEY_PAUSE", "KEY_NONE" },
+	{ "KEY_GRAVE",		"KEY_1",			"KEY_2",		"KEY_3",	"KEY_4",	"KEY_5",	"KEY_6",	"KEY_7",	"KEY_8",		"KEY_9",		"KEY_0",			"KEY_MINUS",		"KEY_EQUAL",		"KEY_BACKSPACE",	"KEY_INSERT",	"KEY_HOME",		"KEY_PAGEUP",	"KEY_NUMLOCK",	"KEY_KPSLASH",	"KEY_KPASTERISK",	"KEY_KPMINUS" },
+	{ "KEY_TAB",		"KEY_Q",			"KEY_W",		"KEY_E",	"KEY_R",	"KEY_T",	"KEY_Y",	"KEY_U",	"KEY_I",		"KEY_O",		"KEY_P",			"KEY_LEFTBRACE",	"KEY_RIGHTBRACE",	"KEY_BACKSLASH",	"KEY_DELETE",	"KEY_END",		"KEY_PAGEDOWN",	"KEY_KP7",		"KEY_KP8",		"KEY_KP9",			"KEY_KPPLUS" },
+	{ "KEY_CAPSLOCK",	"KEY_A",			"KEY_S",		"KEY_D",	"KEY_F",	"KEY_G",	"KEY_H",	"KEY_J",	"KEY_K",		"KEY_L",		"KEY_SEMICOLON",	"KEY_APOSTROPHE",	"KEY_ENTER",		"KEY_ENTER",		"",				"",				"",				"KEY_KP4",		"KEY_KP5",		"KEY_KP6",			"KEY_KPPLUS",	"BTN_LEFT", "BTN_MIDDLE", "BTN_RIGHT" },
+	{ "KEY_LEFTSHIFT",	"KEY_Z",			"KEY_X",		"KEY_C",	"KEY_V",	"KEY_B",	"KEY_N",	"KEY_M",	"KEY_COMMA",	"KEY_DOT",		"KEY_SLASH",		"KEY_RIGHTSHIFT",	"KEY_RIGHTSHIFT",	"KEY_RIGHTSHIFT",	"",				"KEY_UP",		"",				"KEY_KP1",		"KEY_KP2",		"KEY_KP3",			"KEY_KPENTER",	"BTN_LEFT", "BTN_MIDDLE", "BTN_RIGHT" },
+	{ "KEY_LEFTCTRL",	"KEY_LEFTMETA",		"KEY_LEFTALT",	"KEY_SPACE", "KEY_SPACE","KEY_SPACE","KEY_SPACE","KEY_SPACE","KEY_SPACE",	"KEY_RIGHTALT", "KEY_RIGHTMETA",	"KEY_MENU",			"KEY_RIGHTCTRL",	"KEY_RIGHTCTRL",	"KEY_LEFT",		"KEY_DOWN",		"KEY_RIGHT",	"KEY_KP0",		"KEY_KP0",		"KEY_KPDOT",		"KEY_KPENTER",		"BTN_LEFT", "BTN_MIDDLE", "BTN_RIGHT" }
 };
 
 GuiKeyboardLayout::GuiKeyboardLayout(Window* window, const std::function<void(const std::set<std::string>&)>& okCallback, std::set<std::string>* activeKeys) : GuiComponent(window), mKeyboard(window, true, false), mImageToggle(false)
@@ -24,29 +24,27 @@ GuiKeyboardLayout::GuiKeyboardLayout(Window* window, const std::function<void(co
 	mX = 0;
 	mY = 0;
 
+	std::string sel = "KEY_ENTER";
+
 	if (activeKeys != nullptr)
 	{
 		mActiveKeys = *activeKeys;
-
 		if (mActiveKeys.size() > 0)
-		{
-			std::string sel = *mActiveKeys.begin();
+			sel = *mActiveKeys.begin();
+	}
 
-			for (int y = 0; y < kbLayout.size(); y++)
+	for (int y = 0; y < kbLayout.size(); y++)
+	{
+		for (int x = 0; x < kbLayout[y].size(); x++)
+		{
+			if (kbLayout[y][x] == sel)
 			{
-				for (int x = 0; x < kbLayout[y].size(); x++)
-				{
-					if (kbLayout[y][x] == sel)
-					{
-						mX = x;
-						mY = y;
-						break;
-					}
-				}
+				mX = x;
+				mY = y;
+				break;
 			}
 		}
 	}
-
 
 	setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
@@ -218,6 +216,7 @@ bool GuiKeyboardLayout::input(InputConfig* config, Input input)
 
 	int x = mX;
 	int y = mY;
+	auto current = kbLayout[mY][mX];
 
 	if (config->isMappedLike("left", input) && input.value != 0)
 	{
@@ -226,7 +225,7 @@ bool GuiKeyboardLayout::input(InputConfig* config, Input input)
 		else
 			x--;
 
-		while (x > 0 && kbLayout[mY][x] == "")
+		while (x > 0 && (kbLayout[y][x] == "" || kbLayout[y][x] == current))
 			x--;
 	}
 	else if (config->isMappedLike("right", input) && input.value != 0)
@@ -236,15 +235,19 @@ bool GuiKeyboardLayout::input(InputConfig* config, Input input)
 		else
 			x++;
 
-		while (x + 1 < kbLayout[mY].size() && kbLayout[mY][x] == "")
+		while (x + 1 < kbLayout[mY].size() && (kbLayout[y][x] == "" || kbLayout[y][x] == current))
 			x++;
 
-		if (x + 1 == kbLayout[mY].size() && kbLayout[mY][x] == "")
+		if (x + 1 == kbLayout[mY].size() && (kbLayout[y][x] == "" || kbLayout[y][x] == current))
 			x = 0;
 	}
 	else if (config->isMappedLike("down", input) && input.value != 0)
 	{
 		y++;
+
+		while (y < kbLayout.size() && (kbLayout[y][x] == current || kbLayout[y][x] == ""))
+			y++;
+
 		if (y >= kbLayout.size())
 			y = 0;
 		
@@ -257,6 +260,10 @@ bool GuiKeyboardLayout::input(InputConfig* config, Input input)
 	else if (config->isMappedLike("up", input) && input.value != 0)
 	{
 		y--;
+
+		while (y > 0 && (kbLayout[y][x] == current || kbLayout[y][x] == ""))
+			y--;
+
 		if (y < 0)
 			y = kbLayout.size() - 1;
 
