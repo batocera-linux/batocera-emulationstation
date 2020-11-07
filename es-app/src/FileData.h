@@ -124,7 +124,7 @@ public:
 	void checkCrc32(bool force = false);
 
 	void importP2k(const std::string& p2k);
-	void convertP2kFile();
+	std::string convertP2kFile();
 	bool hasP2kFile();
 
 	bool hasKeyboardMapping();

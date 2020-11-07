@@ -21,6 +21,10 @@
 #include <unordered_set>
 #include <algorithm>
 
+#if WIN32
+#include "Win32ApiSystem.h"
+#endif
+
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
@@ -1630,10 +1634,18 @@ KeyMappingFile SystemData::getKeyboardMapping()
 
 	if (Utils::FileSystem::exists(getKeyboardMappingFilePath()))
 		ret = KeyMappingFile::load(getKeyboardMappingFilePath());
-#if !WIN32
+#if WIN32
+	else
+	{
+		std::string win32path = Win32ApiSystem::getEmulatorLauncherPath("system.padtokey");
+		if (!win32path.empty())
+			ret = KeyMappingFile::load(win32path + "/" + getName() + ".keys");
+	}
+#else
 	else if (Utils::FileSystem::exists("/usr/share/evmapy/" + getName() + ".keys")) // Load existing predefined settings
 		ret = KeyMappingFile::load("/usr/share/evmapy/" + getName() + ".keys");
 #endif
+
 
 	ret.path = getKeyboardMappingFilePath();
 	return ret;

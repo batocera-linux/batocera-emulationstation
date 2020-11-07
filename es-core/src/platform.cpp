@@ -188,6 +188,10 @@ bool isFastShutdown()
 
 std::string queryIPAdress()
 {
+#ifdef DEVTEST
+	return "127.0.0.1";
+#endif
+
 	std::string result;
 
 #if WIN32
@@ -281,6 +285,18 @@ BatteryInformation queryBatteryInformation()
 	ret.isCharging = false;
 	ret.level = 0;
 
+#ifdef DEVTEST
+	ret.hasBattery = true;
+	ret.isCharging = true;
+	ret.level = 33;
+
+	time_t     clockNow = time(0);
+	struct tm  clockTstruct = *localtime(&clockNow);
+	ret.level = clockTstruct.tm_min;
+
+	return ret;
+#endif
+
 #ifdef WIN32
 	SYSTEM_POWER_STATUS systemPowerStatus;
 	if (GetSystemPowerStatus(&systemPowerStatus))
@@ -296,13 +312,6 @@ BatteryInformation queryBatteryInformation()
 	}
 	else
 		ret.hasBattery = false;
-
-
-#ifdef DEVTEST
-	ret.hasBattery = true;
-	ret.isCharging = false;
-	ret.level = 33;
-#endif
 
 	return ret;
 

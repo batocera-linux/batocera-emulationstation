@@ -1594,3 +1594,11 @@ void SystemView::activateExtras(int cursor, bool activate)
 	if (activate)
 		preloadExtraNeighbours(cursor);
 }
+
+SystemData* SystemView::getActiveSystem()
+{
+	if (mCursor < 0 || mCursor >= mEntries.size())
+		return nullptr;
+
+	return mEntries[mCursor].object;
+}

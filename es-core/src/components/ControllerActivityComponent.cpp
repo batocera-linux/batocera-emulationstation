@@ -62,11 +62,13 @@ void ControllerActivityComponent::setColorShift(unsigned int color)
 void ControllerActivityComponent::onPositionChanged()
 {
 	mBatteryText = nullptr;
+	mBatteryFont = nullptr;
 }
 
 void ControllerActivityComponent::onSizeChanged()
 {	
 	mBatteryText = nullptr;
+	mBatteryFont = nullptr;
 
 	if (mSize.y() > 0 && mPadTexture)
 	{
@@ -152,7 +154,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	float szW = mSize.y();
 	float szH = mSize.y();
 
-	if (mView & ActivityView::CONTROLLERS && Settings::getInstance()->getBool("ShowControllerActivity"))
+	if ((mView & CONTROLLERS) && Settings::getInstance()->getBool("ShowControllerActivity"))
 	{	
 		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 
@@ -190,29 +192,28 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 	for (int i = 0; i < indexes.size(); i++)
 	{
-		if (mPadTexture)
+		/*if (mPadTexture)
 			itemsWidth += (getTextureSize(mPadTexture).x() + mSpacing);
-		else
+		else*/
 			itemsWidth += szW + mSpacing;
 	}
 
-	if (mNetworkConnected && mNetworkImage != nullptr)
-		itemsWidth += getTextureSize(mNetworkImage).x() + mSpacing;
+	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
 
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
 	float batteryTextOffset = 0;
-
-	if (mBatteryInfo.hasBattery && mBatteryImage != nullptr)
-		itemsWidth += getTextureSize(mBatteryImage).x() + mSpacing;
 	
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
+		itemsWidth += szW + mSpacing;
+		//itemsWidth += getTextureSize(mBatteryImage).x() + mSpacing;
+
 		if (mBatteryFont == nullptr)
 			mBatteryFont = Font::get(szH * (Renderer::isSmallScreen() ? 0.55f : 0.70f), FONT_PATH_REGULAR);
 		
 		auto sz = mBatteryFont->sizeText(batteryText, 1.0);
 		itemsWidth += sz.x() + mSpacing;
-
 		batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;
 	}
 
@@ -230,7 +231,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 			padcolor = mHotkeyColor;
 
 		if (mPadTexture && mPadTexture->bind())
-			x += renderTexture(x, mPadTexture, padcolor);
+			x += renderTexture(x, szW, mPadTexture, padcolor);
 		else
 		{
 			Renderer::drawRect(x, 0.0f, szW, szH, padcolor);
@@ -239,17 +240,17 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	}
 	
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
-		x += renderTexture(x, mNetworkImage, mColorShift);
+		x += renderTexture(x, szW, mNetworkImage, mColorShift);
 
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
-		x += renderTexture(x, mBatteryImage, mColorShift);
+		x += renderTexture(x, szW, mBatteryImage, mColorShift);
 
 		if (mBatteryFont != nullptr)
 		{
 			if (mBatteryText == nullptr)
 				mBatteryText = std::unique_ptr<TextCache>(mBatteryFont->buildTextCache(batteryText, Vector2f(x, batteryTextOffset), mColorShift, mSize.x(), Alignment::ALIGN_LEFT, 1.0f));
-
+						
 			mBatteryFont->renderTextCache(mBatteryText.get());
 		}
 	}
@@ -361,7 +362,10 @@ void ControllerActivityComponent::updateBatteryInfo()
 		return;
 
 	if (mBatteryInfo.level != info.level)
+	{
+		mBatteryFont = nullptr;
 		mBatteryText = nullptr;
+	}
 
 	if (mBatteryInfo.hasBattery != info.hasBattery || mBatteryInfo.isCharging != info.isCharging)
 	{
@@ -427,28 +431,29 @@ Vector2f ControllerActivityComponent::getTextureSize(std::shared_ptr<TextureReso
 	return imageSize;
 }
 
-int ControllerActivityComponent::renderTexture(float x, std::shared_ptr<TextureResource> texture, unsigned int color)
+int ControllerActivityComponent::renderTexture(float x, float w, std::shared_ptr<TextureResource> texture, unsigned int color)
 {
+	if (!texture->bind())
+		return 0;
+
 	auto sz = getTextureSize(texture);
 	if (sz.x() == 0 || sz.y() == 0)
-		return 0;
-		
-	if (!texture->bind())
 		return 0;
 
 	const unsigned int clr = Renderer::convertColor(color);
 
 	float top = mSize.y() / 2.0f - sz.y() / 2.0f;
+	float left = x + w / 2.0f - sz.x() / 2.0f;
 
 	Renderer::Vertex vertices[4];
 
-	vertices[0] = { { x, top },{ 0.0f, 1.0f }, clr };
-	vertices[1] = { { x, sz.y() },{ 0.0f, 0.0f }, clr };
-	vertices[2] = { { x + sz.x(), top },{ 1.0f, 1.0f }, clr };
-	vertices[3] = { { x + sz.x(), sz.y() },{ 1.0f, 0.0f }, clr };
+	vertices[0] = { { left, top },{ 0.0f, 1.0f }, clr };
+	vertices[1] = { { left, sz.y() },{ 0.0f, 0.0f }, clr };
+	vertices[2] = { { left + sz.x(), top },{ 1.0f, 1.0f }, clr };
+	vertices[3] = { { left + sz.x(), sz.y() },{ 1.0f, 0.0f }, clr };
 
 	Renderer::drawTriangleStrips(&vertices[0], 4);
 	Renderer::bindTexture(0);
 
-	return sz.x() + mSpacing;
+	return w + mSpacing;
 }

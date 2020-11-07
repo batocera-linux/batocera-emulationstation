@@ -2706,7 +2706,7 @@ void GuiMenu::openUISettings()
 	});
 
 	// Battery indicator
-	if (mWindow->getBatteryIndicator() && mWindow->getBatteryIndicator()->hasBattery())
+	if (queryBatteryInformation().hasBattery)
 	{
 		auto batteryStatus = std::make_shared<SwitchComponent>(mWindow);
 		batteryStatus->setState(Settings::getInstance()->getBool("ShowBatteryIndicator"));
