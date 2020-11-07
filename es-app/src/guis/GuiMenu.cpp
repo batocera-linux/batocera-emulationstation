@@ -1438,6 +1438,24 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.screenshot"));
 	retroachievements->addWithLabel(_("AUTOMATIC SCREENSHOT"), retroachievements_screenshot_enabled);
 	retroachievements->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.screenshot", retroachievements_screenshot_enabled->getState()); });
+	// Unlock sound
+	auto installedRSounds = ApiSystem::getInstance()->getRetroachievementsSoundsList();
+	if (installedRSounds.size() > 0)
+	{
+		std::string currentSound = SystemConf::getInstance()->get("global.retroachievements_sound");
+
+		auto rsounds_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RETROACHIEVEMENTS UNLOCK SOUND"), false);
+		rsounds_choices->add(_("none"), "none", currentSound.empty() || currentSound == "none");
+
+		for (auto snd : installedRSounds)
+			rsounds_choices->add(_(Utils::String::toUpper(snd).c_str()), snd, currentSound == snd);
+
+		if (!rsounds_choices->hasSelection())
+			rsounds_choices->selectFirstItem();
+
+		retroachievements->addWithLabel(_("UNLOCK SOUND"), rsounds_choices);
+		retroachievements->addSaveFunc([rsounds_choices] { SystemConf::getInstance()->set("global.retroachievements_sound", rsounds_choices->getSelected()); });
+	}
 
 	// retroachievements, username, password
 	createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username", false);

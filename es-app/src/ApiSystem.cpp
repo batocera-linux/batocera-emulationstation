@@ -1496,3 +1496,29 @@ std::vector<std::string> ApiSystem::getShaderList()
 	std::sort(ret.begin(), ret.end());
 	return ret;
 }
+
+std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	std::vector<std::string> ret;
+
+	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";
+
+	std::vector<std::string> folderList = { "/usr/share/libretro/assets/sounds", "/userdata/retroachievements_sounds" };
+	for (auto folder : folderList)
+	{
+		for (auto file : Utils::FileSystem::getDirContent(folder, false))
+		{
+			auto sound = Utils::FileSystem::getFileName(file);
+			if (sound.substr(sound.find_last_of('.') + 1) == "ogg")
+			{
+				if (std::find(ret.cbegin(), ret.cend(), sound) == ret.cend())
+					ret.push_back(sound);
+			}
+		}
+	}
+
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}

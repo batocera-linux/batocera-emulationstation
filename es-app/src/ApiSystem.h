@@ -217,6 +217,7 @@ public:
 	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::vector<std::string> getShaderList();
+	virtual std::vector<std::string> getRetroachievementsSoundsList();
 
 protected:
 	ApiSystem();
