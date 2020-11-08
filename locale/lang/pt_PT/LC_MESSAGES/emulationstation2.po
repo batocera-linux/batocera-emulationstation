@@ -272,10 +272,10 @@ msgid "slide"
 msgstr "deslizar"
 
 msgid "instant"
-msgstr "instante"
+msgstr "instantâneo"
 
 msgid "fade & slide"
-msgstr "escurecer & slide"
+msgstr "escurecer & deslizar"
 
 msgid "System"
 msgstr "Sistema"
@@ -287,7 +287,7 @@ msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr "Memória disponível"
+msgstr "Memória ram disponível"
 
 msgid "Battery"
 msgstr "Bateria"
