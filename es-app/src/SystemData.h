@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 #include <pugixml/src/pugixml.hpp>
 #include <unordered_map>
 #include <unordered_set>
@@ -245,7 +246,7 @@ public:
 	FileFilterIndex* getFilterIndex() { return mFilterIndex; }
 
 	static SystemData* loadSystem(std::string systemName, bool fullMode = true);
-
+	static std::map<std::string, std::string> getKnownSystemNames();
 
 	bool hasKeyboardMapping();
 	KeyMappingFile getKeyboardMapping();

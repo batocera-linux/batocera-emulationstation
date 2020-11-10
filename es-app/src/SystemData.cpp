@@ -910,6 +910,40 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 	return nullptr;
 }
 
+std::map<std::string, std::string> SystemData::getKnownSystemNames()
+{
+	std::map<std::string, std::string> ret;
+
+	std::string path = getConfigPath(false);
+	if (!Utils::FileSystem::exists(path))
+		return ret;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	if (!res)
+		return ret;
+
+	//actually read the file
+	pugi::xml_node systemList = doc.child("systemList");
+	if (!systemList)
+		return ret;
+
+	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+	{
+		std::string name = system.child("name").text().get();
+		if (name.empty())
+			continue;
+
+		std::string fullName = system.child("fullname").text().get();
+		if (fullName.empty())
+			continue;
+		
+		ret[name] = fullName;
+	}
+
+	return ret;
+}
+
 SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 {
 	std::string path, cmd; // , name, fullname, themeFolder;

@@ -148,13 +148,10 @@ void GuiBatoceraStore::centerWindow()
 
 static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 {
-	std::string name1 = Utils::String::toUpper(sys1.group);
-	std::string name2 = Utils::String::toUpper(sys2.group);
-
-	if (name1 == name2)
+	if (sys1.group == sys2.group)
 		return Utils::String::compareIgnoreCase(sys1.description, sys2.description) < 0;		
 
-	return name1.compare(name2) < 0;
+	return sys1.group.compare(sys2.group) < 0;
 }
 
 void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
@@ -204,12 +201,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 			continue;
 
 		if (lastGroup != package.group)
-		{
-			if (package.group.empty())
-				mList->addGroup(_("MISC"), false);
-			else
-				mList->addGroup(_(Utils::String::toUpper(package.group).c_str()), false);
-		}
+			mList->addGroup(package.group, false);
 
 		lastGroup = package.group;
 
@@ -242,14 +234,35 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 
 std::vector<PacmanPackage> GuiBatoceraStore::queryPackages()
 {
+	auto systemNames = SystemData::getKnownSystemNames();
 	auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
 
+	std::vector<PacmanPackage> copy;
 	for (auto& package : packages)
+	{
 		if (package.group.empty())
-			package.group = package.repository;
+			package.group = _("MISC");
+		else
+		{
+			if (Utils::String::startsWith(package.group, "sys-"))
+			{
+				auto sysName = package.group.substr(4);
 
-	std::sort(packages.begin(), packages.end(), sortPackagesByGroup);
-	return packages;
+				auto itSys = systemNames.find(sysName);
+				if (itSys == systemNames.cend())
+					continue;
+
+				package.group = Utils::String::toUpper(itSys->second);
+			}
+			else
+				package.group = _(Utils::String::toUpper(package.group).c_str());
+		}
+
+		copy.push_back(package);
+	}
+
+	std::sort(copy.begin(), copy.end(), sortPackagesByGroup);
+	return copy;
 }
 
 void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
