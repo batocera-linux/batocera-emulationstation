@@ -5,6 +5,7 @@
 #include "components/ImageGridComponent.h"
 
 class ThemeData;
+class VideoComponent;
 
 class GuiImageViewer : public GuiComponent
 {
@@ -24,4 +25,18 @@ public:
 protected:
 	ImageGridComponent<std::string> mGrid;
 	std::shared_ptr<ThemeData> mTheme;
+};
+
+class GuiVideoViewer : public GuiComponent
+{
+public:
+	static void playVideo(Window* window, const std::string videoPath);
+
+	GuiVideoViewer(Window* window, const std::string& path);
+	~GuiVideoViewer();
+
+	bool input(InputConfig* config, Input input) override;
+
+protected:
+	VideoComponent*		mVideo;
 };

@@ -151,3 +151,67 @@ void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 			window->pushGui(imgViewer);
 		}));
 }
+
+
+#ifdef _RPI_
+#include "Settings.h"
+#include "components/VideoPlayerComponent.h"
+#endif
+#include "components/VideoVlcComponent.h"
+
+void GuiVideoViewer::playVideo(Window* window, const std::string videoPath)
+{
+	if (!Utils::FileSystem::exists(videoPath))
+		return;
+
+	window->pushGui(new GuiVideoViewer(window, videoPath));
+}
+
+GuiVideoViewer::GuiVideoViewer(Window* window, const std::string& path) : GuiComponent(window)
+{
+	setPosition(0, 0);
+	setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
+#ifdef _RPI_
+	if (Settings::getInstance()->getBool("VideoOmxPlayer"))
+		mVideo = new VideoPlayerComponent(mWindow, "");
+	else
+#endif
+	{
+		mVideo = new VideoVlcComponent(mWindow, "");
+
+		((VideoVlcComponent*)mVideo)->setLinearSmooth();
+		((VideoVlcComponent*)mVideo)->setEffect(VideoVlcFlags::NONE);
+	}
+	
+	mVideo->setOrigin(0.5f, 0.5f);
+	mVideo->setPosition(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f);
+	mVideo->setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
+	mVideo->setOnVideoEnded([&]()
+	{		
+		mWindow->postToUiThread([&](Window* w) { delete this; });
+		return false;
+	});
+
+	addChild(mVideo);
+		
+	mVideo->setStartDelay(25);
+	mVideo->setVideo(path);
+}
+
+GuiVideoViewer::~GuiVideoViewer()
+{
+	delete mVideo;
+}
+
+bool GuiVideoViewer::input(InputConfig* config, Input input)
+{
+	if (input.value != 0 && (config->isMappedTo(BUTTON_BACK, input) || config->isMappedTo(BUTTON_OK, input)))
+	{
+		delete this;
+		return true;
+	}
+
+	return GuiComponent::input(config, input);
+}
