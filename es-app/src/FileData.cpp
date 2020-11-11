@@ -169,9 +169,9 @@ const std::string FileData::getThumbnailPath()
 		if (thumbnail.empty() && getSystemName() == "imageviewer")
 		{
 			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
-			if (ext == ".pdf")
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 				return ":/pdf.jpg";
-			else if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")				
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
 				return ":/vid.jpg";
 
 			return getPath();
@@ -299,9 +299,9 @@ const std::string FileData::getImagePath()
 			image = getPath();
 
 			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
-			if (ext == ".pdf")
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 				return ":/pdf.jpg";
-			else if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
 				return ":/vid.jpg";
 		}
 	}
