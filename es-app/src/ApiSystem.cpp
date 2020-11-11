@@ -1505,7 +1505,7 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";
 
-	std::vector<std::string> folderList = { "/usr/share/libretro/assets/sounds", "/userdata/retroachievements_sounds" };
+	std::vector<std::string> folderList = { "/usr/share/libretro/assets/sounds", "/userdata/sounds/retroachievements" };
 	for (auto folder : folderList)
 	{
 		for (auto file : Utils::FileSystem::getDirContent(folder, false))
