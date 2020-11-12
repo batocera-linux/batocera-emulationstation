@@ -664,6 +664,11 @@ namespace Utils
 			return trim(text);
 		}
 
+		int	toInteger(const std::string& string)
+		{
+			return atoi(string.c_str());
+		}
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
 		{
