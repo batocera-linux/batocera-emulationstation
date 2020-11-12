@@ -38,6 +38,8 @@ namespace Utils
 		std::string removeHtmlTags(const std::string& html);
 		bool        containsIgnoreCase(const std::string & _string, const std::string & _what);
 
+		int			toInteger(const std::string& string);
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);
 		const std::wstring convertToWideString(const std::string string);

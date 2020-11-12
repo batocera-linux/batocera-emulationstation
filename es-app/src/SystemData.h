@@ -34,6 +34,17 @@ struct CustomFeature
 	std::vector<CustomFeatureChoice> choices;
 };
 
+struct GameCountInfo
+{
+	int totalGames;
+	int playCount;
+	int favoriteCount;
+	int hiddenCount;
+	int gamesPlayed;
+	std::string mostPlayed;
+	std::string lastPlayedDate;
+};
+
 class EmulatorFeatures
 {
 public:
@@ -154,7 +165,7 @@ public:
 
 	unsigned int getGameCount() const;
 
-	int getDisplayedGameCount();
+	GameCountInfo* getGameCountInfo();
 	void updateDisplayedGameCount();
 
 	static bool isManufacturerSupported();
@@ -280,7 +291,6 @@ private:
 	
 	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
 	
-
 	FileFilterIndex* mFilterIndex;
 
 	FolderData* mRootFolder;
@@ -291,7 +301,7 @@ private:
 	std::string mViewMode;
 	Vector2f    mGridSizeOverride;	
 
-	int			mGameCount;
+	GameCountInfo* mGameCountInfo;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

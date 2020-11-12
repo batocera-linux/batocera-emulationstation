@@ -34,7 +34,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 {
 	mIsGroupSystem = groupedSystem;
 	mGameListHash = 0;
-	mGameCount = -1;
+	mGameCountInfo = nullptr;
 	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
 	mGridSizeOverride = Vector2f(0, 0);
 
@@ -83,6 +83,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 SystemData::~SystemData()
 {
 	delete mRootFolder;
+
+	if (mGameCountInfo != nullptr)
+		delete mGameCountInfo;
 
 	if (mFilterIndex != nullptr)
 		delete mFilterIndex;
@@ -1214,7 +1217,7 @@ bool SystemData::isVisible()
 	if (isGroupChildSystem())
 		return false;
 
-	if ((getDisplayedGameCount() > 0 ||
+	if ((getGameCountInfo()->totalGames > 0 ||
 		(UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||
 		(mIsCollectionSystem && mMetadata.name == "favorites")))
 	{
@@ -1356,22 +1359,67 @@ FileData* SystemData::getRandomGame()
 	return list.at(target);
 }
 
-int SystemData::getDisplayedGameCount()
+GameCountInfo* SystemData::getGameCountInfo()
 {
-	if (mGameCount < 0)
+	if (mGameCountInfo != nullptr)
+		return mGameCountInfo;	
+
+	std::vector<FileData*> games =
+		(this == CollectionSystemManager::get()->getCustomCollectionsBundle()) ?
+		mRootFolder->getChildren() :
+		mRootFolder->getFilesRecursive(GAME, true);
+
+	mGameCountInfo = new GameCountInfo();
+	mGameCountInfo->totalGames = games.size();
+	mGameCountInfo->favoriteCount = 0;
+	mGameCountInfo->hiddenCount = 0;
+	mGameCountInfo->playCount = 0;
+	mGameCountInfo->gamesPlayed = 0;
+
+	int mostPlayCount = 0;
+
+	for (auto game : games)
 	{
-		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
-			mGameCount = mRootFolder->getChildren().size();
-		else
-			mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+		if (game->getFavorite())
+			mGameCountInfo->favoriteCount++;
+
+		if (game->getHidden())
+			mGameCountInfo->hiddenCount++;
+
+		int playCount = Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount));
+		if (playCount > 0)
+		{
+			mGameCountInfo->gamesPlayed++;
+			mGameCountInfo->playCount += playCount;
+
+			if (playCount > mostPlayCount)
+			{
+				mGameCountInfo->mostPlayed = game->getName();
+				mostPlayCount = playCount;
+			}
+		}
+
+		auto lastPlayed = game->getMetadata(MetaDataId::LastPlayed);
+		if (!lastPlayed.empty() && lastPlayed > mGameCountInfo->lastPlayedDate)
+			mGameCountInfo->lastPlayedDate = lastPlayed;
 	}
 
-	return mGameCount;
+	return mGameCountInfo;
+	/*
+	if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		mGameCount = mRootFolder->getChildren().size();
+	else
+		mGameCount = mRootFolder->getFilesRecursive(GAME, true).size();
+
+	return mGameCount;*/
 }
 
 void SystemData::updateDisplayedGameCount()
 {
-	mGameCount =-1;
+	if (mGameCountInfo != nullptr)
+		delete mGameCountInfo;
+
+	mGameCountInfo = nullptr;
 }
 
 void SystemData::loadTheme()

@@ -66,7 +66,8 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 {
 	mElapsed = 0;
 	mColorShift = 0xFFFFFFFF;
-	
+	mLinearSmooth = false;
+
 	mLoops = -1;
 	mCurrentLoop = 0;
 
@@ -242,7 +243,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		{
 			if (mTexture == nullptr)
 			{
-				mTexture = TextureResource::get("");
+				mTexture = TextureResource::get("", false, mLinearSmooth);
 				resize();
 			}
 
@@ -731,6 +732,9 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		mLoops = (int)elem->get<float>("loops");
 	else
 		mLoops = -1;
+
+	if (elem->has("linearSmooth"))
+		mLinearSmooth = elem->get<bool>("linearSmooth");
 
 	applyStoryboard(elem);
 	mStaticImage.applyStoryboard(elem, "snapshot");

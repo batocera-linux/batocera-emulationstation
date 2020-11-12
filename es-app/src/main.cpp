@@ -310,6 +310,8 @@ int setLocale(char * argv1)
 		EsLocale::init("", "/usr/share/locale");	
 #endif
 
+	setlocale(LC_TIME, "");
+
 	return 0;
 }
 
@@ -477,7 +479,7 @@ int main(int argc, char* argv[])
 	atexit(&onExit);
 
 	// Set locale
-	setLocale(argv[0]); // batocera
+	setLocale(argv[0]); // batocera	
 
 	// metadata init    // batocera
 	MetaDataList::initMetadata();     // require locale
