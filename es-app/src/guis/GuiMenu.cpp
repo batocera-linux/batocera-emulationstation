@@ -3432,7 +3432,7 @@ void GuiMenu::openQuitMenu_batocera()
   GuiMenu::openQuitMenu_batocera_static(mWindow);
 }
 
-void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
+void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu, bool animate)
 {
 #ifdef WIN32
 	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit"))
@@ -3454,7 +3454,15 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 		{
 			auto sname = AudioManager::getInstance()->getSongName();
 			if (!sname.empty())
-				s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + sname, nullptr, [window] { AudioManager::getInstance()->playRandomMusic(false); }, "iconSound");
+			{
+				s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + sname, nullptr, [s, window]
+				{
+					Window* w = window;
+					AudioManager::getInstance()->playRandomMusic(false);
+					delete s;
+					openQuitMenu_batocera_static(w, true, false);
+				}, "iconSound");
+			}
 		}
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
@@ -3557,8 +3565,10 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu)
 	}
 #endif
 
-	if (quickAccessMenu)
+	if (quickAccessMenu && animate)
 		s->getMenu().animateTo(Vector2f((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2));
+	else if (quickAccessMenu)
+		s->getMenu().setPosition((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2);
 
 	window->pushGui(s);
 }

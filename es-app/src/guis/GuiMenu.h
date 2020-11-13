@@ -43,7 +43,7 @@ public:
 	bool input(InputConfig* config, Input input) override;
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;	
-	static void openQuitMenu_batocera_static(Window *window, bool quickAccessMenu = false); // batocera
+	static void openQuitMenu_batocera_static(Window *window, bool quickAccessMenu = false, bool animate = true); // batocera
 
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData);
 	static void popGameConfigurationGui(Window* mWindow, FileData* fileData);

@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 msgid "Loading..."
 msgstr "Chargement..."
@@ -554,7 +554,7 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr "MASQUER AU LANCEMENT D'UN JEU"
+msgstr "CACHER AU LANCEMENT D'UN JEU"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "AFFICHER LE MENU QUITTER COMPLET"
@@ -1053,7 +1053,7 @@ msgid "SKIP TO NEXT SONG"
 msgstr "PASSER A LA MUSIQUE SUIVANTE"
 
 msgid "LISTENING NOW"
-msgstr ""
+msgstr "A L’ÉCOUTE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
@@ -1251,7 +1251,7 @@ msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURATION DE PADTOKEY"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "SÉLECTIONNEZ LES ACTIONS À CHANGER"
+msgstr "SÉLECTIONNEZ LES ACTIONS À MODIFIER"
 
 msgid "SAVE"
 msgstr "SAUVEGARDER"
@@ -1269,25 +1269,25 @@ msgid "COMBINATIONS"
 msgstr "COMBINAISONS"
 
 msgid "MOUSE CURSOR"
-msgstr ""
+msgstr "POINTEUR DE SOURIS"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr ""
+msgstr "EMULER LE POINTEUR DE SOURIS"
 
 msgid "LEFT ANALOG STICK"
-msgstr ""
+msgstr "PAD DE GAUCHE"
 
 msgid "RIGHT ANALOG STICK"
-msgstr ""
+msgstr "PAD DE DROITE"
 
 msgid "EDIT DESCRIPTION"
-msgstr ""
+msgstr "EDITER LA DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgstr "VOUS ALLEZ SUPPRIMER CETTE COMBINAISON. ETES-VOUS SUR(E) ?"
 
 msgid "DELETE MAPPING"
-msgstr ""
+msgstr "SUPPRIMER LA COMBINAISON"
 
 msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER LES CHANGEMENTS ?"
@@ -2115,25 +2115,25 @@ msgid "LEFT ANALOG UP"
 msgstr "PAD DE GAUCHE / HAUT"
 
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "PAD DE GAUCHE / BAS"
 
 msgid "LEFT ANALOG LEFT"
 msgstr "PAD DE GAUCHE / GAUCHE"
 
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "PAD DE GAUCHE / DROITE"
 
 msgid "RIGHT ANALOG UP"
 msgstr "PAD DE DROITE / HAUT"
 
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "PAD DE DROITE / BAS"
 
 msgid "RIGHT ANALOG LEFT"
 msgstr "PAD DE DROITE / GAUCHE"
 
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "PAD DE DROITE / DROITE"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"

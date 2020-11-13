@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 #include <pugixml/src/pugixml.hpp>
 #include <unordered_map>
 #include <unordered_set>
@@ -31,6 +32,17 @@ struct CustomFeature
 	std::string name;
 	std::string value;
 	std::vector<CustomFeatureChoice> choices;
+};
+
+struct GameCountInfo
+{
+	int totalGames;
+	int playCount;
+	int favoriteCount;
+	int hiddenCount;
+	int gamesPlayed;
+	std::string mostPlayed;
+	std::string lastPlayedDate;
 };
 
 class EmulatorFeatures
@@ -154,7 +166,7 @@ public:
 
 	unsigned int getGameCount() const;
 
-	int getDisplayedGameCount();
+	GameCountInfo* getGameCountInfo();
 	void updateDisplayedGameCount();
 
 	static bool isManufacturerSupported();
@@ -246,7 +258,7 @@ public:
 	FileFilterIndex* getFilterIndex() { return mFilterIndex; }
 
 	static SystemData* loadSystem(std::string systemName, bool fullMode = true);
-
+	static std::map<std::string, std::string> getKnownSystemNames();
 
 	bool hasKeyboardMapping();
 	KeyMappingFile getKeyboardMapping();
@@ -280,7 +292,6 @@ private:
 	
 	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
 	
-
 	FileFilterIndex* mFilterIndex;
 
 	FolderData* mRootFolder;
@@ -291,7 +302,7 @@ private:
 	std::string mViewMode;
 	Vector2f    mGridSizeOverride;	
 
-	int			mGameCount;
+	GameCountInfo* mGameCountInfo;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

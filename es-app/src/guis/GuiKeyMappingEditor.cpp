@@ -298,10 +298,14 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 
 	if(config->isMappedTo("start", input) && input.value != 0)
 	{
+		save();
+
 		// close everything
 		Window* window = mWindow;
-		while(window->peekGui() && window->peekGui() != ViewController::get())
+		while (window->peekGui() && window->peekGui() != ViewController::get())
 			delete window->peekGui();
+
+		return true;
 	}
 
 	if (mList->size() > 0 && !mList->getSelected().empty())
@@ -324,6 +328,8 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("EDIT DESCRIPTION"), mappingDescription, updateVal, false));
 			else
 				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("EDIT DESCRIPTION"), mappingDescription, updateVal, false));
+
+			return true;
 		}		
 
 		if (config->isMappedTo("x", input) && input.value != 0)
@@ -336,6 +342,8 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 					loadList(true);
 				}
 			}, _("NO"), nullptr));
+
+			return true;
 		}
 	}
 
@@ -347,7 +355,7 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 
 std::vector<HelpPrompt> GuiKeyMappingEditor::getHelpPrompts()
 {
-	std::vector<HelpPrompt> prompts = mList->getHelpPrompts();
+	std::vector<HelpPrompt> prompts;// = mList->getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("start", _("SAVE")));
 

@@ -129,7 +129,7 @@ const std::string FileData::getThumbnailPath()
 
 	// no thumbnail, try image
 	if(thumbnail.empty())
-	{			
+	{
 		// no image, try to use local image
 		if(thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
 		{
@@ -168,6 +168,18 @@ const std::string FileData::getThumbnailPath()
 				}
 			}
 		}
+
+		if (thumbnail.empty() && getSystemName() == "imageviewer")
+		{
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				return ":/pdf.jpg";
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				return ":/vid.jpg";
+
+			return getPath();
+		}
+
 	}
 
 	return thumbnail;
@@ -264,10 +276,7 @@ const std::string FileData::getImagePath()
 
 	// no image, try to use local image
 	if(image.empty())
-	{
-		if (getSystemName() == "imageviewer")
-			image = getPath();
-
+	{		
 		if (Settings::getInstance()->getBool("LocalArt"))
 		{
 			const char* extList[2] = { ".png", ".jpg" };
@@ -286,6 +295,17 @@ const std::string FileData::getImagePath()
 					}
 				}
 			}
+		}
+
+		if (image.empty() && getSystemName() == "imageviewer")
+		{
+			image = getPath();
+
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				return ":/pdf.jpg";
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				return ":/vid.jpg";
 		}
 	}
 

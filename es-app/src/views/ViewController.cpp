@@ -410,17 +410,25 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 	if (game->getSourceFileData()->getSystem()->getName() == "imageviewer")
 	{
-		auto gameImage = game->getImagePath();
-		if (Utils::FileSystem::exists(gameImage))
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
+
+		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")
+			GuiVideoViewer::playVideo(mWindow, game->getPath());
+		else if (ext == ".pdf")
+			GuiImageViewer::showPdf(mWindow, game->getPath());
+		else
 		{
-		//	GuiImageViewer::showPdf(mWindow, "H:/[Emulz]/roms/n64/manuals/V-Rally Edition 99 (USA)-manual.pdf");		
-			auto imgViewer = new GuiImageViewer(mWindow);			
+			auto gameImage = game->getImagePath();
+			if (Utils::FileSystem::exists(gameImage))
+			{
+				auto imgViewer = new GuiImageViewer(mWindow);
 
-			for (auto sibling : game->getParent()->getChildrenListToDisplay())
-				imgViewer->add(sibling->getImagePath());
+				for (auto sibling : game->getParent()->getChildrenListToDisplay())
+					imgViewer->add(sibling->getImagePath());
 
-			imgViewer->setCursor(gameImage);
-			mWindow->pushGui(imgViewer);	
+				imgViewer->setCursor(gameImage);
+				mWindow->pushGui(imgViewer);
+			}
 		}
 		return;
 	}
