@@ -29,7 +29,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 
-SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme) : // batocera
+SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mIsGroupSystem = groupedSystem;
@@ -69,15 +69,17 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	}
 
 	mRootFolder->getMetadata().resetChangedFlag();
-	
-	auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
-	auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
-	setSystemViewMode(defaultView, gridSizeOverride, false);
 
-	setIsGameSystemStatus();
-
-	if (withTheme)
+	if (withTheme && (!loadThemeOnlyIfElements || mRootFolder->mChildren.size() > 0))
+	{
 		loadTheme();
+
+		auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
+		auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(getName() + ".gridSize"));
+		setSystemViewMode(defaultView, gridSizeOverride, false);
+
+		setIsGameSystemStatus();
+	}
 }
 
 SystemData::~SystemData()
@@ -103,13 +105,9 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 {
 	const std::string& folderPath = folder->getPath();
 
-	/*
 	if(!Utils::FileSystem::isDirectory(folderPath))
-	{
-		LOG(LogWarning) << "Error - folder with path \"" << folderPath << "\" is not a directory!";
 		return;
-	}
-	
+	/*
 	// [Obsolete] make sure that this isn't a symlink to a thing we already have
 	// Deactivated because it's slow & useless : users should to be carefull not to make recursive simlinks
 	if (Utils::FileSystem::isSymlink(folderPath))
@@ -1079,7 +1077,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		}
 	}
 
-	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode); // batocera
+	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode, true); // batocera
 
 	if (!fullMode)
 		return newSys;
@@ -1364,9 +1362,9 @@ GameCountInfo* SystemData::getGameCountInfo()
 	if (mGameCountInfo != nullptr)
 		return mGameCountInfo;	
 
-	std::vector<FileData*> games =
-		(this == CollectionSystemManager::get()->getCustomCollectionsBundle()) ?
-		mRootFolder->getChildren() :
+	std::vector<FileData*>& games =
+		//(this == CollectionSystemManager::get()->getCustomCollectionsBundle()) ?
+		//mRootFolder->getChildren() :
 		mRootFolder->getFilesRecursive(GAME, true);
 
 	mGameCountInfo = new GameCountInfo();

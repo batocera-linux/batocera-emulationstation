@@ -143,7 +143,7 @@ public:
 	}
 
 	inline MetaDataListType getType() const { return mType; }
-	inline const std::vector<MetaDataDecl>& getMDD() const { return mMetaDataDecls; }
+	static const std::vector<MetaDataDecl>& getMDD() { return mMetaDataDecls; }
 
 	const std::string& getName() const;
 	

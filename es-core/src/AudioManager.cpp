@@ -425,7 +425,7 @@ void AudioManager::playSong(const std::string& song)
 
 				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
 				{
-					setSongName(mCurrentSong = title_content->data);
+					setSongName(title_content->data);
 					return;
 				}
 			}
