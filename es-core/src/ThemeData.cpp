@@ -1428,7 +1428,10 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			}
 
 			if (path == "none")
-				element.properties[node.name()] = "";
+			{
+				if (element.properties.find(node.name()) != element.properties.cend())
+					element.properties.erase(node.name());
+			}
 			else
 			{
 				if (!ResourceManager::getInstance()->fileExists(path))

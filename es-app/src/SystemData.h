@@ -139,7 +139,7 @@ struct SystemEnvironmentData
 class SystemData : public IKeyboardMapContainer
 {
 public:
-    SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true); // batocera
+    SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true, bool loadThemeOnlyIfElements = false); // batocera
 	~SystemData();
 
 	static SystemData* getSystem(const std::string name);
