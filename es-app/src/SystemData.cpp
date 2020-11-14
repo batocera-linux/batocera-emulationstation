@@ -1362,10 +1362,7 @@ GameCountInfo* SystemData::getGameCountInfo()
 	if (mGameCountInfo != nullptr)
 		return mGameCountInfo;	
 
-	std::vector<FileData*>& games =
-		//(this == CollectionSystemManager::get()->getCustomCollectionsBundle()) ?
-		//mRootFolder->getChildren() :
-		mRootFolder->getFilesRecursive(GAME, true);
+	std::vector<FileData*> games = mRootFolder->getFilesRecursive(GAME, true);
 
 	mGameCountInfo = new GameCountInfo();
 	mGameCountInfo->totalGames = games.size();
