@@ -212,7 +212,7 @@ msgid "all games"
 msgstr "TODOS OS JOGOS"
 
 msgid "last played"
-msgstr "Ultima vez jogado"
+msgstr "Última vez jogado"
 
 msgid "favorites"
 msgstr "FAVORITOS"
@@ -394,7 +394,7 @@ msgid "NONE"
 msgstr "NENHUM"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "RESTAURAR ÚLTIMO SELECIONADO"
 
 msgid "START ON GAMELIST"
 msgstr "INICIAR NA LISTA DE JOGOS"
@@ -817,7 +817,7 @@ msgid "ARE YOU SURE ?"
 msgstr "TEM A CERTEZA ?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "A ATUALIZAR EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "A ATUALIZAR O BATOCERA"
@@ -874,7 +874,7 @@ msgid "STOP"
 msgstr "PARE"
 
 msgid "stop (progress saved)"
-msgstr "pare (progresso salvo)"
+msgstr "pare (progresso guardado)"
 
 #, c-format
 msgid "GAME %i OF %i"
@@ -1170,10 +1170,10 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR UM DISCO"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "LIMPAR GAMELISTS & REMOVER MÍDIAS NÃO UTILIZADAS"
 
 msgid "Cleaning "
-msgstr ""
+msgstr "Limpeza"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DO ARQUIVO"
@@ -1476,8 +1476,8 @@ msgid ""
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"VOCE VAI CONFIGURAR O COMANDO. SE O SEU COMANDO NÃO POSSUI ANALÓGICO, PULE A "
-"CONFIGURAÇÃO DO ANALÓGICO. SE VOCE NÃO TEM UM BOTÃO PARA ATRIBUIR COMO "
+"VOCÊ VAI CONFIGURAR O COMANDO. SE O SEU COMANDO NÃO POSSUI ANALÓGICO, PULE A "
+"CONFIGURAÇÃO DO ANALÓGICO. SE VOCÊ NÃO TEM UM BOTÃO PARA ATRIBUIR COMO "
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM NO SEU COMANDO PRESSIONANDO UM BOTÃO JÁ CONFIGURADO."
 
@@ -1672,7 +1672,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "VER MANUAL DO UTILIZADOR"
 
 msgid "VIEW BATOCERA MANUAL"
 msgstr "VER MANUAL DO BATOCERA"
@@ -1754,7 +1754,7 @@ msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "INFORMAÇÃO DO SISTEMA"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ERRO: TODOS OS SISTEMAS ESTÃO OCULTOS, REINICIAR TODOS AGORA"
@@ -1778,7 +1778,7 @@ msgid "GO TO DECADE"
 msgstr "IR PARA DÉCADA"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAÇÃO"
 
 #, c-format
 msgid "%i COLLECTION"
