@@ -1406,7 +1406,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 					LOG(LogWarning) << "random is only supported in systemview";
 				else if (element.type == "video" && path != "{random}")
 					LOG(LogWarning) << "video element only supports {random} element";
-				else if (element.type == "image" && path != "{random}" && path != "{random:thumbnail}" && path != "{random:marquee}" && path != "{random:image}")
+				else if (element.type == "image" && path != "{random}" && path != "{random:thumbnail}" && path != "{random:marquee}" && path != "{random:image}" && path != "{random:fanart}" && path != "{random:titleshot}")
 					LOG(LogWarning) << "unknow random element " << path;
 				else
 					element.properties[node.name()] = path;
