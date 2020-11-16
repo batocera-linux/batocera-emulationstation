@@ -112,7 +112,11 @@ namespace Utils
 
 			static int fromStat64(const std::string& key, struct stat64* info)
 			{
+#if defined(_WIN32)
+				int ret = _wstat64(Utils::String::convertToWideString(key).c_str(), info);
+#else
 				int ret = stat64(key.c_str(), info);
+#endif
 
 				std::unique_lock<std::mutex> lock(mFileCacheMutex);
 
@@ -321,7 +325,7 @@ namespace Utils
 					{
 						std::string name = Utils::String::convertFromWideString(findData.cFileName);
 
-						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && name == "." || name == "..")
+						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && (name == "." || name == ".."))
 							continue;
 
 						FileInfo fi;
@@ -855,8 +859,12 @@ namespace Utils
 			if(!exists(path))
 				return true;
 
+#if WIN32
+			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
+#else
 			// try to remove file
 			return (unlink(path.c_str()) == 0);
+#endif
 
 		} // removeFile
 
@@ -893,8 +901,8 @@ namespace Utils
 			if (it != nullptr)
 				return it->exists;
 
-#ifdef WIN32		
-			DWORD dwAttr = GetFileAttributes(_path.c_str());
+#ifdef WIN32			
+			DWORD dwAttr = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
 			FileCache::add(_path, FileCache(dwAttr));
 			if (0xFFFFFFFF == dwAttr)
 				return false;
@@ -949,7 +957,7 @@ namespace Utils
 
 #ifdef WIN32
 			// check for symlink attribute
-			DWORD Attributes = GetFileAttributes(_path.c_str());
+			DWORD Attributes = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
 			FileCache::add(_path, FileCache(Attributes));
 			return (Attributes != INVALID_FILE_ATTRIBUTES) && (Attributes & FILE_ATTRIBUTE_DIRECTORY);
 #else // _WIN32
@@ -1078,9 +1086,14 @@ namespace Utils
 			std::string path = getGenericPath(_path);
 			struct stat64 info;
 
+#if defined(_WIN32)
+			if ((_wstat64(Utils::String::convertToWideString(path).c_str(), &info) == 0))
+				return (size_t)info.st_size;			
+#else
 			// check if stat64 succeeded
 			if ((stat64(path.c_str(), &info) == 0))
 				return (size_t)info.st_size;
+#endif
 
 			return 0;
 		}
@@ -1091,15 +1104,24 @@ namespace Utils
 			struct stat64 info;
 
 			// check if stat64 succeeded
+#if defined(_WIN32)
+			if ((_wstat64(Utils::String::convertToWideString(path).c_str(), &info) == 0))
+				return Utils::Time::DateTime(info.st_ctime);
+#else
 			if ((stat64(path.c_str(), &info) == 0))
 				return Utils::Time::DateTime(info.st_ctime);
-
+#endif
 			return Utils::Time::DateTime();
 		}
 
 		std::string	readAllText(const std::string fileName)
 		{
+#if defined(_WIN32)
+			std::ifstream t(Utils::String::convertToWideString(fileName));
+#else
 			std::ifstream t(fileName);
+#endif
+
 			std::stringstream buffer;
 			buffer << t.rdbuf();
 			return buffer.str();
@@ -1108,9 +1130,28 @@ namespace Utils
 		void writeAllText(const std::string fileName, const std::string text)
 		{
 			std::fstream fs;
+
+#if defined(_WIN32)
+			fs.open(Utils::String::convertToWideString(fileName), std::fstream::out);
+#else
 			fs.open(fileName.c_str(), std::fstream::out);
+#endif
+
 			fs << text;
 			fs.close();
+		}
+
+		bool renameFile(const std::string src, const std::string dst)
+		{
+			std::string path = getGenericPath(src);
+			if (!exists(path))
+				return true;
+
+#if WIN32
+			return MoveFileW(Utils::String::convertToWideString(path).c_str(), Utils::String::convertToWideString(dst).c_str());
+#else
+			return std::rename(src.c_str(), dst.c_str()) == 0;
+#endif
 		}
 
 		bool copyFile(const std::string src, const std::string dst)
@@ -1125,11 +1166,19 @@ namespace Utils
 			char buf[512];
 			size_t size;
 
+#if defined(_WIN32)
+			FILE* source = _wfopen(Utils::String::convertToWideString(path).c_str(), L"rb");
+#else
 			FILE* source = fopen(path.c_str(), "rb");
+#endif
 			if (source == nullptr)
 				return false;
 
+#if defined(_WIN32)
+			FILE* dest = _wfopen(Utils::String::convertToWideString(pathD).c_str(), L"wb");
+#else
 			FILE* dest = fopen(pathD.c_str(), "wb");
+#endif
 			if (dest == nullptr)
 			{
 				fclose(source);

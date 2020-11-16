@@ -603,7 +603,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
 	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
 	
-	if (getSystem()->getName() == "windows_installers")
+	if ((fvm.empty() || fvm == "auto") && getSystem() == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		showFoldersMode = "always";
+	else if (getSystem()->getName() == "windows_installers")
 		showFoldersMode = "always";
 
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
@@ -752,9 +754,18 @@ std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemDat
 	return getFilesRecursive(GAME, displayedOnly, system);
 }
 
-std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system) const
+std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const
 {
 	std::vector<FileData*> out;
+
+	auto isVirtualFolder = [](FileData* file) 
+	{ 
+		if (file->getType() == GAME)
+			return false;
+
+		FolderData* fld = (FolderData*)file;
+		return fld->isVirtualStorage();
+	};
 
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
 
@@ -795,7 +806,8 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 					}
 				}
 
-				out.push_back(it);
+				if (includeVirtualStorage || !isVirtualFolder(it))
+					out.push_back(it);
 			}
 		}
 
@@ -805,12 +817,15 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 		FolderData* folder = (FolderData*)it;		
 		if (folder->getChildren().size() > 0)
 		{
-			if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
-				out.push_back(it);
-			else
+			if (includeVirtualStorage || !isVirtualFolder(folder))
 			{
-				std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);
-				out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+				if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
+					out.push_back(it);
+				else
+				{
+					std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system, includeVirtualStorage);
+					out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+				}
 			}
 		}
 	}

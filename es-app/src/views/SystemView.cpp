@@ -202,6 +202,7 @@ void SystemView::populate()
 					0x000000FF,
 					ALIGN_CENTER);
 								
+				text->setScaleOrigin(0.0f);
 				text->setSize(mCarousel.logoSize * mCarousel.logoScale);
 				text->applyTheme((*it)->getTheme(), "system", "logoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
 				e.data.logo = std::shared_ptr<GuiComponent>(text);
@@ -1126,13 +1127,13 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			comp->setRotationDegrees(mCarousel.logoRotation * distance);
 			comp->setRotationOrigin(mCarousel.logoRotationOrigin);
 		}
-
+		
 		if (!comp->hasStoryBoard())
 		{
 			comp->setScale(scale);
 			comp->setOpacity((unsigned char)opacity);
 		}
-
+		
 		comp->render(logoTrans);
 	};
 

@@ -49,6 +49,7 @@
 #include "GuiLoading.h"
 #include "guis/GuiBios.h"
 #include "guis/GuiKeyMappingEditor.h"
+#include "Gamelist.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -944,6 +945,8 @@ void GuiMenu::openDeveloperSettings()
 	s->addGroup(_("TOOLS"));
 #endif
 
+
+
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
 	std::vector<std::string> modes;
@@ -991,6 +994,49 @@ void GuiMenu::openDeveloperSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
+	
+	s->addEntry(_("CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"), true, [this, s]
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE ?"), _("YES"), [&]
+		{
+			int idx = 0;
+			for (auto system : SystemData::sSystemVector)
+			{
+				mWindow->renderSplashScreen(_("Cleaning ") + " : " + system->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+				cleanupGamelist(system);
+				idx++;
+			}
+
+			mWindow->closeSplashScreen();
+		}, _("NO"), nullptr));
+	});
+
+	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
+	{
+		for (auto system : SystemData::sSystemVector)
+			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
+
+		Settings::getInstance()->saveFile();
+		ViewController::reloadAllGames(mWindow, false);
+	});
+
+	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this]
+	{
+		Window* window = mWindow;
+		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
+		{
+			for (auto system : SystemData::sSystemVector)
+			{
+				if (system->isCollection() || system->isGroupSystem())
+					continue;
+
+				for (auto game : system->getRootFolder()->getFilesRecursive(GAME))
+					game->detectLanguageAndRegion(true);
+			}
+
+			return 0;
+		}));
+	});
 
 	s->addGroup(_("DATA MANAGEMENT"));
 
@@ -1029,32 +1075,6 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
-	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
-	{
-		for (auto system : SystemData::sSystemVector)
-			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
-
-		Settings::getInstance()->saveFile();
-		ViewController::reloadAllGames(mWindow, false);
-	});
-
-	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this]
-	{
-		Window* window = mWindow;
-		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
-		{
-			for (auto system : SystemData::sSystemVector)
-			{
-				if (system->isCollection() || system->isGroupSystem())
-					continue;
-
-				for (auto game : system->getRootFolder()->getFilesRecursive(GAME))
-					game->detectLanguageAndRegion(true);
-			}
-
-			return 0;
-		}));
-	});
 
 	s->addGroup(_("UI"));
 
@@ -4695,13 +4715,13 @@ void GuiMenu::openFormatDriveSettings()
 
 void GuiMenu::saveSubsetSettings()
 {
-	auto system = ViewController::get()->getState().getSystem();
-	if (system == nullptr || system->getTheme() == nullptr)
+	auto currentSystem = ViewController::get()->getState().getSystem();
+	if (currentSystem == nullptr || currentSystem->getTheme() == nullptr)
 		return;
 
 	std::string fileData;
 
-	auto subsets = system->getTheme()->getSubSetNames();
+	auto subsets = currentSystem->getTheme()->getSubSetNames();
 	for (auto subset : subsets)
 	{
 		std::string name = subset;
@@ -4741,6 +4761,17 @@ void GuiMenu::saveSubsetSettings()
 
 	if (!Settings::getInstance()->getString("DefaultGridSize").empty())
 		fileData += "DefaultGridSize=" + Settings::getInstance()->getString("DefaultGridSize") + "\r";
+
+	for (auto system : SystemData::sSystemVector)
+	{
+		auto defaultView = Settings::getInstance()->getString(system->getName() + ".defaultView");
+		if (!defaultView.empty())
+			fileData += system->getName() + ".defaultView=" + defaultView + "\r";
+
+		auto gridSizeOverride = Settings::getInstance()->getString(system->getName() + ".gridSize");
+		if (!gridSizeOverride.empty())
+			fileData += system->getName() + ".gridSize=" + gridSizeOverride + "\r";
+	}
 
 	std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings";
 	if (!Utils::FileSystem::exists(path))
@@ -4799,11 +4830,22 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 					Settings::getInstance()->setString("GamelistViewStyle", value);
 				else if (name == "DefaultGridSize")
 					Settings::getInstance()->setString("DefaultGridSize", value);
+				else if (name.find(".defaultView") != std::string::npos)
+					Settings::getInstance()->setString(name, value);
+				else if (name.find(".gridSize") != std::string::npos)
+					Settings::getInstance()->setString(name, value);
 				else if (Utils::String::startsWith(name, "subset."))
 					Settings::getInstance()->setString(name, value);
 			}
 		}
 		systemConf.close();
+
+		for (auto system : SystemData::sSystemVector)
+		{
+			auto defaultView = Settings::getInstance()->getString(system->getName() + ".defaultView");
+			auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(system->getName() + ".gridSize"));
+			system->setSystemViewMode(defaultView, gridSizeOverride, false);
+		}
 	}
 	else
 		LOG(LogError) << "Unable to open " << fileName;

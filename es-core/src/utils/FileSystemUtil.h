@@ -67,6 +67,7 @@ namespace Utils
 		void		writeAllText(const std::string fileName, const std::string text);
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path);
+		bool		renameFile(const std::string src, const std::string dst);
 
 		std::string megaBytesToString(unsigned long size);
 

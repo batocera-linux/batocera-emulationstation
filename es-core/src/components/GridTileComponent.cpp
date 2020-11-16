@@ -622,7 +622,7 @@ bool GridNinePatchProperties::applyTheme(const ThemeData::ThemeElement* elem)
 		cornerSize = elem->get<Vector2f>("cornerSize");
 
 	if (elem && elem->has("path"))
-		path = elem->get<std::string>("path");
+		setImagePath(elem->get<std::string>("path"));
 
 	if (elem && elem->has("animateColor"))
 		animateColor = elem->get<unsigned int>("animateColor");
