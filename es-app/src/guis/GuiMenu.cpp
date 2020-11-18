@@ -3974,9 +3974,9 @@ void GuiMenu::saveSubsetSettings()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			value = Settings::getInstance()->getString("subset." + system->getThemeFolder() + "." + name);
+			value = Settings::getInstance()->getString("subset." + system->getThemeFolder() + "." + subset);
 			if (!value.empty())
-				fileData += "subset." + system->getThemeFolder() + "." + name + "=" + value + "\r";
+				fileData += "subset." + system->getThemeFolder() + "." + subset + "=" + value + "\r";
 		}
 	}
 

@@ -12,6 +12,8 @@ public:
 		IMAGE,
 		THUMBNAIL,
 		MARQUEE,
+		FANART,
+		TITLESHOT,
 		VIDEO
 	};
 

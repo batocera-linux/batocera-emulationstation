@@ -199,6 +199,8 @@ public:
 	void loadTheme();
 
 	FileFilterIndex* getIndex(bool createIndex);
+	void setIndex(FileFilterIndex* index) { mFilterIndex = index; }
+
 	void deleteIndex();
 
 	void removeFromIndex(FileData* game) {

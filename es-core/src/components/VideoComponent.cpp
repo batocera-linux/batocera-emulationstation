@@ -452,7 +452,7 @@ void VideoComponent::manageState()
 
 	// We will only show if the component is on display and the screensaver
 	// is not active
-	bool show = isShowing() && !mScreensaverActive && !mDisable;
+	bool show = isShowing() && !mScreensaverActive && !mDisable && mVisible;
 	if (!show)
 		mStartDelayed = false;
 
