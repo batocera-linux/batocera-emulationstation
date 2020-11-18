@@ -121,6 +121,12 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath)
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
 
+	if (Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) == ".pdf") 
+	{
+		showPdf(window, imagePath);
+		return;
+	}
+
 	auto imgViewer = new GuiImageViewer(window, false);
 	imgViewer->add(imagePath);
 	imgViewer->setCursor(imagePath);

@@ -17,7 +17,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
 	mDescContainer(window), mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
-	mKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr),
+	mKidGame(nullptr), mNotKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr), mNoManual(nullptr), mNotFavorite(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -152,17 +152,24 @@ DetailedContainer::~DetailedContainer()
 	if (mManual != nullptr)
 		delete mManual;
 
+	if (mNoManual != nullptr)
+		delete mNoManual;
+
 	if (mKidGame != nullptr)
 		delete mKidGame;
+
+	if (mNotKidGame != nullptr)
+		delete mNotKidGame;
 
 	if (mFavorite != nullptr)
 		delete mFavorite;
 
+	if (mNotFavorite != nullptr)
+		delete mNotFavorite;
+
 	if (mHidden != nullptr)
 		delete mHidden;
 }
-
-
 
 std::vector<MdComponent> DetailedContainer::getMetaComponents()
 {
@@ -347,10 +354,15 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		loadIfThemed(&md.component, theme, md.id);
 
 	loadIfThemed(&mKidGame, theme, "md_kidgame", false, true);
+	loadIfThemed(&mNotKidGame, theme, "md_notkidgame", false, true);
+
 	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
+	loadIfThemed(&mNotFavorite, theme, "md_notfavorite", false, true);
+	
 	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
 	loadIfThemed(&mManual, theme, "md_manual", false, true);
-
+	loadIfThemed(&mNoManual, theme, "md_nomanual", false, true);
+	
 	initMDLabels();
 
 	for (auto ctrl : getMetaComponents())
@@ -411,8 +423,11 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 				md.component->setImage("");
 
 		if (mManual != nullptr) mManual->setVisible(false);
+		if (mNoManual != nullptr) mNoManual->setVisible(false);		
 		if (mKidGame != nullptr) mKidGame->setVisible(false);
+		if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);		
 		if (mFavorite != nullptr) mFavorite->setVisible(false);
+		if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);
 		if (mHidden != nullptr) mHidden->setVisible(false);
 
 		fadingOut = true;
@@ -504,12 +519,21 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mManual != nullptr)
 			mManual->setVisible(Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)));
 
+		if (mNoManual != nullptr)
+			mNoManual->setVisible(!Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)));
+
 		if (mKidGame != nullptr)
 			mKidGame->setVisible(file->getKidGame());
+
+		if (mNotKidGame != nullptr)
+			mNotKidGame->setVisible(!file->getKidGame());
 
 		if (mFavorite != nullptr)
 			mFavorite->setVisible(file->getFavorite());
 
+		if (mNotFavorite != nullptr)
+			mNotFavorite->setVisible(!file->getFavorite());
+		
 		if (mHidden != nullptr)
 			mHidden->setVisible(file->getHidden());
 
@@ -517,13 +541,37 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		mDescContainer.reset();
 
 		auto valueOrUnknown = [](const std::string value) { return value.empty() ? _("Unknown") : value; };
+		auto valueOrOne = [](const std::string value) 
+		{ 
+			auto split = value.rfind("+");
+			if (split != std::string::npos)
+				return value.substr(0, split);
+
+			split = value.rfind("-");
+			if (split != std::string::npos)
+				return value.substr(split + 1);
+
+			std::string ret = value;
+
+			int count = Utils::String::toInteger(value);
+
+			if (count >= 10) ret = "9";
+			else if (count == 0) ret = "1";
+
+			return ret;
+		};
 
 		mRating.setValue(file->getMetadata(MetaDataId::Rating));
 		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
 		mDeveloper.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Developer)));
 		mPublisher.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Publisher)));
 		mGenre.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Genre)));
-		mPlayers.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Players)));
+
+		if (mPlayers.getOriginalThemeText() == "1")
+			mPlayers.setValue(valueOrOne(file->getMetadata(MetaDataId::Players)));
+		else 
+			mPlayers.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Players)));
+
 		mName.setValue(file->getMetadata(MetaDataId::Name));
 		mTextFavorite.setText(file->getFavorite()?_("YES"):_("NO"));
 
@@ -552,8 +600,11 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mThumbnail != nullptr) comps.push_back(mThumbnail);
 	if (mFlag != nullptr) comps.push_back(mFlag);
 	if (mManual != nullptr) comps.push_back(mManual);
+	if (mNoManual != nullptr) comps.push_back(mNoManual);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
+	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);	
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
+	if (mNotFavorite != nullptr) comps.push_back(mNotFavorite);	
 	if (mHidden != nullptr) comps.push_back(mHidden);
 
 	for (auto& md : mdImages)
@@ -593,8 +644,11 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mThumbnail != nullptr) mThumbnail->setImage("");
 					if (mFlag != nullptr) mFlag->setImage("");
 					if (mManual != nullptr) mManual->setVisible(false);
+					if (mNoManual != nullptr) mNoManual->setVisible(false);
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
+					if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);
 					if (mFavorite != nullptr) mFavorite->setVisible(false);
+					if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);					
 					if (mHidden != nullptr) mHidden->setVisible(false);
 					
 					for (auto& md : mdImages)

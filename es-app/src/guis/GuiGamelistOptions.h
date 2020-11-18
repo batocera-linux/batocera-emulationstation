@@ -13,7 +13,7 @@ class SystemData;
 class GuiGamelistOptions : public GuiComponent
 {
 public:
-	GuiGamelistOptions(Window* window, SystemData* system, bool showGridFeatures = false);
+	GuiGamelistOptions(Window* window, IGameListView* gamelist, SystemData* system, bool showGridFeatures = false);
 	virtual ~GuiGamelistOptions();
 
 	virtual bool input(InputConfig* config, Input input) override;
@@ -58,6 +58,8 @@ private:
 
 	std::vector< std::function<void()> > mSaveFuncs;
 	bool mReloadAll;
+
+	IGameListView* mGamelist;
 };
 
 #endif // ES_APP_GUIS_GUI_GAME_LIST_OPTIONS_H

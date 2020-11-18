@@ -42,6 +42,10 @@ class FileFilterIndex
 {
 	friend class CollectionFilter;
 
+private:
+	FileFilterIndex(const FileFilterIndex&) { };
+	FileFilterIndex& operator=(FileFilterIndex const&) { return *this; }
+
 public:
 	FileFilterIndex();
 	~FileFilterIndex();
@@ -51,20 +55,23 @@ public:
 	void setFilter(FilterIndexType type, std::vector<std::string>* values);
 	void clearAllFilters();
 	
-	virtual bool showFile(FileData* game);
+	virtual int showFile(FileData* game);
 	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev 
-		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion); };
+		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl> getFilterDataDecls();
 
 	void importIndex(FileFilterIndex* indexToImport);
+	void copyFrom(FileFilterIndex* indexToImport);
+
 	void resetIndex();
 	void resetFilters();
 	void setUIModeFilters();
 
-	void setTextFilter(const std::string text);
+	void setTextFilter(const std::string text, bool useRelevancy = false);
 	inline const std::string getTextFilter() { return mTextFilter; }
+	inline bool hasRelevency() { return !mTextFilter.empty() && mUseRelevency; }
 
 protected:
 	//std::vector<FilterDataDecl> filterDataDecl;
@@ -117,9 +124,8 @@ protected:
 	std::unordered_set<std::string> langIndexFilteredKeys;
 	std::unordered_set<std::string> regionIndexFilteredKeys;
 
-	FileData* mRootFolder;
-
 	std::string mTextFilter;
+	bool		mUseRelevency;
 };
 
 class CollectionFilter : public FileFilterIndex
@@ -131,7 +137,7 @@ public:
 	bool load(const std::string file);
 	bool save();
 
-	bool showFile(FileData* game) override;
+	int showFile(FileData* game) override;
 	bool isFiltered() override;
 
 	bool isSystemSelected(const std::string name);

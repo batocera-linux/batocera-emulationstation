@@ -867,7 +867,7 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 	if (!parseFilterAttributes(node))
 		return;
 
-	std::string val = node.text().as_string();
+	std::string val = resolvePlaceholders(node.text().as_string());
 	//if (val.empty()) return;
 	
 	mVariables.erase(key);

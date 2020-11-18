@@ -592,6 +592,30 @@ namespace Utils
 			return ret;
 		}
 
+		bool startsWithIgnoreCase(const std::string& name1, const std::string& name2)
+		{
+			auto makeUp = [](unsigned int c)
+			{
+				if ((c & 0x80) == 0) return toupper(c);
+				return (int)toupperUnicode(c);
+			};
+
+			size_t p1 = 0;
+			size_t p2 = 0;
+
+			while (true)
+			{
+				int u1 = makeUp(chars2Unicode(name1, p1));
+				int u2 = makeUp(chars2Unicode(name2, p2));
+
+				if (u1 != 0 && u2 == 0)
+					return true;
+				
+				if (u1 != u2)
+					return false;
+			}
+		}
+
 		int compareIgnoreCase(const std::string& name1, const std::string& name2)
 		{
 			auto makeUp = [](unsigned int c)
