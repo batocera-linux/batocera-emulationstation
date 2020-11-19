@@ -14,6 +14,8 @@ namespace Utils
 		{
 		public:
 
+			static DateTime now();
+
 			 DateTime();
 			 DateTime(const time_t& _time);
 			 DateTime(const tm& _timeStruct);
@@ -34,6 +36,8 @@ namespace Utils
 			const tm&          getTimeStruct() const { return mTimeStruct; }
 			void               setIsoString (const std::string& _isoString);
 			const std::string& getIsoString () const { return mIsoString; }
+
+			double			   elapsedSecondsSince(const DateTime& _since);
 
 		private:
 

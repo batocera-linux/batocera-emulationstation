@@ -220,6 +220,13 @@ std::string getImageCacheFilename()
 	return Utils::FileSystem::getEsConfigPath() + "/imagecache.db";
 }
 
+void ImageIO::clearImageCache()
+{
+	std::string fname = getImageCacheFilename();
+	Utils::FileSystem::removeFile(fname);
+	sizeCache.clear();
+}
+
 void ImageIO::loadImageCache()
 {
 	std::string fname = getImageCacheFilename();
@@ -227,6 +234,8 @@ void ImageIO::loadImageCache()
 	std::ifstream f(fname.c_str());
 	if (f.fail())
 		return;
+
+	sizeCache.clear();
 
 #if WIN32
 	std::string relativeTo = Utils::FileSystem::getParent(Utils::FileSystem::getHomePath());

@@ -713,6 +713,18 @@ void GuiMenu::openDeveloperSettings()
 		}, _("NO"), nullptr));
 	});
 
+	s->addEntry(_("CLEAR CACHES"), true, [this, s]
+	{
+		ImageIO::clearImageCache();
+
+		auto rootPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath());
+
+		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
+		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/pdftmp/");
+
+		ViewController::reloadAllGames(mWindow, false);
+	});
+
 	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
 	{
 		for (auto system : SystemData::sSystemVector)

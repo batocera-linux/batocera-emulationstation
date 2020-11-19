@@ -6,6 +6,11 @@ namespace Utils
 {
 	namespace Time
 	{
+		DateTime DateTime::now()
+		{
+			return Utils::Time::DateTime(Utils::Time::now());
+		}
+
 		DateTime::DateTime()
 		{
 			mTime       = 0;
@@ -64,6 +69,11 @@ namespace Utils
 			setTime(stringToTime(_isoString));
 
 		} // DateTime::setIsoString
+
+		double	DateTime::elapsedSecondsSince(const DateTime& _since)
+		{
+			return difftime(mTime, _since.mTime);
+		}
 
 		Duration::Duration(const time_t& _time)
 		{
