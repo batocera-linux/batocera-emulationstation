@@ -203,6 +203,7 @@ public:
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	std::pair<std::string, int> uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	void updateBatoceraStorePackageList();
+	void refreshBatoceraStorePackageList();
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);

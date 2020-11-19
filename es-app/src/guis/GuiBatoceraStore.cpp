@@ -57,7 +57,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SEARCH"), _("SEARCH"), [this] {  showSearch(); }));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] {  loadPackagesAsync(true); }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] {  loadPackagesAsync(true, true); }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("UPDATE INSTALLED CONTENT"), _("UPDATE INSTALLED CONTENT"), [this] {  loadPackagesAsync(true, false); }));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("BACK"), _("BACK"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
@@ -108,7 +109,7 @@ void GuiBatoceraStore::update(int deltaTime)
 				loadList(false, restoreIndex);
 		}
 		else 
-			loadPackagesAsync(false);
+			loadPackagesAsync(false, true);
 	}
 }
 
@@ -265,15 +266,18 @@ std::vector<PacmanPackage> GuiBatoceraStore::queryPackages()
 	return copy;
 }
 
-void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
+void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList, bool refreshOnly)
 {
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<PacmanPackage>>(mWindow, _("PLEASE WAIT"),
-		[this,  updatePackageList]
+		[this,  updatePackageList, refreshOnly]
 		{	
 			if (updatePackageList)
-				ApiSystem::getInstance()->updateBatoceraStorePackageList();
+				if (refreshOnly)
+					ApiSystem::getInstance()->refreshBatoceraStorePackageList();
+				else
+					ApiSystem::getInstance()->updateBatoceraStorePackageList();
 
 			return queryPackages();
 		},
