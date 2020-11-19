@@ -455,7 +455,12 @@ void GridTileComponent::applyThemeToProperties(const ThemeData::ThemeElement* el
 		properties.Size = elem->get<Vector2f>("size") * screen;
 
 	if (elem->has("padding"))
+	{
 		properties.Padding = elem->get<Vector4f>("padding");
+		
+		if (abs(properties.Padding.x()) < 1 && abs(properties.Padding.y()) < 1 && abs(properties.Padding.w()) < 1 && abs(properties.Padding.y()) < 1)
+			properties.Padding *= screen;
+	}
 
 	if (elem && elem->has("selectionMode"))
 		properties.SelectionMode = elem->get<std::string>("selectionMode");		

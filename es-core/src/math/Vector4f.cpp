@@ -1,5 +1,6 @@
 #include "math/Vector4f.h"
 #include "utils/StringUtil.h"
+#include "math/Vector2f.h"
 
 Vector4f& Vector4f::round()
 {
@@ -49,4 +50,10 @@ const Vector4f Vector4f::parseString(const std::string& _input)
 	}
 
 	return ret;
+}
+
+Vector4f& Vector4f::operator*=(const Vector2f& _other)
+{ 
+	mX * _other.x(), mY * _other.y(), mZ * _other.x(), mW * _other.y(); 
+	return *this; 
 }

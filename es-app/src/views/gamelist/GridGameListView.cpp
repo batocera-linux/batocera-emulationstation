@@ -115,7 +115,7 @@ bool GridGameListView::input(InputConfig* config, Input input)
 	if (!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && input.value)
 	{
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
-		mWindow->pushGui(new GuiGamelistOptions(mWindow, this->mRoot->getSystem(), true));
+		mWindow->pushGui(new GuiGamelistOptions(mWindow, this, this->mRoot->getSystem(), true));
 		return true;
 
 		// Ctrl-R to reload a view when debugging

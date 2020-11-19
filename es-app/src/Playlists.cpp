@@ -38,11 +38,28 @@ std::string SystemRandomPlaylist::getNextItem()
 					mPaths.push_back(file->getMarqueePath());
 				break;
 
+			case FANART:
+				if (!file->getMetadata(MetaDataId::FanArt).empty())
+					mPaths.push_back(file->getMetadata(MetaDataId::FanArt));
+				break;
+
+			case TITLESHOT:
+				if (!file->getMetadata(MetaDataId::TitleShot).empty())
+					mPaths.push_back(file->getMetadata(MetaDataId::TitleShot));
+				break;
+
 			case VIDEO:
 				if (!file->getVideoPath().empty())
 					mPaths.push_back(file->getVideoPath());
 				break;
 			}
+		}
+
+		if (mType == FANART && mPaths.size() == 0)
+		{
+			for (auto file : files)
+				if (!file->getThumbnailPath().empty())
+					mPaths.push_back(file->getThumbnailPath());
 		}
 
 		if (mPaths.size() > 0)

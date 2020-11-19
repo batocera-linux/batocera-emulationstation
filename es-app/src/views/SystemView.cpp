@@ -125,6 +125,10 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 					type = SystemRandomPlaylist::THUMBNAIL;
 				else if (src == "{random:marquee}")
 					type = SystemRandomPlaylist::MARQUEE;
+				else if (src == "{random:fanart}")
+					type = SystemRandomPlaylist::FANART;
+				else if (src == "{random:titleshot}")
+					type = SystemRandomPlaylist::TITLESHOT;
 
 				((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(system, type));
 			}

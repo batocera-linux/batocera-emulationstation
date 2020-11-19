@@ -16,6 +16,7 @@
 #include "guis/GuiKeyboardLayout.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "views/UIModeController.h"
 
 #include <unordered_set>
 #include <algorithm>
@@ -99,6 +100,10 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("PAD TO KEYBOARD CONFIGURATION"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT ACTIONS TO CHANGE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+
+	if (!UIModeController::getInstance()->isUIModeFull())
+		mSubtitle->setText("");
+
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
@@ -114,12 +119,18 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [this] {  save(); delete this; }));
 
-	if (mMapping.isValid())
-		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), [this] { deleteMapping(); }));
+	if (UIModeController::getInstance()->isUIModeFull())
+	{
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [this] {  save(); delete this; }));
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [this] { delete this; }));
+		if (mMapping.isValid())
+			buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), [this] { deleteMapping(); }));
+
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [this] { delete this; }));
+	}
+	else 
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLOSE"), _("CLOSE"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false);
@@ -218,8 +229,10 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		ComponentListRow row;
 
 		KeyMappingFile::KeyMapping km = mMapping.getKeyMapping(mPlayer, mappingName.name);
+		if (!UIModeController::getInstance()->isUIModeFull() && km.targets.size() == 0)
+			continue;
 
-		if (!gp && mappingName.name.find("+") != std::string::npos)
+		if (!gp && mappingName.name.find("+") != std::string::npos && UIModeController::getInstance()->isUIModeFull())
 		{
 			mList->addGroup(_("COMBINATIONS"));
 			gp = true;
@@ -237,50 +250,56 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 
 		auto grid = std::make_shared<GuiKeyMappingEditorEntry>(mWindow, mappingName, km);
 		row.addElement(grid, true);
-		row.makeAcceptInputHandler([this, km, mappingName, accept]
+
+		if (UIModeController::getInstance()->isUIModeFull())
 		{
-			if (GuiKeyboardLayout::isEnabled())
+			row.makeAcceptInputHandler([this, km, mappingName, accept]
 			{
-				std::set<std::string> tgs = km.targets;
-				mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
-			}
-		});
+				if (GuiKeyboardLayout::isEnabled())
+				{
+					std::set<std::string> tgs = km.targets;
+					mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
+				}
+			});
+		}
 
 		mList->addRow(row, i == idx, false, km.targets.size() == 0 ? "" : mappingName.name);
 		i++;
 	}
 
-
-	mList->addGroup(_("MOUSE CURSOR"));
-	i++;
-
-	ComponentListRow mouseRow;
-
-	auto theme = ThemeData::getMenuTheme();
-
-	auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
-	mouseRow.addElement(text, true);
-
-	auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
-	
-	imageSource->addRange({ 
-		{ _("NO"), "" },
-		{ _("LEFT ANALOG STICK") , "joystick1" },
-		{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
-
-	mouseRow.addElement(imageSource, false, true);
-
-	mList->addRow(mouseRow, idx > 0 && last);
-
-	imageSource->setSelectedChangedCallback([this](const std::string& name)
+	if (UIModeController::getInstance()->isUIModeFull())
 	{
-		if (mMapping.setMouseMapping(mPlayer, name))
+		mList->addGroup(_("MOUSE CURSOR"));
+		i++;
+
+		ComponentListRow mouseRow;
+
+		auto theme = ThemeData::getMenuTheme();
+
+		auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
+		mouseRow.addElement(text, true);
+
+		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
+
+		imageSource->addRange({
+			{ _("NO"), "" },
+			{ _("LEFT ANALOG STICK") , "joystick1" },
+			{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
+
+		mouseRow.addElement(imageSource, false, true);
+
+		mList->addRow(mouseRow, idx > 0 && last);
+
+		imageSource->setSelectedChangedCallback([this](const std::string& name)
 		{
-			mDirty = true;
-			loadList(true);
-		}
-	});
-	i++;
+			if (mMapping.setMouseMapping(mPlayer, name))
+			{
+				mDirty = true;
+				loadList(true);
+			}
+		});
+		i++;
+	}
 
 	centerWindow();
 }

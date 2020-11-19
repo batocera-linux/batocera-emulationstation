@@ -645,24 +645,32 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		items = &flatGameList;		
 	}
 
+	std::map<FileData*, int> scoringBoard;
+
 	bool refactorUniqueGameFolders = (showFoldersMode == "having multiple games");
 
 	for (auto it = items->cbegin(); it != items->cend(); it++)
 	{
-		if (idx != nullptr && !idx->showFile((*it)))
-			continue;
-
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
 
 		if (filterKidGame && !(*it)->getKidGame())
 			continue;
-		
+
 		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)
 		{
 			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName()));
 			if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
 				continue;
+		}
+
+		if (idx != nullptr)
+		{
+			int score = idx->showFile(*it);
+			if (score == 0)
+				continue;
+
+			scoringBoard[*it] = score;
 		}
 
 		if ((*it)->getType() == FOLDER && refactorUniqueGameFolders)
@@ -703,10 +711,29 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		currentSortId = 0;
 
 	const FileSorts::SortType& sort = FileSorts::getSortTypes().at(currentSortId);
-	std::sort(ret.begin(), ret.end(), sort.comparisonFunction);
 
-	if (!sort.ascending)
-		std::reverse(ret.begin(), ret.end());
+	if (idx != nullptr && idx->hasRelevency())
+	{
+		auto compf = sort.comparisonFunction;
+
+		std::sort(ret.begin(), ret.end(), [scoringBoard, compf](const FileData* file1, const FileData* file2) -> bool
+		{ 
+			auto s1 = scoringBoard.find((FileData*) file1);
+			auto s2 = scoringBoard.find((FileData*) file2);		
+
+			if (s1 != scoringBoard.cend() && s2 != scoringBoard.cend() && s1->second != s2->second)
+				return s1->second < s2->second;
+			
+			return compf(file1, file2);
+		});
+	}
+	else
+	{
+		std::sort(ret.begin(), ret.end(), sort.comparisonFunction);
+
+		if (!sort.ascending)
+			std::reverse(ret.begin(), ret.end());
+	}
 
 	return ret;
 }

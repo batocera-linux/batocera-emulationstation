@@ -75,6 +75,10 @@ ViewController::ViewController(Window* window)
 
 ViewController::~ViewController()
 {	
+	ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(mCurrentView.get());
+	if (simpleView != nullptr)
+		simpleView->closePopupContext();
+
 	sInstance = nullptr;
 }
 
@@ -475,7 +479,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
 			else
 			{
-				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -490,7 +494,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -504,7 +508,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -522,18 +526,21 @@ void ViewController::removeGameListView(SystemData* system)
 	}
 }
 
-std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* system, bool loadIfnull)
+std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* system, bool loadIfnull, const std::function<void()>& createAsPopupAndSetExitFunction)
 {
-	//if we already made one, return that one
-	auto exists = mGameListViews.find(system);
-	if(exists != mGameListViews.cend())
-		return exists->second;
+	if (createAsPopupAndSetExitFunction == nullptr)
+	{
+		//if we already made one, return that one
+		auto exists = mGameListViews.find(system);
+		if (exists != mGameListViews.cend())
+			return exists->second;
 
-	if (!loadIfnull)
-		return nullptr;
+		if (!loadIfnull)
+			return nullptr;
 
-	system->setUIModeFilters();
-	system->updateDisplayedGameCount();
+		system->setUIModeFilters();
+		system->updateDisplayedGameCount();
+	}
 
 	//if we didn't, make it, remember it, and return it
 	std::shared_ptr<IGameListView> view;
@@ -649,13 +656,31 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 		view->setTheme(system->getTheme());
 	}
 
-	std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
-	int id = (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
-	view->setPosition(id * (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight() * 2);
+	ISimpleGameListView* simpleListView = dynamic_cast<ISimpleGameListView*>(view.get());
 
-	addChild(view.get());
+	if (createAsPopupAndSetExitFunction != nullptr && simpleListView != nullptr)
+	{
+		if (mCurrentView)
+		{
+			mCurrentView->onHide();
+			view->setPosition(mCurrentView->getPosition());
+		}
 
-	mGameListViews[system] = view;
+		simpleListView->setPopupContext(view, mCurrentView, system->getIndex(true)->getTextFilter(), createAsPopupAndSetExitFunction);
+
+		mCurrentView = view;
+		mCurrentView->onShow();
+	}
+	else
+	{
+		std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
+		int id = (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
+		view->setPosition(id * (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight() * 2);
+
+		addChild(view.get());
+		mGameListViews[system] = view;
+	}
+
 	return view;
 }
 
@@ -935,7 +960,13 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
 	if (mCurrentView != nullptr)
+	{
+		ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(mCurrentView.get());
+		if (simpleView != nullptr)
+			simpleView->closePopupContext();
+
 		mCurrentView->onHide();
+	}
 
 	ThemeData::setDefaultTheme(nullptr);
 
@@ -1088,4 +1119,13 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
 
 	window->closeSplashScreen();
 	window->pushGui(ViewController::get());
+}
+
+void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)
+{
+	if (mCurrentView != nullptr)
+		mCurrentView->onHide();
+
+	mCurrentView = view;
+	mCurrentView->onShow();
 }
