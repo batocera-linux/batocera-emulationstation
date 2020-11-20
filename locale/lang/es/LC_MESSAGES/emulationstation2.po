@@ -460,7 +460,7 @@ msgid "OTHER FILTERS"
 msgstr "OTROS FILTROS"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "BUSCAR JUEGOS SIMILARES..."
 
 msgid "GAME MEDIAS"
 msgstr "PORTADAS"
@@ -517,7 +517,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "VER LA INFORMACIÓN DE CONTROL A TECLADO"
 
 msgid "RESET FILTERS"
 msgstr "RESTABLECER FILTROS"
@@ -652,7 +652,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECCIONAR CONTENIDO A INSTALAR / DESINSTALAR"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "ACTUALIZAR CONTENIDO INSTALADO"
 
 msgid "There are no items in this view"
 msgstr "No hay mas elementos en esta vista"
@@ -1155,7 +1155,7 @@ msgid "OVERSCAN"
 msgstr "SOBREESCANEO"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE"
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
@@ -1185,7 +1185,7 @@ msgid "Cleaning "
 msgstr "Limpieza "
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "LIMPIAR CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABLECER EXTENSIONES DE ARCHIVOS"
@@ -1880,7 +1880,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "ESTABLECER CONTRASEÑA DE ESPECTADOR"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "JUEGOS SIMILARES A"
 
 msgid "Searching"
 msgstr "BUSCANDO"
