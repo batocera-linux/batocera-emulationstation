@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -470,6 +470,9 @@ msgstr "ترتيب الألعاب حسب "
 msgid "OTHER FILTERS"
 msgstr "تصفيات أخرى"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "وسائط اللعبة"
 
@@ -523,6 +526,9 @@ msgstr "تعديل مجلد البيانات الوصفية"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل البيانات الوصفية لهذه اللعبة"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "الغاء التصنيفات"
@@ -655,6 +661,9 @@ msgstr "محمل المحتوى"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "اختر محتوى لتثبيته / حذفه"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr ""
@@ -1163,6 +1172,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "فائض"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "الأدوات"
 
@@ -1188,6 +1200,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1884,6 +1899,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

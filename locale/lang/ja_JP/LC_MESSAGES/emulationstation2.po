@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
-"PO-Revision-Date: 2020-11-09 18:54+0900\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"PO-Revision-Date: 2020-11-18 21:49+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -164,7 +164,7 @@ msgid "Hidden"
 msgstr "隠し項目"
 
 msgid "enter hidden"
-msgstr "非表示を入力"
+msgstr "隠し項目を入力"
 
 msgid "Kidgame"
 msgstr "子供向け"
@@ -394,7 +394,7 @@ msgid "NONE"
 msgstr "無し"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "最終選択を復元"
 
 msgid "START ON GAMELIST"
 msgstr "ゲームリストで起動"
@@ -462,6 +462,9 @@ msgstr "ゲーム別のソート"
 msgid "OTHER FILTERS"
 msgstr "その他のフィルタ"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "ゲームメディア"
 
@@ -515,6 +518,9 @@ msgstr "フォルダのメタ情報を編集"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "フィルターのリセット"
@@ -648,6 +654,9 @@ msgstr "コンテンツダウンローダー"
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "インストール/削除するコンテンツを選択"
 
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
+
 msgid "There are no items in this view"
 msgstr "項目が無いので表示できません"
 
@@ -682,7 +691,7 @@ msgid "start & end"
 msgstr "開始＆終了"
 
 msgid "never"
-msgstr "未プレイ"
+msgstr "しない"
 
 msgid "none"
 msgstr "なし"
@@ -814,10 +823,10 @@ msgid "SAVE CHANGES?"
 msgstr "変更を保存しますか？"
 
 msgid "ARE YOU SURE ?"
-msgstr "よろしいですね？"
+msgstr "よろしいですか？"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "エミュレーションステーションの更新"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA更新中"
@@ -1145,6 +1154,10 @@ msgstr "VSYNC(垂直同期)有効"
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
+# use rpi
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr "OMX PLAYERを使用(HW アクセラレーション)"
+
 msgid "TOOLS"
 msgstr "ツール"
 
@@ -1166,10 +1179,14 @@ msgstr "ファイル生成に失敗しました"
 msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
 
+# add 5.29
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "ゲームリストの整理と未使用のメディアを削除"
 
 msgid "Cleaning "
+msgstr "クリーニング "
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1532,7 +1549,7 @@ msgid "SHOW FOLDERS"
 msgstr "フォルダを表示"
 
 msgid "having multiple games"
-msgstr "複数のゲームがある"
+msgstr "ゲームがあるフォルダ"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
@@ -1671,7 +1688,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "ユーザーズマニュアルを表示"
 
 msgid "VIEW BATOCERA MANUAL"
 msgstr "バトセラマニュアルを表示"
@@ -1731,7 +1748,7 @@ msgid "FILE SYSTEM"
 msgstr "ファイルシステム"
 
 msgid "FORMAT NOW"
-msgstr "今すぐフォーマット"
+msgstr "フォーマット 開始"
 
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "選択した設定は無効です"
@@ -1753,7 +1770,7 @@ msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "システム情報"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "エラー：すべてのシステムが非表示になり、すべてが再表示されます"
@@ -1768,7 +1785,7 @@ msgid "COLLECTIONS"
 msgstr "コレクション"
 
 msgid "GO TO MANUFACTURER"
-msgstr "メーカーに移動"
+msgstr "システムに移動"
 
 msgid "GO TO HARDWARE"
 msgstr "ハードウェアに移動"
@@ -1777,7 +1794,7 @@ msgid "GO TO DECADE"
 msgstr "プレイ済みに移動"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "設定"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1807,7 +1824,7 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"警告：このゲームのフォーマットは、現在のエミュレーター/コアではサポートされて"
+"警告：このゲームのフォーマットは、 現在のエミュレータ/コアではサポートされて"
 "いません。\n"
 "実行しますか?"
 
@@ -1815,7 +1832,7 @@ msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"警告：システムにBIOSがなく、ゲームが正しく機能しない可能性があります。\n"
+"警告：システムにBIOSがなく、 ゲームが正しく機能しない可能性があります。\n"
 "実行しますか?"
 
 msgid "Preloading UI"
@@ -1837,7 +1854,7 @@ msgid "Released"
 msgstr "発売日"
 
 msgid "Times played"
-msgstr "起動回数"
+msgstr "プレイ回数"
 
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
@@ -1856,6 +1873,9 @@ msgstr "プレーヤーパスワードの設定"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "ビューアパスワードの設定"
+
+msgid "Games similar to"
+msgstr ""
 
 msgid "Searching"
 msgstr "検索中"
@@ -2179,6 +2199,14 @@ msgstr "%d 秒"
 #~ msgid "options"
 #~ msgstr "設定"
 
+# use rpi
+#~ msgid "Model"
+#~ msgstr "モデル"
+
+# use rpi
+#~ msgid "Revision"
+#~ msgstr "リビジョン"
+
 # use item(power save mode)
 #~ msgid "enhanced"
 #~ msgstr "省電力"
@@ -2205,8 +2233,15 @@ msgstr "%d 秒"
 #~ msgid "SQUARE PIXEL"
 #~ msgstr "正方形ピクセル"
 
+# need 5.27
+#~ msgid "STATUS"
+#~ msgstr "状態"
+
 #~ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
 #~ msgstr "KODIメディアセンターを起動しますか？"
+
+#~ msgid "misc.system"
+#~ msgstr "その他システム"
 
 #~ msgid "KODI"
 #~ msgstr "KODI"
@@ -2243,6 +2278,44 @@ msgstr "%d 秒"
 # bios status,INVALID
 #~ msgid "INVALID"
 #~ msgstr "無効"
+
+# need 5.27.2
+#~ msgid "Retrieving data download..."
+#~ msgstr "データを取得しています..."
+
+# use rpi3
+#~ msgid "NONE (1200Mhz)"
+#~ msgstr "無し(1200Mhz)"
+
+# use rpi3
+#~ msgid "HIGH (1300Mhz)"
+#~ msgstr "高 (1300Mhz)"
+
+# use rpi3
+#~ msgid "Tutbo (1325Mhz)"
+#~ msgstr "ターボ (1325Mhz)"
+
+# use rpi3
+#~ msgid "EXTREM (1350Mhz)"
+#~ msgstr "極限 (1350Mhz)"
+
+# use rpi
+#~ msgid "jack"
+#~ msgstr "3.5mm音声ジャック"
+
+#, fuzzy
+#~ msgid "HIGH (950Mhz)"
+#~ msgstr "高 (950Mhz)"
+
+#~ msgid "NONE (900Mhz)"
+#~ msgstr "無し (900Mhz)"
+
+#~ msgid "NONE (700Mhz)"
+#~ msgstr "無し (700Mhz)"
+
+#, fuzzy
+#~ msgid "TURBO (1050Mhz)+"
+#~ msgstr "ターボ (1050Mhz)+"
 
 #~ msgid "Options"
 #~ msgstr "設定"
@@ -2339,9 +2412,6 @@ msgstr "%d 秒"
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "ホスト(ネットプレイ)としてゲームを起動しますか？"
 
-#~ msgid "Retrieving data download..."
-#~ msgstr "データを取得しています..."
-
 #~ msgid "extracting files"
 #~ msgstr "ファイルの抽出"
 
@@ -2407,9 +2477,6 @@ msgstr "%d 秒"
 
 #~ msgid "LOGOS"
 #~ msgstr "ロゴ"
-
-#~ msgid "SELECT SYSTEMS TO DISPLAY"
-#~ msgstr "表示するシステムを選択"
 
 #~ msgid "APPLY"
 #~ msgstr "適用"
@@ -2565,7 +2632,7 @@ msgstr "%d 秒"
 #~ msgstr "ファイル名"
 
 #~ msgid "TIMES PLAYED"
-#~ msgstr "プレイ時間"
+#~ msgstr "プレイ回数"
 
 #~ msgid "LAST PLAYED"
 #~ msgstr "最終プレイ日時"
@@ -2610,38 +2677,8 @@ msgstr "%d 秒"
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "BATOCERA.LINUXのアップデートがあります"
 
-#, fuzzy
-#~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "極限 (1100Mhz)"
-
-#, fuzzy
-#~ msgid "TURBO (1000Mhz)"
-#~ msgstr "ターボ (1000Mhz)"
-
-#~ msgid "HIGH (950Mhz)"
-#~ msgstr "高 (950Mhz)"
-
-#~ msgid "HIGH (1050Mhz)"
-#~ msgstr "高 (1050Mhz)"
-
-#~ msgid "NONE (900Mhz)"
-#~ msgstr "無し (900Mhz)"
-
-#~ msgid "NONE (1200Mhz)"
-#~ msgstr "無し (1200Mhz)"
-
-#~ msgid "NONE (700Mhz)"
-#~ msgstr "無し (700Mhz)"
-
-#, fuzzy
-#~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "ターボ (1050Mhz)+"
-
 #~ msgid "HDMI"
 #~ msgstr "HDMI"
-
-#~ msgid "JACK"
-#~ msgstr "音声ジャック"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
 #~ msgstr "アップデートに失敗しました。 システムは再起動が必要です"

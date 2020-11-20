@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -462,6 +462,9 @@ msgstr "TRIER LES JEUX PAR"
 msgid "OTHER FILTERS"
 msgstr "AUTRES FILTRES"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "MEDIAS DU JEU"
 
@@ -515,6 +518,9 @@ msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "RAZ DES FILTRES"
@@ -647,6 +653,9 @@ msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SÉLECTIONNEZ LE CONTENU À INSTALLER / SUPPRIMER"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr "Il n’y a pas d’éléments dans cette vue"
@@ -1147,6 +1156,9 @@ msgstr "SYNCHRONISATION VERTICALE"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "OUTILS"
 
@@ -1172,6 +1184,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1862,6 +1877,9 @@ msgstr "DÉFINIR MOT DE PASSE JOUEUR"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "DÉFINIR MOT DE PASSE SPECTATEUR"
+
+msgid "Games similar to"
+msgstr ""
 
 msgid "Searching"
 msgstr "Recherche"

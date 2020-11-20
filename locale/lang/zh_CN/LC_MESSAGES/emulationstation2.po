@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -458,6 +458,9 @@ msgstr "游戏排序方式"
 msgid "OTHER FILTERS"
 msgstr "其他筛选器"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "游戏媒体"
 
@@ -511,6 +514,9 @@ msgstr "编辑文件夹的信息"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "编辑此游戏的信息"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "重置筛选"
@@ -643,6 +649,9 @@ msgstr "下载内容"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "选择内容以便安装 / 卸载"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr "在此视角下没东西"
@@ -1140,6 +1149,9 @@ msgstr "垂直同步"
 msgid "OVERSCAN"
 msgstr "过扫描"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "工具"
 
@@ -1166,6 +1178,9 @@ msgstr "清除游戏列表并删除未使用的媒体"
 
 msgid "Cleaning "
 msgstr "清理中"
+
+msgid "CLEAR CACHES"
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重置文件扩展"
@@ -1845,6 +1860,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

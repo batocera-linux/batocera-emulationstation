@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -395,7 +395,7 @@ msgid "NONE"
 msgstr "НЕТ"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 
 msgid "START ON GAMELIST"
 msgstr "НАЧАТЬ СО СПИСКА ИГР"
@@ -463,6 +463,9 @@ msgstr "СОРТИРОВКА ПО"
 msgid "OTHER FILTERS"
 msgstr "ДРУГИЕ ФИЛЬТРЫ"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "МЕДИА ИГРЫ"
 
@@ -516,6 +519,9 @@ msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ ПАПКИ"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "СБРОСИТЬ ФИЛЬТРЫ"
@@ -648,6 +654,9 @@ msgstr "ЗАГРУЗКА КОНТЕНТА"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "УСТАНОВКА / УДАЛЕНИЕ КОНТЕНТА"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr "Нет объектов для отображения"
@@ -818,7 +827,7 @@ msgid "ARE YOU SURE ?"
 msgstr "ВЫ УВЕРЕНЫ?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "ОБНОВЛЕНИЕ BATOCERA"
@@ -1121,7 +1130,7 @@ msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "ПОЖАЛУЙСТА, ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
 
 msgid "INFORMATION"
-msgstr "ДАННЫЕ"
+msgstr "ХАРАКТЕРИСТИКИ"
 
 msgid "VERSION"
 msgstr "ВЕРСИЯ"
@@ -1150,6 +1159,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
 
@@ -1172,9 +1184,12 @@ msgid "FORMAT A DISK"
 msgstr "ФОРМАТИРОВАТЬ"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
 msgid "Cleaning "
+msgstr "Очистка "
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1676,7 +1691,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "VIEW BATOCERA MANUAL"
 msgstr "РУКОВОДСТВО ПО BATOCERA"
@@ -1758,7 +1773,7 @@ msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "СИСТЕМНАЯ ИНФОРМАЦИЯ"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "ОШИБКА: ВСЕ СИСТЕМЫ СКРЫТЫ, ВКЛЮЧЕНИЕ ПОВТОРНОГО ОТОБРАЖЕНИЯ"
@@ -1782,7 +1797,7 @@ msgid "GO TO DECADE"
 msgstr "ПЕРЕЙТИ К ДЕСЯТИЛЕТИЮ"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "КОНФИГУРАЦИЯ"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1866,6 +1881,9 @@ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
+
+msgid "Games similar to"
+msgstr ""
 
 msgid "Searching"
 msgstr "Поиск"

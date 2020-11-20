@@ -631,7 +631,7 @@ void GuiMenu::openDeveloperSettings()
 	// Video Player - VideoOmxPlayer
 	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
 	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
-	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
+	s->addWithLabel(_("USE OMX PLAYER (HW ACCELERATED)"), omx_player);
 	s->addSaveFunc([omx_player, window]
 	{
 		// need to reload all views to re-create the right video components
