@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-20 06:05-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -463,7 +463,7 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "PROCURAR JOGOS SEMELHANTES..."
 
 msgid "GAME MEDIAS"
 msgstr "MÍDIAS DE JOGOS"
@@ -520,7 +520,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "VISUALIZAR INFORMAÇÕES DO CONTROLE E TECLADO"
 
 msgid "RESET FILTERS"
 msgstr "APAGAR FILTROS"
@@ -655,7 +655,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "ATUALIZAR CONTEÚDO INSTALADO"
 
 msgid "There are no items in this view"
 msgstr "Não há itens nesta visualização"
@@ -1159,7 +1159,7 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "USAR OMX PLAYER (HW ACELERADO)"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
@@ -1189,7 +1189,7 @@ msgid "Cleaning "
 msgstr "Apagando"
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "LIMPAR CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
@@ -1880,7 +1880,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "DEFINIR SENHA DE VISUALIZADOR"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Jogos semelhantes a"
 
 msgid "Searching"
 msgstr "Procurando"
