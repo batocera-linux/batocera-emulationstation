@@ -913,6 +913,8 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	SystemData* newSys = sysData->system;
 	CollectionSystemDecl sysDecl = sysData->decl;
 	FolderData* rootFolder = newSys->getRootFolder(); 
+
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 	
 	for(auto& system : SystemData::sSystemVector)
 	{
@@ -920,6 +922,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 		if (!system->isGameSystem() || system->isCollection() || system->isGroupSystem())
 			continue;
 		
+		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
+			continue;
+
 		std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
 		bool isArcade = std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
 
@@ -1017,6 +1022,8 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 	sysData->isPopulated = true;
 	CollectionSystemDecl sysDecl = sysData->decl;
 
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	if (sysData->filteredIndex != nullptr)
 	{
 		sysData->filteredIndex->resetIndex();
@@ -1037,6 +1044,9 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 
 				if (sysData->filteredIndex->showFile(game))
 				{
+					if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), game->getSystemName()) != hiddenSystems.cend())
+						continue;
+
 					CollectionFileData* newGame = new CollectionFileData(game, newSys);
 					rootFolder->addChild(newGame);
 				}
@@ -1080,6 +1090,9 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 		std::unordered_map<std::string, FileData*>::const_iterator it = pMap->find(gameKey);
 		if (it != pMap->cend())
 		{
+			if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), it->second->getName()) != hiddenSystems.cend())
+				continue;
+
 			CollectionFileData* newGame = new CollectionFileData(it->second, newSys);
 			rootFolder->addChild(newGame);
 			newSys->addToIndex(newGame);
