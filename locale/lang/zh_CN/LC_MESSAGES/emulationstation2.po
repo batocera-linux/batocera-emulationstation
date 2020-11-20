@@ -372,13 +372,13 @@ msgid "ALPHABETICALLY"
 msgstr "按字母排序"
 
 msgid "BY MANUFACTURER"
-msgstr "由生产商提供"
+msgstr "按制造商"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "按硬件类型"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "按发布年"
 
 msgid "SORT SYSTEMS"
 msgstr "系统分类"
@@ -390,7 +390,7 @@ msgid "NONE"
 msgstr "无"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "恢复上次的选择"
 
 msgid "START ON GAMELIST"
 msgstr "启动到游戏列表"
@@ -414,7 +414,7 @@ msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "自动合辑"
 
 msgid "ARCADE SYSTEMS"
 msgstr "游戏系统"
@@ -501,10 +501,10 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏选项"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "编辑pad到键盘自定义"
 
 msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "创建pad到键盘自定义"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "编辑文件夹的信息"
@@ -525,7 +525,7 @@ msgid "CLOSE"
 msgstr "关闭"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgstr "确定是否删除？"
 
 msgid "INPUT"
 msgstr "名称编辑"
@@ -552,13 +552,13 @@ msgid "LAUNCH"
 msgstr "启动"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "未知ROM版本"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "不同的ROM"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "相同的ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "核心无效"
@@ -573,10 +573,10 @@ msgid "NO GAME FOUND"
 msgstr "未发现游戏"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "加入游戏"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "观看游戏"
 
 msgid "MANUAL INPUT"
 msgstr "手动输入"
@@ -636,7 +636,7 @@ msgid "RESET"
 msgstr "重置"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "增加组合键"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "下载内容"
@@ -645,7 +645,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "选择内容以便安装 / 卸载"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "在此视角下没东西"
 
 msgid "MISC"
 msgstr "杂项"
@@ -660,34 +660,34 @@ msgid "MISSING BIOS"
 msgstr "缺失的BIOS"
 
 msgid "dim"
-msgstr ""
+msgstr "暗灰"
 
 msgid "black"
-msgstr ""
+msgstr "黑"
 
 msgid "random video"
-msgstr ""
+msgstr "随机视频"
 
 msgid "slideshow"
-msgstr ""
+msgstr "片段展示"
 
 msgid "always"
 msgstr "总是"
 
 msgid "start & end"
-msgstr ""
+msgstr "开始和结束"
 
 msgid "never"
 msgstr "从未"
 
 msgid "none"
-msgstr ""
+msgstr "无"
 
 msgid "systems"
-msgstr ""
+msgstr "系统"
 
 msgid "random"
-msgstr ""
+msgstr "随机"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "屏保设置"
@@ -702,7 +702,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "屏保样式"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr ""
+msgstr "录屏时停止音乐"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "屏保-随机视频设置"
@@ -768,10 +768,10 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "自定图像筛选"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "pad到键盘自动以"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "选择行动来改变"
 
 msgid "SAVE"
 msgstr "保存"
@@ -780,31 +780,31 @@ msgid "DELETE"
 msgstr "删除"
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "玩家一"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "玩家二"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "组合键"
 
 msgid "MOUSE CURSOR"
-msgstr ""
+msgstr "鼠标光标"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr ""
+msgstr "仿真鼠标光标"
 
 msgid "LEFT ANALOG STICK"
-msgstr ""
+msgstr "左摇杆"
 
 msgid "RIGHT ANALOG STICK"
-msgstr ""
+msgstr "右摇杆"
 
 msgid "EDIT DESCRIPTION"
-msgstr ""
+msgstr "编辑描述"
 
 msgid "DELETE MAPPING"
-msgstr ""
+msgstr "删除标记"
 
 msgid "SAVE CHANGES?"
 msgstr "是否保存更改?"
@@ -813,7 +813,7 @@ msgid "ARE YOU SURE ?"
 msgstr "确定吗？"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "更新模拟器"
 
 msgid "UPDATING BATOCERA"
 msgstr "更新 BATOCERA"
@@ -943,7 +943,7 @@ msgid "instant"
 msgstr "闪现"
 
 msgid "fade & slide"
-msgstr ""
+msgstr "淡入和滑动"
 
 msgid "System"
 msgstr "系统"
@@ -1030,7 +1030,7 @@ msgid "INFORMATIONS"
 msgstr "信息"
 
 msgid "UNLOCK UI MODE"
-msgstr ""
+msgstr "界面不锁定"
 
 msgid "QUIT"
 msgstr "退出"
@@ -1090,7 +1090,7 @@ msgid "SCRAPE MANUAL"
 msgstr "抓取手册"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
+msgstr "抓取pad按键设置"
 
 msgid "USERNAME"
 msgstr "用户名"
@@ -1105,10 +1105,10 @@ msgid "CHOOSE"
 msgstr "浏览"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "界面现在未锁定"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "请输入代码来解锁当前界面模式"
 
 msgid "INFORMATION"
 msgstr "系统信息"
@@ -1126,7 +1126,7 @@ msgid "DEVELOPER"
 msgstr "开发者选项"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "视频选项"
 
 msgid "VRAM LIMIT"
 msgstr "限制 VRAM"
@@ -1162,10 +1162,10 @@ msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "清除游戏列表并删除未使用的媒体"
 
 msgid "Cleaning "
-msgstr ""
+msgstr "清理中"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重置文件扩展"
@@ -1174,10 +1174,10 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "重新查询游戏的 语言/区域"
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "日期管理"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "在启动游戏前检查BIOS"
 
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"
@@ -1192,7 +1192,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
 
 msgid "UI"
-msgstr ""
+msgstr "界面"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1216,10 +1216,10 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自动配置模拟的控制设备"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "显示网络标识"
 
 msgid "OPTIMIZATIONS"
-msgstr ""
+msgstr "优化"
 
 msgid "PRELOAD UI"
 msgstr "预加载UI"
@@ -1261,7 +1261,7 @@ msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
+msgstr "你没联网"
 
 msgid "LANGUAGE"
 msgstr "语言"
@@ -1432,7 +1432,7 @@ msgid "DECORATION"
 msgstr "装饰框"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "弹性挡板（4K和超宽）"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI游戏翻译"
@@ -1495,7 +1495,7 @@ msgid "THEME CONFIGURATION"
 msgstr "主题配置"
 
 msgid "GAMELIST STYLE"
-msgstr ""
+msgstr "游戏风格"
 
 msgid "basic"
 msgstr "基本列表"
@@ -1624,7 +1624,7 @@ msgid "NOT CONNECTED"
 msgstr "未连接"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "网络状态"
 
 msgid "HOSTNAME"
 msgstr "主机名"
@@ -1660,7 +1660,7 @@ msgid "SKIP TO NEXT SONG"
 msgstr "切换到下一首"
 
 msgid "LISTENING NOW"
-msgstr ""
+msgstr "开始聆听"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
@@ -1748,13 +1748,13 @@ msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "系统信息"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "错误：每个系统都被隐藏，现在重新显示"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "迅速搜"
 
 msgid "GO TO LETTER"
 msgstr ""
