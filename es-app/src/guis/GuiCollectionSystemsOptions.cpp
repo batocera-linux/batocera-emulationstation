@@ -77,7 +77,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (Settings::getInstance()->setString("HiddenSystems", hiddenSystems))
 		{
 			Settings::getInstance()->saveFile();
-			setVariable("reloadAll", true);
+			setVariable("reloadSystems", true);
 		}
 	});
 
