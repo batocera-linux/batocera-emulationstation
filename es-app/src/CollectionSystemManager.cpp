@@ -919,7 +919,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	for(auto& system : SystemData::sSystemVector)
 	{
 		// we won't iterate all collections
-		if (!system->isGameSystem() || system->isCollection() || system->isGroupSystem())
+		if (!system->isGameSystem() || system->isCollection())
 			continue;
 		
 		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
@@ -935,6 +935,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 		std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
 		for(auto& game : files)
 		{
+			if (system->isGroupSystem() && game->getSystem() != system)
+				continue;
+
 			bool include = includeFileInAutoCollections(game);
 			if (!include)
 				continue;
