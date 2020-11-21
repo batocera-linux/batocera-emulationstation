@@ -1002,7 +1002,8 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	{
 		int lastTime = SDL_GetTicks() - 50;
 
-		window->renderSplashScreen(_("Loading gamelists"), 0.0f);
+		if (window)
+			window->renderSplashScreen(_("Loading gamelists"), 0.0f);
 
 		float idx = 0;
 		// load themes, create gamelistviews and reset filters
