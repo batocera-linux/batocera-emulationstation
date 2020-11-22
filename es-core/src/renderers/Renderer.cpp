@@ -84,7 +84,21 @@ namespace Renderer
 		screenOffsetX = Settings::getInstance()->getInt("ScreenOffsetX") ? Settings::getInstance()->getInt("ScreenOffsetX") : 0;
 		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY") ? Settings::getInstance()->getInt("ScreenOffsetY") : 0;
 		screenRotate  = Settings::getInstance()->getInt("ScreenRotate")  ? Settings::getInstance()->getInt("ScreenRotate")  : 0;
-
+		
+		/*
+		if ((screenRotate == 1 || screenRotate == 3) && !Settings::getInstance()->getBool("Windowed"))
+		{
+			int tmp = screenWidth;
+			screenWidth = screenHeight;
+			screenHeight = tmp;
+		}
+		else */if ((screenRotate == 1 || screenRotate == 3) && Settings::getInstance()->getBool("Windowed"))
+		{
+			int tmp = screenWidth;
+			screenWidth = screenHeight;
+			screenHeight = tmp;
+		}
+		
 		int monitorId = Settings::getInstance()->getInt("MonitorID");
 		if (monitorId >= 0 && sdlWindowPosition == Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED))
 		{
@@ -106,16 +120,16 @@ namespace Renderer
 						);
 					}
 				}
-				else
+			/*	else
 				{
 					windowWidth = rc.w;
 					windowHeight = rc.h;
 					screenWidth = rc.w;
 					screenHeight = rc.h;
-				}
+				}*/
 			}
 		}
-
+		
 		setupWindow();
 
 		unsigned int windowFlags = (Settings::getInstance()->getBool("Windowed") ? 0 : (Settings::getInstance()->getBool("FullscreenBorderless") ? SDL_WINDOW_BORDERLESS : SDL_WINDOW_FULLSCREEN)) | getWindowFlags();
@@ -355,7 +369,7 @@ namespace Renderer
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		Rect screen = Rect(0, 0, Renderer::getWindowWidth(), Renderer::getWindowHeight());
+		Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 		Rect box = Rect(x, y, w, h);
 
 		if (w > 0 && x + w <= 0)
@@ -363,13 +377,13 @@ namespace Renderer
 
 		if (h > 0 && y + h <= 0)
 			return false;
-
+		
 		if (x == screen.w || y == screen.h)
 			return false;
-
+			
 		if (!rectOverlap(box, screen))
 			return false;
-
+			
 		if (clipStack.empty())
 			return true;
 

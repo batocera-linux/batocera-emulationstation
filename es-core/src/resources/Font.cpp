@@ -822,7 +822,7 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 	int size = (orig ? orig->mSize : FONT_SIZE_MEDIUM);
 	std::string path = (orig ? orig->mPath : getDefaultPath());
 
-	float sh = (float)Renderer::getScreenHeight();
+	float sh = (float) Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth());
 	if(properties & FONT_SIZE && elem->has("fontSize")) 
 	{
 		if ((int)(sh * elem->get<float>("fontSize")) > 0)
