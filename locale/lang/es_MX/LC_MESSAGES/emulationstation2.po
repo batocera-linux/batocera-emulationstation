@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -462,6 +462,9 @@ msgstr "ORDENAR LOS JUEGOS POR"
 msgid "OTHER FILTERS"
 msgstr "OTROS FILTROS"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "IMÁGENES DE LOS JUEGOS"
 
@@ -515,6 +518,9 @@ msgstr "EDITAR CARPETA DE METADATOS"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR INFORMACIÓN DEL JUEGO"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "RESTABLECER FILTROS"
@@ -647,6 +653,9 @@ msgstr "DESCARGADOR DE CONTENIDO"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECCIONE CONTENIDO PARA INSTALAR / QUITAR"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr ""
@@ -1149,6 +1158,9 @@ msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 msgid "OVERSCAN"
 msgstr "SOBREESCANEO"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr "USAR OMX PLAYER (ACELERADO POR HW)"
+
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
 
@@ -1174,6 +1186,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1862,6 +1877,9 @@ msgstr "SETEAR CLAVE DE JUGADOR"
 msgid "SET VIEWER PASSWORD"
 msgstr "VER CLAVE DE JUGADOR"
 
+msgid "Games similar to"
+msgstr ""
+
 msgid "Searching"
 msgstr "Buscando"
 
@@ -2394,9 +2412,6 @@ msgstr "%d s"
 
 #~ msgid "marquee"
 #~ msgstr "MARQUESINA"
-
-#~ msgid "USE OMX PLAYER (HW ACCELERATED)"
-#~ msgstr "USAR OMX PLAYER (ACELERADO POR HW)"
 
 #~ msgid "BLUE"
 #~ msgstr "AZUL"

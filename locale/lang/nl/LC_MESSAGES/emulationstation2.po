@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -462,6 +462,9 @@ msgstr "SORTEER OP"
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTERS"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr ""
 
@@ -515,6 +518,9 @@ msgstr "BEWERK METADATA VAN MAP"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "BEWERK METADATA VAN DIT SPEL"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr ""
@@ -646,6 +652,9 @@ msgid "CONTENT DOWNLOADER"
 msgstr ""
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
 
 msgid "There are no items in this view"
@@ -1147,6 +1156,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "HULPMIDDELEN"
 
@@ -1172,6 +1184,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1856,6 +1871,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

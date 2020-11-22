@@ -913,13 +913,18 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	SystemData* newSys = sysData->system;
 	CollectionSystemDecl sysDecl = sysData->decl;
 	FolderData* rootFolder = newSys->getRootFolder(); 
+
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 	
 	for(auto& system : SystemData::sSystemVector)
 	{
 		// we won't iterate all collections
-		if (!system->isGameSystem() || system->isCollection() || system->isGroupSystem())
+		if (!system->isGameSystem() || system->isCollection())
 			continue;
 		
+		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
+			continue;
+
 		std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
 		bool isArcade = std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
 
@@ -930,6 +935,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 		std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
 		for(auto& game : files)
 		{
+			if (system->isGroupSystem() && game->getSystem() != system)
+				continue;
+
 			bool include = includeFileInAutoCollections(game);
 			if (!include)
 				continue;
@@ -1020,6 +1028,8 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 	sysData->isPopulated = true;
 	CollectionSystemDecl sysDecl = sysData->decl;
 
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	if (sysData->filteredIndex != nullptr)
 	{
 		sysData->filteredIndex->resetIndex();
@@ -1039,15 +1049,17 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
                     if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
                         sysData->filteredIndex->addToIndex(game);
 
-                    if (sysData->filteredIndex->showFile(game))
-                    {
-                        CollectionFileData* newGame = new CollectionFileData(game, newSys);
-                        rootFolder->addChild(newGame);
-                    }
-                } //emuelec
+				if (sysData->filteredIndex->showFile(game))
+				{
+					if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), game->getSystemName()) != hiddenSystems.cend())
+						continue;
+
+					CollectionFileData* newGame = new CollectionFileData(game, newSys);
+					rootFolder->addChild(newGame);
+				}
 			}
 		}
-
+    }
 		updateCollectionFolderMetadata(newSys);
 		return;
 	}
@@ -1085,6 +1097,9 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 		std::unordered_map<std::string, FileData*>::const_iterator it = pMap->find(gameKey);
 		if (it != pMap->cend())
 		{
+			if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), it->second->getName()) != hiddenSystems.cend())
+				continue;
+
 			CollectionFileData* newGame = new CollectionFileData(it->second, newSys);
 			rootFolder->addChild(newGame);
 			newSys->addToIndex(newGame);

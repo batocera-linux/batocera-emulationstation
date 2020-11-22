@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "UPDATE AVAILABLE"
@@ -383,7 +383,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "NACH HARDWARE-TYP"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "NACH ERSCHEINUNGSJAHR"
 
 msgid "SORT SYSTEMS"
 msgstr "SYSTEME SORTIEREN"
@@ -395,7 +395,7 @@ msgid "NONE"
 msgstr "KEINE"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "LETZTE AUSWAHL WIEDERHERSTELLEN"
 
 msgid "START ON GAMELIST"
 msgstr "STARTE BEI SPIELELISTE"
@@ -463,6 +463,9 @@ msgstr "SPIELE SORTIEREN NACH"
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTER"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "SPIELE MEDIEN"
 
@@ -506,16 +509,19 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "ERWEITERTE SPIELE-OPTIONEN"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "BEARBEITE DIE PAD TO KEYBOARD KONFIGURATION"
 
 msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "ERSTELLE PAD TO KEYBOARD KONFIGURATION"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "ORDNER-METADATEN BEARBEITEN"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN DIESES SPIELS BEARBEITEN"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "FILTER ZURÜCKSETZEN"
@@ -530,7 +536,7 @@ msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgstr "SIND SIE SICHER, DASS SIE DIESES ELEMENT LÖSCHEN MÖCHTEN ?"
 
 msgid "INPUT"
 msgstr "EINGABE"
@@ -641,7 +647,7 @@ msgid "RESET"
 msgstr "RESET"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "FÜGE EINE KOMBINATIONSTASTE"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "INHALTS-DOWNLOADER"
@@ -649,8 +655,11 @@ msgstr "INHALTS-DOWNLOADER"
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "WÄHLE INHALT ZUM INSTALLIEREN / ENTFERNEN"
 
-msgid "There are no items in this view"
+msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
+
+msgid "There are no items in this view"
+msgstr "Es gibt keine Elemente in dieser Ansicht"
 
 msgid "MISC"
 msgstr "VERSCHIEDENE"
@@ -773,10 +782,10 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "BENUTZERDEFINIERTER BILDFILTER"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "PAD TO KEYBOARD KONFIGURATION"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "AKTIONEN ZUM ÄNDERN AUSWÄHLEN"
 
 msgid "SAVE"
 msgstr "SPEICHERN"
@@ -785,31 +794,33 @@ msgid "DELETE"
 msgstr "LÖSCHEN"
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "SPIELER 1"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "SPIELER 2"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "KOMBINATIONEN"
 
 msgid "MOUSE CURSOR"
-msgstr ""
+msgstr "MAUSZEIGER"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr ""
+msgstr "MAUSZEIGER EMULIEREN"
 
 msgid "LEFT ANALOG STICK"
 msgstr ""
+"LINKER \n"
+"ANALOGSTICK"
 
 msgid "RIGHT ANALOG STICK"
-msgstr ""
+msgstr "RECHTER ANALOG STICK"
 
 msgid "EDIT DESCRIPTION"
-msgstr ""
+msgstr "BESCHREIBUNG ANPASSEN"
 
 msgid "DELETE MAPPING"
-msgstr ""
+msgstr "LÖSCHE ZUWEISUNG"
 
 msgid "SAVE CHANGES?"
 msgstr "ÄNDERUNGEN SPEICHERN?"
@@ -818,7 +829,7 @@ msgid "ARE YOU SURE ?"
 msgstr "BIST DU SICHER?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "AKTUALISIERUNG EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "AKTUALISIERE BATOCERA"
@@ -1099,7 +1110,7 @@ msgid "SCRAPE MANUAL"
 msgstr "ANLEITUNG SCRAPEN"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
+msgstr "EINSTELLUNGEN PADTOKEY SCRAPEN"
 
 msgid "USERNAME"
 msgstr "BENUTZERNAME"
@@ -1149,6 +1160,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "WERKZEUGE"
 
@@ -1171,9 +1185,12 @@ msgid "FORMAT A DISK"
 msgstr "FORMATIERE EINEN DATENTRÄGER"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "BEREINIGE SPIELLISTE & LÖSCHE UNBENUTZTE MEDIEN"
 
 msgid "Cleaning "
+msgstr "Am Bereinigen "
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1186,7 +1203,7 @@ msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "ÜBERPRÜFE DIE BIOS VOR DEM SPIELSTART"
 
 msgid "ENABLE FILTERS"
 msgstr "FILTER AKTIVIEREN"
@@ -1225,7 +1242,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr ""
+msgstr "NETZWERK INDIKATOR ANZEIGEN"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIERUNGEN"
@@ -1637,7 +1654,7 @@ msgid "NOT CONNECTED"
 msgstr "NICHT VERBUNDEN"
 
 msgid "INTERNET STATUS"
-msgstr ""
+msgstr "NICHT VERBUNDEN"
 
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
@@ -1673,13 +1690,13 @@ msgid "SKIP TO NEXT SONG"
 msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
 
 msgid "LISTENING NOW"
-msgstr ""
+msgstr "HÖRE GERADE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "BENUZERHANDBUCH ANZEIGEN"
 
 msgid "VIEW BATOCERA MANUAL"
 msgstr "BATOCERA HANDBUCH ANZEIGEN"
@@ -1761,19 +1778,19 @@ msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "SYSTEM INFORMATIONEN"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "FEHLER: JEDES SYSTEM IST VERSTECKT, ALLE WERDEN NUN WIEDER ANGEZEIGT"
 
 msgid "QUICK SEARCH"
-msgstr ""
+msgstr "SCHNELL SUCHE"
 
 msgid "GO TO LETTER"
-msgstr ""
+msgstr "GEHE ZU BUCHSTABE"
 
 msgid "COLLECTIONS"
-msgstr ""
+msgstr "SAMMLUNGEN"
 
 msgid "GO TO MANUFACTURER"
 msgstr "GEHE ZU HERSTELLER"
@@ -1782,10 +1799,10 @@ msgid "GO TO HARDWARE"
 msgstr "GEHE ZU HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr ""
+msgstr "GEHE ZU DEKADE"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "KONFIGURATION"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1818,11 +1835,17 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"WARNUNG : DAS FORMAT DIESES SPIELS WIRD VOM AKTUELLEN EMULATOR/KERN NICHT "
+"UNTERSTÜTZT.\n"
+"WOLLEN SIE ES TROTZDEM STARTEN ?"
 
 msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
+"WARNUNG : DAS SYSTEM HAT FEHLENDE BIOS UND DAS SPIEL FUNKTIONIERT "
+"MÖGLICHERWEISE NICHT KORREKT.\n"
+"WOLLEN SIE ES TROTZDEM STARTEN ?"
 
 msgid "Preloading UI"
 msgstr "Vorladen des UI"
@@ -1862,6 +1885,9 @@ msgstr "SPIELER PASSWORT EINSTELLEN"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "ZUSCHAUER PASSWORT EINSTELLEN"
+
+msgid "Games similar to"
+msgstr ""
 
 msgid "Searching"
 msgstr "Suche"
@@ -1987,7 +2013,7 @@ msgid "RATING"
 msgstr "BEWERTUNG"
 
 msgid "YEAR"
-msgstr ""
+msgstr "JAHR"
 
 msgid "REGION"
 msgstr "REGION"
@@ -2011,7 +2037,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT FÜR GROß-, KLEINSCHREIBUNG UND SONDERZEICHEN"
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -2035,25 +2061,25 @@ msgid "LEFT ANALOG UP"
 msgstr "LINKER ANALOG HOCH"
 
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "LINKER ANALOG RUNTER"
 
 msgid "LEFT ANALOG LEFT"
 msgstr "LINKER ANALOG LINKS"
 
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "LINKER ANALOG RECHTS"
 
 msgid "RIGHT ANALOG UP"
 msgstr "RECHTER ANALOG HOCH"
 
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "RECHTER ANALOG RUNTER"
 
 msgid "RIGHT ANALOG LEFT"
 msgstr "RECHTER ANALOG LINKS"
 
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "RECHTER ANALOG RECHTS"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -2181,15 +2207,15 @@ msgstr "ARBEITET..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d Std"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d Min"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d S"
 
 #~ msgid "START KODI WITH X"
 #~ msgstr "KODI MIT X STARTEN"

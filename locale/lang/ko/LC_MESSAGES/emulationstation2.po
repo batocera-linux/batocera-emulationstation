@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -458,6 +458,9 @@ msgstr "다음으로 게임 정렬"
 msgid "OTHER FILTERS"
 msgstr "다른 필터"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "게임 미디어"
 
@@ -511,6 +514,9 @@ msgstr "폴더 메타데이터 편집"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "필터 초기화"
@@ -643,6 +649,9 @@ msgstr "컨텐츠 다운로더"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "설치/제거할 컨텐츠을 선택하세요"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr ""
@@ -1141,6 +1150,9 @@ msgstr "수직 동기화"
 msgid "OVERSCAN"
 msgstr "오버스캔"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "도구"
 
@@ -1166,6 +1178,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1844,6 +1859,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

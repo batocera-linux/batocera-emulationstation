@@ -47,7 +47,7 @@ public:
 
 private:
 	static std::vector<PacmanPackage> queryPackages();
-	void loadPackagesAsync(bool updatePackageList = false);
+	void loadPackagesAsync(bool updatePackageList = false, bool refreshOnly = true);
 	void loadList(bool updatePackageList, bool restoreIndex = true);
 	void processPackage(PacmanPackage package);
 	void centerWindow();

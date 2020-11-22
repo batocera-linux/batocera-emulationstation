@@ -24,6 +24,8 @@
 #include "guis/GuiImageViewer.h"
 #include "ApiSystem.h"
 #include "guis/GuiMsgBox.h"
+#include "utils/ThreadPool.h"
+#include <SDL_timer.h>
 
 #ifdef _ENABLEEMUELEC
 #include "ApiSystem.h"
@@ -967,7 +969,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 
 		mCurrentView->onHide();
 	}
-
+	
 	ThemeData::setDefaultTheme(nullptr);
 
 	SystemData* system = nullptr;
@@ -975,10 +977,14 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if (mState.viewing == SYSTEM_SELECT)
 		system = getSelectedSystem();
 
+	int gameListCount = 0;
 	// clear all gamelistviews
 	std::map<SystemData*, FileData*> cursorMap;
-	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
+	for (auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
+	{
+		gameListCount++;
 		cursorMap[it->first] = it->second->getCursor();
+	}
 
 	mGameListViews.clear();
 	
@@ -986,25 +992,67 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 		if (cursorMap.find((*it)) == cursorMap.end())
 			cursorMap[(*it)] = NULL;
-
-	float idx = 0;
-	// load themes, create gamelistviews and reset filters
-	for(auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
+	
+	if (reloadTheme && cursorMap.size() > 0)
 	{
-		if (reloadTheme)
+		int processedSystem = 0;
+		int systemCount = cursorMap.size();
+
+		Utils::ThreadPool pool;
+
+		for (auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 		{
-			it->first->loadTheme();
-			it->first->resetFilters();
+			SystemData* pooledSystem = it->first;
+
+			pool.queueWorkItem([pooledSystem, &processedSystem]
+			{ 
+				pooledSystem->loadTheme();
+				pooledSystem->resetFilters();
+				processedSystem++;
+			});
 		}
 
-		if (it->second != NULL)
-			getGameListView(it->first)->setCursor(it->second);
+		if (window)
+		{
+			pool.wait([window, &processedSystem, systemCount]
+			{
+				int px = processedSystem;
+				if (px >= 0 && px < systemCount)
+					window->renderSplashScreen(_("Loading theme"), (float)px / (float)systemCount);
+			}, 5);
+		}
+		else
+			pool.wait();
+	}
 
-		idx++;
+	if (gameListCount > 0)
+	{
+		int lastTime = SDL_GetTicks() - 50;
 
 		if (window)
-			window->renderSplashScreen(_("Loading..."), (float)idx / (float)cursorMap.size());
+			window->renderSplashScreen(_("Loading gamelists"), 0.0f);
+
+		float idx = 0;
+		// load themes, create gamelistviews and reset filters
+		for (auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
+		{
+			if (it->second == nullptr)
+				continue;
+
+			getGameListView(it->first)->setCursor(it->second);
+			idx++;
+
+			int time = SDL_GetTicks();
+			if (window && time - lastTime >= 20)
+			{
+				lastTime = time;
+				window->renderSplashScreen(_("Loading gamelists"), (float)idx / (float)gameListCount);
+			}
+		}
 	}
+
+	if (window != nullptr)
+		window->renderSplashScreen(_("Loading..."));
 
 	if (SystemData::sSystemVector.size() > 0)
 		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());

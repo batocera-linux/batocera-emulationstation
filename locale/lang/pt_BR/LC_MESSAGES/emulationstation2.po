@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-18 06:42-0300\n"
+"POT-Creation-Date: 2020-11-20 06:05-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -462,6 +462,9 @@ msgstr "ORDENAR JOGOS POR"
 msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr "PROCURAR JOGOS SEMELHANTES..."
+
 msgid "GAME MEDIAS"
 msgstr "MÍDIAS DE JOGOS"
 
@@ -515,6 +518,9 @@ msgstr "EDITAR PASTA DE METADADOS"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VISUALIZAR INFORMAÇÕES DO CONTROLE E TECLADO"
 
 msgid "RESET FILTERS"
 msgstr "APAGAR FILTROS"
@@ -647,6 +653,9 @@ msgstr "GERENCIADOR DE CONTEÚDO"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "ATUALIZAR CONTEÚDO INSTALADO"
 
 msgid "There are no items in this view"
 msgstr "Não há itens nesta visualização"
@@ -1149,6 +1158,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr "USAR OMX PLAYER (HW ACELERADO)"
+
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
 
@@ -1175,6 +1187,9 @@ msgstr "APAGAR GAMELISTS & REMOVER MÍDIAS NÃO UTILIZADAS"
 
 msgid "Cleaning "
 msgstr "Apagando"
+
+msgid "CLEAR CACHES"
+msgstr "LIMPAR CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
@@ -1821,7 +1836,8 @@ msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"AVISO : O SISTEMA ESTÁ COM BIOS EM FALTA E O JOGO NÃO FUNCIONARÁ CORRETAMENTE.\n"
+"AVISO : O SISTEMA ESTÁ COM BIOS EM FALTA E O JOGO NÃO FUNCIONARÁ "
+"CORRETAMENTE.\n"
 "DESEJA INICIAR MESMO ASSIM ?"
 
 msgid "Preloading UI"
@@ -1862,6 +1878,9 @@ msgstr "DEFINIR SENHA DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "DEFINIR SENHA DE VISUALIZADOR"
+
+msgid "Games similar to"
+msgstr "Jogos semelhantes a"
 
 msgid "Searching"
 msgstr "Procurando"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -462,14 +462,17 @@ msgstr "ORDENAR JOGOS POR"
 msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr "PROCURAR JOGOS SEMELHANTES..."
+
 msgid "GAME MEDIAS"
 msgstr "MÍDIAS DE JOGOS"
 
 msgid "VIEW GAME MANUAL"
-msgstr "VER MANUAL DO JOGO"
+msgstr "VISUALIZAR MANUAL DO JOGO"
 
 msgid "VIEW GAME MAP"
-msgstr "VER MAPA DO JOGO"
+msgstr "VISUALIZAR MAPA DO JOGO"
 
 msgid "COLLECTION"
 msgstr "COLEÇÃO"
@@ -515,6 +518,9 @@ msgstr "EDITAR PASTA METADATA"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VISUALIZAR INFORMAÇÕES DO RATO E TECLADO"
 
 msgid "RESET FILTERS"
 msgstr "REPOR FILTROS"
@@ -647,6 +653,9 @@ msgstr "GERENCIADOR DE CONTEÚDO"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECIONE O CONTEÚDO PARA INSTALAR / REMOVER"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "ATUALIZAR CONTEÚDO INSTALADO"
 
 msgid "There are no items in this view"
 msgstr "Não há itens nesta visualização"
@@ -1148,6 +1157,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr "USAR REPRODUTOR OMX (ACELERADO POR HARDWARE)"
+
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
 
@@ -1174,6 +1186,9 @@ msgstr "LIMPAR GAMELISTS & REMOVER MÍDIAS NÃO UTILIZADAS"
 
 msgid "Cleaning "
 msgstr "Limpeza"
+
+msgid "CLEAR CACHES"
+msgstr "LIMPAR CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DO ARQUIVO"
@@ -1860,6 +1875,9 @@ msgstr "DEFINIR PASSWORD DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "DEFINIR PASSWORD DO ESPECTADOR"
+
+msgid "Games similar to"
+msgstr "Jogos semelhantes a"
 
 msgid "Searching"
 msgstr "Em andamento"

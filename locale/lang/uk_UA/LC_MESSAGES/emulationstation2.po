@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -464,6 +464,9 @@ msgstr "СОРТУВАННЯ ЗА"
 msgid "OTHER FILTERS"
 msgstr "ІНШІ ФІЛЬТРИ"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr ""
 
@@ -517,6 +520,9 @@ msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАГУВАТИ МЕТАДАННІ"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr ""
@@ -648,6 +654,9 @@ msgid "CONTENT DOWNLOADER"
 msgstr ""
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
 
 msgid "There are no items in this view"
@@ -1151,6 +1160,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "РОЗГОРТКА"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "ІНСТРУМЕНТИ"
 
@@ -1176,6 +1188,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1861,6 +1876,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

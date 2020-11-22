@@ -204,6 +204,7 @@ public:
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	std::pair<std::string, int> uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	void updateBatoceraStorePackageList();
+	void refreshBatoceraStorePackageList();
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
@@ -211,6 +212,7 @@ public:
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
+	std::string downloadToCache(const std::string url);
 
 	// Formating
 	std::vector<std::string> getFormatDiskList();

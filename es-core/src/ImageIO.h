@@ -54,7 +54,8 @@ public:
 	static void		removeImageCache(const std::string fn);
 	static void		updateImageCache(const std::string fn, int sz, int x, int y);
 	static void		loadImageCache();
-	static void		saveImageCache();	
+	static void		saveImageCache();
+	static void		clearImageCache();
 };
 
 #endif // ES_CORE_IMAGE_IO

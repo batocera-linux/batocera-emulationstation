@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -393,7 +393,7 @@ msgid "NONE"
 msgstr "BRAK"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "PRZYWRÓĆ OSTATNIO WYBRANE"
 
 msgid "START ON GAMELIST"
 msgstr "URUCHOM Z LISTĄ GIER"
@@ -461,6 +461,9 @@ msgstr "SORTUJ GRY"
 msgid "OTHER FILTERS"
 msgstr "INNE FILTRY"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr "MEDIA GRY"
 
@@ -514,6 +517,9 @@ msgstr "EDYTOWANIE METADANYCH FOLDERU"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "ZRESETUJ FILTRY"
@@ -646,6 +652,9 @@ msgstr "POBIERACZ TREŚCI"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "WYBIERZ TREŚĆ DO ZAINSTALOWANIA / USUNIĘCIA"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr ""
 
 msgid "There are no items in this view"
 msgstr "W tym widoku nie ma żadnych elementów"
@@ -816,7 +825,7 @@ msgid "ARE YOU SURE ?"
 msgstr "CZY NA PEWNO?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "AKTUALIZOWANIE EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "AKTUALIZUJĘ SYSTEM"
@@ -1148,6 +1157,9 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "PRZESKALOWANIE"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr "NARZĘDZIA"
 
@@ -1170,9 +1182,12 @@ msgid "FORMAT A DISK"
 msgstr "SFORMATUJ DYSK"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "CZYŚĆ GAMELIST'Y I USUŃ NIEUŻYWANE MEDIA"
 
 msgid "Cleaning "
+msgstr "Czyszczenie "
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1675,7 +1690,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ EKRANU"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "ZOBACZ INSTRUKCJĘ OBSŁUGI"
 
 msgid "VIEW BATOCERA MANUAL"
 msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
@@ -1757,7 +1772,7 @@ msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "INFORMACJE O SYSTEMIE"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "BŁĄD: WSZYSTKIE SYSTEMY SĄ UKRYTE, WSZYSTKIE SĄ TERAZ WYŚWIETLANE"
@@ -1781,7 +1796,7 @@ msgid "GO TO DECADE"
 msgstr "PRZEJDŹ DO DEKADY"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "KONFIGURACJA"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1865,6 +1880,9 @@ msgstr "USTAW HASŁO GRACZA"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "USTAW HASŁO WIDZA"
+
+msgid "Games similar to"
+msgstr ""
 
 msgid "Searching"
 msgstr "Wyszukiwanie"

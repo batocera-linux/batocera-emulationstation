@@ -921,7 +921,7 @@ void GuiMenu::openDeveloperSettings()
 	// Video Player - VideoOmxPlayer
 	auto omx_player = std::make_shared<SwitchComponent>(mWindow);
 	omx_player->setState(Settings::getInstance()->getBool("VideoOmxPlayer"));
-	s->addWithLabel("USE OMX PLAYER (HW ACCELERATED)", omx_player);
+	s->addWithLabel(_("USE OMX PLAYER (HW ACCELERATED)"), omx_player);
 	s->addSaveFunc([omx_player, window]
 	{
 		// need to reload all views to re-create the right video components
@@ -1011,6 +1011,18 @@ void GuiMenu::openDeveloperSettings()
 		}, _("NO"), nullptr));
 	});
 
+	s->addEntry(_("CLEAR CACHES"), true, [this, s]
+	{
+		ImageIO::clearImageCache();
+
+		auto rootPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath());
+
+		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
+		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/pdftmp/");
+
+		ViewController::reloadAllGames(mWindow, false);
+	});
+
 	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
 	{
 		for (auto system : SystemData::sSystemVector)
@@ -1039,14 +1051,6 @@ void GuiMenu::openDeveloperSettings()
 	});
 
 	s->addGroup(_("DATA MANAGEMENT"));
-
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
-	{
-		auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
-		checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-		s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
-		s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
-	}
 
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
@@ -1519,7 +1523,15 @@ void GuiMenu::openSystemSettings_batocera()
 			s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
+		{
 			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
+#ifndef _ENABLEEMUELEC
+			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
+			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
+			s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
+#endif
+		}
 	}
 #endif
 
@@ -2181,7 +2193,15 @@ void GuiMenu::openGamesSettings_batocera()
 
 		// Missing Bios
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
+		{
 			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
+#ifndef _ENABLEEMUELEC
+			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
+			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
+			s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
+#endif
+		}
 
 		// Game List Update
 		// s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });

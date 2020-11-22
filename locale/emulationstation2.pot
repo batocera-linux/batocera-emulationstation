@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -467,6 +467,9 @@ msgstr ""
 msgid "OTHER FILTERS"
 msgstr ""
 
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
 msgid "GAME MEDIAS"
 msgstr ""
 
@@ -519,6 +522,9 @@ msgid "EDIT FOLDER METADATA"
 msgstr ""
 
 msgid "EDIT THIS GAME'S METADATA"
+msgstr ""
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
 msgid "RESET FILTERS"
@@ -651,6 +657,9 @@ msgid "CONTENT DOWNLOADER"
 msgstr ""
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
 
 msgid "There are no items in this view"
@@ -1146,6 +1155,9 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr ""
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr ""
+
 msgid "TOOLS"
 msgstr ""
 
@@ -1171,6 +1183,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr ""
 
 msgid "Cleaning "
+msgstr ""
+
+msgid "CLEAR CACHES"
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1843,6 +1858,9 @@ msgid "SET PLAYER PASSWORD"
 msgstr ""
 
 msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "Games similar to"
 msgstr ""
 
 msgid "Searching"

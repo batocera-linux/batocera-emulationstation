@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 21:15+0100\n"
+"POT-Creation-Date: 2020-11-20 08:12+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -394,7 +394,7 @@ msgid "NONE"
 msgstr "AUCUN"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "LE DERNIER SÉLECTIONNÉ"
 
 msgid "START ON GAMELIST"
 msgstr "DÉMARRER SUR LA LISTE DE JEUX"
@@ -462,6 +462,9 @@ msgstr "TRIER LES JEUX PAR"
 msgid "OTHER FILTERS"
 msgstr "AUTRES FILTRES"
 
+msgid "FIND SIMILAR GAMES..."
+msgstr "TROUVER LES JEUX SIMILAIRES…"
+
 msgid "GAME MEDIAS"
 msgstr "MEDIAS DU JEU"
 
@@ -515,6 +518,9 @@ msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VOIR LA CONFIGURATION PADTOKEY"
 
 msgid "RESET FILTERS"
 msgstr "RAZ DES FILTRES"
@@ -647,6 +653,9 @@ msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SÉLECTIONNEZ LE CONTENU À INSTALLER / SUPPRIMER"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "MAJ CONTENU INSTALLÉ"
 
 msgid "There are no items in this view"
 msgstr "Il n’y a pas d’éléments dans cette vue"
@@ -817,7 +826,7 @@ msgid "ARE YOU SURE ?"
 msgstr "ETES-VOUS SUR(E) ?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr ""
+msgstr "MISE À JOUR DE EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "MISE À JOUR DE BATOCERA"
@@ -1094,7 +1103,7 @@ msgid "SCRAPE FANART"
 msgstr "SCRAPER LES FANARTS"
 
 msgid "SCRAPE MANUAL"
-msgstr "SCAPER LES MANUELS"
+msgstr "SCRAPER LES MANUELS"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
 msgstr "SCRAPER LES RÉGLAGES PADTOKEY"
@@ -1147,6 +1156,9 @@ msgstr "SYNCHRONISATION VERTICALE"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION HW)"
+
 msgid "TOOLS"
 msgstr "OUTILS"
 
@@ -1169,10 +1181,13 @@ msgid "FORMAT A DISK"
 msgstr "FORMATER UN DISQUE"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "NETTOYER LES LISTES DE JEUX ET LES MÉDIAS INUTILISÉS"
 
 msgid "Cleaning "
-msgstr ""
+msgstr "Nettoyage "
+
+msgid "CLEAR CACHES"
+msgstr "EFFACER LES CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -1250,7 +1265,7 @@ msgid "THEMES"
 msgstr "THÈMES"
 
 msgid "SOFTWARE UPDATES"
-msgstr "MISES À JOUR"
+msgstr "MISES À JOUR LOGICIEL"
 
 msgid "CHECK FOR UPDATES"
 msgstr "VÉRIFIER LES MISES À JOUR"
@@ -1674,10 +1689,10 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
 
 msgid "VIEW USER'S MANUAL"
-msgstr ""
+msgstr "VOIR LE MANUEL DE L’UTILISATEUR"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr "MANUEL BATOCERA"
+msgstr "VOIR LE MANUEL DE BATOCERA"
 
 msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
@@ -1754,7 +1769,7 @@ msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
 msgid "SYSTEM INFO"
-msgstr ""
+msgstr "INFO SYSTÈME"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
@@ -1779,7 +1794,7 @@ msgid "GO TO DECADE"
 msgstr "ALLER À LA DÉCENNIE"
 
 msgid "CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURATION"
 
 #, c-format
 msgid "%i COLLECTION"
@@ -1862,6 +1877,9 @@ msgstr "DÉFINIR MOT DE PASSE JOUEUR"
 
 msgid "SET VIEWER PASSWORD"
 msgstr "DÉFINIR MOT DE PASSE SPECTATEUR"
+
+msgid "Games similar to"
+msgstr "Jeux similaires à"
 
 msgid "Searching"
 msgstr "Recherche"
