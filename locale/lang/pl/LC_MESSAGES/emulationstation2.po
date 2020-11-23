@@ -462,7 +462,7 @@ msgid "OTHER FILTERS"
 msgstr "INNE FILTRY"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "ZNAJDŹ PODOBNE GRY..."
 
 msgid "GAME MEDIAS"
 msgstr "MEDIA GRY"
@@ -507,10 +507,10 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE GRY"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "EDYTUJ KONFIGURACJĘ KLAWIATURY NA PAD'ZIE"
+msgstr "EDYTUJ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
 
 msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "UTWÓRZ KONFIGURACJĘ KLAWIATURY NA PAD'ZIE"
+msgstr "UTWÓRZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "EDYTOWANIE METADANYCH FOLDERU"
@@ -519,7 +519,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "ZOBACZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
 
 msgid "RESET FILTERS"
 msgstr "ZRESETUJ FILTRY"
@@ -528,7 +528,7 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRUJ GRY TEKSTEM"
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "FUNKCJA TA JEST WYŁĄCZONA PO URUCHOMIENIU SCRAPE'A"
+msgstr "FUNKCJA JEST WYŁĄCZONA PO URUCHOMIENIU SCRAPE'A"
 
 msgid "CLOSE"
 msgstr "ZAMKNIJ"
@@ -549,7 +549,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "POŁĄCZ Z NETPLAY"
 
 msgid "Select the game you want to join"
-msgstr "Wybierz grę, do której chcesz dołączyć"
+msgstr "Wybierz grę do której chcesz dołączyć"
 
 msgid "REFRESH"
 msgstr "ODŚWIEŻ"
@@ -654,7 +654,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "WYBIERZ TREŚĆ DO ZAINSTALOWANIA / USUNIĘCIA"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "ZAKTUALIZUJ ZAINSTALOWANĄ ZAWARTOŚĆ"
 
 msgid "There are no items in this view"
 msgstr "W tym widoku nie ma żadnych elementów"
@@ -780,7 +780,7 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTER OBRAZÓW NIESTANDARDOWYCH"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "KONFIGURACJA KLAWIATURY NA PAD'ZIE"
+msgstr "KONFIGURACJA KLAWIATURY NA KONTROLERZE"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "WYBIERZ AKCJE DO ZMIANY"
@@ -1107,7 +1107,7 @@ msgid "SCRAPE MANUAL"
 msgstr "SCRAPE'UJ INSTRUKCJE"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE'UJ USTAWIENIA PAD'A"
+msgstr "SCRAPE'UJ USTAWIENIA KONTROLERA"
 
 msgid "USERNAME"
 msgstr "NAZWA UŻYTKOWNIKA"
@@ -1158,7 +1158,7 @@ msgid "OVERSCAN"
 msgstr "PRZESKALOWANIE"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "UŻYWAJ ODTWARZACZA OMX (WSPOMAGANY SPRZĘTOWO)"
 
 msgid "TOOLS"
 msgstr "NARZĘDZIA"
@@ -1182,13 +1182,13 @@ msgid "FORMAT A DISK"
 msgstr "SFORMATUJ DYSK"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr "CZYŚĆ GAMELIST'Y I USUŃ NIEUŻYWANE MEDIA"
+msgstr "CZYŚĆ LISTY GIER I USUŃ NIEUŻYWANE MEDIA"
 
 msgid "Cleaning "
 msgstr "Czyszczenie "
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "WYCZYŚĆ PAMIĘĆ PODRĘCZNĄ"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
@@ -1846,10 +1846,10 @@ msgid "Preloading UI"
 msgstr "Ładuję wstępnie interfejs"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Ładowanie motywu"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Ładowanie list gier"
 
 msgid "MENU"
 msgstr "MENU"
@@ -1888,7 +1888,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "USTAW HASŁO WIDZA"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Gry podobne do"
 
 msgid "Searching"
 msgstr "Wyszukiwanie"
