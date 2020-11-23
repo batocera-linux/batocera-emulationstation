@@ -174,18 +174,19 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 
 		case GENRE_FILTER:
 		{
-			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Genre));
-			
-			if (getSecondary && !key.empty()) 
+			key = game->getMetadata(MetaDataId::Genre);
+			if (!key.empty())
 			{
 				auto idx = key.find('/');
-				if (idx != std::string::npos)
+
+				if (!getSecondary && idx != std::string::npos)
 					key = Utils::String::trim(key.substr(0, idx));
-				else
+				else if (getSecondary && idx == std::string::npos)
 					key = "";
 			}
 			break;
 		}
+
 		case PLAYER_FILTER:
 		{
 			if (getSecondary)
@@ -194,15 +195,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			key = game->getMetadata(MetaDataId::Players);
 			break;
 		}
+
 		case PUBDEV_FILTER:
 		{
-			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Publisher));
+			key = game->getMetadata(MetaDataId::Publisher);
 
 			if ((getSecondary && !key.empty()) || (!getSecondary && key.empty()))
-				key = Utils::String::toUpper(game->getMetadata(MetaDataId::Developer));
+				key = game->getMetadata(MetaDataId::Developer);
 		
 			break;
 		}
+
 		case RATINGS_FILTER:
 		{
 			int ratingNumber = 0;
@@ -211,41 +214,44 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 				std::string ratingString = game->getMetadata(MetaDataId::Rating);
 				if (!ratingString.empty()) 
 				{
-					try 
+					float rating = Utils::String::toFloat(ratingString);
+					if (rating > 0.0f)
 					{
-						ratingNumber = (int)((std::stod(ratingString)*5)+0.5);
-						if (ratingNumber < 0)
-							ratingNumber = 0;
+						if (rating > 1.0f)
+							rating = 1.0f;
 
+						ratingNumber = (int)Math::round(rating * 5);
 						key = std::to_string(ratingNumber) + " STARS";
-					}
-					catch (int e)
-					{
-						LOG(LogError) << "Error parsing Rating (invalid value, exception nr.): " << ratingString << ", " << e;
 					}
 				}
 			}
 			break;
 		}
+
 		case FAVORITES_FILTER:
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->getMetadata(MetaDataId::Favorite));
+
+			key = game->getMetadata(MetaDataId::Favorite);
 			break;
 		}
+
 		case KIDGAME_FILTER:
 		{
 			if (game->getType() != GAME)
 				return "FALSE";
-			key = Utils::String::toUpper(game->getMetadata(MetaDataId::KidGame));
+
+			key = game->getMetadata(MetaDataId::KidGame);
 			break;
 		}
+
 		case PLAYED_FILTER:
 		{
-			key = atoi(game->getMetadata(MetaDataId::PlayCount).c_str()) == 0 ? "FALSE" : "TRUE";
+			key = Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";
 			break;
 		}
+
 		case YEAR_FILTER:
 		{
 			key = game->getMetadata(MetaDataId::ReleaseDate);
@@ -257,7 +263,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) 
 		return UNKNOWN_LABEL;
 	
-	return key;
+	return Utils::String::toUpper(key);
 }
 
 void FileFilterIndex::addToIndex(FileData* game)
@@ -686,9 +692,11 @@ void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 
 	manageIndexEntry(&genreIndexAllKeys, key, remove);
 
-	key = getIndexableKey(game, GENRE_FILTER, true);
-	if (!includeUnknown && key == UNKNOWN_LABEL)
-		manageIndexEntry(&genreIndexAllKeys, key, remove);
+	auto subkey = getIndexableKey(game, GENRE_FILTER, true);
+	if (!includeUnknown && (subkey == UNKNOWN_LABEL || subkey == "BIOS"))
+		return;	 // no valid genre info found
+
+	manageIndexEntry(&genreIndexAllKeys, subkey, remove);
 }
 
 void FileFilterIndex::managePlayerEntryInIndex(FileData* game, bool remove)
