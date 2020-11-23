@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -1198,9 +1198,6 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr ""
 
@@ -1332,6 +1329,9 @@ msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr "PARAMÈTRES NETPLAY"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1824,6 +1824,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "UI de precargament"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENÚ"

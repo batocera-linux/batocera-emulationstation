@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1198,9 +1198,6 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr "AKTIVERA FILTER"
 
@@ -1337,6 +1334,9 @@ msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENTS"
 
 msgid "NETPLAY SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR NETPLAY"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1834,6 +1834,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "Förhandsladdar UI"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENY"

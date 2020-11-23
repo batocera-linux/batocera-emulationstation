@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1214,9 +1214,6 @@ msgstr "إعادة اكتشاف لغة و منطقة الإلعاب"
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr "تفعيل التصنيفات"
 
@@ -1352,6 +1349,9 @@ msgstr "إعدادات الامتيازات"
 
 msgid "NETPLAY SETTINGS"
 msgstr "إعدادات  NETPLAY"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "ازرار الوسائط المتعددة"
@@ -1864,6 +1864,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "تحضير واجهة المستخدم"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "القائمة"

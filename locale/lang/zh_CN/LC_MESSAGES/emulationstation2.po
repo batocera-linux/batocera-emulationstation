@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1191,9 +1191,6 @@ msgstr "重新查询游戏的 语言/区域"
 msgid "DATA MANAGEMENT"
 msgstr "日期管理"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "在启动游戏前检查BIOS"
-
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"
 
@@ -1328,6 +1325,9 @@ msgstr "RetroArch成就设置"
 
 msgid "NETPLAY SETTINGS"
 msgstr "联网游戏设置"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr "在启动游戏前检查BIOS"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "多媒体功能键"
@@ -1825,6 +1825,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "预加载 UI"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "菜单"

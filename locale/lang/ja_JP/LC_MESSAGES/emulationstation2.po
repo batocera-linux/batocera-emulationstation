@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: 2020-11-18 21:49+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1198,9 +1198,6 @@ msgstr "ゲームの言語/地域を再検出"
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "ゲーム実行前にBIOSを確認"
-
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
 
@@ -1335,6 +1332,9 @@ msgstr "RetroAchievements 設定"
 
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr "ゲーム実行前にBIOSを確認"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "マルチメディアキー"
@@ -1837,6 +1837,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "プレロード(先読み)式 UI"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "メニュー"
