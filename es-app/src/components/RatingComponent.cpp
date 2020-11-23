@@ -2,9 +2,11 @@
 
 #include "resources/TextureResource.h"
 #include "ThemeData.h"
+#include "Settings.h"
 
 RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorShift(0xFFFFFFFF), mUnfilledColor(0xFFFFFFFF)
 {
+	mHorizontalAlignment = ALIGN_LEFT;
 	mFilledTexture = TextureResource::get(":/star_filled.svg", true, true);
 	mUnfilledTexture = TextureResource::get(":/star_unfilled.svg", true, true);
 	mValue = 0.5f;
@@ -16,11 +18,11 @@ RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorS
 void RatingComponent::setValue(const std::string& value)
 {
 	if(value.empty())
-	{
 		mValue = 0.0f;
-	}else{
+	else
+	{
 		mValue = stof(value);
-		if(mValue > 1.0f)
+		if (mValue > 1.0f)
 			mValue = 1.0f;
 		else if(mValue < 0.0f)
 			mValue = 0.0f;
@@ -67,7 +69,7 @@ void RatingComponent::onSizeChanged()
 		size_t heightPx = (size_t)Math::round(mSize.y());
 		if (mFilledTexture)
 			mFilledTexture->rasterizeAt(heightPx, heightPx);
-		if(mUnfilledTexture)
+		if (mUnfilledTexture)
 			mUnfilledTexture->rasterizeAt(heightPx, heightPx);
 	}
 
@@ -77,21 +79,39 @@ void RatingComponent::onSizeChanged()
 void RatingComponent::updateVertices()
 {
 	const float        numStars = NUM_RATING_STARS;
+	const float        sz		= getSize().x();
 	const float        h        = getSize().y(); // is the same as a single star's width
 	const float        w        = getSize().y() * mValue * numStars;
 	const float        fw       = getSize().y() * numStars;
 	const unsigned int color    = Renderer::convertColor(mColorShift);
 
-	mVertices[0] = { { 0.0f, 0.0f }, { 0.0f,              1.0f }, color };
-	mVertices[1] = { { 0.0f, h    }, { 0.0f,              0.0f }, color };
-	mVertices[2] = { { w,    0.0f }, { mValue * numStars, 1.0f }, color };
-	mVertices[3] = { { w,    h    }, { mValue * numStars, 0.0f }, color };
 
-	mVertices[4] = { { 0.0f, 0.0f }, { 0.0f,              1.0f }, color };
-	mVertices[5] = { { 0.0f, h    }, { 0.0f,              0.0f }, color };
-	mVertices[6] = { { fw,   0.0f }, { numStars,          1.0f }, color };
-	mVertices[7] = { { fw,   h    }, { numStars,          0.0f }, color };
+	switch (mHorizontalAlignment)
+	{
+	case ALIGN_RIGHT:
+		mVertices[0] = { { sz - fw, 0.0f },{ 0.0f,              1.0f }, color };
+		mVertices[1] = { { sz - fw, h },{ 0.0f,              0.0f }, color };
+		mVertices[2] = { { sz - fw + w,    0.0f },{ mValue * numStars, 1.0f }, color };
+		mVertices[3] = { { sz - fw + w,    h },{ mValue * numStars, 0.0f }, color };
 
+		mVertices[4] = { { sz - fw, 0.0f },{ 0.0f,              1.0f }, color };
+		mVertices[5] = { { sz - fw, h },{ 0.0f,              0.0f }, color };
+		mVertices[6] = { { sz,   0.0f },{ numStars,          1.0f }, color };
+		mVertices[7] = { { sz,   h },{ numStars,          0.0f }, color };
+		break;
+
+	default:
+		mVertices[0] = { { 0.0f, 0.0f }, { 0.0f,              1.0f }, color };
+		mVertices[1] = { { 0.0f, h    }, { 0.0f,              0.0f }, color };
+		mVertices[2] = { { w,    0.0f }, { mValue * numStars, 1.0f }, color };
+		mVertices[3] = { { w,    h    }, { mValue * numStars, 0.0f }, color };
+
+		mVertices[4] = { { 0.0f, 0.0f }, { 0.0f,              1.0f }, color };
+		mVertices[5] = { { 0.0f, h    }, { 0.0f,              0.0f }, color };
+		mVertices[6] = { { fw,   0.0f }, { numStars,          1.0f }, color };
+		mVertices[7] = { { fw,   h    }, { numStars,          0.0f }, color };
+		break;
+	}
 	// round vertices
 	for(int i = 0; i < 8; ++i)
 		mVertices[i].pos.round();
@@ -115,6 +135,9 @@ void RatingComponent::render(const Transform4x4f& parentTrans)
 		return;
 
 	Renderer::setMatrix(trans);
+
+	if (Settings::getInstance()->getBool("DebugImage"))
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFFFF0033, 0xFFFF0033);
 
 	if (mUnfilledTexture->bind())
 	{
@@ -166,11 +189,13 @@ void RatingComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const 
 		return;
 
 	bool imgChanged = false;
+
 	if(properties & PATH && elem->has("filledPath"))
 	{
 		mFilledTexture = TextureResource::get(elem->get<std::string>("filledPath"), true, true);
 		imgChanged = true;
 	}
+
 	if(properties & PATH && elem->has("unfilledPath"))
 	{
 		mUnfilledTexture = TextureResource::get(elem->get<std::string>("unfilledPath"), true, true);
@@ -188,6 +213,17 @@ void RatingComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const 
 			mUnfilledColor = mColorShift;
 	}
 
+	if (properties & ALIGNMENT && elem->has("horizontalAlignment"))
+	{
+		std::string str = elem->get<std::string>("horizontalAlignment");
+		if (str == "left")
+			setHorizontalAlignment(ALIGN_LEFT);
+		else if (str == "right")
+			setHorizontalAlignment(ALIGN_RIGHT);
+		else
+			setHorizontalAlignment(ALIGN_CENTER);
+	}
+		
 	if(imgChanged)
 		onSizeChanged();
 }
@@ -197,4 +233,13 @@ std::vector<HelpPrompt> RatingComponent::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	prompts.push_back(HelpPrompt(BUTTON_OK, "add star"));
 	return prompts;
+}
+
+void RatingComponent::setHorizontalAlignment(Alignment align) 
+{ 
+	if (mHorizontalAlignment == align)
+		return;
+
+	mHorizontalAlignment = align; 
+	updateVertices();
 }

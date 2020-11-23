@@ -70,6 +70,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		{ "margin", NORMALIZED_PAIR },
 		{ "padding", NORMALIZED_RECT },
+
+		{ "cellProportion", FLOAT },
+
 		{ "autoLayout", NORMALIZED_PAIR },
 		{ "autoLayoutSelectedZoom", FLOAT },
 		{ "animateSelection", BOOLEAN },
@@ -253,6 +256,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "unfilledColor", COLOR },
 		{ "filledPath", PATH },
 		{ "unfilledPath", PATH },
+		{ "horizontalAlignment", STRING },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "sound", {
@@ -432,6 +436,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "menuSlider",{
 		{ "path", PATH } } },
 	{ "menuButton",{
+		{ "cornerSize", NORMALIZED_PAIR },
 		{ "path", PATH },
 		{ "filledPath", PATH } } },
 };
@@ -940,6 +945,18 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 		if (!Renderer::isSmallScreen() && tinyScreenAttr == "true")
 			return false;
 		else if (Renderer::isSmallScreen() && tinyScreenAttr == "false")
+			return false;
+	}
+
+	if (node.attribute("verticalScreen"))
+	{
+		const std::string tinyScreenAttr = node.attribute("verticalScreen").as_string();
+
+		bool verticalScreen = Renderer::getScreenHeight() > Renderer::getScreenWidth();
+
+		if (!verticalScreen && tinyScreenAttr == "true")
+			return false;
+		else if (verticalScreen && tinyScreenAttr == "false")
 			return false;
 	}
 
@@ -1821,9 +1838,11 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	if (elem)
 	{
 		if (elem->has("path"))
-			Icons.button = elem->get<std::string>("path");
+			Button.path = elem->get<std::string>("path");
 		if (elem->has("filledPath"))
-			Icons.button_filled = elem->get<std::string>("filledPath");
+			Button.filledPath = elem->get<std::string>("filledPath");
+		if (elem->has("cornerSize"))
+			Button.cornerSize = elem->get<Vector2f>("cornerSize");
 	}
 
 	elem = theme->getElement("menu", "menutextedit", "menuTextEdit");

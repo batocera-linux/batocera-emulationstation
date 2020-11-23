@@ -9,13 +9,13 @@
 #include "Settings.h"
 #include "InputConfig.h"
 
-#define OFFSET_X 12 // move the entire thing right by this amount (px)
-#define OFFSET_Y 12 // move the entire thing up by this amount (px)
+// space between [icon] and [text] (px)
+#define ICON_TEXT_SPACING Renderer::getScreenWidth() * 0.0042f
 
-#define ICON_TEXT_SPACING 8 // space between [icon] and [text] (px)
-#define ENTRY_SPACING 16 // space between [text] and next [icon] (px)
+// space between [text] and next [icon] (px)
+#define ENTRY_SPACING (ICON_TEXT_SPACING * 2.0f)
 
-static const std::map<std::string, const char*> ICON_PATH_MAP {
+static const std::map<std::string, const char*> ICON_PATH_MAP{
 	{ "up/down", ":/help/dpad_updown.svg" },
 	{ "left/right", ":/help/dpad_leftright.svg" },
 	{ "up/down/left/right", ":/help/dpad_all.svg" },
@@ -28,7 +28,7 @@ static const std::map<std::string, const char*> ICON_PATH_MAP {
 	{ "lr", ":/help/button_lr.svg" },
 	{ "start", ":/help/button_start.svg" },
 	{ "select", ":/help/button_select.svg" },
- 	{ "F1", ":/help/F1.svg" } // batocera
+	{ "F1", ":/help/F1.svg" } // batocera
 };
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
@@ -55,7 +55,7 @@ void HelpComponent::setStyle(const HelpStyle& style)
 
 void HelpComponent::updateGrid()
 {
-	if(!Settings::getInstance()->getBool("ShowHelpPrompts") || mPrompts.empty())
+	if (!Settings::getInstance()->getBool("ShowHelpPrompts") || mPrompts.empty())
 	{
 		mGrid.reset();
 		return;
@@ -65,13 +65,13 @@ void HelpComponent::updateGrid()
 
 	mGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i((int)mPrompts.size() * 4, 1));
 	// [icon] [spacer1] [text] [spacer2]
-	
+
 	std::vector< std::shared_ptr<ImageComponent> > icons;
 	std::vector< std::shared_ptr<TextComponent> > labels;
 
 	float width = 0;
 	const float height = Math::round(font->getLetterHeight() * 1.25f);
-	for(auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
+	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 
@@ -91,9 +91,9 @@ void HelpComponent::updateGrid()
 	}
 
 	mGrid->setSize(width, height);
-	for(unsigned int i = 0; i < icons.size(); i++)
+	for (unsigned int i = 0; i < icons.size(); i++)
 	{
-		const int col = i*4;
+		const int col = i * 4;
 		mGrid->setColWidthPerc(col, icons.at(i)->getSize().x() / width);
 		mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
 		mGrid->setColWidthPerc(col + 2, labels.at(i)->getSize().x() / width);
@@ -103,23 +103,23 @@ void HelpComponent::updateGrid()
 	}
 
 	mGrid->setPosition(Vector3f(mStyle.position.x(), mStyle.position.y(), 0.0f));
-	//mGrid->setPosition(OFFSET_X, Renderer::getScreenHeight() - mGrid->getSize().y() - OFFSET_Y);
 	mGrid->setOrigin(mStyle.origin);
 }
 
 std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const char* name)
 {
 	auto it = mIconCache.find(name);
-	if(it != mIconCache.cend())
+	if (it != mIconCache.cend())
 		return it->second;
-	
+
 	auto pathLookup = ICON_PATH_MAP.find(name);
-	if(pathLookup == ICON_PATH_MAP.cend())
+	if (pathLookup == ICON_PATH_MAP.cend())
 	{
 		LOG(LogError) << "Unknown help icon \"" << name << "\"!";
 		return nullptr;
 	}
-	if(!ResourceManager::getInstance()->fileExists(pathLookup->second))
+
+	if (!ResourceManager::getInstance()->fileExists(pathLookup->second))
 	{
 		LOG(LogError) << "Help icon \"" << name << "\" - corresponding image file \"" << pathLookup->second << "\" misisng!";
 		return nullptr;
@@ -134,16 +134,14 @@ void HelpComponent::setOpacity(unsigned char opacity)
 {
 	GuiComponent::setOpacity(opacity);
 
-	for(unsigned int i = 0; i < mGrid->getChildCount(); i++)
-	{
+	for (unsigned int i = 0; i < mGrid->getChildCount(); i++)
 		mGrid->getChild(i)->setOpacity(opacity);
-	}
 }
 
 void HelpComponent::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = parentTrans * getTransform();
-	
-	if(mGrid)
+
+	if (mGrid)
 		mGrid->render(trans);
 }
