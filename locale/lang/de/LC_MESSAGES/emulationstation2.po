@@ -280,8 +280,7 @@ msgid "Formating"
 msgstr "Formatiere"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
-"EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DEN VORGANG ABZUSCHLIESSEN"
+msgstr "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DEN VORGANG ABZUSCHLIESSEN"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "LAUFWERKS-FORMATIERUNG LÄUFT BEREITS."
@@ -464,13 +463,13 @@ msgid "OTHER FILTERS"
 msgstr "ANDERE FILTER"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "FINDE ÄHNLICHE SPIELE..."
 
 msgid "GAME MEDIAS"
 msgstr "SPIELE MEDIEN"
 
 msgid "VIEW GAME MANUAL"
-msgstr "PIEL-ANLEITUNG ANSEHEN"
+msgstr "SPIEL-ANLEITUNG ANSEHEN"
 
 msgid "VIEW GAME MAP"
 msgstr "SPIELE-KARTE ANSEHEN"
@@ -521,7 +520,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "METADATEN DIESES SPIELS BEARBEITEN"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "ZEIGE PAD TO KEYBOARD INFORMATIONEN"
 
 msgid "RESET FILTERS"
 msgstr "FILTER ZURÜCKSETZEN"
@@ -656,7 +655,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "WÄHLE INHALT ZUM INSTALLIEREN / ENTFERNEN"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "AKTUALISIERE INSTALLIERTEN INHALT"
 
 msgid "There are no items in this view"
 msgstr "Es gibt keine Elemente in dieser Ansicht"
@@ -809,9 +808,7 @@ msgid "EMULATE MOUSE CURSOR"
 msgstr "MAUSZEIGER EMULIEREN"
 
 msgid "LEFT ANALOG STICK"
-msgstr ""
-"LINKER \n"
-"ANALOGSTICK"
+msgstr "LINKER ANALOG STICK"
 
 msgid "RIGHT ANALOG STICK"
 msgstr "RECHTER ANALOG STICK"
@@ -1161,7 +1158,7 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "NUTZE OMX PLAYER (HW BESCHLEUNIGT)"
 
 msgid "TOOLS"
 msgstr "WERKZEUGE"
@@ -1191,7 +1188,7 @@ msgid "Cleaning "
 msgstr "Am Bereinigen "
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "LEERE CACHES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DATEI-ERWEITERUNGEN ZURÜCKSETZEN"
@@ -1851,10 +1848,10 @@ msgid "Preloading UI"
 msgstr "Vorladen des UI"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Lade Theme"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Lade Gamelists"
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -1893,7 +1890,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "ZUSCHAUER PASSWORT EINSTELLEN"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Spiele ähnlich zu"
 
 msgid "Searching"
 msgstr "Suche"
