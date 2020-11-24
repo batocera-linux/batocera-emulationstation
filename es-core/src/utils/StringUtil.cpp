@@ -693,6 +693,26 @@ namespace Utils
 			return atoi(string.c_str());
 		}
 
+		float toFloat(const std::string& string)
+		{
+			return atof(string.c_str());
+		}
+
+		std::string decodeXmlString(const std::string& string)
+		{
+			std::string ret = string;
+
+			ret = replace(ret, "&amp;", "&");
+			ret = replace(ret, "&apos;", "'");
+			ret = replace(ret, "&lt;", "<");
+			ret = replace(ret, "&gt;", ">");
+			ret = replace(ret, "&quot;", "\"");
+			ret = replace(ret, "&nbsp;", " ");
+
+			return ret;
+		}
+
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
 		{
