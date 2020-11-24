@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1197,9 +1197,6 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr ""
 
@@ -1330,6 +1327,9 @@ msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "MULTIMEDIA KEYS"
@@ -1822,6 +1822,12 @@ msgid ""
 msgstr ""
 
 msgid "Preloading UI"
+msgstr ""
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
 msgstr ""
 
 msgid "MENU"

@@ -406,27 +406,58 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 		std::string description = find_child_by_attribute_list(game.child("synopsis"), "synopsis", "langue", { language, "en", "wor" }).text().get();
 
 		if (!description.empty())
-			result.mdl.set("desc", Utils::String::replace(description, "&nbsp;", " "));
+			result.mdl.set("desc", Utils::String::decodeXmlString(description));
 
-		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )
-		result.mdl.set("genre", find_child_by_attribute_list(game.child("genres"), "genre", "langue", { language, "en" }).text().get());
-		//LOG(LogDebug) << "Genre: " << result.mdl.get("genre");
+		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )		
+		if (game.child("genres"))
+		{
+			std::string genre;
+			std::string subgenre;
+
+			for (pugi::xml_node node : game.child("genres").children("genre"))
+			{
+				if (strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
+					genre = node.text().get();
+			
+				if (strcmp(node.attribute("principale").value(), "0") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
+					subgenre = node.text().get();
+			}
+
+			if (language != "en")
+			{
+				for (pugi::xml_node node : game.child("genres").children("genre"))
+				{
+					if (genre.empty() && strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), "en") == 0)
+						genre = node.text().get();
+
+					if (subgenre.empty() && strcmp(node.attribute("principale").value(), "0") == 0 && strcmp(node.attribute("langue").value(), "en") == 0)
+						subgenre = node.text().get();
+				}
+			}
+
+			auto sep = genre.find("/");
+			if (sep != std::string::npos)
+				genre = Utils::String::trim(genre.substr(0, sep));
+
+			sep = subgenre.find("/");
+			if (genre.empty() || sep != std::string::npos)
+				genre = subgenre;
+			else if (!genre.empty() && !subgenre.empty())
+				genre = genre + " / " + subgenre;
+
+			if (!genre.empty())
+				result.mdl.set("genre", genre);
+		}
 
 		// Get the date proper. The API returns multiple 'date' children nodes to the 'dates' main child of 'jeu'.
 		// Date fallback: WOR(LD), US, SS, JP, EU
 		std::string _date = find_child_by_attribute_list(game.child("dates"), "date", "region", { region, "wor", "us", "ss", "eu", "jp" }).text().get();
-		//LOG(LogDebug) << "Release Date (unparsed): " << _date;
 
 		// Date can be YYYY-MM-DD or just YYYY.
 		if (_date.length() > 4)
-		{
 			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y-%m-%d")));
-		} else if (_date.length() > 0)
-		{
+		else if (_date.length() > 0)
 			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y")));
-		}
-
-		//LOG(LogDebug) << "Release Date (parsed): " << result.mdl.get("releasedate");
 
 		/// Developer for the game( Xpath: Data/jeu[0]/developpeur )
 		std::string developer = game.child("developpeur").text().get();

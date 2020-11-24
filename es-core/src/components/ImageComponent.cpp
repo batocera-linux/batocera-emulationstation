@@ -126,7 +126,8 @@ void ImageComponent::resize()
 			{
 				mSize[1] = Math::round(mTargetSize.y());
 				mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
-			}else if(mTargetSize.x() && !mTargetSize.y())
+			}
+			else if(mTargetSize.x() && !mTargetSize.y())
 			{
 				mSize[1] = Math::round((mTargetSize.x() / textureSize.x()) * textureSize.y());
 				mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
@@ -625,21 +626,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if (properties & ThemeFlags::SIZE)
 	{
 		if (elem->has("size"))
-		{
-			auto sz = elem->get<Vector2f>("size");
-			if (sz.x() == 0 && sz.y() != 0 && Settings::getInstance()->getInt("ScreenRotate") != 0)
-			{
-				sz.x() = sz.y();
-				setMinSize(sz * scale);
-			} 
-			else if (sz.y() == 0 && sz.x() != 0 && Settings::getInstance()->getInt("ScreenRotate") != 0)
-			{
-				sz.y() = sz.x();
-				setMinSize(sz * scale);
-			}
-			else
-				setResize(sz * scale);
-		}
+			setResize(elem->get<Vector2f>("size") * scale);
 		else if (elem->has("maxSize"))
 			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
 		else if (elem->has("minSize"))

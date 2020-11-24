@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1202,9 +1202,6 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr "ВМИКНУТИ ФІЛЬТРИ"
 
@@ -1339,6 +1336,9 @@ msgstr "НАЛАШТУВАННЯ РЕТРОДОСЯГНЕНЬ"
 
 msgid "NETPLAY SETTINGS"
 msgstr "НАЛАШТУВАННЯ NETPLAY"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
@@ -1841,6 +1841,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "Предзавантаження інтерфейсу"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "МЕНЮ"

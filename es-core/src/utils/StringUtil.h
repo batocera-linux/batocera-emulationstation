@@ -40,6 +40,9 @@ namespace Utils
 		bool		startsWithIgnoreCase(const std::string& name1, const std::string& name2);
 
 		int			toInteger(const std::string& string);
+		float		toFloat(const std::string& string);
+
+		std::string decodeXmlString(const std::string& string);
 
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);

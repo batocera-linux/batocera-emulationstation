@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 06:05-0300\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1200,9 +1200,6 @@ msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
 msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "VERIFICAR AS BIOS ANTES DE INICIAR O JOGO"
-
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
 
@@ -1339,6 +1336,9 @@ msgstr "OPÇÕES DE RETROACHIEVEMENTS"
 
 msgid "NETPLAY SETTINGS"
 msgstr "CONFIGURAÇÕES DE JOGOS EM REDE"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr "VERIFICAR AS BIOS ANTES DE INICIAR O JOGO"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLAS MULTIMÍDIA"
@@ -1842,6 +1842,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "MENU"

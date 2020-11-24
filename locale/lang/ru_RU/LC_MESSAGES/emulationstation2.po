@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -464,7 +464,7 @@ msgid "OTHER FILTERS"
 msgstr "ДРУГИЕ ФИЛЬТРЫ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
 
 msgid "GAME MEDIAS"
 msgstr "МЕДИА ИГРЫ"
@@ -521,7 +521,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "ПОСМОТРЕТЬ ДАННЫЕ PADTOKEY"
 
 msgid "RESET FILTERS"
 msgstr "СБРОСИТЬ ФИЛЬТРЫ"
@@ -656,7 +656,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "УСТАНОВКА / УДАЛЕНИЕ КОНТЕНТА"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "ОБНОВИТЬ УСТАНОВЛЕННЫЙ КОНТЕНТ"
 
 msgid "There are no items in this view"
 msgstr "Нет объектов для отображения"
@@ -839,7 +839,7 @@ msgid "REBOOT SYSTEM TO APPLY"
 msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "REALLY UPDATE?"
-msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ?"
+msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1160,7 +1160,7 @@ msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР (HW ACCELERATED)"
 
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
@@ -1190,19 +1190,16 @@ msgid "Cleaning "
 msgstr "Очистка "
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "ОЧИСТИТЬ КЭШ"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛА"
+msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
-
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "ПРОВЕРИТЬ БИОСЫ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
@@ -1339,6 +1336,9 @@ msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "NETPLAY SETTINGS"
 msgstr "НАСТРОЙКИ NETPLAY"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr "ПРОВЕРИТЬ БИОСЫ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "МУЛЬТИМЕДИЙНЫЕ КНОПКИ"
@@ -1482,7 +1482,7 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ЗАПУЩЕНО ХЕШИРОВАНИЕ ИГР. ОСТАНОВИТЬ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "ДЕЙСТВИТЕЛЬНО ОБНОВИТЬ СПИСКИ ИГР?"
+msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ СПИСКИ ИГР?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "НАСТРОИТЬ КОНТРОЛЛЕР"
@@ -1846,6 +1846,12 @@ msgstr ""
 msgid "Preloading UI"
 msgstr "Предзагрузка интерфейса"
 
+msgid "Loading theme"
+msgstr "Загрузка темы"
+
+msgid "Loading gamelists"
+msgstr "Загрузка списка игр"
+
 msgid "MENU"
 msgstr "МЕНЮ"
 
@@ -1883,7 +1889,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Игры похожие на"
 
 msgid "Searching"
 msgstr "Поиск"

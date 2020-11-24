@@ -546,7 +546,24 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 			mPadding = elem->get<Vector4f>("padding") * Vector4f(screen.x(), screen.y(), screen.x(), screen.y());
 
 		if (elem->has("autoLayout"))
-			mAutoLayout = elem->get<Vector2f>("autoLayout");		
+		{
+			mAutoLayout = elem->get<Vector2f>("autoLayout");
+
+			float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
+
+			float cellProportion = 1;
+			if (elem->has("cellProportion"))
+			{
+				cellProportion = elem->get<float>("cellProportion");
+				if (cellProportion == 0)
+					cellProportion = 1;
+			}
+
+			if (mAutoLayout.y() == 0)
+				mAutoLayout.y() = Math::round(mAutoLayout.x() / screenProportion * cellProportion);
+			else if (mAutoLayout.x() == 0)
+				mAutoLayout.x() = Math::round(mAutoLayout.y() * screenProportion / cellProportion);
+		}
 
 		if (elem->has("animateSelection"))
 			mAnimateSelection = elem->get<bool>("animateSelection");

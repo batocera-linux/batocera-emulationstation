@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 08:12+0100\n"
+"POT-Creation-Date: 2020-11-23 19:03+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1192,9 +1192,6 @@ msgstr "게임 언어/지역 재감지"
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr ""
-
 msgid "ENABLE FILTERS"
 msgstr "필터 활성화"
 
@@ -1329,6 +1326,9 @@ msgstr "레트로 도전 과제 설정"
 
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
+
+msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "멀티미디어 키"
@@ -1824,6 +1824,12 @@ msgstr ""
 
 msgid "Preloading UI"
 msgstr "UI 로딩중"
+
+msgid "Loading theme"
+msgstr ""
+
+msgid "Loading gamelists"
+msgstr ""
 
 msgid "MENU"
 msgstr "메뉴"

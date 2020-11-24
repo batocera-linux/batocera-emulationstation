@@ -101,11 +101,9 @@ public:
 		text->setGlowColor(glowColor);
 		text->setGlowSize(glowSize);
 		text->setAutoScroll(autoScroll);
-		text->setFont(fontPath, fontSize * (float)Renderer::getScreenHeight());
+		text->setFont(fontPath, fontSize * Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth()));
 	}
-
 	
-
 	bool Loaded;
 	bool Visible;
 
