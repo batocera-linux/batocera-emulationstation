@@ -1041,7 +1041,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 				for (auto ext : readList(emuNode.attribute("incompatible_extensions").value()))
 				{
 					std::string extlow = Utils::String::toLower(ext);
-					if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+					if (std::find(emulatorData.incompatibleExtensions.cbegin(), emulatorData.incompatibleExtensions.cend(), extlow) == emulatorData.incompatibleExtensions.cend())
 						emulatorData.incompatibleExtensions.push_back(extlow);
 				}
 			}
@@ -1061,7 +1061,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 						for (auto ext : readList(coreNode.attribute("incompatible_extensions").value()))
 						{
 							std::string extlow = Utils::String::toLower(ext);
-							if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+							if (std::find(core.incompatibleExtensions.cbegin(), core.incompatibleExtensions.cend(), extlow) == core.incompatibleExtensions.cend())
 								core.incompatibleExtensions.push_back(extlow);
 						}
 					}
