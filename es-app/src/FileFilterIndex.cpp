@@ -32,7 +32,10 @@ FileFilterIndex::FileFilterIndex()
 		{ LANG_FILTER, 	    &langIndexAllKeys,      &filterByLang,	    &langIndexFilteredKeys, 	"lang",		    false,				"",				_("LANGUAGE") },
 		{ REGION_FILTER, 	&regionIndexAllKeys,    &filterByRegion,	&regionIndexFilteredKeys, 	"region",		false,				"",				_("REGION") },
 		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") },
-		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") }
+		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") },
+#ifdef _ENABLEEMUELEC
+        { CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") }
+#endif
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -100,7 +103,11 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &langIndexAllKeys, &(indexToImport->langIndexAllKeys) },
 		{ &regionIndexAllKeys, &(indexToImport->regionIndexAllKeys) },
 		{ &kidGameIndexAllKeys, &(indexToImport->kidGameIndexAllKeys) },
-		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
+#ifdef _ENABLEEMUELEC
+		{ &cheevosIndexAllKeys, &(indexToImport->cheevosIndexAllKeys) },
+#endif
+        { &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
+
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -138,6 +145,9 @@ void FileFilterIndex::resetIndex()
 
 	clearIndex(langIndexAllKeys);
 	clearIndex(regionIndexAllKeys);
+#ifdef _ENABLEEMUELEC
+	clearIndex(cheevosIndexAllKeys);
+#endif
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -147,6 +157,10 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&playedIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&playedIndexAllKeys, "TRUE", false);
+#ifdef _ENABLEEMUELEC
+	manageIndexEntry(&cheevosIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&cheevosIndexAllKeys, "TRUE", false);
+#endif
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
@@ -162,7 +176,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			key = game->getMetadata(MetaDataId::Language);
 			break;
 		}
-
+		
 		case REGION_FILTER:
 		{
 			if (getSecondary)
@@ -258,6 +272,16 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
 			break;
 		}
+#ifdef _ENABLEEMUELEC
+		case CHEEVOS_FILTER:
+		{
+			if (getSecondary)
+				break;
+
+			key = game->getMetadata(MetaDataId::Cheevos);
+			break;
+		}
+#endif
 	}
 		
 	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) 
@@ -911,6 +935,10 @@ bool CollectionFilter::load(const std::string file)
 			langIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "region")
 			regionIndexFilteredKeys.insert(node.text().as_string());
+#ifdef _ENABLEEMUELEC
+		else if (name == "cheevos")
+			cheevosIndexFilteredKeys.insert(node.text().as_string());
+#endif
 	}
 
 	for (auto& it : mFilterDecl)
@@ -963,6 +991,11 @@ bool CollectionFilter::save()
 
 	for (auto key : regionIndexFilteredKeys)
 		root.append_child("region").text().set(key.c_str());
+
+#ifdef _ENABLEEMUELEC
+	for (auto key : cheevosIndexFilteredKeys)
+		root.append_child("cheevos").text().set(key.c_str());
+#endif
 
 	if (!doc.save_file(mPath.c_str()))
 	{

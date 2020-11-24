@@ -63,7 +63,10 @@ enum MetaDataId
 	Manual = 30,
 	BoxArt = 31,
 	Wheel = 32,
-	Mix = 33
+	Mix = 33,
+#ifdef _ENABLEEMUELEC
+    Cheevos = 34
+#endif
 };
 
 namespace MetaDataImportType
