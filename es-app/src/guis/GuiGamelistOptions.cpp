@@ -33,11 +33,13 @@ std::vector<std::string> GuiGamelistOptions::gridSizes {
 };
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, SystemData* system, bool showGridFeatures) : GuiComponent(window),
-	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false), mGamelist(gamelist)
+	mSystem(system), mMenu(window, "OPTIONS"), fromPlaceholder(false), mFiltersChanged(false), mReloadAll(false), mGamelist(nullptr)
 {
-
 	auto idx = system->getIndex(false);
-	bool isInRelevancyMode = idx != nullptr && idx->hasRelevency();
+
+	bool isInRelevancyMode = (idx != nullptr && idx->hasRelevency());
+	if (isInRelevancyMode)
+		mGamelist = gamelist;
 
 	mGridSize = nullptr;
 
@@ -612,7 +614,10 @@ std::vector<HelpPrompt> GuiGamelistOptions::getHelpPrompts()
 
 IGameListView* GuiGamelistOptions::getGamelist()
 {
-	return mGamelist; // ViewController::get()->getGameListView(mSystem).get();
+	if(mGamelist != nullptr)
+		return mGamelist; 
+	
+	return ViewController::get()->getGameListView(mSystem).get();
 }
 
 void GuiGamelistOptions::editCollectionFilters()
