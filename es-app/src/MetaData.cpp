@@ -69,7 +69,8 @@ void MetaDataList::initMetadata()
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
 		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
-		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false }
+		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
+		{ Cheevos,          "cheevos",     MD_BOOL,                "false",            false,       _("Has Achievements"),     _("Has Achievements"),		false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
