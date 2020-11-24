@@ -1847,10 +1847,10 @@ msgid "Preloading UI"
 msgstr "Предзагрузка интерфейса"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Загрузка темы"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Загрузка списка игр"
 
 msgid "MENU"
 msgstr "МЕНЮ"
