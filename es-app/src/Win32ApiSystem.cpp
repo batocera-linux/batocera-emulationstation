@@ -42,13 +42,7 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 
 	if (script == ApiSystem::NETPLAY)
-	{
-		if (!(Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||
-			Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe") ||
-			Utils::FileSystem::exists("c:\\Program Files (x86)\\7-Zip\\7za.exe") ||
-			Utils::FileSystem::exists("c:\\src\\7za.exe")))
-			return false;
-	}
+		return !getSevenZipCommand().empty();
 
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
@@ -227,7 +221,7 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 	return ret;
 }
 
-bool unzipFile(const std::string fileName, const std::string dest)
+bool shellUnzipFile(const std::string fileName, const std::string dest)
 {
 	bool	ret = false;
 
@@ -295,6 +289,14 @@ bool unzipFile(const std::string fileName, const std::string dest)
 
 	CoUninitialize();
 	return ret;
+}
+
+bool Win32ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
+{	
+	if (getUnzipCommand().empty() && getSevenZipCommand().empty())
+		return shellUnzipFile(fileName, destFolder);
+	
+	return ApiSystem::unzipFile(Utils::FileSystem::getPreferredPath(fileName), Utils::FileSystem::getPreferredPath(destFolder));
 }
 
 bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
@@ -415,36 +417,31 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 
 std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
-	std::string cmd = "7zr h \"" + fileName + "\"";
+	std::string crc;
+
+	std::string cmd = getSevenZipCommand() + " h \"" + fileName + "\"";
 
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
 	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
-		cmd = "7zr l -slt \"" + fileName + "\"";
-
-	std::string crc;
-	std::string fn = Utils::FileSystem::getFileName(fileName);
-
-	// Windows : use x86 7za to test. x64 version fails ( cuz our process is x86 )
-	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", Utils::FileSystem::getExePath() + "\\7za.exe ");
-	else if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", Utils::FileSystem::getEsConfigPath() + "\\7za.exe ");
-	else if (Utils::FileSystem::exists("c:\\Program Files (x86)\\7-Zip\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", "\"c:\\Program Files (x86)\\7-Zip\\7za.exe\" ");
-	else if (Utils::FileSystem::exists("c:\\src\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", "c:\\src\\7za.exe ");
-
+		cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
+	
 	bool useUnzip = false;
 
-	if (fromZipContents && ext == ".zip" && Utils::FileSystem::exists("c:\\src\\unzip.exe"))
+	if (fromZipContents && ext == ".zip")
 	{
-		useUnzip = true;
-		cmd = "c:\\src\\unzip.exe -l -v \"" + fileName + "\"";
+		auto zipCommand = getUnzipCommand();
+		if (!zipCommand.empty())
+		{
+			useUnzip = true;
+			cmd = zipCommand + " -l -v \"" + fileName + "\"";
+		}
 	}
 
 	std::string output;
 	if (executeCMD((char*)cmd.c_str(), output) == 0)
 	{
+		std::string fn = Utils::FileSystem::getFileName(fileName);
+
 		for (std::string all : Utils::String::splitAny(output, "\r\n"))
 		{
 			if (useUnzip)
@@ -1229,6 +1226,35 @@ std::vector<std::string> Win32ApiSystem::getShaderList()
 
 	std::sort(ret.begin(), ret.end());
 	return ret;
+}
+
+std::string Win32ApiSystem::getUnzipCommand()
+{
+	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\unzip.exe"))
+		return "\"" + Utils::FileSystem::getExePath() + "\\unzip.exe\"";
+	else if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\unzip.exe"))
+		return "\"" + Utils::FileSystem::getEsConfigPath() + "\\unzip.exe\"";
+	else if (Utils::FileSystem::exists(Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\unzip.exe"))
+		return "\"" + Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\unzip.exe\"";
+
+	return "";
+}
+
+std::string Win32ApiSystem::getSevenZipCommand()
+{
+	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getExePath() + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getEsConfigPath() + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists(Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists("C:\\Program Files (x86)\\7-Zip\\7za.exe"))
+		return "\"C:\\Program Files (x86)\\7-Zip\\7za.exe\"";
+
+	return "";
 }
 
 #endif

@@ -250,7 +250,10 @@ namespace Utils
 						contentList.push_back(fullName);						
 
 						if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
-							contentList.merge(getDirContent(fullName, true, includeHidden));
+						{
+							for (auto item : getDirContent(fullName, true, includeHidden))
+								contentList.push_back(item);
+						}
 					}
 					while(FindNextFileW(hFind, &findData));
 
@@ -859,7 +862,10 @@ namespace Utils
 			if(!exists(path))
 				return true;
 
-#if WIN32
+#if WIN32			
+			if (isDirectory(_path))
+				return RemoveDirectoryW(Utils::String::convertToWideString(_path).c_str());
+
 			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
 #else
 			// try to remove file
@@ -1231,6 +1237,18 @@ namespace Utils
 			out.precision(2);
 			out << std::fixed << size_d << " " << SIZES[div];
 			return out.str();
+		}
+
+		std::string getTempPath()
+		{
+#ifdef  WIN32
+			std::string tempPath;
+			wchar_t wcharPath[MAX_PATH];
+			if (GetTempPathW(MAX_PATH, wcharPath))
+				return Utils::String::convertFromWideString(wcharPath);
+#endif 
+
+			return "/tmp/";
 		}
 
 #ifdef WIN32

@@ -1085,17 +1085,7 @@ void FileData::checkCrc32(bool force)
 		return;
 
 	SystemData* system = getSystem();
-
-	bool unpackZip =
-		!system->hasPlatformId(PlatformIds::ARCADE) &&
-		!system->hasPlatformId(PlatformIds::NEOGEO) &&
-		!system->hasPlatformId(PlatformIds::DAPHNE) &&
-		!system->hasPlatformId(PlatformIds::LUTRO) &&
-		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
-		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
-		!system->hasPlatformId(PlatformIds::NAOMI);
-
-	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), unpackZip);
+	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
 		getMetadata().set(MetaDataId::Crc32, Utils::String::toUpper(crc));

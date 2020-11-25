@@ -71,6 +71,9 @@ namespace Utils
 
 		std::string megaBytesToString(unsigned long size);
 
+
+		std::string getTempPath();
+
 #ifdef WIN32
 		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);
 #endif

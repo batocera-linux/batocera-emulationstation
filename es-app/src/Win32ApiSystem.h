@@ -36,6 +36,8 @@ public:
 	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func) override;
 	bool canUpdate(std::vector<std::string>& output) override;
 
+	virtual bool unzipFile(const std::string fileName, const std::string destFolder) override;
+
 	bool ping() override;
 
 	bool launchKodi(Window *window) override;	
@@ -43,6 +45,9 @@ public:
 	static std::string getEmulatorLauncherPath(const std::string variable);
 
 	std::vector<std::string> getShaderList() override;
+
+	virtual std::string getUnzipCommand() override;
+	virtual std::string getSevenZipCommand() override;
 
 protected:
 	bool executeScript(const std::string command) override;

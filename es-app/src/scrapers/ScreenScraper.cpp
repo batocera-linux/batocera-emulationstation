@@ -13,6 +13,7 @@
 #include "md5.h"
 #include <thread>
 #include "LangParser.h"
+#include "ApiSystem.h"
 
 using namespace PlatformIds;
 
@@ -166,44 +167,15 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 			// Use md5 to search scrapped game
 			size_t length = Utils::FileSystem::getFileSize(params.game->getFullPath());
 			if (length > 0 && length <= 131072 * 1024) // 128 Mb max
-			{
-				try
+			{												
+				std::string val = ApiSystem::getInstance()->getMD5(params.game->getFullPath(), params.system->shouldExtractHashesFromArchives());
+				if (!val.empty())
 				{
-					// 64 Kb blocks
-#define MD5BUFFERSIZE 64 * 1024
-
-					char* buffer = new char[MD5BUFFERSIZE];
-					if (buffer)
-					{
-						size_t size;
-
-						FILE* file = fopen(params.game->getFullPath().c_str(), "rb");
-						if (file)
-						{
-							MD5 md5 = MD5();
-
-							while (size = fread(buffer, 1, MD5BUFFERSIZE, file))
-								md5.update(buffer, size);
-
-							md5.finalize();
-
-							std::string val = md5.hexdigest();
-							if (!val.empty())
-							{
-								params.game->setMetadata("md5", val);
-								path += "&md5=" + val;
-							}
-
-							fclose(file);
-						}
-
-						delete buffer;
-					}
+					params.game->setMetadata("md5", val);
+					path += "&md5=" + val;
 				}
-				catch (std::bad_alloc& ex) 
-				{
+				else
 					path += "&romtaille=" + std::to_string(length);
-				}
 			}
 			else
 				path += "&romtaille=" + std::to_string(length);

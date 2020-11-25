@@ -195,6 +195,8 @@ public:
 	virtual std::pair<std::string,int> uninstallBatoceraTheme(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
+	virtual std::string getMD5(const std::string fileName, bool fromZipContents = true);
+	virtual bool unzipFile(const std::string fileName, const std::string destFolder);
 
 	virtual int getPdfPageCount(const std::string fileName);
 	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
@@ -211,14 +213,17 @@ public:
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
-	std::string downloadToCache(const std::string url);
-
+	
 	// Formating
 	std::vector<std::string> getFormatDiskList();
 	std::vector<std::string> getFormatFileSystems();
 	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::vector<std::string> getShaderList();
+
+
+	virtual std::string getUnzipCommand() { return "unzip"; }
+	virtual std::string getSevenZipCommand() { return "7zr"; }
 
 protected:
 	ApiSystem();

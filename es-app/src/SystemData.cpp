@@ -1748,3 +1748,15 @@ KeyMappingFile SystemData::getKeyboardMapping()
 	ret.path = getKeyboardMappingFilePath();
 	return ret;
 }
+
+bool SystemData::shouldExtractHashesFromArchives()
+{
+	return
+		!hasPlatformId(PlatformIds::ARCADE) &&
+		!hasPlatformId(PlatformIds::NEOGEO) &&
+		!hasPlatformId(PlatformIds::DAPHNE) &&
+		!hasPlatformId(PlatformIds::LUTRO) &&
+		!hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
+		!hasPlatformId(PlatformIds::ATOMISWAVE) &&
+		!hasPlatformId(PlatformIds::NAOMI);
+}

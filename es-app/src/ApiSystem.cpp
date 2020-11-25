@@ -48,10 +48,9 @@
 
 #include <pugixml/src/pugixml.hpp>
 #include "platform.h"
+#include "scrapers/md5.h"
 
-ApiSystem::ApiSystem() 
-{
-}
+ApiSystem::ApiSystem() { }
 
 ApiSystem* ApiSystem::instance = NULL;
 
@@ -964,6 +963,93 @@ std::pair<std::string, int> ApiSystem::installBatoceraBezel(std::string bezelsys
 std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	return executeScript("batocera-es-thebezelproject remove " + bezelsystem, func);
+}
+
+std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
+{
+	std::string contentFile = fileName;
+
+	std::string ret;
+
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+
+	std::string tmpZipDirectory;
+
+	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
+	{
+		tmpZipDirectory = Utils::FileSystem::getTempPath() + "\\es.md5.tmp";
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
+
+		if (unzipFile(fileName, tmpZipDirectory))
+		{
+			auto fileList = Utils::FileSystem::getDirContent(tmpZipDirectory, true);
+			if (fileList.size() == 1)
+				contentFile = *fileList.cbegin();
+		}
+
+		// if there's no file or many files ? get md5 from archive
+	}
+
+	try
+	{
+		// 64 Kb blocks
+#define MD5BUFFERSIZE 64 * 1024
+
+		char* buffer = new char[MD5BUFFERSIZE];
+		if (buffer)
+		{
+			size_t size;
+
+#if defined(_WIN32)
+			FILE* file = _wfopen(Utils::String::convertToWideString(contentFile).c_str(), L"rb");
+#else			
+			FILE* file = fopen(contentFile.c_str(), "rb");
+#endif
+			if (file)
+			{
+				MD5 md5 = MD5();
+
+				while (size = fread(buffer, 1, MD5BUFFERSIZE, file))
+					md5.update(buffer, size);
+
+				md5.finalize();
+				ret = md5.hexdigest();
+				fclose(file);
+			}
+
+			delete buffer;
+		}
+	}
+	catch (std::bad_alloc& ex)
+	{
+		
+	}
+
+	if (!tmpZipDirectory.empty())
+	{
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
+		Utils::FileSystem::removeFile(tmpZipDirectory);
+	}
+
+	return ret;
+}
+
+bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
+{
+	if (!Utils::FileSystem::exists(destFolder))
+		Utils::FileSystem::createDirectory(destFolder);
+
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+
+	bool useUnzip = false;
+	std::string cmd = getSevenZipCommand() + " e \"" + fileName + "\" -y -o\"" + destFolder + "\"";
+	if (ext == ".zip" && !getUnzipCommand().empty())
+	{
+		useUnzip = true;
+		cmd = getUnzipCommand() + " -o \"" + fileName + "\" -d \"" + destFolder + "\"";
+	}
+
+	return executeScript(cmd);
 }
 
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
