@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-25 07:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "Inserisci percorso della scatola alternativa"
 
 msgid "Wheel"
-msgstr "Ruota"
+msgstr "Targhetta"
 
 msgid "enter path to wheel"
-msgstr "Inserisci percorso della ruota"
+msgstr "Inserisci percorso della targhetta (modalità Wheel)"
 
 msgid "Mix"
 msgstr "Misto"
@@ -188,7 +188,7 @@ msgid "Crc32"
 msgstr "Crc32"
 
 msgid "Crc32 checksum"
-msgstr "Serie checksum Crc332"
+msgstr "Serie checksum Crc32"
 
 msgid "Md5"
 msgstr "Md5"
@@ -733,7 +733,7 @@ msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRA INFO DEL GIOCO NEL SALVASCHERMO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USA LE MARQUEE (TITOLI DI GIOCO) COME INFO GIOCO"
+msgstr "USA IL BANNER COME INFO DI GIOCO"
 
 msgid "DECORATIONS"
 msgstr "DECORAZIONI"
@@ -1089,10 +1089,10 @@ msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
 
 msgid "WHEEL"
-msgstr "RUOTA"
+msgstr "TARGHETTA"
 
 msgid "MARQUEE"
-msgstr "MARQUEE"
+msgstr "BANNER"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCARICA INFORMAZIONI DEI VOTI"
@@ -2319,7 +2319,7 @@ msgstr "%d s"
 #~ msgstr "Banner"
 
 #~ msgid "enter path to marquee"
-#~ msgstr "inserisci percorso dei marquee"
+#~ msgstr "inserisci percorso dei banner"
 
 #~ msgid "Thumbnail"
 #~ msgstr "Miniatura"
@@ -2387,7 +2387,7 @@ msgstr "%d s"
 #~ msgstr "Percorso dei video"
 
 #~ msgid "Path to marquee"
-#~ msgstr "Percorso dei marquee"
+#~ msgstr "Percorso dei banner"
 
 #~ msgid "set hidden"
 #~ msgstr "imposta come nascosto"
@@ -2408,7 +2408,7 @@ msgstr "%d s"
 #~ msgstr "miniatura"
 
 #~ msgid "marquee"
-#~ msgstr "marquee"
+#~ msgstr "banner"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
@@ -2447,7 +2447,7 @@ msgstr "%d s"
 #~ msgstr "SORGENTE MINIATURA PREFERITA"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "SCRAPE MARQUEE"
+#~ msgstr "SCRAPE BANNER"
 
 #~ msgid "UPDATES"
 #~ msgstr "AGGIORNAMENTI"
