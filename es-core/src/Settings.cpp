@@ -106,8 +106,8 @@ void Settings::setDefaults()
 	mBoolMap["HideConsole"] = true;
 	//mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
-	mBoolMap["SaveGamelistsOnExit"] = true;
-	mBoolMap["ShowBatteryIndicator"] = true;	
+	mBoolMap["SaveGamelistsOnExit"] = true;	
+	mStringMap["ShowBattery"] = "text";	
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	
 #if WIN32

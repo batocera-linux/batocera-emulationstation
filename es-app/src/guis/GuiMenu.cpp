@@ -2746,10 +2746,10 @@ void GuiMenu::openUISettings()
 	// Battery indicator
 	if (queryBatteryInformation().hasBattery)
 	{
-		auto batteryStatus = std::make_shared<SwitchComponent>(mWindow);
-		batteryStatus->setState(Settings::getInstance()->getBool("ShowBatteryIndicator"));
+		auto batteryStatus = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHOW BATTERY STATUS"), false);
+		batteryStatus->addRange({ { _("NO"), "" },{ _("ICON"), "icon" },{ _("ICON AND TEXT"), "text" } }, Settings::getInstance()->getString("ShowBattery"));		
 		s->addWithLabel(_("SHOW BATTERY STATUS"), batteryStatus);
-		s->addSaveFunc([batteryStatus] { Settings::getInstance()->setBool("ShowBatteryIndicator", batteryStatus->getState()); });
+		s->addSaveFunc([batteryStatus] { Settings::getInstance()->setString("ShowBattery", batteryStatus->getSelected()); });
 	}
 
 	s->addGroup(_("GAMELIST OPTIONS"));
