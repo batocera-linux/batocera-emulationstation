@@ -221,84 +221,6 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 	return ret;
 }
 
-bool shellUnzipFile(const std::string fileName, const std::string dest)
-{
-	bool	ret = false;
-
-	HRESULT          hResult;
-	IShellDispatch*	 pISD;
-	Folder*			 pFromZip = nullptr;
-	VARIANT          vDir, vFile, vOpt;
-
-	OleInitialize(NULL);
-	CoInitialize(NULL);
-
-	hResult = CoCreateInstance(CLSID_Shell, NULL, CLSCTX_INPROC_SERVER, IID_IShellDispatch, (void **)&pISD);
-
-	if (SUCCEEDED(hResult))
-	{
-		VariantInit(&vDir);
-		vDir.vt = VT_BSTR;
-
-		int zipDirLen = (lstrlen(fileName.c_str()) + 1) * sizeof(WCHAR);
-		BSTR bstrZip = SysAllocStringByteLen(NULL, zipDirLen);
-		MultiByteToWideChar(CP_ACP, 0, fileName.c_str(), -1, bstrZip, zipDirLen);
-		vDir.bstrVal = bstrZip;
-
-		hResult = pISD->NameSpace(vDir, &pFromZip);
-
-		if (hResult == S_OK && pFromZip != nullptr)
-		{
-			if (!Utils::FileSystem::exists(dest))
-				Utils::FileSystem::createDirectory(dest);
-
-			Folder *pToFolder = NULL;
-
-			VariantInit(&vFile);
-			vFile.vt = VT_BSTR;
-
-			int fnLen = (lstrlen(dest.c_str()) + 1) * sizeof(WCHAR);
-			BSTR bstrFolder = SysAllocStringByteLen(NULL, fnLen);
-			MultiByteToWideChar(CP_ACP, 0, dest.c_str(), -1, bstrFolder, fnLen);
-			vFile.bstrVal = bstrFolder;
-
-			hResult = pISD->NameSpace(vFile, &pToFolder);
-			if (hResult == S_OK && pToFolder)
-			{
-				FolderItems *fi = NULL;
-				pFromZip->Items(&fi);
-
-				VariantInit(&vOpt);
-				vOpt.vt = VT_I4;
-				vOpt.lVal = FOF_NO_UI; //4; // Do not display a progress dialog box
-
-				VARIANT newV;
-				VariantInit(&newV);
-				newV.vt = VT_DISPATCH;
-				newV.pdispVal = fi;
-				hResult = pToFolder->CopyHere(newV, vOpt);
-				if (hResult == S_OK)
-					ret = true;
-
-				pFromZip->Release();
-				pToFolder->Release();
-			}
-		}
-		pISD->Release();
-	}
-
-	CoUninitialize();
-	return ret;
-}
-
-bool Win32ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
-{	
-	if (getUnzipCommand().empty() && getSevenZipCommand().empty())
-		return shellUnzipFile(fileName, destFolder);
-	
-	return ApiSystem::unzipFile(Utils::FileSystem::getPreferredPath(fileName), Utils::FileSystem::getPreferredPath(destFolder));
-}
-
 bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
 {
 	if (func != nullptr)
@@ -394,11 +316,18 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+	{
+		path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+	}
 
 	if (Utils::FileSystem::exists(path))
 	{
@@ -413,58 +342,6 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	}
 
 	return res;
-}
-
-std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
-{
-	std::string crc;
-
-	std::string cmd = getSevenZipCommand() + " h \"" + fileName + "\"";
-
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
-		cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
-	
-	bool useUnzip = false;
-
-	if (fromZipContents && ext == ".zip")
-	{
-		auto zipCommand = getUnzipCommand();
-		if (!zipCommand.empty())
-		{
-			useUnzip = true;
-			cmd = zipCommand + " -l -v \"" + fileName + "\"";
-		}
-	}
-
-	std::string output;
-	if (executeCMD((char*)cmd.c_str(), output) == 0)
-	{
-		std::string fn = Utils::FileSystem::getFileName(fileName);
-
-		for (std::string all : Utils::String::splitAny(output, "\r\n"))
-		{
-			if (useUnzip)
-			{
-				if (!Utils::String::startsWith(all, "Archive"))
-				{
-					auto split = Utils::String::split(all, ' ', true);
-					if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
-						return Utils::String::toUpper(split[6]);
-				}
-
-				continue;
-			}
-
-			int idx = all.find("CRC = ");
-			if (idx != std::string::npos)
-				crc = all.substr(idx + 6);
-			else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-				crc = all.substr(0, 8);
-		}
-	}
-
-	return crc;
 }
 
 unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
@@ -1228,17 +1105,6 @@ std::vector<std::string> Win32ApiSystem::getShaderList()
 	return ret;
 }
 
-std::string Win32ApiSystem::getUnzipCommand()
-{
-	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\unzip.exe"))
-		return "\"" + Utils::FileSystem::getExePath() + "\\unzip.exe\"";
-	else if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\unzip.exe"))
-		return "\"" + Utils::FileSystem::getEsConfigPath() + "\\unzip.exe\"";
-	else if (Utils::FileSystem::exists(Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\unzip.exe"))
-		return "\"" + Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\unzip.exe\"";
-
-	return "";
-}
 
 std::string Win32ApiSystem::getSevenZipCommand()
 {

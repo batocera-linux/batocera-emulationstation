@@ -114,9 +114,11 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) { return mMetadata.get(key); }
+	void setMetadata(MetaDataId key, const std::string& value) { return mMetadata.set(key, value); }
+
 	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
-	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
+	// void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);
 

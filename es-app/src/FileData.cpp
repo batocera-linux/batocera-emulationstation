@@ -138,7 +138,7 @@ const std::string FileData::getThumbnailPath()
 					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-thumb" + extList[i];
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("thumbnail", path);
+						setMetadata(MetaDataId::Thumbnail, path);
 						thumbnail = path;
 					}
 				}
@@ -234,7 +234,7 @@ const std::string FileData::getVideoPath()
 		std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-video.mp4";
 		if (Utils::FileSystem::exists(path))
 		{
-			setMetadata("video", path);
+			setMetadata(MetaDataId::Video, path);
 			video = path;
 		}
 	}
@@ -257,7 +257,7 @@ const std::string FileData::getMarqueePath()
 				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-marquee" + extList[i];
 				if (Utils::FileSystem::exists(path))
 				{
-					setMetadata("marquee", path);
+					setMetadata(MetaDataId::Marquee, path);
 					marquee = path;
 				}
 			}
@@ -287,7 +287,7 @@ const std::string FileData::getImagePath()
 
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("image", path);
+						setMetadata(MetaDataId::Image, path);
 						image = path;
 					}
 				}
@@ -463,28 +463,26 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		window->init(hideWindow);
 
 	VolumeControl::getInstance()->init();
+	AudioManager::getInstance()->init();
 
-	// mSystem can be NULL
-	//AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
-	AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched
 	if (exitCode == 0)
 	{
-		int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
-		gameToUpdate->setMetadata("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+		int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
+		gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
 
 		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
 		// you might have experienced a loading problem)
 		time_t tend = time(NULL);
 		long elapsedSeconds = difftime(tend, tstart);
-		long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+		long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
 		if (elapsedSeconds >= 10)
-			gameToUpdate->setMetadata("gametime", std::to_string(static_cast<long>(gameTime)));
+			gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
 
 		//update last played time
-		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+		gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
 		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 		saveToGamelistRecovery(gameToUpdate);
 	}
@@ -992,7 +990,7 @@ const std::string FileData::getEmulator(bool resolveDefault)
 void FileData::setCore(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("core", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Core, value == "auto" ? "" : value);
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
 #endif
@@ -1001,7 +999,7 @@ void FileData::setCore(const std::string value)
 void FileData::setEmulator(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("emulator", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Emulator, value == "auto" ? "" : value);
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
 #endif
@@ -1049,9 +1047,9 @@ void FileData::detectLanguageAndRegion(bool overWrite)
 
 	auto info = LangInfo::parse(getSourceFileData()->getPath(), getSourceFileData()->getSystem());
 	if (info.languages.size() > 0)
-		mMetadata.set("lang", info.getLanguageString());
+		mMetadata.set(MetaDataId::Language, info.getLanguageString());
 	if (!info.region.empty())
-		mMetadata.set("region", info.region);
+		mMetadata.set(MetaDataId::Region, info.region);
 }
 
 void FolderData::removeVirtualFolders()

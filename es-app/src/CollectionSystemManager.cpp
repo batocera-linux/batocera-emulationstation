@@ -681,11 +681,11 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file)
 			
 			std::string value = md->get(MetaDataId::Favorite);
 			if (value != "true")
-				md->set("favorite", "true");
+				md->set(MetaDataId::Favorite, "true");
 			else
 			{
 				adding = false;
-				md->set("favorite", "false");
+				md->set(MetaDataId::Favorite, "false");
 			}
 
 			sysData->addToIndex(file);
@@ -820,18 +820,18 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		}
 	}
 	
-	rootFolder->setMetadata("desc", desc);
-	rootFolder->setMetadata("rating", rating);
-	rootFolder->setMetadata("players", players);
-	rootFolder->setMetadata("genre", genre);
-	rootFolder->setMetadata("releasedate", releasedate);
-	rootFolder->setMetadata("developer", developer);
-	rootFolder->setMetadata("video", video);
-	rootFolder->setMetadata("thumbnail", thumbnail);
-	rootFolder->setMetadata("image", image);
-	rootFolder->setMetadata("kidgame", "false");
-	rootFolder->setMetadata("hidden", "false");
-	rootFolder->setMetadata("favorite", "false");
+	rootFolder->setMetadata(MetaDataId::Desc, desc);
+	rootFolder->setMetadata(MetaDataId::Rating, rating);
+	rootFolder->setMetadata(MetaDataId::Players, players);
+	rootFolder->setMetadata(MetaDataId::Genre, genre);
+	rootFolder->setMetadata(MetaDataId::ReleaseDate, releasedate);
+	rootFolder->setMetadata(MetaDataId::Developer, developer);
+	rootFolder->setMetadata(MetaDataId::Video, video);
+	rootFolder->setMetadata(MetaDataId::Thumbnail, thumbnail);
+	rootFolder->setMetadata(MetaDataId::Image, image);
+	rootFolder->setMetadata(MetaDataId::KidGame, "false");
+	rootFolder->setMetadata(MetaDataId::Hidden, "false");
+	rootFolder->setMetadata(MetaDataId::Favorite, "false");
 }
 
 void CollectionSystemManager::initCustomCollectionSystems()

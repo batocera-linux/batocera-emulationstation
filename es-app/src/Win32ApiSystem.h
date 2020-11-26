@@ -7,7 +7,6 @@ class Win32ApiSystem : public ApiSystem
 {
 public:
 	bool isScriptingSupported(ScriptId script) override;
-	std::string getCRC32(const std::string fileName, bool fromZipContents = true) override;
 	std::string getVersion() override;
 
 	std::vector<std::string> getSystemInformations() override;
@@ -36,8 +35,6 @@ public:
 	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func) override;
 	bool canUpdate(std::vector<std::string>& output) override;
 
-	virtual bool unzipFile(const std::string fileName, const std::string destFolder) override;
-
 	bool ping() override;
 
 	bool launchKodi(Window *window) override;	
@@ -46,7 +43,6 @@ public:
 
 	std::vector<std::string> getShaderList() override;
 
-	virtual std::string getUnzipCommand() override;
 	virtual std::string getSevenZipCommand() override;
 
 protected:

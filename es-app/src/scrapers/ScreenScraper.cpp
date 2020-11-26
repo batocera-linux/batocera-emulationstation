@@ -171,7 +171,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 				std::string val = ApiSystem::getInstance()->getMD5(params.game->getFullPath(), params.system->shouldExtractHashesFromArchives());
 				if (!val.empty())
 				{
-					params.game->setMetadata("md5", val);
+					params.game->setMetadata(MetaDataId::Md5, val);
 					path += "&md5=" + val;
 				}
 				else
@@ -372,13 +372,13 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 		}
 
 		// Name fallback: US, WOR(LD). ( Xpath: Data/jeu[0]/noms/nom[*] ). 
-		result.mdl.set("name", find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
 
 		// Description fallback language: EN, WOR(LD)
 		std::string description = find_child_by_attribute_list(game.child("synopsis"), "synopsis", "langue", { language, "en", "wor" }).text().get();
 
 		if (!description.empty())
-			result.mdl.set("desc", Utils::String::decodeXmlString(description));
+			result.mdl.set(MetaDataId::Desc, Utils::String::decodeXmlString(description));
 
 		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )		
 		if (game.child("genres"))
@@ -418,7 +418,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				genre = genre + " / " + subgenre;
 
 			if (!genre.empty())
-				result.mdl.set("genre", genre);
+				result.mdl.set(MetaDataId::Genre, genre);
 		}
 
 		// Get the date proper. The API returns multiple 'date' children nodes to the 'dates' main child of 'jeu'.
@@ -427,22 +427,22 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		// Date can be YYYY-MM-DD or just YYYY.
 		if (_date.length() > 4)
-			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y-%m-%d")));
+			result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y-%m-%d")));
 		else if (_date.length() > 0)
-			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y")));
+			result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y")));
 
 		/// Developer for the game( Xpath: Data/jeu[0]/developpeur )
 		std::string developer = game.child("developpeur").text().get();
 		if (!developer.empty())
-			result.mdl.set("developer", Utils::String::replace(developer, "&nbsp;", " "));
+			result.mdl.set(MetaDataId::Developer, Utils::String::replace(developer, "&nbsp;", " "));
 
 		// Publisher for the game ( Xpath: Data/jeu[0]/editeur )
 		std::string publisher = game.child("editeur").text().get();
 		if (!publisher.empty())
-			result.mdl.set("publisher", Utils::String::replace(publisher, "&nbsp;", " "));
+			result.mdl.set(MetaDataId::Publisher, Utils::String::replace(publisher, "&nbsp;", " "));
 
 		// Players
-		result.mdl.set("players", game.child("joueurs").text().get());
+		result.mdl.set(MetaDataId::Players, game.child("joueurs").text().get());
 
         if(game.child("systeme").attribute("id"))
         {
@@ -450,7 +450,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			
 			auto arcadeSystem = ArcadeSystems.find(systemId);
             if(arcadeSystem != ArcadeSystems.cend())
-                result.mdl.set("arcadesystemname", arcadeSystem->second.first);
+                result.mdl.set(MetaDataId::ArcadeSystemName, arcadeSystem->second.first);
 		}
 
         // TODO: Validate rating
@@ -459,7 +459,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			float ratingVal = (game.child("note").text().as_int() / 20.0f);
 			std::stringstream ss;
 			ss << ratingVal;
-			result.mdl.set("rating", ss.str());
+			result.mdl.set(MetaDataId::Rating, ss.str());
 		}
 
 		if (Settings::getInstance()->getBool("ScrapePadToKey") && game.child("sp2kcfg"))

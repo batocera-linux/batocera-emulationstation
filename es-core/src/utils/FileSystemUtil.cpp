@@ -1241,14 +1241,7 @@ namespace Utils
 
 		std::string getTempPath()
 		{
-#ifdef  WIN32
-			std::string tempPath;
-			wchar_t wcharPath[MAX_PATH];
-			if (GetTempPathW(MAX_PATH, wcharPath))
-				return Utils::String::convertFromWideString(wcharPath);
-#endif 
-
-			return "/tmp/";
+			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
 		}
 
 #ifdef WIN32

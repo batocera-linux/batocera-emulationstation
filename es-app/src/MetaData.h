@@ -8,6 +8,7 @@
 #include <string>
 
 class SystemData;
+class FileData;
 
 namespace pugi { class xml_node; }
 
@@ -122,16 +123,19 @@ public:
 	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system);
 	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const;
 
+	void migrate(FileData* file, pugi::xml_node& node);
+
 	MetaDataList(MetaDataListType type);
 	
 	void set(MetaDataId id, const std::string& value);
-	void set(const std::string& key, const std::string& value);
 
 	const std::string get(MetaDataId id, bool resolveRelativePaths = true) const;
+	
+	void set(const std::string& key, const std::string& value);
 	const std::string get(const std::string& key, bool resolveRelativePaths = true) const;
 
-	int getInt(const std::string& key) const;
-	float getFloat(const std::string& key) const;
+	int getInt(MetaDataId id) const;
+	float getFloat(MetaDataId id) const;
 
 	MetaDataType getType(MetaDataId id) const;
 

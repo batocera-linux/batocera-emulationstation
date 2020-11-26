@@ -49,6 +49,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include "platform.h"
 #include "scrapers/md5.h"
+#include "utils/zip_file.hpp"
 
 ApiSystem::ApiSystem() { }
 
@@ -925,7 +926,6 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraTheme(std::string thname
 	return executeScript("batocera-es-theme remove " + thname, func);
 }
 
-
 std::vector<BatoceraBezel> ApiSystem::getBatoceraBezelsList()
 {
 	LOG(LogInfo) << "ApiSystem::getBatoceraBezelsList";
@@ -967,27 +967,77 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(std::string bezels
 
 std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 {
-	std::string contentFile = fileName;
-
-	std::string ret;
-
+	// 7za x -so test.7z | md5sum
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+	if (ext == ".zip" && fromZipContents)
+	{
+		try
+		{
+			miniz_cpp::zip_file file;
+			file.load(fileName);
 
+			std::string romName;
+
+			for (auto name : file.namelist())
+			{
+				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+				{
+					if (!romName.empty())
+					{
+						romName = "";
+						break;
+					}
+
+					romName = name;
+				}
+			}
+
+			if (!romName.empty())
+			{
+				MD5 md5 = MD5();
+				mz_file_write_func func = [](void *pOpaque, mz_uint64 file_ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+				file.read(romName, func, &md5);
+				md5.finalize();
+				return md5.hexdigest();
+			}			
+		}
+		catch (...)
+		{
+			// Bad zip file
+		}
+	}
+
+#if !WIN32
+	if (fromZipContents && ext == ".7z")
+	{
+		auto cmd = getSevenZipCommand() + " x -so \"" + fileName + "\" | md5sum";
+		auto ret = executeEnumerationScript(cmd);
+		if (ret.size() == 1 && ret.cbegin()->length() >= 32)
+			return ret.cbegin()->substr(0, 32);
+	}
+#endif
+
+	std::string contentFile = fileName;
+	std::string ret;
 	std::string tmpZipDirectory;
 
-	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
+	if (fromZipContents && ext == ".7z")
 	{
-		tmpZipDirectory = Utils::FileSystem::getTempPath() + "\\es.md5.tmp";
+		tmpZipDirectory = Utils::FileSystem::getTempPath() + "/" + Utils::FileSystem::getStem(fileName);
 		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
 
 		if (unzipFile(fileName, tmpZipDirectory))
 		{
 			auto fileList = Utils::FileSystem::getDirContent(tmpZipDirectory, true);
-			if (fileList.size() == 1)
-				contentFile = *fileList.cbegin();
+
+			std::vector<std::string> res;
+			std::copy_if(fileList.cbegin(), fileList.cend(), std::back_inserter(res), [](const std::string file) { return Utils::FileSystem::getExtension(file) != ".txt";  });
+		
+			if (res.size() == 1)
+				contentFile = *res.cbegin();
 		}
 
-		// if there's no file or many files ? get md5 from archive
+		// if there's no file or many files ? get md5 of archive
 	}
 
 	try
@@ -1034,84 +1084,129 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	return ret;
 }
 
+std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
+{
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+
+	if (ext == ".7z" && fromZipContents)
+	{
+		std::string fn = Utils::FileSystem::getFileName(fileName);
+		auto cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
+		auto lines = executeEnumerationScript(cmd);
+		for (std::string all : lines)
+		{
+			int idx = all.find("CRC = ");
+			if (idx != std::string::npos)
+				return all.substr(idx + 6);
+			else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
+				return all.substr(0, 8);
+		}
+	}
+	else if (ext == ".zip" && fromZipContents)
+	{
+		try
+		{
+			miniz_cpp::zip_file file;
+			file.load(fileName);
+
+			std::string romName;
+
+			for (auto name : file.namelist())
+			{
+				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+				{
+					if (!romName.empty())
+					{
+						romName = "";
+						break;
+					}
+
+					romName = name;
+				}
+			}
+
+			if (!romName.empty())
+			{
+				auto info = file.getinfo(romName);
+
+				char hex[10];
+				auto len = snprintf(hex, sizeof(hex) - 1, "%08X", info.crc);
+				hex[len] = 0;
+
+				return hex;
+			}
+		}
+		catch (...)
+		{
+			// Bad zip file
+		}
+	}
+	
+	#define CRCBUFFERSIZE 64 * 1024
+
+	char* buffer = new char[CRCBUFFERSIZE];
+	if (buffer)
+	{
+		size_t size;
+
+#if defined(_WIN32)
+		FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"rb");
+#else			
+		FILE* file = fopen(fileName.c_str(), "rb");
+#endif
+		if (file)
+		{
+			mz_uint file_crc32 = MZ_CRC32_INIT;
+
+			while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
+				file_crc32 = (mz_uint32)mz_crc32(file_crc32, (const mz_uint8 *)buffer, size);
+
+			char hex[10];
+			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", file_crc32);
+			hex[len] = 0;
+
+			fclose(file);
+
+			return hex;
+		}
+
+		delete buffer;
+	}
+}
+
 bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
 {
 	if (!Utils::FileSystem::exists(destFolder))
 		Utils::FileSystem::createDirectory(destFolder);
 
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-
-	bool useUnzip = false;
-	std::string cmd = getSevenZipCommand() + " e \"" + fileName + "\" -y -o\"" + destFolder + "\"";
-	if (ext == ".zip" && !getUnzipCommand().empty())
+	if (Utils::String::toLower(Utils::FileSystem::getExtension(fileName)) == ".zip")
 	{
-		useUnzip = true;
-		cmd = getUnzipCommand() + " -o \"" + fileName + "\" -d \"" + destFolder + "\"";
-	}
-
-	return executeScript(cmd);
-}
-
-std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
-{
-	bool useUnzip = false;
-
-	std::string cmd = "7zr h \"" + fileName + "\"";
-	
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-
-	if (fromZipContents)
-	{
-		if (ext == ".7z")
-			cmd = "7zr l -slt \"" + fileName + "\"";
-		else
+		try
 		{
-			useUnzip = true;
-			cmd = "unzip -l -v \"" + fileName + "\"";
-		}
-	}
+			miniz_cpp::zip_file file;
+			file.load(fileName);
 
-	std::string crc;
-	std::string fn = Utils::FileSystem::getFileName(fileName);
-
-	FILE *pipe = popen(cmd.c_str(), "r");
-	if (pipe == NULL)
-		return "";
-
-	char line[1024];
-	while (fgets(line, 1024, pipe)) 
-	{
-		strtok(line, "\n");
-
-		if (!crc.empty())
-			continue;
-
-		std::string all = line;
-
-		if (useUnzip)
-		{
-			// Parse unzip results
-			if (!Utils::String::startsWith(all, "Archive"))
+			for (auto name : file.namelist())
 			{
-				auto split = Utils::String::split(all, ' ', true);
-				if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
-					crc = Utils::String::toUpper(split[6]);
+				if (Utils::String::endsWith(name, "/"))
+				{
+					Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
+					continue;
+				}
+
+				file.extract(name, destFolder);
 			}
 
-			continue;
+			return true;
 		}
-
-		// Parse 7zr results
-		int idx = all.find("CRC = ");
-		if (idx != std::string::npos)
-			crc = all.substr(idx + 6);
-		else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-			crc = all.substr(0, 8);		
+		catch (...)
+		{
+			return false;
+		}
 	}
-	
-	pclose(pipe);
 
-	return crc;
+	std::string cmd = getSevenZipCommand() + " e \"" + fileName + "\" -y -o\"" + destFolder + "\"";
+	return executeScript(cmd);
 }
 
 const char* BACKLIGHT_BRIGHTNESS_NAME = "/sys/class/backlight/backlight/brightness";
@@ -1306,7 +1401,6 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::NETPLAY:
 		executables.push_back("7zr");
-		executables.push_back("unzip");
 		break;
 	case ApiSystem::PDFEXTRACTION:
 		executables.push_back("pdftoppm");
@@ -1612,5 +1706,37 @@ std::vector<std::string> ApiSystem::getShaderList()
 	}
 
 	std::sort(ret.begin(), ret.end());
+	return ret;
+}
+
+#include <rapidjson/rapidjson.h>
+#include <rapidjson/pointer.h>
+
+std::set<std::string> ApiSystem::getCheevosHashes()
+{
+	std::set<std::string> ret;
+
+	try
+	{
+		HttpReq httpreq("https://retroachievements.org/dorequest.php?r=hashlibrary");
+		httpreq.wait();
+
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
+			return ret;
+
+		if (!doc.HasMember("MD5List"))
+			return ret;
+
+		const rapidjson::Value& mdlist = doc["MD5List"];
+		for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
+			ret.insert(it->name.GetString());
+	}
+	catch (...)
+	{
+
+	}
+
 	return ret;
 }

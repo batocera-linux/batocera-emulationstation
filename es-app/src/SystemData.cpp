@@ -47,7 +47,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	if (!CollectionSystem && !mIsGroupSystem)
 	{
 		mRootFolder = new FolderData(mEnvData->mStartPath, this);
-		mRootFolder->getMetadata().set("name", mMetadata.fullName);
+		mRootFolder->getMetadata().set(MetaDataId::Name, mMetadata.fullName);
 
 		std::unordered_map<std::string, FileData*> fileMap;
 		fileMap[mEnvData->mStartPath] = mRootFolder;
@@ -324,8 +324,8 @@ void SystemData::createGroupedSystems()
 						if (logoElem && logoElem->has("path"))
 						{
 							std::string path = logoElem->get<std::string>("path");
-							folder->setMetadata("image", path);
-							folder->setMetadata("thumbnail", path);
+							folder->setMetadata(MetaDataId::Image, path);
+							folder->setMetadata(MetaDataId::Thumbnail, path);
 							folder->enableVirtualFolderDisplay(true);
 						}
 					}

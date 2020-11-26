@@ -2,6 +2,7 @@
 #define API_SYSTEM
 
 #include <string>
+#include <set>
 #include "Window.h"
 #include "components/BusyComponent.h"
 
@@ -196,7 +197,7 @@ public:
 
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
 	virtual std::string getMD5(const std::string fileName, bool fromZipContents = true);
-	virtual bool unzipFile(const std::string fileName, const std::string destFolder);
+	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "");
 
 	virtual int getPdfPageCount(const std::string fileName);
 	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
@@ -221,9 +222,9 @@ public:
 
 	virtual std::vector<std::string> getShaderList();
 
-
-	virtual std::string getUnzipCommand() { return "unzip"; }
 	virtual std::string getSevenZipCommand() { return "7zr"; }
+
+	std::set<std::string> getCheevosHashes();
 
 protected:
 	ApiSystem();
