@@ -185,7 +185,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 			else if (mPopupSelfReference)
 			{				
-				ViewController::get()->setActiveView(mPopupParentView);
+				ViewController::get()->setActiveView(mPopupParentView);				
 				closePopupContext();
 				return true;
 			}
