@@ -2,7 +2,7 @@
 #define API_SYSTEM
 
 #include <string>
-#include <set>
+#include <map>
 #include "Window.h"
 #include "components/BusyComponent.h"
 
@@ -224,7 +224,7 @@ public:
 
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
-	std::set<std::string> getCheevosHashes();
+	std::map<std::string, std::string> getCheevosHashes();
 
 protected:
 	ApiSystem();

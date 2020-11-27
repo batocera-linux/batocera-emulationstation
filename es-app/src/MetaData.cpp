@@ -71,7 +71,7 @@ void MetaDataList::initMetadata()
 
 		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
 		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
-		{ Cheevos,          "cheevos",     MD_BOOL,                "false",            false,       _("Has Achievements"),     _("Has Achievements"),		false }
+		{ Cheevos,          "cheevos",     MD_INT,                "",				   true,       _("Retroachievements Game ID"),     _("Retroachievements Game ID"),		false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));

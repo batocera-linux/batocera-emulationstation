@@ -237,6 +237,8 @@ public:
 	size_t getGamelistHash() { return mGameListHash; }
 
 	bool isNetplaySupported();
+	bool isCheevosSupported();
+
 	static bool isNetplayActivated();
 
 	SystemData* getParentGroupSystem();

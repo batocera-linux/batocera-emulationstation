@@ -6,9 +6,16 @@
 
 namespace Utils
 {
-	ThreadPool::ThreadPool(int threadByCore) : mRunning(true), mWaiting(false), mNumWork(0)
+	ThreadPool::ThreadPool(int threadByCore) : mRunning(false), mWaiting(false), mNumWork(0)
 	{
-		size_t num_threads = std::thread::hardware_concurrency() * threadByCore;
+		mThreadByCore = threadByCore;
+	}
+
+	void ThreadPool::start()
+	{
+		mRunning = true;
+
+		size_t num_threads = std::thread::hardware_concurrency() * mThreadByCore;
 
 		auto doWork = [&](size_t id)
 		{
@@ -73,6 +80,9 @@ namespace Utils
 
 	void ThreadPool::wait()
 	{
+		if (!mRunning)
+			start();
+
 		mWaiting = true;
 		while (mNumWork.load() > 0)
 			std::this_thread::yield();
@@ -80,6 +90,9 @@ namespace Utils
 
 	void ThreadPool::wait(work_function work, int delay)
 	{
+		if (!mRunning)
+			start();
+
 		mWaiting = true;
 
 		while (mNumWork.load() > 0)

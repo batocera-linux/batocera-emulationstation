@@ -198,6 +198,11 @@ const bool FileData::getKidGame()
 	return data != "false" && !data.empty();
 }
 
+const bool FileData::hasCheevos()
+{
+	return Utils::String::toInteger(getMetadata(MetaDataId::Cheevos)) > 0;
+}
+
 static std::shared_ptr<bool> showFilenames;
 static std::shared_ptr<bool> collectionShowSystemInfo;
 
@@ -1090,6 +1095,27 @@ void FileData::checkCrc32(bool force)
 		saveToGamelistRecovery(this);
 	}
 }
+
+void FileData::checkMd5(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkCrc32(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::Md5).empty())
+		return;
+
+	SystemData* system = getSystem();
+	auto crc = ApiSystem::getInstance()->getMD5(getPath(), system->shouldExtractHashesFromArchives());
+	if (!crc.empty())
+	{
+		getMetadata().set(MetaDataId::Md5, Utils::String::toUpper(crc));
+		saveToGamelistRecovery(this);
+	}
+}
+
 
 std::string FileData::getKeyboardMappingFilePath()
 {

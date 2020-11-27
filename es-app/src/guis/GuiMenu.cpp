@@ -752,6 +752,8 @@ void GuiMenu::openDeveloperSettings()
 		}));
 	});
 
+	s->addEntry(_("REINDEX ALL NETPLAY & RETROACHIVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
+	
 	s->addGroup(_("DATA MANAGEMENT"));
 
 	// enable filters (ForceDisableFilters)
@@ -1438,13 +1440,21 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 
 void GuiMenu::openRetroachievementsSettings()
 {
-	GuiSettings *retroachievements = new GuiSettings(mWindow, _("RETROACHIEVEMENTS SETTINGS").c_str());
+	Window* window = mWindow;
+	GuiSettings* retroachievements = new GuiSettings(mWindow, _("RETROACHIEVEMENTS SETTINGS").c_str());
+
+	retroachievements->addGroup(_("SETTINGS"));
 
 	// retroachievements_enable
 	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements"));
 	retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
-	retroachievements->addSaveFunc([retroachievements_enabled] { SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState()); });
+	retroachievements->addSaveFunc([retroachievements_enabled, window]
+	{ 
+		if (SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState()))
+			if (!ThreadedHasher::isRunning() && retroachievements_enabled->getState())
+				ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
+	});
 
 	// retroachievements_hardcore_mode
 	auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -1480,6 +1490,9 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addWithLabel(_("SHOW IN MAIN MENU"), retroachievements_menuitem);
 	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
 
+	retroachievements->addGroup(_("GAME INDEXES"));
+	retroachievements->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
+	retroachievements->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
 
 	mWindow->pushGui(retroachievements);
 }
@@ -1534,13 +1547,13 @@ void GuiMenu::openNetplaySettings()
 		{
 			if (!ThreadedHasher::isRunning() && enableNetplay->getState())
 			{
-				ThreadedHasher::start(window, false, true);
+				ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
 			}
 		}
 	});
 	
-	settings->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, true); });
-	settings->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow); });
+	settings->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
+	settings->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
 	
 	mWindow->pushGui(settings);
 }

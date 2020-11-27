@@ -875,7 +875,7 @@ bool SystemData::loadConfig(Window* window)
 	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
 	{
 		if (Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
-			ThreadedHasher::start(window, false, true);
+			ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
 	}
 	
 	return true;
@@ -1499,6 +1499,16 @@ bool SystemData::isNetplaySupported()
 		return getSystemEnvData() != nullptr && getSystemEnvData()->mLaunchCommand.find("%NETPLAY%") != std::string::npos;
 
 	return false;
+}
+
+bool SystemData::isCheevosSupported()
+{
+	const std::set<std::string> cheevosSystems = {
+		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "pcengine", "segacd", "sega32x", "mastersystem",
+		"psx", "atarilynx", "ngp", "gamegear", "atarijaguar", "nds", "pokemini", "atari2600", "fbneo", "virtualboy",
+		"sg-1000", "coleco", "atari7800", "wonderswan" };
+
+	return cheevosSystems.find(getName()) != cheevosSystems.cend();
 }
 
 bool SystemData::isNetplayActivated()

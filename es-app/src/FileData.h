@@ -85,6 +85,7 @@ public:
 	virtual const bool getHidden();
 	virtual const bool getFavorite();
 	virtual const bool getKidGame();
+	virtual const bool hasCheevos();
 
 	const std::string getConfigurationName();
 
@@ -114,8 +115,8 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(MetaDataId key) { return mMetadata.get(key); }
-	void setMetadata(MetaDataId key, const std::string& value) { return mMetadata.set(key, value); }
+	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
 
 	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
 	// void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
@@ -123,7 +124,9 @@ public:
 	void detectLanguageAndRegion(bool overWrite);
 
 	void deleteGameFiles();
+
 	void checkCrc32(bool force = false);
+	void checkMd5(bool force = false);
 
 	void importP2k(const std::string& p2k);
 	std::string convertP2kFile();

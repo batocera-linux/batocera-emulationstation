@@ -1712,12 +1712,13 @@ std::vector<std::string> ApiSystem::getShaderList()
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
 
-std::set<std::string> ApiSystem::getCheevosHashes()
+std::map<std::string, std::string> ApiSystem::getCheevosHashes()
 {
-	std::set<std::string> ret;
+	std::map<std::string, std::string> ret;
 
 	try
 	{
+
 		HttpReq httpreq("https://retroachievements.org/dorequest.php?r=hashlibrary");
 		httpreq.wait();
 
@@ -1731,7 +1732,14 @@ std::set<std::string> ApiSystem::getCheevosHashes()
 
 		const rapidjson::Value& mdlist = doc["MD5List"];
 		for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
-			ret.insert(it->name.GetString());
+		{
+			std::string name = Utils::String::toUpper(it->name.GetString());
+
+			if (it->value.GetType() == rapidjson::Type::kStringType)
+				ret[name] = it->value.GetString();
+			else if (it->value.GetType() == rapidjson::Type::kNumberType)
+				ret[name] = std::to_string(it->value.GetInt());
+		}
 	}
 	catch (...)
 	{

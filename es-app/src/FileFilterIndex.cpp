@@ -159,126 +159,129 @@ void FileFilterIndex::resetIndex()
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
 {
 	std::string key;
-	switch(type)
+	switch (type)
 	{
-		case LANG_FILTER:
-		{
-			if (getSecondary)
-				break;
-
-			key = game->getMetadata(MetaDataId::Language);
+	case LANG_FILTER:
+	{
+		if (getSecondary)
 			break;
-		}
 
-		case REGION_FILTER:
-		{
-			if (getSecondary)
-				break;
+		key = game->getMetadata(MetaDataId::Language);
+		break;
+	}
 
-			key = game->getMetadata(MetaDataId::Region);
+	case REGION_FILTER:
+	{
+		if (getSecondary)
 			break;
-		}
 
-		case GENRE_FILTER:
+		key = game->getMetadata(MetaDataId::Region);
+		break;
+	}
+
+	case GENRE_FILTER:
+	{
+		key = game->getMetadata(MetaDataId::Genre);
+		if (!key.empty())
 		{
-			key = game->getMetadata(MetaDataId::Genre);
-			if (!key.empty())
+			auto idx = key.find('/');
+
+			if (!getSecondary && idx != std::string::npos)
+				key = Utils::String::trim(key.substr(0, idx));
+			else if (getSecondary && idx == std::string::npos)
+				key = "";
+		}
+		break;
+	}
+
+	case PLAYER_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		key = game->getMetadata(MetaDataId::Players);
+		break;
+	}
+
+	case PUBDEV_FILTER:
+	{
+		key = game->getMetadata(MetaDataId::Publisher);
+
+		if ((getSecondary && !key.empty()) || (!getSecondary && key.empty()))
+			key = game->getMetadata(MetaDataId::Developer);
+
+		break;
+	}
+
+	case RATINGS_FILTER:
+	{
+		int ratingNumber = 0;
+		if (!getSecondary)
+		{
+			std::string ratingString = game->getMetadata(MetaDataId::Rating);
+			if (!ratingString.empty())
 			{
-				auto idx = key.find('/');
-
-				if (!getSecondary && idx != std::string::npos)
-					key = Utils::String::trim(key.substr(0, idx));
-				else if (getSecondary && idx == std::string::npos)
-					key = "";
-			}
-			break;
-		}
-
-		case PLAYER_FILTER:
-		{
-			if (getSecondary)
-				break;
-
-			key = game->getMetadata(MetaDataId::Players);
-			break;
-		}
-
-		case PUBDEV_FILTER:
-		{
-			key = game->getMetadata(MetaDataId::Publisher);
-
-			if ((getSecondary && !key.empty()) || (!getSecondary && key.empty()))
-				key = game->getMetadata(MetaDataId::Developer);
-		
-			break;
-		}
-
-		case RATINGS_FILTER:
-		{
-			int ratingNumber = 0;
-			if (!getSecondary)
-			{
-				std::string ratingString = game->getMetadata(MetaDataId::Rating);
-				if (!ratingString.empty()) 
+				float rating = Utils::String::toFloat(ratingString);
+				if (rating > 0.0f)
 				{
-					float rating = Utils::String::toFloat(ratingString);
-					if (rating > 0.0f)
-					{
-						if (rating > 1.0f)
-							rating = 1.0f;
+					if (rating > 1.0f)
+						rating = 1.0f;
 
-						ratingNumber = (int)Math::round(rating * 5);
-						key = std::to_string(ratingNumber) + " STARS";
-					}
+					ratingNumber = (int)Math::round(rating * 5);
+					key = std::to_string(ratingNumber) + " STARS";
 				}
 			}
-			break;
 		}
-
-		case FAVORITES_FILTER:
-		{
-			if (game->getType() != GAME)
-				return "FALSE";
-
-			key = game->getMetadata(MetaDataId::Favorite);
-			break;
-		}
-
-		case KIDGAME_FILTER:
-		{
-			if (game->getType() != GAME)
-				return "FALSE";
-
-			key = game->getMetadata(MetaDataId::KidGame);
-			break;
-		}
-
-		case PLAYED_FILTER:
-		{
-			key = Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";
-			break;
-		}
-
-		case YEAR_FILTER:
-		{
-			key = game->getMetadata(MetaDataId::ReleaseDate);
-			key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
-			break;
-		}
-
-		case CHEEVOS_FILTER:
-		{
-			if (getSecondary)
-				break;
-
-			key = game->getMetadata(MetaDataId::Cheevos);
-			break;
+		break;
 	}
-}
-		
-	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS")) 
+
+	case FAVORITES_FILTER:
+	{
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		key = game->getMetadata(MetaDataId::Favorite);
+		break;
+	}
+
+	case KIDGAME_FILTER:
+	{
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		key = game->getMetadata(MetaDataId::KidGame);
+		break;
+	}
+
+	case PLAYED_FILTER:
+	{
+		key = Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";
+		break;
+	}
+
+	case YEAR_FILTER:
+	{
+		key = game->getMetadata(MetaDataId::ReleaseDate);
+		key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
+		break;
+	}
+
+	case CHEEVOS_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		key = game->hasCheevos() ? "TRUE" : "FALSE";
+		break;
+	}
+	}
+
+	if (key.empty() || (type == RATINGS_FILTER && key == "0 STARS"))
 		return UNKNOWN_LABEL;
-	
+
 	return Utils::String::toUpper(key);
 }
 
@@ -292,7 +295,7 @@ void FileFilterIndex::addToIndex(FileData* game)
 	manageRatingsEntryInIndex(game);
 	manageYearEntryInIndex(game);
 	manageLangEntryInIndex(game);
-	manageRegionEntryInIndex(game);	
+	manageRegionEntryInIndex(game);		
 }
 
 void FileFilterIndex::removeFromIndex(FileData* game)
@@ -303,7 +306,7 @@ void FileFilterIndex::removeFromIndex(FileData* game)
 	manageRatingsEntryInIndex(game, true);
 	manageYearEntryInIndex(game, true);
 	manageLangEntryInIndex(game, true);
-	manageRegionEntryInIndex(game, true);
+	manageRegionEntryInIndex(game, true);	
 }
 
 void FileFilterIndex::setFilter(FilterIndexType type, std::vector<std::string>* values)
