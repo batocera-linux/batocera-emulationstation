@@ -668,6 +668,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 
 		mCurrentView = view;
 		mCurrentView->onShow();
+		mCurrentView->topWindow(true);
 	}
 	else
 	{
@@ -1145,8 +1146,12 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
 void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)
 {
 	if (mCurrentView != nullptr)
+	{
+		mCurrentView->topWindow(false);
 		mCurrentView->onHide();
+	}
 
 	mCurrentView = view;
 	mCurrentView->onShow();
+	mCurrentView->topWindow(true);
 }
