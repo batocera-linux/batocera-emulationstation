@@ -19,6 +19,7 @@ struct BiosSystem {
 
 struct RetroAchievementGame
 {
+	std::string id;
 	std::string name;
 	std::string achievements;
 	std::string points;

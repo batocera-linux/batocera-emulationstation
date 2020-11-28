@@ -469,7 +469,7 @@ int main(int argc, char* argv[])
 		playVideo();
 		return 0;
 	}
-
+	
 	//start the logger
 	Log::setupReportingLevel();
 	Log::init();	

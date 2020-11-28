@@ -6,6 +6,16 @@
 #include "LocaleES.h"
 #include "components/ScrollbarComponent.h"
 
+namespace ComponentListFlags
+{
+	enum UpdateType
+	{
+		UPDATE_ALWAYS,
+		UPDATE_WHEN_SELECTED,
+		UPDATE_NEVER
+	};
+};
+
 struct ComponentListElement
 {
 	ComponentListElement(const std::shared_ptr<GuiComponent>& cmp = nullptr, bool resize_w = true, bool inv = true)
@@ -75,6 +85,8 @@ public:
 	void onFocusGained() override;
 	void onFocusLost() override;
 
+	void setUpdateType(ComponentListFlags::UpdateType updateType) { mUpdateType = updateType;  }
+
 	bool moveCursor(int amt);
 	inline int getCursorId() const { return mCursor; }
 	
@@ -111,6 +123,8 @@ private:
 
 	float mSelectorBarOffset;
 	float mCameraOffset;
+
+	ComponentListFlags::UpdateType mUpdateType;
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
 

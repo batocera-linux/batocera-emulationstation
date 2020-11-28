@@ -13,4 +13,6 @@ public:
 
 protected:
 	GuiRetroAchievements(Window *window, RetroAchievementInfo ra);    
+
+	void	centerWindow();
 };

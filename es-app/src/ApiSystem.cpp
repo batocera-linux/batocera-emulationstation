@@ -50,6 +50,7 @@
 #include "platform.h"
 #include "scrapers/md5.h"
 #include "utils/zip_file.hpp"
+#include "RetroAchievements.h"
 
 ApiSystem::ApiSystem() { }
 
@@ -629,180 +630,8 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 // Batocera
 RetroAchievementInfo ApiSystem::getRetroAchievements()
 {
-	RetroAchievementInfo info;
-
-	LOG(LogDebug) << "ApiSystem::getRetroAchievements";
-	
-	auto res = executeEnumerationScript("batocera-retroachievements-info " + SystemConf::getInstance()->get("global.retroachievements.username"));
-	std::string data = Utils::String::join(res, "\n");
-	if (data.empty())
-	{
-		info.error = "Error accessing 'batocera-retroachievements-info' script";
-		return info;
-	}
-
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load(data.c_str()); // doc.load_buffer(data.c_str(), data.size);
-
-	if (!result)
-	{
-		// Temporary retrocompatibility mode
-		auto lines = Utils::String::split(data, '\n');
-		if (lines.size() == 1)
-		{
-			info.error = lines[0];
-			return info;
-		}
-
-		for (auto line : lines)
-		{
-			std::vector<std::string> tokens = Utils::String::split(line, '@');
-			if (tokens.size() == 0)
-				continue;
-
-			if (tokens.size() == 1)
-			{					
-				if (info.username.empty())
-				{
-					auto userParse = Utils::String::split(line, ' ');
-					if (userParse.size() > 2)
-						info.username = userParse[1];
-
-					auto infoParsePoints = Utils::String::splitAny(line, "()");
-					if (infoParsePoints.size() > 3)
-					{
-						info.totalpoints = infoParsePoints[1];
-						info.rank = Utils::String::replace(infoParsePoints[2], " is ", "") + " (" + infoParsePoints[3] + ")";
-					}
-				}
-
-				continue;
-			}
-
-			RetroAchievementGame rg;
-			rg.name = tokens[0];
-			rg.achievements = Utils::String::replace(tokens[1], " achievements", "");
-
-			if (tokens.size() >= 4)
-			{
-				rg.points = Utils::String::replace(tokens[2], " points", ""); 
-				rg.lastplayed = Utils::String::replace(tokens[3], "Last played ", "");
-			}
-
-			info.games.push_back(rg);
-		}
-
-		return info;
-	}
-
-	pugi::xml_node root = doc.child("retroachievements");
-	if (!root)
-	{
-		LOG(LogError) << "Could not find <retroachievements> node";
-		return info;
-	}
-
-	for (pugi::xml_node node : root.children())
-	{
-		std::string tag = node.name();
-
-		if (tag == "error")
-		{
-			info.error = node.text().get();
-			break;
-		}
-
-		if (tag == "username")
-			info.username = node.text().get();
-		else if (tag == "totalpoints")
-			info.totalpoints = node.text().get();
-		else if (tag == "rank")
-			info.rank = node.text().get();
-		else if (tag == "userpic")
-		{
-			std::string userpic = node.text().get();
-			if (!userpic.empty())
-			{
-				std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
-				if (!Utils::FileSystem::exists(localPath))
-					Utils::FileSystem::createDirectory(localPath);
-
-				std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(userpic);
-
-				if (Utils::FileSystem::exists(localFile))
-				{
-					auto date = Utils::FileSystem::getFileCreationDate(localFile);
-					auto duration = Utils::Time::DateTime::now().elapsedSecondsSince(date);
-					if (duration > 60 * 60) // 1 hour
-						Utils::FileSystem::removeFile(localFile);
-				}
-
-				if (!Utils::FileSystem::exists(localFile))
-				{
-					HttpReq httpreq(userpic, localFile);
-					httpreq.wait();
-				}
-
-				if (Utils::FileSystem::exists(localFile))
-					info.userpic = localFile;
-			}
-		}
-		else if (tag == "registered")
-			info.registered = node.text().get();
-		else if (tag == "game")
-		{
-			RetroAchievementGame rg;
-
-			for (pugi::xml_node game : node.children())
-			{
-				tag = game.name();
-
-				if (tag == "name")
-					rg.name = game.text().get();
-				else if (tag == "achievements")
-					rg.achievements = game.text().get();
-				else if (tag == "points")
-					rg.points = game.text().get();
-				else if (tag == "lastplayed")
-					rg.lastplayed = game.text().get();
-				else if (tag == "badge")
-				{
-					std::string badge = game.text().get();
-
-					if (!badge.empty())
-					{
-						std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
-						if (!Utils::FileSystem::exists(localPath))
-							Utils::FileSystem::createDirectory(localPath);
-
-						std::string localFile = localPath + "/" + Utils::FileSystem::getFileName(badge);
-
-						if (Utils::FileSystem::exists(localFile))
-						{
-							auto date = Utils::FileSystem::getFileCreationDate(localFile);
-							auto duration = Utils::Time::DateTime::now().elapsedSecondsSince(date);
-							if (duration > 60 * 60) // 1 hour
-								Utils::FileSystem::removeFile(localFile);
-						}
-
-						if (!Utils::FileSystem::exists(localFile))
-						{
-							HttpReq httpreq(badge, localFile);
-							httpreq.wait();
-						}
-
-						if (Utils::FileSystem::exists(localFile))
-							rg.badge = localFile;
-					}
-				}
-			}
-
-			if (!rg.name.empty())
-				info.games.push_back(rg);
-		}
-	}
-
-	return info;
+	auto user = RetroAchievements::getUserSummary(SystemConf::getInstance()->get("global.retroachievements.username"));
+	return RetroAchievements::toRetroAchivementInfo(user);	
 }
 
 std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
@@ -861,6 +690,9 @@ void ApiSystem::getBatoceraThemesImages(std::vector<BatoceraTheme>& items)
 	for (auto it = items.begin(); it != items.end(); ++it)
 	{
 		std::string distantFile = getUpdateUrl() + "/themes/" + it->name + ".jpg";
+		it->image = distantFile;
+		continue;
+
 
 		std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
 		if (!Utils::FileSystem::exists(localPath))
@@ -1375,11 +1207,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 
 	switch (script)
 	{
+	case ApiSystem::RETROACHIVEMENTS:
+		return true;
 	case ApiSystem::KODI:
 		executables.push_back("kodi");
-		break;
-	case ApiSystem::RETROACHIVEMENTS:
-		executables.push_back("batocera-retroachievements-info");
 		break;
 	case ApiSystem::WIFI:
 		executables.push_back("batocera-wifi");

@@ -148,9 +148,18 @@ void ComponentList::update(int deltaTime)
 
 	if(size())
 	{
-		// update our currently selected row
-		for(auto it = mEntries.at(mCursor).data.elements.cbegin(); it != mEntries.at(mCursor).data.elements.cend(); it++)
-			it->component->update(deltaTime);
+		if (mUpdateType == ComponentListFlags::UpdateType::UPDATE_ALWAYS)
+		{
+			for (auto& entry : mEntries)
+				for (auto it = entry.data.elements.cbegin(); it != entry.data.elements.cend(); it++)
+					it->component->update(deltaTime);
+		}
+		else if (mUpdateType == ComponentListFlags::UpdateType::UPDATE_WHEN_SELECTED)
+		{
+			// update our currently selected row
+			for (auto it = mEntries.at(mCursor).data.elements.cbegin(); it != mEntries.at(mCursor).data.elements.cend(); it++)
+				it->component->update(deltaTime);
+		}
 	}
 }
 

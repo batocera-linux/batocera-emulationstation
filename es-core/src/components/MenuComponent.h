@@ -27,6 +27,8 @@ public:
 
 	void onSizeChanged() override;
 
+	inline void setUpdateType(ComponentListFlags::UpdateType updateType) { mList->setUpdateType(updateType); }
+
 	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool doUpdateSize = true) { mList->addRow(row, setCursorHere); if (doUpdateSize) updateSize(); }
 	inline void clear() { mList->clear(); }
 

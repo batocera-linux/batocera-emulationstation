@@ -22,6 +22,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/httplib.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.h	
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -112,6 +113,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LangParser.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.cpp
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp

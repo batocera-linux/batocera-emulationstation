@@ -72,7 +72,6 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("batocera-wifi");
 		break;
 	case ApiSystem::RETROACHIVEMENTS:
-		executables.push_back("batocera-retroachievements-info");
 		executables.push_back("emulatorLauncher");
 		break;
 	case ApiSystem::BLUETOOTH:

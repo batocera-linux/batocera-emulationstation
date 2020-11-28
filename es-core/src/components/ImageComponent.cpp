@@ -225,6 +225,7 @@ void ImageComponent::setResize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = false;
 	resize();
@@ -234,8 +235,9 @@ void ImageComponent::setMaxSize(float width, float height)
 {
 	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
-
+	
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = true;
 	mTargetIsMin = false;
 	resize();
@@ -247,6 +249,7 @@ void ImageComponent::setMinSize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = true;
 	resize();

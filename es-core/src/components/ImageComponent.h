@@ -30,7 +30,8 @@ public:
 	void setDefaultImage(std::string path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
-	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
+	virtual void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
+
 	//Loads an image from memory.
 	void setImage(const char* image, size_t length, bool tile = false);
 	//Use an already existing texture.
