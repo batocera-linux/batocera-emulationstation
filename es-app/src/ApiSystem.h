@@ -225,8 +225,6 @@ public:
 
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
-	std::map<std::string, std::string> getCheevosHashes();
-
 protected:
 	ApiSystem();
 

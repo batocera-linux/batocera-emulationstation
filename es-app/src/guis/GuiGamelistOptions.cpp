@@ -21,6 +21,7 @@
 #include "ApiSystem.h"
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
+#include "GuiGameAchievements.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic", "1x1",
@@ -153,8 +154,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 	// Game medias
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual));
 	bool hasMap = Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map));
+	bool hasCheevos = file->hasCheevos();
 
-	if (hasManual || hasMap)
+	if (hasManual || hasMap || hasCheevos)
 	{
 		mMenu.addGroup(_("GAME MEDIAS"));
 
@@ -173,6 +175,14 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			{
 				GuiImageViewer::showImage(window, file->getMetadata(MetaDataId::Map));
 				delete this;
+			});
+		}
+
+		if (hasCheevos)
+		{
+			mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
+			{
+				GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::Cheevos)));
 			});
 		}
 	}

@@ -630,7 +630,7 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 // Batocera
 RetroAchievementInfo ApiSystem::getRetroAchievements()
 {
-	auto user = RetroAchievements::getUserSummary(SystemConf::getInstance()->get("global.retroachievements.username"));
+	auto user = RetroAchievements::getUserSummary();
 	return RetroAchievements::toRetroAchivementInfo(user);	
 }
 
@@ -1537,45 +1537,5 @@ std::vector<std::string> ApiSystem::getShaderList()
 	}
 
 	std::sort(ret.begin(), ret.end());
-	return ret;
-}
-
-#include <rapidjson/rapidjson.h>
-#include <rapidjson/pointer.h>
-
-std::map<std::string, std::string> ApiSystem::getCheevosHashes()
-{
-	std::map<std::string, std::string> ret;
-
-	try
-	{
-
-		HttpReq httpreq("https://retroachievements.org/dorequest.php?r=hashlibrary");
-		httpreq.wait();
-
-		rapidjson::Document doc;
-		doc.Parse(httpreq.getContent().c_str());
-		if (doc.HasParseError())
-			return ret;
-
-		if (!doc.HasMember("MD5List"))
-			return ret;
-
-		const rapidjson::Value& mdlist = doc["MD5List"];
-		for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
-		{
-			std::string name = Utils::String::toUpper(it->name.GetString());
-
-			if (it->value.GetType() == rapidjson::Type::kStringType)
-				ret[name] = it->value.GetString();
-			else if (it->value.GetType() == rapidjson::Type::kNumberType)
-				ret[name] = std::to_string(it->value.GetInt());
-		}
-	}
-	catch (...)
-	{
-
-	}
-
 	return ret;
 }

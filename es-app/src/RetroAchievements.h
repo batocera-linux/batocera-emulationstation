@@ -22,9 +22,11 @@ struct Achievement
 	std::string DateModified;
 	std::string DateCreated;
 	std::string BadgeName;
-	std::string DisplayOrder;
+	int DisplayOrder;
 	std::string MemAddr;
 	std::string DateEarned;
+
+	std::string getBadgeUrl();
 };
 
 struct GameInfoAndUserProgress
@@ -158,7 +160,9 @@ class RetroAchievements
 {
 public:
 	static std::string				getApiUrl(const std::string method, const std::string parameters);
-	static UserSummary				getUserSummary(const std::string userName, int gameCount = 50);
-	static GameInfoAndUserProgress	getGameInfoAndUserProgress(const std::string userName, int gameId);
+	static UserSummary				getUserSummary(const std::string userName = "", int gameCount = 500);
+	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string userName = "");
 	static RetroAchievementInfo		toRetroAchivementInfo(UserSummary& ret);
+
+	static std::map<std::string, std::string>	getCheevosHashes();
 };

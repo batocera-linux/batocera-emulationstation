@@ -5,6 +5,7 @@
 #include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
 #include "Gamelist.h"
+#include "RetroAchievements.h"
 
 #include "SystemConf.h"
 #include "SystemData.h"
@@ -34,7 +35,7 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 
 	if ((mType & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5)
-		mCheevosHashes = ApiSystem::getInstance()->getCheevosHashes();
+		mCheevosHashes = RetroAchievements::getCheevosHashes();
 
 	if (mType == HASH_CHEEVOS_MD5)
 		mWndNotification->updateTitle(ICONINDEX + _("INDEXING RETROACHIVEMENTS"));

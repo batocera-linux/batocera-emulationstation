@@ -34,6 +34,7 @@
 #include "components/VideoVlcComponent.h"
 #include <csignal>
 #include "InputConfig.h"
+#include "RetroAchievements.h"
 
 #ifdef WIN32
 #include <Windows.h>
