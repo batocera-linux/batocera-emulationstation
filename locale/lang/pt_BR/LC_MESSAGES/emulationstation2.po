@@ -1844,10 +1844,10 @@ msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Carregando tema"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Carregando gamelists"
 
 msgid "MENU"
 msgstr "MENU"
