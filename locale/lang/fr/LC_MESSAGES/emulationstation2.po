@@ -1593,10 +1593,10 @@ msgid "SHOW BATTERY STATUS"
 msgstr "AFFICHER L'ÉTAT DE LA BATTERIE"
 
 msgid "ICON"
-msgstr ""
+msgstr "ICÔNE"
 
 msgid "ICON AND TEXT"
-msgstr ""
+msgstr "ICÔNE ET TEXTE"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
@@ -2221,11 +2221,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "START KODI WITH X"
-#~ msgstr "BOUTON X POUR LANCER KODI"
-
-#~ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-#~ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
-
-#~ msgid "KODI"
-#~ msgstr "KODI"
