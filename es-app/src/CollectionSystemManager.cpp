@@ -38,6 +38,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_AT2PLAYERS,      "2players",	    _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, // batocera
 		{ AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, // batocera
 		{ AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, // batocera
+		{ AUTO_RETROACHIEVEMENTS,"retroachievements",  _("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, // batocera
 
 		// Arcade meta 
 		{ AUTO_ARCADE,           "arcade",      _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
@@ -953,6 +954,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			switch(sysDecl.type) 
 			{
 				case AUTO_ALL_GAMES:
+					break;
+				case AUTO_RETROACHIEVEMENTS:
+					include = game->hasCheevos();
 					break;
 				case AUTO_LAST_PLAYED:
 					include = game->getMetadata(MetaDataId::PlayCount) > "0";
