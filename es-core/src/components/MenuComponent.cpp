@@ -344,7 +344,7 @@ void MenuComponent::onSizeChanged()
 		mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
 		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
 
-		float pad = Renderer::getScreenHeight() * 0.015;
+		float pad = Renderer::getScreenWidth() * 0.012;
 		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
 
 		mTitle->setHorizontalAlignment(ALIGN_LEFT);

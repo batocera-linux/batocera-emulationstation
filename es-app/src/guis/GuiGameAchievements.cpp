@@ -43,13 +43,13 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
-		mImage->setMaxSize(IMAGESIZE, IMAGESIZE);
-		mImage->setImage(mGameInfo.getBadgeUrl());
 
 		setEntry(mImage, Vector2i(0, 0), true, false, Vector2i(1, 2));
 				
-		std::string desc = mGameInfo.Description + _U(" - ") + _("Points") + " : " + mGameInfo.Points +
-			(mGameInfo.DateEarned.empty() ? "" : _U("  \uf091") + "  " + _("Unlocked on") + " : " + mGameInfo.DateEarned);
+		std::string desc = mGameInfo.Description;
+		desc += _U(" - ") + _("Points") + " : " + mGameInfo.Points;
+		if (!mGameInfo.DateEarned.empty())
+			desc += _U("  \uf091  ") + _("Unlocked on") + " : " + mGameInfo.DateEarned;
 
 		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.Title, theme->Text.font, theme->Text.color);
 		mText->setVerticalAlignment(ALIGN_TOP);
@@ -63,7 +63,11 @@ public:
 		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
 		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
 
-		setSize(Vector2f(0, Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y())));
+		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
+		mImage->setImage(mGameInfo.getBadgeUrl());
+
+		setSize(0, height);
 	}
 
 	virtual void setColor(unsigned int color)
@@ -145,7 +149,7 @@ void GuiGameAchievements::centerWindow()
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
-		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.87f);
+		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.901f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }
@@ -158,7 +162,7 @@ void GuiGameAchievements::render(const Transform4x4f& parentTrans)
 	{
 		auto theme = ThemeData::getMenuTheme();
 
-		float h = theme->TextSmall.font->sizeText("A8O\r\A8O", 1.1).y();
+		float h = theme->TextSmall.font->sizeText("A8O\rA8O", 1.1).y();
 		float sz = mMenu.getHeaderGridHeight() + Renderer::getScreenHeight() * 0.005;
 
 		float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));

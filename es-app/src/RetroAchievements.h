@@ -106,7 +106,7 @@ struct Award
 	int ScoreAchievedHardcore;
 };
 
-struct RecentlyPlayed
+struct RecentGame
 {
 	std::string GameID;
 	std::string ConsoleID;
@@ -136,7 +136,7 @@ struct UserSummary
 	std::string Username;
 
 	int RecentlyPlayedCount;
-	std::vector<RecentlyPlayed> RecentlyPlayed;
+	std::vector<RecentGame> RecentlyPlayed;
 	std::string MemberSince;
 //	LastActivity LastActivity;
 	std::string RichPresenceMsg;
@@ -197,6 +197,7 @@ public:
 	static std::map<std::string, std::string>	getCheevosHashes();
 
 	static std::string				getCheevosHash(SystemData* pSystem, const std::string fileName);
+	static bool						testAccount(const std::string& username, const std::string& password, std::string& error);
 
 private:
 	static std::string				getCheevosHashFromFile(int consoleId, const std::string fileName);

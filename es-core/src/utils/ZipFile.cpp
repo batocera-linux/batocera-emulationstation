@@ -8,6 +8,9 @@
 
 #include <functional>
 #include <iterator>
+#include <iostream>
+#include <cstring>
+#include <string>
 #include "zip_file.hpp"
 
 namespace Utils
@@ -15,7 +18,7 @@ namespace Utils
 	namespace Zip
 	{
 		unsigned int ZipFile::computeCRC(unsigned int crc, const void* ptr, size_t buf_len)
-		{
+		{			
 			return (mz_uint32)mz_crc32((mz_uint32)crc, (const mz_uint8 *)ptr, buf_len);
 		}
 

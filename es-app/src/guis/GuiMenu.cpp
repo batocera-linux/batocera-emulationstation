@@ -106,8 +106,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	}, "iconKodi");	
 #endif
 
-	if (isFullUI &&
-		ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
 		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
@@ -1445,16 +1444,14 @@ void GuiMenu::openRetroachievementsSettings()
 
 	retroachievements->addGroup(_("SETTINGS"));
 
+	bool retroachievementsEnabled = SystemConf::getInstance()->getBool("global.retroachievements");
+	std::string username = SystemConf::getInstance()->get("global.retroachievements.username");
+	std::string password = SystemConf::getInstance()->get("global.retroachievements.password");
+
 	// retroachievements_enable
 	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements"));
+	retroachievements_enabled->setState(retroachievementsEnabled);
 	retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
-	retroachievements->addSaveFunc([retroachievements_enabled, window]
-	{ 
-		if (SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState()))
-			if (!ThreadedHasher::isRunning() && retroachievements_enabled->getState())
-				ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
-	});
 
 	// retroachievements_hardcore_mode
 	auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -1493,6 +1490,28 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addGroup(_("GAME INDEXES"));
 	retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
 	retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
+
+	retroachievements->addSaveFunc([retroachievementsEnabled, retroachievements_enabled, username, password, window]
+	{
+		bool newState = retroachievements_enabled->getState();
+		std::string newUsername = SystemConf::getInstance()->get("global.retroachievements.username");
+		std::string newPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+
+		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword))
+		{
+			std::string error;
+			if (!RetroAchievements::testAccount(newUsername, newPassword, error))
+			{
+				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n") + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
+				retroachievements_enabled->setState(false);
+				newState = false;
+			}
+		}
+
+		if (SystemConf::getInstance()->setBool("global.retroachievements", newState))
+			if (!ThreadedHasher::isRunning() && newState)
+				ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
+	});
 
 	mWindow->pushGui(retroachievements);
 }

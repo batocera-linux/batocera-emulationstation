@@ -97,9 +97,6 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
-		mImage->setMaxSize(IMAGESIZE, IMAGESIZE);
-		mImage->setImage(ra.badge.empty() ? ":/cartridge.svg" : ra.badge);
-
 		setEntry(mImage, Vector2i(0, 0), true, false, Vector2i(1, 2));
 
 		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.name.c_str(), theme->Text.font, theme->Text.color);
@@ -121,9 +118,13 @@ public:
 
 		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
 		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
-
 		setColWidthPerc(3, 0.25f);
-		setSize(Vector2f(0, Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y())));
+
+		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
+		mImage->setImage(ra.badge.empty() ? ":/cartridge.svg" : ra.badge);
+
+		setSize(0, height);
 	}
 
 	virtual void setColor(unsigned int color)
@@ -155,7 +156,7 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		return;
 	}
 
-	if (!ra.userpic.empty() && !Renderer::isSmallScreen())
+	if (!ra.userpic.empty())
 	{
 		auto image = std::make_shared<WebImageComponent>(mWindow, 0);  // image expire immediately
 		image->setImage(ra.userpic);
@@ -201,7 +202,7 @@ void GuiRetroAchievements::centerWindow()
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
-		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.87f);
+		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.901f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }

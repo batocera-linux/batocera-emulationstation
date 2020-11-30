@@ -732,8 +732,8 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
 	int maxTab = 0;
-
-	if (text.find("\t") != std::string::npos)
+	
+	if (alignment == ALIGN_LEFT && text.find("\t") != std::string::npos)
 	{
 		for (auto line : Utils::String::split(text, '\n', true))
 		{
@@ -774,7 +774,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		Glyph* glyph;
 
 		// invalid character
-		if(character == 0)
+		if (character == 0)
 			continue;
 
 		if (character == '\r')
@@ -789,9 +789,13 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 		if (character == '\t')
 		{
-			#define TABSTOPMIN Renderer::getScreenWidth() * 0.01f
-			x = maxTab + TABSTOPMIN;
-			continue;
+			if (maxTab > 0)
+			{
+				x = maxTab + Renderer::getScreenWidth() * 0.01f;
+				continue;
+			}
+			else
+				character = ' ';
 		}
 
 		glyph = getGlyph(character);
