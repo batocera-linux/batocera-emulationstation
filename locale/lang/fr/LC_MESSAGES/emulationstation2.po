@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1591,6 +1591,12 @@ msgstr "AFFICHER L'AIDE"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "AFFICHER L'ÉTAT DE LA BATTERIE"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"

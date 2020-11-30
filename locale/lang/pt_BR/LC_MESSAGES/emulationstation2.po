@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1592,6 +1592,12 @@ msgstr "AJUDA NA TELA"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "MOSTRAR ESTADO DA BATERIA"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"

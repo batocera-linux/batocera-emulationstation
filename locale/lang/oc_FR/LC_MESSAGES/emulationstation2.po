@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -1580,6 +1580,12 @@ msgid "ON-SCREEN HELP"
 msgstr "AJUDA SUS L’ECRAN"
 
 msgid "SHOW BATTERY STATUS"
+msgstr ""
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"

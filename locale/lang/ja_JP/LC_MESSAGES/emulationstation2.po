@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-25 07:24+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: 2020-11-25 08:33+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1590,6 +1590,12 @@ msgstr "オンスクリーン ヘルプ"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "バッテリー状態を表示"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"

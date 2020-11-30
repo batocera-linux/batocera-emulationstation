@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1584,6 +1584,12 @@ msgstr "顯示幫助"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "顯示電池狀態"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "在目錄中顯示文件名稱"

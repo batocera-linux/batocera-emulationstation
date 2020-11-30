@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -280,7 +280,8 @@ msgid "Formating"
 msgstr "Formatiere"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DEN VORGANG ABZUSCHLIESSEN"
+msgstr ""
+"EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DEN VORGANG ABZUSCHLIESSEN"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "LAUFWERKS-FORMATIERUNG LÄUFT BEREITS."
@@ -1595,6 +1596,12 @@ msgstr "BILDSCHIRMHILFE"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "ZEIGE AKKU-STATUS"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"

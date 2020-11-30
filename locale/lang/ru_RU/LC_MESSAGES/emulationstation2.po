@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-11-30 13:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1593,6 +1593,12 @@ msgstr "ЭКРАННЫЕ ПОДСКАЗКИ"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "ПОКАЗАТЬ СОСТОЯНИЕ БАТАРЕИ"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
