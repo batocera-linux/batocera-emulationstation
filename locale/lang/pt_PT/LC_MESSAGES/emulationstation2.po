@@ -832,7 +832,7 @@ msgid "UPDATING BATOCERA"
 msgstr "A ATUALIZAR O BATOCERA"
 
 msgid "UPDATE IS READY"
-msgstr "A ATUALIZAÇÃO ESTÁ PRONTA"
+msgstr "ATUALIZAÇÃO PRONTA"
 
 msgid "REBOOT SYSTEM TO APPLY"
 msgstr "REINICIE O SISTEMA PARA APLICAR"
@@ -1395,7 +1395,7 @@ msgid "LEADERBOARDS"
 msgstr "CLASSIFICAÇÃO"
 
 msgid "VERBOSE MODE"
-msgstr "MODO VERBOSE"
+msgstr "MODO DETALHADO"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
@@ -1591,10 +1591,10 @@ msgid "SHOW BATTERY STATUS"
 msgstr "MOSTRAR ESTADO DA BATERIA"
 
 msgid "ICON"
-msgstr ""
+msgstr "ÍCONE"
 
 msgid "ICON AND TEXT"
-msgstr ""
+msgstr "ÍCONE E TEXTO"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
@@ -2215,12 +2215,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "START KODI WITH X"
-#~ msgstr "INICIAR KODI PRESSIONANDO X"
-
-#~ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-#~ msgstr "DESEJA INICIAR O KODI MEDIA CENTER?"
-
-#~ msgid "KODI"
-#~ msgstr "KODI"
