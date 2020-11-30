@@ -7,6 +7,8 @@
 
 #include "ApiSystem.h"
 
+class SystemData;
+
 // API_GetGameInfoAndUserProgress
 
 struct Achievement
@@ -55,6 +57,8 @@ struct GameInfoAndUserProgress
 	int NumAwardedToUserHardcore;
 	std::string UserCompletion;
 	std::string UserCompletionHardcore;
+
+	std::string getImageUrl(const std::string image = "");
 };
 
 
@@ -156,6 +160,32 @@ struct UserSummary
 	std::string Status;
 };
 
+// toRetroAchivementInfo
+struct RetroAchievementGame
+{
+	std::string id;
+	std::string name;
+	std::string achievements;
+	std::string points;
+	std::string lastplayed;
+	std::string badge;
+
+	int wonAchievements;
+	int totalAchievements;
+};
+
+struct RetroAchievementInfo
+{
+	std::string username;
+	std::string totalpoints;
+	std::string rank;
+	std::string userpic;
+	std::string registered;
+	std::string error;
+	std::vector<RetroAchievementGame> games;
+};
+
+
 class RetroAchievements
 {
 public:
@@ -165,4 +195,9 @@ public:
 	static RetroAchievementInfo		toRetroAchivementInfo(UserSummary& ret);
 
 	static std::map<std::string, std::string>	getCheevosHashes();
+
+	static std::string				getCheevosHash(SystemData* pSystem, const std::string fileName);
+
+private:
+	static std::string				getCheevosHashFromFile(int consoleId, const std::string fileName);
 };

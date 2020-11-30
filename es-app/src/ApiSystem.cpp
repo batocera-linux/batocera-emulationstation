@@ -49,8 +49,8 @@
 #include <pugixml/src/pugixml.hpp>
 #include "platform.h"
 #include "scrapers/md5.h"
-#include "utils/zip_file.hpp"
 #include "RetroAchievements.h"
+#include "utils/ZipFile.h"
 
 ApiSystem::ApiSystem() { }
 
@@ -627,13 +627,6 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 	return exitcode == 0;
 }
 
-// Batocera
-RetroAchievementInfo ApiSystem::getRetroAchievements()
-{
-	auto user = RetroAchievements::getUserSummary();
-	return RetroAchievements::toRetroAchivementInfo(user);	
-}
-
 std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
@@ -805,7 +798,7 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	{
 		try
 		{
-			miniz_cpp::zip_file file;
+			Utils::Zip::ZipFile file;
 			file.load(fileName);
 
 			std::string romName;
@@ -827,8 +820,8 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 			if (!romName.empty())
 			{
 				MD5 md5 = MD5();
-				mz_file_write_func func = [](void *pOpaque, mz_uint64 file_ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
-				file.read(romName, func, &md5);
+				Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+				file.readBuffered(romName, func, &md5);
 				md5.finalize();
 				return md5.hexdigest();
 			}			
@@ -916,6 +909,8 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	return ret;
 }
 
+
+
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
@@ -938,7 +933,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	{
 		try
 		{
-			miniz_cpp::zip_file file;
+			Utils::Zip::ZipFile file;
 			file.load(fileName);
 
 			std::string romName;
@@ -958,15 +953,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 			}
 
 			if (!romName.empty())
-			{
-				auto info = file.getinfo(romName);
-
-				char hex[10];
-				auto len = snprintf(hex, sizeof(hex) - 1, "%08X", info.crc);
-				hex[len] = 0;
-
-				return hex;
-			}
+				return file.getFileCrc(romName);
 		}
 		catch (...)
 		{
@@ -988,10 +975,10 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 #endif
 		if (file)
 		{
-			mz_uint file_crc32 = MZ_CRC32_INIT;
+			unsigned int file_crc32 = 0;
 
 			while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
-				file_crc32 = (mz_uint32)mz_crc32(file_crc32, (const mz_uint8 *)buffer, size);
+				file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, buffer, size);
 
 			char hex[10];
 			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", file_crc32);
@@ -1015,7 +1002,7 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	{
 		try
 		{
-			miniz_cpp::zip_file file;
+			Utils::Zip::ZipFile file;
 			file.load(fileName);
 
 			for (auto name : file.namelist())
@@ -1539,3 +1526,4 @@ std::vector<std::string> ApiSystem::getShaderList()
 	std::sort(ret.begin(), ret.end());
 	return ret;
 }
+

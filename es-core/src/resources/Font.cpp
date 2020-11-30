@@ -731,6 +731,42 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
+	int maxTab = 0;
+
+	if (text.find("\t") != std::string::npos)
+	{
+		for (auto line : Utils::String::split(text, '\n', true))
+		{
+			if (line.find("\t") == std::string::npos)
+				continue;
+
+			int curTab = 0;
+			int xpos = x;
+
+			size_t pos = 0;
+			while (pos < text.length())
+			{
+				unsigned int character = Utils::String::chars2Unicode(text, pos); // also advances cursor
+				if (character == 0 || character == '\r')
+					continue;
+
+				if (character == '\t')
+				{
+					curTab = xpos;
+					break;
+				}
+
+				auto glyph = getGlyph(character);
+				if (glyph == NULL)
+					continue;
+
+				xpos += glyph->advance.x();
+			}
+
+			maxTab = Math::max(maxTab, curTab);
+		}
+	}
+
 	size_t cursor = 0;
 	while(cursor < text.length())
 	{
@@ -741,10 +777,20 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		if(character == 0)
 			continue;
 
+		if (character == '\r')
+			continue;
+
 		if(character == '\n')
 		{
 			y += getHeight(lineSpacing);
 			x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, (const unsigned int)cursor /* cursor is already advanced */, xLen, alignment) : 0);
+			continue;
+		}
+
+		if (character == '\t')
+		{
+			#define TABSTOPMIN Renderer::getScreenWidth() * 0.01f
+			x = maxTab + TABSTOPMIN;
 			continue;
 		}
 

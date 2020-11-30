@@ -77,6 +77,9 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 	if (uri.host.empty() || uri.path.empty())
 		return;
 
+	if (Utils::String::startsWith(uri.path, "/"))
+		uri.path = uri.path.substr(1);
+
 	std::string localFile = Utils::FileSystem::getEsConfigPath() + "/tmp/" + uri.host + "/" + uri.path;
 	if (Utils::FileSystem::exists(localFile))
 	{

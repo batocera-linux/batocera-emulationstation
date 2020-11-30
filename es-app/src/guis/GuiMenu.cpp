@@ -752,7 +752,7 @@ void GuiMenu::openDeveloperSettings()
 		}));
 	});
 
-	s->addEntry(_("REINDEX ALL NETPLAY & RETROACHIVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
+	s->addEntry(_("FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
 	
 	s->addGroup(_("DATA MANAGEMENT"));
 
@@ -1491,8 +1491,8 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
 
 	retroachievements->addGroup(_("GAME INDEXES"));
-	retroachievements->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
-	retroachievements->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
+	retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
+	retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
 
 	mWindow->pushGui(retroachievements);
 }
@@ -1552,8 +1552,8 @@ void GuiMenu::openNetplaySettings()
 		}
 	});
 	
-	settings->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
-	settings->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
+	settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
+	settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
 	
 	mWindow->pushGui(settings);
 }

@@ -49,6 +49,8 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	float getHeaderGridHeight() const;
+	float getTitleHeight() const;
 	float getButtonGridHeight() const;
 
 	void setMaxHeight(float maxHeight) 

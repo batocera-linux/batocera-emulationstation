@@ -182,7 +182,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		{
 			mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
 			{
-				GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::Cheevos)));
+				GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
 			});
 		}
 	}

@@ -1503,11 +1503,15 @@ bool SystemData::isNetplaySupported()
 
 bool SystemData::isCheevosSupported()
 {
-	const std::set<std::string> cheevosSystems = {
-		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "pcengine", "segacd", "sega32x", "mastersystem",
-		"psx", "atarilynx", "ngp", "gamegear", "atarijaguar", "nds", "pokemini", "atari2600", "fbneo", "virtualboy",
-		"sg-1000", "coleco", "atari7800", "wonderswan" };
+	if (isCollection())
+		return false;
 
+	const std::set<std::string> cheevosSystems = {
+		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem", 
+		"psx", "atarilynx", "lynx", "ngp", "gamegear", "nds", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
+		"sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
+
+	// "atarijaguar", "jaguar",  -> No games yet
 	return cheevosSystems.find(getName()) != cheevosSystems.cend();
 }
 

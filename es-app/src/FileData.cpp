@@ -25,6 +25,7 @@
 #include <algorithm>
 #include "LangParser.h"
 #include "resources/ResourceManager.h"
+#include "RetroAchievements.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -200,7 +201,7 @@ const bool FileData::getKidGame()
 
 const bool FileData::hasCheevos()
 {
-	return Utils::String::toInteger(getMetadata(MetaDataId::Cheevos)) > 0;
+	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
 }
 
 static std::shared_ptr<bool> showFilenames;
@@ -1100,7 +1101,7 @@ void FileData::checkMd5(bool force)
 {
 	if (getSourceFileData() != this)
 	{
-		getSourceFileData()->checkCrc32(force);
+		getSourceFileData()->checkMd5(force);
 		return;
 	}
 
@@ -1116,6 +1117,26 @@ void FileData::checkMd5(bool force)
 	}
 }
 
+
+void FileData::checkCheevosHash(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkCheevosHash(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::CheevosHash).empty())
+		return;
+
+	SystemData* system = getSystem();
+	auto crc = RetroAchievements::getCheevosHash(system, getPath());
+	if (!crc.empty())
+	{
+		getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
+		saveToGamelistRecovery(this);
+	}
+}
 
 std::string FileData::getKeyboardMappingFilePath()
 {

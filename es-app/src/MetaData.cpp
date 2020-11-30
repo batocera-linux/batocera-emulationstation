@@ -65,13 +65,15 @@ void MetaDataList::initMetadata()
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date"), false },
 
 		{ Crc32,            "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum"),			false },
-		{ Md5,              "md5hash",     MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
+		{ Md5,              "md5",		   MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
 
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
 		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
 		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
-		{ Cheevos,          "cheevos",     MD_INT,                "",				   true,       _("Retroachievements Game ID"),     _("Retroachievements Game ID"),		false }
+
+		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
+		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
@@ -149,13 +151,6 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 void MetaDataList::migrate(FileData* file, pugi::xml_node& node)
 {
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file->getPath()));
-
-	if (get(MetaDataId::Md5).empty())
-	{
-		pugi::xml_node xelement = node.child("md5");
-		if (xelement && ext != ".zip" && ext != ".7z")
-			set(MetaDataId::Md5, xelement.text().get());
-	}
 
 	if (get(MetaDataId::Crc32).empty())
 	{

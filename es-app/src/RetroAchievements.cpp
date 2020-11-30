@@ -3,10 +3,118 @@
 #include "utils/StringUtil.h"
 #include "ApiSystem.h"
 #include "SystemConf.h"
+#include "PlatformId.h"
+#include "SystemData.h"
+
+#include "utils/ZipFile.h"
+#include "scrapers/md5.h"
+#include "ApiSystem.h"
 
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
 #include <algorithm>
+
+#include "rcheevos/include/rhash.h"
+#include "rcheevos/include/rconsoles.h"
+
+using namespace PlatformIds;
+
+const std::map<PlatformId, unsigned short> cheevosConsoleID 
+{
+	{ ARCADE, RC_CONSOLE_ARCADE },
+	{ SEGA_MEGA_DRIVE, 1 },
+	{ NINTENDO_64, 2 },
+	{ SUPER_NINTENDO, 3 },
+	{ GAME_BOY, 4 },
+	{ GAME_BOY_ADVANCE, 5 },
+	{ GAME_BOY_COLOR, 6 },
+	{ NINTENDO_ENTERTAINMENT_SYSTEM, 7 },
+	{ TURBOGRAFX_16, 8 },
+	{ SEGA_CD, 9 },
+	{ SEGA_32X, 10 },
+	{ SEGA_MASTER_SYSTEM, 11 },
+	{ PLAYSTATION, 12 },
+	{ ATARI_LYNX, 13 },
+	{ NEOGEO_POCKET, 14 },
+	{ SEGA_GAME_GEAR, 15 },
+	{ NINTENDO_GAMECUBE, 16 },
+	{ ATARI_JAGUAR, 17 },
+	{ NINTENDO_DS, 18 },
+	{ NINTENDO_WII, 19 },
+	{ NINTENDO_WII_U, 20 },
+	{ PLAYSTATION_2, 21 },
+	{ XBOX, 22 },
+	{ VIDEOPAC_ODYSSEY2, 23 },
+	{ POKEMINI, 24 },
+	{ ATARI_2600, 25 },
+	{ PC, 26 },
+	{ ARCADE, 27 },
+	{ NINTENDO_VIRTUAL_BOY, 28 },
+	{ MSX, 29 },
+	{ COMMODORE_64, 30 },
+	{ ZX81, 31 },
+	{ ORICATMOS, 32 },
+	{ SEGA_SG1000, 33 },
+	{ AMIGA, 35 },
+	{ ATARI_ST, 36 },
+	{ AMSTRAD_CPC, 37 },
+	{ APPLE_II, 38 },
+	{ SEGA_SATURN, 39 },
+	{ SEGA_DREAMCAST, 40 },
+	{ PLAYSTATION_PORTABLE, 41 },
+	{ THREEDO, 43 },
+	{ COLECOVISION, 44 },
+	{ INTELLIVISION, 45 },
+	{ VECTREX, 46 },
+	{ PC_88, 47 },
+	{ PC_98, 48 },
+	{ PCFX, 49 },
+	{ ATARI_5200, 50 },
+	{ ATARI_7800, 51 },
+	{ SHARP_X6800, 52 },
+	{ WONDERSWAN, 53 },
+	{ NEOGEO_CD, 56 },
+	{ CHANNELF, 57 },
+	{ ZX_SPECTRUM, 59 },
+	{ NINTENDO_GAME_AND_WATCH, 60 },
+	{ NINTENDO_3DS, 62 }
+
+	// { VIC20, 34 },
+	//	{ CDI, 42 },
+	//{ CASSETTEVISION, 54 },
+	//{ SUPER_CASSETTEVISION, 55 },
+	//	{ FM_TOWNS, 58 },
+	// { NOKIA_NGAGE, 61 },
+
+};
+
+const std::set<unsigned short> consolesWithmd5hashes 
+{
+	RC_CONSOLE_APPLE_II,
+	RC_CONSOLE_ATARI_2600,
+	RC_CONSOLE_ATARI_7800,
+	RC_CONSOLE_ATARI_JAGUAR,
+	RC_CONSOLE_COLECOVISION,
+	RC_CONSOLE_GAMEBOY,
+	RC_CONSOLE_GAMEBOY_ADVANCE,
+	RC_CONSOLE_GAMEBOY_COLOR,
+	RC_CONSOLE_GAME_GEAR,
+	RC_CONSOLE_INTELLIVISION,
+	RC_CONSOLE_MAGNAVOX_ODYSSEY2,
+	RC_CONSOLE_MASTER_SYSTEM,
+	RC_CONSOLE_MEGA_DRIVE,
+	RC_CONSOLE_MSX,
+	RC_CONSOLE_NEOGEO_POCKET,
+	RC_CONSOLE_NINTENDO_64,
+	RC_CONSOLE_ORIC,
+	RC_CONSOLE_PC8800,
+	RC_CONSOLE_POKEMON_MINI,
+	RC_CONSOLE_SEGA_32X,
+	RC_CONSOLE_SG1000,
+	RC_CONSOLE_VECTREX,
+	RC_CONSOLE_VIRTUAL_BOY,
+	RC_CONSOLE_WONDERSWAN
+};
 
 const std::string API_DEV_L = { 42, 88, 35, 2, 36, 10, 2, 6, 23, 65, 45, 7, 10, 85, 26, 67, 89, 74, 28, 90, 41, 113, 41, 47, 16, 76, 82, 86, 22, 71, 12, 22, 54, 61, 45, 51, 16, 99, 3, 55, 54, 122, 4, 46, 69, 33, 2, 59, 5, 115 };
 const std::string API_DEV_KEY = { 80, 101, 97, 99, 80, 101, 97, 99, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 80, 101, 97, 99, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 100 };
@@ -15,6 +123,14 @@ std::string RetroAchievements::getApiUrl(const std::string method, const std::st
 {
 	auto options = Utils::String::scramble(API_DEV_L, API_DEV_KEY);
 	return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
+}
+
+std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
+{
+	if (image.empty())
+		return "http://i.retroachievements.org" + ImageIcon;
+	
+	return "http://i.retroachievements.org" + image;
 }
 
 std::string Achievement::getBadgeUrl()
@@ -267,8 +383,11 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 			if (aw->second.NumAchieved == 0 && aw->second.ScoreAchieved == 0)
 				continue;
 
+			rg.wonAchievements = aw->second.NumAchieved;
+			rg.totalAchievements = aw->second.NumPossibleAchievements;
+
 			rg.achievements = std::to_string(aw->second.NumAchieved) + " of " + std::to_string(aw->second.NumPossibleAchievements);
-			rg.points = std::to_string(aw->second.ScoreAchieved) + "/" + std::to_string(aw->second.PossibleScore);
+			rg.points = std::to_string(aw->second.ScoreAchieved) + "/" + std::to_string(aw->second.PossibleScore);			
 		}
 
 		info.games.push_back(rg);
@@ -340,6 +459,71 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 	catch (...)
 	{
 
+	}
+
+	return ret;
+}
+
+std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
+{
+	char hash[33];
+	rc_hash_generate_from_file(hash, consoleId, fileName.c_str());
+	return hash;
+}
+
+std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string fileName)
+{
+	bool fromZipContents = system->shouldExtractHashesFromArchives();
+
+	int consoleId = 0;
+
+	for (auto pid : system->getPlatformIds())
+	{
+		auto it = cheevosConsoleID.find(pid);
+		if (it != cheevosConsoleID.cend())
+		{
+			consoleId = it->second;
+			break;
+		}
+	}
+	
+	if (consoleId == 0 || consolesWithmd5hashes.find(consoleId) != consolesWithmd5hashes.cend())
+		return ApiSystem::getInstance()->getMD5(fileName, fromZipContents);
+
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
+	if (ext != ".zip" && ext != ".7z")
+		return getCheevosHashFromFile(consoleId, fileName);
+
+	std::string contentFile = fileName;
+	std::string ret;
+	std::string tmpZipDirectory;
+
+	if (fromZipContents)
+	{
+		tmpZipDirectory = Utils::FileSystem::getTempPath() + "/" + Utils::FileSystem::getStem(fileName);
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
+
+		if (ApiSystem::getInstance()->unzipFile(fileName, tmpZipDirectory))
+		{
+			auto fileList = Utils::FileSystem::getDirContent(tmpZipDirectory, true);
+
+			std::vector<std::string> res;
+			std::copy_if(fileList.cbegin(), fileList.cend(), std::back_inserter(res), [](const std::string file) { return Utils::FileSystem::getExtension(file) != ".txt";  });
+
+			if (res.size() == 1)
+				contentFile = *res.cbegin();
+		}
+	}
+
+	if (consoleId != 0)
+		ret = getCheevosHashFromFile(consoleId, contentFile);
+	else
+		ret = ApiSystem::getInstance()->getMD5(contentFile, false);
+
+	if (!tmpZipDirectory.empty())
+	{
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
+		Utils::FileSystem::removeFile(tmpZipDirectory);
 	}
 
 	return ret;

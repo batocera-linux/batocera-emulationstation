@@ -15,7 +15,7 @@
 #include "ApiSystem.h"
 #include "utils/StringUtil.h"
 
-#define ICONINDEX _U("\uF1EC ")
+#define ICONINDEX _U("\uF002 ")
 
 ThreadedHasher* ThreadedHasher::mInstance = nullptr;
 bool ThreadedHasher::mPaused = false;
@@ -38,9 +38,9 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 		mCheevosHashes = RetroAchievements::getCheevosHashes();
 
 	if (mType == HASH_CHEEVOS_MD5)
-		mWndNotification->updateTitle(ICONINDEX + _("INDEXING RETROACHIVEMENTS"));
+		mWndNotification->updateTitle(ICONINDEX + _("SEARCHING RETROACHIEVEMENTS"));
 	else 
-		mWndNotification->updateTitle(ICONINDEX + _("HASHING GAMES"));
+		mWndNotification->updateTitle(ICONINDEX + _("SEARCHING NETPLAY GAMES"));
 
 	int num_threads = std::thread::hardware_concurrency() / 2;
 	if (num_threads == 0)
@@ -102,15 +102,13 @@ void ThreadedHasher::run()
 
 		if (cheevos)
 		{
-			game->checkMd5(mForce);
+			game->checkCheevosHash(mForce);
 
 			if (mCheevosHashes.size() > 0)
 			{
-				auto cheevos = mCheevosHashes.find(Utils::String::toUpper(game->getMetadata(MetaDataId::Md5)));
+				auto cheevos = mCheevosHashes.find(Utils::String::toUpper(game->getMetadata(MetaDataId::CheevosHash)));
 				if (cheevos != mCheevosHashes.cend())
-					game->setMetadata(MetaDataId::Cheevos, cheevos->second);
-				else
-					game->setMetadata(MetaDataId::Cheevos, "0");
+					game->setMetadata(MetaDataId::CheevosId, cheevos->second);
 			}
 		}		
 
@@ -155,7 +153,7 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
-			bool cheevos = takeCheevos && (forceAllGames || file->getMetadata(MetaDataId::Md5).empty() || file->getMetadata(MetaDataId::Cheevos).empty());
+			bool cheevos = takeCheevos && (forceAllGames || file->getMetadata(MetaDataId::CheevosHash).empty());
 
 			if (netPlay || cheevos)
 				searchQueue.push(file);

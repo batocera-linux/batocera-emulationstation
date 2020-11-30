@@ -31,6 +31,57 @@ void GuiGameAchievements::show(Window* window, int gameId)
 	}));
 }
 
+
+class GameAchievementEntry : public ComponentGrid
+{
+public:
+	GameAchievementEntry(Window* window, Achievement& ra) :
+		ComponentGrid(window, Vector2i(3, 2))
+	{
+		mGameInfo = ra;
+
+		auto theme = ThemeData::getMenuTheme();
+
+		mImage = std::make_shared<WebImageComponent>(mWindow);
+		mImage->setMaxSize(IMAGESIZE, IMAGESIZE);
+		mImage->setImage(mGameInfo.getBadgeUrl());
+
+		setEntry(mImage, Vector2i(0, 0), true, false, Vector2i(1, 2));
+				
+		std::string desc = mGameInfo.Description + _U(" - ") + _("Points") + " : " + mGameInfo.Points +
+			(mGameInfo.DateEarned.empty() ? "" : _U("  \uf091") + "  " + _("Unlocked on") + " : " + mGameInfo.DateEarned);
+
+		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.Title, theme->Text.font, theme->Text.color);
+		mText->setVerticalAlignment(ALIGN_TOP);
+
+		mSubstring = std::make_shared<TextComponent>(mWindow, desc, theme->TextSmall.font, theme->Text.color);
+		mSubstring->setOpacity(192);
+
+		setEntry(mText, Vector2i(2, 0), true, true);
+		setEntry(mSubstring, Vector2i(2, 1), false, true);
+
+		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
+		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
+
+		setSize(Vector2f(0, Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y())));
+	}
+
+	virtual void setColor(unsigned int color)
+	{
+		mText->setColor(color);
+		mSubstring->setColor(color);
+	}
+
+private:
+	std::shared_ptr<TextComponent> mText;
+	std::shared_ptr<TextComponent> mSubstring;
+
+	std::shared_ptr<WebImageComponent> mImage;
+
+	Achievement mGameInfo;
+};
+
+
 GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress ra) : 
 	GuiSettings(window, "", "", nullptr)
 {
@@ -54,51 +105,33 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENT YET"));
 	else
 	{
-		auto txt = "Achievements won : " + std::to_string(ra.NumAwardedToUser) + "/" + std::to_string(ra.NumAchievements);
-		txt += " - Points : " + std::to_string(userPoints) + "/" + std::to_string(totalPoints);
-		txt += " - Completion : " + ra.UserCompletion;
+		auto txt = _("Achievements won") + " : \t" + std::to_string(ra.NumAwardedToUser) + " / " + std::to_string(ra.NumAchievements);
+		txt += "\r\n" + _("Points") + " : \t" + std::to_string(userPoints) + " / " + std::to_string(totalPoints);
+//		txt += "\r\n" + _("Completion") + " : \t" + ra.UserCompletion;
 
 		setSubTitle(txt);
 	}
-		
-	//setSubTitle(ra.ConsoleName);
-	/*
-	auto image = std::make_shared<WebImageComponent>(mWindow, 0);  // image expire immediately
-	image->setImage("https://i.retroachievements.org/" + ra.ImageIcon);
+
+	auto image = std::make_shared<WebImageComponent>(mWindow);
+	image->setImage(ra.getImageUrl());
 	setTitleImage(image);
-	*/
+
+	if (ra.Achievements.size() > 0)
+	{
+		int percent = Math::round(ra.NumAwardedToUser * 100.0f / ra.Achievements.size());
+
+		char trstring[256];
+		snprintf(trstring, 256, _("%d%% complete").c_str(), percent);
+		mProgress = std::make_shared<RetroAchievementProgress>(mWindow, ra.NumAwardedToUser, ra.Achievements.size(), Utils::String::trim(trstring));
+	}
+
 	for (auto game : ra.Achievements)
 	{
 		ComponentListRow row;
 
-		auto itstring = std::make_shared<MultiLineMenuEntry>(mWindow, game.Title, 
-			game.Description +
-			_U("  -  ") + "Points : " + game.Points +
-			(game.DateEarned.empty() ? "" : _U("  \uf091") + "  Unlocked on : " + game.DateEarned)
-			);
-
-		auto badge = std::make_shared<WebImageComponent>(mWindow);
-		badge->setMaxSize(IMAGESIZE, IMAGESIZE);
-		badge->setImage(game.getBadgeUrl());
-		row.addElement(badge, false);
-
-		auto spacer = std::make_shared<GuiComponent>(mWindow);
-		spacer->setSize(IMAGESPACER, 0);
-		row.addElement(spacer, false);
-		/*
-		if (!game.points.empty())
-		{
-			int gameId = Utils::String::toInteger(game.id);
-
-			//std::string longmsg = game.name + "\n" + game.achievements + " achievements\n" + game.points + " points\nLast played : " + game.lastplayed;
-			row.makeAcceptInputHandler([this, gameId]
-			{
-				GuiGameAchievements::show(mWindow, gameId);
-				//mWindow->pushGui(new GuiMsgBox(mWindow, longmsg, _("OK"))); 
-			});
-		}
-		*/
+		auto itstring = std::make_shared<GameAchievementEntry>(mWindow, game);
 		row.addElement(itstring, true);
+
 		addRow(row);
 	}
 
@@ -115,4 +148,28 @@ void GuiGameAchievements::centerWindow()
 		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.87f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+}
+
+void GuiGameAchievements::render(const Transform4x4f& parentTrans)
+{
+	GuiSettings::render(parentTrans);
+
+	if (mProgress != nullptr)
+	{
+		auto theme = ThemeData::getMenuTheme();
+
+		float h = theme->TextSmall.font->sizeText("A8O\r\A8O", 1.1).y();
+		float sz = mMenu.getHeaderGridHeight() + Renderer::getScreenHeight() * 0.005;
+
+		float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
+		float iw = mMenu.getTitleHeight() / width;
+
+		float xx = mMenu.getSize().x() - (mMenu.getSize().x() * iw);
+
+		mProgress->setPosition(xx * 0.55f, sz);
+		mProgress->setSize(xx * 0.36f, h);
+
+		Transform4x4f trans = parentTrans * mMenu.getTransform();
+		mProgress->render(trans);
+	}
 }

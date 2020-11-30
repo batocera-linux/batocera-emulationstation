@@ -127,6 +127,7 @@ public:
 
 	void checkCrc32(bool force = false);
 	void checkMd5(bool force = false);
+	void checkCheevosHash(bool force = false);
 
 	void importP2k(const std::string& p2k);
 	std::string convertP2kFile();
