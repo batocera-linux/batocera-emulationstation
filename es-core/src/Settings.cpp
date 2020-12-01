@@ -206,6 +206,7 @@ void Settings::setDefaults()
 	mStringMap["SortSystems"] = "manufacturer";	
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 		
+	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = true;
 
