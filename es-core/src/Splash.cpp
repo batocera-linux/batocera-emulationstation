@@ -51,12 +51,18 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	if (backGroundImageTheme && backGroundImageTheme->has("linearSmooth"))
 		linearSmooth = backGroundImageTheme->get<bool>("linearSmooth");
 	
-
 	if (fullScreenBackGround && !useOldSplashLayout)
 	{
 		mBackground.setOrigin(0.5, 0.5);
 		mBackground.setPosition(Renderer::getScreenWidth() / 2, Renderer::getScreenHeight() / 2);
-		mBackground.setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
+		if (backGroundImageTheme)
+			mBackground.setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		else
+		{
+			mBackground.setMinSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+			linearSmooth = true;
+		}
 	}
 	else
 	{
