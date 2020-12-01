@@ -244,8 +244,12 @@ public:
 	static std::unordered_set<std::string> getAllGroupNames();
 	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string groupName);
 
+	std::string getEmulator(bool resolveDefault = true);
+	std::string getCore(bool resolveDefault = true);
+
 	std::string getDefaultEmulator();
-	std::string getDefaultCore(const std::string emulatorName);
+	std::string getDefaultCore(const std::string emulatorName = "");
+
 	std::string getLaunchCommand(const std::string emulatorName, const std::string coreName);
 	std::vector<std::string> getCoreNames(std::string emulatorName);
 

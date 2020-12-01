@@ -281,6 +281,18 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		}
 	});
 
+	std::shared_ptr<SwitchComponent> alsoHideGames = std::make_shared<SwitchComponent>(mWindow);
+	alsoHideGames->setState(Settings::getInstance()->getBool("HiddenSystemsShowGames"));
+	addWithLabel(_("SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"), alsoHideGames);
+	addSaveFunc([this, alsoHideGames]
+	{
+		if (Settings::getInstance()->setBool("HiddenSystemsShowGames", alsoHideGames->getState()))
+		{
+			FileData::resetSettings();
+			setVariable("reloadAll", true);
+		}
+	});
+	
 #if defined(WIN32) && !defined(_DEBUG)		
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 		addEntry(_("UPDATE GAMES LISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
