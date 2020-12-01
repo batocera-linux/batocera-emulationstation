@@ -1864,7 +1864,7 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 	auto emul_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Emulator"), false);
 	auto core_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Core"), false);
 
-	std::string currentEmul = Settings::getInstance()->getString(system->getName() + ".emulator");
+	std::string currentEmul = system->getEmulator(false);
 	std::string defaultEmul = system->getDefaultEmulator();
 
 	emul_choice->add(_("AUTO"), "", false);
@@ -1889,7 +1889,7 @@ void GuiMenu::openSystemEmulatorSettings(SystemData* system)
 
 	emul_choice->setSelectedChangedCallback([this, system, core_choice](std::string emulatorName)
 	{
-		std::string currentCore = Settings::getInstance()->getString(system->getName() + ".core");
+		std::string currentCore = system->getCore(false);
 		std::string defaultCore = system->getDefaultCore(emulatorName);
 
 		core_choice->clear();	
@@ -3302,15 +3302,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (fileData != nullptr)
 		systemConfiguration->setSubTitle(systemData->getFullName());
 
-	std::string currentEmulator = fileData != nullptr ? fileData->getEmulator(false) : SystemConf::getInstance()->get(configName + ".emulator");
-	std::string currentCore = fileData != nullptr ? fileData->getCore(false) : SystemConf::getInstance()->get(configName + ".core");
+	std::string currentEmulator = fileData != nullptr ? fileData->getEmulator(false) : systemData->getEmulator(false);
+	std::string currentCore = fileData != nullptr ? fileData->getCore(false) : systemData->getCore(false);
 
 	if (systemData->hasEmulatorSelection())
 	{
-		std::string defaultCore = currentCore;
-		if (defaultCore.empty() || defaultCore == "auto")
-			defaultCore = systemData->getDefaultCore(currentEmulator);
-
 		auto emulChoice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Emulator"), false);
 		emulChoice->add(_("AUTO"), "", false);
 		for (auto& emul : systemData->getEmulators())
@@ -3321,7 +3317,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			{
 				for (auto& core : emul.cores)
 				{
-					bool selected = (emul.name == currentEmulator && core.name == defaultCore);
+					bool selected = (emul.name == currentEmulator && core.name == currentCore);
 
 					if (emul.name == core.name)
 						emulChoice->add(emul.name, emul.name + "/" + core.name, selected);
