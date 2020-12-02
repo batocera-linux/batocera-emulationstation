@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-30 13:54+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -404,6 +404,9 @@ msgstr "AGRUPAR COLECCIONES PERSONALES SIN TEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DE SISTEMA EN COLECCIONES"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr ""
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"

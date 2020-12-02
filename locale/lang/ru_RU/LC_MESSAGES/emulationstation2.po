@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-30 13:54+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -405,6 +405,9 @@ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr ""
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
