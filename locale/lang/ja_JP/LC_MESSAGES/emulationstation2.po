@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-02 08:20+0100\n"
-"PO-Revision-Date: 2020-11-25 08:33+0900\n"
+"PO-Revision-Date: 2020-12-03 08:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -20,7 +20,7 @@ msgid "Name"
 msgstr "名前"
 
 msgid "enter game name"
-msgstr "ゲームの名前を入力"
+msgstr "ゲーム名を入力"
 
 msgid "Description"
 msgstr "概要"
@@ -288,7 +288,7 @@ msgid "DOWNLOADING"
 msgstr "ダウンロード中"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "テーマが正常にインストールされました"
+msgstr "テーマは正常にインストールされました"
 
 msgid "AN ERROR OCCURED"
 msgstr "エラーが発生しました"
@@ -297,16 +297,16 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にアンインストールされました"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "ベゼルが正常にインストールされました"
+msgstr "ベゼルは正常にインストールされました"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr "ベゼルは正常にアンインストールされました"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "パッケージが正常にインストールされました"
+msgstr "パッケージは正常にインストールされました"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "パッケージが正常に削除されました"
+msgstr "パッケージは正常に削除されました"
 
 msgid "FILTER GAMELIST BY"
 msgstr "ゲームリスト別のフィルタ"
@@ -330,7 +330,7 @@ msgid "YES"
 msgstr "はい"
 
 msgid "NO"
-msgstr "しない"
+msgstr "いいえ"
 
 msgid "SYSTEMS"
 msgstr "システム"
@@ -406,7 +406,7 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr ""
+msgstr "隠しシステム内にあるゲームをコレクションに表示"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ゲームリストを更新"
@@ -457,7 +457,7 @@ msgid "NAVIGATION"
 msgstr "ナビゲーション"
 
 msgid "JUMP TO..."
-msgstr "移動(英数字)..."
+msgstr "移動(英数字のみ有効)..."
 
 msgid "SORT GAMES BY"
 msgstr "ゲーム別のソート"
@@ -682,10 +682,10 @@ msgid "black"
 msgstr "暗転"
 
 msgid "random video"
-msgstr "ランダムビデオ"
+msgstr "ランダム再生(ゲームビデオ)"
 
 msgid "slideshow"
-msgstr "スライドショー"
+msgstr "スライドショー(ゲーム画像)"
 
 msgid "always"
 msgstr "全て"
@@ -742,7 +742,7 @@ msgid "DECORATIONS"
 msgstr "デコレーション装飾"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "スクリーンセーバー実行時ビデオを拡大"
+msgstr "スクリーンセーバー実行時ビデオを拡大表示"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "ビデオ音声をミュート"
@@ -1116,7 +1116,7 @@ msgid "PASSWORD"
 msgstr "パスワード"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "本当に入力設定を行っていいですか？"
+msgstr "ボタン設定を行いますか？"
 
 msgid "CHOOSE"
 msgstr "移動選択"
@@ -1174,7 +1174,7 @@ msgid "CREATE A SUPPORT FILE ?"
 msgstr "サポートファイルを作成しますか ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ファイルは正常に生成されました"
+msgstr "ファイルは正常に作成されました"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ファイル生成に失敗しました"
@@ -1220,10 +1220,10 @@ msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr "スクリーンキーボード"
+msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr "ゲーム実行時に隠す"
+msgstr "ゲーム実行中は非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1232,7 +1232,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "RETROARCH RGUIメニューを使用"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr "ESメニューの A/B ボタンを入れ替える"
+msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラーの自動設定"
@@ -1595,10 +1595,10 @@ msgid "SHOW BATTERY STATUS"
 msgstr "バッテリー状態を表示"
 
 msgid "ICON"
-msgstr ""
+msgstr "アイコン"
 
 msgid "ICON AND TEXT"
-msgstr ""
+msgstr "アイコンと文字"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
@@ -1890,7 +1890,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "ビューアパスワードの設定"
 
 msgid "Games similar to"
-msgstr "似たゲーム←"
+msgstr "類似ゲーム→"
 
 msgid "Searching"
 msgstr "検索中"
@@ -2262,7 +2262,7 @@ msgstr "%d 秒"
 #~ msgstr "KODI"
 
 #~ msgid "DELETE A CHAR"
-#~ msgstr "文字を削除"
+#~ msgstr "文字削除"
 
 #~ msgid "disabled"
 #~ msgstr "無効"
@@ -2280,7 +2280,7 @@ msgstr "%d 秒"
 #~ msgstr "デバッグ"
 
 #~ msgid "GRAPHICS BACKEND"
-#~ msgstr "グラフィックス バックエンド方式"
+#~ msgstr "グラフィックス API 方式"
 
 # bios status,untest
 #~ msgid "UNTESTED"
@@ -2294,7 +2294,7 @@ msgstr "%d 秒"
 #~ msgid "INVALID"
 #~ msgstr "無効"
 
-# need 5.27.2
+# Not reflected
 #~ msgid "Retrieving data download..."
 #~ msgstr "データを取得しています..."
 
@@ -2317,6 +2317,27 @@ msgstr "%d 秒"
 # use rpi
 #~ msgid "JACK"
 #~ msgstr "音声ジャック"
+
+#~ msgid "REDUCE SLOWDOWN"
+#~ msgstr "実行速度低下防止方法"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "COMPATIBLE"
+#~ msgstr "互換性向上"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "LIGHT"
+#~ msgstr "処理軽量化"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "MAX"
+#~ msgstr "最大実行速度"
+
+#~ msgid "Off"
+#~ msgstr "オフ"
 
 #, fuzzy
 #~ msgid "HIGH (950Mhz)"
