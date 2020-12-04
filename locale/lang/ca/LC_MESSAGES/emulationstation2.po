@@ -173,7 +173,7 @@ msgid "Play count"
 msgstr "Contador de jugades"
 
 msgid "enter number of times played"
-msgstr "introduïu el nombre de vegades que s\'ha jugat"
+msgstr "introduïu el nombre de vegades que s'ha jugat"
 
 msgid "Last played"
 msgstr "Jugat per última vegada"
@@ -235,7 +235,7 @@ msgstr "Editant la col·lecció '%s'. Afegir/eliminar jocs amb Y."
 
 #, c-format
 msgid "Finished editing the '%s' Collection."
-msgstr "Finalitzada l\'edició"
+msgstr "Finalitzada l'edició"
 
 #, c-format
 msgid "Added '%s' to '%s'"
