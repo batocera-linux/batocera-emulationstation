@@ -4342,6 +4342,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}
 		colorizations_choices->add(_("AUTO"), "auto", currentColorization == "auto");
 		colorizations_choices->add(_("NONE"), "none", currentColorization == "none");
+		colorizations_choices->add(_("GBC"), "GBC", currentColorization == "GBC");
+		colorizations_choices->add(_("SGB"), "SGB", currentColorization == "SGB");
 		colorizations_choices->add(_("Best Guess"), "Best Guess", currentColorization == "Best Guess");
 
 		const char* all_gambate_gc_colors_modes[] = { "GB - DMG",
