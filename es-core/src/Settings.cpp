@@ -112,8 +112,8 @@ void Settings::setDefaults()
 	mBoolMap["HideConsole"] = true;
 	mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
-	mBoolMap["SaveGamelistsOnExit"] = true;
-	mBoolMap["ShowBatteryIndicator"] = true;	
+	mBoolMap["SaveGamelistsOnExit"] = true;	
+	mStringMap["ShowBattery"] = "text";	
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	
 #if WIN32
@@ -225,6 +225,7 @@ void Settings::setDefaults()
 	mStringMap["SortSystems"] = "manufacturer";	
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 		
+	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = true;
 

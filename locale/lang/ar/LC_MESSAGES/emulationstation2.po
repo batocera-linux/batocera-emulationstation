@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -412,6 +412,9 @@ msgstr "جمع المجموعات المخصصه الغير موسومه"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "قم بعرض اسم النظام في المجموعة"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr ""
 
 msgid "UPDATE GAMES LISTS"
 msgstr "تحديث قوائم الألعاب"
@@ -1607,6 +1610,12 @@ msgstr "مساعدة على الشاشة"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "عرض حالة البطارية"
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "عرض اسم الملف في القائمة"

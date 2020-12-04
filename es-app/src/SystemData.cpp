@@ -649,10 +649,7 @@ bool SystemData::loadFeatures()
 
 bool SystemData::isCurrentFeatureSupported(EmulatorFeatures::Features feature)
 {
-	std::string emul = getDefaultEmulator();
-	std::string core = getDefaultCore(emul);
-
-	return isFeatureSupported(emul, core, feature);
+	return isFeatureSupported(getEmulator(), getCore(), feature);
 }
 
 bool SystemData::hasFeatures()
@@ -678,10 +675,10 @@ std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorNam
 	std::vector<CustomFeature> ret;
 
 	if (emulatorName.empty() || emulatorName == "auto")
-		emulatorName = getDefaultEmulator();
+		emulatorName = getEmulator();
 
 	if (coreName.empty() || coreName == "auto")
-		coreName = getDefaultCore(emulatorName);
+		coreName = getCore();
 
 	for (auto emulator : mEmulators)
 	{
@@ -702,14 +699,13 @@ std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorNam
 	return ret;
 }
 
-
 bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature)
 {
 	if (emulatorName.empty() || emulatorName == "auto")
-		emulatorName = getDefaultEmulator();
+		emulatorName = getEmulator();
 
 	if (coreName.empty() || coreName == "auto")
-		coreName = getDefaultCore(emulatorName);
+		coreName = getCore();
 
 	for (auto emulator : mEmulators)
 	{
@@ -1042,7 +1038,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 				for (auto ext : readList(emuNode.attribute("incompatible_extensions").value()))
 				{
 					std::string extlow = Utils::String::toLower(ext);
-					if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+					if (std::find(emulatorData.incompatibleExtensions.cbegin(), emulatorData.incompatibleExtensions.cend(), extlow) == emulatorData.incompatibleExtensions.cend())
 						emulatorData.incompatibleExtensions.push_back(extlow);
 				}
 			}
@@ -1062,7 +1058,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 						for (auto ext : readList(coreNode.attribute("incompatible_extensions").value()))
 						{
 							std::string extlow = Utils::String::toLower(ext);
-							if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
+							if (std::find(core.incompatibleExtensions.cbegin(), core.incompatibleExtensions.cend(), extlow) == core.incompatibleExtensions.cend())
 								core.incompatibleExtensions.push_back(extlow);
 						}
 					}
@@ -1561,7 +1557,8 @@ SystemData* SystemData::getParentGroupSystem()
 	return this;
 }
 
-std::string SystemData::getDefaultEmulator()
+
+std::string SystemData::getEmulator(bool resolveDefault)
 {
 #if WIN32 && !_DEBUG
 	std::string emulator = Settings::getInstance()->getString(getName() + ".emulator");
@@ -1577,23 +1574,13 @@ std::string SystemData::getDefaultEmulator()
 		if (emul.name == emulator)
 			return emulator;
 
-	if (emulator.empty() || emulator == "auto")
-	{
-		// Seeking default="true" attribute
-		for (auto emul : mEmulators)
-			for (auto core : emul.cores)
-				if (core.isDefault)
-					return emul.name;
-		
-		auto emulators = getEmulators();
-		if (emulators.size() > 0)
-			return emulators.begin()->name;
-	}
+	if (resolveDefault)
+		return getDefaultEmulator();
 
 	return "";
 }
 
-std::string SystemData::getDefaultCore(const std::string emulatorName)
+std::string SystemData::getCore(bool resolveDefault)
 {
 #if WIN32 && !_DEBUG
 	std::string core = Settings::getInstance()->getString(getName() + ".core");
@@ -1606,28 +1593,62 @@ std::string SystemData::getDefaultCore(const std::string emulatorName)
 #endif
 
 	if (!core.empty() && core != "auto")
-		return core;
-	
+	{
+		auto emul = getEmulator(true);
+
+		for (auto memul : mEmulators)
+			if (memul.name == emul)
+				for (auto mcore : memul.cores)
+					if (mcore.name == core)
+						return core;
+	}
+
+	if (!getEmulator(false).empty())
+		return getDefaultCore(getEmulator(false));
+
+	if (resolveDefault)
+		return getDefaultCore(getEmulator(true));
+
+	return "";
+}
+
+
+std::string SystemData::getDefaultEmulator()
+{
 	// Seeking default="true" attribute
-	for (auto memul : mEmulators)
-		for (auto mcore : memul.cores)
-			if (mcore.isDefault)
-				return mcore.name;
+	for (auto emul : mEmulators)
+		for (auto core : emul.cores)
+			if (core.isDefault)
+				return emul.name;
+		
+	auto emulators = getEmulators();
+	if (emulators.size() > 0)
+		return emulators.begin()->name;
 
+	return "";
+}
+
+std::string SystemData::getDefaultCore(const std::string emulatorName)
+{
 	std::string emul = emulatorName;
-
 	if (emul.empty() || emul == "auto")
 		emul = getDefaultEmulator();
 
-	if (!emul.empty())
+	if (emul.empty())
+		return "";
+	
+	for (auto it : mEmulators)
 	{
-		auto emulators = getEmulators();
+		if (it.name == emul)
+		{
+			for (auto core : it.cores)
+				if (core.isDefault)
+					return core.name;
 
-		for (auto it : emulators)
-			if (it.name == emul)
-				if (it.cores.size() > 0)
-					return it.cores.begin()->name;
-	}
+			if (it.cores.size() > 0)
+				return it.cores.begin()->name;
+		}
+	}	
 
 	return "";
 }

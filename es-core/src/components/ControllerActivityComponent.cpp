@@ -210,12 +210,15 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		itemsWidth += szW + mSpacing;
 		//itemsWidth += getTextureSize(mBatteryImage).x() + mSpacing;
 
-		if (mBatteryFont == nullptr)
-			mBatteryFont = Font::get(szH * (Renderer::isSmallScreen() ? 0.55f : 0.70f), FONT_PATH_REGULAR);
-		
-		auto sz = mBatteryFont->sizeText(batteryText, 1.0);
-		itemsWidth += sz.x() + mSpacing;
-		batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;
+		if (Settings::getInstance()->getString("ShowBattery") == "text")
+		{
+			if (mBatteryFont == nullptr)
+				mBatteryFont = Font::get(szH * (Renderer::isSmallScreen() ? 0.55f : 0.70f), FONT_PATH_REGULAR);
+
+			auto sz = mBatteryFont->sizeText(batteryText, 1.0);
+			itemsWidth += sz.x() + mSpacing;
+			batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;
+		}
 	}
 
 	if (mHorizontalAlignment == ALIGN_CENTER)
@@ -247,7 +250,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	{
 		x += renderTexture(x, szW, mBatteryImage, mColorShift);
 
-		if (mBatteryFont != nullptr)
+		if (mBatteryFont != nullptr && Settings::getInstance()->getString("ShowBattery") == "text")
 		{
 			if (mBatteryText == nullptr || mBatteryTextX != x)
 			{
@@ -354,7 +357,7 @@ void ControllerActivityComponent::updateNetworkInfo()
 
 void ControllerActivityComponent::updateBatteryInfo()
 {
-	if (!Settings::getInstance()->getBool("ShowBatteryIndicator") || (mView & BATTERY) == 0)
+	if (Settings::getInstance()->getString("ShowBattery").empty() || (mView & BATTERY) == 0)
 	{
 		mBatteryInfo.hasBattery = false;
 		return;

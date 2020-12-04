@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -404,6 +404,9 @@ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "AFFICHER LE SYSTÈME DANS LES COLLECTIONS"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "AFFICHER LES JEUX DES SYSTÈMES CACHÉS DANS LES COLLECTIONS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
@@ -1592,6 +1595,12 @@ msgstr "AFFICHER L'AIDE"
 msgid "SHOW BATTERY STATUS"
 msgstr "AFFICHER L'ÉTAT DE LA BATTERIE"
 
+msgid "ICON"
+msgstr "ICÔNE"
+
+msgid "ICON AND TEXT"
+msgstr "ICÔNE ET TEXTE"
+
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 
@@ -2214,12 +2223,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "START KODI WITH X"
-#~ msgstr "BOUTON X POUR LANCER KODI"
-
-#~ msgid "DO YOU WANT TO START KODI MEDIA CENTER ?"
-#~ msgstr "VOULEZ-VOUS LANCER KODI MEDIA CENTER ?"
-
-#~ msgid "KODI"
-#~ msgstr "KODI"

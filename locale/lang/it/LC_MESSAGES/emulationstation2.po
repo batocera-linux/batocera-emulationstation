@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -95,16 +95,16 @@ msgid "enter path to cartridge"
 msgstr "Inserisci percorso della cartuccia"
 
 msgid "Alt BoxArt"
-msgstr "Scatola alternativa"
+msgstr "Box art alternativa"
 
 msgid "enter path to alt boxart"
-msgstr "Inserisci percorso della scatola alternativa"
+msgstr "Inserisci percorso della box art alternativa"
 
 msgid "Wheel"
-msgstr "Ruota"
+msgstr "Targhetta"
 
 msgid "enter path to wheel"
-msgstr "Inserisci percorso della ruota"
+msgstr "Inserisci percorso della targhetta (modalità Wheel)"
 
 msgid "Mix"
 msgstr "Misto"
@@ -188,13 +188,13 @@ msgid "Crc32"
 msgstr "Crc32"
 
 msgid "Crc32 checksum"
-msgstr "Serie checksum Crc332"
+msgstr "Codice Crc32"
 
 msgid "Md5"
 msgstr "Md5"
 
 msgid "Md5 checksum"
-msgstr "Serie checksum Md5"
+msgstr "Codice Md5"
 
 msgid "Game time"
 msgstr "Tempo di gioco"
@@ -295,13 +295,13 @@ msgid "AN ERROR OCCURED"
 msgstr "SI E’ VERIFICATO UN ERRORE"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "TEMA DISINSTALLATO CON SUCCESSO"
+msgstr "TEMA RIMOSSO CON SUCCESSO"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZELS INSTALLATE CON SUCCESSO"
+msgstr "CORNICI INSTALLATE CON SUCCESSO"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "CORNICI DISINSTALLATE CON SUCCESSO"
+msgstr "CORNICI RIMOSSE CON SUCCESSO"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PACCHETTO INSTALLATO CON SUCCESSO"
@@ -355,7 +355,7 @@ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CREA UNA COLLEZIONE PERSONALE DA UN TEMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr "SELEZIONA CARTELLA A TEMA"
+msgstr "SELEZIONA CARTELLA DEL TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREA UNA NUOVA COLLEZIONE DA MODIFICARE"
@@ -394,7 +394,7 @@ msgid "NONE"
 msgstr "NESSUNO"
 
 msgid "RESTORE LAST SELECTED"
-msgstr "RIPRISTINA ULTIMA SELEZIONE"
+msgstr "RIPRISTINA ULTIMO SELEZIONATO"
 
 msgid "START ON GAMELIST"
 msgstr "INIZIA DALLA LISTA GIOCHI"
@@ -403,7 +403,10 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "MOSTRA IL NOME DEL SISTEMA NELLA COLLEZIONE"
+msgstr "MOSTRA IL NOME DEL SISTEMA NELLE COLLEZIONI"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
@@ -514,10 +517,10 @@ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
 msgstr "CREA CONFIGURAZIONE PAD TO KEYBOARD"
 
 msgid "EDIT FOLDER METADATA"
-msgstr "MODIFICA CARTELLA METADATI"
+msgstr "MODIFICA LE INFORMAZIONI DELLA CARTELLA"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "MODIFICA I METADATI PER QUESTO GIOCO"
+msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "MOSTRA INFORMAZIONI PADTOKEY"
@@ -643,7 +646,7 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "I COLLEGAMENTI AI CONTROLLER SONO STATI CANCELLATI."
 
 msgid "RESET"
-msgstr "RIAVVIA"
+msgstr "RESETTA"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AGGIUNGI TASTO COMBINAZIONE"
@@ -712,19 +715,19 @@ msgid "SCREENSAVER AFTER"
 msgstr "SALVASCHERMO DOPO"
 
 msgid "SCREENSAVER BEHAVIOR"
-msgstr "COMPORTAMENTO DEL SALVASCHERMO"
+msgstr "FUNZIONAMENTO DEL SALVASCHERMO"
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "FERMA LA MUSICA DURANTE IL SALVASCHERMO"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "OPZIONI SALVASCHERMO VIDEO CASUALE"
+msgstr "OPZIONI VIDEO CASUALI SU SALVASCHERMO"
 
 msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "CAMBIA VIDEO DOPO (SECONDI)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "UTILIZZA IL PLAYER OMX COME SALVASCHERMO"
+msgstr "UTILIZZA IL PLAYER OMX PER IL SALVASCHERMO"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
@@ -733,13 +736,13 @@ msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRA INFO DEL GIOCO NEL SALVASCHERMO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USA LE MARQUEE (TITOLI DI GIOCO) COME INFO GIOCO"
+msgstr "USA IL BANNER COME INFO DI GIOCO"
 
 msgid "DECORATIONS"
 msgstr "DECORAZIONI"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "ADATTA VIDEO NEL SALVASCHERMO"
+msgstr "ESTENDI VIDEO NEL SALVASCHERMO"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "MUTA AUDIO DEL VIDEO"
@@ -751,10 +754,10 @@ msgid "USE CUSTOM VIDEOS"
 msgstr "USA VIDEO PERSONALIZZATI"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr "CARTELLA VIDEO PERS."
+msgstr "CARTELLA VIDEO PERSONALIZZATI"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr "CARTELLA RICORSIVA VIDEO PERS."
+msgstr "CARTELLA RICORSIVA VIDEO PERSONALIZZATI"
 
 msgid "CUSTOM VIDEO FILTER"
 msgstr "FILTRO VIDEO PERSONALIZZATO"
@@ -766,7 +769,7 @@ msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "CAMBIA IMMAGINE DOPO (SECONDI)"
 
 msgid "STRETCH IMAGES"
-msgstr "ADATTA IMMAGINI"
+msgstr "ESTENDI IMMAGINI"
 
 msgid "USE CUSTOM IMAGES"
 msgstr "UTILIZZA IMMAGINI PERSONALIZZATE"
@@ -850,13 +853,13 @@ msgid "INSTALL BATOCERA"
 msgstr "INSTALLA BATOCERA"
 
 msgid "TARGET DEVICE"
-msgstr "IDENTIFICA UNITA' TARGET"
+msgstr "DESTINAZIONE DISPOSITIVO"
 
 msgid "SELECT"
 msgstr "SELEZIONA"
 
 msgid "TARGET ARCHITECTURE"
-msgstr "IDENTIFICA ARCHITETTURA TARGET"
+msgstr "DESTINAZIONE ARCHITETTURA"
 
 msgid "NETWORK REQUIRED"
 msgstr "RICHIESTA CONNESSIONE DI RETE"
@@ -1089,10 +1092,10 @@ msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
 
 msgid "WHEEL"
-msgstr "RUOTA"
+msgstr "TARGHETTA"
 
 msgid "MARQUEE"
-msgstr "MARQUEE"
+msgstr "BANNER"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCARICA INFORMAZIONI DEI VOTI"
@@ -1116,7 +1119,7 @@ msgid "PASSWORD"
 msgstr "PASSWORD"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "SEI SICURO DI CONFIGURARE L'INPUT?"
+msgstr "SEI SICURO DI VOLER CONFIGURARE L'INPUT?"
 
 msgid "CHOOSE"
 msgstr "SCEGLIERE"
@@ -1203,7 +1206,7 @@ msgid "ENABLE FILTERS"
 msgstr "ABILITA FILTRI"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "SALVA I METADATI ALL'USCITA"
+msgstr "SALVA LE INFORMAZIONI ALL'USCITA"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALIZZA SOLAMENTE LE LISTE GIOCHI"
@@ -1592,6 +1595,12 @@ msgstr "MOSTRA AIUTO SULLO SCHERMO"
 msgid "SHOW BATTERY STATUS"
 msgstr "MOSTRA STATO DELLA BATTERIA"
 
+msgid "ICON"
+msgstr "ICONA"
+
+msgid "ICON AND TEXT"
+msgstr "ICONA E TESTO"
+
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 
@@ -1611,7 +1620,7 @@ msgid "MUSIC"
 msgstr "MUSICA"
 
 msgid "FRONTEND MUSIC"
-msgstr "MUSICA FRONTEND"
+msgstr "MUSICA INTERFACCIA"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "VISUALIZZA TITOLI DELLE CANZONI"
@@ -1620,10 +1629,10 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "QUANTI SECONDI PER TITOLO CANZONE"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "SUONA SOLO MUSICA SPECIFICA PER CARTELLA SISTEMA"
+msgstr "RIPRODUCI SOLO MUSICA SPECIFICA PER CARTELLA SISTEMA"
 
 msgid "PLAY THEME MUSICS"
-msgstr "SUONA MUSICHE A TEMA"
+msgstr "RIPRODUCI MUSICHE DEL TEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ABBASSA LA MUSICA MENTRE MOSTRA IL VIDEO"
@@ -1689,10 +1698,10 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
 
 msgid "VIEW USER'S MANUAL"
-msgstr "VEDI MANUALE UTENTE"
+msgstr "CONSULTA IL MANUALE UTENTE"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr "VEDI IL MANUALE DI BATOCERA"
+msgstr "CONSULTA IL MANUALE DI BATOCERA"
 
 msgid "RESTART SYSTEM"
 msgstr "RIAVVIA IL SISTEMA"
@@ -1710,7 +1719,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SPEGNIMENTO VELOCE DEL SISTEMA"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE I METADATI?"
+msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ESCI DA EMULATIONSTATION"
@@ -1758,7 +1767,7 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
 msgstr "SEI SICURO DI VOLER FORMATTARE QUESTO DISPOSITIVO?"
 
 msgid "EDIT METADATA"
-msgstr "MODIFICA I METADATI"
+msgstr "MODIFICA LE INFORMAZIONI"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -1844,10 +1853,10 @@ msgid "Preloading UI"
 msgstr "Precaricamento UI"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Caricamento tema"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Caricamento lista giochi"
 
 msgid "MENU"
 msgstr "MENU"
@@ -1913,7 +1922,7 @@ msgid "Done."
 msgstr "Fatto."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SALVATAGGIO METADATA. ATTENDERE PREGO..."
+msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
 
 msgid "Collections"
 msgstr "Collezioni"
@@ -2319,7 +2328,7 @@ msgstr "%d s"
 #~ msgstr "Banner"
 
 #~ msgid "enter path to marquee"
-#~ msgstr "inserisci percorso dei marquee"
+#~ msgstr "inserisci percorso dei banner"
 
 #~ msgid "Thumbnail"
 #~ msgstr "Miniatura"
@@ -2387,7 +2396,7 @@ msgstr "%d s"
 #~ msgstr "Percorso dei video"
 
 #~ msgid "Path to marquee"
-#~ msgstr "Percorso dei marquee"
+#~ msgstr "Percorso dei banner"
 
 #~ msgid "set hidden"
 #~ msgstr "imposta come nascosto"
@@ -2408,7 +2417,7 @@ msgstr "%d s"
 #~ msgstr "miniatura"
 
 #~ msgid "marquee"
-#~ msgstr "marquee"
+#~ msgstr "banner"
 
 #~ msgid "MITM"
 #~ msgstr "MITM"
@@ -2447,7 +2456,7 @@ msgstr "%d s"
 #~ msgstr "SORGENTE MINIATURA PREFERITA"
 
 #~ msgid "SCRAPE MARQUEE"
-#~ msgstr "SCRAPE MARQUEE"
+#~ msgstr "SCRAPE BANNER"
 
 #~ msgid "UPDATES"
 #~ msgstr "AGGIORNAMENTI"

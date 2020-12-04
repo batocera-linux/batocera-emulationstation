@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
-"PO-Revision-Date: 2020-11-18 21:49+0900\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"PO-Revision-Date: 2020-12-03 08:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -20,7 +20,7 @@ msgid "Name"
 msgstr "名前"
 
 msgid "enter game name"
-msgstr "ゲームの名前を入力"
+msgstr "ゲーム名を入力"
 
 msgid "Description"
 msgstr "概要"
@@ -288,7 +288,7 @@ msgid "DOWNLOADING"
 msgstr "ダウンロード中"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "テーマが正常にインストールされました"
+msgstr "テーマは正常にインストールされました"
 
 msgid "AN ERROR OCCURED"
 msgstr "エラーが発生しました"
@@ -297,16 +297,16 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にアンインストールされました"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "ベゼルが正常にインストールされました"
+msgstr "ベゼルは正常にインストールされました"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
 msgstr "ベゼルは正常にアンインストールされました"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "パッケージが正常にインストールされました"
+msgstr "パッケージは正常にインストールされました"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "パッケージが正常に削除されました"
+msgstr "パッケージは正常に削除されました"
 
 msgid "FILTER GAMELIST BY"
 msgstr "ゲームリスト別のフィルタ"
@@ -330,7 +330,7 @@ msgid "YES"
 msgstr "はい"
 
 msgid "NO"
-msgstr "しない"
+msgstr "いいえ"
 
 msgid "SYSTEMS"
 msgstr "システム"
@@ -405,6 +405,9 @@ msgstr "マイコレクションをグループ化"
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
 
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "隠しシステム内にあるゲームをコレクションに表示"
+
 msgid "UPDATE GAMES LISTS"
 msgstr "ゲームリストを更新"
 
@@ -454,7 +457,7 @@ msgid "NAVIGATION"
 msgstr "ナビゲーション"
 
 msgid "JUMP TO..."
-msgstr "移動(英数字)..."
+msgstr "移動(英数字のみ有効)..."
 
 msgid "SORT GAMES BY"
 msgstr "ゲーム別のソート"
@@ -463,7 +466,7 @@ msgid "OTHER FILTERS"
 msgstr "その他のフィルタ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "類似のゲームを探す..."
 
 msgid "GAME MEDIAS"
 msgstr "ゲームメディア"
@@ -520,7 +523,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "パッドからキーボード情報を表示"
 
 msgid "RESET FILTERS"
 msgstr "フィルターのリセット"
@@ -655,7 +658,7 @@ msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "インストール/削除するコンテンツを選択"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "インストール済みコンテンツを更新"
 
 msgid "There are no items in this view"
 msgstr "項目が無いので表示できません"
@@ -679,10 +682,10 @@ msgid "black"
 msgstr "暗転"
 
 msgid "random video"
-msgstr "ランダムビデオ"
+msgstr "ランダム再生(ゲームビデオ)"
 
 msgid "slideshow"
-msgstr "スライドショー"
+msgstr "スライドショー(ゲーム画像)"
 
 msgid "always"
 msgstr "全て"
@@ -739,7 +742,7 @@ msgid "DECORATIONS"
 msgstr "デコレーション装飾"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "スクリーンセーバー実行時ビデオを拡大"
+msgstr "スクリーンセーバー実行時ビデオを拡大表示"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "ビデオ音声をミュート"
@@ -1113,7 +1116,7 @@ msgid "PASSWORD"
 msgstr "パスワード"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "本当に入力設定を行っていいですか？"
+msgstr "ボタン設定を行いますか？"
 
 msgid "CHOOSE"
 msgstr "移動選択"
@@ -1171,7 +1174,7 @@ msgid "CREATE A SUPPORT FILE ?"
 msgstr "サポートファイルを作成しますか ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ファイルは正常に生成されました"
+msgstr "ファイルは正常に作成されました"
 
 msgid "FILE GENERATION FAILED"
 msgstr "ファイル生成に失敗しました"
@@ -1187,7 +1190,7 @@ msgid "Cleaning "
 msgstr "クリーニング "
 
 msgid "CLEAR CACHES"
-msgstr ""
+msgstr "キャッシュをクリア"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル拡張子設定をリセット"
@@ -1217,10 +1220,10 @@ msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
 
 msgid "ON SCREEN KEYBOARD"
-msgstr "スクリーンキーボード"
+msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr "ゲーム実行時に隠す"
+msgstr "ゲーム実行中は非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1229,7 +1232,7 @@ msgid "USE RETROARCH RGUI MENU"
 msgstr "RETROARCH RGUIメニューを使用"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr "ESメニューの A/B ボタンを入れ替える"
+msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラーの自動設定"
@@ -1591,6 +1594,12 @@ msgstr "オンスクリーン ヘルプ"
 msgid "SHOW BATTERY STATUS"
 msgstr "バッテリー状態を表示"
 
+msgid "ICON"
+msgstr "アイコン"
+
+msgid "ICON AND TEXT"
+msgstr "アイコンと文字"
+
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
 
@@ -1839,10 +1848,10 @@ msgid "Preloading UI"
 msgstr "プレロード(先読み)式 UI"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "テーマを読み込んでいます"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "ゲームリストを読み込んでいます"
 
 msgid "MENU"
 msgstr "メニュー"
@@ -1881,7 +1890,7 @@ msgid "SET VIEWER PASSWORD"
 msgstr "ビューアパスワードの設定"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "類似ゲーム→"
 
 msgid "Searching"
 msgstr "検索中"
@@ -2253,7 +2262,7 @@ msgstr "%d 秒"
 #~ msgstr "KODI"
 
 #~ msgid "DELETE A CHAR"
-#~ msgstr "文字を削除"
+#~ msgstr "文字削除"
 
 #~ msgid "disabled"
 #~ msgstr "無効"
@@ -2271,7 +2280,7 @@ msgstr "%d 秒"
 #~ msgstr "デバッグ"
 
 #~ msgid "GRAPHICS BACKEND"
-#~ msgstr "グラフィックス バックエンド方式"
+#~ msgstr "グラフィックス API 方式"
 
 # bios status,untest
 #~ msgid "UNTESTED"
@@ -2285,7 +2294,7 @@ msgstr "%d 秒"
 #~ msgid "INVALID"
 #~ msgstr "無効"
 
-# need 5.27.2
+# Not reflected
 #~ msgid "Retrieving data download..."
 #~ msgstr "データを取得しています..."
 
@@ -2306,8 +2315,29 @@ msgstr "%d 秒"
 #~ msgstr "極限 (1350Mhz)"
 
 # use rpi
-#~ msgid "jack"
-#~ msgstr "3.5mm音声ジャック"
+#~ msgid "JACK"
+#~ msgstr "音声ジャック"
+
+#~ msgid "REDUCE SLOWDOWN"
+#~ msgstr "実行速度低下防止方法"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "COMPATIBLE"
+#~ msgstr "互換性向上"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "LIGHT"
+#~ msgstr "処理軽量化"
+
+# REDUCE SLOWDOWN
+# Not reflected
+#~ msgid "MAX"
+#~ msgstr "最大実行速度"
+
+#~ msgid "Off"
+#~ msgstr "オフ"
 
 #, fuzzy
 #~ msgid "HIGH (950Mhz)"
@@ -2448,9 +2478,6 @@ msgstr "%d 秒"
 #~ msgid "marquee"
 #~ msgstr "マーキー"
 
-#~ msgid "4 STARS"
-#~ msgstr "☆４"
-
 #~ msgid "scraper"
 #~ msgstr "スクレイプ"
 
@@ -2496,9 +2523,6 @@ msgstr "%d 秒"
 #~ msgid "GRID SIZE"
 #~ msgstr "グリッドサイズ"
 
-#~ msgid "ARCHITECTURE"
-#~ msgstr "アーキテクチャ"
-
 #~ msgid "VALIDATION"
 #~ msgstr "確認"
 
@@ -2517,9 +2541,6 @@ msgstr "%d 秒"
 #~ msgid "show video in boxes"
 #~ msgstr "ボックスにビデオを表示"
 
-#~ msgid "Internal"
-#~ msgstr "内部"
-
 #~ msgid "INTERNAL"
 #~ msgstr "内部"
 
@@ -2531,12 +2552,6 @@ msgstr "%d 秒"
 
 #~ msgid "SCRAPE FAILED : SCRAP LIMIT REACHED TODAY"
 #~ msgstr "スクレイプが失敗：本日のスクレイプ制限に達しました"
-
-#~ msgid "FULL"
-#~ msgstr "全機能"
-
-#~ msgid "BLUE"
-#~ msgstr "青"
 
 #~ msgid "CRT"
 #~ msgstr "ブラウン管風"
@@ -2584,9 +2599,6 @@ msgstr "%d 秒"
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 #~ msgstr "ESCかホットキーを押すと キャンセルします。"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "文字に移動"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "お気に入りのみ"
@@ -2636,12 +2648,6 @@ msgstr "%d 秒"
 
 #~ msgid "FILENAME"
 #~ msgstr "ファイル名"
-
-#~ msgid "TIMES PLAYED"
-#~ msgstr "プレイ回数"
-
-#~ msgid "LAST PLAYED"
-#~ msgstr "最終プレイ日時"
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "プレイヤー数"

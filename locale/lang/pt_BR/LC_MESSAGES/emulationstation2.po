@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-12-03 02:27-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -403,7 +403,10 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPO COLEÇÕES CUSTOMIZADO"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
+msgstr "EXIBIR NOME DO SISTEMA NAS COLEÇÕES"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "EXIBIR JOGOS DE SISTEMAS OCULTOS NAS COLEÇÕES"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ATUALIZAR LISTAS DE JOGOS"
@@ -727,10 +730,10 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "USAR O OMX PLAYER PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
-msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
+msgstr "EXIBIR INFORMAÇÃO DO JOGO"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "MOSTRAR INFORMAÇÃO DO JOGO EM PROTEÇÃO DE TELA"
+msgstr "EXIBIR INFORMAÇÃO DO JOGO EM PROTEÇÃO DE TELA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
@@ -1150,7 +1153,7 @@ msgid "VRAM LIMIT"
 msgstr "LIMITE DE VRAM"
 
 msgid "SHOW FRAMERATE"
-msgstr "MOSTRAR TAXA DE QUADROS"
+msgstr "EXIBIR TAXA DE QUADROS"
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1237,7 +1240,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr "MOSTRAR INDICADOR DE REDE"
+msgstr "EXIBIR INDICADOR DE REDE"
 
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
@@ -1398,13 +1401,13 @@ msgid "LEADERBOARDS"
 msgstr "CLASSIFICAÇÃO"
 
 msgid "VERBOSE MODE"
-msgstr "MODO VERBOSO"
+msgstr "MODO DETALHADO"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "SHOW IN MAIN MENU"
-msgstr "MOSTRAR NO MENU PRINCIPAL"
+msgstr "EXIBIR NO MENU PRINCIPAL"
 
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR JOGOS EM REDE"
@@ -1510,7 +1513,7 @@ msgid "default"
 msgstr "padrão"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "MOSTRAR ATIVIDADE DO CONTROLE"
+msgstr "EXIBIR ATIVIDADE DO CONTROLE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
@@ -1543,19 +1546,19 @@ msgid "GAMELIST OPTIONS"
 msgstr "OPÇÕES DE GAMELIST"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr "MOSTRAR FAVORITOS NO TOPO"
+msgstr "EXIBIR FAVORITOS NO TOPO"
 
 msgid "SHOW HIDDEN FILES"
-msgstr "MOSTRAR ARQUIVOS OCULTOS"
+msgstr "EXIBIR ARQUIVOS OCULTOS"
 
 msgid "SHOW FOLDERS"
-msgstr "MOSTRAR PASTAS"
+msgstr "EXIBIR PASTAS"
 
 msgid "having multiple games"
 msgstr "tendo vários jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "MOSTRAR '..' PASTA PRINCIPAL"
+msgstr "EXIBIR '..' PASTA PRINCIPAL"
 
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DE ARQUIVO"
@@ -1585,13 +1588,19 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIÇÃO DO CARREGAMENTO DO JOGO"
 
 msgid "SHOW CLOCK"
-msgstr "MOSTRAR RELÓGIO"
+msgstr "EXIBIR RELÓGIO"
 
 msgid "ON-SCREEN HELP"
 msgstr "AJUDA NA TELA"
 
 msgid "SHOW BATTERY STATUS"
-msgstr "MOSTRAR ESTADO DA BATERIA"
+msgstr "EXIBIR ESTADO DA BATERIA"
+
+msgid "ICON"
+msgstr "ÍCONE"
+
+msgid "ICON AND TEXT"
+msgstr "ÍCONE E TEXTO"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
@@ -1606,7 +1615,7 @@ msgid "MUSIC VOLUME"
 msgstr "VOLUME DA MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "MOSTRAR INDICADOR QUANDO MUDAR O VOLUME"
+msgstr "EXIBIR INDICADOR QUANDO MUDAR O VOLUME"
 
 msgid "MUSIC"
 msgstr "MÚSICA"
@@ -1844,10 +1853,10 @@ msgid "Preloading UI"
 msgstr "Pré-carregamento da interface"
 
 msgid "Loading theme"
-msgstr ""
+msgstr "Carregando tema"
 
 msgid "Loading gamelists"
-msgstr ""
+msgstr "Carregando gamelists"
 
 msgid "MENU"
 msgstr "MENU"
@@ -2040,7 +2049,7 @@ msgid "ALT GR"
 msgstr "ALT GR"
 
 msgid "SHIFT"
-msgstr "MUDANÇA"
+msgstr "SHIFT"
 
 msgid "SPACE"
 msgstr "ESPAÇO"

@@ -914,6 +914,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	CollectionSystemDecl sysDecl = sysData->decl;
 	FolderData* rootFolder = newSys->getRootFolder(); 
 
+	bool hiddenSystemsShowGames = Settings::getInstance()->getBool("HiddenSystemsShowGames");
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 	
 	for(auto& system : SystemData::sSystemVector)
@@ -922,7 +923,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 		if (!system->isGameSystem() || system->isCollection())
 			continue;
 		
-		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
+		if (!hiddenSystemsShowGames && std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
 			continue;
 
 		std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();

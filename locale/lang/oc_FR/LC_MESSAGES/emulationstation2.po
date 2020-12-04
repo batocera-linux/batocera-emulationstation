@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 19:03+0100\n"
+"POT-Creation-Date: 2020-12-02 08:20+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -410,6 +410,9 @@ msgstr "GROPAR LAS COLLECCIONS E LOS SISTÈMAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR LO NOM DEL SISTÈMA DINS LAS COLLECCIONS"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr ""
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LA LISTA DE JÒCS"
@@ -1580,6 +1583,12 @@ msgid "ON-SCREEN HELP"
 msgstr "AJUDA SUS L’ECRAN"
 
 msgid "SHOW BATTERY STATUS"
+msgstr ""
+
+msgid "ICON"
+msgstr ""
+
+msgid "ICON AND TEXT"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
