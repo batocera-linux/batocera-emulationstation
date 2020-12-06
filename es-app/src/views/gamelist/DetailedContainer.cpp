@@ -544,7 +544,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			mCheevos->setVisible(file->hasCheevos());
 
 		if (mNotCheevos != nullptr)
-			mNotCheevos->setVisible(!file->hasCheevos());
+			mNotCheevos->setVisible(file->getSourceFileData()->getSystem()->isCheevosSupported() && !file->hasCheevos());
 
 		if (mFavorite != nullptr)
 			mFavorite->setVisible(file->getFavorite());

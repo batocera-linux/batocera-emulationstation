@@ -69,6 +69,7 @@ public:
 		colorization = 32768,
 		padTokeyboard = 65536,
 		cheevos = 131072,
+		autocontrollers = 262144,
 
 		all = 0x0FFFFFFF
 	};

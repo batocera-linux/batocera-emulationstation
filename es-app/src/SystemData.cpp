@@ -385,6 +385,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
 		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
 		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
+		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
 	}
 
 	return ret;
@@ -1523,10 +1524,11 @@ bool SystemData::isCheevosSupported()
 
 	const std::set<std::string> cheevosSystems = {
 		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem", 
-		"psx", "atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
-		"nds", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
+		"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
+		"sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
 
-	// "nds" -> disable, rcheevos indexing crashes sometimes 
+	// "nds" -> Disabled for now
+	// "psx" -> Missing cd reader library	
 	// "atarijaguar", "jaguar" -> No games yet
 
 	if (cheevosSystems.find(getName()) != cheevosSystems.cend())
