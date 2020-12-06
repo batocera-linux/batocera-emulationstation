@@ -34,4 +34,3 @@ add_definitions("-DRC_DISABLE_LUA")
 
 include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_library(rcheevos STATIC ${CHEEVOS_SOURCES} ${CHEEVOS_HEADERS})
-target_link_libraries(rcheevos ${COMMON_LIBRARIES})

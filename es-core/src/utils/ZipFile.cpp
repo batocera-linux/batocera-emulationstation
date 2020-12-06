@@ -30,7 +30,7 @@ namespace Utils
 		ZipFile::~ZipFile()
 		{
 			if (mZipFile != nullptr)
-				delete mZipFile;
+				delete ((miniz_cpp::zip_file*) mZipFile);
 		}
 
 		bool ZipFile::load(const std::string &filename)
@@ -38,7 +38,7 @@ namespace Utils
 			try
 			{
 				if (mZipFile != nullptr)
-					delete mZipFile;
+					delete ((miniz_cpp::zip_file*) mZipFile);
 
 				miniz_cpp::zip_file* pFile = new miniz_cpp::zip_file();
 				pFile->load(filename);
