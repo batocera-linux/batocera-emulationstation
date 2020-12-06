@@ -201,6 +201,9 @@ const bool FileData::getKidGame()
 
 const bool FileData::hasCheevos()
 {
+	if (!getSourceFileData()->getSystem()->isCheevosSupported())
+		return false;
+
 	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
 }
 
@@ -1131,11 +1134,8 @@ void FileData::checkCheevosHash(bool force)
 
 	SystemData* system = getSystem();
 	auto crc = RetroAchievements::getCheevosHash(system, getPath());
-	if (!crc.empty())
-	{
-		getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
-		saveToGamelistRecovery(this);
-	}
+	getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
+	saveToGamelistRecovery(this);
 }
 
 std::string FileData::getKeyboardMappingFilePath()

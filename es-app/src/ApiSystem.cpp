@@ -997,30 +997,34 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 {
 	if (!Utils::FileSystem::exists(destFolder))
 		Utils::FileSystem::createDirectory(destFolder);
-
+		
 	if (Utils::String::toLower(Utils::FileSystem::getExtension(fileName)) == ".zip")
 	{
-		try
+		// 10 Mb max : If file is too big, prefer external decompression
+		if (getSevenZipCommand().empty() || Utils::FileSystem::getFileSize(fileName) < 10000 * 1024)
 		{
-			Utils::Zip::ZipFile file;
-			file.load(fileName);
-
-			for (auto name : file.namelist())
+			try
 			{
-				if (Utils::String::endsWith(name, "/"))
+				Utils::Zip::ZipFile file;
+				file.load(fileName);
+
+				for (auto name : file.namelist())
 				{
-					Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
-					continue;
+					if (Utils::String::endsWith(name, "/"))
+					{
+						Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
+						continue;
+					}
+
+					file.extract(name, destFolder);
 				}
 
-				file.extract(name, destFolder);
+				return true;
 			}
-
-			return true;
-		}
-		catch (...)
-		{
-			return false;
+			catch (...)
+			{
+				return false;
+			}
 		}
 	}
 

@@ -3,14 +3,20 @@
 #include "GuiSettings.h"
 #include "RetroAchievements.h"
 
+class FileData;
+
 class GuiRetroAchievements : public GuiSettings 
 {
 public:
 	static void show(Window* window);
+	
+	bool input(InputConfig* config, Input input) override;
+	std::vector<HelpPrompt> getHelpPrompts() override;
+
+	static FileData* getFileData(const std::string& cheevosGameId);
 
 protected:
 	GuiRetroAchievements(Window *window, RetroAchievementInfo ra);    
-
 	void	centerWindow();
 };
 

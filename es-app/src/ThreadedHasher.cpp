@@ -2,18 +2,19 @@
 #include "Window.h"
 #include "FileData.h"
 #include "components/AsyncNotificationComponent.h"
-#include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
 #include "Gamelist.h"
 #include "RetroAchievements.h"
-
 #include "SystemConf.h"
 #include "SystemData.h"
 #include "FileData.h"
-#include <unordered_set>
-#include <queue>
 #include "ApiSystem.h"
 #include "utils/StringUtil.h"
+
+#include <unordered_set>
+#include <queue>
+
+#include "LocaleES.h"
 
 #define ICONINDEX _U("\uF002 ")
 
@@ -35,7 +36,12 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 
 	if ((mType & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5)
+	{
 		mCheevosHashes = RetroAchievements::getCheevosHashes();
+		if (mCheevosHashes.size() == 0)
+			while (!mSearchQueue.empty())
+				mSearchQueue.pop();
+	}
 
 	if (mType == HASH_CHEEVOS_MD5)
 		mWndNotification->updateTitle(ICONINDEX + _("SEARCHING RETROACHIEVEMENTS"));
@@ -104,11 +110,14 @@ void ThreadedHasher::run()
 		{
 			game->checkCheevosHash(mForce);
 
-			if (mCheevosHashes.size() > 0)
+			auto hash = Utils::String::toUpper(game->getMetadata(MetaDataId::CheevosHash));
+			if (!hash.empty())
 			{
-				auto cheevos = mCheevosHashes.find(Utils::String::toUpper(game->getMetadata(MetaDataId::CheevosHash)));
+				auto cheevos = mCheevosHashes.find(hash);
 				if (cheevos != mCheevosHashes.cend())
 					game->setMetadata(MetaDataId::CheevosId, cheevos->second);
+				else
+					game->setMetadata(MetaDataId::CheevosId, "");
 			}
 		}		
 
@@ -153,7 +162,7 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
-			bool cheevos = takeCheevos && (forceAllGames || file->getMetadata(MetaDataId::CheevosHash).empty());
+			bool cheevos = takeCheevos; // && (forceAllGames || file->getMetadata(MetaDataId::CheevosId).empty());
 
 			if (netPlay || cheevos)
 				searchQueue.push(file);

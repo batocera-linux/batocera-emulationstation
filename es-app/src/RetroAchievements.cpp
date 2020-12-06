@@ -23,6 +23,8 @@ using namespace PlatformIds;
 const std::map<PlatformId, unsigned short> cheevosConsoleID 
 {
 	{ ARCADE, RC_CONSOLE_ARCADE },
+	{ NEOGEO, RC_CONSOLE_ARCADE },
+	
 	{ SEGA_MEGA_DRIVE, 1 },
 	{ NINTENDO_64, 2 },
 	{ SUPER_NINTENDO, 3 },
@@ -49,7 +51,6 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 	{ POKEMINI, 24 },
 	{ ATARI_2600, 25 },
 	{ PC, 26 },
-	{ ARCADE, 27 },
 	{ NINTENDO_VIRTUAL_BOY, 28 },
 	{ MSX, 29 },
 	{ COMMODORE_64, 30 },
@@ -468,7 +469,9 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
 {
 	char hash[33];
-	rc_hash_generate_from_file(hash, consoleId, fileName.c_str());
+	if (rc_hash_generate_from_file(hash, consoleId, fileName.c_str()) == 0)
+		return "";
+
 	return hash;
 }
 
@@ -488,6 +491,9 @@ std::string RetroAchievements::getCheevosHash( SystemData* system, const std::st
 		}
 	}
 	
+	if (consoleId == RC_CONSOLE_ARCADE)
+		return getCheevosHashFromFile(consoleId, fileName);
+
 	if (consoleId == 0 || consolesWithmd5hashes.find(consoleId) != consolesWithmd5hashes.cend())
 		return ApiSystem::getInstance()->getMD5(fileName, fromZipContents);
 

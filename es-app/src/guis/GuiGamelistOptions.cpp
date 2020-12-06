@@ -180,10 +180,29 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 
 		if (hasCheevos)
 		{
-			mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
+			if (!file->isFeatureSupported(EmulatorFeatures::cheevos))
+			{				
+				std::string coreList = file->getSourceFileData()->getSystem()->getCompatibleCoreNames(EmulatorFeatures::cheevos);
+				std::string msg = _U("\uF06A  ");
+				msg += _("CURRENT CORE IS NOT COMPATIBLE") + " : " + Utils::String::toUpper(file->getCore(true));
+				if (!coreList.empty())
+				{
+					msg += _U("\r\n\uF05A  ");
+					msg += _("REQUIRED CORE") + " : " + Utils::String::toUpper(coreList);
+				}
+
+				mMenu.addWithDescription(_("VIEW GAME ACHIEVEMENTS"), msg, nullptr, [window, file, this]
+				{
+					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
+				});
+			}
+			else
 			{
-				GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
-			});
+				mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
+				{
+					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
+				});
+			}
 		}
 	}
 

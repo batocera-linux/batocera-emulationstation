@@ -4,16 +4,18 @@
 #include "guis/GuiThemeInstallStart.h"
 #include "guis/GuiSettings.h"
 #include "components/WebImageComponent.h"
-
 #include "Window.h"
-#include <string>
 #include "Log.h"
 #include "Settings.h"
-#include "LocaleES.h"
 #include "GuiLoading.h"
-
 #include "components/MultiLineMenuEntry.h"
 #include "GuiGameAchievements.h"
+#include "SystemData.h"
+#include "FileData.h"
+#include "views/ViewController.h"
+
+#include <string>
+#include "LocaleES.h"
 
 #define WINDOW_WIDTH (float)Math::max((int)(Renderer::getScreenHeight() * 0.875f), (int)(Renderer::getScreenWidth() * 0.6f))
 #define IMAGESIZE (Renderer::getScreenHeight() * (48.0 / 720.0))
@@ -124,8 +126,19 @@ public:
 		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
 		mImage->setImage(ra.badge.empty() ? ":/cartridge.svg" : ra.badge);
 
+		mFileData = GuiRetroAchievements::getFileData(mGameInfo.id);
+		if (mFileData == nullptr)
+		{
+			mImage->setColorShift(0x80808080);
+			mImage->setOpacity(120);
+			mText->setOpacity(150);
+			mSubstring->setOpacity(120);
+			mProgress->setOpacity(120);
+		}
+
 		setSize(0, height);
 	}
+
 
 	virtual void setColor(unsigned int color)
 	{
@@ -134,7 +147,16 @@ public:
 		mProgress->setColor(color);
 	}
 
+	std::string gameId()
+	{
+		if (mFileData == nullptr)
+			return "";
+
+		return mFileData->getMetadata(MetaDataId::CheevosId);
+	}
+
 private:
+	FileData* mFileData;
 	std::shared_ptr<TextComponent> mText;
 	std::shared_ptr<TextComponent> mSubstring;
 	std::shared_ptr<RetroAchievementProgress> mProgress;
@@ -170,18 +192,8 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		ComponentListRow row;
 
 		auto itstring = std::make_shared<RetroAchievementEntry>(mWindow, game);
-		/*
-		auto badge = std::make_shared<WebImageComponent>(mWindow);
-		badge->setMaxSize(IMAGESIZE, IMAGESIZE);
-		badge->setImage(game.badge.empty() ? ":/cartridge.svg" : game.badge);			
-		row.addElement(badge, false, false);
-
-		auto spacer = std::make_shared<GuiComponent>(mWindow);
-		spacer->setSize(IMAGESPACER, 0);
-		row.addElement(spacer, false);
-		*/
 		if (!game.points.empty())
-		{
+		{			
 			int gameId = Utils::String::toInteger(game.id);
 			row.makeAcceptInputHandler([this, gameId] { GuiGameAchievements::show(mWindow, gameId); });
 
@@ -189,11 +201,17 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		}
 
 		row.addElement(itstring, true);
-		addRow(row);		
+		//addRow(row);		
+
+		mMenu.getList()->addRow(row, false, false, itstring->gameId());
 	}
+
+	mMenu.getList()->setCursorChangedCallback([&](const CursorState& state) { updateHelpPrompts(); });
 
 	centerWindow();
 }
+
+
 
 void GuiRetroAchievements::centerWindow()
 {
@@ -205,4 +223,54 @@ void GuiRetroAchievements::centerWindow()
 		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.901f);
 
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+}
+
+bool GuiRetroAchievements::input(InputConfig* config, Input input)
+{
+	if (config->isMappedTo("x", input) && input.value != 0)
+	{
+		if (mMenu.getList()->size() > 0 && !mMenu.getList()->getSelected().empty())
+		{
+			auto file = getFileData(mMenu.getList()->getSelected());
+			if (file != nullptr)
+			{
+				Window* window = mWindow;
+				while (window->peekGui() && window->peekGui() != ViewController::get())
+					delete window->peekGui();
+
+				ViewController::get()->launch(file);
+			}
+		}
+
+		return true;
+	}
+
+	return GuiSettings::input(config, input);
+}
+
+std::vector<HelpPrompt> GuiRetroAchievements::getHelpPrompts()
+{
+	std::vector<HelpPrompt> prompts;
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("VIEW DETAILS")));
+
+	if (mMenu.getList()->size() > 0 && !mMenu.getList()->getSelected().empty())
+		prompts.push_back(HelpPrompt("x", _("LAUNCH")));
+
+	return prompts;
+}
+
+FileData* GuiRetroAchievements::getFileData(const std::string& cheevosGameId)
+{
+	for (auto sys : SystemData::sSystemVector)
+	{
+		if (!sys->isCheevosSupported())
+			continue;
+
+		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
+			if (file->getMetadata(MetaDataId::CheevosId) == cheevosGameId)
+				return file;
+	}
+
+	return nullptr;
 }

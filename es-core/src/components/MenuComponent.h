@@ -64,6 +64,8 @@ public:
 
 	void updateSize();
 
+	std::shared_ptr<ComponentList> getList() { return mList; };
+
 private:
 	void updateGrid();
 
