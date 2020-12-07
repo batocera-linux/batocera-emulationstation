@@ -63,6 +63,7 @@ public:
 	}
 
 	void updateSize();
+	void clearButtons();
 
 	std::shared_ptr<ComponentList> getList() { return mList; };
 

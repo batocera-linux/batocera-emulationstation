@@ -99,7 +99,7 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
-		setEntry(mImage, Vector2i(0, 0), true, false, Vector2i(1, 2));
+		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 2));
 
 		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.name.c_str(), theme->Text.font, theme->Text.color);
 		mText->setVerticalAlignment(ALIGN_TOP);
@@ -107,7 +107,7 @@ public:
 		mSubstring = std::make_shared<TextComponent>(mWindow, mGameInfo.points + " points", theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
 
-		setEntry(mText, Vector2i(2, 0), true, true);
+		setEntry(mText, Vector2i(2, 0), false, true);
 		setEntry(mSubstring, Vector2i(2, 1), false, true);
 		
 		int percent = Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);

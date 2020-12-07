@@ -13,6 +13,7 @@
 
 #include "components/MultiLineMenuEntry.h"
 #include "GuiGameAchievements.h"
+#include "views/ViewController.h"
 
 #define WINDOW_WIDTH (float)Math::max((int)(Renderer::getScreenHeight() * 0.875f), (int)(Renderer::getScreenWidth() * 0.6f))
 #define IMAGESIZE (Renderer::getScreenHeight() * (48.0 / 720.0))
@@ -44,7 +45,7 @@ public:
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
 
-		setEntry(mImage, Vector2i(0, 0), true, false, Vector2i(1, 2));
+		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 2));
 				
 		std::string desc = mGameInfo.Description;
 		desc += _U(" - ") + _("Points") + " : " + mGameInfo.Points;
@@ -57,7 +58,7 @@ public:
 		mSubstring = std::make_shared<TextComponent>(mWindow, desc, theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
 
-		setEntry(mText, Vector2i(2, 0), true, true);
+		setEntry(mText, Vector2i(2, 0), false, true);
 		setEntry(mSubstring, Vector2i(2, 1), false, true);
 
 		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
@@ -93,6 +94,24 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 	setUpdateType(ComponentListFlags::UPDATE_ALWAYS);
 
 	setTitle(ra.Title);
+
+	mMenu.clearButtons();
+
+	mFile = GuiRetroAchievements::getFileData(std::to_string(ra.ID));
+	if (mFile != nullptr)
+	{
+		auto file = mFile;
+		mMenu.addButton(_("LAUNCH"), _("LAUNCH"), [this, file]
+		{ 			
+			Window* window = mWindow;
+			while (window->peekGui() && window->peekGui() != ViewController::get())
+				delete window->peekGui();
+
+			ViewController::get()->launch(file);
+		});
+	}
+
+	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	int totalPoints = 0;
 	int userPoints = 0;
@@ -139,7 +158,7 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 		addRow(row);
 	}
 
-	centerWindow();
+	centerWindow();	
 }
 
 void GuiGameAchievements::centerWindow()
@@ -176,4 +195,37 @@ void GuiGameAchievements::render(const Transform4x4f& parentTrans)
 		Transform4x4f trans = parentTrans * mMenu.getTransform();
 		mProgress->render(trans);
 	}
+}
+
+bool GuiGameAchievements::input(InputConfig* config, Input input)
+{
+	if (config->isMappedTo("x", input) && input.value != 0)
+	{
+		if (mFile != nullptr)
+		{
+			auto file = mFile;
+			if (file != nullptr)
+			{
+				Window* window = mWindow;
+				while (window->peekGui() && window->peekGui() != ViewController::get())
+					delete window->peekGui();
+
+				ViewController::get()->launch(file);
+			}
+		}
+
+		return true;
+	}
+
+	return GuiSettings::input(config, input);
+}
+std::vector<HelpPrompt> GuiGameAchievements::getHelpPrompts()
+{
+	std::vector<HelpPrompt> prompts;
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+
+	if (mFile != nullptr)
+		prompts.push_back(HelpPrompt("x", _("LAUNCH")));
+
+	return prompts;
 }

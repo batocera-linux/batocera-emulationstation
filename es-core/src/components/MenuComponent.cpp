@@ -357,6 +357,13 @@ void MenuComponent::onSizeChanged()
 	}
 }
 
+void MenuComponent::clearButtons()
+{
+	mButtons.clear();
+	updateGrid();
+	updateSize();
+}
+
 void MenuComponent::addButton(const std::string& name, const std::string& helpText, const std::function<void()>& callback)
 {
 	mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, Utils::String::toUpper(name), helpText, callback));

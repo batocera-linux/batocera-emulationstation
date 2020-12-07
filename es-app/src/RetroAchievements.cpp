@@ -511,20 +511,32 @@ static void rc_hash_handle_cd_close_track(void* track_handle)
 	}	
 }
 
+static rc_hash_cdreader cdreader;
+static bool cdreaderinit = false;
+
 std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
 {
-	struct rc_hash_cdreader cdreader;
-	cdreader.open_track = rc_hash_handle_cd_open_track;
-	cdreader.read_sector = rc_hash_handle_cd_read_sector;
-	cdreader.close_track = rc_hash_handle_cd_close_track;
-	cdreader.absolute_sector_to_track_sector = nullptr;
-	rc_hash_init_custom_cdreader(&cdreader);
+	try
+	{
+		if (!cdreaderinit)
+		{
+			cdreader.open_track = rc_hash_handle_cd_open_track;
+			cdreader.read_sector = rc_hash_handle_cd_read_sector;
+			cdreader.close_track = rc_hash_handle_cd_close_track;
+			cdreader.absolute_sector_to_track_sector = nullptr;
+			rc_hash_init_custom_cdreader(&cdreader);
+			cdreaderinit = true;
+		}
 
-	char hash[33];
-	if (rc_hash_generate_from_file(hash, consoleId, fileName.c_str()) == 0)
-		return "";
+		char hash[33];
+		if (rc_hash_generate_from_file(hash, consoleId, fileName.c_str()) != 0)
+			return hash;
+	}
+	catch (...)
+	{
+	}
 
-	return hash;
+	return "";
 }
 
 std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string fileName)
