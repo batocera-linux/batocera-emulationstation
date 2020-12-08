@@ -77,6 +77,7 @@
 #define fake_gettext_curvature		_("CURVATURE")
 #define fake_gettext_zfast			_("ZFAST")
 #define fake_gettext_flatten_glow	_("FLATTEN-GLOW")
+#define fake_gettext_rgascaling		_("RGA SCALING")
 
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -1784,6 +1785,25 @@ void GuiMenu::openGamesSettings_batocera()
 		mWindow->pushGui(ai_service);
 	});
 	
+	// Load global custom features
+	for (auto feat : SystemData::mGlobalFeatures)
+	{
+		std::string storageName = "global." + feat.value;
+		std::string storedValue = SystemConf::getInstance()->get(storageName);
+
+		auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+		cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
+
+		for (auto fval : feat.choices)
+			cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+
+		if (!cf->hasSelection())
+			cf->selectFirstItem();
+
+		s->addWithLabel(_(feat.name.c_str()), cf);
+		s->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
+	}
+
 	// Custom config for systems
 	s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
 	{
@@ -3752,7 +3772,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}
 	}
 
-
+	// Load per-game / per-emulator / per-system custom features
 	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 	for (auto feat : customFeatures)
 	{

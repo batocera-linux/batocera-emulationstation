@@ -28,6 +28,7 @@
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
+std::vector<CustomFeature> SystemData::mGlobalFeatures;
 
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
@@ -463,6 +464,13 @@ bool SystemData::loadFeatures()
 		LOG(LogError) << "es_features.cfg is missing the <features> tag!";
 		return false;
 	}
+
+
+	pugi::xml_node globalFeatures = systemList.child("globalFeatures");
+	if (globalFeatures)
+		mGlobalFeatures = loadCustomFeatures(globalFeatures);
+	else
+		mGlobalFeatures.clear();
 
 	es_features_loaded = true;
 

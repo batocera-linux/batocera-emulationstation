@@ -273,8 +273,9 @@ public:
 	bool hasKeyboardMapping();
 	KeyMappingFile getKeyboardMapping();
 
-
 	bool shouldExtractHashesFromArchives();
+
+	static std::vector<CustomFeature> mGlobalFeatures;
 
 private:
 	std::string getKeyboardMappingFilePath();
@@ -314,6 +315,7 @@ private:
 	unsigned int mSortId;
 	std::string mViewMode;
 	Vector2f    mGridSizeOverride;	
+
 
 	GameCountInfo* mGameCountInfo;
 };
