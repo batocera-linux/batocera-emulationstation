@@ -168,7 +168,6 @@ set(COMMON_INCLUDE_DIRS
     ${RAPIDJSON_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/external
     ${CMAKE_CURRENT_SOURCE_DIR}/es-core/src
-	${CMAKE_CURRENT_SOURCE_DIR}/external/libretro-common/include
 )
 
 if(NOT DEFINED MSVC)
@@ -241,8 +240,7 @@ set(COMMON_LIBRARIES
     pugixml
     nanosvg
     id3v2
-	rcheevos	
-	libretro-common
+	libcheevos	
 )
 
 if(NOT DEFINED MSVC)

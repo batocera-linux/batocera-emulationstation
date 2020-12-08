@@ -909,8 +909,6 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	return ret;
 }
 
-
-
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));

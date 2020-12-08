@@ -4,5 +4,4 @@
 add_subdirectory("nanosvg")
 add_subdirectory("pugixml")
 add_subdirectory("id3v2lib")
-add_subdirectory("rcheevos")
-add_subdirectory("libretro-common")
+add_subdirectory("libcheevos")
