@@ -384,6 +384,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
 		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
 		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
+		if (trim == "rga_scaling") ret = ret | EmulatorFeatures::Features::rga_scaling;
 	}
 
 	return ret;

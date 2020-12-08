@@ -1637,6 +1637,12 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
 	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 
+	// RGA scaling
+	auto rga_scaling_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RGA SCALING"));
+	rga_scaling_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rga_scaling"));
+	s->addWithLabel(_("RGA SCALING"), rga_scaling_enabled);
+	s->addSaveFunc([rga_scaling_enabled] { SystemConf::getInstance()->set("global.rga_scaling", rga_scaling_enabled->getSelected()); });
+
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
 	{		
@@ -3443,6 +3449,17 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		integerscale_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".integerscale") == "0");
 		systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
 		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected()); });
+	}
+
+	// RGA scaling
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::rga_scaling))
+	{
+		auto rga_scaling_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RGA SCALING"));
+		rga_scaling_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rga_scaling") != "0" && SystemConf::getInstance()->get(configName + ".rga_scaling") != "1");
+		rga_scaling_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".rga_scaling") == "1");
+		rga_scaling_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".rga_scaling") == "0");
+		systemConfiguration->addWithLabel(_("RGA SCALING"), rga_scaling_enabled);
+		systemConfiguration->addSaveFunc([rga_scaling_enabled, configName] { SystemConf::getInstance()->set(configName + ".rga_scaling", rga_scaling_enabled->getSelected()); });
 	}
 
 	// decorations
