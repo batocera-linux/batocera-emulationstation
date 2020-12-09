@@ -571,8 +571,10 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 
 		idx++;
 	}
+	
+	float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 31.0f);
+	w = Math::max(w, Renderer::getScreenWidth() / 3.0f);
 
-	int w = Renderer::getScreenWidth() / 3;
 	gs->getMenu().setSize(w, Renderer::getScreenHeight());
 
 	gs->getMenu().animateTo(

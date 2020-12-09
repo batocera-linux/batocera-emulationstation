@@ -15,7 +15,7 @@
 #include "GuiGameAchievements.h"
 #include "views/ViewController.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)(Renderer::getScreenHeight() * 0.875f), (int)(Renderer::getScreenWidth() * 0.6f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 #define IMAGESIZE (Renderer::getScreenHeight() * (48.0 / 720.0))
 #define IMAGESPACER (Renderer::getScreenHeight() * (10.0 / 720.0))
 

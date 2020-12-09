@@ -12,7 +12,7 @@
 #include "GuiLoading.h"
 #include "components/WebImageComponent.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	: GuiComponent(window), mMenu(window, _("THEMES DOWNLOADER").c_str()), mReloadList(1)

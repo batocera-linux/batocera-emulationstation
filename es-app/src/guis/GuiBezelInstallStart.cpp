@@ -13,7 +13,7 @@
 #include <cstring>
 #include "SystemConf.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str()), mReloadList(1)

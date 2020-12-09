@@ -17,7 +17,7 @@
 #include <string>
 #include "LocaleES.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)(Renderer::getScreenHeight() * 0.875f), (int)(Renderer::getScreenWidth() * 0.6f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 #define IMAGESIZE (Renderer::getScreenHeight() * (48.0 / 720.0))
 #define IMAGESPACER (Renderer::getScreenHeight() * (10.0 / 720.0))
 #define PROGRESSHEIGHT (Renderer::getScreenHeight() * 0.008f)
