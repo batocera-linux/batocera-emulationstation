@@ -977,7 +977,7 @@ const std::string FileData::getCore(bool resolveDefault)
 	}
 
 	if (resolveDefault && core.empty())
-		core = getSourceFileData()->getSystem()->getDefaultCore(getEmulator());
+		core = getSourceFileData()->getSystem()->getCore();
 
 	return core;
 }
@@ -1010,7 +1010,7 @@ const std::string FileData::getEmulator(bool resolveDefault)
 	}
 
 	if (resolveDefault && emulator.empty())
-		emulator = getSourceFileData()->getSystem()->getDefaultEmulator();
+		emulator = getSourceFileData()->getSystem()->getEmulator();
 
 	return emulator;
 }
