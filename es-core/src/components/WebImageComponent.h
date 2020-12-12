@@ -10,7 +10,7 @@ public:
 	WebImageComponent(Window* window, double keepInCacheDuration = -1);
 	virtual ~WebImageComponent();
 
-	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo()) override;	
+	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo(), bool checkFileExists = true) override;
 
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;

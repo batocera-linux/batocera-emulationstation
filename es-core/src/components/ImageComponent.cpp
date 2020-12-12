@@ -153,7 +153,7 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
+void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
 {
 	std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 	if (mPath == canonicalPath)
@@ -167,9 +167,10 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	// If the previous image is in the async queue, remove it
 	TextureResource::cancelAsync(mLoadingTexture);
 	TextureResource::cancelAsync(mTexture);
+
 	mLoadingTexture.reset();
 
-	if (mPath.empty() || !ResourceManager::getInstance()->fileExists(mPath))
+	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
 	{
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();

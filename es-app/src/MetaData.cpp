@@ -356,4 +356,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 		set(mdd.id, source.get(mdd.id));
 	}
+
+	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))
+		set(MetaDataId::Hidden, "true");
 }

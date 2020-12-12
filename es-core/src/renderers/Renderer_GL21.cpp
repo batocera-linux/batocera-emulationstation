@@ -363,8 +363,10 @@ namespace Renderer
 		float cent_x = x + r * Math::cosf(sa + ES_PI / 2.0f);
 		float cent_y = y + r * Math::sinf(sa + ES_PI / 2.0f);
 
+		float pieces = Math::min(3.0f, Math::max(r / 3.0f, ROUNDING_PIECES));
+
 		// build up piecemeal including end of the arc
-		int n = ceil(ROUNDING_PIECES * arc / ES_PI * 2.0f);
+		int n = ceil(pieces * arc / ES_PI * 2.0f);
 		for (int i = 0; i <= n; i++)
 		{
 			float ang = sa + arc * (double)i / (double)n;

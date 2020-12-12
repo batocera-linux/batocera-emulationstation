@@ -145,6 +145,8 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 	std::stable_sort(e.data.backgroundExtras.begin(), e.data.backgroundExtras.end(), [](GuiComponent* a, GuiComponent* b) {
 		return b->getZIndex() > a->getZIndex();
 	});
+
+	SystemRandomPlaylist::resetCache();
 }
 
 void SystemView::populate()

@@ -65,11 +65,11 @@ public:
 	std::string protocol, host, path, query;
 };
 
-void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
+void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
 {
 	if (!Utils::String::startsWith(path, "http://") && !Utils::String::startsWith(path, "https://"))
 	{
-		ImageComponent::setImage(path, tile, maxSize);
+		ImageComponent::setImage(path, tile, maxSize, checkFileExists);
 		return;
 	}
 

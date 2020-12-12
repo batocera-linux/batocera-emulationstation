@@ -291,9 +291,22 @@ void SystemData::createGroupedSystems()
 			md.name = item.first;
 			md.fullName = item.first;
 			md.themeFolder = item.first;
-			
-			if (item.second.size() > 0)
+
+			// Check if the system is described in es_systems but empty, to import metadatas )
+			auto sourceSystem = SystemData::loadSystem(item.first, false);
+			if (sourceSystem != nullptr)
 			{
+				md.fullName = sourceSystem->getSystemMetadata().fullName;
+				md.themeFolder = sourceSystem->getSystemMetadata().themeFolder;
+				md.manufacturer = sourceSystem->getSystemMetadata().manufacturer;
+				md.releaseYear = sourceSystem->getSystemMetadata().releaseYear;
+				md.hardwareType = sourceSystem->getSystemMetadata().hardwareType;
+
+				delete sourceSystem;
+			}
+			else if (item.second.size() > 0)
+			{
+
 				SystemData* syss = *item.second.cbegin();
 				md.manufacturer = syss->getSystemMetadata().manufacturer;
 				md.releaseYear = syss->getSystemMetadata().releaseYear;

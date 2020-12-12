@@ -725,6 +725,45 @@ void GuiMenu::openDeveloperSettings()
 		ViewController::reloadAllGames(mWindow, false);
 	});
 
+	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
+	{
+		unsigned int x;
+		unsigned int y;
+
+		int idx = 0;
+		for (auto sys : SystemData::sSystemVector)
+		{
+			if (sys->isCollection())
+			{
+				idx++;
+				continue;
+			}
+
+			mWindow->renderSplashScreen(_("Building image cache") + " : " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+
+			for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
+			{
+				for (auto mdd : MetaDataList::getMDD())
+				{
+					if (mdd.type != MetaDataId::Image && mdd.type != MetaDataId::Thumbnail)
+						continue;
+
+					auto value = file->getMetadata(mdd.id);
+					if (value.empty())
+						continue;
+
+					auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
+					if (ext == ".jpg" || ext == ".png")
+						ImageIO::loadImageSize(value.c_str(), &x, &y);
+				}
+			}
+
+			idx++;
+		}
+
+		mWindow->closeSplashScreen();
+	});
+
 	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
 	{
 		for (auto system : SystemData::sSystemVector)

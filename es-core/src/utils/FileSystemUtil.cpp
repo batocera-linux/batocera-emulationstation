@@ -13,6 +13,7 @@
 #include <direct.h>
 #include <Windows.h>
 #include <mutex>
+#include <io.h> 
 #define getcwd _getcwd
 #define mkdir(x,y) _mkdir(x)
 #define snprintf _snprintf
@@ -500,16 +501,19 @@ namespace Utils
 
 		std::string getGenericPath(const std::string& _path)
 		{
+			if (_path.empty())
+				return _path;
+
 			std::string path   = _path;
 			size_t      offset = std::string::npos;
 
 			// remove "\\\\?\\"
-			if((path.find("\\\\?\\")) == 0)
+			if(path[0] == '\\' && (path.find("\\\\?\\")) == 0)
 				path.erase(0, 4);
 
 			// convert '\\' to '/'
-			while((offset = path.find('\\')) != std::string::npos)
-				path.replace(offset, 1 ,"/");
+			while ((offset = path.find('\\')) != std::string::npos)
+				path[offset] = '/';// .replace(offset, 1, "/");
 
 			// remove double '/'
 			while((offset = path.find("//")) != std::string::npos)
@@ -693,6 +697,14 @@ namespace Utils
 
 		std::string getExtension(const std::string& _path)
 		{
+			const char *str = _path.c_str();
+
+			const char *ext;
+			if (str && *str != '\0' && ((ext = strrchr(str, '.'))) && strpbrk(ext, "/\\") == nullptr)
+				return ext;
+
+			return std::string();
+			/*
 			std::string fileName = getFileName(_path);
 			size_t      offset   = std::string::npos;
 
@@ -705,7 +717,7 @@ namespace Utils
 				return std::string(fileName, offset);
 
 			// no '.' found, filename has no extension
-			return ".";
+			return ".";*/
 
 		} // getExtension
 
@@ -908,6 +920,9 @@ namespace Utils
 				return it->exists;
 
 #ifdef WIN32			
+			if (!FileCache::isEnabled())
+				return _waccess_s(Utils::String::convertToWideString(_path).c_str(), 0) == 0;
+
 			DWORD dwAttr = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
 			FileCache::add(_path, FileCache(dwAttr));
 			if (0xFFFFFFFF == dwAttr)

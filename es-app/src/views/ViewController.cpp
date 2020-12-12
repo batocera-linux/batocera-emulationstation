@@ -999,6 +999,8 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 			pool.wait();
 	}
 
+	bool preloadUI = Settings::getInstance()->getBool("PreloadUI");
+
 	if (gameListCount > 0)
 	{
 		int lastTime = SDL_GetTicks() - 50;
@@ -1013,7 +1015,14 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 			if (it->second == nullptr)
 				continue;
 
-			getGameListView(it->first)->setCursor(it->second);
+			if (preloadUI)
+				getGameListView(it->first)->setCursor(it->second);
+			else if (mState.viewing == GAME_LIST)
+			{
+				if (mState.getSystem() == it->first)
+					getGameListView(mState.getSystem())->setCursor(it->second);
+			}
+			
 			idx++;
 
 			int time = SDL_GetTicks();

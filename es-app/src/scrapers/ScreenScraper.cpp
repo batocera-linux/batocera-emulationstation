@@ -306,9 +306,11 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 	if (imageSource == "ss")
 		ripList = { "ss", "sstitle", "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
 	else if (imageSource == "sstitle")
-		ripList = { "sstitle", "ss", "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
-	else if (imageSource == "mixrbv1" || imageSource == "mixrbv2" || imageSource == "mixrbv")
-		ripList = { "mixrbv1", "mixrbv2", "ss", "box-3D", "box-2D" };
+		ripList = { "sstitle", "ss" };
+	else if (imageSource == "mixrbv1" || imageSource == "mixrbv")
+		ripList = { "mixrbv1", "mixrbv2", "ss" };
+	else if (imageSource == "mixrbv2")
+		ripList = { "mixrbv2", "mixrbv1", "ss" };
 	else if (imageSource == "box-2D")
 		ripList = { "box-2D", "box-3D" };
 	else if (imageSource == "box-3D")
