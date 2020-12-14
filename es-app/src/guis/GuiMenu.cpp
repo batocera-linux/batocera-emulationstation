@@ -208,6 +208,7 @@ void GuiMenu::openEmuELECSettings()
 
 	Window* window = mWindow;
 	std::string a;
+#ifndef _ENABLEGAMEFORCE && !defined(ODROIDGOA)
 	auto emuelec_video_mode = std::make_shared< OptionListComponent<std::string> >(mWindow, "VIDEO MODE", false);
         std::vector<std::string> videomode;
 		videomode.push_back("1080p60hz");
@@ -279,7 +280,60 @@ void GuiMenu::openEmuELECSettings()
 		 	mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 		 }
 		});
+#endif
+#ifdef _ENABLEGAMEFORCE
+		auto emuelec_blrgboptions_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "BUTTON LED COLOR", false);
+		std::vector<std::string> blrgboptions;
+		blrgboptions.push_back("off");
+		blrgboptions.push_back("red");
+		blrgboptions.push_back("green");
+		blrgboptions.push_back("blue");
+		blrgboptions.push_back("white");
+		blrgboptions.push_back("purple");
+		blrgboptions.push_back("yellow");
+		blrgboptions.push_back("cyan");
 		
+		auto blrgboptionsS = SystemConf::getInstance()->get("bl_rgb");
+		if (blrgboptionsS.empty())
+		blrgboptionsS = "off";
+		
+		for (auto it = blrgboptions.cbegin(); it != blrgboptions.cend(); it++)
+		emuelec_blrgboptions_def->add(*it, *it, blrgboptionsS == *it);
+		
+		s->addWithLabel(_("BUTTON LED COLOR"), emuelec_blrgboptions_def);
+		s->addSaveFunc([emuelec_blrgboptions_def] {
+			if (emuelec_blrgboptions_def->changed()) {
+				std::string selectedblrgb = emuelec_blrgboptions_def->getSelected();
+                runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh bl " +selectedblrgb, "", nullptr);
+				SystemConf::getInstance()->set("bl_rgb", selectedblrgb);
+                SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+		
+        auto emuelec_powerled_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "POWER LED COLOR", false);
+		std::vector<std::string> powerledoptions;
+		powerledoptions.push_back("off");
+		powerledoptions.push_back("heartbeat");
+        powerledoptions.push_back("on");
+		
+		auto powerledoptionsS = SystemConf::getInstance()->get("gf_powerled");
+		if (powerledoptionsS.empty())
+		powerledoptionsS = "heartbeat";
+		
+		for (auto it = powerledoptions.cbegin(); it != powerledoptions.cend(); it++)
+		emuelec_powerled_def->add(*it, *it, powerledoptionsS == *it);
+		
+		s->addWithLabel(_("POWER LED COLOR"), emuelec_powerled_def);
+		s->addSaveFunc([emuelec_powerled_def] {
+			if (emuelec_powerled_def->changed()) {
+				std::string selectedpowerled = emuelec_powerled_def->getSelected();
+                runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh pl " +selectedpowerled, "", nullptr);
+				SystemConf::getInstance()->set("gf_powerled", selectedpowerled);
+                SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+#endif	
+#ifndef _ENABLEGAMEFORCE && !defined(ODROIDGOA)		
 		auto emuelec_audiodev_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "AUDIO DEVICE", false);
 		std::vector<std::string> Audiodevices;
 		Audiodevices.push_back("auto");
@@ -303,7 +357,7 @@ void GuiMenu::openEmuELECSettings()
 				SystemConf::getInstance()->saveSystemConf();
 			}
 		});
-		
+#endif		
        auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
 		bluetoothd_enabled->setState(btbaseEnabled);
