@@ -75,7 +75,7 @@ void HelpComponent::updateGrid()
 	{
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 
-		if (mStyle.iconMap.find(it->first) != mStyle.iconMap.end() && Utils::FileSystem::exists(mStyle.iconMap[it->first]))
+		if (mStyle.iconMap.find(it->first) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[it->first]))
 			icon->setImage(mStyle.iconMap[it->first]);
 		else
 			icon->setImage(getIconTexture(it->first.c_str()));
