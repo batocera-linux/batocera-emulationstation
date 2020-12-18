@@ -31,6 +31,7 @@ struct CustomFeature
 {
 	std::string name;
 	std::string value;
+	std::string description;
 	std::vector<CustomFeatureChoice> choices;
 };
 

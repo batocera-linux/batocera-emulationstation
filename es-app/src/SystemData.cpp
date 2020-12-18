@@ -422,6 +422,9 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 
 		CustomFeature feat;
 		feat.name = featureNode.attribute("name").value();
+		
+		if (featureNode.attribute("description"))
+			feat.description = featureNode.attribute("description").value();
 
 		if (featureNode.attribute("value"))
 			feat.value = featureNode.attribute("value").value();

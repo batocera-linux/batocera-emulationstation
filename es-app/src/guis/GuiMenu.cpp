@@ -1845,7 +1845,11 @@ void GuiMenu::openGamesSettings_batocera()
 		if (!cf->hasSelection())
 			cf->selectFirstItem();
 
-		s->addWithLabel(_(feat.name.c_str()), cf);
+		if (!feat.description.empty())
+			s->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+		else
+			s->addWithLabel(_(feat.name.c_str()), cf);
+
 		s->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
 	}
 
@@ -3833,7 +3837,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		if (!cf->hasSelection())
 			cf->selectFirstItem();
 
-		systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+		if (!feat.description.empty())
+			systemConfiguration->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+		else
+			systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+
 		systemConfiguration->addSaveFunc([cf, storageName] 
 		{			
 			SystemConf::getInstance()->set(storageName, cf->getSelected());
