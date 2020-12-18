@@ -746,6 +746,56 @@ bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreNa
 	return !es_features_loaded;
 }
 
+// Load custom additionnal config from : /userdata/system/configs/emulationstation/es_systems_*.cfg
+void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
+{
+	for (auto customPath : Utils::FileSystem::getDirContent(Utils::FileSystem::getEsConfigPath(), false, false))
+	{
+		if (Utils::FileSystem::getExtension(customPath) != ".cfg")
+			continue;
+
+		if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
+			continue;
+
+		pugi::xml_document doc;
+		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+		if (!res)
+		{
+			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+			return;
+		}
+
+		pugi::xml_node systemList = doc.child("systemList");
+		if (!systemList)
+		{
+			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
+			return;
+		}
+
+		for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+		{
+			if (!system.child("name"))
+				continue;
+
+			std::string name = system.child("name").text().get();
+			if (name.empty())
+				continue;
+
+			// Remove existing one
+			for (pugi::xml_node srcSystem = srcSystems.child("system"); srcSystem; srcSystem = srcSystem.next_sibling("system"))
+			{
+				if (system.child("name").text().get() == name)
+				{
+					srcSystems.remove_child(srcSystem);
+					break;
+				}
+			}
+
+			srcSystems.append_copy(system);
+		}
+	}
+}
+
 //creates systems from information located in a config file
 bool SystemData::loadConfig(Window* window)
 {
@@ -780,6 +830,8 @@ bool SystemData::loadConfig(Window* window)
 		LOG(LogError) << "es_systems.cfg is missing the <systemList> tag!";
 		return false;
 	}
+
+	loadAdditionnalConfig(systemList);
 
 	std::vector<std::string> systemsNames;
 
@@ -921,6 +973,8 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 	if (!systemList)
 		return nullptr;
 
+	loadAdditionnalConfig(systemList);
+
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
 		std::string name = system.child("name").text().get();
@@ -948,6 +1002,8 @@ std::map<std::string, std::string> SystemData::getKnownSystemNames()
 	pugi::xml_node systemList = doc.child("systemList");
 	if (!systemList)
 		return ret;
+
+	loadAdditionnalConfig(systemList);
 
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{

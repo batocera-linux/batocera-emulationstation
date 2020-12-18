@@ -305,7 +305,8 @@ private:
 	void setIsGameSystemStatus();
 	
 	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
-	
+	static void loadAdditionnalConfig(pugi::xml_node& srcSystems);
+
 	FileFilterIndex* mFilterIndex;
 
 	FolderData* mRootFolder;
