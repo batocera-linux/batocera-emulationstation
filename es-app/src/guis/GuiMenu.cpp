@@ -307,7 +307,13 @@ void GuiMenu::openScraperSettings()
 		scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
 		s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
 		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
-		
+
+		// SCRAPE MAP		
+		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
+		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
+		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
+		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
+
 		// SCRAPE TITLESHOT
 		/*
 		auto scrape_titleshot = std::make_shared<SwitchComponent>(mWindow);
@@ -315,11 +321,6 @@ void GuiMenu::openScraperSettings()
 		s->addWithLabel(_("SCRAPE TITLESHOT"), scrape_titleshot);
 		s->addSaveFunc([scrape_titleshot] { Settings::getInstance()->setBool("ScrapeTitleShot", scrape_titleshot->getState()); });
 		
-		// SCRAPE MAP		
-		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
-		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
-		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
-		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
 		
 		// SCRAPE CARTRIDGE
 		auto scrape_cartridge = std::make_shared<SwitchComponent>(mWindow);
