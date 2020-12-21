@@ -1026,7 +1026,7 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 		}
 	}
 
-	std::string cmd = getSevenZipCommand() + " e \"" + fileName + "\" -y -o\"" + destFolder + "\"";
+	std::string cmd = getSevenZipCommand() + " x \"" + fileName + "\" -y -o\"" + destFolder + "\"";
 	return executeScript(cmd);
 }
 
