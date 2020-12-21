@@ -264,17 +264,16 @@ void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	ISimpleGameListView::onThemeChanged(theme);
 
-	using namespace ThemeFlags;
-
-	mGrid.applyTheme(theme, getName(), "gamegrid", ALL);
+	mGrid.applyTheme(theme, getName(), "gamegrid", ThemeFlags::ALL);
 	mDetails.onThemeChanged(theme);
-	
-	sortChildren();
 	updateInfoPanel();
 }
 
 void GridGameListView::updateInfoPanel()
 {
+	if (!mShowing)
+		return;
+
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 
