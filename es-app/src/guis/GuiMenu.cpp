@@ -2279,7 +2279,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 			{
-				if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
+				if (it->first == "basic" || it->first == "detailed" || it->first == "grid" || it->first == "video" || it->first == "gamecarousel")
 					styles.push_back(std::pair<std::string, std::string>(it->first, _(it->first.c_str())));
 				else
 					styles.push_back(*it);
@@ -2790,7 +2790,7 @@ void GuiMenu::openUISettings()
 				styles.push_back(std::pair<std::string, std::string>("basic", _("basic")));
 				styles.push_back(std::pair<std::string, std::string>("detailed", _("detailed")));
 				styles.push_back(std::pair<std::string, std::string>("video", _("video")));
-				styles.push_back(std::pair<std::string, std::string>("grid", _("grid")));
+				styles.push_back(std::pair<std::string, std::string>("grid", _("grid")));				
 			}
 
 			auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");

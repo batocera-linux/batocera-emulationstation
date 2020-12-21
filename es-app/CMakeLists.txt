@@ -29,6 +29,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
 
     # Guis
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.h
@@ -74,12 +75,13 @@ set(ES_HEADERS
 
     # Views
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/BasicGameListView.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/CarouselGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/IGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/ISimpleGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GridGameListView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/VideoGameListView.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.h	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.h
@@ -120,6 +122,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
 
     # Guis
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.cpp
@@ -161,12 +164,13 @@ set(ES_SOURCES
 
     # Views
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/BasicGameListView.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/CarouselGameListView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedGameListView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/IGameListView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/ISimpleGameListView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GridGameListView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/VideoGameListView.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.cpp	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.cpp
