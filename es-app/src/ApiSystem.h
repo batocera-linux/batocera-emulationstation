@@ -167,7 +167,7 @@ public:
 	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "");
 
 	virtual int getPdfPageCount(const std::string fileName);
-	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
+	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1, bool bestQuality = false);
 
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);

@@ -1322,7 +1322,7 @@ int ApiSystem::getPdfPageCount(const std::string fileName)
 	return 0;
 }
 
-std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount)
+std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount, bool bestQuality)
 {
 	auto pdfFolder = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
 	Utils::FileSystem::createDirectory(pdfFolder);
@@ -1375,26 +1375,29 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName,
 
 	std::string page;
 
+	std::string quality = "150";
+	if (bestQuality)
+		quality = "350";
+
 	std::string prefix = "extract";
 	if (pageIndex >= 0)
 	{
 		char buffer[12];
 		sprintf(buffer, "%08d", (uint32_t)pageIndex);
+		prefix = "page-" + quality + "-" + std::string(buffer) + "-pdf";
 
-		prefix = "page-" + std::string(buffer)+"-pdf";
 		page = " -f " + std::to_string(pageIndex) + " -l " + std::to_string(pageIndex + pageCount - 1);
 	}
 
-
 #if WIN32
-	executeEnumerationScript("pdftoppm -r 150"+ page +" \"" + fileName + "\" \""+ pdfFolder +"/" + prefix +"\"");
+	executeEnumerationScript("pdftoppm -r "+ quality + page +" \"" + fileName + "\" \""+ pdfFolder +"/" + prefix +"\"");
 #else
-	executeEnumerationScript("pdftoppm -jpeg -r 150 -cropbox" + page + " \"" + fileName + "\" \"" + pdfFolder + "/" + prefix + "\"");
+	executeEnumerationScript("pdftoppm -jpeg -r "+ quality +" -cropbox" + page + " \"" + fileName + "\" \"" + pdfFolder + "/" + prefix + "\"");
 #endif
 
 	int time = SDL_GetTicks() - lastTime;
 	std::string text = std::to_string(time);
-
+	
 	for (auto file : Utils::FileSystem::getDirContent(pdfFolder, false))
 	{
 		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file));

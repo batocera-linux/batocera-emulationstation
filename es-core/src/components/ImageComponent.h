@@ -178,6 +178,9 @@ private:
 	float mPlaylistTimer;
 
 	bool mLinear;
+
+protected:
+	bool mCheckClipping;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H

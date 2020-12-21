@@ -11,7 +11,7 @@ class GuiImageViewer : public GuiComponent
 {
 public:
 	static void showPdf(Window* window, const std::string imagePath);
-	static void showImage(Window* window, const std::string imagePath);
+	static void showImage(Window* window, const std::string imagePath, bool zoomSingleFile = false);
 
 	GuiImageViewer(Window* window, bool linearSmooth = false);
 	~GuiImageViewer();
@@ -25,6 +25,7 @@ public:
 protected:
 	ImageGridComponent<std::string> mGrid;
 	std::shared_ptr<ThemeData> mTheme;
+	std::string mPdf;
 };
 
 class GuiVideoViewer : public GuiComponent

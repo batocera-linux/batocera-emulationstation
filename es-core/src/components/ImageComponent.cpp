@@ -27,6 +27,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
 	mScaleOrigin = Vector2f::Zero();
+	mCheckClipping = true;
 
 	mLinear = false;
 	mHorizontalAlignment = ALIGN_CENTER;
@@ -431,7 +432,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	
 	// Don't use soft clip if rotation applied : let renderer do the work
-	if (mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
 	Renderer::setMatrix(trans);

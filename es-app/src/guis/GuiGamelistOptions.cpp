@@ -173,7 +173,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		{
 			mMenu.addEntry(_("VIEW GAME MAP"), false, [window, file, this]
 			{
-				GuiImageViewer::showImage(window, file->getMetadata(MetaDataId::Map));
+				auto imagePath = file->getMetadata(MetaDataId::Map);				
+				GuiImageViewer::showImage(window, imagePath, Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) != ".pdf");
 				delete this;
 			});
 		}
