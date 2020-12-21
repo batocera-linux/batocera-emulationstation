@@ -746,7 +746,7 @@ void GuiMenu::openDeveloperSettings()
 			{
 				for (auto mdd : MetaDataList::getMDD())
 				{
-					if (mdd.type != MetaDataId::Image && mdd.type != MetaDataId::Thumbnail)
+					if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
 						continue;
 
 					auto value = file->getMetadata(mdd.id);

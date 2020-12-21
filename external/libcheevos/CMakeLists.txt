@@ -39,6 +39,7 @@ set(LIBRETRO_COMMON_HEADERS
 
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_miscellaneous.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_endianness.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_common.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_common_api.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_environment.h		
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_inline.h	
@@ -68,6 +69,7 @@ set(LIBRETRO_COMMON_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/libchdr_zlib.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/lzma.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/minmax.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/flac.h		
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/file/file_path.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/string/stdstring.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/lists/dir_list.h
@@ -87,6 +89,7 @@ set(LIBRETRO_COMMON_HEADERS
 set(LIBRETRO_COMMON_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/file/file_path.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/file/file_path_io.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/file/retro_dirent.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/compat/compat_strl.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/compat/compat_posix_string.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/compat/fopen_utf8.c		
@@ -164,6 +167,14 @@ set(LIBRETRO_COMMON_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/md5.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/memory.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/stream_decoder.c	
+
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/assert.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/callback.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/export.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/format.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/metadata.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/ordinals.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/libFLAC/include/FLAC/stream_decoder.h
 )
 
 add_definitions("-DRC_DISABLE_LUA")

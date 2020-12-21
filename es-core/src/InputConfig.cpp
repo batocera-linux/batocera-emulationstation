@@ -229,8 +229,8 @@ void InputConfig::writeToXML(pugi::xml_node& parent)
 	}
 }
 
-static char* ABUTTON = "a";
-static char* BBUTTON = "b";
+static char ABUTTON[2] = "a";
+static char BBUTTON[2] = "b";
 
 char* BUTTON_OK = ABUTTON;
 char* BUTTON_BACK = BBUTTON;

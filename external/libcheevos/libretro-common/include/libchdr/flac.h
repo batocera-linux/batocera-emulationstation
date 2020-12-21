@@ -15,8 +15,8 @@
 
 #include <stdint.h>
 #include "libchdr_zlib.h"
-#include "../../libFLAC/include/FLAC/ordinals.h"
-#include "../../libFLAC/include/FLAC/stream_decoder.h"
+#include "libcheevos/libretro-common/src/libFLAC/include/FLAC/ordinals.h"
+#include "libcheevos/libretro-common/src/libFLAC/include/FLAC/stream_decoder.h"
 
 /***************************************************************************
  *  TYPE DEFINITIONS
