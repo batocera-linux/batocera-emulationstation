@@ -1259,6 +1259,22 @@ namespace Utils
 			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
 		}
 
+		std::string getPdfTempPath()
+		{
+#ifdef WIN32
+			// Extract PDFs to local drive : usually faster since it's generally a SSD Drive
+			WCHAR lpTempPathBuffer[MAX_PATH];
+			lpTempPathBuffer[0] = 0;
+			DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
+			if (dwRetVal > MAX_PATH || (dwRetVal == 0))
+				return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+
+			return Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp/";
+#else
+			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+#endif
+		}
+
 #ifdef WIN32
 		void splitCommand(std::string cmd, std::string* executable, std::string* parameters)
 		{

@@ -38,7 +38,7 @@ namespace Utils
 						work();
 					}
 					catch (...) {}
-
+					
 					mNumWork--;
 				}
 				else
@@ -101,6 +101,26 @@ namespace Utils
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+		}
+	}
+
+	void ThreadPool::stop()
+	{
+		_mutex.lock();
+
+		while (!mWorkQueue.empty())
+		{
+			mNumWork--;
+			mWorkQueue.pop();
+		}
+		
+		_mutex.unlock();
+		mWaiting = true;
+
+		while (mNumWork.load() > 0)
+		{
+			std::this_thread::yield();
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 	}
 }

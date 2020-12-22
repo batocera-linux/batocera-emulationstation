@@ -3,6 +3,7 @@
 #include "GuiComponent.h"
 #include "Window.h"
 #include "components/ImageGridComponent.h"
+#include "utils/ThreadPool.h"
 
 class ThemeData;
 class VideoComponent;
@@ -23,9 +24,13 @@ public:
 	void setCursor(const std::string imagePath);
 
 protected:
+	void loadPdf(const std::string& imagePath);
+
 	ImageGridComponent<std::string> mGrid;
 	std::shared_ptr<ThemeData> mTheme;
 	std::string mPdf;
+
+	Utils::ThreadPool* mPdfThreads;
 };
 
 class GuiVideoViewer : public GuiComponent

@@ -74,6 +74,7 @@ public:
 	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj);
 	
 	void setImage(const std::string& imagePath, const T& obj);
+	std::string getImage(const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -221,13 +222,24 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 }
 
 template<typename T>
+std::string ImageGridComponent<T>::getImage(const T& obj)
+{
+	IList<ImageGridData, T>* list = static_cast<IList< ImageGridData, T >*>(this);
+	auto entry = list->findEntry(obj);
+	if (entry != list->end())
+		return (*entry).data.texturePath;
+
+	return "";
+}
+
+template<typename T>
 void ImageGridComponent<T>::setImage(const std::string& imagePath, const T& obj)
 {
 	IList<ImageGridData, T>* list = static_cast<IList< ImageGridData, T >*>(this);
 	auto entry = list->findEntry(obj);
 	if (entry != list->end())
 	{
-		(*entry)->data.texturePath = imagePath;
+		(*entry).data.texturePath = imagePath;
 		mEntriesDirty = true;
 	}
 }
@@ -408,7 +420,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	
 	tileTrans.translate(Vector3f(offsetX, offsetY, 0.0));
 
-	if (mEntriesDirty)
+	if (mEntriesDirty && !(((GuiComponent*)this)->isAnimationPlaying(2)))
 	{
 		updateTiles();
 		mEntriesDirty = false;
@@ -1041,7 +1053,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 					setMarquee = false;
 				}
 				else
-					tile->setImage(imagePath, true);				
+					tile->setImage(imagePath, true);
 			}
 			else
 				tile->setImage(imagePath, false);

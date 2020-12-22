@@ -22,6 +22,7 @@ namespace Utils
 		void wait();
 		void wait(work_function work, int delay = 50);
 		void cancel() { mRunning = false; }
+		void stop();
 
 		bool isRunning() { return mRunning; }
 

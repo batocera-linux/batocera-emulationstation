@@ -1324,7 +1324,7 @@ int ApiSystem::getPdfPageCount(const std::string fileName)
 
 std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount, bool bestQuality)
 {
-	auto pdfFolder = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
 	Utils::FileSystem::createDirectory(pdfFolder);
 
 	std::vector<std::string> ret;
@@ -1375,9 +1375,9 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName,
 
 	std::string page;
 
-	std::string quality = "150";
+	std::string quality = Renderer::isSmallScreen() ? "96" : "125";
 	if (bestQuality)
-		quality = "350";
+		quality = "300";
 
 	std::string prefix = "extract";
 	if (pageIndex >= 0)
