@@ -784,17 +784,37 @@ void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
 			if (name.empty())
 				continue;
 
+			bool found = false;
+
 			// Remove existing one
-			for (pugi::xml_node srcSystem = srcSystems.child("system"); srcSystem; srcSystem = srcSystem.next_sibling("system"))
+			for (pugi::xml_node& srcSystem : srcSystems.children())
 			{
-				if (system.child("name").text().get() == name)
+				if (std::string(srcSystem.name()) != "system")
+					continue;
+
+				std::string srcName = srcSystem.child("name").text().get();
+				if (srcName != name)
+					continue;
+				
+				found = true;
+					
+				for (pugi::xml_node& child : system.children())
 				{
-					srcSystems.remove_child(srcSystem);
-					break;
+					std::string tag = child.name();
+					if (tag == "name")
+						continue;
+						
+					srcSystem.remove_child(tag.c_str());
+
+					if (tag == "emulators" || !std::string(child.text().get()).empty())				
+						srcSystem.append_copy(child);												
 				}
+					
+				break;				
 			}
 
-			srcSystems.append_copy(system);
+			if (!found)
+				srcSystems.append_copy(system);
 		}
 	}
 }
