@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -208,6 +208,15 @@ msgstr "Язык"
 msgid "Region"
 msgstr "Регион"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "все игры"
 
@@ -225,6 +234,9 @@ msgstr "4 игрока"
 
 msgid "never played"
 msgstr "не играл"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "аркады"
@@ -442,14 +454,30 @@ msgstr "КОЛЛЕКЦИИ ИГР"
 msgid "PLEASE WAIT"
 msgstr "ПОДОЖДИТЕ"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "РЕТРОДОСТИЖЕНИЯ"
 
-msgid "OK"
-msgstr "ОК"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "ЗАПУСК"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
+
+msgid "OK"
+msgstr "ОК"
 
 msgid "go back"
 msgstr "назад"
@@ -477,6 +505,15 @@ msgstr "ПОСМОТРЕТЬ РУКОВОДСТВО"
 
 msgid "VIEW GAME MAP"
 msgstr "ПОСМОТРЕТЬ КАРТУ"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЛЕКЦИЯ"
@@ -561,9 +598,6 @@ msgstr "ОБНОВИТЬ"
 
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
-
-msgid "LAUNCH"
-msgstr "ЗАПУСК"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "НЕИЗВЕСТНАЯ ROM ВЕРСИЯ"
@@ -916,6 +950,19 @@ msgstr[0] "%i ИГРА ПРОПУЩЕНА."
 msgstr[1] "%i ИГРЫ ПРОПУЩЕНЫ."
 msgstr[2] "%i ИГР ПРОПУЩЕНО."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
@@ -1011,6 +1058,9 @@ msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1108,6 +1158,9 @@ msgstr "ЗАГРУЗКА ВИДЕО"
 msgid "SCRAPE FANART"
 msgstr "ЗАГРУЗКА ФАН-АРТА"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "ЗАГРУЗКА РУКОВОДСТВА"
 
@@ -1195,11 +1248,20 @@ msgstr "Очистка "
 msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТЬ КЭШ"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
@@ -1221,6 +1283,9 @@ msgstr "ИНТЕРФЕЙС"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "БЫСТРОЕ ПЕРЕКЛЮЧЕНИЕ СИСТЕМ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
@@ -1409,6 +1474,18 @@ msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 msgid "SHOW IN MAIN MENU"
 msgstr "ПОКАЗАТЬ В ГЛАВНОМ МЕНЮ"
 
+msgid "GAME INDEXES"
+msgstr "ИНДЕКСЫ ИГРЫ"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "ВКЛЮЧИТЬ NETPLAY"
 
@@ -1421,17 +1498,8 @@ msgstr "ПОРТ"
 msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
-msgid "GAME INDEXES"
-msgstr "ИНДЕКСЫ ИГРЫ"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "ПРОВЕРИТЬ ОТСУТ. ИНДЕКСЫ ПРИ СТАРТЕ"
-
-msgid "REINDEX ALL GAMES"
-msgstr "ПЕРЕИНДЕКСАЦИЯ ВСЕХ ИГР"
-
-msgid "INDEX MISSING GAMES"
-msgstr "ИНДЕКСАЦИЯ ОТСУТСТВУЮЩИХ ИГР"
 
 msgid "DEFAULT SETTINGS"
 msgstr "НАСТРОЙКИ ПО УМОЛЧАНИЮ"
@@ -1750,6 +1818,9 @@ msgstr "БОК О БОК"
 msgid "INTERNAL RESOLUTION"
 msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТИРОВАТЬ"
 
@@ -1780,6 +1851,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "СИСТЕМНАЯ ИНФОРМАЦИЯ"
@@ -1900,6 +1983,11 @@ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 msgid "Games similar to"
 msgstr "Игры похожие на"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Поиск"
 
@@ -2005,8 +2093,11 @@ msgstr "ВРЕМЯ ИГРЫ, ПО УБЫВАНИЮ"
 msgid "Extracting"
 msgstr "Распаковка"
 
-msgid "HASHING GAMES"
-msgstr "ХЕШИРОВАНИЕ ИГР"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
@@ -2034,6 +2125,9 @@ msgstr "ДЕТСКАЯ ИГРА"
 
 msgid "ALREADY PLAYED"
 msgstr "УЖЕ ИГРАЛ"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
@@ -2233,6 +2327,15 @@ msgstr "%d м"
 msgid "%d s"
 msgstr "%d с"
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "ПЕРЕИНДЕКСАЦИЯ ВСЕХ ИГР"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "ИНДЕКСАЦИЯ ОТСУТСТВУЮЩИХ ИГР"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "ХЕШИРОВАНИЕ ИГР"
+
 #~ msgid "START KODI WITH X"
 #~ msgstr "ЗАПУСК KODI КНОПКОЙ X"
 
@@ -2285,9 +2388,6 @@ msgstr "%d с"
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "НАСТРОЙКИ ЗАПУСКА"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "БЫСТРОЕ ПЕРЕКЛЮЧЕНИЕ СИСТЕМ"
 
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "ЗАПУСТИТЬ ИГРУ В РЕЖИМЕ ХОСТА NETPLAY?"

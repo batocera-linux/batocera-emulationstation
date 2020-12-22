@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -208,6 +208,15 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "alla spel"
 
@@ -225,6 +234,9 @@ msgstr "4 spelare"
 
 msgid "never played"
 msgstr "aldrig spelat"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "arkad"
@@ -441,14 +453,30 @@ msgstr "EGNA SPELSAMLINGAR"
 msgid "PLEASE WAIT"
 msgstr "VÄNLIGEN VÄNTA"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
-msgid "OK"
-msgstr "OK"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "STARTA"
 
 msgid "FINISHED"
 msgstr "FÄRDIG"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "go back"
 msgstr "gå tillbaka"
@@ -475,6 +503,15 @@ msgid "VIEW GAME MANUAL"
 msgstr ""
 
 msgid "VIEW GAME MAP"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
 msgstr ""
 
 msgid "COLLECTION"
@@ -560,9 +597,6 @@ msgstr "UPPDATERA"
 
 msgid "FAILED"
 msgstr "MISSLYCKADES"
-
-msgid "LAUNCH"
-msgstr "STARTA"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
@@ -913,6 +947,19 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SPEL HOPPADES ÖVER."
 msgstr[1] "%i SPEL HOPPADES ÖVER."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SKRAPA NU"
 
@@ -1008,6 +1055,9 @@ msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
 msgstr "PLATTA TILL-GLÖD"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
@@ -1105,6 +1155,9 @@ msgstr "SKRAPA VIDEOR"
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr ""
 
@@ -1192,10 +1245,19 @@ msgstr ""
 msgid "CLEAR CACHES"
 msgstr ""
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr ""
 
 msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
@@ -1218,6 +1280,9 @@ msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSELLÖVERGÅNGAR"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SNABBT SYSTEMVAL"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "SKÄRMTANGENTBORD"
@@ -1407,6 +1472,18 @@ msgstr "AUTOMATISKA SKÄRMDUMPAR"
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
+msgid "GAME INDEXES"
+msgstr "SPELINDEX"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "AKTIVERA NETPLAY"
 
@@ -1419,17 +1496,8 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "ANVÄND RELÄSERVER"
 
-msgid "GAME INDEXES"
-msgstr "SPELINDEX"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "KONTROLLERA SAKNADE INDEX VID UPPSTART"
-
-msgid "REINDEX ALL GAMES"
-msgstr "OMINDEXERA ALLA SPEL"
-
-msgid "INDEX MISSING GAMES"
-msgstr "INDEXERA SAKNADE SPEL"
 
 msgid "DEFAULT SETTINGS"
 msgstr "STANDARDINSTÄLLNINGAR"
@@ -1748,6 +1816,9 @@ msgstr "SIDA VID SIDA"
 msgid "INTERNAL RESOLUTION"
 msgstr "INTERN UPPLÖSNING"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr ""
 
@@ -1776,6 +1847,18 @@ msgstr "DETTA KOMMER ATT RADERA DE FAKTISKA SPELFILEN/FILERNA! VÄR DU SÄKER?"
 
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHET HITTADES"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr ""
@@ -1889,6 +1972,11 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Söker"
 
@@ -1994,8 +2082,11 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
-msgid "HASHING GAMES"
-msgstr "HASHAR SPEL"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORITER"
@@ -2022,6 +2113,9 @@ msgid "KIDGAME"
 msgstr "BARNSPEL"
 
 msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2216,6 +2310,15 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "OMINDEXERA ALLA SPEL"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "INDEXERA SAKNADE SPEL"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "HASHAR SPEL"
+
 #~ msgid "START KODI WITH X"
 #~ msgstr "STARTA KODI MED X"
 
@@ -2264,9 +2367,6 @@ msgstr ""
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "INSTÄLLNINGAR FÖR UPPSTART"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "SNABBT SYSTEMVAL"
 
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "STARTA SPELET SOM NETPLAY-HOST?"

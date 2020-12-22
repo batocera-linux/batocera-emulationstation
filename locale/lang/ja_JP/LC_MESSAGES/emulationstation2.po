@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: 2020-12-03 08:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -208,6 +208,15 @@ msgstr "使用言語"
 msgid "Region"
 msgstr "リージョン"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "すべてのゲーム"
 
@@ -225,6 +234,9 @@ msgstr "4 プレイヤー"
 
 msgid "never played"
 msgstr "未プレイ"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "アーケード"
@@ -441,14 +453,30 @@ msgstr "マイゲームコレクション"
 msgid "PLEASE WAIT"
 msgstr "お待ちください"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroAchievements 使用"
 
-msgid "OK"
-msgstr "OK"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "起動"
 
 msgid "FINISHED"
 msgstr "完了"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "go back"
 msgstr "戻る"
@@ -476,6 +504,15 @@ msgstr "ゲームマニュアルを表示"
 
 msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "コレクション"
@@ -560,9 +597,6 @@ msgstr "再読込"
 
 msgid "FAILED"
 msgstr "失敗"
-
-msgid "LAUNCH"
-msgstr "起動"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "不明なROMバージョン"
@@ -911,6 +945,19 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 個 のゲームを スキップしました。"
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "スクレイプ 実行"
 
@@ -1006,6 +1053,9 @@ msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1103,6 +1153,9 @@ msgstr "ビデオをスクレイプ"
 msgid "SCRAPE FANART"
 msgstr "ファンアートをスクレイプ"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "マニュアルをスクレイプ"
 
@@ -1192,11 +1245,20 @@ msgstr "クリーニング "
 msgid "CLEAR CACHES"
 msgstr "キャッシュをクリア"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル拡張子設定をリセット"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "ゲームの言語/地域を再検出"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1218,6 +1280,9 @@ msgstr "UIモード"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "クイックシステム選択"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
@@ -1405,6 +1470,18 @@ msgstr "自動スクリーンショット"
 msgid "SHOW IN MAIN MENU"
 msgstr "メインメニューに表示"
 
+msgid "GAME INDEXES"
+msgstr "ゲームインデックス"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "ネットプレイを有効"
 
@@ -1417,17 +1494,8 @@ msgstr "ポート"
 msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
 
-msgid "GAME INDEXES"
-msgstr "ゲームインデックス"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "起動時に欠落インデックスを確認"
-
-msgid "REINDEX ALL GAMES"
-msgstr "すべてのゲームを再インデックス"
-
-msgid "INDEX MISSING GAMES"
-msgstr "プレイ不可ゲームのインデックス"
 
 msgid "DEFAULT SETTINGS"
 msgstr "既定の設定"
@@ -1747,6 +1815,9 @@ msgstr "横に並べる"
 msgid "INTERNAL RESOLUTION"
 msgstr "解像度"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "フォーマット"
 
@@ -1777,6 +1848,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "システム情報"
@@ -1892,6 +1975,11 @@ msgstr "ビューアパスワードの設定"
 msgid "Games similar to"
 msgstr "類似ゲーム→"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "検索中"
 
@@ -1998,8 +2086,11 @@ msgstr "プレイ時間, 降順"
 msgid "Extracting"
 msgstr "抽出"
 
-msgid "HASHING GAMES"
-msgstr "ゲームのハッシュ化"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "お気に入り"
@@ -2027,6 +2118,9 @@ msgstr "子供向け"
 
 msgid "ALREADY PLAYED"
 msgstr "プレイ済み"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -2211,6 +2305,15 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "すべてのゲームを再インデックス"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "プレイ不可ゲームのインデックス"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "ゲームのハッシュ化"
+
 #~ msgid "options"
 #~ msgstr "設定"
 
@@ -2382,9 +2485,6 @@ msgstr "%d 秒"
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "スタートアップ設定"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "クイックシステム選択"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "マイコレクションとシステムの並べ替え"

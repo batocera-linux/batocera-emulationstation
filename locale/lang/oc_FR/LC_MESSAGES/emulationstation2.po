@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -214,6 +214,15 @@ msgstr "Lengas"
 msgid "Region"
 msgstr "Region"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "totes los jòcs"
 
@@ -231,6 +240,9 @@ msgstr "4 jogaires"
 
 msgid "never played"
 msgstr "pas jamai jogat"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr ""
@@ -447,14 +459,30 @@ msgstr "COLLECCIONS PERSONALIZADAS"
 msgid "PLEASE WAIT"
 msgstr "ESPERATZ"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
-msgid "OK"
-msgstr "D'ACÒRDI"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "LANÇAR"
 
 msgid "FINISHED"
 msgstr ""
+
+msgid "OK"
+msgstr "D'ACÒRDI"
 
 msgid "go back"
 msgstr "precedent"
@@ -482,6 +510,15 @@ msgstr "VEIRE MANUAL DEL JÒC"
 
 msgid "VIEW GAME MAP"
 msgstr "VEIRE LA MAPA DEL JÒC"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "COLLECCION"
@@ -566,9 +603,6 @@ msgstr "ACTUALIZAR"
 
 msgid "FAILED"
 msgstr "FRACÀS"
-
-msgid "LAUNCH"
-msgstr "LANÇAR"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
@@ -916,6 +950,19 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i JÒC SAUTAT."
 msgstr[1] "%i JÒCS SAUTATS."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "RECUPERAR ARA"
 
@@ -1007,6 +1054,9 @@ msgid "ZFAST"
 msgstr ""
 
 msgid "FLATTEN-GLOW"
+msgstr ""
+
+msgid "RGA SCALING"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1105,6 +1155,9 @@ msgstr ""
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr ""
 
@@ -1192,10 +1245,19 @@ msgstr ""
 msgid "CLEAR CACHES"
 msgstr ""
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr ""
 
 msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
@@ -1217,6 +1279,9 @@ msgid "UI"
 msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
+msgstr ""
+
+msgid "QUICK SYSTEM SELECT"
 msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
@@ -1402,6 +1467,18 @@ msgstr "CAPTURA D'ECRAN AUTOMATICA"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR AL MENÚ PRINCIPAL"
 
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "ACTIVAR NETPLAY"
 
@@ -1414,16 +1491,7 @@ msgstr "PÒRT"
 msgid "USE RELAY SERVER"
 msgstr ""
 
-msgid "GAME INDEXES"
-msgstr ""
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
-
-msgid "REINDEX ALL GAMES"
-msgstr ""
-
-msgid "INDEX MISSING GAMES"
 msgstr ""
 
 msgid "DEFAULT SETTINGS"
@@ -1738,6 +1806,9 @@ msgstr ""
 msgid "INTERNAL RESOLUTION"
 msgstr ""
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr ""
 
@@ -1765,6 +1836,18 @@ msgid ""
 msgstr ""
 
 msgid "NO DEVICE FOUND"
+msgstr ""
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -1879,6 +1962,11 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Recèrca"
 
@@ -1984,7 +2072,10 @@ msgstr ""
 msgid "Extracting"
 msgstr "Extraccion"
 
-msgid "HASHING GAMES"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
 msgid "FAVORITES"
@@ -2012,6 +2103,9 @@ msgid "KIDGAME"
 msgstr ""
 
 msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
 msgid "SCRAPING"

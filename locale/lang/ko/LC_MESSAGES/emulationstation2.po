@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,6 +205,15 @@ msgstr "언어"
 msgid "Region"
 msgstr "지역"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "모든 게임"
 
@@ -222,6 +231,9 @@ msgstr "4인 플레이"
 
 msgid "never played"
 msgstr "미실행 게임"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "아케이드"
@@ -437,14 +449,30 @@ msgstr "커스텀 게임 컬렉션"
 msgid "PLEASE WAIT"
 msgstr "잠시만 기다려주세요"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "레트로 도전 과제"
 
-msgid "OK"
-msgstr "확인"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "실행"
 
 msgid "FINISHED"
 msgstr "완료되었습니다"
+
+msgid "OK"
+msgstr "확인"
 
 msgid "go back"
 msgstr "돌아가기"
@@ -472,6 +500,15 @@ msgstr "게임 매뉴얼 보기"
 
 msgid "VIEW GAME MAP"
 msgstr "게임 맵 보기"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "컬렉션"
@@ -556,9 +593,6 @@ msgstr "새로고침"
 
 msgid "FAILED"
 msgstr "실패"
-
-msgid "LAUNCH"
-msgstr "실행"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
@@ -907,6 +941,19 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "스크랩 시작"
 
@@ -1002,6 +1049,9 @@ msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
 msgstr "평면빛"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
@@ -1099,6 +1149,9 @@ msgstr "비디오 스크랩"
 msgid "SCRAPE FANART"
 msgstr "팬아트 스크랩"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "매뉴얼 스크랩"
 
@@ -1186,11 +1239,20 @@ msgstr ""
 msgid "CLEAR CACHES"
 msgstr ""
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "파일 확장자 초기화"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "게임 언어/지역 재감지"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr ""
@@ -1212,6 +1274,9 @@ msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "회전 목마형 화면 전환"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "빠른 시스템 선택"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "화상 키보드"
@@ -1399,6 +1464,18 @@ msgstr "자동 스크린샷"
 msgid "SHOW IN MAIN MENU"
 msgstr "메인 메뉴에 보이기"
 
+msgid "GAME INDEXES"
+msgstr "게임 색인"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "넷플레이 허용"
 
@@ -1411,17 +1488,8 @@ msgstr "포트"
 msgid "USE RELAY SERVER"
 msgstr "릴레이 서버 사용"
 
-msgid "GAME INDEXES"
-msgstr "게임 색인"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "시작 시, 누락된 색인 확인"
-
-msgid "REINDEX ALL GAMES"
-msgstr "모든 게임 다시 색인"
-
-msgid "INDEX MISSING GAMES"
-msgstr "색인 안 된 게임"
 
 msgid "DEFAULT SETTINGS"
 msgstr "기본 설정"
@@ -1739,6 +1807,9 @@ msgstr "나란히"
 msgid "INTERNAL RESOLUTION"
 msgstr "내부 해상도"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "장치를 포맷합니다"
 
@@ -1769,6 +1840,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "장치 찾기 없음"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr ""
@@ -1879,6 +1962,11 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "검색 중"
 
@@ -1984,8 +2072,11 @@ msgstr ""
 msgid "Extracting"
 msgstr "추출 중"
 
-msgid "HASHING GAMES"
-msgstr "해싱 게임"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "즐겨찾기"
@@ -2013,6 +2104,9 @@ msgstr "어린이게임"
 
 msgid "ALREADY PLAYED"
 msgstr "이미 플레이하였음"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
@@ -2199,6 +2293,15 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "모든 게임 다시 색인"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "색인 안 된 게임"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "해싱 게임"
+
 #~ msgid "START KODI WITH X"
 #~ msgstr "X 버튼으로 KODI 실행"
 
@@ -2245,9 +2348,6 @@ msgstr ""
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "시작 설정"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "빠른 시스템 선택"
 
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "넷플레이 호스트로 게임을 실행합니까?"
