@@ -6,6 +6,9 @@
 
 ///////////// SystemRandomPlaylist ///////////// 
 
+static std::random_device mRandomDevice;
+std::map<std::string, std::vector<std::string>> SystemRandomPlaylist::mFileCache;
+
 SystemRandomPlaylist::SystemRandomPlaylist(SystemData* system, PlaylistType type) : mMt19937(mRandomDevice())
 {
 	mFirstRun = true;
@@ -13,53 +16,63 @@ SystemRandomPlaylist::SystemRandomPlaylist(SystemData* system, PlaylistType type
 	mType = type;
 }
 
+void SystemRandomPlaylist::resetCache()
+{
+	mFileCache.clear();
+}
+
 std::string SystemRandomPlaylist::getNextItem()
 {
 	if (mFirstRun)
-	{
-		std::vector<FileData*> files = mSystem->getRootFolder()->getFilesRecursive(GAME, false);
-
-		for (auto file : files)
+	{		
+		auto it = mFileCache.find(mSystem->getName() + "." + std::to_string(mType));
+		if (it != mFileCache.cend())
+			mPaths = it->second;
+		else
 		{
-			switch (mType)
-			{
-			case IMAGE:
-				if (!file->getImagePath().empty())
-					mPaths.push_back(file->getImagePath());
-				break;
+			std::vector<FileData*> files = mSystem->getRootFolder()->getFilesRecursive(GAME, false);
 
-			case THUMBNAIL:
-				if (!file->getThumbnailPath().empty())
-					mPaths.push_back(file->getThumbnailPath());
-				break;
-
-			case MARQUEE:
-				if (!file->getMarqueePath().empty())
-					mPaths.push_back(file->getMarqueePath());
-				break;
-
-			case FANART:
-				if (!file->getMetadata(MetaDataId::FanArt).empty())
-					mPaths.push_back(file->getMetadata(MetaDataId::FanArt));
-				break;
-
-			case TITLESHOT:
-				if (!file->getMetadata(MetaDataId::TitleShot).empty())
-					mPaths.push_back(file->getMetadata(MetaDataId::TitleShot));
-				break;
-
-			case VIDEO:
-				if (!file->getVideoPath().empty())
-					mPaths.push_back(file->getVideoPath());
-				break;
-			}
-		}
-
-		if (mType == FANART && mPaths.size() == 0)
-		{
 			for (auto file : files)
-				if (!file->getThumbnailPath().empty())
-					mPaths.push_back(file->getThumbnailPath());
+			{
+				std::string path;
+
+				switch (mType)
+				{
+				case IMAGE:
+					path = file->getImagePath();
+					break;
+				case THUMBNAIL:
+					path = file->getThumbnailPath();
+					break;
+				case MARQUEE:
+					path = file->getMarqueePath();
+					break;
+				case FANART:
+					path = file->getMetadata(MetaDataId::FanArt);
+					break;
+				case TITLESHOT:
+					path = file->getMetadata(MetaDataId::TitleShot);
+					break;
+				case VIDEO:
+					path = file->getVideoPath();
+					break;
+				}
+
+				if (!path.empty())
+					mPaths.push_back(path);
+			}
+
+			if (mType == FANART && mPaths.size() == 0)
+			{
+				for (auto file : files)
+				{
+					std::string path = file->getThumbnailPath();
+					if (!path.empty())
+						mPaths.push_back(path);
+				}
+			}
+
+			mFileCache[mSystem->getName() + "." + std::to_string(mType)] = mPaths;
 		}
 
 		if (mPaths.size() > 0)

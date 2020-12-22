@@ -8,63 +8,6 @@
 #include "Log.h"
 #include "Window.h"
 
-struct InputConfigStructure
-{
-	const char* name;
-	const bool  skippable;
-	const char* dispName;
-	const char* icon;
-};
-
-static const int inputCount = 21; // batocera
-
-static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
-{
-  // batocera
-  { "up",               false, "UP",           ":/help/dpad_up.svg" },
-  { "down",             false, "DOWN",         ":/help/dpad_down.svg" },
-  { "left",             false, "LEFT",         ":/help/dpad_left.svg" },
-  { "right",            false, "RIGHT",        ":/help/dpad_right.svg" },
-  { "start",            true,  "START",              ":/help/button_start.svg" },
-  { "select",           true,  "SELECT",             ":/help/button_select.svg" },
-#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
-  { "a",                false, "A",    ":/help/buttons_south.svg" },
-  { "b",                true,  "B",   ":/help/buttons_east.svg" },
-#else
-  { "a",                false, "A",    ":/help/buttons_east.svg" },
-  { "b",                true,  "B",   ":/help/buttons_south.svg" },
-#endif
-  { "x",                true,  "X",   ":/help/buttons_north.svg" },
-  { "y",                true,  "Y",    ":/help/buttons_west.svg" },
-  //{ "LeftShoulder",     true,  "LEFT SHOULDER",      ":/help/button_l.svg" },
-  //{ "RightShoulder",    true,  "RIGHT SHOULDER",     ":/help/button_r.svg" },
-  //{ "LeftTrigger",      true,  "LEFT TRIGGER",       ":/help/button_lt.svg" },
-  //{ "RightTrigger",     true,  "RIGHT TRIGGER",      ":/help/button_rt.svg" },
-  //{ "LeftThumb",        true,  "LEFT THUMB",         ":/help/analog_thumb.svg" },
-  //{ "RightThumb",       true,  "RIGHT THUMB",        ":/help/analog_thumb.svg" },
-  //{ "LeftAnalogUp",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
-  //{ "LeftAnalogDown",   true,  "LEFT ANALOG DOWN",   ":/help/analog_down.svg" },
-  //{ "LeftAnalogLeft",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
-  //{ "LeftAnalogRight",  true,  "LEFT ANALOG RIGHT",  ":/help/analog_right.svg" },
-  //{ "RightAnalogUp",    true,  "RIGHT ANALOG UP",    ":/help/analog_up.svg" },
-  //{ "RightAnalogDown",  true,  "RIGHT ANALOG DOWN",  ":/help/analog_down.svg" },
-  //{ "RightAnalogLeft",  true,  "RIGHT ANALOG LEFT",  ":/help/analog_left.svg" },
-  //{ "RightAnalogRight", true,  "RIGHT ANALOG RIGHT", ":/help/analog_right.svg" },
-  //{ "HotKeyEnable",     true,  "HOTKEY ENABLE",      ":/help/button_hotkey.svg" }
-  
-  { "joystick1up",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
-  { "joystick1left",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
-  { "joystick2up",     true,  "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
-  { "joystick2left",   true,  "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
-  { "pageup",          true,  "L1",      ":/help/button_l.svg" },
-  { "pagedown",        true,  "R1",     ":/help/button_r.svg" },
-  { "l2",              true,  "L2",       ":/help/button_lt.svg" },
-  { "r2",              true,  "R2",      ":/help/button_rt.svg" },
-  { "l3",              true,  "L3",       ":/help/analog_thumb.svg" },
-  { "r3",              true,  "R3",      ":/help/analog_thumb.svg" },
-  { "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
-};
-
 #define fake_gettext_up _("UP")
 #define fake_gettext_down _("DOWN")
 #define fake_gettext_left _("LEFT")
@@ -86,10 +29,42 @@ static const InputConfigStructure GUI_INPUT_CONFIG_LIST[inputCount] =
 
 #define HOLD_TO_SKIP_MS 1000
 
+void GuiInputConfig::initInputConfigStructure()
+{
+	GUI_INPUT_CONFIG_LIST =
+	{
+		{ "up",               false, "UP",           ":/help/dpad_up.svg" },
+		{ "down",             false, "DOWN",         ":/help/dpad_down.svg" },
+		{ "left",             false, "LEFT",         ":/help/dpad_left.svg" },
+		{ "right",            false, "RIGHT",        ":/help/dpad_right.svg" },
+		{ "start",            true,  "START",              ":/help/button_start.svg" },
+		{ "select",           true,  "SELECT",             ":/help/button_select.svg" },
+
+		{ "a",                false, InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
+		{ "b",                true,  InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
+		{ "x",                true,  "X",    ":/help/buttons_north.svg" },
+		{ "y",                true,  "Y",    ":/help/buttons_west.svg" },
+
+		{ "joystick1up",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick1left",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick2up",     true,  "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick2left",   true,  "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "pageup",          true,  "L1",      ":/help/button_l.svg" },
+		{ "pagedown",        true,  "R1",     ":/help/button_r.svg" },
+		{ "l2",              true,  "L2",       ":/help/button_lt.svg" },
+		{ "r2",              true,  "R2",      ":/help/button_rt.svg" },
+		{ "l3",              true,  "L3",       ":/help/analog_thumb.svg" },
+		{ "r3",              true,  "R3",      ":/help/analog_thumb.svg" },
+		{ "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
+	};
+}
+
 GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
 {
+	initInputConfigStructure();
+
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
 	mBackground.setEdgeColor(theme->Background.color);
@@ -133,7 +108,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 	mList = std::make_shared<ComponentList>(mWindow);
 	mGrid.setEntry(mList, Vector2i(0, 5), true, true);
-	for(int i = 0; i < inputCount; i++)
+	for(int i = 0; i < GUI_INPUT_CONFIG_LIST.size(); i++)
 	{
 		ComponentListRow row;
 		
@@ -149,7 +124,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		spacer->setSize(16, 0);
 		row.addElement(spacer, false);
 
-		auto text = std::make_shared<TextComponent>(mWindow, _(GUI_INPUT_CONFIG_LIST[i].dispName), theme->Text.font, theme->Text.color);
+		auto text = std::make_shared<TextComponent>(mWindow, _(Utils::String::toUpper(GUI_INPUT_CONFIG_LIST[i].dispName).c_str()), theme->Text.font, theme->Text.color);
 		row.addElement(text, true);
 
 		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), theme->Text.font, theme->TextSmall.color, ALIGN_RIGHT); // batocera
@@ -372,7 +347,9 @@ bool GuiInputConfig::assign(Input input, int inputId)
 
 	// if this input is mapped to something other than "nothing" or the current row, error
 	// (if it's the same as what it was before, allow it)
-	if(mTargetConfig->getMappedTo(input).size() > 0 && !mTargetConfig->isMappedTo(GUI_INPUT_CONFIG_LIST[inputId].name, input) && strcmp(GUI_INPUT_CONFIG_LIST[inputId].name, "hotkey") != 0) // batocera
+	if (mTargetConfig->getMappedTo(input).size() > 0 && 
+		!mTargetConfig->isMappedTo(GUI_INPUT_CONFIG_LIST[inputId].name, input) && 
+		GUI_INPUT_CONFIG_LIST[inputId].name != "hotkey") // batocera
 	{
 		error(mMappings.at(inputId), "Already mapped!");
 		return false;

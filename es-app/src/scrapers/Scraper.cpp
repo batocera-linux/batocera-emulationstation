@@ -206,16 +206,18 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 			continue;
 		}
 
+		bool resize = true;
+
 		std::string suffix = "image";
 		switch (url.first)
 		{
 		case MetaDataId::Thumbnail: suffix = "thumb"; break;
 		case MetaDataId::Marquee: suffix = "marquee"; break;
-		case MetaDataId::Video: suffix = "video"; break;
-		case MetaDataId::FanArt: suffix = "fanart"; break;
+		case MetaDataId::Video: suffix = "video";  resize = false; break;
+		case MetaDataId::FanArt: suffix = "fanart"; resize = false; break;
 		case MetaDataId::TitleShot: suffix = "titleshot"; break;
-		case MetaDataId::Manual: suffix = "manual"; break;
-		case MetaDataId::Map: suffix = "map"; break;
+		case MetaDataId::Manual: suffix = "manual"; resize = false;  break;
+		case MetaDataId::Map: suffix = "map"; resize = false; break;
 		case MetaDataId::Cartridge: suffix = "cartridge"; break;
 		}
 
@@ -234,7 +236,7 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		else
 		{
 			mFuncs.push_back(new ResolvePair(
-				[this, url, resourcePath] { return downloadImageAsync(url.second.url, resourcePath); },
+				[this, url, resourcePath, resize] { return downloadImageAsync(url.second.url, resourcePath, resize); },
 				[this, url, resourcePath]
 			{
 				mResult.mdl.set(url.first, resourcePath);
@@ -300,12 +302,13 @@ void MDResolveHandle::update()
 		setStatus(ASYNC_DONE);
 }
 
-std::unique_ptr<ImageDownloadHandle> MDResolveHandle::downloadImageAsync(const std::string& url, const std::string& saveAs)
+std::unique_ptr<ImageDownloadHandle> MDResolveHandle::downloadImageAsync(const std::string& url, const std::string& saveAs, bool resize)
 {
 	LOG(LogDebug) << "downloadImageAsync : " << url << " -> " << saveAs;
 
 	return std::unique_ptr<ImageDownloadHandle>(new ImageDownloadHandle(url, saveAs, 
-		Settings::getInstance()->getInt("ScraperResizeWidth"), Settings::getInstance()->getInt("ScraperResizeHeight")));
+		resize ? Settings::getInstance()->getInt("ScraperResizeWidth") : 0,
+		resize ? Settings::getInstance()->getInt("ScraperResizeHeight") : 0));
 }
 
 ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight) : 

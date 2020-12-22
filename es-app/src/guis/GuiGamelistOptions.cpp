@@ -21,6 +21,7 @@
 #include "ApiSystem.h"
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
+#include "GuiGameAchievements.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic", "1x1",
@@ -153,8 +154,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 	// Game medias
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual));
 	bool hasMap = Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map));
+	bool hasCheevos = file->hasCheevos();
 
-	if (hasManual || hasMap)
+	if (hasManual || hasMap || hasCheevos)
 	{
 		mMenu.addGroup(_("GAME MEDIAS"));
 
@@ -171,9 +173,37 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		{
 			mMenu.addEntry(_("VIEW GAME MAP"), false, [window, file, this]
 			{
-				GuiImageViewer::showImage(window, file->getMetadata(MetaDataId::Map));
+				auto imagePath = file->getMetadata(MetaDataId::Map);				
+				GuiImageViewer::showImage(window, imagePath, Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) != ".pdf");
 				delete this;
 			});
+		}
+
+		if (hasCheevos)
+		{
+			if (!file->isFeatureSupported(EmulatorFeatures::cheevos))
+			{				
+				std::string coreList = file->getSourceFileData()->getSystem()->getCompatibleCoreNames(EmulatorFeatures::cheevos);
+				std::string msg = _U("\uF06A  ");
+				msg += _("CURRENT CORE IS NOT COMPATIBLE") + " : " + Utils::String::toUpper(file->getCore(true));
+				if (!coreList.empty())
+				{
+					msg += _U("\r\n\uF05A  ");
+					msg += _("REQUIRED CORE") + " : " + Utils::String::toUpper(coreList);
+				}
+
+				mMenu.addWithDescription(_("VIEW GAME ACHIEVEMENTS"), msg, nullptr, [window, file, this]
+				{
+					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
+				});
+			}
+			else
+			{
+				mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
+				{
+					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
+				});
+			}
 		}
 	}
 

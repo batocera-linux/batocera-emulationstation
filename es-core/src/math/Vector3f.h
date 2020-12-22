@@ -4,6 +4,7 @@
 
 #include "math/Misc.h"
 #include <assert.h>
+#include <math.h>
 
 class Vector2f;
 class Vector4f;
@@ -67,6 +68,30 @@ public:
 	static const Vector3f UnitX() { return { 1, 0, 0 }; }
 	static const Vector3f UnitY() { return { 0, 1, 0 }; }
 	static const Vector3f UnitZ() { return { 0, 0, 1 }; }
+
+	static float distanceSquared(const Vector3f& value1, const Vector3f& value2)
+	{
+		return (((value1.mX - value2.mX) * (value1.mX - value2.mX)) + ((value1.mY - value2.mY) * (value1.mY - value2.mY))) + ((value1.mZ - value2.mZ) * (value1.mZ - value2.mZ));
+	}
+
+	static float distance(const Vector3f& value1, const Vector3f& value2)
+	{
+		float num = distanceSquared(value1, value2);
+		return sqrt(num);
+	}
+
+	float length()
+	{
+		return sqrt(((mX * mX) + (mY * mY)) + (mZ * mZ));
+	}
+
+
+
+
+
+
+
+
 
 private:
 

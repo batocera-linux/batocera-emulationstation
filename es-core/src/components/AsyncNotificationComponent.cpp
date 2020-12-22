@@ -21,7 +21,7 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 	auto theme = ThemeData::getMenuTheme();
 
 	// Note : Don't localize this text -> It is only used to guess width calculation for the component.
-	float width = theme->TextSmall.font->sizeText("TEXT FOR SIZE CALCULATION").x(); // Renderer::getScreenWidth() * 0.14f;											
+	float width = theme->TextSmall.font->sizeText("TEXT FOR SIZE CALCULATION TEST").x(); // Renderer::getScreenWidth() * 0.14f;											
 
 	mTitle = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->TextSmall.color, ALIGN_LEFT);
 	mGameName = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_LEFT);

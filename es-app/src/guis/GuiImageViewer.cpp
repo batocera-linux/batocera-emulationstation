@@ -12,9 +12,198 @@
 #include <unistd.h>
 #endif
 
-GuiImageViewer::GuiImageViewer(Window* window, bool linearSmooth) :
-	GuiComponent(window), mGrid(window)
+
+class ZoomableImageComponent : public ImageComponent
 {
+public:
+	ZoomableImageComponent(Window* window, const std::string& image) : ImageComponent(window, true, false)
+	{
+		mLocked = false;
+		mFirstShow = true;
+		mZooming = 0;
+		mMoving = Vector2f::Zero();
+
+		mCheckClipping = false;
+
+		setIsLinear(true);
+		setImage(image, false, MaxSizeInfo(8192, 8192));
+
+		setPosition(Renderer::getScreenWidth() * 0.5, Renderer::getScreenHeight() * 0.5);
+		setOrigin(0.5, 0.5);
+		setMaxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());	
+	}
+
+	void runAnimation()
+	{
+		auto sz = getSize();
+		if (sz.x() > 0 && sz.y() > 0)
+		{
+			auto fromOrigin = getOrigin();
+			auto fromScale = getScale();
+			auto toScale = Renderer::getScreenWidth() / sz.x();
+			auto toOrigin = fromOrigin;
+
+			auto imgHeight = sz.y() * toScale;
+			if (imgHeight > Renderer::getScreenHeight())
+				toOrigin = Vector2f(0.5, Renderer::getScreenHeight() / imgHeight / 2.0);
+			else
+				toScale = Renderer::getScreenHeight() / sz.y();
+
+			Animation* infoFadeIn = new LambdaAnimation([this, fromScale, toScale, fromOrigin, toOrigin](float t)
+			{
+				auto cubic = Math::easeOutCubic(t);
+				auto scale = fromScale * (1.0f - cubic) + toScale * cubic;
+
+				auto originX = fromOrigin.x() * (1.0f - cubic) + toOrigin.x() * cubic;
+				auto originY = fromOrigin.y() * (1.0f - cubic) + toOrigin.y() * cubic;
+
+				setScale(scale);
+				setOrigin(originX, originY);
+			}, 350);
+
+			setAnimation(infoFadeIn);
+		}
+	}
+
+	std::vector<HelpPrompt> getHelpPrompts()
+	{
+		std::vector<HelpPrompt> prompts;
+		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+		prompts.push_back(HelpPrompt("l", _("ZOOM-")));
+		prompts.push_back(HelpPrompt("r", _("ZOOM+")));		
+		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE")));
+
+		return prompts;
+	}
+
+	void update(int deltaTime)
+	{
+		ImageComponent::update(deltaTime);
+
+		if (mFirstShow)
+		{
+			mFirstShow = false;
+			runAnimation();
+		}
+
+		if (mZooming != 0)
+		{
+			float zoomSpeed = deltaTime * 0.0015f;
+
+			auto scale = getScale();
+			scale = scale + mZooming * zoomSpeed;
+			if (scale < 0.01)
+				scale = 0.01;
+
+			setScale(scale);
+		}
+
+		if (mMoving.x() != 0 || mMoving.y() != 0)
+		{
+			float moveSpeed = deltaTime * 0.0003f;
+
+			auto org = getOrigin();
+			org.x() = org.x() + mMoving.x() * moveSpeed;
+			org.y() = org.y() + mMoving.y() * moveSpeed;
+			setOrigin(org);
+		}
+	}
+
+	bool input(InputConfig* config, Input input)
+	{
+		if (input.value != 0)
+		{
+			if (!mLocked && (config->isMappedTo(BUTTON_BACK, input) || config->isMappedTo(BUTTON_OK, input)))
+			{
+				delete this;
+				return true;
+			}
+
+			if (config->isMappedLike("pageup", input))
+			{				
+				mZooming = -1;
+				return true;
+			}
+			
+			if (config->isMappedLike("pagedown", input))
+			{
+				mZooming = 1;
+				return true;
+			}
+						
+			if (config->isMappedLike("down", input))
+			{
+				mMoving.y() = 1;
+				return true;
+			}
+			
+			if (config->isMappedLike("up", input))
+			{
+				mMoving.y() = -1;
+				return true;
+			}
+			
+			if (config->isMappedLike("left", input))
+			{
+				mMoving.x() = -1;
+				return true;
+			}
+			
+			if (config->isMappedLike("right", input))
+			{
+				mMoving.x() = 1;
+				return true;
+			}
+		}	
+		else
+		{
+			if (input.type == InputType::TYPE_HAT)
+			{
+				mMoving = Vector2f::Zero();
+				return true;
+			}
+
+			if (config->isMappedLike("left", input) || config->isMappedLike("right", input))
+			{
+				mMoving.x() = 0;
+				return true;
+			}
+			
+			if (config->isMappedLike("down", input) || config->isMappedLike("up", input))
+			{
+				mMoving.y() = 0;
+				return true;
+			}
+			
+			if (config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
+			{
+				mZooming = 0;
+				return true;
+			}
+		}
+		
+		return ImageComponent::input(config, input);
+	}
+
+	void lock(bool state)
+	{
+		mLocked = state;
+	}
+
+private:
+	Vector2f mMoving;
+	float	 mZooming;
+	bool	 mFirstShow;
+	bool	 mLocked;
+};
+
+static bool g_isGuiImageViewerRunning = false;
+
+GuiImageViewer::GuiImageViewer(Window* window, bool linearSmooth) :
+	GuiComponent(window), mGrid(window), mPdfThreads(nullptr)
+{
+	g_isGuiImageViewerRunning = true;
+
 	setPosition(0, 0);
 	setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 		
@@ -67,16 +256,127 @@ GuiImageViewer::GuiImageViewer(Window* window, bool linearSmooth) :
 	animateTo(Vector2f(0, Renderer::getScreenHeight()), Vector2f(0, 0));
 }
 
+void GuiImageViewer::loadPdf(const std::string& imagePath)
+{
+	Window* window = mWindow;
+
+	int pages = ApiSystem::getInstance()->getPdfPageCount(imagePath);
+	if (pages == 0)
+	{
+		delete this;
+		return;
+	}
+
+#define INITIALPAGES	1
+#define PAGESPERTHREAD  1
+
+	mPdf = imagePath;
+	
+	for (int i = 0; i < pages; i++)
+		mGrid.add("", ":/blank.png", "", "", false, false, false, std::to_string(i + 1));
+	
+	if (pages > INITIALPAGES)
+	{
+		mPdfThreads = new Utils::ThreadPool(1);
+
+		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
+		{
+			mPdfThreads->queueWorkItem([this, imagePath, window, i]
+			{
+				auto fl = ApiSystem::getInstance()->extractPdfImages(imagePath, i + 1, PAGESPERTHREAD);
+				if (fl.size() == 0 || !g_isGuiImageViewerRunning)
+					return;
+
+				window->postToUiThread([this, i, fl](Window* w)
+				{
+					if (!g_isGuiImageViewerRunning)
+						return;
+
+					for (int f = 0; f < fl.size(); f++)
+					{
+						auto img = fl[f];
+						ImageIO::removeImageCache(img);
+						mGrid.setImage(img, std::to_string(i + 1 + f));
+					}
+				});
+			});
+		}
+
+		mPdfThreads->start();
+	}
+	
+	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
+		[window, imagePath]
+		{		
+			return ApiSystem::getInstance()->extractPdfImages(imagePath, 1, INITIALPAGES);
+		},
+			[this, window, imagePath, pages](std::vector<std::string> fileList)
+		{
+			if (fileList.size() == 0)
+				return;
+		
+			for (int i = 0; i < fileList.size(); i++)
+			{
+				ImageIO::removeImageCache(fileList[i]);
+				mGrid.setImage(fileList[i], std::to_string(i + 1));
+			}
+
+			window->pushGui(this);
+		}));
+}
+
 GuiImageViewer::~GuiImageViewer()
 {
-	auto pdfFolder = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+	g_isGuiImageViewerRunning = false;
+
+	if (mPdfThreads != nullptr)
+	{
+		mPdfThreads->stop();
+		delete mPdfThreads;
+	}
+
+	Utils::FileSystem::getTempPath();
+
+	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
 	Utils::FileSystem::deleteDirectoryFiles(pdfFolder);
 	rmdir(pdfFolder.c_str());
 }
 
 bool GuiImageViewer::input(InputConfig* config, Input input)
 {
-	if (input.value != 0 && (config->isMappedTo(BUTTON_BACK, input) || config->isMappedTo(BUTTON_OK, input)))
+	if (input.value != 0 && config->isMappedTo(BUTTON_OK, input))
+	{		
+		std::string path = mGrid.getSelected();
+		if (!path.empty())
+		{			
+			if (!mPdf.empty())
+			{
+				// path = mGrid.getImage(path);
+				int page = mGrid.getCursorIndex() + 1;
+
+				Window* window = mWindow;
+				window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
+					[this, window, path, page]
+					{
+						auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, true);
+						if (files.size() == 1)
+							return files[0];
+					
+						return path;
+					},
+						[window](std::string file)
+					{
+						window->pushGui(new ZoomableImageComponent(window, file));
+					}));
+			}
+			else
+				mWindow->pushGui(new ZoomableImageComponent(mWindow, path));
+		}
+
+		return true;
+	}
+
+	if (input.value != 0 && config->isMappedTo(BUTTON_BACK, input))
 	{		
 		delete this;
 		return true;
@@ -89,6 +389,10 @@ std::vector<HelpPrompt> GuiImageViewer::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+	
+	if (!mPdf.empty())
+		prompts.push_back(HelpPrompt(BUTTON_OK, _("ZOOM")));
+
 	return prompts;
 }
 
@@ -116,7 +420,7 @@ void GuiImageViewer::setCursor(const std::string imagePath)
 	mGrid.onShow();
 }
 
-void GuiImageViewer::showImage(Window* window, const std::string imagePath)
+void GuiImageViewer::showImage(Window* window, const std::string imagePath, bool zoomSingleFile)
 {
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
@@ -124,6 +428,12 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath)
 	if (Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) == ".pdf") 
 	{
 		showPdf(window, imagePath);
+		return;
+	}
+
+	if (zoomSingleFile)
+	{
+		window->pushGui(new ZoomableImageComponent(window, imagePath));
 		return;
 	}
 
@@ -135,17 +445,21 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath)
 
 void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 {
+	auto imgViewer = new GuiImageViewer(window, true);	
+	imgViewer->loadPdf(imagePath);	
+	/*
 	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
 		[window, imagePath]
 		{
 			return ApiSystem::getInstance()->extractPdfImages(imagePath);
 		},
-		[window](std::vector<std::string> fileList)
+		[window, imagePath](std::vector<std::string> fileList)
 		{			
 			if (fileList.size() == 0)
 				return;
 
 			auto imgViewer = new GuiImageViewer(window, true);
+			imgViewer->mPdf = imagePath;
 
 			for (auto file : fileList)
 			{
@@ -155,7 +469,7 @@ void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 
 			imgViewer->setCursor(fileList[0]);
 			window->pushGui(imgViewer);
-		}));
+		}));*/
 }
 
 

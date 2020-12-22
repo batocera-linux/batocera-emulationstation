@@ -77,6 +77,7 @@
 #define fake_gettext_curvature		_("CURVATURE")
 #define fake_gettext_zfast			_("ZFAST")
 #define fake_gettext_flatten_glow	_("FLATTEN-GLOW")
+#define fake_gettext_rgascaling		_("RGA SCALING")
 
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -106,8 +107,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	}, "iconKodi");	
 #endif
 
-	if (isFullUI &&
-		ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
 		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
@@ -174,7 +174,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	if (animate)
 	{
 		if (Renderer::isSmallScreen())
-			animateTo((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+			animateTo(Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2));
 		else
 			animateTo(Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f));
 	}
@@ -307,7 +307,13 @@ void GuiMenu::openScraperSettings()
 		scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
 		s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
 		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
-		
+
+		// SCRAPE MAP		
+		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
+		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
+		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
+		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
+
 		// SCRAPE TITLESHOT
 		/*
 		auto scrape_titleshot = std::make_shared<SwitchComponent>(mWindow);
@@ -315,11 +321,6 @@ void GuiMenu::openScraperSettings()
 		s->addWithLabel(_("SCRAPE TITLESHOT"), scrape_titleshot);
 		s->addSaveFunc([scrape_titleshot] { Settings::getInstance()->setBool("ScrapeTitleShot", scrape_titleshot->getState()); });
 		
-		// SCRAPE MAP		
-		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
-		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
-		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
-		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
 		
 		// SCRAPE CARTRIDGE
 		auto scrape_cartridge = std::make_shared<SwitchComponent>(mWindow);
@@ -720,9 +721,48 @@ void GuiMenu::openDeveloperSettings()
 		auto rootPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath());
 
 		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
-		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/pdftmp/");
+		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
 
 		ViewController::reloadAllGames(mWindow, false);
+	});
+
+	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
+	{
+		unsigned int x;
+		unsigned int y;
+
+		int idx = 0;
+		for (auto sys : SystemData::sSystemVector)
+		{
+			if (sys->isCollection())
+			{
+				idx++;
+				continue;
+			}
+
+			mWindow->renderSplashScreen(_("Building image cache") + " : " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+
+			for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
+			{
+				for (auto mdd : MetaDataList::getMDD())
+				{
+					if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
+						continue;
+
+					auto value = file->getMetadata(mdd.id);
+					if (value.empty())
+						continue;
+
+					auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
+					if (ext == ".jpg" || ext == ".png")
+						ImageIO::loadImageSize(value.c_str(), &x, &y);
+				}
+			}
+
+			idx++;
+		}
+
+		mWindow->closeSplashScreen();
 	});
 
 	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
@@ -752,6 +792,8 @@ void GuiMenu::openDeveloperSettings()
 		}));
 	});
 
+	s->addEntry(_("FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
+	
 	s->addGroup(_("DATA MANAGEMENT"));
 
 	// enable filters (ForceDisableFilters)
@@ -789,6 +831,12 @@ void GuiMenu::openDeveloperSettings()
 	move_carousel->setState(Settings::getInstance()->getBool("MoveCarousel"));
 	s->addWithLabel(_("CAROUSEL TRANSITIONS"), move_carousel);
 	s->addSaveFunc([move_carousel] { Settings::getInstance()->setBool("MoveCarousel", move_carousel->getState()); });
+
+	// quick system select (left/right in game list view)
+	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
+	quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
+	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
+	s->addSaveFunc([quick_sys_select] { Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState()); });
 
 	// Enable OSK (On-Screen-Keyboard)
 	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
@@ -1438,13 +1486,19 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 
 void GuiMenu::openRetroachievementsSettings()
 {
-	GuiSettings *retroachievements = new GuiSettings(mWindow, _("RETROACHIEVEMENTS SETTINGS").c_str());
+	Window* window = mWindow;
+	GuiSettings* retroachievements = new GuiSettings(mWindow, _("RETROACHIEVEMENTS SETTINGS").c_str());
+
+	retroachievements->addGroup(_("SETTINGS"));
+
+	bool retroachievementsEnabled = SystemConf::getInstance()->getBool("global.retroachievements");
+	std::string username = SystemConf::getInstance()->get("global.retroachievements.username");
+	std::string password = SystemConf::getInstance()->get("global.retroachievements.password");
 
 	// retroachievements_enable
 	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements"));
+	retroachievements_enabled->setState(retroachievementsEnabled);
 	retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
-	retroachievements->addSaveFunc([retroachievements_enabled] { SystemConf::getInstance()->setBool("global.retroachievements", retroachievements_enabled->getState()); });
 
 	// retroachievements_hardcore_mode
 	auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -1480,6 +1534,31 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addWithLabel(_("SHOW IN MAIN MENU"), retroachievements_menuitem);
 	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
 
+	retroachievements->addGroup(_("GAME INDEXES"));
+	retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
+	retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
+
+	retroachievements->addSaveFunc([retroachievementsEnabled, retroachievements_enabled, username, password, window]
+	{
+		bool newState = retroachievements_enabled->getState();
+		std::string newUsername = SystemConf::getInstance()->get("global.retroachievements.username");
+		std::string newPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+
+		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword))
+		{
+			std::string error;
+			if (!RetroAchievements::testAccount(newUsername, newPassword, error))
+			{
+				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n") + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
+				retroachievements_enabled->setState(false);
+				newState = false;
+			}
+		}
+
+		if (SystemConf::getInstance()->setBool("global.retroachievements", newState))
+			if (!ThreadedHasher::isRunning() && newState)
+				ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
+	});
 
 	mWindow->pushGui(retroachievements);
 }
@@ -1534,13 +1613,13 @@ void GuiMenu::openNetplaySettings()
 		{
 			if (!ThreadedHasher::isRunning() && enableNetplay->getState())
 			{
-				ThreadedHasher::start(window, false, true);
+				ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
 			}
 		}
 	});
 	
-	settings->addEntry(_("REINDEX ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, true); });
-	settings->addEntry(_("INDEX MISSING GAMES"), false, [this] { ThreadedHasher::start(mWindow); });
+	settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
+	settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
 	
 	mWindow->pushGui(settings);
 }
@@ -1752,6 +1831,29 @@ void GuiMenu::openGamesSettings_batocera()
 		mWindow->pushGui(ai_service);
 	});
 	
+	// Load global custom features
+	for (auto feat : SystemData::mGlobalFeatures)
+	{
+		std::string storageName = "global." + feat.value;
+		std::string storedValue = SystemConf::getInstance()->get(storageName);
+
+		auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+		cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
+
+		for (auto fval : feat.choices)
+			cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+
+		if (!cf->hasSelection())
+			cf->selectFirstItem();
+
+		if (!feat.description.empty())
+			s->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+		else
+			s->addWithLabel(_(feat.name.c_str()), cf);
+
+		s->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
+	}
+
 	// Custom config for systems
 	s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
 	{
@@ -2178,7 +2280,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 			{
-				if (it->first == "basic" || it->first == "detailed" || it->first == "grid")
+				if (it->first == "basic" || it->first == "detailed" || it->first == "grid" || it->first == "video" || it->first == "gamecarousel")
 					styles.push_back(std::pair<std::string, std::string>(it->first, _(it->first.c_str())));
 				else
 					styles.push_back(*it);
@@ -2689,7 +2791,7 @@ void GuiMenu::openUISettings()
 				styles.push_back(std::pair<std::string, std::string>("basic", _("basic")));
 				styles.push_back(std::pair<std::string, std::string>("detailed", _("detailed")));
 				styles.push_back(std::pair<std::string, std::string>("video", _("video")));
-				styles.push_back(std::pair<std::string, std::string>("grid", _("grid")));
+				styles.push_back(std::pair<std::string, std::string>("grid", _("grid")));				
 			}
 
 			auto viewPreference = Settings::getInstance()->getString("GamelistViewStyle");
@@ -3720,6 +3822,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}
 	}
 
+	// Load per-game / per-emulator / per-system custom features
 	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 	for (auto feat : customFeatures)
 	{
@@ -3735,13 +3838,25 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		if (!cf->hasSelection())
 			cf->selectFirstItem();
 
-		systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+		if (!feat.description.empty())
+			systemConfiguration->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+		else
+			systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+
 		systemConfiguration->addSaveFunc([cf, storageName] 
 		{			
 			SystemConf::getInstance()->set(storageName, cf->getSelected());
 		});
 	}
 
+	// automatic controller configuration
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autocontrollers))
+	{
+		auto autoControllers = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTOCONFIGURE CONTROLLERS"));
+		autoControllers->addRange({ { _("AUTO"), "" },{ _("ON"), "0" },{ _("OFF"), "1" } }, SystemConf::getInstance()->get(configName + ".disableautocontrollers"));
+		systemConfiguration->addWithLabel(_("AUTOCONFIGURE CONTROLLERS"), autoControllers);
+		systemConfiguration->addSaveFunc([configName, autoControllers] { SystemConf::getInstance()->set(configName + ".disableautocontrollers", autoControllers->getSelected()); });
+	}
 
 	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 	{

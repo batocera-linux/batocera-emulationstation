@@ -2,6 +2,8 @@
 
 #include "Log.h"
 #include <pugixml/src/pugixml.hpp>
+#include "Settings.h"
+
 
 //some util functions
 std::string inputTypeToString(InputType type)
@@ -227,19 +229,55 @@ void InputConfig::writeToXML(pugi::xml_node& parent)
 	}
 }
 
-static char* ABUTTON = "a";
-static char* BBUTTON = "b";
+static char ABUTTON[2] = "a";
+static char BBUTTON[2] = "b";
 
 char* BUTTON_OK = ABUTTON;
 char* BUTTON_BACK = BBUTTON;
 
-#include "Settings.h"
+std::string InputConfig::buttonLabel(const std::string& button)
+{
+#ifdef INVERTEDINPUTCONFIG
+	if (!Settings::getInstance()->getBool("InvertButtons"))
+	{
+		if (button == "a")
+			return "b";
+		else if (button == "b")
+			return "a";
+	}
+#endif
+
+	return button;
+}
+
+std::string InputConfig::buttonImage(const std::string& button)
+{
+#ifdef INVERTEDINPUTCONFIG
+	if (!Settings::getInstance()->getBool("InvertButtons"))
+	{
+		if (button == "a")
+			return ":/help/buttons_south.svg";		
+		if (button == "b")
+			return ":/help/buttons_east.svg";
+	}
+#endif
+	if (button == "a")
+		return ":/help/buttons_east.svg";
+	if (button == "b")
+		return ":/help/buttons_south.svg";
+	if (button == "x")
+		return ":/help/buttons_north.svg";
+	if (button == "y")
+		return ":/help/buttons_west.svg";
+	
+	return button;
+}
 
 void InputConfig::AssignActionButtons()
 {
 	bool invertButtons = Settings::getInstance()->getBool("InvertButtons");
-
-#ifdef WIN32
+	
+#ifdef INVERTEDINPUTCONFIG
 	BUTTON_OK = invertButtons ? BBUTTON : ABUTTON;
 	BUTTON_BACK = invertButtons ? ABUTTON : BBUTTON;
 #else

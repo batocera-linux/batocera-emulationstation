@@ -236,7 +236,7 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-//	if(Settings::getInstance()->getBool("QuickSystemSelect"))
+	if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
 		prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
 
 	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera

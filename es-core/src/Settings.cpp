@@ -104,7 +104,7 @@ void Settings::setDefaults()
 	mBoolMap["ScrapePadToKey"] = true;	
 	mBoolMap["IgnoreGamelist"] = false;
 	mBoolMap["HideConsole"] = true;
-	//mBoolMap["QuickSystemSelect"] = true;
+	mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
 	mBoolMap["SaveGamelistsOnExit"] = true;	
 	mStringMap["ShowBattery"] = "text";	

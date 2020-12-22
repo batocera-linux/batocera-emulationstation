@@ -18,6 +18,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mDescContainer(window), mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
 	mKidGame(nullptr), mNotKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr), mNoManual(nullptr), mNotFavorite(nullptr),
+	mCheevos(nullptr), mNotCheevos(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -160,6 +161,12 @@ DetailedContainer::~DetailedContainer()
 
 	if (mNotKidGame != nullptr)
 		delete mNotKidGame;
+
+	if (mCheevos != nullptr)
+		delete mCheevos;
+
+	if (mNotCheevos != nullptr)
+		delete mNotCheevos;
 
 	if (mFavorite != nullptr)
 		delete mFavorite;
@@ -356,6 +363,9 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	loadIfThemed(&mKidGame, theme, "md_kidgame", false, true);
 	loadIfThemed(&mNotKidGame, theme, "md_notkidgame", false, true);
 
+	loadIfThemed(&mCheevos, theme, "md_cheevos", false, true);
+	loadIfThemed(&mNotCheevos, theme, "md_notcheevos", false, true);
+	
 	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
 	loadIfThemed(&mNotFavorite, theme, "md_notfavorite", false, true);
 	
@@ -426,6 +436,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mNoManual != nullptr) mNoManual->setVisible(false);		
 		if (mKidGame != nullptr) mKidGame->setVisible(false);
 		if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);		
+		if (mCheevos != nullptr) mCheevos->setVisible(false);
+		if (mNotCheevos != nullptr) mNotCheevos->setVisible(false);		
 		if (mFavorite != nullptr) mFavorite->setVisible(false);
 		if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);
 		if (mHidden != nullptr) mHidden->setVisible(false);
@@ -528,6 +540,12 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mNotKidGame != nullptr)
 			mNotKidGame->setVisible(!file->getKidGame());
 
+		if (mCheevos != nullptr)
+			mCheevos->setVisible(file->hasCheevos());
+
+		if (mNotCheevos != nullptr)
+			mNotCheevos->setVisible(file->getSourceFileData()->getSystem()->isCheevosSupported() && !file->hasCheevos());
+
 		if (mFavorite != nullptr)
 			mFavorite->setVisible(file->getFavorite());
 
@@ -603,6 +621,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mNoManual != nullptr) comps.push_back(mNoManual);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
 	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);	
+	if (mCheevos != nullptr) comps.push_back(mCheevos);
+	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);	
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
 	if (mNotFavorite != nullptr) comps.push_back(mNotFavorite);	
 	if (mHidden != nullptr) comps.push_back(mHidden);
@@ -647,6 +667,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mNoManual != nullptr) mNoManual->setVisible(false);
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
 					if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);
+					if (mCheevos != nullptr) mCheevos->setVisible(false);
+					if (mNotCheevos != nullptr) mNotCheevos->setVisible(false);					
 					if (mFavorite != nullptr) mFavorite->setVisible(false);
 					if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);					
 					if (mHidden != nullptr) mHidden->setVisible(false);

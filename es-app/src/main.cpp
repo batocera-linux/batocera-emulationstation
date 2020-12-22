@@ -34,6 +34,7 @@
 #include "components/VideoVlcComponent.h"
 #include <csignal>
 #include "InputConfig.h"
+#include "RetroAchievements.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -469,7 +470,7 @@ int main(int argc, char* argv[])
 		playVideo();
 		return 0;
 	}
-
+	
 	//start the logger
 	Log::setupReportingLevel();
 	Log::init();	

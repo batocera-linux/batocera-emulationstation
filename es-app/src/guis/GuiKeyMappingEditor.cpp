@@ -23,62 +23,55 @@
 
 #define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
 
-
-std::vector<MappingInfo> mappingNames =
+void GuiKeyMappingEditor::initMappingNames()
 {
-	{ "up",      "UP",           ":/help/dpad_up.svg" },
-	{ "down",    "DOWN",         ":/help/dpad_down.svg" },
-	{ "left",    "LEFT",         ":/help/dpad_left.svg" },
-	{ "right",   "RIGHT",        ":/help/dpad_right.svg" },
-	{ "start",   "START",        ":/help/button_start.svg" },
-	{ "select",  "SELECT",       ":/help/button_select.svg" },
+	mMappingNames =
+	{
+		{ "up",      "UP",           ":/help/dpad_up.svg" },
+		{ "down",    "DOWN",         ":/help/dpad_down.svg" },
+		{ "left",    "LEFT",         ":/help/dpad_left.svg" },
+		{ "right",   "RIGHT",        ":/help/dpad_right.svg" },
+		{ "start",   "START",        ":/help/button_start.svg" },
+		{ "select",  "SELECT",       ":/help/button_select.svg" },
 
-#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
-	{ "a",       "A",    ":/help/buttons_south.svg" },
-	{ "b",       "B",   ":/help/buttons_east.svg" },
-#else
-	{ "a",       "A",    ":/help/buttons_east.svg" },
-	{ "b",       "B",   ":/help/buttons_south.svg" },
-#endif
+		{ "a",				 InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
+		{ "b",				 InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
 
-	{ "x",               "X",   ":/help/buttons_north.svg" },
-	{ "y",               "Y",    ":/help/buttons_west.svg" },
+		{ "x",               "X",   ":/help/buttons_north.svg" },
+		{ "y",               "Y",    ":/help/buttons_west.svg" },
 
-	{ "joystick1up",     "LEFT ANALOG UP",     ":/help/analog_up.svg" },
-	{ "joystick1down",   "LEFT ANALOG DOWN",     ":/help/analog_down.svg" },
-	{ "joystick1left",   "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
-	{ "joystick1right",  "LEFT ANALOG RIGHT",   ":/help/analog_right.svg" },
-	
-	{ "joystick2up",     "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
-	{ "joystick2down",     "RIGHT ANALOG DOWN",     ":/help/analog_down.svg" },
-	{ "joystick2left",   "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
-	{ "joystick2right",   "RIGHT ANALOG RIGHT",   ":/help/analog_right.svg" },
-	{ "pageup",          "L1",      ":/help/button_l.svg" },
-	{ "pagedown",        "R1",     ":/help/button_r.svg" },
-	{ "l2",              "L2",       ":/help/button_lt.svg" },
-	{ "r2",              "R2",      ":/help/button_rt.svg" },
-	{ "l3",              "L3",       ":/help/analog_thumb.svg" },
-	{ "r3",              "R3",      ":/help/analog_thumb.svg" },
+		{ "joystick1up",     "LEFT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick1down",   "LEFT ANALOG DOWN",     ":/help/analog_down.svg" },
+		{ "joystick1left",   "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick1right",  "LEFT ANALOG RIGHT",   ":/help/analog_right.svg" },
 
-	//{ "hotkey",          "HOTKEY",      ":/help/button_hotkey.svg" },
-	
-	{ "hotkey + start",          "HOTKEY + START",      ":/help/button_hotkey.svg", ":/help/button_start.svg" },
+		{ "joystick2up",     "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick2down",   "RIGHT ANALOG DOWN",     ":/help/analog_down.svg" },
+		{ "joystick2left",   "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick2right",  "RIGHT ANALOG RIGHT",   ":/help/analog_right.svg" },
+		{ "pageup",          "L1",      ":/help/button_l.svg" },
+		{ "pagedown",        "R1",     ":/help/button_r.svg" },
+		{ "l2",              "L2",       ":/help/button_lt.svg" },
+		{ "r2",              "R2",      ":/help/button_rt.svg" },
+		{ "l3",              "L3",       ":/help/analog_thumb.svg" },
+		{ "r3",              "R3",      ":/help/analog_thumb.svg" },
 
-#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
-	{ "hotkey + a",       "HOTKEY + A",    ":/help/button_hotkey.svg", ":/help/buttons_south.svg" },
-	{ "hotkey + b",       "HOTKEY + B",   ":/help/button_hotkey.svg", ":/help/buttons_east.svg" },
-#else
-	{ "hotkey + a",       "HOTKEY + A",   ":/help/button_hotkey.svg", ":/help/buttons_east.svg" },
-	{ "hotkey + b",       "HOTKEY + B",   ":/help/button_hotkey.svg", ":/help/buttons_south.svg" },
-#endif
+		//{ "hotkey",          "HOTKEY",      ":/help/button_hotkey.svg" },
 
-	{ "hotkey + x",       "HOTKEY + X",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
-	{ "hotkey + y",       "HOTKEY + Y",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
-};
+		{ "hotkey + start",          "HOTKEY + START",      ":/help/button_hotkey.svg", ":/help/button_start.svg" },
+
+		{ "hotkey + a",       "HOTKEY + " + InputConfig::buttonLabel("a"),    ":/help/button_hotkey.svg", InputConfig::buttonImage("a") },
+		{ "hotkey + b",       "HOTKEY + " + InputConfig::buttonLabel("a"),   ":/help/button_hotkey.svg", InputConfig::buttonImage("b") },
+		{ "hotkey + x",       "HOTKEY + X",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
+		{ "hotkey + y",       "HOTKEY + Y",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
+	};
+}
 
 GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
 {
+	initMappingNames();
+
 	mPlayer = 0;
 	mMapping = mapping->getKeyboardMapping();
 	mDirty = false;
@@ -221,7 +214,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 	//	mList->addGroup(_("JOYSTICK MAPPING"));
 	//	i++;
 
-	for (auto mappingName : mappingNames)
+	for (auto mappingName : mMappingNames)
 	{
 		if (!mouseMapping.empty() && Utils::String::startsWith(mappingName.name, mouseMapping))
 			continue;
@@ -452,7 +445,7 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 		mImageCombi->setImage(mMappingInfo.combination);
 	}
 
-	mText = std::make_shared<TextComponent>(mWindow, _(mMappingInfo.dispName.c_str()), theme->Text.font, theme->Text.color);
+	mText = std::make_shared<TextComponent>(mWindow, _(Utils::String::toUpper(mMappingInfo.dispName).c_str()), theme->Text.font, theme->Text.color);
 	mText->setLineSpacing(1.5);
 
 	mTargetText = std::make_shared<TextComponent>(mWindow, mTarget.toTargetString(), theme->Text.font, theme->Text.color);

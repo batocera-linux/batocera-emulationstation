@@ -94,6 +94,9 @@ protected:
 	ImageComponent* mKidGame;
 	ImageComponent* mNotKidGame;
 
+	ImageComponent* mCheevos;
+	ImageComponent* mNotCheevos;
+
 	ImageComponent* mManual;
 	ImageComponent* mNoManual;
 

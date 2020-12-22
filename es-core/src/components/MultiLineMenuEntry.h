@@ -19,13 +19,21 @@ public:
 		mText = std::make_shared<TextComponent>(mWindow, text.c_str(), theme->Text.font, theme->Text.color);
 		mText->setVerticalAlignment(ALIGN_TOP);
 
-		mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, theme->Text.color);
+		mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, theme->Text.color);		
+		mSubstring->setVerticalAlignment(ALIGN_TOP);
 		mSubstring->setOpacity(192);
 
 		setEntry(mText, Vector2i(0, 0), true, true);
 		setEntry(mSubstring, Vector2i(0, 1), false, true);
 
-		setSize(Vector2f(0, mText->getSize().y() + mSubstring->getSize().y()));
+		float th = mText->getSize().y();
+		float sh = mSubstring->getSize().y();
+		float h = th + sh;
+
+		setRowHeightPerc(0, (th * 0.9) / h);
+		setRowHeightPerc(1, (sh * 1.1) / h);
+
+		setSize(Vector2f(0, h));
 	}
 
 	virtual void setColor(unsigned int color)

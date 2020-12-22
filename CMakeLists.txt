@@ -240,6 +240,7 @@ set(COMMON_LIBRARIES
     pugixml
     nanosvg
     id3v2
+	libcheevos	
 )
 
 if(NOT DEFINED MSVC)

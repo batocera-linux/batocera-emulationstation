@@ -6,9 +6,16 @@
 
 namespace Utils
 {
-	ThreadPool::ThreadPool(int threadByCore) : mRunning(true), mWaiting(false), mNumWork(0)
+	ThreadPool::ThreadPool(int threadByCore) : mRunning(false), mWaiting(false), mNumWork(0)
 	{
-		size_t num_threads = std::thread::hardware_concurrency() * threadByCore;
+		mThreadByCore = threadByCore;
+	}
+
+	void ThreadPool::start()
+	{
+		mRunning = true;
+
+		size_t num_threads = std::thread::hardware_concurrency() * mThreadByCore;
 
 		auto doWork = [&](size_t id)
 		{
@@ -31,7 +38,7 @@ namespace Utils
 						work();
 					}
 					catch (...) {}
-
+					
 					mNumWork--;
 				}
 				else
@@ -73,6 +80,9 @@ namespace Utils
 
 	void ThreadPool::wait()
 	{
+		if (!mRunning)
+			start();
+
 		mWaiting = true;
 		while (mNumWork.load() > 0)
 			std::this_thread::yield();
@@ -80,6 +90,9 @@ namespace Utils
 
 	void ThreadPool::wait(work_function work, int delay)
 	{
+		if (!mRunning)
+			start();
+
 		mWaiting = true;
 
 		while (mNumWork.load() > 0)
@@ -88,6 +101,26 @@ namespace Utils
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+		}
+	}
+
+	void ThreadPool::stop()
+	{
+		_mutex.lock();
+
+		while (!mWorkQueue.empty())
+		{
+			mNumWork--;
+			mWorkQueue.pop();
+		}
+		
+		_mutex.unlock();
+		mWaiting = true;
+
+		while (mNumWork.load() > 0)
+		{
+			std::this_thread::yield();
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 	}
 }

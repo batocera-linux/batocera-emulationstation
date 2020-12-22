@@ -860,11 +860,11 @@ void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 		return;
 
 	mCurrentPath = path;
-
+	
 	if (mSelectedProperties.Size.x() > mSize.x())
-		mImage->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size, mSelectedProperties.Image.sizeMode != "maxSize"));
+		mImage->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 	else
-		mImage->setImage(path, false, MaxSizeInfo(mSize, mSelectedProperties.Image.sizeMode != "maxSize"));
+		mImage->setImage(path, false, MaxSizeInfo(mSize, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 
 	resize();
 }
@@ -880,9 +880,9 @@ void GridTileComponent::setMarquee(const std::string& path)
 	mCurrentMarquee = path;
 
 	if (mSelectedProperties.Size.x() > mSize.x())
-		mMarquee->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size));
+		mMarquee->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size), false);
 	else
-		mMarquee->setImage(path, false, MaxSizeInfo(mSize));
+		mMarquee->setImage(path, false, MaxSizeInfo(mSize), false);
 
 	resize();
 }

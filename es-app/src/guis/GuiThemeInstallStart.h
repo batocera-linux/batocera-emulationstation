@@ -21,6 +21,8 @@ public:
 	BatoceraTheme& getEntry() { return mEntry; }
 	virtual void setColor(unsigned int color);
 
+	void update(int deltaTime) override;
+
 private:
 	std::shared_ptr<TextComponent>  mImage;
 	std::shared_ptr<TextComponent>  mText;
