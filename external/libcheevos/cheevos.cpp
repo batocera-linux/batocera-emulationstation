@@ -3,9 +3,10 @@
 #include "rcheevos/include/rconsoles.h"
 #include "libretro-common/include/formats/cdfs.h"
 
+#include <cstdlib>
 #include <memory>
 
-#define CHEEVOS_FREE(p) do { void* q = (void*)p; if (q) free(q); } while (0)
+#define CHEEVOS_FREE(p) do { void* q = (void*)p; if (q) std::free(q); } while (0)
 
 static void* rc_hash_handle_cd_open_track(const char* path, uint32_t track)
 {
@@ -18,7 +19,7 @@ static void* rc_hash_handle_cd_open_track(const char* path, uint32_t track)
 
 	if (cdfs_track)
 	{
-		cdfs_file_t* file = (cdfs_file_t*)malloc(sizeof(cdfs_file_t));
+		cdfs_file_t* file = (cdfs_file_t*)std::malloc(sizeof(cdfs_file_t));
 		if (cdfs_open_file(file, cdfs_track, NULL))
 			return file;
 
