@@ -311,7 +311,7 @@ bool TextureResource::isLoaded() const
 	return true;
 }
 
-size_t TextureResource::getTotalMemUsage()
+size_t TextureResource::getTotalMemUsage(bool includeQueueSize)
 {
 	size_t total = 0;
 	// Count up all textures that manage their own texture data
@@ -323,7 +323,10 @@ size_t TextureResource::getTotalMemUsage()
 	// Now get the committed memory from the manager
 	total += sTextureDataManager.getCommittedSize();
 	// And the size of the loading queue
-	total += sTextureDataManager.getQueueSize();
+
+	if (includeQueueSize)
+		total += sTextureDataManager.getQueueSize();
+
 	return total;
 }
 

@@ -279,7 +279,17 @@ void MenuComponent::setSubTitle(const std::string text)
 	const float titleHeight = mTitle->getFont()->getLetterHeight() + (mSubtitle ? TITLE_WITHSUB_VERT_PADDING : TITLE_VERT_PADDING);
 	const float subtitleHeight = mSubtitle->getSize().y() + SUBTITLE_VERT_PADDING;
 
-	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);
+	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);	
+}
+
+float MenuComponent::getTitleHeight() const
+{
+	return TITLE_HEIGHT;
+}
+
+float MenuComponent::getHeaderGridHeight() const
+{
+	return mHeaderGrid->getRowHeight(0);
 }
 
 float MenuComponent::getButtonGridHeight() const
@@ -317,23 +327,6 @@ void MenuComponent::updateSize()
 
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	setSize(width, height);
-
-	if (mTitleImage != nullptr)
-	{
-		mTitleImage->setPosition(width - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
-		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
-		
-		float pad = Renderer::getScreenHeight() * 0.015;
-		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-
-		mTitle->setHorizontalAlignment(ALIGN_LEFT);
-		
-		if (mSubtitle != nullptr)
-		{
-			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
-		}
-	}
 }
 
 void MenuComponent::onSizeChanged()
@@ -345,6 +338,30 @@ void MenuComponent::onSizeChanged()
 	mGrid.setRowHeightPerc(2, getButtonGridHeight() / mSize.y(), false);
 
 	mGrid.setSize(mSize);
+
+	if (mTitleImage != nullptr)
+	{
+		mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
+		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
+
+		float pad = Renderer::getScreenWidth() * 0.012;
+		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+
+		mTitle->setHorizontalAlignment(ALIGN_LEFT);
+
+		if (mSubtitle != nullptr)
+		{
+			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+		}
+	}
+}
+
+void MenuComponent::clearButtons()
+{
+	mButtons.clear();
+	updateGrid();
+	updateSize();
 }
 
 void MenuComponent::addButton(const std::string& name, const std::string& helpText, const std::function<void()>& callback)

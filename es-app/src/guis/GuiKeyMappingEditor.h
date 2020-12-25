@@ -53,6 +53,7 @@ public:
 	virtual void onSizeChanged() override;
 
 private:
+	void initMappingNames();
 	void updateHelpPrompts();
 	void loadList(bool restoreIndex = true);
 	void centerWindow();	
@@ -74,4 +75,6 @@ private:
 
 	int								mPlayer;
 	bool							mDirty;
+
+	std::vector<MappingInfo>		mMappingNames;
 };

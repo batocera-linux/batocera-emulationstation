@@ -203,12 +203,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 
 			return true;
-		}else if(
-#ifdef _ENABLEEMUELEC
-		config->isMappedLike(getQuickSystemSelectRightButton(), input) || config->isMappedLike("rightshoulder", input))
-#else
-		config->isMappedLike(getQuickSystemSelectRightButton(), input) || config->isMappedLike("r2", input))
-#endif
+		}
+		else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectRightButton(), input)) || config->isMappedLike("r2", input))
 		{
 			if (!mPopupSelfReference)
 			{
@@ -216,12 +212,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				ViewController::get()->goToNextGameList();
 				return true;
 			}
-		}else if(
-#ifdef _ENABLEEMUELEC
-		config->isMappedLike(getQuickSystemSelectLeftButton(), input) || config->isMappedLike("leftshoulder", input))
-#else
-		config->isMappedLike(getQuickSystemSelectLeftButton(), input) || config->isMappedLike("l2", input))
-#endif
+		}else if((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectLeftButton(), input)) || config->isMappedLike("l2", input))
 		{
 			if (!mPopupSelfReference)
 			{

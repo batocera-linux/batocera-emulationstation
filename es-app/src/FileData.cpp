@@ -25,6 +25,7 @@
 #include <algorithm>
 #include "LangParser.h"
 #include "resources/ResourceManager.h"
+#include "RetroAchievements.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -141,7 +142,7 @@ const std::string FileData::getThumbnailPath()
 					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-thumb" + extList[i];
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("thumbnail", path);
+						setMetadata(MetaDataId::Thumbnail, path);
 						thumbnail = path;
 					}
 				}
@@ -201,6 +202,14 @@ const bool FileData::getKidGame()
 	return data != "false" && !data.empty();
 }
 
+const bool FileData::hasCheevos()
+{
+	if (!getSourceFileData()->getSystem()->isCheevosSupported())
+		return false;
+
+	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
+}
+
 static std::shared_ptr<bool> showFilenames;
 static std::shared_ptr<bool> collectionShowSystemInfo;
 
@@ -237,7 +246,7 @@ const std::string FileData::getVideoPath()
 		std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-video.mp4";
 		if (Utils::FileSystem::exists(path))
 		{
-			setMetadata("video", path);
+			setMetadata(MetaDataId::Video, path);
 			video = path;
 		}
 	}
@@ -260,7 +269,7 @@ const std::string FileData::getMarqueePath()
 				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-marquee" + extList[i];
 				if (Utils::FileSystem::exists(path))
 				{
-					setMetadata("marquee", path);
+					setMetadata(MetaDataId::Marquee, path);
 					marquee = path;
 				}
 			}
@@ -290,7 +299,7 @@ const std::string FileData::getImagePath()
 
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("image", path);
+						setMetadata(MetaDataId::Image, path);
 						image = path;
 					}
 				}
@@ -477,28 +486,26 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		window->init(hideWindow);
 
 	VolumeControl::getInstance()->init();
+	AudioManager::getInstance()->init();
 
-	// mSystem can be NULL
-	//AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
-	AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched
 	if (exitCode == 0)
 	{
-		int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
-		gameToUpdate->setMetadata("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+		int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
+		gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
 
 		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
 		// you might have experienced a loading problem)
 		time_t tend = time(NULL);
 		long elapsedSeconds = difftime(tend, tstart);
-		long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+		long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
 		if (elapsedSeconds >= 10)
-			gameToUpdate->setMetadata("gametime", std::to_string(static_cast<long>(gameTime)));
+			gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
 
 		//update last played time
-		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+		gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
 		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 		saveToGamelistRecovery(gameToUpdate);
 	} else {
@@ -1018,7 +1025,7 @@ const std::string FileData::getEmulator(bool resolveDefault)
 void FileData::setCore(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("core", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Core, value == "auto" ? "" : value);
 #else
 #ifndef _ENABLEEMUELEC	
 	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
@@ -1031,7 +1038,7 @@ void FileData::setCore(const std::string value)
 void FileData::setEmulator(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("emulator", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Emulator, value == "auto" ? "" : value);
 #else
 #ifndef _ENABLEEMUELEC
 	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
@@ -1083,9 +1090,9 @@ void FileData::detectLanguageAndRegion(bool overWrite)
 
 	auto info = LangInfo::parse(getSourceFileData()->getPath(), getSourceFileData()->getSystem());
 	if (info.languages.size() > 0)
-		mMetadata.set("lang", info.getLanguageString());
+		mMetadata.set(MetaDataId::Language, info.getLanguageString());
 	if (!info.region.empty())
-		mMetadata.set("region", info.region);
+		mMetadata.set(MetaDataId::Region, info.region);
 }
 
 void FolderData::removeVirtualFolders()
@@ -1119,22 +1126,50 @@ void FileData::checkCrc32(bool force)
 		return;
 
 	SystemData* system = getSystem();
-
-	bool unpackZip =
-		!system->hasPlatformId(PlatformIds::ARCADE) &&
-		!system->hasPlatformId(PlatformIds::NEOGEO) &&
-		!system->hasPlatformId(PlatformIds::DAPHNE) &&
-		!system->hasPlatformId(PlatformIds::LUTRO) &&
-		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
-		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
-		!system->hasPlatformId(PlatformIds::NAOMI);
-
-	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), unpackZip);
+	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
 		getMetadata().set(MetaDataId::Crc32, Utils::String::toUpper(crc));
 		saveToGamelistRecovery(this);
 	}
+}
+
+void FileData::checkMd5(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkMd5(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::Md5).empty())
+		return;
+
+	SystemData* system = getSystem();
+	auto crc = ApiSystem::getInstance()->getMD5(getPath(), system->shouldExtractHashesFromArchives());
+	if (!crc.empty())
+	{
+		getMetadata().set(MetaDataId::Md5, Utils::String::toUpper(crc));
+		saveToGamelistRecovery(this);
+	}
+}
+
+
+void FileData::checkCheevosHash(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkCheevosHash(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::CheevosHash).empty())
+		return;
+
+	SystemData* system = getSystem();
+	auto crc = RetroAchievements::getCheevosHash(system, getPath());
+	getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
+	saveToGamelistRecovery(this);
 }
 
 std::string FileData::getKeyboardMappingFilePath()

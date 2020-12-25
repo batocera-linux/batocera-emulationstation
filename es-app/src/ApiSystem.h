@@ -2,40 +2,21 @@
 #define API_SYSTEM
 
 #include <string>
+#include <map>
 #include "Window.h"
 #include "components/BusyComponent.h"
 
-struct BiosFile {
+struct BiosFile 
+{
   std::string status;
   std::string md5;
   std::string path;
 };
 
-struct BiosSystem {
+struct BiosSystem 
+{
   std::string name;
   std::vector<BiosFile> bios;
-};
-
-struct RetroAchievementGame
-{
-	std::string name;
-	std::string achievements;
-	std::string points;
-	std::string lastplayed;
-	std::string badge;
-};
-
-struct RetroAchievementInfo
-{	
-	std::string username;
-	std::string totalpoints;
-	std::string rank;
-	std::string userpic;
-	std::string registered;
-
-	std::string error;
-
-	std::vector<RetroAchievementGame> games;
 };
 
 struct BatoceraBezel
@@ -76,15 +57,10 @@ struct PacmanPackage
 	size_t installed_size;
 
 	std::string group;
-	//std::vector<std::string> groups;
 	std::vector<std::string> licenses;	
 
-	bool isInstalled()
-	{
-		return status == "installed";
-	}
+	bool isInstalled() { return status == "installed"; }
 };
-
 
 class ApiSystem 
 {
@@ -111,12 +87,6 @@ public:
 	virtual bool isScriptingSupported(ScriptId script);
 
     static ApiSystem* getInstance();
-
-	/*
-    const static Uint32 SDL_FAST_QUIT = 0x800F;
-    const static Uint32 SDL_SYS_SHUTDOWN = 0X4000;
-    const static Uint32 SDL_SYS_REBOOT = 0x2000;
-	*/
 
     virtual unsigned long getFreeSpaceGB(std::string mountpoint);
 
@@ -183,9 +153,6 @@ public:
     /* video output */
     std::vector<std::string> getAvailableVideoOutputDevices();
 
-    // Batocera
-	RetroAchievementInfo getRetroAchievements();
-
 	// Themes
 	virtual std::vector<BatoceraTheme> getBatoceraThemesList();
 	virtual std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
@@ -196,9 +163,12 @@ public:
 	virtual std::pair<std::string,int> uninstallBatoceraTheme(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
+	virtual std::string getMD5(const std::string fileName, bool fromZipContents = true);
+
+	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "");
 
 	virtual int getPdfPageCount(const std::string fileName);
-	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1);
+	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1, bool bestQuality = false);
 
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
@@ -212,14 +182,15 @@ public:
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
-	std::string downloadToCache(const std::string url);
-
+	
 	// Formating
 	std::vector<std::string> getFormatDiskList();
 	std::vector<std::string> getFormatFileSystems();
 	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
 	virtual std::vector<std::string> getShaderList();
+
+	virtual std::string getSevenZipCommand() { return "7zr"; }
 
 protected:
 	ApiSystem();

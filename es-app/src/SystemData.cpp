@@ -28,6 +28,7 @@
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
+std::vector<CustomFeature> SystemData::mGlobalFeatures;
 
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
@@ -47,7 +48,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	if (!CollectionSystem && !mIsGroupSystem)
 	{
 		mRootFolder = new FolderData(mEnvData->mStartPath, this);
-		mRootFolder->getMetadata().set("name", mMetadata.fullName);
+		mRootFolder->getMetadata().set(MetaDataId::Name, mMetadata.fullName);
 
 		std::unordered_map<std::string, FileData*> fileMap;
 		fileMap[mEnvData->mStartPath] = mRootFolder;
@@ -290,9 +291,22 @@ void SystemData::createGroupedSystems()
 			md.name = item.first;
 			md.fullName = item.first;
 			md.themeFolder = item.first;
-			
-			if (item.second.size() > 0)
+
+			// Check if the system is described in es_systems but empty, to import metadatas )
+			auto sourceSystem = SystemData::loadSystem(item.first, false);
+			if (sourceSystem != nullptr)
 			{
+				md.fullName = sourceSystem->getSystemMetadata().fullName;
+				md.themeFolder = sourceSystem->getSystemMetadata().themeFolder;
+				md.manufacturer = sourceSystem->getSystemMetadata().manufacturer;
+				md.releaseYear = sourceSystem->getSystemMetadata().releaseYear;
+				md.hardwareType = sourceSystem->getSystemMetadata().hardwareType;
+
+				delete sourceSystem;
+			}
+			else if (item.second.size() > 0)
+			{
+
 				SystemData* syss = *item.second.cbegin();
 				md.manufacturer = syss->getSystemMetadata().manufacturer;
 				md.releaseYear = syss->getSystemMetadata().releaseYear;
@@ -324,8 +338,8 @@ void SystemData::createGroupedSystems()
 						if (logoElem && logoElem->has("path"))
 						{
 							std::string path = logoElem->get<std::string>("path");
-							folder->setMetadata("image", path);
-							folder->setMetadata("thumbnail", path);
+							folder->setMetadata(MetaDataId::Image, path);
+							folder->setMetadata(MetaDataId::Thumbnail, path);
 							folder->enableVirtualFolderDisplay(true);
 						}
 					}
@@ -384,6 +398,8 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
 		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
 		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
+		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
+		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
 		if (trim == "vertical") ret = ret | EmulatorFeatures::Features::vertical;		
 	}
 
@@ -407,6 +423,9 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 
 		CustomFeature feat;
 		feat.name = featureNode.attribute("name").value();
+		
+		if (featureNode.attribute("description"))
+			feat.description = featureNode.attribute("description").value();
 
 		if (featureNode.attribute("value"))
 			feat.value = featureNode.attribute("value").value();
@@ -462,6 +481,13 @@ bool SystemData::loadFeatures()
 		LOG(LogError) << "es_features.cfg is missing the <features> tag!";
 		return false;
 	}
+
+
+	pugi::xml_node globalFeatures = systemList.child("globalFeatures");
+	if (globalFeatures)
+		mGlobalFeatures = loadCustomFeatures(globalFeatures);
+	else
+		mGlobalFeatures.clear();
 
 	es_features_loaded = true;
 
@@ -652,6 +678,7 @@ bool SystemData::isCurrentFeatureSupported(EmulatorFeatures::Features feature)
 	return isFeatureSupported(getEmulator(), getCore(), feature);
 }
 
+
 bool SystemData::hasFeatures()
 {
 	if (isCollection() || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
@@ -723,6 +750,76 @@ bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreNa
 	return !es_features_loaded;
 }
 
+// Load custom additionnal config from : /userdata/system/configs/emulationstation/es_systems_*.cfg
+void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
+{
+	for (auto customPath : Utils::FileSystem::getDirContent(Utils::FileSystem::getEsConfigPath(), false, false))
+	{
+		if (Utils::FileSystem::getExtension(customPath) != ".cfg")
+			continue;
+
+		if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
+			continue;
+
+		pugi::xml_document doc;
+		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+		if (!res)
+		{
+			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+			return;
+		}
+
+		pugi::xml_node systemList = doc.child("systemList");
+		if (!systemList)
+		{
+			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
+			return;
+		}
+
+		for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+		{
+			if (!system.child("name"))
+				continue;
+
+			std::string name = system.child("name").text().get();
+			if (name.empty())
+				continue;
+
+			bool found = false;
+
+			// Remove existing one
+			for (pugi::xml_node& srcSystem : srcSystems.children())
+			{
+				if (std::string(srcSystem.name()) != "system")
+					continue;
+
+				std::string srcName = srcSystem.child("name").text().get();
+				if (srcName != name)
+					continue;
+				
+				found = true;
+					
+				for (pugi::xml_node& child : system.children())
+				{
+					std::string tag = child.name();
+					if (tag == "name")
+						continue;
+						
+					srcSystem.remove_child(tag.c_str());
+
+					if (tag == "emulators" || !std::string(child.text().get()).empty())				
+						srcSystem.append_copy(child);												
+				}
+					
+				break;				
+			}
+
+			if (!found)
+				srcSystems.append_copy(system);
+		}
+	}
+}
+
 //creates systems from information located in a config file
 bool SystemData::loadConfig(Window* window)
 {
@@ -757,6 +854,8 @@ bool SystemData::loadConfig(Window* window)
 		LOG(LogError) << "es_systems.cfg is missing the <systemList> tag!";
 		return false;
 	}
+
+	loadAdditionnalConfig(systemList);
 
 	std::vector<std::string> systemsNames;
 
@@ -876,7 +975,7 @@ bool SystemData::loadConfig(Window* window)
 	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
 	{
 		if (Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
-			ThreadedHasher::start(window, false, true);
+			ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
 	}
 	
 	return true;
@@ -897,6 +996,8 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 	pugi::xml_node systemList = doc.child("systemList");
 	if (!systemList)
 		return nullptr;
+
+	loadAdditionnalConfig(systemList);
 
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
@@ -925,6 +1026,8 @@ std::map<std::string, std::string> SystemData::getKnownSystemNames()
 	pugi::xml_node systemList = doc.child("systemList");
 	if (!systemList)
 		return ret;
+
+	loadAdditionnalConfig(systemList);
 
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
@@ -1502,6 +1605,47 @@ bool SystemData::isNetplaySupported()
 	return false;
 }
 
+std::string SystemData::getCompatibleCoreNames(EmulatorFeatures::Features feature)
+{
+	std::string ret;
+
+	for (auto emul : mEmulators)
+		for (auto core : emul.cores)
+			if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+				ret += ret.empty() ? core.name : ", " + core.name;
+
+	return ret;
+}
+
+
+bool SystemData::isCheevosSupported()
+{
+	if (isCollection())
+		return false;
+
+	const std::set<std::string> cheevosSystems = {
+		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem", 
+		"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
+		"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
+
+	// "nds" -> Disabled for now
+	// "psx" -> Missing cd reader library	
+	// "atarijaguar", "jaguar" -> No games yet
+
+	if (cheevosSystems.find(getName()) != cheevosSystems.cend())
+	{
+		if (!es_features_loaded)
+			return true;
+
+		for (auto emul : mEmulators)
+			for (auto core : emul.cores)
+				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+					return true;
+	}
+
+	return false;
+}
+
 bool SystemData::isNetplayActivated()
 {
 	for (auto sys : SystemData::sSystemVector)
@@ -1756,4 +1900,16 @@ KeyMappingFile SystemData::getKeyboardMapping()
 
 	ret.path = getKeyboardMappingFilePath();
 	return ret;
+}
+
+bool SystemData::shouldExtractHashesFromArchives()
+{
+	return
+		!hasPlatformId(PlatformIds::ARCADE) &&
+		!hasPlatformId(PlatformIds::NEOGEO) &&
+		!hasPlatformId(PlatformIds::DAPHNE) &&
+		!hasPlatformId(PlatformIds::LUTRO) &&
+		!hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
+		!hasPlatformId(PlatformIds::ATOMISWAVE) &&
+		!hasPlatformId(PlatformIds::NAOMI);
 }

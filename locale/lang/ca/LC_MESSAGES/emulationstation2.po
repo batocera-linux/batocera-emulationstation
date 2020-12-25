@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,6 +205,15 @@ msgstr "Llengües"
 msgid "Region"
 msgstr "Regió"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "tots els jocs"
 
@@ -222,6 +231,9 @@ msgstr "4 jugadors"
 
 msgid "never played"
 msgstr "mai jugats"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "recreatives"
@@ -438,14 +450,30 @@ msgstr "COL·LECCIONS DE JOCS PERSONALITZADES"
 msgid "PLEASE WAIT"
 msgstr "SI US PLAU, ESPERI"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "ASSOLIMENTS RETRO"
 
-msgid "OK"
-msgstr "ACCEPTA"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "EXECUTA"
 
 msgid "FINISHED"
 msgstr "FINALITZAT"
+
+msgid "OK"
+msgstr "ACCEPTA"
 
 msgid "go back"
 msgstr "tornar enrere"
@@ -473,6 +501,15 @@ msgstr "VEURE MANUAL DEL JOC"
 
 msgid "VIEW GAME MAP"
 msgstr "VEURE MAPA DEL JOC"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "COL·LECCIÓ"
@@ -557,9 +594,6 @@ msgstr "ACTUALITZA"
 
 msgid "FAILED"
 msgstr "FALLADA"
-
-msgid "LAUNCH"
-msgstr "EXECUTA"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIÓ DE ROM DESCONEGUDA"
@@ -907,6 +941,19 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "S'HA OMÈS %i JOC."
 msgstr[1] "S'HA OMÈS %i JOCS."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "OBTÉ LES DADES ARA"
 
@@ -1001,6 +1048,9 @@ msgid "ZFAST"
 msgstr ""
 
 msgid "FLATTEN-GLOW"
+msgstr ""
+
+msgid "RGA SCALING"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1099,6 +1149,9 @@ msgstr ""
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr ""
 
@@ -1186,10 +1239,19 @@ msgstr "Netejant"
 msgid "CLEAR CACHES"
 msgstr "ESBORRAR CAU"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr ""
 
 msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
@@ -1212,6 +1274,9 @@ msgstr "IU"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSICIONS DE CARRUSEL"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
@@ -1405,7 +1470,7 @@ msgstr "ENCENDRE NETPLAY"
 msgid "NICKNAME"
 msgstr "SOBRENOM"
 
-msgid "PORT"
+msgid "FIND NEW GAMES"
 msgstr ""
 
 msgid "USE RELAY SERVER"
@@ -1741,6 +1806,9 @@ msgstr "COSTAT A COSTAT"
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCIÓ INTERNA"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATAR DISPOSITIU"
 
@@ -1771,6 +1839,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NO S'HA TROBAT EL DISPOSITIU"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFORMACIÓ DE SISTEMA"
@@ -1888,6 +1968,11 @@ msgstr "ESTABLIR MOT CLAU D'ESPECTADOR"
 msgid "Games similar to"
 msgstr "Jocs similars a"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Cercant"
 
@@ -1996,6 +2081,9 @@ msgstr "Extraient"
 msgid "HASHING GAMES"
 msgstr "COMPROVANT JOCS"
 
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
+
 msgid "FAVORITES"
 msgstr "FAVORITS"
 
@@ -2022,6 +2110,9 @@ msgstr "JOC APTE PER A NENS"
 
 msgid "ALREADY PLAYED"
 msgstr "JA JUGAT"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr ""
@@ -2224,9 +2315,6 @@ msgstr ""
 
 #~ msgid "DELETE A CHAR"
 #~ msgstr "ESBORRA UN CARÀCTER"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
 
 #~ msgid "Thumbnail"
 #~ msgstr "Miniatura"

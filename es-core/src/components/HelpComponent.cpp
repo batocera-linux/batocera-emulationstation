@@ -75,10 +75,12 @@ void HelpComponent::updateGrid()
 	{
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 
-		if (mStyle.iconMap.find(it->first) != mStyle.iconMap.end() && Utils::FileSystem::exists(mStyle.iconMap[it->first]))
-			icon->setImage(mStyle.iconMap[it->first]);
+		auto label = InputConfig::buttonLabel(it->first);
+
+		if (mStyle.iconMap.find(label) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[label]))
+			icon->setImage(mStyle.iconMap[label]);
 		else
-			icon->setImage(getIconTexture(it->first.c_str()));
+			icon->setImage(getIconTexture(label.c_str()));
 
 		icon->setColorShift(mStyle.iconColor);
 		icon->setResize(0, height);

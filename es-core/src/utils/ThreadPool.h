@@ -17,10 +17,14 @@ namespace Utils
 		ThreadPool(int threadByCore = 2);
 		~ThreadPool();
 
+		void start();
 		void queueWorkItem(work_function work);
 		void wait();
 		void wait(work_function work, int delay = 50);
 		void cancel() { mRunning = false; }
+		void stop();
+
+		bool isRunning() { return mRunning; }
 
 	private:
 		bool mRunning;
@@ -29,6 +33,7 @@ namespace Utils
 		std::atomic<size_t> mNumWork;
 		std::mutex _mutex;
 		std::vector<std::thread> mThreads;
+		int mThreadByCore;
 
 	};
 }

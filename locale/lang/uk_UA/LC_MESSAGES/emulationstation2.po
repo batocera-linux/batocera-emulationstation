@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -209,6 +209,15 @@ msgstr "Мови"
 msgid "Region"
 msgstr "Регіон"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "всі ігри"
 
@@ -226,6 +235,9 @@ msgstr "4 гравці"
 
 msgid "never played"
 msgstr "не запускалась"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "аркада"
@@ -443,14 +455,30 @@ msgstr "КОЛЕКЦІЇ ІГР"
 msgid "PLEASE WAIT"
 msgstr "ЗАЧЕКАЙТЕ"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "РЕТРОДОСЯГНЕННЯ"
 
-msgid "OK"
-msgstr "ОК"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "ЗАПУСК"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
+
+msgid "OK"
+msgstr "ОК"
 
 msgid "go back"
 msgstr "назад"
@@ -478,6 +506,15 @@ msgstr "ПЕРЕГЛЯД МАНУАЛУ ГРИ"
 
 msgid "VIEW GAME MAP"
 msgstr "ПЕРЕГЛЯД КАРТИ ГРИ"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЕКЦІЯ"
@@ -562,9 +599,6 @@ msgstr "ОНОВИТИ"
 
 msgid "FAILED"
 msgstr "ПОМИЛКА"
-
-msgid "LAUNCH"
-msgstr "ЗАПУСК"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "НЕВІДОМА ВЕРСІЯ ГРИ"
@@ -917,6 +951,19 @@ msgstr[0] "%i ГРА ПРОПУЩЕНА."
 msgstr[1] "%i ГРИ ПРОПУЩЕНІ."
 msgstr[2] "%i ІГР ПРОПУЩЕНО."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "ЗАВАНТАЖИТИ ДАНІ"
 
@@ -1011,6 +1058,9 @@ msgid "ZFAST"
 msgstr ""
 
 msgid "FLATTEN-GLOW"
+msgstr ""
+
+msgid "RGA SCALING"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1109,6 +1159,9 @@ msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
 msgid "SCRAPE FANART"
 msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "ЗАВАНТАЖИТИ МАНУАЛ"
 
@@ -1196,10 +1249,19 @@ msgstr "Очищення"
 msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТИ КЕШ"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "СКИНУТИ РОЗШИРЕННЯ ФАЙЛІВ"
 
 msgid "REDETECT GAMES LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
@@ -1222,6 +1284,9 @@ msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦІЯ КАРУСЕЛІ"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "ЕКРАННА КЛАВІАТУРА"
@@ -1409,6 +1474,18 @@ msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 msgid "SHOW IN MAIN MENU"
 msgstr "ПОКАЗАТИ В ГОЛОВНОМУ МЕНЮ"
 
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "УВІМКНУТИ NETPLAY"
 
@@ -1421,16 +1498,7 @@ msgstr "ПОРТ"
 msgid "USE RELAY SERVER"
 msgstr ""
 
-msgid "GAME INDEXES"
-msgstr ""
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr ""
-
-msgid "REINDEX ALL GAMES"
-msgstr ""
-
-msgid "INDEX MISSING GAMES"
 msgstr ""
 
 msgid "DEFAULT SETTINGS"
@@ -1750,6 +1818,9 @@ msgstr "БІК О БІК"
 msgid "INTERNAL RESOLUTION"
 msgstr "ВНУТРІШНЄ РОЗШИРЕННЯ"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТУВАТИ"
 
@@ -1780,6 +1851,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "ІНФОРМАЦІЯ СИСТЕМИ"
@@ -1896,6 +1979,11 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Пошук"
 
@@ -2001,7 +2089,10 @@ msgstr ""
 msgid "Extracting"
 msgstr ""
 
-msgid "HASHING GAMES"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
 msgid "FAVORITES"
@@ -2029,6 +2120,9 @@ msgid "KIDGAME"
 msgstr ""
 
 msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2271,9 +2365,6 @@ msgstr ""
 
 #~ msgid "RANDOM VIDEO SETTINGS"
 #~ msgstr "НАЛАШТУВАННЯ ВІДЕО ЗАСТАВКИ"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
 
 #~ msgid "SELECT THEME"
 #~ msgstr "ВИБРАТИ ТЕМУ"

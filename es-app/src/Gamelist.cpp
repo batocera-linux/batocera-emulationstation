@@ -169,13 +169,14 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 		{
 			std::string defaultName = file->getMetadata(MetaDataId::Name);
 			file->setMetadata(MetaDataList::createFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system));
+			file->getMetadata().migrate(file, fileNode);
 
 			//make sure name gets set if one didn't exist
 			if (file->getMetadata(MetaDataId::Name).empty())
-				file->setMetadata("name", defaultName);
+				file->setMetadata(MetaDataId::Name, defaultName);
 
 			if (!file->getHidden() && Utils::FileSystem::isHidden(path))
-				file->getMetadata().set("hidden", "true");
+				file->getMetadata().set(MetaDataId::Hidden, "true");
 
 			if (checkSize != SIZE_MAX)
 				file->getMetadata().setDirty();

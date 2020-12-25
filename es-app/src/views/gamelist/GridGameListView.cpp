@@ -272,17 +272,16 @@ void GridGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	ISimpleGameListView::onThemeChanged(theme);
 
-	using namespace ThemeFlags;
-
-	mGrid.applyTheme(theme, getName(), "gamegrid", ALL);
+	mGrid.applyTheme(theme, getName(), "gamegrid", ThemeFlags::ALL);
 	mDetails.onThemeChanged(theme);
-	
-	sortChildren();
 	updateInfoPanel();
 }
 
 void GridGameListView::updateInfoPanel()
 {
+	if (!mShowing)
+		return;
+
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 
@@ -343,7 +342,7 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-	if(Settings::getInstance()->getBool("QuickSystemSelect"))
+	if(mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
 		prompts.push_back(HelpPrompt("lr", _("SYSTEM"))); // batocera
 
 	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera

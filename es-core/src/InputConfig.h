@@ -9,6 +9,10 @@
 #include <sstream>
 #include <vector>
 
+#ifdef WIN32
+#define INVERTEDINPUTCONFIG
+#endif
+
 namespace pugi { class xml_node; }
 
 #define DEVICE_KEYBOARD -1
@@ -16,13 +20,8 @@ namespace pugi { class xml_node; }
 // batocera
 #define MAX_PLAYERS 8
 
-#if defined WIN32 || defined _ENABLEEMUELEC
 extern char* BUTTON_OK;
 extern char* BUTTON_BACK;
-#else
-extern char* BUTTON_OK;
-extern char* BUTTON_BACK;
-#endif
 
 enum InputType
 {
@@ -136,6 +135,9 @@ public:
 	void writeToXML(pugi::xml_node& parent);
 
 	bool isConfigured();
+
+	static std::string buttonLabel(const std::string& button);
+	static std::string buttonImage(const std::string& button);
 
 private:
 	std::map<std::string, Input> mNameMap;

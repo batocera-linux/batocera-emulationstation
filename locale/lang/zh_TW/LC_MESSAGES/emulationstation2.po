@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,6 +208,15 @@ msgstr "語言"
 msgid "Region"
 msgstr "地區"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "所有遊戲"
 
@@ -225,6 +234,9 @@ msgstr "四人遊戲"
 
 msgid "never played"
 msgstr "沒玩過的遊戲"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "大型電玩"
@@ -440,14 +452,30 @@ msgstr "自定遊戲合輯"
 msgid "PLEASE WAIT"
 msgstr "請耐心等待"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroArch 成就"
 
-msgid "OK"
-msgstr "確定"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "執行"
 
 msgid "FINISHED"
 msgstr "完成"
+
+msgid "OK"
+msgstr "確定"
 
 msgid "go back"
 msgstr "退回"
@@ -475,6 +503,15 @@ msgstr "觀看遊戲使用手冊"
 
 msgid "VIEW GAME MAP"
 msgstr "觀看遊戲圖片"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "搜尋"
@@ -559,9 +596,6 @@ msgstr "更新"
 
 msgid "FAILED"
 msgstr "失敗"
-
-msgid "LAUNCH"
-msgstr "執行"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
@@ -909,6 +943,19 @@ msgid "%i GAME SKIPPED."
 msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "略過了 %i 個遊戲。"
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "開始搜刮器"
 
@@ -1003,6 +1050,9 @@ msgstr "快速"
 
 msgid "FLATTEN-GLOW"
 msgstr "平滑"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1100,6 +1150,9 @@ msgstr "搜刮遊戲影片"
 msgid "SCRAPE FANART"
 msgstr "搜刮粉絲圖片"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "搜刮使用者手冊"
 
@@ -1187,11 +1240,20 @@ msgstr ""
 msgid "CLEAR CACHES"
 msgstr ""
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "重新修改文件名稱"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "發現新的遊戲 語言＆地區"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr ""
@@ -1213,6 +1275,9 @@ msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循環轉場效果"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "快速遊戲平台選擇(左右鍵)"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "開啟虛擬鍵盤"
@@ -1400,6 +1465,18 @@ msgstr "自動擷取圖片"
 msgid "SHOW IN MAIN MENU"
 msgstr "在主選單顯示"
 
+msgid "GAME INDEXES"
+msgstr "遊戲索引"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "開啟網路遊戲"
 
@@ -1412,17 +1489,8 @@ msgstr "端口"
 msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
 
-msgid "GAME INDEXES"
-msgstr "遊戲索引"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "在啟動時檢查丟失的索引"
-
-msgid "REINDEX ALL GAMES"
-msgstr "重新索引所有遊戲"
-
-msgid "INDEX MISSING GAMES"
-msgstr "索引缺少的遊戲"
 
 msgid "DEFAULT SETTINGS"
 msgstr "預設值"
@@ -1741,6 +1809,9 @@ msgstr "並排"
 msgid "INTERNAL RESOLUTION"
 msgstr "內部解析度"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "格式化裝置"
 
@@ -1771,6 +1842,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到設備"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr ""
@@ -1881,6 +1964,11 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "搜尋中"
 
@@ -1986,8 +2074,11 @@ msgstr "遊戲時間將序"
 msgid "Extracting"
 msgstr "尋找中"
 
-msgid "HASHING GAMES"
-msgstr "隨機遊戲"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "我的最愛"
@@ -2015,6 +2106,9 @@ msgstr "兒童遊戲"
 
 msgid "ALREADY PLAYED"
 msgstr "已經玩過的遊戲"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "搜尋"
@@ -2200,6 +2294,15 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "重新索引所有遊戲"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "索引缺少的遊戲"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "隨機遊戲"
+
 #~ msgid "START KODI WITH X"
 #~ msgstr "按 X 鍵啟動 KODI"
 
@@ -2246,9 +2349,6 @@ msgstr ""
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "啟動到設定"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "快速遊戲平台選擇(左右鍵)"
 
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "將主機做為網路伺服器啟動？"

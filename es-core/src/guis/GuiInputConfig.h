@@ -10,6 +10,14 @@
 class ComponentList;
 class TextComponent;
 
+struct InputConfigStructure
+{
+	std::string name;
+	bool		skippable;
+	std::string dispName;
+	std::string icon;
+};
+
 class GuiInputConfig : public GuiComponent
 {
 public:
@@ -28,11 +36,8 @@ private:
 
 	bool assign(Input input, int inputId);
 	void clearAssignment(int inputId);
-#ifdef _ENABLEEMUELEC
-	bool filterTrigger(Input input, InputConfig* config, int inputId);
-#else
 	bool filterTrigger(Input input, InputConfig* config);
-#endif
+
 	void rowDone();
 
 	NinePatchComponent mBackground;
@@ -53,10 +58,11 @@ private:
 	Input mHeldInput;
 	int mHeldTime;
 	int mHeldInputId;
-#ifdef _ENABLEEMUELEC
-	bool mSkipAxis;
-#endif
+
 	BusyComponent mBusyAnim;	
+
+	void initInputConfigStructure();
+	std::vector<InputConfigStructure> GUI_INPUT_CONFIG_LIST;
 };
 
 #endif // ES_CORE_GUIS_GUI_INPUT_CONFIG_H

@@ -27,6 +27,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
 	mScaleOrigin = Vector2f::Zero();
+	mCheckClipping = true;
 
 	mLinear = false;
 	mHorizontalAlignment = ALIGN_CENTER;
@@ -153,7 +154,7 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
+void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
 {
 	std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 	if (mPath == canonicalPath)
@@ -167,9 +168,10 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 	// If the previous image is in the async queue, remove it
 	TextureResource::cancelAsync(mLoadingTexture);
 	TextureResource::cancelAsync(mTexture);
+
 	mLoadingTexture.reset();
 
-	if (mPath.empty() || !ResourceManager::getInstance()->fileExists(mPath))
+	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
 	{
 		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
@@ -225,6 +227,7 @@ void ImageComponent::setResize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = false;
 	resize();
@@ -234,8 +237,9 @@ void ImageComponent::setMaxSize(float width, float height)
 {
 	if (mSize.x() != 0 && mSize.y() != 0 && mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
-
+	
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = true;
 	mTargetIsMin = false;
 	resize();
@@ -247,6 +251,7 @@ void ImageComponent::setMinSize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = true;
 	resize();
@@ -427,7 +432,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	
 	// Don't use soft clip if rotation applied : let renderer do the work
-	if (mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 
 	Renderer::setMatrix(trans);

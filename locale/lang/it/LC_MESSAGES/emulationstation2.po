@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 08:20+0100\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,6 +208,15 @@ msgstr "Lingue"
 msgid "Region"
 msgstr "Regione"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "tutti i giochi"
 
@@ -225,6 +234,9 @@ msgstr "4 giocatori"
 
 msgid "never played"
 msgstr "mai giocato"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "arcade"
@@ -441,14 +453,30 @@ msgstr "COLLEZIONI DI GIOCHI PERSONALIZZATE"
 msgid "PLEASE WAIT"
 msgstr "ATTENDERE PREGO"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
-msgid "OK"
-msgstr "OK"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "AVVIA"
 
 msgid "FINISHED"
 msgstr "TERMINATO"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "go back"
 msgstr "torna indietro"
@@ -476,6 +504,15 @@ msgstr "MOSTRA MANUALE DI GIOCO"
 
 msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "COLLEZIONEE"
@@ -560,9 +597,6 @@ msgstr "AGGIORNA"
 
 msgid "FAILED"
 msgstr "FALLITO"
-
-msgid "LAUNCH"
-msgstr "AVVIA"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIONE ROM SCONOSCIUTA"
@@ -914,6 +948,19 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i GIOCO SALTATO."
 msgstr[1] "%i GIOCHI SALTATI."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
 
@@ -1009,6 +1056,9 @@ msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
 msgstr "PIATTO E LUMINOSO"
+
+msgid "RGA SCALING"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -1106,6 +1156,9 @@ msgstr "SCARICA VIDEO"
 msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "SCARICA MANUALE"
 
@@ -1193,11 +1246,20 @@ msgstr "Pulizia "
 msgid "CLEAR CACHES"
 msgstr "PULIZIA CACHE"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETTA ESTENSIONI FILE"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "RILEVA LINGUA/REGIONE DEI GIOCHI"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
@@ -1219,6 +1281,9 @@ msgstr "INTERFACCIA UTENTE - UI"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "MODALITA' DI TRANSIZIONE CAROUSEL"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELEZIONE RAPIDA DEL SISTEMA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "MOSTRA TASTIERA SULLO SCHERMO"
@@ -1407,6 +1472,18 @@ msgstr "SCREENSHOT AUTOMATICO"
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRA NEL MENU PRINCIPALE"
 
+msgid "GAME INDEXES"
+msgstr "INDICI DI GIOCO"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
 
@@ -1419,17 +1496,8 @@ msgstr "PORTA"
 msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
-msgid "GAME INDEXES"
-msgstr "INDICI DI GIOCO"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "CONTROLLA GLI INDICI DI GIOCO MANCANTI ALL'AVVIO"
-
-msgid "REINDEX ALL GAMES"
-msgstr "REINDICIZZA TUTTI I GIOCHI"
-
-msgid "INDEX MISSING GAMES"
-msgstr "INDICIZZA GIOCHI MANCANTI"
 
 msgid "DEFAULT SETTINGS"
 msgstr "IMPOSTAZIONE DI DEFAULT"
@@ -1748,6 +1816,9 @@ msgstr "AFFIANCATI"
 msgid "INTERNAL RESOLUTION"
 msgstr "RISOLUZIONE INTERNA"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATTA DISPOSITIVO"
 
@@ -1778,6 +1849,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAZIONI SISTEMA"
@@ -1897,6 +1980,11 @@ msgstr "AGGIUNGI PASSWORD SPETTATORE"
 msgid "Games similar to"
 msgstr "Giochi simili a"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Cercando"
 
@@ -2002,8 +2090,11 @@ msgstr "TEMPO DI GIOCO, DISCENDENTE"
 msgid "Extracting"
 msgstr "Estrazione"
 
-msgid "HASHING GAMES"
-msgstr "GAME HASHING"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "PREFERITI"
@@ -2031,6 +2122,9 @@ msgstr "GIOCO PER RAGAZZI"
 
 msgid "ALREADY PLAYED"
 msgstr "GIA' GIOCATO"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -2223,6 +2317,15 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "REINDICIZZA TUTTI I GIOCHI"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "INDICIZZA GIOCHI MANCANTI"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "GAME HASHING"
+
 #~ msgid "Cleaning"
 #~ msgstr "Pulizia"
 
@@ -2275,9 +2378,6 @@ msgstr "%d s"
 
 #~ msgid "STARTUP SETTINGS"
 #~ msgstr "IMPOSTAZIONI DI AVVIO"
-
-#~ msgid "QUICK SYSTEM SELECT"
-#~ msgstr "SELEZIONE RAPIDA DEL SISTEMA"
 
 #~ msgid "LAUNCH THE GAME AS NETPLAY HOST ?"
 #~ msgstr "AVVIA IL GIOCO COME HOST SU NETPLAY ?"

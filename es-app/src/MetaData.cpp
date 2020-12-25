@@ -7,6 +7,7 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 #include "Settings.h"
+#include "FileData.h"
 
 std::vector<MetaDataDecl> MetaDataList::mMetaDataDecls;
 
@@ -64,15 +65,15 @@ void MetaDataList::initMetadata()
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date"), false },
 
 		{ Crc32,            "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum"),			false },
-		{ Md5,              "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
+		{ Md5,              "md5",		   MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
 
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
 		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
 		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
-#ifdef _ENABLEEMUELEC
-		{ Cheevos,          "cheevos",     MD_BOOL,                "false",                 false,       _("Has Achievements"),     _("Has Achievements"),		false }
-#endif
+
+		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
+		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
@@ -146,6 +147,19 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 	return mdl;
 }
 
+// Add migration for alternative formats & old tags
+void MetaDataList::migrate(FileData* file, pugi::xml_node& node)
+{
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file->getPath()));
+
+	if (get(MetaDataId::Crc32).empty())
+	{
+		pugi::xml_node xelement = node.child("hash");
+		if (xelement)
+			set(MetaDataId::Crc32, xelement.text().get());
+	}
+}
+
 void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
@@ -212,11 +226,6 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	mWasChanged = true;
 }
 
-void MetaDataList::set(const std::string& key, const std::string& value)
-{
-	set(getId(key), value);
-}
-
 const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) const
 {
 	if (id == MetaDataId::Name)
@@ -234,19 +243,30 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	return mDefaultGameMap[id];
 }
 
+void MetaDataList::set(const std::string& key, const std::string& value)
+{
+	if (mGameIdMap.find(key) == mGameIdMap.cend())
+		return;
+
+	set(getId(key), value);
+}
+
 const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
 {
+	if (mGameIdMap.find(key) == mGameIdMap.cend())
+		return "";
+
 	return get(getId(key), resolveRelativePaths);
 }
 
-int MetaDataList::getInt(const std::string& key) const
+int MetaDataList::getInt(MetaDataId id) const
 {
-	return atoi(get(key).c_str());
+	return atoi(get(id).c_str());
 }
 
-float MetaDataList::getFloat(const std::string& key) const
+float MetaDataList::getFloat(MetaDataId id) const
 {
-	return (float)atof(get(key).c_str());
+	return (float)atof(get(id).c_str());
 }
 
 bool MetaDataList::wasChanged() const
@@ -336,4 +356,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 		set(mdd.id, source.get(mdd.id));
 	}
+
+	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))
+		set(MetaDataId::Hidden, "true");
 }

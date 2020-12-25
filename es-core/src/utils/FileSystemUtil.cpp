@@ -13,6 +13,7 @@
 #include <direct.h>
 #include <Windows.h>
 #include <mutex>
+#include <io.h> 
 #define getcwd _getcwd
 #define mkdir(x,y) _mkdir(x)
 #define snprintf _snprintf
@@ -250,7 +251,10 @@ namespace Utils
 						contentList.push_back(fullName);						
 
 						if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
-							contentList.merge(getDirContent(fullName, true, includeHidden));
+						{
+							for (auto item : getDirContent(fullName, true, includeHidden))
+								contentList.push_back(item);
+						}
 					}
 					while(FindNextFileW(hFind, &findData));
 
@@ -497,16 +501,19 @@ namespace Utils
 
 		std::string getGenericPath(const std::string& _path)
 		{
+			if (_path.empty())
+				return _path;
+
 			std::string path   = _path;
 			size_t      offset = std::string::npos;
 
 			// remove "\\\\?\\"
-			if((path.find("\\\\?\\")) == 0)
+			if(path[0] == '\\' && (path.find("\\\\?\\")) == 0)
 				path.erase(0, 4);
 
 			// convert '\\' to '/'
-			while((offset = path.find('\\')) != std::string::npos)
-				path.replace(offset, 1 ,"/");
+			while ((offset = path.find('\\')) != std::string::npos)
+				path[offset] = '/';// .replace(offset, 1, "/");
 
 			// remove double '/'
 			while((offset = path.find("//")) != std::string::npos)
@@ -690,6 +697,14 @@ namespace Utils
 
 		std::string getExtension(const std::string& _path)
 		{
+			const char *str = _path.c_str();
+
+			const char *ext;
+			if (str && *str != '\0' && ((ext = strrchr(str, '.'))) && strpbrk(ext, "/\\") == nullptr)
+				return ext;
+
+			return std::string();
+			/*
 			std::string fileName = getFileName(_path);
 			size_t      offset   = std::string::npos;
 
@@ -702,7 +717,7 @@ namespace Utils
 				return std::string(fileName, offset);
 
 			// no '.' found, filename has no extension
-			return ".";
+			return ".";*/
 
 		} // getExtension
 
@@ -859,7 +874,10 @@ namespace Utils
 			if(!exists(path))
 				return true;
 
-#if WIN32
+#if WIN32			
+			if (isDirectory(_path))
+				return RemoveDirectoryW(Utils::String::convertToWideString(_path).c_str());
+
 			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
 #else
 			// try to remove file
@@ -902,6 +920,9 @@ namespace Utils
 				return it->exists;
 
 #ifdef WIN32			
+			if (!FileCache::isEnabled())
+				return _waccess_s(Utils::String::convertToWideString(_path).c_str(), 0) == 0;
+
 			DWORD dwAttr = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
 			FileCache::add(_path, FileCache(dwAttr));
 			if (0xFFFFFFFF == dwAttr)
@@ -1231,6 +1252,27 @@ namespace Utils
 			out.precision(2);
 			out << std::fixed << size_d << " " << SIZES[div];
 			return out.str();
+		}
+
+		std::string getTempPath()
+		{
+			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
+		}
+
+		std::string getPdfTempPath()
+		{
+#ifdef WIN32
+			// Extract PDFs to local drive : usually faster since it's generally a SSD Drive
+			WCHAR lpTempPathBuffer[MAX_PATH];
+			lpTempPathBuffer[0] = 0;
+			DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
+			if (dwRetVal > MAX_PATH || (dwRetVal == 0))
+				return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+
+			return Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp/";
+#else
+			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+#endif
 		}
 
 #ifdef WIN32

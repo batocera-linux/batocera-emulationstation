@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-03 02:27-0300\n"
+"POT-Creation-Date: 2020-12-22 20:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,6 +208,15 @@ msgstr "Idiomas"
 msgid "Region"
 msgstr "Região"
 
+msgid "Cheevos Hash"
+msgstr ""
+
+msgid "Cheevos checksum"
+msgstr ""
+
+msgid "Cheevos Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "todos os jogos"
 
@@ -225,6 +234,9 @@ msgstr "4 jogadores"
 
 msgid "never played"
 msgstr "nunca joguei"
+
+msgid "retroachievements"
+msgstr ""
 
 msgid "arcade"
 msgstr "arcade"
@@ -441,14 +453,30 @@ msgstr "COLEÇÕES DE JOGO PERSONALIZADOS"
 msgid "PLEASE WAIT"
 msgstr "POR FAVOR, AGUARDE"
 
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
-msgid "OK"
-msgstr "OK"
+msgid "Points"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
+msgstr ""
+
+msgid "LAUNCH"
+msgstr "EXECUTAR"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "go back"
 msgstr "voltar"
@@ -476,6 +504,15 @@ msgstr "VER MANUAL DO JOGO"
 
 msgid "VIEW GAME MAP"
 msgstr "VER MAPA DO JOGO"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
 
 msgid "COLLECTION"
 msgstr "COLEÇÃO"
@@ -560,9 +597,6 @@ msgstr "ATUALIZAR"
 
 msgid "FAILED"
 msgstr "FALHOU"
-
-msgid "LAUNCH"
-msgstr "EXECUTAR"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "ROM DESCONHECIDO"
@@ -914,6 +948,19 @@ msgid_plural "%i GAMES SKIPPED."
 msgstr[0] "%i SCRAPE IGNORADO."
 msgstr[1] "%i SCRAPES IGNORADOS."
 
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SCRAPE"
 
@@ -1011,6 +1058,9 @@ msgstr "ZFAST"
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
+msgid "RGA SCALING"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1107,6 +1157,9 @@ msgstr "SCRAPE VÍDEOS"
 msgid "SCRAPE FANART"
 msgstr "SCRAPE FANART"
 
+msgid "SCRAPE MAP"
+msgstr ""
+
 msgid "SCRAPE MANUAL"
 msgstr "SCRAPE MANUAL"
 
@@ -1194,11 +1247,20 @@ msgstr "Apagando"
 msgid "CLEAR CACHES"
 msgstr "LIMPAR CACHES"
 
+msgid "BUILD IMAGE CACHE"
+msgstr ""
+
+msgid "Building image cache"
+msgstr ""
+
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
 
 msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
@@ -1220,6 +1282,9 @@ msgstr "UI (INTERFACE DO USUÁRIO)"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr ""
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLADO NA TELA"
@@ -1409,6 +1474,18 @@ msgstr "CAPTURA DE TELA AUTOMÁTICO"
 msgid "SHOW IN MAIN MENU"
 msgstr "EXIBIR NO MENU PRINCIPAL"
 
+msgid "GAME INDEXES"
+msgstr "ÍNDICE DO JOGO"
+
+msgid "FIND ALL GAMES"
+msgstr ""
+
+msgid "FIND NEW GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgstr ""
+
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR JOGOS EM REDE"
 
@@ -1421,17 +1498,8 @@ msgstr "PORTA"
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
 
-msgid "GAME INDEXES"
-msgstr "ÍNDICE DO JOGO"
-
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "VERIFICAR OS ÍNDICES FALTANDO NA INICIALIZAÇÃO"
-
-msgid "REINDEX ALL GAMES"
-msgstr "REINDEXAR TODO OS JOGOS"
-
-msgid "INDEX MISSING GAMES"
-msgstr "INDEXAR JOGOS FALTANDO"
 
 msgid "DEFAULT SETTINGS"
 msgstr "CONFIGURAÇÕES PADRÃO"
@@ -1749,6 +1817,9 @@ msgstr "LADO A LADO"
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATO DISPOSITIVO"
 
@@ -1779,6 +1850,18 @@ msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
+
+msgid "ZOOM-"
+msgstr ""
+
+msgid "ZOOM+"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÕES DO SISTEMA"
@@ -1897,6 +1980,11 @@ msgstr "DEFINIR SENHA DE VISUALIZADOR"
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
 msgid "Searching"
 msgstr "Procurando"
 
@@ -2002,8 +2090,11 @@ msgstr "TEMPO DE JOGO, DECRESCENTE"
 msgid "Extracting"
 msgstr "Extraindo"
 
-msgid "HASHING GAMES"
-msgstr "HASHING DOS JOGOS"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -2031,6 +2122,9 @@ msgstr "JOGOS INFANTIL"
 
 msgid "ALREADY PLAYED"
 msgstr "JÁ JOGADO"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -2221,3 +2315,12 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "REINDEX ALL GAMES"
+#~ msgstr "REINDEXAR TODO OS JOGOS"
+
+#~ msgid "INDEX MISSING GAMES"
+#~ msgstr "INDEXAR JOGOS FALTANDO"
+
+#~ msgid "HASHING GAMES"
+#~ msgstr "HASHING DOS JOGOS"
