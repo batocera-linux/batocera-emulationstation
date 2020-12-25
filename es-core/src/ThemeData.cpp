@@ -1437,10 +1437,6 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				path = Utils::String::replace(path,
 					"/recalbox/share_init/system/.emulationstation/themes",
 					Utils::FileSystem::getEsConfigPath() + "/themes");
-#elif _ENABLEEMUELEC
-				path = Utils::String::replace(path,
-					Utils::FileSystem::getEsConfigPath() + "/themes",
-                    "/emuelec/themes");
 #else
 				path = Utils::String::replace(path,
 					"/recalbox/share_init/system/.emulationstation/themes",
