@@ -298,4 +298,10 @@ void InputConfig::AssignActionButtons()
 	BUTTON_OK = invertButtons ? ABUTTON : BBUTTON;
 	BUTTON_BACK = invertButtons ? BBUTTON : ABUTTON;
 #endif
+
+#ifdef _ENABLEEMUELEC
+	BUTTON_OK = invertButtons ? BBUTTON : ABUTTON;
+	BUTTON_BACK = invertButtons ? ABUTTON : BBUTTON;
+#endif
+
 }

@@ -400,7 +400,9 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
 		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
 		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
+#ifdef _ENABLEEMUELEC
 		if (trim == "vertical") ret = ret | EmulatorFeatures::Features::vertical;		
+#endif
 	}
 
 	return ret;

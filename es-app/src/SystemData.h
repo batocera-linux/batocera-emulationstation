@@ -71,7 +71,9 @@ public:
 		padTokeyboard = 65536,
 		cheevos = 131072,
 		autocontrollers = 262144,
+#ifdef _ENABLEEMUELEC
         vertical = 524288,
+#endif
 
 		all = 0x0FFFFFFF
 	};
