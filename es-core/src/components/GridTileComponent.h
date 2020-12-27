@@ -188,6 +188,7 @@ struct GridTileProperties
 	GridImageProperties		Image;
 	GridImageProperties		Marquee;
 	GridImageProperties		Favorite;
+	GridImageProperties		Cheevos;
 	GridImageProperties		ImageOverlay;
 };
 
@@ -216,6 +217,7 @@ public:
 	void setMarquee(const std::string& path);
 	
 	void setFavorite(bool favorite);
+	void setCheevos(bool favorite);
 	bool hasFavoriteMedia() { return mFavorite != nullptr; }
 
 	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false);	
@@ -248,6 +250,7 @@ private:
 	void	createVideo();
 	void	createMarquee();
 	void	createFavorite();
+	void	createCheevos();
 	void	createImageOverlay();
 	void	startVideo();
 	void	stopVideo();
@@ -286,6 +289,7 @@ private:
 	ImageComponent* mImage;
 	ImageComponent* mMarquee;
 	ImageComponent* mFavorite;
+	ImageComponent* mCheevos;
 	ImageComponent* mImageOverlay;
 
 	bool mVideoPlaying;	

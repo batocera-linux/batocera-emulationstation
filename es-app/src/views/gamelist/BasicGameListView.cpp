@@ -98,11 +98,17 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 					continue;
 				
 				if (showFavoriteIcon)
+                  if (file->hasCheevos()) {
+					mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
+                } else {
 					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+                }
 				else if (file->getType() == FOLDER)
 					mList.add(_U("\uF07C ") + file->getName(), file, true);
-				else
+				else if (file->hasCheevos())
 					mList.add(file->getName(), file, false);
+				else 
+					mList.add(_U("\uF091 ") + file->getName(), file, false);
 			}
 		}
 
@@ -115,13 +121,19 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 				if (showFavoriteIcon)
 				{
+                 if (file->hasCheevos())
+					mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
+                else
 					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+                
 					continue;
 				}
 			}
 
 			if (file->getType() == FOLDER)
 				mList.add(_U("\uF07C ") + file->getName(), file, true);
+			else if (file->hasCheevos())
+				mList.add(_U("\uF091 ") + file->getName(), file, false); //  + _U(" \uF05A")
 			else
 				mList.add(file->getName(), file, false); //  + _U(" \uF05A")
 		}
