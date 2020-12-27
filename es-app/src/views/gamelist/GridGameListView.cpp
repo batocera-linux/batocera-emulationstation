@@ -202,7 +202,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 			if (showParentFolder)
 			{
 				FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-				mGrid.add(". .", imagePath, "", "", false, true, displayAsVirtualFolder && !imagePath.empty(), placeholder);
+				mGrid.add(". .", imagePath, "", "", false, true, false, displayAsVirtualFolder && !imagePath.empty(), placeholder);
 			}
 		}
 
@@ -223,7 +223,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 			for (auto file : files)
 			{
 				if (file->getFavorite() && showFavoriteIcon)
-					mGrid.add(_U("\uF006 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file->getType() != GAME, isVirtualFolder(file), file);
+					mGrid.add(_U("\uF006 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
 			}
 		}
 
@@ -236,15 +236,15 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 				if (showFavoriteIcon)
 				{
-					mGrid.add(_U("\uF006 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file->getType() != GAME, isVirtualFolder(file), file);
+					mGrid.add(_U("\uF006 ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), true, file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
 					continue;
 				}
 			}
 
 			if (file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file)))
-				mGrid.add(_U("\uF07C ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
+				mGrid.add(_U("\uF07C ") + file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
 			else
-				mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->getType() != GAME, isVirtualFolder(file), file);
+				mGrid.add(file->getName(), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
 		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
@@ -286,7 +286,7 @@ void GridGameListView::addPlaceholder()
 {
 	// empty grid - add a placeholder
 	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
-	mGrid.add(placeholder->getName(), "", "", "", false, false, false, placeholder);
+	mGrid.add(placeholder->getName(), "", "", "", false, false,false,false, placeholder);
 }
 
 void GridGameListView::launch(FileData* game)
