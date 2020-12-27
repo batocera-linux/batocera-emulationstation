@@ -273,7 +273,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 	mPdf = imagePath;
 	
 	for (int i = 0; i < pages; i++)
-		mGrid.add("", ":/blank.png", "", "", false, false, false, std::to_string(i + 1));
+		mGrid.add("", ":/blank.png", "", "", false, false, false, false, std::to_string(i + 1));
 	
 	if (pages > INITIALPAGES)
 	{
@@ -410,7 +410,7 @@ void GuiImageViewer::add(const std::string imagePath)
 	else
 		img = imagePath;
 	
-	mGrid.add("", img, vid, "", false, false, false, imagePath);
+	mGrid.add("", img, vid, "", false, false, false, false, imagePath);
 }
 
 void GuiImageViewer::setCursor(const std::string imagePath)

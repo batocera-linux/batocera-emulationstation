@@ -45,6 +45,7 @@ struct ImageGridData
 	std::string marqueePath;
 	std::string videoPath;
 	bool		favorite;
+	bool		cheevos;
 	bool		folder;
 	bool		virtualFolder;
 };
@@ -71,7 +72,7 @@ public:
 
 	ImageGridComponent(Window* window);
 
-	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj);
+	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj);
 	
 	void setImage(const std::string& imagePath, const T& obj);
 	std::string getImage(const T& obj);
@@ -205,7 +206,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 }
 
 template<typename T>
-void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool folder, bool virtualFolder, const T& obj)
+void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj)
 {
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
@@ -214,6 +215,7 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	entry.data.videoPath = videoPath;
 	entry.data.marqueePath = marqueePath;
 	entry.data.favorite = favorite;
+	entry.data.cheevos = cheevos;
 	entry.data.folder = folder;
 	entry.data.virtualFolder = virtualFolder;
 
@@ -1104,6 +1106,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		}
 
 		tile->setFavorite(mEntries.at(imgPos).data.favorite);
+		tile->setCheevos(mEntries.at(imgPos).data.cheevos);
 
 		// Video
 		if (mAllowVideo && imgPos == mCursor)
