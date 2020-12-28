@@ -3206,7 +3206,8 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 		{
-			window->postToUiThread([](Window* w)
+			Window* w = window;
+			window->postToUiThread([w]()
 			{
 				w->startScreenSaver();
 				w->renderScreenSaver();

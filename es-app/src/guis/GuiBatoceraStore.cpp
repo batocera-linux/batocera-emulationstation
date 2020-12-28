@@ -104,7 +104,7 @@ void GuiBatoceraStore::update(int deltaTime)
 				mPackages = queryPackages();
 
 			if (!restoreIndex)
-				mWindow->postToUiThread([this](Window* w) { loadList(false, false); });
+				mWindow->postToUiThread([this]() { loadList(false, false); });
 			else 
 				loadList(false, restoreIndex);
 		}
@@ -182,7 +182,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 			if (mTabFilter != mTabs->getSelected())
 			{
 				mTabFilter = mTabs->getSelected();
-				mWindow->postToUiThread([this](Window* w) 
+				mWindow->postToUiThread([this]() 
 				{ 
 					mReloadList = 3;					
 				});
