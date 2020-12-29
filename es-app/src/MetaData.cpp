@@ -57,7 +57,7 @@ void MetaDataList::initMetadata()
 
 		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system"), false },
 
-		{ Players,          "players",     MD_INT,                 "1",                false,      _("Players"),              _("enter number of players"),	false },
+		{ Players,          "players",     MD_INT,                 "",                false,      _("Players"),              _("enter number of players"),	false },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
@@ -73,7 +73,9 @@ void MetaDataList::initMetadata()
 		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
 
 		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
-		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false }
+		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false },
+
+		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
@@ -119,15 +121,28 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 {
 	MetaDataList mdl(type);
 	mdl.mRelativeTo = system;
+	std::string value;
 
 	for (auto& mdd : mMetaDataDecls)
 	{
-		pugi::xml_node xelement = node.child(mdd.key.c_str());
-		if (!xelement)
-			continue;
-		
-		// if it's a path, resolve relative paths
-		std::string value = xelement.text().get();
+		if (mdd.isAttribute)
+		{
+			pugi::xml_attribute xattr = node.attribute(mdd.key.c_str());
+			if (!xattr)
+				continue;
+
+			value = xattr.value();
+		}
+		else
+		{
+			pugi::xml_node xelement = node.child(mdd.key.c_str());
+			if (!xelement)
+				continue;
+
+			// if it's a path, resolve relative paths
+			value = xelement.text().get();
+		}
+
 		if (value == mdd.defaultValue)
 			continue;
 
@@ -177,15 +192,19 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 		{
 			// we have this value!
 			// if it's just the default (and we ignore defaults), don't write it
-			if(ignoreDefaults && mapIter->second == mddIter->defaultValue)
+			if (ignoreDefaults && mapIter->second == mddIter->defaultValue)
 				continue;
-			
+
 			// try and make paths relative if we can
 			std::string value = mapIter->second;
 			if (mddIter->type == MD_PATH)
 				value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
 
-			parent.append_child(mddIter->key.c_str()).text().set(value.c_str());
+			
+			if (mddIter->isAttribute)
+				parent.append_attribute(mddIter->key.c_str()).set_value(value.c_str());
+			else
+				parent.append_child(mddIter->key.c_str()).text().set(value.c_str());
 		}
 	}
 }
@@ -315,7 +334,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 	for (auto mdd : getMDD())
 	{
-		if (mdd.isStatistic)
+		if (mdd.isStatistic && mdd.id != MetaDataId::ScraperId)
 			continue;
 
 		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet

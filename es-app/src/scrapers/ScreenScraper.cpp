@@ -304,13 +304,13 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 	std::vector<std::string> ripList;
 
 	if (imageSource == "ss")
-		ripList = { "ss", "sstitle", "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
+		ripList = { "ss", "sstitle" }; //, "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
 	else if (imageSource == "sstitle")
 		ripList = { "sstitle", "ss" };
 	else if (imageSource == "mixrbv1" || imageSource == "mixrbv")
-		ripList = { "mixrbv1", "mixrbv2", "ss" };
+		ripList = { "mixrbv1", "mixrbv2" };
 	else if (imageSource == "mixrbv2")
-		ripList = { "mixrbv2", "mixrbv1", "ss" };
+		ripList = { "mixrbv2", "mixrbv1" };
 	else if (imageSource == "box-2D")
 		ripList = { "box-2D", "box-3D" };
 	else if (imageSource == "box-3D")
@@ -372,6 +372,11 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					region = "eu";
 			}
 		}
+
+		if (game.attribute("id"))
+			result.mdl.set(MetaDataId::ScraperId, game.attribute("id").value());
+		else
+			result.mdl.set(MetaDataId::ScraperId, "");
 
 		// Name fallback: US, WOR(LD). ( Xpath: Data/jeu[0]/noms/nom[*] ). 
 		result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
