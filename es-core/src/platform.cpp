@@ -268,7 +268,7 @@ std::string queryIPAdress()
 				tmpAddrPtr = &((struct sockaddr_in6 *) ifa->ifa_addr)->sin6_addr;
 				char addressBuffer[INET6_ADDRSTRLEN];
 				inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
-				printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
+				LOG(LogDebug) << ifa->ifa_name << " IP Address " << addressBuffer;
 
 				if (std::string(ifa->ifa_name).find("eth") != std::string::npos || std::string(ifa->ifa_name).find("wlan") != std::string::npos)
 				{
