@@ -436,12 +436,12 @@ namespace Renderer
 
 	void bindTexture(const unsigned int _texture)
 	{
-		if(_texture == 0) 
+		if(_texture == 0)
 		{
 			GL_CHECK_ERROR(glBindTexture(GL_TEXTURE_2D, 0));
 			boundTexture = 0;
 		}
-		else              
+		else
 		{
 			GL_CHECK_ERROR(glBindTexture(GL_TEXTURE_2D, _texture));
 			boundTexture = _texture;
@@ -456,30 +456,14 @@ namespace Renderer
 		// Pass buffer data
 		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
 
-		// Setup shader
-		if (boundTexture != 0)
-		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
-		
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.posAttrib));
+		// Setup shader (always NOT textured)
+		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.colAttrib));
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-		}
-		else
-		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-		}
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 
 		// Do rendering
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
@@ -488,18 +472,8 @@ namespace Renderer
 		GL_CHECK_ERROR(glDisable(GL_BLEND));
 
 		// Restore context
-		if (boundTexture != 0)
-		{
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.posAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.colAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-
-		}
-		else
-		{
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-		}
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 
 	} // drawLines
 
@@ -694,21 +668,21 @@ namespace Renderer
 
             GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertex.size(), vxs, GL_DYNAMIC_DRAW));
 
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 
             GL_CHECK_ERROR(glEnable(GL_BLEND));
             GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
             GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, vertex.size()));
             GL_CHECK_ERROR(glDisable(GL_BLEND));
 
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 
 
             delete[] vxs;
