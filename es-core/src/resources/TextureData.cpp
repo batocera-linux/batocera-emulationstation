@@ -200,7 +200,7 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	mHeight = height;
 
 	if (mTextureID != 0)
-		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, -1, -1, mWidth, mHeight, mDataRGBA);
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, mWidth, mHeight, mDataRGBA);
 
 	return true;
 }
