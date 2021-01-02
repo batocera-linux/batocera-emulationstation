@@ -563,7 +563,9 @@ namespace Renderer
 		projectionMatrix = _projection;
 
 		mvpMatrix = projectionMatrix * worldViewMatrix;
+		glUseProgram(shaderProgramColorTexture.id);
 		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		glUseProgram(shaderProgramColorNoTexture.id);
 		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 	} // setProjection
@@ -576,7 +578,9 @@ namespace Renderer
 		worldViewMatrix.round();
 
 		mvpMatrix = projectionMatrix * worldViewMatrix;
+		glUseProgram(shaderProgramColorTexture.id);
 		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		glUseProgram(shaderProgramColorNoTexture.id);
 		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 	} // setMatrix
