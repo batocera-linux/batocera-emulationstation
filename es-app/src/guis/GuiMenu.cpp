@@ -1549,7 +1549,7 @@ void GuiMenu::openRetroachievementsSettings()
 			std::string error;
 			if (!RetroAchievements::testAccount(newUsername, newPassword, error))
 			{
-				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n") + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
+				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS :") + "\n" + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
 				retroachievements_enabled->setState(false);
 				newState = false;
 			}
