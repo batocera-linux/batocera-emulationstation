@@ -81,7 +81,9 @@ public:
 		OVERCLOCK = 11,
 		PDFEXTRACTION = 12,
 		BATOCERASTORE = 13,
-		EVMAPY = 14
+		EVMAPY = 14,
+		THEMESDOWNLOADER = 15,
+		THEBEZELPROJECT = 16
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -187,7 +189,7 @@ public:
 	std::vector<std::string> getFormatFileSystems();
 	int formatDisk(const std::string disk, const std::string format, const std::function<void(const std::string)>& func = nullptr);
 
-	virtual std::vector<std::string> getShaderList();
+	virtual std::vector<std::string> getShaderList(const std::string systemName = "");
 
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 

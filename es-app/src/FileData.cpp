@@ -1082,7 +1082,7 @@ void FolderData::removeVirtualFolders()
 
 void FileData::checkCrc32(bool force)
 {
-	if (getSourceFileData() != this)
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
 	{
 		getSourceFileData()->checkCrc32(force);
 		return;
@@ -1092,6 +1092,9 @@ void FileData::checkCrc32(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
@@ -1102,7 +1105,7 @@ void FileData::checkCrc32(bool force)
 
 void FileData::checkMd5(bool force)
 {
-	if (getSourceFileData() != this)
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
 	{
 		getSourceFileData()->checkMd5(force);
 		return;
@@ -1112,6 +1115,9 @@ void FileData::checkMd5(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = ApiSystem::getInstance()->getMD5(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
@@ -1133,6 +1139,9 @@ void FileData::checkCheevosHash(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = RetroAchievements::getCheevosHash(system, getPath());
 	getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
 	saveToGamelistRecovery(this);

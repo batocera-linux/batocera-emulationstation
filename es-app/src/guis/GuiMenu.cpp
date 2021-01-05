@@ -955,16 +955,19 @@ void GuiMenu::openUpdatesSettings()
 	}
 
 	// Batocera themes installer/browser
-	updateGui->addEntry(_("THEMES"), true, [this] 
-	{ 
-		if (!checkNetwork())
-			return;
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER))
+	{
+		updateGui->addEntry(_("THEMES"), true, [this]
+		{
+			if (!checkNetwork())
+				return;
 
-		mWindow->pushGui(new GuiThemeInstallStart(mWindow)); 
-	});
+			mWindow->pushGui(new GuiThemeInstallStart(mWindow));
+		});
+	}
 
 	// Batocera integration with theBezelProject
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT))
 	{
 		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this]
 		{
@@ -3206,7 +3209,8 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 		{
-			window->postToUiThread([](Window* w)
+			Window* w = window;
+			window->postToUiThread([w]()
 			{
 				w->startScreenSaver();
 				w->renderScreenSaver();
@@ -3516,7 +3520,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
 	{
-		auto installedShaders = ApiSystem::getInstance()->getShaderList();
+		auto installedShaders = ApiSystem::getInstance()->getShaderList(systemData->getName());
 		if (installedShaders.size() > 0)
 		{
 			std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");

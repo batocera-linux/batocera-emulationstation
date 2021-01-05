@@ -137,8 +137,8 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	mTabs->addTab(_("PLAYER 1"), "0", true);	
 	mTabs->addTab(_("PLAYER 2"), "1");
-//	mTabs->addTab(_("PLAYER 3"), "2");
-//	mTabs->addTab(_("PLAYER 4"), "3");
+	mTabs->addTab(_("PLAYER 3"), "2");
+	mTabs->addTab(_("PLAYER 4"), "3");
 
 	mTabs->setCursorChangedCallback([&](const CursorState& state)
 	{

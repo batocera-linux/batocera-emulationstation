@@ -860,7 +860,7 @@ void Window::updateAsyncNotifications(int deltaTime)
 		PowerSaver::resume();
 }
 
-void Window::postToUiThread(const std::function<void(Window*)>& func)
+void Window::postToUiThread(const std::function<void()>& func)
 {	
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
@@ -872,7 +872,9 @@ void Window::processPostedFunctions()
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
 	for (auto func : mFunctions)
-		func(this);	
+	{
+		TRYCATCH("processPostedFunction", func())
+	}
 
 	mFunctions.clear();
 }

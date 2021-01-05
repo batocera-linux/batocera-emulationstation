@@ -475,7 +475,10 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this, game, fadeFunc, options]
 		{
 			if (doLaunchGame(game, options))
-				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			{
+				Window* w = mWindow;
+				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
+			}
 			else
 			{
 				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
@@ -489,7 +492,10 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game, options]
 		{
 			if (doLaunchGame(game, options))
-				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			{
+				Window* w = mWindow;
+				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
+			}
 			else
 			{
 				mCamera = origCamera;
@@ -503,7 +509,10 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this, origCamera, center, game, options]
 		{			
 			if (doLaunchGame(game, options))
-				mWindow->postToUiThread([](Window* w) { reloadAllGames(w, false); });
+			{
+				Window* w = mWindow;
+				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
+			}
 			else
 			{
 				mCamera = origCamera;
@@ -770,7 +779,7 @@ void ViewController::update(int deltaTime)
 		auto destView = mDeferPlayViewTransitionTo;
 		mDeferPlayViewTransitionTo.reset();
 		
-		mWindow->postToUiThread([this, destView](Window* w) 
+		mWindow->postToUiThread([this, destView]() 
 		{ 
 			if (mCurrentView)
 				mCurrentView->onHide();

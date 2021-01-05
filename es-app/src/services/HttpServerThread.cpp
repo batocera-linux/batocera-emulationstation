@@ -96,8 +96,9 @@ void HttpServerThread::run()
 	});
 
 	mHttpServer->Get("/reloadgames", [this](const httplib::Request& req, httplib::Response& res)
-	{
-		mWindow->postToUiThread([](Window* w)
+	{	
+		Window* w = mWindow;
+		mWindow->postToUiThread([w]()
 		{
 			GuiMenu::updateGameLists(w, false);
 		});
@@ -113,7 +114,8 @@ void HttpServerThread::run()
 		}
 
 		auto msg = req.body;
-		mWindow->postToUiThread([msg](Window* w) { w->pushGui(new GuiMsgBox(w, msg)); });
+		Window* w = mWindow;
+		mWindow->postToUiThread([msg, w]() { w->pushGui(new GuiMsgBox(w, msg)); });
 	});
 
 	mHttpServer->Post("/notify", [this](const httplib::Request& req, httplib::Response& res)
@@ -148,7 +150,7 @@ void HttpServerThread::run()
 			{
 				if (file->getFullPath() == path || file->getPath() == path)
 				{
-					mWindow->postToUiThread([file](Window* w) { ViewController::get()->launch(file); });					
+					mWindow->postToUiThread([file]() { ViewController::get()->launch(file); });					
 					return;
 				}
 			}
@@ -214,11 +216,12 @@ void HttpServerThread::run()
 			res.set_content("201 Game added. System not updated", "text/html");
 			res.status = 201;
 
-			mWindow->postToUiThread([](Window* w) { GuiMenu::updateGameLists(w, false); });
+			Window* w = mWindow;
+			mWindow->postToUiThread([w]() { GuiMenu::updateGameLists(w, false); });
 		}
 		else
 		{
-			mWindow->postToUiThread([system](Window* w)
+			mWindow->postToUiThread([system]()
 			{
 				ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
 			});
@@ -286,7 +289,7 @@ void HttpServerThread::run()
 			// delete file; intentionnal mem leak
 		}
 
-		mWindow->postToUiThread([systems](Window* w)
+		mWindow->postToUiThread([systems]()
 		{
 			for (auto changedSystem : systems)
 				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			

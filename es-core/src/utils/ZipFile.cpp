@@ -82,38 +82,59 @@ namespace Utils
 			if (mZipFile == nullptr)
 				return;
 
-			OpaqueWrapper w;
-			w.opaque = pOpaque;
-			w.callback = pCallback;
+			try
+			{
+				OpaqueWrapper w;
+				w.opaque = pOpaque;
+				w.callback = pCallback;
 
-			mz_file_write_func func = [](void *pOpaque, mz_uint64 file_ofs, const void *pBuf, size_t n) 
-			{ 
-				OpaqueWrapper* wrapper = (OpaqueWrapper*)pOpaque;
-				return wrapper->callback(wrapper->opaque, file_ofs, pBuf, n);
-			};
+				mz_file_write_func func = [](void *pOpaque, mz_uint64 file_ofs, const void *pBuf, size_t n)
+				{
+					OpaqueWrapper* wrapper = (OpaqueWrapper*)pOpaque;
+					return wrapper->callback(wrapper->opaque, file_ofs, pBuf, n);
+				};
 
-			miniz_cpp::zip_file* pFile = (miniz_cpp::zip_file*) mZipFile;
+				miniz_cpp::zip_file* pFile = (miniz_cpp::zip_file*) mZipFile;
 
-			pFile->read(name, func, &w);
+				pFile->read(name, func, &w);
+			}
+			catch (...)
+			{
+
+			}
 		}
 
 		std::vector<std::string> ZipFile::namelist()
 		{
-			return ((miniz_cpp::zip_file*) mZipFile)->namelist();
+			try
+			{
+				return ((miniz_cpp::zip_file*) mZipFile)->namelist();
+			}
+			catch(...) { }
+
+			return std::vector<std::string>();
 		}
 
 		std::string ZipFile::getFileCrc(const std::string &name)
 		{
 			if (mZipFile == nullptr)
-				return "" ;
+				return "";
 
-			auto info = ((miniz_cpp::zip_file*) mZipFile)->getinfo(name);
+			try
+			{
+				auto info = ((miniz_cpp::zip_file*) mZipFile)->getinfo(name);
 
-			char hex[10];
-			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", info.crc);
-			hex[len] = 0;
+				char hex[10];
+				auto len = snprintf(hex, sizeof(hex) - 1, "%08X", info.crc);
+				hex[len] = 0;
 
-			return hex;
+				return hex;
+			}
+			catch (...)
+			{
+			}
+
+			return "";
 		}
 
 	} // Zip::

@@ -419,14 +419,17 @@ namespace Renderer
 				la_data[(i * 2) + 1] = a_data ? a_data[i] : 255;
 			}
 
-			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));
+			if (_x == -1 && _y == -1)
+				GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data));
+			else 
+				GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));
 
 			delete[] la_data;
 		}
+		else if (_x == -1 && _y == -1)
+			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data));
 		else
-		{
 			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, _data));
-		}
 
 		bindTexture(0);
 

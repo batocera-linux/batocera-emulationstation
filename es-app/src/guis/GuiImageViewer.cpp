@@ -287,7 +287,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 				if (fl.size() == 0 || !g_isGuiImageViewerRunning)
 					return;
 
-				window->postToUiThread([this, i, fl](Window* w)
+				window->postToUiThread([this, i, fl]()
 				{
 					if (!g_isGuiImageViewerRunning)
 						return;
@@ -510,7 +510,7 @@ GuiVideoViewer::GuiVideoViewer(Window* window, const std::string& path) : GuiCom
 
 	mVideo->setOnVideoEnded([&]()
 	{		
-		mWindow->postToUiThread([&](Window* w) { delete this; });
+		mWindow->postToUiThread([&]() { delete this; });
 		return false;
 	});
 
