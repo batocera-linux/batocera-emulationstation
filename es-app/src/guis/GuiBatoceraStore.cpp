@@ -357,6 +357,8 @@ bool GuiBatoceraStore::input(InputConfig* config, Input input)
 		Window* window = mWindow;
 		while(window->peekGui() && window->peekGui() != ViewController::get())
 			delete window->peekGui();
+
+		return true;
 	}
 
 	if (config->isMappedTo("y", input) && input.value != 0)
