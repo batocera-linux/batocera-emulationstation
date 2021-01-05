@@ -8,7 +8,7 @@
 #include "utils/ZipFile.h"
 #include "scrapers/md5.h"
 #include "ApiSystem.h"
-
+#include "Log.h"
 #include <algorithm>
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
@@ -466,8 +466,11 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 
 std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
 {
+	LOG(LogDebug) << "getCheevosHashFromFile : " << fileName;
+
 	try
 	{
+
 		char hash[33];
 		if (generateHashFromFile(hash, consoleId, fileName.c_str()))
 			return hash;

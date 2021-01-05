@@ -28,8 +28,8 @@ private:
 	ThreadedHasher(Window* window, HasherType type, std::queue<FileData*> searchQueue, bool forceAllGames = false);
 	~ThreadedHasher();
 
-	void updateUI(FileData* fileData);
-	std::string formatGameName(FileData* game);
+	void updateUI(const std::string label);
+	static std::string formatGameName(FileData* game);
 
 	std::queue<FileData*> mSearchQueue;
 
