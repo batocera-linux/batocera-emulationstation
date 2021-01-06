@@ -206,13 +206,13 @@ msgid "Region"
 msgstr "REGION"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "CHEEVOS HASH"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "CHEEVOS CHECKSUM"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "ID DE JUEGO CHEEVOS"
 
 msgid "all games"
 msgstr "TODOS LOS JUEGOS"
@@ -233,7 +233,7 @@ msgid "never played"
 msgstr "NUNCA JUGADO"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "RETROACHIEVEMENTS"
 
 msgid "arcade"
 msgstr "ARCADE"
@@ -452,19 +452,19 @@ msgstr "ESPERA POR FAVOR"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d of %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
 msgid "Points"
-msgstr ""
+msgstr "PUNTOS"
 
 msgid "Rank"
-msgstr ""
+msgstr "RANGO"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "VER DETALLES"
 
 msgid "LAUNCH"
 msgstr "LANZAR"
@@ -503,13 +503,13 @@ msgid "VIEW GAME MAP"
 msgstr "VER MAPA DEL JUEGO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "EL NUCLEO ACTUAL NO ES COMPATIBLE"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "NUCLEO NECESARIO"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "VER LOGROS DEL JUEGO"
 
 msgid "COLLECTION"
 msgstr "COLECCIÓN"
@@ -946,17 +946,17 @@ msgstr[0] "%i JUEGO IGNORADO"
 msgstr[1] "%i JUEGOS IGNORADOS"
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "DESBLOQUEADO EN"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "AUN NO TIENES LOGROS EN ESTE JUEGO"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "LOGROS GANADOS"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% COMPLETO"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS AHORA"
@@ -1055,7 +1055,7 @@ msgid "FLATTEN-GLOW"
 msgstr "PLANA-BRILLO"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "ESCALADO RGA"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1154,7 +1154,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTENER ARTE DE FAN"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "OBTENER MAPA"
 
 msgid "SCRAPE MANUAL"
 msgstr "OBTENER DEL MANUAL DEL JUEGO"
@@ -1244,10 +1244,10 @@ msgid "CLEAR CACHES"
 msgstr "LIMPIAR CACHES"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "CONSTRUIR CACHE DE IMAGENES"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "CONSTRUYENDO CACHE DE IMAGENES"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABLECER EXTENSIONES DE ARCHIVOS"
@@ -1256,7 +1256,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDETECTAR IDIOMA/REGION DE LOS JUEGOS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "BUSCAR TODOS LOS JUEGOS CON NETPLAY/LOGROS"
 
 msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
@@ -1474,13 +1474,13 @@ msgid "GAME INDEXES"
 msgstr "INDICES DE JUEGOS"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "BUSCAR TODOS LOS JUEGOS"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "BUSCAR NUEVOS JUEGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "IMPOSIBLE ACTIVAR LOS LOGROS :"
 
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR NETPLAY"
@@ -1817,7 +1817,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCIÓN INTERNA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR CONTROLES"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATEAR DISPOSITIVO"
@@ -1851,16 +1851,16 @@ msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "ALEJAR"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "ACERCAR"
 
 msgid "MOVE"
-msgstr ""
+msgstr "MOVER"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ZOOM"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMACIÓN DEL SISTEMA"
@@ -1984,6 +1984,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"SE REQUIERE UNA CUENTA. POR FAVOR REGISTRATE EN: "
+"https://retroachievements.org"
 
 msgid "Searching"
 msgstr "BUSCANDO"
@@ -2091,10 +2093,10 @@ msgid "Extracting"
 msgstr "EXTRAYENDO"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "BUSCANDO LOGROS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "BUSCANDO JUEGOS EN NETPLAY"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -2124,7 +2126,7 @@ msgid "ALREADY PLAYED"
 msgstr "YA JUGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "TIENE LOGROS"
 
 msgid "SCRAPING"
 msgstr "SCRAPEANDO"
