@@ -27,9 +27,7 @@ private:
 	
 	void addTextFilterToMenu();
 	void openGamelistFilter();
-	void openMetaDataEd();
-	void startEditMode();
-	void exitEditMode();
+	void openMetaDataEd();	
 	void jumpToLetter();
 	void editCollectionFilters();
 	void createNewCollectionFilter();

@@ -23,8 +23,7 @@ private:
 	void updateSettings(std::string newAutoSettings, std::string newCustomSettings);
 	void createCollection(std::string inName);
 	void createFilterCollection(std::string inName);
-
-	void exitEditMode();
+	
 	std::shared_ptr< OptionListComponent<std::string> > autoOptionList;
 	std::shared_ptr< OptionListComponent<std::string> > customOptionList;
 

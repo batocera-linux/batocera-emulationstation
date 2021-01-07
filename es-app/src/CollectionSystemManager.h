@@ -81,11 +81,13 @@ public:
 	bool isThemeCustomCollectionCompatible(std::vector<std::string> stringVector);
 	std::string getValidNewCollectionName(std::string name, int index = 0);
 
-	void setEditMode(std::string collectionName);
-	void exitEditMode();
+	//void setEditMode(std::string collectionName);
+	//void exitEditMode();
+
 	inline bool isEditing() { return mIsEditingCustom; };
 	inline std::string getEditingCollection() { return mEditingCollection; };
-	bool toggleGameInCollection(FileData* file);
+		
+	bool toggleGameInCollection(FileData* file, const std::string collectionName = "");
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
@@ -96,6 +98,8 @@ public:
 
 	bool isCustomCollection(const std::string collectionName);
 	
+	bool inInCustomCollection(FileData* file, const std::string collectionName);
+
 	SystemData* getArcadeCollection();
 
 private:

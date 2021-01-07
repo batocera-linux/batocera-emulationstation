@@ -11,6 +11,7 @@
 
 std::vector<MetaDataDecl> MetaDataList::mMetaDataDecls;
 
+static std::map<MetaDataId, int> mMetaDataIndexes;
 static std::string* mDefaultGameMap = nullptr;
 static MetaDataType* mGameTypeMap = nullptr;
 static std::map<std::string, MetaDataId> mGameIdMap;
@@ -79,6 +80,10 @@ void MetaDataList::initMetadata()
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
+	
+	mMetaDataIndexes.clear();
+	for (int i = 0 ; i < mMetaDataDecls.size() ; i++)
+		mMetaDataIndexes[mMetaDataDecls[i].id] = i;
 
 	int maxID = mMetaDataDecls.size() + 1;
 
@@ -122,25 +127,33 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 	MetaDataList mdl(type);
 	mdl.mRelativeTo = system;
 	std::string value;
-
-	for (auto& mdd : mMetaDataDecls)
+	
+	for (pugi::xml_node xelement : node.children())
 	{
-		if (mdd.isAttribute)
+		std::string name = xelement.name();
+		auto it = mGameIdMap.find(name);
+		if (it == mGameIdMap.cend())
 		{
-			pugi::xml_attribute xattr = node.attribute(mdd.key.c_str());
-			if (!xattr)
-				continue;
+			if (name == "hash")
+				continue; // see MetaDataList::migrate
 
-			value = xattr.value();
-		}
-		else
-		{
-			pugi::xml_node xelement = node.child(mdd.key.c_str());
-			if (!xelement)
-				continue;
-
-			// if it's a path, resolve relative paths
 			value = xelement.text().get();
+			if (!value.empty())
+				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
+
+			continue;
+		}
+
+		MetaDataDecl& mdd = mMetaDataDecls[mMetaDataIndexes[it->second]];
+		if (mdd.isAttribute)
+			continue;
+
+		value = xelement.text().get();
+
+		if (mdd.id == MetaDataId::Name)
+		{
+			mdl.mName = value;
+			continue;
 		}
 
 		if (value == mdd.defaultValue)
@@ -152,11 +165,43 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		// Players -> remove "1-"
 		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
 			value = Utils::String::replace(value, "1-", "");
-			
+
+		mdl.set(mdd.id, value);
+	}
+
+	for (pugi::xml_attribute xattr : node.attributes())
+	{
+		std::string name = xattr.name();
+		auto it = mGameIdMap.find(name);
+		if (it == mGameIdMap.cend())
+		{
+			value = xattr.value();
+			if (!value.empty())
+				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
+
+			continue;
+		}
+
+		MetaDataDecl& mdd = mMetaDataDecls[mMetaDataIndexes[it->second]];
+		if (!mdd.isAttribute)
+			continue;
+
+		value = xattr.value();
+
+		if (value == mdd.defaultValue)
+			continue;
+
+		if (mdd.type == MD_BOOL)
+			value = Utils::String::toLower(value);
+
+		// Players -> remove "1-"
+		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+			value = Utils::String::replace(value, "1-", "");
+
 		if (mdd.id == MetaDataId::Name)
 			mdl.mName = value;
 		else
-			mdl.set(mdd.id, value);		
+			mdl.set(mdd.id, value);
 	}
 
 	return mdl;
@@ -206,6 +251,15 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 			else
 				parent.append_child(mddIter->key.c_str()).text().set(value.c_str());
 		}
+	}
+
+	for (std::tuple<std::string, std::string, bool> element : mUnKnownElements)
+	{	
+		bool isElement = std::get<2>(element);
+		if (isElement)
+			parent.append_child(std::get<0>(element).c_str()).text().set(std::get<1>(element).c_str());
+		else 
+			parent.append_attribute(std::get<0>(element).c_str()).set_value(std::get<1>(element).c_str());
 	}
 }
 

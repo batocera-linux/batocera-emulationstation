@@ -15,6 +15,7 @@
 #include "components/SwitchComponent.h"
 #include "ApiSystem.h"
 #include "animations/LambdaAnimation.h"
+#include "guis/GuiGameOptions.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr)
@@ -223,6 +224,13 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		}else if (config->isMappedTo("x", input))
 		{
 			FileData* cursor = getCursor();
+			if (cursor != nullptr)
+			{
+				Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+				mWindow->pushGui(new GuiGameOptions(mWindow, cursor));
+				return true;				
+			}
+			/*
 			if(cursor != nullptr && cursor->isNetplaySupported())
 			{
 				Window* window = mWindow;
@@ -259,14 +267,19 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			FileData* randomGame = getRandomGame();
 			if (randomGame)
 				setCursor(randomGame);
-
+				*/
 			return true;
 		}
 		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid())
 		{
+			// go to random system game
+			FileData* randomGame = getRandomGame();
+			if (randomGame)
+				setCursor(randomGame);
+			/*
 			if (mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem())
 				if (CollectionSystemManager::get()->toggleGameInCollection(getCursor()))
-					return true;
+					return true;*/
 		}
 	}
 	return IGameListView::input(config, input);

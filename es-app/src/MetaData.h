@@ -170,6 +170,7 @@ private:
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;
 
+	std::vector<std::tuple<std::string, std::string, bool>> mUnKnownElements;
 };
 
 #endif // ES_APP_META_DATA_H

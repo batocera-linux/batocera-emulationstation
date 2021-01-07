@@ -17,7 +17,10 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
 	mDescContainer(window), mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
-	mKidGame(nullptr), mNotKidGame(nullptr), mFavorite(nullptr), mHidden(nullptr), mManual(nullptr), mNoManual(nullptr), mNotFavorite(nullptr),
+	mKidGame(nullptr), mNotKidGame(nullptr), mHidden(nullptr), 
+	mFavorite(nullptr), mNotFavorite(nullptr),
+	mManual(nullptr), mNoManual(nullptr), 
+	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
@@ -35,8 +38,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 		{ "md_boxart", { MetaDataId::BoxArt, MetaDataId::Thumbnail } },
 		{ "md_wheel",{ MetaDataId::Wheel, MetaDataId::Marquee } },
 		{ "md_cartridge",{ MetaDataId::Cartridge } },
-		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } },
-		{ "md_map", { MetaDataId::Map } }
+		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } }
 	};
 
 	for (auto md : mdl)
@@ -155,6 +157,12 @@ DetailedContainer::~DetailedContainer()
 
 	if (mNoManual != nullptr)
 		delete mNoManual;
+
+	if (mMap != nullptr)
+		delete mMap;
+
+	if (mNoMap != nullptr)
+		delete mNoMap;
 
 	if (mKidGame != nullptr)
 		delete mKidGame;
@@ -371,8 +379,10 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	
 	loadIfThemed(&mHidden, theme, "md_hidden", false, true);
 	loadIfThemed(&mManual, theme, "md_manual", false, true);
-	loadIfThemed(&mNoManual, theme, "md_nomanual", false, true);
-	
+	loadIfThemed(&mNoManual, theme, "md_nomanual", false, true);	
+	loadIfThemed(&mMap, theme, "md_map", false, true);
+	loadIfThemed(&mNoMap, theme, "md_nomap", false, true);
+
 	initMDLabels();
 
 	for (auto ctrl : getMetaComponents())
@@ -434,6 +444,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 
 		if (mManual != nullptr) mManual->setVisible(false);
 		if (mNoManual != nullptr) mNoManual->setVisible(false);		
+		if (mMap != nullptr) mMap->setVisible(false);
+		if (mNoMap != nullptr) mNoMap->setVisible(false);		
 		if (mKidGame != nullptr) mKidGame->setVisible(false);
 		if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);		
 		if (mCheevos != nullptr) mCheevos->setVisible(false);
@@ -534,6 +546,12 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mNoManual != nullptr)
 			mNoManual->setVisible(!Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)));
 
+		if (mMap != nullptr)
+			mMap->setVisible(Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)));
+
+		if (mNoMap != nullptr)
+			mNoMap->setVisible(!Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)));
+
 		if (mKidGame != nullptr)
 			mKidGame->setVisible(file->getKidGame());
 
@@ -619,6 +637,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mFlag != nullptr) comps.push_back(mFlag);
 	if (mManual != nullptr) comps.push_back(mManual);
 	if (mNoManual != nullptr) comps.push_back(mNoManual);
+	if (mMap != nullptr) comps.push_back(mMap);
+	if (mNoMap != nullptr) comps.push_back(mNoMap);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
 	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);	
 	if (mCheevos != nullptr) comps.push_back(mCheevos);
@@ -665,6 +685,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 					if (mFlag != nullptr) mFlag->setImage("");
 					if (mManual != nullptr) mManual->setVisible(false);
 					if (mNoManual != nullptr) mNoManual->setVisible(false);
+					if (mMap != nullptr) mMap->setVisible(false);
+					if (mNoMap != nullptr) mNoMap->setVisible(false);
 					if (mKidGame != nullptr) mKidGame->setVisible(false);
 					if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);
 					if (mCheevos != nullptr) mCheevos->setVisible(false);
