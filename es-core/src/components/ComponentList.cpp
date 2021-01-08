@@ -223,6 +223,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	if(!size())
 		return;
 
+	float opacity = mOpacity / 255.0;
 	auto menuTheme = ThemeData::getMenuTheme();
 	unsigned int selectorColor = menuTheme->Text.selectorColor;
 	unsigned int selectorGradientColor = menuTheme->Text.selectorGradientColor;
@@ -284,10 +285,16 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 		
 		if (entry.data.selectable)
 		{
-			if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) {
+			if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) 
+			{
+				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
+					bgColor & 0xFFFFFF00 | (unsigned char)((bgColor & 0xFF) * opacity), 
+					Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
 
-				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
-				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
+				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
+					selectorColor & 0xFFFFFF00 | (unsigned char)((selectorColor & 0xFF) * opacity),
+					selectorGradientColor & 0xFFFFFF00 | (unsigned char)((selectorGradientColor & 0xFF) * opacity),					
+					selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
 			}
 
 			for (auto& element : entry.data.elements)
@@ -312,17 +319,18 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	float y = 0;
 	for(unsigned int i = 0; i < mEntries.size(); i++)
 	{
+		
 		if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
-			Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor);
+			Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
 		else
-			Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
+			Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 
 		y += getRowHeight(mEntries.at(i).data);
 
 		prevIsGroup = !mEntries.at(i).data.selectable;
 	}
 
-	Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor);
+	Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 
 	Renderer::popClipRect();
 

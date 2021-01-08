@@ -41,7 +41,7 @@ public:
 
 	void setTitle(const std::string title, const std::shared_ptr<Font>& font = nullptr);
 	void setSubTitle(const std::string text);
-	void setTitleImage(std::shared_ptr<ImageComponent> titleImage);
+	void setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle = false);
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
 	inline void setCursorToButtons() { assert(mButtonGrid); mGrid.setCursorTo(mButtonGrid); }

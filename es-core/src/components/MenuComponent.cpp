@@ -20,10 +20,13 @@ MenuComponent::MenuComponent(Window* window,
 	addChild(&mBackground);
 	addChild(&mGrid);
 
+	mGrid.setZIndex(10);
+
 	mBackground.setImagePath(theme->Background.path);
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setZIndex(2);
 
 	// set up title
 	mTitle = std::make_shared<TextComponent>(mWindow);
@@ -213,7 +216,7 @@ void MenuComponent::setTitle(const std::string title, const std::shared_ptr<Font
 		mTitle->setFont(font);
 }
 
-void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage)
+void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle)
 {
 	if (titleImage == nullptr)
 	{
@@ -235,9 +238,24 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage)
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	float iw = TITLE_HEIGHT / width;
 
-	mHeaderGrid->setColWidthPerc(0, 1 - iw);
-	mHeaderGrid->setColWidthPerc(1, iw);
-	mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
+	if (replaceTitle)
+	{
+		mHeaderGrid->setColWidthPerc(0, 0);
+		mHeaderGrid->setColWidthPerc(1, 1);
+		mHeaderGrid->setEntry(mTitleImage, Vector2i(0, 0), false, false, Vector2i(2, 2));
+		
+		if (mTitle)
+			mTitle->setVisible(false);
+
+		if (mSubtitle)
+			mSubtitle->setVisible(false);
+	}
+	else
+	{
+		mHeaderGrid->setColWidthPerc(0, 1 - iw);
+		mHeaderGrid->setColWidthPerc(1, iw);
+		mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
+	}
 
 	updateSize();	
 }
@@ -341,18 +359,26 @@ void MenuComponent::onSizeChanged()
 
 	if (mTitleImage != nullptr)
 	{
-		mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
-		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
-
-		float pad = Renderer::getScreenWidth() * 0.012;
-		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-
-		mTitle->setHorizontalAlignment(ALIGN_LEFT);
-
-		if (mSubtitle != nullptr)
+		if (mTitle != nullptr && mTitle->isVisible())
 		{
-			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+			mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
+			mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
+
+			float pad = Renderer::getScreenWidth() * 0.012;
+			mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+
+			mTitle->setHorizontalAlignment(ALIGN_LEFT);
+
+			if (mSubtitle != nullptr)
+			{
+				mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+				mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+			}
+		}
+		else
+		{
+			mTitleImage->setPosition(mSize.x() / 2, TITLE_HEIGHT / 2);
+			mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85);
 		}
 	}
 }

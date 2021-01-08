@@ -22,6 +22,8 @@
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
 #include "GuiGameAchievements.h"
+#include "guis/GuiGameOptions.h"
+#include "views/gamelist/ISimpleGameListView.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
 	"automatic", "1x1",
@@ -75,7 +77,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			std::vector<std::string> letters = getGamelist()->getEntriesLetters();
 			if (!letters.empty())
 			{
-				mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO..."), false); // batocera
+				mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO LETTER"), false); // batocera
 
 				char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
 
@@ -85,7 +87,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 				for (auto letter : letters)
 					mJumpToLetterList->add(letter, letter[0], letter[0] == curChar);
 
-				row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO..."), theme->Text.font, theme->Text.color), true); // batocera
+				row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO LETTER"), theme->Text.font, theme->Text.color), true); // batocera
 				row.addElement(mJumpToLetterList, false);
 				row.input_handler = [&](InputConfig* config, Input input)
 				{
@@ -102,6 +104,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 				};
 				mMenu.addRow(row);
 			}
+		}
+				
+		ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(getGamelist());
+		if (simpleView != nullptr)
+		{
+			mMenu.addEntry(_("SELECT RANDOM GAME"), false, [this, simpleView]
+			{
+				simpleView->moveToRandomGame();
+				delete this;
+			});
 		}
 
 		// sort list by
@@ -284,19 +296,27 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		
 		if (!fromPlaceholder)
 		{
-			if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
+			auto srcSystem = file->getSourceFileData()->getSystem();
+			auto sysOptions = mSystem->isGroupSystem() ? srcSystem : mSystem;
+
+			bool showSystemOptions = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS) && (sysOptions->hasFeatures() || sysOptions->hasEmulatorSelection());
+			bool showGameOptions = (file != nullptr && file->getType() != FOLDER);
+
+			if (showGameOptions || showSystemOptions)
+				mMenu.addGroup(_("OPTIONS"));
+
+			if (showGameOptions)
 			{
-				auto srcSystem = file->getSourceFileData()->getSystem();
-				auto sysOptions = mSystem->isGroupSystem() ? srcSystem : mSystem;
-
-				if (sysOptions->hasFeatures() || sysOptions->hasEmulatorSelection())
+				mMenu.addEntry(_("GAME OPTIONS"), true, [this, file] 
 				{
-					mMenu.addGroup(_("SYSTEM OPTIONS"));
-					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
-				}
-
+					Window* window = mWindow;
+					window->pushGui(new GuiGameOptions(window, file));
+					delete this;
+				});
 			}
 
+			if (showSystemOptions)
+				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
 		}
 	}
 
