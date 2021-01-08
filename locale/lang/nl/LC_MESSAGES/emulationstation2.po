@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-04 19:16+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -217,6 +217,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "alle spellen"
 
@@ -243,14 +246,6 @@ msgstr "arcade"
 
 msgid "collections"
 msgstr "verzamelingen"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Bewerken van de verzameling '%s'. Voeg toe/verwijder spellen met Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Bewerken van de verzameling '%s' voltooid."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -423,9 +418,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "VERVERS SPELLIJST"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "VOLTOOI BEWERKEN VERZAMELING"
-
 msgid "Loading..."
 msgstr "Laden..."
 
@@ -478,41 +470,26 @@ msgstr "KLAAR"
 msgid "OK"
 msgstr "OK"
 
+msgid "VIEW OPTIONS"
+msgstr "WEERGAVEOPTIES"
+
 msgid "go back"
 msgstr "ga terug"
 
 msgid "NAVIGATION"
 msgstr "NAVIGATIE"
 
-msgid "JUMP TO..."
-msgstr "SPRING NAAR..."
+msgid "JUMP TO LETTER"
+msgstr "Ga naar letter"
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "SORTEER OP"
 
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTERS"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr ""
-
-msgid "GAME MEDIAS"
-msgstr ""
-
-msgid "VIEW GAME MANUAL"
-msgstr ""
-
-msgid "VIEW GAME MAP"
-msgstr ""
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "VERZAMELINGEN"
@@ -526,41 +503,14 @@ msgstr "SPELLLIJST STIJL"
 msgid "automatic"
 msgstr "automatisch"
 
-msgid "VIEW OPTIONS"
-msgstr "WEERGAVEOPTIES"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "WEERGAVE AANPASSINGEN"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "VERZAMELINGBEHEER"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "VOEG SPELLEN TOE AAN/VERWIJDER SPELLEN UIT DEZE VERZAMELING"
 
 msgid "GAME OPTIONS"
 msgstr "SPELOPTIES"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GEAVANCEERDE SYSTEEMOPTIES"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "GEAVANCEERDE SPELOPTIES"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "EDIT FOLDER METADATA"
-msgstr "BEWERK METADATA VAN MAP"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "BEWERK METADATA VAN DIT SPEL"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
 
 msgid "RESET FILTERS"
 msgstr ""
@@ -835,6 +785,12 @@ msgstr ""
 msgid "PLAYER 2"
 msgstr ""
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr ""
 
@@ -900,6 +856,80 @@ msgstr "NETWERK BENODIGD"
 
 msgid "INVALID PARAMETERS"
 msgstr "ONGELDIGE PARAMETERS"
+
+msgid "GAME MEDIAS"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "FAVORIETEN"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "GEAVANCEERDE SPELOPTIES"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "BEWERK METADATA VAN MAP"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "BEWERK METADATA VAN DIT SPEL"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "BEZIG MET SCRAPEN"
@@ -1347,9 +1377,6 @@ msgstr "NU UPDATEN"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE REEDS GESTART"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
-
 msgid "LANGUAGE"
 msgstr "TAAL"
 
@@ -1627,6 +1654,9 @@ msgstr "heeft meerdere spellen"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "TOON BESTANDSNAMEN IN LIJST"
+
 msgid "FILE EXTENSIONS"
 msgstr "BESTANDSEXTENSIES"
 
@@ -1668,9 +1698,6 @@ msgstr ""
 
 msgid "ICON AND TEXT"
 msgstr ""
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "TOON BESTANDSNAMEN IN LIJST"
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -1874,9 +1901,6 @@ msgstr ""
 msgid "GO TO LETTER"
 msgstr ""
 
-msgid "COLLECTIONS"
-msgstr ""
-
 msgid "GO TO MANUFACTURER"
 msgstr ""
 
@@ -1906,9 +1930,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPEL"
 msgstr[1] "%i SPELLEN"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
 
 msgid "RANDOM"
 msgstr "WILLEKEURIG"
@@ -1958,18 +1979,6 @@ msgstr "Geen ingangen gevonden"
 
 msgid "Favorites"
 msgstr "Favorieten"
-
-msgid "START GAME"
-msgstr ""
-
-msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "SET PLAYER PASSWORD"
-msgstr ""
-
-msgid "SET VIEWER PASSWORD"
-msgstr ""
 
 msgid "Games similar to"
 msgstr ""
@@ -2089,9 +2098,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "FAVORIETEN"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2311,6 +2317,24 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "Bewerken van de verzameling '%s'. Voeg toe/verwijder spellen met Y."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "Bewerken van de verzameling '%s' voltooid."
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "VOLTOOI BEWERKEN VERZAMELING"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "SPRING NAAR..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "VERZAMELINGBEHEER"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "VOEG SPELLEN TOE AAN/VERWIJDER SPELLEN UIT DEZE VERZAMELING"
+
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "HERINDEXEER ALLE SPELLEN"
 
@@ -2484,9 +2508,6 @@ msgstr ""
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 #~ msgstr "Druk ESC of de Hotkey om te stoppen"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "Ga naar letter"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "Alleen favorieten"
