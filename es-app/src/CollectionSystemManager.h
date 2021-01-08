@@ -97,6 +97,7 @@ public:
 	bool deleteCustomCollection(CollectionSystemData* data);
 
 	bool isCustomCollection(const std::string collectionName);
+	bool isDynamicCollection(const std::string collectionName);
 	
 	bool inInCustomCollection(FileData* file, const std::string collectionName);
 

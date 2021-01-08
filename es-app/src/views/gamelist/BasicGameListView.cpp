@@ -261,7 +261,7 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	  prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS"))); // batocera
 
 	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt("y", _("RANDOM GAME")));
+	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
 	/*
 	FileData* cursor = getCursor();
 	if (cursor != nullptr && cursor->isNetplaySupported())

@@ -41,8 +41,9 @@ public:
 	void setPopupContext(std::shared_ptr<IGameListView> pThis, std::shared_ptr<GuiComponent> parentView, const std::string label, const std::function<void()>& onExitTemporary);
 	void closePopupContext();
 	
-protected:
-	FileData* getRandomGame();
+	void moveToRandomGame();
+
+protected:	
 	void	  updateFolderPath();
 
 	virtual std::string getQuickSystemSelectRightButton() = 0;

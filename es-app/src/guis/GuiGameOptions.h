@@ -22,12 +22,15 @@ public:
 
 	static std::vector<std::string> gridSizes;
 
+	void close();
+
 private:
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
 		
 	void openMetaDataEd();
 
 	std::string getCustomCollectionName();
+	void deleteCollection();
 
 	MenuComponent mMenu;
 

@@ -1437,6 +1437,15 @@ bool CollectionSystemManager::isCustomCollection(const std::string collectionNam
 	return data->second.decl.isCustom;
 }
 
+bool CollectionSystemManager::isDynamicCollection(const std::string collectionName)
+{
+	auto data = mCustomCollectionSystemsData.find(collectionName);
+	if (data == mCustomCollectionSystemsData.cend())
+		return false;
+
+	return data->second.decl.isCustom && data->second.filteredIndex != nullptr;
+}
+
 void CollectionSystemManager::reloadCollection(const std::string collectionName, bool repopulateGamelist)
 {
 	auto autoc = mAutoCollectionSystemsData.find(collectionName);

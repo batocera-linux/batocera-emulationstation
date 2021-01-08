@@ -349,7 +349,7 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS")));
 
 	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt("y", _("RANDOM GAME")));
+	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
 
 	/*
 	FileData* cursor = getCursor();
