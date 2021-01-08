@@ -6,6 +6,9 @@
 #include <assert.h>
 #include <string>
 
+#include "hlslpp/hlsl++.h"
+using namespace hlslpp;
+
 class Vector2f;
 class Vector3f;
 
@@ -14,31 +17,32 @@ class Vector4f
 public:
 	Vector4f()
 	{
-		mX = 0; mY = 0; mZ = 0; mW = 0;
+		vec = (0,0,0,0);
 	}
 
-	         Vector4f(const float _f)                                                 : mX(_f),                 mY(_f),                 mZ(_f),                 mW(_f) { }
-	         Vector4f(const float _x, const float _y, const float _z, const float _w) : mX(_x),                 mY(_y),                 mZ(_z),                 mW(_w) { }
-	explicit Vector4f(const Vector2f& _v)                                             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(0),                  mW(0)  { }
-	explicit Vector4f(const Vector2f& _v, const float _z)                             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(_z),                 mW(0)  { }
-	explicit Vector4f(const Vector2f& _v, const float _z, const float _w)             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(_z),                 mW(_w) { }
-	explicit Vector4f(const Vector3f& _v)                                             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(((Vector4f&)_v).mZ), mW(0)  { }
-	explicit Vector4f(const Vector3f& _v, const float _w)                             : mX(((Vector4f&)_v).mX), mY(((Vector4f&)_v).mY), mZ(((Vector4f&)_v).mZ), mW(_w) { }
+	         Vector4f(const float _f)                                                 : vec(    _f,     _f,     _f, _f) { }
+	         Vector4f(const float _x, const float _y, const float _z, const float _w) : vec(    _x,     _y,     _z, _w) { }
+	explicit Vector4f(const Vector2f& _v)                                             : vec( ((Vector4f&)_v).x(), ((Vector4f&)_v).y(),                   0,  0) { }
+	explicit Vector4f(const Vector2f& _v, const float _z)                             : vec( ((Vector4f&)_v).x(), ((Vector4f&)_v).y(),                  _z,  0) { }
+	explicit Vector4f(const Vector2f& _v, const float _z, const float _w)             : vec( ((Vector4f&)_v).x(), ((Vector4f&)_v).y(),                  _z, _w) { }
+	explicit Vector4f(const Vector3f& _v)                                             : vec( ((Vector4f&)_v).x(), ((Vector4f&)_v).y(), ((Vector4f&)_v).z(),  0) { }
+	explicit Vector4f(const Vector3f& _v, const float _w)                             : vec( ((Vector4f&)_v).x(), ((Vector4f&)_v).y(), ((Vector4f&)_v).z(), _w) { }
+	explicit Vector4f(float4 _v)                                                      : vec(_v) { }
 
-	const bool     operator==(const Vector4f& _other) const { return ((mX == _other.mX) && (mY == _other.mY) && (mZ == _other.mZ) && (mW == _other.mW)); }
-	const bool     operator!=(const Vector4f& _other) const { return ((mX != _other.mX) || (mY != _other.mY) || (mZ != _other.mZ) || (mW != _other.mW)); }
+	const bool     operator==(const Vector4f& _other) const { return all(vec - _other.vec); }
+	const bool     operator!=(const Vector4f& _other) const { return any(vec - _other.vec); }
 
-	const Vector4f operator+ (const Vector4f& _other) const { return { mX + _other.mX, mY + _other.mY, mZ + _other.mZ, mW + _other.mW }; }
-	const Vector4f operator- (const Vector4f& _other) const { return { mX - _other.mX, mY - _other.mY, mZ - _other.mZ, mW - _other.mW }; }
-	const Vector4f operator* (const Vector4f& _other) const { return { mX * _other.mX, mY * _other.mY, mZ * _other.mZ, mW * _other.mW }; }
-	const Vector4f operator/ (const Vector4f& _other) const { return { mX / _other.mX, mY / _other.mY, mZ / _other.mZ, mW / _other.mW }; }
+	const Vector4f operator+ (const Vector4f& _other) const { return Vector4f(vec + float4(_other.x(), _other.y(), _other.z(), _other.w())); }
+	const Vector4f operator- (const Vector4f& _other) const { return Vector4f(vec - float4(_other.x(), _other.y(), _other.z(), _other.w())); }
+	const Vector4f operator* (const Vector4f& _other) const { return Vector4f(vec * float4(_other.x(), _other.y(), _other.z(), _other.w())); }
+	const Vector4f operator/ (const Vector4f& _other) const { return Vector4f(vec / float4(_other.x(), _other.y(), _other.z(), _other.w())); }
 
-	const Vector4f operator+ (const float& _other) const    { return { mX + _other, mY + _other, mZ + _other, mW + _other }; }
-	const Vector4f operator- (const float& _other) const    { return { mX - _other, mY - _other, mZ - _other, mW - _other }; }
-	const Vector4f operator* (const float& _other) const    { return { mX * _other, mY * _other, mZ * _other, mW * _other }; }
-	const Vector4f operator/ (const float& _other) const    { return { mX / _other, mY / _other, mZ / _other, mW / _other }; }
+	const Vector4f operator+ (const float& _other) const    { return Vector4f(vec + _other); }
+	const Vector4f operator- (const float& _other) const    { return Vector4f(vec - _other); }
+	const Vector4f operator* (const float& _other) const    { return Vector4f(vec * _other); }
+	const Vector4f operator/ (const float& _other) const    { return Vector4f(vec / _other); }
 
-	const Vector4f operator- () const                       { return {-mX , -mY, -mZ, -mW }; }
+	const Vector4f operator- () const                       { return Vector4f(-vec); }
 
 	Vector4f&      operator+=(const Vector4f& _other)       { *this = *this + _other; return *this; }
 	Vector4f&      operator-=(const Vector4f& _other)       { *this = *this - _other; return *this; }
@@ -52,17 +56,17 @@ public:
 
 	Vector4f&      operator*=(const Vector2f& _other);
 
-	      float&   operator[](const int _index)             { assert(_index < 4 && "index out of range"); return (&mX)[_index]; }
-	const float&   operator[](const int _index) const       { assert(_index < 4 && "index out of range"); return (&mX)[_index]; }
+	      float&   operator[](const int _index)             { assert(_index < 4 && "index out of range"); return (vec.f32[_index]); }
+	const float&   operator[](const int _index) const       { assert(_index < 4 && "index out of range"); return (vec.f32[_index]); }
 
-	inline       float& x()       { return mX; }
-	inline       float& y()       { return mY; }
-	inline       float& z()       { return mZ; }
-	inline       float& w()       { return mW; }
-	inline const float& x() const { return mX; }
-	inline const float& y() const { return mY; }
-	inline const float& z() const { return mZ; }
-	inline const float& w() const { return mW; }
+	inline       float& x()       { return vec.f32[0]; }
+	inline       float& y()       { return vec.f32[1]; }
+	inline       float& z()       { return vec.f32[2]; }
+	inline       float& w()       { return vec.f32[3]; }
+	inline const float& x() const { return vec.f32[0]; }
+	inline const float& y() const { return vec.f32[1]; }
+	inline const float& z() const { return vec.f32[2]; }
+	inline const float& w() const { return vec.f32[3]; }
 
 	inline       Vector2f& v2()       { return *(Vector2f*)this; }
 	inline const Vector2f& v2() const { return *(Vector2f*)this; }
@@ -73,20 +77,17 @@ public:
 	Vector4f& round();
 	Vector4f& lerp (const Vector4f& _start, const Vector4f& _end, const float _fraction);
 
-	static const Vector4f Zero () { return { 0, 0, 0, 0 }; }
-	static const Vector4f UnitX() { return { 1, 0, 0, 0 }; }
-	static const Vector4f UnitY() { return { 0, 1, 0, 0 }; }
-	static const Vector4f UnitZ() { return { 0, 0, 1, 0 }; }
-	static const Vector4f UnitW() { return { 0, 0, 0, 1 }; }
+	static const Vector4f Zero () { return Vector4f(0,0,0,0); }
+	static const Vector4f UnitX() { return Vector4f(1,0,0,0); }
+	static const Vector4f UnitY() { return Vector4f(0,1,0,0); }
+	static const Vector4f UnitZ() { return Vector4f(0,0,1,0); }
+	static const Vector4f UnitW() { return Vector4f(0,0,0,1); }
 
 	static const Vector4f parseString(const std::string& _input);
 
 private:
 
-	float mX;
-	float mY;
-	float mZ;
-	float mW;
+	float4 vec;
 
 }; // Vector4f
 

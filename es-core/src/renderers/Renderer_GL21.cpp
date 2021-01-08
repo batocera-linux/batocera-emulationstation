@@ -224,10 +224,10 @@ namespace Renderer
 		float centerY = v1.pos.y() + ub * (v2.pos.y() - v1.pos.y());
 		Vector3f center(v2.pos.x() - centerX, v2.pos.y() - centerY, 0.5f);
 
-		float d1 = Vector3f(v1.pos - center).length();
-		float d2 = Vector3f(v2.pos - center).length();
-		float d3 = Vector3f(v3.pos - center).length();
-		float d4 = Vector3f(v4.pos - center).length();
+		float d1 = Vector3f(v1.pos - center)._length();
+		float d2 = Vector3f(v2.pos - center)._length();
+		float d3 = Vector3f(v3.pos - center)._length();
+		float d4 = Vector3f(v4.pos - center)._length();
 	
 		// calculates quotients used as w component in uvw texture mapping
 		v1.tex *= isnan(d2) || d2 == 0.0f ? 1.0f : (d1 + d2) / d2;
