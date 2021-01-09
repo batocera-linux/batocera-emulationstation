@@ -823,7 +823,7 @@ void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if (mPlaylist != nullptr && isShowing())
+	if (mPlaylist && isShowing())
 	{
 		mPlaylistTimer += deltaTime;
 
