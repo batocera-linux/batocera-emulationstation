@@ -32,7 +32,7 @@ void ButtonComponent::onSizeChanged()
 
 	mBox.fitTo(
 		Vector2f(mSize.x() - mPadding.x() - mPadding.z(), mSize.y() - mPadding.y() - mPadding.w()), 
-		Vector3f(mPadding.x(), mPadding.y()), 
+		Vector3f(mPadding.x(), mPadding.y(), 0), 
 		Vector2f(-sz.x() * 2, -sz.y() * 2));
 }
 

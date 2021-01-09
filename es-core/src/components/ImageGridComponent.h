@@ -824,11 +824,11 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 		{
 			if (!mAnimateSelection)
 			{
-				oldPos = Vector3f(0, 0);
+				oldPos = Vector3f(0, 0, 0);
 				newTile->setSelected(true, true, &oldPos, true);
 			}
 			else
-				newTile->setSelected(true, true, oldPos == Vector3f(0, 0) ? nullptr : &oldPos, true);
+				newTile->setSelected(true, true, oldPos == Vector3f(0, 0, 0) ? nullptr : &oldPos, true);
 		}
 	}
 	

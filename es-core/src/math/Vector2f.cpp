@@ -2,8 +2,7 @@
 
 Vector2f& Vector2f::round()
 {
-	mX = (float)(int)(mX + 0.5f);
-	mY = (float)(int)(mY + 0.5f);
+	vec = hlslpp::round(vec);
 
 	return *this;
 
@@ -11,8 +10,7 @@ Vector2f& Vector2f::round()
 
 Vector2f& Vector2f::lerp(const Vector2f& _start, const Vector2f& _end, const float _fraction)
 {
-	mX = Math::lerp(_start.x(), _end.x(), _fraction);
-	mY = Math::lerp(_start.y(), _end.y(), _fraction);
+	vec = smoothstep(_start.vec, _end.vec, _fraction);
 
 	return *this;
 
@@ -36,5 +34,5 @@ const Vector2f Vector2f::parseString(const std::string& _input)
 
 const std::string Vector2f::toString()
 {
-	return std::to_string(mX) + " " + std::to_string(mY);
+	return std::to_string(x()) + " " + std::to_string(y());
 }

@@ -20,12 +20,22 @@ public:
 		vec = (0,0,0);
 	}
 
-	         Vector3f(const float _f)                                 : vec(                   _f,                    _f,                    _f) { }
-	         Vector3f(const float _x, const float _y, const float _z) : vec(                   _x,                    _y,                    _z) { }
-	explicit Vector3f(const Vector2f& _v)                             : vec((((Vector3f&)_v).x()), (((Vector3f&)_v).y()),                     0) { }
-	explicit Vector3f(const Vector2f& _v, const float _z)             : vec((((Vector3f&)_v).x()), (((Vector3f&)_v).y()),                     0) { }
-	explicit Vector3f(const Vector4f& _v)                             : vec((((Vector3f&)_v).x()), (((Vector3f&)_v).y()), (((Vector3f&)_v).z())) { }
-	explicit Vector3f(float3 _v)                             		  : vec(_v) { }
+	         Vector3f(const float _f)                                 : vec( _f, _f,  _f) { }
+	         Vector3f(const float _x, const float _y, const float _z) : vec( _x, _y,  _z) { }
+	explicit Vector3f(const Vector2f& _v)                             : vec(((Vector3f&)_v).vec2().xy,  0) { }
+	explicit Vector3f(const Vector2f& _v, const float _z)             : vec(((Vector3f&)_v).vec2().xy, _z) { }
+	explicit Vector3f(const Vector4f& _v)                             : vec(((Vector3f&)_v).vec3().xyz   ) { }
+
+	// Explicit constructors for fast hlslpp
+	explicit Vector3f(float3 _v)                             		  : vec(_v)     { }
+	explicit Vector3f(float2 _v)                                      : vec(_v,  0) { }
+	explicit Vector3f(float2 _v, const float _z)                      : vec(_v, _z) { }
+
+	// Fast inline accessors to downcast vec4 to vec2/vec3
+	inline float2 		 vec2()       { return float2(vec.xy);  }
+	inline const float2  vec2() const { return float2(vec.xy);  }
+	inline float3 		 vec3()       { return float3(vec.xyz); }
+	inline const float3  vec3() const { return float3(vec.xyz); }
 
 	const bool     operator==(const Vector3f& _other) const { return all(vec - _other.vec); }
 	const bool     operator!=(const Vector3f& _other) const { return any(vec - _other.vec); }

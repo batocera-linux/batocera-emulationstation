@@ -23,7 +23,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 {
 	mHasStandardMarquee = false;
 	mSelectedZoomPercent = 1.0f;
-	mAnimPosition = Vector3f(0, 0);
+	mAnimPosition = Vector3f(0, 0, 0);
 	mVideo = nullptr;
 	mMarquee = nullptr;
 	mFavorite = nullptr;
