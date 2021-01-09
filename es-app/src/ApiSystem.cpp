@@ -1468,7 +1468,7 @@ std::vector<PacmanPackage> ApiSystem::getBatoceraStorePackages()
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load(data.c_str());
+	pugi::xml_parse_result result = doc.load_string(data.c_str());
 	if (!result)
 	{
 		LOG(LogError) << "Unable to parse packages";

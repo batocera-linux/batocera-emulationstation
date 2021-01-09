@@ -235,7 +235,7 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load(content.c_str());
+	pugi::xml_parse_result parseResult = doc.load_string(content.c_str());
 
 	if (!parseResult)
 	{

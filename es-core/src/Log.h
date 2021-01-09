@@ -7,9 +7,9 @@
 	
 #define LOG(level) if(!Log::Enabled() || level > Log::getReportingLevel()) ; else Log().get(level)
 
-#define TRYCATCH(m, x) try { x; } \
+#define TRYCATCH(m, x) { try { x; } \
 catch (const std::exception& e) { LOG(LogError) << m << " Exception " << e.what(); Log::flush(); throw e; } \
-catch (...) { LOG(LogError) << m << " Unknown Exception occured"; Log::flush(); throw; }
+catch (...) { LOG(LogError) << m << " Unknown Exception occured"; Log::flush(); throw; } }
 
 enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 

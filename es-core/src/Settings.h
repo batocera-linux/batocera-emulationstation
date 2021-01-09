@@ -27,6 +27,10 @@ public:
 
 	std::map<std::string, std::string>& getStringMap() { return mStringMap; }
 
+	static bool DebugText;
+	static bool DebugImage;
+	static bool DebugGrid;
+
 private:
 	static Settings* sInstance;
 

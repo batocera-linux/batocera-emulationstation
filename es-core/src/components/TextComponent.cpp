@@ -124,17 +124,11 @@ void TextComponent::setUppercase(bool uppercase)
 void TextComponent::renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y)
 {
 	Vector3f off = Vector3f(mPadding.x() + x + mGlowOffset.x(), mPadding.y() + yOff + y + mGlowOffset.y(), 0);
-	Transform4x4f trans = parentTrans * getTransform();
 
+	Transform4x4f trans = parentTrans * getTransform();
 	trans.translate(off);
-	trans.round();
 
 	Renderer::setMatrix(trans);
-
-	unsigned char alpha = (unsigned char) ((mGlowColor & 0xFF) * (mOpacity / 255.0));
-	unsigned int color = (mGlowColor & 0xFFFFFF00) | alpha;
-
-	mTextCache->setColor(color);
 	mFont->renderTextCache(mTextCache.get());	
 }
 
@@ -144,8 +138,11 @@ void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, flo
 	if (xOff != 0.0)
 		glowTrans.translate(Vector3f(xOff, 0, 0));
 
+	mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
+
 	int x = -mGlowSize;
 	int y = -mGlowSize;
+
 	renderSingleGlow(glowTrans, yOff, x, y);
 
 	for (int i = 0; i < 2 * mGlowSize; i++)
