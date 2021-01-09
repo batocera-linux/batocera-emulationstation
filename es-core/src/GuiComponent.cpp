@@ -39,15 +39,18 @@ GuiComponent::~GuiComponent()
 
 bool GuiComponent::input(InputConfig* config, Input input)
 {	
-	for (auto child : mChildren)
-		TRYCATCH("GuiComponent::input", if (child->input(config, input)) return true)
+	for (auto it = mChildren.cbegin(), next_it = it; it != mChildren.cend(); it = next_it)
+	{
+		++next_it;
+		TRYCATCH("GuiComponent::input", if ((*it)->input(config, input)) return true)
+	}	
 
 	return false;
 }
 
 void GuiComponent::updateSelf(int deltaTime)
 {
-	if (mAnimationMap.size() > 0)
+	if (mAnimationMap.size())
 	{
 		for (auto it = mAnimationMap.cbegin(), next_it = it; it != mAnimationMap.cend(); it = next_it)
 		{
@@ -62,8 +65,11 @@ void GuiComponent::updateSelf(int deltaTime)
 
 void GuiComponent::updateChildren(int deltaTime)
 {
-	for (auto child : mChildren)
-		TRYCATCH("GuiComponent::updateChildren", child->update(deltaTime))
+	for (auto it = mChildren.cbegin(), next_it = it; it != mChildren.cend(); it = next_it)
+	{
+		++next_it;
+		TRYCATCH("GuiComponent::updateChildren", (*it)->update(deltaTime))
+	}
 }
 
 void GuiComponent::update(int deltaTime)
@@ -74,7 +80,7 @@ void GuiComponent::update(int deltaTime)
 
 void GuiComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (mChildren.empty() || !mVisible)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
@@ -383,7 +389,7 @@ bool GuiComponent::finishAnimation(unsigned char slot)
 	if (it != mAnimationMap.cend() && it->second != nullptr)
 	{
 		const bool done = mAnimationMap[slot]->update(mAnimationMap[slot]->getAnimation()->getDuration() - mAnimationMap[slot]->getTime());
-
+		
 		delete it->second;
 		mAnimationMap.erase(it);
 		return true;
@@ -399,7 +405,6 @@ bool GuiComponent::advanceAnimation(unsigned char slot, unsigned int time)
 	{
 		if (it->second->update(time))
 		{
-			mAnimationMap[slot] = NULL;
 			delete it->second;
 			mAnimationMap.erase(it);
 		}
