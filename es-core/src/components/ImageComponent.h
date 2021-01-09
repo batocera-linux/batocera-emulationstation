@@ -111,7 +111,7 @@ public:
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }
 
 	float getRoundCorners() { return mRoundCorners; }
-	void setRoundCorners(float value) { mRoundCorners = value; }
+	void setRoundCorners(float value);
 
 	virtual void onShow() override;
 	virtual void onHide() override;
@@ -141,6 +141,8 @@ private:
 
 	void updateVertices();
 	void updateColors();
+	void updateRoundCorners();
+
 	void fadeIn(bool textureLoaded);
 
 	unsigned int mColorShift;
@@ -178,6 +180,8 @@ private:
 	float mPlaylistTimer;
 
 	bool mLinear;
+
+	std::vector<Renderer::Vertex>	mRoundCornerStencil;
 
 protected:
 	bool mCheckClipping;

@@ -216,7 +216,9 @@ public:
 
 private:
 	Transform4x4f mTransform; //Don't access this directly! Use getTransform()!
-	AnimationController* mAnimationMap[MAX_ANIMATIONS];
+	
+	std::map<unsigned char, AnimationController*> mAnimationMap;
+	//AnimationController* mAnimationMap[MAX_ANIMATIONS];
 	
 	StoryboardAnimator* mStoryboardAnimator;
 	std::map<std::string, ThemeStoryboard*> mStoryBoards;
