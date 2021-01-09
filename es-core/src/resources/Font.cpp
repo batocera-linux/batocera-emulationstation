@@ -437,8 +437,6 @@ void Font::renderTextCache(TextCache* cache)
 		if (tex != 0)
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
 	}
-
-	Renderer::bindTexture(0);
 }
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)

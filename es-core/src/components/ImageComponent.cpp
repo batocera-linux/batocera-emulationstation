@@ -364,7 +364,6 @@ void ImageComponent::updateVertices()
 	const unsigned int color       = Renderer::convertColor(mColorShift);
 	const unsigned int colorEnd    = Renderer::convertColor(mColorShiftEnd);
 	
-
 	mVertices[0] = { { topLeft.x() + mPadding.x(),     topLeft.y() + mPadding.y()     },
 		{ mTopLeftCrop.x(),          py   - mTopLeftCrop.y()     }, color };
 
@@ -394,6 +393,7 @@ void ImageComponent::updateVertices()
 	}
 
 	updateColors();
+	updateRoundCorners();
 }
 
 void ImageComponent::updateColors()
@@ -407,6 +407,33 @@ void ImageComponent::updateColors()
 	mVertices[1].col = mColorGradientHorizontal ? colorEnd : color;
 	mVertices[2].col = mColorGradientHorizontal ? color : colorEnd;
 	mVertices[3].col = colorEnd;
+}
+
+void ImageComponent::updateRoundCorners()
+{
+	if (mRoundCorners <= 0)
+	{
+		mRoundCornerStencil.clear();
+		return;
+	}
+	
+	float x = 0;
+	float y = 0;
+	float size_x = mSize.x();
+	float size_y = mSize.y();
+	
+	if (mTargetIsMin)
+	{
+		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
+
+		x = targetSizePos.x();
+		y = targetSizePos.y();
+		size_x = mTargetSize.x();
+		size_y = mTargetSize.y();
+	}
+
+	float radius = Math::max(size_x, size_y) * mRoundCorners;
+	mRoundCornerStencil = Renderer::createRoundRect(x, y, size_x, size_y, radius);
 }
 
 void ImageComponent::render(const Transform4x4f& parentTrans)
@@ -441,7 +468,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
-		if(Settings::getInstance()->getBool("DebugImage")) 
+		if(Settings::DebugImage)
 		{
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
 			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
@@ -474,32 +501,12 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 		fadeIn(true);
 
-		if (mRoundCorners > 0)
-		{
-			float x = 0;
-			float y = 0;
-			float size_x = mSize.x();
-			float size_y = mSize.y();
-
-
-			if (mTargetIsMin)
-			{
-				x = targetSizePos.x();
-				y = targetSizePos.y();
-				size_x = mTargetSize.x();
-				size_y = mTargetSize.y();
-			}
-
-			float radius = Math::max(size_x, size_y) * mRoundCorners;
-
-			Renderer::enableRoundCornerStencil(x, y, size_x, size_y, radius);
-
-			mTexture->bind();
-		}
+		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
 
 		Renderer::drawTriangleStrips(&mVertices[0], 4);
 
-		if (mRoundCorners > 0)
+		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::disableStencil();
 
 		if (mReflection.x() != 0 || mReflection.y() != 0)
@@ -544,7 +551,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			Renderer::drawTriangleStrips(&mirrorVertices[0], 4);
 		}
 
-		Renderer::bindTexture(0);
+	//	Renderer::bindTexture(0);
 	}
 
 	GuiComponent::renderChildren(trans);
@@ -733,7 +740,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	}
 
 	if (properties & ALIGNMENT && elem->has("roundCorners"))
-		mRoundCorners = elem->get<float>("roundCorners");
+		setRoundCorners(elem->get<float>("roundCorners"));
 
 	if(properties & ThemeFlags::Z_INDEX && elem->has("zIndex"))
 		setZIndex(elem->get<float>("zIndex"));
@@ -882,7 +889,7 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 	else if (name == "reflexion" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
 		mReflection = value.v;
 	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		mRoundCorners = value.f;	
+		setRoundCorners(value.f);
 	else if (name == "padding" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
 		setPadding(value.r);
 	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
@@ -893,4 +900,13 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 	}
 	else
 		GuiComponent::setProperty(name, value);
+}
+
+void ImageComponent::setRoundCorners(float value) 
+{ 
+	if (mRoundCorners == value)
+		return;
+		
+	mRoundCorners = value; 
+	updateRoundCorners();
 }
