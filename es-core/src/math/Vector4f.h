@@ -36,10 +36,10 @@ public:
 	explicit Vector4f(float4 _v)                                                      : vec(_v)         { }
 
 	// Fast inline accessors to downcast vec4 to vec2/vec3
-	inline float2 		 vec2()        { return float2(vec.xy);  }
-	inline const float2  vec2() const  { return float2(vec.xy);  }
-	inline float3 		 vec3()        { return float3(vec.xyz); }
-	inline const float3  vec3() const  { return float3(vec.xyz); }
+	inline float2 		 vec2()        { return vec.xy;  }
+	inline const float2  vec2() const  { return vec.xy;  }
+	inline float3 		 vec3()        { return vec.xyz; }
+	inline const float3  vec3() const  { return vec.xyz; }
 	inline float4 		 vec4()        { return vec; }
 	inline const float4  vec4() const  { return vec; }
 
