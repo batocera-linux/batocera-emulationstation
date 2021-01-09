@@ -47,8 +47,6 @@ namespace Renderer
 
 	static GLuint        vertexBuffer     = 0;
 
-	static GLuint boundTexture = 0;
-
 //////////////////////////////////////////////////////////////////////////
 
 	bool compileShader(Shader &shader, GLuint id, const char* source)
