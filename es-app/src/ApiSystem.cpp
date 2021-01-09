@@ -85,7 +85,7 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 
 std::string ApiSystem::getFreeSpaceUserInfo() {
 #ifdef _ENABLEEMUELEC
-  return getFreeSpaceInfo("/storage");
+  return getFreeSpaceInfo("/storage/.update");
 #else
   return getFreeSpaceInfo("/userdata");
 #endif
@@ -130,7 +130,7 @@ std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 bool ApiSystem::isFreeSpaceLimit() 
 {
 #ifdef _ENABLEEMUELEC
-	return getFreeSpaceGB("/storage/") < 2;
+	return getFreeSpaceGB("/storage/.update") < 2;
 #else
 	return getFreeSpaceGB("/userdata/") < 2;
 #endif
@@ -854,6 +854,8 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraBezel(std::string bezels
 
 std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 {
+	LOG(LogDebug) << "getMD5 >> " << fileName;
+
 	// 7za x -so test.7z | md5sum
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
 	if (ext == ".zip" && fromZipContents)
@@ -881,6 +883,8 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 
 			if (!romName.empty())
 			{
+				LOG(LogDebug) << "ZipFile::readBuffered : " << romName;
+
 				MD5 md5 = MD5();
 				Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
 				file.readBuffered(romName, func, &md5);
@@ -968,15 +972,22 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 		Utils::FileSystem::removeFile(tmpZipDirectory);
 	}
 
+	LOG(LogDebug) << "getMD5 << " << ret;
+
+
 	return ret;
 }
 
 std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 {
+	LOG(LogDebug) << "getCRC32 >> " << fileName;
+
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
 
 	if (ext == ".7z" && fromZipContents)
 	{
+		LOG(LogDebug) << "getCRC32 is using 7z";
+
 		std::string fn = Utils::FileSystem::getFileName(fileName);
 		auto cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
 		auto lines = executeEnumerationScript(cmd);
@@ -991,6 +1002,8 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	}
 	else if (ext == ".zip" && fromZipContents)
 	{
+		LOG(LogDebug) << "getCRC32 is using ZipFile";
+
 		try
 		{
 			Utils::Zip::ZipFile file;
@@ -1026,7 +1039,12 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	char* buffer = new char[CRCBUFFERSIZE];
 	if (buffer)
 	{
+		LOG(LogDebug) << "getCRC32 is using fileBuffer";
+
 		size_t size;
+
+		char hex[10];
+		hex[0] = 0;
 
 #if defined(_WIN32)
 		FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"rb");
@@ -1040,21 +1058,27 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 			while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
 				file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, buffer, size);
 
-			char hex[10];
 			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", file_crc32);
 			hex[len] = 0;
 
 			fclose(file);
-
-			return hex;
 		}
 
 		delete buffer;
+
+		LOG(LogDebug) << "getCRC32 <<";
+		return hex;
 	}
+
+	LOG(LogDebug) << "getCRC32 <<";
+
+	return "";
 }
 
 bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
 {
+	LOG(LogDebug) << "unzipFile >> " << fileName << " to " << destFolder;
+
 	if (!Utils::FileSystem::exists(destFolder))
 		Utils::FileSystem::createDirectory(destFolder);
 		
@@ -1062,7 +1086,9 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	{
 		// 10 Mb max : If file is too big, prefer external decompression
 		if (getSevenZipCommand().empty() || Utils::FileSystem::getFileSize(fileName) < 10000 * 1024)
-		{
+		{			
+			LOG(LogDebug) << "unzipFile is using ZipFile";
+
 			try
 			{
 				Utils::Zip::ZipFile file;
@@ -1079,17 +1105,23 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 					file.extract(name, destFolder);
 				}
 
+				LOG(LogDebug) << "unzipFile << OK";
 				return true;
 			}
 			catch (...)
 			{
+				LOG(LogDebug) << "unzipFile << KO";
 				return false;
 			}
 		}
 	}
+	
+	LOG(LogDebug) << "unzipFile is using 7z";
 
 	std::string cmd = getSevenZipCommand() + " x \"" + fileName + "\" -y -o\"" + destFolder + "\"";
-	return executeScript(cmd);
+	bool ret = executeScript(cmd);
+	LOG(LogDebug) << "unzipFile <<";
+	return ret;
 }
 
 const char* BACKLIGHT_BRIGHTNESS_NAME = "/sys/class/backlight/backlight/brightness";
@@ -1281,6 +1313,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::OVERCLOCK:
 		executables.push_back("batocera-overclock");
 		break;
+	case ApiSystem::THEMESDOWNLOADER:
+		executables.push_back("batocera-es-theme");
+		break;		
 	case ApiSystem::NETPLAY:
 		executables.push_back("7zr");
 		break;
@@ -1291,6 +1326,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BATOCERASTORE:
 		executables.push_back("batocera-store");
 		break;
+	case ApiSystem::THEBEZELPROJECT:
+		executables.push_back("batocera-es-thebezelproject");
+		break;		
 	case ApiSystem::EVMAPY:
 		executables.push_back("evmapy");
 		break;		
@@ -1572,7 +1610,7 @@ void ApiSystem::updateBatoceraStorePackageList()
 	executeScript("batocera-store update");
 }
 
-std::vector<std::string> ApiSystem::getShaderList()
+std::vector<std::string> ApiSystem::getShaderList(const std::string systemName)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 

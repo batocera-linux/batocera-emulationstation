@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -218,6 +218,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "всі ігри"
 
@@ -244,14 +247,6 @@ msgstr "аркада"
 
 msgid "collections"
 msgstr "колекції"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Редагування колекції '%s'. Додати/Видалити ігри за допомогою Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Редагування колекції '%s' завершено"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -425,9 +420,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "ОНОВИТИ СПИСКИ ІГР"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "ЗАВЕРШИТИ РЕДАГУВАТИ КОЛЕКЦІЇ"
-
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -480,41 +472,26 @@ msgstr "ЗАВЕРШЕНО"
 msgid "OK"
 msgstr "ОК"
 
+msgid "VIEW OPTIONS"
+msgstr "ОПЦІЇ ПЕРЕГЛЯДУ"
+
 msgid "go back"
 msgstr "назад"
 
 msgid "NAVIGATION"
 msgstr "НАВІГАЦІЯ"
 
-msgid "JUMP TO..."
-msgstr "ПЕРЕЙТИ ДО..."
+msgid "JUMP TO LETTER"
+msgstr ""
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "СОРТУВАННЯ ЗА"
 
 msgid "OTHER FILTERS"
 msgstr "ІНШІ ФІЛЬТРИ"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
-
-msgid "GAME MEDIAS"
-msgstr "ІГРОВІ МЕДІА"
-
-msgid "VIEW GAME MANUAL"
-msgstr "ПЕРЕГЛЯД МАНУАЛУ ГРИ"
-
-msgid "VIEW GAME MAP"
-msgstr "ПЕРЕГЛЯД КАРТИ ГРИ"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЕКЦІЯ"
@@ -528,41 +505,14 @@ msgstr "ВИД СПИСКА ІГР"
 msgid "automatic"
 msgstr "автоматично"
 
-msgid "VIEW OPTIONS"
-msgstr "ОПЦІЇ ПЕРЕГЛЯДУ"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "ПЕРЕГЛЯНУТИ НАЛАШТУВАННЯ"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "КЕРУВАННЯ КОЛЕКЦІЄЮ"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "ДОДАТИ/ВИДАЛИТИ ІГРИ ДО КОЛЕКЦІЇ"
 
 msgid "GAME OPTIONS"
 msgstr "ОПЦІЇ ГРИ"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "ЗМІНИТИ КЕРУВАННЯ"
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "СТВОРИТИ КЕРУВАННЯ"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАГУВАТИ МЕТАДАННІ"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ПЕРЕГЛЯНУТИ ІНФОРМАЦІЮ ПРО КЕРУВАННЯ"
 
 msgid "RESET FILTERS"
 msgstr "СКИНУТИ ФІЛЬТРИ"
@@ -837,6 +787,12 @@ msgstr ""
 msgid "PLAYER 2"
 msgstr ""
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr "КОМБІНАЦІЇ"
 
@@ -902,6 +858,80 @@ msgstr "ПОТРІБНА МЕРЕЖА"
 
 msgid "INVALID PARAMETERS"
 msgstr "НЕ ВІРНІ ПАРАМЕТРИ"
+
+msgid "GAME MEDIAS"
+msgstr "ІГРОВІ МЕДІА"
+
+msgid "VIEW GAME MANUAL"
+msgstr "ПЕРЕГЛЯД МАНУАЛУ ГРИ"
+
+msgid "VIEW GAME MAP"
+msgstr "ПЕРЕГЛЯД КАРТИ ГРИ"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr ""
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ВИ НЕ ПІДЄДНАННІ ДО ІНТЕРНЕТУ"
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
+
+msgid "COLLECTIONS"
+msgstr "КОЛЕКЦІЇ"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "ВИБРАНЕ"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr "ЗМІНИТИ КЕРУВАННЯ"
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr "СТВОРИТИ КЕРУВАННЯ"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "РЕДАГУВАТИ МЕТАДАННІ"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ПЕРЕГЛЯНУТИ ІНФОРМАЦІЮ ПРО КЕРУВАННЯ"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ТРИВАЄ ЗАВАНТАЖЕННЯ ДАНИХ"
@@ -1351,9 +1381,6 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОНОВЛЕННЯ ВЖЕ ЗАПУЩЕНО"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "ВИ НЕ ПІДЄДНАННІ ДО ІНТЕРНЕТУ"
-
 msgid "LANGUAGE"
 msgstr "МОВА"
 
@@ -1483,7 +1510,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1629,6 +1656,9 @@ msgstr "декілька ігр"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ПОКАЗАТИ '..' ВЕРХНЬОЇ ПАПКИ"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "ПОКАЗАТИ СПРАВЖНЮ НАЗВУ ФАЙЛУ"
+
 msgid "FILE EXTENSIONS"
 msgstr "РОЗШИРЕННЯ ФАЙЛУ"
 
@@ -1670,9 +1700,6 @@ msgstr ""
 
 msgid "ICON AND TEXT"
 msgstr ""
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "ПОКАЗАТИ СПРАВЖНЮ НАЗВУ ФАЙЛУ"
 
 msgid "VOLUME"
 msgstr "ГУЧНІСТЬ"
@@ -1876,9 +1903,6 @@ msgstr "ШВИДКИЙ ПОШУК"
 msgid "GO TO LETTER"
 msgstr "ПЕРЕЙТИ ДО ЛІТЕРИ"
 
-msgid "COLLECTIONS"
-msgstr "КОЛЕКЦІЇ"
-
 msgid "GO TO MANUFACTURER"
 msgstr "ПЕРЕЙТИ ДО ВИРОБНИКА"
 
@@ -1911,9 +1935,6 @@ msgid_plural "%i GAMES"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-msgid "NETPLAY"
-msgstr ""
 
 msgid "RANDOM"
 msgstr "ВИПАДКОВО"
@@ -1963,18 +1984,6 @@ msgstr "Записів не знайдено"
 
 msgid "Favorites"
 msgstr "Вибране"
-
-msgid "START GAME"
-msgstr ""
-
-msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "SET PLAYER PASSWORD"
-msgstr ""
-
-msgid "SET VIEWER PASSWORD"
-msgstr ""
 
 msgid "Games similar to"
 msgstr ""
@@ -2094,9 +2103,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "ВИБРАНЕ"
 
 msgid "GENRE"
 msgstr "ЖАНР"
@@ -2322,6 +2328,24 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "Редагування колекції '%s'. Додати/Видалити ігри за допомогою Y."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "Редагування колекції '%s' завершено"
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "ЗАВЕРШИТИ РЕДАГУВАТИ КОЛЕКЦІЇ"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "ПЕРЕЙТИ ДО..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "КЕРУВАННЯ КОЛЕКЦІЄЮ"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "ДОДАТИ/ВИДАЛИТИ ІГРИ ДО КОЛЕКЦІЇ"
 
 #~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 #~ msgstr "ВИ ВПЕВНЕНІ ЩО ХОЧЕТЕ ЦЕ ВИДАЛИТИ?"

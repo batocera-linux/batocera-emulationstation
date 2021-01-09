@@ -85,7 +85,7 @@ public:
 	bool cancelScreenSaver();
 	void renderScreenSaver();
 
-	void postToUiThread(const std::function<void(Window*)>& func);
+	void postToUiThread(const std::function<void()>& func);
 	void reactivateGui();
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
@@ -101,7 +101,7 @@ private:
 	void updateAsyncNotifications(int deltaTime);
 	void renderAsyncNotifications(const Transform4x4f& trans);
 	
-	std::vector<std::function<void(Window*)>> mFunctions;
+	std::vector<std::function<void()>> mFunctions;
 
 	std::vector<GuiInfoPopup*> mNotificationPopups;
 	void updateNotificationPopups(int deltaTime);

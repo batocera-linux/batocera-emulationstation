@@ -281,6 +281,10 @@ public:
 
 	static std::vector<CustomFeature> mGlobalFeatures;
 
+	bool getShowFilenames();
+
+	static void resetSettings();
+
 private:
 	std::string getKeyboardMappingFilePath();
 	static void createGroupedSystems();
@@ -320,7 +324,8 @@ private:
 	unsigned int mSortId;
 	std::string mViewMode;
 	Vector2f    mGridSizeOverride;	
-
+	
+	std::shared_ptr<bool> mShowFilenames;
 
 	GameCountInfo* mGameCountInfo;
 };

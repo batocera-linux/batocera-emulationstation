@@ -41,7 +41,7 @@ public:
 
 	static std::string getEmulatorLauncherPath(const std::string variable);
 
-	std::vector<std::string> getShaderList() override;
+	std::vector<std::string> getShaderList(const std::string systemName = "") override;
 
 	virtual std::string getSevenZipCommand() override;
 

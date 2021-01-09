@@ -1922,3 +1922,23 @@ bool SystemData::shouldExtractHashesFromArchives()
 		!hasPlatformId(PlatformIds::ATOMISWAVE) &&
 		!hasPlatformId(PlatformIds::NAOMI);
 }
+
+void SystemData::resetSettings()
+{
+	for(auto sys : sSystemVector)
+		sys->mShowFilenames.reset();
+}
+
+bool SystemData::getShowFilenames()
+{
+	if (mShowFilenames == nullptr)
+	{
+		auto curFn = Settings::getInstance()->getString(getName() + ".ShowFilenames");
+		if (curFn.empty())
+			mShowFilenames = std::make_shared<bool>(Settings::getInstance()->getBool("ShowFilenames"));
+		else
+			mShowFilenames = std::make_shared<bool>(curFn == "1");
+	}
+
+	return *mShowFilenames;
+}

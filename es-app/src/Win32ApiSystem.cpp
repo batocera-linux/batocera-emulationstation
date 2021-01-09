@@ -47,7 +47,10 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
 
-	if (script == ApiSystem::DECORATIONS)
+	if (script == ApiSystem::THEMESDOWNLOADER)
+		return true;
+
+	if (script == ApiSystem::DECORATIONS || script == ApiSystem::THEBEZELPROJECT)
 	{
 		if (Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
 			return true;
@@ -1070,7 +1073,7 @@ std::vector<std::string> Win32ApiSystem::getVideoModes()
 }
 
 
-std::vector<std::string> Win32ApiSystem::getShaderList()
+std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemName)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
@@ -1095,7 +1098,22 @@ std::vector<std::string> Win32ApiSystem::getShaderList()
 					continue;
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
+				{
+					if (!systemName.empty())
+					{
+						auto data = Utils::FileSystem::readAllText(file);
+
+						auto idx = data.find(systemName + ":");
+						if (idx != std::string::npos)
+						{
+							auto lines = Utils::String::split(data.substr(idx), '\n', true);
+							if (lines.size() > 1 && lines[1].find("shader:") != std::string::npos && lines[1].find("disabled") != std::string::npos)
+								continue;
+						}
+					}
+
 					ret.push_back(parent);
+				}
 			}
 		}
 	}

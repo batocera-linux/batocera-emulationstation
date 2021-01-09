@@ -181,6 +181,19 @@ namespace Renderer
 	{
 		SDL_RestoreWindow(sdlWindow);
 		SDL_RaiseWindow(sdlWindow);
+
+		if (Settings::getInstance()->getBool("Windowed"))
+		{
+			int h; int w;
+			SDL_GetWindowSize(sdlWindow, &w, &h);
+
+			SDL_DisplayMode DM;
+			SDL_GetCurrentDisplayMode(0, &DM);
+
+			if (w == DM.w && h == DM.h)
+				SDL_SetWindowPosition(sdlWindow, 0, 0);
+		}
+		
 		SDL_SetWindowInputFocus(sdlWindow);		
 	}
 

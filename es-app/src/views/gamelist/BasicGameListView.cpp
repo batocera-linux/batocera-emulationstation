@@ -86,6 +86,7 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		if (fav == "1") favoritesFirst = true;
 		else if (fav == "0") favoritesFirst = false;
 		
+		bool showCheevosIcon = (systemName != "retroachievements");
 		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
 		if (!showFavoriteIcon)
 			favoritesFirst = false;
@@ -98,17 +99,18 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 					continue;
 				
 				if (showFavoriteIcon)
-                  if (file->hasCheevos()) {
-					mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
-                } else {
-					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
-                }
+				{
+					if (showCheevosIcon && file->hasCheevos())
+						mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
+					else
+						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+				}
 				else if (file->getType() == FOLDER)
 					mList.add(_U("\uF07C ") + file->getName(), file, true);
-				else if (file->hasCheevos())
-					mList.add(file->getName(), file, false);
+				else if (showCheevosIcon && file->hasCheevos())
+					mList.add(_U("\uF091 ") + file->getName(), file, false);					
 				else 
-					mList.add(_U("\uF091 ") + file->getName(), file, false);
+					mList.add(file->getName(), file, false);
 			}
 		}
 
@@ -121,18 +123,18 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 				if (showFavoriteIcon)
 				{
-                 if (file->hasCheevos())
-					mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
-                else
-					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
-                
+					if (showCheevosIcon && file->hasCheevos())
+						mList.add(_U("\uF091 \uF006 ") + file->getName(), file, file->getType() == FOLDER);
+					else
+						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+
 					continue;
 				}
 			}
 
 			if (file->getType() == FOLDER)
 				mList.add(_U("\uF07C ") + file->getName(), file, true);
-			else if (file->hasCheevos())
+			else if (showCheevosIcon && file->hasCheevos())
 				mList.add(_U("\uF091 ") + file->getName(), file, false); //  + _U(" \uF05A")
 			else
 				mList.add(file->getName(), file, false); //  + _U(" \uF05A")
@@ -254,9 +256,13 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
+	if(!UIModeController::getInstance()->isUIModeKid())
+	  prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS"))); // batocera
+
+	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
+	/*
 	FileData* cursor = getCursor();
 	if (cursor != nullptr && cursor->isNetplaySupported())
 		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
@@ -271,7 +277,8 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 			prompts.push_back(HelpPrompt("y", _("Favorites")));
 		else
 			prompts.push_back(HelpPrompt("y", _(prompt.c_str())));
-	}
+	}*/
+
 	return prompts;
 }
 

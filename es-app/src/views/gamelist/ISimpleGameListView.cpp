@@ -15,6 +15,9 @@
 #include "components/SwitchComponent.h"
 #include "ApiSystem.h"
 #include "animations/LambdaAnimation.h"
+#include "guis/GuiGameOptions.h"
+#include "guis/GuiTextEditPopup.h"
+#include "guis/GuiTextEditPopupKeyboard.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr)
@@ -122,14 +125,14 @@ FolderData*		ISimpleGameListView::getCurrentFolder()
 
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
-	if(input.value != 0)
+	if (input.value != 0)
 	{
-		if(config->isMappedTo(BUTTON_OK, input))
+		if (config->isMappedTo(BUTTON_OK, input))
 		{
 			// Don't launch game if transition is still running
 			if (ViewController::get()->isAnimationPlaying(0))
 				return true;
-			
+
 			FileData* cursor = getCursor();
 			FolderData* folder = NULL;
 
@@ -148,21 +151,15 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 			else
 			{
-				if (cursor->getType() == FOLDER)
-					folder = (FolderData*)cursor;
-
 				if (cursor->getType() == GAME)
 				{
 					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 					launch(cursor);
 				}
-				else 
-				{
-					// it's a folder
-					if (folder != nullptr)
-						moveToFolder(folder);
-				}
+				else if (cursor->getType() == FOLDER)
+					moveToFolder((FolderData*)cursor);
 			}
+
 			return true;
 		}
 		else if (config->isMappedTo(BUTTON_BACK, input))
@@ -180,12 +177,12 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 					return true;
 
 				populateList(folder->getChildrenListToDisplay());
-				setCursor(top);				
+				setCursor(top);
 				Sound::getFromTheme(getTheme(), getName(), "back")->play();
 			}
 			else if (mPopupSelfReference)
-			{				
-				ViewController::get()->setActiveView(mPopupParentView);				
+			{
+				ViewController::get()->setActiveView(mPopupParentView);
 				closePopupContext();
 				return true;
 			}
@@ -212,7 +209,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				ViewController::get()->goToNextGameList();
 				return true;
 			}
-		}else if((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectLeftButton(), input)) || config->isMappedLike("l2", input))
+		}
+		else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectLeftButton(), input)) || config->isMappedLike("l2", input))
 		{
 			if (!mPopupSelfReference)
 			{
@@ -220,71 +218,65 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				ViewController::get()->goToPrevGameList();
 				return true;
 			}
-		}else if (config->isMappedTo("x", input))
+		}
+		else if (config->isMappedTo("x", input))
 		{
 			FileData* cursor = getCursor();
-			if(cursor != nullptr && cursor->isNetplaySupported())
+			if (cursor != nullptr)
 			{
-				Window* window = mWindow;
-				
-				GuiSettings* msgBox = new GuiSettings(mWindow, _("NETPLAY"), "", nullptr, true);
-				msgBox->setSubTitle(cursor->getName());
-				msgBox->setTag("popup");				
-				msgBox->addGroup(_("START GAME"));
-
-				msgBox->addEntry(_U("\uF144 ") + _("START NETPLAY HOST"), false, [this, msgBox, cursor]
-				{
-					if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
-					{
-						mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
-						return;
-					}
-				
-					LaunchGameOptions options;
-					options.netPlayMode = SERVER;
-					ViewController::get()->launch(cursor, options);
-					msgBox->close();					
-				});
-			
-				msgBox->addGroup(_("OPTIONS"));
-				msgBox->addInputTextRow(_("SET PLAYER PASSWORD"), "global.netplay.password", false);
-				msgBox->addInputTextRow(_("SET VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
-				
-				mWindow->pushGui(msgBox);
-
+				Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+				mWindow->pushGui(new GuiGameOptions(mWindow, cursor));
 				return true;
-			}				
-			
-			// go to random system game
-			FileData* randomGame = getRandomGame();
-			if (randomGame)
-				setCursor(randomGame);
+			}
 
 			return true;
 		}
-		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid())
+		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
 		{
-			if (mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem())
-				if (CollectionSystemManager::get()->toggleGameInCollection(getCursor()))
-					return true;
+			std::string searchText;
+
+			auto idx = mRoot->getSystem()->getIndex(false);
+			if (idx != nullptr)
+				searchText = idx->getTextFilter();
+
+			auto updateVal = [this](const std::string& newVal)
+			{
+				auto index = mRoot->getSystem()->getIndex(!newVal.empty());
+				if (index != nullptr)
+				{
+					index->setTextFilter(newVal);
+					if (!index->isFiltered())
+						mRoot->getSystem()->deleteIndex();
+				}
+
+				if (mRoot->getSystem()->isCollection())
+					CollectionSystemManager::get()->reloadCollection(mRoot->getSystem()->getName());
+				else
+					ViewController::get()->reloadGameListView(mRoot->getSystem());
+			};
+
+			if (Settings::getInstance()->getBool("UseOSK"))
+				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
+			else
+				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
+
+			return true;
 		}
 	}
 	return IGameListView::input(config, input);
 }
 
-FileData* ISimpleGameListView::getRandomGame()
+void ISimpleGameListView::moveToRandomGame()
 {
 	auto list = getFileDataEntries();
 
 	unsigned int total = (int)list.size();
 	if (total == 0)
-		return nullptr;
+		return;
 
 	int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	if (target >= 0 && target < total)
-		return list.at(target);
-
-	return nullptr;
+		setCursor(list.at(target));
 }
 
 std::vector<std::string> ISimpleGameListView::getEntriesLetters()

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -217,6 +217,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "все игры"
 
@@ -243,14 +246,6 @@ msgstr "аркады"
 
 msgid "collections"
 msgstr "коллекции"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Редактирование коллекции '%s'. Добавить/Удалить игры с помощью Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Редактирование коллекции '%s' завершено"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -424,9 +419,6 @@ msgstr "ПОКАЗАТЬ ИГРЫ ИЗ СПРЯТАННЫХ СИСТЕМ В КО
 msgid "UPDATE GAMES LISTS"
 msgstr "ОБНОВИТЬ СПИСКИ ИГР"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
-
 msgid "Loading..."
 msgstr "Загрузка..."
 
@@ -479,41 +471,26 @@ msgstr "ЗАВЕРШЕНО"
 msgid "OK"
 msgstr "ОК"
 
+msgid "VIEW OPTIONS"
+msgstr "НАСТРОЙКИ"
+
 msgid "go back"
 msgstr "назад"
 
 msgid "NAVIGATION"
 msgstr "НАВИГАЦИЯ"
 
-msgid "JUMP TO..."
-msgstr "ПЕРЕЙТИ К..."
+msgid "JUMP TO LETTER"
+msgstr ""
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВКА ПО"
 
 msgid "OTHER FILTERS"
 msgstr "ДРУГИЕ ФИЛЬТРЫ"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
-
-msgid "GAME MEDIAS"
-msgstr "МЕДИА ИГРЫ"
-
-msgid "VIEW GAME MANUAL"
-msgstr "ПОСМОТРЕТЬ РУКОВОДСТВО"
-
-msgid "VIEW GAME MAP"
-msgstr "ПОСМОТРЕТЬ КАРТУ"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "КОЛЛЕКЦИЯ"
@@ -527,41 +504,14 @@ msgstr "ВИД СПИСКА ИГР"
 msgid "automatic"
 msgstr "автоматически"
 
-msgid "VIEW OPTIONS"
-msgstr "НАСТРОЙКИ"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ В КОЛЛЕКЦИИ"
 
 msgid "GAME OPTIONS"
 msgstr "НАСТРОЙКИ ИГРЫ"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "РЕДАКТИРОВАТЬ НАСТРОЙКИ PADTOKEY"
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "СОЗДАТЬ НАСТРОЙКИ PADTOKEY"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ ПАПКИ"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ПОСМОТРЕТЬ ДАННЫЕ PADTOKEY"
 
 msgid "RESET FILTERS"
 msgstr "СБРОСИТЬ ФИЛЬТРЫ"
@@ -836,6 +786,12 @@ msgstr "ИГРОК 1"
 msgid "PLAYER 2"
 msgstr "ИГРОК 2"
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr "КОМБИНАЦИИ"
 
@@ -901,6 +857,80 @@ msgstr "ТРЕБУЕТСЯ СЕТЬ"
 
 msgid "INVALID PARAMETERS"
 msgstr "НЕВЕРНЫЕ ПАРАМЕТРЫ"
+
+msgid "GAME MEDIAS"
+msgstr "МЕДИА ИГРЫ"
+
+msgid "VIEW GAME MANUAL"
+msgstr "ПОСМОТРЕТЬ РУКОВОДСТВО"
+
+msgid "VIEW GAME MAP"
+msgstr "ПОСМОТРЕТЬ КАРТУ"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr "ЗАПУСТИТЬ NETPLAY ХОСТ"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "НАЧАТЬ ИГРУ"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
+
+msgid "SET PLAYER PASSWORD"
+msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
+
+msgid "SET VIEWER PASSWORD"
+msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
+
+msgid "COLLECTIONS"
+msgstr "КОЛЛЕКЦИИ"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "ИЗБРАННОЕ"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr "РЕДАКТИРОВАТЬ НАСТРОЙКИ PADTOKEY"
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr "СОЗДАТЬ НАСТРОЙКИ PADTOKEY"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ ПАПКИ"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ПОСМОТРЕТЬ ДАННЫЕ PADTOKEY"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "ИДЁТ ЗАГРУЗКА ДАННЫХ"
@@ -1350,9 +1380,6 @@ msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
-
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
@@ -1483,7 +1510,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1629,6 +1656,9 @@ msgstr "несколько игр"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ПОКАЗАТЬ '..' РОДИТЕЛЬСКОЙ ПАПКИ"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
+
 msgid "FILE EXTENSIONS"
 msgstr "РАСШИРЕНИЕ ФАЙЛА"
 
@@ -1670,9 +1700,6 @@ msgstr "ИКОНКА"
 
 msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
 msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -1876,9 +1903,6 @@ msgstr "БЫСТРЫЙ ПОИСК"
 msgid "GO TO LETTER"
 msgstr "ПЕРЕЙТИ К СИМВОЛУ"
 
-msgid "COLLECTIONS"
-msgstr "КОЛЛЕКЦИИ"
-
 msgid "GO TO MANUFACTURER"
 msgstr "ПЕРЕЙТИ К ПРОИЗВОДИТЕЛЮ"
 
@@ -1911,9 +1935,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i ИГРА"
 msgstr[1] "%i ИГРЫ"
 msgstr[2] "%i ИГР"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
 
 msgid "RANDOM"
 msgstr "СЛУЧАЙНО"
@@ -1967,18 +1988,6 @@ msgstr "Игр не найдено"
 
 msgid "Favorites"
 msgstr "Избранное"
-
-msgid "START GAME"
-msgstr "НАЧАТЬ ИГРУ"
-
-msgid "START NETPLAY HOST"
-msgstr "ЗАПУСТИТЬ NETPLAY ХОСТ"
-
-msgid "SET PLAYER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
-
-msgid "SET VIEWER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 
 msgid "Games similar to"
 msgstr "Игры похожие на"
@@ -2098,9 +2107,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "ИЗБРАННОЕ"
 
 msgid "GENRE"
 msgstr "ЖАНР"
@@ -2326,6 +2332,24 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "Редактирование коллекции '%s'. Добавить/Удалить игры с помощью Y."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "Редактирование коллекции '%s' завершено"
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "ПЕРЕЙТИ К..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "ДОБАВИТЬ/УДАЛИТЬ ИГРЫ В КОЛЛЕКЦИИ"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "ПЕРЕИНДЕКСАЦИЯ ВСЕХ ИГР"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -221,6 +221,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "كل الألعاب"
 
@@ -247,14 +250,6 @@ msgstr "اركيد"
 
 msgid "collections"
 msgstr "مجموعات"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "تعديل مجموعة الـ '%s' . اضافة/حذف الألعاب بـ Y"
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "تم الإنتهاء من تعديل مجموعة الـ '%s' ."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -431,9 +426,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "تحديث قوائم الألعاب"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "إنهاء تعديل المجموعة"
-
 msgid "Loading..."
 msgstr "جارِ التحميل..."
 
@@ -486,41 +478,26 @@ msgstr "تم الانتهاء"
 msgid "OK"
 msgstr "موافق"
 
+msgid "VIEW OPTIONS"
+msgstr "عرض الخيارات"
+
 msgid "go back"
 msgstr "الرجوع"
 
 msgid "NAVIGATION"
 msgstr "تنقل "
 
-msgid "JUMP TO..."
-msgstr "انتقل الى..."
+msgid "JUMP TO LETTER"
+msgstr ""
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "ترتيب الألعاب حسب "
 
 msgid "OTHER FILTERS"
 msgstr "تصفيات أخرى"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr ""
-
-msgid "GAME MEDIAS"
-msgstr "وسائط اللعبة"
-
-msgid "VIEW GAME MANUAL"
-msgstr "مشاهدة دليل اللعب"
-
-msgid "VIEW GAME MAP"
-msgstr "مشاهدة خريطة اللعبة"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "مجموعة"
@@ -534,41 +511,14 @@ msgstr "نمط عرض قائمة الألعاب"
 msgid "automatic"
 msgstr "تلقائي"
 
-msgid "VIEW OPTIONS"
-msgstr "عرض الخيارات"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "عرض التخصيص"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "إدارة المجموعة"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "إضافة/إزالة الألعاب الى هذه المجموعة"
 
 msgid "GAME OPTIONS"
 msgstr "خيارات الألعاب"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "خيارات النظام المتقدمة"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "خيارات اللعبة المتقدمة"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "EDIT FOLDER METADATA"
-msgstr "تعديل مجلد البيانات الوصفية"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "تعديل البيانات الوصفية لهذه اللعبة"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "الغاء التصنيفات"
@@ -843,6 +793,12 @@ msgstr ""
 msgid "PLAYER 2"
 msgstr ""
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr ""
 
@@ -908,6 +864,80 @@ msgstr "مطلوب الاتصال بالشبكة"
 
 msgid "INVALID PARAMETERS"
 msgstr "معلمات غير صالحة"
+
+msgid "GAME MEDIAS"
+msgstr "وسائط اللعبة"
+
+msgid "VIEW GAME MANUAL"
+msgstr "مشاهدة دليل اللعب"
+
+msgid "VIEW GAME MAP"
+msgstr "مشاهدة خريطة اللعبة"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "المفضلة"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "خيارات اللعبة المتقدمة"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "تعديل مجلد البيانات الوصفية"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل البيانات الوصفية لهذه اللعبة"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "الكشط يعمل حالياً"
@@ -1363,9 +1393,6 @@ msgstr "بدء التحديث"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "التحديث يعمل حاليا"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
-
 msgid "LANGUAGE"
 msgstr "اللغة"
 
@@ -1496,7 +1523,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1643,6 +1670,9 @@ msgstr "تمتلك عدة ألعاب"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "اعرض ‘..’ لمجلد الوالدين"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "عرض اسم الملف في القائمة"
+
 msgid "FILE EXTENSIONS"
 msgstr "امتدادات الملفات"
 
@@ -1684,9 +1714,6 @@ msgstr ""
 
 msgid "ICON AND TEXT"
 msgstr ""
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "عرض اسم الملف في القائمة"
 
 msgid "VOLUME"
 msgstr "مستوى الصوت"
@@ -1890,9 +1917,6 @@ msgstr ""
 msgid "GO TO LETTER"
 msgstr ""
 
-msgid "COLLECTIONS"
-msgstr ""
-
 msgid "GO TO MANUFACTURER"
 msgstr "إذهب الى المصنّع"
 
@@ -1934,9 +1958,6 @@ msgstr[2] "%i لعبتين"
 msgstr[3] "%i ألعاب"
 msgstr[4] "%i لعبة"
 msgstr[5] "%i لعبة"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
 
 msgid "RANDOM"
 msgstr "عشوائي"
@@ -1986,18 +2007,6 @@ msgstr "لم يتم العثور على مدخلات"
 
 msgid "Favorites"
 msgstr "المفضلات"
-
-msgid "START GAME"
-msgstr ""
-
-msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "SET PLAYER PASSWORD"
-msgstr ""
-
-msgid "SET VIEWER PASSWORD"
-msgstr ""
 
 msgid "Games similar to"
 msgstr ""
@@ -2117,9 +2126,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "المفضلة"
 
 msgid "GENRE"
 msgstr "النوع"
@@ -2365,6 +2371,24 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "تعديل مجموعة الـ '%s' . اضافة/حذف الألعاب بـ Y"
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "تم الإنتهاء من تعديل مجموعة الـ '%s' ."
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "إنهاء تعديل المجموعة"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "انتقل الى..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "إدارة المجموعة"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "إضافة/إزالة الألعاب الى هذه المجموعة"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "أعد فهرسة جميع الألعاب"

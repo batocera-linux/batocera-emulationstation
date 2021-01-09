@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -217,6 +217,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "所有遊戲"
 
@@ -243,14 +246,6 @@ msgstr "大型電玩"
 
 msgid "collections"
 msgstr "合輯"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "編輯 '%s' 合輯。按Y鍵添加/刪除遊戲。"
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "%s' 合輯編輯完成。"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -422,9 +417,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "更新遊戲目錄"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "完成遊戲合輯編輯"
-
 msgid "Loading..."
 msgstr "讀取中..."
 
@@ -477,41 +469,26 @@ msgstr "完成"
 msgid "OK"
 msgstr "確定"
 
+msgid "VIEW OPTIONS"
+msgstr "查看選項"
+
 msgid "go back"
 msgstr "退回"
 
 msgid "NAVIGATION"
 msgstr "導覽"
 
-msgid "JUMP TO..."
-msgstr "跳到..."
+msgid "JUMP TO LETTER"
+msgstr "按字母排序"
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "遊戲排列方式"
 
 msgid "OTHER FILTERS"
 msgstr "過濾器進階設定"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr ""
-
-msgid "GAME MEDIAS"
-msgstr "遊戲資料庫"
-
-msgid "VIEW GAME MANUAL"
-msgstr "觀看遊戲使用手冊"
-
-msgid "VIEW GAME MAP"
-msgstr "觀看遊戲圖片"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "搜尋"
@@ -525,41 +502,14 @@ msgstr "遊戲清單模式"
 msgid "automatic"
 msgstr "自動"
 
-msgid "VIEW OPTIONS"
-msgstr "查看選項"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "查看定義"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "管理遊戲合輯"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "增加＆刪除遊戲合輯"
 
 msgid "GAME OPTIONS"
 msgstr "遊戲設定"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "系統設定"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "高級遊戲設定"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "EDIT FOLDER METADATA"
-msgstr "編輯文件夾資料"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "編輯此遊戲的簡介資料"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "重置過濾器"
@@ -834,6 +784,12 @@ msgstr ""
 msgid "PLAYER 2"
 msgstr ""
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr ""
 
@@ -899,6 +855,80 @@ msgstr "需要連線到網際網路"
 
 msgid "INVALID PARAMETERS"
 msgstr "無效的參數"
+
+msgid "GAME MEDIAS"
+msgstr "遊戲資料庫"
+
+msgid "VIEW GAME MANUAL"
+msgstr "觀看遊戲使用手冊"
+
+msgid "VIEW GAME MAP"
+msgstr "觀看遊戲圖片"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "網路遊戲"
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "我的最愛"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "高級遊戲設定"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "編輯文件夾資料"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "編輯此遊戲的簡介資料"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "正在進行資料搜刮"
@@ -1342,9 +1372,6 @@ msgstr "開始更新"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
-
 msgid "LANGUAGE"
 msgstr "語言"
 
@@ -1474,7 +1501,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1620,6 +1647,9 @@ msgstr "多人遊戲"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "顯示 '..' 文件夾"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "在目錄中顯示文件名稱"
+
 msgid "FILE EXTENSIONS"
 msgstr "新增文件夾"
 
@@ -1661,9 +1691,6 @@ msgstr ""
 
 msgid "ICON AND TEXT"
 msgstr ""
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "在目錄中顯示文件名稱"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -1867,9 +1894,6 @@ msgstr ""
 msgid "GO TO LETTER"
 msgstr ""
 
-msgid "COLLECTIONS"
-msgstr ""
-
 msgid "GO TO MANUFACTURER"
 msgstr "跳到製作廠商"
 
@@ -1896,9 +1920,6 @@ msgstr[0] "%i 時間"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 遊戲"
-
-msgid "NETPLAY"
-msgstr "網路遊戲"
 
 msgid "RANDOM"
 msgstr "隨機選擇"
@@ -1948,18 +1969,6 @@ msgstr "找不到選項"
 
 msgid "Favorites"
 msgstr "書籤"
-
-msgid "START GAME"
-msgstr ""
-
-msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "SET PLAYER PASSWORD"
-msgstr ""
-
-msgid "SET VIEWER PASSWORD"
-msgstr ""
 
 msgid "Games similar to"
 msgstr ""
@@ -2079,9 +2088,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "我的最愛"
 
 msgid "GENRE"
 msgstr "類型"
@@ -2294,6 +2300,24 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "編輯 '%s' 合輯。按Y鍵添加/刪除遊戲。"
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "%s' 合輯編輯完成。"
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "完成遊戲合輯編輯"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "跳到..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "管理遊戲合輯"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "增加＆刪除遊戲合輯"
+
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "重新索引所有遊戲"
 
@@ -2491,9 +2515,6 @@ msgstr ""
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 #~ msgstr "按 ESC 鍵或熱鍵取消"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "按字母排序"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "僅顯示收藏項目"

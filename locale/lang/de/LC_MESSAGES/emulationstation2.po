@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -217,6 +217,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "alle Spiele"
 
@@ -243,14 +246,6 @@ msgstr "arcade"
 
 msgid "collections"
 msgstr "Sammlungen"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Bearbeiten der '%s'-Sammlung. Hinzufügen/Entfernen von Spielen mit Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Die Bearbeitung der '%s'-Sammlung wurde abgeschlossen."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -424,9 +419,6 @@ msgstr "SPIELE VON VERSTECKTEN SYSTEMEN IN SAMMLUNGEN ANZEIGEN"
 msgid "UPDATE GAMES LISTS"
 msgstr "SPIELELISTE AKTUALISIEREN"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "BEARBEITUNG DER SAMMLUNG BEENDEN"
-
 msgid "Loading..."
 msgstr "Lade..."
 
@@ -479,41 +471,26 @@ msgstr "FERTIG"
 msgid "OK"
 msgstr "OK"
 
+msgid "VIEW OPTIONS"
+msgstr "ANSICHTS-OPTIONEN"
+
 msgid "go back"
 msgstr "zurück"
 
 msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
-msgid "JUMP TO..."
-msgstr "SPRINGE ZU..."
+msgid "JUMP TO LETTER"
+msgstr ""
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "SPIELE SORTIEREN NACH"
 
 msgid "OTHER FILTERS"
 msgstr "ANDERE FILTER"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "FINDE ÄHNLICHE SPIELE..."
-
-msgid "GAME MEDIAS"
-msgstr "SPIELE MEDIEN"
-
-msgid "VIEW GAME MANUAL"
-msgstr "SPIEL-ANLEITUNG ANSEHEN"
-
-msgid "VIEW GAME MAP"
-msgstr "SPIELE-KARTE ANSEHEN"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "SAMMLUNG"
@@ -527,41 +504,14 @@ msgstr "SPIELELISTE ANSICHTSSTIL"
 msgid "automatic"
 msgstr "automatisch"
 
-msgid "VIEW OPTIONS"
-msgstr "ANSICHTS-OPTIONEN"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "ANSICHTS-ANPASSUNG"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "SAMMLUNGSMANAGEMENT"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
 
 msgid "GAME OPTIONS"
 msgstr "SPIEL-OPTIONEN"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "ERWEITERTE SYSTEM-OPTIONEN"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "ERWEITERTE SPIELE-OPTIONEN"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "BEARBEITE DIE PAD TO KEYBOARD KONFIGURATION"
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "ERSTELLE PAD TO KEYBOARD KONFIGURATION"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "ORDNER-METADATEN BEARBEITEN"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "METADATEN DIESES SPIELS BEARBEITEN"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ZEIGE PAD TO KEYBOARD INFORMATIONEN"
 
 msgid "RESET FILTERS"
 msgstr "FILTER ZURÜCKSETZEN"
@@ -836,6 +786,12 @@ msgstr "SPIELER 1"
 msgid "PLAYER 2"
 msgstr "SPIELER 2"
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr "KOMBINATIONEN"
 
@@ -901,6 +857,80 @@ msgstr "NETZWERK BENÖTIGT"
 
 msgid "INVALID PARAMETERS"
 msgstr "UNGÜLTIGE PARAMETER"
+
+msgid "GAME MEDIAS"
+msgstr "SPIELE MEDIEN"
+
+msgid "VIEW GAME MANUAL"
+msgstr "SPIEL-ANLEITUNG ANSEHEN"
+
+msgid "VIEW GAME MAP"
+msgstr "SPIELE-KARTE ANSEHEN"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr "STARTE NETPLAY HOST"
+
+msgid "NETPLAY"
+msgstr "NETZWERKSPIEL"
+
+msgid "START GAME"
+msgstr "STARTE SPIEL"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "KEINE VERBINDUNG ZU EINEM NETZWERK"
+
+msgid "SET PLAYER PASSWORD"
+msgstr "SPIELER PASSWORT EINSTELLEN"
+
+msgid "SET VIEWER PASSWORD"
+msgstr "ZUSCHAUER PASSWORT EINSTELLEN"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "FINDE ÄHNLICHE SPIELE..."
+
+msgid "COLLECTIONS"
+msgstr "SAMMLUNGEN"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "FAVORITEN"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr "BEARBEITE DIE PAD TO KEYBOARD KONFIGURATION"
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr "ERSTELLE PAD TO KEYBOARD KONFIGURATION"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "ERWEITERTE SPIELE-OPTIONEN"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "ORDNER-METADATEN BEARBEITEN"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "METADATEN DIESES SPIELS BEARBEITEN"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ZEIGE PAD TO KEYBOARD INFORMATIONEN"
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "SCRAPER LÄUFT"
@@ -1349,9 +1379,6 @@ msgstr "UPDATE STARTEN"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE LÄUFT BEREITS"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "KEINE VERBINDUNG ZU EINEM NETZWERK"
-
 msgid "LANGUAGE"
 msgstr "SPRACHE"
 
@@ -1485,7 +1512,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1632,6 +1659,9 @@ msgstr "es gibt mehrere Spiele"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ZEIGE  '..' ÜBERGEORDNETEN ORDNER"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
+
 msgid "FILE EXTENSIONS"
 msgstr "DATEI-ERWEITERUNGEN"
 
@@ -1673,9 +1703,6 @@ msgstr "ICON"
 
 msgid "ICON AND TEXT"
 msgstr "ICON UND TEXT"
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
 
 msgid "VOLUME"
 msgstr "LAUTSTÄRKE"
@@ -1879,9 +1906,6 @@ msgstr "SCHNELL SUCHE"
 msgid "GO TO LETTER"
 msgstr "GEHE ZU BUCHSTABE"
 
-msgid "COLLECTIONS"
-msgstr "SAMMLUNGEN"
-
 msgid "GO TO MANUFACTURER"
 msgstr "GEHE ZU HERSTELLER"
 
@@ -1911,9 +1935,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPIEL"
 msgstr[1] "%i SPIELE"
-
-msgid "NETPLAY"
-msgstr "NETZWERKSPIEL"
 
 msgid "RANDOM"
 msgstr "ZUFALL"
@@ -1969,18 +1990,6 @@ msgstr "Keine Einträge gefunden"
 
 msgid "Favorites"
 msgstr "Favoriten"
-
-msgid "START GAME"
-msgstr "STARTE SPIEL"
-
-msgid "START NETPLAY HOST"
-msgstr "STARTE NETPLAY HOST"
-
-msgid "SET PLAYER PASSWORD"
-msgstr "SPIELER PASSWORT EINSTELLEN"
-
-msgid "SET VIEWER PASSWORD"
-msgstr "ZUSCHAUER PASSWORT EINSTELLEN"
 
 msgid "Games similar to"
 msgstr "Spiele ähnlich zu"
@@ -2100,9 +2109,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "FAVORITEN"
 
 msgid "GENRE"
 msgstr "GATTUNG"
@@ -2323,6 +2329,25 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr ""
+#~ "Bearbeiten der '%s'-Sammlung. Hinzufügen/Entfernen von Spielen mit Y."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "Die Bearbeitung der '%s'-Sammlung wurde abgeschlossen."
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "BEARBEITUNG DER SAMMLUNG BEENDEN"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "SPRINGE ZU..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "SAMMLUNGSMANAGEMENT"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "SPIELE ZUR SAMMLUNG HINZUFÜGEN/ENTFERNEN"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "ALLE SPIELE INDEXIEREN"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:15+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -214,6 +214,9 @@ msgstr ""
 msgid "Cheevos Game ID"
 msgstr ""
 
+msgid "Screenscraper Game ID"
+msgstr ""
+
 msgid "all games"
 msgstr "모든 게임"
 
@@ -240,14 +243,6 @@ msgstr "아케이드"
 
 msgid "collections"
 msgstr "컬렉션"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "'%s' 컬렉션을 편집하기. Y 버튼으로 게임을 추가/삭제 합니다."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "'%s' 컬렉션 편집을 끝내기"
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -419,9 +414,6 @@ msgstr ""
 msgid "UPDATE GAMES LISTS"
 msgstr "게임 목록 업데이트"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "컬렉션 편집 끝내기"
-
 msgid "Loading..."
 msgstr "로딩"
 
@@ -474,41 +466,26 @@ msgstr "완료되었습니다"
 msgid "OK"
 msgstr "확인"
 
+msgid "VIEW OPTIONS"
+msgstr "보기 옵션"
+
 msgid "go back"
 msgstr "돌아가기"
 
 msgid "NAVIGATION"
 msgstr "네비게이션"
 
-msgid "JUMP TO..."
-msgstr "이동하기"
+msgid "JUMP TO LETTER"
+msgstr ""
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "다음으로 게임 정렬"
 
 msgid "OTHER FILTERS"
 msgstr "다른 필터"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr ""
-
-msgid "GAME MEDIAS"
-msgstr "게임 미디어"
-
-msgid "VIEW GAME MANUAL"
-msgstr "게임 매뉴얼 보기"
-
-msgid "VIEW GAME MAP"
-msgstr "게임 맵 보기"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "컬렉션"
@@ -522,41 +499,14 @@ msgstr "게임리스트 정렬방법"
 msgid "automatic"
 msgstr "자동"
 
-msgid "VIEW OPTIONS"
-msgstr "보기 옵션"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "사용자 지정 보기"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "컬렉션 관리"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "이 게임 컬렉션에 게임 추가/제거"
 
 msgid "GAME OPTIONS"
 msgstr "게임 옵션"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "고급 시스템 옵션"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "고급 게임 옵션"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
-
-msgid "EDIT FOLDER METADATA"
-msgstr "폴더 메타데이터 편집"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임 정보 편집"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
 
 msgid "RESET FILTERS"
 msgstr "필터 초기화"
@@ -831,6 +781,12 @@ msgstr ""
 msgid "PLAYER 2"
 msgstr ""
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr ""
 
@@ -896,6 +852,80 @@ msgstr "네트워크가 필요합니다"
 
 msgid "INVALID PARAMETERS"
 msgstr "매개변수가 잘못되었습니다"
+
+msgid "GAME MEDIAS"
+msgstr "게임 미디어"
+
+msgid "VIEW GAME MANUAL"
+msgstr "게임 매뉴얼 보기"
+
+msgid "VIEW GAME MAP"
+msgstr "게임 맵 보기"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "REQUIRED CORE"
+msgstr ""
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "넷플레이"
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "즐겨찾기"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "고급 게임 옵션"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "폴더 메타데이터 편집"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "게임 정보 편집"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
 
 msgid "SCRAPING IN PROGRESS"
 msgstr "게임 아트워크 수집 진행 중"
@@ -1341,9 +1371,6 @@ msgstr "업데이트 시작"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중입니다"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr ""
-
 msgid "LANGUAGE"
 msgstr "언어"
 
@@ -1473,7 +1500,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1618,6 +1645,9 @@ msgstr "다수의 게임이 있을 경우"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "'..' 상위 폴더 보여주기"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "리스트에서 파일명 보여주기"
+
 msgid "FILE EXTENSIONS"
 msgstr "파일 확장자"
 
@@ -1659,9 +1689,6 @@ msgstr ""
 
 msgid "ICON AND TEXT"
 msgstr ""
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "리스트에서 파일명 보여주기"
 
 msgid "VOLUME"
 msgstr "음량"
@@ -1865,9 +1892,6 @@ msgstr ""
 msgid "GO TO LETTER"
 msgstr ""
 
-msgid "COLLECTIONS"
-msgstr ""
-
 msgid "GO TO MANUFACTURER"
 msgstr "제조업체로 이동"
 
@@ -1894,9 +1918,6 @@ msgstr[0] "%i 아이템"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 게임"
-
-msgid "NETPLAY"
-msgstr "넷플레이"
 
 msgid "RANDOM"
 msgstr "랜덤"
@@ -1946,18 +1967,6 @@ msgstr "항목을 찾지 못했습니다"
 
 msgid "Favorites"
 msgstr "즐겨 찾기"
-
-msgid "START GAME"
-msgstr ""
-
-msgid "START NETPLAY HOST"
-msgstr ""
-
-msgid "SET PLAYER PASSWORD"
-msgstr ""
-
-msgid "SET VIEWER PASSWORD"
-msgstr ""
 
 msgid "Games similar to"
 msgstr ""
@@ -2077,9 +2086,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "즐겨찾기"
 
 msgid "GENRE"
 msgstr "장르"
@@ -2292,6 +2298,24 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "'%s' 컬렉션을 편집하기. Y 버튼으로 게임을 추가/삭제 합니다."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "'%s' 컬렉션 편집을 끝내기"
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "컬렉션 편집 끝내기"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "이동하기"
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "컬렉션 관리"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "이 게임 컬렉션에 게임 추가/제거"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "모든 게임 다시 색인"

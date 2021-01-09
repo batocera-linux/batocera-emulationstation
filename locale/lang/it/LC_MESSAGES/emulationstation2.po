@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-22 20:28+0100\n"
+"POT-Creation-Date: 2021-01-08 08:17+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -209,12 +209,15 @@ msgid "Region"
 msgstr "Regione"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Codice Hash per trofei"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Codice checksum per trofei"
 
 msgid "Cheevos Game ID"
+msgstr "ID gioco per trofei"
+
+msgid "Screenscraper Game ID"
 msgstr ""
 
 msgid "all games"
@@ -236,21 +239,13 @@ msgid "never played"
 msgstr "mai giocato"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "trofei retroachievements"
 
 msgid "arcade"
 msgstr "arcade"
 
 msgid "collections"
 msgstr "collezione"
-
-#, c-format
-msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "Modificando la Collezione '%s'. Aggiungi/rimuovi giochi con Y."
-
-#, c-format
-msgid "Finished editing the '%s' Collection."
-msgstr "Finito di modificare la Collezione '%s'."
 
 #, c-format
 msgid "Added '%s' to '%s'"
@@ -423,9 +418,6 @@ msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 msgid "UPDATE GAMES LISTS"
 msgstr "AGGIORNA LE LISTE DEI GIOCHI"
 
-msgid "FINISH EDITING COLLECTION"
-msgstr "FINE MODIFICA DELLA COLLEZIONE"
-
 msgid "Loading..."
 msgstr "Caricamento..."
 
@@ -455,19 +447,19 @@ msgstr "ATTENDERE PREGO"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d di %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS - TROFEI"
 
 msgid "Points"
-msgstr ""
+msgstr "Punti"
 
 msgid "Rank"
-msgstr ""
+msgstr "Grado"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "VISUALIZZA DETTAGLI"
 
 msgid "LAUNCH"
 msgstr "AVVIA"
@@ -478,41 +470,26 @@ msgstr "TERMINATO"
 msgid "OK"
 msgstr "OK"
 
+msgid "VIEW OPTIONS"
+msgstr "MOSTRA OPZIONI"
+
 msgid "go back"
 msgstr "torna indietro"
 
 msgid "NAVIGATION"
 msgstr "NAVIGAZIONE"
 
-msgid "JUMP TO..."
-msgstr "SALTA A..."
+msgid "JUMP TO LETTER"
+msgstr "VAI ALLA LETTERA"
+
+msgid "SELECT RANDOM GAME"
+msgstr ""
 
 msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
 
 msgid "OTHER FILTERS"
 msgstr "ALTRI FILTRI"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "CERCA GIOCHI SIMILI..."
-
-msgid "GAME MEDIAS"
-msgstr "MEDIA DEI GIOCHI"
-
-msgid "VIEW GAME MANUAL"
-msgstr "MOSTRA MANUALE DI GIOCO"
-
-msgid "VIEW GAME MAP"
-msgstr "MOSTRA MAPPA DI GIOCO"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
 
 msgid "COLLECTION"
 msgstr "COLLEZIONEE"
@@ -526,41 +503,14 @@ msgstr "STILE VISUALIZZAZIONE LISTA GIOCHI"
 msgid "automatic"
 msgstr "automatico"
 
-msgid "VIEW OPTIONS"
-msgstr "MOSTRA OPZIONI"
-
 msgid "VIEW CUSTOMISATION"
 msgstr "MOSTRA PERSONALIZZAZIONE"
-
-msgid "COLLECTION MANAGEMENT"
-msgstr "GESTIONE COLLEZIONE"
-
-msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
 
 msgid "GAME OPTIONS"
 msgstr "OPZIONI GIOCO"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "OPZIONI AVANZATE DEL SISTEMA"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "OPZIONI AVANZATE DEL GIOCO"
-
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "MODIFICA CONFIGURAZIONE PAD TO KEYBOARD"
-
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "CREA CONFIGURAZIONE PAD TO KEYBOARD"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "MODIFICA LE INFORMAZIONI DELLA CARTELLA"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "MOSTRA INFORMAZIONI PADTOKEY"
 
 msgid "RESET FILTERS"
 msgstr "RESETTA FILTRI"
@@ -835,6 +785,12 @@ msgstr "GIOCATORE 1"
 msgid "PLAYER 2"
 msgstr "GIOCATORE 2"
 
+msgid "PLAYER 3"
+msgstr ""
+
+msgid "PLAYER 4"
+msgstr ""
+
 msgid "COMBINATIONS"
 msgstr "COMBINAZIONI"
 
@@ -901,6 +857,80 @@ msgstr "RICHIESTA CONNESSIONE DI RETE"
 msgid "INVALID PARAMETERS"
 msgstr "PARAMETRI NON VALIDI"
 
+msgid "GAME MEDIAS"
+msgstr "MEDIA DEI GIOCHI"
+
+msgid "VIEW GAME MANUAL"
+msgstr "MOSTRA MANUALE DI GIOCO"
+
+msgid "VIEW GAME MAP"
+msgstr "MOSTRA MAPPA DI GIOCO"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "IL CORE ATTUALE NON E' COMPATIBILE"
+
+msgid "REQUIRED CORE"
+msgstr "CORE RICHIESTO"
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr "VISUALIZZA I TROFEI DEL GIOCO"
+
+msgid "GAME"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr "INIZIA HOST IN RETE"
+
+msgid "NETPLAY"
+msgstr "NEPLAY"
+
+msgid "START GAME"
+msgstr "INIZIA LA PARTITA"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NON SEI CONNESSO A UNA RETE"
+
+msgid "SET PLAYER PASSWORD"
+msgstr "AGGIUNGI PASSWORD GIOCATORE"
+
+msgid "SET VIEWER PASSWORD"
+msgstr "AGGIUNGI PASSWORD SPETTATORE"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "CERCA GIOCHI SIMILI..."
+
+msgid "COLLECTIONS"
+msgstr "COLLEZIONI"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "PREFERITI"
+
+msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+msgstr "MODIFICA CONFIGURAZIONE PAD TO KEYBOARD"
+
+msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+msgstr "CREA CONFIGURAZIONE PAD TO KEYBOARD"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "OPZIONI AVANZATE DEL GIOCO"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "MODIFICA LE INFORMAZIONI DELLA CARTELLA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "MODIFICA LE INFORMAZIONI PER QUESTO GIOCO"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "MOSTRA INFORMAZIONI PADTOKEY"
+
 msgid "SCRAPING IN PROGRESS"
 msgstr "RACCOLTA INFORMAZIONI IN CORSO"
 
@@ -949,17 +979,17 @@ msgstr[0] "%i GIOCO SALTATO."
 msgstr[1] "%i GIOCHI SALTATI."
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Sbloccato"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "QUESTO GIOCO NON HA ANCORA UN TROFEO "
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Trofei vinti"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% completo"
 
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
@@ -1052,13 +1082,13 @@ msgid "CURVATURE"
 msgstr "CURVATURA"
 
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr "ZFAST CRT"
 
 msgid "FLATTEN-GLOW"
 msgstr "PIATTO E LUMINOSO"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "SCALING RGA"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -1157,7 +1187,7 @@ msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "SCARICA MAPPA"
 
 msgid "SCRAPE MANUAL"
 msgstr "SCARICA MANUALE"
@@ -1247,10 +1277,10 @@ msgid "CLEAR CACHES"
 msgstr "PULIZIA CACHE"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "COSTRUISCI CACHE IMMAGINE"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "Creazione cache immagine"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETTA ESTENSIONI FILE"
@@ -1259,7 +1289,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "RILEVA LINGUA/REGIONE DEI GIOCHI"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "TROVA TUTTI I GIOCHI CON SUPPORT NETPLAY/TROFEI"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
@@ -1347,9 +1377,6 @@ msgstr "INIZIA AGGIORNAMENTO"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "L'AGGIORNAMENTO È GIÀ IN ESECUZIONE"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NON SEI CONNESSO A UNA RETE"
 
 msgid "LANGUAGE"
 msgstr "LINGUA"
@@ -1476,13 +1503,13 @@ msgid "GAME INDEXES"
 msgstr "INDICI DI GIOCO"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "TROVA TUTTI I GIOCHI"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "TROVA NUOVIO GIOCHI"
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
-msgstr ""
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
+msgstr "IMPOSSIBILE ATTIVA I TROFEI :"
 
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
@@ -1627,6 +1654,9 @@ msgstr "giochi multipli"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRA '..' CARTELLA PRINCIPALE"
 
+msgid "SHOW FILENAMES IN LISTS"
+msgstr "VISUALIZZA NOME FILE NELLA LISTA"
+
 msgid "FILE EXTENSIONS"
 msgstr "ESTENSIONI FILE"
 
@@ -1668,9 +1698,6 @@ msgstr "ICONA"
 
 msgid "ICON AND TEXT"
 msgstr "ICONA E TESTO"
-
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -1817,7 +1844,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RISOLUZIONE INTERNA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "CONFIGURA AUTOMATICAMENTE I CONTROLLER"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATTA DISPOSITIVO"
@@ -1851,16 +1878,16 @@ msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "RIDUCI"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "INGRANDISCI"
 
 msgid "MOVE"
-msgstr ""
+msgstr "SPOSTA"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ZOOM"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAZIONI SISTEMA"
@@ -1873,9 +1900,6 @@ msgstr "RICERCA RAPIDA"
 
 msgid "GO TO LETTER"
 msgstr "VAI ALLA LETTERA"
-
-msgid "COLLECTIONS"
-msgstr "COLLEZIONI"
 
 msgid "GO TO MANUFACTURER"
 msgstr "VAI DAL PRODUTTORE"
@@ -1906,9 +1930,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i GIOCO"
 msgstr[1] "%i GIOCHI"
-
-msgid "NETPLAY"
-msgstr "NEPLAY"
 
 msgid "RANDOM"
 msgstr "CASUALE"
@@ -1965,18 +1986,6 @@ msgstr "Nessun Elemento Trovato"
 msgid "Favorites"
 msgstr "Preferiti"
 
-msgid "START GAME"
-msgstr "INIZIA LA PARTITA"
-
-msgid "START NETPLAY HOST"
-msgstr "INIZIA HOST IN RETE"
-
-msgid "SET PLAYER PASSWORD"
-msgstr "AGGIUNGI PASSWORD GIOCATORE"
-
-msgid "SET VIEWER PASSWORD"
-msgstr "AGGIUNGI PASSWORD SPETTATORE"
-
 msgid "Games similar to"
 msgstr "Giochi simili a"
 
@@ -1984,6 +1993,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"E' richiesto un account valido. Registra un account su https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Cercando"
@@ -2091,13 +2102,10 @@ msgid "Extracting"
 msgstr "Estrazione"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "RICERCA RETROACHIEVEMENTS (TROFEI)"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
-
-msgid "FAVORITES"
-msgstr "PREFERITI"
+msgstr "RICERCA GIOCHI CON SUPPORTO NETPLAY"
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -2124,7 +2132,7 @@ msgid "ALREADY PLAYED"
 msgstr "GIA' GIOCATO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "SUPPORTO TROFEI"
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -2316,6 +2324,24 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "Modificando la Collezione '%s'. Aggiungi/rimuovi giochi con Y."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "Finito di modificare la Collezione '%s'."
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "FINE MODIFICA DELLA COLLEZIONE"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "SALTA A..."
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "GESTIONE COLLEZIONE"
+
+#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
+#~ msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "REINDICIZZA TUTTI I GIOCHI"
@@ -2617,9 +2643,6 @@ msgstr "%d s"
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 #~ msgstr "PREMI ESC O UNA COMBINAZIONE DI TASTI PER ANNULLARE"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "VAI ALLA LETTERA"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "SOLO PREFERITI"

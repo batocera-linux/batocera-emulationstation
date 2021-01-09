@@ -66,7 +66,8 @@ enum MetaDataId
 	Wheel = 32,
 	Mix = 33,
 	CheevosHash = 34,
-	CheevosId = 35
+	CheevosId = 35,
+	ScraperId = 36
 };
 
 namespace MetaDataImportType
@@ -97,8 +98,9 @@ struct MetaDataDecl
 	std::string  displayName; // displayed as this in editors
 	std::string  displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
 	bool		 visibleForFolder;
+	bool		 isAttribute;
 
-	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt, bool folderMetadata)
+	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt, bool folderMetadata, bool isAttribute = false)
 	{
 		this->id = id;
 		this->key = key;
@@ -108,6 +110,7 @@ struct MetaDataDecl
 		this->displayName = displayName;
 		this->displayPrompt = displayPrompt;
 		this->visibleForFolder = folderMetadata;
+		this->isAttribute = isAttribute;
 	}
 };
 
@@ -167,6 +170,7 @@ private:
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;
 
+	std::vector<std::tuple<std::string, std::string, bool>> mUnKnownElements;
 };
 
 #endif // ES_APP_META_DATA_H

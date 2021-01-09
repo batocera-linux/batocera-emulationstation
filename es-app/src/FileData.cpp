@@ -210,22 +210,16 @@ const bool FileData::hasCheevos()
 	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
 }
 
-static std::shared_ptr<bool> showFilenames;
 static std::shared_ptr<bool> collectionShowSystemInfo;
 
 void FileData::resetSettings() 
 {
-	showFilenames = nullptr;
 	collectionShowSystemInfo = nullptr;
 }
 
 const std::string FileData::getName()
 {
-	if (showFilenames == nullptr)
-		showFilenames = std::make_shared<bool>(Settings::getInstance()->getBool("ShowFilenames"));
-
-	// Faster than accessing map each time
-	if (*showFilenames)
+	if (mSystem != nullptr && mSystem->getShowFilenames())
 	{
 		if (mSystem != nullptr && !mSystem->hasPlatformId(PlatformIds::ARCADE) && !mSystem->hasPlatformId(PlatformIds::NEOGEO))
 			return Utils::FileSystem::getStem(getPath());
@@ -1116,7 +1110,7 @@ void FolderData::removeVirtualFolders()
 
 void FileData::checkCrc32(bool force)
 {
-	if (getSourceFileData() != this)
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
 	{
 		getSourceFileData()->checkCrc32(force);
 		return;
@@ -1126,6 +1120,9 @@ void FileData::checkCrc32(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
@@ -1136,7 +1133,7 @@ void FileData::checkCrc32(bool force)
 
 void FileData::checkMd5(bool force)
 {
-	if (getSourceFileData() != this)
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
 	{
 		getSourceFileData()->checkMd5(force);
 		return;
@@ -1146,6 +1143,9 @@ void FileData::checkMd5(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = ApiSystem::getInstance()->getMD5(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
@@ -1167,6 +1167,9 @@ void FileData::checkCheevosHash(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
 	auto crc = RetroAchievements::getCheevosHash(system, getPath());
 	getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
 	saveToGamelistRecovery(this);

@@ -748,9 +748,12 @@ namespace Utils
 			if (_relativeTo.empty())
 				return _path;
 
+			if (_path[0] == '.' && _path[1] == '/')
+				return _path;
+
 			if (_path == _relativeTo)
 				return "";
-
+			
 			bool        contains = false;
 			std::string path     = removeCommonPath(_path, _relativeTo, contains);
 
