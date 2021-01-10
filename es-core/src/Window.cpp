@@ -244,17 +244,17 @@ void Window::input(InputConfig* config, Input input)
 	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
-		Settings::getInstance()->setBool("DebugGrid", !Settings::getInstance()->getBool("DebugGrid"));
+		Settings::DebugGrid = !Settings::DebugGrid;
 	}
 	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-T
-		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
+		Settings::DebugText = !Settings::DebugText;
 	}
 	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-I
-		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
+		Settings::DebugImage = !Settings::DebugImage;
 	}
 	else
 	{
@@ -377,30 +377,30 @@ void Window::layoutNotificationPopups()
 
 void Window::processSongTitleNotifications()
 {
-	if (!Settings::getInstance()->getBool("audio.display_titles"))
-		return;
-
 	if (AudioManager::getInstance()->songNameChanged())
 	{
-		std::string songName = AudioManager::getInstance()->getSongName();
-		if (!songName.empty())
+		if (Settings::getInstance()->getBool("audio.display_titles"))
 		{
-			std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
-
-			for (int i = mNotificationPopups.size() - 1; i >= 0; i--)
+			std::string songName = AudioManager::getInstance()->getSongName();
+			if (!songName.empty())
 			{
-				if (mNotificationPopups[i]->getMessage().find(_U("\uF028")) != std::string::npos)
+				std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+				for (int i = mNotificationPopups.size() - 1; i >= 0; i--)
 				{
-					delete mNotificationPopups[i];
+					if (mNotificationPopups[i]->getMessage().find(_U("\uF028")) != std::string::npos)
+					{
+						delete mNotificationPopups[i];
 
-					auto it = mNotificationPopups.begin();
-					std::advance(it, i);
-					mNotificationPopups.erase(it);
+						auto it = mNotificationPopups.begin();
+						std::advance(it, i);
+						mNotificationPopups.erase(it);
+					}
 				}
-			}
 
-			lock.unlock();
-			displayNotificationMessage(_U("\uF028  ") + songName); // _("Now playing: ") + 
+				lock.unlock();
+				displayNotificationMessage(_U("\uF028  ") + songName); // _("Now playing: ") + 
+			}
 		}
 
 		AudioManager::getInstance()->resetSongNameChangedFlag();

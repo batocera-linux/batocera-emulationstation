@@ -113,7 +113,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = fromFile ? doc.load_file(xmlpath.c_str()) : doc.load(xmlpath.c_str());
+	pugi::xml_parse_result result = fromFile ? doc.load_file(xmlpath.c_str()) : doc.load_string(xmlpath.c_str());
 
 	if (!result)
 	{

@@ -259,7 +259,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 
 		Renderer::setMatrix(drawTrans);
 
-		if (Settings::getInstance()->getBool("DebugText"))
+		if (Settings::DebugText)
 		{
 			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
 

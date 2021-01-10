@@ -616,16 +616,18 @@ void SystemView::update(int deltaTime)
 	for (auto sb : mStaticVideoBackgrounds)
 		sb->update(deltaTime);
 	
-	for (int i = 0; i < mEntries.size(); i++)
-	{
-		const std::shared_ptr<GuiComponent> &comp = mEntries.at(i).data.logo;
-		if (comp != nullptr)
-			comp->update(deltaTime);
-	}
-	
 	listUpdate(deltaTime);
 	mSystemInfo.update(deltaTime);
-	updateExtras([this, deltaTime](GuiComponent* p) { p->update(deltaTime); });
+
+	for (auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
+	{
+		if (it->data.logo)
+			it->data.logo->update(deltaTime);
+
+		for (auto xt : it->data.backgroundExtras)
+			xt->update(deltaTime);
+	}
+	
 	GuiComponent::update(deltaTime);
 }
 
@@ -1660,15 +1662,9 @@ void SystemView::topWindow(bool isTop)
 
 void SystemView::updateExtras(const std::function<void(GuiComponent*)>& func)
 {
-	for (int i = 0; i < mEntries.size(); i++)
-	{
-		SystemViewData data = mEntries.at(i).data;
-		for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
-		{
-			GuiComponent* extra = data.backgroundExtras[j];
-			func(extra);
-		}
-	}
+	for (auto it : mEntries)
+		for (auto xt : it.data.backgroundExtras)
+			func(xt);
 }
 
 void SystemView::activateExtras(int cursor, bool activate)

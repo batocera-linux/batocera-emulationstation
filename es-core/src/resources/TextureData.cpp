@@ -244,20 +244,17 @@ bool TextureData::uploadAndBind()
 {
 	// See if it's already been uploaded
 	std::unique_lock<std::mutex> lock(mMutex);
+
 	if (mTextureID != 0)
-	{
 		Renderer::bindTexture(mTextureID);
-	}
 	else
 	{
-		// Load it if necessary
-		if (!mDataRGBA)
+		// Make sure we're ready to upload
+		if (mWidth == 0 || mHeight == 0 || mDataRGBA == nullptr)
 		{
+			Renderer::bindTexture(mTextureID);
 			return false;
 		}
-		// Make sure we're ready to upload
-		if ((mWidth == 0) || (mHeight == 0) || (mDataRGBA == nullptr))
-			return false;
 
 		// Upload texture
 		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
@@ -269,6 +266,7 @@ bool TextureData::uploadAndBind()
 			mDataRGBA = nullptr;
 		}
 	}
+
 	return true;
 }
 

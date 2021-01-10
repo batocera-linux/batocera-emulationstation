@@ -8,16 +8,17 @@
 #include <algorithm>
 #include <vector>
 
+bool Settings::DebugText = false;
+bool Settings::DebugImage = false;
+bool Settings::DebugGrid = false;
+
 Settings* Settings::sInstance = NULL;
 static std::string mEmptyString = "";
 
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
 std::vector<const char*> settings_dont_save {
-	{ "Debug" },
-	{ "DebugGrid" },
-	{ "DebugText" },
-	{ "DebugImage" },
+	{ "Debug" },	
 	{ "ForceKid" },
 	{ "ForceKiosk" },
 	{ "IgnoreGamelist" },
@@ -122,10 +123,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowNetworkIndicator"] = true;
 #endif
 
-	mBoolMap["Debug"] = false;
-	mBoolMap["DebugGrid"] = false;
-	mBoolMap["DebugText"] = false;
-	mBoolMap["DebugImage"] = false;
+	mBoolMap["Debug"] = false;	
 
 	mBoolMap["InvertButtons"] = false;
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
