@@ -4,6 +4,7 @@
 
 #include <mutex>
 #include <string>
+#include <SDL.h>
 #include "ImageIO.h"
 
 class TextureResource;
@@ -59,7 +60,7 @@ public:
 
 	inline const std::string& getPath() { return mPath; };
 
-	bool initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
+	bool initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool streaming = false);
 
 	bool isRequired() { return mRequired; };
 	void setRequired(bool value) { mRequired = value; };
@@ -71,7 +72,7 @@ private:
 	bool			mTile;
 	bool			mLinear;
 	std::string		mPath;
-	unsigned int	mTextureID;
+	SDL_Texture*	mTextureID;
 	unsigned char*	mDataRGBA;
 	size_t			mWidth;
 	size_t			mHeight;

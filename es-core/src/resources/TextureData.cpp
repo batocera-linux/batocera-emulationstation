@@ -186,7 +186,7 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 	return true;
 }
 
-bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
+bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool streaming)
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
@@ -202,7 +202,10 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	if (mTextureID == 0)
 	{
 		// Upload texture
-		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
+		if (streaming)
+			mTextureID = Renderer::createStreamingTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
+		else
+			mTextureID = Renderer::createStaticTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
 		if (mTextureID)
 		{
 			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
@@ -271,7 +274,7 @@ bool TextureData::uploadAndBind()
 		}
 
 		// Upload texture
-		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
+		mTextureID = Renderer::createStreamingTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
 		if (mTextureID)
 		{
 			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)

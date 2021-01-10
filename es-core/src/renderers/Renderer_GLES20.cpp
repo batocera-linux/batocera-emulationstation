@@ -312,6 +312,7 @@ namespace Renderer
 	} // setupWindow
 
 
+
 //////////////////////////////////////////////////////////////////////////
 
 	unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
@@ -356,99 +357,11 @@ namespace Renderer
 
 	} // createTexture
 
-//////////////////////////////////////////////////////////////////////////
-
-	void destroyTexture(const unsigned int _texture)
-	{
-		GL_CHECK_ERROR(glDeleteTextures(1, &_texture));
-
-	} // destroyTexture
-
-//////////////////////////////////////////////////////////////////////////
-
-	void updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
-	{
-		const GLenum type = convertTextureType(_type);
-
-		bindTexture(_texture);
-
-		// Regular GL_ALPHA textures are black + alpha in shaders
-		// Create a GL_LUMINANCE_ALPHA texture instead so its white + alpha
-		if(type == GL_LUMINANCE_ALPHA)
-		{
-			uint8_t* a_data  = (uint8_t*)_data;
-			uint8_t* la_data = new uint8_t[_width * _height * 2];
-			memset(la_data, 255, _width * _height * 2);
-			if (a_data)
-			{
-				for(uint32_t i=0; i<(_width * _height); ++i)
-				{
-					la_data[(i * 2) + 1] = a_data[i];
-				}
-			}
-
-			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));
-			delete[] la_data;
-		}
-		else
-			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, _data));
-
-		bindTexture(0);
-
-	} // updateTexture
 
 //////////////////////////////////////////////////////////////////////////
 
 	static unsigned int boundTexture = 0;
-
-	void bindTexture(const unsigned int _texture)
-	{
-		if (boundTexture == _texture)
-			return;
-
-		boundTexture = _texture;
-
-		if(_texture == 0)
-		{
-			GL_CHECK_ERROR(glBindTexture(GL_TEXTURE_2D, 0));
-			boundTexture = 0;
-		}
-		else
-		{
-			GL_CHECK_ERROR(glBindTexture(GL_TEXTURE_2D, _texture));
-			boundTexture = _texture;
-		}
-
-	} // bindTexture
-
-//////////////////////////////////////////////////////////////////////////
-
-	void drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
-	{
-		// Pass buffer data
-		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
-
-		// Setup shader (always NOT textured)
-		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-
-		// Do rendering
-		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
-		GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
-		GL_CHECK_ERROR(glDisable(GL_BLEND));
-
-		// Restore context
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-
-	} // drawLines
-
+	
 //////////////////////////////////////////////////////////////////////////
 
 	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)

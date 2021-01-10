@@ -10,6 +10,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <vector>
+#include <SDL.h>
 
 class TextCache;
 
@@ -82,7 +83,7 @@ private:
 	class FontTexture
 	{
 	public:
-		unsigned int textureId;
+		SDL_Texture* textureId;
 		Vector2i textureSize;
 
 		Vector2i writePos;
@@ -154,13 +155,20 @@ class TextCache
 {
 protected:
 
-	struct VertexList
+	struct TextRect
 	{
-		std::vector<Renderer::Vertex> verts;
-		unsigned int* textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
+		SDL_Rect srcRect;
+		SDL_Rect dstRect;
+		Uint32 color;
 	};
 
-	std::vector<VertexList> vertexLists;
+	struct TextRectList
+	{
+		std::vector<TextRect> textRects;
+		SDL_Texture** textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
+	};
+
+	std::vector<TextRectList> textRectsLists;
 
 public:
 	struct CacheMetrics

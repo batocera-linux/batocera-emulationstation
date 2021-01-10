@@ -103,7 +103,8 @@ void TextureResource::onTextureLoaded(std::shared_ptr<TextureData> tex)
 
 void TextureResource::initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height)
 {
-	mTextureData->initFromExternalRGBA(dataRGBA, width, height);
+	// Used from VLC, texture changes often, create it as streaming texture
+	mTextureData->initFromExternalRGBA(dataRGBA, width, height, true);
 
 	// Cache the image dimensions
 	mSize = Vector2i((int)width, (int)height);

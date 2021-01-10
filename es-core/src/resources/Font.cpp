@@ -209,7 +209,7 @@ void Font::FontTexture::initTexture()
 {
 	if (textureId == 0)
 	{
-		textureId = Renderer::createTexture(Renderer::Texture::ALPHA, true, false, textureSize.x(), textureSize.y(), nullptr);
+		textureId = Renderer::createStreamingTexture(Renderer::Texture::ALPHA, true, false, textureSize.x(), textureSize.y(), nullptr);
 		if (textureId == 0)
 			LOG(LogError) << "FontTexture::initTexture() failed to create texture " << textureSize.x() << "x" << textureSize.y();
 	}
@@ -341,7 +341,7 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 
 	FT_GlyphSlot g = face->glyph;
 
-	if(FT_Load_Char(face, id, FT_LOAD_RENDER))
+	if(FT_Load_Char(face, id, FT_LOAD_RENDER | FT_LOAD_COLOR))
 	{
 		LOG(LogError) << "Could not find glyph for character " << id << " for font " << mPath << ", size " << mSize << "!";
 		return NULL;
@@ -364,15 +364,15 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	Glyph* pGlyph = new Glyph();
 	
 	pGlyph->texture = tex;
-	pGlyph->texPos = Vector2f((float)cursor.x() / (float)tex->textureSize.x(), (float)cursor.y() / (float)tex->textureSize.y());
-	pGlyph->texSize = Vector2f((float)glyphSize.x() / (float)tex->textureSize.x(), (float)glyphSize.y() / (float)tex->textureSize.y());
+	pGlyph->texPos = Vector2f((float)cursor.x(), (float)cursor.y());
+	pGlyph->texSize = Vector2f((float)glyphSize.x(), (float)glyphSize.y());
 	pGlyph->advance = Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
 	pGlyph->bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);	
 	pGlyph->cursor = cursor;
 	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
-	Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
+	Renderer::updateTexture(tex->textureId, Renderer::Texture::RGBA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
 	// update max glyph height
 	if(glyphSize.y() > mMaxGlyphHeight)
@@ -401,12 +401,11 @@ void Font::rebuildTextures()
 		FT_GlyphSlot glyphSlot = face->glyph;
 
 		// load the glyph bitmap through FT
-		FT_Load_Char(face, it->first, FT_LOAD_RENDER);
-
+		FT_Load_Char(face, it->first, FT_LOAD_RENDER | FT_LOAD_COLOR);
 		Glyph* glyph = it->second;
 		
 		// upload to texture
-		Renderer::updateTexture(glyph->texture->textureId, Renderer::Texture::ALPHA,
+		Renderer::updateTexture(glyph->texture->textureId, Renderer::Texture::RGBA,
 			glyph->cursor.x(), glyph->cursor.y(),
 			glyph->glyphSize.x(), glyph->glyphSize.y(),
 			glyphSlot->bitmap.buffer);
@@ -421,21 +420,13 @@ void Font::renderTextCache(TextCache* cache)
 		return;
 	}
 
-	int tex = 0;
-
-	for(auto& vertex : cache->vertexLists)
+	for(auto& textRectList : cache->textRectsLists)
 	{		
-		if (vertex.textureIdPtr == nullptr)
+		if (textRectList.textureIdPtr == nullptr)
 			continue;
 		
-		if (tex != *vertex.textureIdPtr)
-		{
-			tex = *vertex.textureIdPtr;
-			Renderer::bindTexture(tex);			
-		}
-
-		if (tex != 0)
-			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
+		for (auto& textRect : textRectList.textRects)
+			Renderer::blit(*textRectList.textureIdPtr, &textRect.srcRect, &textRect.dstRect);
 	}
 
 	Renderer::bindTexture(0);
@@ -443,30 +434,32 @@ void Font::renderTextCache(TextCache* cache)
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
 {
+	// TODO
+	/*
 	if (cache == NULL)
 	{
 		LOG(LogError) << "Attempted to draw NULL TextCache!";
 		return;
 	}
 
-	for (auto it = cache->vertexLists.cbegin(); it != cache->vertexLists.cend(); it++)
+	for (auto it = cache->textRectsLists.cbegin(); it != cache->textRectsLists.cend(); it++)
 	{
 		if (*it->textureIdPtr == 0)
 			continue;
 
-		std::vector<Renderer::Vertex> vxs;
-		vxs.resize(it->verts.size());
+		std::vector<SDL_Rect> rects;
+		rects.resize(it->textRects.size());
 
 		float maxY = -1;
 
-		for (int i = 0; i < it->verts.size(); i += 6)
-			if (maxY == -1 || maxY < it->verts[i + 2].pos.y())
-				maxY = it->verts[i + 2].pos.y();
+		for (int i = 0; i < it->textRects.size(); i += 6)
+			if (maxY == -1 || maxY < it->textRects[i + 2].pos.y())
+				maxY = it->textRects[i + 2].pos.y();
 
-		for (int i = 0; i < it->verts.size(); i += 6)
+		for (int i = 0; i < it->textRects.size(); i += 6)
 		{
-			float topOffset = it->verts[i + 1].pos.y();
-			float bottomOffset = it->verts[i + 2].pos.y();
+			float topOffset = it->textRects[i + 1].pos.y();
+			float bottomOffset = it->textRects[i + 2].pos.y();
 			
 			float topPercent = (maxY == 0 ? 1.0 : topOffset / maxY);
 			float bottomPercent = (maxY == 0 ? 1.0 : bottomOffset / maxY);
@@ -474,16 +467,16 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 			const unsigned int colorT = Renderer::mixColors(colorTop, colorBottom, topPercent);
 			const unsigned int colorB = Renderer::mixColors(colorTop, colorBottom, bottomPercent);
 		
-			vxs[i + 1] = it->verts[i + 1];
+			vxs[i + 1] = it->textRects[i + 1];
 			vxs[i + 1].col = colorT;
 
-			vxs[i + 2] = it->verts[i + 2];
+			vxs[i + 2] = it->textRects[i + 2];
 			vxs[i + 2].col = colorB;
 
-			vxs[i + 3] = it->verts[i + 3];
+			vxs[i + 3] = it->textRects[i + 3];
 			vxs[i + 3].col = colorT;
 
-			vxs[i + 4] = it->verts[i + 4];
+			vxs[i + 4] = it->textRects[i + 4];
 			vxs[i + 4].col = colorB;
 
 			// make duplicates of first and last vertex so this can be rendered as a triangle strip
@@ -495,6 +488,7 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 		Renderer::drawTriangleStrips(&vxs[0], vxs.size());
 		Renderer::bindTexture(0);
 	}
+	*/
 }
 
 std::string tryFastBidi(const std::string& text)
@@ -727,7 +721,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	float y = offset[1] + (yBot + yTop)/2.0f;
 
 	// vertices by texture
-	std::map< FontTexture*, std::vector<Renderer::Vertex> > vertMap;
+	std::map< FontTexture*, std::vector<TextCache::TextRect> > textRectMap;
 
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
@@ -802,26 +796,24 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		if(glyph == NULL)
 			continue;
 
-		std::vector<Renderer::Vertex>& verts = vertMap[glyph->texture];
-		size_t oldVertSize = verts.size();
-		verts.resize(oldVertSize + 6);
-		Renderer::Vertex* vertices = verts.data() + oldVertSize;
+		std::vector<TextCache::TextRect>& textRects = textRectMap[glyph->texture];
+		size_t oldSize = textRects.size();
+		textRects.resize(oldSize + 1);
+		int textRectIdx = oldSize;
+		TextCache::TextRect& newTextRect = textRects[textRectIdx];
 
 		const float        glyphStartX    = x + glyph->bearing.x();
-		const unsigned int convertedColor = Renderer::convertColor(color);
+		newTextRect.color = Renderer::convertColor(color);
 
-		vertices[1] = { { glyphStartX                                       , y - glyph->bearing.y()                                          }, { glyph->texPos.x(),                      glyph->texPos.y()                      }, convertedColor };
-		vertices[2] = { { glyphStartX                                       , y - glyph->bearing.y() + (glyph->glyphSize.y())                 }, { glyph->texPos.x(),                      glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
-		vertices[3] = { { glyphStartX + glyph->glyphSize.x()                , y - glyph->bearing.y()                                          }, { glyph->texPos.x() + glyph->texSize.x(), glyph->texPos.y()                      }, convertedColor };
-		vertices[4] = { { glyphStartX + glyph->glyphSize.x()                , y - glyph->bearing.y() + (glyph->glyphSize.y())                 }, { glyph->texPos.x() + glyph->texSize.x(), glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
+		newTextRect.srcRect.x = (int)(glyph->texPos.x() + 0.5f);
+		newTextRect.srcRect.y = (int)(glyph->texPos.y() + 0.5f);
+		newTextRect.srcRect.w = (int)(glyph->texSize.x() + 0.5f);
+		newTextRect.srcRect.h = (int)(glyph->texSize.y() + 0.5f);
 
-		// round vertices
-		for(int i = 1; i < 5; ++i)
-			vertices[i].pos.round();
-
-		// make duplicates of first and last vertex so this can be rendered as a triangle strip
-		vertices[0] = vertices[1];
-		vertices[5] = vertices[4];
+		newTextRect.dstRect.x = (int)(glyphStartX + 0.5f);
+		newTextRect.dstRect.y = (int)(y - glyph->bearing.y() + 0.5f);
+		newTextRect.dstRect.w = (int)(glyph->glyphSize.x() + 0.5f);
+		newTextRect.dstRect.h = (int)(glyph->glyphSize.y() + 0.5f);
 
 		// advance
 		x += glyph->advance.x();
@@ -830,16 +822,16 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	//TextCache::CacheMetrics metrics = { sizeText(text, lineSpacing) };
 
 	TextCache* cache = new TextCache();
-	cache->vertexLists.resize(vertMap.size());
+	cache->textRectsLists.resize(textRectMap.size());
 	cache->metrics = { sizeText(text, lineSpacing) };
 
 	unsigned int i = 0;
-	for(auto it = vertMap.cbegin(); it != vertMap.cend(); it++)
+	for(auto it = textRectMap.cbegin(); it != textRectMap.cend(); it++)
 	{
-		TextCache::VertexList& vertList = cache->vertexLists.at(i);
+		TextCache::TextRectList& textRectsLists = cache->textRectsLists.at(i);
 
-		vertList.textureIdPtr = &it->first->textureId;
-		vertList.verts = it->second;
+		textRectsLists.textureIdPtr = &it->first->textureId;
+		textRectsLists.textRects = it->second;
 		i++;
 	}
 
@@ -857,9 +849,9 @@ void TextCache::setColor(unsigned int color)
 {
 	const unsigned int convertedColor = Renderer::convertColor(color);
 
-	for(auto it = vertexLists.begin(); it != vertexLists.end(); it++)
-		for(auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
-			it2->col = convertedColor;
+	for(auto it = textRectsLists.begin(); it != textRectsLists.end(); it++)
+		for(auto it2 = it->textRects.begin(); it2 != it->textRects.end(); it2++)
+			it2->color = convertedColor;
 }
 
 std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig)

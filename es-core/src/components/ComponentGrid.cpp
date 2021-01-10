@@ -175,26 +175,39 @@ void ComponentGrid::updateSeparators()
 		for(int y = it->pos.y(); y < it->pos.y() + it->dim.y(); y++)
 			size[1] += getRowHeight(y);
 
+		SDL_Point point1, point2;
 		if(it->border & BORDER_TOP || drawAll)
 		{
-			mLines.push_back( { { pos.x(),               pos.y()               }, { 0.0f, 0.0f }, color } );
-			mLines.push_back( { { pos.x() + size.x(),    pos.y()               }, { 0.0f, 0.0f }, color } );
+			point1.x = (int)(pos.x()           );
+			point1.y = (int)(pos.y()           );
+			point2.x = (int)(pos.x() + size.x());
+			point2.y = (int)(pos.y()           );
 		}
 		if(it->border & BORDER_BOTTOM || drawAll)
 		{
-			mLines.push_back( { { pos.x(),               pos.y() + size.y()    }, { 0.0f, 0.0f }, color } );
-			mLines.push_back( { { pos.x() + size.x(),    mLines.back().pos.y() }, { 0.0f, 0.0f }, color } );
+			point1.x = (int)(pos.x()           );
+			point1.y = (int)(pos.y() + size.y());
+			point2.x = (int)(pos.x() + size.x());
+			point2.y = (int)(mLines.back().y   );
+
 		}
 		if(it->border & BORDER_LEFT || drawAll)
 		{
-			mLines.push_back( { { pos.x(),               pos.y()               }, { 0.0f, 0.0f }, color } );
-			mLines.push_back( { { pos.x(),               pos.y() + size.y()    }, { 0.0f, 0.0f }, color } );
+			point1.x = (int)(pos.x()           );
+			point1.y = (int)(pos.y()           );
+			point2.x = (int)(pos.x()           );
+			point2.y = (int)(pos.y() + size.y());
 		}
 		if(it->border & BORDER_RIGHT || drawAll)
 		{
-			mLines.push_back( { { pos.x() + size.x(),    pos.y()               }, { 0.0f, 0.0f }, color } );
-			mLines.push_back( { { mLines.back().pos.x(), pos.y() + size.y()    }, { 0.0f, 0.0f }, color } );
+			point1.x = (int)(pos.x() + size.x());
+			point1.y = (int)(pos.y()           );
+			point2.x = (int)(mLines.back().x   );
+			point2.y = (int)(pos.y() + size.y());
 		}
+
+		mLines.push_back(point1);
+		mLines.push_back(point2);
 	}
 }
 
@@ -364,7 +377,7 @@ void ComponentGrid::render(const Transform4x4f& parentTrans)
 	{
 		Renderer::setMatrix(trans);
 		Renderer::bindTexture(0);
-		Renderer::drawLines(&mLines[0], mLines.size());
+		Renderer::drawColoredLines(&mLines[0], mLines.size(), mSeparatorColor);
 	}
 }
 

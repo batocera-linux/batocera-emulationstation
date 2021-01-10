@@ -80,218 +80,50 @@ namespace Renderer
 	} // setupWindow
 
 
-	unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
-	{
-		const GLenum type = convertTextureType(_type);
-		unsigned int texture;
-
-		glGenTextures(1, &texture);
-		if (glGetError() != GL_NO_ERROR)
-			return 0;
-
-		bindTexture(texture);
-
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE);
-
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _linear ? GL_LINEAR : GL_NEAREST);
-
-		glPixelStorei(GL_PACK_ALIGNMENT, 1);
-		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-
-		glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
-
-		if (glGetError() != GL_NO_ERROR)
-		{
-			glDeleteTextures(1, &texture);
-			return 0;
-		}
-
-		return texture;
-
-	} // createTexture
-	
-	void destroyTexture(const unsigned int _texture)
-	{
-		glDeleteTextures(1, &_texture);
-
-	} // destroyTexture
-
-	void updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
-	{
-		glBindTexture(GL_TEXTURE_2D, _texture);
-
-		if (_x == -1 && _y == -1)
-		{
-			const GLenum type = convertTextureType(_type);
-			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
-		}
-		else 
-			glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, convertTextureType(_type), GL_UNSIGNED_BYTE, _data);
-
-		glBindTexture(GL_TEXTURE_2D, 0);
-
-	} // updateTexture
 
 	static unsigned int boundTexture = 0;
 
-	void bindTexture(const unsigned int _texture)
-	{
-		if (boundTexture == _texture)
-			return;
-
-		boundTexture = _texture;
-
-		glBindTexture(GL_TEXTURE_2D, _texture);
-
-		if(_texture == 0) glDisable(GL_TEXTURE_2D);
-		else              glEnable(GL_TEXTURE_2D);
-
-	} // bindTexture
-
-	void drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
-	{
-		glEnable(GL_BLEND);
-		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
-
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-		glEnableClientState(GL_COLOR_ARRAY);
-
-		glVertexPointer(  2, GL_FLOAT,         sizeof(Vertex), &_vertices[0].pos);
-		glTexCoordPointer(2, GL_FLOAT,         sizeof(Vertex), &_vertices[0].tex);
-		glColorPointer(   4, GL_UNSIGNED_BYTE, sizeof(Vertex), &_vertices[0].col);
-
-		glDrawArrays(GL_LINES, 0, _numVertices);
-
-		glDisableClientState(GL_COLOR_ARRAY);
-		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-		glDisableClientState(GL_VERTEX_ARRAY);
-
-		glDisable(GL_BLEND);
-
-	} // drawLines
-
-	void setGrayscale()
-	{
-		glMatrixMode(GL_COLOR);
-
-		GLfloat grayScale[16] =
-		{
-			.3f, .3f, .3f, 0.0f,
-			.59f, .59f, .59f, 0.0f,
-			.11f, .11f, .11f, 0.0f,
-			0.0f, 0.0f, 0.0f, 1.0f
-		};
-		glLoadMatrixf(grayScale);
-	} // setGrayscale
-
-
-	struct Vertex4f
-	{
-		Vertex4f() { }
-		Vertex4f(const Vector2f& _pos, const Vector2f& _tex, const unsigned int _col) : pos(_pos), tex(_tex), col(_col) { }
-
-		Vector3f		pos;
-		Vector4f		tex;
-
-		unsigned int col;
-
-	}; // Vertex
-
-	static void correctQuad(Vertex4f& v1, Vertex4f& v2, Vertex4f& v3, Vertex4f& v4)
-	{
-		// detects intersection of two diagonal lines
-		float divisor = (v4.pos.y() - v3.pos.y()) * (v2.pos.x() - v1.pos.x()) - (v4.pos.x() - v3.pos.x()) * (v2.pos.y() - v1.pos.y());
-		float ua = ((v4.pos.x() - v3.pos.x()) * (v1.pos.y() - v3.pos.y()) - (v4.pos.y() - v3.pos.y()) * (v1.pos.x() - v3.pos.x())) / divisor;
-		float ub = ((v2.pos.x() - v1.pos.x()) * (v1.pos.y() - v3.pos.y()) - (v2.pos.y() - v1.pos.y()) * (v1.pos.x() - v3.pos.x())) / divisor;
-
-		// calculates the intersection point
-		float centerX = v1.pos.x() + ua * (v2.pos.x() - v1.pos.x());
-		float centerY = v1.pos.y() + ub * (v2.pos.y() - v1.pos.y());
-		Vector3f center(v2.pos.x() - centerX, v2.pos.y() - centerY, 0.5f);
-
-		float d1 = Vector3f(v1.pos - center).length();
-		float d2 = Vector3f(v2.pos - center).length();
-		float d3 = Vector3f(v3.pos - center).length();
-		float d4 = Vector3f(v4.pos - center).length();
-	
-		// calculates quotients used as w component in uvw texture mapping
-		v1.tex *= isnan(d2) || d2 == 0.0f ? 1.0f : (d1 + d2) / d2;
-		v2.tex *= isnan(d1) || d1 == 0.0f ? 1.0f : (d2 + d1) / d1;
-		v3.tex *= isnan(d4) || d4 == 0.0f ? 1.0f : (d3 + d4) / d4;
-		v4.tex *= isnan(d3) || d3 == 0.0f ? 1.0f : (d4 + d3) / d3;
-	}
-
 	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
-		glEnable(GL_BLEND);
+		/*glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
 
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_COLOR_ARRAY);
-		/*
-		if (_numVertices == 4)
-		{
-			Vertex4f v[4];
-			for (int i = 0; i < 4; i++)
-			{
-				v[i].pos = Vector3f(_vertices[i].pos, 0);
-				v[i].tex = Vector4f(_vertices[i].tex, 0, 1);
-				v[i].col = _vertices[i].col;
-			}
 
-#define	ES_PI (3.1415926535897932384626433832795028841971693993751058209749445923)
-#define	ES_RAD_TO_DEG(_x) ((_x) * (180.0 / ES_PI))
-#define	ES_DEG_TO_RAD(_x) ((_x) * (ES_PI / 180.0))
-
-
-			if (_vertices[2].tex.x() != 0)
-				correctQuad(v[0], v[3], v[1], v[2]);
-			
-			glVertexPointer(3, GL_FLOAT, sizeof(Vertex4f), &v[0].pos);
-			glTexCoordPointer(4, GL_FLOAT, sizeof(Vertex4f), &v[0].tex);
-			glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex4f), &v[0].col);
-			glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices);
-
-		}
-		else*/
-		{
-			glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &_vertices[0].pos);
-			glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &_vertices[0].tex);
-			glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), &_vertices[0].col);
-			glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices);
-		}
+		glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &_vertices[0].pos);
+		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &_vertices[0].tex);
+		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), &_vertices[0].col);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices);
 
 		glDisableClientState(GL_COLOR_ARRAY);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
 
-		glDisable(GL_BLEND);
+		glDisable(GL_BLEND);*/
 
 	} // drawTriangleStrips
 
 	void setProjection(const Transform4x4f& _projection)
 	{
-		glMatrixMode(GL_PROJECTION);
-		glLoadMatrixf((GLfloat*)&_projection);
+		/*glMatrixMode(GL_PROJECTION);
+		glLoadMatrixf((GLfloat*)&_projection);*/
 
 	} // setProjection
 
 	void setMatrix(const Transform4x4f& _matrix)
 	{
-		Transform4x4f matrix = _matrix;
+		/*Transform4x4f matrix = _matrix;
 		matrix.round();
 		glMatrixMode(GL_MODELVIEW);
-		glLoadMatrixf((GLfloat*)&matrix);
+		glLoadMatrixf((GLfloat*)&matrix);*/
 
 	} // setMatrix
 
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
-		glEnable(GL_MULTISAMPLE);
+		/*glEnable(GL_MULTISAMPLE);
 
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -311,12 +143,12 @@ namespace Renderer
 		glDisableClientState(GL_VERTEX_ARRAY);
 
 		glDisable(GL_BLEND);
-		glDisable(GL_MULTISAMPLE);
+		glDisable(GL_MULTISAMPLE);*/
 	}
 
 	void setStencil(const Vertex* _vertices, const unsigned int _numVertices)
 	{
-		bool tx = glIsEnabled(GL_TEXTURE_2D);
+		/*bool tx = glIsEnabled(GL_TEXTURE_2D);
 		glDisable(GL_TEXTURE_2D);
 
 		glClear(GL_DEPTH_BUFFER_BIT);
@@ -338,12 +170,12 @@ namespace Renderer
 		glStencilFunc(GL_EQUAL, 1, 0xFF);
 
 		if (tx)
-			glEnable(GL_TEXTURE_2D);
+			glEnable(GL_TEXTURE_2D);*/
 	}
 
 	void disableStencil()
 	{
-		glDisable(GL_STENCIL_TEST);
+		//glDisable(GL_STENCIL_TEST);
 	}
 
 } // Renderer::

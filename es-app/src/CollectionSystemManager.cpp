@@ -1163,16 +1163,19 @@ void CollectionSystemManager::removeCollectionsFromDisplayedSystems()
 	}
 	// remove all custom collections in bundle
 	// this should not delete the objects from memory!
-	FolderData* customRoot = mCustomCollectionsBundle->getRootFolder();
-	std::vector<FileData*> mChildren = customRoot->getChildren();
-	for(auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
-	{
-		customRoot->removeChild(*it);
-	}
-	// clear index
-	mCustomCollectionsBundle->resetIndex();
-	// remove view so it's re-created as needed
-	ViewController::get()->removeGameListView(mCustomCollectionsBundle);
+	if (mCustomCollectionsBundle)
+    {
+        FolderData* customRoot = mCustomCollectionsBundle->getRootFolder();
+        std::vector<FileData*> mChildren = customRoot->getChildren();
+        for(auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
+        {
+            customRoot->removeChild(*it);
+        }
+        // clear index
+        mCustomCollectionsBundle->resetIndex();
+        // remove view so it's re-created as needed
+        ViewController::get()->removeGameListView(mCustomCollectionsBundle);
+    }
 }
 
 void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap)

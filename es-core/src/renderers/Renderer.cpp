@@ -433,6 +433,137 @@ namespace Renderer
 
 	} // drawRect
 
+//////////////////////////////////////////////////////////////////////////
+
+	void drawColoredLines(const SDL_Point* _points, const unsigned int _numPoints, const Uint32 _color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	{
+		// Convert color
+		Uint8 r,g,b,a;
+		a = ( _color     ) & 0xFF;
+		b = (_color >>  8) & 0xFF;
+		g = (_color >> 16) & 0xFF;
+		r = (_color >> 24) & 0xFF;
+		SDL_SetRenderDrawColor(sdlRenderer, r, g, b, a);
+
+		// Set blending mode (TODO handle properly srcBlendFactor and dstBlendFactor)
+		SDL_SetRenderDrawBlendMode(sdlRenderer, SDL_BLENDMODE_BLEND);
+
+		// Draw
+		SDL_RenderDrawLines(sdlRenderer, _points, _numPoints);
+	}
+
+	/*void drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	{
+		// Pass buffer data
+		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
+
+		// Setup shader (always NOT textured)
+		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+
+		// Do rendering
+		GL_CHECK_ERROR(glEnable(GL_BLEND));
+		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+		GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
+		GL_CHECK_ERROR(glDisable(GL_BLEND));
+
+		// Restore context
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+
+	} // drawLines*/
+
+//////////////////////////////////////////////////////////////////////////
+
+	SDL_Texture* createStaticTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	{
+        SDL_Texture* texture = nullptr;
+        if (_data == nullptr)
+        {
+	        texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, _width, _height);
+        }
+        else
+        {
+			SDL_Surface* sdlSurfaceData = SDL_CreateRGBSurfaceWithFormatFrom(_data, _width, _height, 32, _width*sizeof(Uint32), SDL_PIXELFORMAT_BGRA32);
+
+			// Create a texture from the surface, destroy surface as its' not needed anymore
+			texture = SDL_CreateTextureFromSurface(sdlRenderer, sdlSurfaceData);
+			SDL_FreeSurface(sdlSurfaceData);
+        }
+
+        return texture;
+	}
+
+//////////////////////////////////////////////////////////////////////////
+
+	SDL_Texture* createStreamingTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	{
+        SDL_Texture* texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, _width, _height);
+        void* pixels = nullptr;
+        int pitch;
+        if (_data)
+        {
+        	if (SDL_LockTexture(texture, NULL, &pixels, &pitch) == 0)
+        	{
+        		for (int y = 0 ; y < _height ; y++)
+        			memcpy(pixels+y*pitch, _data+y*_height*sizeof(Uint32), _width*sizeof(Uint32));
+
+        		SDL_UnlockTexture(texture);
+        	}
+        }
+        return texture;
+	}
+
+//////////////////////////////////////////////////////////////////////////
+
+	void destroyTexture(SDL_Texture* _texture)
+	{
+		SDL_DestroyTexture(_texture);
+	} // destroyTexture
+
+//////////////////////////////////////////////////////////////////////////
+
+	static SDL_Texture* boundTexture = 0;
+
+	void bindTexture(SDL_Texture* _texture)
+	{
+		if (boundTexture == _texture)
+			return;
+
+		boundTexture = _texture;
+	} // bindTexture
+
+//////////////////////////////////////////////////////////////////////////
+
+	void updateTexture(SDL_Texture* _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
+	{
+        Uint32* pixels = nullptr;
+        int pitch;
+        if (_data)
+        {
+	        SDL_Rect rect = { _x, _y, _width, _height };
+        	if (SDL_LockTexture(_texture, &rect, (void**)&pixels, &pitch) == 0)
+        	{
+        		for (int y = _y ; y < (_y+_height) ; y++)
+        			memcpy(pixels+y*(pitch/sizeof(Uint32))+_x, _data+(y-_y)*(pitch/sizeof(Uint32)), _width*sizeof(Uint32));
+
+        		SDL_UnlockTexture(_texture);
+        	}
+        }
+	} // updateTexture
+
+//////////////////////////////////////////////////////////////////////////
+
+	void blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect)
+	{
+		SDL_RenderCopy(sdlRenderer, _texture, srcRect, dstRect);
+	}
+
 	SDL_Window* getSDLWindow()     { return sdlWindow; }
 	int         getWindowWidth()   { return windowWidth; }
 	int         getWindowHeight()  { return windowHeight; }
@@ -449,15 +580,15 @@ namespace Renderer
 
 	bool isClippingEnabled() { return !clipStack.empty(); }
 
-	bool rectOverlap(Rect &A, Rect &B)
+	bool rectOverlap(SDL_Rect* A, SDL_Rect* B)
 	{
-		SDL_Rect* rectInter;
-		return SDL_IntersectRect(&A, &B, rectInter);
+		SDL_Rect rectInter;
+		return SDL_IntersectRect(A, B, &rectInter);
 	}
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		Rect screen, box;
+		SDL_Rect screen, box;
 
 		if (w > 0 && x + w <= 0)
 			return false;
@@ -481,7 +612,7 @@ namespace Renderer
 		box.w = (int)w;
 		box.h = (int)h;
 
-		if (!rectOverlap(box, screen))
+		if (!rectOverlap(&box, &screen))
 			return false;
 			
 		if (clipStack.empty())
@@ -494,7 +625,7 @@ namespace Renderer
 		}
 
 		screen = nativeClipStack.top();
-		return rectOverlap(screen, box);
+		return rectOverlap(&screen, &box);
 	}
 
 	unsigned int mixColors(unsigned int first, unsigned int second, float percent)
@@ -611,7 +742,8 @@ namespace Renderer
 	void swapBuffers()
 	{
 		SDL_RenderPresent(sdlRenderer);
-		SDL_RenderClear(sdlRenderer);
+        //SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		//SDL_RenderClear(sdlRenderer);
 	}
 
 	void setScissor(const Rect& _scissor)
