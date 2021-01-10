@@ -1306,7 +1306,7 @@ std::string SystemData::getConfigPath(bool forWrite)
 		return customPath;
 #endif
 
-	return "/etc/emulationstation/es_systems.cfg";
+	return "/userdata/system/configs/emulationstation/es_systems.cfg";
 }
 
 bool SystemData::isVisible()

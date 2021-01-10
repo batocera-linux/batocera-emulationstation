@@ -1,7 +1,6 @@
 #include "ImageIO.h"
 
 #include "Log.h"
-#include <FreeImage.h>
 #include <string.h>
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
@@ -11,9 +10,26 @@
 #include <mutex>
 #include "renderers/Renderer.h"
 
-unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
+static bool inited = false;
+
+void ImageIO::init()
 {
-	LOG(LogDebug) << "ImageIO::loadFromMemoryRGBA32";
+    if (inited)
+        return;
+
+    if (IMG_Init(IMG_INIT_JPG|IMG_INIT_PNG) != 0)
+        inited = true;
+}
+
+void ImageIO::close()
+{
+    if (inited)
+        IMG_Quit();
+}
+
+SDL_Texture* ImageIO::loadTextureFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
+{
+	LOG(LogDebug) << "ImageIO::loadTextureFromMemoryRGBA32";
 
 	if (baseSize != nullptr)
 		*baseSize = Vector2i(0, 0);
@@ -24,94 +40,93 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 	std::vector<unsigned char> rawData;
 	width = 0;
 	height = 0;
-	FIMEMORY * fiMemory = FreeImage_OpenMemory((BYTE *)data, (DWORD)size);
-	if (fiMemory != nullptr) 
-	{
-		//detect the filetype from data
-		FREE_IMAGE_FORMAT format = FreeImage_GetFileTypeFromMemory(fiMemory);
-		if (format != FIF_UNKNOWN && FreeImage_FIFSupportsReading(format))
-		{
-			//file type is supported. load image
-			FIBITMAP * fiBitmap = FreeImage_LoadFromMemory(format, fiMemory);
-			if (fiBitmap != nullptr)
-			{
-				//loaded. convert to 32bit if necessary
-				if (FreeImage_GetBPP(fiBitmap) != 32)
-				{
-					FIBITMAP * fiConverted = FreeImage_ConvertTo32Bits(fiBitmap);
-					if (fiConverted != nullptr)
-					{
-						//free original bitmap data
-						FreeImage_Unload(fiBitmap);
-						fiBitmap = fiConverted;
-					}
-				}
-				if (fiBitmap != nullptr)
-				{
-					width = FreeImage_GetWidth(fiBitmap);
-					height = FreeImage_GetHeight(fiBitmap);
 
-					if (baseSize != nullptr)
-						*baseSize = Vector2i(width, height);
+    init(); // TODO cleanup SDL2_image init
+	int freeSrcImage = 0;
+    SDL_Surface* surface = IMG_Load_RW(SDL_RWFromMem((void*)data, size), freeSrcImage);
+    if (surface != nullptr)
+    {
+        width = surface->w;
+        height = surface->h;
 
-					if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
-					{
-						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+        if (baseSize != nullptr)
+            *baseSize = Vector2i(width, height);
 
-						if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
-							sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
-						
-						if (sz.x() != width || sz.y() != height)
-						{
-							LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(Renderer::getSDLRenderer(), surface);
+        SDL_FreeSurface(surface);
 
-							FIBITMAP* imageRescaled = FreeImage_Rescale(fiBitmap, sz.x(), sz.y(), FILTER_BOX);
-							FreeImage_Unload(fiBitmap);
-							fiBitmap = imageRescaled;
+        if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
+        {
+            Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
 
-							width = FreeImage_GetWidth(fiBitmap);
-							height = FreeImage_GetHeight(fiBitmap);
+            if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
+                sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
 
-							if (packedSize != nullptr)
-								*packedSize = Vector2i(width, height);
-						}
-					}
+            if (sz.x() != width || sz.y() != height)
+            {
+                LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();
 
-					unsigned char* tempData = new unsigned char[width * height * 4];
+                SDL_Rect srcDest = { 0, 0, baseSize->x(), baseSize->y() };
+                SDL_Rect dstRect = { 0, 0, sz.x(), sz.y()};
+                SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+                SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_BGRA32,SDL_TEXTUREACCESS_TARGET, sz.x(), sz.y());
+                SDL_SetRenderTarget(Renderer::getSDLRenderer(), rescaledTexture);
+                SDL_RenderCopy(Renderer::getSDLRenderer(), texture, &srcDest, &dstRect);
+                SDL_SetRenderTarget(Renderer::getSDLRenderer(), NULL);
+                SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
 
-					int w = (int)width;
+                SDL_DestroyTexture(texture);
+                texture = rescaledTexture;
 
-					for (int y = (int)height; --y >= 0; )
-					{
-						unsigned int* argb = (unsigned int*)FreeImage_GetScanLine(fiBitmap, y);
-						unsigned int* abgr = (unsigned int*)(tempData + (y * width * 4));
-						for (int x = w; --x >= 0;)
-						{
-							unsigned int c = argb[x];
-							abgr[x] = (c & 0xFF00FF00) | ((c & 0xFF) << 16) | ((c >> 16) & 0xFF);
-						}
-					}
+                // Should it be retrieved through SDL_QueryTexture ?
+                width = sz.x();
+                height = sz.y();
 
-					FreeImage_Unload(fiBitmap);
-					FreeImage_CloseMemory(fiMemory);
+                if (packedSize != nullptr)
+                    *packedSize = Vector2i(width, height);
+            }
+        }
+        return texture;
+    }
+    else
+    {
+        LOG(LogError) << "Error - Failed to load image from memory!";
+        //TODO LOG(LogError) << "Error - File type " << (format == FIF_UNKNOWN ? "unknown" : "unsupported") << "!";
+    }
+    return nullptr;
+}
 
-					return tempData;
-				}
-			}
-			else
-			{
-				LOG(LogError) << "Error - Failed to load image from memory!";
-			}
-		}
-		else
-		{
-			LOG(LogError) << "Error - File type " << (format == FIF_UNKNOWN ? "unknown" : "unsupported") << "!";
-		}
-		//free FIMEMORY again
-		FreeImage_CloseMemory(fiMemory);
-	}
+SDL_Surface* ImageIO::loadSurfaceFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
+{
+    LOG(LogDebug) << "ImageIO::loadSurfaceFromMemoryRGBA32";
 
-	return nullptr;
+    if (baseSize != nullptr)
+        *baseSize = Vector2i(0, 0);
+
+    if (baseSize != nullptr)
+        *packedSize = Vector2i(0, 0);
+
+    std::vector<unsigned char> rawData;
+    width = 0;
+    height = 0;
+
+    init(); // TODO cleanup SDL2_image init
+    int freeSrcImage = 0;
+    SDL_Surface* surface = IMG_Load_RW(SDL_RWFromMem((void*)data, size), freeSrcImage);
+    if (surface != nullptr)
+    {
+        width = surface->w;
+        height = surface->h;
+        if (baseSize != nullptr)
+            *baseSize = Vector2i(width, height);
+        return surface;
+    }
+    else
+    {
+        LOG(LogError) << "Error - Failed to load image from memory!";
+        //TODO LOG(LogError) << "Error - File type " << (format == FIF_UNKNOWN ? "unknown" : "unsupported") << "!";
+    }
+    return nullptr;
 }
 
 void ImageIO::flipPixelsVert(unsigned char* imagePx, const size_t& width, const size_t& height)

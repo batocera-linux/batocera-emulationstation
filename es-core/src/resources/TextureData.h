@@ -65,6 +65,8 @@ public:
 	bool isRequired() { return mRequired; };
 	void setRequired(bool value) { mRequired = value; };
 
+	SDL_Texture* getTextureID() { return mTextureID; }
+
 private:
 	bool			mRequired;
 

@@ -32,33 +32,12 @@ namespace Renderer
 		size_t                     width   = 0;
 		size_t                     height  = 0;
 		ResourceData               resData = ResourceManager::getInstance()->getFileData(":/window_icon_256.png");
-		unsigned char*             rawData = ImageIO::loadFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
+		SDL_Surface*               surface = ImageIO::loadSurfaceFromMemoryRGBA32(resData.ptr.get(), resData.length, width, height);
 
-		if(rawData != nullptr)
+		if(surface != nullptr)
 		{
-			ImageIO::flipPixelsVert(rawData, width, height);
-
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-			unsigned int rmask = 0xFF000000;
-			unsigned int gmask = 0x00FF0000;
-			unsigned int bmask = 0x0000FF00;
-			unsigned int amask = 0x000000FF;
-#else
-			unsigned int rmask = 0x000000FF;
-			unsigned int gmask = 0x0000FF00;
-			unsigned int bmask = 0x00FF0000;
-			unsigned int amask = 0xFF000000;
-#endif
-			// try creating SDL surface from logo data
-			SDL_Surface* logoSurface = SDL_CreateRGBSurfaceFrom((void*)rawData, (int)width, (int)height, 32, (int)(width * 4), rmask, gmask, bmask, amask);
-			
-			if(logoSurface != nullptr)
-			{
-				SDL_SetWindowIcon(sdlWindow, logoSurface);
-				SDL_FreeSurface(logoSurface);
-			}
-
-			delete rawData;
+            SDL_SetWindowIcon(sdlWindow, surface);
+            SDL_FreeSurface(surface);
 		}
 
 	} // setIcon
@@ -149,10 +128,7 @@ namespace Renderer
 
 		LOG(LogInfo) << "Created window successfully.";
 
-
-		setIcon();
-
-		// Create renderer taking V-Sync setting into account	
+		// Create renderer taking V-Sync setting into account
 		if(Settings::getInstance()->getBool("VSync"))
 		{
     		sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -175,7 +151,9 @@ namespace Renderer
 			SDL_GL_SetSwapInterval(0);
 		}
 
-		return true;
+        setIcon();
+
+        return true;
 
 	} // createWindow
 
@@ -220,8 +198,14 @@ namespace Renderer
 		SDL_SetWindowInputFocus(sdlWindow);		
 	}
 
+	// TODO move this
+	static bool rendererInited = false;
+
 	bool init()
 	{
+	    if (rendererInited)
+	        return true;
+
 		if(!createWindow())
 			return false;
 
@@ -286,6 +270,7 @@ namespace Renderer
 		
         swapBuffers();
 
+        rendererInited = true;
 		return true;
 
 	} // init
@@ -564,14 +549,15 @@ namespace Renderer
 		SDL_RenderCopy(sdlRenderer, _texture, srcRect, dstRect);
 	}
 
-	SDL_Window* getSDLWindow()     { return sdlWindow; }
-	int         getWindowWidth()   { return windowWidth; }
-	int         getWindowHeight()  { return windowHeight; }
-	int         getScreenWidth()   { return screenWidth; }
-	int         getScreenHeight()  { return screenHeight; }
-	int         getScreenOffsetX() { return screenOffsetX; }
-	int         getScreenOffsetY() { return screenOffsetY; }
-	int         getScreenRotate()  { return screenRotate; }
+	SDL_Window*     getSDLWindow()      { return sdlWindow; }
+    SDL_Renderer*   getSDLRenderer()    { return sdlRenderer; }
+    int             getWindowWidth()    { return windowWidth; }
+	int             getWindowHeight()   { return windowHeight; }
+	int             getScreenWidth()    { return screenWidth; }
+	int             getScreenHeight()   { return screenHeight; }
+	int             getScreenOffsetX()  { return screenOffsetX; }
+	int             getScreenOffsetY()  { return screenOffsetY; }
+	int             getScreenRotate()   { return screenRotate; }
 
 	bool        isSmallScreen()    
 	{ 		

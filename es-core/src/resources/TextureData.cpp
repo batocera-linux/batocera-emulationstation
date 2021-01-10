@@ -144,18 +144,21 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 	if (!mMaxSize.empty())
 		maxSize = mMaxSize;
 
-	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
-	if (imageRGBA == nullptr)
+	SDL_Texture* imgTexture = ImageIO::loadTextureFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
+	if (imgTexture == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
 		return false;
 	}
 
+	mTextureID = imgTexture;
 	mSourceWidth = (float) width;
 	mSourceHeight = (float) height;
+	mWidth = width;
+	mHeight = height;
 	mScalable = false;
 
-	return initFromRGBA(imageRGBA, width, height, false);
+	return true;
 }
 
 bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool copyData)

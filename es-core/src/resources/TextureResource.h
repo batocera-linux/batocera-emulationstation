@@ -49,6 +49,13 @@ public:
 
 	static void clearQueue();
 
+	SDL_Texture* getTextureId()
+	{
+	    if (mTextureData == nullptr)
+	        return nullptr;
+	    return mTextureData->getTextureID();
+	}
+
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones
 	// are permanently allocated and cannot be loaded and unloaded based on resources

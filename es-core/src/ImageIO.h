@@ -4,6 +4,8 @@
 
 #include <stdlib.h>
 #include <vector>
+#include <SDL.h>
+#include <SDL_image.h>
 #include "math/Vector2f.h"
 #include "math/Vector2i.h"
 
@@ -43,7 +45,8 @@ private:
 class ImageIO
 {
 public:
-	static unsigned char*  loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize = nullptr, Vector2i* baseSize = nullptr, Vector2i* packedSize = nullptr);
+	static SDL_Texture*  loadTextureFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize = nullptr, Vector2i* baseSize = nullptr, Vector2i* packedSize = nullptr);
+    static SDL_Surface*  loadSurfaceFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize = nullptr, Vector2i* baseSize = nullptr, Vector2i* packedSize = nullptr);
 	static void flipPixelsVert(unsigned char* imagePx, const size_t& width, const size_t& height);
 
 	// batocera
@@ -56,6 +59,9 @@ public:
 	static void		loadImageCache();
 	static void		saveImageCache();
 	static void		clearImageCache();
+
+	static void     init();
+	static void     close();
 };
 
 #endif // ES_CORE_IMAGE_IO

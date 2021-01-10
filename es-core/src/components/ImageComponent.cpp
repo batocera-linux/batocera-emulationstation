@@ -504,7 +504,20 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
 
-		Renderer::drawTriangleStrips(&mVertices[0], 4);
+		SDL_Rect srcRect;
+		SDL_Rect dstRect;
+
+		srcRect.x = (int)(mVertices[0].tex.x() * getTextureSize().x());
+        srcRect.y = (int)(mVertices[0].tex.y() * getTextureSize().y());
+        srcRect.w = (int)(((mVertices[2].tex.x() - mVertices[0].tex.x()) * getTextureSize().x()));
+        srcRect.h = (int)(((mVertices[2].tex.y() - mVertices[0].tex.y()) * getTextureSize().y()));
+
+        dstRect.x = (int)(mVertices[0].pos.x());
+        dstRect.y = (int)(mVertices[0].pos.y());
+        dstRect.w = (int)((mVertices[3].pos.x() - mVertices[0].pos.x()));
+        dstRect.h = (int)((mVertices[3].pos.y() - mVertices[0].pos.y()));
+
+        Renderer::blit(mTexture->getTextureId(), &srcRect, &dstRect);
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::disableStencil();

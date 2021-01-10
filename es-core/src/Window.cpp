@@ -27,8 +27,13 @@
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) // batocera
-{		
-	mTransitionOffset = 0;
+{
+    if (!Renderer::init())
+    {
+        LOG(LogError) << "Renderer failed to initialize!";
+    }
+
+    mTransitionOffset = 0;
 
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
