@@ -96,6 +96,8 @@ find_package(FreeImage REQUIRED)
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
 find_package(SDL2 REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_image REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
