@@ -216,7 +216,7 @@ void SystemScreenSaver::renderScreenSaver()
 	{
 		// Render black background
 		Renderer::setMatrix(Transform4x4f::Identity());
-		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000FF, 0x000000FF);
+		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000FF);
 
 		// Only render the video if the state requires it
 		if ((int)mState >= STATE_FADE_IN_VIDEO)
@@ -256,7 +256,7 @@ void SystemScreenSaver::renderScreenSaver()
 
 		Renderer::setMatrix(Transform4x4f::Identity());
 		unsigned char color = screensaver_behavior == "dim" ? 0x000000A0 : 0x000000FF;
-		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), color, color);
+		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), color);
 	}
 }
 
@@ -499,9 +499,9 @@ void SystemScreenSaver::launchGame()
 // GAME SCREEN SAVER BASE CLASS
 // ------------------------------------------------------------------------------------------------------------------------
 
-GameScreenSaverBase::GameScreenSaverBase(Window* window) : GuiComponent(window),
-	mViewport(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight())
+GameScreenSaverBase::GameScreenSaverBase(Window* window) : GuiComponent(window)
 {
+	mViewport = { 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight() };
 	mDecoration = nullptr;
 	mMarquee = nullptr;
 	mLabelGame = nullptr;
@@ -569,7 +569,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 	if (game == nullptr)
 		return;
 
-	mViewport = Renderer::Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
+	mViewport = { 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight() };
 
 	std::string decos = Settings::getInstance()->getString("ScreenSaverDecorations");
 
@@ -648,7 +648,8 @@ void GameScreenSaverBase::setGame(FileData* game)
 								auto bottom = doc["bottom"].GetInt();
 								auto right = doc["right"].GetInt();
 
-								mViewport = Renderer::Rect(dx + left * px, dy + top * py, (width - right - left) * px, (height - bottom - top) * py);
+								// TODO check narrowing / rounding here
+								mViewport = { (int)(dx + left * px), (int)(dy + top * py), (int)((width - right - left) * px), (int)((height - bottom - top) * py) };
 							}
 						}
 					}
@@ -888,7 +889,7 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 	}
 
 	if (Settings::DebugImage)
-		Renderer::drawRect(mViewport.x, mViewport.y, mViewport.w, mViewport.h, 0xFFFF0090, 0xFFFF0090);
+		Renderer::drawRect(mViewport.x, mViewport.y, mViewport.w, mViewport.h, 0xFFFF0090);
 }
 
 void VideoScreenSaver::update(int deltaTime)

@@ -311,42 +311,6 @@ namespace Renderer
 
 	} // setupWindow
 
-//////////////////////////////////////////////////////////////////////////
-
-	void createContext()
-	{
-		sdlContext = SDL_GL_CreateContext(getSDLWindow());
-		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
-
-		const std::string vendor     = glGetString(GL_VENDOR)     ? (const char*)glGetString(GL_VENDOR)     : "";
-		const std::string renderer   = glGetString(GL_RENDERER)   ? (const char*)glGetString(GL_RENDERER)   : "";
-		const std::string version    = glGetString(GL_VERSION)    ? (const char*)glGetString(GL_VERSION)    : "";
-		const std::string extensions = glGetString(GL_EXTENSIONS) ? (const char*)glGetString(GL_EXTENSIONS) : "";
-
-		LOG(LogInfo) << "GL vendor:   " << vendor;
-		LOG(LogInfo) << "GL renderer: " << renderer;
-		LOG(LogInfo) << "GL version:  " << version;
-		LOG(LogInfo) << "Checking available OpenGL extensions...";
-		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (extensions.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
-
-		setupShaders();
-		setupVertexBuffer();
-
-		GL_CHECK_ERROR(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
-		GL_CHECK_ERROR(glActiveTexture(GL_TEXTURE0));
-		GL_CHECK_ERROR(glPixelStorei(GL_PACK_ALIGNMENT, 1));
-		GL_CHECK_ERROR(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
-
-	} // createContext
-
-//////////////////////////////////////////////////////////////////////////
-
-	void destroyContext()
-	{
-		SDL_GL_DeleteContext(sdlContext);
-		sdlContext = nullptr;
-
-	} // destroyContext
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -569,50 +533,8 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	void setViewport(const Rect& _viewport)
-	{
-		// glViewport starts at the bottom left of the window
-		GL_CHECK_ERROR(glViewport( _viewport.x, getWindowHeight() - _viewport.y - _viewport.h, _viewport.w, _viewport.h));
-
-	} // setViewport
 
 //////////////////////////////////////////////////////////////////////////
-
-	void setScissor(const Rect& _scissor)
-	{
-		if((_scissor.x == 0) && (_scissor.y == 0) && (_scissor.w == 0) && (_scissor.h == 0))
-		{
-			GL_CHECK_ERROR(glDisable(GL_SCISSOR_TEST));
-		}
-		else
-		{
-			// glScissor starts at the bottom left of the window
-			GL_CHECK_ERROR(glScissor(_scissor.x, getWindowHeight() - _scissor.y - _scissor.h, _scissor.w, _scissor.h));
-			GL_CHECK_ERROR(glEnable(GL_SCISSOR_TEST));
-		}
-
-	} // setScissor
-
-//////////////////////////////////////////////////////////////////////////
-
-	void setSwapInterval()
-	{
-		// vsync
-		if(Settings::getInstance()->getBool("VSync"))
-		{
-			// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default),
-			// 1 for updates synchronized with the vertical retrace,
-			// or -1 for late swap tearing.
-			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
-			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
-			// if that doesn't work, report an error
-			if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
-				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
-		}
-		else
-			SDL_GL_SetSwapInterval(0);
-
-	} // setSwapInterval
 
 //////////////////////////////////////////////////////////////////////////
 

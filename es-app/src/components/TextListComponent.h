@@ -199,7 +199,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		else 
 		{
 			Renderer::setMatrix(trans);			
-			Renderer::drawRect(0.0f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, mSize.x(),
+			Renderer::drawGradientRect(0.0f, (mCursor - startEntry)*entrySize + mSelectorOffsetY, mSize.x(),
 					mSelectorHeight, mSelectorColor, mSelectorColorEnd, mSelectorColorGradientHorizontal);
 		}
 	}
@@ -264,7 +264,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
 
 			Renderer::popClipRect();
-			Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033, 0xFF000033);
+			Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033);
 			Renderer::pushClipRect(Vector2i((int)(trans.translation().x() + mHorizontalMargin), (int)trans.translation().y()),
 				Vector2i((int)(dim.x() - mHorizontalMargin * 2), (int)dim.y()));
 		}

@@ -291,7 +291,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 					bgColor & 0xFFFFFF00 | (unsigned char)((bgColor & 0xFF) * opacity), 
 					Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
 
-				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
+				Renderer::drawGradientRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
 					selectorColor & 0xFFFFFF00 | (unsigned char)((selectorColor & 0xFF) * opacity),
 					selectorGradientColor & 0xFFFFFF00 | (unsigned char)((selectorGradientColor & 0xFF) * opacity),					
 					selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);

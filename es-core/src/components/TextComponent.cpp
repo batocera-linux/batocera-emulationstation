@@ -173,7 +173,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		Renderer::setMatrix(trans);
 
 		auto bgColor = mBgColor & 0xFFFFFF00 | (unsigned char)((mBgColor & 0xFF) * (mOpacity / 255.0));
-		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor, bgColor);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), bgColor);
 	}
 
 	if (mTextCache == nullptr && mFont != nullptr)
@@ -208,7 +208,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 	{
 		// draw the "textbox" area, what we are aligned within
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
 	}
 
 	if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
@@ -242,13 +242,13 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		switch(mHorizontalAlignment)
 		{
 		case ALIGN_LEFT:
-			Renderer::drawRect(0.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
+			Renderer::drawRect(0.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
 			break;
 		case ALIGN_CENTER:
-			Renderer::drawRect((mSize.x() - mTextCache->metrics.size.x()) / 2.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
+			Renderer::drawRect((mSize.x() - mTextCache->metrics.size.x()) / 2.0f, 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
 			break;
 		case ALIGN_RIGHT:
-			Renderer::drawRect(mSize.x() - mTextCache->metrics.size.x(), 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033, 0x00000033);
+			Renderer::drawRect(mSize.x() - mTextCache->metrics.size.x(), 0.0f, mTextCache->metrics.size.x(), mTextCache->metrics.size.y(), 0x00000033);
 			break;
 		}
 	}

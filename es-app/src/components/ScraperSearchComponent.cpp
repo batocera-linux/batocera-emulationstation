@@ -388,7 +388,7 @@ void ScraperSearchComponent::render(const Transform4x4f& parentTrans)
 	if(mBlockAccept)
 	{
 		Renderer::setMatrix(trans);
-		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000011, 0x00000011);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000011);
 
 		mBusyAnim.render(trans);
 	}

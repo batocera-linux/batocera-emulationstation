@@ -167,7 +167,7 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 			Renderer::drawRoundRect(0, 0, mSize.x(), mSize.y(), radius, edgeColor);
 		}
 		else
-			Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor, edgeColor);
+			Renderer::drawRect(0.0, 0.0, mSize.x(), mSize.y(), edgeColor);
 	}
 	else if (mTexture->bind())
 	{

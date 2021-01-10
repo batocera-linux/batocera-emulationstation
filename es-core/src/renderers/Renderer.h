@@ -4,10 +4,10 @@
 
 #include <vector>
 #include "math/Vector2f.h"
+#include <SDL.h>
 
 class  Transform4x4f;
 class  Vector2i;
-struct SDL_Window;
 
 namespace Renderer
 {
@@ -41,16 +41,7 @@ namespace Renderer
 
 	} // Texture::
 
-	struct Rect
-	{
-		Rect(const int _x, const int _y, const int _w, const int _h) : x(_x), y(_y), w(_w), h(_h) { }
-
-		int x;
-		int y;
-		int w;
-		int h;
-
-	}; // Rect
+	typedef SDL_Rect Rect;
 
 	struct Vertex
 	{
@@ -68,7 +59,7 @@ namespace Renderer
 	void        pushClipRect    (const Vector2i& _pos, const Vector2i& _size);
 	void        popClipRect     ();
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
-	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient = false, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
+	void        drawGradientRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient = false, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 
 	SDL_Window* getSDLWindow    ();
 	int         getWindowWidth  ();
@@ -83,8 +74,6 @@ namespace Renderer
 	unsigned int convertColor      (const unsigned int _color);
 	unsigned int getWindowFlags    ();
 	void         setupWindow       ();
-	void         createContext     ();
-	void         destroyContext    ();
 	unsigned int createTexture     (const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data);
 	void         destroyTexture    (const unsigned int _texture);
 	void         updateTexture     (const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);

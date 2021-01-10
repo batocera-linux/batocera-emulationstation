@@ -76,25 +76,6 @@ namespace Renderer
 
 	} // setupWindow
 
-	void createContext()
-	{
-		sdlContext = SDL_GL_CreateContext(getSDLWindow());
-		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
-
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-		std::string glExts = (const char*)glGetString(GL_EXTENSIONS);
-		LOG(LogInfo) << "Checking available OpenGL extensions...";
-		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
-
-	} // createContext
-
-	void destroyContext()
-	{
-		SDL_GL_DeleteContext(sdlContext);
-		sdlContext = nullptr;
-
-	} // destroyContext
 
 	unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
 	{
@@ -244,20 +225,6 @@ namespace Renderer
 
 	void setSwapInterval()
 	{
-		// vsync
-		if(Settings::getInstance()->getBool("VSync"))
-		{
-			// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default), 
-			// 1 for updates synchronized with the vertical retrace, 
-			// or -1 for late swap tearing.
-			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
-			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
-			// if that doesn't work, report an error
-			if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
-				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
-		}
-		else
-			SDL_GL_SetSwapInterval(0);
 
 	} // setSwapInterval
 

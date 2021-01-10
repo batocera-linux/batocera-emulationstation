@@ -77,12 +77,12 @@ void RetroAchievementProgress::render(const Transform4x4f& parentTrans)
 			// Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x0000FF32, 0x0000FF32);
 
 
-	Renderer::drawRect(padding, y, w, height, 0x00000032, 0x00000032);
+	Renderer::drawRect(padding, y, w, height, 0x00000032);
 
 	if (mMax > 0)
 	{
 		int cur = (w * mValue) / mMax;
-		Renderer::drawRect(padding, y, cur, height, 0xFFFF00C0, 0xFFFF00C0);
+		Renderer::drawRect(padding, y, cur, height, 0xFFFF00C0);
 	}
 		
 	mText->render(trans);

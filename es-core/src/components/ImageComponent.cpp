@@ -470,8 +470,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 		if(Settings::DebugImage)
 		{
-			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
-			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
+			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033);
+			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033);
 		}
 
 		// actually draw the image

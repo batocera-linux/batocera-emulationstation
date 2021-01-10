@@ -7,7 +7,6 @@
 #include "Log.h"
 #include "Settings.h"
 
-#include <SDL.h>
 #include <stack>
 
 namespace Renderer
@@ -16,6 +15,7 @@ namespace Renderer
 	static std::stack<Rect> nativeClipStack;
 
 	static SDL_Window*      sdlWindow          = nullptr;
+	static SDL_Renderer*	sdlRenderer        = nullptr;
 	static int              windowWidth        = 0;
 	static int              windowHeight       = 0;
 	static int              screenWidth        = 0;
@@ -149,9 +149,31 @@ namespace Renderer
 
 		LOG(LogInfo) << "Created window successfully.";
 
-		createContext();
+
 		setIcon();
-		setSwapInterval();
+
+		// Create renderer taking V-Sync setting into account	
+		if(Settings::getInstance()->getBool("VSync"))
+		{
+    		sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			if (sdlRenderer)
+    		{
+				// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default), 
+				// 1 for updates synchronized with the vertical retrace, 
+				// or -1 for late swap tearing.
+				// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
+				// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
+				// if that doesn't work, report an error
+				if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
+					LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
+    		}
+		}
+
+		if (sdlRenderer == nullptr)
+		{
+    		sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
+			SDL_GL_SetSwapInterval(0);
+		}
 
 		return true;
 
@@ -166,7 +188,8 @@ namespace Renderer
 			sdlWindowPosition = Vector2i(x, y); // Save position to restore it later
 		}
 
-		destroyContext();
+		SDL_DestroyRenderer(sdlRenderer);
+		sdlRenderer = nullptr;
 
 		SDL_DestroyWindow(sdlWindow);
 		sdlWindow = nullptr;
@@ -203,7 +226,7 @@ namespace Renderer
 			return false;
 
 		Transform4x4f projection = Transform4x4f::Identity();
-		Rect          viewport   = Rect(0, 0, 0, 0);
+		Rect          viewport   = {0, 0, 0, 0};
 
 		switch(screenRotate)
 		{
@@ -260,7 +283,8 @@ namespace Renderer
 
 		setViewport(viewport);
 		setProjection(projection);
-		swapBuffers();
+		
+        swapBuffers();
 
 		return true;
 
@@ -274,17 +298,17 @@ namespace Renderer
 
 	void pushClipRect(const Vector2i& _pos, const Vector2i& _size)
 	{
-		Rect box(_pos.x(), _pos.y(), _size.x(), _size.y());
+		Rect box = { _pos.x(), _pos.y(), _size.x(), _size.y() };
 
 		if(box.w == 0) box.w = screenWidth  - box.x;
 		if(box.h == 0) box.h = screenHeight - box.y;
 
 		switch(screenRotate)
 		{
-			case 0: { box = Rect(screenOffsetX + box.x,                       screenOffsetY + box.y,                        box.w, box.h); } break;
-			case 1: { box = Rect(windowWidth - screenOffsetY - box.y - box.h, screenOffsetX + box.x,                        box.h, box.w); } break;
-			case 2: { box = Rect(windowWidth - screenOffsetX - box.x - box.w, windowHeight - screenOffsetY - box.y - box.h, box.w, box.h); } break;
-			case 3: { box = Rect(screenOffsetY + box.y,                       windowHeight - screenOffsetX - box.x - box.w, box.h, box.w); } break;
+			case 0: { box = { screenOffsetX + box.x,                       screenOffsetY + box.y,                        box.w, box.h }; } break;
+			case 1: { box = { windowWidth - screenOffsetY - box.y - box.h, screenOffsetX + box.x,                        box.h, box.w }; } break;
+			case 2: { box = { windowWidth - screenOffsetX - box.x - box.w, windowHeight - screenOffsetY - box.y - box.h, box.w, box.h }; } break;
+			case 3: { box = { screenOffsetY + box.y,                       windowHeight - screenOffsetX - box.x - box.w, box.h, box.w }; } break;
 		}
 
 		// make sure the box fits within clipStack.top(), and clip further accordingly
@@ -301,7 +325,8 @@ namespace Renderer
 		if(box.h < 0) box.h = 0;
 
 		clipStack.push(box);
-		nativeClipStack.push(Rect(_pos.x(), _pos.y(), _size.x(), _size.y()));
+		Rect tmp = { _pos.x(), _pos.y(), _size.x(), _size.y() };
+		nativeClipStack.push(tmp);
 
 		setScissor(box);
 
@@ -318,20 +343,80 @@ namespace Renderer
 		clipStack.pop();
 		nativeClipStack.pop();
 
-		if(clipStack.empty()) setScissor(Rect(0, 0, 0, 0));
+		if(clipStack.empty()) SDL_RenderSetClipRect(sdlRenderer, NULL);
 		else                  setScissor(clipStack.top());
 
 	} // popClipRect
 
 	void drawRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
-		drawRect(_x, _y, _w, _h, _color, _color, true, _srcBlendFactor, _dstBlendFactor);
+		// TODO : proper blending handling (_srcBlendFactor, _dstBlendFactor)
+		
+		// Round coordinates (might need to be adjusted)
+		Rect rect;
+		rect.x = (int)(_x + 0.5f);
+		rect.y = (int)(_y + 0.5f);
+		rect.w = (int)(_w + 0.5f);
+		rect.h = (int)(_h + 0.5f);
+
+		// Convert color
+		Uint8 r,g,b,a;
+		a = ( _color     ) & 0xFF;
+		b = (_color >>  8) & 0xFF;
+		g = (_color >> 16) & 0xFF;
+		r = (_color >> 24) & 0xFF;
+		SDL_SetRenderDrawColor(sdlRenderer, r, g, b, a);
+
+		// Set blending mode (TODO handle properly srcBlendFactor and dstBlendFactor)
+		SDL_SetRenderDrawBlendMode(sdlRenderer, SDL_BLENDMODE_BLEND);
+
+		// Draw
+		SDL_RenderFillRect(sdlRenderer, &rect);
+
 	} // drawRect
 
-	void drawRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void drawGradientRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
+		// Are we really drawing a gradient ?
+		if (horizontalGradient==false)
+		{
+			drawRect(_x, _y, _w, _h, _color, _srcBlendFactor, _dstBlendFactor);
+			return;
+		}
+
+		// Round coordinates (might need to be adjusted)
+		Rect rect;
+		rect.x = (int)(_x + 0.5f);
+		rect.y = (int)(_y + 0.5f);
+		rect.w = (int)(_w + 0.5f);
+		rect.h = (int)(_h + 0.5f);
+
+		// Set blending mode (TODO handle properly srcBlendFactor and dstBlendFactor)
+		SDL_SetRenderDrawBlendMode(sdlRenderer, SDL_BLENDMODE_BLEND);
+
+		// Force renderer to scale smoothly (SDL hint)
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+
+		// Create a 2x1 surface with gradient colors
+		Uint32 pixelData[2];
+		pixelData[0] = _color;
+		pixelData[1] = _colorEnd;
+		SDL_Surface* sdlSurfaceGradient = SDL_CreateRGBSurfaceWithFormatFrom(pixelData, 2, 1, 32, 2*sizeof(Uint32), SDL_PIXELFORMAT_BGRA32);
+
+		// Create a texture from the surface, destroy surface as its' not needed anymore
+		SDL_Texture* sdlTextureGradient = SDL_CreateTextureFromSurface(sdlRenderer, sdlSurfaceGradient);
+		SDL_FreeSurface(sdlSurfaceGradient);
+
+		// Copy (stretch) to current render target
+		SDL_RenderCopy(sdlRenderer, sdlTextureGradient, NULL, &rect);
+
+		// Disable high squality scaling
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+
+		/*
 		const unsigned int color    = convertColor(_color);
 		const unsigned int colorEnd = convertColor(_colorEnd);
+
 		Vertex             vertices[4];
 
 		vertices[0] = { { _x     ,_y      }, { 0.0f, 0.0f }, color };
@@ -344,7 +429,7 @@ namespace Renderer
 			vertices[i].pos.round();
 
 		bindTexture(0);
-		drawTriangleStrips(vertices, 4, _srcBlendFactor, _dstBlendFactor);
+		drawTriangleStrips(vertices, 4, _srcBlendFactor, _dstBlendFactor);*/
 
 	} // drawRect
 
@@ -364,36 +449,38 @@ namespace Renderer
 
 	bool isClippingEnabled() { return !clipStack.empty(); }
 
-	bool valueInRange(int value, int min, int max)
-	{
-		return (value >= min) && (value <= max);
-	}
-
 	bool rectOverlap(Rect &A, Rect &B)
 	{
-		bool xOverlap = valueInRange(A.x, B.x, B.x + B.w) ||
-			valueInRange(B.x, A.x, A.x + A.w);
-
-		bool yOverlap = valueInRange(A.y, B.y, B.y + B.h) ||
-			valueInRange(B.y, A.y, A.y + A.h);
-
-		return xOverlap && yOverlap;
+		SDL_Rect* rectInter;
+		return SDL_IntersectRect(&A, &B, rectInter);
 	}
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
-		Rect box = Rect(x, y, w, h);
+		Rect screen, box;
 
 		if (w > 0 && x + w <= 0)
 			return false;
 
 		if (h > 0 && y + h <= 0)
 			return false;
-		
+
+		// Fill screen rect		
+		screen.x = 0;
+		screen.y = 0;
+		screen.w = Renderer::getScreenWidth();
+		screen.h = Renderer::getScreenHeight();
+
 		if (x == screen.w || y == screen.h)
 			return false;
-			
+		
+		// Fill box rect	
+		// TODO Should we round here ????
+		box.x = (int)x;
+		box.y = (int)y;
+		box.w = (int)w;
+		box.h = (int)h;
+
 		if (!rectOverlap(box, screen))
 			return false;
 			
@@ -488,5 +575,64 @@ namespace Renderer
 		setStencil(vertex.data(), vertex.size());
 	}
 
+	void setSwapInterval()
+	{
+		// vsync
+		if(Settings::getInstance()->getBool("VSync"))
+		{
+			// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default),
+			// 1 for updates synchronized with the vertical retrace,
+			// or -1 for late swap tearing.
+			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
+			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
+			// if that doesn't work, report an error
+			if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
+				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
+		}
+		else
+			SDL_GL_SetSwapInterval(0);
+
+	} // setSwapInterval
+
+	void setViewport(const Rect& _viewport)
+	{
+		SDL_Rect viewport;
+		viewport.x = _viewport.x;
+		viewport.y = _viewport.y;
+		viewport.w = _viewport.w;
+		viewport.h = _viewport.h;
+		SDL_RenderSetViewport(sdlRenderer, &viewport);
+		
+		// glViewport starts at the bottom left of the window
+		//GL_CHECK_ERROR(glViewport( _viewport.x, getWindowHeight() - _viewport.y - _viewport.h, _viewport.w, _viewport.h));
+
+	} // setViewport
+
+	void swapBuffers()
+	{
+		SDL_RenderPresent(sdlRenderer);
+		SDL_RenderClear(sdlRenderer);
+	}
+
+	void setScissor(const Rect& _scissor)
+	{
+		if((_scissor.x == 0) && (_scissor.y == 0) && (_scissor.w == 0) && (_scissor.h == 0))
+		{
+			SDL_RenderSetClipRect(sdlRenderer, NULL);
+		}
+		else
+		{
+			SDL_Rect rect;
+			rect.x = _scissor.x;
+			rect.y = _scissor.y;
+			rect.w = _scissor.w;
+			rect.h = _scissor.h;
+			SDL_RenderSetClipRect(sdlRenderer, &rect);
+			//// glScissor starts at the bottom left of the window
+			//GL_CHECK_ERROR(glScissor(_scissor.x, getWindowHeight() - _scissor.y - _scissor.h, _scissor.w, _scissor.h));
+			//GL_CHECK_ERROR(glEnable(GL_SCISSOR_TEST));
+		}
+
+	} // setScissor
 
 } // Renderer::
