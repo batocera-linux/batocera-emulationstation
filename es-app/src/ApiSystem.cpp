@@ -801,34 +801,35 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 		try
 		{
 			Utils::Zip::ZipFile file;
-			file.load(fileName);
-
-			std::string romName;
-
-			for (auto name : file.namelist())
+			if (file.load(fileName))
 			{
-				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
-				{
-					if (!romName.empty())
-					{
-						romName = "";
-						break;
-					}
+				std::string romName;
 
-					romName = name;
+				for (auto name : file.namelist())
+				{
+					if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+					{
+						if (!romName.empty())
+						{
+							romName = "";
+							break;
+						}
+
+						romName = name;
+					}
+				}
+
+				if (!romName.empty())
+				{
+					LOG(LogDebug) << "ZipFile::readBuffered : " << romName;
+
+					MD5 md5 = MD5();
+					Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+					file.readBuffered(romName, func, &md5);
+					md5.finalize();
+					return md5.hexdigest();
 				}
 			}
-
-			if (!romName.empty())
-			{
-				LOG(LogDebug) << "ZipFile::readBuffered : " << romName;
-
-				MD5 md5 = MD5();
-				Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
-				file.readBuffered(romName, func, &md5);
-				md5.finalize();
-				return md5.hexdigest();
-			}			
 		}
 		catch (...)
 		{
@@ -945,26 +946,27 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 		try
 		{
 			Utils::Zip::ZipFile file;
-			file.load(fileName);
-
-			std::string romName;
-
-			for (auto name : file.namelist())
+			if (file.load(fileName))
 			{
-				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+				std::string romName;
+
+				for (auto name : file.namelist())
 				{
-					if (!romName.empty())
+					if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
 					{
-						romName = "";
-						break;
+						if (!romName.empty())
+						{
+							romName = "";
+							break;
+						}
+
+						romName = name;
 					}
-
-					romName = name;
 				}
-			}
 
-			if (!romName.empty())
-				return file.getFileCrc(romName);
+				if (!romName.empty())
+					return file.getFileCrc(romName);
+			}
 		}
 		catch (...)
 		{
@@ -1030,21 +1032,22 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 			try
 			{
 				Utils::Zip::ZipFile file;
-				file.load(fileName);
-
-				for (auto name : file.namelist())
+				if (file.load(fileName))
 				{
-					if (Utils::String::endsWith(name, "/"))
+					for (auto name : file.namelist())
 					{
-						Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
-						continue;
+						if (Utils::String::endsWith(name, "/"))
+						{
+							Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
+							continue;
+						}
+
+						file.extract(name, destFolder);
 					}
 
-					file.extract(name, destFolder);
+					LOG(LogDebug) << "unzipFile << OK";
+					return true;
 				}
-
-				LOG(LogDebug) << "unzipFile << OK";
-				return true;
 			}
 			catch (...)
 			{

@@ -33,6 +33,7 @@ std::vector<CustomFeature> SystemData::mGlobalFeatures;
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mIsCheevosSupported = -1;
 	mIsGroupSystem = groupedSystem;
 	mGameListHash = 0;
 	mGameCountInfo = nullptr;
@@ -1622,27 +1623,42 @@ bool SystemData::isCheevosSupported()
 	if (isCollection())
 		return false;
 
-	const std::set<std::string> cheevosSystems = {
-		"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem", 
-		"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
-		"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
-
-	// "nds" -> Disabled for now
-	// "psx" -> Missing cd reader library	
-	// "atarijaguar", "jaguar" -> No games yet
-
-	if (cheevosSystems.find(getName()) != cheevosSystems.cend())
+	if (mIsCheevosSupported < 0)
 	{
-		if (!es_features_loaded)
-			return true;
+		mIsCheevosSupported = 0;
 
-		for (auto emul : mEmulators)
-			for (auto core : emul.cores)
-				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
-					return true;
+		const std::set<std::string> cheevosSystems = {
+			"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem",
+			"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
+			"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame" };
+
+		// "nds" -> Disabled for now
+		// "psx" -> Missing cd reader library	
+		// "atarijaguar", "jaguar" -> No games yet
+
+		if (cheevosSystems.find(getName()) != cheevosSystems.cend())
+		{
+			if (!es_features_loaded)
+			{
+				mIsCheevosSupported = 1;
+				return true;
+			}
+
+			for (auto emul : mEmulators)
+			{
+				for (auto core : emul.cores)
+				{
+					if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+					{
+						mIsCheevosSupported = 1;
+						return true;
+					}
+				}
+			}
+		}
 	}
 
-	return false;
+	return mIsCheevosSupported != 0;
 }
 
 bool SystemData::isNetplayActivated()
