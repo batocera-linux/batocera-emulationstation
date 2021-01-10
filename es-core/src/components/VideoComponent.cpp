@@ -82,13 +82,9 @@ VideoComponent::VideoComponent(Window* window) :
 	mConfig.showSnapshotNoVideo		= false;
 	mConfig.snapshotSource = IMAGE;
 	mConfig.startDelay				= 0;
-	if (mWindow->getGuiStackSize() > 1) {
-		topWindow(false);
-	}
 
-	std::string path = getTitleFolder();
-	if(!Utils::FileSystem::exists(path))
-		Utils::FileSystem::createDirectory(path);
+	if (mWindow->getGuiStackSize() > 1)
+		topWindow(false);
 }
 
 VideoComponent::~VideoComponent()

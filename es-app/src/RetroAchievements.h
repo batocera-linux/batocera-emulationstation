@@ -167,6 +167,7 @@ struct RetroAchievementGame
 	std::string name;
 	std::string achievements;
 	std::string points;
+	std::string totalTruePoints;
 	std::string lastplayed;
 	std::string badge;
 
@@ -177,6 +178,7 @@ struct RetroAchievementGame
 struct RetroAchievementInfo
 {
 	std::string username;
+	std::string points;
 	std::string totalpoints;
 	std::string rank;
 	std::string userpic;

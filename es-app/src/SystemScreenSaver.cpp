@@ -342,10 +342,19 @@ std::string SystemScreenSaver::pickGameListNode(unsigned long index, const char 
 					mGameName = (*itf)->getName();
 					mCurrentGame = (*itf);
 
+
 #ifdef _RPI_
 					if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
+					{
 						if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never" && strcmp(nodeName, "video") == 0)
+						{
+							std::string path = getTitleFolder();
+							if (!Utils::FileSystem::exists(path))
+								Utils::FileSystem::createDirectory(path);
+
 							writeSubtitle(mGameName.c_str(), mSystemName.c_str(), (Settings::getInstance()->getString("ScreenSaverGameInfo") == "always"));
+						}
+				}
 #endif
 
 					return path;

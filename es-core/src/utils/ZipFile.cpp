@@ -12,6 +12,7 @@
 #include <cstring>
 #include <string>
 #include "zip_file.hpp"
+#include "Log.h"
 
 namespace Utils
 {
@@ -38,16 +39,23 @@ namespace Utils
 			try
 			{
 				if (mZipFile != nullptr)
+				{
 					delete ((miniz_cpp::zip_file*) mZipFile);
+					mZipFile = nullptr;
+				}
 
 				miniz_cpp::zip_file* pFile = new miniz_cpp::zip_file();
 				pFile->load(filename);
 
 				mZipFile = pFile;
 			}
+			catch (std::runtime_error& e)
+			{
+				LOG(LogError) << "ZipFile::load error : " << e.what();
+			}
 			catch (...)
 			{
-
+				LOG(LogError) << "ZipFile::load unknown error";
 			}
 
 			return mZipFile != nullptr;
@@ -108,7 +116,8 @@ namespace Utils
 		{
 			try
 			{
-				return ((miniz_cpp::zip_file*) mZipFile)->namelist();
+				if (mZipFile != nullptr)
+					return ((miniz_cpp::zip_file*) mZipFile)->namelist();
 			}
 			catch(...) { }
 

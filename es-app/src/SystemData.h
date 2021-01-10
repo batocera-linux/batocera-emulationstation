@@ -292,6 +292,8 @@ private:
 	bool mIsGameSystem;
 	bool mIsGroupSystem;
 
+	int mIsCheevosSupported;
+
 	SystemMetadata mMetadata;
 
 	SystemEnvironmentData* mEnvData;
