@@ -14,6 +14,7 @@ option(DISABLE_KODI "Set to ON to disable kodi in menu")
 # emuelec
 option(ENABLE_EMUELEC "Set to ON to enable EmuELEC changes" ${ENABLE_EMUELEC})
 option(ENABLE_GAMEFORCE "Set to ON to enable Gameforce specific changes" ${ENABLE_GAMEFORCE})
+option(ODROIDGOA "Set to ON to enable Odroid Go Advance specific changes" ${ODROIDGOA})
 
 project(emulationstation-all)
 
@@ -32,6 +33,10 @@ endif()
 
 if("${ENABLE_GAMEFORCE}" STREQUAL "1")
   add_definitions(-D_ENABLEGAMEFORCE)
+endif()
+
+if("${ODROIDGOA}" STREQUAL "1")
+  add_definitions(-DODROIDGOA)
 endif()
 
 # batocera / kodi menu

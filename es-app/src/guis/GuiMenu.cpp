@@ -207,7 +207,7 @@ void GuiMenu::openEmuELECSettings()
 
 	Window* window = mWindow;
 	std::string a;
-#ifndef _ENABLEGAMEFORCE && !defined(ODROIDGOA)
+#if !defined(_ENABLEGAMEFORCE) && !defined(ODROIDGOA)
 	auto emuelec_video_mode = std::make_shared< OptionListComponent<std::string> >(mWindow, "VIDEO MODE", false);
         std::vector<std::string> videomode;
 		videomode.push_back("1080p60hz");
@@ -309,30 +309,30 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 		
-        auto emuelec_powerled_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "POWER LED COLOR", false);
+        auto emuelec_powerled_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "STATUS LED", false);
 		std::vector<std::string> powerledoptions;
 		powerledoptions.push_back("off");
 		powerledoptions.push_back("heartbeat");
         powerledoptions.push_back("on");
 		
-		auto powerledoptionsS = SystemConf::getInstance()->get("gf_powerled");
+		auto powerledoptionsS = SystemConf::getInstance()->get("gf_statusled");
 		if (powerledoptionsS.empty())
 		powerledoptionsS = "heartbeat";
 		
 		for (auto it = powerledoptions.cbegin(); it != powerledoptions.cend(); it++)
 		emuelec_powerled_def->add(*it, *it, powerledoptionsS == *it);
 		
-		s->addWithLabel(_("POWER LED COLOR"), emuelec_powerled_def);
+		s->addWithLabel(_("STATUS LED"), emuelec_powerled_def);
 		s->addSaveFunc([emuelec_powerled_def] {
 			if (emuelec_powerled_def->changed()) {
 				std::string selectedpowerled = emuelec_powerled_def->getSelected();
                 runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh pl " +selectedpowerled, "", nullptr);
-				SystemConf::getInstance()->set("gf_powerled", selectedpowerled);
+				SystemConf::getInstance()->set("gf_statusled", selectedpowerled);
                 SystemConf::getInstance()->saveSystemConf();
 			}
 		});
 #endif	
-#ifndef _ENABLEGAMEFORCE && !defined(ODROIDGOA)		
+#if !defined(_ENABLEGAMEFORCE) && !defined(ODROIDGOA)		
 		auto emuelec_audiodev_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "AUDIO DEVICE", false);
 		std::vector<std::string> Audiodevices;
 		Audiodevices.push_back("auto");
@@ -356,7 +356,31 @@ void GuiMenu::openEmuELECSettings()
 				SystemConf::getInstance()->saveSystemConf();
 			}
 		});
-#endif		
+#endif
+#if defined(_ENABLEGAMEFORCE) || defined(ODROIDGOA)
+		auto emuelec_oga_overclock = std::make_shared< OptionListComponent<std::string> >(mWindow, "OVERCLOCK", false);
+		std::vector<std::string> OgaOC_options;
+		OgaOC_options.push_back("Off");
+		OgaOC_options.push_back("1.4ghz");
+		OgaOC_options.push_back("1.5ghz");
+		
+		auto OgaOC_optionsS = SystemConf::getInstance()->get("ee_oga_oc");
+		if (OgaOC_optionsS.empty())
+		OgaOC_optionsS = "Off";
+		
+		for (auto it = OgaOC_options.cbegin(); it != OgaOC_options.cend(); it++)
+		emuelec_oga_overclock->add(*it, *it, OgaOC_optionsS == *it);
+		
+		s->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
+		s->addSaveFunc([emuelec_oga_overclock] {
+			if (emuelec_oga_overclock->changed()) {
+				std::string selectedoc = emuelec_oga_overclock->getSelected();
+				runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " +selectedoc, "", nullptr);
+                SystemConf::getInstance()->set("ee_oga_oc", selectedoc);
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+#endif
        auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
 		bluetoothd_enabled->setState(btbaseEnabled);
@@ -1641,7 +1665,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
 
-#ifdef ODROIDGOA
+#if defined(ODROIDGOA) && !defined(_ENABLEEMUELEC)
 	// multimedia keys
 	auto multimediakeys_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("MULTIMEDIA KEYS"));
 	multimediakeys_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("system.multimediakeys.enabled") != "0" && SystemConf::getInstance()->get("system.multimediakeys.enabled") != "1");
@@ -2157,6 +2181,15 @@ void GuiMenu::openGamesSettings_batocera()
 	}
 #endif
 
+#ifdef _ENABLEEMUELEC 
+#if defined(ODROIDGOA) || defined(_ENABLEGAMEFORCE)
+	// RGA SCALING
+	auto rgascale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RGA SCALING"));
+	rgascale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rgascale"));
+	s->addWithLabel(_("RGA SCALING"), rgascale_enabled);
+	s->addSaveFunc([rgascale_enabled] { SystemConf::getInstance()->set("global.rgascale", rgascale_enabled->getSelected()); });
+#endif
+#endif
 	// Integer scale
 	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
 	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
@@ -4493,6 +4526,16 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
 		systemConfiguration->addSaveFunc([configName, shaders_choices] { getShOutput(R"(/emuelec/scripts/emuelec-utils setemu set ')" + configName + ".shaderset' " + shaders_choices->getSelected()); });
 	}
+
+#if defined(ODROIDGOA) || defined(_ENABLEGAMEFORCE)
+	// RGA SCALING
+		auto rgascale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RGA SCALING"));
+		rgascale_enabled->add(_("AUTO"), "auto", getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".rgascale'") != "0" && getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".rgascale'") != "1");
+		rgascale_enabled->add(_("ON"), "1", getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".rgascale'") == "1");
+		rgascale_enabled->add(_("OFF"), "0", getShOutput(R"(/emuelec/scripts/emuelec-utils setemu get ')" + configName + ".rgascale'") == "0");
+		systemConfiguration->addWithLabel(_("RGA SCALING"), rgascale_enabled);
+		systemConfiguration->addSaveFunc([rgascale_enabled, configName] { getShOutput(R"(/emuelec/scripts/emuelec-utils setemu set ')" + configName + ".rgascale' " + rgascale_enabled->getSelected()); });
+#endif
 
 	// Integer scale
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::pixel_perfect))
