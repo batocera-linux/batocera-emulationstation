@@ -158,7 +158,7 @@ if(${GLSystem} MATCHES "Desktop OpenGL")
 elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
     add_definitions(-DUSE_OPENGLES_20)
 else()
-    add_definitions(-DUSE_OPENGLES_10)
+    message(SEND_ERROR "Only Desktop GL2.1 or OpenGL ES 2.0 are supported")
 endif()
 
 #-------------------------------------------------------------------------------
