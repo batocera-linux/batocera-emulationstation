@@ -134,8 +134,8 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		auto it = mGameIdMap.find(name);
 		if (it == mGameIdMap.cend())
 		{
-			if (name == "hash")
-				continue; // see MetaDataList::migrate
+			if (name == "hash" || name == "path")
+				continue;
 
 			value = xelement.text().get();
 			if (!value.empty())
