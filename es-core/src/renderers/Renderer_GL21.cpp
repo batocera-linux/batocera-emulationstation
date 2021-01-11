@@ -105,22 +105,6 @@ namespace Renderer
 
 	} // drawTriangleStrips
 
-	void setProjection(const Transform4x4f& _projection)
-	{
-		/*glMatrixMode(GL_PROJECTION);
-		glLoadMatrixf((GLfloat*)&_projection);*/
-
-	} // setProjection
-
-	void setMatrix(const Transform4x4f& _matrix)
-	{
-		/*Transform4x4f matrix = _matrix;
-		matrix.round();
-		glMatrixMode(GL_MODELVIEW);
-		glLoadMatrixf((GLfloat*)&matrix);*/
-
-	} // setMatrix
-
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		/*glEnable(GL_MULTISAMPLE);

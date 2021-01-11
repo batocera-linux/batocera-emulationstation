@@ -2,6 +2,7 @@
 
 #include "math/Transform4x4f.h"
 #include "math/Vector2i.h"
+#include "math/Vector2f.h"
 #include "resources/ResourceManager.h"
 #include "ImageIO.h"
 #include "Log.h"
@@ -11,6 +12,22 @@
 
 namespace Renderer
 {
+    static Transform4x4f mProjection;
+    static Transform4x4f mMvp;
+    static Vector3f       mTranslate;
+
+    void setProjection(const Transform4x4f& _projection)
+    {
+        mProjection = _projection;
+    } // setProjection
+
+    void setMatrix(const Transform4x4f& _matrix)
+    {
+        mMvp = _matrix;
+        mMvp.round();
+        mTranslate = mMvp.translation();
+    } // setMatrix
+
 	static std::stack<Rect> clipStack;
 	static std::stack<Rect> nativeClipStack;
 
@@ -335,7 +352,7 @@ namespace Renderer
 
 	void drawRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
-		// TODO : proper blending handling (_srcBlendFactor, _dstBlendFactor)
+        // TODO : proper blending handling (_srcBlendFactor, _dstBlendFactor)
 		
 		// Round coordinates (might need to be adjusted)
 		Rect rect;
@@ -344,7 +361,11 @@ namespace Renderer
 		rect.w = (int)(_w + 0.5f);
 		rect.h = (int)(_h + 0.5f);
 
-		// Convert color
+		// Matrix translation
+        rect.x += (int)mTranslate.x();
+        rect.y += (int)mTranslate.y();
+
+        // Convert color
 		Uint8 r,g,b,a;
 		a = ( _color     ) & 0xFF;
 		b = (_color >>  8) & 0xFF;
@@ -376,7 +397,11 @@ namespace Renderer
 		rect.w = (int)(_w + 0.5f);
 		rect.h = (int)(_h + 0.5f);
 
-		// Set blending mode (TODO handle properly srcBlendFactor and dstBlendFactor)
+        // Matrix translation
+        rect.x += (int)mTranslate.x();
+        rect.y += (int)mTranslate.y();
+
+        // Set blending mode (TODO handle properly srcBlendFactor and dstBlendFactor)
 		SDL_SetRenderDrawBlendMode(sdlRenderer, SDL_BLENDMODE_BLEND);
 
 		// Force renderer to scale smoothly (SDL hint)
@@ -386,7 +411,7 @@ namespace Renderer
 		Uint32 pixelData[2];
 		pixelData[0] = _color;
 		pixelData[1] = _colorEnd;
-		SDL_Surface* sdlSurfaceGradient = SDL_CreateRGBSurfaceWithFormatFrom(pixelData, 2, 1, 32, 2*sizeof(Uint32), SDL_PIXELFORMAT_BGRA32);
+		SDL_Surface* sdlSurfaceGradient = SDL_CreateRGBSurfaceWithFormatFrom(pixelData, 2, 1, 32, 2*sizeof(Uint32), SDL_PIXELFORMAT_ARGB8888);
 
 		// Create a texture from the surface, destroy surface as its' not needed anymore
 		SDL_Texture* sdlTextureGradient = SDL_CreateTextureFromSurface(sdlRenderer, sdlSurfaceGradient);
@@ -470,11 +495,11 @@ namespace Renderer
         SDL_Texture* texture = nullptr;
         if (_data == nullptr)
         {
-	        texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, _width, _height);
+	        texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, _width, _height);
         }
         else
         {
-			SDL_Surface* sdlSurfaceData = SDL_CreateRGBSurfaceWithFormatFrom(_data, _width, _height, 32, _width*sizeof(Uint32), SDL_PIXELFORMAT_BGRA32);
+			SDL_Surface* sdlSurfaceData = SDL_CreateRGBSurfaceWithFormatFrom(_data, _width, _height, 32, _width*sizeof(Uint32), SDL_PIXELFORMAT_ARGB8888);
 
 			// Create a texture from the surface, destroy surface as its' not needed anymore
 			texture = SDL_CreateTextureFromSurface(sdlRenderer, sdlSurfaceData);
@@ -488,7 +513,7 @@ namespace Renderer
 
 	SDL_Texture* createStreamingTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
 	{
-        SDL_Texture* texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, _width, _height);
+        SDL_Texture* texture = SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, _width, _height);
         void* pixels = nullptr;
         int pitch;
         if (_data)
@@ -544,9 +569,19 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	void blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect)
+	void blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags)
 	{
-		SDL_RenderCopy(sdlRenderer, _texture, srcRect, dstRect);
+        dstRect->x += (int)mTranslate.x();
+        dstRect->y += (int)mTranslate.y();
+
+	    if (flipFlags == 0)
+		    SDL_RenderCopy(sdlRenderer, _texture, srcRect, dstRect);
+	    else
+        {
+            int w, h;
+            SDL_GetRendererOutputSize(sdlRenderer, &w, &h);
+            SDL_RenderCopyEx(sdlRenderer, _texture, srcRect, dstRect, 0., NULL, (SDL_RendererFlip)flipFlags);
+        }
 	}
 
 	SDL_Window*     getSDLWindow()      { return sdlWindow; }

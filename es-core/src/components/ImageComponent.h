@@ -137,7 +137,11 @@ private:
 	// Used internally whenever the resizing parameters or texture change.
 	void resize();
 
-	Renderer::Vertex mVertices[4];
+    SDL_Rect mRectPosition;
+	SDL_Rect mRectTexture;
+	Uint32 mRenderColor;
+	Uint32 mRenderColorEnd;
+    int mRenderFlip;
 
 	void updateVertices();
 	void updateColors();

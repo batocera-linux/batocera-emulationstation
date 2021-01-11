@@ -460,7 +460,7 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 
     SDL_FreeSurface(surface);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(Renderer::getSDLRenderer(), surface);
-    SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_BGRA32, SDL_TEXTUREACCESS_TARGET, maxWidth, maxHeight);
+    SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, maxWidth, maxHeight);
 
     if (rescaledTexture == NULL)
     {

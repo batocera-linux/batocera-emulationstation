@@ -78,7 +78,7 @@ namespace Renderer
 	void         destroyTexture    (SDL_Texture* _texture);
 	void         updateTexture     (SDL_Texture* _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);
 	void         bindTexture       (SDL_Texture* _texture);
-	void		blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect);
+	void		blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags = 0);
 
 	unsigned int convertColor      (const unsigned int _color);
 	unsigned int getWindowFlags    ();

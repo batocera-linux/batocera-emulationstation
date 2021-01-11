@@ -69,7 +69,7 @@ SDL_Texture* ImageIO::loadTextureFromMemoryRGBA32(const unsigned char * data, co
                 SDL_Rect srcDest = { 0, 0, baseSize->x(), baseSize->y() };
                 SDL_Rect dstRect = { 0, 0, sz.x(), sz.y()};
                 SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-                SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_BGRA32,SDL_TEXTUREACCESS_TARGET, sz.x(), sz.y());
+                SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_TARGET, sz.x(), sz.y());
                 SDL_SetRenderTarget(Renderer::getSDLRenderer(), rescaledTexture);
                 SDL_RenderCopy(Renderer::getSDLRenderer(), texture, &srcDest, &dstRect);
                 SDL_SetRenderTarget(Renderer::getSDLRenderer(), NULL);

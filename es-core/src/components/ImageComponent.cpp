@@ -363,33 +363,32 @@ void ImageComponent::updateVertices()
 	const float        py          = mTexture->isTiled() ? mSize.y() / getTextureSize().y() : 1.0f;
 	const unsigned int color       = Renderer::convertColor(mColorShift);
 	const unsigned int colorEnd    = Renderer::convertColor(mColorShiftEnd);
-	
-	mVertices[0] = { { topLeft.x() + mPadding.x(),     topLeft.y() + mPadding.y()     },
-		{ mTopLeftCrop.x(),          py   - mTopLeftCrop.y()     }, color };
 
-	mVertices[1] = { { topLeft.x() + mPadding.x(),     bottomRight.y() - mPadding.w() }, 
-		{ mTopLeftCrop.x(),          1.0f - mBottomRightCrop.y() }, mColorGradientHorizontal ? colorEnd : color };
+    // TODO round properly
+    mRectPosition.x = (int)(topLeft.x() + mPadding.x());
+    mRectPosition.y = (int)(topLeft.y() + mPadding.y());
+    mRectPosition.w = (int)(bottomRight.x() - topLeft.x());
+    mRectPosition.h = (int)(bottomRight.y() - topLeft.y());
 
-	mVertices[2] = { { bottomRight.x() - mPadding.z(), topLeft.y() + mPadding.y()	},
-		{ mBottomRightCrop.x() * px, py   - mTopLeftCrop.y()     }, mColorGradientHorizontal ? color : colorEnd };
+    // TODO round properly
+    mRectTexture.x = (int)(mTopLeftCrop.x());
+    mRectTexture.y = (int)(mTopLeftCrop.y());
+    mRectTexture.w = (int)(mTexture->isTiled() ? mSize.x() : getTextureSize().x());
+    mRectTexture.h = (int)(mTexture->isTiled() ? mSize.y() : getTextureSize().y());
 
-	mVertices[3] = { { bottomRight.x() - mPadding.z(), bottomRight.y() - mPadding.w() }, 
-	{ mBottomRightCrop.x() * px, 1.0f - mBottomRightCrop.y() }, color };
+    // TODO handle color and gradient
+    // color
+    // mColorGradientHorizontal ? colorEnd : color
 
-	// round vertices
-	for(int i = 0; i < 4; ++i)
-		mVertices[i].pos.round();
-
+    mRenderFlip = 0;
 	if(mFlipX)
 	{
-		for(int i = 0; i < 4; ++i)
-			mVertices[i].tex[0] = px - mVertices[i].tex[0];
+	    mRenderFlip |= SDL_FLIP_HORIZONTAL;
 	}
 
 	if(mFlipY)
 	{
-		for(int i = 0; i < 4; ++i)
-			mVertices[i].tex[1] = py - mVertices[i].tex[1];
+	    mRenderFlip |= SDL_FLIP_VERTICAL;
 	}
 
 	updateColors();
@@ -402,11 +401,9 @@ void ImageComponent::updateColors()
 
 	const unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
 	const unsigned int colorEnd = Renderer::convertColor(mColorShiftEnd & 0xFFFFFF00 | (unsigned char)((mColorShiftEnd & 0xFF) * opacity));
-	
-	mVertices[0].col = color;
-	mVertices[1].col = mColorGradientHorizontal ? colorEnd : color;
-	mVertices[2].col = mColorGradientHorizontal ? color : colorEnd;
-	mVertices[3].col = colorEnd;
+
+    mRenderColor = color;
+    mRenderColorEnd = colorEnd;
 }
 
 void ImageComponent::updateRoundCorners()
@@ -504,20 +501,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
 
-		SDL_Rect srcRect;
-		SDL_Rect dstRect;
-
-		srcRect.x = (int)(mVertices[0].tex.x() * getTextureSize().x());
-        srcRect.y = (int)(mVertices[0].tex.y() * getTextureSize().y());
-        srcRect.w = (int)(((mVertices[2].tex.x() - mVertices[0].tex.x()) * getTextureSize().x()));
-        srcRect.h = (int)(((mVertices[2].tex.y() - mVertices[0].tex.y()) * getTextureSize().y()));
-
-        dstRect.x = (int)(mVertices[0].pos.x());
-        dstRect.y = (int)(mVertices[0].pos.y());
-        dstRect.w = (int)((mVertices[3].pos.x() - mVertices[0].pos.x()));
-        dstRect.h = (int)((mVertices[3].pos.y() - mVertices[0].pos.y()));
-
-        Renderer::blit(mTexture->getTextureId(), &srcRect, &dstRect);
+        Renderer::blit(mTexture->getTextureId(), &mRectTexture, &mRectPosition);
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::disableStencil();
@@ -534,34 +518,36 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			const unsigned int colorT = Renderer::convertColor((mColorShift & 0xffffff00) + (unsigned char)(255.0*alpha));
 			const unsigned int colorB = Renderer::convertColor((mColorShift & 0xffffff00) + (unsigned char)(255.0*alpha2));
 
-			int h = mVertices[1].pos.y() - mVertices[0].pos.y();
+			int h = mRectPosition.h;
 
 			if (mReflectOnBorders)
 				h = mTargetSize.y();
 
-			Renderer::Vertex mirrorVertices[4];
+			// TODO Reflect effect
+            Renderer::blit(mTexture->getTextureId(), &mRectTexture, &mRectPosition, SDL_FLIP_VERTICAL);
 
-			mirrorVertices[0] = {
-				{ mVertices[0].pos.x(), mVertices[0].pos.y() + h },
-				{ mVertices[0].tex.x(), mVertices[1].tex.y() },
-				colorT };
+            /*
+            mirrorVertices[0] = {
+                { mVertices[0].pos.x(), mVertices[0].pos.y() + h },
+                { mVertices[0].tex.x(), mVertices[1].tex.y() },
+                colorT };
 
-			mirrorVertices[1] = {
-				{ mVertices[1].pos.x(), mVertices[1].pos.y() + h },
-				{ mVertices[1].tex.x(), mVertices[0].tex.y() },
-				colorB };
+            mirrorVertices[1] = {
+                { mVertices[1].pos.x(), mVertices[1].pos.y() + h },
+                { mVertices[1].tex.x(), mVertices[0].tex.y() },
+                colorB };
 
-			mirrorVertices[2] = {
-				{ mVertices[2].pos.x(), mVertices[2].pos.y() + h },
-				{ mVertices[2].tex.x(), mVertices[3].tex.y() },
-				colorT };
+            mirrorVertices[2] = {
+                { mVertices[2].pos.x(), mVertices[2].pos.y() + h },
+                { mVertices[2].tex.x(), mVertices[3].tex.y() },
+                colorT };
 
-			mirrorVertices[3] = {
-				{ mVertices[3].pos.x(), mVertices[3].pos.y() + h },
-				{ mVertices[3].tex.x(), mVertices[2].tex.y() },
-				colorB };
+            mirrorVertices[3] = {
+                { mVertices[3].pos.x(), mVertices[3].pos.y() + h },
+                { mVertices[3].tex.x(), mVertices[2].tex.y() },
+                colorB };
 
-			Renderer::drawTriangleStrips(&mirrorVertices[0], 4);
+            Renderer::drawTriangleStrips(&mirrorVertices[0], 4);*/
 		}
 
 	//	Renderer::bindTexture(0);
