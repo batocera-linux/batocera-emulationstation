@@ -38,6 +38,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mImage = new ImageComponent(mWindow);
 	mImage->setOrigin(0.5f, 0.5f);
 
+	mLabel.setFont(Font::get(FONT_SIZE_SMALL));
 	mLabel.setDefaultZIndex(10);
 
 	addChild(&mBackground);

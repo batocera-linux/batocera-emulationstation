@@ -22,7 +22,9 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/httplib.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.h
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -66,6 +68,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.h		
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSaveState.h
 	
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
@@ -118,6 +121,8 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/KeyboardMapping.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/services/HttpServerThread.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.cpp
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
@@ -156,6 +161,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSaveState.cpp
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp

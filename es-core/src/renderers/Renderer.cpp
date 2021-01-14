@@ -357,6 +357,14 @@ namespace Renderer
 	int         getScreenOffsetY() { return screenOffsetY; }
 	int         getScreenRotate()  { return screenRotate; }
 
+	float		getScreenProportion() 
+	{ 
+		if (screenHeight == 0)
+			return 1.0;
+
+		return screenWidth / screenHeight;
+	}
+
 	bool        isSmallScreen()    
 	{ 		
 		return screenWidth < 400 || screenHeight < 400; 

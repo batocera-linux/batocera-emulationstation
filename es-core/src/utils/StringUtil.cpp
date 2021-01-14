@@ -712,6 +712,14 @@ namespace Utils
 			return ret;
 		}
 
+		std::string toHexString(unsigned int color)
+		{
+			char hex[10];
+			hex[0] = 0;
+			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", color);
+			hex[len] = 0;
+			return hex;
+		}
 
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
