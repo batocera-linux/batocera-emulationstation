@@ -726,8 +726,7 @@ namespace Utils
 		{
 			int numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
 
-			std::string string;
-			string.resize(numBytes);
+			std::string string(numBytes, 0);			
 			WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), (char*)string.c_str(), numBytes, nullptr, nullptr);
 
 			return string;
@@ -737,8 +736,7 @@ namespace Utils
 		{
 			int numBytes = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), (int)string.length(), nullptr, 0);
 
-			std::wstring wstring;
-			wstring.resize(numBytes);
+			std::wstring wstring(numBytes, 0);			
 			MultiByteToWideChar(CP_UTF8, 0, string.c_str(), (int)string.length(), (WCHAR*)wstring.c_str(), numBytes);
 
 			return wstring;

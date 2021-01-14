@@ -101,9 +101,9 @@ void TextureResource::onTextureLoaded(std::shared_ptr<TextureData> tex)
 //	PowerSaver::pushRefreshEvent();
 }
 
-void TextureResource::initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height)
+void TextureResource::updateFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height)
 {
-	mTextureData->initFromExternalRGBA(dataRGBA, width, height);
+	mTextureData->updateFromExternalRGBA(dataRGBA, width, height);
 
 	// Cache the image dimensions
 	mSize = Vector2i((int)width, (int)height);

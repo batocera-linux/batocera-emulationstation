@@ -254,7 +254,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 #endif
 			{
 				mContext.mutexes[frame].lock();
-				mTexture->initFromExternalPixels(mContext.surfaces[frame], mVideoWidth, mVideoHeight);
+				mTexture->updateFromExternalPixels(mContext.surfaces[frame], mVideoWidth, mVideoHeight);
 				mContext.hasFrame[frame] = false;
 				mContext.mutexes[frame].unlock();
 
@@ -533,6 +533,7 @@ void VideoVlcComponent::startVideo()
 	if (hasStoryBoard() && mConfig.startDelay > 0)
 		startStoryboard();
 
+	mTexture = nullptr;
 	mCurrentLoop = 0;
 	mVideoWidth = 0;
 	mVideoHeight = 0;
