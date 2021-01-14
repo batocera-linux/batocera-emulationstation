@@ -370,10 +370,13 @@ namespace Renderer
 		{
 			uint8_t* a_data  = (uint8_t*)_data;
 			uint8_t* la_data = new uint8_t[_width * _height * 2];
-			for(uint32_t i=0; i<(_width * _height); ++i)
+			memset(la_data, 255, _width * _height * 2);
+			if (a_data)
 			{
-				la_data[(i * 2) + 0] = 255;
-				la_data[(i * 2) + 1] = a_data ? a_data[i] : 255;
+				for(uint32_t i=0; i<(_width * _height); ++i)
+				{
+					la_data[(i * 2) + 1] = a_data[i];
+				}
 			}
 
 			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data));
@@ -411,21 +414,18 @@ namespace Renderer
 		{
 			uint8_t* a_data  = (uint8_t*)_data;
 			uint8_t* la_data = new uint8_t[_width * _height * 2];
-			for(uint32_t i=0; i<(_width * _height); ++i)
+			memset(la_data, 255, _width * _height * 2);
+			if (a_data)
 			{
-				la_data[(i * 2) + 0] = 255;
-				la_data[(i * 2) + 1] = a_data ? a_data[i] : 255;
+				for(uint32_t i=0; i<(_width * _height); ++i)
+				{
+					la_data[(i * 2) + 1] = a_data[i];
+				}
 			}
 
-			if (_x == -1 && _y == -1)
-				GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data));
-			else 
-				GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));
-
+			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));
 			delete[] la_data;
 		}
-		else if (_x == -1 && _y == -1)
-			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data));
 		else
 			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, _data));
 
