@@ -11,7 +11,7 @@
 #include <Windows.h>
 #endif
 
-FT_Library Font::sLibrary = NULL;
+static bool inited = false;
 
 int Font::getSize() const { return mSize; }
 
@@ -19,27 +19,29 @@ std::map< std::pair<std::string, int>, std::weak_ptr<Font> > Font::sFontMap;
 
 Font::FontFace::FontFace(ResourceData&& d, int size) : data(d)
 {
-	int err = FT_New_Memory_Face(sLibrary, data.ptr.get(), (FT_Long)data.length, 0, &face);
+    // Warning maybe leak if freesrc means retain memory
+    this->mFont = TTF_OpenFontRW(SDL_RWFromConstMem(data.ptr.get(), data.length), 0, size);
+
+	/*int err = FT_New_Memory_Face(data.ptr.get(), (FT_Long)data.length, 0, &face);
 	if (!err)
-		FT_Set_Pixel_Sizes(face, 0, size);
+		FT_Set_Pixel_Sizes(face, 0, size);*/
 }
 
 Font::FontFace::~FontFace()
 {
-	if(face)
-		FT_Done_Face(face);
+    TTF_CloseFont(this->mFont);
+    this->mFont = nullptr;
+    /*if(face)
+		FT_Done_Face(face);*/
 }
 
 void Font::initLibrary()
 {
-	if (sLibrary != nullptr)
-		return;
+    if (inited)
+        return;
 
-	if(FT_Init_FreeType(&sLibrary))
-	{
-		sLibrary = NULL;
-		LOG(LogError) << "Error initializing FreeType!";
-	}
+    TTF_Init();
+    inited = true;
 }
 
 size_t Font::getMemUsage() const
@@ -96,7 +98,7 @@ Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
 	mLoaded = true;
 	mMaxGlyphHeight = 0;
 
-	if(!sLibrary)
+	if(!inited)
 		initLibrary();
 
 	for (unsigned int i = 0; i < 255; i++)
@@ -209,7 +211,7 @@ void Font::FontTexture::initTexture()
 {
 	if (textureId == 0)
 	{
-		textureId = Renderer::createStreamingTexture(Renderer::Texture::ALPHA, true, false, textureSize.x(), textureSize.y(), nullptr);
+		textureId = Renderer::createStreamingTexture(Renderer::Texture::RGBA, true, false, textureSize.x(), textureSize.y(), nullptr);
 		if (textureId == 0)
 			LOG(LogError) << "FontTexture::initTexture() failed to create texture " << textureSize.x() << "x" << textureSize.y();
 	}
@@ -281,7 +283,9 @@ std::vector<std::string> getFallbackFontPaths()
 	return paths;
 }
 
-FT_Face Font::getFaceForChar(unsigned int id)
+//static SDL_Surface* nullCharSurface = nullptr;
+
+SDL_Surface* Font::getSurfaceForChar(unsigned int id)
 {
 	static const std::vector<std::string> fallbackFonts = getFallbackFontPaths();
 
@@ -300,12 +304,27 @@ FT_Face Font::getFaceForChar(unsigned int id)
 			fit = mFaceCache.find(i);
 		}
 
-		if(FT_Get_Char_Index(fit->second->face, id) != 0)
-			return fit->second->face;
+        if (TTF_GlyphIsProvided(fit->second->mFont, id))
+        {
+            SDL_Surface* surface = TTF_RenderGlyph_Blended(fit->second->mFont, id, {255,255,255,255});
+            if (surface == nullptr)
+            {
+                surface = SDL_CreateRGBSurface(0,64,64,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
+                if (surface == nullptr)
+                {
+                    return nullptr;
+                }
+            }
+            fit->second->surface = surface;
+            return fit->second->surface;
+        }
 	}
 
 	// nothing has a valid glyph - return the "real" face so we get a "missing" character
-	return mFaceCache.cbegin()->second->face;
+	/*if (nullCharSurface==nullptr)
+	    nullCharSurface = SDL_CreateRGBSurface(0,64,64,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
+	return nullCharSurface;*/
+	return mFaceCache.cbegin()->second->surface;
 }
 
 void Font::clearFaceCache()
@@ -332,22 +351,16 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	}
 
 	// nope, need to make a glyph
-	FT_Face face = getFaceForChar(id);
-	if(!face)
+	SDL_Surface* surface = getSurfaceForChar(id);
+	if(!surface)
 	{
 		LOG(LogError) << "Could not find appropriate font face for character " << id << " for font " << mPath;
-		return NULL;
+        LOG(LogError) << "Could not find glyph for character " << id << " for font " << mPath << ", size " << mSize << "!";
+	    return NULL;
 	}
 
-	FT_GlyphSlot g = face->glyph;
 
-	if(FT_Load_Char(face, id, FT_LOAD_RENDER | FT_LOAD_COLOR))
-	{
-		LOG(LogError) << "Could not find glyph for character " << id << " for font " << mPath << ", size " << mSize << "!";
-		return NULL;
-	}
-
-	Vector2i glyphSize(g->bitmap.width, g->bitmap.rows);
+	Vector2i glyphSize(surface->w,surface->h);
 
 	FontTexture* tex = NULL;
 	Vector2i cursor;
@@ -366,13 +379,20 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	pGlyph->texture = tex;
 	pGlyph->texPos = Vector2f((float)cursor.x(), (float)cursor.y());
 	pGlyph->texSize = Vector2f((float)glyphSize.x(), (float)glyphSize.y());
-	pGlyph->advance = Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
-	pGlyph->bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);	
+
+	int minx, maxx, miny, maxy, advance;
+    //TTF_GlyphMetrics(, id, &minx, &maxx, &miny, &maxy, &advance);
+
+    pGlyph->advance = Vector2f(0.25f, 0.0f); //Vector2f((float)g->metrics.horiAdvance / 64.0f, (float)g->metrics.vertAdvance / 64.0f);
+    //TODO pGlyph->bearing = Vector2f((float)g->metrics.horiBearingX / 64.0f, (float)g->metrics.horiBearingY / 64.0f);
 	pGlyph->cursor = cursor;
 	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
-	Renderer::updateTexture(tex->textureId, Renderer::Texture::RGBA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
+	SDL_LockSurface(surface);
+	Renderer::updateTexture(tex->textureId, Renderer::Texture::RGBA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), surface->pixels);
+    SDL_UnlockSurface(surface);
+    //SDL_FreeSurface(surface);
 
 	// update max glyph height
 	if(glyphSize.y() > mMaxGlyphHeight)
@@ -397,18 +417,18 @@ void Font::rebuildTextures()
 	// reupload the texture data
 	for(auto it = mGlyphMap.cbegin(); it != mGlyphMap.cend(); it++)
 	{
-		FT_Face face = getFaceForChar(it->first);
-		FT_GlyphSlot glyphSlot = face->glyph;
-
-		// load the glyph bitmap through FT
-		FT_Load_Char(face, it->first, FT_LOAD_RENDER | FT_LOAD_COLOR);
+		SDL_Surface* surface = getSurfaceForChar(it->first);
 		Glyph* glyph = it->second;
-		
+
+		// TODO fill glyph structure
 		// upload to texture
+		SDL_LockSurface(surface);
 		Renderer::updateTexture(glyph->texture->textureId, Renderer::Texture::RGBA,
 			glyph->cursor.x(), glyph->cursor.y(),
 			glyph->glyphSize.x(), glyph->glyphSize.y(),
-			glyphSlot->bitmap.buffer);
+			surface->pixels);
+        SDL_UnlockSurface(surface);
+       // SDL_FreeSurface(surface);
 	}
 }
 
@@ -420,13 +440,15 @@ void Font::renderTextCache(TextCache* cache)
 		return;
 	}
 
+	SDL_Renderer* renderer = Renderer::createTextureRenderer();
+
 	for(auto& textRectList : cache->textRectsLists)
 	{		
 		if (textRectList.textureIdPtr == nullptr)
 			continue;
 		
 		for (auto& textRect : textRectList.textRects)
-			Renderer::blit(*textRectList.textureIdPtr, &textRect.srcRect, &textRect.dstRect);
+			Renderer::blit(renderer, *textRectList.textureIdPtr, &textRect.srcRect, &textRect.dstRect);
 	}
 
 	Renderer::bindTexture(0);
@@ -572,6 +594,7 @@ Vector2f Font::sizeText(std::string text, float lineSpacing)
 
 			lineWidth = 0.0f;
 			y += lineHeight;
+			continue;
 		}
 
 		Glyph* glyph = getGlyph(character);

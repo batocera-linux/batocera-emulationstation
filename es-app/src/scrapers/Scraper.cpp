@@ -459,8 +459,10 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	}
 
     SDL_FreeSurface(surface);
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(Renderer::getSDLRenderer(), surface);
-    SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, maxWidth, maxHeight);
+
+    SDL_Renderer* renderer = Renderer::getWindowRenderer();
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_Texture* rescaledTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, maxWidth, maxHeight);
 
     if (rescaledTexture == NULL)
     {
@@ -473,9 +475,9 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
     SDL_Rect srcDest = { 0, 0, (int)width, (int)height };
     SDL_Rect dstRect = { 0, 0, maxWidth, maxHeight};
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-    SDL_SetRenderTarget(Renderer::getSDLRenderer(), rescaledTexture);
-    SDL_RenderCopy(Renderer::getSDLRenderer(), texture, &srcDest, &dstRect);
-    SDL_SetRenderTarget(Renderer::getSDLRenderer(), NULL);
+    SDL_SetRenderTarget(renderer, rescaledTexture);
+    SDL_RenderCopy(renderer, texture, &srcDest, &dstRect);
+    SDL_SetRenderTarget(renderer, NULL);
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
     SDL_DestroyTexture(texture);
 

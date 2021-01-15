@@ -61,8 +61,9 @@ namespace Renderer
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void        drawGradientRect(const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient = false, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 
-	SDL_Window*     getSDLWindow    ();
-	SDL_Renderer*   getSDLRenderer  ();
+	SDL_Window*     getSDLWindow       ();
+	SDL_Renderer*   getWindowRenderer  ();
+    SDL_Renderer*   createTextureRenderer();
 	int             getWindowWidth  ();
 	int             getWindowHeight ();
 	int             getScreenWidth  ();
@@ -78,7 +79,7 @@ namespace Renderer
 	void         destroyTexture    (SDL_Texture* _texture);
 	void         updateTexture     (SDL_Texture* _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);
 	void         bindTexture       (SDL_Texture* _texture);
-	void		blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags = 0);
+	void		blit(SDL_Renderer* renderer, SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags = 0);
 
 	unsigned int convertColor      (const unsigned int _color);
 	unsigned int getWindowFlags    ();

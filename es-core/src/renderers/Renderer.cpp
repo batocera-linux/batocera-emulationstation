@@ -148,7 +148,7 @@ namespace Renderer
 		// Create renderer taking V-Sync setting into account
 		if(Settings::getInstance()->getBool("VSync"))
 		{
-    		sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    		sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_ACCELERATED/* | SDL_RENDERER_PRESENTVSYNC*/);
 			if (sdlRenderer)
     		{
 				// SDL_GL_SetSwapInterval(0) for immediate updates (no vsync, default), 
@@ -553,14 +553,15 @@ namespace Renderer
 	void updateTexture(SDL_Texture* _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
 	{
         Uint32* pixels = nullptr;
+        Uint32* data32 = (Uint32*)_data;
         int pitch;
         if (_data)
         {
 	        SDL_Rect rect = { _x, _y, _width, _height };
-        	if (SDL_LockTexture(_texture, &rect, (void**)&pixels, &pitch) == 0)
+        	if (SDL_LockTexture(_texture, nullptr/*&rect*/, (void**)&pixels, &pitch) == 0)
         	{
-        		for (int y = _y ; y < (_y+_height) ; y++)
-        			memcpy(pixels+y*(pitch/sizeof(Uint32))+_x, _data+(y-_y)*(pitch/sizeof(Uint32)), _width*sizeof(Uint32));
+        		for (int y = 0 ; y < _height ; y++)
+        			memcpy(pixels+y*(pitch/sizeof(Uint32)), data32+((_y+y)*_width)+_x, _width*sizeof(Uint32));
 
         		SDL_UnlockTexture(_texture);
         	}
@@ -569,23 +570,23 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	void blit(SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags)
+	void blit(SDL_Renderer* renderer, SDL_Texture* _texture, SDL_Rect* srcRect, SDL_Rect* dstRect, Uint32 flipFlags)
 	{
         dstRect->x += (int)mTranslate.x();
         dstRect->y += (int)mTranslate.y();
 
 	    if (flipFlags == 0)
-		    SDL_RenderCopy(sdlRenderer, _texture, srcRect, dstRect);
+		    SDL_RenderCopy(renderer, _texture, srcRect, dstRect);
 	    else
         {
             int w, h;
-            SDL_GetRendererOutputSize(sdlRenderer, &w, &h);
-            SDL_RenderCopyEx(sdlRenderer, _texture, srcRect, dstRect, 0., NULL, (SDL_RendererFlip)flipFlags);
+            SDL_GetRendererOutputSize(renderer, &w, &h);
+            SDL_RenderCopyEx(renderer, _texture, srcRect, dstRect, 0., NULL, (SDL_RendererFlip)flipFlags);
         }
 	}
 
 	SDL_Window*     getSDLWindow()      { return sdlWindow; }
-    SDL_Renderer*   getSDLRenderer()    { return sdlRenderer; }
+    SDL_Renderer*   getWindowRenderer() { return sdlRenderer; }
     int             getWindowWidth()    { return windowWidth; }
 	int             getWindowHeight()   { return windowHeight; }
 	int             getScreenWidth()    { return screenWidth; }
@@ -593,6 +594,11 @@ namespace Renderer
 	int             getScreenOffsetX()  { return screenOffsetX; }
 	int             getScreenOffsetY()  { return screenOffsetY; }
 	int             getScreenRotate()   { return screenRotate; }
+
+	SDL_Renderer* createTextureRenderer()
+    {
+	    return sdlRenderer;
+    }
 
 	bool        isSmallScreen()    
 	{ 		
@@ -763,8 +769,8 @@ namespace Renderer
 	void swapBuffers()
 	{
 		SDL_RenderPresent(sdlRenderer);
-        //SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-		//SDL_RenderClear(sdlRenderer);
+        SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderClear(sdlRenderer);
 	}
 
 	void setScissor(const Rect& _scissor)

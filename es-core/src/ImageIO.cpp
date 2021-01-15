@@ -52,7 +52,8 @@ SDL_Texture* ImageIO::loadTextureFromMemoryRGBA32(const unsigned char * data, co
         if (baseSize != nullptr)
             *baseSize = Vector2i(width, height);
 
-        SDL_Texture* texture = SDL_CreateTextureFromSurface(Renderer::getSDLRenderer(), surface);
+        SDL_Renderer* renderer = Renderer::getWindowRenderer();
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_FreeSurface(surface);
 
         if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
@@ -69,13 +70,14 @@ SDL_Texture* ImageIO::loadTextureFromMemoryRGBA32(const unsigned char * data, co
                 SDL_Rect srcDest = { 0, 0, baseSize->x(), baseSize->y() };
                 SDL_Rect dstRect = { 0, 0, sz.x(), sz.y()};
                 SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-                SDL_Texture* rescaledTexture = SDL_CreateTexture(Renderer::getSDLRenderer(), SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_TARGET, sz.x(), sz.y());
-                SDL_SetRenderTarget(Renderer::getSDLRenderer(), rescaledTexture);
-                SDL_RenderCopy(Renderer::getSDLRenderer(), texture, &srcDest, &dstRect);
-                SDL_SetRenderTarget(Renderer::getSDLRenderer(), NULL);
+                SDL_Texture* rescaledTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_TARGET, sz.x(), sz.y());
+                SDL_SetRenderTarget(renderer, rescaledTexture);
+                SDL_RenderCopy(renderer, texture, &srcDest, &dstRect);
+                SDL_SetRenderTarget(renderer, NULL);
                 SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
-
                 SDL_DestroyTexture(texture);
+                SDL_RenderPresent(renderer);
+
                 texture = rescaledTexture;
 
                 // Should it be retrieved through SDL_QueryTexture ?

@@ -501,7 +501,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
 
-        Renderer::blit(mTexture->getTextureId(), &mRectTexture, &mRectPosition);
+        Renderer::blit(Renderer::getWindowRenderer(),mTexture->getTextureId(), &mRectTexture, &mRectPosition);
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 			Renderer::disableStencil();
@@ -524,7 +524,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 				h = mTargetSize.y();
 
 			// TODO Reflect effect
-            Renderer::blit(mTexture->getTextureId(), &mRectTexture, &mRectPosition, SDL_FLIP_VERTICAL);
+            Renderer::blit(Renderer::getWindowRenderer(), mTexture->getTextureId(), &mRectTexture, &mRectPosition, SDL_FLIP_VERTICAL);
 
             /*
             mirrorVertices[0] = {
