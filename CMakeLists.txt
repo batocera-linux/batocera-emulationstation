@@ -90,7 +90,6 @@ elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
 else()
     find_package(OpenGLES REQUIRED)
 endif()
-find_package(Freetype REQUIRED)
 # batocera / background musics
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
@@ -165,7 +164,6 @@ endif()
 #-------------------------------------------------------------------------------
 #add include directories
 set(COMMON_INCLUDE_DIRS
-    ${FREETYPE_INCLUDE_DIRS}
     # batocera / background musics
     ${SDLMIXER_INCLUDE_DIR}
     # batocera / customisations    
@@ -240,7 +238,6 @@ elseif(DEFINED VERO4K)
 endif()
 
 set(COMMON_LIBRARIES
-    ${FREETYPE_LIBRARIES}
     ${SDL2_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
