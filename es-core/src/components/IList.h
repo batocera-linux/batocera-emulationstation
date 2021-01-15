@@ -340,7 +340,8 @@ protected:
 		mGradient.setOpacity(mTitleOverlayOpacity);
 		mGradient.render(identTrans);
 
-		TextCache* cache = mTitleOverlayFont->buildTextCache(text, off.x(), off.y(), 0xFFFFFF00 | mTitleOverlayOpacity);
+		TextCache* cache = mTitleOverlayFont->buildTextCache(text, off.x(), off.y());
+		cache->setColor(0xFFFFFF00 | mTitleOverlayOpacity);
 		mTitleOverlayFont->renderTextCache(cache); // relies on mGradient's render for Renderer::setMatrix()
 		delete cache;
 	}

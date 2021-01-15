@@ -432,7 +432,8 @@ void Window::update(int deltaTime)
 
 			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb <<
 				" Tex Max: " << textureTotalUsageMb;
-			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(1)->buildTextCache(ss.str(), 50.f, 50.f, 0xFF00FFFF));
+			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(1)->buildTextCache(ss.str(), 50.f, 50.f));
+			mFrameDataText->setColor(0xFF00FFFF);
 		}
 
 		mFrameTimeElapsed = 0;

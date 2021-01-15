@@ -80,6 +80,7 @@ else()
 endif(GLES)
 
 set_property(CACHE GLSystem PROPERTY STRINGS "Desktop OpenGL" "Embedded OpenGL")
+set(GLSystem "OpenGL ES 2.0" CACHE STRING "The OpenGL system to be used")
 
 #finding necessary packages
 #-------------------------------------------------------------------------------
@@ -153,13 +154,7 @@ else()
 endif()
 endif()
 
-if(${GLSystem} MATCHES "Desktop OpenGL")
-    add_definitions(-DUSE_OPENGL_21)
-elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
-    add_definitions(-DUSE_OPENGLES_20)
-else()
-    add_definitions(-DUSE_OPENGLES_10)
-endif()
+add_definitions(-DUSE_OPENGLES_20)
 
 #-------------------------------------------------------------------------------
 #add include directories

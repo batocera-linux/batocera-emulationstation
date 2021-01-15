@@ -129,7 +129,7 @@ void TextComponent::renderSingleGlow(const Transform4x4f& parentTrans, float yOf
 	trans.translate(off);
 
 	Renderer::setMatrix(trans);
-	mFont->renderTextCache(mTextCache.get());	
+	mFont->renderTextCache(mTextCache.get());
 }
 
 void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, float xOff)
@@ -140,22 +140,32 @@ void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, flo
 
 	mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
 
-	int x = -mGlowSize;
 	int y = -mGlowSize;
+    int x = -mGlowSize;
 
 	renderSingleGlow(glowTrans, yOff, x, y);
 
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, ++x, y);
-
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, x, ++y);
-
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, --x, y);
-
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, x, --y);
+    Vector3f offBase = Vector3f(mPadding.x() + mGlowOffset.x(), mPadding.y() + mGlowOffset.y(), 0);;
+    Transform4x4f trans = parentTrans * getTransform();
+    int glowSize = mGlowSize;
+    trans.translate(offBase);
+    Transform4x4f transOff = trans;
+    while (y < glowSize)
+    {
+        Vector3f off = Vector3f(0, y /*+ yOff*/, 0);
+        transOff = trans;
+        transOff.translate(off);
+        x = -glowSize;
+        while (x++ < glowSize)
+        {
+            off = Vector3f(x, 0, 0);
+            transOff.translate(off);
+            Renderer::setMatrix(transOff);
+            mFont->renderTextCache(mTextCache.get());
+            x++;
+        }
+        y++;
+    }
 }
 
 void TextComponent::render(const Transform4x4f& parentTrans)
@@ -362,10 +372,14 @@ void TextComponent::buildTextCache()
 			text.append(abbrev);
 		}
 
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache->setColor(color);
 	}
 	else
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
+    {
+        mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), sx, mHorizontalAlignment, mLineSpacing));
+        mTextCache->setColor(color);
+    }
 }
 
 void TextComponent::update(int deltaTime)

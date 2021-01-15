@@ -149,7 +149,8 @@ void SliderComponent::onValueChanged()
 		const std::string max = ss.str();
 
 		Vector2f textSize = mFont->sizeText(max);
-		mValueCache = std::shared_ptr<TextCache>(mFont->buildTextCache(val, mSize.x() - textSize.x(), (mSize.y() - textSize.y()) / 2, mColor));
+		mValueCache = std::shared_ptr<TextCache>(mFont->buildTextCache(val, mSize.x() - textSize.x(), (mSize.y() - textSize.y()) / 2));
+		mValueCache->setColor(mColor);
 		mValueCache->metrics.size[0] = textSize.x(); // fudge the width
 	}
 

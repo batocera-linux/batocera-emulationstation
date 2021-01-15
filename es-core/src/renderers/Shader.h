@@ -20,6 +20,7 @@ namespace Renderer
 		GLint colAttrib;
 		GLint texAttrib;
 		GLint mvpUniform;
+		GLint colorUniform;
 	}; // ShaderProgram
 
 

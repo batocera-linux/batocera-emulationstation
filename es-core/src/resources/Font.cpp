@@ -423,20 +423,36 @@ void Font::renderTextCache(TextCache* cache)
 	}
 
 	int tex = 0;
+	int buf = 0;
 
 	for(auto& vertex : cache->vertexLists)
 	{		
 		if (vertex.textureIdPtr == nullptr)
 			continue;
-		
-		if (tex != *vertex.textureIdPtr)
+
+        if (vertex.bufferIdPtr == nullptr)
+            continue;
+
+        // Bind vertex buffer
+        if (buf != *vertex.bufferIdPtr)
+        {
+            buf = *vertex.bufferIdPtr;
+            Renderer::bindVertexBuffer(buf);
+        }
+
+        // Bind texture
+        if (tex != *vertex.textureIdPtr)
 		{
 			tex = *vertex.textureIdPtr;
 			Renderer::bindTexture(tex);			
 		}
 
-		if (tex != 0)
-			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
+        // Draw call
+		if ((tex != 0) && (buf != 0))
+		    Renderer::drawTextCache(cache->color, vertex.verts.size());
+
+		// Cleanup state
+		Renderer::bindVertexBuffer(0);
 	}
 }
 
@@ -716,7 +732,7 @@ float Font::getNewlineStartOffset(const std::string& text, const unsigned int& c
 	}
 }
 
-TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsigned int color, float xLen, Alignment alignment, float lineSpacing)
+TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, float xLen, Alignment alignment, float lineSpacing)
 {
 	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
 	
@@ -806,7 +822,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		Renderer::Vertex* vertices = verts.data() + oldVertSize;
 
 		const float        glyphStartX    = x + glyph->bearing.x();
-		const unsigned int convertedColor = Renderer::convertColor(color);
+		const unsigned int convertedColor = 0xFFFFFFFF; // Force white opaque
 
 		vertices[1] = { { glyphStartX                                       , y - glyph->bearing.y()                                          }, { glyph->texPos.x(),                      glyph->texPos.y()                      }, convertedColor };
 		vertices[2] = { { glyphStartX                                       , y - glyph->bearing.y() + (glyph->glyphSize.y())                 }, { glyph->texPos.x(),                      glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
@@ -838,6 +854,11 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 		vertList.textureIdPtr = &it->first->textureId;
 		vertList.verts = it->second;
+
+        // Cache to VBO
+        vertList.bufferIdPtr = new int[1];
+        *vertList.bufferIdPtr = Renderer::createVertexBuffer(vertList.verts.data(), vertList.verts.size());
+
 		i++;
 	}
 
@@ -846,15 +867,15 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	return cache;
 }
 
-TextCache* Font::buildTextCache(const std::string& text, float offsetX, float offsetY, unsigned int color)
+TextCache* Font::buildTextCache(const std::string& text, float offsetX, float offsetY)
 {
-	return buildTextCache(text, Vector2f(offsetX, offsetY), color, 0.0f);
+	return buildTextCache(text, Vector2f(offsetX, offsetY), 0.0f);
 }
 
-void TextCache::setColor(unsigned int color)
+void TextCache::setColor(unsigned int _color)
 {
-	const unsigned int convertedColor = Renderer::convertColor(color);
-
+	const unsigned int convertedColor = Renderer::convertColor(_color);
+    color = convertedColor;
 	for(auto it = vertexLists.begin(); it != vertexLists.end(); it++)
 		for(auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
 			it2->col = convertedColor;

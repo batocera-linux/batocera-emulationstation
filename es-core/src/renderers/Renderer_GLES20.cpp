@@ -39,7 +39,9 @@ namespace Renderer
 
 	static Shader  	vertexShaderTexture;
 	static Shader  	fragmentShaderColorTexture;
+    static Shader  	fragmentShaderColorTextureColor;
 	static ShaderProgram    shaderProgramColorTexture;
+    static ShaderProgram    shaderProgramColorTextureColor;
 
 	static Shader  	vertexShaderNoTexture;
 	static Shader  	fragmentShaderColorNoTexture;
@@ -210,12 +212,27 @@ namespace Renderer
 			"    gl_FragColor = texture2D(u_tex, v_tex) * v_col; \n"
 			"}                                                   \n";
 
+        // fragment shader (texture + color)
+        const GLchar* fragmentSourceTextureColor =
+                "precision highp float;     \n"
+                "varying   vec4      v_col; \n"
+                "varying   vec2      v_tex; \n"
+                "uniform   sampler2D u_tex; \n"
+                "uniform   vec4      u_col; \n"
+                "void main(void)                                     \n"
+                "{                                                   \n"
+                "    gl_FragColor = texture2D(u_tex, v_tex) * u_col; \n"
+                "}                                                   \n";
+
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorNoTextureId = glCreateShader(GL_VERTEX_SHADER);
 		result = compileShader(vertexShaderTexture, vertexShaderColorNoTextureId, vertexSourceTexture);
 		const GLuint fragmentShaderTextureId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = compileShader(fragmentShaderColorTexture, fragmentShaderTextureId, fragmentSourceTexture);
-		result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture, shaderProgramColorTexture);
+        result = compileShader(fragmentShaderColorTexture, fragmentShaderTextureId, fragmentSourceTexture);
+        result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture, shaderProgramColorTexture);
+        const GLuint fragmentShaderTextureColorId = glCreateShader(GL_FRAGMENT_SHADER);
+        result = compileShader(fragmentShaderColorTextureColor, fragmentShaderTextureColorId, fragmentSourceTextureColor);
+        result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTextureColor, shaderProgramColorTextureColor);
 
 
 		// Set shader active, retrieve attributes and uniforms locations
@@ -226,6 +243,17 @@ namespace Renderer
 		shaderProgramColorTexture.mvpUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_mvp");
 		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
 		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
+
+        // Set shader active, retrieve attributes and uniforms locations
+        GL_CHECK_ERROR(glUseProgram(shaderProgramColorTextureColor.id));
+        shaderProgramColorTextureColor.posAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_pos");
+        shaderProgramColorTextureColor.colAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_col");
+        shaderProgramColorTextureColor.texAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_tex");
+        shaderProgramColorTextureColor.mvpUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_mvp");
+        shaderProgramColorTextureColor.colorUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_col");
+        GLint colUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_col");
+        float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+        GL_CHECK_ERROR(glUniform4fv(colUniform, 1, color));
 
 	} // setupShaders
 
@@ -466,6 +494,7 @@ namespace Renderer
 
 		// Setup shader (always NOT textured)
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+        GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
 		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
@@ -487,40 +516,78 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+    void drawTextCache(const unsigned int _color, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+    {
+        // Setup shader
+        GL_CHECK_ERROR(glUseProgram(shaderProgramColorTextureColor.id));
+        GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTextureColor.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+        float fColor[4];
+        fColor[3] = ((_color>>24) & 0xff) / 255.0f;
+        fColor[2] = ((_color>>16) & 0xff) / 255.0f;
+        fColor[1] = ((_color>> 8) & 0xff) / 255.0f;
+        fColor[0] = ((_color>> 0) & 0xff) / 255.0f;
+        GL_CHECK_ERROR(glUniform4fv(shaderProgramColorTextureColor.colorUniform, 1, (float*)fColor));
+
+        GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTextureColor.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(offsetof(Vertex, pos))));
+        GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTextureColor.posAttrib));
+
+        GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTextureColor.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(offsetof(Vertex, tex))));
+        GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTextureColor.texAttrib));
+
+        GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.colAttrib));
+
+        // Do rendering
+        GL_CHECK_ERROR(glEnable(GL_BLEND));
+        GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+        GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
+        GL_CHECK_ERROR(glDisable(GL_BLEND));
+
+        // Restore context
+        GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.posAttrib));
+        GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.texAttrib));
+    }
+
+    void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		// Pass buffer data
-		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
+		if (_vertices != nullptr && _numVertices > 0)
+        {
+		    glBindBuffer(GL_ARRAY_BUFFER, 0);
+            GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
+        }
 
 		// Setup shader
+        const unsigned char* dataPtr = (const unsigned char*)_vertices;
 		if (boundTexture != 0)
 		{
 			GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
+            GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, pos))));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.posAttrib));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, col))));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.colAttrib));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, tex))));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.texAttrib));
 		}
 		else
 		{
 			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+            GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, pos))));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
 
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, col))));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 		}
 
 		// Do rendering
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
 		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
-		GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
+	    GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
 		GL_CHECK_ERROR(glDisable(GL_BLEND));
 
 		// Restore context
@@ -543,12 +610,7 @@ namespace Renderer
 	void setProjection(const Transform4x4f& _projection)
 	{
 		projectionMatrix = _projection;
-
 		mvpMatrix = projectionMatrix * worldViewMatrix;
-		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 	} // setProjection
 
@@ -558,12 +620,7 @@ namespace Renderer
 	{
 		worldViewMatrix = _matrix;
 		worldViewMatrix.round();
-
 		mvpMatrix = projectionMatrix * worldViewMatrix;
-		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 	} // setMatrix
 
@@ -627,14 +684,18 @@ namespace Renderer
 	
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
+        const unsigned char* dataPtr = (const unsigned char*)_vertices;
+
+        GL_CHECK_ERROR(glBindBuffer(GL_ARRAY_BUFFER, 0));
 		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
 
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+        GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, pos))));
 		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
 
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)(dataPtr+offsetof(Vertex, col))));
 		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
@@ -677,6 +738,24 @@ namespace Renderer
 	{
 		glDisable(GL_STENCIL_TEST);
 	}
+
+    unsigned int createVertexBuffer(const Vertex* _vertices, const unsigned int _numVertices)
+    {
+	    unsigned int n;
+	    glGenBuffers(1, &n);
+	    glBindBuffer(GL_ARRAY_BUFFER, n);
+        // Pass buffer data
+        GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_STATIC_DRAW));
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+	    return n;
+    }
+
+    void         bindVertexBuffer  (const int _vbo)
+    {
+	    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+    }
+
+
 } // Renderer::
 
 #endif // USE_OPENGLES_20

@@ -59,7 +59,8 @@ void ButtonComponent::setText(const std::string& text, const std::string& helpTe
 	mText = upperCase ? Utils::String::toUpper(text) : text;
 	mHelpText = helpText;
 	
-	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(mText, 0, 0, getCurTextColor()));
+	mTextCache = std::unique_ptr<TextCache>(mFont->buildTextCache(mText, 0, 0));
+	mTextCache->setColor(getCurTextColor());
 
 	float padding = TEXT_PADDING;
 	float minWidth = mFont->sizeText("DELETE").x() + padding;
