@@ -210,7 +210,7 @@ void ThreadedScraper::run()
 	}
 	
 	if (mExitCode == ASYNC_DONE)
-		mWindow->displayNotificationMessage(GUIICON + _("SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."));
+		mWindow->displayNotificationMessage(GUIICON + _("SCRAPING FINISHED") + std::string(". ") + _("UPDATE GAMES LISTS TO APPLY CHANGES."));
 
 	delete this;
 	ThreadedScraper::mInstance = nullptr;

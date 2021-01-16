@@ -78,6 +78,7 @@ namespace Renderer
 	int         getScreenOffsetX();
 	int         getScreenOffsetY();
 	int         getScreenRotate ();
+	float		getScreenProportion();
 
 	// API specific
 	unsigned int convertColor      (const unsigned int _color);

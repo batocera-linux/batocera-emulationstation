@@ -103,6 +103,9 @@ protected:
 	ImageComponent* mMap;
 	ImageComponent* mNoMap;
 
+	ImageComponent* mSaveState;
+	ImageComponent* mNoSaveState;
+
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;
 

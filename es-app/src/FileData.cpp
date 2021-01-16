@@ -26,6 +26,7 @@
 #include "LangParser.h"
 #include "resources/ResourceManager.h"
 #include "RetroAchievements.h"
+#include "SaveStateRepository.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -437,6 +438,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	int monitorId = Settings::getInstance()->getInt("MonitorID");
 	if (monitorId >= 0 && command.find(" -system ") != std::string::npos)
 		command = command + " -monitor " + std::to_string(monitorId);
+	
+	if (SaveStateRepository::isEnabled(this))
+		command = options.saveStateInfo.setupSaveState(this, command);
 
 	Scripting::fireEvent("game-start", rom, basename);
 
@@ -449,6 +453,12 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
+
+	if (SaveStateRepository::isEnabled(this))
+	{
+		options.saveStateInfo.onGameEnded();
+		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
+	}
 
 	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
 		Utils::FileSystem::removeFile(p2kConv);

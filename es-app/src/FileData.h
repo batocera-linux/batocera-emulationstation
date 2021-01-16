@@ -7,9 +7,11 @@
 #include <unordered_map>
 #include "KeyboardMapping.h"
 #include "SystemData.h"
+#include "SaveState.h"
 
 class Window;
 struct SystemEnvironmentData;
+
 
 enum FileType
 {
@@ -44,6 +46,8 @@ struct LaunchGameOptions
 
 	std::string core;
 	std::string netplayClientPassword;
+
+	SaveState	saveStateInfo;
 };
 
 class FolderData;

@@ -75,6 +75,17 @@ namespace Utils
 			return difftime(mTime, _since.mTime);
 		}
 
+		std::string DateTime::toLocalTimeString()
+		{
+			time_t     clockNow = getTime();
+			struct tm  clockTstruct = *localtime(&clockNow);
+
+			char       clockBuf[256];
+			strftime(clockBuf, sizeof(clockBuf), "%Ex %R", &clockTstruct);
+			return clockBuf;
+		}
+
+
 		Duration::Duration(const time_t& _time)
 		{
 			mTotalSeconds = (unsigned int)_time;

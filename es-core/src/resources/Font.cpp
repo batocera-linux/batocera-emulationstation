@@ -422,7 +422,7 @@ void Font::renderTextCache(TextCache* cache)
 		return;
 	}
 
-	int tex = 0;
+	int tex = -1;
 
 	for(auto& vertex : cache->vertexLists)
 	{		

@@ -36,6 +36,7 @@ namespace Utils
 			const tm&          getTimeStruct() const { return mTimeStruct; }
 			void               setIsoString (const std::string& _isoString);
 			const std::string& getIsoString () const { return mIsoString; }
+			std::string		   toLocalTimeString();
 
 			double			   elapsedSecondsSince(const DateTime& _since);
 

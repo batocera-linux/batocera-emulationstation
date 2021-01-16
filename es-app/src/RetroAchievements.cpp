@@ -480,7 +480,8 @@ std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::
 	{
 	}
 
-	return "";
+	LOG(LogWarning) << "cheevos -> Unable to extract hash from file :" << fileName;
+	return "00000000000000000000000000000000";	
 }
 
 std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string fileName)
