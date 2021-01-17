@@ -6,10 +6,13 @@
 #include <assert.h>
 #include <math.h>
 
+#include "math/vectorial/vectorial.h"
+using namespace vectorial;
+
 class Vector2f;
 class Vector4f;
 
-class Vector3f
+class alignas(16) Vector3f
 {
 public:	   
 	Vector3f()
@@ -85,7 +88,7 @@ public:
 		return sqrt(((mX * mX) + (mY * mY)) + (mZ * mZ));
 	}
 
-
+	inline const vec3f get() const { return vec3f(mX, mY, mZ); }
 
 
 

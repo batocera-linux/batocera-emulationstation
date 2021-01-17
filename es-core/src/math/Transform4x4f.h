@@ -5,12 +5,19 @@
 #include "math/Vector4f.h"
 #include "math/Vector3f.h"
 
-class Transform4x4f
+#include "math/vectorial/vectorial.h"
+using namespace vectorial;
+
+class alignas(16) Transform4x4f
 {
 public:
 
 	Transform4x4f()                                                                                                                            { }
 	Transform4x4f(const Vector4f& _r0, const Vector4f& _r1, const Vector4f& _r2, const Vector4f& _r3) : mR0(_r0), mR1(_r1), mR2(_r2), mR3(_r3) { }
+	Transform4x4f(const mat4f _matrix) : matrix(_matrix)
+	{
+		_matrix.store((float*)&mR0);
+	}
 
 	const Transform4x4f operator* (const Transform4x4f& _other) const;
 	const Vector3f      operator* (const Vector3f& _other) const;
@@ -46,6 +53,7 @@ protected:
 	Vector4f mR1;
 	Vector4f mR2;
 	Vector4f mR3;
+	mat4f matrix;
 
 }; // Transform4x4f
 

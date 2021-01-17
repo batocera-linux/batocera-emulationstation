@@ -2,50 +2,18 @@
 
 const Transform4x4f Transform4x4f::operator*(const Transform4x4f& _other) const
 {
-	const float* tm = (float*)this;
-	const float* om = (float*)&_other;
-
-	return
-	{
-		{
-			tm[ 0] * om[ 0] + tm[ 4] * om[ 1] + tm[ 8] * om[ 2],
-			tm[ 1] * om[ 0] + tm[ 5] * om[ 1] + tm[ 9] * om[ 2],
-			tm[ 2] * om[ 0] + tm[ 6] * om[ 1] + tm[10] * om[ 2],
-			0
-		},
-		{
-			tm[ 0] * om[ 4] + tm[ 4] * om[ 5] + tm[ 8] * om[ 6],
-			tm[ 1] * om[ 4] + tm[ 5] * om[ 5] + tm[ 9] * om[ 6],
-			tm[ 2] * om[ 4] + tm[ 6] * om[ 5] + tm[10] * om[ 6],
-			0
-		},
-		{
-			tm[ 0] * om[ 8] + tm[ 4] * om[ 9] + tm[ 8] * om[10],
-			tm[ 1] * om[ 8] + tm[ 5] * om[ 9] + tm[ 9] * om[10],
-			tm[ 2] * om[ 8] + tm[ 6] * om[ 9] + tm[10] * om[10],
-			0
-		},
-		{
-			tm[ 0] * om[12] + tm[ 4] * om[13] + tm[ 8] * om[14] + tm[12],
-			tm[ 1] * om[12] + tm[ 5] * om[13] + tm[ 9] * om[14] + tm[13],
-			tm[ 2] * om[12] + tm[ 6] * om[13] + tm[10] * om[14] + tm[14],
-			1
-		}
-	};
+	mat4f matrix = mat4f(mR0.get(), mR1.get(), mR2.get(), mR3.get());
+	mat4f other = mat4f(_other.mR0.get(), _other.mR1.get(), _other.mR2.get(), _other.mR3.get());
+	mat4f result = matrix * other;
+	return result;
 
 } // operator*
 
 const Vector3f Transform4x4f::operator*(const Vector3f& _other) const
 {
-	const float* tm = (float*)this;
-	const float* ov = (float*)&_other;
-
-	return
-	{
-		tm[ 0] * ov[0] + tm[ 4] * ov[1] + tm[ 8] * ov[2] + tm[12],
-		tm[ 1] * ov[0] + tm[ 5] * ov[1] + tm[ 9] * ov[2] + tm[13],
-		tm[ 2] * ov[0] + tm[ 6] * ov[1] + tm[10] * ov[2] + tm[14]
-	};
+	mat4f matrix = mat4f(mR0.get(), mR1.get(), mR2.get(), mR3.get());
+	vec3f vec3 = transformPoint(matrix, _other.get());
+	return Vector3f(vec3.x(), vec3.y(), vec3.z());
 
 } // operator*
 

@@ -6,10 +6,13 @@
 #include <assert.h>
 #include <string>
 
+#include "math/vectorial/vectorial.h"
+using namespace vectorial;
+
 class Vector2f;
 class Vector3f;
 
-class Vector4f
+class alignas(16) Vector4f
 {
 public:
 	Vector4f()
@@ -81,13 +84,13 @@ public:
 
 	static const Vector4f parseString(const std::string& _input);
 
+	inline const vec4f get() const { return vec4f(mX, mY, mZ, mW); }
 private:
 
 	float mX;
 	float mY;
 	float mZ;
 	float mW;
-
 }; // Vector4f
 
 #endif // ES_CORE_MATH_VECTOR4F_H
