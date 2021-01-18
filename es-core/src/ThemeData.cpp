@@ -989,6 +989,17 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 			return false;
 	}
 
+	if (node.attribute("ifCheevos"))
+	{
+		const std::string hasCheevosAttr = node.attribute("ifCheevos").as_string();
+		bool hasCheevos = mVariables.find("system.cheevos") != mVariables.cend();
+
+		if (!hasCheevos && hasCheevosAttr == "true")
+			return false;
+		else if (hasCheevos && hasCheevosAttr == "false")
+			return false;
+	}
+
 	if (node.attribute("ifSubset"))
 	{
 		const std::string ifSubset = node.attribute("ifSubset").as_string();

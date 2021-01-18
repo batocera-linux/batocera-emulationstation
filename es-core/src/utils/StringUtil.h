@@ -43,6 +43,7 @@ namespace Utils
 		float		toFloat(const std::string& string);
 
 		std::string decodeXmlString(const std::string& string);
+		std::string toHexString(unsigned int color);
 
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);

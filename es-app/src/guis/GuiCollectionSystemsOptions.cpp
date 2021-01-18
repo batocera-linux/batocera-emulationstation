@@ -290,7 +290,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (Settings::getInstance()->setBool("HiddenSystemsShowGames", alsoHideGames->getState()))
 		{
 			FileData::resetSettings();
-			setVariable("reloadAll", true);
+			setVariable("reloadSystems", true);
 		}
 	});
 	

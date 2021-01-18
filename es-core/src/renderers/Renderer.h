@@ -78,6 +78,7 @@ namespace Renderer
 	int         getScreenOffsetX();
 	int         getScreenOffsetY();
 	int         getScreenRotate ();
+	float		getScreenProportion();
 
 	// API specific
 	unsigned int convertColor      (const unsigned int _color);
@@ -90,7 +91,9 @@ namespace Renderer
 	void         updateTexture     (const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);
 	void         bindTexture       (const unsigned int _texture);
     unsigned int createVertexBuffer(const Vertex* _vertices, const unsigned int _numVertices);
-    void         bindVertexBuffer  (const int _vbo);
+    void         bindVertexBuffer  (const unsigned int _vbo);
+    void         destroyVertexBuffer(const unsigned int _vbo);
+
 	void         drawLines         (const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void         drawTriangleStrips(const Vertex* _vertices = nullptr, const unsigned int _numVertices = 0, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
     void         drawTextCache     (const unsigned int _color, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);

@@ -62,6 +62,7 @@ namespace Utils
 		size_t		getFileSize(const std::string& _path);
 
 		Utils::Time::DateTime getFileCreationDate(const std::string& _path);
+		Utils::Time::DateTime getFileModificationDate(const std::string& _path);
 
 		std::string	readAllText(const std::string fileName);
 		void		writeAllText(const std::string fileName, const std::string text);

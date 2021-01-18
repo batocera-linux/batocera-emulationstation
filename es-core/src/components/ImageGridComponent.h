@@ -726,6 +726,9 @@ void ImageGridComponent<T>::onSizeChanged()
 	if (mTheme == nullptr)
 		return;
 
+	if (mSize.x() <= 0 || mSize.y() <= 0)
+		return;
+
 	buildTiles();
 	updateTiles(false, false);
 }
@@ -1135,6 +1138,11 @@ void ImageGridComponent<T>::buildTiles()
 {
 	if (mGridSizeOverride.x() != 0 && mGridSizeOverride.y() != 0)
 		mAutoLayout = mGridSizeOverride;
+
+	// temporary keep references to tiles to avoid shared fonts & shared textures destructors
+	std::vector<std::shared_ptr<GridTileComponent>> oldTiles;
+	for (auto tile : mTiles)
+		oldTiles.push_back(tile);
 
 	mStartPosition = 0;
 	mTiles.clear();

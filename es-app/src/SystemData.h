@@ -20,6 +20,7 @@ class FileData;
 class FolderData;
 class ThemeData;
 class Window;
+class SaveStateRepository;
 
 struct CustomFeatureChoice
 {
@@ -282,6 +283,8 @@ public:
 
 	static void resetSettings();
 
+	SaveStateRepository* getSaveStateRepository();
+
 private:
 	std::string getKeyboardMappingFilePath();
 	static void createGroupedSystems();
@@ -327,6 +330,7 @@ private:
 	std::shared_ptr<bool> mShowFilenames;
 
 	GameCountInfo* mGameCountInfo;
+	SaveStateRepository* mSaveRepository;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H

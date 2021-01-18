@@ -47,8 +47,8 @@ public:
 	virtual ~Font();
 
 	Vector2f sizeText(std::string text, float lineSpacing = 1.5f); // Returns the expected size of a string when rendered.  Extra spacing is applied to the Y axis.
-	TextCache* buildTextCache(const std::string& text, float offsetX, float offsetY);
-	TextCache* buildTextCache(const std::string& text, Vector2f offset, float xLen, Alignment alignment = ALIGN_LEFT, float lineSpacing = 1.5f);
+	TextCache* buildTextCache(const std::string& text, float offsetX, float offsetY, unsigned int color);
+	TextCache* buildTextCache(const std::string& text, Vector2f offset, unsigned int color, float xLen, Alignment alignment = ALIGN_LEFT, float lineSpacing = 1.5f);
 	
 	void renderTextCache(TextCache* cache);
 	void renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz = false);
@@ -159,6 +159,7 @@ protected:
 		std::vector<Renderer::Vertex> verts;
 		unsigned int* textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
         int* bufferIdPtr; // this is pointer to the VBO (Vertex Buffer Object) id, which can change at deinit/reinit too
+        unsigned int color;
 	};
 
 	std::vector<VertexList> vertexLists;
@@ -172,9 +173,6 @@ public:
 	void setColor(unsigned int color);
 
 	friend Font;
-
-private:
-    unsigned int color = 0xffffffff;
 };
 
 #endif // ES_CORE_RESOURCES_FONT_H

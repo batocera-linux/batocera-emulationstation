@@ -39,13 +39,13 @@ namespace Renderer
 
 	static Shader  	vertexShaderTexture;
 	static Shader  	fragmentShaderColorTexture;
-    static Shader  	fragmentShaderColorTextureColor;
 	static ShaderProgram    shaderProgramColorTexture;
-    static ShaderProgram    shaderProgramColorTextureColor;
+    static Shader      fragmentShaderColorTextureColor;
 
 	static Shader  	vertexShaderNoTexture;
 	static Shader  	fragmentShaderColorNoTexture;
 	static ShaderProgram    shaderProgramColorNoTexture;
+    static ShaderProgram    shaderProgramColorTextureColor;
 
 	static GLuint        vertexBuffer     = 0;
 
@@ -171,6 +171,17 @@ namespace Renderer
 			"    gl_FragColor = v_col;  \n"
 			"}                          \n";
 
+        // fragment shader (texture + color)
+        const GLchar* fragmentSourceTextureColor =
+            "precision highp float;     \n"
+            "varying   vec4      v_col; \n"
+            "varying   vec2      v_tex; \n"
+            "uniform   sampler2D u_tex; \n"
+            "uniform   vec4      u_col; \n"
+            "void main(void)                                     \n"
+            "{                                                   \n"
+            "    gl_FragColor = texture2D(u_tex, v_tex) * v_col * u_col; \n"
+            "}                                                   \n";
 
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorTextureId = glCreateShader(GL_VERTEX_SHADER);
@@ -178,6 +189,8 @@ namespace Renderer
 		const GLuint fragmentShaderNoTextureId = glCreateShader(GL_FRAGMENT_SHADER);
 		result = compileShader(fragmentShaderColorNoTexture, fragmentShaderNoTextureId, fragmentSourceNoTexture);
 		result = linkShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture, shaderProgramColorNoTexture);
+        const GLuint fragmentShaderTextureColorId = glCreateShader(GL_FRAGMENT_SHADER);
+        result = compileShader(fragmentShaderColorTextureColor, fragmentShaderTextureColorId, fragmentSourceTextureColor);
 
 		// Set shader active, retrieve attributes and uniforms locations
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
@@ -212,28 +225,24 @@ namespace Renderer
 			"    gl_FragColor = texture2D(u_tex, v_tex) * v_col; \n"
 			"}                                                   \n";
 
-        // fragment shader (texture + color)
-        const GLchar* fragmentSourceTextureColor =
-                "precision highp float;     \n"
-                "varying   vec4      v_col; \n"
-                "varying   vec2      v_tex; \n"
-                "uniform   sampler2D u_tex; \n"
-                "uniform   vec4      u_col; \n"
-                "void main(void)                                     \n"
-                "{                                                   \n"
-                "    gl_FragColor = texture2D(u_tex, v_tex) * u_col; \n"
-                "}                                                   \n";
-
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorNoTextureId = glCreateShader(GL_VERTEX_SHADER);
 		result = compileShader(vertexShaderTexture, vertexShaderColorNoTextureId, vertexSourceTexture);
 		const GLuint fragmentShaderTextureId = glCreateShader(GL_FRAGMENT_SHADER);
         result = compileShader(fragmentShaderColorTexture, fragmentShaderTextureId, fragmentSourceTexture);
         result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture, shaderProgramColorTexture);
-        const GLuint fragmentShaderTextureColorId = glCreateShader(GL_FRAGMENT_SHADER);
-        result = compileShader(fragmentShaderColorTextureColor, fragmentShaderTextureColorId, fragmentSourceTextureColor);
         result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTextureColor, shaderProgramColorTextureColor);
 
+        // Set shader active, retrieve attributes and uniforms locations
+        GL_CHECK_ERROR(glUseProgram(shaderProgramColorTextureColor.id));
+        shaderProgramColorTextureColor.posAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_pos");
+        shaderProgramColorTextureColor.colAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_col");
+        shaderProgramColorTextureColor.texAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_tex");
+        shaderProgramColorTextureColor.mvpUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_mvp");
+        shaderProgramColorTextureColor.colorUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_col");
+        GLint colUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_col");
+        float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+        GL_CHECK_ERROR(glUniform4fv(colUniform, 1, color));
 
 		// Set shader active, retrieve attributes and uniforms locations
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
@@ -243,18 +252,6 @@ namespace Renderer
 		shaderProgramColorTexture.mvpUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_mvp");
 		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
 		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
-
-        // Set shader active, retrieve attributes and uniforms locations
-        GL_CHECK_ERROR(glUseProgram(shaderProgramColorTextureColor.id));
-        shaderProgramColorTextureColor.posAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_pos");
-        shaderProgramColorTextureColor.colAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_col");
-        shaderProgramColorTextureColor.texAttrib = glGetAttribLocation(shaderProgramColorTextureColor.id, "a_tex");
-        shaderProgramColorTextureColor.mvpUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_mvp");
-        shaderProgramColorTextureColor.colorUniform = glGetUniformLocation(shaderProgramColorTextureColor.id, "u_col");
-        GLint colUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_col");
-        float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-        GL_CHECK_ERROR(glUniform4fv(colUniform, 1, color));
-
 	} // setupShaders
 
 //////////////////////////////////////////////////////////////////////////
@@ -425,8 +422,14 @@ namespace Renderer
 	void destroyTexture(const unsigned int _texture)
 	{
 		GL_CHECK_ERROR(glDeleteTextures(1, &_texture));
-
 	} // destroyTexture
+
+//////////////////////////////////////////////////////////////////////////
+
+    void destroyVertexBuffer(const unsigned int _vbo)
+    {
+        GL_CHECK_ERROR(glDeleteBuffers(1, &_vbo));
+    }
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -521,6 +524,7 @@ namespace Renderer
         // Setup shader
         GL_CHECK_ERROR(glUseProgram(shaderProgramColorTextureColor.id));
         GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTextureColor.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+
         float fColor[4];
         fColor[3] = ((_color>>24) & 0xff) / 255.0f;
         fColor[2] = ((_color>>16) & 0xff) / 255.0f;
@@ -534,7 +538,8 @@ namespace Renderer
         GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTextureColor.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(offsetof(Vertex, tex))));
         GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTextureColor.texAttrib));
 
-        GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.colAttrib));
+        GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTextureColor.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)(offsetof(Vertex, col))));
+        GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTextureColor.colAttrib));
 
         // Do rendering
         GL_CHECK_ERROR(glEnable(GL_BLEND));
@@ -545,6 +550,7 @@ namespace Renderer
         // Restore context
         GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.posAttrib));
         GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.texAttrib));
+        GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTextureColor.colAttrib));
     }
 
     void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
@@ -750,7 +756,7 @@ namespace Renderer
 	    return n;
     }
 
-    void         bindVertexBuffer  (const int _vbo)
+    void bindVertexBuffer  (const unsigned int _vbo)
     {
 	    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     }
