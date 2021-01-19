@@ -685,7 +685,7 @@ int ScreenScraperScraper::getThreadCount()
 	auto content = httpreq.getContent();
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load(content.c_str());
+	pugi::xml_parse_result parseResult = doc.load_string(content.c_str());
 	if (parseResult)
 	{
 		auto userInfo = ScreenScraperRequest::processUserInfo(doc);
