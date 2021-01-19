@@ -449,7 +449,7 @@ void Font::renderTextCache(TextCache* cache)
 
         // Draw call
 		if ((tex != 0) && (buf != 0))
-		    Renderer::drawTextCache(vertexList.color, vertexList.verts.size());
+		    Renderer::drawTextCache(vertexList.color, vertexList.numVerts);
 
 		// Cleanup state
 		Renderer::bindVertexBuffer(0);
@@ -470,15 +470,15 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 			continue;
 
 		std::vector<Renderer::Vertex> vxs;
-		vxs.resize(it->verts.size());
+		vxs.resize(it->numVerts);
 
 		float maxY = -1;
 
-		for (int i = 0; i < it->verts.size(); i += 6)
+		for (int i = 0; i < it->numVerts; i += 6)
 			if (maxY == -1 || maxY < it->verts[i + 2].pos.y())
 				maxY = it->verts[i + 2].pos.y();
 
-		for (int i = 0; i < it->verts.size(); i += 6)
+		for (int i = 0; i < it->numVerts; i += 6)
 		{
 			float topOffset = it->verts[i + 1].pos.y();
 			float bottomOffset = it->verts[i + 2].pos.y();
@@ -858,6 +858,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		vertList.textureIdPtr = &it->first->textureId;
 		vertList.verts = it->second.verts;
         vertList.color = it->second.color;
+        vertList.numVerts = it->second.verts.size();
 
         // Destroy VBO if any
         if (vertList.bufferIdPtr != nullptr)

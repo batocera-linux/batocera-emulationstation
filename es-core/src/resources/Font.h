@@ -160,6 +160,7 @@ protected:
 		unsigned int* textureIdPtr; // this is a pointer because the texture ID can change during deinit/reinit (when launching a game)
         int* bufferIdPtr; // this is pointer to the VBO (Vertex Buffer Object) id, which can change at deinit/reinit too
         unsigned int color;
+        unsigned int numVerts;
 	};
 
 	std::vector<VertexList> vertexLists;
