@@ -20,10 +20,13 @@ MenuComponent::MenuComponent(Window* window,
 	addChild(&mBackground);
 	addChild(&mGrid);
 
+	mGrid.setZIndex(10);
+
 	mBackground.setImagePath(theme->Background.path);
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setZIndex(2);
 
 	// set up title
 	mTitle = std::make_shared<TextComponent>(mWindow);
@@ -213,7 +216,7 @@ void MenuComponent::setTitle(const std::string title, const std::shared_ptr<Font
 		mTitle->setFont(font);
 }
 
-void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage)
+void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle)
 {
 	if (titleImage == nullptr)
 	{
@@ -235,9 +238,24 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage)
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	float iw = TITLE_HEIGHT / width;
 
-	mHeaderGrid->setColWidthPerc(0, 1 - iw);
-	mHeaderGrid->setColWidthPerc(1, iw);
-	mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
+	if (replaceTitle)
+	{
+		mHeaderGrid->setColWidthPerc(0, 0);
+		mHeaderGrid->setColWidthPerc(1, 1);
+		mHeaderGrid->setEntry(mTitleImage, Vector2i(0, 0), false, false, Vector2i(2, 2));
+		
+		if (mTitle)
+			mTitle->setVisible(false);
+
+		if (mSubtitle)
+			mSubtitle->setVisible(false);
+	}
+	else
+	{
+		mHeaderGrid->setColWidthPerc(0, 1 - iw);
+		mHeaderGrid->setColWidthPerc(1, iw);
+		mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
+	}
 
 	updateSize();	
 }
@@ -279,7 +297,17 @@ void MenuComponent::setSubTitle(const std::string text)
 	const float titleHeight = mTitle->getFont()->getLetterHeight() + (mSubtitle ? TITLE_WITHSUB_VERT_PADDING : TITLE_VERT_PADDING);
 	const float subtitleHeight = mSubtitle->getSize().y() + SUBTITLE_VERT_PADDING;
 
-	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);
+	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);	
+}
+
+float MenuComponent::getTitleHeight() const
+{
+	return TITLE_HEIGHT;
+}
+
+float MenuComponent::getHeaderGridHeight() const
+{
+	return mHeaderGrid->getRowHeight(0);
 }
 
 float MenuComponent::getButtonGridHeight() const
@@ -317,23 +345,6 @@ void MenuComponent::updateSize()
 
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	setSize(width, height);
-
-	if (mTitleImage != nullptr)
-	{
-		mTitleImage->setPosition(width - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
-		mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
-		
-		float pad = Renderer::getScreenHeight() * 0.015;
-		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-
-		mTitle->setHorizontalAlignment(ALIGN_LEFT);
-		
-		if (mSubtitle != nullptr)
-		{
-			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
-		}
-	}
 }
 
 void MenuComponent::onSizeChanged()
@@ -345,6 +356,38 @@ void MenuComponent::onSizeChanged()
 	mGrid.setRowHeightPerc(2, getButtonGridHeight() / mSize.y(), false);
 
 	mGrid.setSize(mSize);
+
+	if (mTitleImage != nullptr)
+	{
+		if (mTitle != nullptr && mTitle->isVisible())
+		{
+			mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
+			mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
+
+			float pad = Renderer::getScreenWidth() * 0.012;
+			mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+
+			mTitle->setHorizontalAlignment(ALIGN_LEFT);
+
+			if (mSubtitle != nullptr)
+			{
+				mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+				mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+			}
+		}
+		else
+		{
+			mTitleImage->setPosition(mSize.x() / 2, TITLE_HEIGHT / 2);
+			mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85);
+		}
+	}
+}
+
+void MenuComponent::clearButtons()
+{
+	mButtons.clear();
+	updateGrid();
+	updateSize();
 }
 
 void MenuComponent::addButton(const std::string& name, const std::string& helpText, const std::function<void()>& callback)

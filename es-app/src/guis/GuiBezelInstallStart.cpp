@@ -13,7 +13,7 @@
 #include <cstring>
 #include "SystemConf.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str()), mReloadList(1)
@@ -36,9 +36,11 @@ void GuiBezelInstallStart::OnContentInstalled(int contentType, std::string conte
 {
 	if (contentType == ContentInstaller::CONTENT_BEZEL_INSTALL && success)
 	{
-		// When installed, set thebezelproject as default decorations for the system
+		auto global = SystemConf::getInstance()->get("global.bezel");
+
+		// When installed, set thebezelproject as default decorations for the system, if the global setting is not set to "AUTO"
 		auto current = SystemConf::getInstance()->get(contentName + ".bezel");
-		if (current == "" || current == "AUTO")
+		if ((current == "" || current == "AUTO") && global != "" && global != "AUTO")
 			SystemConf::getInstance()->set(contentName + ".bezel", "thebezelproject");
 	}
 	else if (contentType == ContentInstaller::CONTENT_BEZEL_UNINSTALL && success)

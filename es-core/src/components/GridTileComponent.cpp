@@ -27,6 +27,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mVideo = nullptr;
 	mMarquee = nullptr;
 	mFavorite = nullptr;
+	mCheevos = nullptr;
 	mImageOverlay = nullptr;
 	mIsDefaultImage = false;
 	
@@ -37,6 +38,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mImage = new ImageComponent(mWindow);
 	mImage->setOrigin(0.5f, 0.5f);
 
+	mLabel.setFont(Font::get(FONT_SIZE_SMALL));
 	mLabel.setDefaultZIndex(10);
 
 	addChild(&mBackground);
@@ -59,6 +61,7 @@ void GridTileComponent::resetProperties()
 	mDefaultProperties.Image = mSelectedProperties.Image = GridImageProperties();	
 	mDefaultProperties.Marquee = mSelectedProperties.Marquee = GridImageProperties();
 	mDefaultProperties.Favorite = mSelectedProperties.Favorite = GridImageProperties();
+	mDefaultProperties.Cheevos = mSelectedProperties.Cheevos = GridImageProperties();
 	mDefaultProperties.Background = mSelectedProperties.Background = GridNinePatchProperties();
 
 	mDefaultProperties.Background.centerColor = mDefaultProperties.Background.edgeColor = 0xAAAAEEFF;
@@ -86,6 +89,9 @@ GridTileComponent::~GridTileComponent()
 	if (mFavorite != nullptr)
 		delete mFavorite;
 
+	if (mCheevos != nullptr)
+		delete mCheevos;
+
 	if (mMarquee != nullptr)
 		delete mMarquee;
 
@@ -93,6 +99,7 @@ GridTileComponent::~GridTileComponent()
 		delete mVideo;
 
 	mFavorite = nullptr;
+    mCheevos = nullptr;
 	mMarquee = nullptr;
 	mImage = nullptr;
 	mVideo = nullptr;
@@ -212,6 +219,9 @@ void GridTileComponent::resize()
 	// Other controls ( Favorite / Marquee / Overlay )
 	if (currentProperties.Favorite.Loaded)
 		currentProperties.Favorite.updateImageComponent(mFavorite, imageOffset, imageSize, false);
+	
+    if (currentProperties.Cheevos.Loaded)
+		currentProperties.Cheevos.updateImageComponent(mCheevos, imageOffset, imageSize, false);
 
 	if (currentProperties.Marquee.Loaded)
 		currentProperties.Marquee.updateImageComponent(mMarquee, imageOffset, imageSize, true);
@@ -324,10 +334,6 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();
 
-	Transform4x4f trans2 = getTransform() * parentTrans;
-	Renderer::setMatrix(trans);
-	Renderer::setMatrix(trans2);
-
 	Vector2f clipPos(trans.translation().x(), trans.translation().y());
 	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x(), mSize.y()))
 		return;
@@ -344,7 +350,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
 	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
 	
-	bool isDefaultImage = mIsDefaultImage; // && (mCurrentPath == ":/folder.svg" || mCurrentPath == ":/cartridge.svg");
+	bool isDefaultImage = mIsDefaultImage;
 	bool isMinSize = !isDefaultImage && currentProperties.Image.sizeMode == "minSize";
 
 	if (isMinSize)
@@ -361,7 +367,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	
 	if (!mLabelMerged && isMinSize)
 		Renderer::popClipRect();
-
+	
 	std::vector<GuiComponent*> zOrdered;
 
 	if (mMarquee != nullptr && mMarquee->hasImage())
@@ -372,14 +378,17 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mFavorite != nullptr && mFavorite->hasImage() && mFavorite->isVisible())
 		zOrdered.push_back(mFavorite);
 
+	if (mCheevos != nullptr && mCheevos->hasImage() && mCheevos->isVisible())
+		zOrdered.push_back(mCheevos);
+
 	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible())
 		zOrdered.push_back(mImageOverlay);
 
 	std::stable_sort(zOrdered.begin(), zOrdered.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
-
+	
 	for (auto comp : zOrdered)
 		comp->render(trans);
-
+		
 	if (mLabelMerged && isMinSize)
 		Renderer::popClipRect();
 }
@@ -415,6 +424,19 @@ void GridTileComponent::createFavorite()
 	mFavorite->setVisible(false);
 	
 	addChild(mFavorite);
+}
+
+void GridTileComponent::createCheevos()
+{
+	if (mCheevos != nullptr)
+		return;
+
+	mCheevos = new ImageComponent(mWindow);
+	mCheevos->setOrigin(0.5f, 0.5f);
+	mCheevos->setDefaultZIndex(15);
+	mCheevos->setVisible(false);
+	
+	addChild(mCheevos);
 }
 
 void GridTileComponent::createImageOverlay()
@@ -455,7 +477,12 @@ void GridTileComponent::applyThemeToProperties(const ThemeData::ThemeElement* el
 		properties.Size = elem->get<Vector2f>("size") * screen;
 
 	if (elem->has("padding"))
+	{
 		properties.Padding = elem->get<Vector4f>("padding");
+		
+		if (abs(properties.Padding.x()) < 1 && abs(properties.Padding.y()) < 1 && abs(properties.Padding.w()) < 1 && abs(properties.Padding.y()) < 1)
+			properties.Padding *= screen;
+	}
 
 	if (elem && elem->has("selectionMode"))
 		properties.SelectionMode = elem->get<std::string>("selectionMode");		
@@ -622,7 +649,7 @@ bool GridNinePatchProperties::applyTheme(const ThemeData::ThemeElement* elem)
 		cornerSize = elem->get<Vector2f>("cornerSize");
 
 	if (elem && elem->has("path"))
-		path = elem->get<std::string>("path");
+		setImagePath(elem->get<std::string>("path"));
 
 	if (elem && elem->has("animateColor"))
 		animateColor = elem->get<unsigned int>("animateColor");
@@ -737,6 +764,29 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		delete mFavorite;
 		mFavorite = nullptr;
 	}
+    
+	// Apply theme to the <image name="gridtile.cheevos"> element
+	elem = theme->getElement(view, "gridtile.cheevos", "image");
+	if (elem)
+	{
+		createCheevos();
+		mCheevos->applyTheme(theme, view, "gridtile.cheevos", ThemeFlags::ALL);
+
+		mDefaultProperties.Cheevos.sizeMode = "size";
+		mDefaultProperties.Cheevos.applyTheme(elem);
+		mSelectedProperties.Cheevos = mDefaultProperties.Cheevos;
+
+		// Apply theme to the <image name="gridtile.cheevos:selected"> element
+		elem = theme->getElement(view, "gridtile.cheevos:selected", "image");
+		if (elem)
+			mSelectedProperties.Cheevos.applyTheme(elem);
+	}
+	else if (mCheevos != nullptr)
+	{
+		removeChild(mCheevos);
+		delete mCheevos;
+		mCheevos = nullptr;
+	}
 
 
 	// Apply theme to the <image name="gridtile.overlay"> element
@@ -823,6 +873,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	mVideoPlayingProperties.Image.applyTheme(theme->getElement(view, "gridtile.image:videoplaying", "image"));
 	mVideoPlayingProperties.Marquee.applyTheme(theme->getElement(view, "gridtile.marquee:videoplaying", "image"));
 	mVideoPlayingProperties.Favorite.applyTheme(theme->getElement(view, "gridtile.favorite:selected", "image"));
+	mVideoPlayingProperties.Cheevos.applyTheme(theme->getElement(view, "gridtile.cheevos:selected", "image"));
 	mVideoPlayingProperties.ImageOverlay.applyTheme(theme->getElement(view, "gridtile.overlay:videoplaying", "image"));
 }
 
@@ -855,11 +906,11 @@ void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 		return;
 
 	mCurrentPath = path;
-
+	
 	if (mSelectedProperties.Size.x() > mSize.x())
-		mImage->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size, mSelectedProperties.Image.sizeMode != "maxSize"));
+		mImage->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 	else
-		mImage->setImage(path, false, MaxSizeInfo(mSize, mSelectedProperties.Image.sizeMode != "maxSize"));
+		mImage->setImage(path, false, MaxSizeInfo(mSize, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 
 	resize();
 }
@@ -875,10 +926,19 @@ void GridTileComponent::setMarquee(const std::string& path)
 	mCurrentMarquee = path;
 
 	if (mSelectedProperties.Size.x() > mSize.x())
-		mMarquee->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size));
+		mMarquee->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size), false);
 	else
-		mMarquee->setImage(path, false, MaxSizeInfo(mSize));
+		mMarquee->setImage(path, false, MaxSizeInfo(mSize), false);
 
+	resize();
+}
+
+void GridTileComponent::setCheevos(bool cheevos)
+{
+	if (mCheevos == nullptr)
+		return;
+
+	mCheevos->setVisible(cheevos);
 	resize();
 }
 
@@ -1174,6 +1234,7 @@ GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
 		prop.Marquee.mixProperties(from->Marquee, to->Marquee, pc);
 				
 		prop.Favorite.mixProperties(from->Favorite, to->Favorite, pc);
+		prop.Cheevos.mixProperties(from->Cheevos, to->Cheevos, pc);
 		prop.ImageOverlay.mixProperties(from->ImageOverlay, to->ImageOverlay, pc);
 	}
 	else if (mSelected && mVideo != nullptr && mVideo->isPlaying() && !mVideo->isFading())

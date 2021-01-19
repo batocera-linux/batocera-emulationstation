@@ -8,16 +8,17 @@
 #include <algorithm>
 #include <vector>
 
+bool Settings::DebugText = false;
+bool Settings::DebugImage = false;
+bool Settings::DebugGrid = false;
+
 Settings* Settings::sInstance = NULL;
 static std::string mEmptyString = "";
 
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
 std::vector<const char*> settings_dont_save {
-	{ "Debug" },
-	{ "DebugGrid" },
-	{ "DebugText" },
-	{ "DebugImage" },
+	{ "Debug" },	
 	{ "ForceKid" },
 	{ "ForceKiosk" },
 	{ "IgnoreGamelist" },
@@ -68,7 +69,7 @@ void Settings::setDefaults()
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
-	mStringMap["StartupSystem"] = "";
+	mStringMap["StartupSystem"] = "lastsystem";
 
 #if WIN32
 	mBoolMap["ShowOnlyExit"] = true;
@@ -104,10 +105,10 @@ void Settings::setDefaults()
 	mBoolMap["ScrapePadToKey"] = true;	
 	mBoolMap["IgnoreGamelist"] = false;
 	mBoolMap["HideConsole"] = true;
-	//mBoolMap["QuickSystemSelect"] = true;
+	mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
-	mBoolMap["SaveGamelistsOnExit"] = true;
-	mBoolMap["ShowBatteryIndicator"] = true;	
+	mBoolMap["SaveGamelistsOnExit"] = true;	
+	mStringMap["ShowBattery"] = "text";	
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	
 #if WIN32
@@ -116,10 +117,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowNetworkIndicator"] = true;
 #endif
 
-	mBoolMap["Debug"] = false;
-	mBoolMap["DebugGrid"] = false;
-	mBoolMap["DebugText"] = false;
-	mBoolMap["DebugImage"] = false;
+	mBoolMap["Debug"] = false;	
 
 	mBoolMap["InvertButtons"] = false;
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
@@ -206,6 +204,7 @@ void Settings::setDefaults()
 	mStringMap["SortSystems"] = "manufacturer";	
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 		
+	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = true;
 

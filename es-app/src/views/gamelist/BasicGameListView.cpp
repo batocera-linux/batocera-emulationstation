@@ -86,9 +86,12 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		if (fav == "1") favoritesFirst = true;
 		else if (fav == "0") favoritesFirst = false;
 		
+		bool showCheevosIcon = (systemName != "retroachievements");
 		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
 		if (!showFavoriteIcon)
 			favoritesFirst = false;
+
+#define CHEEVOSICON _U("  \uF091")
 
 		if (favoritesFirst)
 		{
@@ -98,10 +101,17 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 					continue;
 				
 				if (showFavoriteIcon)
-					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+				{
+					if (showCheevosIcon && file->hasCheevos())
+						mList.add(_U("\uF006 ") + file->getName() + CHEEVOSICON, file, file->getType() == FOLDER);
+					else
+						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+				}
 				else if (file->getType() == FOLDER)
 					mList.add(_U("\uF07C ") + file->getName(), file, true);
-				else
+				else if (showCheevosIcon && file->hasCheevos())
+					mList.add(file->getName() + CHEEVOSICON, file, false);
+				else 
 					mList.add(file->getName(), file, false);
 			}
 		}
@@ -115,13 +125,19 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 				if (showFavoriteIcon)
 				{
-					mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+					if (showCheevosIcon && file->hasCheevos())
+						mList.add(_U("\uF006 ") + file->getName() + CHEEVOSICON, file, file->getType() == FOLDER);
+					else
+						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
+
 					continue;
 				}
 			}
 
 			if (file->getType() == FOLDER)
 				mList.add(_U("\uF07C ") + file->getName(), file, true);
+			else if (showCheevosIcon && file->hasCheevos())
+				mList.add(file->getName() + CHEEVOSICON, file, false); //  + _U(" \uF05A")
 			else
 				mList.add(file->getName(), file, false); //  + _U(" \uF05A")
 		}
@@ -236,15 +252,23 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-//	if(Settings::getInstance()->getBool("QuickSystemSelect"))
-		prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+	if (Renderer::getScreenProportion() > 1.4)
+	{
+		if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
+			prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
 
-	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+	}
+
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
+	if(!UIModeController::getInstance()->isUIModeKid())
+	  prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS"))); // batocera
+
+	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
+	/*
 	FileData* cursor = getCursor();
 	if (cursor != nullptr && cursor->isNetplaySupported())
 		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
@@ -259,7 +283,8 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 			prompts.push_back(HelpPrompt("y", _("Favorites")));
 		else
 			prompts.push_back(HelpPrompt("y", _(prompt.c_str())));
-	}
+	}*/
+
 	return prompts;
 }
 

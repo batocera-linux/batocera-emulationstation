@@ -126,6 +126,7 @@ void Font::reload()
 	
 	rebuildTextures();
 	clearFaceCache();
+	Renderer::bindTexture(0);
 
 	mLoaded = true;
 }
@@ -421,7 +422,7 @@ void Font::renderTextCache(TextCache* cache)
 		return;
 	}
 
-	int tex = 0;
+	int tex = -1;
 
 	for(auto& vertex : cache->vertexLists)
 	{		
@@ -437,8 +438,6 @@ void Font::renderTextCache(TextCache* cache)
 		if (tex != 0)
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
 	}
-
-	Renderer::bindTexture(0);
 }
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
@@ -492,8 +491,7 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 		}
 
 		Renderer::bindTexture(*it->textureIdPtr);
-		Renderer::drawTriangleStrips(&vxs[0], vxs.size());
-		Renderer::bindTexture(0);
+		Renderer::drawTriangleStrips(&vxs[0], vxs.size());		
 	}
 }
 
@@ -731,6 +729,42 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
+	int maxTab = 0;
+	
+	if (alignment == ALIGN_LEFT && text.find("\t") != std::string::npos)
+	{
+		for (auto line : Utils::String::split(text, '\n', true))
+		{
+			if (line.find("\t") == std::string::npos)
+				continue;
+
+			int curTab = 0;
+			int xpos = x;
+
+			size_t pos = 0;
+			while (pos < text.length())
+			{
+				unsigned int character = Utils::String::chars2Unicode(text, pos); // also advances cursor
+				if (character == 0 || character == '\r')
+					continue;
+
+				if (character == '\t')
+				{
+					curTab = xpos;
+					break;
+				}
+
+				auto glyph = getGlyph(character);
+				if (glyph == NULL)
+					continue;
+
+				xpos += glyph->advance.x();
+			}
+
+			maxTab = Math::max(maxTab, curTab);
+		}
+	}
+
 	size_t cursor = 0;
 	while(cursor < text.length())
 	{
@@ -738,7 +772,10 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		Glyph* glyph;
 
 		// invalid character
-		if(character == 0)
+		if (character == 0)
+			continue;
+
+		if (character == '\r')
 			continue;
 
 		if(character == '\n')
@@ -746,6 +783,17 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 			y += getHeight(lineSpacing);
 			x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, (const unsigned int)cursor /* cursor is already advanced */, xLen, alignment) : 0);
 			continue;
+		}
+
+		if (character == '\t')
+		{
+			if (maxTab > 0)
+			{
+				x = maxTab + Renderer::getScreenWidth() * 0.01f;
+				continue;
+			}
+			else
+				character = ' ';
 		}
 
 		glyph = getGlyph(character);
@@ -822,7 +870,7 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 	int size = (orig ? orig->mSize : FONT_SIZE_MEDIUM);
 	std::string path = (orig ? orig->mPath : getDefaultPath());
 
-	float sh = (float)Renderer::getScreenHeight();
+	float sh = (float) Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth());
 	if(properties & FONT_SIZE && elem->has("fontSize")) 
 	{
 		if ((int)(sh * elem->get<float>("fontSize")) > 0)
@@ -832,7 +880,7 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 	if(properties & FONT_PATH && elem->has("fontPath"))
 	{
 		std::string tmppath = elem->get<std::string>("fontPath");
-		if (ResourceManager::getInstance()->fileExists(tmppath))
+		if (!tmppath.empty())
 			path = tmppath;
 	}
 

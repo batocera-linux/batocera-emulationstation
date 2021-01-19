@@ -2,6 +2,7 @@
 #ifndef ES_CORE_RENDERER_RENDERER_H
 #define ES_CORE_RENDERER_RENDERER_H
 
+#include <vector>
 #include "math/Vector2f.h"
 
 class  Transform4x4f;
@@ -77,6 +78,7 @@ namespace Renderer
 	int         getScreenOffsetX();
 	int         getScreenOffsetY();
 	int         getScreenRotate ();
+	float		getScreenProportion();
 
 	// API specific
 	unsigned int convertColor      (const unsigned int _color);
@@ -105,7 +107,13 @@ namespace Renderer
 
 	void		drawRoundRect(float x, float y, float w, float h, float radius, unsigned int color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void		enableRoundCornerStencil(float x, float y, float size_x, float size_y, float radius);
+	
+	void		drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
+
+	void		setStencil(const Vertex* _vertices, const unsigned int _numVertices);
 	void		disableStencil();
+
+	std::vector<Vertex> createRoundRect(float x, float y, float width, float height, float radius, unsigned int color = 0xFFFFFFFF);
 
 	void		activateWindow();
 

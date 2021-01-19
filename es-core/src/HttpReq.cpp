@@ -209,7 +209,12 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 		
 		Utils::FileSystem::removeFile(mTempStreamPath);
 
+#if defined(_WIN32)
+		mFile = _wfopen(Utils::String::convertToWideString(mTempStreamPath).c_str(), L"wb");
+#else
 		mFile = fopen(mTempStreamPath.c_str(), "wb");		
+#endif
+
 		if (mFile == nullptr)
 		{
 			mStatus = REQ_IO_ERROR;
@@ -332,16 +337,16 @@ HttpReq::Status HttpReq::status()
 					{
 						if (!req->mFilePath.empty())
 						{
-							int err = std::rename(req->mTempStreamPath.c_str(), req->mFilePath.c_str());
-							if (err != 0)
+							bool renamed = Utils::FileSystem::renameFile(req->mTempStreamPath.c_str(), req->mFilePath.c_str());
+							if (!renamed)
 							{
 								// Strange behaviour on Windows : sometimes std::rename fails if it's done too early after closing stream
 								// Copy file instead & try to delete it
 								if (Utils::FileSystem::copyFile(req->mTempStreamPath, req->mFilePath))
-									err = 0;
+									renamed = true;
 							}
 
-							if (err == 0)
+							if (renamed)
 								req->mStatus = REQ_SUCCESS;
 							else
 							{

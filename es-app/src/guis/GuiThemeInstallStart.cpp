@@ -10,14 +10,16 @@
 #include "LocaleES.h"
 #include "ContentInstaller.h"
 #include "GuiLoading.h"
+#include "components/WebImageComponent.h"
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	: GuiComponent(window), mMenu(window, _("THEMES DOWNLOADER").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
 	
+	mMenu.setUpdateType(ComponentListFlags::UpdateType::UPDATE_ALWAYS);
 	mMenu.setSubTitle(_("SELECT THEMES TO INSTALL / REMOVE")); 
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
@@ -291,7 +293,7 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 
 		Vector2f maxSize(Renderer::getScreenWidth() * refImageWidth * 1.2f, Renderer::getScreenHeight() * (refHeight - 0.02f));
 
-		mPreviewImage = std::make_shared<ImageComponent>(window);
+		mPreviewImage = std::make_shared<WebImageComponent>(window, 600); // image expire after 10 minutes
 		mPreviewImage->setImage(mEntry.image, false, maxSize);
 		mPreviewImage->setMaxSize(maxSize);		
 		mPreviewImage->setRoundCorners(0.02f);
@@ -310,4 +312,12 @@ void GuiBatoceraThemeEntry::setColor(unsigned int color)
 	mImage->setColor(color);
 	mText->setColor(color);
 	mSubstring->setColor(color);
+}
+
+void GuiBatoceraThemeEntry::update(int deltaTime)
+{
+	ComponentGrid::update(deltaTime);
+
+	if (mImage != nullptr)
+		mImage->update(deltaTime);
 }

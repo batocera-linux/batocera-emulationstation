@@ -186,7 +186,7 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 	return true;
 }
 
-bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
+bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
@@ -200,7 +200,7 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	mHeight = height;
 
 	if (mTextureID != 0)
-		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, -1, -1, mWidth, mHeight, mDataRGBA);
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, mWidth, mHeight, mDataRGBA);
 
 	return true;
 }
@@ -244,20 +244,17 @@ bool TextureData::uploadAndBind()
 {
 	// See if it's already been uploaded
 	std::unique_lock<std::mutex> lock(mMutex);
+
 	if (mTextureID != 0)
-	{
 		Renderer::bindTexture(mTextureID);
-	}
 	else
 	{
-		// Load it if necessary
-		if (!mDataRGBA)
+		// Make sure we're ready to upload
+		if (mWidth == 0 || mHeight == 0 || mDataRGBA == nullptr)
 		{
+			Renderer::bindTexture(mTextureID);
 			return false;
 		}
-		// Make sure we're ready to upload
-		if ((mWidth == 0) || (mHeight == 0) || (mDataRGBA == nullptr))
-			return false;
 
 		// Upload texture
 		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
@@ -269,6 +266,7 @@ bool TextureData::uploadAndBind()
 			mDataRGBA = nullptr;
 		}
 	}
+
 	return true;
 }
 

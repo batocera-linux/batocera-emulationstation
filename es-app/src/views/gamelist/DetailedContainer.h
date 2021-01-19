@@ -85,10 +85,26 @@ protected:
 
 	ImageComponent* mFlag;
 
-	ImageComponent* mKidGame;
-	ImageComponent* mFavorite;
 	ImageComponent* mHidden;
+	ImageComponent* mNotHidden;
+
+	ImageComponent* mFavorite;
+	ImageComponent* mNotFavorite;
+
+	ImageComponent* mKidGame;
+	ImageComponent* mNotKidGame;
+
+	ImageComponent* mCheevos;
+	ImageComponent* mNotCheevos;
+
 	ImageComponent* mManual;
+	ImageComponent* mNoManual;
+
+	ImageComponent* mMap;
+	ImageComponent* mNoMap;
+
+	ImageComponent* mSaveState;
+	ImageComponent* mNoSaveState;
 
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;

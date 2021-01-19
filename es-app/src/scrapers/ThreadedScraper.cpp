@@ -147,7 +147,8 @@ void ThreadedScraper::processError(int status, const std::string statusString)
 		status == HttpReq::REQ_403_BADLOGIN || status == HttpReq::REQ_401_FORBIDDEN)
 	{
 		mExitCode = ASYNC_ERROR;
-		mWindow->postToUiThread([statusString](Window* w) { w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED") + " : " + statusString)); });
+		Window* w = mWindow;
+		mWindow->postToUiThread([statusString, w]() { w->pushGui(new GuiMsgBox(w, _("SCRAPE FAILED") + " : " + statusString)); });
 	}
 	else
 		mErrors.push_back(statusString);
@@ -209,7 +210,7 @@ void ThreadedScraper::run()
 	}
 	
 	if (mExitCode == ASYNC_DONE)
-		mWindow->displayNotificationMessage(GUIICON + _("SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."));
+		mWindow->displayNotificationMessage(GUIICON + _("SCRAPING FINISHED") + std::string(". ") + _("UPDATE GAMES LISTS TO APPLY CHANGES."));
 
 	delete this;
 	ThreadedScraper::mInstance = nullptr;
@@ -240,7 +241,7 @@ void ThreadedScraper::acceptResult(ScraperThread& thread)
 	ScraperSearchParams& search = thread.getSearchParams();
 	auto game = search.game;
 
-	mWindow->postToUiThread([game, result](Window* w)
+	mWindow->postToUiThread([game, result]()
 	{
 		LOG(LogDebug) << "ThreadedScraper::importScrappedMetadata";
 		game->importP2k(result.p2k);

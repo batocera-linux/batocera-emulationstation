@@ -96,8 +96,9 @@ void HttpServerThread::run()
 	});
 
 	mHttpServer->Get("/reloadgames", [this](const httplib::Request& req, httplib::Response& res)
-	{
-		mWindow->postToUiThread([](Window* w)
+	{	
+		Window* w = mWindow;
+		mWindow->postToUiThread([w]()
 		{
 			GuiMenu::updateGameLists(w, false);
 		});
@@ -113,7 +114,8 @@ void HttpServerThread::run()
 		}
 
 		auto msg = req.body;
-		mWindow->postToUiThread([msg](Window* w) { w->pushGui(new GuiMsgBox(w, msg)); });
+		Window* w = mWindow;
+		mWindow->postToUiThread([msg, w]() { w->pushGui(new GuiMsgBox(w, msg)); });
 	});
 
 	mHttpServer->Post("/notify", [this](const httplib::Request& req, httplib::Response& res)
@@ -148,7 +150,7 @@ void HttpServerThread::run()
 			{
 				if (file->getFullPath() == path || file->getPath() == path)
 				{
-					mWindow->postToUiThread([file](Window* w) { ViewController::get()->launch(file); });					
+					mWindow->postToUiThread([file]() { ViewController::get()->launch(file); });					
 					return;
 				}
 			}
@@ -198,27 +200,28 @@ void HttpServerThread::run()
 			return;
 		}
 	
-		if (deleteSystem)
-		{			
-			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
-				if (fileMap.find(file->getPath()) != fileMap.cend())
-					file->getMetadata().setDirty();
+		for (auto file : fileList)
+			file->getMetadata().setDirty();
 
-			updateGamelist(system);
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+			if (fileMap.find(file->getPath()) != fileMap.cend())
+				file->getMetadata().setDirty();
+
+		updateGamelist(system);
+
+		if (deleteSystem)
+		{		
 			delete system;
 
 			res.set_content("201 Game added. System not updated", "text/html");
 			res.status = 201;
 
-			mWindow->postToUiThread([](Window* w) { GuiMenu::updateGameLists(w, false); });
+			Window* w = mWindow;
+			mWindow->postToUiThread([w]() { GuiMenu::updateGameLists(w, false); });
 		}
 		else
 		{
-			for (auto file : fileList)
-				if (file->getMetadata().wasChanged())
-					saveToGamelistRecovery(file);
-
-			mWindow->postToUiThread([system](Window* w)
+			mWindow->postToUiThread([system]()
 			{
 				ViewController::get()->onFileChanged(system->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
 			});
@@ -269,8 +272,6 @@ void HttpServerThread::run()
 			if (Utils::FileSystem::exists(filePath))
 				Utils::FileSystem::removeFile(filePath);
 
-			file->getParent()->removeChild(file);						
-
 			for (auto sys : SystemData::sSystemVector)
 			{
 				if (!sys->isCollection())
@@ -279,18 +280,19 @@ void HttpServerThread::run()
 				auto copy = sys->getRootFolder()->FindByPath(filePath);
 				if (copy != nullptr)
 				{
-					copy->getParent()->removeChild(file);
+					sys->getRootFolder()->removeFromVirtualFolders(file);
 					systems.push_back(sys);
 				}
 			}
 
+			system->getRootFolder()->removeFromVirtualFolders(file);
 			// delete file; intentionnal mem leak
 		}
 
-		mWindow->postToUiThread([systems](Window* w)
+		mWindow->postToUiThread([systems]()
 		{
 			for (auto changedSystem : systems)
-				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_METADATA_CHANGED); // Update root folder			
+				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
 		});
 
 		res.set_content("OK", "text/html");

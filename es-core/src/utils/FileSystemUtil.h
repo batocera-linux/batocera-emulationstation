@@ -62,13 +62,19 @@ namespace Utils
 		size_t		getFileSize(const std::string& _path);
 
 		Utils::Time::DateTime getFileCreationDate(const std::string& _path);
+		Utils::Time::DateTime getFileModificationDate(const std::string& _path);
 
 		std::string	readAllText(const std::string fileName);
 		void		writeAllText(const std::string fileName, const std::string text);
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path);
+		bool		renameFile(const std::string src, const std::string dst);
 
 		std::string megaBytesToString(unsigned long size);
+
+
+		std::string getTempPath();
+		std::string getPdfTempPath();
 
 #ifdef WIN32
 		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);

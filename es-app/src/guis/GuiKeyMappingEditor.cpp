@@ -16,68 +16,62 @@
 #include "guis/GuiKeyboardLayout.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "views/UIModeController.h"
 
 #include <unordered_set>
 #include <algorithm>
 
 #define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
 
-
-std::vector<MappingInfo> mappingNames =
+void GuiKeyMappingEditor::initMappingNames()
 {
-	{ "up",      "UP",           ":/help/dpad_up.svg" },
-	{ "down",    "DOWN",         ":/help/dpad_down.svg" },
-	{ "left",    "LEFT",         ":/help/dpad_left.svg" },
-	{ "right",   "RIGHT",        ":/help/dpad_right.svg" },
-	{ "start",   "START",        ":/help/button_start.svg" },
-	{ "select",  "SELECT",       ":/help/button_select.svg" },
+	mMappingNames =
+	{
+		{ "up",      "UP",           ":/help/dpad_up.svg" },
+		{ "down",    "DOWN",         ":/help/dpad_down.svg" },
+		{ "left",    "LEFT",         ":/help/dpad_left.svg" },
+		{ "right",   "RIGHT",        ":/help/dpad_right.svg" },
+		{ "start",   "START",        ":/help/button_start.svg" },
+		{ "select",  "SELECT",       ":/help/button_select.svg" },
 
-#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
-	{ "a",       "A",    ":/help/buttons_south.svg" },
-	{ "b",       "B",   ":/help/buttons_east.svg" },
-#else
-	{ "a",       "A",    ":/help/buttons_east.svg" },
-	{ "b",       "B",   ":/help/buttons_south.svg" },
-#endif
+		{ "a",				 InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
+		{ "b",				 InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
 
-	{ "x",               "X",   ":/help/buttons_north.svg" },
-	{ "y",               "Y",    ":/help/buttons_west.svg" },
+		{ "x",               "X",   ":/help/buttons_north.svg" },
+		{ "y",               "Y",    ":/help/buttons_west.svg" },
 
-	{ "joystick1up",     "LEFT ANALOG UP",     ":/help/analog_up.svg" },
-	{ "joystick1down",   "LEFT ANALOG DOWN",     ":/help/analog_down.svg" },
-	{ "joystick1left",   "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
-	{ "joystick1right",  "LEFT ANALOG RIGHT",   ":/help/analog_right.svg" },
-	
-	{ "joystick2up",     "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
-	{ "joystick2down",     "RIGHT ANALOG DOWN",     ":/help/analog_down.svg" },
-	{ "joystick2left",   "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
-	{ "joystick2right",   "RIGHT ANALOG RIGHT",   ":/help/analog_right.svg" },
-	{ "pageup",          "L1",      ":/help/button_l.svg" },
-	{ "pagedown",        "R1",     ":/help/button_r.svg" },
-	{ "l2",              "L2",       ":/help/button_lt.svg" },
-	{ "r2",              "R2",      ":/help/button_rt.svg" },
-	{ "l3",              "L3",       ":/help/analog_thumb.svg" },
-	{ "r3",              "R3",      ":/help/analog_thumb.svg" },
+		{ "joystick1up",     "LEFT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick1down",   "LEFT ANALOG DOWN",     ":/help/analog_down.svg" },
+		{ "joystick1left",   "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick1right",  "LEFT ANALOG RIGHT",   ":/help/analog_right.svg" },
 
-	//{ "hotkey",          "HOTKEY",      ":/help/button_hotkey.svg" },
-	
-	{ "hotkey + start",          "HOTKEY + START",      ":/help/button_hotkey.svg", ":/help/button_start.svg" },
+		{ "joystick2up",     "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
+		{ "joystick2down",   "RIGHT ANALOG DOWN",     ":/help/analog_down.svg" },
+		{ "joystick2left",   "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick2right",  "RIGHT ANALOG RIGHT",   ":/help/analog_right.svg" },
+		{ "pageup",          "L1",      ":/help/button_l.svg" },
+		{ "pagedown",        "R1",     ":/help/button_r.svg" },
+		{ "l2",              "L2",       ":/help/button_lt.svg" },
+		{ "r2",              "R2",      ":/help/button_rt.svg" },
+		{ "l3",              "L3",       ":/help/analog_thumb.svg" },
+		{ "r3",              "R3",      ":/help/analog_thumb.svg" },
 
-#ifdef WIN32 // Invert icons on Windows : xbox controllers A/B are inverted
-	{ "hotkey + a",       "HOTKEY + A",    ":/help/button_hotkey.svg", ":/help/buttons_south.svg" },
-	{ "hotkey + b",       "HOTKEY + B",   ":/help/button_hotkey.svg", ":/help/buttons_east.svg" },
-#else
-	{ "hotkey + a",       "HOTKEY + A",   ":/help/button_hotkey.svg", ":/help/buttons_east.svg" },
-	{ "hotkey + b",       "HOTKEY + B",   ":/help/button_hotkey.svg", ":/help/buttons_south.svg" },
-#endif
+		//{ "hotkey",          "HOTKEY",      ":/help/button_hotkey.svg" },
 
-	{ "hotkey + x",       "HOTKEY + X",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
-	{ "hotkey + y",       "HOTKEY + Y",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
-};
+		{ "hotkey + start",          "HOTKEY + START",      ":/help/button_hotkey.svg", ":/help/button_start.svg" },
+
+		{ "hotkey + a",       "HOTKEY + " + InputConfig::buttonLabel("a"),    ":/help/button_hotkey.svg", InputConfig::buttonImage("a") },
+		{ "hotkey + b",       "HOTKEY + " + InputConfig::buttonLabel("a"),   ":/help/button_hotkey.svg", InputConfig::buttonImage("b") },
+		{ "hotkey + x",       "HOTKEY + X",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
+		{ "hotkey + y",       "HOTKEY + Y",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
+	};
+}
 
 GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
 {
+	initMappingNames();
+
 	mPlayer = 0;
 	mMapping = mapping->getKeyboardMapping();
 	mDirty = false;
@@ -99,6 +93,10 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("PAD TO KEYBOARD CONFIGURATION"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT ACTIONS TO CHANGE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+
+	if (!UIModeController::getInstance()->isUIModeFull())
+		mSubtitle->setText("");
+
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
@@ -114,12 +112,18 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [this] {  save(); delete this; }));
 
-	if (mMapping.isValid())
-		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), [this] { deleteMapping(); }));
+	if (UIModeController::getInstance()->isUIModeFull())
+	{
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [this] {  save(); delete this; }));
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [this] { delete this; }));
+		if (mMapping.isValid())
+			buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("DELETE"), _("DELETE"), [this] { deleteMapping(); }));
+
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [this] { delete this; }));
+	}
+	else 
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLOSE"), _("CLOSE"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false);
@@ -133,8 +137,8 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 	mTabs->addTab(_("PLAYER 1"), "0", true);	
 	mTabs->addTab(_("PLAYER 2"), "1");
-//	mTabs->addTab(_("PLAYER 3"), "2");
-//	mTabs->addTab(_("PLAYER 4"), "3");
+	mTabs->addTab(_("PLAYER 3"), "2");
+	mTabs->addTab(_("PLAYER 4"), "3");
 
 	mTabs->setCursorChangedCallback([&](const CursorState& state)
 	{
@@ -210,7 +214,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 	//	mList->addGroup(_("JOYSTICK MAPPING"));
 	//	i++;
 
-	for (auto mappingName : mappingNames)
+	for (auto mappingName : mMappingNames)
 	{
 		if (!mouseMapping.empty() && Utils::String::startsWith(mappingName.name, mouseMapping))
 			continue;
@@ -218,8 +222,10 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		ComponentListRow row;
 
 		KeyMappingFile::KeyMapping km = mMapping.getKeyMapping(mPlayer, mappingName.name);
+		if (!UIModeController::getInstance()->isUIModeFull() && km.targets.size() == 0)
+			continue;
 
-		if (!gp && mappingName.name.find("+") != std::string::npos)
+		if (!gp && mappingName.name.find("+") != std::string::npos && UIModeController::getInstance()->isUIModeFull())
 		{
 			mList->addGroup(_("COMBINATIONS"));
 			gp = true;
@@ -237,50 +243,56 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 
 		auto grid = std::make_shared<GuiKeyMappingEditorEntry>(mWindow, mappingName, km);
 		row.addElement(grid, true);
-		row.makeAcceptInputHandler([this, km, mappingName, accept]
+
+		if (UIModeController::getInstance()->isUIModeFull())
 		{
-			if (GuiKeyboardLayout::isEnabled())
+			row.makeAcceptInputHandler([this, km, mappingName, accept]
 			{
-				std::set<std::string> tgs = km.targets;
-				mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
-			}
-		});
+				if (GuiKeyboardLayout::isEnabled())
+				{
+					std::set<std::string> tgs = km.targets;
+					mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
+				}
+			});
+		}
 
 		mList->addRow(row, i == idx, false, km.targets.size() == 0 ? "" : mappingName.name);
 		i++;
 	}
 
-
-	mList->addGroup(_("MOUSE CURSOR"));
-	i++;
-
-	ComponentListRow mouseRow;
-
-	auto theme = ThemeData::getMenuTheme();
-
-	auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
-	mouseRow.addElement(text, true);
-
-	auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
-	
-	imageSource->addRange({ 
-		{ _("NO"), "" },
-		{ _("LEFT ANALOG STICK") , "joystick1" },
-		{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
-
-	mouseRow.addElement(imageSource, false, true);
-
-	mList->addRow(mouseRow, idx > 0 && last);
-
-	imageSource->setSelectedChangedCallback([this](const std::string& name)
+	if (UIModeController::getInstance()->isUIModeFull())
 	{
-		if (mMapping.setMouseMapping(mPlayer, name))
+		mList->addGroup(_("MOUSE CURSOR"));
+		i++;
+
+		ComponentListRow mouseRow;
+
+		auto theme = ThemeData::getMenuTheme();
+
+		auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
+		mouseRow.addElement(text, true);
+
+		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
+
+		imageSource->addRange({
+			{ _("NO"), "" },
+			{ _("LEFT ANALOG STICK") , "joystick1" },
+			{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
+
+		mouseRow.addElement(imageSource, false, true);
+
+		mList->addRow(mouseRow, idx > 0 && last);
+
+		imageSource->setSelectedChangedCallback([this](const std::string& name)
 		{
-			mDirty = true;
-			loadList(true);
-		}
-	});
-	i++;
+			if (mMapping.setMouseMapping(mPlayer, name))
+			{
+				mDirty = true;
+				loadList(true);
+			}
+		});
+		i++;
+	}
 
 	centerWindow();
 }
@@ -298,10 +310,14 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 
 	if(config->isMappedTo("start", input) && input.value != 0)
 	{
+		save();
+
 		// close everything
 		Window* window = mWindow;
-		while(window->peekGui() && window->peekGui() != ViewController::get())
+		while (window->peekGui() && window->peekGui() != ViewController::get())
 			delete window->peekGui();
+
+		return true;
 	}
 
 	if (mList->size() > 0 && !mList->getSelected().empty())
@@ -324,6 +340,8 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("EDIT DESCRIPTION"), mappingDescription, updateVal, false));
 			else
 				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("EDIT DESCRIPTION"), mappingDescription, updateVal, false));
+
+			return true;
 		}		
 
 		if (config->isMappedTo("x", input) && input.value != 0)
@@ -336,6 +354,8 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 					loadList(true);
 				}
 			}, _("NO"), nullptr));
+
+			return true;
 		}
 	}
 
@@ -347,7 +367,7 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 
 std::vector<HelpPrompt> GuiKeyMappingEditor::getHelpPrompts()
 {
-	std::vector<HelpPrompt> prompts = mList->getHelpPrompts();
+	std::vector<HelpPrompt> prompts;// = mList->getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt("start", _("SAVE")));
 
@@ -425,7 +445,7 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 		mImageCombi->setImage(mMappingInfo.combination);
 	}
 
-	mText = std::make_shared<TextComponent>(mWindow, _(mMappingInfo.dispName.c_str()), theme->Text.font, theme->Text.color);
+	mText = std::make_shared<TextComponent>(mWindow, _(Utils::String::toUpper(mMappingInfo.dispName).c_str()), theme->Text.font, theme->Text.color);
 	mText->setLineSpacing(1.5);
 
 	mTargetText = std::make_shared<TextComponent>(mWindow, mTarget.toTargetString(), theme->Text.font, theme->Text.color);

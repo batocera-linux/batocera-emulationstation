@@ -27,6 +27,8 @@ public:
 
 	void onSizeChanged() override;
 
+	inline void setUpdateType(ComponentListFlags::UpdateType updateType) { mList->setUpdateType(updateType); }
+
 	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool doUpdateSize = true) { mList->addRow(row, setCursorHere); if (doUpdateSize) updateSize(); }
 	inline void clear() { mList->clear(); }
 
@@ -39,7 +41,7 @@ public:
 
 	void setTitle(const std::string title, const std::shared_ptr<Font>& font = nullptr);
 	void setSubTitle(const std::string text);
-	void setTitleImage(std::shared_ptr<ImageComponent> titleImage);
+	void setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle = false);
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
 	inline void setCursorToButtons() { assert(mButtonGrid); mGrid.setCursorTo(mButtonGrid); }
@@ -47,6 +49,8 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	float getHeaderGridHeight() const;
+	float getTitleHeight() const;
 	float getButtonGridHeight() const;
 
 	void setMaxHeight(float maxHeight) 
@@ -59,6 +63,9 @@ public:
 	}
 
 	void updateSize();
+	void clearButtons();
+
+	std::shared_ptr<ComponentList> getList() { return mList; };
 
 private:
 	void updateGrid();

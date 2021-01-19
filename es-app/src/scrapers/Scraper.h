@@ -158,7 +158,7 @@ public:
 		return mPercent;
 	}
 
-	std::unique_ptr<ImageDownloadHandle> downloadImageAsync(const std::string& url, const std::string& saveAs);
+	std::unique_ptr<ImageDownloadHandle> downloadImageAsync(const std::string& url, const std::string& saveAs, bool resize = true);
 
 private:
 	ScraperSearchResult mResult;

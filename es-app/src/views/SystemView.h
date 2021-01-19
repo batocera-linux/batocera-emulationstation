@@ -73,11 +73,14 @@ public:
 
 	void reloadTheme(SystemData* system);
 
+	SystemData* getActiveSystem();
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
 private:
-	void	loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
+	void	 loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
+	void	 updateExtraTextBinding();
 
 	void	 preloadExtraNeighbours(int cursor);
 	void	 setExtraRequired(int cursor, bool required);

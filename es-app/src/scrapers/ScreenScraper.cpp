@@ -13,6 +13,7 @@
 #include "md5.h"
 #include <thread>
 #include "LangParser.h"
+#include "ApiSystem.h"
 
 using namespace PlatformIds;
 
@@ -63,6 +64,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ NINTENDO_GAMECUBE, 13 },
 	{ NINTENDO_WII, 16 },
 	{ NINTENDO_WII_U, 18 },
+	{ NINTENDO_SWITCH, 225 },	
 	{ NINTENDO_VIRTUAL_BOY, 11 },
 	{ NINTENDO_GAME_AND_WATCH, 52 },
 	{ PC, 135 },
@@ -165,44 +167,15 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 			// Use md5 to search scrapped game
 			size_t length = Utils::FileSystem::getFileSize(params.game->getFullPath());
 			if (length > 0 && length <= 131072 * 1024) // 128 Mb max
-			{
-				try
+			{												
+				std::string val = ApiSystem::getInstance()->getMD5(params.game->getFullPath(), params.system->shouldExtractHashesFromArchives());
+				if (!val.empty())
 				{
-					// 64 Kb blocks
-#define MD5BUFFERSIZE 64 * 1024
-
-					char* buffer = new char[MD5BUFFERSIZE];
-					if (buffer)
-					{
-						size_t size;
-
-						FILE* file = fopen(params.game->getFullPath().c_str(), "rb");
-						if (file)
-						{
-							MD5 md5 = MD5();
-
-							while (size = fread(buffer, 1, MD5BUFFERSIZE, file))
-								md5.update(buffer, size);
-
-							md5.finalize();
-
-							std::string val = md5.hexdigest();
-							if (!val.empty())
-							{
-								params.game->setMetadata("md5", val);
-								path += "&md5=" + val;
-							}
-
-							fclose(file);
-						}
-
-						delete buffer;
-					}
+					params.game->setMetadata(MetaDataId::Md5, val);
+					path += "&md5=" + val;
 				}
-				catch (std::bad_alloc& ex) 
-				{
+				else
 					path += "&romtaille=" + std::to_string(length);
-				}
 			}
 			else
 				path += "&romtaille=" + std::to_string(length);
@@ -262,7 +235,7 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load(content.c_str());
+	pugi::xml_parse_result parseResult = doc.load_string(content.c_str());
 
 	if (!parseResult)
 	{
@@ -331,11 +304,13 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 	std::vector<std::string> ripList;
 
 	if (imageSource == "ss")
-		ripList = { "ss", "sstitle", "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
+		ripList = { "ss", "sstitle" }; //, "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
 	else if (imageSource == "sstitle")
-		ripList = { "sstitle", "ss", "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
-	else if (imageSource == "mixrbv1" || imageSource == "mixrbv2" || imageSource == "mixrbv")
-		ripList = { "mixrbv1", "mixrbv2", "ss", "box-3D", "box-2D" };
+		ripList = { "sstitle", "ss" };
+	else if (imageSource == "mixrbv1" || imageSource == "mixrbv")
+		ripList = { "mixrbv1", "mixrbv2" };
+	else if (imageSource == "mixrbv2")
+		ripList = { "mixrbv2", "mixrbv1" };
 	else if (imageSource == "box-2D")
 		ripList = { "box-2D", "box-3D" };
 	else if (imageSource == "box-3D")
@@ -398,47 +373,83 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			}
 		}
 
+		if (game.attribute("id"))
+			result.mdl.set(MetaDataId::ScraperId, game.attribute("id").value());
+		else
+			result.mdl.set(MetaDataId::ScraperId, "");
+
 		// Name fallback: US, WOR(LD). ( Xpath: Data/jeu[0]/noms/nom[*] ). 
-		result.mdl.set("name", find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
 
 		// Description fallback language: EN, WOR(LD)
 		std::string description = find_child_by_attribute_list(game.child("synopsis"), "synopsis", "langue", { language, "en", "wor" }).text().get();
 
 		if (!description.empty())
-			result.mdl.set("desc", Utils::String::replace(description, "&nbsp;", " "));
+			result.mdl.set(MetaDataId::Desc, Utils::String::decodeXmlString(description));
 
-		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )
-		result.mdl.set("genre", find_child_by_attribute_list(game.child("genres"), "genre", "langue", { language, "en" }).text().get());
-		//LOG(LogDebug) << "Genre: " << result.mdl.get("genre");
+		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )		
+		if (game.child("genres"))
+		{
+			std::string genre;
+			std::string subgenre;
+
+			for (pugi::xml_node node : game.child("genres").children("genre"))
+			{
+				if (strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
+					genre = node.text().get();
+			
+				if (strcmp(node.attribute("principale").value(), "0") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
+					subgenre = node.text().get();
+			}
+
+			if (language != "en")
+			{
+				for (pugi::xml_node node : game.child("genres").children("genre"))
+				{
+					if (genre.empty() && strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), "en") == 0)
+						genre = node.text().get();
+
+					if (subgenre.empty() && strcmp(node.attribute("principale").value(), "0") == 0 && strcmp(node.attribute("langue").value(), "en") == 0)
+						subgenre = node.text().get();
+				}
+			}
+
+			auto sep = genre.find("/");
+			if (sep != std::string::npos)
+				genre = Utils::String::trim(genre.substr(0, sep));
+
+			sep = subgenre.find("/");
+			if (genre.empty() || sep != std::string::npos)
+				genre = subgenre;
+			else if (!genre.empty() && !subgenre.empty())
+				genre = genre + " / " + subgenre;
+
+			if (!genre.empty())
+				result.mdl.set(MetaDataId::Genre, genre);
+		}
 
 		// Get the date proper. The API returns multiple 'date' children nodes to the 'dates' main child of 'jeu'.
 		// Date fallback: WOR(LD), US, SS, JP, EU
 		std::string _date = find_child_by_attribute_list(game.child("dates"), "date", "region", { region, "wor", "us", "ss", "eu", "jp" }).text().get();
-		//LOG(LogDebug) << "Release Date (unparsed): " << _date;
 
 		// Date can be YYYY-MM-DD or just YYYY.
 		if (_date.length() > 4)
-		{
-			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y-%m-%d")));
-		} else if (_date.length() > 0)
-		{
-			result.mdl.set("releasedate", Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y")));
-		}
-
-		//LOG(LogDebug) << "Release Date (parsed): " << result.mdl.get("releasedate");
+			result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y-%m-%d")));
+		else if (_date.length() > 0)
+			result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(_date, "%Y")));
 
 		/// Developer for the game( Xpath: Data/jeu[0]/developpeur )
 		std::string developer = game.child("developpeur").text().get();
 		if (!developer.empty())
-			result.mdl.set("developer", Utils::String::replace(developer, "&nbsp;", " "));
+			result.mdl.set(MetaDataId::Developer, Utils::String::replace(developer, "&nbsp;", " "));
 
 		// Publisher for the game ( Xpath: Data/jeu[0]/editeur )
 		std::string publisher = game.child("editeur").text().get();
 		if (!publisher.empty())
-			result.mdl.set("publisher", Utils::String::replace(publisher, "&nbsp;", " "));
+			result.mdl.set(MetaDataId::Publisher, Utils::String::replace(publisher, "&nbsp;", " "));
 
 		// Players
-		result.mdl.set("players", game.child("joueurs").text().get());
+		result.mdl.set(MetaDataId::Players, game.child("joueurs").text().get());
 
         if(game.child("systeme").attribute("id"))
         {
@@ -446,7 +457,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			
 			auto arcadeSystem = ArcadeSystems.find(systemId);
             if(arcadeSystem != ArcadeSystems.cend())
-                result.mdl.set("arcadesystemname", arcadeSystem->second.first);
+                result.mdl.set(MetaDataId::ArcadeSystemName, arcadeSystem->second.first);
 		}
 
         // TODO: Validate rating
@@ -455,7 +466,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			float ratingVal = (game.child("note").text().as_int() / 20.0f);
 			std::stringstream ss;
 			ss << ratingVal;
-			result.mdl.set("rating", ss.str());
+			result.mdl.set(MetaDataId::Rating, ss.str());
 		}
 
 		if (Settings::getInstance()->getBool("ScrapePadToKey") && game.child("sp2kcfg"))

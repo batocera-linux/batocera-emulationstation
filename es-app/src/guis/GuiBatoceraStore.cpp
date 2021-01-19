@@ -19,7 +19,7 @@
 #include <unordered_set>
 #include <algorithm>
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.95f)
 
 GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
@@ -57,7 +57,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SEARCH"), _("SEARCH"), [this] {  showSearch(); }));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] {  loadPackagesAsync(true); }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] {  loadPackagesAsync(true, true); }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("UPDATE INSTALLED CONTENT"), _("UPDATE INSTALLED CONTENT"), [this] {  loadPackagesAsync(true, false); }));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("BACK"), _("BACK"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
@@ -92,19 +93,23 @@ void GuiBatoceraStore::update(int deltaTime)
 
 	if (mReloadList != 0)
 	{
+		bool refreshPackages = mReloadList == 2;
 		bool silent = (mReloadList == 2 || mReloadList == 3);
 		bool restoreIndex = (mReloadList != 3);		
 		mReloadList = 0;
 
 		if (silent)
 		{
+			if (refreshPackages)
+				mPackages = queryPackages();
+
 			if (!restoreIndex)
-				mWindow->postToUiThread([this](Window* w) { loadList(false, false); });
+				mWindow->postToUiThread([this]() { loadList(false, false); });
 			else 
 				loadList(false, restoreIndex);
 		}
 		else 
-			loadPackagesAsync(false);
+			loadPackagesAsync(false, true);
 	}
 }
 
@@ -144,13 +149,10 @@ void GuiBatoceraStore::centerWindow()
 
 static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
 {
-	std::string name1 = Utils::String::toUpper(sys1.group);
-	std::string name2 = Utils::String::toUpper(sys2.group);
-
-	if (name1 == name2)
+	if (sys1.group == sys2.group)
 		return Utils::String::compareIgnoreCase(sys1.description, sys2.description) < 0;		
 
-	return name1.compare(name2) < 0;
+	return sys1.group.compare(sys2.group) < 0;
 }
 
 void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
@@ -180,7 +182,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 			if (mTabFilter != mTabs->getSelected())
 			{
 				mTabFilter = mTabs->getSelected();
-				mWindow->postToUiThread([this](Window* w) 
+				mWindow->postToUiThread([this]() 
 				{ 
 					mReloadList = 3;					
 				});
@@ -200,12 +202,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 			continue;
 
 		if (lastGroup != package.group)
-		{
-			if (package.group.empty())
-				mList->addGroup(_("MISC"), false);
-			else
-				mList->addGroup(_(Utils::String::toUpper(package.group).c_str()), false);
-		}
+			mList->addGroup(package.group, false);
 
 		lastGroup = package.group;
 
@@ -236,24 +233,53 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 	mReloadList = 0;
 }
 
-void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList)
+std::vector<PacmanPackage> GuiBatoceraStore::queryPackages()
+{
+	auto systemNames = SystemData::getKnownSystemNames();
+	auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
+
+	std::vector<PacmanPackage> copy;
+	for (auto& package : packages)
+	{
+		if (package.group.empty())
+			package.group = _("MISC");
+		else
+		{
+			if (Utils::String::startsWith(package.group, "sys-"))
+			{
+				auto sysName = package.group.substr(4);
+
+				auto itSys = systemNames.find(sysName);
+				if (itSys == systemNames.cend())
+					continue;
+
+				package.group = Utils::String::toUpper(itSys->second);
+			}
+			else
+				package.group = _(Utils::String::toUpper(package.group).c_str());
+		}
+
+		copy.push_back(package);
+	}
+
+	std::sort(copy.begin(), copy.end(), sortPackagesByGroup);
+	return copy;
+}
+
+void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList, bool refreshOnly)
 {
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<PacmanPackage>>(mWindow, _("PLEASE WAIT"),
-		[this,  updatePackageList]
+		[this,  updatePackageList, refreshOnly]
 		{	
 			if (updatePackageList)
-				ApiSystem::getInstance()->updateBatoceraStorePackageList();
+				if (refreshOnly)
+					ApiSystem::getInstance()->refreshBatoceraStorePackageList();
+				else
+					ApiSystem::getInstance()->updateBatoceraStorePackageList();
 
-			auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
-
-			for (auto& package : packages)
-				if (package.group.empty())
-					package.group = package.repository;
-
-			std::sort(packages.begin(), packages.end(), sortPackagesByGroup);
-			return packages;
+			return queryPackages();
 		},
 		[this, updatePackageList](std::vector<PacmanPackage> packages)
 		{		
@@ -331,6 +357,8 @@ bool GuiBatoceraStore::input(InputConfig* config, Input input)
 		Window* window = mWindow;
 		while(window->peekGui() && window->peekGui() != ViewController::get())
 			delete window->peekGui();
+
+		return true;
 	}
 
 	if (config->isMappedTo("y", input) && input.value != 0)

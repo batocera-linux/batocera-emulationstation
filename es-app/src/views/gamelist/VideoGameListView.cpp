@@ -22,15 +22,16 @@ VideoGameListView::VideoGameListView(Window* window, FolderData* root) :
 void VideoGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	BasicGameListView::onThemeChanged(theme);
-
-	mDetails.onThemeChanged(theme);
 	
-	sortChildren();
+	mDetails.onThemeChanged(theme);
 	updateInfoPanel();
 }
 
 void VideoGameListView::updateInfoPanel()
 {
+	if (!mShowing)
+		return;
+
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 

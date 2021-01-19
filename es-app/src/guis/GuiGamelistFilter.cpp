@@ -116,18 +116,33 @@ void GuiGamelistFilter::addFiltersToMenu()
 		// add filters (with first one selected)
 		ComponentListRow row;
 
-		// add genres
 		optionList = std::make_shared< OptionListComponent<std::string> >(mWindow, menuLabel, true);
-		for (auto it : *allKeys)
+		for (auto key : *allKeys)
 		{
-			if (it.first == "UNKNOWN")
-				optionList->add(_("Unknown"), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
-			else if (it.first == "TRUE")
-				optionList->add(_("YES"), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
-			else if (it.first == "FALSE")
-				optionList->add(_("NO"), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+			if (key.first == "UNKNOWN")
+				optionList->add(_("Unknown"), key.first, mFilterIndex->isKeyBeingFilteredBy(key.first, type));
+			else if (key.first == "TRUE")
+				optionList->add(_("YES"), key.first, mFilterIndex->isKeyBeingFilteredBy(key.first, type));
+			else if (key.first == "FALSE")
+				optionList->add(_("NO"), key.first, mFilterIndex->isKeyBeingFilteredBy(key.first, type));
 			else
-				optionList->add(_(it.first.c_str()), it.first, mFilterIndex->isKeyBeingFilteredBy(it.first, type));
+			{
+				std::string label = key.first;
+
+				// Special display for GENRE
+				if (it->type == GENRE_FILTER)
+				{
+					auto split = key.first.find("/");
+					if (split != std::string::npos)
+					{
+						auto parent = Utils::String::trim(label.substr(0, split));
+						if (allKeys->find(parent) != allKeys->cend())
+							label = "      " + Utils::String::trim(label.substr(split + 1));
+					}
+				}
+
+				optionList->add(_(label.c_str()), key.first, mFilterIndex->isKeyBeingFilteredBy(key.first, type), false);
+			}
 		}
 
 		if (allKeys->size() > 0)

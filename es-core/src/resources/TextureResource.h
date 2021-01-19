@@ -22,7 +22,7 @@ public:
 	static void cancelAsync(std::shared_ptr<TextureResource> texture);
 	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, MaxSizeInfo* maxSize = nullptr);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
-	void initFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height);
+	void updateFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);
 
 	// For scalable source images in textures we want to set the resolution to rasterize at
@@ -39,7 +39,7 @@ public:
 	const Vector2i getSize() const;
 	bool bind();
 
-	static size_t getTotalMemUsage(); // returns an approximation of total VRAM used by textures (in bytes)
+	static size_t getTotalMemUsage(bool includeQueueSize = true); // returns an approximation of total VRAM used by textures (in bytes)
 	static size_t getTotalTextureSize(); // returns the number of bytes that would be used if all textures were in memory
 	
 	virtual bool unload();

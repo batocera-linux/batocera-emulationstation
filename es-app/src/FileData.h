@@ -7,9 +7,11 @@
 #include <unordered_map>
 #include "KeyboardMapping.h"
 #include "SystemData.h"
+#include "SaveState.h"
 
 class Window;
 struct SystemEnvironmentData;
+
 
 enum FileType
 {
@@ -44,6 +46,8 @@ struct LaunchGameOptions
 
 	std::string core;
 	std::string netplayClientPassword;
+
+	SaveState	saveStateInfo;
 };
 
 class FolderData;
@@ -85,6 +89,7 @@ public:
 	virtual const bool getHidden();
 	virtual const bool getFavorite();
 	virtual const bool getKidGame();
+	virtual const bool hasCheevos();
 
 	const std::string getConfigurationName();
 
@@ -115,16 +120,21 @@ public:
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
 	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
+
 	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
-	void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
+	// void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);
 
 	void deleteGameFiles();
+
 	void checkCrc32(bool force = false);
+	void checkMd5(bool force = false);
+	void checkCheevosHash(bool force = false);
 
 	void importP2k(const std::string& p2k);
-	void convertP2kFile();
+	std::string convertP2kFile();
 	bool hasP2kFile();
 
 	bool hasKeyboardMapping();
@@ -196,7 +206,7 @@ public:
 
 	inline const std::vector<FileData*>& getChildren() const { return mChildren; }
 	const std::vector<FileData*> getChildrenListToDisplay();
-	std::vector<FileData*> getFilesRecursive(unsigned int typeMask, bool displayedOnly = false, SystemData* system = nullptr) const;
+	std::vector<FileData*> getFilesRecursive(unsigned int typeMask, bool displayedOnly = false, SystemData* system = nullptr, bool includeVirtualStorage = true) const;
 	std::vector<FileData*> getFlatGameList(bool displayedOnly, SystemData* system) const;
 
 	void addChild(FileData* file, bool assignParent = true); // Error if mType != FOLDER

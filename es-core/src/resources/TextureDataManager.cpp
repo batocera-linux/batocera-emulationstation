@@ -186,7 +186,7 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 	}
 
 	// Not loaded. Make sure there is room
-	size_t size = TextureResource::getTotalMemUsage();
+	size_t size = TextureResource::getTotalMemUsage(false);
 	size_t max_texture = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
 
 	if (size >= max_texture)
@@ -194,7 +194,6 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 		LOG(LogDebug) << "Cleanup VRAM\tCurrent VRAM : " << std::to_string(size / 1024.0 / 1024.0).c_str() << " MB";
 
 		std::unique_lock<std::mutex> lock(mMutex);
-
 		for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
 		{
 			if (size < max_texture)
@@ -229,7 +228,7 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 			if (changed)
 			{
 				lock.unlock();
-				size = TextureResource::getTotalMemUsage();
+				size = TextureResource::getTotalMemUsage(false);
 				lock.lock();
 			}
 		}

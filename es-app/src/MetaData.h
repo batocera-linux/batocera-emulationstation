@@ -8,6 +8,7 @@
 #include <string>
 
 class SystemData;
+class FileData;
 
 namespace pugi { class xml_node; }
 
@@ -63,7 +64,10 @@ enum MetaDataId
 	Manual = 30,
 	BoxArt = 31,
 	Wheel = 32,
-	Mix = 33
+	Mix = 33,
+	CheevosHash = 34,
+	CheevosId = 35,
+	ScraperId = 36
 };
 
 namespace MetaDataImportType
@@ -94,8 +98,9 @@ struct MetaDataDecl
 	std::string  displayName; // displayed as this in editors
 	std::string  displayPrompt; // phrase displayed in editors when prompted to enter value (currently only for strings)
 	bool		 visibleForFolder;
+	bool		 isAttribute;
 
-	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt, bool folderMetadata)
+	MetaDataDecl(MetaDataId id, std::string key, MetaDataType type, std::string defaultValue, bool isStatistic, std::string displayName, std::string displayPrompt, bool folderMetadata, bool isAttribute = false)
 	{
 		this->id = id;
 		this->key = key;
@@ -105,6 +110,7 @@ struct MetaDataDecl
 		this->displayName = displayName;
 		this->displayPrompt = displayPrompt;
 		this->visibleForFolder = folderMetadata;
+		this->isAttribute = isAttribute;
 	}
 };
 
@@ -122,16 +128,19 @@ public:
 	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system);
 	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const;
 
+	void migrate(FileData* file, pugi::xml_node& node);
+
 	MetaDataList(MetaDataListType type);
 	
 	void set(MetaDataId id, const std::string& value);
-	void set(const std::string& key, const std::string& value);
 
 	const std::string get(MetaDataId id, bool resolveRelativePaths = true) const;
+	
+	void set(const std::string& key, const std::string& value);
 	const std::string get(const std::string& key, bool resolveRelativePaths = true) const;
 
-	int getInt(const std::string& key) const;
-	float getFloat(const std::string& key) const;
+	int getInt(MetaDataId id) const;
+	float getFloat(MetaDataId id) const;
 
 	MetaDataType getType(MetaDataId id) const;
 
@@ -143,7 +152,7 @@ public:
 	}
 
 	inline MetaDataListType getType() const { return mType; }
-	inline const std::vector<MetaDataDecl>& getMDD() const { return mMetaDataDecls; }
+	static const std::vector<MetaDataDecl>& getMDD() { return mMetaDataDecls; }
 
 	const std::string& getName() const;
 	
@@ -161,6 +170,7 @@ private:
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;
 
+	std::vector<std::tuple<std::string, std::string, bool>> mUnKnownElements;
 };
 
 #endif // ES_APP_META_DATA_H

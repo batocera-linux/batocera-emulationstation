@@ -25,6 +25,8 @@
 #include <algorithm>
 #include "LangParser.h"
 #include "resources/ResourceManager.h"
+#include "RetroAchievements.h"
+#include "SaveStateRepository.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -126,7 +128,7 @@ const std::string FileData::getThumbnailPath()
 
 	// no thumbnail, try image
 	if(thumbnail.empty())
-	{			
+	{
 		// no image, try to use local image
 		if(thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
 		{
@@ -138,7 +140,7 @@ const std::string FileData::getThumbnailPath()
 					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-thumb" + extList[i];
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("thumbnail", path);
+						setMetadata(MetaDataId::Thumbnail, path);
 						thumbnail = path;
 					}
 				}
@@ -165,6 +167,18 @@ const std::string FileData::getThumbnailPath()
 				}
 			}
 		}
+
+		if (thumbnail.empty() && getSystemName() == "imageviewer")
+		{
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				return ":/pdf.jpg";
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				return ":/vid.jpg";
+
+			return getPath();
+		}
+
 	}
 
 	return thumbnail;
@@ -186,22 +200,24 @@ const bool FileData::getKidGame()
 	return data != "false" && !data.empty();
 }
 
-static std::shared_ptr<bool> showFilenames;
+const bool FileData::hasCheevos()
+{
+	if (!getSourceFileData()->getSystem()->isCheevosSupported())
+		return false;
+
+	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
+}
+
 static std::shared_ptr<bool> collectionShowSystemInfo;
 
 void FileData::resetSettings() 
 {
-	showFilenames = nullptr;
 	collectionShowSystemInfo = nullptr;
 }
 
 const std::string FileData::getName()
 {
-	if (showFilenames == nullptr)
-		showFilenames = std::make_shared<bool>(Settings::getInstance()->getBool("ShowFilenames"));
-
-	// Faster than accessing map each time
-	if (*showFilenames)
+	if (mSystem != nullptr && mSystem->getShowFilenames())
 	{
 		if (mSystem != nullptr && !mSystem->hasPlatformId(PlatformIds::ARCADE) && !mSystem->hasPlatformId(PlatformIds::NEOGEO))
 			return Utils::FileSystem::getStem(getPath());
@@ -222,7 +238,7 @@ const std::string FileData::getVideoPath()
 		std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-video.mp4";
 		if (Utils::FileSystem::exists(path))
 		{
-			setMetadata("video", path);
+			setMetadata(MetaDataId::Video, path);
 			video = path;
 		}
 	}
@@ -245,7 +261,7 @@ const std::string FileData::getMarqueePath()
 				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-marquee" + extList[i];
 				if (Utils::FileSystem::exists(path))
 				{
-					setMetadata("marquee", path);
+					setMetadata(MetaDataId::Marquee, path);
 					marquee = path;
 				}
 			}
@@ -261,10 +277,7 @@ const std::string FileData::getImagePath()
 
 	// no image, try to use local image
 	if(image.empty())
-	{
-		if (getSystemName() == "imageviewer")
-			image = getPath();
-
+	{		
 		if (Settings::getInstance()->getBool("LocalArt"))
 		{
 			const char* extList[2] = { ".png", ".jpg" };
@@ -278,11 +291,22 @@ const std::string FileData::getImagePath()
 
 					if (Utils::FileSystem::exists(path))
 					{
-						setMetadata("image", path);
+						setMetadata(MetaDataId::Image, path);
 						image = path;
 					}
 				}
 			}
+		}
+
+		if (image.empty() && getSystemName() == "imageviewer")
+		{
+			image = getPath();
+
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
+			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				return ":/pdf.jpg";
+			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				return ":/vid.jpg";
 		}
 	}
 
@@ -414,6 +438,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	int monitorId = Settings::getInstance()->getInt("MonitorID");
 	if (monitorId >= 0 && command.find(" -system ") != std::string::npos)
 		command = command + " -monitor " + std::to_string(monitorId);
+	
+	if (SaveStateRepository::isEnabled(this))
+		command = options.saveStateInfo.setupSaveState(this, command);
 
 	Scripting::fireEvent("game-start", rom, basename);
 
@@ -421,11 +448,20 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	LOG(LogInfo) << "	" << command;
 
-	convertP2kFile();
+	auto p2kConv = convertP2kFile();
 
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
+
+	if (SaveStateRepository::isEnabled(this))
+	{
+		options.saveStateInfo.onGameEnded();
+		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
+	}
+
+	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
+		Utils::FileSystem::removeFile(p2kConv);
 
 	Scripting::fireEvent("game-end");
 	
@@ -440,28 +476,26 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		window->init(hideWindow);
 
 	VolumeControl::getInstance()->init();
+	AudioManager::getInstance()->init();
 
-	// mSystem can be NULL
-	//AudioManager::getInstance()->setName(mSystem->getName()); // batocera system-specific music
-	AudioManager::getInstance()->init(); // batocera
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched
 	if (exitCode == 0)
 	{
-		int timesPlayed = gameToUpdate->getMetadata().getInt("playcount") + 1;
-		gameToUpdate->setMetadata("playcount", std::to_string(static_cast<long long>(timesPlayed)));
+		int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
+		gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
 
 		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
 		// you might have experienced a loading problem)
 		time_t tend = time(NULL);
 		long elapsedSeconds = difftime(tend, tstart);
-		long gameTime = gameToUpdate->getMetadata().getInt("gametime") + elapsedSeconds;
+		long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
 		if (elapsedSeconds >= 10)
-			gameToUpdate->setMetadata("gametime", std::to_string(static_cast<long>(gameTime)));
+			gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
 
 		//update last played time
-		gameToUpdate->setMetadata("lastplayed", Utils::Time::DateTime(Utils::Time::now()));
+		gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
 		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 		saveToGamelistRecovery(gameToUpdate);
 	}
@@ -562,7 +596,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
 	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
 	
-	if (getSystem()->getName() == "windows_installers")
+	if ((fvm.empty() || fvm == "auto") && getSystem() == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		showFoldersMode = "always";
+	else if (getSystem()->getName() == "windows_installers")
 		showFoldersMode = "always";
 
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
@@ -602,24 +638,32 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		items = &flatGameList;		
 	}
 
+	std::map<FileData*, int> scoringBoard;
+
 	bool refactorUniqueGameFolders = (showFoldersMode == "having multiple games");
 
 	for (auto it = items->cbegin(); it != items->cend(); it++)
 	{
-		if (idx != nullptr && !idx->showFile((*it)))
-			continue;
-
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
 
 		if (filterKidGame && !(*it)->getKidGame())
 			continue;
-		
+
 		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)
 		{
 			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName()));
 			if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
 				continue;
+		}
+
+		if (idx != nullptr)
+		{
+			int score = idx->showFile(*it);
+			if (score == 0)
+				continue;
+
+			scoringBoard[*it] = score;
 		}
 
 		if ((*it)->getType() == FOLDER && refactorUniqueGameFolders)
@@ -660,10 +704,29 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		currentSortId = 0;
 
 	const FileSorts::SortType& sort = FileSorts::getSortTypes().at(currentSortId);
-	std::sort(ret.begin(), ret.end(), sort.comparisonFunction);
 
-	if (!sort.ascending)
-		std::reverse(ret.begin(), ret.end());
+	if (idx != nullptr && idx->hasRelevency())
+	{
+		auto compf = sort.comparisonFunction;
+
+		std::sort(ret.begin(), ret.end(), [scoringBoard, compf](const FileData* file1, const FileData* file2) -> bool
+		{ 
+			auto s1 = scoringBoard.find((FileData*) file1);
+			auto s2 = scoringBoard.find((FileData*) file2);		
+
+			if (s1 != scoringBoard.cend() && s2 != scoringBoard.cend() && s1->second != s2->second)
+				return s1->second < s2->second;
+			
+			return compf(file1, file2);
+		});
+	}
+	else
+	{
+		std::sort(ret.begin(), ret.end(), sort.comparisonFunction);
+
+		if (!sort.ascending)
+			std::reverse(ret.begin(), ret.end());
+	}
 
 	return ret;
 }
@@ -711,9 +774,18 @@ std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemDat
 	return getFilesRecursive(GAME, displayedOnly, system);
 }
 
-std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system) const
+std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const
 {
 	std::vector<FileData*> out;
+
+	auto isVirtualFolder = [](FileData* file) 
+	{ 
+		if (file->getType() == GAME)
+			return false;
+
+		FolderData* fld = (FolderData*)file;
+		return fld->isVirtualStorage();
+	};
 
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles") && !UIModeController::getInstance()->isUIModeKiosk();
 
@@ -754,7 +826,8 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 					}
 				}
 
-				out.push_back(it);
+				if (includeVirtualStorage || !isVirtualFolder(it))
+					out.push_back(it);
 			}
 		}
 
@@ -764,12 +837,15 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 		FolderData* folder = (FolderData*)it;		
 		if (folder->getChildren().size() > 0)
 		{
-			if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
-				out.push_back(it);
-			else
+			if (includeVirtualStorage || !isVirtualFolder(folder))
 			{
-				std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system);
-				out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+				if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
+					out.push_back(it);
+				else
+				{
+					std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system, includeVirtualStorage);
+					out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
+				}
 			}
 		}
 	}
@@ -890,7 +966,7 @@ const std::string FileData::getCore(bool resolveDefault)
 	}
 
 	if (resolveDefault && core.empty())
-		core = getSourceFileData()->getSystem()->getDefaultCore(getEmulator());
+		core = getSourceFileData()->getSystem()->getCore();
 
 	return core;
 }
@@ -919,7 +995,7 @@ const std::string FileData::getEmulator(bool resolveDefault)
 	}
 
 	if (resolveDefault && emulator.empty())
-		emulator = getSourceFileData()->getSystem()->getDefaultEmulator();
+		emulator = getSourceFileData()->getSystem()->getEmulator();
 
 	return emulator;
 }
@@ -927,7 +1003,7 @@ const std::string FileData::getEmulator(bool resolveDefault)
 void FileData::setCore(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("core", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Core, value == "auto" ? "" : value);
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".core", value);
 #endif
@@ -936,7 +1012,7 @@ void FileData::setCore(const std::string value)
 void FileData::setEmulator(const std::string value)
 {
 #if WIN32 && !_DEBUG
-	setMetadata("emulator", value == "auto" ? "" : value);
+	setMetadata(MetaDataId::Emulator, value == "auto" ? "" : value);
 #else
 	SystemConf::getInstance()->set(getConfigurationName() + ".emulator", value);
 #endif
@@ -984,9 +1060,9 @@ void FileData::detectLanguageAndRegion(bool overWrite)
 
 	auto info = LangInfo::parse(getSourceFileData()->getPath(), getSourceFileData()->getSystem());
 	if (info.languages.size() > 0)
-		mMetadata.set("lang", info.getLanguageString());
+		mMetadata.set(MetaDataId::Language, info.getLanguageString());
 	if (!info.region.empty())
-		mMetadata.set("region", info.region);
+		mMetadata.set(MetaDataId::Region, info.region);
 }
 
 void FolderData::removeVirtualFolders()
@@ -1010,7 +1086,7 @@ void FolderData::removeVirtualFolders()
 
 void FileData::checkCrc32(bool force)
 {
-	if (getSourceFileData() != this)
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
 	{
 		getSourceFileData()->checkCrc32(force);
 		return;
@@ -1020,22 +1096,59 @@ void FileData::checkCrc32(bool force)
 		return;
 
 	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
 
-	bool unpackZip =
-		!system->hasPlatformId(PlatformIds::ARCADE) &&
-		!system->hasPlatformId(PlatformIds::NEOGEO) &&
-		!system->hasPlatformId(PlatformIds::DAPHNE) &&
-		!system->hasPlatformId(PlatformIds::LUTRO) &&
-		!system->hasPlatformId(PlatformIds::SEGA_DREAMCAST) &&
-		!system->hasPlatformId(PlatformIds::ATOMISWAVE) &&
-		!system->hasPlatformId(PlatformIds::NAOMI);
-
-	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), unpackZip);
+	auto crc = ApiSystem::getInstance()->getCRC32(getPath(), system->shouldExtractHashesFromArchives());
 	if (!crc.empty())
 	{
 		getMetadata().set(MetaDataId::Crc32, Utils::String::toUpper(crc));
 		saveToGamelistRecovery(this);
 	}
+}
+
+void FileData::checkMd5(bool force)
+{
+	if (getSourceFileData() != this && getSourceFileData() != nullptr)
+	{
+		getSourceFileData()->checkMd5(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::Md5).empty())
+		return;
+
+	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
+	auto crc = ApiSystem::getInstance()->getMD5(getPath(), system->shouldExtractHashesFromArchives());
+	if (!crc.empty())
+	{
+		getMetadata().set(MetaDataId::Md5, Utils::String::toUpper(crc));
+		saveToGamelistRecovery(this);
+	}
+}
+
+
+void FileData::checkCheevosHash(bool force)
+{
+	if (getSourceFileData() != this)
+	{
+		getSourceFileData()->checkCheevosHash(force);
+		return;
+	}
+
+	if (!force && !getMetadata(MetaDataId::CheevosHash).empty())
+		return;
+
+	SystemData* system = getSystem();
+	if (system == nullptr)
+		return;
+
+	auto crc = RetroAchievements::getCheevosHash(system, getPath());
+	getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
+	saveToGamelistRecovery(this);
 }
 
 std::string FileData::getKeyboardMappingFilePath()
@@ -1069,26 +1182,29 @@ void FileData::importP2k(const std::string& p2k)
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
 		Utils::FileSystem::removeFile(keysPath);
-
-	convertP2kFile();	
 }
 
-void FileData::convertP2kFile()
+std::string FileData::convertP2kFile()
 {
 	std::string p2kPath = getSourceFileData()->getPath() + ".p2k.cfg";
 	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))
 		p2kPath = getSourceFileData()->getPath() + "/.p2k.cfg";
 
 	if (!Utils::FileSystem::exists(p2kPath))
-		return;
+		return "";
 
 	std::string keysPath = getKeyboardMappingFilePath();
 	if (Utils::FileSystem::exists(keysPath))
-		return;
+		return "";
 
 	auto map = KeyMappingFile::fromP2k(p2kPath);
 	if (map.isValid())
+	{
 		map.save(keysPath);
+		return keysPath;
+	}
+
+	return "";
 }
 
 bool FileData::hasKeyboardMapping()

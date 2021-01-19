@@ -24,14 +24,15 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 {
 	BasicGameListView::onThemeChanged(theme);
 
-	mDetails.onThemeChanged(theme);
-
-	sortChildren();
+	mDetails.onThemeChanged(theme);	
 	updateInfoPanel();
 }
 
 void DetailedGameListView::updateInfoPanel()
 {
+	if (!mShowing)
+		return;
+
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 

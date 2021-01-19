@@ -42,18 +42,15 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 
 	if (script == ApiSystem::NETPLAY)
-	{
-		if (!(Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe") ||
-			Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe") ||
-			Utils::FileSystem::exists("c:\\Program Files (x86)\\7-Zip\\7za.exe") ||
-			Utils::FileSystem::exists("c:\\src\\7za.exe")))
-			return false;
-	}
+		return !getSevenZipCommand().empty();
 
 	if (script == ApiSystem::KODI)
 		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
 
-	if (script == ApiSystem::DECORATIONS)
+	if (script == ApiSystem::THEMESDOWNLOADER)
+		return true;
+
+	if (script == ApiSystem::DECORATIONS || script == ApiSystem::THEBEZELPROJECT)
 	{
 		if (Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
 			return true;
@@ -78,7 +75,6 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("batocera-wifi");
 		break;
 	case ApiSystem::RETROACHIVEMENTS:
-		executables.push_back("batocera-retroachievements-info");
 		executables.push_back("emulatorLauncher");
 		break;
 	case ApiSystem::BLUETOOTH:
@@ -227,76 +223,6 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 	return ret;
 }
 
-bool unzipFile(const std::string fileName, const std::string dest)
-{
-	bool	ret = false;
-
-	HRESULT          hResult;
-	IShellDispatch*	 pISD;
-	Folder*			 pFromZip = nullptr;
-	VARIANT          vDir, vFile, vOpt;
-
-	OleInitialize(NULL);
-	CoInitialize(NULL);
-
-	hResult = CoCreateInstance(CLSID_Shell, NULL, CLSCTX_INPROC_SERVER, IID_IShellDispatch, (void **)&pISD);
-
-	if (SUCCEEDED(hResult))
-	{
-		VariantInit(&vDir);
-		vDir.vt = VT_BSTR;
-
-		int zipDirLen = (lstrlen(fileName.c_str()) + 1) * sizeof(WCHAR);
-		BSTR bstrZip = SysAllocStringByteLen(NULL, zipDirLen);
-		MultiByteToWideChar(CP_ACP, 0, fileName.c_str(), -1, bstrZip, zipDirLen);
-		vDir.bstrVal = bstrZip;
-
-		hResult = pISD->NameSpace(vDir, &pFromZip);
-
-		if (hResult == S_OK && pFromZip != nullptr)
-		{
-			if (!Utils::FileSystem::exists(dest))
-				Utils::FileSystem::createDirectory(dest);
-
-			Folder *pToFolder = NULL;
-
-			VariantInit(&vFile);
-			vFile.vt = VT_BSTR;
-
-			int fnLen = (lstrlen(dest.c_str()) + 1) * sizeof(WCHAR);
-			BSTR bstrFolder = SysAllocStringByteLen(NULL, fnLen);
-			MultiByteToWideChar(CP_ACP, 0, dest.c_str(), -1, bstrFolder, fnLen);
-			vFile.bstrVal = bstrFolder;
-
-			hResult = pISD->NameSpace(vFile, &pToFolder);
-			if (hResult == S_OK && pToFolder)
-			{
-				FolderItems *fi = NULL;
-				pFromZip->Items(&fi);
-
-				VariantInit(&vOpt);
-				vOpt.vt = VT_I4;
-				vOpt.lVal = FOF_NO_UI; //4; // Do not display a progress dialog box
-
-				VARIANT newV;
-				VariantInit(&newV);
-				newV.vt = VT_DISPATCH;
-				newV.pdispVal = fi;
-				hResult = pToFolder->CopyHere(newV, vOpt);
-				if (hResult == S_OK)
-					ret = true;
-
-				pFromZip->Release();
-				pToFolder->Release();
-			}
-		}
-		pISD->Release();
-	}
-
-	CoUninitialize();
-	return ret;
-}
-
 bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
 {
 	if (func != nullptr)
@@ -392,11 +318,18 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+	{
+		path = Utils::FileSystem::getExePath() + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getEsConfigPath() + "/" + executable + ".exe";
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "/" + executable + ".exe";
+	}
 
 	if (Utils::FileSystem::exists(path))
 	{
@@ -411,63 +344,6 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	}
 
 	return res;
-}
-
-std::string Win32ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
-{
-	std::string cmd = "7zr h \"" + fileName + "\"";
-
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
-	if (fromZipContents && (ext == ".7z" || ext == ".zip"))
-		cmd = "7zr l -slt \"" + fileName + "\"";
-
-	std::string crc;
-	std::string fn = Utils::FileSystem::getFileName(fileName);
-
-	// Windows : use x86 7za to test. x64 version fails ( cuz our process is x86 )
-	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", Utils::FileSystem::getExePath() + "\\7za.exe ");
-	else if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", Utils::FileSystem::getEsConfigPath() + "\\7za.exe ");
-	else if (Utils::FileSystem::exists("c:\\Program Files (x86)\\7-Zip\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", "\"c:\\Program Files (x86)\\7-Zip\\7za.exe\" ");
-	else if (Utils::FileSystem::exists("c:\\src\\7za.exe"))
-		cmd = Utils::String::replace(cmd, "7zr ", "c:\\src\\7za.exe ");
-
-	bool useUnzip = false;
-
-	if (fromZipContents && ext == ".zip" && Utils::FileSystem::exists("c:\\src\\unzip.exe"))
-	{
-		useUnzip = true;
-		cmd = "c:\\src\\unzip.exe -l -v \"" + fileName + "\"";
-	}
-
-	std::string output;
-	if (executeCMD((char*)cmd.c_str(), output) == 0)
-	{
-		for (std::string all : Utils::String::splitAny(output, "\r\n"))
-		{
-			if (useUnzip)
-			{
-				if (!Utils::String::startsWith(all, "Archive"))
-				{
-					auto split = Utils::String::split(all, ' ', true);
-					if (split.size() >= 8 && split[6].size() == 8 && split[3].find("%") != std::string::npos)
-						return Utils::String::toUpper(split[6]);
-				}
-
-				continue;
-			}
-
-			int idx = all.find("CRC = ");
-			if (idx != std::string::npos)
-				crc = all.substr(idx + 6);
-			else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
-				crc = all.substr(0, 8);
-		}
-	}
-
-	return crc;
 }
 
 unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
@@ -870,6 +746,44 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 		Utils::FileSystem::removeFile(zipFile);
 
 		auto files = Utils::FileSystem::getDirContent(path, true, true);
+
+		auto pluginFolder = Utils::FileSystem::getExePath() + "/plugins";
+		for (auto pluginFile : Utils::FileSystem::getDirContent(pluginFolder, true))
+		{
+			if (Utils::FileSystem::isDirectory(pluginFile))
+				continue;
+
+			Utils::FileSystem::removeFile(pluginFile + ".old");
+
+			std::string pluginRelativeFile = Utils::FileSystem::createRelativePath(pluginFile, pluginFolder, false);
+			if (Utils::String::startsWith(pluginRelativeFile, "./"))
+				pluginRelativeFile = pluginRelativeFile.substr(2);
+
+			bool existsInArchive = false;
+
+			for (auto installedFile : files)
+			{
+				if (Utils::FileSystem::isDirectory(installedFile))
+					continue;
+
+				std::string relative = Utils::FileSystem::createRelativePath(installedFile, path, false);
+				if (Utils::String::startsWith(relative, "./"))
+					relative = relative.substr(2);
+
+				if (relative == pluginRelativeFile)
+				{
+					existsInArchive = true;
+					break;
+				}
+			}
+
+			if (!existsInArchive)
+			{
+				Utils::FileSystem::removeFile(pluginFile);			
+				rename(pluginFile.c_str(), (pluginFile + ".old").c_str());
+			}
+		}
+		
 		for (auto file : files)
 		{
 			std::string relative = Utils::FileSystem::createRelativePath(file, path, false);
@@ -885,6 +799,11 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 			}
 			else
 			{
+				// Avoid replacing development exe/lib
+				if ((Utils::String::containsIgnoreCase(localPath, "/RelWithDebInfo/") || Utils::String::containsIgnoreCase(localPath, "/Debug/")) && 
+					(Utils::FileSystem::getExtension(localPath) == ".exe" || Utils::FileSystem::getExtension(localPath) == ".lib"))
+					continue;
+
 				if (Utils::FileSystem::exists(localPath))
 				{
 					Utils::FileSystem::removeFile(localPath + ".old");
@@ -1070,6 +989,21 @@ std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
 		systemConf.close();
 	}
 
+	if (Utils::String::startsWith(variable, "system."))
+	{
+		auto name = variable.substr(7);
+
+		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../system/" + name);
+		if (Utils::FileSystem::isDirectory(dir))
+			return dir;
+	}
+	else
+	{
+		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../" + variable);
+		if (Utils::FileSystem::isDirectory(dir))
+			return dir;
+	}
+
 	return "";
 }
 
@@ -1139,7 +1073,7 @@ std::vector<std::string> Win32ApiSystem::getVideoModes()
 }
 
 
-std::vector<std::string> Win32ApiSystem::getShaderList()
+std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemName)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
@@ -1164,13 +1098,46 @@ std::vector<std::string> Win32ApiSystem::getShaderList()
 					continue;
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
+				{
+					if (!systemName.empty())
+					{
+						auto data = Utils::FileSystem::readAllText(file);
+
+						auto idx = data.find(systemName + ":");
+						if (idx != std::string::npos)
+						{
+							auto lines = Utils::String::split(data.substr(idx), '\n', true);
+							if (lines.size() > 1 && lines[1].find("shader:") != std::string::npos && lines[1].find("disabled") != std::string::npos)
+								continue;
+						}
+					}
+
 					ret.push_back(parent);
+				}
 			}
 		}
 	}
 
 	std::sort(ret.begin(), ret.end());
 	return ret;
+}
+
+
+std::string Win32ApiSystem::getSevenZipCommand()
+{
+	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getExePath() + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists(Utils::FileSystem::getEsConfigPath() + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getEsConfigPath() + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists(Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\7za.exe"))
+		return "\"" + Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath()) + "\\7za.exe\"";
+
+	if (Utils::FileSystem::exists("C:\\Program Files (x86)\\7-Zip\\7za.exe"))
+		return "\"C:\\Program Files (x86)\\7-Zip\\7za.exe\"";
+
+	return "";
 }
 
 #endif

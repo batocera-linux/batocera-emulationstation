@@ -239,11 +239,10 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 	{
 		std::string playerID;
 		playerID = "actions_player" + std::to_string(i + 1);
+		PlayerMapping pm;
 
 		if (doc.HasMember(playerID.c_str()) && doc[playerID.c_str()].IsArray())
-		{
-			PlayerMapping pm;
-
+		{		
 			for (auto& action : doc[playerID.c_str()].GetArray())
 			{
 				KeyMapping map;
@@ -295,9 +294,10 @@ KeyMappingFile KeyMappingFile::load(const std::string& fileName)
 					pm.mappings.push_back(map);
 			}
 
-			if (pm.mappings.size() > 0)
-				ret.players.push_back(pm);
+			ret.players.push_back(pm);
 		}
+		else 
+			ret.players.push_back(pm);
 	}
 
 	return ret;
@@ -336,7 +336,10 @@ void KeyMappingFile::save(const std::string& fileName)
 	for (auto player : players)
 	{
 		if (player.mappings.size() == 0)
+		{
+			idx++;
 			continue;
+		}
 		
 		writer.Key(("actions_player" + std::to_string(idx)).c_str());
 		writer.StartArray();
@@ -496,9 +499,6 @@ KeyMappingFile KeyMappingFile::fromP2k(const std::string& fileName)
 bool KeyMappingFile::isValid()
 {
 	if (players.size() == 0)
-		return false;
-
-	if (players[0].mappings.size() == 0)
 		return false;
 
 	for (auto p : players)

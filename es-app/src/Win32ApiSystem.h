@@ -7,7 +7,6 @@ class Win32ApiSystem : public ApiSystem
 {
 public:
 	bool isScriptingSupported(ScriptId script) override;
-	std::string getCRC32(const std::string fileName, bool fromZipContents = true) override;
 	std::string getVersion() override;
 
 	std::vector<std::string> getSystemInformations() override;
@@ -42,7 +41,9 @@ public:
 
 	static std::string getEmulatorLauncherPath(const std::string variable);
 
-	std::vector<std::string> getShaderList() override;
+	std::vector<std::string> getShaderList(const std::string systemName = "") override;
+
+	virtual std::string getSevenZipCommand() override;
 
 protected:
 	bool executeScript(const std::string command) override;

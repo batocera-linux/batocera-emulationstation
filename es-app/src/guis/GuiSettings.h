@@ -18,6 +18,8 @@ public:
 	void close();
 
 	void save();
+
+	inline void setUpdateType(ComponentListFlags::UpdateType updateType) { mMenu.setUpdateType(updateType); }
 	inline void addRow(const ComponentListRow& row) { mMenu.addRow(row); };
 	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) { mMenu.addWithLabel(label, comp, nullptr, "", setCursorHere); };
 	inline void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) { mMenu.addWithDescription(label, description, comp, nullptr, "", setCursorHere); };

@@ -362,11 +362,14 @@ public:
 		mEntries.push_back(e);
 		onSelectedChanged();
 	}
-	void add(const std::string name, const T& obj, bool selected)
+	void add(const std::string name, const T& obj, bool selected, bool distinct = true)
 	{
-		for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
-			if (sysIt->name == name)
-				return;
+		if (distinct)
+		{
+			for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
+				if (sysIt->name == name)
+					return;
+		}
 
 		OptionListData e;
 		e.name = name;

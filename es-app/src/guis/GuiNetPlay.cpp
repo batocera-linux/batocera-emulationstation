@@ -21,7 +21,7 @@
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
 
-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
+#define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 // http://lobby.libretro.com/list/
 // Core list :

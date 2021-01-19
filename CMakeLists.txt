@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
+option(GLES2 "Set to ON if targeting OpenGL ES 2.0" ${GLES2})
 option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
 option(RPI "Set to ON to enable the Raspberry PI video player (omxplayer)" ${RPI})
 option(CEC "CEC" ON)
@@ -48,6 +49,8 @@ endif()
 #set up OpenGL system variable
 if(GLES)
     set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
+elseif(GLES2)
+    set(GLSystem "OpenGL ES 2.0" CACHE STRING "The OpenGL system to be used")
 elseif(GL)
     set(GLSystem "Desktop OpenGL" CACHE STRING "The OpenGL system to be used")
 #-------------------------------------------------------------------------------
@@ -82,6 +85,8 @@ set_property(CACHE GLSystem PROPERTY STRINGS "Desktop OpenGL" "Embedded OpenGL")
 #-------------------------------------------------------------------------------
 if(${GLSystem} MATCHES "Desktop OpenGL")
     find_package(OpenGL REQUIRED)
+elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+    find_package(OpenGLES2 REQUIRED)
 else()
     find_package(OpenGLES REQUIRED)
 endif()
@@ -143,13 +148,15 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-attributes -O0") #support C++11 for std::, optimize
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -O0")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-attributes -O2") #support C++11 for std::, optimize
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -O2")  #-s = strip binary
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-attributes -O3") #support C++11 for std::, optimize
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -O3")  #-s = strip binary
 endif()
 endif()
 
 if(${GLSystem} MATCHES "Desktop OpenGL")
     add_definitions(-DUSE_OPENGL_21)
+elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+    add_definitions(-DUSE_OPENGLES_20)
 else()
     add_definitions(-DUSE_OPENGLES_10)
 endif()
@@ -208,6 +215,10 @@ else()
         LIST(APPEND COMMON_INCLUDE_DIRS
             ${OPENGL_INCLUDE_DIR}
         )
+    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+        LIST(APPEND COMMON_INCLUDE_DIRS
+            ${OPENGLES2_INCLUDE_DIR}
+        )
     else()
         LIST(APPEND COMMON_INCLUDE_DIRS
             ${OPENGLES_INCLUDE_DIR}
@@ -240,6 +251,7 @@ set(COMMON_LIBRARIES
     pugixml
     nanosvg
     id3v2
+	libcheevos	
 )
 
 if(NOT DEFINED MSVC)
@@ -290,6 +302,11 @@ else()
     if(${GLSystem} MATCHES "Desktop OpenGL")
         LIST(APPEND COMMON_LIBRARIES
             ${OPENGL_LIBRARIES}
+        )
+    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+        LIST(APPEND COMMON_LIBRARIES
+            EGL
+            ${OPENGLES2_LIBRARIES}
         )
     else()
         LIST(APPEND COMMON_LIBRARIES

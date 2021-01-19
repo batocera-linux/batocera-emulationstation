@@ -30,7 +30,8 @@ public:
 	void setDefaultImage(std::string path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
-	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
+	virtual void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo(), bool checkFileExists = true);
+
 	//Loads an image from memory.
 	void setImage(const char* image, size_t length, bool tile = false);
 	//Use an already existing texture.
@@ -110,7 +111,7 @@ public:
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }
 
 	float getRoundCorners() { return mRoundCorners; }
-	void setRoundCorners(float value) { mRoundCorners = value; }
+	void setRoundCorners(float value);
 
 	virtual void onShow() override;
 	virtual void onHide() override;
@@ -140,6 +141,8 @@ private:
 
 	void updateVertices();
 	void updateColors();
+	void updateRoundCorners();
+
 	void fadeIn(bool textureLoaded);
 
 	unsigned int mColorShift;
@@ -177,6 +180,11 @@ private:
 	float mPlaylistTimer;
 
 	bool mLinear;
+
+	std::vector<Renderer::Vertex>	mRoundCornerStencil;
+
+protected:
+	bool mCheckClipping;
 };
 
 #endif // ES_CORE_COMPONENTS_IMAGE_COMPONENT_H

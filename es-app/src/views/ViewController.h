@@ -6,8 +6,10 @@
 #include "FileData.h"
 #include "GuiComponent.h"
 #include <vector>
+#include <functional>
 
 class IGameListView;
+class ISimpleGameListView;
 class SystemData;
 class SystemView;
 class Window;
@@ -25,6 +27,8 @@ public:
 	};
 
 	static void init(Window* window);
+	static void saveState();
+
 	static ViewController* get();
 
 	virtual ~ViewController();
@@ -68,7 +72,8 @@ public:
 		BASIC,
 		DETAILED,
 		GRID,
-		VIDEO
+		VIDEO,
+		GAMECAROUSEL
 	};
 
 	struct State
@@ -87,7 +92,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual HelpStyle getHelpStyle() override;
 
-	std::shared_ptr<IGameListView> getGameListView(SystemData* system, bool loadIfnull = true);
+	std::shared_ptr<IGameListView> getGameListView(SystemData* system, bool loadIfnull = true, const std::function<void()>& createAsPopupAndSetExitFunction = nullptr);
 	std::shared_ptr<SystemView> getSystemListView();
 	void removeGameListView(SystemData* system);
 
@@ -101,6 +106,8 @@ public:
 	ViewMode getViewMode();
 
 	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+
+	void setActiveView(std::shared_ptr<GuiComponent> view);
 
 private:
 	ViewController(Window* window);

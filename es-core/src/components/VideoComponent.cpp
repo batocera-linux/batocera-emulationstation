@@ -82,13 +82,9 @@ VideoComponent::VideoComponent(Window* window) :
 	mConfig.showSnapshotNoVideo		= false;
 	mConfig.snapshotSource = IMAGE;
 	mConfig.startDelay				= 0;
-	if (mWindow->getGuiStackSize() > 1) {
-		topWindow(false);
-	}
 
-	std::string path = getTitleFolder();
-	if(!Utils::FileSystem::exists(path))
-		Utils::FileSystem::createDirectory(path);
+	if (mWindow->getGuiStackSize() > 1)
+		topWindow(false);
 }
 
 VideoComponent::~VideoComponent()
@@ -188,7 +184,7 @@ void VideoComponent::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	if (Settings::getInstance()->getBool("DebugImage"))
+	if (Settings::DebugImage)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 		Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033);
@@ -452,7 +448,7 @@ void VideoComponent::manageState()
 
 	// We will only show if the component is on display and the screensaver
 	// is not active
-	bool show = isShowing() && !mScreensaverActive && !mDisable;
+	bool show = isShowing() && !mScreensaverActive && !mDisable && mVisible;
 	if (!show)
 		mStartDelayed = false;
 

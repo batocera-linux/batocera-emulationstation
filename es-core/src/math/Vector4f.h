@@ -50,6 +50,8 @@ public:
 	Vector4f&      operator*=(const float& _other)          { *this = *this * _other; return *this; }
 	Vector4f&      operator/=(const float& _other)          { *this = *this / _other; return *this; }
 
+	Vector4f&      operator*=(const Vector2f& _other);
+
 	      float&   operator[](const int _index)             { assert(_index < 4 && "index out of range"); return (&mX)[_index]; }
 	const float&   operator[](const int _index) const       { assert(_index < 4 && "index out of range"); return (&mX)[_index]; }
 

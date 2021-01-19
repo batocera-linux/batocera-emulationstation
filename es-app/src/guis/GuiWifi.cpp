@@ -25,7 +25,7 @@ GuiWifi::GuiWifi(Window* window, const std::string title, std::string data, cons
 
 	std::vector<std::string> ssids = ApiSystem::getInstance()->getWifiNetworks();
 	if (ssids.empty())
-		mWindow->postToUiThread([this](Window*) { onRefresh(); });		
+		mWindow->postToUiThread([this]() { onRefresh(); });		
 	else
 		load(ssids);
 

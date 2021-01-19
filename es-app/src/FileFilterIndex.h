@@ -23,7 +23,8 @@ enum FilterIndexType
 	PLAYED_FILTER = 8,
 	LANG_FILTER = 9,
 	REGION_FILTER = 10,
-	FAVORITES_FILTER = 11
+	FAVORITES_FILTER = 11,
+	CHEEVOS_FILTER = 12
 };
 
 struct FilterDataDecl
@@ -42,6 +43,10 @@ class FileFilterIndex
 {
 	friend class CollectionFilter;
 
+private:
+	FileFilterIndex(const FileFilterIndex&) { };
+	FileFilterIndex& operator=(FileFilterIndex const&) { return *this; }
+
 public:
 	FileFilterIndex();
 	~FileFilterIndex();
@@ -51,20 +56,23 @@ public:
 	void setFilter(FilterIndexType type, std::vector<std::string>* values);
 	void clearAllFilters();
 	
-	virtual bool showFile(FileData* game);
+	virtual int showFile(FileData* game);
 	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev 
-		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion); };
+		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl> getFilterDataDecls();
 
 	void importIndex(FileFilterIndex* indexToImport);
+	void copyFrom(FileFilterIndex* indexToImport);
+
 	void resetIndex();
 	void resetFilters();
 	void setUIModeFilters();
 
-	void setTextFilter(const std::string text);
+	void setTextFilter(const std::string text, bool useRelevancy = false);
 	inline const std::string getTextFilter() { return mTextFilter; }
+	inline bool hasRelevency() { return !mTextFilter.empty() && mUseRelevency; }
 
 protected:
 	//std::vector<FilterDataDecl> filterDataDecl;
@@ -94,6 +102,7 @@ protected:
 	bool filterByPlayed;
 	bool filterByLang;
 	bool filterByRegion;
+	bool filterByCheevos;
 
 	std::map<std::string, int> genreIndexAllKeys;
 	std::map<std::string, int> playersIndexAllKeys;
@@ -105,6 +114,7 @@ protected:
 	std::map<std::string, int> playedIndexAllKeys;
 	std::map<std::string, int> langIndexAllKeys;
 	std::map<std::string, int> regionIndexAllKeys;
+	std::map<std::string, int> cheevosIndexAllKeys;
 
 	std::unordered_set<std::string> genreIndexFilteredKeys;
 	std::unordered_set<std::string> playersIndexFilteredKeys;
@@ -116,10 +126,10 @@ protected:
 	std::unordered_set<std::string> playedIndexFilteredKeys;
 	std::unordered_set<std::string> langIndexFilteredKeys;
 	std::unordered_set<std::string> regionIndexFilteredKeys;
-
-	FileData* mRootFolder;
+	std::unordered_set<std::string> cheevosIndexFilteredKeys;
 
 	std::string mTextFilter;
+	bool		mUseRelevency;
 };
 
 class CollectionFilter : public FileFilterIndex
@@ -131,7 +141,7 @@ public:
 	bool load(const std::string file);
 	bool save();
 
-	bool showFile(FileData* game) override;
+	int showFile(FileData* game) override;
 	bool isFiltered() override;
 
 	bool isSystemSelected(const std::string name);

@@ -351,11 +351,17 @@ void AudioManager::playSong(const std::string& song)
 				LOG(LogError) << "Error AudioManager seeking " << song;
 			else if (fread(&info, sizeof(info), 1, file) != 1)
 				LOG(LogError) << "Error AudioManager reading " << song;
-			else  {
+			else  
+			{
 				info.title[title_break] = '\0';
-				setSongName(mCurrentSong);				
-				fclose(file);
-				return;
+
+				std::string name = info.title;
+				if (!name.empty())
+				{
+					setSongName(name);
+					fclose(file);
+					return;
+				}
 			}
 
 			fclose(file);
@@ -419,7 +425,7 @@ void AudioManager::playSong(const std::string& song)
 
 				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
 				{
-					setSongName(mCurrentSong = title_content->data);
+					setSongName(title_content->data);
 					return;
 				}
 			}

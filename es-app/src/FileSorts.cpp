@@ -79,14 +79,14 @@ namespace FileSorts
 
 	bool compareRating(const FileData* file1, const FileData* file2)
 	{
-		return file1->getMetadata().getFloat("rating") < file2->getMetadata().getFloat("rating");
+		return file1->getMetadata().getFloat(MetaDataId::Rating) < file2->getMetadata().getFloat(MetaDataId::Rating);
 	}
 
 	bool compareTimesPlayed(const FileData* file1, const FileData* file2)
 	{
 		//only games have playcount metadata
 		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
-			return (file1)->getMetadata().getInt("playcount") < (file2)->getMetadata().getInt("playcount");
+			return (file1)->getMetadata().getInt(MetaDataId::PlayCount) < (file2)->getMetadata().getInt(MetaDataId::PlayCount);
 
 		return false;
 	}
@@ -95,7 +95,7 @@ namespace FileSorts
 	{
 		//only games have playcount metadata
 		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
-			return (file1)->getMetadata().getInt("gametime") < (file2)->getMetadata().getInt("gametime");
+			return (file1)->getMetadata().getInt(MetaDataId::GameTime) < (file2)->getMetadata().getInt(MetaDataId::GameTime);
 
 		return false;
 	}
@@ -109,7 +109,7 @@ namespace FileSorts
 
 	bool compareNumPlayers(const FileData* file1, const FileData* file2)
 	{
-		return (file1)->getMetadata().getInt("players") < (file2)->getMetadata().getInt("players");
+		return (file1)->getMetadata().getInt(MetaDataId::Players) < (file2)->getMetadata().getInt(MetaDataId::Players);
 	}
 
 	bool compareReleaseDate(const FileData* file1, const FileData* file2)

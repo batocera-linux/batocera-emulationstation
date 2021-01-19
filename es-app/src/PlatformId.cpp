@@ -45,6 +45,7 @@ namespace PlatformIds
 		{ "gc",						NINTENDO_GAMECUBE },
 		{ "wii",					NINTENDO_WII },
 		{ "wiiu",					NINTENDO_WII_U },
+		{ "switch",					NINTENDO_SWITCH },
 		{ "virtualboy",				NINTENDO_VIRTUAL_BOY },
 		{ "gameandwatch",			NINTENDO_GAME_AND_WATCH },
 		{ "pc",						PC },

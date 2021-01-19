@@ -7,9 +7,11 @@
 #include "SystemData.h"
 #include "LocaleES.h"
 #include "Settings.h"
+#include "FileData.h"
 
 std::vector<MetaDataDecl> MetaDataList::mMetaDataDecls;
 
+static std::map<MetaDataId, int> mMetaDataIndexes;
 static std::string* mDefaultGameMap = nullptr;
 static MetaDataType* mGameTypeMap = nullptr;
 static std::map<std::string, MetaDataId> mGameIdMap;
@@ -56,7 +58,7 @@ void MetaDataList::initMetadata()
 
 		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system"), false },
 
-		{ Players,          "players",     MD_INT,                 "1",                false,      _("Players"),              _("enter number of players"),	false },
+		{ Players,          "players",     MD_INT,                 "",                false,      _("Players"),              _("enter number of players"),	false },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
@@ -64,15 +66,24 @@ void MetaDataList::initMetadata()
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date"), false },
 
 		{ Crc32,            "crc32",       MD_STRING,              "",                 true,       _("Crc32"),                _("Crc32 checksum"),			false },
-		{ Md5,              "md5",         MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
+		{ Md5,              "md5",		   MD_STRING,              "",                 true,       _("Md5"),                  _("Md5 checksum"),			false },
 
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
 		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
-		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false }
+		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
+
+		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
+		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false },
+
+		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
+	
+	mMetaDataIndexes.clear();
+	for (int i = 0 ; i < mMetaDataDecls.size() ; i++)
+		mMetaDataIndexes[mMetaDataDecls[i].id] = i;
 
 	int maxID = mMetaDataDecls.size() + 1;
 
@@ -115,15 +126,36 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 {
 	MetaDataList mdl(type);
 	mdl.mRelativeTo = system;
-
-	for (auto& mdd : mMetaDataDecls)
+	std::string value;
+	
+	for (pugi::xml_node xelement : node.children())
 	{
-		pugi::xml_node xelement = node.child(mdd.key.c_str());
-		if (!xelement)
+		std::string name = xelement.name();
+		auto it = mGameIdMap.find(name);
+		if (it == mGameIdMap.cend())
+		{
+			if (name == "hash" || name == "path")
+				continue;
+
+			value = xelement.text().get();
+			if (!value.empty())
+				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
+
 			continue;
-		
-		// if it's a path, resolve relative paths
-		std::string value = xelement.text().get();
+		}
+
+		MetaDataDecl& mdd = mMetaDataDecls[mMetaDataIndexes[it->second]];
+		if (mdd.isAttribute)
+			continue;
+
+		value = xelement.text().get();
+
+		if (mdd.id == MetaDataId::Name)
+		{
+			mdl.mName = value;
+			continue;
+		}
+
 		if (value == mdd.defaultValue)
 			continue;
 
@@ -133,14 +165,59 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		// Players -> remove "1-"
 		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
 			value = Utils::String::replace(value, "1-", "");
-			
+
+		mdl.set(mdd.id, value);
+	}
+
+	for (pugi::xml_attribute xattr : node.attributes())
+	{
+		std::string name = xattr.name();
+		auto it = mGameIdMap.find(name);
+		if (it == mGameIdMap.cend())
+		{
+			value = xattr.value();
+			if (!value.empty())
+				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
+
+			continue;
+		}
+
+		MetaDataDecl& mdd = mMetaDataDecls[mMetaDataIndexes[it->second]];
+		if (!mdd.isAttribute)
+			continue;
+
+		value = xattr.value();
+
+		if (value == mdd.defaultValue)
+			continue;
+
+		if (mdd.type == MD_BOOL)
+			value = Utils::String::toLower(value);
+
+		// Players -> remove "1-"
+		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+			value = Utils::String::replace(value, "1-", "");
+
 		if (mdd.id == MetaDataId::Name)
 			mdl.mName = value;
 		else
-			mdl.set(mdd.id, value);		
+			mdl.set(mdd.id, value);
 	}
 
 	return mdl;
+}
+
+// Add migration for alternative formats & old tags
+void MetaDataList::migrate(FileData* file, pugi::xml_node& node)
+{
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file->getPath()));
+
+	if (get(MetaDataId::Crc32).empty())
+	{
+		pugi::xml_node xelement = node.child("hash");
+		if (xelement)
+			set(MetaDataId::Crc32, xelement.text().get());
+	}
 }
 
 void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const
@@ -160,16 +237,29 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 		{
 			// we have this value!
 			// if it's just the default (and we ignore defaults), don't write it
-			if(ignoreDefaults && mapIter->second == mddIter->defaultValue)
+			if (ignoreDefaults && mapIter->second == mddIter->defaultValue)
 				continue;
-			
+
 			// try and make paths relative if we can
 			std::string value = mapIter->second;
 			if (mddIter->type == MD_PATH)
 				value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
 
-			parent.append_child(mddIter->key.c_str()).text().set(value.c_str());
+			
+			if (mddIter->isAttribute)
+				parent.append_attribute(mddIter->key.c_str()).set_value(value.c_str());
+			else
+				parent.append_child(mddIter->key.c_str()).text().set(value.c_str());
 		}
+	}
+
+	for (std::tuple<std::string, std::string, bool> element : mUnKnownElements)
+	{	
+		bool isElement = std::get<2>(element);
+		if (isElement)
+			parent.append_child(std::get<0>(element).c_str()).text().set(std::get<1>(element).c_str());
+		else 
+			parent.append_attribute(std::get<0>(element).c_str()).set_value(std::get<1>(element).c_str());
 	}
 }
 
@@ -209,11 +299,6 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	mWasChanged = true;
 }
 
-void MetaDataList::set(const std::string& key, const std::string& value)
-{
-	set(getId(key), value);
-}
-
 const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) const
 {
 	if (id == MetaDataId::Name)
@@ -231,19 +316,30 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	return mDefaultGameMap[id];
 }
 
+void MetaDataList::set(const std::string& key, const std::string& value)
+{
+	if (mGameIdMap.find(key) == mGameIdMap.cend())
+		return;
+
+	set(getId(key), value);
+}
+
 const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
 {
+	if (mGameIdMap.find(key) == mGameIdMap.cend())
+		return "";
+
 	return get(getId(key), resolveRelativePaths);
 }
 
-int MetaDataList::getInt(const std::string& key) const
+int MetaDataList::getInt(MetaDataId id) const
 {
-	return atoi(get(key).c_str());
+	return atoi(get(id).c_str());
 }
 
-float MetaDataList::getFloat(const std::string& key) const
+float MetaDataList::getFloat(MetaDataId id) const
 {
-	return (float)atof(get(key).c_str());
+	return (float)atof(get(id).c_str());
 }
 
 bool MetaDataList::wasChanged() const
@@ -292,7 +388,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 	for (auto mdd : getMDD())
 	{
-		if (mdd.isStatistic)
+		if (mdd.isStatistic && mdd.id != MetaDataId::ScraperId)
 			continue;
 
 		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet
@@ -333,4 +429,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 		set(mdd.id, source.get(mdd.id));
 	}
+
+	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))
+		set(MetaDataId::Hidden, "true");
 }
