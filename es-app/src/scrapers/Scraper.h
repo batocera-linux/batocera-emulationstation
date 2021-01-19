@@ -201,7 +201,8 @@ class Scraper
 {
 public:
 	static std::map<std::string, Scraper*> scrapers;
-	static Scraper* getScraper();
+	
+	static Scraper* getScraper(const std::string name = "");
 	static std::vector<std::string> getScraperList();
 	static bool isValidConfiguredScraper();
 

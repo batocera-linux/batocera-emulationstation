@@ -52,7 +52,7 @@ private:
 	void resizeMetadata();
 
 	void onSearchError(const std::string& error);
-	void onSearchDone(const std::vector<ScraperSearchResult>& results);
+	void onSearchDone();
 
 	int getSelectedIndex();
 
@@ -88,16 +88,22 @@ private:
 	std::vector<MetaDataPair> mMD_Pairs;
 
 	SearchType mSearchType;
-	ScraperSearchParams mLastSearch;
 	std::function<void(const ScraperSearchResult&)> mAcceptCallback;
 	std::function<void()> mSkipCallback;
 	std::function<void()> mCancelCallback;
 	bool mBlockAccept;
 
-	std::unique_ptr<ScraperSearchHandle> mSearchHandle;
+	ScraperSearchParams mLastScreenScraperSearch;
+	std::unique_ptr<ScraperSearchHandle> mScreenScraperSearchHandle;
+
+	ScraperSearchParams mLastTheGamesDBSearch;
+	std::unique_ptr<ScraperSearchHandle> mTheGamesDBHandle;
+
 	std::unique_ptr<MDResolveHandle> mMDResolveHandle;
-	std::vector<ScraperSearchResult> mScraperResults;
+	//std::vector<ScraperSearchResult> mScraperResults;
 	std::unique_ptr<HttpReq> mThumbnailReq;
+
+	std::vector<std::pair<std::string, ScraperSearchResult>> mScraperResults;
 
 	BusyComponent mBusyAnim;
 };
