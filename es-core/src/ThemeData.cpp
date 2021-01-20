@@ -1046,7 +1046,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 				auto values = Utils::String::split(Utils::String::trim(subsetValue), '|', true);
 				for (auto value : values)
 					if (selectedSubset == value)
-						hasValue = true;;
+						hasValue = true;
 
 				if (!hasValue)
 					return false;

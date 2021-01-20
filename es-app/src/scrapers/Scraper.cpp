@@ -19,11 +19,13 @@ std::map<std::string, Scraper*> Scraper::scrapers
 	{ "TheGamesDB", new TheGamesDBScraper() }
 };
 
-Scraper* Scraper::getScraper()
-{
-	auto name = Settings::getInstance()->getString("Scraper");
+Scraper* Scraper::getScraper(const std::string name)
+{	
+	auto scraper = name;
+	if(scraper.empty())
+		scraper = Settings::getInstance()->getString("Scraper");
 
-	auto it = Scraper::scrapers.find(name);
+	auto it = Scraper::scrapers.find(scraper);
 	if (it != Scraper::scrapers.end())
 		return it->second;
 

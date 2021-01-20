@@ -457,3 +457,11 @@ bool ComponentList::moveCursor(int amt)
 	listInput(0);
 	return ret;
 }
+
+std::string ComponentList::getSelectedUserData()
+{
+	if (mCursor >= 0 && mCursor < mEntries.size())
+		return mEntries[mCursor].object;
+
+	return "";
+}

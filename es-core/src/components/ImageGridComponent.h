@@ -552,6 +552,14 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 
 			float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
 
+			if (properties & ThemeFlags::SIZE && elem->has("size"))
+			{
+				Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+				auto size = elem->get<Vector2f>("size") * scale;
+				if (size.y() != 0)
+					screenProportion = size.x() / size.y();
+			}
+
 			float cellProportion = 1;
 			if (elem->has("cellProportion"))
 			{
