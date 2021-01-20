@@ -209,16 +209,16 @@ msgid "Region"
 msgstr "Région"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos checksum"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos Game ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "Screenscraper Game ID"
 
 msgid "all games"
 msgstr "tous les jeux"
@@ -239,7 +239,7 @@ msgid "never played"
 msgstr "jamais joué"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "succès rétro"
 
 msgid "arcade"
 msgstr "arcade"
@@ -447,19 +447,19 @@ msgstr "VEUILLEZ PATIENTER"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "SUCCÈS RÉTRO"
 
 msgid "Points"
-msgstr ""
+msgstr "Points"
 
 msgid "Rank"
-msgstr ""
+msgstr "Rang"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "VOIR LES DÉTAILS"
 
 msgid "LAUNCH"
 msgstr "LANCER"
@@ -480,10 +480,10 @@ msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "ALLER À LA LETTRE"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "SÉLECTIONNER UN JEU ALÉATOIRE"
 
 msgid "SORT GAMES BY"
 msgstr "TRIER LES JEUX PAR"
@@ -786,10 +786,10 @@ msgid "PLAYER 2"
 msgstr "JOUEUR 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "JOUEUR 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "JOUEUR 4"
 
 msgid "COMBINATIONS"
 msgstr "COMBINAISONS"
@@ -867,16 +867,16 @@ msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "COEUR ACTUEL NON COMPATIBLE"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "COEUR NECESSAIRE"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "VOIR LES SUCCÈS DU JEU"
 
 msgid "GAME"
-msgstr ""
+msgstr "JEU"
 
 msgid "START NETPLAY HOST"
 msgstr "DÉMARRER L’HÔTE NET PLAY"
@@ -904,11 +904,11 @@ msgstr "COLLECTIONS"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "RETIRÉ DE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "AJOUTÉ A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
@@ -978,17 +978,17 @@ msgstr[0] "%i JEU PASSÉ"
 msgstr[1] "%i JEUX PASSÉS"
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Déverrouillé le"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "CE JEU N’A PAS ENCORE DE SUCCÈS"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Succès gagnés"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% terminé"
 
 msgid "SCRAPE NOW"
 msgstr "LANCER LE SCRAPE"
@@ -1087,7 +1087,7 @@ msgid "FLATTEN-GLOW"
 msgstr "APPLATI ET BRILLANT"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA SCALING"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1186,7 +1186,7 @@ msgid "SCRAPE FANART"
 msgstr "SCRAPER LES FANARTS"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "SCRAPER LES CARTES"
 
 msgid "SCRAPE MANUAL"
 msgstr "SCRAPER LES MANUELS"
@@ -1276,10 +1276,10 @@ msgid "CLEAR CACHES"
 msgstr "EFFACER LES CACHES"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "GÉNÉRER LE CACHE D’IMAGES"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "Génération du cache d’images"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -1288,7 +1288,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDÉTECTER LA LANGUE/RÉGION DES JEUX"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "TROUVER TOUS LES JEUX AVEC PARTIES EN RÉSEAU/SUCCÈS"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
@@ -1312,7 +1312,7 @@ msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSITION DU CARROUSEL"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr ""
+msgstr "SÉLECTION RAPIDE DU SYSTÈME"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"
@@ -1427,7 +1427,7 @@ msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
 
 msgid "NETPLAY SETTINGS"
-msgstr "PARAMÈTRES DES PARTIES RÉSEAUX"
+msgstr "PARAMÈTRES DES PARTIES EN RÉSEAU"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr "VÉRIFIER LES BIOS AVANT DE LANCER UN JEU"
@@ -1502,13 +1502,13 @@ msgid "GAME INDEXES"
 msgstr "INDEXATION DES JEUX"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "TROUVER TOUS LES JEUX"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "TROUVER LES NOUVEAUX JEUX"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO"
 
 msgid "ENABLE NETPLAY"
 msgstr "ACTIVER LE JEU EN RÉSEAU"
@@ -1844,7 +1844,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURER LES MANETTES"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATER UN PÉRIPHÉRIQUE"
@@ -1876,16 +1876,16 @@ msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "ZOOM-"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "ZOOM+"
 
 msgid "MOVE"
-msgstr ""
+msgstr "DÉPLACER"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ZOOM"
 
 msgid "SYSTEM INFO"
 msgstr "INFO SYSTÈME"
@@ -1992,6 +1992,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"Un compte valide est nécessaire. Veuillez créer un compte sur https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Recherche"
@@ -2099,10 +2101,10 @@ msgid "Extracting"
 msgstr "Extration"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "RECHERCHE DES SUCCÈS RÉTRO"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "RECHERCHE DES PARTIES EN RÉSEAU"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2129,7 +2131,7 @@ msgid "ALREADY PLAYED"
 msgstr "DÉJA JOUÉ"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "SUCCÈS RÉTRO"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -2323,30 +2325,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
-#~ msgstr "Edition de la collection '%s'. Ajout/Suppression de jeux avec Y."
-
-#~ msgid "Finished editing the '%s' Collection."
-#~ msgstr "Edition de la collection '%s' terminée"
-
-#~ msgid "FINISH EDITING COLLECTION"
-#~ msgstr "FINIR L'ÉDITION DE LA COLLECTION"
-
-#~ msgid "JUMP TO..."
-#~ msgstr "ALLER À..."
-
-#~ msgid "COLLECTION MANAGEMENT"
-#~ msgstr "GESTION DE LA COLLECTION"
-
-#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-#~ msgstr "AJOUTER/SUPPRIMER DES JEUX À CETTE COLLECTION"
-
-#~ msgid "REINDEX ALL GAMES"
-#~ msgstr "RÉINDEXER TOUS LES JEUX"
-
-#~ msgid "INDEX MISSING GAMES"
-#~ msgstr "INDEXER LES JEUX MANQUANTS"
-
-#~ msgid "HASHING GAMES"
-#~ msgstr "INDEXATION DES JEUX"
