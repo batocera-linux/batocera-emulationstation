@@ -107,7 +107,11 @@ void TextComponent::setText(const std::string& text)
 	mText = text;
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
-	mMarqueeTime = 0;
+
+	if (mAutoScroll != AutoScrollType::NONE && !mText.empty())
+		mMarqueeTime = -AUTO_SCROLL_DELAY + AUTO_SCROLL_SPEED;
+	else 
+		mMarqueeTime = 0;
 
 	onTextChanged();
 }

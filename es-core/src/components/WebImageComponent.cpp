@@ -1,6 +1,8 @@
 #include "WebImageComponent.h"
 #include "utils/StringUtil.h"
 #include "HttpReq.h"
+#include "utils/ZipFile.h"
+#include "resources/TextureResource.h"
 
 #include <algorithm>
 #include <cctype>
@@ -11,7 +13,7 @@
 // keepInCacheDuration = 600 -> image expire in 10 minutes ( 60*10 )
 WebImageComponent::WebImageComponent(Window* window, double keepInCacheDuration) : ImageComponent(window), mRequest(nullptr), mKeepInCacheDuration(keepInCacheDuration)
 {
-
+	
 }
  
 WebImageComponent::~WebImageComponent()
@@ -69,7 +71,13 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 {
 	if (!Utils::String::startsWith(path, "http://") && !Utils::String::startsWith(path, "https://"))
 	{
-		ImageComponent::setImage(path, tile, maxSize, checkFileExists);
+		if (path.empty())
+			ImageComponent::setImage(nullptr, 0);
+		else
+		{
+			ImageComponent::setImage(path, tile, maxSize, checkFileExists);
+			resize();
+		}
 		return;
 	}
 
@@ -80,7 +88,21 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 	if (Utils::String::startsWith(uri.path, "/"))
 		uri.path = uri.path.substr(1);
 
-	std::string localFile = Utils::FileSystem::getEsConfigPath() + "/tmp/" + uri.host + "/" + uri.path;
+	std::string queryCrc;
+
+	if (!uri.query.empty())
+	{
+		unsigned int file_crc32 = 0;
+		file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, uri.query.data(), uri.query.size());
+		char hex[10];
+		hex[0] = 0;
+		auto len = snprintf(hex, sizeof(hex) - 1, "%08X", file_crc32);
+		hex[len] = 0;
+		queryCrc = hex;
+		queryCrc = "-" + queryCrc;
+	}
+
+	std::string localFile = Utils::FileSystem::getEsConfigPath() + "/tmp/" + uri.host + "/" + uri.path + std::string(queryCrc);
 	if (Utils::FileSystem::exists(localFile))
 	{
 		bool keepLoadingLocal = true;
@@ -104,6 +126,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 		if (keepLoadingLocal)
 		{
 			ImageComponent::setImage(localFile, tile, maxSize);
+			resize();
 			return;
 		}
 	}
@@ -124,11 +147,14 @@ void WebImageComponent::update(int deltaTime)
 	if (status == HttpReq::REQ_IN_PROGRESS)
 		return;
 
-	if (status == HttpReq::REQ_SUCCESS && Utils::FileSystem::exists(mLocalFile))
-		ImageComponent::setImage(mLocalFile, false, mMaxSize);
-
 	delete mRequest;
 	mRequest = nullptr;	
+
+	if (status == HttpReq::REQ_SUCCESS && Utils::FileSystem::exists(mLocalFile))
+	{
+		ImageComponent::setImage(mLocalFile, false, mMaxSize);
+		resize();
+	}
 }
 
 void WebImageComponent::render(const Transform4x4f& parentTrans)

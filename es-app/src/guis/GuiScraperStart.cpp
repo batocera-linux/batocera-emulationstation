@@ -3,7 +3,7 @@
 #include "components/OptionListComponent.h"
 #include "components/SwitchComponent.h"
 #include "guis/GuiMsgBox.h"
-#include "guis/GuiScraperMulti.h"
+// #include "guis/GuiScraperMulti.h"
 #include "views/ViewController.h"
 #include "FileData.h"
 #include "SystemData.h"
@@ -89,9 +89,9 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 	mMenu.addWithLabel(_("SYSTEMS"), mSystems); // batocera
 
-	mApproveResults = std::make_shared<SwitchComponent>(mWindow);
-	mApproveResults->setState(false);
-	mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
+	// mApproveResults = std::make_shared<SwitchComponent>(mWindow);
+	// mApproveResults->setState(false);
+	// mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
 
 	mMenu.addButton(_("START"), _("START"), std::bind(&GuiScraperStart::pressedStart, this));
 	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
@@ -145,9 +145,9 @@ void GuiScraperStart::start()
 				mWindow->pushGui(new GuiMsgBox(mWindow, _("NO GAMES FIT THAT CRITERIA."))); // batocera
 			else
 			{			
-				if (mApproveResults->getState())
-					mWindow->pushGui(new GuiScraperMulti(mWindow, searches, mApproveResults->getState()));
-				else
+				// if (mApproveResults->getState())
+				//	mWindow->pushGui(new GuiScraperMulti(mWindow, searches, mApproveResults->getState()));
+				//else
 					ThreadedScraper::start(mWindow, searches);
 
 				delete this;

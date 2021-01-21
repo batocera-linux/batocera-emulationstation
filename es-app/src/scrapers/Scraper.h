@@ -206,6 +206,8 @@ public:
 	static std::vector<std::string> getScraperList();
 	static bool isValidConfiguredScraper();
 
+	virtual	bool isSupportedPlatform(SystemData* system) = 0;
+
 	std::unique_ptr<ScraperSearchHandle> search(const ScraperSearchParams& params);
 
 	virtual	int getThreadCount() {
