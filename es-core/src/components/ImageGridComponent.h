@@ -567,6 +567,14 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 
 			float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
 
+			if (properties & ThemeFlags::SIZE && elem->has("size"))
+			{
+				Vector2f scale = GuiComponent::getParent() ? GuiComponent::getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+				auto size = elem->get<Vector2f>("size") * scale;
+				if (size.y() != 0)
+					screenProportion = size.x() / size.y();
+			}
+
 			float cellProportion = 1;
 			if (elem->has("cellProportion"))
 			{
@@ -739,6 +747,9 @@ template<typename T>
 void ImageGridComponent<T>::onSizeChanged()
 {
 	if (mTheme == nullptr)
+		return;
+
+	if (mSize.x() <= 0 || mSize.y() <= 0)
 		return;
 
 	buildTiles();
@@ -1150,6 +1161,11 @@ void ImageGridComponent<T>::buildTiles()
 {
 	if (mGridSizeOverride.x() != 0 && mGridSizeOverride.y() != 0)
 		mAutoLayout = mGridSizeOverride;
+
+	// temporary keep references to tiles to avoid shared fonts & shared textures destructors
+	std::vector<std::shared_ptr<GridTileComponent>> oldTiles;
+	for (auto tile : mTiles)
+		oldTiles.push_back(tile);
 
 	mStartPosition = 0;
 	mTiles.clear();

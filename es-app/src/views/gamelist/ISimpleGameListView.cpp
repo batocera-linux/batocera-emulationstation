@@ -18,6 +18,8 @@
 #include "guis/GuiGameOptions.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "SaveStateRepository.h"
+#include "guis/GuiSaveState.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr)
@@ -127,6 +129,28 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
 	if (input.value != 0)
 	{
+		if (config->isMappedTo("l3", input))
+		{
+			FileData* cursor = getCursor();
+			if (cursor->getType() == GAME)
+			{				
+				if (SaveStateRepository::isEnabled(cursor))
+				{
+					mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+					{
+						Sound::getFromTheme(getTheme(), getName(), "launch")->play();
+
+						LaunchGameOptions options;
+						options.saveStateInfo = state;
+						ViewController::get()->launch(cursor, options);
+					}
+					));
+				}
+			}
+
+			return true;
+		}
+
 		if (config->isMappedTo(BUTTON_OK, input))
 		{
 			// Don't launch game if transition is still running
@@ -233,6 +257,9 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		}
 		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
 		{
+		//	moveToRandomGame();
+		//	return true;
+			
 			std::string searchText;
 
 			auto idx = mRoot->getSystem()->getIndex(false);
@@ -259,8 +286,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
 			else
 				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
-
-			return true;
+				
+			return true;			
 		}
 	}
 	return IGameListView::input(config, input);

@@ -23,6 +23,8 @@
 #include "views/SystemView.h"
 #include "GuiGameAchievements.h"
 #include "guis/GuiGameScraper.h"
+#include "SaveStateRepository.h"
+#include "guis/GuiSaveState.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
 	mMenu(window, game->getName()), mReloadAll(false)
@@ -106,11 +108,28 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	{
 		mMenu.addGroup(_("GAME"));
 
-		mMenu.addEntry(_("LAUNCH"), false, [window, game, this]
+		if (SaveStateRepository::isEnabled(game))
 		{
-			ViewController::get()->launch(game);
-			this->close();
-		});
+			mMenu.addEntry(_("SAVE SNAPSHOTS"), false, [window, game, this]
+			{
+				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState state)
+				{
+					LaunchGameOptions options;
+					options.saveStateInfo = state;
+					ViewController::get()->launch(game, options);
+				}));
+
+				this->close();
+			});
+		}
+		else
+		{
+			mMenu.addEntry(_("LAUNCH"), false, [window, game, this]
+			{
+				ViewController::get()->launch(game);
+				this->close();
+			});
+		}
 
 		if (game->isNetplaySupported())
 		{

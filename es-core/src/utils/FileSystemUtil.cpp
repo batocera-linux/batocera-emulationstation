@@ -1138,6 +1138,22 @@ namespace Utils
 			return Utils::Time::DateTime();
 		}
 
+		Utils::Time::DateTime getFileModificationDate(const std::string& _path)
+		{
+			std::string path = getGenericPath(_path);
+			struct stat64 info;
+
+			// check if stat64 succeeded
+#if defined(_WIN32)
+			if ((_wstat64(Utils::String::convertToWideString(path).c_str(), &info) == 0))
+				return Utils::Time::DateTime(info.st_mtime);
+#else
+			if ((stat64(path.c_str(), &info) == 0))
+				return Utils::Time::DateTime(info.st_mtime);
+#endif
+			return Utils::Time::DateTime();
+		}
+
 		std::string	readAllText(const std::string fileName)
 		{
 #if defined(_WIN32)

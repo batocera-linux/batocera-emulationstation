@@ -20,6 +20,7 @@
 #include "ThreadedHasher.h"
 #include <unordered_set>
 #include <algorithm>
+#include "SaveStateRepository.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -33,6 +34,7 @@ std::vector<CustomFeature> SystemData::mGlobalFeatures;
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mSaveRepository = nullptr;
 	mIsCheevosSupported = -1;
 	mIsGroupSystem = groupedSystem;
 	mGameListHash = 0;
@@ -87,6 +89,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 SystemData::~SystemData()
 {
 	delete mRootFolder;
+
+	if (mSaveRepository != nullptr)
+		delete mSaveRepository;
 
 	if (mGameCountInfo != nullptr)
 		delete mGameCountInfo;
@@ -1553,8 +1558,12 @@ void SystemData::loadTheme()
 		else
 			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", _("Unknown")));
 
+		if (isCheevosSupported())
+			sysData.insert(std::pair<std::string, std::string>("system.cheevos", "true"));
+
 		mTheme->loadFile(getThemeFolder(), sysData, path);
-	} catch(ThemeException& e)
+	} 
+	catch(ThemeException& e)
 	{
 		LOG(LogError) << e.what();
 		mTheme = std::make_shared<ThemeData>(); // reset to empty
@@ -1956,4 +1965,12 @@ bool SystemData::getShowFilenames()
 	}
 
 	return *mShowFilenames;
+}
+
+SaveStateRepository* SystemData::getSaveStateRepository()
+{
+	if (mSaveRepository == nullptr)
+		mSaveRepository = new SaveStateRepository(this);
+
+	return mSaveRepository;
 }

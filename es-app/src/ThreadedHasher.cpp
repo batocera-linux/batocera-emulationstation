@@ -59,6 +59,9 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 
 ThreadedHasher::~ThreadedHasher()
 {
+	if ((mType & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5)
+		mWindow->displayNotificationMessage(ICONINDEX + _("INDEXING COMPLETED") + std::string(". ") + _("UPDATE GAMES LISTS TO APPLY CHANGES."));
+
 	mWndNotification->close();
 	mWndNotification = nullptr;
 
@@ -128,6 +131,8 @@ void ThreadedHasher::run()
 				else
 					game->setMetadata(MetaDataId::CheevosId, "");
 			}
+
+			LOG(LogDebug) << "CheckCheevosHash OK : " << label;;
 		}		
 
 		lock.lock();
@@ -140,6 +145,7 @@ void ThreadedHasher::run()
 		lock.unlock();
 		delete this;
 		ThreadedHasher::mInstance = nullptr;
+
 	}
 }
 
@@ -171,7 +177,14 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
-			bool cheevos = takeCheevos; // && (forceAllGames || file->getMetadata(MetaDataId::CheevosId).empty());
+			bool cheevos = takeCheevos && (forceAllGames || file->getMetadata(MetaDataId::CheevosHash).empty());
+
+			if (cheevos)
+			{
+				std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file->getPath()));
+				if (ext == ".pbp")
+					cheevos = false;
+			}
 
 			if (netPlay || cheevos)
 				searchQueue.push(file);

@@ -777,7 +777,7 @@ bool ViewController::input(InputConfig* config, Input input)
 	}
 #else
 	// Batocera next song
-	if(config->isMappedTo("l3", input) && input.value != 0) // batocera
+	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0) // batocera
 	{
 		// next song
 		AudioManager::getInstance()->playRandomMusic(false);

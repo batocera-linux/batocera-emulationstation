@@ -134,8 +134,8 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		auto it = mGameIdMap.find(name);
 		if (it == mGameIdMap.cend())
 		{
-			if (name == "hash")
-				continue; // see MetaDataList::migrate
+			if (name == "hash" || name == "path")
+				continue;
 
 			value = xelement.text().get();
 			if (!value.empty())
@@ -400,31 +400,34 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (mdd.id == MetaDataId::Favorite || mdd.id == MetaDataId::Hidden || mdd.id == MetaDataId::Emulator || mdd.id == MetaDataId::Core)
 			continue;
 
-		if (mdd.id == MetaDataId::Image && (type & MetaDataImportType::Types::IMAGE) != MetaDataImportType::Types::IMAGE)
+		if (mdd.id == MetaDataId::Image && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::IMAGE) != MetaDataImportType::Types::IMAGE))
+			continue;		
+
+		if (mdd.id == MetaDataId::Thumbnail && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::THUMB) != MetaDataImportType::Types::THUMB))
 			continue;
 
-		if (mdd.id == MetaDataId::Thumbnail && (type & MetaDataImportType::Types::THUMB) != MetaDataImportType::Types::THUMB)
+		if (mdd.id == MetaDataId::Marquee && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::MARQUEE) != MetaDataImportType::Types::MARQUEE))
 			continue;
 
-		if (mdd.id == MetaDataId::Marquee && (type & MetaDataImportType::Types::MARQUEE) != MetaDataImportType::Types::MARQUEE)
+		if (mdd.id == MetaDataId::Video && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::VIDEO) != MetaDataImportType::Types::VIDEO))
 			continue;
 
-		if (mdd.id == MetaDataId::Video && (type & MetaDataImportType::Types::VIDEO) != MetaDataImportType::Types::VIDEO)
+		if (mdd.id == MetaDataId::TitleShot && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::TITLESHOT) != MetaDataImportType::Types::TITLESHOT))
 			continue;
 
-		if (mdd.id == MetaDataId::TitleShot && (type & MetaDataImportType::Types::TITLESHOT) != MetaDataImportType::Types::TITLESHOT)
+		if (mdd.id == MetaDataId::FanArt && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::FANART) != MetaDataImportType::Types::FANART))
 			continue;
 
-		if (mdd.id == MetaDataId::FanArt && (type & MetaDataImportType::Types::FANART) != MetaDataImportType::Types::FANART)
+		if (mdd.id == MetaDataId::Map && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::MAP) != MetaDataImportType::Types::MAP))
 			continue;
 
-		if (mdd.id == MetaDataId::Map && (type & MetaDataImportType::Types::MAP) != MetaDataImportType::Types::MAP)
+		if (mdd.id == MetaDataId::Manual && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::MANUAL) != MetaDataImportType::Types::MANUAL))
 			continue;
 
-		if (mdd.id == MetaDataId::Manual && (type & MetaDataImportType::Types::MANUAL) != MetaDataImportType::Types::MANUAL)
+		if (mdd.id == MetaDataId::Cartridge && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::CARTRIDGE) != MetaDataImportType::Types::CARTRIDGE))
 			continue;
 
-		if (mdd.id == MetaDataId::Cartridge && (type & MetaDataImportType::Types::CARTRIDGE) != MetaDataImportType::Types::CARTRIDGE)
+		if (mdd.id == MetaDataId::Rating && source.getFloat(mdd.id) < 0)
 			continue;
 
 		set(mdd.id, source.get(mdd.id));

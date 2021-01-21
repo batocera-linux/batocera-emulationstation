@@ -468,6 +468,8 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			ss << ratingVal;
 			result.mdl.set(MetaDataId::Rating, ss.str());
 		}
+		else 
+			result.mdl.set(MetaDataId::Rating, "-1");
 
 		if (Settings::getInstance()->getBool("ScrapePadToKey") && game.child("sp2kcfg"))
 			result.p2k = game.child("sp2kcfg").text().get();

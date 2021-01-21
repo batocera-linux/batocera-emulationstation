@@ -89,6 +89,8 @@ public:
 
 	bool moveCursor(int amt);
 	inline int getCursorId() const { return mCursor; }
+
+	std::string getSelectedUserData();
 	
 	float getTotalRowHeight() const;
 	inline float getRowHeight(int row) const { return getRowHeight(mEntries.at(row).data); }

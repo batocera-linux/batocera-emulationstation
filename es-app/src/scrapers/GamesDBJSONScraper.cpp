@@ -70,7 +70,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ NINTENDO_WII, "9" },
 	{ NINTENDO_WII_U, "38" },
 	{ NINTENDO_VIRTUAL_BOY, "4918" },
-	{ NINTENDO_GAME_AND_WATCH, "-1" },
+	{ NINTENDO_GAME_AND_WATCH, "4950" },
 	{ PC, "1" },
 	{ SEGA_32X, "33" },
 	{ SEGA_CD, "21" },
@@ -113,17 +113,25 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ SATELLAVIEW, "6" },
 	{ SUFAMITURBO, "6" },
 	{ ZX81, "77" },
-	{ MOONLIGHT, "138" }, // "PC"
+	{ MOONLIGHT, "1" }, // "PC" // 138
 	
 	// Windows
 	{ VISUALPINBALL, "198" },
 	{ FUTUREPINBALL, "199" },
 
+	{ PC_88, "4933" },
+	{ PC_98, "4934" },
+
+	{ SHARP_X1, "4977" },
+	{ SHARP_X6800, "4931" },
+
+	{ NINTENDO_SWITCH, "4971" },
+
 	// Misc
 	{ ORICATMOS, "131" },
 	{ CHANNELF, "80" },
 	{ THOMSON_TO_MO, "141" },
-	{ SAMCOUPE, "213" },
+	{ SAMCOUPE, "4979" },
 	{ OPENBOR, "214" },
 	{ UZEBOX, "216" },
 	{ APPLE2GS, "217" },
@@ -142,6 +150,7 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	bool usingGameID = false;
 	const std::string apiKey = std::string("apikey=") + resources.getApiKey();
 	std::string cleanName = params.nameOverride;
+
 	if (!cleanName.empty() && cleanName.substr(0, 3) == "id:")
 	{
 		std::string gameID = cleanName.substr(3);
@@ -151,7 +160,8 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 				"include=boxart&id=" +
 				HttpReq::urlEncode(gameID);
 		usingGameID = true;
-	} else
+	} 
+	else
 	{
 		if (cleanName.empty())
 			cleanName = params.game->getCleanName();
@@ -166,7 +176,8 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	{
 		// if we have the ID already, we don't need the GetGameList request
 		requests.push(std::unique_ptr<ScraperRequest>(new TheGamesDBJSONRequest(results, path)));
-	} else
+	} 
+	else
 	{
 		std::string platformQueryParam;
 		auto& platforms = params.system->getPlatformIds();
@@ -180,12 +191,12 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 				if (mapIt != gamesdb_new_platformid_map.cend())
 				{
 					if (!first)
-					{
 						platformQueryParam += ",";
-					}
+
 					platformQueryParam += HttpReq::urlEncode(mapIt->second);
 					first = false;
-				} else
+				} 
+				else
 				{
 					LOG(LogWarning) << "TheGamesDB scraper warning - no support for platform "
 									<< getPlatformName(*platformIt);
@@ -201,173 +212,262 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 namespace
 {
 
-std::string getStringOrThrow(const Value& v, const std::string& key)
-{
-	if (!v.HasMember(key.c_str()) || !v[key.c_str()].IsString())
+	std::string getStringOrThrow(const Value& v, const std::string& key)
 	{
-		throw std::runtime_error("rapidjson internal assertion failure: missing or non string key:" + key);
-	}
-	return v[key.c_str()].GetString();
-}
-
-int getIntOrThrow(const Value& v, const std::string& key)
-{
-	if (!v.HasMember(key.c_str()) || !v[key.c_str()].IsInt())
-	{
-		throw std::runtime_error("rapidjson internal assertion failure: missing or non int key:" + key);
-	}
-	return v[key.c_str()].GetInt();
-}
-
-int getIntOrThrow(const Value& v)
-{
-	if (!v.IsInt())
-	{
-		throw std::runtime_error("rapidjson internal assertion failure: not an int");
-	}
-	return v.GetInt();
-}
-
-std::string getBoxartImage(const Value& v)
-{
-	if (!v.IsArray() || v.Size() == 0)
-	{
-		return "";
-	}
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto& im = v[i];
-		std::string type = getStringOrThrow(im, "type");
-		std::string side = getStringOrThrow(im, "side");
-		if (type == "boxart" && side == "front")
+		if (!v.HasMember(key.c_str()) || !v[key.c_str()].IsString())
 		{
-			return getStringOrThrow(im, "filename");
+			throw std::runtime_error("rapidjson internal assertion failure: missing or non string key:" + key);
 		}
+		return v[key.c_str()].GetString();
 	}
-	return getStringOrThrow(v[0], "filename");
-}
 
-std::string getDeveloperString(const Value& v)
-{
-	if (!v.IsArray())
+	int getIntOrThrow(const Value& v, const std::string& key)
 	{
-		return "";
-	}
-	std::string out = "";
-	bool first = true;
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto mapIt = resources.gamesdb_new_developers_map.find(getIntOrThrow(v[i]));
-		if (mapIt == resources.gamesdb_new_developers_map.cend())
+		if (!v.HasMember(key.c_str()) || !v[key.c_str()].IsInt())
 		{
-			continue;
+			throw std::runtime_error("rapidjson internal assertion failure: missing or non int key:" + key);
 		}
-		if (!first)
-		{
-			out += ", ";
-		}
-		out += mapIt->second;
-		first = false;
+		return v[key.c_str()].GetInt();
 	}
-	return out;
-}
 
-std::string getPublisherString(const Value& v)
-{
-	if (!v.IsArray())
+	int getIntOrThrow(const Value& v)
 	{
-		return "";
-	}
-	std::string out = "";
-	bool first = true;
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto mapIt = resources.gamesdb_new_publishers_map.find(getIntOrThrow(v[i]));
-		if (mapIt == resources.gamesdb_new_publishers_map.cend())
+		if (!v.IsInt())
 		{
-			continue;
+			throw std::runtime_error("rapidjson internal assertion failure: not an int");
 		}
-		if (!first)
-		{
-			out += ", ";
-		}
-		out += mapIt->second;
-		first = false;
+		return v.GetInt();
 	}
-	return out;
-}
 
-std::string getGenreString(const Value& v)
-{
-	if (!v.IsArray())
+	std::string getBoxartImage(const Value& v)
 	{
-		return "";
-	}
-	std::string out = "";
-	bool first = true;
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto mapIt = resources.gamesdb_new_genres_map.find(getIntOrThrow(v[i]));
-		if (mapIt == resources.gamesdb_new_genres_map.cend())
+		if (!v.IsArray() || v.Size() == 0)
 		{
-			continue;
+			return "";
 		}
-		if (!first)
+		for (int i = 0; i < (int)v.Size(); ++i)
 		{
-			out += ", ";
+			auto& im = v[i];
+			std::string type = getStringOrThrow(im, "type");
+			std::string side = getStringOrThrow(im, "side");
+			if (type == "boxart" && side == "front")
+			{
+				return getStringOrThrow(im, "filename");
+			}
 		}
-		out += mapIt->second;
-		first = false;
+		return getStringOrThrow(v[0], "filename");
 	}
-	return out;
-}
 
-void processGame(const Value& game, const Value& boxart, std::vector<ScraperSearchResult>& results)
-{
-	std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
-	std::string baseImageUrlLarge = getStringOrThrow(boxart["base_url"], "large");
-
-	ScraperSearchResult result;
-
-	result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "game_title"));
-
-	if (game.HasMember("overview") && game["overview"].IsString())
-		result.mdl.set(MetaDataId::Desc, game["overview"].GetString());
-
-	if (game.HasMember("release_date") && game["release_date"].IsString())
-		result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(game["release_date"].GetString(), "%Y-%m-%d")));
-
-	if (game.HasMember("developers") && game["developers"].IsArray())
-		result.mdl.set(MetaDataId::Developer, getDeveloperString(game["developers"]));
-
-	if (game.HasMember("publishers") && game["publishers"].IsArray())
-		result.mdl.set(MetaDataId::Publisher, getPublisherString(game["publishers"]));
-
-	if (game.HasMember("genres") && game["genres"].IsArray())
-		result.mdl.set(MetaDataId::Genre, getGenreString(game["genres"]));
-
-	if (game.HasMember("players") && game["players"].IsInt())
-		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
-	
-	if (boxart.HasMember("data") && boxart["data"].IsObject())
+	std::string getDeveloperString(const Value& v)
 	{
+		if (!v.IsArray())
+		{
+			return "";
+		}
+		std::string out = "";
+		bool first = true;
+		for (int i = 0; i < (int)v.Size(); ++i)
+		{
+			auto mapIt = resources.gamesdb_new_developers_map.find(getIntOrThrow(v[i]));
+			if (mapIt == resources.gamesdb_new_developers_map.cend())
+			{
+				continue;
+			}
+			if (!first)
+			{
+				out += ", ";
+			}
+			out += mapIt->second;
+			first = false;
+		}
+		return out;
+	}
+
+	std::string getPublisherString(const Value& v)
+	{
+		if (!v.IsArray())
+		{
+			return "";
+		}
+		std::string out = "";
+		bool first = true;
+		for (int i = 0; i < (int)v.Size(); ++i)
+		{
+			auto mapIt = resources.gamesdb_new_publishers_map.find(getIntOrThrow(v[i]));
+			if (mapIt == resources.gamesdb_new_publishers_map.cend())
+			{
+				continue;
+			}
+			if (!first)
+			{
+				out += ", ";
+			}
+			out += mapIt->second;
+			first = false;
+		}
+		return out;
+	}
+
+	std::string getGenreString(const Value& v)
+	{
+		if (!v.IsArray())
+		{
+			return "";
+		}
+		std::string out = "";
+		bool first = true;
+		for (int i = 0; i < (int)v.Size(); ++i)
+		{
+			auto mapIt = resources.gamesdb_new_genres_map.find(getIntOrThrow(v[i]));
+			if (mapIt == resources.gamesdb_new_genres_map.cend())
+			{
+				continue;
+			}
+			if (!first)
+			{
+				out += ", ";
+			}
+			out += mapIt->second;
+			first = false;
+		}
+		return out;
+	}
+
+	void processGame(const Value& game, const Value& boxart, std::vector<ScraperSearchResult>& results)
+	{
+		std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
+		std::string baseImageUrlLarge = getStringOrThrow(boxart["base_url"], "large");
+
+		ScraperSearchResult result;
+
+		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "game_title"));
+
+		if (game.HasMember("overview") && game["overview"].IsString())
+			result.mdl.set(MetaDataId::Desc, game["overview"].GetString());
+
+		if (game.HasMember("release_date") && game["release_date"].IsString())
+			result.mdl.set(MetaDataId::ReleaseDate, Utils::Time::DateTime(Utils::Time::stringToTime(game["release_date"].GetString(), "%Y-%m-%d")));
+
+		if (game.HasMember("developers") && game["developers"].IsArray())
+			result.mdl.set(MetaDataId::Developer, getDeveloperString(game["developers"]));
+
+		if (game.HasMember("publishers") && game["publishers"].IsArray())
+			result.mdl.set(MetaDataId::Publisher, getPublisherString(game["publishers"]));
+
+		if (game.HasMember("genres") && game["genres"].IsArray())
+			result.mdl.set(MetaDataId::Genre, getGenreString(game["genres"]));
+
+		if (game.HasMember("players") && game["players"].IsInt())
+			result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
+
+		result.mdl.set(MetaDataId::Rating, "-1");
+
 		std::string id = std::to_string(getIntOrThrow(game, "id"));
-		if (boxart["data"].HasMember(id.c_str()))
-		{
-		    std::string image = getBoxartImage(boxart["data"][id.c_str()]);
-			result.urls[MetaDataId::Image] = ScraperSearchItem(baseImageUrlLarge + "/" + image);
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(baseImageUrlThumb + "/" + image);
-		}
-	}
+		std::string screenShotUrl;
+		std::string boxArtUrl;
+		std::string titlescreenUrl;
+		std::string clearlogoUrl;
+		std::string fanArtUrl;
 
-	results.push_back(result);
-}
+		if (boxart.HasMember("data") && boxart["data"].IsObject())
+		{
+			if (boxart["data"].HasMember(id.c_str()))
+			{
+				std::string image = getBoxartImage(boxart["data"][id.c_str()]);
+				boxArtUrl = baseImageUrlThumb + "/" + image;
+				//result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(baseImageUrlThumb + "/" + image);
+			}
+		}
+
+		const std::string apiKey = std::string("apikey=") + resources.getApiKey();
+		HttpReq req("https://api.thegamesdb.net/v1/Games/Images?" + apiKey + "&games_id=" + id);
+		if (req.wait())
+		{
+			Document imageDoc;
+			auto json = req.getContent();
+			imageDoc.Parse(json.c_str());
+
+			std::string pathMedium;
+			std::string pathLarge;
+
+			if (imageDoc.HasMember("data"))
+			{
+				if (imageDoc["data"].HasMember("base_url") && imageDoc["data"]["base_url"].HasMember("medium"))
+					pathMedium = imageDoc["data"]["base_url"]["medium"].GetString();
+
+				if (imageDoc["data"].HasMember("base_url") && imageDoc["data"]["base_url"].HasMember("large"))
+					pathLarge = imageDoc["data"]["base_url"]["large"].GetString();
+
+				if (imageDoc["data"].HasMember("images") && imageDoc["data"]["images"].HasMember(id.c_str()) && imageDoc["data"]["images"][id.c_str()].IsArray())
+				{
+					const Value& images = imageDoc["data"]["images"][id.c_str()];
+
+					for (int i = 0; i < (int)images.Size(); ++i)
+					{
+						auto& v = images[i];
+
+						std::string type;
+						std::string fileName;
+
+						if (v.HasMember("type"))
+							type = v["type"].GetString();
+
+						if (v.HasMember("filename"))
+							fileName = v["filename"].GetString();
+
+						if (type == "screenshot" && screenShotUrl.empty())
+							screenShotUrl = pathMedium + fileName;
+						else if (type == "boxart" && boxArtUrl.empty())
+							boxArtUrl = pathMedium + fileName;
+						else if (type == "titlescreen" && titlescreenUrl.empty())
+							titlescreenUrl = pathMedium + fileName;
+						else if (type == "clearlogo" && clearlogoUrl.empty())
+							clearlogoUrl = pathMedium + fileName;
+						else if (type == "fanart" && fanArtUrl.empty())
+							fanArtUrl = pathLarge + fileName;
+					}
+				}
+			}
+		}
+
+		std::string imageSource = Settings::getInstance()->getString("ScrapperImageSrc");
+		if (imageSource == "sstitle" && !titlescreenUrl.empty())
+			result.urls[MetaDataId::Image] = ScraperSearchItem(titlescreenUrl);
+		else if ((imageSource == "box-2D" || imageSource == "box-3D") && !boxArtUrl.empty())
+			result.urls[MetaDataId::Image] = ScraperSearchItem(boxArtUrl);
+		else if ((imageSource == "wheel" || imageSource == "marquee") && !clearlogoUrl.empty())
+			result.urls[MetaDataId::Image] = ScraperSearchItem(clearlogoUrl);
+		else if (!screenShotUrl.empty())
+			result.urls[MetaDataId::Image] = ScraperSearchItem(screenShotUrl);
+
+		imageSource = Settings::getInstance()->getString("ScrapperThumbSrc");
+		if (imageSource == "sstitle" && !titlescreenUrl.empty())
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(titlescreenUrl);
+		else if (imageSource == "ss" && !boxArtUrl.empty())
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(screenShotUrl);
+		else if ((imageSource == "wheel" || imageSource == "marquee") && !clearlogoUrl.empty())
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(clearlogoUrl);
+		else if (!boxArtUrl.empty())
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(boxArtUrl);
+
+		if (!clearlogoUrl.empty() && !Settings::getInstance()->getString("ScrapperLogoSrc").empty())
+			result.urls[MetaDataId::Marquee] = ScraperSearchItem(clearlogoUrl);
+
+		if (!fanArtUrl.empty() && Settings::getInstance()->getBool("ScrapeFanart"))
+			result.urls[MetaDataId::FanArt] = ScraperSearchItem(fanArtUrl);
+
+		if (!titlescreenUrl.empty() && Settings::getInstance()->getBool("ScrapeTitleShot"))
+			result.urls[MetaDataId::TitleShot] = ScraperSearchItem(titlescreenUrl);
+
+		results.push_back(result);
+	}
 } // namespace
 
   // Process should return false only when we reached a maximum scrap by minute, to retry
 bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
 {
-	assert(request->status() == HttpReq::REQ_SUCCESS);
+	if (request->status() != HttpReq::REQ_SUCCESS)
+		return false;
 
 	Document doc;
 	doc.Parse(request->getContent().c_str());
@@ -410,6 +510,7 @@ bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchR
 	for (int i = 0; i < (int)games.Size(); ++i)
 	{
 		auto& v = games[i];
+
 		try
 		{
 			processGame(v, boxart, results);

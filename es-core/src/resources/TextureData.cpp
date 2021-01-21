@@ -186,7 +186,7 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 	return true;
 }
 
-bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
+bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
 {
 	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
@@ -199,21 +199,7 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	mWidth = width;
 	mHeight = height;
 
-	if (mTextureID == 0)
-	{
-		// Upload texture
-		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
-		if (mTextureID)
-		{
-			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
-				delete[] mDataRGBA;
-
-			mDataRGBA = nullptr;
-			return true;
-		}
-		return false;
-	}
-	else
+	if (mTextureID != 0)
 		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, mWidth, mHeight, mDataRGBA);
 
 	return true;

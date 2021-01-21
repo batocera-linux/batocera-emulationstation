@@ -346,10 +346,15 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-	if(mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
-		prompts.push_back(HelpPrompt("lr", _("SYSTEM")));
+	if (Renderer::getScreenProportion() > 1.4)
+	{
+		if(mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
+			prompts.push_back(HelpPrompt("lr", _("SYSTEM")));
+			
+		prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE")));
+	}
+	
 
-	prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE")));
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 
@@ -357,7 +362,7 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS")));
 
 	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH")));
 
 	/*
 	FileData* cursor = getCursor();
