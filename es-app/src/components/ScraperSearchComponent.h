@@ -25,6 +25,7 @@ public:
 	};
 
 	ScraperSearchComponent(Window* window, SearchType searchType = NEVER_AUTO_ACCEPT);
+	~ScraperSearchComponent();
 
 	void search(const ScraperSearchParams& params);
 	void openInputScreen(ScraperSearchParams& from);
@@ -62,7 +63,7 @@ private:
 	ComponentGrid mGrid;
 
 	std::shared_ptr<TextComponent> mResultName;
-	std::shared_ptr<ScrollableContainer> mDescContainer;
+	//std::shared_ptr<ScrollableContainer> mDescContainer;
 	std::shared_ptr<TextComponent> mResultDesc;
 	std::shared_ptr<ImageComponent> mResultThumbnail;
 	std::shared_ptr<ComponentList> mResultList;
@@ -93,17 +94,30 @@ private:
 	std::function<void()> mCancelCallback;
 	bool mBlockAccept;
 
-	ScraperSearchParams mLastScreenScraperSearch;
-	std::unique_ptr<ScraperSearchHandle> mScreenScraperSearchHandle;
-
-	ScraperSearchParams mLastTheGamesDBSearch;
-	std::unique_ptr<ScraperSearchHandle> mTheGamesDBHandle;
-
 	std::unique_ptr<MDResolveHandle> mMDResolveHandle;
-	//std::vector<ScraperSearchResult> mScraperResults;
 	std::unique_ptr<HttpReq> mThumbnailReq;
 
+	/*
+	ScraperSearchParams mLastScreenScraperSearch;
+	std::unique_ptr<ScraperSearchHandle> mScreenScraperSearchHandle;
+	ScraperSearchParams mLastTheGamesDBSearch;
+	std::unique_ptr<ScraperSearchHandle> mTheGamesDBHandle;
 	std::vector<std::pair<std::string, ScraperSearchResult>> mScraperResults;
+	*/
+
+
+	class ScraperSearch
+	{
+	public:
+		std::string name;
+		std::unique_ptr<ScraperSearchHandle> searchHandle;
+
+		ScraperSearchParams params;
+		std::vector<ScraperSearchResult> results;
+	};
+
+	std::vector<ScraperSearch*> mScrapEngines;
+	ScraperSearchParams mInitialSearch;
 
 	BusyComponent mBusyAnim;
 };

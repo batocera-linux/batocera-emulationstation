@@ -48,7 +48,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ATARI_LYNX, "4924" },
 	{ ATARI_ST, "4937" },
 	{ ATARI_XE, "30" },
-	{ COLECOVISION, "31" },
+	{ COLECOVISION, "31" },	
 	{ COMMODORE_64, "40" },
 	{ INTELLIVISION, "32" },
 	{ MAC_OS, "37" },
@@ -128,6 +128,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ NINTENDO_SWITCH, "4971" },
 
 	// Misc
+	{ VIC20, "4945" },
 	{ ORICATMOS, "131" },
 	{ CHANNELF, "80" },
 	{ THOMSON_TO_MO, "141" },
@@ -141,6 +142,17 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ SOLARUS, "223" }
 };
 
+bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
+{
+	std::string platformQueryParam;
+	auto& platforms = system->getPlatformIds();
+
+	for (auto platform : platforms)
+		if (gamesdb_new_platformid_map.find(platform) != gamesdb_new_platformid_map.cend())
+			return true;
+
+	return false;
+}
 
 void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
@@ -374,8 +386,8 @@ namespace
 			if (boxart["data"].HasMember(id.c_str()))
 			{
 				std::string image = getBoxartImage(boxart["data"][id.c_str()]);
-				boxArtUrl = baseImageUrlThumb + "/" + image;
-				//result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(baseImageUrlThumb + "/" + image);
+				if (!image.empty())
+					boxArtUrl = baseImageUrlThumb + image;
 			}
 		}
 

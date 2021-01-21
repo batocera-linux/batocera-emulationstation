@@ -127,6 +127,9 @@ namespace PlatformIds
 		{ "daphne",					DAPHNE },
 		{ "solarus",				SOLARUS },
 
+		{ "vic20",					VIC20 },
+		{ "c20",					VIC20 },
+			
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};

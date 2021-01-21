@@ -122,6 +122,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ FUTUREPINBALL, 199 },
 
 	// Misc
+	{ VIC20, 73 },
 	{ ORICATMOS, 131 },
 	{ CHANNELF, 80 },
 	{ THOMSON_TO_MO, 141 },
@@ -146,6 +147,18 @@ static pugi::xml_node find_child_by_attribute_list(const pugi::xml_node& node_pa
 	return pugi::xml_node(NULL);
 }
 
+bool ScreenScraperScraper::isSupportedPlatform(SystemData* system)
+{
+	std::string platformQueryParam;
+	auto& platforms = system->getPlatformIds();
+
+	for (auto platform : platforms)
+		if (screenscraper_platformid_map.find(platform) != screenscraper_platformid_map.cend())
+			return true;
+
+	return false;
+}
+
 void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests,
 	std::vector<ScraperSearchResult>& results)
@@ -157,7 +170,11 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	// FCA Fix for names override not working on Retropie
 	if (params.nameOverride.length() == 0)
 	{
-		path = ssConfig.getGameSearchUrl(params.game->getFileName());
+		if (Utils::FileSystem::isDirectory(params.game->getPath()))
+			path = ssConfig.getGameSearchUrl(params.game->getDisplayName());
+		else 
+			path = ssConfig.getGameSearchUrl(params.game->getFileName());
+
 		path += "&romtype=rom";
 
 		if (!params.game->getMetadata(MetaDataId::Md5).empty())

@@ -22,6 +22,6 @@ private:
 	std::string mLocalFile;
 
 	MaxSizeInfo mMaxSize;
-
+	
 	double		mKeepInCacheDuration;
 };
