@@ -34,8 +34,12 @@ private:
 
 	MenuComponent mMenu;
 
+	FileData* mGame;
 	SystemData* mSystem;
 	IGameListView* getGamelist();
+
+	bool mHasAdvancedGameOptions;
+
 
 	std::vector<std::function<void()>> mSaveFuncs;
 	bool mReloadAll;	

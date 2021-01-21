@@ -126,6 +126,7 @@ void Font::reload()
 	
 	rebuildTextures();
 	clearFaceCache();
+	Renderer::bindTexture(0);
 
 	mLoaded = true;
 }
@@ -437,8 +438,6 @@ void Font::renderTextCache(TextCache* cache)
 		if (tex != 0)
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
 	}
-
-	Renderer::bindTexture(0);
 }
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
@@ -492,8 +491,7 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 		}
 
 		Renderer::bindTexture(*it->textureIdPtr);
-		Renderer::drawTriangleStrips(&vxs[0], vxs.size());
-		Renderer::bindTexture(0);
+		Renderer::drawTriangleStrips(&vxs[0], vxs.size());		
 	}
 }
 
@@ -882,7 +880,7 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 	if(properties & FONT_PATH && elem->has("fontPath"))
 	{
 		std::string tmppath = elem->get<std::string>("fontPath");
-		if (ResourceManager::getInstance()->fileExists(tmppath))
+		if (!tmppath.empty())
 			path = tmppath;
 	}
 

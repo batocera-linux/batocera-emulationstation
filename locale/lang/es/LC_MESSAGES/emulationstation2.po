@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-11 08:15+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,7 @@ msgid "Cheevos Game ID"
 msgstr "ID DE JUEGO CHEEVOS"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "ID DE JUEGO SCREENSCRAPER"
 
 msgid "all games"
 msgstr "TODOS LOS JUEGOS"
@@ -477,10 +477,10 @@ msgid "NAVIGATION"
 msgstr "NAVEGACIÓN"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "BRINCAR A LETRA"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "SELECCIONAR JUEGO ALEATORIO"
 
 msgid "SORT GAMES BY"
 msgstr "ORDENAR LOS JUEGOS POR"
@@ -783,10 +783,10 @@ msgid "PLAYER 2"
 msgstr "JUGADOR 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "JUGADOR 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "JUGADOR 4"
 
 msgid "COMBINATIONS"
 msgstr "COMBINACIONES"
@@ -873,7 +873,7 @@ msgid "VIEW GAME ACHIEVEMENTS"
 msgstr "VER LOGROS DEL JUEGO"
 
 msgid "GAME"
-msgstr ""
+msgstr "JUEGO"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
@@ -901,11 +901,11 @@ msgstr "COLECCIONES"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "QUITAR DESDE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "AGREGAR A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"

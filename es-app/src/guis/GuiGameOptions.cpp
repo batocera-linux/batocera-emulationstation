@@ -22,10 +22,14 @@
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
 #include "GuiGameAchievements.h"
+#include "guis/GuiGameScraper.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
 	mMenu(window, game->getName()), mReloadAll(false)
 {
+	mHasAdvancedGameOptions = false;
+
+	mGame = game;
 	mSystem = game->getSystem();	
 
 	auto logo = game->getMarqueePath();
@@ -39,9 +43,6 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	}
 
 	addChild(&mMenu);
-
-	if (Renderer::isSmallScreen())
-		mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Manual));
 	bool hasMap = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Map));
@@ -214,12 +215,30 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	if (!fromPlaceholder && !isCustomCollection)
 	{
 		mMenu.addGroup(_("OPTIONS"));
+		
+		mMenu.addEntry(_("SCRAPE"), false, [this, game]
+		{
+			ScraperSearchParams scraperParams;
+			scraperParams.game = game;
+			scraperParams.system = game->getSourceFileData()->getSystem();
+
+			GuiGameScraper* scr = new GuiGameScraper(mWindow, scraperParams, [game, scraperParams](const ScraperSearchResult& result)
+			{
+				game->importP2k(result.p2k);
+				game->getMetadata().importScrappedMetadata(result.mdl);
+				ViewController::get()->getGameListView(scraperParams.system)->onFileChanged(game, FILE_METADATA_CHANGED);
+			});
+
+			mWindow->pushGui(scr);
+
+			close();
+		});
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && game->getType() != FOLDER)
 		{
 			if (game->hasKeyboardMapping())
 			{
-				mMenu.addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [this, game]
+				mMenu.addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
 				{ 
 					GuiMenu::editKeyboardMappings(mWindow, game); 
 					close();
@@ -227,7 +246,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			}
 			else if (game->isFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 			{
-				mMenu.addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [this, game] 
+				mMenu.addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
 				{ 
 					GuiMenu::editKeyboardMappings(mWindow, game); 
 					close();
@@ -244,7 +263,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				if (srcSystem->hasFeatures() || srcSystem->hasEmulatorSelection())
 				{
-					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), true, [this, game]
+					mHasAdvancedGameOptions = true;
+					mMenu.addEntry(_("ADVANCED GAME OPTIONS"), false, [this, game]
 					{
 						GuiMenu::popGameConfigurationGui(mWindow, game);
 						close();
@@ -254,13 +274,13 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		}
 
 		if (game->getType() == FOLDER)
-			mMenu.addEntry(_("EDIT FOLDER METADATA"), true, std::bind(&GuiGameOptions::openMetaDataEd, this));
+			mMenu.addEntry(_("EDIT FOLDER METADATA"), false, std::bind(&GuiGameOptions::openMetaDataEd, this));
 		else
-			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), true, std::bind(&GuiGameOptions::openMetaDataEd, this));
+			mMenu.addEntry(_("EDIT THIS GAME'S METADATA"), false, std::bind(&GuiGameOptions::openMetaDataEd, this));
 	}
 	else if (game->hasKeyboardMapping())
 	{
-		mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), true, [this, game]
+		mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), false, [this, game]
 		{ 
 			GuiMenu::editKeyboardMappings(mWindow, game);
 			close();
@@ -269,19 +289,25 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	if (Renderer::isSmallScreen())
 	{	
+		mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
+
 		mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
 		setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 		mMenu.animateTo(Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2));
 	}
 	else
 	{
-		float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 31.0f);
+		float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 33.0f);
 		w = Math::max(w, Renderer::getScreenWidth() / 3.0f);
 
 		mMenu.setSize(w, Renderer::getScreenHeight() + 2);
-		mMenu.animateTo(
+		/*mMenu.animateTo(
 			Vector2f(-w, -1),
 			Vector2f(-1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+			*/
+		mMenu.animateTo(
+			Vector2f(Renderer::getScreenWidth(), -1),
+			Vector2f(Renderer::getScreenWidth() - w -1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
 	}
 }
 
@@ -365,6 +391,13 @@ bool GuiGameOptions::input(InputConfig* config, Input input)
 		return true;
 	}
 
+	if (mHasAdvancedGameOptions && config->isMappedTo("x", input) && input.value)
+	{
+		GuiMenu::popGameConfigurationGui(mWindow, mGame);
+		close();
+		return true;
+	}
+
 	return mMenu.input(config, input);
 }
 
@@ -379,6 +412,10 @@ std::vector<HelpPrompt> GuiGameOptions::getHelpPrompts()
 {
 	auto prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+
+	if (mHasAdvancedGameOptions)
+		prompts.push_back(HelpPrompt("x", _("ADVANCED GAME OPTIONS")));
+
 	return prompts;
 }
 

@@ -199,8 +199,22 @@ bool TextureData::initFromExternalRGBA(unsigned char* dataRGBA, size_t width, si
 	mWidth = width;
 	mHeight = height;
 
-	if (mTextureID != 0)
-		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, -1, -1, mWidth, mHeight, mDataRGBA);
+	if (mTextureID == 0)
+	{
+		// Upload texture
+		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
+		if (mTextureID)
+		{
+			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
+				delete[] mDataRGBA;
+
+			mDataRGBA = nullptr;
+			return true;
+		}
+		return false;
+	}
+	else
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, mWidth, mHeight, mDataRGBA);
 
 	return true;
 }
