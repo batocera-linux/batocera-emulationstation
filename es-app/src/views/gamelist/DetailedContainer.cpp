@@ -584,7 +584,10 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (mNotKidGame != nullptr)
 			mNotKidGame->setVisible(!file->getKidGame());
 
-		bool systemHasCheevos = file->getSourceFileData()->getSystem()->isCheevosSupported();
+		bool systemHasCheevos = 
+			file->getSourceFileData()->getSystem()->isCheevosSupported() || 
+			file->getSystem()->isCollection() || 
+			file->getSystem()->isGroupSystem(); // Fake cheevos supported if the game is in a collection cuz there are lot of games from different systems
 
 		// Cheevos
 		if (mCheevos != nullptr)
