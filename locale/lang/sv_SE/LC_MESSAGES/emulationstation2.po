@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -878,6 +878,9 @@ msgstr ""
 msgid "GAME"
 msgstr ""
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr ""
 
@@ -912,6 +915,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORITER"
+
+msgid "SCRAPE"
+msgstr "SKRAPA"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr ""
@@ -990,6 +996,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SKRAPA NU"
 
@@ -1007,9 +1028,6 @@ msgstr "FILTER"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "SKRAPA DESSA SYSTEM"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "ANVÄNDAREN BESTÄMMER VID KONFLIKT"
 
 msgid "START"
 msgstr "STARTA"
@@ -1115,9 +1133,6 @@ msgstr "KONFIGURERA INPUT"
 
 msgid "EMULATOR SETTINGS"
 msgstr ""
-
-msgid "SCRAPE"
-msgstr "SKRAPA"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "UPPDATERINGAR OCH NERLADDNINGAR"
@@ -2097,6 +2112,12 @@ msgstr ""
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GENRE"
 
@@ -2130,10 +2151,8 @@ msgstr "SCRAPING"
 msgid "SCRAPE FAILED"
 msgstr "SKRAPNING MISSLYCKADES"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "SCRAPING FINISHED"
 msgstr ""
-"SKRAPNING FÄRDIG. UPPDATERA LISTAN MED SPEL FÖR ATT DE NYA ÄNDRINGARNA SKA "
-"SLÅ IGENOM."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "ANGER STORA OCH SMÅ BOKSTÄVER SAMT SPECIALTECKEN"
@@ -2315,6 +2334,14 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "ANVÄNDAREN BESTÄMMER VID KONFLIKT"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "SKRAPNING FÄRDIG. UPPDATERA LISTAN MED SPEL FÖR ATT DE NYA ÄNDRINGARNA "
+#~ "SKA SLÅ IGENOM."
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
 #~ msgstr "Redigerar samlingen '%s'. Lägg till/ta bort spel med Y."

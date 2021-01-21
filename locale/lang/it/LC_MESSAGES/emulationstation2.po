@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:17+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -239,7 +239,7 @@ msgid "never played"
 msgstr "mai giocato"
 
 msgid "retroachievements"
-msgstr "trofei retroachievements"
+msgstr "retroachievements (trofei)"
 
 msgid "arcade"
 msgstr "arcade"
@@ -450,13 +450,13 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d di %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS - TROFEI"
+msgstr "RETROACHIEVEMENTS (TROFEI)"
 
 msgid "Points"
 msgstr "Punti"
 
 msgid "Rank"
-msgstr "Grado"
+msgstr "Posizione"
 
 msgid "VIEW DETAILS"
 msgstr "VISUALIZZA DETTAGLI"
@@ -878,6 +878,9 @@ msgstr "VISUALIZZA I TROFEI DEL GIOCO"
 msgid "GAME"
 msgstr ""
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "INIZIA HOST IN RETE"
 
@@ -912,6 +915,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "PREFERITI"
+
+msgid "SCRAPE"
+msgstr "SCRAPE"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "MODIFICA CONFIGURAZIONE PAD TO KEYBOARD"
@@ -991,6 +997,21 @@ msgstr "Trofei vinti"
 msgid "%d%% complete"
 msgstr "%d%% completo"
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
 
@@ -1008,9 +1029,6 @@ msgstr "FILTRO"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "RECUPERA INFORMAZIONI SU QUESTI SISTEMI"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "L'UTENTE GESTISCE I CONFLITTI"
 
 msgid "START"
 msgstr "INIZIA"
@@ -1116,9 +1134,6 @@ msgstr "CONFIGURAZIONE INPUT"
 
 msgid "EMULATOR SETTINGS"
 msgstr "IMPOSTAZIONI EMULATORE"
-
-msgid "SCRAPE"
-msgstr "SCRAPE"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "AGGIORNAMENTI E DOWLOADS"
@@ -1425,7 +1440,7 @@ msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "OPZIONI RETROACHIEVEMENTS"
+msgstr "OPZIONI RETROACHIEVEMENTS (TROFEI)"
 
 msgid "NETPLAY SETTINGS"
 msgstr "IMPOSTAZIONI NETPLAY"
@@ -1509,7 +1524,7 @@ msgid "FIND NEW GAMES"
 msgstr "TROVA NUOVIO GIOCHI"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr "IMPOSSIBILE ATTIVA I TROFEI :"
+msgstr "IMPOSSIBILE ATTIVARE I RETROACHIEVEMENTS :"
 
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
@@ -2102,10 +2117,16 @@ msgid "Extracting"
 msgstr "Estrazione"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "RICERCA RETROACHIEVEMENTS (TROFEI)"
+msgstr "RICERCA RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "RICERCA GIOCHI CON SUPPORTO NETPLAY"
+
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -2140,8 +2161,8 @@ msgstr "SCRAPING"
 msgid "SCRAPE FAILED"
 msgstr "SCRAPE FALLITO"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
+msgid "SCRAPING FINISHED"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
@@ -2342,6 +2363,13 @@ msgstr "%d s"
 
 #~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 #~ msgstr "AGGIUNGI/TOGLI GIOCHI A QUESTA COLLEZIONE"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "L'UTENTE GESTISCE I CONFLITTI"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "SCRAPING FINITO. AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI."
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "REINDICIZZA TUTTI I GIOCHI"

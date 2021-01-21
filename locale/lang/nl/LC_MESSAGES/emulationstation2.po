@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -878,6 +878,9 @@ msgstr ""
 msgid "GAME"
 msgstr ""
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr ""
 
@@ -912,6 +915,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORIETEN"
+
+msgid "SCRAPE"
+msgstr "SCRAPEN"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr ""
@@ -990,6 +996,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "NU SCRAPEN"
 
@@ -1007,9 +1028,6 @@ msgstr "FILTER"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "SCRAPE DEZE SYSTEMEN"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "GEBRUIKER BESLIST BIJ CONFLICTEN"
 
 msgid "START"
 msgstr "STARTEN"
@@ -1115,9 +1133,6 @@ msgstr "CONFIGUREER INVOER"
 
 msgid "EMULATOR SETTINGS"
 msgstr "EMULATORINSTELLINGEN"
-
-msgid "SCRAPE"
-msgstr "SCRAPEN"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "UPDATES & DOWNLOADS"
@@ -2099,6 +2114,12 @@ msgstr ""
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GENRE"
 
@@ -2132,8 +2153,8 @@ msgstr "SCRAPEN"
 msgid "SCRAPE FAILED"
 msgstr "SCRAPEN MISLUKT"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPEN VOLTOOID. VERVERS SPELLIJST OM WIJZIGINGEN TOE TE PASSEN."
+msgid "SCRAPING FINISHED"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "WISSELT NORMAAL, HOOFDLETTER EN SPECIAAL"
@@ -2316,6 +2337,12 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "GEBRUIKER BESLIST BIJ CONFLICTEN"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr "SCRAPEN VOLTOOID. VERVERS SPELLIJST OM WIJZIGINGEN TOE TE PASSEN."
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
 #~ msgstr "Bewerken van de verzameling '%s'. Voeg toe/verwijder spellen met Y."
