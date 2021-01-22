@@ -367,7 +367,7 @@ namespace Renderer
 
 	bool        isSmallScreen()    
 	{ 		
-		return screenWidth < 400 || screenHeight < 400; 
+		return screenWidth <= 480 || screenHeight <= 480; 
 	};
 
 	bool isClippingEnabled() { return !clipStack.empty(); }
