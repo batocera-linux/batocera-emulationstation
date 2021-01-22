@@ -44,7 +44,6 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 {
 	resources.prepare();
 	std::string path = "http://adb.arcadeitalia.net";
-	//const std::string apiKey = std::string("apikey=") + resources.getApiKey();
 	std::string cleanName = params.nameOverride;
 	if (!cleanName.empty() /*&& cleanName.substr(0, 3) == "id:"*/)
 	{
@@ -111,61 +110,9 @@ std::string getBoxartImage(const Value& v)
 	return getStringOrThrow(v[0], "filename");
 }
 
-std::string getManufacturerString(const Value& v)
-{
-	if (!v.IsArray())
-	{
-		return "";
-	}
-	std::string out = "";
-	bool first = true;
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto mapIt = resources.gamesdb_new_developers_map.find(getIntOrThrow(v[i]));
-		if (mapIt == resources.gamesdb_new_developers_map.cend())
-		{
-			continue;
-		}
-		if (!first)
-		{
-			out += ", ";
-		}
-		out += mapIt->second;
-		first = false;
-	}
-	return out;
-}
-
-std::string getGenreString(const Value& v)
-{
-	if (!v.IsArray())
-	{
-		return "";
-	}
-	std::string out = "";
-	bool first = true;
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto mapIt = resources.gamesdb_new_genres_map.find(getIntOrThrow(v[i]));
-		if (mapIt == resources.gamesdb_new_genres_map.cend())
-		{
-			continue;
-		}
-		if (!first)
-		{
-			out += ", ";
-		}
-		out += mapIt->second;
-		first = false;
-	}
-	return out;
-}
 
 void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 {
-	//std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
-    //std::string baseImageUrlLarge = getStringOrThrow(boxart["base_url"], "large");
-
 	ScraperSearchResult result;
 
 	result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "title"));
@@ -182,11 +129,27 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
         result.mdl.set(MetaDataId::Publisher, getStringOrThrow(game, "manufacturer"));
     }
 
-	if (game.HasMember("genre") && game["genre"].IsString())result.mdl.set(MetaDataId::Genre, getStringOrThrow(game, "genre"));
+	if (game.HasMember("genre") && game["genre"].IsString())
+	    result.mdl.set(MetaDataId::Genre, getStringOrThrow(game, "genre"));
 
 	if (game.HasMember("players") && game["players"].IsInt())
 		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
-	
+
+    if (game.HasMember("url_image_title") && game["url_image_title"].IsString())
+	    result.urls[MetaDataId::TitleShot] = ScraperSearchItem( getStringOrThrow(game, "url_image_title"));
+
+    if (game.HasMember("url_image_ingame") && game["url_image_ingame"].IsString())
+        result.urls[MetaDataId::Image] = ScraperSearchItem( getStringOrThrow(game, "url_image_ingame"));
+
+    if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
+        result.urls[MetaDataId::Marquee] = ScraperSearchItem( getStringOrThrow(game, "url_image_marquee"));
+
+    if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
+        result.urls[MetaDataId::Marquee] = ScraperSearchItem( getStringOrThrow(game, "url_image_marquee"));
+
+    if (game.HasMember("url_video_shortplay") && game["url_video_shortplay"].IsString())
+        result.urls[MetaDataId::Video] = ScraperSearchItem( getStringOrThrow(game, "url_video_shortplay"));
+
 	/*if (boxart.HasMember("data") && boxart["data"].IsObject())
 	{
 		std::string id = std::to_string(getIntOrThrow(game, "id"));

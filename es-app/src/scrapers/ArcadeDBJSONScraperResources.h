@@ -18,10 +18,6 @@ struct ArcadeDBJSONRequestResources
 	void ensureResources();
 	std::string getApiKey() const;
 
-	std::unordered_map<int, std::string> gamesdb_new_developers_map;
-	std::unordered_map<int, std::string> gamesdb_new_publishers_map;
-	std::unordered_map<int, std::string> gamesdb_new_genres_map;
-
   private:
 	bool checkLoaded();
 

@@ -61,21 +61,6 @@ void ArcadeDBJSONRequestResources::prepare()
 	{
 		return;
 	}
-
-	if (loadResource(gamesdb_new_developers_map, "developers", genFilePath(DEVELOPERS_JSON_FILE)) &&
-		!gamesdb_developers_resource_request)
-	{
-		gamesdb_developers_resource_request = fetchResource(DEVELOPERS_ENDPOINT);
-	}
-	if (loadResource(gamesdb_new_publishers_map, "publishers", genFilePath(PUBLISHERS_JSON_FILE)) &&
-		!gamesdb_publishers_resource_request)
-	{
-		gamesdb_publishers_resource_request = fetchResource(PUBLISHERS_ENDPOINT);
-	}
-	if (loadResource(gamesdb_new_genres_map, "genres", genFilePath(GENRES_JSON_FILE)) && !gamesdb_genres_resource_request)
-	{
-		gamesdb_genres_resource_request = fetchResource(GENRES_ENDPOINT);
-	}
 }
 
 void ArcadeDBJSONRequestResources::ensureResources()
@@ -87,39 +72,16 @@ void ArcadeDBJSONRequestResources::ensureResources()
 	}
 
 
-	for (int i = 0; i < MAX_WAIT_ITER; ++i)
+	/*for (int i = 0; i < MAX_WAIT_ITER; ++i)
 	{
-		if (gamesdb_developers_resource_request &&
-			saveResource(gamesdb_developers_resource_request.get(), gamesdb_new_developers_map, "developers",
-				genFilePath(DEVELOPERS_JSON_FILE)))
-		{
-
-			gamesdb_developers_resource_request.reset(nullptr);
-		}
-		if (gamesdb_publishers_resource_request &&
-			saveResource(gamesdb_publishers_resource_request.get(), gamesdb_new_publishers_map, "publishers",
-				genFilePath(PUBLISHERS_JSON_FILE)))
-		{
-			gamesdb_publishers_resource_request.reset(nullptr);
-		}
-		if (gamesdb_genres_resource_request && saveResource(gamesdb_genres_resource_request.get(), gamesdb_new_genres_map,
-												   "genres", genFilePath(GENRES_JSON_FILE)))
-		{
-			gamesdb_genres_resource_request.reset(nullptr);
-		}
-
-		if (!gamesdb_developers_resource_request && !gamesdb_publishers_resource_request && !gamesdb_genres_resource_request)
-		{
-			return;
-		}
 		std::this_thread::sleep_for(std::chrono::milliseconds(POLL_TIME_MS));
 	}
-	LOG(LogError) << "Timed out while waiting for resources\n";
+	LOG(LogError) << "Timed out while waiting for resources\n";*/
 }
 
 bool ArcadeDBJSONRequestResources::checkLoaded()
 {
-	return !gamesdb_new_genres_map.empty() && !gamesdb_new_developers_map.empty() && !gamesdb_new_publishers_map.empty();
+	return true;
 }
 
 bool ArcadeDBJSONRequestResources::saveResource(HttpReq* req, std::unordered_map<int, std::string>& resource,
