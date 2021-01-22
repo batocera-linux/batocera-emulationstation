@@ -2,7 +2,6 @@
 #include <map>
 
 #include "scrapers/ArcadeDBJSONScraper.h"
-#include "scrapers/ArcadeDBJSONScraperResources.h"
 
 #include "FileData.h"
 #include "Log.h"
@@ -33,28 +32,21 @@
 using namespace PlatformIds;
 using namespace rapidjson;
 
-namespace
-{
-ArcadeDBJSONRequestResources resources;
-}
-
-
 void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {
-	resources.prepare();
 	std::string path = "http://adb.arcadeitalia.net";
 	std::string cleanName = params.nameOverride;
 	if (!cleanName.empty() /*&& cleanName.substr(0, 3) == "id:"*/)
 	{
 		std::string gameID = cleanName; //.substr(3);
-		path += "/service_scraper.php?ajax=query_mame&lang=en&game_name=" +
+		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" +
 				HttpReq::urlEncode(gameID);
 	} else
 	{
 		if (cleanName.empty())
 			cleanName = params.game->getCleanName();
-		path += "/service_scraper.php?ajax=query_mame&lang=en&game_name=" +
+		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" +
                 HttpReq::urlEncode(cleanName);
 	}
 
@@ -91,25 +83,6 @@ int getIntOrThrow(const Value& v)
 	return v.GetInt();
 }
 
-std::string getBoxartImage(const Value& v)
-{
-	if (!v.IsArray() || v.Size() == 0)
-	{
-		return "";
-	}
-	for (int i = 0; i < (int)v.Size(); ++i)
-	{
-		auto& im = v[i];
-		std::string type = getStringOrThrow(im, "type");
-		std::string side = getStringOrThrow(im, "side");
-		if (type == "boxart" && side == "front")
-		{
-			return getStringOrThrow(im, "filename");
-		}
-	}
-	return getStringOrThrow(v[0], "filename");
-}
-
 
 void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 {
@@ -144,22 +117,12 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
     if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
         result.urls[MetaDataId::Marquee] = ScraperSearchItem( getStringOrThrow(game, "url_image_marquee"));
 
-    if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
-        result.urls[MetaDataId::Marquee] = ScraperSearchItem( getStringOrThrow(game, "url_image_marquee"));
-
     if (game.HasMember("url_video_shortplay") && game["url_video_shortplay"].IsString())
         result.urls[MetaDataId::Video] = ScraperSearchItem( getStringOrThrow(game, "url_video_shortplay"));
 
-	/*if (boxart.HasMember("data") && boxart["data"].IsObject())
-	{
-		std::string id = std::to_string(getIntOrThrow(game, "id"));
-		if (boxart["data"].HasMember(id.c_str()))
-		{
-		    std::string image = getBoxartImage(boxart["data"][id.c_str()]);
-			result.urls[MetaDataId::Image] = ScraperSearchItem(baseImageUrlLarge + "/" + image);
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(baseImageUrlThumb + "/" + image);
-		}
-	}*/
+    // Map flyer to boxart
+    if (game.HasMember("url_image_flyer") && game["url_image_flyer"].IsString())
+        result.urls[MetaDataId::BoxArt] = ScraperSearchItem( getStringOrThrow(game, "url_image_flyer"));
 
 	results.push_back(result);
 }
@@ -198,24 +161,6 @@ bool ArcadeDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchRes
 
     const Value& games = doc["result"];
 
-	/*if (!doc.HasMember("include") || !doc["include"].HasMember("boxart"))
-	{
-		std::string warn = "ArcadeDBJSONRequest - Response had no include boxart data.\n";
-		LOG(LogWarning) << warn;
-		return true;
-	}
-
-	const Value& boxart = doc["include"]["boxart"];
-
-	if (!boxart.HasMember("base_url") || !boxart.HasMember("data") || !boxart.IsObject())
-	{
-		std::string warn = "ArcadeDBJSONRequest - Response include had no usable boxart data.\n";
-		LOG(LogWarning) << warn;
-		return true;
-	}*/
-
-	resources.ensureResources();
-	
 	for (int i = 0; i < (int)games.Size(); ++i)
 	{
 		auto& v = games[i];
