@@ -1597,10 +1597,16 @@ void GuiMenu::openSystemSettings_batocera()
 		{
 			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
 		});
-
+        
+       s->addSaveFunc([this, brightnessComponent] {
+            SystemConf::getInstance()->set("brightness.level", std::to_string((int)Math::round(brightnessComponent->getValue())));
+       });
+        
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
 	}
+#endif
 
+#if !defined(WIN32) && !defined(_ENABLEEMUELEC)
 	// video device
 	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
 	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
@@ -1680,7 +1686,8 @@ void GuiMenu::openSystemSettings_batocera()
 		if (v_need_reboot)
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	});
-#else
+#endif
+
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
 		// Retroachievements
@@ -1690,18 +1697,17 @@ void GuiMenu::openSystemSettings_batocera()
 		if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
 			s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
 
+#ifndef _ENABLEEMUELEC
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
 		{
 			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
-#ifndef _ENABLEEMUELEC
 			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
 			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
 			s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
 			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
-#endif
 		}
-	}
 #endif
+	}
 
 	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
 

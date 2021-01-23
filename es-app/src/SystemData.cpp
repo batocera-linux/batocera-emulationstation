@@ -1558,7 +1558,7 @@ void SystemData::loadTheme()
 		else
 			sysData.insert(std::pair<std::string, std::string>("system.releaseYear", _("Unknown")));
 
-		if (isCheevosSupported())
+		if (isCheevosSupported() || isCollection() || isGroupSystem())
 			sysData.insert(std::pair<std::string, std::string>("system.cheevos", "true"));
 
 		mTheme->loadFile(getThemeFolder(), sysData, path);

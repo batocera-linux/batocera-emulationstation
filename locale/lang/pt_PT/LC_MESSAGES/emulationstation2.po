@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -878,6 +878,9 @@ msgstr "VER CONQUISTAS DO JOGO"
 msgid "GAME"
 msgstr "JOGO"
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY HOST"
 
@@ -912,6 +915,9 @@ msgstr "ADICIONAR A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
+
+msgid "SCRAPE"
+msgstr "OBTER CAPAS"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "EDITAR CONFIGURAÇÃO DO COMANDO E TECLADO"
@@ -991,6 +997,21 @@ msgstr "Conquistas ganhas"
 msgid "%d%% complete"
 msgstr "%d%% completo"
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "INICIAR PROCURA"
 
@@ -1008,9 +1029,6 @@ msgstr "FILTRO:"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "OBTER INFORMAÇÕES DOS SISTEMAS"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "DECIDIR EM CASO DE CONFLITO"
 
 msgid "START"
 msgstr "INICIAR"
@@ -1116,9 +1134,6 @@ msgstr "CONFIGURAÇÃO DOS COMANDOS"
 
 msgid "EMULATOR SETTINGS"
 msgstr "DEFINIÇÕES DO EMULADOR"
-
-msgid "SCRAPE"
-msgstr "OBTER CAPAS"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
@@ -1989,8 +2004,7 @@ msgstr "Jogos semelhantes a"
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
-msgstr "Requer uma conta. por favor registar em https://"
-"retroachievements.org"
+msgstr "Requer uma conta. por favor registar em https://retroachievements.org"
 
 msgid "Searching"
 msgstr "Em andamento"
@@ -2103,6 +2117,12 @@ msgstr "A PROCURAR RETROACHIEVEMENTS"
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "A PROCURAR JOGOS COM NETPLAY"
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GÉNERO"
 
@@ -2136,9 +2156,8 @@ msgstr "A PROCURAR"
 msgid "SCRAPE FAILED"
 msgstr "FALHA NA PROCURA"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "SCRAPING FINISHED"
 msgstr ""
-"A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
@@ -2320,3 +2339,9 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "DECIDIR EM CASO DE CONFLITO"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."

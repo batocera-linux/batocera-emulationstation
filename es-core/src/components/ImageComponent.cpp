@@ -197,16 +197,15 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, 
 
 void ImageComponent::setImage(const char* path, size_t length, bool tile)
 {
+	mPath = "";
 	if (mTexture != nullptr)
 		mTexture->setRequired(false);
 
 	mTexture.reset();
+	mTexture = TextureResource::get("", tile);
 
 	if (path != nullptr)
-	{
-		mTexture = TextureResource::get("", tile);
 		mTexture->initFromMemory(path, length);
-	}
 
 	resize();
 }
@@ -467,15 +466,15 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
+	if (Settings::DebugImage)
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
+
 	if(mTexture && mOpacity > 0)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
 		if(Settings::DebugImage)
-		{
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
-			Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
-		}
 
 		// actually draw the image
 		// The bind() function returns false if the texture is not currently loaded. A blank

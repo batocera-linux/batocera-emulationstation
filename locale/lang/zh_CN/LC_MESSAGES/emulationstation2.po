@@ -953,6 +953,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
 
@@ -970,9 +985,6 @@ msgstr "筛选"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "选择要抓取的游戏平台"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "人工处理数据冲突"
 
 msgid "START"
 msgstr "开始"
@@ -1078,9 +1090,6 @@ msgstr "配置控制器"
 
 msgid "EMULATOR SETTINGS"
 msgstr "模拟器设置"
-
-msgid "SCRAPE"
-msgstr "抓取元数据"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新文件和下载文件"
@@ -2118,8 +2127,8 @@ msgstr "抓取"
 msgid "SCRAPE FAILED"
 msgstr "抓取失败"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "抓取完成。更新游戏列表以应用更改。"
+msgid "SCRAPING FINISHED"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT键可切换大小写或特殊字符"

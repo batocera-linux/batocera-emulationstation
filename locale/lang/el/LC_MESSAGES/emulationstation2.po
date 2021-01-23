@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -875,6 +875,9 @@ msgstr ""
 msgid "GAME"
 msgstr ""
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr ""
 
@@ -908,6 +911,9 @@ msgid "ADD TO %s"
 msgstr ""
 
 msgid "FAVORITES"
+msgstr ""
+
+msgid "SCRAPE"
 msgstr ""
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
@@ -984,6 +990,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr ""
 
@@ -1000,9 +1021,6 @@ msgid "FILTER"
 msgstr ""
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr ""
-
-msgid "USER DECIDES ON CONFLICTS"
 msgstr ""
 
 msgid "START"
@@ -1105,9 +1123,6 @@ msgid "CONFIGURE INPUT"
 msgstr ""
 
 msgid "EMULATOR SETTINGS"
-msgstr ""
-
-msgid "SCRAPE"
 msgstr ""
 
 msgid "UPDATES & DOWNLOADS"
@@ -2078,6 +2093,12 @@ msgstr ""
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr ""
 
@@ -2111,7 +2132,7 @@ msgstr ""
 msgid "SCRAPE FAILED"
 msgstr ""
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "SCRAPING FINISHED"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

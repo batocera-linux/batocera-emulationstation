@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -877,6 +877,9 @@ msgstr ""
 msgid "GAME"
 msgstr ""
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "URUCHOM HOSTA NETPLAY"
 
@@ -911,6 +914,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "ULUBIONE"
+
+msgid "SCRAPE"
+msgstr "SCRAPE'UJ"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "EDYTUJ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
@@ -991,6 +997,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "SCRAPE'UJ TERAZ"
 
@@ -1008,9 +1029,6 @@ msgstr "FILTRUJ"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "SCRAPE'UJ TE SYSTEMY"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "UŻYTKOWNIK DECYDUJE PRZY KONFLIKTACH"
 
 msgid "START"
 msgstr "URUCHOM"
@@ -1116,9 +1134,6 @@ msgstr "SKONFIGURUJ WEJŚCIA"
 
 msgid "EMULATOR SETTINGS"
 msgstr "USTAWIENIA EMULATORA"
-
-msgid "SCRAPE"
-msgstr "SCRAPE'UJ"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "AKTUALIZACJE I DO ŚCIĄGNIĘCIA"
@@ -2107,6 +2122,12 @@ msgstr ""
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GATUNEK"
 
@@ -2140,8 +2161,8 @@ msgstr "SCRAPE'OWANIE"
 msgid "SCRAPE FAILED"
 msgstr "SCRAPE'OWANIE NIE POWIODŁO SIĘ"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
+msgid "SCRAPING FINISHED"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
@@ -2331,6 +2352,12 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "UŻYTKOWNIK DECYDUJE PRZY KONFLIKTACH"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr "SCRAPE'OWANIE ZAKOŃCZONE. ODŚWIEŻ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
 #~ msgstr "Edycja kolekcji '%s'. Dodaj/usuń gry z Y."

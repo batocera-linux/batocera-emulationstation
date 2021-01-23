@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-11 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -875,6 +875,9 @@ msgstr "VER LOGROS DEL JUEGO"
 msgid "GAME"
 msgstr "JUEGO"
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
 
@@ -909,6 +912,9 @@ msgstr "AGREGAR A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
+
+msgid "SCRAPE"
+msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "EDITAR CONFIGURACIÓN DE CONTROL A TECLADO"
@@ -988,6 +994,21 @@ msgstr "LOGROS GANADOS"
 msgid "%d%% complete"
 msgstr "%d%% COMPLETO"
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS AHORA"
 
@@ -1005,9 +1026,6 @@ msgstr "FILTRO"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS DE ESTOS EMULADORES"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "¿QUIERES DECIDIR EN CASO DE CONFLICTO?"
 
 msgid "START"
 msgstr "INICIO"
@@ -1113,9 +1131,6 @@ msgstr "CONFIGURACIÓN DE CONTROLES"
 
 msgid "EMULATOR SETTINGS"
 msgstr "CONFIGURACIÓN DEL EMULADOR"
-
-msgid "SCRAPE"
-msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "ACTUALIZACIÓNES Y DESCARGAS"
@@ -2107,6 +2122,12 @@ msgstr "BUSCANDO LOGROS"
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "BUSCANDO JUEGOS EN NETPLAY"
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GÉNERO"
 
@@ -2140,9 +2161,8 @@ msgstr "SCRAPEANDO"
 msgid "SCRAPE FAILED"
 msgstr "FALLÓ EL SCRAPEO"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "SCRAPING FINISHED"
 msgstr ""
-"SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
@@ -2324,6 +2344,13 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "¿QUIERES DECIDIR EN CASO DE CONFLICTO?"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "SCRAPEO TERMINADO, ACTUALIZA LAS LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS"
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
 #~ msgstr "EDITANDO COLECCIÓN '%s', AGREGA/QUITA JUEGOS CON Y"

@@ -33,4 +33,8 @@ public:
 private:
 	std::string mAutoFileBackup;
 	std::string mAutoImageBackup;
+
+
+	std::string mNewSlotFile;	
+	std::string mNewSlotCheckSum;
 };

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-08 08:15+0100\n"
+"POT-Creation-Date: 2021-01-21 21:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -878,6 +878,9 @@ msgstr "VOIR LES SUCCÈS DU JEU"
 msgid "GAME"
 msgstr "JEU"
 
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "DÉMARRER L’HÔTE NET PLAY"
 
@@ -912,6 +915,9 @@ msgstr "AJOUTÉ A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
+
+msgid "SCRAPE"
+msgstr "SCRAPER"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "EDITER LA CONFIGURATION PADTOKEY"
@@ -990,6 +996,21 @@ msgstr "Succès gagnés"
 msgid "%d%% complete"
 msgstr "%d%% terminé"
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "LANCER LE SCRAPE"
 
@@ -1007,9 +1028,6 @@ msgstr "FILTRE"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "SCRAPER CES SYSTÈMES"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "CHOISIR SI CONFLIT"
 
 msgid "START"
 msgstr "DÉMARRER"
@@ -1115,9 +1133,6 @@ msgstr "CONFIGURER LES MANETTES"
 
 msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES DES EMULATEURS"
-
-msgid "SCRAPE"
-msgstr "SCRAPER"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "MISES À JOUR ET TÉLÉCHARGEMENTS"
@@ -2106,6 +2121,12 @@ msgstr "RECHERCHE DES SUCCÈS RÉTRO"
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "RECHERCHE DES PARTIES EN RÉSEAU"
 
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgstr ""
+
 msgid "GENRE"
 msgstr "GENRE"
 
@@ -2139,10 +2160,8 @@ msgstr "SCRAPE"
 msgid "SCRAPE FAILED"
 msgstr "ECHEC DU SCRAPE"
 
-msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "SCRAPING FINISHED"
 msgstr ""
-"SCRAPE TERMINÉ. METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
-"MODIFICATIONS."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
@@ -2325,3 +2344,11 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "CHOISIR SI CONFLIT"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "SCRAPE TERMINÉ. METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
+#~ "MODIFICATIONS."

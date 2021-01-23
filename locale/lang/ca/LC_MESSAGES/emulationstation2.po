@@ -954,6 +954,21 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
 msgid "SCRAPE NOW"
 msgstr "OBTÉ LES DADES ARA"
 
@@ -971,9 +986,6 @@ msgstr "FILTRA"
 
 msgid "SCRAPE THESE SYSTEMS"
 msgstr "OBTÉ DADES D'AQUESTS SISTEMES"
-
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "L'USUARI DECIDEIX DAVANT CONFLICTES"
 
 msgid "START"
 msgstr "COMENÇA"
@@ -1079,9 +1091,6 @@ msgstr "CONFIGUREU L'ENTRADA"
 
 msgid "EMULATOR SETTINGS"
 msgstr "CONFIGURACIÓ D'EMULADOR"
-
-msgid "SCRAPE"
-msgstr "OBTÉ DADES"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "ACTUALITZACIONS I DESCÀRREGUES"
@@ -2303,6 +2312,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "L'USUARI DECIDEIX DAVANT CONFLICTES"
 
 #~ msgid "START KODI WITH X"
 #~ msgstr "INICIA EL CODI AMB X"

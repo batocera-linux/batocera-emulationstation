@@ -604,6 +604,24 @@ int main(int argc, char* argv[])
 	else
 		AudioManager::getInstance()->playRandomMusic();
 
+#ifdef WIN32	
+	DWORD displayFrequency = 60;
+
+	DEVMODE lpDevMode;
+	memset(&lpDevMode, 0, sizeof(DEVMODE));
+	lpDevMode.dmSize = sizeof(DEVMODE);
+	lpDevMode.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFLAGS | DM_DISPLAYFREQUENCY;
+	lpDevMode.dmDriverExtra = 0;
+
+	if (EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &lpDevMode) != 0) {
+		displayFrequency = lpDevMode.dmDisplayFrequency; // default value if cannot retrieve from user settings.
+	}
+
+	int timeLimit = (1000 / displayFrequency) - 8;	 // Margin for vsync
+	if (timeLimit < 0)
+		timeLimit = 0;
+#endif
+
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
 
@@ -611,6 +629,10 @@ int main(int argc, char* argv[])
 
 	while(running)
 	{
+#ifdef WIN32	
+		int processStart = SDL_GetTicks();
+#endif
+
 		SDL_Event event;
 
 		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
@@ -661,6 +683,16 @@ int main(int argc, char* argv[])
 
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
+
+#ifdef WIN32		
+		int processDuration = SDL_GetTicks() - processStart;
+		if (processDuration < timeLimit)
+		{
+			int timeToWait = timeLimit - processDuration;
+			if (timeToWait > 0 && timeToWait < 25 && Settings::getInstance()->getBool("VSync"))
+				Sleep(timeToWait);
+		}
+#endif
 
 		Renderer::swapBuffers();
 

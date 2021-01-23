@@ -135,7 +135,6 @@ private:
 
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
-	void resize();
 
 	Renderer::Vertex mVertices[4];
 
@@ -184,6 +183,7 @@ private:
 	std::vector<Renderer::Vertex>	mRoundCornerStencil;
 
 protected:
+	void resize();
 	bool mCheckClipping;
 };
 
