@@ -208,6 +208,8 @@ public:
 
 	virtual	bool isSupportedPlatform(SystemData* system) = 0;
 
+	virtual	bool hasMissingMedia(FileData* file);
+
 	std::unique_ptr<ScraperSearchHandle> search(const ScraperSearchParams& params);
 
 	virtual	int getThreadCount() {

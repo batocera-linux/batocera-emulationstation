@@ -36,19 +36,14 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {
 	std::string path = "http://adb.arcadeitalia.net";
-	std::string cleanName = params.nameOverride;
-	if (!cleanName.empty() /*&& cleanName.substr(0, 3) == "id:"*/)
-	{
-		std::string gameID = cleanName; //.substr(3);
-		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" +
-				HttpReq::urlEncode(gameID);
-	} else
-	{
-		if (cleanName.empty())
-			cleanName = Utils::FileSystem::getStem(params.game->getPath());
 
-		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" +
-                HttpReq::urlEncode(cleanName);
+	std::string cleanName = params.nameOverride;
+	if (!cleanName.empty())
+		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
+	else
+	{
+		cleanName = Utils::FileSystem::getStem(params.game->getPath());
+		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
 	}
 
     requests.push(std::unique_ptr<ScraperRequest>(new ArcadeDBJSONRequest(results, path)));
@@ -57,6 +52,26 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
 {
 	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO);
+}
+
+bool ArcadeDBScraper::hasMissingMedia(FileData* file)
+{
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
+		return true;
+
+	return false;
 }
 
 namespace
@@ -114,21 +129,58 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 	if (game.HasMember("players") && game["players"].IsInt())
 		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
 
-    if (game.HasMember("url_image_title") && game["url_image_title"].IsString())
-	    result.urls[MetaDataId::TitleShot] = ScraperSearchItem( getStringOrThrow(game, "url_image_title"));
+	// Process medias
 
-    if (game.HasMember("url_image_ingame") && game["url_image_ingame"].IsString())
-        result.urls[MetaDataId::Image] = ScraperSearchItem( getStringOrThrow(game, "url_image_ingame"));
+	std::string titlescreenUrl;
+	std::string screenShotUrl;
+	std::string marqueeUrl;
+	std::string videoUrl;
+	std::string boxArtUrl;
 
-    if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
-        result.urls[MetaDataId::Marquee] = ScraperSearchItem( getStringOrThrow(game, "url_image_marquee"));
+	if (game.HasMember("url_image_title") && game["url_image_title"].IsString())
+		titlescreenUrl = getStringOrThrow(game, "url_image_title");
 
-    if (game.HasMember("url_video_shortplay") && game["url_video_shortplay"].IsString())
-        result.urls[MetaDataId::Video] = ScraperSearchItem( getStringOrThrow(game, "url_video_shortplay"));
+	if (game.HasMember("url_image_ingame") && game["url_image_ingame"].IsString())
+		screenShotUrl = getStringOrThrow(game, "url_image_ingame");
 
-    // Map flyer to boxart
-    if (game.HasMember("url_image_flyer") && game["url_image_flyer"].IsString())
-        result.urls[MetaDataId::Thumbnail] = ScraperSearchItem( getStringOrThrow(game, "url_image_flyer"));
+	if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
+		marqueeUrl = getStringOrThrow(game, "url_image_marquee");
+
+	if (game.HasMember("url_video_shortplay") && game["url_video_shortplay"].IsString())
+		videoUrl = getStringOrThrow(game, "url_video_shortplay");
+
+	if (game.HasMember("url_image_flyer") && game["url_image_flyer"].IsString())
+		boxArtUrl = getStringOrThrow(game, "url_image_flyer");
+	
+
+	std::string imageSource = Settings::getInstance()->getString("ScrapperImageSrc");
+	if (imageSource == "sstitle" && !titlescreenUrl.empty())
+		result.urls[MetaDataId::Image] = ScraperSearchItem(titlescreenUrl);
+	else if ((imageSource == "box-2D" || imageSource == "box-3D") && !boxArtUrl.empty())
+		result.urls[MetaDataId::Image] = ScraperSearchItem(boxArtUrl);
+	else if ((imageSource == "wheel" || imageSource == "marquee") && !marqueeUrl.empty())
+		result.urls[MetaDataId::Image] = ScraperSearchItem(marqueeUrl);
+	else if (!screenShotUrl.empty())
+		result.urls[MetaDataId::Image] = ScraperSearchItem(screenShotUrl);
+
+	imageSource = Settings::getInstance()->getString("ScrapperThumbSrc");
+	if (imageSource == "sstitle" && !titlescreenUrl.empty())
+		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(titlescreenUrl);
+	else if (imageSource == "ss" && !boxArtUrl.empty())
+		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(screenShotUrl);
+	else if ((imageSource == "wheel" || imageSource == "marquee") && !marqueeUrl.empty())
+		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(marqueeUrl);
+	else if (!boxArtUrl.empty())
+		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(boxArtUrl);
+
+	if (!marqueeUrl.empty() && !Settings::getInstance()->getString("ScrapperLogoSrc").empty())
+		result.urls[MetaDataId::Marquee] = ScraperSearchItem(marqueeUrl);
+
+	if (!titlescreenUrl.empty() && Settings::getInstance()->getBool("ScrapeTitleShot"))
+		result.urls[MetaDataId::TitleShot] = ScraperSearchItem(titlescreenUrl);
+
+	if (!videoUrl.empty() && Settings::getInstance()->getBool("ScrapeVideos"))
+		result.urls[MetaDataId::Video] = ScraperSearchItem(videoUrl);
 
 	results.push_back(result);
 }
