@@ -1,6 +1,7 @@
 #include "scrapers/Scraper.h"
 
 #include "FileData.h"
+#include "ArcadeDBJSONScraper.h"
 #include "GamesDBJSONScraper.h"
 #include "ScreenScraper.h"
 #include "Log.h"
@@ -16,7 +17,8 @@
 std::map<std::string, Scraper*> Scraper::scrapers
 {
 	{ "ScreenScraper", new ScreenScraperScraper() },
-	{ "TheGamesDB", new TheGamesDBScraper() }
+	{ "TheGamesDB", new TheGamesDBScraper() },
+	{ "ArcadeDB", new ArcadeDBScraper() }
 };
 
 Scraper* Scraper::getScraper(const std::string name)
