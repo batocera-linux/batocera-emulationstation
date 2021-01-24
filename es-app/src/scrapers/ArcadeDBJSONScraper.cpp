@@ -53,6 +53,11 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
     requests.push(std::unique_ptr<ScraperRequest>(new ArcadeDBJSONRequest(results, path)));
 }
 
+bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
+{
+	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO);
+}
+
 namespace
 {
 
