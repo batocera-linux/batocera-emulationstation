@@ -14,7 +14,7 @@
 #include <thread>
 #include <SDL_timer.h>
 
-std::map<std::string, Scraper*> Scraper::scrapers
+std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 {
 	{ "ScreenScraper", new ScreenScraperScraper() },
 	{ "TheGamesDB", new TheGamesDBScraper() },
@@ -26,10 +26,10 @@ Scraper* Scraper::getScraper(const std::string name)
 	auto scraper = name;
 	if(scraper.empty())
 		scraper = Settings::getInstance()->getString("Scraper");
-
-	auto it = Scraper::scrapers.find(scraper);
-	if (it != Scraper::scrapers.end())
-		return it->second;
+	
+	for (auto scrap : Scraper::scrapers)
+		if (scrap.first == name)
+			return scrap.second;
 
 	return nullptr;
 }

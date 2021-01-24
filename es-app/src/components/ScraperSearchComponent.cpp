@@ -21,6 +21,8 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mGrid(window, Vector2i(5, 5)), mBusyAnim(window),
 	mSearchType(type)
 {
+	mInfoPaneCursor = -1;
+
 	auto theme = ThemeData::getMenuTheme();
 	auto font = theme->TextSmall.font; // this gets replaced in onSizeChanged() so its just a placeholder
 	const unsigned int mdColor = theme->Text.color;
@@ -40,6 +42,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 
 	// selected result thumbnail
 	mResultThumbnail = std::make_shared<ImageComponent>(mWindow);	
+	mResultThumbnail->setAllowFading(false);
 	mGrid.setEntry(mResultThumbnail, Vector2i(1, 1), false, false);
 
 	// selected result desc + container
@@ -223,6 +226,7 @@ void ScraperSearchComponent::updateViewStyle()
 
 void ScraperSearchComponent::search(const ScraperSearchParams& params)
 {
+	mInfoPaneCursor = -1;
 	mInitialSearch = params;
 	mBlockAccept = true;
 
@@ -308,8 +312,13 @@ void ScraperSearchComponent::onSearchDone()
 	else
 	{
 		int i = 0;
-		for (auto engine : mScrapEngines)
+		for (auto scraperName : Scraper::getScraperList())
 		{
+			auto pEngine = std::find_if(mScrapEngines.cbegin(), mScrapEngines.cend(), [scraperName](ScraperSearch* ss) { return ss->name == scraperName; });
+			if (pEngine == mScrapEngines.cend())
+				continue;
+
+			auto engine = *pEngine;
 			if (engine->results.empty())
 				continue;
 
@@ -394,6 +403,11 @@ int ScraperSearchComponent::getSelectedIndex()
 
 void ScraperSearchComponent::updateInfoPane()
 {
+	if (mResultList && mResultList->getCursorIndex() == mInfoPaneCursor)
+		return;
+
+	mInfoPaneCursor = mResultList->getCursorIndex();
+
 	int i = getSelectedIndex();
 
 	if (mSearchType == ALWAYS_ACCEPT_FIRST_RESULT && std::any_of(mScrapEngines.cbegin(), mScrapEngines.cend(), [](ScraperSearch* x) { return x->results.size() > 0; }))
@@ -411,7 +425,7 @@ void ScraperSearchComponent::updateInfoPane()
 		mResultName->setText(res.mdl.get(MetaDataId::Name));
 		mResultDesc->setText(res.mdl.get(MetaDataId::Desc));
 
-		mResultThumbnail->setImage("");
+		mResultThumbnail->setImage(nullptr, 0);
 
 		if (mSearchType != ALWAYS_ACCEPT_FIRST_RESULT)
 		{
@@ -449,7 +463,7 @@ void ScraperSearchComponent::updateInfoPane()
 	{
 		mResultName->setText("");
 		mResultDesc->setText("");
-		mResultThumbnail->setImage("");
+		mResultThumbnail->setImage(nullptr, 0);
 
 		// metadata
 		mMD_Rating->setValue("");
