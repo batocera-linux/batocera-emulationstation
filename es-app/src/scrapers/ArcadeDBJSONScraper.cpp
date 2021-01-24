@@ -45,7 +45,8 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 	} else
 	{
 		if (cleanName.empty())
-			cleanName = params.game->getCleanName();
+			cleanName = Utils::FileSystem::getStem(params.game->getPath());
+
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" +
                 HttpReq::urlEncode(cleanName);
 	}
@@ -127,7 +128,7 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 
     // Map flyer to boxart
     if (game.HasMember("url_image_flyer") && game["url_image_flyer"].IsString())
-        result.urls[MetaDataId::BoxArt] = ScraperSearchItem( getStringOrThrow(game, "url_image_flyer"));
+        result.urls[MetaDataId::Thumbnail] = ScraperSearchItem( getStringOrThrow(game, "url_image_flyer"));
 
 	results.push_back(result);
 }

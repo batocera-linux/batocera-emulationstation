@@ -200,7 +200,7 @@ private:
 class Scraper
 {
 public:
-	static std::map<std::string, Scraper*> scrapers;
+	static std::vector<std::pair<std::string, Scraper*>> scrapers;
 	
 	static Scraper* getScraper(const std::string name = "");
 	static std::vector<std::string> getScraperList();

@@ -120,6 +120,8 @@ private:
 	ScraperSearchParams mInitialSearch;
 
 	BusyComponent mBusyAnim;
+	int			  mInfoPaneCursor;
+
 };
 
 #endif // ES_APP_COMPONENTS_SCRAPER_SEARCH_COMPONENT_H

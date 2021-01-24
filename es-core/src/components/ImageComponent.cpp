@@ -202,10 +202,12 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 		mTexture->setRequired(false);
 
 	mTexture.reset();
-	mTexture = TextureResource::get("", tile);
 
 	if (path != nullptr)
+	{
+		mTexture = TextureResource::get("", tile);
 		mTexture->initFromMemory(path, length);
+	}
 
 	resize();
 }
