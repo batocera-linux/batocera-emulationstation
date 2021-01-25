@@ -148,6 +148,8 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 	if (game.HasMember("players") && game["players"].IsInt())
 		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
 
+	result.mdl.set(MetaDataId::Rating, "-1");
+
 	// Process medias
 	auto art = findMedia(game, Settings::getInstance()->getString("ScrapperImageSrc"));
 	if (!art.empty())
