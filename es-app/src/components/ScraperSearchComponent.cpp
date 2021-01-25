@@ -3,7 +3,7 @@
 #include "components/ComponentList.h"
 #include "components/DateTimeEditComponent.h"
 #include "components/ImageComponent.h"
-#include "components/ImageComponent.h"
+#include "components/WebImageComponent.h"
 #include "components/RatingComponent.h"
 #include "components/ScrollableContainer.h"
 #include "components/TextComponent.h"
@@ -41,8 +41,10 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mResultName = std::make_shared<TextComponent>(mWindow, "Result name", theme->Text.font, theme->Text.color);
 
 	// selected result thumbnail
-	mResultThumbnail = std::make_shared<ImageComponent>(mWindow);	
-	mResultThumbnail->setAllowFading(false);
+	mResultThumbnail = std::make_shared<WebImageComponent>(mWindow, 86400); // 24 hours
+	mResultThumbnail->setAllowFading(false);	
+	mResultThumbnail->setOnImageLoaded([this]() { mGrid.onSizeChanged(); });
+
 	mGrid.setEntry(mResultThumbnail, Vector2i(1, 1), false, false);
 
 	// selected result desc + container
@@ -236,7 +238,6 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 	mScrapEngines.clear();
 
 	mResultList->clear();
-	mThumbnailReq.reset();
 	mMDResolveHandle.reset();
 	updateInfoPane();
 
@@ -271,7 +272,6 @@ void ScraperSearchComponent::stop()
 	for (auto engine : mScrapEngines)
 		engine->searchHandle.reset();
 
-	mThumbnailReq.reset();
 	mMDResolveHandle.reset();
 	mBlockAccept = false;
 }
@@ -328,23 +328,19 @@ void ScraperSearchComponent::onSearchDone()
 			ComponentListRow row;
 			for (auto result : engine->results)
 			{
-				std::string image;
+				std::string icons;
 
 				if (result.urls.find(MetaDataId::Image) != result.urls.cend())
-					image = _U(" \uF03E");
-
-				std::string video;
+					icons = _U(" \uF03E");
 
 				if (result.urls.find(MetaDataId::Video) != result.urls.cend())
-					video = _U(" \uF03D");
-
-				std::string wheel;
+					icons += _U(" \uF03D");
 
 				if (result.urls.find(MetaDataId::Marquee) != result.urls.cend())
-					video = _U(" \uF009");
+					icons += _U(" \uF009");
 
 				row.elements.clear();
-				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + image + video, font, color), true);
+				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + icons, font, color), true);
 				row.makeAcceptInputHandler([this, result] { returnResult(result); });
 				mResultList->addRow(row, false, true, std::to_string(i));
 
@@ -425,27 +421,24 @@ void ScraperSearchComponent::updateInfoPane()
 		mResultName->setText(res.mdl.get(MetaDataId::Name));
 		mResultDesc->setText(res.mdl.get(MetaDataId::Desc));
 
-		mResultThumbnail->setImage(nullptr, 0);
+		mResultThumbnail->setImage("");
 
 		if (mSearchType != ALWAYS_ACCEPT_FIRST_RESULT)
 		{
 			// Don't ask for thumbs in automatic mode to boost scraping -> mResultThumbnail is assigned after downloading first image 
 			auto url = res.urls.find(MetaDataId::Thumbnail);
-			if (url == res.urls.cend() && !url->second.url.empty())
+			if (url == res.urls.cend() || url->second.url.empty())
 				url = res.urls.find(MetaDataId::Image);
 
 			if (url != res.urls.cend() && !url->second.url.empty())
 			{
 				if (allResults.at(i).first == "ScreenScraper")
-					mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(url->second.url + "&maxheight=250"));
+					mResultThumbnail->setImage(url->second.url + "&maxheight=250");
 				else
-					mThumbnailReq = std::unique_ptr<HttpReq>(new HttpReq(url->second.url));
+					mResultThumbnail->setImage(url->second.url);
 			}
 			else
-			{				
-				mThumbnailReq.reset();
-				updateThumbnail();
-			}
+				mResultThumbnail->setImage("");
 		}
 
 		// metadata
@@ -463,7 +456,7 @@ void ScraperSearchComponent::updateInfoPane()
 	{
 		mResultName->setText("");
 		mResultDesc->setText("");
-		mResultThumbnail->setImage(nullptr, 0);
+		mResultThumbnail->setImage("");
 
 		// metadata
 		mMD_Rating->setValue("");
@@ -550,11 +543,6 @@ void ScraperSearchComponent::update(int deltaTime)
 		mBusyAnim.update(deltaTime);
 	}
 
-	if (mThumbnailReq && mThumbnailReq->status() != HttpReq::REQ_IN_PROGRESS)
-	{
-		updateThumbnail();
-	}
-
 	bool checkDone = false;
 
 	for (auto engine : mScrapEngines)
@@ -612,20 +600,6 @@ void ScraperSearchComponent::update(int deltaTime)
 			mMDResolveHandle.reset();
 		}
 	}
-}
-
-void ScraperSearchComponent::updateThumbnail()
-{
-	if (mThumbnailReq && mThumbnailReq->status() == HttpReq::REQ_SUCCESS)
-	{
-		std::string content = mThumbnailReq->getContent();
-		mResultThumbnail->setImage(content.data(), content.length());
-		mGrid.onSizeChanged(); // a hack to fix the thumbnail position since its size changed
-	}
-	else if (mResultThumbnail)
-		mResultThumbnail->setImage(nullptr, 0);
-
-	mThumbnailReq.reset();
 }
 
 void ScraperSearchComponent::openInputScreen(ScraperSearchParams& params)

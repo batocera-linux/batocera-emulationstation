@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ImageComponent.h"
+#include "BusyComponent.h"
 
 class HttpReq;
 
@@ -15,6 +16,11 @@ public:
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;
 
+	void setOnImageLoaded(const std::function<void()> onLoaded) { mOnLoaded = onLoaded; }
+
+protected:
+	virtual void resize() override;
+
 private:
 	HttpReq*	mRequest = nullptr;
 	
@@ -24,4 +30,9 @@ private:
 	MaxSizeInfo mMaxSize;
 	
 	double		mKeepInCacheDuration;
+
+	bool				  mWaitLoaded;
+	std::function<void()> mOnLoaded;
+
+	BusyComponent		  mBusyAnim;
 };

@@ -9,22 +9,12 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include "utils/TimeUtil.h"
-#include <pugixml/src/pugixml.hpp>
+#include "utils/StringUtil.h"
 
 // Current version is release 4 let's test for this value in JSON result
 #ifndef ARCADE_DB_RELEASE_VERSION
 #define ARCADE_DB_RELEASE_VERSION 4
 #endif
-
-/* When raspbian will get an up to date version of rapidjson we'll be
-   able to have it throw in case of error with the following:
-#ifndef RAPIDJSON_ASSERT
-#define RAPIDJSON_ASSERT(x)                                                    \
-  if (!(x)) {                                                                  \
-	throw std::runtime_error("rapidjson internal assertion failure: " #x);     \
-  }
-#endif // RAPIDJSON_ASSERT
-*/
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -42,7 +32,7 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
 	else
 	{
-		cleanName = Utils::FileSystem::getStem(params.game->getPath());
+		cleanName = Utils::String::removeParenthesis(Utils::FileSystem::getStem(params.game->getPath()));
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
 	}
 
@@ -104,12 +94,41 @@ int getIntOrThrow(const Value& v)
 	return v.GetInt();
 }
 
+std::vector<std::string> getMediaTagNames(std::string imageSource)
+{
+	if (imageSource == "ss" || imageSource == "mixrbv2" || imageSource == "mixrbv1" || imageSource == "mixrbv")
+		return { "url_image_ingame" };
+	if (imageSource == "sstitle")
+		return { "url_image_title" };
+	if (imageSource == "box-2D" || imageSource == "box-3D")
+		return { "url_image_flyer" };
+	if (imageSource == "wheel")
+		return { "url_image_marquee" };
+	if (imageSource == "marquee")
+		return { "url_image_marquee" };
+	if (imageSource == "video")
+		return { "url_video_shortplay", "url_video_shortplay_hd" };
+
+	return std::vector<std::string>();
+}
+
+std::string findMedia(const Value& v, std::string scrapeSource)
+{
+	for (std::string key : getMediaTagNames(scrapeSource))
+		if (v.HasMember(key.c_str()) && v[key.c_str()].IsString())
+			return v[key.c_str()].GetString();
+
+	return "";
+}
 
 void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 {
 	ScraperSearchResult result;
 
-	result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "title"));
+	if (game.HasMember("short_title") && game["short_title"].IsString())
+		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "short_title"));
+	else
+		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "title"));
 
 	if (game.HasMember("history") && game["history"].IsString())
 		result.mdl.set(MetaDataId::Desc, getStringOrThrow(game, "history"));
@@ -129,58 +148,40 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 	if (game.HasMember("players") && game["players"].IsInt())
 		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
 
+	result.mdl.set(MetaDataId::Rating, "-1");
+
 	// Process medias
+	auto art = findMedia(game, Settings::getInstance()->getString("ScrapperImageSrc"));
+	if (!art.empty())
+		result.urls[MetaDataId::Image] = ScraperSearchItem(art);
 
-	std::string titlescreenUrl;
-	std::string screenShotUrl;
-	std::string marqueeUrl;
-	std::string videoUrl;
-	std::string boxArtUrl;
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Settings::getInstance()->getString("ScrapperThumbSrc") != Settings::getInstance()->getString("ScrapperImageSrc"))
+	{
+		auto art = findMedia(game, Settings::getInstance()->getString("ScrapperThumbSrc"));
+		if (!art.empty())
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(art);
+	}
 
-	if (game.HasMember("url_image_title") && game["url_image_title"].IsString())
-		titlescreenUrl = getStringOrThrow(game, "url_image_title");
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty())
+	{
+		auto art = findMedia(game, Settings::getInstance()->getString("ScrapperLogoSrc"));
+		if (!art.empty())
+			result.urls[MetaDataId::Marquee] = ScraperSearchItem(art);
+	}
 
-	if (game.HasMember("url_image_ingame") && game["url_image_ingame"].IsString())
-		screenShotUrl = getStringOrThrow(game, "url_image_ingame");
+	if (Settings::getInstance()->getBool("ScrapeTitleShot"))
+	{
+		auto art = findMedia(game, "sstitle");
+		if (!art.empty())
+			result.urls[MetaDataId::TitleShot] = ScraperSearchItem(art);
+	}
 
-	if (game.HasMember("url_image_marquee") && game["url_image_marquee"].IsString())
-		marqueeUrl = getStringOrThrow(game, "url_image_marquee");
-
-	if (game.HasMember("url_video_shortplay") && game["url_video_shortplay"].IsString())
-		videoUrl = getStringOrThrow(game, "url_video_shortplay");
-
-	if (game.HasMember("url_image_flyer") && game["url_image_flyer"].IsString())
-		boxArtUrl = getStringOrThrow(game, "url_image_flyer");
-	
-
-	std::string imageSource = Settings::getInstance()->getString("ScrapperImageSrc");
-	if (imageSource == "sstitle" && !titlescreenUrl.empty())
-		result.urls[MetaDataId::Image] = ScraperSearchItem(titlescreenUrl);
-	else if ((imageSource == "box-2D" || imageSource == "box-3D") && !boxArtUrl.empty())
-		result.urls[MetaDataId::Image] = ScraperSearchItem(boxArtUrl);
-	else if ((imageSource == "wheel" || imageSource == "marquee") && !marqueeUrl.empty())
-		result.urls[MetaDataId::Image] = ScraperSearchItem(marqueeUrl);
-	else if (!screenShotUrl.empty())
-		result.urls[MetaDataId::Image] = ScraperSearchItem(screenShotUrl);
-
-	imageSource = Settings::getInstance()->getString("ScrapperThumbSrc");
-	if (imageSource == "sstitle" && !titlescreenUrl.empty())
-		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(titlescreenUrl);
-	else if (imageSource == "ss" && !boxArtUrl.empty())
-		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(screenShotUrl);
-	else if ((imageSource == "wheel" || imageSource == "marquee") && !marqueeUrl.empty())
-		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(marqueeUrl);
-	else if (!boxArtUrl.empty())
-		result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(boxArtUrl);
-
-	if (!marqueeUrl.empty() && !Settings::getInstance()->getString("ScrapperLogoSrc").empty())
-		result.urls[MetaDataId::Marquee] = ScraperSearchItem(marqueeUrl);
-
-	if (!titlescreenUrl.empty() && Settings::getInstance()->getBool("ScrapeTitleShot"))
-		result.urls[MetaDataId::TitleShot] = ScraperSearchItem(titlescreenUrl);
-
-	if (!videoUrl.empty() && Settings::getInstance()->getBool("ScrapeVideos"))
-		result.urls[MetaDataId::Video] = ScraperSearchItem(videoUrl);
+	if (Settings::getInstance()->getBool("ScrapeVideos"))
+	{
+		auto art = findMedia(game, "video");
+		if (!art.empty())
+			result.urls[MetaDataId::Video] = ScraperSearchItem(art);
+	}
 
 	results.push_back(result);
 }
@@ -196,8 +197,7 @@ bool ArcadeDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchRes
 
 	if (doc.HasParseError())
 	{
-		std::string err =
-			std::string("ArcadeDBJSONRequest - Error parsing JSON. \n\t") + GetParseError_En(doc.GetParseError());
+		std::string err = std::string("ArcadeDBJSONRequest - Error parsing JSON. \n\t") + GetParseError_En(doc.GetParseError());
 		setError(err);
 		LOG(LogError) << err;
 		return true;
