@@ -128,8 +128,13 @@ public:
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
-private:
+protected:
+	std::shared_ptr<TextureResource> mTexture;
+	std::shared_ptr<TextureResource> mLoadingTexture;
+
 	Vector2f mTargetSize;
+
+private:
 
 	bool mFlipX, mFlipY, mTargetIsMax, mTargetIsMin;
 
@@ -150,7 +155,6 @@ private:
 
 	std::string mDefaultPath;
 
-	std::shared_ptr<TextureResource> mTexture;
 	unsigned char			mFadeOpacity;
 	bool					mFading;
 	bool					mForceLoad;
@@ -167,7 +171,6 @@ private:
 
 	std::string mPath;
 
-	std::shared_ptr<TextureResource> mLoadingTexture;
 	Vector4f	mPadding;
 
 	Alignment mHorizontalAlignment;
@@ -183,7 +186,7 @@ private:
 	std::vector<Renderer::Vertex>	mRoundCornerStencil;
 
 protected:
-	void resize();
+	virtual void resize();
 	bool mCheckClipping;
 };
 

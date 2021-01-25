@@ -907,11 +907,11 @@ msgstr "COLLECTIONS"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr "RETIRÉ DE %s"
+msgstr "RETIRER DE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr "AJOUTÉ A %s"
+msgstr "AJOUTER A %s"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
