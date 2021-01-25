@@ -202,7 +202,7 @@ namespace Renderer
 		// fragment shader (texture)
 		const GLchar* fragmentSourceTexture =
 			"precision highp float;       \n"
-			"precision mediump sampler2d; \n"
+			"precision mediump sampler2D; \n"
 			"varying   vec4      v_col; \n"
 			"varying   vec2      v_tex; \n"
 			"uniform   sampler2D u_tex; \n"
