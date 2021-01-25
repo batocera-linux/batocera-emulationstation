@@ -159,6 +159,38 @@ bool ScreenScraperScraper::isSupportedPlatform(SystemData* system)
 	return false;
 }
 
+bool ScreenScraperScraper::hasMissingMedia(FileData* file)
+{
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeMap") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeManual") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeCartridge") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge)))
+		return true;
+
+	return false;
+}
+
 void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests,
 	std::vector<ScraperSearchResult>& results)

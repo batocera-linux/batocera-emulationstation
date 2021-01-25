@@ -154,6 +154,26 @@ bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
 	return false;
 }
 
+bool TheGamesDBScraper::hasMissingMedia(FileData* file)
+{
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+		return true;
+
+	return false;
+}
+
 void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {

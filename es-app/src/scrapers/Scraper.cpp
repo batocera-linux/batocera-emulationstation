@@ -28,7 +28,7 @@ Scraper* Scraper::getScraper(const std::string name)
 		scraper = Settings::getInstance()->getString("Scraper");
 	
 	for (auto scrap : Scraper::scrapers)
-		if (scrap.first == name)
+		if (scrap.first == scraper)
 			return scrap.second;
 
 	return nullptr;
@@ -37,6 +37,11 @@ Scraper* Scraper::getScraper(const std::string name)
 bool Scraper::isValidConfiguredScraper()
 {
 	return getScraper() != nullptr;
+}
+
+bool Scraper::hasMissingMedia(FileData* file)
+{
+	return !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image));
 }
 
 std::unique_ptr<ScraperSearchHandle> Scraper::search(const ScraperSearchParams& params)
