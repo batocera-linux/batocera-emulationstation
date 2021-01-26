@@ -2,36 +2,34 @@
 #ifndef ES_CORE_RENDERER_SHADER_H
 #define ES_CORE_RENDERER_SHADER_H
 
+#include "GlExtensions.h"
+
 namespace Renderer
 {
-
-	struct Shader
+	class Shader
 	{
-		//const char* source;
+	public:
 		GLuint id;
 		bool compileStatus;
-	}; // Shader
 
-	struct ShaderProgram
+		// Compile a shader
+		// id should be a valid shader id created by glCreateShader with GL_VERTEX_SHADER or GL_FRAGMENT_SHADER type
+		bool compile(GLuint id, const char* source);
+	};
+
+	class ShaderProgram
 	{
+	public:
 		GLuint id;
 		bool linkStatus;
 		GLint posAttrib;
 		GLint colAttrib;
 		GLint texAttrib;
 		GLint mvpUniform;
-	}; // ShaderProgram
 
-
- 	//Load some shader source code from an external file
- 	//const char* loadShader(const char* file);
-
-	// Compile a shader
-	// id should be a valid shader id created by glCreateShader with GL_VERTEX_SHADER or GL_FRAGMENT_SHADER type
- 	bool compileShader(Shader& shader, GLuint id, const char* source);
-
- 	// Links vertex and fragment shaders together to make a GLSL program
- 	bool linkShaderProgram(Shader &vertexShader, Shader &fragmentShader, ShaderProgram &shaderProgram);
+		// Links vertex and fragment shaders together to make a GLSL program
+		bool linkShaderProgram(Shader &vertexShader, Shader &fragmentShader);
+	};
 
 } // Renderer::
 

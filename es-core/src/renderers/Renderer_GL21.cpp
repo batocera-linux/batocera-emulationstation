@@ -1,4 +1,4 @@
-#if defined(USE_OPENGL_21)
+#if defined(USE_OPENGL_21_OLD)
 
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
@@ -75,6 +75,7 @@ namespace Renderer
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 		// Antialias : Not supported on every machine
+		// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 		// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
 
 	} // setupWindow
