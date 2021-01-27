@@ -127,6 +127,15 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 		return;
 	}
 
+	//set curl to handle redirects
+	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, 10L);
+	if (err != CURLE_OK)
+	{
+		mStatus = REQ_IO_ERROR;
+		onError(curl_easy_strerror(err));
+		return;
+	}
+		
 	//set curl max redirects
 	err = curl_easy_setopt(mHandle, CURLOPT_MAXREDIRS, 2L);
 	if(err != CURLE_OK)

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-24 15:52-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -209,16 +209,16 @@ msgid "Region"
 msgstr "Região"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos checksum"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos Game ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "Screenscraper Game ID"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -239,7 +239,7 @@ msgid "never played"
 msgstr "nunca joguei"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "arcade"
@@ -447,19 +447,19 @@ msgstr "POR FAVOR, AGUARDE"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
 msgid "Points"
-msgstr ""
+msgstr "Pontos"
 
 msgid "Rank"
-msgstr ""
+msgstr "Classificação"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "VISULAIZAR DETALHES"
 
 msgid "LAUNCH"
 msgstr "EXECUTAR"
@@ -480,10 +480,10 @@ msgid "NAVIGATION"
 msgstr "NAVEGAÇÃO"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "PULAR PARA A LETRA"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "SELECIONAR JOGO ALEATÓRIO"
 
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
@@ -786,10 +786,10 @@ msgid "PLAYER 2"
 msgstr "JOGADOR 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "JOGADOR 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "JOGADOR 4"
 
 msgid "COMBINATIONS"
 msgstr "COMBINAÇÕES"
@@ -867,19 +867,19 @@ msgid "VIEW GAME MAP"
 msgstr "VER MAPA DO JOGO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "O CORE ATUAL NÃO É COMPATÍVEL"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "CORE NECESSÁRIO"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "VISUALIZAR CONQUISTAS DO JOGO"
 
 msgid "GAME"
-msgstr ""
+msgstr "JOGO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "SALVAR RAPIDAMENTE"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY HOST"
@@ -907,11 +907,11 @@ msgstr "COLEÇÕES"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "REMOVER DE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "ADICIONAR À %s"
 
 msgid "FAVORITES"
 msgstr "FAVORITOS"
@@ -985,35 +985,35 @@ msgstr[0] "%i SCRAPE IGNORADO."
 msgstr[1] "%i SCRAPES IGNORADOS."
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Desbloqueado em"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "ESTE JOGO NÃO POSSUI CONQUITAS"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Conquistas realizadas"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% concluído"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "SALVAMENTO AUTOMÁTICO"
 
 msgid "SLOT"
-msgstr ""
+msgstr "SLOT"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "INICIAR NOVO JOGO"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPIAR PARA UM SLOT LIVRE"
 
 msgid "SCRAPE NOW"
-msgstr "SCRAPE"
+msgstr "INICIAR PROCURA"
 
 msgid "SCRAPE THESE GAMES"
 msgstr "SCRAPE DESSES JOGOS"
@@ -1107,7 +1107,7 @@ msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "ESCALA RGA"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1194,16 +1194,16 @@ msgid "MARQUEE"
 msgstr "LETREIRO"
 
 msgid "SCRAPE RATINGS"
-msgstr "SCRAPE DAS AVALIAÇÕES"
+msgstr "OBTER AVALIAÇÕES"
 
 msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE VÍDEOS"
+msgstr "OBTER VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "SCRAPE FANART"
+msgstr "OBTER FANART"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "OBTER MAPA"
 
 msgid "SCRAPE MANUAL"
 msgstr "SCRAPE MANUAL"
@@ -1293,10 +1293,10 @@ msgid "CLEAR CACHES"
 msgstr "LIMPAR CACHES"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "CONSTRUIR CACHE DE IMAGENS"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "Contruindo cache de imagens"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
@@ -1305,7 +1305,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "REDESCOBRIR IDIOMA/REGIÃO DOS JOGOS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "PROCURAR TODOS OS JOGOS COM NETPLAY/CONQUISTAS"
 
 msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
@@ -1329,7 +1329,7 @@ msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSIÇÃO CARROSSEL"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr ""
+msgstr "SELEÇÃO RÁPIDA DO SISTEMA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "TECLADO NA TELA"
@@ -1520,13 +1520,13 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICE DO JOGO"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "PROCURAR TODOS OS JOGOS"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "PROCURAR NOVOS JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "NÃO É POSSÍVEL ATIVAR RETROACHIEVEMENTS :"
 
 msgid "ENABLE NETPLAY"
 msgstr "HABILITAR JOGOS EM REDE"
@@ -1860,7 +1860,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "CONFIGURAR CONTROLES AUTOMÁTICAMENTE"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATO DISPOSITIVO"
@@ -1894,16 +1894,16 @@ msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "ZOOM-"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "ZOOM+"
 
 msgid "MOVE"
-msgstr ""
+msgstr "MOVER"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ZOOM"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÕES DO SISTEMA"
@@ -2008,6 +2008,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"É necessária uma conta válida. Registre uma conta em https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Procurando"
@@ -2115,16 +2117,16 @@ msgid "Extracting"
 msgstr "Extraindo"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "PROCURANDO RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "PROCURANDO JOGOS NETPLAY"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "LISTAGEM CONCLUÍDA"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "ATUALIZE A LISTAS DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "GENRE"
 msgstr "GÊNERO"
@@ -2151,16 +2153,16 @@ msgid "ALREADY PLAYED"
 msgstr "JÁ JOGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "POSSUI CONQUITAS"
 
 msgid "SCRAPING"
-msgstr "SCRAPING"
+msgstr "PROCURANDO"
 
 msgid "SCRAPE FAILED"
-msgstr "SCRAPE FALHOU"
+msgstr "A PROCURA FALHOU"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "PROCURA CONCLUÍDA"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
@@ -2341,37 +2343,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "USER DECIDES ON CONFLICTS"
-#~ msgstr "USUÁRIO DECIDE CONFLITOS"
-
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-#~ msgstr ""
-#~ "SCRAPE FINALIZADO. ATUALIZAR LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
-
-#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
-#~ msgstr "Editando a coleção '%s'. Adicione ou remova jogos com Y."
-
-#~ msgid "Finished editing the '%s' Collection."
-#~ msgstr "Edição da coleção '%s' terminada."
-
-#~ msgid "FINISH EDITING COLLECTION"
-#~ msgstr "FINALIZAR EDIÇÃO DE COLEÇÃO"
-
-#~ msgid "JUMP TO..."
-#~ msgstr "PULE PARA..."
-
-#~ msgid "COLLECTION MANAGEMENT"
-#~ msgstr "GERENCIAR COLEÇÃO"
-
-#~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-#~ msgstr "ADICIONAR/REMOVER JOGOS A ESTA COLEÇÃO"
-
-#~ msgid "REINDEX ALL GAMES"
-#~ msgstr "REINDEXAR TODO OS JOGOS"
-
-#~ msgid "INDEX MISSING GAMES"
-#~ msgstr "INDEXAR JOGOS FALTANDO"
-
-#~ msgid "HASHING GAMES"
-#~ msgstr "HASHING DOS JOGOS"

@@ -1,6 +1,7 @@
 #include "scrapers/Scraper.h"
 
 #include "FileData.h"
+#include "ArcadeDBJSONScraper.h"
 #include "GamesDBJSONScraper.h"
 #include "ScreenScraper.h"
 #include "Log.h"
@@ -13,10 +14,11 @@
 #include <thread>
 #include <SDL_timer.h>
 
-std::map<std::string, Scraper*> Scraper::scrapers
+std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 {
 	{ "ScreenScraper", new ScreenScraperScraper() },
-	{ "TheGamesDB", new TheGamesDBScraper() }
+	{ "TheGamesDB", new TheGamesDBScraper() },
+	{ "ArcadeDB", new ArcadeDBScraper() }
 };
 
 Scraper* Scraper::getScraper(const std::string name)
@@ -24,10 +26,10 @@ Scraper* Scraper::getScraper(const std::string name)
 	auto scraper = name;
 	if(scraper.empty())
 		scraper = Settings::getInstance()->getString("Scraper");
-
-	auto it = Scraper::scrapers.find(scraper);
-	if (it != Scraper::scrapers.end())
-		return it->second;
+	
+	for (auto scrap : Scraper::scrapers)
+		if (scrap.first == scraper)
+			return scrap.second;
 
 	return nullptr;
 }
@@ -35,6 +37,11 @@ Scraper* Scraper::getScraper(const std::string name)
 bool Scraper::isValidConfiguredScraper()
 {
 	return getScraper() != nullptr;
+}
+
+bool Scraper::hasMissingMedia(FileData* file)
+{
+	return !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image));
 }
 
 std::unique_ptr<ScraperSearchHandle> Scraper::search(const ScraperSearchParams& params)

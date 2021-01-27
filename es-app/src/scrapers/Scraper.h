@@ -200,13 +200,15 @@ private:
 class Scraper
 {
 public:
-	static std::map<std::string, Scraper*> scrapers;
+	static std::vector<std::pair<std::string, Scraper*>> scrapers;
 	
 	static Scraper* getScraper(const std::string name = "");
 	static std::vector<std::string> getScraperList();
 	static bool isValidConfiguredScraper();
 
 	virtual	bool isSupportedPlatform(SystemData* system) = 0;
+
+	virtual	bool hasMissingMedia(FileData* file);
 
 	std::unique_ptr<ScraperSearchHandle> search(const ScraperSearchParams& params);
 

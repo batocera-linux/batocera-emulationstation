@@ -10,18 +10,6 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include "utils/TimeUtil.h"
-#include <pugixml/src/pugixml.hpp>
-
-/* When raspbian will get an up to date version of rapidjson we'll be
-   able to have it throw in case of error with the following:
-#ifndef RAPIDJSON_ASSERT
-#define RAPIDJSON_ASSERT(x)                                                    \
-  if (!(x)) {                                                                  \
-	throw std::runtime_error("rapidjson internal assertion failure: " #x);     \
-  }
-#endif // RAPIDJSON_ASSERT
-*/
-
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
@@ -154,6 +142,26 @@ bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
 	return false;
 }
 
+bool TheGamesDBScraper::hasMissingMedia(FileData* file)
+{
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+		return true;
+
+	return false;
+}
+
 void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {
@@ -177,6 +185,7 @@ void TheGamesDBScraper::generateRequests(const ScraperSearchParams& params,
 	{
 		if (cleanName.empty())
 			cleanName = params.game->getCleanName();
+
 		path += "/Games/ByGameName?" + apiKey +
 				"&fields=players,publishers,genres,overview,last_updated,rating,"
 				"platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates&"
@@ -345,6 +354,32 @@ namespace
 		return out;
 	}
 
+	std::vector<std::string> getMediaTagNames(std::string imageSource)
+	{
+		if (imageSource == "ss" || imageSource == "mixrbv2" || imageSource == "mixrbv1" || imageSource == "mixrbv")
+			return { "screenshot" };
+		if (imageSource == "sstitle")
+			return { "titlescreen" };
+		if (imageSource == "box-2D" || imageSource == "box-3D")
+			return { "boxart" };
+		if (imageSource == "wheel" || imageSource == "marquee")
+			return { "clearlogo" };
+
+		return{ imageSource };
+	}
+
+	std::string findMedia(const std::map<std::string, std::string>& map, std::string scrapeSource)
+	{
+		for (std::string key : getMediaTagNames(scrapeSource))
+		{
+			auto it = map.find(key);
+			if (it != map.cend())
+				return it->second;
+		}
+
+		return "";
+	}
+
 	void processGame(const Value& game, const Value& boxart, std::vector<ScraperSearchResult>& results)
 	{
 		std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
@@ -375,11 +410,7 @@ namespace
 		result.mdl.set(MetaDataId::Rating, "-1");
 
 		std::string id = std::to_string(getIntOrThrow(game, "id"));
-		std::string screenShotUrl;
-		std::string boxArtUrl;
-		std::string titlescreenUrl;
-		std::string clearlogoUrl;
-		std::string fanArtUrl;
+		std::map<std::string, std::string> medias;
 
 		if (boxart.HasMember("data") && boxart["data"].IsObject())
 		{
@@ -387,7 +418,7 @@ namespace
 			{
 				std::string image = getBoxartImage(boxart["data"][id.c_str()]);
 				if (!image.empty())
-					boxArtUrl = baseImageUrlThumb + image;
+					medias["boxart"] = baseImageUrlThumb + image;
 			}
 		}
 
@@ -427,50 +458,46 @@ namespace
 						if (v.HasMember("filename"))
 							fileName = v["filename"].GetString();
 
-						if (type == "screenshot" && screenShotUrl.empty())
-							screenShotUrl = pathMedium + fileName;
-						else if (type == "boxart" && boxArtUrl.empty())
-							boxArtUrl = pathMedium + fileName;
-						else if (type == "titlescreen" && titlescreenUrl.empty())
-							titlescreenUrl = pathMedium + fileName;
-						else if (type == "clearlogo" && clearlogoUrl.empty())
-							clearlogoUrl = pathMedium + fileName;
-						else if (type == "fanart" && fanArtUrl.empty())
-							fanArtUrl = pathLarge + fileName;
+						if (medias.find(type) == medias.cend())
+							medias[type] = (type == "fanart" ? pathLarge : pathMedium) + fileName;
 					}
 				}
 			}
 		}
 
-		std::string imageSource = Settings::getInstance()->getString("ScrapperImageSrc");
-		if (imageSource == "sstitle" && !titlescreenUrl.empty())
-			result.urls[MetaDataId::Image] = ScraperSearchItem(titlescreenUrl);
-		else if ((imageSource == "box-2D" || imageSource == "box-3D") && !boxArtUrl.empty())
-			result.urls[MetaDataId::Image] = ScraperSearchItem(boxArtUrl);
-		else if ((imageSource == "wheel" || imageSource == "marquee") && !clearlogoUrl.empty())
-			result.urls[MetaDataId::Image] = ScraperSearchItem(clearlogoUrl);
-		else if (!screenShotUrl.empty())
-			result.urls[MetaDataId::Image] = ScraperSearchItem(screenShotUrl);
+		// Process medias
+		auto art = findMedia(medias, Settings::getInstance()->getString("ScrapperImageSrc"));
+		if (!art.empty())
+			result.urls[MetaDataId::Image] = ScraperSearchItem(art);
 
-		imageSource = Settings::getInstance()->getString("ScrapperThumbSrc");
-		if (imageSource == "sstitle" && !titlescreenUrl.empty())
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(titlescreenUrl);
-		else if (imageSource == "ss" && !boxArtUrl.empty())
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(screenShotUrl);
-		else if ((imageSource == "wheel" || imageSource == "marquee") && !clearlogoUrl.empty())
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(clearlogoUrl);
-		else if (!boxArtUrl.empty())
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(boxArtUrl);
+		if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Settings::getInstance()->getString("ScrapperThumbSrc") != Settings::getInstance()->getString("ScrapperImageSrc"))
+		{
+			auto art = findMedia(medias, Settings::getInstance()->getString("ScrapperThumbSrc"));
+			if (!art.empty())
+				result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(art);
+		}
 
-		if (!clearlogoUrl.empty() && !Settings::getInstance()->getString("ScrapperLogoSrc").empty())
-			result.urls[MetaDataId::Marquee] = ScraperSearchItem(clearlogoUrl);
+		if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty())
+		{
+			auto art = findMedia(medias, Settings::getInstance()->getString("ScrapperLogoSrc"));
+			if (!art.empty())
+				result.urls[MetaDataId::Marquee] = ScraperSearchItem(art);
+		}
 
-		if (!fanArtUrl.empty() && Settings::getInstance()->getBool("ScrapeFanart"))
-			result.urls[MetaDataId::FanArt] = ScraperSearchItem(fanArtUrl);
+		if (Settings::getInstance()->getBool("ScrapeTitleShot"))
+		{
+			auto art = findMedia(medias, "sstitle");
+			if (!art.empty())
+				result.urls[MetaDataId::TitleShot] = ScraperSearchItem(art);
+		}
 
-		if (!titlescreenUrl.empty() && Settings::getInstance()->getBool("ScrapeTitleShot"))
-			result.urls[MetaDataId::TitleShot] = ScraperSearchItem(titlescreenUrl);
-
+		if (Settings::getInstance()->getBool("ScrapeFanart"))
+		{
+			auto art = findMedia(medias, "fanart");
+			if (!art.empty())
+				result.urls[MetaDataId::FanArt] = ScraperSearchItem(art);
+		}
+		
 		results.push_back(result);
 	}
 } // namespace

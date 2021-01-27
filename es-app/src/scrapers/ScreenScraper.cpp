@@ -159,6 +159,38 @@ bool ScreenScraperScraper::isSupportedPlatform(SystemData* system)
 	return false;
 }
 
+bool ScreenScraperScraper::hasMissingMedia(FileData* file)
+{
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+		return true;
+
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeMap") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeManual") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeCartridge") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge)))
+		return true;
+
+	return false;
+}
+
 void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	std::queue<std::unique_ptr<ScraperRequest>>& requests,
 	std::vector<ScraperSearchResult>& results)
@@ -318,30 +350,26 @@ pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::s
 
 std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSource)
 {
-	std::vector<std::string> ripList;
-
 	if (imageSource == "ss")
-		ripList = { "ss", "sstitle" }; //, "mixrbv1", "mixrbv2", "box-2D", "box-3D" };
-	else if (imageSource == "sstitle")
-		ripList = { "sstitle", "ss" };
-	else if (imageSource == "mixrbv1" || imageSource == "mixrbv")
-		ripList = { "mixrbv1", "mixrbv2" };
-	else if (imageSource == "mixrbv2")
-		ripList = { "mixrbv2", "mixrbv1" };
-	else if (imageSource == "box-2D")
-		ripList = { "box-2D", "box-3D" };
-	else if (imageSource == "box-3D")
-		ripList = { "box-3D", "box-2D" };
-	else if (imageSource == "wheel")
-		ripList = { "wheel", "wheel-hd", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
-	else if (imageSource == "marquee")
-		ripList = { "screenmarqueesmall", "screenmarquee", "wheel", "wheel-hd", "wheel-steel", "wheel-carbon" };
-	else if (imageSource == "video")
-		ripList = { "video-normalized", "video" };
-	else 
-		ripList = { imageSource };
-
-	return ripList;
+		return { "ss", "sstitle" };
+	if (imageSource == "sstitle")
+		return { "sstitle", "ss" };	
+	if (imageSource == "mixrbv1" || imageSource == "mixrbv")
+		return { "mixrbv1", "mixrbv2" };	
+	if (imageSource == "mixrbv2")
+		return { "mixrbv2", "mixrbv1" };	
+	if (imageSource == "box-2D")
+		return { "box-2D", "box-3D" };
+	if (imageSource == "box-3D")
+		return { "box-3D", "box-2D" };
+	if (imageSource == "wheel")
+		return { "wheel", "wheel-hd", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
+	if (imageSource == "marquee")
+		return { "screenmarqueesmall", "screenmarquee", "wheel", "wheel-hd", "wheel-steel", "wheel-carbon" };
+	if (imageSource == "video")
+		return { "video-normalized", "video" };
+	
+	return { imageSource };
 }
 
 void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& out_results)
@@ -704,7 +732,7 @@ int ScreenScraperScraper::getThreadCount()
 	auto content = httpreq.getContent();
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load(content.c_str());
+	pugi::xml_parse_result parseResult = doc.load_string(content.c_str());
 	if (parseResult)
 	{
 		auto userInfo = ScreenScraperRequest::processUserInfo(doc);

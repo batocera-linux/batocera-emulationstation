@@ -9,7 +9,7 @@
 
 class ComponentList;
 class DateTimeEditComponent;
-class ImageComponent;
+class WebImageComponent;
 class RatingComponent;
 class ScrollableContainer;
 class TextComponent;
@@ -47,7 +47,6 @@ public:
 
 private:
 	void updateViewStyle();
-	void updateThumbnail();
 	void updateInfoPane();
 
 	void resizeMetadata();
@@ -65,7 +64,7 @@ private:
 	std::shared_ptr<TextComponent> mResultName;
 	//std::shared_ptr<ScrollableContainer> mDescContainer;
 	std::shared_ptr<TextComponent> mResultDesc;
-	std::shared_ptr<ImageComponent> mResultThumbnail;
+	std::shared_ptr<WebImageComponent> mResultThumbnail;
 	std::shared_ptr<ComponentList> mResultList;
 
 	std::shared_ptr<ComponentGrid> mMD_Grid;
@@ -95,7 +94,6 @@ private:
 	bool mBlockAccept;
 
 	std::unique_ptr<MDResolveHandle> mMDResolveHandle;
-	std::unique_ptr<HttpReq> mThumbnailReq;
 
 	/*
 	ScraperSearchParams mLastScreenScraperSearch;
@@ -120,6 +118,8 @@ private:
 	ScraperSearchParams mInitialSearch;
 
 	BusyComponent mBusyAnim;
+	int			  mInfoPaneCursor;
+
 };
 
 #endif // ES_APP_COMPONENTS_SCRAPER_SEARCH_COMPONENT_H

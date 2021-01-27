@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ES_APP_SCRAPERS_GAMES_DB_JSON_SCRAPER_H
-#define ES_APP_SCRAPERS_GAMES_DB_JSON_SCRAPER_H
+#ifndef ES_APP_SCRAPERS_ARCADE_DB_JSON_SCRAPER_H
+#define ES_APP_SCRAPERS_ARCADE_DB_JSON_SCRAPER_H
 
 #include "scrapers/Scraper.h"
 
@@ -9,7 +9,7 @@ namespace pugi
 class xml_document;
 }
 
-class TheGamesDBScraper : public Scraper
+class ArcadeDBScraper : public Scraper
 {
 public:
 	void generateRequests(const ScraperSearchParams& params,
@@ -20,17 +20,17 @@ public:
 	bool hasMissingMedia(FileData* file) override;
 };
 
-class TheGamesDBJSONRequest : public ScraperHttpRequest
+class ArcadeDBJSONRequest : public ScraperHttpRequest
 {
   public:
 	// ctor for a GetGameList request
-	TheGamesDBJSONRequest(std::queue<std::unique_ptr<ScraperRequest>>& requestsWrite,
+	ArcadeDBJSONRequest(std::queue<std::unique_ptr<ScraperRequest>>& requestsWrite,
 		std::vector<ScraperSearchResult>& resultsWrite, const std::string& url)
 		: ScraperHttpRequest(resultsWrite, url), mRequestQueue(&requestsWrite)
 	{
 	}
 	// ctor for a GetGame request
-	TheGamesDBJSONRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url)
+	ArcadeDBJSONRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url)
 		: ScraperHttpRequest(resultsWrite, url), mRequestQueue(nullptr)
 	{
 	}
@@ -42,4 +42,4 @@ class TheGamesDBJSONRequest : public ScraperHttpRequest
 	std::queue<std::unique_ptr<ScraperRequest>>* mRequestQueue;
 };
 
-#endif // ES_APP_SCRAPERS_GAMES_DB_JSON_SCRAPER_H
+#endif // ES_APP_SCRAPERS_ARCADE_DB_JSON_SCRAPER_H
