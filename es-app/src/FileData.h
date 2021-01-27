@@ -99,6 +99,7 @@ public:
 
 	virtual std::string getKey();
 	const bool isArcadeAsset();
+	const bool isVerticalArcadeGame();
 	inline std::string getFullPath() { return getPath(); };
 	inline std::string getFileName() { return Utils::FileSystem::getFileName(getPath()); };
 	virtual FileData* getSourceFileData();

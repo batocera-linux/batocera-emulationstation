@@ -328,6 +328,17 @@ const bool FileData::isArcadeAsset()
 	return false;
 }
 
+const bool FileData::isVerticalArcadeGame()
+{
+	if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE))
+	{
+		const std::string stem = Utils::FileSystem::getStem(getPath());
+		return MameNames::getInstance()->isVertical(stem);
+	}
+
+	return false;
+}
+
 FileData* FileData::getSourceFileData()
 {
 	return this;

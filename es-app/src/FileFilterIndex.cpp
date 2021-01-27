@@ -33,7 +33,8 @@ FileFilterIndex::FileFilterIndex()
 		{ REGION_FILTER, 	&regionIndexAllKeys,    &filterByRegion,	&regionIndexFilteredKeys, 	"region",		false,				"",				_("REGION") },
 		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") },
 		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") },
-		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") }
+		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
+		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -102,6 +103,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &regionIndexAllKeys, &(indexToImport->regionIndexAllKeys) },
 		{ &kidGameIndexAllKeys, &(indexToImport->kidGameIndexAllKeys) },
 		{ &cheevosIndexAllKeys, &(indexToImport->cheevosIndexAllKeys) },
+		{ &verticalIndexAllKeys, &(indexToImport->verticalIndexAllKeys) },
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
 
 	};
@@ -142,6 +144,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(langIndexAllKeys);
 	clearIndex(regionIndexAllKeys);
 	clearIndex(cheevosIndexAllKeys);
+	clearIndex(verticalIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -154,6 +157,9 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&cheevosIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&cheevosIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&verticalIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&verticalIndexAllKeys, "TRUE", false);
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
@@ -275,6 +281,18 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		key = game->hasCheevos() ? "TRUE" : "FALSE";
+		break;
+	}
+
+	case VERTICAL_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		key = game->isVerticalArcadeGame() ? "TRUE" : "FALSE";
 		break;
 	}
 	}
@@ -932,6 +950,8 @@ bool CollectionFilter::load(const std::string file)
 			regionIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "cheevos")
 			cheevosIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "vertical")
+			verticalIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -987,6 +1007,9 @@ bool CollectionFilter::save()
 
 	for (auto key : cheevosIndexFilteredKeys)
 		root.append_child("cheevos").text().set(key.c_str());
+
+	for (auto key : verticalIndexFilteredKeys)
+		root.append_child("vertical").text().set(key.c_str());
 
 	if (!doc.save_file(mPath.c_str()))
 	{
