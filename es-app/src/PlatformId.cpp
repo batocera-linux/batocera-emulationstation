@@ -26,6 +26,7 @@ namespace PlatformIds
 		{ "atarixe",				ATARI_XE },
 		{ "colecovision",			COLECOVISION },
 		{ "c64",					COMMODORE_64 },
+		{ "vic20",				COMMODORE_VIC20 },
 		{ "intellivision",			INTELLIVISION },
 		{ "macintosh",				MAC_OS },
 		{ "xbox",					XBOX },

@@ -45,6 +45,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	// missing Atari XE ?
 	{ COLECOVISION, 48 },
 	{ COMMODORE_64, 66 },
+	{ COMMODORE_VIC20, 73 },
 	{ INTELLIVISION, 115 },
 	{ MAC_OS, 146 },
 	{ XBOX, 32 },
