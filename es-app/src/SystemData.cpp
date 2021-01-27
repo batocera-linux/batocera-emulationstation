@@ -1469,8 +1469,19 @@ GameCountInfo* SystemData::getGameCountInfo()
 
 	std::vector<FileData*> games = mRootFolder->getFilesRecursive(GAME, true);
 
+	int realTotal = games.size();
+	if (mFilterIndex != nullptr)
+	{
+		auto savedFilter = mFilterIndex;
+		mFilterIndex = nullptr;
+		realTotal = mRootFolder->getFilesRecursive(GAME, true).size();
+		mFilterIndex = savedFilter;
+	}
+
+
 	mGameCountInfo = new GameCountInfo();
-	mGameCountInfo->totalGames = games.size();
+	mGameCountInfo->visibleGames = games.size();
+	mGameCountInfo->totalGames = realTotal;
 	mGameCountInfo->favoriteCount = 0;
 	mGameCountInfo->hiddenCount = 0;
 	mGameCountInfo->playCount = 0;

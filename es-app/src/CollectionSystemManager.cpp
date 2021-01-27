@@ -1460,6 +1460,8 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 			{
 				if (system->isCollection() && system->getName() == collectionName)
 				{
+					system->updateDisplayedGameCount();
+
 					auto view = ViewController::get()->getGameListView(system, false);
 					if (view != nullptr)
 						view->repopulate();
