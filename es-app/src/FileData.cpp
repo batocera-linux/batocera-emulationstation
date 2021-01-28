@@ -513,9 +513,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
 		saveToGamelistRecovery(gameToUpdate);
 	} else {
-		// show error message
+		// show emuelec error message
 		LOG(LogWarning) << "...Show Error message! exit code " << exitCode << "!";
-		ApiSystem::getInstance()->launchErrorWindow(window);
+        // ApiSystem::getInstance()->launchErrorWindow(window);
 	}
 
 	window->reactivateGui();
