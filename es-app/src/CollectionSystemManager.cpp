@@ -42,7 +42,8 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 
 		// Arcade meta 
 		{ AUTO_ARCADE,           "arcade",      _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
-	
+		{ AUTO_VERTICALARCADE,  "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, // batocera
+
 		// Custom collection
 		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
 	};
@@ -988,6 +989,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			{
 				case AUTO_ALL_GAMES:
 					break;
+				case AUTO_VERTICALARCADE:
+					include = game->isVerticalArcadeGame();
+					break;
 				case AUTO_RETROACHIEVEMENTS:
 					include = game->hasCheevos();
 					break;
@@ -1456,6 +1460,8 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 			{
 				if (system->isCollection() && system->getName() == collectionName)
 				{
+					system->updateDisplayedGameCount();
+
 					auto view = ViewController::get()->getGameListView(system, false);
 					if (view != nullptr)
 						view->repopulate();
