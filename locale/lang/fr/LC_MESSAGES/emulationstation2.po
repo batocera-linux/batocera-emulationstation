@@ -879,10 +879,10 @@ msgid "GAME"
 msgstr "JEU"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "SAUVEGARDES INSTANTANÉES"
 
 msgid "START NETPLAY HOST"
-msgstr "DÉMARRER L’HÔTE NET PLAY"
+msgstr "DÉMARRER L’HÔTE PARTIES EN RÉSEAU"
 
 msgid "NETPLAY"
 msgstr "PARTIES EN RÉSEAU"
@@ -907,7 +907,7 @@ msgstr "COLLECTIONS"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr "RETIRER DE %s"
+msgstr "SUPPRIMER DE %s"
 
 #, c-format
 msgid "ADD TO %s"
@@ -997,19 +997,19 @@ msgid "%d%% complete"
 msgstr "%d%% terminé"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "SAUV. AUTO"
 
 msgid "SLOT"
-msgstr ""
+msgstr "EMPLACEMENT"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "DÉMARRER NOUVEAU JEU"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "DÉMARRER SAUV. AUTO"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPIER VERS EMPLACEMENT LIBRE"
 
 msgid "SCRAPE NOW"
 msgstr "LANCER LE SCRAPE"
@@ -1523,10 +1523,10 @@ msgid "FIND NEW GAMES"
 msgstr "TROUVER LES NOUVEAUX JEUX"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO"
+msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
 
 msgid "ENABLE NETPLAY"
-msgstr "ACTIVER LE JEU EN RÉSEAU"
+msgstr "ACTIVER LES PARTIES EN RÉSEAU"
 
 msgid "NICKNAME"
 msgstr "SURNOM"
@@ -1556,7 +1556,7 @@ msgid "REWIND"
 msgstr "REMBOBINAGE"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "SAUV./CHARG. AUTOMATIQUE"
+msgstr "SAUV./CHARG. AUTO"
 
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
@@ -2122,10 +2122,10 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "RECHERCHE DES PARTIES EN RÉSEAU"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INDEXATION TERMINÉE"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2161,7 +2161,7 @@ msgid "SCRAPE FAILED"
 msgstr "ECHEC DU SCRAPE"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "SCRAPE TERMINÉ"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
