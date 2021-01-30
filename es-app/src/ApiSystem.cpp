@@ -1591,7 +1591,7 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 			if (sound.substr(sound.find_last_of('.') + 1) == "ogg")
 			{
 				if (std::find(ret.cbegin(), ret.cend(), sound) == ret.cend())
-					ret.push_back(sound);
+				  ret.push_back(sound.substr(0, sound.find_last_of('.')));
 			}
 		}
 	}
