@@ -1327,7 +1327,7 @@ namespace Utils
 #if defined(_WIN32)
 			FILE* file = _wfopen(Utils::String::convertToWideString(filename).c_str(), L"rb");
 #else			
-			FILE* file = fopen(fileName.c_str(), "rb");
+			FILE* file = fopen(filename.c_str(), "rb");
 #endif
 			if (file)
 			{
@@ -1360,7 +1360,7 @@ namespace Utils
 #if defined(_WIN32)
 			FILE* file = _wfopen(Utils::String::convertToWideString(filename).c_str(), L"rb");
 #else			
-			FILE* file = fopen(fileName.c_str(), "rb");
+			FILE* file = fopen(filename.c_str(), "rb");
 #endif
 			if (file)
 			{
