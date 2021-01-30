@@ -100,6 +100,8 @@ namespace PlatformIds
 		SUFAMITURBO,
 		ZX81,
 		TIC80,
+		MODEL3,
+		IMAGEVIEWER,
 
 		// Windows Specific
 		VISUALPINBALL,

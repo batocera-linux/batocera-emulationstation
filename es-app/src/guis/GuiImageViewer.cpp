@@ -12,6 +12,7 @@
 #include <unistd.h>
 #endif
 
+#include "utils/ZipFile.h"
 
 class ZoomableImageComponent : public ImageComponent
 {
@@ -325,6 +326,138 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 		}));
 }
 
+static std::string _extractZipFile(const std::string& zipFileName, const std::string& fileToExtract)
+{
+	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
+
+	Utils::Zip::ZipFile zipFile;
+	if (zipFile.load(zipFileName))
+	{
+		std::string fullPath = Utils::FileSystem::combine(pdfFolder, fileToExtract);
+		std::string folder = Utils::FileSystem::getParent(fullPath);
+		if (folder != pdfFolder)
+			Utils::FileSystem::createDirectory(folder);
+
+		if (zipFile.extract(fileToExtract, fullPath, true))
+			if (Utils::FileSystem::exists(fullPath))
+				return fullPath;
+	}
+
+	return "";
+}
+
+void GuiImageViewer::loadCbz(const std::string& imagePath)
+{
+	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
+	Utils::FileSystem::createDirectory(pdfFolder);
+	Utils::FileSystem::deleteDirectoryFiles(pdfFolder);
+
+	Window* window = mWindow;
+
+	std::vector<std::string> files;
+	std::vector<std::wstring> filesW;
+	
+
+	try
+	{
+		Utils::Zip::ZipFile zipFile;
+		if (zipFile.load(imagePath))
+		{
+			for (auto file : zipFile.namelist())
+			{
+				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file));
+				if (ext != ".jpg")
+					continue;
+
+				if (Utils::String::startsWith(file, "__"))
+					continue;
+
+				files.push_back(file);
+			}
+
+			std::sort(files.begin(), files.end(), [](std::string a, std::string b) { return Utils::String::toLower(a) < Utils::String::toLower(b); });
+		}
+	}
+	catch (...)
+	{
+		// Bad zip file
+		delete this;
+		return;
+	}
+
+	int pages = files.size();
+	if (pages == 0)
+	{
+		delete this;
+		return;
+	}
+
+#define INITIALPAGES	1
+
+	mPdf = imagePath;
+
+	for (int i = 0; i < pages; i++)
+		mGrid.add("", ":/blank.png", "", "", false, false, false, false, std::to_string(i + 1));
+
+	if (pages > INITIALPAGES)
+	{
+		mPdfThreads = new Utils::ThreadPool(1);
+
+		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
+		{
+			auto fileToExtract = files[i];
+			mPdfThreads->queueWorkItem([this, imagePath, fileToExtract, window, i]
+			{
+				auto localFile = _extractZipFile(imagePath, fileToExtract);
+				if (localFile.empty() || !g_isGuiImageViewerRunning)
+					return;
+
+				window->postToUiThread([this, i, localFile]()
+				{
+					if (!g_isGuiImageViewerRunning)
+						return;
+
+					ImageIO::removeImageCache(localFile);
+					mGrid.setImage(localFile, std::to_string(i + 1));
+				});
+			});
+		}
+
+		mPdfThreads->start();
+	}
+
+	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
+		[window, imagePath, files]
+	{
+		std::vector<std::string> ret;
+
+		for (int i = 0; i < INITIALPAGES && i < files.size(); i++)
+		{
+			auto fileToExtract = files[i];
+
+			auto localFile = _extractZipFile(imagePath, fileToExtract);
+			if (!localFile.empty())
+				ret.push_back(localFile);
+		}
+
+		return ret;
+	},
+		[this, window, imagePath, pages](std::vector<std::string> fileList)
+	{
+		if (fileList.size() == 0)
+			return;
+
+		for (int i = 0; i < fileList.size(); i++)
+		{
+			ImageIO::removeImageCache(fileList[i]);
+			mGrid.setImage(fileList[i], std::to_string(i + 1));
+		}
+
+		window->pushGui(this);
+	}));
+}
+
+
 GuiImageViewer::~GuiImageViewer()
 {
 	g_isGuiImageViewerRunning = false;
@@ -339,7 +472,7 @@ GuiImageViewer::~GuiImageViewer()
 
 	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
 	Utils::FileSystem::deleteDirectoryFiles(pdfFolder);
-	rmdir(pdfFolder.c_str());
+	Utils::FileSystem::removeDirectory(pdfFolder.c_str());
 }
 
 bool GuiImageViewer::input(InputConfig* config, Input input)
@@ -351,23 +484,31 @@ bool GuiImageViewer::input(InputConfig* config, Input input)
 		{			
 			if (!mPdf.empty())
 			{
-				// path = mGrid.getImage(path);
-				int page = mGrid.getCursorIndex() + 1;
+				if (Utils::String::toLower(Utils::FileSystem::getExtension(mPdf)) != ".pdf")
+				{
+					path = mGrid.getImage(path);
+					mWindow->pushGui(new ZoomableImageComponent(mWindow, path));
+				}
+				else
+				{
+					// path = mGrid.getImage(path);
+					int page = mGrid.getCursorIndex() + 1;
 
-				Window* window = mWindow;
-				window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
-					[this, window, path, page]
+					Window* window = mWindow;
+					window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
+						[this, window, path, page]
 					{
 						auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, true);
 						if (files.size() == 1)
 							return files[0];
-					
+
 						return path;
 					},
 						[window](std::string file)
 					{
 						window->pushGui(new ZoomableImageComponent(window, file));
 					}));
+				}
 			}
 			else
 				mWindow->pushGui(new ZoomableImageComponent(mWindow, path));
@@ -425,6 +566,12 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath, bool
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
 
+	if (Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) == ".cbz")
+	{
+		showCbz(window, imagePath);
+		return;
+	}
+
 	if (Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) == ".pdf") 
 	{
 		showPdf(window, imagePath);
@@ -447,31 +594,13 @@ void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 {
 	auto imgViewer = new GuiImageViewer(window, true);	
 	imgViewer->loadPdf(imagePath);	
-	/*
-	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
-		[window, imagePath]
-		{
-			return ApiSystem::getInstance()->extractPdfImages(imagePath);
-		},
-		[window, imagePath](std::vector<std::string> fileList)
-		{			
-			if (fileList.size() == 0)
-				return;
-
-			auto imgViewer = new GuiImageViewer(window, true);
-			imgViewer->mPdf = imagePath;
-
-			for (auto file : fileList)
-			{
-				ImageIO::removeImageCache(file);
-				imgViewer->add(file);
-			}
-
-			imgViewer->setCursor(fileList[0]);
-			window->pushGui(imgViewer);
-		}));*/
 }
 
+void GuiImageViewer::showCbz(Window* window, const std::string imagePath)
+{
+	auto imgViewer = new GuiImageViewer(window, true);
+	imgViewer->loadCbz(imagePath);
+}
 
 #ifdef _RPI_
 #include "Settings.h"

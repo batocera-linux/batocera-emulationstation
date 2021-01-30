@@ -48,7 +48,6 @@
 
 #include <pugixml/src/pugixml.hpp>
 #include "platform.h"
-#include "scrapers/md5.h"
 #include "RetroAchievements.h"
 #include "utils/ZipFile.h"
 
@@ -798,42 +797,27 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fileName));
 	if (ext == ".zip" && fromZipContents)
 	{
-		try
+		Utils::Zip::ZipFile file;
+		if (file.load(fileName))
 		{
-			Utils::Zip::ZipFile file;
-			if (file.load(fileName))
+			std::string romName;
+
+			for (auto name : file.namelist())
 			{
-				std::string romName;
-
-				for (auto name : file.namelist())
+				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
 				{
-					if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+					if (!romName.empty())
 					{
-						if (!romName.empty())
-						{
-							romName = "";
-							break;
-						}
-
-						romName = name;
+						romName = "";
+						break;
 					}
-				}
 
-				if (!romName.empty())
-				{
-					LOG(LogDebug) << "ZipFile::readBuffered : " << romName;
-
-					MD5 md5 = MD5();
-					Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
-					file.readBuffered(romName, func, &md5);
-					md5.finalize();
-					return md5.hexdigest();
+					romName = name;
 				}
 			}
-		}
-		catch (...)
-		{
-			// Bad zip file
+
+			if (!romName.empty())
+				return file.getFileMd5(romName);
 		}
 	}
 
@@ -870,40 +854,7 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 		// if there's no file or many files ? get md5 of archive
 	}
 
-	try
-	{
-		// 64 Kb blocks
-#define MD5BUFFERSIZE 64 * 1024
-
-		char* buffer = new char[MD5BUFFERSIZE];
-		if (buffer)
-		{
-			size_t size;
-
-#if defined(_WIN32)
-			FILE* file = _wfopen(Utils::String::convertToWideString(contentFile).c_str(), L"rb");
-#else			
-			FILE* file = fopen(contentFile.c_str(), "rb");
-#endif
-			if (file)
-			{
-				MD5 md5 = MD5();
-
-				while (size = fread(buffer, 1, MD5BUFFERSIZE, file))
-					md5.update(buffer, size);
-
-				md5.finalize();
-				ret = md5.hexdigest();
-				fclose(file);
-			}
-
-			delete buffer;
-		}
-	}
-	catch (std::bad_alloc& ex)
-	{
-		
-	}
+	ret = Utils::FileSystem::getFileMd5(contentFile);
 
 	if (!tmpZipDirectory.empty())
 	{
@@ -912,7 +863,6 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	}
 
 	LOG(LogDebug) << "getMD5 << " << ret;
-
 
 	return ret;
 }
@@ -943,76 +893,32 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	{
 		LOG(LogDebug) << "getCRC32 is using ZipFile";
 
-		try
+		Utils::Zip::ZipFile file;
+		if (file.load(fileName))
 		{
-			Utils::Zip::ZipFile file;
-			if (file.load(fileName))
+			std::string romName;
+
+			for (auto name : file.namelist())
 			{
-				std::string romName;
-
-				for (auto name : file.namelist())
+				if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
 				{
-					if (Utils::FileSystem::getExtension(name) != ".txt" && !Utils::String::endsWith(name, "/"))
+					if (!romName.empty())
 					{
-						if (!romName.empty())
-						{
-							romName = "";
-							break;
-						}
-
-						romName = name;
+						romName = "";
+						break;
 					}
+
+					romName = name;
 				}
-
-				if (!romName.empty())
-					return file.getFileCrc(romName);
 			}
-		}
-		catch (...)
-		{
-			// Bad zip file
+
+			if (!romName.empty())
+				return file.getFileCrc(romName);
 		}
 	}
-	
-	#define CRCBUFFERSIZE 64 * 1024
 
-	char* buffer = new char[CRCBUFFERSIZE];
-	if (buffer)
-	{
-		LOG(LogDebug) << "getCRC32 is using fileBuffer";
-
-		size_t size;
-
-		char hex[10];
-		hex[0] = 0;
-
-#if defined(_WIN32)
-		FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"rb");
-#else			
-		FILE* file = fopen(fileName.c_str(), "rb");
-#endif
-		if (file)
-		{
-			unsigned int file_crc32 = 0;
-
-			while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
-				file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, buffer, size);
-
-			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", file_crc32);
-			hex[len] = 0;
-
-			fclose(file);
-		}
-
-		delete buffer;
-
-		LOG(LogDebug) << "getCRC32 <<";
-		return hex;
-	}
-
-	LOG(LogDebug) << "getCRC32 <<";
-
-	return "";
+	LOG(LogDebug) << "getCRC32 is using fileBuffer";
+	return Utils::FileSystem::getFileCrc32(fileName);
 }
 
 bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
@@ -1025,7 +931,7 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	if (Utils::String::toLower(Utils::FileSystem::getExtension(fileName)) == ".zip")
 	{
 		// 10 Mb max : If file is too big, prefer external decompression
-		if (getSevenZipCommand().empty() || Utils::FileSystem::getFileSize(fileName) < 10000 * 1024)
+		if (getSevenZipCommand().empty())
 		{			
 			LOG(LogDebug) << "unzipFile is using ZipFile";
 

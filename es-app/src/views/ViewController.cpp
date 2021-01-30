@@ -411,7 +411,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		return;
 	}
 
-	if (game->getSourceFileData()->getSystem()->getName() == "imageviewer")
+	if (game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 	{
 		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
 
@@ -419,6 +419,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			GuiVideoViewer::playVideo(mWindow, game->getPath());
 		else if (ext == ".pdf")
 			GuiImageViewer::showPdf(mWindow, game->getPath());
+		else if (ext == ".cbz")
+			GuiImageViewer::showCbz(mWindow, game->getPath());
 		else
 		{
 			auto gameImage = game->getImagePath();
