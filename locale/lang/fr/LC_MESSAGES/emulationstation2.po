@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -243,6 +243,9 @@ msgstr "succès rétro"
 
 msgid "arcade"
 msgstr "arcade"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "collections"
@@ -1510,6 +1513,12 @@ msgstr "MODE DÉTAILLÉ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "AFFICHER DANS LE MENU PRINCIPAL"
 
@@ -2154,6 +2163,9 @@ msgstr "DÉJA JOUÉ"
 msgid "HAS ACHIEVEMENTS"
 msgstr "SUCCÈS RÉTRO"
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
@@ -2162,6 +2174,14 @@ msgstr "ECHEC DU SCRAPE"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPE TERMINÉ"
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"

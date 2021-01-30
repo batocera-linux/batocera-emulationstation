@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -247,6 +247,9 @@ msgstr ""
 
 msgid "arcade"
 msgstr "اركيد"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "مجموعات"
@@ -1526,6 +1529,12 @@ msgstr "وضع مفصل"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "الاظهار في الواجهة الرئيسية"
 
@@ -2175,6 +2184,9 @@ msgstr "تم اللعب"
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "الكشط"
 
@@ -2182,6 +2194,14 @@ msgid "SCRAPE FAILED"
 msgstr "الكشط فشل"
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
