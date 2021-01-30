@@ -19,7 +19,8 @@ namespace Renderer
 		GLint posAttrib;
 		GLint colAttrib;
 		GLint texAttrib;
-		GLint mvpUniform;
+		GLint projUniform;
+        GLint worldUniform;
 	}; // ShaderProgram
 
 

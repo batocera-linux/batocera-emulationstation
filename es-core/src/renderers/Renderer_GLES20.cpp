@@ -33,10 +33,6 @@ namespace Renderer
 
 	static SDL_GLContext sdlContext       = nullptr;
 	
-	static Transform4x4f projectionMatrix = Transform4x4f::Identity();
-	static Transform4x4f worldViewMatrix  = Transform4x4f::Identity();
-	static Transform4x4f mvpMatrix		  = Transform4x4f::Identity();
-
 	static Shader  	vertexShaderTexture;
 	static Shader  	fragmentShaderColorTexture;
 	static ShaderProgram    shaderProgramColorTexture;
@@ -150,13 +146,14 @@ namespace Renderer
 
 		// vertex shader (no texture)
 		const GLchar* vertexSourceNoTexture =
-			"uniform   mat4 u_mvp; \n"
+			"uniform   mat4 u_proj; \n"
+            "uniform   mat4 u_world; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec4 a_col; \n"
 			"varying   vec4 v_col; \n"
 			"void main(void)                                     \n"
 			"{                                                   \n"
-			"    gl_Position = u_mvp * vec4(a_pos.xy, 0.0, 1.0); \n"
+			"    gl_Position = u_proj * u_world * vec4(a_pos.xy, 0.0, 1.0); \n"
 			"    v_col       = a_col;                            \n"
 			"}                                                   \n";
 
@@ -181,12 +178,14 @@ namespace Renderer
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
 		shaderProgramColorNoTexture.posAttrib = glGetAttribLocation(shaderProgramColorNoTexture.id, "a_pos");
 		shaderProgramColorNoTexture.colAttrib = glGetAttribLocation(shaderProgramColorNoTexture.id, "a_col");
-		shaderProgramColorNoTexture.mvpUniform = glGetUniformLocation(shaderProgramColorNoTexture.id, "u_mvp");
+		shaderProgramColorNoTexture.projUniform = glGetUniformLocation(shaderProgramColorNoTexture.id, "u_proj");
+        shaderProgramColorNoTexture.worldUniform = glGetUniformLocation(shaderProgramColorNoTexture.id, "u_world");
 		shaderProgramColorNoTexture.texAttrib = -1;
 
 		// vertex shader (texture)
 		const GLchar* vertexSourceTexture =
-			"uniform   mat4 u_mvp; \n"
+            "uniform   mat4 u_proj; \n"
+            "uniform   mat4 u_world; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec2 a_tex; \n"
 			"attribute vec4 a_col; \n"
@@ -194,7 +193,7 @@ namespace Renderer
 			"varying   vec4 v_col; \n"
 			"void main(void)                                     \n"
 			"{                                                   \n"
-			"    gl_Position = u_mvp * vec4(a_pos.xy, 0.0, 1.0); \n"
+			"    gl_Position = u_proj * u_world * vec4(a_pos.xy, 0.0, 1.0); \n"
 			"    v_tex       = a_tex;                            \n"
 			"    v_col       = a_col;                            \n"
 			"}                                                   \n";
@@ -224,7 +223,8 @@ namespace Renderer
 		shaderProgramColorTexture.posAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_pos");
 		shaderProgramColorTexture.colAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_col");
 		shaderProgramColorTexture.texAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_tex");
-		shaderProgramColorTexture.mvpUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_mvp");
+		shaderProgramColorTexture.projUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_proj");
+        shaderProgramColorTexture.worldUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_world");
 		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
 		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
 
@@ -543,13 +543,10 @@ namespace Renderer
 
 	void setProjection(const Transform4x4f& _projection)
 	{
-		projectionMatrix = _projection;
-
-		mvpMatrix = projectionMatrix * worldViewMatrix;
 		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.projUniform, 1, GL_FALSE, (float*)&_projection));
 		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.projUniform, 1, GL_FALSE, (float*)&_projection));
 
 	} // setProjection
 
@@ -557,14 +554,13 @@ namespace Renderer
 
 	void setMatrix(const Transform4x4f& _matrix)
 	{
-		worldViewMatrix = _matrix;
+        Transform4x4f worldViewMatrix = _matrix;
 		worldViewMatrix.round();
 
-		mvpMatrix = projectionMatrix * worldViewMatrix;
 		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.worldUniform, 1, GL_FALSE, (float*)&worldViewMatrix));
 		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.worldUniform, 1, GL_FALSE, (float*)&worldViewMatrix));
 
 	} // setMatrix
 
