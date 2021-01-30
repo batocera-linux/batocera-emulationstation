@@ -63,7 +63,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 				return;
 		}
 
-		if(!Settings::getInstance()->getBool("IgnoreGamelist") && mMetadata.name != "imageviewer")
+		if(!Settings::getInstance()->getBool("IgnoreGamelist")) // && !hasPlatformId(PlatformIds::IMAGEVIEWER))
 			parseGamelist(this, fileMap);
 	}
 	else
@@ -1088,7 +1088,12 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		{
 			// when platform is ignore, do not allow other platforms
 			platformIds.clear();
-			platformIds.push_back(platformId);
+
+			if (md.name == "imageviewer")
+				platformIds.push_back(PlatformIds::IMAGEVIEWER);
+			else
+				platformIds.push_back(platformId);
+
 			break;
 		}
 
@@ -1098,7 +1103,6 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		else if (str != NULL && str[0] != '\0' && platformId == PlatformIds::PLATFORM_UNKNOWN)
 			LOG(LogWarning) << "  Unknown platform for system \"" << md.name << "\" (platform \"" << str << "\" from list \"" << platformList << "\")";
 	}
-
 
 	//validate
 	if (md.name.empty() || path.empty() || extensions.empty() || cmd.empty())

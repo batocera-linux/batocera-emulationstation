@@ -11,7 +11,6 @@ class ComponentList;
 class DateTimeEditComponent;
 class WebImageComponent;
 class RatingComponent;
-class ScrollableContainer;
 class TextComponent;
 
 class ScraperSearchComponent : public GuiComponent
@@ -61,8 +60,7 @@ private:
 
 	ComponentGrid mGrid;
 
-	std::shared_ptr<TextComponent> mResultName;
-	//std::shared_ptr<ScrollableContainer> mDescContainer;
+	std::shared_ptr<TextComponent> mResultName;	
 	std::shared_ptr<TextComponent> mResultDesc;
 	std::shared_ptr<WebImageComponent> mResultThumbnail;
 	std::shared_ptr<ComponentList> mResultList;

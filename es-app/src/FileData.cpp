@@ -168,15 +168,20 @@ const std::string FileData::getThumbnailPath()
 			}
 		}
 
-		if (thumbnail.empty() && getSystemName() == "imageviewer")
+		if (thumbnail.empty() && getType() == GAME && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
-			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
-			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
-				return ":/pdf.jpg";
-			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-				return ":/vid.jpg";
+			if (getType() == FOLDER && ((FolderData*)this)->mChildren.size())
+				return ((FolderData*)this)->mChildren[0]->getThumbnailPath();
+			else if (getType() == GAME)
+			{
+				thumbnail = getPath();
 
-			return getPath();
+				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(thumbnail));
+				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+					return ":/pdf.jpg";
+				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+					return ":/vid.jpg";
+			}
 		}
 
 	}
@@ -298,15 +303,20 @@ const std::string FileData::getImagePath()
 			}
 		}
 
-		if (image.empty() && getSystemName() == "imageviewer")
+		if (image.empty() && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
-			image = getPath();
+			if (getType() == FOLDER && ((FolderData*)this)->mChildren.size())
+				return ((FolderData*)this)->mChildren[0]->getImagePath();
+			else if (getType() == GAME)
+			{
+				image = getPath();
 
-			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
-			if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
-				return ":/pdf.jpg";
-			else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-				return ":/vid.jpg";
+				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
+				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+					return ":/pdf.jpg";
+				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+					return ":/vid.jpg";
+			}
 		}
 	}
 

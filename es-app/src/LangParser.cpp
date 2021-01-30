@@ -92,7 +92,7 @@ void LangInfo::extractLang(std::string val)
 LangInfo LangInfo::parse(std::string rom, SystemData* system)
 {
 	LangInfo info;
-	if (rom.empty())
+	if (rom.empty() || (system && system->hasPlatformId(PlatformIds::IMAGEVIEWER)))
 		return info;
 
 	std::string fileName = Utils::String::toLower(Utils::FileSystem::getFileName(rom));

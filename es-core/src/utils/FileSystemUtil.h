@@ -33,6 +33,7 @@ namespace Utils
 		std::string resolveSymlink     (const std::string& _path);
 		bool        removeFile         (const std::string& _path);
 		bool        createDirectory    (const std::string& _path);
+		bool        removeDirectory    (const std::string& _path);
 		bool        exists             (const std::string& _path);
 		bool        isAbsolute         (const std::string& _path);
 		bool        isRegularFile      (const std::string& _path);
@@ -79,6 +80,9 @@ namespace Utils
 #ifdef WIN32
 		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);
 #endif
+
+		std::string getFileCrc32(const std::string& filename);
+		std::string getFileMd5(const std::string& filename);
 
 		class FileSystemCacheActivator
 		{

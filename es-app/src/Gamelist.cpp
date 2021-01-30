@@ -315,7 +315,7 @@ bool removeFromGamelistRecovery(FileData* file)
 
 bool hasDirtyFile(SystemData* system)
 {
-	if (system == nullptr || !system->isGameSystem() || system->getName() == "imageviewer")
+	if (system == nullptr || !system->isGameSystem()) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return false;
 
 	FolderData* rootFolder = system->getRootFolder();
@@ -339,7 +339,7 @@ void updateGamelist(SystemData* system)
 	if(system == nullptr || Settings::getInstance()->getBool("IgnoreGamelist"))
 		return;
 
-	if (!system->isGameSystem() || system->getName() == "imageviewer")
+	if (!system->isGameSystem()) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();
@@ -440,7 +440,7 @@ void updateGamelist(SystemData* system)
 
 void cleanupGamelist(SystemData* system)
 {
-	if (!system->isGameSystem() || system->getName() == "imageviewer" || system->isCollection())
+	if (!system->isGameSystem() || system->isCollection()) //  || system->hasPlatformId(PlatformIds::IMAGEVIEWER)
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();

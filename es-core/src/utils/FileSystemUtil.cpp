@@ -2,6 +2,8 @@
 
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include "utils/ZipFile.h"
+#include "utils/md5.h"
 
 #include "Settings.h"
 #include <sys/stat.h>
@@ -226,8 +228,8 @@ namespace Utils
 #if defined(_WIN32)
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
-
-				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
+				
+				HANDLE hFind = FindFirstFileExW(Utils::String::convertToWideString(wildcard).c_str(),
 					FINDEX_INFO_LEVELS::FindExInfoBasic, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
 					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
@@ -318,7 +320,7 @@ namespace Utils
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
 				
-				HANDLE hFind = FindFirstFileExW(std::wstring(wildcard.begin(), wildcard.end()).c_str(),
+				HANDLE hFind = FindFirstFileExW(Utils::String::convertToWideString(wildcard).c_str(),
 					FINDEX_INFO_LEVELS::FindExInfoBasic, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
 					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
@@ -869,6 +871,21 @@ namespace Utils
 
 		} // resolveSymlink
 
+		bool removeDirectory(const std::string& _path)
+		{
+			std::string path = getGenericPath(_path);
+
+			// don't remove if it doesn't exists
+			if (!exists(path))
+				return true;
+
+#if WIN32			
+			return RemoveDirectoryW(Utils::String::convertToWideString(_path).c_str());
+#else
+			return (rmdir(path.c_str()) == 0);
+#endif
+		}
+
 		bool removeFile(const std::string& _path)
 		{
 			std::string path = getGenericPath(_path);
@@ -883,6 +900,9 @@ namespace Utils
 
 			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
 #else
+			if (isDirectory(_path))
+				return (rmdir(path.c_str()) == 0);
+
 			// try to remove file
 			return (unlink(path.c_str()) == 0);
 #endif
@@ -897,6 +917,11 @@ namespace Utils
 			if(exists(path))
 				return true;
 
+#ifdef WIN32	
+			if (::CreateDirectoryW(Utils::String::convertToWideString(_path).c_str(), nullptr))
+				return true;
+#endif
+
 			// try to create directory
 			if(mkdir(path.c_str(), 0755) == 0)
 				return true;
@@ -908,6 +933,7 @@ namespace Utils
 			if(parent != path)
 				createDirectory(parent);
 
+			
 			// try to create directory again now that the parent should exist
 			return (mkdir(path.c_str(), 0755) == 0);
 
@@ -1249,7 +1275,7 @@ namespace Utils
 			}
 
 			for (auto file : directories)
-				rmdir(Utils::FileSystem::getPreferredPath(file).c_str());
+				removeDirectory(Utils::FileSystem::getPreferredPath(file).c_str());
 		}
 
 		std::string megaBytesToString(unsigned long size)
@@ -1293,6 +1319,73 @@ namespace Utils
 			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
 #endif
 		}
+		
+		std::string getFileCrc32(const std::string& filename)
+		{
+			std::string hex;
+
+#if defined(_WIN32)
+			FILE* file = _wfopen(Utils::String::convertToWideString(filename).c_str(), L"rb");
+#else			
+			FILE* file = fopen(fileName.c_str(), "rb");
+#endif
+			if (file)
+			{
+				#define CRCBUFFERSIZE 64 * 1024
+				char* buffer = new char[CRCBUFFERSIZE];
+				if (buffer)
+				{
+					size_t size;
+
+					unsigned int file_crc32 = 0;
+
+					while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
+						file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, buffer, size);
+
+					hex = Utils::String::toHexString(file_crc32);
+
+					delete buffer;
+				}
+
+				fclose(file);
+			}
+
+			return hex;
+		}
+
+		std::string getFileMd5(const std::string& filename)
+		{
+			std::string hex;
+
+#if defined(_WIN32)
+			FILE* file = _wfopen(Utils::String::convertToWideString(filename).c_str(), L"rb");
+#else			
+			FILE* file = fopen(fileName.c_str(), "rb");
+#endif
+			if (file)
+			{
+				#define CRCBUFFERSIZE 64 * 1024
+				char* buffer = new char[CRCBUFFERSIZE];
+
+				if (buffer)
+				{
+					MD5 md5;
+
+					size_t size;
+					while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
+						md5.update(buffer, size);
+
+					md5.finalize();
+					hex = md5.hexdigest();
+
+					delete buffer;
+				}
+
+				fclose(file);
+			}
+
+			return hex;
+		}		
 
 #ifdef WIN32
 		void splitCommand(std::string cmd, std::string* executable, std::string* parameters)

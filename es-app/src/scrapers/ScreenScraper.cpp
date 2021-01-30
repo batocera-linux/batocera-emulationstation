@@ -10,7 +10,6 @@
 #include <pugixml/src/pugixml.hpp>
 #include <cstring>
 #include "SystemConf.h"
-#include "md5.h"
 #include <thread>
 #include "LangParser.h"
 #include "ApiSystem.h"
@@ -116,6 +115,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ZX81, 77 },
 	{ TIC80, 222 },
 	{ MOONLIGHT, 138 }, // "PC Windows"
+	{ MODEL3, 55 },
 
 	// Windows
 	{ VISUALPINBALL, 198 },

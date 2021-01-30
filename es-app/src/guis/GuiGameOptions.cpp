@@ -163,7 +163,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		}
 
 		SystemData* all = SystemData::getSystem("all");
-		if (all != nullptr && game != nullptr && game->getType() != FOLDER)
+		if (all != nullptr && game != nullptr && game->getType() != FOLDER && !game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
 			mMenu.addEntry(_("FIND SIMILAR GAMES..."), false, [this, game, all]
 			{
@@ -226,7 +226,9 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGameOptions::deleteCollection, this));
 
 	bool fromPlaceholder = game->isPlaceHolder();
-	if (game->getType() == FOLDER && ((FolderData*)game)->isVirtualStorage())
+	if (game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
+		fromPlaceholder = true; 
+	else if (game->getType() == FOLDER && ((FolderData*)game)->isVirtualStorage())
 		fromPlaceholder = true;
 	else if (game->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 		fromPlaceholder = true;

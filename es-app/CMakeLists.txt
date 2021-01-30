@@ -75,8 +75,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/md5.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.h    
 
     # Views
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/BasicGameListView.h
@@ -169,8 +168,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/md5.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.cpp	
 
     # Views
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/BasicGameListView.cpp
@@ -196,6 +194,21 @@ if(MSVC)
     LIST(APPEND ES_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.rc
     )
+endif()
+
+# Keep Directory structure in Visual Studio
+if(MSVC)
+	file(
+		 GLOB_RECURSE source_list RELATIVE
+		 "${CMAKE_CURRENT_SOURCE_DIR}"
+		 *.cpp *.c
+		)
+	foreach(source IN LISTS source_list)
+		get_filename_component(source_path "${source}" PATH)
+		string(REPLACE "/" "\\" source_path_msvc "${source_path}")
+		string(REPLACE "src" "" source_path_final "${source_path_msvc}")
+		source_group("${source_path_final}" FILES "${source}")
+	endforeach()  	
 endif()
 
 #-------------------------------------------------------------------------------

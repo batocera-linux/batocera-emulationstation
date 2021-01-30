@@ -10,6 +10,11 @@
 #include <string.h>
 #include "Settings.h"
 
+#include <algorithm>
+#include "utils/ZipFile.h"
+#include "utils/StringUtil.h"
+#include "utils/FileSystemUtil.h"
+
 #define DPI 96
 
 #define OPTIMIZEVRAM Settings::getInstance()->getBool("OptimizeVRAM")
@@ -205,6 +210,68 @@ bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, 
 	return true;
 }
 
+static std::mutex mCbzMutex;
+
+bool TextureData::loadFromCbz()
+{
+	std::unique_lock<std::mutex> lock(mCbzMutex);
+
+	bool retval = false;
+
+	try
+	{
+		std::vector<Utils::Zip::ZipInfo> files;
+
+		Utils::Zip::ZipFile zipFile;
+		if (zipFile.load(mPath))
+		{
+			for (auto file : zipFile.infolist())
+			{
+				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file.filename));
+				if (ext != ".jpg")
+					continue;
+
+				if (Utils::String::startsWith(file.filename, "__"))
+					continue;
+
+				files.push_back(file);
+			}
+
+			std::sort(files.begin(), files.end(), [](const Utils::Zip::ZipInfo& a, const Utils::Zip::ZipInfo& b) { return Utils::String::toLower(a.filename) < Utils::String::toLower(b.filename); });
+		}
+
+		if (files.size() > 0 && files[0].file_size > 0)
+		{
+			size_t size = files[0].file_size;
+			unsigned char* buffer = new unsigned char[size];
+
+			Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n)
+			{
+				unsigned char* pSource = (unsigned char*)pBuf;
+				unsigned char* pDest = (unsigned char*)pOpaque;
+
+				memcpy(pDest + ofs, pSource, n);
+
+				return n;
+			};
+
+			zipFile.readBuffered(files[0].filename, func, buffer);
+
+			retval = initImageFromMemory(buffer, size);
+
+			if (retval)
+				ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+		}
+	}
+	catch (...)
+	{
+		// Bad zip file
+		delete this;
+	}
+
+	return retval;
+}
+
 bool TextureData::load(bool updateCache)
 {
 	bool retval = false;
@@ -214,6 +281,9 @@ bool TextureData::load(bool updateCache)
 	{
 		LOG(LogDebug) << "TextureData::load " << mPath;
 
+		if (mPath.substr(mPath.size() - 4, std::string::npos) == ".cbz")
+			return loadFromCbz();
+		
 		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 		const ResourceData& data = rm->getFileData(mPath);
 		// is it an SVG?
