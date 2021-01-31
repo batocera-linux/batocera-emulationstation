@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -209,16 +209,16 @@ msgid "Region"
 msgstr "Region"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos checksumme"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos Spiel ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "Screenscraper Spiel ID"
 
 msgid "all games"
 msgstr "alle Spiele"
@@ -239,21 +239,24 @@ msgid "never played"
 msgstr "noch nie gespielt"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "arcade"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "Sammlungen"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "'%s' to '%s' hinzugefügt"
+msgstr "'%s' zu '%s' hinzugefügt"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "'%s' from '%s' entfernt"
+msgstr "'%s' von '%s' entfernt"
 
 msgid "This collection is empty."
 msgstr "Diese Sammlung ist leer."
@@ -448,19 +451,19 @@ msgstr "BITTE WARTEN"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d von %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
 msgid "Points"
-msgstr ""
+msgstr "Punkte"
 
 msgid "Rank"
-msgstr ""
+msgstr "Rang"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "ZEIGE DETAILS"
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -481,10 +484,10 @@ msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "SPRINGE ZU BUCHSTABE"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "WÄHLE ZUFÄLLIGES SPIEL"
 
 msgid "SORT GAMES BY"
 msgstr "SPIELE SORTIEREN NACH"
@@ -787,10 +790,10 @@ msgid "PLAYER 2"
 msgstr "SPIELER 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "SPIELER 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "SPIELER 4"
 
 msgid "COMBINATIONS"
 msgstr "KOMBINATIONEN"
@@ -868,19 +871,19 @@ msgid "VIEW GAME MAP"
 msgstr "SPIELE-KARTE ANSEHEN"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "AKTUELLER CORE IST NICHT KOMPATIBEL"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "BENÖTIGTER CORE"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "ZEIGE SPIEL ACHIEVEMENTS"
 
 msgid "GAME"
-msgstr ""
+msgstr "SPIEL"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "SPEICHERSTÄNDE"
 
 msgid "START NETPLAY HOST"
 msgstr "STARTE NETPLAY HOST"
@@ -908,11 +911,11 @@ msgstr "SAMMLUNGEN"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "ENTFERNE VON %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "HINZUFÜGEN ZU %s"
 
 msgid "FAVORITES"
 msgstr "FAVORITEN"
@@ -986,32 +989,32 @@ msgstr[0] "%i SPIEL ÜBERSPRUNGEN."
 msgstr[1] "%i SPIELE ÜBERSPRUNGEN."
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Freigeschalten am"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "DIESES SPIEL HAT NOCH KEINE ACHIEVEMENTS"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Achievements gewonnen"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% komplett"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "AUTOMATISCHER SPEICHERSTAND"
 
 msgid "SLOT"
-msgstr ""
+msgstr "SLOT"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "STARTE NEUES SPIEL"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "STARTE AUTOMATISCHEN SPEICHERSTAND"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "KOPIERE ZU FREIEN SLOT"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER STARTEN"
@@ -1107,7 +1110,7 @@ msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA SKALIERUNG"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -1203,7 +1206,7 @@ msgid "SCRAPE FANART"
 msgstr "FANART SCRAPEN"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "KARTE SCRAPEN"
 
 msgid "SCRAPE MANUAL"
 msgstr "ANLEITUNG SCRAPEN"
@@ -1293,10 +1296,10 @@ msgid "CLEAR CACHES"
 msgstr "LEERE CACHES"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "BILD-CACHE ERSTELLEN"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "ERSTELLE BILD-CACHE"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DATEI-ERWEITERUNGEN ZURÜCKSETZEN"
@@ -1305,7 +1308,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "SPIELE-SPRACHE/REGION ERNEUT ERKENNEN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "FINDE ALLE SPIELE MIT NETZWERK/ACHIEVEMENTS"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
@@ -1515,6 +1518,12 @@ msgstr "VERBOSE MODE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "IM HAUPTMENÜ ZEIGEN"
 
@@ -1522,13 +1531,13 @@ msgid "GAME INDEXES"
 msgstr "SPIELE INDEXE"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "FINDE ALLE SPIELE"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "FINDE NEUE SPIELE"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "RETROACHIEVEMENTS KÖNNEN NICHT AKTIVIERT WERDEN :"
 
 msgid "ENABLE NETPLAY"
 msgstr "AKTIVERE NETZWERKSPIEL"
@@ -1540,7 +1549,7 @@ msgid "PORT"
 msgstr "PORT"
 
 msgid "USE RELAY SERVER"
-msgstr "USE RELAY SERVER"
+msgstr "NUTZE RELAY SERVER"
 
 msgid "CHECK MISSING INDEXES AT STARTUP"
 msgstr "FEHLENDE INDEXE BEIM START PRÜFEN"
@@ -1864,7 +1873,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "INTERNE AUFLÖSUNG"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "CONTROLLER AUTOMATISCH KONFIGURIEREN"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATIERE GERÄT"
@@ -1898,16 +1907,16 @@ msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "ZOOM-"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "ZOOM+"
 
 msgid "MOVE"
-msgstr ""
+msgstr "BEWEGEN"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ZOOM"
 
 msgid "SYSTEM INFO"
 msgstr "SYSTEM INFORMATIONEN"
@@ -2013,6 +2022,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Suche"
@@ -2120,16 +2131,16 @@ msgid "Extracting"
 msgstr "Extrahiere"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "SUCHE RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "SUCHE NETZWERKSPIELE"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INDEXIERUNG ABGESCHLOSSEN"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "AKTUALISIERE DIE SPIELELISTE UM DIE ÄNDERUNGEN ANZUWENDEN."
 
 msgid "GENRE"
 msgstr "GATTUNG"
@@ -2156,15 +2167,26 @@ msgid "ALREADY PLAYED"
 msgstr "BEREITS GESPIELT"
 
 msgid "HAS ACHIEVEMENTS"
+msgstr "HAT ACHIEVEMENTS"
+
+msgid "VERTICAL"
 msgstr ""
 
 msgid "SCRAPING"
-msgstr "SCRAPING"
+msgstr "SCRAPE"
 
 msgid "SCRAPE FAILED"
 msgstr "SCRAPE FEHLGESCHLAGEN"
 
 msgid "SCRAPING FINISHED"
+msgstr "SCRAPEN ABGESCHLOSSEN"
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

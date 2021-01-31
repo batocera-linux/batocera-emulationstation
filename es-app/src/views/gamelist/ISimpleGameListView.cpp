@@ -246,7 +246,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		else if (config->isMappedTo("x", input))
 		{
 			FileData* cursor = getCursor();
-			if (cursor != nullptr)
+			if (cursor != nullptr) // && !cursor->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 			{
 				Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
 				mWindow->pushGui(new GuiGameOptions(mWindow, cursor));

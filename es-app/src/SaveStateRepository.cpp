@@ -125,6 +125,9 @@ bool SaveStateRepository::isEnabled(FileData* game)
 	if (system->getSaveStateRepository()->getSavesPath().empty())
 		return false;
 	
+	if (system->hasPlatformId(PlatformIds::IMAGEVIEWER))
+		return false;
+
 	return true;
 }
 

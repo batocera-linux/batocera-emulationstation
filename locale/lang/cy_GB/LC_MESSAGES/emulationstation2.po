@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-26 20:55+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -244,6 +244,9 @@ msgstr "cyflawniadau-retro"
 
 msgid "arcade"
 msgstr "arcêd"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "casgliadau"
@@ -1523,6 +1526,12 @@ msgstr "MODD VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SGRINLUN AWTOMATIG"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "DANGOS YN Y BRIF DDEWISLEN"
 
@@ -2177,6 +2186,9 @@ msgstr "WEDI CHWARAE"
 msgid "HAS ACHIEVEMENTS"
 msgstr "GYDA CYFLAWNIADAU"
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "YN CRAFU"
 
@@ -2185,6 +2197,14 @@ msgstr "WEDI METHU CRAFU"
 
 msgid "SCRAPING FINISHED"
 msgstr "WEDI GORFFEN CRAFU"
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
+msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT AM UCHAF, ISEL, AC ARBENNIG"

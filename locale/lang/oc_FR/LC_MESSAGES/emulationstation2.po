@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -248,6 +248,9 @@ msgid "retroachievements"
 msgstr ""
 
 msgid "arcade"
+msgstr ""
+
+msgid "vertical arcade"
 msgstr ""
 
 msgid "collections"
@@ -1506,6 +1509,12 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA D'ECRAN AUTOMATICA"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR AL MENÚ PRINCIPAL"
 
@@ -2135,6 +2144,9 @@ msgstr ""
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "RECUPERACION EN CORS"
 
@@ -2142,6 +2154,14 @@ msgid "SCRAPE FAILED"
 msgstr ""
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

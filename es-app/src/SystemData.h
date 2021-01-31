@@ -38,6 +38,7 @@ struct CustomFeature
 
 struct GameCountInfo
 {
+	int visibleGames;
 	int totalGames;
 	int playCount;
 	int favoriteCount;

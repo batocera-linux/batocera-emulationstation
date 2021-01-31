@@ -130,7 +130,11 @@ namespace PlatformIds
 
 		{ "vic20",					VIC20 },
 		{ "c20",					VIC20 },
+
+		{ "model3",					MODEL3 },
 			
+		{ "imageviewer",			IMAGEVIEWER },
+
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};

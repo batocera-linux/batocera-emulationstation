@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -243,6 +243,9 @@ msgstr ""
 
 msgid "arcade"
 msgstr "arkad"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "samlingar"
@@ -1511,6 +1514,12 @@ msgstr "DETALJERAT LÄGE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISKA SKÄRMDUMPAR"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
@@ -2145,6 +2154,9 @@ msgstr ""
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -2152,6 +2164,14 @@ msgid "SCRAPE FAILED"
 msgstr "SKRAPNING MISSLYCKADES"
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

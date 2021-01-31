@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -240,6 +240,9 @@ msgstr ""
 
 msgid "arcade"
 msgstr "아케이드"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "컬렉션"
@@ -1503,6 +1506,12 @@ msgstr "상세 모드"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "메인 메뉴에 보이기"
 
@@ -2135,6 +2144,9 @@ msgstr "이미 플레이하였음"
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "게임 아트워크 수집 중"
 
@@ -2142,6 +2154,14 @@ msgid "SCRAPE FAILED"
 msgstr "게임 아트워크 수집 실패"
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

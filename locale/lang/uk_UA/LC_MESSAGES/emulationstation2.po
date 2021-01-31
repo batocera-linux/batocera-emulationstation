@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -244,6 +244,9 @@ msgstr ""
 
 msgid "arcade"
 msgstr "аркада"
+
+msgid "vertical arcade"
+msgstr ""
 
 msgid "collections"
 msgstr "колекції"
@@ -1513,6 +1516,12 @@ msgstr "ДОКЛАДНИЙ РЕЖИМ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr "ПОКАЗАТИ В ГОЛОВНОМУ МЕНЮ"
 
@@ -2152,6 +2161,9 @@ msgstr ""
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -2159,6 +2171,14 @@ msgid "SCRAPE FAILED"
 msgstr ""
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

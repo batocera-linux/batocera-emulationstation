@@ -24,6 +24,7 @@ public:
 
 	// Read the data into memory if necessary
 	bool load(bool updateCache = false);
+	bool loadFromCbz();
 
 	bool isLoaded();
 

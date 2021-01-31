@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 21:40+0100\n"
+"POT-Creation-Date: 2021-01-30 09:05+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -239,6 +239,9 @@ msgid "retroachievements"
 msgstr ""
 
 msgid "arcade"
+msgstr ""
+
+msgid "vertical arcade"
 msgstr ""
 
 msgid "collections"
@@ -1500,6 +1503,12 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
 msgid "SHOW IN MAIN MENU"
 msgstr ""
 
@@ -2134,6 +2143,9 @@ msgstr ""
 msgid "HAS ACHIEVEMENTS"
 msgstr ""
 
+msgid "VERTICAL"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -2141,6 +2153,14 @@ msgid "SCRAPE FAILED"
 msgstr ""
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+#, c-format
+msgid "%s connected"
+msgstr ""
+
+#, c-format
+msgid "%s disconnected"
 msgstr ""
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"

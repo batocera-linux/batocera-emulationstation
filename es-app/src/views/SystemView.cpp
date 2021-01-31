@@ -650,7 +650,10 @@ void SystemView::updateExtraTextBinding()
 		if (src.find("{binding:") == std::string::npos)
 			continue;
 
-		src = Utils::String::replace(src, "{binding:total}", std::to_string(info->totalGames));
+		if (info->totalGames != info->visibleGames)
+			src = Utils::String::replace(src, "{binding:total}", std::to_string(info->visibleGames) + " / " + std::to_string(info->totalGames));
+		else
+			src = Utils::String::replace(src, "{binding:total}", std::to_string(info->totalGames));
 
 		if (info->playCount == 0)
 			src = Utils::String::replace(src, "{binding:played}", _("None"));
@@ -746,7 +749,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 		mSystemInfo.setOpacity((unsigned char)(Math::lerp(infoStartOpacity, 0.f, t) * 255));
 	}, (int)(infoStartOpacity * (goFast ? 10 : 150)));
 
-	unsigned int gameCount = getSelected()->getGameCountInfo()->totalGames;
+	unsigned int gameCount = getSelected()->getGameCountInfo()->visibleGames;
 
 	updateExtraTextBinding();
 
