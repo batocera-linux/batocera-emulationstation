@@ -193,7 +193,6 @@ namespace Renderer
 	void setupWindow()
 	{
 #if OPENGL_EXTENSIONS
-		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 1);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 #else
@@ -202,6 +201,7 @@ namespace Renderer
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 #endif
 
+		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE,       1);
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE,           8);
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,         8);
 		SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,          8);
