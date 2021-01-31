@@ -40,7 +40,7 @@ std::string SaveStateRepository::getSavesPath()
 #endif
 
 #ifdef _ENABLEEMUELEC
-	return Utils::FileSystem::combine("/storage/roms/", mSystem->getName());
+	return Utils::FileSystem::combine("/storage/roms/savestates/", mSystem->getName());
 #else
 	return Utils::FileSystem::combine("/userdata/saves/", mSystem->getName());
 #endif
