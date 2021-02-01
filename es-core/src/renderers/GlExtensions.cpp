@@ -65,6 +65,8 @@ namespace glext
 }
 
 #if defined(_DEBUG)
+#include "Log.h"
+
 void _GLCheckError(const char* _funcName)
 {
 	const GLenum errorCode = glGetError();

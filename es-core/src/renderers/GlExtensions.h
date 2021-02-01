@@ -44,7 +44,7 @@ using namespace glext;
 
 #if defined(_DEBUG)
 #define GL_CHECK_ERROR(Function) (Function, _GLCheckError(#Function))
-static void _GLCheckError(const char* _funcName);
+void _GLCheckError(const char* _funcName);
 #else
 #define GL_CHECK_ERROR(Function) (Function)
 #endif
