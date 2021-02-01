@@ -1,34 +1,17 @@
-#if defined(USE_OPENGLES_20)
+#if defined(USE_OPENGLES_20) || defined (USE_OPENGL_21)
 
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
 #include "Log.h"
 #include "Settings.h"
 
-#include <SDL_opengles2.h>
-#include <SDL.h>
 #include <vector>
-#include "renderers/Shader.h"
 
-//////////////////////////////////////////////////////////////////////////
+#include "GlExtensions.h"
+#include "Shader.h"
 
 namespace Renderer
 {
-
-#if defined(_DEBUG)
-#define GL_CHECK_ERROR(Function) (Function, _GLCheckError(#Function))
-
-	static void _GLCheckError(const char* _funcName)
-	{
-		const GLenum errorCode = glGetError();
-
-		if(errorCode != GL_NO_ERROR)
-			LOG(LogError) << "GL error: " << _funcName << " failed with error code: " << errorCode;
-	}
-#else
-#define GL_CHECK_ERROR(Function) (Function)
-#endif
-
 //////////////////////////////////////////////////////////////////////////
 
 	static SDL_GLContext sdlContext       = nullptr;
@@ -48,108 +31,14 @@ namespace Renderer
 	static GLuint        vertexBuffer     = 0;
 
 //////////////////////////////////////////////////////////////////////////
-
-	bool compileShader(Shader &shader, GLuint id, const char* source)
-	{
-		// Try to compile GLSL source code
-		shader.compileStatus = false;
-		GL_CHECK_ERROR(glShaderSource(id, 1, &source, nullptr));
-		GL_CHECK_ERROR(glCompileShader(id));
-
-		// Check compile status (ok, warning, error)
-		GLint isCompiled = GL_FALSE;
-		GLint maxLength  = 0;
-		GL_CHECK_ERROR(glGetShaderiv(id, GL_COMPILE_STATUS, &isCompiled));
-		GL_CHECK_ERROR(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &maxLength));
-
-		// Read log if any
-		if(maxLength > 1)
-		{
-			char* infoLog = new char[maxLength + 1];
-
-			GL_CHECK_ERROR(glGetShaderInfoLog(id, maxLength, &maxLength, infoLog));
-
-			if(isCompiled == GL_FALSE)
-			{
-				LOG(LogError) << "GLSL Vertex Compile Error\n" << infoLog;
-				delete[] infoLog;
-				return false;
-			}
-			else
-			{
-				if(strstr(infoLog, "WARNING") || strstr(infoLog, "warning") || strstr(infoLog, "Warning"))
-					LOG(LogWarning) << "GLSL Vertex Compile Warning\n" << infoLog;
-				else
-					LOG(LogInfo) << "GLSL Vertex Compile Message\n" << infoLog;
-				delete[] infoLog;
-			}
-		}
-
-		// Compile OK ? Affect shader id
-		shader.compileStatus = isCompiled;
-		if (shader.compileStatus == GL_TRUE)
-		{
-			shader.id = id;
-			return true;
-		}
-
-		return false;
-	}
-
- 	bool linkShaderProgram(Shader &vertexShader, Shader &fragmentShader, ShaderProgram &shaderProgram)
- 	{
-		// shader program (texture)
-		GLuint programId = glCreateProgram();
-		GL_CHECK_ERROR(glAttachShader(programId, vertexShader.id));
-		GL_CHECK_ERROR(glAttachShader(programId, fragmentShader.id));
-
-		GL_CHECK_ERROR(glLinkProgram(programId));
-
-		GLint isCompiled = GL_FALSE;
-		GLint maxLength  = 0;
-
-		GL_CHECK_ERROR(glGetProgramiv(programId, GL_LINK_STATUS, &isCompiled));
-		GL_CHECK_ERROR(glGetProgramiv(programId, GL_INFO_LOG_LENGTH, &maxLength));
-
-		if(maxLength > 1)
-		{
-			char* infoLog = new char[maxLength + 1];
-
-			GL_CHECK_ERROR(glGetProgramInfoLog(programId, maxLength, &maxLength, infoLog));
-
-			if(isCompiled == GL_FALSE)
-			{
-				LOG(LogError) << "GLSL Link (Texture) Error\n" << infoLog;
-				delete[] infoLog;
-				return false;
-			}
-			else
-			{
-				if(strstr(infoLog, "WARNING") || strstr(infoLog, "warning") || strstr(infoLog, "Warning"))
-					LOG(LogWarning) << "GLSL Link (Texture) Warning\n" << infoLog;
-				else
-					LOG(LogInfo) << "GLSL Link (Texture) Message\n" << infoLog;
-				delete[] infoLog;
-			}
-		}
-
-		// Compile OK ? Affect program id
-		shaderProgram.linkStatus = isCompiled;
-		if (shaderProgram.linkStatus == GL_TRUE)
-		{
-			shaderProgram.id = programId;
-			return true;
-		}
-
-		return false;
- 	}
-
+	
 	static void setupShaders()
 	{
 		bool result = false;
 
 		// vertex shader (no texture)
 		const GLchar* vertexSourceNoTexture =
+			"#version 130\n"
 			"uniform   mat4 u_mvp; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec4 a_col; \n"
@@ -162,6 +51,7 @@ namespace Renderer
 
 		// fragment shader (no texture)
 		const GLchar* fragmentSourceNoTexture =
+			"#version 130\n"
 			"precision highp float;     \n"
 			"varying   vec4  v_col;     \n"
 			"void main(void)            \n"
@@ -172,10 +62,11 @@ namespace Renderer
 
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorTextureId = glCreateShader(GL_VERTEX_SHADER);
-		result = compileShader(vertexShaderNoTexture, vertexShaderColorTextureId, vertexSourceNoTexture);
+		result = vertexShaderNoTexture.compile(vertexShaderColorTextureId, vertexSourceNoTexture);
 		const GLuint fragmentShaderNoTextureId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = compileShader(fragmentShaderColorNoTexture, fragmentShaderNoTextureId, fragmentSourceNoTexture);
-		result = linkShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture, shaderProgramColorNoTexture);
+		result = fragmentShaderColorNoTexture.compile(fragmentShaderNoTextureId, fragmentSourceNoTexture);
+		result = shaderProgramColorNoTexture.linkShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture);
+
 
 		// Set shader active, retrieve attributes and uniforms locations
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
@@ -186,6 +77,7 @@ namespace Renderer
 
 		// vertex shader (texture)
 		const GLchar* vertexSourceTexture =
+			"#version 130\n"
 			"uniform   mat4 u_mvp; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec2 a_tex; \n"
@@ -201,6 +93,7 @@ namespace Renderer
 
 		// fragment shader (texture)
 		const GLchar* fragmentSourceTexture =
+			"#version 130\n"
 			"precision highp float;       \n"
 			"precision mediump sampler2D; \n"
 			"varying   vec4      v_col; \n"
@@ -210,15 +103,15 @@ namespace Renderer
 			"{                                                   \n"
 			"    gl_FragColor = texture2D(u_tex, v_tex) * v_col; \n"
 			"}                                                   \n";
-
+		
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorNoTextureId = glCreateShader(GL_VERTEX_SHADER);
-		result = compileShader(vertexShaderTexture, vertexShaderColorNoTextureId, vertexSourceTexture);
+		result = vertexShaderTexture.compile(vertexShaderColorNoTextureId, vertexSourceTexture);
+
 		const GLuint fragmentShaderTextureId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = compileShader(fragmentShaderColorTexture, fragmentShaderTextureId, fragmentSourceTexture);
-		result = linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture, shaderProgramColorTexture);
-
-
+		result = fragmentShaderColorTexture.compile(fragmentShaderTextureId, fragmentSourceTexture);
+		result = shaderProgramColorTexture.linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture);
+		
 		// Set shader active, retrieve attributes and uniforms locations
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
 		shaderProgramColorTexture.posAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_pos");
@@ -299,10 +192,16 @@ namespace Renderer
 
 	void setupWindow()
 	{
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,  SDL_GL_CONTEXT_PROFILE_ES);
+#if OPENGL_EXTENSIONS
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+#else
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+#endif
 
+		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE,       1);
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE,           8);
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,         8);
 		SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,          8);
@@ -330,11 +229,21 @@ namespace Renderer
 		LOG(LogInfo) << "Checking available OpenGL extensions...";
 		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (extensions.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 
+#if OPENGL_EXTENSIONS
+		initializeGlExtensions();
+#endif
+
 		setupShaders();
 		setupVertexBuffer();
 
 		GL_CHECK_ERROR(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+
+#if OPENGL_EXTENSIONS
+		GL_CHECK_ERROR(glActiveTexture_(GL_TEXTURE0));
+#else
 		GL_CHECK_ERROR(glActiveTexture(GL_TEXTURE0));
+#endif
+
 		GL_CHECK_ERROR(glPixelStorei(GL_PACK_ALIGNMENT, 1));
 		GL_CHECK_ERROR(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
@@ -367,7 +276,8 @@ namespace Renderer
 
 		// Regular GL_ALPHA textures are black + alpha in shaders
 		// Create a GL_LUMINANCE_ALPHA texture instead so its white + alpha
-		if(type == GL_LUMINANCE_ALPHA)
+		
+		if (type == GL_LUMINANCE_ALPHA && _data != nullptr)
 		{
 			uint8_t* a_data  = (uint8_t*)_data;
 			uint8_t* la_data = new uint8_t[_width * _height * 2];
@@ -375,9 +285,7 @@ namespace Renderer
 			if (a_data)
 			{
 				for(uint32_t i=0; i<(_width * _height); ++i)
-				{
 					la_data[(i * 2) + 1] = a_data[i];
-				}
 			}
 
 			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data));
@@ -385,9 +293,7 @@ namespace Renderer
 			delete[] la_data;
 		}
 		else
-		{
 			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data));
-		}
 
 		return texture;
 
@@ -419,9 +325,7 @@ namespace Renderer
 			if (a_data)
 			{
 				for(uint32_t i=0; i<(_width * _height); ++i)
-				{
-					la_data[(i * 2) + 1] = a_data[i];
-				}
+					la_data[(i * 2) + 1] = a_data[i];				
 			}
 
 			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, la_data));

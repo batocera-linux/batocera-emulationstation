@@ -362,7 +362,9 @@ bool GuiComponent::stopAnimation(unsigned char slot)
 	auto it = mAnimationMap.find(slot);
 	if (it != mAnimationMap.cend() && it->second != nullptr)
 	{
-		delete it->second;		
+		auto anim = it->second;
+		mAnimationMap.erase(it);
+		delete anim;
 		return true;
 	}
 
@@ -374,9 +376,12 @@ bool GuiComponent::cancelAnimation(unsigned char slot)
 	auto it = mAnimationMap.find(slot);
 	if (it != mAnimationMap.cend() && it->second != nullptr)
 	{
-		it->second->removeFinishedCallback();
-		delete it->second;
+		auto anim = it->second;
+		anim->removeFinishedCallback();
+
 		mAnimationMap.erase(it);
+		delete anim;
+
 		return true;
 	}
 
@@ -389,9 +394,10 @@ bool GuiComponent::finishAnimation(unsigned char slot)
 	if (it != mAnimationMap.cend() && it->second != nullptr)
 	{
 		const bool done = mAnimationMap[slot]->update(mAnimationMap[slot]->getAnimation()->getDuration() - mAnimationMap[slot]->getTime());
-		
-		delete it->second;
+
+		auto anim = it->second;
 		mAnimationMap.erase(it);
+		delete anim;
 		return true;
 	}
 
@@ -405,8 +411,9 @@ bool GuiComponent::advanceAnimation(unsigned char slot, unsigned int time)
 	{
 		if (it->second->update(time))
 		{
-			delete it->second;
+			auto anim = it->second;
 			mAnimationMap.erase(it);
+			delete anim;
 		}
 
 		return true;

@@ -568,7 +568,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		bool hasSaveState = false;
 		bool systemSupportsSaveStates = SaveStateRepository::isEnabled(file);
 
-		if (systemSupportsSaveStates && mSaveState != nullptr || mNoSaveState != nullptr)
+		if (systemSupportsSaveStates && (mSaveState != nullptr || mNoSaveState != nullptr))
 			hasSaveState = file->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(file);
 
 		if (mSaveState != nullptr)
