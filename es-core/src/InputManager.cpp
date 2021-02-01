@@ -78,14 +78,15 @@ void InputManager::init()
 
 void InputManager::addJoystickByDeviceIndex(int id)
 {
-	assert(id >= 0 && id < SDL_NumJoysticks());
-	
 	// open joystick & add to our list
 	SDL_Joystick* joy = SDL_JoystickOpen(id);
-	assert(joy);
+	if (joy == nullptr)
+		return;
 
 	// add it to our list so we can close it again later
 	SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
+	removeJoystickByJoystickID(joyId);
+
 	mJoysticks[joyId] = joy;
 
 	char guid[65];
@@ -94,11 +95,9 @@ void InputManager::addJoystickByDeviceIndex(int id)
 	// create the InputConfig
 	mInputConfigs[joyId] = new InputConfig(joyId, id, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy)); // batocera
 	if(!loadInputConfig(mInputConfigs[joyId]))
-	{
 		LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << id << ").";
-	}else{
+	else
 		LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (instance ID: " << joyId << ", device index: " << id << ")";
-	}
 
 	// set up the prevAxisValues
 	int numAxes = SDL_JoystickNumAxes(joy);
@@ -108,17 +107,21 @@ void InputManager::addJoystickByDeviceIndex(int id)
 
 void InputManager::removeJoystickByJoystickID(SDL_JoystickID joyId)
 {
-	assert(joyId != -1);
-
 	// delete old prevAxisValues
 	auto axisIt = mPrevAxisValues.find(joyId);
-	delete[] axisIt->second;
-	mPrevAxisValues.erase(axisIt);
+	if (axisIt != mPrevAxisValues.cend())
+	{
+		delete[] axisIt->second;
+		mPrevAxisValues.erase(axisIt);
+	}
 
 	// delete old InputConfig
 	auto it = mInputConfigs.find(joyId);
-	delete it->second;
-	mInputConfigs.erase(it);
+	if (it != mInputConfigs.cend())
+	{
+		delete it->second;
+		mInputConfigs.erase(it);
+	}
 
 	// close the joystick
 	auto joyIt = mJoysticks.find(joyId);
@@ -126,9 +129,9 @@ void InputManager::removeJoystickByJoystickID(SDL_JoystickID joyId)
 	{
 		SDL_JoystickClose(joyIt->second);
 		mJoysticks.erase(joyIt);
-	}else{
-		LOG(LogError) << "Could not find joystick to close (instance ID: " << joyId << ")";
 	}
+	else
+		LOG(LogError) << "Could not find joystick to close (instance ID: " << joyId << ")";
 }
 
 // batocera
@@ -330,17 +333,24 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		break;
 
 	case SDL_JOYDEVICEADDED:
-		addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
-		computeLastKnownPlayersDeviceIndexes(); // batocera
-
-		for (auto it : mInputConfigs)
 		{
-			if (it.second != nullptr && it.second->getDeviceIndex() == ev.jdevice.which)
+			bool exists = std::find_if(mInputConfigs.cbegin(), mInputConfigs.cend(), [ev](const std::pair<SDL_JoystickID, InputConfig*> & t) { return t.second != nullptr && t.second->getDeviceIndex() == ev.jdevice.which; }) != mInputConfigs.cend();
+
+			addJoystickByDeviceIndex(ev.jdevice.which); // ev.jdevice.which is a device index
+			computeLastKnownPlayersDeviceIndexes(); // batocera
+
+			if (!exists)
 			{
-				char trstring[1024];
-				snprintf(trstring, 1024, _("%s connected").c_str(), it.second->getDeviceName().c_str());
-				window->displayNotificationMessage(_U("\uF11B ") + std::string(trstring));
-				break;
+				for (auto it : mInputConfigs)
+				{
+					if (it.second != nullptr && it.second->getDeviceIndex() == ev.jdevice.which)
+					{
+						char trstring[1024];
+						snprintf(trstring, 1024, _("%s connected").c_str(), it.second->getDeviceName().c_str());
+						window->displayNotificationMessage(_U("\uF11B ") + std::string(trstring));
+						break;
+					}
+				}
 			}
 		}
 
