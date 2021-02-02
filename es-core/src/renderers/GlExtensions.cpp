@@ -1,7 +1,7 @@
 #include "GlExtensions.h"
-
 #include <SDL.h>
 
+#ifdef OPENGL_EXTENSIONS
 namespace glext
 {
 	PFNGLCOMPILESHADERPROC glCompileShader = nullptr;
@@ -63,6 +63,7 @@ namespace glext
 		return false;
 	}
 }
+#endif
 
 #if defined(_DEBUG)
 #include "Log.h"
