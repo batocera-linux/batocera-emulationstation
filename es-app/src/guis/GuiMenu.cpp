@@ -8,8 +8,8 @@
 #include "guis/GuiGeneralScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
-#include "guis/GuiThemeInstallStart.h" //batocera
-#include "guis/GuiBezelInstallStart.h" //batocera
+#include "guis/GuiThemeInstaller.h" //batocera
+#include "guis/GuiBezelInstaller.h" //batocera
 #include "guis/GuiBatoceraStore.h" //batocera
 #include "guis/GuiSettings.h"
 #include "guis/GuiRetroAchievements.h" //batocera
@@ -31,7 +31,6 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include <LibretroRatio.h>
-#include "guis/GuiAutoScrape.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiInstallStart.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
@@ -1012,7 +1011,7 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiThemeInstallStart(mWindow));
+			mWindow->pushGui(new GuiThemeInstaller(mWindow));
 		});
 	}
 
@@ -1024,7 +1023,7 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiBezelInstallStart(mWindow));
+			mWindow->pushGui(new GuiBezelInstaller(mWindow));
 		});
 	}
 
@@ -3244,23 +3243,6 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 			openNetworkSettings_batocera(true);
 		}
 	});
-
-	mWindow->pushGui(s);
-}
-
-void GuiMenu::openScraperSettings_batocera() 
-{
-	auto s = new GuiSettings(mWindow, _("SCRAPE").c_str());
-
-	s->addEntry(_("AUTOMATIC SCRAPER"), true, [this] {
-		Window* window = mWindow;
-		window->pushGui(new GuiMsgBox(window, _("REALLY SCRAPE?"), _("YES"),
-			[window] {
-			window->pushGui(new GuiAutoScrape(window));
-		}, _("NO"), nullptr));
-	});
-
-	s->addEntry(_("MANUAL SCRAPER"), true, [this] { openScraperSettings(); });
 
 	mWindow->pushGui(s);
 }
