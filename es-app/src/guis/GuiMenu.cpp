@@ -371,17 +371,32 @@ void GuiMenu::openEmuELECSettings()
 		for (auto it = OgaOC_options.cbegin(); it != OgaOC_options.cend(); it++)
 		emuelec_oga_overclock->add(*it, *it, OgaOC_optionsS == *it);
 		
-		s->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
-		s->addSaveFunc([emuelec_oga_overclock] {
-			if (emuelec_oga_overclock->changed()) {
-				std::string selectedoc = emuelec_oga_overclock->getSelected();
+       auto selectedoc = "Off";
+        
+        s->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
+        s->addSaveFunc([emuelec_oga_overclock, selectedoc, window] {
+            std::string selectedoc = emuelec_oga_overclock->getSelected();
+			if (emuelec_oga_overclock->changed() && emuelec_oga_overclock->getSelected() != "Off") {
+                    std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
+                    msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
+                    msg += _("Do you want to proceed ?");
+                
+                window->pushGui(new GuiMsgBox(window, msg,
+				_("YES"), [emuelec_oga_overclock, selectedoc] {
+                    std::string selectedoc = emuelec_oga_overclock->getSelected();
+				}, _("NO"), [selectedoc] {
+                    std::string selectedoc = "Off";
+                    }));
+                } else { 
+                    std::string selectedoc = "Off";
+                }
 				runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " +selectedoc, "", nullptr);
                 SystemConf::getInstance()->set("ee_oga_oc", selectedoc);
 				SystemConf::getInstance()->saveSystemConf();
-			}
 		});
 #endif
-       auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
+
+        auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
 		bluetoothd_enabled->setState(btbaseEnabled);
 		s->addWithLabel(_("ENABLE BLUETOOTH"), bluetoothd_enabled);
