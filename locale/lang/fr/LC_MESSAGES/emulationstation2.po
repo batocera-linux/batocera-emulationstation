@@ -245,7 +245,7 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "arcade vertical"
 
 msgid "collections"
 msgstr "collections"
@@ -1514,10 +1514,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "SON DE DÉVERROUILLAGE"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "AFFICHER DANS LE MENU PRINCIPAL"
@@ -2164,7 +2164,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "SUCCÈS RÉTRO"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTICAL"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -2177,11 +2177,11 @@ msgstr "SCRAPE TERMINÉ"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s connectée"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s déconnectée"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
@@ -2364,11 +2364,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "USER DECIDES ON CONFLICTS"
-#~ msgstr "CHOISIR SI CONFLIT"
-
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-#~ msgstr ""
-#~ "SCRAPE TERMINÉ. METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES "
-#~ "MODIFICATIONS."

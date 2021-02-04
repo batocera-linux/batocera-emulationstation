@@ -245,7 +245,7 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "arcade vertical"
 
 msgid "collections"
 msgstr "COLEÇÕES"
@@ -816,7 +816,7 @@ msgid "DELETE MAPPING"
 msgstr "ELIMINAR MAPEAMENTO"
 
 msgid "SAVE CHANGES?"
-msgstr "SALVAR MODIFICAÇÕES?"
+msgstr "GUARDAR MODIFICAÇÕES?"
 
 msgid "ARE YOU SURE ?"
 msgstr "TEM A CERTEZA ?"
@@ -882,7 +882,7 @@ msgid "GAME"
 msgstr "JOGO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "GUARDAR RAPIDAMENTE"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY HOST"
@@ -1001,19 +1001,19 @@ msgid "%d%% complete"
 msgstr "%d%% completo"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "SAVE AUTOMÁTICO"
 
 msgid "SLOT"
-msgstr ""
+msgstr "SLOT"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "INICIAR NOVO JOGO"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "INICIAR SAVE AUTOMÁTICO"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPIAR PARA UM SLOT LIVRE"
 
 msgid "SCRAPE NOW"
 msgstr "INICIAR PROCURA"
@@ -1514,10 +1514,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "DESBLOQUEIO DE SOM RETROACHIEVEMENTS"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "DESBLOQUEIO DE SOM"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR NO MENU PRINCIPAL"
@@ -2127,10 +2127,10 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "A PROCURAR JOGOS COM NETPLAY"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INDEXAÇÃO CONCLUÍDA"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "GENRE"
 msgstr "GÉNERO"
@@ -2160,7 +2160,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "TEM CONQUISTAS"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTICAL"
 
 msgid "SCRAPING"
 msgstr "A PROCURAR"
@@ -2169,15 +2169,15 @@ msgid "SCRAPE FAILED"
 msgstr "FALHA NA PROCURA"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "PROCURA CONCLUÍDA"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s conectado"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s desconectado"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
@@ -2359,9 +2359,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "USER DECIDES ON CONFLICTS"
-#~ msgstr "DECIDIR EM CASO DE CONFLITO"
-
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-#~ msgstr ""
-#~ "A PROCURA TERMINOU. ATUALIZE A LISTA DE JOGOS PARA APLICAR AS ALTERAÇÕES."

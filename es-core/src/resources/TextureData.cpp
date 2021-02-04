@@ -218,55 +218,47 @@ bool TextureData::loadFromCbz()
 
 	bool retval = false;
 
-	try
+	std::vector<Utils::Zip::ZipInfo> files;
+
+	Utils::Zip::ZipFile zipFile;
+	if (zipFile.load(mPath))
 	{
-		std::vector<Utils::Zip::ZipInfo> files;
-
-		Utils::Zip::ZipFile zipFile;
-		if (zipFile.load(mPath))
+		for (auto file : zipFile.infolist())
 		{
-			for (auto file : zipFile.infolist())
-			{
-				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file.filename));
-				if (ext != ".jpg")
-					continue;
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(file.filename));
+			if (ext != ".jpg")
+				continue;
 
-				if (Utils::String::startsWith(file.filename, "__"))
-					continue;
+			if (Utils::String::startsWith(file.filename, "__"))
+				continue;
 
-				files.push_back(file);
-			}
-
-			std::sort(files.begin(), files.end(), [](const Utils::Zip::ZipInfo& a, const Utils::Zip::ZipInfo& b) { return Utils::String::toLower(a.filename) < Utils::String::toLower(b.filename); });
+			files.push_back(file);
 		}
 
-		if (files.size() > 0 && files[0].file_size > 0)
-		{
-			size_t size = files[0].file_size;
-			unsigned char* buffer = new unsigned char[size];
-
-			Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n)
-			{
-				unsigned char* pSource = (unsigned char*)pBuf;
-				unsigned char* pDest = (unsigned char*)pOpaque;
-
-				memcpy(pDest + ofs, pSource, n);
-
-				return n;
-			};
-
-			zipFile.readBuffered(files[0].filename, func, buffer);
-
-			retval = initImageFromMemory(buffer, size);
-
-			if (retval)
-				ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
-		}
+		std::sort(files.begin(), files.end(), [](const Utils::Zip::ZipInfo& a, const Utils::Zip::ZipInfo& b) { return Utils::String::toLower(a.filename) < Utils::String::toLower(b.filename); });
 	}
-	catch (...)
+
+	if (files.size() > 0 && files[0].file_size > 0)
 	{
-		// Bad zip file
-		delete this;
+		size_t size = files[0].file_size;
+		unsigned char* buffer = new unsigned char[size];
+
+		Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n)
+		{
+			unsigned char* pSource = (unsigned char*)pBuf;
+			unsigned char* pDest = (unsigned char*)pOpaque;
+
+			memcpy(pDest + ofs, pSource, n);
+
+			return n;
+		};
+
+		zipFile.readBuffered(files[0].filename, func, buffer);
+
+		retval = initImageFromMemory(buffer, size);
+
+		if (retval)
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
 	}
 
 	return retval;

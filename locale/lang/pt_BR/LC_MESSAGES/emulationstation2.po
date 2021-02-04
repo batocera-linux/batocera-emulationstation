@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-01-31 07:05-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -245,7 +245,7 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "vertical arcade"
 
 msgid "collections"
 msgstr "coleções"
@@ -1517,10 +1517,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "RETROACHIEVEMENTS DESATIVAR SOM"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "DESATIVAR SOM"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "EXIBIR NO MENU PRINCIPAL"
@@ -2165,7 +2165,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "POSSUI CONQUITAS"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTICAL"
 
 msgid "SCRAPING"
 msgstr "PROCURANDO"
@@ -2178,11 +2178,11 @@ msgstr "PROCURA CONCLUÍDA"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s conectado"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s desconectado"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"

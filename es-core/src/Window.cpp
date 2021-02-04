@@ -202,6 +202,9 @@ void Window::textInput(const char* text)
 
 void Window::input(InputConfig* config, Input input)
 {
+	if (config == nullptr)
+		return;
+
 	if (mScreenSaver) 
 	{
 		if (mScreenSaver->isScreenSaverActive() && Settings::getInstance()->getBool("ScreenSaverControls") &&

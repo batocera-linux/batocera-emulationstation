@@ -218,7 +218,7 @@ msgid "Cheevos Game ID"
 msgstr "ID gioco per trofei"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "ID gioco Screenscraper"
 
 msgid "all games"
 msgstr "tutti i giochi"
@@ -245,7 +245,7 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "arcade verticale"
 
 msgid "collections"
 msgstr "collezione"
@@ -486,7 +486,7 @@ msgid "JUMP TO LETTER"
 msgstr "VAI ALLA LETTERA"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "SELEZIONA GIOCO CASUALE"
 
 msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
@@ -789,10 +789,10 @@ msgid "PLAYER 2"
 msgstr "GIOCATORE 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "GIOCATORE 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "GIOCATORE 4"
 
 msgid "COMBINATIONS"
 msgstr "COMBINAZIONI"
@@ -879,10 +879,10 @@ msgid "VIEW GAME ACHIEVEMENTS"
 msgstr "VISUALIZZA I TROFEI DEL GIOCO"
 
 msgid "GAME"
-msgstr ""
+msgstr "GIOCO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "SALVATAGGI ISTANTANEI"
 
 msgid "START NETPLAY HOST"
 msgstr "INIZIA HOST IN RETE"
@@ -910,11 +910,11 @@ msgstr "COLLEZIONI"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "RIMUOVI DA %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "AGGIUNGI A %s"
 
 msgid "FAVORITES"
 msgstr "PREFERITI"
@@ -1001,19 +1001,19 @@ msgid "%d%% complete"
 msgstr "%d%% completo"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "AUTOSALVATAGGIO"
 
 msgid "SLOT"
-msgstr ""
+msgstr "SLOT"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "AVVIA NUOVO GIOCO"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "AVVIA AUTOSALVATAGGIO"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPIA SU SLOT LIBERO"
 
 msgid "SCRAPE NOW"
 msgstr "RACCOGLI INFORMAZIONI ORA"
@@ -1515,10 +1515,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "SUONO TROFEO SBLOCCATO"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "SUONO DI SBLOCCO"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRA NEL MENU PRINCIPALE"
@@ -1673,7 +1673,7 @@ msgid "SHOW FOLDERS"
 msgstr "MOSTRA LE CARTELLE"
 
 msgid "having multiple games"
-msgstr "giochi multipli"
+msgstr "con più giochi"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRA '..' CARTELLA PRINCIPALE"
@@ -2132,10 +2132,10 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "RICERCA GIOCHI CON SUPPORTO NETPLAY"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INDICIZZAZIONE COMPLETATA"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "AGGIORNA LA LISTA GIOCHI PER APPLICARE I CAMBIAMENTI"
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -2165,7 +2165,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "SUPPORTO TROFEI"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTICALE"
 
 msgid "SCRAPING"
 msgstr "SCRAPING"
@@ -2174,15 +2174,15 @@ msgid "SCRAPE FAILED"
 msgstr "SCRAPE FALLITO"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "SCRAPING COMPLETATO"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s connesso"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s disconnesso"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
