@@ -357,8 +357,10 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 #endif
+/*
 #if defined(_ENABLEGAMEFORCE) || defined(ODROIDGOA)
-		auto emuelec_oga_overclock = std::make_shared< OptionListComponent<std::string> >(mWindow, "OVERCLOCK", false);
+
+  		auto emuelec_oga_overclock = std::make_shared< OptionListComponent<std::string> >(mWindow, "OVERCLOCK", false);
 		std::vector<std::string> OgaOC_options;
 		OgaOC_options.push_back("Off");
 		OgaOC_options.push_back("1.4ghz");
@@ -379,6 +381,7 @@ void GuiMenu::openEmuELECSettings()
 			if (emuelec_oga_overclock->changed() && emuelec_oga_overclock->getSelected() != "Off") {
                     std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
                     msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
+                    msg += _("There is also the posibility of SD card file corruption!!! Only enable OC if you are sure about the risks!\n\n");
                     msg += _("Do you want to proceed ?");
                 
                 window->pushGui(new GuiMsgBox(window, msg,
@@ -395,7 +398,7 @@ void GuiMenu::openEmuELECSettings()
 				SystemConf::getInstance()->saveSystemConf();
 		});
 #endif
-
+*/
         auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
 		bluetoothd_enabled->setState(btbaseEnabled);
