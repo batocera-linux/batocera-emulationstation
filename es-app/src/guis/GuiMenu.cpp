@@ -357,48 +357,6 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 #endif
-/*
-#if defined(_ENABLEGAMEFORCE) || defined(ODROIDGOA)
-
-  		auto emuelec_oga_overclock = std::make_shared< OptionListComponent<std::string> >(mWindow, "OVERCLOCK", false);
-		std::vector<std::string> OgaOC_options;
-		OgaOC_options.push_back("Off");
-		OgaOC_options.push_back("1.4ghz");
-		OgaOC_options.push_back("1.5ghz");
-		
-		auto OgaOC_optionsS = SystemConf::getInstance()->get("ee_oga_oc");
-		if (OgaOC_optionsS.empty())
-		OgaOC_optionsS = "Off";
-		
-		for (auto it = OgaOC_options.cbegin(); it != OgaOC_options.cend(); it++)
-		emuelec_oga_overclock->add(*it, *it, OgaOC_optionsS == *it);
-		
-       auto selectedoc = "Off";
-        
-        s->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
-        s->addSaveFunc([emuelec_oga_overclock, selectedoc, window] {
-            std::string selectedoc = emuelec_oga_overclock->getSelected();
-			if (emuelec_oga_overclock->changed() && emuelec_oga_overclock->getSelected() != "Off") {
-                    std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
-                    msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
-                    msg += _("There is also the posibility of SD card file corruption!!! Only enable OC if you are sure about the risks!\n\n");
-                    msg += _("Do you want to proceed ?");
-                
-                window->pushGui(new GuiMsgBox(window, msg,
-				_("YES"), [emuelec_oga_overclock, selectedoc] {
-                    std::string selectedoc = emuelec_oga_overclock->getSelected();
-				}, _("NO"), [selectedoc] {
-                    std::string selectedoc = "Off";
-                    }));
-                } else { 
-                    std::string selectedoc = "Off";
-                }
-				runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " +selectedoc, "", nullptr);
-                SystemConf::getInstance()->set("ee_oga_oc", selectedoc);
-				SystemConf::getInstance()->saveSystemConf();
-		});
-#endif
-*/
         auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
 		bluetoothd_enabled->setState(btbaseEnabled);
@@ -508,65 +466,84 @@ void GuiMenu::openEmuELECSettings()
 		SystemConf::getInstance()->saveSystemConf();
 	});
 	
-	if (UIModeController::getInstance()->isUIModeFull())
+if (UIModeController::getInstance()->isUIModeFull())
 	{
-	
-	
-	//Danger zone options
-		s->addEntry(_("DANGER ZONE!"), true, [this]
-		{
-	Window* window = mWindow;
-	ComponentListRow row;
-	GuiSettings *danger_zone = new GuiSettings(mWindow, _("DANGER ZONE!").c_str());
-	// backup configs
-	row.makeAcceptInputHandler([window] {
-		window->pushGui(new GuiMsgBox(window, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/downloads/ee_backup_config.zip TO SOME PLACE SAFE OR IT WILL BE DELETED ON NEXT REBOOT!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
+        //Danger zone options
+        s->addEntry(_("DANGER ZONE"), true, [this] { openDangerZone(mWindow, "global"); });
+    }
+
+    mWindow->pushGui(s);
+}
+
+void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
+{
+
+	GuiSettings* dangerZone = new GuiSettings(mWindow, _("DANGER ZONE").c_str());
+
+#if defined(_ENABLEGAMEFORCE) || defined(ODROIDGOA)
+	// OG OC
+	auto emuelec_oga_overclock = std::make_shared<OptionListComponent<std::string>>(mWindow, _("OVERCLOCK"));
+    emuelec_oga_overclock->addRange({ { _("Off"), "Off" }, { _("1.4ghz"), "1.4ghz" }, { "1.5ghz", "1.5ghz" } }, SystemConf::getInstance()->get("ee_oga_oc"));
+    dangerZone->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
+    dangerZone->addSaveFunc([configName, emuelec_oga_overclock, mWindow] { 
+        
+        std::string selectedoc = emuelec_oga_overclock->getSelected();
+			if (emuelec_oga_overclock->changed() && emuelec_oga_overclock->getSelected() != "Off") {
+                    std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
+                    msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
+                    msg += _("There is also the posibility of SD card file corruption!!! Only enable OC if you agree to the risks!\n\n");
+                    msg += _("Do you want to proceed ?");
+            mWindow->pushGui(new GuiMsgBox(mWindow, msg,
+				_("YES"), [emuelec_oga_overclock, selectedoc] {
+                    std::string selectedoc = emuelec_oga_overclock->getSelected();
+				}, _("NO"), [selectedoc] {
+                    std::string selectedoc = "Off";
+                    }));
+                } else { 
+                    std::string selectedoc = "Off";
+                }
+				runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " +selectedoc, "", nullptr);
+                SystemConf::getInstance()->set("ee_oga_oc", selectedoc);
+				SystemConf::getInstance()->saveSystemConf();
+         });
+#endif
+
+    dangerZone->addEntry(_("BACKUP EMUELEC CONFIGS"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/roms/backup/ee_backup_config.tar.gz TO SOME PLACE SAFE OR IT WILL BE DELETED ON NEXT REBOOT!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils backup backup", "", nullptr);
+				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils ee_backup backup", "", nullptr);
 				}, _("NO"), nullptr));
-	});
-	row.addElement(std::make_shared<TextComponent>(window, _("BACKUP EMUELEC CONFIGS"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
-	danger_zone->addRow(row);
-	row.elements.clear();
-	// emus config
-	row.makeAcceptInputHandler([window] {
-		window->pushGui(new GuiMsgBox(window, _("WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\nUPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nRESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"), _("YES"),
+     });
+
+    dangerZone->addEntry(_("RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\nUPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nRESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"), _("YES"),
 				[] { 
 				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils clearconfig EMUS", "", nullptr);
 				}, _("NO"), nullptr));
-	});
-	row.addElement(std::make_shared<TextComponent>(window, _("RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
-	danger_zone->addRow(row);
-	row.elements.clear();
-	// retroarch config
-	row.makeAcceptInputHandler([window] {
-		window->pushGui(new GuiMsgBox(window, _("WARNING: RETROARCH CONFIG WILL RESET TO DEFAULT\n\nPER-CORE CONFIGURATIONS WILL NOT BE AFFECTED BUT NO BACKUP WILL BE CREATED!\n\nRESET RETROARCH CONFIG TO DEFAULT?"), _("YES"),
+     });
+     
+    dangerZone->addEntry(_("RESET RETROARCH CONFIG TO DEFAULT"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: RETROARCH CONFIG WILL RESET TO DEFAULT\n\nPER-CORE CONFIGURATIONS WILL NOT BE AFFECTED BUT NO BACKUP WILL BE CREATED!\n\nRESET RETROARCH CONFIG TO DEFAULT?"), _("YES"),
 				[] { 
 				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils clearconfig retroarch", "", nullptr);
 				}, _("NO"), nullptr));
-	});
-	row.addElement(std::make_shared<TextComponent>(window, _("RESET RETROARCH CONFIG TO DEFAULT"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
-	danger_zone->addRow(row);
-	row.elements.clear();
-	// all configs
-	row.makeAcceptInputHandler([window] {
-		window->pushGui(new GuiMsgBox(window, _("WARNING: ALL CONFIGURATIONS WILL BE RESET AND NO BACKUP WILL BE CREATED!\n\nIF YOU WANT TO KEEP YOUR SETTINGS MAKE A BACKUP AND SAVE IT ON AN EXTERNAL DRIVE BEFORE RUNING THIS OPTION!\n\nRESET SYSTEM TO DEFAULT CONFIG AND RESTART?"), _("YES"),
+     });
+     
+    dangerZone->addEntry(_("RESET SYSTEM TO DEFAULT CONFIG"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: ALL CONFIGURATIONS WILL BE RESET AND NO BACKUP WILL BE CREATED!\n\nIF YOU WANT TO KEEP YOUR SETTINGS MAKE A BACKUP AND SAVE IT ON AN EXTERNAL DRIVE BEFORE RUNING THIS OPTION!\n\nRESET SYSTEM TO DEFAULT CONFIG AND RESTART?"), _("YES"),
 				[] { 
 				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils clearconfig ALL", "", nullptr);
 				}, _("NO"), nullptr));
-	});
-	row.addElement(std::make_shared<TextComponent>(window, _("RESET SYSTEM TO DEFAULT CONFIG"), Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
-	danger_zone->addRow(row);
-	row.elements.clear();
-			
-			mWindow->pushGui(danger_zone);
-		});
-	
-	mWindow->pushGui(s);
- }
+     });
+
+
+mWindow->pushGui(dangerZone);
 }
+
+
 /*  emuelec >*/
 #endif
+
 void GuiMenu::openScraperSettings()
 {	
 	// scrape now
