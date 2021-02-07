@@ -535,7 +535,12 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 				runSystemCommand("systemd-run /emuelec/scripts/emuelec-utils clearconfig ALL", "", nullptr);
 				}, _("NO"), nullptr));
      });
-
+    dangerZone->addEntry(_("FORCE UPDATE"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: A FORCE UPDATE WILL DOWNLOAD WHATEVER VERSION IS AVAILABLE FOR UPDATE REGARDLESS OF VERSION BASED ON THE TYPE YOU HAVE SELECTED IN THE UPDATE & DOWNLOADS\n\nSYSTEM WILL RESET SCRIPTS AND BINARIES !\nDOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nCONTINUE WITH FORCE UPDATE?"), _("YES"),
+				[] { 
+				runSystemCommand("systemd-run /emuelec/scripts/updatecheck.sh forceupdate", "", nullptr);
+				}, _("NO"), nullptr));
+     });
 
 mWindow->pushGui(dangerZone);
 }
@@ -1409,7 +1414,6 @@ void GuiMenu::openUpdatesSettings()
 	{
 		SystemConf::getInstance()->setBool("updates.enabled", updates_enabled->getState());
 	});
-#ifndef _ENABLEEMUELEC
 	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 	
 	std::string updatesType = SystemConf::getInstance()->get("updates.type");
@@ -1425,7 +1429,7 @@ void GuiMenu::openUpdatesSettings()
 		if (SystemConf::getInstance()->set("updates.type", name))
 			SystemConf::getInstance()->saveSystemConf();
 	});	
-#endif
+
 	// Start update
 	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 	{
