@@ -87,7 +87,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ TANDY, "4941" },	
 	{ SUPERGRAFX, "34" }, // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
 
-	{ AMIGACD32, "130" },
+	{ AMIGACD32, "4947" },
 	{ AMIGACDTV, "129" },
 	{ ATOMISWAVE, "53" },
 	{ CAVESTORY, "135" },
@@ -126,7 +126,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ APPLE2GS, "217" },
 	{ SPECTRAVIDEO, "218" },
 	{ PALMOS, "219" },
-	{ DAPHNE, "49" },
+	{ DAPHNE, "23" },
 	{ SOLARUS, "223" }
 };
 
