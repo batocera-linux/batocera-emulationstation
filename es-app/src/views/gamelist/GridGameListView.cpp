@@ -360,10 +360,13 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS")));
-
-	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+#ifndef _ENABLEEMUELEC	
+    prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
 	prompts.push_back(HelpPrompt("y", _("SEARCH")));
-
+#else
+	prompts.push_back(HelpPrompt("y", _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt("x", _("RANDOM")));
+#endif
 	/*
 	FileData* cursor = getCursor();
 	if (cursor != nullptr && cursor->isNetplaySupported())

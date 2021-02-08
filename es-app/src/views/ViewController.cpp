@@ -779,7 +779,11 @@ bool ViewController::input(InputConfig* config, Input input)
 	}
 #else
 	// Batocera next song
+#ifdef _ENABLEEMUELEC
+	if ((mState.viewing != GAME_LIST && config->isMappedTo("LeftThumb", input)) && input.value != 0) // emuelec
+#else
 	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0) // batocera
+#endif    
 	{
 		// next song
 		AudioManager::getInstance()->playRandomMusic(false);

@@ -265,9 +265,13 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS"))); // batocera
-
-	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+#ifndef _ENABLEEMUELEC
+    prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
 	prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
+#else	
+    prompts.push_back(HelpPrompt("y", _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt("x", _("RANDOM")));
+#endif
 	/*
 	FileData* cursor = getCursor();
 	if (cursor != nullptr && cursor->isNetplaySupported())

@@ -243,7 +243,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				return true;
 			}
 		}
-		else if (config->isMappedTo("x", input))
+#ifdef _ENABLEEMUELEC
+		else if (config->isMappedTo("y", input))
 		{
 			FileData* cursor = getCursor();
 			if (cursor != nullptr) // && !cursor->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
@@ -255,11 +256,26 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 			return true;
 		}
-		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
+		else if (config->isMappedTo("x", input))
+		{ 
+			moveToRandomGame();
+			return true;            
+        }
+        else if (config->isMappedTo("RightThumb", input))
+		{ 
+            FileData* cursor = getCursor();
+			if (cursor != nullptr)
+            {
+                CollectionSystemManager::get()->toggleGameInCollection(cursor, "Favorites");
+                return true;
+            }
+        }
+#else
+        else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
 		{
 		//	moveToRandomGame();
 		//	return true;
-			
+
 			std::string searchText;
 
 			auto idx = mRoot->getSystem()->getIndex(false);
@@ -289,6 +305,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				
 			return true;			
 		}
+#endif
 	}
 	return IGameListView::input(config, input);
 }
