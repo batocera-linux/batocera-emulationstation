@@ -40,6 +40,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 		{ "md_boxart", { MetaDataId::BoxArt, MetaDataId::Thumbnail } },
 		{ "md_wheel",{ MetaDataId::Wheel, MetaDataId::Marquee } },
 		{ "md_cartridge",{ MetaDataId::Cartridge } },
+		{ "md_boxback",{ MetaDataId::BoxBack } },		
 		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } }
 	};
 

@@ -84,6 +84,9 @@ set(LIBRETRO_COMMON_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/encodings/utf.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/LzmaDec.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/LzmaEnc.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7z.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zTypes.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zFile.h	
 )
 
 set(LIBRETRO_COMMON_SOURCES

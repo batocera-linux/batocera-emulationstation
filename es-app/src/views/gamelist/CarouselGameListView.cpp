@@ -255,21 +255,9 @@ std::vector<HelpPrompt> CarouselGameListView::getHelpPrompts()
 	if(!UIModeController::getInstance()->isUIModeKid())
 	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
-	FileData* cursor = getCursor();
-	if (cursor != nullptr && cursor->isNetplaySupported())
-		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
-	else
-		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+	prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH")));
 
-	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
-	{
-		std::string prompt = CollectionSystemManager::get()->getEditingCollection();
-		
-		if (Utils::String::toLower(prompt) == "favorites")
-			prompts.push_back(HelpPrompt("y", _("Favorites")));
-		else
-			prompts.push_back(HelpPrompt("y", _(prompt.c_str())));
-	}
 	return prompts;
 }
 

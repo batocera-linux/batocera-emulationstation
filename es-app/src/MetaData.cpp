@@ -47,6 +47,7 @@ void MetaDataList::initMetadata()
 		// Non scrappable /editable medias
 		{ Cartridge,        "cartridge",   MD_PATH,                "",                 true,      _("Cartridge"),            _("enter path to cartridge"),  true },
 		{ BoxArt,			"boxart",	   MD_PATH,                "",                 true,      _("Alt BoxArt"),		      _("enter path to alt boxart"), true },
+		{ BoxBack,			"boxback",	   MD_PATH,                "",                 true,      _("Box backside"),		  _("enter path to box background"), true },
 		{ Wheel,			"wheel",	   MD_PATH,                "",                 true,      _("Wheel"),		          _("enter path to wheel"),      true },
 		{ Mix,			    "mix",	       MD_PATH,                "",                 true,      _("Mix"),                  _("enter path to mix"),		 true },
 		
@@ -373,6 +374,9 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (!Settings::getInstance()->getBool("ScrapeFanart"))
 			type &= ~MetaDataImportType::Types::FANART;
 
+		if (!Settings::getInstance()->getBool("ScrapeBoxBack"))
+			type &= ~MetaDataImportType::Types::BOXBACK;
+
 		if (!Settings::getInstance()->getBool("ScrapeTitleShot"))
 			type &= ~MetaDataImportType::Types::TITLESHOT;
 
@@ -416,6 +420,9 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 			continue;
 
 		if (mdd.id == MetaDataId::FanArt && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::FANART) != MetaDataImportType::Types::FANART))
+			continue;
+
+		if (mdd.id == MetaDataId::BoxBack && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::BOXBACK) != MetaDataImportType::Types::BOXBACK))
 			continue;
 
 		if (mdd.id == MetaDataId::Map && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::MAP) != MetaDataImportType::Types::MAP))

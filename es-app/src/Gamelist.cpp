@@ -175,7 +175,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 			if (file->getMetadata(MetaDataId::Name).empty())
 				file->setMetadata(MetaDataId::Name, defaultName);
 
-			if (!file->getHidden() && Utils::FileSystem::isHidden(path))
+			if (!trustGamelist && !file->getHidden() && Utils::FileSystem::isHidden(path))
 				file->getMetadata().set(MetaDataId::Hidden, "true");
 
 			if (checkSize != SIZE_MAX)
@@ -525,6 +525,9 @@ void cleanupGamelist(SystemData* system)
 				case MetaDataId::Marquee: suffix = "marquee"; break;
 				case MetaDataId::Video: suffix = "video"; folder = "/videos/"; ext = ".mp4"; break;
 				case MetaDataId::FanArt: suffix = "fanart"; break;
+				case MetaDataId::BoxBack: suffix = "boxback"; break;
+				case MetaDataId::BoxArt: suffix = "box"; break;
+				case MetaDataId::Wheel: suffix = "wheel"; break;
 				case MetaDataId::TitleShot: suffix = "titleshot"; break;
 				case MetaDataId::Manual: suffix = "manual"; folder = "/manuals/"; ext = ".pdf"; break;
 				case MetaDataId::Map: suffix = "map"; break;
@@ -535,7 +538,13 @@ void cleanupGamelist(SystemData* system)
 				{					
 					std::string mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + "-"+ suffix + ext;
 
-					if (ext != ".jpg" && !Utils::FileSystem::exists(mediaPath))
+					if (ext == ".pdf" && !Utils::FileSystem::exists(mediaPath))
+					{
+						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".pdf";
+						if (!Utils::FileSystem::exists(mediaPath))
+							mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".cbz";
+					}
+					else if (ext != ".jpg" && !Utils::FileSystem::exists(mediaPath))
 						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ext;
 					else if (ext == ".jpg" && !Utils::FileSystem::exists(mediaPath))
 						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + "-" + suffix + ".png";

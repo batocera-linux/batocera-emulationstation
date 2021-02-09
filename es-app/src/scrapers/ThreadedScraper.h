@@ -59,7 +59,7 @@ public:
 	static std::string formatGameName(FileData* game);
 
 private:
-	ThreadedScraper(Window* window, const std::queue<ScraperSearchParams>& searches);
+	ThreadedScraper(Window* window, const std::queue<ScraperSearchParams>& searches, int threadCount);
 	~ThreadedScraper();
 
 	void ProcessNextGame(ScraperThread* thread);

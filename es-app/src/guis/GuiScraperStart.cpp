@@ -122,6 +122,7 @@ void GuiScraperStart::start()
 std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemData*> systems, GameFilterFunc selector)
 {
 	std::queue<ScraperSearchParams> queue;
+
 	for(auto sys = systems.cbegin(); sys != systems.cend(); sys++)
 	{
 		std::vector<FileData*> games = (*sys)->getRootFolder()->getFilesRecursive(GAME);

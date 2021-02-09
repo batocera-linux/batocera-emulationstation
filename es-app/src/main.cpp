@@ -536,7 +536,7 @@ int main(int argc, char* argv[])
 	// this makes for no delays when accessing content, but a longer startup time
 	ViewController::get()->preload();
 
-	NetworkThread nthread(&window);
+	NetworkThread* nthread = new NetworkThread(&window);
 	HttpServerThread httpServer(&window);
 
 	if(splashScreen && splashScreenProgress)

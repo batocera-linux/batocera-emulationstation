@@ -224,6 +224,9 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		case MetaDataId::Marquee: suffix = "marquee"; break;
 		case MetaDataId::Video: suffix = "video";  resize = false; break;
 		case MetaDataId::FanArt: suffix = "fanart"; resize = false; break;
+		case MetaDataId::BoxBack: suffix = "boxback"; resize = false; break;
+		case MetaDataId::BoxArt: suffix = "box"; resize = false; break;
+		case MetaDataId::Wheel: suffix = "wheel"; resize = false; break;		
 		case MetaDataId::TitleShot: suffix = "titleshot"; break;
 		case MetaDataId::Manual: suffix = "manual"; resize = false;  break;
 		case MetaDataId::Map: suffix = "map"; resize = false; break;
