@@ -16,7 +16,7 @@ public:
 
 	bool isSupportedPlatform(SystemData* system) override;
 	bool hasMissingMedia(FileData* file) override;
-	int getThreadCount() override;
+	int getThreadCount(std::string &result) override;
 };
 
 struct ScreenScraperUser

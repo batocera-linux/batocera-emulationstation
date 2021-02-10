@@ -88,7 +88,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ TANDY, "4941" },	
 	{ SUPERGRAFX, "34" }, // The code is TurboGrafx 16, but they manage SUPERGRAFX into this one....
 
-	{ AMIGACD32, "130" },
+	{ AMIGACD32, "4947" },
 	{ AMIGACDTV, "129" },
 	{ ATOMISWAVE, "53" },
 	{ CAVESTORY, "135" },
@@ -117,6 +117,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ NINTENDO_SWITCH, "4971" },
 
 	// Misc
+	{ TI99, "4953" },
 	{ VIC20, "4945" },
 	{ ORICATMOS, "131" },
 	{ CHANNELF, "80" },
@@ -127,7 +128,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ APPLE2GS, "217" },
 	{ SPECTRAVIDEO, "218" },
 	{ PALMOS, "219" },
-	{ DAPHNE, "49" },
+	{ DAPHNE, "23" },
 	{ SOLARUS, "223" }
 };
 
@@ -452,12 +453,19 @@ namespace
 
 						std::string type;
 						std::string fileName;
+						std::string side;
 
 						if (v.HasMember("type"))
 							type = v["type"].GetString();
 
 						if (v.HasMember("filename"))
 							fileName = v["filename"].GetString();
+
+						if (v.HasMember("side") && v["side"].IsString())
+							side = v["side"].GetString();
+
+						if (type == "boxart" && side == "back")
+							type = "box-2D-back";
 
 						if (medias.find(type) == medias.cend())
 							medias[type] = (type == "fanart" ? pathLarge : pathMedium) + fileName;
@@ -499,6 +507,13 @@ namespace
 				result.urls[MetaDataId::FanArt] = ScraperSearchItem(art);
 		}
 		
+		if (Settings::getInstance()->getBool("ScrapeBoxBack"))
+		{
+			auto art = findMedia(medias, "box-2D-back");
+			if (!art.empty())
+				result.urls[MetaDataId::BoxBack] = ScraperSearchItem(art);
+		}
+
 		results.push_back(result);
 	}
 } // namespace

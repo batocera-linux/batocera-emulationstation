@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -100,6 +100,12 @@ msgstr "Альтернативний бокс арт"
 
 msgid "enter path to alt boxart"
 msgstr "введіть шлях для альтернативного бокс арту"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "Колесо"
@@ -589,39 +595,6 @@ msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОШУК МЕРЕЖІ WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "НАБІР РАМОК (ОВЕРЛЕЇВ)"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "ВИБРАТИ ОБГОРТКУ ДЛЯ ВСТАНОВЛЕННЯ/ВИДАЛЕННЯ"
-
-msgid "UPDATE"
-msgstr "ОНОВИТИ"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' ДОДАНО В ЧЕРГУ ЗАВАНТАЖЕННЯ"
-
-msgid "REMOVE"
-msgstr "ВИДАЛИТИ"
-
-msgid "INSTALL"
-msgstr "ВСТАНОВИТИ"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "В ЧЕРЗІ ЗАВАНТАЖЕННЯ"
-
-msgid "THEMES DOWNLOADER"
-msgstr "ЗАВАНТАЖУВАЧ ТЕМ"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "ВИБРАТИ ТЕМУ ДЛЯ ВСТАНОВЛЕННЯ/ВИДАЛЕННЯ"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "ПОТОЧНА ТЕМА"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "ВІДВ'ЯЗАТИ BLUETOOTH КОНТРОЛЛЕР"
 
@@ -655,8 +628,25 @@ msgstr "Тут немає елементів"
 msgid "MISC"
 msgstr "РІЗНЕ"
 
+msgid "UPDATE"
+msgstr "ОНОВИТИ"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' ДОДАНО В ЧЕРГУ ЗАВАНТАЖЕННЯ"
+
+msgid "REMOVE"
+msgstr "ВИДАЛИТИ"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "ВИДАЛИТИ ДОДАНЕ В ЧЕРГУ"
+
+msgid "INSTALL"
+msgstr "ВСТАНОВИТИ"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "В ЧЕРЗІ ЗАВАНТАЖЕННЯ"
 
 msgid "NO MISSING BIOS"
 msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
@@ -942,53 +932,15 @@ msgstr "РЕДАГУВАТИ МЕТАДАННІ"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ПЕРЕГЛЯНУТИ ІНФОРМАЦІЮ ПРО КЕРУВАННЯ"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "ТРИВАЄ ЗАВАНТАЖЕННЯ ДАНИХ"
+msgid "THEMES DOWNLOADER"
+msgstr "ЗАВАНТАЖУВАЧ ТЕМ"
 
-msgid "SYSTEM"
-msgstr "СИСТЕМА"
-
-msgid "subtitle text"
-msgstr "текст cубтитрів"
-
-msgid "search"
-msgstr "пошук"
-
-msgid "SKIP"
-msgstr "ПРОПУСТИТИ"
-
-msgid "STOP"
-msgstr "СТОП"
-
-msgid "stop (progress saved)"
-msgstr "зупинити (з збереженням прогресу)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "ВИБРАТИ ТЕМУ ДЛЯ ВСТАНОВЛЕННЯ/ВИДАЛЕННЯ"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "ГРА %i З %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"НЕ ЗНАЙДЕНО ЖОДНОЇ СИСТЕМИ!\n"
-"ПЕРЕКОНАЙТЕСЬ, ЩО В КОНФІГУРАЦІЙНОМУ ФАЙЛІ ПРОПИСАНІ ПРАВИЛЬНІ ШЛЯХИ, ТА В "
-"КАТАЛОЗІ З ІГРАМИ Є ХОЧА Б ОДНА ГРА З ПРАВИЛЬНИМ РОЗШИРЕННЯМ."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i ГРА ОБРОБНЕНА УСПІШНО!"
-msgstr[1] "%i ГРИ ОБРОБЛЕНІ УСПІШНО!"
-msgstr[2] "%i ІГР ОБРОБЛЕНО УСПІШНО!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i ГРА ПРОПУЩЕНА."
-msgstr[1] "%i ГРИ ПРОПУЩЕНІ."
-msgstr[2] "%i ІГР ПРОПУЩЕНО."
+msgid "CURRENT THEME"
+msgstr "ПОТОЧНА ТЕМА"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1053,6 +1005,12 @@ msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕМАЄ ПІДХОДЯЩИХ ІГР."
+
+msgid "THE BEZEL PROJECT"
+msgstr "НАБІР РАМОК (ОВЕРЛЕЇВ)"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "ВИБРАТИ ОБГОРТКУ ДЛЯ ВСТАНОВЛЕННЯ/ВИДАЛЕННЯ"
 
 msgid "fade"
 msgstr "затухання"
@@ -1206,6 +1164,9 @@ msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
 
 msgid "SCRAPE FANART"
 msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1398,6 +1359,9 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОНОВЛЕННЯ ВЖЕ ЗАПУЩЕНО"
+
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
 
 msgid "LANGUAGE"
 msgstr "МОВА"
@@ -1797,15 +1761,6 @@ msgstr "WI-FI УВІМКНУТО"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ПОМИЛКА КОНФІГУРАЦІЇ WI-FI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "АВТОМАТИЧНЕ ЗАВАНТАЖЕННЯ"
-
-msgid "REALLY SCRAPE?"
-msgstr "ЗАВАНТАЖИТИ ДАННІ?"
-
-msgid "MANUAL SCRAPER"
-msgstr "РУЧНЕ ЗАВАНТАЖЕННЯ"
-
 msgid "QUICK ACCESS"
 msgstr "ШВИДКИЙ ДОСТУП"
 
@@ -2006,9 +1961,6 @@ msgstr "Зіграно раз"
 msgid "No Entries Found"
 msgstr "Записів не знайдено"
 
-msgid "Favorites"
-msgstr "Вибране"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2023,11 +1975,11 @@ msgstr "Пошук"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ІГРИ НЕ ЗНАЙДЕНО — ПРОПУСТИТИ"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "ВІДБУЛАСЬ ПОМИЛКА"
-
 msgid "RETRY"
 msgstr "ПОВТОРИТИ"
+
+msgid "SKIP"
+msgstr "ПРОПУСТИТИ"
 
 msgid "Downloading"
 msgstr ""
@@ -2369,6 +2321,60 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "ТРИВАЄ ЗАВАНТАЖЕННЯ ДАНИХ"
+
+#~ msgid "subtitle text"
+#~ msgstr "текст cубтитрів"
+
+#~ msgid "search"
+#~ msgstr "пошук"
+
+#~ msgid "STOP"
+#~ msgstr "СТОП"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "зупинити (з збереженням прогресу)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "ГРА %i З %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "НЕ ЗНАЙДЕНО ЖОДНОЇ СИСТЕМИ!\n"
+#~ "ПЕРЕКОНАЙТЕСЬ, ЩО В КОНФІГУРАЦІЙНОМУ ФАЙЛІ ПРОПИСАНІ ПРАВИЛЬНІ ШЛЯХИ, ТА "
+#~ "В КАТАЛОЗІ З ІГРАМИ Є ХОЧА Б ОДНА ГРА З ПРАВИЛЬНИМ РОЗШИРЕННЯМ."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i ГРА ОБРОБНЕНА УСПІШНО!"
+#~ msgstr[1] "%i ГРИ ОБРОБЛЕНІ УСПІШНО!"
+#~ msgstr[2] "%i ІГР ОБРОБЛЕНО УСПІШНО!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i ГРА ПРОПУЩЕНА."
+#~ msgstr[1] "%i ГРИ ПРОПУЩЕНІ."
+#~ msgstr[2] "%i ІГР ПРОПУЩЕНО."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "АВТОМАТИЧНЕ ЗАВАНТАЖЕННЯ"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "ЗАВАНТАЖИТИ ДАННІ?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "РУЧНЕ ЗАВАНТАЖЕННЯ"
+
+#~ msgid "Favorites"
+#~ msgstr "Вибране"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "ВІДБУЛАСЬ ПОМИЛКА"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "КОНФЛІКТИ ВИРУШУЄ КОРИСТУВАЧ"

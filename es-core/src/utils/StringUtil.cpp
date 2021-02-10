@@ -324,26 +324,33 @@ namespace Utils
 			return result;
 
 		} // moveCursor
-
-		static std::string changeUnicodeCasing(const std::string& _string, bool toUpper)
+		
+		std::string toLower(const std::string& _string) 
 		{
 			std::string text = _string;
 
 			size_t i = 0;
 			while (i < text.length())
-			{				
-				if ((text[i] & 0x80) == 0)
+			{
+				char c = text[i];
+				if ((c & 0x80) == 0)
 				{
-					text[i] = toUpper ? toupper(text[i]) : tolower(text[i]);
+					if (c < 65 || (c >= 90 && c <= 127))
+					{
+						i++;
+						continue;
+					}
+
+					text[i] = tolower(c);
 					i++;
 					continue;
 				}
 
 				int pos = i;
 				wchar_t character = (wchar_t)chars2Unicode(text, i);
-				wchar_t unicode = toUpper ? toupperUnicode(character) : tolowerUnicode(character);				
+				wchar_t unicode = tolowerUnicode(character);
 				if (unicode != character)
-				{					
+				{
 					int charSize = i - pos;
 					if (charSize == 2)
 					{
@@ -357,14 +364,56 @@ namespace Utils
 						text[pos + 2] += (char)((unicode & 0x3F) | 0x80);
 
 					}
-				}			
+				}
 			}
 
 			return text;
 		}
 
-		std::string toLower(const std::string& _string) { return changeUnicodeCasing(_string, false); }
-		std::string toUpper(const std::string& _string) { return changeUnicodeCasing(_string, true); }
+		std::string toUpper(const std::string& _string) 
+		{
+			std::string text = _string;
+
+			size_t i = 0;
+			while (i < text.length())
+			{
+				char c = text[i];
+				if ((c & 0x80) == 0)
+				{
+					if (c < 97)
+					{
+						i++;
+						continue;
+					}
+					
+					text[i] = toupper(c);
+					i++;
+					continue;
+				}
+
+				int pos = i;
+				wchar_t character = (wchar_t)chars2Unicode(text, i);
+				wchar_t unicode = toupperUnicode(character);
+				if (unicode != character)
+				{
+					int charSize = i - pos;
+					if (charSize == 2)
+					{
+						text[pos] = (char)(((unicode >> 6) & 0xFF) | 0xC0);
+						text[pos + 1] = (char)((unicode & 0x3F) | 0x80);
+					}
+					else if (charSize == 3)
+					{
+						text[pos] += (char)(((unicode >> 12) & 0xFF) | 0xE0);
+						text[pos + 1] += (char)(((unicode >> 6) & 0x3F) | 0x80);
+						text[pos + 2] += (char)((unicode & 0x3F) | 0x80);
+
+					}
+				}
+			}
+
+			return text;
+		}
 
 		std::string trim(const std::string& _string)
 		{
@@ -512,21 +561,19 @@ namespace Utils
 
 			if (s.empty())
 				return output;
+			
+			const char* src = s.c_str();
 
-			std::string::size_type prev_pos = 0, pos = 0;
-			while ((pos = s.find(seperator, pos)) != std::string::npos)
+			while (true) 
 			{
-				std::string substring(s.substr(prev_pos, pos - prev_pos));
+				const char* d = strchr(src, seperator);
+				size_t len = (d) ? d - src : strlen(src);
 
-				if (!removeEmptyEntries || !substring.empty())
-					output.push_back(substring);
+				if (len || !removeEmptyEntries)
+					output.push_back(std::string(src, len)); // capture token
 
-				prev_pos = ++pos;
+				if (d) src += len + 1; else break;
 			}
-
-			std::string lastLine = s.substr(prev_pos, pos - prev_pos);
-			if (!removeEmptyEntries || !lastLine.empty())
-				output.push_back(lastLine); // Last word
 
 			return output;
 		}
@@ -535,20 +582,26 @@ namespace Utils
 		{
 			std::vector<std::string> output;
 
-			char* str = new char[s.length() + 1];
-			std::strcpy(str, s.c_str());
-			
-			char* pch = strtok(str, seperator.c_str());
-			while (pch != NULL)
+			unsigned prev_pos = 0;
+			unsigned pos = s.find_first_of(seperator);
+			while (pos != std::string::npos)
 			{
-				if (!removeEmptyEntries || pch[0] != 0)
-					output.push_back(pch);
+				std::string token = s.substr(prev_pos, pos - prev_pos);
+				if (!removeEmptyEntries || !token.empty())
+					output.push_back(s.substr(prev_pos, pos - prev_pos));
 
-				pch = strtok(NULL, seperator.c_str());
+				pos++;
+				prev_pos = pos;
+				pos = s.find_first_of(seperator, pos);
 			}
 
-			delete str;
-		
+			if (prev_pos < s.length())
+			{
+				std::string token = s.substr(prev_pos);
+				if (!removeEmptyEntries || !token.empty())
+					output.push_back(token); // Last word
+			}
+
 			return output;
 		}
 
@@ -690,6 +743,9 @@ namespace Utils
 
 		int	toInteger(const std::string& string)
 		{
+			if (string.empty())
+				return 0;
+
 			return atoi(string.c_str());
 		}
 

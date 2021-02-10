@@ -5,8 +5,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ScraperCmdLine.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemData.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Gamelist.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.h
@@ -33,31 +32,28 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
 
-    # Guis
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.h
+    # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameScraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameOptions.h    
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.h 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperMulti.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiLoading.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstallStart.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstallStart.h # batocera    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstaller.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstaller.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetooth.h # batocera	
@@ -104,8 +100,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ScraperCmdLine.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemData.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Gamelist.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.cpp
@@ -130,27 +125,24 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
 
-    # Guis
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFastSelect.cpp
+    # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameScraper.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameOptions.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistOptions.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperMulti.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackupStart.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstallStart.cpp # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAutoScrape.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiUpdate.cpp # batocera    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBackup.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiInstall.cpp # batocera    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstallStart.cpp # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstallStart.cpp # batocera	    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiThemeInstaller.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBezelInstaller.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.cpp # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetooth.cpp # batocera	

@@ -1,39 +1,46 @@
 #pragma once
 
+#include <string>
 #include "GuiComponent.h"
-#include "GuiThemeInstallStart.h"
 #include "components/MenuComponent.h"
+#include "components/ComponentGrid.h"
+#include "components/TextComponent.h"
+#include "components/ImageComponent.h"
 #include "ApiSystem.h"
 #include "ContentInstaller.h"
 
 template<typename T>
 class OptionListComponent;
 
-class GuiBatoceraBezelEntry : public ComponentGrid
+class GuiBatoceraThemeEntry : public ComponentGrid
 {
 public:
-	GuiBatoceraBezelEntry(Window* window, BatoceraBezel& entry);
+	GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entry);
 
 	bool isInstallPending() { return mIsPending; }
-	BatoceraBezel& getEntry() { return mEntry; }
+	BatoceraTheme& getEntry() { return mEntry; }
 	virtual void setColor(unsigned int color);
+
+	void update(int deltaTime) override;
 
 private:
 	std::shared_ptr<TextComponent>  mImage;
 	std::shared_ptr<TextComponent>  mText;
 	std::shared_ptr<TextComponent>  mSubstring;
 
-	BatoceraBezel mEntry;
+	std::shared_ptr<ImageComponent>  mPreviewImage;
+
+	BatoceraTheme mEntry;
 	bool mIsPending;
 };
 
 
 // Batocera
-class GuiBezelInstallStart : public GuiComponent, IContentInstalledNotify
+class GuiThemeInstaller : public GuiComponent, IContentInstalledNotify
 {
 public:
-	GuiBezelInstallStart(Window* window);
-	~GuiBezelInstallStart();
+	GuiThemeInstaller(Window* window);
+	~GuiThemeInstaller();
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -41,16 +48,16 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
+
 private:
-	void processBezel(BatoceraBezel name);
-	
-	void loadBezelsAsync();
+	void loadThemesAsync();
 	void loadList();
 
 	void centerWindow();
+	void processTheme(BatoceraTheme theme);
 
-	int			  mReloadList;
-	MenuComponent mMenu;	
+	int				mReloadList;
+	MenuComponent	mMenu;
 
-	std::vector<BatoceraBezel> mBezels;
+	std::vector<BatoceraTheme> mThemes;
 };

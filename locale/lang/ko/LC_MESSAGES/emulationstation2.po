@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,6 +96,12 @@ msgstr "다른 박스아트"
 
 msgid "enter path to alt boxart"
 msgstr "다른 박스아트 경로 입력"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "휠"
@@ -583,39 +589,6 @@ msgstr "와이파이를 찾지 못했습니다"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "와이파이를 검색 중입니다"
 
-msgid "THE BEZEL PROJECT"
-msgstr "베젤 프로젝트"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "설치/제거할 베젤을 선택하세요"
-
-msgid "UPDATE"
-msgstr "업데이트"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "다운로드 대기열에 '%개'가 추가됨"
-
-msgid "REMOVE"
-msgstr "제거"
-
-msgid "INSTALL"
-msgstr "설치"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "현재 다운로드 대기열"
-
-msgid "THEMES DOWNLOADER"
-msgstr ""
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr ""
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "블루투스 컨트롤러 삭제"
 
@@ -649,8 +622,25 @@ msgstr ""
 msgid "MISC"
 msgstr "기타"
 
+msgid "UPDATE"
+msgstr "업데이트"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "다운로드 대기열에 '%개'가 추가됨"
+
+msgid "REMOVE"
+msgstr "제거"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "제거 작업이 대기열에 추가됨"
+
+msgid "INSTALL"
+msgstr "설치"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "현재 다운로드 대기열"
 
 msgid "NO MISSING BIOS"
 msgstr "바이오스가 모두 구성됨"
@@ -936,49 +926,15 @@ msgstr "게임 정보 편집"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "게임 아트워크 수집 진행 중"
-
-msgid "SYSTEM"
-msgstr "시스템"
-
-msgid "subtitle text"
-msgstr "자막"
-
-msgid "search"
-msgstr "검색"
-
-msgid "SKIP"
-msgstr "건너뛰기"
-
-msgid "STOP"
-msgstr "중단"
-
-msgid "stop (progress saved)"
-msgstr "중단 (진행 저장됨)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "게임 %i / %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgid "THEMES DOWNLOADER"
 msgstr ""
-"시스템을 찾을수 없습니다!\n"
-"설정 파일에서 시스템 경로가 맞는지 확인하시고, 게임 디렉토리에는 확장자가 정"
-"확한 게임이 한 개 이상이 있는지 확인하세요."
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
 
 #, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 개의 게임 아트워크를 수집했습니다."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -1043,6 +999,12 @@ msgstr "게임 아트워크 수집이 실행중입니다. 중지하겠습니까?
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
+
+msgid "THE BEZEL PROJECT"
+msgstr "베젤 프로젝트"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "설치/제거할 베젤을 선택하세요"
 
 msgid "fade"
 msgstr "페이드"
@@ -1196,6 +1158,9 @@ msgstr "비디오 스크랩"
 
 msgid "SCRAPE FANART"
 msgstr "팬아트 스크랩"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1388,6 +1353,9 @@ msgstr "업데이트 시작"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중입니다"
+
+msgid "SYSTEM"
+msgstr "시스템"
 
 msgid "LANGUAGE"
 msgstr "언어"
@@ -1786,15 +1754,6 @@ msgstr "WIFI 활성화됨"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 구성 오류"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "게임 아트워크 자동 수집"
-
-msgid "REALLY SCRAPE?"
-msgstr "게임 아트워크를 수집 할까요?"
-
-msgid "MANUAL SCRAPER"
-msgstr "게임 아트워크 수동 수집"
-
 msgid "QUICK ACCESS"
 msgstr ""
 
@@ -1989,9 +1948,6 @@ msgstr "플레이 횟수"
 msgid "No Entries Found"
 msgstr "항목을 찾지 못했습니다"
 
-msgid "Favorites"
-msgstr "즐겨 찾기"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2006,11 +1962,11 @@ msgstr "검색 중"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "발견된 게임 없음 - 건너뛰기"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "오류가 발생"
-
 msgid "RETRY"
 msgstr "재시도"
+
+msgid "SKIP"
+msgstr "건너뛰기"
 
 msgid "Downloading"
 msgstr "다운로드 중"
@@ -2337,6 +2293,56 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "게임 아트워크 수집 진행 중"
+
+#~ msgid "subtitle text"
+#~ msgstr "자막"
+
+#~ msgid "search"
+#~ msgstr "검색"
+
+#~ msgid "STOP"
+#~ msgstr "중단"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "중단 (진행 저장됨)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "게임 %i / %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "시스템을 찾을수 없습니다!\n"
+#~ "설정 파일에서 시스템 경로가 맞는지 확인하시고, 게임 디렉토리에는 확장자가 "
+#~ "정확한 게임이 한 개 이상이 있는지 확인하세요."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i 개의 게임 아트워크를 수집했습니다."
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "게임 아트워크 자동 수집"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "게임 아트워크를 수집 할까요?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "게임 아트워크 수동 수집"
+
+#~ msgid "Favorites"
+#~ msgstr "즐겨 찾기"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "오류가 발생"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "직접 선택"

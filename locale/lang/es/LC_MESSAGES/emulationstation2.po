@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Last-Translator: Seis\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -96,6 +96,12 @@ msgstr "CAJA ALTERNATIVA"
 
 msgid "enter path to alt boxart"
 msgstr "INTRODUCE LA UBICACIÓN DE LA CAJA ALTERNATIVA"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "RUEDA"
@@ -584,39 +590,6 @@ msgstr "NO SE ENCONTRARON REDES INALÁMBRICAS"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "BUSCANDO REDES INALÁMBRICAS"
 
-msgid "THE BEZEL PROJECT"
-msgstr "PROYECTO BISEL"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "SELECCIONA LOS BISELES A INSTALAR / DESINSTALAR"
-
-msgid "UPDATE"
-msgstr "ACTUALIZAR"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' SE AGREGO A LA FILA DE DESCARGAS"
-
-msgid "REMOVE"
-msgstr "DESINSTALAR"
-
-msgid "INSTALL"
-msgstr "INSTALAR"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "YA SE ENCUENTRA EN LA FILA DE DESCARGAS"
-
-msgid "THEMES DOWNLOADER"
-msgstr "GESTOR DE TEMAS"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "SELECCIONAR TEMAS PARA INSTALAR / DESINSTALAR"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "TEMA ACTUAL"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "DESVINCULAR CONTROL BLUETOOTH"
 
@@ -650,8 +623,25 @@ msgstr "No hay mas elementos en esta vista"
 msgid "MISC"
 msgstr "MISCELANEOS"
 
+msgid "UPDATE"
+msgstr "ACTUALIZAR"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' SE AGREGO A LA FILA DE DESCARGAS"
+
+msgid "REMOVE"
+msgstr "DESINSTALAR"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "DESINSTALACION AGREGADA A LA FILA"
+
+msgid "INSTALL"
+msgstr "INSTALAR"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "YA SE ENCUENTRA EN LA FILA DE DESCARGAS"
 
 msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
@@ -937,52 +927,15 @@ msgstr "EDITAR INFORMACIÓN DEL JUEGO"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VER LA INFORMACIÓN DE CONTROL A TECLADO"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "DESCARGA DE INFORMACIÓN DEL JUEGO EN CURSO"
+msgid "THEMES DOWNLOADER"
+msgstr "GESTOR DE TEMAS"
 
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "SUBTÍTULOS"
-
-msgid "search"
-msgstr "BUSCAR"
-
-msgid "SKIP"
-msgstr "OMITIR"
-
-msgid "STOP"
-msgstr "PARAR"
-
-msgid "stop (progress saved)"
-msgstr "DETENIDO (PROGRESO GUARDADO)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "SELECCIONAR TEMAS PARA INSTALAR / DESINSTALAR"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "JUEGO %i DE %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"NO SE HA PODIDO ENCONTRAR NINGÚN EMULADOR!\n"
-"REVISA QUE LAS RUTAS SEAN CORRECTAS EN EL FICHERO DE CONFIGURACIÓN, Y QUE LA "
-"CARPETA DE TUS JUEGOS CONTENGA POR LO MENOS UNA ROM DE JUEGO CON LA "
-"EXTENSIÓN CORRECTA"
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "¡%i INFORMACIÓN DE JUEGO DESCARGADA CORRECTAMENTE!"
-msgstr[1] "¡%i INFORMACIÓN DE JUEGOS DESCARGADA CORRECTAMENTE!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JUEGO IGNORADO"
-msgstr[1] "%i JUEGOS IGNORADOS"
+msgid "CURRENT THEME"
+msgstr "TEMA ACTUAL"
 
 msgid "Unlocked on"
 msgstr "DESBLOQUEADO EN"
@@ -1047,6 +1000,12 @@ msgstr "OBTENCIÓN DE INFORMACIÓN EJECUTANDOSE, ¿QUIERES DETENERLA?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO"
+
+msgid "THE BEZEL PROJECT"
+msgstr "PROYECTO BISEL"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "SELECCIONA LOS BISELES A INSTALAR / DESINSTALAR"
 
 msgid "fade"
 msgstr "DESVANECER"
@@ -1200,6 +1159,9 @@ msgstr "OBTENER VIDEOS"
 
 msgid "SCRAPE FANART"
 msgstr "OBTENER ARTE DE FAN"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr "OBTENER MAPA"
@@ -1392,6 +1354,9 @@ msgstr "INICIAR ACTUALIZACIÓN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA ACTUALIZACIÓN YA ESTÁ EN PROCESO"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1795,15 +1760,6 @@ msgstr "WIFI ACTIVADO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACIÓN WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "OBTENER CARÁTULAS AUTOMÁTICAMENTE"
-
-msgid "REALLY SCRAPE?"
-msgstr "OBTENER CARÁTULAS?"
-
-msgid "MANUAL SCRAPER"
-msgstr "OBTENER CARÁTULAS MANUALMENTE"
-
 msgid "QUICK ACCESS"
 msgstr "ACCESO RAPIDO"
 
@@ -2007,9 +1963,6 @@ msgstr "VECES JUGADO"
 msgid "No Entries Found"
 msgstr "NO SE ENCONTRARON ENTRADAS"
 
-msgid "Favorites"
-msgstr "FAVORITOS"
-
 msgid "Games similar to"
 msgstr "JUEGOS SIMILARES A"
 
@@ -2026,11 +1979,11 @@ msgstr "BUSCANDO"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "OCURRIÓ UN ERROR"
-
 msgid "RETRY"
 msgstr "REINTENTAR"
+
+msgid "SKIP"
+msgstr "OMITIR"
 
 msgid "Downloading"
 msgstr "DESCARGANDO"
@@ -2364,6 +2317,59 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "DESCARGA DE INFORMACIÓN DEL JUEGO EN CURSO"
+
+#~ msgid "subtitle text"
+#~ msgstr "SUBTÍTULOS"
+
+#~ msgid "search"
+#~ msgstr "BUSCAR"
+
+#~ msgid "STOP"
+#~ msgstr "PARAR"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "DETENIDO (PROGRESO GUARDADO)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "JUEGO %i DE %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "NO SE HA PODIDO ENCONTRAR NINGÚN EMULADOR!\n"
+#~ "REVISA QUE LAS RUTAS SEAN CORRECTAS EN EL FICHERO DE CONFIGURACIÓN, Y QUE "
+#~ "LA CARPETA DE TUS JUEGOS CONTENGA POR LO MENOS UNA ROM DE JUEGO CON LA "
+#~ "EXTENSIÓN CORRECTA"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "¡%i INFORMACIÓN DE JUEGO DESCARGADA CORRECTAMENTE!"
+#~ msgstr[1] "¡%i INFORMACIÓN DE JUEGOS DESCARGADA CORRECTAMENTE!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i JUEGO IGNORADO"
+#~ msgstr[1] "%i JUEGOS IGNORADOS"
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "OBTENER CARÁTULAS AUTOMÁTICAMENTE"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "OBTENER CARÁTULAS?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "OBTENER CARÁTULAS MANUALMENTE"
+
+#~ msgid "Favorites"
+#~ msgstr "FAVORITOS"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "OCURRIÓ UN ERROR"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "¿QUIERES DECIDIR EN CASO DE CONFLICTO?"

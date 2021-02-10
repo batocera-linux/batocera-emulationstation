@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -100,6 +100,12 @@ msgstr "CelfBocs Arall"
 
 msgid "enter path to alt boxart"
 msgstr "gosod llwybr i celfbocs arall"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "Olwyn"
@@ -592,39 +598,6 @@ msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "CHWILIO RHWYDWEITHIAU WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "Y PROSIECT GWEFL"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "DETHOL GWEFLAU I OSOD / DILEU"
-
-msgid "UPDATE"
-msgstr "DIWEDDARIAD"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
-
-msgid "REMOVE"
-msgstr "DIDDYMU"
-
-msgid "INSTALL"
-msgstr "GOSOD"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "YN BRESENNOL YN Y CIW LAWRLWYTHO"
-
-msgid "THEMES DOWNLOADER"
-msgstr "LAWRLWYTHWR THEMAU"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "DETHOL THEMAU I OSOD / DILEU"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "THEMA PRESENNOL"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "ANGHOFIO RHEOLWR BLUETOOTH"
 
@@ -658,8 +631,25 @@ msgstr "Nid oes unrhyw eitemau yn y golwg yma"
 msgid "MISC"
 msgstr "AMRYWIOL"
 
+msgid "UPDATE"
+msgstr "DIWEDDARIAD"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
+
+msgid "REMOVE"
+msgstr "DIDDYMU"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "DADOSOD WEDI'I YCHWANEGU AT Y CIW"
+
+msgid "INSTALL"
+msgstr "GOSOD"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "YN BRESENNOL YN Y CIW LAWRLWYTHO"
 
 msgid "NO MISSING BIOS"
 msgstr "DIM BIOS AR GOLL"
@@ -945,59 +935,15 @@ msgstr "GOLYGU METADATA Y GÊM HWN"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "CRAFU AR Y GWEILL"
+msgid "THEMES DOWNLOADER"
+msgstr "LAWRLWYTHWR THEMAU"
 
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "subtitle text"
-msgstr "testun is-deitl"
-
-msgid "search"
-msgstr "chwilio"
-
-msgid "SKIP"
-msgstr "SGIPIO"
-
-msgid "STOP"
-msgstr "STOPIO"
-
-msgid "stop (progress saved)"
-msgstr "stopio (arbed cynnydd)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "DETHOL THEMAU I OSOD / DILEU"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "GÊM %i O %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"NI ALLWN DDOD O HYD I UNRHYW SYSTEMAU!\n"
-"GWIRIWCH FOD EICH LLWYBRAU YN GYWIR YN Y FFEIL CADARNHAU SYSTEMAU, AC MAE "
-"EICH CYFARWYDDIAETH GÊM GYDA O LEIAF UN GÊM GYDA'R ESTYNIAD CYWIR."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i GÊM WEDI CRAFU'N LLWYDDIANNUS!"
-msgstr[1] "%i GÊM WEDI CRAFU'N LLWYDDIANNUS!"
-msgstr[2] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
-msgstr[3] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
-msgstr[4] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
-msgstr[5] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i GÊM WEDI SGIPIO."
-msgstr[1] "%i GÊM WEDI SGIPIO."
-msgstr[2] "%i GEMAU WEDI SGIPIO."
-msgstr[3] "%i GEMAU WEDI SGIPIO."
-msgstr[4] "%i GEMAU WEDI SGIPIO."
-msgstr[5] "%i GEMAU WEDI SGIPIO."
+msgid "CURRENT THEME"
+msgstr "THEMA PRESENNOL"
 
 msgid "Unlocked on"
 msgstr "Datgloi ar"
@@ -1062,6 +1008,12 @@ msgstr "MAE CRAFU YN RHEDEG. A YDYCH AM STOPIO?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "DIM GEMAU SY'N FFITIO'R MEINI PRAWF YNA."
+
+msgid "THE BEZEL PROJECT"
+msgstr "Y PROSIECT GWEFL"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "DETHOL GWEFLAU I OSOD / DILEU"
 
 msgid "fade"
 msgstr "pylu"
@@ -1215,6 +1167,9 @@ msgstr "CRAFU FIDEOS"
 
 msgid "SCRAPE FANART"
 msgstr "CRAFU CELF FFAN"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr "CRAFU MAP"
@@ -1407,6 +1362,9 @@ msgstr "DECHRAU DIWEDDARIAD"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "MAE DIWEDDARIAD YN RHEDEG YN BAROD"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "IAITH"
@@ -1807,15 +1765,6 @@ msgstr "GALLUOGI WIFI"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "GWALL TRAWSWEDDU WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "CRAFWR AWTOMATIG"
-
-msgid "REALLY SCRAPE?"
-msgstr "CRAFU GO IAWN?"
-
-msgid "MANUAL SCRAPER"
-msgstr "CRAFU Â LLAW"
-
 msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"
 
@@ -2030,9 +1979,6 @@ msgstr "Nifer o weithiau chwaraewyd"
 msgid "No Entries Found"
 msgstr "Ni ddarganfuwyd unrhyw gofnodion"
 
-msgid "Favorites"
-msgstr "Ffefrynnau"
-
 msgid "Games similar to"
 msgstr "Gemau tebyg i"
 
@@ -2048,11 +1994,11 @@ msgstr "Yn chwilio"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "DIM GEMAU WEDI FFEINDIO - SGIPIO"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "MAE GWALL WEDI DIGWYDD"
-
 msgid "RETRY"
 msgstr "CEISIO ETO"
+
+msgid "SKIP"
+msgstr "SGIPIO"
 
 msgid "Downloading"
 msgstr "Yn lawrlwytho"
@@ -2415,3 +2361,63 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d e"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "CRAFU AR Y GWEILL"
+
+#~ msgid "subtitle text"
+#~ msgstr "testun is-deitl"
+
+#~ msgid "search"
+#~ msgstr "chwilio"
+
+#~ msgid "STOP"
+#~ msgstr "STOPIO"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "stopio (arbed cynnydd)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "GÊM %i O %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "NI ALLWN DDOD O HYD I UNRHYW SYSTEMAU!\n"
+#~ "GWIRIWCH FOD EICH LLWYBRAU YN GYWIR YN Y FFEIL CADARNHAU SYSTEMAU, AC MAE "
+#~ "EICH CYFARWYDDIAETH GÊM GYDA O LEIAF UN GÊM GYDA'R ESTYNIAD CYWIR."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i GÊM WEDI CRAFU'N LLWYDDIANNUS!"
+#~ msgstr[1] "%i GÊM WEDI CRAFU'N LLWYDDIANNUS!"
+#~ msgstr[2] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
+#~ msgstr[3] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
+#~ msgstr[4] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
+#~ msgstr[5] "%i GEMAU WEDI CRAFU'N LLWYDDIANNUS!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i GÊM WEDI SGIPIO."
+#~ msgstr[1] "%i GÊM WEDI SGIPIO."
+#~ msgstr[2] "%i GEMAU WEDI SGIPIO."
+#~ msgstr[3] "%i GEMAU WEDI SGIPIO."
+#~ msgstr[4] "%i GEMAU WEDI SGIPIO."
+#~ msgstr[5] "%i GEMAU WEDI SGIPIO."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "CRAFWR AWTOMATIG"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "CRAFU GO IAWN?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "CRAFU Â LLAW"
+
+#~ msgid "Favorites"
+#~ msgstr "Ffefrynnau"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "MAE GWALL WEDI DIGWYDD"

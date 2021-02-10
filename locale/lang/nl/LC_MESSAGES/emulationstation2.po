@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -98,6 +98,12 @@ msgid "Alt BoxArt"
 msgstr ""
 
 msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
 msgstr ""
 
 msgid "Wheel"
@@ -587,39 +593,6 @@ msgstr "GEEN WIFI-NETWERKEN GEVONDEN"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "ZOEKEN NAAR WIFI-NETWERKEN"
 
-msgid "THE BEZEL PROJECT"
-msgstr "THE BEZEL PROJECT"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' TOEGEVOEGD AAN DOWNLOADWACHTRIJ"
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr "INSTALLEER"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "THEMES DOWNLOADER"
-msgstr ""
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr ""
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "VERGEET EEN BLUETOOTH-CONTROLLER"
 
@@ -653,7 +626,24 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' TOEGEVOEGD AAN DOWNLOADWACHTRIJ"
+
+msgid "REMOVE"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr "INSTALLEER"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr ""
 
 msgid "NO MISSING BIOS"
@@ -940,51 +930,15 @@ msgstr "BEWERK METADATA VAN DIT SPEL"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "BEZIG MET SCRAPEN"
-
-msgid "SYSTEM"
-msgstr "SYSTEEM"
-
-msgid "subtitle text"
-msgstr "ondertitelings tekst"
-
-msgid "search"
-msgstr "zoeken"
-
-msgid "SKIP"
-msgstr "OVERSLAAN"
-
-msgid "STOP"
-msgstr "STOP"
-
-msgid "stop (progress saved)"
-msgstr "stop (voortgang opgeslagen)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "SPEL %i van %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgid "THEMES DOWNLOADER"
 msgstr ""
-"WE KUNNEN GEEN SYSTEMEN VINDEN!\n"
-"CONTROLEER DAT JE PADEN CORRECT ZIJN INGEVOERD IN THE SYSTEEM CONFIGURATIE "
-"FILE, EN DAT JE SPELMAP MINIMAAL 1 SPEL HEEFT MET DE JUISTE EXTENSIE."
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
 
 #, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i SPEL SUCCESVOL GESCRAPED!"
-msgstr[1] "%i SPEL SUCCESVOL GESCRAPED!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i SPEL OVERGESLAGEN."
-msgstr[1] "%i SPELLEN OVERGESLAGEN."
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -1049,6 +1003,12 @@ msgstr "HET SCRAPEN IS BEZIG. WIL JE HET STOPPEN ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "GEEN SPELLEN GEVONDEN MET DIE CRITERIA."
+
+msgid "THE BEZEL PROJECT"
+msgstr "THE BEZEL PROJECT"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "vervagen"
@@ -1201,6 +1161,9 @@ msgid "SCRAPE VIDEOS"
 msgstr "SCRAPE VIDEO'S"
 
 msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
@@ -1394,6 +1357,9 @@ msgstr "NU UPDATEN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE REEDS GESTART"
+
+msgid "SYSTEM"
+msgstr "SYSTEEM"
 
 msgid "LANGUAGE"
 msgstr "TAAL"
@@ -1795,15 +1761,6 @@ msgstr "WIFI INGESCHAKELD"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI CONFIGURATIE FOUT"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "AUTOMATISCHE SCRAPER"
-
-msgid "REALLY SCRAPE?"
-msgstr "ECHT SCRAPEN?"
-
-msgid "MANUAL SCRAPER"
-msgstr "HANDMATIGE SCRAPER"
-
 msgid "QUICK ACCESS"
 msgstr ""
 
@@ -2001,9 +1958,6 @@ msgstr "Keren gespeeld"
 msgid "No Entries Found"
 msgstr "Geen ingangen gevonden"
 
-msgid "Favorites"
-msgstr "Favorieten"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2018,11 +1972,11 @@ msgstr "Zoeken"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "GEEN SPELLEN GEVONDEN - OVERSLAAN"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "EEN FOUT IS OPGETREDEN"
-
 msgid "RETRY"
 msgstr "OPNIEUW"
+
+msgid "SKIP"
+msgstr "OVERSLAAN"
 
 msgid "Downloading"
 msgstr "Bezig met downloaden"
@@ -2357,6 +2311,59 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "BEZIG MET SCRAPEN"
+
+#~ msgid "subtitle text"
+#~ msgstr "ondertitelings tekst"
+
+#~ msgid "search"
+#~ msgstr "zoeken"
+
+#~ msgid "STOP"
+#~ msgstr "STOP"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "stop (voortgang opgeslagen)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "SPEL %i van %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "WE KUNNEN GEEN SYSTEMEN VINDEN!\n"
+#~ "CONTROLEER DAT JE PADEN CORRECT ZIJN INGEVOERD IN THE SYSTEEM "
+#~ "CONFIGURATIE FILE, EN DAT JE SPELMAP MINIMAAL 1 SPEL HEEFT MET DE JUISTE "
+#~ "EXTENSIE."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i SPEL SUCCESVOL GESCRAPED!"
+#~ msgstr[1] "%i SPEL SUCCESVOL GESCRAPED!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i SPEL OVERGESLAGEN."
+#~ msgstr[1] "%i SPELLEN OVERGESLAGEN."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "AUTOMATISCHE SCRAPER"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "ECHT SCRAPEN?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "HANDMATIGE SCRAPER"
+
+#~ msgid "Favorites"
+#~ msgstr "Favorieten"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "EEN FOUT IS OPGETREDEN"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "GEBRUIKER BESLIST BIJ CONFLICTEN"

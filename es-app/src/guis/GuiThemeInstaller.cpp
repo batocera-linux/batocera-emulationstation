@@ -1,4 +1,4 @@
-#include "guis/GuiThemeInstallStart.h"
+#include "guis/GuiThemeInstaller.h"
 
 #include "ApiSystem.h"
 #include "components/OptionListComponent.h"
@@ -14,7 +14,7 @@
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
-GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
+GuiThemeInstaller::GuiThemeInstaller(Window* window)
 	: GuiComponent(window), mMenu(window, _("THEMES DOWNLOADER").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
@@ -28,18 +28,18 @@ GuiThemeInstallStart::GuiThemeInstallStart(Window* window)
 	ContentInstaller::RegisterNotify(this);
 }
 
-GuiThemeInstallStart::~GuiThemeInstallStart()
+GuiThemeInstaller::~GuiThemeInstaller()
 {
 	ContentInstaller::UnregisterNotify(this);
 }
 
-void GuiThemeInstallStart::OnContentInstalled(int contentType, std::string contentName, bool success)
+void GuiThemeInstaller::OnContentInstalled(int contentType, std::string contentName, bool success)
 {
 	if (contentType == ContentInstaller::CONTENT_THEME_INSTALL || contentType == ContentInstaller::CONTENT_THEME_UNINSTALL)
 		mReloadList = 2;
 }
 
-void GuiThemeInstallStart::update(int deltaTime)
+void GuiThemeInstaller::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
@@ -56,7 +56,7 @@ void GuiThemeInstallStart::update(int deltaTime)
 	}
 }
 
-void GuiThemeInstallStart::loadList()
+void GuiThemeInstaller::loadList()
 {
 	int idx = mMenu.getCursorIndex();
 	mMenu.clear();
@@ -80,7 +80,7 @@ void GuiThemeInstallStart::loadList()
 	mReloadList = 0;
 }
 
-void GuiThemeInstallStart::loadThemesAsync()
+void GuiThemeInstaller::loadThemesAsync()
 {
 	Window* window = mWindow;
 
@@ -97,7 +97,7 @@ void GuiThemeInstallStart::loadThemesAsync()
 	));
 }
 
-void GuiThemeInstallStart::centerWindow()
+void GuiThemeInstaller::centerWindow()
 {
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
@@ -107,7 +107,7 @@ void GuiThemeInstallStart::centerWindow()
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }
 
-void GuiThemeInstallStart::processTheme(BatoceraTheme theme)
+void GuiThemeInstaller::processTheme(BatoceraTheme theme)
 {
 	if (theme.name.empty())
 		return;
@@ -164,7 +164,7 @@ void GuiThemeInstallStart::processTheme(BatoceraTheme theme)
 	mWindow->pushGui(msgBox);
 }
 
-bool GuiThemeInstallStart::input(InputConfig* config, Input input)
+bool GuiThemeInstaller::input(InputConfig* config, Input input)
 {
 	if(GuiComponent::input(config, input))
 		return true;
@@ -185,7 +185,7 @@ bool GuiThemeInstallStart::input(InputConfig* config, Input input)
 	return false;
 }
 
-std::vector<HelpPrompt> GuiThemeInstallStart::getHelpPrompts()
+std::vector<HelpPrompt> GuiThemeInstaller::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));

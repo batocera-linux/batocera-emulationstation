@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: 2020-12-03 08:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -99,6 +99,12 @@ msgstr "代替ボックスアート画像"
 
 msgid "enter path to alt boxart"
 msgstr "代替ボックスアート画像のパスを入力"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "ホイール"
@@ -587,39 +593,6 @@ msgstr "WIFI ネットワークが見つかりません"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
-msgid "THE BEZEL PROJECT"
-msgstr "ベゼルプロジェクト"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "インストール/削除するベゼルを選択"
-
-msgid "UPDATE"
-msgstr "更新"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' がダウンロード キューに追加されました"
-
-msgid "REMOVE"
-msgstr "削除"
-
-msgid "INSTALL"
-msgstr "インストール"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "現在ダウンロードキューにあります"
-
-msgid "THEMES DOWNLOADER"
-msgstr "テーマダウンローダー"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "インストール/削除するテーマを選択"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "現在のテーマ"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH コントローラーを解除"
 
@@ -653,8 +626,25 @@ msgstr "項目が無いので表示できません"
 msgid "MISC"
 msgstr "その他"
 
+msgid "UPDATE"
+msgstr "更新"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' がダウンロード キューに追加されました"
+
+msgid "REMOVE"
+msgstr "削除"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "追加されたキューをアンインストール"
+
+msgid "INSTALL"
+msgstr "インストール"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "現在ダウンロードキューにあります"
 
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
@@ -940,49 +930,15 @@ msgstr "このゲームのメタ情報を編集"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "パッドからキーボード情報を表示"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "情報を取得中"
+msgid "THEMES DOWNLOADER"
+msgstr "テーマダウンローダー"
 
-msgid "SYSTEM"
-msgstr "システム"
-
-msgid "subtitle text"
-msgstr "字幕テキスト"
-
-msgid "search"
-msgstr "検索"
-
-msgid "SKIP"
-msgstr "スキップ"
-
-msgid "STOP"
-msgstr "停止"
-
-msgid "stop (progress saved)"
-msgstr "停止 (進捗は保存)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "インストール/削除するテーマを選択"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "ゲーム %i ／ %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"システムが見つかりません！\n"
-"システム設定ファイルに 正しいパスが設定されているか、 また、 ゲームディレクト"
-"リに 最低1つのゲームが 正しい拡張子で 格納されてあることを 確認してください。"
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 個 のゲームの スクレイプに 成功しました！"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i 個 のゲームを スキップしました。"
+msgid "CURRENT THEME"
+msgstr "現在のテーマ"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1047,6 +1003,12 @@ msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "適合する ゲームが 見つかりませんでした。"
+
+msgid "THE BEZEL PROJECT"
+msgstr "ベゼルプロジェクト"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "インストール/削除するベゼルを選択"
 
 msgid "fade"
 msgstr "フェード"
@@ -1200,6 +1162,9 @@ msgstr "ビデオをスクレイプ"
 
 msgid "SCRAPE FANART"
 msgstr "ファンアートをスクレイプ"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1394,6 +1359,9 @@ msgstr "更新 開始"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "更新は既に実行中です"
+
+msgid "SYSTEM"
+msgstr "システム"
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -1794,15 +1762,6 @@ msgstr "WIFI が有効になりました"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI 設定エラー"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "自動スクレイプ"
-
-msgid "REALLY SCRAPE?"
-msgstr "スクレイプしますか?"
-
-msgid "MANUAL SCRAPER"
-msgstr "手動スクレイプ"
-
 msgid "QUICK ACCESS"
 msgstr "クイック アクセス"
 
@@ -2002,9 +1961,6 @@ msgstr "プレイ回数"
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
-msgid "Favorites"
-msgstr "お気に入り"
-
 msgid "Games similar to"
 msgstr "類似ゲーム→"
 
@@ -2019,11 +1975,11 @@ msgstr "検索中"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "ゲームが見つかりません - スキップ"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "エラーが発生しました"
-
 msgid "RETRY"
 msgstr "再試行"
+
+msgid "SKIP"
+msgstr "スキップ"
 
 # Not reflected
 msgid "Downloading"
@@ -2351,6 +2307,57 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "情報を取得中"
+
+#~ msgid "subtitle text"
+#~ msgstr "字幕テキスト"
+
+#~ msgid "search"
+#~ msgstr "検索"
+
+#~ msgid "STOP"
+#~ msgstr "停止"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "停止 (進捗は保存)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "ゲーム %i ／ %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "システムが見つかりません！\n"
+#~ "システム設定ファイルに 正しいパスが設定されているか、 また、 ゲームディレ"
+#~ "クトリに 最低1つのゲームが 正しい拡張子で 格納されてあることを 確認してく"
+#~ "ださい。"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i 個 のゲームの スクレイプに 成功しました！"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i 個 のゲームを スキップしました。"
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "自動スクレイプ"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "スクレイプしますか?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "手動スクレイプ"
+
+#~ msgid "Favorites"
+#~ msgstr "お気に入り"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "エラーが発生しました"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "ユーザーが手動で修正"

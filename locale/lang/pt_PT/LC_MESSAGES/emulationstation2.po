@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -99,6 +99,12 @@ msgstr "Caixa Alternativa"
 
 msgid "enter path to alt boxart"
 msgstr "insira o caminho da caixa alternativa"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "Logotipo"
@@ -587,39 +593,6 @@ msgstr "NENHUMA REDE WIFI ENCONTRADA"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "PROCURA DE REDES WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "PROJETO MOLDURA"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "SELECIONE AS MOLDURAS A INSTALAR / REMOVER"
-
-msgid "UPDATE"
-msgstr "ATUALIZAR"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' ADICIONADO À LISTA DE TRANSFERÊNCIAS"
-
-msgid "REMOVE"
-msgstr "REMOVER"
-
-msgid "INSTALL"
-msgstr "INSTALAR"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "EM LISTA DE TRANSFERÊNCIAS"
-
-msgid "THEMES DOWNLOADER"
-msgstr "TRANSFERÊNCIA DE TEMAS"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "SELECIONAR TEMAS A INSTALAR / REMOVER"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "TEMA ATUAL"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "DESEMPARELHAR COMANDO BLUETOOTH"
 
@@ -653,8 +626,25 @@ msgstr "Não há itens nesta visualização"
 msgid "MISC"
 msgstr "DIVERSOS"
 
+msgid "UPDATE"
+msgstr "ATUALIZAR"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' ADICIONADO À LISTA DE TRANSFERÊNCIAS"
+
+msgid "REMOVE"
+msgstr "REMOVER"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "EM LISTA PARA DESINSTALAR"
+
+msgid "INSTALL"
+msgstr "INSTALAR"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "EM LISTA DE TRANSFERÊNCIAS"
 
 msgid "NO MISSING BIOS"
 msgstr "SEM BIOS EM FALTA"
@@ -940,52 +930,15 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VISUALIZAR INFORMAÇÕES DO RATO E TECLADO"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "PROCURA EM CURSO"
+msgid "THEMES DOWNLOADER"
+msgstr "TRANSFERÊNCIA DE TEMAS"
 
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "legenda"
-
-msgid "search"
-msgstr "procurar"
-
-msgid "SKIP"
-msgstr "PULAR"
-
-msgid "STOP"
-msgstr "PARE"
-
-msgid "stop (progress saved)"
-msgstr "pare (progresso guardado)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "SELECIONAR TEMAS A INSTALAR / REMOVER"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "JOGO %i DE %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"NÃO ENCONTRAMOS QUALQUER SISTEMAS!\n"
-"VERIFIQUE SE OS CAMINHOS ESTÃO CORRETOS NO ARQUIVO DE CONFIGURAÇÃO DE "
-"SISTEMAS, E O DIRETÓRIO DO JOGO TEM PELO MENOS UM JOGO COM A EXTENSÃO "
-"CORRETA."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i CAPA OBTIDA COM SUCESSO!"
-msgstr[1] "%i CAPAS OBTIDAS COM SUCESSO!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JOGO IGNORADO."
-msgstr[1] "%i JOGOS IGNORADOS."
+msgid "CURRENT THEME"
+msgstr "TEMA ATUAL"
 
 msgid "Unlocked on"
 msgstr "Desbloqueado em"
@@ -1050,6 +1003,12 @@ msgstr "A PROCURA ESTÁ EM CURSO. DESEJA PARAR ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NÃO SEGUE OS CRITÉRIOS DO JOGO"
+
+msgid "THE BEZEL PROJECT"
+msgstr "PROJETO MOLDURA"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "SELECIONE AS MOLDURAS A INSTALAR / REMOVER"
 
 msgid "fade"
 msgstr "escurecer"
@@ -1203,6 +1162,9 @@ msgstr "OBTER VÍDEOS"
 
 msgid "SCRAPE FANART"
 msgstr "OBTER FANART"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr "OBTER MAPA"
@@ -1395,6 +1357,9 @@ msgstr "INICIAR ATUALIZAÇÃO"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO ESTÁ EM CURSO"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1793,15 +1758,6 @@ msgstr "WIFI ATIVADO"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERRO NA CONFIGURAÇÃO WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "PROCURAR CAPAS AUTOMÁTICAMENTE"
-
-msgid "REALLY SCRAPE?"
-msgstr "DESEJA INICIAR?"
-
-msgid "MANUAL SCRAPER"
-msgstr "PROCURAR CAPAS MANUALMENTE"
-
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
 
@@ -2004,9 +1960,6 @@ msgstr "Vezes jogadas"
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
-msgid "Favorites"
-msgstr "Favoritos"
-
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
@@ -2021,11 +1974,11 @@ msgstr "Em andamento"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NENHUM JOGO ENCONTRADO - PULAR"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "OCORREU UM ERRO"
-
 msgid "RETRY"
 msgstr "TENTE NOVAMENTE"
+
+msgid "SKIP"
+msgstr "PULAR"
 
 msgid "Downloading"
 msgstr "A transferir"
@@ -2359,3 +2312,55 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "PROCURA EM CURSO"
+
+#~ msgid "subtitle text"
+#~ msgstr "legenda"
+
+#~ msgid "search"
+#~ msgstr "procurar"
+
+#~ msgid "STOP"
+#~ msgstr "PARE"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "pare (progresso guardado)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "JOGO %i DE %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "NÃO ENCONTRAMOS QUALQUER SISTEMAS!\n"
+#~ "VERIFIQUE SE OS CAMINHOS ESTÃO CORRETOS NO ARQUIVO DE CONFIGURAÇÃO DE "
+#~ "SISTEMAS, E O DIRETÓRIO DO JOGO TEM PELO MENOS UM JOGO COM A EXTENSÃO "
+#~ "CORRETA."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i CAPA OBTIDA COM SUCESSO!"
+#~ msgstr[1] "%i CAPAS OBTIDAS COM SUCESSO!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i JOGO IGNORADO."
+#~ msgstr[1] "%i JOGOS IGNORADOS."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "PROCURAR CAPAS AUTOMÁTICAMENTE"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "DESEJA INICIAR?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "PROCURAR CAPAS MANUALMENTE"
+
+#~ msgid "Favorites"
+#~ msgstr "Favoritos"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "OCORREU UM ERRO"

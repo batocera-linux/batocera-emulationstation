@@ -212,7 +212,7 @@ public:
 
 	std::unique_ptr<ScraperSearchHandle> search(const ScraperSearchParams& params);
 
-	virtual	int getThreadCount() {
+	virtual	int getThreadCount(std::string &result) {
 		return 1;
 	}
 

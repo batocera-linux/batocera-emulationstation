@@ -67,7 +67,8 @@ enum MetaDataId
 	Mix = 33,
 	CheevosHash = 34,
 	CheevosId = 35,
-	ScraperId = 36
+	ScraperId = 36,
+	BoxBack = 37
 };
 
 namespace MetaDataImportType
@@ -83,8 +84,9 @@ namespace MetaDataImportType
 		MAP = 64,
 		CARTRIDGE = 128,
 		TITLESHOT = 256,
+		BOXBACK = 512,
 
-		ALL = IMAGE | THUMB | VIDEO | MARQUEE | FANART | MANUAL | MAP | CARTRIDGE | TITLESHOT
+		ALL = IMAGE | THUMB | VIDEO | MARQUEE | FANART | MANUAL | MAP | CARTRIDGE | TITLESHOT | BOXBACK
 	};
 }
 

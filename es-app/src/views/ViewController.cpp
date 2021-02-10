@@ -74,6 +74,7 @@ ViewController::ViewController(Window* window)
 {
 	mSystemListView = nullptr;
 	mState.viewing = NOTHING;	
+	mState.system = nullptr;
 }
 
 ViewController::~ViewController()
@@ -1166,6 +1167,9 @@ void ViewController::onScreenSaverDeactivate()
 
 void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
 {
+	if (sInstance == nullptr)
+		return;
+
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
 	auto viewMode = ViewController::get()->getViewMode();
@@ -1177,24 +1181,25 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
 	if (!deleteCurrentGui)
 	{
 		GuiComponent* topGui = window->peekGui();
-		window->removeGui(topGui);
+		if (topGui != nullptr)
+			window->removeGui(topGui);
 	}
 
 	GuiComponent *gui;
 	while ((gui = window->peekGui()) != NULL)
 	{
 		window->removeGui(gui);
-		delete gui;
+
+		if (gui != sInstance)
+			delete gui;
 	}
 
 	ViewController::init(window);
-
-	CollectionSystemManager::deinit();
-	CollectionSystemManager::init(window);
-
+	
+	CollectionSystemManager::init(window);		
 	SystemData::loadConfig(window);
-
-	ViewController::get()->goToSystemView(systemName, true, viewMode);
+	
+	ViewController::get()->goToSystemView(systemName, true, viewMode);	
 	ViewController::get()->reloadAll(nullptr, false); // Avoid reloading themes a second time
 
 	window->closeSplashScreen();

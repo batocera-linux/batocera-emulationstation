@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,6 +96,12 @@ msgstr "包装盒封面"
 
 msgid "enter path to alt boxart"
 msgstr "输入包装盒封面路径"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "商标"
@@ -633,39 +639,6 @@ msgstr "未发现可用的WIFI网络"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "正在查询WIFI网络"
 
-msgid "THE BEZEL PROJECT"
-msgstr "框架项目"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "选择BEZELS安装 / 卸载"
-
-msgid "UPDATE"
-msgstr "更新"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "将 '%s' 添加到下载队列"
-
-msgid "REMOVE"
-msgstr "卸载"
-
-msgid "INSTALL"
-msgstr "安装"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "当前下载排队"
-
-msgid "THEMES DOWNLOADER"
-msgstr "主题下载"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "选择主题安装 / 卸载"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "当前主题"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "清除一个蓝牙控制器"
 
@@ -699,8 +672,25 @@ msgstr "在此视角下没东西"
 msgid "MISC"
 msgstr "杂项"
 
+msgid "UPDATE"
+msgstr "更新"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "将 '%s' 添加到下载队列"
+
+msgid "REMOVE"
+msgstr "卸载"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "添加卸载到队伍"
+
+msgid "INSTALL"
+msgstr "安装"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "当前下载排队"
 
 msgid "NO MISSING BIOS"
 msgstr "未缺失的BIOS"
@@ -903,45 +893,12 @@ msgstr "参数无效"
 msgid "SCRAPING IN PROGRESS"
 msgstr "正在抓取元数据"
 
-msgid "SYSTEM"
-msgstr "系统"
-
-msgid "subtitle text"
-msgstr "小标题文本"
-
-msgid "search"
-msgstr "搜索"
-
-msgid "SKIP"
-msgstr "跳过"
-
-msgid "STOP"
-msgstr "停止"
-
-msgid "stop (progress saved)"
-msgstr "停止 (保留进度)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "选择主题安装 / 卸载"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "游戏 %i - %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"未找到任何游戏平台\n"
-"请检查系统配置文件中的路径是否正确，并确保游戏目录下的ROM具有正确的扩展名。"
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "成功抓取 %i 个游戏元数据!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "跳过了 %i 个游戏。"
+msgid "CURRENT THEME"
+msgstr "当前主题"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1006,6 +963,12 @@ msgstr "抓取进行中"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
+
+msgid "THE BEZEL PROJECT"
+msgstr "框架项目"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "选择BEZELS安装 / 卸载"
 
 msgid "fade"
 msgstr "淡出"
@@ -1159,6 +1122,9 @@ msgstr "抓取视频"
 
 msgid "SCRAPE FANART"
 msgstr "抓取同人作品"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1754,15 +1720,6 @@ msgstr "WiFi 已启用"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WiFi 配置错误"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "自动抓取游戏数据"
-
-msgid "REALLY SCRAPE?"
-msgstr "是否开始抓取?"
-
-msgid "MANUAL SCRAPER"
-msgstr "手动抓取游戏数据"
-
 msgid "QUICK ACCESS"
 msgstr "快速进入"
 
@@ -1995,11 +1952,11 @@ msgstr "搜索中"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "未发现游戏 - 跳过"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "发生了一个错误"
-
 msgid "RETRY"
 msgstr "重试"
+
+msgid "SKIP"
+msgstr "跳过"
 
 msgid "Downloading"
 msgstr "下载中"

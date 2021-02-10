@@ -122,6 +122,7 @@ namespace PlatformIds
 		SOLARUS,
 
 		VIC20,
+		TI99,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT

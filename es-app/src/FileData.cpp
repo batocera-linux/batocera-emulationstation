@@ -29,24 +29,18 @@
 #include "SaveStateRepository.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
-	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
+	: mPath(path), mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
-	mPath = Utils::FileSystem::createRelativePath(path, getSystemEnvData()->mStartPath, false);
-	
 	// metadata needs at least a name field (since that's what getName() will return)
 	if (mMetadata.get(MetaDataId::Name).empty())
 		mMetadata.set(MetaDataId::Name, getDisplayName());
 	
 	mMetadata.resetChangedFlag();
-
 }
 
 const std::string FileData::getPath() const
 { 	
-	if (mPath.empty())
-		return getSystemEnvData()->mStartPath;
-
-	return Utils::FileSystem::resolveRelativePath(mPath, getSystemEnvData()->mStartPath, true);	
+	return mPath;
 }
 
 const std::string FileData::getBreadCrumbPath()
@@ -207,10 +201,10 @@ const bool FileData::getKidGame()
 
 const bool FileData::hasCheevos()
 {
-	if (!getSourceFileData()->getSystem()->isCheevosSupported())
-		return false;
+	if (Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0)
+		return getSourceFileData()->getSystem()->isCheevosSupported();
 
-	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
+	return false;
 }
 
 static std::shared_ptr<bool> collectionShowSystemInfo;
@@ -1308,6 +1302,28 @@ bool FileData::isExtensionCompatible()
 	}
 
 	return true;
+}
+
+FolderData::FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens) : FileData(FOLDER, startpath, system)
+{
+	mIsDisplayableAsVirtualFolder = false;
+	mOwnsChildrens = ownsChildrens;
+}
+
+FolderData::~FolderData()
+{
+	clear();
+}
+
+void FolderData::clear()
+{
+	if (mOwnsChildrens)
+	{
+		for (int i = mChildren.size() - 1; i >= 0; i--)
+			delete mChildren.at(i);
+	}
+
+	mChildren.clear();
 }
 
 void FolderData::removeFromVirtualFolders(FileData* game)

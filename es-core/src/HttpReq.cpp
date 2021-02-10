@@ -327,7 +327,7 @@ HttpReq::Status HttpReq::status()
 					{
 						std::string err;
 
-						if (http_status_code >= 400 && http_status_code < 499)
+						if (http_status_code >= 400 && http_status_code <= 500)
 						{
 							if (req->mFilePath.empty())
 								err = req->getContent();

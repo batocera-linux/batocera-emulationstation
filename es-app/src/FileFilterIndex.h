@@ -83,10 +83,9 @@ protected:
 
 	void manageGenreEntryInIndex(FileData* game, bool remove = false);
 	void managePlayerEntryInIndex(FileData* game, bool remove = false);
-	void managePubDevEntryInIndex(FileData* game, bool remove = false);
-	void manageRatingsEntryInIndex(FileData* game, bool remove = false);	
+	void managePubDevEntryInIndex(FileData* game, bool remove = false);	
 	void manageYearEntryInIndex(FileData* game, bool remove = false);
-	void manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove, bool forceUnknown = false);
+	void manageIndexEntry(std::map<std::string, int>* index, const std::string& key, bool remove, bool forceUnknown = false);
 
 	void manageLangEntryInIndex(FileData* game, bool remove = false);
 	void manageRegionEntryInIndex(FileData* game, bool remove = false);

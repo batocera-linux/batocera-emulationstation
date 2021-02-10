@@ -8,8 +8,8 @@
 #include "guis/GuiGeneralScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
-#include "guis/GuiThemeInstallStart.h" //batocera
-#include "guis/GuiBezelInstallStart.h" //batocera
+#include "guis/GuiThemeInstaller.h" //batocera
+#include "guis/GuiBezelInstaller.h" //batocera
 #include "guis/GuiBatoceraStore.h" //batocera
 #include "guis/GuiSettings.h"
 #include "guis/GuiRetroAchievements.h" //batocera
@@ -31,7 +31,6 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include <LibretroRatio.h>
-#include "guis/GuiAutoScrape.h"
 #include "guis/GuiUpdate.h"
 #include "guis/GuiInstallStart.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
@@ -677,6 +676,12 @@ void GuiMenu::openScraperSettings()
 		s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
 		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
 
+		// SCRAPE BOX BACKSIDE
+		auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
+		scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
+		s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
+		s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+
 		// SCRAPE MAP		
 		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
 		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
@@ -768,6 +773,12 @@ void GuiMenu::openScraperSettings()
 			scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
 			s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
 			s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
+
+			// SCRAPE BOX BACKSIDE
+			auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
+			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
+			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
+			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
 		}
 		else
 		{		// scrape video
@@ -780,7 +791,7 @@ void GuiMenu::openScraperSettings()
 		
 	scraper_list->setSelectedChangedCallback([this, s, scraper, scraper_list](std::string value)
 	{		
-		if (value != scraper && (scraper == "ScreenScraper" || value == "ScreenScraper"))
+		if (value != scraper)
 		{
 			Settings::getInstance()->setString("Scraper", value);
 			delete s;
@@ -1394,7 +1405,7 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiThemeInstallStart(mWindow));
+			mWindow->pushGui(new GuiThemeInstaller(mWindow));
 		});
 	}
 
@@ -1406,7 +1417,7 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiBezelInstallStart(mWindow));
+			mWindow->pushGui(new GuiBezelInstaller(mWindow));
 		});
 	}
 
@@ -3716,23 +3727,6 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 	mWindow->pushGui(s);
 }
 
-void GuiMenu::openScraperSettings_batocera() 
-{
-	auto s = new GuiSettings(mWindow, _("SCRAPE").c_str());
-
-	s->addEntry(_("AUTOMATIC SCRAPER"), true, [this] {
-		Window* window = mWindow;
-		window->pushGui(new GuiMsgBox(window, _("REALLY SCRAPE?"), _("YES"),
-			[window] {
-			window->pushGui(new GuiAutoScrape(window));
-		}, _("NO"), nullptr));
-	});
-
-	s->addEntry(_("MANUAL SCRAPER"), true, [this] { openScraperSettings(); });
-
-	mWindow->pushGui(s);
-}
-
 void GuiMenu::openQuitMenu_batocera()
 {
   GuiMenu::openQuitMenu_batocera_static(mWindow);
@@ -4598,6 +4592,8 @@ GuiMenu::~GuiMenu() {
 std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 {
 	std::vector<DecorationSetInfo> sets;
+	if (system == nullptr)
+		return sets;
 
 	static const size_t pathCount = 3;
 

@@ -121,7 +121,7 @@ namespace Utils
 				int ret = stat64(key.c_str(), info);
 #endif
 
-				std::unique_lock<std::mutex> lock(mFileCacheMutex);
+				mFileCacheMutex.lock();
 
 				FileCache cache(ret == 0, false);
 				if (cache.exists)
@@ -134,6 +134,8 @@ namespace Utils
 
 				mFileCache[key] = cache;
 
+				mFileCacheMutex.unlock();
+
 				return ret;
 			}
 
@@ -142,8 +144,9 @@ namespace Utils
 				if (!mEnabled)
 					return;
 
-				std::unique_lock<std::mutex> lock(mFileCacheMutex);
+				mFileCacheMutex.lock();
 				mFileCache[key] = cache;
+				mFileCacheMutex.unlock();
 			}
 
 			static FileCache* get(const std::string& key)
@@ -169,8 +172,9 @@ namespace Utils
 
 			static void resetCache()
 			{
-				std::unique_lock<std::mutex> lock(mFileCacheMutex);
+				mFileCacheMutex.lock();
 				mFileCache.clear();
+				mFileCacheMutex.unlock();
 			}
 
 			static void setEnabled(bool value) { mEnabled = value; }
@@ -463,14 +467,13 @@ namespace Utils
 
 		} // getHomePath
 
+		
 		std::string getCWDPath()
 		{
-			char temp[2048];
-
 			// return current working directory path
+			char temp[2048];
 			return (getcwd(temp, 2048) ? getGenericPath(temp) : "");
-
-		} // getCWDPath
+		}
 
 		std::string exePath;
 
@@ -481,24 +484,28 @@ namespace Utils
 				path = getParent(path);
 
 			exePath = Utils::FileSystem::getGenericPath(path);
-		} // setExePath
+		}
 
 		std::string getExePath()
 		{
 			return exePath;
-
-		} // getExePath
+		}
 
 		std::string getPreferredPath(const std::string& _path)
 		{
+#if _WIN32
 			std::string path   = _path;
-			size_t      offset = std::string::npos;
-#if defined(_WIN32)
+
 			// convert '/' to '\\'
+
+			size_t      offset = std::string::npos;
 			while((offset = path.find('/')) != std::string::npos)
 				path.replace(offset, 1, "\\");
-#endif // _WIN32
+
 			return path;
+#else
+			return _path;
+#endif
 		}
 
 		std::string getGenericPath(const std::string& _path)
@@ -527,8 +534,7 @@ namespace Utils
 
 			// return generic path
 			return path;
-
-		} // getGenericPath
+		}
 
 		std::string getEscapedPath(const std::string& _path)
 		{
@@ -565,83 +571,82 @@ namespace Utils
 			return path;
 #endif // _WIN32
 
-		} // getEscapedPath
+		}
 
 		std::string getCanonicalPath(const std::string& _path)
 		{
 			// temporary hack for builtin resources
-			if(_path.size() >= 2 && _path[0] == ':' && _path[1] == '/')
+			if (_path.size() >= 2 && _path[0] == ':' && _path[1] == '/')
 				return _path;
 
 #if WIN32
-			std::string path = _path[0] == '.' ? getAbsolutePath(_path) : getGenericPath(_path);
+			std::string path = _path[0] == '.' ? getAbsolutePath(_path) : _path;
 			if (path.find("./") == std::string::npos)
 				return path;
 #else
-			std::string path = exists(_path) ? getAbsolutePath(_path) : getGenericPath(_path);
+			std::string path = exists(_path) ? getAbsolutePath(_path) : _path;
 #endif
+			
+			int indexes[32];
+			int index = -1;
+			char fp[4096];
 
-			// cleanup path
-			bool scan = true;
-			while(scan)
+			int pos = 0;
+			int ofs = 0;
+
+			bool pointset = false;
+			bool twopointset = false;
+
+			for (int i = 0; i < path.size(); i++)
 			{
-				auto pathList = getPathList(path);
+				char c = path[i];
 
-				path.clear();
-				scan = false;
-
-				for(auto it = pathList.cbegin(); it != pathList.cend(); ++it)
+				if (c == '/' || c == '\\')
 				{
-					// ignore empty
-					if((*it).empty())
-						continue;
-
-					// remove "/./"
-					if((*it) == ".")
-						continue;
-
-					// resolve "/../"
-					if((*it) == "..")
+					if (twopointset)
 					{
-						path = getParent(path);
+						if (index > 0)
+							pos = indexes[--index] + 1;
+
+						twopointset = false;
+						pointset = false;
 						continue;
 					}
-
-#if defined(_WIN32)
-					// append folder to path
-					path += (path.size() == 0) ? (*it) : ("/" + (*it));
-#else // _WIN32
-					// append folder to path
-					path += ("/" + (*it));
-
-					/* 
-					// resolve symlink - Disabled : slow & useless
-					if(isSymlink(path))
+					else if (pointset)
 					{
-						std::string resolved = resolveSymlink(path);
+						pos = indexes[index] + 1;
+						pointset = false;
+						continue;
+					}
+					else
+						indexes[++index] = pos;
 
-						if(resolved.empty())
-							return "";
-
-						if(isAbsolute(resolved))
-							path = resolved;
-						else
-							path = getParent(path) + "/" + resolved;
-
-						for(++it; it != pathList.cend(); ++it)
-							path += (path.size() == 0) ? (*it) : ("/" + (*it));
-
-						scan = true;
-						break;
-					}*/
-#endif // _WIN32
+					fp[pos++] = '/';
+					continue;
 				}
+				else if (c == '.')
+				{
+					if (pointset)
+					{
+						twopointset = true;
+						pointset = false;
+					}
+					else if (index >= 0 && i > 0 && (path[i-1] == '/' || path[i - 1] == '\\'))
+						pointset = true;
+				}
+				else
+				{
+					twopointset = false;
+					pointset = false;
+				}
+
+				fp[pos++] = c;
 			}
 
-			// return canonical path
-			return path;
+			fp[pos] = 0;
+			return fp;			
 
-		} // getCanonicalPath
+		}
 
 		std::string getAbsolutePath(const std::string& _path, const std::string& _base)
 		{
@@ -649,53 +654,54 @@ namespace Utils
 				return getGenericPath(_path);
 
 			return getCanonicalPath(_base + "/" + _path);
-		} // getAbsolutePath
+		}
 
 		std::string getParent(const std::string& _path)
-		{
-			std::string path   = getGenericPath(_path);
-			size_t      offset = std::string::npos;
-
-			// find last '/' and erase it
-			if((offset = path.find_last_of('/')) != std::string::npos)
-				return path.erase(offset);
-
-			// no parent found
-			return path;
-
-		} // getParent
+		{			
+			for (int i = _path.size() - 1; i > 0; i--)
+				if (_path[i] == '/' || _path[i] == '\\')
+					return _path.substr(0, i);
+			
+			return "";
+		}
 
 		std::string getFileName(const std::string& _path)
 		{
-			std::string path   = getGenericPath(_path);
-			size_t      offset = std::string::npos;
+			for (int i = _path.size() - 1; i > 0; i--)
+				if (_path[i] == '/' || _path[i] == '\\')
+					return _path.substr(i + 1);
 
-			// find last '/' and return the filename
-			if((offset = path.find_last_of('/')) != std::string::npos)
-				return ((path[offset + 1] == 0) ? "." : std::string(path, offset + 1));
-
-			// no '/' found, entire path is a filename
-			return path;
-
-		} // getFileName
+			return _path;
+		}
 
 		std::string getStem(const std::string& _path)
 		{
-			std::string fileName = getFileName(_path);
-			size_t      offset   = std::string::npos;
+			int lastPathSplit = 0;
+			int extPos = -1;
 
-			// empty fileName
-			if(fileName == ".")
-				return fileName;
+			auto* p = _path.c_str();
+			for (int i = _path.size() - 1 ; i >= 0 ; i--)
+			{
+				if (extPos < 0 && p[i] == '.')
+					extPos = i;
 
-			// find last '.' and erase the extension
-			if((offset = fileName.find_last_of('.')) != std::string::npos)
-				return fileName.erase(offset);
+				if (p[i] == '/' || p[i] == '\\')
+				{
+					lastPathSplit = i + 1;
+					break;
+				}
+			}
 
-			// no '.' found, filename has no extension
-			return fileName;
+			if (extPos < 0)
+			{
+				if (lastPathSplit == 0)
+					return _path;
 
-		} // getStem
+				return _path.substr(lastPathSplit);
+			}
+
+			return _path.substr(lastPathSplit, extPos - lastPathSplit);
+		}
 
 		std::string getExtension(const std::string& _path)
 		{
@@ -706,22 +712,7 @@ namespace Utils
 				return ext;
 
 			return std::string();
-			/*
-			std::string fileName = getFileName(_path);
-			size_t      offset   = std::string::npos;
-
-			// empty fileName
-			if(fileName == ".")
-				return fileName;
-
-			// find last '.' and return the extension
-			if((offset = fileName.find_last_of('.')) != std::string::npos)
-				return std::string(fileName, offset);
-
-			// no '.' found, filename has no extension
-			return ".";*/
-
-		} // getExtension
+		}
 
 		std::string resolveRelativePath(const std::string& _path, const std::string& _relativeTo, const bool _allowHome)
 		{
@@ -932,8 +923,7 @@ namespace Utils
 			// only try to create parent if it's not identical to path
 			if(parent != path)
 				createDirectory(parent);
-
-			
+						
 			// try to create directory again now that the parent should exist
 			return (mkdir(path.c_str(), 0755) == 0);
 

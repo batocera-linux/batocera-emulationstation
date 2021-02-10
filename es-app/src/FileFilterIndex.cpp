@@ -160,6 +160,12 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&verticalIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&verticalIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&ratingsIndexAllKeys, "1 STAR", false);
+	manageIndexEntry(&ratingsIndexAllKeys, "2 STARS", false);
+	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
+	manageIndexEntry(&ratingsIndexAllKeys, "4 STARS", false);
+	manageIndexEntry(&ratingsIndexAllKeys, "5 STARS", false);
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
@@ -260,17 +266,12 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 	}
 
 	case PLAYED_FILTER:
-	{
-		key = Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";
-		break;
-	}
+		return Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";		
 
 	case YEAR_FILTER:
-	{
 		key = game->getMetadata(MetaDataId::ReleaseDate);
 		key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
-		break;
-	}
+		return key;
 
 	case CHEEVOS_FILTER:
 	{
@@ -280,8 +281,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		if (game->getType() != GAME)
 			return "FALSE";
 
-		key = game->hasCheevos() ? "TRUE" : "FALSE";
-		break;
+		return game->hasCheevos() ? "TRUE" : "FALSE";		
 	}
 
 	case VERTICAL_FILTER:
@@ -292,8 +292,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		if (game->getType() != GAME)
 			return "FALSE";
 
-		key = game->isVerticalArcadeGame() ? "TRUE" : "FALSE";
-		break;
+		return game->isVerticalArcadeGame() ? "TRUE" : "FALSE";		
 	}
 	}
 
@@ -309,8 +308,7 @@ void FileFilterIndex::addToIndex(FileData* game)
 
 	manageGenreEntryInIndex(game);
 	managePlayerEntryInIndex(game);
-	managePubDevEntryInIndex(game);
-	manageRatingsEntryInIndex(game);
+	managePubDevEntryInIndex(game);	
 	manageYearEntryInIndex(game);
 	manageLangEntryInIndex(game);
 	manageRegionEntryInIndex(game);		
@@ -320,8 +318,7 @@ void FileFilterIndex::removeFromIndex(FileData* game)
 {
 	manageGenreEntryInIndex(game, true);
 	managePlayerEntryInIndex(game, true);
-	managePubDevEntryInIndex(game, true);
-	manageRatingsEntryInIndex(game, true);
+	managePubDevEntryInIndex(game, true);	
 	manageYearEntryInIndex(game, true);
 	manageLangEntryInIndex(game, true);
 	manageRegionEntryInIndex(game, true);	
@@ -789,35 +786,12 @@ void FileFilterIndex::managePubDevEntryInIndex(FileData* game, bool remove)
 	}
 }
 
-void FileFilterIndex::manageRatingsEntryInIndex(FileData* game, bool remove)
-{
-	std::string key = getIndexableKey(game, RATINGS_FILTER, false);
-
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid rating info found
-		return;
-	}
-
-	manageIndexEntry(&ratingsIndexAllKeys, key, remove);
-}
-
 void FileFilterIndex::manageYearEntryInIndex(FileData* game, bool remove)
 {
-	std::string key = getIndexableKey(game, YEAR_FILTER, false);
-
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-
-	if (!includeUnknown && key == UNKNOWN_LABEL)
-		return;
-
-	manageIndexEntry(&yearIndexAllKeys, key, remove);
+	manageIndexEntry(&yearIndexAllKeys, getIndexableKey(game, YEAR_FILTER, false), remove);
 }
 
-void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, std::string key, bool remove, bool forceUnknown)
+void FileFilterIndex::manageIndexEntry(std::map<std::string, int>* index, const std::string& key, bool remove, bool forceUnknown)
 {
 	bool includeUnknown = INCLUDE_UNKNOWN;
 	if (!includeUnknown && key == UNKNOWN_LABEL && !forceUnknown)

@@ -130,7 +130,8 @@ namespace PlatformIds
 
 		{ "vic20",					VIC20 },
 		{ "c20",					VIC20 },
-
+		{ "ti99",					TI99 },
+			
 		{ "model3",					MODEL3 },
 			
 		{ "imageviewer",			IMAGEVIEWER },
