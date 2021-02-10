@@ -158,6 +158,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/VideoVlcComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/VolumeInfoComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollbarComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/MultiLineMenuEntry.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/WebImageComponent.cpp	
 

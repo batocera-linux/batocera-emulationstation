@@ -1,4 +1,4 @@
-#include "guis/GuiBezelInstallStart.h"
+#include "guis/GuiBezelInstaller.h"
 
 #include "ApiSystem.h"
 #include "components/OptionListComponent.h"
@@ -15,7 +15,7 @@
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
-GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
+GuiBezelInstaller::GuiBezelInstaller(Window* window)
 	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
@@ -27,12 +27,12 @@ GuiBezelInstallStart::GuiBezelInstallStart(Window* window)
 	ContentInstaller::RegisterNotify(this);
 }
 
-GuiBezelInstallStart::~GuiBezelInstallStart()
+GuiBezelInstaller::~GuiBezelInstaller()
 {
 	ContentInstaller::UnregisterNotify(this);
 }
 
-void GuiBezelInstallStart::OnContentInstalled(int contentType, std::string contentName, bool success)
+void GuiBezelInstaller::OnContentInstalled(int contentType, std::string contentName, bool success)
 {
 	if (contentType == ContentInstaller::CONTENT_BEZEL_INSTALL && success)
 	{
@@ -55,7 +55,7 @@ void GuiBezelInstallStart::OnContentInstalled(int contentType, std::string conte
 		mReloadList = 2;
 }
 
-void GuiBezelInstallStart::update(int deltaTime)
+void GuiBezelInstaller::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
@@ -72,7 +72,7 @@ void GuiBezelInstallStart::update(int deltaTime)
 	}
 }
 
-void GuiBezelInstallStart::loadList()
+void GuiBezelInstaller::loadList()
 {
 	int idx = mMenu.getCursorIndex();
 	mMenu.clear();
@@ -96,7 +96,7 @@ void GuiBezelInstallStart::loadList()
 	mReloadList = 0;
 }
 
-void GuiBezelInstallStart::loadBezelsAsync()
+void GuiBezelInstaller::loadBezelsAsync()
 {
 	Window* window = mWindow;
 
@@ -113,7 +113,7 @@ void GuiBezelInstallStart::loadBezelsAsync()
 	));
 }
 
-void GuiBezelInstallStart::centerWindow()
+void GuiBezelInstaller::centerWindow()
 {
 	if (Renderer::isSmallScreen())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
@@ -123,7 +123,7 @@ void GuiBezelInstallStart::centerWindow()
 	mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 }
 
-void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
+void GuiBezelInstaller::processBezel(BatoceraBezel bezel)
 {
 	if (bezel.name.empty())
 		return;
@@ -180,7 +180,7 @@ void GuiBezelInstallStart::processBezel(BatoceraBezel bezel)
 	mWindow->pushGui(msgBox);
 }
 
-bool GuiBezelInstallStart::input(InputConfig* config, Input input)
+bool GuiBezelInstaller::input(InputConfig* config, Input input)
 {
 	if (GuiComponent::input(config, input))
 		return true;
@@ -201,7 +201,7 @@ bool GuiBezelInstallStart::input(InputConfig* config, Input input)
 	return false;
 }
 
-std::vector<HelpPrompt> GuiBezelInstallStart::getHelpPrompts()
+std::vector<HelpPrompt> GuiBezelInstaller::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));

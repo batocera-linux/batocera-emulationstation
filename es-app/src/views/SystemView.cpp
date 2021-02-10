@@ -179,7 +179,7 @@ void SystemView::populate()
 				if (!path.empty())
 				{
 					// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
-					ImageComponent* logo = new ImageComponent(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
+					auto logo = std::make_shared<ImageComponent>(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
 					logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
 					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 
@@ -197,7 +197,7 @@ void SystemView::populate()
 					if (mCarousel.size.x() != mCarousel.logoSize.x() & mCarousel.size.y() != mCarousel.logoSize.y())
 						logo->setRotateByTargetSize(true);
 					
-					e.data.logo = std::shared_ptr<GuiComponent>(logo);
+					e.data.logo = logo;
 				}
 			}
 			if (!e.data.logo)

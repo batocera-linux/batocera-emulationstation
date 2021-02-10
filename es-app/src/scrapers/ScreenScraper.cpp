@@ -63,7 +63,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ NINTENDO_GAMECUBE, 13 },
 	{ NINTENDO_WII, 16 },
 	{ NINTENDO_WII_U, 18 },
-	{ NINTENDO_SWITCH, 225 },	
+	{ NINTENDO_SWITCH, 225 },
 	{ NINTENDO_VIRTUAL_BOY, 11 },
 	{ NINTENDO_GAME_AND_WATCH, 52 },
 	{ PC, 135 },
@@ -96,9 +96,9 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIDEOPAC_ODYSSEY2, 104 },
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
-	{ TANDY, 144 },	
+	{ TANDY, 144 },
 	{ SUPERGRAFX, 105 },
-	
+
 	{ AMIGACD32, 130 },
 	{ AMIGACDTV, 129 },
 	{ ATOMISWAVE, 53 },
@@ -116,6 +116,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ TIC80, 222 },
 	{ MOONLIGHT, 138 }, // "PC Windows"
 	{ MODEL3, 55 },
+	{ TI99, 205 },
 
 	// Windows
 	{ VISUALPINBALL, 198 },
@@ -161,31 +162,35 @@ bool ScreenScraperScraper::isSupportedPlatform(SystemData* system)
 
 bool ScreenScraperScraper::hasMissingMedia(FileData* file)
 {
-	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+
+	if (Settings::getInstance()->getBool("ScrapeManual") && (file->getMetadata(MetaDataId::Manual).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual))))
 		return true;
 
-	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+	if (Settings::getInstance()->getBool("ScrapeMap") && (file->getMetadata(MetaDataId::Map).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map))))
 		return true;
 
-	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+	if (Settings::getInstance()->getBool("ScrapeFanart") && (file->getMetadata(MetaDataId::FanArt).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
+	if (Settings::getInstance()->getBool("ScrapeVideos") && (file->getMetadata(MetaDataId::Video).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && (file->getMetadata(MetaDataId::Marquee).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && (file->getMetadata(MetaDataId::Image).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeMap") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)))
+	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && (file->getMetadata(MetaDataId::Thumbnail).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeManual") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)))
+	if (Settings::getInstance()->getBool("ScrapeBoxBack") && (file->getMetadata(MetaDataId::BoxBack).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::BoxBack))))
 		return true;
 
-	if (Settings::getInstance()->getBool("ScrapeCartridge") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge)))
+	if (Settings::getInstance()->getBool("ScrapeTitleShot") && (file->getMetadata(MetaDataId::TitleShot).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot))))
+		return true;
+
+	if (Settings::getInstance()->getBool("ScrapeCartridge") && (file->getMetadata(MetaDataId::Cartridge).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge))))
 		return true;
 
 	return false;
@@ -368,7 +373,10 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 		return { "screenmarqueesmall", "screenmarquee", "wheel", "wheel-hd", "wheel-steel", "wheel-carbon" };
 	if (imageSource == "video")
 		return { "video-normalized", "video" };
-	
+
+	//if (imageSource == "box-2D-back")
+	//	return{ "box-2D-back" };
+		
 	return { imageSource };
 }
 
@@ -593,6 +601,20 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 						LOG(LogDebug) << "Failed to find media XML node for video";
 				}
 			}
+			
+			if (Settings::getInstance()->getBool("ScrapeBoxBack"))
+			{
+				ripList = getRipList("box-2D-back");
+				if (!ripList.empty())
+				{
+					pugi::xml_node art = findMedia(media_list, ripList, region);
+					if (art)
+						result.urls[MetaDataId::BoxBack] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
+					else
+						LOG(LogDebug) << "Failed to find media XML node for video";
+				}
+			}
+
 
 			if (Settings::getInstance()->getBool("ScrapeManual"))
 			{
@@ -721,7 +743,7 @@ ScreenScraperUser ScreenScraperRequest::processUserInfo(const pugi::xml_document
 	return user;
 }
 
-int ScreenScraperScraper::getThreadCount()
+int ScreenScraperScraper::getThreadCount(std::string &result)
 {
 	ScreenScraperRequest::ScreenScraperConfig ssConfig;
 	std::string url = ssConfig.getUserInfoUrl();
@@ -729,6 +751,13 @@ int ScreenScraperScraper::getThreadCount()
 	HttpReq httpreq(url);
 	httpreq.wait();
 	
+	if (httpreq.status() != HttpReq::REQ_SUCCESS)
+	{
+		result = httpreq.getErrorMsg();
+		result = Utils::String::trim(Utils::String::replace(result, "<br>", "\r\n"));
+		return -1;
+	}
+
 	auto content = httpreq.getContent();
 
 	pugi::xml_document doc;

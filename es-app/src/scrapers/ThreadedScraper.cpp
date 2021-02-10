@@ -12,15 +12,11 @@
 ThreadedScraper* ThreadedScraper::mInstance = nullptr;
 bool ThreadedScraper::mPaused = false;
 
-ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchParams>& searches)
+ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchParams>& searches, int threadCount)
 	: mSearchQueue(searches), mWindow(window)
 {
 	mExitCode = ASYNC_IN_PROGRESS;
 	mTotal = (int) mSearchQueue.size();
-
-	int threadCount = Scraper::getScraper()->getThreadCount();
-	if (threadCount <= 0)
-		threadCount = 1;
 
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING"));
@@ -260,7 +256,18 @@ void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams
 	if (ThreadedScraper::mInstance != nullptr)
 		return;
 
-	ThreadedScraper::mInstance = new ThreadedScraper(window, searches);
+	std::string error;
+	int threadCount = Scraper::getScraper()->getThreadCount(error);
+	if (threadCount < 0)
+	{
+		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURED") + std::string(" :\r\n") + error)); // batocera
+		return;
+	}
+
+	if (threadCount == 0)
+		threadCount = 1;
+
+	ThreadedScraper::mInstance = new ThreadedScraper(window, searches, threadCount);
 }
 
 void ThreadedScraper::stop()

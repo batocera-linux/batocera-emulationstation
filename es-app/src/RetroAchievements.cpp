@@ -470,7 +470,6 @@ std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::
 
 	try
 	{
-
 		char hash[33];
 		if (generateHashFromFile(hash, consoleId, fileName.c_str()))
 			return hash;
@@ -584,3 +583,4 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 
 	return false;
 }
+

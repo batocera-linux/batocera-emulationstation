@@ -3,7 +3,6 @@
 #include "components/OptionListComponent.h"
 #include "components/SwitchComponent.h"
 #include "guis/GuiMsgBox.h"
-// #include "guis/GuiScraperMulti.h"
 #include "views/ViewController.h"
 #include "FileData.h"
 #include "SystemData.h"
@@ -114,11 +113,7 @@ void GuiScraperStart::start()
 				mWindow->pushGui(new GuiMsgBox(mWindow, _("NO GAMES FIT THAT CRITERIA."))); // batocera
 			else
 			{			
-				// if (mApproveResults->getState())
-				//	mWindow->pushGui(new GuiScraperMulti(mWindow, searches, mApproveResults->getState()));
-				//else
-					ThreadedScraper::start(mWindow, searches);
-
+				ThreadedScraper::start(mWindow, searches);
 				delete this;
 			}
 		}));	
@@ -127,6 +122,7 @@ void GuiScraperStart::start()
 std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemData*> systems, GameFilterFunc selector)
 {
 	std::queue<ScraperSearchParams> queue;
+
 	for(auto sys = systems.cbegin(); sys != systems.cend(); sys++)
 	{
 		std::vector<FileData*> games = (*sys)->getRootFolder()->getFilesRecursive(GAME);

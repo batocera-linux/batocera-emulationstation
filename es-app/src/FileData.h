@@ -123,9 +123,6 @@ public:
 	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
 	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
 
-	//std::string getMetadata(const std::string& key) { return getMetadata().get(key); }
-	// void setMetadata(const std::string& key, const std::string& value) { getMetadata().set(key, value); }
-
 	void detectLanguageAndRegion(bool overWrite);
 
 	void deleteGameFiles();
@@ -185,19 +182,10 @@ class FolderData : public FileData
 	friend class SystemData;
 
 public:
-	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens=true) : FileData(FOLDER, startpath, system)
-	{
-		mIsDisplayableAsVirtualFolder = false;
-		mOwnsChildrens = ownsChildrens;
-	}
-
-	~FolderData()
-	{
-		clear();
-	}
+	FolderData(const std::string& startpath, SystemData* system, bool ownsChildrens = true);
+	~FolderData();
 
 	inline bool isVirtualStorage() { return !mOwnsChildrens; }
-
 	inline bool isVirtualFolderDisplay() { return mIsDisplayableAsVirtualFolder && !mOwnsChildrens; }
 	
 	void enableVirtualFolderDisplay(bool value) { mIsDisplayableAsVirtualFolder = value; };
@@ -217,17 +205,7 @@ public:
 
 	FileData* findUniqueGameForFolder();
 
-	void clear()
-	{
-		if (mOwnsChildrens)
-		{
-			for (int i = mChildren.size() - 1; i >= 0; i--)
-				delete mChildren.at(i);
-		}
-
-		mChildren.clear();
-	}	
-
+	void clear();
 	void removeVirtualFolders();
 	void removeFromVirtualFolders(FileData* game);
 
