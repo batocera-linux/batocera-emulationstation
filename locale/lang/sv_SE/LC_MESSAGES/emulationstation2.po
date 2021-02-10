@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -98,6 +98,12 @@ msgid "Alt BoxArt"
 msgstr ""
 
 msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
 msgstr ""
 
 msgid "Wheel"
@@ -587,39 +593,6 @@ msgstr "INGA TRÅDLÖSA NÄTVERK HITTADE"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "LETAR TRÅDLÖSA NÄTVERK"
 
-msgid "THE BEZEL PROJECT"
-msgstr "BEZELPROJEKTET"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' HAR LAGTS TILL I NERLADDNINGSKÖN"
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr "INSTALLERA"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "THEMES DOWNLOADER"
-msgstr ""
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr ""
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr ""
 
@@ -653,7 +626,24 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' HAR LAGTS TILL I NERLADDNINGSKÖN"
+
+msgid "REMOVE"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr "INSTALLERA"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr ""
 
 msgid "NO MISSING BIOS"
@@ -940,51 +930,15 @@ msgstr "REDIGERA DET HÄR SPELETS METADATA"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "SKRAPNING PÅGÅR"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "subtitle text"
-msgstr "undertext"
-
-msgid "search"
-msgstr "sök"
-
-msgid "SKIP"
-msgstr "HOPPA ÖVER"
-
-msgid "STOP"
-msgstr "STOPPA"
-
-msgid "stop (progress saved)"
-msgstr "stoppa (det som redan uppnåtts har sparats)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "SPEL %i AV %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgid "THEMES DOWNLOADER"
 msgstr ""
-"INGA SYSTEM FUNNA!\n"
-"UNDERSÖK DINA FILSÖKVÄGAR I SYSTEMETS KONFIGURATIONSFIL, OCH SÄKERSTÄLL ATT "
-"DIN SPELMAPP HAR MINST ETT SPEL MED RÄTT FILÄNDELSE."
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
 
 #, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
-msgstr[1] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i SPEL HOPPADES ÖVER."
-msgstr[1] "%i SPEL HOPPADES ÖVER."
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -1049,6 +1003,12 @@ msgstr "SKRAPNING PÅGÅR. VILL DU AVBRYTA?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
+
+msgid "THE BEZEL PROJECT"
+msgstr "BEZELPROJEKTET"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "tona"
@@ -1201,6 +1161,9 @@ msgid "SCRAPE VIDEOS"
 msgstr "SKRAPA VIDEOR"
 
 msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
@@ -1394,6 +1357,9 @@ msgstr "PÅBÖRJA UPPDATERING"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPPDATERING KÖRS REDAN"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"
@@ -1795,15 +1761,6 @@ msgstr "WIFI AKTIVERAT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI KONFIGURATIONSFEL"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "AUTOMATISK SKRAPARE"
-
-msgid "REALLY SCRAPE?"
-msgstr "VERKLIGEN SKRAPA?"
-
-msgid "MANUAL SCRAPER"
-msgstr "MANUELL SKRAPARE"
-
 msgid "QUICK ACCESS"
 msgstr ""
 
@@ -1999,9 +1956,6 @@ msgstr "Spelat antal gånger"
 msgid "No Entries Found"
 msgstr "Hittade ingenting"
 
-msgid "Favorites"
-msgstr "Favoriter"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2016,11 +1970,11 @@ msgstr "Söker"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "ETT FEL HAR UPPSTÅTT"
-
 msgid "RETRY"
 msgstr "FÖRSÖK IGEN"
+
+msgid "SKIP"
+msgstr "HOPPA ÖVER"
 
 msgid "Downloading"
 msgstr "Laddar ner"
@@ -2354,6 +2308,58 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "SKRAPNING PÅGÅR"
+
+#~ msgid "subtitle text"
+#~ msgstr "undertext"
+
+#~ msgid "search"
+#~ msgstr "sök"
+
+#~ msgid "STOP"
+#~ msgstr "STOPPA"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "stoppa (det som redan uppnåtts har sparats)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "SPEL %i AV %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "INGA SYSTEM FUNNA!\n"
+#~ "UNDERSÖK DINA FILSÖKVÄGAR I SYSTEMETS KONFIGURATIONSFIL, OCH SÄKERSTÄLL "
+#~ "ATT DIN SPELMAPP HAR MINST ETT SPEL MED RÄTT FILÄNDELSE."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
+#~ msgstr[1] "%i SPEL FRAMGÅNGSRIKT SKRAPADE!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i SPEL HOPPADES ÖVER."
+#~ msgstr[1] "%i SPEL HOPPADES ÖVER."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "AUTOMATISK SKRAPARE"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "VERKLIGEN SKRAPA?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "MANUELL SKRAPARE"
+
+#~ msgid "Favorites"
+#~ msgstr "Favoriter"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "ETT FEL HAR UPPSTÅTT"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "ANVÄNDAREN BESTÄMMER VID KONFLIKT"

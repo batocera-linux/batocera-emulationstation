@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -104,6 +104,12 @@ msgid "Alt BoxArt"
 msgstr ""
 
 msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
 msgstr ""
 
 msgid "Wheel"
@@ -593,39 +599,6 @@ msgstr "CAP DE RET WIFI PAS TROBAT"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECÈRCA DE RET WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr "ACTUALIZAR"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "« %s » AJUSTAT A LA FILA DE TELECARGAMENT"
-
-msgid "REMOVE"
-msgstr "SUPRIMIR"
-
-msgid "INSTALL"
-msgstr "INSTALLAR"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "ACTUALAMENT DINS LA FILA DE TELECARGAMENT"
-
-msgid "THEMES DOWNLOADER"
-msgstr "TELECARGAMENT DE TÈMAS"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "CAUSISSÈTZ TÈMAS D'INSTALLAR / SUPRIMIR"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "TÈMA ACTUALA"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "OBLIDAR UNA MANETA BLUETOOTH"
 
@@ -659,8 +632,25 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "UPDATE"
+msgstr "ACTUALIZAR"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "« %s » AJUSTAT A LA FILA DE TELECARGAMENT"
+
+msgid "REMOVE"
+msgstr "SUPRIMIR"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr ""
+
+msgid "INSTALL"
+msgstr "INSTALLAR"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "ACTUALAMENT DINS LA FILA DE TELECARGAMENT"
 
 msgid "NO MISSING BIOS"
 msgstr ""
@@ -946,48 +936,15 @@ msgstr "MODIFICAR LAS DONADAS D’AQUESTE JÒC"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr ""
+msgid "THEMES DOWNLOADER"
+msgstr "TELECARGAMENT DE TÈMAS"
 
-msgid "SYSTEM"
-msgstr "SISTÈMA"
-
-msgid "subtitle text"
-msgstr "tèxte sostítol"
-
-msgid "search"
-msgstr "cercar"
-
-msgid "SKIP"
-msgstr "IGNORAR"
-
-msgid "STOP"
-msgstr "ARRESTAR"
-
-msgid "stop (progress saved)"
-msgstr "arrestar (progression salvada)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "CAUSISSÈTZ TÈMAS D'INSTALLAR / SUPRIMIR"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "JÒC %i SUS %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i JÒC SAUTAT."
-msgstr[1] "%i JÒCS SAUTATS."
+msgid "CURRENT THEME"
+msgstr "TÈMA ACTUALA"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1048,6 +1005,12 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
+msgstr ""
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr ""
 
 msgid "fade"
@@ -1201,6 +1164,9 @@ msgid "SCRAPE VIDEOS"
 msgstr ""
 
 msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
@@ -1394,6 +1360,9 @@ msgstr "LANÇAR MESA A JORN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA MESA A JORN ES JA EN CORS"
+
+msgid "SYSTEM"
+msgstr "SISTÈMA"
 
 msgid "LANGUAGE"
 msgstr "LENGA"
@@ -1785,15 +1754,6 @@ msgstr "WIFI ACTIVAT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACION WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
 msgid "QUICK ACCESS"
 msgstr ""
 
@@ -1989,9 +1949,6 @@ msgstr "Temps jogat"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "Favorites"
-msgstr "Favorits"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2006,11 +1963,11 @@ msgstr "Recèrca"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "CAP DE JÒC PAS TROBAT - PASSAR"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "UNA ERROR S'ES PRODUCHA"
-
 msgid "RETRY"
 msgstr "TORNAR ENSAJAR"
+
+msgid "SKIP"
+msgstr "IGNORAR"
 
 msgid "Downloading"
 msgstr "Telecargament"
@@ -2341,6 +2298,32 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "subtitle text"
+#~ msgstr "tèxte sostítol"
+
+#~ msgid "search"
+#~ msgstr "cercar"
+
+#~ msgid "STOP"
+#~ msgstr "ARRESTAR"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "arrestar (progression salvada)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "JÒC %i SUS %i"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i JÒC SAUTAT."
+#~ msgstr[1] "%i JÒCS SAUTATS."
+
+#~ msgid "Favorites"
+#~ msgstr "Favorits"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "UNA ERROR S'ES PRODUCHA"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "L’UTILIZAIRE DECIDÍS PELS CONFLICTES"

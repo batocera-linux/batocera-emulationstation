@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,6 +97,12 @@ msgstr "Alternatywne Art Pudełka"
 
 msgid "enter path to alt boxart"
 msgstr "wprowadź ścieżkę do alternatywnego art pudełka"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "Koło"
@@ -586,39 +592,6 @@ msgstr "NIE ZNALEZIONO SIECI WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "PROJEKT RAMEK"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "WYBIERZ RAMKI DO ZAINSTALOWANIA / USUNIĘCIA"
-
-msgid "UPDATE"
-msgstr "ZAKTUALIZUJ"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' DODANO DO KOLEJKI POBIERANIA"
-
-msgid "REMOVE"
-msgstr "USUŃ"
-
-msgid "INSTALL"
-msgstr "ZAINSTALUJ"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "OBECNIE W KOLEJCE POBIERANIA"
-
-msgid "THEMES DOWNLOADER"
-msgstr "POBIERACZ MOTYWÓW"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "WYBIERZ MOTYWY DO INSTALACJI / USUNIĘCIA"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "AKTUALNY MOTYW"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "USUŃ KONTROLER BLUETOOTH"
 
@@ -652,8 +625,25 @@ msgstr "W tym widoku nie ma żadnych elementów"
 msgid "MISC"
 msgstr "RÓŻNE"
 
+msgid "UPDATE"
+msgstr "ZAKTUALIZUJ"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' DODANO DO KOLEJKI POBIERANIA"
+
+msgid "REMOVE"
+msgstr "USUŃ"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "ODINSTALUJ DODANE DO KOLEJKI"
+
+msgid "INSTALL"
+msgstr "ZAINSTALUJ"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "OBECNIE W KOLEJCE POBIERANIA"
 
 msgid "NO MISSING BIOS"
 msgstr "BIOS'Y NA MIEJSCU"
@@ -939,53 +929,15 @@ msgstr "EDYTUJ METADANE GRY"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ZOBACZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "SCRAPING W TOKU"
+msgid "THEMES DOWNLOADER"
+msgstr "POBIERACZ MOTYWÓW"
 
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "subtitle text"
-msgstr "napisy"
-
-msgid "search"
-msgstr "szukaj"
-
-msgid "SKIP"
-msgstr "POMIŃ"
-
-msgid "STOP"
-msgstr "ZATRZYMAJ"
-
-msgid "stop (progress saved)"
-msgstr "zatrzymaj (z zapisem postępu)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "WYBIERZ MOTYWY DO INSTALACJI / USUNIĘCIA"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "GRA %i Z %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"NIE MOŻEMY ZNALEŹĆ ŻADNYCH SYSTEMÓW!\n"
-"SPRAWDŹ CZY ŚCIEŻKI DOSTĘPU W PLIKACH KONFIGURACYJNYCH SĄ POPRAWNE, I CZY "
-"KATALOG Z GRAMI ZAWIERA PRZYNAJMNIEJ JEDNĄ GRĘ Z POPRAWNYM ROZSZERZENIEM."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i GRA ZOSTAŁA POPRAWNIE DODANA!"
-msgstr[1] "%i GRY ZOSTAŁY POPRAWNIE DODANE!"
-msgstr[2] "%i GIER ZOSTAŁO POPRAWNIE DODANYCH!"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA."
-msgstr[1] "%i GRY ZOSTAŁY POMINIĘTE."
-msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH."
+msgid "CURRENT THEME"
+msgstr "AKTUALNY MOTYW"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1050,6 +1002,12 @@ msgstr "SCRAPE JEST W TRAKCIE DZIAŁANIA. CZY CHCESZ GO ZATRZYMAĆ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
+
+msgid "THE BEZEL PROJECT"
+msgstr "PROJEKT RAMEK"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "WYBIERZ RAMKI DO ZAINSTALOWANIA / USUNIĘCIA"
 
 msgid "fade"
 msgstr "zanikanie"
@@ -1203,6 +1161,9 @@ msgstr "SCRAPE'UJ FILMY"
 
 msgid "SCRAPE FANART"
 msgstr "SCRAPE'UJ FAN ART"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1395,6 +1356,9 @@ msgstr "ROZPOCZNIJ AKTUALIZACJĘ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "AKTUALIZACJA ZOSTAŁA JUŻ URUCHOMIONA"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "JĘZYK"
@@ -1796,15 +1760,6 @@ msgstr "WIFI WŁĄCZONE"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "BŁĄD KONFIGURACJI WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "SCRAPER AUTOMATYCZNY"
-
-msgid "REALLY SCRAPE?"
-msgstr "SCRAPE'OWAĆ?"
-
-msgid "MANUAL SCRAPER"
-msgstr "SCRAPER RĘCZNY"
-
 msgid "QUICK ACCESS"
 msgstr "SZYBKI DOSTĘP"
 
@@ -2009,9 +1964,6 @@ msgstr "Rozegrano razy"
 msgid "No Entries Found"
 msgstr "Nie Znaleziono Wpisów"
 
-msgid "Favorites"
-msgstr "Ulubione"
-
 msgid "Games similar to"
 msgstr "Gry podobne do"
 
@@ -2026,11 +1978,11 @@ msgstr "Wyszukiwanie"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NIE ZNALEZIONO ŻADNYCH GIER - POMIŃ"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
-
 msgid "RETRY"
 msgstr "PONÓW"
+
+msgid "SKIP"
+msgstr "POMIŃ"
 
 msgid "Downloading"
 msgstr "Pobieranie"
@@ -2372,6 +2324,60 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "SCRAPING W TOKU"
+
+#~ msgid "subtitle text"
+#~ msgstr "napisy"
+
+#~ msgid "search"
+#~ msgstr "szukaj"
+
+#~ msgid "STOP"
+#~ msgstr "ZATRZYMAJ"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "zatrzymaj (z zapisem postępu)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "GRA %i Z %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "NIE MOŻEMY ZNALEŹĆ ŻADNYCH SYSTEMÓW!\n"
+#~ "SPRAWDŹ CZY ŚCIEŻKI DOSTĘPU W PLIKACH KONFIGURACYJNYCH SĄ POPRAWNE, I CZY "
+#~ "KATALOG Z GRAMI ZAWIERA PRZYNAJMNIEJ JEDNĄ GRĘ Z POPRAWNYM ROZSZERZENIEM."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i GRA ZOSTAŁA POPRAWNIE DODANA!"
+#~ msgstr[1] "%i GRY ZOSTAŁY POPRAWNIE DODANE!"
+#~ msgstr[2] "%i GIER ZOSTAŁO POPRAWNIE DODANYCH!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i GRA ZOSTAŁA POMINIĘTA."
+#~ msgstr[1] "%i GRY ZOSTAŁY POMINIĘTE."
+#~ msgstr[2] "%i GIER ZOSTAŁO POMINIĘTYCH."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "SCRAPER AUTOMATYCZNY"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "SCRAPE'OWAĆ?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "SCRAPER RĘCZNY"
+
+#~ msgid "Favorites"
+#~ msgstr "Ulubione"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "ZOSTAŁ ZGŁOSZONY BŁĄD"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "UŻYTKOWNIK DECYDUJE PRZY KONFLIKTACH"

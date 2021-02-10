@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -99,6 +99,12 @@ msgstr "包裝盒封面"
 
 msgid "enter path to alt boxart"
 msgstr "輸入包裝盒封面路徑"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "商標"
@@ -586,39 +592,6 @@ msgstr "沒有找到 WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "搜尋 WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "邊框選項"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "選擇安裝或刪除邊框"
-
-msgid "UPDATE"
-msgstr "更新"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "將 '%s' 添加到下載隊列中"
-
-msgid "REMOVE"
-msgstr "刪除"
-
-msgid "INSTALL"
-msgstr "安裝"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "目前在下載順序中"
-
-msgid "THEMES DOWNLOADER"
-msgstr "佈景主題下載器"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "選擇佈景主題更新或刪除"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "目前的佈景主題"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "取消藍牙控制器"
 
@@ -652,8 +625,25 @@ msgstr ""
 msgid "MISC"
 msgstr "雜項"
 
+msgid "UPDATE"
+msgstr "更新"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "將 '%s' 添加到下載隊列中"
+
+msgid "REMOVE"
+msgstr "刪除"
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "移除下載順序中"
+
+msgid "INSTALL"
+msgstr "安裝"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "目前在下載順序中"
 
 msgid "NO MISSING BIOS"
 msgstr "擁有的BIOS"
@@ -939,48 +929,15 @@ msgstr "編輯此遊戲的簡介資料"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "正在進行資料搜刮"
+msgid "THEMES DOWNLOADER"
+msgstr "佈景主題下載器"
 
-msgid "SYSTEM"
-msgstr "遊戲平台"
-
-msgid "subtitle text"
-msgstr "副標題文字"
-
-msgid "search"
-msgstr "搜尋"
-
-msgid "SKIP"
-msgstr "略過"
-
-msgid "STOP"
-msgstr "停止"
-
-msgid "stop (progress saved)"
-msgstr "停止 (會保存進度)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "選擇佈景主題更新或刪除"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "遊戲 %i - %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"未找到任何遊戲平台！\n"
-"請檢查系統設定文件中的路徑是否正確，並確保遊戲目錄下的ROM具有正確的檔案。"
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i 個遊戲資料收集成功！"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "略過了 %i 個遊戲。"
+msgid "CURRENT THEME"
+msgstr "目前的佈景主題"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1044,6 +1001,12 @@ msgstr "進行搜刮器？"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "沒有符合的遊戲。"
+
+msgid "THE BEZEL PROJECT"
+msgstr "邊框選項"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr "選擇安裝或刪除邊框"
 
 msgid "fade"
 msgstr "淡化"
@@ -1197,6 +1160,9 @@ msgstr "搜刮遊戲影片"
 
 msgid "SCRAPE FANART"
 msgstr "搜刮粉絲圖片"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1389,6 +1355,9 @@ msgstr "開始更新"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
+
+msgid "SYSTEM"
+msgstr "遊戲平台"
 
 msgid "LANGUAGE"
 msgstr "語言"
@@ -1788,15 +1757,6 @@ msgstr "已啟用WIFI無線網路"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "WIFI無線網路設定錯誤"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "自動執行搜刮器"
-
-msgid "REALLY SCRAPE?"
-msgstr "確定執行搜刮器？"
-
-msgid "MANUAL SCRAPER"
-msgstr "手動執行搜刮器"
-
 msgid "QUICK ACCESS"
 msgstr "快速訪問"
 
@@ -1991,9 +1951,6 @@ msgstr "遊戲執行次數"
 msgid "No Entries Found"
 msgstr "找不到選項"
 
-msgid "Favorites"
-msgstr "書籤"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2008,11 +1965,11 @@ msgstr "搜尋中"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "搜尋不到資料 - 按B鍵快速略過"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "發生了一個錯誤"
-
 msgid "RETRY"
 msgstr "重試"
+
+msgid "SKIP"
+msgstr "略過"
 
 msgid "Downloading"
 msgstr "下載中"
@@ -2340,6 +2297,55 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "正在進行資料搜刮"
+
+#~ msgid "subtitle text"
+#~ msgstr "副標題文字"
+
+#~ msgid "search"
+#~ msgstr "搜尋"
+
+#~ msgid "STOP"
+#~ msgstr "停止"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "停止 (會保存進度)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "遊戲 %i - %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "未找到任何遊戲平台！\n"
+#~ "請檢查系統設定文件中的路徑是否正確，並確保遊戲目錄下的ROM具有正確的檔案。"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i 個遊戲資料收集成功！"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "略過了 %i 個遊戲。"
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "自動執行搜刮器"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "確定執行搜刮器？"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "手動執行搜刮器"
+
+#~ msgid "Favorites"
+#~ msgstr "書籤"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "發生了一個錯誤"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "資料有衝突時由使用者來處理"

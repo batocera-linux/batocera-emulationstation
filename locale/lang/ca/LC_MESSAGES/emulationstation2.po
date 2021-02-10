@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,6 +95,12 @@ msgid "Alt BoxArt"
 msgstr ""
 
 msgid "enter path to alt boxart"
+msgstr ""
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
 msgstr ""
 
 msgid "Wheel"
@@ -584,39 +590,6 @@ msgstr ""
 msgid "SEARCHING WIFI NETWORKS"
 msgstr ""
 
-msgid "THE BEZEL PROJECT"
-msgstr ""
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr ""
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
-
-msgid "THEMES DOWNLOADER"
-msgstr ""
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr ""
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr ""
 
@@ -650,7 +623,24 @@ msgstr ""
 msgid "MISC"
 msgstr ""
 
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "REMOVE"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr ""
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr ""
 
 msgid "NO MISSING BIOS"
@@ -937,48 +927,15 @@ msgstr "EDITA LES METADADES D'AQUEST JOC"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "S'ESTÀ OBTENINT DADES"
+msgid "THEMES DOWNLOADER"
+msgstr ""
 
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "text del subtítol"
-
-msgid "search"
-msgstr "cerca"
-
-msgid "SKIP"
-msgstr "OMET"
-
-msgid "STOP"
-msgstr "ATURA"
-
-msgid "stop (progress saved)"
-msgstr "atura (progrés desat)"
-
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "JOC %i DE %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgid "SELECT THEMES TO INSTALL / REMOVE"
 msgstr ""
 
 #, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
-msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "S'HA OMÈS %i JOC."
-msgstr[1] "S'HA OMÈS %i JOCS."
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -1043,6 +1000,12 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr ""
@@ -1195,6 +1158,9 @@ msgid "SCRAPE VIDEOS"
 msgstr ""
 
 msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
@@ -1388,6 +1354,9 @@ msgstr "INICIA L'ACTUALITZACIÓ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1785,15 +1754,6 @@ msgstr "EL WIFI ESTÀ ACTIU"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr ""
-
-msgid "REALLY SCRAPE?"
-msgstr ""
-
-msgid "MANUAL SCRAPER"
-msgstr ""
-
 msgid "QUICK ACCESS"
 msgstr ""
 
@@ -1989,9 +1949,6 @@ msgstr "Nombre de vegades que s'ha jugat"
 msgid "No Entries Found"
 msgstr ""
 
-msgid "Favorites"
-msgstr ""
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2006,11 +1963,11 @@ msgstr ""
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr ""
-
 msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
+
+msgid "SKIP"
+msgstr "OMET"
 
 msgid "Downloading"
 msgstr ""
@@ -2341,6 +2298,34 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "S'ESTÀ OBTENINT DADES"
+
+#~ msgid "subtitle text"
+#~ msgstr "text del subtítol"
+
+#~ msgid "search"
+#~ msgstr "cerca"
+
+#~ msgid "STOP"
+#~ msgstr "ATURA"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "atura (progrés desat)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "JOC %i DE %i"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
+#~ msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "S'HA OMÈS %i JOC."
+#~ msgstr[1] "S'HA OMÈS %i JOCS."
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "L'USUARI DECIDEIX DAVANT CONFLICTES"

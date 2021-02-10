@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -103,6 +103,12 @@ msgstr "غلاف احتياطي"
 
 msgid "enter path to alt boxart"
 msgstr "ادخل المسار للغلاف الاحتياطي"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "عجلة"
@@ -595,39 +601,6 @@ msgstr "لم يتم العثور على شبكة WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "جارِ البحث عن شبكة WIFI"
 
-msgid "THE BEZEL PROJECT"
-msgstr "مشروع إطارات الشاشة"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' تم اضافته لمسار التنزيلات"
-
-msgid "REMOVE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr "قم بالتثبيت"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "حالياً في انتظار التحميل"
-
-msgid "THEMES DOWNLOADER"
-msgstr "محمل السمات"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "اختر السمات التي تريد تثبيتها / حذفها"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "السمة الحالية"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "نسيان وحدة تحكم البلوتوث"
 
@@ -661,8 +634,25 @@ msgstr ""
 msgid "MISC"
 msgstr "متفرقات"
 
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' تم اضافته لمسار التنزيلات"
+
+msgid "REMOVE"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "الغاء التثبيت تمت اضافته الى الانتظار"
+
+msgid "INSTALL"
+msgstr "قم بالتثبيت"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "حالياً في انتظار التحميل"
 
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
@@ -948,59 +938,15 @@ msgstr "تعديل البيانات الوصفية لهذه اللعبة"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr ""
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "الكشط يعمل حالياً"
+msgid "THEMES DOWNLOADER"
+msgstr "محمل السمات"
 
-msgid "SYSTEM"
-msgstr "النظام"
-
-msgid "subtitle text"
-msgstr "نص الترجمة"
-
-msgid "search"
-msgstr "البحث"
-
-msgid "SKIP"
-msgstr "تخطي"
-
-msgid "STOP"
-msgstr "إيقاف"
-
-msgid "stop (progress saved)"
-msgstr "إيقاف (تم حفظ الإجراء)"
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr "اختر السمات التي تريد تثبيتها / حذفها"
 
 #, c-format
-msgid "GAME %i OF %i"
-msgstr "لعبة %i من %i"
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-msgstr ""
-"لا يمكن العثور على أي أنظمة!\n"
-"يرجى التحقق من المسار الصحيح في تكوين النظام, و إحتواء مجلد اللعبة على لعبة "
-"واحدة على الأقل مع الامتداد الصحيح."
-
-#, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "%i لعبة تم كشطها بنجاح"
-msgstr[1] "%i لعبة تم كشطها بنجاح"
-msgstr[2] "%i لعبتين تم كشطهما بنجاح"
-msgstr[3] "%i ألعاب تم كشطهم بنجاح"
-msgstr[4] "%i لعبة تم كشطها بنجاح"
-msgstr[5] "%i لعبة تم كشطها بنجاح"
-
-#, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "%i لعبة تم تخطيها"
-msgstr[1] "%i لعبة تم تخطيها"
-msgstr[2] "%i لعبتين تم تخطيهما"
-msgstr[3] "%i ألعاب تم تخطيهم"
-msgstr[4] "%i لعبة تم تخطيها"
-msgstr[5] "%i لعبة تم تخطيها"
+msgid "CURRENT THEME"
+msgstr "السمة الحالية"
 
 msgid "Unlocked on"
 msgstr ""
@@ -1065,6 +1011,12 @@ msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "لا توجد ألعاب تناسب هذه المعايير."
+
+msgid "THE BEZEL PROJECT"
+msgstr "مشروع إطارات الشاشة"
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "تلاشي"
@@ -1218,6 +1170,9 @@ msgstr "كشط عن فيديو"
 
 msgid "SCRAPE FANART"
 msgstr "كشط غلاف الجماهير"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
 
 msgid "SCRAPE MAP"
 msgstr ""
@@ -1410,6 +1365,9 @@ msgstr "بدء التحديث"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "التحديث يعمل حاليا"
+
+msgid "SYSTEM"
+msgstr "النظام"
 
 msgid "LANGUAGE"
 msgstr "اللغة"
@@ -1811,15 +1769,6 @@ msgstr "تم تفعيل الـ WIFI"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "تكوين الـ WIFI خاطىء"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "كشط تلقائي"
-
-msgid "REALLY SCRAPE?"
-msgstr "هل فعلا تريد الكشط ؟"
-
-msgid "MANUAL SCRAPER"
-msgstr "كشط يدوي"
-
 msgid "QUICK ACCESS"
 msgstr "الوصول السريع"
 
@@ -2029,9 +1978,6 @@ msgstr "أوقات اللعب"
 msgid "No Entries Found"
 msgstr "لم يتم العثور على مدخلات"
 
-msgid "Favorites"
-msgstr "المفضلات"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2046,11 +1992,11 @@ msgstr "يبحث"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "لا يوجد ألعاب - تخطي"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "حدث خطأ ما"
-
 msgid "RETRY"
 msgstr "حاول مرة اخرى"
+
+msgid "SKIP"
+msgstr "تخطي"
 
 msgid "Downloading"
 msgstr "جارِ التنزيل"
@@ -2412,6 +2358,66 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "الكشط يعمل حالياً"
+
+#~ msgid "subtitle text"
+#~ msgstr "نص الترجمة"
+
+#~ msgid "search"
+#~ msgstr "البحث"
+
+#~ msgid "STOP"
+#~ msgstr "إيقاف"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "إيقاف (تم حفظ الإجراء)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "لعبة %i من %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "لا يمكن العثور على أي أنظمة!\n"
+#~ "يرجى التحقق من المسار الصحيح في تكوين النظام, و إحتواء مجلد اللعبة على "
+#~ "لعبة واحدة على الأقل مع الامتداد الصحيح."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i لعبة تم كشطها بنجاح"
+#~ msgstr[1] "%i لعبة تم كشطها بنجاح"
+#~ msgstr[2] "%i لعبتين تم كشطهما بنجاح"
+#~ msgstr[3] "%i ألعاب تم كشطهم بنجاح"
+#~ msgstr[4] "%i لعبة تم كشطها بنجاح"
+#~ msgstr[5] "%i لعبة تم كشطها بنجاح"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i لعبة تم تخطيها"
+#~ msgstr[1] "%i لعبة تم تخطيها"
+#~ msgstr[2] "%i لعبتين تم تخطيهما"
+#~ msgstr[3] "%i ألعاب تم تخطيهم"
+#~ msgstr[4] "%i لعبة تم تخطيها"
+#~ msgstr[5] "%i لعبة تم تخطيها"
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "كشط تلقائي"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "هل فعلا تريد الكشط ؟"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "كشط يدوي"
+
+#~ msgid "Favorites"
+#~ msgstr "المفضلات"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "حدث خطأ ما"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "المستخدم يقرر عند وجود تعارض"
