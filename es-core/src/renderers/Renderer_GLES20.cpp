@@ -31,14 +31,20 @@ namespace Renderer
 	static GLuint        vertexBuffer     = 0;
 
 //////////////////////////////////////////////////////////////////////////
-	
+
+#if defined(USE_OPENGLES_20)
+	#define SHADER_VERSION_STRING "#version 100\n"
+#elif defined(USE_OPENGL_21)
+	#define SHADER_VERSION_STRING "#version 130\n"
+#endif
+
 	static void setupShaders()
 	{
 		bool result = false;
 
 		// vertex shader (no texture)
 		const GLchar* vertexSourceNoTexture =
-			"#version 130\n"
+			SHADER_VERSION_STRING
 			"uniform   mat4 u_mvp; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec4 a_col; \n"
@@ -51,7 +57,7 @@ namespace Renderer
 
 		// fragment shader (no texture)
 		const GLchar* fragmentSourceNoTexture =
-			"#version 130\n"
+			SHADER_VERSION_STRING
 			"precision highp float;     \n"
 			"varying   vec4  v_col;     \n"
 			"void main(void)            \n"
@@ -77,7 +83,7 @@ namespace Renderer
 
 		// vertex shader (texture)
 		const GLchar* vertexSourceTexture =
-			"#version 130\n"
+			SHADER_VERSION_STRING
 			"uniform   mat4 u_mvp; \n"
 			"attribute vec2 a_pos; \n"
 			"attribute vec2 a_tex; \n"
@@ -93,7 +99,7 @@ namespace Renderer
 
 		// fragment shader (texture)
 		const GLchar* fragmentSourceTexture =
-			"#version 130\n"
+			SHADER_VERSION_STRING
 			"precision highp float;       \n"
 			"precision mediump sampler2D; \n"
 			"varying   vec4      v_col; \n"
