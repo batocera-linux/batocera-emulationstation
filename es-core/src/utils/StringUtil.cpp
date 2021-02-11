@@ -583,7 +583,7 @@ namespace Utils
 			std::vector<std::string> output;
 
 			unsigned prev_pos = 0;
-			unsigned pos = s.find_first_of(seperator);
+			auto pos = s.find_first_of(seperator);
 			while (pos != std::string::npos)
 			{
 				std::string token = s.substr(prev_pos, pos - prev_pos);
