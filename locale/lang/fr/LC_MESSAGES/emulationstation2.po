@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "entrer le chemin vers la boite (Alt)"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Dos de la boite"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "entrer le chemin vers le dos de la boite"
 
 msgid "Wheel"
 msgstr "Logo"
@@ -419,7 +419,7 @@ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GROUPER LES COLLECTIONS SANS THÈME"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "AFFICHER LE SYSTÈME DANS LES COLLECTIONS"
+msgstr "AFFICHER LE NOM DU SYSTÈME DANS LES COLLECTIONS"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "AFFICHER LES JEUX DES SYSTÈMES CACHÉS DANS LES COLLECTIONS"
@@ -1164,7 +1164,7 @@ msgid "SCRAPE FANART"
 msgstr "SCRAPER LES FANARTS"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "SCRAPER LE DOS DES BOITES"
 
 msgid "SCRAPE MAP"
 msgstr "SCRAPER LES CARTES"
@@ -1347,7 +1347,7 @@ msgid "CHECK FOR UPDATES"
 msgstr "VÉRIFIER LES MISES À JOUR"
 
 msgid "UPDATE TYPE"
-msgstr "CANAL DE MISE À JOUR"
+msgstr "TYPE DE MISE À JOUR"
 
 msgid "APPLY UPDATE"
 msgstr "APPLIQUER LA MISE À JOUR"
@@ -1376,8 +1376,8 @@ msgid ""
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
 "Vous allez restreindre le mode d’affichage :\n"
-"Cela va masquer la plupart des options de menus afin d’éviter des "
-"changements système.\n"
+"Cela masquera la plupart des options de menu pour empêcher les modifications "
+"du système.\n"
 "Pour déverrouiller le mode d’affichage, entrez le code suivant :"
 
 msgid "Do you want to proceed ?"
@@ -1474,7 +1474,7 @@ msgid "LEADERBOARDS"
 msgstr "TABLEAU DES SCORES"
 
 msgid "VERBOSE MODE"
-msgstr "MODE DÉTAILLÉ"
+msgstr "MODE VERBEUX"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
@@ -1537,7 +1537,7 @@ msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "AFFICHAGE EN ÉCHELLE ENTIÈRE"
+msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 
 msgid "DECORATION"
 msgstr "DÉCORATIONS"
@@ -1690,7 +1690,7 @@ msgid "ICON AND TEXT"
 msgstr "ICÔNE ET TEXTE"
 
 msgid "VOLUME"
-msgstr "VOLUME GÉNÉRAL"
+msgstr "VOLUME"
 
 msgid "SYSTEM VOLUME"
 msgstr "VOLUME GÉNÉRAL"
@@ -1873,7 +1873,7 @@ msgstr "INFO SYSTÈME"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
-"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉAFFICHAGE DE TOUS DÈS MAINTENANT"
+"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉ-AFFICHAGE DE TOUS DÈS MAINTENANT"
 
 msgid "QUICK SEARCH"
 msgstr "RECHERCHE RAPIDE"
