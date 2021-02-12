@@ -21,6 +21,47 @@
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
 
+#ifdef _ENABLEEMUELEC
+constexpr auto BUTTON_HOLD_TIME = 1000; // ms
+
+
+auto MultiFunctionButton::input(bool isPressed) -> Action
+{
+	const auto wasPressed = mIsPressed;
+	mIsPressed = isPressed;
+
+	if (isPressed && !wasPressed)
+	{
+		mTimeHoldingButton = 0;
+		mLongPressHasFired = false;
+	}
+	else if (!isPressed && wasPressed)
+	{
+		if (!mLongPressHasFired)
+		{
+			return Action::shortPress;
+		}
+	}
+
+	return Action::none;
+}
+
+auto MultiFunctionButton::update(int deltaTime) -> Action
+{
+	if (mIsPressed && !mLongPressHasFired)
+	{
+		mTimeHoldingButton += deltaTime;
+		if (mTimeHoldingButton >= BUTTON_HOLD_TIME)
+		{
+			mLongPressHasFired = true;
+			return Action::longPress;
+		}
+	}
+
+	return Action::none;
+}
+#endif
+
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr)
 {
@@ -125,8 +166,36 @@ FolderData*		ISimpleGameListView::getCurrentFolder()
 	return nullptr;
 }
 
+#ifdef _ENABLEEMUELEC
+void ISimpleGameListView::update(const int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	const auto action = mFavOrRandomButton.update(deltaTime);
+	if (action == MultiFunctionButton::Action::longPress)
+	{
+		if (auto cursor = getCursor())
+		{
+			CollectionSystemManager::get()->toggleGameInCollection(cursor, "Favorites");
+		}
+	}
+}
+#endif
+
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
+#ifdef _ENABLEEMUELEC
+		if (config->isMappedTo("x", input))
+		{
+			const auto action = mFavOrRandomButton.input(input.value != 0);
+			if (action == MultiFunctionButton::Action::shortPress)
+			{
+				moveToRandomGame();
+				return true;
+			}
+		}
+#endif
+
 	if (input.value != 0)
 	{
 		if (config->isMappedTo("l3", input))
@@ -256,11 +325,6 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 			return true;
 		}
-		else if (config->isMappedTo("x", input))
-		{ 
-			moveToRandomGame();
-			return true;            
-        }
         else if (config->isMappedTo("RightThumb", input))
 		{ 
             FileData* cursor = getCursor();
