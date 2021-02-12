@@ -732,8 +732,11 @@ std::string ApiSystem::getUpdateUrl()
 	auto systemsetting = SystemConf::getInstance()->get("global.updates.url");
 	if (!systemsetting.empty())
 		return systemsetting;
-
+#ifdef _ENABLEEMUELEC
+	return "https://raw.githubusercontent.com/EmuELEC/emuelec.github.io/master/";
+#else
 	return "https://updates.batocera.org";
+#endif
 }
 
 void ApiSystem::getBatoceraThemesImages(std::vector<BatoceraTheme>& items)
