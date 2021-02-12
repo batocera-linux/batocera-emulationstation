@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "введите путь к альтернативной обложке"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Задник обложки"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "введите путь к фону обложки"
 
 msgid "Wheel"
 msgstr "Колесо"
@@ -215,16 +215,16 @@ msgid "Region"
 msgstr "Регион"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Хеш Cheevos"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Контрольная сумма Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "ID игры Cheevos"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "ID игры Screenscraper"
 
 msgid "all games"
 msgstr "все игры"
@@ -245,13 +245,13 @@ msgid "never played"
 msgstr "не играл"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "ретродостижения"
 
 msgid "arcade"
 msgstr "аркады"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "вертикальные акрады"
 
 msgid "collections"
 msgstr "коллекции"
@@ -457,19 +457,19 @@ msgstr "ПОДОЖДИТЕ"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d из %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "РЕТРОДОСТИЖЕНИЯ"
 
 msgid "Points"
-msgstr ""
+msgstr "Очки"
 
 msgid "Rank"
-msgstr ""
+msgstr "Ранг"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "ПОДРОБНЕЕ"
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
@@ -490,10 +490,10 @@ msgid "NAVIGATION"
 msgstr "НАВИГАЦИЯ"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "ПЕРЕХОД К СИМВОЛУ"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "ВЫБРАТЬ СЛУЧАЙНУЮ ИГРУ"
 
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВКА ПО"
@@ -780,10 +780,10 @@ msgid "PLAYER 2"
 msgstr "ИГРОК 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "ИГРОК 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "ИГРОК 4"
 
 msgid "COMBINATIONS"
 msgstr "КОМБИНАЦИИ"
@@ -861,19 +861,19 @@ msgid "VIEW GAME MAP"
 msgstr "ПОСМОТРЕТЬ КАРТУ"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "ТЕКУЩЕЕ ЯДРО НЕ СОВМЕСТИМО"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "ТРЕБУЕМОЕ ЯДРО"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "ПОСМОТРЕТЬ ДОСТИЖЕНИЯ"
 
 msgid "GAME"
-msgstr ""
+msgstr "ИГРА"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "СОХРАНЕНИЯ"
 
 msgid "START NETPLAY HOST"
 msgstr "ЗАПУСТИТЬ NETPLAY ХОСТ"
@@ -901,11 +901,11 @@ msgstr "КОЛЛЕКЦИИ"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "УДАЛИТЬ ИЗ %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "ДОБАВИТЬ В %s"
 
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
@@ -942,32 +942,32 @@ msgid "CURRENT THEME"
 msgstr "ТЕКУЩАЯ ТЕМА"
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Получено"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "ИГРА НЕ ИМЕЕТ ДОСТИЖЕНИЙ"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Достижений получено"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% готово"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "АВТО СОХРАНЕНИЕ"
 
 msgid "SLOT"
-msgstr ""
+msgstr "СЛОТ"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "НАЧАТЬ НОВУЮ ИГРУ"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "КОПИРОВАТЬ В СВОБОДНЫЙ СЛОТ"
 
 msgid "SCRAPE NOW"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -1069,7 +1069,7 @@ msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA СКАЛИРОВАНИЕ"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1165,10 +1165,10 @@ msgid "SCRAPE FANART"
 msgstr "ЗАГРУЗКА ФАН-АРТА"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "ЗАГРУЗКА КАРТЫ"
 
 msgid "SCRAPE MANUAL"
 msgstr "ЗАГРУЗКА РУКОВОДСТВА"
@@ -1258,10 +1258,10 @@ msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТЬ КЭШ"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "СОЗДАТЬ КЭШ ИЗОБРАЖЕНИЙ"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "Создание кэша изображений"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
@@ -1270,7 +1270,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
@@ -1481,10 +1481,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "ЗВУК ПОЛУЧЕНИЯ"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "ПОКАЗАТЬ В ГЛАВНОМ МЕНЮ"
@@ -1493,13 +1493,13 @@ msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "НАЙТИ ВСЕ ИГРЫ"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "НАЙТИ НОВЫЕ ИГРЫ"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "НЕ УДАЛОСЬ АКТИВИРОВАТЬ РЕТРОДОСТИЖЕНИЯ:"
 
 msgid "ENABLE NETPLAY"
 msgstr "ВКЛЮЧИТЬ NETPLAY"
@@ -1777,7 +1777,7 @@ msgid "VIEW USER'S MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "VIEW BATOCERA MANUAL"
-msgstr "РУКОВОДСТВО ПО BATOCERA"
+msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ BATOCERA"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -1825,7 +1825,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
 
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТИРОВАТЬ"
@@ -1859,16 +1859,16 @@ msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "МАСШТАБ-"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "МАСШТАБ-"
 
 msgid "MOVE"
-msgstr ""
+msgstr "ДВИГАТЬ"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "МАСШТАБ"
 
 msgid "SYSTEM INFO"
 msgstr "СИСТЕМНАЯ ИНФОРМАЦИЯ"
@@ -1972,6 +1972,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"Требуется действующий аккаунт. Зарегистрироваться можно на https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Поиск"
@@ -2079,16 +2081,16 @@ msgid "Extracting"
 msgstr "Распаковка"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "ПОИСК РЕТРОДОСТИЖЕНИЙ"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "ПОИСК NETPLAY ИГР"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "ИНДЕКСАЦИЯ ЗАВЕРШЕНА"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
 
 msgid "GENRE"
 msgstr "ЖАНР"
@@ -2115,10 +2117,10 @@ msgid "ALREADY PLAYED"
 msgstr "УЖЕ ИГРАЛ"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "ИМЕЮТСЯ РЕТРОДОСТИЖЕНИЯ"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "ВЕРТИКАЛЬНО"
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
@@ -2127,15 +2129,15 @@ msgid "SCRAPE FAILED"
 msgstr "ЗАГРУЗКА НЕ УДАЛАСЬ"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "ЗАГРУЗКА ЗАВЕРШЕНА"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s подключен"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s отключен"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"

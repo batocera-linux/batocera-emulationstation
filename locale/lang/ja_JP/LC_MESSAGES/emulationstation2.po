@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es.5.29\n"
+"Project-Id-Version: batocera-es v30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
-"PO-Revision-Date: 2020-12-03 08:03+0900\n"
+"POT-Creation-Date: 2021-02-12 08:29+0100\n"
+"PO-Revision-Date: 2021-01-25 20:51+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -215,16 +215,16 @@ msgid "Region"
 msgstr "リージョン"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos　ハッシュ"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos チェックサム"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos ゲーム ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "スクリーンスクレイパー ゲームID"
 
 msgid "all games"
 msgstr "すべてのゲーム"
@@ -245,13 +245,13 @@ msgid "never played"
 msgstr "未プレイ"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "アーケード"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "縦表示アーケード"
 
 msgid "collections"
 msgstr "コレクション"
@@ -456,19 +456,19 @@ msgstr "お待ちください"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d 中の %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroAchievements 使用"
 
 msgid "Points"
-msgstr ""
+msgstr "ポイント"
 
 msgid "Rank"
-msgstr ""
+msgstr "ランク"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "詳細を表示"
 
 msgid "LAUNCH"
 msgstr "起動"
@@ -489,10 +489,10 @@ msgid "NAVIGATION"
 msgstr "ナビゲーション"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "文字移動"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "ランダムにゲーム選択"
 
 msgid "SORT GAMES BY"
 msgstr "ゲーム別のソート"
@@ -779,10 +779,10 @@ msgid "PLAYER 2"
 msgstr "プレイヤー 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "プレイヤー3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "プレイヤー4"
 
 msgid "COMBINATIONS"
 msgstr "同時押しキー"
@@ -860,19 +860,19 @@ msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "現在のコアと互換性がありません"
 
 msgid "REQUIRED CORE"
-msgstr ""
+msgstr "必要なコア"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
+msgstr "ゲームの実績を表示"
 
 msgid "GAME"
-msgstr ""
+msgstr "ゲーム"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "スナップショットを保存"
 
 msgid "START NETPLAY HOST"
 msgstr "ホスト(ネットプレイ)を開始"
@@ -900,11 +900,11 @@ msgstr "コレクション"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr ""
+msgstr "%s から削除"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "%s に追加"
 
 msgid "FAVORITES"
 msgstr "お気に入り"
@@ -941,32 +941,32 @@ msgid "CURRENT THEME"
 msgstr "現在のテーマ"
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "ロック解除"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr ""
+msgstr "このゲームにはまだ実績がありません"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "達成実績"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% 完了"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "オートセーブ"
 
 msgid "SLOT"
-msgstr ""
+msgstr "スロット"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "新しくゲームを開始"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "オートセーブを開始"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "空スロットにコピー"
 
 msgid "SCRAPE NOW"
 msgstr "スクレイプ 実行"
@@ -1068,7 +1068,7 @@ msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGAスケーリング"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1167,7 +1167,7 @@ msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "マップをスクレイプ"
 
 msgid "SCRAPE MANUAL"
 msgstr "マニュアルをスクレイプ"
@@ -1259,10 +1259,10 @@ msgid "CLEAR CACHES"
 msgstr "キャッシュをクリア"
 
 msgid "BUILD IMAGE CACHE"
-msgstr ""
+msgstr "イメージキャッシュのビルド"
 
 msgid "Building image cache"
-msgstr ""
+msgstr "イメージキャッシュのビルド中"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル拡張子設定をリセット"
@@ -1271,7 +1271,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "ゲームの言語/地域を再検出"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr ""
+msgstr "ネットプレイ/実績 ですべてのゲームを検索"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1301,7 +1301,7 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr "ゲーム実行中は非表示"
+msgstr "ゲーム開始時の画像、ゲーム名を非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1367,7 +1367,7 @@ msgid "LANGUAGE"
 msgstr "言語"
 
 msgid "POWER SAVER MODES"
-msgstr "パワーセーブモード"
+msgstr "省電力モード(rpi用)"
 
 msgid "UI MODE"
 msgstr "UIモード"
@@ -1481,10 +1481,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "RETROACHIEVEMENTSサウンドのロック解除"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "サウンドのロック解除"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "メインメニューに表示"
@@ -1493,13 +1493,13 @@ msgid "GAME INDEXES"
 msgstr "ゲームインデックス"
 
 msgid "FIND ALL GAMES"
-msgstr ""
+msgstr "すべてのゲームを検索"
 
 msgid "FIND NEW GAMES"
-msgstr ""
+msgstr "新たなゲームを検索"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "RETROACHIEVEMENTSをアクティブ化できません :"
 
 msgid "ENABLE NETPLAY"
 msgstr "ネットプレイを有効"
@@ -1826,7 +1826,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "解像度"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
+msgstr "自動コントローラー設定"
 
 msgid "FORMAT DEVICE"
 msgstr "フォーマット"
@@ -1860,22 +1860,22 @@ msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
 
 msgid "ZOOM-"
-msgstr ""
+msgstr "縮小-"
 
 msgid "ZOOM+"
-msgstr ""
+msgstr "拡大+"
 
 msgid "MOVE"
-msgstr ""
+msgstr "移動"
 
 msgid "ZOOM"
-msgstr ""
+msgstr "ズーム"
 
 msgid "SYSTEM INFO"
 msgstr "システム情報"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "エラー：すべてのシステムが非表示になり、すべてが再表示されます"
+msgstr "エラー：すべてのシステムが非表示になり、その後再表示されます"
 
 msgid "QUICK SEARCH"
 msgstr "クイック検索"
@@ -1968,6 +1968,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"有効なアカウントが必要です。 https://retroachievements.org でアカウントを登録"
+"してください"
 
 msgid "Searching"
 msgstr "検索中"
@@ -2076,16 +2078,16 @@ msgid "Extracting"
 msgstr "抽出"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "RetroAchievements を検索する"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "ネットプレイゲームを検索しています"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "インデックス作成が完了しました"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "変更を適用するには、ゲームリストを更新します。"
 
 msgid "GENRE"
 msgstr "ジャンル"
@@ -2112,10 +2114,10 @@ msgid "ALREADY PLAYED"
 msgstr "プレイ済み"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "ゲームの実績がある"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "縦表示"
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -2124,15 +2126,15 @@ msgid "SCRAPE FAILED"
 msgstr "スクレイプ失敗"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "スクレイプが終了しました"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s に接続しました"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s に切断されました"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
@@ -2359,12 +2361,6 @@ msgstr "%d 秒"
 #~ msgid "AN ERROR HAS OCCURED"
 #~ msgstr "エラーが発生しました"
 
-#~ msgid "USER DECIDES ON CONFLICTS"
-#~ msgstr "ユーザーが手動で修正"
-
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
-#~ msgstr "スクレイプが終了しました。 ゲームリストを更新して変更を適用します。"
-
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
 #~ msgstr "'%s' コレクションを編集。Yでゲームを追加/削除します。"
 
@@ -2382,6 +2378,9 @@ msgstr "%d 秒"
 
 #~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 #~ msgstr "ゲームコレクションへのゲームの追加/削除"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "ユーザーが手動で修正"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "すべてのゲームを再インデックス"
