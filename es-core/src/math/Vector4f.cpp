@@ -26,27 +26,18 @@ Vector4f& Vector4f::lerp(const Vector4f& _start, const Vector4f& _end, const flo
 
 const Vector4f Vector4f::parseString(const std::string& _input)
 {
+	auto splits = Utils::String::split(_input, ' ');
+	if (splits.size() == 4)
+		return Vector4f(Utils::String::toFloat(splits[0]), Utils::String::toFloat(splits[1]), Utils::String::toFloat(splits[2]), Utils::String::toFloat(splits[3]));
+
 	Vector4f ret = Vector4f(0, 0, 0, 0);
 
-	auto splits = Utils::String::split(_input, ' ');
-
 	if (splits.size() == 1)
-	{
-		ret = Vector4f(
-			(float)atof(splits.at(0).c_str()), (float)atof(splits.at(0).c_str()),
-			(float)atof(splits.at(0).c_str()), (float)atof(splits.at(0).c_str()));
-	}
+		ret.z() = ret.x() = ret.w() = ret.y() = Utils::String::toFloat(splits[0]);
 	else if (splits.size() == 2)
 	{
-		ret = Vector4f(
-			(float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
-			(float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()));
-	}
-	else if (splits.size() == 4)
-	{
-		ret = Vector4f(
-			(float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
-			(float)atof(splits.at(2).c_str()), (float)atof(splits.at(3).c_str()));
+		ret.z() = ret.x() = Utils::String::toFloat(splits[0]);
+		ret.w() = ret.y() = Utils::String::toFloat(splits[1]);
 	}
 
 	return ret;

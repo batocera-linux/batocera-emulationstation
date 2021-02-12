@@ -955,13 +955,19 @@ bool SystemData::loadConfig(Window* window)
 		delete[] systems;
 		delete pThreadPool;
 
-		
-
 		if (window != NULL)
 			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
-		// updateSystemsList can't be run async, systems have to be created before
 		createGroupedSystems();
+
+		// Load features before creating collections
+		loadFeatures();
+
+		// precalc value of isCheevosSupported
+		for (auto system : SystemData::sSystemVector)
+			system->isCheevosSupported();
+
+		// updateSystemsList can't be run async, systems have to be created before
 		CollectionSystemManager::get()->updateSystemsList();
 	}
 	else
@@ -970,6 +976,14 @@ bool SystemData::loadConfig(Window* window)
 			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
 		createGroupedSystems();
+
+		// Load features before creating collections
+		loadFeatures();
+
+		// precalc value of isCheevosSupported
+		for (auto system : SystemData::sSystemVector)
+			system->isCheevosSupported();
+
 		CollectionSystemManager::get()->loadCollectionSystems();
 	}
 
@@ -978,8 +992,6 @@ bool SystemData::loadConfig(Window* window)
 		auto theme = SystemData::sSystemVector.at(0)->getTheme();
 		ViewController::get()->onThemeChanged(theme);		
 	}
-
-	loadFeatures();
 
 	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
 	{
