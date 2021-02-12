@@ -465,33 +465,6 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 #define MINIMUM_THEME_FORMAT_VERSION 3
 #define CURRENT_THEME_FORMAT_VERSION 6
 
-// helper
-unsigned int getHexColor(const char* str)
-{
-//	ThemeException error;
-	if (!str)
-	{
-		//throw error << "Empty color";
-		LOG(LogWarning) << "Empty color";
-		return 0;
-	}
-
-	size_t len = strlen(str);
-	if(len != 6 && len != 8)
-	{
-		//throw error << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
-		LOG(LogWarning) << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
-		return 0;
-	}
-
-	unsigned int val;
-	sscanf(str, "%x", &val);
-
-	if(len == 6)
-		val = (val << 8) | 0xFF;
-
-	return val;
-}
 
 std::string ThemeData::resolvePlaceholders(const char* in)
 {
@@ -1284,6 +1257,28 @@ bool ThemeData::parseLanguage(const pugi::xml_node& node)
 	return false;
 }
 
+unsigned int ThemeData::parseColor(const std::string& str)
+{
+	if (str.empty())
+	{
+		LOG(LogWarning) << "Empty color";
+		return 0;
+	}
+
+	size_t len = str.length();
+	if (len != 6 && len != 8)
+	{
+		LOG(LogWarning) << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
+		return 0;
+	}
+
+	unsigned int val = Utils::String::fromHexString(str);
+	if (len == 6)
+		val = (val << 8) | 0xFF;
+
+	return val;
+}
+
 bool ThemeData::parseRegion(const pugi::xml_node& node)
 {
 	if (!node.attribute("region"))
@@ -1392,42 +1387,12 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		{
 		case NORMALIZED_RECT:
 		{
-			Vector4f val;
-
-			auto splits = Utils::String::split(str, ' ');
-			if (splits.size() == 2)
-			{
-				val = Vector4f((float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
-					(float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()));
-			}
-			else if (splits.size() == 4)
-			{
-				val = Vector4f((float)atof(splits.at(0).c_str()), (float)atof(splits.at(1).c_str()),
-					(float)atof(splits.at(2).c_str()), (float)atof(splits.at(3).c_str()));
-			}
-
-			element.properties[node.name()] = val;
+			element.properties[node.name()] = Vector4f::parseString(str);
 			break;
 		}
 		case NORMALIZED_PAIR:
 		{
-			size_t divider = str.find(' ');
-			if(divider == std::string::npos) 
-			{			
-				if (str.empty())
-				{
-					LOG(LogWarning) << "invalid normalized pair (property \"" << node.name() << "\", value \"" << str.c_str() << "\")";
-					break;
-				}
-
-				Vector2f val((float)atof(str.c_str()), (float)atof(str.c_str()));
-				element.properties[node.name()] = val;
-				break;
-			}			
-
-			float first = atof(str.substr(0, divider).c_str());
-			float second = atof(str.substr(divider, std::string::npos).c_str());
-			element.properties[node.name()] = Vector2f(first, second);
+			element.properties[node.name()] = Vector2f::parseString(str);
 			break;
 		}
 		case STRING:
@@ -1502,11 +1467,11 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			break;
 		}
 		case COLOR:
-			element.properties[node.name()] = getHexColor(str.c_str());
+			element.properties[node.name()] = parseColor(str);
 			break;
 		case FLOAT:
 		{
-			element.properties[node.name()] = (float) atof(str.c_str());
+			element.properties[node.name()] = Utils::String::toFloat(str);
 			break;
 		}
 

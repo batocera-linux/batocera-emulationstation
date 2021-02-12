@@ -103,9 +103,6 @@ void ViewController::goToStart(bool forceImmediate)
 
 			return;
 		}
-
-		// Requested system doesn't exist
-		Settings::getInstance()->setString("StartupSystem", "");
 	}
 
 	if (startOnGamelist)

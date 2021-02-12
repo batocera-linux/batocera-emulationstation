@@ -1,6 +1,7 @@
 #include "components/RatingComponent.h"
 
 #include "resources/TextureResource.h"
+#include "utils/StringUtil.h"
 #include "ThemeData.h"
 #include "Settings.h"
 
@@ -17,14 +18,14 @@ RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorS
 
 void RatingComponent::setValue(const std::string& value)
 {
-	if(value.empty())
+	if (value.empty())
 		mValue = 0.0f;
 	else
 	{
-		mValue = stof(value);
+		mValue = Utils::String::toFloat(value);
 		if (mValue > 1.0f)
 			mValue = 1.0f;
-		else if(mValue < 0.0f)
+		else if (mValue < 0.0f)
 			mValue = 0.0f;
 	}
 

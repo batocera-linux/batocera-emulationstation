@@ -13,7 +13,7 @@
 #include "types.h"
 #include "constants.h"
 
-ID3v2_frame* parse_frame(char* bytes, int offset, int version);
+ID3v2_frame* parse_frame(char* bytes, int offset, int version, int bufferSize);
 int get_frame_type(char* frame_id);
 ID3v2_frame_text_content* parse_text_frame_content(ID3v2_frame* frame);
 ID3v2_frame_comment_content* parse_comment_frame_content(ID3v2_frame* frame);

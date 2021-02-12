@@ -15,7 +15,7 @@
 #include "utils.h"
 #include "constants.h"
 
-ID3v2_frame* parse_frame(char* bytes, int offset, int version)
+ID3v2_frame* parse_frame(char* bytes, int offset, int version, int bufferSize)
 {
     ID3v2_frame* frame = new_frame();
     
@@ -34,8 +34,15 @@ ID3v2_frame* parse_frame(char* bytes, int offset, int version)
         frame->size = syncint_decode(frame->size);
     }
 
-    memcpy(frame->flags, bytes + (offset += ID3_FRAME_SIZE), 2);
+	memcpy(frame->flags, bytes + (offset += ID3_FRAME_SIZE), 2);
     
+	// Invalid size !?
+	if (frame->size + offset > bufferSize)
+	{
+		free(frame);
+		return NULL;
+	}
+
     // Load frame data
     frame->data = (char*) malloc(frame->size * sizeof(char));
     memcpy(frame->data, bytes + (offset += ID3_FRAME_FLAGS), frame->size);
@@ -97,7 +104,7 @@ char* parse_mime_type(char* data, int* i)
 {
     char* mime_type = (char*) malloc(30 * sizeof(char));
     
-    while(data[*i] != '\0')
+    while(data[*i] != '\0' && *i < 30)
     {
         mime_type[*i - 1] = data[*i];
         (*i)++;

@@ -39,7 +39,10 @@ FileData::FileData(FileType type, const std::string& path, SystemData* system)
 }
 
 const std::string FileData::getPath() const
-{ 	
+{
+	if (mPath.empty())
+		return getSystemEnvData()->mStartPath;
+
 	return mPath;
 }
 

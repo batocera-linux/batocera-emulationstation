@@ -228,23 +228,22 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 	case RATINGS_FILTER:
 	{
 		int ratingNumber = 0;
-		if (!getSecondary)
-		{
-			std::string ratingString = game->getMetadata(MetaDataId::Rating);
-			if (!ratingString.empty())
-			{
-				float rating = Utils::String::toFloat(ratingString);
-				if (rating > 0.0f)
-				{
-					if (rating > 1.0f)
-						rating = 1.0f;
+		if (getSecondary)
+			return UNKNOWN_LABEL;
+		
+		std::string ratingString = game->getMetadata(MetaDataId::Rating);
+		if (ratingString.empty())
+			return UNKNOWN_LABEL;
 
-					ratingNumber = (int)Math::round(rating * 5);
-					key = std::to_string(ratingNumber) + " STARS";
-				}
-			}
-		}
-		break;
+		float rating = Utils::String::toFloat(ratingString);
+		if (rating <= 0.0f)
+			return UNKNOWN_LABEL;
+			
+		if (rating > 1.0f)
+			rating = 1.0f;
+
+		ratingNumber = (int)Math::round(rating * 5);
+		return std::to_string(ratingNumber) + " STARS";					
 	}
 
 	case FAVORITES_FILTER:

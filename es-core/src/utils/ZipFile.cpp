@@ -294,6 +294,8 @@ namespace Utils
 			{
 
 			}
+
+			return false;
 		}
 
 		std::string ZipFile::getFileCrc(const std::string &name)

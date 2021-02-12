@@ -724,8 +724,13 @@ namespace Utils
 				return getGenericPath(_relativeTo);
 
 			// replace '.' with relativeTo
-			if((_path[0] == '.') && (_path[1] == '/' || _path[1] == '\\'))
+			if ((_path[0] == '.') && (_path[1] == '/' || _path[1] == '\\'))
+			{
+				if (_path[2] == '.' && (_path[3] == '.' || _path[3] == '/' || _path[3] == '\\')) // ./.. or ././ ?
+					return getCanonicalPath(_relativeTo + &(_path[1]));
+
 				return getGenericPath(_relativeTo + &(_path[1]));
+			}
 
 			// replace '~' with homePath
 			if(_allowHome && (_path[0] == '~') && (_path[1] == '/' || _path[1] == '\\'))
