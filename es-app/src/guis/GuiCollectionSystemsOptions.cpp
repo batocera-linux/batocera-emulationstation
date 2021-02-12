@@ -229,6 +229,9 @@ void GuiCollectionSystemsOptions::initializeMenu()
 				systemfocus_list->add(system->getName(), system->getName(), startupSystem == system->getName());
 	}
 
+	if (!systemfocus_list->hasSelection())
+		systemfocus_list->selectFirstItem();
+
 	addWithLabel(_("START ON SYSTEM"), systemfocus_list);
 	addSaveFunc([systemfocus_list] 
 	{ 

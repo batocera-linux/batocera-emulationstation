@@ -44,6 +44,7 @@ namespace Utils
 
 		std::string decodeXmlString(const std::string& string);
 		std::string toHexString(unsigned int color);
+		unsigned int fromHexString(const std::string& string);
 
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);

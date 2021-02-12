@@ -321,6 +321,7 @@ public:
 	
 	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
+	static unsigned int parseColor(const std::string& str);
 
 	std::vector<Subset>		    getSubSets() { return mSubsets; }
 	std::vector<std::string>	getSubSetNames(const std::string ofView = "");
@@ -436,7 +437,5 @@ private:
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
 	static ThemeData* mDefaultTheme;	
 };
-
-extern unsigned int getHexColor(const char* str);
 
 #endif // ES_CORE_THEME_DATA_H

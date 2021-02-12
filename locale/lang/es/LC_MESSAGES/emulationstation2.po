@@ -98,10 +98,10 @@ msgid "enter path to alt boxart"
 msgstr "INTRODUCE LA UBICACIÓN DE LA CAJA ALTERNATIVA"
 
 msgid "Box backside"
-msgstr ""
+msgstr "PARTE TRASERA DE LA CAJA"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "INTRODUCE LA UBICACIÓN DE LA PARTE TRASERA DE LA CAJA"
 
 msgid "Wheel"
 msgstr "RUEDA"
@@ -248,7 +248,7 @@ msgid "arcade"
 msgstr "ARCADE"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "ARCADE VERTICAL"
 
 msgid "collections"
 msgstr "COLECCIÓNES"
@@ -869,7 +869,7 @@ msgid "GAME"
 msgstr "JUEGO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr ""
+msgstr "GUARDAR CAPTURAS"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
@@ -951,19 +951,19 @@ msgid "%d%% complete"
 msgstr "%d%% COMPLETO"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "AUTO GUARDADO"
 
 msgid "SLOT"
-msgstr ""
+msgstr "ESPACIO"
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "INICIAR JUEGO NUEVO"
 
 msgid "START AUTO SAVE"
-msgstr ""
+msgstr "INICIAR AUTO GUARDADO"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPIAR A UN ESPACIO LIBRE"
 
 msgid "SCRAPE NOW"
 msgstr "OBTENER INFORMACIÓN DE LOS JUEGOS AHORA"
@@ -1161,7 +1161,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTENER ARTE DE FAN"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "OBTENER PARTE TRASERA DE LA CAJA"
 
 msgid "SCRAPE MAP"
 msgstr "OBTENER MAPA"
@@ -1478,10 +1478,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "SONIDO DE DESBLOQUEO DE LOGRO"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "SONIDO DE DESBLOQUEO"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR EN MENÚ PRINCIPAL"
@@ -2085,10 +2085,10 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "BUSCANDO JUEGOS EN NETPLAY"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INDEXADO COMPLETO"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR CAMBIOS."
 
 msgid "GENRE"
 msgstr "GÉNERO"
@@ -2118,7 +2118,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "TIENE LOGROS"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTICAL"
 
 msgid "SCRAPING"
 msgstr "SCRAPEANDO"
@@ -2127,15 +2127,15 @@ msgid "SCRAPE FAILED"
 msgstr "FALLÓ EL SCRAPEO"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "OBTENCIÓN DE INFORMACIÓN TERMINADO"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s CONECTADO"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "% DESCONECTADO"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"

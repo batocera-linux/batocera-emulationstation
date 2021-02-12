@@ -44,7 +44,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 	if (sbrepeat == "forever")
 		this->repeat = 0;
 	else if (!sbrepeat.empty() && sbrepeat != "none")
-		this->repeat = atoi(sbrepeat.c_str());
+		this->repeat = Utils::String::toInteger(sbrepeat);
 
 	sbrepeat = root.attribute("repeatAt").as_string();
 	if (sbrepeat.empty())
@@ -55,7 +55,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 		if (this->repeat = 1)
 			this->repeat = 0;
 
-		this->repeatAt = atoi(sbrepeat.c_str());
+		this->repeatAt = Utils::String::toInteger(sbrepeat);
 	}
 
 	for (pugi::xml_node node = root.child("animation"); node; node = node.next_sibling("animation"))
@@ -91,14 +91,14 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 
 		case ThemeData::ElementPropertyType::COLOR:			
 			anim = new ThemeColorAnimation();
-			if (node.attribute("from")) anim->from = getHexColor(node.attribute("from").as_string());
-			if (node.attribute("to")) anim->to = getHexColor(node.attribute("to").as_string());
+			if (node.attribute("from")) anim->from = ThemeData::parseColor(node.attribute("from").as_string());
+			if (node.attribute("to")) anim->to = ThemeData::parseColor(node.attribute("to").as_string());
 			break;
 
 		case ThemeData::ElementPropertyType::FLOAT:
 			anim = new ThemeFloatAnimation();
-			if (node.attribute("from")) anim->from = (float)atof(node.attribute("from").as_string());	
-			if (node.attribute("to")) anim->to = (float)atof(node.attribute("to").as_string());
+			if (node.attribute("from")) anim->from = Utils::String::toFloat(node.attribute("from").as_string());	
+			if (node.attribute("to")) anim->to = Utils::String::toFloat(node.attribute("to").as_string());
 			break;
 
 		case ThemeData::ElementPropertyType::PATH:
@@ -122,13 +122,13 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::stri
 		{
 			anim->propertyName = prop;
 
-			if (node.attribute("begin")) anim->begin = atoi(node.attribute("begin").as_string());
-			if (node.attribute("duration")) anim->duration = atoi(node.attribute("duration").as_string());
+			if (node.attribute("begin")) anim->begin = Utils::String::toInteger(node.attribute("begin").as_string());
+			if (node.attribute("duration")) anim->duration = Utils::String::toInteger(node.attribute("duration").as_string());
 
 			if (node.attribute("repeat"))
 			{
 				std::string arepeat = node.attribute("repeat").as_string();
-				if (arepeat == "forever") anim->repeat = 0; else if (!arepeat.empty() && arepeat != "none") anim->repeat = atoi(arepeat.c_str());
+				if (arepeat == "forever") anim->repeat = 0; else if (!arepeat.empty() && arepeat != "none") anim->repeat = Utils::String::toInteger(arepeat);
 			}
 
 			if (node.attribute("autoreverse"))

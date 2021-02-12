@@ -1,4 +1,5 @@
 #include "math/Vector2f.h"
+#include "utils/StringUtil.h"
 
 Vector2f& Vector2f::round()
 {
@@ -20,18 +21,16 @@ Vector2f& Vector2f::lerp(const Vector2f& _start, const Vector2f& _end, const flo
 
 const Vector2f Vector2f::parseString(const std::string& _input)
 {
-	Vector2f ret = Vector2f(0, 0);
-
 	size_t divider = _input.find(' ');
 	if (divider != std::string::npos)
 	{
 		std::string first = _input.substr(0, divider);
 		std::string second = _input.substr(divider, std::string::npos);
 
-		ret = Vector2f((float)atof(first.c_str()), (float)atof(second.c_str()));
+		return Vector2f(Utils::String::toFloat(first), Utils::String::toFloat(second));
 	}
 
-	return ret;
+	return Vector2f(Utils::String::toFloat(_input), Utils::String::toFloat(_input));
 }
 
 const std::string Vector2f::toString()

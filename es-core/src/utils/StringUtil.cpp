@@ -583,12 +583,12 @@ namespace Utils
 			std::vector<std::string> output;
 
 			unsigned prev_pos = 0;
-			unsigned pos = s.find_first_of(seperator);
+			auto pos = s.find_first_of(seperator);
 			while (pos != std::string::npos)
 			{
 				std::string token = s.substr(prev_pos, pos - prev_pos);
 				if (!removeEmptyEntries || !token.empty())
-					output.push_back(s.substr(prev_pos, pos - prev_pos));
+					output.push_back(token);
 
 				pos++;
 				prev_pos = pos;
@@ -741,17 +741,118 @@ namespace Utils
 			return trim(text);
 		}
 
+		unsigned int fromHexString(const std::string& string)
+		{
+			if (string.empty())
+				return 0;
+
+			unsigned int value = 0;
+
+			int dec = 0;
+			for (int i = string.length() - 1; i >= 0; i--)
+			{
+				char c = string[i];
+				if (c == ' ')
+					continue;
+
+				if (c == 'x' || c == 'X')
+					return value;
+
+				if (c >= '0' && c <= '9')
+					value += (c - '0') << dec;
+				else if (c >= 'A' && c <= 'F')
+					value += (c - 'A' + 10) << dec;
+				else if (c >= 'a' && c <= 'f')
+					value += (c - 'a' + 10) << dec;
+				else
+					return 0;
+
+				dec += 4;
+			}
+
+			return value;
+		}
+
 		int	toInteger(const std::string& string)
 		{
 			if (string.empty())
 				return 0;
 
-			return atoi(string.c_str());
+			const char* str = string.c_str();
+			while (*str == ' ')
+				str++;
+
+			bool neg = false;
+			if (*str == '-')
+			{
+				neg = true;
+				++str;
+			}
+			else if (*str == '+')
+				++str;
+
+			int64_t value = 0;
+			for (; *str && *str != '.' && *str != ' '; str++)
+			{
+				if (*str < '0' || *str > '9')
+					return 0;
+
+				value *= 10;
+				value += *str - '0';
+			}
+
+			return neg ? -value : value;
 		}
 
 		float toFloat(const std::string& string)
 		{
-			return atof(string.c_str());
+			if (string.empty())
+				return 0.0f;
+
+			const char* str = string.c_str();
+			while (*str == ' ')
+				str++;
+
+			bool neg = false;
+			if (*str == '-') 
+			{
+				neg = true;
+				++str;
+			}
+			else if (*str == '+')
+				++str;
+			
+			int64_t value = 0;
+			for (; *str && *str != '.' && *str != ' '; str++)
+			{
+				if (*str < '0' || *str > '9')
+					return 0;
+
+				value *= 10;
+				value += *str - '0';
+			}
+
+			if (*str == '.')
+			{
+				str++;
+
+				int64_t decimal = 0, weight = 1;
+
+				for (; *str && *str != ' '; str++)
+				{
+					if (*str < '0' || *str > '9')
+						return 0;
+
+					decimal *= 10;
+					decimal += *str - '0';
+					weight *= 10;
+				}
+
+				float ret = value + (decimal / (float)weight);
+				return neg ? -ret : ret;
+			}
+
+			return neg ? -value : value;
 		}
 
 		std::string decodeXmlString(const std::string& string)

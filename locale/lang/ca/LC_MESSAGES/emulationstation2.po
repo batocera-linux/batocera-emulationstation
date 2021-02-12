@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-30 09:05+0100\n"
+"POT-Creation-Date: 2021-02-10 08:23+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,6 +96,12 @@ msgstr "BoxArt alternatiu"
 
 msgid "enter path to alt boxart"
 msgstr "introduïu el camí per al boxart alternatiu"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
 
 msgid "Wheel"
 msgstr "Roda"
@@ -634,39 +640,6 @@ msgstr "NO S'HAN TROBAT XARXES INALÀMBRIQUES"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "CERCANT XARXES INALÀMBRIQUES"
 
-msgid "THE BEZEL PROJECT"
-msgstr "EL PROJECTE BEZEL (MÀSCARES)"
-
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "SELECCIONI MÀSCARES A INSTAL·LAR / ELIMINAR"
-
-msgid "UPDATE"
-msgstr "ACTUALITZA"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' AFEGIT A LA CUA DE DESCÀRREGUES"
-
-msgid "REMOVE"
-msgstr "ELIMINAR"
-
-msgid "INSTALL"
-msgstr "INSTAL·LAR"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "JA PRESENT A LA CUA DE DESCÀRREGUES"
-
-msgid "THEMES DOWNLOADER"
-msgstr "DESCARREGADOR DE TEMES"
-
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "SELECCIONI TEMES A INSTAL·LAR / ELIMINAR"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "TEMA ACTUAL"
-
 msgid "FORGET A BLUETOOTH CONTROLLER"
 msgstr "OBLIDAR UN COMANDAMENT BLUETOOTH"
 
@@ -700,8 +673,25 @@ msgstr "No hi han elements a mostrar"
 msgid "MISC"
 msgstr ""
 
+msgid "UPDATE"
+msgstr ""
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr ""
+
+msgid "REMOVE"
+msgstr ""
+
 msgid "UNINSTALL ADDED TO QUEUE"
 msgstr "DESINSTAL·LACIÓ AFEGIDA A LA CUA"
+
+msgid "INSTALL"
+msgstr ""
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr ""
 
 msgid "NO MISSING BIOS"
 msgstr "TOTES LES BIOS ESTÀN PRESENTS"
@@ -901,48 +891,53 @@ msgstr "XARXA REQUERIDA"
 msgid "INVALID PARAMETERS"
 msgstr "PARÀMETRES INVÀLIDS"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "S'ESTÀ OBTENINT DADES"
+msgid "GAME"
+msgstr ""
 
-msgid "SYSTEM"
-msgstr "SISTEMA"
+msgid "SAVE SNAPSHOTS"
+msgstr ""
 
-msgid "subtitle text"
-msgstr "text del subtítol"
+msgid "START NETPLAY HOST"
+msgstr ""
 
-msgid "search"
-msgstr "cerca"
+msgid "NETPLAY"
+msgstr ""
 
-msgid "SKIP"
-msgstr "OMET"
+msgid "START GAME"
+msgstr ""
 
-msgid "STOP"
-msgstr "ATURA"
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
 
-msgid "stop (progress saved)"
-msgstr "atura (progrés desat)"
+msgid "SET PLAYER PASSWORD"
+msgstr ""
 
-#, c-format
-msgid "GAME %i OF %i"
-msgstr "JOC %i DE %i"
+msgid "SET VIEWER PASSWORD"
+msgstr ""
 
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+msgid "COLLECTIONS"
 msgstr ""
 
 #, c-format
-msgid "%i GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
-msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
+msgid "REMOVE FROM %s"
+msgstr ""
 
 #, c-format
-msgid "%i GAME SKIPPED."
-msgid_plural "%i GAMES SKIPPED."
-msgstr[0] "S'HA OMÈS %i JOC."
-msgstr[1] "S'HA OMÈS %i JOCS."
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "SCRAPE"
+msgstr "OBTÉ DADES"
+
+msgid "THEMES DOWNLOADER"
+msgstr ""
+
+msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -1007,6 +1002,12 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
+
+msgid "THE BEZEL PROJECT"
+msgstr ""
+
+msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "esvaïment"
@@ -1159,6 +1160,9 @@ msgid "SCRAPE VIDEOS"
 msgstr ""
 
 msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
 msgid "SCRAPE MAP"
@@ -1353,8 +1357,8 @@ msgstr "INICIA L'ACTUALITZACIÓ"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA ACTUALIZACIÓ JA S'ESTÀ FENT"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NO ESTÀ CONNECTAT A UNA XARXA"
+msgid "SYSTEM"
+msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -1752,15 +1756,6 @@ msgstr "EL WIFI ESTÀ ACTIU"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
 
-msgid "AUTOMATIC SCRAPER"
-msgstr "SCRAPER AUTOMÀTIC"
-
-msgid "REALLY SCRAPE?"
-msgstr "DESITJA EXECUTAR L'SCRAPING?"
-
-msgid "MANUAL SCRAPER"
-msgstr "SCRAPING MANUAL"
-
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RÀPID"
 
@@ -1882,9 +1877,6 @@ msgstr "CERCA RÀPIDA"
 msgid "GO TO LETTER"
 msgstr "ANAR A LA LLETRA"
 
-msgid "COLLECTIONS"
-msgstr "COLECCIONS"
-
 msgid "GO TO MANUFACTURER"
 msgstr "ANAR AL FABRICANT"
 
@@ -1914,9 +1906,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i JOC"
 msgstr[1] "%i JOCS"
-
-msgid "NETPLAY"
-msgstr ""
 
 msgid "RANDOM"
 msgstr "ALEATORI"
@@ -1968,21 +1957,6 @@ msgstr "Nombre de vegades que s'ha jugat"
 msgid "No Entries Found"
 msgstr "No s'han trobat entrades"
 
-msgid "Favorites"
-msgstr "Favorits"
-
-msgid "START GAME"
-msgstr "INICIAR JOC"
-
-msgid "START NETPLAY HOST"
-msgstr "INICIAR JOC NETPLAY"
-
-msgid "SET PLAYER PASSWORD"
-msgstr "ESTABLIR MOT CLAU DE JUGADOR"
-
-msgid "SET VIEWER PASSWORD"
-msgstr "ESTABLIR MOT CLAU D'ESPECTADOR"
-
 msgid "Games similar to"
 msgstr "Jocs similars a"
 
@@ -1997,11 +1971,11 @@ msgstr "Cercant"
 msgid "NO GAMES FOUND - SKIP"
 msgstr "NO S'HA TROBAT CAP JOC - OMET"
 
-msgid "AN ERROR HAS OCCURED"
-msgstr "HA OCORREGUT UN ERROR"
-
 msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
+
+msgid "SKIP"
+msgstr "OMET"
 
 msgid "Downloading"
 msgstr "Descarregant"
@@ -2332,6 +2306,34 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "S'ESTÀ OBTENINT DADES"
+
+#~ msgid "subtitle text"
+#~ msgstr "text del subtítol"
+
+#~ msgid "search"
+#~ msgstr "cerca"
+
+#~ msgid "STOP"
+#~ msgstr "ATURA"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "atura (progrés desat)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "JOC %i DE %i"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOC."
+#~ msgstr[1] "S'HA OBTINGUT LES DADES CORRECTAMENT PER A %i JOCS."
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "S'HA OMÈS %i JOC."
+#~ msgstr[1] "S'HA OMÈS %i JOCS."
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "L'USUARI DECIDEIX DAVANT CONFLICTES"

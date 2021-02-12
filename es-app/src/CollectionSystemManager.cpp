@@ -19,6 +19,11 @@
 #include "FileSorts.h"
 #include "views/gamelist/ISimpleGameListView.h"
 #include "PlatformId.h"
+#include "utils/ThreadPool.h"
+
+#if WIN32
+#include "Win32ApiSystem.h"
+#endif
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -1181,45 +1186,65 @@ void CollectionSystemManager::removeCollectionsFromDisplayedSystems()
 
 void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap)
 {
-	// add auto enabled ones
-	for(std::map<std::string, CollectionSystemData>::iterator it = colSystemData->begin() ; it != colSystemData->end() ; it++ )
+	if (Settings::getInstance()->getBool("ThreadedLoading"))
 	{
-		if(it->second.isEnabled)
+		std::vector<CollectionSystemData*> collectionsToPopulate;
+		for (auto it = colSystemData->begin(); it != colSystemData->end(); it++)
+			if (it->second.isEnabled && !it->second.isPopulated)
+				collectionsToPopulate.push_back(&(it->second));
+
+		if (collectionsToPopulate.size() > 1)
 		{
-			// check if populated, otherwise populate
-			if (!it->second.isPopulated)
+			getAllGamesCollection();
+
+			Utils::ThreadPool pool;
+
+			for (auto collection : collectionsToPopulate)
 			{
-				if(it->second.decl.isCustom)
-				{
-					populateCustomCollection(&(it->second), pMap);
-				}
+				if (collection->decl.isCustom)
+					pool.queueWorkItem([this, collection, pMap] { populateCustomCollection(collection, pMap); });
 				else
-				{
-					populateAutoCollection(&(it->second));
-				}
+					pool.queueWorkItem([this, collection, pMap] { populateAutoCollection(collection); });
 			}
-			// check if it has its own view
-			if(!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
-			{
-                if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
-                {
-                        // exists theme folder, or we chose not to bundle it under the custom-collections system
-                        // so we need to create a view
-                        if(it->second.isEnabled)
-                            SystemData::sSystemVector.push_back(it->second.system);
 
+			pool.wait();
+		}
+	}
 
-                }
-			}
+	// add auto enabled ones
+	for (auto it = colSystemData->begin(); it != colSystemData->end(); it++)
+	{
+		if (!it->second.isEnabled)
+			continue;
+
+		// check if populated, otherwise populate
+		if (!it->second.isPopulated)
+		{
+			if (it->second.decl.isCustom)
+				populateCustomCollection(&(it->second), pMap);
 			else
-			{
-				FileData* newSysRootFolder = it->second.system->getRootFolder();
-				mCustomCollectionsBundle->getRootFolder()->addChild(newSysRootFolder);
+				populateAutoCollection(&(it->second));
+		}
 
-				// TODO : check 
-				if(it->second.system->getIndex(false) != nullptr)
-					mCustomCollectionsBundle->getIndex(true)->importIndex(it->second.system->getIndex(false));
+		// check if it has its own view
+		if (!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
+		{
+			if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
+			{
+				// exists theme folder, or we chose not to bundle it under the custom-collections system
+				// so we need to create a view
+				if (it->second.isEnabled)
+					SystemData::sSystemVector.push_back(it->second.system);
 			}
+		}
+		else
+		{
+			FileData* newSysRootFolder = it->second.system->getRootFolder();
+			mCustomCollectionsBundle->getRootFolder()->addChild(newSysRootFolder);
+
+			// TODO : check 
+			if (it->second.system->getIndex(false) != nullptr)
+				mCustomCollectionsBundle->getIndex(true)->importIndex(it->second.system->getIndex(false));
 		}
 	}
 }
