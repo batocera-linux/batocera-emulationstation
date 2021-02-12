@@ -325,15 +325,6 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 			return true;
 		}
-        else if (config->isMappedTo("RightThumb", input))
-		{ 
-            FileData* cursor = getCursor();
-			if (cursor != nullptr)
-            {
-                CollectionSystemManager::get()->toggleGameInCollection(cursor, "Favorites");
-                return true;
-            }
-        }
 #else
         else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
 		{
