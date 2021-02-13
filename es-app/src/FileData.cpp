@@ -665,7 +665,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
 
-		if (filterKidGame && !(*it)->getKidGame())
+		if (filterKidGame && (*it)->getType() == GAME && !(*it)->getKidGame())
 			continue;
 
 		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)

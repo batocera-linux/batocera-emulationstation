@@ -31,7 +31,7 @@ public:
 		mBusyAnim.setSize(mSize);
 
 		mBusyAnim.setOpacity(0);
-		auto fadeFunc = [this](float t) { mBusyAnim.setOpacity(Math::easeOutCubic(t) * 255.0); };
+		auto fadeFunc = [this](float t) { mBusyAnim.setOpacity((unsigned char) (Math::easeOutCubic(t) * 255.0f)); };
 		setAnimation(new LambdaAnimation(fadeFunc, 450), 0, [this] { mBusyAnim.setOpacity(255); });
 	}
 	
