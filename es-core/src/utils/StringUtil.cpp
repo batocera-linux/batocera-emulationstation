@@ -335,13 +335,9 @@ namespace Utils
 				char c = text[i];
 				if ((c & 0x80) == 0)
 				{
-					if (c < 65 || (c >= 90 && c <= 127))
-					{
-						i++;
-						continue;
-					}
+					if (c >= 'A' && c <= 'Z')
+						text[i] = c + 0x20;
 
-					text[i] = tolower(c);
 					i++;
 					continue;
 				}
@@ -380,13 +376,9 @@ namespace Utils
 				char c = text[i];
 				if ((c & 0x80) == 0)
 				{
-					if (c < 97)
-					{
-						i++;
-						continue;
-					}
-					
-					text[i] = toupper(c);
+					if (c >= 'a' && c <= 'z')
+						text[i] = c - 0x20;
+
 					i++;
 					continue;
 				}
@@ -407,7 +399,6 @@ namespace Utils
 						text[pos] += (char)(((unicode >> 12) & 0xFF) | 0xE0);
 						text[pos + 1] += (char)(((unicode >> 6) & 0x3F) | 0x80);
 						text[pos + 2] += (char)((unicode & 0x3F) | 0x80);
-
 					}
 				}
 			}
