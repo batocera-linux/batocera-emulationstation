@@ -662,19 +662,39 @@ namespace Utils
 
 		int compareIgnoreCase(const std::string& name1, const std::string& name2)
 		{
-			auto makeUp = [](unsigned int c)
-			{
-				if ((c & 0x80) == 0) return toupper(c);
-				return (int)toupperUnicode(c);
-			};
-
 			size_t p1 = 0;
 			size_t p2 = 0;
 
+			int u1, u2;
+			char c1, c2;
+
 			while (true)
 			{
-				int u1 = makeUp(chars2Unicode(name1, p1));
-				int u2 = makeUp(chars2Unicode(name2, p2));
+				c1 = name1[p1];
+				if ((c1 & 0x80) == 0)
+				{
+					if (c1 >= 'a' && c1 <= 'z')
+						u1 = c1 - 0x20;
+					else
+						u1 = c1;
+
+					p1++;
+				}
+				else 
+					u1 = toupperUnicode(chars2Unicode(name1, p1));
+
+				c2 = name2[p2];
+				if ((c2 & 0x80) == 0)
+				{
+					if (c2 >= 'a' && c2 <= 'z')
+						u2 = c2 - 0x20;
+					else
+						u2 = c2;
+
+					p2++;
+				}
+				else
+					u2 = toupperUnicode(chars2Unicode(name2, p2));
 
 				if (u1 == 0 && u2 != 0)
 					return -1;
