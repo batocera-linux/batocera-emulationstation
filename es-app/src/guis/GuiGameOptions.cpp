@@ -369,7 +369,7 @@ void GuiGameOptions::openMetaDataEd()
 
 	// open metadata editor
 	// get the FileData that hosts the original metadata
-	FileData* file = getGamelist()->getCursor()->getSourceFileData();
+	FileData* file = mGame;
 	ScraperSearchParams p;
 	p.game = file;
 	p.system = file->getSystem();
