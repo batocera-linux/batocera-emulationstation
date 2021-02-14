@@ -1296,23 +1296,50 @@ namespace Utils
 
 		std::string getTempPath()
 		{
-			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
+			static std::string path;
+
+			if (!path.empty())
+				return path;
+
+#ifdef WIN32
+			// Set tmp files to local drive : usually faster since it's generally a SSD Drive
+			WCHAR lpTempPathBuffer[MAX_PATH];
+			lpTempPathBuffer[0] = 0;
+			DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
+			if (dwRetVal > 0 && dwRetVal <= MAX_PATH)
+				path = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/emulationstation.tmp";
+			else
+#endif
+			path = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+
+			if (!Utils::FileSystem::isDirectory(path))
+				Utils::FileSystem::createDirectory(path);
+
+			return path;
 		}
 
 		std::string getPdfTempPath()
 		{
+			static std::string pdfpath;
+
+			if (!pdfpath.empty())
+				return pdfpath;
+
 #ifdef WIN32
 			// Extract PDFs to local drive : usually faster since it's generally a SSD Drive
 			WCHAR lpTempPathBuffer[MAX_PATH];
 			lpTempPathBuffer[0] = 0;
 			DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
-			if (dwRetVal > MAX_PATH || (dwRetVal == 0))
-				return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+			if (dwRetVal > 0 && dwRetVal <= MAX_PATH)
+				pdfpath = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp";
+			else
+#endif						
+			pdfpath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp");
 
-			return Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp/";
-#else
-			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
-#endif
+			if (!Utils::FileSystem::isDirectory(pdfpath))
+				Utils::FileSystem::createDirectory(pdfpath);
+
+			return pdfpath;
 		}
 		
 		std::string getFileCrc32(const std::string& filename)

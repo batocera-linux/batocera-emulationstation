@@ -782,6 +782,7 @@ void GuiMenu::openDeveloperSettings()
 		auto rootPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath());
 
 		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
+		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getTempPath());
 		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
 
 		ViewController::reloadAllGames(mWindow, false);

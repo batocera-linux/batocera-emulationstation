@@ -837,7 +837,7 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 
 	if (fromZipContents && ext == ".7z")
 	{
-		tmpZipDirectory = Utils::FileSystem::getTempPath() + "/" + Utils::FileSystem::getStem(fileName);
+		tmpZipDirectory = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), Utils::FileSystem::getStem(fileName));
 		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
 
 		if (unzipFile(fileName, tmpZipDirectory))

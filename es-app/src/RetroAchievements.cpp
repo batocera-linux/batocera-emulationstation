@@ -514,7 +514,7 @@ std::string RetroAchievements::getCheevosHash( SystemData* system, const std::st
 
 	if (fromZipContents)
 	{
-		tmpZipDirectory = Utils::FileSystem::getTempPath() + "/" + Utils::FileSystem::getStem(fileName);
+		tmpZipDirectory = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), Utils::FileSystem::getStem(fileName));
 		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);		
 
 		if (ApiSystem::getInstance()->unzipFile(fileName, tmpZipDirectory))
