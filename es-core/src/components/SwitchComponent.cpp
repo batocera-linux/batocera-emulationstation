@@ -38,6 +38,20 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 		return true;
 	}
 
+	if (config->isMappedLike("left", input) && input.value && mState)
+	{
+		mState = false;
+		onStateChanged();
+		return true;
+	}
+
+	if (config->isMappedLike("right", input) && input.value && !mState)
+	{
+		mState = true;
+		onStateChanged();
+		return true;
+	}
+
 	return false;
 }
 
