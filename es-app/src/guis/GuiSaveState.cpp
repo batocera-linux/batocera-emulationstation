@@ -116,13 +116,8 @@ void GuiSaveState::loadGrid()
 	int slot = SaveStateRepository::getNextFreeSlot(mGame);
 	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-2));
 
-	std::string autoSaveMode = SystemConf::getInstance()->get(mGame->getConfigurationName() + ".autosave");
-	if (autoSaveMode.empty() || autoSaveMode == "auto")
-		autoSaveMode = SystemConf::getInstance()->get(mGame->getSourceFileData()->getSystem()->getName() + ".autosave");
-	if (autoSaveMode.empty() || autoSaveMode == "auto")
-		autoSaveMode = SystemConf::getInstance()->get("global.autosave");
-
-	if (autoSaveMode.empty() || autoSaveMode == "auto")
+	std::string autoSaveMode = mGame->getCurrentGameSetting("autosave");
+	if (autoSaveMode.empty() || autoSaveMode == "auto" || autoSaveMode == "2")
 	{
 		auto autoSave = std::find_if(states.cbegin(), states.cend(), [](SaveState* x) { return x->slot == -1; });
 		if (autoSave == states.cend())

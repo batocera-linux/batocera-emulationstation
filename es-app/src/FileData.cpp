@@ -1331,3 +1331,18 @@ void FolderData::removeFromVirtualFolders(FileData* game)
 		}
 	}
 }
+
+std::string FileData::getCurrentGameSetting(const std::string& settingName)
+{
+	FileData* src = getSourceFileData();
+
+	std::string value = SystemConf::getInstance()->get(getConfigurationName() + "." + settingName);
+	if (!value.empty() && value != "auto")
+		return value;
+
+	value = SystemConf::getInstance()->get(src->getSystem()->getName() + "." + settingName);
+	if (!value.empty() && value != "auto")
+		return value;
+
+	return Settings::getInstance()->getString("global." + settingName);
+}
