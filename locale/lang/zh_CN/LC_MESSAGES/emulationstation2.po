@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1525,14 +1525,17 @@ msgstr "图像平滑处理"
 msgid "REWIND"
 msgstr "倒带功能"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "整数缩放 (像素完美显示)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "自动保存/加载"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "着色器设置"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "整数缩放 (像素完美显示)"
 
 msgid "DECORATION"
 msgstr "装饰框"

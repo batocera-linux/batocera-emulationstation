@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1531,14 +1531,17 @@ msgstr "JÄMNA UT SPELGRAFIK"
 msgid "REWIND"
 msgstr "SPOLA TILLBAKA"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "INTEGERSKALNING (PIXEL-PERFEKT)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOSPARA/LADDA"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADERS"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "INTEGERSKALNING (PIXEL-PERFEKT)"
 
 msgid "DECORATION"
 msgstr "DEKORATION"

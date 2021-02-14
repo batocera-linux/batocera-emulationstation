@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1531,14 +1531,17 @@ msgstr "ЗГЛАДЖУВАННЯ ЗОБРАЖЕННЯ"
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "АВТО ЗБЕРЕЖЕННЯ/ЗАВАНТАЖЕННЯ"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРИ"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
 
 msgid "DECORATION"
 msgstr "РАМКИ (ОВЕРЛЕЇ)"

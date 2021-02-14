@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1538,14 +1538,17 @@ msgstr "ألعاب سلسه"
 msgid "REWIND"
 msgstr "الترجيع"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "مقياس العدد الصحيح (بيكسل رائع)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "حفظ/تحميل تلقائي"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "محسنات"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "مقياس العدد الصحيح (بيكسل رائع)"
 
 msgid "DECORATION"
 msgstr "زخرفة"

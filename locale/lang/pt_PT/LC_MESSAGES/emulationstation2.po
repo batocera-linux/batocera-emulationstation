@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1529,14 +1529,17 @@ msgstr "SUAVIZAR IMAGEM"
 msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "AJUSTE DOS PIXELS"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "SAVE AUTOMÁTICO/LOADING"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "AJUSTE DOS PIXELS"
 
 msgid "DECORATION"
 msgstr "DECORAÇÃO"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1535,14 +1535,17 @@ msgstr "GEMAU LLYFN"
 msgid "REWIND"
 msgstr "AILDDIRWYN"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "GRADDFA CYFANRIF (PIXEL PERFFAITH)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "AWTO ARBED / LLWYTH"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SET CYSGODYDD"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "GRADDFA CYFANRIF (PIXEL PERFFAITH)"
 
 msgid "DECORATION"
 msgstr "ADDURN"

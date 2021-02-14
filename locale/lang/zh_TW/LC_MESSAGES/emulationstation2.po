@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1527,14 +1527,17 @@ msgstr "平滑遊戲畫面"
 msgid "REWIND"
 msgstr "倒帶功能"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "整體縮放（像素完美顯示）"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "自動儲存/讀取"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "濾鏡著色器設定"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "整體縮放（像素完美顯示）"
 
 msgid "DECORATION"
 msgstr "裝飾框"

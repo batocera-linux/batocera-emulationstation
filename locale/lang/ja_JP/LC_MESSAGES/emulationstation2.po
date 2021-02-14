@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-12 08:29+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: 2021-01-25 20:51+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1531,14 +1531,17 @@ msgstr "スムージング"
 msgid "REWIND"
 msgstr "巻き戻し"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "整数スケール (ピクセルを正方形表示)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "自動セーブ/ロード"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "シェーダー設定"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "DECORATION"
 msgstr "アートワーク(ゲーム画面外背景表示)"

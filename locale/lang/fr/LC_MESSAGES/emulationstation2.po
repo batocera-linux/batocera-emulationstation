@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-14 22:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1530,14 +1530,17 @@ msgstr "LISSER LES JEUX"
 msgid "REWIND"
 msgstr "REMBOBINAGE"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "SAUV./CHARG. AUTO"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 
 msgid "DECORATION"
 msgstr "DÉCORATIONS"
