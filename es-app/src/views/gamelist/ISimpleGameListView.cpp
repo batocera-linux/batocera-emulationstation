@@ -177,8 +177,23 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			{
 				if (cursor->getType() == GAME)
 				{
-					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
-					launch(cursor);
+					if (SaveStateRepository::isEnabled(cursor) && cursor->getCurrentGameSetting("autosave") == "2")
+					{
+						mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+						{
+							Sound::getFromTheme(getTheme(), getName(), "launch")->play();
+
+							LaunchGameOptions options;
+							options.saveStateInfo = state;
+							ViewController::get()->launch(cursor, options);
+						}
+						));
+					}
+					else
+					{
+						Sound::getFromTheme(getTheme(), getName(), "launch")->play();
+						launch(cursor);
+					}
 				}
 				else if (cursor->getType() == FOLDER)
 					moveToFolder((FolderData*)cursor);

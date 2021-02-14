@@ -954,16 +954,16 @@ msgid "%d%% complete"
 msgstr "%d%% terminé"
 
 msgid "AUTO SAVE"
-msgstr "SAUV. AUTO"
+msgstr "SAUVEGARDE AUTO"
 
 msgid "SLOT"
 msgstr "EMPLACEMENT"
 
 msgid "START NEW GAME"
-msgstr "DÉMARRER NOUVEAU JEU"
+msgstr "NOUVELLE PARTIE"
 
 msgid "START AUTO SAVE"
-msgstr "DÉMARRER SAUV. AUTO"
+msgstr "LANCER SAUV. AUTO"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPIER VERS EMPLACEMENT LIBRE"

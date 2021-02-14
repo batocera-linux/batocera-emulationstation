@@ -1753,22 +1753,52 @@ void GuiMenu::openGamesSettings_batocera()
 	}
 
 	// smoothing
+	/*
 	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES"));
 	smoothing_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.smooth"));
 	s->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
 	s->addSaveFunc([smoothing_enabled] { SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected()); });
+	*/
+	auto smoothing_enabled = std::make_shared<SwitchComponent>(mWindow);
+	smoothing_enabled->setState(SystemConf::getInstance()->get("global.smooth") == "1");
+	s->addWithLabel(_("SMOOTH GAMES"), smoothing_enabled);
+	s->addSaveFunc([smoothing_enabled] { SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getState() ? "1": "auto"); });
 
 	// rewind
+	/*
 	auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
 	rewind_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rewind"));
 	s->addWithLabel(_("REWIND"), rewind_enabled);
 	s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
+	*/
+	auto rewind_enabled = std::make_shared<SwitchComponent>(mWindow);
+	rewind_enabled->setState(SystemConf::getInstance()->get("global.rewind") == "1");
+	s->addWithLabel(_("REWIND"), rewind_enabled);
+	s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getState() ? "1" : "auto"); });
+	
+
+	// Integer scale
+	/*
+	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
+	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
+	*/
+
+	auto integerscale_enabled = std::make_shared<SwitchComponent>(mWindow);
+	integerscale_enabled->setState(SystemConf::getInstance()->get("global.integerscale") == "1");
+	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getState() ? "1" : "auto"); });
 
 	// autosave/load
 	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-	autosave_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.autosave"));
+//	autosave_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.autosave"));
+	autosave_enabled->addRange({ { _("OFF"), "auto" },{ _("ON") , "1" },{ _("SHOW SAVE SNAPSHOTS") , "2" } }, SystemConf::getInstance()->get("global.autosave"));
 	s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
-	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); });
+	s->addSaveFunc([autosave_enabled] 
+	{ 
+		SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); 
+	});
 	
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS))
@@ -1792,12 +1822,6 @@ void GuiMenu::openGamesSettings_batocera()
 			s->addSaveFunc([shaders_choices] { SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected()); });
 		}
 	}
-
-	// Integer scale
-	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
-	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
-	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
-	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
@@ -3490,7 +3514,7 @@ void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData)
 		fileData);
 }
 
-void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine) 
+void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine)
 {
 	// The system configuration
 	GuiSettings* systemConfiguration = new GuiSettings(mWindow, title.c_str());
@@ -3588,9 +3612,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::rewind))
 	{
 		auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+		/*
 		rewind_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".rewind") != "0" && SystemConf::getInstance()->get(configName + ".rewind") != "1");
 		rewind_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".rewind") == "1");
 		rewind_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".rewind") == "0");
+		*/
+		rewind_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" }, { _("SHOW SAVE SNAPSHOTS") , "2" } }, SystemConf::getInstance()->get(configName + ".rewind"));
+
 		systemConfiguration->addWithLabel(_("REWIND"), rewind_enabled);
 		systemConfiguration->addSaveFunc([configName, rewind_enabled] { SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected()); });
 	}
@@ -3599,9 +3627,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
 	{
 		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
-		autosave_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".autosave") != "0" && SystemConf::getInstance()->get(configName + ".autosave") != "1");
-		autosave_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".autosave") == "1");
-		autosave_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".autosave") == "0");
+		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" }, { _("SHOW SAVE SNAPSHOTS") , "2" } }, SystemConf::getInstance()->get(configName + ".autosave"));
+		/*
+		autosave_enabled->add(_("AUTO"), "auto", autosave != "0" && autosave != "1" && autosave != "2");
+		autosave_enabled->add(_("ON"), "1", autosave == "1");
+		autosave_enabled->add(_("OFF"), "0", autosave == "0");
+		autosave_enabled->add(_("SHOW SAVE SNAPSHOTS"), "2", autosave == "2");
+		*/
 		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}

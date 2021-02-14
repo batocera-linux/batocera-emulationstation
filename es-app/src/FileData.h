@@ -140,6 +140,8 @@ public:
 	bool isFeatureSupported(EmulatorFeatures::Features feature);
 	bool isExtensionCompatible();
 
+	std::string getCurrentGameSetting(const std::string& settingName);
+
 private:
 	std::string getKeyboardMappingFilePath();
 	MetaDataList mMetadata;
