@@ -930,37 +930,28 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 		
 	if (Utils::String::toLower(Utils::FileSystem::getExtension(fileName)) == ".zip")
 	{
-		// 10 Mb max : If file is too big, prefer external decompression
-		if (getSevenZipCommand().empty())
-		{			
-			LOG(LogDebug) << "unzipFile is using ZipFile";
+		LOG(LogDebug) << "unzipFile is using ZipFile";
 
-			try
+		Utils::Zip::ZipFile file;
+		if (file.load(fileName))
+		{
+			for (auto name : file.namelist())
 			{
-				Utils::Zip::ZipFile file;
-				if (file.load(fileName))
+				if (Utils::String::endsWith(name, "/"))
 				{
-					for (auto name : file.namelist())
-					{
-						if (Utils::String::endsWith(name, "/"))
-						{
-							Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
-							continue;
-						}
-
-						file.extract(name, destFolder);
-					}
-
-					LOG(LogDebug) << "unzipFile << OK";
-					return true;
+					Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
+					continue;
 				}
+
+				file.extract(name, destFolder);
 			}
-			catch (...)
-			{
-				LOG(LogDebug) << "unzipFile << KO";
-				return false;
-			}
+
+			LOG(LogDebug) << "unzipFile << OK";
+			return true;
 		}
+
+		LOG(LogDebug) << "unzipFile << KO Bad format ?" << fileName;
+		return false;
 	}
 	
 	LOG(LogDebug) << "unzipFile is using 7z";
