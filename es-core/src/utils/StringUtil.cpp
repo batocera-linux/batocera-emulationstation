@@ -442,7 +442,7 @@ namespace Utils
 		bool endsWith(const std::string& _string, const std::string& _end)
 		{
 			if (_end.size() > _string.size()) return false;
-			return std::equal(_end.rbegin(), _end.rend(), _string.rbegin());
+			return (_string.rfind(_end) == (_string.size() - _end.size()));
 		} // endsWith
 
 		std::string removeParenthesis(const std::string& _string)

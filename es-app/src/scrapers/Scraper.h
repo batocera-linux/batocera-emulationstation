@@ -125,6 +125,7 @@ public:
 	void update() override;
 
 	virtual int getPercent();
+	std::string getImageFileName() { return mSavePath; }
 
 private:
 	HttpReq* mRequest;
@@ -166,7 +167,7 @@ private:
 	class ResolvePair
 	{	
 	public:
-		ResolvePair(std::function<std::unique_ptr<AsyncHandle>()> _invoker, std::function<void()> _function, std::string _name, std::string _source)
+		ResolvePair(std::function<std::unique_ptr<ImageDownloadHandle>()> _invoker, std::function<void(ImageDownloadHandle* result)> _function, std::string _name, std::string _source)
 		{
 			func = _invoker;
 			onFinished = _function;
@@ -179,14 +180,14 @@ private:
 			handle = func();
 		}
 	
-		std::function<void()> onFinished;
+		std::function<void(ImageDownloadHandle* result)> onFinished;
 		std::string name;
 		std::string source;
 
-		std::unique_ptr<AsyncHandle> handle;
+		std::unique_ptr<ImageDownloadHandle> handle;
 
 	private:
-		std::function<std::unique_ptr<AsyncHandle>()> func;
+		std::function<std::unique_ptr<ImageDownloadHandle>()> func;
 	};
 
 	std::vector<ResolvePair*> mFuncs;

@@ -193,22 +193,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 void clearTemporaryGamelistRecovery(SystemData* system)
 {	
 	auto path = getGamelistRecoveryPath(system);
-
-	auto files = Utils::FileSystem::getDirContent(path, true);
-	if (files.size() > 0)
-	{
-		for (auto file : files)
-			if (!Utils::FileSystem::isDirectory(file))
-				Utils::FileSystem::removeFile(file);
-
-		std::reverse(std::begin(files), std::end(files));
-
-		for (auto file : files)
-			if (Utils::FileSystem::isDirectory(file))
-				rmdir(file.c_str());
-	}
-
-	rmdir(path.c_str());
+	Utils::FileSystem::deleteDirectoryFiles(path, true);
 }
 
 void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)

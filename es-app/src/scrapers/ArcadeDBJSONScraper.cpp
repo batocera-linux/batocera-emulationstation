@@ -153,27 +153,27 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 	// Process medias
 	auto art = findMedia(game, Settings::getInstance()->getString("ScrapperImageSrc"));
 	if (!art.empty())
-		result.urls[MetaDataId::Image] = ScraperSearchItem(art);
+		result.urls[MetaDataId::Image] = ScraperSearchItem(art, ".png");
 
 	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && Settings::getInstance()->getString("ScrapperThumbSrc") != Settings::getInstance()->getString("ScrapperImageSrc"))
 	{
 		auto art = findMedia(game, Settings::getInstance()->getString("ScrapperThumbSrc"));
 		if (!art.empty())
-			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(art);
+			result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(art, ".png");
 	}
 
 	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty())
 	{
 		auto art = findMedia(game, Settings::getInstance()->getString("ScrapperLogoSrc"));
 		if (!art.empty())
-			result.urls[MetaDataId::Marquee] = ScraperSearchItem(art);
+			result.urls[MetaDataId::Marquee] = ScraperSearchItem(art, ".png");
 	}
 
 	if (Settings::getInstance()->getBool("ScrapeTitleShot"))
 	{
 		auto art = findMedia(game, "sstitle");
 		if (!art.empty())
-			result.urls[MetaDataId::TitleShot] = ScraperSearchItem(art);
+			result.urls[MetaDataId::TitleShot] = ScraperSearchItem(art, ".png");
 	}
 
 	if (Settings::getInstance()->getBool("ScrapeVideos"))

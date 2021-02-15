@@ -24,6 +24,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
 	mSaveState(nullptr), mNoSaveState(nullptr),
+	mState(false),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -223,7 +224,7 @@ void DetailedContainer::createImageComponent(ImageComponent** pImage)
 	auto mSize = mParent->getSize();
 
 	// Image	
-	auto image = new ImageComponent(mWindow);
+	auto image = new ImageComponent(mWindow, mViewType == DetailedContainerType::VideoView);
 	image->setAllowFading(false);
 	image->setOrigin(0.5f, 0.5f);
 	image->setPosition(mSize.x() * 0.25f, mList->getPosition().y() + mSize.y() * 0.2125f);
@@ -437,39 +438,8 @@ Vector3f DetailedContainer::getLaunchTarget()
 
 void DetailedContainer::updateControls(FileData* file, bool isClearing)
 {
-	bool fadingOut;
-	if (file == NULL)
-	{
-		if (mVideo != nullptr)
-		{
-			mVideo->setVideo("");
-			mVideo->setImage("");
-		}
-
-		if (mImage != nullptr && mViewType == DetailedContainerType::GridView)
-			mImage->setImage("");
-
-		for (auto& md : mdImages)
-			if (md.component != nullptr)
-				md.component->setImage("");
-
-		if (mManual != nullptr) mManual->setVisible(false);
-		if (mNoManual != nullptr) mNoManual->setVisible(false);		
-		if (mMap != nullptr) mMap->setVisible(false);
-		if (mNoMap != nullptr) mNoMap->setVisible(false);
-		if (mSaveState != nullptr) mSaveState->setVisible(false);
-		if (mNoSaveState != nullptr) mNoSaveState->setVisible(false);		
-		if (mKidGame != nullptr) mKidGame->setVisible(false);
-		if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);		
-		if (mCheevos != nullptr) mCheevos->setVisible(false);
-		if (mNotCheevos != nullptr) mNotCheevos->setVisible(false);		
-		if (mFavorite != nullptr) mFavorite->setVisible(false);
-		if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);
-		if (mHidden != nullptr) mHidden->setVisible(false);
-
-		fadingOut = true;
-	}
-	else
+	bool state = (file != NULL);
+	if (state)
 	{
 		std::string imagePath = file->getImagePath().empty() ? file->getThumbnailPath() : file->getImagePath();
 
@@ -650,13 +620,16 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			mPlayCount.setValue(file->getMetadata(MetaDataId::PlayCount));
 			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata(MetaDataId::GameTime).c_str())));
 		}
-
-		fadingOut = false;
 	}
 
 	// We're clearing / populating : don't setup fade animations
-	if (file == nullptr && isClearing) //mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0)
+	if (file == nullptr && isClearing)
 		return;
+
+	if (state == mState)
+		return;
+
+	mState = state;
 
 	std::vector<GuiComponent*> comps;
 
@@ -694,50 +667,43 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (lbl.label != nullptr)
 			comps.push_back(lbl.label);
 
-	for (auto it = comps.cbegin(); it != comps.cend(); it++)
-	{
-		GuiComponent* comp = *it;
-		// an animation is playing
-		//   then animate if reverse != fadingOut
-		// an animation is not playing
-		//   then animate if opacity != our target opacity
-		if ((comp->isAnimationPlaying(0) && comp->isAnimationReversed(0) != fadingOut) ||
-			(!comp->isAnimationPlaying(0) && comp->getOpacity() != (fadingOut ? 0 : 255)))
-		{
-			auto func = [comp](float t)
-			{
-				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t) * 255));
-			};
+	bool fadeOut = !state;
 
-			bool isFadeOut = fadingOut;
-			comp->setAnimation(new LambdaAnimation(func, 150), 0, [this, isFadeOut, file]
+	for (auto comp : comps)
+	{
+		auto func = [comp](float t) 
+		{ 
+			comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t) * 255)); 
+		};
+	
+		comp->cancelAnimation(0);
+		comp->setAnimation(new LambdaAnimation(func, 250), 0, [this, comp, fadeOut, file]
+		{			
+			if (fadeOut)
 			{
-				if (isFadeOut)
-				{
-					if (mVideo != nullptr) mVideo->setImage("");
-					if (mImage != nullptr) mImage->setImage("");
-					if (mThumbnail != nullptr) mThumbnail->setImage("");
-					if (mFlag != nullptr) mFlag->setImage("");
-					if (mManual != nullptr) mManual->setVisible(false);
-					if (mNoManual != nullptr) mNoManual->setVisible(false);
-					if (mMap != nullptr) mMap->setVisible(false);
-					if (mNoMap != nullptr) mNoMap->setVisible(false);
-					if (mSaveState != nullptr) mSaveState->setVisible(false);
-					if (mNoSaveState != nullptr) mNoSaveState->setVisible(false);
-					if (mKidGame != nullptr) mKidGame->setVisible(false);
-					if (mNotKidGame != nullptr) mNotKidGame->setVisible(false);
-					if (mCheevos != nullptr) mCheevos->setVisible(false);
-					if (mNotCheevos != nullptr) mNotCheevos->setVisible(false);					
-					if (mFavorite != nullptr) mFavorite->setVisible(false);
-					if (mNotFavorite != nullptr) mNotFavorite->setVisible(false);					
-					if (mHidden != nullptr) mHidden->setVisible(false);
+				if (mVideo == comp) mVideo->setImage("");
+				if (mImage == comp) mImage->setImage("");
+				if (mThumbnail == comp) mThumbnail->setImage("");
+				if (mFlag == comp) mFlag->setImage("");
+				if (mManual == comp) mManual->setVisible(false);
+				if (mNoManual == comp) mNoManual->setVisible(false);
+				if (mMap == comp) mMap->setVisible(false);
+				if (mNoMap == comp) mNoMap->setVisible(false);
+				if (mSaveState == comp) mSaveState->setVisible(false);
+				if (mNoSaveState == comp) mNoSaveState->setVisible(false);
+				if (mKidGame == comp) mKidGame->setVisible(false);
+				if (mNotKidGame == comp) mNotKidGame->setVisible(false);
+				if (mCheevos == comp) mCheevos->setVisible(false);
+				if (mNotCheevos == comp) mNotCheevos->setVisible(false);
+				if (mFavorite == comp) mFavorite->setVisible(false);
+				if (mNotFavorite == comp) mNotFavorite->setVisible(false);
+				if (mHidden == comp) mHidden->setVisible(false);
 					
-					for (auto& md : mdImages)
-						if (md.component != nullptr)
-							md.component->setImage("");
-				}
-			}, fadingOut);
-		}
+				for (auto& md : mdImages)
+					if (md.component == comp)
+						md.component->setImage("");
+			}
+		}, fadeOut);
 	}
 
 	Utils::FileSystem::removeFile(getTitlePath());

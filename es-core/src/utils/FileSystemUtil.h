@@ -68,8 +68,8 @@ namespace Utils
 		std::string	readAllText(const std::string fileName);
 		void		writeAllText(const std::string fileName, const std::string text);
 		bool		copyFile(const std::string src, const std::string dst);
-		void		deleteDirectoryFiles(const std::string path);
-		bool		renameFile(const std::string src, const std::string dst);
+		void		deleteDirectoryFiles(const std::string path, bool deleteDirectory = false);
+		bool		renameFile(const std::string src, const std::string dst, bool overWrite = true);
 
 		std::string megaBytesToString(unsigned long size);
 
@@ -83,6 +83,8 @@ namespace Utils
 
 		std::string getFileCrc32(const std::string& filename);
 		std::string getFileMd5(const std::string& filename);
+
+		std::string changeExtension(const std::string& _path, const std::string& extension);
 
 		class FileSystemCacheActivator
 		{
