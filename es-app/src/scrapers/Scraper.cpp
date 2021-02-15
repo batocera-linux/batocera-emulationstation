@@ -248,13 +248,18 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		else
 		{
 			mFuncs.push_back(new ResolvePair(
-				[this, url, resourcePath, resize] { return downloadImageAsync(url.second.url, resourcePath, resize); },
-				[this, url, resourcePath]
-			{
-				mResult.mdl.set(url.first, resourcePath);
-				if (mResult.urls.find(url.first) != mResult.urls.cend())
-					mResult.urls[url.first].url = "";
-			},
+				[this, url, resourcePath, resize] 
+				{ 
+					return downloadImageAsync(url.second.url, resourcePath, resize); 
+				},
+				[this, url](ImageDownloadHandle* result)
+				{
+					auto finalFile = result->getImageFileName();
+					mResult.mdl.set(url.first, finalFile);
+
+					if (mResult.urls.find(url.first) != mResult.urls.cend())
+						mResult.urls[url.first].url = "";
+				},
 				suffix, result.mdl.getName())); // "thumbnail"
 		}
 	}
@@ -296,8 +301,8 @@ void MDResolveHandle::update()
 		return;
 	}
 	else if (pPair->handle->status() == ASYNC_DONE)
-	{
-		pPair->onFinished();
+	{		
+		pPair->onFinished(pPair->handle.get());
 		mFuncs.erase(it);
 		delete pPair;
 
@@ -413,8 +418,41 @@ void ImageDownloadHandle::update()
 
 	if (status == HttpReq::REQ_SUCCESS && mStatus == ASYNC_IN_PROGRESS)
 	{
-		// It's an image ?
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
+
+		// Make sure extension is the good one, according to the response 'content-type'
+		std::string contentType = mRequest->getResponseContentType();
+		if (!contentType.empty())
+		{
+			std::string trueExtension;
+			if (Utils::String::startsWith(contentType, "image/"))
+			{
+				trueExtension = "." + contentType.substr(6);
+				if (trueExtension == ".jpeg")
+					trueExtension = ".jpg";
+				else if (trueExtension == ".svg+xml")
+					trueExtension = ".svg";
+
+			}
+			else if (Utils::String::startsWith(contentType, "video/"))
+			{
+				trueExtension = "." + contentType.substr(6);
+				if (trueExtension == ".quicktime")
+					trueExtension = ".mov";
+			}
+
+			if (!trueExtension.empty() && trueExtension != ext)
+			{
+				auto newFileName = Utils::FileSystem::changeExtension(mSavePath, trueExtension);
+				if (Utils::FileSystem::renameFile(mSavePath, newFileName))
+				{
+					mSavePath = newFileName;
+					ext = trueExtension;
+				}
+			}
+		}
+
+		// It's an image ?
 		if (mSavePath.find("-fanart") == std::string::npos && mSavePath.find("-map") == std::string::npos && (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif"))
 		{
 			try { resizeImage(mSavePath, mMaxWidth, mMaxHeight); }

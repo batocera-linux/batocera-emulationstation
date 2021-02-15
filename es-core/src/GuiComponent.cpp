@@ -350,11 +350,11 @@ void GuiComponent::setAnimation(Animation* anim, int delay, std::function<void()
 	auto it = mAnimationMap.find(slot);
 	if (it != mAnimationMap.cend() && it->second != nullptr)
 		oldAnim = it->second;
+	
+	if (oldAnim)
+		delete oldAnim;
 
 	mAnimationMap[slot] = new AnimationController(anim, delay, finishedCallback, reverse);
-
-	if(oldAnim)
-		delete oldAnim;
 }
 
 bool GuiComponent::stopAnimation(unsigned char slot)

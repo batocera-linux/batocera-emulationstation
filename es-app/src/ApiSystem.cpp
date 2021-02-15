@@ -676,68 +676,8 @@ std::string ApiSystem::getUpdateUrl()
 
 void ApiSystem::getBatoceraThemesImages(std::vector<BatoceraTheme>& items)
 {
-
-	std::vector<std::pair<std::vector<BatoceraTheme>::iterator, HttpReq*>> requests;
-
 	for (auto it = items.begin(); it != items.end(); ++it)
-	{
-		std::string distantFile = getUpdateUrl() + "/themes/" + it->name + ".jpg";
-		it->image = distantFile;
-		continue;
-
-
-		std::string localPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
-		if (!Utils::FileSystem::exists(localPath))
-			Utils::FileSystem::createDirectory(localPath);
-
-		std::string localFile = localPath + "/" + it->name + ".jpg";
-
-		if (Utils::FileSystem::exists(localFile))
-		{
-			auto date = Utils::FileSystem::getFileCreationDate(localFile);
-			auto duration = Utils::Time::DateTime::now().elapsedSecondsSince(date);
-			if (duration > 86400) // 1 day
-				Utils::FileSystem::removeFile(localFile);
-		}
-
-		if (Utils::FileSystem::exists(localFile))
-			it->image = localFile;
-		else
-		{
-			HttpReq* httpreq = new HttpReq(distantFile, localFile);
-
-			auto pair = std::pair<std::vector<BatoceraTheme>::iterator, HttpReq*>(it, httpreq);
-			requests.push_back(pair);
-		}
-	}
-	
-	bool running = true;
-
-	while (running && requests.size() > 0)
-	{
-		running = false;
-
-		for (auto it = requests.begin(); it != requests.end(); ++it)
-		{
-			if (it->second->status() == HttpReq::REQ_IN_PROGRESS)
-			{
-				running = true;
-				continue;
-			}
-
-			if (it->second->status() == HttpReq::REQ_SUCCESS)
-			{
-				auto filePath = it->second->getFilePath();
-				if (Utils::FileSystem::exists(filePath))
-					it->first->image = filePath;
-			}
-
-			delete it->second;
-			requests.erase(it);
-			running = true;
-			break;
-		}
-	}
+		it->image = getUpdateUrl() + "/themes/" + it->name + ".jpg";
 }
 
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
@@ -857,10 +797,7 @@ std::string ApiSystem::getMD5(const std::string fileName, bool fromZipContents)
 	ret = Utils::FileSystem::getFileMd5(contentFile);
 
 	if (!tmpZipDirectory.empty())
-	{
-		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
-		Utils::FileSystem::removeFile(tmpZipDirectory);
-	}
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory, true);
 
 	LOG(LogDebug) << "getMD5 << " << ret;
 
@@ -939,7 +876,7 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 			{
 				if (Utils::String::endsWith(name, "/"))
 				{
-					Utils::FileSystem::createDirectory(destFolder + "/" + name.substr(0, name.length() - 1));
+					Utils::FileSystem::createDirectory(Utils::FileSystem::combine(destFolder, name.substr(0, name.length() - 1)));
 					continue;
 				}
 
@@ -956,7 +893,7 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	
 	LOG(LogDebug) << "unzipFile is using 7z";
 
-	std::string cmd = getSevenZipCommand() + " x \"" + fileName + "\" -y -o\"" + destFolder + "\"";
+	std::string cmd = getSevenZipCommand() + " x \"" + Utils::FileSystem::getPreferredPath(fileName) + "\" -y -o\"" + Utils::FileSystem::getPreferredPath(destFolder) + "\"";
 	bool ret = executeScript(cmd);
 	LOG(LogDebug) << "unzipFile <<";
 	return ret;
@@ -1263,7 +1200,6 @@ int ApiSystem::getPdfPageCount(const std::string fileName)
 std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount, bool bestQuality)
 {
 	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
-	Utils::FileSystem::createDirectory(pdfFolder);
 
 	std::vector<std::string> ret;
 

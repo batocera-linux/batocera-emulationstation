@@ -390,7 +390,6 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thn
 		
 		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
 		std::string zipFile = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + ".zip";
-		zipFile = Utils::String::replace(zipFile, "/", "\\");
 
 		Utils::FileSystem::removeFile(zipFile);
 
@@ -399,14 +398,18 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thn
 			if (func != nullptr)
 				func(_("Extracting") + " " + thname);
 
-			unzipFile(zipFile, Utils::String::replace(Utils::FileSystem::getEsConfigPath() + "/themes", "/", "\\"));
+			unzipFile(zipFile, Utils::FileSystem::getEsConfigPath() + "/themes");
+			Utils::FileSystem::removeFile(zipFile);
 
 			std::string folderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName + "-master";
-			std::string finalfolderName = Utils::String::replace(folderName, "-master", "");
+			if (Utils::FileSystem::exists(folderName))
+			{
+				std::string finalfolderName = Utils::FileSystem::getEsConfigPath() + "/themes/" + themeFileName;
+				if (Utils::FileSystem::exists(finalfolderName))
+					Utils::FileSystem::deleteDirectoryFiles(finalfolderName, true);
 
-			rename(folderName.c_str(), finalfolderName.c_str());
-
-			Utils::FileSystem::removeFile(zipFile);
+				Utils::FileSystem::renameFile(folderName, finalfolderName);
+			}
 
 			return std::pair<std::string, int>(std::string("OK"), 0);
 		}
@@ -430,9 +433,7 @@ std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraTheme(std::string t
 
 		if (Utils::FileSystem::exists(folderName))
 		{
-			Utils::FileSystem::deleteDirectoryFiles(folderName);
-			rmdir(folderName.c_str());
-
+			Utils::FileSystem::deleteDirectoryFiles(folderName, true);
 			return std::pair<std::string, int>("OK", 0);
 		}
 
@@ -557,7 +558,7 @@ std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 
 	std::vector<BatoceraBezel> res;
 
-	HttpReq request(getUpdateUrl()+"/bezels.txt");
+	HttpReq request(getUpdateUrl() + "/bezels.txt");
 	if (request.wait())
 	{
 		auto lines = Utils::String::split(request.getContent(), '\n');
@@ -595,8 +596,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 			std::string subFolder = bezel.folderPath;
 
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-			std::string zipFile = getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip";
-			zipFile = Utils::String::replace(zipFile, "/", "\\");
+			std::string zipFile = Utils::FileSystem::getCanonicalPath(getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip");
 
 			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
 			{
@@ -609,7 +609,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 				if (func != nullptr)
 					func(_("Extracting") + " " + bezelsystem+ " bezels");
 
-				unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(tmp));
+				unzipFile(zipFile, tmp);
 				Utils::FileSystem::removeFile(zipFile);
 
 				auto files = Utils::FileSystem::getDirContent(tmp, true, true);
@@ -624,13 +624,11 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 					else if (subFolder.empty() && file.find("/overlay/GameBezels/") == std::string::npos)
 						continue;
 					
-					std::string dest;
-					dest = Utils::FileSystem::getPreferredPath(theBezelProject + "/" + Utils::FileSystem::getFileName(file));
-					rename(Utils::FileSystem::getPreferredPath(file).c_str(), dest.c_str());					
+					std::string dest = theBezelProject + "/" + Utils::FileSystem::getFileName(file);
+					Utils::FileSystem::renameFile(file, dest);
 				}
 
-				Utils::FileSystem::deleteDirectoryFiles(tmp);
-				rmdir(Utils::FileSystem::getPreferredPath(tmp).c_str());
+				Utils::FileSystem::deleteDirectoryFiles(tmp, true);
 
 				return std::pair<std::string, int>(std::string("OK"), 0);
 			}
@@ -645,8 +643,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem;
-	Utils::FileSystem::deleteDirectoryFiles(theBezelProject);
-	rmdir(theBezelProject.c_str());
+	Utils::FileSystem::deleteDirectoryFiles(theBezelProject, true);
 
 	return std::pair<std::string, int>("OK", 0);
 }
@@ -732,8 +729,8 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 
 	if (Utils::FileSystem::exists(path))
 		Utils::FileSystem::deleteDirectoryFiles(path);
-
-	Utils::FileSystem::createDirectory(path);
+	else
+		Utils::FileSystem::createDirectory(path);
 
 	std::string zipFile = path + "/" + fileName;
 
@@ -742,7 +739,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 		if (func != nullptr)
 			func(std::string("Extracting update"));
 
-		unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(path));
+		unzipFile(zipFile, path);
 		Utils::FileSystem::removeFile(zipFile);
 
 		auto files = Utils::FileSystem::getDirContent(path, true, true);
@@ -780,7 +777,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 			if (!existsInArchive)
 			{
 				Utils::FileSystem::removeFile(pluginFile);			
-				rename(pluginFile.c_str(), (pluginFile + ".old").c_str());
+				Utils::FileSystem::renameFile(pluginFile, pluginFile + ".old");
 			}
 		}
 		
@@ -807,7 +804,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 				if (Utils::FileSystem::exists(localPath))
 				{
 					Utils::FileSystem::removeFile(localPath + ".old");
-					rename(localPath.c_str(), (localPath + ".old").c_str());
+					Utils::FileSystem::renameFile(localPath, localPath + ".old");
 				}
 
 				if (Utils::FileSystem::copyFile(file, localPath))
@@ -852,8 +849,8 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 
 	if (Utils::FileSystem::exists(path))
 		Utils::FileSystem::deleteDirectoryFiles(path);
-
-	Utils::FileSystem::createDirectory(path);
+	else
+		Utils::FileSystem::createDirectory(path);
 
 	std::string zipFile = path + "/" + fileName;
 
@@ -862,7 +859,7 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 		if (func != nullptr)
 			func(std::string("Extracting batocera-ports"));
 
-		unzipFile(Utils::FileSystem::getPreferredPath(zipFile), Utils::FileSystem::getPreferredPath(path));
+		unzipFile(zipFile, path);
 		Utils::FileSystem::removeFile(zipFile);
 
 		auto files = Utils::FileSystem::getDirContent(path, true, true);
@@ -884,7 +881,7 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 				if (Utils::FileSystem::exists(localPath))
 				{
 					Utils::FileSystem::removeFile(localPath + ".old");
-					rename(localPath.c_str(), (localPath + ".old").c_str());
+					Utils::FileSystem::renameFile(localPath, localPath + ".old");
 				}
 
 				if (Utils::FileSystem::copyFile(file, localPath))
@@ -991,7 +988,7 @@ std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
 
 	if (Utils::String::startsWith(variable, "system."))
 	{
-		auto name = variable.substr(7);
+		auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
 
 		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../system/" + name);
 		if (Utils::FileSystem::isDirectory(dir))
@@ -1124,7 +1121,7 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 
 std::string Win32ApiSystem::getSevenZipCommand()
-{
+{	
 	if (Utils::FileSystem::exists(Utils::FileSystem::getExePath() + "\\7za.exe"))
 		return "\"" + Utils::FileSystem::getExePath() + "\\7za.exe\"";
 

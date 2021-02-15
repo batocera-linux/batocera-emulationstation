@@ -535,10 +535,7 @@ std::string RetroAchievements::getCheevosHash( SystemData* system, const std::st
 		ret = ApiSystem::getInstance()->getMD5(contentFile, false);
 
 	if (!tmpZipDirectory.empty())
-	{
-		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory);
-		Utils::FileSystem::removeFile(tmpZipDirectory);
-	}
+		Utils::FileSystem::deleteDirectoryFiles(tmpZipDirectory, true);
 
 	return ret;
 }

@@ -2076,7 +2076,7 @@ msgid "GAME TIME, DESCENDING"
 msgstr "TEMPS DE JEU, DÉCROISSANT"
 
 msgid "Extracting"
-msgstr "Extration"
+msgstr "Extraction"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "RECHERCHE DES SUCCÈS RÉTRO"

@@ -68,6 +68,7 @@ public:
 
 	std::string getUrl() { return mUrl; }
 	std::string getFilePath() { return mFilePath; }
+	std::string getResponseContentType() { return mResponseContentType; }
 
 	bool wait();
 
@@ -96,6 +97,8 @@ private:
 	std::string   mFilePath;
 	std::string   mTempStreamPath;	
 	FILE*		  mFile;
+
+	std::string   mResponseContentType;
 
 	std::string mErrorMsg;
 	std::string mUrl;
