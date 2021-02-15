@@ -56,67 +56,67 @@ msgid "Logo"
 msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr "Inserisci percorso logo"
+msgstr "inserisci percorso logo"
 
 msgid "Box"
 msgstr "Scatola"
 
 msgid "enter path to box"
-msgstr "Inserisci percorso scatola"
+msgstr "inserisci percorso scatola"
 
 msgid "Fan art"
 msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr "Inserisci percorso fan art"
+msgstr "inserisci percorso fan art"
 
 msgid "Title shot"
-msgstr "Schermata titolo"
+msgstr "Schermata del titolo"
 
 msgid "enter path to title shot"
-msgstr "Inserisci percorso della schermata titolo"
+msgstr "inserisci percorso schermata del titolo"
 
 msgid "Manual"
 msgstr "Manuale"
 
 msgid "enter path to manual"
-msgstr "Inserisci percorso del manuale"
+msgstr "inserisci percorso del manuale"
 
 msgid "Map"
 msgstr "Mappa"
 
 msgid "enter path to map"
-msgstr "Inserisci percorso della mappa"
+msgstr "inserisci percorso della mappa"
 
 msgid "Cartridge"
 msgstr "Cartuccia"
 
 msgid "enter path to cartridge"
-msgstr "Inserisci percorso della cartuccia"
+msgstr "inserisci percorso della cartuccia"
 
 msgid "Alt BoxArt"
-msgstr "Box art alternativa"
+msgstr "Scatola alternativa"
 
 msgid "enter path to alt boxart"
-msgstr "Inserisci percorso della box art alternativa"
+msgstr "Inserisci percorso scatola alternativa"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Retro della scatola"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "inserisci percorso retro della scatola"
 
 msgid "Wheel"
 msgstr "Targhetta"
 
 msgid "enter path to wheel"
-msgstr "Inserisci percorso della targhetta (modalità Wheel)"
+msgstr "inserisci percorso della targhetta (modalità Wheel)"
 
 msgid "Mix"
 msgstr "Misto"
 
 msgid "enter path to mix"
-msgstr "Inserisci percorso delle grafiche miste"
+msgstr "inserisci percorso delle grafiche miste"
 
 msgid "Rating"
 msgstr "Voto"
@@ -1134,16 +1134,16 @@ msgid "MIX V2"
 msgstr "MIX V2"
 
 msgid "BOX 2D"
-msgstr "BOX 2D"
+msgstr "SCATOLA 2D"
 
 msgid "BOX 3D"
-msgstr "BOX 3D"
+msgstr "SCATOLA 3D"
 
 msgid "FAN ART"
 msgstr "FAN ART"
 
 msgid "BOX SOURCE"
-msgstr "SORGENTE BOX"
+msgstr "SORGENTE SCATOLA"
 
 msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
@@ -1164,7 +1164,7 @@ msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "SCARICA RETRO DELLA SCATOLA"
 
 msgid "SCRAPE MAP"
 msgstr "SCARICA MAPPA"
@@ -1537,7 +1537,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SALVATAGGIO/CARICAMENTO AUTOMATICO"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr ""
+msgstr "MOSTRA SALVATAGGI ISTANTANEI"
 
 msgid "SHADERS SET"
 msgstr "SET DI SHADERS"
