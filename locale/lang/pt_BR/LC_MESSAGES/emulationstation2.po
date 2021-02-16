@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 22:25+0100\n"
+"POT-Creation-Date: 2021-02-16 11:44-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -872,10 +872,10 @@ msgid "GAME"
 msgstr "JOGO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr "SALVAR RAPIDAMENTE"
+msgstr "SALVAR PARTIDAS"
 
 msgid "START NETPLAY HOST"
-msgstr "INICIAR NETPLAY HOST"
+msgstr "INICIAR NETPLAY COMO SERVIDOR"
 
 msgid "NETPLAY"
 msgstr "JOGOS EM REDE"
@@ -1482,10 +1482,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr "RETROACHIEVEMENTS DESATIVAR SOM"
+msgstr "SOM DE DESBLOQUEIO RETROACHIEVEMENTS"
 
 msgid "UNLOCK SOUND"
-msgstr "DESATIVAR SOM"
+msgstr "DESBLOQUEIO DE SOM"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "EXIBIR NO MENU PRINCIPAL"
@@ -1530,7 +1530,7 @@ msgid "SMOOTH GAMES"
 msgstr "SUAVIZAR IMAGEM"
 
 msgid "REWIND"
-msgstr "RETROCEDER"
+msgstr "REBOBINAR"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRO (PIXEL PERFEITO)"
@@ -1539,7 +1539,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "CARREGAR/SALVAR AUTOMÁTICO"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr ""
+msgstr "EXIBIR PARTIDAS SALVAS"
 
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
@@ -1932,7 +1932,7 @@ msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"AVISO : O SISTEMA ESTÁ COM BIOS EM FALTA E O JOGO NÃO FUNCIONARÁ "
+"AVISO : O SISTEMA ESTÁ SEM BIOS E O JOGO NÃO FUNCIONARÁ "
 "CORRETAMENTE.\n"
 "DESEJA INICIAR MESMO ASSIM ?"
 
@@ -2319,56 +2319,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "SCRAPING IN PROGRESS"
-#~ msgstr "BUSCANDO SCRAPES"
-
-#~ msgid "subtitle text"
-#~ msgstr "legenda"
-
-#~ msgid "search"
-#~ msgstr "procurar"
-
-#~ msgid "STOP"
-#~ msgstr "PARAR"
-
-#~ msgid "stop (progress saved)"
-#~ msgstr "parar (progresso salvo)"
-
-#~ msgid "GAME %i OF %i"
-#~ msgstr "JOGO %i DE %i"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-#~ msgstr ""
-#~ "NÃO FOI POSSÍVEL ENCONTRAR NENHUM SISTEMA! \n"
-#~ "VERIFIQUE SE OS CAMINHOS ESTÃO CORRETOS NO ARQUIVO DE CONFIGURAÇÃO DO "
-#~ "SISTEMA EO SEU DIRETÓRIO DE JOGOS TENHA PELO MENOS UM JOGO COM A EXTENSÃO "
-#~ "CORRETA."
-
-#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
-#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-#~ msgstr[0] "%i SCRAPE REALIZADO!"
-#~ msgstr[1] "%i SCRAPES REALIZADOS!"
-
-#~ msgid "%i GAME SKIPPED."
-#~ msgid_plural "%i GAMES SKIPPED."
-#~ msgstr[0] "%i SCRAPE IGNORADO."
-#~ msgstr[1] "%i SCRAPES IGNORADOS."
-
-#~ msgid "AUTOMATIC SCRAPER"
-#~ msgstr "SCRAPER AUTOMÁTICO"
-
-#~ msgid "REALLY SCRAPE?"
-#~ msgstr "REALIZAR SCRAPE?"
-
-#~ msgid "MANUAL SCRAPER"
-#~ msgstr "PROCURAR CAPAS MANUALMENTE"
-
-#~ msgid "Favorites"
-#~ msgstr "Favoritos"
-
-#~ msgid "AN ERROR HAS OCCURED"
-#~ msgstr "OCORREU UM ERRO"
