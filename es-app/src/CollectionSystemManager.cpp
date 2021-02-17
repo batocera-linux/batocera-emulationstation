@@ -126,13 +126,6 @@ CollectionSystemManager::~CollectionSystemManager()
 	sInstance = NULL;
 }
 
-bool systemSort(SystemData* sys1, SystemData* sys2)
-{
-	std::string name1 = Utils::String::toUpper(sys1->getName());
-	std::string name2 = Utils::String::toUpper(sys2->getName());
-	return name1.compare(name2) < 0;
-}
-
 bool systemByAlphaSort(SystemData* sys1, SystemData* sys2)
 {
 	std::string name1 = Utils::String::toUpper(sys1->getFullName());
@@ -282,36 +275,29 @@ void CollectionSystemManager::saveCustomCollection(SystemData* sys)
 
 /* Methods to load all Collections into memory, and handle enabling the active ones */
 // loads all Collection Systems
-void CollectionSystemManager::loadCollectionSystems(bool async)
+void CollectionSystemManager::loadCollectionSystems()
 {
 	initAutoCollectionSystems();
+	
 	CollectionSystemDecl decl = mCollectionSystemDeclsIndex[myCollectionsName];
 	mCustomCollectionsBundle = createNewCollectionEntry(decl.name, decl, false);
-	// we will also load custom systems here
+
 	initCustomCollectionSystems();
-	if(Settings::getInstance()->getString("CollectionSystemsAuto") != "" || Settings::getInstance()->getString("CollectionSystemsCustom") != "")
-	{
-		// Now see which ones are enabled
-		loadEnabledListFromSettings();
-		
-		// add to the main System Vector, and create Views as needed
-		if (!async)
-			updateSystemsList();
-	}
+	loadEnabledListFromSettings();
 }
 
 // loads settings
 void CollectionSystemManager::loadEnabledListFromSettings()
 {
 	// we parse the auto collection settings list
-	std::vector<std::string> autoSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsAuto"));
+	std::vector<std::string> autoSelected = Utils::String::split(Settings::getInstance()->getString("CollectionSystemsAuto"), ',', true);
 
 	// iterate the map
 	for(auto& item : mAutoCollectionSystemsData)
 		item.second.isEnabled = (std::find(autoSelected.cbegin(), autoSelected.cend(), item.first) != autoSelected.cend());
 
 	// we parse the custom collection settings list
-	std::vector<std::string> customSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsCustom"));
+	std::vector<std::string> customSelected = Utils::String::split(Settings::getInstance()->getString("CollectionSystemsCustom"), ',', true);
 
 	// iterate the map
 	for (auto& item : mCustomCollectionSystemsData)
@@ -1234,9 +1220,9 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 			FileData* newSysRootFolder = it->second.system->getRootFolder();
 			mCustomCollectionsBundle->getRootFolder()->addChild(newSysRootFolder);
 
-			// TODO : check 
-			if (it->second.system->getIndex(false) != nullptr)
-				mCustomCollectionsBundle->getIndex(true)->importIndex(it->second.system->getIndex(false));
+			auto idx = it->second.system->getIndex(false);
+			if (idx != nullptr)
+				mCustomCollectionsBundle->getIndex(true)->importIndex(idx);
 		}
 	}
 }
@@ -1546,7 +1532,7 @@ bool CollectionSystemManager::deleteCustomCollection(CollectionSystemData* data)
 	if (!Utils::FileSystem::exists(path))
 		return false;
 
-	std::vector<std::string> customSelected = Utils::String::commaStringToVector(Settings::getInstance()->getString("CollectionSystemsCustom"));
+	std::vector<std::string> customSelected = Utils::String::split(Settings::getInstance()->getString("CollectionSystemsCustom"), ',', true);
 
 	auto idx = std::find(customSelected.begin(), customSelected.end(), name);
 	if (idx != customSelected.cend())

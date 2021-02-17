@@ -64,7 +64,7 @@ public:
 	static void deinit();
 	void saveCustomCollection(SystemData* sys);
 
-	void loadCollectionSystems(bool async = false);
+	void loadCollectionSystems();
 	void loadEnabledListFromSettings();
 	void updateSystemsList();
 
