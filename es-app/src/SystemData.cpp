@@ -890,8 +890,8 @@ bool SystemData::loadConfig(Window* window)
 	ThreadPool* pThreadPool = NULL;
 	SystemDataPtr* systems = NULL;
 
-	// Allow threaded loading only if processor threads > 2 so it does not apply on machines like Pi0.
-	if (std::thread::hardware_concurrency() > 2 && Settings::getInstance()->getBool("ThreadedLoading"))
+	// Allow threaded loading only if processor threads > 1 so it does not apply on machines like Pi0.
+	if (std::thread::hardware_concurrency() > 1 && Settings::getInstance()->getBool("ThreadedLoading"))
 	{
 		pThreadPool = new ThreadPool();
 
@@ -899,7 +899,7 @@ bool SystemData::loadConfig(Window* window)
 		for (int i = 0; i < systemCount; i++)
 			systems[i] = nullptr;
 
-		pThreadPool->queueWorkItem([] { CollectionSystemManager::get()->loadCollectionSystems(true); });
+		pThreadPool->queueWorkItem([] { CollectionSystemManager::get()->loadCollectionSystems(); });
 	}
 
 	int processedSystem = 0;
@@ -957,24 +957,17 @@ bool SystemData::loadConfig(Window* window)
 
 		if (window != NULL)
 			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
-
-		createGroupedSystems();
-
-		// Load features before creating collections
-		loadFeatures();
-
-		// precalc value of isCheevosSupported
-		for (auto system : SystemData::sSystemVector)
-			system->isCheevosSupported();
-
-		// updateSystemsList can't be run async, systems have to be created before
-		CollectionSystemManager::get()->updateSystemsList();
 	}
 	else
 	{
 		if (window != NULL)
 			window->renderSplashScreen(_("Collections"), systemCount == 0 ? 0 : currentSystem / systemCount);
 
+		CollectionSystemManager::get()->loadCollectionSystems();
+	}
+
+	if (SystemData::sSystemVector.size() > 0)
+	{
 		createGroupedSystems();
 
 		// Load features before creating collections
@@ -984,11 +977,8 @@ bool SystemData::loadConfig(Window* window)
 		for (auto system : SystemData::sSystemVector)
 			system->isCheevosSupported();
 
-		CollectionSystemManager::get()->loadCollectionSystems();
-	}
+		CollectionSystemManager::get()->updateSystemsList();
 
-	if (SystemData::sSystemVector.size() > 0)
-	{
 		auto theme = SystemData::sSystemVector.at(0)->getTheme();
 		ViewController::get()->onThemeChanged(theme);		
 	}

@@ -357,6 +357,7 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	using namespace ThemeFlags;
 
+	mState = false;
 	mName.applyTheme(theme, getName(), "md_name", ALL);	
 
 	if (theme->getElement(getName(), "md_video", "video"))

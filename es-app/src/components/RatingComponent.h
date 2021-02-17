@@ -37,6 +37,7 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	void setHorizontalAlignment(Alignment align);
+	void setUnfilledColor(unsigned int color);
 
 private:
 	void updateVertices();
