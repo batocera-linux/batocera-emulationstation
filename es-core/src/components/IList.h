@@ -113,6 +113,14 @@ public:
 		onCursorChanged(CURSOR_STOPPED);
 	}
 
+	virtual void onHide() override
+	{
+		GuiComponent::onHide();
+
+		if (isScrolling())
+			stopScrolling();
+	}
+
 	// batocera
 	void setCursorIndex(int index, bool force = false)
 	{
