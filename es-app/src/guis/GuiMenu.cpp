@@ -486,24 +486,31 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
     dangerZone->addWithLabel(_("OVERCLOCK"), emuelec_oga_overclock);
     dangerZone->addSaveFunc([configName, emuelec_oga_overclock, mWindow] { 
         
+ auto setOverclock = [emuelec_oga_overclock](const std::string& value)
+        {
+            LOG(LogInfo) << "Setting OGA_OC to " + value;
+            runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " + value, "", nullptr);
+            SystemConf::getInstance()->set("ee_oga_oc", value);
+            SystemConf::getInstance()->saveSystemConf();
+        };
+
         std::string selectedoc = emuelec_oga_overclock->getSelected();
-			if (emuelec_oga_overclock->changed() && emuelec_oga_overclock->getSelected() != "Off") {
-                    std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
-                    msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
-                    msg += _("There is also the posibility of SD card file corruption!!! Only enable OC if you agree to the risks!\n\n");
-                    msg += _("Do you want to proceed ?");
-            mWindow->pushGui(new GuiMsgBox(mWindow, msg,
-				_("YES"), [emuelec_oga_overclock, selectedoc] {
-                    std::string selectedoc = emuelec_oga_overclock->getSelected();
-				}, _("NO"), [selectedoc] {
-                    std::string selectedoc = "Off";
-                    }));
-                } else { 
-                    std::string selectedoc = "Off";
-                }
-				runSystemCommand("/emuelec/scripts/odroidgoa_utils.sh oga_oc " +selectedoc, "", nullptr);
-                SystemConf::getInstance()->set("ee_oga_oc", selectedoc);
-				SystemConf::getInstance()->saveSystemConf();
+        if (emuelec_oga_overclock && emuelec_oga_overclock->changed())
+        {
+            if (selectedoc != "Off")
+            {
+                std::string msg = _("OGA OC is HIGHLY experimental, you may encounter random lockups or your device might not boot anymore. \n");
+                msg += _("In case you cannot boot anymore, create an empty file called \"no_oc.oga\" on the boot (EMUELEC) partition.\n\n");
+                msg += _("There is also the posibility of SD card file corruption!!! Only enable OC if you agree to the risks!\n\n");
+                msg += _("Do you want to proceed ?");
+
+                mWindow->pushGui(new GuiMsgBox(mWindow, msg, _("YES"), [selectedoc, setOverclock]() { setOverclock(selectedoc); }, _("NO"), nullptr));
+            }
+            else
+                setOverclock(selectedoc);
+        }
+        
+
          });
 #endif
 
