@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1525,14 +1525,17 @@ msgstr "JOCS SUAVITZATS"
 msgid "REWIND"
 msgstr "REBOBINA"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
 msgid "AUTO SAVE/LOAD"
 msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADERS ESTABLERTS"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ESCALA SENCERA (PIXEL PERFECT)"
 
 msgid "DECORATION"
 msgstr "DECORACIONS"
@@ -1642,8 +1645,8 @@ msgstr "MOSTRAR '..' CARPETA SUPERIOR"
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONS D'ARXIU"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "RESTABLIR LA PERSONALITZACIÓ DE LLISTAT DE JOCS"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "APARIÈNCIA"

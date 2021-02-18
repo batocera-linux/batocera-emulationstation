@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1531,14 +1531,17 @@ msgstr "SPELLEN AFVLAKKEN"
 msgid "REWIND"
 msgstr "TERUGSPOELEN"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
 
 msgid "DECORATION"
 msgstr "AANKLEDING"
@@ -1650,8 +1653,8 @@ msgstr "TOON BESTANDSNAMEN IN LIJST"
 msgid "FILE EXTENSIONS"
 msgstr "BESTANDSEXTENSIES"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "HERSTEL SPELLIJST AANPASSINGEN"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "UITERLIJK"
@@ -2311,6 +2314,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "HERSTEL SPELLIJST AANPASSINGEN"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "BEZIG MET SCRAPEN"

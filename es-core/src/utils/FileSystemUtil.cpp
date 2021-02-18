@@ -581,7 +581,7 @@ namespace Utils
 
 #if WIN32
 			std::string path = _path[0] == '.' ? getAbsolutePath(_path) : _path;
-			if (path.find("./") == std::string::npos)
+			if (path.find("./") == std::string::npos && path.find(".\\") == std::string::npos)
 				return path;
 #else
 			std::string path = exists(_path) ? getAbsolutePath(_path) : _path;
@@ -713,6 +713,37 @@ namespace Utils
 
 			return std::string();
 		}
+
+		std::string changeExtension(const std::string& _path, const std::string& extension)
+		{
+			if (_path.empty())
+				return _path;
+
+			std::string str = _path;
+			int length = _path.length();
+			while (--length >= 0)
+			{
+				char ch = _path[length];
+				if (ch == '.')
+				{
+					str = _path.substr(0, length);
+					break;
+				}
+
+				if (((ch == '/') || (ch == '\\')) || (ch == ':'))
+					break;
+			}
+
+			if (extension.empty())
+				return str;
+
+			if (extension.length() == 0 || extension[0] != '.')
+				str = str + ".";
+
+			return str + extension;
+		}
+
+
 
 		std::string resolveRelativePath(const std::string& _path, const std::string& _relativeTo, const bool _allowHome)
 		{
@@ -876,7 +907,7 @@ namespace Utils
 				return true;
 
 #if WIN32			
-			return RemoveDirectoryW(Utils::String::convertToWideString(_path).c_str());
+			return RemoveDirectoryW(Utils::String::convertToWideString(getPreferredPath(_path)).c_str());
 #else
 			return (rmdir(path.c_str()) == 0);
 #endif
@@ -892,7 +923,7 @@ namespace Utils
 
 #if WIN32			
 			if (isDirectory(_path))
-				return RemoveDirectoryW(Utils::String::convertToWideString(_path).c_str());
+				return RemoveDirectoryW(Utils::String::convertToWideString(getPreferredPath(_path)).c_str());
 
 			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
 #else
@@ -1202,13 +1233,17 @@ namespace Utils
 			fs.close();
 		}
 
-		bool renameFile(const std::string src, const std::string dst)
+		bool renameFile(const std::string src, const std::string dst, bool overWrite)
 		{
 			std::string path = getGenericPath(src);
 			if (!exists(path))
 				return true;
 
-#if WIN32
+			if (overWrite && Utils::FileSystem::exists(dst))
+				Utils::FileSystem::removeFile(dst);
+
+
+#if WIN32			
 			return MoveFileW(Utils::String::convertToWideString(path).c_str(), Utils::String::convertToWideString(dst).c_str());
 #else
 			return std::rename(src.c_str(), dst.c_str()) == 0;
@@ -1255,7 +1290,7 @@ namespace Utils
 			return true;
 		} // removeFile
 
-		void deleteDirectoryFiles(const std::string path)
+		void deleteDirectoryFiles(const std::string path, bool deleteDirectory)
 		{
 			std::vector<std::string> directories;
 
@@ -1270,7 +1305,10 @@ namespace Utils
 			}
 
 			for (auto file : directories)
-				removeDirectory(Utils::FileSystem::getPreferredPath(file).c_str());
+				removeDirectory(file);
+
+			if (deleteDirectory)
+				removeDirectory(path);
 		}
 
 		std::string megaBytesToString(unsigned long size)
@@ -1296,23 +1334,50 @@ namespace Utils
 
 		std::string getTempPath()
 		{
-			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp/");
+			static std::string path;
+
+			if (path.empty())
+			{
+#ifdef WIN32
+				// Set tmp files to local drive : usually faster since it's generally a SSD Drive
+				WCHAR lpTempPathBuffer[MAX_PATH];
+				lpTempPathBuffer[0] = 0;
+				DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
+				if (dwRetVal > 0 && dwRetVal <= MAX_PATH)
+					path = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/emulationstation.tmp";
+				else
+#endif
+					path = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+			}
+
+			if (!Utils::FileSystem::isDirectory(path))
+				Utils::FileSystem::createDirectory(path);
+
+			return path;
 		}
 
 		std::string getPdfTempPath()
 		{
-#ifdef WIN32
-			// Extract PDFs to local drive : usually faster since it's generally a SSD Drive
-			WCHAR lpTempPathBuffer[MAX_PATH];
-			lpTempPathBuffer[0] = 0;
-			DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
-			if (dwRetVal > MAX_PATH || (dwRetVal == 0))
-				return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
+			static std::string pdfpath;
 
-			return Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp/";
-#else
-			return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp/");
-#endif
+			if (pdfpath.empty())
+			{
+#ifdef WIN32
+				// Extract PDFs to local drive : usually faster since it's generally a SSD Drive
+				WCHAR lpTempPathBuffer[MAX_PATH];
+				lpTempPathBuffer[0] = 0;
+				DWORD dwRetVal = ::GetTempPathW(MAX_PATH, lpTempPathBuffer);
+				if (dwRetVal > 0 && dwRetVal <= MAX_PATH)
+					pdfpath = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp";
+				else
+#endif						
+					pdfpath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp");
+			}
+
+			if (!Utils::FileSystem::isDirectory(pdfpath))
+				Utils::FileSystem::createDirectory(pdfpath);
+
+			return pdfpath;
 		}
 		
 		std::string getFileCrc32(const std::string& filename)

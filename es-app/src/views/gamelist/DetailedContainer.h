@@ -113,4 +113,5 @@ protected:
 	DateTimeComponent mReleaseDate, mLastPlayed;
 
 	std::vector<MdImage> mdImages;
+	bool		mState;
 };

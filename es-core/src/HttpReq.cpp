@@ -323,6 +323,10 @@ HttpReq::Status HttpReq::status()
 					int http_status_code;
 					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);
 
+					char *ct = NULL;
+					if (!curl_easy_getinfo(msg->easy_handle, CURLINFO_CONTENT_TYPE, &ct) && ct)
+						req->mResponseContentType = ct;
+
 					if (http_status_code < 200 || http_status_code > 299)
 					{
 						std::string err;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -872,10 +872,10 @@ msgid "GAME"
 msgstr "JOGO"
 
 msgid "SAVE SNAPSHOTS"
-msgstr "GUARDAR RAPIDAMENTE"
+msgstr "PARTIDAS GUARDADAS"
 
 msgid "START NETPLAY HOST"
-msgstr "INICIAR NETPLAY HOST"
+msgstr "INICIAR NETPLAY COMO SERVIDOR"
 
 msgid "NETPLAY"
 msgstr "JOGOS EM REDE"
@@ -1479,10 +1479,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMÁTICO"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr "DESBLOQUEIO DE SOM RETROACHIEVEMENTS"
+msgstr "SOM DE DESBLOQUEIO RETROACHIEVEMENTS"
 
 msgid "UNLOCK SOUND"
-msgstr "DESBLOQUEIO DE SOM"
+msgstr "SOM DE DESBLOQUEIO"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "MOSTRAR NO MENU PRINCIPAL"
@@ -1529,14 +1529,17 @@ msgstr "SUAVIZAR IMAGEM"
 msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "AJUSTE DOS PIXELS"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "SAVE AUTOMÁTICO/LOADING"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr "MOSTRAR PARTIDAS GUARDADAS"
+
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "AJUSTE DOS PIXELS"
 
 msgid "DECORATION"
 msgstr "DECORAÇÃO"
@@ -1647,8 +1650,8 @@ msgstr "EXIBIR NOMES DOS ARQUIVOS"
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "REPOR A LISTA DE JOGOS PERSONALIZADA"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "APARÊNCIA"
@@ -2312,8 +2315,8 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "SCRAPING IN PROGRESS"
-#~ msgstr "PROCURA EM CURSO"
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "REPOR A LISTA DE JOGOS PERSONALIZADA"
 
 #~ msgid "subtitle text"
 #~ msgstr "legenda"

@@ -468,11 +468,8 @@ GuiImageViewer::~GuiImageViewer()
 		delete mPdfThreads;
 	}
 
-	Utils::FileSystem::getTempPath();
-
 	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
-	Utils::FileSystem::deleteDirectoryFiles(pdfFolder);
-	Utils::FileSystem::removeDirectory(pdfFolder.c_str());
+	Utils::FileSystem::deleteDirectoryFiles(pdfFolder, true);
 }
 
 bool GuiImageViewer::input(InputConfig* config, Input input)

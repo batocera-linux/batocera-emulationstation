@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -954,16 +954,16 @@ msgid "%d%% complete"
 msgstr "%d%% terminé"
 
 msgid "AUTO SAVE"
-msgstr "SAUV. AUTO"
+msgstr "SAUVEGARDE AUTO"
 
 msgid "SLOT"
 msgstr "EMPLACEMENT"
 
 msgid "START NEW GAME"
-msgstr "DÉMARRER NOUVEAU JEU"
+msgstr "NOUVELLE PARTIE"
 
 msgid "START AUTO SAVE"
-msgstr "DÉMARRER SAUV. AUTO"
+msgstr "LANCER SAUV. AUTO"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPIER VERS EMPLACEMENT LIBRE"
@@ -1530,14 +1530,17 @@ msgstr "LISSER LES JEUX"
 msgid "REWIND"
 msgstr "REMBOBINAGE"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "SAUV./CHARG. AUTO"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 
 msgid "DECORATION"
 msgstr "DÉCORATIONS"
@@ -1650,8 +1653,8 @@ msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONS DE FICHIERS"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "RAZ PERSONNALISATION DES LISTES DE JEUX"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "APPARENCE"
@@ -2076,7 +2079,7 @@ msgid "GAME TIME, DESCENDING"
 msgstr "TEMPS DE JEU, DÉCROISSANT"
 
 msgid "Extracting"
-msgstr "Extration"
+msgstr "Extraction"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "RECHERCHE DES SUCCÈS RÉTRO"
@@ -2318,6 +2321,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "RAZ PERSONNALISATION DES LISTES DE JEUX"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "SCRAPE EN COURS"

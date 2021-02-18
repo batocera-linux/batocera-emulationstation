@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1520,13 +1520,16 @@ msgstr ""
 msgid "REWIND"
 msgstr ""
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr ""
+
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHOW SAVE SNAPSHOTS"
 msgstr ""
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "SHADERS SET"
 msgstr ""
 
 msgid "DECORATION"
@@ -1634,7 +1637,7 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
+msgid "RESET CUSTOMISATIONS"
 msgstr ""
 
 msgid "APPEARENCE"

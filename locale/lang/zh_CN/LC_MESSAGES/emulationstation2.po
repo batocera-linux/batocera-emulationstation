@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -890,8 +890,49 @@ msgstr "需要联网"
 msgid "INVALID PARAMETERS"
 msgstr "参数无效"
 
-msgid "SCRAPING IN PROGRESS"
-msgstr "正在抓取元数据"
+msgid "GAME"
+msgstr ""
+
+msgid "SAVE SNAPSHOTS"
+msgstr ""
+
+msgid "START NETPLAY HOST"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "联网游戏"
+
+msgid "START GAME"
+msgstr ""
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "你没联网"
+
+msgid "SET PLAYER PASSWORD"
+msgstr ""
+
+msgid "SET VIEWER PASSWORD"
+msgstr ""
+
+msgid "COLLECTIONS"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "收藏"
+
+msgid "SCRAPE"
+msgstr "抓取元数据"
+
+msgid "THEMES DOWNLOADER"
+msgstr "主题下载"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
 msgstr "选择主题安装 / 卸载"
@@ -1318,8 +1359,8 @@ msgstr "开始更新"
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "正在更新中"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "你没联网"
+msgid "SYSTEM"
+msgstr "系统"
 
 msgid "LANGUAGE"
 msgstr "语言"
@@ -1489,14 +1530,17 @@ msgstr "图像平滑处理"
 msgid "REWIND"
 msgstr "倒带功能"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "整数缩放 (像素完美显示)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "自动保存/加载"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "着色器设置"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "整数缩放 (像素完美显示)"
 
 msgid "DECORATION"
 msgstr "装饰框"
@@ -1606,8 +1650,8 @@ msgstr "显示 '..' 父文件夹"
 msgid "FILE EXTENSIONS"
 msgstr "文件扩展名"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "重置自定游戏列表"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "外观"
@@ -1841,9 +1885,6 @@ msgstr "迅速搜"
 msgid "GO TO LETTER"
 msgstr ""
 
-msgid "COLLECTIONS"
-msgstr ""
-
 msgid "GO TO MANUFACTURER"
 msgstr "访问制造商"
 
@@ -1870,9 +1911,6 @@ msgstr[0] "%i 主题"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 游戏"
-
-msgid "NETPLAY"
-msgstr "联网游戏"
 
 msgid "RANDOM"
 msgstr "随机"
@@ -1919,24 +1957,6 @@ msgstr "游玩次数"
 
 msgid "No Entries Found"
 msgstr "找不到条目"
-
-msgid "Favorites"
-msgstr "收藏夹"
-
-msgid "START GAME"
-msgstr "开始游戏"
-
-msgid "START NETPLAY HOST"
-msgstr "开始做网络主机"
-
-msgid "ALLOW SPECTATOR MODE"
-msgstr "允许观看"
-
-msgid "SET PLAYER PASSWORD"
-msgstr "设置玩家密码"
-
-msgid "SET VIEWER PASSWORD"
-msgstr "设置观看者密码"
 
 msgid "Games similar to"
 msgstr ""
@@ -2056,9 +2076,6 @@ msgstr ""
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr ""
-
-msgid "FAVORITES"
-msgstr "收藏"
 
 msgid "GENRE"
 msgstr "类型"
@@ -2281,6 +2298,65 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "重置自定游戏列表"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "正在抓取元数据"
+
+#~ msgid "subtitle text"
+#~ msgstr "小标题文本"
+
+#~ msgid "search"
+#~ msgstr "搜索"
+
+#~ msgid "STOP"
+#~ msgstr "停止"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "停止 (保留进度)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "游戏 %i - %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "未找到任何游戏平台\n"
+#~ "请检查系统配置文件中的路径是否正确，并确保游戏目录下的ROM具有正确的扩展"
+#~ "名。"
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "成功抓取 %i 个游戏元数据!"
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "跳过了 %i 个游戏。"
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "自动抓取游戏数据"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "是否开始抓取?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "手动抓取游戏数据"
+
+#~ msgid "Favorites"
+#~ msgstr "收藏夹"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "发生了一个错误"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "人工处理数据冲突"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgstr "抓取完成。更新游戏列表以应用更改。"
 
 #~ msgid "REINDEX ALL GAMES"
 #~ msgstr "重新索引所有游戏"

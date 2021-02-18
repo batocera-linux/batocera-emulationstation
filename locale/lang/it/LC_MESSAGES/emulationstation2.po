@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -56,67 +56,67 @@ msgid "Logo"
 msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr "Inserisci percorso logo"
+msgstr "inserisci percorso logo"
 
 msgid "Box"
-msgstr "Scatola"
+msgstr "Box (Scatola)"
 
 msgid "enter path to box"
-msgstr "Inserisci percorso scatola"
+msgstr "inserisci percorso immagine box"
 
 msgid "Fan art"
 msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr "Inserisci percorso fan art"
+msgstr "inserisci percorso fan art"
 
 msgid "Title shot"
-msgstr "Schermata titolo"
+msgstr "Schermata del titolo"
 
 msgid "enter path to title shot"
-msgstr "Inserisci percorso della schermata titolo"
+msgstr "inserisci percorso schermata del titolo"
 
 msgid "Manual"
 msgstr "Manuale"
 
 msgid "enter path to manual"
-msgstr "Inserisci percorso del manuale"
+msgstr "inserisci percorso del manuale"
 
 msgid "Map"
 msgstr "Mappa"
 
 msgid "enter path to map"
-msgstr "Inserisci percorso della mappa"
+msgstr "inserisci percorso della mappa"
 
 msgid "Cartridge"
 msgstr "Cartuccia"
 
 msgid "enter path to cartridge"
-msgstr "Inserisci percorso della cartuccia"
+msgstr "inserisci percorso della cartuccia"
 
 msgid "Alt BoxArt"
-msgstr "Box art alternativa"
+msgstr "BoxArt alternativa"
 
 msgid "enter path to alt boxart"
-msgstr "Inserisci percorso della box art alternativa"
+msgstr "Inserisci percorso boxart alternativa"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Box (retro)"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "inserisci percorso immagine box (retro)"
 
 msgid "Wheel"
-msgstr "Targhetta"
+msgstr "Targhetta (Wheel)"
 
 msgid "enter path to wheel"
-msgstr "Inserisci percorso della targhetta (modalità Wheel)"
+msgstr "inserisci percorso targhetta (Wheel)"
 
 msgid "Mix"
-msgstr "Misto"
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr "Inserisci percorso delle grafiche miste"
+msgstr "inserisci percorso mix immagini"
 
 msgid "Rating"
 msgstr "Voto"
@@ -1155,7 +1155,7 @@ msgid "MARQUEE"
 msgstr "BANNER"
 
 msgid "SCRAPE RATINGS"
-msgstr "SCARICA INFORMAZIONI DEI VOTI"
+msgstr "SCARICA VALUTAZIONE DEI GIOCHI"
 
 msgid "SCRAPE VIDEOS"
 msgstr "SCARICA VIDEO"
@@ -1164,7 +1164,7 @@ msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "SCARICA BOX (RETRO)"
 
 msgid "SCRAPE MAP"
 msgstr "SCARICA MAPPA"
@@ -1188,7 +1188,7 @@ msgid "CHOOSE"
 msgstr "SCEGLIERE"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr "LA MODALITA' UI E' SBLOCCATA"
+msgstr "MODALITA' UI SBLOCCATA"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "PER FAVORE INSERISCI IL CODICE PER SBLOCCARE L'ATTUALE MODALITA' UI"
@@ -1530,14 +1530,17 @@ msgstr "RENDI FLUIDA LA GRAFICA DEI GIOCHI"
 msgid "REWIND"
 msgstr "RIAVVOLGI"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "INTEGER SCALE (GRAFICA PIXEL PERFECT)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "SALVATAGGIO/CARICAMENTO AUTOMATICO"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr "MOSTRA SALVATAGGI ISTANTANEI"
+
 msgid "SHADERS SET"
 msgstr "SET DI SHADERS"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "INTEGER SCALE (GRAFICA PIXEL PERFECT)"
 
 msgid "DECORATION"
 msgstr "DECORAZIONE"
@@ -1649,8 +1652,8 @@ msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 msgid "FILE EXTENSIONS"
 msgstr "ESTENSIONI FILE"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "ASPETTO"
@@ -2318,6 +2321,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "RACCOLTA INFORMAZIONI IN CORSO"

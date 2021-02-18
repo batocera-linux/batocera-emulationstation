@@ -58,7 +58,7 @@ void Log::init()
 	remove((getLogPath() + ".bak").c_str());
 
 	// rename previous log file
-	rename(getLogPath().c_str(), (getLogPath() + ".bak").c_str());
+	Utils::FileSystem::renameFile(getLogPath(), getLogPath() + ".bak");
 
 	file = fopen(getLogPath().c_str(), "w");
 	dirty = false;

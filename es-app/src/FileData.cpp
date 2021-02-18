@@ -680,7 +680,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
 
-		if (filterKidGame && !(*it)->getKidGame())
+		if (filterKidGame && (*it)->getType() == GAME && !(*it)->getKidGame())
 			continue;
 
 		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)
@@ -1345,4 +1345,19 @@ void FolderData::removeFromVirtualFolders(FileData* game)
 			return;
 		}
 	}
+}
+
+std::string FileData::getCurrentGameSetting(const std::string& settingName)
+{
+	FileData* src = getSourceFileData();
+
+	std::string value = SystemConf::getInstance()->get(getConfigurationName() + "." + settingName);
+	if (!value.empty() && value != "auto")
+		return value;
+
+	value = SystemConf::getInstance()->get(src->getSystem()->getName() + "." + settingName);
+	if (!value.empty() && value != "auto")
+		return value;
+
+	return Settings::getInstance()->getString("global." + settingName);
 }

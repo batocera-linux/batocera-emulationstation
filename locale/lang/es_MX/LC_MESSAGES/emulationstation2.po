@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 08:23+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -1532,14 +1532,17 @@ msgstr "SUAVIZAR LOS JUEGOS"
 msgid "REWIND"
 msgstr "REBOBINAR"
 
+msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgstr "ESCALA INTEGRAL (PIXELES PERFECTOS)"
+
 msgid "AUTO SAVE/LOAD"
 msgstr "GUARDAR / CARGAR AUTOMÁTICAMENTE"
 
+msgid "SHOW SAVE SNAPSHOTS"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
-
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "ESCALA INTEGRAL (PIXELES PERFECTOS)"
 
 msgid "DECORATION"
 msgstr "DECORACIÓN (BISELES)"
@@ -1652,8 +1655,8 @@ msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONES DE ARCHIVO"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "APARIENCIA"
@@ -2313,6 +2316,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "OBTENCIÓN DE CARÁTULAS EN CURSO"
