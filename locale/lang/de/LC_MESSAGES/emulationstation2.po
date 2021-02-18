@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 22:25+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "Pfad zum Boxart eingeben"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Box Rückseite"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "Pfad zum Box-Hintergrund eingeben"
 
 msgid "Wheel"
 msgstr "Wheel"
@@ -251,7 +251,7 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "vertical arcade"
 
 msgid "collections"
 msgstr "Sammlungen"
@@ -1165,7 +1165,7 @@ msgid "SCRAPE FANART"
 msgstr "FANART SCRAPEN"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "BOX RÜCKSEITE SCRAPEN"
 
 msgid "SCRAPE MAP"
 msgstr "KARTE SCRAPEN"
@@ -1484,10 +1484,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "RETROACHIEVMENTS FREISCHALTE-TON"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "FREISCHALTE-TON"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "IM HAUPTMENÜ ZEIGEN"
@@ -1541,7 +1541,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATISCH SPEICHERN/LADEN"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr ""
+msgstr "SPEICHERSTÄNDE ANZEIGEN"
 
 msgid "SHADERS SET"
 msgstr "SHADER"
@@ -1657,8 +1657,8 @@ msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
 msgid "FILE EXTENSIONS"
 msgstr "DATEI-ERWEITERUNGEN"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "SPIELELISTEN-ANPASSUNGEN ZURÜCKSETZEN"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "AUSSEHEN"
@@ -2126,7 +2126,7 @@ msgid "HAS ACHIEVEMENTS"
 msgstr "HAT ACHIEVEMENTS"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "VERTIKAL"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -2139,11 +2139,11 @@ msgstr "SCRAPEN ABGESCHLOSSEN"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s verbunden"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s getrennt"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT FÜR GROß-, KLEINSCHREIBUNG UND SONDERZEICHEN"
@@ -2328,6 +2328,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "SPIELELISTEN-ANPASSUNGEN ZURÜCKSETZEN"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "SCRAPER LÄUFT"

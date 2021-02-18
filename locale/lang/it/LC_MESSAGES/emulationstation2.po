@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 22:25+0100\n"
+"POT-Creation-Date: 2021-02-18 08:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -59,10 +59,10 @@ msgid "enter path to logo"
 msgstr "inserisci percorso logo"
 
 msgid "Box"
-msgstr "Scatola"
+msgstr "Box (Scatola)"
 
 msgid "enter path to box"
-msgstr "inserisci percorso scatola"
+msgstr "inserisci percorso immagine box"
 
 msgid "Fan art"
 msgstr "Fan art"
@@ -95,28 +95,28 @@ msgid "enter path to cartridge"
 msgstr "inserisci percorso della cartuccia"
 
 msgid "Alt BoxArt"
-msgstr "Scatola alternativa"
+msgstr "BoxArt alternativa"
 
 msgid "enter path to alt boxart"
-msgstr "Inserisci percorso scatola alternativa"
+msgstr "Inserisci percorso boxart alternativa"
 
 msgid "Box backside"
-msgstr "Retro della scatola"
+msgstr "Box (retro)"
 
 msgid "enter path to box background"
-msgstr "inserisci percorso retro della scatola"
+msgstr "inserisci percorso immagine box (retro)"
 
 msgid "Wheel"
-msgstr "Targhetta"
+msgstr "Targhetta (Wheel)"
 
 msgid "enter path to wheel"
-msgstr "inserisci percorso della targhetta (modalità Wheel)"
+msgstr "inserisci percorso targhetta (Wheel)"
 
 msgid "Mix"
-msgstr "Misto"
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr "inserisci percorso delle grafiche miste"
+msgstr "inserisci percorso mix immagini"
 
 msgid "Rating"
 msgstr "Voto"
@@ -1134,16 +1134,16 @@ msgid "MIX V2"
 msgstr "MIX V2"
 
 msgid "BOX 2D"
-msgstr "SCATOLA 2D"
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr "SCATOLA 3D"
+msgstr "BOX 3D"
 
 msgid "FAN ART"
 msgstr "FAN ART"
 
 msgid "BOX SOURCE"
-msgstr "SORGENTE SCATOLA"
+msgstr "SORGENTE BOX"
 
 msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
@@ -1155,7 +1155,7 @@ msgid "MARQUEE"
 msgstr "BANNER"
 
 msgid "SCRAPE RATINGS"
-msgstr "SCARICA INFORMAZIONI DEI VOTI"
+msgstr "SCARICA VALUTAZIONE DEI GIOCHI"
 
 msgid "SCRAPE VIDEOS"
 msgstr "SCARICA VIDEO"
@@ -1164,7 +1164,7 @@ msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr "SCARICA RETRO DELLA SCATOLA"
+msgstr "SCARICA BOX (RETRO)"
 
 msgid "SCRAPE MAP"
 msgstr "SCARICA MAPPA"
@@ -1188,7 +1188,7 @@ msgid "CHOOSE"
 msgstr "SCEGLIERE"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr "LA MODALITA' UI E' SBLOCCATA"
+msgstr "MODALITA' UI SBLOCCATA"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "PER FAVORE INSERISCI IL CODICE PER SBLOCCARE L'ATTUALE MODALITA' UI"
@@ -1652,8 +1652,8 @@ msgstr "VISUALIZZA NOME FILE NELLA LISTA"
 msgid "FILE EXTENSIONS"
 msgstr "ESTENSIONI FILE"
 
-msgid "RESET GAMELIST CUSTOMISATIONS"
-msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
+msgid "RESET CUSTOMISATIONS"
+msgstr ""
 
 msgid "APPEARENCE"
 msgstr "ASPETTO"
@@ -2321,6 +2321,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "RESETTA LE MODIFICHE DELLE LISTE GIOCO"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "RACCOLTA INFORMAZIONI IN CORSO"
