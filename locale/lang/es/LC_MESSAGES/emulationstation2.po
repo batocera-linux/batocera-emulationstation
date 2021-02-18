@@ -265,7 +265,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "Eliminado '%s' de '%s'"
 
 msgid "This collection is empty."
-msgstr "esta colección está vacia."
+msgstr "Esta colección está vacia."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -465,7 +465,7 @@ msgid "Points"
 msgstr "Puntos"
 
 msgid "Rank"
-msgstr "Rango"
+msgstr "Posición"
 
 msgid "VIEW DETAILS"
 msgstr "VER DETALLES"
@@ -1654,7 +1654,7 @@ msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONES DE ARCHIVOS"
 
 msgid "RESET CUSTOMISATIONS"
-msgstr ""
+msgstr "RESTABLECER PERSONALIZACIONES"
 
 msgid "APPEARENCE"
 msgstr "APARIENCIA"
