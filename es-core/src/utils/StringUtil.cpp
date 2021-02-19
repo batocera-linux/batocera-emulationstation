@@ -856,6 +856,7 @@ namespace Utils
 			ret = replace(ret, "&gt;", ">");
 			ret = replace(ret, "&quot;", "\"");
 			ret = replace(ret, "&nbsp;", " ");
+			ret = replace(ret, "&#39;", "'");
 
 			return ret;
 		}

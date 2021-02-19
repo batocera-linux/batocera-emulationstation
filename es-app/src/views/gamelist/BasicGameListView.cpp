@@ -86,7 +86,7 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		if (fav == "1") favoritesFirst = true;
 		else if (fav == "0") favoritesFirst = false;
 		
-		bool showCheevosIcon = (systemName != "retroachievements");
+		bool showCheevosIcon = (systemName != "retroachievements" && SystemConf::getInstance()->getBool("global.retroachievements"));
 		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
 		if (!showFavoriteIcon)
 			favoritesFirst = false;
