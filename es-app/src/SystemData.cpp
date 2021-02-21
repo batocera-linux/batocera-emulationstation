@@ -1902,9 +1902,9 @@ SystemData* SystemData::getSystem(const std::string name)
 }
 
 /*# ${rom}.keys
-    # /userdata/system/config/evmapy/${system}.${emulator}.${core}.keys
-    # /userdata/system/config/evmapy/${system}.${emulator}.keys
-    # /userdata/system/config/evmapy/${system}.keys
+    # /userdata/system/configs/evmapy/${system}.${emulator}.${core}.keys
+    # /userdata/system/configs/evmapy/${system}.${emulator}.keys
+    # /userdata/system/configs/evmapy/${system}.keys
     # /usr/share/evmapy/${system}.${emulator}.${core}.keys
     # /usr/share/evmapy/${system}.${emulator}.keys
     # /usr/share/evmapy/${system}.keys*/
@@ -1914,7 +1914,7 @@ std::string SystemData::getKeyboardMappingFilePath()
 #if WIN32
 	return Utils::FileSystem::getEsConfigPath() + "/padtokey/" + getName() + ".keys";
 #else	
-	return "/userdata/system/config/evmapy/" + getName() + ".keys";
+	return "/userdata/system/configs/evmapy/" + getName() + ".keys";
 #endif
 }
 
