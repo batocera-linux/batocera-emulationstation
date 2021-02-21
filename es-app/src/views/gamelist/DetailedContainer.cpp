@@ -7,6 +7,7 @@
 #include "LocaleES.h"
 #include "LangParser.h"
 #include "SaveStateRepository.h"
+#include "SystemConf.h"
 
 #ifdef _RPI_
 #include "Settings.h"
@@ -24,7 +25,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
 	mSaveState(nullptr), mNoSaveState(nullptr),
-	mState(false),
+	mState(true),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -357,7 +358,6 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	using namespace ThemeFlags;
 
-	mState = false;
 	mName.applyTheme(theme, getName(), "md_name", ALL);	
 
 	if (theme->getElement(getName(), "md_video", "video"))
@@ -557,9 +557,10 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			mNotKidGame->setVisible(!file->getKidGame());
 
 		bool systemHasCheevos = 
+			SystemConf::getInstance()->getBool("global.retroachievements") && (
 			file->getSourceFileData()->getSystem()->isCheevosSupported() || 
 			file->getSystem()->isCollection() || 
-			file->getSystem()->isGroupSystem(); // Fake cheevos supported if the game is in a collection cuz there are lot of games from different systems
+			file->getSystem()->isGroupSystem()); // Fake cheevos supported if the game is in a collection cuz there are lot of games from different systems
 
 		// Cheevos
 		if (mCheevos != nullptr)
