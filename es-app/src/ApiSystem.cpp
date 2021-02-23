@@ -139,7 +139,7 @@ std::string ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 #ifdef _ENABLEEMUELEC
-	std::ifstream ifs("/storage/.config/EE_VERSION");
+	std::ifstream ifs("/usr/config/EE_VERSION");
 #else
 	std::ifstream ifs("/usr/share/batocera/batocera.version");
 #endif
