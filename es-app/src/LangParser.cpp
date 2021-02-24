@@ -162,12 +162,21 @@ std::string LangInfo::getFlag(const std::string lang, const std::string region)
 
 	if (langs.size() >= 1 && region.empty() && langs[0] == "en")
 		return "us";
-	else if (langs.size() == 1 && langs[0] != "en")
-		return langs[0];
+	else if (langs.size() == 1 && lang != "en")
+		return lang;
 		
 	if (region == "eu" && langs.size() == 1 && std::find(langs.cbegin(), langs.cend(), "en") != langs.cend())
 		return "uk";
-	else if (!region.empty())
+	
+	if (region == "jp" && langs.size() == 1 && lang != "jp")
+	{
+		if (lang == "en")
+			return "us";
+
+		return lang;
+	}
+	
+	if (!region.empty())
 		return region;
 
 	return "eu";
