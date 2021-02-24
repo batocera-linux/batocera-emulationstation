@@ -25,6 +25,7 @@
 #include "guis/GuiGameScraper.h"
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
+#include "SystemConf.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
 	mMenu(window, game->getName()), mReloadAll(false)
@@ -154,6 +155,14 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				});
 
 				msgBox->addGroup(_("OPTIONS"));
+
+				// pubic announce
+				auto public_announce = std::make_shared<SwitchComponent>(mWindow);
+				public_announce->setState(SystemConf::getInstance()->getBool("global.netplay_public_announce"));
+				msgBox->addWithLabel(_("PUBLICLY ANNOUNCE GAME"), public_announce);
+				msgBox->addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
+						
+				// passwords
 				msgBox->addInputTextRow(_("SET PLAYER PASSWORD"), "global.netplay.password", false);
 				msgBox->addInputTextRow(_("SET VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 
@@ -452,26 +461,31 @@ void GuiGameOptions::deleteCollection()
 
 	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"),
 		[this]
-	{
-		std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
-		auto customCollection = customCollections.find(getCustomCollectionName());
-		if (customCollection == customCollections.cend())
-			return;
-
-		if (CollectionSystemManager::get()->deleteCustomCollection(&customCollection->second))
 		{
-			mWindow->renderSplashScreen();
+			std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
+			auto customCollection = customCollections.find(getCustomCollectionName());
+			if (customCollection == customCollections.cend())
+				return;
 
-			CollectionSystemManager::get()->loadEnabledListFromSettings();
-			CollectionSystemManager::get()->updateSystemsList();
-			ViewController::get()->goToStart();
-			ViewController::get()->reloadAll();
+			if (CollectionSystemManager::get()->deleteCustomCollection(&customCollection->second))
+			{
+				mWindow->renderSplashScreen("");
 
-			mWindow->closeSplashScreen();			
-		}
-	}, _("NO"), nullptr));
+				CollectionSystemManager::get()->loadEnabledListFromSettings();
+				CollectionSystemManager::get()->updateSystemsList();
+				ViewController::get()->goToStart();
+				ViewController::get()->reloadAll(mWindow);
 
-	delete this;
+				mWindow->closeSplashScreen();			
+			}
+			delete this;
+		}, 
+		_("NO"), [this] 
+		{
+			delete this;
+		}));
+
+	
 }
 
 void GuiGameOptions::close()
