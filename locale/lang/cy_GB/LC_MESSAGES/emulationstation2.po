@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 08:04+0100\n"
+"POT-Creation-Date: 2021-02-25 13:24+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -890,6 +890,9 @@ msgstr "DECHRAU GAME"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
 
 msgid "SET PLAYER PASSWORD"
 msgstr "GOSOD CYFRINAIR CHWARAEWR"

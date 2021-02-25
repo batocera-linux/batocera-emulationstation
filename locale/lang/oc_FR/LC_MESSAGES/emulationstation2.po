@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 08:04+0100\n"
+"POT-Creation-Date: 2021-02-25 13:24+0100\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -890,6 +890,9 @@ msgid "START GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
+msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
 msgid "SET PLAYER PASSWORD"

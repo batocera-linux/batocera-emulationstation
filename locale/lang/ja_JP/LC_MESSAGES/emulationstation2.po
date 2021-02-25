@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v30(2/14)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 22:25+0100\n"
+"POT-Creation-Date: 2021-02-25 13:24+0100\n"
 "PO-Revision-Date: 2021-02-21 21:11+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -885,6 +885,9 @@ msgstr "ゲームを開始"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ネットワークに接続されていません"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
 
 msgid "SET PLAYER PASSWORD"
 msgstr "プレーヤーパスワードの設定"
