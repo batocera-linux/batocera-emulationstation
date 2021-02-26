@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "insira o caminho da caixa alternativa"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Parte de trás da caixa"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "insira o caminho da parte de trás da caixa"
 
 msgid "Wheel"
 msgstr "Logotipo"
@@ -887,7 +887,7 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
 msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
 
 msgid "SET PLAYER PASSWORD"
 msgstr "DEFINIR PASSWORD DO JOGADOR"
@@ -1167,7 +1167,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTER FANART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "OBTER PARTE DE TRÁS DA CAIXA"
 
 msgid "SCRAPE MAP"
 msgstr "OBTER MAPA"
@@ -1654,7 +1654,7 @@ msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
 
 msgid "RESET CUSTOMISATIONS"
-msgstr ""
+msgstr "RESTAURAR CUSTOMIZAÇÕES"
 
 msgid "APPEARENCE"
 msgstr "APARÊNCIA"
