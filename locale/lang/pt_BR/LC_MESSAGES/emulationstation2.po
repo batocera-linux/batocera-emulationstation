@@ -92,7 +92,7 @@ msgid "Cartridge"
 msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr "insira o caminho paa o cartucho"
+msgstr "insira o caminho para o cartucho"
 
 msgid "Alt BoxArt"
 msgstr "Caixa Alternativa"
@@ -2321,6 +2321,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "RESET GAMELIST CUSTOMISATIONS"
-#~ msgstr "RESTAURAR PERSONALIZAÇÕES GAMELIST"
