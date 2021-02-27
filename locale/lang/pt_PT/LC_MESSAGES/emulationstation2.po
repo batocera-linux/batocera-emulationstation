@@ -1533,7 +1533,7 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "AJUSTE DOS PIXELS"
+msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
 
 msgid "AUTO SAVE/LOAD"
 msgstr "SAVE AUTOMÁTICO/LOADING"
@@ -2318,5 +2318,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "RESET GAMELIST CUSTOMISATIONS"
-#~ msgstr "REPOR A LISTA DE JOGOS PERSONALIZADA"
