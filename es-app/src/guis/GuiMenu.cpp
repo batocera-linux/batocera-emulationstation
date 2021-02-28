@@ -464,7 +464,30 @@ void GuiMenu::openEmuELECSettings()
 		SystemConf::getInstance()->set("advmame_auto_gamepad", advmamegpenabled ? "1" : "0");
 		SystemConf::getInstance()->saveSystemConf();
 	});
-	
+
+		auto emuelec_retroarch_menu_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "RETROARCH MENU", false);
+		std::vector<std::string> ramenuoptions;
+		ramenuoptions.push_back("auto");
+		ramenuoptions.push_back("ozone");
+		ramenuoptions.push_back("xbm");
+		ramenuoptions.push_back("rgui");
+		
+		auto ramenuoptionsS = SystemConf::getInstance()->get("global.retroarch.menu_driver");
+		if (ramenuoptionsS.empty())
+		ramenuoptionsS = "auto";
+		
+		for (auto it = ramenuoptions.cbegin(); it != ramenuoptions.cend(); it++)
+		emuelec_retroarch_menu_def->add(*it, *it, ramenuoptionsS == *it);
+		
+		s->addWithLabel(_("RETROARCH MENU"), emuelec_retroarch_menu_def);
+		s->addSaveFunc([emuelec_retroarch_menu_def] {
+			if (emuelec_retroarch_menu_def->changed()) {
+				std::string selectedretroarch_menu = emuelec_retroarch_menu_def->getSelected();
+				SystemConf::getInstance()->set("global.retroarch.menu_driver", selectedretroarch_menu);
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+
 if (UIModeController::getInstance()->isUIModeFull())
 	{
         //Danger zone options
