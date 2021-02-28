@@ -131,6 +131,7 @@ namespace PlatformIds
 		{ "vic20",					VIC20 },
 		{ "c20",					VIC20 },
 		{ "ti99",					TI99 },
+		{ "pico8",					PICO8 },
 			
 		{ "model3",					MODEL3 },
 			

@@ -5,6 +5,7 @@
 #include "utils/StringUtil.h"
 #include "utils/FileSystemUtil.h"
 
+#include <set>
 #include <regex>
 #include <string>
 #include <iostream>
@@ -28,7 +29,7 @@
 
 SystemConf *SystemConf::sInstance = NULL;
 
-static std::vector<std::string> dontRemoveAutoValue
+static std::set<std::string> dontRemoveValue
 {
 	{ "audio.device" }
 };
@@ -47,6 +48,7 @@ static std::map<std::string, std::string> defaults =
 	{ "global.retroachievements.screenshot", "0" },
 	{ "global.retroachievements.username", "" },
 	{ "global.retroachievements.password", "" },
+	{ "global.netplay_public_announce", "1" },
 	{ "global.ai_service_enabled", "0" },
 };
 
@@ -166,7 +168,7 @@ bool SystemConf::saveSystemConf()
 			if (idx == 0 || (idx == 1 && (fc == ';' || fc == '#')))
 			{
 				std::string val = it.second;
-				if ((!val.empty() && val != "auto") || std::find(dontRemoveAutoValue.cbegin(), dontRemoveAutoValue.cend(), it.first) != dontRemoveAutoValue.cend())
+				if ((!val.empty() && val != "auto") || dontRemoveValue.find(it.first) != dontRemoveValue.cend())
 				{
 					auto defaultValue = defaults.find(key);
 					if (defaultValue != defaults.cend() && defaultValue->second == val)
@@ -227,6 +229,9 @@ std::string SystemConf::get(const std::string &name)
     if (confMap.count(name))
         return confMap[name];
     
+	if (defaults.count(name))
+		return defaults[name];
+
     return "";
 }
 

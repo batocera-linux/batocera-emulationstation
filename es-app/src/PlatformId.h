@@ -120,6 +120,7 @@ namespace PlatformIds
 		PALMOS,
 		DAPHNE,
 		SOLARUS,
+		PICO8,
 
 		VIC20,
 		TI99,

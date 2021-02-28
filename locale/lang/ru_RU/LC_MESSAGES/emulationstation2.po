@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 08:04+0100\n"
+"POT-Creation-Date: 2021-02-25 13:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -887,6 +887,9 @@ msgstr "НАЧАТЬ ИГРУ"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
 msgid "SET PLAYER PASSWORD"
 msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
 
@@ -1538,7 +1541,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr ""
+msgstr "ПОКАХАТЬ СОХРАНЕНИЯ"
 
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
@@ -1654,7 +1657,7 @@ msgid "FILE EXTENSIONS"
 msgstr "РАСШИРЕНИЕ ФАЙЛА"
 
 msgid "RESET CUSTOMISATIONS"
-msgstr ""
+msgstr "СБРОСИТЬ НАСТРОЙКИ"
 
 msgid "APPEARENCE"
 msgstr "ВНЕШНИЙ ВИД"

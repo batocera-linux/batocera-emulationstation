@@ -300,7 +300,10 @@ void Settings::setDefaults()
 	mBoolMap["global.retroachievements.leaderboards"] = false;
 	mBoolMap["global.retroachievements.verbose"] = false;
 	mBoolMap["global.retroachievements.screenshot"] = false;
+
+	mBoolMap["global.netplay_public_announce"] = true;
 	mBoolMap["global.netplay"] = false;
+
 	mBoolMap["kodi.enabled"] = false;
 	mBoolMap["kodi.atstartup"] = false;
 	mBoolMap["wifi.enabled"] = false;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 08:04+0100\n"
+"POT-Creation-Date: 2021-02-25 13:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -101,10 +101,10 @@ msgid "enter path to alt boxart"
 msgstr "insira o caminho da caixa alternativa"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Parte de trás da caixa"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "insira o caminho da parte de trás da caixa"
 
 msgid "Wheel"
 msgstr "Logotipo"
@@ -886,6 +886,9 @@ msgstr "INICIAR JOGO"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
 msgid "SET PLAYER PASSWORD"
 msgstr "DEFINIR PASSWORD DO JOGADOR"
 
@@ -1164,7 +1167,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTER FANART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "OBTER PARTE DE TRÁS DA CAIXA"
 
 msgid "SCRAPE MAP"
 msgstr "OBTER MAPA"
@@ -1530,7 +1533,7 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "AJUSTE DOS PIXELS"
+msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
 
 msgid "AUTO SAVE/LOAD"
 msgstr "SAVE AUTOMÁTICO/LOADING"
@@ -1651,7 +1654,7 @@ msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
 
 msgid "RESET CUSTOMISATIONS"
-msgstr ""
+msgstr "RESTAURAR CUSTOMIZAÇÕES"
 
 msgid "APPEARENCE"
 msgstr "APARÊNCIA"
@@ -2315,8 +2318,6 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "RESET GAMELIST CUSTOMISATIONS"
-#~ msgstr "REPOR A LISTA DE JOGOS PERSONALIZADA"
 
 #~ msgid "subtitle text"
 #~ msgstr "legenda"

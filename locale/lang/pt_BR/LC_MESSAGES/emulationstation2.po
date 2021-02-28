@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 18:39-0300\n"
+"POT-Creation-Date: 2021-02-26 06:50-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -92,7 +92,7 @@ msgid "Cartridge"
 msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr "insira o caminho paa o cartucho"
+msgstr "insira o caminho para o cartucho"
 
 msgid "Alt BoxArt"
 msgstr "Caixa Alternativa"
@@ -886,11 +886,14 @@ msgstr "INICIAR JOGO"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
 msgid "SET PLAYER PASSWORD"
 msgstr "DEFINIR SENHA DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr "DEFINIR SENHA DE VISUALIZADOR"
+msgstr "DEFINIR SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "PROCURAR JOGOS SEMELHANTES..."
@@ -2318,6 +2321,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "RESET GAMELIST CUSTOMISATIONS"
-#~ msgstr "RESTAURAR PERSONALIZAÇÕES GAMELIST"

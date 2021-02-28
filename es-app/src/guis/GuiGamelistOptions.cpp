@@ -4,7 +4,6 @@
 #include "views/gamelist/IGameListView.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
-#include "components/SwitchComponent.h"
 #include "CollectionSystemManager.h"
 #include "FileFilterIndex.h"
 #include "FileSorts.h"
