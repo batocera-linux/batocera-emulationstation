@@ -1344,5 +1344,5 @@ std::string FileData::getCurrentGameSetting(const std::string& settingName)
 	if (!value.empty() && value != "auto")
 		return value;
 
-	return Settings::getInstance()->getString("global." + settingName);
+	return SystemConf::getInstance()->get("global." + settingName);
 }
