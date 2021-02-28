@@ -4174,6 +4174,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		vertical_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".vertical") == "1");
 		systemConfiguration->addWithLabel(_("ENABLE VERTICAL"), vertical_enabled);
 		systemConfiguration->addSaveFunc([configName, vertical_enabled] { SystemConf::getInstance()->set(configName + ".vertical", vertical_enabled->getSelected()); });
+        
+        auto vert_aspect_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("VERTICAL ASPECT RATIO"));
+		vert_aspect_enabled->addRange({ { _("16:9") , "1" }, { _("3:2") , "7" }, { _("21:9"), "4" } }, SystemConf::getInstance()->get(configName + ".vert_aspect"));
+		systemConfiguration->addWithLabel(_("VERTICAL ASPECT RATIO"), vert_aspect_enabled);
+		systemConfiguration->addSaveFunc([configName, vert_aspect_enabled] { SystemConf::getInstance()->set(configName + ".vert_aspect", vert_aspect_enabled->getSelected()); });
 	}
 #else
 	// Shaders preset
