@@ -18,7 +18,7 @@ RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorS
 
 void RatingComponent::setValue(const std::string& value)
 {
-	float newValue = Math::clamp(Utils::String::toFloat(value), 0.0f, 1.0f);
+	float newValue = Math::clamp(0.0f, 1.0f, Utils::String::toFloat(value));
 	if (mValue == newValue)
 		return;
 
