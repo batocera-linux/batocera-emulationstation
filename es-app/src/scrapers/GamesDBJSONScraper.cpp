@@ -94,7 +94,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ GX4000, "87" },
 	{ LUTRO, "206" },
 	{ NAOMI, "56" },
-	{ NEOGEO_CD, "70" },
+	{ NEOGEO_CD, "4956" },
 	{ PCFX, "4930" },
 	{ POKEMINI, "4957" },
 	{ PRBOOM, "1" },
@@ -119,7 +119,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ TI99, "4953" },
 	{ VIC20, "4945" },
 	{ ORICATMOS, "131" },
-	{ CHANNELF, "80" },
+	{ CHANNELF, "4928" },
 	{ THOMSON_TO_MO, "141" },
 	{ SAMCOUPE, "4979" },
 	{ OPENBOR, "214" },
@@ -128,7 +128,11 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ SPECTRAVIDEO, "218" },
 	{ PALMOS, "219" },
 	{ DAPHNE, "23" },
-	{ SOLARUS, "223" }
+	{ SOLARUS, "223" },
+	{ SUPER_CASSETTE_VISION , "4966" },
+	{ ARCHIMEDES, "4944" },
+	{ ACORN_ELECTRON , "4954" },
+	{ ASTROCADE , "4968" }
 };
 
 bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
