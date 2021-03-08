@@ -177,7 +177,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			{
 				if (cursor->getType() == GAME)
 				{
-					if (SaveStateRepository::isEnabled(cursor) && cursor->getCurrentGameSetting("autosave") == "2")
+					if (SaveStateRepository::isEnabled(cursor) && 
+						(cursor->getCurrentGameSetting("autosave") == "2" || (cursor->getCurrentGameSetting("autosave") == "3" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 					{
 						mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
 						{
