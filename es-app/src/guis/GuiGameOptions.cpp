@@ -200,39 +200,42 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool isCustomCollection = (mSystem->isCollection() && game->getType() == FOLDER && CollectionSystemManager::get()->isCustomCollection(mSystem->getName()));
 	bool isAppendableToCollection = (game->getType() == GAME) && (mSystem->isGameSystem() || mSystem->isGroupSystem());
 
-	if (isCustomCollection || isAppendableToCollection)
-		mMenu.addGroup(_("COLLECTIONS"));
-
-	if (isAppendableToCollection)
+	if (UIModeController::getInstance()->isUIModeFull())
 	{
-		char trstring[1024];
+		if (isCustomCollection || isAppendableToCollection)
+			mMenu.addGroup(_("COLLECTIONS"));
 
-		snprintf(trstring, 1024, std::string(game->getFavorite() ? _("REMOVE FROM %s") : _("ADD TO %s")).c_str(), _("FAVORITES").c_str());
-		mMenu.addEntry(trstring, false, [this, game]
+		if (isAppendableToCollection)
 		{
-			CollectionSystemManager::get()->toggleGameInCollection(game, "Favorites");
-			close();
-		});
+			char trstring[1024];
 
-		for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
-		{
-			if (customCollection.second.filteredIndex != nullptr)
-				continue;
-
-			std::string collectionName = customCollection.first;
-			bool exists = CollectionSystemManager::get()->inInCustomCollection(game, collectionName);
-
-			snprintf(trstring, 1024, std::string(exists ? _("REMOVE FROM %s") : _("ADD TO %s")).c_str(), Utils::String::toUpper(collectionName).c_str());
-			mMenu.addEntry(trstring, false, [this, game, collectionName]
+			snprintf(trstring, 1024, std::string(game->getFavorite() ? _("REMOVE FROM %s") : _("ADD TO %s")).c_str(), _("FAVORITES").c_str());
+			mMenu.addEntry(trstring, false, [this, game]
 			{
-				CollectionSystemManager::get()->toggleGameInCollection(game, collectionName);
+				CollectionSystemManager::get()->toggleGameInCollection(game, "Favorites");
 				close();
 			});
+
+			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
+			{
+				if (customCollection.second.filteredIndex != nullptr)
+					continue;
+
+				std::string collectionName = customCollection.first;
+				bool exists = CollectionSystemManager::get()->inInCustomCollection(game, collectionName);
+
+				snprintf(trstring, 1024, std::string(exists ? _("REMOVE FROM %s") : _("ADD TO %s")).c_str(), Utils::String::toUpper(collectionName).c_str());
+				mMenu.addEntry(trstring, false, [this, game, collectionName]
+				{
+					CollectionSystemManager::get()->toggleGameInCollection(game, collectionName);
+					close();
+				});
+			}
 		}
+
+		if (isCustomCollection)
+			mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGameOptions::deleteCollection, this));
 	}
-	
-	if (isCustomCollection)
-		mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGameOptions::deleteCollection, this));
 
 	bool fromPlaceholder = game->isPlaceHolder();
 	if (game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
@@ -242,7 +245,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	else if (game->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 		fromPlaceholder = true;
 
-	if (!fromPlaceholder && !isCustomCollection)
+	if (!fromPlaceholder && !isCustomCollection && UIModeController::getInstance()->isUIModeFull())
 	{
 		mMenu.addGroup(_("OPTIONS"));
 		
