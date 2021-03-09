@@ -1657,33 +1657,28 @@ bool SystemData::isCheevosSupported()
 	{
 		mIsCheevosSupported = 0;
 
-		const std::set<std::string> cheevosSystems = {
-			"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem",
-			"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
-			"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame", 
-			"nds" };
-
-		// "nds" -> Disabled for now
-		// "psx" -> Missing cd reader library	
-		// "atarijaguar", "jaguar" -> No games yet
-
-		if (cheevosSystems.find(getName()) != cheevosSystems.cend())
+		if (!es_features_loaded)
 		{
-			if (!es_features_loaded)
-			{
-				mIsCheevosSupported = 1;
-				return true;
-			}
+			const std::set<std::string> cheevosSystems = {
+				"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem",
+				"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
+				"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame",
+				"nds", "arcade", "atarilynx", "megadrive-japan", "pcenginecd", "supergrafx" };
 
-			for (auto emul : mEmulators)
+			if (cheevosSystems.find(getName()) != cheevosSystems.cend())
+				mIsCheevosSupported = 1;
+
+			return mIsCheevosSupported != 0;
+		}
+
+		for (auto emul : mEmulators)
+		{
+			for (auto core : emul.cores)
 			{
-				for (auto core : emul.cores)
+				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
 				{
-					if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
-					{
-						mIsCheevosSupported = 1;
-						return true;
-					}
+					mIsCheevosSupported = 1;
+					return true;
 				}
 			}
 		}
