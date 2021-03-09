@@ -134,6 +134,8 @@ namespace PlatformIds
 		ASTROCADE,
 		ARCHIMEDES,
 		ADAM,
+		FMTOWNS,		
+		PHILIPS_CDI,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT

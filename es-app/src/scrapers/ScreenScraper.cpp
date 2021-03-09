@@ -146,7 +146,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ASTROCADE, 44 },
 	{ ARCHIMEDES, 84 },
 	{ ACORN_ELECTRON, 85 },
-	{ ADAM, 89 }
+	{ ADAM, 89 },
+	{ PHILIPS_CDI, 133 }
 };
 
 // Help XML parsing method, finding an direct child XML node starting from the parent and filtering by an attribute value list.

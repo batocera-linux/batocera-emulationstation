@@ -149,6 +149,9 @@ namespace PlatformIds
 		{ "astrocade",				ASTROCADE },
 		{ "archimedes",				ARCHIMEDES },			
 		{ "adam",					ADAM },
+
+		{ "fmtowns",				FMTOWNS },
+		{ "cdi",					PHILIPS_CDI },			
 			
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
