@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1543,6 +1543,9 @@ msgstr "AUTOMATISCH OPSLAAN/LADEN"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
 
@@ -1963,6 +1966,9 @@ msgstr "Keren gespeeld"
 
 msgid "No Entries Found"
 msgstr "Geen ingangen gevonden"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr ""

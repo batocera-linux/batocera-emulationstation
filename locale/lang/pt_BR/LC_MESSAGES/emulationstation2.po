@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-26 06:50-0300\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1544,6 +1544,9 @@ msgstr "CARREGAR/SALVAR AUTOMÁTICO"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "EXIBIR PARTIDAS SALVAS"
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
 
@@ -1967,6 +1970,9 @@ msgstr "Vezes jogados"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"

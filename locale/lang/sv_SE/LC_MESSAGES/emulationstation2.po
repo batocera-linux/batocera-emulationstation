@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1543,6 +1543,9 @@ msgstr "AUTOSPARA/LADDA"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADERS"
 
@@ -1961,6 +1964,9 @@ msgstr "Spelat antal gånger"
 
 msgid "No Entries Found"
 msgstr "Hittade ingenting"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1542,6 +1542,9 @@ msgstr "SAUV./CHARG. AUTO"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "AFFICHER LES SAUV. INSTANTANÉES"
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
 
@@ -1968,6 +1971,9 @@ msgstr "Nombre de parties"
 
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr "Jeux similaires à"
