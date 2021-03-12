@@ -19,6 +19,7 @@ TextEditComponent::TextEditComponent(Window* window) : GuiComponent(window),
 	mCursorRepeatDir(0)
 {
 	mBlinkTime = 0;
+	mDeferTextInputStart = false;
 
 	auto theme = ThemeData::getMenuTheme();
 	mBox.setImagePath(ThemeData::getMenuTheme()->Icons.textinput_ninepatch);
@@ -86,12 +87,34 @@ void TextEditComponent::textInput(const char* text)
 	onCursorChanged();
 }
 
+bool TextEditComponent::hasAnyKeyPressed()
+{
+	bool anyKeyPressed = false;
+
+	int numKeys;
+	const Uint8* keys = SDL_GetKeyboardState(&numKeys);
+	for (int i = 0; i < numKeys && !anyKeyPressed; i++)
+		anyKeyPressed |= keys[i];
+
+	return anyKeyPressed;
+}
+
 void TextEditComponent::startEditing()
 {
 	if (mEditing)
 		return;
+	
+	if (hasAnyKeyPressed())
+	{
+		// Defer if a key is pressed to avoid repeat behaviour if a TextEditComponent is opened with a keypress
+		mDeferTextInputStart = true;
+	}
+	else
+	{
+		mDeferTextInputStart = false;
+		SDL_StartTextInput();
+	}
 
-	SDL_StartTextInput();
 	mEditing = true;
 	updateHelpPrompts();
 }
@@ -103,6 +126,7 @@ void TextEditComponent::stopEditing()
 
 	SDL_StopTextInput();
 	mEditing = false;
+	mDeferTextInputStart = false;
 	updateHelpPrompts();
 }
 
@@ -203,6 +227,15 @@ bool TextEditComponent::input(InputConfig* config, Input input)
 
 void TextEditComponent::update(int deltaTime)
 {
+	if (mEditing && mDeferTextInputStart)
+	{
+		if (!hasAnyKeyPressed())
+		{
+			SDL_StartTextInput();
+			mDeferTextInputStart = false;
+		}
+	}
+
 	mBlinkTime += deltaTime;
 	if (mBlinkTime >= BLINKTIME)
 		mBlinkTime = 0;

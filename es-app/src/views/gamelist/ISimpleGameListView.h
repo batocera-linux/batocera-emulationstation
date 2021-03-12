@@ -7,6 +7,7 @@
 #include "views/gamelist/IGameListView.h"
 #include <stack>
 #include <set>
+#include "MultiStateInput.h"
 
 class ISimpleGameListView : public IGameListView
 {
@@ -27,6 +28,7 @@ public:
 	virtual int getCursorIndex() =0; // batocera
 	virtual void setCursorIndex(int index) =0; // batocera
 
+	virtual void update(int deltaTime) override;
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void launch(FileData* game) = 0;
 	
@@ -42,6 +44,7 @@ public:
 	void closePopupContext();
 	
 	void moveToRandomGame();
+	void showQuickSearch();
 
 protected:	
 	void	  updateFolderPath();
@@ -62,6 +65,9 @@ protected:
 	std::vector<GuiComponent*> mThemeExtras;
 
 	std::stack<FileData*> mCursorStack;
+
+	MultiStateInput mXButton;
+	MultiStateInput mYButton;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

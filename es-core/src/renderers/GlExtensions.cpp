@@ -1,5 +1,6 @@
 #include "GlExtensions.h"
 #include <SDL.h>
+#include "Log.h"
 
 #ifdef OPENGL_EXTENSIONS
 namespace glext
@@ -27,40 +28,71 @@ namespace glext
 	PFNGLCREATESHADERPROC glCreateShader = nullptr;
 	PFNGLACTIVETEXTUREPROC glActiveTexture_ = nullptr;
 
+	void* _glProcAddress(const char *proc)
+	{
+		void* ret = SDL_GL_GetProcAddress(proc);
+		if (ret == nullptr)
+			LOG(LogError) << "FAILED TO INITIALISE GL Extension: " << proc;
+
+		return ret;
+	}
+
 	bool initializeGlExtensions()
 	{
-		if (SDL_GL_ExtensionSupported("GL_ARB_shader_objects") &&
-			SDL_GL_ExtensionSupported("GL_ARB_shading_language_100") &&
-			SDL_GL_ExtensionSupported("GL_ARB_vertex_shader") &&
-			SDL_GL_ExtensionSupported("GL_ARB_fragment_shader"))
+		if (!SDL_GL_ExtensionSupported("GL_ARB_shader_objects"))
 		{
-			glCreateShader = (PFNGLCREATESHADERPROC)SDL_GL_GetProcAddress("glCreateShader");
-			glCompileShader = (PFNGLCOMPILESHADERPROC)SDL_GL_GetProcAddress("glCompileShader");
-			glCreateProgram = (PFNGLCREATEPROGRAMOBJECTARBPROC)SDL_GL_GetProcAddress("glCreateProgram");
-			glGenBuffers = (PFNGLGENBUFFERSPROC)SDL_GL_GetProcAddress("glGenBuffers");
-			glBindBuffer = (PFNGLBINDBUFFERPROC)SDL_GL_GetProcAddress("glBindBuffer");
-			glShaderSource = (PFNGLSHADERSOURCEPROC)SDL_GL_GetProcAddress("glShaderSource");
-			glGetShaderiv = (PFNGLGETSHADERIVPROC)SDL_GL_GetProcAddress("glGetShaderiv");
-			glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC)SDL_GL_GetProcAddress("glGetShaderInfoLog");
-			glAttachShader = (PFNGLATTACHSHADERPROC)SDL_GL_GetProcAddress("glAttachShader");
-			glLinkProgram = (PFNGLLINKPROGRAMPROC)SDL_GL_GetProcAddress("glLinkProgram");
-			glGetProgramiv = (PFNGLGETPROGRAMIVPROC)SDL_GL_GetProcAddress("glGetProgramiv");
-			glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC)SDL_GL_GetProcAddress("glGetProgramInfoLog");
-			glUseProgram = (PFNGLUSEPROGRAMPROC)SDL_GL_GetProcAddress("glUseProgram");
-			glUniform1i = (PFNGLUNIFORM1IPROC)SDL_GL_GetProcAddress("glUniform1i");
-			glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC)SDL_GL_GetProcAddress("glGetUniformLocation");
-			glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC)SDL_GL_GetProcAddress("glGetAttribLocation");
-			glBufferData = (PFNGLBUFFERDATAPROC)SDL_GL_GetProcAddress("glBufferData");
-			glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC)SDL_GL_GetProcAddress("glVertexAttribPointer");
-			glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC)SDL_GL_GetProcAddress("glEnableVertexAttribArray");
-			glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC)SDL_GL_GetProcAddress("glDisableVertexAttribArray");
-			glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)SDL_GL_GetProcAddress("glUniformMatrix4fv");
-			glActiveTexture_ = (PFNGLACTIVETEXTUREPROC)SDL_GL_GetProcAddress("glActiveTexture");
-
-			return glCreateShader != nullptr;
+			LOG(LogError) << "GL Extensions not supported. GL_ARB_shader_objects";
+			return false;
 		}
 
-		return false;
+		if (!SDL_GL_ExtensionSupported("GL_ARB_shading_language_100"))
+		{
+			LOG(LogError) << "GL Extensions not supported. GL_ARB_shading_language_100";
+			return false;
+		}
+
+		if (!SDL_GL_ExtensionSupported("GL_ARB_vertex_shader"))
+		{
+			LOG(LogError) << "GL Extensions not supported. GL_ARB_vertex_shader";
+			return false;
+		}
+
+		if (!SDL_GL_ExtensionSupported("GL_ARB_fragment_shader"))
+		{
+			LOG(LogError) << "GL Extensions not supported. GL_ARB_fragment_shader";
+			return false;
+		}
+
+		glCreateShader = (PFNGLCREATESHADERPROC)_glProcAddress("glCreateShader");
+		glCompileShader = (PFNGLCOMPILESHADERPROC)_glProcAddress("glCompileShader");
+		glCreateProgram = (PFNGLCREATEPROGRAMOBJECTARBPROC)_glProcAddress("glCreateProgram");
+		glGenBuffers = (PFNGLGENBUFFERSPROC)_glProcAddress("glGenBuffers");
+		glBindBuffer = (PFNGLBINDBUFFERPROC)_glProcAddress("glBindBuffer");
+		glShaderSource = (PFNGLSHADERSOURCEPROC)_glProcAddress("glShaderSource");
+		glGetShaderiv = (PFNGLGETSHADERIVPROC)_glProcAddress("glGetShaderiv");
+		glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC)_glProcAddress("glGetShaderInfoLog");
+		glAttachShader = (PFNGLATTACHSHADERPROC)_glProcAddress("glAttachShader");
+		glLinkProgram = (PFNGLLINKPROGRAMPROC)_glProcAddress("glLinkProgram");
+		glGetProgramiv = (PFNGLGETPROGRAMIVPROC)_glProcAddress("glGetProgramiv");
+		glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC)_glProcAddress("glGetProgramInfoLog");
+		glUseProgram = (PFNGLUSEPROGRAMPROC)_glProcAddress("glUseProgram");
+		glUniform1i = (PFNGLUNIFORM1IPROC)_glProcAddress("glUniform1i");
+		glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC)_glProcAddress("glGetUniformLocation");
+		glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC)_glProcAddress("glGetAttribLocation");
+		glBufferData = (PFNGLBUFFERDATAPROC)_glProcAddress("glBufferData");
+		glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC)_glProcAddress("glVertexAttribPointer");
+		glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC)_glProcAddress("glEnableVertexAttribArray");
+		glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC)_glProcAddress("glDisableVertexAttribArray");
+		glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)_glProcAddress("glUniformMatrix4fv");
+		glActiveTexture_ = (PFNGLACTIVETEXTUREPROC)_glProcAddress("glActiveTexture");
+
+		return 
+			glCreateShader != nullptr && glCompileShader != nullptr && glCreateProgram != nullptr && glGenBuffers != nullptr && 
+			glBindBuffer != nullptr && glGetShaderiv != nullptr && glGetShaderInfoLog != nullptr && glAttachShader != nullptr &&
+			glLinkProgram != nullptr && glGetProgramiv != nullptr && glGetProgramInfoLog != nullptr && glUseProgram != nullptr &&
+			glUniform1i != nullptr && glGetUniformLocation != nullptr && glGetAttribLocation != nullptr && glBufferData != nullptr &&
+			glVertexAttribPointer != nullptr && glBufferData != nullptr && glVertexAttribPointer != nullptr && glEnableVertexAttribArray != nullptr &&
+			glDisableVertexAttribArray != nullptr && glUniformMatrix4fv != nullptr && glActiveTexture_ != nullptr;
 	}
 }
 #endif

@@ -32,11 +32,7 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-#if defined(USE_OPENGLES_20)
 	#define SHADER_VERSION_STRING "#version 100\n"
-#elif defined(USE_OPENGL_21)
-	#define SHADER_VERSION_STRING "#version 130\n"
-#endif
 
 	static void setupShaders()
 	{
@@ -101,7 +97,9 @@ namespace Renderer
 		const GLchar* fragmentSourceTexture =
 			SHADER_VERSION_STRING
 			"precision highp float;       \n"
+#if defined(USE_OPENGLES_20)
 			"precision mediump sampler2D; \n"
+#endif
 			"varying   vec4      v_col; \n"
 			"varying   vec2      v_tex; \n"
 			"uniform   sampler2D u_tex; \n"
@@ -199,6 +197,8 @@ namespace Renderer
 	void setupWindow()
 	{
 #if OPENGL_EXTENSIONS
+		SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
+
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 #else
@@ -228,11 +228,14 @@ namespace Renderer
 		const std::string renderer   = glGetString(GL_RENDERER)   ? (const char*)glGetString(GL_RENDERER)   : "";
 		const std::string version    = glGetString(GL_VERSION)    ? (const char*)glGetString(GL_VERSION)    : "";
 		const std::string extensions = glGetString(GL_EXTENSIONS) ? (const char*)glGetString(GL_EXTENSIONS) : "";
-
+		const std::string shaders    = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
+		
 		LOG(LogInfo) << "GL vendor:   " << vendor;
 		LOG(LogInfo) << "GL renderer: " << renderer;
 		LOG(LogInfo) << "GL version:  " << version;
-		LOG(LogInfo) << "Checking available OpenGL extensions...";
+		LOG(LogInfo) << "GL shading:  " << shaders;
+		LOG(LogInfo) << "GL exts:     " << extensions;
+
 		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (extensions.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 
 #if OPENGL_EXTENSIONS
