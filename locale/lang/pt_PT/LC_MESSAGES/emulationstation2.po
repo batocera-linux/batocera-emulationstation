@@ -1542,7 +1542,7 @@ msgid "SHOW SAVE SNAPSHOTS"
 msgstr "MOSTRAR PARTIDAS GUARDADAS"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "MOSTRAR PARTIDAS SE NÃO ESTIVER VAZIO"
 
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
@@ -1970,7 +1970,7 @@ msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORITO"
 
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
