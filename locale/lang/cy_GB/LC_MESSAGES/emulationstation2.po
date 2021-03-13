@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1547,6 +1547,9 @@ msgstr "AWTO ARBED / LLWYTH"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SET CYSGODYDD"
 
@@ -1984,6 +1987,9 @@ msgstr "Nifer o weithiau chwaraewyd"
 
 msgid "No Entries Found"
 msgstr "Ni ddarganfuwyd unrhyw gofnodion"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr "Gemau tebyg i"

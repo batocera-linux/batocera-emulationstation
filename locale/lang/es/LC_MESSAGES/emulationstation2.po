@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -471,7 +471,7 @@ msgid "VIEW DETAILS"
 msgstr "VER DETALLES"
 
 msgid "LAUNCH"
-msgstr "LANZAR"
+msgstr "INICIAR"
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -963,10 +963,10 @@ msgid "SLOT"
 msgstr "RANURA"
 
 msgid "START NEW GAME"
-msgstr "INICIAR NUEVA PARTIDA"
+msgstr "NUEVA PARTIDA"
 
 msgid "START AUTO SAVE"
-msgstr "INICIAR AUTO GUARDADO"
+msgstr "NUEVO AUTOGUARDADO"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LIBRE"
@@ -981,7 +981,7 @@ msgid "All Games"
 msgstr "Todos los juegos"
 
 msgid "Only missing medias"
-msgstr "Sólo contenido faltante"
+msgstr "Solo contenido faltante"
 
 msgid "FILTER"
 msgstr "FILTRO"
@@ -1284,7 +1284,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "GUARDAR METADATOS AL SALIR"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr "CONVERTIR ÚNICAMENTE LISTAS DE JUEGOS"
+msgstr "ANALIZAR SOLO LISTAS DE JUEGOS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
@@ -1326,7 +1326,7 @@ msgid "PRELOAD UI"
 msgstr "PRECARGAR LA INTERFAZ"
 
 msgid "THREADED LOADING"
-msgstr "ACTUALIZACIÓN DE HILOS"
+msgstr "ACELERAR CARGA DEL SISTEMA"
 
 msgid "ASYNC IMAGES LOADING"
 msgstr "CARGA DE IMÁGENES ASÍNCRONAS"
@@ -1542,6 +1542,9 @@ msgstr "INICIAR JUEGO EN PUNTO DE AUTOGUARDADO"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "ELEGIR MANUALMENTE"
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
 
@@ -1585,7 +1588,7 @@ msgid ""
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"VAS A CONFIGURAR UN MANDO NUEVO, SI SÓLO TIENES UN JOYSTICK CONFIGURA SUS "
+"VAS A CONFIGURAR UN MANDO NUEVO, SI SOLO TIENES UN JOYSTICK CONFIGURA SUS "
 "DIRECCIONES COMO SI FUERA UNA CRUCETA E IGNORA LA CONFIGURACIÓN DE LOS "
 "JOYSTICKS MANTENIENDO PULSADO UN BOTÓN. \n"
 "SI NO TIENES UN BOTÓN ESPECIAL PARA USARLO COMO HOTKEY, UTILIZA SELECT. "
@@ -1678,7 +1681,7 @@ msgid "TRANSITION STYLE"
 msgstr "ESTILO DE TRANSICIÓN"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "TRANSICIÓN AL LANZAR JUEGO"
+msgstr "TRANSICIÓN AL INICIAR JUEGO"
 
 msgid "SHOW CLOCK"
 msgstr "MOSTRAR RELOJ"
@@ -1720,7 +1723,7 @@ msgid "HOW MANY SECONDS FOR SONG TITLES"
 msgstr "TIEMPO EN PANTALLA DEL TÍTULO DE CANCIONES"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "SÓLO REPRODUCIR LA MÚSICA ESPECÍFICA DE CADA SISTEMA"
+msgstr "SOLO REPRODUCIR LA MÚSICA ESPECÍFICA DE CADA SISTEMA"
 
 msgid "PLAY THEME MUSICS"
 msgstr "REPRODUCIR MÚSICA DEL TEMA"
@@ -1969,6 +1972,9 @@ msgstr "Veces jugado"
 
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr "Juegos similares a"

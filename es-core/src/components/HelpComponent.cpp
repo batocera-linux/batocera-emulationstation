@@ -69,6 +69,15 @@ void HelpComponent::updateGrid()
 	std::vector< std::shared_ptr<ImageComponent> > icons;
 	std::vector< std::shared_ptr<TextComponent> > labels;
 
+	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
+	if (Settings::getInstance()->getBool("DrawClock"))
+	{
+		TextComponent fakeClock(mWindow, "--00:00-", font, mStyle.textColor);
+		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
+	}
+
+	bool is43screen = Renderer::getScreenProportion() < 1.4;
+
 	float width = 0;
 	const float height = Math::round(font->getLetterHeight() * 1.25f);
 	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
@@ -83,13 +92,26 @@ void HelpComponent::updateGrid()
 			icon->setImage(getIconTexture(label.c_str()));
 
 		icon->setColorShift(mStyle.iconColor);
-		icon->setResize(0, height);
-		icons.push_back(icon);
+		icon->setResize(0, height);		
 
-		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(it->second), font, mStyle.textColor);
-		labels.push_back(lbl);
+		std::string text = Utils::String::toUpper(it->second);
+		
+		if (is43screen)
+		{
+			// Remove splitted help for 4:3 screens
+			auto split = text.find(" /");
+			if (split != std::string::npos)
+				text = text.substr(0, split);
+		}
 
+		auto lbl = std::make_shared<TextComponent>(mWindow, text, font, mStyle.textColor);
+		
 		width += icon->getSize().x() + lbl->getSize().x() + ICON_TEXT_SPACING + ENTRY_SPACING;
+		if (width >= maxWidth)
+			break;
+
+		icons.push_back(icon);
+		labels.push_back(lbl);
 	}
 
 	mGrid->setSize(width, height);

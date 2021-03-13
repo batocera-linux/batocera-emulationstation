@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -888,7 +888,7 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
 
 msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
+msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
 msgid "SET PLAYER PASSWORD"
 msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
@@ -1543,6 +1543,9 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "ПОКАХАТЬ СОХРАНЕНИЯ"
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
 
@@ -1868,7 +1871,7 @@ msgid "ZOOM-"
 msgstr "МАСШТАБ-"
 
 msgid "ZOOM+"
-msgstr "МАСШТАБ-"
+msgstr "МАСШТАБ+"
 
 msgid "MOVE"
 msgstr "ДВИГАТЬ"
@@ -1970,6 +1973,9 @@ msgstr "Сыграно раз"
 
 msgid "No Entries Found"
 msgstr "Игр не найдено"
+
+msgid "FAVORITE"
+msgstr ""
 
 msgid "Games similar to"
 msgstr "Игры похожие на"

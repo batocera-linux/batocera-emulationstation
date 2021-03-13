@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1541,6 +1541,9 @@ msgstr "AUTO MENTÉS/TÖLTÉS"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "SHADER VÁLASZTÁS"
 
@@ -1960,6 +1963,9 @@ msgid "Times played"
 msgstr "Játszott idő"
 
 msgid "No Entries Found"
+msgstr ""
+
+msgid "FAVORITE"
 msgstr ""
 
 msgid "Games similar to"

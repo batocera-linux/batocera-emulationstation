@@ -28,7 +28,7 @@ const int logoBuffersRight[] = { 1, 2, 5 };
 
 SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP),
 										 mViewNeedsReload(true),
-										 mSystemInfo(window, _("SYSTEM INFO"), Font::get(FONT_SIZE_SMALL), 0x33333300, ALIGN_CENTER)
+										 mSystemInfo(window, _("SYSTEM INFO"), Font::get(FONT_SIZE_SMALL), 0x33333300, ALIGN_CENTER), mYButton("y")
 {
 	mCamOffset = 0;
 	mExtrasCamOffset = 0;
@@ -344,8 +344,42 @@ int SystemView::moveCursorFast(bool forward)
 	return cursor;
 }
 
+void SystemView::showQuickSearch()
+{
+	SystemData* all = SystemData::getSystem("all");
+	if (all != nullptr)
+	{
+		auto updateVal = [this, all](const std::string& newVal)
+		{
+			auto index = all->getIndex(true);
+
+			index->resetFilters();
+			index->setTextFilter(newVal);
+
+			ViewController::get()->reloadGameListView(all);
+			ViewController::get()->goToGameList(all, false);
+		};
+
+		if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("QUICK SEARCH"), "", updateVal, false));
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("QUICK SEARCH"), "", updateVal, false));
+	}
+}
+
 bool SystemView::input(InputConfig* config, Input input)
 {
+	if (mYButton.isShortPressed(config, input))
+	{
+		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
+		if (netPlay)
+			setCursor(SystemData::getRandomSystem());
+		else
+			showQuickSearch();
+
+		return true;
+	}
+
 	if(input.value != 0)
 	{	
 		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
@@ -358,32 +392,13 @@ bool SystemView::input(InputConfig* config, Input input)
 
 			return true;
 		}
-
+		/*
 		if (config->isMappedTo("y", input))
 		{	
-			SystemData* all = SystemData::getSystem("all");
-			if (all != nullptr)
-			{
-				auto updateVal = [this, all](const std::string& newVal)
-				{
-					auto index = all->getIndex(true);
-
-					index->resetFilters();
-					index->setTextFilter(newVal);
-
-					ViewController::get()->reloadGameListView(all);
-					ViewController::get()->goToGameList(all, false);
-				};
-
-				if (Settings::getInstance()->getBool("UseOSK"))
-					mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("QUICK SEARCH"), "", updateVal, false));
-				else
-					mWindow->pushGui(new GuiTextEditPopup(mWindow, _("QUICK SEARCH"), "", updateVal, false));			
-			}
-
+			showQuickSearch();
 			return true;
 		}
-
+		*/
 		if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_r && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
 		{
 			LOG(LogInfo) << " Reloading all";
@@ -506,7 +521,7 @@ bool SystemView::input(InputConfig* config, Input input)
 				return true;
 			}
 		}
-
+		
 		if (config->isMappedTo("x", input))
 		{
 			// get random system
@@ -514,7 +529,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			setCursor(SystemData::getRandomSystem());
 			return true;
 		}
-
+		
 		// batocera
 		if(config->isMappedTo("select", input))
 		{
@@ -610,7 +625,7 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 }
 
 void SystemView::update(int deltaTime)
-{		
+{
 	for(auto sb : mStaticBackgrounds)
 		sb->update(deltaTime);
 
@@ -630,8 +645,10 @@ void SystemView::update(int deltaTime)
 	}
 	
 	GuiComponent::update(deltaTime);
-}
 
+	if (mYButton.isLongPressed(deltaTime))
+		showQuickSearch();
+}
 
 void SystemView::updateExtraTextBinding()
 {
@@ -955,13 +972,19 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 
-	if (SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay"))
-		prompts.push_back(HelpPrompt("x", _("NETPLAY")));
-	else
-		prompts.push_back(HelpPrompt("x", _("RANDOM")));
+	bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
 
-	if (SystemData::getSystem("all") != nullptr)
-		prompts.push_back(HelpPrompt("y", _("QUICK SEARCH")));
+	if (netPlay)
+	{
+		prompts.push_back(HelpPrompt("x", _("NETPLAY")));
+		prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH"))); // QUICK 
+	}
+	else
+	{
+		prompts.push_back(HelpPrompt("x", _("RANDOM")));	
+		if (SystemData::getSystem("all") != nullptr)
+			prompts.push_back(HelpPrompt("y", _("SEARCH"))); // QUICK 
+	}
 
 	// batocera
 #ifdef _ENABLE_FILEMANAGER_

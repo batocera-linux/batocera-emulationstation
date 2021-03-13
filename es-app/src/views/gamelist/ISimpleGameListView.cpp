@@ -21,49 +21,9 @@
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
 
-#ifdef _ENABLEEMUELEC
-constexpr auto BUTTON_HOLD_TIME = 1000; // ms
-
-
-auto MultiFunctionButton::input(bool isPressed) -> Action
-{
-	const auto wasPressed = mIsPressed;
-	mIsPressed = isPressed;
-
-	if (isPressed && !wasPressed)
-	{
-		mTimeHoldingButton = 0;
-		mLongPressHasFired = false;
-	}
-	else if (!isPressed && wasPressed)
-	{
-		if (!mLongPressHasFired)
-		{
-			return Action::shortPress;
-		}
-	}
-
-	return Action::none;
-}
-
-auto MultiFunctionButton::update(int deltaTime) -> Action
-{
-	if (mIsPressed && !mLongPressHasFired)
-	{
-		mTimeHoldingButton += deltaTime;
-		if (mTimeHoldingButton >= BUTTON_HOLD_TIME)
-		{
-			mLongPressHasFired = true;
-			return Action::longPress;
-		}
-	}
-
-	return Action::none;
-}
-#endif
-
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
-	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr)
+	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
+	mYButton("y"), mXButton("x")
 {
 	mHeaderText.setText("Logo Text");
 	mHeaderText.setSize(mSize.x(), 0);
@@ -166,35 +126,39 @@ FolderData*		ISimpleGameListView::getCurrentFolder()
 	return nullptr;
 }
 
-#ifdef _ENABLEEMUELEC
 void ISimpleGameListView::update(const int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+	
+	if (mYButton.isLongPressed(deltaTime))
+		showQuickSearch();
 
-	const auto action = mFavOrRandomButton.update(deltaTime);
-	if (action == MultiFunctionButton::Action::longPress)
+	if (mXButton.isLongPressed(deltaTime) && !UIModeController::getInstance()->isUIModeKid())
 	{
-		if (auto cursor = getCursor())
-		{
-			CollectionSystemManager::get()->toggleGameInCollection(cursor, "Favorites");
-		}
+		if (mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem())
+			CollectionSystemManager::get()->toggleGameInCollection(getCursor(), "Favorites");
 	}
 }
-#endif
 
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
-#ifdef _ENABLEEMUELEC
-		if (config->isMappedTo("x", input))
+	if (mYButton.isShortPressed(config, input))
+	{
+		moveToRandomGame();
+		return true;
+	}
+
+	if (mXButton.isShortPressed(config, input))
+	{
+		FileData* cursor = getCursor();
+		if (cursor != nullptr)
 		{
-			const auto action = mFavOrRandomButton.input(input.value != 0);
-			if (action == MultiFunctionButton::Action::shortPress)
-			{
-				moveToRandomGame();
-				return true;
-			}
+			Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+			mWindow->pushGui(new GuiGameOptions(mWindow, cursor));
 		}
-#endif
+
+		return true;
+	}	
 
 	if (input.value != 0)
 	{
@@ -246,7 +210,8 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			{
 				if (cursor->getType() == GAME)
 				{
-					if (SaveStateRepository::isEnabled(cursor) && cursor->getCurrentGameSetting("autosave") == "2")
+					if (SaveStateRepository::isEnabled(cursor) && 
+						(cursor->getCurrentGameSetting("autosave") == "2" || (cursor->getCurrentGameSetting("autosave") == "3" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 					{
 						mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
 						{
@@ -327,8 +292,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				return true;
 			}
 		}
-#ifdef _ENABLEEMUELEC
-		else if (config->isMappedTo("y", input))
+		/*else if (config->isMappedTo("x", input))
 		{
 			FileData* cursor = getCursor();
 			if (cursor != nullptr) // && !cursor->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
@@ -340,44 +304,47 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 			return true;
 		}
-#else
-        else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
+		
+		else if (config->isMappedTo("y", input) && !UIModeController::getInstance()->isUIModeKid() && !mPopupSelfReference)
 		{
 		//	moveToRandomGame();
 		//	return true;
-
-			std::string searchText;
-
-			auto idx = mRoot->getSystem()->getIndex(false);
-			if (idx != nullptr)
-				searchText = idx->getTextFilter();
-
-			auto updateVal = [this](const std::string& newVal)
-			{
-				auto index = mRoot->getSystem()->getIndex(!newVal.empty());
-				if (index != nullptr)
-				{
-					index->setTextFilter(newVal);
-					if (!index->isFiltered())
-						mRoot->getSystem()->deleteIndex();
-				}
-
-				if (mRoot->getSystem()->isCollection())
-					CollectionSystemManager::get()->reloadCollection(mRoot->getSystem()->getName());
-				else
-					ViewController::get()->reloadGameListView(mRoot->getSystem());
-			};
-
-			if (Settings::getInstance()->getBool("UseOSK"))
-				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
-			else
-				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
-				
+			
+			showQuickSearch();
 			return true;			
-		}
-#endif
+		}*/
 	}
 	return IGameListView::input(config, input);
+}
+
+void ISimpleGameListView::showQuickSearch()
+{
+	std::string searchText;
+
+	auto idx = mRoot->getSystem()->getIndex(false);
+	if (idx != nullptr)
+		searchText = idx->getTextFilter();
+
+	auto updateVal = [this](const std::string& newVal)
+	{
+		auto index = mRoot->getSystem()->getIndex(!newVal.empty());
+		if (index != nullptr)
+		{
+			index->setTextFilter(newVal);
+			if (!index->isFiltered())
+				mRoot->getSystem()->deleteIndex();
+		}
+
+		if (mRoot->getSystem()->isCollection())
+			CollectionSystemManager::get()->reloadCollection(mRoot->getSystem()->getName());
+		else
+			ViewController::get()->reloadGameListView(mRoot->getSystem());
+	};
+
+	if (Settings::getInstance()->getBool("UseOSK"))
+		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
+	else
+		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("FILTER GAMES BY TEXT"), searchText, updateVal, false));
 }
 
 void ISimpleGameListView::moveToRandomGame()

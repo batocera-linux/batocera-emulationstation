@@ -7,27 +7,7 @@
 #include "views/gamelist/IGameListView.h"
 #include <stack>
 #include <set>
-
-#ifdef _ENABLEEMUELEC
-class MultiFunctionButton
-{
-public:
-	enum class Action
-	{
-		none,
-		shortPress,
-		longPress
-	};
-
-	Action input(bool isPressed);
-	Action update(int deltaTime);
-
-private:
-	int mTimeHoldingButton = 0;
-	bool mIsPressed = false;
-	bool mLongPressHasFired = false;
-};
-#endif
+#include "MultiStateInput.h"
 
 class ISimpleGameListView : public IGameListView
 {
@@ -48,10 +28,7 @@ public:
 	virtual int getCursorIndex() =0; // batocera
 	virtual void setCursorIndex(int index) =0; // batocera
 
-#ifdef _ENABLEEMUELEC
 	virtual void update(int deltaTime) override;
-#endif
-
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void launch(FileData* game) = 0;
 	
@@ -67,6 +44,7 @@ public:
 	void closePopupContext();
 	
 	void moveToRandomGame();
+	void showQuickSearch();
 
 protected:	
 	void	  updateFolderPath();
@@ -87,9 +65,9 @@ protected:
 	std::vector<GuiComponent*> mThemeExtras;
 
 	std::stack<FileData*> mCursorStack;
-#ifdef _ENABLEEMUELEC
-	MultiFunctionButton mFavOrRandomButton;
-#endif
+
+	MultiStateInput mXButton;
+	MultiStateInput mYButton;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

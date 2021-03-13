@@ -131,12 +131,29 @@ namespace PlatformIds
 		{ "vic20",					VIC20 },
 		{ "c20",					VIC20 },
 		{ "ti99",					TI99 },
+		{ "ti99_4a",				TI99 },
 		{ "pico8",					PICO8 },
-			
+		{ "sgb",					SUPER_GAME_BOY },
+
 		{ "model3",					MODEL3 },
 			
 		{ "imageviewer",			IMAGEVIEWER },
+			
+		{ "scv",					SUPER_CASSETTE_VISION },
+		{ "easyrpg",				EASYRPG },			
+		{ "pet",					COMMODORE_PET },
+		{ "cpet",					COMMODORE_PET },
+		{ "atom",					ACORN_ATOM },
+		{ "bbcmicro",				ACORN_BBC_MICRO },
+		{ "electron",				ACORN_ELECTRON },
+		{ "ngage",					NOKIA_NGAGE },
+		{ "astrocade",				ASTROCADE },
+		{ "archimedes",				ARCHIMEDES },			
+		{ "adam",					ADAM },
 
+		{ "fmtowns",				FMTOWNS },
+		{ "cdi",					PHILIPS_CDI },			
+			
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};

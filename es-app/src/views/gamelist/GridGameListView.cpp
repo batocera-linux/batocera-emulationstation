@@ -360,29 +360,14 @@ std::vector<HelpPrompt> GridGameListView::getHelpPrompts()
 
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS")));
-#ifndef _ENABLEEMUELEC	
-    prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt("y", _("SEARCH")));
-#else
-	prompts.push_back(HelpPrompt("y", _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt("x", _("RANDOM/FAVORITE")));
-#endif
-	/*
-	FileData* cursor = getCursor();
-	if (cursor != nullptr && cursor->isNetplaySupported())
-		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
+
+	if (UIModeController::getInstance()->isUIModeKid())
+		prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
 	else
-		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
+		prompts.push_back(HelpPrompt("x", _("GAME OPTIONS") + std::string(" / ") + _("FAVORITE")));
 
-	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
-	{
-		std::string prompt = CollectionSystemManager::get()->getEditingCollection();
+	prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH")));
 
-		if (Utils::String::toLower(prompt) == "favorites")
-			prompts.push_back(HelpPrompt("y", _("Favorites")));
-		else
-			prompts.push_back(HelpPrompt("y", prompt));
-	}*/
 	return prompts;
 }
 

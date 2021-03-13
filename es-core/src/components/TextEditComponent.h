@@ -37,6 +37,7 @@ public:
 	void startEditing(); // batocera
 	void stopEditing(); // batocera
 private:
+	bool hasAnyKeyPressed();
 
 	void onTextChanged();
 	void onCursorChanged();
@@ -64,6 +65,7 @@ private:
 	std::unique_ptr<TextCache> mTextCache;
 
 	int mBlinkTime;
+	bool mDeferTextInputStart;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_EDIT_COMPONENT_H

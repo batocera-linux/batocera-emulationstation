@@ -8,6 +8,7 @@
 #include "GuiComponent.h"
 #include <memory>
 #include <functional>
+#include "MultiStateInput.h"
 
 class AnimatedImageComponent;
 class SystemData;
@@ -81,6 +82,7 @@ protected:
 private:
 	void	 loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
 	void	 updateExtraTextBinding();
+	void	 showQuickSearch();
 
 	void	 preloadExtraNeighbours(int cursor);
 	void	 setExtraRequired(int cursor, bool required);
@@ -123,6 +125,8 @@ private:
 	bool mScreensaverActive;
 
 	int mLastCursor;	
+
+	MultiStateInput mYButton;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

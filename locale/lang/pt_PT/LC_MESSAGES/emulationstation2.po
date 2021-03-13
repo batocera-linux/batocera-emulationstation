@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 13:24+0100\n"
+"POT-Creation-Date: 2021-03-12 07:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1541,6 +1541,9 @@ msgstr "SAVE AUTOMÁTICO/LOADING"
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "MOSTRAR PARTIDAS GUARDADAS"
 
+msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgstr ""
+
 msgid "SHADERS SET"
 msgstr "FILTROS DE IMAGEM"
 
@@ -1966,6 +1969,9 @@ msgstr "Vezes jogadas"
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
+msgid "FAVORITE"
+msgstr ""
+
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
@@ -2317,54 +2323,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-
-#~ msgid "subtitle text"
-#~ msgstr "legenda"
-
-#~ msgid "search"
-#~ msgstr "procurar"
-
-#~ msgid "STOP"
-#~ msgstr "PARE"
-
-#~ msgid "stop (progress saved)"
-#~ msgstr "pare (progresso guardado)"
-
-#~ msgid "GAME %i OF %i"
-#~ msgstr "JOGO %i DE %i"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-#~ msgstr ""
-#~ "NÃO ENCONTRAMOS QUALQUER SISTEMAS!\n"
-#~ "VERIFIQUE SE OS CAMINHOS ESTÃO CORRETOS NO ARQUIVO DE CONFIGURAÇÃO DE "
-#~ "SISTEMAS, E O DIRETÓRIO DO JOGO TEM PELO MENOS UM JOGO COM A EXTENSÃO "
-#~ "CORRETA."
-
-#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
-#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-#~ msgstr[0] "%i CAPA OBTIDA COM SUCESSO!"
-#~ msgstr[1] "%i CAPAS OBTIDAS COM SUCESSO!"
-
-#~ msgid "%i GAME SKIPPED."
-#~ msgid_plural "%i GAMES SKIPPED."
-#~ msgstr[0] "%i JOGO IGNORADO."
-#~ msgstr[1] "%i JOGOS IGNORADOS."
-
-#~ msgid "AUTOMATIC SCRAPER"
-#~ msgstr "PROCURAR CAPAS AUTOMÁTICAMENTE"
-
-#~ msgid "REALLY SCRAPE?"
-#~ msgstr "DESEJA INICIAR?"
-
-#~ msgid "MANUAL SCRAPER"
-#~ msgstr "PROCURAR CAPAS MANUALMENTE"
-
-#~ msgid "Favorites"
-#~ msgstr "Favoritos"
-
-#~ msgid "AN ERROR HAS OCCURED"
-#~ msgstr "OCORREU UM ERRO"

@@ -48,7 +48,7 @@ void MetaDataList::initMetadata()
 		// Non scrappable /editable medias
 		{ Cartridge,        "cartridge",   MD_PATH,                "",                 true,      _("Cartridge"),            _("enter path to cartridge"),  true },
 		{ BoxArt,			"boxart",	   MD_PATH,                "",                 true,      _("Alt BoxArt"),		      _("enter path to alt boxart"), true },
-		{ BoxBack,			"boxback",	   MD_PATH,                "",                 true,      _("Box backside"),		  _("enter path to box background"), true },
+		{ BoxBack,			"boxback",	   MD_PATH,                "",                 false,      _("Box backside"),		  _("enter path to box background"), true },
 		{ Wheel,			"wheel",	   MD_PATH,                "",                 true,      _("Wheel"),		          _("enter path to wheel"),      true },
 		{ Mix,			    "mix",	       MD_PATH,                "",                 true,      _("Mix"),                  _("enter path to mix"),		 true },
 		

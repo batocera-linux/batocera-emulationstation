@@ -248,7 +248,7 @@ std::string queryIPAdress()
 			inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
 			
 			std::string ifName = ifa->ifa_name;
-			if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos)
+			if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos)
 			{
 				result = std::string(addressBuffer);
 				break;
@@ -271,7 +271,7 @@ std::string queryIPAdress()
 				inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
 
 				std::string ifName = ifa->ifa_name;
-				if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos)
+				if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos)
 				{
 					result = std::string(addressBuffer);
 					break;

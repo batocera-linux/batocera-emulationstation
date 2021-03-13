@@ -362,7 +362,7 @@ namespace Renderer
 		if (screenHeight == 0)
 			return 1.0;
 
-		return screenWidth / screenHeight;
+		return (float) screenWidth / (float) screenHeight;
 	}
 
 	bool        isSmallScreen()    
