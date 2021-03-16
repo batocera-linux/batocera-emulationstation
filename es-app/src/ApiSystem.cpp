@@ -1435,7 +1435,6 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 
 std::vector<std::string> ApiSystem::getTimezones()
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getTimezones";
@@ -1448,7 +1447,7 @@ std::vector<std::string> ApiSystem::getTimezones()
 			for (auto file : Utils::FileSystem::getDirContent(continent, false))
 			{
 				std::string short_continent = continent.substr(continent.find_last_of('/') + 1, -1);
-				if (short_continent != "posix" and short_continent != "right")
+				if (short_continent != "posix" && short_continent != "right")
 				{
 					auto tz = Utils::FileSystem::getFileName(file);
 					if (std::find(ret.cbegin(), ret.cend(), tz) == ret.cend())
