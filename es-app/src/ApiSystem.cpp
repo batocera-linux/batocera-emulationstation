@@ -1433,3 +1433,38 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 	return ret;
 }
 
+std::vector<std::string> ApiSystem::getTimezones()
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+	std::vector<std::string> ret;
+
+	LOG(LogDebug) << "ApiSystem::getTimezones";
+
+	std::vector<std::string> folderList = { "/usr/share/zoneinfo/" };
+	for (auto folder : folderList)
+	{
+		for (auto continent : Utils::FileSystem::getDirContent(folder, false))
+		{
+			for (auto file : Utils::FileSystem::getDirContent(continent, false))
+			{
+				std::string short_continent = continent.substr(continent.find_last_of('/') + 1, -1);
+				if (short_continent != "posix" and short_continent != "right")
+				{
+					auto tz = Utils::FileSystem::getFileName(file);
+					if (std::find(ret.cbegin(), ret.cend(), tz) == ret.cend())
+						  ret.push_back(short_continent + "/" + tz);
+				}
+			}
+		}
+	}
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}
+
+bool ApiSystem::setTimezone(std::string tz)
+{
+	if (tz.empty())
+		return false;
+	return executeScript("batocera-config tz " + tz);
+}
+

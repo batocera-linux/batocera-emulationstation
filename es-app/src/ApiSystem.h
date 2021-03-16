@@ -194,6 +194,8 @@ public:
 	virtual std::vector<std::string> getShaderList(const std::string systemName = "");
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
+	virtual std::vector<std::string> getTimezones();
+	virtual bool setTimezone(std::string tz);
 
 protected:
 	ApiSystem();
