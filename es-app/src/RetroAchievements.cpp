@@ -361,6 +361,10 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 
 	info.userpic = "https://retroachievements.org" + ret.UserPic;
 	info.rank = ret.Rank;
+
+	if (!ret.TotalRanked.empty())
+		info.rank = ret.Rank + " / " + ret.TotalRanked;
+
 	info.points = ret.TotalPoints;
 	info.totalpoints = ret.TotalTruePoints;
 	info.username = ret.Username;
