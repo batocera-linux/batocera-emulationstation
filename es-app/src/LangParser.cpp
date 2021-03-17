@@ -54,7 +54,7 @@ void LangInfo::extractLang(std::string val)
 
 		{ { "jp", "japan", "ja", "j" }, "jp", "jp" },
 
-		{ { "br", "brazil", "b" }, "br", "br" },
+		{ { "br", "brazil" }, "br", "br" },
 		{ { "ru", "r" }, "ru", "ru" },
 		{ { "kr", "korea", "k" }, "kr", "kr" },
 		{ { "cn", "china", "hong", "kong", "ch", "hk", "as", "tw" }, "cn", "cn" },
