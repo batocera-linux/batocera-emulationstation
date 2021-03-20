@@ -316,7 +316,6 @@ void SystemData::createGroupedSystems()
 			}
 			else if (item.second.size() > 0)
 			{
-
 				SystemData* syss = *item.second.cbegin();
 				md.manufacturer = syss->getSystemMetadata().manufacturer;
 				md.releaseYear = syss->getSystemMetadata().releaseYear;
@@ -1111,7 +1110,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	}
 
 	//validate
-	if (md.name.empty() || path.empty() || extensions.empty() || cmd.empty())
+	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty()))
 	{
 		LOG(LogError) << "System \"" << md.name << "\" is missing name, path, extension, or command!";
 		return nullptr;
