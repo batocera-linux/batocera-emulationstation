@@ -1114,7 +1114,7 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			continue;
 
 		// if item is portable relative to homepath
-		gameKey = Utils::FileSystem::resolveRelativePath(gameKey, relativeTo, true);
+		gameKey = Utils::FileSystem::resolveRelativePath(Utils::String::trim(gameKey), relativeTo, true);
 
 		std::unordered_map<std::string, FileData*>::const_iterator it = pMap->find(gameKey);
 		if (it != pMap->cend())
