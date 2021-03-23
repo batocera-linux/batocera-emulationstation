@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1375,6 +1375,15 @@ msgstr "النظام"
 msgid "LANGUAGE"
 msgstr "اللغة"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr ""
+
+msgid "TIMEZONE"
+msgstr ""
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr ""
+
 msgid "POWER SAVER MODES"
 msgstr "أوضاع حفظ الطاقة"
 
@@ -2099,6 +2108,18 @@ msgstr "وقت اللعب , تصاعدي"
 
 msgid "GAME TIME, DESCENDING"
 msgstr "وقت اللعب , تنازلي"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
 
 msgid "Extracting"
 msgstr "استخراج"

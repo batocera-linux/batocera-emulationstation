@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1364,6 +1364,15 @@ msgstr "SYSTEM"
 msgid "LANGUAGE"
 msgstr "SPRÅK"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr ""
+
+msgid "TIMEZONE"
+msgstr ""
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr ""
+
 msgid "POWER SAVER MODES"
 msgstr ""
 
@@ -2068,6 +2077,18 @@ msgid "GAME TIME, ASCENDING"
 msgstr ""
 
 msgid "GAME TIME, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
 msgid "Extracting"
