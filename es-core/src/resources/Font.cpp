@@ -729,8 +729,9 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
-	int maxTab = 0;
-	
+	std::map<int, int> tabStops;
+	int tabIndex = 0;
+
 	if (alignment == ALIGN_LEFT && text.find("\t") != std::string::npos)
 	{
 		for (auto line : Utils::String::split(text, '\n', true))
@@ -738,6 +739,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 			if (line.find("\t") == std::string::npos)
 				continue;
 
+			tabIndex = 0;
 			int curTab = 0;
 			int xpos = x;
 
@@ -750,8 +752,14 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 				if (character == '\t')
 				{
+					auto it = tabStops.find(tabIndex);
+					if (it != tabStops.cend())
+						it->second = Math::max(it->second, xpos);
+					else
+						tabStops[tabIndex] = xpos;
+
 					curTab = xpos;
-					break;
+					tabIndex++;
 				}
 
 				auto glyph = getGlyph(character);
@@ -760,11 +768,10 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 				xpos += glyph->advance.x();
 			}
-
-			maxTab = Math::max(maxTab, curTab);
 		}
 	}
 
+	tabIndex = 0;
 	size_t cursor = 0;
 	while(cursor < text.length())
 	{
@@ -780,6 +787,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 		if(character == '\n')
 		{
+			tabIndex = 0;
 			y += getHeight(lineSpacing);
 			x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, (const unsigned int)cursor /* cursor is already advanced */, xLen, alignment) : 0);
 			continue;
@@ -787,13 +795,16 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 		if (character == '\t')
 		{
-			if (maxTab > 0)
+			auto it = tabStops.find(tabIndex);
+			if (it != tabStops.cend())
 			{
-				x = maxTab + Renderer::getScreenWidth() * 0.01f;
+				x = it->second + Renderer::getScreenWidth() * 0.01f;
+				tabIndex++;
 				continue;
 			}
-			else
-				character = ' ';
+
+			character = ' ';
+			tabIndex++;
 		}
 
 		glyph = getGlyph(character);

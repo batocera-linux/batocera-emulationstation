@@ -316,7 +316,6 @@ void SystemData::createGroupedSystems()
 			}
 			else if (item.second.size() > 0)
 			{
-
 				SystemData* syss = *item.second.cbegin();
 				md.manufacturer = syss->getSystemMetadata().manufacturer;
 				md.releaseYear = syss->getSystemMetadata().releaseYear;
@@ -1111,7 +1110,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	}
 
 	//validate
-	if (md.name.empty() || path.empty() || extensions.empty() || cmd.empty())
+	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty()))
 	{
 		LOG(LogError) << "System \"" << md.name << "\" is missing name, path, extension, or command!";
 		return nullptr;
@@ -1953,6 +1952,14 @@ void SystemData::resetSettings()
 		sys->mShowFilenames.reset();
 }
 
+SaveStateRepository* SystemData::getSaveStateRepository()
+{
+	if (mSaveRepository == nullptr)
+		mSaveRepository = new SaveStateRepository(this);
+
+	return mSaveRepository;
+}
+
 bool SystemData::getShowFilenames()
 {
 	if (mShowFilenames == nullptr)
@@ -1967,10 +1974,45 @@ bool SystemData::getShowFilenames()
 	return *mShowFilenames;
 }
 
-SaveStateRepository* SystemData::getSaveStateRepository()
+bool SystemData::getShowParentFolder()
 {
-	if (mSaveRepository == nullptr)
-		mSaveRepository = new SaveStateRepository(this);
+	bool show = Settings::getInstance()->getBool("ShowParentFolder");
+	
+	auto spf = Settings::getInstance()->getString(getName() + ".ShowParentFolder");
+	if (spf == "1")
+		return true;
+	else if (spf == "0") 
+		return false;
 
-	return mSaveRepository;
+	return show;
 }
+
+bool SystemData::getShowFavoritesFirst()
+{
+	if (!getShowFavoritesIcon())
+		return false;
+
+	bool show = Settings::getInstance()->getBool("FavoritesFirst");
+	
+	auto spf = Settings::getInstance()->getString(getName() + ".FavoritesFirst");
+	if (spf == "1")
+		return true;
+	else if (spf == "0")
+		return false;
+
+	return show;
+}
+
+bool SystemData::getShowFavoritesIcon()
+{
+	return getName() != "favorites" && getName() != "recent";
+}
+
+bool SystemData::getShowCheevosIcon()
+{
+	if (getName() != "retroachievements" && SystemConf::getInstance()->getBool("global.retroachievements"))
+		return isCollection() || isCheevosSupported();
+
+	return false;
+}
+
