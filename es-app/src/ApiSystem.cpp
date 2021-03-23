@@ -338,7 +338,7 @@ bool ApiSystem::launchKodi(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchKodi";
 
 	std::string commandline = InputManager::getInstance()->configureEmulators();
-	std::string command = "python /usr/lib/python3.9/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
+	std::string command = "batocera-kodi " + commandline;
 
 	ApiSystem::launchExternalWindow_before(window);
 
