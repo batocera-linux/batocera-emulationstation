@@ -275,10 +275,6 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	{
 		if (Settings::getInstance()->setBool("CollectionShowSystemInfo", toggleSystemNameInCollections->getState()))
 		{
-			for (auto sys : SystemData::sSystemVector)
-				for (auto file : sys->getRootFolder()->getFilesRecursive(GAME, false))
-					file->refreshMetadata();
-
 			SystemData::resetSettings();
 			FileData::resetSettings();
 			setVariable("reloadAll", true);

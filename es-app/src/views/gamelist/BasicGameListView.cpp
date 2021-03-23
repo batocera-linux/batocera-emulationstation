@@ -9,6 +9,7 @@
 #include "SystemConf.h"
 #include "FileData.h"
 #include "LocaleES.h"
+#include "GameNameFormatter.h"
 
 BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root), mList(window)
@@ -67,79 +68,33 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 	if (files.size() > 0)
 	{
-		bool showParentFolder = Settings::getInstance()->getBool("ShowParentFolder");
-		auto spf = Settings::getInstance()->getString(mRoot->getSystem()->getName() + ".ShowParentFolder");
-		if (spf == "1") showParentFolder = true;
-		else if (spf == "0") showParentFolder = false;
-
+		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
 		{
 			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
 			mList.add(". .", placeholder, true);
 		}
 
-		std::string systemName = mRoot->getSystem()->getName();
+		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
-		
-		auto fav = Settings::getInstance()->getString(mRoot->getSystem()->getName() + ".FavoritesFirst");
-		if (fav == "1") favoritesFirst = true;
-		else if (fav == "0") favoritesFirst = false;
-		
-		bool showCheevosIcon = (systemName != "retroachievements" && SystemConf::getInstance()->getBool("global.retroachievements"));
-		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
-		if (!showFavoriteIcon)
-			favoritesFirst = false;
-
-#define CHEEVOSICON _U("  \uF091")
-
+		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
 		if (favoritesFirst)
-		{
+		{			
 			for (auto file : files)
 			{
 				if (!file->getFavorite())
 					continue;
-				
-				if (showFavoriteIcon)
-				{
-					if (showCheevosIcon && file->hasCheevos())
-						mList.add(_U("\uF006 ") + file->getName() + CHEEVOSICON, file, file->getType() == FOLDER);
-					else
-						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
-				}
-				else if (file->getType() == FOLDER)
-					mList.add(_U("\uF07C ") + file->getName(), file, true);
-				else if (showCheevosIcon && file->hasCheevos())
-					mList.add(file->getName() + CHEEVOSICON, file, false);
-				else 
-					mList.add(file->getName(), file, false);
+						
+				mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
 			}
 		}
 
 		for (auto file : files)		
 		{
-			if (file->getFavorite())
-			{
-				if (favoritesFirst)
-					continue;
-
-				if (showFavoriteIcon)
-				{
-					if (showCheevosIcon && file->hasCheevos())
-						mList.add(_U("\uF006 ") + file->getName() + CHEEVOSICON, file, file->getType() == FOLDER);
-					else
-						mList.add(_U("\uF006 ") + file->getName(), file, file->getType() == FOLDER);
-
-					continue;
-				}
-			}
-
-			if (file->getType() == FOLDER)
-				mList.add(_U("\uF07C ") + file->getName(), file, true);
-			else if (showCheevosIcon && file->hasCheevos())
-				mList.add(file->getName() + CHEEVOSICON, file, false); //  + _U(" \uF05A")
-			else
-				mList.add(file->getName(), file, false); //  + _U(" \uF05A")
+			if (favoritesFirst && file->getFavorite())
+				continue;
+				
+			mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
 		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder

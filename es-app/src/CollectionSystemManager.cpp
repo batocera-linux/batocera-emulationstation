@@ -388,7 +388,6 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	{
 		// remove from index, so we can re-index metadata after refreshing
 		curSys->removeFromIndex(collectionEntry);
-		collectionEntry->refreshMetadata();
 
 		// found and we are removing
 		if (name == "favorites" && !file->getFavorite())
