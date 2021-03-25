@@ -388,27 +388,33 @@ void GuiGameOptions::openMetaDataEd()
 
 	std::function<void()> deleteBtnFunc = nullptr;
 
-	SystemData* system = file->getSystem();
-	if (system->isGroupChildSystem())
-		system = system->getParentGroupSystem();
-
 	if (file->getType() == GAME)
 	{
-		deleteBtnFunc = [file, system]
-		{
-			CollectionSystemManager::get()->deleteCollectionFiles(file);
-			file->deleteGameFiles();
+		auto sourceFile = file->getSourceFileData();
 
-			auto view = ViewController::get()->getGameListView(system, false);
+		deleteBtnFunc = [sourceFile]
+		{
+			auto sys = sourceFile->getSystem();
+			if (sys->isGroupChildSystem())
+				sys = sys->getParentGroupSystem();
+
+			CollectionSystemManager::get()->deleteCollectionFiles(sourceFile);
+			sourceFile->deleteGameFiles();
+
+			auto view = ViewController::get()->getGameListView(sys, false);
 			if (view != nullptr)
-				view.get()->remove(file);
+				view.get()->remove(sourceFile);
 			else
 			{
-				system->getRootFolder()->removeFromVirtualFolders(file);
-				delete file;
+				sys->getRootFolder()->removeFromVirtualFolders(sourceFile);
+				delete sourceFile;
 			}
 		};
 	}
+
+	SystemData* system = file->getSystem();
+	if (system->isGroupChildSystem())
+		system = system->getParentGroupSystem();
 
 	mWindow->pushGui(new GuiMetaDataEd(mWindow, &file->getMetadata(), file->getMetadata().getMDD(), p, Utils::FileSystem::getFileName(file->getPath()),
 		std::bind(&IGameListView::onFileChanged, ViewController::get()->getGameListView(system).get(), file, FILE_METADATA_CHANGED), deleteBtnFunc, file));
