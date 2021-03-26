@@ -188,7 +188,7 @@ msgid "Last played"
 msgstr "Ultima partita"
 
 msgid "enter last played date"
-msgstr "inserisci la data dell'utlima partita"
+msgstr "inserisci la data dell'ultima partita"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -794,10 +794,10 @@ msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULA IL CURSORE DEL MOUSE"
 
 msgid "LEFT ANALOG STICK"
-msgstr "LEVA ANALOGICA SINISTRA"
+msgstr "ANALOGICO SINISTRO"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "LEVA ANALOGICA DESTRA"
+msgstr "ANALOGICO DESTRO"
 
 msgid "EDIT DESCRIPTION"
 msgstr "MODIFICA DESCRIZIONE"
@@ -1368,13 +1368,13 @@ msgid "LANGUAGE"
 msgstr "LINGUA"
 
 msgid "SELECT YOUR TIMEZONE"
-msgstr ""
+msgstr "SCEGLI IL FUSO ORARIO"
 
 msgid "TIMEZONE"
-msgstr ""
+msgstr "FUSO ORARIO"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr ""
+msgstr "OROLOGIO - FORMATO 12-ORE"
 
 msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
@@ -2097,16 +2097,16 @@ msgid "GAME TIME, DESCENDING"
 msgstr "TEMPO DI GIOCO, DISCENDENTE"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, ANNO DI RILASCIO, ASCENDENTE"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, ANNO DI RILASCIO, DISCENDENTE"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "ANNO DI RILASCIO, SISTEMA, ASCENDENTE"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "ANNO DI RILASCIO, SISTEMA, DISCENDENTE"
 
 msgid "Extracting"
 msgstr "Estrazione"
@@ -2195,28 +2195,28 @@ msgid "RIGHT"
 msgstr "DESTRA"
 
 msgid "LEFT ANALOG UP"
-msgstr "LEVA ANALOGICA SINISTRA - SU"
+msgstr "ANALOGICO SINISTRO - SU"
 
 msgid "LEFT ANALOG DOWN"
-msgstr "LEVA ANALOGICA SINISTRA - GIÙ"
+msgstr "ANALOGICO SINISTRO- GIÙ"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "LEVA ANALOGICA SINISTRA - SINISTRA"
+msgstr "ANALOGICO SINISTRO - SINISTRA"
 
 msgid "LEFT ANALOG RIGHT"
-msgstr "LEVA ANALOGICA SINISTRA - DESTRA"
+msgstr "ANALOGICO SINISTRO - DESTRA"
 
 msgid "RIGHT ANALOG UP"
-msgstr "LEVA ANALOGICA DESTRA - SU"
+msgstr "ANALOGICO DESTRO - SU"
 
 msgid "RIGHT ANALOG DOWN"
-msgstr "LEVA ANALOGICA DESTRA - GIÙ"
+msgstr "ANALOGICO DESTRO - GIÙ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "LEVA ANALOGICA DESTRA - SINISTRA"
+msgstr "ANALOGICO DESTRO - SINISTRA"
 
 msgid "RIGHT ANALOG RIGHT"
-msgstr "LEVA ANALOGICA DESTRA - DESTRA"
+msgstr "ANALOGICO DESTRO - DESTRA"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"

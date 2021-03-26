@@ -125,10 +125,10 @@ msgid "enter rating"
 msgstr "Bewertung eingeben"
 
 msgid "Release date"
-msgstr "Veröffentlichungsdatum"
+msgstr "Erscheinungsdatum"
 
 msgid "enter release date"
-msgstr "Veröffentlichungsdatum eingeben"
+msgstr "Erscheinungsdatum eingeben"
 
 msgid "Developer"
 msgstr "Entwickler"
@@ -1369,13 +1369,13 @@ msgid "LANGUAGE"
 msgstr "SPRACHE"
 
 msgid "SELECT YOUR TIMEZONE"
-msgstr ""
+msgstr "ZEITZONE AUSWÄHLEN"
 
 msgid "TIMEZONE"
-msgstr ""
+msgstr "ZEITZONE"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr ""
+msgstr "UHR IM 12-STUNDEN-FORMAT ANZEIGEN"
 
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
@@ -1556,7 +1556,7 @@ msgid "SHOW SAVE SNAPSHOTS"
 msgstr "SPEICHERSTÄNDE ANZEIGEN"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "SPEICHERSTÄNDE ANZEIGEN WENN NICHT LEER"
 
 msgid "SHADERS SET"
 msgstr "SHADER"
@@ -1987,7 +1987,7 @@ msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORIT"
 
 msgid "Games similar to"
 msgstr "Spiele ähnlich zu"
@@ -2060,10 +2060,10 @@ msgid "NUMBER PLAYERS, DESCENDING"
 msgstr "ANZAHL SPIELER, ABSTEIGEND"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "VERÖFFENTLICHUNGSDATUM, AUFSTEIGEND"
+msgstr "ERSCHEINUNGSDATUM, AUFSTEIGEND"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "VERÖFFENTLICHUNGSDATUM, ABSTEIGEND"
+msgstr "ERSCHEINUNGSDATUM, ABSTEIGEND"
 
 msgid "GENRE, ASCENDING"
 msgstr "GENRE, AUFSTEIGEND"
@@ -2102,16 +2102,16 @@ msgid "GAME TIME, DESCENDING"
 msgstr "SPIELZEIT, ABSTEIGEND"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "SYSTEM, ERSCHEIUNGSJAHR, AUFSTEIGEND"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "SYSTEM, ERSCHEINUNGSJAHR, ABSTEIGEND"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "ERSCHEINUNGSJAHR, SYSTEM, AUFSTEIGEND"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "ERSCHEINUNGSJAHR, SYSTEM, ABSTEIGEND"
 
 msgid "Extracting"
 msgstr "Extrahiere"
