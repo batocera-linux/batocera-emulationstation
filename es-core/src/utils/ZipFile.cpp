@@ -124,6 +124,7 @@ namespace Utils
 		ZipFile::ZipFile()
 		{
 			mZipFile = nullptr;			
+			mUtfTableBuilt = false;
 		}
 
 		ZipFile::~ZipFile()
@@ -219,6 +220,8 @@ namespace Utils
 					mUtfTo437Names[zi.filename] = file_stat.m_filename;
 			}
 
+			mUtfTableBuilt = true;
+
 			return ret;
 		}
 
@@ -264,7 +267,7 @@ namespace Utils
 
 		std::string ZipFile::getInternalFilename(const std::string& fileName)
 		{
-			if (mUtfTo437Names.size() == 0 && !fileName.empty())
+			if (!mUtfTableBuilt && !fileName.empty())
 				infolist();
 
 			auto it = mUtfTo437Names.find(fileName);

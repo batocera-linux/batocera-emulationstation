@@ -608,20 +608,30 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 
 				if (func != nullptr)
 					func(_("Extracting") + " " + bezelsystem+ " bezels");
+				
+				auto shouldProcessFile = [subFolder](const std::string name)
+				{
+					std::string ext = Utils::FileSystem::getExtension(name);
+					if (ext != ".cfg" && ext != ".png")
+						return false;
 
-				unzipFile(zipFile, tmp);
+					if (!subFolder.empty() && Utils::FileSystem::getGenericPath(name).find(subFolder.c_str()) == std::string::npos)
+						return false;
+
+					if (subFolder.empty() && name.find("/overlay/GameBezels/") == std::string::npos)
+						return false;
+
+					return true;
+				};				
+
+				unzipFile(zipFile, tmp, shouldProcessFile);
+
 				Utils::FileSystem::removeFile(zipFile);
 
 				auto files = Utils::FileSystem::getDirContent(tmp, true, true);
 				for (auto file : files)
 				{
-					std::string ext = Utils::FileSystem::getExtension(file);
-					if (ext != ".cfg" && ext != ".png")
-						continue;
-
-					if (!subFolder.empty() && Utils::FileSystem::getGenericPath(file).find(subFolder.c_str()) == std::string::npos)
-						continue;
-					else if (subFolder.empty() && file.find("/overlay/GameBezels/") == std::string::npos)
+					if (!shouldProcessFile(file))
 						continue;
 					
 					std::string dest = theBezelProject + "/" + Utils::FileSystem::getFileName(file);
