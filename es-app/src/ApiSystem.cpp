@@ -858,7 +858,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	return Utils::FileSystem::getFileCrc32(fileName);
 }
 
-bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
+bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder, const std::function<bool(const std::string)>& shouldExtract)
 {
 	LOG(LogDebug) << "unzipFile >> " << fileName << " to " << destFolder;
 
@@ -879,6 +879,9 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 					Utils::FileSystem::createDirectory(Utils::FileSystem::combine(destFolder, name.substr(0, name.length() - 1)));
 					continue;
 				}
+
+				if (shouldExtract != nullptr && !shouldExtract(Utils::FileSystem::combine(destFolder, name)))
+					continue;
 
 				file.extract(name, destFolder);
 			}

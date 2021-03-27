@@ -41,6 +41,7 @@ namespace Utils
 			std::string getInternalFilename(const std::string& fileName);
 
 			std::map<std::string, std::string> mUtfTo437Names;
+			bool mUtfTableBuilt;
 			void* mZipFile;
 
 		}; // DateTime
