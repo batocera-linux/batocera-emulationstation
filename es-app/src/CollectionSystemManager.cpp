@@ -388,7 +388,6 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	{
 		// remove from index, so we can re-index metadata after refreshing
 		curSys->removeFromIndex(collectionEntry);
-		collectionEntry->refreshMetadata();
 
 		// found and we are removing
 		if (name == "favorites" && !file->getFavorite())
@@ -1118,7 +1117,7 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			continue;
 
 		// if item is portable relative to homepath
-		gameKey = Utils::FileSystem::resolveRelativePath(gameKey, relativeTo, true);
+		gameKey = Utils::FileSystem::resolveRelativePath(Utils::String::trim(gameKey), relativeTo, true);
 
 		std::unordered_map<std::string, FileData*>::const_iterator it = pMap->find(gameKey);
 		if (it != pMap->cend())

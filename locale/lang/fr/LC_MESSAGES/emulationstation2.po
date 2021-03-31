@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1367,6 +1367,15 @@ msgstr "SYSTÈME"
 msgid "LANGUAGE"
 msgstr "LANGUE"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr ""
+
+msgid "TIMEZONE"
+msgstr ""
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr ""
+
 msgid "POWER SAVER MODES"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
 
@@ -1543,7 +1552,7 @@ msgid "SHOW SAVE SNAPSHOTS"
 msgstr "AFFICHER LES SAUV. INSTANTANÉES"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "AFFICHE SAUV. INSTANTANÉES SI NON VIDE"
 
 msgid "SHADERS SET"
 msgstr "FILTRES VIDÉO"
@@ -1973,7 +1982,7 @@ msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORIS"
 
 msgid "Games similar to"
 msgstr "Jeux similaires à"
@@ -2086,6 +2095,18 @@ msgstr "TEMPS DE JEU, CROISSANT"
 
 msgid "GAME TIME, DESCENDING"
 msgstr "TEMPS DE JEU, DÉCROISSANT"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
 
 msgid "Extracting"
 msgstr "Extraction"
@@ -2330,58 +2351,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "RESET GAMELIST CUSTOMISATIONS"
-#~ msgstr "RAZ PERSONNALISATION DES LISTES DE JEUX"
-
-#~ msgid "SCRAPING IN PROGRESS"
-#~ msgstr "SCRAPE EN COURS"
-
-#~ msgid "subtitle text"
-#~ msgstr "sous-titre"
-
-#~ msgid "search"
-#~ msgstr "rechercher"
-
-#~ msgid "STOP"
-#~ msgstr "ARRÊTER"
-
-#~ msgid "stop (progress saved)"
-#~ msgstr "stop (avancement sauvegardé)"
-
-#~ msgid "GAME %i OF %i"
-#~ msgstr "JEU %i DE %i"
-
-#~ msgid ""
-#~ "WE CAN'T FIND ANY SYSTEMS!\n"
-#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
-#~ msgstr ""
-#~ "AUCUN SYSTÈME TROUVÉ !\n"
-#~ "VÉRIFIEZ QUE VOS CHEMINS SONT CORRECTS DANS LA CONFIGURATION SYSTÈME, ET "
-#~ "QUE VOTRE DOSSIER JEUX CONTIENT AU MOINS UN JEU AVEC L'EXTENSION CORRECTE."
-
-#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
-#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
-#~ msgstr[0] "%i JEU SCRAPÉ"
-#~ msgstr[1] "%i JEUX SCRAPÉS"
-
-#~ msgid "%i GAME SKIPPED."
-#~ msgid_plural "%i GAMES SKIPPED."
-#~ msgstr[0] "%i JEU PASSÉ"
-#~ msgstr[1] "%i JEUX PASSÉS"
-
-#~ msgid "AUTOMATIC SCRAPER"
-#~ msgstr "SCRAPE AUTOMATIQUE"
-
-#~ msgid "REALLY SCRAPE?"
-#~ msgstr "VOULEZ-VOUS VRAIMENT SCRAPER ?"
-
-#~ msgid "MANUAL SCRAPER"
-#~ msgstr "SCRAPE MANUEL"
-
-#~ msgid "Favorites"
-#~ msgstr "Favoris"
-
-#~ msgid "AN ERROR HAS OCCURED"
-#~ msgstr "UNE ERREUR S'EST PRODUITE"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -125,10 +125,10 @@ msgid "enter rating"
 msgstr "Bewertung eingeben"
 
 msgid "Release date"
-msgstr "Veröffentlichungsdatum"
+msgstr "Erscheinungsdatum"
 
 msgid "enter release date"
-msgstr "Veröffentlichungsdatum eingeben"
+msgstr "Erscheinungsdatum eingeben"
 
 msgid "Developer"
 msgstr "Entwickler"
@@ -1368,6 +1368,15 @@ msgstr "SYSTEM"
 msgid "LANGUAGE"
 msgstr "SPRACHE"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr "ZEITZONE AUSWÄHLEN"
+
+msgid "TIMEZONE"
+msgstr "ZEITZONE"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "UHR IM 12-STUNDEN-FORMAT ANZEIGEN"
+
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
 
@@ -1547,7 +1556,7 @@ msgid "SHOW SAVE SNAPSHOTS"
 msgstr "SPEICHERSTÄNDE ANZEIGEN"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "SPEICHERSTÄNDE ANZEIGEN WENN NICHT LEER"
 
 msgid "SHADERS SET"
 msgstr "SHADER"
@@ -1978,7 +1987,7 @@ msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORIT"
 
 msgid "Games similar to"
 msgstr "Spiele ähnlich zu"
@@ -2051,10 +2060,10 @@ msgid "NUMBER PLAYERS, DESCENDING"
 msgstr "ANZAHL SPIELER, ABSTEIGEND"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "VERÖFFENTLICHUNGSDATUM, AUFSTEIGEND"
+msgstr "ERSCHEINUNGSDATUM, AUFSTEIGEND"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "VERÖFFENTLICHUNGSDATUM, ABSTEIGEND"
+msgstr "ERSCHEINUNGSDATUM, ABSTEIGEND"
 
 msgid "GENRE, ASCENDING"
 msgstr "GENRE, AUFSTEIGEND"
@@ -2091,6 +2100,18 @@ msgstr "SPIELZEIT, AUFSTEIGEND"
 
 msgid "GAME TIME, DESCENDING"
 msgstr "SPIELZEIT, ABSTEIGEND"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SYSTEM, ERSCHEIUNGSJAHR, AUFSTEIGEND"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SYSTEM, ERSCHEINUNGSJAHR, ABSTEIGEND"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "ERSCHEINUNGSJAHR, SYSTEM, AUFSTEIGEND"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "ERSCHEINUNGSJAHR, SYSTEM, ABSTEIGEND"
 
 msgid "Extracting"
 msgstr "Extrahiere"

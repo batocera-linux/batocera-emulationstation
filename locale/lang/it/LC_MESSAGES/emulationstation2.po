@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -188,7 +188,7 @@ msgid "Last played"
 msgstr "Ultima partita"
 
 msgid "enter last played date"
-msgstr "inserisci la data dell'utlima partita"
+msgstr "inserisci la data dell'ultima partita"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -794,10 +794,10 @@ msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULA IL CURSORE DEL MOUSE"
 
 msgid "LEFT ANALOG STICK"
-msgstr "LEVA ANALOGICA SINISTRA"
+msgstr "ANALOGICO SINISTRO"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "LEVA ANALOGICA DESTRA"
+msgstr "ANALOGICO DESTRO"
 
 msgid "EDIT DESCRIPTION"
 msgstr "MODIFICA DESCRIZIONE"
@@ -1367,6 +1367,15 @@ msgstr "SISTEMA"
 msgid "LANGUAGE"
 msgstr "LINGUA"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr "SCEGLI IL FUSO ORARIO"
+
+msgid "TIMEZONE"
+msgstr "FUSO ORARIO"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "OROLOGIO - FORMATO 12-ORE"
+
 msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
 
@@ -1498,7 +1507,7 @@ msgid "FIND ALL GAMES"
 msgstr "TROVA TUTTI I GIOCHI"
 
 msgid "FIND NEW GAMES"
-msgstr "TROVA NUOVIO GIOCHI"
+msgstr "TROVA NUOVI GIOCHI"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr "IMPOSSIBILE ATTIVARE I RETROACHIEVEMENTS :"
@@ -1543,7 +1552,7 @@ msgid "SHOW SAVE SNAPSHOTS"
 msgstr "MOSTRA SALVATAGGI ISTANTANEI"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "MOSTRA SALVATAGGI ISTANTANEI SE DISPONIBILI"
 
 msgid "SHADERS SET"
 msgstr "SET DI SHADERS"
@@ -1555,19 +1564,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTENDI CORNICI (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
-msgstr "TRADUZIONE GIOCO AI"
+msgstr "TRADUZIONE GIOCO IA"
 
 msgid "ENABLE AI SERVICE"
-msgstr "ABILITA SERVIZIO AI"
+msgstr "ABILITA SERVIZIO TRADUZIONE IA"
 
 msgid "TARGET LANGUAGE"
-msgstr "LINGUA TARGET"
+msgstr "LINGUA DI DESTINAZIONE"
 
 msgid "SERVICE URL"
 msgstr "URL SERVIZIO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "PAUSA SULLO SCHERMO TRADOTTO"
+msgstr "PAUSA SULLA SCHERMATA TRADOTTA"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
@@ -1973,7 +1982,7 @@ msgid "No Entries Found"
 msgstr "Nessun Elemento Trovato"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "PREFERITO"
 
 msgid "Games similar to"
 msgstr "Giochi simili a"
@@ -2087,6 +2096,18 @@ msgstr "TEMPO DI GIOCO, ASCENDENTE"
 msgid "GAME TIME, DESCENDING"
 msgstr "TEMPO DI GIOCO, DISCENDENTE"
 
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SISTEMA, ANNO DI RILASCIO, ASCENDENTE"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SISTEMA, ANNO DI RILASCIO, DISCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "ANNO DI RILASCIO, SISTEMA, ASCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "ANNO DI RILASCIO, SISTEMA, DISCENDENTE"
+
 msgid "Extracting"
 msgstr "Estrazione"
 
@@ -2174,28 +2195,28 @@ msgid "RIGHT"
 msgstr "DESTRA"
 
 msgid "LEFT ANALOG UP"
-msgstr "LEVA ANALOGICA SINISTRA - SU"
+msgstr "ANALOGICO SINISTRO - SU"
 
 msgid "LEFT ANALOG DOWN"
-msgstr "LEVA ANALOGICA SINISTRA - GIÙ"
+msgstr "ANALOGICO SINISTRO- GIÙ"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "LEVA ANALOGICA SINISTRA - SINISTRA"
+msgstr "ANALOGICO SINISTRO - SINISTRA"
 
 msgid "LEFT ANALOG RIGHT"
-msgstr "LEVA ANALOGICA SINISTRA - DESTRA"
+msgstr "ANALOGICO SINISTRO - DESTRA"
 
 msgid "RIGHT ANALOG UP"
-msgstr "LEVA ANALOGICA DESTRA - SU"
+msgstr "ANALOGICO DESTRO - SU"
 
 msgid "RIGHT ANALOG DOWN"
-msgstr "LEVA ANALOGICA DESTRA - GIÙ"
+msgstr "ANALOGICO DESTRO - GIÙ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "LEVA ANALOGICA DESTRA - SINISTRA"
+msgstr "ANALOGICO DESTRO - SINISTRA"
 
 msgid "RIGHT ANALOG RIGHT"
-msgstr "LEVA ANALOGICA DESTRA - DESTRA"
+msgstr "ANALOGICO DESTRO - DESTRA"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"

@@ -167,7 +167,7 @@ public:
 	virtual std::string getCRC32(const std::string fileName, bool fromZipContents = true);
 	virtual std::string getMD5(const std::string fileName, bool fromZipContents = true);
 
-	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "");
+	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "", const std::function<bool(const std::string)>& shouldExtract = nullptr);
 
 	virtual int getPdfPageCount(const std::string fileName);
 	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1, bool bestQuality = false);
@@ -195,6 +195,8 @@ public:
 	virtual std::vector<std::string> getShaderList(const std::string systemName = "");
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
+	virtual std::vector<std::string> getTimezones();
+	virtual bool setTimezone(std::string tz);
 
 protected:
 	ApiSystem();

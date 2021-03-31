@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -944,7 +944,7 @@ msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
 
 msgid "Unlocked on"
-msgstr "Desbloqueado en"
+msgstr "Desbloqueado el"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
 msgstr "AÚN NO TIENES LOGROS EN ESTE JUEGO"
@@ -1367,6 +1367,15 @@ msgstr "SISTEMA"
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
+msgid "SELECT YOUR TIMEZONE"
+msgstr "SELECCIONA TU ZONA HORARIA"
+
+msgid "TIMEZONE"
+msgstr "ZONA HORARIA"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "MOSTRAR RELOJ EN FORMATO 12 HORAS"
+
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGÍA"
 
@@ -1537,13 +1546,13 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PÍXELES PERFECTOS)"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "INICIAR JUEGO EN PUNTO DE AUTOGUARDADO"
+msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
 
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "ELEGIR MANUALMENTE"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "MOSTRAR SI HAY PARTIDAS GUARDADAS"
 
 msgid "SHADERS SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
@@ -1974,7 +1983,7 @@ msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORITO"
 
 msgid "Games similar to"
 msgstr "Juegos similares a"
@@ -2087,6 +2096,18 @@ msgstr "TIEMPO JUGADO, ASCENDENTE"
 
 msgid "GAME TIME, DESCENDING"
 msgstr "TIEMPO JUGADO, DESCENDENTE"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SISTEMA, AÑO DE LANZAMIENTO, ASCENDENTE"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SISTEMA, AÑO DE LANZAMIENTO, DESCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "AÑO DE LANZAMIENTO, SISTEMA, ASCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "AÑO DE LANZAMIENTO, SISTEMA, DESCENDENTE"
 
 msgid "Extracting"
 msgstr "Extrayendo"

@@ -93,9 +93,7 @@ public:
 
 	const std::string getConfigurationName();
 
-	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };
-
-	virtual inline void refreshMetadata() { };
+	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };	
 
 	virtual std::string getKey();
 	const bool isArcadeAsset();
@@ -158,8 +156,7 @@ class CollectionFileData : public FileData
 public:
 	CollectionFileData(FileData* file, SystemData* system);
 	~CollectionFileData();
-	const std::string getName();
-	void refreshMetadata();
+	const std::string getName();	
 	FileData* getSourceFileData();
 	std::string getKey();
 	virtual const std::string getPath() const;
@@ -172,10 +169,7 @@ public:
 
 private:
 	// needs to be updated when metadata changes
-	std::string mCollectionFileName;
 	FileData* mSourceFileData;
-
-	bool mDirty;
 };
 
 class FolderData : public FileData

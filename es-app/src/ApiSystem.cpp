@@ -371,7 +371,7 @@ bool ApiSystem::launchKodi(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchKodi";
 
 	std::string commandline = InputManager::getInstance()->configureEmulators();
-	std::string command = "python /usr/lib/python2.7/site-packages/configgen/emulatorlauncher.py -system kodi -rom '' " + commandline;
+	std::string command = "batocera-kodi " + commandline;
 
 	ApiSystem::launchExternalWindow_before(window);
 
@@ -923,7 +923,7 @@ std::string ApiSystem::getCRC32(std::string fileName, bool fromZipContents)
 	return Utils::FileSystem::getFileCrc32(fileName);
 }
 
-bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder)
+bool ApiSystem::unzipFile(const std::string fileName, const std::string destFolder, const std::function<bool(const std::string)>& shouldExtract)
 {
 	LOG(LogDebug) << "unzipFile >> " << fileName << " to " << destFolder;
 
@@ -944,6 +944,9 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 					Utils::FileSystem::createDirectory(Utils::FileSystem::combine(destFolder, name.substr(0, name.length() - 1)));
 					continue;
 				}
+
+				if (shouldExtract != nullptr && !shouldExtract(Utils::FileSystem::combine(destFolder, name)))
+					continue;
 
 				file.extract(name, destFolder);
 			}
@@ -1501,5 +1504,39 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 
 	std::sort(ret.begin(), ret.end());
 	return ret;
+}
+
+std::vector<std::string> ApiSystem::getTimezones()
+{
+	std::vector<std::string> ret;
+
+	LOG(LogDebug) << "ApiSystem::getTimezones";
+
+	std::vector<std::string> folderList = { "/usr/share/zoneinfo/" };
+	for (auto folder : folderList)
+	{
+		for (auto continent : Utils::FileSystem::getDirContent(folder, false))
+		{
+			for (auto file : Utils::FileSystem::getDirContent(continent, false))
+			{
+				std::string short_continent = continent.substr(continent.find_last_of('/') + 1, -1);
+				if (short_continent != "posix" && short_continent != "right")
+				{
+					auto tz = Utils::FileSystem::getFileName(file);
+					if (std::find(ret.cbegin(), ret.cend(), tz) == ret.cend())
+						  ret.push_back(short_continent + "/" + tz);
+				}
+			}
+		}
+	}
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}
+
+bool ApiSystem::setTimezone(std::string tz)
+{
+	if (tz.empty())
+		return false;
+	return executeScript("batocera-config tz " + tz);
 }
 

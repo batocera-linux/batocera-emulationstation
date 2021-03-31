@@ -284,6 +284,10 @@ public:
 	static std::vector<CustomFeature> mGlobalFeatures;
 
 	bool getShowFilenames();
+	bool getShowParentFolder();
+	bool getShowFavoritesFirst();
+	bool getShowFavoritesIcon();
+	bool getShowCheevosIcon();
 
 	static void resetSettings();
 

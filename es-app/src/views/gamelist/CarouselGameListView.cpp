@@ -9,6 +9,7 @@
 #include "SystemConf.h"
 #include "FileData.h"
 #include "LocaleES.h"
+#include "GameNameFormatter.h"
 
 CarouselGameListView::CarouselGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root),
@@ -77,29 +78,16 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 
 	if (files.size() > 0)
 	{
-		bool showParentFolder = Settings::getInstance()->getBool("ShowParentFolder");
-		auto spf = Settings::getInstance()->getString(mRoot->getSystem()->getName() + ".ShowParentFolder");
-		if (spf == "1") showParentFolder = true;
-		else if (spf == "0") showParentFolder = false;
-
+		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
 		{
 			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
 			mList.add(". .", placeholder);
 		}
 
-		std::string systemName = mRoot->getSystem()->getName();
+		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = Settings::getInstance()->getBool("FavoritesFirst");
-		
-		auto fav = Settings::getInstance()->getString(mRoot->getSystem()->getName() + ".FavoritesFirst");
-		if (fav == "1") favoritesFirst = true;
-		else if (fav == "0") favoritesFirst = false;
-		
-		bool showFavoriteIcon = (systemName != "favorites" && systemName != "recent");
-		if (!showFavoriteIcon)
-			favoritesFirst = false;
-
+		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();		
 		if (favoritesFirst)
 		{
 			for (auto file : files)
@@ -107,33 +95,16 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 				if (!file->getFavorite())
 					continue;
 				
-				if (showFavoriteIcon)
-					mList.add(_U("\uF006 ") + file->getName(), file);
-				else if (file->getType() == FOLDER)
-					mList.add(_U("\uF07C ") + file->getName(), file);
-				else
-					mList.add(file->getName(), file);
+				mList.add(formatter.getDisplayName(file), file);
 			}
 		}
 
 		for (auto file : files)		
 		{
-			if (file->getFavorite())
-			{
-				if (favoritesFirst)
-					continue;
+			if (file->getFavorite() && favoritesFirst)
+				continue;
 
-				if (showFavoriteIcon)
-				{
-					mList.add(_U("\uF006 ") + file->getName(), file);
-					continue;
-				}
-			}
-
-			if (file->getType() == FOLDER)
-				mList.add(_U("\uF07C ") + file->getName(), file);
-			else
-				mList.add(file->getName(), file); //  + _U(" \uF05A")
+			mList.add(formatter.getDisplayName(file), file);
 		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder

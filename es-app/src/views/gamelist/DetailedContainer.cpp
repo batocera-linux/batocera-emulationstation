@@ -683,7 +683,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		{			
 			if (fadeOut)
 			{
-				if (mVideo == comp) mVideo->setImage("");
+				if (mVideo == comp) { mVideo->setImage(""); mVideo->setVideo(""); }
 				if (mImage == comp) mImage->setImage("");
 				if (mThumbnail == comp) mThumbnail->setImage("");
 				if (mFlag == comp) mFlag->setImage("");

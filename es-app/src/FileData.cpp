@@ -220,12 +220,7 @@ void FileData::resetSettings()
 const std::string FileData::getName()
 {
 	if (mSystem != nullptr && mSystem->getShowFilenames())
-	{
-		if (mSystem != nullptr && !mSystem->hasPlatformId(PlatformIds::ARCADE) && !mSystem->hasPlatformId(PlatformIds::NEOGEO))
-			return Utils::FileSystem::getStem(getPath());
-		else
-			return getDisplayName();
-	}
+		return getDisplayName();
 
 	return mMetadata.getName();
 }
@@ -560,8 +555,7 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 	: FileData(file->getSourceFileData()->getType(), "", system)
 {
 	mSourceFileData = file->getSourceFileData();
-	mParent = NULL;
-	mDirty = true;
+	mParent = NULL;	
 }
 
 SystemEnvironmentData* CollectionFileData::getSystemEnvData() const
@@ -584,6 +578,7 @@ CollectionFileData::~CollectionFileData()
 	// need to remove collection file data at the collection object destructor
 	if(mParent)
 		mParent->removeChild(this);
+
 	mParent = NULL;
 }
 
@@ -597,27 +592,9 @@ FileData* CollectionFileData::getSourceFileData()
 	return mSourceFileData;
 }
 
-void CollectionFileData::refreshMetadata()
-{
-	mDirty = true;
-}
-
 const std::string CollectionFileData::getName()
 {
-	if (mDirty)
-	{
-		mCollectionFileName = mSourceFileData->getMetadata(MetaDataId::Name); // Utils::String::removeParenthesis()
-
-		if (collectionShowSystemInfo == nullptr)
-			collectionShowSystemInfo = std::make_shared<bool>(Settings::getInstance()->getBool("CollectionShowSystemInfo"));
-
-		if (*collectionShowSystemInfo)
-			mCollectionFileName += " [" + mSourceFileData->getSystemName() + "]";
-
-		mDirty = false;
-	}
-
-	return mCollectionFileName;
+	return getSourceFileData()->getName();
 }
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 

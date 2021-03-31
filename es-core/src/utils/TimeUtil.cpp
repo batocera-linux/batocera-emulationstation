@@ -264,6 +264,24 @@ namespace Utils
 						}
 						break;
 
+						case 'I': // The hour (12-hour clock) [00,12]
+						{
+							int h = timeStruct.tm_hour;
+							if (h >= 12)
+								h -= 12;
+
+							*s++ = (char)(h / 10) + '0';
+							*s++ = (char)(h % 10) + '0';
+						}
+						break;
+
+						case 'p': // AM / PM
+						{
+							*s++ = timeStruct.tm_hour < 12 ? 'A' : 'P';
+							*s++ = 'M';
+						}
+						break;
+
 						case 'M': // The minute [00,59]
 						{
 							*s++ = (char)(timeStruct.tm_min / 10) + '0';

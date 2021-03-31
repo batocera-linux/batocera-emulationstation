@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v30(2/14)\n"
+"Project-Id-Version: batocera-es v31(3/20)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 07:27+0100\n"
-"PO-Revision-Date: 2021-02-21 21:11+0900\n"
+"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"PO-Revision-Date: 2021-03-20 21:55+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -47,10 +47,10 @@ msgid "enter path to image"
 msgstr "画像のパスを入力"
 
 msgid "Video"
-msgstr "ビデオ"
+msgstr "動画"
 
 msgid "enter path to video"
-msgstr "ビデオのパスを入力"
+msgstr "動画のパスを入力"
 
 msgid "Logo"
 msgstr "ロゴ"
@@ -167,7 +167,7 @@ msgid "enter favorite"
 msgstr "お気に入りを入力"
 
 msgid "Hidden"
-msgstr "隠し項目"
+msgstr "ゲームリストに表示しない"
 
 msgid "enter hidden"
 msgstr "隠し項目を入力"
@@ -659,7 +659,7 @@ msgid "black"
 msgstr "暗転"
 
 msgid "random video"
-msgstr "ランダム再生(ゲームビデオ)"
+msgstr "ランダム再生(ゲーム動画)"
 
 msgid "slideshow"
 msgstr "スライドショー(ゲーム画像)"
@@ -698,10 +698,10 @@ msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "スクリーンセーバー実行時音楽を停止"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "ランダムビデオスクリーンセーバー設定"
+msgstr "ランダム動画スクリーンセーバー設定"
 
 msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "(秒)後にビデオを変更"
+msgstr "(秒)後に動画を変更"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "スクリーンセーバーにOMX PLAYERを使用"
@@ -719,25 +719,25 @@ msgid "DECORATIONS"
 msgstr "デコレーション装飾"
 
 msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "スクリーンセーバー実行時ビデオを拡大表示"
+msgstr "スクリーンセーバー実行時動画を拡大表示"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "ビデオ音声をミュート"
+msgstr "動画音声をミュート"
 
 msgid "SCREENSAVER CONTROLS"
 msgstr "スクリーンセーバー操作"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr "カスタムビデオを使用"
+msgstr "カスタム動画を使用"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr "カスタムビデオディレクトリ"
+msgstr "カスタム動画ディレクトリ"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr "カスタムビデオディレクトリ再帰呼出し"
+msgstr "カスタム動画ディレクトリ再帰呼出し"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr "カスタムビデオフィルタ"
+msgstr "カスタム動画フィルタ"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "スライドショーセーバー設定"
@@ -887,7 +887,7 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ネットワークに接続されていません"
 
 msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
+msgstr "プレイ状況を公開する"
 
 msgid "SET PLAYER PASSWORD"
 msgstr "プレーヤーパスワードの設定"
@@ -1080,7 +1080,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI メディアセンター"
 
 msgid "GAMES SETTINGS"
-msgstr "ゲーム設定"
+msgstr "ゲームシステム設定"
 
 msgid "CONTROLLERS SETTINGS"
 msgstr "コントローラー設定"
@@ -1095,7 +1095,7 @@ msgid "NETWORK SETTINGS"
 msgstr "ネットワーク設定"
 
 msgid "CONFIGURE INPUT"
-msgstr "コントローラー設定"
+msgstr "ボタン設定"
 
 msgid "EMULATOR SETTINGS"
 msgstr "エミュレーター設定"
@@ -1104,7 +1104,7 @@ msgid "UPDATES & DOWNLOADS"
 msgstr "更新とダウンロード"
 
 msgid "SYSTEM SETTINGS"
-msgstr "システム設定"
+msgstr "BATOCRA設定"
 
 msgid "INFORMATIONS"
 msgstr "情報"
@@ -1191,10 +1191,10 @@ msgid "CHOOSE"
 msgstr "移動選択"
 
 msgid "UI MODE IS NOW UNLOCKED"
-msgstr "UIモードのロックが解除されました"
+msgstr "UIモードのロックを解除しました"
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "UIモードのロック解除するには、ボタンを順に入力してください"
+msgstr "ロックを解除するには、ボタンを順に入力してください"
 
 msgid "INFORMATION"
 msgstr "情報"
@@ -1212,7 +1212,7 @@ msgid "DEVELOPER"
 msgstr "その他の設定"
 
 msgid "VIDEO OPTIONS"
-msgstr "ビデオ設定"
+msgstr "映像設定"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM上限"
@@ -1243,15 +1243,16 @@ msgid "CREATE A SUPPORT FILE ?"
 msgstr "サポートファイルを作成しますか ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "ファイルは正常に作成されました"
+msgstr ""
+"ファイルは正常に作成されました\n"
+"(SAVEフォルダに保存)"
 
 msgid "FILE GENERATION FAILED"
-msgstr "ファイル生成に失敗しました"
+msgstr "ファイルの作成に失敗しました"
 
 msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
 
-# add 5.29
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
@@ -1283,7 +1284,7 @@ msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "終了時にメタデータを保存"
+msgstr "終了時にメタ情報を保存"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ゲームリストのみ解析"
@@ -1337,7 +1338,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "画像表示にVRAMを使用"
 
 msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "ビデオ再生にVRAMを使用"
+msgstr "動画再生にVRAMを使用"
 
 msgid "DOWNLOADS"
 msgstr "ダウンロード"
@@ -1368,6 +1369,15 @@ msgstr "システム"
 
 msgid "LANGUAGE"
 msgstr "言語"
+
+msgid "SELECT YOUR TIMEZONE"
+msgstr ""
+
+msgid "TIMEZONE"
+msgstr "タイムゾーン"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "時計を12時間形式で表示"
 
 msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
@@ -1403,13 +1413,13 @@ msgid "BRIGHTNESS"
 msgstr "明るさ"
 
 msgid "VIDEO OUTPUT"
-msgstr "ビデオ出力"
+msgstr "映像出力"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "AUDIO OUTPUT"
-msgstr "オーディオ出力"
+msgstr "音声出力"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
@@ -1523,10 +1533,10 @@ msgid "DEFAULT SETTINGS"
 msgstr "既定の設定"
 
 msgid "GAME RATIO"
-msgstr "ゲーム比率"
+msgstr "ゲーム画面比率"
 
 msgid "VIDEO MODE"
-msgstr "ビデオモード"
+msgstr "映像解像度"
 
 msgid "SMOOTH GAMES"
 msgstr "スムージング"
@@ -1541,10 +1551,10 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自動セーブ/ロード"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr "保存したスナップショットを表示"
+msgstr "保存時スナップショットを表示"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "スナップショットがあるなら表示する"
 
 msgid "SHADERS SET"
 msgstr "シェーダー設定"
@@ -1571,7 +1581,7 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻訳画面で一時停止"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr "システム別-詳細設定"
+msgstr "システム別詳細設定"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
@@ -1580,7 +1590,7 @@ msgid "REALLY UPDATE GAMES LISTS ?"
 msgstr "ゲームリストを更新しますか？"
 
 msgid "CONFIGURE A CONTROLLER"
-msgstr "ボタン配置設定"
+msgstr "ボタン設定"
 
 msgid ""
 "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
@@ -1592,8 +1602,8 @@ msgstr ""
 "コントローラーのボタン設定を行います。方向キーが 1つのみの場合、方向キーを設"
 "定したあとの 他のボタン設定は、ボタンを長押ししてスキップできます。 ホット"
 "キーのための特別なボタンが ない場合、セレクトボタンに 設定してください。 すべ"
-"てのボタンを 長押しで スキップした場合、 ボタン名が スーパーファミコンを ベー"
-"スとしたものに なります。"
+"てのボタンを 長押しで スキップした場合、 ボタン配置が スーパーファミコンを "
+"ベースとしたものに なります。"
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH コントローラのペアリング"
@@ -1630,7 +1640,7 @@ msgid "GAMELIST THEME OPTIONS"
 msgstr "ゲームリストテーマ設定"
 
 msgid "THEME OPTIONS"
-msgstr "テーマ設定"
+msgstr "テーマ詳細設定"
 
 msgid "DEFAULT VALUE"
 msgstr "初期設定"
@@ -1666,7 +1676,7 @@ msgid "APPEARENCE"
 msgstr "外観"
 
 msgid "THEME SET"
-msgstr "テーマ設定"
+msgstr "テーマ"
 
 # Not reflected
 msgid "video"
@@ -1709,7 +1719,7 @@ msgid "MUSIC VOLUME"
 msgstr "ゲーム音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "ボリューム変化時にボリューム表示"
+msgstr "音量変更を画面に表示"
 
 msgid "MUSIC"
 msgstr "音楽"
@@ -1730,7 +1740,7 @@ msgid "PLAY THEME MUSICS"
 msgstr "テーマ指定BGMを再生"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr "ビデオの再生時は音量を下げる"
+msgstr "動画再生時は音量を下げる"
 
 msgid "SOUNDS"
 msgstr "音声"
@@ -1739,7 +1749,7 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ナビゲーションサウンドを有効"
 
 msgid "ENABLE VIDEO AUDIO"
-msgstr "ビデオ音声を有効"
+msgstr "動画音声を有効"
 
 msgid "IP ADDRESS"
 msgstr "IP アドレス"
@@ -1971,7 +1981,7 @@ msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "気に入り"
 
 msgid "Games similar to"
 msgstr "類似ゲーム→"
@@ -2009,7 +2019,7 @@ msgid "Done."
 msgstr "完了。"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "メタデータの保存中です。 お待ちください..."
+msgstr "メタ情報の保存中です。 お待ちください..."
 
 msgid "Collections"
 msgstr "コレクション"
@@ -2085,6 +2095,18 @@ msgstr "プレイ時間, 昇順"
 
 msgid "GAME TIME, DESCENDING"
 msgstr "プレイ時間, 降順"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
 
 msgid "Extracting"
 msgstr "抽出"
@@ -2321,3 +2343,6 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "Disk format"
+#~ msgstr "ディスクフォーマット"
