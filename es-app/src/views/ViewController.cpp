@@ -1101,9 +1101,9 @@ HelpStyle ViewController::getHelpStyle()
 	return mCurrentView->getHelpStyle();
 }
 
-
 void ViewController::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
+	Font::OnThemeChanged();
 	ThemeData::setDefaultTheme(theme.get());
 	mWindow->onThemeChanged(theme);
 }

@@ -72,7 +72,7 @@ void HelpComponent::updateGrid()
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
 	if (Settings::getInstance()->getBool("DrawClock"))
 	{
-		TextComponent fakeClock(mWindow, "--00:00-", font, mStyle.textColor);
+		TextComponent fakeClock(mWindow, "___00_00___", font, mStyle.textColor);
 		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
 	}
 

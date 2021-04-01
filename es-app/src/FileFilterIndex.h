@@ -55,6 +55,8 @@ public:
 	void addToIndex(FileData* game);
 	void removeFromIndex(FileData* game);
 	void setFilter(FilterIndexType type, std::vector<std::string>* values);
+	std::unordered_set<std::string>* getFilter(FilterIndexType type);
+
 	void clearAllFilters();
 	
 	virtual int showFile(FileData* game);

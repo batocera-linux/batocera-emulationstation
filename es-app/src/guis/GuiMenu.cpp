@@ -2657,8 +2657,61 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
+		// Show flags
 
+		auto defSF = Settings::getInstance()->getString("ShowFlags");
+		if (defSF == "1")
+			defSF = _("BEFORE NAME");
+		else if (defSF == "2")
+			defSF = _("AFTER NAME");
+		else 
+			defSF = _("NO");
 		
+		auto curSF = Settings::getInstance()->getString(system->getName() + ".ShowFlags");
+		auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+
+		showRegionFlags->addRange({ 
+			{ _("AUTO"), "auto" },
+			{ _("NO"), "0" },
+			{ _("BEFORE NAME") , "1" },
+			{ _("AFTER NAME"), "2" } }, 
+			curSF);
+
+		themeconfig->addWithDescription(_("SHOW LANGUAGE FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSF, showRegionFlags);
+		themeconfig->addSaveFunc([themeconfig, showRegionFlags, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowFlags", showRegionFlags->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+		
+		// Show SaveStates
+		auto defSS = Settings::getInstance()->getBool("ShowSaveStates") ? _("YES") : _("NO");
+		auto curSS = Settings::getInstance()->getString(system->getName() + ".ShowSaveStates");
+		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATES FLAG IN LISTS"), false);
+		showSaveStates->add(_("AUTO"), "", curSS == "" || curSS == "auto");
+		showSaveStates->add(_("YES"), "1", curSS == "1");
+		showSaveStates->add(_("NO"), "0", curSS == "0");
+		themeconfig->addWithDescription(_("SHOW SAVESTATES FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSS, showSaveStates);
+		themeconfig->addSaveFunc([themeconfig, showSaveStates, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowSaveStates", showSaveStates->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
+		// Show Manual
+		auto defMM = Settings::getInstance()->getBool("ShowManualIcon") ? _("YES") : _("NO");
+		auto curMM = Settings::getInstance()->getString(system->getName() + ".ShowManualIcon");
+		auto showManual = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW MANUAL ICON IN LISTS"), false);
+		showManual->add(_("AUTO"), "", curMM == "" || curMM == "auto");
+		showManual->add(_("YES"), "1", curMM == "1");
+		showManual->add(_("NO"), "0", curMM == "0");
+		themeconfig->addWithDescription(_("SHOW MANUAL ICON IN LISTS"), _("DEFAULT VALUE") + " : " + defMM, showManual);
+		themeconfig->addSaveFunc([themeconfig, showManual, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowManualIcon", showManual->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
 		// Show filenames
 		auto defFn = Settings::getInstance()->getBool("ShowFilenames") ? _("YES") : _("NO");
 		auto curFn = Settings::getInstance()->getString(system->getName() + ".ShowFilenames");
@@ -2926,7 +2979,7 @@ void GuiMenu::openUISettings()
 				s->setVariable("reloadAll", true);
 				s->setVariable("reloadGuiMenu", true);
 
-				Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
+				Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);				
 			}
 		});
 
@@ -3058,7 +3111,38 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("SHOW '..' PARENT FOLDER"), parentFolder);
 	s->addSaveFunc([s, parentFolder]
 	{
-		Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState());
+		if (Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show flags
+	auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+	showRegionFlags->addRange({ { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, Settings::getInstance()->getString("ShowFlags"));
+	s->addWithLabel(_("SHOW LANGUAGE FLAG IN LISTS"), showRegionFlags);
+	s->addSaveFunc([s, showRegionFlags]
+	{
+		if (Settings::getInstance()->setString("ShowFlags", showRegionFlags->getSelected()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show SaveStates
+	auto showSaveStates = std::make_shared<SwitchComponent>(mWindow);
+	showSaveStates->setState(Settings::getInstance()->getBool("ShowSaveStates"));
+	s->addWithLabel(_("SHOW SAVESTATES FLAG IN LISTS"), showSaveStates);
+	s->addSaveFunc([s, showSaveStates]
+	{
+		if (Settings::getInstance()->setBool("ShowSaveStates", showSaveStates->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show Manual 
+	auto showManual = std::make_shared<SwitchComponent>(mWindow);
+	showManual->setState(Settings::getInstance()->getBool("ShowManualIcon"));
+	s->addWithLabel(_("SHOW MANUAL ICON IN LISTS"), showManual);
+	s->addSaveFunc([s, showManual]
+	{
+		if (Settings::getInstance()->setBool("ShowManualIcon", showManual->getState()))
+			s->setVariable("reloadAll", true);
 	});
 
 	// filenames

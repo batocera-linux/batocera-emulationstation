@@ -206,7 +206,7 @@ void Settings::setDefaults()
 		
 	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
-	mBoolMap["FavoritesFirst"] = true;
+	mBoolMap["FavoritesFirst"] = false;
 
 	mBoolMap["LocalArt"] = false;
 

@@ -105,6 +105,7 @@ std::string GridGameListView::getQuickSystemSelectLeftButton()
 
 bool GridGameListView::input(InputConfig* config, Input input)
 {
+	/*
 	if (!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && input.value)
 	{
 		auto idx = mRoot->getSystem()->getIndex(false);
@@ -117,7 +118,7 @@ bool GridGameListView::input(InputConfig* config, Input input)
 
 		// Ctrl-R to reload a view when debugging
 	}
-
+	*/
 	if(config->isMappedLike("left", input) || config->isMappedLike("right", input))
 		return GuiComponent::input(config, input);
 
