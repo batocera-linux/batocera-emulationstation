@@ -13,6 +13,7 @@
 #include "Settings.h"
 #include <algorithm>
 #include <mutex>
+#include "utils/StringUtil.h"
 #include "LocaleES.h"
 
 #define KEYBOARD_GUID_STRING "-1"
