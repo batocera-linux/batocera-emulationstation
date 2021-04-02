@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:47+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -523,9 +523,6 @@ msgstr "تلقائي"
 msgid "VIEW CUSTOMISATION"
 msgstr "عرض التخصيص"
 
-msgid "GAME OPTIONS"
-msgstr "خيارات الألعاب"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "خيارات النظام المتقدمة"
 
@@ -964,16 +961,16 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
 msgid "START NEW GAME"
 msgstr ""
 
 msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
 msgstr ""
 
 msgid "COPY TO FREE SLOT"
@@ -1625,6 +1622,9 @@ msgstr "افتراضي"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "اعرض نشاط وحدة التحكم"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "يجب تطبيق السمة قبل تعديل المكون"
 
@@ -1669,6 +1669,21 @@ msgstr "تمتلك عدة ألعاب"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "اعرض ‘..’ لمجلد الوالدين"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "عرض اسم الملف في القائمة"
@@ -1995,6 +2010,9 @@ msgstr "أوقات اللعب"
 
 msgid "No Entries Found"
 msgstr "لم يتم العثور على مدخلات"
+
+msgid "GAME OPTIONS"
+msgstr "خيارات الألعاب"
 
 msgid "FAVORITE"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:47+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -515,9 +515,6 @@ msgstr "automático"
 msgid "VIEW CUSTOMISATION"
 msgstr "PERSONALIZAR LISTA"
 
-msgid "GAME OPTIONS"
-msgstr "OPCIONES DEL JUEGO"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "OPCIONES AVANZADAS DEL SISTEMA"
 
@@ -956,17 +953,17 @@ msgstr "Logros conseguidos"
 msgid "%d%% complete"
 msgstr "%d%% completado"
 
-msgid "AUTO SAVE"
-msgstr "AUTO GUARDADO"
-
-msgid "SLOT"
-msgstr "RANURA"
-
 msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
 
 msgid "START AUTO SAVE"
 msgstr "NUEVO AUTOGUARDADO"
+
+msgid "AUTO SAVE"
+msgstr "AUTO GUARDADO"
+
+msgid "SLOT"
+msgstr "RANURA"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LIBRE"
@@ -1617,6 +1614,9 @@ msgstr "predeterminado"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "DEBES APLICAR EL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
 
@@ -1661,6 +1661,21 @@ msgstr "si tiene múltiples juegos"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PRINCIPAL"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
@@ -1981,6 +1996,9 @@ msgstr "Veces jugado"
 
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
+
+msgid "GAME OPTIONS"
+msgstr "OPCIONES DEL JUEGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"

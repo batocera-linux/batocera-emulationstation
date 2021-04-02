@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -514,9 +514,6 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "查看定義"
 
-msgid "GAME OPTIONS"
-msgstr "遊戲設定"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "系統設定"
 
@@ -955,16 +952,16 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
 msgid "START NEW GAME"
 msgstr ""
 
 msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
 msgstr ""
 
 msgid "COPY TO FREE SLOT"
@@ -1613,6 +1610,9 @@ msgstr "預設值"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "顯示控制器作用"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "在編輯設定之前必須執行主題"
 
@@ -1657,6 +1657,21 @@ msgstr "多人遊戲"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "顯示 '..' 文件夾"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "在目錄中顯示文件名稱"
@@ -1968,6 +1983,9 @@ msgstr "遊戲執行次數"
 
 msgid "No Entries Found"
 msgstr "找不到選項"
+
+msgid "GAME OPTIONS"
+msgstr "遊戲設定"
 
 msgid "FAVORITE"
 msgstr ""
