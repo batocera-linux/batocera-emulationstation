@@ -5,6 +5,7 @@
 #include <list>
 #include <memory>
 #include <string>
+#include <vector>
 
 //The ResourceManager exists to...
 //Allow loading resources embedded into the executable like an actual file.
@@ -37,6 +38,8 @@ public:
 	void reloadAll();
 
 	std::string getResourcePath(const std::string& path) const;
+	std::vector<std::string> getResourcePaths() const;
+
 	const ResourceData getFileData(const std::string& path) const;
 	bool fileExists(const std::string& path) const;
 

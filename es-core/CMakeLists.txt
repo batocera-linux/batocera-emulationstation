@@ -102,6 +102,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/zip_file.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Delegate.h
 )
 
 set(CORE_SOURCES

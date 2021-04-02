@@ -299,6 +299,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			auto sysOptions = mSystem->isGroupSystem() ? srcSystem : mSystem;
 
 			bool showSystemOptions = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS) && (sysOptions->hasFeatures() || sysOptions->hasEmulatorSelection());
+			/*
 			bool showGameOptions = (file != nullptr && file->getType() != FOLDER);
 
 			if (showGameOptions || showSystemOptions)
@@ -313,9 +314,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 					delete this;
 				});
 			}
-
+			*/
 			if (showSystemOptions)
+			{
+				mMenu.addGroup(_("OPTIONS"));
 				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
+			}
 		}
 	}
 

@@ -45,6 +45,9 @@ public:
 	
 	void moveToRandomGame();
 	void showQuickSearch();
+	void launchSelectedGame();
+	void showSelectedGameOptions();
+	void toggleFavoritesFilter();
 
 protected:	
 	void	  updateFolderPath();
@@ -66,8 +69,10 @@ protected:
 
 	std::stack<FileData*> mCursorStack;
 
+	MultiStateInput mOKButton;
 	MultiStateInput mXButton;
 	MultiStateInput mYButton;
+	MultiStateInput mSelectButton;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

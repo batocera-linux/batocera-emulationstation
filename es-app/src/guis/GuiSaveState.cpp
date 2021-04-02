@@ -105,14 +105,6 @@ void GuiSaveState::loadGrid()
 	auto states = mRepository->getSaveStates(mGame);
 	std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->creationDate >= file2->creationDate; });
 
-	for (auto item : states)
-	{
-		if (item->slot == -1)
-			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("AUTO SAVE"), item->getScreenShot(), "", "", false, false, false, false, *item);
-		else
-			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("SLOT") + std::string(" ") + std::to_string(item->slot), item->getScreenShot(), "", "", false, false, false, false, *item);
-	}
-
 	int slot = SaveStateRepository::getNextFreeSlot(mGame);
 	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-2));
 
@@ -123,6 +115,15 @@ void GuiSaveState::loadGrid()
 		if (autoSave == states.cend())
 			mGrid->add(_("START AUTO SAVE"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-1));
 	}
+
+	for (auto item : states)
+	{
+		if (item->slot == -1)
+			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("AUTO SAVE"), item->getScreenShot(), "", "", false, false, false, false, *item);
+		else
+			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("SLOT") + std::string(" ") + std::to_string(item->slot), item->getScreenShot(), "", "", false, false, false, false, *item);
+	}
+
 }
 
 void GuiSaveState::onSizeChanged()

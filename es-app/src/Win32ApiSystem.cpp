@@ -45,7 +45,7 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		return !getSevenZipCommand().empty();
 
 	if (script == ApiSystem::KODI)
-		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"));
+		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe") || Utils::FileSystem::exists(Utils::FileSystem::combine(getEmulatorLauncherPath("kodi"), "kodi.exe")));
 
 	if (script == ApiSystem::THEMESDOWNLOADER)
 		return true;
@@ -103,6 +103,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::EVMAPY:
 		executables.push_back("emulatorLauncher");
+		break;
+	case ApiSystem::PADSINFO:
+		executables.push_back("batocera-padsinfo");
 		break;
 	}
 
@@ -933,7 +936,13 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 
 bool Win32ApiSystem::launchKodi(Window *window)
 {
-	std::string command = "C:\\Program Files\\Kodi\\kodi.exe";
+	std::string args;
+	std::string command = Utils::FileSystem::combine(getEmulatorLauncherPath("kodi"), "kodi.exe");
+	if (Utils::FileSystem::exists(command))
+		args = "-p";
+	else 
+		command = "C:\\Program Files\\Kodi\\kodi.exe";
+
 	if (!Utils::FileSystem::exists(command))
 	{
 		command = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
@@ -948,6 +957,9 @@ bool Win32ApiSystem::launchKodi(Window *window)
 	lpExecInfo.lpFile = command.c_str();
 	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
 	lpExecInfo.lpVerb = "open";
+	
+	if (!args.empty())
+		lpExecInfo.lpParameters = args.c_str();
 
 	ShellExecuteEx(&lpExecInfo);
 

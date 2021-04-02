@@ -119,6 +119,7 @@ public:
 	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; // batocera
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; // batocera
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; // batocera
+	inline int getBatteryLevel() const { return mBatteryLevel; }; // batocera
 
 	//Returns true if Input is mapped to this name, false otherwise.
 	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false); // batocera
@@ -139,6 +140,8 @@ public:
 	static std::string buttonLabel(const std::string& button);
 	static std::string buttonImage(const std::string& button);
 
+	void updateBatteryLevel(int level) { mBatteryLevel = level; }; // batocera
+
 private:
 	std::map<std::string, Input> mNameMap;
 	const int mDeviceId;
@@ -148,6 +151,8 @@ private:
 	const int mDeviceNbButtons; // number of buttons of the device // batocera
 	const int mDeviceNbHats;    // number of hats    of the device // batocera
 	const int mDeviceNbAxes;    // number of axes    of the device // batocera
+
+	int mBatteryLevel;
 
 public:
 	static void AssignActionButtons();

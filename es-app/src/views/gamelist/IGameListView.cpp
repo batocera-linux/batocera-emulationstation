@@ -6,23 +6,6 @@
 #include "Sound.h"
 #include "Window.h"
 
-bool IGameListView::input(InputConfig* config, Input input)
-{
-	// select to open GuiGamelistOptions
-	if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && input.value)
-	{
-		auto idx = mRoot->getSystem()->getIndex(false);
-		if (idx != nullptr && idx->hasRelevency())
-			return true;
-
-		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
-		mWindow->pushGui(new GuiGamelistOptions(mWindow, this, this->mRoot->getSystem()));
-		return true;
-	}
-
-	return GuiComponent::input(config, input);
-}
-
 void IGameListView::setTheme(const std::shared_ptr<ThemeData>& theme)
 {
 	mTheme = theme;

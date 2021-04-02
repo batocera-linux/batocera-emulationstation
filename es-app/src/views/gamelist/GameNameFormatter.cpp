@@ -4,11 +4,55 @@
 #include "FileSorts.h"
 #include "Settings.h"
 #include "utils/StringUtil.h"
+
+#include "LangParser.h"
 #include "LocaleES.h"
+#include "SaveStateRepository.h"
 
 #define FOLDERICON _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
-#define CHEEVOSICON _U("  \uF091")
+
+#define CHEEVOSICON _U("\uF091")
+#define SAVESTATE _U("\uF0A0")
+#define MANUAL _U("\uF02D")
+
+#define RATINGSTAR _U("\uF005")
+#define SEPARATOR_BEFORE "["
+#define SEPARATOR_AFTER "] "
+
+std::map<std::string, std::string> langFlag =
+{
+	{ "au", _U("\uF300") },
+	{ "br", _U("\uF301") },
+	{ "ca", _U("\uF302") },
+	{ "ch", _U("\uF303") },
+	{ "de", _U("\uF304") },
+	{ "es", _U("\uF305") },
+	{ "eu", _U("\uF306") },
+	{ "fr", _U("\uF307") },
+	{ "gr", _U("\uF308") },
+	{ "in", _U("\uF309") },
+	{ "it", _U("\uF30A") },
+	{ "jp", _U("\uF30A") },
+	{ "kr", _U("\uF30B") },
+	{ "nl", _U("\uF30C") },
+	{ "no", _U("\uF30D") },
+	{ "pt", _U("\uF30E") },
+	{ "ru", _U("\uF30F") },
+	{ "sw", _U("\uF310") },
+	{ "uk", _U("\uF311") },
+	{ "us", _U("\uF312") },
+	{ "wr", _U("\uF313") }
+};
+
+std::string getLangFlag(const std::string lang)
+{
+	auto it = langFlag.find(lang);
+	if (it == langFlag.cend())
+		return "";
+
+	return it->second;
+};
 
 GameNameFormatter::GameNameFormatter(SystemData* system)
 {
@@ -16,6 +60,11 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 
 	mShowCheevosIcon = system->getShowCheevosIcon();
 	mShowFavoriteIcon = system->getShowFavoritesIcon();
+
+	mShowManualIcon = system->getBoolSetting("ShowManualIcon");
+	mShowSaveStates = system->getBoolSetting("ShowSaveStates");
+
+	mShowFlags = system->getShowFlags();
 
 	mShowYear =
 		mSortId == FileSorts::RELEASEDATE_ASCENDING ||
@@ -37,7 +86,7 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_DESCENDING;
 
-	mShowSystemName = (system->isGroupSystem() || system->isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+	mShowSystemName = system->isCollection() && Settings::getInstance()->getBool("CollectionShowSystemInfo");
 }
 
 std::string valueOrDefault(const std::string value, const std::string defaultValue = _("Unknown"))
@@ -47,11 +96,6 @@ std::string valueOrDefault(const std::string value, const std::string defaultVal
 
 	return value;
 }
-
-#define RATINGSTAR _U("\uF005")
-
-#define SEPARATOR_BEFORE "["
-#define SEPARATOR_AFTER "] "
 
 std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 {
@@ -97,12 +141,34 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 			name = name + " [" + fd->getSourceFileData()->getSystemName() + "]";
 	}
 
+	std::string lang;
+	if (mShowFlags == 1)
+		lang = getLangFlag(LangInfo::getFlag(fd->getMetadata(MetaDataId::Language), fd->getMetadata(MetaDataId::Region))) + " ";
+
+	std::vector<std::string> after;
+
+	if (mShowCheevosIcon && fd->hasCheevos())
+		after.push_back(CHEEVOSICON);
+
+	bool saves = mShowSaveStates && fd->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(fd);
+	if (saves)
+		after.push_back(SAVESTATE);
+
+	bool manual = mShowManualIcon && !fd->getMetadata(MetaDataId::Manual).empty();
+	if (manual)
+		after.push_back(MANUAL);
+
+	if (mShowFlags == 2)
+		after.push_back(getLangFlag(LangInfo::getFlag(fd->getMetadata(MetaDataId::Language), fd->getMetadata(MetaDataId::Region))));
+
+	std::string langAfter = "  " + Utils::String::join(after, " ");
+
 	if (mShowFavoriteIcon && fd->getFavorite())
 	{
-		if (mShowCheevosIcon && fd->hasCheevos())
-			return FAVORITEICON + name + CHEEVOSICON;
+	//	if (mShowCheevosIcon && fd->hasCheevos())
+	//		return lang + FAVORITEICON + name + CHEEVOSICON + langAfter;
 
-		return FAVORITEICON + name;
+		return lang + FAVORITEICON + name + langAfter;
 	}
 
 	if (fd->getType() == FOLDER)
@@ -113,8 +179,8 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 		return name;
 	}
 
-	if (mShowCheevosIcon && fd->hasCheevos())
-		return name + CHEEVOSICON;
+	//if (mShowCheevosIcon && fd->hasCheevos())
+//		return lang + name + CHEEVOSICON + langAfter;
 
-	return name;
+	return lang + name + langAfter;
 };
