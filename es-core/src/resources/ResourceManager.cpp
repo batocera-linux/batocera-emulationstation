@@ -3,6 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include <fstream>
+#include <algorithm>
 #include "Log.h"
 #include "Settings.h"
 
