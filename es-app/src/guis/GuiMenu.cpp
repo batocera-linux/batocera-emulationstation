@@ -469,7 +469,7 @@ void GuiMenu::openEmuELECSettings()
 		std::vector<std::string> ramenuoptions;
 		ramenuoptions.push_back("auto");
 		ramenuoptions.push_back("ozone");
-		ramenuoptions.push_back("xbm");
+		ramenuoptions.push_back("xmb");
 		ramenuoptions.push_back("rgui");
 		
 		auto ramenuoptionsS = SystemConf::getInstance()->get("global.retroarch.menu_driver");
