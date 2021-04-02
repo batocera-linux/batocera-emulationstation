@@ -104,6 +104,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::EVMAPY:
 		executables.push_back("emulatorLauncher");
 		break;
+	case ApiSystem::PADSINFO:
+		executables.push_back("batocera-padsinfo");
+		break;
 	}
 
 	if (executables.size() == 0)

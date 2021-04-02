@@ -46,10 +46,7 @@ void ControllerActivityComponent::init()
 	mPosition = Vector3f(margin, Renderer::getScreenHeight() - mSize.y() - margin, 0.0f);
 
 	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
-		mPads[i].keyState = 0;
-		mPads[i].timeOut = 0;
-	}
+		mPads[i].reset();
 
 	updateNetworkInfo();
 	updateBatteryInfo();
@@ -64,12 +61,18 @@ void ControllerActivityComponent::onPositionChanged()
 {
 	mBatteryText = nullptr;
 	mBatteryFont = nullptr;
+
+	for (int idx = 0; idx < MAX_PLAYERS; idx++)
+		mPads[idx].batteryText = nullptr;
 }
 
 void ControllerActivityComponent::onSizeChanged()
 {	
 	mBatteryText = nullptr;
 	mBatteryFont = nullptr;
+
+	for (int idx = 0; idx < MAX_PLAYERS; idx++)
+		mPads[idx].batteryText = nullptr;
 
 	if (mSize.y() > 0 && mPadTexture)
 	{
@@ -85,8 +88,15 @@ bool ControllerActivityComponent::input(InputConfig* config, Input input)
 		int idx = config->getDeviceIndex();
 		if (idx >= 0 && idx < MAX_PLAYERS)
 		{
-			mPads[idx].keyState = config->isMappedTo("hotkey", input) ? 2 : 1;
-			mPads[idx].timeOut = PLAYER_PAD_TIME_MS;
+			for (int i = 0; i < MAX_PLAYERS; i++)
+			{
+				if (mPads[i].index == idx)
+				{
+					mPads[i].keyState = config->isMappedTo("hotkey", input) ? 2 : 1;
+					mPads[i].timeOut = PLAYER_PAD_TIME_MS;
+					break;
+				}
+			}
 		}
 	}
 
@@ -122,7 +132,6 @@ void ControllerActivityComponent::update(int deltaTime)
 		for (int i = 0; i < MAX_PLAYERS; i++)
 		{
 			PlayerPad& pad = mPads[i];
-
 			if (pad.timeOut == 0)
 				continue;
 
@@ -151,59 +160,67 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFFFF0090, 0xFFFF0090);
 
 	float x = 0;
-	std::vector<int> indexes;	
 	float szW = mSize.y();
 	float szH = mSize.y();
 
-	if ((mView & CONTROLLERS) && Settings::getInstance()->getBool("ShowControllerActivity"))
+	int itemsWidth = 0;
+	float batteryTextOffset = 0;
+
+	bool showControllerActivity = Settings::getInstance()->getBool("ShowControllerActivity");
+	bool showControllerBattery = showControllerActivity && Settings::getInstance()->getBool("ShowControllerBattery");
+
+	if ((mView & CONTROLLERS) && showControllerActivity)
 	{	
-		std::map<int, int> playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+		auto playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 
 		int padCount = 0;
+
+		for (int player = 0; player < MAX_PLAYERS; player++)
+			mPads[player].index = -1;
+
 		for (int player = 0; player < MAX_PLAYERS; player++)
 		{
-			if (playerJoysticks.count(player) != 1)
+			auto it = playerJoysticks.find(player);
+			if (it == playerJoysticks.cend() || it->second.index < 0 || it->second.index >= MAX_PLAYERS)
 				continue;
 
-			int idx = playerJoysticks[player];
-			if (idx < 0 || idx >= MAX_PLAYERS)
-				continue;
-
-			indexes.push_back(idx);
+			mPads[player].index = it->second.index;
+			mPads[player].batteryLevel = it->second.batteryLevel;
 		}
 
-#ifdef DEVTEST
-		indexes.push_back(0);
-		indexes.push_back(1);
-		indexes.push_back(2);
-		indexes.push_back(3);
-		indexes.push_back(4);
-		indexes.push_back(5);
-		indexes.push_back(6);
-		indexes.push_back(7);
+		for (int idx = 0; idx < MAX_PLAYERS; idx++)
+		{
+			auto pad = mPads[idx];
+			if (pad.index < 0)
+				continue;
 
-		mPads[1].keyState = 1;
-		mPads[1].timeOut = PLAYER_PAD_TIME_MS;
-		mPads[2].keyState = 2;
-		mPads[2].timeOut = PLAYER_PAD_TIME_MS;
-#endif
-	}
-
-	int itemsWidth = 0;
-
-	for (int i = 0; i < indexes.size(); i++)
-	{
-		/*if (mPadTexture)
-			itemsWidth += (getTextureSize(mPadTexture).x() + mSpacing);
-		else*/
 			itemsWidth += szW + mSpacing;
+
+			if (showControllerBattery && pad.batteryLevel >= 0)
+			{
+				if (mBatteryFont == nullptr)
+					mBatteryFont = Font::get(szH * (Renderer::isSmallScreen() ? 0.55f : 0.70f), FONT_PATH_REGULAR);
+
+				std::string batteryTextValue = std::to_string(pad.batteryLevel) + "% ";
+
+				auto sz = mBatteryFont->sizeText(batteryTextValue, 1.0);
+
+				if (mPads[idx].batteryTextValue != batteryTextValue)
+					mPads[idx].batteryText = nullptr;
+
+				mPads[idx].batteryTextValue = batteryTextValue;
+				mPads[idx].batteryTextSize = sz.x();
+
+				itemsWidth += sz.x() + mSpacing;
+				batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;
+			}
+		}
 	}
 
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
 		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
 
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
-	float batteryTextOffset = 0;
 	
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
@@ -226,20 +243,39 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	else if (mHorizontalAlignment == ALIGN_RIGHT)
 		x = mSize.x() - itemsWidth;
 
-	for (int idx : indexes)
+	if ((mView & CONTROLLERS) && showControllerActivity)
 	{
-		unsigned int padcolor = mColorShift;
-		if (mPads[idx].keyState == 1)
-			padcolor = mActivityColor;
-		else if (mPads[idx].keyState == 2)
-			padcolor = mHotkeyColor;
-
-		if (mPadTexture && mPadTexture->bind())
-			x += renderTexture(x, szW, mPadTexture, padcolor);
-		else
+		for (int idx = 0; idx < MAX_PLAYERS; idx++)
 		{
-			Renderer::drawRect(x, 0.0f, szW, szH, padcolor);
-			x += szW + mSpacing;
+			auto pad = mPads[idx];
+			if (pad.index < 0)
+				continue;
+
+			unsigned int padcolor = mColorShift;
+			if (pad.keyState == 1)
+				padcolor = mActivityColor;
+			else if (pad.keyState == 2)
+				padcolor = mHotkeyColor;
+
+			if (mPadTexture && mPadTexture->bind())
+				x += renderTexture(x, szW, mPadTexture, padcolor);
+			else
+			{
+				Renderer::drawRect(x, 0.0f, szW, szH, padcolor);
+				x += szW + mSpacing;
+			}
+
+			if (showControllerBattery && pad.batteryLevel >= 0 && mBatteryFont != nullptr)
+			{
+				if (mPads[idx].batteryText == nullptr)
+					mPads[idx].batteryText = std::unique_ptr<TextCache>(mBatteryFont->buildTextCache(pad.batteryTextValue, Vector2f(x, batteryTextOffset), mColorShift, mSize.x(), Alignment::ALIGN_LEFT, 1.0f));
+
+				mPads[idx].batteryText->setColor(padcolor);
+				mBatteryFont->renderTextCache(mPads[idx].batteryText.get());
+				x += pad.batteryTextSize + mSpacing;
+			}
+			else
+				mPads[idx].batteryText = nullptr;
 		}
 	}
 	

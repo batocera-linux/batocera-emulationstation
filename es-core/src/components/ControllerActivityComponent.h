@@ -65,8 +65,28 @@ protected:
 	class PlayerPad
 	{
 	public:
+		PlayerPad()
+		{
+			reset();
+		}
+	
+		int  index;
+		int  batteryLevel;
 		int  keyState;
 		int  timeOut;
+
+		std::shared_ptr<TextCache>	batteryText;
+
+		std::string batteryTextValue;
+		int batteryTextSize;
+
+		void reset()
+		{
+			index = -1;
+			batteryLevel = -1;
+			keyState = 0;
+			timeOut = 0;
+		}
 	};
 
 	PlayerPad mPads[MAX_PLAYERS];

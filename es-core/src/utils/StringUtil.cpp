@@ -506,7 +506,7 @@ namespace Utils
 			va_end(args);
 
 			std::string out(buffer);
-			delete buffer;
+			delete[] buffer;
 
 			return out;
 

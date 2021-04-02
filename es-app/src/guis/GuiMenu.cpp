@@ -2175,10 +2175,9 @@ void GuiMenu::openEmulatorSettings()
 	window->pushGui(configuration);
 }
 
-void GuiMenu::openControllersSettings_batocera()
+void GuiMenu::openControllersSettings_batocera(int autoSel)
 {
-
-	GuiSettings *s = new GuiSettings(mWindow, _("CONTROLLERS SETTINGS").c_str());
+	GuiSettings* s = new GuiSettings(mWindow, _("CONTROLLERS SETTINGS").c_str());
 
 	Window *window = mWindow;
 
@@ -2223,7 +2222,10 @@ void GuiMenu::openControllersSettings_batocera()
 	std::vector<std::shared_ptr<OptionListComponent<StrInputConfig *>>> options;
 	char strbuf[256];
 
-	for (int player = 0; player < MAX_PLAYERS; player++) {
+	auto configList = InputManager::getInstance()->getInputConfigs();
+
+	for (int player = 0; player < MAX_PLAYERS; player++) 
+	{
 		std::stringstream sstm;
 		sstm << "INPUT P" << player + 1;
 		std::string confName = sstm.str() + "NAME";
@@ -2232,71 +2234,62 @@ void GuiMenu::openControllersSettings_batocera()
 
 		LOG(LogInfo) << player + 1 << " " << confName << " " << confGuid;
 		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, strbuf, false);
+		inputOptionList->add(_("default"), nullptr, false);
 		options.push_back(inputOptionList);
 
 		// Checking if a setting has been saved, else setting to default
 		std::string configuratedName = Settings::getInstance()->getString(confName);
 		std::string configuratedGuid = Settings::getInstance()->getString(confGuid);
 		bool found = false;
+
 		// For each available and configured input
-		for (auto iter = InputManager::getInstance()->getJoysticks().begin(); iter != InputManager::getInstance()->getJoysticks().end(); iter++) {
-			InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(iter->first);
-			if (config != NULL && config->isConfigured()) {
-				// create name
-				std::stringstream dispNameSS;
-				dispNameSS << "#" << config->getDeviceIndex() << " ";
-				std::string deviceName = config->getDeviceName();
-				if (deviceName.size() > 25) {
-					dispNameSS << deviceName.substr(0, 16) << "..." <<
-						deviceName.substr(deviceName.size() - 5, deviceName.size() - 1);
-				}
-				else {
-					dispNameSS << deviceName;
-				}
+		for (auto config : configList)
+		{
+			// create name
+			std::stringstream dispNameSS;
+			dispNameSS << "#" << config->getDeviceIndex() << " ";
 
-				std::string displayName = dispNameSS.str();
+			std::string deviceName = config->getDeviceName();
+			if (deviceName.size() > 25) 
+				dispNameSS << deviceName.substr(0, 16) << "..." << deviceName.substr(deviceName.size() - 5, deviceName.size() - 1);
+			else
+				dispNameSS << deviceName;
 
+			std::string displayName = dispNameSS.str();
 
-				bool foundFromConfig = configuratedName == config->getDeviceName() &&
-					configuratedGuid == config->getDeviceGUIDString();
-				int deviceID = config->getDeviceId();
-				// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
-				// deja selectionnée on l'ajoute en séléctionnée
-				StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString());
-				mLoadedInput.push_back(newInputConfig);
+			bool foundFromConfig = configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
+			int deviceID = config->getDeviceId();
+			// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
+			// deja selectionnée on l'ajoute en séléctionnée
+			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString());
+			mLoadedInput.push_back(newInputConfig);
 
-				if (foundFromConfig
-					&& std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end()
-					&& !found) {
-					found = true;
-					alreadyTaken.push_back(deviceID);
-					LOG(LogWarning) << "adding entry for player" << player << " (selected): " <<
-						config->getDeviceName() << "  " << config->getDeviceGUIDString();
-					inputOptionList->add(displayName, newInputConfig, true);
-				}
-				else {
-					LOG(LogWarning) << "adding entry for player" << player << " (not selected): " <<
-						config->getDeviceName() << "  " << config->getDeviceGUIDString();
-					inputOptionList->add(displayName, newInputConfig, false);
-				}
+			if (foundFromConfig && std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end() && !found) 
+			{
+				found = true;
+				alreadyTaken.push_back(deviceID);
+				
+				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				inputOptionList->add(displayName, newInputConfig, true);
+			}
+			else 
+			{
+				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				inputOptionList->add(displayName, newInputConfig, false);
 			}
 		}
-		if (configuratedName.compare("") == 0 || !found) {
-			LOG(LogWarning) << "adding default entry for player " << player << "(selected : true)";
-			inputOptionList->add(_("default"), NULL, true);
-		}
-		else {
-			LOG(LogWarning) << "adding default entry for player" << player << "(selected : false)";
-			inputOptionList->add(_("default"), NULL, false);
-		}
 
-		// ADD default config
+		if (!inputOptionList->hasSelection())
+			inputOptionList->selectFirstItem();
 
 		// Populate controllers list
 		s->addWithLabel(strbuf, inputOptionList);
 	}
+
 	s->addSaveFunc([this, options, window] 
 	{
+		bool changed = false;
+
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
 			std::stringstream sstm;
@@ -2309,31 +2302,48 @@ void GuiMenu::openControllersSettings_batocera()
 			StrInputConfig* selected = input->getSelected();
 			if (selected == nullptr)
 			{
-				Settings::getInstance()->setString(confName, "DEFAULT");
-				Settings::getInstance()->setString(confGuid, "");
+				changed |= Settings::getInstance()->setString(confName, "DEFAULT");
+				changed |= Settings::getInstance()->setString(confGuid, "");
 			}
 			else if (input->changed())
 			{
 				LOG(LogWarning) << "Found the selected controller ! : name in list  = " << input->getSelectedName();
 				LOG(LogWarning) << "Found the selected controller ! : guid  = " << selected->deviceGUIDString;
 
-				Settings::getInstance()->setString(confName, selected->deviceName);
-				Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
+				changed |= Settings::getInstance()->setString(confName, selected->deviceName);
+				changed |= Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
 			}			
 		}
 
-		Settings::getInstance()->saveFile();
+		if (changed)
+			Settings::getInstance()->saveFile();
+
 		// this is dependant of this configuration, thus update it
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
 
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
-	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));
-	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity);
-	s->addSaveFunc([activity] { Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()); });
+	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));	
+	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity, autoSel == 1);
+	activity->setOnChangedCallback([this, s, activity]
+	{ 
+		if (Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()))
+		{
+			delete s;
+			openControllersSettings_batocera(1);
+		}
+	});
+	
+	if (Settings::getInstance()->getBool("ShowControllerActivity"))
+	{
+		// CONTROLLER BATTERY
+		auto battery = std::make_shared<SwitchComponent>(mWindow);
+		battery->setState(Settings::getInstance()->getBool("ShowControllerBattery"));
+		s->addWithLabel(_("SHOW CONTROLLER BATTERY LEVEL"), battery);
+		s->addSaveFunc([battery] { Settings::getInstance()->setBool("ShowControllerBattery", battery->getState()); });
+	}
 
-	row.elements.clear();
 	window->pushGui(s);
 }
 

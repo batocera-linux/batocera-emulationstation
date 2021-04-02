@@ -714,33 +714,31 @@ std::shared_ptr<SystemView> ViewController::getSystemListView()
 
 bool ViewController::input(InputConfig* config, Input input)
 {
-	if(mLockInput)
+	if (mLockInput)
 		return true;
 
-        // batocera
-	/* if we receive a button pressure for a non configured joystick, suggest the joystick configuration */
-        if(config->isConfigured() == false) {
-	  if(input.type == TYPE_BUTTON) {
-	    mWindow->pushGui(new GuiDetectDevice(mWindow, false, NULL));
-	    return true;
-	  }
-        }
+	// If we receive a button pressure for a non configured joystick, suggest the joystick configuration
+	if (!config->isConfigured() && (config->getDeviceId() == DEVICE_KEYBOARD || input.type == TYPE_BUTTON || input.type == TYPE_HAT))
+	{
+		mWindow->pushGui(new GuiDetectDevice(mWindow, false, NULL));
+		return true;
+	}
 
-		if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
-		{
-			mWindow->render();
+	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
+	{
+		mWindow->render();
 
-			FileSorts::reset();
-			ResourceManager::getInstance()->unloadAll();
-			ResourceManager::getInstance()->reloadAll();
+		FileSorts::reset();
+		ResourceManager::getInstance()->unloadAll();
+		ResourceManager::getInstance()->reloadAll();
 
-			ViewController::get()->reloadAll(mWindow);
+		ViewController::get()->reloadAll(mWindow);
 #if WIN32
-			EsLocale::reset();
+		EsLocale::reset();
 #endif
-			mWindow->closeSplashScreen();
-			return true;
-		}
+		mWindow->closeSplashScreen();
+		return true;
+	}
 
 	// open menu
 	if(config->isMappedTo("start", input) && input.value != 0) // batocera
