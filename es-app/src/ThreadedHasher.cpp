@@ -168,8 +168,8 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 	
 	for (auto sys : SystemData::sSystemVector)
 	{
-		bool takeNetplay = (type & HASH_NETPLAY_CRC) && sys->isNetplaySupported();
-		bool takeCheevos = (type & HASH_CHEEVOS_MD5) && sys->isCheevosSupported();
+		bool takeNetplay = ((type & HASH_NETPLAY_CRC) == HASH_NETPLAY_CRC) && sys->isNetplaySupported();
+		bool takeCheevos = ((type & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5) && sys->isCheevosSupported();
 
 		if (!takeNetplay && !takeCheevos)
 			continue;
