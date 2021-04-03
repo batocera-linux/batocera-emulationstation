@@ -33,16 +33,16 @@ std::map<std::string, std::string> langFlag =
 	{ "gr", _U("\uF308") },
 	{ "in", _U("\uF309") },
 	{ "it", _U("\uF30A") },
-	{ "jp", _U("\uF30A") },
-	{ "kr", _U("\uF30B") },
-	{ "nl", _U("\uF30C") },
-	{ "no", _U("\uF30D") },
-	{ "pt", _U("\uF30E") },
-	{ "ru", _U("\uF30F") },
-	{ "sw", _U("\uF310") },
-	{ "uk", _U("\uF311") },
-	{ "us", _U("\uF312") },
-	{ "wr", _U("\uF313") }
+	{ "jp", _U("\uF30B") },
+	{ "kr", _U("\uF30C") },
+	{ "nl", _U("\uF30D") },
+	{ "no", _U("\uF30E") },
+	{ "pt", _U("\uF30F") },
+	{ "ru", _U("\uF310") },
+	{ "sw", _U("\uF311") },
+	{ "uk", _U("\uF312") },
+	{ "us", _U("\uF313") },
+	{ "wr", _U("\uF314") }
 };
 
 std::string getLangFlag(const std::string lang)
