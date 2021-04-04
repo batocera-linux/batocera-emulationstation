@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:47+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -515,9 +515,6 @@ msgstr "automatique"
 msgid "VIEW CUSTOMISATION"
 msgstr "VOIR LES PERSONNALISATIONS"
 
-msgid "GAME OPTIONS"
-msgstr "OPTIONS DU JEU"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
@@ -956,17 +953,17 @@ msgstr "Succès gagnés"
 msgid "%d%% complete"
 msgstr "%d%% terminé"
 
-msgid "AUTO SAVE"
-msgstr "SAUVEGARDE AUTO"
-
-msgid "SLOT"
-msgstr "EMPLACEMENT"
-
 msgid "START NEW GAME"
 msgstr "NOUVELLE PARTIE"
 
 msgid "START AUTO SAVE"
 msgstr "LANCER SAUV. AUTO"
+
+msgid "AUTO SAVE"
+msgstr "SAUVEGARDE AUTO"
+
+msgid "SLOT"
+msgstr "EMPLACEMENT"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPIER VERS EMPLACEMENT LIBRE"
@@ -1617,6 +1614,9 @@ msgstr "par défaut"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D'ÉDITER LA CONFIGURATION"
 
@@ -1661,6 +1661,21 @@ msgstr "avec jeux multiples"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "AFFICHER LE DOSSIER PARENT ‘..’"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
@@ -1980,6 +1995,9 @@ msgstr "Nombre de parties"
 
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
+
+msgid "GAME OPTIONS"
+msgstr "OPTIONS DU JEU"
 
 msgid "FAVORITE"
 msgstr "FAVORIS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -515,9 +515,6 @@ msgstr "automatisch"
 msgid "VIEW CUSTOMISATION"
 msgstr "WEERGAVE AANPASSINGEN"
 
-msgid "GAME OPTIONS"
-msgstr "SPELOPTIES"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GEAVANCEERDE SYSTEEMOPTIES"
 
@@ -956,16 +953,16 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
 msgid "START NEW GAME"
 msgstr ""
 
 msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
 msgstr ""
 
 msgid "COPY TO FREE SLOT"
@@ -1617,6 +1614,9 @@ msgstr "standaard"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "TOON CONTROLLERACTIVITEIT"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "JE MOET HET THEMA TOEPASSEN VOORDAT JE DE CONFIGURATIE VERLAAT"
 
@@ -1661,6 +1661,21 @@ msgstr "heeft meerdere spellen"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "TOON BESTANDSNAMEN IN LIJST"
@@ -1975,6 +1990,9 @@ msgstr "Keren gespeeld"
 
 msgid "No Entries Found"
 msgstr "Geen ingangen gevonden"
+
+msgid "GAME OPTIONS"
+msgstr "SPELOPTIES"
 
 msgid "FAVORITE"
 msgstr ""

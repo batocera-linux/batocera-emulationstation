@@ -1983,17 +1983,22 @@ bool SystemData::getShowFilenames()
 	return *mShowFilenames;
 }
 
-bool SystemData::getShowParentFolder()
+bool SystemData::getBoolSetting(const std::string& settingName)
 {
-	bool show = Settings::getInstance()->getBool("ShowParentFolder");
-	
-	auto spf = Settings::getInstance()->getString(getName() + ".ShowParentFolder");
+	bool show = Settings::getInstance()->getBool(settingName);
+
+	auto spf = Settings::getInstance()->getString(getName() + "." + settingName);
 	if (spf == "1")
 		return true;
-	else if (spf == "0") 
+	else if (spf == "0")
 		return false;
 
 	return show;
+}
+
+bool SystemData::getShowParentFolder()
+{
+	return getBoolSetting("ShowParentFolder");
 }
 
 bool SystemData::getShowFavoritesFirst()
@@ -2001,15 +2006,7 @@ bool SystemData::getShowFavoritesFirst()
 	if (!getShowFavoritesIcon())
 		return false;
 
-	bool show = Settings::getInstance()->getBool("FavoritesFirst");
-	
-	auto spf = Settings::getInstance()->getString(getName() + ".FavoritesFirst");
-	if (spf == "1")
-		return true;
-	else if (spf == "0")
-		return false;
-
-	return show;
+	return getBoolSetting("FavoritesFirst");
 }
 
 bool SystemData::getShowFavoritesIcon()
@@ -2023,5 +2020,20 @@ bool SystemData::getShowCheevosIcon()
 		return isCollection() || isCheevosSupported();
 
 	return false;
+}
+
+
+int SystemData::getShowFlags()
+{
+	if (!getShowFavoritesIcon())
+		return false;
+
+	int show = Utils::String::toInteger(Settings::getInstance()->getString("ShowFlags"));
+
+	auto spf = Settings::getInstance()->getString(getName() + ".ShowFlags");
+	if (spf == "" || spf == "auto")
+		return show;
+	
+	return Utils::String::toInteger(spf);
 }
 

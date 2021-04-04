@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:48+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -521,9 +521,6 @@ msgstr "automatic"
 msgid "VIEW CUSTOMISATION"
 msgstr "VEIRE PERSONALIZACION"
 
-msgid "GAME OPTIONS"
-msgstr "OPCIONS DE JÒCS"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr ""
 
@@ -962,16 +959,16 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
 msgid "START NEW GAME"
 msgstr ""
 
 msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
 msgstr ""
 
 msgid "COPY TO FREE SLOT"
@@ -1610,6 +1607,9 @@ msgstr "per defaut"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr ""
 
@@ -1653,6 +1653,21 @@ msgid "having multiple games"
 msgstr ""
 
 msgid "SHOW '..' PARENT FOLDER"
+msgstr ""
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
 msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
@@ -1966,6 +1981,9 @@ msgstr "Temps jogat"
 
 msgid "No Entries Found"
 msgstr ""
+
+msgid "GAME OPTIONS"
+msgstr "OPCIONS DE JÒCS"
 
 msgid "FAVORITE"
 msgstr ""

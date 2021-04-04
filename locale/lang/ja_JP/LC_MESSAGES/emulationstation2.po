@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31(3/20)\n"
+"Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
-"PO-Revision-Date: 2021-03-20 21:55+0900\n"
+"POT-Creation-Date: 2021-04-02 21:48+0200\n"
+"PO-Revision-Date: 2021-03-26 14:42+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -515,9 +515,6 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "表示をカスタマイズ"
 
-msgid "GAME OPTIONS"
-msgstr "ゲーム設定"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
@@ -956,17 +953,17 @@ msgstr "達成実績"
 msgid "%d%% complete"
 msgstr "%d%% 完了"
 
-msgid "AUTO SAVE"
-msgstr "オートセーブ"
-
-msgid "SLOT"
-msgstr "スロット"
-
 msgid "START NEW GAME"
 msgstr "新しくゲームを開始"
 
 msgid "START AUTO SAVE"
 msgstr "オートセーブを開始"
+
+msgid "AUTO SAVE"
+msgstr "オートセーブ"
+
+msgid "SLOT"
+msgstr "スロット"
 
 msgid "COPY TO FREE SLOT"
 msgstr "空スロットにコピー"
@@ -1371,7 +1368,7 @@ msgid "LANGUAGE"
 msgstr "言語"
 
 msgid "SELECT YOUR TIMEZONE"
-msgstr ""
+msgstr "タイムゾーンを選択"
 
 msgid "TIMEZONE"
 msgstr "タイムゾーン"
@@ -1618,6 +1615,9 @@ msgstr "標準"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
 
@@ -1662,6 +1662,21 @@ msgstr "ゲームがあるフォルダ"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
@@ -1980,6 +1995,9 @@ msgstr "プレイ回数"
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
+msgid "GAME OPTIONS"
+msgstr "ゲーム設定"
+
 msgid "FAVORITE"
 msgstr "気に入り"
 
@@ -2091,22 +2109,22 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "ファイル作成日、降順"
 
 msgid "GAME TIME, ASCENDING"
-msgstr "プレイ時間, 昇順"
+msgstr "プレイ時間、昇順"
 
 msgid "GAME TIME, DESCENDING"
-msgstr "プレイ時間, 降順"
+msgstr "プレイ時間、降順"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "システム、リリース年、昇順"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "システム、リリース年、降順"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "リリース年、システム、昇順"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "リリース年、システム、降順"
 
 msgid "Extracting"
 msgstr "抽出"
@@ -2345,4 +2363,4 @@ msgid "%d s"
 msgstr "%d 秒"
 
 #~ msgid "Disk format"
-#~ msgstr "ディスクフォーマット"
+#~ msgstr "ファイルシステム形式"

@@ -7,6 +7,12 @@
 #include "math/Misc.h"
 #include "LocaleES.h"
 
+#include "ResourceManager.h"
+#include "TextureResource.h"
+#include "Settings.h"
+#include "ImageIO.h"
+#include <algorithm>
+
 #ifdef WIN32
 #include <Windows.h>
 #endif
@@ -16,6 +22,7 @@ FT_Library Font::sLibrary = NULL;
 int Font::getSize() const { return mSize; }
 
 std::map< std::pair<std::string, int>, std::weak_ptr<Font> > Font::sFontMap;
+static std::map<unsigned int, std::string> substituableChars;
 
 Font::FontFace::FontFace(ResourceData&& d, int size) : data(d)
 {
@@ -438,6 +445,25 @@ void Font::renderTextCache(TextCache* cache)
 		if (tex != 0)
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
 	}
+
+	if (cache->renderingGlow)
+		return;
+
+	for (auto sub : cache->imageSubstitutes)
+	{
+		if (sub.texture && sub.texture->bind())
+		{
+			if (Settings::DebugImage)
+				Renderer::drawRect(
+					sub.vertex[0].pos.x(), 
+					sub.vertex[0].pos.y(), 
+					sub.vertex[3].pos.x() - sub.vertex[0].pos.x(),
+					sub.vertex[3].pos.x() - sub.vertex[0].pos.x(), 
+					0xFF000033, 0xFF000033);
+
+			Renderer::drawTriangleStrips(&sub.vertex[0], 4);
+		}
+	}
 }
 
 void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz)
@@ -568,6 +594,12 @@ Vector2f Font::sizeText(std::string text, float lineSpacing)
 	while(i < text.length())
 	{
 		unsigned int character = Utils::String::chars2Unicode(text, i); // advances i
+
+		if (substituableChars.find(character) != substituableChars.cend())
+		{
+			lineWidth += lineHeight;
+			continue;
+		}
 
 		if(character == '\n')
 		{
@@ -722,6 +754,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	
 	float yTop = getGlyph('S')->bearing.y();
 	float yBot = getHeight(lineSpacing);
+	float yDecal = (yBot + yTop) / 2.0f;
 	float y = offset[1] + (yBot + yTop)/2.0f;
 
 	// vertices by texture
@@ -750,6 +783,12 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 				if (character == 0 || character == '\r')
 					continue;
 
+				if (substituableChars.find(character) != substituableChars.cend())
+				{
+					x += yBot;
+					continue;
+				}
+
 				if (character == '\t')
 				{
 					auto it = tabStops.find(tabIndex);
@@ -771,11 +810,52 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		}
 	}
 
+	std::vector<TextImageSubstitute> imageSubstitutes;
+
 	tabIndex = 0;
 	size_t cursor = 0;
 	while(cursor < text.length())
 	{
 		unsigned int character = Utils::String::chars2Unicode(text, cursor); // also advances cursor
+
+		auto it = substituableChars.find(character);
+		if (it != substituableChars.cend() && ResourceManager::getInstance()->fileExists(it->second))
+		{
+			auto padding = (yTop / 4.0f);
+
+			// MaxSizeInfo mx(yBot - (2.0f * padding), yBot - (2.0f * padding));
+
+			TextImageSubstitute is;
+			is.texture = TextureResource::get(it->second, false, true, true, false, true); // , &mx);
+			if (is.texture != nullptr)
+			{
+				Renderer::Rect rect(
+					x,
+					y - yDecal + padding,
+					yBot - (2.0f * padding),
+					yBot - padding);
+
+				auto imgSize = is.texture->getSourceImageSize();
+				auto sz = ImageIO::adjustPictureSize(Vector2i(imgSize.x(), imgSize.y()), Vector2i(rect.w, rect.h));
+
+				Renderer::Rect rc(
+					rect.x + (rect.w / 2.0f) - (sz.x() / 2.0f), 
+					rect.y + (rect.h / 2.0f) - (sz.y() / 2.0f),
+					sz.x(),
+					sz.y());
+				
+				is.vertex[0] = { { (float) rc.x			, (float) rc.y + rc.h }	, { 0.0f, 0.0f }, 0xFFFFFFFF };
+				is.vertex[1] = { { (float) rc.x			, (float) rc.y }		, { 0.0f, 1.0f }, 0xFFFFFFFF };
+				is.vertex[2] = { { (float) rc.x + rc.w  , (float) rc.y + rc.h }	, { 1.0f, 0.0f }, 0xFFFFFFFF };
+				is.vertex[3] = { { (float) rc.x + rc.w  , (float) rc.y }		, { 1.0f, 1.0f }, 0xFFFFFFFF };
+
+				imageSubstitutes.push_back(is);
+
+				x += yBot - (2.0f*padding);
+				continue;
+			}
+		}
+
 		Glyph* glyph;
 
 		// invalid character
@@ -841,6 +921,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	TextCache* cache = new TextCache();
 	cache->vertexLists.resize(vertMap.size());
 	cache->metrics = { sizeText(text, lineSpacing) };
+	cache->imageSubstitutes = imageSubstitutes;
 
 	unsigned int i = 0;
 	for(auto it = vertMap.cbegin(); it != vertMap.cend(); it++)
@@ -896,4 +977,59 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 	}
 
 	return get(size, path);
+}
+
+void Font::OnThemeChanged()
+{
+	static std::map<unsigned int, std::string> defaultMap =
+	{
+		{ 0xF300, ":/flags/au.png" },
+		{ 0xF301, ":/flags/br.png" },
+		{ 0xF302, ":/flags/ca.png" },
+		{ 0xF303, ":/flags/ch.png" },
+		{ 0xF304, ":/flags/de.png" },
+		{ 0xF305, ":/flags/es.png" },
+		{ 0xF306, ":/flags/eu.png" },
+		{ 0xF307, ":/flags/fr.png" },
+		{ 0xF308, ":/flags/gr.png" },
+		{ 0xF309, ":/flags/in.png" },
+		{ 0xF30A, ":/flags/it.png" },
+		{ 0xF30A, ":/flags/jp.png" },
+		{ 0xF30B, ":/flags/kr.png" },
+		{ 0xF30C, ":/flags/nl.png" },
+		{ 0xF30D, ":/flags/no.png" },
+		{ 0xF30E, ":/flags/pt.png" },
+		{ 0xF30F, ":/flags/ru.png" },
+		{ 0xF310, ":/flags/sw.png" },
+		{ 0xF311, ":/flags/uk.png" },
+		{ 0xF312, ":/flags/us.png" },
+		{ 0xF313, ":/flags/wr.png" }
+	};
+
+	substituableChars = defaultMap;
+
+	auto paths = ResourceManager::getInstance()->getResourcePaths();
+	std::reverse(paths.begin(), paths.end());
+
+	for (auto testPath : paths)
+	{
+		auto fontoverrides = Utils::FileSystem::combine(testPath, "fontoverrides");
+		for (auto file : Utils::FileSystem::getDirectoryFiles(fontoverrides))
+		{
+			if (file.directory || file.hidden)
+				continue;
+
+			if (Utils::String::toLower(Utils::FileSystem::getExtension(file.path)) != ".png")
+				continue;
+
+			auto stem = Utils::FileSystem::getStem(file.path);
+
+			auto val = Utils::String::fromHexString(stem);
+			if (val >= 0xF000)
+			{
+				substituableChars.erase(val);
+				substituableChars.insert(std::pair<unsigned int, std::string>(val, file.path));
+			}
+		}
+	}
 }

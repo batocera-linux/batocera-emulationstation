@@ -142,8 +142,9 @@ void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, flo
 	if (xOff != 0.0)
 		glowTrans.translate(Vector3f(xOff, 0, 0));
 
+	mTextCache->setRenderingGlow(true);
 	mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
-
+	
 	int x = -mGlowSize;
 	int y = -mGlowSize;
 
@@ -160,6 +161,8 @@ void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, flo
 
 	for (int i = 0; i < 2 * mGlowSize; i++)
 		renderSingleGlow(glowTrans, yOff, x, --y);
+
+	mTextCache->setRenderingGlow(false);
 }
 
 void TextComponent::render(const Transform4x4f& parentTrans)

@@ -348,6 +348,20 @@ void FileFilterIndex::setFilter(FilterIndexType type, std::vector<std::string>* 
 			filterData.currentFilteredKeys->insert(value);	
 }
 
+std::unordered_set<std::string>* FileFilterIndex::getFilter(FilterIndexType type)
+{
+	std::vector<std::string> ret;
+	auto it = mFilterDecl.find(type);
+	if (it == mFilterDecl.cend())
+		return nullptr;
+
+	FilterDataDecl& filterData = it->second;
+	if (!(*(filterData.filteredByRef)))
+		return nullptr;
+
+	return filterData.currentFilteredKeys;
+}
+
 void FileFilterIndex::clearAllFilters()
 {
 	mUseRelevency = false;

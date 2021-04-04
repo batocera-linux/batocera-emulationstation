@@ -62,6 +62,15 @@ struct PacmanPackage
 	bool isInstalled() { return status == "installed"; }
 };
 
+struct PadInfo
+{
+	int id;
+	std::string name;
+	std::string device;
+	std::string status;
+	int battery;
+};
+
 class ApiSystem 
 {
 public:
@@ -83,7 +92,8 @@ public:
 		BATOCERASTORE = 13,
 		EVMAPY = 14,
 		THEMESDOWNLOADER = 15,
-		THEBEZELPROJECT = 16
+		THEBEZELPROJECT = 16,
+		PADSINFO = 17
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -197,6 +207,8 @@ public:
 
 	virtual std::vector<std::string> getTimezones();
 	virtual bool setTimezone(std::string tz);
+
+	virtual std::vector<PadInfo> getPadsInfo();
 
 protected:
 	ApiSystem();

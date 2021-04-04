@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:47+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -520,9 +520,6 @@ msgstr "awtomatig"
 msgid "VIEW CUSTOMISATION"
 msgstr "GWELD ADDASIADAU"
 
-msgid "GAME OPTIONS"
-msgstr "OPSIYNAU GÊM"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "OPSIYNAU SYSTEM UWCH"
 
@@ -961,17 +958,17 @@ msgstr "Cyflawniadau a enillwyd"
 msgid "%d%% complete"
 msgstr "%d% % yn gyflawn"
 
-msgid "AUTO SAVE"
-msgstr "ARBED AWTO"
-
-msgid "SLOT"
-msgstr "SLOT"
-
 msgid "START NEW GAME"
 msgstr "DECHRAU GÊM NEWYDD"
 
 msgid "START AUTO SAVE"
 msgstr "DECHRAU ARBED AWTO"
+
+msgid "AUTO SAVE"
+msgstr "ARBED AWTO"
+
+msgid "SLOT"
+msgstr "SLOT"
 
 msgid "COPY TO FREE SLOT"
 msgstr "COPI I SLOT RHYDD"
@@ -1621,6 +1618,9 @@ msgstr "rhagosodiad"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "RHAID I CHI YMGEISIO'R THEMA CYN GOLYGU TRAWSWEDDIAD"
 
@@ -1665,6 +1665,21 @@ msgstr "cael gemau lluosog"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "DANGOS '..' FFOLDER RHIENI"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "DANGOS ENWAU FFEILIAU MEWN RHESTR"
@@ -1996,6 +2011,9 @@ msgstr "Nifer o weithiau chwaraewyd"
 
 msgid "No Entries Found"
 msgstr "Ni ddarganfuwyd unrhyw gofnodion"
+
+msgid "GAME OPTIONS"
+msgstr "OPSIYNAU GÊM"
 
 msgid "FAVORITE"
 msgstr ""

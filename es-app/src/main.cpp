@@ -495,7 +495,7 @@ int main(int argc, char* argv[])
 	MameNames::init();
 
 	window.pushGui(ViewController::get());
-	if(!window.init())
+	if(!window.init(true, false))
 	{
 		LOG(LogError) << "Window failed to initialize!";
 		return 1;
@@ -535,35 +535,25 @@ int main(int argc, char* argv[])
 		ApiSystem::getInstance()->launchKodi(&window);
 #endif
 
-	InputConfig::AssignActionButtons();
-
 	ApiSystem::getInstance()->getIpAdress();
-
-	//dont generate joystick events while we're loading (hopefully fixes "automatically started emulator" bug)
-	SDL_JoystickEventState(SDL_DISABLE);
 
 	// preload what we can right away instead of waiting for the user to select it
 	// this makes for no delays when accessing content, but a longer startup time
 	ViewController::get()->preload();
 
+	if (splashScreen && splashScreenProgress)
+		window.renderSplashScreen(_("Done."));
+
+	// Initialize input
+	InputConfig::AssignActionButtons();
+	InputManager::getInstance()->init();
+	SDL_StopTextInput();
+
 	NetworkThread* nthread = new NetworkThread(&window);
 	HttpServerThread httpServer(&window);
 
-	if(splashScreen && splashScreenProgress)
-		window.renderSplashScreen(_("Done."));
-
-	// Choose which GUI to open depending on if an input configuration already exists
-	if(errorMsg == NULL)
-	{
-		if(Utils::FileSystem::exists(InputManager::getConfigPath()) && InputManager::getInstance()->getNumConfiguredDevices() > 0)
-			ViewController::get()->goToStart(true);
-		else
-			window.pushGui(new GuiDetectDevice(&window, true, [] { ViewController::get()->goToStart(true); }));
-	}
-
-	// Generate joystick events since we're done loading
-	SDL_JoystickEventState(SDL_ENABLE);
-	SDL_StopTextInput();
+	if (errorMsg == NULL)
+		ViewController::get()->goToStart(true);
 
 	window.closeSplashScreen();
 

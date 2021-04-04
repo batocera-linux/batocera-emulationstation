@@ -62,6 +62,7 @@
 // batocera-info
 #define fake_gettext_system       _("System")
 #define fake_gettext_architecture _("Architecture")
+#define fake_gettext_diskformat   _("Disk format")
 #define fake_gettext_temperature  _("Temperature")
 #define fake_gettext_avail_memory _("Available memory")
 #define fake_gettext_battery      _("Battery")
@@ -2663,10 +2664,9 @@ void GuiMenu::openEmulatorSettings()
 	window->pushGui(configuration);
 }
 
-void GuiMenu::openControllersSettings_batocera()
+void GuiMenu::openControllersSettings_batocera(int autoSel)
 {
-
-	GuiSettings *s = new GuiSettings(mWindow, _("CONTROLLERS SETTINGS").c_str());
+	GuiSettings* s = new GuiSettings(mWindow, _("CONTROLLERS SETTINGS").c_str());
 
 	Window *window = mWindow;
 
@@ -2711,7 +2711,10 @@ void GuiMenu::openControllersSettings_batocera()
 	std::vector<std::shared_ptr<OptionListComponent<StrInputConfig *>>> options;
 	char strbuf[256];
 
-	for (int player = 0; player < MAX_PLAYERS; player++) {
+	auto configList = InputManager::getInstance()->getInputConfigs();
+
+	for (int player = 0; player < MAX_PLAYERS; player++) 
+	{
 		std::stringstream sstm;
 		sstm << "INPUT P" << player + 1;
 		std::string confName = sstm.str() + "NAME";
@@ -2720,71 +2723,62 @@ void GuiMenu::openControllersSettings_batocera()
 
 		LOG(LogInfo) << player + 1 << " " << confName << " " << confGuid;
 		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, strbuf, false);
+		inputOptionList->add(_("default"), nullptr, false);
 		options.push_back(inputOptionList);
 
 		// Checking if a setting has been saved, else setting to default
 		std::string configuratedName = Settings::getInstance()->getString(confName);
 		std::string configuratedGuid = Settings::getInstance()->getString(confGuid);
 		bool found = false;
+
 		// For each available and configured input
-		for (auto iter = InputManager::getInstance()->getJoysticks().begin(); iter != InputManager::getInstance()->getJoysticks().end(); iter++) {
-			InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(iter->first);
-			if (config != NULL && config->isConfigured()) {
-				// create name
-				std::stringstream dispNameSS;
-				dispNameSS << "#" << config->getDeviceIndex() << " ";
-				std::string deviceName = config->getDeviceName();
-				if (deviceName.size() > 25) {
-					dispNameSS << deviceName.substr(0, 16) << "..." <<
-						deviceName.substr(deviceName.size() - 5, deviceName.size() - 1);
-				}
-				else {
-					dispNameSS << deviceName;
-				}
+		for (auto config : configList)
+		{
+			// create name
+			std::stringstream dispNameSS;
+			dispNameSS << "#" << config->getDeviceIndex() << " ";
 
-				std::string displayName = dispNameSS.str();
+			std::string deviceName = config->getDeviceName();
+			if (deviceName.size() > 25) 
+				dispNameSS << deviceName.substr(0, 16) << "..." << deviceName.substr(deviceName.size() - 5, deviceName.size() - 1);
+			else
+				dispNameSS << deviceName;
 
+			std::string displayName = dispNameSS.str();
 
-				bool foundFromConfig = configuratedName == config->getDeviceName() &&
-					configuratedGuid == config->getDeviceGUIDString();
-				int deviceID = config->getDeviceId();
-				// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
-				// deja selectionnée on l'ajoute en séléctionnée
-				StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString());
-				mLoadedInput.push_back(newInputConfig);
+			bool foundFromConfig = configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
+			int deviceID = config->getDeviceId();
+			// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
+			// deja selectionnée on l'ajoute en séléctionnée
+			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString());
+			mLoadedInput.push_back(newInputConfig);
 
-				if (foundFromConfig
-					&& std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end()
-					&& !found) {
-					found = true;
-					alreadyTaken.push_back(deviceID);
-					LOG(LogWarning) << "adding entry for player" << player << " (selected): " <<
-						config->getDeviceName() << "  " << config->getDeviceGUIDString();
-					inputOptionList->add(displayName, newInputConfig, true);
-				}
-				else {
-					LOG(LogWarning) << "adding entry for player" << player << " (not selected): " <<
-						config->getDeviceName() << "  " << config->getDeviceGUIDString();
-					inputOptionList->add(displayName, newInputConfig, false);
-				}
+			if (foundFromConfig && std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end() && !found) 
+			{
+				found = true;
+				alreadyTaken.push_back(deviceID);
+				
+				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				inputOptionList->add(displayName, newInputConfig, true);
+			}
+			else 
+			{
+				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				inputOptionList->add(displayName, newInputConfig, false);
 			}
 		}
-		if (configuratedName.compare("") == 0 || !found) {
-			LOG(LogWarning) << "adding default entry for player " << player << "(selected : true)";
-			inputOptionList->add(_("default"), NULL, true);
-		}
-		else {
-			LOG(LogWarning) << "adding default entry for player" << player << "(selected : false)";
-			inputOptionList->add(_("default"), NULL, false);
-		}
 
-		// ADD default config
+		if (!inputOptionList->hasSelection())
+			inputOptionList->selectFirstItem();
 
 		// Populate controllers list
 		s->addWithLabel(strbuf, inputOptionList);
 	}
+
 	s->addSaveFunc([this, options, window] 
 	{
+		bool changed = false;
+
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
 			std::stringstream sstm;
@@ -2797,20 +2791,22 @@ void GuiMenu::openControllersSettings_batocera()
 			StrInputConfig* selected = input->getSelected();
 			if (selected == nullptr)
 			{
-				Settings::getInstance()->setString(confName, "DEFAULT");
-				Settings::getInstance()->setString(confGuid, "");
+				changed |= Settings::getInstance()->setString(confName, "DEFAULT");
+				changed |= Settings::getInstance()->setString(confGuid, "");
 			}
 			else if (input->changed())
 			{
 				LOG(LogWarning) << "Found the selected controller ! : name in list  = " << input->getSelectedName();
 				LOG(LogWarning) << "Found the selected controller ! : guid  = " << selected->deviceGUIDString;
 
-				Settings::getInstance()->setString(confName, selected->deviceName);
-				Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
+				changed |= Settings::getInstance()->setString(confName, selected->deviceName);
+				changed |= Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
 			}			
 		}
 
-		Settings::getInstance()->saveFile();
+		if (changed)
+			Settings::getInstance()->saveFile();
+
 		// this is dependant of this configuration, thus update it
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
@@ -2818,11 +2814,26 @@ void GuiMenu::openControllersSettings_batocera()
 
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
-	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));
-	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity);
-	s->addSaveFunc([activity] { Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()); });
+	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));	
+	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity, autoSel == 1);
+	activity->setOnChangedCallback([this, s, activity]
+	{ 
+		if (Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()))
+		{
+			delete s;
+			openControllersSettings_batocera(1);
+		}
+	});
+	
+	if (Settings::getInstance()->getBool("ShowControllerActivity"))
+	{
+		// CONTROLLER BATTERY
+		auto battery = std::make_shared<SwitchComponent>(mWindow);
+		battery->setState(Settings::getInstance()->getBool("ShowControllerBattery"));
+		s->addWithLabel(_("SHOW CONTROLLER BATTERY LEVEL"), battery);
+		s->addSaveFunc([battery] { Settings::getInstance()->setBool("ShowControllerBattery", battery->getState()); });
+	}
 
-	row.elements.clear();
 	window->pushGui(s);
 }
 
@@ -3146,8 +3157,61 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
+		// Show flags
 
+		auto defSF = Settings::getInstance()->getString("ShowFlags");
+		if (defSF == "1")
+			defSF = _("BEFORE NAME");
+		else if (defSF == "2")
+			defSF = _("AFTER NAME");
+		else 
+			defSF = _("NO");
 		
+		auto curSF = Settings::getInstance()->getString(system->getName() + ".ShowFlags");
+		auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+
+		showRegionFlags->addRange({ 
+			{ _("AUTO"), "auto" },
+			{ _("NO"), "0" },
+			{ _("BEFORE NAME") , "1" },
+			{ _("AFTER NAME"), "2" } }, 
+			curSF);
+
+		themeconfig->addWithDescription(_("SHOW LANGUAGE FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSF, showRegionFlags);
+		themeconfig->addSaveFunc([themeconfig, showRegionFlags, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowFlags", showRegionFlags->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+		
+		// Show SaveStates
+		auto defSS = Settings::getInstance()->getBool("ShowSaveStates") ? _("YES") : _("NO");
+		auto curSS = Settings::getInstance()->getString(system->getName() + ".ShowSaveStates");
+		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATES FLAG IN LISTS"), false);
+		showSaveStates->add(_("AUTO"), "", curSS == "" || curSS == "auto");
+		showSaveStates->add(_("YES"), "1", curSS == "1");
+		showSaveStates->add(_("NO"), "0", curSS == "0");
+		themeconfig->addWithDescription(_("SHOW SAVESTATES FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSS, showSaveStates);
+		themeconfig->addSaveFunc([themeconfig, showSaveStates, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowSaveStates", showSaveStates->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
+		// Show Manual
+		auto defMM = Settings::getInstance()->getBool("ShowManualIcon") ? _("YES") : _("NO");
+		auto curMM = Settings::getInstance()->getString(system->getName() + ".ShowManualIcon");
+		auto showManual = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW MANUAL ICON IN LISTS"), false);
+		showManual->add(_("AUTO"), "", curMM == "" || curMM == "auto");
+		showManual->add(_("YES"), "1", curMM == "1");
+		showManual->add(_("NO"), "0", curMM == "0");
+		themeconfig->addWithDescription(_("SHOW MANUAL ICON IN LISTS"), _("DEFAULT VALUE") + " : " + defMM, showManual);
+		themeconfig->addSaveFunc([themeconfig, showManual, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowManualIcon", showManual->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
 		// Show filenames
 		auto defFn = Settings::getInstance()->getBool("ShowFilenames") ? _("YES") : _("NO");
 		auto curFn = Settings::getInstance()->getString(system->getName() + ".ShowFilenames");
@@ -3415,7 +3479,7 @@ void GuiMenu::openUISettings()
 				s->setVariable("reloadAll", true);
 				s->setVariable("reloadGuiMenu", true);
 
-				Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);
+				Scripting::fireEvent("theme-changed", theme_set->getSelected(), oldTheme);				
 			}
 		});
 
@@ -3555,7 +3619,38 @@ void GuiMenu::openUISettings()
 	s->addWithLabel(_("SHOW '..' PARENT FOLDER"), parentFolder);
 	s->addSaveFunc([s, parentFolder]
 	{
-		Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState());
+		if (Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show flags
+	auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+	showRegionFlags->addRange({ { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, Settings::getInstance()->getString("ShowFlags"));
+	s->addWithLabel(_("SHOW LANGUAGE FLAG IN LISTS"), showRegionFlags);
+	s->addSaveFunc([s, showRegionFlags]
+	{
+		if (Settings::getInstance()->setString("ShowFlags", showRegionFlags->getSelected()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show SaveStates
+	auto showSaveStates = std::make_shared<SwitchComponent>(mWindow);
+	showSaveStates->setState(Settings::getInstance()->getBool("ShowSaveStates"));
+	s->addWithLabel(_("SHOW SAVESTATES FLAG IN LISTS"), showSaveStates);
+	s->addSaveFunc([s, showSaveStates]
+	{
+		if (Settings::getInstance()->setBool("ShowSaveStates", showSaveStates->getState()))
+			s->setVariable("reloadAll", true);
+	});
+
+	// Show Manual 
+	auto showManual = std::make_shared<SwitchComponent>(mWindow);
+	showManual->setState(Settings::getInstance()->getBool("ShowManualIcon"));
+	s->addWithLabel(_("SHOW MANUAL ICON IN LISTS"), showManual);
+	s->addSaveFunc([s, showManual]
+	{
+		if (Settings::getInstance()->setBool("ShowManualIcon", showManual->getState()))
+			s->setVariable("reloadAll", true);
 	});
 
 	// filenames

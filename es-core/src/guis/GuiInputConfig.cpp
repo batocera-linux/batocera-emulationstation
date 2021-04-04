@@ -419,30 +419,5 @@ void GuiInputConfig::clearAssignment(int inputId)
 
 bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
 {
-  // batocera
-  return false;
-
-#if defined(__linux__)
-	// on Linux, some gamepads return both an analog axis and a digital button for the trigger;
-	// we want the analog axis only, so this function removes the button press event
-
-	if((
-	  // match PlayStation joystick with 6 axes only
-	  strstr(config->getDeviceName().c_str(), "PLAYSTATION") != NULL
-	  || strstr(config->getDeviceName().c_str(), "PS3 Ga") != NULL
-	  || strstr(config->getDeviceName().c_str(), "PS(R) Ga") != NULL
-	  // BigBen kid's PS3 gamepad 146b:0902, matched on SDL GUID because its name "Bigben Interactive Bigben Game Pad" may be too generic
-	  || strcmp(config->getDeviceGUIDString().c_str(), "030000006b1400000209000011010000") == 0
-	  ) && InputManager::getInstance()->getAxisCountByDevice(config->getDeviceId()) == 6)
-	{
-		// digital triggers are unwanted
-		if (input.type == TYPE_BUTTON && (input.id == 6 || input.id == 7))
-			return true;
-		// ignore analog values < 0
-		if (input.type == TYPE_AXIS && (input.id == 2 || input.id == 5) && input.value < 0)
-			return true;
-	}
-#endif
-
 	return false;
 }

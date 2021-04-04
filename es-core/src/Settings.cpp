@@ -87,6 +87,7 @@ void Settings::setDefaults()
         mBoolMap["UseOSK"] = true; // on screen keyboard
         mBoolMap["DrawClock"] = true;
 		mBoolMap["ShowControllerActivity"] = true;		
+		mBoolMap["ShowControllerBattery"] = true;		
         mIntMap["SystemVolume"] = 95;
         mBoolMap["Overscan"] = false;
         mStringMap["Language"] = "en_US";
@@ -225,7 +226,7 @@ void Settings::setDefaults()
 		
 	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
-	mBoolMap["FavoritesFirst"] = true;
+	mBoolMap["FavoritesFirst"] = false;
 
 	mBoolMap["LocalArt"] = false;
 

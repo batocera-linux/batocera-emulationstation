@@ -71,7 +71,7 @@ private:
 	// batocera	
 	void openSystemSettings_batocera();
 	void openGamesSettings_batocera();
-	void openControllersSettings_batocera();		
+	void openControllersSettings_batocera(int autoSel = 0);
 	void openNetworkSettings_batocera(bool selectWifiEnable = false);	
 	void openQuitMenu_batocera();
 	void openSystemInformations_batocera();

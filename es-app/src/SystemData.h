@@ -288,6 +288,8 @@ public:
 	bool getShowFavoritesFirst();
 	bool getShowFavoritesIcon();
 	bool getShowCheevosIcon();
+	int  getShowFlags();
+	bool getBoolSetting(const std::string& settingName);
 
 	static void resetSettings();
 

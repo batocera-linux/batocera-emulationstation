@@ -12,7 +12,13 @@ MultiStateInput::MultiStateInput(const std::string& buttonName)
 
 bool MultiStateInput::isShortPressed(InputConfig* config, Input input)
 {
-	if (config->isMappedTo(mButtonName, input))
+	auto buttonName = mButtonName;
+	if (buttonName == "OK")
+		buttonName = BUTTON_OK;
+	else if (buttonName == "BACK")
+		buttonName = BUTTON_BACK;
+
+	if (config->isMappedTo(buttonName, input))
 	{
 		bool pressed = (input.value != 0);
 

@@ -21,4 +21,9 @@ private:
 	bool mShowYear;
 	bool mShowSystemFirst;
 	bool mShowSystemAfterYear;
+
+	bool mShowManualIcon;		
+	bool mShowSaveStates;
+
+	int mShowFlags;
 };

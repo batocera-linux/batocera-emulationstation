@@ -95,7 +95,7 @@ GuiComponent* Window::peekGui()
 	return mGuiStack.back();
 }
 
-bool Window::init(bool initRenderer)
+bool Window::init(bool initRenderer, bool initInputManager)
 {
 	LOG(LogInfo) << "Window::init";
 
@@ -110,7 +110,8 @@ bool Window::init(bool initRenderer)
 	else 
 		Renderer::activateWindow();
 
-	InputManager::getInstance()->init();
+	if (initInputManager)
+		InputManager::getInstance()->init();
 
 	ResourceManager::getInstance()->reloadAll();
 

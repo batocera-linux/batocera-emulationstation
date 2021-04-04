@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-23 23:34+0100\n"
+"POT-Creation-Date: 2021-04-02 21:48+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,9 +511,6 @@ msgstr "자동"
 msgid "VIEW CUSTOMISATION"
 msgstr "사용자 지정 보기"
 
-msgid "GAME OPTIONS"
-msgstr "게임 옵션"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "고급 시스템 옵션"
 
@@ -952,16 +949,16 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
 msgid "START NEW GAME"
 msgstr ""
 
 msgid "START AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
 msgstr ""
 
 msgid "COPY TO FREE SLOT"
@@ -1610,6 +1607,9 @@ msgstr "기본"
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "컨트롤러 활성 보이기"
 
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "테마 구성을 편집하기 전에 테마를 적용해야 합니다"
 
@@ -1654,6 +1654,21 @@ msgstr "다수의 게임이 있을 경우"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "'..' 상위 폴더 보여주기"
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "AFTER NAME"
+msgstr ""
+
+msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgstr ""
+
+msgid "SHOW MANUAL ICON IN LISTS"
+msgstr ""
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "리스트에서 파일명 보여주기"
@@ -1965,6 +1980,9 @@ msgstr "플레이 횟수"
 
 msgid "No Entries Found"
 msgstr "항목을 찾지 못했습니다"
+
+msgid "GAME OPTIONS"
+msgstr "게임 옵션"
 
 msgid "FAVORITE"
 msgstr ""

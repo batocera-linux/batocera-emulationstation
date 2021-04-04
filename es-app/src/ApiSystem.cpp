@@ -1172,6 +1172,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::THEBEZELPROJECT:
 		executables.push_back("batocera-es-thebezelproject");
 		break;		
+	case ApiSystem::PADSINFO:
+		executables.push_back("batocera-padsinfo");
+		break;
 	case ApiSystem::EVMAPY:
 		executables.push_back("evmapy");
 		break;		
@@ -1540,3 +1543,56 @@ bool ApiSystem::setTimezone(std::string tz)
 	return executeScript("batocera-config tz " + tz);
 }
 
+std::vector<PadInfo> ApiSystem::getPadsInfo()
+{
+	LOG(LogInfo) << "ApiSystem::getPadsInfo";
+
+	std::vector<PadInfo> ret;
+
+	auto res = executeEnumerationScript("batocera-padsinfo");
+	std::string data = Utils::String::join(res, "\n");
+	if (data.empty())
+	{
+		LOG(LogError) << "Package list is empty";
+		return ret;
+	}
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_string(data.c_str());
+	if (!result)
+	{
+		LOG(LogError) << "Unable to parse packages";
+		return ret;
+	}
+
+	pugi::xml_node root = doc.child("pads");
+	if (!root)
+	{
+		LOG(LogError) << "Could not find <pads> node";
+		return ret;
+	}
+
+	for (pugi::xml_node pad = root.child("pad"); pad; pad = pad.next_sibling("pad"))
+	{
+		PadInfo pi;
+
+		if (pad.attribute("device"))
+			pi.device = pad.attribute("device").as_string();
+
+		if (pad.attribute("id"))
+			pi.id = Utils::String::toInteger(pad.attribute("id").as_string());
+
+		if (pad.attribute("name"))
+			pi.name = pad.attribute("name").as_string();
+
+		if (pad.attribute("battery"))
+			pi.battery = Utils::String::toInteger(pad.attribute("battery").as_string());
+
+		if (pad.attribute("status"))
+			pi.status = pad.attribute("status").as_string();
+
+		ret.push_back(pi);
+	}
+
+	return ret;
+}
