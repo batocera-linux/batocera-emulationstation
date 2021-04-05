@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:48+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1025,6 +1025,9 @@ msgstr "系統"
 
 msgid "Architecture"
 msgstr "架構"
+
+msgid "Disk format"
+msgstr ""
 
 msgid "Temperature"
 msgstr "溫度"

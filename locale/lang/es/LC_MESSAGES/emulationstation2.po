@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:47+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1028,6 +1028,9 @@ msgstr "Sistema"
 msgid "Architecture"
 msgstr "Arquitectura"
 
+msgid "Disk format"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Temperatura"
 
@@ -1119,7 +1122,7 @@ msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "IMAGE SOURCE"
-msgstr "ORIGEN DE LA IMAGEN"
+msgstr "TIPO DE IMAGEN"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
@@ -1143,10 +1146,10 @@ msgid "FAN ART"
 msgstr "ARTE"
 
 msgid "BOX SOURCE"
-msgstr "ORIGEN DE LA CAJA"
+msgstr "FORMATO DE CAJA"
 
 msgid "LOGO SOURCE"
-msgstr "ORIGEN DEL LOGO"
+msgstr "TIPO DE LOGO"
 
 msgid "WHEEL"
 msgstr "WHEEL"
@@ -1615,7 +1618,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "DEBES APLICAR EL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
@@ -1663,19 +1666,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "MOSTRAR '..' CARPETA PRINCIPAL"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ANTES DEL NOMBRE"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "TRAS EL NOMBRE"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "MOSTRAR BANDERAS DE IDIOMA EN LAS LISTAS"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "MOSTRAR ICONO DE PARTIDAS GUARDADAS EN LAS LISTAS"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "MOSTRAR ICONO DE MANUAL EN LAS LISTAS"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
@@ -1729,7 +1732,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr "VOLUMEN DE MÚSICA"
+msgstr "VOLUMEN DE LA MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR LA BARRA DE VOLUMEN AL CAMBIAR EL VOLUMEN"
