@@ -8,6 +8,7 @@
 #include "LangParser.h"
 #include "LocaleES.h"
 #include "SaveStateRepository.h"
+#include "CollectionSystemManager.h"
 
 #define FOLDERICON _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
@@ -33,16 +34,16 @@ std::map<std::string, std::string> langFlag =
 	{ "gr", _U("\uF308") },
 	{ "in", _U("\uF309") },
 	{ "it", _U("\uF30A") },
-	{ "jp", _U("\uF30A") },
-	{ "kr", _U("\uF30B") },
-	{ "nl", _U("\uF30C") },
-	{ "no", _U("\uF30D") },
-	{ "pt", _U("\uF30E") },
-	{ "ru", _U("\uF30F") },
-	{ "sw", _U("\uF310") },
-	{ "uk", _U("\uF311") },
-	{ "us", _U("\uF312") },
-	{ "wr", _U("\uF313") }
+	{ "jp", _U("\uF30B") },
+	{ "kr", _U("\uF30C") },
+	{ "nl", _U("\uF30D") },
+	{ "no", _U("\uF30E") },
+	{ "pt", _U("\uF30F") },
+	{ "ru", _U("\uF310") },
+	{ "sw", _U("\uF311") },
+	{ "uk", _U("\uF312") },
+	{ "us", _U("\uF313") },
+	{ "wr", _U("\uF314") }
 };
 
 std::string getLangFlag(const std::string lang)
@@ -101,6 +102,8 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 {
 	std::string name = fd->getName();
 
+	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
+
 	if (mSortId == FileSorts::GENRE_ASCENDING || mSortId == FileSorts::GENRE_DESCENDING)
 		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Genre)) + SEPARATOR_AFTER + name;
 	else if (mSortId == FileSorts::TIMESPLAYED_ASCENDING || mSortId == FileSorts::TIMESPLAYED_DESCENDING)
@@ -123,7 +126,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 
 	if (mShowYear)
 	{
-		if (mShowSystemName && mShowSystemAfterYear)
+		if (showSystemNameByFile && mShowSystemName && mShowSystemAfterYear)
 			name = SEPARATOR_BEFORE + fd->getSourceFileData()->getSystemName() + SEPARATOR_AFTER + name;
 
 		auto year = Utils::String::toInteger(fd->getMetadata(MetaDataId::ReleaseDate).substr(0, 4));
@@ -133,7 +136,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 			name = SEPARATOR_BEFORE + std::string("????") + SEPARATOR_AFTER + name;
 	}
 
-	if (mShowSystemName && !mShowSystemAfterYear)
+	if (showSystemNameByFile && mShowSystemName && !mShowSystemAfterYear)
 	{
 		if (mShowSystemFirst)
 			name = SEPARATOR_BEFORE + fd->getSourceFileData()->getSystemName() + SEPARATOR_AFTER + name;

@@ -952,16 +952,21 @@ bool Win32ApiSystem::launchKodi(Window *window)
 
 	ApiSystem::launchExternalWindow_before(window);
 
-	SHELLEXECUTEINFO lpExecInfo;
-	lpExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
-	lpExecInfo.lpFile = command.c_str();
-	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
-	lpExecInfo.lpVerb = "open";
-	
-	if (!args.empty())
-		lpExecInfo.lpParameters = args.c_str();
+	std::wstring wexe = Utils::String::convertToWideString(command);
+	std::wstring wargs = Utils::String::convertToWideString(args);
 
-	ShellExecuteEx(&lpExecInfo);
+	SHELLEXECUTEINFOW lpExecInfo;
+	lpExecInfo.cbSize = sizeof(SHELLEXECUTEINFOW);
+	lpExecInfo.lpFile = wexe.c_str();
+	lpExecInfo.lpDirectory = NULL;
+	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
+	lpExecInfo.hwnd = NULL;
+	lpExecInfo.nShow = SW_SHOW;  // show command prompt with normal window size 
+	lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
+	lpExecInfo.lpVerb = L"open";
+	lpExecInfo.lpParameters = wargs.c_str();
+
+	ShellExecuteExW(&lpExecInfo);
 
 	bool ret = lpExecInfo.hProcess != NULL;
 	if (lpExecInfo.hProcess != NULL)

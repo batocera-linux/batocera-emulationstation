@@ -431,13 +431,13 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
-			if (config->isMappedTo("pagedown", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("left", input)) || config->isMappedTo("pagedown", input))
 			{
 				int cursor = moveCursorFast(true);
 				listInput(cursor - mCursor);				
 				return true;
 			}
-			if (config->isMappedTo("pageup", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("right", input)) || config->isMappedTo("pageup", input))
 			{
 				int cursor = moveCursorFast(false);
 				listInput(cursor - mCursor);
@@ -458,13 +458,13 @@ bool SystemView::input(InputConfig* config, Input input)
 				listInput(1);
 				return true;
 			}
-			if (config->isMappedTo("pagedown", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("down", input)) || config->isMappedTo("pagedown", input))
 			{
 				int cursor = moveCursorFast(true);
 				listInput(cursor - mCursor);
 				return true;
 			}
-			if (config->isMappedTo("pageup", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("up", input)) || config->isMappedTo("pageup", input))
 			{
 				int cursor = moveCursorFast(false);
 				listInput(cursor - mCursor);

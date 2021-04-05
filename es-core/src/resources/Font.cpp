@@ -131,6 +131,7 @@ void Font::reload()
 	if (mLoaded)
 		return;
 	
+	Renderer::bindTexture(0);
 	rebuildTextures();
 	clearFaceCache();
 	Renderer::bindTexture(0);
@@ -994,16 +995,16 @@ void Font::OnThemeChanged()
 		{ 0xF308, ":/flags/gr.png" },
 		{ 0xF309, ":/flags/in.png" },
 		{ 0xF30A, ":/flags/it.png" },
-		{ 0xF30A, ":/flags/jp.png" },
-		{ 0xF30B, ":/flags/kr.png" },
-		{ 0xF30C, ":/flags/nl.png" },
-		{ 0xF30D, ":/flags/no.png" },
-		{ 0xF30E, ":/flags/pt.png" },
-		{ 0xF30F, ":/flags/ru.png" },
-		{ 0xF310, ":/flags/sw.png" },
-		{ 0xF311, ":/flags/uk.png" },
-		{ 0xF312, ":/flags/us.png" },
-		{ 0xF313, ":/flags/wr.png" }
+		{ 0xF30B, ":/flags/jp.png" },
+		{ 0xF30C, ":/flags/kr.png" },
+		{ 0xF30D, ":/flags/nl.png" },
+		{ 0xF30E, ":/flags/no.png" },
+		{ 0xF30F, ":/flags/pt.png" },
+		{ 0xF310, ":/flags/ru.png" },
+		{ 0xF311, ":/flags/sw.png" },
+		{ 0xF312, ":/flags/uk.png" },
+		{ 0xF313, ":/flags/us.png" },
+		{ 0xF314, ":/flags/wr.png" }
 	};
 
 	substituableChars = defaultMap;
