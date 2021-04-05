@@ -8,6 +8,7 @@
 #include "LangParser.h"
 #include "LocaleES.h"
 #include "SaveStateRepository.h"
+#include "CollectionSystemManager.h"
 
 #define FOLDERICON _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
@@ -101,6 +102,8 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 {
 	std::string name = fd->getName();
 
+	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
+
 	if (mSortId == FileSorts::GENRE_ASCENDING || mSortId == FileSorts::GENRE_DESCENDING)
 		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Genre)) + SEPARATOR_AFTER + name;
 	else if (mSortId == FileSorts::TIMESPLAYED_ASCENDING || mSortId == FileSorts::TIMESPLAYED_DESCENDING)
@@ -123,7 +126,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 
 	if (mShowYear)
 	{
-		if (mShowSystemName && mShowSystemAfterYear)
+		if (showSystemNameByFile && mShowSystemName && mShowSystemAfterYear)
 			name = SEPARATOR_BEFORE + fd->getSourceFileData()->getSystemName() + SEPARATOR_AFTER + name;
 
 		auto year = Utils::String::toInteger(fd->getMetadata(MetaDataId::ReleaseDate).substr(0, 4));
@@ -133,7 +136,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 			name = SEPARATOR_BEFORE + std::string("????") + SEPARATOR_AFTER + name;
 	}
 
-	if (mShowSystemName && !mShowSystemAfterYear)
+	if (showSystemNameByFile && mShowSystemName && !mShowSystemAfterYear)
 	{
 		if (mShowSystemFirst)
 			name = SEPARATOR_BEFORE + fd->getSourceFileData()->getSystemName() + SEPARATOR_AFTER + name;
