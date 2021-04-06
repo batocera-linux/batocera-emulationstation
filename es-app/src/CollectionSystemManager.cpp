@@ -738,9 +738,10 @@ SystemData* CollectionSystemManager::getSystemToView(SystemData* sys)
 
 	bool sysFoundInBundle = bundleRootFolder->FindByPath(rootFolder->getKey()) != nullptr;
 	if (sysFoundInBundle && sys->isCollection())
-	{
 		systemToView = mCustomCollectionsBundle;
-	}
+	else if (sys->isGroupChildSystem())
+		systemToView = sys->getParentGroupSystem();
+
 	return systemToView;
 }
 
