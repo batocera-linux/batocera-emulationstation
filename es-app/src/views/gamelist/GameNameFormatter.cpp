@@ -87,7 +87,7 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_DESCENDING;
 
-	mShowSystemName = system->isCollection() && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+	mShowSystemName = system->isGroupSystem() || system->isCollection() && Settings::getInstance()->getBool("CollectionShowSystemInfo");
 }
 
 std::string valueOrDefault(const std::string value, const std::string defaultValue = _("Unknown"))
@@ -103,6 +103,13 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	std::string name = fd->getName();
 
 	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
+	if (showSystemNameByFile)
+	{
+		if (fd->getSystem()->isGroupChildSystem())
+			showSystemNameByFile = fd->getSystem()->getRootFolder()->getChildren().size() > 1;
+		else if (fd->getSystem()->isGroupSystem())
+			showSystemNameByFile = false;
+	}
 
 	if (mSortId == FileSorts::GENRE_ASCENDING || mSortId == FileSorts::GENRE_DESCENDING)
 		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Genre)) + SEPARATOR_AFTER + name;

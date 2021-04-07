@@ -624,7 +624,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	if (idx != nullptr && !idx->isFiltered())
 		idx = nullptr;
 
-	std::vector<FileData*>* items = &mChildren;
+  	std::vector<FileData*>* items = &mChildren;
 	
 	std::vector<FileData*> flatGameList;
 	if (showFoldersMode == "never")
@@ -724,6 +724,34 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	}
 
 	return ret;
+}
+
+std::shared_ptr<std::vector<FileData*>> FolderData::findChildrenListToDisplayAtCursor(FileData* toFind, std::stack<FileData*>& stack)
+{
+	auto items = getChildrenListToDisplay();
+
+	for (auto item : items)
+		if (toFind == item)
+			return std::make_shared<std::vector<FileData*>>(items);
+
+	for (auto item : items)
+	{
+		if (item->getType() != FOLDER)
+			continue;
+		
+		stack.push(item);
+
+		auto ret = ((FolderData*)item)->findChildrenListToDisplayAtCursor(toFind, stack);
+		if (ret != nullptr)
+			return ret;
+
+		stack.pop();		
+	}
+
+	if (stack.empty())
+		return std::make_shared<std::vector<FileData*>>(items);
+
+	return nullptr;
 }
 
 FileData* FolderData::findUniqueGameForFolder()
