@@ -382,6 +382,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "systemInfoDelay", FLOAT },	
 		{ "systemInfoCountOnly", BOOLEAN },		
 		{ "defaultTransition", STRING },
+		{ "minLogoOpacity", FLOAT },
+		{ "transitionSpeed", FLOAT },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 
@@ -399,6 +401,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "logoAlignment", STRING },
 		{ "maxLogoCount", FLOAT },
 		{ "defaultTransition", STRING },
+		{ "minLogoOpacity", FLOAT },
+		{ "transitionSpeed", FLOAT },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 

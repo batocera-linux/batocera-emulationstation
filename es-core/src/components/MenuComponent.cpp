@@ -158,7 +158,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	addRow(row, setCursorHere);
 }
 
-void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool onButtonRelease)
+void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool onButtonRelease, const std::string userData, bool doUpdateSize)
 {
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
@@ -205,7 +205,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func, onButtonRelease);
 
-	addRow(row, setCursorHere);
+	addRow(row, setCursorHere, doUpdateSize, userData);
 }
 
 void MenuComponent::setTitle(const std::string title, const std::shared_ptr<Font>& font)
@@ -276,6 +276,8 @@ void MenuComponent::setSubTitle(const std::string text)
 		return;
 	}
 	
+	bool updateGridSize = false;
+
 	if (mSubtitle == nullptr)
 	{
 		auto theme = ThemeData::getMenuTheme();
@@ -285,19 +287,22 @@ void MenuComponent::setSubTitle(const std::string text)
 			theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 
 		mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 1), false, true);
+		updateGridSize = true;
 	}
 	
-	mSubtitle->setText(Utils::String::toUpper(text));
+	//mSubtitle->setText(Utils::String::toUpper(text));
+	mSubtitle->setText(text);
 	mSubtitle->setVerticalAlignment(Alignment::ALIGN_TOP);
 	mSubtitle->setSize(Renderer::getScreenWidth() * 0.88f, 0);
 	mSubtitle->setLineSpacing(1.1);
 
-	updateSize();
+
 
 	const float titleHeight = mTitle->getFont()->getLetterHeight() + (mSubtitle ? TITLE_WITHSUB_VERT_PADDING : TITLE_VERT_PADDING);
 	const float subtitleHeight = mSubtitle->getSize().y() + SUBTITLE_VERT_PADDING;
 
 	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);	
+	updateSize();
 }
 
 float MenuComponent::getTitleHeight() const

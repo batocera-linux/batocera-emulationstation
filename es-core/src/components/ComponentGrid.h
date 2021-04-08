@@ -55,6 +55,7 @@ public:
 
 	bool moveCursor(Vector2i dir);
 	void setCursorTo(const std::shared_ptr<GuiComponent>& comp);
+	bool isCursorTo(const std::shared_ptr<GuiComponent>& comp);
 
 	inline std::shared_ptr<GuiComponent> getSelectedComponent()
 	{

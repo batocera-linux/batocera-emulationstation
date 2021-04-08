@@ -10,12 +10,12 @@
 #include "SaveStateRepository.h"
 #include "CollectionSystemManager.h"
 
-#define FOLDERICON _U("\uF07C ")
+#define FOLDERICON	 _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
 
 #define CHEEVOSICON _U("\uF091")
-#define SAVESTATE _U("\uF0A0")
-#define MANUAL _U("\uF02D")
+#define SAVESTATE	_U("\uF0C7")
+#define MANUAL		_U("\uF02D")
 
 #define RATINGSTAR _U("\uF005")
 #define SEPARATOR_BEFORE "["
