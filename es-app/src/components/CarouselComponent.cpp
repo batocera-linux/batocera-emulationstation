@@ -32,6 +32,8 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mMaxLogoCount = 3;	
 	mScrollSound = "";
 	mDefaultTransition = "";
+	mTransitionSpeed = 500;
+	mMinLogoOpacity = 0.5f;
 }
 
 CarouselComponent::~CarouselComponent()
@@ -240,7 +242,7 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 			if (f >= posMax) f -= posMax;
 
 			this->mCamOffset = move_carousel ? f : endPos;
-		}, 500);
+		}, mTransitionSpeed);
 	} 
 	else if (transition_style == "slide") 
 	{
@@ -252,7 +254,7 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 
 			this->mCamOffset = move_carousel ? f : endPos;			
 
-		}, 500);
+		}, mTransitionSpeed);
 	} 
 	else // instant
 	{		
@@ -264,7 +266,7 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 
 			this->mCamOffset = move_carousel ? f : endPos;			
 
-		}, move_carousel ? 500 : 1);
+		}, move_carousel ? mTransitionSpeed : 1);
 	}
 
 	if (mCursorChangedCallback)
@@ -396,8 +398,10 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 		scale = Math::min(mLogoScale, Math::max(1.0f, scale));
 		scale /= mLogoScale;
 
-		int opacity = (int)Math::round(0x80 + ((0xFF - 0x80) * (1.0f - fabs(distance))));
-		opacity = Math::max((int)0x80, opacity);
+		int opref = (Math::clamp(mMinLogoOpacity, 0, 1) * 255);
+		
+		int opacity = (int)Math::round(opref + ((0xFF - opref) * (1.0f - fabs(distance))));
+		opacity = Math::max((int)opref, opacity);
 
 		ensureLogo(mEntries.at(index));
 
@@ -480,6 +484,12 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 	if (elem->has("defaultTransition"))
 		mDefaultTransition = elem->get<std::string>("defaultTransition");
 
+	if (elem->has("transitionSpeed"))
+		mTransitionSpeed = elem->get<float>("transitionSpeed");
+
+	if (elem->has("minLogoOpacity"))
+		mMinLogoOpacity = elem->get<float>("minLogoOpacity");
+	
 	if (elem->has("imageSource"))
 	{
 		auto direction = elem->get<std::string>("imageSource");
