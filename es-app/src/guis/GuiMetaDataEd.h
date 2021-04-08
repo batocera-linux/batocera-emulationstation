@@ -24,7 +24,7 @@ public:
 private:
 	bool isStatistic(const std::string name);
 
-	void save();
+	bool save();
 	void fetch();
 	void fetchDone(const ScraperSearchResult& result);
 	void close(bool closeAllWindows);
