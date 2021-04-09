@@ -7,6 +7,7 @@
 #include "components/RatingComponent.h"
 #include "components/SwitchComponent.h"
 #include "components/TextComponent.h"
+#include "guis/GuiFileBrowser.h"
 #include "guis/GuiGameScraper.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiTextEditPopup.h"
@@ -23,6 +24,7 @@
 #include "Gamelist.h"
 #include "components/OptionListComponent.h"
 #include "ApiSystem.h"
+#include <set>
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
 	const std::string& /*header*/, std::function<void()> saveCallback, std::function<void()> deleteFunc, FileData* file) : GuiComponent(window),
@@ -61,6 +63,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 	auto emul_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Emulator"), false);
 	auto core_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("Core"), false);
+	std::string relativePath = mMetaData->getRelativeRootPath();
 
 	// populate list
 	for(auto iter = mdd.cbegin(); iter != mdd.cend(); iter++)
@@ -156,9 +159,6 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 			continue;
 		}
 
-
-
-
 		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(iter->displayName), theme->Text.font, theme->Text.color);
 		row.addElement(lbl, true); // label
 
@@ -206,6 +206,51 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				row.addElement(ed, false);
 				break;
 			}
+
+		case MD_PATH:
+		{
+			ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, ALIGN_RIGHT);
+			row.addElement(ed, true);
+
+			auto spacer = std::make_shared<GuiComponent>(mWindow);
+			spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+			row.addElement(spacer, false);
+
+			auto bracket = std::make_shared<ImageComponent>(mWindow);
+			bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
+			bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+			row.addElement(bracket, false);
+
+			GuiFileBrowser::FileTypes type = GuiFileBrowser::FileTypes::IMAGES;
+
+			if (iter->key == "video")
+				type = GuiFileBrowser::FileTypes::VIDEO;
+			else if (iter->key == "manual" || iter->key == "map")
+				type = (GuiFileBrowser::FileTypes) (GuiFileBrowser::FileTypes::IMAGES | GuiFileBrowser::FileTypes::MANUALS);
+
+			auto updateVal = [ed, relativePath](const std::string& newVal)
+			{ 
+				auto val = Utils::FileSystem::createRelativePath(newVal, relativePath, true);
+				ed->setValue(val);
+			};
+
+			row.makeAcceptInputHandler([this, type, ed, iter, updateVal, relativePath]
+			{			
+				std::string filePath = ed->getValue();
+				if (!filePath.empty())
+					filePath = Utils::FileSystem::resolveRelativePath(filePath, relativePath, true);
+				
+				std::string dir = Utils::FileSystem::getParent(filePath);
+				if (dir.empty())
+					dir = relativePath;
+
+				std::string title = iter->displayName + " - " + mMetaData->getName();
+				mWindow->pushGui(new GuiFileBrowser(mWindow, dir, filePath, type, updateVal, title));
+			});
+
+			break;
+		}
+
 		case MD_MULTILINE_STRING:
 		default:
 			{
@@ -247,10 +292,10 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 
-	if(!scraperParams.system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SCRAPE"), _("SCRAPE"), std::bind(&GuiMetaDataEd::fetch, this)));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [&] { if (save()) { delete this; } }));
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [&] { save(); delete this; }));
+	if (!scraperParams.system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SCRAPE"), _("SCRAPE"), std::bind(&GuiMetaDataEd::fetch, this)));
 
 	if(mDeleteFunc)
 	{
@@ -321,41 +366,100 @@ bool GuiMetaDataEd::isStatistic(const std::string name)
 	return false;
 }
 
-void GuiMetaDataEd::save()
+bool GuiMetaDataEd::save()
 {
-	// remove game from index
-	mScraperParams.system->removeFromIndex(mScraperParams.game);
+	std::set<std::string> externalFilesToCopy;
+
+	auto performSave = [this](std::set<std::string> filesToCopy)
+	{
+		// remove game from index
+		mScraperParams.system->removeFromIndex(mScraperParams.game);
+
+		for (unsigned int i = 0; i < mEditors.size(); i++)
+		{
+			std::shared_ptr<GuiComponent> ed = mEditors.at(i);
+
+			auto val = ed->getValue();
+			auto key = ed->getTag();
+
+			if (isStatistic(key))
+				continue;
+
+			if (key == "core" || key == "emulator")
+			{
+				std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
+				val = list->getSelected();
+			}
+
+			if (mMetaData->getType(key) == MD_PATH && !val.empty() && filesToCopy.find(val) != filesToCopy.cend())
+			{
+				auto rootPath = mMetaData->getRelativeRootPath();
+				auto sourceFile = Utils::FileSystem::resolveRelativePath(val, rootPath, true);
+				
+				std::string folder = "images";
+				if (key == "manual")
+					folder = "manuals";
+				else if (key == "video")
+					folder = "videos";
+
+				auto romName = mScraperParams.game->getFullPath();
+
+				auto destFile = Utils::FileSystem::getStem(romName) + "-" + key + Utils::FileSystem::getExtension(sourceFile);
+				destFile = Utils::FileSystem::combine(Utils::FileSystem::combine(rootPath, folder), destFile);
+
+				if (Utils::FileSystem::copyFile(sourceFile, destFile))
+					val = destFile;
+			}
+
+			mMetaData->set(key, val);
+		}
+
+		// enter game in index
+		mScraperParams.system->addToIndex(mScraperParams.game);
+		mScraperParams.game->importP2k(mScrappedPk2);
+
+		if (mSavedCallback)
+			mSavedCallback();
+
+		saveToGamelistRecovery(mScraperParams.game);
+
+		// update respective Collection Entries
+		CollectionSystemManager::get()->refreshCollectionSystems(mScraperParams.game);
+	};
 
 	for (unsigned int i = 0; i < mEditors.size(); i++)
 	{
-		std::shared_ptr<GuiComponent> ed = mEditors.at(i);		
-
-		auto val = ed->getValue();
+		std::shared_ptr<GuiComponent> ed = mEditors.at(i);
 		auto key = ed->getTag();
-		
 		if (isStatistic(key))
 			continue;
 
-		if (key == "core" || key == "emulator")
+		auto val = ed->getValue();
+		if (mMetaData->getType(key) == MD_PATH && !val.empty())
 		{
-			std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
-			val = list->getSelected();
-		}
+			auto root = mMetaData->getRelativeRootPath();
+			auto abs = Utils::FileSystem::resolveRelativePath(val, root, true);
 
-		mMetaData->set(key, val);
+			auto cur = mMetaData->get(key, true);
+			if (abs != cur && !Utils::String::startsWith(abs, root))
+				externalFilesToCopy.insert(val);
+		}
 	}
 
-	// enter game in index
-	mScraperParams.system->addToIndex(mScraperParams.game);
-	mScraperParams.game->importP2k(mScrappedPk2);
-
-	if(mSavedCallback)
-		mSavedCallback();
-
-	saveToGamelistRecovery(mScraperParams.game);
-
-	// update respective Collection Entries
-	CollectionSystemManager::get()->refreshCollectionSystems(mScraperParams.game);
+	if (externalFilesToCopy.size())
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow,
+			_("SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\nDO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"),
+			_("YES"), [this, performSave, externalFilesToCopy] { performSave(externalFilesToCopy); delete this; },
+			_("NO"), [this, performSave] { performSave(std::set<std::string>()); delete this; },
+			_("CANCEL"), nullptr, ICON_QUESTION
+		));
+		
+		return false;
+	}
+	
+	performSave(externalFilesToCopy);
+	return true;
 }
 
 void GuiMetaDataEd::fetch()
@@ -442,7 +546,7 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 		// changes were made, ask if the user wants to save them
 		mWindow->pushGui(new GuiMsgBox(mWindow,
 			_("SAVE CHANGES?"), // batocera
-			_("YES"), [this, closeFunc] { save(); closeFunc(); }, // batocera
+			_("YES"), [this, closeFunc] { if (save()) closeFunc(); }, // batocera
 			_("NO"), closeFunc // batocera
 		));
 	}else{

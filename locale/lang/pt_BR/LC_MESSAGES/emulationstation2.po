@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:48+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1029,6 +1029,9 @@ msgstr "Sistema"
 msgid "Architecture"
 msgstr "Arquitetura"
 
+msgid "Disk format"
+msgstr "Formato do disco"
+
 msgid "Temperature"
 msgstr "Temperatura"
 
@@ -1615,7 +1618,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "EXIBIR ATIVIDADE DO CONTROLE"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE EDITAR A CONFIGURAÇÃO"
@@ -1663,19 +1666,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "EXIBIR '..' PASTA PRINCIPAL"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ANTES DO NOME"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "DEPOIS DO NOME"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "EXIBIR BANDEIRA DO IDIOMA EM LISTAS"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "EXIBIR BANDEIRA DOS SAVESTATES EM LISTAS"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "EXIBIR ÍCONE MANUAL EM LISTAS"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"

@@ -108,10 +108,11 @@ InputConfig* InputManager::getInputConfigByDevice(int device)
 {
 	if(device == DEVICE_KEYBOARD)
 		return mKeyboardInputConfig;
-	else if(device == DEVICE_CEC)
+
+	if(device == DEVICE_CEC)
 		return mCECInputConfig;
-	else
-		return mInputConfigs[device];
+	
+	return mInputConfigs[device];
 }
 
 void InputManager::clearJoysticks()
@@ -124,12 +125,14 @@ void InputManager::clearJoysticks()
 	mJoysticks.clear();
 
 	for (auto iter = mInputConfigs.begin(); iter != mInputConfigs.end(); iter++)
-		delete iter->second;
+		if (iter->second)
+			delete iter->second;
 
 	mInputConfigs.clear();
 
 	for (auto iter = mPrevAxisValues.begin(); iter != mPrevAxisValues.end(); iter++)
-		delete[] iter->second;
+		if (iter->second)
+			delete[] iter->second;
 
 	mPrevAxisValues.clear();
 
@@ -138,7 +141,8 @@ void InputManager::clearJoysticks()
 
 void InputManager::rebuildAllJoysticks(bool deinit)
 {
-	SDL_JoystickEventState(SDL_DISABLE);
+	if (deinit)
+		SDL_JoystickEventState(SDL_DISABLE);
 
 	clearJoysticks();
 
@@ -156,18 +160,29 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		// open joystick & add to our list
 		SDL_Joystick* joy = SDL_JoystickOpen(idx);
 		if (joy == nullptr)
-			return;
+			continue;
 
 		// add it to our list so we can close it again later
 		SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
 
+		mJoysticks.erase(joyId);
 		mJoysticks[joyId] = joy;
 
 		char guid[40];
 		SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 40);
 
 		// create the InputConfig
+		auto cfg = mInputConfigs.find(joyId);
+		if (cfg != mInputConfigs.cend())
+		{
+			if (cfg->second != nullptr)
+				delete cfg->second;
+
+			mInputConfigs.erase(joyId);
+		}
+
 		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy)); // batocera
+
 		if (!loadInputConfig(mInputConfigs[joyId]))
 			LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ").";
 		else
@@ -175,6 +190,8 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 
 		// set up the prevAxisValues
 		int numAxes = SDL_JoystickNumAxes(joy);
+		
+		mPrevAxisValues.erase(joyId);
 		mPrevAxisValues[joyId] = new int[numAxes];
 		std::fill(mPrevAxisValues[joyId], mPrevAxisValues[joyId] + numAxes, 0); //initialize array to 0
 	}
@@ -223,23 +240,27 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		}
 #endif
 
-		//if it switched boundaries
-		if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE)) // batocera
-		{
-			int normValue;
-			if (abs(ev.jaxis.value - initialValue) <= DEADZONE) // batocera
-				normValue = 0;
-			else
-				if (ev.jaxis.value - initialValue > 0) // batocera
-					normValue = 1;
+		if (mPrevAxisValues.find(ev.jaxis.which) != mPrevAxisValues.cend())
+		{			
+			//if it switched boundaries
+			if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE)) // batocera
+			{
+				int normValue;
+				if (abs(ev.jaxis.value - initialValue) <= DEADZONE) // batocera
+					normValue = 0;
 				else
-					normValue = -1;
+					if (ev.jaxis.value - initialValue > 0) // batocera
+						normValue = 1;
+					else
+						normValue = -1;
 
-			window->input(getInputConfigByDevice(ev.jaxis.which), Input(ev.jaxis.which, TYPE_AXIS, ev.jaxis.axis, normValue, false));
-			causedEvent = true;
+				window->input(getInputConfigByDevice(ev.jaxis.which), Input(ev.jaxis.which, TYPE_AXIS, ev.jaxis.axis, normValue, false));
+				causedEvent = true;
+			}
+
+			mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value - initialValue; // batocera
 		}
 
-		mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value - initialValue; // batocera
 		return causedEvent;
 	}
 	case SDL_JOYBUTTONDOWN:
@@ -570,16 +591,15 @@ bool InputManager::initialized() const
 int InputManager::getNumConfiguredDevices()
 {
 	int num = 0;
-	for(auto it = mInputConfigs.cbegin(); it != mInputConfigs.cend(); it++)
-	{
-		if(it->second->isConfigured())
-			num++;
-	}
 
-	if(mKeyboardInputConfig->isConfigured())
+	for(auto it = mInputConfigs.cbegin(); it != mInputConfigs.cend(); it++)
+		if(it->second && it->second->isConfigured())
+			num++;
+
+	if (mKeyboardInputConfig && mKeyboardInputConfig->isConfigured())
 		num++;
 
-	if(mCECInputConfig->isConfigured())
+	if (mCECInputConfig && mCECInputConfig->isConfigured())
 		num++;
 
 	return num;
@@ -611,12 +631,9 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// 1 recuperer les configurated
 	std::vector<InputConfig *> availableConfigured;
 
-	for (auto iter = mJoysticks.begin(); iter != mJoysticks.end(); iter++) 
-	{
-		InputConfig * config = getInputConfigByDevice(iter->first);
-		if (config != NULL && config->isConfigured()) 
-			availableConfigured.push_back(config);		
-	}
+	for (auto conf : mInputConfigs)
+		if (conf.second != nullptr && conf.second->isConfigured())
+			availableConfigured.push_back(conf.second);
 
 	// sort available configs
 	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceIndex() < b->getDeviceIndex(); });

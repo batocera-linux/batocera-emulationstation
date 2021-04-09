@@ -388,6 +388,15 @@ void ComponentGrid::onCursorMoved(Vector2i from, Vector2i to)
 	updateHelpPrompts();
 }
 
+bool ComponentGrid::isCursorTo(const std::shared_ptr<GuiComponent>& comp)
+{
+	for (auto it = mCells.cbegin(); it != mCells.cend(); it++)
+		if (it->component == comp && mCursor == it->pos)
+			return true;
+
+	return false;
+}
+
 void ComponentGrid::setCursorTo(const std::shared_ptr<GuiComponent>& comp)
 {
 	for(auto it = mCells.cbegin(); it != mCells.cend(); it++)
@@ -400,9 +409,6 @@ void ComponentGrid::setCursorTo(const std::shared_ptr<GuiComponent>& comp)
 			return;
 		}
 	}
-
-	// component not found!!
-	assert(false);
 }
 
 std::vector<HelpPrompt> ComponentGrid::getHelpPrompts()

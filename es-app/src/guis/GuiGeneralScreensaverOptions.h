@@ -16,6 +16,7 @@ private:
 	void addSlideShowScreensaverOptions(int selectItem);	
 
 	std::shared_ptr<TextComponent> addEditableTextComponent(const std::string label, std::string value);
+	std::shared_ptr<TextComponent> addBrowsablePath(const std::string label, std::string value);
 };
 
 #endif // ES_APP_GUIS_GUI_GENERAL_SCREENSAVER_OPTIONS_H

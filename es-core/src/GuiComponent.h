@@ -182,6 +182,8 @@ public:
 	void startStoryboard();
 	void pauseStoryboard();
 
+	bool storyBoardExists(const std::string& name = "");
+
 	bool isStoryBoardRunning(const std::string& name = "");
 
 protected:

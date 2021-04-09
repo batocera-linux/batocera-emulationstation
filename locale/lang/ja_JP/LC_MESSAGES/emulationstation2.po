@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:48+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: 2021-03-26 14:42+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1027,6 +1027,9 @@ msgstr "システム"
 
 msgid "Architecture"
 msgstr "アーキテクチャ"
+
+msgid "Disk format"
+msgstr "ファイルシステム形式"
 
 msgid "Temperature"
 msgstr "システム温度"
@@ -2361,6 +2364,3 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
-
-#~ msgid "Disk format"
-#~ msgstr "ファイルシステム形式"

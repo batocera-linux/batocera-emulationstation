@@ -48,6 +48,8 @@ struct SystemViewCarousel
 	float systemInfoDelay;
 	bool  systemInfoCountOnly;
 
+	float			minLogoOpacity;
+	float			transitionSpeed;
 	std::string		defaultTransition;
 	std::string		scrollSound;
 };
@@ -80,6 +82,7 @@ protected:
 	void onCursorChanged(const CursorState& state) override;
 
 private:
+	void	 ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry);
 	void	 loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
 	void	 updateExtraTextBinding();
 	void	 showQuickSearch();

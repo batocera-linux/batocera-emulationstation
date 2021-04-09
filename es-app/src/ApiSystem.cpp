@@ -1523,7 +1523,11 @@ std::vector<std::string> ApiSystem::getTimezones()
 			for (auto file : Utils::FileSystem::getDirContent(continent, false))
 			{
 				std::string short_continent = continent.substr(continent.find_last_of('/') + 1, -1);
-				if (short_continent != "posix" && short_continent != "right")
+				if (short_continent == "Africa" || short_continent == "America"
+					|| short_continent == "Antarctica" || short_continent == "Asia"
+					|| short_continent == "Atlantic" || short_continent == "Australia"
+					|| short_continent == "Etc" || short_continent == "Europe"
+					|| short_continent == "Indian" || short_continent == "Pacific")
 				{
 					auto tz = Utils::FileSystem::getFileName(file);
 					if (std::find(ret.cbegin(), ret.cend(), tz) == ret.cend())

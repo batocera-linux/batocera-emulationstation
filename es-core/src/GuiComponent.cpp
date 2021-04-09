@@ -479,6 +479,11 @@ bool GuiComponent::isStoryBoardRunning(const std::string& name)
 	return mStoryboardAnimator != nullptr && mStoryboardAnimator->isRunning();
 }
 
+bool GuiComponent::storyBoardExists(const std::string& name)
+{
+	return mStoryBoards.find(name) != mStoryBoards.cend();
+}
+
 bool GuiComponent::selectStoryboard(const std::string& name)
 {
 	if (mStoryboardAnimator != nullptr && mStoryboardAnimator->getName() == name)

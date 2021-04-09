@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:48+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1029,6 +1029,9 @@ msgstr "Система"
 msgid "Architecture"
 msgstr "Архитектура"
 
+msgid "Disk format"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Температура"
 
@@ -1366,13 +1369,13 @@ msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
 msgid "SELECT YOUR TIMEZONE"
-msgstr ""
+msgstr "ВЫБРАТЬ ЧАСОВОЙ ПОЯС"
 
 msgid "TIMEZONE"
-msgstr ""
+msgstr "ЧАСОВОЙ ПОЯС"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr ""
+msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ "
 
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -1547,10 +1550,10 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr "ПОКАХАТЬ СОХРАНЕНИЯ"
+msgstr "ПОКАЗАТЬ СОХРАНЕНИЯ"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "ПОКАЗАТЬ СОХРАНЕНИЯ, ЕСЛИ ЕСТЬ"
 
 msgid "SHADERS SET"
 msgstr "ШЕЙДЕРЫ"
@@ -1615,7 +1618,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -1663,19 +1666,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "ПОКАЗАТЬ '..' РОДИТЕЛЬСКОЙ ПАПКИ"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ПЕРЕД НАЗВАНИЕМ"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "ПОСЛЕ НАЗВАНИЯ"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "ПОКАЗАТЬ ЯЗЫКОВОЙ ФЛАГ В СПИСКАХ"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "ПОКАЗАТЬ ФЛАГ СОХРАНЕНИЙ В СПИСКАХ"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИКОНКУ РУКОВОДСТВА В СПИСКАХ"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
@@ -2002,7 +2005,7 @@ msgid "GAME OPTIONS"
 msgstr "НАСТРОЙКИ ИГРЫ"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "ИЗБРАННОЕ"
 
 msgid "Games similar to"
 msgstr "Игры похожие на"
@@ -2117,16 +2120,16 @@ msgid "GAME TIME, DESCENDING"
 msgstr "ВРЕМЯ ИГРЫ, ПО УБЫВАНИЮ"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "СИСТЕМЫ, ДАТА РЕЛИЗА, ПО ВОЗРАСТАНИЮ"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "СИСТЕМЫ, ДАТА РЕЛИЗА, ПО УБЫВАНИЮ"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО ВОЗРАСТАНИЮ"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО УБЫВАНИЮ"
 
 msgid "Extracting"
 msgstr "Распаковка"

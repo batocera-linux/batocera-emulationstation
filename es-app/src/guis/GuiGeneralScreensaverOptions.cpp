@@ -9,6 +9,7 @@
 #include "ApiSystem.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "guis/GuiFileBrowser.h"
 
 #define fake_gettext_dim			_("dim")
 #define fake_gettext_black			_("black")
@@ -170,7 +171,7 @@ void GuiGeneralScreensaverOptions::addVideoScreensaverOptions(int selectItem)
 	if (useCustomVideoSource)
 	{
 		// custom video directory
-		auto sss_image_dir = addEditableTextComponent(_("CUSTOM VIDEO DIR"), Settings::getInstance()->getString("SlideshowScreenSaverVideoDir"));
+		auto sss_image_dir = addBrowsablePath(_("CUSTOM VIDEO DIR"), Settings::getInstance()->getString("SlideshowScreenSaverVideoDir"));
 		addSaveFunc([sss_image_dir] { Settings::getInstance()->setString("SlideshowScreenSaverVideoDir", sss_image_dir->getValue()); });
 
 		// recurse custom video directory
@@ -263,7 +264,7 @@ void GuiGeneralScreensaverOptions::addSlideShowScreensaverOptions(int selectItem
 	if (customSource)
 	{
 		// custom image directory
-		auto sss_image_dir = addEditableTextComponent(_("CUSTOM IMAGE DIR"), Settings::getInstance()->getString("SlideshowScreenSaverImageDir"));
+		auto sss_image_dir = addBrowsablePath(_("CUSTOM IMAGE DIR"), Settings::getInstance()->getString("SlideshowScreenSaverImageDir"));
 		addSaveFunc([sss_image_dir] { Settings::getInstance()->setString("SlideshowScreenSaverImageDir", sss_image_dir->getValue()); });
 
 		// recurse custom image directory
@@ -305,6 +306,45 @@ std::shared_ptr<TextComponent> GuiGeneralScreensaverOptions::addEditableTextComp
 			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, label, ed->getValue(), updateVal, false));
 		else
 			mWindow->pushGui(new GuiTextEditPopup(mWindow, label, ed->getValue(), updateVal, false));		
+	});
+
+	ed->setValue(value);
+
+	mMenu.addRow(row);
+	return ed;
+}
+
+
+std::shared_ptr<TextComponent> GuiGeneralScreensaverOptions::addBrowsablePath(const std::string label, std::string value)
+{
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color);
+	row.addElement(lbl, true); // label
+
+	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(mWindow, "", theme->Text.font, theme->Text.color, ALIGN_RIGHT);
+	row.addElement(ed, true);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+	bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+	row.addElement(bracket, false);
+
+	auto updateVal = [ed](const std::string& newVal) 
+	{ 
+		ed->setValue(newVal); 
+	}; // ok callback (apply new value to ed)
+
+	row.makeAcceptInputHandler([this, label, ed, updateVal]
+	{
+		auto parent = Utils::FileSystem::getParent(ed->getValue());
+		mWindow->pushGui(new GuiFileBrowser(mWindow, parent, ed->getValue(), GuiFileBrowser::DIRECTORY, updateVal, label));
 	});
 
 	ed->setValue(value);

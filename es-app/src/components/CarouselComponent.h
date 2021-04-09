@@ -96,6 +96,8 @@ private:
 	Vector2f		mLogoPos;
 	std::string		mDefaultTransition;
 	std::string		mScrollSound;
+	float			mTransitionSpeed;
+	float			mMinLogoOpacity;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

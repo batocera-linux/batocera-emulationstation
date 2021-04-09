@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 21:47+0200\n"
+"POT-Creation-Date: 2021-04-05 22:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -77,10 +77,10 @@ msgid "enter path to title shot"
 msgstr "Pfad zum Title shot eingeben"
 
 msgid "Manual"
-msgstr "Anleitung"
+msgstr "Handbuch"
 
 msgid "enter path to manual"
-msgstr "Pfad zur Anleitung eingeben"
+msgstr "Pfad zum Handbuch eingeben"
 
 msgid "Map"
 msgstr "Karte"
@@ -1029,6 +1029,9 @@ msgstr "System"
 msgid "Architecture"
 msgstr "Architektur"
 
+msgid "Disk format"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Temperatur"
 
@@ -1619,7 +1622,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ZEIGE CONTROLLER-AKTIVITÄT"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "CONTROLLER AKKU-LEVEL ANZEIGEN"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "DU MUSST DAS THEME ANWENDEN, BEVOR DU DIE KONFIGURATION BEARBEITEST"
@@ -1667,19 +1670,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "ZEIGE  '..' ÜBERGEORDNETEN ORDNER"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "VOR NAME"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "NACH NAME"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "SPRACH-SYMBOL IN LISTEN ANZEIGEN"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "SPEICHERSTANDS-SYMBOL IN LISTEN ANZEIGEN"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "HANDBUCH-SYMBOL IN LISTEN ANZEIGEN"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"

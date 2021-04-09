@@ -334,6 +334,33 @@ namespace Utils
 			// if (isDirectory(path))
 			{			
 #if defined(_WIN32)
+
+				if (_path.empty() || _path == "\\" || _path == "/")
+				{
+					char drive = 'A';
+
+					DWORD uDriveMask = ::GetLogicalDrives();
+					while (uDriveMask)
+					{
+						if (uDriveMask & 1)
+						{
+							FileInfo fi;
+							fi.path = std::string(1, drive) + ":";
+							fi.hidden = false;
+							fi.directory = true;
+							contentList.push_back(fi);
+						}
+
+						drive++;
+						uDriveMask >>= 1;
+					}
+
+					return contentList;
+				}
+
+
+
+
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
 				
@@ -1178,6 +1205,12 @@ namespace Utils
 				}
 			}
 
+			if (gp.empty())
+				return filename;
+			else if (Utils::String::endsWith(gp, ":/"))
+				return gp + filename;
+			else if (Utils::String::endsWith(gp, ":"))
+				return gp + "/" + filename;
 
 			if (!Utils::String::endsWith(gp, "/") && !Utils::String::endsWith(gp, "\\"))
 				if (!Utils::String::startsWith(filename, "/") && !Utils::String::startsWith(filename, "\\"))

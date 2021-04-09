@@ -137,7 +137,6 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 				((ImageComponent*)extra)->setAllowFading(false);
 				((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
 			}
-
 		}
 	}
 
@@ -147,6 +146,98 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 	});
 
 	SystemRandomPlaylist::resetCache();
+}
+
+void SystemView::ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry)
+{
+	if (entry.data.logo != nullptr)
+		return;
+
+	auto system = entry.object;
+	const std::shared_ptr<ThemeData>& theme = system->getTheme();
+
+	// make logo
+	const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+	if (logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
+	{
+		std::string path = logoElem->get<std::string>("path");
+		if (path.empty())
+			path = logoElem->has("default") ? logoElem->get<std::string>("default") : "";
+
+		if (!path.empty())
+		{
+			// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
+			auto logo = std::make_shared<ImageComponent>(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
+			logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
+			logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
+																														// Process here to be enable to set max picture size
+			auto elem = theme->getElement("system", "logo", "image");
+			if (elem && elem->has("path"))
+			{
+				auto logoPath = elem->get<std::string>("path");
+				if (!logoPath.empty())
+					logo->setImage(logoPath, (elem->has("tile") && elem->get<bool>("tile")), MaxSizeInfo(mCarousel.logoSize * mCarousel.logoScale), false);
+			}
+
+			// If logosize is defined for full width/height, don't rotate by target size
+			// ex : <logoSize>1 .05< / logoSize>
+			if (mCarousel.size.x() != mCarousel.logoSize.x() & mCarousel.size.y() != mCarousel.logoSize.y())
+				logo->setRotateByTargetSize(true);
+
+			entry.data.logo = logo;
+		}
+	}
+
+	if (!entry.data.logo)
+	{
+		// no logo in theme; use text
+		TextComponent* text = new TextComponent(mWindow,
+			system->getFullName(),
+			Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE),
+			0x000000FF,
+			ALIGN_CENTER);
+
+		text->setScaleOrigin(0.0f);
+		text->setSize(mCarousel.logoSize * mCarousel.logoScale);
+		text->applyTheme(system->getTheme(), "system", "logoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
+		// system->getTheme()
+		entry.data.logo = std::shared_ptr<GuiComponent>(text);
+
+		if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
+		{
+			text->setHorizontalAlignment(mCarousel.logoAlignment);
+			text->setVerticalAlignment(ALIGN_CENTER);
+		}
+		else {
+			text->setHorizontalAlignment(ALIGN_CENTER);
+			text->setVerticalAlignment(mCarousel.logoAlignment);
+		}
+	}
+
+	if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
+	{
+		if (mCarousel.logoAlignment == ALIGN_LEFT)
+			entry.data.logo->setOrigin(0, 0.5);
+		else if (mCarousel.logoAlignment == ALIGN_RIGHT)
+			entry.data.logo->setOrigin(1.0, 0.5);
+		else
+			entry.data.logo->setOrigin(0.5, 0.5);
+	}
+	else 
+	{
+		if (mCarousel.logoAlignment == ALIGN_TOP)
+			entry.data.logo->setOrigin(0.5, 0);
+		else if (mCarousel.logoAlignment == ALIGN_BOTTOM)
+			entry.data.logo->setOrigin(0.5, 1);
+		else
+			entry.data.logo->setOrigin(0.5, 0.5);
+	}
+
+	Vector2f denormalized = mCarousel.logoSize * entry.data.logo->getOrigin();
+	entry.data.logo->setPosition(denormalized.x(), denormalized.y(), 0.0);
+
+	if (entry.data.logo->selectStoryboard("deactivate") && !entry.data.logo->selectStoryboard())
+		entry.data.logo->deselectStoryboard();
 }
 
 void SystemView::populate()
@@ -168,87 +259,10 @@ void SystemView::populate()
 			e.name = (*it)->getName();
 			e.object = *it;
 
-			// make logo
-			const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
-			if(logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
-			{
-				std::string path = logoElem->get<std::string>("path");
-				if (path.empty())
-					path = logoElem->has("default") ? logoElem->get<std::string>("default") : "";
-				
-				if (!path.empty())
-				{
-					// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
-					auto logo = std::make_shared<ImageComponent>(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
-					logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
-					logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
-
-					// Process here to be enable to set max picture size
-					auto elem = theme->getElement("system", "logo", "image");
-					if (elem && elem->has("path"))
-					{
-						auto logoPath = elem->get<std::string>("path");
-						if (!logoPath.empty())
-							logo->setImage(logoPath, (elem->has("tile") && elem->get<bool>("tile")), MaxSizeInfo(mCarousel.logoSize * mCarousel.logoScale), false);
-					}
-
-					// If logosize is defined for full width/height, don't rotate by target size
-					// ex : <logoSize>1 .05< / logoSize>
-					if (mCarousel.size.x() != mCarousel.logoSize.x() & mCarousel.size.y() != mCarousel.logoSize.y())
-						logo->setRotateByTargetSize(true);
-					
-					e.data.logo = logo;
-				}
-			}
-			if (!e.data.logo)
-			{
-				// no logo in theme; use text
-				TextComponent* text = new TextComponent(mWindow,
-					(*it)->getFullName(),
-					Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE),
-					0x000000FF,
-					ALIGN_CENTER);
-								
-				text->setScaleOrigin(0.0f);
-				text->setSize(mCarousel.logoSize * mCarousel.logoScale);
-				text->applyTheme((*it)->getTheme(), "system", "logoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
-				e.data.logo = std::shared_ptr<GuiComponent>(text);
-
-				if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
-				{
-					text->setHorizontalAlignment(mCarousel.logoAlignment);
-					text->setVerticalAlignment(ALIGN_CENTER);
-				} else {
-					text->setHorizontalAlignment(ALIGN_CENTER);
-					text->setVerticalAlignment(mCarousel.logoAlignment);
-				}
-			}
-
-			if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
-			{
-				if (mCarousel.logoAlignment == ALIGN_LEFT)
-					e.data.logo->setOrigin(0, 0.5);
-				else if (mCarousel.logoAlignment == ALIGN_RIGHT)
-					e.data.logo->setOrigin(1.0, 0.5);
-				else
-					e.data.logo->setOrigin(0.5, 0.5);
-			} else {
-				if (mCarousel.logoAlignment == ALIGN_TOP)
-					e.data.logo->setOrigin(0.5, 0);
-				else if (mCarousel.logoAlignment == ALIGN_BOTTOM)
-					e.data.logo->setOrigin(0.5, 1);
-				else
-					e.data.logo->setOrigin(0.5, 0.5);
-			}
-
-			Vector2f denormalized = mCarousel.logoSize * e.data.logo->getOrigin();
-			e.data.logo->setPosition(denormalized.x(), denormalized.y(), 0.0);
-			
-			if (!e.data.logo->selectStoryboard("deactivate") && !e.data.logo->selectStoryboard())
-				e.data.logo->deselectStoryboard();
-
+			ensureLogo(e);
 			loadExtras(*it, e);
-			this->add(e);
+
+			add(e);
 		}
 	}
 
@@ -278,8 +292,12 @@ void SystemView::goToSystem(SystemData* system, bool animate)
 {
 	setCursor(system);
 
-	if(!animate)
+	if (!animate)
+	{
 		finishAnimation(0);
+		finishAnimation(1);
+		finishAnimation(2);
+	}
 }
 
 static void _moveCursorInRange(int& value, int count, int sz)
@@ -434,7 +452,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #ifdef _ENABLEEMUELEC
 			if (config->isMappedTo("righttrigger", input))
 #else
-			if (config->isMappedTo("pagedown", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("left", input)) || config->isMappedTo("pagedown", input))
 #endif
 			{
 				int cursor = moveCursorFast(true);
@@ -444,7 +462,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #ifdef _ENABLEEMUELEC
 			if (config->isMappedTo("lefttrigger", input))
 #else
-			if (config->isMappedTo("pageup", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("right", input)) || config->isMappedTo("pageup", input))
 #endif
 			{
 				int cursor = moveCursorFast(false);
@@ -469,7 +487,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #ifdef _ENABLEEMUELEC
 			if (config->isMappedTo("righttrigger", input))
 #else
-			if (config->isMappedTo("pagedown", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("down", input)) || config->isMappedTo("pagedown", input))
 #endif
 			{
 				int cursor = moveCursorFast(true);
@@ -479,7 +497,7 @@ bool SystemView::input(InputConfig* config, Input input)
 #ifdef _ENABLEEMUELEC
 			if (config->isMappedTo("lefttrigger", input))
 #else
-			if (config->isMappedTo("pageup", input))
+			if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("up", input)) || config->isMappedTo("pageup", input))
 #endif
 			{
 				int cursor = moveCursorFast(false);
@@ -721,6 +739,8 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
 
+	ensureLogo(mEntries.at(mCursor));
+
 	// update help style
 	updateHelpPrompts();
 
@@ -739,10 +759,8 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 		endPos = target + posMax; // loop around the end (0 -> max)
 	if(abs(target - posMax - startPos) < dist)
 		endPos = target - posMax; // loop around the start (max - 1 -> -1)
-
-
+	
 	// animate mSystemInfo's opacity (fade out, wait, fade back in)
-
 	cancelAnimation(1);
 	cancelAnimation(2);
 
@@ -825,7 +843,6 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 	mLastCursor = mCursor;
 
 	// TODO
-
 	if (oldCursor >= 0 && oldCursor < mEntries.size())
 	{
 		auto logo = mEntries.at(oldCursor).data.logo;				
@@ -875,7 +892,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 			this->mExtrasCamOffset = endPos;
 
-		}, 500);
+		}, mCarousel.transitionSpeed);
 	} 
 	else if (transition_style == "slide") 
 	{
@@ -888,7 +905,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			this->mCamOffset = move_carousel ? f : endPos;
 			this->mExtrasCamOffset = f;
 
-		}, 500);
+		}, mCarousel.transitionSpeed);
 	} 
 	else // instant
 	{		
@@ -901,7 +918,7 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 			this->mCamOffset = move_carousel ? f : endPos;
 			this->mExtrasCamOffset = endPos;
 
-		}, move_carousel ? 500 : 1);
+		}, move_carousel ? mCarousel.transitionSpeed : 1);
 	}
 
 	for (int i = 0; i < mEntries.size(); i++)
@@ -1003,7 +1020,7 @@ HelpStyle SystemView::getHelpStyle()
 	return style;
 }
 
-void  SystemView::onThemeChanged(const std::shared_ptr<ThemeData>& /*theme*/)
+void  SystemView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	LOG(LogDebug) << "SystemView::onThemeChanged()";
 	mViewNeedsReload = true;
@@ -1159,8 +1176,12 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 		scale = Math::min(mCarousel.logoScale, Math::max(1.0f, scale));
 		scale /= mCarousel.logoScale;
 
-		int opacity = (int)Math::round(0x80 + ((0xFF - 0x80) * (1.0f - fabs(distance))));
-		opacity = Math::max((int)0x80, opacity);
+		int opref = (Math::clamp(mCarousel.minLogoOpacity, 0, 1) * 255);
+
+		int opacity = (int)Math::round(opref + ((0xFF - opref) * (1.0f - fabs(distance))));
+		opacity = Math::max((int)opref, opacity);
+
+		ensureLogo(mEntries.at(index));
 
 		const std::shared_ptr<GuiComponent> &comp = mEntries.at(index).data.logo;
 		if (mCarousel.type == VERTICAL_WHEEL || mCarousel.type == HORIZONTAL_WHEEL) {
@@ -1524,7 +1545,7 @@ void  SystemView::getDefaultElements(void)
 	mCarousel.colorEnd = 0xFFFFFFD8;
 	mCarousel.colorGradientHorizontal = true;
 	mCarousel.logoScale = 1.2f;
-	mCarousel.logoRotation = 7.5;
+	mCarousel.logoRotation = 7.5f;
 	mCarousel.logoRotationOrigin.x() = -5;
 	mCarousel.logoRotationOrigin.y() = 0.5;
 	mCarousel.logoSize.x() = 0.25f * mSize.x();
@@ -1536,6 +1557,8 @@ void  SystemView::getDefaultElements(void)
 	mCarousel.systemInfoCountOnly = false;
 	mCarousel.scrollSound = "";
 	mCarousel.defaultTransition = "";
+	mCarousel.transitionSpeed = 500;
+	mCarousel.minLogoOpacity = 0.5f;
 
 	// System Info Bar
 	mSystemInfo.setSize(mSize.x(), mSystemInfo.getFont()->getLetterHeight()*2.2f);
@@ -1621,6 +1644,12 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 
 	if (elem->has("defaultTransition"))
 		mCarousel.defaultTransition = elem->get<std::string>("defaultTransition");
+
+	if (elem->has("minLogoOpacity"))
+		mCarousel.minLogoOpacity = elem->get<float>("minLogoOpacity");
+	
+	if (elem->has("transitionSpeed"))
+		mCarousel.transitionSpeed = elem->get<float>("transitionSpeed");
 }
 
 void SystemView::onShow()

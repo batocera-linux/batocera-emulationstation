@@ -114,6 +114,11 @@ MetaDataType MetaDataList::getType(MetaDataId id) const
 	return mGameTypeMap[id];
 }
 
+MetaDataType MetaDataList::getType(const std::string name) const
+{
+	return getType(getId(name));
+}
+
 MetaDataId MetaDataList::getId(const std::string& key) const
 {
 	return mGameIdMap[key];
@@ -452,4 +457,12 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))
 		set(MetaDataId::Hidden, "true");
+}
+
+std::string MetaDataList::getRelativeRootPath()
+{
+	if (mRelativeTo)
+		return mRelativeTo->getStartPath();
+
+	return "";
 }
