@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -604,8 +604,20 @@ msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "СКИДАННЯ"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "ВИБІР"
 
 msgid "ADD COMBINATION KEY"
 msgstr "ДОДАТИ КОМБІНАЦІЇ КНОПОК"
@@ -836,9 +848,6 @@ msgstr "ВСТАНОВИТИ BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "ЦІЛЬОВИЙ ПРИСТРІЙ"
-
-msgid "SELECT"
-msgstr "ВИБІР"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ЦІЛЬОВА АРХІТЕКТУРА"
@@ -1890,6 +1899,11 @@ msgid ""
 msgstr ""
 "ВИДАЛЕННЯ ФАЙЛІВ ГРИ!\n"
 "ВИ ВПЕВНЕНІ?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"

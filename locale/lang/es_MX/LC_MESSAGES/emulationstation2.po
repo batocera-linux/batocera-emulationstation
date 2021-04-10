@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr "NO SE HAN ENCONTRADO DISPOSITIVOS BLUETOOTH"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TODOS LOS CONTROLES HAN SIDO DESVINCULADOS."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "REESTABLECER"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECCIONAR"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -834,9 +846,6 @@ msgstr "INSTALAR BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO DESTINO"
-
-msgid "SELECT"
-msgstr "SELECCIONAR"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARQUITECTURA DESTINO"
@@ -1892,6 +1901,11 @@ msgid ""
 msgstr ""
 "ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
 "¿ESTÁS SEGURO?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"

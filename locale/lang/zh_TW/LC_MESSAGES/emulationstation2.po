@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -601,8 +601,20 @@ msgstr "沒有發現藍牙裝置"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "遊戲控制器已經刪除."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "重置"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "選擇"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -833,9 +845,6 @@ msgstr "安裝 BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "目標設備"
-
-msgid "SELECT"
-msgstr "選擇"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "目標架構"
@@ -1886,6 +1895,11 @@ msgid ""
 msgstr ""
 "即將刪除遊戲檔案！\n"
 "確定？"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到設備"

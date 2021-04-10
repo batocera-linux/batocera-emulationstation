@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr ""
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "KIVÁLASZT"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -834,9 +846,6 @@ msgstr "BATOCERA TELEPÍTÉSE"
 
 msgid "TARGET DEVICE"
 msgstr "CÉL ESZKÖZ"
-
-msgid "SELECT"
-msgstr "KIVÁLASZT"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "CÉL ARCHITEKTÚRA"
@@ -1888,6 +1897,11 @@ msgid ""
 msgstr ""
 "EZZEL LETÖRLÖD AZ AKTUÁLIS JÁTÉK FÁJLOKAT!\n"
 "BIZTOS VAGY BENNE?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "ESZKÖZ NEM TALÁLHATÓ"

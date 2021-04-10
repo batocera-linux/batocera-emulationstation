@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -603,8 +603,20 @@ msgstr "KEINE BLUETOOTH-GERÄTE GEFUNDEN"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "CONTROLLER-VERBINDUNGEN WURDEN GELÖSCHT."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "RESET"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "AUSWÄHLEN"
 
 msgid "ADD COMBINATION KEY"
 msgstr "FÜGE EINE KOMBINATIONSTASTE"
@@ -836,9 +848,6 @@ msgstr "INSTALLIERE BATOCERA"
 msgid "TARGET DEVICE"
 msgstr "ZIELGERÄT"
 
-msgid "SELECT"
-msgstr "AUSWÄHLEN"
-
 msgid "TARGET ARCHITECTURE"
 msgstr "ZIELARCHITEKTUR"
 
@@ -1030,7 +1039,7 @@ msgid "Architecture"
 msgstr "Architektur"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Dateisystem"
 
 msgid "Temperature"
 msgstr "Temperatur"
@@ -1894,6 +1903,11 @@ msgid ""
 msgstr ""
 "DIES WIRD DIE AKTUELLE(N) SPIELE-DATEI(EN) LÖSCHEN!\n"
 "BIST DU SICHER?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"

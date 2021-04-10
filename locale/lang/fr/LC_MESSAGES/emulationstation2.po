@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "RAZ"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SÉLECTIONNER"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AJOUTER UNE COMBINAISON DE TOUCHES"
@@ -834,9 +846,6 @@ msgstr "INSTALLER BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "PÉRIPHÉRIQUE CIBLE"
-
-msgid "SELECT"
-msgstr "SÉLECTIONNER"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARCHITECTURE CIBLE"
@@ -1888,6 +1897,11 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"

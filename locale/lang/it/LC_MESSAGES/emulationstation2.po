@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -140,7 +140,7 @@ msgid "Publisher"
 msgstr "Publisher"
 
 msgid "enter game publisher"
-msgstr "inserisci publisher del gioco"
+msgstr "inserisci publisher gioco"
 
 msgid "Genre"
 msgstr "Genere"
@@ -188,7 +188,7 @@ msgid "Last played"
 msgstr "Ultima partita"
 
 msgid "enter last played date"
-msgstr "inserisci la data dell'ultima partita"
+msgstr "inserisci data dell'ultima partita"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -215,10 +215,10 @@ msgid "Region"
 msgstr "Regione"
 
 msgid "Cheevos Hash"
-msgstr "Codice Hash per trofei"
+msgstr "Hash per trofei"
 
 msgid "Cheevos checksum"
-msgstr "Codice checksum per trofei"
+msgstr "Checksum per trofei"
 
 msgid "Cheevos Game ID"
 msgstr "ID gioco per trofei"
@@ -326,7 +326,7 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PACCHETTO RIMOSSO CON SUCCESSO"
 
 msgid "FILTER GAMELIST BY"
-msgstr "FILTRA LA LISTA GIOCHI PER"
+msgstr "FILTRA LISTA GIOCHI PER"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "MODIFICA I FILTRI DELLE COLLEZIONI DINAMICHE"
@@ -368,7 +368,7 @@ msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREA COLLEZIONE PERSONALIZZATA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREA UNA COLLEZIONE PERSONALE DAL TEMA"
+msgstr "CREA COLLEZIONE PERSONALIZZATA DAL TEMA"
 
 msgid "SELECT THEME FOLDER"
 msgstr "SELEZIONA CARTELLA TEMA"
@@ -413,7 +413,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "RIPRISTINA ULTIMO SELEZIONATO"
 
 msgid "START ON GAMELIST"
-msgstr "INIZIA DALLA LISTA GIOCHI"
+msgstr "AVVIO DALLA LISTA GIOCHI"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GRUPPO DI COLLEZIONI SENZA TEMA"
@@ -425,7 +425,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 
 msgid "UPDATE GAMES LISTS"
-msgstr "AGGIORNA LISTE DEI GIOCHI"
+msgstr "AGGIORNA LISTE GIOCHI"
 
 msgid "Loading..."
 msgstr "Caricamento..."
@@ -440,7 +440,7 @@ msgid "ARCADE SYSTEMS"
 msgstr "SISTEMI ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "COLLEZIONI AUTOMATICHE DEI GIOCHI"
+msgstr "COLLEZIONI AUTOMATICHE GIOCHI"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLLEZIONI MODIFICABILI"
@@ -449,7 +449,7 @@ msgid "DYNAMIC COLLECTIONS"
 msgstr "COLLEZIONI DINAMICHE"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "COLLEZIONI DI GIOCHI PERSONALIZZATE"
+msgstr "COLLEZIONI GIOCHI PERSONALIZZATE"
 
 msgid "PLEASE WAIT"
 msgstr "ATTENDERE PREGO"
@@ -602,8 +602,20 @@ msgstr "NESSUN DISPOSITIVO BLUETOOTH TROVATO"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TUTTI I CONTROLLER COLLEGATI SONO STATI RIMOSSI."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "RESETTA"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECT"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AGGIUNGI TASTO COMBINAZIONE"
@@ -612,10 +624,10 @@ msgid "CONTENT DOWNLOADER"
 msgstr "DOWNLOADER DEI CONTENUTI"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "SCEGLI IL CONTENUTO DA INSTALLARE / RIMUOVERE"
+msgstr "SCEGLI CONTENUTO DA INSTALLARE / RIMUOVERE"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr "AGGIORNA IL CONTENUTO INSTALLATO"
+msgstr "AGGIORNA CONTENUTO INSTALLATO"
 
 msgid "There are no items in this view"
 msgstr "Non ci sono elementi in questa visualizzazione"
@@ -650,7 +662,7 @@ msgid "MISSING BIOS"
 msgstr "BIOS MANCANTI"
 
 msgid "dim"
-msgstr "luminosità ridotta"
+msgstr "bassa luminosità"
 
 msgid "black"
 msgstr "nero"
@@ -692,7 +704,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "MODALITÀ SALVASCHERMO"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "FERMA LA MUSICA DURANTE IL SALVASCHERMO"
+msgstr "FERMA MUSICA DURANTE IL SALVASCHERMO"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "OPZIONI VIDEO CASUALI SU SALVASCHERMO"
@@ -701,16 +713,16 @@ msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "CAMBIA VIDEO DOPO (SECONDI)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "UTILIZZA IL PLAYER OMX PER IL SALVASCHERMO"
+msgstr "UTILIZZA PLAYER OMX PER IL SALVASCHERMO"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
 
 msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "MOSTRA INFO DEL GIOCO NEL SALVASCHERMO"
+msgstr "MOSTRA INFO GIOCO NEL SALVASCHERMO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USA IL BANNER COME INFO DI GIOCO"
+msgstr "USA BANNER COME INFO DI GIOCO"
 
 msgid "DECORATIONS"
 msgstr "CORNICI"
@@ -788,7 +800,7 @@ msgid "MOUSE CURSOR"
 msgstr "CURSORE MOUSE"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "EMULA IL CURSORE DEL MOUSE"
+msgstr "EMULA CURSORE DEL MOUSE"
 
 msgid "LEFT ANALOG STICK"
 msgstr "ANALOGICO SINISTRO"
@@ -803,7 +815,7 @@ msgid "DELETE MAPPING"
 msgstr "ELIMINA MAPPATURA"
 
 msgid "SAVE CHANGES?"
-msgstr "SALVARE LE MODIFICHE ?"
+msgstr "SALVARE LE MODIFICHE?"
 
 msgid "ARE YOU SURE ?"
 msgstr "SEI SICURO?"
@@ -833,13 +845,10 @@ msgid "INSTALL BATOCERA"
 msgstr "INSTALLA BATOCERA"
 
 msgid "TARGET DEVICE"
-msgstr "DESTINAZIONE DISPOSITIVO"
-
-msgid "SELECT"
-msgstr "SELECT"
+msgstr "DISPOSITIVO"
 
 msgid "TARGET ARCHITECTURE"
-msgstr "DESTINAZIONE ARCHITETTURA"
+msgstr "ARCHITETTURA"
 
 msgid "NETWORK REQUIRED"
 msgstr "RICHIESTA CONNESSIONE DI RETE"
@@ -857,13 +866,13 @@ msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "IL CORE ATTUALE NON È COMPATIBILE"
+msgstr "L'ATTUALE CORE NON È COMPATIBILE"
 
 msgid "REQUIRED CORE"
 msgstr "CORE RICHIESTO"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr "VISUALIZZA I TROFEI DEL GIOCO"
+msgstr "VISUALIZZA TROFEI DI GIOCO"
 
 msgid "GAME"
 msgstr "GIOCO"
@@ -972,7 +981,7 @@ msgid "SCRAPE NOW"
 msgstr "SCARICA INFO ORA"
 
 msgid "SCRAPE THESE GAMES"
-msgstr "SCARICA INFO SU QUESTI GIOCHI"
+msgstr "SCARICA INFO DI QUESTI GIOCHI"
 
 msgid "All Games"
 msgstr "Tutti i Giochi"
@@ -984,7 +993,7 @@ msgid "FILTER"
 msgstr "FILTRO"
 
 msgid "SCRAPE THESE SYSTEMS"
-msgstr "SCARICA INFO SU QUESTI SISTEMI"
+msgstr "SCARICA INFO DI QUESTI SISTEMI"
 
 msgid "START"
 msgstr "START"
@@ -1029,7 +1038,7 @@ msgid "Architecture"
 msgstr "Architettura"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Formato disco"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -1426,7 +1435,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "IMPOSTAZIONI NETPLAY"
 
 msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "CONTROLLA I BIOS PRIMA DI AVVIARE DI UN GIOCO"
+msgstr "CONTROLLA I BIOS PRIMA DI AVVIARE UN GIOCO"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TASTI MULTIMEDIALI"
@@ -1471,13 +1480,13 @@ msgid "LATENCY REDUCTION"
 msgstr "RIDUZIONE LATENZA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "METODO RUN-AHEAD FRAMES"
+msgstr "NUMERO FRAME ANTICIPATI"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr "USA METODO RUN-AHEAD"
+msgstr "USA ANTICIPAZIONE FRAME"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD MODALITÀ SECOND INSTANCE"
+msgstr "USA SECONDA INSTANZA DEL CORE"
 
 msgid "HARDCORE MODE"
 msgstr "MODALITÀ HARDCORE"
@@ -1707,7 +1716,7 @@ msgid "TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "TRANSIZIONE AL LANCIO DEL GIOCO"
+msgstr "TRANSIZIONE AVVIO DEL GIOCO"
 
 msgid "SHOW CLOCK"
 msgstr "MOSTRA OROLOGIO"
@@ -1889,6 +1898,11 @@ msgid ""
 msgstr ""
 "QUESTO CANCELLERÀ IL/I GIOCHI ATTUALI!\n"
 "SEI SICURO?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"

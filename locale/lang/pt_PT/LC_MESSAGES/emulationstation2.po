@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "OS COMANDOS EMPARELHADOS FORAM ELIMINADOS."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "REINICIAR"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECIONAR"
 
 msgid "ADD COMBINATION KEY"
 msgstr "ADICIONAR UMA COMBINAÇÃO DE TECLAS"
@@ -834,9 +846,6 @@ msgstr "INSTALAR BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO ALVO"
-
-msgid "SELECT"
-msgstr "SELECIONAR"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARQUITETURA ALVO"
@@ -1887,6 +1896,11 @@ msgid ""
 msgstr ""
 "ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
 "TEM A CERTEZA?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"

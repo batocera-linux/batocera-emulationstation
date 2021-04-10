@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-10 12:04+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -610,8 +610,20 @@ msgstr "لم يتم إيجاد أجهزة بلوتوث"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "تم حذف روابط وحدات التحكم"
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "إعادة تعيين"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "حدد"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -842,9 +854,6 @@ msgstr "تثبيت BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "حدد الجهاز"
-
-msgid "SELECT"
-msgstr "حدد"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "حدد المعمارية"
@@ -1898,6 +1907,11 @@ msgid ""
 msgstr ""
 "سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
 "هل أنت متأكد؟"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "لا يمكن العثور على جهاز"
