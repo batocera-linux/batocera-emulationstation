@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-12 07:39-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -603,16 +603,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "EXPLORAR ARQUIVOS"
 
 msgid "RESET"
 msgstr "REINICIAR"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "PASTA PRINCIPAL"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "PASTA DE CAPTURAS DE TELA"
 
 msgid "SELECT"
 msgstr "SELECIONAR"
