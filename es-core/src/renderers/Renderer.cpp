@@ -92,7 +92,7 @@ namespace Renderer
 			screenWidth = screenHeight;
 			screenHeight = tmp;
 		}
-		else */if ((screenRotate == 1 || screenRotate == 3) && Settings::getInstance()->getBool("Windowed"))
+		else */if (screenRotate == 1 || screenRotate == 3)
 		{
 			int tmp = screenWidth;
 			screenWidth = screenHeight;
