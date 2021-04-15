@@ -1069,7 +1069,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	switch (script)
 	{
 	case ApiSystem::RETROACHIVEMENTS:
+#ifdef CHEEVOS_DEV_LOGIN
 		return true;
+#endif
+		break;
 	case ApiSystem::KODI:
 		executables.push_back("kodi");
 		break;

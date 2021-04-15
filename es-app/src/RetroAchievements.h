@@ -187,7 +187,6 @@ struct RetroAchievementInfo
 	std::vector<RetroAchievementGame> games;
 };
 
-
 class RetroAchievements
 {
 public:

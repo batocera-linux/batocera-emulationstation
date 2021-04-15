@@ -115,13 +115,14 @@ const std::set<unsigned short> consolesWithmd5hashes
 	RC_CONSOLE_WONDERSWAN
 };
 
-const std::string API_DEV_L = { 42, 88, 35, 2, 36, 10, 2, 6, 23, 65, 45, 7, 10, 85, 26, 67, 89, 74, 28, 90, 41, 113, 41, 47, 16, 76, 82, 86, 22, 71, 12, 22, 54, 61, 45, 51, 16, 99, 3, 55, 54, 122, 4, 46, 69, 33, 2, 59, 5, 115 };
-const std::string API_DEV_KEY = { 80, 101, 97, 99, 80, 101, 97, 99, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 80, 101, 97, 99, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 100 };
-
 std::string RetroAchievements::getApiUrl(const std::string method, const std::string parameters)
 {
-	auto options = Utils::String::scramble(API_DEV_L, API_DEV_KEY);
+#ifdef CHEEVOS_DEV_LOGIN
+	auto options = std::string(CHEEVOS_DEV_LOGIN);
 	return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
+#else 
+	return "https://retroachievements.org/API/" + method + ".php?" + parameters;
+#endif
 }
 
 std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
@@ -189,6 +190,10 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 
 	GameInfoAndUserProgress ret;
 	ret.ID = 0;
+
+#ifndef CHEEVOS_DEV_LOGIN
+	return ret;
+#endif
 
 	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)));
 	httpreq.wait();
@@ -584,4 +589,3 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 
 	return false;
 }
-

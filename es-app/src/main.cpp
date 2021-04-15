@@ -522,7 +522,18 @@ int main(int argc, char* argv[])
 
 #ifdef _ENABLE_KODI_
 	if (systemConf->getBool("kodi.enabled", true) && systemConf->getBool("kodi.atstartup"))
+	{
+		if (splashScreen)
+			window.closeSplashScreen();
+
 		ApiSystem::getInstance()->launchKodi(&window);
+
+		if (splashScreen)
+		{
+			window.renderSplashScreen("");
+			splashScreen = false;
+		}
+	}
 #endif
 
 	ApiSystem::getInstance()->getIpAdress();

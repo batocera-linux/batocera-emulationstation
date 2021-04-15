@@ -75,7 +75,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("batocera-wifi");
 		break;
 	case ApiSystem::RETROACHIVEMENTS:
+#ifdef CHEEVOS_DEV_LOGIN
 		executables.push_back("emulatorLauncher");
+#endif
 		break;
 	case ApiSystem::BLUETOOTH:
 #if _DEBUG

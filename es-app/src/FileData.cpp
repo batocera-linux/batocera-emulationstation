@@ -239,7 +239,19 @@ const std::string FileData::getVideoPath()
 			video = path;
 		}
 	}
-	
+
+	if (video.empty() && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
+	{
+		if (getType() == FOLDER && ((FolderData*)this)->mChildren.size())
+			return ((FolderData*)this)->mChildren[0]->getVideoPath();
+		else if (getType() == GAME)
+		{
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
+			if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")
+				return getPath();
+		}
+	}
+
 	return video;
 }
 
