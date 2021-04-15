@@ -706,7 +706,7 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const st
 std::string ScreenScraperRequest::ScreenScraperConfig::getUserInfoUrl() const
 {
 	std::string ret = API_URL_BASE
-		+ "/ssuserInfos.php?devid=" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+		+ "/ssuserInfos.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
 		+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 		+ "&output=xml";
 
