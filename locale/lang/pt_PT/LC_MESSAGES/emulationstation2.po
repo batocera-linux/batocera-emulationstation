@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1316,14 +1316,20 @@ msgstr "OCULTAR AO EXECUTAR UM JOGO"
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "USAR O MENU RETROARCH RGUI"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTOMÁTICO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE REDE"
@@ -1438,9 +1444,6 @@ msgstr "VERIFICAR AS BIOS ANTES DE INICIAR O JOGO"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLAS MULTIMÉDIA"
-
-msgid "AUTO"
-msgstr "AUTOMÁTICO"
 
 msgid "ON"
 msgstr "LIGADO"
@@ -2381,3 +2384,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "USAR O MENU RETROARCH RGUI"

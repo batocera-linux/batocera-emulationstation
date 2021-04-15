@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1316,13 +1316,19 @@ msgstr ""
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "ANVÄND RGUI I RETROARCH"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1440,9 +1446,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "PÅ"
@@ -2376,6 +2379,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "ANVÄND RGUI I RETROARCH"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "ÅTERSTÄLL ANPASSNINGAR AV SPELLISTAN"

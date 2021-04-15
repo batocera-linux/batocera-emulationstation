@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1318,13 +1318,19 @@ msgstr ""
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr ""
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1436,9 +1442,6 @@ msgid "CHECK BIOSES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "MULTIMEDIA KEYS"
-msgstr ""
-
-msgid "AUTO"
 msgstr ""
 
 msgid "ON"

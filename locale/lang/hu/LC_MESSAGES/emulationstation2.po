@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1316,14 +1316,20 @@ msgstr "ELREJTVE JÁTÉK FUTÁSA KÖZBEN"
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "RETROARCH RGUI MENÜ HASZNÁLATA"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "EMULÁTOR KONTROLLEREK AUTOMATIKUS KONFIGURÁCIÓJA"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B GOMBOK FELCSERÉLÉSE AZ EMUATIONSTATION FELÜLETEN"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "EMULÁTOR KONTROLLEREK AUTOMATIKUS KONFIGURÁCIÓJA"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "HÁLÓZATI JELZŐ MEGJELENÍTÉSE"
@@ -1438,9 +1444,6 @@ msgstr "JÁTÉK FUTTATÁSA ELŐTT A BIOSOK ELLENŐRZÉSE"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTIMÉDIA KULCSOK"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "BE"
@@ -2376,6 +2379,9 @@ msgstr "%d p"
 #, c-format
 msgid "%d s"
 msgstr "%d mp"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "RETROARCH RGUI MENÜ HASZNÁLATA"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "LEKÉRÉS FOLYAMATBAN"

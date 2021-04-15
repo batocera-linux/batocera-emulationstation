@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1317,14 +1317,20 @@ msgstr "VERSTECKEN, WENN SPIEL LÄUFT"
 msgid "COMPLETE QUIT MENU"
 msgstr "VOLLSTÄNDIGES EXIT-MENÜ ANZEIGEN"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B BUTTONS IN EMULATIONSTATION WECHSELN"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "NETZWERK INDIKATOR ANZEIGEN"
@@ -1443,9 +1449,6 @@ msgstr "ÜBERPRÜFE DIE BIOS VOR DEM SPIELSTART"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTIMEDIA TASTEN"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "EIN"
@@ -2393,6 +2396,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "SPIELELISTEN-ANPASSUNGEN ZURÜCKSETZEN"

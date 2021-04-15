@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1318,14 +1318,20 @@ msgstr ""
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "ВИКОРИСТАТИ МЕНЮ RETROARCH RGUI"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "АВТОНАЛАШТУВАННЯ КОНТРОЛЛЕРІВ"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ЗМІНИТИ МІСЦЯМИ КНОПКИ А/В"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "АВТОНАЛАШТУВАННЯ КОНТРОЛЛЕРІВ"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТИ ІНДИКАТОР ІНТЕРНЕТУ"
@@ -1440,9 +1446,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "КНОПКИ МУЛЬТИМЕДІА"
-
-msgid "AUTO"
-msgstr "АВТО"
 
 msgid "ON"
 msgstr "ВКЛ"
@@ -2389,6 +2392,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "ВИКОРИСТАТИ МЕНЮ RETROARCH RGUI"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "СКИНУТИ НАЛАШТУВАННЯ СПИСКУ ІГР"

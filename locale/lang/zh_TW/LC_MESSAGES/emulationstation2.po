@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1314,14 +1314,20 @@ msgstr "執行遊戲時隱藏"
 msgid "COMPLETE QUIT MENU"
 msgstr "完成後退出選單"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "使用 RGUI 目錄"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "自動設定模擬器控制器"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "自動設定模擬器控制器"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr ""
@@ -1436,9 +1442,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "多媒體按鍵"
-
-msgid "AUTO"
-msgstr "自動"
 
 msgid "ON"
 msgstr "開"
@@ -2365,6 +2368,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "使用 RGUI 目錄"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "重置自定主題設定"

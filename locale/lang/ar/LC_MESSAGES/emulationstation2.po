@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 12:04+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1324,14 +1324,20 @@ msgstr "إخفاء عند تشغيل اللعبة"
 msgid "COMPLETE QUIT MENU"
 msgstr "أكمل واخرج من القائمة"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "استخدم قائمة RGUI لـ RETROARCH"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "تلقائي"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr ""
@@ -1447,9 +1453,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "ازرار الوسائط المتعددة"
-
-msgid "AUTO"
-msgstr "تلقائي"
 
 msgid "ON"
 msgstr "تشغيل"
@@ -2426,6 +2429,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "استخدم قائمة RGUI لـ RETROARCH"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "أعد تعيين قائمة الألعاب المخصصة"
