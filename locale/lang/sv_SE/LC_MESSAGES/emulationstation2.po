@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr ""
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "ÅTERSTÄLL"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "VÄLJ"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -834,9 +846,6 @@ msgstr "INSTALLERA BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "MÅLENHET"
-
-msgid "SELECT"
-msgstr "VÄLJ"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "MÅLARKITEKTUR"
@@ -1307,13 +1316,19 @@ msgstr ""
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "ANVÄND RGUI I RETROARCH"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr ""
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1431,9 +1446,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "PÅ"
@@ -1888,6 +1900,11 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr "DETTA KOMMER ATT RADERA DE FAKTISKA SPELFILEN/FILERNA! VÄR DU SÄKER?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHET HITTADES"
@@ -2362,6 +2379,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "ANVÄND RGUI I RETROARCH"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "ÅTERSTÄLL ANPASSNINGAR AV SPELLISTAN"

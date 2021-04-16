@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -608,8 +608,20 @@ msgstr "CAP DE PERIFERIC BLUETOOTH PAS TROBAT"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "LIGAMS MANETA SUPRIMIT."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "REÏNICIALIZAR"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECCIONAR"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -840,9 +852,6 @@ msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr ""
-
-msgid "SELECT"
-msgstr "SELECCIONAR"
 
 msgid "TARGET ARCHITECTURE"
 msgstr ""
@@ -1310,13 +1319,19 @@ msgstr ""
 msgid "COMPLETE QUIT MENU"
 msgstr ""
 
-msgid "USE RETROARCH RGUI MENU"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1429,9 +1444,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "ACTIVAT"
@@ -1880,6 +1892,11 @@ msgstr "MODIFICAR METADONADAS"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
+msgstr ""
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
 msgid "NO DEVICE FOUND"

@@ -4,6 +4,8 @@
 #include "scrapers/GamesDBJSONScraper.h"
 #include "scrapers/GamesDBJSONScraperResources.h"
 
+#ifdef GAMESDB_APIKEY
+
 #include "FileData.h"
 #include "Log.h"
 #include "PlatformId.h"
@@ -12,6 +14,7 @@
 #include "utils/TimeUtil.h"
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+
 
 using namespace PlatformIds;
 using namespace rapidjson;
@@ -584,3 +587,5 @@ bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchR
 
 	return true;
 }
+
+#endif

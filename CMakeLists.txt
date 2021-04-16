@@ -144,6 +144,22 @@ if(CEC)
   endif()
 endif()
 
+if(DEFINED SCREENSCRAPER_SOFTNAME)
+    add_definitions(-DSCREENSCRAPER_SOFTNAME="${SCREENSCRAPER_SOFTNAME}")
+endif()
+
+if(DEFINED SCREENSCRAPER_DEV_LOGIN)
+    add_definitions(-DSCREENSCRAPER_DEV_LOGIN="${SCREENSCRAPER_DEV_LOGIN}")
+endif()
+
+if(DEFINED GAMESDB_APIKEY)
+    add_definitions(-DGAMESDB_APIKEY="${GAMESDB_APIKEY}")
+endif()
+
+if(DEFINED CHEEVOS_DEV_LOGIN)
+    add_definitions(-DCHEEVOS_DEV_LOGIN="${CHEEVOS_DEV_LOGIN}")
+endif()
+
 #-------------------------------------------------------------------------------
 
 if(MSVC)

@@ -629,6 +629,11 @@ void GuiMenu::openScraperSettings()
 	s->addWithLabel(_("SCRAPE FROM"), scraper_list); // batocera
 	s->addSaveFunc([scraper_list] { Settings::getInstance()->setString("Scraper", scraper_list->getSelected()); });
 
+	if (!scraper_list->hasSelection())
+	{
+		scraper_list->selectFirstItem();
+		scraper = scraper_list->getSelected();
+	}
 
 	if (scraper == "ScreenScraper")
 	{
@@ -1337,7 +1342,12 @@ void GuiMenu::openDeveloperSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
-		// retroarch.menu_driver = rgui
+		auto retroarchRgui = std::make_shared< OptionListComponent<std::string> >(mWindow, _("RETROARCH MENU DRIVER"), false);
+		retroarchRgui->addRange({ { _("AUTO"), "" },{ "rgui", "rgui" },{ "xmb", "xmb" },{ "ozone", "ozone" },{ "glui", "glui" } }, SystemConf::getInstance()->get("global.retroarch.menu_driver"));
+		s->addWithLabel(_("RETROARCH MENU DRIVER"), retroarchRgui);
+		s->addSaveFunc([retroarchRgui] { SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getSelected()); });
+
+		/*
 		auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
 		retroarchRgui->setState(SystemConf::getInstance()->get("global.retroarch.menu_driver") == "rgui");
 		s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
@@ -1345,18 +1355,7 @@ void GuiMenu::openDeveloperSettings()
 		{
 			SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
 		});
-
-		auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
-		invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
-		s->addWithLabel(_("SWITCH A/B BUTTONS IN EMULATIONSTATION"), invertJoy);
-		s->addSaveFunc([this, invertJoy]
-		{
-			if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
-			{
-				InputConfig::AssignActionButtons();
-				ViewController::get()->reloadAll(mWindow);
-			}
-		});
+		*/
 
 #if defined(WIN32)
 		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
@@ -1365,6 +1364,23 @@ void GuiMenu::openDeveloperSettings()
 		s->addSaveFunc([autoControllers] { SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1"); });
 #endif
 	}
+
+	auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
+	invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
+	s->addWithLabel(_("SWITCH A/B BUTTONS IN EMULATIONSTATION"), invertJoy);
+	s->addSaveFunc([this, invertJoy]
+	{
+		if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
+		{
+			InputConfig::AssignActionButtons();
+			ViewController::get()->reloadAll(mWindow);
+		}
+	});
+
+	auto firstJoystickOnly = std::make_shared<SwitchComponent>(mWindow);
+	firstJoystickOnly->setState(Settings::getInstance()->getBool("FirstJoystickOnly"));
+	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), invertJoy);
+	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
 #if defined(WIN32)
 	// Network Indicator

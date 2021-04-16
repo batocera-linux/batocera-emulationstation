@@ -83,29 +83,29 @@ void Settings::setDefaults()
 
 	mIntMap["MonitorID"] = -1;
 
-        // batocera
-        mBoolMap["UseOSK"] = true; // on screen keyboard
-        mBoolMap["DrawClock"] = true;
-		mBoolMap["ShowControllerActivity"] = true;		
-		mBoolMap["ShowControllerBattery"] = true;		
-        mIntMap["SystemVolume"] = 95;
-        mBoolMap["Overscan"] = false;
-        mStringMap["Language"] = "en_US";
-        mStringMap["INPUT P1"] = "DEFAULT";
-        mStringMap["INPUT P2"] = "DEFAULT";
-        mStringMap["INPUT P3"] = "DEFAULT";
-        mStringMap["INPUT P4"] = "DEFAULT";
-        mStringMap["INPUT P5"] = "DEFAULT";
-        mStringMap["Overclock"] = "none";
+    mBoolMap["UseOSK"] = true; // on screen keyboard
+    mBoolMap["DrawClock"] = true;
+	mBoolMap["ShowControllerActivity"] = true;		
+	mBoolMap["ShowControllerBattery"] = true;		
+    mIntMap["SystemVolume"] = 95;
+    mBoolMap["Overscan"] = false;
+    mStringMap["Language"] = "en_US";
+    mStringMap["INPUT P1"] = "DEFAULT";
+    mStringMap["INPUT P2"] = "DEFAULT";
+    mStringMap["INPUT P3"] = "DEFAULT";
+    mStringMap["INPUT P4"] = "DEFAULT";
+    mStringMap["INPUT P5"] = "DEFAULT";
+    mStringMap["Overclock"] = "none";
 
-		mBoolMap["VSync"] = true;	
-		mStringMap["FolderViewMode"] = "never";
-		mStringMap["HiddenSystems"] = "";
+	mBoolMap["VSync"] = true;	
+	mStringMap["FolderViewMode"] = "never";
+	mStringMap["HiddenSystems"] = "";
 
+	mBoolMap["FirstJoystickOnly"] = false;
 #ifdef _ENABLEEMUELEC
     mBoolMap["EnableSounds"] = true;
 #else
-    mBoolMap["EnableSounds"] = false; // batocera
+    mBoolMap["EnableSounds"] = false;
 #endif
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;

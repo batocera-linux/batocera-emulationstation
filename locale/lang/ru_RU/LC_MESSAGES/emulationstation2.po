@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -603,8 +603,20 @@ msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "СБРОС"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "ВЫБОР"
 
 msgid "ADD COMBINATION KEY"
 msgstr "ДОБАВИТЬ КОМБИНАЦИЮ"
@@ -835,9 +847,6 @@ msgstr "УСТАНОВИТЬ BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
-
-msgid "SELECT"
-msgstr "ВЫБОР"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ЦЕЛЕВАЯ АРХИТЕКТУРА"
@@ -1308,14 +1317,20 @@ msgstr "СКРЫТЬ ПРИ ЗАПУСКЕ ИГРЫ"
 msgid "COMPLETE QUIT MENU"
 msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "ИСП. МЕНЮ RETROARCH RGUI"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
@@ -1431,9 +1446,6 @@ msgstr "ПРОВЕРИТЬ БИОСЫ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "МУЛЬТИМЕДИЙНЫЕ КНОПКИ"
-
-msgid "AUTO"
-msgstr "АВТО"
 
 msgid "ON"
 msgstr "ВКЛ"
@@ -1890,6 +1902,11 @@ msgid ""
 msgstr ""
 "УДАЛЕНИЕ ФАЙЛОВ ИГРЫ!\n"
 "ВЫ УВЕРЕНЫ?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -2381,6 +2398,9 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "ИСП. МЕНЮ RETROARCH RGUI"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "СБРОСИТЬ НАСТРОЙКИ СПИСКА ИГР"

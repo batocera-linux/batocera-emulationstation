@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -602,8 +602,20 @@ msgstr "NO SE HAN ENCONTRADO DISPOSITIVOS BLUETOOTH"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "TODOS LOS CONTROLES HAN SIDO DESVINCULADOS."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "REESTABLECER"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECCIONAR"
 
 msgid "ADD COMBINATION KEY"
 msgstr ""
@@ -834,9 +846,6 @@ msgstr "INSTALAR BATOCERA"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO DESTINO"
-
-msgid "SELECT"
-msgstr "SELECCIONAR"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARQUITECTURA DESTINO"
@@ -1308,14 +1317,20 @@ msgstr "OCULTAR CUANDO SE EJECUTA UN JUEGO"
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÚ COMPLETO PARA SALIR"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "USAR INTERFAZ DE RETROARCH"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "AUTOCONFIGURAR CONTROLES DE EMULADORES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "CAMBIAR LOS BOTONES A/B EN LA ESTACIÓN DE EMULACIÓN"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOCONFIGURAR CONTROLES DE EMULADORES"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr ""
@@ -1432,9 +1447,6 @@ msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLAS MULTIMEDIA"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "ENCENDIDO"
@@ -1892,6 +1904,11 @@ msgid ""
 msgstr ""
 "ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
 "¿ESTÁS SEGURO?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NO SE ENCONTRÓ DISPOSITIVO"
@@ -2367,6 +2384,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "USAR INTERFAZ DE RETROARCH"
 
 #~ msgid "RESET GAMELIST CUSTOMISATIONS"
 #~ msgstr "REESTABLECER PERSONALIZACIONES DE LISTAS"

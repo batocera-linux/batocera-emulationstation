@@ -205,6 +205,9 @@ void Window::input(InputConfig* config, Input input)
 {
 	if (config == nullptr)
 		return;
+	
+	if (config->getDeviceIndex() > 0 && Settings::getInstance()->getBool("FirstJoystickOnly"))
+		return;
 
 	if (mScreenSaver) 
 	{

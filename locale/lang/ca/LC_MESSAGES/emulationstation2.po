@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -652,8 +652,20 @@ msgstr "NO S'HAN TROBAT DISPOSITIUS BLUETOOTH"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "REINICIA"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "SELECCIONA"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AFEGIR COMBINACIÓ DE TECLES"
@@ -878,9 +890,6 @@ msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIU "
-
-msgid "SELECT"
-msgstr "SELECCIONA"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "ARQUITECTURA DESTÍ"
@@ -1312,11 +1321,20 @@ msgstr "MENÚ DE SORTIDA COMPLET"
 msgid "USE RETROARCH RGUI MENU"
 msgstr "USAR MENU RGUI DE RETROARCH"
 
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INTERCANVIAR BOTONS A/B A EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDAMENTS D'EMULADORS"
+
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE XARXA"
@@ -1431,9 +1449,6 @@ msgstr "COMPROVAR BIOS ABANS D'INICIAR UN JOC"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLES D'AUDIOVISUALS"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "ON"
 msgstr "ENCÉS"
@@ -1888,6 +1903,11 @@ msgid ""
 msgstr ""
 "AIXÒ REALMENT ESBORRARÀ ELS ARXIUS DE JOC\n"
 "ESTEU SEGUR?"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "NO S'HA TROBAT EL DISPOSITIU"

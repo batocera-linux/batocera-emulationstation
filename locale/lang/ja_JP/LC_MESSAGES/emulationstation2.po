@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 22:56+0200\n"
+"POT-Creation-Date: 2021-04-15 16:27+0200\n"
 "PO-Revision-Date: 2021-03-26 14:42+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -602,8 +602,20 @@ msgstr "BT コントローラーが見つかりません"
 msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
+msgid "FILE BROWSER"
+msgstr ""
+
 msgid "RESET"
 msgstr "リセット"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "セレクト(決定)"
 
 msgid "ADD COMBINATION KEY"
 msgstr "同時押しキーを追加"
@@ -834,9 +846,6 @@ msgstr "BATOCERAをインストール"
 
 msgid "TARGET DEVICE"
 msgstr "対象デバイス"
-
-msgid "SELECT"
-msgstr "セレクト(決定)"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "対象アーキテクチャ"
@@ -1310,14 +1319,20 @@ msgstr "ゲーム開始時の画像、ゲーム名を非表示"
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
 
-msgid "USE RETROARCH RGUI MENU"
-msgstr "RETROARCH RGUIメニューを使用"
+msgid "RETROARCH MENU DRIVER"
+msgstr ""
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+msgstr "エミュレーターのコントローラーの自動設定"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "エミュレーターのコントローラーの自動設定"
+msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ネットワークインジケータを表示"
@@ -1432,9 +1447,6 @@ msgstr "ゲーム実行前にBIOSを確認"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "マルチメディアキー"
-
-msgid "AUTO"
-msgstr "自動"
 
 msgid "ON"
 msgstr "オン"
@@ -1892,6 +1904,11 @@ msgid ""
 msgstr ""
 "この操作はゲームファイルを削除します！\n"
 "実行しますか？"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -2364,3 +2381,6 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "RETROARCH RGUIメニューを使用"

@@ -16,6 +16,8 @@
 
 using namespace PlatformIds;
 
+#if defined(SCREENSCRAPER_DEV_LOGIN)
+
 std::string ScreenScraperRequest::ensureUrl(const std::string url)
 {
 	return Utils::String::replace(
@@ -678,19 +680,17 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName, bool jeuRecherche) const
 {	
-	std::string ret =  API_URL_BASE
-		+ "/jeuInfos.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
-		+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
-		+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
+	std::string ret = API_URL_BASE
+		+ "/jeuInfos.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+		+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 		+ "&output=xml"
 		+ "&romnom=" + HttpReq::urlEncode(gameName);
 
 	if (jeuRecherche)
 	{
-		ret = API_URL_BASE
-			+ "/jeuRecherche.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
-			+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
-			+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
+		ret = std::string(API_URL_BASE)
+			+ "/jeuRecherche.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+			+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 			+ "&output=xml"
 			+ "&recherche=" + HttpReq::urlEncode(gameName);
 	}
@@ -707,9 +707,8 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const st
 std::string ScreenScraperRequest::ScreenScraperConfig::getUserInfoUrl() const
 {
 	std::string ret = API_URL_BASE
-		+ "/ssuserInfos.php?devid=" + Utils::String::scramble(API_DEV_U, API_DEV_KEY)
-		+ "&devpassword=" + Utils::String::scramble(API_DEV_P, API_DEV_KEY)
-		+ "&softname=" + HttpReq::urlEncode(API_SOFT_NAME)
+		+ "/ssuserInfos.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+		+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 		+ "&output=xml";
 
 	std::string user = Settings::getInstance()->getString("ScreenScraperUser");
@@ -788,3 +787,5 @@ int ScreenScraperScraper::getThreadCount(std::string &result)
 
 	return 1;
 }
+
+#endif

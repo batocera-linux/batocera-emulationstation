@@ -1,9 +1,14 @@
 #pragma once
+
 #ifndef ES_APP_SCRAPERS_SCREEN_SCRAPER_H
 #define ES_APP_SCRAPERS_SCREEN_SCRAPER_H
 
 #include "scrapers/Scraper.h"
 #include "EmulationStation.h"
+
+#if defined(SCREENSCRAPER_DEV_LOGIN)
+
+#define VERSIONED_SOFT_NAME std::string(SCREENSCRAPER_SOFTNAME) + " " + static_cast<std::string>(PROGRAM_VERSION_STRING)
 
 namespace pugi { class xml_document; }
 
@@ -65,12 +70,7 @@ public:
 		std::string getUserInfoUrl() const;
 
 		// Access to the API
-		const std::string API_DEV_U = { 18, 4, 21, 12, 6, 69, 19, 15 };
-		const std::string API_DEV_P = { 62, 32, 32, 7, 63, 97, 87, 23, 21, 23, 1, 40, 23, 45, 8, 52 };
-		const std::string API_DEV_KEY = { 80, 101, 97, 99, 101, 32, 97, 110, 100, 32, 98, 101, 32, 119, 105, 108, 100 };
 		const std::string API_URL_BASE = "https://www.screenscraper.fr/api2";
-		const std::string API_SOFT_NAME = "Emulationstation " + static_cast<std::string>(PROGRAM_VERSION_STRING);
-
 		std::string region = "US";
 
 	} configuration;
@@ -93,5 +93,6 @@ private:
 
 	std::string mFileName;
 };
+#endif
 
 #endif // ES_APP_SCRAPERS_SCREEN_SCRAPER_H
