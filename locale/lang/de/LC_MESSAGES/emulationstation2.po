@@ -44,7 +44,7 @@ msgid "Image"
 msgstr "Bild"
 
 msgid "enter path to image"
-msgstr "Bildpfad angeben"
+msgstr "Pfad zum Bild eingeben"
 
 msgid "Video"
 msgstr "Video"
@@ -62,19 +62,19 @@ msgid "Box"
 msgstr "Box"
 
 msgid "enter path to box"
-msgstr "Pfad zur Box eingeben"
+msgstr "Pfad zu Box eingeben"
 
 msgid "Fan art"
-msgstr "Fan art"
+msgstr "Fan-Art"
 
 msgid "enter path to fanart"
-msgstr "Pfad zum Fanart eingeben"
+msgstr "Pfad zu Fan-Art eingeben"
 
 msgid "Title shot"
-msgstr "Title shot"
+msgstr "Titelfoto"
 
 msgid "enter path to title shot"
-msgstr "Pfad zum Title shot eingeben"
+msgstr "Pfad zum Titelfoto eingeben"
 
 msgid "Manual"
 msgstr "Handbuch"
@@ -95,10 +95,10 @@ msgid "enter path to cartridge"
 msgstr "Pfad zum Cartridge eingeben"
 
 msgid "Alt BoxArt"
-msgstr "Alternative BoxArt"
+msgstr "Alt BoxArt"
 
 msgid "enter path to alt boxart"
-msgstr "Pfad zum Boxart eingeben"
+msgstr "Pfad zu alt BoxArt eingeben"
 
 msgid "Box backside"
 msgstr "Box Rückseite"
@@ -164,31 +164,31 @@ msgid "Favorite"
 msgstr "Favorit"
 
 msgid "enter favorite"
-msgstr "Favorit eingeben"
+msgstr "Favorit eintragen"
 
 msgid "Hidden"
 msgstr "Versteckt"
 
 msgid "enter hidden"
-msgstr "Versteckte eingeben"
+msgstr "Versteckt eintragen"
 
 msgid "Kidgame"
 msgstr "Kinderspiel"
 
 msgid "enter kidgame"
-msgstr "Kinderspiel eingeben"
+msgstr "Kinderspiel eintragen"
 
 msgid "Play count"
 msgstr "Anzahl gespielt"
 
 msgid "enter number of times played"
-msgstr "Anzahl gespielt eingeben"
+msgstr "Anzahl gespielt eintragen"
 
 msgid "Last played"
 msgstr "Zuletzt gespielt"
 
 msgid "enter last played date"
-msgstr "Datum Zuletzt gespielt eingeben"
+msgstr "Datum Zuletzt gespielt eintragen"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -218,13 +218,13 @@ msgid "Cheevos Hash"
 msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr "Cheevos checksumme"
+msgstr "Cheevos Checksumme"
 
 msgid "Cheevos Game ID"
-msgstr "Cheevos Spiel ID"
+msgstr "Cheevos Spiel-ID"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper Spiel ID"
+msgstr "Screenscraper Spiel-ID"
 
 msgid "all games"
 msgstr "alle Spiele"
@@ -284,7 +284,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
 
 msgid "Searching controllers..."
-msgstr "Suche Controller."
+msgstr "Suche Controller..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 msgstr "BLUETOOTH-SCAN LÄUFT BEREITS."
@@ -547,7 +547,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "VERBINDE MIT NETZWERKSPIEL"
 
 msgid "Select the game you want to join"
-msgstr "Wählen Sie das Spiel aus, an dem Sie teilnehmen möchten"
+msgstr "Wähle das Spiel, an dem du teilnehmen möchtest"
 
 msgid "REFRESH"
 msgstr "AKTUALISIEREN"
@@ -619,7 +619,7 @@ msgid "SELECT"
 msgstr "AUSWÄHLEN"
 
 msgid "ADD COMBINATION KEY"
-msgstr "FÜGE EINE KOMBINATIONSTASTE"
+msgstr "KOMBINATIONSTASTE HINZUFÜGEN"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "INHALTS-DOWNLOADER"
@@ -672,7 +672,7 @@ msgid "random video"
 msgstr "zufälliges Video"
 
 msgid "slideshow"
-msgstr "slideshow"
+msgstr "Diashow"
 
 msgid "always"
 msgstr "immer"
@@ -957,7 +957,7 @@ msgid "THIS GAME HAS NO ACHIEVEMENT YET"
 msgstr "DIESES SPIEL HAT NOCH KEINE ERRUNGENSCHAFTEN"
 
 msgid "Achievements won"
-msgstr "Errungenschaften gewonnen"
+msgstr "Gewonnene Errungenschaften"
 
 #, c-format
 msgid "%d%% complete"
@@ -1093,7 +1093,7 @@ msgid "GAMES SETTINGS"
 msgstr "SPIELEINSTELLUNGEN"
 
 msgid "CONTROLLERS SETTINGS"
-msgstr "CONTROLLER EINSTELLUNGEN"
+msgstr "CONTROLLER-EINSTELLUNGEN"
 
 msgid "UI SETTINGS"
 msgstr "UI-EINSTELLUNGEN"
@@ -1318,7 +1318,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "VOLLSTÄNDIGES EXIT-MENÜ ANZEIGEN"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "RETROARCH-MENÜ-TREIBER"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -1330,7 +1330,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B BUTTONS IN EMULATIONSTATION WECHSELN"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "EMULATIONSTATION NUR MIT ERSTEM JOYSTICK STEUERN"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "NETZWERK-INDIKATOR ANZEIGEN"
@@ -1601,7 +1601,7 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "SPIELE-HASHING LÄUFT. MÖCHTEST DU ES ANHALTEN ?"
 
 msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "SPIELELISTE WIRKLICH AKTUALISIEREN?"
+msgstr "SPIELELISTE WIRKLICH AKTUALISIEREN ?"
 
 msgid "CONFIGURE A CONTROLLER"
 msgstr "CONTROLLER KONFIGURIEREN"
@@ -1646,7 +1646,7 @@ msgid "GAMELIST STYLE"
 msgstr "SPIELELISTEN-STIL"
 
 msgid "basic"
-msgstr "grundsätzlich"
+msgstr "basic"
 
 msgid "detailed"
 msgstr "detailliert"
@@ -2004,7 +2004,7 @@ msgid "MENU"
 msgstr "MENÜ"
 
 msgid "Full"
-msgstr "Voll"
+msgstr "Vollständig"
 
 msgid "Kiosk"
 msgstr "Kiosk"

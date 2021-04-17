@@ -604,16 +604,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
 
 msgid "RESET"
 msgstr "СБРОС"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "РОДИТЕЛЬСКАЯ ПАПКА"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "ПАПКА СКРИНШОТОВ"
 
 msgid "SELECT"
 msgstr "ВЫБОР"
@@ -1039,7 +1039,7 @@ msgid "Architecture"
 msgstr "Архитектура"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Формат диска"
 
 msgid "Temperature"
 msgstr "Температура"
@@ -1318,7 +1318,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "RETROARCH ДРАЙВЕР МЕНЮ"
 
 msgid "AUTO"
 msgstr "АВТО"
@@ -1330,7 +1330,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
