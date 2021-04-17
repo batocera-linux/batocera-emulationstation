@@ -449,7 +449,7 @@ bool GuiMetaDataEd::save()
 	if (externalFilesToCopy.size())
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow,
-			_("SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\nDO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"),
+			_("SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\nDO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"),
 			_("YES"), [this, performSave, externalFilesToCopy] { performSave(externalFilesToCopy); delete this; },
 			_("NO"), [this, performSave] { performSave(std::set<std::string>()); delete this; },
 			_("CANCEL"), nullptr, ICON_QUESTION

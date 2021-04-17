@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
-"PO-Revision-Date: 2021-03-26 14:42+0900\n"
+"POT-Creation-Date: 2021-04-17 10:47+0200\n"
+"PO-Revision-Date: 2021-04-16 19:52+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -603,16 +603,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "ファイルブラウザ"
 
 msgid "RESET"
 msgstr "リセット"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "親フォルダ"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "スクリーンショットフォルダ"
 
 msgid "SELECT"
 msgstr "セレクト(決定)"
@@ -1320,7 +1320,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "RETROARCH メニュードライバー"
 
 msgid "AUTO"
 msgstr "自動"
@@ -1332,7 +1332,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ネットワークインジケータを表示"
@@ -1631,7 +1631,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -1679,19 +1679,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ゲーム名の前"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "ゲーム名の後"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "言語の国旗をリストに表示"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "ステートセーブマークをリストに表示"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "マニュアルアイコンをリストに表示"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
@@ -1906,9 +1906,11 @@ msgstr ""
 "実行しますか？"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"リンクしたファイルの中には、ゲームリストのパス以外のものがあります。\n"
+"ゲームリストに関連するこれらのファイルのコピーを使用しますか？"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"

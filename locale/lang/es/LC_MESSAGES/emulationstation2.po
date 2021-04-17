@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-17 10:47+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -404,16 +404,16 @@ msgid "SORT SYSTEMS"
 msgstr "ORDENAR SISTEMAS"
 
 msgid "START ON SYSTEM"
-msgstr "INICIAR BATOCERA DIRECTAMENTE EN UN SISTEMA"
+msgstr "INICIAR BATOCERA DIRECTAMENTE EN"
 
 msgid "NONE"
 msgstr "NINGUNO"
 
 msgid "RESTORE LAST SELECTED"
-msgstr "RESTAURAR ÚLTIMOS SELECCIONADOS"
+msgstr "DONDE LO DEJASTE"
 
 msgid "START ON GAMELIST"
-msgstr "INICIAR EN LA LISTA DE JUEGOS"
+msgstr "INICIAR EN UNA LISTA DE JUEGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "ORGANIZAR COLECCIONES PERSONALIZADAS SIN TEMA"
@@ -603,16 +603,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "LOS MANDOS HAN SIDO DESVINCULADOS."
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "EXAMINAR"
 
 msgid "RESET"
 msgstr "RESTABLECER"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "CARPETA PRINCIPAL"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "CARPETA DE CAPTURAS DE PANTALLA"
 
 msgid "SELECT"
 msgstr "SELECCIONAR"
@@ -1038,7 +1038,7 @@ msgid "Architecture"
 msgstr "Arquitectura"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Sistema de archivos"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -1904,9 +1904,12 @@ msgstr ""
 "¿ESTÁS SEGURO?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"ALGUNOS ARCHIVOS QUE HA VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE ACCESO "
+"DE LA LISTA DE JUEGOS.\n"
+"¿DESEAS USAR UNA COPIA DE ESTOS ARCHIVOS RELATIVOS A LA LISTA DE JUEGOS?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NINGÚN DISPOSITIVO CONECTADO"
@@ -2006,7 +2009,7 @@ msgid "Kiosk"
 msgstr "Exposición"
 
 msgid "Kid"
-msgstr "Niño"
+msgstr "Para niños"
 
 msgid "Released"
 msgstr "Lanzamiento"
