@@ -463,7 +463,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	
 	// Don't use soft clip if rotation applied : let renderer do the work
-	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
 	Renderer::setMatrix(trans);
@@ -487,6 +487,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			fadeIn(false);
 			return;
 		}
+
+		beginCustomClipRect();
 
 		// Align left
 		//trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
@@ -555,10 +557,14 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 			Renderer::drawTriangleStrips(&mirrorVertices[0], 4);
 		}
 
-	//	Renderer::bindTexture(0);
-	}
+		GuiComponent::renderChildren(trans);
 
-	GuiComponent::renderChildren(trans);
+		endCustomClipRect();
+	}
+	else
+		GuiComponent::renderChildren(trans);
+
+
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)

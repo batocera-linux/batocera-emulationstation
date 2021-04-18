@@ -127,6 +127,7 @@ public:
 
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
+	void setTargetIsMax() { mTargetIsMax = true; }
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;

@@ -6,13 +6,16 @@ StoryboardAnimator::StoryboardAnimator(GuiComponent* comp, ThemeStoryboard* stor
 	mHasInitialProperties = false;
 	mPaused = true;
 	mComponent = comp;
-	mStoryBoard = storyboard;
+
+	mStoryBoard = new ThemeStoryboard(*storyboard);
 	mRepeatCount = 0;
 	mCurrentTime = 0;
 }
 
 StoryboardAnimator::~StoryboardAnimator()
 {
+	delete mStoryBoard;
+
 	pause();
 
 	for (auto story : _currentStories)
@@ -58,7 +61,8 @@ void StoryboardAnimator::reset(int atTime)
 		if (mHasInitialProperties)
 		{
 			for (auto prop : mInitialProperties)
-				mComponent->setProperty(prop.first, prop.second);
+				if (mDisabledProperties.find(prop.first) == mDisabledProperties.cend())
+					mComponent->setProperty(prop.first, prop.second);
 		}
 
 		for (auto anim : mStoryBoard->animations)
@@ -67,12 +71,18 @@ void StoryboardAnimator::reset(int atTime)
 	}
 }
 
+void StoryboardAnimator::clearInitialProperties()
+{	
+	mInitialProperties.clear();
+}
+
 void StoryboardAnimator::stop()
 {
 	pause();
 
 	for (auto prop : mInitialProperties)
-		mComponent->setProperty(prop.first, prop.second);
+		if (mDisabledProperties.find(prop.first) == mDisabledProperties.cend())
+			mComponent->setProperty(prop.first, prop.second);
 
 	clearStories();
 }
@@ -122,21 +132,20 @@ bool StoryboardAnimator::update(int elapsed)
 		mHasInitialProperties = true;
 
 		for (auto anim : mStoryBoard->animations)
+			mInitialProperties[anim->propertyName] = mComponent->getProperty(anim->propertyName);
+
+		for (auto anim : mStoryBoard->animations)
 		{
 			if (anim->begin == 0)
 			{
 				if (anim->to.type == ThemeData::ThemeElement::Property::Unknown)
 					anim->to = mComponent->getProperty(anim->propertyName);
-
 				if (anim->from.type == ThemeData::ThemeElement::Property::Unknown)
 					anim->from = mComponent->getProperty(anim->propertyName);
-				else
+				else if (mDisabledProperties.find(anim->propertyName) == mDisabledProperties.cend())
 					mComponent->setProperty(anim->propertyName, anim->from);
 			}
 		}
-
-		for (auto anim : mStoryBoard->animations)
-			mInitialProperties[anim->propertyName] = mComponent->getProperty(anim->propertyName);
 	}
 
 	mCurrentTime += elapsed;
@@ -148,7 +157,8 @@ bool StoryboardAnimator::update(int elapsed)
 		auto story = _currentStories[i];
 		bool ended = !story->update(elapsed);
 
-		mComponent->setProperty(story->animation->propertyName, story->currentValue);
+		if (mDisabledProperties.find(story->animation->propertyName) == mDisabledProperties.cend())
+			mComponent->setProperty(story->animation->propertyName, story->currentValue);
 
 		if (ended)
 		{
@@ -193,4 +203,12 @@ const std::string StoryboardAnimator::getName()
 		return mStoryBoard->eventName;
 
 	return "";
+}
+
+void StoryboardAnimator::enableProperty(const std::string& name, bool enable)
+{
+	mDisabledProperties.erase(name);
+
+	if (!enable)
+		mDisabledProperties.insert(name);
 }

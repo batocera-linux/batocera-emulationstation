@@ -70,6 +70,7 @@ VideoComponent::VideoComponent(Window* window) :
 {
 	mScaleOrigin = Vector2f::Zero();
 
+	setTag("video");
 	mVideoEnded = nullptr;
 	mRoundCorners = 0.0f;
 	mFadeIn = 0.0f;
@@ -156,8 +157,8 @@ void VideoComponent::setOpacity(unsigned char opacity)
 
 	mOpacity = opacity;	
 
-	if (!hasStoryBoard() && !mStaticImage.hasStoryBoard("snapshot"))
-		mStaticImage.setOpacity(opacity);
+	//if (!hasStoryBoard() && !mStaticImage.hasStoryBoard("snapshot"))
+	//	mStaticImage.setOpacity(opacity);
 }
 
 void VideoComponent::setScale(float scale)
@@ -178,9 +179,13 @@ void VideoComponent::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 		*/
-	GuiComponent::renderChildren(trans);
 
+	beginCustomClipRect();
+
+	GuiComponent::renderChildren(trans);
 	VideoComponent::renderSnapshot(parentTrans);
+
+	endCustomClipRect();
 
 	Renderer::setMatrix(trans);
 
@@ -192,7 +197,8 @@ void VideoComponent::render(const Transform4x4f& parentTrans)
 	}
 
 	// Handle the case where the video is delayed
-	handleStartDelay();
+	if (!GuiComponent::isLaunchTransitionRunning)
+		handleStartDelay();
 
 	// Handle looping of the video
 	handleLooping();
@@ -216,8 +222,11 @@ void VideoComponent::renderSnapshot(const Transform4x4f& parentTrans)
 		if (t == 0.0)
 			return;
 
-		if (!mStaticImage.isStoryBoardRunning())
+		if (!mStaticImage.isStoryBoardRunning("snapshot"))
+		{
+			t = ((getOpacity() / 255.0) * (t / 255.0)) * 255.0;
 			mStaticImage.setOpacity((unsigned char)t);
+		}
 
 		mStaticImage.render(parentTrans);
 	}
@@ -236,7 +245,8 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if(!elem)
 		return;
 
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
 
 	if ((properties & POSITION) && elem->has("pos"))
 	{
@@ -258,12 +268,21 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if(properties & ThemeFlags::SIZE)
 	{
-		if(elem->has("size"))
-			setResize(elem->get<Vector2f>("size") * scale);
-		else if(elem->has("maxSize"))
-			setMaxSize(elem->get<Vector2f>("maxSize") * scale);
+		if (elem->has("size"))
+		{
+			mSize = elem->get<Vector2f>("size");
+			setResize(mSize);
+		}
+		else if (elem->has("maxSize"))
+		{
+			mSize = elem->get<Vector2f>("maxSize") * scale;
+			setMaxSize(mSize);
+		}
 		else if (elem->has("minSize"))
-			setMinSize(elem->get<Vector2f>("minSize") * scale);
+		{
+			mSize = elem->get<Vector2f>("minSize") * scale;
+			setMinSize(mSize);
+		}
 	}
 
 	// position + size also implies origin
@@ -323,6 +342,33 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		else
 			mVideoPath = mConfig.defaultVideoPath;
 	}
+
+	if (properties & POSITION && elem->has("offset"))
+	{
+		Vector2f denormalized = elem->get<Vector2f>("offset") * screenScale;
+		mScreenOffset = denormalized;
+	}
+
+	if (properties & POSITION && elem->has("offsetX"))
+	{
+		float denormalized = elem->get<float>("offsetX") * screenScale.x();
+		mScreenOffset = Vector2f(denormalized, mScreenOffset.y());
+	}
+
+	if (properties & POSITION && elem->has("offsetY"))
+	{
+		float denormalized = elem->get<float>("offsetY") * scale.y();
+		mScreenOffset = Vector2f(mScreenOffset.x(), denormalized);
+	}
+
+	if (properties & POSITION && elem->has("clipRect"))
+	{
+		Vector4f val = elem->get<Vector4f>("clipRect") * Vector4f(screenScale.x(), screenScale.y(), screenScale.x(), screenScale.y());
+		setClipRect(val);
+	}
+	else
+		setClipRect(Vector4f());
+
 }
 
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()
@@ -538,4 +584,21 @@ void VideoComponent::setRoundCorners(float value)
 { 
 	mRoundCorners = value; 
 	mStaticImage.setRoundCorners(value);
+}
+
+void VideoComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	GuiComponent::setProperty(name, value);
+
+	if (hasStoryBoard() && !mStaticImage.hasStoryBoard("snapshot"))
+	{
+		if (name == "offset" || name == "offsetX" || name == "offsetY" || name == "scale")
+			mStaticImage.setProperty(name, value);
+	}
+}
+
+void VideoComponent::setClipRect(const Vector4f& vec)
+{
+	GuiComponent::setClipRect(vec);
+	mStaticImage.setClipRect(vec);
 }

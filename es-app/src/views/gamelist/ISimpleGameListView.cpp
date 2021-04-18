@@ -21,11 +21,14 @@
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
 #include "guis/GuiGamelistOptions.h"
+#include "BasicGameListView.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
 	mYButton("y"), mXButton("x"), mOKButton("OK"), mSelectButton("select")
 {
+	mExtraMode = ThemeData::ExtraImportType::ALL_EXTRAS;
+
 	mHeaderText.setText("Logo Text");
 	mHeaderText.setSize(mSize.x(), 0);
 	mHeaderText.setPosition(0, 0);
@@ -49,6 +52,12 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 	addChild(&mFolderPath);
 }
 
+ISimpleGameListView::~ISimpleGameListView()
+{
+	for (auto extra : mThemeExtras)
+		delete extra;
+}
+
 void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	using namespace ThemeFlags;
@@ -66,7 +75,8 @@ void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme
 	mThemeExtras.clear();
 
 	// Add new theme extras
-	mThemeExtras = ThemeData::makeExtras(theme, getName(), mWindow);
+	mThemeExtras = ThemeData::makeExtras(theme, getName(), mWindow, false, mExtraMode);
+
 	for (auto extra : mThemeExtras)
 		addChild(extra);
 

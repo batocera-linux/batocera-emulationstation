@@ -13,7 +13,7 @@ class ISimpleGameListView : public IGameListView
 {
 public:
 	ISimpleGameListView(Window* window, FolderData* root, bool temporary = false);
-	virtual ~ISimpleGameListView() {}
+	virtual ~ISimpleGameListView();
 
 	// Called when a new file is added, a file is removed, a file's metadata changes, or a file's children are sorted.
 	// NOTE: FILE_SORTED is only reported for the topmost FileData, where the sort started.
@@ -73,6 +73,8 @@ protected:
 	MultiStateInput mXButton;
 	MultiStateInput mYButton;
 	MultiStateInput mSelectButton;
+
+	ThemeData::ExtraImportType mExtraMode;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H
