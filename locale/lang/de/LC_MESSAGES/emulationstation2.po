@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-17 10:44+0200\n"
+"POT-Creation-Date: 2021-04-18 21:54+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2017,6 +2017,12 @@ msgstr "Veröffentlicht"
 
 msgid "Times played"
 msgstr "Anzahl gespielt"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"

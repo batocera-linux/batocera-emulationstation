@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-17 10:47+0200\n"
+"POT-Creation-Date: 2021-04-18 21:54+0200\n"
 "PO-Revision-Date: 2021-04-16 19:52+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -2013,6 +2013,11 @@ msgstr "発売日"
 
 msgid "Times played"
 msgstr "プレイ回数"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
 
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
