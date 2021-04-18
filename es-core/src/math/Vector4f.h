@@ -81,6 +81,8 @@ public:
 
 	static const Vector4f parseString(const std::string& _input);
 
+	bool empty() { return mX == 0 && mY == 0 && mZ == 0 && mW == 0; }
+	
 private:
 
 	float mX;

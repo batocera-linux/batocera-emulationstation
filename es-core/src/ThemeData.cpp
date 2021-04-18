@@ -21,6 +21,29 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 	{ "splash", {		
 		{ "backgroundColor", COLOR } } },
+
+	{ "control", { // Using "control" in themes.xml does affect the original type of the control when overriding common properties for multiple md_
+		{ "pos", NORMALIZED_PAIR },
+		{ "size", NORMALIZED_PAIR },
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+
+		{ "scale", FLOAT },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+
+		{ "rotation", FLOAT },
+		{ "rotationOrigin", NORMALIZED_PAIR },
+
+		{ "opacity", FLOAT },
+		{ "zIndex", FLOAT },
+		{ "visible", BOOLEAN },
+		{ "offset", NORMALIZED_PAIR },
+		{ "offsetX", FLOAT },
+		{ "offsetY", FLOAT },
+		{ "clipRect", NORMALIZED_RECT } } },
+
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -33,6 +56,11 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scaleOrigin", NORMALIZED_PAIR },
 		
 		{ "padding", NORMALIZED_RECT },
+
+		{ "offset", NORMALIZED_PAIR },
+		{ "offsetX", FLOAT },
+		{ "offsetY", FLOAT },
+		{ "clipRect", NORMALIZED_RECT },
 
 		{ "maxSize", NORMALIZED_PAIR },
 		{ "minSize", NORMALIZED_PAIR },
@@ -107,6 +135,11 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "text", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+
+		{ "offset", NORMALIZED_PAIR },
+		{ "offsetX", FLOAT },
+		{ "offsetY", FLOAT },
+		{ "clipRect", NORMALIZED_RECT },
 
 		{ "x", FLOAT },
 		{ "y", FLOAT },
@@ -241,6 +274,11 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 
+		{ "offset", NORMALIZED_PAIR },
+		{ "offsetX", FLOAT },
+		{ "offsetY", FLOAT },
+		{ "clipRect", NORMALIZED_RECT },
+
 		{ "x", FLOAT },
 		{ "y", FLOAT },
 		{ "h", FLOAT },
@@ -341,6 +379,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "y", FLOAT },
 		{ "h", FLOAT },
 		{ "w", FLOAT },
+
+		{ "offset", NORMALIZED_PAIR },
+		{ "offsetX", FLOAT },
+		{ "offsetY", FLOAT },
+		{ "clipRect", NORMALIZED_RECT },
+
 		{ "scale", FLOAT },
 		{ "scaleOrigin", NORMALIZED_PAIR },
 		{ "opacity", FLOAT },
@@ -1324,7 +1368,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	// ThemeException error;
 	// error.setFiles(mPaths);
 
-	element.type = root.name();
+	if (element.type.empty() || strcmp(root.name(), "control") != 0)
+		element.type = root.name();
 
 	if (root.attribute("extra"))
 	{
@@ -1361,8 +1406,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 						delete sb->second;
 
 					element.mStoryBoards[storyBoard->eventName] = storyBoard;
-
-					LOG(LogInfo) << "Storyboard \"" << node.name() << "\"!";
+					// LOG(LogInfo) << "Storyboard \"" << node.name() << "\"!";
 				}
 
 				continue;
@@ -1593,7 +1637,7 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 	return theme;
 }
 
-std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad)
+std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad, ExtraImportType type)
 {
 	std::vector<GuiComponent*> comps;
 
@@ -1605,7 +1649,21 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 	{
 		ThemeElement& elem = viewIt->second.elements.at(*it);
 		if(elem.extra)
-		{
+		{			
+			if (type != ExtraImportType::ALL_EXTRAS && elem.mStoryBoards.size() > 0)
+			{
+				bool hasActivationStoryBoard =
+					elem.mStoryBoards.find("activate") != elem.mStoryBoards.cend() ||
+					elem.mStoryBoards.find("activateNext") != elem.mStoryBoards.cend() ||
+					elem.mStoryBoards.find("activatePrev") != elem.mStoryBoards.cend();
+
+				if ((type & ExtraImportType::WITH_ACTIVATESTORYBOARD) == ExtraImportType::WITH_ACTIVATESTORYBOARD && !hasActivationStoryBoard)
+					continue;
+
+				if ((type & ExtraImportType::WITHOUT_ACTIVATESTORYBOARD) == ExtraImportType::WITHOUT_ACTIVATESTORYBOARD && hasActivationStoryBoard)
+					continue;
+			}
+
 			GuiComponent* comp = nullptr;
 
 			const std::string& t = elem.type;

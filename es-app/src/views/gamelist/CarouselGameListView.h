@@ -32,6 +32,7 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void launch(FileData* game) override;
 	virtual std::vector<FileData*> getFileDataEntries() override;
+	virtual void update(int deltaTime) override;
 
 protected:
 	virtual std::string getQuickSystemSelectRightButton() override;
@@ -43,7 +44,7 @@ protected:
 	void updateInfoPanel();
 
 	CarouselComponent mList;
-	DetailedContainer mDetails;
+	DetailedContainerHost mDetails;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_BASIC_GAME_LIST_VIEW_H

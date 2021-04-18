@@ -245,6 +245,8 @@ public:
 
 	std::shared_ptr<TextureResource> getTexture(bool marquee = false);
 
+	Vector3f getLaunchTarget();
+
 private:
 	void	resetProperties();
 	void	createVideo();

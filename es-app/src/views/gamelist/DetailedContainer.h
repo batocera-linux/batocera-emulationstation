@@ -6,6 +6,7 @@
 #include "views/gamelist/BasicGameListView.h"
 
 class VideoComponent;
+class ComponentGrid;
 
 struct MdComponent
 {
@@ -36,6 +37,8 @@ struct MdImage
 
 class DetailedContainer
 {
+	friend class DetailedContainerHost;
+
 public:	
 	enum DetailedContainerType
 	{
@@ -50,15 +53,13 @@ public:
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 	Vector3f getLaunchTarget();
 
-	void updateControls(FileData* file, bool isClearing);
-
-
-	void update(int deltaTime);
+	void updateControls(FileData* file, bool isClearing, int moveBy = 0, bool isDeactivating = false);
 
 protected:
 	void	initMDLabels();
 	void	initMDValues();
 
+	std::vector<GuiComponent*>  getComponents();
 	std::vector<MdComponent>  getMetaComponents();
 
 	const char* getName() { return mParent->getName(); }
@@ -66,17 +67,26 @@ protected:
 	void removeChild(GuiComponent* cmp) { mParent->removeChild(cmp); }
 	bool isChild(GuiComponent* cmp) { return mParent->isChild(cmp); }
 
+	void updateDetailsForFolder(FolderData* folder);
+	void updateFolderViewAmbiantProperties();
+
+	void disableComponent(GuiComponent* comp);
+
+	bool hasActivationStoryboard(GuiComponent* comp, bool checkActivate = true, bool checkDeactivate = false);
+
+	bool anyComponentHasStoryBoard();
+	bool anyComponentHasStoryBoardRunning();
+
 	ISimpleGameListView* mParent;
 	GuiComponent* mList;
 	Window* mWindow;
 
 	DetailedContainerType mViewType;
 
-	ScrollableContainer mDescContainer;
 	TextComponent mDescription;
 
 	void createVideo();
-	void createImageComponent(ImageComponent** pImage);
+	void createImageComponent(ImageComponent** pImage, bool forceLoad = false);
 	void loadIfThemed(ImageComponent** pImage, const std::shared_ptr<ThemeData>& theme, const std::string& element, bool forceLoad = false, bool loadPath = false);
 
 	ImageComponent* mImage;
@@ -113,5 +123,40 @@ protected:
 	DateTimeComponent mReleaseDate, mLastPlayed;
 
 	std::vector<MdImage> mdImages;
+
+	std::vector<GuiComponent*> mThemeExtras;
+
+	void createFolderGrid(Vector2f targetSize, std::vector<std::string> thumbs);
+	ComponentGrid* mFolderView;
+
 	bool		mState;
+};
+
+
+
+
+
+class DetailedContainerHost
+{
+public:
+	DetailedContainerHost(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainer::DetailedContainerType viewType);
+	~DetailedContainerHost();
+
+	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
+	Vector3f getLaunchTarget();
+
+	void updateControls(FileData* file, bool isClearing, int moveBy = 0);
+	void update(int deltaTime);
+
+private:
+	FileData* mActiveFile;
+
+	ISimpleGameListView* mParent;
+	GuiComponent*		mList;
+	Window* mWindow;
+	DetailedContainer::DetailedContainerType mViewType;
+
+	DetailedContainer* mContainer;
+	std::vector<DetailedContainer*> mContainers;
+	std::shared_ptr<ThemeData> mTheme;
 };

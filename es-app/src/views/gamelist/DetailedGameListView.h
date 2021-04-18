@@ -26,10 +26,13 @@ public:
 
 	virtual void launch(FileData* game) override;
 
+protected:
+	virtual void update(int deltaTime) override;
+
 private:
 	void updateInfoPanel();
 
-	DetailedContainer mDetails;	
+	DetailedContainerHost mDetails;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_DETAILED_GAME_LIST_VIEW_H

@@ -40,6 +40,7 @@ public:
 	virtual void setThemeName(std::string name);
 	virtual void onShow();
 	virtual std::vector<FileData*> getFileDataEntries() override;
+	virtual void update(int deltaTime) override;
 
 protected:
 	virtual std::string getQuickSystemSelectRightButton() override;
@@ -51,7 +52,7 @@ protected:
 	ImageGridComponent<FileData*> mGrid;
 
 private:
-	DetailedContainer mDetails;
+	DetailedContainerHost mDetails;
 
 	void updateInfoPanel();
 	const std::string getImagePath(FileData* file);

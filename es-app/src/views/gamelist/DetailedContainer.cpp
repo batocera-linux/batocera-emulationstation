@@ -8,6 +8,9 @@
 #include "LangParser.h"
 #include "SaveStateRepository.h"
 #include "SystemConf.h"
+#include "Window.h"
+#include "components/ComponentGrid.h"
+#include <set>
 
 #ifdef _RPI_
 #include "Settings.h"
@@ -17,7 +20,7 @@
 
 DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainerType viewType) :
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
-	mDescContainer(window), mDescription(window),
+	mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
 	mKidGame(nullptr), mNotKidGame(nullptr), mHidden(nullptr), 
 	mFavorite(nullptr), mNotFavorite(nullptr),
@@ -25,7 +28,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
 	mSaveState(nullptr), mNoSaveState(nullptr),
-	mState(true),
+	mState(true), mFolderView(nullptr),
 
 	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window), mLblGameTime(window), mLblFavorite(window),
@@ -71,7 +74,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 		mDeveloper.setVisible(false);
 		mReleaseDate.setVisible(false);
 		mRating.setVisible(false);
-		mDescContainer.setVisible(false);
+		mDescription.setVisible(false);
 	}
 
 	// metadata labels + values
@@ -123,15 +126,13 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mName.setHorizontalAlignment(ALIGN_CENTER);
 	addChild(&mName);
 
-	mDescContainer.setPosition(mSize.x() * padding, mSize.y() * 0.65f);
-	mDescContainer.setSize(mSize.x() * (0.50f - 2 * padding), mSize.y() - mDescContainer.getPosition().y());
-	mDescContainer.setAutoScroll(true);
-	mDescContainer.setDefaultZIndex(40);
-	addChild(&mDescContainer);
-
+	mDescription.setPosition(mSize.x() * padding, mSize.y() * 0.65f);
+	mDescription.setSize(mSize.x() * (0.50f - 2 * padding), mSize.y() - mDescription.getPosition().y());
+	mDescription.setDefaultZIndex(40);
 	mDescription.setFont(Font::get(FONT_SIZE_SMALL));
-	mDescription.setSize(mDescContainer.getSize().x(), 0);
-	mDescContainer.addChild(&mDescription);
+	mDescription.setVerticalAlignment(ALIGN_TOP);
+	mDescription.setAutoScroll(TextComponent::AutoScrollType::VERTICAL);
+	addChild(&mDescription);
 
 	initMDLabels();
 	initMDValues();
@@ -139,6 +140,9 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 
 DetailedContainer::~DetailedContainer()
 {
+	if (mFolderView != nullptr)
+		delete mFolderView;
+
 	if (mThumbnail != nullptr)
 		delete mThumbnail;
 
@@ -216,7 +220,7 @@ std::vector<MdComponent> DetailedContainer::getMetaComponents()
 }
 
 
-void DetailedContainer::createImageComponent(ImageComponent** pImage)
+void DetailedContainer::createImageComponent(ImageComponent** pImage, bool forceLoad)
 {
 	if (*pImage != nullptr)
 		return;
@@ -225,7 +229,7 @@ void DetailedContainer::createImageComponent(ImageComponent** pImage)
 	auto mSize = mParent->getSize();
 
 	// Image	
-	auto image = new ImageComponent(mWindow, mViewType == DetailedContainerType::VideoView);
+	auto image = new ImageComponent(mWindow, forceLoad || mViewType == DetailedContainerType::VideoView);
 	image->setAllowFading(false);
 	image->setOrigin(0.5f, 0.5f);
 	image->setPosition(mSize.x() * 0.25f, mList->getPosition().y() + mSize.y() * 0.2125f);
@@ -333,17 +337,18 @@ void DetailedContainer::initMDValues()
 			bottom = testBot;
 	}
 
-	mDescContainer.setPosition(mDescContainer.getPosition().x(), bottom + mSize.y() * 0.01f);
-	mDescContainer.setSize(mDescContainer.getSize().x(), mSize.y() - mDescContainer.getPosition().y());
+	mDescription.setPosition(mDescription.getPosition().x(), bottom + mSize.y() * 0.01f);
+	mDescription.setSize(mDescription.getSize().x(), mSize.y() - mDescription.getPosition().y());
 }
 
 void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_ptr<ThemeData>& theme, const std::string& element, bool forceLoad, bool loadPath)
 {
 	using namespace ThemeFlags;
 
-	if (forceLoad || theme->getElement(getName(), element, "image"))
+	auto elem = theme->getElement(getName(), element, "image");
+	if (forceLoad || (elem && elem->properties.size() > 0))
 	{
-		createImageComponent(pImage);
+		createImageComponent(pImage, element == "md_fanart");
 		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
 	}
 	else if ((*pImage) != nullptr)
@@ -410,15 +415,21 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	if (theme->getElement(getName(), "md_description", "text"))
 	{
-		mDescContainer.applyTheme(theme, getName(), "md_description", POSITION | ThemeFlags::SIZE | Z_INDEX | VISIBLE);
-		mDescription.setSize(mDescContainer.getSize().x(), 0);
-		mDescription.applyTheme(theme, getName(), "md_description", ALL ^ (POSITION | ThemeFlags::SIZE | ThemeFlags::ORIGIN | TEXT | ROTATION));
+		mDescription.applyTheme(theme, getName(), "md_description", ALL);
+		mDescription.setAutoScroll(TextComponent::AutoScrollType::VERTICAL);
 
-		if (!isChild(&mDescContainer))
-			addChild(&mDescContainer);
+		if (!isChild(&mDescription))
+			addChild(&mDescription);
 	}
 	else if (mViewType == DetailedContainerType::GridView)
-		removeChild(&mDescContainer);
+		removeChild(&mDescription);
+
+	mThemeExtras.clear();
+
+	// Add new theme extras
+	mThemeExtras = ThemeData::makeExtras(theme, getName(), mWindow, false, ThemeData::ExtraImportType::WITH_ACTIVATESTORYBOARD);
+	for (auto extra : mThemeExtras)
+		addChild(extra);
 
 	mParent->sortChildren();
 }
@@ -437,11 +448,176 @@ Vector3f DetailedContainer::getLaunchTarget()
 	return target;
 }
 
-void DetailedContainer::updateControls(FileData* file, bool isClearing)
+#define GRIDPADDING Renderer::getScreenHeight() * 0.004f
+
+void DetailedContainer::createFolderGrid(Vector2f targetSize, std::vector<std::string> thumbs)
+{
+	if (thumbs.size() == 0)
+		return;
+
+	auto gridSize = Vector2i(3, 2);
+	mFolderView = new ComponentGrid(mWindow, gridSize);
+
+	auto sz = Vector2f(targetSize.x() / (float)gridSize.x(), targetSize.y() / (float)gridSize.y());
+
+	int idx = 0;
+	for (int x = 0; x < gridSize.x(); x++)
+	{
+		for (int y = 0; y < gridSize.y(); y++)
+		{
+			if (idx >= thumbs.size())
+				break;
+
+			auto image = std::make_shared<ImageComponent>(mWindow);
+			image->setMaxSize(sz);
+			image->setIsLinear(true);
+			image->setImage(thumbs[idx]);
+			image->setPadding(Vector4f(GRIDPADDING, GRIDPADDING, GRIDPADDING, GRIDPADDING));
+			mFolderView->setEntry(image, Vector2i(x, y), false, false);
+			idx++;
+		}
+	}
+
+	mFolderView->setSize(targetSize);
+}
+
+void DetailedContainer::updateFolderViewAmbiantProperties()
+{
+	if (mFolderView != nullptr)
+	{
+		auto parent = mFolderView->getParent();
+		if (parent != nullptr)
+		{
+			auto opacity = parent->getOpacity();
+
+			for (int i = 0; i < mFolderView->getChildCount(); i++)
+				mFolderView->setOpacity(opacity);
+		}
+	}
+}
+
+
+void DetailedContainer::updateDetailsForFolder(FolderData* folder)
+{
+	auto games = folder->getChildrenListToDisplay();
+	if (games.size() == 0)
+		return;
+	
+	auto desc = folder->getMetadata(MetaDataId::Desc);
+	if (desc.empty())
+	{
+		std::vector<std::string> gamesList;
+
+		for (auto child : games)
+		{
+			gamesList.push_back("- " + child->getName());
+			if (gamesList.size() == 6)
+				break;
+		}
+
+		desc = "\n" + Utils::String::join(gamesList, "\n");
+
+		int count = games.size();
+
+		char trstring[2048];
+		snprintf(trstring, 2048, ngettext(
+			"This folder contains %i game, including :%s",
+			"This folder contains %i games, including :%s", count), count, desc.c_str());
+
+		mDescription.setText(trstring);
+	}	
+
+	FileData* firstGameWithImage = nullptr;
+
+	std::vector<std::string> thumbs;
+	for (auto child : games)
+	{
+		if (!child->getThumbnailPath().empty())
+			thumbs.push_back(child->getThumbnailPath());
+
+		if (firstGameWithImage == nullptr && !child->getImagePath().empty())
+			firstGameWithImage = child;		
+	}
+
+
+
+	if (firstGameWithImage != nullptr)
+	{
+		std::string imagePath = firstGameWithImage->getImagePath().empty() ? firstGameWithImage->getThumbnailPath() : firstGameWithImage->getImagePath();
+		
+		if (mVideo != nullptr)
+		{
+			mVideo->setImage("");
+			mVideo->setVideo("");
+
+			createFolderGrid(mVideo->getTargetSize(), thumbs);
+			if (mFolderView)
+				mVideo->addChild(mFolderView);
+			else
+			{
+				std::string snapShot = imagePath;
+
+				auto src = mVideo->getSnapshotSource();
+				if (src == MARQUEE && !firstGameWithImage->getMarqueePath().empty())
+					snapShot = firstGameWithImage->getMarqueePath();
+				if (src == THUMBNAIL && !firstGameWithImage->getThumbnailPath().empty())
+					snapShot = firstGameWithImage->getThumbnailPath();
+				if (src == IMAGE && !firstGameWithImage->getImagePath().empty())
+					snapShot = firstGameWithImage->getImagePath();
+
+				mVideo->setImage(snapShot);
+			}
+		}
+		
+		if (mThumbnail != nullptr)
+		{
+			if (mViewType == DetailedContainerType::VideoView && mImage != nullptr && !mImage->hasImage())
+				mImage->setImage(firstGameWithImage->getImagePath(), false, mImage->getMaxSizeInfo());
+
+			if (!mThumbnail->hasImage())
+				mThumbnail->setImage(firstGameWithImage->getThumbnailPath(), false, mThumbnail->getMaxSizeInfo());
+		}
+
+		if (mImage != nullptr && !mImage->hasImage())
+		{
+			if (mVideo == nullptr)
+			{
+				mImage->setImage("");
+
+				createFolderGrid(mImage->getSize(), thumbs);
+				if (mFolderView)
+					mImage->addChild(mFolderView);
+			}
+			else
+			{
+				if (mViewType == DetailedContainerType::VideoView && mThumbnail == nullptr)
+					mImage->setImage(firstGameWithImage->getThumbnailPath(), false, mImage->getMaxSizeInfo());
+				else if (mViewType != DetailedContainerType::VideoView)
+					mImage->setImage(imagePath, false, mImage->getMaxSizeInfo());
+			}
+		}
+	}
+
+	mReleaseDate.setValue(folder->getMetadata(MetaDataId::ReleaseDate));
+	mDeveloper.setValue(folder->getMetadata(MetaDataId::Developer));
+	mPublisher.setValue(folder->getMetadata(MetaDataId::Publisher));
+	mGenre.setValue(folder->getMetadata(MetaDataId::Genre));
+	mLastPlayed.setValue("");
+	mPlayCount.setValue("");
+	mGameTime.setValue("");
+}
+
+void DetailedContainer::updateControls(FileData* file, bool isClearing, int moveBy, bool isDeactivating)
 {
 	bool state = (file != NULL);
 	if (state)
-	{
+	{	
+		if (mFolderView)
+		{
+			delete mFolderView;
+			mFolderView = nullptr;
+		}
+
 		std::string imagePath = file->getImagePath().empty() ? file->getThumbnailPath() : file->getImagePath();
 
 		if (mVideo != nullptr)
@@ -577,9 +753,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		
 		if (mHidden != nullptr)
 			mHidden->setVisible(file->getHidden());
-
+	
 		mDescription.setText(file->getMetadata(MetaDataId::Desc));
-		mDescContainer.reset();
 
 		auto valueOrUnknown = [](const std::string value) { return value.empty() ? _("Unknown") : value; };
 		auto valueOrOne = [](const std::string value) 
@@ -622,17 +797,220 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 			mPlayCount.setValue(file->getMetadata(MetaDataId::PlayCount));
 			mGameTime.setValue(Utils::Time::secondsToString(atol(file->getMetadata(MetaDataId::GameTime).c_str())));
 		}
+		else if (file->getType() == FOLDER)
+			updateDetailsForFolder((FolderData*)file);
 	}
 
+	std::vector<GuiComponent*> comps = getComponents();
+
+	/*if (file == nullptr && !isClearing)
+	{
+		if (isDeactivating)
+			for (auto comp : getComponents())
+				comp->deselectStoryboard(!isDeactivating); // TODO !?
+	}
+	else */
+	if (state && file != nullptr && !isClearing)
+	{
+		for (auto comp : getComponents())
+		{
+			if (moveBy > 0 && comp->storyBoardExists("activateNext"))
+			{
+				comp->deselectStoryboard();
+				comp->selectStoryboard("activateNext");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+			else if (moveBy < 0 && comp->storyBoardExists("activatePrev"))
+			{
+				comp->deselectStoryboard();
+				comp->selectStoryboard("activatePrev");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+			else if (moveBy != 0 && comp->storyBoardExists("activate"))
+			{
+				comp->deselectStoryboard();
+				comp->selectStoryboard("activate");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+			else if (moveBy == 0 && comp->storyBoardExists("open"))
+			{
+				comp->deselectStoryboard();
+				comp->selectStoryboard("open");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+
+			else if (moveBy == 0 && comp->storyBoardExists("") && !comp->hasStoryBoard("", true))
+			{
+				comp->deselectStoryboard();
+				comp->selectStoryboard();
+
+				if (comp->isShowing())
+					comp->onShow();
+			}
+			else if (moveBy == 0)
+				comp->deselectStoryboard();
+		}
+	}
+	
 	// We're clearing / populating : don't setup fade animations
 	if (file == nullptr && isClearing)
+	{
+		for (auto comp : comps)
+		{
+			comp->cancelAnimation(0);
+			disableComponent(comp);
+		}
+
 		return;
+	}
 
 	if (state == mState)
 		return;
 
 	mState = state;
 
+	bool fadeOut = !state;
+
+	for (auto comp : comps)
+	{
+		if (fadeOut && isDeactivating && hasActivationStoryboard(comp, false, true))
+		{
+			if (moveBy > 0 && comp->storyBoardExists("deactivateNext"))
+			{
+				comp->deselectStoryboard(false);
+				comp->selectStoryboard("deactivateNext");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+			else if (moveBy < 0 && comp->storyBoardExists("deactivatePrev"))
+			{
+				comp->deselectStoryboard(false);
+				comp->selectStoryboard("deactivatePrev");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+			else if (moveBy != 0 && comp->storyBoardExists("deactivate"))
+			{
+				comp->deselectStoryboard(false);
+				comp->selectStoryboard("deactivate");
+
+				if (comp->isShowing())
+					comp->startStoryboard();
+			}
+		}
+		else if (fadeOut && isDeactivating && !hasActivationStoryboard(comp))
+		{
+			comp->deselectStoryboard();
+			comp->setOpacity(0);
+			disableComponent(comp);
+		}
+		else
+		{
+			if (fadeOut)
+				comp->enableStoryboardProperty("opacity", false);
+			else
+				comp->deselectStoryboard(false);
+
+			comp->cancelAnimation(0);
+
+			unsigned char initialOpacity = fadeOut ? comp->getOpacity() : 255;
+
+			auto func = [comp, initialOpacity](float t)
+			{
+				comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t) * initialOpacity)); // 255
+			};
+			
+			comp->setAnimation(new LambdaAnimation(func, fadeOut && isDeactivating ? 500 : 250), 0, [this, comp, fadeOut, file]
+			{
+				if (fadeOut)
+				{
+					comp->enableStoryboardProperty("opacity", true);
+					comp->deselectStoryboard(true);
+					comp->setOpacity(0);
+					disableComponent(comp);
+				}
+
+			}, fadeOut);
+		}
+	}
+
+	Utils::FileSystem::removeFile(getTitlePath());
+}
+
+bool DetailedContainer::hasActivationStoryboard(GuiComponent* comp, bool checkActivate, bool checkDeactivate)
+{
+	if (checkDeactivate && (comp->storyBoardExists("deactivate") || comp->storyBoardExists("deactivateNext") || comp->storyBoardExists("deactivatePrev")))	
+		return true;
+
+	if (checkActivate && (comp->storyBoardExists("activate") || comp->storyBoardExists("activateNext") || comp->storyBoardExists("activatePrev")))
+		return true;
+
+	return false;
+}
+
+bool DetailedContainer::anyComponentHasStoryBoardRunning()
+{
+
+	for (auto comp : getComponents())
+		if (comp->isAnimationPlaying(0) || 
+			comp->isStoryBoardRunning("activate") || 
+			comp->isStoryBoardRunning("activateNext") || 
+			comp->isStoryBoardRunning("activatePrev") || 
+			comp->isStoryBoardRunning("deactivate") ||
+			comp->isStoryBoardRunning("deactivateNext") ||
+			comp->isStoryBoardRunning("deactivatePrev"))
+			return true;
+
+	return false;
+}
+
+bool DetailedContainer::anyComponentHasStoryBoard()
+{
+	for (auto comp : getComponents())
+		if (hasActivationStoryboard(comp))
+			return true;
+
+	return false;
+}
+
+
+void DetailedContainer::disableComponent(GuiComponent* comp)
+{
+	if (mVideo == comp) { mVideo->setImage(""); mVideo->setVideo(""); }
+	if (mImage == comp) mImage->setImage("");
+	if (mThumbnail == comp) mThumbnail->setImage("");
+	if (mFlag == comp) mFlag->setImage("");
+	if (mManual == comp) mManual->setVisible(false);
+	if (mNoManual == comp) mNoManual->setVisible(false);
+	if (mMap == comp) mMap->setVisible(false);
+	if (mNoMap == comp) mNoMap->setVisible(false);
+	if (mSaveState == comp) mSaveState->setVisible(false);
+	if (mNoSaveState == comp) mNoSaveState->setVisible(false);
+	if (mKidGame == comp) mKidGame->setVisible(false);
+	if (mNotKidGame == comp) mNotKidGame->setVisible(false);
+	if (mCheevos == comp) mCheevos->setVisible(false);
+	if (mNotCheevos == comp) mNotCheevos->setVisible(false);
+	if (mFavorite == comp) mFavorite->setVisible(false);
+	if (mNotFavorite == comp) mNotFavorite->setVisible(false);
+	if (mHidden == comp) mHidden->setVisible(false);
+	
+	for (auto& md : mdImages)
+		if (md.component == comp)
+			md.component->setImage("");
+}
+
+std::vector<GuiComponent*>  DetailedContainer::getComponents()
+{
 	std::vector<GuiComponent*> comps;
 
 	for (auto lbl : getMetaComponents())
@@ -648,13 +1026,13 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 	if (mMap != nullptr) comps.push_back(mMap);
 	if (mNoMap != nullptr) comps.push_back(mNoMap);
 	if (mSaveState != nullptr) comps.push_back(mSaveState);
-	if (mNoSaveState != nullptr) comps.push_back(mNoSaveState);	
+	if (mNoSaveState != nullptr) comps.push_back(mNoSaveState);
 	if (mKidGame != nullptr) comps.push_back(mKidGame);
-	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);	
+	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);
 	if (mCheevos != nullptr) comps.push_back(mCheevos);
-	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);	
+	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
-	if (mNotFavorite != nullptr) comps.push_back(mNotFavorite);	
+	if (mNotFavorite != nullptr) comps.push_back(mNotFavorite);
 	if (mHidden != nullptr) comps.push_back(mHidden);
 
 	for (auto& md : mdImages)
@@ -669,50 +1047,111 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing)
 		if (lbl.label != nullptr)
 			comps.push_back(lbl.label);
 
-	bool fadeOut = !state;
+	for (auto extra : mThemeExtras)
+		comps.push_back(extra);
 
-	for (auto comp : comps)
+	return comps;
+}
+
+DetailedContainerHost::DetailedContainerHost(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainer::DetailedContainerType viewType)
+{
+	mParent = parent;
+	mList = list;
+	mWindow = window;
+	mViewType = viewType;
+
+	mActiveFile = nullptr;
+	mContainer = new DetailedContainer(parent, list, window, viewType);
+}
+
+DetailedContainerHost::~DetailedContainerHost()
+{
+	delete mContainer;
+	for (auto container : mContainers)
+		delete container;
+}
+
+void DetailedContainerHost::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
+{
+	mTheme = theme;
+
+	mContainer->onThemeChanged(theme);
+	for (auto container : mContainers)
+		container->onThemeChanged(theme);
+}
+
+void DetailedContainerHost::update(int deltaTime)
+{
+	mContainer->updateFolderViewAmbiantProperties();
+
+	for (auto it = mContainers.begin(); it != mContainers.end(); it++)
 	{
-		auto func = [comp](float t) 
-		{ 
-			comp->setOpacity((unsigned char)(Math::lerp(0.0f, 1.0f, t) * 255)); 
-		};
-	
-		comp->cancelAnimation(0);
-		comp->setAnimation(new LambdaAnimation(func, 250), 0, [this, comp, fadeOut, file]
+		DetailedContainer* dc = *it;
+
+		dc->updateFolderViewAmbiantProperties();
+
+		if (!dc->anyComponentHasStoryBoardRunning())
 		{			
-			if (fadeOut)
+			mContainers.erase(it);
+			
+			for (auto cp : dc->getComponents())
 			{
-				if (mVideo == comp) { mVideo->setImage(""); mVideo->setVideo(""); }
-				if (mImage == comp) mImage->setImage("");
-				if (mThumbnail == comp) mThumbnail->setImage("");
-				if (mFlag == comp) mFlag->setImage("");
-				if (mManual == comp) mManual->setVisible(false);
-				if (mNoManual == comp) mNoManual->setVisible(false);
-				if (mMap == comp) mMap->setVisible(false);
-				if (mNoMap == comp) mNoMap->setVisible(false);
-				if (mSaveState == comp) mSaveState->setVisible(false);
-				if (mNoSaveState == comp) mNoSaveState->setVisible(false);
-				if (mKidGame == comp) mKidGame->setVisible(false);
-				if (mNotKidGame == comp) mNotKidGame->setVisible(false);
-				if (mCheevos == comp) mCheevos->setVisible(false);
-				if (mNotCheevos == comp) mNotCheevos->setVisible(false);
-				if (mFavorite == comp) mFavorite->setVisible(false);
-				if (mNotFavorite == comp) mNotFavorite->setVisible(false);
-				if (mHidden == comp) mHidden->setVisible(false);
-					
-				for (auto& md : mdImages)
-					if (md.component == comp)
-						md.component->setImage("");
+				cp->setVisible(false);
+				cp->onHide();
 			}
-		}, fadeOut);
+			
+			mWindow->postToUiThread([dc]() { delete dc; });
+			break;
+		}
+	}
+}
+
+Vector3f DetailedContainerHost::getLaunchTarget()
+{
+	return mContainer->getLaunchTarget();
+}
+
+void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)
+{
+	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
+	{
+		mContainer->updateControls(file, isClearing, moveBy);
+		return;
+	}
+	
+	if (mActiveFile == file)
+		return;
+
+	if (file == nullptr || isClearing)
+	{
+		mContainer->updateControls(nullptr, isClearing, moveBy, true);
+		return;
 	}
 
-	Utils::FileSystem::removeFile(getTitlePath());
+	mActiveFile = file;
+	bool clear = isClearing;
+	int by = moveBy;
+
+	mWindow->postToUiThread([this, clear, by]() 
+	{ 		
+		auto oldContainer = mContainer;
+
+		mContainers.push_back(mContainer);
+		mContainer = new DetailedContainer(mParent, mList, mWindow, mViewType);
+	
+		if (mTheme != nullptr)
+			mContainer->onThemeChanged(mTheme);
+
+		mContainer->updateControls(mActiveFile, clear, by);
+		oldContainer->updateControls(nullptr, clear, by, true);
+
+		for (auto cp : mContainer->getComponents())
+			cp->onShow();
+	});
 }
 
-void DetailedContainer::update(int deltaTime)
-{
-	if (mVideo != nullptr)
-		mVideo->update(deltaTime);
-}
+/*
+snprintf(trstring, 1024, ngettext(
+	"This collection contains %i game, including :%s",
+	"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
+*/

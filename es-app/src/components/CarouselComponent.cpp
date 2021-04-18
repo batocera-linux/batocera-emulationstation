@@ -199,7 +199,6 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		Sound::get(mScrollSound)->play();
 
 	int oldCursor = mLastCursor;
-	mLastCursor = mCursor;
 
 	// TODO
 
@@ -272,10 +271,13 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 	if (mCursorChangedCallback)
 		mCursorChangedCallback(state);
 
-	setAnimation(anim, 0, [this, state]
+	mLastCursor = mCursor;
+
+	auto curState = state;
+	setAnimation(anim, 0, [this, curState]
 	{
-		if (mCursorChangedCallback)
-			mCursorChangedCallback(state);
+		if (curState == CURSOR_SCROLLING && mCursorChangedCallback)
+			mCursorChangedCallback(curState);
 	}, false, 0);
 }
 

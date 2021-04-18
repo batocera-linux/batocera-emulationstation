@@ -10,6 +10,9 @@ DetailedGameListView::DetailedGameListView(Window* window, FolderData* root) :
 	BasicGameListView(window, root), 
 	mDetails(this, &mList, mWindow, DetailedContainer::DetailedView)
 {
+	// Let DetailedContainer handle extras with activation scripts
+	mExtraMode = ThemeData::ExtraImportType::WITHOUT_ACTIVATESTORYBOARD;
+
 	const float padding = 0.01f;
 
 	mList.setPosition(mSize.x() * (0.50f + padding), mList.getPosition().y());
@@ -38,7 +41,7 @@ void DetailedGameListView::updateInfoPanel()
 
 	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();	
 	bool isClearing = mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0;
-	mDetails.updateControls(file, isClearing);
+	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
 }
 
 void DetailedGameListView::launch(FileData* game)
@@ -52,4 +55,10 @@ void DetailedGameListView::onShow()
 {
 	BasicGameListView::onShow();
 	updateInfoPanel();
+}
+
+void DetailedGameListView::update(int deltaTime)
+{
+	BasicGameListView::update(deltaTime);
+	mDetails.update(deltaTime);
 }

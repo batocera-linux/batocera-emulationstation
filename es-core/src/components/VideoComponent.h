@@ -150,6 +150,12 @@ public:
 	bool getPlayAudio() { return mPlayAudio; }
 	void setPlayAudio(bool value) { mPlayAudio = value; }
 
+	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
+
+	virtual void setClipRect(const Vector4f& vec);
+
+	Vector2f& getTargetSize() { return mTargetSize; }
+
 protected:
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;

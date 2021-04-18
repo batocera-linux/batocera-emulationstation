@@ -4,7 +4,8 @@
 #include "ThemeStoryboard.h"
 #include "GuiComponent.h"
 #include <vector>
-
+#include <map>
+#include <set>
 
 class StoryAnimation
 {
@@ -164,8 +165,11 @@ public:
 	void pause();
 
 	bool isRunning() { return !mPaused; }
+	void clearInitialProperties();
 
 	const std::string getName();
+
+	void enableProperty(const std::string& name, bool enable);
 
 private:
 	void addNewAnimations();
@@ -182,5 +186,7 @@ private:
 	std::vector<StoryAnimation*> _currentStories;
 	std::vector<StoryAnimation*> _finishedStories;
 	std::map<std::string, ThemeData::ThemeElement::Property> mInitialProperties;
+	std::set<std::string> mDisabledProperties;
+
 	bool mHasInitialProperties;
 };
