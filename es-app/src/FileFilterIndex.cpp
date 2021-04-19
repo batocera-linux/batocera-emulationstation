@@ -519,10 +519,25 @@ int FileFilterIndex::showFile(FileData* game)
 
 		if (!mUseRelevency)
 		{
-			if (Utils::String::containsIgnoreCase(name, mTextFilter))
+			if (mTextFilter.find(',') == std::string::npos)
 			{
-				textScore = 1;
-				keepGoing = true;
+				if (Utils::String::containsIgnoreCase(name, mTextFilter))
+				{
+					textScore = 1;
+					keepGoing = true;
+				}
+			}
+			else
+			{
+				for (auto token : Utils::String::split(mTextFilter, ',', true))
+				{
+					if (Utils::String::containsIgnoreCase(name, Utils::String::trim(token)))
+					{
+						textScore = 1;
+						keepGoing = true;
+						break;
+					}
+				}
 			}
 		}
 		else
