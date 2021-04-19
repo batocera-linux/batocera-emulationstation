@@ -216,6 +216,45 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				close();
 			});
 
+			int addToCollectionCount = 0;
+			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
+				if (customCollection.second.filteredIndex == nullptr && !CollectionSystemManager::get()->inInCustomCollection(game, customCollection.first))
+					addToCollectionCount++;
+
+			if (addToCollectionCount > 1)
+			{
+				mMenu.addEntry(_("ADD TO CUSTOM COLLECTION"), false, [this, game]
+				{
+					auto pThis = this;
+					Window* window = mWindow;
+
+					GuiSettings* msgBox = new GuiSettings(mWindow, _("ADD TO CUSTOM COLLECTION"));
+					msgBox->setTag("popup");
+					
+					for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
+					{
+						if (customCollection.second.filteredIndex != nullptr)
+							continue;
+
+						std::string collectionName = customCollection.first;
+						if (CollectionSystemManager::get()->inInCustomCollection(game, collectionName))
+							continue;
+
+						
+						msgBox->addEntry(Utils::String::toUpper(collectionName), false, [pThis, window, msgBox, collectionName, game]
+						{
+							auto parent = pThis;
+							CollectionSystemManager::get()->toggleGameInCollection(game, collectionName);
+							msgBox->close();
+							parent->close();
+						});
+					}
+
+					mWindow->pushGui(msgBox);
+				//	close();
+				});
+			}
+
 			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 			{
 				if (customCollection.second.filteredIndex != nullptr)
@@ -223,6 +262,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 				std::string collectionName = customCollection.first;
 				bool exists = CollectionSystemManager::get()->inInCustomCollection(game, collectionName);
+				if (!exists && addToCollectionCount > 1)
+					continue;
 
 				snprintf(trstring, 1024, std::string(exists ? _("REMOVE FROM %s") : _("ADD TO %s")).c_str(), Utils::String::toUpper(collectionName).c_str());
 				mMenu.addEntry(trstring, false, [this, game, collectionName]
@@ -231,6 +272,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					close();
 				});
 			}
+
+
 		}
 
 		if (isCustomCollection)
