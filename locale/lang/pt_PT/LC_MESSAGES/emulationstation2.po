@@ -2015,8 +2015,8 @@ msgstr "Vezes jogadas"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
+msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
@@ -2391,5 +2391,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "USAR O MENU RETROARCH RGUI"
