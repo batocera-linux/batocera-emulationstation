@@ -25,8 +25,9 @@ public:
 	void close();
 
 private:
-	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
-		
+	static void deleteGame(FileData* file);
+
+	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };		
 	void openMetaDataEd();
 
 	std::string getCustomCollectionName();
