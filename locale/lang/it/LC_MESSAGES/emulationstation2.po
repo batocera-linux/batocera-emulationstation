@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -918,6 +918,9 @@ msgstr "AGGIUNGI A %s"
 msgid "FAVORITES"
 msgstr "PREFERITI"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "SCARICA INFO (SCRAPER)"
 
@@ -1269,10 +1272,10 @@ msgid "CLEAR CACHES"
 msgstr "PULIZIA CACHE"
 
 msgid "BUILD IMAGE CACHE"
-msgstr "COSTRUISCI CACHE IMMAGINE"
+msgstr "COSTRUISCI CACHE IMMAGINI"
 
 msgid "Building image cache"
-msgstr "Creazione cache immagine"
+msgstr "Creazione cache immagini"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETTA ESTENSIONI FILE"
@@ -1281,7 +1284,7 @@ msgid "REDETECT GAMES LANG/REGION"
 msgstr "RILEVA LINGUA/REGIONE DEI GIOCHI"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TROVA TUTTI I GIOCHI CON SUPPORT NETPLAY/TROFEI"
+msgstr "TROVA I GIOCHI CON NETPLAY/TROFEI"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"

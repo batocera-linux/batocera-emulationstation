@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -413,7 +413,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "DONDE LO DEJASTE"
 
 msgid "START ON GAMELIST"
-msgstr "INICIAR EN UNA LISTA DE JUEGOS"
+msgstr "INICIAR EN LA LISTA DE JUEGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "ORGANIZAR COLECCIONES PERSONALIZADAS SIN TEMA"
@@ -425,7 +425,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRAR JUEGOS OCULTOS EN COLECCIONES"
 
 msgid "UPDATE GAMES LISTS"
-msgstr "ACTUALIZAR LAS LISTAS DE JUEGOS"
+msgstr "ACTUALIZAR LISTAS DE JUEGOS"
 
 msgid "Loading..."
 msgstr "Cargando..."
@@ -918,6 +918,9 @@ msgstr "AÑADIR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "SCRAPEAR"
 
@@ -1317,7 +1320,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "SALIR AL MENÚ"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "TIPO DE INTERFAZ DE RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -1329,7 +1332,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE RED"

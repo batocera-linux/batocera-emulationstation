@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 21:54+0200\n"
-"PO-Revision-Date: 2021-04-16 19:52+0900\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"PO-Revision-Date: 2021-04-21 12:40+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -182,7 +182,7 @@ msgid "Play count"
 msgstr "プレイ回数"
 
 msgid "enter number of times played"
-msgstr "プレイ回数を入力する"
+msgstr "プレイ回数を入力"
 
 msgid "Last played"
 msgstr "最後にプレイした日時"
@@ -918,6 +918,9 @@ msgstr "%s に追加"
 msgid "FAVORITES"
 msgstr "お気に入り"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "スクレイプ"
 
@@ -1095,7 +1098,7 @@ msgid "CONTROLLERS SETTINGS"
 msgstr "コントローラー設定"
 
 msgid "UI SETTINGS"
-msgstr "UI設定"
+msgstr "UI　設定"
 
 msgid "SOUND SETTINGS"
 msgstr "音声設定"
@@ -1302,7 +1305,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "ローカルアートの検索"
 
 msgid "UI"
-msgstr "UIモード"
+msgstr "UI　モード"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
@@ -1398,7 +1401,7 @@ msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
 msgid "UI MODE"
-msgstr "UIモード"
+msgstr "UI　モード"
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
@@ -1685,7 +1688,7 @@ msgid "AFTER NAME"
 msgstr "ゲーム名の後"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr "言語の国旗をリストに表示"
+msgstr "ゲームリージョンの国旗をリストに表示"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
 msgstr "ステートセーブマークをリストに表示"
@@ -2017,7 +2020,7 @@ msgstr "プレイ回数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
+msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を含む)"
 
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
@@ -2050,7 +2053,6 @@ msgstr "再試行"
 msgid "SKIP"
 msgstr "スキップ"
 
-# Not reflected
 msgid "Downloading"
 msgstr "ダウンロード中"
 
@@ -2166,7 +2168,7 @@ msgid "INDEXING COMPLETED"
 msgstr "インデックス作成が完了しました"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "変更を適用するには、ゲームリストを更新します。"
+msgstr "「ゲームリストを更新」で変更を適用します。"
 
 msgid "GENRE"
 msgstr "ジャンル"
@@ -2388,6 +2390,3 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "RETROARCH RGUIメニューを使用"

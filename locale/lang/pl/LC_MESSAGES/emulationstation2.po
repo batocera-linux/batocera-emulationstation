@@ -2,12 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -78,7 +81,7 @@ msgid "Manual"
 msgstr "Instrukcja"
 
 msgid "enter path to manual"
-msgstr "wprowadź ścieżkę do "
+msgstr "wprowadź ścieżkę do"
 
 msgid "Map"
 msgstr "Mapa"
@@ -602,16 +605,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "PRZEGLĄDARKA PLIKÓW"
 
 msgid "RESET"
 msgstr "ZRESETUJ"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "FOLDER NADRZĘDNY"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "FOLDER ZRZUTÓW EKRANU"
 
 msgid "SELECT"
 msgstr "WYBIERZ"
@@ -917,6 +920,9 @@ msgstr "DODAJ DO %s"
 msgid "FAVORITES"
 msgstr "ULUBIONE"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
 
@@ -1037,7 +1043,7 @@ msgid "Architecture"
 msgstr "Architektura"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Format dysku"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -1316,7 +1322,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "ZAKOŃCZ WYJŚCIE Z MENU"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "STEROWNIK MENU RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -1328,7 +1334,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "PRZEŁĄCZ PRZYCISKI A/B W EMULATIONSTATION"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "STERUJ EMULATIONSTATION TYLKO Z PIERWSZEGO JOYSTICKA"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "POKAŻ INDYKATOR SIECI"
@@ -1388,7 +1394,7 @@ msgid "TIMEZONE"
 msgstr "STREFA CZASOWA"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "POKAŻ ZEGAR W FORMACIE 12-GODZINNYM "
+msgstr "POKAŻ ZEGAR W FORMACIE 12-GODZINNYM"
 
 msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
@@ -1629,7 +1635,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "POKAŻ DZIAŁANIE KONTROLERA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ KONFIGURACJI"
@@ -1677,19 +1683,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "POKAŻ '..' FOLDER NADRZĘDNY"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "PRZED NAZWĄ"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "PO NAZWIE"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "POKAŻ FLAGĘ JĘZYKA NA LISTACH"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "POKAŻ FLAGĘ SAVESTATES NA LISTACH"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "POKAŻ IKONĘ PODRĘCZNIKA NA LISTACH"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
@@ -1906,6 +1912,8 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"NIEKTÓRE POŁĄCZONE PLIKI ZNAJDUJĄ SIĘ POZA ŚCIEŻKĄ LISTY GIER.\n"
+"CZY CHCESZ KORZYSTAĆ Z KOPII TYCH PLIKÓW W STOSUNKU DO LISTY GIER?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
@@ -2017,9 +2025,9 @@ msgstr "Rozegrano razy"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ten folder zawiera %i grę, w tym: %s"
+msgstr[1] "Ten folder zawiera %i gry, w tym: %s"
+msgstr[2] "Ten folder zawiera %i gier, w tym: %s"
 
 msgid "No Entries Found"
 msgstr "Nie znaleziono wpisów"
