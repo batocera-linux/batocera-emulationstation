@@ -49,8 +49,15 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
-	mSubtitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(Utils::FileSystem::getFileName(scraperParams.game->getPath())),
-		theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+	
+	auto subTitle = Utils::FileSystem::createRelativePath(scraperParams.game->getPath(), scraperParams.game->getSourceFileData()->getSystem()->getRootFolder()->getPath(), true);
+	if (Utils::String::startsWith(subTitle, "./"))
+		subTitle = subTitle.substr(2);
+	else
+		subTitle = Utils::FileSystem::getFileName(scraperParams.game->getPath());
+
+	mSubtitle = std::make_shared<TextComponent>(mWindow, subTitle, theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 

@@ -344,9 +344,26 @@ void ViewController::playViewTransition(bool forceImmediate)
 
 void ViewController::onFileChanged(FileData* file, FileChangeType change)
 {
-	auto it = mGameListViews.find(file->getSystem());
-	if(it != mGameListViews.cend())
+	std::string key = file->getFullPath();
+	auto sourceSystem = file->getSourceFileData()->getSystem();
+
+	auto it = mGameListViews.find(sourceSystem);
+	if (it != mGameListViews.cend())
 		it->second->onFileChanged(file, change);
+
+	for (auto collection : CollectionSystemManager::get()->getAutoCollectionSystems())
+	{
+		auto cit = mGameListViews.find(collection.second.system);
+		if (cit != mGameListViews.cend() && collection.second.system->getRootFolder()->FindByPath(key))
+			cit->second->onFileChanged(file, change);
+	}
+
+	for (auto collection : CollectionSystemManager::get()->getCustomCollectionSystems())
+	{
+		auto cit = mGameListViews.find(collection.second.system);
+		if (cit != mGameListViews.cend() && collection.second.system->getRootFolder()->FindByPath(key))
+			cit->second->onFileChanged(file, change);
+	}
 }
 
 bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
@@ -867,7 +884,9 @@ void ViewController::preload()
 		if (splash)
 		{
 			i++;
-			mWindow->renderSplashScreen(_("Preloading UI"), (float)i / (float)max);
+
+			if ((i % 4) == 0)
+				mWindow->renderSplashScreen(_("Preloading UI"), (float)i / (float)max);
 		}
 
 		(*it)->resetFilters();

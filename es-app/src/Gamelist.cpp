@@ -212,7 +212,7 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 		system->setGamelistHash(size);	
 }
 
-bool addFileDataNode(pugi::xml_node& parent, const FileData* file, const char* tag, SystemData* system)
+bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, SystemData* system)
 {
 	//create game and add to parent node
 	pugi::xml_node newNode = parent.append_child(tag);

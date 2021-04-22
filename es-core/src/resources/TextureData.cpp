@@ -413,6 +413,9 @@ size_t TextureData::getVRAMUsage()
 
 void TextureData::setMaxSize(MaxSizeInfo maxSize)
 {
+	if (!Settings::getInstance()->getBool("OptimizeVRAM"))
+		return;
+
 	if (mSourceWidth == 0 || mSourceHeight == 0)
 		mMaxSize = maxSize;
 	else

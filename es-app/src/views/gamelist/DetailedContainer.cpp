@@ -846,7 +846,6 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 				if (comp->isShowing())
 					comp->startStoryboard();
 			}
-
 			else if (moveBy == 0 && comp->storyBoardExists("") && !comp->hasStoryBoard("", true))
 			{
 				comp->deselectStoryboard();
@@ -855,8 +854,6 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 				if (comp->isShowing())
 					comp->onShow();
 			}
-			else if (moveBy == 0)
-				comp->deselectStoryboard();
 		}
 	}
 	
