@@ -102,6 +102,7 @@ public:
 	std::shared_ptr<GridTileComponent> getSelectedTile();
 	
 	void resetLastCursor() { mLastCursor = -1; mLastCursorState = CursorState::CURSOR_STOPPED; }
+	int getLastCursor() { return mLastCursor; }
 
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;	
@@ -419,10 +420,10 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::getSelectedTile()
 template<typename T>
 void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 {
-	Transform4x4f trans = getTransform() * parentTrans;
+	Transform4x4f trans = parentTrans * getTransform();
 	Transform4x4f tileTrans = trans;
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
 	if (Settings::DebugGrid)
@@ -892,7 +893,6 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 	}
 
 	auto lastCursor = mLastCursor;
-	mLastCursor = mCursor;
 
 	mCameraDirection = direction ? -1.0 : 1.0;
 	mCamera = 0;
@@ -904,11 +904,15 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 		if (mCursorChangedCallback)
 			mCursorChangedCallback(state);
 
+		mLastCursor = mCursor;
+
 		return;
 	}
 
 	if (mCursorChangedCallback)
 		mCursorChangedCallback(state);
+
+	mLastCursor = mCursor;
 
 	bool moveCamera = (oldStart != mStartPosition);
 

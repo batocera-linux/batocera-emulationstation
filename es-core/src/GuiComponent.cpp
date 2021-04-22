@@ -10,12 +10,16 @@
 #include "animations/LambdaAnimation.h"
 #include "anim/StoryboardAnimator.h"
 #include "components/ScrollableContainer.h"
+#include "math/Vector2i.h"
+
+bool GuiComponent::isLaunchTransitionRunning = false;
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
 	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true), mShowing(false),
-	mStaticExtra(false), mStoryboardAnimator(nullptr)
+	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f)
 {
+	mClipRect = Vector4f();
 }
 
 GuiComponent::~GuiComponent()
@@ -88,7 +92,13 @@ void GuiComponent::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
 		return;
 	
+	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
+		Renderer::pushClipRect(Vector2i(mClipRect.x(), mClipRect.y()), Vector2i(mClipRect.z(), mClipRect.w()));
+
 	renderChildren(trans);
+
+	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
+		Renderer::popClipRect();
 }
 
 void GuiComponent::renderChildren(const Transform4x4f& transform) const
@@ -292,6 +302,9 @@ const Transform4x4f& GuiComponent::getTransform()
 	mTransform = Transform4x4f::Identity();
 	mTransform.translate(mPosition);
 
+	if (!mScreenOffset.empty())
+		mTransform.translate(Vector3f(mScreenOffset, 0.0f));
+
 	if (mScale != 1.0)
 	{
 		float xOff = mSize.x() * mScaleOrigin.x();
@@ -324,7 +337,10 @@ const Transform4x4f& GuiComponent::getTransform()
 		if (xOff != 0.0 || yOff != 0.0)
 			mTransform.translate(Vector3f(xOff, yOff, 0.0f));
 	}
+
 	mTransform.translate(Vector3f(mOrigin.x() * mSize.x() * -1, mOrigin.y() * mSize.y() * -1, 0.0f));
+
+
 	return mTransform;
 }
 
@@ -463,9 +479,9 @@ int GuiComponent::getAnimationTime(unsigned char slot) const
 	return 0;
 }
 
-bool GuiComponent::hasStoryBoard(const std::string& name) 
+bool GuiComponent::hasStoryBoard(const std::string& name, bool compareEmptyName) 
 { 
-	if (!name.empty())
+	if (!name.empty() || compareEmptyName)
 		return mStoryboardAnimator != nullptr && mStoryboardAnimator->getName() == name;
 	
 	return mStoryboardAnimator != nullptr; 
@@ -481,7 +497,7 @@ bool GuiComponent::isStoryBoardRunning(const std::string& name)
 
 bool GuiComponent::storyBoardExists(const std::string& name)
 {
-	return mStoryBoards.find(name) != mStoryBoards.cend();
+	return mStoryBoards.size() > 0 && mStoryBoards.find(name) != mStoryBoards.cend();
 }
 
 bool GuiComponent::selectStoryboard(const std::string& name)
@@ -519,6 +535,12 @@ bool GuiComponent::applyStoryboard(const ThemeData::ThemeElement* elem, const st
 	return selectStoryboard(name);
 }
 
+void GuiComponent::stopStoryboard()
+{
+	if (mStoryboardAnimator)
+		mStoryboardAnimator->stop();
+}
+
 void GuiComponent::startStoryboard()
 {
 	if (mStoryboardAnimator)
@@ -531,19 +553,30 @@ void GuiComponent::pauseStoryboard()
 		mStoryboardAnimator->pause(); 
 }
 
-void GuiComponent::deselectStoryboard()
+void GuiComponent::deselectStoryboard(bool restoreinitialProperties)
 {
 	if (mStoryboardAnimator != nullptr)
 	{
+		if (!restoreinitialProperties)
+			mStoryboardAnimator->clearInitialProperties();
+
+		mStoryboardAnimator->stop();
 		mStoryboardAnimator->reset();
 		delete mStoryboardAnimator;
 		mStoryboardAnimator = nullptr;
 	}
 }
 
+void GuiComponent::enableStoryboardProperty(const std::string& name, bool enable)
+{
+	if (mStoryboardAnimator != nullptr)
+		mStoryboardAnimator->enableProperty(name, enable);
+}
+
 void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "");
 	if(!elem)
@@ -612,6 +645,32 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 		setVisible(elem->get<bool>("visible"));
 	else
 		setVisible(true);
+
+	if (properties & POSITION && elem->has("offset"))
+	{
+		Vector2f denormalized = elem->get<Vector2f>("offset") * screenScale;
+		mScreenOffset = denormalized;
+	}
+
+	if (properties & POSITION && elem->has("offsetX"))
+	{
+		float denormalized = elem->get<float>("offsetX") * screenScale.x();
+		mScreenOffset = Vector2f(denormalized, mScreenOffset.y());
+	}
+
+	if (properties & POSITION && elem->has("offsetY"))
+	{
+		float denormalized = elem->get<float>("offsetY") * scale.y();
+		mScreenOffset = Vector2f(mScreenOffset.x(), denormalized);
+	}
+
+	if (properties & POSITION && elem->has("clipRect"))
+	{
+		Vector4f val = elem->get<Vector4f>("clipRect") * Vector4f(screenScale.x(), screenScale.y(), screenScale.x(), screenScale.y());
+		setClipRect(val);
+	}
+	else
+		setClipRect(Vector4f());
 
 	applyStoryboard(elem);
 }
@@ -762,11 +821,12 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 {
 	if (getParent() != nullptr && getParent()->isKindOf<ScrollableContainer>())
 	{
-		if (name == "pos" || name == "x" || name =="y" || name=="size" || name == "w" || name == "h")
+		if (name == "pos" || name == "x" || name =="y" || name=="size" || name == "w" || name == "h" || name == "offset" || name == "offsetX" || name == "offsetY")
 			return getParent()->getProperty(name);
 	}
 
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
 
 	if (name == "pos")
 		return Vector2f(mPosition.x(), mPosition.y()) / scale;
@@ -807,16 +867,29 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 	if (name == "scaleOrigin")
 		return getScaleOrigin();
 
+	if (name == "offset")
+		return mScreenOffset / screenScale;
+
+	if (name == "offsetX")
+		return mScreenOffset.x() / screenScale.x();
+
+	if (name == "offsetY")
+		return mScreenOffset.y() / screenScale.y();
+
+	if (name == "clipRect")
+		return Vector4f(mClipRect.x() / screenScale.x(), mClipRect.y() / screenScale.y(), mClipRect.z() /screenScale.x(), mClipRect.w() / screenScale.y());
+
 	return "";
 }
 
 void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
 
 	if (getParent() != nullptr && getParent()->isKindOf<ScrollableContainer>())
 	{
-		if (name == "pos" || name == "x" || name == "y" || name == "size" || name == "w" || name == "h")
+		if (name == "pos" || name == "x" || name == "y" || name == "size" || name == "w" || name == "h" || name == "offset" || name == "offsetX" || name == "offsetY")
 		{
 			getParent()->setProperty(name, value);
 			return;
@@ -861,4 +934,60 @@ void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeEle
 
 	if (name == "scaleOrigin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
 		setScaleOrigin(Vector2f(value.v.x(), value.v.y()));
+
+	if (name == "offset" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+		mScreenOffset = Vector2f(value.v.x() * screenScale.x(), value.v.y() * screenScale.y());
+	
+	if (name == "offsetX" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		mScreenOffset = Vector2f(value.f * screenScale.x(), mScreenOffset.y());
+
+	if (name == "offsetY" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		mScreenOffset = Vector2f(mScreenOffset.x(), value.f * screenScale.y());
+
+	if (name == "clipRect" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
+		setClipRect(Vector4f(value.r.x() * screenScale.x(), value.r.y() * screenScale.y(), value.r.z() * screenScale.x(), value.r.w() * screenScale.y()));
+}
+
+void GuiComponent::setClipRect(const Vector4f& vec)
+{
+	mClipRect = vec;
+}
+
+void GuiComponent::beginCustomClipRect()
+{
+	if (mClipRect.empty() || GuiComponent::isLaunchTransitionRunning)
+		return;
+	/*
+	if (mScale != 1.0)
+	{
+		mTransform = Transform4x4f::Identity();
+		mTransform.translate(mPosition);
+
+		if (!mScreenOffset.empty())
+			mTransform.translate(Vector3f(mScreenOffset, 0.0f));
+
+		if (mScale != 1.0)
+		{
+			float xOff = mSize.x() * mScaleOrigin.x();
+			float yOff = mSize.y() * mScaleOrigin.y();
+
+			if (mScaleOrigin != Vector2f::Zero())
+				mTransform.translate(Vector3f(xOff, yOff, 0.0f));
+
+			mTransform.scale(mScale);
+
+			if (mScaleOrigin != Vector2f::Zero())
+				mTransform.translate(Vector3f(-xOff, -yOff, 0.0f));
+		}
+
+		mTransform.translate(Vector3f(mOrigin.x() * mSize.x() * -1, mOrigin.y() * mSize.y() * -1, 0.0f));
+	}*/
+
+	Renderer::pushClipRect(Vector2i(mClipRect.x(), mClipRect.y()), Vector2i(mClipRect.z(), mClipRect.w()));
+}
+
+void GuiComponent::endCustomClipRect()
+{
+	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
+		Renderer::popClipRect();
 }

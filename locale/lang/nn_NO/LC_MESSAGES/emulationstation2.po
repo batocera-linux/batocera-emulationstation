@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -913,6 +913,9 @@ msgid "ADD TO %s"
 msgstr ""
 
 msgid "FAVORITES"
+msgstr ""
+
+msgid "ADD TO CUSTOM COLLECTION"
 msgstr ""
 
 msgid "SCRAPE"
@@ -1894,7 +1897,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -1997,6 +2000,12 @@ msgstr "Utgitt"
 
 msgid "Times played"
 msgstr "Ganger spilt"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No Entries Found"
 msgstr ""

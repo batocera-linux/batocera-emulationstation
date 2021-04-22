@@ -15,6 +15,9 @@ CarouselGameListView::CarouselGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root),
 	mList(window), mDetails(this, &mList, mWindow, DetailedContainer::DetailedView)
 {
+	// Let DetailedContainer handle extras with activation scripts
+	mExtraMode = ThemeData::ExtraImportType::WITHOUT_ACTIVATESTORYBOARD;
+
 	mList.setSize(mSize.x(), mSize.y() * 0.8f);
 	mList.setPosition(0, mSize.y() * 0.2f);
 	mList.setDefaultZIndex(20);	
@@ -42,10 +45,10 @@ void CarouselGameListView::updateInfoPanel()
 {
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
-
+	
 	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
 	bool isClearing = mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0;
-	mDetails.updateControls(file, isClearing);
+	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
 }
 
 void CarouselGameListView::onFileChanged(FileData* file, FileChangeType change)
@@ -226,4 +229,10 @@ int CarouselGameListView::getCursorIndex(){
 std::vector<FileData*> CarouselGameListView::getFileDataEntries()
 {
 	return mList.getObjects();	
+}
+
+void CarouselGameListView::update(int deltaTime)
+{
+	ISimpleGameListView::update(deltaTime);
+	mDetails.update(deltaTime);
 }

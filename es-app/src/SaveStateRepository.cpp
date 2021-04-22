@@ -91,8 +91,11 @@ void SaveStateRepository::refresh()
 
 bool SaveStateRepository::hasSaveStates(FileData* game)
 {
-	if (isEnabled(game) && game->getSourceFileData()->getSystem() == mSystem)
+	if (mStates.size())
 	{
+		if (game->getSourceFileData()->getSystem() != mSystem)
+			return false;
+
 		auto it = mStates.find(Utils::FileSystem::getStem(game->getPath()));
 		if (it != mStates.cend())
 			return true;

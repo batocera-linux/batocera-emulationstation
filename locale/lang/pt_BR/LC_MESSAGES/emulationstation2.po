@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-22 07:46-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -918,6 +918,9 @@ msgstr "ADICIONAR À %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA"
+
 msgid "SCRAPE"
 msgstr "SCRAPE"
 
@@ -1318,7 +1321,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "MENU DE DRIVER DO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1330,7 +1333,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "CONTROLAR EMULATIONSTATION APENAS COM O PRIMEIRO JOYSTICK"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "EXIBIR INDICADOR DE REDE"
@@ -1904,7 +1907,7 @@ msgstr ""
 "VOCÊ TEM CERTEZA?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -2011,6 +2014,12 @@ msgstr "Lançado"
 
 msgid "Times played"
 msgstr "Vezes jogados"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
+msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"

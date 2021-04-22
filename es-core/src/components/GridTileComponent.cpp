@@ -335,7 +335,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 
 	Vector2f clipPos(trans.translation().x(), trans.translation().y());
-	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x(), mSize.y()))
+	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
 	auto currentProperties = getCurrentProperties(false);
@@ -348,7 +348,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.Label.size.y()));
 
 	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
-	Vector2i size((int)Math::round(mSize.x() - 2 * padding), (int)Math::round(mSize.y() - topPadding - bottomPadding));
+	Vector2i size((int)Math::round(mSize.x()* trans.r0().x() - 2 * padding), (int)Math::round(mSize.y()* trans.r1().y() - topPadding - bottomPadding));
 	
 	bool isDefaultImage = mIsDefaultImage;
 	bool isMinSize = !isDefaultImage && currentProperties.Image.sizeMode == "minSize";
@@ -1298,4 +1298,9 @@ void GridTileComponent::forceMarquee(const std::string& path)
 
 		mCurrentMarquee = "";
 	}	
+}
+
+Vector3f GridTileComponent::getLaunchTarget()
+{
+	return Vector3f(getCenter().x(), getCenter().y(), 0);
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -939,6 +939,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "收藏"
+
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "抓取元数据"
@@ -1907,7 +1910,7 @@ msgstr ""
 "确定执行吗?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -2007,6 +2010,11 @@ msgstr "发行日期"
 
 msgid "Times played"
 msgstr "游玩次数"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
 
 msgid "No Entries Found"
 msgstr "找不到条目"

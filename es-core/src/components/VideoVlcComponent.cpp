@@ -229,10 +229,9 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		
 	Transform4x4f trans = parentTrans * getTransform();
 	
-	if (mRotation == 0 && !mTargetIsMin && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	if (mRotation == 0 && !mTargetIsMin && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
-		
-	GuiComponent::renderChildren(trans);
+
 	Renderer::setMatrix(trans);
 
 	// Build a texture for the video frame
@@ -244,7 +243,10 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 			if (mTexture == nullptr)
 			{
 				mTexture = TextureResource::get("", false, mLinearSmooth);
+
 				resize();
+				trans = parentTrans * getTransform();
+				Renderer::setMatrix(trans);
 			}
 
 #ifdef _RPI_
@@ -340,12 +342,14 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	
 	if (mTexture->bind())
 	{
+		beginCustomClipRect();
+
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
 		if (mTargetIsMin)
 		{			
 			Vector2i pos(trans.translation().x() + (int)targetSizePos.x(), trans.translation().y() + (int)targetSizePos.y());
-			Vector2i size((int)mTargetSize.round().x(), (int)mTargetSize.round().y());
+			Vector2i size((int)(mTargetSize.x() * trans.r0().x()), (int)(mTargetSize.y() * trans.r1().y()));
 			Renderer::pushClipRect(pos, size);
 		}
 
@@ -378,6 +382,8 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 		if (mTargetIsMin)
 			Renderer::popClipRect();
+
+		endCustomClipRect();
 
 		Renderer::bindTexture(0);
 	}
@@ -530,7 +536,7 @@ void VideoVlcComponent::startVideo()
 	if (mIsPlaying)
 		return;
 
-	if (hasStoryBoard() && mConfig.startDelay > 0)
+	if (hasStoryBoard("", true) && mConfig.startDelay > 0)
 		startStoryboard();
 
 	mTexture = nullptr;
@@ -753,7 +759,7 @@ void VideoVlcComponent::onShow()
 	VideoComponent::onShow();
 	mStaticImage.onShow();
 
-	if (hasStoryBoard() && mConfig.startDelay > 0)
+	if (hasStoryBoard("", true) && mConfig.startDelay > 0)
 		pauseStoryboard();
 }
 

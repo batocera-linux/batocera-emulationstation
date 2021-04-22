@@ -17,6 +17,9 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 	mGrid(window),
 	mDetails(this, &mGrid, mWindow, DetailedContainer::GridView)
 {
+	// Let DetailedContainer handle extras with activation scripts
+	mExtraMode = ThemeData::ExtraImportType::WITHOUT_ACTIVATESTORYBOARD;
+
 	setTag("grid");
 
 	const float padding = 0.01f;
@@ -249,7 +252,7 @@ void GridGameListView::updateInfoPanel()
 
 	FileData* file = (mGrid.size() == 0 || mGrid.isScrolling()) ? NULL : mGrid.getSelected();
 	bool isClearing = mGrid.getObjects().size() == 0 && mGrid.getCursorIndex() == 0 && mGrid.getScrollingVelocity() == 0;
-	mDetails.updateControls(file, isClearing);	
+	mDetails.updateControls(file, isClearing, mGrid.getCursorIndex() - mGrid.getLastCursor());
 }
 
 void GridGameListView::addPlaceholder()
@@ -261,7 +264,15 @@ void GridGameListView::addPlaceholder()
 
 void GridGameListView::launch(FileData* game)
 {
-	ViewController::get()->launch(game);
+	Vector3f target = mDetails.getLaunchTarget();
+	if (target == Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0))
+	{
+		auto tile = mGrid.getSelectedTile();
+		if (tile != nullptr)
+			target = mGrid.getPosition() + tile->getLaunchTarget();
+	}
+
+	ViewController::get()->launch(game, target);
 }
 
 void GridGameListView::remove(FileData *game)
@@ -342,4 +353,10 @@ int GridGameListView::getCursorIndex()
 std::vector<FileData*> GridGameListView::getFileDataEntries()
 {
 	return mGrid.getObjects();
+}
+
+void GridGameListView::update(int deltaTime)
+{
+	ISimpleGameListView::update(deltaTime);
+	mDetails.update(deltaTime);
 }

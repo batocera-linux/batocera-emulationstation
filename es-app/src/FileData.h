@@ -62,7 +62,7 @@ public:
 	FileData(FileType type, const std::string& path, SystemData* system);
 	virtual ~FileData();
 
-	virtual const std::string getName();
+	virtual const std::string& getName();
 
 	inline FileType getType() const { return mType; }
 	
@@ -107,10 +107,10 @@ public:
 	virtual std::string getSystemName() const;
 
 	// Returns our best guess at the "real" name for this file (will attempt to perform MAME name translation)
-	std::string getDisplayName() const;
+	std::string& getDisplayName();
 
 	// As above, but also remove parenthesis
-	std::string getCleanName() const;
+	std::string getCleanName();
 
 	bool launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
 
@@ -152,6 +152,7 @@ protected:
 	std::string mPath;
 	FileType mType;
 	SystemData* mSystem;
+	std::string* mDisplayName;
 };
 
 class CollectionFileData : public FileData
@@ -159,7 +160,7 @@ class CollectionFileData : public FileData
 public:
 	CollectionFileData(FileData* file, SystemData* system);
 	~CollectionFileData();
-	const std::string getName();	
+	const std::string& getName();	
 	FileData* getSourceFileData();
 	std::string getKey();
 	virtual const std::string getPath() const;

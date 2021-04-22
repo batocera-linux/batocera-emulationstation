@@ -348,9 +348,26 @@ void ViewController::playViewTransition(bool forceImmediate)
 
 void ViewController::onFileChanged(FileData* file, FileChangeType change)
 {
-	auto it = mGameListViews.find(file->getSystem());
-	if(it != mGameListViews.cend())
+	std::string key = file->getFullPath();
+	auto sourceSystem = file->getSourceFileData()->getSystem();
+
+	auto it = mGameListViews.find(sourceSystem);
+	if (it != mGameListViews.cend())
 		it->second->onFileChanged(file, change);
+
+	for (auto collection : CollectionSystemManager::get()->getAutoCollectionSystems())
+	{
+		auto cit = mGameListViews.find(collection.second.system);
+		if (cit != mGameListViews.cend() && collection.second.system->getRootFolder()->FindByPath(key))
+			cit->second->onFileChanged(file, change);
+	}
+
+	for (auto collection : CollectionSystemManager::get()->getCustomCollectionSystems())
+	{
+		auto cit = mGameListViews.find(collection.second.system);
+		if (cit != mGameListViews.cend() && collection.second.system->getRootFolder()->FindByPath(key))
+			cit->second->onFileChanged(file, change);
+	}
 }
 
 bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
@@ -447,6 +464,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	stopAnimation(1); // make sure the fade in isn't still playing
 	mWindow->stopNotificationPopups(); // make sure we disable any existing info popup
 	mLockInput = true;
+
+	GuiComponent::isLaunchTransitionRunning = true;
 		
 	if (!Settings::getInstance()->getBool("HideWindow"))
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
@@ -468,8 +487,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		transition_style = "slide";
 
 	// Workaround, the grid scale has problems when sliding giving bad effects
-	if (transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
-		transition_style = "fade";
+	//if (transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
+		//transition_style = "fade";
 
 	if(transition_style == "fade")
 	{
@@ -480,12 +499,14 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{
 			if (doLaunchGame(game, options))
 			{
+				GuiComponent::isLaunchTransitionRunning = false;
+
 				Window* w = mWindow;
 				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
 			}
 			else
 			{
-				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -494,16 +515,18 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		// move camera to zoom in on center + fade out, launch game, come back in
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game, options]
-		{
+		{			
 			if (doLaunchGame(game, options))
 			{
+				GuiComponent::isLaunchTransitionRunning = false;
+
 				Window* w = mWindow;
 				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
 			}
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -514,13 +537,15 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{			
 			if (doLaunchGame(game, options))
 			{
+				GuiComponent::isLaunchTransitionRunning = false;
+
 				Window* w = mWindow;
 				mWindow->postToUiThread([w]() { reloadAllGames(w, false); });
 			}
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -889,7 +914,9 @@ void ViewController::preload()
 		if (splash)
 		{
 			i++;
-			mWindow->renderSplashScreen(_("Preloading UI"), (float)i / (float)max);
+
+			if ((i % 4) == 0)
+				mWindow->renderSplashScreen(_("Preloading UI"), (float)i / (float)max);
 		}
 
 		(*it)->resetFilters();

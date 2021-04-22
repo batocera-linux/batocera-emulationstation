@@ -6,6 +6,7 @@ ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 {
 	eventName = src.eventName;
 	repeat = src.repeat;
+	repeatAt = src.repeatAt;
 
 	for (auto anim : src.animations)
 	{

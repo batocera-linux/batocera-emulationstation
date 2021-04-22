@@ -29,7 +29,7 @@
 #include "SaveStateRepository.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
-	: mPath(path), mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
+	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
 	// metadata needs at least a name field (since that's what getName() will return)
 	if (mMetadata.get(MetaDataId::Name).empty())
@@ -98,6 +98,9 @@ std::string FileData::getSystemName() const
 
 FileData::~FileData()
 {
+	if (mDisplayName)
+		delete mDisplayName;
+
 	if(mParent)
 		mParent->removeChild(this);
 
@@ -105,18 +108,23 @@ FileData::~FileData()
 		mSystem->removeFromIndex(this);	
 }
 
-std::string FileData::getDisplayName() const
+std::string& FileData::getDisplayName()
 {
-	std::string stem = Utils::FileSystem::getStem(getPath());
-	if(mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE) || mSystem->hasPlatformId(PlatformIds::NEOGEO))
-		stem = MameNames::getInstance()->getRealName(stem);
+	if (mDisplayName == nullptr)
+	{
+		std::string stem = Utils::FileSystem::getStem(getPath());
+		if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE) || mSystem->hasPlatformId(PlatformIds::NEOGEO))
+			stem = MameNames::getInstance()->getRealName(stem);
 
-	return stem;
+		mDisplayName = new std::string(stem);
+	}
+
+	return *mDisplayName;
 }
 
-std::string FileData::getCleanName() const
+std::string FileData::getCleanName()
 {
-	return Utils::String::removeParenthesis(this->getDisplayName());
+	return Utils::String::removeParenthesis(getDisplayName());
 }
 
 const std::string FileData::getThumbnailPath()
@@ -210,14 +218,12 @@ const bool FileData::hasCheevos()
 	return false;
 }
 
-static std::shared_ptr<bool> collectionShowSystemInfo;
-
 void FileData::resetSettings() 
 {
-	collectionShowSystemInfo = nullptr;
+	
 }
 
-const std::string FileData::getName()
+const std::string& FileData::getName()
 {
 	if (mSystem != nullptr && mSystem->getShowFilenames())
 		return getDisplayName();
@@ -604,7 +610,7 @@ FileData* CollectionFileData::getSourceFileData()
 	return mSourceFileData;
 }
 
-const std::string CollectionFileData::getName()
+const std::string& CollectionFileData::getName()
 {
 	return getSourceFileData()->getName();
 }

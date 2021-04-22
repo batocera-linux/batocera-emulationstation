@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -919,6 +919,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "ВИБРАНЕ"
+
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "ЗАВАНТАЖИТИ ДАННІ"
@@ -1904,7 +1907,7 @@ msgstr ""
 "ВИ ВПЕВНЕНІ?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -2010,6 +2013,13 @@ msgstr "Вихід"
 
 msgid "Times played"
 msgstr "Зіграно раз"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "No Entries Found"
 msgstr "Записів не знайдено"

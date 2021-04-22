@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -917,6 +917,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORITER"
+
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "SKRAPA"
@@ -1902,7 +1905,7 @@ msgid ""
 msgstr "DETTA KOMMER ATT RADERA DE FAKTISKA SPELFILEN/FILERNA! VÄR DU SÄKER?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -2005,6 +2008,12 @@ msgstr "Publicerat"
 
 msgid "Times played"
 msgstr "Spelat antal gånger"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No Entries Found"
 msgstr "Hittade ingenting"

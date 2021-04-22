@@ -111,24 +111,27 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 			showSystemNameByFile = false;
 	}
 
-	if (mSortId == FileSorts::GENRE_ASCENDING || mSortId == FileSorts::GENRE_DESCENDING)
-		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Genre)) + SEPARATOR_AFTER + name;
-	else if (mSortId == FileSorts::TIMESPLAYED_ASCENDING || mSortId == FileSorts::TIMESPLAYED_DESCENDING)
-		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::PlayCount), "0") + SEPARATOR_AFTER + name;
-	else if (mSortId == FileSorts::DEVELOPER_ASCENDING || mSortId == FileSorts::DEVELOPER_DESCENDING)
-		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Developer)) + SEPARATOR_AFTER + name;
-	else if (mSortId == FileSorts::PUBLISHER_ASCENDING || mSortId == FileSorts::PUBLISHER_DESCENDING)
-		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Publisher)) + SEPARATOR_AFTER + name;
-	else if (mSortId == FileSorts::NUMBERPLAYERS_ASCENDING || mSortId == FileSorts::NUMBERPLAYERS_DESCENDING)
-		name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Players), "1") + SEPARATOR_AFTER + name;
-	else if (mSortId == FileSorts::RATING_ASCENDING || mSortId == FileSorts::RATING_DESCENDING)
+	if (mSortId != FileSorts::FILENAME_ASCENDING && mSortId != FileSorts::FILENAME_DESCENDING)
 	{
-		int stars = (int) Math::round(Math::clamp(0.0f, 1.0f, Utils::String::toFloat(fd->getSourceFileData()->getMetadata(MetaDataId::Rating)))*5.0);
-		std::string str;
-		for (int i = 0; i < stars; i++)
-			str += RATINGSTAR;
+		if (mSortId == FileSorts::GENRE_ASCENDING || mSortId == FileSorts::GENRE_DESCENDING)
+			name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Genre)) + SEPARATOR_AFTER + name;
+		else if (mSortId == FileSorts::TIMESPLAYED_ASCENDING || mSortId == FileSorts::TIMESPLAYED_DESCENDING)
+			name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::PlayCount), "0") + SEPARATOR_AFTER + name;
+		else if (mSortId == FileSorts::DEVELOPER_ASCENDING || mSortId == FileSorts::DEVELOPER_DESCENDING)
+			name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Developer)) + SEPARATOR_AFTER + name;
+		else if (mSortId == FileSorts::PUBLISHER_ASCENDING || mSortId == FileSorts::PUBLISHER_DESCENDING)
+			name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Publisher)) + SEPARATOR_AFTER + name;
+		else if (mSortId == FileSorts::NUMBERPLAYERS_ASCENDING || mSortId == FileSorts::NUMBERPLAYERS_DESCENDING)
+			name = SEPARATOR_BEFORE + valueOrDefault(fd->getSourceFileData()->getMetadata(MetaDataId::Players), "1") + SEPARATOR_AFTER + name;
+		else if (mSortId == FileSorts::RATING_ASCENDING || mSortId == FileSorts::RATING_DESCENDING)
+		{
+			int stars = (int)Math::round(Math::clamp(0.0f, 1.0f, Utils::String::toFloat(fd->getSourceFileData()->getMetadata(MetaDataId::Rating)))*5.0);
+			std::string str;
+			for (int i = 0; i < stars; i++)
+				str += RATINGSTAR;
 
-		name = name + " " + str;
+			name = name + " " + str;
+		}
 	}
 
 	if (mShowYear)

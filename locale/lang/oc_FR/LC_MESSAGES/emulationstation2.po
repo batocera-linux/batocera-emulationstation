@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -923,6 +923,9 @@ msgstr ""
 
 msgid "FAVORITES"
 msgstr "FAVORITS"
+
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "RECUPERAR INFO"
@@ -1895,7 +1898,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
@@ -1998,6 +2001,12 @@ msgstr "Sortida"
 
 msgid "Times played"
 msgstr "Temps jogat"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No Entries Found"
 msgstr ""

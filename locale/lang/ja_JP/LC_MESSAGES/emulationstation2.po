@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
-"PO-Revision-Date: 2021-03-26 14:42+0900\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"PO-Revision-Date: 2021-04-21 12:40+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -182,7 +182,7 @@ msgid "Play count"
 msgstr "プレイ回数"
 
 msgid "enter number of times played"
-msgstr "プレイ回数を入力する"
+msgstr "プレイ回数を入力"
 
 msgid "Last played"
 msgstr "最後にプレイした日時"
@@ -603,16 +603,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "コントローラーのリンクが切れました。"
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "ファイルブラウザ"
 
 msgid "RESET"
 msgstr "リセット"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "親フォルダ"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "スクリーンショットフォルダ"
 
 msgid "SELECT"
 msgstr "セレクト(決定)"
@@ -918,6 +918,9 @@ msgstr "%s に追加"
 msgid "FAVORITES"
 msgstr "お気に入り"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "スクレイプ"
 
@@ -1095,7 +1098,7 @@ msgid "CONTROLLERS SETTINGS"
 msgstr "コントローラー設定"
 
 msgid "UI SETTINGS"
-msgstr "UI設定"
+msgstr "UI　設定"
 
 msgid "SOUND SETTINGS"
 msgstr "音声設定"
@@ -1302,7 +1305,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "ローカルアートの検索"
 
 msgid "UI"
-msgstr "UIモード"
+msgstr "UI　モード"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
@@ -1320,7 +1323,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "RETROARCH メニュードライバー"
 
 msgid "AUTO"
 msgstr "自動"
@@ -1332,7 +1335,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ネットワークインジケータを表示"
@@ -1398,7 +1401,7 @@ msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
 msgid "UI MODE"
-msgstr "UIモード"
+msgstr "UI　モード"
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
@@ -1631,7 +1634,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -1679,19 +1682,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ゲーム名の前"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "ゲーム名の後"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "ゲームリージョンの国旗をリストに表示"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "ステートセーブマークをリストに表示"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "マニュアルアイコンをリストに表示"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "リストにファイル名を表示"
@@ -1906,9 +1909,11 @@ msgstr ""
 "実行しますか？"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"リンクしたファイルの中には、ゲームリストのパス以外のものがあります。\n"
+"ゲームリストに関連するこれらのファイルのコピーを使用しますか？"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -2012,6 +2017,11 @@ msgstr "発売日"
 msgid "Times played"
 msgstr "プレイ回数"
 
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を含む)"
+
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
@@ -2043,7 +2053,6 @@ msgstr "再試行"
 msgid "SKIP"
 msgstr "スキップ"
 
-# Not reflected
 msgid "Downloading"
 msgstr "ダウンロード中"
 
@@ -2159,7 +2168,7 @@ msgid "INDEXING COMPLETED"
 msgstr "インデックス作成が完了しました"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "変更を適用するには、ゲームリストを更新します。"
+msgstr "「ゲームリストを更新」で変更を適用します。"
 
 msgid "GENRE"
 msgstr "ジャンル"
@@ -2381,6 +2390,3 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "RETROARCH RGUIメニューを使用"

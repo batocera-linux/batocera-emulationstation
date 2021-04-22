@@ -175,18 +175,26 @@ public:
 	bool isShowing() { return mShowing; }
 
 	// Storyboards
-	bool hasStoryBoard(const std::string& name = "");
+	bool hasStoryBoard(const std::string& name = "", bool compareEmptyName = false);
 	bool applyStoryboard(const ThemeData::ThemeElement* elem, const std::string name = "");
 	bool selectStoryboard(const std::string& name = "");
-	void deselectStoryboard();
+	void deselectStoryboard(bool restoreinitialProperties = true);
 	void startStoryboard();
 	void pauseStoryboard();
+	void stopStoryboard();
+	void enableStoryboardProperty(const std::string& name, bool enable);
 
 	bool storyBoardExists(const std::string& name = "");
 
 	bool isStoryBoardRunning(const std::string& name = "");
 
+	Vector4f& getClipRect() { return mClipRect; }
+	virtual void setClipRect(const Vector4f& vec);
+
 protected:
+	void beginCustomClipRect();
+	void endCustomClipRect();
+
 	void renderChildren(const Transform4x4f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
 	void updateChildren(int deltaTime); // updates animations
@@ -203,6 +211,8 @@ protected:
 	Vector2f mSize;
 	Vector2f mScaleOrigin;
 
+	Vector2f mScreenOffset;
+
 	float mRotation = 0.0;
 	float mScale = 1.0;
 	float mDefaultZIndex = 0;
@@ -215,10 +225,12 @@ protected:
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;
+	static bool isLaunchTransitionRunning;
 
 private:
 	Transform4x4f mTransform; //Don't access this directly! Use getTransform()!
-	
+	Vector4f mClipRect;
+
 	std::map<unsigned char, AnimationController*> mAnimationMap;
 	//AnimationController* mAnimationMap[MAX_ANIMATIONS];
 	

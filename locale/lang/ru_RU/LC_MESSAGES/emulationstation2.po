@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:27+0200\n"
+"POT-Creation-Date: 2021-04-21 08:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -604,16 +604,16 @@ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
 
 msgid "RESET"
 msgstr "СБРОС"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "РОДИТЕЛЬСКАЯ ПАПКА"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "ПАПКА СКРИНШОТОВ"
 
 msgid "SELECT"
 msgstr "ВЫБОР"
@@ -919,6 +919,9 @@ msgstr "ДОБАВИТЬ В %s"
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
 
+msgid "ADD TO CUSTOM COLLECTION"
+msgstr ""
+
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
@@ -1039,7 +1042,7 @@ msgid "Architecture"
 msgstr "Архитектура"
 
 msgid "Disk format"
-msgstr ""
+msgstr "Формат диска"
 
 msgid "Temperature"
 msgstr "Температура"
@@ -1318,7 +1321,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "RETROARCH ДРАЙВЕР МЕНЮ"
 
 msgid "AUTO"
 msgstr "АВТО"
@@ -1330,7 +1333,7 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr ""
+msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
@@ -1904,9 +1907,12 @@ msgstr ""
 "ВЫ УВЕРЕНЫ?"
 
 msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUSIDE THE GAMELIST PATH.\n"
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"НЕКОТОРЫЕ ФАЙЛЫ, НА КОТОРЫЕ ВЫ ССЫЛАЕТЕСЬ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ "
+"ИГР.\n"
+"ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -2015,11 +2021,18 @@ msgstr "Релиз"
 msgid "Times played"
 msgstr "Сыграно раз"
 
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 msgid "No Entries Found"
 msgstr "Игр не найдено"
 
 msgid "GAME OPTIONS"
-msgstr "НАСТРОЙКИ ИГРЫ"
+msgstr "ПАРАМЕТРЫ"
 
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"

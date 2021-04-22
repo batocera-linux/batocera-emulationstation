@@ -226,11 +226,13 @@ std::string SystemConf::get(const std::string &name)
 	return Settings::getInstance()->getString(mapSettingsName(name));
 #endif
 	
-    if (confMap.count(name))
-        return confMap[name];
-    
-	if (defaults.count(name))
-		return defaults[name];
+	auto it = confMap.find(name);
+	if (it != confMap.cend())
+		return it->second;
+
+	auto dit = defaults.find(name);
+	if (dit != defaults.cend())
+		return dit->second;
 
     return "";
 }
