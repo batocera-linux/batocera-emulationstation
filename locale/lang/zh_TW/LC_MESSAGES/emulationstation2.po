@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -879,6 +879,9 @@ msgstr ""
 msgid "SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr ""
 
@@ -903,6 +906,19 @@ msgstr ""
 msgid "FIND SIMILAR GAMES..."
 msgstr ""
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"即將刪除遊戲檔案！\n"
+"確定？"
+
 msgid "COLLECTIONS"
 msgstr ""
 
@@ -917,7 +933,7 @@ msgstr ""
 msgid "FAVORITES"
 msgstr "我的最愛"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1894,13 +1910,6 @@ msgstr "您確定要格式化此裝置嗎？"
 
 msgid "EDIT METADATA"
 msgstr "編輯簡介"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"即將刪除遊戲檔案！\n"
-"確定？"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

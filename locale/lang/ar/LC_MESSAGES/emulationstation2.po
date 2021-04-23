@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -888,6 +888,9 @@ msgstr ""
 msgid "SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr ""
 
@@ -912,6 +915,19 @@ msgstr ""
 msgid "FIND SIMILAR GAMES..."
 msgstr ""
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
+"هل أنت متأكد؟"
+
 msgid "COLLECTIONS"
 msgstr ""
 
@@ -926,7 +942,7 @@ msgstr ""
 msgid "FAVORITES"
 msgstr "المفضلة"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1906,13 +1922,6 @@ msgstr "هل انت متأكد بالقيام بتهيئة هذا القرص؟"
 
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات الوصفية"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
-"هل أنت متأكد؟"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

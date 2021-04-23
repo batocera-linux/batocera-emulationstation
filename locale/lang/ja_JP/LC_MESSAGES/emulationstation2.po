@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(021/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: 2021-04-21 12:40+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -880,6 +880,9 @@ msgstr "ゲーム"
 msgid "SAVE SNAPSHOTS"
 msgstr "スナップショットを保存"
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "ホスト(ネットプレイ)を開始"
 
@@ -904,6 +907,19 @@ msgstr "ビューアパスワードの設定"
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"この操作はゲームファイルを削除します！\n"
+"実行しますか？"
+
 msgid "COLLECTIONS"
 msgstr "コレクション"
 
@@ -918,7 +934,7 @@ msgstr "%s に追加"
 msgid "FAVORITES"
 msgstr "お気に入り"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1900,13 +1916,6 @@ msgstr "このドライブをフォーマットしますか？"
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"この操作はゲームファイルを削除します！\n"
-"実行しますか？"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

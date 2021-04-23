@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -880,6 +880,9 @@ msgstr "JUEGO"
 msgid "SAVE SNAPSHOTS"
 msgstr "PARTIDAS GUARDADAS"
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "INICIAR EN NETPLAY COMO SERVIDOR"
 
@@ -904,6 +907,19 @@ msgstr "CONTRASEÑA PARA ESPECTADORES"
 msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR JUEGOS SIMILARES..."
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
+"¿ESTÁS SEGURO?"
+
 msgid "COLLECTIONS"
 msgstr "COLECCIONES"
 
@@ -918,8 +934,8 @@ msgstr "AÑADIR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION"
-msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "SCRAPEAR"
@@ -1900,13 +1916,6 @@ msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
 
 msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
-"¿ESTÁS SEGURO?"
-
-msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
@@ -2401,6 +2410,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "ADD TO CUSTOM COLLECTION"
+#~ msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "USAR INTERFAZ DE RETROARCH"
