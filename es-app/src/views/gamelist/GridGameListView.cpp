@@ -349,6 +349,6 @@ std::vector<FileData*> GridGameListView::getFileDataEntries()
 
 void GridGameListView::update(int deltaTime)
 {
-	ISimpleGameListView::update(deltaTime);
 	mDetails.update(deltaTime);
+	ISimpleGameListView::update(deltaTime);
 }

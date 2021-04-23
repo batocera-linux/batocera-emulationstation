@@ -401,9 +401,6 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 
 			// Send an event when removing from favorites
 			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-
-			if (view != nullptr)
-				view->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 		}
 		else
 		{
@@ -422,10 +419,6 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 			rootFolder->addChild(newGame);
 			curSys->addToIndex(newGame);
 			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-
-			auto view = ViewController::get()->getGameListView(curSys, false);
-			if (view != nullptr)
-				view->onFileChanged(newGame, FILE_METADATA_CHANGED);
 		}
 	}
 
@@ -616,42 +609,55 @@ bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::st
 	return collectionEntry != nullptr;
 }
 
-// adds or removes a game from a specific collection
+// Adds or removes a game from a specific collection
 bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string collectionName)
 {
 	if (file->getType() != GAME)
 		return false;
 
-	CollectionSystemData* collectionSystemData = nullptr;
+	bool adding = true;
 
-	if (collectionName != "Favorites")
+	std::string name = file->getName();
+	bool isFavoriteCollection = (Utils::String::compareIgnoreCase(collectionName, "favorites") == 0);
+	if (isFavoriteCollection)
 	{
-		if (mCustomCollectionSystemsData.find(collectionName) == mCustomCollectionSystemsData.cend())
+		auto sourceFile = file->getSourceFileData();
+
+		SystemData* sourceSystem = sourceFile->getSystem();
+		sourceSystem->removeFromIndex(sourceFile);
+		
+		std::string value = sourceFile->getMetadata(MetaDataId::Favorite);
+		if (value != "true")
+			sourceFile->setMetadata(MetaDataId::Favorite, "true");
+		else
+		{
+			adding = false;
+			sourceFile->setMetadata(MetaDataId::Favorite, "false");
+		}
+
+		sourceSystem->addToIndex(sourceFile);
+		saveToGamelistRecovery(sourceFile);
+		refreshCollectionSystems(sourceFile);
+
+		ViewController::get()->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
+	}
+	else
+	{
+		auto it = mCustomCollectionSystemsData.find(collectionName);
+		if (it == mCustomCollectionSystemsData.cend())
 			return false;
 
-		collectionSystemData = &(mCustomCollectionSystemsData.at(collectionName));
-
-		if (collectionSystemData != nullptr && !collectionSystemData->isPopulated)
+		CollectionSystemData* collectionSystemData = &it->second;
+		if (!collectionSystemData->isPopulated)
 			populateCustomCollection(collectionSystemData);
-	}
-
-	bool adding = true;
-	std::string name = file->getName();
-
-	if (collectionSystemData != nullptr) // Custom collection
-	{			
-		SystemData* sysData = collectionSystemData->system;
-
-		collectionSystemData->needsSave = true;
-
+	
 		std::string key = file->getFullPath();
+		SystemData* sysData = collectionSystemData->system;
 		FolderData* rootFolder = sysData->getRootFolder();
 		FileData* collectionEntry = rootFolder->FindByPath(key);
 
-		std::string name = sysData->getName();
-
 		SystemData* systemViewToUpdate = getSystemToView(sysData);
-		if (collectionEntry != nullptr) 
+		if (collectionEntry != nullptr)
 		{
 			adding = false;
 			// remove from index
@@ -669,61 +675,29 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::
 		else
 		{
 			// we didn't find it here, we should add it
-			CollectionFileData* newGame = new CollectionFileData(file, sysData);
+			CollectionFileData* newGame = new CollectionFileData(file->getSourceFileData(), sysData);
 			rootFolder->addChild(newGame);
 			sysData->addToIndex(newGame);
 
 			auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
 			if (view != nullptr)
-				view->onFileChanged(newGame, FILE_METADATA_CHANGED);
-
-			ViewController::get()->onFileChanged(systemViewToUpdate->getRootFolder(), FILE_SORTED);
+				view->onFileChanged(systemViewToUpdate->getRootFolder(), FILE_SORTED);
 
 			// add to bundle index as well, if needed
 			if (systemViewToUpdate != sysData)
 				systemViewToUpdate->addToIndex(newGame);
 		}
+
 		updateCollectionFolderMetadata(sysData);
-	}
-	else
-	{
-		SystemData* sysData = file->getSourceFileData()->getSystem();
-		sysData->removeFromIndex(file);
-			
-		MetaDataList* md = &file->getSourceFileData()->getMetadata();
-			
-		std::string value = md->get(MetaDataId::Favorite);
-		if (value != "true")
-			md->set(MetaDataId::Favorite, "true");
-		else
-		{
-			adding = false;
-			md->set(MetaDataId::Favorite, "false");
-		}
-
-		sysData->addToIndex(file);
-		saveToGamelistRecovery(file);
-
-		refreshCollectionSystems(file->getSourceFileData());
-
-		SystemData* systemViewToUpdate = getSystemToView(sysData);
-		if (systemViewToUpdate != NULL)
-		{
-			// Notify the current gamelist
-			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
-
-			auto view = ViewController::get()->getGameListView(systemViewToUpdate, false);
-			if (view != nullptr)
-				view->onFileChanged(file, FILE_METADATA_CHANGED);
-		}		
+		collectionSystemData->needsSave = true;
 	}
 
-	char trstring[1024];
+	std::string trstring;
 
 	if (adding)
-		snprintf(trstring, 1024, _("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera
+		trstring = Utils::String::format(_("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera
 	else
-		snprintf(trstring, 1024, _("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera		  
+		trstring = Utils::String::format(_("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera		  
 
 	mWindow->displayNotificationMessage(trstring, 4000);
 	return true;
