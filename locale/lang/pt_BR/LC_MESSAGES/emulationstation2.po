@@ -908,10 +908,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "PROCURAR JOGOS SEMELHANTES..."
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "APAGAR ITEM"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "APAGAR JOGO"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -935,7 +935,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1337,7 +1337,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "MENU DE DRIVER DO RETROARCH"
+msgstr "MENU DRIVER DO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1409,7 +1409,7 @@ msgid "TIMEZONE"
 msgstr "FUSO HORÁRIO"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "MOSTRAR RELÓGIO NO FORMATO DE 12 HORAS"
+msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
@@ -2404,9 +2404,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "ADD TO CUSTOM COLLECTION"
-#~ msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA"
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "USAR RETROARCH RGUI MENU"
