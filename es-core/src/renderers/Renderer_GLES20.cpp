@@ -219,6 +219,22 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
+        std::string GLVendor() {
+          const std::string vendor     = glGetString(GL_VENDOR)     ? (const char*)glGetString(GL_VENDOR)     : "";
+          return vendor;
+        }
+
+        std::string GLRenderer() {
+          const std::string renderer   = glGetString(GL_RENDERER)   ? (const char*)glGetString(GL_RENDERER)   : "";
+          return renderer;
+        }
+
+        std::string GLVersion() {
+          const std::string version    = glGetString(GL_VERSION)    ? (const char*)glGetString(GL_VERSION)    : "";
+          return version;
+        }
+
+
 	void createContext()
 	{
 		sdlContext = SDL_GL_CreateContext(getSDLWindow());
