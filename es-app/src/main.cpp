@@ -582,7 +582,7 @@ int main(int argc, char* argv[])
 		displayFrequency = lpDevMode.dmDisplayFrequency; // default value if cannot retrieve from user settings.
 	}
 
-	int timeLimit = (1000 / displayFrequency) - 8;	 // Margin for vsync
+	int timeLimit = (1000 / displayFrequency) - 10;	 // Margin for vsync
 	if (timeLimit < 0)
 		timeLimit = 0;
 #endif

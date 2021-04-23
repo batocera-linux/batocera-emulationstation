@@ -8,8 +8,6 @@
 RatingComponent::RatingComponent(Window* window) : GuiComponent(window), mColorShift(0xFFFFFFFF), mUnfilledColor(0xFFFFFFFF)
 {
 	mHorizontalAlignment = ALIGN_LEFT;
-	mFilledTexture = TextureResource::get(":/star_filled.svg", true, true);
-	mUnfilledTexture = TextureResource::get(":/star_unfilled.svg", true, true);
 	mValue = 0.5f;
 	mSize = Vector2f(64 * NUM_RATING_STARS, 64);
 
@@ -139,6 +137,12 @@ void RatingComponent::updateColors()
 
 void RatingComponent::render(const Transform4x4f& parentTrans)
 {
+	if (mFilledTexture == nullptr)
+		mFilledTexture = TextureResource::get(":/star_filled.svg", true, true);
+
+	if (mUnfilledTexture == nullptr)
+		mUnfilledTexture = TextureResource::get(":/star_unfilled.svg", true, true);
+
 	if (!isVisible() || mFilledTexture == nullptr || mUnfilledTexture == nullptr)
 		return;
 
