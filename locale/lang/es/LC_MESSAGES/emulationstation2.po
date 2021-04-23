@@ -173,10 +173,10 @@ msgid "enter hidden"
 msgstr "marcar como oculto"
 
 msgid "Kidgame"
-msgstr "Juego infantil"
+msgstr "Para niños"
 
 msgid "enter kidgame"
-msgstr "marcar como juego infantil"
+msgstr "marcar como juego para niños"
 
 msgid "Play count"
 msgstr "Nº de veces jugado"
@@ -245,7 +245,7 @@ msgid "never played"
 msgstr "nunca jugado"
 
 msgid "retroachievements"
-msgstr "retrologros"
+msgstr "retroachievements (logros)"
 
 msgid "arcade"
 msgstr "arcade"
@@ -919,7 +919,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION"
-msgstr ""
+msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
 
 msgid "SCRAPE"
 msgstr "SCRAPEAR"
@@ -2023,8 +2023,8 @@ msgstr "Veces jugado"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta carpeta contiene %i juego, incluyendo :%s"
+msgstr[1] "Esta carpeta contiene %i juegos, incluyendo :%s"
 
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"

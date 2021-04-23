@@ -920,7 +920,7 @@ msgid "FAVORITES"
 msgstr "FAVORITEN"
 
 msgid "ADD TO CUSTOM COLLECTION"
-msgstr ""
+msgstr "ZU BENUTZERDEF. SAMMLUNG HINZUFÜGEN"
 
 msgid "SCRAPE"
 msgstr "SCRAPEN"
