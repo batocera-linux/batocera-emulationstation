@@ -270,7 +270,7 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	{
 		if (elem->has("size"))
 		{
-			mSize = elem->get<Vector2f>("size");
+			mSize = elem->get<Vector2f>("size") * scale;
 			setResize(mSize);
 		}
 		else if (elem->has("maxSize"))
@@ -601,4 +601,9 @@ void VideoComponent::setClipRect(const Vector4f& vec)
 {
 	GuiComponent::setClipRect(vec);
 	mStaticImage.setClipRect(vec);
+}
+
+bool VideoComponent::showSnapshots()
+{
+	return mConfig.showSnapshotNoVideo || (mConfig.showSnapshotDelay && mConfig.startDelay);
 }

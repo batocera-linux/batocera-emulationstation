@@ -83,6 +83,7 @@ void HelpComponent::updateGrid()
 	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
 		auto icon = std::make_shared<ImageComponent>(mWindow);
+		icon->setIsLinear(true);
 
 		auto label = InputConfig::buttonLabel(it->first);
 

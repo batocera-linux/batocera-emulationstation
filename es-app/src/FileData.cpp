@@ -597,7 +597,7 @@ FileData* CollectionFileData::getSourceFileData()
 
 const std::string& CollectionFileData::getName()
 {
-	return getSourceFileData()->getName();
+	return mSourceFileData->getName();
 }
 
 const std::vector<FileData*> FolderData::getChildrenListToDisplay() 

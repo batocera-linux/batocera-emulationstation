@@ -270,11 +270,6 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 	}
 }
 
-const std::string& MetaDataList::getName() const
-{
-	return mName;
-}
-
 void MetaDataList::set(MetaDataId id, const std::string& value)
 {
 	if (id == MetaDataId::Name)

@@ -54,8 +54,8 @@ void VideoGameListView::launch(FileData* game)
 
 void VideoGameListView::update(int deltaTime)
 {
-	BasicGameListView::update(deltaTime);
 	mDetails.update(deltaTime);
+	BasicGameListView::update(deltaTime);
 }
 
 void VideoGameListView::onShow()

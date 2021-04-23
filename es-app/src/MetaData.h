@@ -156,8 +156,7 @@ public:
 
 	inline MetaDataListType getType() const { return mType; }
 	static const std::vector<MetaDataDecl>& getMDD() { return mMetaDataDecls; }
-
-	const std::string& getName() const;
+	inline const std::string& getName() const { return mName; }
 	
 	void importScrappedMetadata(const MetaDataList& source);
 
