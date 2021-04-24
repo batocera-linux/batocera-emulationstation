@@ -88,8 +88,8 @@ protected:
 
 private:
 	std::vector<std::string>	getRipList(std::string imageSource);
-	pugi::xml_node				findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region);
-	pugi::xml_node				findMedia(pugi::xml_node media_list, std::string mediaName, std::string region);
+	pugi::xml_node				findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, const std::string& language, const std::string& region);
+	pugi::xml_node				findMedia(pugi::xml_node media_list, std::string mediaName, const std::string& language, const std::string& region);
 
 	std::string mFileName;
 };
