@@ -974,7 +974,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto firstJoystickOnly = std::make_shared<SwitchComponent>(mWindow);
 	firstJoystickOnly->setState(Settings::getInstance()->getBool("FirstJoystickOnly"));
-	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), invertJoy);
+	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
 #if defined(WIN32)
