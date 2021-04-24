@@ -233,6 +233,6 @@ std::vector<FileData*> CarouselGameListView::getFileDataEntries()
 
 void CarouselGameListView::update(int deltaTime)
 {
-	ISimpleGameListView::update(deltaTime);
 	mDetails.update(deltaTime);
+	ISimpleGameListView::update(deltaTime);
 }

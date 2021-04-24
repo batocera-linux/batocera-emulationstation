@@ -59,6 +59,6 @@ void DetailedGameListView::onShow()
 
 void DetailedGameListView::update(int deltaTime)
 {
-	BasicGameListView::update(deltaTime);
 	mDetails.update(deltaTime);
+	BasicGameListView::update(deltaTime);
 }

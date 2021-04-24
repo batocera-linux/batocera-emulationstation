@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -885,6 +885,9 @@ msgstr "GÊM"
 msgid "SAVE SNAPSHOTS"
 msgstr "ARBED CIPLUNIAU"
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "DECHRAU GWESTEIA NETPLAY"
 
@@ -909,6 +912,19 @@ msgstr "GOSOD CYFRINAIR GWYLIWR"
 msgid "FIND SIMILAR GAMES..."
 msgstr "DOD O HYD I GEMAU TEBYG ..."
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
+"WYT TI'N SIWR?"
+
 msgid "COLLECTIONS"
 msgstr "CASGLIADAU"
 
@@ -923,7 +939,7 @@ msgstr "YCHWANEGU I %s"
 msgid "FAVORITES"
 msgstr "FFEFRYNNAU"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1902,13 +1918,6 @@ msgstr "A YDYCH CHI'N SIWR EICH BOD EISIAU FFORMATIO'R GYRRWR HWN?"
 
 msgid "EDIT METADATA"
 msgstr "GOLYGU METADATA"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
-"WYT TI'N SIWR?"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

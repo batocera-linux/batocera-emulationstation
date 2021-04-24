@@ -156,6 +156,8 @@ public:
 
 	Vector2f& getTargetSize() { return mTargetSize; }
 
+	bool showSnapshots();
+
 protected:
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;

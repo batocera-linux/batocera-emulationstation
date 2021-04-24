@@ -1036,6 +1036,13 @@ void GuiMenu::openSystemInformations_batocera()
 	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
 #endif
 
+	auto glvendor = std::make_shared<TextComponent>(window, Renderer::GLVendor(), font, color);
+	informationsGui->addWithLabel(_("GL VENDOR"), glvendor);
+	auto glrenderer = std::make_shared<TextComponent>(window, Renderer::GLRenderer(), font, color);
+	informationsGui->addWithLabel(_("GL RENDERER"), glrenderer);
+	auto glversion = std::make_shared<TextComponent>(window, Renderer::GLVersion(), font, color);
+	informationsGui->addWithLabel(_("GL VERSION"), glversion);
+
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
 	for (auto it = infos.begin(); it != infos.end(); it++) {

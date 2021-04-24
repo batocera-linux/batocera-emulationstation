@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -882,6 +882,9 @@ msgstr "GRA"
 msgid "SAVE SNAPSHOTS"
 msgstr "ZAPISYWANIE MIGAWEK"
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "URUCHOM HOSTA NETPLAY"
 
@@ -906,6 +909,19 @@ msgstr "USTAW HASŁO WIDZA"
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
+"JESTEŚ PEWIEN?"
+
 msgid "COLLECTIONS"
 msgstr "KOLEKCJE"
 
@@ -920,7 +936,7 @@ msgstr "DODAJ DO %s"
 msgid "FAVORITES"
 msgstr "ULUBIONE"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1900,13 +1916,6 @@ msgstr "CZY NA PEWNO CHCESZ SFORMATOWAĆ TEN DYSK?"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
-"JESTEŚ PEWIEN?"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

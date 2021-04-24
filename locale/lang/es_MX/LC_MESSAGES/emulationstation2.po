@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -880,6 +880,9 @@ msgstr ""
 msgid "SAVE SNAPSHOTS"
 msgstr ""
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "HOSTEAR JUEGO EN RED"
 
@@ -904,6 +907,19 @@ msgstr "VER CLAVE DE JUGADOR"
 msgid "FIND SIMILAR GAMES..."
 msgstr ""
 
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
+"¿ESTÁS SEGURO?"
+
 msgid "COLLECTIONS"
 msgstr ""
 
@@ -918,7 +934,7 @@ msgstr ""
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION"
+msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
 msgid "SCRAPE"
@@ -1900,13 +1916,6 @@ msgstr "¿ESTÁS SEGURO DE QUERER FORMATEAR ESTA UNIDAD?"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
-"¿ESTÁS SEGURO?"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

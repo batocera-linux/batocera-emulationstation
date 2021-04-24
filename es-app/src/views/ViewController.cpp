@@ -356,7 +356,7 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 		it->second->onFileChanged(file, change);
 
 	for (auto collection : CollectionSystemManager::get()->getAutoCollectionSystems())
-	{
+	{		
 		auto cit = mGameListViews.find(collection.second.system);
 		if (cit != mGameListViews.cend() && collection.second.system->getRootFolder()->FindByPath(key))
 			cit->second->onFileChanged(file, change);
@@ -902,6 +902,9 @@ void ViewController::preload()
 	if (!preloadUI)
 		return;
 
+	mWindow->renderSplashScreen(_("Preloading UI"), 0);
+	getSystemListView();
+
 	int i = 1;
 	int max = SystemData::sSystemVector.size() + 1;
 	bool splash = preloadUI && Settings::getInstance()->getBool("SplashScreen") && Settings::getInstance()->getBool("SplashScreenProgress");
@@ -937,12 +940,18 @@ void ViewController::reloadGameListView(IGameListView* view)
 	if (view == nullptr)
 		return;
 
+	bool isCurrent = mCurrentView != nullptr && mCurrentView.get() == view;
+	if (isCurrent)
+	{
+		mCurrentView->onHide();
+		mCurrentView = nullptr;
+	}
+
 	for(auto it = mGameListViews.cbegin(); it != mGameListViews.cend(); it++)
 	{
 		if (it->second.get() != view)
 			continue;
-		
-		bool isCurrent = (mCurrentView == it->second);
+
 		SystemData* system = it->first;
 			
 		std::string cursorPath;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 07:46-0300\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -880,6 +880,9 @@ msgstr "JOGO"
 msgid "SAVE SNAPSHOTS"
 msgstr "SALVAR PARTIDAS"
 
+msgid "OPEN"
+msgstr ""
+
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
 
@@ -904,6 +907,19 @@ msgstr "DEFINIR SENHA DE ESPECTADOR"
 msgid "FIND SIMILAR GAMES..."
 msgstr "PROCURAR JOGOS SEMELHANTES..."
 
+msgid "DELETE ITEM"
+msgstr "APAGAR ITEM"
+
+msgid "DELETE GAME"
+msgstr "APAGAR JOGO"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
+"VOCÊ TEM CERTEZA?"
+
 msgid "COLLECTIONS"
 msgstr "COLEÇÕES"
 
@@ -918,8 +934,8 @@ msgstr "ADICIONAR À %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION"
-msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA"
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1321,7 +1337,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "MENU DE DRIVER DO RETROARCH"
+msgstr "MENU DRIVER DO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1393,7 +1409,7 @@ msgid "TIMEZONE"
 msgstr "FUSO HORÁRIO"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "MOSTRAR RELÓGIO NO FORMATO DE 12 HORAS"
+msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
@@ -1900,13 +1916,6 @@ msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
 msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
-"VOCÊ TEM CERTEZA?"
-
-msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
@@ -2395,6 +2404,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "USAR RETROARCH RGUI MENU"

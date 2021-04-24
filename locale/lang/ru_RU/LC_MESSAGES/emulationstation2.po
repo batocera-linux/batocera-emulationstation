@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -881,6 +881,9 @@ msgstr "ИГРА"
 msgid "SAVE SNAPSHOTS"
 msgstr "СОХРАНЕНИЯ"
 
+msgid "OPEN"
+msgstr "ОТКРЫТЬ"
+
 msgid "START NETPLAY HOST"
 msgstr "ЗАПУСТИТЬ NETPLAY ХОСТ"
 
@@ -905,6 +908,19 @@ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
 
+msgid "DELETE ITEM"
+msgstr "УДАЛИТЬ ОБЪЕКТ"
+
+msgid "DELETE GAME"
+msgstr "УДАЛИТЬ ИГРУ"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"УДАЛЕНИЕ ФАЙЛОВ ИГРЫ!\n"
+"ВЫ УВЕРЕНЫ?"
+
 msgid "COLLECTIONS"
 msgstr "КОЛЛЕКЦИИ"
 
@@ -919,8 +935,8 @@ msgstr "ДОБАВИТЬ В %s"
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
 
-msgid "ADD TO CUSTOM COLLECTION"
-msgstr ""
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ..."
 
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -1898,13 +1914,6 @@ msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ОТФОРМАТИРОВАТЬ 
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"УДАЛЕНИЕ ФАЙЛОВ ИГРЫ!\n"
-"ВЫ УВЕРЕНЫ?"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

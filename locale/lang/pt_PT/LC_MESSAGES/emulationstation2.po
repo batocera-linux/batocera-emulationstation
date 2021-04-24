@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
+"POT-Creation-Date: 2021-04-23 07:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -880,6 +880,9 @@ msgstr "JOGO"
 msgid "SAVE SNAPSHOTS"
 msgstr "PARTIDAS GUARDADAS"
 
+msgid "OPEN"
+msgstr "ABRIR"
+
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
 
@@ -904,6 +907,19 @@ msgstr "DEFINIR PASSWORD DO ESPECTADOR"
 msgid "FIND SIMILAR GAMES..."
 msgstr "PROCURAR JOGOS SEMELHANTES..."
 
+msgid "DELETE ITEM"
+msgstr "APAGAR ITEM"
+
+msgid "DELETE GAME"
+msgstr "APAGAR JOGO"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
+"TEM A CERTEZA?"
+
 msgid "COLLECTIONS"
 msgstr "COLEÇÕES"
 
@@ -918,8 +934,8 @@ msgstr "ADICIONAR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION"
-msgstr ""
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 
 msgid "SCRAPE"
 msgstr "OBTER CAPAS"
@@ -1017,7 +1033,7 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NÃO SEGUE OS CRITÉRIOS DO JOGO"
 
 msgid "THE BEZEL PROJECT"
-msgstr "PROJETO MOLDURA"
+msgstr "PROJETO BEZEL"
 
 msgid "SELECT BEZELS TO INSTALL / REMOVE"
 msgstr "SELECIONE AS MOLDURAS A INSTALAR / REMOVER"
@@ -1693,7 +1709,7 @@ msgid "SHOW MANUAL ICON IN LISTS"
 msgstr "MOSTRAR ÍCONE MANUAL EM LISTAS"
 
 msgid "SHOW FILENAMES IN LISTS"
-msgstr "EXIBIR NOMES DOS ARQUIVOS"
+msgstr "MOSTRAR NOMES DOS ARQUIVOS"
 
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSÕES DO ARQUIVO"
@@ -1895,13 +1911,6 @@ msgstr "TEM A CERTEZA DE QUE DESEJA FORMATAR ESTE DISCO?"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
-"TEM A CERTEZA?"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

@@ -1112,13 +1112,6 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 			LOG(LogWarning) << "  Unknown platform for system \"" << md.name << "\" (platform \"" << str << "\" from list \"" << platformList << "\")";
 	}
 
-	//validate
-	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty()))
-	{
-		LOG(LogError) << "System \"" << md.name << "\" is missing name, path, extension, or command!";
-		return nullptr;
-	}
-
 	//convert path to generic directory seperators
 	path = Utils::FileSystem::getGenericPath(path);
 
@@ -1128,6 +1121,13 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		path.erase(0, 1);
 		path.insert(0, Utils::FileSystem::getHomePath());
 		path = Utils::FileSystem::getCanonicalPath(path);
+	}
+
+	//validate
+	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty() || !Utils::FileSystem::exists(path)))
+	{
+		LOG(LogError) << "System \"" << md.name << "\" is missing name, path, extension, or command!";
+		return nullptr;
 	}
 
 	//create the system runtime environment data
@@ -1580,6 +1580,11 @@ void SystemData::loadTheme()
 
 		if (SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGroupSystem()))
 			sysData.insert(std::pair<std::string, std::string>("system.cheevos", "true"));
+
+		if (SystemConf::getInstance()->getBool("global.retroachievements"))
+		{
+			sysData.insert(std::pair<std::string, std::string>("cheevos.username", SystemConf::getInstance()->get("global.retroachievements.username")));
+		}
 
 		mTheme->loadFile(getThemeFolder(), sysData, path);
 	} 

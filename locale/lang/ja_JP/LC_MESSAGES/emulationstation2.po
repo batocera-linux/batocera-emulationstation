@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31(021/03/24)\n"
+"Project-Id-Version: batocera-es v31(21/04/22)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 08:19+0200\n"
-"PO-Revision-Date: 2021-04-21 12:40+0900\n"
+"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"PO-Revision-Date: 2021-04-23 18:30+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -880,6 +880,9 @@ msgstr "ゲーム"
 msgid "SAVE SNAPSHOTS"
 msgstr "スナップショットを保存"
 
+msgid "OPEN"
+msgstr "開く"
+
 msgid "START NETPLAY HOST"
 msgstr "ホスト(ネットプレイ)を開始"
 
@@ -904,6 +907,19 @@ msgstr "ビューアパスワードの設定"
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
 
+msgid "DELETE ITEM"
+msgstr "項目を削除"
+
+msgid "DELETE GAME"
+msgstr "このゲームを削除"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"この操作はゲームファイルを削除します！\n"
+"実行しますか？"
+
 msgid "COLLECTIONS"
 msgstr "コレクション"
 
@@ -918,8 +934,8 @@ msgstr "%s に追加"
 msgid "FAVORITES"
 msgstr "お気に入り"
 
-msgid "ADD TO CUSTOM COLLECTION"
-msgstr ""
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "カスタムコレクションに追加..."
 
 msgid "SCRAPE"
 msgstr "スクレイプ"
@@ -1098,7 +1114,7 @@ msgid "CONTROLLERS SETTINGS"
 msgstr "コントローラー設定"
 
 msgid "UI SETTINGS"
-msgstr "UI　設定"
+msgstr "UI 設定"
 
 msgid "SOUND SETTINGS"
 msgstr "音声設定"
@@ -1900,13 +1916,6 @@ msgstr "このドライブをフォーマットしますか？"
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"この操作はゲームファイルを削除します！\n"
-"実行しますか？"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"

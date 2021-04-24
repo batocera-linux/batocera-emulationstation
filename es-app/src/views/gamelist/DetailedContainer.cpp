@@ -545,7 +545,7 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 	{
 		std::string imagePath = firstGameWithImage->getImagePath().empty() ? firstGameWithImage->getThumbnailPath() : firstGameWithImage->getImagePath();
 		
-		if (mVideo != nullptr)
+		if (mVideo != nullptr && mVideo->showSnapshots())
 		{
 			mVideo->setImage("");
 			mVideo->setVideo("");
@@ -580,7 +580,7 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 
 		if (mImage != nullptr && !mImage->hasImage())
 		{
-			if (mVideo == nullptr)
+			if (mVideo == nullptr || !mVideo->showSnapshots())
 			{
 				mImage->setImage("");
 
@@ -1110,7 +1110,7 @@ Vector3f DetailedContainerHost::getLaunchTarget()
 
 void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)
 {
-	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
+	//if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
 	{
 		mContainer->updateControls(file, isClearing, moveBy);
 		return;
