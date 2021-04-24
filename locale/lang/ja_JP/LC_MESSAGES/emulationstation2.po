@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31(021/03/24)\n"
+"Project-Id-Version: batocera-es v31(21/04/22)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
-"PO-Revision-Date: 2021-04-21 12:40+0900\n"
+"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"PO-Revision-Date: 2021-04-23 18:30+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -881,7 +881,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "スナップショットを保存"
 
 msgid "OPEN"
-msgstr ""
+msgstr "開く"
 
 msgid "START NETPLAY HOST"
 msgstr "ホスト(ネットプレイ)を開始"
@@ -908,10 +908,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "項目を削除"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "このゲームを削除"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -935,7 +935,7 @@ msgid "FAVORITES"
 msgstr "お気に入り"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "カスタムコレクションに追加..."
 
 msgid "SCRAPE"
 msgstr "スクレイプ"
@@ -1114,7 +1114,7 @@ msgid "CONTROLLERS SETTINGS"
 msgstr "コントローラー設定"
 
 msgid "UI SETTINGS"
-msgstr "UI　設定"
+msgstr "UI 設定"
 
 msgid "SOUND SETTINGS"
 msgstr "音声設定"

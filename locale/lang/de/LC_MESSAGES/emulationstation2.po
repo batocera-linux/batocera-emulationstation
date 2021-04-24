@@ -277,8 +277,8 @@ msgstr "Verschiedene"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "Diese Sammlung beinhaltet %i Spiel, inklusive %s"
-msgstr[1] "Diese Sammlung beinhaltet %i Spiele, inklusive %s"
+msgstr[0] "Diese Sammlung beinhaltet %i Spiel, einschließlich %s"
+msgstr[1] "Diese Sammlung beinhaltet %i Spiele, einschließlich %s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
@@ -366,10 +366,10 @@ msgid "GROUPED SYSTEMS"
 msgstr "GRUPPIERTE SYSTEME"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "ERSTELLE BENUTZERDEF. SAMMLUNG"
+msgstr "ERSTELLE BENUTZERDEFINIERTE SAMMLUNG"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "NEUE BENUTZERDEF. SAMMLUNG AUS THEME ERSTELLEN"
+msgstr "NEUE BENUTZERDEFINIERTE SAMMLUNG AUS THEME ERSTELLEN"
 
 msgid "SELECT THEME FOLDER"
 msgstr "THEME-ORDNER AUSWÄHLEN"
@@ -417,7 +417,7 @@ msgid "START ON GAMELIST"
 msgstr "STARTE BEI SPIELELISTE"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "UNTHEMED BENUTZERDEF. SAMMLUNGEN GRUPPIEREN"
+msgstr "UNTHEMED BENUTZERDEFINIERTE SAMMLUNGEN GRUPPIEREN"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "SYSTEMNAME IN SAMMLUNGEN ANZEIGEN"
@@ -882,7 +882,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "SPEICHERSTÄNDE"
 
 msgid "OPEN"
-msgstr ""
+msgstr "OFFEN"
 
 msgid "START NETPLAY HOST"
 msgstr "STARTE NETPLAY HOST"
@@ -909,10 +909,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "FINDE ÄHNLICHE SPIELE..."
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "ITEM LÖSCHEN"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "SPIEL LÖSCHEN"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -936,7 +936,7 @@ msgid "FAVORITES"
 msgstr "FAVORITEN"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "ZUR BENUTZERDEFINIERTEN SAMMLUNG HINZUFÜGEN..."
 
 msgid "SCRAPE"
 msgstr "SCRAPEN"
@@ -960,14 +960,14 @@ msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ZEIGE PAD TO KEYBOARD INFORMATIONEN"
 
 msgid "THEMES DOWNLOADER"
-msgstr "THEMES DOWNLOADER"
+msgstr "THEMES-DOWNLOADER"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
 msgstr "WÄHLE THEMES ZUM INSTALLIEREN / ENTFERNEN"
 
 #, c-format
 msgid "CURRENT THEME"
-msgstr "AKTUELLER THEME"
+msgstr "AKTUELLES THEME"
 
 msgid "Unlocked on"
 msgstr "Freigeschalten am"
@@ -1674,10 +1674,10 @@ msgid "DEFAULT GRID SIZE"
 msgstr "STANDARD RASTERGRÖSSE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "SPIELELISTEN-THEME OPTIONEN"
+msgstr "SPIELELISTEN-THEME-OPTIONEN"
 
 msgid "THEME OPTIONS"
-msgstr "THEME OPTIONEN"
+msgstr "THEME-OPTIONEN"
 
 msgid "DEFAULT VALUE"
 msgstr "STANDARD-WERT"
@@ -1728,7 +1728,7 @@ msgid "APPEARENCE"
 msgstr "AUSSEHEN"
 
 msgid "THEME SET"
-msgstr "THEME SET"
+msgstr "THEME-SET"
 
 msgid "video"
 msgstr "Video"
@@ -1922,7 +1922,8 @@ msgstr "METADATEN BEARBEITEN"
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
-msgstr ""
+msgstr "EINIGE DATEIEN, DIE DU VERLINKT HAST, BEFINDEN SICH AUSSERHALB DES SPIELELISTEN-PFADES.\n"
+"MÖCHTEST DU EINE KOPIE DIESER DATEIEN RELATIV ZUR SPIELELISTE VERWENDEN?"
 
 msgid "NO DEVICE FOUND"
 msgstr "KEIN GERÄT GEFUNDEN"
@@ -2007,7 +2008,7 @@ msgid "Preloading UI"
 msgstr "Vorladen des UI"
 
 msgid "Loading theme"
-msgstr "Lade Theme"
+msgstr "Lade theme"
 
 msgid "Loading gamelists"
 msgstr "Lade Gamelists"
@@ -2033,8 +2034,8 @@ msgstr "Anzahl gespielt"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dieser Ordner beinhaltet %i Spiel, einschließlich :%s"
+msgstr[1] "Dieser Ordner beinhaltet %i Spiele, einschließlich :%s"
 
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
@@ -2416,7 +2417,7 @@ msgid "%d s"
 msgstr "%d S"
 
 #~ msgid "ADD TO CUSTOM COLLECTION"
-#~ msgstr "ZU BENUTZERDEF. SAMMLUNG HINZUFÜGEN"
+#~ msgstr "ZUR BENUTZERDEFINIERTEN SAMMLUNG HINZUFÜGEN"
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "BENUTZE DAS RETROARCH RGUI MENÜ"
@@ -2627,8 +2628,8 @@ msgstr "%d S"
 
 #~ msgid "This collection contains %i game, including %s."
 #~ msgid_plural "This collection contains %i games, including %s."
-#~ msgstr[0] "Diese Sammlung beinhaltet %i Spiel, inklusive %s."
-#~ msgstr[1] "Diese Sammlung beinhaltet %i Spiele, inklusive %s."
+#~ msgstr[0] "Diese Sammlung beinhaltet %i Spiel, einschließlich %s."
+#~ msgstr[1] "Diese Sammlung beinhaltet %i Spiele, einschließlich %s."
 
 #~ msgid "This collection contains %i game, including %s among other titles."
 #~ msgid_plural ""
@@ -2765,22 +2766,22 @@ msgstr "%d S"
 #~ msgstr "UPDATES"
 
 #~ msgid "THEME COLORSET"
-#~ msgstr "THEME COLORSET"
+#~ msgstr "THEME-FARBSATZ"
 
 #~ msgid "THEME ICONSET"
-#~ msgstr "THEME ICONSET"
+#~ msgstr "THEME-ICONSET"
 
 #~ msgid "THEME MENU"
-#~ msgstr "THEME MENÜ"
+#~ msgstr "THEME-MENÜ"
 
 #~ msgid "THEME SYSTEMVIEW"
-#~ msgstr "THEME SYSTEMANSICHT"
+#~ msgstr "THEME-SYSTEMANSICHT"
 
 #~ msgid "THEME GAMELISTVIEW"
-#~ msgstr "THEME SPIELELISTEN-ANSICHT"
+#~ msgstr "THEME-SPIELELISTEN-ANSICHT"
 
 #~ msgid "THEME REGION"
-#~ msgstr "THEME REGION"
+#~ msgstr "THEME-REGION"
 
 #~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
 #~ msgstr "KOMPATIBLE NIEDRIGE AUFLÖSUNG FÜR GROSSBUCHSTABEN VERWENDEN"

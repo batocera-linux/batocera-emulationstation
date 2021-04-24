@@ -881,7 +881,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "PARTIDAS GUARDADAS"
 
 msgid "OPEN"
-msgstr ""
+msgstr "ABRIR"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR EN NETPLAY COMO SERVIDOR"
@@ -908,10 +908,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR JUEGOS SIMILARES..."
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "BORRAR ELEMENTO"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "BORRAR JUEGO"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -935,7 +935,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
 
 msgid "SCRAPE"
 msgstr "SCRAPEAR"
