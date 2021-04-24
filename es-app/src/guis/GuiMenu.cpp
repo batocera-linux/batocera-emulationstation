@@ -4110,9 +4110,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 	{
 		if (systemData->hasKeyboardMapping())
-			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 		else
-			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 	}
 
 	mWindow->pushGui(systemConfiguration);
@@ -4461,7 +4461,7 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 		LOG(LogError) << "Unable to open " << fileName;
 }
 
-void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping)
+void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping, bool editable)
 {
-	window->pushGui(new GuiKeyMappingEditor(window, mapping));
+	window->pushGui(new GuiKeyMappingEditor(window, mapping, editable));
 }
