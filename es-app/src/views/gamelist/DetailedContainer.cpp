@@ -1110,7 +1110,7 @@ Vector3f DetailedContainerHost::getLaunchTarget()
 
 void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)
 {
-	//if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
+	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
 	{
 		mContainer->updateControls(file, isClearing, moveBy);
 		return;
