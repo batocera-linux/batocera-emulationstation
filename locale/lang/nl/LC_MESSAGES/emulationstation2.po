@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "automatisch"
 msgid "VIEW CUSTOMISATION"
 msgstr "WEERGAVE AANPASSINGEN"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GEAVANCEERDE SYSTEEMOPTIES"
 
@@ -955,9 +958,6 @@ msgstr "BEWERK METADATA VAN MAP"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "BEWERK METADATA VAN DIT SPEL"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
-
 msgid "THEMES DOWNLOADER"
 msgstr ""
 
@@ -1235,6 +1235,15 @@ msgstr "GEBRUIKER SCHIJFGEBRUIK"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEEM SCHIJFGEBRUIK"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "ONTWIKKELAAR"

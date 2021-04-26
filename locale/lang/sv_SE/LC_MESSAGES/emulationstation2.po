@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "automatisk"
 msgid "VIEW CUSTOMISATION"
 msgstr "VISA ANPASSNINGAR"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr ""
 
@@ -953,9 +956,6 @@ msgstr ""
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "REDIGERA DET HÄR SPELETS METADATA"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
-
 msgid "THEMES DOWNLOADER"
 msgstr ""
 
@@ -1232,6 +1232,15 @@ msgid "USER DISK USAGE"
 msgstr ""
 
 msgid "SYSTEM DISK USAGE"
+msgstr ""
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
 msgstr ""
 
 msgid "DEVELOPER"

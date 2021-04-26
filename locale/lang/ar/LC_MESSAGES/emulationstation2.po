@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -523,6 +523,9 @@ msgstr "تلقائي"
 msgid "VIEW CUSTOMISATION"
 msgstr "عرض التخصيص"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "خيارات النظام المتقدمة"
 
@@ -963,9 +966,6 @@ msgstr "تعديل مجلد البيانات الوصفية"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "تعديل البيانات الوصفية لهذه اللعبة"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
-
 msgid "THEMES DOWNLOADER"
 msgstr "محمل السمات"
 
@@ -1243,6 +1243,15 @@ msgstr "استخدام تخزين المستخدم"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "استخدام تخزين النظام"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "مطورون"

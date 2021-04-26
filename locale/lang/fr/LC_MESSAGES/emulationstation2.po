@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "automatique"
 msgid "VIEW CUSTOMISATION"
 msgstr "VOIR LES PERSONNALISATIONS"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VOIR LA CONFIGURATION PADTOKEY"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
@@ -953,9 +956,6 @@ msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VOIR LA CONFIGURATION PADTOKEY"
-
 msgid "THEMES DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE THÈMES"
 
@@ -1233,6 +1233,15 @@ msgstr "DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"

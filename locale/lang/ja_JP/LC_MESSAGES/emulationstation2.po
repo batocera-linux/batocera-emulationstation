@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(21/04/22)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 21:54+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: 2021-04-23 18:30+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -515,6 +515,9 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "表示をカスタマイズ"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "パッドからキーボード情報を表示"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
@@ -955,9 +958,6 @@ msgstr "フォルダのメタ情報を編集"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
-
 msgid "THEMES DOWNLOADER"
 msgstr "テーマダウンローダー"
 
@@ -1235,6 +1235,15 @@ msgstr "データ使用量/容量"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "その他の設定"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr "자동"
 msgid "VIEW CUSTOMISATION"
 msgstr "사용자 지정 보기"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "고급 시스템 옵션"
 
@@ -951,9 +954,6 @@ msgstr "폴더 메타데이터 편집"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "게임 정보 편집"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
-
 msgid "THEMES DOWNLOADER"
 msgstr ""
 
@@ -1231,6 +1231,15 @@ msgstr "사용자 디스크 사용량"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "시스템 디스크 사용량"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "개발자"
