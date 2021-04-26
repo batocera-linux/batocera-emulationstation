@@ -974,7 +974,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto firstJoystickOnly = std::make_shared<SwitchComponent>(mWindow);
 	firstJoystickOnly->setState(Settings::getInstance()->getBool("FirstJoystickOnly"));
-	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), invertJoy);
+	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
 #if defined(WIN32)
@@ -2244,20 +2244,18 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 	clearLoadedInput();
 
 	std::vector<std::shared_ptr<OptionListComponent<StrInputConfig *>>> options;
-	char strbuf[256];
+	//char strbuf[256];
 
 	auto configList = InputManager::getInstance()->getInputConfigs();
 
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		std::stringstream sstm;
-		sstm << "INPUT P" << player + 1;
-		std::string confName = sstm.str() + "NAME";
-		std::string confGuid = sstm.str() + "GUID";
-		snprintf(strbuf, 256, _("INPUT P%i").c_str(), player + 1);
+		std::string label = Utils::String::format(_("INPUT P%i").c_str(), player + 1);
+		std::string confName = Utils::String::format("INPUT P%iNAME", player + 1);
+		std::string confGuid = Utils::String::format("INPUT P%iGUID", player + 1);
 
 		LOG(LogInfo) << player + 1 << " " << confName << " " << confGuid;
-		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, strbuf, false);
+		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, label, false);
 		inputOptionList->add(_("default"), nullptr, false);
 		options.push_back(inputOptionList);
 
@@ -2307,7 +2305,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 			inputOptionList->selectFirstItem();
 
 		// Populate controllers list
-		s->addWithLabel(strbuf, inputOptionList);
+		s->addWithLabel(label, inputOptionList);
 	}
 
 	s->addSaveFunc([this, options, window] 
@@ -4110,9 +4108,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 	{
 		if (systemData->hasKeyboardMapping())
-			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 		else
-			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData); });
+			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 	}
 
 	mWindow->pushGui(systemConfiguration);
@@ -4461,7 +4459,7 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 		LOG(LogError) << "Unable to open " << fileName;
 }
 
-void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping)
+void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping, bool editable)
 {
-	window->pushGui(new GuiKeyMappingEditor(window, mapping));
+	window->pushGui(new GuiKeyMappingEditor(window, mapping, editable));
 }

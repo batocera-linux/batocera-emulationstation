@@ -51,7 +51,7 @@ public:
 	static void openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shared_ptr<OptionListComponent<std::string>> theme_set, const std::string systemTheme = "");
 
 	static void updateGameLists(Window* window, bool confirm = true);
-	static void editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping);
+	static void editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping, bool editable);
 
 private:
 	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");

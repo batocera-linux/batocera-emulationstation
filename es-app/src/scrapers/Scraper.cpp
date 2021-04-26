@@ -14,6 +14,9 @@
 #include <thread>
 #include <SDL_timer.h>
 
+#define OVERQUOTA_RETRY_DELAY 15000
+#define OVERQUOTA_RETRY_COUNT 5
+
 std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 {
 #ifdef SCREENSCRAPER_DEV_LOGIN
@@ -138,7 +141,7 @@ void ScraperHttpRequest::update()
 	if (mOverQuotaPendingTime > 0)
 	{
 		int lastTime = SDL_GetTicks();
-		if (lastTime - mOverQuotaPendingTime > 5000)
+		if (lastTime - mOverQuotaPendingTime > OVERQUOTA_RETRY_DELAY)
 		{
 			mOverQuotaPendingTime = 0;
 
@@ -168,7 +171,7 @@ void ScraperHttpRequest::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount > 4)
+		if (mRetryCount >= OVERQUOTA_RETRY_COUNT)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;
@@ -337,6 +340,7 @@ std::unique_ptr<ImageDownloadHandle> MDResolveHandle::downloadImageAsync(const s
 ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::string& path, int maxWidth, int maxHeight) : 
 	mSavePath(path), mMaxWidth(maxWidth), mMaxHeight(maxHeight)
 {
+	mRetryCount = 0;
 	mOverQuotaPendingTime = 0;
 
 	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos) && url.find("media=map") == std::string::npos)
@@ -372,7 +376,7 @@ void ImageDownloadHandle::update()
 	if (mOverQuotaPendingTime > 0)
 	{
 		int lastTime = SDL_GetTicks();
-		if (lastTime - mOverQuotaPendingTime > 5000)
+		if (lastTime - mOverQuotaPendingTime > OVERQUOTA_RETRY_DELAY)
 		{
 			mOverQuotaPendingTime = 0;
 
@@ -394,7 +398,7 @@ void ImageDownloadHandle::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount > 4)
+		if (mRetryCount >= OVERQUOTA_RETRY_COUNT)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;

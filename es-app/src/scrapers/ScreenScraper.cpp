@@ -324,11 +324,11 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 	return true;
 }
 
-pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, std::string region)
+pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::vector<std::string> mediaNames, const std::string& language, const std::string& region)
 {
 	for (std::string media : mediaNames)
 	{
-		pugi::xml_node art = findMedia(media_list, media, region);
+		pugi::xml_node art = findMedia(media_list, media, language, region);
 		if (art)
 			return art;
 	}
@@ -336,7 +336,7 @@ pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::v
 	return pugi::xml_node(NULL);
 }
 
-pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::string mediaName, std::string region)
+pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::string mediaName, const std::string& language, const std::string& region)
 {
 	pugi::xml_node art = pugi::xml_node(NULL);
 
@@ -350,7 +350,7 @@ pugi::xml_node ScreenScraperRequest::findMedia(pugi::xml_node media_list, std::s
 		return art;
 
 	// Region fallback: WOR(LD), US, CUS(TOM?), JP, EU
-	for (auto _region : std::vector<std::string>{ region, "wor", "us", "eu", "jp", "ss", "cus", "" })
+	for (auto _region : std::vector<std::string>{ language, region, "wor", "us", "eu", "jp", "ss", "cus", "" })
 	{
 		if (art)
 			break;
@@ -410,6 +410,8 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		std::string region = Utils::String::toLower(ssConfig.region);
 
+		std::string romlang;
+
 		// Detect ROM region
 		auto info = LangInfo::parse(mFileName, nullptr);
 		if (!info.region.empty())
@@ -441,13 +443,23 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			}
 		}
 
+		if (info.languages.find(language) != info.languages.cend())
+			romlang = language;
+		else if (info.languages.size() == 1)
+			romlang = *info.languages.cbegin();
+		else
+			romlang = region;
+
 		if (game.attribute("id"))
 			result.mdl.set(MetaDataId::ScraperId, game.attribute("id").value());
 		else
 			result.mdl.set(MetaDataId::ScraperId, "");
 
 		// Name fallback: US, WOR(LD). ( Xpath: Data/jeu[0]/noms/nom[*] ). 
-		result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		if (region == "jp" && language != "jp")
+			result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		else
+			result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { romlang, region, "wor", "us" , "ss", "eu", "jp" }).text().get());
 
 		// Description fallback language: EN, WOR(LD)
 		std::string description = find_child_by_attribute_list(game.child("synopsis"), "synopsis", "langue", { language, "en", "wor" }).text().get();
@@ -550,7 +562,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			std::vector<std::string> ripList = getRipList(Settings::getInstance()->getString("ScrapperImageSrc"));
 			if (!ripList.empty())
 			{
-				pugi::xml_node art = findMedia(media_list, ripList, region);
+				pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 				if (art)
 				{
 					// Sending a 'softname' containing space will make the image URLs returned by the API also contain the space. 
@@ -570,7 +582,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList(Settings::getInstance()->getString("ScrapperThumbSrc"));
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::Thumbnail] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -583,7 +595,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList(Settings::getInstance()->getString("ScrapperLogoSrc"));
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::Marquee] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -596,7 +608,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("video");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::Video] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -609,7 +621,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("fanart");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::FanArt] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -622,7 +634,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("box-2D-back");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::BoxBack] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -636,7 +648,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("manuel");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::Manual] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -649,7 +661,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("maps");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::Map] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
@@ -662,7 +674,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 				ripList = getRipList("sstitle");
 				if (!ripList.empty())
 				{
-					pugi::xml_node art = findMedia(media_list, ripList, region);
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
 					if (art)
 						result.urls[MetaDataId::TitleShot] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
