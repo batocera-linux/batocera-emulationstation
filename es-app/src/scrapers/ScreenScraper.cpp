@@ -456,7 +456,10 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			result.mdl.set(MetaDataId::ScraperId, "");
 
 		// Name fallback: US, WOR(LD). ( Xpath: Data/jeu[0]/noms/nom[*] ). 
-		result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { language, region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		if (region == "jp" && language != "jp")
+			result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { region, "wor", "us" , "ss", "eu", "jp" }).text().get());
+		else
+			result.mdl.set(MetaDataId::Name, find_child_by_attribute_list(game.child("noms"), "nom", "region", { romlang, region, "wor", "us" , "ss", "eu", "jp" }).text().get());
 
 		// Description fallback language: EN, WOR(LD)
 		std::string description = find_child_by_attribute_list(game.child("synopsis"), "synopsis", "langue", { language, "en", "wor" }).text().get();
