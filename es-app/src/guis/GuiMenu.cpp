@@ -2244,20 +2244,18 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 	clearLoadedInput();
 
 	std::vector<std::shared_ptr<OptionListComponent<StrInputConfig *>>> options;
-	char strbuf[256];
+	//char strbuf[256];
 
 	auto configList = InputManager::getInstance()->getInputConfigs();
 
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		std::stringstream sstm;
-		sstm << "INPUT P" << player + 1;
-		std::string confName = sstm.str() + "NAME";
-		std::string confGuid = sstm.str() + "GUID";
-		snprintf(strbuf, 256, _("INPUT P%i").c_str(), player + 1);
+		std::string label = Utils::String::format(_("INPUT P%i").c_str(), player + 1);
+		std::string confName = Utils::String::format("INPUT P%iNAME", player + 1);
+		std::string confGuid = Utils::String::format("INPUT P%iGUID", player + 1);
 
 		LOG(LogInfo) << player + 1 << " " << confName << " " << confGuid;
-		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, strbuf, false);
+		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, label, false);
 		inputOptionList->add(_("default"), nullptr, false);
 		options.push_back(inputOptionList);
 
@@ -2307,7 +2305,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 			inputOptionList->selectFirstItem();
 
 		// Populate controllers list
-		s->addWithLabel(strbuf, inputOptionList);
+		s->addWithLabel(label, inputOptionList);
 	}
 
 	s->addSaveFunc([this, options, window] 

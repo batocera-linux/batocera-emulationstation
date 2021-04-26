@@ -106,9 +106,9 @@ void ViewController::goToStart(bool forceImmediate)
 	}
 
 	if (startOnGamelist)
-		goToGameList(SystemData::sSystemVector.at(0), forceImmediate);
+		goToGameList(SystemData::getFirstVisibleSystem(), forceImmediate);
 	else
-		goToSystemView(SystemData::sSystemVector.at(0));
+		goToSystemView(SystemData::getFirstVisibleSystem());
 }
 
 void ViewController::ReloadAndGoToStart()
@@ -121,8 +121,19 @@ void ViewController::ReloadAndGoToStart()
 
 int ViewController::getSystemId(SystemData* system)
 {
-	std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
-	return (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
+	int id = 0;
+	for (auto sys : SystemData::sSystemVector)
+	{
+		if (!sys->isVisible())
+			continue;
+
+		if (system == sys)
+			return id;
+
+		id++;
+	}
+
+	return -1;
 }
 
 void ViewController::goToSystemView(std::string& systemName, bool forceImmediate, ViewController::ViewMode mode)
@@ -159,15 +170,18 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 
 	// Tell any current view it's about to be hidden
 	if (mCurrentView)
-	{
 		mCurrentView->onHide();
-	}
+
+	auto systemList = getSystemListView();
+
+	if (mState.viewing == GAME_LIST && mCurrentView)
+		systemList->setPosition(mCurrentView->getPosition().x(), systemList->getPosition().y());
+	else
+		systemList->setPosition(getSystemId(dest) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
 
 	mState.viewing = SYSTEM_SELECT;
 	mState.system = dest;
-	
-	auto systemList = getSystemListView();
-	systemList->setPosition(getSystemId(dest) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
+
 	systemList->goToSystem(dest, false);
 
 	mCurrentView = systemList;
@@ -212,7 +226,7 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 	if (system == nullptr)
 		return;
 
-	SystemData* moveToBundle = nullptr;
+	SystemData* destinationSystem = system;
 	FolderData* collectionFolder = nullptr;
 
 	if (system->isCollection())
@@ -225,28 +239,74 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 				if (child->getType() == FOLDER && child->getName() == system->getName())
 				{
 					collectionFolder = (FolderData*)child;
-					moveToBundle = bundle;
+					destinationSystem = bundle;
 					break;
 				}
 			}
 		}
 	}
 
+	std::shared_ptr<IGameListView> view = getGameListView(destinationSystem);
+
 	if(mState.viewing == SYSTEM_SELECT)
 	{
 		// move system list
 		auto sysList = getSystemListView();
 		float offX = sysList->getPosition().x();
-		int sysId = getSystemId(moveToBundle == nullptr ? system : moveToBundle);
-		sysList->setPosition(sysId * (float)Renderer::getScreenWidth(), sysList->getPosition().y());
+		sysList->setPosition(view->getPosition().x(), sysList->getPosition().y());
 		offX = sysList->getPosition().x() - offX;
 		mCamera.translation().x() -= offX;
-	}
+	}	
+	else if (mState.viewing == GAME_LIST && mState.system != nullptr)
+	{
+		// Realign current view to center
+		auto currentView = getGameListView(mState.system, false);
+		if (currentView != nullptr)
+		{
+			int currentIndex = 0;
 
+			std::vector<std::pair<int, SystemData*>> ids;
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (sys->isVisible())
+				{
+					if (sys == destinationSystem)
+						currentIndex = ids.size();
+
+					ids.push_back(std::pair<int, SystemData*>(ids.size(), sys));
+				}
+			}
+
+			if (ids.size() > 2)
+			{
+				int rotateBy = (ids.size() / 2) - currentIndex;
+				if (rotateBy != 0)
+				{
+					if (rotateBy < 0)
+						std::rotate(ids.begin(), ids.begin() - rotateBy, ids.end());
+					else
+						std::rotate(ids.rbegin(), ids.rbegin() + rotateBy, ids.rend());
+
+					for (auto gameList : mGameListViews)
+					{
+						for (int idx = 0; idx < ids.size(); idx++)
+						{
+							if (gameList.first == ids[idx].second)
+							{
+								gameList.second->setPosition(idx * (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight() * 2);
+								break;
+							}
+						}
+					}
+
+					mCamera.translation().x() = -currentView->getPosition().x();
+				}
+			}
+		}
+	}	
+	
 	mState.viewing = GAME_LIST;
-	mState.system = moveToBundle == nullptr ? system : moveToBundle;
-
-	std::shared_ptr<IGameListView> view = getGameListView(moveToBundle == nullptr ? system : moveToBundle);
+	mState.system = destinationSystem;
 	
 	if (collectionFolder != nullptr)
 	{
@@ -713,8 +773,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 	}
 	else
 	{
-		std::vector<SystemData*>& sysVec = SystemData::sSystemVector;
-		int id = (int)(std::find(sysVec.cbegin(), sysVec.cend(), system) - sysVec.cbegin());
+		int id = getSystemId(system);
 		view->setPosition(id * (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight() * 2);
 
 		addChild(view.get());
@@ -881,7 +940,7 @@ void ViewController::preload()
 
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{		
-		if ((*it)->isGroupChildSystem())
+		if ((*it)->isGroupChildSystem() || !(*it)->isVisible())
 			continue;
 
 		if (splash)
@@ -1088,7 +1147,17 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 		window->renderSplashScreen(_("Loading..."));
 
 	if (SystemData::sSystemVector.size() > 0)
-		ViewController::get()->onThemeChanged(SystemData::sSystemVector.at(0)->getTheme());
+	{
+		for (auto sys : SystemData::sSystemVector)
+		{
+			auto theme = sys->getTheme();
+			if (theme != nullptr)
+			{
+				ViewController::get()->onThemeChanged(theme);
+				break;
+			}
+		}	
+	}
 
 	// Rebuild SystemListView
 	mSystemListView.reset();
@@ -1101,12 +1170,12 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	}
 	else if(mState.viewing == SYSTEM_SELECT && system != nullptr)
 	{
-		goToSystemView(SystemData::sSystemVector.front());
+		goToSystemView(system);
 		mSystemListView->goToSystem(system, false);
 		mCurrentView = mSystemListView;
 	}
 	else
-		goToSystemView(SystemData::sSystemVector.front());	
+		goToSystemView(SystemData::getFirstVisibleSystem());
 
 	if (mCurrentView != nullptr)
 		mCurrentView->onShow();
