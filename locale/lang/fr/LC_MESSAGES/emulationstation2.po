@@ -884,7 +884,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "SAUVEGARDES INSTANTANÉES"
 
 msgid "OPEN"
-msgstr ""
+msgstr "OUVRIR"
 
 msgid "START NETPLAY HOST"
 msgstr "DÉMARRER L’HÔTE PARTIES EN RÉSEAU"
@@ -911,10 +911,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "TROUVER LES JEUX SIMILAIRES…"
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "SUPPRIMER L'ÉLEMENT"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "SUPPRIMER LE JEU"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -936,7 +936,7 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "AJOUTER A UNE COLLECTION..."
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
@@ -1235,13 +1235,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL VENDOR"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL RENDERER"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -2039,8 +2039,8 @@ msgstr "Nombre de parties"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ce dossier contient %i jeu, incluant :%s"
+msgstr[1] "Ce dossier contient %i jeux, incluant :%s"
 
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
