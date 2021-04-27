@@ -186,7 +186,7 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		if (!loadInputConfig(mInputConfigs[joyId]))
 			LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ").";
 		else
-			LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (instance ID: " << joyId << ", device index: " << idx << ")";
+			LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ")";
 
 		// set up the prevAxisValues
 		int numAxes = SDL_JoystickNumAxes(joy);
@@ -628,9 +628,8 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 {
 	std::unique_lock<std::mutex> lock(mJoysticksLock);
 
-	// 1 recuperer les configurated
+	// 1. Recuperer les configurated
 	std::vector<InputConfig *> availableConfigured;
-
 	for (auto conf : mInputConfigs)
 		if (conf.second != nullptr && conf.second->isConfigured())
 			availableConfigured.push_back(conf.second);
@@ -638,7 +637,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// sort available configs
 	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceIndex() < b->getDeviceIndex(); });
 
-	//2 pour chaque joueur verifier si il y a un configurated
+	// 2. Pour chaque joueur verifier si il y a un configurated
 	// associer le input au joueur
 	// enlever des disponibles
 	std::map<int, InputConfig*> playerJoysticks;
@@ -646,41 +645,33 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// First loop, search for GUID + NAME. High Priority
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		std::stringstream sstm;
-		sstm << "INPUT P" << player + 1;
-		std::string confName = sstm.str() + "NAME";
-		std::string confGuid = sstm.str() + "GUID";
-
-		std::string playerConfigName = Settings::getInstance()->getString(confName);
-		std::string playerConfigGuid = Settings::getInstance()->getString(confGuid);
+		std::string playerConfigName = Settings::getInstance()->getString(Utils::String::format("INPUT P%iNAME", player + 1));
+		std::string playerConfigGuid = Settings::getInstance()->getString(Utils::String::format("INPUT P%iGUID", player + 1));
 
 		for (auto it1 = availableConfigured.begin(); it1 != availableConfigured.end(); ++it1)
 		{
-			InputConfig * config = *it1;
-			bool nameFound = playerConfigName.compare(config->getDeviceName()) == 0;
-			bool guidfound = playerConfigGuid.compare(config->getDeviceGUIDString()) == 0;
-
-			if (nameFound && guidfound) {
+			InputConfig* config = *it1;
+			if (playerConfigName == config->getDeviceName() && playerConfigGuid == config->getDeviceGUIDString())
+			{
 				availableConfigured.erase(it1);
 				playerJoysticks[player] = config;
 				break;
 			}
 		}
 	}
+
 	// Second loop, search for NAME. Low Priority
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		std::stringstream sstm;
-		sstm << "INPUT P" << player + 1;
-		std::string confName = sstm.str() + "NAME";
+		if (playerJoysticks[player] != nullptr)
+			continue;
 
-		std::string playerConfigName = Settings::getInstance()->getString(confName);
+		std::string playerConfigName = Settings::getInstance()->getString(Utils::String::format("INPUT P%dNAME", player + 1));
 
 		for (auto it1 = availableConfigured.begin(); it1 != availableConfigured.end(); ++it1)
 		{
 			InputConfig * config = *it1;
-			bool nameFound = playerConfigName.compare(config->getDeviceName()) == 0;
-			if (nameFound) 
+			if (playerConfigName == config->getDeviceName())
 			{
 				availableConfigured.erase(it1);
 				playerJoysticks[player] = config;
@@ -692,32 +683,32 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// Last loop, search for free controllers for remaining players.
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
+		if (playerJoysticks[player] != nullptr)
+			continue;
+
 		// si aucune config a été trouvé pour le joueur, on essaie de lui filer un libre
-		if (playerJoysticks[player] == NULL) 
+		for (auto it1 = availableConfigured.begin(); it1 != availableConfigured.end(); ++it1)
 		{
-			for (auto it1 = availableConfigured.begin(); it1 != availableConfigured.end(); ++it1)
-			{
-				playerJoysticks[player] = *it1;
-				availableConfigured.erase(it1);
-				break;
-			}
+			playerJoysticks[player] = *it1;
+			availableConfigured.erase(it1);
+			break;
 		}
 	}
 
 	// in case of hole (player 1 missing, but player 4 set, fill the holes with last players joysticks)
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		if (playerJoysticks[player] == NULL) 
+		if (playerJoysticks[player] != nullptr)
+			continue;
+
+		for (int repplayer = MAX_PLAYERS; repplayer > player; repplayer--) 
 		{
-			for (int repplayer = MAX_PLAYERS; repplayer > player; repplayer--) 
+			if (playerJoysticks[player] == NULL && playerJoysticks[repplayer] != NULL) 
 			{
-				if (playerJoysticks[player] == NULL && playerJoysticks[repplayer] != NULL) 
-				{
-					playerJoysticks[player] = playerJoysticks[repplayer];
-					playerJoysticks[repplayer] = NULL;
-				}
+				playerJoysticks[player] = playerJoysticks[repplayer];
+				playerJoysticks[repplayer] = NULL;
 			}
-		}
+		}		
 	}
 
 	return playerJoysticks;

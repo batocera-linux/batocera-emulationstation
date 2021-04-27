@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "automatikus"
 msgid "VIEW CUSTOMISATION"
 msgstr ""
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr ""
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "HALADÓ RENDSZER BEÁLLÍTÁSOK"
 
@@ -955,9 +958,6 @@ msgstr "KÖNYVTÁR METAADATAINAK SZERKESZTÉSE"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
-
 msgid "THEMES DOWNLOADER"
 msgstr "TÉMA LETÖLTŐ"
 
@@ -1235,6 +1235,15 @@ msgstr "FELHASZNÁLÓI TÁRHELY HASZNÁLAT"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "RENDSZER TÁRHELY HASZNÁLAT"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "FEJLESZTŐ"

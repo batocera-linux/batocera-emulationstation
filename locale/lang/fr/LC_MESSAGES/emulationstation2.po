@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -515,6 +515,9 @@ msgstr "automatique"
 msgid "VIEW CUSTOMISATION"
 msgstr "VOIR LES PERSONNALISATIONS"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VOIR LA CONFIGURATION PADTOKEY"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
@@ -881,7 +884,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "SAUVEGARDES INSTANTANÉES"
 
 msgid "OPEN"
-msgstr ""
+msgstr "OUVRIR"
 
 msgid "START NETPLAY HOST"
 msgstr "DÉMARRER L’HÔTE PARTIES EN RÉSEAU"
@@ -908,10 +911,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "TROUVER LES JEUX SIMILAIRES…"
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "SUPPRIMER L'ÉLEMENT"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "SUPPRIMER LE JEU"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -933,7 +936,7 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "AJOUTER A UNE COLLECTION..."
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
@@ -952,9 +955,6 @@ msgstr "ÉDITER LES MÉTADONNÉES DU DOSSIER"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VOIR LA CONFIGURATION PADTOKEY"
 
 msgid "THEMES DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE THÈMES"
@@ -1233,6 +1233,15 @@ msgstr "DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
+
+msgid "GL VENDOR"
+msgstr "GL VENDOR"
+
+msgid "GL RENDERER"
+msgstr "GL RENDERER"
+
+msgid "GL VERSION"
+msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -2030,8 +2039,8 @@ msgstr "Nombre de parties"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ce dossier contient %i jeu, incluant :%s"
+msgstr[1] "Ce dossier contient %i jeux, incluant :%s"
 
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"

@@ -249,6 +249,8 @@ void SystemView::populate()
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		const std::shared_ptr<ThemeData>& theme = (*it)->getTheme();
+		if (theme == nullptr)
+			continue;
 
 		if(mViewNeedsReload)
 			getViewElements(theme);

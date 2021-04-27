@@ -47,6 +47,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	if (pEmulators != nullptr)
 		mEmulators = *pEmulators; // batocera
 
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+	mHidden = (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend());
+		
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if (!CollectionSystem && !mIsGroupSystem)
 	{
@@ -61,9 +64,12 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 			populateFolder(mRootFolder, fileMap);
 			if (mRootFolder->getChildren().size() == 0)
 				return;
+
+			if (mHidden && !Settings::getInstance()->getBool("HiddenSystemsShowGames"))
+				return;			
 		}
 
-		if(!Settings::getInstance()->getBool("IgnoreGamelist")) // && !hasPlatformId(PlatformIds::IMAGEVIEWER))
+		if (!Settings::getInstance()->getBool("IgnoreGamelist")) // && !hasPlatformId(PlatformIds::IMAGEVIEWER))
 			parseGamelist(this, fileMap);
 	}
 	else
@@ -981,8 +987,15 @@ bool SystemData::loadConfig(Window* window)
 
 		CollectionSystemManager::get()->updateSystemsList();
 
-		auto theme = SystemData::sSystemVector.at(0)->getTheme();
-		ViewController::get()->onThemeChanged(theme);		
+		for (auto sys : SystemData::sSystemVector)
+		{
+			auto theme = sys->getTheme();
+			if (theme != nullptr)
+			{
+				ViewController::get()->onThemeChanged(theme);
+				break;
+			}
+		}
 	}
 
 	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
@@ -1329,21 +1342,14 @@ std::string SystemData::getConfigPath(bool forWrite)
 
 bool SystemData::isVisible()
 {
+	if (mIsCollectionSystem && (mMetadata.name == "favorites" || UIModeController::getInstance()->isUIModeFull()))
+		return true;
+
 	if (isGroupChildSystem())
 		return false;
 
-	if ((getGameCountInfo()->totalGames > 0 ||
-		(UIModeController::getInstance()->isUIModeFull() && mIsCollectionSystem) ||
-		(mIsCollectionSystem && mMetadata.name == "favorites")))
-	{
-		if (!mIsCollectionSystem)
-		{
-			auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
-			return std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) == hiddenSystems.cend();
-		}
-
+	if (!mHidden && !mIsCollectionSystem && getGameCountInfo()->totalGames > 0)
 		return true;
-	}
 
 	return false;
 }
@@ -1895,6 +1901,15 @@ SystemData* SystemData::getSystem(const std::string name)
 {
 	for (auto sys : SystemData::sSystemVector)
 		if (sys->getName() == name)
+			return sys;
+
+	return nullptr;
+}
+
+SystemData* SystemData::getFirstVisibleSystem()
+{
+	for (auto sys : SystemData::sSystemVector)
+		if (sys->mTheme != nullptr && sys->isVisible())
 			return sys;
 
 	return nullptr;

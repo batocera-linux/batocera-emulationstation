@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -520,6 +520,9 @@ msgstr "awtomatig"
 msgid "VIEW CUSTOMISATION"
 msgstr "GWELD ADDASIADAU"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "OPSIYNAU SYSTEM UWCH"
 
@@ -960,9 +963,6 @@ msgstr "GOLYGU FFOLDER METADATA"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "GOLYGU METADATA Y GÊM HWN"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
-
 msgid "THEMES DOWNLOADER"
 msgstr "LAWRLWYTHWR THEMAU"
 
@@ -1240,6 +1240,15 @@ msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEM DISG A DEFNYDDIWYD"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DATBLYGWR"

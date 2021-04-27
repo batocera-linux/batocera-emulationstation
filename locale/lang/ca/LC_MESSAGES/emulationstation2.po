@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -562,9 +562,6 @@ msgstr "CREAR CONFIGURACIÓ DE COMANDAMENT A TECLAT"
 msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR CARPETA DE METADADES"
 
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITA LES METADADES D'AQUEST JOC"
-
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VEURE INFORMACIÓ DE COMANDAMENT A TECLAT"
 
@@ -953,6 +950,9 @@ msgstr ""
 msgid "SCRAPE"
 msgstr "OBTÉ DADES"
 
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITA LES METADADES D'AQUEST JOC"
+
 msgid "THEMES DOWNLOADER"
 msgstr ""
 
@@ -1230,6 +1230,15 @@ msgstr "ESPAI DE DISC USAT PER L'USUARI"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ESPAI DE DISC USAT PEL SISTEMA"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DESENVOLUPADOR"

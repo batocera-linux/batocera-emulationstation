@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-23 07:28+0200\n"
+"POT-Creation-Date: 2021-04-26 21:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -517,6 +517,9 @@ msgstr "automatycznie"
 msgid "VIEW CUSTOMISATION"
 msgstr "DOSTOSOWYWANIE WIDOKU"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ZOBACZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE SYSTEMOWE"
 
@@ -957,9 +960,6 @@ msgstr "EDYTOWANIE METADANYCH FOLDERU"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ZOBACZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
-
 msgid "THEMES DOWNLOADER"
 msgstr "POBIERACZ MOTYWÓW"
 
@@ -1237,6 +1237,15 @@ msgstr "UŻYCIE DYSKU UŻYTKOWNIKA"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "UŻYCIE DYSKU SYSTEMOWEGO"
+
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"

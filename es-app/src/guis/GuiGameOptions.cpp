@@ -331,7 +331,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				mMenu.addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
 				{ 
-					GuiMenu::editKeyboardMappings(mWindow, game); 
+					GuiMenu::editKeyboardMappings(mWindow, game, true); 
 					close();
 				});
 			}
@@ -339,7 +339,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				mMenu.addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
 				{ 
-					GuiMenu::editKeyboardMappings(mWindow, game); 
+					GuiMenu::editKeyboardMappings(mWindow, game, true);
 					close();
 				});
 			}
@@ -373,7 +373,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	{
 		mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), false, [this, game]
 		{ 
-			GuiMenu::editKeyboardMappings(mWindow, game);
+			GuiMenu::editKeyboardMappings(mWindow, game, false);
 			close();
 		});
 	}

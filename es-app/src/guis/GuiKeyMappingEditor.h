@@ -42,7 +42,7 @@ private:
 class GuiKeyMappingEditor : public GuiComponent
 {
 public:
-	GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping);
+	GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping, bool editable);
 
 	bool input(InputConfig* config, Input input) override;
 	void save();
@@ -77,4 +77,6 @@ private:
 	bool							mDirty;
 
 	std::vector<MappingInfo>		mMappingNames;
+
+	bool							mEditable;
 };

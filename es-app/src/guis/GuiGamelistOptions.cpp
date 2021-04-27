@@ -318,6 +318,22 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			if (showSystemOptions)
 			{
 				mMenu.addGroup(_("OPTIONS"));
+
+				if (file && file->hasKeyboardMapping())
+				{
+					mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), true, [this, file]
+					{
+						GuiMenu::editKeyboardMappings(mWindow, file, false);
+					});
+				}
+				else if (srcSystem->getKeyboardMapping().isValid())
+				{
+					mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), true, [this, srcSystem]
+					{
+						GuiMenu::editKeyboardMappings(mWindow, srcSystem, false);
+					});
+				}
+
 				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
 			}
 		}

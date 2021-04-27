@@ -67,10 +67,14 @@ void GuiKeyMappingEditor::initMappingNames()
 	};
 }
 
-GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping)
+GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* mapping, bool editable)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
 {
 	initMappingNames();
+
+	mEditable = editable;
+	if (!UIModeController::getInstance()->isUIModeFull())
+		mEditable = false;
 
 	mPlayer = 0;
 	mMapping = mapping->getKeyboardMapping();
@@ -94,7 +98,7 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("PAD TO KEYBOARD CONFIGURATION"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
 	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT ACTIONS TO CHANGE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 
-	if (!UIModeController::getInstance()->isUIModeFull())
+	if (!mEditable)
 		mSubtitle->setText("");
 
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
@@ -113,7 +117,7 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
 
-	if (UIModeController::getInstance()->isUIModeFull())
+	if (mEditable)
 	{
 		buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("SAVE"), _("SAVE"), [this] {  save(); delete this; }));
 
@@ -222,10 +226,10 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		ComponentListRow row;
 
 		KeyMappingFile::KeyMapping km = mMapping.getKeyMapping(mPlayer, mappingName.name);
-		if (!UIModeController::getInstance()->isUIModeFull() && km.targets.size() == 0)
+		if (!mEditable && km.targets.size() == 0)
 			continue;
 
-		if (!gp && mappingName.name.find("+") != std::string::npos && UIModeController::getInstance()->isUIModeFull())
+		if (!gp && mappingName.name.find("+") != std::string::npos && mEditable)
 		{
 			mList->addGroup(_("COMBINATIONS"));
 			gp = true;
@@ -244,7 +248,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		auto grid = std::make_shared<GuiKeyMappingEditorEntry>(mWindow, mappingName, km);
 		row.addElement(grid, true);
 
-		if (UIModeController::getInstance()->isUIModeFull())
+		if (mEditable)
 		{
 			row.makeAcceptInputHandler([this, km, mappingName, accept]
 			{
@@ -260,7 +264,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		i++;
 	}
 
-	if (UIModeController::getInstance()->isUIModeFull())
+	if (mEditable || !mouseMapping.empty())
 	{
 		mList->addGroup(_("MOUSE CURSOR"));
 		i++;
@@ -272,25 +276,36 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		auto text = std::make_shared<TextComponent>(mWindow, _("EMULATE MOUSE CURSOR"), theme->Text.font, theme->Text.color);
 		mouseRow.addElement(text, true);
 
-		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
-
-		imageSource->addRange({
-			{ _("NO"), "" },
-			{ _("LEFT ANALOG STICK") , "joystick1" },
-			{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
-
-		mouseRow.addElement(imageSource, false, true);
-
-		mList->addRow(mouseRow, idx > 0 && last);
-
-		imageSource->setSelectedChangedCallback([this](const std::string& name)
+		if (mEditable)
 		{
-			if (mMapping.setMouseMapping(mPlayer, name))
+			auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("EMULATE MOUSE CURSOR"));
+
+			imageSource->addRange({
+				{ _("NO"), "" },
+				{ _("LEFT ANALOG STICK") , "joystick1" },
+				{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
+
+			mouseRow.addElement(imageSource, false, true);
+
+			mList->addRow(mouseRow, idx > 0 && last);
+
+			imageSource->setSelectedChangedCallback([this](const std::string& name)
 			{
-				mDirty = true;
-				loadList(true);
-			}
-		});
+				if (mMapping.setMouseMapping(mPlayer, name))
+				{
+					mDirty = true;
+					loadList(true);
+				}
+			});
+		}
+		else
+		{
+			auto info = std::make_shared<TextComponent>(mWindow, mouseMapping == "joystick1" ? _("LEFT ANALOG STICK") : _("RIGHT ANALOG STICK"), theme->Text.font, theme->Text.color);
+			info->setPadding(Vector4f(0, 0, Renderer::getScreenWidth() * 0.01f, 0));
+			mouseRow.addElement(info, false, true);
+			mList->addRow(mouseRow, idx > 0 && last);
+		}
+
 		i++;
 	}
 

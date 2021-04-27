@@ -151,6 +151,7 @@ public:
 	~SystemData();
 
 	static SystemData* getSystem(const std::string name);
+	static SystemData* getFirstVisibleSystem();
 
 	static bool es_features_loaded;
 
@@ -341,6 +342,8 @@ private:
 
 	GameCountInfo* mGameCountInfo;
 	SaveStateRepository* mSaveRepository;
+
+	bool mHidden;
 };
 
 #endif // ES_APP_SYSTEM_DATA_H
