@@ -1237,13 +1237,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "FABRICANTE DA PLACA GRÁFICA"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR DA PLACA GRÁFICA"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "VERSÃO DA PLACA GRÁFICA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
