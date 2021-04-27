@@ -884,7 +884,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "SALVAR PARTIDAS"
 
 msgid "OPEN"
-msgstr ""
+msgstr "ABRIR"
 
 msgid "START NETPLAY HOST"
 msgstr "INICIAR NETPLAY COMO SERVIDOR"
@@ -1238,13 +1238,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "FABRICANTE DA PLACA DE VÍDEO"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR DA PLACA DE VÍDEO"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "VERSÃO DA PLACA DE VÍDEO"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
