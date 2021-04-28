@@ -119,11 +119,12 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ MOONLIGHT, 138 }, // "PC Windows"
 	{ MODEL3, 55 },
 	{ TI99, 205 },
+	{ WATARA, 207 },
 
 	// Windows
 	{ VISUALPINBALL, 198 },
 	{ FUTUREPINBALL, 199 },
-
+	
 	// Misc
 	{ VIC20, 73 },
 	{ ORICATMOS, 131 },

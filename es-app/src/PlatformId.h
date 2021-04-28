@@ -121,6 +121,7 @@ namespace PlatformIds
 		DAPHNE,
 		SOLARUS,
 		PICO8,
+		WATARA,
 
 		VIC20,
 		TI99,
