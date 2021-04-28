@@ -167,7 +167,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	if (saves)
 		after.push_back(SAVESTATE);
 
-	bool manual = mShowManualIcon && !fd->getMetadata(MetaDataId::Manual).empty();
+	bool manual = mShowManualIcon && (!fd->getMetadata(MetaDataId::Manual).empty() || !fd->getMetadata(MetaDataId::Magazine).empty());
 	if (manual)
 		after.push_back(MANUAL);
 

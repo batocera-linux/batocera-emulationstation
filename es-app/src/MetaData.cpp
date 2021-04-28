@@ -43,6 +43,7 @@ void MetaDataList::initMetadata()
 		{ FanArt,           "fanart",      MD_PATH,                "",                 false,      _("Fan art"),              _("enter path to fanart"),	 true },
 		{ TitleShot,        "titleshot",   MD_PATH,                "",                 false,      _("Title shot"),           _("enter path to title shot"), true },
 		{ Manual,			"manual",	   MD_PATH,                "",                 false,      _("Manual"),               _("enter path to manual"),     true },
+		{ Magazine,			"magazine",	   MD_PATH,                "",                 false,      _("Magazine"),             _("enter path to magazine"),     true },
 		{ Map,			    "map",	       MD_PATH,                "",                 false,      _("Map"),                  _("enter path to map"),		 true },
 
 		// Non scrappable /editable medias

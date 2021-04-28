@@ -49,6 +49,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	bool isImageViewer = game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER);
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Manual));
+	bool hasMagazine = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Magazine));
 	bool hasMap = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Map));
 	bool hasCheevos = game->hasCheevos();
 
@@ -64,6 +65,15 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				close();
 			});
 		}
+
+		if (hasMagazine)
+		{
+			mMenu.addEntry(_("VIEW GAME MAGAZINE"), false, [window, game, this]
+			{
+				GuiImageViewer::showPdf(window, game->getMetadata(MetaDataId::Magazine));
+				close();
+			});
+		}		
 
 		if (hasMap)
 		{
