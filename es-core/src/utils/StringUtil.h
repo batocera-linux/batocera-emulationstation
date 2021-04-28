@@ -53,4 +53,10 @@ namespace Utils
 
 } // Utils::
 
+#if defined(_WIN32)
+#define WINSTRINGW(x) Utils::String::convertToWideString(x)
+#else
+#define WINSTRINGW(x) x
+#endif
+
 #endif // ES_CORE_UTILS_STRING_UTIL_H

@@ -871,6 +871,12 @@ void GuiMenu::openDeveloperSettings()
 	
 	s->addGroup(_("DATA MANAGEMENT"));
 
+	// ExcludeMultiDiskContent
+	auto excludeMultiDiskContent = std::make_shared<SwitchComponent>(mWindow);
+	excludeMultiDiskContent->setState(Settings::getInstance()->getBool("RemoveMultiDiskContent"));
+	s->addWithLabel(_("IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"), excludeMultiDiskContent);
+	s->addSaveFunc([excludeMultiDiskContent] { Settings::getInstance()->setBool("RemoveMultiDiskContent", excludeMultiDiskContent->getState()); });
+
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
 	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
@@ -892,12 +898,11 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
 	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
 
-
+	// Local Art
 	auto local_art = std::make_shared<SwitchComponent>(mWindow);
 	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
-
 
 	s->addGroup(_("UI"));
 

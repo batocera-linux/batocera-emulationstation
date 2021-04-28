@@ -1270,11 +1270,7 @@ namespace Utils
 
 		std::string	readAllText(const std::string fileName)
 		{
-#if defined(_WIN32)
-			std::ifstream t(Utils::String::convertToWideString(fileName));
-#else
-			std::ifstream t(fileName);
-#endif
+			std::ifstream t(WINSTRINGW(fileName));
 
 			std::stringstream buffer;
 			buffer << t.rdbuf();
@@ -1320,6 +1316,8 @@ namespace Utils
 			// don't remove if it doesn't exists
 			if (!exists(path))
 				return true;
+
+			Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(pathD));
 
 			char buf[512];
 			size_t size;
