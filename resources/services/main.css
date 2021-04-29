@@ -1,0 +1,44 @@
+html, body { 
+	margin:0px; 
+	padding:0px; 
+	font-family: Open Sans, sans-serif; 
+	font-size:12px;
+	height:100%;
+	overflow:hidden;
+}
+
+.title { 
+	background-color:#F0F0F0; 	
+	padding:4px 8px;
+	text-align: left;
+	font-size:16px;
+}
+
+.desc { 
+	color:#A0A0A0; 	
+	font-size:8px;
+	text-overflow: ellipsis;
+  overflow: hidden;
+  height:22px
+}
+
+.system:hover {
+	background-color:#303030;
+}
+
+.toolbar {
+	background-color:#304070FF;
+}
+
+.toolbarbutton {
+	color:white;
+	background-color:#304070FF;
+	border:none;
+	font-size:12px;
+	padding:6px 8px;
+}
+
+
+.toolbarbutton:hover {
+	background-color:#405080FF;
+}

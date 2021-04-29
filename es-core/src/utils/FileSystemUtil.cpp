@@ -1277,18 +1277,21 @@ namespace Utils
 			return buffer.str();
 		}
 
-		void writeAllText(const std::string fileName, const std::string text)
+		void writeAllText(const std::string& fileName, const std::string& text)
 		{
-			std::fstream fs;
-
 #if defined(_WIN32)
-			fs.open(Utils::String::convertToWideString(fileName), std::fstream::out);
+			FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"wb");
 #else
-			fs.open(fileName.c_str(), std::fstream::out);
+			FILE* file = fopen(fileName.c_str(), "rb");
 #endif
+			if (file == nullptr)
+				return;		
 
-			fs << text;
-			fs.close();
+			void* buffer = (void*) text.data();
+			size_t size = text.size();
+
+			fwrite(buffer, 1, size, file);
+			fclose(file);
 		}
 
 		bool renameFile(const std::string src, const std::string dst, bool overWrite)

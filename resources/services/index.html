@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>			
+	<title>EmulationStation Web services</title>
+	<link rel="shortcut icon" href="favicon.png">
+	<link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="title">
+	<img height="24" style="vertical-align: middle;" src="favicon.png">
+	<span>EmulationStation Web services</span>
+</div>
+
+<script type='text/javascript'>
+
+function quitES() {
+	var xhr = new XMLHttpRequest();			
+	xhr.open('GET', '/quit');
+	xhr.send(); 
+}
+
+function reloadGamelists() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '/reloadgames');
+	xhr.send(); 
+}
+
+function showGames(arr) {
+    var out = "<table width=100% border=0 cellpadding=4 cellspacing=0>";
+    var i;
+    for(i = 0; i < arr.length; i++) {	
+		out += '<tr class="system">';		
+		out += '<td width="72px" align="center"><img height=48 style="max-width:100px" src="' + arr[i].image + '"></td>';		
+		out += '<td>';
+		out += '<table width=100%>';
+		out += '<tr><td>' + arr[i].name + '</td></tr>';
+		if (arr[i].desc) {
+			out += '<tr><td><div class="desc">' + arr[i].desc + '</div></td></tr>';
+		}
+		out += '</table>';
+		out += '</td>';
+		out += '<tr/>';
+    }
+	
+	out += "</table>";
+    document.getElementById("gameList").innerHTML = out;
+}
+
+
+function loadGames(name) {
+	var xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var myArr = JSON.parse(this.responseText);
+			showGames(myArr);
+		}
+	};
+
+	xhr.open('GET', '/systems/' + name + '/games');
+	xhr.send(); 
+	
+}
+
+
+var xmlhttp = new XMLHttpRequest();
+var url = "/systems";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        showSystems(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function showSystems(arr) {
+    var out = "<table width=30% cellpadding=8>";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+	
+		if (arr[i].visible == "true") {
+			out += '<tr class="system">';
+			if (arr[i].logo) {
+				out += '<td align="center"><a onclick="javascript:loadGames(\''+ arr[i].name +'\')" href="#"><img height=25 style="max-width:100px" src="' + arr[i].logo + '"></a></td>';
+			} else {
+				out += '<td align="center">' + arr[i].fullname + '</td>';
+			}
+			
+		//	out += '<td>Games : ' + arr[i].totalGames + '</td>';
+			
+			out += '<tr/>';
+		}
+    }
+	
+	out += "</table>";
+    document.getElementById("systemList").innerHTML = out;
+}
+</script>
+
+<!-- <img src="resources/vid.jpg"/> -->
+
+<div id="toolbar" class="toolbar">
+	<input class="toolbarbutton" type='button' value='Reload games' onClick='reloadGamelists()'/>
+	<input class="toolbarbutton" type='button' value='Exit EmulationStation' onClick='quitES()'/>
+</div>
+
+<table height='100%' width='100%' cellpadding=0 cellspacing=0 border=0>
+<tr>
+ <td valign="top" width='120px'>
+ 
+
+   <div id="systemList" style="color:white;background-color:#202020; overflow-y:scroll"></div>
+ </td>
+ <td valign="top">
+   <div id="gameList" style="height:300px;color:white;background-color:#202020; overflow-y:scroll"></div>
+ </td>
+</tr> 
+</table>
+
+
+<script type='text/javascript'>
+function resize() {
+	var heights = window.innerHeight;	
+	var toolbar = document.getElementById("toolbar");
+	
+	var systemList = document.getElementById("systemList");
+	if (systemList) {
+		systemList.style.height = (heights - toolbar.offsetTop - toolbar.offsetHeight) + "px";
+	}
+	
+	var systemList = document.getElementById("gameList");
+	if (gameList) {
+		gameList.style.height = (heights - toolbar.offsetTop - toolbar.offsetHeight) + "px";
+	}
+}
+
+resize();
+window.onresize = function() { 	resize(); };		
+</script>
+</body>
+</html>
