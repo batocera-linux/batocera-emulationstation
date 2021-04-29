@@ -287,6 +287,7 @@ public:
 	bool getShowFavoritesIcon();
 	bool getShowCheevosIcon();
 	int  getShowFlags();
+	std::string getFolderViewMode();
 	bool getBoolSetting(const std::string& settingName);
 
 	static void resetSettings();

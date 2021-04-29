@@ -87,7 +87,10 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_DESCENDING;
 
-	mShowSystemName = system->isGroupSystem() || system->isCollection() && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+	mShowSystemName = (system->isGroupSystem() || system->isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+
+	if (mShowSystemName && system->isGroupSystem() && system->getFolderViewMode() != "never")
+		mShowSystemName = false;
 }
 
 std::string valueOrDefault(const std::string value, const std::string defaultValue = _("Unknown"))

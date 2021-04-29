@@ -2053,6 +2053,23 @@ bool SystemData::getShowParentFolder()
 	return getBoolSetting("ShowParentFolder");
 }
 
+
+std::string SystemData::getFolderViewMode()
+{
+	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
+
+	auto fvm = Settings::getInstance()->getString(getName() + ".FolderViewMode");
+	if (!fvm.empty() && fvm != "auto") 
+		showFoldersMode = fvm;
+
+	if ((fvm.empty() || fvm == "auto") && this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		showFoldersMode = "always";
+	else if (getName() == "windows_installers")
+		showFoldersMode = "always";
+
+	return showFoldersMode;
+}
+
 bool SystemData::getShowFavoritesFirst()
 {
 	if (!getShowFavoritesIcon())

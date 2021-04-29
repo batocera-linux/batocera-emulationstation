@@ -741,16 +741,8 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 {
 	std::vector<FileData*> ret;
 
-	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
-
-	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
-	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
+	std::string showFoldersMode = getSystem()->getFolderViewMode();
 	
-	if ((fvm.empty() || fvm == "auto") && getSystem() == CollectionSystemManager::get()->getCustomCollectionsBundle())
-		showFoldersMode = "always";
-	else if (getSystem()->getName() == "windows_installers")
-		showFoldersMode = "always";
-
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
 
 	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
