@@ -52,6 +52,9 @@ struct SystemViewCarousel
 	float			transitionSpeed;
 	std::string		defaultTransition;
 	std::string		scrollSound;
+
+	bool anyLogoHasOpacityStoryboard;
+	bool anyLogoHasScaleStoryboard;
 };
 
 class SystemView : public IList<SystemViewData, SystemData*>
