@@ -71,6 +71,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 		return false;
 	});
 
+	mArchitecture = ApiSystem::getInstance()->getRunningArchitecture();
+
 	centerWindow();
 
 	ContentInstaller::RegisterNotify(this);
@@ -162,8 +164,13 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 
 	std::unordered_set<std::string> repositories;
 	for (auto& package : mPackages)
+	{
+		if (!mArchitecture.empty() && !package.arch.empty() && package.arch != "any" && package.arch != mArchitecture)
+			continue;
+
 		if (repositories.find(package.repository) == repositories.cend())
 			repositories.insert(package.repository);
+	}
 
 	if (repositories.size() > 0 && mTabs->size() == 0 && mTabFilter.empty())
 	{
@@ -195,6 +202,9 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 	int i = 0;
 	for (auto package : mPackages)
 	{
+		if (!mArchitecture.empty() && !package.arch.empty() && package.arch != "any" && package.arch != mArchitecture)
+			continue;
+
 		if (!mTabFilter.empty() && package.repository != mTabFilter)				
 			continue;		
 
