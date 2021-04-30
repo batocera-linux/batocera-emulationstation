@@ -111,6 +111,7 @@ void Settings::setDefaults()
 	mBoolMap["SaveGamelistsOnExit"] = true;	
 	mStringMap["ShowBattery"] = "text";	
 	mBoolMap["CheckBiosesAtLaunch"] = true;
+	mBoolMap["RemoveMultiDiskContent"] = true;
 	
 #if WIN32
 	mBoolMap["ShowNetworkIndicator"] = false;

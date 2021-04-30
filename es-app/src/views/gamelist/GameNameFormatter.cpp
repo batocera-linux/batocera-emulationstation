@@ -87,7 +87,10 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_DESCENDING;
 
-	mShowSystemName = system->isGroupSystem() || system->isCollection() && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+	mShowSystemName = (system->isGroupSystem() || system->isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+
+	if (mShowSystemName && system->isGroupSystem() && system->getFolderViewMode() != "never")
+		mShowSystemName = false;
 }
 
 std::string valueOrDefault(const std::string value, const std::string defaultValue = _("Unknown"))
@@ -167,7 +170,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	if (saves)
 		after.push_back(SAVESTATE);
 
-	bool manual = mShowManualIcon && !fd->getMetadata(MetaDataId::Manual).empty();
+	bool manual = mShowManualIcon && (!fd->getMetadata(MetaDataId::Manual).empty() || !fd->getMetadata(MetaDataId::Magazine).empty());
 	if (manual)
 		after.push_back(MANUAL);
 

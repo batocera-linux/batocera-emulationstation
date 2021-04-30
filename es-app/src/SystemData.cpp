@@ -31,6 +31,7 @@ using namespace Utils;
 std::vector<SystemData*> SystemData::sSystemVector;
 std::vector<CustomFeature> SystemData::mGlobalFeatures;
 
+
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
@@ -51,7 +52,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	mHidden = (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend());
 		
 	// if it's an actual system, initialize it, if not, just create the data structure
-	if (!CollectionSystem && !mIsGroupSystem)
+	if (!mIsCollectionSystem && !mIsGroupSystem)
 	{
 		mRootFolder = new FolderData(mEnvData->mStartPath, this);
 		mRootFolder->getMetadata().set(MetaDataId::Name, mMetadata.fullName);
@@ -70,7 +71,10 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		}
 
 		if (!Settings::getInstance()->getBool("IgnoreGamelist")) // && !hasPlatformId(PlatformIds::IMAGEVIEWER))
-			parseGamelist(this, fileMap);
+			parseGamelist(this, fileMap);		
+		
+		if (Settings::getInstance()->getBool("RemoveMultiDiskContent"))
+			removeMultiDiskContent(fileMap);
 	}
 	else
 	{
@@ -108,6 +112,43 @@ SystemData::~SystemData()
 
 	if (mFilterIndex != nullptr)
 		delete mFilterIndex;
+}
+
+void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData*>& fileMap)
+{	
+	if (mEnvData == nullptr ||!(mEnvData->isValidExtension(".cue") || mEnvData->isValidExtension(".ccd") || mEnvData->isValidExtension(".gdi") || mEnvData->isValidExtension(".m3u")))
+		return;
+
+	StopWatch stopWatch("RemoveMultiDiskContent - "+ getName() +" :", LogDebug);
+
+	std::vector<std::string> files;
+
+	std::stack<FolderData*> stack;
+	stack.push(mRootFolder);
+
+	while (stack.size())
+	{
+		FolderData* current = stack.top();
+		stack.pop();
+
+		for (auto it : current->getChildren())
+		{
+			if (it->getType() == GAME && it->hasContentFiles())
+			{
+				for (auto ct : it->getContentFiles())
+					files.push_back(ct);
+			}
+			else if (it->getType() == FOLDER)
+				stack.push((FolderData*)it);
+		}
+	}
+
+	for (auto file : files)
+	{
+		auto it = fileMap.find(file);
+		if (it != fileMap.cend())
+			delete it->second;
+	}
 }
 
 void SystemData::setIsGameSystemStatus()
@@ -1083,12 +1124,12 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	md.themeFolder = system.child("theme").text().as_string(md.name.c_str());
 
 	// convert extensions list from a string into a vector of strings
-	std::vector<std::string> extensions;
+	std::set<std::string> extensions;
 	for (auto ext : readList(system.child("extension").text().get()))
 	{
 		std::string extlow = Utils::String::toLower(ext);
-		if (std::find(extensions.cbegin(), extensions.cend(), extlow) == extensions.cend())
-			extensions.push_back(extlow);
+		if (extensions.find(extlow) == extensions.cend())
+			extensions.insert(extlow);
 	}
 
 	cmd = system.child("command").text().get();
@@ -2010,6 +2051,23 @@ bool SystemData::getBoolSetting(const std::string& settingName)
 bool SystemData::getShowParentFolder()
 {
 	return getBoolSetting("ShowParentFolder");
+}
+
+
+std::string SystemData::getFolderViewMode()
+{
+	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
+
+	auto fvm = Settings::getInstance()->getString(getName() + ".FolderViewMode");
+	if (!fvm.empty() && fvm != "auto") 
+		showFoldersMode = fvm;
+
+	if ((fvm.empty() || fvm == "auto") && this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		showFoldersMode = "always";
+	else if (getName() == "windows_installers")
+		showFoldersMode = "always";
+
+	return showFoldersMode;
 }
 
 bool SystemData::getShowFavoritesFirst()

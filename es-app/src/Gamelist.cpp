@@ -515,6 +515,7 @@ void cleanupGamelist(SystemData* system)
 				case MetaDataId::Wheel: suffix = "wheel"; break;
 				case MetaDataId::TitleShot: suffix = "titleshot"; break;
 				case MetaDataId::Manual: suffix = "manual"; folder = "/manuals/"; ext = ".pdf"; break;
+				case MetaDataId::Magazine: suffix = "magazine"; folder = "/magazines/"; ext = ".pdf"; break;
 				case MetaDataId::Map: suffix = "map"; break;
 				case MetaDataId::Cartridge: suffix = "cartridge"; break;
 				}

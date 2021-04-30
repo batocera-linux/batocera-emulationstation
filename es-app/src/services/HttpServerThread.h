@@ -14,6 +14,8 @@ public:
 	HttpServerThread(Window * window);
 	virtual ~HttpServerThread();
 
+	static std::string getMimeType(const std::string &path);
+
 private:
 	Window*			mWindow;
 	bool			mRunning;

@@ -130,14 +130,14 @@ struct SystemMetadata
 struct SystemEnvironmentData
 {
 	std::string mStartPath;
-	std::vector<std::string> mSearchExtensions;
+	std::set<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::vector<PlatformIds::PlatformId> mPlatformIds;
 	std::string mGroup;
 
-	bool isValidExtension(const std::string extension)
+	inline bool isValidExtension(const std::string& extension)
 	{
-		return std::find(mSearchExtensions.cbegin(), mSearchExtensions.cend(), extension) != mSearchExtensions.cend();
+		return mSearchExtensions.find(extension) != mSearchExtensions.cend();
 	}
 };
 
@@ -156,7 +156,7 @@ public:
 	inline const std::string& getName() const { return mMetadata.name; }
 	inline const std::string& getFullName() const { return mMetadata.fullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
-	inline const std::vector<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
+	inline const std::set<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
 	inline const std::string& getThemeFolder() const { return mMetadata.themeFolder; }
 	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
 	inline const std::vector<PlatformIds::PlatformId>& getPlatformIds() const { return mEnvData->mPlatformIds; }
@@ -287,6 +287,7 @@ public:
 	bool getShowFavoritesIcon();
 	bool getShowCheevosIcon();
 	int  getShowFlags();
+	std::string getFolderViewMode();
 	bool getBoolSetting(const std::string& settingName);
 
 	static void resetSettings();
@@ -321,7 +322,8 @@ private:
 	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
 	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
-	
+	void removeMultiDiskContent(std::unordered_map<std::string, FileData*>& fileMap);
+
 	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
 	static void loadAdditionnalConfig(pugi::xml_node& srcSystems);
 

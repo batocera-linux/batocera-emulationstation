@@ -66,7 +66,7 @@ namespace Utils
 		Utils::Time::DateTime getFileModificationDate(const std::string& _path);
 
 		std::string	readAllText(const std::string fileName);
-		void		writeAllText(const std::string fileName, const std::string text);
+		void		writeAllText(const std::string& fileName, const std::string& text);
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path, bool deleteDirectory = false);
 		bool		renameFile(const std::string src, const std::string dst, bool overWrite = true);

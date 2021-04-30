@@ -43,4 +43,16 @@ private:
 	LogLevel messageLevel;
 };
 
+class StopWatch
+{
+public:
+	StopWatch(const std::string& elapsedMillisecondsMessage, LogLevel level = LogDebug);
+	~StopWatch();
+
+private:
+	std::string mMessage;
+	LogLevel mLevel;
+	int mStartTicks;
+};
+
 #endif // ES_CORE_LOG_H

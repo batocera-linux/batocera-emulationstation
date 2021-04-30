@@ -184,7 +184,7 @@ public:
 	void stopStoryboard();
 	void enableStoryboardProperty(const std::string& name, bool enable);
 
-	bool storyBoardExists(const std::string& name = "");
+	bool storyBoardExists(const std::string& name = "", const std::string& propertyName = "");
 
 	bool isStoryBoardRunning(const std::string& name = "");
 

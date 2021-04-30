@@ -196,8 +196,6 @@ private:
 	int mPercent;
 };
 
-
-
 class Scraper
 {
 public:
@@ -206,6 +204,10 @@ public:
 	static Scraper* getScraper(const std::string name = "");
 	static std::vector<std::string> getScraperList();
 	static bool isValidConfiguredScraper();
+
+	//About the same as "~/.emulationstation/downloaded_images/[system_name]/[game_name].[url's extension]".
+	//Will create the "downloaded_images" and "subdirectory" directories if they do not exist.
+	static std::string getSaveAsPath(FileData* game, const MetaDataId metadataId, const std::string& url);
 
 	virtual	bool isSupportedPlatform(SystemData* system) = 0;
 
@@ -222,11 +224,6 @@ protected:
 		std::queue<std::unique_ptr<ScraperRequest>>& requests,
 		std::vector<ScraperSearchResult>& results) = 0;
 };
-
-
-//About the same as "~/.emulationstation/downloaded_images/[system_name]/[game_name].[url's extension]".
-//Will create the "downloaded_images" and "subdirectory" directories if they do not exist.
-std::string getSaveAsPath(const ScraperSearchParams& params, const std::string& suffix, const std::string& url);
 
 //You can pass 0 for maxWidth or maxHeight to automatically keep the aspect ratio.
 //Will overwrite the image at [path] with the new resized one.

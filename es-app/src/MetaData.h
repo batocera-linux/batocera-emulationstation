@@ -68,7 +68,8 @@ enum MetaDataId
 	CheevosHash = 34,
 	CheevosId = 35,
 	ScraperId = 36,
-	BoxBack = 37
+	BoxBack = 37,
+	Magazine = 38
 };
 
 namespace MetaDataImportType
@@ -147,6 +148,8 @@ public:
 	MetaDataType getType(MetaDataId id) const;
 	MetaDataType getType(const std::string name) const;
 
+	MetaDataId getId(const std::string& key) const;
+
 	bool wasChanged() const;
 	void resetChangedFlag();
 	const void setDirty() 
@@ -168,9 +171,6 @@ private:
 	std::map<MetaDataId, std::string> mMap;
 	bool mWasChanged;
 	SystemData*		mRelativeTo;
-
-
-	inline MetaDataId getId(const std::string& key) const;
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;
 

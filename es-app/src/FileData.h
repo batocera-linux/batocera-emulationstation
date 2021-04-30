@@ -143,6 +143,9 @@ public:
 
 	std::string getCurrentGameSetting(const std::string& settingName);
 
+	bool hasContentFiles();
+	std::set<std::string> getContentFiles();
+
 private:
 	std::string getKeyboardMappingFilePath();
 	MetaDataList mMetadata;
