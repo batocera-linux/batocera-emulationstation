@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-04-30 20:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -81,6 +81,12 @@ msgstr "Manuale"
 
 msgid "enter path to manual"
 msgstr "inserisci percorso del manuale"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "Mappa"
@@ -668,7 +674,7 @@ msgid "dim"
 msgstr "bassa luminosità"
 
 msgid "black"
-msgstr "nero"
+msgstr "schermo nero"
 
 msgid "random video"
 msgstr "video casuale"
@@ -865,6 +871,9 @@ msgstr "MEDIA DEI GIOCHI"
 msgid "VIEW GAME MANUAL"
 msgstr "MOSTRA MANUALE DI GIOCO"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
 
@@ -959,7 +968,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "MODIFICA INFORMAZIONI GIOCO"
 
 msgid "THEMES DOWNLOADER"
-msgstr "DOWNLOADER DEI TEMI"
+msgstr "DOWNLOADER TEMI"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
 msgstr "SCEGLI TEMI DA INSTALLARE / RIMUOVERE"
@@ -1237,13 +1246,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "UTILIZZO DISCO DI SISTEMA"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "PRODUTTORE GL"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "RENDERER GL"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "VERSIONE GL"
 
 msgid "DEVELOPER"
 msgstr "SVILUPPATORE"
@@ -1313,6 +1322,9 @@ msgstr "TROVA I GIOCHI CON NETPLAY/TROFEI"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "ABILITA FILTRI"

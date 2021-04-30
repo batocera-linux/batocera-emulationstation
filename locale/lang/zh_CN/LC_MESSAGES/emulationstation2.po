@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-04-30 20:19+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,6 +78,12 @@ msgstr "手册"
 
 msgid "enter path to manual"
 msgstr "输入手册路径"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "地图"
@@ -861,6 +867,9 @@ msgstr "游戏媒体"
 msgid "VIEW GAME MANUAL"
 msgstr "阅读游戏手册"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "阅读游戏地图"
 
@@ -1309,6 +1318,9 @@ msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "日期管理"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "启用筛选器"

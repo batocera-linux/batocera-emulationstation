@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-04-30 20:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -81,6 +81,12 @@ msgstr "Manual"
 
 msgid "enter path to manual"
 msgstr "introducir ruta del manual"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "Mapa"
@@ -865,6 +871,9 @@ msgstr "IMÁGENES DE LOS JUEGOS"
 msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DEL JUEGO"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "VER MAPA DEL JUEGO"
 
@@ -1314,6 +1323,9 @@ msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIÓN DE DATOS"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTROS"
