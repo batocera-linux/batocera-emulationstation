@@ -108,7 +108,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ASTROCADE , "4968" },
 	{ FMTOWNS, "4932" },
 	{ PHILIPS_CDI, "4917" },
-	{ WATARA, "4959" },
+	{ WATARA_SUPERVISION, "4959" },
 
 	// 1 = PC
 	{ PC, "1" },

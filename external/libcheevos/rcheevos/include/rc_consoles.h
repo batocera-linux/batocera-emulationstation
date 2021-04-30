@@ -1,5 +1,5 @@
-#ifndef RCONSOLES_H
-#define RCONSOLES_H
+#ifndef RC_CONSOLES_H
+#define RC_CONSOLES_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -72,6 +72,10 @@ enum {
   RC_CONSOLE_GAME_AND_WATCH = 60,
   RC_CONSOLE_NOKIA_NGAGE = 61,
   RC_CONSOLE_NINTENDO_3DS = 62,
+  RC_CONSOLE_SUPERVISION = 63,
+  RC_CONSOLE_SHARPX1 = 64,
+  RC_CONSOLE_TIC80 = 65,
+  RC_CONSOLE_THOMSONTO8 = 66,
 
   RC_CONSOLE_HUBS = 100,
   RC_CONSOLE_EVENTS = 101
@@ -83,4 +87,4 @@ const char* rc_console_name(int console_id);
 }
 #endif
 
-#endif /* RCONSOLES_H */
+#endif /* RC_CONSOLES_H */

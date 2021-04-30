@@ -31,7 +31,6 @@ using namespace Utils;
 std::vector<SystemData*> SystemData::sSystemVector;
 std::vector<CustomFeature> SystemData::mGlobalFeatures;
 
-
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
@@ -1626,12 +1625,11 @@ void SystemData::loadTheme()
 			sysData.insert(std::pair<std::string, std::string>("system.cheevos", "true"));
 
 		if (SystemConf::getInstance()->getBool("global.retroachievements"))
-		{
 			sysData.insert(std::pair<std::string, std::string>("cheevos.username", SystemConf::getInstance()->get("global.retroachievements.username")));
-		}
 
 		mTheme->loadFile(getThemeFolder(), sysData, path);
-	} 
+		mIsCheevosSupported = -1;
+	}
 	catch(ThemeException& e)
 	{
 		LOG(LogError) << e.what();
@@ -1714,7 +1712,7 @@ bool SystemData::isCheevosSupported()
 				"megadrive", "n64", "snes", "gb", "gba", "gbc", "nes", "fds", "pcengine", "segacd", "sega32x", "mastersystem",
 				"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
 				"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame",
-				"nds", "arcade", "atarilynx", "megadrive-japan", "pcenginecd", "supergrafx" };
+				"nds", "arcade", "atarilynx", "megadrive-japan", "pcenginecd", "supergrafx", "supervision" };
 
 			if (cheevosSystems.find(getName()) != cheevosSystems.cend())
 				mIsCheevosSupported = 1;
