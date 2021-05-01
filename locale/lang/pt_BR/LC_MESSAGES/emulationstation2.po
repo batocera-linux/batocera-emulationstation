@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "insira o caminho para o manual"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Revista"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "insira o caminho para a revista"
 
 msgid "Map"
 msgstr "Mapa"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DO JOGO"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "VER REVISTA DE JOGOS"
 
 msgid "VIEW GAME MAP"
 msgstr "VER MAPA DO JOGO"
@@ -1325,7 +1325,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORE O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1940,6 +1940,8 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"ALGUNS ARQUIVOS ASSOCIADOS ESTÃO LOCALIZADOS FORA DO CAMINHO DO JOGO.\n"
+"DESEJA USAR UMA CÓPIA DESTES ARQUIVOS RELACIONADOS AO JOGO ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
