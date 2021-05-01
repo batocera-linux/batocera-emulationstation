@@ -1543,3 +1543,12 @@ std::string ApiSystem::getRunningArchitecture()
 
 	return "";
 }
+
+std::string ApiSystem::getHostsName()
+{
+	auto hostName = SystemConf::getInstance()->get("system.hostname");
+	if (!hostName.empty())
+		return hostName;
+
+	return "127.0.0.1";
+}

@@ -212,6 +212,7 @@ public:
 	virtual bool setTimezone(std::string tz);
 
 	virtual std::vector<PadInfo> getPadsInfo();
+	virtual std::string getHostsName();
 
 protected:
 	ApiSystem();
