@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "entrer le chemin vers le manuel"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazine"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "entrer le chemin vers le magazine"
 
 msgid "Map"
 msgstr "Carte"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "VOIR LE MANUEL DU JEU"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "VOIR LE MAGAZINE DU JEU"
 
 msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
@@ -1322,7 +1322,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORER LE CONTENU DU DISQUE MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
