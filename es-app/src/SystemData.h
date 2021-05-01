@@ -80,6 +80,18 @@ public:
 	static Features parseFeatures(const std::string features);
 };
 
+struct SystemFeature
+{
+	SystemFeature()
+	{
+		features = EmulatorFeatures::Features::none;
+	}
+
+	std::string name;
+	EmulatorFeatures::Features features;
+	std::vector<CustomFeature> customFeatures;
+};
+
 struct CoreData
 {
 	CoreData() 
@@ -98,6 +110,8 @@ struct CoreData
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
+
+	std::vector<SystemFeature> systemFeatures;
 };
 
 struct EmulatorData
@@ -115,6 +129,8 @@ struct EmulatorData
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
+
+	std::vector<SystemFeature> systemFeatures;
 };
 
 struct SystemMetadata
@@ -150,6 +166,7 @@ public:
 	static SystemData* getSystem(const std::string name);
 	static SystemData* getFirstVisibleSystem();
 
+	static std::map<std::string, EmulatorData> es_features;
 	static bool es_features_loaded;
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
@@ -181,7 +198,10 @@ public:
 	static void writeExampleConfig(const std::string& path);
 	static std::string getConfigPath(bool forWrite); // if forWrite, will only return ~/.emulationstation/es_systems.cfg, never /etc/emulationstation/es_systems.cfg
 
-	static bool loadFeatures();
+	static bool loadEsFeaturesFile();
+	
+	bool loadFeatures();
+
 	static std::vector<CustomFeature> loadCustomFeatures(pugi::xml_node node);
 
 	static std::vector<SystemData*> sSystemVector;
