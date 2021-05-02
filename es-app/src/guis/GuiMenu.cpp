@@ -725,7 +725,17 @@ void GuiMenu::openDeveloperSettings()
 #endif
 
 	s->addGroup(_("TOOLS"));
+	
+	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
 
+	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
+	webAccess->setState(Settings::getInstance()->getBool("PublicWebAccess"));
+	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), _("Allow public web access API using ") + " http://" + hostName + ":1234", webAccess);
+	s->addSaveFunc([webAccess, window]
+	{ 
+		if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState()))
+			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	});
 
 
 	// log level

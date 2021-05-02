@@ -133,7 +133,9 @@ namespace PlatformIds
 		{ "ti99_4a",				TI99 },
 		{ "pico8",					PICO8 },
 		{ "sgb",					SUPER_GAME_BOY },
-		{ "watara",					WATARA },
+
+		{ "watara",					WATARA_SUPERVISION },
+		{ "supervision",			WATARA_SUPERVISION },
 
 		{ "model3",					MODEL3 },
 			

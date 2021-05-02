@@ -2,64 +2,6 @@
 
 #include <stdlib.h>
 
-char rc_parse_operator(const char** memaddr) {
-  const char* oper = *memaddr;
-
-  switch (*oper) {
-    case '=':
-      ++(*memaddr);
-      (*memaddr) += (**memaddr == '=');
-      return RC_OPERATOR_EQ;
-
-    case '!':
-      if (oper[1] == '=') {
-        (*memaddr) += 2;
-        return RC_OPERATOR_NE;
-      }
-      /* fall through */
-    default:
-      return RC_INVALID_OPERATOR;
-
-    case '<':
-      if (oper[1] == '=') {
-        (*memaddr) += 2;
-        return RC_OPERATOR_LE;
-      }
-
-      ++(*memaddr);
-      return RC_OPERATOR_LT;
-
-    case '>':
-      if (oper[1] == '=') {
-        (*memaddr) += 2;
-        return RC_OPERATOR_GE;
-      }
-
-      ++(*memaddr);
-      return RC_OPERATOR_GT;
-
-    case '*':
-      ++(*memaddr);
-      return RC_OPERATOR_MULT;
-
-    case '/':
-      ++(*memaddr);
-      return RC_OPERATOR_DIV;
-
-    case '&':
-      ++(*memaddr);
-      return RC_OPERATOR_AND;
-
-    case '\0':/* end of string */
-    case '_': /* next condition */
-    case 'S': /* next condset */
-    case ')': /* end of macro */
-    case '$': /* maximum of values */
-      /* valid condition separator, condition may not have an operator */
-      return RC_OPERATOR_NONE;
-  }
-}
-
 rc_condition_t* rc_parse_condition(const char** memaddr, rc_parse_state_t* parse, int is_indirect) {
   rc_condition_t* self;
   const char* aux;
@@ -104,37 +46,76 @@ rc_condition_t* rc_parse_condition(const char** memaddr, rc_parse_state_t* parse
     return 0;
   }
 
-  self->oper = rc_parse_operator(&aux);
-
-  switch (self->oper) {
-    case RC_OPERATOR_NONE:
-      /* non-modifying statements must have a second operand */
-      if (!can_modify) {
-        /* measured does not require a second operand when used in a value */
-        if (self->type != RC_CONDITION_MEASURED) {
-          parse->offset = RC_INVALID_OPERATOR;
-          return 0;
-        }
+  switch (*aux++) {
+    case '=':
+      self->oper = RC_OPERATOR_EQ;
+      aux += *aux == '=';
+      break;
+    
+    case '!':
+      if (*aux++ != '=') {
+        /* fall through */
+    default:
+        parse->offset = RC_INVALID_OPERATOR;
+        return 0;
       }
 
-      /* provide dummy operand of '1' and no required hits */
+      self->oper = RC_OPERATOR_NE;
+      break;
+    
+    case '<':
+      self->oper = RC_OPERATOR_LT;
+
+      if (*aux == '=') {
+        self->oper = RC_OPERATOR_LE;
+        aux++;
+      }
+
+      break;
+    
+    case '>':
+      self->oper = RC_OPERATOR_GT;
+
+      if (*aux == '=') {
+        self->oper = RC_OPERATOR_GE;
+        aux++;
+      }
+
+      break;
+
+    case '*':
+      self->oper = RC_OPERATOR_MULT;
+      break;
+
+    case '/':
+      self->oper = RC_OPERATOR_DIV;
+      break;
+
+    case '&':
+      self->oper = RC_OPERATOR_AND;
+      break;
+
+    case '_':
+    case ')':
+    case '\0':
+      self->oper = RC_OPERATOR_NONE;
       self->operand2.type = RC_OPERAND_CONST;
       self->operand2.value.num = 1;
       self->required_hits = 0;
-      *memaddr = aux;
+      *memaddr = aux - 1;
       return self;
+  }
 
+  switch (self->oper) {
     case RC_OPERATOR_MULT:
     case RC_OPERATOR_DIV:
     case RC_OPERATOR_AND:
       /* modifying operators are only valid on modifying statements */
-      if (can_modify)
-        break;
-      /* fallthrough */
-
-    case RC_INVALID_OPERATOR:
-      parse->offset = RC_INVALID_OPERATOR;
-      return 0;
+      if (!can_modify) {
+        parse->offset = RC_INVALID_OPERATOR;
+        return 0;
+      }
+      break;
 
     default:
       /* comparison operators are not valid on modifying statements */

@@ -6,15 +6,15 @@ set(CHEEVOS_HEADERS
 
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rurl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rcheevos.h
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rconsoles.h
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rhash.h		
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_consoles.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_hash.h		
 )
 
 set(CHEEVOS_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/cheevos.cpp
 
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash.c	
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/md5.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/md5.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/alloc.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/compat.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/compat.h
@@ -119,6 +119,7 @@ set(LIBRETRO_COMMON_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/streams/trans_stream_pipe.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/streams/trans_stream_zlib.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/string/stdstring.c
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/utils/md5.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/vfs/vfs_implementation.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/vfs/vfs_implementation_cdrom.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/lists/dir_list.c

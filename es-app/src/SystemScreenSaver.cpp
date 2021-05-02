@@ -621,6 +621,19 @@ void GameScreenSaverBase::setGame(FileData* game)
 					}
 				}
 			}
+
+			if (!found)
+			{
+				for (int i = 0; i < sets.size(); i++)
+				{
+					if (sets[i].name == "default_unglazed")
+					{
+						found = true;
+						setId = i;
+						break;
+					}
+				}
+			}
 		}
 
 		if (setId >= 0 && setId < sets.size() && Utils::FileSystem::exists(sets[setId].imageUrl))

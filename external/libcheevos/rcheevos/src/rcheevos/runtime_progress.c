@@ -24,7 +24,7 @@ typedef struct rc_runtime_progress_t {
 
 #define RC_TRIGGER_STATE_UNUPDATED 0x7F
 
-#define RC_MEMREF_FLAG_CHANGED_THIS_FRAME 0x00010000
+#define RC_MEMREF_FLAG_PREV_IS_PRIOR 0x00010000
 
 static void rc_runtime_progress_write_uint(rc_runtime_progress_t* progress, unsigned value)
 {
@@ -105,22 +105,30 @@ static void rc_runtime_progress_init(rc_runtime_progress_t* progress, rc_runtime
 
 static int rc_runtime_progress_write_memrefs(rc_runtime_progress_t* progress)
 {
-  rc_memref_t* memref = progress->runtime->memrefs;
+  rc_memref_value_t* memref = progress->runtime->memrefs;
   unsigned int flags = 0;
 
   rc_runtime_progress_start_chunk(progress, RC_RUNTIME_CHUNK_MEMREFS);
 
-  while (memref) {
-    flags = memref->value.size;
-    if (memref->value.changed)
-      flags |= RC_MEMREF_FLAG_CHANGED_THIS_FRAME;
+  if (!progress->buffer) {
+    while (memref) {
+      progress->offset += 16;
+      memref = memref->next;
+    }
+  }
+  else {
+    while (memref) {
+      flags = memref->memref.size;
+      if (memref->previous == memref->prior)
+        flags |= RC_MEMREF_FLAG_PREV_IS_PRIOR;
 
-    rc_runtime_progress_write_uint(progress, memref->address);
-    rc_runtime_progress_write_uint(progress, flags);
-    rc_runtime_progress_write_uint(progress, memref->value.value);
-    rc_runtime_progress_write_uint(progress, memref->value.prior);
+      rc_runtime_progress_write_uint(progress, memref->memref.address);
+      rc_runtime_progress_write_uint(progress, flags);
+      rc_runtime_progress_write_uint(progress, memref->value);
+      rc_runtime_progress_write_uint(progress, memref->prior);
 
-    memref = memref->next;
+      memref = memref->next;
+    }
   }
 
   rc_runtime_progress_end_chunk(progress);
@@ -132,7 +140,8 @@ static int rc_runtime_progress_read_memrefs(rc_runtime_progress_t* progress)
   unsigned entries;
   unsigned address, flags, value, prior;
   char size;
-  rc_memref_t* memref;
+  rc_memref_value_t* memref;
+  rc_memref_value_t* first_unmatched = progress->runtime->memrefs;
 
   /* re-read the chunk size to determine how many memrefs are present */
   progress->offset -= 4;
@@ -146,12 +155,17 @@ static int rc_runtime_progress_read_memrefs(rc_runtime_progress_t* progress)
 
     size = flags & 0xFF;
 
-    memref = progress->runtime->memrefs;
+    memref = first_unmatched;
     while (memref) {
-      if (memref->address == address && memref->value.size == size) {
-        memref->value.value = value;
-        memref->value.changed = (flags & RC_MEMREF_FLAG_CHANGED_THIS_FRAME) ? 1 : 0;
-        memref->value.prior = prior;
+      if (memref->memref.address == address && memref->memref.size == size) {
+        memref->value = value;
+        memref->previous = (flags & RC_MEMREF_FLAG_PREV_IS_PRIOR) ? prior : value;
+        memref->prior = prior;
+
+        if (memref == first_unmatched)
+          first_unmatched = memref->next;
+
+        break;
       }
 
       memref = memref->next;
@@ -254,6 +268,7 @@ static int rc_runtime_progress_read_trigger(rc_runtime_progress_t* progress, rc_
 static int rc_runtime_progress_write_achievements(rc_runtime_progress_t* progress)
 {
   unsigned i;
+  int offset = 0;
   int result;
 
   for (i = 0; i < progress->runtime->trigger_count; ++i)
@@ -273,6 +288,15 @@ static int rc_runtime_progress_write_achievements(rc_runtime_progress_t* progres
         break;
     }
 
+    if (!progress->buffer) {
+      if(runtime_trigger->serialized_size) {
+        progress->offset += runtime_trigger->serialized_size;
+        continue;
+      }
+
+      offset = progress->offset;
+    }
+
     rc_runtime_progress_start_chunk(progress, RC_RUNTIME_CHUNK_ACHIEVEMENT);
     rc_runtime_progress_write_uint(progress, runtime_trigger->id);
     rc_runtime_progress_write_md5(progress, runtime_trigger->md5);
@@ -282,6 +306,9 @@ static int rc_runtime_progress_write_achievements(rc_runtime_progress_t* progres
       return result;
 
     rc_runtime_progress_end_chunk(progress);
+
+    if (!progress->buffer)
+      runtime_trigger->serialized_size = progress->offset - offset;
   }
 
   return RC_OK;

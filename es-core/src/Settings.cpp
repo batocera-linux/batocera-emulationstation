@@ -211,6 +211,7 @@ void Settings::setDefaults()
 	mBoolMap["FavoritesFirst"] = false;
 
 	mBoolMap["LocalArt"] = false;
+	mBoolMap["WebServices"] = false;
 
 	// Audio out device for volume control
 	#ifdef _RPI_

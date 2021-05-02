@@ -1,6 +1,6 @@
 #include "cheevos.h"
-#include "rcheevos/include/rhash.h"
-#include "rcheevos/include/rconsoles.h"
+#include "rcheevos/include/rc_hash.h"
+#include "rcheevos/include/rc_consoles.h"
 #include "libretro-common/include/formats/cdfs.h"
 #include "libretro.h"
 
@@ -96,7 +96,7 @@ bool generateHashFromFile(char hash[33], int console_id, const char* path)
 			cdreader.open_track = rc_hash_handle_cd_open_track;
 			cdreader.read_sector = rc_hash_handle_cd_read_sector;
 			cdreader.close_track = rc_hash_handle_cd_close_track;
-			cdreader.absolute_sector_to_track_sector = nullptr;
+//			cdreader.absolute_sector_to_track_sector = nullptr;
 			rc_hash_init_custom_cdreader(&cdreader);
 
 			readersinit = true;
