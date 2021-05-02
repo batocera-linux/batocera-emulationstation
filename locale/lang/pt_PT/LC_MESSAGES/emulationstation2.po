@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "insira o caminho para o manual"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Revista"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "insira o caminho para a revista"
 
 msgid "Map"
 msgstr "Mapa"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "VISUALIZAR MANUAL DO JOGO"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "VER REVISTA DE JOGOS"
 
 msgid "VIEW GAME MAP"
 msgstr "VISUALIZAR MAPA DO JOGO"
@@ -1324,7 +1324,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORE O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
