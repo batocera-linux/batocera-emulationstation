@@ -200,7 +200,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 	if (mXButton.isShortPressed(config, input))
 	{
-		showSelectedGameOptions();
+		showSelectedGameSaveSnapshots();
 		return true;
 	}	
 
@@ -223,23 +223,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 	if (config->isMappedTo("l3", input))
 	{
-		FileData* cursor = getCursor();
-		if (cursor->getType() == GAME)
-		{				
-			if (SaveStateRepository::isEnabled(cursor))
-			{
-				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
-				{
-					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
-
-					LaunchGameOptions options;
-					options.saveStateInfo = state;
-					ViewController::get()->launch(cursor, options);
-				}
-				));
-			}
-		}
-
+		showSelectedGameSaveSnapshots();
 		return true;
 	}
 		
@@ -312,6 +296,28 @@ void ISimpleGameListView::showSelectedGameOptions()
 
 	Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
 	mWindow->pushGui(new GuiGameOptions(mWindow, cursor));
+}
+
+void ISimpleGameListView::showSelectedGameSaveSnapshots()
+{
+	FileData* cursor = getCursor();
+	if (cursor == nullptr || cursor->getType() != GAME)
+		return;
+
+	if (SaveStateRepository::isEnabled(cursor))
+	{
+		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+
+		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+		{
+			Sound::getFromTheme(getTheme(), getName(), "launch")->play();
+
+			LaunchGameOptions options;
+			options.saveStateInfo = state;
+			ViewController::get()->launch(cursor, options);
+		}
+		));
+	}
 }
 
 void ISimpleGameListView::launchSelectedGame()

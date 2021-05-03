@@ -47,6 +47,7 @@ public:
 	void showQuickSearch();
 	void launchSelectedGame();
 	void showSelectedGameOptions();
+	void showSelectedGameSaveSnapshots();
 	void toggleFavoritesFilter();
 
 protected:	
