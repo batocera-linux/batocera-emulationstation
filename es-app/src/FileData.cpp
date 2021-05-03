@@ -544,6 +544,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 bool FileData::hasContentFiles()
 {
+	if (mPath.empty())
+		return false;
+
 	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
 	if (ext == ".m3u" || ext == ".cue" || ext == ".ccd" || ext == ".gdi")
 		return getSourceFileData()->getSystemEnvData()->isValidExtension(ext) && getSourceFileData()->getSystemEnvData()->mSearchExtensions.size() > 1;
@@ -598,6 +601,9 @@ std::set<std::string> FileData::getContentFiles()
 {
 	std::set<std::string> files;
 
+	if (mPath.empty())
+		return files;
+
 	if (Utils::FileSystem::isDirectory(mPath))
 	{
 		for (auto file : Utils::FileSystem::getDirContent(mPath, true, true))
@@ -633,6 +639,7 @@ std::set<std::string> FileData::getContentFiles()
 		{
 			std::string stem = Utils::FileSystem::getStem(mPath);
 			files.insert(path + "/" + stem + ".cue");
+			files.insert(path + "/" + stem + ".img");
 			files.insert(path + "/" + stem + ".bin");
 			files.insert(path + "/" + stem + ".sub");
 		}
