@@ -30,6 +30,8 @@ std::string getUrlFromUpdateType(std::string url)
 	std::string updatesType = Settings::getInstance()->getString("updates.type");
 	if (updatesType == "beta")
 		return Utils::String::replace(url, "continuous-stable", "continuous-master");
+	else if (updatesType == "unstable")
+		return Utils::String::replace(url, "continuous-stable", "continuous-beta");
 
 	return url;
 }
@@ -844,7 +846,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::string)>& func)
 {
 	std::string updatesType = Settings::getInstance()->getString("updates.type");
-	if (updatesType != "beta")
+	if (updatesType != "beta" && updatesType != "unstable")
 		return;
 
 	// Check emulatorLauncher exists
