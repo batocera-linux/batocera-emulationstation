@@ -864,7 +864,11 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 	md.hardwareType = sysDecl.isCustom ? "custom collection" : "auto collection";
 	md.releaseYear = 0;
 	
-	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true); // batocera
+	// we parse the auto collection settings list
+	std::vector<std::string> selected = Utils::String::split(Settings::getInstance()->getString(sysDecl.isCustom ? "CollectionSystemsCustom" : "CollectionSystemsAuto"), ',', true);
+	bool loadThemeIfEnabled = (std::find(selected.cbegin(), selected.cend(), name) != selected.cend());
+
+	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true, false, loadThemeIfEnabled); // batocera
 
 	CollectionSystemData newCollectionData;
 	newCollectionData.system = newSys;

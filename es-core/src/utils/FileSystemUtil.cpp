@@ -472,7 +472,7 @@ namespace Utils
 			homePath = Utils::FileSystem::getGenericPath(_path);
 		}
 
-		std::string getHomePath()
+		std::string& getHomePath()
 		{
 			if (homePath.length())
 				return homePath;

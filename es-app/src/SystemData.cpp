@@ -48,7 +48,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		mEmulators = *pEmulators; // batocera
 
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
-	mHidden = (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend());
+	mHidden = (mIsCollectionSystem ? withTheme : (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend()));
 		
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if (!mIsCollectionSystem && !mIsGroupSystem)
